@@ -1,17 +1,17 @@
 ---
-title: "<menu>: Das Menu-Element"
+title: "<menu>: Das Menü-Element"
 slug: Web/HTML/Reference/Elements/menu
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
-Das **`<menu>`** [HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, jedoch von Browsern (und im Zugänglichkeitsbaum) nicht anders als {{HTMLElement("ul")}} behandelt. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
+Das **`<menu>`** [HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, jedoch von Browsern (und im Accessibility-Baum) genauso behandelt wie {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
 
 {{InteractiveExample("HTML Demo: &lt;menu&gt;", "tabbed-shorter")}}
 
 ```html interactive-example
 <div class="news">
-  <a href="#">NASA’s Webb Delivers Deepest Infrared Image of Universe Yet</a>
+  <a href="#">NASA's Webb Delivers Deepest Infrared Image of Universe Yet</a>
   <menu>
     <li><button id="save">Save for later</button></li>
     <li><button id="share">Share this news</button></li>
@@ -40,20 +40,20 @@ menu {
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `compact` {{Deprecated_inline}}
-  - : Dieses boolesche Attribut deutet darauf hin, dass die Liste in einem kompakten Stil gerendert werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+  - : Dieses boolesche Attribut deutet an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 
 ## Nutzungshinweise
 
-Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der wesentliche Unterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Werkzeugleiste mit Befehlen darstellt, die der Benutzer ausführen oder aktivieren kann.
+Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Symbolleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität wird als obsolet betrachtet und befindet sich nicht mehr in der Spezifikation.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element eine zusätzliche Verwendungsmöglichkeit als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht in der Spezifikation enthalten.
 
 ## Beispiele
 
-### Werkzeugleiste
+### Symbolleiste
 
-In diesem Beispiel wird ein `<menu>` verwendet, um eine Werkzeugleiste für eine Bearbeitungsanwendung zu erstellen.
+In diesem Beispiel wird ein `<menu>` verwendet, um eine Symbolleiste für eine Bearbeitungsanwendung zu erstellen.
 
 #### HTML
 
@@ -105,20 +105,27 @@ button {
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a>
       </th>
       <td>
         <p>
-          <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>. Wenn die Kinder des Elements mindestens ein {{HTMLElement("li")}}-Element enthalten:
-          <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">greifbarer Inhalt</a>.
+          <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+            >Flussinhalt</a>. Wenn die Kinder des Elements mindestens ein
+          {{HTMLElement("li")}}-Element enthalten:
+          <a
+            href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
+            >fühlbarer Inhalt</a>.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
-          Null oder mehr Vorkommen von {{HTMLElement("li")}}, {{HTMLElement("script")}} und {{HTMLElement("template")}}.
+          Null oder mehr Vorkommen von {{HTMLElement("li")}},
+          {{HTMLElement("script")}} und
+          {{HTMLElement("template")}}.
         </p>
       </td>
     </tr>
@@ -127,22 +134,33 @@ button {
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a> akzeptiert.
+        Jedes Element, das
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Flussinhalt</a>
+        akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role">list</a></code>
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role"
+            >list</a
+          ></code
+        >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>,
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role">listbox</a></code>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role"><code>menu</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role"><code>menubar</code></a>,
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role"
+            >listbox</a
+          ></code
+        >, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role"><code>menu</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role"><code>menubar</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role"><code>radiogroup</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role"><code>tablist</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role"><code>toolbar</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role"><code>tree</code></a>
@@ -165,4 +183,4 @@ button {
 
 ## Siehe auch
 
-- Andere HTML-Elemente im Zusammenhang mit Listen: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.

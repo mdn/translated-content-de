@@ -2,12 +2,12 @@
 title: inset-block-start
 slug: Web/CSS/Reference/Properties/inset-block-start
 l10n:
-  sourceCommit: f509688d8a8a6dd956ba424ea5ffedb72c0e6ada
+  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
 ---
 
-Die **`inset-block-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, welcher je nach Schreibrichtung, Richtung und Textorientierung eines Elements auf einen physikalischen Einzug abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements auf einen physischen Versatz abgebildet wird. Dies entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
-Diese {{Glossary("inset_properties", "Einzugseigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Versatz-Eigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-block-start")}}
 
@@ -89,7 +89,7 @@ inset-block-start: unset;
 
 ### Werte
 
-Die `inset-block-start`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
+Die `inset-block-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -101,7 +101,7 @@ Die `inset-block-start`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("
 
 ## Beispiele
 
-### Blockanfang-Versatz setzen
+### Einstellen des Blockanfangs-Versatzes
 
 #### HTML
 
@@ -142,6 +142,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Einzüge definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}} und {{cssxref("inset-inline-end")}}
-- Die zugehörigen physikalischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
+- Die Eigenschaften, die andere Versätze definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

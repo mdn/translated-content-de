@@ -2,10 +2,10 @@
 title: "<blockquote>: Das Blockzitat-Element"
 slug: Web/HTML/Reference/Elements/blockquote
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
-Das **`<blockquote>`**-[HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein längeres Zitat ist. Normalerweise wird dies visuell durch Einrückung dargestellt (siehe [Hinweise](#hinweise_zur_verwendung), um dies zu ändern). Eine URL für die Quelle des Zitats kann mit dem `cite`-Attribut angegeben werden, während eine textuelle Darstellung der Quelle mit dem {{HTMLElement("cite")}}-Element gegeben werden kann.
+Das **`<blockquote>`** [HTML](/de/docs/Web/HTML) Element zeigt an, dass der enthaltene Text ein erweitertes Zitat ist. Normalerweise wird dies visuell durch Einrückung dargestellt (siehe [Hinweise](#nutzungshinweise), um zu erfahren, wie man dies ändern kann). Eine URL für die Quelle des Zitats kann über das Attribut `cite` angegeben werden, während eine Textdarstellung der Quelle mit dem {{HTMLElement("cite")}} Element angegeben werden kann.
 
 {{InteractiveExample("HTML Demo: &lt;blockquote&gt;", "tabbed-standard")}}
 
@@ -13,8 +13,8 @@ Das **`<blockquote>`**-[HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eing
 <div>
   <blockquote cite="https://www.huxley.net/bnw/four.html">
     <p>
-      Words can be like X-rays, if you use them properly—they’ll go through
-      anything. You read and you’re pierced.
+      Words can be like X-rays, if you use them properly—they'll go through
+      anything. You read and you're pierced.
     </p>
   </blockquote>
   <p>—Aldous Huxley, <cite>Brave New World</cite></p>
@@ -47,19 +47,19 @@ blockquote + p {
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information angibt. Dieses Attribut ist dazu gedacht, auf Informationen zu verweisen, die den Kontext oder die Referenz für das Zitat erklären.
+  - : Eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information bezeichnet. Dieses Attribut soll auf Informationen hinweisen, die den Kontext oder die Referenz für das Zitat erklären.
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
-Gemäß der Spezifikation muss die Zuschreibung für das Zitat, falls vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
+Laut der Spezifikation muss die Quellenangabe für das Zitat, falls vorhanden, außerhalb des `<blockquote>` Elements platziert werden.
 
-Um die Einrückung des zitierten Textes zu ändern, verwenden Sie die {{Glossary("CSS", "CSS")}} {{cssxref("margin-left")}}- und/oder {{cssxref("margin-right")}}-Eigenschaften oder die {{cssxref("margin")}}-Kurzschreibweise.
+Um die Einrückung des zitierten Textes zu ändern, verwenden Sie die {{Glossary("CSS", "CSS")}} {{cssxref("margin-left")}} und/oder {{cssxref("margin-right")}} Eigenschaften oder die {{cssxref("margin")}} Kurzform.
 
-Um kürzere Zitate inline und nicht in einem separaten Block zu inkludieren, verwenden Sie das {{HTMLElement("q")}}-Element.
+Um kürzere Zitate inline statt in einem separaten Block einzufügen, verwenden Sie das {{HTMLElement("q")}} (Quotation) Element.
 
 ## Beispiele
 
-Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine Passage aus {{RFC(1149)}}, _A Standard for the Transmission of IP Datagrams on Avian Carriers_, zu zitieren.
+Dieses Beispiel demonstriert die Verwendung des `<blockquote>` Elements, um eine Passage aus {{RFC(1149)}}, _A Standard for the Transmission of IP Datagrams on Avian Carriers_ zu zitieren.
 
 ```html
 <blockquote cite="https://datatracker.ietf.org/doc/html/rfc1149">
@@ -79,7 +79,7 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
 
 {{EmbedLiveSample("Examples", 640, 180)}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -92,7 +92,7 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, Gliederungswurzel, greifbarer Inhalt.
+        >, Abschnitts-Wurzel, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -147,6 +147,6 @@ Dieses Beispiel demonstriert die Verwendung des `<blockquote>`-Elements, um eine
 
 ## Siehe auch
 
-- Das {{HTMLElement("q")}}-Element für Inline-Zitate.
-- Das {{HTMLElement("cite")}}-Element für Quellenangaben.
-- [Das blockquote-Element](https://heydonworks.com/article/the-blockquote-element/) über heydonworks.com (2024)
+- Das {{HTMLElement("q")}} Element für inline Zitate.
+- Das {{HTMLElement("cite")}} Element für Quellenangaben.
+- [Das blockquote Element](https://heydonworks.com/article/the-blockquote-element/) via heydonworks.com (2024)

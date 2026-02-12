@@ -2,12 +2,12 @@
 title: inset-inline-start
 slug: Web/CSS/Reference/Properties/inset-inline-start
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
 ---
 
-Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert das logische Inline-Start-Offset eines Elements, das abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements auf ein physisches Offset abgebildet wird. Es entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-inline-start`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Start-Abstand eines Elements, der abhängig von der Schreibrichtung, Richtung und Textausrichtung des Elements in einen physischen Versatz umgewandelt wird. Diese Eigenschaft entspricht in Abhängigkeit von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}.
 
-Diese {{Glossary("inset_properties", "Einrückungseigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-inline-start")}}
 
@@ -92,7 +92,7 @@ Die Kurzform für `inset-inline-start` und {{cssxref("inset-inline-end")}} ist {
 
 ### Werte
 
-Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}} Eigenschaft.
+Die `inset-inline-start`-Eigenschaft nimmt dieselben Werte wie die {{cssxref("top")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -104,7 +104,7 @@ Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxr
 
 ## Beispiele
 
-### Inline-Start-Offset setzen
+### Einstellen des Inline-Start-Abstandes
 
 #### HTML
 
@@ -145,6 +145,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Einrückungen definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
-- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

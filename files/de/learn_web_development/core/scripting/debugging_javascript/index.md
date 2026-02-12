@@ -1,28 +1,28 @@
 ---
-title: JavaScript-Debugging und Fehlerbehandlung
+title: JavaScript Debugging und Fehlerbehandlung
 short-title: Debugging und Fehlerbehandlung
 slug: Learn_web_development/Core/Scripting/Debugging_JavaScript
 l10n:
-  sourceCommit: 5310a5bff0e1f3e2dfafa44bc2aadbb39e1c4673
+  sourceCommit: 08647988c5008504777a4da17a4c028300731524
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/House_data_UI","Learn_web_development/Core/Frameworks_libraries", "Learn_web_development/Core/Scripting")}}
 
-In dieser Lektion kehren wir zum Thema Debugging von JavaScript zurück (was wir zuerst in [Was ist schief gelaufen?](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong)) behandelt haben. Hier werden wir tiefer in Techniken zur Fehlerverfolgung eintauchen und betrachten, wie man defensiv programmiert und Fehler in Ihrem Code behandelt, um Probleme von vornherein zu vermeiden.
+In dieser Lektion kehren wir zum Thema Debugging von JavaScript zurück (das wir erstmalig in [Was ist schiefgelaufen?](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong) betrachtet haben). Hier gehen wir tiefer auf Techniken zur Fehlerverfolgung ein und erklären, wie Sie defensiv programmieren und Fehler in Ihrem Code behandeln können, um Probleme von vornherein zu vermeiden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Grundlagen</a>, Vertrautheit mit den JavaScript-Grundlagen, die in früheren Lektionen behandelt wurden.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a> sowie Vertrautheit mit den JavaScript-Grundlagen, wie sie in früheren Lektionen behandelt wurden.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verwendung von Entwicklerwerkzeugen im Browser, um das auf Ihrer Seite ausgeführte JavaScript zu inspizieren und zu sehen, welche Fehler es erzeugt.</li>
+          <li>Verwendung von Entwickler-Tools im Browser, um das JavaScript auf Ihrer Seite zu überprüfen und zu sehen, welche Fehler es erzeugt.</li>
           <li>Verwendung von <code>console.log()</code> und <code>console.error()</code> zum Debuggen.</li>
-          <li>Erweitertes JavaScript-Debugging mit Browser-Devtools.</li>
+          <li>Fortgeschrittenes JavaScript-Debugging mit Browser-Entwicklungstools.</li>
           <li>Fehlerbehandlung mit <code>conditionals</code>, <code>try...catch</code> und <code>throw</code>.</li>
         </ul>
       </td>
@@ -30,46 +30,46 @@ In dieser Lektion kehren wir zum Thema Debugging von JavaScript zurück (was wir
   </tbody>
 </table>
 
-## Zusammenfassung der Arten von JavaScript-Fehlern
+## Rückblick auf Arten von JavaScript-Fehlern
 
-Früher im Modul, in [Was ist schief gelaufen?](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong), haben wir allgemein betrachtet, welche Arten von Fehlern in JavaScript-Programmen auftreten können, und gesagt, dass sie grob in zwei Typen unterteilt werden können – Syntaxfehler und Logikfehler. Wir haben Ihnen auch geholfen, einige gängige Arten von JavaScript-Fehlermeldungen zu verstehen und gezeigt, wie man einfaches Debugging mit [`console.log()`](/de/docs/Web/API/console/log_static)-Anweisungen durchführt.
+Früher im Modul, in [Was ist schiefgelaufen?](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong), haben wir uns allgemein die Arten von Fehlern angesehen, die in JavaScript-Programmen auftreten können und gesagt, dass sie grob in zwei Typen unterteilt werden können — Syntaxfehler und Logikfehler. Wir haben Ihnen auch geholfen, einige häufige Arten von JavaScript-Fehlermeldungen zu verstehen, und gezeigt, wie Sie mit [`console.log()`](/de/docs/Web/API/console/log_static) grundlegendes Debugging durchführen können.
 
-In diesem Artikel gehen wir etwas tiefer auf die Werkzeuge ein, die Ihnen zur Verfügung stehen, um Fehler zu finden, und betrachten auch Möglichkeiten, um Fehler von vornherein zu verhindern.
+In diesem Artikel werfen wir einen genaueren Blick auf die Werkzeuge, die zur Fehlerverfolgung zur Verfügung stehen, und betrachten auch Möglichkeiten, um Fehler von vornherein zu verhindern.
 
-## Ihr Code Linten
+## Linting Ihres Codes
 
-Sie sollten sicherstellen, dass Ihr Code gültig ist, bevor Sie versuchen, spezifische Fehler zu verfolgen. Nutzen Sie den W3C [Markup Validation Service](https://validator.w3.org/), den [CSS Validation Service](https://jigsaw.w3.org/css-validator/) und einen JavaScript-Parser wie [ESLint](https://eslint.org/play/), um sicherzustellen, dass Ihr Code gültig ist. Dies wird wahrscheinlich eine Reihe von Fehlern aufdecken, sodass Sie sich auf die verbleibenden Fehler konzentrieren können.
+Sie sollten Ihren Code zuerst validieren, bevor Sie versuchen, spezifische Fehler zu finden. Nutzen Sie den [Markup Validation Service](https://validator.w3.org/), den [CSS Validation Service](https://jigsaw.w3.org/css-validator/) der W3C und einen JavaScript-Linter wie [ESLint](https://eslint.org/play/), um sicherzustellen, dass Ihr Code gültig ist. Dies wird wahrscheinlich einige Fehler aufdecken, die Sie dann beheben können, sodass Sie sich auf die verbleibenden Fehler konzentrieren können.
 
 ### Code-Editor-Plugins
 
-Es ist nicht sehr praktisch, Ihren Code immer wieder auf eine Webseite kopieren und einfügen zu müssen, um dessen Gültigkeit zu überprüfen. Wir empfehlen die Installation eines Linter-Plugins in Ihrem Code-Editor, damit Ihnen Fehler bereits beim Schreiben Ihres Codes gemeldet werden. Suchen Sie in der Plugin- oder Erweiterungsliste Ihres Code-Editors nach ESLint und installieren Sie es.
+Es ist nicht sehr praktisch, Ihren Code immer wieder in eine Webseite kopieren und einfügen zu müssen, um seine Gültigkeit zu überprüfen. Wir empfehlen, ein Linter-Plugin in Ihrem Code-Editor zu installieren, um Fehler direkt beim Schreiben des Codes zu melden. Versuchen Sie, in der Plugin- oder Erweiterungsliste Ihres Code-Editors nach ESLint zu suchen und es zu installieren.
 
 ## Häufige JavaScript-Probleme
 
-Es gibt eine Reihe von häufigen JavaScript-Problemen, auf die Sie achten sollten, wie zum Beispiel:
+Es gibt mehrere häufige JavaScript-Probleme, auf die Sie achten sollten, wie z.B.:
 
-- Grundlegende Syntax- und Logikprobleme (sehen Sie sich [Fehlerbehebung für JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong) an).
-- Sicherstellen, dass Variablen usw. im richtigen Bereich definiert sind und dass keine Konflikte zwischen in verschiedenen Bereichen deklarierten Elementen bestehen (siehe [Funktionsbereich und Konflikte](/de/docs/Learn_web_development/Core/Scripting/Functions#function_scope_and_conflicts)).
-- Verwirrung über [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), in Bezug darauf, auf welchen Bereich es zutrifft, und daher, ob dessen Wert das ist, was Sie beabsichtigt hatten. Sie können [Was ist "this"?](/de/docs/Learn_web_development/Core/Scripting/Object_basics#what_is_this) für eine leichte Einführung lesen; Sie sollten auch Beispiele wie [dieses hier](https://github.com/mdn/learning-area/blob/7ed039d17e820c93cafaff541aa65d874dde8323/javascript/oojs/assessment/main.js#L143) studieren, das ein typisches Muster zeigt, einen `this`-Bereich in eine separate Variable zu speichern und dann diese Variable in verschachtelten Funktionen zu verwenden, damit Sie sicherstellen können, dass Sie Funktionalität auf den korrekten `this`-Bereich anwenden.
-- Falsche Verwendung von Funktionen innerhalb von Schleifen, die mit einer globalen Variable iterieren (allgemeiner "den Bereich falsch verstehen").
+- Grundlegende Syntax- und Logikprobleme (siehe [Fehlersuche in JavaScript](/de/docs/Learn_web_development/Core/Scripting/What_went_wrong) erneut).
+- Sicherstellen, dass Variablen usw. im richtigen Bereich definiert sind und Sie nicht in Konflikte zwischen in verschiedenen Bereichen deklarierten Elementen geraten (siehe [Funktionsbereich und Konflikte](/de/docs/Learn_web_development/Core/Scripting/Functions#function_scope_and_conflicts)).
+- Verwirrung über [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), in Bezug auf welchen Bereich es sich bezieht und ob sein Wert das ist, was Sie beabsichtigt haben. Sie können [Was ist "this"?](/de/docs/Learn_web_development/Core/Scripting/Object_basics#what_is_this) für eine grundlegende Einführung lesen; Sie sollten auch Beispiele studieren, wie [dieses hier](https://github.com/mdn/learning-area/blob/7ed039d17e820c93cafaff541aa65d874dde8323/javascript/oojs/assessment/main.js#L143), das ein typisches Muster zeigt, bei dem ein `this`-Bereich in einer separaten Variablen gespeichert und dann in verschachtelten Funktionen verwendet wird, um sicherzustellen, dass Sie Funktionalität auf den richtigen `this`-Bereich anwenden.
+- Falsche Verwendung von Funktionen innerhalb von Schleifen, die mit einer globalen Variablen iterieren (allgemeiner, "den Bereich falsch zu verstehen").
 
 > [!CALLOUT]
-> Zum Beispiel, in [bad-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/bad-for-loop.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/bad-for-loop.html)), iterieren wir durch 10 Durchläufe mit einer Variablen, die mit `var` definiert ist, und kreieren jedes Mal einen Paragraphen und fügen diesem einen [onclick](/de/docs/Web/API/Element/click_event)-Ereignishandler hinzu. Wenn geklickt, möchten wir, dass jeder eine Warnmeldung anzeigt, die seine Nummer enthält (den Wert von `i` zum Zeitpunkt der Erstellung). Stattdessen geben sie alle `i` als 11 aus — weil die `for`-Schleife alle ihre Iterationen ausführt, bevor die verschachtelten Funktionen aufgerufen werden.
+> Zum Beispiel: In [bad-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/bad-for-loop.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/bad-for-loop.html)) durchlaufen wir 10 Iterationen mit einer mit `var` deklarierten Variablen, erstellen jedes Mal einen Paragraphen und fügen einen [onclick](/de/docs/Web/API/Element/click_event)-Ereignishandler hinzu. Beim Klicken soll jeder der Paragraphen eine Warnmeldung mit seiner Nummer anzeigen (dem Wert von `i` zur Erstellungszeit). Stattdessen berichten alle Paragraphen `i` als 11 — weil die `for`-Schleife alle Iterationen durchläuft, bevor verschachtelte Funktionen aufgerufen werden.
 >
-> Die einfachste Lösung ist, die Iterationsvariable mit `let` statt mit `var` zu deklarieren—der Wert von `i`, der mit der Funktion verknüpft ist, ist dann einzigartig für jede Iteration. Sehen Sie sich [good-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/good-for-loop.html) (sehen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/good-for-loop.html) auch an) für eine Version, die funktioniert.
+> Die einfachste Lösung besteht darin, die Iterationsvariable mit `let` statt `var` zu deklarieren — der Wert von `i`, der der Funktion zugeordnet ist, ist dann für jede Iteration einzigartig. Siehe [good-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/good-for-loop.html) (sehen Sie auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/good-for-loop.html) an) für eine funktionierende Version.
 
-- Sicherstellen, dass [asynchrone Operationen](/de/docs/Learn_web_development/Extensions/Async_JS) abgeschlossen sind, bevor versucht wird, die von ihnen zurückgegebenen Werte zu nutzen. Dies bedeutet in der Regel das Verständnis, wie _Promisen_ verwendet werden: korrekte Verwendung von [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) oder der Code zur Handhabung des Ergebnisses eines asynchronen Aufrufs im `then()`-Handler des Promise. Siehe [Anleitung zur Verwendung von Promises](/de/docs/Learn_web_development/Extensions/Async_JS/Promises) für eine Einführung in dieses Thema.
+- Sicherstellen, dass [asynchrone Operationen](/de/docs/Learn_web_development/Extensions/Async_JS) abgeschlossen sind, bevor versucht wird, die Werte zu verwenden, die sie zurückgeben. Dies bedeutet üblicherweise, dass Sie wissen müssen, wie _Promises_ verwendet werden: Verwenden von [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) richtig oder Ausführen des Codes zur Bearbeitung des Ergebnisses eines asynchronen Aufrufs im {{jsxref("Promise.then()", "then()")}}-Handler des Promises. Siehe [Anleitung zur Verwendung von Promises](/de/docs/Learn_web_development/Extensions/Async_JS/Promises) für eine Einführung zu diesem Thema.
 
 > [!NOTE]
-> [Buggy JavaScript Code: Die 10 häufigsten Fehler von JavaScript-Entwicklern](https://www.toptal.com/developers/javascript/10-most-common-javascript-mistakes) bietet einige schöne Diskussionen über diese häufigen Fehler und mehr.
+> [Fehlerhafter JavaScript-Code: Die 10 häufigsten Fehler, die JavaScript-Entwickler machen](https://www.toptal.com/developers/javascript/10-most-common-javascript-mistakes) bietet einige gute Diskussionsbeiträge zu diesen häufigen Fehlern und mehr.
 
-## Die JavaScript-Konsole des Browsers
+## Die JavaScript-Konsole im Browser
 
-Entwicklerwerkzeuge im Browser haben viele nützliche Funktionen zur Unterstützung beim Debuggen von JavaScript. Zunächst wird die JavaScript-Konsole Fehler in Ihrem Code melden.
+Entwickler-Tools im Browser haben viele nützliche Funktionen zum Debuggen von JavaScript. Zum einen wird die JavaScript-Konsole Fehler in Ihrem Code melden.
 
-Machen Sie eine lokale Kopie unseres [fetch-broken](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-broken/) Beispiels (siehe den [Quellcode](https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-broken) auch).
+Machen Sie eine lokale Kopie unseres [fetch-broken](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-broken/)-Beispiels (siehe auch den [Quellcode](https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-broken)).
 
-Wenn Sie sich die Konsole ansehen, werden Sie eine Fehlermeldung sehen. Die genaue Formulierung ist browserabhängig, aber sie wird etwas wie "Uncaught TypeError: heroes is not iterable" sein, und die referenzierte Zeilennummer ist 25. Wenn wir uns den Quellcode ansehen, ist der relevante Abschnitt dieser:
+Wenn Sie sich die Konsole ansehen, sehen Sie eine Fehlermeldung. Die genaue Wortwahl ist browserabhängig, aber sie wird ungefähr so lauten: "Uncaught TypeError: heroes is not iterable", und die referenzierte Zeilennummer ist 25. Wenn wir uns den Quellcode ansehen, lautet der relevante Abschnitt dieses:
 
 ```js
 function showHeroes(jsonObj) {
@@ -81,7 +81,7 @@ function showHeroes(jsonObj) {
 }
 ```
 
-Der Code stürzt also ab, sobald wir versuchen `jsonObj` zu verwenden (was, wie Sie erwarten könnten, ein [JSON-Objekt](/de/docs/Learn_web_development/Core/Scripting/JSON) sein sollte). Dies soll aus einer externen `.json`-Datei geholt werden, mit dem folgenden [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf:
+Der Code stürzt also ab, sobald wir versuchen, `jsonObj` zu verwenden (was, wie Sie vielleicht erwarten, ein [JSON-Objekt](/de/docs/Learn_web_development/Core/Scripting/JSON) sein soll). Dies soll aus einer externen `.json`-Datei mit dem folgenden [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf abgerufen werden:
 
 ```js
 const requestURL =
@@ -92,13 +92,13 @@ populateHeader(response);
 showHeroes(response);
 ```
 
-Aber dies schlägt fehl.
+Allerdings schlägt dies fehl.
 
 ## Die Console API
 
-Sie wissen vielleicht bereits, was mit diesem Code nicht stimmt, aber lassen Sie uns das genauer untersuchen, um zu zeigen, wie Sie dies untersuchen könnten. Wir beginnen mit der [Console](/de/docs/Web/API/console) API, die es JavaScript-Code ermöglicht, mit der JavaScript-Konsole des Browsers zu interagieren. Sie bietet eine Reihe von Funktionen an; Sie haben bereits [`console.log()`](/de/docs/Web/console/log_static) kennengelernt, das eine benutzerdefinierte Nachricht an die Konsole ausgibt.
+Sie wissen vielleicht bereits, was mit diesem Code nicht stimmt, aber lassen Sie uns einen Blick werfen, wie Sie dies untersuchen könnten. Wir beginnen mit der [Console](/de/docs/Web/API/console)-API, die es JavaScript-Code ermöglicht, mit der JavaScript-Konsole des Browsers zu interagieren. Sie bietet mehrere Funktionen; Sie sind bereits auf [`console.log()`](/de/docs/Web/API/console/log_static) gestoßen, das eine benutzerdefinierte Nachricht in der Konsole ausgibt.
 
-Versuchen Sie, einen `console.log()`-Aufruf hinzuzufügen, um den Rückgabewert von `fetch()` zu protokollieren, so wie dies:
+Versuchen Sie, einen `console.log()`-Aufruf hinzuzufügen, um den Rückgabewert von `fetch()` zu protokollieren, wie dies:
 
 ```js
 const requestURL =
@@ -110,42 +110,42 @@ populateHeader(response);
 showHeroes(response);
 ```
 
-Aktualisieren Sie die Seite im Browser. Dieses Mal sehen Sie vor der Fehlermeldung eine neue Nachricht, die an die Konsole geloggt wird:
+Aktualisieren Sie die Seite im Browser. Dieses Mal, vor der Fehlermeldung, sehen Sie eine neue Nachricht, die in die Konsole protokolliert wurde:
 
 ```plain
 Response value: [object Promise]
 ```
 
-Die Ausgabe von `console.log()` zeigt, dass der Rückgabewert von `fetch()` nicht die JSON-Daten sind, sondern ein {{jsxref("Promise")}}. Die Funktion `fetch()` ist asynchron: Sie gibt ein `Promise` zurück, das erst erfüllt wird, wenn die tatsächliche Antwort aus dem Netzwerk empfangen wurde. Bevor wir die Antwort nutzen können, müssen wir warten, bis das `Promise` erfüllt ist.
+Die Ausgabe von `console.log()` zeigt, dass der Rückgabewert von `fetch()` nicht die JSON-Daten sind, sondern ein {{jsxref("Promise")}}. Die `fetch()`-Funktion ist asynchron: Sie gibt ein `Promise` zurück, das erst erfüllt wird, wenn die eigentliche Antwort aus dem Netzwerk eingegangen ist. Bevor wir die Antwort verwenden können, müssen wir warten, bis das `Promise` erfüllt ist.
 
 ### `console.error()` und Aufrufstapel
 
-Als kurzen Exkurs, probieren wir, eine andere Konsolenmethode zu verwenden, um den Fehler zu melden — [`console.error()`](/de/docs/Web/API/console/error_static). Ersetzen Sie in Ihrem Code
+Als kurzen Exkurs versuchen wir, eine andere Konsolenmethode zu verwenden, um den Fehler zu melden — [`console.error()`](/de/docs/Web/API/console/error_static). Ersetzen Sie in Ihrem Code:
 
 ```js
 console.log(`Response value: ${response}`);
 ```
 
-mit
+durch
 
 ```js
 console.error(`Response value: ${response}`);
 ```
 
-Speichern Sie Ihren Code und aktualisieren Sie den Browser, und Sie werden nun sehen, dass die Nachricht als Fehler gemeldet wird, mit der gleichen Farbe und dem gleichen Symbol wie der nicht abgefangene Fehler darunter. Außerdem wird nun ein Erweiterungs-/Kollabierungspfeil neben der Nachricht erscheinen. Wenn Sie darauf klicken, werden Sie eine einzelne Zeile sehen, die Ihnen die Zeile in der JavaScript-Datei zeigt, von der der Fehler stammt. Tatsächlich hat die Zeile mit dem nicht abgefangenen Fehler _das_ auch, allerdings mit zwei Zeilen:
+Speichern Sie Ihren Code und aktualisieren Sie den Browser; Sie werden nun sehen, dass die Meldung als Fehler gemeldet wird, mit derselben Farbe und demselben Symbol wie der nicht abgefangene Fehler darunter. Darüber hinaus werden Sie neben der Meldung einen Erweiterungs-/Reduzierpfeil sehen. Wenn Sie darauf drücken, sehen Sie eine einzelne Zeile, die die Zeile in der JavaScript-Datei angibt, in der der Fehler entstanden ist. Tatsächlich hat auch die Zeile des nicht abgefangenen Fehlers das, aber sie hat zwei Zeilen:
 
 ```plain
 showHeroes http://localhost:7800/js-debug-test/index.js:25
 <anonymous> http://localhost:7800/js-debug-test/index.js:10
 ```
 
-Das bedeutet, dass der Fehler von der Funktion `showHeroes()` kommt, Zeile 25, wie wir bereits festgestellt haben. Wenn Sie sich Ihren Code ansehen, werden Sie sehen, dass der anonyme Aufruf in Zeile 10 die Zeile ist, die `showHeroes()` aufruft. Diese Zeilen werden als **Aufrufstapel** bezeichnet und können sehr nützlich sein, wenn Sie versuchen, den Ursprung eines Fehlers zu verfolgen, der viele verschiedene Standorte in Ihrem Code umfasst.
+Das bedeutet, dass der Fehler durch die `showHeroes()`-Funktion auf Zeile 25 verursacht wird, wie wir bereits vorher erwähnt haben. Wenn Sie sich Ihren Code ansehen, werden Sie sehen, dass der anonyme Aufruf in Zeile 10 `showHeroes()` aufruft. Diese Zeilen werden als **Aufrufstapel** bezeichnet und können nützlich sein, wenn man versucht, die Quelle eines Fehlers zu finden, der mehrere verschiedene Positionen im Code betrifft.
 
-Der `console.error()`-Aufruf ist in diesem Fall nicht so nützlich, kann aber nützlich sein, um einen Aufrufstapel zu generieren, falls noch keiner verfügbar ist.
+Der `console.error()`-Aufruf ist in diesem Fall nicht besonders nützlich, kann jedoch nützlich sein, um einen Aufrufstapel zu generieren, wenn noch keiner verfügbar ist.
 
-### Das Fehler beheben
+### Fehlerbehebung
 
-Wie auch immer, lassen Sie uns zurückkehren, um zu versuchen, unseren Fehler zu beheben. Wir können auf die Antwort des erfüllten `Promise` zugreifen, indem wir die Methode {{jsxref("Promise.prototype.then()", "then()")}} an das Ende des `fetch()`-Aufrufs anhängen. Wir können dann den resultierenden Antwortwert in die Funktionen einfügen, die ihn akzeptieren, so wie dies:
+Lassen Sie uns sowieso zu unserem Fehler zurückkehren und versuchen, ihn zu beheben. Wir können auf die Antwort aus dem erfüllten `Promise` zugreifen, indem wir die {{jsxref("Promise.prototype.then()", "then()")}}-Methode an das Ende des `fetch()`-Aufrufs anhängen. Wir können dann den resultierenden Antwortwert in die Funktionen einfügen, die ihn akzeptieren, wie folgt:
 
 ```js
 fetch(requestURL).then((response) => {
@@ -154,56 +154,56 @@ fetch(requestURL).then((response) => {
 });
 ```
 
-Speichern und aktualisieren Sie die Seite, und sehen Sie nach, ob Ihr Code funktioniert. Kleiner Spoiler — die obige Änderung hat das Problem nicht gelöst. Leider haben wir **immer noch den gleichen Fehler**!
+Speichern und aktualisieren Sie die Datei, und sehen Sie, ob Ihr Code funktioniert. Spoiler-Alarm — die obige Änderung hat das Problem nicht behoben. Leider haben wir **immer noch denselben Fehler**!
 
 > [!NOTE]
-> Zusammenfassend, immer wenn etwas nicht funktioniert und ein Wert nicht das zu sein scheint, was er an einem Punkt in Ihrem Code sein soll, können Sie `console.log()`, `console.error()` oder eine andere ähnliche Funktion verwenden, um den Wert auszugeben und zu sehen, was passiert.
+> Zusammengefasst: Jedes Mal, wenn etwas nicht funktioniert und ein Wert an einem bestimmten Punkt im Code nicht das zu sein scheint, was er sein sollte, können Sie `console.log()`, `console.error()` oder eine ähnliche Funktion verwenden, um den Wert auszugeben und zu sehen, was passiert.
 
-## Den JavaScript-Debugger verwenden
+## Verwenden des JavaScript-Debuggers
 
-Lassen Sie uns dieses Problem weiter untersuchen, indem wir eine fortgeschrittenere Funktion der Entwicklerwerkzeuge im Browser verwenden: den [JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html), wie er in Firefox genannt wird.
+Lassen Sie uns dieses Problem weiter untersuchen, indem wir eine ausgefeiltere Funktion der Entwickler-Tools des Browsers verwenden: den [JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html), wie er in Firefox genannt wird.
 
 > [!NOTE]
-> Ähnliche Werkzeuge sind in anderen Browsern verfügbar; der [Sources-Tab](https://developer.chrome.com/docs/devtools/#sources) in Chrome, der Debugger in Safari (siehe [Safari-Webentwicklungswerkzeuge](https://developer.apple.com/safari/tools/)), etc.
+> Ähnliche Tools sind in anderen Browsern verfügbar; der [Sources-Tab](https://developer.chrome.com/docs/devtools/#sources) in Chrome, Debugger in Safari (siehe [Safari Web Development Tools](https://developer.apple.com/safari/tools/)) usw.
 
 In Firefox sieht der Debugger-Tab so aus:
 
 ![Firefox-Debugger](debugger-tab.png)
 
-- Links können Sie das Skript auswählen, das Sie debuggen möchten (in diesem Fall haben wir nur eines).
+- Links können Sie das Skript auswählen, das Sie debuggen möchten (in diesem Fall haben wir nur ein Skript).
 - Das mittlere Panel zeigt den Code im ausgewählten Skript.
 - Das rechte Panel zeigt nützliche Details zur aktuellen Umgebung — _Breakpoints_, _Callstack_ und aktuell aktive _Scopes_.
 
-Hauptfunktionen solcher Werkzeuge ist die Möglichkeit, Haltepunkte zum Code hinzuzufügen — dies sind Punkte, an denen die Ausführung des Codes stoppt. Zu diesem Zeitpunkt können Sie die Umgebung im aktuellen Zustand untersuchen und sehen, was los ist.
+Die Hauptfunktion solcher Tools ist die Möglichkeit, Breakpoints im Code hinzuzufügen — das sind Punkte, an denen die Ausführung des Codes stoppt, und an diesem Punkt können Sie die Umgebung in ihrem aktuellen Zustand untersuchen und sehen, was vor sich geht.
 
-Lassen Sie uns die Verwendung von Haltepunkten erkunden:
+Lassen Sie uns die Verwendung von Breakpoints erkunden:
 
-1. Der Fehler wird in der gleichen Zeile wie zuvor geworfen — `for (const hero of heroes) {` — Zeile 26 im Screenshot unten. Klicken Sie auf die Zeilennummer im mittleren Panel, um einen Haltepunkt hinzuzufügen (es wird ein blauer Pfeil darüber erscheinen).
-2. Aktualisieren Sie jetzt die Seite (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd>) — der Browser wird die Ausführung des Codes bei dieser Zeile pausieren. Zu diesem Zeitpunkt wird die rechte Seite aktualisiert, um folgendes zu zeigen:
+1. Der Fehler wird an derselben Stelle wie vorher verursacht — `for (const hero of heroes) {` — Zeile 26 im Screenshot unten. Klicken Sie im mittleren Panel auf die Zeilennummer, um einen Breakpoint hinzuzufügen (Sie sehen einen blauen Pfeil über der Zahl).
+2. Aktualisieren Sie jetzt die Seite (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd>) — der Browser wird die Ausführung von dem Code in dieser Zeile unterbrechen. Zu diesem Zeitpunkt wird die rechte Seite aktualisiert und zeigt die folgenden Details an:
 
-![Firefox-Debugger mit einem Haltepunkt](breakpoint.png)
+![Firefox-Debugger mit einem Breakpoint](breakpoint.png)
 
-- Unter _Breakpoints_ sehen Sie die Details des von Ihnen festgelegten Haltepunkts.
-- Unter _Call Stack_ sehen Sie einige Einträge — dies ist im Grunde das gleiche wie der Aufrufstapel, den wir zuvor im `console.error()`-Abschnitt angeschaut haben. _Call Stack_ zeigt eine Liste der Funktionen, die aufgerufen wurden, um die aktuelle Funktion aufzurufen. An erster Stelle steht `showHeroes()`, die Funktion, in der wir uns derzeit befinden, und an zweiter Stelle steht `onload`, die den Event Handler enthält, der den Aufruf von `showHeroes()` enthält.
-- Unter _Scopes_ sehen Sie den aktuell aktiven Bereich für die Funktion, die wir betrachten. Wir haben nur drei — `showHeroes`, `block` und `Window` (der globale Bereich). Jeder Bereich kann erweitert werden, um die Werte von Variablen innerhalb des Bereichs zu zeigen, als die Ausführung des Codes gestoppt wurde.
+- Unter _Breakpoints_ sehen Sie die Details des Breakpoints, den Sie festgelegt haben.
+- Unter _Call Stack_ sehen Sie einige Einträge — dies ist im Grunde dasselbe wie der Aufrufstapel, den wir zuvor im Abschnitt `console.error()` betrachtet haben. _Call Stack_ zeigt eine Liste der Funktionen, die aufgerufen wurden, um die aktuelle Funktion hervorzurufen. Ganz oben haben wir `showHeroes()`, die Funktion, in der wir uns derzeit befinden, und als Zweites `onload`, die die Ereignishandlerfunktion speichert, die den Aufruf von `showHeroes()` enthält.
+- Unter _Scopes_ sehen Sie den derzeit aktiven Scope für die Funktion, die wir betrachten. Wir haben nur drei davon — `showHeroes`, `block` und `Window` (der globale Scope). Jeder Scope kann erweitert werden, um die Werte der Variablen innerhalb des Scopes anzuzeigen, wenn die Ausführung angehalten ist.
 
-Wir können hier einige sehr nützliche Informationen finden:
+Wir können einige sehr nützliche Informationen hier finden:
 
-1. Erweitern Sie den `showHeroes`-Bereich — Sie können daraus sehen, dass die Variable heroes `undefined` ist, was darauf hinweist, dass der Zugriff auf die `members`-Eigenschaft von `jsonObj` (erste Zeile der Funktion) nicht funktioniert hat.
-2. Sie können auch sehen, dass die Variable `jsonObj` ein [Response](/de/docs/Web/API/Response)-Objekt speichert, kein JSON-Objekt.
+1. Erweitern Sie den `showHeroes`-Scope — Sie können sehen, dass die Variable heroes `undefined` ist, was darauf hindeutet, dass der Zugriff auf die `members`-Eigenschaft von `jsonObj` (erste Zeile der Funktion) nicht funktioniert hat.
+2. Sie können auch sehen, dass die Variable `jsonObj` ein [`Response`](/de/docs/Web/API/Response)-Objekt speichert, kein JSON-Objekt.
 
-Das Argument für `showHeroes()` ist der Wert, mit dem das `fetch()`-Promise erfüllt wurde. Also ist dieses Promise nicht im JSON-Format: Es ist ein `Response`-Objekt. Es gibt einen zusätzlichen Schritt, um den Inhalt der Antwort als JSON-Objekt abzurufen.
+Das Argument der Funktion `showHeroes()` ist der Wert, mit dem das `fetch()`-Promise erfüllt wurde. Dieses Promise liegt nicht in JSON-Format vor: Es handelt sich um ein `Response`-Objekt. Es ist ein zusätzlicher Schritt erforderlich, um den Inhalt der Antwort als JSON-Objekt abzurufen.
 
-Wir möchten, dass Sie versuchen, dieses Problem selbst zu lösen. Um Ihnen den Einstieg zu erleichtern, können Sie die Dokumentation für das [Response](/de/docs/Web/API/Response)-Objekt durchsuchen. Wenn Sie feststecken, können Sie den gelösten Quellcode unter <https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-fixed> finden.
+Wir möchten, dass Sie versuchen, dieses Problem selbst zu beheben. Um Ihnen den Einstieg zu erleichtern, werfen Sie einen Blick in die Dokumentation des [`Response`](/de/docs/Web/API/Response)-Objekts. Wenn Sie nicht weiterkommen, finden Sie den korrigierten Quellcode unter <https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-fixed>.
 
 > [!NOTE]
-> Der Debugger-Tab hat viele andere nützliche Funktionen, die wir hier nicht besprochen haben, zum Beispiel bedingte Haltepunkte und Überwachungsausdrücke. Für mehr Informationen, sehen Sie die [Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)-Seite.
+> Der Debugger-Tab hat viele andere nützliche Funktionen, die hier nicht behandelt werden. Zum Beispiel konditionale Breakpoints und Beobachtungsausdrücke. Für viele weitere Informationen, siehe die [Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)-Seite.
 
-## JavaScript-Fehler in Ihrem Code behandeln
+## Umgang mit JavaScript-Fehlern in Ihrem Code
 
-HTML und CSS sind nachsichtig — Fehler und nicht erkannte Funktionen können oft aufgrund der Natur der Sprachen behandelt werden. Zum Beispiel ignoriert CSS nicht erkannte Eigenschaften, und der Rest des Codes funktioniert häufig einfach weiter. JavaScript ist jedoch nicht so nachsichtig wie HTML und CSS — wenn die JavaScript-Engine Fehler oder nicht erkannte Syntax findet, wird sie häufig Fehler werfen.
+HTML und CSS sind tolerant — Fehler und nicht erkannte Funktionen können oft aufgrund der Natur der Sprachen gehandhabt werden. Zum Beispiel ignoriert CSS nicht erkannte Eigenschaften, und der restliche Code funktioniert oft einfach. JavaScript ist jedoch nicht so tolerant wie HTML und CSS; wenn die JavaScript-Engine auf Fehler oder unerkannten Syntax stößt, wirft sie oft Fehler.
 
-Lassen Sie uns eine gängige Strategie zur Behandlung von JavaScript-Fehlern in Ihrem Code erkunden. Die folgenden Abschnitte sind so gestaltet, dass sie durch Kopieren der unten stehenden Vorlagendatei als `handling-errors.html` auf Ihrem lokalen Rechner verfolgt werden. Fügen Sie die Codeausschnitte zwischen den öffnenden und schließenden `<script>`- und `</script>`-Tags ein, dann öffnen Sie die Datei in einem Browser und schauen Sie sich die Ausgabe in der Devtools-JavaScript-Konsole an.
+Lassen Sie uns eine gängige Strategie zur Behandlung von JavaScript-Fehlern in Ihrem Code erkunden. Die folgenden Abschnitte sind so gestaltet, dass sie durch das Erstellen einer Kopie der unten gezeigten Vorlagendatei als `handling-errors.html` auf Ihrem lokalen Computer verfolgt werden, indem Sie die Codeschnipsel zwischen den öffnenden und schließenden `<script>` und `</script>`-Tags hinzufügen und dann die Datei in einem Browser öffnen und die Ausgabe in der JavaScript-Konsole der Entwickler-Tools betrachten.
 
 ```html
 <!doctype html>
@@ -221,11 +221,11 @@ Lassen Sie uns eine gängige Strategie zur Behandlung von JavaScript-Fehlern in 
 </html>
 ```
 
-### Conditionals
+### Bedingte Anweisungen
 
-Ein häufiger Einsatz von [JavaScript conditionals](/de/docs/Learn_web_development/Core/Scripting/Conditionals) ist die Behandlung von Fehlern. Conditionals ermöglichen es, je nach dem Wert einer Variable unterschiedliche Codes auszuführen. Oft möchten Sie dies defensiv verwenden, um zu vermeiden, dass ein Fehler geworfen wird, wenn der Wert nicht existiert oder der falsche Typ ist, oder um einen Fehler zu erfassen, wenn der Wert ein falsches Ergebnis zurückgeben würde, was später im Verlauf Probleme verursachen könnte.
+Eine häufige Verwendung von [JavaScript-Bedingungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals) besteht darin, Fehler zu behandeln. Bedingte Anweisungen ermöglichen es Ihnen, unterschiedlichen Code abhängig vom Wert einer Variable auszuführen. Oft möchten Sie dies defensiv verwenden, um zu vermeiden, dass ein Fehler ausgelöst wird, wenn der Wert nicht vorhanden ist oder nicht den richtigen Typ hat, oder um einen Fehler abzufangen, wenn der Wert ein falsches Ergebnis zurückgeben würde, was später zu Problemen führen könnte.
 
-Lassen Sie uns ein Beispiel betrachten. Angenommen, wir haben eine Funktion, die als Argument die Körpergröße eines Benutzers in Zoll nimmt und seine Körpergröße in Metern auf zwei Dezimalstellen genau zurückgibt. Dies könnte so aussehen:
+Schauen wir uns ein Beispiel an. Angenommen, wir haben eine Funktion, die die Körpergröße eines Benutzers in Zoll als Argument nimmt und seine Größe in Metern auf 2 Dezimalstellen genau zurückgibt. Dies könnte so aussehen:
 
 ```js
 function inchesToMeters(num) {
@@ -235,7 +235,7 @@ function inchesToMeters(num) {
 }
 ```
 
-1. Deklarieren Sie in Ihrem Beispieldatei-Element `<script>` eine `const` namens `height` und weisen Sie ihr den Wert `70` zu:
+1. Deklarieren Sie im `<script>`-Element Ihres Beispiels eine `const` namens `height` und weisen Sie ihr den Wert `70` zu:
 
    ```js
    const height = 70;
@@ -243,22 +243,22 @@ function inchesToMeters(num) {
 
 2. Kopieren Sie die obige Funktion unter die vorherige Zeile.
 
-3. Rufen Sie die Funktion auf, indem Sie ihr die `height`-Konstante als Argument übergeben, und protokollieren Sie den Rückgabewert in der Konsole:
+3. Rufen Sie die Funktion auf, übergeben Sie der das `height`-Konstante als ihr Argument und protokollieren Sie den Rückgabewert in der Konsole:
 
    ```js
    console.log(inchesToMeters(height));
    ```
 
-4. Laden Sie das Beispiel in einem Browser und schauen Sie in die Devtools-JavaScript-Konsole. Sie sollten sehen, dass ein Wert von `1.78` darin protokolliert ist.
+4. Laden Sie das Beispiel in einem Browser und schauen Sie sich die JavaScript-Konsole der Entwickler-Tools an. Sie sollten einen Wert von `1.78` in der Konsole sehen.
 
-5. Das funktioniert also ganz gut isoliert. Aber was passiert, wenn die bereitgestellten Daten fehlen oder nicht korrekt sind? Probieren Sie diese Szenarien aus:
-   - Wenn Sie den `height`-Wert in `"70"` ändern (d.h. `70` als String ausgedrückt), sollte das Beispiel ... immer noch funktionieren. Dies liegt daran, dass die Berechnung auf der ersten Zeile des Strings den Wert in einen Datentyp Nummer zwingt. Dies ist in einem einfachen Fall wie diesem in Ordnung, könnte aber in komplexerem Code dazu führen, dass fehlerhafte Daten alle möglichen Fehler verursachen, einige davon subtil und schwer zu erkennen!
-   - Wenn Sie `height` in einen Wert ändern, der nicht in eine Zahl gezwungen werden kann, wie zum Beispiel `"70 inches"` oder `["Bob", 70]` oder {{jsxref("NaN")}}, sollte das Beispiel das Resultat als `NaN` zurückgeben. Dies kann alle möglichen Probleme verursachen — z.B. wenn Sie die Körpergröße des Benutzers irgendwo in der Benutzeroberfläche der Website einfügen möchten.
-   - Wenn Sie den `height`-Wert ganz entfernen (erklammern Sie ihn, indem Sie `//` am Anfang der Zeile hinzufügen), wird die Konsole einen Fehler der Art "Uncaught ReferenceError: height is not defined" zeigen, die Art von Fehler, die Ihre Anwendung zum Stillstand bringen könnte.
+5. Das funktioniert also ohne Probleme. Aber was passiert, wenn die bereitgestellten Daten fehlen oder falsch sind? Probieren Sie die folgenden Szenarien aus:
+   - Wenn Sie den `height`-Wert auf `"70"` ändern (also `70` als String ausgedrückt), sollte das Beispiel ... immer noch einwandfrei funktionieren. Dies liegt daran, dass die Berechnung in der ersten Zeile den Wert zum Zahlentyp zwingt. Das ist in einem einfachen Fall wie diesem in Ordnung, aber bei komplexerem Code können falsche Daten zu allerlei Fehlern führen, einige subtil und schwierig zu erkennen!
+   - Wenn Sie `height` auf einen Wert ändern, der nicht in eine Zahl umgewandelt werden kann, wie `"70 inches"` oder `["Bob", 70]`, oder {{jsxref("NaN")}}, sollte das Beispiel das Ergebnis als `NaN` zurückgeben. Dies könnte allerlei Probleme verursachen, zum Beispiel, wenn Sie die Größe des Benutzers irgendwo in der Benutzeroberfläche der Website einfügen wollen.
+   - Wenn Sie den `height`-Wert ganz entfernen (kommentieren Sie die Zeile aus, indem Sie `//` am Anfang der Zeile hinzufügen), wird die Konsole eine Fehlermeldung in der Art von "Uncaught ReferenceError: height is not defined" anzeigen, was dazu führen könnte, dass Ihre Anwendung zum Stillstand kommt.
 
-   Keine dieser Ergebnisse ist offensichtlich gut. Wie verteidigen wir uns gegen schlechte Daten?
+   Offensichtlich sind diese Ergebnisse nicht optimal. Wie schützen wir uns gegen fehlerhafte Daten?
 
-6. Lassen Sie uns ein Conditional in unsere Funktion hinzufügen, um zu testen, ob die Daten gut sind, bevor wir versuchen, die Berechnung durchzuführen. Ersetzen Sie Ihre aktuelle Funktion durch folgende:
+6. Lassen Sie uns eine Bedingung in unserer Funktion hinzufügen, um zu testen, ob die Daten gut sind, bevor wir versuchen, die Berechnung durchzuführen. Ersetzen Sie Ihre aktuelle Funktion durch folgende:
 
    ```js
    function inchesToMeters(num) {
@@ -272,32 +272,32 @@ function inchesToMeters(num) {
    }
    ```
 
-7. Wenn Sie jetzt die ersten beiden Szenarien erneut ausprobieren, werden Ihnen unsere etwas nützlichere Nachricht angezeigt, die Ihnen eine Idee davon gibt, was getan werden muss, um das Problem zu beheben. Sie könnten dort alles Mögliche einfügen, z. B. versuchen, Code auszuführen, um den Wert von `num` zu korrigieren, aber dies wird nicht empfohlen. Diese Funktion hat einen einfachen Zweck, und Sie sollten die Korrektur des Wertes irgendwo anders im System behandeln.
+7. Wenn Sie jetzt die ersten zwei Szenarien erneut testen, sehen Sie unsere etwas nützlichere Nachricht, die Ihnen sagt, was zu tun ist, um das Problem zu beheben. Sie könnten dort alles hineinschreiben, was Sie möchten, einschließlich dem Versuch, Code zur Korrektur des `num`-Wertes auszuführen, aber dies wird nicht empfohlen — diese Funktion hat einen einfachen Zweck, und Sie sollten die Korrektur des Wertes irgendwo anders im System vornehmen.
 
    > [!NOTE]
-   > In der `if()`-Anweisung prüfen wir zunächst, ob der Datentyp von `num` `"number"` ist, mithilfe des [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operators, aber wir prüfen auch, ob {{jsxref("Number.isNaN", "Number.isNaN(num)")}} `false` zurückgibt. Wir müssen dies tun, um den spezifischen Fall zu verteidigen, dass `num` auf `NaN` gesetzt wird, weil `typeof NaN` immer noch `"number"` zurückgibt!
+   > Im `if()`-Statement testen wir zuerst, ob der Datentyp von `num` `"number"` ist, indem wir den [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator verwenden, und dann testen wir, ob {{jsxref("Number.isNaN", "Number.isNaN(num)")}} `false` zurückgibt. Wir müssen dies tun, um sich gegen den spezifischen Fall von `num` als `NaN` zu verteidigen, da `typeof NaN` immer noch `"number"` zurückgibt!
 
-8. Wenn Sie jedoch das dritte Szenario erneut versuchen, wird Ihnen die Fehlermeldung "Uncaught ReferenceError: height is not defined" weiterhin geworfen. Sie können nicht beheben, dass ein Wert nicht verfügbar ist, aus einer Funktion, die versucht, den Wert zu verwenden.
+8. Wenn Sie jedoch das dritte Szenario erneut testen, erhalten Sie immer noch die "Uncaught ReferenceError: height is not defined" Fehleranzeige. Sie können das Fehlen eines Wertes nicht innerhalb einer Funktion beheben, die versucht, den Wert zu verwenden.
 
-Wie gehen wir damit um? Nun, es ist wahrscheinlich besser, unsere Funktion so einzurichten, dass sie einen benutzerdefinierten Fehler zurückgibt, wenn sie nicht die richtigen Daten erhält. Wir werden uns zunächst ansehen, wie das gemacht wird, und dann alle Fehler zusammen behandeln.
+Wie gehen wir damit um? Es ist besser, unsere Funktion dazu zu bringen, einen benutzerdefinierten Fehler zurückzugeben, wenn sie nicht die richtigen Daten erhält. Zuerst zeigen wir, wie das geht, und dann behandeln wir alle Fehler zusammen.
 
-### Benutzerdefinierte Fehler werfen
+### Benutzerdefinierte Fehler auswerfen
 
-Sie können an beliebigen Stellen in Ihrem Code einen benutzerdefinierten Fehler mit der `throw`-Anweisung und dem {{jsxref("Error.Error", "Error()")}}-Konstruktor auslösen. Lassen Sie uns dies in Aktion sehen.
+Sie können an jedem Punkt in Ihrem Code einen benutzerdefinierten Fehler mit der [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw) Anweisung in Verbindung mit dem {{jsxref("Error.Error", "Error()")}} Konstruktor auslösen. Lassen Sie uns dies in Aktion sehen.
 
-1. Ersetzen Sie in Ihrer Funktion die `console.log()`-Zeile im `else`-Block Ihrer Funktion durch folgende Zeile:
+1. Ersetzen Sie in Ihrer Funktion die `console.log()`-Zeile innerhalb des `else`-Blocks durch folgende Zeile:
 
    ```js
    throw new Error("A number was not provided. Please correct the input.");
    ```
 
-2. Führen Sie Ihr Beispiel erneut aus, aber stellen Sie sicher, dass `num` auf einen schlechten (d.h. nicht-nummerischen) Wert gesetzt ist. Dieses Mal sollten Sie sehen, dass Ihr benutzerdefinierter Fehler geworfen wird, zusammen mit einem nützlichen Aufrufstack, der Ihnen hilft, die Quelle des Fehlers zu lokalisieren (obwohl die Meldung immer noch anzeigt, dass der Fehler "uncaught" oder "unhandled" ist). Okay, Fehler sind ärgerlich, aber das ist viel nützlicher, als die Funktion erfolgreich auszuführen und einen Nicht-Zahlenwert zurückzugeben, der später Probleme verursachen könnte.
+2. Führen Sie Ihr Beispiel erneut aus, aber stellen Sie sicher, dass `num` auf einen schlechten (d.h. nicht nummerischen) Wert gesetzt ist. Dieses Mal sollten Sie sehen, dass Ihr benutzerdefinierter Fehler ausgegeben wird, zusammen mit einem nützlichen Aufrufstapel, um Ihnen zu helfen, die Quelle des Fehlers zu finden (obwohl die Meldung immer noch sagt, dass der Fehler "uncaught" oder "unhandled" ist). Okay, Fehler sind zwar ärgerlich, aber das ist viel nützlicher, als die Funktion erfolgreich auszuführen und einen nicht nummerischen Wert zurückzugeben, der später Probleme verursachen könnte.
 
-Wie gehen wir also dann mit all diesen Fehlern um?
+Wie gehen wir dann mit all diesen Fehlern um?
 
 ### try...catch
 
-Die [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung ist speziell darauf ausgelegt, mit Fehlern umzugehen. Sie hat die folgende Struktur:
+Die [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung ist speziell dafür ausgelegt, Fehler zu behandeln. Sie hat die folgende Struktur:
 
 ```js
 try {
@@ -307,11 +307,11 @@ try {
 }
 ```
 
-In dem `try`-Block versuchen Sie, einen Code auszuführen. Wenn dieser Code keinen Fehler auslöst, ist alles in Ordnung, und der `catch`-Block wird ignoriert. Allerdings, wenn ein Fehler ausgelöst wird, wird der `catch`-Block ausgeführt, der Zugriff auf das Fehlerobjekt bietet, das den Fehler repräsentiert, und Ihnen erlaubt, einen Code auszuführen, um ihn zu behandeln.
+Im `try`-Block versuchen Sie, etwas Code auszuführen. Wenn dieser Code ohne das Auftreten eines Fehlers ausgeführt wird, ist alles in Ordnung, und der `catch`-Block wird ignoriert. Wenn jedoch ein Fehler auftritt, wird der `catch`-Block ausgeführt, der Zugriff auf das {{jsxref("Error")}}-Objekt bietet, das den Fehler darstellt, und Sie können Code zur Behebung des Fehlers ausführen.
 
 Lassen Sie uns `try...catch` in unserem Code verwenden.
 
-1. Ersetzen Sie die `console.log()`-Zeile, die die `inchesToMeters()`-Funktion am Ende Ihres Skripts aufruft, durch den folgenden Block. Wir führen jetzt unsere `console.log()`-Zeile innerhalb eines `try`-Blocks aus, und behandeln alle Fehler, die sie zurückgibt, innerhalb eines entsprechenden `catch`-Blocks.
+1. Ersetzen Sie die `console.log()`-Zeile, die die Funktion `inchesToMeters()` am Ende Ihres Skripts aufruft, durch den folgenden Block. Wir führen jetzt unsere `console.log()`-Zeile innerhalb eines `try`-Blocks aus und behandeln alle damit zurückgegebenen Fehler in einem entsprechenden `catch`-Block.
 
    ```js
    try {
@@ -322,17 +322,17 @@ Lassen Sie uns `try...catch` in unserem Code verwenden.
    }
    ```
 
-2. Speichern und aktualisieren Sie, und Sie sollten jetzt zwei Dinge sehen:
-   - Die Fehlermeldung und den Aufrufstack wie zuvor, aber dieses Mal ohne den Hinweis "uncaught" oder "unhandled".
+2. Speichern und aktualisieren Sie die Seite, und Sie sollten nun zwei Dinge sehen:
+   - Die Fehlermeldung und der Aufrufstapel sind wie zuvor, aber dieses Mal ohne das Label "uncaught" oder "unhandled".
    - Die protokollierte Nachricht "Insert code to handle the error".
 
-3. Aktualisieren Sie nun `num` auf einen guten (zahlenmäßigen) Wert und Sie werden das Ergebnis der Berechnung protokolliert sehen, ohne Fehlermeldung.
+3. Versuchen Sie nun, `num` auf einen gültigen (nummerischen) Wert zu ändern, und Sie werden das Ergebnis der Berechnung protokolliert sehen, ohne Fehlermeldung.
 
-Das ist bedeutend — alle ausgelösten Fehler werden nicht mehr ohne Behandlung gelassen, sodass sie die Anwendung nicht zum Stillstand bringen. Sie können beliebigen Code ausführen, um den Fehler zu behandeln. Oben haben wir nur eine Nachricht protokolliert, aber zum Beispiel könnten Sie die Funktion wieder aufrufen, die den Benutzer aufforderte, seine Körpergröße einzugeben, diesmal bitten Sie ihn, den Eingabefehler zu korrigieren. Sie könnten sogar eine `if...else`-Anweisung verwenden, um je nach Art des zurückgegebenen Fehlers einen unterschiedlichen Behandlungscode auszuführen.
+Dies ist von Bedeutung — alle geworfenen Fehler werden jetzt behandelt, sodass sie die Anwendung nicht zum Absturz bringen. Sie können jeden beliebigen Code ausführen, um den Fehler zu behandeln. Oben protokollieren wir eine grundlegende Nachricht, aber Sie könnten zum Beispiel die Funktion aufrufen, die den Benutzer erneut nach seiner Größe fragt, aber dieses Mal bitten, den Eingabefehler zu korrigieren. Sie könnten sogar eine `if...else`-Anweisung verwenden, um je nach Fehlercode unterschiedliche Fehlerbehandlungscodes auszuführen.
 
-### Feature-Erkennung
+### Funktionsdetektion
 
-Feature-Erkennung ist nützlich, wenn Sie planen, neue JavaScript-Funktionen zu verwenden, die möglicherweise nicht in allen Browsern unterstützt werden. Testen Sie auf das Feature und führen Sie dann bedingt Code aus, um sowohl in Browsern, die das Feature unterstützen als auch in solchen, die es nicht unterstützen, ein akzeptables Erlebnis zu bieten. Als kurzes Beispiel hat die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die verfügbare Standortdaten für das Gerät, auf dem der Webbrowser läuft, bereitstellt) einen Haupteinstiegspunkt für ihre Verwendung — eine `geolocation`-Eigenschaft auf dem globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt. Daher können Sie testen, ob der Browser Geolokalisierung unterstützt oder nicht, indem Sie eine ähnliche `if()`-Struktur verwenden, wie wir sie vorher gesehen haben:
+Die Funktionsdetektion ist nützlich, wenn Sie planen, neue JavaScript-Features zu verwenden, die möglicherweise nicht in allen Browsern unterstützt werden. Sie können die Funktion testen und dann bedingt Code ausführen, um ein akzeptables Erlebnis in Browsern zu bieten, die die Funktion unterstützen, und in solchen, die es nicht tun. Als kurzes Beispiel hat die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die verfügbare Standortdaten für das Gerät bereitstellt, auf dem der Webbrowser läuft) einen Haupteinstiegspunkt für die Nutzung — eine `geolocation`-Eigenschaft, die auf dem globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt verfügbar ist. Somit können Sie testen, ob der Browser Geolocation unterstützt, indem Sie eine ähnliche `if()`-Struktur verwenden, wie wir sie früher gesehen haben:
 
 ```js
 if ("geolocation" in navigator) {
@@ -344,24 +344,24 @@ if ("geolocation" in navigator) {
 }
 ```
 
-Sie finden einige weitere Beispiele zur Funktionsweise von Feature-Erkennung in [Alternativen zum Nutzeragenten-Sniffing](/de/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent#alternatives_to_ua_sniffing).
+Sie finden einige weitere Beispiele für Funktionsdetektion in [Alternativen zur UA-Erkennung](/de/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent#alternatives_to_ua_sniffing).
 
 ## Hilfe finden
 
-Es gibt viele andere Probleme, auf die Sie mit JavaScript (und HTML und CSS!) stoßen werden, was Wissen darüber, wie Sie Antworten online finden können, unschätzbar macht.
+Es gibt viele andere Probleme, auf die Sie mit JavaScript (und HTML und CSS!) stoßen werden, sodass Kenntnisse darüber, wie man Antworten online findet, von unschätzbarem Wert sind.
 
-Zu den besten Quellen für Supportinformationen gehören MDN (das ist der Ort, an dem Sie sich jetzt befinden!), [stackoverflow.com](https://stackoverflow.com/) und [caniuse.com](https://caniuse.com/).
+Zu den besten Quellen für Unterstützungsinformationen gehören MDN, [stackoverflow.com](https://stackoverflow.com/) und [caniuse.com](https://caniuse.com/).
 
-- Um das Mozilla Developer Network (MDN) zu verwenden, führen die meisten Leute eine Suchmaschinen-Suche der Technologie durch, über die sie Informationen finden möchten, plus den Begriff "mdn", zum Beispiel, "mdn HTML video".
-- [caniuse.com](https://caniuse.com/) bietet Supportinformationen, zusammen mit einigen nützlichen externen Ressourcenlinks. Zum Beispiel, siehe <https://caniuse.com/#search=video> (Sie müssen einfach das Feature, nach dem Sie suchen, in das Textfeld eingeben).
-- [stackoverflow.com](https://stackoverflow.com/) (SO) ist eine Forumsseite, auf der Sie Fragen stellen können und andere Entwickler ihre Lösungen teilen können, frühere Beiträge nachsehen und anderen Entwicklern helfen können. Es wird empfohlen, zunächst nachzusehen, ob es bereits eine Antwort auf Ihre Frage gibt, bevor Sie eine neue Frage stellen. Zum Beispiel haben wir nach "deaktivieren von Autofokus auf HTML-Dialog" auf SO gesucht und sehr schnell mit [Deaktivieren des Autofokus bei showModal mit HTML-Attributen](https://stackoverflow.com/questions/63267581/disable-showmodal-auto-focusing-using-html-attributes) eine Antwort gefunden.
+- Um MDN zu nutzen, machen die meisten Leute eine Suchmaschinen-Suche nach der Technologie, über die sie Informationen erhalten möchten, plus den Begriff "mdn", zum Beispiel "mdn HTML video".
+- [caniuse.com](https://caniuse.com/) bietet Unterstützungstinformationen, zusammen mit einigen nützlichen externen Ressourcelinks. Zum Beispiel siehe <https://caniuse.com/#search=video> (Sie müssen das gesuchte Feature in das Textfeld eingeben).
+- [stackoverflow.com](https://stackoverflow.com/) (SO) ist eine Forum-Site, auf der Sie Fragen stellen und andere Entwickler ihre Lösungen mit Ihnen teilen, vorherige Beiträge nachschlagen und anderen Entwicklern helfen können. Suchen Sie nach einer Antwort auf Ihre Frage, um zu sehen, ob bereits eine existiert, bevor Sie eine neue Frage stellen. Zum Beispiel: Wir haben auf SO nach "disabling autofocus on HTML dialog" gesucht und sehr schnell die Antwort [Disable showModal auto-focusing using HTML attributes](https://stackoverflow.com/questions/63267581/disable-showmodal-auto-focusing-using-html-attributes) gefunden.
 
-Abgesehen davon, versuchen Sie, Ihre bevorzugte Suchmaschine zu verwenden, um eine Antwort auf Ihr Problem zu finden. Es ist oft nützlich, nach bestimmten Fehlermeldungen zu suchen, wenn Sie welche haben — andere Entwickler werden wahrscheinlich die gleichen Probleme gehabt haben wie Sie.
+Abgesehen davon: Versuchen Sie, mit Ihrer bevorzugten Suchmaschine nach einer Antwort auf Ihr Problem zu suchen. Es ist oft hilfreich, nach spezifischen Fehlermeldungen zu suchen, wenn Sie diese haben — andere Entwickler werden wahrscheinlich die gleichen Probleme wie Sie gehabt haben.
 
 ## Zusammenfassung
 
-So, das ist JavaScript-Debugging und Fehlerbehandlung. Einfach, nicht wahr? Vielleicht nicht so einfach, aber dieser Artikel sollte Ihnen zumindest einen Anfang geben und einige Ideen, wie Sie mit JavaScript-bezogenen Problemen umgehen können, die Sie antreffen werden.
+Das war also JavaScript-Debugging und Fehlerbehandlung. Einfach, oder? Vielleicht nicht so einfach, aber dieser Artikel sollte Ihnen zumindest einen Anfang und einige Ideen geben, wie Sie mit JavaScript-bezogenen Problemen umgehen können, denen Sie begegnen werden.
 
-Das war's für das Modul Dynamisches Scripting mit JavaScript; herzlichen Glückwunsch zum Erreichen des Endes! Im nächsten Modul helfen wir Ihnen, JavaScript-Frameworks und -Bibliotheken zu erkunden.
+Das war's für das Modul "Dynamisches Scripting mit JavaScript"; herzlichen Glückwunsch, dass Sie das Ende erreicht haben! Im nächsten Modul helfen wir Ihnen, JavaScript-Frameworks und -Bibliotheken zu erkunden.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/House_data_UI","Learn_web_development/Core/Frameworks_libraries", "Learn_web_development/Core/Scripting")}}

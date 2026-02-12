@@ -2,10 +2,10 @@
 title: shape-margin
 slug: Web/CSS/Reference/Properties/shape-margin
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
-Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Rand für eine CSS-Form fest, die mit {{cssxref("shape-outside")}} erstellt wurde.
+Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Abstand für eine CSS-Form fest, die mit {{cssxref("shape-outside")}} erstellt wurde.
 
 {{InteractiveExample("CSS Demo: shape-margin")}}
 
@@ -30,11 +30,11 @@ shape-margin: 5%;
   <div class="example-container">
     <div class="transition-all" id="example-element"></div>
     We had agreed, my companion and I, that I should call for him at his house,
-    after dinner, not later than eleven o’clock. This athletic young Frenchman
-    belongs to a small set of Parisian sportsmen, who have taken up “ballooning”
+    after dinner, not later than eleven o'clock. This athletic young Frenchman
+    belongs to a small set of Parisian sportsmen, who have taken up "ballooning"
     as a pastime. After having exhausted all the sensations that are to be found
-    in ordinary sports, even those of “automobiling” at a breakneck speed, the
-    members of the “Aéro Club” now seek in the air, where they indulge in all
+    in ordinary sports, even those of "automobiling" at a breakneck speed, the
+    members of the "Aéro Club" now seek in the air, where they indulge in all
     kinds of daring feats, the nerve-racking excitement that they have ceased to
     find on earth.
   </div>
@@ -58,7 +58,7 @@ shape-margin: 5%;
 }
 ```
 
-Der Rand ermöglicht es Ihnen, den Abstand zwischen den Rändern der Form (dem **float-Element**) und dem umgebenden Inhalt anzupassen.
+Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Kanten der Form (dem **Float-Element**) und dem umgebenden Inhalt anzupassen.
 
 ## Syntax
 
@@ -81,7 +81,7 @@ shape-margin: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Setzt den Rand der Form auf einen {{cssxref("&lt;length&gt;")}} Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenen Blocks des Elements.
+  - : Legt den Abstand der Form auf einen {{cssxref("&lt;length&gt;")}}-Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks des Elements fest.
 
 ## Formale Definition
 
@@ -93,7 +93,7 @@ shape-margin: unset;
 
 ## Beispiele
 
-### Hinzufügen eines Randes zu einem Polygon
+### Hinzufügen eines Abstands zu einem Polygon
 
 #### HTML
 
@@ -142,8 +142,8 @@ section {
 
 ## Siehe auch
 
-- [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes)
-- [Überblick über CSS Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
+- [CSS-Shapes](/de/docs/Web/CSS/Guides/Shapes)
+- [Übersicht über CSS-Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-image-threshold")}}
 - {{cssxref("basic-shape")}}

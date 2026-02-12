@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Gruselige Krabbeltiere-Splash-Seite"
+title: "Herausforderung: Unheimliche Krabbeltiere Splash-Seite"
 short-title: "Herausforderung: Splash-Seite"
 slug: Learn_web_development/Core/Structuring_content/Splash_page
 l10n:
-  sourceCommit: d133373571f0e77ed982a3645ced584fc0682497
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung werden wir Ihr Wissen über einige der in den letzten Stunden besprochenen Techniken testen, indem wir Sie bitten, einige Bilder und ein Video zu einer Splash-Seite über Käfer und andere Krabbeltiere hinzuzufügen.
+In dieser Herausforderung testen wir Ihr Wissen zu einigen der in den letzten Lektionen besprochenen Techniken. Sie sollen einige Bilder und ein Video zu einer Splash-Seite hinzufügen, die sich ganz um Käfer und andere unheimliche Krabbeltiere dreht.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des Codes, den Sie benötigen, wird bereits bereitgestellt.
+Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes ist bereits vorhanden.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
-2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner, die `index.html` heißt (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
+1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer namens `splash-page-challenge` (oder öffnen Sie einen Online-Editor und ergreifen Sie die erforderlichen Schritte, um ein neues Projekt zu erstellen).
+2. Speichern Sie die folgende HTML-Liste in einer Datei in Ihrem Ordner namens `index.html` (oder kopieren Sie sie in das HTML-Feld Ihres Online-Editors).
 
    ```html
    <!doctype html>
@@ -41,8 +41,8 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
            <h1>Creepy-crawlies splash page!</h1>
 
            <p>
-             In casual language, people use “bugs” to mean all sorts of small
-             creepy-crawlies: insects, spiders, etc. However, “Bugs” (true bugs)
+             In casual language, people use "bugs" to mean all sorts of small
+             creepy-crawlies: insects, spiders, etc. However, "Bugs" (true bugs)
              are actually just one order of insects (Hemiptera). This page
              provides a summary of the main classes or groups of
              creepy-crawlies.
@@ -89,7 +89,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
              possess distinctive piercing-sucking mouthparts. These mouthparts
              are adapted for feeding on plant sap, blood, or other insects. Many
              true bugs have scent glands that produce strong odors as a defense
-             mechanism, which is why some are called “stink bugs.”
+             mechanism, which is why some are called "stink bugs."
            </p>
 
            <p>
@@ -153,8 +153,8 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
            <h2>Flies & Mosquitoes (Diptera)</h2>
 
            <p>
-             Flies and mosquitoes belong to the order Diptera, meaning “two
-             wings.” Unlike most other insects, they have only one functional
+             Flies and mosquitoes belong to the order Diptera, meaning "two
+             wings." Unlike most other insects, they have only one functional
              pair of wings; the hind pair has evolved into tiny balancing organs
              called halteres. This adaptation gives them incredible agility in
              flight. Their mouthparts vary widely: some species have sponging
@@ -233,7 +233,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
              a danger to humans. In fact, spiders are highly beneficial because
              they help control insect populations, including pests. They play a
              crucial role in balancing ecosystems, making them one of the most
-             important non-insect “bugs” people commonly encounter.
+             important non-insect "bugs" people commonly encounter.
            </p>
 
            <p class="copyright">
@@ -248,7 +248,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
    </html>
    ```
 
-3. Speichern Sie das folgende CSS-Verzeichnis in einer Datei in Ihrem Ordner, die `style.css` heißt (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
+3. Speichern Sie die folgende CSS-Liste in einer Datei in Ihrem Ordner namens `style.css` (oder kopieren Sie sie in das CSS-Feld Ihres Online-Editors).
 
    ```css
    /* type */
@@ -344,54 +344,54 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
    }
    ```
 
-Später müssen Sie die folgenden URLs auf Ihrer Seite einfügen.
+Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
 
 - `bee.jpg`: [Bild für den Abschnitt "Bienen, Wespen, Ameisen (Hymenoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/bee.jpg).
 - `beetle.png`: [Bild für den Abschnitt "Käfer (Coleoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/beetle.png).
 - `butterfly.jpg`: [Bild für den Abschnitt "Schmetterlinge & Motten (Lepidoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/butterfly.jpg).
 - `mosquito.jpg`: [Bild für den Abschnitt "Fliegen & Mücken (Diptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/mosquito.jpg).
 - `spider.jpg`: [Bild für den Abschnitt "Spinnen (Araneae)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/spider.jpg).
-- `true_bug.jpg`: [Bild für den Abschnitt "Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
+- `true_bug.jpg`: [Bild für den Abschnitt "Wahre Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
 - `bug_video_640.mp4`: [Header-Video](https://mdn.github.io/shared-assets/videos/learn/bug_video_640.mp4).
 
-## Projektbeschreibung
+## Projektbrief
 
-In dieser Bewertung präsentieren wir Ihnen eine größtenteils fertiggestellte Splash-Seite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen etwas Medieninhalt hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte beschreiben, was Sie tun müssen.
+In dieser Bewertung präsentieren wir Ihnen eine fast fertige Splash-Seite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte beschreiben, was Sie tun müssen.
 
-### Hinzufügen eines Videos zum Header
+### Ein Video im Header hinzufügen
 
-Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video in die Seite einbettet. Wir möchten, dass es Folgendes tut:
+Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video auf der Seite einbettet. Wir möchten, dass es Folgendes tut:
 
-- Das Video beim Laden automatisch abspielen (damit dies zumindest in einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
-- Endlos schleifen, anstatt nur einmal abzuspielen.
-- Das Video im Voraus laden.
-- Keine Bedienelemente anzeigen.
+- Das Video soll automatisch beim Laden abgespielt werden (damit dies in mindestens einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
+- Endlos schleifen, statt nur einmal abzuspielen.
+- Das Video soll im Voraus geladen werden.
+- Es sollen keine Bedienelemente angezeigt werden.
 
-### Hinzufügen von Abschnittsbildern
+### Abschnittsbilder hinzufügen
 
-In den erweiterten Informationsabschnitten zu jedem Käfertyp möchten wir unter jedem `<h2>`, dass Sie ein Bild-Element hinzufügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen geeigneten Alternativtext zum Nutzen von Bildschirmlesern (und falls das Bild nicht geladen wird), und beschränken Sie jedes Bild auf die Abmessungen von 250 x 180.
+In den erweiterten Informationsabschnitten zu jeder Art von Käfer möchten wir, dass Sie unterhalb jedes `<h2>` ein Bild-Element hinzufügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen geeigneten Alternativtext zum Nutzen von Screenreader-Nutzern (und falls das Bild nicht geladen wird) und beschränken Sie die Dimensionen jedes Bildes auf 250 x 180.
 
-Darüber hinaus möchten wir, dass Sie eine Bildunterschrift für jedes Bild hinzufügen; denken Sie darüber nach, welches Containerelement benötigt wird, um die beiden semantisch zu verknüpfen. Die Bildunterschrift sollte nicht einfach den Alternativtext wiederholen; sie sollte neben dem Alternativtext und dem Bild funktionieren.
+Darüber hinaus möchten wir, dass Sie eine Beschriftung für jedes Bild hinzufügen; denken Sie darüber nach, welches Container-Element benötigt wird, um die beiden semantisch zu verbinden. Die Beschriftung sollte nicht nur den Alternativtext wiederholen; sie sollte zusammen mit dem Alternativtext und dem Bild funktionieren.
 
-### Fügen Sie dem Navigationsmenü und den `<h2>` Emoticons oder Icons von Käfern hinzu
+### Fügen Sie Käfer-Emojis oder -Icons zum Navigationsmenü und zu den `<h2>`s hinzu
 
-Zum Spaß möchten wir, dass Sie Icons zu Beginn jedes Navigationslistenelements hinzufügen und dasselbe Icon zu Beginn jedes entsprechenden `<h2>`. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, einfach entsprechende Emojis zu finden und in den HTML-Text selbst einzufügen.
+Aus Spaß möchten wir, dass Sie Icons am Anfang jedes Navigationslistenelements und dasselbe Icon am Anfang jedes entsprechenden `<h2>` hinzufügen. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, einfach geeignete Emojis zu finden und sie dem HTML-Text selbst hinzuzufügen.
 
 ## Hinweise und Tipps
 
-- Sie können den [W3C-HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
-- Sie müssen kein CSS kennen, um diese Bewertung durchzuführen; Sie müssen nur die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits fertiggestellt.
+- Sie können den [W3C HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
+- Sie müssen nichts über CSS wissen, um diese Bewertung durchzuführen; Sie müssen nur die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie die Splash-Seite aussehen sollte. Wenn Sie bei der Umsetzung Probleme haben, finden Sie unten das Beispiel zur Lösung.
+Der folgende Screenshot zeigt, wie die Splash-Seite aussehen soll. Wenn Sie Schwierigkeiten haben, wie Sie einige dieser Dinge erreichen können, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
 ![Unser Beispiel für eine Splash-Seite](finished-splash-example.png)
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte ungefähr so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <!doctype html>
@@ -424,8 +424,8 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
           preload="auto"></video>
 
         <p>
-          In casual language, people use “bugs” to mean all sorts of small
-          creepy-crawlies: insects, spiders, etc. However, “Bugs” (true bugs)
+          In casual language, people use "bugs" to mean all sorts of small
+          creepy-crawlies: insects, spiders, etc. However, "Bugs" (true bugs)
           are actually just one order of insects (Hemiptera). This page provides
           a summary of the main classes or groups of creepy-crawlies.
         </p>
@@ -488,7 +488,7 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
           piercing-sucking mouthparts. These mouthparts are adapted for feeding
           on plant sap, blood, or other insects. Many true bugs have scent
           glands that produce strong odors as a defense mechanism, which is why
-          some are called “stink bugs.”
+          some are called "stink bugs."
         </p>
 
         <p>
@@ -569,7 +569,7 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
         </figure>
 
         <p>
-          Flies and mosquitoes belong to the order Diptera, meaning “two wings.”
+          Flies and mosquitoes belong to the order Diptera, meaning "two wings."
           Unlike most other insects, they have only one functional pair of
           wings; the hind pair has evolved into tiny balancing organs called
           halteres. This adaptation gives them incredible agility in flight.
@@ -663,7 +663,7 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
           danger to humans. In fact, spiders are highly beneficial because they
           help control insect populations, including pests. They play a crucial
           role in balancing ecosystems, making them one of the most important
-          non-insect “bugs” people commonly encounter.
+          non-insect "bugs" people commonly encounter.
         </p>
 
         <p class="copyright">

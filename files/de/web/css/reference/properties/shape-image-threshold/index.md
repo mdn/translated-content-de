@@ -2,10 +2,10 @@
 title: shape-image-threshold
 slug: Web/CSS/Reference/Properties/shape-image-threshold
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den Alpha-Kanal-Schwellenwert, der verwendet wird, um die Form mithilfe eines Bildes als Wert für {{cssxref("shape-outside")}} zu extrahieren.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Alphakanal-Schwellenwert fest, der verwendet wird, um die Form mithilfe eines Bildes als Wert für {{cssxref("shape-outside")}} zu extrahieren.
 
 {{InteractiveExample("CSS Demo: shape-image-threshold")}}
 
@@ -44,11 +44,11 @@ shape-image-threshold: 0.6;
   <div class="example-container">
     <div class="transition-all" id="example-element"></div>
     We had agreed, my companion and I, that I should call for him at his house,
-    after dinner, not later than eleven o’clock. This athletic young Frenchman
-    belongs to a small set of Parisian sportsmen, who have taken up “ballooning”
+    after dinner, not later than eleven o'clock. This athletic young Frenchman
+    belongs to a small set of Parisian sportsmen, who have taken up "ballooning"
     as a pastime. After having exhausted all the sensations that are to be found
-    in ordinary sports, even those of “automobiling” at a breakneck speed, the
-    members of the “Aéro Club” now seek in the air, where they indulge in all
+    in ordinary sports, even those of "automobiling" at a breakneck speed, the
+    members of the "Aéro Club" now seek in the air, where they indulge in all
     kinds of daring feats, the nerve-racking excitement that they have ceased to
     find on earth.
   </div>
@@ -75,7 +75,7 @@ shape-image-threshold: 0.6;
 }
 ```
 
-Alle Pixel, deren Alpha-Komponentenwert größer als der Schwellenwert ist, werden als Teil der Form betrachtet, um ihre Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% opak sind.
+Alle Pixel, deren Alphakomponentenwert größer als der Schwellenwert ist, gelten als Teil der Form, um deren Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% opak sind.
 
 ## Syntax
 
@@ -94,7 +94,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Setzt den Schwellenwert, der zur Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alpha-Wert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden auf diesen Bereich begrenzt.
+  - : Legt den Schwellenwert fest, der zum Extrahieren einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -108,7 +108,7 @@ shape-image-threshold: unset;
 
 ### Text an einem Verlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Verlaufs-Hintergrundbild. Der Verlauf wird als CSS-Form mithilfe von `shape-outside` festgelegt, sodass Pixel im Verlauf, die mindestens 20% opak sind (das heißt, Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild aus einem Verlauf. Der Verlauf wird als CSS-Form mithilfe von `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20% opak sind (das heißt, Pixel mit einer Alphakomponente größer als 0.2), als Teil der Form gelten.
 
 #### HTML
 
@@ -142,9 +142,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Verlaufs-H
 }
 ```
 
-Die Form wird hier mit {{cssxref("background-image")}} und einem linearen Verlauf anstelle einer Bilddatei festgelegt. Derselbe Verlauf wird auch als das Bild verwendet, aus dem die Form für das Festlegen des Float-Bereichs abgeleitet wird, mithilfe der Eigenschaft {{cssxref("shape-outside")}}.
+Die Form wird hier mithilfe von {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei festgelegt. Der gleiche Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Umflussbereichs abgeleitet wird, unter Verwendung der {{cssxref("shape-outside")}} Eigenschaft.
 
-Die 20% Opazitätsschwelle zur Behandlung von Verlaufspixeln als Teil der Form wird dann mit `shape-image-threshold` und einem Wert von `0.2` festgelegt.
+Der 20%ige Opazitätsschwellenwert für die Behandlung von Verlaufs-Pixeln als Teil der Form wird dann mithilfe von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 

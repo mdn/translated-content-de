@@ -2,10 +2,10 @@
 title: :lang()
 slug: Web/CSS/Reference/Selectors/:lang
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
 ---
 
-Die **`:lang()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt Elemente basierend auf der Sprache aus, in der sie bestimmt wurden.
+Die **`:lang()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) selektiert Elemente basierend auf der Sprache, in der sie bestimmt wurden.
 
 {{InteractiveExample("CSS Demo: :lang()", "tabbed-shorter")}}
 
@@ -17,8 +17,8 @@ Die **`:lang()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Refere
 
 ```html interactive-example
 <p lang="en-US">
-  Music during road trips and long commutes aren’t a problem, but using
-  headphones isn’t the best thing to do while driving in your car.
+  Music during road trips and long commutes aren't a problem, but using
+  headphones isn't the best thing to do while driving in your car.
 </p>
 
 <p lang="pl-PL">
@@ -28,7 +28,7 @@ Die **`:lang()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Refere
 ```
 
 > [!NOTE]
-> In HTML wird die Sprache durch eine Kombination des [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributs, des {{HTMLElement("meta")}}-Elements und möglicherweise durch Informationen aus dem Protokoll (wie HTTP-Header) bestimmt. Für andere Dokumenttypen können es andere Methoden zur Bestimmung der Sprache geben.
+> In HTML wird die Sprache durch eine Kombination aus dem [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut, dem {{HTMLElement("meta")}}-Element und möglicherweise durch Informationen aus dem Protokoll (wie HTTP-Header) bestimmt. Für andere Dokumenttypen können andere Dokumentmethoden zur Bestimmung der Sprache verwendet werden.
 
 ## Syntax
 
@@ -41,19 +41,18 @@ Die **`:lang()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Refere
 ### Parameter
 
 - `<language-code>`
-  - : Eine kommagetrennte Liste von einem oder mehreren {{cssxref("&lt;string&gt;")}}s, die Elemente basierend auf den in ihren [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributen gesetzten {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtags")}} anvisieren.
-    Das Matching von Sprachbereichen ist nicht sensitiv gegenüber Groß- und Kleinschreibung.
+  - : Eine kommaseparierte Liste von einem oder mehreren {{cssxref("&lt;string&gt;")}}s, die Elemente basierend auf den {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tags")}} selektieren, die in ihren [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributen gesetzt sind. Das Matching nach Sprachbereich ist nicht von der Groß- und Kleinschreibung abhängig.
 
 ## Beschreibung
 
-Beim Auswählen von Sprachen gibt es ein implizites Wildcard-Matching, sodass `:lang(de-DE)` zu `de-DE`, `de-DE-1996`, `de-Latn-DE`, `de-Latf-DE` und `de-Latn-DE-1996` passt.
+Bei der Auswahl von Sprachen gibt es ein implizites Wildcard-Matching, sodass `:lang(de-DE)` mit `de-DE`, `de-DE-1996`, `de-Latn-DE`, `de-Latf-DE` und `de-Latn-DE-1996` übereinstimmt.
 Das explizite Verwenden von Wildcards muss eine vollständige Übereinstimmung eines Sprachsubtags beinhalten, sodass `:lang("*-F*")` ungültig ist, aber `:lang("*-Fr")` gültig ist.
 
 ## Beispiele
 
-### Übereinstimmung von Kindern einer gegebenen Sprache
+### Übereinstimmung von untergeordneten Elementen einer bestimmten Sprache
 
-In diesem Beispiel wird die `:lang()` Pseudoklasse verwendet, um die Eltern von Zitat-Elementen ({{htmlElement("q")}}) mit [Kindkombinatoren](/de/docs/Web/CSS/Reference/Selectors/Child_combinator) zu markieren. Beachten Sie, dass dies nicht die einzige Möglichkeit ist und dass die beste Methode je nach Dokumenttyp variiert. Beachten Sie auch, dass {{Glossary("Unicode", "Unicode")}}-Werte verwendet werden, um einige der speziellen Anführungszeichen zu spezifizieren.
+In diesem Beispiel wird die `:lang()` Pseudoklasse verwendet, um die Eltern von Zitatelementen ({{htmlElement("q")}}) mithilfe von [Kindkombinatoren](/de/docs/Web/CSS/Reference/Selectors/Child_combinator) zu selektieren. Beachten Sie, dass dies nicht die einzige Methode ist, dies zu tun, und dass die beste Methode von der Art des Dokuments abhängt. Beachten Sie auch, dass {{Glossary("Unicode", "Unicode")}}-Werte verwendet werden, um einige der speziellen Anführungszeichen zu spezifizieren.
 
 #### HTML
 
@@ -89,8 +88,7 @@ In diesem Beispiel wird die `:lang()` Pseudoklasse verwendet, um die Eltern von 
 
 ### Übereinstimmung mehrerer Sprachen
 
-Das folgende Beispiel zeigt, wie man durch Bereitstellung einer kommagetrennten Liste von Sprachcodes mehrere Sprachen auswählen kann.
-Es ist auch möglich, ein Wildcard zu verwenden, um Sprachen in einem gegebenen Sprachbereich auszuwählen.
+Das folgende Beispiel zeigt, wie man mehrere Sprachen anhand einer kommaseparierten Liste von Sprachcodes selektiert. Es ist auch möglich, ein Wildcard zu verwenden, um Sprachen in einem bestimmten Sprachbereich zu selektieren.
 
 ```css hidden
 p {
@@ -142,7 +140,7 @@ p {
 
 ## Siehe auch
 
-- Die {{cssxref(":dir")}} Pseudoklasse, die nach Textausrichtung auswählt
+- Die {{cssxref(":dir")}} Pseudoklasse, die nach Textausrichtung selektiert
 - HTML [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attribut
 - HTML [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate) Attribut
-- {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}}
+- {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}
