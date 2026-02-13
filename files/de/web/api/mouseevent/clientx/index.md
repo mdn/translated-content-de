@@ -1,20 +1,20 @@
 ---
-title: "MouseEvent: clientX Eigenschaft"
+title: "MouseEvent: clientX-Eigenschaft"
 short-title: clientX
 slug: Web/API/MouseEvent/clientX
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte **`clientX`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate innerhalb des Anwendungs-{{Glossary("viewport", "Viewports")}}, an der das Ereignis auftrat (im Gegensatz zur Koordinate innerhalb der Seite).
+Die schreibgeschützte **`clientX`**-Eigenschaft der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle liefert die horizontale Koordinate innerhalb des {{Glossary("viewport", "Anwendungs-Viewports")}}, an der das Ereignis auftrat (im Gegensatz zur Koordinate innerhalb der gesamten Seite).
 
-Beispielsweise wird ein Klick auf den linken Rand des Viewports immer ein Mausereignis mit einem `clientX`-Wert von `0` ergeben, unabhängig davon, ob die Seite horizontal gescrollt wurde oder nicht.
+Wenn Sie beispielsweise auf den linken Rand des Viewports klicken, ergibt das immer ein Mausereignis mit einem `clientX`-Wert von `0`, unabhängig davon, ob die Seite horizontal gescrollt wird.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double`-Fließkommawert in Pixeln.
 
 ## Beispiele
 

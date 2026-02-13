@@ -3,12 +3,12 @@ title: "HTMLGeolocationElement: HTMLGeolocationElement() Konstruktor"
 short-title: HTMLGeolocationElement()
 slug: Web/API/HTMLGeolocationElement/HTMLGeolocationElement
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Der **`HTMLGeolocationElement()`**-Konstruktor erstellt eine neue Instanz des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Objekts.
+Der **`HTMLGeolocationElement()`** Konstruktor erstellt eine neue [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Objektinstanz.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Instanz des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Objekts, wenn intern vom Browser verwendet.
+Eine neue [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Objektinstanz, wenn sie intern vom Browser verwendet wird.
 
-Entwickler können den `HTMLGeolocationElement()`-Konstruktor nicht direkt verwenden, um eine neue `HTMLGeolocationElement`-Instanz zu erstellen: Ein Versuch führt zu einem Fehler "illegaler Konstruktor".
+Entwickler können den `HTMLGeolocationElement()`-Konstruktor nicht direkt verwenden, um eine neue `HTMLGeolocationElement`-Instanz zu erstellen: Ein solcher Versuch führt zu einem "illegalen Konstruktor"-Fehler.
 
 ### Beispiele
 
 #### Programmatische Erstellung einer neuen `HTMLGeolocationElement`-Instanz
 
-Um programmgesteuert eine neue `HTMLGeolocationElement`-Instanz zu erstellen, anstatt zu versuchen, den Konstruktor direkt zu verwenden, erstellen Sie eine neue {{htmlelement("geolocation")}}-Elementinstanz mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement):
+Um programmatisch eine neue `HTMLGeolocationElement`-Instanz zu erstellen, statt direkt den Konstruktor zu verwenden, sollten Sie eine neue {{htmlelement("geolocation")}}-Elementinstanz mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) erstellen:
 
 ```js
 const geo = document.createElement("geolocation");
 ```
 
-Sie können es dann verwenden, indem Sie es an den DOM anhängen:
+Sie können diese dann verwenden, indem Sie sie dem DOM anhängen:
 
 ```js
 document.body.append(geo);
@@ -52,4 +52,4 @@ document.body.append(geo);
 
 ## Siehe auch
 
-- {{htmlelement("geolocation")}}-Element
+- {{htmlelement("geolocation")}} Element

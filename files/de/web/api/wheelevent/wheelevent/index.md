@@ -3,16 +3,16 @@ title: "WheelEvent: WheelEvent() Konstruktor"
 short-title: WheelEvent()
 slug: Web/API/WheelEvent/WheelEvent
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Der **`WheelEvent()`** Konstruktor gibt ein neues [`WheelEvent`](/de/docs/Web/API/WheelEvent) Objekt zurück.
+Der **`WheelEvent()`** Konstruktor gibt ein neues [`WheelEvent`](/de/docs/Web/API/WheelEvent)-Objekt zurück.
 
 > [!NOTE]
-> Wenn Sie ein synthetisches Ereignis mit diesem Konstruktor erstellen, wird dieses Ereignis aus Sicherheitsgründen nicht als _vertrauenswürdig_ angesehen.
-> Nur vom Browser generierte `WheelEvent` Objekte sind vertrauenswürdig und nur vertrauenswürdige Ereignisse lösen Standardaktionen aus.
+> Wenn Sie ein synthetisches Ereignis mit diesem Konstruktor erstellen, wird dieses Ereignis aus Sicherheitsgründen nicht _vertraut_ sein.
+> Nur vom Browser generierte `WheelEvent`-Objekte sind vertrauenswürdig und nur vertrauenswürdige Ereignisse lösen Standardaktionen aus.
 
 ## Syntax
 
@@ -25,20 +25,20 @@ new WheelEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn immer auf `wheel`.
+    Er ist case-sensitiv und Browser setzen ihn immer auf `wheel`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das _zusätzlich zu den in [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `deltaX` {{optional_inline}}
-      - : Eine Fließkommazahl, die die horizontale Scrollmenge in der Einheit `deltaMode` darstellt.
-        Der Standardwert ist `0.0`.
+      - : Eine Gleitkommazahl, die die horizontale Scrollmenge in der `deltaMode`-Einheit darstellt.
+        Sie hat standardmäßig den Wert `0.0`.
     - `deltaY` {{optional_inline}}
-      - : Eine Fließkommazahl, die die vertikale Scrollmenge in der Einheit `deltaMode` darstellt.
-        Der Standardwert ist `0.0`.
+      - : Eine Gleitkommazahl, die die vertikale Scrollmenge in der `deltaMode`-Einheit darstellt.
+        Sie hat standardmäßig den Wert `0.0`.
     - `deltaZ` {{optional_inline}}
-      - : Eine Fließkommazahl, die die Scrollmenge für die z-Achse in der Einheit `deltaMode` darstellt.
-        Der Standardwert ist `0.0`.
+      - : Eine Gleitkommazahl, die die Scrollmenge für die z-Achse in der `deltaMode`-Einheit darstellt.
+        Sie hat standardmäßig den Wert `0.0`.
     - `deltaMode` {{optional_inline}}
-      - : Ein Integer, der die Einheit der Delta-Werte Scrollmenge darstellt. Der Standardwert ist `0x00`. Erlaubte Werte sind:
+      - : Ein Integer, der die Einheit der Delta-Werte für die Scrollmenge darstellt. Er hat standardmäßig den Wert `0x00`. Erlaubte Werte sind:
 
         | Konstante         | Wert   | Beschreibung                              |
         | ----------------- | ------ | ----------------------------------------- |
@@ -48,7 +48,7 @@ new WheelEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues [`WheelEvent`](/de/docs/Web/API/WheelEvent) Objekt.
+Ein neues [`WheelEvent`](/de/docs/Web/API/WheelEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -60,4 +60,4 @@ Ein neues [`WheelEvent`](/de/docs/Web/API/WheelEvent) Objekt.
 
 ## Siehe auch
 
-- Das [`WheelEvent`](/de/docs/Web/API/WheelEvent) Interface, zu dem es gehört.
+- Das [`WheelEvent`](/de/docs/Web/API/WheelEvent)-Interface, zu dem es gehört.

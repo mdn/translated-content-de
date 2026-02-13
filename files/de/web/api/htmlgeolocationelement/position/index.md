@@ -3,20 +3,20 @@ title: "HTMLGeolocationElement: position-Eigenschaft"
 short-title: position
 slug: Web/API/HTMLGeolocationElement/position
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("Navigation API")}}
+{{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`position`**-Eigenschaft des schreibgeschützten [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces gibt ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt zurück, das die Position des Benutzers bei erfolgreichem Abruf von Standortdaten darstellt.
+Die **`position`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt zurückgibt, das die Position des Benutzers darstellt, wenn die Standortdaten erfolgreich abgerufen wurden.
 
-Die abgerufene Position kann aktuell oder nicht aktuell sein. Die Position des Benutzers wird nur einmal abgerufen, wenn die Schaltfläche des `<geolocation>`-Elements gedrückt wird, es sei denn, Sie setzen das [`watch`](/de/docs/Web/HTML/Reference/Elements/geolocation#watch)-Attribut auf `true`. In diesem Fall wird eine neue Position jedes Mal abgerufen, wenn sich das Gerät des Benutzers bewegt. Um die aktuelle Position des Benutzers zu lesen, sollten Sie die `position`-Eigenschaft in Reaktion auf das Auslösen des [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Ereignisses ablesen.
+Die abgerufene Position kann aktuell sein oder nicht. Die Position des Benutzers wird nur einmal ermittelt, wenn die Steuerungstaste des `<geolocation>`-Elements gedrückt wird, es sei denn, Sie setzen das [`watch`](/de/docs/Web/HTML/Reference/Elements/geolocation#watch)-Attribut auf `true`. In diesem Fall wird jedes Mal, wenn sich das Gerät des Benutzers bewegt, eine neue Position abgerufen. Um die aktuelle Position des Benutzers abzurufen, sollten Sie die `position`-Eigenschaft als Antwort auf das [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Ereignis lesen.
 
-Wenn der Abruf von Standortdaten scheitert, sind die zugehörigen Fehlermeldungen in der [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft verfügbar.
+Wenn das Abrufen der Standortdaten fehlschlägt, werden die zugehörigen Fehlerinformationen in der [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft verfügbar sein.
 
 ## Wert
 
-Ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt oder `null`, wenn der Abruf von Standortdaten gescheitert ist oder die Daten noch nicht abgerufen wurden.
+Ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt oder `null`, falls das Abrufen der Standortdaten fehlgeschlagen ist oder die Daten noch nicht abgerufen wurden.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ geo.addEventListener("location", () => {
 });
 ```
 
-Sehen Sie sich unser [Beispiel zu eingebetteten Karten](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein praxisnahes Beispiel an, das `position` umfasst.
+Sehen Sie sich unser [Einbetten von Karten-Beispiel](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein praktisches Beispiel an, das `position` enthält.
 
 ## Spezifikationen
 
@@ -51,4 +51,4 @@ Sehen Sie sich unser [Beispiel zu eingebetteten Karten](/de/docs/Web/API/HTMLGeo
 
 ## Siehe auch
 
-- {{htmlelement("geolocation")}} Element
+- {{htmlelement("geolocation")}}-Element

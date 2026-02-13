@@ -3,16 +3,16 @@ title: "WheelEvent: deltaX-Eigenschaft"
 short-title: deltaX
 slug: Web/API/WheelEvent/deltaX
 l10n:
-  sourceCommit: 18b603d31ce0b840b1e9347c77e09ef376addbb4
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die **`WheelEvent.deltaX`** Lese-Eigenschaft ist ein
-`double`, das die horizontale Scrollmenge in der Einheit von
-[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode) darstellt.
+Die **`WheelEvent.deltaX`**-Eigenschaft ist eine
+schreibgeschützte Eigenschaft vom Typ `double`, die den horizontalen Bildlaufbetrag in der
+[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode)-Einheit darstellt.
 
-Sie müssen die `deltaMode`-Eigenschaft überprüfen, um die Einheit des `deltaX`-Wertes zu bestimmen. Gehen Sie nicht davon aus, dass der `deltaX`-Wert in Pixeln angegeben ist. Einige Browser können aus Kompatibilitätsgründen unterschiedliche Einheiten für den `deltaX`-Wert zurückgeben, abhängig davon, ob `deltaMode` abgerufen wurde, um Websites zu entsprechen, die die `deltaMode`-Eigenschaft nicht explizit überprüfen.
+Es ist notwendig, die `deltaMode`-Eigenschaft zu überprüfen, um die Einheit des `deltaX`-Wertes zu bestimmen. Gehen Sie nicht davon aus, dass der `deltaX`-Wert in Pixeln angegeben ist. Einige Browser können aus Kompatibilitätsgründen unterschiedliche Einheiten für den `deltaX`-Wert zurückgeben, abhängig davon, ob `deltaMode` aufgerufen wurde, um Websites zu unterstützen, die die `deltaMode`-Eigenschaft nicht explizit überprüfen.
 
 ## Wert
 

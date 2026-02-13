@@ -3,18 +3,18 @@ title: "MouseEvent: layerY-Eigenschaft"
 short-title: layerY
 slug: Web/API/MouseEvent/layerY
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}{{Non-standard_Header}}
+{{APIRef("Pointer Events")}}{{Non-standard_Header}}
 
 Die schreibgeschützte **`MouseEvent.layerY`**-Eigenschaft gibt die vertikale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
 
-Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf, in dem der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements ist.
+Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf, in welchem Fall der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements ist.
 
 ## Wert
 
-Ein ganzzahliger Wert in Pixeln für die y-Koordinate des Mauszeigers, als das Mausereignis ausgelöst wurde.
+Ein Ganzzahlwert in Pixeln für die y-Koordinate des Mauszeigers, wenn das Mausereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -97,7 +97,7 @@ window.addEventListener("mousedown", showCoords);
 
 ## Spezifikationen
 
-_Diese Eigenschaft ist nicht Teil einer Spezifikation._
+_Diese Eigenschaft ist Teil keiner Spezifikation._
 
 ## Browser-Kompatibilität
 

@@ -3,29 +3,29 @@ title: "HTMLGeolocationElement: autolocate-Eigenschaft"
 short-title: autolocate
 slug: Web/API/HTMLGeolocationElement/autolocate
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("Navigation API")}}
+{{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`autolocate`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces ruft einen booleschen Wert ab und setzt diesen, der angibt, ob der Browser die Standortdaten sofort anfordern soll, wenn das {{htmlelement("geolocation")}}-Element gerendert wird, vorausgesetzt, die Erlaubnis zur Nutzung der `geolocation`-Funktion wurde bereits erteilt.
+Die **`autolocate`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces liest und setzt einen booleschen Wert, der anzeigt, ob der Browser die Standortdaten sofort anfordern soll, wenn das {{htmlelement("geolocation")}}-Element gerendert wird, vorausgesetzt, die Berechtigung zur Nutzung der `geolocation`-Funktion wurde bereits erteilt.
 
-Sie spiegelt den Wert des `<geolocation>`-[`autolocate`](/de/docs/Web/HTML/Reference/Elements/geolocation#autolocate)-Attributs wider.
+Sie spiegelt den Wert des [`autolocate`](/de/docs/Web/HTML/Reference/Elements/geolocation#autolocate)-Attributs des `<geolocation>`-Elements wider.
 
 ## Wert
 
 Ein boolescher Wert:
 
-- Wenn `true`, werden Standortdaten sofort abgefragt, sobald das `<geolocation>`-Element gerendert wird, vorausgesetzt, die Erlaubnis zur Nutzung der `geolocation`-Funktion wurde bereits erteilt.
-- Wenn `false`, werden Standortdaten nur angefordert, wenn der Benutzer die `<geolocation>`-Taste drückt.
+- Wenn `true`, werden Standortdaten sofort angefordert, sobald das `<geolocation>`-Element gerendert wird, vorausgesetzt, die Berechtigung zur Nutzung der `geolocation`-Funktion wurde zuvor erteilt.
+- Wenn `false`, werden Standortdaten nur angefordert, wenn der Benutzer den `<geolocation>`-Button drückt.
 
-Standardmäßig ist der Wert `false`.
+Standardwert ist `false`.
 
-Wenn die Erlaubnis zur Nutzung der `geolocation`-Funktion nicht zuvor erteilt wurde, wird die `autolocate`-Eigenschaft ignoriert.
+Wenn die Berechtigung zur Nutzung der `geolocation`-Funktion zuvor nicht erteilt wurde, wird die `autolocate`-Eigenschaft ignoriert.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```html
 <geolocation autolocate></geolocation>
@@ -36,7 +36,7 @@ const geo = document.querySelector("geolocation");
 console.log(geo.autolocate); // true
 ```
 
-Siehe unser [Beispiel zum eingebetteten Karten-Durchgang](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein Praxisbeispiel, das `autolocate` umfasst.
+Siehe unser [Einbettungsbeispiel mit Karte](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein Praxisbeispiel, das `autolocate` enthält.
 
 ## Spezifikationen
 

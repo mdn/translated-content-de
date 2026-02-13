@@ -3,19 +3,18 @@ title: "MouseEvent: pageY-Eigenschaft"
 short-title: pageY
 slug: Web/API/MouseEvent/pageY
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die **`pageY`**-Eigenschaft aus der Schnittstelle [`MouseEvent`](/de/docs/Web/API/MouseEvent) gibt die Y (vertikale) Koordinate (in Pixel) zurück, an der die Maus relativ zur oberen Kante des gesamten Dokuments geklickt wurde.
-Dies schließt jeden Teil des Dokuments ein, der momentan nicht sichtbar ist.
+Die **`pageY`**-Schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces gibt die Y-Koordinate (vertikal) in Pixeln zurück, an der die Maus relativ zum oberen Rand des gesamten Dokuments geklickt wurde. Dies schließt alle Teile des Dokuments ein, die derzeit nicht sichtbar sind.
 
 Siehe [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) für weitere Informationen.
 
 ## Wert
 
-Ein `double` Gleitkommawert in Pixel.
+Ein `double`-Gleitkommawert in Pixeln.
 
 ## Spezifikationen
 

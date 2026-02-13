@@ -3,22 +3,22 @@ title: "MouseEvent: screenY-Eigenschaft"
 short-title: screenY
 slug: Web/API/MouseEvent/screenY
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die **`screenY`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces ist eine schreibgeschützte Eigenschaft, die die vertikale Koordinate (den Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#screen) angibt.
+Die **`screenY`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate (Versatz) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#screen).
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixel.
+Ein `double` Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als Integer, der die Anzahl der Pixel angibt.
+Frühere Versionen der Spezifikation definierten dies als eine Ganzzahl, die sich auf die Anzahl der Pixel bezieht.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 

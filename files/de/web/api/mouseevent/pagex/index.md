@@ -3,36 +3,32 @@ title: "MouseEvent: pageX-Eigenschaft"
 short-title: pageX
 slug: Web/API/MouseEvent/pageX
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte **`pageX`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces gibt die X-Koordinate (horizontal) in Pixeln zurück, an der die Maus geklickt wurde, relativ zur linken Kante des gesamten Dokuments.
-Dies schließt jeden Teil des Dokuments ein, der momentan nicht sichtbar ist.
+Die **`pageX`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent) Interfaces gibt die X-Koordinate (horizontal) in Pixeln zurück, an der die Maus relativ zur linken Kante des gesamten Dokuments geklickt wurde. Dies schließt alle Teile des Dokuments ein, die derzeit nicht sichtbar sind.
 
-Da sich diese Eigenschaft auf die Kante des Dokuments bezieht, berücksichtigt sie jegliches horizontale Scrollen der Seite.
-Beispielsweise, wenn die Seite so gescrollt ist, dass 200 Pixel von der linken Seite des Dokuments aus dem Blickfeld gescrollt sind und die Maus 100 Pixel von der linken Kante des Sichtfensters nach innen geklickt wird, wird der von `pageX` zurückgegebene Wert 300 sein.
+Da diese Eigenschaft basierend auf der Kante des Dokuments definiert ist, berücksichtigt sie jeden horizontalen Bildlauf der Seite. Beispielsweise, wenn die Seite so gescrollt wird, dass 200 Pixel der linken Seite des Dokuments aus dem Sichtfeld herausgeschoben werden, und die Maus 100 Pixel von der linken Kante des Blickfelds nach innen geklickt wird, gibt der von `pageX` zurückgegebene Wert 300 sein.
 
-Ursprünglich wurde diese Eigenschaft als `long`-Integer definiert. Das [CSSOM View Module](/de/docs/Web/CSS/Guides/CSSOM_view) hat sie als `double`-Float neu definiert. Details finden Sie im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+Ursprünglich wurde diese Eigenschaft als `long`-Integer definiert. Das [CSSOM View Modul](/de/docs/Web/CSS/Guides/CSSOM_view) hat es neu als `double`-Fließkommazahl definiert. Siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
-Siehe [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#page) für zusätzliche Informationen zu auf diese Weise angegebenen Koordinaten.
+Siehe [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#page) für zusätzliche Informationen zu in dieser Weise angegebenen Koordinaten.
 
 ## Wert
 
-Eine `double`-Gleitkommazahl in Pixeln von der linken Kante des _Dokuments_, an der die Maus geklickt wurde, unabhängig davon, ob ein Scrollen oder eine Positionierung des Ansichtsfensters stattfindet.
+Eine `double`-Fließkommazahl von Pixeln von der linken Kante des _Dokuments_, an der die Maus geklickt wurde, unabhängig von jeglichem Scrollen oder der Positionierung des Viewports, die möglicherweise in Kraft sind.
 
-Diese Eigenschaft wurde ursprünglich in der Touch Events-Spezifikation als Long-Integer spezifiziert, aber im CSSOM View Module als Gleitkommazahl mit doppelter Genauigkeit neu definiert, um Subpixel-Präzision zu ermöglichen.
-Obwohl beide numerischen Typen in JavaScript durch `Number` dargestellt werden, können sie intern im Code des Browsers unterschiedlich verarbeitet werden, was zu möglichen Verhaltensunterschieden führen kann.
+Diese Eigenschaft wurde ursprünglich in der Touch Events Spezifikation als long Integer spezifiziert, aber im CSSOM View Modul neu definiert, um eine doppelte Genauigkeit der Fließkommazahl zu ermöglichen, um Präzision im Subpixelbereich zu erlauben. Auch wenn numerische Typen beide in JavaScript durch `Number` dargestellt werden, können sie intern im Browsercode unterschiedlich behandelt werden, was zu potenziellen Verhaltensunterschieden führt.
 
-Sehen Sie [Browser-Kompatibilität](#browser-kompatibilität), um zu erfahren, welche Browser aktualisiert wurden, um den überarbeiteten Datentyp zu verwenden.
+Siehe [Browser-Kompatibilität](#browser-kompatibilität), um zu erfahren, welche Browser aktualisiert wurden, um den überarbeiteten Datentyp zu verwenden.
 
 ## Beispiele
 
-### Anzeigen der Mausposition relativ zum Seitenursprung
+### Anzeige der Mausposition relativ zum Seitenursprung
 
-Lassen Sie uns ein Beispiel betrachten, das die Mausposition relativ zum Seitenursprung zeigt.
-Da dieses Beispiel in einem {{HTMLElement("iframe")}} präsentiert wird, ist diese obere linke Ecke die obere linke Ecke des Rahmens, nicht des Browserfensters.
+Schauen wir uns ein Beispiel an, das die Position der Maus relativ zum Ursprung der Seite zeigt. Da dieses Beispiel in einem {{HTMLElement("iframe")}} präsentiert wird, ist diese obere linke Ecke die obere linke Ecke des Rahmens, nicht das Browserfenster.
 
 #### HTML
 
@@ -44,13 +40,11 @@ Da dieses Beispiel in einem {{HTMLElement("iframe")}} präsentiert wird, ist die
 </div>
 ```
 
-Das HTML ist einfach; die Box, auf der wir Mausereignisse überwachen werden, hat die Klasse `"box"`.
-Sie enthält zwei `<span>`-Elemente, eines mit der ID `"x"` und eines mit der ID `"y"`.
-Diese werden jedes Mal, wenn ein Ereignis eintritt, aktualisiert, um die neuesten Mauskoordinaten relativ zur Seite zu enthalten.
+Das HTML ist einfach; das Feld, auf das wir Mausereignisse überwachen, hat die Klasse `"box"`. Es gibt zwei `<span>` Elemente, eines mit der ID `"x"` und eines mit der ID `"y"`. Diese werden jedes Mal aktualisiert, wenn ein Ereignis auftritt, um die neuesten Mauskoordinaten relativ zur Seite zu enthalten.
 
 #### CSS
 
-Das in diesem Beispiel verwendete CSS wird unten gezeigt.
+Das für dieses Beispiel verwendete CSS wird unten gezeigt.
 
 ```css
 .box {
@@ -85,11 +79,11 @@ box.addEventListener("mouseenter", updateDisplay);
 box.addEventListener("mouseleave", updateDisplay);
 ```
 
-Der JavaScript-Code verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um die Funktion `updateDisplay()` als Ereignishandler für die Ereignisse [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event) und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) zu registrieren.
+Der JavaScript-Code verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um die Funktion `updateDisplay()` als Ereignis-Handler für die [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event) und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event) Ereignisse zu registrieren.
 
-`updateDisplay()` ersetzt den Inhalt der {{HTMLElement("span")}}-Elemente, die die X- und Y-Koordinaten enthalten sollen, durch die Werte von `pageX` und [`pageY`](/de/docs/Web/API/MouseEvent/pageY).
+`updateDisplay()` ersetzt den Inhalt der {{HTMLElement("span")}} Elemente, die die X- und Y-Koordinaten enthalten sollen, durch die Werte von `pageX` und [`pageY`](/de/docs/Web/API/MouseEvent/pageY).
 
-#### Ergebnis
+#### Resultat
 
 Probieren Sie es hier aus:
 
@@ -97,13 +91,13 @@ Probieren Sie es hier aus:
 
 ### Weitere Beispiele
 
-Sie können auch ein Beispiel sehen, das zeigt, [wie Sie auf die Mausposition zugreifen](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#example), die in jedem verfügbaren Koordinatensysteminformationen bereitgestellt wird.
+Sie können auch ein Beispiel sehen, das demonstriert, [wie Sie auf die Mauspositionsinformationen zugreifen](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#example) in jedem verfügbaren Koordinatensystem.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-Bevor `pageX` und `pageY` zur CSSOM View-Spezifikation hinzugefügt wurden, waren sie auf der [`UIEvent`](/de/docs/Web/API/UIEvent)-Schnittstelle in einem begrenzten Satz von Browsern für kurze Zeit verfügbar.
+Bevor es zur CSSOM View Spezifikation hinzugefügt wurde, waren `pageX` und `pageY` auf der [`UIEvent`](/de/docs/Web/API/UIEvent) Schnittstelle in einem begrenzten Subset von Browsern für eine kurze Zeit verfügbar.
 
 ## Browser-Kompatibilität
 

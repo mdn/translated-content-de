@@ -3,16 +3,16 @@ title: "MouseEvent: shiftKey-Eigenschaft"
 short-title: shiftKey
 slug: Web/API/MouseEvent/shiftKey
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Shift</kbd>-Taste gedrückt wurde oder nicht, wenn ein bestimmtes Mausereignis auftritt.
+Die schreibgeschützte Eigenschaft **`MouseEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>shift</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
 
 ## Wert
 
-Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 

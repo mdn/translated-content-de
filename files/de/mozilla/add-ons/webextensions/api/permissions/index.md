@@ -2,54 +2,54 @@
 title: permissions
 slug: Mozilla/Add-ons/WebExtensions/API/permissions
 l10n:
-  sourceCommit: aa2535b8d83223b53fe57bb0c3daaf1c6851d781
+  sourceCommit: 04ce026af7b7b9216c29222d586c48905e6b33c3
 ---
 
-Ermöglicht Erweiterungen, zusätzliche Berechtigungen zur Laufzeit anzufordern, nachdem sie installiert wurden.
+Ermöglicht es Erweiterungen, zur Laufzeit nach zusätzlichen Berechtigungen zu fragen, nachdem sie installiert wurden.
 
-Erweiterungen benötigen Berechtigungen, um auf leistungsstärkere WebExtension-APIs zuzugreifen. Sie können beim Installieren Berechtigungen anfordern, indem sie diese in das [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) manifest.json-Schlüssel einfügen. Die Hauptvorteile, Berechtigungen beim Installieren anzufordern, sind:
+Erweiterungen benötigen Berechtigungen, um auf leistungsstärkere WebExtension-APIs zugreifen zu können. Sie können zur Installationszeit Berechtigungen anfordern, indem sie diese im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) manifest.json Schlüssel angeben. Die Hauptvorteile, um bei der Installation nach Berechtigungen zu fragen, sind:
 
-- Die Erweiterung fragt den Benutzer nur einmal, was weniger störend und eine einfachere Entscheidung für den Benutzer ist.
-- Die Erweiterung kann sich auf den Zugriff auf die benötigten APIs verlassen, da sie weiß, dass die Berechtigungen erteilt sind.
+- Die Erweiterung fragt den Benutzer nur einmal, was für ihn weniger störend ist und eine einfachere Entscheidung darstellt.
+- Die Erweiterung kann sich auf den Zugang zu den benötigten APIs verlassen, da sie weiß, dass die Berechtigungen erteilt wurden.
 
-In den meisten großen Browsern können Benutzer durch den Erweiterungs-Manager des Browsers sehen, ob installierte Erweiterungen erweiterte Berechtigungen anfordern.
+In den meisten großen Browsern können Benutzer im Erweiterungsmanager des Browsers sehen, ob installierte Erweiterungen erweiterte Berechtigungen anfordern.
 
-Mit der Permissions-API kann eine Erweiterung zur Laufzeit zusätzliche Berechtigungen anfordern. Die Erweiterung muss diese Berechtigungen in
+Durch die Verwendung der permissions API kann eine Erweiterung zur Laufzeit zusätzliche Berechtigungen anfordern. Die Erweiterung muss diese Berechtigungen auflisten in
 
-- dem [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions)-Schlüssel ihrer manifest.json-Datei für Ursprünge und API-Berechtigungen auflisten.
-- der [`gecko.data_collection_permissions.optional`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#optional)-Eigenschaft des `browser_specific_settings`-Schlüssels ihrer manifest.json-Datei für Datensammlungsberechtigungen auflisten.
+- dem [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Schlüssel ihrer manifest.json Datei für Ursprünge und API-Berechtigungen.
+- der [`gecko.data_collection_permissions.optional`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#optional) Eigenschaft des `browser_specific_settings` Schlüssels ihrer manifest.json Datei für Daten-Sammelberechtigungen.
 
-Die Hauptvorteile, Berechtigungen zur Laufzeit anzufordern, sind:
+Die Hauptvorteile, um zur Laufzeit nach Berechtigungen zu fragen, sind:
 
-- Die Erweiterung kann mit einem kleineren Satz von Berechtigungen laufen, es sei denn, sie benötigt sie.
-- Die Erweiterung kann eine Ablehnung von Berechtigungen elegant handhaben, anstatt den Benutzer mit einer globalen „Alles oder Nichts“-Entscheidung beim Installieren zu konfrontieren. Zum Beispiel kann ein Benutzer viel von einer Karten-Erweiterung profitieren, ohne ihr Zugriff auf seinen Standort zu geben.
-- Die Erweiterung kann [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, weiß jedoch beim Installieren nicht, welche Host-Berechtigungen sie benötigt. Zum Beispiel könnte die Liste der Hosts eine Benutzereinstellung sein. In diesem Szenario kann das Anfordern eines spezifischeren Bereichs von Hosts zur Laufzeit eine Alternative zum Anfordern von "\<all_urls>" beim Installieren sein.
+- Die Erweiterung kann mit einem kleineren Satz von Berechtigungen laufen, außer wenn sie diese benötigt.
+- Die Erweiterung kann die Ablehnung einer Berechtigung elegant behandeln, anstatt dem Benutzer bei der Installation eine globale „Alles oder Nichts“-Entscheidung zu präsentieren. Zum Beispiel kann ein Benutzer viel aus dieser Karten-Erweiterung herausholen, ohne ihr Zugriff auf ihren Standort zu gewähren.
+- Die Erweiterung benötigt möglicherweise [host permissions](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), weiß jedoch zur Installationszeit nicht, welche Host-Berechtigungen sie benötigt. Zum Beispiel kann die Liste der Hosts eine Benutzereinstellung sein. In diesem Szenario kann es eine Alternative sein, zur Laufzeit nach einem spezifischeren Bereich von Hosts zu fragen, anstatt bei der Installation nach "\<all_urls>" zu fragen.
 
-Beachten Sie, dass einige Berechtigungen in `optional_permissions` nicht erlaubt sind.
+Beachten Sie, dass einige Berechtigungen nicht in `optional_permissions` erlaubt sind.
 
-Um die Permissions-API zu verwenden, entscheiden Sie, welche Berechtigungen Ihre Erweiterung zur Laufzeit anfordern kann, und listen Sie sie in [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) und [`browser_specific_settings.gecko.data_collection_permissions.optional`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#optional) auf. Danach können Sie alle in `optional_permissions` oder `browser_specific_settings.gecko.data_collection_permissions.optional` enthaltenen Berechtigungen anfordern. Die Erweiterung kann diese Anforderungen nur im Handler für eine Benutzeraktion stellen (zum Beispiel ein Klick-Handler).
+Um die permissions API zu verwenden, entscheiden Sie, welche Berechtigungen Ihre Erweiterung zur Laufzeit anfordern kann, und listen Sie sie in [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) und [`browser_specific_settings.gecko.data_collection_permissions.optional`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#optional) auf. Danach können Sie um alle Berechtigungen bitten, die in `optional_permissions` oder `browser_specific_settings.gecko.data_collection_permissions.optional` enthalten sind. Die Erweiterung kann diese Anfragen nur im Handler für eine Benutzeraktion machen (zum Beispiel in einem Klick-Handler).
 
-Ab Firefox 84 können Benutzer optionale Berechtigungen installierter Erweiterungen im Add-ons-Manager verwalten. Erweiterungen, die optionale Berechtigungen verwenden, sollten API-Ereignisse wie [browser.permissions.onAdded](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onAdded) und [browser.permissions.onRemoved](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onRemoved) überwachen, um zu wissen, wann ein Benutzer diese Berechtigungen erteilt oder widerruft.
+Ab Firefox 84 können Benutzer die optionalen Berechtigungen installierter Erweiterungen über den Add-ons-Manager verwalten. Erweiterungen, die optionale Berechtigungen verwenden, sollten auf die [browser.permissions.onAdded](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onAdded) und [browser.permissions.onRemoved](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onRemoved) API-Ereignisse achten, um zu wissen, wann ein Benutzer diese Berechtigungen erteilt oder widerruft.
 
-Für Ratschläge zur Gestaltung Ihrer Anfrage nach Laufzeitberechtigungen, um die Wahrscheinlichkeit zu maximieren, dass Benutzer diese erteilen, siehe [Anfrage von Berechtigungen zur Laufzeit](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/#request_permissions_at_runtime).
+Für Ratschläge zur Gestaltung Ihrer Anfrage nach Laufzeitberechtigungen, um die Wahrscheinlichkeit zu maximieren, dass Benutzer diese gewähren, siehe [Request permissions at runtime](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/#request_permissions_at_runtime).
 
 ## Typen
 
 - {{WebExtAPIRef("permissions.Permissions")}}
-  - : Repräsentiert eine Menge von Berechtigungen.
+  - : Repräsentiert einen Satz von Berechtigungen.
 
 ## Methoden
 
 - {{WebExtAPIRef("permissions.contains()")}}
-  - : Überprüft, ob die Erweiterung bestimmte Berechtigungen hat.
+  - : Prüft, ob die Erweiterung spezifische Berechtigungen hat.
 - {{WebExtAPIRef("permissions.getAll()")}}
-  - : Ruft alle der Erweiterung derzeit gewährten Berechtigungen ab.
+  - : Ruft alle derzeit der Erweiterung gewährten Berechtigungen ab.
 - {{WebExtAPIRef("permissions.remove()")}}
   - : Gibt einen Satz von Berechtigungen auf.
 - {{WebExtAPIRef("permissions.request()")}}
-  - : Fragt einen Satz von Berechtigungen an.
+  - : Fragt nach einem Satz von Berechtigungen.
 
-## Ereignishandler
+## Ereignis-Handler
 
 - {{WebExtAPIRef("permissions.onAdded")}}
   - : Wird ausgelöst, wenn ein Benutzer neue Berechtigungen erteilt.
@@ -68,4 +68,4 @@ Für Ratschläge zur Gestaltung Ihrer Anfrage nach Laufzeitberechtigungen, um di
 - `manifest.json` [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Eigenschaft
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API.

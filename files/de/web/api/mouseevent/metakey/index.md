@@ -3,27 +3,26 @@ title: "MouseEvent: metaKey-Eigenschaft"
 short-title: metaKey
 slug: Web/API/MouseEvent/metaKey
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte **`MouseEvent.metaKey`**-Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>meta</kbd>-Taste gedrückt wurde oder nicht, als ein bestimmtes Mausereignis auftrat.
+Die schreibgeschützte Eigenschaft **`MouseEvent.metaKey`** ist ein boolescher Wert, der anzeigt, ob die <kbd>meta</kbd>-Taste gedrückt war, als ein bestimmtes Mausereignis aufgetreten ist.
 
-Seien Sie sich bewusst, dass viele Betriebssysteme spezielle Funktionen an die <kbd>meta</kbd>-Taste binden, sodass diese Eigenschaft `false` sein kann, auch wenn die Taste tatsächlich gedrückt ist.
-Unter Windows kann diese Taste beispielsweise das Startmenü öffnen.
+Beachten Sie, dass viele Betriebssysteme spezielle Funktionen an die <kbd>meta</kbd>-Taste binden, sodass diese Eigenschaft `false` sein kann, selbst wenn die Taste tatsächlich gedrückt ist. Auf Windows öffnet diese Taste beispielsweise das Startmenü.
 
 > [!NOTE]
 > Auf Macintosh-Tastaturen ist diese Taste die <kbd>command</kbd>-Taste (<kbd>⌘</kbd>).
-> Auf Windows-Tastaturen ist diese Taste die Windows-Taste (<kbd>⊞</kbd>).
+> Auf Windows-Tastaturen ist es die Windows-Taste (<kbd>⊞</kbd>).
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false`, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 
-Dieses Beispiel gibt die Eigenschaft `metaKey` aus, wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auslösen.
+Dieses Beispiel protokolliert die `metaKey`-Eigenschaft, wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auslösen.
 
 ### HTML
 

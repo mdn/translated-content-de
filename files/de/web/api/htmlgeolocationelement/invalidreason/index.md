@@ -3,71 +3,70 @@ title: "HTMLGeolocationElement: invalidReason-Eigenschaft"
 short-title: invalidReason
 slug: Web/API/HTMLGeolocationElement/invalidReason
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("Navigation API")}}
+{{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`invalidReason`** schreibgeschützte Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces gibt einen enumerierten Wert zurück, der den Grund darstellt, warum das zugehörige {{htmlelement("geolocation")}}-Element ungültig (blockiert) ist, falls dies der Fall ist.
+Die schreibgeschützte Eigenschaft **`invalidReason`** des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces gibt einen enumerierten Wert zurück, der den Grund darstellt, warum das zugehörige {{htmlelement("geolocation")}}-Element ungültig (blockiert) ist, falls dies der Fall ist.
 
-Wenn ein [Blocker](/de/docs/Web/HTML/Reference/Elements/geolocation#geolocation_blocking) auf ein `<geolocation>`-Element aktiv ist, ist es ungültig. Das bedeutet, dass es entweder vorübergehend oder dauerhaft daran gehindert wird, zu funktionieren, abhängig vom Grund.
+Wenn ein [Blocker](/de/docs/Web/HTML/Reference/Elements/geolocation#geolocation_blocking) auf einem `<geolocation>`-Element aktiv ist, ist es ungültig: Das bedeutet, dass es daran gehindert wird zu funktionieren, entweder vorübergehend oder dauerhaft, abhängig vom Grund.
 
-Sie können die [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid)-Eigenschaft abfragen, um zu prüfen, ob das `<geolocation>`-Element gültig ist oder nicht.
+Sie können die [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid)-Eigenschaft abfragen, um zu überprüfen, ob das `<geolocation>`-Element gültig ist oder nicht.
 
 ## Wert
 
 Der leere String (`""`), wenn das Element keinen aktiven Blocker hat, oder einer der folgenden Werte (in Prioritätsreihenfolge):
 
 - `illegal_subframe`
-  - : Das `<geolocation>`-Element ist in ein {{htmlelement("fencedframe")}}-Element eingebettet.
+  - : Das `<geolocation>`-Element ist innerhalb eines {{htmlelement("fencedframe")}}-Elements verschachtelt.
 
-    Permanenter Blocker.
+    Dauerhafter Blocker.
 
-- `unsuccesful_registration`
+- `unsuccessful_registration`
   - : Mehr als drei `<geolocation>`-Elemente wurden in dasselbe Dokument eingefügt.
 
-    Temporärer Blocker.
+    Vorübergehender Blocker.
 
 - `recently_attached`
-  - : Das `<geolocation>`-Element wurde erst kürzlich an den DOM angehängt.
+  - : Das `<geolocation>`-Element wurde erst kürzlich dem DOM hinzugefügt.
 
-    Auslaufender Blocker.
+    Ablaufender Blocker.
 
 - `intersection_changed`
   - : Das `<geolocation>`-Element wird bewegt.
 
-    Auslaufender Blocker.
+    Ablaufender Blocker.
 
 - `intersection_out_of_viewport_or_clipped`
   - : Das `<geolocation>`-Element wird außerhalb oder teilweise innerhalb des Viewports gerendert.
 
-    Temporärer Blocker.
+    Vorübergehender Blocker.
 
 - `intersection_occluded_or_distorted`
-  - : Das `<geolocation>`-Element wird vollständig im Viewport gerendert, ist aber in irgendeiner Weise verdeckt, beispielsweise hinter anderem Inhalt.
+  - : Das `<geolocation>`-Element wird vollständig innerhalb des Viewports gerendert, ist aber in irgendeiner Weise verdeckt, zum Beispiel hinter anderem Inhalt.
 
-    Temporärer Blocker.
+    Vorübergehender Blocker.
 
 - `style_invalid`
-  - : Das `<geolocation>`-Element hat einige eingeschränkte Stile angewendet (siehe [Stileinschränkungen](/de/docs/Web/HTML/Reference/Elements/geolocation#styling_restrictions)).
+  - : Das `<geolocation>`-Element hat einige eingeschränkte Stile angewendet (siehe [style restrictions](/de/docs/Web/HTML/Reference/Elements/geolocation#styling_restrictions)).
 
-    Temporärer Blocker.
+    Vorübergehender Blocker.
 
-Diese ungültigen Gründe sind in der Prioritätsreihenfolge aufgeführt, von der höchsten zur niedrigsten.
-Wenn mehrere Blocker aktiv sind, wird der Wert `invalidReason` zurückgegeben, der den höchsten aktiven Blocker repräsentiert.
+Diese ungültigen Gründe sind in Prioritätsreihenfolge aufgelistet, von höchster zu niedrigster. Wenn mehrere Blocker aktiv sind, wird der `invalidReason`-Wert zurückgegeben, der den aktivsten Blocker mit der höchsten Priorität darstellt.
 
-Beachten Sie auch, dass die obigen Beschreibungen einen "Blocker-Typ" für jeden ungültigen Grund enthalten, der einer der folgenden ist:
+Beachten Sie auch, dass die obigen Beschreibungen einen "Blockertyp" für jeden ungültigen Grund enthalten, welcher einer der folgenden ist:
 
-- Permanent
-  - : Das `<geolocation>`-Element ist dauerhaft ungültig, bis der Entwickler den Code aktualisiert, um den Blocker zu verhindern.
-- Temporär
-  - : Das `<geolocation>`-Element ist ungültig, bis die blockierende Bedingung nicht mehr auftritt. Danach wird der temporäre Blocker zu einem auslaufenden Blocker.
-- Auslaufend
-  - : Das `<geolocation>`-Element ist für eine kurze Zeit ungültig, danach wird es wieder gültig.
+- Dauerhaft
+  - : Das `<geolocation>`-Element ist dauerhaft ungültig, bis der Entwickler den Code aktualisiert, um zu verhindern, dass der Blocker auftritt.
+- Vorübergehend
+  - : Das `<geolocation>`-Element ist ungültig, bis die blockierende Bedingung nicht mehr auftritt. Danach wird der vorübergehende Blocker zu einem ablaufenden Blocker.
+- Ablaufend
+  - : Das `<geolocation>`-Element ist für einen kurzen Zeitraum ungültig, danach wird es wieder gültig.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```html
 <geolocation></geolocation>
@@ -79,13 +78,13 @@ console.log(geo.invalidReason);
 // "", provided the `<geolocation>` element is not blocked in some way
 ```
 
-### Untersuchung von ungültigen Gründen
+### Untersuchung ungültiger Gründe
 
-In diesem Beispiel stellen wir eine Form-Kontrolle bereit, um verschiedene Stile auf ein `<geolocation>`-Element anzuwenden, die es ungültig machen. Wenn jeder Satz von Stilen angewendet wird, berichten wir den `invalidReason`, der vom Browser bereitgestellt wird.
+In diesem Beispiel stellen wir ein Formularelement bereit, um verschiedene Stile auf ein `<geolocation>`-Element anzuwenden, die es ungültig machen. Wenn jeder Satz von Stilen angewendet wird, melden wir den vom Browser bereitgestellten `invalidReason`.
 
 #### HTML
 
-Wir beginnen mit der Einbindung eines `<geolocation>`-Elements und eines {{htmlelement("div")}}-Elements, das wir später über das `<geolocation>`-Element rendern lassen.
+Wir beginnen damit, ein `<geolocation>`-Element und ein {{htmlelement("div")}}-Element einzuschließen, das wir später erlauben über dem `<geolocation>`-Element gerendert zu werden.
 
 ```html
 <geolocation>
@@ -94,13 +93,13 @@ Wir beginnen mit der Einbindung eines `<geolocation>`-Elements und eines {{htmle
 <div id="cover">Cover element</div>
 ```
 
-Als Nächstes bieten wir ein {{htmlelement("p")}}-Element an, in dem wir den `invalidReason` ausgeben, der von jedem Satz von Stilen generiert wird.
+Als nächstes stellen wir ein {{htmlelement("p")}}-Element bereit, mit dem wir den `invalidReason` ausdrucken, der von jedem Satz von Stilen erzeugt wird.
 
 ```html
 <p id="reason"></p>
 ```
 
-Schließlich bieten wir ein {{htmlelement("select")}}-Element an, um dem Benutzer zu ermöglichen, verschiedene Stil-Effekte auszuwählen, die das `<geolocation>`-Element ungültig machen.
+Schließlich stellen wir ein {{htmlelement("select")}}-Element bereit, das es dem Benutzer ermöglicht, verschiedene stilistische Effekte auszuwählen, die das `<geolocation>`-Element ungültig machen.
 
 ```html
 <form>
@@ -154,7 +153,7 @@ geolocation {
 }
 ```
 
-Als Nächstes gestalten wir unser `#cover` `<div>` mit `position: absolute` und verwenden {{Glossary("inset_properties", "inset properties")}}, um es rechts vom `<geolocation>`-Element zu platzieren. Wir geben ihm auch einen `z-index`-Wert von `2`, sodass, wenn unser `<div>` im selben Bereich wie das `<geolocation>`-Element platziert wird, das `<div>` oben platziert wird.
+Als nächstes stylen wir unser `#cover` `<div>` mit `position: absolute` und verwenden {{Glossary("inset_properties", "Inset-Eigenschaften")}}, um es rechts vom `<geolocation>`-Element zu platzieren. Wir geben ihm auch einen `z-index`-Wert von `2`, so dass, wenn unser `<div>` im selben Bereich wie das `<geolocation>`-Element platziert wird, das `<div>` darüber platziert wird.
 
 ```css
 #cover {
@@ -165,7 +164,7 @@ Als Nächstes gestalten wir unser `#cover` `<div>` mit `position: absolute` und 
 }
 ```
 
-Nun definieren wir drei Klassenstile, die auf das `<geolocation>`-Element angewendet werden, wenn die verschiedenen `<select>`-Wahlmöglichkeiten vom Benutzer ausgewählt werden. `.move-behind` bewegt es hinter das `#cover` `<div>`, `.move-out` bewegt es aus dem Bildschirm, und `.bad-contrast` gibt ihm einen schlechten [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast). Alle drei dieser Stile führen dazu, dass das `<geolocation>`-Element ungültig wird.
+Jetzt definieren wir drei Klassenstile, die auf das `<geolocation>`-Element angewendet werden, wenn die verschiedenen `<select>`-Optionen vom Benutzer ausgewählt werden. `.move-behind` bewegt es hinter das `#cover` `<div>`, `.move-out` bewegt es aus dem Sichtbereich, und `.bad-contrast` gibt ihm einen schlechten [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast). Alle drei dieser Stile machen das `<geolocation>`-Element ungültig.
 
 ```css
 .move-behind {
@@ -184,7 +183,7 @@ Nun definieren wir drei Klassenstile, die auf das `<geolocation>`-Element angewe
 
 #### JavaScript
 
-In unserem Skript beginnen wir mit dem Erfassen von Referenzen auf die `<geolocation>`, `<div>`, `<p>` und `<select>`-Elemente.
+In unserem Skript beginnen wir damit, Referenzen auf die `<geolocation>`, `<div>`, `<p>`, und `<select>`-Elemente zu erfassen.
 
 ```js
 const geo = document.querySelector("geolocation");
@@ -193,7 +192,7 @@ const reasonElem = document.querySelector("#reason");
 const selectElem = document.querySelector("select");
 ```
 
-Dann fügen wir einen `input`-Ereignislistener zum `<select>`-Element hinzu. Wenn ein neuer Auswahlwert ausgewählt wird, setzen wir ein `class`-Attribut auf dem `<geolocation>`-Element gleich dem ausgewählten Auswahlwert, wodurch einer der ungültigen Klassenstile angewendet wird. Nach einem 4-Sekunden-Timeout setzen wir die `class` zurück auf `""`, um das `<geolocation>`-Element wieder in seinen gültigen Zustand zu versetzen.
+Als nächstes fügen wir einen `input`-Ereignislistener zu dem `<select>`-Element hinzu. Wenn ein neuer Auswahltwert gewählt wird, setzen wir ein `class`-Attribut auf dem `<geolocation>`-Element entsprechend dem gewählten Auswahltwert, was einen der ungültig machenden Klassenstile anwendet. Nach einem 4-Sekunden-Timeout setzen wir die `class` zurück auf `""`, um das `<geolocation>`-Element in seinen gültigen Zustand zurückzuversetzen.
 
 ```js
 selectElem.addEventListener("input", () => {
@@ -204,7 +203,7 @@ selectElem.addEventListener("input", () => {
 });
 ```
 
-Schließlich fügen wir Code hinzu, um die Validierungsstatusänderungen zu melden, die auftreten, wenn verschiedene Auswahlwerte gewählt werden. Wir beginnen, indem wir den `<p>`-Textinhalt so einstellen, dass er den `invalidReason` enthält, der aktiv ist, wenn die Seite zum ersten Mal geladen wird. Dann fügen wir einen [`validationstatuschange`](/de/docs/Web/API/HTMLGeolocationElement/validationstatuschange_event)-Ereignislistener zum `<geolocation>`-Element hinzu. Wann immer sich der Validierungsstatus ändert, prüfen wir, ob das `<geolocation>`-Element mit [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid) gültig ist. Wenn ja, drucken wir eine Bestätigungsmeldung in den `<p>`-Element-Textinhalt. Wenn das `<geolocation>`-Element ungültig ist, drucken wir den `invalidReason` in den `<p>`-Element-Textinhalt.
+Schließlich inkludieren wir Code, um die Validierungsstatusänderungen zu melden, die auftreten, wenn verschiedene Auswahltwerte gewählt werden. Wir beginnen damit, den Textinhalt des `<p>`-Elements so zu setzen, dass er den aktiven `invalidReason` enthält, wenn die Seite zuerst geladen wird. Dann fügen wir einen [`validationstatuschange`](/de/docs/Web/API/HTMLGeolocationElement/validationstatuschange_event)-Ereignislistener zum `<geolocation>`-Element hinzu. Immer wenn sich der Validierungsstatus ändert, überprüfen wir, ob das `<geolocation>`-Element gültig ist, indem wir [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid) verwenden, und falls ja, drucken wir eine Nachricht, die dies bestätigt, in den Textinhalt des `<p>`-Elements. Wenn das `<geolocation>`-Element ungültig ist, drucken wir den `invalidReason` in den Textinhalt des `<p>`-Elements.
 
 ```js
 reasonElem.textContent = `Invalid reason: ${geo.invalidReason}`;
@@ -220,7 +219,7 @@ geo.addEventListener("validationstatuschange", () => {
 
 #### Ergebnis
 
-Dieser Code [wird live ausgeführt](https://mdn.github.io/dom-examples/geolocation-element/exploring-invalid-reasons/) (siehe auch den vollständigen [Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/exploring-invalid-reasons)). Versuchen Sie, die verschiedenen Ungültigkeitsoptionen auszuwählen, um zu sehen, welche Ungültigkeitsgründe in jedem Fall gemeldet werden.
+Sehen Sie sich diesen Code [live in Aktion](https://mdn.github.io/dom-examples/geolocation-element/exploring-invalid-reasons/) an (siehe auch den vollständigen [Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/exploring-invalid-reasons)). Versuchen Sie, die verschiedenen Invalidation-Optionen auszuwählen, um zu sehen, welche Invalidation-Gründe in jedem Fall gemeldet werden.
 
 ## Spezifikationen
 

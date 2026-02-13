@@ -3,20 +3,20 @@ title: "WheelEvent: deltaMode-Eigenschaft"
 short-title: deltaMode
 slug: Web/API/WheelEvent/deltaMode
 l10n:
-  sourceCommit: 18b603d31ce0b840b1e9347c77e09ef376addbb4
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein `unsigned long` zurück, welches die Einheit der Scrollmengen-Deltawerte darstellt. Zulässige Werte sind:
+Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein `unsigned long` zurück, das die Einheit der Delta-Werte für das Scrollen angibt. Erlaubte Werte sind:
 
-| Konstante         | Wert   | Beschreibung                             |
-| ----------------- | ------ | ---------------------------------------- |
-| `DOM_DELTA_PIXEL` | `0x00` | Die Deltawerte sind in Pixel angegeben.  |
-| `DOM_DELTA_LINE`  | `0x01` | Die Deltawerte sind in Zeilen angegeben. |
-| `DOM_DELTA_PAGE`  | `0x02` | Die Deltawerte sind in Seiten angegeben. |
+| Konstante         | Wert   | Beschreibung                              |
+| ----------------- | ------ | ----------------------------------------- |
+| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte sind in Pixeln angegeben. |
+| `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte sind in Zeilen angegeben. |
+| `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte sind in Seiten angegeben. |
 
-Sie müssen die Eigenschaft `deltaMode` überprüfen, um die Einheit der Werte `deltaX`, `deltaY` und `deltaZ` zu bestimmen. Gehen Sie nicht davon aus, dass diese Werte in Pixel angegeben sind. Einige Browser könnten aus Kompatibilitätsgründen unterschiedliche Einheiten für die `delta*` Werte zurückgeben, je nachdem, ob `deltaMode` abgerufen wurde, um Webseiten zu unterstützen, die die `deltaMode`-Eigenschaft nicht explizit überprüfen.
+Sie müssen die Eigenschaft `deltaMode` abfragen, um die Einheit der `deltaX`-, `deltaY`- und `deltaZ`-Werte zu bestimmen. Gehen Sie nicht davon aus, dass diese Werte in Pixeln angegeben sind. Einige Browser können aus Kompatibilitätsgründen verschiedene Einheiten für die `delta*`-Werte zurückgeben, abhängig davon, ob `deltaMode` abgefragt wurde, um Websites gerecht zu werden, die die `deltaMode`-Eigenschaft nicht explizit überprüfen.
 
 ## Wert
 

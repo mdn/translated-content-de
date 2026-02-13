@@ -1,18 +1,18 @@
 ---
-title: "HTMLGeolocationElement: promptaction Ereignis"
+title: "HTMLGeolocationElement: promptaction-Ereignis"
 short-title: promptaction
 slug: Web/API/HTMLGeolocationElement/promptaction_event
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`promptaction`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wenn der Benutzer das `<geolocation>`-Element aktiviert und eine Option aus dem sich öffnenden Dialog auswählt, entweder um die `geolocation`-Berechtigung zu erteilen oder zu verweigern.
+Das **`promptaction`**-Ereignis der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle wird ausgelöst, wenn der Benutzer das `<geolocation>`-Element aktiviert und im erscheinenden Dialog eine Option auswählt, entweder um die `geolocation`-Berechtigung zu gewähren oder zu verweigern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("promptaction", (event) => { })
@@ -26,15 +26,15 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung von `promptaction`, um auf Benutzerberechtigungsentscheidungen zu reagieren
+### Verwendung von `promptaction`, um auf Benutzerberechtigungswahl zu reagieren
 
-In unserem [Embedded map demo](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `promptaction`-Ereignishandler, um auf die Entscheidung des Benutzers im `<geolocation>`-Berechtigungsdialog zu reagieren:
+In unserem [Karten-Einbettungs-Demo](https://mdn.github.io/dom-examples/geolocation-element/embedded-map/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/embedded-map)) verwenden wir einen `promptaction`-Event-Handler, um auf die Wahl des Benutzers im `<geolocation>`-Berechtigungsdialog zu reagieren:
 
 ```js
 geo.addEventListener("promptaction", notifyUserGrantPermission);
 ```
 
-In der Funktion `notifyUserGrantPermission()` verwenden wir die [`HTMLGeolocationElement.permissionStatus`](/de/docs/Web/API/HTMLGeolocationElement/permissionStatus)-Eigenschaft, um zu überprüfen, ob der Berechtigungsstatus `denied` oder `prompt` ist. Falls ja, bitten wir den Benutzer, erneut den Knopf zu drücken und die Standortfreigabe zu erlauben. Diese Anfrage ist nicht erforderlich, wenn die Berechtigung bereits erteilt wurde.
+In der Funktion `notifyUserGrantPermission()` verwenden wir die [`HTMLGeolocationElement.permissionStatus`](/de/docs/Web/API/HTMLGeolocationElement/permissionStatus)-Eigenschaft, um zu überprüfen, ob der Berechtigungsstatus `denied` oder `prompt` ist. Wenn dies der Fall ist, bitten wir den Benutzer, den Button erneut zu drücken und die Standortfreigabe zu erlauben. Dies ist nicht notwendig, wenn die Erlaubnis bereits erteilt wurde.
 
 ```js
 function notifyUserGrantPermission() {
@@ -45,7 +45,7 @@ function notifyUserGrantPermission() {
 }
 ```
 
-Die Hauptseite von [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) bietet eine vollständige Einführung in dieses Beispiel.
+Siehe die Hauptseite von [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) für eine vollständige Schritt-für-Schritt-Anleitung zu diesem Beispiel.
 
 ## Spezifikationen
 
@@ -57,4 +57,4 @@ Die Hauptseite von [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationEl
 
 ## Siehe auch
 
-- {{htmlelement("geolocation")}} Element
+- {{htmlelement("geolocation")}}-Element

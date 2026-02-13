@@ -3,25 +3,25 @@ title: "MouseEvent: screenX-Eigenschaft"
 short-title: screenX
 slug: Web/API/MouseEvent/screenX
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die **`screenX`**-Eigenschaft der [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die horizontale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#screen) bereitstellt.
+Die schreibgeschützte **`screenX`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate (Versatz) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems#screen).
 
 > [!NOTE]
-> In einer Multi-Screen-Umgebung werden horizontal ausgerichtete Bildschirme als einzelnes Gerät behandelt, und daher erhöht sich der Wertebereich der `screenX`-Eigenschaft auf die kombinierte Breite der Bildschirme.
+> In einer Umgebung mit mehreren Bildschirmen, die horizontal ausgerichtet sind, werden die Bildschirme als ein einzelnes Gerät behandelt, und der Bereich des `screenX`-Werts wird auf die kombinierte Breite der Bildschirme erweitert.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double` Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als ganze Zahl, die sich auf die Anzahl der Pixel bezieht.
+Frühere Versionen der Spezifikation definierten dies als Ganzzahl, die sich auf die Anzahl der Pixel bezieht.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
@@ -47,9 +47,9 @@ function logKey(e) {
 
 {{EmbedLiveSample("Examples")}}
 
-### Ereignis weiterleiten
+### Routing eines Ereignisses
 
-Wenn Sie Ereignisse im Fenster, im Dokument oder in anderen großen Elementen erfassen, können Sie die Koordinaten dieses Ereignisses (z. B. eines Klicks) erhalten und es ordnungsgemäß weiterleiten, wie das folgende Beispiel zeigt:
+Wenn Sie Ereignisse im Fenster, Dokument oder anderen geräumigen Elementen abfangen, können Sie die Koordinaten dieses Ereignisses (z. B. einem Klick) erfassen und entsprechend weiterleiten, wie das folgende Beispiel zeigt:
 
 ```js
 function checkClickMap(e) {

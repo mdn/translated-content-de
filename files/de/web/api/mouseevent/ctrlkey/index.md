@@ -3,20 +3,20 @@ title: "MouseEvent: ctrlKey-Eigenschaft"
 short-title: ctrlKey
 slug: Web/API/MouseEvent/ctrlKey
 l10n:
-  sourceCommit: 73dcf953330fd6ed7ea414cf63ab0d75518cb88f
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte **`MouseEvent.ctrlKey`**-Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>ctrl</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
+Die **`MouseEvent.ctrlKey`** schreibgeschützte Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>ctrl</kbd>-Taste gedrückt wurde oder nicht, wenn ein bestimmtes Mausereignis eintritt.
 
-Auf Macintosh-Tastaturen wird diese Taste als <kbd>control</kbd>-Taste bezeichnet. Beachten Sie auch, dass auf einem Mac ein Klick in Kombination mit der <kbd>control</kbd>-Taste vom Betriebssystem abgefangen und zur Öffnung eines Kontextmenüs verwendet wird, sodass `ctrlKey` bei Klickereignissen nicht erkennbar ist.
+Auf Macintosh-Tastaturen ist diese Taste als <kbd>control</kbd>-Taste beschriftet. Beachten Sie auch, dass auf einem Mac ein Klick in Kombination mit der <kbd>control</kbd>-Taste vom Betriebssystem abgefangen und zum Öffnen eines Kontextmenüs verwendet wird, sodass das `ctrlKey` bei Klickereignissen nicht erkennbar ist.
 
-Das Zoom-Gesten mit einer Trackpad-Pinch-Geste sendet ebenfalls ein simuliertes [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis mit `ctrlKey` auf `true` gesetzt.
+Das Pinch-Zoomen mit einem Trackpad sendet ebenfalls ein simuliertes [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis mit `ctrlKey` auf true gesetzt.
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` angibt, dass die Taste gedrückt ist, und `false` angibt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false`, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 

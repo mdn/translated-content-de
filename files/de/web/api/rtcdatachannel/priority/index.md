@@ -3,16 +3,16 @@ title: "RTCDataChannel: priority-Eigenschaft"
 short-title: priority
 slug: Web/API/RTCDataChannel/priority
 l10n:
-  sourceCommit: edfa7accf30f93ad25735fee3bffd118f107bea9
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`priority`**-Eigenschaft des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Interfaces gibt einen String zurück, der die Priorität des Datenkanals angibt. Die Priorität wird vom Benutzeragenten bei der Erstellung des Kanals basierend auf der `priority`-Option im `dataChannelDict`-Parameter zugewiesen, der an [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) übergeben wird, oder von der entfernten Gegenstelle für eingehende Datenkanäle.
+Die schreibgeschützte **`priority`**-Eigenschaft der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Schnittstelle gibt einen String zurück, der die Priorität des Datenkanals angibt. Die Priorität wird vom User-Agent zum Zeitpunkt der Kanalerstellung basierend auf der `priority`-Option im `dataChannelDict`-Parameter zugewiesen, der an [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) übergeben wird, oder vom entfernten Peer für eingehende Datenkanäle.
 
 ## Wert
 
-Ein String, der die Priorität des Datenkanals angibt. Mögliche Werte, in der Reihenfolge von der niedrigsten zur höchsten Priorität, sind:
+Ein String, der die Priorität des Datenkanals angibt. Mögliche Werte sind in der Reihenfolge von der niedrigsten bis zur höchsten Priorität:
 
 - `"very-low"`
   - : Der Datenkanal hat eine sehr niedrige Priorität.
@@ -44,7 +44,7 @@ console.log(dc.priority); // "high"
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

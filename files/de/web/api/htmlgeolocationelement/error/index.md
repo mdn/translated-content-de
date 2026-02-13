@@ -3,18 +3,18 @@ title: "HTMLGeolocationElement: error-Eigenschaft"
 short-title: error
 slug: Web/API/HTMLGeolocationElement/error
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("Navigation API")}}
+{{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`error`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt zurückgibt. Dieses Objekt repräsentiert Fehlermeldungen, falls die Standortdaten nicht abgerufen werden konnten.
+Die schreibgeschützte **`error`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces gibt ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt zurück, das Fehlerinformationen repräsentiert, wenn die Standortdatenerfassung fehlschlägt.
 
-Falls der Abruf der Standortdaten erfolgreich ist, sind die Daten in der [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft verfügbar.
+Wenn die Erfassung von Standortdaten erfolgreich ist, sind die Daten in der [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft verfügbar.
 
 ## Wert
 
-Ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt oder `null`, falls die Standortdaten erfolgreich abgerufen wurden.
+Ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt oder `null`, wenn die Standortdaten erfolgreich abgerufen wurden.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ geo.addEventListener("location", () => {
 });
 ```
 
-Sehen Sie sich unser [Walkthrough des eingebetteten Kartenbeispiels](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein praxisnahes Beispiel an, das `error` beinhaltet.
+Siehe unser [Beispiel-Leitfaden zur eingebetteten Karte](/de/docs/Web/API/HTMLGeolocationElement#embedded_map_example) für ein praxisnahes Beispiel, das `error` einschließt.
 
 ## Spezifikationen
 
@@ -49,4 +49,4 @@ Sehen Sie sich unser [Walkthrough des eingebetteten Kartenbeispiels](/de/docs/We
 
 ## Siehe auch
 
-- {{htmlelement("geolocation")}}-Element
+- {{htmlelement("geolocation")}} Element

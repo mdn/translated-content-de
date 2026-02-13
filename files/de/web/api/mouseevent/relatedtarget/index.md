@@ -1,14 +1,14 @@
 ---
-title: "MouseEvent: relatedTarget-Eigenschaft"
+title: "MouseEvent: relatedTarget Eigenschaft"
 short-title: relatedTarget
 slug: Web/API/MouseEvent/relatedTarget
 l10n:
-  sourceCommit: c20c12fab32381b983b4148d712fda227d34e2bd
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel für das Mausereignis, falls es eines gibt.
+Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel des Mausereignisses, falls es eines gibt.
 
 Das bedeutet:
 
@@ -24,71 +24,71 @@ Das bedeutet:
     <tr>
       <td>[`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
     </tr>
     <tr>
       <td>[`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
     <tr>
       <td>[`mouseout`](/de/docs/Web/API/Element/mouseout_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
     <tr>
       <td>[`mouseover`](/de/docs/Web/API/Element/mouseover_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
     </tr>
     <tr>
       <td>[`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
     </tr>
     <tr>
       <td>[`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)</td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät ausgetreten ist
       </td>
       <td>
-        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingedrungen ist
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
   </tbody>
 </table>
 
-Für Ereignisse ohne sekundäres Ziel gibt `relatedTarget` `null` zurück.
+Für Ereignisse ohne ein sekundäres Ziel gibt `relatedTarget` `null` zurück.
 
-[`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget) ist eine ähnliche Eigenschaft für Fokusereignisse.
+[`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget) ist eine ähnliche Eigenschaft für Fokusevents.
 
 ## Wert
 
-Ein [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekt oder `null`.
+Ein [`EventTarget`](/de/docs/Web/API/EventTarget) Objekt oder `null`.
 
 ## Beispiele
 
-Versuchen Sie, den Mauszeiger in die roten und blauen Kästchen zu bewegen und wieder heraus.
+Versuchen Sie, Ihren Mauszeiger in die roten und blauen Boxen hinein- und herauszubewegen.
 
 ### HTML
 

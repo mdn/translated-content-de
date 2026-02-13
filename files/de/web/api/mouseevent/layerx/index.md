@@ -3,18 +3,18 @@ title: "MouseEvent: layerX-Eigenschaft"
 short-title: layerX
 slug: Web/API/MouseEvent/layerX
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}{{Non-standard_Header}}
+{{APIRef("Pointer Events")}}{{Non-standard_Header}}
 
 Die schreibgeschützte Eigenschaft **`MouseEvent.layerX`** gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
 
-Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf, in welchem Fall der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements ist.
+Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt in einem positionierten Element auf, wo der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements ist.
 
 ## Wert
 
-Ein ganzzahliger Wert in Pixeln für die x-Koordinate des Mauszeigers, wenn das Mausereignis ausgelöst wurde.
+Ein ganzzahliger Wert in Pixel für die x-Koordinate des Mauszeigers, als das Mausereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -97,7 +97,7 @@ window.addEventListener("mousedown", showCoords);
 
 ## Spezifikationen
 
-_Diese Eigenschaft ist Teil keiner Spezifikation._
+_Diese Eigenschaft ist kein Teil einer Spezifikation._
 
 ## Browser-Kompatibilität
 

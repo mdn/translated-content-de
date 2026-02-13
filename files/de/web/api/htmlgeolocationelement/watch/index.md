@@ -3,21 +3,21 @@ title: "HTMLGeolocationElement: watch-Eigenschaft"
 short-title: watch
 slug: Web/API/HTMLGeolocationElement/watch
 l10n:
-  sourceCommit: fce59e0706ab0114d9968c23722dccfacaebf998
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("Navigation API")}}
+{{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`watch`**-Eigenschaft der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle liest und setzt einen booleschen Wert, der anzeigt, ob der Browser die Standortdaten des Benutzers kontinuierlich aktualisieren soll, wann immer sich die Position des Geräts ändert, oder nur einmal abgerufen werden soll.
+Die **`watch`**-Eigenschaft des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement) Interfaces erhält und setzt einen booleschen Wert, der angibt, ob der Browser die Standortdaten des Benutzers kontinuierlich aktualisieren soll, wann immer sich die Position des Geräts ändert, oder ob sie nur einmal abgerufen werden sollen.
 
-Sie spiegelt den Wert des `<geolocation>`-[`watch`](/de/docs/Web/HTML/Reference/Elements/geolocation#watch)-Attributs wider.
+Sie spiegelt den Wert des `<geolocation>` [`watch`](/de/docs/Web/HTML/Reference/Elements/geolocation#watch) Attributs wider.
 
 ## Wert
 
 Ein boolescher Wert:
 
-- Wenn `true`, werden Standortdaten kontinuierlich angefordert, als ob die [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)-Methode aufgerufen wurde.
-- Wenn `false`, werden Standortdaten nur einmal angefordert, als ob die [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition)-Methode aufgerufen wurde.
+- Wenn `true`, werden Standortdaten kontinuierlich angefordert, als ob die Methode [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) aufgerufen wurde.
+- Wenn `false`, werden die Standortdaten nur einmal angefordert, als ob die Methode [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) aufgerufen wurde.
 
 Standardmäßig `false`.
 
@@ -34,13 +34,13 @@ const geo = document.querySelector("geolocation");
 console.log(geo.watch); // true
 ```
 
-### Standortdaten kontinuierlich abrufen
+### Kontinuierliche Abfrage von Standortdaten
 
-In diesem Beispiel rufen wir Standortdaten kontinuierlich ab und geben sie auf der Seite aus.
+In diesem Beispiel rufen wir kontinuierlich Standortdaten ab und geben sie auf der Seite aus.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("geolocation")}}-Element mit einem `watch`-Attribut ein. Wenn der Benutzer auf die resultierende Schaltfläche klickt und die Erlaubnis zur Nutzung der `geolocation`-Funktion erteilt, beginnt der Browser, Standortdaten kontinuierlich anzufordern, wann immer sich die Position des Geräts ändert. Außerdem fügen wir ein {{htmlelement("p")}}-Element ein, um Standortdaten und Fehler auszugeben.
+Wir integrieren ein {{htmlelement("geolocation")}}-Element mit einem `watch` Attribut. Wenn der Benutzer auf den resultierenden Button klickt und die Berechtigung zur Nutzung der `geolocation` Funktion erteilt, wird der Browser damit beginnen, kontinuierlich Standortdaten anzufordern, wann immer sich die Position des Geräts ändert. Wir fügen auch ein {{htmlelement("p")}}-Element hinzu, um Standortdaten und Fehler auszugeben.
 
 ```html
 <geolocation watch></geolocation>
@@ -49,7 +49,7 @@ Wir fügen ein {{htmlelement("geolocation")}}-Element mit einem `watch`-Attribut
 
 #### JavaScript
 
-In unserem JavaScript beginnen wir damit, Referenzen auf den Ausgabepunkt und das `<geolocation>`-Element zu erfassen und testen den `watch`-Wert, indem wir auf die `watch`-Eigenschaft zugreifen.
+In unserem JavaScript greifen wir zunächst auf das Ausgabe-Absatz- und `<geolocation>`-Element zu und testen den `watch` Wert, indem wir die `watch` Eigenschaft abfragen.
 
 ```js
 const outputElem = document.querySelector("#output");
@@ -57,7 +57,7 @@ const geo = document.querySelector("geolocation");
 console.log(geo.watch); // true
 ```
 
-Als Nächstes fügen wir dem resultierenden `HTMLGeolocationElement`-Objekt einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Ereignislistener hinzu, um zu erkennen, wann die Standortdatenanforderung zurückgegeben wird. Wenn die Daten erfolgreich zurückgegeben werden, greifen wir über die [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft darauf zu und geben die Breiten- und Längengradwerte in das Ausgabeelement aus. Wenn die Datenanforderung fehlschlägt, greifen wir über die [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft auf den Fehler zu und geben die Fehlermeldung im Ausgabeelement aus.
+Anschließend fügen wir einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event) Ereignislistener zu dem resultierenden `HTMLGeolocationElement`-Objekt hinzu, um zu erkennen, wann die Standortdatenanfrage zurückgegeben wird. Wenn die Daten erfolgreich zurückgegeben werden, greifen wir auf sie über die [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position) Eigenschaft zu und geben die Breitengrad- und Längengradwerte im Ausgabeabsatz aus. Wenn die Datenanfrage fehlschlägt, greifen wir über die [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error) Eigenschaft auf den Fehler zu und geben die Fehlermeldung im Ausgabeabsatz aus.
 
 ```js
 geo.addEventListener("location", () => {
@@ -71,11 +71,11 @@ geo.addEventListener("location", () => {
 
 #### Ergebnis
 
-Sehen Sie sich diesen Code [live in Aktion](https://mdn.github.io/dom-examples/geolocation-element/basic-watch-example/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-watch-example)) an. Der vollständige Code enthält auch einen Fallback für Browser, die das `<geolocation>`-Element nicht unterstützen.
+Sehen Sie sich diesen Code [live in Aktion](https://mdn.github.io/dom-examples/geolocation-element/basic-watch-example/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-watch-example)) an. Der vollständige Code beinhaltet auch einen Fallback für Browser, die das `<geolocation>`-Element nicht unterstützen.
 
-Versuchen Sie, die Demo in einem unterstützten und einem nicht unterstützten Browser anzuzeigen, wenn möglich, und beachten Sie den Unterschied im Berechtigungsdialog, wenn Sie die Erlaubnis zur Nutzung von `geolocation` gewähren oder verweigern.
+Versuchen Sie, das Demo in einem unterstützten und einem nicht unterstützten Browser anzusehen, und beachten Sie den Unterschied im Ablauf des Berechtigungsdialogs, wenn Sie die Erlaubnis zur Nutzung der `geolocation`-Funktion erteilen oder verweigern.
 
-Beachten Sie auch, dass, da das `watch`-Attribut des `<geolocation>`-Elements auf `true` gesetzt ist, die Standortdaten angefordert werden und das `location`-Ereignis kontinuierlich ausgelöst wird, jedes Mal, wenn der Benutzer den Standort wechselt.
+Beachten Sie auch, dass, da das `<geolocation>` `watch` Attribut auf `true` gesetzt ist, die Standortdaten angefordert werden und das `location` Ereignis kontinuierlich ausgelöst wird, jedes Mal, wenn der Benutzer den Standort ändert.
 
 ## Spezifikationen
 

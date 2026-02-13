@@ -2,12 +2,12 @@
 title: "Clipboard: clipboardchange Ereignis"
 slug: Web/API/Clipboard/clipboardchange_event
 l10n:
-  sourceCommit: 6b19a13cc0dcc30e9cd55ba3a9b2722bfa0ce69c
+  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`clipboardchange`**-Ereignis der [`Clipboard`](/de/docs/Web/API/Clipboard)-Schnittstelle wird ausgelöst, wenn sich der Inhalt der Systemzwischenablage auf irgendeine Weise ändert, zum Beispiel durch einen Systemkopierbefehl oder durch eine API-Methode wie [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
+Das **`clipboardchange`** Ereignis der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle wird ausgelöst, wenn sich die Inhalte der Systemzwischenablage auf irgendeine Weise ändern, beispielsweise über einen Systemkopierbefehl oder über eine API-Methode wie [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText).
 
 ## Syntax
 
@@ -21,19 +21,19 @@ onclipboardchange = (event) => { }
 
 ## Ereignistyp
 
-Ein [`ClipboardChangeEvent`](/de/docs/Web/API/ClipboardChangeEvent), der von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`ClipboardChangeEvent`](/de/docs/Web/API/ClipboardChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardChangeEvent")}}
 
 ## Beispiele
 
-### Systemkopierbefehlen zuhören
+### Lauschen auf Systemkopierbefehle
 
-Dieses Beispiel zeigt, wie man Systemkopierbefehlen zuhört und den Inhalt anzeigt, der in die Zwischenablage kopiert wurde.
+Dieses Beispiel zeigt, wie man auf Systemkopierbefehle lauscht und den Inhalt anzeigt, der in die Zwischenablage kopiert wurde.
 
 #### HTML
 
-Das HTML besteht aus drei {{htmlelement("p")}}-Elementen — eines zur Anzeige des Zwischenablageinhalts und zwei mit Beispieltexten zum Kopieren.
+Das HTML besteht aus drei {{htmlelement("p")}} Elementen — eines zur Anzeige der Zwischenablageinhalte und zwei mit Beispieltext zum Kopieren.
 
 ```html live-sample___basic-usage
 <p id="output">Copied text:</p>
@@ -76,7 +76,7 @@ body {
 
 #### JavaScript
 
-In unserem Skript holen wir zuerst einen Verweis auf das Ausgabe-`<p>`-Element. Dann definieren wir einen `clipboardchange`-Ereignishandler auf dem [`Clipboard`](/de/docs/Web/API/Clipboard)-Objekt des Browsers. Wenn das Ereignis ausgelöst wird, rufen wir die Methode [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) auf, um den Text zu lesen, der gerade in die Zwischenablage kopiert wurde. Sobald das Ergebnis zurückgegeben wird, setzen wir es als Wert der `textContent` des Ausgabeparagraphen.
+In unserem Skript holen wir zunächst eine Referenz auf das Ausgabeelement `<p>`. Dann definieren wir einen `clipboardchange` Ereignishandler auf dem [`Clipboard`](/de/docs/Web/API/Clipboard) Objekt des Browsers. Wenn das Ereignis ausgelöst wird, rufen wir die Methode [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) auf, um den Text zu lesen, der gerade in die Zwischenablage kopiert wurde. Wenn das Ergebnis zurückgegeben wird, setzen wir es als den Wert des `textContent` des Ausgabeelements paragraf.
 
 ```js live-sample___basic-usage
 const outputPara = document.querySelector("#output");
@@ -90,11 +90,11 @@ navigator.clipboard.addEventListener("clipboardchange", (event) => {
 
 #### Ergebnis
 
-Das gerenderte Beispiel sieht wie folgt aus:
+Das gerenderte Beispiel sieht folgendermaßen aus:
 
 {{EmbedLiveSample("basic-usage", '100%', "350px", "", "", "", "clipboard-read")}}
 
-Versuchen Sie, etwas Text aus dem Beispiel zu markieren und ihn dann mit <kbd>Strg</kbd> + <kbd>C</kbd> (oder <kbd>Cmd</kbd> + <kbd>C</kbd>, wenn Sie einen Mac verwenden) in die Zwischenablage zu kopieren. Beim ersten Versuch sehen Sie eine Berechtigungsabfrage, die um Erlaubnis bittet, den Inhalt der Zwischenablage zu lesen. Danach (oder sofort bei nachfolgenden Versuchen) sollten Sie den Text, den Sie kopiert haben, im Ausgabeabsatz oben in der Benutzeroberfläche sehen.
+Versuchen Sie, im Beispiel etwas Text auszuwählen und ihn dann mit <kbd>Strg</kbd> + <kbd>C</kbd> (oder <kbd>Cmd</kbd> + <kbd>C</kbd>, wenn Sie einen Mac verwenden) in die Zwischenablage zu kopieren. Beim ersten Versuch sehen Sie eine Berechtigungsabfrage, die Sie um Erlaubnis bittet, die Inhalte der Zwischenablage zu lesen. Danach (oder sofort bei nachfolgenden Versuchen) sollten Sie den Text, den Sie kopiert haben, im Ausgabepaaragraphen oben in der Benutzeroberfläche angezeigt sehen.
 
 ## Spezifikationen
 
@@ -107,4 +107,4 @@ Versuchen Sie, etwas Text aus dem Beispiel zu markieren und ihn dann mit <kbd>St
 ## Siehe auch
 
 - [`ClipboardChangeEvent`](/de/docs/Web/API/ClipboardChangeEvent)
-- [Clipboard-API](/de/docs/Web/API/Clipboard_API)
+- [Clipboard API](/de/docs/Web/API/Clipboard_API)

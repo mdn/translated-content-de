@@ -3,31 +3,35 @@ title: "MouseEvent: button-Eigenschaft"
 short-title: button
 slug: Web/API/MouseEvent/button
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: d783c87acb536c6c142792d263f813c88808551b
 ---
 
-{{APIRef("UI Events")}}
+{{APIRef("Pointer Events")}}
 
-Die **`MouseEvent.button`** schreibgeschützte Eigenschaft gibt an, welche Maustaste gedrückt oder losgelassen wurde, um das Ereignis auszulösen.
+Die schreibgeschützte **`MouseEvent.button`**-Eigenschaft zeigt an, welcher Knopf auf der Maus gedrückt oder losgelassen wurde, um das Ereignis auszulösen.
 
-Diese Eigenschaft garantiert nur, anzugeben, welche Tasten während der Ereignisse, die durch Drücken oder Loslassen einer oder mehrerer Tasten verursacht wurden, gedrückt oder losgelassen sind. Daher ist sie nicht zuverlässig für Ereignisse wie [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event), [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event), [`mouseover`](/de/docs/Web/API/Element/mouseover_event), [`mouseout`](/de/docs/Web/API/Element/mouseout_event) oder [`mousemove`](/de/docs/Web/API/Element/mousemove_event).
+Diese Eigenschaft gibt nur garantiert an, welche Knöpfe während der durch Drücken oder Loslassen eines oder mehrerer Knöpfe verursachten Ereignisse gedrückt oder losgelassen werden.
+Daher ist sie für Ereignisse wie [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event), [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event), [`mouseover`](/de/docs/Web/API/Element/mouseover_event), [`mouseout`](/de/docs/Web/API/Element/mouseout_event) oder [`mousemove`](/de/docs/Web/API/Element/mousemove_event) nicht zuverlässig.
 
-Benutzer können die Konfiguration der Tasten auf ihrem Zeigegerät ändern, sodass, wenn die button-Eigenschaft eines Ereignisses null ist, es möglicherweise nicht von der Taste verursacht wurde, die physisch am weitesten links auf dem Zeigegerät ist; es sollte jedoch so funktionieren, als ob die linke Taste im Standardtastenlayout geklickt wurde.
+Benutzer können die Tastenbelegung ihres Zeigegeräts ändern, sodass, wenn die button-Eigenschaft eines Ereignisses null ist, dies möglicherweise nicht durch den physisch am weitesten links befindlichen Knopf auf dem Zeigegerät verursacht wurde; es sollte jedoch so funktionieren, als ob der linke Knopf im Standardtastenlayout geklickt wurde.
 
 > [!NOTE]
-> Verwechseln Sie diese Eigenschaft nicht mit der [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons)-Eigenschaft, die angibt, welche Tasten für alle Mausereignistypen gedrückt sind.
+> Verwechseln Sie diese Eigenschaft nicht mit der [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons)-Eigenschaft, die angibt, welche Knöpfe für alle Mausereignistypen gedrückt wurden.
 
 ## Wert
 
-Eine Zahl, die eine bestimmte Taste repräsentiert:
+Eine Zahl, die einen bestimmten Knopf darstellt:
 
-- `0`: Haupttaste, normalerweise die linke Taste oder der nicht initialisierte Zustand
-- `1`: Hilfstaste, normalerweise die Radtaste oder die mittlere Taste (falls vorhanden)
-- `2`: Sekundäre Taste, normalerweise die rechte Taste
-- `3`: Vierte Taste, typischerweise die _Zurück-Browser_-Taste
-- `4`: Fünfte Taste, typischerweise die _Vorwärts-Browser_-Taste
+- `0`: Hauptknopf, normalerweise der linke Knopf oder der nicht initialisierte Zustand
+- `1`: Hilfsknopf, normalerweise der Radknopf oder der mittlere Knopf (falls vorhanden)
+- `2`: Sekundärknopf, normalerweise der rechte Knopf
+- `3`: Vierter Knopf, typischerweise der _Browser Zurück_-Knopf
+- `4`: Fünfter Knopf, typischerweise der _Browser Vorwärts_-Knopf
 
-Wie oben erwähnt, können Tasten unterschiedlich zum Standardlayout "von links nach rechts" konfiguriert werden. Eine für Linkshänder konfigurierte Maus kann die Tastenaktionen umkehren. Einige Zeigegeräte haben nur eine Taste und verwenden Tastatur oder andere Eingabemechanismen, um Haupt-, Sekundär-, Hilfstaste usw. anzuzeigen. Andere haben viele Tasten, die auf verschiedene Funktionen und Tastenwerte abgebildet sind.
+Wie oben erwähnt, können Knöpfe anders als in der Standard-"Links-nach-Rechts"-Konfiguration angeordnet sein.
+Eine auf Linkshändigkeit konfigurierte Maus könnte die Knopfaktionen umkehren.
+Einige Zeigegeräte haben nur einen Knopf und verwenden die Tastatur oder andere Eingabemechanismen, um Haupt-, Sekundär-, Hilfsknopf, usw. anzugeben.
+Andere könnten viele Knöpfe haben, die auf verschiedene Funktionen und Knopfwerte abgebildet sind.
 
 ## Beispiele
 
