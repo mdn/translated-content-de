@@ -1,24 +1,24 @@
 ---
-title: "CSSFontFeatureValuesRule: fontFamily-Eigenschaft"
+title: "CSSFontFeatureValuesRule: Eigenschaft fontFamily"
 short-title: fontFamily
 slug: Web/API/CSSFontFeatureValuesRule/fontFamily
 l10n:
-  sourceCommit: 56bbf59f4ea2566d64ad2e5c669a7a597626b7f3
+  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`fontFamily`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle repräsentiert den Namen der Schriftfamilie, auf die sie angewendet wird.
+Die **`fontFamily`**-Eigenschaft der Schnittstelle [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule) repräsentiert den Namen der Schriftfamilie, auf die sie angewendet wird.
 
 ## Wert
 
-Ein String.
+Ein Zeichenkette.
 
 ## Beispiele
 
 ### Schriftfamilie auslesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eines für die Schriftfamilie _Font One_ und das andere für _Font Two_. Dann verwenden wir das CSSOM, um diese Schriftfamilien auszulesen und sie im Protokoll anzuzeigen.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die _Font One_ Schriftfamilie und die andere für _Font Two_. Wir verwenden dann das CSSOM, um diese Schriftfamilien auszulesen und in das Logbuch anzuzeigen.
 
 ```html
 <pre id="log"></pre>
