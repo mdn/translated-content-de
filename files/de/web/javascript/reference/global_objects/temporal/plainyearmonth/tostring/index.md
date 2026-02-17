@@ -3,10 +3,10 @@ title: Temporal.PlainYearMonth.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/toString
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 9b86874b5762b52ce0055f58d561004d1a204ad5
 ---
 
-Die **`toString()`**-Methode von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der diesen Jahr-Monat im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) repräsentiert.
+Die **`toString()`**-Methode von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der diesen Jahr-Monat im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -18,21 +18,21 @@ toString(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt mit folgender Eigenschaft:
+  - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Gibt an, ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
+      - : Ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Die Kalenderanmerkung wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist. Der Bezugstag wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Schließen Sie die Kalenderanmerkung ein, wenn der Kalender nicht `"iso8601"` ist. Der Referenztag wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderanmerkung wird immer eingeschlossen. Der Bezugstag wird ebenfalls immer eingeschlossen.
+          - : Die Kalenderanmerkung immer einschließen. Der Referenztag wird ebenfalls immer eingeschlossen.
         - `"never"`
-          - : Die Kalenderanmerkung wird nie eingeschlossen. Dies führt dazu, dass der zurückgegebene String nicht auf die gleiche {{jsxref("Temporal.PlainYearMonth")}}-Instanz zurückführbar ist, obwohl der Jahr-Monat-Wert gleich bleibt. Der Bezugstag wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderanmerkung niemals einschließen. Dies führt dazu, dass der zurückgegebene String nicht auf dieselbe {{jsxref("Temporal.PlainYearMonth")}}-Instanz zurückgeführt werden kann, obwohl der Jahr-Monat-Wert gleich bleibt. Der Referenztag wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
         - `"critical"`
-          - : Die Kalenderanmerkung wird immer eingeschlossen und ein kritisches Flag hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, jedoch nicht nützlich für Temporal selbst. Der Bezugstag wird ebenfalls immer eingeschlossen.
+          - : Die Kalenderanmerkung immer einschließen und ein kritisches Flag hinzufügen: `[!u-ca=calendar_id]`. Nützlich, wenn der String an bestimmte Systeme gesendet wird, aber nicht nützlich für Temporal selbst. Der Referenztag wird ebenfalls immer eingeschlossen.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format), der diesen Jahr-Monat repräsentiert. Die Kalenderanmerkung ist wie angegeben enthalten. Der Bezugstag ist enthalten, wenn eine Kalenderanmerkung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
+Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth#rfc_9557_format), der diesen Jahr-Monat darstellt. Die Kalenderanmerkung wird gemäß den Spezifikationen eingeschlossen. Der Referenztag wird ebenfalls eingeschlossen, wenn eine Kalenderanmerkung enthalten ist oder der Kalender nicht `"iso8601"` ist.
 
 ### Ausnahmen
 
@@ -50,11 +50,11 @@ const ym = Temporal.PlainYearMonth.from({ year: 2021, month: 8 });
 console.log(ym.toString()); // '2021-08'
 
 const ym2 = Temporal.PlainYearMonth.from({
-  year: 4658,
+  year: 5781,
   monthCode: "M08",
-  calendar: "chinese",
+  calendar: "hebrew",
 });
-console.log(ym2.toString()); // '2021-09-07[u-ca=chinese]'
+console.log(ym2.toString()); // '2021-04-13[u-ca=hebrew]'
 ```
 
 ### Verwendung von Optionen
@@ -62,18 +62,18 @@ console.log(ym2.toString()); // '2021-09-07[u-ca=chinese]'
 ```js
 const isoYM = Temporal.PlainYearMonth.from({ year: 2021, month: 8 });
 const ym = Temporal.PlainYearMonth.from({
-  year: 4658,
+  year: 5781,
   monthCode: "M08",
-  calendar: "chinese",
+  calendar: "hebrew",
 });
 console.log(isoYM.toString({ calendarName: "auto" })); // '2021-08'
-console.log(ym.toString({ calendarName: "auto" })); // '2021-09-07[u-ca=chinese]'
+console.log(ym.toString({ calendarName: "auto" })); // '2021-04-13[u-ca=hebrew]'
 console.log(isoYM.toString({ calendarName: "always" })); // '2021-08-01[u-ca=iso8601]'
-console.log(ym.toString({ calendarName: "always" })); // '2021-09-07[u-ca=chinese]'
+console.log(ym.toString({ calendarName: "always" })); // '2021-04-13[u-ca=hebrew]'
 console.log(isoYM.toString({ calendarName: "never" })); // '2021-08'
-console.log(ym.toString({ calendarName: "never" })); // '2021-09-07'
+console.log(ym.toString({ calendarName: "never" })); // '2021-04-13'
 console.log(isoYM.toString({ calendarName: "critical" })); // '2021-08-01[!u-ca=iso8601]'
-console.log(ym.toString({ calendarName: "critical" })); // '2021-09-07[!u-ca=chinese]'
+console.log(ym.toString({ calendarName: "critical" })); // '2021-04-13[!u-ca=hebrew]'
 ```
 
 ## Spezifikationen

@@ -3,12 +3,14 @@ title: Temporal.PlainDate.prototype.eraYear
 short-title: eraYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/eraYear
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 9b86874b5762b52ce0055f58d561004d1a204ad5
 ---
 
-Die Zugriffs-Eigenschaft **`eraYear`** von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine nicht negative Ganzzahl zurück, die das Jahr dieses Datums innerhalb der Ära repräsentiert, oder `undefined`, wenn der Kalender keine Ären verwendet (z. B. ISO 8601). Der Jahresindex beginnt normalerweise bei 1 (häufiger) oder 0, und Jahre innerhalb einer Ära können im Laufe der Zeit abnehmen (z. B. Gregorianisches v. Chr.). `era` und `eraYear` zusammen identifizieren ein Jahr in einem Kalender eindeutig, genauso wie `year`. Dies ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
+Die **`eraYear`** Zugriffseigenschaft der {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine nicht-negative Ganzzahl zurück, die das Jahr innerhalb der Epoche dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Epochen verwendet (z.B. ISO 8601). Der Jahresindex beginnt in der Regel bei 1 (häufiger) oder 0, und Jahre in einer Epoche können mit der Zeit abnehmen (z.B. Gregorianisch v. Chr.). `era` und `eraYear` identifizieren zusammen ein Jahr in einem Kalender eindeutig, auf die gleiche Weise wie `year` dies tut. Es ist kalenderabhängig.
 
-Im Gegensatz zu `year` können sich `era` und `eraYear` mitten in einem Kalenderjahr ändern. Zum Beispiel begann Japan die Reiwa-Ära am 1. Mai 2019, sodass Daten vom 01.01.2019 bis 30.04.2019 `{ era: "heisei", eraYear: 31 }` haben, und Daten ab dem 01.05.2019 `{ era: "reiwa", eraYear: 1 }`, aber das `year` ist immer 2019 (da der japanische Kalender das ISO 8601 Jahr als Standardjahr verwendet).
+Im Gegensatz zu `year` können sich `era` und `eraYear` mitten in einem Kalenderjahr ändern. Zum Beispiel begann Japan die Reiwa-Epoche am 1. Mai 2019, so dass Daten von 2019-01-01 bis 2019-04-30 `{ era: "heisei", eraYear: 31 }` haben und Daten ab 2019-05-01 `{ era: "reiwa", eraYear: 1 }` haben, aber das `year` ist immer 2019 (da der japanische Kalender das Jahr nach ISO 8601 als arithmetisches Jahr verwendet).
+
+Für weitere Informationen über die Werte von `era` und `eraYear` für verschiedene Kalender siehe die {{jsxref("Temporal/PlainDate/era", "era")}} Eigenschaft.
 
 Der Set-Zugriff von `eraYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
@@ -32,7 +34,7 @@ console.log(date4.eraYear); // 3
 
 ### Änderung von eraYear
 
-Sie können `eraYear` nur für Kalender festlegen, die diese unterstützen. Zum Beispiel hat der ISO 8601 Kalender keine Ären. Beachten Sie, dass Sie `era` und `eraYear` zusammen bereitstellen müssen.
+Sie können `eraYear` nur für Kalender festlegen, die diese unterstützen. Zum Beispiel hat der ISO 8601-Kalender keine Epochen. Beachten Sie, dass Sie `era` und `eraYear` zusammen angeben müssen.
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01[u-ca=gregory]");

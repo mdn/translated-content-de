@@ -3,10 +3,10 @@ title: Temporal.PlainYearMonth.prototype.add()
 short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/add
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 9b86874b5762b52ce0055f58d561004d1a204ad5
 ---
 
-Die **`add()`**-Methode von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt ein neues `Temporal.PlainYearMonth`-Objekt zurück, das diesen Jahr-Monat darstellt, der um eine gegebene Dauer (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) nach vorne verschoben wurde.
+Die **`add()`** Methode von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt ein neues `Temporal.PlainYearMonth` Objekt zurück, das diesen Jahr-Monat darstellt und durch eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) vorwärts bewegt wird.
 
 ## Syntax
 
@@ -18,40 +18,40 @@ add(duration, options)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine Dauer darstellt, die diesem Jahr-Monat hinzugefügt werden soll. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine hinzuzufügende Dauer zu diesem Jahr-Monat darstellt. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt konvertiert.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt. Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird [beschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping), um innerhalb des gültigen Bereichs zu liegen.
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainYearMonth`-Objekt, das den durch das Original-`PlainYearMonth` plus die Dauer angegebenen Jahr-Monat darstellt.
+Ein neues `Temporal.PlainYearMonth` Objekt, das den durch das ursprüngliche `PlainYearMonth` und die Dauer spezifizierten Jahr-Monat darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche umfasst.
+  - : Wird ausgelöst, wenn das Ergebnis nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±(10<sup>8</sup> + 1) Tage oder etwa ±273.972,6 Jahre von der Unix-Epoche beträgt.
 
 ## Beschreibung
 
-Die `duration` wird folgendermaßen behandelt:
+Die `duration` wird wie folgt verarbeitet:
 
-- Vorwärtsbewegung um die Anzahl der Jahre, wobei der `monthCode` gleich bleibt. Wenn der `monthCode` im resultierenden Jahr ungültig ist (unmöglich für Gregorianische und ISO 8601-Kalender, aber möglich für Kalender mit Schaltmonaten), passen wir basierend auf der `overflow`-Option an: Bei `constrain` wählen wir einen anderen Monat gemäß den kulturellen Konventionen der Benutzer dieses Kalenders. Da der Schaltmonat üblicherweise als Duplikat eines anderen Monats angesehen wird, können wir den Monat wählen, den er dupliziert.
-- Vorwärtsbewegung um die Anzahl der Monate, wobei das Jahr bei Bedarf angepasst wird.
-- Für alle Einheiten kleiner als `months` (Wochen, Tage, Stunden, Minuten, Sekunden, Millisekunden, Mikrosekunden, Nanosekunden) werden sie in die Anzahl der Tage umgewandelt. Alle allgemein unterstützten Kalender verwenden Wochen fester Länge, sodass die Anzahl der Wochen einfach in die Anzahl der Tage umgerechnet wird. Wenn die Regel komplexer ist, können wir einen Ansatz ähnlich der Verschiebung von Monaten verfolgen. Dann bewegen wir uns um diese Anzahl von Tagen nach vorne, beginnend am ersten Tag des Monats, wobei wir Monat und Jahr bei Bedarf anpassen. Dauern kleiner als die aktuelle Monatslänge haben daher keinen Effekt.
+- Vorwärts bewegen um die Anzahl der Jahre, wobei der `monthCode` gleich bleibt. Wenn der `monthCode` im resultierenden Jahr ungültig ist (unmöglich für den gregorianischen und ISO 8601 Kalender, aber möglich für Kalender mit Schaltmonaten), passen wir basierend auf der `overflow` Option an: für `constrain` wählen wir einen anderen Monat gemäß den kulturellen Konventionen der Benutzer dieses Kalenders. Da der Schaltmonat normalerweise als Duplikat eines anderen Monats angesehen wird, können wir den Monat wählen, von dem er ein Duplikat ist.
+- Vorwärts bewegen um die Anzahl der Monate, wobei das Jahr falls notwendig angepasst wird.
+- Für alle Einheiten kleiner als `months` (Wochen, Tage, Stunden, Minuten, Sekunden, Millisekunden, Mikrosekunden, Nanosekunden) werden diese in die Anzahl der Tage konvertiert. Alle allgemein unterstützten Kalender verwenden Wochen mit fester Länge, daher wird die Anzahl der Wochen einfach in die Anzahl der Tage umgewandelt. Wenn die Regel komplexer ist, können wir einen Ansatz ähnlich dem Verschieben von Monaten wählen. Dann bewegen wir uns um diese Anzahl von Tagen vorwärts, beginnend am ersten Tag des Monats, wobei der Monat und das Jahr bei Bedarf angepasst werden. Dauern, die kürzer sind als die Länge des aktuellen Monats, haben daher keine Auswirkung.
 
-Der interne Referenztag wird dann als erster gültiger Tag des Monats gewählt, unabhängig vom ursprünglichen Referenztag oder der Anzahl der Tage in der Dauer. Für den Gregorianischen Kalender kann kein Überlauf stattfinden, da jedes Jahr immer 12 Monate hat und jede Erhöhung von weniger als einem Monat einfach ignoriert wird.
+Der interne Referenztag wird dann als erster gültiger Tag des Monats gewählt, unabhängig vom ursprünglichen Referenztag oder der Anzahl der Tage in der Dauer. Für den gregorianischen Kalender kann kein Überlauf auftreten, da jedes Jahr immer 12 Monate hat und jede Erhöhung um weniger als einen Monat einfach ignoriert wird.
 
-Das Hinzufügen einer Dauer entspricht dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
+Das Hinzufügen einer Dauer ist gleichbedeutend mit dem [Subtrahieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/subtract) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated).
 
 ## Beispiele
 
-### Hinzufügen einer Dauer im ISO 8601-Kalender
+### Hinzufügen einer Dauer im ISO 8601 Kalender
 
 ```js
 const start = Temporal.PlainYearMonth.from("2021-01");
@@ -66,19 +66,19 @@ const end3 = start.add(distance);
 console.log(end3.toString()); // 2022-01
 ```
 
-### Hinzufügen einer Dauer in einem Nicht-ISO-Kalender
+### Hinzufügen einer Dauer in einem nicht-ISO Kalender
 
 ```js
 const start = Temporal.PlainYearMonth.from("2021-02-01[u-ca=chinese]");
-console.log(start.toLocaleString("en-US", { calendar: "chinese" })); // 11/2020
+console.log(start.toLocaleString("en-US", { calendar: "chinese" })); // 12/2020
 console.log(start.toString()); // 2021-01-13[u-ca=chinese]
 const end = start.add({ months: 1 });
-console.log(end.toLocaleString("en-US", { calendar: "chinese" })); // 12/2020
+console.log(end.toLocaleString("en-US", { calendar: "chinese" })); // 1/2021
 console.log(end.toString()); // 2021-02-12[u-ca=chinese]
 
 // Adding an extra day has no effect at all
 const end2 = start.add({ months: 1, days: 1 });
-console.log(end2.toLocaleString("en-US", { calendar: "chinese" })); // 12/2020
+console.log(end2.toLocaleString("en-US", { calendar: "chinese" })); // 1/2021
 // The reference day doesn't change, because it's always the first day of the Chinese month
 console.log(end2.toString()); // 2021-02-12[u-ca=chinese]
 
@@ -96,7 +96,7 @@ console.log(end3.toLocaleString("en-US", { calendar: "hebrew" })); // Adar I 573
 
 ### Hinzufügen einer Dauer mit Überlauf
 
-Wenn wir ein paar Jahre vorwärts bewegen und der entsprechende Monat in diesem Jahr ungültig ist, passen wir den Monat basierend auf der `overflow`-Option an.
+Wenn wir einige Jahre vorwärts gehen und der entsprechende Monat in diesem Jahr ungültig ist, passen wir den Monat basierend auf der `overflow` Option an.
 
 ```js
 // Start in a leap month
@@ -122,7 +122,7 @@ console.log(end3.monthCode); // M07
 console.log(end3.toString()); // 1971-03-27[u-ca=hebrew]
 ```
 
-Beachten Sie, dass das folgende kein Überlauf ist, da das Jahr einfach inkrementiert werden kann:
+Beachten Sie, dass es sich hierbei nicht um einen Überlauf handelt, da das Jahr einfach inkrementieren kann:
 
 ```js
 const start = Temporal.PlainYearMonth.from("2021-01");
@@ -130,7 +130,7 @@ const end = start.add({ months: 100 });
 console.log(end.toString()); // 2029-05
 ```
 
-Sie können auch einen Fehler auslösen, wenn die Datumskomponente außerhalb des Bereichs liegt:
+Sie können auch einen Fehler auslösen, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt:
 
 ```js
 const start = Temporal.PlainYearMonth.from({
