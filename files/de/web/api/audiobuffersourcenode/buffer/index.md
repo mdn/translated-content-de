@@ -1,25 +1,30 @@
 ---
-title: "AudioBufferSourceNode: Buffer-Eigenschaft"
+title: "AudioBufferSourceNode: buffer-Eigenschaft"
 short-title: buffer
 slug: Web/API/AudioBufferSourceNode/buffer
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: b56a1ece297f9c6e8c9000bb4e9532b25645edb5
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`buffer`**-Eigenschaft der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Schnittstelle ermöglicht es, Audio unter Verwendung eines [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) als Quelle der Klangdaten wiederzugeben.
+Die **`buffer`**-Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ermöglicht die Wiedergabe von Audio mit einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) als Quelle der Audiodaten.
 
-Wenn die `buffer`-Eigenschaft auf den Wert `null` gesetzt ist, erzeugt der Knoten einen einzelnen Kanal, der Stille enthält (d.h. jeder Sample-Wert ist 0).
+Wenn die `buffer`-Eigenschaft auf den Wert `null` gesetzt ist, generiert der Node einen einzelnen Kanal, der Stille enthält (das heißt, jedes Sample ist 0).
 
 ## Wert
 
-Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die Daten enthält, die den Klang repräsentieren, den der Knoten abspielen wird.
+Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die Daten enthält, die den Klang darstellen, den der Node abspielen wird.
+
+## Ausnahmen
+
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `buffer`-Eigenschaft bereits auf einen nicht-`null` Wert gesetzt wurde und dann erneut auf einen nicht-`null` Wert gesetzt wird.
 
 ## Beispiele
 
 > [!NOTE]
-> Für ein vollständiges lauffähiges Beispiel, sehen Sie sich [dieses live laufende Beispiel](https://mdn.github.io/webaudio-examples/audio-buffer/) an oder [betrachten Sie den Quellcode](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
+> Für ein vollständiges Arbeitsbeispiel siehe [dieser Code in Aktion](https://mdn.github.io/webaudio-examples/audio-buffer/), oder [sehen Sie sich den Quellcode an](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
