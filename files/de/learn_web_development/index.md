@@ -1,13 +1,13 @@
 ---
-title: Webentwicklung Lernen
+title: Webentwicklung lernen
 slug: Learn_web_development
 l10n:
   sourceCommit: 57bc2729e3963907c0b54158ae1a31318a2ebbd1
 ---
 
-Willkommen zu MDN ** Webentwicklung Lernen** (auch bekannt als **Lernen**). Diese Ressource bietet eine strukturierte Sammlung von Tutorials, die die grundlegenden Fähigkeiten und Praktiken vermitteln, die für den Erfolg als Front-End-Entwickler notwendig sind, sowie Herausforderungen und weitere empfohlene Ressourcen.
+Willkommen zu MDN **Webentwicklung lernen** (auch bekannt als **Lernen**). Diese Ressource bietet eine strukturierte Sammlung von Tutorials, die die grundlegenden Fähigkeiten und Praktiken vermitteln, die für den Erfolg als Front-End-Entwickler notwendig sind, sowie Herausforderungen und weitere empfohlene Ressourcen.
 
-## Über Webentwicklung Lernen
+## Über Webentwicklung lernen
 
 - Vermittelt die grundlegenden Fähigkeiten und Kenntnisse, die jeder Front-End-Entwickler für beruflichen Erfolg und Branchenrelevanz benötigt, wie im [MDN Curriculum](/en-US/curriculum/) definiert.
 
@@ -57,7 +57,7 @@ Einige Fragen enthalten keine Codeblöcke, von denen aus Sie starten können, un
 
 Die Codebeispiele, die Sie im Lernbereich begegnen werden, sind alle [auf GitHub verfügbar](https://github.com/mdn/learning-area/):
 
-- Der einfachste Weg, sie zu bekommen, ist [eine ZIP-Datei der neuesten Haupt-Branch herunterzuladen](https://codeload.github.com/mdn/learning-area/zip/main).
+- Der einfachste Weg, sie zu bekommen, ist [eine ZIP-Datei des neuesten Haupt-Branches herunterzuladen](https://codeload.github.com/mdn/learning-area/zip/main).
 - Wenn Sie mit Git und GitHub vertraut sind, können Sie sich auch entscheiden, das Repository zu klonen.
 
 ## Kontaktieren Sie uns
