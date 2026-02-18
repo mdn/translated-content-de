@@ -1,13 +1,13 @@
 ---
-title: Lernen Webentwicklung
+title: Webentwicklung lernen
 slug: Learn_web_development
 l10n:
   sourceCommit: 57bc2729e3963907c0b54158ae1a31318a2ebbd1
 ---
 
-Willkommen zu MDN **Lernen Webentwicklung** (auch bekannt als **Lernen**). Diese Ressource bietet eine strukturierte Sammlung von Tutorials, die die grundlegenden Fähigkeiten und Praktiken vermitteln, die für den Erfolg als Front-End-Entwickler notwendig sind, sowie Herausforderungen und weitere empfohlene Ressourcen.
+Willkommen zu MDN **Webentwicklung lernen** (auch bekannt als **Lernen**). Diese Ressource bietet eine strukturierte Sammlung von Tutorials, die die grundlegenden Fähigkeiten und Praktiken vermitteln, die für den Erfolg als Front-End-Entwickler notwendig sind, sowie Herausforderungen und weitere empfohlene Ressourcen.
 
-## Über Lernen Webentwicklung
+## Über Webentwicklung lernen
 
 - Vermittelt die grundlegenden Fähigkeiten und Kenntnisse, die jeder Front-End-Entwickler für beruflichen Erfolg und Branchenrelevanz benötigt, wie im [MDN Curriculum](/en-US/curriculum/) definiert.
 
@@ -20,7 +20,7 @@ Willkommen zu MDN **Lernen Webentwicklung** (auch bekannt als **Lernen**). Diese
 
 > [!CALLOUT]
 >
-> ### Versuchen Sie unsere Partner-Videokurse
+> ### Probieren Sie unsere Partner-Videokurse aus
 >
 > Interessiert an einem interaktiven Videokurs zur Ergänzung unserer Artikel? Scrimbas [Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn)<sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> lehrt auch die im MDN-Curriculum enthaltenen Themen.
 >
