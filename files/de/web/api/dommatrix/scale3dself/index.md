@@ -1,14 +1,14 @@
 ---
-title: "DOMMatrix: scale3dSelf()-Methode"
+title: "DOMMatrix: scale3dSelf() Methode"
 short-title: scale3dSelf()
 slug: Web/API/DOMMatrix/scale3dSelf
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: ac65082ad3d0885ea5fc5f8f00327d4131b6d6f4
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`scale3dSelf()`**-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix durch Anwenden eines bestimmten Skalierungsfaktors auf alle drei Achsen verändert. Der Mittelpunkt befindet sich dabei am angegebenen Ursprung, wobei der Standardursprung `(0, 0, 0)` ist. Sie gibt die 3D-skalierten Matrix zurück.
+Die **`scale3dSelf()`**-Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Interfaces ist eine veränderliche Transformationsmethode, die eine Matrix modifiziert, indem ein bestimmter Skalierungsfaktor auf alle drei Achsen angewendet wird, zentriert auf dem angegebenen Ursprung, mit dem Standardursprung `(0, 0, 0)`, und die 3D-skalierte Matrix zurückgibt.
 
 Um eine Matrix in 3D zu skalieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.scale3d()`](/de/docs/Web/API/DOMMatrixReadOnly/scale3d), das eine neue skalierte Matrix erstellt, während die ursprüngliche unverändert bleibt.
 
@@ -25,13 +25,13 @@ scale3dSelf(scale, originX, originY, originZ)
 ### Parameter
 
 - `scale`
-  - : Ein Multiplikator; der Skalierungswert. Wenn kein Skalierungswert angegeben wird, ist der Standardwert `1`. Falls der Skalierungswert nicht 1 ist, wird die [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D)-Eigenschaft der aktuellen Matrix auf `false` gesetzt.
+  - : Ein Multiplikator; der Skalierungswert. Wenn keine Skalierung angegeben wird, ist der Standardwert `1`. Wenn die Skalierung nicht 1 ist, wird die [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D)-Eigenschaft der aktuellen Matrix auf `false` gesetzt.
 - `originX` {{optional_inline}}
-  - : Eine x-Koordinate für den Ursprung der Transformation. Wird kein Ursprung angegeben, ist der Standardwert `0`.
+  - : Eine x-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben wird, ist der Standardwert `0`.
 - `originY` {{optional_inline}}
-  - : Eine y-Koordinate für den Ursprung der Transformation. Wird kein Ursprung angegeben, ist der Standardwert `0`.
+  - : Eine y-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben wird, ist der Standardwert `0`.
 - `originZ` {{optional_inline}}
-  - : Eine z-Koordinate für den Ursprung der Transformation. Wird kein Ursprung angegeben, ist der Standardwert `0`.
+  - : Eine z-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben wird, ist der Standardwert `0`.
 
 ### Rückgabewert
 
@@ -73,7 +73,7 @@ console.log(matrix.toString());
 
 - [`DOMMatrixReadOnly.scale3d()`](/de/docs/Web/API/DOMMatrixReadOnly/scale3d)
 - [`DOMMatrix.scaleSelf()`](/de/docs/Web/API/DOMMatrix/scaleSelf)
-- CSS {{cssxref("transform")}}-Eigenschaft und die {{cssxref("transform-function/scale", "scale3d()")}}- und {{cssxref("transform-function/matrix3d", "matrix3d()")}}-Funktionen
-- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms)-Modul
+- CSS {{cssxref("transform")}}-Eigenschaft und die {{cssxref("transform-function/scale3d", "scale3d()")}}- und {{cssxref("transform-function/matrix3d", "matrix3d()")}}-Funktionen
+- [CSS-Transforms](/de/docs/Web/CSS/Guides/Transforms)-Modul
 - SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)-Methode
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interface [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)-Methode
