@@ -1,13 +1,13 @@
 ---
-title: CSS Grid-Layout
+title: CSS-Grid-Layout
 slug: Learn_web_development/Core/CSS_layout/Grids
 l10n:
-  sourceCommit: 423161782178b119c64cd0b41bff8df20dc84a56
+  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox", "Learn_web_development/Core/CSS_layout/Test_your_skills/Grid", "Learn_web_development/Core/CSS_layout")}}
 
-CSS Grid-Layout ist ein zweidimensionales Layoutsystem für das Web. Es ermöglicht Ihnen, Inhalte in Zeilen und Spalten zu organisieren und bietet viele Funktionen, um die Erstellung komplexer Layouts zu vereinfachen. Dieser Artikel erklärt alles, was Sie wissen müssen, um mit dem Grid-Layout zu beginnen.
+Das CSS-Grid-Layout ist ein zweidimensionales Layoutsystem für das Web. Es lässt Sie Inhalte in Zeilen und Spalten organisieren und bietet viele Funktionen, um die Erstellung komplexer Layouts zu vereinfachen. In diesem Artikel erklären wir Ihnen alles, was Sie wissen müssen, um mit dem Grid-Layout zu beginnen.
 
 <table>
   <tbody>
@@ -15,21 +15,21 @@ CSS Grid-Layout ist ein zweidimensionales Layoutsystem für das Web. Es ermögli
       <th scope="row">Voraussetzungen:</th>
       <td>
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Inhalte mit HTML strukturieren</a
+          >Strukturieren von Inhalten mit HTML</a
         >,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen des CSS-Stylings</a>,
         <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegendes Text- und Schriftstyling</a>,
-        vertraut sein mit den <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">grundlegenden Konzepten des CSS-Layouts</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/CSS_layout/Introduction">grundlegenden Konzepten des CSS-Layouts</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen, wozu CSS Grid dient — ein flexibles Layout einer Reihe von Block- oder Inline-Elementen in zwei Dimensionen.</li>
-          <li>Verstehen der Grid-Terminologie — Zeilen, Spalten, Lücken und Abstände.</li>
-          <li>Verstehen, was <code>display: grid</code> Ihnen standardmäßig bietet.</li>
-          <li>Definieren von Grid-Zeilen, -Spalten und -Lücken.</li>
+          <li>Verstehen Sie den Zweck von CSS Grid — ein flexibles Layout von Block- oder Inline-Elementen in zwei Dimensionen.</li>
+          <li>Verstehen Sie die Grid-Terminologie — Zeilen, Spalten, Abstände und Rinnen.</li>
+          <li>Verstehen Sie, was `display: grid` Ihnen standardmäßig bietet.</li>
+          <li>Definieren von Grid-Zeilen, -Spalten und -Abständen.</li>
           <li>Positionieren von Elementen im Grid.</li>
         </ul>
       </td>
@@ -37,23 +37,24 @@ CSS Grid-Layout ist ein zweidimensionales Layoutsystem für das Web. Es ermögli
   </tbody>
 </table>
 
-## Was ist Grid-Layout?
+## Was ist das Grid-Layout?
 
-Ein Grid ist eine Sammlung von horizontalen und vertikalen Linien, die ein Muster erzeugen, an dem wir unsere Designelemente ausrichten können. Sie helfen uns, Layouts zu erstellen, in denen unsere Elemente nicht springen oder die Breite ändern, wenn wir von Seite zu Seite wechseln, wodurch die Konsistenz auf unseren Websites verbessert wird.
+Ein Grid ist eine Sammlung von horizontalen und vertikalen Linien, die ein Muster erzeugen, an dem wir unsere Designelemente ausrichten können. Sie helfen uns, Layouts zu erstellen, bei denen unsere Elemente nicht springen oder die Breite ändern, wenn wir von Seite zu Seite wechseln, was für eine größere Konsistenz auf unseren Websites sorgt.
 
-Ein Grid besteht typischerweise aus **Spalten**, **Zeilen** und dann Lücken zwischen jeder Zeile und Spalte. Die Lücken werden häufig als **Abstände** bezeichnet.
+Ein Grid hat typischerweise **Spalten**, **Zeilen** und dann Abstände zwischen jeder Zeile und Spalte. Diese Abstände werden üblicherweise als **Rinnen** bezeichnet.
 
-![CSS-Grid mit Teilen, die als Zeilen, Spalten und Abstände beschriftet sind. Zeilen sind die horizontalen Segmente des Grids und Spalten sind die vertikalen Segmente des Grids. Der Abstand zwischen zwei Zeilen wird als 'Zeilen-Abstand' bezeichnet und der Abstand zwischen zwei Spalten als 'Spalten-Abstand'.](grid.png)
+![CSS-Grid mit als Zeilen, Spalten und Rinnen beschrifteten Teilen. Zeilen sind die horizontalen Segmente des Grids, und Spalten sind die vertikalen Segmente des Grids. Der Abstand zwischen zwei Zeilen wird als 'Zeilenrinnen' und der Abstand zwischen zwei Spalten als 'Spaltenrinnen' bezeichnet.](grid.png)
 
 ## Ihr Grid in CSS erstellen
 
-Nachdem Sie sich entschieden haben, welches Grid Ihr Design benötigt, können Sie CSS Grid-Layout verwenden, um es zu erstellen. Wir werden zunächst die grundlegenden Funktionen des Grid-Layouts untersuchen und dann erkunden, wie man ein einfaches Grid-System für Ihr Projekt erstellt. Das folgende Video bietet eine anschauliche Erklärung zur Verwendung von CSS Grid:
+Nachdem Sie das Grid entschieden haben, das Ihr Design benötigt, können Sie das CSS-Grid-Layout verwenden, um es zu erstellen. Wir werden zunächst die grundlegenden Funktionen des Grid-Layouts prüfen und dann erkunden, wie man ein einfaches Grid-System für Ihr Projekt erstellt.
+Das folgende Video bietet eine schöne visuelle Erklärung zur Verwendung von CSS-Grid:
 
 {{EmbedYouTube("KOvGeFUHAC0")}}
 
 ### Ein Grid definieren
 
-Probieren wir Grid-Layouts aus. Hier ist ein Beispiel mit einem Container, der einige Kind-Elemente enthält. Standardmäßig werden diese Elemente im normalen Fluss angezeigt, wodurch sie untereinander erscheinen.
+Probieren wir Grid-Layouts aus. Hier ist ein Beispiel mit einem Container, der einige Kind-Elemente enthält. Standardmäßig werden diese Elemente im normalen Fluss angezeigt, was dazu führt, dass sie untereinander erscheinen.
 
 ```html live-sample___simple-grid_0
 <div class="container">
@@ -81,7 +82,7 @@ body {
 
 {{EmbedLiveSample('simple-grid_0', '100%', "310") }}
 
-Ähnlich wie bei der Definition von Flexbox definieren Sie ein Grid-Layout, indem Sie den Wert der {{cssxref("display")}}-Eigenschaft auf `grid` setzen. Wie im Fall von Flexbox transformiert die Eigenschaft `display: grid` alle direkten Kinder des Containers in Grid-Elemente. Wir haben die folgende CSS zum Dokument hinzugefügt:
+Ähnlich wie Sie Flexbox definieren, definieren Sie ein Grid-Layout, indem Sie den Wert der {{cssxref("display")}}-Eigenschaft auf `grid` setzen. Wie im Fall von Flexbox, transformiert die `display: grid`-Eigenschaft alle direkten Kinder des Containers in Grid-Items. Wir haben die folgende CSS zum Dokument hinzugefügt:
 
 ```html hidden live-sample___simple-grid_1
 <div class="container">
@@ -115,9 +116,9 @@ body {
 
 {{EmbedLiveSample('simple-grid_1', '100%', "310") }}
 
-Im Gegensatz zu Flexbox sehen die Elemente nicht sofort anders aus. Die Deklaration von `display: grid` gibt Ihnen ein Ein-Spalten-Grid, sodass Ihre Elemente weiterhin untereinander angezeigt werden, wie sie es im normalen Fluss tun.
+Im Gegensatz zu Flexbox sehen die Elemente nicht sofort anders aus. Die Deklaration von `display: grid` ergibt ein einspaltiges Grid, sodass Ihre Elemente weiterhin untereinander wie im normalen Fluss angezeigt werden.
 
-Um etwas gridähnlicheres zu sehen, müssen wir dem Grid einige Spalten hinzufügen. Fügen wir drei 200-Pixel-Spalten hinzu. Sie können jede Längeneinheit oder Prozentsätze verwenden, um diese Spaltentracks zu erstellen.
+Um etwas Grid-Ähnliches zu sehen, müssen wir dem Grid einige Spalten hinzufügen. Lassen Sie uns drei 200-Pixel-Spalten hinzufügen. Sie können jede Längeneinheit oder Prozentzahl verwenden, um diese Spaltenspuren zu erstellen.
 
 ```html hidden live-sample___simple-grid_2
 <div class="container">
@@ -150,19 +151,19 @@ body {
 }
 ```
 
-Sie sollten sehen, dass sich die Elemente so umgeordnet haben, dass jeweils eines in jeder Zelle des Grids liegt.
+Sie sollten sehen, dass sich die Elemente so neu angeordnet haben, dass sich eines in jeder Zelle des Grids befindet.
 
 {{EmbedLiveSample('simple-grid_2', '100%', "130") }}
 
 ## Interaktive Wiederholung der Grid-Konzepte
 
-Der folgende eingebettete Inhalt von Scrimba<sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine interaktive Lektion über die Grundlagen von CSS Grid. Sie enthält auch ein Live-Grid-Beispiel, mit dem Sie experimentieren können, um zu sehen, wie der Code funktioniert.
+Die folgende eingebettete Inhalte von Scrimba<sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bieten eine interaktive Lektion zu den Grundlagen von CSS Grid. Es enthält ein Live-Grid-Beispiel, mit dem Sie herumspielen können, um zu sehen, wie der Code funktioniert.
 
 <mdn-scrim-inline url="https://scrimba.com/learn-css-grid-c02k/~01" scrimtitle="Ihr erstes Grid"></mdn-scrim-inline>
 
-### Flexible Grids mit der Einheit fr
+### Flexible Grids mit der `fr`-Einheit
 
-Zusätzlich zum Erstellen von Grids mit Längen und Prozentsätzen können wir [`fr`](/de/docs/Web/CSS/Reference/Values/flex_value) verwenden. Die `fr`-Einheit repräsentiert einen Bruchteil des verfügbaren Platzes im Grid-Container, um Grid-Zeilen und -Spalten flexibel zu dimensionieren.
+Zusätzlich zur Erstellung von Grids mithilfe von Längen und Prozentwerten können wir [`fr`] (/de/docs/Web/CSS/Reference/Values/flex_value) verwenden. Die `fr`-Einheit repräsentiert ein Bruchteil des verfügbaren Platzes im Grid-Container, um damit flexibel Grid-Zeilen und -Spalten zu dimensionieren.
 
 ```html hidden live-sample___grid-fr-unit_0
 <div class="container">
@@ -188,7 +189,7 @@ body {
 }
 ```
 
-Hier ändern wir die Track-Liste zu folgender Definition, die drei `1fr` Tracks erstellt:
+Hier ändern wir die Spur-Auflistung in die folgende Definition, die drei `1fr`-Spuren erstellt:
 
 ```css live-sample___grid-fr-unit_0
 .container {
@@ -199,9 +200,8 @@ Hier ändern wir die Track-Liste zu folgender Definition, die drei `1fr` Tracks 
 
 {{EmbedLiveSample('grid-fr-unit_0', '100%', "130") }}
 
-Sie haben nun flexible Tracks.
-Die `fr`-Einheit verteilt den Raum proportional, sodass Sie unterschiedliche positive Werte für Ihre Tracks angeben können.
-Ändern Sie Ihre Track-Liste zu folgender Definition, um einen `2fr` Track und zwei `1fr` Tracks zu erstellen:
+Jetzt haben Sie flexible Spuren. Die `fr`-Einheit verteilt den Raum proportional, sodass Sie verschiedene positive Werte für Ihre Spuren angeben können.
+Ändern Sie Ihre Spur-Auflistung in die folgende Definition, die eine `2fr`-Spur und zwei `1fr`-Spuren erstellt:
 
 ```html hidden live-sample___grid-fr-unit_1
 <div class="container">
@@ -236,18 +236,18 @@ body {
 
 {{EmbedLiveSample('grid-fr-unit_1', '100%', "130") }}
 
-Der erste Track erhält `2fr` des verfügbaren Platzes und die anderen beiden Tracks erhalten `1fr`, sodass der erste Track größer ist. Sie können `fr`-Einheiten mit festen Längeneinheiten mischen. In diesem Fall wird zuerst der Platz für die festen Tracks verwendet, bevor der verbleibende Platz auf die anderen Tracks verteilt wird.
+Die erste Spur erhält `2fr` des verfügbaren Platzes, und die anderen zwei Spuren erhalten jeweils `1fr`, wodurch die erste Spur größer wird. Sie können `fr`-Einheiten mit Einheiten fester Länge mischen. In diesem Fall wird der für die festen Spuren benötigte Platz zuerst verwendet, bevor der verbleibende Platz auf die anderen Spuren verteilt wird.
 
 > [!NOTE]
-> Die `fr` Einheit verteilt _verfügbaren_ Platz, nicht _allen_ Platz. Daher wird, wenn einer Ihrer Tracks etwas Großes enthält, weniger freier Platz zum Teilen vorhanden sein.
+> Die `fr`-Einheit verteilt _verfügbaren_ Platz, nicht _allen_ Platz. Daher wird es, wenn eine Ihrer Spuren etwas Großes enthält, weniger freien Platz zum Verteilen geben.
 
-### Lücken zwischen Tracks
+### Abstände zwischen Spuren
 
-Um Lücken zwischen Tracks zu erstellen, verwenden wir die Eigenschaften:
+Um Abstände zwischen Spuren zu schaffen, verwenden wir die Eigenschaften:
 
-- {{cssxref("column-gap")}} für Lücken zwischen Spalten
-- {{cssxref("row-gap")}} für Lücken zwischen Zeilen
-- {{cssxref("gap")}} als Kurzform für beides
+- {{cssxref("column-gap")}} für Abstände zwischen Spalten
+- {{cssxref("row-gap")}} für Abstände zwischen Zeilen
+- {{cssxref("gap")}} als Kurzform für beide
 
 ```html hidden live-sample___grid-gap
 <div class="container">
@@ -273,7 +273,7 @@ body {
 }
 ```
 
-Hier fügen wir die `gap`-Eigenschaft hinzu, um Lücken zwischen den Tracks mit einem Wert von `20px` zu erstellen:
+Hier fügen wir die `gap`-Eigenschaft hinzu, um Abstände zwischen den Spuren mit einem Wert von `20px` zu erstellen:
 
 ```css live-sample___grid-gap
 .container {
@@ -285,11 +285,12 @@ Hier fügen wir die `gap`-Eigenschaft hinzu, um Lücken zwischen den Tracks mit 
 
 {{EmbedLiveSample('grid-gap', '100%', "180") }}
 
-Diese Lücken können jede Längeneinheit oder Prozentsatz sein, jedoch keine `fr`-Einheit.
+Diese Abstände können jede Längeneinheit oder Prozentzahl sein, jedoch keine `fr`-Einheit.
 
-### Wiederholende Track-Liste
+### Wiederholende Spurlisten
 
-Sie können Ihre gesamte Track-Liste oder nur einen Abschnitt davon mit der CSS-Funktion `repeat()` wiederholen. Hier ändern wir die Track-Liste zu folgender Definition:
+Sie können Ihre gesamte Spurliste oder nur einen Abschnitt mithilfe der CSS-Funktion `repeat()` wiederholen.
+Hier ändern wir die Spurliste in die folgende:
 
 ```html hidden live-sample___grid-repeat
 <div class="container">
@@ -325,17 +326,17 @@ body {
 
 {{EmbedLiveSample('grid-repeat', '100%', "180") }}
 
-Jetzt erhalten Sie drei `1fr` Tracks genau wie zuvor. Der erste Wert, der an die `repeat()`-Funktion übergeben wird, gibt an, wie oft die Liste wiederholt werden soll, während der zweite Wert eine Track-Liste ist, die aus einem oder mehreren Tracks bestehen kann, die Sie wiederholen möchten.
+Sie erhalten jetzt drei `1fr`-Spuren wie zuvor. Der erste Wert, der an die `repeat()`-Funktion übergeben wird, gibt die Anzahl der Wiederholungen der Liste an, während der zweite Wert eine Spurliste ist, die aus einem oder mehreren zu wiederholenden Spuren besteht.
 
 ### Implizite und explizite Grids
 
-Bis zu diesem Punkt haben wir nur Spaltentracks angegeben, aber Zeilen werden automatisch erstellt, um den Inhalt aufzunehmen. Dieses Konzept unterstreicht den Unterschied zwischen expliziten und impliziten Grids.
-Hier ist ein bisschen mehr über den Unterschied zwischen diesen beiden Arten von Grids:
+Bis zu diesem Punkt haben wir nur Spaltenspuren angegeben, aber Zeilen werden automatisch erstellt, um den Inhalt zu halten. Dieses Konzept unterstreicht den Unterschied zwischen expliziten und impliziten Grids.
+Hier ist ein wenig mehr über den Unterschied zwischen den beiden Arten von Grids:
 
-- **Explizites Grid** wird mit `grid-template-columns` oder `grid-template-rows` erstellt.
-- **Implizites Grid** erweitert das definierte explizite Grid, wenn Inhalte außerhalb dieses Grids platziert werden, z.B. in die Zeilen durch Ziehen zusätzlicher Gitternetzlinien.
+- **Explizites Grid** wird mithilfe von `grid-template-columns` oder `grid-template-rows` erstellt.
+- **Implizites Grid** erweitert das definierte explizite Grid, wenn Inhalte außerhalb dieses Grids platziert werden, z. B. in die Zeilen durch das Zeichnen zusätzlicher Grid-Linien.
 
-Standardmäßig sind Tracks, die im impliziten Grid erstellt werden, `auto`-dimensioniert, was im Allgemeinen bedeutet, dass sie groß genug sind, um ihren Inhalt aufzunehmen. Wenn Sie explizite Grid-Tracks eine Größe geben möchten, können Sie die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} verwenden. Fügen Sie `grid-auto-rows` mit einem Wert von `100px` zu Ihrem CSS hinzu, werden Sie sehen, dass die erstellten Zeilen jetzt 100 Pixel hoch sind.
+Standardmäßig sind Spuren, die im impliziten Grid erstellt werden, `auto`-dimensioniert, was im Allgemeinen bedeutet, dass sie groß genug sind, um ihren Inhalt zu enthalten. Wenn Sie den impliziten Grid-Spuren eine Größe geben möchten, können Sie die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} verwenden. Wenn Sie `grid-auto-rows` mit einem Wert von `100px` zu Ihrem CSS hinzufügen, werden Sie sehen, dass diese erstellten Zeilen jetzt 100 Pixel hoch sind.
 
 ```html hidden live-sample___grid-auto
 <div class="container">
@@ -372,11 +373,11 @@ body {
 
 {{EmbedLiveSample('grid-auto', '100%', "350") }}
 
-### Die minmax()-Funktion
+### Die `minmax()`-Funktion
 
-Unsere 100-Pixel-hohen Tracks werden nicht sehr nützlich sein, wenn wir Inhalte hinzufügen, die höher als 100 Pixel sind, was zu einem Überlauf führen würde. Es könnte besser sein, Tracks zu haben, die _mindestens_ 100 Pixel hoch sind und sich dennoch erweitern können, wenn mehr Inhalt hinzugefügt wird. Eine ziemlich grundlegende Tatsache über das Web ist, dass man nie wirklich weiß, wie hoch etwas sein wird – zusätzlicher Inhalt oder größere Schriftgrößen können Probleme mit Designs verursachen, die versuchen, pixelgenau in jeder Dimension zu sein.
+Unsere 100 Pixel hohen Spuren werden nicht sehr nützlich sein, wenn wir Inhalte in diese Spuren hinzufügen, die höher als 100 Pixel sind, was einen Überlauf verursachen würde. Es könnte besser sein, Spuren zu haben, die _mindestens_ 100 Pixel hoch sind und sich trotzdem erweitern können, wenn mehr Inhalte hinzugefügt werden. Eine ziemlich grundlegende Tatsache über das Web ist, dass Sie nie wirklich wissen, wie hoch etwas sein wird — zusätzliche Inhalte oder größere Schriftgrößen können bei Designs Probleme verursachen, die versuchen, in jeder Dimension pixelgenau zu sein.
 
-Die {{cssxref("minmax", "minmax()")}}-Funktion ermöglicht es uns, eine Mindest- und Höchstgröße für einen Track festzulegen, zum Beispiel `minmax(100px, auto)`. Die Mindestgröße beträgt 100 Pixel, aber die Höchstgröße ist `auto`, was sich anpasst, um mehr Inhalt unterzubringen. Hier ändern wir die `grid-auto-rows`, um einen `minmax()`-Wert zu verwenden:
+Die {{cssxref("minmax", "minmax()")}}-Funktion lässt uns eine Mindest- und Höchstgröße für eine Spur festlegen, zum Beispiel `minmax(100px, auto)`. Die Mindestgröße beträgt 100 Pixel, aber die Höchstgröße ist `auto`, was sich anpasst, um mehr Inhalt zu fassen. Hier ändern wir die `grid-auto-rows` zur Verwendung eines `minmax()`-Werts:
 
 ```html hidden live-sample___grid-minmax_0
 <div class="container">
@@ -413,11 +414,11 @@ body {
 
 {{EmbedLiveSample('grid-minmax_0', '100%', "210") }}
 
-Wenn Sie zusätzlichen Inhalt hinzufügen, sehen Sie, dass sich der Track erweitert, um ihn aufzunehmen. Beachten Sie, dass die Erweiterung entlang der Zeile erfolgt.
+Wenn Sie zusätzliche Inhalte hinzufügen, werden Sie sehen, dass die Spur sich erweitert, um sie aufzunehmen. Beachten Sie, dass die Erweiterung direkt entlang der Zeile erfolgt.
 
-### So viele Spalten wie passen
+### So viele Spalten wie erforderlich
 
-Wir können einige der Lektionen, die wir über die Track-Liste gelernt haben, die Wiederholungsnotation und {{cssxref("minmax", "minmax()")}} kombinieren, um ein nützliches Muster zu erstellen. Manchmal ist es hilfreich, CSS Grid so zu konfigurieren, dass es so viele Spalten erstellt, wie in den Container passen. Wir tun dies, indem wir den Wert von `grid-template-columns` mit der {{cssxref("repeat", "repeat()")}}-Funktion festlegen, aber anstatt eine Zahl zu übergeben, verwenden wir das Schlüsselwort [`auto-fit`](/de/docs/Web/CSS/Reference/Values/repeat#auto-fit). Für den zweiten Parameter der Funktion verwenden wir `minmax()` mit einem Mindestwert, der der minimalen Track-Größe entspricht, die wir haben möchten, und einem Maximum von `1fr`.
+Wir können einige der Lektionen kombinieren, die wir über Spurlisten, repeat-Notation und {{cssxref("minmax", "minmax()")}} gelernt haben, um ein nützliches Muster zu erstellen. Manchmal ist es hilfreich, CSS Grid bitten zu können, so viele Spalten zu erstellen, wie in den Container passen. Wir tun dies, indem wir den Wert von `grid-template-columns` mit der {{cssxref("repeat", "repeat()")}}-Funktion festlegen, aber anstatt eine Zahl zu übergeben, übergeben wir das Schlüsselwort [`auto-fit`](/de/docs/Web/CSS/Reference/Values/repeat#auto-fit). Für den zweiten Parameter der Funktion verwenden wir `minmax()` mit einem Mindestwert, gleich der minimalen Spurgröße, die wir haben möchten, und einem Maximum von `1fr`.
 
 ```html hidden live-sample___grid-minmax_1
 <div class="container">
@@ -454,21 +455,21 @@ body {
 
 {{EmbedLiveSample('grid-minmax_1', '100%', "210") }}
 
-Dies funktioniert, weil das Grid so viele 230-Pixel-Spalten wie in den Container passen erstellt und dann den verbleibenden Raum gleichmäßig auf alle Spalten verteilt. Das Maximum ist `1fr`, das, wie wir bereits wissen, den Platz gleichmäßig zwischen Tracks verteilt.
+Das funktioniert, weil das Grid so viele 230-Pixel-Spalten erstellt, wie in den Container passen, und dann den verbleibenden Raum gleichmäßig unter allen Spalten aufteilt. Das Maximum ist `1fr`, was, wie wir bereits wissen, den Raum gleichmäßig zwischen den Spuren verteilt.
 
 ## Linienbasierte Platzierung
 
-Jetzt gehen wir vom Erstellen eines Grids zur Platzierung von Dingen im Grid über. Unser Grid hat immer Linien — diese werden beginnend mit 1 nummeriert und beziehen sich auf den [Schreibmodus](/de/docs/Web/CSS/Guides/Writing_modes) des Dokuments. Beispielsweise wäre die Spaltenlinie 1 im Englischen (links-nach-rechts geschrieben) auf der linken Seite des Grids und die Zeilenlinie 1 oben, während im Arabischen (rechts-nach-links geschrieben) die Spaltenlinie 1 auf der rechten Seite wäre.
+Wir wechseln jetzt vom Erstellen eines Grids zum Platzieren von Dingen im Grid. Unser Grid hat immer Linien - diese werden beginnend mit 1 nummeriert und beziehen sich auf den [Schreibmodus](/de/docs/Web/CSS/Guides/Writing_modes) des Dokuments. Beispielsweise befände sich die Spaltenlinie 1 im Englischen (von links nach rechts geschrieben) auf der linken Seite des Grids und die Zeilenlinie 1 oben, während im Arabischen (von rechts nach links geschrieben) die Spaltenlinie 1 auf der rechten Seite wäre.
 
-Um Elemente entlang dieser Linien zu positionieren, können wir die Start- und Endlinien des Bereichs angeben, in dem ein Element platziert werden soll. Es gibt vier Eigenschaften, die wir verwenden können, um dies zu tun:
+Um Elemente entlang dieser Linien zu positionieren, können wir die Start- und Endlinien des Grid-Bereichs angeben, in dem ein Element platziert werden soll. Es gibt vier Eigenschaften, die wir dafür verwenden können:
 
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
 - {{cssxref("grid-row-start")}}
 - {{cssxref("grid-row-end")}}
 
-Diese Eigenschaften akzeptieren Liniennummern als Werte, sodass wir angeben können, dass ein Element beispielsweise auf der Linie 1 starten und auf der Linie 3 enden soll.
-Alternativ können Sie auch Kurzformeigenschaften verwenden, die es Ihnen ermöglichen, die Start- und Endlinien gleichzeitig anzugeben, getrennt durch einen Schrägstrich `/`:
+Diese Eigenschaften akzeptieren Liniennummern als Werte, sodass wir angeben können, dass ein Element beispielsweise auf Linie 1 beginnen und auf Linie 3 enden soll.
+Alternativ können Sie auch Kurzschreibweise-Eigenschaften verwenden, die es Ihnen ermöglichen, die Start- und Endlinien gleichzeitig anzugeben, getrennt durch einen Schrägstrich `/`:
 
 - {{cssxref("grid-column")}} Kurzform für `grid-column-start` und `grid-column-end`
 - {{cssxref("grid-row")}} Kurzform für `grid-row-start` und `grid-row-end`
@@ -508,11 +509,11 @@ aside {
 }
 ```
 
-Ohne definierte Platzierung können Sie sehen, dass _Auto-Platzierung_ jedes Element in seine eigene Zelle im Grid platziert. Der {{htmlelement("header")}} belegt `1fr` (ein Viertel) und der {{htmlelement("main")}} belegt `3fr` (drei Viertel).
+Ohne definierte Platzierung sehen Sie, dass die _automatische Platzierung_ jedes Element in seine eigene Zelle im Grid platziert. Der {{htmlelement("header")}} nimmt `1fr` (ein Viertel) ein und der {{htmlelement("main")}} nimmt `3fr` (drei Viertel) ein.
 
 {{EmbedLiveSample('grid-placement_0', '100%', "230") }}
 
-Ordnen wir alle Elemente für unsere Website mit den Grid-Linien an. Fügen Sie die folgenden Regeln zu Ihrem CSS am Ende hinzu:
+Lassen Sie uns alle Elemente für unsere Website anordnen, indem wir die Grid-Linien verwenden. Fügen Sie die folgenden Regeln am Ende Ihres CSS hinzu:
 
 ```html hidden live-sample___grid-placement_1
 <div class="container">
@@ -568,16 +569,16 @@ footer {
 }
 ```
 
-Jetzt sind der {{htmlelement("header")}} und der {{htmlelement("footer")}} auf `1 / 3` gesetzt, was bedeutet, dass sie auf der Linie `1` beginnen und auf der Linie `3` enden.
+Jetzt sind der {{htmlelement("header")}} und {{htmlelement("footer")}} auf `1 / 3` gesetzt, was bedeutet, von Linie `1` bis Linie `3` zu beginnen.
 
 {{EmbedLiveSample('grid-placement_1', '100%', "230") }}
 
 > [!NOTE]
-> Sie können auch den Wert `-1` verwenden, um die Endspalte oder -zeile zu kennzeichnen, dann von den Rändern des expliziten Grids ausgehend negative Werte inwärts zählen. Beachten Sie auch, dass Linien immer von den Kanten des expliziten Grids zählen, nicht vom {{Glossary("Grid", "impliziten Grid")}}.
+> Sie können auch den Wert `-1` verwenden, um die Endspalte oder -zeile zu erreichen, und dann von innen mit negativen Werten zu zählen. Beachten Sie auch, dass die Linien immer von den Rändern des expliziten Grids zählen, nicht des {{Glossary("Grid", "impliziten Grids")}}.
 
 ## Positionierung mit grid-template-areas
 
-Eine alternative Möglichkeit, Elemente auf Ihrem Grid anzuordnen, ist die Verwendung der {{cssxref("grid-template-areas")}}-Eigenschaft, um den verschiedenen Elementen Ihres Designs einen Namen zu geben.
+Eine alternative Möglichkeit, Elemente auf Ihrem Grid anzuordnen, ist die Verwendung der {{cssxref("grid-template-areas")}}-Eigenschaft und die Benennung der verschiedenen Elemente Ihres Designs.
 
 ```html hidden live-sample___grid-placement_2
 <div class="container">
@@ -638,28 +639,28 @@ footer {
 }
 ```
 
-Hier verwenden wir die {{CSSXRef("grid-template-areas")}}-Eigenschaft, um zu definieren, wie die drei Reihen angeordnet sind. Die erste Reihe hat den Wert `header header`, die zweite `sidebar content` und die dritte `footer footer`. Wir verwenden dann die {{CSSXRef("grid-area")}}-Eigenschaft, um zu definieren, wo Elemente in den `grid-template-areas` platziert werden.
+Hier verwenden wir die {{CSSXRef("grid-template-areas")}}-Eigenschaft, um zu definieren, wie die 3 Zeilen angeordnet sind. Die erste Zeile hat den Wert `header header`, die zweite `sidebar content` und die dritte `footer footer`. Wir verwenden dann die {{CSSXRef("grid-area")}}-Eigenschaft, um zu definieren, wo Elemente in den `grid-template-areas` platziert sind.
 
 {{EmbedLiveSample('grid-placement_2', '100%', "230") }}
 
 Die Regeln für `grid-template-areas` sind wie folgt:
 
-- Sie müssen jede Zelle des Grids ausfüllen.
-- Um über zwei Zellen zu spannen, wiederholen Sie den Namen.
+- Jede Zelle des Grids muss ausgefüllt sein.
+- Um sich über zwei Zellen zu erstrecken, wiederholen Sie den Namen.
 - Um eine Zelle leer zu lassen, verwenden Sie einen `.` (Punkt).
-- Bereiche müssen rechteckig sein — z. B. können Sie keinen L-förmigen Bereich haben.
-- Bereiche können nicht an verschiedenen Stellen wiederholt werden.
+- Bereiche müssen rechteckig sein – zum Beispiel kann ein Bereich nicht L-förmig sein.
+- Bereiche können nicht an unterschiedlichen Stellen wiederholt werden.
 
-Sie können mit unserem Layout experimentieren, indem Sie z. B. das Footer so ändern, dass es nur unter dem Artikel steht und die Sidebar sich ganz nach unten erstreckt. Dies ist eine sehr angenehme Methode, ein Layout zu beschreiben, da es allein durch Betrachtung der CSS sofort klar ist, was geschieht.
+Sie können mit unserem Layout spielen, den Footer so ändern, dass er nur unter dem Artikel steht, und die Sidebar so, dass sie sich über die ganze Länge erstreckt. Dies ist eine sehr schöne Art, ein Layout zu beschreiben, weil aus dem CSS sofort ersichtlich ist, was genau passiert.
 
-## Verschachteln von Grids und Subgrid
+## Verschachtelte Grids und Subgrid
 
-Es ist möglich, ein Grid innerhalb eines anderen Grids zu verschachteln, wodurch ein ["Subgrid"](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid) entsteht.
-Sie können dies tun, indem Sie die Eigenschaft `display: grid` auf ein Element des übergeordneten Grids anwenden.
+Es ist möglich, ein Grid innerhalb eines anderen Grids zu verschachteln, ein sogenanntes ["Subgrid"](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid).
+Sie können dies tun, indem Sie die `display: grid`-Eigenschaft für ein Element im übergeordneten Grid setzen.
 
 Lassen Sie uns das vorherige Beispiel erweitern, indem wir einen Container für Artikel hinzufügen und ein verschachteltes Grid verwenden, um das Layout mehrerer Artikel zu steuern.
-Während wir nur eine Spalte im verschachtelten Grid verwenden, können wir die Zeilen definieren, um im Verhältnis 4:3:3 geteilt zu werden, indem wir die `grid-template-rows`-Eigenschaft verwenden.
-Dieser Ansatz ermöglicht es uns, ein Layout zu erstellen, in dem ein Artikel oben auf der Seite eine große Anzeige hat, während die anderen ein kleineres, Vorschaulayout haben.
+Während wir nur eine Spalte im verschachtelten Grid verwenden, können wir die Zeilen in einem Verhältnis von 4:3:3 mithilfe der `grid-template-rows`-Eigenschaft aufteilen.
+Dieser Ansatz ermöglicht es uns, ein Layout zu erstellen, bei dem ein Artikel oben auf der Seite eine große Anzeige hat, während die anderen eine kleinere, vorschauähnliche Layout haben.
 
 ```html hidden live-sample___nesting-grids
 <div class="container">
@@ -738,10 +739,10 @@ article {
 
 {{EmbedLiveSample('nesting-grids', '100%', 560)}}
 
-Um einfacher mit Layouts in verschachtelten Grids zu arbeiten, können Sie `subgrid` auf den Eigenschaften `grid-template-rows` und `grid-template-columns` verwenden. Dadurch können Sie die in dem übergeordneten Grid definierten Tracks nutzen.
+Um die Arbeit mit verschachtelten Grids zu erleichtern, können Sie `subgrid` auf den Eigenschaften `grid-template-rows` und `grid-template-columns` verwenden. So können Sie die im übergeordneten Grid definierten Spuren nutzen.
 
-Im folgenden Beispiel verwenden wir die [linienbasierte Platzierung](#linienbasierte_platzierung), die es dem verschachtelten Grid ermöglicht, sich über mehrere Spalten und Zeilen des übergeordneten Grids zu erstrecken.
-Wir haben `subgrid` hinzugefügt, um die Spaltentracks des übergeordneten Grids zu übernehmen, während wir ein anderes Layout für die Zeilen innerhalb des verschachtelten Grids hinzufügen.
+Im folgenden Beispiel verwenden wir [linienbasierte Platzierung](#linienbasierte_platzierung), wodurch das verschachtelte Grid mehrere Spalten und Zeilen des übergeordneten Grids umfassen kann.
+Wir haben `subgrid` hinzugefügt, um die Spaltenspuren des übergeordneten Grids zu erben, während ein anderes Layout für die Zeilen im verschachtelten Grid hinzugefügt wird.
 
 ```html hidden live-sample___subgrid
 <div class="container">
@@ -790,15 +791,15 @@ Wir haben `subgrid` hinzugefügt, um die Spaltentracks des übergeordneten Grids
 }
 ```
 
-{{EmbedLiveSample('subgrid', '100%', 200)}}
+{{EmbedLiveSample('subgrid', '100%', 200) }}
 
 ## Grid-Frameworks
 
-Es gibt zahlreiche Grid-Frameworks — diese sind vorgefertigte CSS-Systeme, die Merkmale wie 12- oder 16-Spalten-Grids, Utility-Klassen für Abstände und Ausrichtung sowie ein responsives Design über Breakpoints bieten.
+Es gibt zahlreiche Grid-Frameworks — diese sind vorgefertigte CSS-Systeme, die Funktionen wie 12- oder 16-Spalten-Grids, Utility-Klassen für Abstände und Ausrichtung sowie ein responsives Design über Breakpoints bieten.
 
-Die gute Nachricht ist, dass Sie wahrscheinlich keine proprietären Workarounds brauchen werden, um gridbasierte Layouts zu erstellen — alle modernen Browser unterstützen den CSS-Grid-Standard.
+Die gute Nachricht ist, dass Sie vermutlich keine proprietären Workarounds benötigen, um gridbasierte Layouts zu erstellen — alle modernen Browser unterstützen den CSS-Grid-Standard.
 
-Das folgende Beispiel zeigt eine vereinfachte Version von dem, was solcher Code enthalten könnte. Es zeigt einen Container mit einem 12-Spalten-Grid, das durch `grid-template-columns: repeat(12, 1fr);` definiert ist, und die gleiche Markup, die wir in den vorherigen zwei Beispielen verwendet haben. Wir können nun die linienbasierte Platzierung verwenden, um unseren Inhalt auf dem 12-Spalten-Grid zu platzieren.
+Das folgende Beispiel zeigt eine vereinfachte Version dessen, wie solch ein Code aussehen könnte. Es verfügt über einen Container mit einem 12-Spalten-Grid, das mit `grid-template-columns: repeat(12, 1fr);` definiert ist, und das gleiche Markup wie in den beiden vorherigen Beispielen. Wir können jetzt eine linienbasierte Platzierung verwenden, um unseren Inhalt auf dem 12-Spalten-Grid zu platzieren.
 
 ```html hidden live-sample___grid-frameworks
 <div class="container">
@@ -860,23 +861,23 @@ footer {
 
 {{EmbedLiveSample('grid-frameworks', '100%', "230") }}
 
-Wenn Sie den [Firefox Grid Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) verwenden, um die Grid-Linien auf Ihrem Design zu überlagern, können Sie sehen, wie unser 12-Spalten-Grid funktioniert.
+Wenn Sie den [Firefox-Grid-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) verwenden, um die Grid-Linien auf Ihrem Design einzublenden, können Sie sehen, wie unser 12-Spalten-Grid funktioniert.
 
-![Ein Layout mit einem 12-Spalten-Grid über unser Design.] (learn-grids-inspector.png)
+![Ein 12-Spalten-Grid, überlagert auf unser Design.](learn-grids-inspector.png)
 
 ## Zusammenfassung
 
-In diesem Überblick haben wir die Hauptmerkmale des CSS Grid-Layouts besprochen. Sie sollten in der Lage sein, es in Ihren Designs zu verwenden.
+In diesem Überblick haben wir die Hauptmerkmale des CSS-Grid-Layouts erkundet. Sie sollten in der Lage sein, es in Ihren Designs zu verwenden.
 
-Im nächsten Artikel geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie alle diese Informationen verstanden und behalten haben.
+Im nächsten Artikel geben wir Ihnen einige Tests, die Sie verwenden können, um zu überprüfen, wie gut Sie all diese Informationen verstanden und behalten haben.
 
 ## Siehe auch
 
 - [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)
-  - : Die Hauptseite des CSS Grid Fit Layout Moduls, die viele weitere Ressourcen enthält.
-- [CSS Grid Layout Guide](https://css-tricks.com/css-grid-layout-guide/)
-  - : Ein visueller Leitfaden auf CSS-Tricks (2021).
+  - : Die Hauptseite des CSS-Grid-Layout-Moduls, die viele weitere Ressourcen enthält.
+- [Leitfaden für CSS-Grid-Layout](https://css-tricks.com/complete-guide-css-grid-layout/)
+  - : Ein visueller Leitfaden bei CSS-Tricks (2021).
 - [Grid Garden](https://cssgridgarden.com/)
-  - : Ein edukatives Spiel, um die Grundlagen des Grids auf cssgridgarden.com besser zu verstehen.
+  - : Ein Lernspiel, um die Grundlagen von Grid bei cssgridgarden.com besser zu verstehen.
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Test_your_skills/Flexbox", "Learn_web_development/Core/CSS_layout/Test_your_skills/Grid", "Learn_web_development/Core/CSS_layout")}}

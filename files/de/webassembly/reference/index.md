@@ -1,14 +1,40 @@
 ---
-title: WebAssembly-Befehlsreferenz
+title: WebAssembly-Referenz
 short-title: Reference
 slug: WebAssembly/Reference
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
 ---
 
-Diese Seite listet Befehlsreferenzen zur Verwendung von [WebAssembly](/de/docs/WebAssembly) im Web auf.
+Diese Seite listet Referenzen für [WebAssembly](/de/docs/WebAssembly) auf.
 
-{{SubPagesWithSummaries}}
+## JavaScript-Referenz
+
+- [WebAssembly](/de/docs/WebAssembly/Reference/JavaScript_interface)
+  - : Das WebAssembly-JavaScript-Objekt fungiert als Namensraum für alle mit WebAssembly verbundenen Funktionalitäten.
+
+## Definitionen
+
+- [WebAssembly-Definitionen](/de/docs/WebAssembly/Reference/Definitions)
+  - : Die auf oberster Ebene verfügbaren Definitionen in Wasm zur Definition von Moduleigenschaften wie Tabellen, Typen, Speicher, Funktionen usw.
+
+## Typen
+
+- [WebAssembly-Typen](/de/docs/WebAssembly/Reference/Types)
+  - : Die verschiedenen WebAssembly-Typen.
+
+## Anweisungen
+
+- [WebAssembly-Steuerflussanweisungen](/de/docs/WebAssembly/Reference/Control_flow)
+  - : WebAssembly-Steuerflussanweisungen.
+- [WebAssembly-Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory)
+  - : WebAssembly-Speicheranweisungen.
+- [WebAssembly-numerische Anweisungen](/de/docs/WebAssembly/Reference/Numeric)
+  - : WebAssembly-numerische Anweisungen.
+- [WebAssembly-Tabellenanweisungen](/de/docs/WebAssembly/Reference/Table)
+  - : Die in Wasm verfügbaren Anweisungen zur Manipulation von Tabellen.
+- [WebAssembly-Variablenanweisungen](/de/docs/WebAssembly/Reference/Variables)
+  - : WebAssembly-Variablenanweisungen.
 
 ## Siehe auch
 

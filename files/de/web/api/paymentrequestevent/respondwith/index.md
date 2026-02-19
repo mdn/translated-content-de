@@ -3,12 +3,12 @@ title: "PaymentRequestEvent: respondWith()-Methode"
 short-title: respondWith()
 slug: Web/API/PaymentRequestEvent/respondWith
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
 ---
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`respondWith()`**-Methode der [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Schnittstelle verhindert die standardmäßige Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Payment-Handler-Response-Objekt bereitzustellen.
+Die **`respondWith()`**-Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces verhindert die standardmäßige Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Zahlungshandler-Antwortobjekt bereitzustellen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ respondWith(promise)
 ### Parameter
 
 - `promise`
-  - : Ein Payment-Handler-Response-Objekt oder ein {{jsxref('Promise')}}, das zu einem solchen aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
+  - : Ein Zahlungshandler-Antwortobjekt oder ein {{jsxref('Promise')}}, das zu einem solchen aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
     - `methodName`
-      - : Der Zahlungsarten-Identifikator für die Zahlungsart, die der Benutzer ausgewählt hat, um die Transaktion abzuschließen.
+      - : Der Zahlungsarten-Identifikator für die Zahlungsmethode, die der Benutzer ausgewählt hat, um die Transaktion zu erfüllen.
     - `details`
-      - : Ein JSON-serialisierbares Objekt, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler zur Verarbeitung der Transaktion verwendet wird, um einen erfolgreichen Geldtransfer zu bestimmen. Weitere Informationen finden Sie unter [7.1.2 details attribute](https://w3c.github.io/payment-handler/#details-attribute).
+      - : Ein JSON-serialisierbares Objekt, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen. Siehe [8.1.2 `details`-Attribut](https://w3c.github.io/web-based-payment-handler/#details-attribute) für weitere Details.
 
 ### Rückgabewert
 
@@ -66,7 +66,7 @@ self.addEventListener("paymentrequest", async (e) => {
 ## Siehe auch
 
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Leben einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

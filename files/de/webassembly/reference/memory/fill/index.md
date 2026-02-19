@@ -1,18 +1,18 @@
 ---
-title: "fill: Wasm-Textanweisung"
+title: "fill: Wasm-Textinstruktion"
 short-title: fill
 slug: WebAssembly/Reference/Memory/fill
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
 ---
 
-Die **`fill`**- [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
+Die **`memory.fill`** [Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
 
-Die Anweisung gibt keinen Wert zurück. Sie löst eine Ausnahme aus (trap), wenn der angegebene Speicherbereich außerhalb des zulässigen Bereichs liegt.
+Die Instruktion gibt keinen Wert zurück. Sie löst eine Ausnahme aus, wenn der angezeigte Speicherbereich außerhalb der Grenzen liegt.
 
 ## Syntax
 
-Fill im Standard-Speicher
+Füllen innerhalb des Standardspeichers
 
 ```wat
 ;; Fill region at offset/range in default memory with 255
@@ -25,7 +25,7 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Fill im angegebenen Speicher (wenn Multi-Memory unterstützt wird)
+Füllen des angegebenen Speichers (falls Multi-Speicher unterstützt wird)
 
 ```wat
 ;; Fill specific memory referenced by its index
@@ -44,9 +44,9 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung     | Binärer Opcode |
+| Instruktion   | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -59,4 +59,4 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle zeigt an, in welchen Versionen `fill` mit einem angegebenen Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle gibt die Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.

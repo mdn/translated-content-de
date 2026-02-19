@@ -1,48 +1,48 @@
 ---
-title: Barrierefreiheitsinformationen für Web-Autoren
-short-title: Informationen für Web-Autoren
+title: Barrierefreiheitsinformationen für Webautoren
+short-title: Informationen für Webautoren
 slug: Web/Accessibility/Guides/Information_for_Web_authors
 l10n:
-  sourceCommit: 79f65d8322a4e55e9f3f4c91441c9188dbe670e0
+  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
 ---
 
-Dieses Dokument listet Leitlinien und Vorschriften, Anleitungen und Werkzeuge zur Überprüfung und Behebung von Barrierefreiheitsproblemen auf Webseiten auf.
+Dieses Dokument listet Richtlinien und Vorschriften, Anleitungen und Werkzeuge auf, um Barrierefreiheitsprobleme auf Webseiten zu überprüfen und zu beheben.
 
-## Leitlinien und Vorschriften
+## Richtlinien und Vorschriften
 
-- [<abbr>ARIA</abbr> Authoring Practices Guide (<abbr>APG</abbr>)](https://www.w3.org/WAI/ARIA/apg/)
-  - : Leitfaden zu den Barrierefreiheits-Semantiken, die von der Accessible Rich Internet Application (<abbr>ARIA</abbr>)-Spezifikation definiert werden, um barrierefreie Web-Erfahrungen zu schaffen. Beschreibt, wie Barrierefreiheits-Semantiken auf gängige Designmuster und Widgets angewendet werden, und bietet Designmuster sowie funktionale Beispiele.
-- [Web Content Accessibility Guidelines (<abbr>WCAG</abbr>)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-  - : Ein weiteres wichtiges Set von Leitlinien der W3C _Web Accessibility Initiative (<abbr>WAI</abbr>)_. Die Europäische Union plant, ihre kommenden Barrierefreiheitsvorschriften auf diesen Leitlinien zu basieren. Diese Leitlinien werden in der [<abbr>WAI</abbr> Interessensgruppen-Diskussionsliste](https://www.w3.org/WAI/about/groups/waiig/#mailinglist) besprochen.
+- [Leitfaden für ARIA-Autorenpraktiken (<abbr>APG</abbr>)](https://www.w3.org/WAI/ARIA/apg/)
+  - : Leitfaden zu den Barrierefreiheitssemantiken, die durch die Accessible Rich Internet Application (<abbr>ARIA</abbr>)-Spezifikation definiert sind, um barrierefreie Web-Erfahrungen zu schaffen. Beschreibt, wie man Barrierefreiheitssemantiken auf gängige Designmuster und Widgets anwendet, und bietet Designmuster sowie funktionale Beispiele.
+- [Richtlinien für barrierefreie Webinhalte (<abbr>WCAG</abbr>)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+  - : Ein weiterer wichtiger Satz von Richtlinien der W3C _Web Accessibility Initiative (<abbr>WAI</abbr>)_. Die Europäische Union plant, ihre bevorstehenden Barrierefreiheitsvorschriften auf diesen Richtlinien zu basieren. Diese Richtlinien werden in der [Diskussionsgruppe der <abbr>WAI</abbr> Interessensgruppe](https://www.w3.org/WAI/about/groups/waiig/#mailinglist) diskutiert.
 - [ARIA auf dieser Seite](/de/docs/Web/Accessibility/ARIA)
-  - : <abbr>MDN</abbr> Leitfaden zu allen [ARIA Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles) und [ARIA Eigenschaften](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), einschließlich bewährter Verfahren, verwandter Rollen und Eigenschaften, sowie Beispiele.
+  - : <abbr>MDN</abbr>-Leitfaden zu allen [ARIA-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles) und [ARIA-Eigenschaften](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), einschließlich Best Practices, verwandten Rollen und Eigenschaften sowie Beispielen.
 
 ## Anleitungen
 
 - [Barrierefreiheit für Teams](https://digital.gov/guides/accessibility-for-teams/)
-  - : Ein kurzer Leitfaden von den Technology Transformation Services der U.S. General Services Administration, der mehrere Themen zur Barrierefreiheit abdeckt, mit Links zu "How-to"-Videos und zu verwandten WCAG-Referenzen.
-- [Barrierefreies Webseitenerstellen](https://www.ibm.com/able/requirements/requirements/)
-  - : IBM hat seine Barrierefreiheitsanforderungen, die erfüllt werden müssen, öffentlich und interaktiv gemacht.
+  - : Ein kurzer Leitfaden von den Technology Transformation Services der U.S. General Services Administration, der mehrere Barrierefreiheitsthemen behandelt und Links zu "Anleitungs"-Videos sowie zu verwandten WCAG-Referenzen enthält.
+- [Barrierefreies Webseiten-Verfassen](https://www.ibm.com/able/requirements/requirements/)
+  - : IBM hat ihre Barrierefreiheitsanforderungen, die erfüllt werden müssen, öffentlich und interaktiv zugänglich gemacht.
 
 ## Automatisierte Überprüfung & Reparatur
 
-Verwenden Sie ein Werkzeug, um schnell nach häufigen Fehlern in Ihrem Browser zu suchen.
+Verwenden Sie ein Tool, um schnell nach häufigen Fehlern in Ihrem Browser zu suchen.
 
 - [HTML CodeSniffer](https://squizlabs.github.io/HTML_CodeSniffer/)
 - [aXe](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 - [Lighthouse Accessibility Audit](https://developer.chrome.com/docs/lighthouse/overview/)
 - [Accessibility Insights](https://accessibilityinsights.io/)
-- [<abbr>WAVE</abbr>](https://wave.webaim.org/extension/)
+- [WAVE](https://wave.webaim.org/extension/)
 
-Tools, die in Ihren Build-Prozess integriert werden können, um Barrierefreiheits-Tests programmgesteuert hinzuzufügen, damit Sie Fehler während der Entwicklung Ihrer Webanwendung erkennen können:
+Werkzeuge zur Integration in Ihren Build-Prozess, um programmatisch Barrierefreiheitsprüfungen hinzuzufügen, damit Sie Fehler bei der Entwicklung Ihrer Webanwendung erkennen können:
 
 - [axe-core](https://github.com/dequelabs/axe-core)
 - [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 - [Lighthouse Audits](https://github.com/GoogleChrome/lighthouse/blob/main/docs/readme.md#using-programmatically)
 - [AccessLint.js](https://github.com/accesslint/accesslint.js/tree/master)
 
-{{Glossary("Continuous_integration", "Kontinuierliche Integrations-")}} Tools zur Erkennung von Barrierefreiheitsproblemen in Ihren GitHub Pull-Anfragen:
+Tools zur {{Glossary("Continuous_integration", "kontinuierlichen Integration")}}, um Barrierefreiheitsprobleme in Ihren GitHub-Pull-Requests zu finden:
 
-- [AccessLint](https://accesslint.com/)
+- [AccessLint](https://www.accesslint.com/)
 
-Es ist am besten, Ihre Webanwendungen mit echten Benutzern zu testen. Sie können jedoch auch Farbenblindheit, Sehschwäche, niedrigen Kontrast und Zoom simulieren. Sie sollten Ihre Seite immer ohne Maus und Berührung testen, um die Tastaturnavigation zu prüfen. Sie könnten auch versuchen, Ihre Seite mit Sprachbefehlen zu nutzen. Versuchen Sie, Ihre Maus zu deaktivieren und verwenden Sie Browser-Erweiterungen wie den [Web Disability Simulator](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla).
+Obwohl es am besten ist, Ihre Webanwendungen mit echten Benutzern zu testen, können Sie Farbenblindheit, Sehbehinderung, geringe und hohe Kontraste sowie Zoomen simulieren. Sie sollten Ihre Seite immer ohne Maus und Touch auf Tastaturnavigation testen. Zudem könnte es interessant sein, Ihre Seite mit Sprachbefehlen auszuprobieren. Versuchen Sie, Ihre Maus zu deaktivieren und verwenden Sie Browsererweiterungen wie den [Web Disability Simulator](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla).

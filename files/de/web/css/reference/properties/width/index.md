@@ -2,10 +2,10 @@
 title: width
 slug: Web/CSS/Reference/Properties/width
 l10n:
-  sourceCommit: dc2ae626916c7275aa5f01f2d01e00b73d96b458
+  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
 ---
 
-Die **`width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite eines Elements fest. Standardmäßig setzt sie die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area), aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, setzt sie die Breite des [Randbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#border_area).
+Die **`width`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite eines Elements. Standardmäßig legt sie die Breite des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) fest, aber wenn {{cssxref("box-sizing")}} auf `border-box` gesetzt ist, legt sie die Breite des [Rahmenbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#border_area) fest.
 
 {{InteractiveExample("CSS Demo: width")}}
 
@@ -44,13 +44,13 @@ width: auto;
 }
 ```
 
-Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange dieser Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
+Der angegebene Wert von `width` gilt für den Inhaltsbereich, solange sein Wert innerhalb der durch {{cssxref("min-width")}} und {{cssxref("max-width")}} definierten Werte bleibt.
 
-- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, dann überschreibt `min-width` die `width`.
-- Wenn der Wert für `width` größer ist als der Wert für `max-width`, dann überschreibt `max-width` die `width`.
+- Wenn der Wert für `width` kleiner ist als der Wert für `min-width`, dann überschreibt `min-width` `width`.
+- Wenn der Wert für `width` größer ist als der Wert für `max-width`, dann überschreibt `max-width` `width`.
 
 > [!NOTE]
-> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` zu `100%` und für andere Elemente zu `0` aufgelöst wird, und Prozentwerte relativ zur SVG-Viewport-Breite für `<rect>` sind. Der CSS-`width`-Wert überschreibt jeden SVG {{SVGAttr("width")}} Attributwert, der auf dem SVG-Element gesetzt ist.
+> Als geometrische Eigenschaft gilt `width` auch für die {{SVGElement("svg")}}, {{SVGElement("rect")}}, {{SVGElement("image")}} und {{SVGElement("foreignObject")}} SVG-Elemente, wobei `auto` für `<svg>` auf `100%` und für andere Elemente auf `0` aufgelöst wird und Prozentwerte relativ zur SVG-Viewport-Breite für `<rect>` sind. Der CSS-Wert der Eigenschaft `width` überschreibt jeden auf dem SVG-Element festgelegten SVG-{{SVGAttr("width")}}-Attributwert.
 
 ## Syntax
 
@@ -86,32 +86,32 @@ width: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Definiert die Breite als Distanzwert.
+  - : Definiert die Breite als Entfernungswert.
 - {{cssxref("&lt;percentage&gt;")}}
   - : Definiert die Breite als Prozentsatz der Breite des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
-  - : Der Browser berechnet und wählt eine Breite für das festgelegte Element.
+  - : Der Browser berechnet und wählt eine Breite für das angegebene Element.
 - {{cssxref("max-content")}}
-  - : Die intrinsische bevorzugte Breite.
+  - : Die intrinsisch bevorzugte Breite.
 - {{cssxref("min-content")}}
-  - : Die intrinsische Mindestbreite.
+  - : Die intrinsisch minimale Breite.
 - {{cssxref("fit-content")}}
-  - : Nutzt den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Verwendet den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - {{cssxref("anchor-size()")}}
-  - : Setzt die Breite relativ zu einer Dimension eines Ankerelements. Beim Definieren der `width` eines anker-positionierten Elements wird der erste Parameter standardmäßig auf die Breite des zugehörigen Ankers gesetzt. Wenn es auf ein nicht-an-anker-positioniertes Element angewendet wird, setzt es die Breite auf den Ausweichwert. Wenn kein Ausweichwert definiert ist, wird die Deklaration ignoriert.
+  - : Setzt die Breite relativ zu einer Dimension eines Ankerelements. Wenn die `width` eines anchor-positionierten Elements definiert wird, wird der erste Parameter standardmäßig auf die Breite des zugehörigen Ankers gesetzt. Wenn es auf ein nicht-anchor-positioniertes Element angewendet wird, setzt es die Breite auf den Fallback-Wert. Wenn kein Fallback definiert ist, wird die Deklaration ignoriert.
 - {{cssxref("calc-size()")}}
   - : Setzt die Breite auf eine modifizierte intrinsische Größe.
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
-  - : Nutzt die Fit-Content-Formel mit dem verfügbaren Platz ersetzt durch das angegebene Argument, wobei die Breite laut der Formel `min(maximum size, max(minimum size, <length-percentage>))` geklammert wird.
+  - : Verwendet die fit-content-Formel mit dem verfügbaren Platz, der durch das angegebene Argument ersetzt wird, wobei die Breite gemäß der Formel `min(maximale Größe, max(minimale Größe, <length-percentage>))` geklammert wird.
 - `stretch`
-  - : Setzt die Breite des [Randkastens](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, den Randkasten so zu machen, dass er den verfügbaren Platz im umgebenden Block füllt und verhält sich ähnlich wie `100%`, wendet die resultierende Größe jedoch auf den Randkasten anstatt auf das durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmte Kästchen an.
+  - : Setzt die Breite des [Randkastens](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, den Randkasten so zu füllen, dass er den verfügbaren Platz im umgebenden Block ausfüllt, ähnlich wie bei `100%`, wobei die resultierende Größe jedoch auf den Randkasten angewendet wird und nicht auf den durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmten Kasten.
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente mit festgelegter `width` nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Understanding WCAG, Guideline 1.4-Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -125,11 +125,11 @@ Stellen Sie sicher, dass Elemente mit einer festgelegten `width` nicht abgeschni
 
 ### Standardbreite
 
-Dieses Beispiel zeigt die grundlegende Verwendung und den Standardwert `auto`.
+Dieses Beispiel zeigt die grundlegende Nutzung und den Standardwert `auto`.
 
 #### HTML
 
-Wir fügen zwei Absätze hinzu; einer mit einem Klassennamen.
+Wir fügen zwei Absätze ein; einer mit einem Klassennamen.
 
 ```html
 <p>The MDN community writes really great documentation.</p>
@@ -138,7 +138,7 @@ Wir fügen zwei Absätze hinzu; einer mit einem Klassennamen.
 
 #### CSS
 
-Wir geben allen Absätzen einen goldenen Hintergrund und setzen die `width` des zweiten Absatzes explizit auf `auto`.
+Wir geben allen Absätzen einen goldenen Hintergrund und legen die `width` des zweiten Absatzes explizit auf `auto` fest.
 
 ```css
 p {
@@ -155,13 +155,13 @@ p.has-width {
 
 Da `width` standardmäßig auf `auto` gesetzt ist, haben beide Absätze die gleiche Breite.
 
-### Verwenden von Längeneinheiten
+### Verwendung von Längeneinheiten
 
-Dieses Beispiel zeigt Breitenwerte in Längen.
+Dieses Beispiel zeigt Breitenwerte in Längeneinheiten.
 
 #### HTML
 
-Wir fügen zwei {{htmlelement("div")}}-Elemente mit einigen Texten hinzu.
+Wir fügen zwei {{htmlelement("div")}}-Elemente mit etwas Text ein.
 
 ```html
 <div class="px_length">Width measured in px</div>
@@ -170,7 +170,7 @@ Wir fügen zwei {{htmlelement("div")}}-Elemente mit einigen Texten hinzu.
 
 #### CSS
 
-Das `px_length`-Element wird auf `200px` gesetzt, während das `em_length`-Element auf `20em` Breite gesetzt wird. Beide Elemente haben auch unterschiedliche {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("border")}} Werte, um die Unterscheidung zwischen den beiden beim Rendern zu ermöglichen.
+Das `px_length`-Element wird auf `200px` gesetzt, während das `em_length`-Element eine Breite von `20em` erhält. Beide Elemente haben auch unterschiedliche {{cssxref("background-color")}}, {{cssxref("color")}} und {{cssxref("border")}} Werte, um sie bei der Darstellung voneinander unterscheiden zu können.
 
 ```css
 .px_length {
@@ -196,13 +196,13 @@ Das `px_length`-Element wird auf `200px` gesetzt, während das `em_length`-Eleme
 
 Das `px_length`-Element ist immer 200px breit. Die gerenderte Breite des `em_length`-Elements hängt von der Schriftgröße ab.
 
-### Verwenden von Prozentsätzen
+### Verwendung von Prozentangaben
 
 Dieses Beispiel zeigt die Verwendung von Prozentwerten.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("div")}}-Element mit etwas Text hinzu.
+Wir fügen ein {{htmlelement("div")}}-Element mit etwas Text ein.
 
 ```html
 <div class="percent">Width in percentage</div>
@@ -225,13 +225,13 @@ Wir setzen die `width` des Elements auf `20%` der Breite seines übergeordneten 
 
 {{EmbedLiveSample("Using percentages", 600, 60)}}
 
-### Verwenden von intrinsischen Größen
+### Verwendung intrinsischer Größen
 
 Dieses Beispiel vergleicht `max-content` und `min-content` und führt `calc-size` ein.
 
 #### HTML
 
-Wir fügen drei Absätze mit demselben Inhalt hinzu; nur ihre Klassennamen unterscheiden sich.
+Wir fügen drei Absätze mit demselben Inhalt ein; ihre Klassennamen unterscheiden sich nur.
 
 ```html
 <p class="max-green">The MDN community writes really great documentation.</p>
@@ -241,7 +241,7 @@ Wir fügen drei Absätze mit demselben Inhalt hinzu; nur ihre Klassennamen unter
 
 #### CSS
 
-Wir setzen die `width` eines Absatzes auf `max-content`, den zweiten auf `min-content` und den dritten auf die doppelte Größe von `min-content`, indem wir die `calc-size()`-Funktion verwenden. Jeder bekommt eine andere {{cssxref("background-color")}} und {{cssxref("border-style")}}, um die Unterscheidung zwischen den beiden zu ermöglichen.
+Wir setzen die `width` eines Absatzes auf `max-content`, den zweiten auf `min-content` und den dritten mit der `calc-size()`-Funktion auf die doppelte Größe des `min-content`. Jeder erhält eine unterschiedliche {{cssxref("background-color")}} und {{cssxref("border-style")}}, um sie voneinander unterscheiden zu können.
 
 ```css
 p.max-green {
@@ -282,15 +282,15 @@ p.min-pink {
 
 {{EmbedLiveSample("Using intrinsic sizes", 600, 230)}}
 
-Das `max-content`-Beispiel ist so breit wie der Text. Das `min-content`-Beispiel ist so breit wie das längste Wort. Das `calc-size()`-Beispiel ist doppelt so breit wie das `min-content`.
+Das `max-content`-Beispiel ist so breit wie der Text. Das `min-content`-Beispiel ist so breit wie das breiteste Wort. Das `calc-size()`-Beispiel ist doppelt so breit wie das `min-content`.
 
 ### Verwendung des Stretch-Schlüsselworts
 
-Dieses Beispiel zeigt den Wert `stretch` in einem [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)-Container.
+Dieses Beispiel zeigt den `stretch`-Wert innerhalb eines [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)-Containers.
 
 #### HTML
 
-Wir fügen einen übergeordneten Container mit zwei Kindelementen hinzu.
+Wir fügen einen übergeordneten Container mit zwei Kind-Elementen ein.
 
 ```html
 <div class="parent">
@@ -301,7 +301,7 @@ Wir fügen einen übergeordneten Container mit zwei Kindelementen hinzu.
 
 #### CSS
 
-Wir verwenden die {{cssxref("display")}}-Eigenschaft, um den übergeordneten Container zu einem Flex-Container zu machen und setzen die `width` des zweiten Kindes auf `stretch`.
+Wir verwenden die {{cssxref("display")}}-Eigenschaft, um den Elternteil als Flex-Container zu definieren, und setzen die `width` des zweiten Kindes auf `stretch`.
 
 ```css
 .parent {
@@ -336,15 +336,15 @@ Wir verwenden die {{cssxref("display")}}-Eigenschaft, um den übergeordneten Con
 
 {{EmbedLiveSample("Using the stretch keyword", "auto", 100)}}
 
-Standardmäßig sind Flex-Elemente so breit wie ihr Inhalt. Der `stretch`-Wert macht das Element so breit, wie es der verfügbare Platz erlaubt, wobei der Randkasten des Elements ansonsten auf die Breite seines umgebenden Blocks geklammert wird.
+Standardmäßig sind Flex-Elemente so breit wie ihr Inhalt. Der `stretch`-Wert sorgt dafür, dass das Element so breit ist, wie es der verfügbare Platz zulässt, wobei der Randkasten sonst auf die Breite seines umgebenden Blocks begrenzt ist.
 
 ### Verwendung der anchor-size()-Funktion
 
-Dieses Beispiel zeigt die Verwendung der `anchor-size()`-Funktion, um die Breite eines anker-positionierten Elements zu definieren; wir haben seine Breite als Vielfaches der Höhe seines Ankers definiert.
+Dieses Beispiel zeigt die Verwendung der `anchor-size()`-Funktion zur Definition der Breite eines anchor-positionierten Elements; wir haben seine Breite als Vielfaches der Höhe seines Ankers definiert.
 
 #### HTML
 
-Wir geben zwei {{htmlelement("div")}}-Elemente an: ein `anchor`-Element und ein `infobox`-Element, das wir relativ zum Anker positionieren.
+Wir spezifizieren zwei {{htmlelement("div")}}-Elemente: ein `anchor`-Element und ein `infobox`-Element, das relativ zum Anker positioniert wird.
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -356,7 +356,7 @@ Wir geben zwei {{htmlelement("div")}}-Elemente an: ein `anchor`-Element und ein 
 
 #### CSS
 
-Wir deklarieren das `anchor` `<div>` als Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} geben. Das positionierte Element hat seine {{cssxref("position")}}-Eigenschaft auf `absolute` gesetzt und ist über seine {{cssxref("position-anchor")}}-Eigenschaft mit dem Ankerelement verknüpft. Wir setzen auch absolute {{cssxref("height")}}- und {{cssxref("width")}}-Dimensionen auf den Anker und definieren die Breite des anker-positionierten Elements, um die Breite des Ankers mit der `anchor-size()`-Funktion als Wert der `width`-Eigenschaft zu setzen. Als Bonus verwenden wir die `anchor-size()`-Funktion auch, um die {{cssxref("left")}}-Position der Infobox zu definieren und so den Abstand zwischen dem Anker und der Infobox auf ein Viertel der Höhe des Ankers zu machen.
+Wir deklarieren das `anchor`-`<div>` als Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} geben. Das positionierte Element hat seine {{cssxref("position")}}-Eigenschaft auf `absolute` gesetzt und ist über seine {{cssxref("position-anchor")}}-Eigenschaft mit dem Ankerelement verbunden. Wir setzen auch absolute {{cssxref("height")}} und `width`-Dimensionen für den Anker und definieren die Breite des anchor-positionierten Elements als die Breite des Ankers, indem wir die `anchor-size()`-Funktion als Wert der `width`-Eigenschaft verwenden. Als Bonus nutzen wir auch die `anchor-size()`-Funktion, um die {{cssxref("left")}}-Position der Infobox zu definieren, wodurch der Abstand zwischen dem Anker und der Infobox ein Viertel der Höhe des Ankers beträgt.
 
 ```css hidden
 .anchor {
@@ -396,7 +396,7 @@ body {
 
 {{EmbedLiveSample("Using the anchor-size() function", "auto", 200)}}
 
-Beachten Sie, dass die Breite der Infobox immer der Breite des Ankerelements entspricht.
+Beachten Sie, wie die Breite der Infobox immer der Breite des Ankerelements entspricht.
 
 ## Spezifikationen
 
@@ -412,8 +412,8 @@ Beachten Sie, dass die Breite der Infobox immer der Breite des Ankerelements ent
 - {{cssxref("box-sizing")}}
 - {{cssxref("min-width")}}, {{cssxref("max-width")}}
 - {{cssxref("block-size")}}, {{cssxref("inline-size")}}
-- SVG {{SVGAttr("width")}} Attribut
-- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
+- SVG-{{SVGAttr("width")}}-Attribut
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction)-Leitfaden
+- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)-Modul
+- [CSS-Anchor-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units)-Modul

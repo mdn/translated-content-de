@@ -3,18 +3,18 @@ title: "CSSFontFeatureValuesRule: styleset-Eigenschaft"
 short-title: styleset
 slug: Web/API/CSSFontFeatureValuesRule/styleset
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **styleset**-Eigenschaft des [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Interfaces enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das die [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine variable Schriftart darstellt, die {{CSSXRef("font-variant-alternates", "styleset()", "#styleset")}} unterstützt.
+Die schreibgeschützte **styleset**-Eigenschaft der [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Schnittstelle enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das die [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine variable Schriftart darstellt, die {{CSSXRef("font-variant-alternates", "styleset()", "#styleset")}} unterstützt.
 
 ## Wert
 
-Ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt.
+Ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap) Objekt.
 
-Obwohl die `styleset`-Eigenschaft an sich schreibgeschützt ist, da Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie dennoch direkt der `styleset`-Eigenschaft etwas zuweisen. Sie können auch die Werte des `styleset` mit den [Instanzmethoden von `CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
+Obwohl die `styleset`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie der `styleset`-Eigenschaft direkt Werte zuweisen. Sie können auch die Werte des `styleset` mit den [Instanzmethoden des CSSFontFeatureValuesMap-Objekts](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
 
 ## Beispiel
 
@@ -25,7 +25,7 @@ Obwohl die `styleset`-Eigenschaft an sich schreibgeschützt ist, da Sie das `CSS
 ```css
 @font-feature-values "MonteCarlo" {
   @styleset {
-    my-stylesets: 1;
+    my-styleset: 1;
   }
 }
 ```

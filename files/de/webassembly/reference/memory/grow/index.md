@@ -3,13 +3,12 @@ title: "grow: Wasm-Textanweisung"
 short-title: grow
 slug: WebAssembly/Reference/Memory/grow
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
 ---
 
-Die **`grow`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) erhöht die Größe der Speicherinstanz um eine angegebene Anzahl von Seiten.
+Die **`memory.grow`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) vergrößert die Größe der Speicherinstanz um eine angegebene Anzahl von Seiten.
 
-Die Anweisung fügt den vorherigen Speicherplatz (in Seiten) oben auf den Stack hinzu, wenn der Vorgang erfolgreich war, oder `-1`, wenn der Vorgang fehlgeschlagen ist.
-Derzeit ist jede Seite 64KiB groß.
+Die Anweisung fügt die vorherige Größe des Speichers (in Seiten) an die Spitze des Stacks hinzu, wenn der Vorgang erfolgreich war, oder `-1`, wenn der Vorgang fehlgeschlagen ist. Derzeit hat jede Seite 64KiB.
 
 {{InteractiveExample("Wat Demo: grow", "tabbed-taller")}}
 
@@ -49,7 +48,7 @@ memory.grow  ;; Grow the memory (by 3 pages)
 (memory.grow (i32.const 2))
 ```
 
-Spezifizierten Speicher erweitern (falls Multi-Memory unterstützt wird)
+Bestimmten Speicher erweitern (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Grow memory with index 1
@@ -75,8 +74,7 @@ memory.grow (memory $memory1) ;; Grow $memory1 by 1 page
 
 ### Standard-Speicher erweitern
 
-Der erste Speicher, der zu einem Wasm-Modul hinzugefügt wird, ist der Standard-Speicher und hat den Index 0.
-Wir können diesen Speicher erweitern, indem wir zuerst eine Variable hinzufügen, die die zu erweiternde Speichergröße angibt, und dann `grow` aufrufen.
+Der erste Speicher, der zu einem Wasm-Modul hinzugefügt wird, ist der Standard-Speicher und hat den Index 0. Wir können diesen Speicher erweitern, indem wir zunächst eine Variable hinzufügen, die die Menge angibt, um die der Speicher erweitert werden soll, und dann `grow` aufrufen.
 
 Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 
@@ -99,9 +97,9 @@ Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 )
 ```
 
-Oben mussten wir den Speicherindex in der `grow`-Anweisung nicht angeben, aber wir hätten es tun können, indem wir entweder den Namen oder Index (0) des Standard-Speichers verwenden. Das wird im folgenden Beispiel gezeigt.
+Oben mussten wir den Speicherindex in der `grow`-Anweisung nicht spezifizieren, hätten dies aber mit entweder dem Namen oder Index (0) des Standard-Speichers tun können. Das wird im folgenden Beispiel gezeigt.
 
-Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `grow.wasm` verwenden, mit einem ähnlichen Code wie unten gezeigt (die Log-Funktion wird in das Modul importiert und vom Modul aufgerufen):
+Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `grow.wasm` mit einem Code verwenden, der dem unten gezeigten ähnelt (die Log-Funktion wird in das Modul importiert und vom Modul aufgerufen):
 
 ```js
 start();
@@ -121,13 +119,11 @@ async function start() {
 start();
 ```
 
-### Spezifizierten Speicher erweitern
+### Bestimmten Speicher erweitern
 
-Da Speicher in einem Wasm-Modul definiert werden, erhalten sie sukzessive eine Indexnummer ab null.
-Sie können einen bestimmten Speicher erweitern, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen (falls vorhanden) nach der `grow`-Anweisung angeben.
-Wenn Sie keinen bestimmten Speicher angeben, wird der Standard-Speicher mit Index 0 verwendet.
+Da Speicher in einem Wasm-Modul definiert sind, werden ihnen nacheinander eine Indexnummer ab null zugewiesen. Sie können einen bestimmten Speicher erweitern, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen (falls vorhanden) nach der `grow`-Anweisung angeben. Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit Index 0 verwendet.
 
-Das Modul unten zeigt, wie Sie direkt auf einen Speicher nach Index verweisen können.
+Das folgende Modul zeigt, wie Sie möglicherweise direkt auf einen Speicher über den Index zugreifen können.
 
 ```wat
 (module
@@ -155,7 +151,7 @@ memory.grow (memory $memory1)  ;; referencing memory by name
 (memory.grow (memory $memory1) (i32.const 1)) ;; reference memory by name
 ```
 
-Wir haben im Beispiel nicht den Standard-Speicher verwendet. Aber Sie können auch diesen Index angeben, wenn Sie möchten:
+Im Beispiel haben wir den Standardspeicher nicht verwendet. Sie können diesen Index jedoch auch angeben, wenn Sie möchten:
 
 ```wat
 i32.const 1
@@ -166,7 +162,7 @@ memory.grow (memory 0)  ;; referencing memory by index
 ;; We can't reference this particular default memory by name, because it doesn't have one!
 ```
 
-Die WAT-Dateien könnten mit demselben JavaScript-Code wie im ersten Beispiel geladen werden.
+Die WAT-Dateien könnten mit demselben JavaScript-Code geladen werden wie im ersten Beispiel.
 
 ## Spezifikationen
 
@@ -177,4 +173,4 @@ Die WAT-Dateien könnten mit demselben JavaScript-Code wie im ersten Beispiel ge
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle gibt an, in welchen Versionen `grow` mit einem spezifizierten Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle gibt an, in welchen Versionen `grow` mit einem angegebenen Speicher verwendet werden kann.
