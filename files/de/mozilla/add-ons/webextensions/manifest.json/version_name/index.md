@@ -2,7 +2,7 @@
 title: version_name
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/version_name
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 9a1a8665d37c3b75f9d9a545c4c2407296615a41
 ---
 
 <table class="fullwidth-table standard-table">
@@ -12,7 +12,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -26,10 +26,14 @@ l10n:
   </tbody>
 </table>
 
-Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann **version_name** auf einen beschreibenden Versionsstring gesetzt werden und wird für Anzeigzwecke verwendet, wenn vorhanden.
+Zusätzlich zum [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Schlüssel, der für Aktualisierungen verwendet wird, kann `version_name` auf eine beschreibende Versionszeichenfolge gesetzt werden und wird als angezeigter Versionswert verwendet.
 
-Wenn kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigzwecke verwendet.
+Wenn `version_name` nicht vorhanden ist, wird die `version`-Eigenschaft als angezeigte Version verwendet.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- Der [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) Manifest-Schlüssel
