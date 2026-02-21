@@ -1,15 +1,15 @@
 ---
-title: Pfeilfunktionen (Arrow Functions)
+title: Pfeilfunktion-Ausdrücke
 slug: Web/JavaScript/Reference/Functions/Arrow_functions
 l10n:
-  sourceCommit: 98080789eae7fc78297959d21d64b0a494ad6103
+  sourceCommit: 50fc90b65f77385a8420729039e2a56bca64c3fe
 ---
 
-Ein **Pfeilfunktionsausdruck** ist eine kompakte Alternative zu einem traditionellen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function), mit einigen semantischen Unterschieden und bewussten Einschränkungen bei der Verwendung:
+Ein **Pfeilfunktion-Ausdruck** ist eine kompakte Alternative zu einem herkömmlichen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function), mit einigen semantischen Unterschieden und bewussten Einschränkungen bei der Verwendung:
 
-- Pfeilfunktionen haben keine eigenen {{Glossary("binding", "Bindungen")}} zu [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als {{Glossary("Method", "Methoden")}} verwendet werden.
-- Pfeilfunktionen können nicht als {{Glossary("Constructor", "Konstruktoren")}} verwendet werden. Das Aufrufen mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) löst einen {{jsxref("TypeError")}} aus. Sie haben auch keinen Zugriff auf das Schlüsselwort [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target).
-- Pfeilfunktionen können innerhalb ihres Körpers kein [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) verwenden und können nicht als Generatorfunktionen erstellt werden.
+- Pfeilfunktionen haben keine eigenen {{Glossary("binding", "Bindings")}} für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als {{Glossary("Method", "Methoden")}} verwendet werden.
+- Pfeilfunktionen können nicht als {{Glossary("Constructor", "Konstruktoren")}} verwendet werden. Ein Aufruf mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) löst einen {{jsxref("TypeError")}} aus. Sie haben auch keinen Zugriff auf das Schlüsselwort [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target).
+- Pfeilfunktionen können innerhalb ihres Körpers nicht [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) verwenden und können nicht als Generatorfunktionen erstellt werden.
 
 {{InteractiveExample("JavaScript Demo: Arrow function expressions")}}
 
@@ -44,7 +44,7 @@ param => {
 }
 ```
 
-[Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) und [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) innerhalb der Parameter werden unterstützt und erfordern immer Klammern:
+[Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) und [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) innerhalb der Parameter werden unterstützt und erfordern immer Klammern:
 
 ```js-nolint
 (a, b, ...r) => expression
@@ -53,7 +53,7 @@ param => {
 ({ a, b } = { a: 10, b: 20 }) => expression
 ```
 
-Pfeilfunktionen können [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) sein, indem der Ausdruck mit dem Schlüsselwort `async` versehen wird.
+Pfeilfunktionen können [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) sein, indem man den Ausdruck mit dem `async`-Schlüsselwort versieht.
 
 ```js-nolint
 async param => expression
@@ -64,10 +64,10 @@ async (param1, param2, ...paramN) => {
 
 ## Beschreibung
 
-Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt auf die einfachste Pfeilfunktion herunterbrechen. Jeder Schritt auf dem Weg ist eine gültige Pfeilfunktion.
+Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt auf die einfachste Pfeilfunktion reduzieren. Jeder Schritt auf dem Weg ist eine gültige Pfeilfunktion.
 
 > [!NOTE]
-> Traditionelle Funktionsausdrücke und Pfeilfunktionen haben mehr Unterschiede als nur ihre Syntax. Wir werden ihre Verhaltensunterschiede in den nächsten Abschnitten genauer vorstellen.
+> Traditionelle Funktionsausdrücke und Pfeilfunktionen unterscheiden sich nicht nur in ihrer Syntax. Wir werden ihre Verhaltensunterschiede in den nächsten Abschnitten detaillierter vorstellen.
 
 ```js-nolint
 // Traditional anonymous function
@@ -87,9 +87,9 @@ Lassen Sie uns eine traditionelle anonyme Funktion Schritt für Schritt auf die 
 a => a + 100;
 ```
 
-Im obigen Beispiel können sowohl die Klammern um den Parameter als auch die geschweiften Klammern um den Funktionskörper weggelassen werden. Sie können jedoch nur unter bestimmten Umständen weggelassen werden.
+Im obigen Beispiel können sowohl die Klammern um den Parameter als auch die geschweiften Klammern um den Funktionskörper weggelassen werden. Dies ist jedoch nur in bestimmten Fällen möglich.
 
-Die Klammern können nur weggelassen werden, wenn die Funktion einen einzelnen einfachen Parameter hat. Hat sie mehrere Parameter, keine Parameter oder Standard-, destrukturierte oder Restparameter, sind die Klammern um die Parameterliste erforderlich.
+Die Klammern können nur weggelassen werden, wenn die Funktion einen einzelnen einfachen Parameter hat. Bei mehreren Parametern, keinen Parametern oder Standard-, desktrukturierten oder Rest-Parametern sind die Klammern um die Parameterliste erforderlich.
 
 ```js
 // Traditional anonymous function
@@ -112,7 +112,7 @@ const b = 2;
 () => a + b + 100;
 ```
 
-Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion direkt einen Ausdruck zurückgibt. Hat der Körper Anweisungen, sind die geschweiften Klammern erforderlich. In diesem Fall müssen Rückgabewerte explizit mit dem Schlüsselwort `return` angegeben werden. Pfeilfunktionen können nicht erraten, was oder wann Sie etwas zurückgeben möchten.
+Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion direkt einen Ausdruck zurückgibt. Wenn der Körper Anweisungen enthält, sind die Klammern erforderlich. In diesem Fall müssen Rückgabewerte ausdrücklich mit dem `return`-Schlüsselwort angegeben werden. Pfeilfunktionen können nicht erraten, was oder wann Sie zurückgeben möchten.
 
 ```js
 // Traditional anonymous function
@@ -128,7 +128,7 @@ Die geschweiften Klammern können nur weggelassen werden, wenn die Funktion dire
 };
 ```
 
-Pfeilfunktionen sind von Natur aus nicht mit einem Namen verbunden. Wenn die Pfeilfunktion sich selbst aufrufen muss, verwenden Sie stattdessen einen benannten Funktionsausdruck. Sie können die Pfeilfunktion auch einer Variablen zuweisen, die es Ihnen ermöglicht, sie über diese Variable aufzurufen.
+Pfeilfunktionen sind von Natur aus nicht mit einem Namen verbunden. Wenn die Pfeilfunktion sich selbst aufrufen muss, verwenden Sie stattdessen einen benannten Funktionsausdruck. Sie können die Pfeilfunktion auch einer Variablen zuweisen, sodass Sie über diese Variable darauf zugreifen können.
 
 ```js
 // Traditional Function
@@ -142,13 +142,13 @@ const bob2 = (a) => a + 100;
 
 ### Funktionskörper
 
-Pfeilfunktionen können entweder einen _Ausdruckskörper_ oder den üblichen _Blockkörper_ haben.
+Pfeilfunktionen können entweder einen _Ausdruckskörper_ oder einen üblichen _Blockkörper_ haben.
 
-In einem Ausdruckskörper wird nur ein einziger Ausdruck angegeben, der zum impliziten Rückgabewert wird. Der Blockkörper ist analog zu traditionellen Funktionskörpern, bei denen Rückgabewerte explizit mit dem Schlüsselwort `return` angegeben werden müssen. Pfeilfunktionen müssen keinen Wert zurückgeben. Wenn die Ausführung des Blockkörpers ohne eine `return`-Anweisung endet, gibt die Funktion `undefined` zurück wie andere Funktionen.
+In einem Ausdruckskörper wird nur ein einzelner Ausdruck angegeben, der zum impliziten Rückgabewert wird. Der Blockkörper ist analog zu traditionellen Funktionskörpern, in denen Rückgabewerte ausdrücklich mit dem `return`-Schlüsselwort angegeben werden müssen. Pfeilfunktionen müssen keinen Wert zurückgeben. Wenn die Ausführung des Blockkörpers das Ende erreicht, ohne auf eine `return`-Anweisung zu stoßen, gibt die Funktion wie andere Funktionen `undefined` zurück.
 
 ```js
 // Expression body
-const add = (a, b) => a + b; // Implicitly returns a
+const add = (a, b) => a + b; // Implicitly returns a + b
 
 // Block body
 const add2 = (a, b) => {
@@ -163,7 +163,7 @@ const add3 = (b) => {
 };
 ```
 
-Das Zurückgeben von Objektliteralen unter Verwendung der Ausdruckskörpersyntax `(params) => { object: literal }` funktioniert nicht wie erwartet.
+Die Rückgabe von Objektliteralen mit der Ausdruckskörpersyntax `(params) => { object: literal }` funktioniert nicht wie erwartet.
 
 ```js-nolint example-bad
 const func = () => { foo: 1 };
@@ -176,17 +176,17 @@ const func3 = () => { foo() {} };
 // SyntaxError: Unexpected token '{'
 ```
 
-Dies liegt daran, dass JavaScript die Pfeilfunktion nur als eine Funktion mit Ausdruckskörper betrachtet, wenn das Token nach dem Pfeil keine geschweifte Klammer ist. Der Code innerhalb geschweifter Klammern ({}) wird als Folge von Anweisungen geparst, bei denen `foo` ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) ist, kein Schlüssel in einem Objektliteral.
+Dies liegt daran, dass JavaScript die Pfeilfunktion nur dann als Ausdruckskörper ansieht, wenn das Token nach dem Pfeil keine linke geschweifte Klammer ist, sodass der Code innerhalb der Klammern ({}) als Folge von Anweisungen geparst wird, wobei `foo` ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) ist, kein Schlüssel in einem Objektliteral.
 
-Um dies zu beheben, setzen Sie das Objektliteral in Klammern:
+Um dies zu beheben, wickle das Objektliteral in Klammern:
 
 ```js example-good
 const func = () => ({ foo: 1 });
 ```
 
-### Können nicht als Methoden verwendet werden
+### Kann nicht als Methoden verwendet werden
 
-Pfeilfunktionsausdrücke sollten nur für Nicht-Methoden-Funktionen verwendet werden, da sie kein eigenes `this` haben. Schauen wir uns an, was passiert, wenn wir versuchen, sie als Methoden zu verwenden:
+Pfeilfunktion-Ausdrücke sollten nur für Nicht-Methoden-Funktionen verwendet werden, da sie kein eigenes `this` haben. Sehen wir uns an, was passiert, wenn wir versuchen, sie als Methoden zu verwenden:
 
 ```js
 "use strict";
@@ -220,7 +220,7 @@ Object.defineProperty(obj, "b", {
 });
 ```
 
-Da der Körper einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) einen `this`-Kontext hat, schließen Pfeilfunktionen als [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) über den `this`-Kontext der Klasse, und das `this` im Körper der Pfeilfunktion zeigt korrekt auf die Instanz (oder die Klasse selbst, für [statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static)). Da es sich jedoch um eine [Schließung](/de/docs/Web/JavaScript/Guide/Closures) handelt und nicht um die eigene Bindung der Funktion, ändert sich der Wert von `this` nicht basierend auf dem Ausführungskontext.
+Da ein Funktionskörper einer [Klasse](/de/docs/Web/JavaScript/Reference/Classes) ein `this`-Kontext hat, schließen Pfeilfunktionen über das `this` der Klasse und das `this` im Körper der Pfeilfunktion zeigt korrekt auf die Instanz (oder die Klasse selbst, für [statische Felder](/de/docs/Web/JavaScript/Reference/Classes/static)). Da es sich jedoch um einen [Abschluss](/de/docs/Web/JavaScript/Guide/Closures) handelt und nicht um das eigene Binding der Funktion, ändert sich der Wert von `this` nicht basierend auf dem Ausführungskontext.
 
 ```js
 class C {
@@ -237,7 +237,7 @@ autoBoundMethod(); // 1
 // If it were a normal method, it should be undefined in this case
 ```
 
-Pfeilfunktions-Eigenschaften werden oft als "automatisch gebundene Methoden" bezeichnet, weil das Äquivalent bei normalen Methoden ist:
+Eigenschaften von Pfeilfunktionen werden oft als "automatisch gebundene Methoden" bezeichnet, weil das Äquivalent mit normalen Methoden ist:
 
 ```js
 class C {
@@ -252,13 +252,13 @@ class C {
 ```
 
 > [!NOTE]
-> Klassenfelder werden auf der _Instanz_ definiert, nicht auf dem _Prototypen_, sodass jede Instanzerstellung einen neuen Funktionsverweis erstellt und eine neue Schließung zuweist, was potenziell zu mehr Speichernutzung als bei einer normalen ungebundenen Methode führen kann.
+> Klassenfelder werden auf der _Instanz_ definiert, nicht auf dem _Prototyp_, sodass bei jeder Instanzerstellung eine neue Funktionsreferenz erstellt und ein neuer Abschluss zugewiesen wird, was potenziell mehr Speicherplatz beansprucht als eine normale ungebundene Methode.
 
-Aus ähnlichen Gründen sind die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) nicht nützlich, wenn sie auf Pfeilfunktionen angewendet werden, da Pfeilfunktionen `this` basierend auf dem Scope festlegen, in dem die Pfeilfunktion definiert ist, und der `this`-Wert sich nicht ändert, basierend darauf, wie die Funktion aufgerufen wird.
+Aus ähnlichen Gründen sind die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) für Pfeilfunktionen nicht nützlich, da Pfeilfunktionen `this` basierend auf dem Kontext festlegen, in dem sie definiert sind, und der `this`-Wert sich nicht ändert, basierend darauf, wie die Funktion aufgerufen wird.
 
-### Keine Bindung von Arguments
+### Kein Binding von Arguments
 
-Pfeilfunktionen haben kein eigenes [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt. In diesem Beispiel ist `arguments` also ein Verweis auf die Argumente des umgebenden Scopes:
+Pfeilfunktionen haben kein eigenes [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt. In diesem Beispiel bezieht sich `arguments` daher auf die Argumente des umschließenden Scopes:
 
 ```js
 function foo(n) {
@@ -269,7 +269,7 @@ function foo(n) {
 foo(3); // 3 + 3 = 6
 ```
 
-In den meisten Fällen ist die Verwendung von [Restparametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+In den meisten Fällen ist die Verwendung von [Rest-Parametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 eine gute Alternative zur Verwendung eines `arguments`-Objekts.
 
 ```js
@@ -283,7 +283,7 @@ foo(1); // 11
 
 ### Können nicht als Konstruktoren verwendet werden
 
-Pfeilfunktionen können nicht als Konstruktoren verwendet werden und werfen einen Fehler, wenn sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Sie haben auch keine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft.
+Pfeilfunktionen können nicht als Konstruktoren verwendet werden und lösen einen Fehler aus, wenn sie mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Sie haben auch keine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft.
 
 ```js
 const Foo = () => {};
@@ -293,11 +293,11 @@ console.log("prototype" in Foo); // false
 
 ### Können nicht als Generatoren verwendet werden
 
-Das Schlüsselwort [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) kann nicht im Körper einer Pfeilfunktion verwendet werden (außer wenn es in weiter verschachtelten Generatorfunktionen innerhalb der Pfeilfunktion verwendet wird). Daher können Pfeilfunktionen nicht als Generatoren verwendet werden.
+Das Schlüsselwort [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) kann nicht im Körper einer Pfeilfunktion verwendet werden (außer wenn es innerhalb von Generatorfunktionen genutzt wird, die weiter innerhalb der Pfeilfunktion verschachtelt sind). Daher können Pfeilfunktionen nicht als Generatoren verwendet werden.
 
 ### Zeilenumbruch vor dem Pfeil
 
-Eine Pfeilfunktion kann keinen Zeilenumbruch zwischen ihren Parametern und ihrem Pfeil enthalten.
+Eine Pfeilfunktion darf keinen Zeilenumbruch zwischen ihren Parametern und ihrem Pfeil enthalten.
 
 ```js-nolint example-bad
 const func = (a, b, c)
@@ -305,7 +305,7 @@ const func = (a, b, c)
 // SyntaxError: Unexpected token '=>'
 ```
 
-Zum Zwecke der Formatierung können Sie den Zeilenumbruch nach dem Pfeil setzen oder Klammern/geschweifte Klammern um den Funktionskörper verwenden, wie unten gezeigt. Sie können auch Zeilenumbrüche zwischen den Parametern setzen.
+Zum Zweck der Formatierung können Sie den Zeilenumbruch nach dem Pfeil einfügen oder Klammern/geschweifte Klammern um den Funktionskörper verwenden, wie unten gezeigt. Sie können auch Zeilenumbrüche zwischen den Parametern einfügen.
 
 ```js-nolint
 const func = (a, b, c) =>
@@ -328,7 +328,7 @@ const func4 = (
 
 ### Vorrang des Pfeils
 
-Obwohl der Pfeil in einer Pfeilfunktion kein Operator ist, haben Pfeilfunktionen spezielle Parserregeln, die anders mit der [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) interagieren als reguläre Funktionen.
+Obwohl der Pfeil in einer Pfeilfunktion kein Operator ist, haben Pfeilfunktionen spezielle Parsing-Regeln, die im Vergleich zu normalen Funktionen anders mit der [Operatorvorrang](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) interagieren.
 
 ```js-nolint example-bad
 let callback;
@@ -337,7 +337,7 @@ callback = callback || () => {};
 // SyntaxError: invalid arrow-function arguments
 ```
 
-Da `=>` eine niedrigere Präzedenz als die meisten Operatoren hat, sind Klammern notwendig, um zu vermeiden, dass `callback || ()` als Argumentliste der Pfeilfunktion geparst wird.
+Da `=>` eine niedrigere Vorrangstellung hat als die meisten Operatoren, sind Klammern erforderlich, um zu verhindern, dass `callback || ()` als Argumentenliste der Pfeilfunktion geparst wird.
 
 ```js example-good
 callback = callback || (() => {});
@@ -345,7 +345,7 @@ callback = callback || (() => {});
 
 ## Beispiele
 
-### Verwenden von Pfeilfunktionen
+### Verwendung von Pfeilfunktionen
 
 ```js
 // An empty arrow function returns undefined
@@ -392,9 +392,9 @@ setTimeout(() => {
 }, 1);
 ```
 
-### Verwenden von call, bind und apply
+### Verwendung von call, bind und apply
 
-Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) funktionieren wie erwartet mit traditionellen Funktionen, da wir den Scope für jede der Methoden festlegen:
+Die Methoden [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) und [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) funktionieren wie erwartet mit traditionellen Funktionen, da wir den Scope für jede dieser Methoden festlegen:
 
 ```js
 const obj = {
@@ -415,7 +415,7 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 106
 ```
 
-Bei Pfeilfunktionen geht unsere `add`-Funktion im Grunde vom `globalThis` (globalen) Scope aus und nimmt an, dass `this` das `globalThis` ist.
+Mit Pfeilfunktionen, da unsere `add`-Funktion im Wesentlichen im `globalThis` (globalen) Scope erstellt wird, nimmt sie an, dass `this` das `globalThis` ist.
 
 ```js
 const obj = {
@@ -434,9 +434,9 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 48
 ```
 
-Vielleicht der größte Vorteil der Verwendung von Pfeilfunktionen liegt bei Methoden wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`EventTarget.prototype.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), die üblicherweise eine Art von Schließung, `call()`, `apply()` oder `bind()` erfordern, um sicherzustellen, dass die Funktion im richtigen Scope ausgeführt wird.
+Der vielleicht größte Vorteil von Pfeilfunktionen liegt in Methoden wie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`EventTarget.prototype.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), die normalerweise eine Art von Abschluss, `call()`, `apply()` oder `bind()` erfordern, um sicherzustellen, dass die Funktion im richtigen Kontext ausgeführt wird.
 
-Mit traditionellen Funktionsausdrücken funktioniert der folgende Code nicht wie erwartet:
+Mit traditionellen Funktionsausdrücken funktioniert Code wie dieser nicht wie erwartet:
 
 ```js
 const obj = {
@@ -453,7 +453,7 @@ const obj = {
 obj.doSomethingLater(); // logs "NaN", because the property "count" is not in the window scope.
 ```
 
-Mit Pfeilfunktionen bleibt der `this`-Scope leichter erhalten:
+Mit Pfeilfunktionen bleibt der `this`-Kontext einfacher erhalten:
 
 ```js
 const obj = {
@@ -483,8 +483,8 @@ obj.doSomethingLater(); // logs 11
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Leitfaden für Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Statements/function", "function")}}
-- [`function` expression](/de/docs/Web/JavaScript/Reference/Operators/function)
-- [ES6 In Depth: Arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) auf hacks.mozilla.org (2015)
+- [`function`-Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
+- [ES6 In Depth: Pfeilfunktionen](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) auf hacks.mozilla.org (2015)
