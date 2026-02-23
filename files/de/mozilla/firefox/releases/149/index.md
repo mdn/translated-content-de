@@ -1,54 +1,54 @@
 ---
-title: Firefox 149 Versionshinweise für Entwickler (Nightly)
-short-title: Firefox 149 (Nightly)
+title: Firefox 149 Release Notes für Entwickler (Beta)
+short-title: Firefox 149 (Beta)
 slug: Mozilla/Firefox/Releases/149
 l10n:
-  sourceCommit: fa422ef89f5da5c7bc10a03f8e84b01b8132061c
+  sourceCommit: 21638327a5baa7ecf918835c4a233a74f25b02ed
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 149, die Entwickler betreffen.
-Firefox 149 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [24. März 2026](https://whattrainisitnow.com/release/?version=149) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 149, die Entwickler betreffen.
+Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [24. März 2026](https://whattrainisitnow.com/release/?version=149) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben. -->
+<!-- Autoren: Bitte heben Sie Kommentare zu Überschriften nur auf, wenn Sie dafür Anmerkungen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Entwickler-Tools -->
 
 <!-- ### HTML -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### CSS -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### APIs -->
 
@@ -56,11 +56,11 @@ Firefox 149 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -72,12 +72,12 @@ Firefox 149 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-<!-- ### Entfernungen -->
+<!-- ### Entfernt -->
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Web-Funktionen
+## Experimentelle Web-Features
 
 Diese Funktionen sind in Firefox 149 verfügbar, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie in der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite für [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
