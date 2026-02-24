@@ -2,12 +2,12 @@
 title: cookies.set()
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/set
 l10n:
-  sourceCommit: f7d0598a727aeebbad5fce854f493023b3693a50
+  sourceCommit: 32823bbafa2cb4112e4fa541b313d3cdca1a563c
 ---
 
-Setzt ein Cookie. Diese Methode entspricht dem Senden eines HTTP-`Set-Cookie`-Headers während einer Anfrage an eine URL.
+Setzt ein Cookie. Diese Methode entspricht dem Senden eines HTTP `Set-Cookie`-Headers während einer Anfrage an eine URL.
 
-Um diese Methode zu verwenden, muss eine Erweiterung die Berechtigung `"cookies"` und relevante Host-Berechtigungen haben. Weitere Informationen finden Sie unter [`cookie` permissions](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions).
+Um diese Methode verwenden zu können, muss eine Erweiterung die Berechtigung `"cookies"` sowie relevante Host-Berechtigungen haben. Siehe [`cookie` Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#permissions) für weitere Details.
 
 ## Syntax
 
@@ -20,45 +20,45 @@ let setting = browser.cookies.set(
 ### Parameter
 
 - `details`
-  - : Ein `object`, das die Details des Cookies enthält, das Sie setzen möchten. Es kann die folgenden Eigenschaften haben:
+  - : Ein `object`, das die Details des zu setzenden Cookies enthält. Es kann diese Eigenschaften haben:
     - `domain` {{optional_inline}}
-      - : Ein `string`, der die Domain des Cookies darstellt. Wenn weggelassen, wird das Cookie zu einem Host-Only-Cookie.
+      - : Ein `string`, der die Domain des Cookies darstellt. Falls weggelassen, wird das Cookie zu einem Host-only-Cookie.
     - `expirationDate` {{optional_inline}}
-      - : Eine `number`, die das Ablaufdatum des Cookies in Sekunden nach dem UNIX-Epoch darstellt. Kann Millisekunden im Bruchteil enthalten. Wenn weggelassen, wird das Cookie zu einem Sitzungscookie.
+      - : Ein `number`, der das Ablaufdatum des Cookies in Sekunden nach dem UNIX-Epoch angibt. Es kann Millisekunden im Bruchteil enthalten. Wenn weggelassen, wird das Cookie zu einem Sitzungs-Cookie.
     - `firstPartyDomain` {{optional_inline}}
-      - : Ein `string`, der die First-Party-Domain repräsentiert, mit der das Cookie verknüpft ist. Diese Eigenschaft muss angegeben werden, wenn der Browser die First-Party-Isolierung aktiviert hat. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+      - : Ein `string`, das die First-Party-Domain darstellt, mit der das Cookie verknüpft ist. Diese Eigenschaft muss angegeben werden, wenn der Browser die First-Party-Isolation aktiviert hat. Siehe [First-Party-Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
     - `httpOnly` {{optional_inline}}
-      - : Ein `boolean`, das angibt, ob das Cookie als HttpOnly (`true`) markiert ist oder nicht (false). Wenn weggelassen, ist der Standardwert false.
+      - : Ein `boolean`, der angibt, ob das Cookie als HttpOnly (`true`) markiert ist oder nicht (`false`). Wenn weggelassen, ist der Standardwert `false`.
     - `name` {{optional_inline}}
-      - : Ein `string`, das den Namen des Cookies darstellt. Wenn weggelassen, ist dies standardmäßig leer.
+      - : Ein `string`, der den Namen des Cookies darstellt. Falls weggelassen, ist der Name standardmäßig ein leerer String (`""`).
     - `partitionKey` {{optional_inline}}
-      - : Ein `object`, das die [storage partition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) darstellt, in der das Cookie gesetzt werden soll. Schließen Sie dieses Objekt ein, um ein Cookie im partitionierten Speicher zu setzen. Dieses Objekt enthält:
+      - : Ein `object`, das die [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) repräsentiert, in der das Cookie gesetzt werden soll. Schließen Sie dieses Objekt ein, um ein Cookie im partitionierten Speicher zu setzen. Dieses Objekt enthält:
         - `topLevelSite` {{optional_inline}}
-          - : Ein `string`, das die First-Party-URL der Top-Level-Site-Speicherpartition darstellt, die das Cookie enthält.
+          - : Ein `string`, das die First-Party-URL der obersten Site-Speicherpartition enthält, die das Cookie enthält.
 
     - `path` {{optional_inline}}
-      - : Ein `string`, das den Pfad des Cookies darstellt. Wenn weggelassen, ist dies standardmäßig der Pfadabschnitt des URL-Parameters.
+      - : Ein `string`, der den Pfad des Cookies darstellt. Wenn weggelassen, ist dies standardmäßig der Pfadanteil des URL-Parameters.
     - `sameSite` {{optional_inline}}
-      - : Ein {{WebExtAPIRef("cookies.SameSiteStatus")}}-Wert, der den SameSite-Status des Cookies angibt. Wenn weggelassen, ist der Standardwert `unspecified`.
+      - : Ein {{WebExtAPIRef("cookies.SameSiteStatus")}} Wert, der den SameSite-Zustand des Cookies angibt. Wenn weggelassen, ist der Standard `unspecified`.
     - `secure` {{optional_inline}}
-      - : Ein `boolean`, das angibt, ob das Cookie als sicher (`true`) markiert ist oder nicht (false). Wenn weggelassen, ist der Standardwert false.
+      - : Ein `boolean`, der angibt, ob das Cookie als sicher (`true`) markiert ist oder nicht (`false`). Wenn weggelassen, ist der Standardwert `false`.
     - `storeId` {{optional_inline}}
-      - : Ein `string`, das die ID des Cookie-Stores darstellt, in dem das Cookie gesetzt werden soll. Wenn weggelassen, wird das Cookie im Cookie-Store des aktuellen Ausführungskontexts gesetzt.
+      - : Ein `string`, der die ID des Cookie-Speichers darstellt, in dem das Cookie gesetzt werden soll. Wenn weggelassen, wird das Cookie im Cookiespeicher des aktuellen Ausführungskontexts gesetzt.
     - `url`
-      - : Ein `string`, das die Anfrage-URI darstellt, die mit dem Cookie verknüpft ist. Dieser Wert kann die Standardwerte für Domain und Pfad des erstellten Cookies beeinflussen. Wenn für diese URL keine Host-Berechtigungen in der Manifestdatei angegeben sind, schlägt der Methodenaufruf fehl.
+      - : Ein `string`, der die Request-URI darstellt, die mit dem Cookie verknüpft werden soll. Dieser Wert kann die standardmäßigen Domain- und Pfadwerte des erstellten Cookies beeinflussen. Falls für diese URL keine Host-Berechtigungen in der Manifest-Datei angegeben sind, schlägt der Methodenaufruf fehl.
     - `value` {{optional_inline}}
-      - : Ein `string`, das den Wert des Cookies darstellt. Wenn weggelassen, ist dies standardmäßig leer.
+      - : Ein `string`, der den Wert des Cookies darstellt. Falls weggelassen, ist der Wert standardmäßig ein leerer String (`""`).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}}-Objekt erfüllt wird, das Details über das gesetzte Cookie enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}} Objekt erfüllt wird, das Details über das gesetzte Cookie enthält.
 
-Wenn mehr als ein Cookie mit demselben Namen für eine URL existiert, wird das Cookie mit dem längsten Pfad zurückgegeben. Bei Cookies mit gleicher Pfadlänge wird das Cookie mit der frühesten Erstellungszeit zurückgegeben.
+Wenn es mehr als ein Cookie mit demselben Namen für eine URL gibt, wird das Cookie mit dem längsten Pfad zurückgegeben. Für Cookies mit derselben Pfadlänge wird das Cookie mit der frühesten Erstellungszeit zurückgegeben.
 
 > [!NOTE]
-> Vor Firefox 133, wenn es mehr als ein Cookie mit demselben Namen gab, gab Firefox das Cookie mit der frühesten Erstellungszeit zurück.
+> Vor Firefox 133, wenn es mehr als ein Cookie mit demselben Namen gab, hat Firefox das Cookie mit der frühesten Erstellungszeit zurückgegeben.
 
-Wenn das angeforderte Cookie ungültig ist oder der Aufruf anderweitig fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn das angeforderte Cookie ungültig ist oder der Aufruf aus anderen Gründen fehlschlägt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 > [!NOTE]
 > Vor Firefox 145 wurden ungültige Cookies erstellt.
@@ -87,7 +87,7 @@ function setCookie(tabs) {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-set)-API von Chromium. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-set). Diese Dokumentation stammt von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
