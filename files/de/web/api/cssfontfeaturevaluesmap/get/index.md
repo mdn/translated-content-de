@@ -3,10 +3,10 @@ title: "CSSFontFeatureValuesMap: get()-Methode"
 short-title: get()
 slug: Web/API/CSSFontFeatureValuesMap/get
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
 Die **`get()`**-Methode der [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle gibt den Wert zurück, der dem Schlüssel in dieser `CSSFontFeatureValuesMap` entspricht, oder `undefined`, wenn keiner vorhanden ist.
 
@@ -29,7 +29,7 @@ Gibt `true` zurück, wenn ein Eintrag mit dem angegebenen Schlüssel im `CSSFont
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel holt die Werte, die mit den `key`s in der `@swash`-Regel übereinstimmen. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature Value Blocks](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel ruft die Werte ab, die den `key`s in der `@swash`-Regel entsprechen. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Wertblöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

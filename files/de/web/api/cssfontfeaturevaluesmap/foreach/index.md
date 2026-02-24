@@ -1,14 +1,14 @@
 ---
-title: "CSSFontFeatureValuesMap: forEach()-Methode"
+title: "CSSFontFeatureValuesMap: forEach() Methode"
 short-title: forEach()
 slug: Web/API/CSSFontFeatureValuesMap/forEach
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`forEach()`**-Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen führt die bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in Einfügereihenfolge aus.
+Die **`forEach()`** Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in Einfügereihenfolge aus.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ forEach(callbackFn, thisArg)
     - `key`
       - : Schlüssel jeder Iteration.
     - `map`
-      - : Die Map, die iteriert wird.
+      - : Die Map, die durchlaufen wird.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
 
@@ -36,9 +36,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Das folgende Beispiel protokolliert den `key` und `value` für jeden Eintrag in der `@swash`-Regel. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Im folgenden Beispiel werden der `key` und `value` für jeden Eintrag in der `@swash` Regel protokolliert. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

@@ -1,24 +1,24 @@
 ---
-title: "CSSFontFeatureValuesRule: stylistic-Eigenschaft"
+title: "CSSFontFeatureValuesRule: stylistische Eigenschaft"
 short-title: stylistic
 slug: Web/API/CSSFontFeatureValuesRule/stylistic
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{ APIRef("CSSOM") }}
+{{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die schreibgeschützte **stylistic**-Eigenschaft der [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Schnittstelle enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das den [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine Variable Font darstellt, die {{CSSXRef("font-variant-alternates", "stylistic()", "#stylistic")}} unterstützt.
+Die schreibgeschützte **stylistic**-Eigenschaft des [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Interfaces enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das das [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine variable Schriftart darstellt, die {{CSSXRef("font-variant-alternates", "stylistic()", "#stylistic")}} unterstützt.
 
 ## Wert
 
 Ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt.
 
-Obwohl die `stylistic`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie dennoch direkt der `stylistic`-Eigenschaft einen Wert zuweisen. Sie können auch die Werte der `stylistic`-Eigenschaft mit den [`CSSFontFeatureValuesMap`-Instanzmethoden](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
+Obwohl die `stylistic`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie der `stylistic`-Eigenschaft direkt Werte zuweisen. Sie können auch die Werte der `stylistic` mithilfe der [`CSSFontFeatureValuesMap`-Instanzmethoden](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
 
 ## Beispiel
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 #### CSS
 
@@ -52,5 +52,5 @@ if (myRule instanceof CSSFontFeatureValuesRule && myRule.stylistic.size) {
 ## Siehe auch
 
 - {{cssxRef("@font-feature-values","@stylistic","#stylistic")}}
-- {{cssxRef("font-variant-alternates","stylistic()","#stylistic")}} Funktionsnotation
+- {{cssxRef("font-variant-alternates","stylistic()","#stylistic")}} funktionale Notation
 - [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)

@@ -3,12 +3,12 @@ title: "CSSFontFeatureValuesMap: values() Methode"
 short-title: values()
 slug: Web/API/CSSFontFeatureValuesMap/values
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`values()`** Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen gibt ein neues [Map-Iterator](/de/docs/Web/API/CSSFontFeatureValuesMap/Symbol.iterator)-Objekt zurück, das die `[key, value]`-Paare für jede Deklaration in dieser `CSSFontFeatureValuesMap` in der Eingabereihenfolge enthält.
+Die **`values()`** Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen gibt ein neues [Map-Iterator](/de/docs/Web/API/CSSFontFeatureValuesMap/Symbol.iterator)-Objekt zurück, das die `[key, value]`-Paare für jede Deklaration in dieser `CSSFontFeatureValuesMap` in Einfügereihenfolge enthält.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein neues iterierbares [Iterator-Objekt](/de/docs/Web/API/CSSFontFeatureValuesMa
 
 ### Grundlegende Verwendung
 
-Im folgenden Beispiel werden die Werte der Variablen `swashValues` zugewiesen und anschließend die ersten beiden Werte protokolliert. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Wertblöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel weist die Werte der Variablen `swashValues` zu und gibt die ersten beiden Werte aus. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Value-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

@@ -1,14 +1,14 @@
 ---
-title: "CSSFontFeatureValuesMap: clear() Methode"
+title: "CSSFontFeatureValuesMap: Methode clear()"
 short-title: clear()
 slug: Web/API/CSSFontFeatureValuesMap/clear
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`clear()`**-Methode der Schnittstelle [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap) entfernt alle Deklarationen in der `CSSFontFeatureValuesMap`.
+Die **`clear()`**-Methode der [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle entfernt alle Deklarationen in der `CSSFontFeatureValuesMap`.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Das folgende Beispiel entfernt alle Deklarationen innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Funktionsblocks. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Funktionswertblöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel entfernt alle Deklarationen innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Feature-Blocks. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

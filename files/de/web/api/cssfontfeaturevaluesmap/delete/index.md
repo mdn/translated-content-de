@@ -3,12 +3,12 @@ title: "CSSFontFeatureValuesMap: delete()-Methode"
 short-title: delete()
 slug: Web/API/CSSFontFeatureValuesMap/delete
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`delete()`**-Methode der [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle entfernt die CSS-Deklaration mit der angegebenen Eigenschaft im `CSSFontFeatureValuesMap`.
+Die **`delete()`**-Methode der [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Schnittstelle entfernt die CSS-Deklaration mit der angegebenen Eigenschaft in der `CSSFontFeatureValuesMap`.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Grundlegende Verwendung
 
-Im folgenden Beispiel wird die erste Deklaration innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Feature-Blocks gelöscht. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel löscht die erste Deklaration innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Feature-Blocks. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Werte-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

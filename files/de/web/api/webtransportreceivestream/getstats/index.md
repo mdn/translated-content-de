@@ -1,16 +1,17 @@
 ---
-title: "WebTransportReceiveStream: Methode getStats()"
+title: "WebTransportReceiveStream: getStats()-Methode"
 short-title: getStats()
 slug: Web/API/WebTransportReceiveStream/getStats
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("WebTransport API")}}{{SeeCompatTable}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`getStats()`**-Methode der [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Schnittstelle gibt asynchron ein Objekt mit Statistiken für den aktuellen Stream zurück.
+Die **`getStats()`**-Methode der [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Schnittstelle gibt asynchron ein Objekt zurück, das Statistiken für den aktuellen Stream enthält.
 
-Die Statistiken beinhalten die Gesamtzahl der geordneten Bytes, die auf diesem Stream eingetroffen sind (ohne Netzwerk-Overhead, bis zum ersten fehlenden Byte) und die Gesamtzahl, die von der Anwendung gelesen wurde. Dadurch wird gemessen, wie schnell die Anwendung Bytes von dem Server auf diesem speziellen Stream konsumiert.
+Die Statistiken umfassen die Gesamtzahl der geordneten Bytes, die in diesem Stream angekommen sind (unter Vernachlässigung des Netzwerk-Traffics, bis zum ersten fehlenden Byte) und die Gesamtzahl, die von der Anwendung gelesen wurden.
+Daher bietet es eine Messung dafür, wie schnell die Anwendung Bytes von dem Server in diesem speziellen Stream konsumiert.
 
 ## Syntax
 
@@ -24,18 +25,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich in ein Objekt auflöst, das Statistiken über den aktuellen Stream enthält. Das zurückgegebene Objekt hat folgende Eigenschaften:
+Ein {{jsxref("Promise")}}, das ein Objekt enthält, das Statistiken über den aktuellen Stream zurückgibt.
+Das zurückgegebene Objekt hat die folgenden Eigenschaften:
 
 - `timestamp`
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das den Zeitpunkt angibt, zu dem die Statistiken erfasst wurden, relativ zum 1. Januar 1970, UTC.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel angibt, zu dem die Statistiken erfasst wurden, relativ zum 1. Jan 1970, UTC.
 - `bytesReceived`
-  - : Eine positive ganze Zahl, die die Anzahl der Bytes angibt, die bis zum ersten fehlenden Byte von diesem Stream empfangen wurden. Die Zahl beinhaltet keinen Netzwerk-Overhead und kann nur steigen.
+  - : Eine positive Ganzzahl, die die Anzahl der Bytes angibt, die von diesem Stream empfangen wurden, bis zum ersten fehlenden Byte.
+    Die Zahl beinhaltet keinen Netzwerk-Overhead und kann nur zunehmen.
 - `bytesRead`
-  - : Eine positive ganze Zahl, die die Anzahl der Bytes angibt, die die Anwendung aus diesem `WebTransportReceiveStream`-Stream gelesen hat. Diese Zahl kann nur steigen und ist immer kleiner als oder gleich `bytesReceived`.
+  - : Eine positive Ganzzahl, die die Anzahl der Bytes angibt, die die Anwendung von diesem `WebTransportReceiveStream`-Stream gelesen hat.
+    Diese Zahl kann nur zunehmen und ist immer kleiner oder gleich `bytesReceived`.
 
 ## Beispiele
 
-Der folgende Codeausschnitt verwendet `await`, um auf das {{jsxref("Promise")}} zu warten, das von `getStats()` zurückgegeben wird. Wenn das Versprechen erfüllt ist, wird die Anzahl der Bytes, die noch nicht gelesen wurden, in der Konsole protokolliert.
+Das folgende Codebeispiel verwendet `await`, um auf das von `getStats()` zurückgegebene {{jsxref("Promise")}} zu warten.
+Wenn das Versprechen erfüllt ist, wird die Anzahl der noch nicht gelesenen Bytes in die Konsole protokolliert.
 
 ```js
 const stats = await stream.getStats();

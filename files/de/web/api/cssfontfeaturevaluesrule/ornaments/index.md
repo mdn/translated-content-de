@@ -3,18 +3,18 @@ title: "CSSFontFeatureValuesRule: ornaments-Eigenschaft"
 short-title: ornaments
 slug: Web/API/CSSFontFeatureValuesRule/ornaments
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{ APIRef("CSSOM") }}
+{{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die schreibgeschützte **ornaments**-Eigenschaft der [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Schnittstelle enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das das [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine Variable Font darstellt, die {{CSSXRef("font-variant-alternates", "ornaments()", "#ornaments")}} unterstützt.
+Die schreibgeschützte **ornaments**-Eigenschaft der [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)-Schnittstelle enthält ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt, das die [user-defined-ident](/de/docs/Web/CSS/Reference/Values/custom-ident) und den [feature index](/de/docs/Web/CSS/Reference/Properties/font-feature-settings#optional_value) für eine Variable Font darstellt, die {{CSSXRef("font-variant-alternates", "ornaments()", "#ornaments")}} unterstützt.
 
 ## Wert
 
 Ein [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Objekt.
 
-Obwohl die `ornaments`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie dennoch direkt der `ornaments`-Eigenschaft Werte zuweisen. Sie können auch die Werte der `ornaments` mithilfe der [`CSSFontFeatureValuesMap`-Instanzmethoden](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
+Obwohl die `ornaments`-Eigenschaft in dem Sinne schreibgeschützt ist, dass Sie das `CSSFontFeatureValuesMap`-Objekt nicht ersetzen können, können Sie dennoch direkt der `ornaments`-Eigenschaft Werte zuweisen. Zudem können Sie die Werte von `ornaments` mithilfe der [Instanzmethoden von `CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap#instance_methods) ändern.
 
 ## Beispiel
 
@@ -52,5 +52,5 @@ if (myRule instanceof CSSFontFeatureValuesRule && myRule.ornaments.size) {
 ## Siehe auch
 
 - {{cssxRef("@font-feature-values","@ornaments","#ornaments")}}
-- {{cssxRef("font-variant-alternates","ornaments()","#ornaments")}} Funktionale Notation
+- {{cssxRef("font-variant-alternates","ornaments()","#ornaments")}} Funktionsnotation
 - [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)

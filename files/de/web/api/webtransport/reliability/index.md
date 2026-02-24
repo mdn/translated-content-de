@@ -3,12 +3,12 @@ title: "WebTransport: reliability-Eigenschaft"
 short-title: reliability
 slug: Web/API/WebTransport/reliability
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("WebTransport API")}}{{SeeCompatTable}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`reliability`** schreibgeschützte Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle zeigt an, ob die Verbindung ausschließlich zuverlässige Übertragungen unterstützt oder ob sie auch unzuverlässige Übertragungen (wie UDP) unterstützt.
+Die schreibgeschützte **`reliability`**-Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt an, ob die Verbindung nur zuverlässige Übertragungen unterstützt oder ob sie auch unzuverlässige Übertragungen (wie UDP) unterstützt.
 
 ## Wert
 

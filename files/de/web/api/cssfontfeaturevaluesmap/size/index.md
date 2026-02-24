@@ -3,10 +3,10 @@ title: "CSSFontFeatureValuesMap: size-Eigenschaft"
 short-title: size
 slug: Web/API/CSSFontFeatureValuesMap/size
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
 Die schreibgeschützte **`size`**-Eigenschaft des [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Interfaces gibt eine positive ganze Zahl zurück, die die Größe des `CSSFontFeatureValuesMap`-Objekts enthält.
 
@@ -18,7 +18,7 @@ Eine positive ganze Zahl.
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel gibt eine Ganzzahl der Anzahl der Deklarationen innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Feature-Blocks aus. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel gibt eine ganze Zahl der Anzahl der Deklarationen innerhalb des [`@swash`](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#swash)-Feature-Blocks aus. Dieses Beispiel verwendet `@swash`, funktioniert jedoch auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

@@ -1,14 +1,14 @@
 ---
-title: "CSSFontFeatureValuesMap: keys()-Methode"
+title: "CSSFontFeatureValuesMap: keys() Methode"
 short-title: keys()
 slug: Web/API/CSSFontFeatureValuesMap/keys
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`keys()`**-Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen gibt ein neues [Map-Iterator](/de/docs/Web/API/CSSFontFeatureValuesMap/Symbol.iterator)-Objekt zurück, das die `[key, value]`-Paare für jede Deklaration in dieser `CSSFontFeatureValuesMap` in der eingefügten Reihenfolge enthält.
+Die **`keys()`** Methode von Instanzen des [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap) gibt ein neues [Karteniterator-Objekt](/de/docs/Web/API/CSSFontFeatureValuesMap/Symbol.iterator) zurück, das die `[key, value]` Paare für jede Deklaration in dieser `CSSFontFeatureValuesMap` in Einfügereihenfolge enthält.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein neues iterierbares [Iterator-Objekt](/de/docs/Web/API/CSSFontFeatureValuesMa
 
 ### Grundlegende Verwendung
 
-Im folgenden Beispiel werden die Schlüssel der Variablen `swashKeys` zugewiesen und die ersten beiden Werte protokolliert. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wert-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Im folgenden Beispiel werden die Schlüssel der Variablen `swashKeys` zugewiesen und die ersten beiden Werte werden protokolliert. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Wertblöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 

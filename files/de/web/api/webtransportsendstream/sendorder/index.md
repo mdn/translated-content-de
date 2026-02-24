@@ -1,16 +1,16 @@
 ---
-title: "WebTransportSendStream: Eigenschaft sendOrder"
+title: "WebTransportSendStream: sendOrder-Eigenschaft"
 short-title: sendOrder
 slug: Web/API/WebTransportSendStream/sendOrder
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("WebTransport API")}}{{SeeCompatTable}}{{securecontext_header}} {{AvailableInWorkers}}
+{{APIRef("WebTransport API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`sendOrder`**-Eigenschaft der [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Schnittstelle gibt die Sendpriorität dieses Streams im Verhältnis zu anderen Streams an, für die der Wert festgelegt wurde.
+Die **`sendOrder`**-Eigenschaft des [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Interfaces gibt die Send-Priorität dieses Streams im Verhältnis zu anderen Streams an, für die der Wert festgelegt wurde.
 
-In den Warteschlangen befindliche Bytes werden zuerst für Streams mit einem höheren Wert gesendet. Wenn der Wert nicht festgelegt ist, hängt die Sendereihenfolge von der Implementierung ab.
+Zuerst werden die Warteschlangen-Bytes für Streams gesendet, die einen höheren Wert haben. Wenn nichts festgelegt ist, hängt die Sendereihenfolge von der Implementierung ab.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl, die die relative Priorität dieses Streams beim Senden von Bytes angi
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie den anfänglichen `sendOrder` festlegen können, wenn Sie [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) aufrufen, um den Sendstream zu erstellen, den Wert aus dem Stream lesen und dann die Reihenfolge ändern. Nach der Änderung der Reihenfolge würde die Priorität dieses Streams höher als jeder Stream mit einer Priorität von weniger als "596996858" werden.
+Das folgende Beispiel zeigt, wie Sie die anfängliche `sendOrder` festlegen können, wenn Sie [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) aufrufen, um den Sendestream zu erstellen, den Wert aus dem Stream lesen und dann die Reihenfolge ändern. Nach der Änderung der Reihenfolge würde die Priorität dieses Streams erhöht werden, sodass sie höher ist als bei jedem Stream mit einer Priorität von weniger als „596996858“.
 
 ```js
 async function writeData() {

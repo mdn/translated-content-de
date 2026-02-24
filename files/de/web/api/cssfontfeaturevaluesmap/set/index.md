@@ -3,12 +3,12 @@ title: "CSSFontFeatureValuesMap: set() Methode"
 short-title: set()
 slug: Web/API/CSSFontFeatureValuesMap/set
 l10n:
-  sourceCommit: c5a0ee66baf779b702ffae6d964d1f365381767c
+  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Die **`set()`** Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen fügt einen neuen Eintrag mit einem angegebenen Schlüssel und Wert zu dieser `CSSFontFeatureValuesMap` hinzu, oder aktualisiert einen bestehenden Eintrag, wenn der Schlüssel bereits existiert.
+Die **`set()`** Methode von [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)-Instanzen fügt einen neuen Eintrag mit einem angegebenen Schlüssel und Wert zu dieser `CSSFontFeatureValuesMap` hinzu oder aktualisiert einen bestehenden Eintrag, wenn der Schlüssel bereits existiert.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Eintrags, der in das `CSSFontFeatureValuesMap`-Objekt hinzugefügt oder geändert werden soll. Kann einen beliebigen Wert haben.
+  - : Der Schlüssel des Eintrags, der zu dem `CSSFontFeatureValuesMap`-Objekt hinzugefügt oder innerhalb dessen geändert werden soll. Kann jeden Wert annehmen.
 - `value`
-  - : Der Wert des Eintrags, der in das `CSSFontFeatureValuesMap`-Objekt hinzugefügt oder geändert werden soll. Muss eine ganze Zahl sein, die dem `index` des alternativen Schriftmerkmals entspricht.
+  - : Der Wert des Eintrags, der zu dem `CSSFontFeatureValuesMap`-Objekt hinzugefügt oder innerhalb dessen geändert werden soll. Muss ein Integer sein, der dem `index` des alternativen Schriftmerkmals entspricht.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Das `CSSFontFeatureValuesMap`-Objekt.
 
 ### Grundlegende Nutzung
 
-Im folgenden Beispiel wird der Wert für `swashy` aktualisiert und eine dritte Deklaration hinzugefügt. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Feature-Werte-Blöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
+Das folgende Beispiel aktualisiert den Wert für `swashy` und fügt eine dritte Deklaration hinzu. Dieses Beispiel verwendet `@swash`, funktioniert aber auch mit anderen [Merkmalswertblöcken](/de/docs/Web/CSS/Reference/At-rules/@font-feature-values#feature_value_blocks).
 
 #### CSS
 
