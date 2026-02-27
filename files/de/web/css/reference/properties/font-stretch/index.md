@@ -2,13 +2,13 @@
 title: font-stretch
 slug: Web/CSS/Reference/Properties/font-stretch
 l10n:
-  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
+  sourceCommit: 3c91c067a4d36b532a4bce72e5d8a2c5a9279db5
 ---
 
 > [!NOTE]
-> Die Eigenschaft `font-stretch` wurde in der [CSS Fonts-Spezifikation](https://drafts.csswg.org/css-fonts/#font-stretch-prop) in `font-width` umbenannt. Um die Kompatibilität zu bewahren, behält die Spezifikation `font-stretch` als Alias für die Eigenschaft `font-width` bei.
+> Die `font-stretch` Eigenschaft wurde im [CSS-Schriften-Spezifikation](https://drafts.csswg.org/css-fonts/#font-stretch-prop) in {{cssxref("font-width")}} umbenannt. Um die Kompatibilität zu wahren, bleibt die Spezifikation `font-stretch` als ein veraltetes Alias für die `font-width` Eigenschaft bestehen.
 
-Die **`font-stretch`** [CSS](/de/docs/Web/CSS)-Eigenschaft wählt eine normale, komprimierte oder erweiterte Schriftrolle aus einer Schriftart aus.
+Die **`font-stretch`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt eine normale, komprimierte oder erweiterte Darstellung aus einer Schriftart.
 
 {{InteractiveExample("CSS Demo: font-stretch")}}
 
@@ -54,7 +54,6 @@ font-stretch: 150%;
   font-family: "League";
   font-style: normal;
   font-weight: normal;
-  font-stretch: 50% 200%; /* Required by Chrome - allow 50% to 200% */
 }
 
 section {
@@ -66,7 +65,7 @@ section {
 ## Syntax
 
 ```css
-/* <font-stretch-css3> keyword values */
+/* Keyword values */
 font-stretch: normal;
 font-stretch: ultra-condensed;
 font-stretch: extra-condensed;
@@ -90,22 +89,22 @@ font-stretch: revert-layer;
 font-stretch: unset;
 ```
 
-Diese Eigenschaft kann als ein einzelner `<font-stretch-css3>` Schlüsselwortwert oder ein einzelner {{cssxref("&lt;percentage&gt;")}} Wert angegeben werden.
+Diese Eigenschaft kann als ein einzelnes Schlüsselwort oder als ein {{cssxref("&lt;percentage&gt;")}} Wert angegeben werden.
 
 ### Werte
 
 - `normal`
-  - : Gibt eine normale Schriftart an.
+  - : Gibt eine normalerweise komprimierte Schriftart an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt eine stärker komprimierte Schriftart als normal an, wobei `ultra-condensed` die am meisten komprimierte ist.
+  - : Gibt eine mehr komprimierte Schriftart als normal an, wobei `ultra-condensed` die am stärksten komprimierte ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt eine stärker erweiterte Schriftart als normal an, wobei `ultra-expanded` die am meisten erweiterte ist.
+  - : Gibt eine mehr erweiterte Schriftart als normal an, wobei `ultra-expanded` die am meisten erweiterte ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50 % und 200 % (einschließlich). Negative Werte sind für diese Eigenschaft nicht zulässig.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (inklusive). Negative Werte sind für diese Eigenschaft nicht erlaubt.
 
-### Zuordnung von Schlüsselwort zu numerischem Wert
+### Zuordnung von Schlüsselwörtern zu numerischen Werten
 
-Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwortwerten und numerischen Prozentsätzen:
+Die folgende Tabelle zeigt die Zuordnung zwischen den Schlüsselwortwerten und numerischen Prozentsätzen:
 
 | Schlüsselwort     | Prozentsatz |
 | ----------------- | ----------- |
@@ -121,86 +120,94 @@ Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schl
 
 ## Beschreibung
 
-Einige Schriftfamilien bieten zusätzliche Schriftarten, bei denen die Zeichen schmaler als bei der normalen Schriftart sind (_komprimierte_ Schriftarten) oder breiter als bei der normalen Schriftart (_erweiterte_ Schriftarten).
+Einige Schriftfamilien bieten zusätzliche Darstellungen an, in denen die Zeichen schmaler als die normale Darstellung sind (_komprimierte_ Darstellungen) oder breiter als die normale Darstellung (_erweiterte_ Darstellungen).
 
-Mit `font-stretch` können Sie eine komprimierte oder erweiterte Schriftart aus solchen Schriftarten auswählen. Wenn die Schriftart, die Sie verwenden, keine komprimierten oder erweiterten Schriftarten bietet, hat diese Eigenschaft keine Wirkung.
+Sie können `font-stretch` verwenden, um eine komprimierte oder erweiterte Darstellung aus solchen Schriften auszuwählen. Wenn die von Ihnen verwendete Schrift keine komprimierten oder erweiterten Darstellungen bietet, hat diese Eigenschaft keine Wirkung.
 
 ### Auswahl der Schriftart
 
-Die für einen bestimmten Wert von `font-stretch` ausgewählte Schriftart hängt von den von der betreffenden Schriftart unterstützten Schriftarten ab. Falls die Schriftart keine Schriftart bietet, die genau dem angegebenen Wert entspricht, weisen Werte unter 100 % einer schmaleren Schriftart zu, und Werte ab 100 % einer breiteren Schriftart.
+Die für einen bestimmten Wert von `font-stretch` ausgewählte Darstellung hängt von den von der betreffenden Schrift unterstützten Darstellungen ab. Wenn die Schrift keine Darstellung bietet, die genau dem angegebenen Wert entspricht, werden Werte kleiner als `100%` einer komprimierten Darstellung zugeordnet, und Werte größer oder gleich `100%` einer erweiterten Darstellung.
 
-Die folgende Tabelle zeigt die Auswirkungen, die die Angabe verschiedener Prozentsätze von `font-stretch` auf zwei verschiedene Schriftarten hat:
+Die folgende Tabelle demonstriert die Wirkung der Einstellung verschiedener Prozentwerte von `font-stretch` auf zwei verschiedene Schriften:
 
 ```css hidden
 @font-face {
   font-family: "Inconsolata";
   src: url("https://fonts.gstatic.com/s/inconsolata/v31/QlddNThLqRwH-OJ1UHjlKENVzlm-WkL3GZQmAwPyya15.woff2")
     format("woff2");
-  font-stretch: 50% 200%;
 }
 
 @font-face {
   font-family: "Anek Malayalam";
   src: url("https://fonts.gstatic.com/s/anekmalayalam/v4/6qLUKZActRTs_mZAJUZWWkhke0nYa-f6__Azq3-gP1W7db9_.woff2")
     format("woff2");
-  font-stretch: 75% 125%;
+}
+
+body {
+  font-family: system-ui;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tbody th {
+  text-align: right;
+}
+
+th,
+td {
+  padding: 0.25rem;
+  font-weight: normal;
+  text-align: center;
 }
 
 td {
   border: solid;
   border-width: 1px;
+  font-size: 5rem;
 }
 
-#inconsolata td {
-  font:
-    90px "Inconsolata",
-    sans-serif;
+.inconsolata {
+  font-family: "Inconsolata", sans-serif;
 }
-#anek-malayalam td {
-  font:
-    90px "Anek Malayalam",
-    sans-serif;
+
+.anek-malayalam {
+  font-family: "Anek Malayalam", sans-serif;
 }
-#inconsolata td:nth-child(2),
-#anek-malayalam td:nth-child(2) {
+
+td:nth-child(2) {
   font-stretch: 50%;
 }
-#inconsolata td:nth-child(3),
-#anek-malayalam td:nth-child(3) {
+td:nth-child(3) {
   font-stretch: 62.5%;
 }
-#inconsolata td:nth-child(4),
-#anek-malayalam td:nth-child(4) {
+td:nth-child(4) {
   font-stretch: 75%;
 }
-#inconsolata td:nth-child(5),
-#anek-malayalam td:nth-child(5) {
+td:nth-child(5) {
   font-stretch: 87.5%;
 }
-#inconsolata td:nth-child(6),
-#anek-malayalam td:nth-child(6) {
+td:nth-child(6) {
   font-stretch: 100%;
 }
-#inconsolata td:nth-child(7),
-#anek-malayalam td:nth-child(7) {
+td:nth-child(7) {
   font-stretch: 112.5%;
 }
-#inconsolata td:nth-child(8),
-#anek-malayalam td:nth-child(8) {
+td:nth-child(8) {
   font-stretch: 125%;
 }
-#inconsolata td:nth-child(9),
-#anek-malayalam td:nth-child(9) {
+td:nth-child(9) {
   font-stretch: 150%;
 }
-#inconsolata td:nth-child(10),
-#anek-malayalam td:nth-child(10) {
+td:nth-child(10) {
   font-stretch: 200%;
 }
 ```
 
 ```html hidden
-<table class="standard-table">
+<table>
   <thead>
     <tr>
       <th scope="row"></th>
@@ -216,7 +223,7 @@ td {
     </tr>
   </thead>
   <tbody>
-    <tr id="inconsolata">
+    <tr class="inconsolata">
       <th scope="row">Inconsolata</th>
       <td>e</td>
       <td>e</td>
@@ -228,7 +235,7 @@ td {
       <td>e</td>
       <td>e</td>
     </tr>
-    <tr id="anek-malayalam">
+    <tr class="anek-malayalam">
       <th scope="row">Anek Malayalam</th>
       <td>e</td>
       <td>e</td>
@@ -244,10 +251,10 @@ td {
 </table>
 ```
 
-{{EmbedLiveSample('Font_face_selection', "100%", "300px")}}
+{{EmbedLiveSample('Auswahl der Schriftart', "100%", "250px")}}
 
-- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schriftart, die Breiten von 75 % bis 125 % unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am nächsten liegende Schriftart aus.
-- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten von 50 % bis 200 % bietet. <!-- Note, dynamically obtained woff2 from Google fonts using query: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten von 50% bis 200% bietet. <!-- Hinweis: Dynamisch erhaltenes woff2 von Google-Schriften über Anfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schrift, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am nächsten passende Schrift.
 
 ## Formale Definition
 
@@ -255,11 +262,11 @@ td {
 
 ## Formale Syntax
 
-{{csssyntax("font-width")}}
+{{csssyntax("font-stretch")}}
 
 ## Beispiele
 
-### Einstellen von Schriftweiten-Prozentsätzen
+### Festlegen von Schriftdehnungsprozentsätzen
 
 ```html
 <p class="condensed">an elephantine lizard</p>
@@ -269,10 +276,9 @@ td {
 
 ```css
 @font-face {
-  src: url("https://mdn.github.io/shared-assets/fonts/LeagueMono-VF.ttf");
+  src: url("/shared-assets/fonts/LeagueMono-VF.ttf") format("truetype");
   font-family: "LeagueMonoVariable";
   font-style: normal;
-  font-stretch: 1% 500%; /* Required by Chrome */
 }
 
 p {
@@ -294,7 +300,7 @@ p {
 }
 ```
 
-{{EmbedLiveSample("Setting font stretch percentages", "100%", 200)}}
+{{EmbedLiveSample("Festlegen von Schriftdehnungsprozentsätzen", "100%", 200)}}
 
 ## Spezifikationen
 
@@ -306,8 +312,10 @@ p {
 
 ## Siehe auch
 
-- {{cssxref("font-style")}}
-- {{cssxref("font-weight")}}
+- {{cssxref("@font-face/font-stretch")}} Deskriptor für {{cssxref("@font-face")}}
+- Moderne {{cssxref("font-width")}} Eigenschaft, ersetzt `font-stretch`
+- {{cssxref("font-style")}} Eigenschaft
+- {{cssxref("font-weight")}} Eigenschaft
 - SVG {{SVGAttr("font-stretch")}} Attribut
-- [Lernen: Grundlegende Text- und Schriftstilierung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
-- [CSS Fonts](/de/docs/Web/CSS/Guides/Fonts) Modul
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul

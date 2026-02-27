@@ -2,15 +2,15 @@
 title: font-stretch
 slug: Web/CSS/Reference/At-rules/@font-face/font-stretch
 l10n:
-  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
+  sourceCommit: 3c91c067a4d36b532a4bce72e5d8a2c5a9279db5
 ---
 
 > [!NOTE]
-> Der `font-stretch` Deskriptor wurde in der [CSS Fonts Spezifikation](https://drafts.csswg.org/css-fonts/#font-stretch-desc) in `font-width` umbenannt. Um die Kompatibilität zu bewahren, bleibt `font-stretch` als Alias für den `font-width` Deskriptor in der Spezifikation erhalten.
+> Die `font-stretch`-Deskriptor wurde in der [CSS Fonts-Spezifikation](https://drafts.csswg.org/css-fonts/#font-stretch-desc) in {{cssxref("@font-face/font-width")}} umbenannt. Um die Kompatibilität zu bewahren, behält die Spezifikation `font-stretch` als ein altes Alias für die `font-width`-Deskriptor bei.
 
-Der **`font-stretch`** [CSS](/de/docs/Web/CSS) Deskriptor ermöglicht es Autoren, für die in der {{cssxref("@font-face")}} at-Regel angegebenen Schriftarten ein normales, komprimiertes oder erweitertes Schriftbild festzulegen.
+Der **`font-stretch`** [CSS](/de/docs/Web/CSS) Deskriptor erlaubt es Autoren, ein normales, komprimiertes oder erweitertes Schriftbild für die Schriften zu spezifizieren, die in der {{cssxref("@font-face")}}-Regel angegeben sind.
 
-Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftbilder herunterladen, die den verschiedenen Stilen derselben Schriftfamilie entsprechen, und dann den `font-stretch` Deskriptor verwenden, um explizit die Dehnung des Schriftbildes anzugeben. Die Werte für den CSS-Deskriptor sind die gleichen wie für die entsprechende Schriftart-Eigenschaft.
+Für eine bestimmte Schriftfamilie können Autoren verschiedene Schriftschnitte herunterladen, die den unterschiedlichen Stilen derselben Schriftfamilie entsprechen, und dann den `font-stretch`-Deskriptor verwenden, um den Stretch des Schriftschnitts explizit anzugeben.
 
 ## Syntax
 
@@ -29,29 +29,29 @@ font-stretch: 50%;
 font-stretch: 100%;
 font-stretch: 200%;
 
-/* multiple values */
+/* Multiple values */
 font-stretch: 75% 125%;
 font-stretch: condensed ultra-condensed;
 ```
 
-Die `font-stretch` Eigenschaft wird mit einem der unten aufgeführten Werte beschrieben.
+Der `font-stretch`-Deskriptor kann einen einzelnen Wert aus der untenstehenden Liste annehmen.
 
 ### Werte
 
 - `normal`
-  - : Gibt ein normales Schriftbild an.
+  - : Gibt ein normal kondensiertes Schriftbild an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt ein komprimierteres Schriftbild als normal an, wobei ultra-condensed das am stärksten komprimierte ist.
+  - : Gibt ein stärker kondensiertes Schriftbild als normal an, wobei ultra-condensed am meisten kondensiert ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt ein erweitertes Schriftbild als normal an, wobei ultra-expanded das am stärksten erweiterte ist.
+  - : Gibt ein stärker erweitertes Schriftbild als normal an, wobei ultra-expanded am meisten erweitert ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diesen Deskriptor nicht erlaubt.
 
-In früheren Versionen der `font-stretch` Spezifikation akzeptiert die Eigenschaft nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax, um auch einen `<percentage>` Wert zu akzeptieren. Dies ermöglicht es variablen Schriftarten, etwas Ähnliches wie ein Kontinuum von Zeichenbreiten anzubieten. Für TrueType- oder OpenType-Variable-Schriften wird die "wdth"-Variation verwendet, um unterschiedliche Breiten umzusetzen.
+In früheren Versionen der `font-stretch`-Spezifikation akzeptiert der Deskriptor nur die neun Schlüsselwortwerte. CSS Fonts Level 4 erweitert die Syntax, um auch einen `<percentage>`-Wert zu akzeptieren. Dies ermöglicht es variablen Schriften, eine kontinuierliche Variation der Zeichenbreiten zu bieten. Für TrueType- oder OpenType-Variableschriften wird die `wdth`-Variation verwendet, um sich verändernde Breiten zu implementieren.
 
-Wenn die Schriftart kein Schriftbild bereitstellt, das genau dem angegebenen Wert entspricht, dann werden Werte unter 100% auf ein engeres Schriftbild abgebildet, und Werte größer oder gleich 100% auf ein breiteres Schriftbild.
+Wenn die Schriftart kein Gesicht bereitstellt, das genau dem angegebenen Wert entspricht, dann werden Werte kleiner als `100%` einem kondensierten Gesicht zugeordnet, und Werte größer oder gleich `100%` einem erweiterten Gesicht.
 
-### Zuordnung von Schlüsselworten zu numerischen Werten
+### Zuordnung von Schlüsselwort zu numerischen Werten
 
 Die folgende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und numerischen Prozentsätzen:
 
@@ -104,16 +104,16 @@ Die folgende Tabelle zeigt die Zuordnung zwischen Schlüsselwortwerten und numer
 
 ### Variable Schriften
 
-Die meisten Schriftarten haben eine bestimmte Breite, die einem der Schlüsselbegriffe entspricht. Einige Schriftarten, sogenannte variable Schriften, können jedoch eine Reihe von Dehnungen mit mehr oder weniger feiner Granularität unterstützen, was dem Designer erlaubt, ein viel genaueres Maß an Kontrolle über die gewählte Gewichtung zu haben. Dafür sind Prozentsätze nützlich.
+Die meisten Schriften haben eine bestimmte Breite, die einem der Schlüsselwortwerte entspricht. Variable Schriften hingegen können einen Bereich von Breiten mit feiner Granularität unterstützen, was dem Designer eine größere Kontrolle über die gewählte Dicke gibt. Dafür sind Prozentsatzbereiche nützlich.
 
-Für TrueType- oder OpenType-Variable-Schriften wird die "wdth"-Variation zur Umsetzung unterschiedlicher Glyphenbreiten verwendet.
+Für TrueType- oder OpenType-Variablen-Schriften wird die `wdth`-Variation verwendet, um verschiedene Glyphenbreiten zu implementieren.
 
 ## Barrierefreiheit
 
-Menschen mit Legasthenie und anderen kognitiven Beeinträchtigungen können Schwierigkeiten beim Lesen von zu stark komprimierten Schriften haben, insbesondere wenn die Schrift eine [niedrige Kontrastverhältnis der Farben](/de/docs/Web/CSS/Reference/Properties/color#accessibility) aufweist.
+Personen mit Dyslexie und anderen kognitiven Beeinträchtigungen können Schwierigkeiten haben, Schriftarten zu lesen, die zu stark kondensiert sind, insbesondere wenn die Schriftart ein [geringes Farbkontrastverhältnis](/de/docs/Web/CSS/Reference/Properties/color#accessibility) aufweist.
 
-- [MDN Verständnis der WCAG, Erklärung zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis der Erfolgskriterium 1.4.8 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
 
@@ -125,19 +125,49 @@ Menschen mit Legasthenie und anderen kognitiven Beeinträchtigungen können Schw
 
 ## Beispiele
 
-### Festlegung eines Prozentsatzbereichs für `font-stretch`
+### Festlegen eines Prozentsatzbereichs für font-stretch
 
-Das folgende Beispiel sucht eine lokale Open Sans-Schriftart oder importiert sie und erlaubt die Verwendung der Schriftart für normale, halbkomprimierte und halberweiterte Zustände.
+Das folgende Beispiel verwendet die [League Mono](https://www.theleagueofmoveabletype.com/league-mono) Schriftart. Es synthesiert verschiedene Schriftfamilien aus derselben Schriftdatei, indem es den `font-stretch`-Deskriptor mit verschiedenen Schlüsselwörtern und Prozentsätzen verwendet.
+
+```html
+<p>League Mono</p>
+<p>League Mono</p>
+<p>League Mono</p>
+```
 
 ```css
 @font-face {
-  font-family: "Open Sans";
-  src:
-    local("Open Sans") format("woff2"),
-    url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
-  font-stretch: 87.5% 112.5%;
+  font-family: "League Mono Ultra Condensed";
+  src: url("/shared-assets/fonts/LeagueMono-VF.ttf") format("truetype");
+  font-stretch: ultra-condensed; /* same as 50% */
+}
+
+@font-face {
+  font-family: "League Mono Normal";
+  src: url("/shared-assets/fonts/LeagueMono-VF.ttf") format("truetype");
+  font-stretch: 100%; /* same as normal */
+}
+
+@font-face {
+  font-family: "League Mono Ultra Expanded";
+  src: url("/shared-assets/fonts/LeagueMono-VF.ttf") format("truetype");
+  font-stretch: ultra-expanded; /* same as 200% */
+}
+
+p:nth-child(1) {
+  font-family: "League Mono Ultra Condensed", sans-serif;
+}
+
+p:nth-child(2) {
+  font-family: "League Mono Normal", sans-serif;
+}
+
+p:nth-child(3) {
+  font-family: "League Mono Ultra Expanded", sans-serif;
 }
 ```
+
+{{EmbedLiveSample("Festlegen von Prozentsätzen für den Schrift-Stretch", "100%", 200)}}
 
 ## Spezifikationen
 
@@ -149,11 +179,12 @@ Das folgende Beispiel sucht eine lokale Open Sans-Schriftart oder importiert sie
 
 ## Siehe auch
 
-- {{cssxref("@font-face/font-display", "font-display")}}
-- {{cssxref("@font-face/font-family", "font-family")}}
-- {{cssxref("@font-face/font-weight", "font-weight")}}
-- {{cssxref("@font-face/font-style", "font-style")}}
-- {{cssxref("font-feature-settings", "font-feature-settings")}}
-- {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
-- {{cssxref("@font-face/src", "src")}}
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- Moderne {{cssxref("@font-face/font-width")}}-Deskriptor, der `font-stretch` ersetzt
+- {{cssxref("@font-face/font-display")}}-Deskriptor
+- {{cssxref("@font-face/font-family")}}-Deskriptor
+- {{cssxref("@font-face/font-weight")}}-Deskriptor
+- {{cssxref("@font-face/font-style")}}-Deskriptor
+- {{cssxref("font-feature-settings")}}-Deskriptor
+- {{cssxref("@font-face/font-variation-settings")}}-Deskriptor
+- {{cssxref("@font-face/src")}}-Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor
