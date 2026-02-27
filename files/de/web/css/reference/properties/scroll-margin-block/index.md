@@ -2,10 +2,10 @@
 title: scroll-margin-block
 slug: Web/CSS/Reference/Properties/scroll-margin-block
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die `scroll-margin-block`-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Blockdimension.
+Die `scroll-margin-block` [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Block-Dimension.
 
 {{InteractiveExample("CSS Demo: scroll-margin-block")}}
 
@@ -69,9 +69,9 @@ scroll-margin-block: 2em;
 }
 ```
 
-## Einzelne Eigenschaften
+## Einzelliegende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("scroll-margin-block-end")}}
 - {{cssxref("scroll-margin-block-start")}}
@@ -94,11 +94,11 @@ scroll-margin-block: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Vorsprung von der entsprechenden Kante des Scroll-Containers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die Werte der Scroll-Margen stellen Vorsprünge dar, die den Scroll-Schnappbereich definieren, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Schnappbereich wird bestimmt, indem die transformierte Rahmenbox genommen, ihre rechteckige Begrenzungsbox (achsenallein in den Koordinaten des Scroll-Containers) gefunden und dann die angegebenen Vorsprünge hinzugefügt werden.
+Die Werte der Scroll-Marge stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box am {{Glossary("Scroll_snap#snapport", "Snapport")}} zu fangen. Der Scroll-Snap-Bereich wird bestimmt, indem man die transformierte Border-Box nimmt, ihre rechteckige Umrandung (achsenbündig im Koordinatenraum des Scroll-Containers) findet und dann die angegebenen Abstände hinzufügt.
 
 ## Formale Definition
 
@@ -118,5 +118,5 @@ Die Werte der Scroll-Margen stellen Vorsprünge dar, die den Scroll-Schnappberei
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

@@ -2,10 +2,10 @@
 title: scroll-padding-right
 slug: Web/CSS/Reference/Properties/scroll-padding-right
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Ansichtsbereichs_ des Scrollports: den Bereich, der als Zielregion für das Platzieren von Inhalten im Sichtbereich des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie zum Beispiel fest positionierte Toolbars oder Seitenleisten), oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-right` legt Versätze für die rechte Seite der _optimalen Anzeigezone_ des Scrollports fest: die Zone, die als Zielregion verwendet wird, um Dinge in den Sichtbereich des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie z. B. fest positionierte Symbolleisten oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-right")}}
 
@@ -94,9 +94,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Offset vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollports, als eine gültige Länge oder ein Prozentsatz.
 - `auto`
-  - : Der Offset wird durch den User-Agent bestimmt. Dieser Wert ist in der Regel 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein von null verschiedener Wert angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -116,5 +116,5 @@ scroll-padding-right: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Well-controlled scrolling with CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

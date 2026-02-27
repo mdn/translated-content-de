@@ -2,10 +2,10 @@
 title: scroll-padding-inline-end
 slug: Web/CSS/Reference/Properties/scroll-padding-inline-end
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension der _optimalen Betrachtungsregion_ des Scrollports: die Region, die als Zielregion für die Platzierung von Elementen im Sichtfeld des Benutzers dient. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Symbolleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-end` definiert die Offsets für die Endkante in der Inline-Dimension des _optimalen Betrachtungsbereichs_ des Scrollports: der Bereich, der als Zielregion für das Platzieren von Elementen im Sichtfeld des Nutzers verwendet wird. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die von anderen Inhalten verdeckt werden (wie fest positionierte Symbolleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-end")}}
 
@@ -94,9 +94,9 @@ scroll-padding-inline-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Inline-Endkante des Scrollports, angegeben als gültige Länge oder Prozentangabe.
+  - : Ein inneres Offset von der Inline-Endkante des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Versatz wird vom Nutzeragenten festgelegt. Dies ist im Allgemeinen 0px, aber ein Nutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich Null angemessener ist.
+  - : Das Offset wird vom User Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User Agent kann erkennen und anders handeln, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -116,5 +116,5 @@ scroll-padding-inline-end: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

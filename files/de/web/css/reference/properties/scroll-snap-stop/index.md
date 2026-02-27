@@ -2,10 +2,10 @@
 title: scroll-snap-stop
 slug: Web/CSS/Reference/Properties/scroll-snap-stop
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die **`scroll-snap-stop`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, ob es dem Scroll-Container erlaubt ist, mögliche Snap-Positionen zu "überspringen".
+Die **`scroll-snap-stop`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, ob der Scroll-Container "mögliche Snap-Positionen" überspringen darf oder nicht.
 
 {{InteractiveExample("CSS Demo: scroll-snap-stop")}}
 
@@ -100,9 +100,9 @@ scroll-snap-stop: unset;
 ### Werte
 
 - `normal`
-  - : Wenn die visuelle {{Glossary("viewport", "Viewport")}} des Scroll-Containers dieses Elements gescrollt wird, kann es mögliche Snap-Positionen "überspringen".
+  - : Wenn das visuelle {{Glossary("viewport", "Viewport")}} des Scroll-Containers dieses Elements gescrollt wird, kann es "mögliche Snap-Positionen" überspringen.
 - `always`
-  - : Der Scroll-Container darf keine mögliche Snap-Position "überspringen" und muss zur ersten Snap-Position dieses Elements schnappen.
+  - : Der Scroll-Container darf keine "möglichen Snap-Positionen" überspringen und muss zur ersten Snap-Position dieses Elements springen.
 
 ## Formale Definition
 
@@ -114,9 +114,9 @@ scroll-snap-stop: unset;
 
 ## Beispiele
 
-### Unterschiedliche Snap-Stopps setzen
+### Unterschiedliche Snap-Stops setzen
 
-Das folgende Beispiel zeigt den Unterschied zwischen den Werten `always` und `normal` von `scroll-snap-stop`. Der Unterschied zwischen den beiden `scroll-snap-stop` Werten wird deutlicher, wenn die Eigenschaft `scroll-snap-type` auf `mandatory` gesetzt ist, was in diesem Beispiel verwendet wird.
+Das unten stehende Beispiel zeigt den Unterschied zwischen den Werten `always` und `normal` von `scroll-snap-stop`. Der Unterschied zwischen den zwei `scroll-snap-stop` Werten ist deutlicher, wenn die Eigenschaft `scroll-snap-type` auf `mandatory` gesetzt ist, was in diesem Beispiel verwendet wird.
 
 #### HTML
 
@@ -271,9 +271,9 @@ div > div {
 
 #### Ergebnis
 
-Scrollen Sie von links nach rechts und von oben nach unten in den X- und Y-Kästchen unten. In den X- und Y-Kästchen, in denen die Eigenschaft `scroll-snap-stop` auf `always` gesetzt ist, wird das Scrollen gezwungen, an der Snap-Position zu stoppen, selbst wenn Sie schnell scrollen. In den Kästchen, in denen die Eigenschaft `scroll-snap-stop` auf `normal` gesetzt ist, werden die Snap-Positionen übersprungen, wenn Sie schnell scrollen.
+Scrollen Sie von links nach rechts und von oben nach unten in den X- und Y-Boxen unten. In den X- und Y-Boxen, in denen die Eigenschaft `scroll-snap-stop` auf `always` gesetzt ist, wird das Scrollen gezwungen, an der Snap-Position anzuhalten, auch wenn Sie schnell scrollen. In den Boxen, in denen die Eigenschaft `scroll-snap-stop` auf `normal` gesetzt ist, werden die Snap-Positionen übersprungen, wenn Sie schnell scrollen.
 
-Falls erforderlich, können Sie selektiv die Elemente auswählen, an denen in einem Scroll-Container immer angehalten wird. Dies wird im untenstehenden Beispiel verdeutlicht, indem ungerade und gerade Elemente gezielt angesprochen werden; Sie können eine andere Strategie wählen, die auf Ihren Anforderungen basiert. Im Beispiel unten wird das Scrollen nicht an ungeraden und geraden Elementen im zweiten und dritten Kästchen "übersprungen".
+Falls erforderlich, können Sie selektiv bestimmen, bei welchen Elementen im Scroll-Container immer angehalten wird. Dies wird im Beispiel unten durch das Anvisieren von ungeraden und geraden Elementen gezeigt; Sie können eine andere Strategie basierend auf Ihren Anforderungen wählen. Im Beispiel unten wird beim Scrollen nicht über ungerade und gerade Elemente in den zweiten und dritten Boxen hinweggegangen.
 
 {{EmbedLiveSample("Snapping_in_different_axes", "100%", "1080")}}
 
@@ -287,5 +287,7 @@ Falls erforderlich, können Sie selektiv die Elemente auswählen, an denen in ei
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- {{cssxref("scroll-snap-align")}}
+- {{cssxref("scroll-initial-target")}}
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

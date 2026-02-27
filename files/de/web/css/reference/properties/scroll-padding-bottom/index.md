@@ -2,10 +2,10 @@
 title: scroll-padding-bottom
 slug: Web/CSS/Reference/Properties/scroll-padding-bottom
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die Eigenschaft `scroll-padding-bottom` definiert Versätze für den unteren Rand des _optimalen Betrachtungsbereichs_ des Scrollport: der Bereich, der als Zielregion verwendet wird, um Elemente in das Sichtfeld des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-bottom` definiert Abstände für den unteren Bereich der _optimalen Anzeigefläche_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge für den Benutzer sichtbar zu machen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-bottom")}}
 
@@ -91,9 +91,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz vom unteren Rand des Scrollports, als gültige Länge oder ein Prozentsatz.
+  - : Ein interner Abstand von der unteren Kante des Scrollports, angegeben als gültige Länge oder Prozentzahl.
 - `auto`
-  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist in der Regel 0px, ein User-Agent kann jedoch erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Abstand wird vom Benutzeragenten bestimmt. Dieser wird im Allgemeinen 0px betragen, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein von null abweichender Wert geeigneter ist.
 
 ## Formale Definition
 
@@ -113,5 +113,5 @@ scroll-padding-bottom: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

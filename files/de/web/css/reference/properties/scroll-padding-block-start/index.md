@@ -2,10 +2,10 @@
 title: scroll-padding-block-start
 slug: Web/CSS/Reference/Properties/scroll-padding-block-start
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die Eigenschaft `scroll-padding-block-start` definiert Versätze für die Startkante in der Blockdimension des _optimalen Anzeigebereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Elemente in das Sichtfeld des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Freiraum zwischen einem zielgerichteten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-start` definiert Abstände für den Startbereich in der Blockdimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion für die Platzierung von Elementen im Sichtfeld des Benutzers dient. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt sind (wie z.B. fixierte Werkzeugleisten oder Seitenleisten), oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-start")}}
 
@@ -91,9 +91,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Block-Startkante des Scrollports, als gültige Länge oder prozentualer Anteil.
+  - : Ein nach innen gerichteter Abstand von der Block-Startkante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom User-Agent bestimmt. Dies wird im Allgemeinen 0px sein, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein ungleich null Wert angemessener ist.
+  - : Der Abstand wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann auch etwas anderes tun, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 
@@ -113,5 +113,5 @@ scroll-padding-block-start: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
+- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

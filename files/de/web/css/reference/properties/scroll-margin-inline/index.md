@@ -2,10 +2,10 @@
 title: scroll-margin-inline
 slug: Web/CSS/Reference/Properties/scroll-margin-inline
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die `scroll-margin-inline` [Kurzeigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Inline-Dimension.
+Die `scroll-margin-inline` [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Inline-Dimension.
 
 {{InteractiveExample("CSS Demo: scroll-margin-inline")}}
 
@@ -76,7 +76,7 @@ scroll-margin-inline: 0px 3em;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -105,7 +105,7 @@ scroll-margin-inline: unset;
 
 ## Beschreibung
 
-Die Werte für die Scroll-Margen repräsentieren Abstände, die den Scroll-Snap-Bereich definieren, der für das Einrasten dieses Blocks zum {{Glossary("Scroll_snap#snapport", "Snapport")}} verwendet wird. Der Scroll-Snap-Bereich wird ermittelt, indem der transformierte Randrahmen genommen, dessen rechteckiges Begrenzungsfeld (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird, und dann die angegebenen Abstände hinzugefügt werden.
+Die scroll-margin-Werte stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um dieses Box-Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen wird, der rechteckige Bounding-Box (achsenausgerichtet im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Abstände hinzugefügt werden.
 
 ## Formale Definition
 
@@ -119,13 +119,13 @@ Die Werte für die Scroll-Margen repräsentieren Abstände, die den Scroll-Snap-
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas sehr ähnliches wie das interaktive Beispiel oben, allerdings erklären wir hier, wie es implementiert wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, mit dem Unterschied, dass wir Ihnen hier erklären, wie es implementiert wird.
 
-Das Ziel ist es, vier horizontal scrollende Blöcke zu erstellen, wobei der zweite und dritte Block einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
+Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte an ihren Platz einrasten, nahezu, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
-Das HTML beinhaltet einen Scroller mit vier Kind-Elementen:
+Das HTML beinhaltet einen Scroller mit vier Kindern:
 
 ```html
 <div class="scroller">
@@ -138,7 +138,7 @@ Das HTML beinhaltet einen Scroller mit vier Kind-Elementen:
 
 #### CSS
 
-Lassen Sie uns den CSS durchgehen. Der äußere Container ist so gestylt:
+Lassen Sie uns durch das CSS gehen. Der äußere Container ist wie folgt gestylt:
 
 ```css
 .scroller {
@@ -153,9 +153,9 @@ Lassen Sie uns den CSS durchgehen. Der äußere Container ist so gestylt:
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss, und das Scrollen immer auf einem Snap-Punkt zum Stillstand kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, welches sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, welches festlegt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stillstand kommt.
 
-Die Kind-Elemente sind wie folgt gestylt:
+Die Kindelemente sind wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -176,9 +176,9 @@ Die Kind-Elemente sind wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, welches angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse, in unserem Fall) die vorgesehenen Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, welches angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margen-Werte, einen anderen für das zweite und dritte Kind-Element:
+Zuletzt spezifizieren wir die Scroll-Margenwerte, einen unterschiedlichen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -190,10 +190,10 @@ Zuletzt spezifizieren wir die Scroll-Margen-Werte, einen anderen für das zweite
 }
 ```
 
-Das bedeutet, dass beim Scrollen über die mittleren Kind-Elemente das Scrollen bei `1rem` außerhalb des Inline-Endrands des zweiten `<div>` und `2rems` außerhalb des Inline-Endrands des dritten `<div>` einrastet.
+Dies bedeutet, dass beim Scrollen an den mittleren Kindelementen vorbei, das Scrollen bei `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` und `2rems` außerhalb des Inline-Endrandes des dritten `<div>` einrastet.
 
 > [!NOTE]
-> Hier setzen wir `scroll-margin` am Anfang _und_ Ende der Inline-Achse (x in unserem Fall), aber nur der Endrand ist wirklich relevant. Es würde hier genauso gut funktionieren, nur eine Scroll-Marge an diesem einen Rand zu setzen, zum Beispiel mit `scroll-margin-inline: 0 1rem` oder `scroll-margin-inline-end: 1rem`.
+> Hier setzen wir `scroll-margin` sowohl am Anfang _als auch_ am Ende der Inline-Achse (x in unserem Fall), aber nur die Endkante ist wirklich relevant. Es würde hier genauso gut funktionieren, nur an dieser einen Kante eine Scroll-Marge festzulegen, z.B. mit `scroll-margin-inline: 0 1rem` oder `scroll-margin-inline-end: 1rem`.
 
 #### Ergebnis
 
@@ -211,5 +211,5 @@ Probieren Sie es selbst aus:
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

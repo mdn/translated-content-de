@@ -2,10 +2,10 @@
 title: scroll-padding-top
 slug: Web/CSS/Reference/Properties/scroll-padding-top
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
 ---
 
-Die **`scroll-padding-top`** Eigenschaft definiert Versätze für den oberen Rand der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Dinge in den Blick des Benutzers zu bringen. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte (wie fixe Toolbars oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
+Die **`scroll-padding-top`**-Eigenschaft definiert die Versätze für den oberen Bereich der _optimalen Anzeigeregion_ des Scrollportals: die Region, die als Zielregion verwendet wird, um Elemente im Sichtbereich des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollportals auszuschließen, die durch andere Inhalte verdeckt sind (wie z.B. feste Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollportals zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-top")}}
 
@@ -91,9 +91,9 @@ scroll-padding-top: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein interner Versatz vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollportals, angegeben als eine gültige Länge oder ein Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. In der Regel wird dies 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein anderer Wert als 0 angemessener ist.
 
 ## Formale Definition
 
@@ -113,5 +113,5 @@ scroll-padding-top: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
