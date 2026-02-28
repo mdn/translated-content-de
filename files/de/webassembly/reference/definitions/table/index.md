@@ -3,7 +3,7 @@ title: "table: Wasm-Definition"
 short-title: table
 slug: WebAssembly/Reference/Definitions/table
 l10n:
-  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
+  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
 ---
 
 Die **`table`** [Definition](/de/docs/WebAssembly/Reference/Definitions) erstellt eine neue Tabelle.
@@ -50,37 +50,37 @@ table name initial_size max_size type
 ```
 
 - `table`
-  - : Der `table`-Defintionstyp. Muss immer zuerst angegeben werden.
+  - : Der `table` Definitionstyp. Muss immer zuerst angegeben werden.
 - `name` {{optional_inline}}
-  - : Ein optionaler Name zur Identifizierung der Tabelle. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`. Wenn dieser weggelassen wird, kann die Tabelle durch ihren Index identifiziert werden, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
+  - : Ein optionaler identifizierender Name für die Tabelle. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`. Wenn dieser weggelassen wird, kann die Tabelle über ihren Index identifiziert werden, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
 - `initial_size`
-  - : Eine ganze Zahl, die die anfängliche Größe der Tabelle darstellt.
+  - : Ein ganzzahliger Wert, der die Anfangsgröße der Tabelle darstellt.
 - `max_size` {{optional_inline}}
-  - : Eine ganze Zahl, die die maximale Größe angibt, die die Tabelle erreichen darf. Wenn diese nicht angegeben wird, hat die Tabelle keine maximale Größe, und ihr Wachstum ist nur durch Systembeschränkungen wie verfügbaren Speicher begrenzt.
+  - : Ein ganzzahliger Wert, der die maximale Größe darstellt, bis zu der die Tabelle wachsen darf. Wenn dies nicht angegeben wird, hat die Tabelle keine maximale Größe und ihr Wachstum ist nur durch systembedingte Einschränkungen wie verfügbarem Speicher begrenzt.
 - `type`
   - : Der Name des zu speichernden Funktionstyps. Mögliche Werte sind:
     - [`funcref`](/de/docs/WebAssembly/Reference/Types/funcref)
-      - : Speichert Referenzen auf innerhalb von Wasm definierte Funktionen.
+      - : Speichert Verweise auf Funktionen, die innerhalb von Wasm definiert sind.
     - [`externref`](/de/docs/WebAssembly/Reference/Types/externref)
-      - : Speichert Referenzen auf externe in JavaScript definierte Werte.
+      - : Speichert Verweise auf externe Werte, die innerhalb von JavaScript definiert sind.
 
 ## Beschreibung
 
-WebAssembly-Tabellen ermöglichen die Speicherung von Referenzwerten, die nicht im byte-orientierten WebAssembly-Speicher liegen. Der Hauptanwendungsfall ist das Speichern von Funktionsreferenzen, die mit `call_indirect` verwendet werden können, um indirekte Funktionsaufrufe für Sprachen zu unterstützen, die solche bieten. Die `table`-Definition erstellt eine neue Tabelle.
+WebAssembly-Tabellen ermöglichen die Speicherung von Referenzwerten, getrennt von byte-orientierten WebAssembly-Speichern. Der primäre Anwendungsfall besteht darin, Funktionsreferenzen zu speichern, die mit `call_indirect` verwendet werden können, um indirekte Funktionsaufrufe für Sprachen zu unterstützen, die solche Aufrufe haben. Die `table`-Definition erstellt eine neue Tabelle.
 
-Einer Tabelle muss eine anfängliche Größe und ein Speichertyp zugewiesen werden. Dieses Beispiel erstellt eine Tabelle mit zwei Speicherplätzen, die nur Referenzen auf Funktionen speichern, die innerhalb von Wasm erstellt wurden (gekennzeichnet durch [`funcref`](/de/docs/WebAssembly/Reference/Types/funcref)):
+Eine Tabelle muss mit einer Anfangsgröße und einem Speichertyp versehen werden. Dieses Beispiel erstellt eine Tabelle mit zwei Speicherplätzen, die nur Referenzen auf Funktionen speichert, die innerhalb von Wasm erstellt wurden (gekennzeichnet durch [`funcref`](/de/docs/WebAssembly/Reference/Types/funcref)):
 
 ```wat
 (table 2 funcref)
 ```
 
-Optional können Sie auch einen Bezeichner mit angeben, der verwendet werden kann, um die Tabelle an anderer Stelle zu identifizieren, sowie eine maximale Wachstumsgröße. Zum Beispiel:
+Optional können Sie auch einen Bezeichner angeben, der zur Identifizierung der Tabelle anderswo verwendet werden kann, sowie eine maximale Wachstumsgröße. Zum Beispiel:
 
 ```wat
-(table $mytable 2 10 funcref)
+(table $my_table 2 10 funcref)
 ```
 
-Im Folgenden wird ein Funktionstyp definiert, eine grundlegende Funktion mit diesem Typ, die einen `i32` zurückgibt, wird definiert, und sie wird mithilfe von `(elem declare func $f1)` vorangemeldet, um später darauf zuzugreifen.
+Das folgende Beispiel definiert einen Funktionstyp, definiert eine grundlegende Funktion mit diesem Typ, die ein `i32` zurückgibt, und erklärt diese vorwärts mit `(elem declare func $f1)`, damit sie später referenziert werden kann.
 
 ```wat
 (type $ret_i32 (func (result i32)))
@@ -92,20 +92,20 @@ Im Folgenden wird ein Funktionstyp definiert, eine grundlegende Funktion mit die
 (elem declare func $f1)
 ```
 
-Um eine in einer Tabelle referenzierte Funktion aufzurufen, müssen Sie die Tabelle und den Indexwert, bei dem die Funktionsreferenz gespeichert ist, angeben. Das folgende Beispiel verwendet `call_indirect`:
+Um eine in einer Tabelle referenzierte Funktion aufzurufen, müssen Sie auf die Tabelle und den Indexwert verweisen, bei dem die Funktionsreferenz gespeichert ist. Das folgende Beispiel verwendet `call_indirect`:
 
 ```wat
 (call_indirect (type $ret_i32) (local.get $index))
 ```
 
-Es ist möglich, Tabellen zur Laufzeit mit Anweisungen wie [`table.set`](/de/docs/WebAssembly/Reference/Table/set) und [`table.fill`](/de/docs/WebAssembly/Reference/Table/fill) zu ändern und Werte mit [`table.get`](/de/docs/WebAssembly/Reference/Table/get) abzurufen.
+Es ist möglich, Tabellen zur Laufzeit mit Anweisungen wie [`table.set`](/de/docs/WebAssembly/Reference/Table/set) und [`table.fill`](/de/docs/WebAssembly/Reference/Table/fill) zu mutieren und Werte mit [`table.get`](/de/docs/WebAssembly/Reference/Table/get) abzurufen.
 
 ### Externe Referenzen
 
-Sie können auch externe in JavaScript definierte Referenzen in einer Wasm-Tabelle speichern, indem Sie das Schlüsselwort [`externref`](/de/docs/WebAssembly/Reference/Types/externref) spezifizieren. Zum Beispiel:
+Sie können auch externe Referenzen, die in JavaScript definiert sind, in einer Wasm-Tabelle speichern, indem Sie das Schlüsselwort [`externref`](/de/docs/WebAssembly/Reference/Types/externref) angeben. Zum Beispiel:
 
 ```wat
-(table $mytable 2 10 externref)
+(table $my_table 2 10 externref)
 ```
 
 ### Mehrere Tabellen
@@ -118,7 +118,7 @@ Sie können mehrere Tabellen im selben Wasm-Modul erstellen, zum Beispiel:
 (table $table_2 1 2 funcref)
 ```
 
-Sie könnten eine Funktion wie diese verwenden, um jede Tabelle mit einer anderen Funktion zu befüllen:
+Sie könnten eine Funktion wie diese verwenden, um jede Tabelle mit einer anderen Funktion zu füllen:
 
 ```wat
 (func $populate
@@ -133,7 +133,7 @@ Sie könnten eine Funktion wie diese verwenden, um jede Tabelle mit einer andere
 )
 ```
 
-Dann könnten Sie die `$populate`-Funktion aufrufen und `call_indirect` verwenden, um die in jeder Tabelle referenzierten Funktionen aufzurufen. Das folgende Snippet verweist auf die Tabellen anhand ihres [Bezeichnernamens](#name):
+Sie könnten dann die `$populate`-Funktion aufrufen und `call_indirect` verwenden, um die in jeder Tabelle referenzierten Funktionen aufzurufen. Der folgende Ausschnitt referenziert die Tabellen über ihren [identifizierenden Namen](#name):
 
 ```wat
 (func (export "accessTable")
@@ -145,14 +145,14 @@ Dann könnten Sie die `$populate`-Funktion aufrufen und `call_indirect` verwende
 )
 ```
 
-Aber Sie könnten stattdessen die Tabellen anhand ihrer Indexwerte referenzieren (`0` bezeichnet die erste Tabelle im Modul, `1` die zweite Tabelle usw.):
+Aber Sie könnten stattdessen die Tabellen über ihre Indexwerte referenzieren (`0` gibt die erste Tabelle im Modul an, `1` die zweite Tabelle usw.):
 
 ```wat
 (call_indirect 0 (type $ret_i32) (i32.const 0))
 (call_indirect 1 (type $ret_i32) (i32.const 0))
 ```
 
-Wenn Sie keinen Bezeichnernamen _oder_ einen Index angeben, wird angenommen, dass der Index `0` ist:
+Wenn Sie keinen identifizierenden Namen _oder_ einen Index angeben, wird der Index `0` angenommen:
 
 ```wat
 ;; Accesses the table with index 0
@@ -161,13 +161,13 @@ Wenn Sie keinen Bezeichnernamen _oder_ einen Index angeben, wird angenommen, das
 
 ## Beispiele
 
-### Erstellung einer Basistabelle
+### Erstellen einer einfachen Tabelle
 
-Dieses Beispiel zeigt, wie man eine Basistabelle erstellt, ein paar Funktionen darin speichert und dann eine Funktion aus der Tabelle aufruft.
+Dieses Beispiel zeigt, wie man eine einfache Tabelle erstellt, einige Funktionen in diese speichert und dann eine Funktion aus der Tabelle aufruft.
 
 #### JavaScript
 
-In unserem Skript beginnen wir mit dem Abrufen einer Referenz zu einem {{htmlelement("p")}}-Element, in das wir Ergebnisse ausgeben werden. Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static). Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-Funktion `accessTable()` auf, die im WebAssembly-Objekt [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) verfügbar ist, und übergeben ihr die Zahl `0` als Parameter. Schließlich setzen wir den Rückgabewert der `accessTable()`-Funktion als `textContent`-Wert des `<p>`-Elements, damit wir ihn untersuchen können.
+In unserem Skript beginnen wir damit, eine Referenz zu einem {{htmlelement("p")}}-Element zu erhalten, das wir zur Ausgabe von Ergebnissen verwenden werden. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static). Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-Funktion `accessTable()` auf, die im WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist und übergeben ihr die Zahl `0` als Parameter. Schließlich setzen wir den Rückgabewert der Funktion `accessTable()` auf den `textContent`-Wert des `<p>`-Elements, damit wir ihn überprüfen können.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -184,9 +184,9 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}")).then((result) => {
 
 #### Wasm
 
-In unserem Wasm-Modul definieren wir zunächst einen Funktionstyp namens `$ret_i32`, der einen `i32`-Wert zurückgibt. Dann definieren wir zwei auf diesem Typ basierende Funktionen namens `$f1` und `$f2`, die die innerhalb definierten Werte zurückgeben. Anschließend definieren wir eine `table` namens `$return_values` mit zwei Slots, die Funktionsreferenzen speichert (deshalb wird `funcref` angegeben), und initialisieren diese, indem wir die beiden Slots mit Referenzen auf die `$f1` und `$f2` Funktionen füllen.
+In unserem Wasm-Modul definieren wir zunächst einen Funktionstyp namens `$ret_i32`, der einen `i32`-Wert zurückgibt. Dann definieren wir zwei Funktionen basierend auf diesem Typ, genannt `$f1` und `$f2`, die die innerhalb definierten Werte zurückgeben. Anschließend definieren wir eine `table` namens `$return_values` mit zwei Slots, die Funktionsreferenzen speichert (daher wird `funcref` angegeben), und initialisieren sie, indem wir die beiden Slots mit Verweisen auf die Funktionen `$f1` und `$f2` füllen.
 
-Schließlich exportieren wir die `accessTable()`-Funktion, die einen `i32`-Wert namens `$index` als Parameter akzeptiert und einen `i32` zurückgibt. Im Funktionskörper verwenden wir `call_indirect`, um die Funktion aufzurufen, die in der Tabelle am Indexwert `$index` referenziert wird.
+Schließlich exportieren wir die Funktion `accessTable()`, die einen `i32` namens `$index` als Parameter aufnimmt und einen `i32` zurückgibt. Im Funktionskörper verwenden wir `call_indirect`, um die Funktion aufzurufen, die in der Tabelle beim Indexwert `$index` referenziert ist.
 
 ```wat live-sample___basic-usage
 (module
@@ -213,7 +213,7 @@ Der ausgegebene Wert ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Das ergibt Sinn, da der exportierte `accessTable()`-Funktion ein Indexwert übergeben wird. Innerhalb des Wasm-Moduls rufen wir die Funktion auf, die bei diesem Index in der definierten Tabelle verfügbar ist, was den Wert zurückgibt, den wir ausgegeben sehen.
+Dies ist sinnvoll, da der exportierte `accessTable()`-Funktion ein Indexwert übergeben wird. Innerhalb des Wasm-Moduls rufen wir die Funktion auf, die bei diesem Index in der definierten Tabelle verfügbar ist, was den Wert zurückgibt, den wir sehen.
 
 ## Spezifikationen
 

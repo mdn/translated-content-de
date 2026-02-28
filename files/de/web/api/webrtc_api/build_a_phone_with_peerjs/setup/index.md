@@ -2,23 +2,23 @@
 title: Einrichtung
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Setup
 l10n:
-  sourceCommit: f20e6e3ea01fe15f7d95420e43d199432f4ea8c4
+  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Build_the_server")}}
 
-Fangen wir also an, die Grundlage für unsere WebRTC-basierte Telefon-App zu schaffen.
+Lassen Sie uns mit der Einrichtung der Grundlage für unsere WebRTC-gestützte Telefon-App beginnen.
 
-1. Suchen Sie zunächst einen geeigneten Ort in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und in dieses Verzeichnis zu wechseln.
+1. Suchen Sie zuerst eine geeignete Stelle in Ihrer lokalen Dateistruktur und führen Sie `mkdir audio_app` und dann `cd audio_app` aus, um ein Verzeichnis für Ihre App zu erstellen und dieses zu betreten.
 2. Erstellen Sie als Nächstes eine neue App, indem Sie `yarn init` ausführen. Folgen Sie den Eingabeaufforderungen und geben Sie einen Namen, eine Version, eine Beschreibung usw. für Ihr Projekt an.
-3. Installieren Sie anschließend die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
+3. Installieren Sie als Nächstes die erforderlichen Abhängigkeiten mit den folgenden Befehlen:
    - [Express](https://expressjs.com/): `yarn add express`
-   - [PeerJS](https://peerjs.com/docs/): `yarn add peerjs`
+   - [PeerJS](https://peerjs.com/): `yarn add peerjs`
    - [Peer](https://github.com/peers/peerjs-server): `yarn add peer`
 
-   Peer wird für den Peer-Server verwendet und PeerJS wird genutzt, um auf die PeerJS-API und das Framework zuzugreifen. Ihr `package.json` sollte nach der Installation der Abhängigkeiten wie folgt aussehen:
+   Peer wird für den Peer-Server verwendet und PeerJS wird verwendet, um auf die PeerJS-API und das Framework zuzugreifen. Ihr `package.json` sollte ungefähr so aussehen, wenn Sie die Abhängigkeiten fertig installiert haben:
 
    ```json
    {
@@ -40,7 +40,7 @@ Fangen wir also an, die Grundlage für unsere WebRTC-basierte Telefon-App zu sch
    }
    ```
 
-4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` heißt. Sie werden diese in den folgenden Artikeln kaum ändern müssen.
+4. Um die Einrichtung abzuschließen, sollten Sie die folgenden HTML- und CSS-Dateien in das Stammverzeichnis Ihres Projektordners kopieren. Sie können beide Dateien `index` nennen, sodass die HTML-Datei `index.html` und die CSS-Datei `index.css` sein wird. Sie müssen diese in den nachfolgenden Artikeln nicht wesentlich ändern.
 
 ```html
 <!doctype html>

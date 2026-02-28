@@ -1,12 +1,12 @@
 ---
-title: "set: Wasm-Tabelle-Anweisung"
+title: "set: Wasm-Tabelle Befehl"
 short-title: set
 slug: WebAssembly/Reference/Table/set
 l10n:
-  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
+  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
 ---
 
-Die **`table.set`** [Tabelle-Anweisung](/de/docs/WebAssembly/Reference/Table) ändert den gespeicherten Wert in einem bestimmten Tabellenelement.
+Der **`table.set`** [Tabellenbefehl](/de/docs/WebAssembly/Reference/Table) ändert den Wert, der in einem bestimmten Tabellenelement gespeichert ist.
 
 {{InteractiveExample("Wat Demo: table.set", "tabbed-taller")}}
 
@@ -58,13 +58,13 @@ table.set identifier
 ```
 
 - `table.set`
-  - : Der `table.set` Anweisungstyp. Muss immer zuerst eingefügt werden.
+  - : Der `table.set` Befehlstyp. Muss immer zuerst angegeben werden.
 - `identifier` {{optional_inline}}
-  - : Ein Bezeichner für die Tabelle, in der Sie eine Referenz speichern möchten. Dies kann Folgendes sein:
+  - : Ein Bezeichner für die Tabelle, in der Sie eine Referenz speichern möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Ein identifizierender Name [für die Tabelle festgelegt](/de/docs/WebAssembly/Reference/Definitions/table#name), als sie erstmals erstellt wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein Bezeichnername, der der Tabelle zugewiesen wurde, als sie zuerst erstellt wurde, als [Name für die Tabelle gesetzt](/de/docs/WebAssembly/Reference/Definitions/table#name). Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
     - `index`
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite, etc.
+      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
 
     Wenn der `identifier` weggelassen wird, wird er standardmäßig auf `0` gesetzt.
 
@@ -75,27 +75,27 @@ table.set identifier
 ```
 
 - `index`
-  - : Der Elementindex, in dem der Wert gespeichert werden soll. Dies muss ein `i32` Wert sein, zum Beispiel `(i32.const 1)`.
+  - : Der Elementindex, in dem der Wert gespeichert wird. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 1)`.
 - `value`
-  - : Der Wert, der in der Tabelle gespeichert werden soll. Dies muss dem Elementtyp entsprechen, mit dem die Tabelle definiert wurde.
+  - : Der Wert, der in der Tabelle gespeichert werden soll. Dies muss mit dem Elementtyp übereinstimmen, mit dem die Tabelle definiert wurde.
 
 ### Traps
 
-`table.set` löst einen Fehler aus, wenn:
+`table.set` führt zu einem Fehler (`trap`), wenn:
 
 - `index` größer ist als [`table.size`](/de/docs/WebAssembly/Reference/Table/size).
 
 ### Opcodes
 
-| Anweisung   | Binärer Opcode                                                                                          |
+| Befehl      | Binärer Opcode                                                                                          |
 | ----------- | ------------------------------------------------------------------------------------------------------- |
 | `table.set` | `𝟶𝚡𝟸𝟼` ([variable-width LEB128](https://webassembly.github.io/spec/core/binary/values.html#binary-int)) |
 
 ## Beschreibung
 
-Die `table.set` Anweisung wird verwendet, um eine bestimmte Funktion in einem bestimmten Element einer bestehenden Tabelle zu speichern. Insbesondere ermöglicht es Wasm-Modulen, Referenzen, die in Tabellen enthalten sind, zur Laufzeit zu verändern.
+Der `table.set` Befehl wird verwendet, um eine bestimmte Funktion in einem bestimmten Element einer bestehenden Tabelle zu speichern. Insbesondere ermöglicht er es Wasm-Modulen, Referenzen, die in Tabellen enthalten sind, zur Laufzeit zu ändern.
 
-Dies ist praktisch, wenn im späteren Verlauf des Programms unterschiedliche Referenzen erforderlich sind, als diejenigen, mit denen die Tabelle initialisiert wurde. Zum Beispiel könnten Sie eine Tabelle mit einem Element erstellen, zwei Funktionen definieren und dann das Tabellenelement mit einer Referenz auf eine dieser Funktionen mithilfe der `elem` Moduldefinition initialisieren:
+Dies ist nützlich, wenn später im Programmablauf andere Referenzen benötigt werden als diejenigen, mit denen die Tabelle initialisiert wurde. Zum Beispiel könnten Sie eine Tabelle mit einem Element erstellen, zwei Funktionen definieren und dann das Tabellenelement mit einer Referenz auf eine dieser Funktionen unter Verwendung der `elem` Moduldefinition initialisieren:
 
 ```wat
 (module
@@ -116,7 +116,7 @@ Dies ist praktisch, wenn im späteren Verlauf des Programms unterschiedliche Ref
   ...
 ```
 
-Beim Verwenden von Anweisungen wie `table.set`, müssen auch die Funktionen im Voraus deklariert werden, indem `(elem declare ...)` verwendet wird, damit sie später referenziert werden können:
+Beim Einsatz von Befehlen wie `table.set` müssen Sie auch die Funktionen mit `(elem declare ...)` vorab deklarieren, damit sie später referenziert werden können:
 
 ```wat
   ...
@@ -126,7 +126,7 @@ Beim Verwenden von Anweisungen wie `table.set`, müssen auch die Funktionen im V
   ...
 ```
 
-Später können Sie dann die in dem Tabellenelement gespeicherte Funktionsreferenz dynamisch mithilfe von `table.set` ändern:
+Später können Sie dann die Funktionsreferenz, die im Tabellenelement gespeichert wurde, dynamisch mit `table.set` ändern:
 
 ```wat
   ...
@@ -141,21 +141,21 @@ Später können Sie dann die in dem Tabellenelement gespeicherte Funktionsrefere
   ...
 ```
 
-Eine Wasm-Tabelle kann von JavaScript aus mit der Methode [`table.set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set) vergrößert werden.
+Eine Wasm-Tabelle kann aus JavaScript mit der [`table.set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set) Methode erweitert werden.
 
 ## Beispiele
 
-### Erstellen, Vergrößern und Setzen einer Tabelle
+### Erstellen, Erweitern und Setzen einer Tabelle
 
-Dieses Beispiel zeigt, wie man eine Tabelle erstellt, ihre Größe vergrößert, die in ihr gespeicherten Funktionen dynamisch ändert und dann die Funktion aufruft, die zu jedem Zeitpunkt in der Tabelle gespeichert ist.
+Dieses Beispiel zeigt, wie man eine Tabelle erstellt, ihre Größe erweitert, die darin gespeicherten Funktionen dynamisch ändert und dann die Funktion aufruft, die zu jedem Zeitpunkt in der Tabelle gespeichert ist.
 
 #### JavaScript
 
-In unserem Skript beginnen wir, indem wir eine Referenz auf ein {{htmlelement("p")}}-Element greifen, in das wir Ergebnisse ausgeben werden. Dann definieren wir ein `obj`-Objekt mit einer Funktion namens `output()`, die einen gegebenen Wert dem `textContent` eines gegebenen Elements hinzufügt.
+In unserem Skript beginnen wir damit, eine Referenz auf ein {{htmlelement("p")}} Element zu erhalten, an das wir Ergebnisse ausgeben werden. Dann definieren wir ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert dem `textContent` eines gegebenen Elements hinzufügt.
 
-Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das `obj`-Objekt importieren.
+Wir kompilieren und instanziieren dann unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) Methode und importieren dabei das `obj`-Objekt.
 
-Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()`-Funktion auf, die im WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und übergeben ihr das `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()`-Funktion auf, die im WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und übergeben ihr das `outputElem` Element als Parameter.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -165,7 +165,7 @@ Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()`-Fu
 const outputElem = document.querySelector("p");
 
 const obj = {
-  output: function (elem, val) {
+  output(elem, val) {
     elem.textContent += `${val} `;
   },
 };
@@ -179,15 +179,15 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript `output()`-Funktion, wobei wir sicherstellen, dass sie zwei Parameter hat, ein [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und ein `i32`.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie zwei Parameter hat, eine [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und ein `i32`.
 
-Als nächstes definieren wir einen Funktionstyp namens `$ret_i32`, der einen `i32`-Wert zurückgibt. Dann definieren wir zwei Funktionen basierend auf diesem Typ namens `$f1` und `$f2`, die die innerhalb definierten Werte zurückgeben, und deklarieren sie im Voraus mit `(elem declare func $f1 $f2)`, damit sie später referenziert werden können. Danach definieren wir eine `table` namens `$func_table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und anfänglich leer ist.
+Als nächstes definieren wir einen Funktions`typ` namens `$ret_i32`, der einen `i32` Wert zurückgibt. Dann definieren wir zwei Funktionen basierend auf diesem Typ namens `$f1` und `$f2`, die die innerhalb definierten Werte zurückgeben, und deklarieren sie vorab mit `(elem declare func $f1 $f2)`, damit sie später referenziert werden können. Als nächstes definieren wir eine `table` namens `$func_table`, die Funktionsreferenzen speichert (daher die Angabe von `funcref`) und anfänglich leer ist.
 
-Schließlich exportieren wir die `run()`-Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Im Funktionskörper:
+Schließlich exportieren wir die `run()` Funktion, die eine `externref` namens `$elem` als Parameter akzeptiert. Im Funktionskörper:
 
-- Nutzen wir `table.grow`, um die Tabellengröße um `1` wachsen zu lassen, mit einem initialen `ref.null` Wert, und überprüfen, ob das Operationsergebnis `-1` ist, was auf ein Scheitern hinweisen würde.
-- Setzen unser Tabellenelement, um die `$f1`-Funktion mit [`table.set`](/de/docs/WebAssembly/Reference/Table/set) zu enthalten, und rufen die importierte `$output`-Funktion auf, indem wir ihr als Parameter das `$elem` `externref`, das in die `output()`-Funktion übergeben wurde, und den Wert, der von der `$f1`-Funktion zurückgegeben wird, der aus der Tabelle mit `(call_indirect (type $ret_i32) (i32.const 0))` referenziert wird, übergeben.
-- Setzen unser Tabellenelement, um die `$f2`-Funktion mit `table.set` zu enthalten, und rufen die `output()`-Funktion erneut auf.
+- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu erweitern, mit einem anfänglichen `ref.null` Wert, wobei überprüft wird, ob das Operationsergebnis `-1` ist, was auf einen Fehler hinweisen würde.
+- Setzen wir unser Tabellenelement, um die `$f1` Funktion mit `table.set` zu enthalten, dann rufen wir die importierte `$output` Funktion auf und übergeben ihr als Parameter die `$elem` `externref`, die an die `output()` Funktion übergeben wurde, und den Wert, der von der `$f1` Funktion zurückgegeben wird, welche aus der Tabelle mittels `(call_indirect (type $ret_i32) (i32.const 0))` referenziert wird.
+- Setzen wir unser Tabellenelement, um die `$f2` Funktion mit `table.set` zu enthalten, und rufen dann die `output()` Funktion erneut auf.
 
 ```wat live-sample___basic-usage
 (module
@@ -261,7 +261,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Das ist sinnvoll, da jedes Mal, wenn die `output()`-Funktion aus dem Wasm-Modul ausgeführt wird, der Wert, der als zweiter Parameter in sie übergeben wird, in unser Ergebnis-`<p>` im DOM gedruckt wird. Jeder Wert ist der zurückgegebene Wert der `$f1` und `$f2` Funktionen — `42` und `100` jeweils.
+Dies ist sinnvoll, da jedes Mal, wenn die `output()` Funktion aus dem Wasm-Modul heraus aufgerufen wird, der als zweiter Parameter übergebene Wert in unserem Ergebnis-`<p>` im DOM gedruckt wird. Jeder Wert ist der von den `$f1` und `$f2` Funktionen zurückgegebene Wert — `42` und `100` jeweils.
 
 ## Spezifikationen
 

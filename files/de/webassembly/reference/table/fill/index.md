@@ -1,12 +1,12 @@
 ---
-title: "fill: Wasm-Tabelleninstruktion"
+title: "fill: Wasm Tabellenanweisung"
 short-title: fill
 slug: WebAssembly/Reference/Table/fill
 l10n:
-  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
+  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
 ---
 
-Die **`table.fill`** [Tabelleninstruktion](/de/docs/WebAssembly/Reference/Table) setzt einen Bereich von Tabellenelementen auf denselben Wert.
+Die **`table.fill`** [Tabellenanweisung](/de/docs/WebAssembly/Reference/Table) setzt einen Bereich von Tabellenelementen auf den gleichen Wert.
 
 {{InteractiveExample("Wat Demo: table.fill", "tabbed-taller")}}
 
@@ -53,15 +53,15 @@ table.fill identifier
 ```
 
 - `table.fill`
-  - : Der `table.fill` Instruktionstyp. Muss immer zuerst enthalten sein.
+  - : Der `table.fill` Anweisungstyp. Muss immer zuerst eingebunden werden.
 - `identifier` {{optional_inline}}
-  - : Der Bezeichner für die Tabelle, die Sie füllen möchten. Dies kann einer der folgenden sein:
+  - : Der Bezeichner für die Tabelle, die Sie füllen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Ein identifizierender Name [für die Tabelle festgelegt](/de/docs/WebAssembly/Reference/Definitions/table#name) als sie zuerst erstellt wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein identifizierender Name [für die Tabelle vergeben](/de/docs/WebAssembly/Reference/Definitions/table#name), als sie zuerst erstellt wurde. Dieser muss mit einem `$`-Symbol beginnen, z. B. `$my_table`.
     - `index` {{optional_inline}}
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Modul, `1` für die zweite, etc.
+      - : Die Indexnummer der Tabelle, z. B. `0` für die erste Tabelle im Wasm-Modul, `1` für die zweite usw.
 
-    Wenn der `identifier` weggelassen wird, wird automatisch `0` verwendet.
+    Wenn der `identifier` weggelassen wird, wird standardmäßig `0` verwendet.
 
 ### Typ
 
@@ -70,37 +70,37 @@ table.fill identifier
 ```
 
 - `index`
-  - : Der Index des ersten Elements, in dem die Referenz gespeichert werden soll. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 0)`.
+  - : Der Index des ersten Elements, in dem die Referenz gespeichert werden soll. Dies muss ein `i32`-Wert sein, z. B. `(i32.const 0)`.
 - `value`
-  - : Die Referenz, die in der Tabelle gespeichert werden soll. Diese muss von demselben [Typ](/de/docs/WebAssembly/Reference/Definitions/table#type) sein, mit dem die Tabelle definiert ist.
+  - : Die Referenz, die in der Tabelle gespeichert werden soll. Diese muss vom gleichen [Typ](/de/docs/WebAssembly/Reference/Definitions/table#type) sein, mit dem die Tabelle definiert wurde.
 - `length`
-  - : Die Anzahl der Elemente, in denen der Wert gespeichert werden soll, beginnend bei `index`. Dies muss ein `i32`-Wert sein.
+  - : Die Anzahl der Elemente, für die der Wert ab `index` gespeichert werden soll. Dies muss ein `i32`-Wert sein.
 
-### Ausnahmen
+### Traps
 
-`table.fill` löst eine Ausnahme aus, wenn:
+`table.fill` löst einen Fehler aus, wenn:
 
-- `index` + `length` größer als [`table.size`](/de/docs/WebAssembly/Reference/Table/size) ist.
+- `index` + `length` größer ist als [`table.size`](/de/docs/WebAssembly/Reference/Table/size).
 
 ### Opcodes
 
-| Instruktion  | Binäroperationscode                                                                                            |
+| Anweisung    | Binärer Opcode                                                                                                 |
 | ------------ | -------------------------------------------------------------------------------------------------------------- |
 | `table.fill` | `𝟶𝚡𝙵𝙲 17:𝚞𝟹𝟸` ([variable-width LEB128](https://webassembly.github.io/spec/core/binary/values.html#binary-int)) |
 
 ## Beispiele
 
-### Demonstration des `table.fill` Verhaltens
+### Demonstration des `table.fill`-Verhaltens
 
-Dieses Beispiel zeigt, dass, wenn alle Elemente einer Tabelle in einer `table.fill`-Instruktion referenziert werden, all diese Elemente denselben Wert referenzieren.
+Dieses Beispiel zeigt, dass, wenn alle Elemente einer Tabelle in einer `table.fill`-Anweisung referenziert werden, alle diese Elemente denselben Wert referenzieren.
 
 #### JavaScript
 
-In unserem Skript holen wir zunächst eine Referenz zu einem {{htmlelement("p")}}-Element, zu dem wir Ergebnisse ausgeben werden. Danach definieren wir ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
+In unserem Skript beginnen wir, indem wir eine Referenz zu einem {{htmlelement("p")}}-Element holen, das wir mit den Ergebnissen ausgeben werden. Dann definieren wir ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
 
-Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) Methode und importieren dabei das `obj`-Objekt.
+Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), indem wir das `obj`-Objekt im Prozess importieren.
 
-Sobald das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()`-Funktion auf, die auf dem WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und übergeben ihr das `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()` Funktion auf, die auf dem WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und geben ihr das `outputElem` Element als Parameter.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -110,7 +110,7 @@ Sobald das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm `run()`-
 const outputElem = document.querySelector("p");
 
 const obj = {
-  output: function (elem, val) {
+  output(elem, val) {
     elem.textContent += `${val} `;
   },
 };
@@ -124,16 +124,16 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei darauf zu achten ist, dass wir deklarieren, dass sie zwei Parameter hat, einen [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und einen `i32`.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript `output()` Funktion und stellen sicher, dass sie zwei Parameter hat, ein [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und ein `i32`.
 
-Dann definieren wir einen Funktionstyp namens `$ret_i32`, der einen `i32` zurückgibt, und eine `table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und drei Elemente enthält.
+Als Nächstes definieren wir einen Funktionstyp namens `$ret_i32`, der ein `i32` zurückgibt, und eine `table`, die Funktionsreferenzen speichert (daher `funcref` angegeben) und drei Elemente hat.
 
-Wir definieren nun eine grundlegende Funktion, die einen `i32` zurückgibt, und deklarieren sie vorab mit `(elem declare func $f1)`, damit sie später referenziert werden kann.
+Wir definieren nun eine Grundfunktion, die ein `i32` zurückgibt, und deklarieren sie vorab mit `(elem declare func $f1)`, damit sie später referenziert werden kann.
 
-Schließlich exportieren wir die `run()`-Funktion, die einen `externref` namens `$elem` als Parameter nimmt. Im Funktionskörper:
+Schließlich exportieren wir die `run()` Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Innerhalb des Funktionskörpers:
 
-- Verwenden wir `table.fill`, um eine Referenz zur `$f1`-Funktion in jedem Tabellen-Slot zu speichern. Beachten Sie, wie wir den `starting_index` auf `0` gesetzt haben und die `element_span` auf das Ergebnis der [`table.size`](/de/docs/WebAssembly/Reference/Table/size)-Instruktion gesetzt haben, um sicherzustellen, dass wir _alle_ Tabellenelemente füllen.
-- Rufen wir die importierte `$output`-Funktion auf und geben ihr als Parameter die `$elem` `externref`, die in die `output()`-Funktion übergeben wurde, und den Rückgabewert der Funktion, die im ersten Tabellenslot referenziert wird. Dadurch wird der Wert in das DOM ausgegeben.
+- Verwenden wir `table.fill`, um eine Referenz zur `$f1` Funktion in jedem Tabellenplatz zu speichern. Beachten Sie, wie wir den `starting_index` auf `0` gesetzt haben und den `element_span` auf das Ergebnis der [`table.size`](/de/docs/WebAssembly/Reference/Table/size) Anweisung, um sicherzustellen, dass wir _alle_ Tabellenelemente ausfüllen.
+- Rufen wir die importierte `$output` Funktion auf und übergeben ihr als Parameter das `$elem` `externref`, das in die `output()` Funktion übergeben wurde, und den Rückgabewert der Funktion, die im ersten Tabellenplatz referenziert wird. Dies führt zur Ausgabe des Wertes in das DOM.
 - Wiederholen wir den letzten Schritt noch ein paar Mal, um die Rückgabewerte der in den anderen Tabellenelementen gespeicherten Funktionen in das DOM auszugeben.
 
 ```wat live-sample___basic-usage
@@ -188,7 +188,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Dies beweist, dass alle Tabellenelemente nun die `$f1`-Funktion referenzieren, welche `42` zurückgibt.
+Dies beweist, dass alle Tabellenelemente jetzt die `$f1` Funktion referenzieren, die `42` zurückgibt.
 
 ## Spezifikationen
 
