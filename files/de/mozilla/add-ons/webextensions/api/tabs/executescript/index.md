@@ -2,35 +2,24 @@
 title: tabs.executeScript()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/executeScript
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 286918035156c33cc4ed073304f4c51ab5cfacfe
 ---
 
-Fügt JavaScript-Code in eine Seite ein.
+Injiziert JavaScript-Code in eine Seite.
 
 > [!NOTE]
-> Bei der Verwendung von Manifest V3 oder höher verwenden Sie {{WebExtAPIRef("scripting.executeScript()")}}, um Skripte auszuführen.
+> Wenn Manifest V3 oder höher verwendet wird, verwenden Sie {{WebExtAPIRef("scripting.executeScript()")}}, um Skripte auszuführen.
 
-Sie können Code in Seiten injizieren, deren URL sich durch ein [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) zum Abgleich ausdrücken lässt. Zu diesem Zweck muss das Schema eines der folgenden sein: `http`, `https` oder `file`.
+Sie können Code in Seiten injizieren, deren URL Sie mit einem [Match-Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) ausdrücken können. Dazu muss das Schema eines der folgenden sein: `http`, `https` oder `file`.
 
-Sie müssen die Berechtigung für die URL der Seite haben - entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) - oder über die [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission). Beachten Sie, dass einige spezielle Seiten diese Berechtigung nicht zulassen, einschließlich der Leseansicht, view-source und PDF-Viewer-Seiten.
+Sie müssen die Berechtigung für die URL der Seite entweder ausdrücklich als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder mithilfe der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission) besitzen. Beachten Sie, dass einige spezielle Seiten diese Erlaubnis nicht zulassen, darunter Leseransicht, Quelltextansicht, PDF-Viewer und andere integrierte Browser-UI-Seiten.
 
-Sie können auch Code in Seiten injizieren, die mit Ihrer eigenen Erweiterung gepackt sind:
+Erweiterungen können keine Content-Skripte in [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) ausführen. Wenn eine Erweiterung Code in einer Erweiterungsseite dynamisch ausführen möchte, kann sie ein Skript im Dokument einfügen. Dieses Skript enthält den auszuführenden Code und registriert einen {{WebExtAPIRef("runtime.onMessage")}}-Listener, der eine Möglichkeit zur Ausführung des Codes implementiert. Die Erweiterung kann dann eine Nachricht an den Listener senden, um die Ausführung des Codes auszulösen.
 
-```js
-browser.tabs.create({ url: "/my-page.html" }).then(() => {
-  browser.tabs.executeScript({
-    code: `console.log('location:', window.location.href);`,
-  });
-});
-```
+> [!NOTE]
+> Die Möglichkeit, Code in mit Ihrer Erweiterung verpackte Seiten zu injizieren, wurde in Firefox 149 veraltet und in Firefox 152 entfernt.
 
-Dazu benötigen Sie keine besonderen Berechtigungen.
-
-Sie können _keinen_ Code in eine der eingebauten Seiten des Browsers injizieren, wie z.B.: `about:debugging`, `about:addons` oder die Seite, die beim Öffnen eines neuen leeren Tabs geöffnet wird.
-
-Die von Ihnen injizierten Skripte werden [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) genannt.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Die von Ihnen injizierten Skripte werden als [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) bezeichnet.
 
 ## Syntax
 
@@ -46,7 +35,7 @@ let executing = browser.tabs.executeScript(
 - `tabId` {{optional_inline}}
   - : `integer`. Die ID des Tabs, in dem das Skript ausgeführt werden soll.
 
-    Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
+    Standardmäßig der aktive Tab des aktuellen Fensters.
 
 - `details`
   - : Ein Objekt, das das auszuführende Skript beschreibt.
@@ -55,63 +44,63 @@ let executing = browser.tabs.executeScript(
     - `allFrames` {{optional_inline}}
       - : `boolean`. Wenn `true`, wird der Code in alle Frames der aktuellen Seite injiziert.
 
-        Ist `true` und `frameId` gesetzt, wird ein Fehler ausgelöst. (`frameId` und `allFrames` schließen sich gegenseitig aus.)
+        Wenn auf `true` gesetzt und `frameId` gesetzt ist, wird ein Fehler ausgegeben. (`frameId` und `allFrames` schließen sich gegenseitig aus.)
 
-        Ist es `false`, wird der Code nur in den obersten Frame injiziert.
+        Wenn `false`, wird der Code nur in den Top-Frame injiziert.
 
-        Der Standardwert ist `false`.
+        Standardmäßig `false`.
 
     - `code` {{optional_inline}}
-      - : `string`. Der zu injizierende Code als Textzeichenfolge.
+      - : `string`. Code, der als Textzeichenfolge injiziert werden soll.
 
         > [!WARNING]
-        > Verwenden Sie diese Eigenschaft nicht, um nicht vertrauenswürdige Daten in JavaScript zu interpolieren, da dies zu einem Sicherheitsproblem führen könnte.
+        > Verwenden Sie diese Eigenschaft nicht, um nicht vertrauenswürdige Daten in JavaScript einzubetten, da dies zu einem Sicherheitsproblem führen könnte.
 
     - `file` {{optional_inline}}
       - : `string`. Pfad zu einer Datei, die den zu injizierenden Code enthält.
-        - In Firefox werden relative URLs, die nicht im Wurzelverzeichnis der Erweiterung beginnen, relativ zur aktuellen Seiten-URL aufgelöst.
+        - In Firefox werden relative URLs, die nicht am Erweiterungsstamm beginnen, relativ zur aktuellen Seiten-URL aufgelöst.
         - In Chrome werden diese URLs relativ zur Basis-URL der Erweiterung aufgelöst.
 
-        Um in mehreren Browsern zu funktionieren, können Sie den Pfad als relative URL angeben, beginnend am Wurzelverzeichnis der Erweiterung, wie folgt: `"/path/to/script.js"`.
+        Um browserübergreifend zu arbeiten, können Sie den Pfad als relative URL angeben, die am Root der Erweiterung beginnt, wie folgt: `"/path/to/script.js"`.
 
     - `frameId` {{optional_inline}}
       - : `integer`. Der Frame, in den der Code injiziert werden soll.
 
-        Der Standardwert ist `0` (der oberste Frame).
+        Standardmäßig `0` (der Top-Level-Frame).
 
     - `matchAboutBlank` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird der Code in eingebettete `about:blank` und `about:srcdoc` Frames injiziert, wenn Ihre Erweiterung Zugriff auf deren Elterndokument hat. Der Code kann nicht in oberste `about:` Frames eingefügt werden.
+      - : `boolean`. Wenn `true`, wird der Code in eingebettete `about:blank` und `about:srcdoc` Frames injiziert, wenn Ihre Erweiterung Zugriff auf deren übergeordnetes Dokument hat. Der Code kann nicht in oberste `about:` Frames eingefügt werden.
 
-        Der Standardwert ist `false`.
+        Standardmäßig `false`.
 
     - `runAt` {{optional_inline}}
       - : {{WebExtAPIRef('extensionTypes.RunAt')}}. Der früheste Zeitpunkt, zu dem der Code in den Tab injiziert wird.
 
-        Der Standardwert ist `"document_idle"`.
+        Standardmäßig `"document_idle"`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das in ein Array von Objekten aufgelöst wird. Die Werte des Arrays stellen das Ergebnis des Skripts in jedem injizierten Frame dar.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das zu einem Array von Objekten aufgelöst wird. Die Werte des Arrays repräsentieren das Ergebnis des Skripts in jedem injizierten Frame.
 
-Das Ergebnis des Skripts ist die letzte ausgewertete Anweisung, ähnlich wie das, was (die Ergebnisse, nicht der `console.log()`-Output) ausgegeben würde, wenn Sie das Skript in der [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) ausführen. Betrachten Sie zum Beispiel ein Skript wie dieses:
+Das Ergebnis des Skripts ist die letzte ausgewertete Anweisung, die dem Output ähnelt (die Ergebnisse, nicht die `console.log()`-Ausgabe), wenn Sie das Skript in der [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) ausführen würden. Zum Beispiel, bei einem Skript wie diesem:
 
 ```js
 let foo = "my result";
 foo;
 ```
 
-Hier wird das Ergebnis-Array die Zeichenfolge `"my result"` als Element enthalten.
+Hier enthält das Ergebnisarray die Zeichenkette `"my result"` als Element.
 
-Die Ergebniswerte müssen [structured cloneable](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
+Die Ergebniswerte müssen [strukturklonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
 
 > [!NOTE]
 > Die letzte Anweisung kann auch ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) sein, aber diese Funktion wird von der [webextension-polyfill](https://github.com/mozilla/webextension-polyfill#tabsexecutescript)-Bibliothek nicht unterstützt.
 
-Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel führt ein einzeiliges Code-Snippet im aktuell aktiven Tab aus:
+Dieses Beispiel führt einzeiligen Code im aktiven Tab aus:
 
 ```js
 function onExecuted(result) {
@@ -130,7 +119,7 @@ const executing = browser.tabs.executeScript({
 executing.then(onExecuted, onError);
 ```
 
-Dieses Beispiel führt ein Skript aus einer Datei aus (die mit der Erweiterung gepackt ist) namens `"content-script.js"`. Das Skript wird im aktuell aktiven Tab ausgeführt. Das Skript wird sowohl in Subframes als auch im Hauptdokument ausgeführt:
+Dieses Beispiel führt ein Skript aus einer Datei aus (mit der Erweiterung verpackt) namens `"content-script.js"`. Das Skript wird im aktiven Tab ausgeführt. Das Skript wird sowohl in Unterframes als auch im Hauptdokument ausgeführt:
 
 ```js
 function onExecuted(result) {
@@ -148,7 +137,7 @@ const executing = browser.tabs.executeScript({
 executing.then(onExecuted, onError);
 ```
 
-Dieses Beispiel führt ein Skript aus einer Datei aus (die mit der Erweiterung gepackt ist) namens `"content-script.js"`. Das Skript wird im Tab mit der ID `2` ausgeführt:
+Dieses Beispiel führt ein Skript aus einer Datei aus (mit der Erweiterung verpackt) namens `"content-script.js"`. Das Skript wird im Tab mit der ID `2` ausgeführt:
 
 ```js
 function onExecuted(result) {
@@ -172,7 +161,7 @@ executing.then(onExecuted, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-executeScript) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-executeScript)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
