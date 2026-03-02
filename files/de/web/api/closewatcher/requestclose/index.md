@@ -1,14 +1,14 @@
 ---
-title: "CloseWatcher: Methode requestClose()"
+title: "CloseWatcher: requestClose() Methode"
 short-title: requestClose()
 slug: Web/API/CloseWatcher/requestClose
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
 ---
 
-{{APIRef("HTML DOM")}} {{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`requestClose()`**-Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Schnittstelle löst ein `cancel`-Ereignis aus und, falls dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, wird anschließend ein `close`-Ereignis ausgelöst und der Close-Watcher wird schließlich deaktiviert, als ob `destroy()` aufgerufen wurde.
+Die **`requestClose()`**-Methode des [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Interfaces löst ein `cancel`-Ereignis aus. Wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, wird ein `close`-Ereignis ausgelöst, und schließlich wird der Close Watcher deaktiviert, als ob `destroy()` aufgerufen wurde.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Verwendung der `requestClose()`-Methode
 
-In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker) und möchten sowohl die standardmäßige Schließmethode der Plattform (z.B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (einen Schließen-Button) unterstützen.
+In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker) und möchten sowohl die standardmäßige Schließmethode der Plattform (z.B. die <kbd>Esc</kbd>-Taste) als auch Ihre eigene Schließmethode (einen Schließen-Button) unterstützen.
 
 Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um eine Schließung anzufordern und Ihre Schließanforderung über denselben `onclose`-Handler zu leiten, den die Schließmethode der Plattform verwendet.
 

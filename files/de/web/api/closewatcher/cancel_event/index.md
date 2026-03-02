@@ -3,16 +3,16 @@ title: "CloseWatcher: cancel event"
 short-title: cancel
 slug: Web/API/CloseWatcher/cancel_event
 l10n:
-  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
+  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
 ---
 
-{{APIRef("HTML DOM")}} {{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Ein `cancel`-Ereignis wird an einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, sodass `close` daran gehindert werden kann, auszulösen, falls erforderlich. Es wird durch alle Schließsignale ausgelöst (z. B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose).
+Ein `cancel`-Ereignis wird an einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt vor dem `close`-Ereignis ausgelöst, sodass `close` verhindert werden kann, falls erforderlich. Es wird durch alle Schließsignale ausgelöst (z. B. die <kbd>Esc</kbd>-Taste) sowie durch [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
@@ -28,7 +28,7 @@ Ein [`Event`](/de/docs/Web/API/Event).
 
 ### Verwendung des `cancel`-Ereignisses
 
-In diesem Beispiel fragen wir den Benutzer, ob er das Schließen der Komponente wirklich möchte, und falls nicht, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab, was verhindert, dass das `close`-Ereignis ausgelöst wird.
+In diesem Beispiel fragen wir den Benutzer, ob er das Schließen der Komponente wirklich bestätigen möchte, und wenn nicht, brechen wir das Ereignis mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) ab, was verhindert, dass das `close`-Ereignis ausgelöst wird.
 
 ```js
 watcher.addEventListener("cancel", (e) => {

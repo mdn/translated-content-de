@@ -2,12 +2,12 @@
 title: CloseWatcher
 slug: Web/API/CloseWatcher
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
 ---
 
-{{APIRef("HTML DOM")}} {{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Das `CloseWatcher`-Interface ermöglicht es einem benutzerdefinierten UI-Komponenten mit Öffnen- und Schließen-Semantik, auf gerätespezifische Schließaktionen in gleicher Weise zu reagieren wie eine eingebaute Komponente.
+Das `CloseWatcher`-Interface ermöglicht es einer benutzerdefinierten Benutzeroberflächenkomponente mit Öffnungs- und Schließsemantik, auf gerätespezifische Schließaktionen auf die gleiche Weise zu reagieren wie eine integrierte Komponente.
 
 {{InheritanceDiagram}}
 
@@ -15,53 +15,53 @@ Das `CloseWatcher`-Interface erbt von [`EventTarget`](/de/docs/Web/API/EventTarg
 
 ## Konstruktor
 
-- [`CloseWatcher()`](/de/docs/Web/API/CloseWatcher/CloseWatcher) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz von `CloseWatcher`.
+- [`CloseWatcher()`](/de/docs/Web/API/CloseWatcher/CloseWatcher)
+  - : Erstellt eine neue `CloseWatcher`-Instanz.
 
 ## Instanzmethoden
 
-_Dieses Interface erbt auch Methoden von seinem übergeordneten Interface [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Methoden von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) {{Experimental_Inline}}
-  - : Löst ein `cancel`-Ereignis aus und, wenn dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, fährt mit dem Auslösen eines `close`-Ereignisses fort und deaktiviert schließlich den Close-Watcher, als ob `destroy()` aufgerufen worden wäre.
-- [`CloseWatcher.close()`](/de/docs/Web/API/CloseWatcher/close) {{Experimental_Inline}}
-  - : Löst sofort das `close`-Ereignis aus, ohne zuerst `cancel` auszulösen, und deaktiviert den Close-Watcher, als ob `destroy()` aufgerufen worden wäre.
-- [`CloseWatcher.destroy()`](/de/docs/Web/API/CloseWatcher/destroy) {{Experimental_Inline}}
-  - : Deaktiviert den Close-Watcher, sodass er keine `close`-Ereignisse mehr empfängt.
+- [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose)
+  - : Löst ein `cancel`-Ereignis aus und, falls dieses Ereignis nicht mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abgebrochen wird, ein `close`-Ereignis und deaktiviert dann schließlich den Close Watcher, als ob `destroy()` aufgerufen wurde.
+- [`CloseWatcher.close()`](/de/docs/Web/API/CloseWatcher/close)
+  - : Löst sofort das `close`-Ereignis aus, ohne vorher `cancel` auszulösen, und deaktiviert den Close Watcher, als ob `destroy()` aufgerufen wurde.
+- [`CloseWatcher.destroy()`](/de/docs/Web/API/CloseWatcher/destroy)
+  - : Deaktiviert den Close Watcher, sodass er keine `close`-Ereignisse mehr empfängt.
 
 ## Ereignisse
 
-- [`cancel`](/de/docs/Web/API/CloseWatcher/cancel_event) {{Experimental_Inline}}
-  - : Ein Ereignis, das vor dem `close`-Ereignis ausgelöst wird, sodass das `close`-Ereignis verhindert werden kann.
-- [`close`](/de/docs/Web/API/CloseWatcher/close_event) {{Experimental_Inline}}
+- [`cancel`](/de/docs/Web/API/CloseWatcher/cancel_event)
+  - : Ein Ereignis, das vor dem `close`-Ereignis ausgelöst wird, sodass verhindert werden kann, dass `close` ausgelöst wird.
+- [`close`](/de/docs/Web/API/CloseWatcher/close_event)
   - : Ein Ereignis, das ausgelöst wird, wenn eine Schließanforderung empfangen wurde.
 
 ## Beschreibung
 
-Einige UI-Komponenten haben ein "Schließverhalten", das bedeutet, dass die Komponente erscheint, und der Benutzer sie schließen kann, wenn er damit fertig ist, z. B. Seitenleisten, Popups, Dialoge oder Benachrichtigungen.
+Einige UI-Komponenten haben "Schließverhalten", was bedeutet, dass die Komponente erscheint und der Benutzer sie schließen kann, wenn er fertig ist. Beispiele hierfür sind: Sidebars, Popups, Dialoge oder Benachrichtigungen.
 
-Benutzer erwarten in der Regel, dass sie einen bestimmten Mechanismus verwenden können, um diese Elemente zu schließen, und dieser Mechanismus ist oft gerätespezifisch. Beispielsweise könnte es auf einem Gerät mit Tastatur die <kbd>Esc</kbd>-Taste sein, während Android die Zurück-Taste verwenden könnte. Bei eingebauten Komponenten, wie [Popover](/de/docs/Web/API/Popover_API) oder {{htmlelement("dialog")}}-Elementen, kümmert sich der Browser um diese Unterschiede und schließt das Element, wenn der Benutzer die dem Gerät entsprechende Schließaktion ausführt. Bei einer von einem Webentwickler implementierten schließbaren UI-Komponente (zum Beispiel einer Seitenleiste) ist es jedoch schwierig, dieses gerätespezifische Schließverhalten zu implementieren.
+Benutzer erwarten im Allgemeinen, dass sie ein bestimmtes Mechanismus verwenden können, um diese Elemente zu schließen, wobei der Mechanismus tendenziell gerätespezifisch ist. Auf einem Gerät mit einer Tastatur könnte es z.B. die <kbd>Esc</kbd>-Taste sein, während Android möglicherweise die Zurück-Taste verwendet. Bei integrierten Komponenten, wie [popover](/de/docs/Web/API/Popover_API)- oder {{htmlelement("dialog")}}-Elementen, kümmert sich der Browser um diese Unterschiede und schließt das Element, wenn der Benutzer die für das Gerät geeignete Schließaktion ausführt. Wenn jedoch ein Webentwickler eine eigene schließbare Benutzeroberflächenkomponente implementiert (z. B. eine Sidebar), ist es schwierig, dieses gerätespezifische Schließverhalten zu implementieren.
 
-Das `CloseWatcher`-Interface löst dieses Problem, indem es ein `cancel`-Ereignis, gefolgt von einem `close`-Ereignis bereitstellt, wenn der Benutzer die gerätespezifische Schließaktion ausführt.
-Webanwendungen können den `onclose`-Handler verwenden, um das UI-Element als Reaktion auf das gerätespezifische Ereignis zu schließen.
-Sie können auch dieselben Ereignisse als Reaktion auf den normalen Schließmechanismus des UI-Elements auslösen und dann eine gemeinsame `close`-Ereignisbehandlung für sowohl die anwendungs- als auch die gerätespezifische Schließaktion implementieren.
+Das `CloseWatcher`-Interface löst dieses Problem, indem es ein `cancel`-Ereignis, gefolgt von einem `close`-Ereignis liefert, wenn der Benutzer die gerätespezifische Schließaktion ausführt.
+Webanwendungen können den `onclose`-Handler verwenden, um das UI-Element als Antwort auf das gerätespezifische Ereignis zu schließen.
+Sie können auch dieselben Ereignisse als Antwort auf den normalen Schließmechanismus des UI-Elements auslösen und dann ein gemeinsames `close`-Ereignishandling sowohl für die anwendungs- als auch für die gerätespezifische Schließaktion implementieren.
 Sobald der `onclose`-Ereignishandler abgeschlossen ist, wird der `CloseWatcher` zerstört und die Ereignisse werden nicht mehr ausgelöst.
 
-In manchen Anwendungen darf das UI-Element möglicherweise nur geschlossen werden, wenn es sich in einem bestimmten Zustand befindet, zum Beispiel, wenn einige notwendige Informationen ausgefüllt sind.
-Um diese Fälle zu berücksichtigen, können Anwendungen das `close`-Ereignis daran hindern, ausgelöst zu werden, indem sie einen Handler für das `cancel`-Ereignis implementieren, der [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, wenn das UI-Element nicht bereit ist, geschlossen zu werden.
+In einigen Anwendungen darf das UI-Element möglicherweise nur unter bestimmten Bedingungen geschlossen werden, z.B. wenn einige erforderliche Informationen ausgefüllt sind.
+Um diese Fälle abzudecken, können Anwendungen verhindern, dass das `close`-Ereignis ausgelöst wird, indem sie einen Handler für das `cancel`-Ereignis implementieren, der [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, wenn das UI-Element nicht bereit ist, geschlossen zu werden.
 
-Sie können `CloseWatcher`-Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erstellen, was nützlich sein kann, um Fälle wie Dialoge zum Ablauf der Sitzungsinaktivität zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, werden die Beobachter gruppiert, sodass eine einzige Schließanforderung sie beide schließen wird.
-Darüber hinaus muss der erste Close-Watcher nicht unbedingt ein `CloseWatcher`-Objekt sein: Es könnte ein modales Dialogelement oder ein Popover sein, das von einem Element mit dem Popover-Attribut erzeugt wird.
+Sie können `CloseWatcher`-Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erstellen, was nützlich sein kann, um Fälle wie Dialoge für Sitzungsinaktivität-Timeouts zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, werden die Watcher gruppiert, sodass eine einzelne Schließanforderung sie beide schließt.
+Außerdem muss der erste Close Watcher nicht unbedingt ein `CloseWatcher`-Objekt sein: Es könnte ein modales Dialogelement oder ein Popover sein, das von einem Element mit dem Popover-Attribut generiert wurde.
 
 ## Beispiele
 
-### Verarbeiten von Schließanforderungen
+### Verarbeitung von Schließanforderungen
 
-In diesem Beispiel haben Sie eine eigene UI-Komponente (einen Picker) und möchten sowohl die Standard-Schließmethode der Plattform (z. B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (eine Schaltfläche zum Schließen) unterstützen.
+In diesem Beispiel haben Sie Ihre eigene UI-Komponente (ein Auswahlelement) und möchten sowohl die Standard-Schließmethode der Plattform (z.B. die <kbd>Esc</kbd>-Taste) als auch Ihre benutzerdefinierte Schließmethode (eine Schaltfläche zum Schließen) unterstützen.
 
-Sie erstellen einen `CloseWatcher`, um alle `close`-Ereignisse zu behandeln.
+Sie erstellen einen `CloseWatcher`, um alle `close`-Ereignisse zu verarbeiten.
 
-Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um ein Schließen zu beantragen und Ihre Schließanforderung durch denselben `onclose`-Handler zu leiten, den die Plattform-Schließmethode verwendet.
+Der `onclick`-Handler Ihrer UI-Komponente kann `requestClose` aufrufen, um ein Schließen anzufordern und Ihre Schließanforderung über denselben `onclose`-Handler zu leiten, den die Plattform-Schließmethode verwendet.
 
 ```js
 const watcher = new CloseWatcher();
@@ -76,18 +76,18 @@ watcher.onclose = () => {
 picker.querySelector(".close-button").onclick = () => watcher.requestClose();
 ```
 
-### Schließen einer Seitenleiste durch eine Plattform-Schließanforderung
+### Schließen einer Sidebar durch eine Plattform-Schließanforderung
 
-In diesem Beispiel haben wir eine Seitenleistenkomponente, die angezeigt wird, wenn eine "Öffnen"-Schaltfläche ausgewählt wird, und durch entweder eine "Schließen"-Schaltfläche oder plattformspezifische Mechanismen ausgeblendet wird.
-Um es interessanter zu machen, ist dies ein Live-Beispiel!
+In diesem Beispiel haben wir eine Sidebar-Komponente, die angezeigt wird, wenn eine "Öffnen"-Schaltfläche ausgewählt wird, und mit entweder einer "Schließen"-Schaltfläche oder plattformnativen Mechanismen ausgeblendet wird.
+Um es interessanter zu gestalten, ist dies ein Live-Beispiel!
 
-Beachten Sie auch, dass das Beispiel etwas konstruiert ist, da wir normalerweise eine Umschalttaste verwenden würden, um den Zustand einer Seitenleiste zu ändern.
-Das könnten wir sicherlich tun, aber die Verwendung separater "Öffnen"- und "Schließen"-Schaltflächen macht es einfacher, die Funktion zu demonstrieren.
+Beachten Sie auch, dass das Beispiel etwas konstruiert ist, da wir normalerweise eine Umschaltfläche verwenden würden, um den Sidebar-Status zu ändern.
+Wir könnten das sicherlich tun, aber die Verwendung von separaten "Öffnen"- und "Schließen"-Schaltflächen macht es einfacher, das Feature zu demonstrieren.
 
 #### HTML
 
-Das HTML definiert "Öffnen" und "Schließen" {{htmlelement("button")}}-Elemente sowie {{htmlelement("div")}}-Elemente für den Hauptinhalt und die Seitenleiste.
-CSS wird verwendet, um die Anzeige des Seitenleistenelements zu animieren, wenn die `open`-Klasse zu den Seitenleisten- und Inhaltselementen hinzugefügt oder von ihnen entfernt wird (dieses CSS ist ausgeblendet, da es für das Beispiel nicht relevant ist).
+Das HTML definiert "Öffnen"- und "Schließen"-{{htmlelement("button")}}-Elemente zusammen mit {{htmlelement("div")}}-Elementen für den Hauptinhalt und die Sidebar.
+CSS wird verwendet, um die Anzeige des Sidebar-Elements zu animieren, wenn die `open`-Klasse zu den Sidebar- und Inhaltselementen hinzugefügt oder daraus entfernt wird (dieses CSS ist versteckt, da es für das Beispiel nicht relevant ist).
 
 ```html
 <button id="sidebar-open" type="button">Open</button>
@@ -132,8 +132,8 @@ CSS wird verwendet, um die Anzeige des Seitenleistenelements zu animieren, wenn 
 
 #### JavaScript
 
-Der Code erhält zunächst Variablen für die Buttons und `<div>`-Elemente, die im HTML definiert sind.
-Es definiert auch eine Funktion `closeSidebar()`, die aufgerufen wird, wenn die Seitenleiste geschlossen wird, um die `open`-Klasse von den `<div>`-Elementen zu entfernen, und fügt einen `click`-Ereignislistener hinzu, der die Methode `openSidebar()` aufruft, wenn die "Öffnen"-Schaltfläche angeklickt wird.
+Der Code beschafft zunächst Variablen für die in HTML definierten Schaltflächen und `<div>`-Elemente.
+Es definiert auch eine Funktion `closeSidebar()`, die aufgerufen wird, wenn die Sidebar geschlossen wird, um die `open`-Klasse von den `<div>`-Elementen zu entfernen, und fügt einen `click`-Ereignislistener hinzu, der die Methode `openSidebar()` aufruft, wenn die "Öffnen"-Schaltfläche geklickt wird.
 
 ```js
 const sidebar = document.querySelector(".sidebar");
@@ -149,12 +149,12 @@ function closeSidebar() {
 sidebarOpen.addEventListener("click", openSidebar);
 ```
 
-Die Umsetzung von `openSidebar()` ist unten angegeben.
-Die Methode überprüft zunächst, ob die Seitenleiste bereits geöffnet ist, und wenn nicht, fügt sie den Elementen die `open`-Klasse hinzu, sodass die Seitenleiste angezeigt wird.
+Die Implementierung von `openSidebar()` wird unten angegeben.
+Die Methode prüft zuerst, ob die Sidebar bereits geöffnet ist, und falls nicht, fügt sie die `open`-Klasse zu den Elementen hinzu, sodass die Sidebar angezeigt wird.
 
-Wir erstellen dann einen neuen `CloseWatcher` und fügen einen Listener hinzu, der [`close()`](/de/docs/Web/API/CloseWatcher/close) aufruft, wenn auf die "Schließen"-Schaltfläche geklickt wird.
-Dies stellt sicher, dass das `close`-Ereignis aufgerufen wird, wenn entweder plattformspezifische Schließmethoden oder die "Schließen"-Schaltfläche verwendet werden.
-Die Umsetzung des `onclose()`-Ereignishandlers schließt einfach die Seitenleiste, und der `CloseWatcher` wird dann automatisch zerstört.
+Wir erstellen dann einen neuen `CloseWatcher` und fügen einen Listener hinzu, der [`close()`](/de/docs/Web/API/CloseWatcher/close) aufruft, wenn die "Schließen"-Schaltfläche geklickt wird.
+Dies stellt sicher, dass das `close`-Ereignis aufgerufen wird, wenn entweder plattformnative Schließmethoden oder die "Schließen"-Schaltfläche verwendet werden.
+Die Implementierung des `onclose()`-Ereignishandlers schließt einfach die Sidebar, und der `CloseWatcher` wird dann automatisch zerstört.
 
 ```js
 function openSidebar() {
@@ -175,11 +175,11 @@ function openSidebar() {
 }
 ```
 
-Beachten Sie, dass wir uns entschieden haben, `close()` auf dem Beobachter aufzurufen anstatt [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose), da wir nicht möchten, dass das `cancel`-Ereignis ausgelöst wird (wir würden `requestClose()` und den `cancel`-Ereignishandler verwenden, wenn es einen Grund gäbe, zu verhindern, dass die Seitenleiste vorzeitig geschlossen wird).
+Beachten Sie, dass wir uns entschieden haben, `close()` auf dem Watcher aufzurufen, anstatt [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose), da wir nicht möchten, dass das `cancel`-Ereignis ausgelöst wird (wir würden `requestClose()` und den `cancel`-Ereignishandler verwenden, wenn es einen Grund gäbe, das vorzeitige Schließen der Sidebar jemals zu verhindern).
 
 #### Ergebnis
 
-Wählen Sie die "Öffnen"-Taste, um die Seitenleiste zu öffnen. Sie sollten in der Lage sein, die Seitenleiste mit der "Schließen"-Taste oder der üblichen Plattformmethode, wie der <kbd>Esc</kbd>-Taste unter Windows, zu schließen.
+Wählen Sie die "Öffnen"-Schaltfläche, um die Sidebar zu öffnen. Sie sollten in der Lage sein, die Sidebar mit der "Schließen"-Schaltfläche oder der üblichen Plattformmethode, wie der <kbd>Esc</kbd>-Taste unter Windows, zu schließen.
 
 {{ EmbedLiveSample("Closing a sidebar using a platform close request", "100%", "200") }}
 
@@ -193,4 +193,4 @@ Wählen Sie die "Öffnen"-Taste, um die Seitenleiste zu öffnen. Sie sollten in 
 
 ## Siehe auch
 
-- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis auf [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)
+- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis auf [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)

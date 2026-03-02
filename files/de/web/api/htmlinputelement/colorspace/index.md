@@ -3,16 +3,16 @@ title: "HTMLInputElement: colorSpace-Eigenschaft"
 short-title: colorSpace
 slug: Web/API/HTMLInputElement/colorSpace
 l10n:
-  sourceCommit: 6d4ac4a04fd5c01adc690b9c95de3d9261570212
+  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`colorSpace`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das `\<input>`-Elementattribut [`colorspace`](/de/docs/Web/HTML/Reference/Elements/input/color#colorspace) wider, das angibt, ob der {{Glossary("color_space", "Farbraum")}} der serialisierten CSS-Farbe `sRGB` (Standard) oder `display-p3` ist. Es ist nur in Bezug auf [color](/de/docs/Web/HTML/Reference/Elements/input/color)-Steuerelemente relevant.
+Die **`colorSpace`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces spiegelt das `colorspace`-Attribut des {{HTMLElement("input")}}-Elements wider, das angibt, ob der {{Glossary("color_space", "Farbraum")}} der serialisierten CSS-Farbe `sRGB` (Standard) oder `display-p3` ist. Es ist nur für [Farb](/de/docs/Web/HTML/Reference/Elements/input/color)kontrollen relevant.
 
 ## Wert
 
-Ein String, der den Wert des [`colorspace`](/de/docs/Web/HTML/Reference/Elements/input/color#colorspace)-Attributs enthält.
+Ein String, der den Wert des `colorspace`-Attributs enthält.
 
 ## Beispiele
 

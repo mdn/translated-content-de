@@ -2,10 +2,12 @@
 title: scroll-initial-target
 slug: Web/CSS/Reference/Properties/scroll-initial-target
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: de5b557883e8eff2514f0fe6eeb180db782575b1
 ---
 
-Die **`scroll-initial-target`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht die Definition von Elementen, die potenzielle Snap-Ziele sind, wenn ihr Vorfahr {{Glossary("scroll_container", "scroll container")}} erstmals gerendert wird.
+{{SeeCompatTable}}
+
+Die **`scroll-initial-target`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht die Definition von Elementen, die potenzielle Snap-Ziele sind, wenn ihr übergeordneter {{Glossary("scroll_container", "Scroll-Container")}} zuerst gerendert wird.
 
 ## Syntax
 
@@ -25,19 +27,19 @@ scroll-initial-target: unset;
 ### Werte
 
 - `none`
-  - : Das Element ist kein anfängliches Scroll-Ziel.
+  - : Das Element ist kein initiales Scroll-Ziel.
 - `nearest`
-  - : Das Element ist potenziell ein anfängliches Scroll-Ziel für seinen nächstgelegenen übergeordneten Scroll-Container.
+  - : Das Element ist potenziell ein initiales Scroll-Ziel für seinen nächsten übergeordneten Scroll-Container.
 
 ## Beschreibung
 
-Die `scroll-initial-target`-Eigenschaft ermöglicht die Definition von Elementen, die beim ersten Rendern ihrer übergeordneten {{Glossary("scroll_snap", "scroll snap")}} Container eingerastet werden sollen. Wenn Sie den Wert auf `nearest` setzen, wird das Element als potenzielles Ziel festgelegt, das eingerastet werden soll, wenn der nächstgelegene Vorfahr {{Glossary("scroll_container", "scroll container")}} erstmals auf der Seite erscheint.
+Die Eigenschaft `scroll-initial-target` ermöglicht die Definition von Elementen, die gesnappt werden sollten, wenn ihre übergeordneten {{Glossary("scroll_snap", "Scroll-Snap")}} Container zuerst gerendert werden. Wenn der Wert auf `nearest` gesetzt ist, wird das Element als potenzielles Ziel definiert, das gesnappt werden sollte, wenn der nächste übergeordnete {{Glossary("scroll_container", "Scroll-Container")}} auf der Seite angezeigt wird.
 
-Wenn mehrere Elemente oder Pseudo-Elemente im Scroll-Container auf `nearest` gesetzt sind, ist das erste Element in der Baumreihenfolge das anfängliche Scroll-Snap-Ziel.
+Wenn mehrere Elemente oder Pseudo-Elemente im Scroll-Container auf `nearest` gesetzt sind, ist das erste Element in der Baumreihenfolge das initiale Scroll-Snap-Ziel.
 
-Der anfängliche Wert ist `none`, was bedeutet, dass ein Scroll-Snapbares Element standardmäßig kein anfängliches Scroll-Ziel ist. Der Wert `none` kann auch auf ein Element gesetzt werden, um es explizit nicht zu einem anfänglichen Scroll-Ziel zu machen.
+Der Anfangswert ist `none`, was bedeutet, dass ein scroll-snapfähiges Element standardmäßig kein initiales Scroll-Ziel ist. Der Wert `none` kann auch auf ein Element gesetzt werden, um es explizit nicht als initiales Scroll-Ziel festzulegen.
 
-Wenn die anfängliche Scroll-Position eines Scroll-Containers sowohl durch die {{cssxref("place-content")}} Inhaltsverteilungseigenschaft als auch durch `scroll-initial-target` auf Nachkommen möglicherweise festgelegt wird, gewinnt der erste Nachkomme mit `scroll-initial-target: nearest`.
+Wenn eine anfängliche Scroll-Position eines Scroll-Containers potenziell sowohl durch die {{cssxref("place-content")}} Inhaltsverteilungs-Eigenschaft als auch durch `scroll-initial-target` auf irgendeinem Nachkommen gesetzt wird - gewinnt der erste Nachkomme mit `scroll-initial-target: nearest`.
 
 ## Formale Definition
 
@@ -51,11 +53,11 @@ Wenn die anfängliche Scroll-Position eines Scroll-Containers sowohl durch die {
 
 ### Verwendung von `scroll-initial-target`
 
-Das folgende Beispiel zeigt die beiden Werte von `scroll-initial-target` und wie das erste Element mit `scroll-initial-target` eingerastet wird.
+Das folgende Beispiel demonstriert die zwei Werte von `scroll-initial-target` und wie das erste Element mit `scroll-initial-target` gesnappt wird.
 
 #### HTML
 
-Wir fügen 5 Container ein, die von einem Absatz, der den erwarteten Effekt erklärt, eingeleitet werden.
+Wir fügen 5 Container ein, die von einem Absatz eingeleitet werden, der die erwartete Wirkung erklärt.
 
 ```html
 <p><code>none</code> on #4 only</p>
@@ -106,7 +108,7 @@ Wir fügen 5 Container ein, die von einem Absatz, der den erwarteten Effekt erkl
 
 #### CSS
 
-Wir richten die nächstgelegenen und keine Elemente als Scroll-Snap-Container ein und zentrieren die eingerasteten Elemente.
+Wir richten die nächstgelegenen und keine Elemente als Scroll-Snap-Container ein und zentrieren die gesnappten Elemente.
 
 ```css
 /* mandatory scroll-snap on parent */
@@ -122,7 +124,7 @@ div > div {
 }
 ```
 
-Dann setzen wir `scroll-initial-target` entweder auf `none` oder `nearest` für alle Elemente mit der Klasse `.set`.
+Wir setzen dann `scroll-initial-target` von entweder `none` oder `nearest` auf allen Elementen mit der Klasse `.set`.
 
 ```css
 .none .set,
@@ -188,9 +190,9 @@ p {
 
 {{EmbedLiveSample("Using scroll-initial-target", "100%", "500")}}
 
-Die Wirkung der Eigenschaft wird gezeigt, wenn der Scroll-Snap-Container auf der Seite angezeigt wird.
+Die Wirkung der Eigenschaft wird demonstriert, wenn der Scroll-Snap-Container auf der Seite gezeichnet wird.
 
-Jede Reihe rastet auf das erste Element mit `nearest` in Baumreihenfolge ein, falls vorhanden. Im letzten Beispiel haben wir den Wert `nearest` mit `none` auf dem ersten Element überschrieben, sodass das erste Element mit `nearest` #3 ist.
+Jede Zeile snappt zum ersten Element mit `nearest` in der Baumreihenfolge, falls vorhanden. Im letzten Beispiel haben wir den `nearest` Wert mit `none` auf dem ersten Element überschrieben, sodass das erste Element mit angewendetem `nearest` #3 ist.
 
 ## Spezifikationen
 
