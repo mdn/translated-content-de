@@ -2,14 +2,14 @@
 title: CSS Object Model (CSSOM)
 slug: Web/API/CSS_Object_Model
 l10n:
-  sourceCommit: 792888cd76b95a986a38d6a48bece464731dda51
+  sourceCommit: 1d5c902cab960d469baba95eb12cd421769b9111
 ---
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Das **CSS-Objektmodell** ist eine Reihe von APIs, die die Manipulation von CSS über JavaScript ermöglichen. Es ist dem DOM sehr ähnlich, jedoch für CSS statt für HTML. Es ermöglicht den Benutzern, CSS-Stile dynamisch zu lesen und zu ändern.
+Das **CSS Object Model** ist eine Sammlung von APIs, die die Manipulation von CSS über JavaScript ermöglichen. Es ähnelt dem DOM, bezieht sich jedoch auf CSS anstelle von HTML. Es ermöglicht Benutzern, CSS-Stile dynamisch zu lesen und zu ändern.
 
-Die Werte von CSS werden untypisiert dargestellt, das heißt, sie verwenden {{JSxRef("String")}}-Objekte.
+Die Werte von CSS werden untypisiert dargestellt, das heißt unter Verwendung von {{JSxRef("String")}} Objekten.
 
 ## Referenz
 
@@ -18,6 +18,7 @@ Die Werte von CSS werden untypisiert dargestellt, das heißt, sie verwenden {{JS
 - [`CSS`](/de/docs/Web/API/CSS)
 - [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)
 - [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)
+- [`CSSFontFaceDescriptors`](/de/docs/Web/API/CSSFontFaceDescriptors)
 - [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)
 - [`CSSFontFeatureValuesMap`](/de/docs/Web/API/CSSFontFeatureValuesMap)
 - [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)
@@ -54,7 +55,7 @@ Die Werte von CSS werden untypisiert dargestellt, das heißt, sie verwenden {{JS
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)
 
-Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`SVGElement`](/de/docs/Web/API/SVGElement).
+Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent), und [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ### CSS Typed Object Model
 
@@ -87,7 +88,7 @@ Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikatio
 - [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)
 - [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)
 
-### Veraltete CSSOM-Schnittstellen {{deprecated_inline}}
+### Veraltete CSSOM Schnittstellen {{deprecated_inline}}
 
 {{deprecated_header}}
 
@@ -95,10 +96,10 @@ Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikatio
 - [`CSSValue`](/de/docs/Web/API/CSSValue) {{deprecated_inline}}
 - [`CSSValueList`](/de/docs/Web/API/CSSValueList) {{deprecated_inline}}
 
-## Tutorials
+## Anleitungen
 
-- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
-- [Verwalten der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Bestimmung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
 
 ## Spezifikationen
 
@@ -106,9 +107,9 @@ Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikatio
 
 ## Browser-Kompatibilität
 
-All diese Funktionen wurden im Laufe der Jahre nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein ziemlich komplexer Prozess, der nicht in einer einfachen Tabelle zusammengefasst werden kann. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für ihre Verfügbarkeit.
+All diese Funktionen wurden im Laufe der Jahre nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein recht komplexer Prozess, der nicht in einer einfachen Tabelle zusammengefasst werden kann. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für dessen Verfügbarkeit.
 
 ## Siehe auch
 
 - [Document Object Model (DOM)](/de/docs/Web/API/Document_Object_Model)
-- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)
+- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)

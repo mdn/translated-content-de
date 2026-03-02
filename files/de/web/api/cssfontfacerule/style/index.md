@@ -3,22 +3,22 @@ title: "CSSFontFaceRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSFontFaceRule/style
 l10n:
-  sourceCommit: 7d6315943bf1032e19c65bca591e28d2117e9bec
+  sourceCommit: 1d5c902cab960d469baba95eb12cd421769b9111
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft der [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)-Schnittstelle enthält ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das die Deskriptoren im Körper der {{cssxref("@font-face")}}-Regel darstellt.
+Die schreibgeschützte **`style`**-Eigenschaft der Schnittstelle [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule) gibt ein [`CSSFontFaceDescriptors`](/de/docs/Web/API/CSSFontFaceDescriptors)-Objekt zurück, das die in der Regel {{cssxref("@font-face")}} verfügbaren Deskriptoren darstellt.
 
 ## Wert
 
-Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt.
+Ein [`CSSFontFaceDescriptors`](/de/docs/Web/API/CSSFontFaceDescriptors)-Objekt.
 
-Obwohl die `style`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSStyleDeclaration`-Objekt nicht ersetzen können, können Sie dennoch direkt der `style`-Eigenschaft einen Wert zuweisen, was dem Zuweisen zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft entspricht. Sie können das `CSSStyleDeclaration`-Objekt auch mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) modifizieren.
+Obwohl die `style`-Eigenschaft selbst schreibgeschützt ist, insofern Sie das `CSSFontFaceDescriptors`-Objekt nicht ersetzen können, können Sie dennoch direkt der `style`-Eigenschaft etwas zuweisen, was gleichbedeutend ist mit der Zuweisung zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft. Sie können das `CSSFontFaceDescriptors`-Objekt auch mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beispiele
 
-In diesem Beispiel wird das CSS verwendet, das als Beispiel auf der Seite {{cssxref("@font-face")}} zu finden ist. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein. Die `style`-Eigenschaft gibt eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) mit den Eigenschaften `fontFamily`, `fontWeight` und `src` zurück, die mit den Informationen aus der Regel gefüllt sind.
+Dieses Beispiel verwendet das CSS, das als Beispiel auf der Seite {{cssxref("@font-face")}} gefunden wurde. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein. Die `style`-Eigenschaft gibt ein [`CSSFontFaceDescriptors`](/de/docs/Web/API/CSSFontFaceDescriptors)-Objekt zurück, dessen Eigenschaften `fontFamily`, `fontWeight` und `src` mit den Informationen aus der Regel gefüllt sind.
 
 ```css
 @font-face {
@@ -32,7 +32,7 @@ In diesem Beispiel wird das CSS verwendet, das als Beispiel auf der Seite {{cssx
 
 ```js
 const myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].style); // A CSSStyleDeclaration
+console.log(myRules[0].style); // A CSSFontFaceDescriptors
 ```
 
 ## Spezifikationen

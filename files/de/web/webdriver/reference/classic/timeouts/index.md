@@ -1,37 +1,37 @@
 ---
-title: WebDriver klassische Zeitüberschreitungen
+title: WebDriver classic Timeouts
 short-title: Timeouts
 slug: Web/WebDriver/Reference/Classic/Timeouts
 l10n:
-  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
+  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
 ---
 
-Mit einer [WebDriver](/de/docs/Web/WebDriver)-Sitzung sind verschiedene Timeout-Definitionen verbunden, die das Verhalten für [Skriptinjektion](#script), [Dokumentnavigation](#pageload) und [Elementabfrage](#implicit) steuern.
+Mit einer [WebDriver](/de/docs/Web/WebDriver)-Sitzung sind verschiedene Timeout-Definitionen verbunden, die das Verhalten für [Script-Injektion](#script), [Dokumentnavigation](#pageload) und [Elementabruf](#implicit) steuern.
 
-Sie finden das _[timeouts object](#nutzlast)_ in mehreren Kontexten verwendet. Es kann als Konfiguration beim [Erstellen einer neuen Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession) über [capabilities](/de/docs/Web/WebDriver/Reference/Classic/Capabilities) verwendet werden, es wird als Teil der abgestimmten, effektiven Fähigkeiten zurückgegeben, nachdem die Sitzung erstellt wurde, und es wird als Eingabe und Ausgabe für die Befehle [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) und [Get Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetTimeouts) verwendet.
+Das _[timeouts object](#payload)_ finden Sie in einigen verschiedenen Kontexten. Es kann als Konfiguration verwendet werden, wenn [eine neue Sitzung erstellt wird](/de/docs/Web/WebDriver/Reference/Commands/NewSession) über [Capabilities](/de/docs/Web/WebDriver/Reference/Capabilities), es wird als Teil der abgeglichenen, effektiven Fähigkeiten zurückgegeben, nachdem die Sitzung erstellt wurde, und es wird als Eingabe und Ausgabe für die Befehle [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) und [Get Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetTimeouts) verwendet.
 
-Die Standardwerte können beim [Erstellen der Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession) überschrieben werden und bleiben wirksam, bis die Sitzung geschlossen wird. Wenn Sie [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) während der Lebensdauer der Sitzung aufrufen, werden die Standardwerte überschrieben und gelten für die Dauer der Sitzung oder bis [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) erneut aufgerufen wird.
+Die Standardwerte können bei [Erstellung der Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession) überschrieben werden, und sie sind bis zum Schließen der Sitzung wirksam. Wenn Sie [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) während der Lebensdauer der Sitzung aufrufen, werden die Standardwerte überschrieben und gelten für die Lebensdauer der Sitzung oder bis [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) erneut aufgerufen wird.
 
-## Nutzlast
+## Payload
 
-Das **timeouts object** ist ein JSON-Objekt, das entweder die Timeout-Werte der aktuellen Sitzung beschreibt oder das als Eingabe beim Konfigurieren der Timeouts verwendet wird:
+Das **timeouts object** ist ein JSON-Objekt, das entweder die Timeout-Werte der aktuellen Sitzung beschreibt oder als Eingabe bei der Konfiguration der Timeouts verwendet wird:
 
 - `implicit`
-  - : Zeit in Millisekunden, um die [Element-Suchstrategie](/de/docs/Web/WebDriver/Reference/WebElement) beim Finden eines Elements zu wiederholen. Dies ist standardmäßig 0, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
+  - : Zeit in Millisekunden, um die [Element-Suchstrategie](/de/docs/Web/WebDriver/Reference/WebElement) bei der Suche nach einem Element zu wiederholen. Standardmäßig ist dies auf 0 gesetzt, was bedeutet, dass die Strategie nur einmal ausgeführt wird.
 - `pageLoad`
-  - : Zeit in Millisekunden, um darauf zu warten, dass das Dokument das Laden beendet. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
+  - : Zeit in Millisekunden, um auf das Laden des Dokuments zu warten. Standardmäßig wartet WebDriver fünf Minuten (oder 300.000 ms).
 - `script`
-  - : Skripte, die mit [Execute Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteAsyncScript) injiziert werden, laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben ist. Die Skripte werden dann unterbrochen und ein [script timeout error](/de/docs/Web/WebDriver/Reference/Errors/ScriptTimeoutError) wird zurückgegeben. Standardwert sind 30 Sekunden (oder 30.000 ms).
+  - : Skripte, die mit [Execute Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteScript) oder [Execute Async Script](/de/docs/Web/WebDriver/Reference/Commands/ExecuteAsyncScript) injiziert werden, laufen, bis sie die Skript-Timeout-Dauer erreichen, die ebenfalls in Millisekunden angegeben wird. Die Skripte werden dann unterbrochen und ein [Skript-Timeout-Fehler](/de/docs/Web/WebDriver/Reference/Errors/ScriptTimeoutError) wird zurückgegeben. Standardmäßig sind es 30 Sekunden (oder 30.000 ms).
 
-Wenn das Objekt als Eingabe für den Befehl [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts) oder als Teil der [timeouts capability](/de/docs/Web/WebDriver/Reference/Classic/Capabilities) beim [Erstellen einer neuen Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession) verwendet wird, sind alle Felder optional. Das bedeutet, dass Sie null oder mehr der Timeout-Dauerwerte individuell oder alle auf einmal konfigurieren können.
+Wenn das Objekt als Eingabe für den [Set Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetTimeouts)-Befehl oder als Teil der [timeouts capability](/de/docs/Web/WebDriver/Reference/Capabilities) beim [Erstellen einer neuen Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession) verwendet wird, sind alle Felder optional. Das bedeutet, dass Sie null oder mehr der Timeout-Dauer-Werte individuell oder alle auf einmal konfigurieren können.
 
-Wenn es vom Treiber zurückgegeben wird, entweder durch [Get Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetTimeouts) oder in den abgestimmten Fähigkeiten aus [Erstellen einer Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession), werden alle Felder vorhanden sein.
+Wenn es vom Treiber zurückgegeben wird, entweder durch [Get Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetTimeouts) oder in den abgeglichenen Fähigkeiten aus der [erstellten Sitzung](/de/docs/Web/WebDriver/Reference/Commands/NewSession), werden alle Felder vorhanden sein.
 
 ## Beispiele
 
-### Einstellen von Zeitüberschreitungen beim Sitzungsstart
+### Timeouts bei der Sitzungs-Erstellung festlegen
 
-Sie können die Standard-Zeitüberschreitungen der Sitzung überschreiben, indem Sie ein [timeouts capabilities object](/de/docs/Web/WebDriver/Reference/Classic/Capabilities) bereitstellen, wenn Sie eine neue WebDriver-Sitzung starten:
+Sie können die standardmäßigen Sitzungs-Timeouts überschreiben, indem Sie ein [timeouts capabilities object](/de/docs/Web/WebDriver/Reference/Capabilities) angeben, wenn Sie eine neue WebDriver-Sitzung starten:
 
 ```python
 import urllib
@@ -60,9 +60,9 @@ session.get(inline("""
 delayed_element = session.find_element_by_tag_name("p")
 ```
 
-### Einstellen und Abrufen von Zeitüberschreitungen zur Laufzeit
+### Timeouts zur Laufzeit festlegen und abrufen
 
-Zeitüberschreitungen können auch zur Laufzeit mithilfe des Set Timeouts-Befehls eingestellt werden. Diese überschreiben die aktuellen Zeitüberschreitungen der Sitzung und gelten für die gesamte Lebensdauer der Sitzung oder bis ein nachfolgender Aufruf des gleichen Befehls erfolgt:
+Timeouts können auch zur Laufzeit mit dem Befehl Set Timeouts festgelegt werden. Diese überschreiben die aktuellen Sitzungs-Timeouts und werden für die gesamte Lebensdauer der Sitzung wirksam oder bis ein nachfolgender Aufruf desselben Befehls erfolgt:
 
 ```python
 from selenium import webdriver
@@ -73,7 +73,7 @@ session.set_timeouts({"implicit": 4.5})
 print(session.get_timeouts)
 ```
 
-Die Ausgabe erfolgt in Sekunden, da dies die idiomatische Zeiteinheit in Python ist:
+Die Ausgabe wird in Sekunden erfolgen, da dies die idiomatische Zeiteinheit in Python ist:
 
 ```json
 { "implicit": 4.5, "script": 300, "pageLoad": 30000 }

@@ -2,20 +2,20 @@
 title: WebDriver
 slug: Web/WebDriver
 l10n:
-  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
+  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
 ---
 
-WebDriver ist eine Fernsteuerungsschnittstelle, die die Untersuchung und Steuerung von Benutzeragenten ermöglicht. Sie bietet ein plattform- und sprachunabhängiges Drahtprotokoll, um externen Programmen eine Möglichkeit zu geben, das Verhalten von Webbrowsern aus der Ferne zu steuern.
+WebDriver ist eine Fernsteuerungsschnittstelle, die eine Introspektion und Steuerung von Benutzeragenten ermöglicht. Sie bietet ein plattform- und sprachneutrales Drahtprotokoll als Methode für unabhängige Programme, das Verhalten von Webbrowsern aus der Ferne anzuweisen.
 
-Die Fähigkeit, Satzanweisungen zu schreiben, die auf verschiedenen Plattformen in vielen Browsern austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Welle von Entwicklungen auf der Webplattform, der zunehmenden Vielfalt der Geräte und dem Bedarf an echter Interoperabilität zwischen den Technologien, bietet WebDriver Werkzeuge für [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
+Die Möglichkeit, Anweisungssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Welle von Entwicklungen auf der Webplattform, der zunehmenden Vielfalt an Geräten und der Forderung nach echter Interoperabilität zwischen den Technologien bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
 
-Es wird ein Satz von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und um das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dazu gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten von einem separaten Steuerprozess aus automatisieren, kann aber auch in einer Weise verwendet werden, dass In-Browser-Skripte einen — möglicherweise separaten — Browser steuern.
+Bereitgestellt wird ein Satz von Schnittstellen, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und um das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dafür gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten aus einem separaten Steuerprozess automatisieren, kann aber auch für in-Browser-Skripte verwendet werden, um einen — möglicherweise separaten — Browser zu steuern.
 
-## Verwendung
+## Nutzung
 
-Was ermöglicht Ihnen WebDriver und wie sieht es aus? Da WebDriver sprachneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Programmiersprache Sie wählen.
+Was können Sie also mit WebDriver machen und wie sieht das aus? Da WebDriver programmiersprachenneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie wählen.
 
-Aber mit einem beliebten Client, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver so aussehen:
+Aber wenn Sie einen populären Client verwenden, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver so aussehen:
 
 ```python
 from selenium import webdriver
@@ -36,7 +36,7 @@ with webdriver.Firefox() as driver:
         print(f'#{i} {elem.text} ({elem.get_attribute("href")})')
 ```
 
-Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
+Dies könnte eine Ausgabe wie diese erzeugen:
 
 ```plain
 #1 Cheese - Wikipedia (https://en.wikipedia.org/wiki/Cheese)
@@ -46,19 +46,19 @@ Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
 
 Durchsuchen Sie die vollständige [WebDriver-Referenz](/de/docs/Web/WebDriver/Reference) Dokumentation.
 
-### Klassische WebDriver-Referenz
+### WebDriver klassische Referenz
 
 - [Befehle](/de/docs/Web/WebDriver/Reference/Classic/Commands)
   - : Referenz für alle klassischen WebDriver-Befehle.
 
-- [Fähigkeiten](/de/docs/Web/WebDriver/Reference/Classic/Capabilities)
+- [Fähigkeiten](/de/docs/Web/WebDriver/Reference/Capabilities)
   - : Referenz für alle klassischen WebDriver-Fähigkeiten.
 
-- [Fehler](/de/docs/Web/WebDriver/Reference/Classic/Errors)
+- [Fehler](/de/docs/Web/WebDriver/Reference/Errors)
   - : Referenz für klassische WebDriver-Fehler.
 
-- [Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Timeouts)
-  - : Referenz für klassische WebDriver-Timeouts.
+- [Zeitüberschreitungen](/de/docs/Web/WebDriver/Reference/Classic/Timeouts)
+  - : Referenz für klassische WebDriver-Zeitüberschreitungen.
 
 ## Spezifikationen
 
@@ -66,5 +66,5 @@ Durchsuchen Sie die vollständige [WebDriver-Referenz](/de/docs/Web/WebDriver/Re
 
 ## Siehe auch
 
-- [Testing](/de/docs/Learn_web_development/Extensions/Testing)
-- [Selenium Dokumentation](https://www.selenium.dev/documentation/)
+- [Testen](/de/docs/Learn_web_development/Extensions/Testing)
+- [Selenium-Dokumentation](https://www.selenium.dev/documentation/)
