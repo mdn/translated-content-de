@@ -2,10 +2,12 @@
 title: column-count
 slug: Web/CSS/Reference/Properties/column-count
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 04defe50e601cf53adde40c4bd652a7a4e6eae55
 ---
 
 Die **`column-count`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt den Inhalt eines Elements in die angegebene Anzahl von Spalten auf.
+
+Die {{cssxref("columns")}} Kurzform-Eigenschaft kann verwendet werden, um die Werte für `column-count`, {{cssxref("column-height")}} und {{cssxref("column-width")}} in einer einzigen Deklaration festzulegen.
 
 {{InteractiveExample("CSS Demo: column-count")}}
 
@@ -65,9 +67,9 @@ column-count: unset;
 ### Werte
 
 - `auto`
-  - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
+  - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften, wie z.B. {{cssxref("column-width")}}, bestimmt.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Beschreibt als streng positive {{cssxref("&lt;integer&gt;")}} die ideale Anzahl von Spalten, in die der Inhalt des Elements aufgeteilt wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen Wert ungleich `auto` gesetzt ist, gibt sie lediglich die maximal zulässige Anzahl von Spalten an.
+  - : Ist ein strikt positiver {{cssxref("&lt;integer&gt;")}} und beschreibt die ideale Anzahl von Spalten, in die der Inhalt des Elements aufgeteilt werden soll. Wenn die {{cssxref("column-width")}} ebenfalls auf einen Nicht-`auto` Wert gesetzt ist, gibt sie lediglich die maximal zulässige Anzahl an Spalten an.
 
 ## Formale Definition
 
@@ -79,7 +81,7 @@ column-count: unset;
 
 ## Beispiele
 
-### Einen Absatz über drei Spalten verteilen
+### Aufteilung eines Absatzes in drei Spalten
 
 #### HTML
 
@@ -113,7 +115,9 @@ column-count: unset;
 
 ## Siehe auch
 
-- {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurzschreibweise
-- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
+- {{cssxref("column-height")}}
+- {{cssxref("column-width")}}
+- {{cssxref("columns")}} Kurzform
+- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzform
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Lernen Layout)
 - [Grundlegende Konzepte von Multicol](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
