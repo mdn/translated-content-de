@@ -2,7 +2,7 @@
 title: drop-shadow()
 slug: Web/CSS/Reference/Values/filter-function/drop-shadow
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: be1adae6ec2d573c3569d420be77027f60b85e92
 ---
 
 Die **`drop-shadow()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wendet einen Schlagschatteneffekt auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("filter-function")}}.
@@ -31,10 +31,10 @@ filter: drop-shadow(0 0 0.75rem crimson);
 </section>
 ```
 
-Ein Schlagschatten ist im Wesentlichen eine verschwommene, verschobene Version der Alphamaske des Eingabebildes. Diese wird in einer bestimmten Farbe unter dem Bild dargestellt.
+Ein Schlagschatten ist im Wesentlichen eine verschwommene, versetzte Version der Alphamaske des Eingabebildes, die in einer bestimmten Farbe gezeichnet wird und unter dem Bild zusammengesetzt ist.
 
 > [!NOTE]
-> Diese Funktion ist etwas ähnlich der {{Cssxref("box-shadow")}} Eigenschaft. Die `box-shadow` Eigenschaft erstellt einen rechteckigen Schatten hinter dem _gesamten Box_-Element, während die `drop-shadow()` Filterfunktion einen Schatten erzeugt, der sich an die Form (Alphakanal) des _Bildes selbst_ anpasst.
+> Diese Funktion ist der {{Cssxref("box-shadow")}}-Eigenschaft etwas ähnlich. Die Eigenschaft `box-shadow` erzeugt einen rechteckigen Schatten hinter dem _gesamten Kasten_ eines Elements, während die `drop-shadow()`-Filterfunktion einen Schatten erzeugt, der sich der Form (Alphakanal) des _Bildes selbst_ anpasst.
 
 ## Syntax
 
@@ -63,15 +63,15 @@ drop-shadow(#ee2233 0.5rem 0.5rem 1rem)
 drop-shadow(10px 10px red) drop-shadow(-5px -5px yellow)
 ```
 
-Die `drop-shadow()` Funktion akzeptiert einen Parameter vom Typ `<shadow>` (definiert in der {{cssxref("box-shadow")}} Eigenschaft), mit der Ausnahme, dass das `inset` Schlüsselwort und die `spread` Parameter nicht erlaubt sind.
+Die Funktion `drop-shadow()` akzeptiert einen Parameter vom Typ `<shadow>` (definiert in der {{cssxref("box-shadow")}}-Eigenschaft), mit der Ausnahme, dass das Schlüsselwort `inset` und die Parameter `spread` nicht erlaubt sind.
 
 ### Parameter
 
 - `<color>` {{optional_inline}}
-  - : Gibt die Farbe für den Schatten an. Wenn nicht angegeben, wird der Wert der {{cssxref("color")}} Eigenschaft des übergeordneten Elements verwendet.
+  - : Gibt die Farbe des Schattens an. Wenn nicht angegeben, wird der Wert der Eigenschaft {{cssxref("color")}} verwendet, die im übergeordneten Element definiert ist.
 
 - `<length>`
-  - : Gibt die Offsetlänge des Schattens an. Dieser Parameter akzeptiert zwei oder drei Werte. Wenn zwei Werte angegeben werden, werden sie als `<offset-x>` (horizontale Verschiebung) und `<offset-y>` (vertikale Verschiebung) interpretiert. Ein negativer `<offset-x>` Wert platziert den Schatten links von dem Element. Ein negativer `<offset-y>` Wert platziert den Schatten oberhalb des Elements. Wenn nicht angegeben, wird der Wert `0` für die fehlende Länge verwendet. Wenn ein dritter Wert angegeben wird, wird er als `<standard-deviation>` interpretiert, was den Wert der Standardabweichung für die [Gaussian blur](https://en.wikipedia.org/wiki/Gaussian_blur) Funktion darstellt. Ein größerer `<standard-deviation>` Wert erzeugt einen größeren und verschwommeneren Schatten. Negative Werte für `<standard-deviation>` sind nicht erlaubt.
+  - : Gibt die Versatzlänge des Schattens an. Dieser Parameter akzeptiert zwei oder drei Werte. Wenn zwei Werte angegeben sind, werden sie als `<offset-x>` (horizontaler Versatz) und `<offset-y>` (vertikaler Versatz) interpretiert. Ein negativer `<offset-x>`-Wert platziert den Schatten links vom Element. Ein negativer `<offset-y>`-Wert platziert den Schatten über dem Element. Wenn ein dritter Wert angegeben wird, wird er als `<standard-deviation>` interpretiert, was dem Wert der Standardabweichung der [Gauss'schen Unschärfe](https://en.wikipedia.org/wiki/Gaussian_blur) entspricht. Ein größerer `<standard-deviation>`-Wert erzeugt einen größeren und mehr verschwommenen Schatten. Negative Werte für `<standard-deviation>` sind nicht erlaubt.
 
 ## Formale Syntax
 
@@ -127,9 +127,9 @@ div:nth-child(5) {
 }
 ```
 
-{{EmbedLiveSample("Setting a drop shadow", "100%", "300px")}}
+{{EmbedLiveSample("Einen Schlagschatten setzen", "100%", "300px")}}
 
-In Abwesenheit eines `<color>` Wertes in der `drop-shadow()` Funktion im ersten Kasten verwendet der Schatten den Wert der `color` Eigenschaft des Elements (`lime`). Die zweiten und dritten Schatten zeigen, dass die Längen- und Farbwerte in beliebiger Reihenfolge angegeben werden können. Der dritte Schatten zeigt den Verwischungseffekt, wenn ein dritter `<length>` Wert angegeben wird. Der vierte Schatten verwendet negative Offsets, die den Schatten nach links und oben verschieben. Das fünfte Beispiel zeigt, wie man mehrere Schlagschatten auf einem einzigen Element verwendet.
+Wenn im ersten Kasten kein `<color>`-Wert in der Funktion `drop-shadow()` angegeben ist, verwendet der Schatten den Wert der `color`-Eigenschaft aus dem Element (`lime`). Die zweiten und dritten Schatten zeigen, dass die Längen- und Farbwerte in beliebiger Reihenfolge angegeben werden können. Der dritte Schatten zeigt den Unschärfeeffekt, wenn ein dritter `<length>`-Wert angegeben ist. Der vierte Schatten verwendet negative Versätze, die den Schatten nach links und oben verschieben. Das fünfte Beispiel zeigt, wie mehrere Schlagschatten auf einem einzelnen Element verwendet werden können.
 
 ## Spezifikationen
 
