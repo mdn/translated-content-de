@@ -3,12 +3,12 @@ title: "Element: ariaNotify() Methode"
 short-title: ariaNotify()
 slug: Web/API/Element/ariaNotify
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
 ---
 
-{{ApiRef("DOM")}}{{SeeCompatTable}}{{non-standard_header}}
+{{ApiRef("DOM")}}{{SeeCompatTable}}
 
-Die **`ariaNotify()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface spezifiziert, dass eine gegebene Textzeichenfolge von einem {{Glossary("screen_reader", "Screenreader")}} angekündigt werden soll, falls dieser verfügbar und aktiv ist.
+Die **`ariaNotify()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces legt fest, dass ein bestimmter Text von einem {{Glossary("screen_reader", "Screenreader")}}, sofern verfügbar und aktiviert, angesagt werden soll.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ ariaNotify(announcement, options)
 ### Parameter
 
 - `announcement`
-  - : Eine Zeichenkette, die den anzukündigenden Text spezifiziert.
+  - : Ein String, der den anzusagenden Text angibt.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
+  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
     - `priority`
-      - : Ein enumerierter Wert, der die Priorität der Ankündigung angibt. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der die Priorität der Ansage angibt. Mögliche Werte sind:
         - `normal`
-          - : Die Ankündigung hat normale Priorität und wird nach der aktuell von einem Screenreader gemachten Ankündigung gesprochen.
+          - : Die Ansage hat normale Priorität. Sie wird nach jeder Ansage gesprochen, die ein Screenreader gerade macht.
         - `high`
-          - : Die Ankündigung hat hohe Priorität und wird sofort gesprochen, wobei jede derzeit vom Screenreader getroffene Ankündigung unterbrochen wird.
+          - : Die Ansage hat hohe Priorität. Sie wird sofort angesagt und unterbricht dabei jede Ansage, die ein Screenreader gerade macht.
 
 ### Rückgabewert
 
@@ -36,60 +36,60 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die **`ariaNotify()`** Methode kann verwendet werden, um programmgesteuert eine Screenreader-Ankündigung auszulösen. Diese Methode bietet ähnliche Funktionalität wie [ARIA-Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions) mit einigen Vorteilen:
+Die **`ariaNotify()`** Methode kann verwendet werden, um programmatisch eine Ansage des Screenreaders auszulösen. Diese Methode bietet ähnliche Funktionalitäten wie [ARIA Live-Bereiche](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions), mit einigen Vorteilen:
 
-- Live-Regionen können nur nach Änderungen des DOM Ankündigungen machen, während eine `ariaNotify()`-Ankündigung jederzeit gemacht werden kann.
-- Live-Region-Ankündigungen beinhalten das Vorlesen des aktualisierten Inhalts des geänderten DOM-Knotens, während `ariaNotify()`-Ankündigungsinhalt unabhängig vom DOM-Inhalt definiert werden kann.
+- Live-Bereiche können nur Ansagen machen, nachdem Änderungen am DOM vorgenommen wurden, wohingegen eine `ariaNotify()`-Ansage jederzeit gemacht werden kann.
+- Live-Bereich-Ansagen beinhalten das Vorlesen des aktualisierten Inhalts des geänderten DOM-Knotens, wohingegen der `ariaNotify()`-Ansageinhalt unabhängig vom DOM-Inhalt definiert werden kann.
 
-Entwickler umgehen oft die Einschränkungen von Live-Regionen, indem sie versteckte DOM-Knoten mit darauf gesetzten Live-Regionen verwenden, die mit dem anzukündigenden Inhalt aktualisiert werden. Dies ist ineffizient und fehleranfällig, und `ariaNotify()` bietet eine Möglichkeit, solche Probleme zu vermeiden.
+Entwickler umgehen oft die Beschränkungen von Live-Bereichen, indem sie versteckte DOM-Knoten mit Live-Bereichen verwenden, die mit dem anzusagenden Inhalt aktualisiert werden. Dies ist ineffizient und fehleranfällig, und `ariaNotify()` bietet eine Möglichkeit, solche Probleme zu vermeiden.
 
-Einige Screenreader lesen mehrere `ariaNotify()`-Ankündigungen in Reihenfolge vor, aber dies kann nicht für alle Screenreader und Plattformen garantiert werden. Normalerweise wird nur die jüngste Ankündigung gesprochen. Es ist zuverlässiger, mehrere Ankündigungen in einer zu kombinieren.
+Einige Screenreader lesen mehrere `ariaNotify()`-Ansagen nacheinander vor, aber dies kann nicht über alle Screenreader und Plattformen hinweg garantiert werden. Normalerweise wird nur die aktuellste Ansage gesprochen. Es ist zuverlässiger, mehrere Ansagen zu einer zusammenzufassen.
 
-Zum Beispiel, die folgenden Anrufe:
+Zum Beispiel sollten die folgenden Aufrufe:
 
 ```js
 elemRef.ariaNotify("Hello there.");
 elemRef.ariaNotify("The time is now 8 o'clock.");
 ```
 
-würden besser kombiniert werden:
+besser kombiniert werden:
 
 ```js
 elemRef.ariaNotify("Hello there. The time is now 8 o'clock.");
 ```
 
-Ein `ariaNotify()`-Aufruf kann auf jedem Element im DOM ausgelöst werden, außer auf solchen, die der Browser nicht als "interessant" für Barrierefreiheit betrachtet und die beim Aufbau des Accessibility-Baums ignoriert werden. Welche Elemente genau ignoriert werden, variiert je nach Browser, aber die Liste umfasst in der Regel Container-Elemente mit wenig bis keinem semantischen Wert, wie die Elemente {{htmlelement("html")}} und {{htmlelement("body")}}.
+Ein `ariaNotify()`-Aufruf kann auf jedem Element im DOM ausgelöst werden, außer auf solchen, die der Browser nicht als "interessant" für die Barrierefreiheit erachtet und die beim Erstellen des Barrierefreiheitsbaums ignoriert werden. Welche Elemente ignoriert werden, variiert je nach Browser, aber die Liste umfasst im Allgemeinen Containerelemente mit wenig bis gar keinem semantischen Wert, wie die Elemente {{htmlelement("html")}} und {{htmlelement("body")}}.
 
-`ariaNotify()`-Ankündigungen erfordern keine {{Glossary("transient_activation", "transiente Aktivierung")}}; Sie sollten darauf achten, Screenreader-Benutzer nicht mit zu vielen Benachrichtigungen zu überhäufen, da dies eine schlechte Benutzererfahrung schaffen könnte.
+`ariaNotify()`-Ansagen erfordern keine {{Glossary("transient_activation", "transiente Aktivierung")}}; Sie sollten darauf achten, Screenreader-Benutzer nicht mit zu vielen Benachrichtigungen zu überfluten, da dies zu einer schlechten Benutzererfahrung führen könnte.
 
-### Ankündigungsprioritäten
+### Ansageprioritäten
 
-Eine `ariaNotify()`-Ankündigung mit `priority: high` wird vor einer `ariaNotify()`-Ankündigung mit `priority: normal` angekündigt.
+Eine `ariaNotify()`-Ansage mit `priority: high` wird vor einer `ariaNotify()`-Ansage mit `priority: normal` angesagt.
 
-`ariaNotify()`-Ankündigungen entsprechen grob den ARIA-Live-Region-Ankündigungen wie folgt:
+`ariaNotify()`-Ansagen sind ungefähr gleichwertig mit den folgenden ARIA Live-Bereich-Ansagen:
 
 - `ariaNotify()` `priority: high`: `aria-live="assertive"`.
 - `ariaNotify()` `priority: normal`: `aria-live="polite"`.
 
-Jedoch haben `aria-live`-Ankündigungen Vorrang vor `ariaNotify()`-Ankündigungen.
+Allerdings haben `aria-live`-Ansagen Vorrang vor `ariaNotify()`-Ansagen.
 
 ### Sprachauswahl
 
-Screenreader wählen eine geeignete Stimme aus, um `ariaNotify()`-Ankündigungen vorzulesen (hinsichtlich Akzent, Aussprache usw.), basierend auf der im Element spezifizierten Sprache im [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attribut oder, wenn das Element kein spezifiziertes `lang` Attribut hat, dem `lang` Attribut, das am nächsten Vorfahren gesetzt ist. Wenn kein `lang` Attribut im HTML spezifiziert ist, wird die Standardsprache des Benutzeragenten verwendet.
+Screenreader wählen eine geeignete Stimme (in Bezug auf Akzent, Aussprache etc.) für `ariaNotify()`-Ansagen basierend auf der Sprache, die im [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attribut des Elements angegeben ist, oder, falls das Element kein spezifiziertes `lang`-Attribut hat, dem `lang`-Attribut seines nächsten Vorfahren. Wenn im HTML kein `lang`-Attribut angegeben ist, wird die Standardsprache des User-Agents verwendet.
 
-### Integration in die Berechtigungspolitik
+### Berechtigungspolitik-Integration
 
-Die Nutzung von `ariaNotify()` in einem Dokument oder {{htmlelement("iframe")}} kann durch eine {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} [Berechtigungspolitik](/de/docs/Web/HTTP/Guides/Permissions_Policy) kontrolliert werden.
+Die Nutzung von `ariaNotify()` in einem Dokument oder {{htmlelement("iframe")}} kann von einer {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} [Berechtigungspolitik](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden.
 
-Insbesondere dort, wo eine definierte Politik die Nutzung blockiert, schlagen alle mit `ariaNotify()` erstellten Ankündigungen fehl (sie werden nicht gesendet).
+Insbesondere, wenn eine definierte Politik die Nutzung blockiert, schlagen alle mit `ariaNotify()` erstellten Ansagen stillschweigend fehl (sie werden nicht gesendet).
 
 ## Beispiele
 
-Für ein umfangreicheres Beispiel sehen Sie sich das [barrierefreie Einkaufslisten-Beispiel](/de/docs/Web/API/Document/ariaNotify#accessible_shopping_list_example) auf der [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) Seite an. Das Beispiel würde genauso funktionieren, wenn Sie `ariaNotify()` auf einem Elementreferenz statt auf dem `Document` Objekt aufrufen.
+Für ein umfangreicheres Beispiel siehe das [Accessible shopping list example](/de/docs/Web/API/Document/ariaNotify#accessible_shopping_list_example) auf der [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) Seite. Das Beispiel würde genauso funktionieren, wenn Sie `ariaNotify()` auf einem Element-Referenz anstatt auf dem `Document`-Objekt aufrufen würden.
 
-### Grundlegende `ariaNotify()`-Verwendung
+### Grundlegende `ariaNotify()`-Nutzung
 
-Diese Beispiel enthält einen {{htmlelement("button")}}, der eine Screenreader-Ankündigung auf sich selbst auslöst, wenn er geklickt wird.
+Dieses Beispiel beinhaltet einen {{htmlelement("button")}}, der beim Klicken eine Ansage für den Screenreader auf sich selbst auslöst.
 
 ```html live-sample___basic-arianotify
 <button>Press</button>
@@ -120,7 +120,7 @@ Die Ausgabe ist wie folgt:
 
 {{EmbedLiveSample("basic-arianotify", "100%", 60, , , , "aria-notify")}}
 
-Versuchen Sie, einen Screenreader zu aktivieren und dann die Taste zu drücken. Sie sollten "You ain't seen me, right?" vom Screenreader gesprochen hören.
+Versuchen Sie, einen Screenreader zu aktivieren und dann den Button zu drücken. Sie sollten "You ain't seen me, right?" vom Screenreader gehört werden.
 
 ## Spezifikationen
 
@@ -133,4 +133,4 @@ Versuchen Sie, einen Screenreader zu aktivieren und dann die Taste zu drücken. 
 ## Siehe auch
 
 - [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify)
-- [ARIA-Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)
+- [ARIA Live-Bereiche](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)

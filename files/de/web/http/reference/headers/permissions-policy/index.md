@@ -3,20 +3,20 @@ title: Permissions-Policy header
 short-title: Permissions-Policy
 slug: Web/HTTP/Reference/Headers/Permissions-Policy
 l10n:
-  sourceCommit: 2dcdbed09ec5ca28a73d82e259601459c468508c
+  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP **`Permissions-Policy`** {{Glossary("response_header", "Antwortheader")}} bietet einen Mechanismus zum Erlauben und Verweigern der Nutzung von Browser-Funktionen in einem Dokument oder innerhalb eines {{HTMLElement("iframe")}}-Elements im Dokument.
+Der HTTP **`Permissions-Policy`** {{Glossary("response_header", "Antwort-Header")}} bietet einen Mechanismus, um die Nutzung von Browserfunktionen in einem Dokument oder innerhalb von {{HTMLElement("iframe")}}-Elementen im Dokument zu erlauben oder zu verweigern.
 
-Für weitere Informationen siehe den Hauptartikel zur [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy).
+Für weitere Informationen siehe den Hauptartikel [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response_header", "Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -28,208 +28,208 @@ Permissions-Policy: <directive>=<allowlist>
 ```
 
 - `<directive>`
-  - : Die Permissions Policy-Direktive, auf die die `allowlist` angewendet werden soll. Siehe [Directives](#direktiven) unten für eine Liste der erlaubten Direktivnamen.
+  - : Die Permissions Policy-Direktive, auf die die `Allowlist` angewendet werden soll. Eine Liste der erlaubten Direktivennamen finden Sie unter [Direktiven](#direktiven) unten.
 - `<allowlist>`
-  - : Eine Allowlist ist eine Liste von Ursprüngen, die einen oder mehrere der folgenden in Klammern enthaltenen Werte annimmt, getrennt durch Leerzeichen:
+  - : Eine Allowlist ist eine Liste von Ursprüngen, die einen oder mehrere der folgenden Werte in Klammern, getrennt durch Leerzeichen, enthalten kann:
     - `*` (Wildcard)
-      - : Die Funktion wird in diesem Dokument und allen verschachtelten Browsing-Kontexten (`<iframe>`s) unabhängig von ihrem Ursprung erlaubt.
+      - : Die Funktion wird in diesem Dokument und in allen verschachtelten Browsing-Kontexten (`<iframe>`s) unabhängig von ihrem Ursprung erlaubt.
     - `()` (leere Allowlist)
-      - : Die Funktion ist in obersten und verschachtelten Browsing-Kontexten deaktiviert. Das Äquivalent für `<iframe>`-`allow`-Attribute ist `'none'`.
+      - : Die Funktion ist in Ober- und untergeordneten Browsing-Kontexten deaktiviert. Das Äquivalent zu `<iframe>`-Attributen `allow` ist `'none'`.
     - `self`
-      - : Die Funktion wird in diesem Dokument und in allen verschachtelten Browsing-Kontexten (`<iframe>`s) im selben Ursprung erlaubt. Die Funktion ist in ursprungsübergreifenden Dokumenten in verschachtelten Browsing-Kontexten nicht erlaubt. `self` kann als Abkürzung für `https://your-site.example.com` betrachtet werden. Das Äquivalent für `<iframe>`-`allow`-Attribute ist `self`.
+      - : Die Funktion wird in diesem Dokument und in allen verschachtelten Browsing-Kontexten (`<iframe>`s) nur im gleichen Ursprung erlaubt. Die Funktion ist in cross-origin Dokumenten in verschachtelten Browsing-Kontexten nicht erlaubt. `self` kann als Kurzform für `https://your-site.example.com` betrachtet werden. Das Äquivalent zu `<iframe>`-Attributen `allow` ist `self`.
     - `src`
-      - : Die Funktion wird in diesem `<iframe>` erlaubt, solange das darin geladene Dokument vom selben Ursprung wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}}-Attribut stammt. Dieser Wert wird nur im `<iframe>`-`allow`-Attribut verwendet und ist der _Standard_`allowlist`-Wert in `<iframe>`s.
+      - : Die Funktion wird in diesem `<iframe>` erlaubt, solange das darin geladene Dokument aus demselben Ursprung wie die URL in seinem {{HTMLElement('iframe','src','#Attributes')}}-Attribut kommt. Dieser Wert wird nur im `<iframe>`-Attribut `allow` verwendet und ist der _default_ `Allowlist`-Wert in `<iframe>`s.
     - `"<origin>"`
-      - : Die Funktion ist für bestimmte Ursprünge erlaubt (zum Beispiel `"https://a.example.com"`). Ursprünge sollten durch Leerzeichen getrennt werden. Beachten Sie, dass Ursprünge in `<iframe>`-Allow-Attributen nicht in Anführungszeichen gesetzt werden.
+      - : Die Funktion ist für spezifische Ursprünge erlaubt (zum Beispiel `"https://a.example.com"`). Ursprünge sollten durch Leerzeichen getrennt werden. Beachten Sie, dass Ursprünge in `<iframe>`-Attributen nicht in Anführungszeichen gesetzt werden.
 
-    Die Werte `*` und `()` dürfen nur alleine verwendet werden, während `self` und `src` in Kombination mit einem oder mehreren Ursprüngen verwendet werden dürfen.
+    Die Werte `*` und `()` dürfen nur einzeln verwendet werden, während `self` und `src` in Kombination mit einem oder mehreren Ursprüngen verwendet werden dürfen.
 
     > [!NOTE]
-    > Direktiven haben eine Standard-Allowlist, die immer einer der `*`, `self` oder `none` für den `Permissions-Policy`-HTTP-Header ist und das Standardverhalten regelt, wenn sie in einer Richtlinie nicht explizit aufgeführt werden.
-    > Diese sind auf den einzelnen [Direktivenreferenzseiten](#direktiven) angegeben. Für `<iframe>`-`allow`-Attribute ist das Standardverhalten immer `src`.
+    > Direktiven haben eine standardmäßige Allowlist, die immer einer der Werte `*`, `self` oder `none` für den `Permissions-Policy` HTTP-Header ist und das Standardverhalten bestimmt, wenn sie in einer Richtlinie nicht explizit aufgeführt sind.
+    > Diese sind auf den individuellen [Direktiven-Referenzseiten](#direktiven) spezifiziert. Für `<iframe>`-Attribute ist das Standardverhalten immer `src`.
 
-Wo unterstützt, können Sie Platzhalter in Permissions Policy-Ursprüngen verwenden. Dies bedeutet, dass anstelle der expliziten Angabe mehrerer verschiedener Subdomains in einer Allowlist, Sie sie alle in einem einzigen Ursprung mit einem Platzhalter angeben können.
+Wo unterstützt, können Sie Wildcards in Permissions Policy-Ursprüngen einfügen. Dies bedeutet, dass Sie anstelle mehrerer explizit angegebener Subdomains in einer Allowlist alle in einem einzigen Ursprung mit einem Wildcard angeben können.
 
-Stattdessen von
+Anstatt also
 
 ```http
 ("https://example.com" "https://a.example.com" "https://b.example.com" "https://c.example.com")
 ```
 
-Können Sie angeben
+können Sie angeben
 
 ```http
 ("https://example.com" "https://*.example.com")
 ```
 
 > [!NOTE]
-> `"https://*.example.com"` stimmt nicht mit `"https://example.com"` überein.
+> `"https://*.example.com"` stimmt nicht überein mit `"https://example.com"`.
 
 ## Direktiven
 
 - {{httpheader('Permissions-Policy/accelerometer','accelerometer')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts über die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle sammeln darf.
+  - : Kontrolliert, ob das aktuelle Dokument durch die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle Informationen über die Beschleunigung des Geräts sammeln darf.
 
 - {{httpheader('Permissions-Policy/ambient-light-sensor','ambient-light-sensor')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Informationen über die Lichtverhältnisse in der Umgebung des Geräts über die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
+  - : Kontrolliert, ob das aktuelle Dokument durch die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle Informationen über die Umgebungshelligkeit des Geräts sammeln darf.
 
-- {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} {{Experimental_Inline}} {{non-standard_inline}}
-  - : Steuert, ob das aktuelle Dokument die [`ariaNotify()`](/de/docs/Web/API/Document/ariaNotify)-Methode verwenden darf, um {{Glossary("screen_reader", "Screenreader")}}-Ankündigungen auszulösen.
+- {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} {{Experimental_Inline}}
+  - : Kontrolliert, ob das aktuelle Dokument die Methode [`ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) verwenden darf, um {{Glossary("screen_reader", "Screen Reader")}} Ankündigungen auszulösen.
 
 - {{httpheader('Permissions-Policy/attribution-reporting','attribution-reporting')}} {{deprecated_inline}}
-  - : Steuert, ob das aktuelle Dokument die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwenden darf.
+  - : Kontrolliert, ob das aktuelle Dokument die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwenden darf.
 
 - {{httpheader('Permissions-Policy/autoplay','autoplay')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Medien, die über die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle angefordert werden, automatisch wiedergegeben werden dürfen. Wenn diese Richtlinie deaktiviert ist und es keine Benutzeraktionen gab, wird das von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt. Das autoplay-Attribut auf {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
+  - : Kontrolliert, ob das aktuelle Dokument Medien-Inhalte, die über die [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle angefordert werden, automatisch abspielen darf. Wenn diese Richtlinie deaktiviert ist und keine Benutzerinteraktionen erfolgten, wird der von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play) zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückweisen. Das Autoplay-Attribut in {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen wird ignoriert.
 
 - {{httpheader('Permissions-Policy/bluetooth','bluetooth')}} {{Experimental_Inline}}
-  - : Steuert, ob die Verwendung der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) erlaubt ist. Wenn diese Richtlinie deaktiviert ist, geben die Methoden des [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekts, das von [`Navigator.bluetooth`](/de/docs/Web/API/Navigator/bluetooth) zurückgegeben wird, entweder `false` zurück oder lehnen das zurückgegebene {{JSxRef("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ab.
+  - : Kontrolliert, ob die Nutzung der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) erlaubt ist. Wenn diese Richtlinie deaktiviert ist, geben die Methoden des [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Objekts, das von [`Navigator.bluetooth`](/de/docs/Web/API/Navigator/bluetooth) zurückgegeben wird, entweder `false` zurück oder lehnen den zurückgegebenen {{JSxRef("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ab.
 
 - {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Steuert den Zugriff auf die [Topics API](/de/docs/Web/API/Topics_API). Wenn eine Richtlinie die Verwendung der Topics API ausdrücklich verbietet, schlagen alle Versuchsanfragen an die Methode [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) oder das Senden einer Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
+  - : Kontrolliert den Zugriff auf die [Topics API](/de/docs/Web/API/Topics_API). Wenn eine Richtlinie die Nutzung der Topics API spezifisch unzulässig macht, schlagen alle Versuche, die Methode [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) aufzurufen oder eine Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 - {{httpheader('Permissions-Policy/camera', 'camera')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument Videogeräte verwenden darf.
-    Das von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegebene {{jsxref("Promise")}} wird mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn die Erlaubnis nicht erteilt ist.
+  - : Kontrolliert, ob das aktuelle Dokument Video-Eingabegeräte verwenden darf.
+    Der von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegebene {{jsxref("Promise")}} wird mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen, wenn die Berechtigung nicht erteilt wird.
 
 - {{HTTPHeader('Permissions-Policy/captured-surface-control', 'captured-surface-control')}} {{experimental_inline}}
-  - : Steuert, ob das Dokument die [Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) verwenden darf.
-    Das von den Hauptmethoden der API zurückgegebene Versprechen wird mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn die Erlaubnis nicht erteilt ist.
+  - : Kontrolliert, ob das Dokument die [Captured Surface Control API](/de/docs/Web/API/Screen_Capture_API/Captured_Surface_Control) nutzen darf.
+    Das von den Hauptmethoden der API zurückgegebene Promise wird mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen, wenn die Berechtigung nicht erteilt wird.
 
 - {{HTTPHeader('Permissions-Policy/ch-ua-high-entropy-values', 'ch-ua-high-entropy-values')}} {{experimental_inline}}
-  - : Steuert, ob das Dokument die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) verwenden darf, um hochgradige Benutzeragentdaten abzurufen.
-    Wenn die Erlaubnis nicht erteilt wird, gibt die Methode nur die `brands`, `mobile` und `platform` niedrig entropische Daten zurück.
+  - : Kontrolliert, ob das Dokument die Methode [`NavigatorUAData.getHighEntropyValues()`](/de/docs/Web/API/NavigatorUAData/getHighEntropyValues) verwenden darf, um hochentropische User-Agent-Daten abzurufen.
+    Wenn die Berechtigung nicht erteilt wird, gibt die Methode nur die niedrig entropischen Daten `brands`, `mobile` und `platform` zurück.
 
 - {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}} {{Experimental_Inline}}
-  - : Steuert den Zugriff auf die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API).
+  - : Kontrolliert den Zugriff auf die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API).
 
 - {{httpheader('Permissions-Policy/cross-origin-isolated','cross-origin-isolated')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument als [Cross-Origin Isolation](/de/docs/Web/API/Window/crossOriginIsolated) behandelt werden kann.
+  - : Kontrolliert, ob das aktuelle Dokument als [cross-origin isoliert](/de/docs/Web/API/Window/crossOriginIsolated) behandelt werden kann.
 
 - {{HTTPHeader('Permissions-Policy/deferred-fetch', 'deferred-fetch')}} {{experimental_inline}}
-  - : Steuert die Zuweisung des [`fetchLater()` Kontingents](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) des Ursprungs auf oberster Ebene.
+  - : Kontrolliert die Zuweisung des [`fetchLater()` Kontingents](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) des obersten Ursprungs.
 
 - {{HTTPHeader('Permissions-Policy/deferred-fetch-minimal', 'deferred-fetch-minimal')}} {{experimental_inline}}
-  - : Steuert die Zuweisung des geteilten ursprungsübergreifenden Unterrahmenkontingents [`fetchLater()`](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas).
+  - : Kontrolliert die Zuweisung des gemeinsamen, cross-origin Subframe [`fetchLater()` Kontingents](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas).
 
 - {{HTTPHeader('Permissions-Policy/display-capture', 'display-capture')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die Methode [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) verwenden darf, um Bildschirm-Inhalte zu erfassen. Wenn diese Richtlinie deaktiviert ist, wird das von `getDisplayMedia()` zurückgegebene Versprechen mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn die Erlaubnis nicht erteilt ist, den Bildschirm zu erfassen.
+  - : Kontrolliert, ob das aktuelle Dokument die Methode [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) verwenden darf, um Bildschirminhalte zu erfassen. Wenn diese Richtlinie deaktiviert ist, wird das von `getDisplayMedia()` zurückgegebene Promise mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen, wenn keine Berechtigung zur Erfassung der Anzeigedaten erhalten wird.
 
 - {{httpheader('Permissions-Policy/encrypted-media', 'encrypted-media')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) (EME) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird das von [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+  - : Kontrolliert, ob das aktuelle Dokument die [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) (EME) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird der von [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
 
 - {{httpheader('Permissions-Policy/fullscreen','fullscreen')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird das zurückgegebene {{JSxRef("Promise")}} mit einem {{JSxRef("TypeError")}} abgelehnt.
+  - : Kontrolliert, ob das aktuelle Dokument [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird das zurückgegebene {{JSxRef("Promise")}} mit einem {{JSxRef("TypeError")}} zurückgewiesen.
 
 - {{httpheader('Permissions-Policy/gamepad','gamepad')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwenden darf.
-    Wenn diese Richtlinie deaktiviert ist, schlagen Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) fehl, und die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) sowie [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) werden nicht ausgelöst.
+  - : Kontrolliert, ob das aktuelle Dokument die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwenden darf.
+    Wenn diese Richtlinie deaktiviert ist, werden Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen und die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) werden nicht ausgelöst.
 
 - {{httpheader('Permissions-Policy/geolocation','geolocation')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle verwenden darf. Wenn diese Richtlinie deaktiviert ist, führen Aufrufe von [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) und [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) dazu, dass die Rückrufe dieser Funktionen mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Code von `PERMISSION_DENIED` aufgerufen werden.
+  - : Kontrolliert, ob das aktuelle Dokument die [`Geolocation`](/de/docs/Web/API/Geolocation) Schnittstelle verwenden darf. Wenn diese Richtlinie deaktiviert ist, bewirken Aufrufe von [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) und [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition), dass die Rückrufe dieser Funktionen mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError) Code von `PERMISSION_DENIED` aufgerufen werden.
 
 - {{httpheader('Permissions-Policy/gyroscope','gyroscope')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Schnittstelle sammeln darf.
+  - : Kontrolliert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts durch die [`Gyroscope`](/de/docs/Web/API/Gyroscope) Schnittstelle sammeln darf.
 
 - {{httpheader('Permissions-Policy/hid','hid')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [WebHID API](/de/docs/Web/API/WebHID_API) verwenden darf, um sich mit unüblichen oder exotischen Mensch-Maschine-Schnittstellengeräten wie alternativen Tastaturen oder Gamepads zu verbinden.
+  - : Kontrolliert, ob das aktuelle Dokument die [WebHID API](/de/docs/Web/API/WebHID_API) verwenden darf, um sich mit ungewöhnlichen oder exotischen Mensch-Maschine-Schnittstellengeräten wie alternativen Tastaturen oder Gamepads zu verbinden.
 
 - {{httpheader('Permissions-Policy/identity-credentials-get','identity-credentials-get')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) verwenden darf.
+  - : Kontrolliert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) verwenden darf.
 
 - {{httpheader('Permissions-Policy/idle-detection','idle-detection')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Idle Detection API](/de/docs/Web/API/Idle_Detection_API) verwenden darf, um zu erkennen, wann Benutzer mit ihren Geräten interagieren, beispielsweise um den Status "verfügbar"/"abwesend" in Chat-Anwendungen zu melden.
+  - : Kontrolliert, ob das aktuelle Dokument die [Idle Detection API](/de/docs/Web/API/Idle_Detection_API) verwenden darf, um zu erkennen, wann Benutzer mit ihren Geräten interagieren, zum Beispiel um in Chat-Anwendungen einen "verfügbar"/"abwesend"-Status zu melden.
 
 - {{httpheader("Permissions-Policy/language-detector", "language-detector")}} {{Experimental_Inline}}
-  - : Steuert den Zugriff auf die Sprachenerkennungsfunktionalität der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
+  - : Kontrolliert den Zugriff auf die Sprachenerkennungsfunktionalität der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
 
 - {{httpheader('Permissions-Policy/local-fonts','local-fonts')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Daten über die lokal installierten Schriftarten des Benutzers über die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) sammeln darf (siehe auch die [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)).
+  - : Kontrolliert, ob das aktuelle Dokument Daten über die lokal installierten Schriftarten des Benutzers über die Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) (siehe auch die [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)) sammeln darf.
 
 - {{httpheader('Permissions-Policy/magnetometer','magnetometer')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Schnittstelle sammeln darf.
+  - : Kontrolliert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts durch die [`Magnetometer`](/de/docs/Web/API/Magnetometer) Schnittstelle sammeln darf.
 
 - {{httpheader('Permissions-Policy/microphone','microphone')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument Audioeingabegeräte verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird das von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+  - : Kontrolliert, ob das aktuelle Dokument Audio-Eingabegeräte verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird der von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
 
 - {{httpheader('Permissions-Policy/midi', 'midi')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird das von [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+  - : Kontrolliert, ob das aktuelle Dokument die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) verwenden darf. Wenn diese Richtlinie deaktiviert ist, wird der von [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
 
 - {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{Experimental_Inline}}
-  - : Steuert den Zugriff auf die auf dem Gerät stattfindende Sprachenerkennung der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
+  - : Kontrolliert den Zugriff auf die [On-Device-Spracherkennung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition) Funktionalität der [Web Speech API](/de/docs/Web/API/Web_Speech_API).
 
 - {{httpheader("Permissions-Policy/otp-credentials", "otp-credentials")}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [WebOTP API](/de/docs/Web/API/WebOTP_API) verwenden darf, um ein Einmalkennwort (OTP) von einer speziell formatierten SMS-Nachricht anzufordern, die vom Server der App gesendet wird, d.h. über [`navigator.credentials.get({otp: ..., ...})`](/de/docs/Web/API/CredentialsContainer/get).
+  - : Kontrolliert, ob das aktuelle Dokument die [WebOTP API](/de/docs/Web/API/WebOTP_API) verwenden darf, um ein Einmalpasswort (OTP) aus einer speziell formatierten SMS-Nachricht anzufordern, die vom Server der App gesendet wird, z.B. über [`navigator.credentials.get({otp: ..., ...})`](/de/docs/Web/API/CredentialsContainer/get).
 
 - {{httpheader('Permissions-Policy/payment', 'payment')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf. Wenn diese Richtlinie aktiviert ist, löst der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest)-Konstruktor einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) aus.
+  - : Kontrolliert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf. Wenn diese Richtlinie aktiviert ist, wird der Konstruktor [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest) einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen.
 
 - {{httpheader('Permissions-Policy/picture-in-picture', 'picture-in-picture')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument ein Video im Bild-in-Bild-Modus über die entsprechende API abspielen darf.
+  - : Kontrolliert, ob das aktuelle Dokument ein Video im Picture-in-Picture-Modus über die entsprechende API abspielen darf.
 
 - {{httpheader('Permissions-Policy/private-state-token-issuance','private-state-token-issuance')}} {{Experimental_Inline}}
-  - : Steuert die Verwendung von [Privater Token](/de/docs/Web/API/Private_State_Token_API) `token-request` Operationen.
+  - : Kontrolliert die Nutzung von [Private State Token](/de/docs/Web/API/Private_State_Token_API) `token-request`-Operationen.
 
 - {{httpheader('Permissions-Policy/private-state-token-redemption','private-state-token-redemption')}} {{Experimental_Inline}}
-  - : Steuert die Verwendung von [Privater Token](/de/docs/Web/API/Private_State_Token_API) `token-redemption` und `send-redemption-record` Operationen.
+  - : Kontrolliert die Nutzung von [Private State Token](/de/docs/Web/API/Private_State_Token_API) `token-redemption` und `send-redemption-record`-Operationen.
 
 - {{httpheader("Permissions-Policy/publickey-credentials-create", "publickey-credentials-create")}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden kann, um neue asymmetrische Schlüsselanmeldeinformationen zu erstellen, d.h. über [`navigator.credentials.create({publicKey: ..., ...})`](/de/docs/Web/API/CredentialsContainer/create).
+  - : Kontrolliert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden darf, um neue asymmetrische Schlüsselanmeldeinformationen zu erstellen, d.h. über [`navigator.credentials.create({publicKey: ..., ...})`](/de/docs/Web/API/CredentialsContainer/create).
 
 - {{httpheader("Permissions-Policy/publickey-credentials-get", "publickey-credentials-get")}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden kann, um bereits gespeicherte öffentliche Schlüsselanmeldeinformationen abzurufen, d.h. über [`navigator.credentials.get({publicKey: ..., ...})`](/de/docs/Web/API/CredentialsContainer/get).
+  - : Kontrolliert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden darf, um bereits gespeicherte Anmeldeinformationen für öffentliche Schlüssel abzurufen, d.h. über [`navigator.credentials.get({publicKey: ..., ...})`](/de/docs/Web/API/CredentialsContainer/get).
 
 - {{httpheader('Permissions-Policy/screen-wake-lock', 'screen-wake-lock')}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) verwenden darf, um anzugeben, dass das Gerät den Bildschirm nicht ausschalten oder dimmen soll.
+  - : Kontrolliert, ob das aktuelle Dokument die [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) verwenden darf, um anzuzeigen, dass das Gerät den Bildschirm nicht ausschalten oder abdunkeln soll.
 
 - {{httpheader('Permissions-Policy/serial','serial')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Web Serial API](/de/docs/Web/API/Web_Serial_API) verwenden darf, um mit seriellen Geräten zu kommunizieren, entweder direkt über einen seriellen Anschluss oder über USB- oder Bluetooth-Geräte, die einen seriellen Anschluss emulieren.
+  - : Kontrolliert, ob das aktuelle Dokument die [Web Serial API](/de/docs/Web/API/Web_Serial_API) verwenden darf, um mit seriellen Geräten zu kommunizieren, entweder direkt via einem seriellen Port oder über USB- oder Bluetooth-Geräte, die einen seriellen Port emulieren.
 
 - {{httpheader("Permissions-Policy/speaker-selection", "speaker-selection")}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API) verwenden darf, um Lautsprecher aufzulisten und auszuwählen.
+  - : Kontrolliert, ob das aktuelle Dokument die [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API) verwenden darf, um Lautsprecher aufzulisten und auszuwählen.
 
 - {{httpheader("Permissions-Policy/storage-access", "storage-access")}} {{Experimental_Inline}}
-  - : Steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (d.h. eingebettet in ein {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf unpartitionierte Cookies anzufordern.
+  - : Kontrolliert, ob ein in einem Drittanbieter-Kontext geladenes Dokument (d.h. eingebettet in einem {{htmlelement("iframe")}}) die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugriff auf unpartitionierte Cookies zu beantragen.
 
 - {{httpheader("Permissions-Policy/translator", "translator")}} {{Experimental_Inline}}
-  - : Steuert den Zugriff auf die Übersetzungsfunktionalität der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
+  - : Kontrolliert den Zugriff auf die Übersetzungsfunktionalität der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
 
 - {{httpheader("Permissions-Policy/summarizer", "summarizer")}} {{Experimental_Inline}}
-  - : Steuert den Zugriff auf die [Summarizer API](/de/docs/Web/API/Summarizer_API).
+  - : Kontrolliert den Zugriff auf die [Summarizer API](/de/docs/Web/API/Summarizer_API).
 
 - {{httpheader('Permissions-Policy/usb', 'usb')}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [WebUSB API](/de/docs/Web/API/WebUSB_API) verwenden darf.
+  - : Kontrolliert, ob das aktuelle Dokument die [WebUSB API](/de/docs/Web/API/WebUSB_API) verwenden darf.
 
 - {{httpheader("Permissions-Policy/web-share", "web-share")}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der [Web Share API](/de/docs/Web/API/Web_Share_API) verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige Ziele der Wahl des Benutzers zu teilen, z.B. mobile Apps.
+  - : Kontrolliert, ob das aktuelle Dokument die [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der [Web Share API](/de/docs/Web/API/Web_Share_API) verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige Ziele der Wahl des Benutzers zu teilen, z.B. mobile Apps.
 
 - {{httpheader("Permissions-Policy/window-management", "window-management")}} {{experimental_inline}}
-  - : Steuert, ob das aktuelle Dokument die [Window Management API](/de/docs/Web/API/Window_Management_API) verwenden darf, um Fenster auf mehreren Displays zu verwalten.
+  - : Kontrolliert, ob das aktuelle Dokument die [Window Management API](/de/docs/Web/API/Window_Management_API) verwenden darf, um Fenster auf mehreren Bildschirmen zu verwalten.
 
 - {{httpheader("Permissions-Policy/xr-spatial-tracking", "xr-spatial-tracking")}} {{Experimental_Inline}}
-  - : Steuert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf, um mit einer WebXR-Sitzung zu interagieren.
+  - : Kontrolliert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf, um mit einer WebXR-Sitzung zu interagieren.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-#### Permissions-Policy-Header
+#### `Permissions-Policy`-Header
 
-Um allen Ursprüngen den Zugriff auf Geolocation zu erlauben, würden Sie Folgendes tun:
+Um allen Ursprüngen Zugriff auf die Geolokalisierung zu gewähren, würden Sie dies tun:
 
 ```http
 Permissions-Policy: geolocation=*
 ```
 
-Oder um den Zugriff auf eine Teilmenge von Ursprüngen zu erlauben, würden Sie Folgendes tun:
+Oder um den Zugang auf eine Teilmenge von Ursprüngen zu beschränken, würden Sie dies tun:
 
 ```http
 Permissions-Policy: geolocation=(self "https://a.example.com" "https://b.example.com")
 ```
 
-Mehrere Funktionen können gleichzeitig durch das Senden des Headers mit einer kommagetrennten Liste von Richtlinien oder durch das Senden eines separaten Headers für jede Richtlinie gesteuert werden.
+Mehrere Funktionen können gleichzeitig gesteuert werden, indem der Header mit einer kommagetrennten Liste von Richtlinien gesendet wird, oder indem ein separater Header für jede Richtlinie gesendet wird.
 
-Beispielsweise sind folgende Beispiele gleichwertig:
+Zum Beispiel sind die folgenden äquivalent:
 
 ```http
 Permissions-Policy: picture-in-picture=(), geolocation=(self https://example.com/), camera=*
@@ -241,15 +241,15 @@ Permissions-Policy: camera=*
 
 #### iframes
 
-Für ein `<iframe>`, um eine Funktion aktiviert zu haben, muss auch der erlaubte Ursprung in der Allowlist für die übergeordnete Seite vorhanden sein. Aufgrund dieses [Vererbungverhaltens](/de/docs/Web/HTTP/Guides/Permissions_Policy#inheritance_of_policies_for_embedded_content) ist es eine gute Idee, die breiteste akzeptable Unterstützung für eine Funktion im HTTP-Header zu spezifizieren und dann die Teilmenge der Unterstützung, die Sie in jedem `<iframe>` benötigen.
+Damit eine Funktion in einem `<iframe>` aktiviert ist, muss auch das erlaubte Ursprung in der Allowlist der übergeordneten Seite sein. Aufgrund dieses [Vererbungseffekts](/de/docs/Web/HTTP/Guides/Permissions_Policy#inheritance_of_policies_for_embedded_content) ist es eine gute Idee, die weitest akzeptable Unterstützung für eine Funktion im HTTP-Header anzugeben und dann das erforderliche Unterstützungsspektrum in jedem `<iframe>` zu spezifizieren.
 
-Um allen Ursprüngen den Zugriff auf Geolocation zu erlauben, würden Sie Folgendes tun:
+Um allen Ursprüngen Zugriff auf die Geolokalisierung zu gewähren, würden Sie dies tun:
 
 ```html
 <iframe src="https://example.com" allow="geolocation *"></iframe>
 ```
 
-Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, würden Sie Folgendes tun:
+Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, würden Sie dies tun:
 
 ```html
 <iframe
@@ -257,9 +257,9 @@ Um eine Richtlinie auf den aktuellen Ursprung und andere anzuwenden, würden Sie
   allow="geolocation 'self' https://a.example.com https://b.example.com"></iframe>
 ```
 
-Dies ist wichtig: Standardmäßig, wenn ein `<iframe>` zu einem anderen Ursprung navigiert, wird die Richtlinie nicht auf den Ursprung angewendet, auf den das `<iframe>` navigiert. Indem der Ursprung, auf den das `<iframe>` navigiert, im `allow`-Attribut aufgeführt wird, wird die Permissions Policy, die auf das ursprüngliche `<iframe>` angewendet wurde, auf den Ursprung angewendet, zu dem das `<iframe>` navigiert.
+Dies ist wichtig: Standardmäßig wird eine Richtlinie nicht auf den Ursprung angewendet, zu dem ein `<iframe>` navigiert, wenn es zu einem anderen Ursprung navigiert. Indem der Ursprung, zu dem das `<iframe>` navigiert, im `allow`-Attribut aufgeführt ist, wird die auf das ursprüngliche `<iframe>` angewendete Permissions Policy auch auf den Ursprung angewendet, zu dem das `<iframe>` navigiert.
 
-Mehrere Funktionen können gleichzeitig gesteuert werden, indem eine durch Semikolon getrennte Liste von Richtliniendirektiven im `allow`-Attribut angegeben wird.
+Mehrere Funktionen können gleichzeitig gesteuert werden, indem eine durch Semikolon getrennte Liste von Richtliniendirektiven im `allow`-Attribut enthalten ist.
 
 ```html
 <iframe
@@ -267,38 +267,38 @@ Mehrere Funktionen können gleichzeitig gesteuert werden, indem eine durch Semik
   allow="geolocation 'self' https://a.example.com https://b.example.com; fullscreen 'none'"></iframe>
 ```
 
-Es ist erwähnenswert, den `src`-Wert besonders zu erwähnen. Wir haben oben erwähnt, dass die Verwendung dieses Allowlist-Wertes bedeuten wird, dass die zugeordnete Funktion in diesem `<iframe>` erlaubt wird, solange das darin geladene Dokument vom selben Ursprung stammt wie die URL im {{HTMLElement('iframe','src','#Attributes')}}-Attribut. Dieser Wert ist der _Standard_`allowlist`-Wert für Funktionen, die in `allow` aufgeführt sind, daher sind die folgenden gleichwertig:
+Ein besonderer Hinweis gilt dem `src`-Wert. Wir haben oben erwähnt, dass die Verwendung dieses Allowlist-Wertes bedeutet, dass die zugehörige Funktion in diesem `<iframe>` erlaubt wird, solange das darin geladen Dokument aus demselben Ursprung wie die URL im {{HTMLElement('iframe','src','#Attributes')}}-Attribut stammt. Dieser Wert ist der _default_ `Allowlist`-Wert für Funktionen, die in `allow` aufgeführt sind, so dass die folgenden äquivalent sind:
 
 ```html
 <iframe src="https://example.com" allow="geolocation 'src'"></iframe>
 <iframe src="https://example.com" allow="geolocation"></iframe>
 ```
 
-### Zugriff auf leistungsstarke Funktionen verweigern
+### Zugang zu leistungsstarken Funktionen verweigern
 
-SecureCorp Inc. möchte die Mikrofon- (z.B. [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)) und [`Geolocation`](/de/docs/Web/API/Geolocation)-APIs in seiner Anwendung deaktivieren. Das kann mithilfe des folgenden Antwortheaders erreicht werden:
+SecureCorp Inc. möchte die APIs für Mikrofon (zum Beispiel [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)) und [`Geolocation`](/de/docs/Web/API/Geolocation) in ihrer Anwendung deaktivieren. Dies kann mit folgendem Antwort-Header erfolgen:
 
 ```http
 Permissions-Policy: microphone=(), geolocation=()
 ```
 
-Durch die Angabe von `()` für die Ursprungsliste werden die angegebenen Funktionen für alle Browsing-Kontexte deaktiviert (einschließlich aller `<iframe>`s), unabhängig von ihrem Ursprung.
+Durch Angabe von `()` für die Ursprungsliste werden die angegebenen Funktionen für alle Browsing-Kontexte (einschließlich aller `<iframe>`s) deaktiviert, unabhängig von ihrem Ursprung.
 
-### Kombination von HTTP-Header und `<iframe>`-Richtlinien
+### Kombination von HTTP-Header- und `<iframe>`-Richtlinien
 
-Nehmen wir zum Beispiel an, dass wir die Nutzung von Geolocation auf unserem eigenen Ursprung und in eingebetteten Inhalten unseres vertrauenswürdigen Ad-Netzwerks ermöglichen wollten. Wir könnten die seitenweite Permissions Policy folgendermaßen einrichten:
+Angenommen, wir möchten die Nutzung der Geolokalisierungsfunktion auf unserem eigenen Ursprung und in eingebetteten Inhalten, die von unserem vertrauenswürdigen Werbenetzwerk stammen, aktivieren. Wir könnten die seitweite Permissions Policy so einrichten:
 
 ```http
 Permissions-Policy: geolocation=(self https://trusted-ad-network.com)
 ```
 
-In unseren Werbeanzeigen-`<iframe>`s könnten wir den Zugriff auf den `https://trusted-ad-network.com`-Ursprung so einrichten:
+In unseren Werbe-`<iframe>`s könnten wir den Zugriff auf den Ursprung `https://trusted-ad-network.com` wie folgt einrichten:
 
 ```html
 <iframe src="https://trusted-ad-network.com" allow="geolocation"></iframe>
 ```
 
-Wenn ein anderer Ursprung schließlich in das `<iframe>` geladen wird, hätte es keinen Zugriff auf Geolocation:
+Wenn in das `<iframe>` ein anderer Ursprung geladen wird, hätte er keinen Zugriff auf die Geolokalisierung:
 
 ```html
 <iframe src="https://rogue-origin-example.com" allow="geolocation"></iframe>

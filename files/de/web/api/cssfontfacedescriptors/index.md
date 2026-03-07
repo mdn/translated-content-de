@@ -2,48 +2,48 @@
 title: CSSFontFaceDescriptors
 slug: Web/API/CSSFontFaceDescriptors
 l10n:
-  sourceCommit: 1d5c902cab960d469baba95eb12cd421769b9111
+  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM")}}{{SeeCompatTable}}
 
-Das **`CSSFontFaceDescriptors`**-Interface repräsentiert einen CSS-Deklarationsblock für eine {{cssxref("@font-face")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules).
+Das **`CSSFontFaceDescriptors`**-Interface repräsentiert einen CSS-Deklarationsblock für eine {{cssxref("@font-face")}}-[@-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules).
 
-Jeder Deskriptor im Körper der entsprechenden {{cssxref("@font-face")}}-At-Regel kann entweder mit seinem Eigenschaftsnamen im Kebab-Case in [Klammernotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder der Eigenschaft im Camel-Case in [Punktnotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel kann auf den `font-family` CSS-Deskriptor als `style["font-family"]` oder `style.fontFamily` zugegriffen werden, wobei `style` eine Instanz von `CSSFontFaceDescriptors` ist.
+Jeder Deskriptor im Körper der entsprechenden {{cssxref("@font-face")}}-@-Regel kann entweder über seinen Kebab-Case-Eigenschaftsnamen in der [Bracket-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder die Camel-Case-Version des Eigenschaftsnamens in der [Dot-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel können Sie auf den `font-family`-CSS-Deskriptor als `style["font-family"]` oder `style.fontFamily` zugreifen, wobei `style` eine Instanz von `CSSFontFaceDescriptors` ist.
 
 > [!NOTE]
-> Das [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)-Interface repräsentiert eine {{cssxref("@font-face")}}-At-Regel, und die [`CSSFontFaceRule.style`](/de/docs/Web/API/CSSFontFaceRule/style)-Eigenschaft ist eine Instanz dieses Objekts.
+> Die [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)-Schnittstelle repräsentiert eine {{cssxref("@font-face")}}-@-Regel, und die [`CSSFontFaceRule.style`](/de/docs/Web/API/CSSFontFaceRule/style)-Eigenschaft ist eine Instanz dieses Objekts.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
-Die folgenden Eigenschaftsnamen im Kebab-Case (Zugriff über Klammernotation) und Camel-Case (Zugriff über Punktnotation) repräsentieren jeweils den Wert eines Deskriptors in der entsprechenden `@font-face`-At-Regel:
+Die folgenden Eigenschaftsnamen in Kebab-Case (zugänglich über die Bracket-Notation) und Camel-Case (zugänglich über die Dot-Notation) stellen jeweils den Wert eines Deskriptors in der entsprechenden `@font-face`-@-Regel dar:
 
-- `font-display` oder `fontDisplay`
+- `font-display` oder `fontDisplay` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-display", "font-display")}}-Deskriptors repräsentiert.
-- `font-family` oder `fontFamily`
+- `font-family` oder `fontFamily` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-family", "font-family")}}-Deskriptors repräsentiert.
-- `font-feature-settings` oder `fontFeatureSettings`
+- `font-feature-settings` oder `fontFeatureSettings` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-feature-settings", "font-feature-settings")}}-Deskriptors repräsentiert.
-- `font-stretch` oder `fontStretch`
+- `font-stretch` oder `fontStretch` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-stretch", "font-stretch")}}-Deskriptors repräsentiert.
-- `font-style` oder `fontStyle`
+- `font-style` oder `fontStyle` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-style", "font-style")}}-Deskriptors repräsentiert.
-- `font-weight` oder `fontWeight`
+- `font-weight` oder `fontWeight` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-weight", "font-weight")}}-Deskriptors repräsentiert.
-- `font-width` oder `fontWidth`
+- `font-width` oder `fontWidth` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/font-width", "font-width")}}-Deskriptors repräsentiert.
-- `size-adjust` oder `sizeAdjust`
+- `size-adjust` oder `sizeAdjust` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/size-adjust", "size-adjust")}}-Deskriptors repräsentiert.
-- `src`
+- `src` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/src", "src")}}-Deskriptors repräsentiert.
-- `unicode-range` oder `unicodeRange`
+- `unicode-range` oder `unicodeRange` {{experimental_inline}}
   - : Ein String, der den Wert des {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptors repräsentiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 

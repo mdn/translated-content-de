@@ -2,10 +2,10 @@
 title: HTMLSelectedContentElement
 slug: Web/API/HTMLSelectedContentElement
 l10n:
-  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
+  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
 Die **`HTMLSelectedContentElement`**-Schnittstelle repräsentiert ein {{HTMLElement("selectedcontent")}}-Element im [DOM](/de/docs/Web/API/Document_Object_Model).
 
@@ -13,11 +13,11 @@ Die **`HTMLSelectedContentElement`**-Schnittstelle repräsentiert ein {{HTMLElem
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine Eigenschaften, erbt jedoch Eigenschaften von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von: [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

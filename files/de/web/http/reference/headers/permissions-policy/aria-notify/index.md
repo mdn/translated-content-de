@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: aria-notify Richtlinie"
+title: "Permissions-Policy: aria-notify Direktive"
 short-title: aria-notify
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/aria-notify
 l10n:
-  sourceCommit: 11e09e7c584658fbfbecd2f00ae66e546cd54cc0
+  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
 ---
 
-{{SeeCompatTable}}{{non-standard_header}}
+{{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `aria-notify`-Richtlinie steuert, ob das aktuelle Dokument die Methoden [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) und [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify) verwenden darf, um {{Glossary("screen_reader", "Screenreader")}}-Ankündigungen abzusetzen.
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `aria-notify` Direktive steuert, ob das aktuelle Dokument die Methoden [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) und [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify) verwenden darf, um {{Glossary("screen_reader", "Screenreader")}}-Ankündigungen auszulösen.
 
-Konkret bedeutet dies, dass dort, wo eine definierte Richtlinie die Nutzung blockiert, alle Ankündigungen, die mithilfe von `ariaNotify()` erstellt werden, stillschweigend fehlschlagen (sie werden nicht gesendet).
+Insbesondere dort, wo eine definierte Richtlinie die Nutzung blockiert, schlagen Ankündigungen, die mit `ariaNotify()` erstellt wurden, stillschweigend fehl (sie werden nicht gesendet).
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Permissions-Policy: aria-notify=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-`allowlist` für `aria-notify` ist `self`.
+Die Standard-Zulassungsliste für `aria-notify` ist `self`.
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Die Standard-`allowlist` für `aria-notify` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
 - [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify), [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify)
