@@ -62,7 +62,7 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur dedizierte Worker)
 - [Network Information API](/de/docs/Web/API/Network_Information_API)
 - [Notifications API](/de/docs/Web/API/Notifications_API)
-- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
+- [Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)
 - [Performance API](/de/docs/Web/API/Performance_API)
 - [Permissions API](/de/docs/Web/API/Permissions_API)
 - [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)

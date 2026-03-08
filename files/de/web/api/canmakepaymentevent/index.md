@@ -2,24 +2,24 @@
 title: CanMakePaymentEvent
 slug: Web/API/CanMakePaymentEvent
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
 ---
 
-{{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
+{{APIRef("Web-Based Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`CanMakePaymentEvent`**-Schnittstelle der [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) ist das Ereignisobjekt für das [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event)-Ereignis, das beim Service Worker einer Zahlungs-App ausgelöst wird, um zu prüfen, ob es bereit ist, eine Zahlung zu bearbeiten. Es wird speziell ausgelöst, wenn die Händler-Website den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufruft.
+Das **`CanMakePaymentEvent`** Interface der [Web-Based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API) ist das Ereignisobjekt für das [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event) Ereignis, das im Service Worker einer Zahlungs-App ausgelöst wird, um zu prüfen, ob es bereit ist, eine Zahlung zu bearbeiten. Insbesondere wird es ausgelöst, wenn die Händler-Website den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufruft.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CanMakePaymentEvent()`](/de/docs/Web/API/CanMakePaymentEvent/CanMakePaymentEvent) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des `CanMakePaymentEvent`-Objekts.
+  - : Erstellt eine neue Instanz des `CanMakePaymentEvent` Objekt.
 
 ## Instanzmethoden
 
 - [`respondWith()`](/de/docs/Web/API/CanMakePaymentEvent/respondWith) {{Experimental_Inline}}
-  - : Ermöglicht dem Service Worker angemessen zu antworten, um anzuzeigen, ob er bereit ist, Zahlungen zu bearbeiten.
+  - : Ermöglicht es dem Service Worker, angemessen zu reagieren, um anzuzeigen, ob er bereit ist, Zahlungen zu bearbeiten.
 
 ## Beispiele
 
@@ -49,9 +49,9 @@ self.addEventListener("canmakepayment", (e) => {
 
 ## Siehe auch
 
-- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
-- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Web-Based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)
+- [Überblick über Web-basierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzeptionen der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte zur Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

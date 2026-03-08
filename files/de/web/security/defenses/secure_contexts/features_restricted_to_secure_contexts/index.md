@@ -3,14 +3,14 @@ title: Funktionen, die auf sichere Kontexte beschränkt sind
 short-title: Beschränkte Funktionen
 slug: Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
 ---
 
-Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) für eine Definition und weitere Details.
+Diese Referenz listet die Web-Plattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) für eine Definition und weitere Details.
 
-## Derzeit nur in sicheren Kontexten verfügbare Funktionen
+## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
-Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Kontexten verfügbar sind.
+Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Kontexten verfügbar sind.
 
 - [Async Clipboard API](/de/docs/Web/API/Clipboard)
 - [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
@@ -37,7 +37,7 @@ Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Konte
 - [Keyboard API](/de/docs/Web/API/Keyboard_API)
 - [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)
 - [Notifications API](/de/docs/Web/API/Notifications_API)
-- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
+- [Web-basierte Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Presentation API](/de/docs/Web/API/Presentation_API)
 - [Push API](/de/docs/Web/API/Push_API)
@@ -65,7 +65,7 @@ Dieser Abschnitt listet APIs auf, die laut Spezifikationen nur in sicheren Konte
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
 - [Window Management API](/de/docs/Web/API/Window_Management_API)
 
-Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
+Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
 
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler)

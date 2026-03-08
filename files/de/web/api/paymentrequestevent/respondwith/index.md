@@ -1,14 +1,14 @@
 ---
-title: "PaymentRequestEvent: respondWith()-Methode"
+title: "PaymentRequestEvent: respondWith() Methode"
 short-title: respondWith()
 slug: Web/API/PaymentRequestEvent/respondWith
 l10n:
-  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
+  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
 ---
 
-{{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
+{{APIRef("Web-Based Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`respondWith()`**-Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces verhindert die standardmäßige Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Zahlungshandler-Antwortobjekt bereitzustellen.
+Die **`respondWith()`** Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent) Interfaces verhindert die Standard-Ereignisverarbeitung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Antwortobjekt des Zahlungshandlers bereitzustellen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ respondWith(promise)
 ### Parameter
 
 - `promise`
-  - : Ein Zahlungshandler-Antwortobjekt oder ein {{jsxref('Promise')}}, das zu einem solchen aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
+  - : Ein Antwortobjekt des Zahlungshandlers oder ein {{jsxref('Promise')}}, das zu einem solchen aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
     - `methodName`
-      - : Der Zahlungsarten-Identifikator für die Zahlungsmethode, die der Benutzer ausgewählt hat, um die Transaktion zu erfüllen.
+      - : Der Bezahlmethoden-Identifikator für die Zahlungsmethode, die der Benutzer ausgewählt hat, um die Transaktion zu erfüllen.
     - `details`
-      - : Ein JSON-serialisierbares Objekt, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen. Siehe [8.1.2 `details`-Attribut](https://w3c.github.io/web-based-payment-handler/#details-attribute) für weitere Details.
+      - : Ein JSON-serialisierbares Objekt, das eine zahlungsmethoden-spezifische Nachricht enthält, die vom Händler zur Verarbeitung der Transaktion und zur Bestimmung eines erfolgreichen Geldtransfers verwendet wird. Siehe [8.1.2 `details` Attribut](https://w3c.github.io/web-based-payment-handler/#details-attribute) für weitere Details.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus [Open the payment handler window to display the web-based payment app frontend](https://web.dev/articles/orchestrating-payment-transactions#open-payment-handler-window). Lesen Sie den Artikel, um den Kontext des Codes zu verstehen.
+Das untenstehende Beispiel ist [Öffnen Sie das Zahlungsfenster, um die Web-basierte Zahlungs-App-Frontend anzuzeigen](https://web.dev/articles/orchestrating-payment-transactions#open-payment-handler-window) entnommen. Lesen Sie den Artikel, um den Kontext des Codes zu verstehen.
 
 ```js
 self.addEventListener("paymentrequest", async (e) => {
@@ -65,8 +65,8 @@ self.addEventListener("paymentrequest", async (e) => {
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Überblick über Web-basierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Zahlungsverarbeitungs-Konzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

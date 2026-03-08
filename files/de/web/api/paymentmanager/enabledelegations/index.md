@@ -3,17 +3,17 @@ title: "PaymentManager: enableDelegations() Methode"
 short-title: enableDelegations()
 slug: Web/API/PaymentManager/enableDelegations
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 73ca80b86a348f88f51fdb8f9441c114b76e94f1
 ---
 
-{{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Web-Based Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`enableDelegations()`** Methode des [`PaymentManager`](/de/docs/Web/API/PaymentManager) Interfaces delegiert die Verantwortung für das Bereitstellen verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungs-App, anstatt sie vom Browser (zum Beispiel über Autofill) zu sammeln.
+Die **`enableDelegations()`** Methode der [`PaymentManager`](/de/docs/Web/API/PaymentManager) Schnittstelle delegiert die Verantwortung für die Bereitstellung verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungs-App, anstatt diese vom Browser zu sammeln (zum Beispiel über die Autoausfüllfunktion).
 
-Zum Beispiel, wenn die Option `requestShipping` im Optionsobjekt auf `true` gesetzt ist, wenn der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufgerufen wird, wird eine Lieferadresse zurückgegeben.
+Beispielsweise wird, wenn die `requestShipping` Option im Optionsobjekt auf `true` gesetzt ist, beim Aufruf des Konstruktors [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) eine Versandadresse zurückgegeben.
 
-- Wenn `enableDelegations()` benutzt wurde, um `shippingAddress` zu delegieren, wird diese Adresse von der Zahlungs-App bereitgestellt.
-- Andernfalls wird sie vom Browser-Autofill bereitgestellt.
+- Wenn `enableDelegations()` verwendet wurde, um `shippingAddress` zu delegieren, kommt diese Adresse von der Zahlungs-App.
+- Andernfalls wird sie vom Browser-Autoausfüllen bereitgestellt.
 
 ## Syntax
 
@@ -24,19 +24,19 @@ enableDelegations(delegations)
 ### Parameter
 
 - `delegations` {{optional_inline}}
-  - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die die Zahlungsinformationen angeben, die Sie an die Zahlungs-App delegieren möchten. Mögliche Werte sind:
+  - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die die Zahlungsinformationen spezifizieren, die Sie der Zahlungs-App delegieren möchten. Mögliche Werte können sein:
     - `payerEmail`
-      - : Die Zahlungs-App wird die E-Mail-Adresse des Zahlers bereitstellen, wenn sie benötigt wird.
+      - : Die Zahlungs-App stellt die E-Mail des Zahlers bereit, wann immer sie benötigt wird.
     - `payerName`
-      - : Die Zahlungs-App wird den Namen des Zahlers bereitstellen, wenn er benötigt wird.
+      - : Die Zahlungs-App stellt den Namen des Zahlers bereit, wann immer er benötigt wird.
     - `payerPhone`
-      - : Die Zahlungs-App wird die Telefonnummer des Zahlers bereitstellen, wenn sie benötigt wird.
+      - : Die Zahlungs-App stellt die Telefonnummer des Zahlers bereit, wann immer sie benötigt wird.
     - `shippingAddress`
-      - : Die Zahlungs-App wird die Lieferadresse bereitstellen, wenn sie benötigt wird.
+      - : Die Zahlungs-App stellt die Versandadresse bereit, wann immer sie benötigt wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem Wert von `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem Wert von `undefined` aufgelöst wird.
 
 ## Beispiele
 
@@ -64,9 +64,9 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 
 ## Siehe auch
 
-- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
-- [Überblick über webbasierte Zahlungsanwendungen](https://web.dev/articles/web-based-payment-apps-overview)
+- [Web-based Payment Handler API](/de/docs/Web/API/Web-Based_Payment_Handler_API)
+- [Übersicht zu web-basierten Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)
