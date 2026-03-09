@@ -3,16 +3,16 @@ title: Firefox 149 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 149 (Beta)
 slug: Mozilla/Firefox/Releases/149
 l10n:
-  sourceCommit: e18965d0c9cbab33fb8b6286d0c4ebd6df70fff7
+  sourceCommit: 4ce8f1db7ea759cc755c96f7d668ca6ba92483b1
 ---
 
-Dieser Artikel bietet Informationen zu den Änderungen in Firefox 149, die Entwickler betreffen.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 149, die Entwickler betreffen.
 Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [24. März 2026](https://whattrainisitnow.com/release/?version=149) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften ein, zu denen Sie Hinweise schreiben -->
+<!-- Autoren: Bitte heben Sie die Überschriften hervor, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -20,9 +20,9 @@ Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ### HTML
 
-- Das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globale Attribut unterstützt jetzt den Wert [`hint`](/de/docs/Web/HTML/Reference/Global_attributes/popover#hint). Popovers mit dem Wert `hint` schließen keine `auto` Popovers, wenn sie angezeigt werden, schließen aber andere Hint-Popovers. ([Firefox-Bug 1867743](https://bugzil.la/1867743)).
+- Das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globale Attribut unterstützt jetzt den Wert [`hint`](/de/docs/Web/HTML/Reference/Global_attributes/popover#hint). Popovers mit dem Wert `hint` schließen keine `auto` Popovers, wenn sie angezeigt werden, aber sie schließen andere Hinweis-Popovers. ([Firefox Fehler 1867743](https://bugzil.la/1867743)).
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -40,7 +40,7 @@ Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### JavaScript -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -56,25 +56,25 @@ Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 #### DOM
 
-- Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Schnittstelle wird nun unterstützt.
-  Dies ermöglicht es Entwicklern, Komponenten zu implementieren, die mit gerätenativen Mechanismen geschlossen werden können, wie z.B. <kbd>Esc</kbd> auf Windows oder die <kbd>Zurück</kbd>-Taste auf Android, ähnlich wie bei eingebauten Komponenten wie [dialogen](/de/docs/Web/HTML/Reference/Elements/dialog) und [popovers](/de/docs/Web/API/Popover_API).
-  ([Firefox-Bug 1966073](https://bugzil.la/1966073)).
+- Die [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Schnittstelle wird jetzt unterstützt.
+  Dies ermöglicht es Entwicklern, Komponenten zu implementieren, die mit nativen Geräte-Mechanismen geschlossen werden können, wie z.B. die <kbd>Esc</kbd> auf Windows oder die <kbd>Zurück</kbd>-Taste auf Android, auf die gleiche Weise wie eingebaute Komponenten wie [dialogs](/de/docs/Web/HTML/Reference/Elements/dialog) und [popovers](/de/docs/Web/API/Popover_API).
+  ([Firefox Fehler 1966073](https://bugzil.la/1966073)).
 
 #### Medien, WebRTC und Web Audio
 
-- Die Methode [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) wird nun unterstützt.
-  Diese gibt ein Objekt zurück, das den Echtzeit-Capture des Inhalts im Element streamt.
+- Die [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) Methode wird jetzt unterstützt.
+  Diese gibt ein Objekt zurück, das die Echtzeit-Erfassung des Inhalts im Element streamt.
   Der Stream kann beispielsweise als Quelle für eine WebRTC [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet werden.
-  Bisher war `captureStream()` nur als nicht standardisiertes `mozCaptureStream()`-Verfahren verfügbar.
-  ([Firefox-Bug 2017708](https://bugzil.la/2017708)).
+  Zuvor war `captureStream()` nur als die nicht standardisierte Methode `mozCaptureStream()` verfügbar.
+  ([Firefox Fehler 2017708](https://bugzil.la/2017708)).
 
-- [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) berücksichtigt jetzt die Lautstärke des Medienelements beim Erfassen von Audio für alle Arten von Quellen (wie in der Spezifikation gefordert).
-  Bisher beeinflusste das Einstellen der Lautstärke des Elements nicht das erfasste Audio für [`MediaStream`](/de/docs/Web/API/MediaStream) Quellen.
-  ([Firefox-Bug 2010427](https://bugzil.la/2010427)).
+- [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) berücksichtigt jetzt die Lautstärke des Medien-Elements, wenn Audio für alle Arten von Quellen erfasst wird (wie von der Spezifikation gefordert).
+  Zuvor hatte das Einstellen der Lautstärke des Elements keinen Einfluss auf das erfasste Audio für [`MediaStream`](/de/docs/Web/API/MediaStream) Quellen.
+  ([Firefox Fehler 2010427](https://bugzil.la/2010427)).
 
-- Die Methode [`HTMLMediaElement.mozCaptureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) erfasst nun rohes Audio von der Quelle, ohne die Lautstärke des Medienelements anzuwenden, unabhängig vom Typ der Quelle, die das Medienelement abspielt (wie in der Spezifikation gefordert).
-  Vor dieser Änderung beeinflusste die Lautstärke des Medienelements die Lautstärke des erfassten Streams.
-  ([Firefox-Bug 2010427](https://bugzil.la/2010427)).
+- Die [`HTMLMediaElement.mozCaptureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) Methode erfasst jetzt rohes Audio von der Quelle, ohne die Lautstärke des Medien-Elements anzuwenden, unabhängig davon, welche Art von Quelle das Medien-Element abspielt (wie von der Spezifikation gefordert).
+  Vor dieser Änderung beeinflusste die Lautstärke des Medien-Elements die Lautstärke des erfassten Streams.
+  ([Firefox Fehler 2010427](https://bugzil.la/2010427)).
 
 <!-- #### Entfernungen -->
 
@@ -82,7 +82,7 @@ Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Entfernungen -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Komformität (WebDriver BiDi, Marionette) -->
 
 <!-- #### Allgemein -->
 
@@ -94,12 +94,20 @@ Firefox 149 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### Entfernungen -->
 
-Die Fähigkeit von Erweiterungen, Code in ihren `moz-extension:` Dokumenten mit {{WebExtAPIRef("tabs.executeScript")}}, {{WebExtAPIRef("tabs.insertCSS")}}, {{WebExtAPIRef("tabs.removeCSS")}}, {{WebExtAPIRef("scripting.executeScript")}}, {{WebExtAPIRef("scripting.insertCSS")}}, und {{WebExtAPIRef("scripting.removeCSS")}} dynamisch auszuführen, ist veraltet. Die Funktion steht in Firefox Nightly nicht mehr zur Verfügung und die Beta- und Release-Versionen von Firefox zeigen eine Warnung in der Konsole der Registerkarte an. Diese Einschränkung wird für alle Versionen von Firefox 152 und später gelten. Als Alternative kann eine Erweiterung Code in ihren Dokumenten dynamisch ausführen, indem sie einen {{WebExtAPIRef("runtime.onMessage")}}-Listener im Skript des Dokuments registriert und dann eine Nachricht sendet, um die Ausführung des erforderlichen Codes auszulösen. ({{bug(2011234)}})
+Die Fähigkeit von Erweiterungen, Code dynamisch in ihren `moz-extension:` Dokumenten mit {{WebExtAPIRef("tabs.executeScript")}}, {{WebExtAPIRef("tabs.insertCSS")}}, {{WebExtAPIRef("tabs.removeCSS")}}, {{WebExtAPIRef("scripting.executeScript")}}, {{WebExtAPIRef("scripting.insertCSS")}}, und {{WebExtAPIRef("scripting.removeCSS")}} auszuführen, ist veraltet. Die Funktion steht nicht mehr in Firefox Nightly zur Verfügung, und die Beta- und Release-Versionen von Firefox geben eine Warnung in der Konsolenansicht des Tabs aus. Diese Einschränkung gilt für alle Versionen von Firefox 152 und später. Als Alternative kann eine Erweiterung Code in ihren Dokumenten dynamisch ausführen, indem ein {{WebExtAPIRef("runtime.onMessage")}} Listener im Skript des Dokuments registriert wird, dann wird eine Nachricht gesendet, um die Ausführung des benötigten Codes auszulösen.({{bug(2011234)}})
 
-<!-- ### Sonstiges -->
+<!-- ### Andere -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Features sind in Firefox 149 enthalten, aber standardmäßig deaktiviert.
-Um sie zu testen, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen werden in Firefox 149 bereitgestellt, sind jedoch standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+
+- **`<attr-type>` Werte in der `attr()` CSS Funktion**: `layout.css.attr.enabled`
+
+  Die {{cssxref("attr")}} CSS-Funktion unterstützt jetzt [`<attr-type>`](/de/docs/Web/CSS/Reference/Values/attr#attr-type) Werte. Dies ermöglicht es, festzulegen, wie ein Attributwert in einen CSS-Wert umgewandelt wird, und diese Werte direkt aus [`data-*`](/de/docs/Web/HTML/How_to/Use_data_attributes) zu übernehmen. ([Firefox Fehler 1986631](https://bugzil.la/1986631) & [Firefox Fehler 1998245](https://bugzil.la/1998245)).
+
+- **`color-mix()` akzeptiert mehrere Farbargumente**: `layout.css.color-mix-multi-color.enabled`
+
+  Die [`color-mix()`](/de/docs/Web/CSS/Reference/Values/color_value/color-mix) CSS-Funktion unterstützt jetzt mehrere [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value) Werte, anstatt nur zwei. Dies ermöglicht es, viele Farben zu mischen und die Prozentsätze jeder Farbe festzulegen. ([Firefox Fehler 2007772](https://bugzil.la/2007772)).

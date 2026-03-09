@@ -2,14 +2,14 @@
 title: CookieStore
 slug: Web/API/CookieStore
 l10n:
-  sourceCommit: 372d2f15b56a753235002946c7775d0b38f6f3eb
+  sourceCommit: f26af77e5448a44bb2e53f86db99a33e7379f9d5
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Das **`CookieStore`**-Interface der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) bietet Methoden zum asynchronen Abrufen und Setzen von Cookies, sowohl von einer Seite als auch von einem Service Worker.
+Das **`CookieStore`**-Interface der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) bietet Methoden zum asynchronen Abrufen und Setzen von Cookies von einer Seite oder einem Service Worker.
 
-Auf das `CookieStore` wird über Attribute im globalen Umfang in einem [`Window`](/de/docs/Web/API/Window) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Kontext zugegriffen. Daher gibt es keinen Konstruktor.
+Auf das `CookieStore` wird über Attribute im globalen Scope in einem [`Window`](/de/docs/Web/API/Window) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Kontext zugegriffen. Daher gibt es keinen Konstruktor.
 
 {{InheritanceDiagram}}
 
@@ -17,7 +17,7 @@ Auf das `CookieStore` wird über Attribute im globalen Umfang in einem [`Window`
 
 - [`CookieStore.delete()`](/de/docs/Web/API/CookieStore/delete)
   - : Die `delete()`-Methode löscht ein Cookie mit dem angegebenen `name` oder `options`-Objekt.
-    Sie gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die Löschung abgeschlossen ist oder wenn keine Cookies übereinstimmen.
+    Sie gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Löschung abgeschlossen ist oder wenn keine Cookies übereinstimmen.
 - [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get)
   - : Die `get()`-Methode ruft ein einzelnes Cookie mit dem angegebenen `name` oder `options`-Objekt ab.
     Sie gibt ein {{jsxref("Promise")}} zurück, das mit den Details eines einzelnen Cookies aufgelöst wird.
@@ -26,7 +26,7 @@ Auf das `CookieStore` wird über Attribute im globalen Umfang in einem [`Window`
     Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer Liste von Cookies aufgelöst wird.
 - [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set)
   - : Die `set()`-Methode setzt ein Cookie mit dem angegebenen `name` und `value` oder `options`-Objekt.
-    Sie gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Cookie gesetzt ist.
+    Sie gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Cookie gesetzt wurde.
 
 ## Ereignisse
 
@@ -35,15 +35,15 @@ Auf das `CookieStore` wird über Attribute im globalen Umfang in einem [`Window`
 
 ## Beispiele
 
-Die folgenden Beispiele können getestet werden, indem der Code in eine Testumgebung kopiert und mit einem [lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) ausgeführt wird, oder durch das Bereitstellen auf einer Website wie GitHub Pages.
+Die untenstehenden Beispiele können getestet werden, indem der Code in einer Testumgebung ausgeführt wird, entweder über einen [lokalen Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) oder durch Deployment auf einer Website wie GitHub Pages.
 
-<!-- Die Beispiele funktionieren aufgrund unbekannter Fehler nicht als Live-Beispiele in der MDN-Umgebung -->
+<!-- Die Beispiele funktionieren nicht als Live-Beispiele in der MDN-Umgebung (aufgrund unbekannter Fehler) -->
 
-### Setzen von Cookies
+### Cookies setzen
 
-Dieses Beispiel zeigt, wie Cookies gesetzt werden, indem ein `name` und `value` übergeben werden und indem ein `options`-Wert gesetzt wird.
+Dieses Beispiel zeigt, wie Cookies gesetzt werden, indem ein `name` und `value` übergeben werden, und indem ein `options`-Wert gesetzt wird.
 
-Die `cookieTest()`-Methode setzt ein Cookie mit den Eigenschaften `name` und `value` und ein weiteres mit den Eigenschaften `name`, `value` und `expires`.
+Die `cookieTest()`-Methode setzt ein Cookie mit `name` und `value`-Eigenschaften und ein weiteres mit `name`, `value` und `expires`-Eigenschaften.
 Wir verwenden dann die [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get)-Methode, um jedes der Cookies abzurufen, die dann protokolliert werden.
 
 ```js
@@ -80,13 +80,16 @@ async function cookieTest() {
 cookieTest();
 ```
 
-### Abrufen von Cookies
+> [!NOTE]
+> In [unterstützten Browsern](/de/docs/Web/API/CookieStore/set#browser_compatibility) können Sie das Ablaufdatum des Cookies mithilfe von `maxAge` anstelle von `expires` festlegen.
+
+### Cookies abrufen
 
 Dieses Beispiel zeigt, wie Sie ein bestimmtes Cookie mit [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get) oder alle Cookies mit [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) abrufen können.
 
-Der Beispielcode setzt zunächst drei Cookies, die wir zur Demonstration der Abrufmethoden verwenden werden.
-Zuerst wird `cookie1` und `cookie2` mithilfe der [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set)-Methode erstellt.
-Dann wird ein drittes Cookie mithilfe der älteren synchronen [`Document.cookie`](/de/docs/Web/API/Document/cookie)-Eigenschaft erstellt (nur um zu zeigen, dass diese auch mit den `get()`- und `getAll()`-Methoden abgerufen werden).
+Der Beispielcode setzt zunächst drei Cookies, die wir zur Demonstration der Abrufmethoden verwenden.
+Zunächst werden `cookie1` und `cookie2` mithilfe der [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set)-Methode erstellt.
+Dann wird ein drittes Cookie mit der älteren synchronen [`Document.cookie`](/de/docs/Web/API/Document/cookie)-Eigenschaft erstellt (nur um zu zeigen, dass diese auch mit den Methoden `get()` und `getAll()` abgerufen werden können).
 
 Der Code verwendet dann [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get), um "cookie1" abzurufen und seine Eigenschaften zu protokollieren, sowie [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) (ohne Argumente), um alle Cookies im aktuellen Kontext abzurufen.
 
@@ -134,15 +137,15 @@ cookieTest();
 ```
 
 Das Beispiel sollte "cookie1" und alle drei Cookies separat protokollieren.
-Eine Sache, die zu beachten ist, ist, dass das Cookie, das mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) erstellt wurde, einen anderen Pfad haben kann als die mit [`set()`](/de/docs/Web/API/CookieStore/set) erstellten (die standardmäßig auf `/` gesetzt werden).
+Eine Sache, die zu beachten ist, ist, dass das mithilfe von [`Document.cookie`](/de/docs/Web/API/Document/cookie) erstellte Cookie möglicherweise einen anderen Pfad hat als diejenigen, die mit [`set()`](/de/docs/Web/API/CookieStore/set) erstellt wurden (die standardmäßig auf `/` gesetzt sind).
 
-### Löschen eines benannten Cookies
+### Ein benanntes Cookie löschen
 
 Dieses Beispiel zeigt, wie ein benanntes Cookie mit der [`delete()`](/de/docs/Web/API/CookieStore/delete)-Methode gelöscht wird.
 
-Der Code setzt zuerst zwei Cookies und protokolliert diese in der Konsole.
-Dann löschen wir eines der Cookies und listen alle Cookies erneut auf.
-Das gelöschte Cookie ("cookie1") ist im ersten Protokoll-Array vorhanden und im zweiten nicht mehr.
+Der Code setzt zunächst zwei Cookies und protokolliert sie in der Konsole.
+Wir löschen dann eines der Cookies und listen dann alle Cookies erneut auf.
+Das gelöschte Cookie ("cookie1") ist im ersten Protokoll-Array vorhanden und nicht im zweiten.
 
 ```js
 async function cookieTest() {

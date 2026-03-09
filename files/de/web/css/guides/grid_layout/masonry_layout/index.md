@@ -1,21 +1,21 @@
 ---
-title: Mauerwerkslayout
+title: Masonry-Layout
 slug: Web/CSS/Guides/Grid_layout/Masonry_layout
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 457178413ad5be46d6ad346845908dd919eb37fc
 ---
 
 {{SeeCompatTable}}
 
-Stufe 3 der [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Spezifikation umfasst einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was ein Mauerwerkslayout ist und wie es verwendet wird.
+Level 3 der [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Spezifikation definiert den **Masonry-Layout** (auch bekannt als **Grid-Lanes**-Layout), der über die {{cssxref("display")}} Werte `grid-lanes` und `inline-grid-lanes` zugänglich ist. Dieser Leitfaden beschreibt, was ein Masonry-Layout ist und wie es zu verwenden ist.
 
-Das Mauerwerkslayout ist eine Layoutmethode, bei der eine Achse ein typisches striktes Gitternetzlayout verwendet, meist Spalten, und die andere ein Mauerwerkslayout. Auf der Mauerwerksachse halten sich die Elemente nicht an ein striktes Gitternetz, bei dem Lücken nach kürzeren Elementen verbleiben. Stattdessen werden die Elemente in der folgenden Reihe nach oben verschoben, um die Lücken vollständig zu füllen.
+Masonry-Layout ist eine Layout-Methode, bei der eine Achse ein typisches striktes Grid-Layout verwendet, meist Spalten, und die andere eine **Stapellayout** (Masonry) verwendet. Auf der Stapelachse, anstatt sich an ein striktes Raster mit Lücken zu halten, die nach kürzeren Elementen entstehen, steigen die Elemente der folgenden Zeile auf, um die Lücken zu füllen.
 
-## Erstellen eines Mauerwerkslayouts
+## Erstellen eines Masonry-Layouts
 
-Um das häufigste Mauerwerkslayout zu erstellen, sind Ihre Spalten die Gitterachse und die Zeilen die Mauerwerksachse, definiert mit `grid-template-columns` und `grid-template-rows`. Die Kind-Elemente dieses Containers legen sich nun Element für Element entlang der Zeilen an, wie sie es auch bei der automatischen Platzierung von regulären Gitterlayouts tun würden.
+Um das gängigste Masonry-Layout zu erstellen, bei dem die Spalten in einem Grid ausgelegt sind und die Zeilen wie Mauerwerk gestapelt werden, verwenden Sie **`display: grid-lanes`** zusammen mit {{cssxref("grid-template-columns")}}.
 
-Wenn die Elemente in neue Zeilen verschoben werden, erfolgt ihre Anzeige gemäß dem Mauerwerksalgorithmus. Die Elemente laden in die Spalte mit dem meisten Platz, was zu einem dicht gepackten Layout ohne strikte Reihenabstände führt.
+Die Kind-Elemente dieses Containers werden entsprechend dem Masonry-Algorithmus Element für Element entlang der Stapelachse angeordnet: Jede Reihe von Elementen wird in die Spalte mit dem meisten Platz geladen, was zu einem dicht gepackten Layout ohne strickte Zeilentracks führt.
 
 ```css hidden live-sample___block-axis live-sample___inline-axis live-sample___spanners live-sample___positioned
 * {
@@ -43,10 +43,9 @@ body {
 
 ```css live-sample___block-axis
 .grid {
-  display: grid;
+  display: grid-lanes;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-template-rows: masonry;
 }
 ```
 
@@ -79,7 +78,7 @@ for (let i = 0; i < items.length; i++) {
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Mauerwerkslayout zu erstellen, bei dem die Elemente in die Zeilen geladen werden.
+Es ist auch möglich, ein Masonry-Layout mit Elementen zu erstellen, die in Zeilen geladen werden.
 
 ```js live-sample___inline-axis
 // prettier-ignore
@@ -95,22 +94,21 @@ for (let i = 0; i < items.length; i++) {
 
 ```css live-sample___inline-axis
 .grid {
-  display: grid;
+  display: grid-lanes;
   gap: 10px;
-  grid-template-columns: masonry;
   grid-template-rows: repeat(3, 100px);
 }
 ```
 
 {{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Steuerung der Gitterachse
+## Steuerung der Grid-Achse
 
-Auf der Gitterachse funktionieren die Dinge wie erwartet im Gitterlayout. Sie können Elemente dazu bringen, mehrere Spuren zu überbrücken, während sie in der automatischen Platzierung bleiben, indem Sie das Stichwort `span` verwenden. Elemente können auch mithilfe der linienbasierten Positionierung platziert werden.
+Auf der Grid-Achse funktionieren die Dinge so, wie Sie es im Grid-Layout erwarten. Sie können Elemente veranlassen, mehrere Tracks zu überspannen, während sie im Auto-Placement bleiben, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch mit linearen Positionierungen platziert werden.
 
-### Mauerwerkslayout mit übergreifenden Elementen
+### Masonry-Layout mit überspannenden Elementen
 
-In diesem Beispiel spannen zwei der Elemente über zwei Spuren, und die Mauerwerkselemente arbeiten um sie herum.
+In diesem Beispiel überspannen zwei der Elemente zwei Tracks, und die Masonry-Elemente arbeiten um sie herum.
 
 ```html live-sample___spanners
 <div class="grid">
@@ -129,10 +127,9 @@ In diesem Beispiel spannen zwei der Elemente über zwei Spuren, und die Mauerwer
 
 ```css live-sample___spanners
 .grid {
-  display: grid;
+  display: grid-lanes;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-template-rows: masonry;
 }
 
 .span-2 {
@@ -142,7 +139,7 @@ In diesem Beispiel spannen zwei der Elemente über zwei Spuren, und die Mauerwer
 
 {{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten aufweist. Elemente mit bestimmter Platzierung werden platziert, bevor das Mauerwerkslayout erfolgt.
+Dieses Beispiel enthält ein Element, das Positionierung für Spalten hat. Elemente mit definitiver Platzierung werden platziert, bevor das Masonry-Layout ausgeführt wird.
 
 ```html live-sample___positioned
 <div class="grid">
@@ -161,10 +158,9 @@ Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten aufwe
 
 ```css live-sample___positioned
 .grid {
-  display: grid;
+  display: grid-lanes;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-template-rows: masonry;
 }
 
 .positioned {
@@ -175,9 +171,9 @@ Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten aufwe
 
 {{EmbedLiveSample("positioned", "", "290px")}}
 
-## Fallbacks für Mauerwerkslayout
+## Fallbacks für Masonry-Layout
 
-In Browsern [die kein Mauerwerk unterstützen](#browser-kompatibilität), wird stattdessen die reguläre Gitter-Autoplatzierung verwendet.
+In Browsern, [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen regelmäßiges Grid-Auto-Placement verwendet.
 
 ## Spezifikationen
 
@@ -189,5 +185,5 @@ In Browsern [die kein Mauerwerk unterstützen](#browser-kompatibilität), wird s
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Gitterplatzierung
+- {{cssxref("grid-auto-flow")}} zur Steuerung des Grid-Auto-Platzierungs
 - [Native CSS masonry layout in CSS grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/) über Smashing Magazine (2020)
