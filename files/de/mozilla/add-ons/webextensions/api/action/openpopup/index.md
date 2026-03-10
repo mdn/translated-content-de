@@ -2,15 +2,13 @@
 title: action.openPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/action/openPopup
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 9ccb27e3072098028db8651e8b4df980d5e01e71
 ---
 
-Öffnet das Popup der Browseraktion.
+Öffnet das Popup der Browser-Erweiterung.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
-
-In stabilen Versionen von Firefox können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -25,11 +23,11 @@ browser.action.openPopup(
 - `details` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `windowId` {{optional_inline}}
-      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig ist es das aktuelle Fenster.
+      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig wird das aktuelle Fenster verwendet.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
 
 ## Beispiele
 

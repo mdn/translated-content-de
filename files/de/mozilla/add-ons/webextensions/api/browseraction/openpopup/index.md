@@ -2,12 +2,10 @@
 title: browserAction.openPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/openPopup
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 9ccb27e3072098028db8651e8b4df980d5e01e71
 ---
 
-Öffnen Sie das Popup der Browser-Aktion.
-
-In stabilen Versionen von Firefox können Sie diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
+Öffnet das Popup der Browser-Aktion.
 
 ## Syntax
 
