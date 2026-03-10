@@ -2,10 +2,10 @@
 title: "<ins>: Das eingefügte Textelement"
 slug: Web/HTML/Reference/Elements/ins
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
 ---
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich von Text, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich zu kennzeichnen, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich darzustellen, der aus dem Dokument gelöscht wurde.
 
 {{InteractiveExample("HTML Demo: &lt;ins&gt;", "tabbed-standard")}}
 
@@ -59,16 +59,16 @@ p {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert den URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zu Besprechungsprotokollen oder einem Ticket in einem Fehlersystems.
+  - : Dieses Attribut definiert den URI einer Ressource, die die Änderung erklärt, z. B. einen Link zu Sitzungsprotokollen oder einem Ticket in einem Problembehandlungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitangabe sein. Wenn der Wert nicht als Datum mit optionaler Zeitangabe geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeitangabe siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format des Strings, wenn er sowohl Datum als auch Zeit enthält, wird im [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit einem optionalen Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugehörigen Zeitstempel. Für das Format der Zeichenkette ohne Zeit siehe [Format einer gültigen Datumszeichenkette](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format der Zeichenkette, wenn es sowohl Datum als auch Zeit enthält, wird in [Format einer gültigen lokalen Datums- und Zeitzeichenkette](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>`-Elements wird in der Standardeinstellung von den meisten Screenreader-Technologien nicht angekündigt. Es kann durch die Verwendung der CSS {{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelementen angekündigt werden.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem die CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudo-Elementen verwendet wird.
 
 ```css
 ins::before,
@@ -91,10 +91,10 @@ ins::after {
 }
 ```
 
-Einige Benutzer, die Screenreader verwenden, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Sprachinformationen erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalt eingefügt wurde, das Verständnis beeinträchtigen würde.
+Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Verbosität erzeugen. Daher ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über eingefügten Inhalt das Verständnis nachteilig beeinflussen würde.
 
-- [Kurze Notiz zur Verbesserung der Zugänglichkeit Ihrer Markierung | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Anpassen von Textstil-Levels | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Short note on making your mark (more accessible) | Vispero](https://vispero.com/resources/short-note-on-making-your-mark-more-accessible/)
+- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -118,10 +118,10 @@ Einige Benutzer, die Screenreader verwenden, deaktivieren absichtlich die Ankün
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing content</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow content</a
         >.
       </td>
     </tr>
@@ -136,14 +136,14 @@ Einige Benutzer, die Screenreader verwenden, deaktivieren absichtlich die Ankün
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch End-Tag sind verpflichtend.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing content</a
         > akzeptiert.
       </td>
     </tr>
@@ -151,7 +151,7 @@ Einige Benutzer, die Screenreader verwenden, deaktivieren absichtlich die Ankün
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">Einfügung</a
+          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">insertion</a
           ></code
         >
       </td>

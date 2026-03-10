@@ -3,18 +3,18 @@ title: "PreferenceManager: contrast-Eigenschaft"
 short-title: contrast
 slug: Web/API/PreferenceManager/contrast
 l10n:
-  sourceCommit: ac0fef0566bfd672c44644a95240b8e1407277bd
+  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`contrast`**-Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Schnittstelle liefert ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Präferenz des Benutzers für das {{cssxref("@media/prefers-color-scheme", "Farbschema")}} der Website zu überschreiben.
+Die schreibgeschützte **`contrast`** Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager) Schnittstelle gibt ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Benutzerpräferenz für den [Kontrast](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-contrast) der Seite zu überschreiben.
 
-Gültige `contrast`-Einstellungen für [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `more`, `less` und `no-preference`.
+Gültige `contrast` [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) Einstellungen sind `more`, `less` und `no-preference`.
 
 ## Wert
 
-Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Präferenz des Benutzers für das {{cssxref("@media/prefers-color-scheme", "Farbschema")}} der Website zu überschreiben.
+Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Benutzerpräferenz für den [Kontrast](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-contrast) der Seite zu überschreiben.
 
 ## Beispiele
 

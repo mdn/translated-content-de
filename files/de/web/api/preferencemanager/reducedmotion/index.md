@@ -3,24 +3,24 @@ title: "PreferenceManager: reducedMotion-Eigenschaft"
 short-title: reducedMotion
 slug: Web/API/PreferenceManager/reducedMotion
 l10n:
-  sourceCommit: ac0fef0566bfd672c44644a95240b8e1407277bd
+  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`reducedMotion`**-Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Schnittstelle gibt das [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Präferenz des Benutzers für die {{cssxref("@media/prefers-reduced-motion", "reduzierte Bewegung")}} der Seite zu überschreiben.
+Die schreibgeschützte **`reducedMotion`**-Eigenschaft des [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Interfaces gibt das [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Präferenz des Nutzers für die [reduzierte Bewegung](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-reduced-motion) der Website zu überschreiben.
 
-Gültige Einstellungen für `reducedMotion` [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `reduce` und `no-preference`.
+Gültige `reducedMotion`-Einstellungen für [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `reduce` und `no-preference`.
 
 ## Wert
 
-Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Präferenz des Benutzers für die {{cssxref("@media/prefers-reduced-motion", "reduzierte Bewegung")}} der Seite zu überschreiben.
+Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Präferenz des Nutzers für die [reduzierte Bewegung](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-reduced-motion) der Website zu überschreiben.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man die reduzierte Bewegungspräferenz des Benutzers abfragt.
+Dieses Beispiel zeigt, wie die Präferenz des Nutzers für reduzierte Bewegung abgefragt wird.
 
 ```js
 if (navigator.preferences.reducedMotion.value === "reduce") {

@@ -3,24 +3,24 @@ title: "PreferenceManager: reducedTransparency-Eigenschaft"
 short-title: reducedTransparency
 slug: Web/API/PreferenceManager/reducedTransparency
 l10n:
-  sourceCommit: ac0fef0566bfd672c44644a95240b8e1407277bd
+  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`reducedTransparency`**-Eigenschaft des [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Interfaces ist eine schreibgeschützte Eigenschaft, die das [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurückgibt, das verwendet wird, um die Benutzereinstellung für die {{cssxref("@media/prefers-reduced-transparency", "reduzierte Transparenz")}} der Website zu überschreiben.
+Die schreibgeschützte **`reducedTransparency`**-Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Schnittstelle gibt das [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Benutzervorliebe für die [reduzierte Transparenz](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-reduced-transparency) der Website zu überschreiben.
 
-Gültige Einstellungen für `reducedTransparency` im [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `reduce` und `no-preference`.
+Gültige `reducedTransparency`-Einstellungen für [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `reduce` und `no-preference`.
 
 ## Wert
 
-Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das dazu verwendet wird, die Benutzereinstellung für die {{cssxref("@media/prefers-reduced-transparency", "reduzierte Transparenz")}} der Website zu überschreiben.
+Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Benutzervorliebe für die [reduzierte Transparenz](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-reduced-transparency) der Website zu überschreiben.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie die reduzierte Transparenz-Präferenz des Benutzers abgefragt wird.
+Dieses Beispiel zeigt, wie Sie die reduzierte Transparenzvorliebe des Benutzers abfragen können.
 
 ```js
 if (navigator.preferences.reducedTransparency.value === "reduce") {
