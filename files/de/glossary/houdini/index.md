@@ -2,18 +2,20 @@
 title: Houdini
 slug: Glossary/Houdini
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 60df76d616a9986e92e86939782b7cf6f7f52d56
 ---
 
-Houdini ist eine Sammlung von Low-Level-APIs, die Entwicklern die Möglichkeit geben, CSS zu erweitern, indem sie in den Styling- und Layoutprozess der Rendering-Engine eines Browsers eingreifen können. Houdini verschafft Entwicklern Zugang zum [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) ({{Glossary("CSSOM", "CSSOM")}}), wodurch sie Code schreiben können, den der Browser als CSS parsen kann.
+Houdini war der abgekürzte Name der [CSS-TAG Houdini Task Force](https://github.com/w3c/css-houdini-drafts/wiki/), die sich von 2015 bis 2019 traf, sowie der Name der Gruppe von Low-Level-[CSS JavaScript APIs und vorgeschlagenen Spezifikationen](https://drafts.css-houdini.org/), die aus dieser Task Force hervorgingen, von denen einige implementiert wurden.
 
-Der Vorteil von Houdini besteht darin, dass Entwickler CSS-Funktionen erstellen können, ohne darauf warten zu müssen, dass Web-Standardspezifikationen diese definieren, und ohne darauf warten zu müssen, dass jeder Browser die Funktionen vollständig implementiert.
+Das Ziel der Houdini Task Force war es, Entwicklern die Möglichkeit zu geben, neue CSS-Funktionen zu erstellen, ohne darauf warten zu müssen, dass Webstandardspezifikationen sie definieren und Browser sie implementieren. Dies wurde erreicht, indem Funktionen vorgeschlagen wurden, die CSS erweitern, indem sie in den Styling- und Layoutprozess des Rendering-Engines eines Browsers eingreifen. Houdini-Vorschläge gaben Entwicklern Zugriff auf das [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) ({{Glossary("CSSOM", "CSSOM")}}), sodass Entwickler Code schreiben können, den der Browser als CSS interpretieren kann.
 
-Während viele der Funktionen, die Houdini ermöglicht, mit JavaScript erstellt werden können, bietet das direkte Interagieren mit dem CSSOM, bevor JavaScript aktiviert ist, schnellere Parse-Zeiten. Browser erstellen das CSSOM — einschließlich Layout-, Mal- und Kompositionsprozesse — bevor irgendwelche Stilaktualisierungen in Skripten angewendet werden: Layout-, Mal- und Kompositionsprozesse werden wiederholt, um aktualisierte JavaScript-Stile zu implementieren. Houdini-Code wartet nicht darauf, dass dieser erste Renderzyklus abgeschlossen ist. Vielmehr ist er in diesem ersten Zyklus enthalten, wodurch renderbare, verständliche Stile erstellt werden.
+Eine der Hauptprämissen der Houdini-Funktionen ist es, eine bessere Leistung als die äquivalenten JavaScript-Funktionen zu bieten, indem die Browser dazu gebracht werden, das CSSOM direkt zu erstellen, einschließlich Layout-, Paint- und Composite-Prozessen.
+
+Zu den Houdini-APIs gehören die [CSS Painting API](/de/docs/Web/API/CSS_Painting_API), die [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API), die [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) und [Worklets](/de/docs/Web/API/Worklet).
 
 ## Siehe auch
 
-- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)
+- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
 - [CSSOM](/de/docs/Web/API/CSS_Object_Model)
 - [CSS Paint API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API)
