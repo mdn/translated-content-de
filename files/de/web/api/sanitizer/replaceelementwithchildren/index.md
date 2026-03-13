@@ -1,15 +1,15 @@
 ---
-title: "Sanitizer: replaceElementWithChildren() Methode"
+title: "Sanitizer: replaceElementWithChildren()-Methode"
 short-title: replaceElementWithChildren()
 slug: Web/API/Sanitizer/replaceElementWithChildren
 l10n:
-  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
+  sourceCommit: cda9415220ba812ba2ee24e0af1c8e8001ab9924
 ---
 
 {{APIRef("HTML Sanitizer API")}}
 
-Die **`replaceElementWithChildren()`** Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer) Interfaces legt fest, dass ein Element durch seine untergeordneten HTML-Elemente ersetzt wird, wenn der Sanitizer verwendet wird.
-Dies wird hauptsächlich zum Entfernen von Stilen aus Texten verwendet.
+Die **`replaceElementWithChildren()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Element durch seine Kind-HTML-Elemente ersetzt werden soll, wenn der Sanitizer verwendet wird.
+Dies wird hauptsächlich verwendet, um Stile aus Text zu entfernen.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ replaceElementWithChildren(element)
 
 ### Rückgabewert
 
-`true`, wenn die Konfiguration geändert wurde, um das Element durch seine Kinder zu ersetzen, und `false`, wenn der Sanitizer das Element bereits ersetzte.
+`true`, wenn der Vorgang die Konfiguration geändert hat, um das Element durch seine Kinder zu ersetzen, und `false`, wenn der Sanitizer das Element bereits ersetzt hat.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Methode, bei der ein Sanitizer konfiguriert wird, der das `<em>` Element in Eingaben durch seinen Kindinhalt ersetzt.
+Dieses Beispiel zeigt die grundlegende Verwendung der Methode, indem ein `Sanitizer` konfiguriert wird, der das `<em>`-Element in Eingaben durch seinen Kind-Inhalt ersetzt.
 
 ```js
 // Create sanitizer (in this case the default)
@@ -47,7 +47,7 @@ sanitizer.replaceElementWithChildren("em");
 
 ### Anleitung zum Entfernen von Stilen aus Text
 
-Dieses Beispiel zeigt, wie `replaceElementWithChildren()` verwendet werden kann, um Stile aus Texten zu entfernen.
+Dieses Beispiel zeigt, wie `replaceElementWithChildren()` verwendet werden kann, um Stile aus Text zu entfernen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -71,10 +71,10 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfangs {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}} Elemente zulässt.
-Anschließend rufen wir `replaceElementWithChildren()` auf dem Sanitizer auf und geben an, dass `<strong>` Elemente ersetzt werden sollen.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das zunächst die {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}} Elemente zulässt.
+Dann rufen wir `replaceElementWithChildren()` auf dem Sanitizer auf und geben an, dass `<strong>`-Elemente ersetzt werden sollen.
 
-Der Code definiert einen String, der `<strong>` Elemente enthält, und verwendet [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String einzufügen.
+Der Code definiert einen String, der `<strong>`-Elemente enthält, und verwendet [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String zu injizieren.
 Der ursprüngliche String, das bereinigte HTML aus dem Element und der Sanitizer werden protokolliert.
 
 ```js hidden
@@ -112,9 +112,9 @@ log(`\n\nsanitizerConfig:\n ${JSON.stringify(sanitizerConfig, null, 2)}`);
 
 #### Ergebnisse
 
-Der ursprüngliche nicht bereinigte HTML-String, der bereinigte String aus dem Element und der Sanitizer werden unten protokolliert.
-Beachten Sie, dass das `<strong>` Styling aus dem Text entfernt wird, das `<em>` Element jedoch nicht.
-Beachten Sie auch, dass das `<strong>` Element ursprünglich in der `elements`-Liste in der Konfiguration war, jedoch entfernt wurde, als es zur `replaceWithChildrenElements`-Liste hinzugefügt wurde.
+Der ursprüngliche, nicht bereinigte HTML-String, der bereinigte String aus dem Element und der Sanitizer werden unten protokolliert.
+Beachten Sie, dass das `<strong>` Styling aus dem Text entfernt wurde, nicht jedoch das `<em>`-Element.
+Beachten Sie auch, dass das `<strong>`-Element ursprünglich in der `elements`-Liste in der Konfiguration war, aber entfernt wurde, als es zur `replaceWithChildrenElements`-Liste hinzugefügt wurde.
 
 {{EmbedLiveSample("How to strip styles from text","100","520px")}}
 

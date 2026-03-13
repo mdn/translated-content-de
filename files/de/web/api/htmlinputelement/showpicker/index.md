@@ -1,20 +1,21 @@
 ---
-title: "HTMLInputElement: showPicker() Methode"
+title: "HTMLInputElement: showPicker()-Methode"
 short-title: showPicker()
 slug: Web/API/HTMLInputElement/showPicker
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: cc66f2b97b465aef7a1781ee479ec8c42ee2fe7c
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.showPicker()`** Methode zeigt den Browser-Auswahldialog für ein `input`-Element an.
+Die **`HTMLInputElement.showPicker()`**-Methode zeigt den Browser-Picker für ein `input`-Element an.
 
-Dies ist derselbe Auswahldialog, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, aber er kann durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
+Dies ist der gleiche Picker, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, kann jedoch durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
 
-In der Regel implementieren Browser dies für Eingaben der Typen: `"date"`, `"month"`, `"week"`, `"time"`, `"datetime-local"`, `"color"` oder `"file"`. Es kann auch mit Elementen aus einem {{htmlelement("datalist")}}-Element oder dem [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut vorab ausgefüllt werden.
+Normalerweise implementieren Browser sie für Eingaben dieser Typen: `"date"`, `"month"`, `"week"`, `"time"`, `"datetime-local"`, `"color"` oder `"file"`.
+Es kann auch mit Elementen aus einem {{htmlelement("datalist")}}-Element oder dem [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut vorab gefüllt werden.
 
-Allgemeiner sollte diese Methode idealerweise den Auswahldialog für jedes Eingabeelement auf der Plattform anzeigen, das einen Auswahldialog hat.
+Im Allgemeinen sollte diese Methode idealerweise den Picker für jedes Eingabeelement auf der Plattform anzeigen, das über einen Picker verfügt.
 
 ## Syntax
 
@@ -28,16 +29,16 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Element nicht veränderbar ist, was bedeutet, dass der Nutzer es nicht ändern kann und/oder es nicht automatisch vorab ausgefüllt werden kann.
+  - : Wird ausgelöst, wenn das Element nicht veränderbar ist, d.h. der Benutzer es nicht ändern und/oder nicht automatisch vorab auffüllen kann.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Vorgang nicht explizit durch eine Benutzeraktion wie eine Berührungs- oder Mausklickgeste ausgelöst wird (der Auswahldialog erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}).
+  - : Wird ausgelöst, wenn es nicht explizit durch eine Benutzeraktion wie eine Berührungsgeste oder einen Mausklick ausgelöst wird (der Picker erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn es in einem Cross-Origin-Iframe aufgerufen wird, ausgenommen Datei- und Farbauswahldialoge (aus historischen Gründen ausgenommen).
+  - : Wird ausgelöst, wenn in einem Cross-Origin iframe aufgerufen, außer für Datei- und Farb-Picker (aus historischen Gründen ausgenommen).
 
 ## Sicherheit
 
@@ -55,12 +56,13 @@ if ("showPicker" in HTMLInputElement.prototype) {
 }
 ```
 
-### Normale Eingabedialoge
+### Normale Eingabe-Picker
 
-Dieses Beispiel zeigt, wie diese Funktion für `color`- und `file`-Eingabedialoge verwendet werden kann.
+Dieses Beispiel zeigt, wie diese Funktion für Farb- und Datei-Eingabe-Picker verwendet werden kann.
 
 > [!NOTE]
-> Auswahldialoge für `date`, `datetime-local`, `month`, `time`, `week` werden auf die gleiche Weise gestartet. Sie können hier nicht gezeigt werden, da Live-Beispiele in einem Cross-Origin-Frame ausgeführt werden und einen [`SecurityError`](#securityerror) verursachen würden.
+> Picker für `date`, `datetime-local`, `month`, `time`, `week` werden auf die gleiche Weise gestartet.
+> Sie können hier nicht gezeigt werden, da Live-Beispiele in einem Cross-Origin-Frame ausgeführt werden und einen [`SecurityError`](#securityerror) verursachen würden.
 
 #### HTML
 
@@ -95,15 +97,15 @@ document.querySelectorAll("button").forEach((button) => {
 
 #### Ergebnis
 
-Klicken Sie auf den Button neben jedem Eingabetyp, um seinen Auswahldialog anzuzeigen.
+Klicken Sie auf die Schaltfläche neben jedem Eingabetyp, um dessen Picker anzuzeigen.
 
-{{EmbedLiveSample("Normale Eingabedialoge", "100%", "140px")}}
+{{EmbedLiveSample("Normal input pickers", "100%", "140px")}}
 
-### showPicker() für ein datalist input
+### showPicker() für ein datalist-Eingabe
 
-`showPicker()` kann den Auswahldialog für eine Liste von Optionen starten, die in einem [`<datalist>`](/de/docs/Web/HTML/Reference/Elements/datalist) definiert sind.
+`showPicker()` kann den Picker für eine Liste von Optionen starten, die in einem [`<datalist>`](/de/docs/Web/HTML/Reference/Elements/datalist) definiert sind.
 
-Zuerst definieren wir ein `<datalist>` in HTML, bestehend aus einer Anzahl von Internet-Browsern, einer Eingabe vom Typ `text`, die es verwendet, und einem Button.
+Zuerst definieren wir ein `<datalist>` in HTML, das aus einer Anzahl von Internetbrowsern besteht, ein Eingabefeld vom Typ `text`, das es nutzt, und einer Schaltfläche.
 
 ```html
 <datalist id="browsers">
@@ -118,7 +120,7 @@ Zuerst definieren wir ein `<datalist>` in HTML, bestehend aus einer Anzahl von I
 <button>Select browser</button>
 ```
 
-Der folgende Code fügt einen Ereignislistener hinzu, der `showPicker()` aufruft, wenn der Button geklickt wird.
+Der folgende Code fügt einen Ereignis-Listener hinzu, der `showPicker()` aufruft, wenn die Schaltfläche geklickt wird.
 
 ```js
 const button = document.querySelector("button");
@@ -133,17 +135,19 @@ button.addEventListener("click", () => {
 });
 ```
 
-### showPicker() für autocomplete
+Wie bei den anderen Pickern können wir diesen Code nicht als Live-Beispiel ausführen, da er in einem Cross-Origin-Frame läuft und einen [`SecurityError`](#securityerror) verursachen würde.
 
-`showPicker()` kann einen Auswahldialog für eine [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Eingabe starten.
+### showPicker() für Autovervollständigung
 
-Hier definieren wir eine Eingabe, die eine Autovervollständigungsoption "name" annimmt.
+`showPicker()` kann einen Picker für ein [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Eingabefeld starten.
+
+Hier definieren wir eine Eingabe, die eine Autovervollständigungsoption von "name" verwendet.
 
 ```html
 <input autocomplete="name" /> <button>Show autocomplete options</button>
 ```
 
-Der folgende Code zeigt den Auswahldialog für die Eingabe, wenn der Button geklickt wird.
+Der folgende Code zeigt den Picker für die Eingabe, wenn die Schaltfläche angeklickt wird.
 
 ```js
 const button = document.querySelector("button");
