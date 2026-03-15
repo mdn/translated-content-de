@@ -2,7 +2,7 @@
 title: mix-blend-mode
 slug: Web/CSS/Reference/Properties/mix-blend-mode
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: fa647850ec257db6f807993c556f21a6c269cc4f
 ---
 
 Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
@@ -78,9 +78,9 @@ mix-blend-mode: unset;
 - {{cssxref("&lt;blend-mode&gt;")}}
   - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Vermischung unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Mischen unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Vermischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendeffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischen unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendeffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Opazität in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -811,7 +811,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
+In diesem Beispiel wird `mix-blend-mode` verwendet, um die Textfarbe mit der Hintergrundfarbe seines übergeordneten Elements zu mischen.
 
 #### HTML
 
