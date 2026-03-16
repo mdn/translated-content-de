@@ -1,15 +1,14 @@
 ---
-title: "CSSNumericValue: to()-Methode"
+title: "CSSNumericValue: to() Methode"
 short-title: to()
 slug: Web/API/CSSNumericValue/to
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: fd00eae27011b7b1f65a442b927efab5400b0296
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`to()`**-Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert einen numerischen Wert von einer Einheit in eine andere.
+Die **`to()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle konvertiert einen numerischen Wert von einer Einheit in eine andere.
 
 ## Syntax
 
@@ -24,16 +23,22 @@ to(unit)
 
 ### Rückgabewert
 
-Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
+Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn eine ungültige Einheit an die Methode übergeben wurde.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die übergebenen Werte nicht summiert werden können.
+  - : Wird ausgelöst, wenn:
+    - Der `CSSNumericValue`, auf dem die Methode aufgerufen wird, nicht auf einen einzigen Wert und Typ aufgelöst werden kann.
+      Dies könnte passieren, wenn der Wert aus einer Variablen berechnet wird, deren Wert im Kontext nicht bekannt sein kann.
+    - Der Wert nicht in die neue Einheit umgewandelt werden kann, weil er nicht zur gleichen Kategorie gehört.
+      Zum Beispiel kann man Meter nicht in Sekunden umwandeln.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 // Prints "0.608542cm"
