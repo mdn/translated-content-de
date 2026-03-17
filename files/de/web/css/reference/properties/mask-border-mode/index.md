@@ -2,10 +2,10 @@
 title: mask-border-mode
 slug: Web/CSS/Reference/Properties/mask-border-mode
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Die **`mask-border-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt den Mischmodus an, der in einem [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) verwendet wird.
+Die **`mask-border-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Mischmodus an, der in einem [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) verwendet wird.
 
 ## Syntax
 
@@ -43,17 +43,17 @@ mask-border-mode: unset;
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützen keine Browser diese Funktion.
+Derzeit unterstützt kein Browser dieses Feature.
 
 ## Siehe auch
 
 - {{cssxref("mask-mode")}}
 - {{cssxref("mask-type")}}
 - [Alpha-Transparenz versus Luminanz](/de/docs/Web/CSS/Guides/Masking/Introduction#alpha_transparency_versus_luminance)
-- {{cssxref("mask-border")}} Kurzform
+- {{cssxref("mask-border")}} Shorthand
 - {{cssxref("mask-border-outset")}}
 - {{cssxref("mask-border-repeat")}}
 - {{cssxref("mask-border-source")}}
 - {{cssxref("mask-border-width")}}
 - {{cssxref("mask-mode")}}
-- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking)-Modul
+- [CSS Maskierung](/de/docs/Web/CSS/Guides/Masking) Modul

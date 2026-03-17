@@ -2,18 +2,18 @@
 title: z
 slug: Web/SVG/Reference/Attribute/z
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird. Es wird angenommen, dass in diesem anfänglichen Koordinatensystem die positive z-Achse zur betrachtenden Person hin herausragt und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt ist, unter der Annahme, dass in diesem ursprünglichen Koordinatensystem die positive z-Achse auf die Person zugeht, die den Inhalt betrachtet, und dass eine Einheit entlang der z-Achse einer Einheit in x- und y-Richtung entspricht.
 
 ## Elemente
 
-Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den SVG-Elementen verwenden, die in den folgenden Abschnitten beschrieben werden.
 
 ### `<fePointLight>`
 
-Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird.
+Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt ist.
 
 <table class="properties">
   <tbody>
@@ -34,7 +34,7 @@ Für {{SVGElement("fePointLight")}} definiert `z` die Position entlang der z-Ach
 
 ### `<feSpotLight>`
 
-Für {{SVGElement("feSpotLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird.
+Für {{SVGElement("feSpotLight")}} definiert `z` die Position entlang der z-Achse für die Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt ist.
 
 <table class="properties">
   <tbody>

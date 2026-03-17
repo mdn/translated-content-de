@@ -3,14 +3,14 @@ title: CSS-Filtereffekte
 short-title: Filter effects
 slug: Web/CSS/Guides/Filter_effects
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zur Verarbeitung der Darstellung eines Elements zu definieren, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
+Die Eigenschaften des **CSS-Filtereffekte**-Moduls ermöglichen es Ihnen, eine Methode zur Verarbeitung der Darstellung eines Elements zu definieren, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
 
 ## Filtereffekte in Aktion
 
-Experimentieren Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das unten stehende Bild anzuwenden.
+Verwenden Sie die verschiedenen Schieberegler, um Filtereffekte auf das untenstehende Bild anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -257,16 +257,16 @@ function sepia() {
 ## Leitfäden
 
 - [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/Guides/Filter_effects/Using)
-  - : Überblick über die Konzepte zu CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung zu Filterwerten, Quellreihenfolge und Wertinteraktionen.
+  - : Überblick über die Konzepte zu CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, der Reihenfolge der Quellen und der Wechselwirkungen der Werte.
 
 ## Verwandte Konzepte
 
-- {{cssxref("image")}} Datentyp
-- {{cssxref("filter-function")}} Datentyp
+- Datentyp {{cssxref("image")}}
+- Datentyp {{cssxref("filter-function")}}
 
-- {{cssxref("background-image")}} CSS-Eigenschaft
-- {{cssxref("background-blend-mode")}} CSS-Eigenschaft
-- {{cssxref("mix-blend-mode")}} CSS-Eigenschaft
+- CSS-Eigenschaft {{cssxref("background-image")}}
+- CSS-Eigenschaft {{cssxref("background-blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
 
 - {{Glossary("interpolation", "Interpolation")}} Glossarbegriff
 
@@ -278,5 +278,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im [CSS-Compositing und Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending) Modul ermöglichen das Blenden der Hintergrundschichten eines Elements sowie das Blenden eines Elements mit seinem Container.
+- Eigenschaften im Modul [CSS Compositing und Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending) ermöglichen das Mischen der Hintergrundebenen eines Elements sowie das Vermischen eines Elements mit seinem Container
 - Das SVG-{{SVGElement("filter")}}-Element und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

@@ -2,10 +2,10 @@
 title: edgeMode
 slug: Web/SVG/Reference/Attribute/edgeMode
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`edgeMode`**-Attribut bestimmt, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn der Kernel am oder in der Nähe des Randes des Eingabebildes positioniert ist.
+Das **`edgeMode`**-Attribut bestimmt, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn sich der Kernel an oder in der Nähe des Randes des Eingabebildes befindet.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -14,7 +14,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## feConvolveMatrix
 
-Für {{SVGElement("feConvolveMatrix")}} bestimmt `edgeMode`, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn der Kernel am oder in der Nähe des Randes des Eingabebildes positioniert ist.
+Für {{SVGElement("feConvolveMatrix")}} bestimmt `edgeMode`, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn sich der Kernel an oder in der Nähe des Randes des Eingabebildes befindet.
 
 <table class="properties">
   <tbody>
@@ -34,15 +34,15 @@ Für {{SVGElement("feConvolveMatrix")}} bestimmt `edgeMode`, wie das Eingabebild
 </table>
 
 - `duplicate`
-  - : Dieser Wert gibt an, dass das Eingabebild entlang jeder seiner Grenzen durch Duplizieren der Farbwerte am jeweiligen Rand des Eingabebildes erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild entlang jeder seiner Kanten bei Bedarf durch Duplizieren der Farbwerte am jeweiligen Rand des Eingabebildes erweitert wird.
 - `wrap`
-  - : Dieser Wert gibt an, dass das Eingabebild durch Übernahme der Farbwerte vom gegenüberliegenden Rand des Bildes erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild durch Übernahme der Farbwerte von der gegenüberliegenden Kante des Bildes erweitert wird.
 - `none`
-  - : Dieser Wert gibt an, dass das Eingabebild mit Pixelwerten von null für R, G, B und A erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild mit Pixelwerten von Null für R, G, B und A erweitert wird.
 
 ## feGaussianBlur
 
-Für {{SVGElement("feGaussianBlur")}} bestimmt `edgeMode`, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn der Kernel am oder in der Nähe des Randes des Eingabebildes positioniert ist.
+Für {{SVGElement("feGaussianBlur")}} bestimmt `edgeMode`, wie das Eingabebild bei Bedarf mit Farbwerten erweitert wird, damit die Matrixoperationen angewendet werden können, wenn sich der Kernel an oder in der Nähe des Randes des Eingabebildes befindet.
 
 <table class="properties">
   <tbody>
@@ -62,11 +62,11 @@ Für {{SVGElement("feGaussianBlur")}} bestimmt `edgeMode`, wie das Eingabebild b
 </table>
 
 - `duplicate`
-  - : Dieser Wert gibt an, dass das Eingabebild entlang jeder seiner Grenzen durch Duplizieren der Farbwerte am jeweiligen Rand des Eingabebildes erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild entlang jeder seiner Kanten bei Bedarf durch Duplizieren der Farbwerte am jeweiligen Rand des Eingabebildes erweitert wird.
 - `wrap`
-  - : Dieser Wert gibt an, dass das Eingabebild durch Übernahme der Farbwerte vom gegenüberliegenden Rand des Bildes erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild durch Übernahme der Farbwerte von der gegenüberliegenden Kante des Bildes erweitert wird.
 - `none`
-  - : Dieser Wert gibt an, dass das Eingabebild mit Pixelwerten von null für R, G, B und A erweitert wird.
+  - : Dieser Wert gibt an, dass das Eingabebild mit Pixelwerten von Null für R, G, B und A erweitert wird.
 
 ## Spezifikationen
 

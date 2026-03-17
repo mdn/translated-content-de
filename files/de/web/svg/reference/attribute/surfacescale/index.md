@@ -2,10 +2,10 @@
 title: surfaceScale
 slug: Web/SVG/Reference/Attribute/surfaceScale
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das Attribut **`surfaceScale`** repräsentiert die Höhe der Oberfläche für eine Lichtfilterprimitive.
+Das **`surfaceScale`**-Attribut repräsentiert die Höhe der Oberfläche für eine Lichtfilterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

@@ -2,10 +2,10 @@
 title: operator
 slug: Web/SVG/Reference/Attribute/operator
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`operator`**-Attribut hat zwei Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es die Compositing- oder Morphing-Operation, die ausgeführt werden soll.
+Das **`operator`**-Attribut hat je nach Kontext zwei Bedeutungen. Entweder definiert es die Zusammensetzungs- oder Morphing-Operation, die durchgeführt werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -45,7 +45,7 @@ svg {
 
 ## feComposite
 
-Für {{SVGElement("feComposite")}} definiert `operator` die Compositing-Operation, die ausgeführt werden soll.
+Für {{SVGElement("feComposite")}} definiert `operator` die Zusammensetzungsoperation, die durchgeführt werden soll.
 
 <table class="properties">
   <tbody>
@@ -69,28 +69,28 @@ Für {{SVGElement("feComposite")}} definiert `operator` die Compositing-Operatio
 </table>
 
 - `over`
-  - : Dieser Wert gibt an, dass die im {{SVGAttr("in")}}-Attribut definierte Quellgrafik über die im {{SVGAttr("in2")}}-Attribut definierte Zielgrafik gelegt wird.
+  - : Dieser Wert zeigt an, dass die im {{SVGAttr("in")}}-Attribut definierte Quellgrafik über die im {{SVGAttr("in2")}}-Attribut definierte Zielgrafik gelegt wird.
 - `in`
-  - : Dieser Wert gibt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die die im `in2`-Attribut definierte Zielgrafik überlappen, die Zielgrafik ersetzen.
+  - : Dieser Wert zeigt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die mit der im `in2`-Attribut definierten Zielgrafik überlappen, die Zielgrafik ersetzen.
 - `out`
-  - : Dieser Wert gibt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die außerhalb der im `in2`-Attribut definierten Zielgrafik liegen, angezeigt werden.
+  - : Dieser Wert zeigt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die außerhalb der im `in2`-Attribut definierten Zielgrafik liegen, angezeigt werden.
 - `atop`
-  - : Dieser Wert gibt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die die im `in2`-Attribut definierte Zielgrafik überlappen, die Zielgrafik ersetzen. Die Teile der Zielgrafik, die nicht mit der Quellgrafik überlappen, bleiben unberührt.
+  - : Dieser Wert zeigt an, dass die Teile der im `in`-Attribut definierten Quellgrafik, die mit der im `in2`-Attribut definierten Zielgrafik überlappen, die Zielgrafik ersetzen. Die Teile der Zielgrafik, die nicht mit der Quellgrafik überlappen, bleiben unberührt.
 - `xor`
-  - : Dieser Wert gibt an, dass die nicht überlappenden Bereiche der im `in`-Attribut definierten Quellgrafik und der im `in2`-Attribut definierten Zielgrafik kombiniert werden.
+  - : Dieser Wert zeigt an, dass die nicht überlappenden Bereiche der im `in`-Attribut definierten Quellgrafik und der im `in2`-Attribut definierten Zielgrafik kombiniert werden.
 - `lighter`
-  - : Dieser Wert gibt an, dass die Summe der im `in`-Attribut definierten Quellgrafik und der im `in2`-Attribut definierten Zielgrafik angezeigt wird.
+  - : Dieser Wert zeigt an, dass die Summe der im `in`-Attribut definierten Quellgrafik und der im `in2`-Attribut definierten Zielgrafik angezeigt wird.
 - `arithmetic`
-  - : Dieser Wert gibt an, dass die im `in`-Attribut definierte Quellgrafik und die im `in2`-Attribut definierte Zielgrafik mithilfe der folgenden Formel kombiniert werden:
+  - : Dieser Wert zeigt an, dass die im `in`-Attribut definierte Quellgrafik und die im `in2`-Attribut definierte Zielgrafik mit der folgenden Formel kombiniert werden:
 
     `result = k1*i1*i2 + k2*i1 + k3*i2 + k4`
 
     wobei:
-    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes angeben, die `in` und `in2` zugeordnet sind, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die Werte der Attribute mit demselben Namen angeben.
+    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes anzeigen, die jeweils auf `in` und `in2` abgebildet werden, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die Werte der Attribute mit demselben Namen anzeigen.
 
 ## feMorphology
 
-Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quelle (d.h. verdünnt) erodiert oder aufgeweitet (aufgefüllt) wird.
+Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d.h. verdünnt) oder dilatiert (verdickt) wird.
 
 <table class="properties">
   <tbody>
@@ -112,7 +112,7 @@ Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quelle (d.h. ve
 - `erode`
   - : Dieser Wert verdünnt die im {{SVGAttr("in")}}-Attribut definierte Quellgrafik.
 - `dilate`
-  - : Dieser Wert verbreitert die im `in`-Attribut definierte Quellgrafik.
+  - : Dieser Wert verdickt die im `in`-Attribut definierte Quellgrafik.
 
 ## Spezifikationen
 

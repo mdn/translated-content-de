@@ -2,7 +2,7 @@
 title: in2
 slug: Web/SVG/Reference/Attribute/in2
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
 Das **`in2`**-Attribut identifiziert den zweiten Eingang für die gegebene Filterprimitive. Es funktioniert genau wie das {{SVGAttr("in")}}-Attribut.
@@ -31,7 +31,8 @@ Für {{SVGElement("feBlend")}} definiert `in2` das zweite Eingabebild für die M
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis
+        der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>
@@ -59,7 +60,8 @@ Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingabebild für d
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis
+        der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>
@@ -71,7 +73,7 @@ Für {{SVGElement("feComposite")}} definiert `in2` das zweite Eingabebild für d
 
 ## feDisplacementMap
 
-Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingabebild, das verwendet wird, um die Pixel in dem Bild zu verschieben, das im {{SVGAttr("in")}}-Attribut definiert ist.
+Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingabebild, das verwendet wird, um die Pixel im Bild zu verschieben, die im {{SVGAttr("in")}}-Attribut definiert sind.
 
 <table class="properties">
   <tbody>
@@ -87,7 +89,8 @@ Für {{SVGElement("feDisplacementMap")}} definiert `in2` das zweite Eingabebild,
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis
+        der vorherigen Filterprimitive
       </td>
     </tr>
     <tr>

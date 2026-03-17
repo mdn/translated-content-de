@@ -1,18 +1,18 @@
 ---
-title: CSS Compositing und Blending
-short-title: Compositing und Blending
+title: CSS-Komposition und -Überblendung
+short-title: Komposition und Überblendung
 slug: Web/CSS/Guides/Compositing_and_blending
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **CSS Compositing und Blending** Modul definiert, wie die Hintergrundebenen eines Elements miteinander gemischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [Stacking-Kontext](/de/docs/Web/CSS/Leitfaden/Positioned_layout/Stacking_context) erstellen muss.
+Das Modul **CSS-Komposition und -Überblendung** definiert, wie die Hintergrundebenen eines Elements miteinander vermischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [stapeling Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) erstellen muss.
 
-Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Mischmodus zu definieren, der verwendet werden soll, falls es einen gibt, um die Hintergrundbilder und Farben eines Elements zu einem einzigen Hintergrundbild zu verschmelzen. Dieses Modul bietet 16 Mischmodi. Sie können auch festlegen, wie die Ränder, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bilder, mit dem Hintergrund seines Containers gemischt werden sollen.
+Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Überblendungsmodus zu definieren, der verwendet werden soll, um, wenn überhaupt, die Hintergrundbilder und -farben eines Elements zu einem einzigen Hintergrundbild zu überblenden. Dieses Modul bietet 16 Überblendungsmodi. Sie können auch definieren, wie die Ränder, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bilder, mit dem Hintergrund seines Containers überblendet werden sollen.
 
-## Compositing und Blending in Aktion
+## Komposition und Überblendung in Aktion
 
-In diesem Beispiel hat jede Box einen Rand, zwei gestreifte Hintergrundbilder und einen Hintergrund in Volltonfarbe. Der gemeinsame Hintergrund für alle Boxen enthält ein Muster aus Kreisen. Die drei Boxen in der zweiten Zeile sind so eingestellt, dass sie mit dem Hintergrund des Containers gemischt werden.
+In diesem Beispiel hat jede Box einen Rahmen, zwei gestreifte Hintergrundbilder und einen einfarbigen Hintergrund. Der gemeinsame Hintergrund für alle Boxen enthält ein Muster aus Kreisen. Die drei Boxen in der zweiten Zeile sind so eingestellt, dass sie mit dem Hintergrund des Containers überblendet werden.
 
 ```html hidden live-sample___compositing
 <section>
@@ -80,7 +80,7 @@ span {
 
 {{EmbedLiveSample("compositing", "", "450px")}}
 
-Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle durch das Blending beeinflusst werden. Klicken Sie auf "Play" im obigen Beispiel, um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
+Beachten Sie, wie der Hintergrund, die Umrandung und der Inhalt alle durch die Überblendung beeinflusst werden. Klicken Sie im obigen Beispiel auf "Play", um den Code der Animation im MDN Playground anzuzeigen oder zu bearbeiten.
 
 ## Referenz
 
@@ -98,7 +98,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle durch das Blendi
 - {{cssxref("mask-composite")}} CSS-Eigenschaft
 - {{cssxref("background-color")}} CSS-Eigenschaft
 - {{cssxref("background-image")}} CSS-Eigenschaft
-- {{Glossary("stacking_context", "Stacking-Kontext")}} Glossarbegriff
+- {{Glossary("stacking_context", "stapeling Kontext")}} Glossarbegriff
 - {{ SVGElement("feBlend")}} SVG-Filterprimitiv
 - {{ SVGElement("feComposite")}} SVG-Filterprimitiv
 
@@ -108,7 +108,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt alle durch das Blendi
 
 ## Siehe auch
 
-- Eigenschaften im [CSS Filter Effects](/de/docs/Web/CSS/Leitfaden/Filter_Effects) Modul ermöglichen das Anwenden von Filtereffekten, wie Weichzeichnen und Ändern der Farbintensität, auf Bilder, Hintergründe und Rahmen.
+- Eigenschaften im Modul [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) ermöglichen das Anwenden von Filtereffekten, wie Unschärfe und Änderung der Farbintensität, auf Bilder, Hintergründe und Ränder.
 - [Compositing And Blending In CSS](https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/) (2015)
-- [Editing Images in CSS: Blend Modes](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
+- [Bilder in CSS bearbeiten: Überblendungsmodi](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
 - [web.dev: blend modes](https://web.dev/learn/css/blend-modes) (2021)

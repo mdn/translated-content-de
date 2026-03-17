@@ -2,18 +2,18 @@
 title: width
 slug: Web/SVG/Reference/Attribute/width
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
 Das **`width`**-Attribut definiert die horizontale Länge eines Elements im Benutzerkoordinatensystem.
 
 ## Elemente
 
-Sie können dieses Attribut mit den unten beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
 
 ### `<feBlend>`
 
-Für {{SVGElement('feBlend')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feBlend')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -46,7 +46,7 @@ Für {{SVGElement('feBlend')}} definiert `width` die horizontale Länge für den
 
 ### `<feColorMatrix>`
 
-Für {{SVGElement('feColorMatrix')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feColorMatrix')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -79,7 +79,7 @@ Für {{SVGElement('feColorMatrix')}} definiert `width` die horizontale Länge f�
 
 ### `<feComponentTransfer>`
 
-Für {{SVGElement('feComponentTransfer')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feComponentTransfer')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -112,7 +112,7 @@ Für {{SVGElement('feComponentTransfer')}} definiert `width` die horizontale Lä
 
 ### `<feComposite>`
 
-Für {{SVGElement('feComposite')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feComposite')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -145,7 +145,7 @@ Für {{SVGElement('feComposite')}} definiert `width` die horizontale Länge für
 
 ### `<feConvolveMatrix>`
 
-Für {{SVGElement('feConvolveMatrix')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feConvolveMatrix')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -178,7 +178,7 @@ Für {{SVGElement('feConvolveMatrix')}} definiert `width` die horizontale Länge
 
 ### `<feDiffuseLighting>`
 
-Für {{SVGElement('feDiffuseLighting')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feDiffuseLighting')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -211,7 +211,7 @@ Für {{SVGElement('feDiffuseLighting')}} definiert `width` die horizontale Läng
 
 ### `<feDisplacementMap>`
 
-Für {{SVGElement('feDisplacementMap')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feDisplacementMap')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -244,7 +244,7 @@ Für {{SVGElement('feDisplacementMap')}} definiert `width` die horizontale Läng
 
 ### `<feDropShadow>`
 
-Für {{SVGElement('feDropShadow')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feDropShadow')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -277,7 +277,7 @@ Für {{SVGElement('feDropShadow')}} definiert `width` die horizontale Länge fü
 
 ### `<feFlood>`
 
-Für {{SVGElement('feFlood')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feFlood')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -310,7 +310,7 @@ Für {{SVGElement('feFlood')}} definiert `width` die horizontale Länge für den
 
 ### `<feGaussianBlur>`
 
-Für {{SVGElement('feGaussianBlur')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feGaussianBlur')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -343,7 +343,7 @@ Für {{SVGElement('feGaussianBlur')}} definiert `width` die horizontale Länge f
 
 ### `<feImage>`
 
-Für {{SVGElement('feImage')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feImage')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -376,7 +376,7 @@ Für {{SVGElement('feImage')}} definiert `width` die horizontale Länge für den
 
 ### `<feMerge>`
 
-Für {{SVGElement('feMerge')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feMerge')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -409,7 +409,7 @@ Für {{SVGElement('feMerge')}} definiert `width` die horizontale Länge für den
 
 ### `<feMorphology>`
 
-Für {{SVGElement('feMorphology')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feMorphology')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -442,7 +442,7 @@ Für {{SVGElement('feMorphology')}} definiert `width` die horizontale Länge fü
 
 ### `<feOffset>`
 
-Für {{SVGElement('feOffset')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feOffset')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -475,7 +475,7 @@ Für {{SVGElement('feOffset')}} definiert `width` die horizontale Länge für de
 
 ### `<feSpecularLighting>`
 
-Für {{SVGElement('feSpecularLighting')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feSpecularLighting')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -508,7 +508,7 @@ Für {{SVGElement('feSpecularLighting')}} definiert `width` die horizontale Län
 
 ### `<feTile>`
 
-Für {{SVGElement('feTile')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feTile')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -541,7 +541,7 @@ Für {{SVGElement('feTile')}} definiert `width` die horizontale Länge für den 
 
 ### `<feTurbulence>`
 
-Für {{SVGElement('feTurbulence')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Primitivs.
+Für {{SVGElement('feTurbulence')}} definiert `width` die horizontale Länge des Renderbereichs der primitiven Form.
 
 <table class="properties">
   <tbody>
@@ -574,7 +574,7 @@ Für {{SVGElement('feTurbulence')}} definiert `width` die horizontale Länge fü
 
 ### `<filter>`
 
-Für {{SVGElement('filter')}} definiert `width` die horizontale Länge für den Darstellungsbereich des Filters.
+Für {{SVGElement('filter')}} definiert `width` die horizontale Länge des Renderbereichs des Filters.
 
 <table class="properties">
   <tbody>
@@ -607,7 +607,7 @@ Für {{SVGElement('filter')}} definiert `width` die horizontale Länge für den 
 
 ### `<foreignObject>`
 
-Für {{SVGElement('foreignObject')}} definiert `width` die horizontale Länge für den Darstellungsbereich des referenzierten Dokuments.
+Für {{SVGElement('foreignObject')}} definiert `width` die horizontale Länge des Renderbereichs für das referenzierte Dokument.
 
 <table class="properties">
   <tbody>
@@ -640,11 +640,11 @@ Für {{SVGElement('foreignObject')}} definiert `width` die horizontale Länge f�
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `width` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für `<foreignObject>` verwendet werden kann.
+> Mit SVG2 ist `width` eine _Geometrie-Eigenschaft_, das bedeutet, dieses Attribut kann auch als CSS-Eigenschaft für `<foreignObject>` verwendet werden.
 
 ### `<image>`
 
-Für {{SVGElement('image')}} definiert `width` die horizontale Länge für das Bild.
+Für {{SVGElement('image')}} definiert `width` die horizontale Länge des Bildes.
 
 <table class="properties">
   <tbody>
@@ -677,7 +677,7 @@ Für {{SVGElement('image')}} definiert `width` die horizontale Länge für das B
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `width` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für Bilder verwendet werden kann.
+> Mit SVG2 ist `width` eine _Geometrie-Eigenschaft_, das bedeutet, dieses Attribut kann auch als CSS-Eigenschaft für Bilder verwendet werden.
 
 ### `<mask>`
 
@@ -714,7 +714,7 @@ Für {{SVGElement('mask')}} definiert `width` die horizontale Länge seines Wirk
 
 ### `<pattern>`
 
-Für {{SVGElement('pattern')}} definiert `width` die horizontale Länge des Kachelmusters. Die genaue Wirkung dieses Attributs wird durch die Attribute {{SVGAttr('patternUnits')}} und {{SVGAttr('patternTransform')}} beeinflusst.
+Für {{SVGElement('pattern')}} definiert `width` die horizontale Länge des Kachelmusters. Die genaue Wirkung dieses Attributs wird durch die {{SVGAttr('patternUnits')}}- und {{SVGAttr('patternTransform')}}-Attribute beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -741,7 +741,7 @@ Für {{SVGElement('pattern')}} definiert `width` die horizontale Länge des Kach
 
 ### `<rect>`
 
-Für {{SVGElement('rect')}} definiert `width` die horizontale Länge für das Rechteck.
+Für {{SVGElement('rect')}} definiert `width` die horizontale Länge des Rechtecks.
 
 <table class="properties">
   <tbody>
@@ -774,14 +774,14 @@ Für {{SVGElement('rect')}} definiert `width` die horizontale Länge für das Re
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `width` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für Rechtecke verwendet werden kann.
+> Mit SVG2 ist `width` eine _Geometrie-Eigenschaft_, das bedeutet, dieses Attribut kann auch als CSS-Eigenschaft für Rechtecke verwendet werden.
 
 ### `<svg>`
 
-Für {{SVGElement('svg')}} definiert `width` die horizontale Länge für den Darstellungsbereich des SVG-Viewports.
+Für {{SVGElement('svg')}} definiert `width` die horizontale Länge des Renderbereichs des SVG-Viewports.
 
 > [!NOTE]
-> In einem HTML-Dokument wird, wenn sowohl die Attribute {{SVGAttr('viewBox')}} als auch `width` ausgelassen werden, [das svg-Element mit einer Breite von `300px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing)
+> In einem HTML-Dokument, wenn sowohl das {{SVGAttr('viewBox')}}- als auch das `width`-Attribut fehlen, [wird das svg-Element mit einer Breite von `300px` gerendert](https://svgwg.org/specs/integration/#svg-css-sizing).
 
 <table class="properties">
   <tbody>
@@ -814,11 +814,11 @@ Für {{SVGElement('svg')}} definiert `width` die horizontale Länge für den Dar
 </table>
 
 > [!NOTE]
-> Ab SVG2 ist `width` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für `<svg>` verwendet werden kann.
+> Mit SVG2 ist `width` eine _Geometrie-Eigenschaft_, das bedeutet, dieses Attribut kann auch als CSS-Eigenschaft für `<svg>` verwendet werden.
 
 ### `<use>`
 
-Für {{SVGElement('use')}} definiert `width` die horizontale Länge für das referenzierte Element.
+Für {{SVGElement('use')}} definiert `width` die horizontale Länge des referenzierten Elements.
 
 <table class="properties">
   <tbody>
@@ -850,10 +850,11 @@ Für {{SVGElement('use')}} definiert `width` die horizontale Länge für das ref
   </tbody>
 </table>
 
-> [!NOTE] > `width` hat keine Wirkung auf `use`-Elemente, es sei denn, das referenzierte Element hat ein [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) - d.h. es hat nur Auswirkungen, wenn `use` auf ein `svg`- oder `symbol`-Element verweist.
+> [!NOTE]
+> `width` hat keine Wirkung auf `use`-Elemente, außer das referenzierte Element hat einen [viewBox](/de/docs/Web/SVG/Reference/Attribute/viewBox) - d.h. sie haben nur eine Wirkung, wenn `use` auf ein `svg`- oder `symbol`-Element verweist.
 
 > [!NOTE]
-> Ab SVG2 ist `width` eine _Geometrie-Eigenschaft_, was bedeutet, dass dieses Attribut auch als CSS-Eigenschaft für verwendete Elemente verwendet werden kann.
+> Mit SVG2 ist `width` eine _Geometrie-Eigenschaft_, das bedeutet, dieses Attribut kann auch als CSS-Eigenschaft für verwendete Elemente verwendet werden.
 
 ## Beispiele
 
@@ -865,7 +866,7 @@ svg {
 }
 ```
 
-Dieses Beispiel umfasst drei {{SVGElement("rect")}}-Elemente mit unterschiedlichen `width`-Attributwerten. Das erste `<rect>` hat ein `width="0"` gesetzt. SVG-Elemente mit einer Breite von `0` oder weniger werden nicht gerendert.
+Dieses Beispiel enthält drei {{SVGElement("rect")}}-Elemente mit unterschiedlichen `width`-Attributwerten. Das erste `<rect>` hat eine `width="0"` gesetzt. SVG-Elemente mit einer Breite von `0` oder weniger werden nicht gerendert.
 
 ```html
 <svg viewBox="0 0 100 300" xmlns="http://www.w3.org/2000/svg">

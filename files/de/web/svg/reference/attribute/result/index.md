@@ -2,10 +2,10 @@
 title: result
 slug: Web/SVG/Reference/Attribute/result
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`result`**-Attribut definiert den zugeordneten Namen für diese Filter-Primitive. Wenn es angegeben wird, können Grafiken, die aus der Verarbeitung dieser Filter-Primitive resultieren, durch ein {{SVGAttr("in")}}-Attribut an einer nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben ist, wird die Ausgabe nur zur Wiederverwendung als impliziter Eingang der nächsten Filter-Primitive zur Verfügung stehen, wenn diese Filter-Primitive keinen Wert für ihr `in`-Attribut bereitstellt.
+Das **`result`**-Attribut definiert den zugewiesenen Namen für diesen Filter-Primitive. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filter-Primitive resultieren, von einem {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filter-Primitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben wird, ist die Ausgabe nur für die Wiederverwendung als implizite Eingabe in das nächste Filter-Primitive verfügbar, wenn dieses Filter-Primitive keinen Wert für sein `in`-Attribut angibt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -59,7 +59,7 @@ svg {
 
 {{EmbedLiveSample("Example", 220, 220)}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -69,7 +69,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -79,7 +79,7 @@ svg {
 </table>
 
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für die Filter-Primitive. Er ist nur innerhalb eines bestimmten {{SVGElement("filter")}}-Elements sinnvoll und hat daher nur lokalen Geltungsbereich. Es ist legal, dass derselbe `<filter-primitive-reference>`-Wert mehrfach innerhalb desselben `<filter>`-Elements erscheint. Bei der Referenzierung verwendet dieser Wert die nächst vorhergehende Filter-Primitive mit dem angegebenen Ergebnis.
+  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für das Filter-Primitive. Er ist nur innerhalb eines gegebenen {{SVGElement("filter")}}-Elements sinnvoll und hat daher nur lokale Gültigkeit. Es ist legal, dass derselbe `<filter-primitive-reference>` mehrmals innerhalb desselben `<filter>`-Elements erscheint. Wenn referenziert, verwendet dieser Wert das nächstliegende vorhergehende Filter-Primitive mit dem angegebenen Resultat.
 
 ## Spezifikationen
 

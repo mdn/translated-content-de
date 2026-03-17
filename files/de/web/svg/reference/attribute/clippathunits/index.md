@@ -2,12 +2,12 @@
 title: clipPathUnits
 slug: Web/SVG/Reference/Attribute/clipPathUnits
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`clipPathUnits`**-Attribut gibt an, welches Koordinatensystem für die Inhalte des {{ SVGElement("clipPath") }}-Elements verwendet werden soll.
+Das **`clipPathUnits`**-Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("clipPath") }}-Elements verwendet werden soll.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('clipPath')}}
 
@@ -51,7 +51,7 @@ svg {
 
 ## clipPath
 
-Für {{SVGElement('clipPath')}} definieren `clipPathUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
+Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ Für {{SVGElement('clipPath')}} definieren `clipPathUnits` das verwendete Koordi
 </table>
 
 - userSpaceOnUse
-  - : Dieser Wert gibt an, dass alle Koordinaten im Inneren des {{SVGElement('clipPath')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung des Clipping-Pfades definiert wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als der Clipping-Pfad erstellt wurde.
 - objectBoundingBox
-  - : Dieser Wert gibt an, dass alle Koordinaten im Inneren des {{SVGElement('clipPath')}}-Elements relativ zur Begrenzungsbox des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als Länge von 1 Einheit betrachtet werden.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zur Begrenzungsbox des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als eine Länge von einem Einheitenwert betrachtet werden.
 
 ## Spezifikationen
 

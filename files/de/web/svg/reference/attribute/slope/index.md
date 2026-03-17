@@ -2,14 +2,14 @@
 title: slope
 slug: Web/SVG/Reference/Attribute/slope
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie z.B. Helligkeit.
+Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie zum Beispiel Helligkeit.
 
-Das `slope`-Attribut wird von den Kinderelementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert das `slope` die Steigung der linearen Funktion.
+Das `slope`-Attribut wird von untergeordneten Elementen der {{SVGElement("feComponentTransfer")}} Filterprimitive unterstützt, einschließlich der `feFunc-RGBA` Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
 
-Sie können dieses Attribut mit den folgenden SVG-Komponententransferfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
+Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncG")}}
@@ -17,9 +17,9 @@ Sie können dieses Attribut mit den folgenden SVG-Komponententransferfunktionsel
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzuzeigen. Dieser Anwendungsfall ist veraltet.
+> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Diese Verwendungsmöglichkeit ist veraltet.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -45,11 +45,11 @@ Sie können dieses Attribut mit den folgenden SVG-Komponententransferfunktionsel
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Steigung der linearen Komponententransferfunktionen an.
+  - : Dieser Wert gibt die Steigung der linearen Komponenten-Transferfunktionen an.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Gradientenkasten zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
+In diesem Beispiel hat ein Gradient-Box zwei Textelemente mit angewandten linearen Filtern. Die Steigungen der Filter-Transferfunktionen jedes Filters sind unterschiedlich.
 
 ```html
 <svg

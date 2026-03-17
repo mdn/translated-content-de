@@ -2,13 +2,13 @@
 title: stroke
 slug: Web/CSS/Reference/Properties/stroke
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Die **`stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe oder den SVG-Paint-Server, der verwendet wird, um den Strich eines Elements zu zeichnen. Daher hat `stroke` nur eine Wirkung auf Elemente, denen ein Strich zugewiesen werden kann (zum Beispiel {{SVGElement('rect')}} oder {{SVGElement('ellipse')}}); siehe die Seite zum SVG-Attribut {{SVGAttr('stroke')}} für eine vollständige Liste. Wenn angegeben, überschreibt der CSS-Wert jeden Wert des SVG-Attributs {{SVGAttr("stroke")}} des Elements.
+Die **`stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe oder den SVG-Farbserver, der verwendet wird, um die Kontur eines Elements zu zeichnen. Als solche hat `stroke` nur eine Auswirkung auf Elemente, denen eine Kontur gegeben werden kann (zum Beispiel {{SVGElement('rect')}} oder {{SVGElement('ellipse')}}); siehe die Seite zum SVG-Attribut {{SVGAttr('stroke')}} für eine vollständige Liste. Wenn sie deklariert wird, überschreibt der CSS-Wert jeden Wert des SVG-Attributs {{SVGAttr("stroke")}} des Elements.
 
 > [!NOTE]
-> Laut dem Entwurf vom 4. April 2017 der [CSS Fill and Stroke Module Level 3](https://drafts.fxtf.org/fill-stroke-3/#stroke-shorthand) Spezifikation ist die `stroke`-Eigenschaft eine Kurzform für eine Reihe anderer Stroke-Eigenschaften. In der Praxis, ab August 2024, unterstützen Browser nicht die Einstellung anderer stroke-bezogener Werte wie Breite oder Dash-Muster über die `stroke`-Eigenschaft, sondern behandeln sie als direktes Äquivalent zum SVG-Attribut {{SVGAttr("stroke")}}.
+> Gemäß dem 4. April 2017 Entwurf der [CSS Fill and Stroke Module Level 3](https://drafts.csswg.org/fill-stroke-3/#stroke-shorthand) Spezifikation ist die `stroke` Eigenschaft eine Kurzform für eine Anzahl anderer Kontureigenschaften. In der Praxis wird ab August 2024 von Browsern das Setzen anderer konturbezogener Werte wie Breite oder Strichmuster über die `stroke` Eigenschaft nicht unterstützt, sondern als direktes Analog des SVG-Attributs {{SVGAttr("stroke")}} behandelt.
 
 ## Syntax
 
@@ -32,13 +32,13 @@ stroke: unset;
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Bemalung des Strichs mit einem gültigen CSS-Farbwert.
+  - : Setzt die Farbe der Kontur auf jeden gültigen CSS-Farbwert.
 
 - `<image>`
-  - : Setzt die Bemalung des Strichs mit dem, was SVG als [_paint server_](https://svgwg.org/svg2-draft/pservers.html) bezeichnet, was in diesem Kontext ein SVG-Verlauf oder Muster ist. CSS-Verläufe können nicht mit der `stroke`-Eigenschaft verwendet werden.
+  - : Setzt die Malerei der Kontur mit dem, was in SVG als [_paint server_](https://svgwg.org/svg2-draft/pservers.html) bezeichnet wird, was in diesem Kontext ein SVG-Verlauf oder -Muster ist. CSS-Verläufe können mit der `stroke` Eigenschaft nicht verwendet werden.
 
 - `context-stroke`
-  - : Verursacht, dass ein Element seine Strichdefinition von seinem [_Kontextelement_](https://svgwg.org/svg2-draft/painting.html#TermContextElement) "erbt". Wenn kein gültiges Kontextelement vorhanden ist, wird bei diesem Wert keine Farbe für den Strich verwendet.
+  - : Verursacht, dass ein Element seine Konturdefinition vom [_Kontext-Element_](https://svgwg.org/svg2-draft/painting.html#TermContextElement) "erbt". Wenn kein gültiges Kontext-Element vorhanden ist, resultiert dieser Wert darin, dass keine Farbe für die Kontur verwendet wird.
 
 ## Formale Definition
 
@@ -50,9 +50,9 @@ stroke: unset;
 
 ## Beispiele
 
-### Grundlegendes Farbstraich
+### Grundlegende Farbkontur
 
-In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein Rechteck, die Teil einer {{SVGElement("g")}} (Gruppe) sind und deren Standard-Strichfarbe grau ist.
+In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein Rechteck, die Teil einer {{SVGElement("g")}} (Gruppe) sind, die eine graue Konturfarbe als Standard für die beiden Formen hat.
 
 ```html
 <svg>
@@ -63,7 +63,7 @@ In diesem Beispiel erstellen wir zwei verschiedene Formen, einen Kreis und ein R
 </svg>
 ```
 
-Über CSS wenden wir dann eine dunkle lila Farbe auf das Rechteck und eine rote auf den Kreis an.
+Über CSS wenden wir dann eine düstere Purpurfarbe auf das Rechteck und Rot auf den Kreis an.
 
 ```css
 rect {
@@ -74,11 +74,11 @@ circle {
 }
 ```
 
-{{EmbedLiveSample("Grundlegendes Farbstraich", "300", "180")}}
+{{EmbedLiveSample("Grundlegende Farbkontur", "300", "180")}}
 
-### Musterstraich
+### Musterkontur
 
-Dieses Beispiel verwendet die gleiche Gruppe und Formen (wobei der Kreis ein wenig verschoben wird) wie im vorherigen Beispiel, hat aber auch ein definiertes SVG-Muster.
+Dieses Beispiel verwendet die gleiche Gruppe und Formen (mit dem Kreis etwas verschoben) wie im vorherigen Beispiel, hat aber auch ein SVG-Muster definiert.
 
 ```html
 <svg>
@@ -94,7 +94,7 @@ Dieses Beispiel verwendet die gleiche Gruppe und Formen (wobei der Kreis ein wen
 </svg>
 ```
 
-Das Muster wird dann im CSS mit einem URL-Wert referenziert, der auf die ID des Musters zeigt. Dieses Muster wird auf beide Formen als Bemalung angewendet, wie im Ergebnis gezeigt.
+Das Muster wird dann im CSS mit einem URL-Wert referenziert, der auf die ID des Musters zeigt. Dieses Muster wird auf beide Formen als Konturfarbe angewendet, was das Ergebnis zeigt.
 
 ```css
 rect,
@@ -103,13 +103,13 @@ circle {
 }
 ```
 
-Das Muster wird relativ zu den Begrenzungsrahmen der Formen gezeichnet, was zu visuellen Störungen führen kann, wenn sie sich überlappen, da Teile des Musters transparent sind.
+Das Muster wird relativ zu den Begrenzungsrahmen der Formen gezeichnet, was zu visuellen Überschneidungen führen kann, wenn sie sich überlappen, da Teile des Musters transparent sind.
 
-{{EmbedLiveSample("Musterstraich", "300", "180")}}
+{{EmbedLiveSample("Musterkontur", "300", "180")}}
 
-### SVG- gegenüber CSS-Verläufen
+### SVG versus CSS-Verläufe
 
-Hier verwenden wir erneut das gleiche Gruppen- und Form-Markup wie im ersten Beispiel, fügen jedoch auch eine Definition für einen SVG-Verlauf hinzu.
+Hier verwenden wir erneut das gleiche Gruppen- und Formen-Markup wie im ersten Beispiel, fügen aber auch eine Definition für einen SVG-Verlauf hinzu.
 
 ```html
 <svg>
@@ -126,7 +126,7 @@ Hier verwenden wir erneut das gleiche Gruppen- und Form-Markup wie im ersten Bei
 </svg>
 ```
 
-Im CSS wenden wir diesen SVG-Verlauf auf das Rechteck an, indem wir einen URL-Wert verwenden, der auf die ID des linearen Verlaufs zeigt. Auf den Kreis wenden wir einen CSS-Linearen Verlauf an, der im Sinne dem SVG-Verlauf gleichwertig ist.
+Im CSS wenden wir diesen SVG-Verlauf auf das Rechteck an, indem wir einen URL-Wert verwenden, der auf die ID des linearen Verlaufs zeigt. Auf den Kreis wenden wir einen CSS-linearen Verlauf an, der in der Absicht mit dem SVG-Verlauf gleichwertig ist.
 
 ```css
 rect {
@@ -137,13 +137,13 @@ circle {
 }
 ```
 
-Nur das Rechteck erhält einen Verlaufsstrich, während der Kreis auf den grauen Strich zurückfällt, der vom Gruppenelement gesetzt wird. Dies liegt daran, dass CSS-Verläufe keine gültigen Werte für die `stroke`-Eigenschaft sind, während URL-Referenzen auf SVG-Verläufe zulässig sind.
+Nur das Rechteck erhält eine Verlaufskontur, während der Kreis zur grauen Kontur zurückfällt, die durch das Gruppenelement festgelegt wurde. Dies passiert, weil CSS-Verläufe keine gültigen Werte für die `stroke` Eigenschaft sind, während URL-Referenzen auf SVG-Verläufe erlaubt sind.
 
-{{EmbedLiveSample("SVG- gegenüber CSS-Verläufen", "300", "180")}}
+{{EmbedLiveSample("SVG versus CSS-Verläufe", "300", "180")}}
 
-### Kontextbezogener Strich
+### Kontextbezogene Kontur
 
-In diesem Fall beginnen wir wieder mit einem Gruppenelement, innerhalb dessen zwei rechteckförmige Pfade definiert sind. Danach werden ein linearer Verlauf und ein SVG-Marker definiert.
+In diesem Fall beginnen wir wieder mit einem Gruppenelement, in dem zwei rechteckige Pfade definiert sind. Danach werden ein linearer Verlauf und ein SVG-Marker definiert.
 
 ```html
 <svg>
@@ -175,7 +175,7 @@ In diesem Fall beginnen wir wieder mit einem Gruppenelement, innerhalb dessen zw
 </svg>
 ```
 
-Wir schreiben dann CSS, um beiden Pfaden einen Marker hinzuzufügen und auch eine dunkle lila Strichfarbe anzuwenden. Dies wird für den zweiten Pfad überschrieben, der einen URL-Wert erhält, um den orange-zu-roten Verlauf als seinen Strich anzuwenden. Schließlich setzen wir das Kreiselement im Markerelement so, dass es einen Strichwert von `context-stroke` hat.
+Wir schreiben dann CSS, um einen Marker zu beiden Pfaden hinzuzufügen und auch, um eine düstere Purpur-Konturfarbe zu haben. Dies wird für den zweiten Pfad überschrieben, dem ein URL-Wert zugewiesen wird, um den orange-zu-rot Verlauf als Kontur anzuwenden. Schließlich setzen wir das Kreis-Element im Marker-Element auf einen `context-stroke` Wert.
 
 ```css
 path {
@@ -190,9 +190,9 @@ marker circle {
 }
 ```
 
-Da `stroke-context` auf ein Element angewendet wird, das von einem {{SVGElement('marker')}}-Element abstammt, ist das Kontextelement für jeden Kreis das Element, das das `<marker>`-Element aufgerufen hat; das heißt, die {{SVGElement('path')}}-Elemente. Das Ergebnis ist, dass die Marker auf dem ersten Pfad die Farbe des aufrufenden Pfads verwenden und lila sind. Die Marker auf dem zweiten Pfad hingegen verwenden denselben orange-zu-roten SVG-Verlauf, den der Pfad verwendet. Dieser letzte Fall veranschaulicht, wie SVG-Verläufe als ein einziger Verlauf auf die gesamte Form angewendet werden, anstatt unabhängig auf jeden einzelnen Teil der Form angewendet zu werden.
+Da `stroke-context` auf ein Element angewendet wird, das von einem {{SVGElement('marker')}} Element abstammt, ist das Kontext-Element für jeden Kreis das Element, das das `<marker>` Element aufgerufen hat; das heißt, die {{SVGElement('path')}} Elemente. Das Ergebnis ist, dass die Marker auf dem ersten Pfad die Farbe des aufrufenden Pfads verwenden und purpurfarben sind. Die Marker auf dem zweiten Pfad hingegen verwenden denselben orange-zu-rot SVG-Verlauf, den der Pfad verwendet. Dieser letzte Fall illustriert, wie SVG-Verläufe als ein einziger Verlauf auf die gesamte Form angewendet werden, anstatt unabhängig auf jeden einzelnen Teil der Form angewendet zu werden.
 
-{{EmbedLiveSample("Kontextbezogener Strich", "300", "180")}}
+{{EmbedLiveSample("Kontextbezogene Kontur", "300", "180")}}
 
 ## Spezifikationen
 
@@ -212,4 +212,4 @@ Da `stroke-context` auf ein Element angewendet wird, das von einem {{SVGElement(
 - {{cssxref("stroke-opacity")}}
 - {{cssxref("stroke-width")}}
 - {{cssxref("paint-order")}}
-- SVG-Attribut {{SVGAttr("stroke")}}
+- SVG {{SVGAttr("stroke")}} Attribut

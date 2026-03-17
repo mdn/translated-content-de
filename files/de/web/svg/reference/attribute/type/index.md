@@ -2,18 +2,18 @@
 title: type
 slug: Web/SVG/Reference/Attribute/type
 l10n:
-  sourceCommit: c1564acf160ef4b320fb7b89ab65211b9c50cf1b
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das Attribut `type` ist ein generisches Attribut, dessen Bedeutung je nach Kontext, in dem es verwendet wird, unterschiedlich ist.
+Das `type`-Attribut ist ein generisches Attribut und hat je nach Kontext, in dem es verwendet wird, unterschiedliche Bedeutungen.
 
-- Für das Element {{SVGElement("animateTransform")}} definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
-- Für das Element {{SVGElement("feColorMatrix")}} gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen bequeme Abkürzungen dar, um häufig genutzte Farboperationen durchführen zu können, ohne eine vollständige Matrix anzugeben.
-- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} zeigt es die Art der Komponentenübertragungsfunktion an.
-- Für das Element {{SVGElement("feTurbulence")}} gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
+- Für das {{SVGElement("animateTransform")}}-Element definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
+- Für das {{SVGElement("feColorMatrix")}}-Element gibt es den Typ der Matrixoperation an. Das Schlüsselwort `matrix` weist darauf hin, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen praktische Abkürzungen dar, um häufig verwendete Farboperationen ohne Angabe einer vollständigen Matrix durchzuführen.
+- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} gibt es den Typ der Komponententransferfunktion an.
+- Für das {{SVGElement("feTurbulence")}}-Element gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
 - Für die Elemente {{SVGElement("style")}} und {{SVGElement("script")}} definiert es den Inhaltstyp des Elements.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("feColorMatrix")}}
@@ -85,7 +85,7 @@ SVG-Element: {{SVGElement("feColorMatrix")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-fecolormatrix-type"
+          href="https://drafts.csswg.org/filter-effects-1/#element-attrdef-fecolormatrix-type"
           rel="external"
           >Filter Effects Module Level 1</a
         >
@@ -119,7 +119,7 @@ SVG-Elemente: {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-fecomponenttransfer-type"
+          href="https://drafts.csswg.org/filter-effects-1/#element-attrdef-fecomponenttransfer-type"
           rel="external"
           >Filter Effects Module Level 1</a
         >
@@ -152,7 +152,7 @@ SVG-Element: {{SVGElement("feTurbulence")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://drafts.fxtf.org/filter-effects/#element-attrdef-feturbulence-type"
+          href="https://drafts.csswg.org/filter-effects-1/#element-attrdef-feturbulence-type"
           rel="external"
           >Filter Effects Module Level 1</a
         >
@@ -161,7 +161,7 @@ SVG-Element: {{SVGElement("feTurbulence")}}
   </tbody>
 </table>
 
-### Für die &lt;style&gt; und &lt;script&gt;-Elemente
+### Für die &lt;style&gt;- und &lt;script&gt;-Elemente
 
 SVG-Elemente: {{SVGElement("style")}}, {{SVGElement("script")}}
 

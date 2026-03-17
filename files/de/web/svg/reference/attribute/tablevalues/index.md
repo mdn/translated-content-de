@@ -2,10 +2,10 @@
 title: tableValues
 slug: Web/SVG/Reference/Attribute/tableValues
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Look-up-Tabelle von Werten für eine Farbkomponenten-Transferfunktion festlegt.
+Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Lookup-Tabelle von Werten für eine Farbkomponenten-Transferfunktion festlegt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -90,7 +90,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Leere Liste, die in einer Identitätstransformation resultiert</em></td>
+      <td><em>Leere Liste, die zu einer Identitätstransferfunktion führt</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -100,9 +100,9 @@ svg {
 </table>
 
 - `<list-of-numbers>`
-  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Look-up-Tabelle für die Farbkomponenten-Transferfunktion definieren. Jeder Wert kann zwischen `0` und `1` liegen.
+  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Lookup-Tabelle für die Farbkomponenten-Transferfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
 
-    Eine leere Liste führt zu einer Identitätstransformationsfunktion.
+    Eine leere Liste führt zu einer Identitätstransferfunktion.
 
 ## Spezifikationen
 

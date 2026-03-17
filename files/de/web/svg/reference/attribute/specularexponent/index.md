@@ -2,10 +2,10 @@
 title: specularExponent
 slug: Web/SVG/Reference/Attribute/specularExponent
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
 ---
 
-Das **`specularExponent`** Attribut steuert den Fokus für die Lichtquelle. Je größer der Wert, desto heller das Licht.
+Das Attribut **`specularExponent`** steuert den Fokus der Lichtquelle. Je größer der Wert, desto heller das Licht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -45,7 +45,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "420", "200")}}
+{{EmbedLiveSample("Example", "420", "200")}}
 
 ## feSpecularLighting
 
@@ -70,7 +70,7 @@ Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Expon
 
 ## feSpotLight
 
-Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwert, der den Fokus für die Lichtquelle steuert.
+Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwert, der den Fokus der Lichtquelle steuert.
 
 <table class="properties">
   <tbody>
