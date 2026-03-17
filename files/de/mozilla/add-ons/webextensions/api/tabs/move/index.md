@@ -2,14 +2,14 @@
 title: tabs.move()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/move
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: a0cae6a26d6b7263ddea94c4e3b3484fe218b354
 ---
 
 Verschiebt einen oder mehrere Tabs an eine neue Position im gleichen Fenster oder in ein anderes Fenster.
 
-Sie können Tabs nur zu und von Fenstern verschieben, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
+Sie können nur Tabs zu und von Fenstern bewegen, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} auf `"normal"` gesetzt ist.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Wenn der Aufruf einen Tab oder mehrere Tabs in einer geteilten Ansicht verschiebt, bewegt Firefox die Tabs in der geteilten Ansicht zusammen, um die geteilte Ansicht zu erhalten. In Chrome entfernt das Verschieben eines Tabs weg vom anderen Tab in einer geteilten Ansicht die geteilte Ansicht.
 
 ## Syntax
 
@@ -25,23 +25,23 @@ let moving = browser.tabs.move(
 - `tabIds`
   - : `integer` oder `array` von `integer`. ID des zu verschiebenden {{WebExtAPIRef('tabs.Tab', 'tab')}}, oder ein Array von Tab-IDs.
 - `moveProperties`
-  - : `object`. Ein Objekt, das angibt, wohin die Tabs verschoben werden sollen.
+  - : `object`. Ein Objekt, das angibt, wohin der/die Tab(s) verschoben werden soll(en).
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in das Sie die Tabs verschieben möchten. Wenn Sie diesen Wert weglassen, wird jeder Tab in `tabIds` an `index` in seinem aktuellen Fenster verschoben. Wenn Sie diesen Wert angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der angegebenen Reihenfolge.
+      - : `integer`. Die ID des Fensters, in das Sie den/die Tab(s) verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` in seinem aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der in `tabIds` angegebenen Reihenfolge.
     - `index`
-      - : `integer`. Die Indexposition, an die der Tab verschoben werden soll, beginnend mit 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
+      - : `integer`. Die Indexposition, an die der Tab verschoben werden soll, beginnend bei 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
 
         Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler auslösen.
 
-        Beachten Sie, dass Sie keine angehefteten Tabs an eine Position hinter nicht angehefteten Tabs in einem Fenster verschieben können oder nicht angeheftete Tabs an eine Position vor angehefteten Tabs. Zum Beispiel, wenn Sie ein oder mehrere angeheftete Tabs im Ziel-Fenster haben und `tabIds` auf einen nicht angehefteten Tab verweist, können Sie hier nicht 0 angeben. Wenn Sie dies versuchen, schlägt die Funktion ohne Fehlermeldung fehl (sie wird keinen Fehler auslösen).
+        Beachten Sie, dass Sie angeheftete Tabs nicht an eine Position nach nicht angehefteten Tabs in einem Fenster verschieben können oder umgekehrt. Wenn Sie beispielsweise einen oder mehrere angeheftete Tabs im Ziel-Fenster haben und `tabIds` sich auf einen nicht angehefteten Tab bezieht, dann können Sie hier nicht 0 angeben. Wenn Sie dies versuchen, wird die Funktion stillschweigend fehlschlagen (es wird kein Fehler ausgelöst).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt oder einem `array` von {{WebExtAPIRef('tabs.Tab')}} Objekten erfüllt wird, die Details über die verschobenen Tabs enthalten. Falls keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht angehefteten Tab vor einen angehefteten Tab zu verschieben), wird dies ein leeres Array sein. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt oder einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, das Details über die verschobenen Tabs enthält. Wenn keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht angehefteten Tab vor einem angehefteten Tab zu verschieben), ist dies ein leeres Array. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
-Verschieben Sie den ersten Tab im aktuellen Fenster an die letzte Position im aktuellen Fenster:
+Verschieben Sie den ersten Tab im aktuellen Fenster zur letzten Position im aktuellen Fenster:
 
 ```js
 function onMoved(tab) {
@@ -66,7 +66,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, ans Ende ihres Fensters:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, ans Ende ihres Fensters:
 
 ```js
 function onMoved(tab) {
@@ -89,7 +89,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, in das Fenster, das den ersten solchen Tab beherbergt, beginnend bei Position 0:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, in das Fenster, das den ersten solchen Tab beherbergt, beginnend bei Position 0:
 
 ```js
 function onMoved(tab) {
@@ -123,4 +123,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
