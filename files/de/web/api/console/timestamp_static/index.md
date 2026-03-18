@@ -1,18 +1,18 @@
 ---
-title: "console: timeStamp() statische Methode"
+title: "console: Methode timeStamp() (statisch)"
 short-title: timeStamp()
 slug: Web/API/console/timeStamp_static
 l10n:
-  sourceCommit: 5143045a1106f2e415985dec50f11d3cf5d1d4f9
+  sourceCommit: dda375cf06a989f7bd496ef9728fcd20e19f7fcb
 ---
 
 {{APIRef("Console API")}}{{Non-standard_header}} {{AvailableInWorkers}}
 
-Die **`console.timeStamp()`** statische Methode fügt dem Performance-Tool des Browsers ([Firefox Bug 1387528](https://bugzil.la/1387528), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)) einen einzelnen Marker hinzu. Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit den anderen im Zeitstrahl aufgezeichneten Ereignissen, wie Layout- und Paint-Ereignissen, abzugleichen.
+Die **`console.timeStamp()`**-Methode fügt ein einzelnes Markierungselement im Performance-Werkzeug des Browsers hinzu ([Firefox-Bug 1387528](https://bugzil.la/1387528), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)). Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit anderen Ereignissen, die in der Zeitleiste aufgezeichnet wurden, wie Layout- und Paint-Ereignisse, zu korrelieren.
 
-Sie können optional ein Argument angeben, um den Zeitstempel zu kennzeichnen, und dieses Label wird dann neben dem Marker angezeigt.
+Sie können optional ein Argument übergeben, um den Zeitstempel zu beschriften; diese Beschriftung wird dann neben der Markierung angezeigt.
 
-Einige Browser haben diese `console.timeStamp()`-Methode weiter ausgebaut, um zusätzliche, optionale Parameter im Rahmen ihrer Erweiterungs-API bereitzustellen, die diese in Performance-Traces anzeigen. Weitere Informationen finden Sie in der [Chrome-Erweiterungs-API-Dokumentation](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_consoletimestamp).
+Einige Browser haben diese `console.timeStamp()`-Methode weiterentwickelt, um zusätzliche optionale Parameter zuzulassen, die als Teil ihrer Extensibility-API in Leistungsabläufen angezeigt werden. Weitere Informationen finden Sie in der [Dokumentation zur Extensibility-API von Chrome](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_consoletimestamp).
 
 ## Syntax
 
@@ -24,25 +24,28 @@ console.timeStamp(label, start, end, trackName, trackGroup, color, data);
 ### Parameter
 
 - `color` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Ein String für die Anzeigefarbe des Eintrags. Muss einer der folgenden sein: `"primary"`, `"primary-light"`, `"primary-dark"`, `"secondary"`, `"secondary-light"`, `"secondary-dark"`, `"tertiary"`, `"tertiary-light"`, `"tertiary-dark"`, `"error"`.
+  - : Ein String für die Anzeigefarbe des Eintrags. Muss einer der folgenden Werte sein: `"primary"`, `"primary-light"`, `"primary-dark"`, `"secondary"`, `"secondary-light"`, `"secondary-dark"`, `"tertiary"`, `"tertiary-light"`, `"tertiary-dark"`, `"error"`.
 
 - `data` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Ein Objekt mit zusätzlichen anzuzeigenden Daten. URLs können von einigen Browsern automatisch in Links umgewandelt werden.
+  - : Ein Objekt mit zusätzlichen Daten zur Anzeige. URLs können von einigen Browsern automatisch in Links umgewandelt werden.
+
+> [!NOTE]
+> Die Unterstützung des `data`-Parameters variiert je nach Browser und deren DevTools-Implementierungen. Beispielsweise können in einigen Versionen von Chrome diese Daten im Performance-Panel nicht erscheinen.
 
 - `end` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Ein String, der auf ein zuvor definiertes `timeStamp`-Label oder einen Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) verweist, das als Endzeit verwendet werden soll.
+  - : Ein String, der auf ein zuvor definiertes `timeStamp`-Label oder einen Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) verweist, der als Endzeit verwendet wird.
 
 - `label` {{Optional_Inline}}
-  - : Bezeichnung für den Zeitstempel.
+  - : Beschriftung für den Zeitstempel.
 
 - `start` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Ein String, der auf ein zuvor definiertes `timeStamp`-Label oder einen Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) verweist, das als Startzeit verwendet werden soll.
+  - : Ein String, der auf ein zuvor definiertes `timeStamp`-Label oder einen Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) verweist, der als Startzeit verwendet wird.
 
 - `trackName` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Der Name des benutzerdefinierten Tracks, der zur Anzeige der Zeitstempeldaten verwendet wird.
+  - : Der Name der benutzerdefinierten Spur, die zur Anzeige der Zeitstempeldaten verwendet wird.
 
 - `trackGroup` {{Optional_Inline}} {{Experimental_Inline}}
-  - : Die Gruppe des benutzerdefinierten Tracks, die zur Anzeige der Zeitstempeldaten verwendet wird.
+  - : Die Gruppe der benutzerdefinierten Spur, die zur Anzeige der Zeitstempeldaten verwendet wird.
 
 ### Rückgabewert
 
@@ -56,7 +59,7 @@ Keiner ({{jsxref("undefined")}}).
 console.timeStamp("marker 1");
 ```
 
-### Verwendung der Erweiterungs-API, um detailliertere Informationen für die Anzeige bereitzustellen
+### Verwendung der Extensibility-API zur Bereitstellung detaillierterer Anzeigeinformationen
 
 ```js
 // 1. Create a duration event with rich data
@@ -111,5 +114,5 @@ console.timeStamp(
 - [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)
 - [`performance.mark()`](/de/docs/Web/API/Performance/mark)
 - [`performance.measure()`](/de/docs/Web/API/Performance/measure)
-- [Hinzufügen von Markern mit der Console-API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)
-- [Chrome DevTools Erweiterungs-API](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_consoletimestamp)
+- [Hinzufügen von Markierungen mit der Console-API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)
+- [Chrome DevTools Extensibility API](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_consoletimestamp)
