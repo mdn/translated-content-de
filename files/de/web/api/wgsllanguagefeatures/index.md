@@ -2,77 +2,82 @@
 title: WGSLLanguageFeatures
 slug: Web/API/WGSLLanguageFeatures
 l10n:
-  sourceCommit: 4d90fa2de9c90af02c581e294adaa67093fdfd4e
+  sourceCommit: a5acd8da14cc41b35cd479cda34f173e8702f992
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`WGSLLanguageFeatures`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist ein [setähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
+Die **`WGSLLanguageFeatures`** Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist ein [setartiges Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set), das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
 
-Auf das `WGSLLanguageFeatures`-Objekt kann über die [`GPU.wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures)-Eigenschaft zugegriffen werden.
+Auf das `WGSLLanguageFeatures` Objekt wird über die [`GPU.wgslLanguageFeatures`](/de/docs/Web/API/GPU/wgslLanguageFeatures) Eigenschaft zugegriffen.
 
 > [!NOTE]
-> Nicht alle WGSL-Spracherweiterungen sind für WebGPU in allen Browsern verfügbar, die die API unterstützen. Wir empfehlen, alle Erweiterungen, die Sie verwenden möchten, gründlich zu testen.
+> Nicht alle WGSL-Spracherweiterungen sind in allen Browsern, die die API unterstützen, für WebGPU verfügbar. Wir empfehlen Ihnen, alle Erweiterungen, die Sie verwenden möchten, gründlich zu testen.
 
 {{InheritanceDiagram}}
 
 ## Verfügbare Funktionen
 
-Die folgenden WGSL-Spracherweiterungen sind in der [WGSL-Spezifikation für Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) definiert. Beachten Sie, dass die genaue Menge der verfügbaren Funktionen je nach Implementierung und physischem Gerät variieren kann und sich im Laufe der Zeit ändern kann.
+Die folgenden WGSL-Spracherweiterungen sind in den [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) in der WGSL-Spezifikation definiert. Beachten Sie, dass der genaue Satz an verfügbaren Funktionen je nach Implementierung und physischem Gerät variieren kann und sich im Laufe der Zeit ändern kann.
 
 - `packed_4x8_integer_dot_product`
-  - : Ermöglicht **DP4a** (Dot Product von 4 Elementen und Akkumulieren) GPU-Instruktionen über Ihren WGSL-Code zu verwenden. Diese führen effizient 8-Bit-Integer-Dot-Produkte aus, um die Berechnung zu beschleunigen, Speicher und Netzwerkbandbreite zu sparen und die Leistung im Vergleich zu den entsprechenden `f32`-Versionen zu verbessern. Sie werden häufig in Inferenzmodellen des maschinellen Lernens innerhalb von KI-Frameworks verwendet.
+  - : Erlaubt die Nutzung von **DP4a** (Dot Product of 4 Elements and Accumulate) GPU-Anweisungen über Ihren WGSL-Code. Diese führen effizient 8-Bit-Ganzzahlergebnisprodukte aus, um Berechnungen zu beschleunigen, Speicher- und Netzwerkbandbreite zu sparen und die Leistung im Vergleich zu den entsprechenden `f32` Versionen zu verbessern. Diese werden häufig in maschinellen Lernmodellen bei der Inferenz innerhalb von KI-Frameworks eingesetzt.
 
-    Insbesondere, wenn `packed_4x8_integer_dot_product` verfügbar ist, kann WGSL-Code verwenden:
-    - 32-Bit-Integer-Skalare, die 4-Komponenten-Vektoren von 8-Bit-Integern packen, um als Eingänge für Dot-Produkt-Instruktionen verwendet zu werden (über die eingebauten Funktionen `dot4U8Packed()` und `dot4I8Packed()`).
-    - Pack- und Unpack-Instruktionen mit gepackten 4-Komponenten-Vektoren von 8-Bit-Integern (über eingebaute Funktionen wie `pack4xI8()` und `pack4xI8Clamp()`).
+    Speziell, wenn `packed_4x8_integer_dot_product` verfügbar ist, kann WGSL-Code verwenden:
+    - 32-Bit-Ganzzahl-Skalare packen 4-Komponenten-Vektoren von 8-Bit-Ganzzahlen, um als Eingaben für Dot-Produkt-Anweisungen (über die `dot4U8Packed()` und `dot4I8Packed()` eingebauten Funktionen) verwendet zu werden.
+    - Pack- und Entpack-Anweisungen mit gepackten 4-Komponenten-Vektoren von 8-Bit-Ganzzahlen (über eingebaute Funktionen wie `pack4xI8()` und `pack4xI8Clamp()`).
 
 - `pointer_composite_access`
-  - : Ermöglicht WGSL-Shader-Code den Zugriff auf Komponenten komplexer Datentypen mit der gleichen Punkt (`.`)-Syntax, unabhängig davon, ob Sie direkt mit den Daten arbeiten oder mit einem Zeiger darauf.
+  - : Ermöglicht es, dass WGSL-Shader-Code Komponenten komplexer Datentypen unter Verwendung der gleichen Punkt (`.`) Syntax zugreift, unabhängig davon, ob Sie direkt mit den Daten oder mit einem Zeiger darauf arbeiten.
 
     Wenn `pointer_composite_access` verfügbar ist:
-    - Wenn `foo` ein Zeiger ist: `foo.bar` ist als bequemere Möglichkeit verfügbar, `(*foo).bar` zu schreiben. Der Stern (`*`) wäre normalerweise notwendig, um den Zeiger in eine "Referenz" umzuwandeln, die dereferenziert werden kann, aber jetzt sind sowohl Zeiger als auch Referenzen fast austauschbar.
-    - Wenn `foo` kein Zeiger ist: Der Punktoperator (`.`) funktioniert genau so, wie Sie es gewohnt sind, um Mitglieder direkt zuzugreifen.
-    - Wenn `pa` ein Zeiger ist, der die Startadresse eines Arrays speichert, dann bietet `pa[i]` direkten Zugriff auf die Speicherstelle, an der das `i`-te Element dieses Arrays gespeichert ist.
+    - Wenn `foo` ein Zeiger ist: `foo.bar` kann als bequemere Schreibweise für `(*foo).bar` verwendet werden. Das Asterisk (`*`) wäre normalerweise erforderlich, um den Zeiger in eine "Referenz" zu verwandeln, die dereferenziert werden kann, aber jetzt sind Zeiger und Referenzen nahezu austauschbar.
+    - Wenn `foo` kein Zeiger ist: Der Punkt (`.`) Operator funktioniert genau so, wie Sie es gewohnt sind, um direkt auf Mitglieder zuzugreifen.
+    - Wenn `pa` ein Zeiger ist, der die Startadresse eines Arrays speichert, dann gibt `pa[i]` Ihnen direkten Zugang zu der Speicherstelle, an der das `i`-te Element dieses Arrays gespeichert ist.
 
-    Siehe [Syntaxzucker für das Dereferenzieren von Kompositionsobjekten in WGSL](https://developer.chrome.com/blog/new-in-webgpu-123#syntax_sugar_for_dereferencing_composites_in_wgsl) für weitere Details und ein Beispiel.
+    Weitere Details und ein Beispiel finden Sie unter [Syntaxzucker für das Dereferenzieren von Kompositen in WGSL](https://developer.chrome.com/blog/new-in-webgpu-123#syntax_sugar_for_dereferencing_composites_in_wgsl).
 
 - `readonly_and_readwrite_storage_textures`
-  - : Wenn verfügbar, ermöglicht die `"readonly"` und `"readwrite"` [`storageTexture.access`](/de/docs/Web/API/GPUDevice/createBindGroupLayout#access)-Werte beim Spezifizieren von Speichertypen in einem Bind-Group-Layout gesetzt werden. Diese ermöglichen es dem WGSL-Code, Speicherttexturen zu lesen und sowohl zu lesen als auch zu schreiben.
+  - : Wenn verfügbar, ermöglicht es das Setzen der `"read-only"` und `"read-write"` [`storageTexture.access`](/de/docs/Web/API/GPUDevice/createBindGroupLayout#access) Werte, wenn Speichertextur-Bindgruppe-Eintragstypen in einem Bindgrupp-Layout spezifiziert werden. Diese ermöglichen es WGSL-Code, Speichertexturen zu lesen und Speichertexturen zu lesen/schreiben.
 
 - `subgroup_id`
-  - : Wenn verfügbar, sind die WGSL-eingebauten Werte [`subgroup_id`](https://gpuweb.github.io/gpuweb/wgsl/#built-in-values-subgroup_id) und [`num_subgroups`](https://gpuweb.github.io/gpuweb/wgsl/#built-in-values-num_subgroups) in Rechen-Shadern benutzbar. Diese verbessern den Prozess der Arbeitsverteilung über Untergruppen, indem sie den Speicher indexieren, um überlappende Speicherzugriffe zu vermeiden. Siehe [WGSL subgroup_id-Erweiterung](https://developer.chrome.com/blog/new-in-webgpu-144#wgsl_subgroup_id_extension) für mehr Details.
+  - : Wenn verfügbar, sind die WGSL-eingebauten Werte [`subgroup_id`](https://gpuweb.github.io/gpuweb/wgsl/#built-in-values-subgroup_id) und [`num_subgroups`](https://gpuweb.github.io/gpuweb/wgsl/#built-in-values-num_subgroups) in Rechenshaders nutzbar. Diese verbessern den Prozess der Arbeitsplanung über Untergruppen hinweg, indem der Speicher indiziert wird, um überlappende Speicherzugriffe zu vermeiden. Weitere Details finden Sie unter [WGSL subgroup_id-Erweiterung](https://developer.chrome.com/blog/new-in-webgpu-144#wgsl_subgroup_id_extension).
     > [!NOTE]
-    > Damit das `subgroup_id` WGSL-Feature nutzbar ist, muss die [`subgroups`](https://gpuweb.github.io/gpuweb/wgsl/#extension-subgroups)-Erweiterung im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert werden (siehe [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)).
+    > Damit die `subgroup_id` WGSL-Funktion nutzbar ist, muss die [`subgroups`](https://gpuweb.github.io/gpuweb/wgsl/#extension-subgroups) Erweiterung im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert werden (siehe [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)).
+
+- `uniform_buffer_standard_layout`
+  - : Wenn verfügbar, verwenden Uniform-Puffer die gleichen [Speicherlayout-Einschränkungen](https://gpuweb.github.io/gpuweb/wgsl/#address-space-layout-constraints) wie Speicherpuffer, was es erleichtert, Datenstrukturen zwischen beiden Pufferarten zu teilen. Das bedeutet, Uniform-Puffer sind nicht mehr verpflichtet, 16-Byte-Ausrichtung bei Array-Elementen zu haben oder verschachtelte Struktur-Offsets auf ein Vielfaches von 16 Bytes zu polstern.
+
+    Weitere Details finden Sie unter [WGSL uniform_buffer_standard_layout Erweiterung](https://developer.chrome.com/blog/new-in-webgpu-144#wgsl_uniform_buffer_standard_layout_extension).
 
 - `unrestricted_pointer_parameters`
-  - : Lockert die Einschränkungen für Zeiger, die an WGSL-Funktionen übergeben werden. Bei Verfügbarkeit sind folgende Dinge erlaubt:
-    - Parameterzeiger auf Speicher-, Uniform- und Arbeitsraumadressräume, die an vom Benutzer deklarierte Funktionen übergeben werden.
-    - Zeiger zu Strukturmitgliedern und Arrayelementen, die an vom Benutzer deklarierte Funktionen übergeben werden.
+  - : Lockert die Beschränkungen für Zeiger, die an WGSL-Funktionen übergeben werden. Wenn verfügbar, sind die folgenden erlaubt:
+    - Parameterzeiger zu Speicher-, Uniform- und Arbeitsgruppen-Adressräumen, die an benutzerdefinierte Funktionen übergeben werden.
+    - Zeiger auf Strukturmitglieder und Array-Elemente, die an benutzerdefinierte Funktionen übergeben werden.
 
-      Siehe [Zeiger als Funktionsparameter](https://google.github.io/tour-of-wgsl/types/pointers/passing_pointers/) für mehr Details.
+      Weitere Details finden Sie unter [Zeiger als Funktionsparameter](https://google.github.io/tour-of-wgsl/types/pointers/passing_pointers/).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Die folgende Eigenschaft ist für alle schreibgeschützten [setähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
+Die folgende Eigenschaft ist für alle schreibgeschützten [setartigen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
 
 - {{jsxref("Set.prototype.size", "size")}}
   - : Gibt die Anzahl der Werte im Set zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die folgenden Methoden sind für alle schreibgeschützten [setähnlichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
+Die folgenden Methoden sind für alle schreibgeschützten [setartigen](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekte verfügbar:
 
 - {{jsxref("Set.prototype.has()", "has()")}}
-  - : Gibt einen Boolean zurück, der angibt, ob ein Element mit dem angegebenen Wert im Set vorhanden ist.
+  - : Gibt einen Boolean zurück, der angibt, ob ein Element mit dem gegebenen Wert im Set vorhanden ist oder nicht.
 - {{jsxref("Set.prototype.values()", "values()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das **Werte** für jedes Element im Set in Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das **Werte** für jedes Element im Set in der Einfügereihenfolge liefert.
 - {{jsxref("Set.prototype.keys()", "keys()")}}
   - : Ein Alias für {{jsxref("Set.prototype.values()", "values()")}}.
 - {{jsxref("Set.prototype.entries()", "entries()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im Set in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im Set in der Einfügereihenfolge enthält.
 - {{jsxref("Set.prototype.forEach()", "forEach()")}}
-  - : Ruft die bereitgestellte Callback-Funktion einmal für jeden Wert im Set in Einfügereihenfolge auf.
+  - : Ruft die bereitgestellte Callback-Funktion einmal für jeden Wert im Set in der Einfügereihenfolge auf.
 
 ## Beispiele
 

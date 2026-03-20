@@ -1,13 +1,13 @@
 ---
-title: Verwendung von Containergrößen- und Stilabfragen
+title: Verwendung von Containergröße- und Stilabfragen
 slug: Web/CSS/Guides/Containment/Container_size_and_style_queries
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 6f498c48ad30499640fd721896f13949aded9990
 ---
 
-[Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) ermöglichen es Ihnen, Styles auf Elemente anzuwenden, die in einem bestimmten Container verschachtelt sind, basierend auf den Eigenschaften dieses Containers. Die Abfrage gibt true oder false zurück, je nachdem, ob die Abfragebedingung für den Container zutrifft.
+[Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) ermöglichen das Anwenden von Stilen auf Elemente, die innerhalb eines bestimmten Containers verschachtelt sind, basierend auf den Merkmalen dieses Containers. Die Abfrage gibt `true` oder `false` zurück, je nachdem, ob die Bedingung für den Container erfüllt ist.
 
-Container-Abfragen ähneln [Media-Abfragen](/de/docs/Web/CSS/Guides/Media_queries). Die {{cssxref("@media")}}-Regel ermöglicht es, Styles auf Elemente basierend auf der Größe des Ansichtsfensters oder anderen Gerätemerkmalen anzuwenden. In ähnlicher Weise ermöglicht die {{cssxref("@container")}}-Regel das Anwenden von Styles auf Elemente basierend auf der Größe oder anderen Stileigenschaften eines enthaltenden Elements, anstatt auf das Ansichtsfenster. Container-Abfragen haben die gleichen Syntaxregeln und logischen Operatoren wie Media-Abfragen.
+Containerabfragen sind ähnlich wie [Media Queries](/de/docs/Web/CSS/Guides/Media_queries). Die {{cssxref("@media")}}-Regel erlaubt es, Stile auf Basis der Viewport-Größe oder anderer Gerätemerkmale anzuwenden. In ähnlicher Weise ermöglicht die {{cssxref("@container")}}-Regel das Anwenden von Stilen basierend auf der Größe oder anderen Stilmerkmalen eines umschließenden Elements, anstatt auf den Viewport. Containerabfragen haben die gleichen Syntaxregeln und logischen Operatoren wie Media Queries.
 
 ```css
 @container <container-condition># {
@@ -15,30 +15,30 @@ Container-Abfragen ähneln [Media-Abfragen](/de/docs/Web/CSS/Guides/Media_querie
 }
 ```
 
-Es gibt drei Arten von Container-Abfragen:
+Es gibt drei Arten von Containerabfragen:
 
-- **Container-Größenabfragen**
-  - : Größenabfragen ermöglichen das Anwenden von Styles auf Elemente basierend auf der aktuellen [Größe](/de/docs/Web/CSS/Reference/At-rules/@container#descriptors) eines enthaltenden Elements, einschließlich der Orientierung und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}}. Die enthaltenden Elemente müssen explizit als _Größenabfrage-Container_ deklariert werden.
+- **Containergrößenabfragen**
+  - : Größenabfragen ermöglichen das Anwenden von Stilen basierend auf der aktuellen [Größe](/de/docs/Web/CSS/Reference/At-rules/@container#descriptors) eines umschließenden Elements, einschließlich der Orientierung und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}}. Die umschließenden Elemente müssen explizit als _Größenabfrage-Container_ deklariert werden.
 
-- **Container-Stilabfragen**
-  - : Stilabfragen ermöglichen das Anwenden von Styles auf Elemente basierend auf den Stileigenschaften eines enthaltenden Elements. Jedes nicht-leere Element kann ein Stilabfrage-Container sein. Derzeit wird von Stilabfragen nur die CSS-[Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) als Stileigenschaft unterstützt. In diesem Fall gibt die Abfrage true oder false zurück, je nach dem berechneten Wert der Benutzerdefinierten Eigenschaften des enthaltenden Elements. Wenn Container-Stilabfragen vollständig unterstützt werden, ermöglichen sie Ihnen, Styles auf beliebige Nachfahren eines Elements basierend auf jeder Eigenschaft, Deklaration oder jedem berechneten Wert anzuwenden — zum Beispiel, wenn der Container `display: inline flex` ist oder eine nicht-transparente Hintergrundfarbe hat.
+- **[Containerstilabfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries)**
+  - : Stilabfragen ermöglichen das Anwenden von Stilen basierend auf den Stilmerkmalen eines umschließenden Elements, wobei jedes nicht-leere Element ein Stilabfrage-Container sein kann. Ein Stilmerkmal kann eine CSS-Eigenschaft, eine CSS-[benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) oder eine gültige CSS-[Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) sein. Dies ermöglicht es, Stile basierend auf den Stilmerkmalen eines Container-Elements auf dessen Nachkommen anzuwenden — wie zum Beispiel, ob es eine `display: inline`-Flex-Deklaration hat oder der Wert einer benutzerdefinierten Eigenschaft.
 
-- **[Container-Scrollstatusabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)**
-  - : Scroll-Statusabfragen ermöglichen das selektive Anwenden von CSS-Regeln auf die Nachfahren eines Containers basierend auf Scroll-Statusbedingungen, wie beispielsweise ob das abgefragte Element teilweise gescrollt ist oder ob der Container an einen Scroll-Snap-Container angedockt ist. Die enthaltenden Elemente müssen explizit als _Scrollstatusabfrage-Container_ deklariert werden.
+- **[Container-Scrollstatus-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)**
+  - : Scrollstatus-Abfragen erlauben es, CSS-Regeln selektiv auf die Nachkommen eines Containers basierend auf Bedingungen des Scrollstatus anzuwenden, wie zum Beispiel, ob das abgefragte Element teilweise gescrollt ist oder ob der Container an einem Scroll-Snap-Punkt eingerastet ist. Die umschließenden Elemente müssen explizit als _Scrollstatus-Abfrage-Container_ deklariert werden.
 
-In diesem Leitfaden lernen wir die Grundlagen von Container-Abfragen, indem wir uns Folgendes anschauen:
+In diesem Leitfaden lernen wir die Grundlagen von Containerabfragen, indem wir uns ansehen:
 
-1. [Container-Größenabfragen](#container_size_queries_2),
-2. [Benennung von Containern](#container_benennen), um ihren Anwendungsbereich zu begrenzen, und
-3. die Verwendung der `style()`-Funktionalnotation innerhalb der `<container-condition>` der {{cssxref("@container")}}-Regel, um [Stilabfragen mit Benutzerdefinierten Eigenschaften](#stilabfragen_nach_benutzerdefinierten_eigenschaften) zu erstellen.
+1. [Containergrößenabfragen](#container_size_queries_2),
+2. [Benennen von Containern](#benennen_von_containern), um deren Gültigkeitsbereich einzuschränken, und
+3. Verwendung der `style()`-Funktion innerhalb der {{cssxref("@container")}}-Regel's `<container-condition>`, um [Stilabfragen mit benutzerdefinierten Eigenschaften](#stilabfragen_für_benutzerdefinierte_eigenschaften) zu erstellen.
 
-Scroll-Statusabfragen werden in [Verwendung von Container-Scroll-Statusabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) behandelt.
+Scrollstatus-Abfragen werden in [Verwendung von Container-Scrollstatus-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) behandelt.
 
-## Size-Abfragen
+## Containergrößenabfragen
 
-Container-Größenabfragen werden durch eine Größenbedingung gefiltert. Die zugehörigen Styles werden auf enthaltene Elemente angewendet, wenn das Container-Element als Container deklariert wurde und die Container-Bedingung für dieses Element zutrifft. Der Größencontainer eines Elements ist der nächste Vorfahre mit Enthaltensein.
+Containergrößenabfragen werden durch eine Größenbedingung gefiltert. Die zugehörigen Stile werden auf enthaltene Elemente angewendet, wenn das Containerelement als Container deklariert wurde und die Containerbedingung für dieses Element erfüllt ist. Der Größencontainer eines Elements ist der nächstgelegene Vorfahr mit Containment.
 
-Elemente werden als _Größenabfrage-Container_ deklariert, indem ihre {{cssxref("container-type")}}-Eigenschaft (oder die Kurzschrift {{cssxref("container")}}) auf `size` oder `inline-size` gesetzt wird.
+Elemente werden als _Größenabfrage-Container_ deklariert, indem ihre {{cssxref("container-type")}}-Eigenschaft (oder die {{cssxref("container")}}-Kurzschreibweise) auf `size` oder `inline-size` gesetzt wird.
 
 ```css
 @container (orientation: landscape) {
@@ -50,9 +50,9 @@ Elemente werden als _Größenabfrage-Container_ deklariert, indem ihre {{cssxref
 }
 ```
 
-Das Deklarieren von Größenabfrage-Containern fügt ihnen [Einschluss](/de/docs/Web/CSS/Guides/Containment/Using) hinzu. Dies ist eine leistungsfähige Notwendigkeit — die Größe jedes Elements im DOM jederzeit abzufragen, wäre schlecht für Leistung und Benutzererfahrung. Außerdem könnte eine unendliche Schleife auftreten, wenn ein Nachfahren-Stil die Größe des Container-Elements ändern würde.
+Das Deklarieren von Größenabfrage-Containern fügt [Containment](/de/docs/Web/CSS/Guides/Containment/Using) hinzu. Dies ist eine leistungsbasierte Notwendigkeit — die Größe jedes Elements im DOM ständig abzufragen, wäre schlecht für die Leistung und Benutzererfahrung. Außerdem könnte eine unendliche Schleife entstehen, wenn ein Nachkommen-Stil die Größe des Containerelements ändern würde.
 
-In einer Container-Größenabfrage enthält die `<container-condition>` eine oder mehrere `<size-query>`s. Jede Größenabfrage beinhaltet einen Größenmerkmalnamen, einen Vergleichsoperator und einen Wert. Die Größenmerkmale, die abgefragt werden können, beschränken sich auf `width`, `height`, `inline-size`, `block-size`, `aspect-ratio` und `orientation`. Die boolesche Syntax und Logik zur Kombination von mehreren `<size-query>`s ist die gleiche wie für {{cssxref("@media")}}-Größenmerkmale-Abfragen.
+In einer Containergrößenabfrage umfasst die `<container-condition>` eine oder mehrere `<size-query>`s. Jede Größenabfrage enthält einen Namen des Größenmerkmals, einen Vergleichsoperator und einen Wert. Die gesuchten Größenmerkmale sind auf `width`, `height`, `inline-size`, `block-size`, `aspect-ratio` und `orientation` beschränkt. Die boolesche Syntax und Logik zum Kombinieren von ein oder mehreren `<size-query>`s ist die gleiche wie bei {{cssxref("@media")}}-Größenmerkmalsabfragen.
 
 ```css
 form {
@@ -64,13 +64,13 @@ form {
 }
 ```
 
-Die `<container-condition>` in diesem Beispiel enthält eine einzelne `<size-query>` — `(10em <= width <= 20em)`. In diesem Fall sind alle {{htmlelement("form")}}-Elemente potenzielle Übereinstimmungen für jede unbenannte Container-Abfrage. Die innerhalb unserer Container-Abfrage deklarierten Styles gelten für die Nachfahren aller Formulare zwischen `10em` und `30em` Breite, einschließlich.
+Die `<container-condition>` in diesem Beispiel enthält eine einzelne `<size-query>` — `(10em <= width <= 20em)`. In diesem Fall sind alle {{htmlelement("form")}}-Elemente potenzielle Übereinstimmungen für jede unbenannte Containerabfrage. Die innerhalb unserer Containerabfrage deklarierten Stile gelten für die Nachkommen aller Formen zwischen `10em` und `30em` Breite, einschließlich.
 
-## Container benennen
+## Benennen von Containern
 
-Eine `<container-condition>` kann einen optionalen auf Groß- und Kleinschreibung achtenden {{cssxref("container-name")}} enthalten. Ein Container-Name macht die Container-Bedingung spezifischer — sie wird nur gegen Elemente ausgewertet, die diesen Namen in der `container-name`-Eigenschaft gesetzt haben.
+Eine `<container-condition>` kann einen optionalen, groß-/kleinschreibungssensitiven {{cssxref("container-name")}} enthalten. Ein Containername macht die Containerbedingung spezifischer — sie wird nur gegen Elemente ausgewertet, bei denen dieser Name in der `container-name`-Eigenschaft gesetzt ist.
 
-Die {{cssxref("container-name")}}-Eigenschaft gibt eine Liste von Abfrage-`<container-name>`-Werten an, die in `@container`-Regeln verwendet werden können; dies sind auf Groß- und Kleinschreibung achtende {{cssxref("ident")}}-Werte. Die Container-Namen ermöglichen das Anvisieren jedes Container-Vorfahren des Elements. Ohne einen Container-Namen stimmt die Abfrage nur mit dem nächsten Container-Vorfahren überein.
+Die {{cssxref("container-name")}}-Eigenschaft gibt eine Liste von Abfrage-`<container-name>`-Werten an, die in `@container`-Regeln verwendet werden können; dies sind groß-/kleinschreibungsensitive {{cssxref("ident")}}-Werte. Die Container-Namen ermöglichen das Zielen auf jeden Container-Vorfahr des Elements. Ohne einen Container-Namen stimmt die Abfrage nur mit dem nächstgelegenen Container-Vorfahr überein.
 
 ```css
 @container [ [ <container-name> ]? <container-query> ]# {
@@ -78,7 +78,7 @@ Die {{cssxref("container-name")}}-Eigenschaft gibt eine Liste von Abfrage-`<cont
 }
 ```
 
-Nachdem Sie Namen zu Ihren `@container`-Regeln hinzugefügt haben, können Sie die {{cssxref("container-name")}}-Eigenschaft oder die {{cssxref("container")}}-Kurzschrift verwenden, um bestimmte Containerelemente zu selektieren. Styles innerhalb benannter `@container`-Regeln werden nur auf übereinstimmende Elemente innerhalb von Containern mit diesen Namen angewendet, die die Container-Abfragen erfüllen.
+Nachdem Sie Ihren `@container`-Regeln Namen hinzugefügt haben, können Sie die {{cssxref("container-name")}}-Eigenschaft oder die {{cssxref("container")}}-Kurzschreibweise verwenden, um auf bestimmte Containerelemente zu zielen. Stile innerhalb der benannten `@container`-Regeln werden nur auf entsprechende Elemente innerhalb von Containern mit diesen Namen angewendet, die die Containerabfragen erfüllen.
 
 ```css
 @container card (orientation: landscape) {
@@ -91,7 +91,7 @@ Nachdem Sie Namen zu Ihren `@container`-Regeln hinzugefügt haben, können Sie d
 }
 ```
 
-Im obigen Beispiel werden die Styles innerhalb des Container-Abfrageblocks auf die Nachfahren aller {{htmlelement("li")}}-Elemente angewendet, deren Breite größer als ihre Höhe ist. Beachten Sie, dass auch andere Elemente mit `container-name: card`, die der Größenabfrage entsprechen, diese Styles auf die Nachfahren ihrer Elemente anwenden werden.
+Im obigen Beispiel gelten die Stile innerhalb des Containerabfrageblocks für die Nachkommen aller {{htmlelement("li")}}-Elemente mit einer Breite, die größer ist als ihre Höhe. Beachten Sie, dass auch andere Elemente mit `container-name: card`, die der Größenabfrage entsprechen, diese Stile auf die Nachkommen ihrer Elemente angewendet bekommen.
 
 ```css
 @container wide (width >= 20em) {
@@ -108,15 +108,15 @@ Im obigen Beispiel werden die Styles innerhalb des Container-Abfrageblocks auf d
 }
 ```
 
-Im obigen Beispiel hat das Element zwei Container-Namen, `wide` und `narrow`. Die Nachfahren aller Elemente mit `class="sizeContainer"` erhalten die Styles aus der `wide`- oder `narrow`-Abfrage zugewiesen.
+Im obigen Beispiel hat das Element zwei Containernamen, `wide` und `narrow`. Die Nachkommen von Elementen mit `class="sizeContainer"` erhalten die Stile aus der `wide`- oder `narrow`-Abfrage angewendet.
 
-Der Standardwert `container-type: normal` verhindert, dass der Container ein Größencontainer wird, aber er kann immer noch ein [Stilcontainer](#stilabfragen) sein. Der Standardwert `container-name: none` gibt an, dass der Container keinen Namen hat, verhindert jedoch nicht, dass das Element mit unbenannten Abfragen übereinstimmt.
+Der Standardwert `container-type: normal` verhindert, dass der Container ein Größencontainer wird, aber er kann immer noch ein [Stilcontainer](#containerstilabfragen) sein. Der Standardwert `container-name: none` gibt an, dass der Container keinen Namen hat, verhindert aber nicht, dass das Element mit namenlosen Abfragen übereinstimmt.
 
-Mit Container-Abfragen sind wir nicht auf Größenabfragen beschränkt! Sie können auch die Stileigenschaften eines Containers abfragen.
+Mit Containerabfragen sind wir nicht auf Größenabfragen beschränkt! Sie können auch die Stilmerkmale eines Containers abfragen.
 
-## Stilabfragen
+## Containerstilabfragen
 
-Eine _Container-Stilabfrage_ ist eine `@container`-Abfrage, die die berechneten Stile des Container-Elements bewertet, wie sie in einer oder mehreren `style()`-Funktionalnotationen definiert sind. Die boolesche Syntax und Logik, die verwendet wird, um Stileigenschaften in eine Stilabfrage zu kombinieren, ist dieselbe wie bei [CSS-Feature-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries). Der einzige Unterschied ist der Funktionsname — `style()` innerhalb eines `<style-feature>`, im Gegensatz zu `supports()` innerhalb einer `<support-condition>`:
+Eine _Containerstilabfrage_ ist eine `@container`-Abfrage, die berechnete Stile des Containerelements auswertet, wie in einer oder mehreren `style()`-Funktionsnotationen definiert. Die boolesche Syntax und Logik, die verwendet wird, um Stilmerkmale zu einem Stilabfrage zu kombinieren, ist die gleiche wie in [CSS-Feature-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries). Der einzige Unterschied ist der Funktionsname — `style()` innerhalb eines `<style-feature>` im Gegensatz zu `supports()` innerhalb eines `<support-condition>`:
 
 ```css
 @container style(<style-feature>),
@@ -127,12 +127,12 @@ Eine _Container-Stilabfrage_ ist eine `@container`-Abfrage, die die berechneten 
 }
 ```
 
-Der Parameter jeder `style()`-Funktion ist ein einziges **`<style-feature>`**. Laut der CSS-Einschlussspezifikation kann ein `<style-feature>` eine gültige CSS-[Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/Reference/Values/var#values) sein. Die einzige derzeit unterstützte Stileigenschaft sind Benutzerdefinierte Eigenschaften, mit oder ohne Wert. Siehe die [Browser-Kompatibilitätstabelle für `@container`](/de/docs/Web/CSS/Reference/At-rules/@container#browser_compatibility).
+Der Parameter jeder `style()`-Funktion ist ein einzelnes **`<style-feature>`**. Gemäß der CSS-Containment-Spezifikation kann ein `<style-feature>` eine gültige CSS-[Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations), eine CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/Reference/Values/var#values) sein. Das einzige derzeit unterstützte Stilmerkmal sind benutzerdefinierte Eigenschaften, mit oder ohne Wert. Siehe die [Browser-Kompatibilitätstabelle für `@container`](/de/docs/Web/CSS/Reference/At-rules/@container#browser_compatibility).
 
-Wenn das `<style-feature>` einen Wert enthält, ergibt die Stilabfrage true, wenn der berechnete Wert der Benutzerdefinierten Eigenschaft (oder zukünftig die CSS-Deklaration), die als `style()`-Argument übergeben wird, für den abgefragten Container zutrifft. Andernfalls ergibt sie false.
-Eine Stileigenschaft ohne Wert ergibt true, wenn der berechnete Wert von dem [Anfangswert](#registrierte_eigenschaften) für die gegebene Eigenschaft abweicht.
+Wenn das `<style-feature>` einen Wert enthält, wird die Stilabfrage als wahr ausgewertet, wenn der berechnete Wert der benutzerdefinierten Eigenschaft (oder, zukünftig, der CSS-Deklaration), die als `style()`-Argument übergeben wird, für den abgefragten Container wahr ist. Andernfalls wird auf falsch aufgelöst.
+Ein Stilmerkmal ohne Wert wird als wahr ausgewertet, wenn der berechnete Wert sich vom [Anfangswert](#registrierte_eigenschaften) für die gegebene Eigenschaft unterscheidet.
 
-In Zukunft werden wir Stilabfragen wie folgt schreiben können:
+In Zukunft können wir Stilabfragen wie folgt schreiben:
 
 ```css
 @container style(color: green) and style(background-color: transparent),
@@ -144,9 +144,9 @@ In Zukunft werden wir Stilabfragen wie folgt schreiben können:
 }
 ```
 
-Die `style()`-Funktionalnotation wird verwendet, um Stilabfragen von Größenabfragen zu unterscheiden. Obwohl derzeit noch nicht unterstützt, werden wir schließlich in der Lage sein, reguläre CSS-Deklarationen wie `max-width: 600px` abzufragen. Die Abfrage `@container (max-width: 600px)` ist eine Größenabfrage; Einschluss mit {{cssxref("container-type")}} oder der {{cssxref("container")}}-Kurzschrift ist erforderlich. Diese Abfrage ergibt true, wenn der Container 600px oder weniger ist. Das unterscheidet sich von der Abfrage `@container style(max-width: 600px)`, die eine Stilabfrage ist; wenn unterstützt, ergibt diese Abfrage true, wenn der Container einen {{cssxref("max-width")}}-Wert von `600px` hat.
+Die `style()`-Funktionsnotation wird verwendet, um Stilabfragen von Größenabfragen zu unterscheiden. Während dies noch nicht unterstützt wird, können wir schließlich reguläre CSS-Deklarationen wie `max-width: 600px` abfragen. Eine Abfrage von `@container (max-width: 600px)` ist eine Größenabfrage; Containment mit {{cssxref("container-type")}}, oder die {{cssxref("container")}}-Kurzschreibweise, wird benötigt. Diese Abfrage wird `true` zurückgeben, wenn der Container 600px oder kleiner ist. Das unterscheidet sich von der Abfrage `@container style(max-width: 600px)`, die eine Stilabfrage ist; wenn unterstützt, wird diese Abfrage `true` zurückgeben, wenn der Container einen {{cssxref("max-width")}}-Wert von `600px` hat.
 
-Bis Stilabfragen für reguläre CSS-Deklarationen und -Eigenschaften unterstützt werden, sind wir darauf beschränkt, nur Benutzerdefinierte Eigenschaften als `style()`-Parameter einzuschließen, mit oder ohne Wert:
+Bis Stilabfragen für reguläre CSS-Deklarationen und Eigenschaften unterstützt werden, sind wir darauf beschränkt, nur benutzerdefinierte Eigenschaften als `style()`-Parameter aufzunehmen, mit oder ohne Wert:
 
 ```css
 @container style(--themeBackground),
@@ -155,26 +155,26 @@ Bis Stilabfragen für reguläre CSS-Deklarationen und -Eigenschaften unterstütz
 }
 ```
 
-Einige Dinge, die bereits erwähnt wurden, aber wichtig zu erinnern sind:
+Einige Dinge, die bereits erwähnt wurden, sich aber wichtig zu erinnern sind:
 
-- Alle Elemente können Stilabfrage-Container sein; das Setzen eines `container-type` ist nicht erforderlich. Wenn Nachfahren-Styles die berechneten Stile eines Vorfahren nicht beeinflussen, ist Einschluss nicht erforderlich.
-- Eine `<container-condition>` kann sowohl Stil- als auch Größenmerkmale enthalten. Wenn Größenmerkmale in Ihrer Abfrage enthalten sind, stellen Sie sicher, dass Ihre Containerelemente einen `container-type` von `size` oder `inline-size` gesetzt haben.
-- Wenn Sie nicht möchten, dass ein Element jemals als Container betrachtet wird, geben Sie ihm einen `container-name`, der nicht verwendet wird. Das Setzen von `container-name: none` entfernt alle mit einem Container verbundenen Abfragenamen; es verhindert nicht, dass das Element ein Stilcontainer wird.
-- Zum Zeitpunkt des Schreibens (Februar 2024) funktionieren Container-Stilabfragen nur mit CSS-Benutzerdefinierten Eigenschaftswerten in der `style()`-Abfrage.
+- Alle Elemente können Stilabfrage-Container sein; das Setzen eines `container-type` ist nicht erforderlich. Wenn Nachkommenstyles die berechneten Stile eines Vorfahren nicht beeinflussen, ist Containment nicht nötig.
+- Eine `<container-condition>` kann sowohl Stil- als auch Größenmerkmale enthalten. Wenn Sie Größenmerkmale in Ihre Abfrage aufnehmen, stellen Sie sicher, dass Ihre Containerelemente einen `container-type` von `size` oder `inline-size` gesetzt haben.
+- Wenn Sie nicht möchten, dass ein Element jemals als Container betrachtet wird, geben Sie ihm einen `container-name`, der nicht verwendet wird. Das Setzen von `container-name: none` entfernt alle zugehörigen Abfragenamen von einem Container; es verhindert nicht, dass das Element ein Stilcontainer ist.
+- Zum Zeitpunkt des Schreibens (Februar 2024) funktionieren Stilabfragen von Containern nur mit CSS-Benutzerdefinierte-Eigenschaftswerten in der `style()`-Abfrage.
 
-Nun lassen Sie uns eintauchen und einen Blick auf die verschiedenen `<style-feature>`-Typen werfen.
+Nun, lassen Sie uns eintauchen und einen Blick auf die verschiedenen `<style-feature>`-Typen werfen.
 
-### Stilabfragen nach Benutzerdefinierten Eigenschaften
+### Stilabfragen für benutzerdefinierte Eigenschaften
 
-Stilabfragen nach Benutzerdefinierten Eigenschaften ermöglichen es Ihnen, die [Benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), auch "CSS-Variablen" genannt, eines Elternelements abzufragen. Diese werden innerhalb einer `<style-query>` genauso aufgenommen, wie Sie eine reguläre CSS-Eigenschaft innerhalb einer Feature-Abfrage aufnehmen würden: entweder mit oder ohne Wert.
+Stilabfragen für benutzerdefinierte Eigenschaften ermöglichen es, die [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), auch "CSS-Variablen" genannt, eines übergeordneten Elements abzufragen. Sie werden innerhalb eines `<style-query>` genauso aufgenommen, wie Sie eine reguläre CSS-Eigenschaft innerhalb einer Feature-Abfrage einfügen würden: entweder mit oder ohne Wert.
 
-#### Unabhängige Benutzerdefinierte Eigenschaftsabfragen
+#### Eigenständige benutzerdefinierte Eigenschafts-Abfragen
 
-Der `<style-query>`-Parameter der `style()`-Funktionalnotation kann nur einen CSS-Variablennamen enthalten; eine Benutzerdefinierte Eigenschaft ohne Wert. Wenn kein Wert inkludiert ist, ergibt die Abfrage false, wenn der Wert dem Wert des `initial-value`-Deskriptors innerhalb der `@property`-Regel entspricht, falls vorhanden. Die Stilabfrage gibt true zurück und stimmt mit allen Elementen überein, die einen Benutzerdefinierten Eigenschaftswert haben, der sich vom `initial-value` unterscheidet, oder für alle Elemente, die eine Benutzerdefinierte Eigenschaft irgendeines Werts haben, wenn die Benutzerdefinierte Eigenschaft deklariert wurde, ohne registriert zu werden.
+Der `<style-query>`-Parameter der `style()`-Funktionsnotation kann nur einen CSS-Variablennamen enthalten; eine benutzerdefinierte Eigenschaft ohne Wert. Wenn kein Wert enthalten ist, wird die Abfrage `false` zurückgeben, wenn der Wert mit dem Wert des `initial-value`-Descriptors innerhalb der `@property`-Regel übereinstimmt, falls vorhanden. Die Stilabfrage gibt `true` zurück und stimmt mit allen Elementen überein, die einen benutzerdefinierten Eigenschaftswert haben, der sich vom `initial-value` unterscheidet, oder mit allen Elementen, die eine benutzerdefinierte Eigenschaft mit einem beliebigen Wert haben, wenn die benutzerdefinierte Eigenschaft ohne Registrierung deklariert wurde.
 
-##### Unregistrierte Benutzerdefinierte Eigenschaften
+##### Nicht registrierte benutzerdefinierte Eigenschaften
 
-Wenn CSS-Variablen durch eine CSS-Benutzerdefinierte Eigenschaftswertzuweisung eingeführt werden, geben wertlose Benutzerdefinierte Eigenschaftsabfragen immer true zurück.
+Wenn CSS-Variablen über eine CSS-Benutzerdefinierte-Eigenschaftswertzuweisung eingeführt werden, geben wertlose benutzerdefinierte Eigenschaftsabfragen immer `true` zurück.
 
 ```css
 :root {
@@ -186,11 +186,11 @@ Wenn CSS-Variablen durch eine CSS-Benutzerdefinierte Eigenschaftswertzuweisung e
 }
 ```
 
-In diesem Beispiel stimmt die Container-Abfrage mit dem Element überein, auf dem die `--theme-color`-Eigenschaft deklariert wurde und all seinen Nachfahren. Da die CSS-Variable `--theme-color` auf dem {{cssxref(":root")}} deklariert wurde, ergibt die Stilabfrage `style(--theme-color)` für jedes Element innerhalb dieses {{Glossary("DOM", "DOM")}}-Knotens true.
+In diesem Beispiel stimmt die Containerabfrage mit dem Element überein, auf dem die `--theme-color`-Eigenschaft deklariert wurde, und allen seinen Nachkommen. Da die CSS-Variable `--theme-color` auf der {{cssxref(":root")}} deklariert wurde, wird die Stilabfrage `style(--theme-color)` für jedes Element innerhalb dieses {{Glossary("DOM", "DOM")}}-Knotens wahr sein.
 
 ##### Registrierte Eigenschaften
 
-Das Verhalten von registrierten Benutzerdefinierten Eigenschaften ist anders. Wenn explizit mit der {{cssxref("@property")}} CSS-Regel oder über JavaScript mit [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) definiert, gibt die Stilabfrage `style(--theme-color)` nur für Elemente true zurück, wenn der berechnete Wert von `--theme-color` für das Element von dem [`initial-value`](/de/docs/Web/CSS/Reference/At-rules/@property/initial-value) abweicht, der in der ursprünglichen Definition dieser Benutzerdefinierten Eigenschaft festgelegt wurde.
+Das Verhalten von registrierten benutzerdefinierten Eigenschaften ist anders. Wenn sie ausdrücklich mit der {{cssxref("@property")}} CSS-Regel oder über JavaScript mit [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) definiert werden, gibt die Stilabfrage `style(--theme-color)` nur `true` für Elemente zurück, wenn der berechnete Wert der `--theme-color`-Eigenschaft des Elements sich von dem [`initial-value`](/de/docs/Web/CSS/Reference/At-rules/@property/initial-value) unterscheidet, der in der ursprünglichen Definition dieser benutzerdefinierten Eigenschaft festgelegt ist.
 
 ```css
 @property --theme-color {
@@ -211,11 +211,11 @@ main {
 }
 ```
 
-In diesem Beispiel stimmt das `:root`-Element NICHT mit der Stilabfrage überein, da der Wert der Benutzerdefinierten Eigenschaft mit dem `initial-value`-Wert identisch ist. Der Benutzerdefinierte Eigenschaftswert für das Element (und alle Elemente, die den Wert erben) bleibt `rebeccapurple`. Nur Elemente, die vom Anfangswert abweichen, in diesem Fall der {{htmlelement("main")}} und seine Nachfahren, die diesen geänderten Wert erben, sind eine Übereinstimmung.
+In diesem Beispiel stimmt das `:root`-Element NICHT mit der Stilabfrage überein, weil der Wert der benutzerdefinierten Eigenschaft dem `initial-value`-Wert entspricht. Der benutzerdefinierte Eigenschaftswert für das Element (und alle die diesen Wert erben) bleibt `rebeccapurple`. Nur Elemente, die sich vom Anfangswert unterscheiden, in diesem Fall das {{htmlelement("main")}}-Element und dessen Nachkommen, die diesen geänderten Wert erben, sind eine Übereinstimmung.
 
-#### Benutzerdefinierte Eigenschaft mit einem Wert
+#### Benutzerdefinierte Eigenschaft mit Wert
 
-Wenn eine Stilabfrage einen Wert für die Benutzerdefinierte Eigenschaft enthält, muss der berechnete Wert des Elements für diese Eigenschaft exakt übereinstimmen, wobei äquivalente Werte nur dann eine Übereinstimmung sind, wenn die Benutzerdefinierte Eigenschaft mit einer {{cssxref("@property")}}-Regel (oder einem Aufruf der Methode [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static)) mit einem `syntax`-Deskriptor definiert wurde.
+Wenn eine Stilabfrage einen Wert für die benutzerdefinierte Eigenschaft enthält, muss der berechnete Wert der Eigenschaft des Elements eine exakte Übereinstimmung sein, wobei äquivalente Werte nur dann eine Übereinstimmung sind, wenn die benutzerdefinierte Eigenschaft mit einer {{cssxref("@property")}}-Regel (oder einem [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static)-Methodenaufruf) mit einem `syntax`-Descriptor definiert wurde.
 
 ```css
 @container style(--accent-color: blue) {
@@ -223,9 +223,9 @@ Wenn eine Stilabfrage einen Wert für die Benutzerdefinierte Eigenschaft enthäl
 }
 ```
 
-Diese Container-Stilabfrage stimmt mit jedem Element überein, das `blue` als [berechneten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der `--accent-color`-Benutzerdefinierten Eigenschaft hat.
+Diese Containerstilabfrage stimmt mit jedem Element überein, das `blue` als [berechneten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der `--accent-color`-benutzerdefinierten Eigenschaft hat.
 
-In diesem Fall stimmen andere Farbwerte, die sRGB `blue` entsprechen (wie der Hexadezimalcode `#0000ff`), nur dann überein, wenn die `--accent-color`-Eigenschaft als eine Farbe mit `@property` oder `CSS.registerProperty()` definiert wurde, zum Beispiel:
+In diesem Fall werden andere Farbwerte, die sRGB `blue` entsprechen (wie der Hexadezimalcode `#0000ff`), nur übereinstimmen, wenn die `--accent-color`-Eigenschaft als Farbe mit `@property` oder `CSS.registerProperty()` definiert wurde:
 
 ```css
 @property --accent-color {
@@ -235,7 +235,7 @@ In diesem Fall stimmen andere Farbwerte, die sRGB `blue` entsprechen (wie der He
 }
 ```
 
-In diesem Fall, wenn der Wert von `--accent-color` auf `blue`, `#00f`, `#0000ff`, `rgb(0 0 255 / 1)` oder `rgb(0% 0% 100%)` gesetzt wird, ergibt sich für `@container style(--accent-color: blue)` true.
+In diesem Fall, wenn der Wert von `--accent-color` auf `blue`, `#00f`, `#0000ff`, `rgb(0 0 255 / 1)` oder `rgb(0% 0% 100%)` gesetzt wäre, würde es `true` für `@container style(--accent-color: blue)` zurückgeben.
 
 ##### Beispiel
 
@@ -274,7 +274,7 @@ In diesem Beispiel haben wir ein {{htmlelement("fieldset")}} mit vier Optionsfel
 </form>
 ```
 
-JavaScript aktualisiert den Wert der CSS-Variablen `--theme` auf dem {{htmlelement("body")}}-Element, das ein Vorfahre des {{htmlelement("fieldset")}}- und {{htmlelement("output")}}-Elements ist, immer dann, wenn ein Optionsfeld ausgewählt wird. Wenn das Text-`<input>` aktualisiert wird, wird der [`value`](/de/docs/Web/API/HTMLInputElement/value) des `other`-Optionsfelds nur aktualisiert, wenn das `other`-Optionsfeld markiert ist, was wiederum den Wert von `--theme` aktualisiert.
+JavaScript aktualisiert den Wert der CSS-`--theme`-Variablen auf dem {{htmlelement("body")}}-Element, das ein Vorfahr des {{htmlelement("fieldset")}} und des {{htmlelement("output")}}-Elements ist, wann immer ein Optionsfeld ausgewählt wird. Wenn das Text-`<input>` aktuell wird, wird der [`value`](/de/docs/Web/API/HTMLInputElement/value) des `other` Optionsfelds nur aktualisiert, wenn das `other` Optionsfeld aktiviert ist, was wiederum den Wert von `--theme` aktualisiert.
 
 ```js
 const radios = document.querySelectorAll('input[name="selection"]');
@@ -295,7 +295,7 @@ color.addEventListener("input", (e) => {
 });
 ```
 
-Wir verwenden die `@property`-Regel, um eine CSS-Variable `--theme` als {{cssxref("color_value", "&lt;color&gt;")}}-Wert zu definieren und setzen den `initial-value` auf `red`, wodurch sichergestellt wird, dass äquivalente Farben unabhängig davon übereinstimmen, welches Syntax verwendet wird (z. B. ist `red` gleichbedeutend mit `rgb(255 0 0)`, `#ff0000` und `#f00`).
+Wir verwenden die `@property`-Regel, um eine CSS-Variable `--theme` als {{cssxref("color_value", "&lt;color&gt;")}}-Wert zu definieren, und setzen den `initial-value` auf `red`, um sicherzustellen, dass äquivalente Farben unabhängig von der verwendeten Syntax übereinstimmen (zum Beispiel ist `red` gleich `rgb(255 0 0)`, `#ff0000` und `#f00`).
 
 ```css
 @property --theme {
@@ -312,7 +312,7 @@ output {
 }
 ```
 
-Die erste Stil-Feature-Abfrage ist eine Benutzerdefinierte Eigenschaft ohne Wert. Dieser Abfragetyp gibt true zurück, wenn der berechnete Wert für den Benutzerdefinierten Eigenschaftswert von dem `initial-value` für diese Eigenschaft abweicht. In diesem Fall wird es true sein, wenn der Wert von `--theme` ein anderer Wert ist als ein Syntax äquivalenter Wert von `red` (z. B. `#ff0000`). Wenn true, hat das {{htmlelement("output")}} einen 5px gepunkteten Umriss. Die Umrissfarbe ist der aktuelle Wert von `--theme`. Die Standardtext-{{cssxref("color")}} ist grau.
+Die erste Stilmerkmalsabfrage ist eine benutzerdefinierte Eigenschaft ohne Wert. Diese Art der Abfrage gibt `true` zurück, wenn der berechnete Wert der benutzerdefinierten Eigenschaft anders ist als der `initial-value` für diese Eigenschaft. In diesem Fall wird sie `true` sein, wenn der Wert von `--theme` ein anderer Wert ist als jeder Syntax-äquivalente Wert von `red` (wie `#ff0000`). Wenn `true`, erhält das {{htmlelement("output")}} eine 5px gepunktete Kontur. Die Konturfarbe ist der aktuelle Wert von `--theme`. Die Standardtextfarbe ist grau.
 
 ```css
 @container style(--theme) {
@@ -323,9 +323,9 @@ Die erste Stil-Feature-Abfrage ist eine Benutzerdefinierte Eigenschaft ohne Wert
 }
 ```
 
-Die zweite und dritte Stilabfragen schließen Werte für die Benutzerdefinierte Eigenschaft ein. Diese stimmen überein, wenn der `--theme`-Wert des Containers ein äquivalenter Wert zur aufgelisteten Farbe ist, selbst wenn dieser Wert mit dem `initial-value` identisch ist. Die erste Abfrage stimmt mit Elementen überein, deren `--theme`-Wert in Bezug auf `red`, `blue` oder `green` gleichwertig ist. Wenn dies der Fall ist, wird die {{cssxref("color")}} die Farbe des aktuellen Wertes von `--theme` sein (im Fall von `blue` und `green`, wird sie das Grau überschreiben, das in der ersten Stilabfrage gesetzt wurde).
+Die zweite und dritte Stilabfrage enthalten Werte für die benutzerdefinierte Eigenschaft. Diese stimmen überein, wenn der `--theme`-Wert des Containers eine äquivalente Farbe zu dem angegebenen Wert ist, selbst wenn dieser Wert dem `initial-value` entspricht. Die erste Abfrage stimmt mit Elementen überein, deren `--theme`-Wert äquivalent zu `red`, `blue` oder `green` ist. Wenn es so ist, wird die {{cssxref("color")}} die Farbe des aktuellen Werts von `--theme` sein (im Falle von `blue` und `green`, überschreibt sie das Grau, das in der ersten Stilabfrage gesetzt wurde).
 
-Die zweite Stilabfrage besagt, dass, wenn `--theme` gleichwertig mit `red` ist, der Inhalt des `<output>` auch fett ist. Wir haben dies getan, um besser zu demonstrieren, dass die Container-Abfrage eine Übereinstimmung ist.
+Die zweite Stilabfrage besagt, dass, wenn `--theme` äquivalent zu `red` ist, der Inhalt des `<output>` ebenfalls fett sein wird. Wir haben dies getan, um besser zu demonstrieren, dass die Containerabfrage eine Übereinstimmung ist.
 
 ```css
 @container style(--theme: green) or style(--theme: blue) or style(--theme: red) {
@@ -343,18 +343,18 @@ Die zweite Stilabfrage besagt, dass, wenn `--theme` gleichwertig mit `red` ist, 
 
 {{EmbedLiveSample('example','100%','200')}}
 
-Versuchen Sie, verschiedene Farbwerte in das Textfeld einzugeben. Sie werden vielleicht bemerken, dass Werte, die sRGB-Äquivalente von `red` sind, das `<output>` rot machen werden — da sie mit `style(--theme: red)` übereinstimmen — während sie den Umriss entfernen, da `style(--theme)` false zurückgibt, wenn der Wert der Benutzerdefinierten Eigenschaft `--theme` mit dem Anfangswert für `--theme` übereinstimmt, der durch die `@property`-Regel definiert wurde. Jeder sRGB-gültige Farbwert, der nicht rot ist, einschließlich `currentColor` oder `hsl(180 100% 50%)` usw., führt dazu, dass die erste Stilabfrage true ergibt; es sind Werte, die sich von dem `initial-value` unterscheiden.
+Versuchen Sie, verschiedene Farbwerte in das Textfeld einzugeben. Sie werden feststellen, dass Werte, die RGB-Äquivalente von `red` sind, das `<output>` rot machen — da es mit `style(--theme: red)` übereinstimmt —, während die Umrisslinie entfernt wird, weil `style(--theme)` `false` zurückgibt, wenn der Wert des Elements für `--theme` gleich dem Anfangswert für `--theme` ist, der durch die `@property`-Regel definiert ist. Jeder gültige nicht rote RGB-Farbwert, einschließlich `currentColor` oder `hsl(180 100% 50%)` usw., bringt die erste Stilabfrage dazu, `true` zurückzugeben; sie sind Werte, die sich vom `initial-value` unterscheiden.
 
-Da wir `syntax: "<color>";` definiert haben, kann der CSS-Variable nur gültige `<color>`-Werte zugewiesen werden. Gültige Werte für die {{cssxref("color")}}-Eigenschaft, die keine `<color>`-Werte sind, wie `unset` oder `inherit`, sind für diese Benutzerdefinierte Eigenschaft [ungültig](/de/docs/Web/CSS/Guides/Syntax/Error_handling) und werden ignoriert.
+Da wir `syntax: "<color>";` gesetzt haben, kann die CSS-Variable nur gültige `<color>`-Werte zugewiesen bekommen. Gültige Werte für die {{cssxref("color")}}-Eigenschaft, die keine `<color>`-Werte sind, wie `unset` oder `inherit`, sind für diese benutzerdefinierte Eigenschaft [ungültig](/de/docs/Web/CSS/Guides/Syntax/Error_handling) und werden ignoriert.
 
-Wenn Sie `unset` oder `gibberish` eingeben, aktualisiert das JavaScript den `style` auf dem {{HTMLElement("body")}} zu `--theme: unset` oder `--theme: gibberish`. Keines dieser Werte sind Farben. Beide sind ungültig und werden ignoriert. Das bedeutet, dass der Anfangswert geerbt und unverändert bleibt, wobei `style(--theme)` false ergibt und `style(--theme: red)` true.
+Wenn Sie `unset` oder Unsinn eingeben, aktualisiert das JavaScript die `style` des {{htmlElement("body")}} zu `--theme: unset` oder `--theme: gibberish`. Keines von beiden sind Farben. Beide sind ungültig und werden ignoriert. Dies bedeutet, dass der Anfangswert übernommen wird und unverändert bleibt, wobei `style(--theme)` `false` zurückgibt und `style(--theme: red)` `true`.
 
 > [!NOTE]
-> Wenn Sie Benutzerdefinierte Eigenschaften deklarieren, sollten Sie überlegen, `@property` mit dem {{cssxref("@property/syntax","Syntax")}}-Deskriptor zu verwenden, damit der Browser berechnete Werte ordnungsgemäß vergleichen kann.
+> Beim Deklarieren benutzerdefinierter Eigenschaften sollten Sie `@property` mit dem {{cssxref("@property/syntax","syntax")}}-Descriptor verwenden, damit der Browser berechnete Werte richtig vergleichen kann.
 
 ### Verschachtelte Abfragen
 
-Container-Abfragen können innerhalb anderer Container-Abfragen verschachtelt werden. Die Styles, die in mehreren verschachtelten Container-Abfragen definiert sind, werden angewendet, wenn alle umschließenden Container-Abfragen true sind.
+Containerabfragen können innerhalb anderer Containerabfragen verschachtelt werden. Die innerhalb verschachtelter Containerabfragen definierten Stile werden angewendet, wenn alle umgebenden Containerabfragen `true` sind.
 
 ```css
 @container style(--theme: red) {
@@ -369,11 +369,11 @@ Container-Abfragen können innerhalb anderer Container-Abfragen verschachtelt we
 }
 ```
 
-In diesem Fall hat das `<output>` einen 5px gepunkteten Rahmen, wenn es in einem Container verschachtelt ist, in dem `--theme: purple` gesetzt ist, und dieser Container innerhalb eines Containers verschachtelt ist, dessen `--theme`-Wert `red` ist.
+In diesem Fall wird das `<output>` eine 5px gepunktete Grenze haben, wenn es in einem Container verschachtelt ist, bei dem `--theme: purple` gesetzt ist, und dieser Container innerhalb eines Containers verschachtelt ist, dessen `--theme`-Wert `red` ist.
 
 ### Stilabfrage-CSS-Deklarationen und -Eigenschaften
 
-Noch in keinem Browser unterstützt, die `style()`-Funktionalnotation kann reguläre CSS-Deklarationen inklusive CSS-Eigenschaften und Eigenschaft-Wert-Paaren enthalten.
+Noch nicht in einem Browser unterstützt, kann die `style()`-Funktionsnotation reguläre CSS-Deklarationen einschließlich CSS-Eigenschaften und Eigenschafts-Wert-Paare enthalten.
 
 ```css
 @container style(font-weight: bold) {
@@ -384,35 +384,35 @@ Noch in keinem Browser unterstützt, die `style()`-Funktionalnotation kann regul
 }
 ```
 
-Wenn unterstützt, wird dieses einfache Beispiel den Hintergrund aller {{htmlelement("b")}}- und {{htmlelement("strong")}}-Elemente gelb machen, wenn das Elternelement bereits `bold` ist.
+Wenn unterstützt, wird dieses einfache Beispiel die Hintergrundfarbe aller {{htmlelement("b")}} und {{htmlelement("strong")}}-Elemente gelb machen, wenn das übergeordnete Element bereits `bold` ist.
 
-Die Übereinstimmung erfolgt gegen den berechneten Wert des Elternelements; wenn der berechnete {{cssxref("font-weight")}} des Elternelements `bold` ist (nicht `bolder` oder `900`), gibt es eine Übereinstimmung. Genau wie bei Benutzerdefinierten Eigenschafts-Container-Stilabfragen, mussten wir keine Elemente als Stilcontainer definieren, da alle Elemente standardmäßig Stilcontainer sind. Solange ein Element keinen `container-name` gesetzt hat, wenn es `font-weight: bold` gesetzt oder geerbt hat, wird es übereinstimmen.
+Das Matching erfolgt gegen den berechneten Wert des übergeordneten Containers; wenn der berechnete {{cssxref("font-weight")}} des übergeordneten Elements `bold` ist (nicht `bolder` oder `900`), gibt es eine Übereinstimmung. Genau wie bei benutzerdefinierten Eigenschafts-Containerstilabfragen mussten wir keine Elemente als Stilcontainer definieren, da alle Elemente standardmäßig Stilcontainer sind. Solange ein Element keinen `container-name` gesetzt hat, wird es übereinstimmen, wenn es `font-weight: bold` gesetzt oder geerbt hat.
 
-Stileigenschaften, die eine Kurzschreibweiseigenschaft abfragen, werden true, wenn die berechneten Werte für jede ihrer Langschreibweiseigenschaften übereinstimmen, und false, andernfalls. Zum Beispiel wird `@container style({{cssxref("border")}}: 2px solid red)` true ergeben, wenn alle 12 Langschreibweiseigenschaften ({{cssxref("border-bottom-style")}}, usw.), die diese Kurzschreibung ausmachen, auf dieselben äquivalenten Werte gesetzt sind.
+Stilmerkmale, die eine beliebig zusammengesetzte Eigenschaft abfragen, werden `true`, wenn die berechneten Werte für jede ihrer Langform-Eigenschaften übereinstimmen, und andernfalls `false`. Beispielsweise wird `@container style({{cssxref("border")}}: 2px solid red)` zu `true`, wenn alle 12 Langform-Eigenschaften ({{cssxref("border-bottom-style")}}, usw.), die diese Abkürzung ausmachen, auf dieselben äquivalenten Werte gesetzt sind.
 
-Die globalen CSS-Werte `revert` und `revert-layer` sind als Werte in einem `<style-feature>` ungültig und führen dazu, dass die Container-Stilabfrage false ergibt.
+Die globalen CSS-Werte `revert` und `revert-layer` sind in einem `<style-feature>` ungültig und verursachen, dass die Containerstilabfrage `false` ist.
 
-Wenden Sie nicht die Stile, die Sie in der Stilabfrage abfragen, auf das Element an, das Sie mit dieser Abfrage stylen, da dies zu einer Endlosschleife führen kann.
+Wenden Sie die Stile, die Sie in der Stilabfrage abfragen, nicht auf das Element an, das Sie mit dieser Abfrage stilisieren, da dies eine Endlosschleife verursachen kann.
 
-Es wird erwartet, dass Stilabfragen auch Eigenschaften in einem booleschen Kontext akzeptieren. Die Stilabfrage ergibt false, wenn der Wert der Eigenschaft der Anfangswert für diese Eigenschaft ist (wenn er nicht geändert wurde), und true andernfalls.
+Es wird erwartet, dass Stilabfragen auch Eigenschaften im booleschen Kontext akzeptieren werden. Die Stilabfrage gibt `false` zurück, wenn der Wert der Eigenschaft gleich dem Anfangswert dieser Eigenschaft ist (wenn er nicht geändert wurde), und andernfalls `true`.
 
 ```css
 @container style(font-weight) {
 }
 ```
 
-Das obige Beispiel ergibt für jedes Element, das einen Wert für `font-weight` hat, der sich vom Anfangswert unterscheidet, true. Benutzeragenten-Stile setzen {{htmlelement("heading_elements", "heading")}} und {{htmlelement("th")}}-Elemente auf `font-weight: bold`, zum Beispiel. Einige Browser setzen {{htmlelement("strong")}} und {{htmlelement("b")}} auf `bold`, andere auf `bolder`. {{htmlelement("optgroup")}} hat auch manchmal ein `font-weight` von anderen als `normal`, das vom Benutzeragenten festgelegt wird. Solange das `font-weight` des Elements nicht der Standardwert für diesen Benutzeragenten ist, ergibt die Stilabfrage true.
+Das obige Beispiel wird `true` für jedes Element zurückgeben, das einen `font-weight`-Wert hat, der sich von seinem Anfangswert unterscheidet. Benutzeragent-Stylesheets setzen `font-weight: bold` für {{htmlelement("heading_elements", "heading")}}- und {{htmlelement("th")}}-Elemente zum Beispiel. Einige Browser setzen {{htmlelement("strong")}} und {{htmlelement("b")}} auf `bold`, andere auf `bolder`. {{htmlelement("optgroup")}} hat ebenfalls manchmal einen `font-weight`, der nicht `normal` ist, als Standardwert. Solange das `font-weight` des Elements nicht der Standardwert für diesen Benutzeragent ist, wird die Stilabfrage `true` zurückgeben.
 
-Diese Funktionen werden derzeit in keinem Browser unterstützt.
+Diese Features werden derzeit in keinem Browser unterstützt.
 
 ## Siehe auch
 
-- [Media-Abfragen](/de/docs/Web/CSS/Guides/Media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
 - CSS {{Cssxref("@container")}}-Regel
 - CSS {{Cssxref("contain")}}-Eigenschaft
-- CSS {{Cssxref("container")}}-Kurzschrift-Eigenschaft
+- CSS {{Cssxref("container")}}-Kurzschreibweise
 - CSS {{Cssxref("container-name")}}-Eigenschaft
-- [Verwendung von Container-Scroll-Statusabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
-- [Verständnis von `aspect-ratio`](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- [Verwendung von Container-Scrollstatus-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
+- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
 - [Erste Schritte mit Stilabfragen](https://developer.chrome.com/docs/css-ui/style-queries) (2022)
 - [Stilabfragen](https://una.im/style-queries/) via una.im (2022)
