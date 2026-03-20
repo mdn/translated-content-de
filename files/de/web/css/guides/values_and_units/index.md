@@ -1,15 +1,15 @@
 ---
-title: CSS-Werte und Einheiten
+title: CSS-Werte und -Einheiten
 short-title: Werte und Einheiten
 slug: Web/CSS/Guides/Values_and_units
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: c8522f47d8123fe529f39851b13b9fc01345ffbf
 ---
 
-Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert kann je nach Eigenschaft verschiedene Formen annehmen, wie beispielsweise eine einzelne Ganzzahl, ein Schlüsselwort, eine Funktion oder eine Kombination verschiedener Elemente; einige Werte haben Einheiten, während andere keine haben. Jede Eigenschaft akzeptiert auch die CSS-weiten Werte. Das CSS-Werte und Einheiten-Modul definiert die Datentypen — Werte und Einheiten —, die CSS-Eigenschaften akzeptieren. Dieses Modul definiert auch die CSS-Wertedefinitionssyntax oder formale Grammatik, die verwendet wird, um die Menge der gültigen Werte für jede CSS-Eigenschaft und Funktion zu definieren.
+Jede CSS-Deklaration besteht aus einem Eigenschafts-/Werte-Paar. Der Wert kann je nach Eigenschaft verschiedene Formen annehmen, wie z.B. eine einzelne Ganzzahl, ein Schlüsselwort, eine Funktion oder eine Kombination verschiedener Elemente; einige Werte haben Einheiten, andere nicht. Jede Eigenschaft akzeptiert auch die CSS-weiten Werte. Das CSS-Werte- und Einheitenmodul definiert die Datentypen — Werte und Einheiten —, die CSS-Eigenschaften akzeptieren. Dieses Modul definiert auch die CSS-Wertedefinitionssyntax oder die formale Grammatik, die verwendet wird, um die Menge gültiger Werte für jede CSS-Eigenschaft und Funktion zu definieren.
 
 > [!NOTE]
-> Diese Seite stellt ein CSS-Modul vor. Für eine vollständige Liste aller Werte, Typen und Funktionen, die durch CSS-Spezifikationen definiert sind, siehe die [Werte-Referenzseite](/de/docs/Web/CSS/Reference/Values).
+> Diese Seite stellt ein CSS-Modul vor. Für eine vollständige Liste aller Werte, Typen und Funktionen, die von CSS-Spezifikationen definiert sind, siehe die [Werte](/de/docs/Web/CSS/Reference/Values)-Referenzseite.
 
 ## Referenz
 
@@ -40,6 +40,7 @@ Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert k
 - {{cssxref("mod()")}}
 - {{cssxref("pow()")}}
 - {{cssxref("progress()")}}
+- {{cssxref("random()")}}
 - {{cssxref("rem()")}}
 - {{cssxref("round()")}}
 - {{cssxref("sibling-count()")}}
@@ -50,7 +51,7 @@ Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert k
 - {{cssxref("tan()")}}
 - {{cssxref("url_function", "url()")}}
 
-Das CSS-Werte und Einheiten-Modul führt auch die Funktionen `calc-mix()`, `crossorigin()`, `first-valid()`, `integrity()`, `random()`, `random-item()`, `referrerpolicy()`, `src()`, `type()` und `toggle()` ein. Derzeit unterstützt kein Browser diese Funktionen.
+Das CSS-Werte- und Einheitenmodul führt auch die Funktionen `calc-mix()`, `first-valid()`, `integrity()`, `random-item()`, `src()`, `type()` und `toggle()` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Datentypen
 
@@ -82,11 +83,11 @@ Das CSS-Werte und Einheiten-Modul führt auch die Funktionen `calc-mix()`, `cros
 - {{cssxref("url_value", "&lt;url&gt;")}}
 - [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier)
 
-Das CSS-Werte und Einheiten-Modul führt auch die Datentypen {{cssxref("frequency")}} und {{cssxref("frequency-percentage")}} ein. Derzeit unterstützt kein Browser diese Funktionen.
+Das CSS-Werte- und Einheitenmodul führt auch die Datentypen {{cssxref("frequency")}} und {{cssxref("frequency-percentage")}} ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 #### Einheiten
 
-- [`%` (Prozentsatz)](/de/docs/Web/CSS/Reference/Values/percentage)
+- [`%` (Prozent)](/de/docs/Web/CSS/Reference/Values/percentage)
 - [`cap`](/de/docs/Web/CSS/Reference/Values/length#cap)
 - [`ch`](/de/docs/Web/CSS/Reference/Values/length#ch)
 - [`cm`](/de/docs/Web/CSS/Reference/Values/length#cm)
@@ -143,38 +144,38 @@ Das CSS-Werte und Einheiten-Modul führt auch die Datentypen {{cssxref("frequenc
 - [`vw`](/de/docs/Web/CSS/Reference/Values/length#vw)
 - [`x`](/de/docs/Web/CSS/Reference/Values/resolution#x)
 
-[Flex-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#flex_units) (`fr`) und [Container-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#container_units) (`cqb`, `cqh`, `cqi`, `cqmax`, `cqmin`, `cqw`) sind im [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) und [CSS-Bedingte-Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Module, definiert.
+[Flex-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#flex_units) (`fr`) und [Container-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#container_units) (`cqb`, `cqh`, `cqi`, `cqmax`, `cqmin`, `cqw`) sind in den Modulen [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) und [CSS-Bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) definiert.
 
-#### Einheitseinteilungen
+#### Einheitskategorien
 
 - [Absolute Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`cm`, `in`, `mm`, `pc`, `pt`, `px`, `Q`)
 - [Winkeleinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#angle_units) (`deg`, `grad`, `rad`, `turn`)
-- [Standard-Viewport-Einheiten](/de/docs/Web/CSS/Reference/Values/length#default_viewport_units) (`vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
+- [Standard-Viewport-Einheiten](/de/docs/Web/CSS/Reference/Values/length#default_viewport_units) (`vb` , `vh`, `vi` , `vmax`, `vmin`, `vw`)
 - [Dynamische Viewport-Einheiten](/de/docs/Web/CSS/Reference/Values/length#dynamic_viewport_units) (`dvb`, `dvh`, `dvi`, `dvmax`, `dvmin`, `dvw`)
 - [Frequenzeinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#frequency_units) (`Hz`, `kHz`)
-- [Große Viewport-Prozent-Einheiten](/de/docs/Web/CSS/Reference/Values/length#large_viewport_units) (`lvb`, `lvh`, `lvi`, `lvmax`, `lvmin`, `lvw`)
-- [Lokal Schriftgrad-relative Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) (`cap`, `ch`, `em`, `ex`, `ic`, `lh`)
+- [Große Viewport-Prozentunits](/de/docs/Web/CSS/Reference/Values/length#large_viewport_units) (`lvb`, `lvh`, `lvi`, `lvmax`, `lvmin`, `lvw`)
+- [Lokale schriftbezogene Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) (`cap`, `ch`, `em`, `ex`, `ic`, `lh`)
 - [Physikalische Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`cm`, `in`, `mm`, `pc`, `pt`, `Q`)
 - [Relative Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) (`cap`, `ch`, `em`, `ex`, `ic`, `lh`, `rem`, `rlh`, `vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
-- [Auflösungseinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#resolution_units) (`dpcm`, `dpi`, `dppx`, `x`)
-- [Wurzel Schriftgrad-relative Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths) (`rcap`, `rch`, `rem`, `rex`, `ric`, `rlh`)
-- [Kleine Viewport-Prozent-Einheit](/de/docs/Web/CSS/Reference/Values/length#small_viewport_units) (`svb`, `svh`, `svi`, `svmax`, `svmin`, `svw`)
+- [Auflösungseinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#resolution_units) (`dpcm`, `dpi` , `dppx`, `x`)
+- [Root-Schriftbezogene Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths) (`rcap`, `rch`, `rem`, `rex`, `ric`, `rlh`)
+- [Kleine Viewport-Prozentunits](/de/docs/Web/CSS/Reference/Values/length#small_viewport_units) (`svb`, `svh`, `svi`, `svmax`, `svmin`, `svw`)
 - [Zeiteinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#time_units) (`ms`, `s`)
-- [Viewport-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) (`dvh`, `dvw`, `lvh`, `lvw`, `svh`, `svw`, `vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
+- [Viewport-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) (`dvh`, `dvw`, `lvh`, `lvw`, `svh`, `svw`, `vb` , `vh`, `vi` , `vmax`, `vmin`, `vw`)
 - [Visuelle Winkeleinheit](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`px`)
 
 ### Schlüsselkonzepte
 
-- {{Glossary("Advance_measure", "Advance measure")}}
-- [Geklammertes Bereichsnotation](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#bracketed_range_notation_minmax)
-- [Komponentenwert-Komparatoren](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#component_value_combinators)
+- {{Glossary("Advance_measure", "Advance Measure")}}
+- [Geklammerte Bereichsnotation](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#bracketed_range_notation_minmax)
+- [Komponentwert-Kombinatoren](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#component_value_combinators)
 - [CSS-weite Schlüsselwörter](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords)
-- {{Glossary("Device_pixel", "Device Pixel")}}
+- {{Glossary("Device_pixel", "Gerätepixel")}}
 - [Funktionale Notation](/de/docs/Web/CSS/Reference/Values/Functions)
 - {{Glossary("Identifier", "Identifikator")}}
 - {{Glossary("Interpolation", "Interpolation")}}
 - {{Glossary("Keyword", "Schlüsselwort")}}
-- [Mathematikfunktion](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
+- [Mathematische Funktion](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
 - [Numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
 - {{Glossary("Origin", "Ursprung")}}
 - {{Glossary("Pixel", "Pixel")}}
@@ -184,36 +185,36 @@ Das CSS-Werte und Einheiten-Modul führt auch die Datentypen {{cssxref("frequenc
 
 ## Leitfäden
 
-- [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-  - : Einführung in die CSS-Datentypen, die typische Werte beschreiben, die von CSS-Eigenschaften und Funktionen akzeptiert werden.
+- [CSS Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
+  - : Einführung in CSS-Datentypen, die typische Werte definieren, die von CSS-Eigenschaften und -Funktionen akzeptiert werden.
 
 - [Numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
-  - : Übersicht über die numerischen Datentypen, einschließlich Ganzzahlen, Zahlen, Prozentsätzen und Dimensionen, zusammen mit relativen und absoluten Dimensionen, Winkeln und Zeiteinheiten.
+  - : Überblick über die numerischen Datentypen, einschließlich Ganzzahlen, Zahlen, Prozentsätze und Dimensionen sowie relative und absolute Dimensionen, Winkel und Zeiteinheiten.
 
 - [Textuelle Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Textual_data_types)
-  - : Übersicht über die textuellen Datentypen, einschließlich vordefinierter Schlüsselwortwerte, globaler CSS-Schlüsselwortwerte und URLs.
+  - : Überblick über die textuellen Datentypen, einschließlich vordefinierter Schlüsselwortwerte, globale CSS-Schlüsselwortwerte und URLs.
 
-- [CSS-Wert-Funktionen](/de/docs/Web/CSS/Reference/Values/Functions)
-  - : Übersicht über die CSS-Anweisungen, die spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen CSS-Wert für eine CSS-Eigenschaft zurückzugeben.
+- [CSS-Wertfunktionen](/de/docs/Web/CSS/Reference/Values/Functions)
+  - : Überblick über die CSS-Anweisungen, die spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen CSS-Wert für eine CSS-Eigenschaft zurückzugeben.
 
-- [Verwenden von CSS-Mathematikfunktionen](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
+- [Verwendung von CSS-Mathematikfunktionen](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
   - : Die CSS-Mathematikfunktionen, die es erlauben, einen Eigenschaftswert als mathematischen Ausdruck zu schreiben.
 
 - [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
-  - : Die formale Grammatik, die verwendet wird, um die Menge der gültigen Werte für CSS-Eigenschaften und -Funktionen zu definieren.
+  - : Die formale Grammatik, die verwendet wird, um die Menge gültiger Werte für CSS-Eigenschaften und -Funktionen zu definieren.
 
-- [Verwendung von CSS-getyptem Rechnen](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic)
-  - : Eine Erklärung des CSS-getypten Rechnverhaltens und der durch dieses ermöglichten Anwendungsfälle.
+- [Verwendung von CSS-typisiertem Rechnen](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic)
+  - : Eine Erklärung des Verhaltens und der Anwendungsfälle des CSS-typisierten Rechnens, die dadurch ermöglicht werden.
 
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
   - : Ein Blick auf einige der am häufigsten verwendeten Wertetypen, was sie sind und wie sie funktionieren.
 
-- [CSS-Werteserialisierung](/de/docs/Web/API/CSS_Object_Model/CSS_value_serialization)
-  - : Wie [CSSOM APIs](/de/docs/Web/API/CSS_Object_Model) Farben und andere Werte in standardisierte Zeichenfolgen-Repräsentationen umwandeln.
+- [CSS-Wertserialisierung](/de/docs/Web/API/CSS_Object_Model/CSS_value_serialization)
+  - : Wie [CSSOM APIs](/de/docs/Web/API/CSS_Object_Model) Farbe und andere Werte in standardisierte Zeichenfolgenrepräsentationen serialisieren.
 
 ## Verwandte Themen
 
-- [CSS-Namensauflösung und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
   - {{cssxref("initial")}}
   - {{cssxref("inherit")}}
   - {{cssxref("revert")}}
@@ -225,7 +226,7 @@ Das CSS-Werte und Einheiten-Modul führt auch die Datentypen {{cssxref("frequenc
   - {{cssxref("&lt;flex&gt;")}}
   - [Flex-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#flex_units) (`fr`)
 
-- [CSS-Bedingte-Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
+- [CSS-Bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
   - [Container-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#container_units) (`cqb`, `cqh`, `cqi`, `cqmax`, `cqmin`, `cqw`)
 
 - [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
