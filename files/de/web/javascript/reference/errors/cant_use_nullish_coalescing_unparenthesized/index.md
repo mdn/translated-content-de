@@ -1,11 +1,11 @@
 ---
-title: "SyntaxError: Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden"
+title: "SyntaxError: cannot use ?? unparenthesized within || and && expressions"
 slug: Web/JavaScript/Reference/Errors/Cant_use_nullish_coalescing_unparenthesized
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 848dba3f268442d9c91a08c5c825af77c583789b
 ---
 
-Der JavaScript-Ausnahmefehler "Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden" tritt auf, wenn ein [Nullish Coalescing Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im selben Ausdruck ohne Klammern verwendet wird.
+Die JavaScript-Ausnahme "cannot use `??` unparenthesized within `||` and `&&` expressions" tritt auf, wenn ein [nullish coalescing operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) zusammen mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im selben Ausdruck ohne Klammern verwendet wird.
 
 ## Nachricht
 
@@ -21,14 +21,14 @@ SyntaxError: Unexpected token '??'. Coalescing and logical operators used togeth
 
 ## Was ist schiefgelaufen?
 
-Die [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)-Kette sieht so aus:
+Die [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)-Reihenfolge sieht so aus:
 
 ```plain
 |   >   &&   >   ||   >   =
 |   >   ??   >   =
 ```
 
-Die Präzedenz _zwischen_ `??` und `&&`/`||` ist jedoch absichtlich undefiniert, da das Kurzschließungsverhalten der logischen Operatoren die Auswertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alle Syntaxfehler, da die Sprache nicht weiß, wie sie die Operanden klammern soll:
+Allerdings ist die Präzedenz _zwischen_ `??` und `&&`/`||` absichtlich undefiniert, da das Short-Circuit-Verhalten von logischen Operatoren die Auswertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alle Syntaxfehler, weil die Sprache nicht weiß, wie die Operanden geklammert werden sollen:
 
 ```js-nolint example-bad
 a ?? b || c;
@@ -37,7 +37,7 @@ a ?? b && c;
 a && b ?? c;
 ```
 
-Stattdessen machen Sie Ihre Absicht deutlich, indem Sie entweder auf der einen oder der anderen Seite explizit klammern:
+Stattdessen machen Sie Ihre Absicht deutlich, indem Sie entweder die eine oder andere Seite explizit klammern:
 
 ```js example-good
 (a ?? b) || c;
@@ -46,7 +46,7 @@ a ?? (b && c);
 
 ## Beispiele
 
-Wenn Sie alten Code migrieren, der `||` und `&&` zur Absicherung gegen `null` oder `undefined` verwendet, konvertieren Sie ihn möglicherweise teilweise:
+Wenn Sie Legacy-Code migrieren, der `||` und `&&` verwendet, um gegen `null` oder `undefined` abzusichern, können Sie ihn oft teilweise konvertieren:
 
 ```js-nolint example-bad
 function getId(user, fallback) {
@@ -63,7 +63,7 @@ function getId(user, fallback) {
 }
 ```
 
-Noch besser ist es, [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
+Noch besser ist es, [optionales Verketteln](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
 
 ```js example-good
 function getId(user, fallback) {
@@ -73,6 +73,6 @@ function getId(user, fallback) {
 
 ## Siehe auch
 
-- [Issue über die Präzedenz des Nullish Coalescing Operators](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39 Nullish-Coalescing-Vorschlag
-- [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Problem über die Präzedenz des Nullish-Coalescing](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39-Vorschlag zum Nullish-Coalescing
+- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
