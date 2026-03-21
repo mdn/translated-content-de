@@ -211,7 +211,7 @@ Dies wird als **anonyme Funktion** bezeichnet, da sie keinen Namen hat. Sie werd
 > [!NOTE]
 > Diese Form der Erstellung einer Funktion ist auch bekannt als _Funktionsausdruck_. Im Gegensatz zu Funktionsdeklarationen werden Funktionsausdrücke nicht hochgestuft.
 
-### Beipiel für anonyme Funktion
+### Beispiel für anonyme Funktion
 
 Zum Beispiel, sagen wir, Sie möchten einen Code ausführen, wenn der Benutzer in ein Textfeld tippt. Dazu können Sie die `addEventListener()`-Funktion des Textfeldes aufrufen. Diese Funktion erwartet, dass Sie ihr mindestens zwei Parameter übergeben:
 
