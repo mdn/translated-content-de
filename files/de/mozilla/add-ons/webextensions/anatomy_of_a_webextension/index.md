@@ -1,91 +1,92 @@
 ---
-title: Aufbau einer Erweiterung
+title: Anatomie einer Erweiterung
 slug: Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension
 l10n:
-  sourceCommit: e9a795876d60f95a8a47c9fe8bb90f599ee0057e
+  sourceCommit: ee33efab7300d7bf7319921a22f2eb2b60df91da
 ---
 
-Eine Erweiterung besteht aus einer Sammlung von Dateien, die zur Verteilung und Installation gepackt sind. In diesem Artikel gehen wir schnell die Dateien durch, die in einer Erweiterung vorhanden sein könnten.
+Eine Erweiterung besteht aus einer Sammlung von Dateien, die für den Vertrieb und die Installation verpackt sind. Dieser Artikel beschreibt die Dateien, die in einer Erweiterung vorhanden sein können.
 
 ## manifest.json
 
-Dies ist die einzige Datei, die in jeder Erweiterung vorhanden sein muss. Sie enthält grundlegende Metadaten wie den Namen, die Version und die erforderlichen Berechtigungen. Zusätzlich gibt sie Hinweise auf andere Dateien in der Erweiterung.
+Diese Datei muss in jeder Erweiterung vorhanden sein. Sie enthält grundlegende Metadaten, wie den Namen, die Version und die erforderlichen Berechtigungen.
 
-Das Manifest kann auch Hinweise auf mehrere andere Dateitypen enthalten:
+Das Manifest kann auch Verweise auf mehrere andere Dateitypen enthalten:
 
-- [Hintergrundskripte](#hintergrundskripte)
-  - : Skripte, die auf Browserereignisse reagieren.
-- Symbole
+- [Background-Skripte](#background-skripte)
+  - : Skripte, die auf Browserevents reagieren.
+- Icons
   - : Für die Erweiterung und alle Schaltflächen, die sie definieren könnte.
-- [Seitenleisten, Popups und Optionsseiten](#sidebars_popups_and_options_pages)
+- [Seitenleisten, Popups und Einstellungsseiten](#sidebars_popups_and_options_pages)
   - : HTML-Dokumente, die Inhalte für verschiedene Benutzeroberflächenkomponenten bereitstellen.
-- [Inhaltsskripte](#inhaltsskripte)
-  - : JavaScript, das mit Ihrer Erweiterung geliefert wird und das Sie auf Webseiten einfügen.
+- [Content-Skripte](#content-skripte)
+  - : JavaScript, das zusammen mit Ihrer Erweiterung bereitgestellt wird und das Ihre Erweiterung in Webseiten einfügt.
 - [Webzugängliche Ressourcen](#webzugängliche_ressourcen)
-  - : Machen Sie verpackte Inhalte für Webseiten und Inhaltsskripte zugänglich.
+  - : Verpackte Inhalte, die Webseiten und Content-Skripten zugänglich gemacht werden.
 
-![Die Komponenten einer Web-Erweiterung. Die manifest.JSON muss in allen Erweiterungen vorhanden sein. Sie gibt Hinweise auf Hintergrundseiten, Inhaltsskripte, Browseraktionen, Seitenaktionen, Optionsseiten und webzugängliche Ressourcen. Hintergrundseiten bestehen aus HTML und JS. Inhaltsskripte bestehen aus JS und CSS. Der Benutzer klickt auf ein Symbol, um Browseraktionen und Seitenaktionen auszulösen, und das resultierende Popup besteht aus HTML, CSS und JS. Optionsseiten bestehen aus HTML, CSS und JS.](webextension-anatomy.png)
+![Die Komponenten einer Erweiterung. Die manifest.json muss in allen Erweiterungen vorhanden sein. Sie liefert Verweise auf Hintergrundseiten, Content-Skripte, Browseraktionen, Seitenaktionen, Einstellungsseiten und webzugängliche Ressourcen. Hintergrundseiten werden in HTML und JavaScript verfasst. Content-Skripte werden in JavaScript und CSS verfasst. Der Benutzer klickt auf ein Icon, um Browseraktionen und Seitenaktionen auszulösen, die ein Popup anzeigen können, das aus HTML, CSS und JavaScript besteht. Einstellungsseiten bestehen aus HTML, CSS und JavaScript.](webextension-anatomy.png)
 
-Sehen Sie die Referenzseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) für alle Details.
+Sehen Sie sich die Referenzseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) für alle Details an.
 
-Zusätzlich zu denen, die bereits im Manifest aufgeführt sind, kann eine Erweiterung auch zusätzliche [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) und unterstützende Dateien enthalten.
+Zusätzlich zu den im Manifest aufgelisteten können Erweiterungen weitere [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) und unterstützende Dateien enthalten.
 
-## Hintergrundskripte
+## Background-Skripte
 
-Erweiterungen müssen oft auf Ereignisse im Browser reagieren, die unabhängig von der Lebensdauer einer bestimmten Webseite oder eines Browserfensters auftreten. Dafür sind Hintergrundskripte da.
+Erweiterungen müssen häufig auf Ereignisse reagieren, die im Browser unabhängig von der Lebenszeit einer bestimmten Webseite oder eines Browserfensters auftreten. Dafür sind Hintergrundskripte da.
 
-Hintergrundskripte können persistent oder nicht persistent sein. Persistent Hintergrundskripte werden geladen, sobald die Erweiterung geladen wird, und bleiben geladen, bis die Erweiterung deaktiviert oder deinstalliert wird. Dieses Verhalten von Hintergrundskripten ist nur in Manifest V2 verfügbar. Nicht persistente Hintergrundskripte werden geladen, wenn sie benötigt werden, um auf ein Ereignis zu reagieren, und entladen, wenn sie inaktiv werden. Dieses Verhalten von Hintergrundskripten ist eine Option in Manifest V2 und das einzige Verhalten von Hintergrundskripten, das in Manifest V3 verfügbar ist.
+Background-Skripte können persistent oder nicht persistent sein.
 
-Sie können alle [WebExtension APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) im Skript verwenden, wenn Sie die erforderlichen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) angefordert haben.
+- Persistente Hintergrundskripte werden geladen, sobald die Erweiterung geladen wird und bleiben geladen, bis die Erweiterung deaktiviert oder deinstalliert wird. Nur Manifest-V2-Erweiterungen können persistente Hintergrundskripte verwenden.
+- Nicht-persistente Hintergrundskripte werden bei Bedarf geladen, um auf ein Ereignis zu reagieren, und entladen, wenn sie untätig werden. Manifest-V3-Erweiterungen verwenden nur nicht-persistente Hintergrundskripte und Manifest-V2-Erweiterungen können sich für dieses Verhalten entscheiden.
 
-Lesen Sie den Artikel zu [Hintergrundskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts), um mehr zu erfahren.
+Sie können in dem Skript alle der [WebExtensions-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, wenn Sie die erforderlichen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) angefordert haben.
 
-## Seitenleisten, Popups und Optionsseiten
+Weitere Informationen finden Sie im Artikel über [Background-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts).
 
-Ihre Erweiterung kann verschiedene Benutzeroberflächenkomponenten enthalten, deren Inhalte mit einem HTML-Dokument definiert sind:
+## Seitenleisten, Popups und Einstellungsseiten
+
+Ihre Erweiterung kann Benutzeroberflächenkomponenten umfassen, die mit einem HTML-Dokument definiert sind:
 
 - [Seitenleiste](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars)
-  - : Ein Bereich, der links neben dem Webseitenfenster angezeigt wird.
+  - : Ein Bereich, der links im Browserfenster neben der Webseite angezeigt wird.
 - [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)
-  - : Ein Dialog, den Sie anzeigen können, wenn der Benutzer auf eine [Symbolleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) oder eine [Adressleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) klickt.
-- [Optionen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)
-  - : Eine Seite, die angezeigt wird, wenn der Benutzer auf die Einstellungen Ihres Add-ons im nativen Add-on-Manager des Browsers zugreift.
+  - : Ein Dialog, der angezeigt wird, wenn der Benutzer auf einen [Symbolleistenschalter](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) oder einen [Adressleistenknopf](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) klickt.
+- [Einstellungen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)
+  - : Eine Seite, die angezeigt wird, wenn der Benutzer auf die Einstellungen Ihres Add-ons im nativen Add-ons-Manager des Browsers zugreift.
 
-Für jede dieser Komponenten erstellen Sie eine HTML-Datei und verweisen darauf durch eine spezifische Eigenschaft in [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json). Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, genau wie eine normale Webseite.
+Für jede dieser Komponenten erstellen Sie eine HTML-Datei und verweisen darauf mit einer bestimmten Eigenschaft in [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json). Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, ähnlich wie eine normale Webseite.
 
-Alle diese sind eine Art von [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages). Im Gegensatz zu einer normalen Webseite kann Ihr JavaScript alle privilegierten WebExtension APIs verwenden, die auch Ihr Hintergrundskript verwenden kann.
+Alle diese sind [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages). Anders als eine normale Webseite kann das JavaScript Ihrer Erweiterung dieselben privilegierten WebExtensions-APIs wie Ihr Hintergrundskript verwenden.
 
 ## Erweiterungsseiten
 
-Sie können auch HTML-Dokumente in Ihre Erweiterung einfügen, die nicht an eine vordefinierte Benutzeroberflächenkomponente gebunden sind. Im Gegensatz zu den Dokumenten, die Sie möglicherweise für Seitenleisten, Popups oder Optionsseiten bereitstellen, haben diese keinen Eintrag in `manifest.json`. Sie haben jedoch ebenfalls Zugriff auf alle privilegierten WebExtension APIs, die auch Ihr Hintergrundskript hat.
+Sie können auch HTML-Dokumente in Ihre Erweiterung einfügen, die nicht an eine vordefinierte Benutzeroberflächenkomponente angehängt sind. Anders als die Dokumente, die Sie für Seitenleisten, Popups oder Einstellungsseiten bereitstellen, haben diese keinen Eintrag in `manifest.json`. Sie haben jedoch ebenfalls Zugriff auf alle dieselben privilegierten WebExtensions-APIs wie Ihr Hintergrundskript.
 
-Eine Seite dieser Art würden Sie normalerweise mit {{WebExtAPIRef("windows.create()")}} oder {{WebExtAPIRef("tabs.create()")}} laden.
+Sie würden eine solche Seite typischerweise mit {{WebExtAPIRef("windows.create()")}} oder {{WebExtAPIRef("tabs.create()")}} laden.
 
-Lesen Sie den Artikel zu [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages), um mehr zu erfahren.
+Siehe [Erweiterungsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages), um mehr zu erfahren.
 
-## Inhaltsskripte
+## Content-Skripte
 
-Verwenden Sie Inhaltsskripte, um auf Webseiten zuzugreifen und diese zu manipulieren. Inhaltsskripte werden in Webseiten geladen und laufen im Kontext dieser bestimmten Seite.
+Benutzen Sie Content-Skripte, um auf Webseiten zuzugreifen und sie zu manipulieren. Content-Skripte werden in Webseiten geladen und laufen im Kontext dieser bestimmten Seite.
 
-Inhaltsskripte sind von der Erweiterung bereitgestellte Skripte, die im Kontext einer Webseite ausgeführt werden; dies unterscheidet sich von Skripten, die von der Seite selbst geladen werden, einschließlich derjenigen, die innerhalb der Seite in {{HTMLElement("script")}} Elementen bereitgestellt werden.
+Content-Skripte sind von der Erweiterung bereitgestellte Skripte, die im Kontext einer Webseite ausgeführt werden; dies unterscheidet sich von Skripten, die von der Seite selbst geladen werden, einschließlich solcher, die in {{HTMLElement("script")}}-Elementen innerhalb der Seite bereitgestellt werden.
 
-Inhaltsskripte können auf das DOM der Seite zugreifen und es manipulieren, genau wie normale Skripte, die von der Seite geladen werden.
+Content-Skripte können auf das DOM der Seite zugreifen und es manipulieren, wie jedes andere Skript, das von der Seite geladen wird. Im Gegensatz zu normalen Seitenskripten können Content-Skripte jedoch:
 
-Im Gegensatz zu normalen Seitenskripten können Inhaltsskripte:
+- Einen kleinen Teil der [WebExtensions-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden.
+- [Nachrichten mit ihren Hintergrundskripten austauschen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#communicating_with_background_scripts), die ein Content-Skript verwenden kann, um ein Hintergrundskript zu bitten, etwas mit einer WebExtensions-API zu tun.
 
-- Einen kleinen Teil der [WebExtension APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden.
-- [Nachrichten mit ihren Hintergrundskripten austauschen](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#communicating_with_background_scripts) und auf diese Weise indirekt auf alle WebExtension APIs zugreifen.
+Content-Skripte können nicht direkt auf normale Seitenskripte zugreifen, können aber Nachrichten mit ihnen über die standardmäßige [`window.postMessage()`](/de/docs/Web/API/Window/postMessage) API austauschen.
 
-Inhaltsskripte können nicht direkt auf normale Seitenskripte zugreifen, können jedoch Nachrichten mit ihnen über die standardisierte API [`window.postMessage()`](/de/docs/Web/API/Window/postMessage) austauschen.
+Ihre Erweiterung kann auch CSS in Webseiten injizieren, indem sie den Mechanismus verwendet, um Content-Skripte zu injizieren.
 
-Normalerweise sprechen wir, wenn wir über Inhaltsskripte sprechen, von JavaScript, aber Sie können CSS mit demselben Mechanismus in Webseiten einfügen.
-
-Lesen Sie den Artikel zu [Inhaltsskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts), um mehr zu erfahren.
+Weitere Informationen finden Sie im Artikel über [Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts).
 
 ## Webzugängliche Ressourcen
 
-Webzugängliche Ressourcen sind Ressourcen – wie Bilder, HTML, CSS und JavaScript –, die Sie in der Erweiterung einschließen und den Inhaltsskripten und Seitenskripten zugänglich machen möchten. Ressourcen, die webzugänglich gemacht werden, können von Seitenskripten und Inhaltsskripten unter Verwendung eines speziellen URI-Schemas referenziert werden.
+Webzugängliche Ressourcen sind Ressourcen – wie Bilder, HTML, CSS und JavaScript –, die Sie in die Erweiterung einfügen und die Sie für Content-Skripte und Seitenskripte zugänglich machen möchten. Ressourcen, die webbasiert zugänglich gemacht werden, können von Seitenskripten und Content-Skripten unter Verwendung eines speziellen URI-Schemas referenziert werden.
 
-Wenn beispielsweise ein Inhaltsskript einige Bilder in Webseiten einfügen möchte, könnten Sie diese in der Erweiterung einschließen und webzugänglich machen. Dann könnte das Inhaltsskript [`img`](/de/docs/Web/HTML/Reference/Elements/img) Tags erstellen und anhängen, die die Bilder über das `src` Attribut referenzieren.
+Wenn ein Content-Skript beispielsweise Bilder in Webseiten einfügen möchte, können Sie diese in die Erweiterung einfügen und webzugänglich machen. Dann könnte das Content-Skript [`img`](/de/docs/Web/HTML/Reference/Elements/img)-Tags erstellen und anhängen, die auf die Bilder über das `src`-Attribut verweisen.
 
-Um mehr zu erfahren, lesen Sie die Dokumentation zum [`"web_accessible_resources"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) `manifest.json` Schlüssel.
+Um mehr zu erfahren, sehen Sie die Dokumentation zum [`"web_accessible_resources"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) `manifest.json` Schlüssel.

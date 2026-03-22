@@ -2,43 +2,43 @@
 title: Ihre zweite Erweiterung
 slug: Mozilla/Add-ons/WebExtensions/Your_second_WebExtension
 l10n:
-  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
+  sourceCommit: ee33efab7300d7bf7319921a22f2eb2b60df91da
 ---
 
-Wenn Sie den Artikel [Ihre erste Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) durchgearbeitet haben, haben Sie bereits eine Vorstellung davon, wie man eine Erweiterung schreibt. In diesem Artikel schreiben Sie eine etwas komplexere Erweiterung, die einige weitere der APIs demonstriert.
+Das Tutorial [Ihre erste Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) hat Sie in den grundlegenden Prozess der Erstellung einer Erweiterung eingeführt. In diesem Artikel schreiben Sie eine etwas komplexere Erweiterung, die zusätzliche APIs demonstriert.
 
-Die Erweiterung fügt der Firefox-Symbolleiste eine neue Schaltfläche hinzu. Wenn der Benutzer die Schaltfläche anklickt, zeigen wir ein Popup an, das es ihm ermöglicht, ein Tier auszuwählen. Sobald er ein Tier ausgewählt hat, ersetzen wir den Inhalt der aktuellen Seite mit einem Bild des ausgewählten Tieres.
+Die von Ihnen entwickelte Erweiterung veranschaulicht viele der grundlegenden Konzepte der WebExtensions-API, einschließlich:
 
-Um dies zu implementieren, werden wir:
+- Hinzufügen eines Buttons zur Symbolleiste.
+- Definieren eines Popup-Panels mit HTML, CSS und JavaScript.
+- Injizieren von Inhalts-Skripten in Webseiten.
+- Kommunikation zwischen Inhalts-Skripten und dem Rest der Erweiterung.
+- Verpackung von Ressourcen mit Ihrer Erweiterung, die von Webseiten genutzt werden können.
 
-- **eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) definieren, das ist eine Schaltfläche, die an die Firefox-Symbolleiste angehängt ist**.
-  Für die Schaltfläche liefern wir:
-  - ein Icon, genannt "beasts-32.png"
-  - ein Popup, das geöffnet wird, wenn die Schaltfläche gedrückt wird. Das Popup enthält HTML, CSS und JavaScript.
+Die Erweiterung fügt der Firefox-Symbolleiste einen Button hinzu. Wenn der Benutzer den Button klickt, zeigt die Erweiterung ein Popup an, das es ermöglicht, ein Tier auszuwählen. Wenn der Benutzer ein Tier auswählt, ersetzt die Erweiterung den Inhalt der aktiven Seite durch ein Bild dieses Tieres.
 
-- **ein Icon für die Erweiterung definieren**, genannt "beasts-48.png". Dieses wird im Add-ons-Manager angezeigt.
-- **ein Inhalts-Skript schreiben, "beastify.js", das in Webseiten eingefügt wird**.
-  Dies ist der Code, der tatsächlich die Seiten modifiziert.
-- **Bilder der Tiere verpacken, um Bilder auf der Webseite zu ersetzen**.
-  Wir machen die Bilder zu "web zugänglichen Ressourcen", sodass die Webseite darauf zugreifen kann.
+Um dies zu implementieren, müssen Sie:
 
-Sie könnten die Gesamtstruktur der Erweiterung folgendermaßen visualisieren:
+- **Eine `action` definieren, bei der es sich um einen [Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) handelt, der an die Firefox-Symbolleiste angehängt ist.**
+  Für den Button liefern Sie:
+  - Ein Icon mit dem Namen "beasts-32.png".
+  - Ein Popup, das geöffnet wird, wenn der Benutzer den Button drückt. Das Popup enthält HTML, CSS und JavaScript.
 
-![Die manifest.json-Datei beinhaltet Icons, Browser-Aktionen, inklusive Popups, und web zugängliche Ressourcen. Das JavaScript-Popup-Resource zum Auswählen eines Tieres ruft das Beastify-Skript auf.](untitled-1.png)
+- **Ein Icon für die Erweiterung definieren**, das "beasts-48.png" heißt. Der Add-ons Manager zeigt dieses Icon mit den Details der Erweiterung an.
+- **Ein Inhalts-Skript "beastify.js" schreiben, das die Erweiterung in Webseiten injiziert**.
+  Dieser Code ändert die Seiten, um Bestien hinzuzufügen oder zu entfernen.
+- **Einige Bilder der Tiere als Web-zugängliche Ressourcen verpacken.**
+  Diese Bilder werden von den durch das Inhalts-Skript aktualisierten Seiten verwendet, um eine Bestie anzuzeigen.
 
-Es ist eine einfache Erweiterung, zeigt aber viele der grundlegenden Konzepte der WebExtensions-API:
+Sie könnten die Gesamtstruktur der Erweiterung wie folgt visualisieren:
 
-- eine Schaltfläche zur Symbolleiste hinzufügen
-- ein Popup-Panel mit HTML, CSS und JavaScript definieren
-- Inhalte Scripte in Webseiten injizieren
-- zwischen Inhalte Scripten und dem Rest der Erweiterung kommunizieren
-- Ressourcen mit Ihrer Erweiterung verpacken, die von Webseiten genutzt werden können
+![Die manifest.json-Datei enthält Icons, Aktionen einschließlich Popups und Web-zugängliche Ressourcen. Die JavaScript-Popup-Ressource "choose beast" ruft das Beastify-Skript auf.](untitled-1.png)
 
-Sie können den [vollständigen Quellcode für die Erweiterung auf GitHub](https://github.com/mdn/webextensions-examples/tree/main/beastify) finden.
+Den [vollständigen Quellcode für die Erweiterung finden Sie auf GitHub](https://github.com/mdn/webextensions-examples/tree/main/beastify).
 
-## Die Erweiterung schreiben
+## Schreiben der Erweiterung
 
-Erstellen Sie ein neues Verzeichnis und navigieren Sie in dieses:
+Erstellen Sie ein Verzeichnis und navigieren Sie zu diesem:
 
 ```bash
 mkdir beastify
@@ -47,56 +47,73 @@ cd beastify
 
 ### manifest.json
 
-Erstellen Sie nun eine neue Datei namens "manifest.json" und geben Sie ihr den folgenden Inhalt:
+Jetzt erstellen Sie eine Datei namens "manifest.json" und geben ihr diesen Inhalt:
 
 ```json
 {
-  "manifest_version": 2,
+  "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
+  "manifest_version": 3,
   "name": "Beastify",
   "version": "1.0",
-
-  "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/beastify",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
   "icons": {
     "48": "icons/beasts-48.png"
   },
-
-  "permissions": ["activeTab"],
-
-  "browser_action": {
+  "permissions": ["activeTab", "scripting"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "beastify@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "action": {
     "default_icon": "icons/beasts-32.png",
+    "theme_icons": [
+      {
+        "light": "icons/beasts-32-light.png",
+        "dark": "icons/beasts-32.png",
+        "size": 32
+      }
+    ],
     "default_title": "Beastify",
     "default_popup": "popup/choose_beast.html"
   },
 
   "web_accessible_resources": [
-    "beasts/frog.jpg",
-    "beasts/turtle.jpg",
-    "beasts/snake.jpg"
+    {
+      "resources": ["beasts/*.jpg"],
+      "matches": ["*://*/*"]
+    }
   ]
 }
 ```
 
-- Die ersten drei Schlüssel: [`manifest_version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version), [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name), und [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version), sind obligatorisch und enthalten grundlegende Metadaten für die Erweiterung.
-- [`description`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/description) und [`homepage_url`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url) sind optional, aber empfohlen: Sie liefern nützliche Informationen über die Erweiterung.
-- [`icons`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) ist optional, aber empfohlen: Es ermöglicht, ein Icon für die Erweiterung anzugeben, das im Add-ons-Manager angezeigt wird.
-- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) listet die Berechtigungen auf, die die Erweiterung benötigt. Wir fragen hier nur nach der Berechtigung [`activeTab`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
-- [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) spezifiziert die Symbolleistenschaltfläche. Wir liefern hier drei Informationen:
-  - `default_icon` ist obligatorisch und verweist auf das Icon für die Schaltfläche
-  - `default_title` ist optional und wird in einem Tooltip angezeigt
-  - `default_popup` wird verwendet, wenn Sie ein Popup anzeigen möchten, wenn der Benutzer die Schaltfläche anklickt. Wir möchten das, also haben wir diesen Schlüssel aufgenommen und ihn auf eine HTML-Datei, die in der Erweiterung enthalten ist, verwiesen.
+- Die ersten drei Schlüssel ([`manifest_version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version), [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) und [`version`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)) sind obligatorisch und enthalten grundlegende Metadaten für die Erweiterung.
+- [`description`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/description) ist in Safari erforderlich, sonst ist es optional. Es ist jedoch eine gute Idee, diese Eigenschaft zu setzen, da sie im Erweiterungsmanager des Browsers angezeigt wird (zum Beispiel `about:addons` in Firefox).
+- [`homepage_url`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url) ist optional, aber empfohlen: sie bietet nützliche Informationen über die Erweiterung.
+- [`icons`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) ist optional, aber empfohlen; es ermöglicht Ihnen, ein Icon für die Erweiterung festzulegen.
+- [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) ist erforderlich.
+  - Die `gecko`-Eigenschaft bietet addons.mozilla.org und Firefox zusätzliche Konfigurationsinformationen über die Erweiterung:
+  - [`id`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#id) definiert eine eindeutige Kennung für die Erweiterung. Diese ID ist erforderlich, bevor eine Erweiterung auf addons.mozilla.org (AMO) veröffentlicht werden kann.
+  - [`data_collection_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#data_collection_permissions) gibt an, ob die Erweiterung persönlich identifizierbare Informationen sammelt und überträgt. Dieses Beispiel sammelt oder überträgt keine Daten.
+- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) listet die Berechtigungen auf, die die Erweiterung benötigt. In diesem Beispiel verlangt die Erweiterung die [`activeTab`-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+- [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) spezifiziert den Symbolleisten-Button. Hier geben Sie drei Teile an Informationen an, die alle optional sind:
+  - `default_icon` verweist auf das Icon des Buttons.
+  - `default_title` liefert Text für einen Tooltip, der für den Aktionsbutton angezeigt wird.
+  - `default_popup` verweist auf eine HTML-Datei, die mit der Erweiterung enthalten ist und den Inhalt des Popups definiert.
+- [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) listet Dateien auf, die für Webseiten zugänglich gemacht werden sollen. Da die Erweiterung den Inhalt der Seite durch Bilder ersetzt, die in der Erweiterung verpackt sind, müssen Sie diese Bilder für die Seite zugänglich machen.
 
-- [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) listet Dateien auf, die wir Webseiten zugänglich machen möchten. Da die Erweiterung den Inhalt der Seite durch mit der Erweiterung verpackte Bilder ersetzt, müssen wir diese Bilder für die Seite zugänglich machen.
-
-Beachten Sie, dass alle angegebenen Pfade relativ zu manifest.json selbst sind.
+Beachten Sie, dass alle angegebenen Pfade relativ zur manifest.json-Datei sind.
 
 ### Das Icon
 
-Die Erweiterung sollte ein Icon haben. Dieses wird neben dem Eintrag der Erweiterung im Add-ons-Manager angezeigt (Sie können dies öffnen, indem Sie die URL "about:addons" besuchen). Unser manifest.json versprach, dass wir ein Icon für die Symbolleiste bei "icons/beasts-48.png" haben würden.
+Die Erweiterung sollte ein Icon haben. Dieses Icon wird vom Add-ons-Manager ("about:addons") neben der Auflistung der Erweiterung angezeigt. Die manifest.json gibt an, dass das Icon der Erweiterung bei "icons/beasts-48.png" ist.
 
-Erstellen Sie das Verzeichnis "icons" und speichern Sie dort ein Icon mit dem Namen "beasts-48.png". Sie könnten [das aus unserem Beispiel](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-48.png) verwenden, das dem [Aha-Soft's Free Retina-Icon-Set](https://www.aha-soft.com/free-icons/free-retina-icon-set/) entnommen und unter den Bedingungen seiner Lizenz verwendet wird.
+Erstellen Sie das Verzeichnis "icons" und speichern Sie dort ein Icon mit dem Namen "beasts-48.png". Sie könnten [das aus dem Beispiel verwenden](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-48.png), das aus Aha-Soft's Free Retina Iconset stammt und unter dessen Lizenz verwendet wird.
 
-Wenn Sie sich entscheiden, Ihr eigenes Icon bereitzustellen, sollte es 48x48 Pixel groß sein. Sie könnten auch ein 96x96 Pixel großes Icon bereitstellen, für hochauflösende Displays, und wenn Sie das tun, wird es als `96`-Eigenschaft des `icons`-Objekts in manifest.json spezifiziert:
+Wenn Sie sich entscheiden, ein Icon bereitzustellen, sollte es 48x48 Pixel groß sein. Sie können auch ein Icon mit 96x96 Pixeln bereitstellen, für hochauflösende Displays; benennen Sie es als `96`-Eigenschaft des `icons`-Objekts in der manifest.json:
 
 ```json
 "icons": {
@@ -105,23 +122,23 @@ Wenn Sie sich entscheiden, Ihr eigenes Icon bereitzustellen, sollte es 48x48 Pix
 }
 ```
 
-### Die Symbolleistenschaltfläche
+### Der Symbolleisten-Button
 
-Die Symbolleistenschaltfläche benötigt ebenfalls ein Icon, und unser manifest.json versprach, dass wir ein Icon für die Symbolleiste bei "icons/beasts-32.png" haben würden.
+Der Symbolleisten-Button benötigt ebenfalls ein Icon, und manifest.json gibt an, dass es bei "icons/beasts-32.png" ist.
 
-Speichern Sie ein Icon namens "beasts-32.png" im Verzeichnis "icons". Sie könnten [das aus unserem Beispiel](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-32.png) verwenden, das dem [IconBeast Lite Icon-Set](https://www.iconbeast.com/free/) entnommen und unter den Bedingungen seiner [Lizenz](https://www.iconbeast.com/faq/) verwendet wird.
-
-Wenn Sie kein Popup bereitstellen, wird ein Klick-Ereignis an Ihre Erweiterung gesendet, wenn der Benutzer die Schaltfläche anklickt. Wenn Sie ein Popup bereitstellen, wird das Klick-Ereignis nicht gesendet, stattdessen wird das Popup geöffnet. Wir möchten ein Popup, also erstellen wir das als nächstes.
+Speichern Sie ein Icon namens "beasts-32.png" im Verzeichnis "icons". Sie könnten [das aus dem Beispiel verwenden](https://raw.githubusercontent.com/mdn/webextensions-examples/main/beastify/icons/beasts-32.png), das aus dem [IconBeast Lite icon set](https://www.iconbeast.com/free/) stammt und unter seiner [Lizenz](https://www.iconbeast.com/faq/) verwendet wird.
 
 ### Das Popup
 
-Die Funktion des Popups ist es, dem Benutzer zu ermöglichen, eines von drei Tieren auszuwählen.
+Wenn Sie kein Popup bereitstellen, sendet Firefox bei einem Klick auf den Symbolleisten-Button ein Klick-Ereignis an Ihre Erweiterung. Wenn Sie ein Popup bereitstellen, öffnet sich dieses bei einem Klick auf den Symbolleisten-Button, und Firefox sendet kein Klick-Ereignis.
 
-Erstellen Sie ein neues Verzeichnis namens "popup" unter dem Erweiterungsstammverzeichnis. Hier werden wir den Code für das Popup speichern. Das Popup wird aus drei Dateien bestehen:
+Für dieses Beispiel möchten Sie ein Popup. Die Funktion des Popups ist, dem Benutzer zu ermöglichen, eine von drei Bestien auszuwählen.
 
-- **`choose_beast.html`** definiert den Inhalt des Panels
-- **`choose_beast.css`** stylt den Inhalt
-- **`choose_beast.js`** behandelt die Auswahl des Benutzers, indem es ein Inhalts-Skript im aktiven Tab ausführt
+Erstellen Sie ein Verzeichnis namens "popup" unter dem Stammverzeichnis der Erweiterung. In diesem Verzeichnis erstellen Sie den Code für das Popup. Das Popup besteht aus drei Dateien:
+
+- `choose_beast.html` definiert den Inhalt des Panels.
+- `choose_beast.css` gestaltet den Inhalt.
+- `choose_beast.js` verarbeitet die Auswahl des Benutzers durch das Ausführen eines Inhalts-Skripts im aktiven Tab.
 
 ```bash
 mkdir popup
@@ -134,8 +151,8 @@ touch choose_beast.html choose_beast.css choose_beast.js
 Die HTML-Datei sieht folgendermaßen aus:
 
 ```html
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="choose_beast.css" />
@@ -157,13 +174,13 @@ Die HTML-Datei sieht folgendermaßen aus:
 </html>
 ```
 
-Wir haben ein [`<div>`](/de/docs/Web/HTML/Reference/Elements/div)-Element mit einer ID von `"popup-content"`, das eine Schaltfläche für jede Tierauswahl und eine Zurücksetzen-Schaltfläche enthält. Wir haben ein weiteres `<div>` mit einer ID von `"error-content"` und einer Klasse `"hidden"`. Das werden wir verwenden, falls es ein Problem beim Initialisieren des Popups gibt.
+Das HTML enthält ein [`<div>`](/de/docs/Web/HTML/Reference/Elements/div)-Element mit der ID `"popup-content"`. Das Element enthält einen Button für jede Tieraulwahl und einen Zurücksetzen-Button. Ein weiteres `<div>` hat die ID `"error-content"` und eine Klasse `"hidden"`. Die Erweiterung verwendet dieses zweite `<div>`, wenn sie das Popup nicht initialisieren kann.
 
-Beachten Sie, dass wir die CSS- und JS-Dateien von dieser Datei aus einbinden, genau wie bei einer Webseite.
+Beachten Sie, dass das HTML die CSS- und JavaScript-Dateien aus dem Verzeichnis einbindet, ähnlich wie eine Webseite.
 
 #### choose_beast.css
 
-Das CSS fixiert die Größe des Popups, stellt sicher, dass die drei Auswahlmöglichkeiten den Platz ausfüllen, und gibt ihnen ein grundlegendes Styling. Es verbirgt auch Elemente mit `class="hidden"`: Das bedeutet, dass unser `<div id="error-content"...`-Element standardmäßig verborgen wird.
+Das CSS fixiert die Größe des Popups, stellt sicher, dass die drei Auswahlmöglichkeiten den Raum ausfüllen, und fügt grundlegende Stile hinzu. Es versteckt auch Elemente mit `class="hidden"`, was bedeutet, dass die Erweiterung das `<div id="error-content"...`-Element standardmäßig versteckt.
 
 ```css
 html,
@@ -206,10 +223,10 @@ Hier ist das JavaScript für das Popup:
 ```js
 /**
  * CSS to hide everything on the page,
- * except for elements that have the "beastify-image" class.
+ * except for elements that have the ".beastify-image" class.
  */
 const hidePage = `body > :not(.beastify-image) {
-                    display: none;
+                    display: none !important;
                   }`;
 
 /**
@@ -217,9 +234,9 @@ const hidePage = `body > :not(.beastify-image) {
  * the content script in the page.
  */
 function listenForClicks() {
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", async (e) => {
     /**
-     * Given the name of a beast, get the URL to the corresponding image.
+     * Given the name of a beast, get the URL for the corresponding image.
      */
     function beastNameToURL(beastName) {
       switch (beastName) {
@@ -234,33 +251,35 @@ function listenForClicks() {
 
     /**
      * Insert the page-hiding CSS into the active tab,
-     * then get the beast URL and
+     * get the beast URL, and
      * send a "beastify" message to the content script in the active tab.
      */
-    function beastify(tabs) {
-      browser.tabs.insertCSS({ code: hidePage }).then(() => {
-        const url = beastNameToURL(e.target.textContent);
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "beastify",
-          beastURL: url,
-        });
+    async function beastify(tab) {
+      await browser.scripting.insertCSS({
+        target: { tabId: tab.id },
+        css: hidePage,
+      });
+      const url = beastNameToURL(e.target.textContent);
+      await browser.tabs.sendMessage(tab.id, {
+        command: "beastify",
+        beastURL: url,
       });
     }
 
     /**
-     * Remove the page-hiding CSS from the active tab,
+     * Remove the page-hiding CSS from the active tab and
      * send a "reset" message to the content script in the active tab.
      */
-    function reset(tabs) {
-      browser.tabs.removeCSS({ code: hidePage }).then(() => {
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "reset",
-        });
+    async function reset(tab) {
+      await browser.scripting.removeCSS({
+        target: { tabId: tab.id },
+        css: hidePage,
       });
+      await browser.tabs.sendMessage(tab.id, { command: "reset" });
     }
 
     /**
-     * Just log the error to the console.
+     * Log the error to the console.
      */
     function reportError(error) {
       console.error(`Could not beastify: ${error}`);
@@ -274,16 +293,20 @@ function listenForClicks() {
       // Ignore when click is not on a button within <div id="popup-content">.
       return;
     }
-    if (e.target.type === "reset") {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(reset)
-        .catch(reportError);
-    } else {
-      browser.tabs
-        .query({ active: true, currentWindow: true })
-        .then(beastify)
-        .catch(reportError);
+
+    try {
+      const [tab] = await browser.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+
+      if (e.target.type === "reset") {
+        await reset(tab);
+      } else {
+        await beastify(tab);
+      }
+    } catch (error) {
+      reportError(error);
     }
   });
 }
@@ -299,47 +322,59 @@ function reportExecuteScriptError(error) {
 }
 
 /**
- * When the popup loads, inject a content script into the active tab,
+ * When the popup loads, inject a content script into the active tab
  * and add a click handler.
- * If we couldn't inject the script, handle the error.
+ * If the extension couldn't inject the script, handle the error.
  */
-browser.tabs
-  .executeScript({ file: "/content_scripts/beastify.js" })
-  .then(listenForClicks)
-  .catch(reportExecuteScriptError);
+(async function runOnPopupOpened() {
+  try {
+    const [tab] = await browser.tabs.query({
+      active: true,
+      currentWindow: true,
+    });
+
+    await browser.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/content_scripts/beastify.js"],
+    });
+    listenForClicks();
+  } catch (e) {
+    reportExecuteScriptError(e);
+  }
+})();
 ```
 
-Der Anfangspunkt hier ist Zeile 99. Das Popup-Skript führt ein Inhalts-Skript im aktiven Tab aus, sobald das Popup geladen ist, und verwendet die API [`browser.tabs.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript). Wenn das Ausführen des Inhalts-Skripts erfolgreich ist, bleibt das Inhalts-Skript in der Seite geladen, bis der Tab geschlossen oder der Benutzer auf eine andere Seite navigiert.
+Das Popup-Skript führt [das Inhalts-Skript aus](#the-content-script), sobald das Popup geladen wird, indem es die [`browser.scripting.executeScript()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/scripting/executeScript)-API verwendet. Wenn die Ausführung des Inhalts-Skripts erfolgreich ist, bleibt es bis zum Schließen des Tabs oder bis der Benutzer auf eine andere Seite navigiert, geladen.
 
-Ein häufiger Grund, warum der Aufruf `browser.tabs.executeScript()` fehlschlagen könnte, ist, dass Sie nicht in allen Seiten Inhalts-Skripte ausführen können. Zum Beispiel können Sie sie nicht in privilegierten Browser-Seiten wie "about:debugging" ausführen, und Sie können sie nicht in Seiten der Domäne [addons.mozilla.org](https://addons.mozilla.org/) ausführen. Wenn es fehlschlägt, wird `reportExecuteScriptError()` das `<div id="popup-content">`-Element verbergen, das `<div id="error-content"...`-Element zeigen und einen Fehler in der [Konsole](https://extensionworkshop.com/documentation/develop/debugging/) protokollieren.
+Der `browser.scripting.executeScript()`-Aufruf kann fehlschlagen, wenn die Erweiterung keine Inhalts-Skripte auf der aktiven Seite ausführen kann. Zum Beispiel kann eine Erweiterung keine Skripte auf privilegierten Browserseiten wie `about:debugging` oder auf Seiten der Domain [addons.mozilla.org](https://addons.mozilla.org/) ausführen. Wenn der Aufruf fehlschlägt, versteckt `reportExecuteScriptError()` das `<div id="popup-content">`-Element, zeigt das `<div id="error-content"...`-Element an und protokolliert einen Fehler in der [Konsole](https://extensionworkshop.com/documentation/develop/debugging/).
 
-Wenn das Ausführen des Inhalts-Skripts erfolgreich ist, rufen wir `listenForClicks()` auf. Dies hört auf Klicks im Popup.
+Wenn das Inhalts-Skript ausgeführt wird, wird `listenForClicks()` aufgerufen. Dieser Code lauscht auf Klicks im Popup. Dann:
 
-- Wenn der Klick nicht auf eine Schaltfläche im Popup war, ignorieren wir ihn und tun nichts.
-- Wenn der Klick auf eine Schaltfläche mit `type="reset"` war, rufen wir `reset()` auf.
-- Wenn der Klick auf eine andere Schaltfläche war (d.h. die Tierknöpfe), dann rufen wir `beastify()` auf.
+- Wenn ein Klick nicht auf einen Button im Popup ist, wird er ignoriert und nichts wird getan.
+- Wenn ein Klick auf einem Button mit `type="reset"` ist, dann wird `reset()` aufgerufen.
+- Wenn ein Klick auf einem anderen Button (d.h. einem Bestien-Button) ist, dann wird `beastify()` aufgerufen.
 
-Die Funktion `beastify()` macht drei Dinge:
+Die Funktion `beastify()` führt drei Dinge aus:
 
-- Zuordnung der angeklickten Schaltfläche zu einer URL, die auf ein Bild eines bestimmten Tieres zeigt
-- Verbergen des gesamten Seiteninhalts durch Injektion einiger CSS, unter Verwendung der API [`browser.tabs.insertCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS)
-- Senden einer "beastify"-Nachricht an das Inhalts-Skript unter Verwendung der API [`browser.tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage), mit der Bitte, die Seite zu "beastifyen" und ihr die URL zum Tierbild übergeben
+- Ordnet den geklickten Button einer URL zu, die auf ein Bild einer Bestie verweist.
+- Versteckt den Inhalt der Seite durch das Injizieren von CSS, verwendet die [`browser.scripting.insertCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/scripting/insertCSS)-API.
+- Sendet eine "beastify"-Nachricht an das Inhalts-Skript, indem die [`browser.tabs.sendMessage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage)-API verwendet wird, übergibt die URL des Bestien-Bildes und fragt es, die Seite zu beastify.
 
-Die Funktion `reset()` macht im Wesentlichen rückgängig, was ein "beastify" gemacht hat:
+Die Funktion `reset()` macht ein Beastify rückgängig. Sie:
 
-- Entfernen des hinzugefügten CSS, unter Verwendung der API [`browser.tabs.removeCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/removeCSS)
-- Senden einer "reset"-Nachricht an das Inhalts-Skript mit der Bitte, die Seite zurückzusetzen
+- Entfernt das hinzugefügte CSS, indem die [`browser.scripting.removeCSS()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/scripting/removeCSS)-API verwendet wird.
+- Sendet eine "reset"-Nachricht an das Inhalts-Skript, um es zu bitten, die Seite zurückzusetzen.
 
 ### Das Inhalts-Skript
 
-Erstellen Sie ein neues Verzeichnis unter dem Erweiterungsstammverzeichnis, genannt "content_scripts", und erstellen Sie darin eine neue Datei namens "beastify.js" mit dem folgenden Inhalt:
+Erstellen Sie ein Verzeichnis unter dem Stammverzeichnis der Erweiterung, das "content_scripts" heißt, und erstellen Sie eine Datei darin namens "beastify.js", mit diesem Inhalt:
 
 ```js
-(() => {
+(function () {
   /**
-   * Check and set a global guard variable.
-   * If this content script is injected into the same page again,
-   * it will do nothing next time.
+   * Check and set a global guard variable to
+   * ensure that if this content script is injected into a page again,
+   * it returns (and does nothing).
    */
   if (window.hasRun) {
     return;
@@ -347,32 +382,35 @@ Erstellen Sie ein neues Verzeichnis unter dem Erweiterungsstammverzeichnis, gena
   window.hasRun = true;
 
   /**
-   * Given a URL to a beast image, remove all existing beasts, then
-   * create and style an IMG node pointing to
-   * that image, then insert the node into the document.
+   * Given a URL for a beast image, remove all beasts,
+   * then create and style an IMG node pointing to the image and
+   * insert the node into the document.
    */
   function insertBeast(beastURL) {
     removeExistingBeasts();
-    const beastImage = document.createElement("img");
+    let beastImage = document.createElement("img");
     beastImage.setAttribute("src", beastURL);
-    beastImage.style.height = "100vh";
+    beastImage.style.objectFit = "contain";
+    beastImage.style.position = "fixed";
+    beastImage.style.height = "100%";
+    beastImage.style.width = "100%";
     beastImage.className = "beastify-image";
     document.body.appendChild(beastImage);
   }
 
   /**
-   * Remove every beast from the page.
+   * Remove all beasts from the page.
    */
   function removeExistingBeasts() {
-    const existingBeasts = document.querySelectorAll(".beastify-image");
-    for (const beast of existingBeasts) {
+    let existingBeasts = document.querySelectorAll(".beastify-image");
+    for (let beast of existingBeasts) {
       beast.remove();
     }
   }
 
   /**
    * Listen for messages from the background script.
-   * Call "insertBeast()" or "removeExistingBeasts()".
+   * Depending on the message, call "beastify()" or "reset()".
    */
   browser.runtime.onMessage.addListener((message) => {
     if (message.command === "beastify") {
@@ -384,28 +422,28 @@ Erstellen Sie ein neues Verzeichnis unter dem Erweiterungsstammverzeichnis, gena
 })();
 ```
 
-Das erste, was das Inhalts-Skript macht, ist zu prüfen, ob eine globale Variable `window.hasRun` gesetzt ist: Wenn sie gesetzt ist, gibt das Skript frühzeitig zurück, andernfalls setzt es `window.hasRun` und fährt fort. Der Grund, warum wir dies tun ist, dass jedes Mal, wenn der Benutzer das Popup öffnet, das Popup ein Inhalts-Skript im aktiven Tab ausführt, sodass wir mehrere Instanzen des Skripts in einem einzigen Tab laufen haben könnten. Wenn dies passiert, müssen wir sicherstellen, dass nur die erste Instanz tatsächlich etwas tut.
+Das erste, was das Inhalts-Skript tut, ist zu prüfen, ob die globale Variable `window.hasRun` gesetzt ist: Wenn sie gesetzt ist, beendet das Skript den Betrieb; andernfalls setzt es `window.hasRun` und fährt fort. Der Grund dafür ist, dass wann immer der Benutzer das Popup öffnet, es ein Inhalts-Skript im aktiven Tab ausführt, sodass die Erweiterung mehrere Instanzen des Skripts in einem einzigen Tab haben könnte. Wenn dies passiert, muss der Code sicherstellen, dass nur die erste Instanz etwas unternimmt.
 
-Nach dem ersten Schritt ist der Anfangspunkt Zeile 40, wo das Inhalts-Skript auf Nachrichten aus dem Popup hört, unter Verwendung der API [`browser.runtime.onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage). Wir haben oben gesehen, dass das Popup-Skript zwei verschiedene Nachrichtenarten senden kann: "beastify" und "reset".
+Das Inhalts-Skript hört dann auf Nachrichten vom Popup, indem die [`browser.runtime.onMessage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage)-API verwendet wird. Sie haben zuvor gesehen, dass das Popup-Skript zwei Nachrichten senden kann: "beastify" und "reset".
 
-- Wenn die Nachricht "beastify" ist, erwarten wir, dass sie eine URL enthält, die auf ein Tierbild zeigt. Wir entfernen alle Tiere, die durch vorherige "beastify"-Aufrufe hinzugefügt wurden, dann konstruieren und fügen wir ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element ein, dessen `src`-Attribut auf die Tier-URL gesetzt ist.
-- Wenn die Nachricht "reset" ist, entfernen wir einfach alle Tiere, die hinzugefügt worden sein könnten.
+- Wenn die Nachricht "beastify" ist, erwartet der Code, dass sie eine URL zu einem Bestien-Bild enthält. Die Erweiterung entfernt alle durch vorherige "beastify"-Aufrufe hinzugefügten Bestien, dann konstruiert und hängt sie ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element an, dessen `src`-Attribut auf die Bestien-URL gesetzt wird.
+- Wenn die Nachricht "reset" ist, entfernt die Erweiterung alle hinzugefügten Bestien.
 
-### Die Tiere
+### Die Bestien
 
-Schließlich müssen wir die Bilder der Tiere einschließen.
+Fügen Sie schließlich die Bilder der Bestien hinzu.
 
-Erstellen Sie ein neues Verzeichnis namens "beasts" und fügen Sie die drei Bilder in dieses Verzeichnis ein, mit den entsprechenden Namen. Sie können die Bilder aus [dem GitHub-Repository](https://github.com/mdn/webextensions-examples/tree/main/beastify/beasts) oder von hier beziehen:
+Erstellen Sie ein Verzeichnis namens "beasts" und fügen Sie die drei Bilder mit den entsprechenden Namen hinzu. Sie können die Bilder aus [dem GitHub-Repository](https://github.com/mdn/webextensions-examples/tree/main/beastify/beasts) oder von hier beziehen:
 
 ![Ein brauner Frosch.](frog.jpg)
 
-![Eine Smaragd-Baumboa mit weißen Streifen.](snake.jpg)
+![Eine Smaragdbaumboa mit weißen Streifen.](snake.jpg)
 
 ![Eine Rotwangen-Schmuckschildkröte.](turtle.jpg)
 
-## Es ausprobieren
+## Testen Sie es aus
 
-Überprüfen Sie zunächst, ob Sie die richtigen Dateien an den richtigen Stellen haben:
+Überprüfen Sie zuerst, dass Sie die richtigen Dateien an den richtigen Stellen haben:
 
 ```plain
 beastify/
@@ -430,17 +468,17 @@ beastify/
     manifest.json
 ```
 
-Laden Sie nun die Erweiterung als temporäres Add-on. Öffnen Sie "about:debugging" in Firefox, klicken Sie auf "Temporäres Add-on laden", und wählen Sie Ihre **manifest.json**-Datei. Sie sollten dann das Icon der Erweiterung in der Firefox-Symbolleiste sehen:
+Laden Sie nun die Erweiterung als vorübergehendes Add-on. Öffnen Sie `about:debugging` in Firefox, klicken Sie auf **Dieser Firefox** und dann auf **Vorübergehendes Add-on laden** und wählen Sie Ihre manifest.json-Datei aus. Sie sehen das Icon der Erweiterung in der Firefox-Symbolleiste:
 
 ![Das Beastify-Icon in der Firefox-Symbolleiste](beastify_icon.png)
 
-Öffnen Sie eine Webseite, klicken Sie auf das Icon, wählen Sie ein Tier aus und sehen Sie, wie sich die Webseite ändert:
+Öffnen Sie eine Webseite, klicken Sie auf das Icon, wählen Sie eine Bestie aus und sehen Sie, wie sich die Webseite ändert:
 
-![Eine Seite, die durch das Bild einer Schildkröte ersetzt wurde](beastify_page.png)
+![Eine Seite, die mit dem Bild einer Schildkröte ersetzt wurde](beastify_page.png)
 
-## Von der Kommandozeile aus entwickeln
+## Entwicklung über die Befehlszeile
 
-Sie können den Schritt der temporären Installation mit dem [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) Tool automatisieren. Versuchen Sie dies:
+Sie können den Schritt der vorübergehenden Installation automatisieren, indem Sie das [`web-ext`](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/)-Tool verwenden. Nachdem Sie `web-ext` installiert haben, versuchen Sie dies:
 
 ```bash
 cd beastify
@@ -449,9 +487,9 @@ web-ext run
 
 ## Was kommt als Nächstes?
 
-Jetzt, da Sie eine fortgeschrittenere WebExtension für Firefox erstellt haben:
+Jetzt, da Sie eine fortgeschrittenere Erweiterung für Firefox erstellt haben:
 
-- [lesen Sie über den Aufbau einer Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
-- [erforschen Sie die Erweiterungsbeispiele](/de/docs/Mozilla/Add-ons/WebExtensions/Examples)
-- [finden Sie heraus, was Sie benötigen, um Ihre Erweiterung zu entwickeln, zu testen und zu veröffentlichen](/de/docs/Mozilla/Add-ons/WebExtensions/What_next)
-- [vertiefen Sie Ihr Lernen weiter](/de/docs/Mozilla/Add-ons/WebExtensions/What_next#continue_your_learning_experience).
+- [Lesen Sie über den Aufbau einer Erweiterung](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
+- [Erforschen Sie die Erweiterungsbeispiele](/de/docs/Mozilla/Add-ons/WebExtensions/Examples)
+- [Finden Sie heraus, was Sie benötigen, um Ihre Erweiterung zu entwickeln, zu testen und zu veröffentlichen](/de/docs/Mozilla/Add-ons/WebExtensions/What_next)
+- [Vertiefen Sie Ihr Lernen weiter](/de/docs/Mozilla/Add-ons/WebExtensions/What_next#continue_your_learning_experience)
