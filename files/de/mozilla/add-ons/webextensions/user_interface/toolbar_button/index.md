@@ -2,20 +2,20 @@
 title: Toolbar-Schaltfläche
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button
 l10n:
-  sourceCommit: 1ba0755482292cd52e89cf96fda34000c8e60c91
+  sourceCommit: 8a74d8feac267c1ddc37a4a8bc61e9aa8db75b12
 ---
 
-Häufig als Browser-Aktion bezeichnet, ist diese Benutzeroberflächenoption eine Schaltfläche, die der Browser-Toolbar hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Ihrer Erweiterung zu interagieren.
-![Ein benutzerdefiniertes Browser-Aktionssymbol in der Browser-Toolbar, das wie ein Pfotenabdruck aussieht.](toolbar_button.png)
+Im Allgemeinen als Browser-Aktion bezeichnet, ist diese Benutzeroberflächenoption eine Schaltfläche, die zur Browser-Symbolleiste hinzugefügt wird. Benutzer klicken auf die Schaltfläche, um mit Ihrer Erweiterung zu interagieren.
+![Ein benutzerdefiniertes Browser-Aktionssymbol in der Browsersymbolleiste, das wie ein Pfotenabdruck aussieht.](toolbar_button.png)
 
-Die Toolbar-Schaltfläche (Browser-Aktion) ähnelt sehr der Adressleisten-Schaltfläche (Seitenaktion). Für die Unterschiede und Hinweise, wann man was verwenden sollte, siehe [Seitenaktionen und Browser-Aktionen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions#page_actions_and_browser_actions).
+Die Toolbar-Schaltfläche (Browser-Aktion) ähnelt sehr der Adressleisten-Schaltfläche (Seitenaktion). Für die Unterschiede und Anleitungen, wann welche genutzt werden sollte, siehe [Seitenaktionen und Browser-Aktionen](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions#page_actions_and_browser_actions).
 
-## Festlegen der Browser-Aktion
+## Die Browser-Aktion festlegen
 
 Sie definieren die Eigenschaften der Browser-Aktion in der `manifest.json`-Datei Ihrer Erweiterung mit:
 
-- dem Schlüssel [`"browser_action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) für Manifest V2-Erweiterungen.
-- dem Schlüssel [`"action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) für Manifest V3-Erweiterungen.
+- für Manifest-V2-Erweiterungen den [`"browser_action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)-Schlüssel.
+- für Manifest-V3-Erweiterungen den [`"action"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action)-Schlüssel.
 
 Die Syntax für diese Schlüssel ist identisch.
 
@@ -29,34 +29,34 @@ Die Syntax für diese Schlüssel ist identisch.
 }
 ```
 
-Es gibt keine verpflichtenden Eigenschaften für diesen Schlüssel.
+Es gibt keine Pflichtangaben für diesen Schlüssel.
 
-Es gibt zwei Möglichkeiten, eine Browser-Aktion anzugeben: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups). Wenn Sie kein Popup angeben, wird beim Klicken des Benutzers auf die Schaltfläche ein Ereignis an die Erweiterung gesendet, auf das die Erweiterung mit [`action.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/action/onClicked) hört:
+Es gibt zwei Möglichkeiten, eine Browser-Aktion zu spezifizieren: mit oder ohne ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups). Wenn Sie kein Popup angeben, wird bei einem Klick des Benutzers auf die Schaltfläche ein Ereignis an die Erweiterung gesendet, auf das die Erweiterung mit [`action.onClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/action/onClicked) reagiert:
 
 ```js
 browser.action.onClicked.addListener(handleClick);
 ```
 
-Wenn Sie ein Popup angeben, wird das Klick-Ereignis nicht gesendet: Stattdessen wird das Popup angezeigt, wenn der Benutzer auf die Schaltfläche klickt. Der Benutzer kann mit dem Popup interagieren, das sich automatisch schließt, wenn der Benutzer außerhalb davon klickt. Siehe den Artikel [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) für weitere Details zum Erstellen und Verwalten von Popups.
+Wenn Sie ein Popup angeben, wird das Klickereignis nicht gesendet: Stattdessen wird das Popup angezeigt, wenn der Benutzer auf die Schaltfläche klickt. Der Benutzer kann mit dem Popup interagieren, welches sich automatisch schließt, wenn der Benutzer außerhalb davon klickt. Siehe den Artikel [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) für weitere Details zur Erstellung und Verwaltung von Popups.
 
-Beachten Sie, dass Ihre Erweiterung nur eine einzige Browser-Aktion haben kann.
+Beachten Sie, dass Ihre Erweiterung nur eine Browser-Aktion haben kann.
 
-Viele der Eigenschaften der Browser-Aktion können Sie programmatisch ändern mit:
+Viele der Eigenschaften der Browser-Aktion können programmatisch geändert werden mittels:
 
-- der API [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) für Manifest V2-Erweiterungen.
-- der API [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/API/action) für Manifest V3-Erweiterungen.
+- für Manifest-V2-Erweiterungen der [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction)-API.
+- für Manifest-V3-Erweiterungen der [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/API/action)-API.
 
 ## Symbole
 
-Wenn Sie `"default_icon"` nicht angeben, wird das Erweiterungssymbol verwendet. Wenn die Erweiterung kein Symbol angibt, wird das Standard-Symbol des Web-Extensions-Puzzleteils verwendet. Wenn `"default_title"` nicht angegeben wird, wird der Erweiterungsname verwendet.
+Wenn Sie `"default_icon"` nicht angeben, wird das Erweiterungssymbol verwendet. Wenn die Erweiterung kein Symbol angibt, wird das standardmäßige Puzzle-Symbol für Web-Erweiterungen verwendet. Wenn `"default_title"` nicht angegeben ist, wird der Erweiterungsname verwendet.
 
-Sie können Symbole für helle und dunkle UI-Themen mit der Eigenschaft `"theme_icons"` bereitstellen oder eine Medienabfrage zu `prefers-color-scheme` in einem SVG-Symbol verwenden. Weitere Informationen finden Sie in [`"browser_action"` `"theme_icons"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#theme_icons) oder [`"action"` `"theme_icons"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action#theme_icons) sowie im [themed-icons](https://github.com/mdn/webextensions-examples/tree/master/themed-icons)-Beispiel.
+Sie können Symbole für helle und dunkle UI-Themen mit der Eigenschaft `"theme_icons"` angeben oder eine Medienabfrage für `prefers-color-scheme` in einem SVG-Symbol verwenden. Für weitere Informationen siehe [`"browser_action"` `"theme_icons"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#theme_icons) oder [`"action"` `"theme_icons"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action#theme_icons), und das [themed-icons](https://github.com/mdn/webextensions-examples/tree/main/themed-icons)-Beispiel.
 
-Details, wie Sie Symbole für Ihre Browser-Aktion erstellen, finden Sie unter [Ikonographie](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der Dokumentation des [Acorn Design Systems](https://acorn.firefox.com/latest).
+Für Details zur Erstellung von Symbolen zur Verwendung mit Ihrer Browser-Aktion, siehe [Ikonographie](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest)-Dokumentation.
 
 ## Beispiele
 
-Das [`webextensions-examples`](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält zwei Beispiele von Erweiterungen, die Browser-Aktionen implementieren:
+Das [`webextensions-examples`](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält zwei Beispiele für Erweiterungen, die Browser-Aktionen implementieren:
 
-- [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it) verwendet eine Browser-Aktion ohne Popup
+- [bookmark-it](https://github.com/mdn/webextensions-examples/tree/main/bookmark-it) verwendet eine Browser-Aktion ohne ein Popup
 - [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify) verwendet eine Browser-Aktion mit einem Popup

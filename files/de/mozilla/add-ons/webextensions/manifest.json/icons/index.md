@@ -2,7 +2,7 @@
 title: icons
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/icons
 l10n:
-  sourceCommit: 1ba0755482292cd52e89cf96fda34000c8e60c91
+  sourceCommit: 8a74d8feac267c1ddc37a4a8bc61e9aa8db75b12
 ---
 
 <table class="fullwidth-table standard-table">
@@ -22,19 +22,19 @@ l10n:
   </tbody>
 </table>
 
-Der Schlüssel `icons` legt die Symbole für Ihre Erweiterung fest. Diese Symbole repräsentieren die Erweiterung in Komponenten wie dem Add-ons-Manager (`about:addons`).
+Der Schlüssel `icons` gibt die Symbole für Ihre Erweiterung an. Diese Symbole repräsentieren die Erweiterung in Komponenten wie dem Add-ons-Manager (`about:addons`).
 
 Der Schlüssel besteht aus Schlüssel-Wert-Paaren, die die Bildgröße in Pixeln und den Bildpfad relativ zum Stammverzeichnis der Erweiterung angeben.
 
-Wenn `icons` nicht angegeben wird, wird ein Standarderweiterungssymbol verwendet.
+Wenn `icons` nicht bereitgestellt wird, wird ein Standardsymbol für Erweiterungen verwendet.
 
-Sie sollten ein Erweiterungssymbol bereitstellen, idealerweise in der Größe 32x32 px. Dies ist das Standardsymbol, das im Add-ons-Manager verwendet wird. Sie können Symbole jeder Größe bereitstellen, und Firefox verwendet dasjenige, das am besten zu einer Komponente passt.
+Sie sollten ein Erweiterungssymbol bereitstellen, idealerweise in der Größe von 32x32 px. Dies ist das Standardsymbol, das im Add-ons-Manager verwendet wird. Sie können Symbole in beliebiger Größe bereitstellen, und Firefox wählt das aus, das am besten zu einer Komponente passt.
 
-Firefox berücksichtigt die Bildschirmauflösung bei der Auswahl eines Symbols. Um den besten visuellen Eindruck für Benutzer mit hochauflösenden Displays wie Retina-Displays zu bieten, sollten doppelt so große Versionen Ihrer Symbole bereitgestellt werden.
+Firefox berücksichtigt die Bildschirmauflösung bei der Auswahl eines Symbols. Um den Benutzern mit hochauflösenden Displays, wie Retina-Displays, das beste visuelle Erlebnis zu bieten, sollten Sie doppelt so große Versionen Ihrer Symbole bereitstellen.
 
 ## Beispiel
 
-Die Schlüssel im `icons`-Objekt geben die Symbolgröße in Pixeln an, und die Werte geben den relativen Symboldateipfad an. Dieses Beispiel enthält ein 32px Erweiterungssymbol und eine größere Version für hochauflösende Displays.
+Die Schlüssel im `icons`-Objekt spezifizieren die Symbolgröße in Pixeln, und die Werte spezifizieren den relativen Dateipfad des Symbols. Dieses Beispiel enthält ein 32px-Erweiterungssymbol und eine größere Version für hochauflösende Displays.
 
 ```json
 "icons": {
@@ -45,9 +45,9 @@ Die Schlüssel im `icons`-Objekt geben die Symbolgröße in Pixeln an, und die W
 
 ## SVG
 
-Sie können SVG verwenden, und der Browser skaliert Ihr Symbol entsprechend. Es gibt zwei Vorbehalte:
+Sie können SVG verwenden, und der Browser skaliert Ihr Symbol entsprechend. Es gibt zwei Einschränkungen:
 
-1. Sie müssen ein `viewBox` in dem Bild angeben, z.B.:
+1. Sie müssen ein viewBox im Bild angeben, z.B.:
 
    ```html
    <svg
@@ -59,7 +59,7 @@ Sie können SVG verwenden, und der Browser skaliert Ihr Symbol entsprechend. Es 
    </svg>
    ```
 
-2. Obwohl Sie eine SVG-Datei verwenden können, müssen Sie Symbolgrößen in Ihrem Manifest angeben, z.B.:
+2. Auch wenn Sie eine SVG-Datei verwenden können, müssen Sie die Symbolgrößen in Ihrem Manifest angeben, z.B.:
 
    ```json
    "icons": {
@@ -68,37 +68,35 @@ Sie können SVG verwenden, und der Browser skaliert Ihr Symbol entsprechend. Es 
    }
    ```
 
-Sie können eine Media Query zu `prefers-color-scheme` verwenden, um das Symbol für helle und dunkle Themen zu aktualisieren. Zum Beispiel:
+Sie können eine Media Query auf `prefers-color-scheme` verwenden, um das Symbol für helle und dunkle Themen zu aktualisieren. Zum Beispiel:
 
-```html
-<style>
+```css
+#outside {
+  fill: black;
+}
+#inside {
+  fill: red;
+}
+@media (prefers-color-scheme: dark) {
   #outside {
-    fill: black;
+    fill: white;
   }
   #inside {
-    fill: red;
+    fill: black;
   }
-  @media (prefers-color-scheme: dark) {
-    #outside {
-      fill: white;
-    }
-    #inside {
-      fill: black;
-    }
-  }
-</style>
+}
 ```
 
-Für weitere Informationen siehe das Beispiel [themed-icons](https://github.com/mdn/webextensions-examples/tree/master/themed-icons).
+Weitere Informationen finden Sie im [themed-icons](https://github.com/mdn/webextensions-examples/tree/main/themed-icons)-Beispiel.
 
 > [!NOTE]
-> Auf Chromium-basierten Browsern wird dieses Feature nicht unterstützt. Siehe [Chromium Bug 29683](https://crbug.com/29683).
+> Chromium-basierte Browser unterstützen dieses Feature nicht. Siehe [Chromium-Bug 29683](https://crbug.com/29683).
 
 > [!NOTE]
-> Denken Sie daran, das `xmlns`-Attribut hinzuzufügen, wenn Sie das SVG erstellen. Andernfalls zeigt Firefox das Symbol nicht an.
+> Denken Sie daran, das `xmlns`-Attribut einzuschließen, wenn Sie das SVG erstellen. Andernfalls zeigt Firefox das Symbol nicht an.
 
 > [!NOTE]
-> Wenn Sie ein Programm wie Inkscape zur Erstellung von SVG verwenden, speichern Sie Ihre Datei als "Plain SVG". Firefox garantiert nicht, dass spezielle Namensräume verarbeitet werden und zeigt möglicherweise ein Symbol, das solche enthält, nicht an.
+> Wenn Sie ein Programm wie Inkscape verwenden, um SVG zu erstellen, speichern Sie Ihre Datei als "plain SVG". Firefox kann nicht garantieren, dass spezielle Namensräume verarbeitet werden, und zeigt möglicherweise kein Symbol mit diesen an.
 
 ## Browser-Kompatibilität
 
