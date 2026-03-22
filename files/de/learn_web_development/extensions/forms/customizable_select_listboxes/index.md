@@ -1,24 +1,24 @@
 ---
-title: Anpassbare Auswahl-Listenfelder
-short-title: Anpassbare Listenfelder
+title: Anpassbare Auswahllisten
+short-title: Anpassbare Auswahllisten
 slug: Learn_web_development/Extensions/Forms/Customizable_select_listboxes
 l10n:
-  sourceCommit: 76936e1d9ff271ac59307a0f858d0d7b57f3866a
+  sourceCommit: 8a74d8feac267c1ddc37a4a8bc61e9aa8db75b12
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms")}}
 
-Dieser Artikel knüpft an den vorherigen an und zeigt, wie anpassbare Listenfeld-{{htmlelement("select")}}-Elemente gestaltet werden können.
+Dieser Artikel baut auf dem vorherigen auf und erklärt, wie Sie anpassbare Listbox-{{htmlelement("select")}}-Elemente stylen können.
 
-Ein wesentlicher Vorteil von anpassbaren `<select>`-Listenfeldern gegenüber „klassischen“ Select-Listenfeldern ist, dass Sie alle Teile des Steuerungselements vollständig gestalten können und eine viel größere Vielfalt an Kindelementen darin aufnehmen können, was eine größere Flexibilität bei Design und Funktionalität bedeutet.
+Ein wesentlicher Vorteil anpassbarer `<select>`-Listboxen gegenüber „klassischen“ Auswahllisten ist, dass Sie alle Teile des Steuerelements vollständig gestalten können. Darüber hinaus können Sie eine viel größere Vielfalt an Kind-Elementen einfügen, was mehr Flexibilität hinsichtlich Design und Funktionalität bedeutet.
 
-## Select-Listenfelder vs Dropdown-Selects
+## Auswahllisten vs Dropdown-Auswahl
 
-Im vorherigen Artikel haben wir über „Dropdown“-`<select>`-Elemente gesprochen, bei denen es sich um Steuerelemente handelt, die über eine Schaltfläche verfügen, die beim Drücken ein Dropdown-Auswahlfenster anzeigt, aus dem Sie eine Option auswählen können. Diese werden mit grundlegenden HTML-Tags wie `<select>` angegeben.
+Im vorherigen Artikel haben wir über „Dropdown“-`<select>`-Elemente gesprochen, bei denen es sich um Steuerelemente handelt, die über einen Knopf verfügen, der beim Drücken eine Dropdown-Auswahl anzeigt, aus der Sie eine Option auswählen können. Diese werden mit einfachem HTML wie `<select>` spezifiziert.
 
-Im Gegensatz dazu sind „Listenfeld“-`<select>`-Elemente Steuerelemente mit einem Feld, das mehrere Optionen gleichzeitig anzeigt, aus denen Sie eine oder mehrere Optionen auswählen können. Sie entscheiden sich für die Darstellung eines „Listenfeld“-Selects, indem Sie das `multiple`-Attribut (um Mehrfachauswahl zu ermöglichen) und/oder einen `size`-Wert größer als `1` angeben. Zum Beispiel `<select multiple>` oder `<select size="3">`.
+Im Gegensatz dazu sind „Listbox“-`<select>`-Elemente Steuerelemente, die eine Box enthalten, die mehrere Optionen gleichzeitig anzeigt, aus denen Sie eine oder mehrere Optionen auswählen können. Sie entscheiden sich für das Rendern einer „Listbox“-Auswahl, indem Sie das `multiple`-Attribut (um Mehrfachauswahl zu ermöglichen) und/oder einen `size`-Wert größer als `1` angeben. Zum Beispiel `<select multiple>` oder `<select size="3">`.
 
-Das folgende Live-Beispiel veranschaulicht den Unterschied:
+Das folgende Live-Beispiel verdeutlicht den Unterschied:
 
 ```html hidden live-sample___select-comparison
 <form>
@@ -61,19 +61,19 @@ form {
 {{EmbedLiveSample("select-comparison", "100%", "200px")}}
 
 > [!NOTE]
-> Das `multiple`-Attribut sowie jeder `size`-Wert größer als `1` versetzen das `<select>`-Element in den Listenfeldmodus.
+> Das `multiple`-Attribut sowie jeder `size`-Wert größer als `1` versetzen das `<select>`-Element in den Listbox-Modus.
 
-### Wie vergleichen sich anpassbare Listenfelder mit anpassbaren Dropdowns?
+### Wie vergleichen sich anpassbare Listboxen mit anpassbaren Dropdowns?
 
-Ein anpassbares Listenfeld-`<select>` ist einfacher zu gestalten als die Dropdown-Variante:
+Eine anpassbare Listbox `<select>` ist einfacher zu stylen als die Dropdown-Variante:
 
-- Es gibt keinen Dropdown-Auswähler, sodass Sie sich nicht um die Gestaltung mit dem {{cssxref("::picker()", "::picker(select)")}}-Pseudoelement oder dessen {{cssxref(":open")}}- und Geschlossen-Zustände kümmern müssen.
-- Sie müssen sich nicht um die Gestaltung des Symbols der Auswahlschaltfläche mit {{cssxref("::picker-icon")}} kümmern oder um die Manipulation, wie das aktuell ausgewählte `<option>` innerhalb der Schaltfläche mit dem {{htmlelement("selectedcontent")}}-Element angezeigt wird.
-- Es gibt nur einen einzigen Container; Sie müssen sich nicht um die Position des Auswählers relativ zur Schaltfläche kümmern.
+- Es gibt keinen Dropdown-Picker, sodass Sie sich nicht darum kümmern müssen, ihn mit dem {{cssxref("::picker()", "::picker(select)")}} Pseudo-Element oder seinen {{cssxref(":open")}}- und geschlossenen Zuständen zu stylen.
+- Sie müssen nicht die Ikone des Auswahlknopfes mit {{cssxref("::picker-icon")}} stylen oder steuern, wie die aktuell ausgewählte `<option>` innerhalb des Knopfes mit dem {{htmlelement("selectedcontent")}}-Element angezeigt wird.
+- Es ist nur ein einziger Container beteiligt; Sie müssen sich nicht um die Position des Pickers im Verhältnis zum Knopf kümmern.
 
-## Ein einfaches angepasstes Listenfeld
+## Eine grundlegend angepasste Listbox
 
-Durchgehen wir ein einfaches Beispiel, um zu zeigen, wie ein angepasstes Listenfeld implementiert wird. Das Markup für dieses Beispiel sieht folgendermaßen aus:
+Gehen wir ein einfaches Beispiel durch, um zu zeigen, wie eine angepasste Listbox implementiert wird. Das Markup für dieses Beispiel sieht folgendermaßen aus:
 
 ```html live-sample___basic-listbox live-sample___expanding-listbox
 <p>
@@ -88,9 +88,9 @@ Durchgehen wir ein einfaches Beispiel, um zu zeigen, wie ein angepasstes Listenf
 </p>
 ```
 
-Hier gibt es nichts Bemerkenswertes. Beachten Sie, dass wir unser Listenfeld mit `<select multiple>` anstelle von `<select size="3">` rendern. Der einzige Unterschied besteht darin, dass wir mehrere Optionen anstelle einer einzigen auswählen können. Die Gestaltung funktioniert auf genau die gleiche Weise.
+Hier gibt es nichts Besonderes zu beachten. Beachten Sie, dass wir unsere Listbox mit `<select multiple>` anstelle von `<select size="3">` rendern. Der einzige Unterschied ist, dass wir mehrere Optionen anstelle einer einzelnen Option auswählen können. Das Styling funktioniert genau auf die gleiche Weise.
 
-Wir beginnen mit unserer Gestaltung, indem wir das `<select>`-Element mit einem {{cssxref("appearance")}}-Wert von `base-select` in die benutzerdefinierte Gestaltung übertragen:
+Wir beginnen unser Styling, indem wir das `<select>` mit einem {{cssxref("appearance")}}-Wert von `base-select` in ein benutzerdefiniertes Styling einbeziehen:
 
 ```css hidden live-sample___basic-listbox live-sample___expanding-listbox live-sample___horizontal-listbox
 * {
@@ -108,9 +108,9 @@ select {
 }
 ```
 
-Damit können wir nun unsere {{htmlelement("select")}}- und {{htmlelement("option")}}-Elemente nach Belieben gestalten.
+Damit können wir unsere {{htmlelement("select")}}- und {{htmlelement("option")}}-Elemente nach Belieben stylen.
 
-Unsere grundlegenden Stile sehen wie folgt aus:
+Unsere grundlegenden Stile sehen so aus:
 
 ```css live-sample___basic-listbox live-sample___expanding-listbox live-sample___horizontal-listbox
 select {
@@ -133,7 +133,7 @@ option:nth-of-type(odd) {
 }
 ```
 
-Als Nächstes setzen wir einen {{cssxref("order")}}-Wert von `1` auf das {{cssxref("::checkmark")}}-Pseudoelement, um das Häkchen für ausgewählte Optionen rechts statt links erscheinen zu lassen, und setzen ein benutzerdefiniertes Häkchen-Symbol mit der {{cssxref("content")}}-Eigenschaft.
+Als nächstes setzen wir einen {{cssxref("order")}}-Wert von `1` auf das {{cssxref("::checkmark")}}-Pseudo-Element, um das Häkchen für ausgewählte Optionen rechts anstelle von links erscheinen zu lassen, und setzen ein benutzerdefiniertes Häkchen-Symbol mithilfe der {{cssxref("content")}}-Eigenschaft.
 
 ```css live-sample___basic-listbox live-sample___expanding-listbox
 option::checkmark {
@@ -143,7 +143,7 @@ option::checkmark {
 }
 ```
 
-Schließlich setzen wir das {{cssxref("font-weight")}} für {{cssxref(":checked")}}-Optionen auf `bold` und eine benutzerdefinierte {{cssxref("background")}}-Farbe für die Zustände {{cssxref(":hover")}} und {{cssxref(":focus")}}, damit Sie immer wissen, welche Option Sie gehovt oder fokussiert haben.
+Schließlich setzen wir ein `bold` {{cssxref("font-weight")}} für {{cssxref(":checked")}}-Optionen und eine benutzerdefinierte {{cssxref("background")}}-Farbe für die Option {{cssxref(":hover")}} und {{cssxref(":focus")}}-Zustände, damit Sie immer wissen, welche Option Sie schwebend oder fokussiert haben.
 
 ```css live-sample___basic-listbox live-sample___expanding-listbox
 option:checked {
@@ -156,17 +156,17 @@ option:focus {
 }
 ```
 
-Dieses Beispiel wird wie folgt dargestellt:
+Dieses Beispiel wird wie folgt wiedergegeben:
 
 {{EmbedLiveSample("basic-listbox", "100%", "200px")}}
 
-## Stilvariationen für Listenfelder
+## Stilvarianten der Listbox
 
-Da angepasste Listenfelder nur standardmäßige HTML-Elemente sind, können Sie sie nach Belieben gestalten. In diesem Abschnitt zeigen wir Ihnen einige Variationen des vorherigen Beispiels. Sie verwenden alle dasselbe oder ähnliches Markup; Wir haben ein bisschen zusätzliches CSS hinzugefügt, um das Aussehen und Gefühl deutlich zu ändern.
+Da angepasste Listboxen nur Standard-HTML-Elemente sind, können Sie sie nach Belieben stylen. In diesem Abschnitt zeigen wir Ihnen ein paar Variationen des vorherigen Beispiels. Beide verwenden das gleiche oder ähnliche Markup; wir haben ein bisschen zusätzliches CSS hinzugefügt, um das Aussehen und Verhalten erheblich zu verändern.
 
-### Erweitertes Listenfeld
+### Expanding Listbox
 
-In diesem Beispiel präsentieren wir das Listenfeld standardmäßig in der {{cssxref("height")}} einer einzelnen Option, verstecken den dadurch entstehenden {{cssxref("overflow")}}, und fügen eine {{cssxref("transition")}} hinzu, um die `<select>`-Höhe beim Zustandswechsel sanft zu animieren. Wir setzen auch einen {{cssxref("interpolate-size")}}-Wert von `allow-keywords`, um den Browser für das Animieren zwischen Längen und Schlüsselwörtern zu aktivieren.
+In diesem Beispiel präsentieren wir die Listbox bei der {{cssxref("height")}} einer einzelnen Option standardmäßig, indem wir das erzeugte {{cssxref("overflow")}} ausblenden und eine {{cssxref("transition")}} hinzufügen, um die `<select>`-Höhe sanft zu animieren, wenn sich ihr Zustand ändert. Wir setzen auch einen {{cssxref("interpolate-size")}}-Wert von `allow-keywords`, damit der Browser zwischen Längen und Schlüsselwörtern animiert.
 
 ```css live-sample___expanding-listbox
 select {
@@ -177,7 +177,7 @@ select {
 }
 ```
 
-Wir ändern die `height` auf `fit-content`, wenn das `<select>` markiert oder fokussiert wird, damit es auf seine volle Höhe erweitert wird. Beachten Sie, dass beim Tabben in ein angepasstes Select das erste `<option>` den Fokus erhält, nicht das `<select>` selbst. Daher mussten wir `select:has(option:focus)` verwenden, um das `<select>` zu markieren, wenn eine `<option>` fokussiert ist, anstatt nur `select:focus`.
+Wir ändern die `height` auf `fit-content`, wenn die `<select>`-Box schwebend oder fokussiert ist, sodass sie sich auf ihre volle Höhe erweitert. Beachten Sie, dass, wenn Sie in eine angepasste Auswahl mit Tabulator gelangen, das erste `<option>`-Element den Fokus erhält, anstatt das `<select>` selbst. Daher mussten wir `select:has(option:focus)` verwenden, um das `<select>` zu wählen, wenn ein `<option>` fokussiert ist, anstatt einfach `select:focus`.
 
 ```css live-sample___expanding-listbox
 select:hover,
@@ -186,15 +186,15 @@ select:has(option:focus) {
 }
 ```
 
-Beispiel wird jetzt wie folgt dargestellt:
+Das Beispiel wird nun so dargestellt:
 
 {{EmbedLiveSample("expanding-listbox", "100%", "260px")}}
 
-### Horizontales Listenfeld
+### Horizontale Listbox
 
-In diesem Beispiel präsentieren wir die Listenfeldoptionen horizontal anstatt vertikal.
+In diesem Beispiel präsentieren wir die Listbox-Optionen horizontal anstatt vertikal.
 
-Das HTML ist das gleiche wie bei den vorherigen Beispielen, außer dass wir einen zusätzlichen Wrapper-`<div>` hinzugefügt haben, um uns zu ermöglichen, eine `width` auf das `<select>` zu setzen und dann eine andere `width` auf den Wrapper, so dass alle `<option>`-Elemente in einer Zeile gehalten werden und gescrollt werden können, wenn das `<select>` zu schmal wird, um sie alle aufzunehmen.
+Das HTML ist das gleiche wie in den vorherigen Beispielen, außer dass wir einen zusätzlichen `<div>`-Wrapper eingefügt haben, um eine `width` auf das `<select>` setzen zu können und dann eine andere `width` auf den Wrapper, sodass alle `<option>`-Elemente in einer Zeile bleiben und gescrollt werden, wenn das `<select>` zu schmal wird, um alle aufzunehmen.
 
 ```html live-sample___horizontal-listbox
 <p>
@@ -213,7 +213,7 @@ Das HTML ist das gleiche wie bei den vorherigen Beispielen, außer dass wir eine
 </p>
 ```
 
-Im CSS beginnen wir damit, das enthaltene {{htmlelement("p")}}-Element und seine {{cssxref("width")}} und {{cssxref("margin")}} so zu setzen, dass das Demo horizontal im Viewport zentriert und die meiste Breite einnimmt. Wir skalieren dann das `<select>`, damit es die volle Breite seines Elternteils einnimmt und nur so hoch ist wie die `<option>`-Elemente. Das `.wrapper`-`<div>` erhält einen {{cssxref("display")}}-Wert von `flex`, wodurch die `<option>`-Elemente horizontal in einer Reihe angeordnet werden; und wir setzen seine `width`, damit sie immer so breit ist wie die `<option>`-Elemente.
+Im CSS setzen wir zunächst die {{htmlelement("p")}}-Element {{cssxref("width")}} und {{cssxref("margin")}}, sodass das Demo horizontal im Ansichtsfenster zentriert ist und die meiste Breite einnimmt. Anschließend dimensionieren wir das `<select>` so, dass es die volle Breite seines Elternteils einnimmt und nur so hoch ist wie die `<option>`-Elemente. Das `.wrapper` `<div>` erhält einen {{cssxref("display")}}-Wert von `flex`, wodurch die `<option>`-Elemente horizontal in einer Reihe angeordnet werden; dann setzen wir seine `width`, damit sie immer so breit wie die `<option>`-Elemente ist.
 
 ```css live-sample___horizontal-listbox
 p {
@@ -232,7 +232,7 @@ select {
 }
 ```
 
-Als Nächstes geben wir den `<option>`-Elementen zusätzliche Polsterung, um sie horizontal zu verteilen, und einen relativen {{cssxref("position")}}-Wert, damit wir ihre Nachkommen relativ zu ihnen positionieren können.
+Als nächstes geben wir den `<option>`-Elementen etwas zusätzlichen Abstand, um sie horizontal zu trennen, und einen {{cssxref("position")}}-Wert von relativ, damit wir ihre Nachkommen relativ zu ihnen positionieren können.
 
 ```css live-sample___horizontal-listbox
 option {
@@ -241,7 +241,7 @@ option {
 }
 ```
 
-Zum Schluss positionieren wir die Optionskontrollkästchen absolut und geben ihnen ein benutzerdefiniertes Aussehen.
+Schließlich positionieren wir die Optionshäkchen absolut und geben ihnen ein benutzerdefiniertes Aussehen.
 
 ```css live-sample___horizontal-listbox
 option::checkmark {
@@ -261,17 +261,17 @@ option:focus {
 }
 ```
 
-Unsere zweite Variation wird wie folgt dargestellt:
+Unsere zweite Variante wird folgendermaßen gerendert:
 
 {{EmbedLiveSample("horizontal-listbox", "100%", "100px")}}
 
-## Ein komplexeres Listenfeld
+## Eine komplexere Listbox
 
-In diesem Abschnitt gehen wir durch ein komplexeres Beispiel, das ein Kontakt-Auswahl-Listenfeld mit integriertem Filterfeld und einem Link zum Zugriff auf einen (fiktiven) Kontaktbearbeitungsmodus bereitstellt.
+In diesem Abschnitt gehen wir ein komplexeres Beispiel durch, das eine Kontaktpicker-Listbox mit einem integrierten Filterfeld und einem Link zum Aufrufen eines (fiktiven) Kontaktbearbeitungsmodus bietet.
 
 ### HTML
 
-Im Markup fügen wir ein {{htmlelement("form")}} ein, das eine Überschrift und ein Wrapper-{{htmlelement("div")}} enthält. Im Wrapper fügen wir drei weitere `<div>`-Elemente ein, die jeweils ein Text{{htmlelement("input")}}, das unser Filterfeld darstellt, ein Listenfeld-{{htmlelement("select")}}, und einen Link enthalten. Das `<select>` wird durch JavaScript mit {{htmlelement("option")}}-Elementen gefüllt, die unsere Kontaktoptionen darstellen.
+Im Markup fügen wir ein {{htmlelement("form")}} ein, das eine Überschrift und einen Wrapper-{{htmlelement("div")}} enthält. Innerhalb des Wrappers fügen wir drei weitere `<div>`-Elemente ein, die jeweils ein Text-{{htmlelement("input")}} enthalten, das unser Filterfeld darstellt, eine Listbox {{htmlelement("select")}} und einen Link. Das `<select>` wird mit {{htmlelement("option")}}-Elementen bestückt, die unsere Kontaktmöglichkeiten darstellen, und zwar über JavaScript.
 
 ```html live-sample___complex-listbox
 <form>
@@ -298,7 +298,7 @@ Im Markup fügen wir ein {{htmlelement("form")}} ein, das eine Überschrift und 
 
 ### CSS
 
-Wir beginnen unser CSS, indem wir das `<select>`-Element wie zuvor in benutzerdefinierte Stile übertragen:
+Wir beginnen unser CSS, indem wir das `<select>`-Element wie zuvor in ein benutzerdefiniertes Styling einbeziehen:
 
 ```css hidden live-sample___complex-listbox
 * {
@@ -316,7 +316,7 @@ select {
 }
 ```
 
-Der Großteil des Stylings ist ziemlich rudimentär, aber wir gehen es durch und heben dabei alles Wesentliche hervor. Zuerst stylen wir das `.wrapper`-`<div>`, dem wir eine feste {{cssxref("width")}} geben, die die horizontale Größe des gesamten Steuerelements steuert.
+Der Großteil des Stylings ist ziemlich einfach, aber wir gehen es durch und weisen dabei auf alles Wesentliche hin. Zuerst stylen wir das `.wrapper` `<div>`, indem wir ihm eine feste {{cssxref("width")}} zuweisen, die die horizontale Größe des gesamten Steuerelements bestimmt.
 
 ```css live-sample___complex-listbox
 .wrapper {
@@ -327,7 +327,7 @@ Der Großteil des Stylings ist ziemlich rudimentär, aber wir gehen es durch und
 }
 ```
 
-Als Nächstes stylen wir das Filter-`<input>`, das `.options`-`<div>` und das enthaltene `<select>`, sowie das `.edit`-`<div>` mit dem Link. Am bemerkenswertesten ist, dass wir dem `<select>` eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}}-Wert von `scroll` geben, damit die enthaltenen `<option>`-Elemente darin scrollen.
+Als nächstes stylen wir das Filter`<input>`, das `.options` `<div>` und das enthaltene `<select>`, sowie das `.edit` `<div>`, das den Link enthält. Am bemerkenswertesten ist, dass wir dem `<select>` eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}}-Wert von `scroll` zuweisen, damit die enthaltenen `<option>`-Elemente darin scrollen.
 
 ```css live-sample___complex-listbox
 .filter input {
@@ -359,7 +359,7 @@ select {
 }
 ```
 
-Wir gestalten unsere `<option>`-Elemente in ähnlicher Weise wie in früheren Beispielen, indem wir ihnen ein Streifenmuster sowie klare `:hover`- und `:focus`-Stile geben:
+Wir stylen unsere `<option>`-Elemente ähnlich wie in früheren Beispielen, geben ihnen eine Zebrastreifen-Optik sowie klare `:hover`- und `:focus`-Stile:
 
 ```css live-sample___complex-listbox
 option {
@@ -381,7 +381,7 @@ option:focus {
 }
 ```
 
-Unser nächster Schritt besteht darin, den Standard-Fokusbereich für die `<input>`-, `<option>`- und `<a>`-Elemente zu entfernen. Wir haben in den vorherigen Codeblöcken bereits eine alternative Gestaltung für die `<option>`-Elemente bereitgestellt; Hier bieten wir subtilere Alternativen für die `<input>`- und `<a>`-Elemente.
+Unser nächster Schritt ist, das standardmäßige Fokus-Outlines für die `<input>`, `<option>`, und `<a>`-Elemente zu entfernen. Wir haben in dem vorherigen Codeblock bereits alternative Stile für die `<option>`-Elemente bereitgestellt; hier bieten wir subtilere Alternativen für die `<input>`- und `<a>`-Elemente.
 
 ```css live-sample___complex-listbox
 input,
@@ -406,7 +406,7 @@ a:focus {
 }
 ```
 
-Schließlich bieten wir benutzerdefiniertes Styling für die Kontrollkästchen der ausgewählten Optionen über das `::checkmark`-Pseudoelement:
+Schließlich bieten wir benutzerdefinierte Stile für die Häkchen der ausgewählten Optionen über das `::checkmark` Pseudo-Element:
 
 ```css live-sample___complex-listbox
 option::checkmark {
@@ -418,14 +418,14 @@ option::checkmark {
 
 ### JavaScript
 
-Die letzte Ergänzung, die unser Beispiel benötigt, ist ein wenig JavaScript, um die Optionserstellungs- und Filterfunktionalität zu ermöglichen.
+Die letzte Ergänzung, die unser Beispiel benötigt, ist etwas JavaScript, um die Funktionalität zur Bestückung und Filterung der Optionen zu ermöglichen.
 
-Auf einer echten Website ziehen Sie wahrscheinlich eine aktuelle Kontaktliste von einem Server ab, aber in diesem Fall haben wir die Daten in einem statischen `contacts`-Objekt bereitgestellt (wir haben die meisten Kontakte der Kürze halber ausgeblendet). Für jeden Kontakt speichern wir einen Namen und ein boolean, das angibt, ob sie im `<select>`-Element ausgewählt waren.
+Auf einer echten Website ziehen Sie wahrscheinlich eine aktuelle Kontaktliste von einem Server ein, aber in diesem Fall haben wir die Daten in einem statischen `contacts`-Objekt bereitgestellt (wir haben die meisten Kontakte aus Platzgründen ausgeblendet). Für jeden Kontakt speichern wir einen Namen und ein booleanes Feld, das angibt, ob sie im `<select>`-Element ausgewählt wurden.
 
 ```js
 const contacts = [
   { name: "Aisha Khan", selected: false },
-  ...
+  // …
 ];
 ```
 
@@ -484,14 +484,14 @@ const contacts = [
 ];
 ```
 
-Wir beginnen damit, Verweise auf unsere `.filter`-`<input>`- und `<select>`-Elemente abzurufen:
+Wir beginnen damit, Verweise auf unsere `.filter` `<input>` und `<select>`-Elemente zu sammeln:
 
 ```js live-sample___complex-listbox
 const filterInput = document.querySelector(".filter input");
 const select = document.querySelector("select");
 ```
 
-Als Nächstes definieren wir eine Funktion namens `populateOptions()`, die ein Array von Objekten als Parameter nimmt. Innerhalb der Funktion leeren wir zuerst den Inhalt des `<select>`-Elements. Dann durchlaufen wir das Eingabearray und erstellen ein `<option>`-Element für jedes Objekt im Array, indem wir seine `textContent`- und `selected`-Eigenschaften auf die `name`- und `selected`-Eigenschaften des Objekts setzen. Jedes `<option>`-Element wird als Kind des `<select>` in das DOM eingefügt.
+Als nächstes definieren wir eine Funktion namens `populateOptions()`, die ein Array von Objekten als Parameter nimmt. Innerhalb der Funktion leeren wir zuerst den Inhalt des `<select>`-Elements. Dann durchlaufen wir das Eingabearray und erstellen ein `<option>`-Element für jedes Objekt im Array, indem wir seine `textContent`- und `selected`-Eigenschaften auf die `name`- und `selected`-Eigenschaften des Objekts setzen. Jedes `<option>`-Element wird dem DOM als Kind des `<select>` hinzugefügt.
 
 ```js live-sample___complex-listbox
 function populateOptions(array) {
@@ -506,7 +506,7 @@ function populateOptions(array) {
 }
 ```
 
-Nun definieren wir eine weitere Funktion, `filterOptions()`, die einen Filterstring und ein Array von Objekten als Parameter nimmt. Wir überprüfen, ob der String gleich dem leeren String oder einem oder mehreren Leerzeichen ist, indem wir den Rückgabewert seiner {{jsxref("String.trim", "trim()")}}-Methode mit `""` vergleichen. Wenn dies `true` zurückgibt, führen wir die Funktion `populateOptions()` aus, übergeben ihr das vollständige Array, sodass das `<select>` mit allen `<option>`-Elementen gefüllt wird. Wenn es `false` zurückgibt, filtern wir das Eingabearray mit seiner {{jsxref("Array.filter", "filter()")}}-Methode, um nur Objekte einzuschließen, deren `name`-Eigenschaft den `filter`-String {{jsxref("String.startsWith", "startsWith()")}} hat, dann übergeben wir das gefilterte Array an die `populateOptions()`-Funktion, damit das `<select>` mit einem gefilterten Satz `<option>`-Elemente gefüllt wird.
+Jetzt definieren wir eine weitere Funktion, `filterOptions()`, die einen Filter-String und ein Array von Objekten als Parameter nimmt. Wir prüfen, ob der String gleich dem leeren String oder einem oder mehreren Leerzeichen entspricht, indem wir den Rückgabewert seiner {{jsxref("String.trim", "trim()")}}-Methode mit `""` vergleichen. Wenn dies `true` ergibt, führen wir die `populateOptions()`-Funktion aus und übergeben ihr das gesamte Array, sodass das `<select>` mit allen `<option>`-Elementen bestückt wird. Wenn `false` zurückgegeben wird, filtern wir das Eingabearray mit seiner {{jsxref("Array.filter", "filter()")}}-Methode um nur Objekte einzuschließen, deren `name`-Eigenschaft mit dem `filter`-String {{jsxref("String.startsWith", "startsWith()")}} beginnt, und übergeben dann das gefilterte Array an die `populateOptions()`-Funktion, sodass das `<select>` mit einem gefilterten Satz von `<option>`-Elementen bestückt wird.
 
 ```js live-sample___complex-listbox
 function filterOptions(filter, array) {
@@ -522,9 +522,9 @@ function filterOptions(filter, array) {
 ```
 
 > [!NOTE]
-> Wir konvertieren sowohl den Objekt-`name` als auch den `filter`-String mit {{jsxref("String.toLowerCase", "toLowerCase()")}} in Kleinbuchstaben, sodass die Filterübereinstimmung nicht zwischen Groß- und Kleinschreibung unterscheidet.
+> Wir konvertieren sowohl den Objektnamen als auch den `filter`-String in Kleinbuchstaben mit {{jsxref("String.toLowerCase", "toLowerCase()")}}, damit die Filterübereinstimmung nicht zwischen Groß- und Kleinschreibung unterscheidet.
 
-Als Nächstes fügen wir dem `.filter`-`<input>`-Element einen [`input`](/de/docs/Web/API/Element/input_event)-Ereignislistener hinzu, sodass beim Bearbeiten seines Werts die `filterOptions()`-Funktion ausgeführt wird, um die angezeigten `<option>`-Elemente zu filtern. Wir übergeben ihm den aktuellen Wert des `<input>` als Filterstring und das `contacts`-Array als Eingabearray.
+Als nächstes fügen wir einen [`input`](/de/docs/Web/API/Element/input_event)-Eventlistener zum `.filter` `<input>`-Element hinzu, sodass bei jeder Bearbeitung seines Werts die `filterOptions()`-Funktion ausgeführt wird, um die angezeigten `<option>`-Elemente zu filtern. Wir übergeben den aktuellen Wert des `<input>` als Filter-String und das `contacts`-Array als Eingabearray.
 
 ```js live-sample___complex-listbox
 filterInput.addEventListener("input", () => {
@@ -532,13 +532,13 @@ filterInput.addEventListener("input", () => {
 });
 ```
 
-Im nächsten Codeabschnitt wird dem `<select>`-Element ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignislistener hinzugefügt, sodass jedes Mal, wenn ein `<option>` ausgewählt oder abgewählt wird, der `selected`-Status der Objekte im `contacts`-Array mit dem ausgewählten Status der aktuell angezeigten `<option>`-Objekte synchronisiert wird. Dies ist erforderlich, da jedes Mal, wenn wir einen neuen Filter auf unser `<select>`-Element anwenden, die angezeigten `<option>`-Elemente frisch aus dem `contacts`-Array generiert werden, welches deren ausgewählten Status umfasst. Wenn wir dies nicht tun würden, würden wir bei jedem Filterwechsel unsere ausgewählten Optionen verlieren.
+Der nächste Codeabschnitt fügt einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Eventlistener zum `<select>`-Element hinzu, sodass bei jeder Auswahl oder Deselektion eines `<option>` die ausgewählten Status der Objekte im `contacts`-Array mit dem ausgewählten Status der derzeit angezeigten `<option>`-Objekte synchronisiert werden. Dies ist erforderlich, weil jedes Mal, wenn wir einen neuen Filter auf unser `<select>`-Element anwenden, die angezeigten `<option>`-Elemente frisch aus dem `contacts`-Array generiert werden, einschließlich ihres ausgewählten Status. Wenn wir dies nicht täten, würden wir unsere ausgewählten Optionen jedes Mal verlieren, wenn wir den Filter ändern.
 
-Es gibt keine Möglichkeit, genau zu erkennen, welches `<option>` sich jedes Mal geändert hat, wenn eins umgeschaltet wird, also haben wir das Problem so gelöst:
+Es gibt keine Möglichkeit, genau zu erkennen, welche `<option>` jedes Mal geändert wurde, wenn eine umgeschaltet wird. Daher haben wir das Problem wie folgt gelöst:
 
-1. Holen Sie ein Array aller derzeit angezeigten `<option>`-Werte, indem Sie ein Array aus der [`select.options`](/de/docs/Web/API/HTMLSelectElement/options)-Sammlung mit {{jsxref("Array.from")}} erstellen, und dann das Array mit seiner {{jsxref("Array.map", "map()")}}-Methode so zuzuordnen, dass jedes `<option>`-Element im Array durch seinen Wert ersetzt wird.
-2. Holen Sie ein Array aller aktuell ausgewählten `<option>`-Werte mit der gleichen Methodik, aber dieses Mal erstellen wir das Eingabearray aus der [`select.selectedOptions`](/de/docs/Web/API/HTMLSelectElement/selectedOptions)-Sammlung.
-3. Für jedes Kontaktobjekt im `contacts`-Array prüfen Sie, ob der Wert der `name`-Eigenschaft des Kontakts im `allCurrentValues`-Array enthalten ist, indem die {{jsxref("Array.includes", "includes()")}}-Methode verwendet wird. Wenn nicht, ignorieren Sie es, damit wir nicht den ausgewählten Status der Kontakte umschalten, die überhaupt nicht angezeigt werden. Wenn ja, setzen Sie die `selected`-Eigenschaft des Kontakts auf das Ergebnis der Überprüfung, ob das `currentSelectedValues`-Array den Kontakt`name` {{jsxref("Array.includes", "includes()")}} - wenn dies der Fall ist, setzen Sie die Objekt-Eigenschaft auf `true`, andernfalls auf `false`.
+1. Holen Sie sich ein Array aller derzeit angezeigten `<option>`-Werte, indem Sie ein Array aus der [`select.options`](/de/docs/Web/API/HTMLSelectElement/options)-Sammlung mit {{jsxref("Array.from")}} erstellen und es dann mit seiner {{jsxref("Array.map", "map()")}}-Methode abbilden, um jedes `<option>` im Array durch seinen Wert zu ersetzen.
+2. Holen Sie sich ein Array aller derzeit ausgewählten `<option>`-Werte mithilfe der gleichen Methodik, außer dass wir dieses Mal das Eingabearray aus der [`select.selectedOptions`](/de/docs/Web/API/HTMLSelectElement/selectedOptions)-Sammlung erstellen.
+3. Für jedes Kontaktobjekt im `contacts`-Array prüfen wir, ob der Kontakt `name`-Eigenschaftswert im `allCurrentValues`-Array mit der {{jsxref("Array.includes", "includes()")}}-Methode enthalten ist. Wenn nicht, ignorieren wir es, damit wir nicht den Status der ausgewählten Kontaktobjekte umschalten, die nicht einmal angezeigt werden. Wenn ja, setzen wir die `selected`-Eigenschaft des Kontakts auf das Ergebnis der Überprüfung, ob das `currentSelectedValues`-Array den Namen des Kontakts {{jsxref("Array.includes", "includes()")}} enthält - wenn dies der Fall ist, setzen wir die Objekt-Eigenschaft auf `true`, sonst auf `false`.
 
 ```js live-sample___complex-listbox
 select.addEventListener("change", () => {
@@ -565,7 +565,7 @@ populateOptions(contacts);
 
 ### Ergebnis
 
-Das Beispiel rendert wie folgt:
+Das Beispiel wird wie folgt gerendert:
 
 {{EmbedLiveSample("complex-listbox", "100%", "380px")}}
 
@@ -588,7 +588,7 @@ Das Beispiel rendert wie folgt:
 
 ## Als Nächstes
 
-Im nächsten Artikel dieses Moduls werden wir die verschiedenen [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) untersuchen, die wir in modernen Browsern zur Gestaltung von Formularen in verschiedenen Zuständen verwenden können.
+Im nächsten Artikel dieses Moduls werden wir die verschiedenen [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) erkunden, die uns in modernen Browsern zur Verfügung stehen, um Formulare in verschiedenen Zuständen zu gestalten.
 
 ## Siehe auch
 
@@ -596,6 +596,6 @@ Im nächsten Artikel dieses Moduls werden wir die verschiedenen [UI-Pseudoklasse
 - {{cssxref("appearance")}}
 - {{cssxref("::checkmark")}}
 - {{cssxref(":checked")}}
-- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms")}}
