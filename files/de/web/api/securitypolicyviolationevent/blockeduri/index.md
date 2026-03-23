@@ -1,18 +1,18 @@
 ---
-title: "SecurityPolicyViolationEvent: blockedURI Eigenschaft"
+title: "SecurityPolicyViolationEvent: blockedURI-Eigenschaft"
 short-title: blockedURI
 slug: Web/API/SecurityPolicyViolationEvent/blockedURI
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`blockedURI`** schreibgeschützte Eigenschaft der Schnittstelle [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) ist eine Zeichenkette, die die URI der Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verstößt.
+Die schreibgeschützte **`blockedURI`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle ist ein String, der die URI der Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verstößt.
 
 ## Wert
 
-Eine Zeichenkette, die die URI der blockierten Ressource darstellt.
+Ein String, der die URI der blockierten Ressource darstellt.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.blockedURL`](/de/docs/Web/API/CSPViolationReportBody/blockedURL)
+- [`CSPViolationReport.blockedURL`](/de/docs/Web/API/CSPViolationReport/blockedURL)

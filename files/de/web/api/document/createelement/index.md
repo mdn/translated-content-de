@@ -1,14 +1,16 @@
 ---
-title: "Dokument: createElement()-Methode"
+title: "Dokument: createElement() Methode"
 short-title: createElement()
 slug: Web/API/Document/createElement
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: ff9dd829bb17d272b7d14c41a442f2c2e3680521
 ---
 
 {{APIRef("DOM")}}
 
-In einem [HTML](/de/docs/Web/HTML) Dokument erstellt die Methode **`document.createElement()`** das HTML-Element, das durch `localName` angegeben wird, oder ein [`HTMLUnknownElement`](/de/docs/Web/API/HTMLUnknownElement), wenn `localName` nicht erkannt wird.
+Die **`createElement()`** Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces erstellt ein neues [`HTMLElement`](/de/docs/Web/API/HTMLElement), das den angegebenen `localName` hat.
+
+Wenn `localName` nicht erkannt wird, erstellt die Methode ein [`HTMLUnknownElement`](/de/docs/Web/API/HTMLUnknownElement).
 
 ## Syntax
 
@@ -20,18 +22,40 @@ createElement(localName, options)
 ### Parameter
 
 - `localName`
-  - : Ein String, der den Typ des zu erstellenden Elements angibt. Verwenden Sie mit dieser Methode keine qualifizierten Namen (wie "html:a"). Wenn sie auf ein HTML-Dokument angewendet wird, konvertiert `createElement()` `localName` in Kleinbuchstaben, bevor das Element erstellt wird. In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
-- `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
-    - `is`
-      - : Der Tag-Name eines benutzerdefinierten Elements, das zuvor über `customElements.define()` definiert wurde. Siehe [Web Component Beispiel](#web_component_beispiel) für weitere Details.
+  - : Ein String, der den Typ des zu erstellenden Elements angibt.
+    Verwenden Sie keine qualifizierten Namen (wie "html:a") mit dieser Methode.
+    Wenn `createElement()` in einem HTML-Dokument aufgerufen wird, wird der `localName` vor der Erstellung des Elements in Kleinbuchstaben umgewandelt.
+    In Firefox, Opera und Chrome funktioniert `createElement(null)` wie `createElement("null")`.
+- `options` {{Optional_Inline}}
+  - : Ein Objekt mit den folgenden optionalen Eigenschaften (beachten Sie, dass nur eines von `is` und `customElementRegistry` gesetzt sein darf):
+    - `is` {{Optional_Inline}}
+      - : Ein String, der den Tag-Namen für ein benutzerdefiniertes Element definiert, das zuvor mit [`customElements.define()`](/de/docs/Web/API/CustomElementRegistry/define) definiert wurde.
+        Das neue Element erhält ein `is`-Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
+        Weitere Details finden Sie im [Web-Komponenten-Beispiel](#web-komponenten-beispiel).
+    - `customElementRegistry` {{Optional_Inline}}
+      - : Ein [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry), das das [Gescopte benutzerdefinierte Element-Register](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) eines benutzerdefinierten Elements festlegt.
 
 ### Rückgabewert
 
 Das neue [`Element`](/de/docs/Web/API/Element).
 
 > [!NOTE]
-> Es wird ein neues [HTMLElement](/de/docs/Web/API/HTMLElement) zurückgegeben, wenn das Dokument ein [HTMLDocument](/de/docs/Web/API/HTMLDocument) ist, was der häufigste Fall ist. Andernfalls wird ein neues [Element](/de/docs/Web/API/Element) zurückgegeben.
+> Ein neues [HTMLElement](/de/docs/Web/API/HTMLElement) wird zurückgegeben, wenn das Dokument ein [HTMLDocument](/de/docs/Web/API/HTMLDocument) ist, was der häufigste Fall ist.
+> Andernfalls wird ein neues [Element](/de/docs/Web/API/Element) zurückgegeben.
+
+### Ausnahmen
+
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Wert von [`localName`](#localName) kein gültiger Element-Name ist.
+    Ein String ist ein gültiger Element-Name, wenn seine Länge mindestens 1 beträgt und:
+    - er mit einem Alphabetzeichen beginnt und keine ASCII-Leerzeichen, `NULL`, `/` oder `>` enthält (jeweils U+0000, U+002F oder U+003E).
+    - er mit `:` (U+003A), `_` (U+005F) oder einem beliebigen Zeichen im Bereich U+0080 bis U+10FFFF (einschließlich) beginnt _und_ die verbleibenden Codepunkte nur diese gleichen Zeichen zusammen mit den ASCII-Alphanumerischen Zeichen, `-` (U+002D) und `.` (U+002E) enthalten.
+
+    > [!NOTE]
+    > Frühere Versionen der Spezifikation waren restriktiver und erforderten, dass der `localName` ein gültiger [XML name](https://www.w3.org/TR/xml/#dt-name) ist.
+
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn sowohl die Optionen [`is`](#is) als auch [`customElementRegistry`](#customElementRegistry) angegeben sind.
 
 ## Beispiele
 
@@ -79,12 +103,12 @@ addElement();
 
 {{EmbedLiveSample("Basic_example", 500, 80)}}
 
-### Web Component Beispiel
+### Web-Komponenten-Beispiel
 
 > [!NOTE]
-> Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützung und die Referenz des [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is) Attributs für Hinweise zur Implementierungsrealität von angepassten eingebauten Elementen.
+> Überprüfen Sie den Abschnitt über die [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützung und das [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)-Attribut für Hinweise zur Implementierungsrealität von benutzerdefinierten eingebauten Elementen.
 
-Das folgende Beispiel stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component) Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), welches das {{htmlelement("ul")}} Element darstellt.
+Das folgende Beispiel stammt aus unserem [expanding-list-web-component](https://github.com/mdn/web-components-examples/tree/main/expanding-list-web-component)-Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/expanding-list-web-component/)). In diesem Fall erweitert unser benutzerdefiniertes Element das [`HTMLUListElement`](/de/docs/Web/API/HTMLUListElement), das das {{htmlelement("ul")}}-Element darstellt.
 
 ```js
 // Create a class for the element
@@ -102,16 +126,16 @@ class ExpandingList extends HTMLUListElement {
 customElements.define("expanding-list", ExpandingList, { extends: "ul" });
 ```
 
-Wenn wir eine Instanz dieses Elements programmgesteuert erstellen wollten, würden wir einen Aufruf wie den folgenden verwenden:
+Wenn wir eine Instanz dieses Elements programmatisch erstellen wollten, würden wir einen Aufruf in etwa der folgenden Form verwenden:
 
 ```js
 let expandingList = document.createElement("ul", { is: "expanding-list" });
 ```
 
-Das neue Element erhält ein [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is) Attribut, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
+Dem neuen Element wird ein [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)-Attribut gegeben, dessen Wert der Tag-Name des benutzerdefinierten Elements ist.
 
 > [!NOTE]
-> Aus Gründen der Rückwärtskompatibilität erlauben es einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
+> Aus Gründen der Abwärtskompatibilität erlauben einige Browser, hier einen String anstelle eines Objekts zu übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
 
 ## Spezifikationen
 

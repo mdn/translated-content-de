@@ -3,12 +3,12 @@ title: "ReportingObserver: takeRecords() Methode"
 short-title: takeRecords()
 slug: Web/API/ReportingObserver/takeRecords
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`takeRecords()`**-Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle gibt die aktuelle Liste der Berichte zurück, die sich in der Berichtswarteschlange des Observers befinden, und leert die Warteschlange.
+Die **`takeRecords()`**-Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle gibt die aktuelle Liste von Berichten zurück, die in der Berichtswarteschlange des Observers enthalten sind, und leert die Warteschlange.
 
 ## Syntax
 
@@ -22,9 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`Report`](/de/docs/Web/API/Report)-Objekten.
+Ein Array von Bericht-Objekten, wie beispielsweise [`COEPViolationReport`](/de/docs/Web/API/COEPViolationReport) und [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport).
+
+Die Objektwörterbücher sind im [Reporting API](/de/docs/Web/API/Reporting_API#dictionaries) aufgeführt.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 const options = {

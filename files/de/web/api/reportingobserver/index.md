@@ -2,7 +2,7 @@
 title: ReportingObserver
 slug: Web/API/ReportingObserver
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
@@ -12,28 +12,56 @@ Das `ReportingObserver`-Interface der [Reporting API](/de/docs/Web/API/Reporting
 ## Konstruktor
 
 - [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)
-  - : Erstellt eine neue Instanz eines `ReportingObserver`-Objekts, die verwendet werden kann, um Berichte zu sammeln und darauf zuzugreifen.
+  - : Erstellt eine neue `ReportingObserver`-Objektinstanz, die verwendet werden kann, um Berichte zu sammeln und darauf zuzugreifen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Dieses Interface hat keine definierten Eigenschaften._
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`ReportingObserver.disconnect()`](/de/docs/Web/API/ReportingObserver/disconnect)
-  - : Stoppt einen Reporting Observer, der zuvor begonnen hat Berichte zu sammeln.
+  - : Stoppt einen Reporting Observer, der zuvor mit der Beobachtung begonnen hat, damit er keine Berichte mehr sammelt.
 - [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)
-  - : Weist einen Reporting Observer an, mit dem Sammeln von Berichten in seiner Berichtswarteschlange zu beginnen.
+  - : Anweisung an einen Reporting Observer, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen.
 - [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords)
-  - : Gibt die aktuelle Liste der Berichte in der Berichtswarteschlange des Beobachters zurück und leert die Warteschlange.
+  - : Gibt die aktuelle Liste der Berichte in der Warteschlange des Beobachters zurück und leert die Warteschlange.
 
 ## Ereignisse
 
-_Dieses Interface verfügt über keine auslösbaren Ereignisse._
+_Dieses Interface hat keine Ereignisse, die darauf ausgelöst werden._
 
 ## Beispiele
 
-In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Reporting Observer, um die Nutzung veralteter Funktionen auf unserer Webseite zu beobachten:
+### Anzeigen von Veraltungsberichten
+
+Dieses Beispiel zeigt, wie man `"deprecation"`-Berichte mit einem `ReportingObserver` beobachtet.
+
+```html hidden
+<pre id="log"></pre>
+```
+
+```css hidden
+#log {
+  height: 200px;
+  margin: 10px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
+```
+
+#### JavaScript
+
+Zuerst konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um Berichte vom Typ `"deprecation"` zu empfangen, und übergeben eine Rückruffunktion, die die Berichte empfängt und protokolliert.
 
 ```js
 const options = {
@@ -42,32 +70,31 @@ const options = {
 };
 
 const observer = new ReportingObserver((reports, observer) => {
-  reportBtn.onclick = () => displayReports(reports);
+  reports.forEach((report) => {
+    // console.log(report);
+    log(JSON.stringify(report, null, 2));
+  });
 }, options);
-```
 
-Wir weisen ihn dann an, Berichte zu beobachten, indem wir [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) verwenden; dies teilt dem Observer mit, dass er mit dem Sammeln von Berichten in seiner Berichtswarteschlange beginnen soll, und führt die im Konstruktor angegebene Callback-Funktion aus:
-
-```js
+// Start the observer
 observer.observe();
 ```
 
-Später im Beispiel verwenden wir absichtlich die veraltete Version von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia):
+Anschließend wird der folgende Code ausgeführt, der synchrones XHR (veraltete API) verwendet.
+Beachten Sie, dass dies nach dem Beobachter definiert ist und ausgelöst wird, sobald der Beobachter läuft.
 
 ```js
-if (navigator.mozGetUserMedia) {
-  navigator.mozGetUserMedia(constraints, success, failure);
-} else {
-  navigator.getUserMedia(constraints, success, failure);
-}
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "/", false); // false = synchronous (deprecated)
+xhr.send();
 ```
 
-Dies führt dazu, dass ein Veraltungsbericht erstellt wird; dank des Ereignishandlers, den wir im `ReportingObserver()`-Konstruktor eingerichtet haben, können wir jetzt auf den Button klicken, um die Berichtsdetails anzuzeigen.
+#### Ergebnisse
 
-![Bild eines fröhlichen bärtigen Mannes mit verschiedenen Statistiken unten darüber zu einem veralteten Feature](reporting_api_example.png)
+In Browsern, die Veraltungsberichte unterstützen, sollte unten ein Bericht angezeigt werden.
+Beachten Sie, dass der `type` `"deprecation"` ist.
 
-> [!NOTE]
-> Wenn Sie sich den [vollständigen Quellcode](https://github.com/mdn/dom-examples/blob/main/reporting-api/deprecation_report.html) ansehen, werden Sie feststellen, dass wir tatsächlich die veraltete `getUserMedia()`-Methode zweimal aufrufen. Nach dem ersten Aufruf verwenden wir [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords), was den ersten generierten Bericht zurückgibt und die Warteschlange leert. Aufgrund dessen wird beim Drücken des Buttons nur der zweite Bericht aufgelistet.
+{{EmbedLiveSample("Using the `ReportingObserver` interface", "100%", "280px")}}
 
 ## Spezifikationen
 

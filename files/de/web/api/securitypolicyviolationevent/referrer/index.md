@@ -1,14 +1,14 @@
 ---
-title: "SecurityPolicyViolationEvent: Eigenschaft referrer"
+title: "SecurityPolicyViolationEvent: referrer-Eigenschaft"
 short-title: referrer
 slug: Web/API/SecurityPolicyViolationEvent/referrer
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`referrer`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verletzt wurde.
+Die **`referrer`**-Eigenschaft, die schreibgeschützt ist, des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verletzt wurde.
 Dies wird eine URL oder `null` sein.
 
 ## Wert
@@ -33,4 +33,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.referrer`](/de/docs/Web/API/CSPViolationReportBody/referrer)
+- [`CSPViolationReport.referrer`](/de/docs/Web/API/CSPViolationReport/referrer)

@@ -2,14 +2,14 @@
 title: WebGL-Konstanten
 slug: Web/API/WebGL_API/Constants
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: de12ce0f1fd85781d0d1045aeae85750ae6dc78a
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-Die [WebGL API](/de/docs/Web/API/WebGL_API) stellt mehrere Konstanten bereit, die in Funktionen übergeben oder von diesen zurückgegeben werden. Alle Konstanten sind vom Typ [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
+Die [WebGL-API](/de/docs/Web/API/WebGL_API) bietet mehrere Konstanten, die in Funktionen übergeben oder von diesen zurückgegeben werden. Alle Konstanten sind vom Typ [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
 
-Standard WebGL-Konstanten sind in den Objekten [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) und [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) installiert, sodass sie als `gl.CONSTANT_NAME` verwendet werden können:
+Standard-WebGL-Konstanten sind auf den Objekten [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) und [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) installiert, sodass Sie sie als `gl.CONSTANT_NAME` verwenden können:
 
 ```js
 const canvas = document.getElementById("myCanvas");
@@ -18,238 +18,238 @@ const gl = canvas.getContext("webgl");
 gl.getParameter(gl.LINE_WIDTH);
 ```
 
-Einige Konstanten werden auch von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) bereitgestellt. Eine [Liste](#konstanten_in_webgl-erweiterungen_definiert) wird unten bereitgestellt.
+Einige Konstanten werden auch von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) bereitgestellt. Eine [Liste](#konstanten_definiert_in_webgl-erweiterungen) ist unten verfügbar.
 
 ```js
 const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
 const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
 ```
 
-Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) enthält weitere Informationen, Beispiele und Ressourcen, um mit WebGL zu beginnen.
+Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) enthält mehr Informationen, Beispiele und Ressourcen, wie Sie mit WebGL beginnen können.
 
 ## Inhaltsverzeichnis
 
 - [Standard WebGL 1 Konstanten](#standard_webgl_1_konstanten)
-- [Standard WebGL 2 Konstanten](#zusätzliche_konstanten_in_webgl_2_definiert)
-- [WebGL-Erweiterungskonstanten](#konstanten_in_webgl-erweiterungen_definiert)
+- [Standard WebGL 2 Konstanten](#zusätzliche_konstanten_definiert_in_webgl_2)
+- [WebGL-Erweiterungskonstanten](#konstanten_definiert_in_webgl-erweiterungen)
 
 ## Standard WebGL 1 Konstanten
 
-Diese Konstanten sind in der [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Schnittstelle definiert.
+Diese Konstanten sind auf der Schnittstelle [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) definiert.
 
 ### Puffer löschen
 
 Konstanten, die an [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) übergeben werden, um Puffer-Masken zu löschen.
 
-| Konstantenname       | Wert       | Beschreibung                                                             |
-| -------------------- | ---------- | ------------------------------------------------------------------------ |
-| `DEPTH_BUFFER_BIT`   | 0x00000100 | Wird an `clear` übergeben, um den aktuellen Tiefenpuffer zu löschen.     |
-| `STENCIL_BUFFER_BIT` | 0x00000400 | Wird an `clear` übergeben, um den aktuellen Schablonenpuffer zu löschen. |
-| `COLOR_BUFFER_BIT`   | 0x00004000 | Wird an `clear` übergeben, um den aktuellen Farb-Puffer zu löschen.      |
+| Konstantenname       | Wert       | Beschreibung                                                      |
+| -------------------- | ---------- | ----------------------------------------------------------------- |
+| `DEPTH_BUFFER_BIT`   | 0x00000100 | An `clear` übergeben, um den aktuellen Tiefenpuffer zu löschen.   |
+| `STENCIL_BUFFER_BIT` | 0x00000400 | An `clear` übergeben, um den aktuellen Stencil-Puffer zu löschen. |
+| `COLOR_BUFFER_BIT`   | 0x00004000 | An `clear` übergeben, um den aktuellen Farb-Puffer zu löschen.    |
 
 ### Rendering-Primitiven
 
-Konstanten, die an [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) oder [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) übergeben werden, um festzulegen, welche Art von Primitive gerendert werden soll.
+Konstanten, die an [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements) oder [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) übergeben werden, um anzugeben, welche Art von Primitive gerendert werden sollen.
 
-| Konstantenname   | Wert   | Beschreibung                                                                                                                                                                                 |
-| ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `POINTS`         | 0x0000 | Wird an `drawElements` oder `drawArrays` übergeben, um einzelne Punkte zu zeichnen.                                                                                                          |
-| `LINES`          | 0x0001 | Wird an `drawElements` oder `drawArrays` übergeben, um Linien zu zeichnen. Jeder Eckpunkt verbindet sich mit dem nächsten.                                                                   |
-| `LINE_LOOP`      | 0x0002 | Wird an `drawElements` oder `drawArrays` übergeben, um Linien zu zeichnen. Jedes Set von zwei Eckpunkten wird als separates Liniensegment behandelt.                                         |
-| `LINE_STRIP`     | 0x0003 | Wird an `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Liniensegmenten vom ersten bis zum letzten Eckpunkt zu zeichnen.                                           |
-| `TRIANGLES`      | 0x0004 | Wird an `drawElements` oder `drawArrays` übergeben, um Dreiecke zu zeichnen. Jedes Set von drei Eckpunkten erzeugt ein separates Dreieck.                                                    |
-| `TRIANGLE_STRIP` | 0x0005 | Wird an `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Dreiecken zu zeichnen.                                                                                     |
-| `TRIANGLE_FAN`   | 0x0006 | Wird an `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Dreiecken zu zeichnen. Jeder Eckpunkt verbindet sich mit dem vorherigen und dem ersten Eckpunkt im Fächer. |
+| Konstantenname   | Wert   | Beschreibung                                                                                                                                                                      |
+| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POINTS`         | 0x0000 | An `drawElements` oder `drawArrays` übergeben, um einzelne Punkte zu zeichnen.                                                                                                    |
+| `LINES`          | 0x0001 | An `drawElements` oder `drawArrays` übergeben, um Linien zu zeichnen. Jeder Scheitelpunkt verbindet sich mit dem folgenden.                                                       |
+| `LINE_LOOP`      | 0x0002 | An `drawElements` oder `drawArrays` übergeben, um Linien zu zeichnen. Jedes Set von zwei Scheitelpunkten wird als separates Liniensegment behandelt.                              |
+| `LINE_STRIP`     | 0x0003 | An `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Liniensegmenten vom ersten bis zum letzten Scheitelpunkt zu zeichnen.                                |
+| `TRIANGLES`      | 0x0004 | An `drawElements` oder `drawArrays` übergeben, um Dreiecke zu zeichnen. Jedes Set von drei Scheitelpunkten bildet ein separates Dreieck.                                          |
+| `TRIANGLE_STRIP` | 0x0005 | An `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Dreiecken zu zeichnen.                                                                               |
+| `TRIANGLE_FAN`   | 0x0006 | An `drawElements` oder `drawArrays` übergeben, um eine verbundene Gruppe von Dreiecken zu zeichnen. Jeder Punkt verbindet sich mit dem vorherigen und dem ersten Punkt im Fächer. |
 
 ### Mischmodi
 
-Konstanten, die an [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc) oder [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) übergeben werden, um den Mischmodus festzulegen (für RGB und Alpha oder getrennt).
+Konstanten, die an [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc) oder [`WebGLRenderingContext.blendFuncSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendFuncSeparate) übergeben werden, um den Mischmodus (für sowohl RGB als auch Alpha oder getrennt) anzugeben.
 
-| Konstantenname             | Wert   | Beschreibung                                                                                                                                                            |
-| -------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ZERO`                     | 0      | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente auszuschalten.                                                                               |
-| `ONE`                      | 1      | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente einzuschalten.                                                                               |
-| `SRC_COLOR`                | 0x0300 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit der Farbe des Quell-Elements zu multiplizieren.                                          |
-| `ONE_MINUS_SRC_COLOR`      | 0x0301 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus der Farbe des Quell-Elements zu multiplizieren.                               |
-| `SRC_ALPHA`                | 0x0302 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Alpha des Quells zu multiplizieren.                                                  |
-| `ONE_MINUS_SRC_ALPHA`      | 0x0303 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus dem Alpha des Quells zu multiplizieren.                                       |
-| `DST_ALPHA`                | 0x0304 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Alpha des Ziels zu multiplizieren.                                                   |
-| `ONE_MINUS_DST_ALPHA`      | 0x0305 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus dem Alpha des Ziels zu multiplizieren.                                        |
-| `DST_COLOR`                | 0x0306 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit der Farbe des Ziels zu multiplizieren.                                                   |
-| `ONE_MINUS_DST_COLOR`      | 0x0307 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus der Farbe des Ziels zu multiplizieren.                                        |
-| `SRC_ALPHA_SATURATE`       | 0x0308 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Minimum des Alphas des Quells oder eins minus dem Alpha des Ziels zu multiplizieren. |
-| `CONSTANT_COLOR`           | 0x8001 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine konstante Farb-Mischfunktion festzulegen.                                                               |
-| `ONE_MINUS_CONSTANT_COLOR` | 0x8002 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eins minus eine konstante Farb-Mischfunktion festzulegen.                                                    |
-| `CONSTANT_ALPHA`           | 0x8003 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eine konstante Alpha-Mischfunktion festzulegen.                                                              |
-| `ONE_MINUS_CONSTANT_ALPHA` | 0x8004 | Wird an `blendFunc` oder `blendFuncSeparate` übergeben, um eins minus eine konstante Alpha-Mischfunktion festzulegen.                                                   |
+| Konstantenname             | Wert   | Beschreibung                                                                                                                                                          |
+| -------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ZERO`                     | 0      | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente auszuschalten.                                                                                  |
+| `ONE`                      | 1      | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente einzuschalten.                                                                                  |
+| `SRC_COLOR`                | 0x0300 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit der Farbe des Quellenelements zu multiplizieren.                                            |
+| `ONE_MINUS_SRC_COLOR`      | 0x0301 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus der Farbe des Quellenelements zu multiplizieren.                                 |
+| `SRC_ALPHA`                | 0x0302 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Alpha des Quellenelements zu multiplizieren.                                            |
+| `ONE_MINUS_SRC_ALPHA`      | 0x0303 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus dem Alpha des Quellenelements zu multiplizieren.                                 |
+| `DST_ALPHA`                | 0x0304 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Alpha des Ziels zu multiplizieren.                                                      |
+| `ONE_MINUS_DST_ALPHA`      | 0x0305 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus dem Alpha des Ziels zu multiplizieren.                                           |
+| `DST_COLOR`                | 0x0306 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit der Farbe des Ziels zu multiplizieren.                                                      |
+| `ONE_MINUS_DST_COLOR`      | 0x0307 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit eins minus der Farbe des Ziels zu multiplizieren.                                           |
+| `SRC_ALPHA_SATURATE`       | 0x0308 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine Komponente mit dem Minimum aus dem Alpha der Quelle oder eins minus dem Alpha des Ziels zu multiplizieren. |
+| `CONSTANT_COLOR`           | 0x8001 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine konstante Farbmischfunktion anzugeben.                                                                     |
+| `ONE_MINUS_CONSTANT_COLOR` | 0x8002 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eins minus einer konstanten Farbmischfunktion anzugeben.                                                        |
+| `CONSTANT_ALPHA`           | 0x8003 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eine konstante Alphamischfunktion anzugeben.                                                                    |
+| `ONE_MINUS_CONSTANT_ALPHA` | 0x8004 | An `blendFunc` oder `blendFuncSeparate` übergeben, um eins minus einer konstanten Alphamischfunktion anzugeben.                                                       |
 
 ### Mischgleichungen
 
-Konstanten, die an [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation) oder [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate) übergeben werden, um zu steuern, wie das Mischen berechnet wird (für RGB und Alpha oder getrennt).
+Konstanten, die an [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation) oder [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate) übergeben werden, um zu steuern, wie das Mischen berechnet wird (für sowohl RGB als auch Alpha oder getrennt).
 
-| Konstantenname          | Wert   | Beschreibung                                                                                                                            |
-| ----------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `FUNC_ADD`              | 0x8006 | Wird an `blendEquation` oder `blendEquationSeparate` übergeben, um eine Additionsmischfunktion zu setzen.                               |
-| `FUNC_SUBTRACT`         | 0x800A | Wird an `blendEquation` oder `blendEquationSeparate` übergeben, um eine Subtraktionsmischfunktion anzugeben (Quelle - Ziel).            |
-| `FUNC_REVERSE_SUBTRACT` | 0x800B | Wird an `blendEquation` oder `blendEquationSeparate` übergeben, um eine umgekehrte Subtraktionsmischfunktion anzugeben (Ziel - Quelle). |
+| Konstantenname          | Wert   | Beschreibung                                                                                                                     |
+| ----------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `FUNC_ADD`              | 0x8006 | An `blendEquation` oder `blendEquationSeparate` übergeben, um eine Additionsmischfunktion festzulegen.                           |
+| `FUNC_SUBTRACT`         | 0x800A | An `blendEquation` oder `blendEquationSeparate` übergeben, um eine Subtraktionsmischfunktion anzugeben (Quelle - Ziel).          |
+| `FUNC_REVERSE_SUBTRACT` | 0x800B | An `blendEquation` oder `blendEquationSeparate` übergeben, um eine Rückwärtssubtraktionsmischfunktion anzugeben (Ziel - Quelle). |
 
-### Abrufen von GL-Parameterinformationen
+### GL-Parameterinformation abrufen
 
 Konstanten, die an [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) übergeben werden, um anzugeben, welche Informationen zurückgegeben werden sollen.
 
-| Konstantenname                     | Wert   | Beschreibung                                                                                                                                                                                                                                                                   |
-| ---------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BLEND_EQUATION`                   | 0x8009 | Wird an `getParameter` übergeben, um die aktuelle RGB-Mischfunktion zu erhalten.                                                                                                                                                                                               |
-| `BLEND_EQUATION_RGB`               | 0x8009 | Wird an `getParameter` übergeben, um die aktuelle RGB-Mischfunktion zu erhalten. Gleichermaßen wie `BLEND_EQUATION`                                                                                                                                                            |
-| `BLEND_EQUATION_ALPHA`             | 0x883D | Wird an `getParameter` übergeben, um die aktuelle Alpha-Mischfunktion zu erhalten.                                                                                                                                                                                             |
-| `BLEND_DST_RGB`                    | 0x80C8 | Wird an `getParameter` übergeben, um die aktuelle Ziel-RGB-Mischfunktion zu erhalten.                                                                                                                                                                                          |
-| `BLEND_SRC_RGB`                    | 0x80C9 | Wird an `getParameter` übergeben, um die aktuelle Ziel-RGB-Mischfunktion zu erhalten.                                                                                                                                                                                          |
-| `BLEND_DST_ALPHA`                  | 0x80CA | Wird an `getParameter` übergeben, um die aktuelle Ziel-Alpha-Mischfunktion zu erhalten.                                                                                                                                                                                        |
-| `BLEND_SRC_ALPHA`                  | 0x80CB | Wird an `getParameter` übergeben, um die aktuelle Quell-Alpha-Mischfunktion zu erhalten.                                                                                                                                                                                       |
-| `BLEND_COLOR`                      | 0x8005 | Wird an `getParameter` übergeben, um die aktuelle Mischfarbe zurückzugeben.                                                                                                                                                                                                    |
-| `ARRAY_BUFFER_BINDING`             | 0x8894 | Wird an `getParameter` übergeben, um die Array-Puffer-Bindung zu erhalten.                                                                                                                                                                                                     |
-| `ELEMENT_ARRAY_BUFFER_BINDING`     | 0x8895 | Wird an `getParameter` übergeben, um den aktuellen Element-Array-Puffer zu erhalten.                                                                                                                                                                                           |
-| `LINE_WIDTH`                       | 0x0B21 | Wird an `getParameter` übergeben, um die aktuelle `lineWidth` (gesetzt durch die `lineWidth` Methode) zu erhalten.                                                                                                                                                             |
-| `ALIASED_POINT_SIZE_RANGE`         | 0x846D | Wird an `getParameter` übergeben, um die aktuelle Größe eines Punktes zu erhalten, der mit `gl.POINTS` gezeichnet wird.                                                                                                                                                        |
-| `ALIASED_LINE_WIDTH_RANGE`         | 0x846E | Wird an `getParameter` übergeben, um den Bereich verfügbarer Breiten für eine Linie zu erhalten. Die `getParameter` Methode gibt dann ein Array mit zwei Elementen zurück: Das erste Element ist der minimale Breitenwert und das zweite Element ist der maximale Breitenwert. |
-| `CULL_FACE_MODE`                   | 0x0B45 | Wird an `getParameter` übergeben, um den aktuellen Wert von `cullFace` zu erhalten. Sollte `FRONT`, `BACK` oder `FRONT_AND_BACK` zurückgeben.                                                                                                                                  |
-| `FRONT_FACE`                       | 0x0B46 | Wird an `getParameter` übergeben, um den aktuellen Wert von `frontFace` zu ermitteln. Sollte `CW` oder `CCW` zurückgeben.                                                                                                                                                      |
-| `DEPTH_RANGE`                      | 0x0B70 | Wird an `getParameter` übergeben, um ein Array der Länge 2 aus Fließkommazahlen zurückzugeben, das den aktuellen Tiefenbereich angibt.                                                                                                                                         |
-| `DEPTH_WRITEMASK`                  | 0x0B72 | Wird an `getParameter` übergeben, um zu ermitteln, ob die Tiefenschreibmaske aktiviert ist.                                                                                                                                                                                    |
-| `DEPTH_CLEAR_VALUE`                | 0x0B73 | Wird an `getParameter` übergeben, um den aktuellen Wert für das Löschen der Tiefe zu ermitteln.                                                                                                                                                                                |
-| `DEPTH_FUNC`                       | 0x0B74 | Wird an `getParameter` übergeben, um die aktuelle Tiefenfunktion zu erhalten. Gibt `NEVER`, `ALWAYS`, `LESS`, `EQUAL`, `LEQUAL`, `GREATER`, `GEQUAL` oder `NOTEQUAL` zurück.                                                                                                   |
-| `STENCIL_CLEAR_VALUE`              | 0x0B91 | Wird an `getParameter` übergeben, um den Wert zu erhalten, auf den die Schablone gelöscht wird.                                                                                                                                                                                |
-| `STENCIL_FUNC`                     | 0x0B92 | Wird an `getParameter` übergeben, um die aktuelle Schablonenfunktion zu erhalten. Gibt `NEVER`, `ALWAYS`, `LESS`, `EQUAL`, `LEQUAL`, `GREATER`, `GEQUAL` oder `NOTEQUAL` zurück.                                                                                               |
-| `STENCIL_FAIL`                     | 0x0B94 | Wird an `getParameter` übergeben, um die aktuelle Schablonen-Ausfallfunktion zu erhalten. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                                                                        |
-| `STENCIL_PASS_DEPTH_FAIL`          | 0x0B95 | Wird an `getParameter` übergeben, um die aktuelle Schablonen-Ausfallfunktion zu erhalten, falls der Test des Tiefenpuffers fehlschlägt. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                          |
-| `STENCIL_PASS_DEPTH_PASS`          | 0x0B96 | Wird an `getParameter` übergeben, um die aktuelle Schablonen-Ausfallfunktion zu erhalten, falls der Test des Tiefenpuffers erfolgreich ist. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                      |
-| `STENCIL_REF`                      | 0x0B97 | Wird an `getParameter` übergeben, um den Referenzwert zu erhalten, der für Schablonentests verwendet wird.                                                                                                                                                                     |
-| `STENCIL_VALUE_MASK`               | 0x0B93 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_WRITEMASK`                | 0x0B98 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_FUNC`                | 0x8800 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_FAIL`                | 0x8801 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_PASS_DEPTH_FAIL`     | 0x8802 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_PASS_DEPTH_PASS`     | 0x8803 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_REF`                 | 0x8CA3 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_VALUE_MASK`          | 0x8CA4 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BACK_WRITEMASK`           | 0x8CA5 |                                                                                                                                                                                                                                                                                |
-| `VIEWPORT`                         | 0x0BA2 | Gibt ein {{jsxref("Int32Array")}} mit vier Elementen für die aktuellen Viewport-Abmessungen zurück.                                                                                                                                                                            |
-| `SCISSOR_BOX`                      | 0x0C10 | Gibt ein {{jsxref("Int32Array")}} mit vier Elementen für die aktuellen Schneidebox-Abmessungen zurück.                                                                                                                                                                         |
-| `COLOR_CLEAR_VALUE`                | 0x0C22 |                                                                                                                                                                                                                                                                                |
-| `COLOR_WRITEMASK`                  | 0x0C23 |                                                                                                                                                                                                                                                                                |
-| `UNPACK_ALIGNMENT`                 | 0x0CF5 |                                                                                                                                                                                                                                                                                |
-| `PACK_ALIGNMENT`                   | 0x0D05 |                                                                                                                                                                                                                                                                                |
-| `MAX_TEXTURE_SIZE`                 | 0x0D33 |                                                                                                                                                                                                                                                                                |
-| `MAX_VIEWPORT_DIMS`                | 0x0D3A |                                                                                                                                                                                                                                                                                |
-| `SUBPIXEL_BITS`                    | 0x0D50 |                                                                                                                                                                                                                                                                                |
-| `RED_BITS`                         | 0x0D52 |                                                                                                                                                                                                                                                                                |
-| `GREEN_BITS`                       | 0x0D53 |                                                                                                                                                                                                                                                                                |
-| `BLUE_BITS`                        | 0x0D54 |                                                                                                                                                                                                                                                                                |
-| `ALPHA_BITS`                       | 0x0D55 |                                                                                                                                                                                                                                                                                |
-| `DEPTH_BITS`                       | 0x0D56 |                                                                                                                                                                                                                                                                                |
-| `STENCIL_BITS`                     | 0x0D57 |                                                                                                                                                                                                                                                                                |
-| `POLYGON_OFFSET_UNITS`             | 0x2A00 |                                                                                                                                                                                                                                                                                |
-| `POLYGON_OFFSET_FACTOR`            | 0x8038 |                                                                                                                                                                                                                                                                                |
-| `TEXTURE_BINDING_2D`               | 0x8069 |                                                                                                                                                                                                                                                                                |
-| `SAMPLE_BUFFERS`                   | 0x80A8 |                                                                                                                                                                                                                                                                                |
-| `SAMPLES`                          | 0x80A9 |                                                                                                                                                                                                                                                                                |
-| `SAMPLE_COVERAGE_VALUE`            | 0x80AA |                                                                                                                                                                                                                                                                                |
-| `SAMPLE_COVERAGE_INVERT`           | 0x80AB |                                                                                                                                                                                                                                                                                |
-| `COMPRESSED_TEXTURE_FORMATS`       | 0x86A3 |                                                                                                                                                                                                                                                                                |
-| `VENDOR`                           | 0x1F00 |                                                                                                                                                                                                                                                                                |
-| `RENDERER`                         | 0x1F01 |                                                                                                                                                                                                                                                                                |
-| `VERSION`                          | 0x1F02 |                                                                                                                                                                                                                                                                                |
-| `IMPLEMENTATION_COLOR_READ_TYPE`   | 0x8B9A |                                                                                                                                                                                                                                                                                |
-| `IMPLEMENTATION_COLOR_READ_FORMAT` | 0x8B9B |                                                                                                                                                                                                                                                                                |
-| `BROWSER_DEFAULT_WEBGL`            | 0x9244 |                                                                                                                                                                                                                                                                                |
+| Konstantenname                     | Wert   | Beschreibung                                                                                                                                                                                                                                                              |
+| ---------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BLEND_EQUATION`                   | 0x8009 | An `getParameter` übergeben, um die aktuelle RGB-Mischfunktion zu erhalten.                                                                                                                                                                                               |
+| `BLEND_EQUATION_RGB`               | 0x8009 | An `getParameter` übergeben, um die aktuelle RGB-Mischfunktion zu erhalten. Gleich wie `BLEND_EQUATION`                                                                                                                                                                   |
+| `BLEND_EQUATION_ALPHA`             | 0x883D | An `getParameter` übergeben, um die aktuelle Alphamischfunktion zu erhalten.                                                                                                                                                                                              |
+| `BLEND_DST_RGB`                    | 0x80C8 | An `getParameter` übergeben, um die aktuelle Ziel-RGB-Mischfunktion zu erhalten.                                                                                                                                                                                          |
+| `BLEND_SRC_RGB`                    | 0x80C9 | An `getParameter` übergeben, um die aktuelle Quell-RGB-Mischfunktion zu erhalten.                                                                                                                                                                                         |
+| `BLEND_DST_ALPHA`                  | 0x80CA | An `getParameter` übergeben, um die aktuelle Ziel-Alphamischfunktion zu erhalten.                                                                                                                                                                                         |
+| `BLEND_SRC_ALPHA`                  | 0x80CB | An `getParameter` übergeben, um die aktuelle Quell-Alphamischfunktion zu erhalten.                                                                                                                                                                                        |
+| `BLEND_COLOR`                      | 0x8005 | An `getParameter` übergeben, um die aktuelle Mischfarbe zurückzugeben.                                                                                                                                                                                                    |
+| `ARRAY_BUFFER_BINDING`             | 0x8894 | An `getParameter` übergeben, um die Array-Pufferbindung zu erhalten.                                                                                                                                                                                                      |
+| `ELEMENT_ARRAY_BUFFER_BINDING`     | 0x8895 | An `getParameter` übergeben, um den aktuellen Element-Array-Puffer zu erhalten.                                                                                                                                                                                           |
+| `LINE_WIDTH`                       | 0x0B21 | An `getParameter` übergeben, um die aktuelle `lineWidth` (gesetzt durch die `lineWidth`-Methode) zu erhalten.                                                                                                                                                             |
+| `ALIASED_POINT_SIZE_RANGE`         | 0x846D | An `getParameter` übergeben, um die aktuelle Größe eines Punktes, der mit `gl.POINTS` gezeichnet wird, zu erhalten.                                                                                                                                                       |
+| `ALIASED_LINE_WIDTH_RANGE`         | 0x846E | An `getParameter` übergeben, um den Bereich der verfügbaren Breiten für eine Linie zu erhalten. Die `getParameter`-Methode gibt dann ein Array mit zwei Elementen zurück: das erste Element ist der minimale Breitenwert und das zweite Element der maximale Breitenwert. |
+| `CULL_FACE_MODE`                   | 0x0B45 | An `getParameter` übergeben, um den aktuellen Wert von `cullFace` zu erhalten. Sollte `FRONT`, `BACK` oder `FRONT_AND_BACK` zurückgeben.                                                                                                                                  |
+| `FRONT_FACE`                       | 0x0B46 | An `getParameter` übergeben, um den aktuellen Wert von `frontFace` zu bestimmen. Sollte `CW` oder `CCW` zurückgeben.                                                                                                                                                      |
+| `DEPTH_RANGE`                      | 0x0B70 | An `getParameter` übergeben, um ein Array der Länge 2 mit Fließkommazahlen zurückzugeben, das den aktuellen Tiefenbereich angibt.                                                                                                                                         |
+| `DEPTH_WRITEMASK`                  | 0x0B72 | An `getParameter` übergeben, um festzustellen, ob die Tiefenschreibmaske aktiviert ist.                                                                                                                                                                                   |
+| `DEPTH_CLEAR_VALUE`                | 0x0B73 | An `getParameter` übergeben, um den aktuellen Wert für das Löschen der Tiefe zu bestimmen.                                                                                                                                                                                |
+| `DEPTH_FUNC`                       | 0x0B74 | An `getParameter` übergeben, um die aktuelle Tiefenfunktion zu erhalten. Gibt `NEVER`, `ALWAYS`, `LESS`, `EQUAL`, `LEQUAL`, `GREATER`, `GEQUAL` oder `NOTEQUAL` zurück.                                                                                                   |
+| `STENCIL_CLEAR_VALUE`              | 0x0B91 | An `getParameter` übergeben, um den Wert zu erhalten, auf den der Stencil gelöscht wird.                                                                                                                                                                                  |
+| `STENCIL_FUNC`                     | 0x0B92 | An `getParameter` übergeben, um die aktuelle Stencil-Funktion zu erhalten. Gibt `NEVER`, `ALWAYS`, `LESS`, `EQUAL`, `LEQUAL`, `GREATER`, `GEQUAL` oder `NOTEQUAL` zurück.                                                                                                 |
+| `STENCIL_FAIL`                     | 0x0B94 | An `getParameter` übergeben, um die aktuelle Stencil-Fehlfunktion zu erhalten. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                                                                              |
+| `STENCIL_PASS_DEPTH_FAIL`          | 0x0B95 | An `getParameter` übergeben, um die aktuelle Stencil-Fehlfunktion zu erhalten, falls der Tiefenpuffer-Test fehlschlägt. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                                     |
+| `STENCIL_PASS_DEPTH_PASS`          | 0x0B96 | An `getParameter` übergeben, um die aktuelle Stencil-Fehlfunktion zu erhalten, falls der Tiefenpuffer-Test besteht. Sollte `KEEP`, `REPLACE`, `INCR`, `DECR`, `INVERT`, `INCR_WRAP` oder `DECR_WRAP` zurückgeben.                                                         |
+| `STENCIL_REF`                      | 0x0B97 | An `getParameter` übergeben, um den Referenzwert für Stencil-Tests zu erhalten.                                                                                                                                                                                           |
+| `STENCIL_VALUE_MASK`               | 0x0B93 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_WRITEMASK`                | 0x0B98 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_FUNC`                | 0x8800 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_FAIL`                | 0x8801 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_PASS_DEPTH_FAIL`     | 0x8802 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_PASS_DEPTH_PASS`     | 0x8803 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_REF`                 | 0x8CA3 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_VALUE_MASK`          | 0x8CA4 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BACK_WRITEMASK`           | 0x8CA5 |                                                                                                                                                                                                                                                                           |
+| `VIEWPORT`                         | 0x0BA2 | Gibt ein {{jsxref("Int32Array")}} mit vier Elementen für die aktuellen Ansichtsabmessungen zurück.                                                                                                                                                                        |
+| `SCISSOR_BOX`                      | 0x0C10 | Gibt ein {{jsxref("Int32Array")}} mit vier Elementen für die aktuellen Abmessungen des Scherfensters zurück.                                                                                                                                                              |
+| `COLOR_CLEAR_VALUE`                | 0x0C22 |                                                                                                                                                                                                                                                                           |
+| `COLOR_WRITEMASK`                  | 0x0C23 |                                                                                                                                                                                                                                                                           |
+| `UNPACK_ALIGNMENT`                 | 0x0CF5 |                                                                                                                                                                                                                                                                           |
+| `PACK_ALIGNMENT`                   | 0x0D05 |                                                                                                                                                                                                                                                                           |
+| `MAX_TEXTURE_SIZE`                 | 0x0D33 |                                                                                                                                                                                                                                                                           |
+| `MAX_VIEWPORT_DIMS`                | 0x0D3A |                                                                                                                                                                                                                                                                           |
+| `SUBPIXEL_BITS`                    | 0x0D50 |                                                                                                                                                                                                                                                                           |
+| `RED_BITS`                         | 0x0D52 |                                                                                                                                                                                                                                                                           |
+| `GREEN_BITS`                       | 0x0D53 |                                                                                                                                                                                                                                                                           |
+| `BLUE_BITS`                        | 0x0D54 |                                                                                                                                                                                                                                                                           |
+| `ALPHA_BITS`                       | 0x0D55 |                                                                                                                                                                                                                                                                           |
+| `DEPTH_BITS`                       | 0x0D56 |                                                                                                                                                                                                                                                                           |
+| `STENCIL_BITS`                     | 0x0D57 |                                                                                                                                                                                                                                                                           |
+| `POLYGON_OFFSET_UNITS`             | 0x2A00 |                                                                                                                                                                                                                                                                           |
+| `POLYGON_OFFSET_FACTOR`            | 0x8038 |                                                                                                                                                                                                                                                                           |
+| `TEXTURE_BINDING_2D`               | 0x8069 |                                                                                                                                                                                                                                                                           |
+| `SAMPLE_BUFFERS`                   | 0x80A8 |                                                                                                                                                                                                                                                                           |
+| `SAMPLES`                          | 0x80A9 |                                                                                                                                                                                                                                                                           |
+| `SAMPLE_COVERAGE_VALUE`            | 0x80AA |                                                                                                                                                                                                                                                                           |
+| `SAMPLE_COVERAGE_INVERT`           | 0x80AB |                                                                                                                                                                                                                                                                           |
+| `COMPRESSED_TEXTURE_FORMATS`       | 0x86A3 |                                                                                                                                                                                                                                                                           |
+| `VENDOR`                           | 0x1F00 |                                                                                                                                                                                                                                                                           |
+| `RENDERER`                         | 0x1F01 |                                                                                                                                                                                                                                                                           |
+| `VERSION`                          | 0x1F02 |                                                                                                                                                                                                                                                                           |
+| `IMPLEMENTATION_COLOR_READ_TYPE`   | 0x8B9A |                                                                                                                                                                                                                                                                           |
+| `IMPLEMENTATION_COLOR_READ_FORMAT` | 0x8B9B |                                                                                                                                                                                                                                                                           |
+| `BROWSER_DEFAULT_WEBGL`            | 0x9244 |                                                                                                                                                                                                                                                                           |
 
 ### Puffer
 
 Konstanten, die an [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData), [`WebGLRenderingContext.bufferSubData()`](/de/docs/Web/API/WebGLRenderingContext/bufferSubData), [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) oder [`WebGLRenderingContext.getBufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getBufferParameter) übergeben werden.
 
-| Konstantenname         | Wert   | Beschreibung                                                                                                                       |
-| ---------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `STATIC_DRAW`          | 0x88E4 | Wird an `bufferData` als Hinweis übergeben, ob der Inhalt des Puffers häufig verwendet wird und sich nicht häufig ändert.          |
-| `STREAM_DRAW`          | 0x88E0 | Wird an `bufferData` als Hinweis übergeben, ob der Inhalt des Puffers wahrscheinlich nicht häufig verwendet wird.                  |
-| `DYNAMIC_DRAW`         | 0x88E8 | Wird an `bufferData` als Hinweis übergeben, ob der Inhalt des Puffers wahrscheinlich häufig verwendet wird und sich häufig ändert. |
-| `ARRAY_BUFFER`         | 0x8892 | Wird an `bindBuffer` oder `bufferData` übergeben, um den verwendeten Puffertyp anzugeben.                                          |
-| `ELEMENT_ARRAY_BUFFER` | 0x8893 | Wird an `bindBuffer` oder `bufferData` übergeben, um den verwendeten Puffertyp anzugeben.                                          |
-| `BUFFER_SIZE`          | 0x8764 | Wird an `getBufferParameter` übergeben, um die Größe eines Puffers zu erhalten.                                                    |
-| `BUFFER_USAGE`         | 0x8765 | Wird an `getBufferParameter` übergeben, um den Hinweis für den Puffer zu erhalten, der bei seiner Erstellung übermittelt wurde.    |
+| Konstantenname         | Wert   | Beschreibung                                                                                                                        |
+| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `STATIC_DRAW`          | 0x88E4 | An `bufferData` als Hinweis übergeben, ob die Inhalte des Puffers wahrscheinlich häufig verwendet werden und sich nicht oft ändern. |
+| `STREAM_DRAW`          | 0x88E0 | An `bufferData` als Hinweis übergeben, ob die Inhalte des Puffers wahrscheinlich nicht oft verwendet werden.                        |
+| `DYNAMIC_DRAW`         | 0x88E8 | An `bufferData` als Hinweis übergeben, ob die Inhalte des Puffers wahrscheinlich häufig verwendet und oft geändert werden.          |
+| `ARRAY_BUFFER`         | 0x8892 | An `bindBuffer` oder `bufferData` übergeben, um den Typ des verwendeten Puffers anzugeben.                                          |
+| `ELEMENT_ARRAY_BUFFER` | 0x8893 | An `bindBuffer` oder `bufferData` übergeben, um den Typ des verwendeten Puffers anzugeben.                                          |
+| `BUFFER_SIZE`          | 0x8764 | An `getBufferParameter` übergeben, um die Größe eines Puffers abzurufen.                                                            |
+| `BUFFER_USAGE`         | 0x8765 | An `getBufferParameter` übergeben, um den Hinweis für den Puffer abzurufen, der bei seiner Erstellung übergeben wurde.              |
 
 ### Vertex-Attribute
 
 Konstanten, die an [`WebGLRenderingContext.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib) übergeben werden.
 
-| Konstantenname                       | Wert   | Beschreibung                                                                        |
-| ------------------------------------ | ------ | ----------------------------------------------------------------------------------- |
-| `CURRENT_VERTEX_ATTRIB`              | 0x8626 | Wird an `getVertexAttrib` übergeben, um das aktuelle Vertex-Attribut zurückzulesen. |
-| `VERTEX_ATTRIB_ARRAY_ENABLED`        | 0x8622 |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_SIZE`           | 0x8623 |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_STRIDE`         | 0x8624 |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_TYPE`           | 0x8625 |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_NORMALIZED`     | 0x886A |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_POINTER`        | 0x8645 |                                                                                     |
-| `VERTEX_ATTRIB_ARRAY_BUFFER_BINDING` | 0x889F |                                                                                     |
+| Konstantenname                       | Wert   | Beschreibung                                                                   |
+| ------------------------------------ | ------ | ------------------------------------------------------------------------------ |
+| `CURRENT_VERTEX_ATTRIB`              | 0x8626 | An `getVertexAttrib` übergeben, um das aktuelle Vertex-Attribut zurückzulesen. |
+| `VERTEX_ATTRIB_ARRAY_ENABLED`        | 0x8622 |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_SIZE`           | 0x8623 |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_STRIDE`         | 0x8624 |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_TYPE`           | 0x8625 |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_NORMALIZED`     | 0x886A |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_POINTER`        | 0x8645 |                                                                                |
+| `VERTEX_ATTRIB_ARRAY_BUFFER_BINDING` | 0x889F |                                                                                |
 
-### Schaltflächen
+### Culling
 
 Konstanten, die an [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace) übergeben werden.
 
-| Konstantenname   | Wert   | Beschreibung                                                                                                                                                                |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CULL_FACE`      | 0x0B44 | Wird an `enable`/`disable` übergeben, um das Schalten ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Methode zum Schalten zu ermitteln. |
-| `FRONT`          | 0x0404 | Wird an `cullFace` übergeben, um anzugeben, dass nur Vorderseiten ausgesondert werden sollen.                                                                               |
-| `BACK`           | 0x0405 | Wird an `cullFace` übergeben, um anzugeben, dass nur Rückseiten ausgesondert werden sollen.                                                                                 |
-| `FRONT_AND_BACK` | 0x0408 | Wird an `cullFace` übergeben, um anzugeben, dass Vorder- und Rückseiten ausgesondert werden sollen.                                                                         |
+| Konstantenname   | Wert   | Beschreibung                                                                                                                                                           |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CULL_FACE`      | 0x0B44 | An `enable`/`disable` übergeben, um das Culling ein- oder auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Culling-Methode festzustellen. |
+| `FRONT`          | 0x0404 | An `cullFace` übergeben, um anzugeben, dass nur Vorderseiten geküllt werden sollen.                                                                                    |
+| `BACK`           | 0x0405 | An `cullFace` übergeben, um anzugeben, dass nur Rückseiten geküllt werden sollen.                                                                                      |
+| `FRONT_AND_BACK` | 0x0408 | An `cullFace` übergeben, um anzugeben, dass Vorder- und Rückseiten geküllt werden sollen.                                                                              |
 
 ### Aktivieren und Deaktivieren
 
 Konstanten, die an [`WebGLRenderingContext.enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) oder [`WebGLRenderingContext.disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) übergeben werden.
 
-| Konstantenname             | Wert   | Beschreibung                                                                                                                                                                                                                                                                         |
-| -------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BLEND`                    | 0x0BE2 | Wird an `enable`/`disable` übergeben um das Mischen ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Mischmethode zu erhalten.                                                                                                                     |
-| `DEPTH_TEST`               | 0x0B71 | Wird an `enable`/`disable` übergeben um der Tiefentest ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um den Tiefentest abzufragen.                                                                                                                              |
-| `DITHER`                   | 0x0BD0 | Wird an `enable`/`disable` übergeben um das Dithering ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Dithering-Methode zu erhalten.                                                                                                              |
-| `POLYGON_OFFSET_FILL`      | 0x8037 | Wird an `enable`/`disable` übergeben um den Polygon-Offset ein-/auszuschalten. Nützlich bei der Darstellung von verdeckten Linienbildern, Aufklebern und soliden Objekten mit hervorgehobenen Kanten. Kann auch mit `getParameter` verwendet werden, um den Schalachtest abzufragen. |
-| `SAMPLE_ALPHA_TO_COVERAGE` | 0x809E | Wird an `enable`/`disable` übergeben um das Alpha-to-Coverage ein-/auszuschalten. Wird beim Multi-Sampling von Alpha-Kanälen verwendet.                                                                                                                                              |
-| `SAMPLE_COVERAGE`          | 0x80A0 | Wird an `enable`/`disable` übergeben um die Stichprobenabdeckung ein-/auszuschalten. Wird beim Multi-Sampling verwendet.                                                                                                                                                             |
-| `SCISSOR_TEST`             | 0x0C11 | Wird an `enable`/`disable` übergeben um den Schalachtest ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um den Schalachtest abzufragen.                                                                                                                          |
-| `STENCIL_TEST`             | 0x0B90 | Wird an `enable`/`disable` übergeben um den Schablonentest ein-/auszuschalten. Kann auch mit `getParameter` verwendet werden, um den Schablonentest abzufragen.                                                                                                                      |
+| Konstantenname             | Wert   | Beschreibung                                                                                                                                                                                                                                                            |
+| -------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BLEND`                    | 0x0BE2 | An `enable`/`disable` übergeben, um das Blending ein- oder auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Blending-Methode festzustellen.                                                                                                |
+| `DEPTH_TEST`               | 0x0B71 | An `enable`/`disable` übergeben, um den Tiefentest ein- oder auszuschalten. Kann auch mit `getParameter` abgefragt werden, um den Tiefentest zu überprüfen.                                                                                                             |
+| `DITHER`                   | 0x0BD0 | An `enable`/`disable` übergeben, um das Dithering ein- oder auszuschalten. Kann auch mit `getParameter` verwendet werden, um die aktuelle Dithering-Methode festzustellen.                                                                                              |
+| `POLYGON_OFFSET_FILL`      | 0x8037 | An `enable`/`disable` übergeben, um das Polygon-Offset ein- oder auszuschalten. Nützlich zum Rendern von Hidden-Line-Bildern, Decals und massiven Körpern mit hervorgehobenen Kanten. Kann auch mit `getParameter` abgefragt werden, um die Scherentests zu überprüfen. |
+| `SAMPLE_ALPHA_TO_COVERAGE` | 0x809E | An `enable`/`disable` übergeben, um die Alphadeckung ein- oder auszuschalten. Wird beim Multi-Sampling von Alpha-Kanälen verwendet.                                                                                                                                     |
+| `SAMPLE_COVERAGE`          | 0x80A0 | An `enable`/`disable` übergeben, um die Sampling-Deckung ein- oder auszuschalten. Wird beim Multi-Sampling verwendet.                                                                                                                                                   |
+| `SCISSOR_TEST`             | 0x0C11 | An `enable`/`disable` übergeben, um den Scherentest ein- oder auszuschalten. Kann auch mit `getParameter` abgefragt werden, um den Scherentest zu überprüfen.                                                                                                           |
+| `STENCIL_TEST`             | 0x0B90 | An `enable`/`disable` übergeben, um den Stencil-Test ein- oder auszuschalten. Kann auch mit `getParameter` abgefragt werden, um den Stencil-Test zu überprüfen.                                                                                                         |
 
 ### Fehler
 
 Konstanten, die von [`WebGLRenderingContext.getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) zurückgegeben werden.
 
-| Konstantenname       | Wert   | Beschreibung                       |
-| -------------------- | ------ | ---------------------------------- |
-| `NO_ERROR`           | 0      | Wird von `getError` zurückgegeben. |
-| `INVALID_ENUM`       | 0x0500 | Wird von `getError` zurückgegeben. |
-| `INVALID_VALUE`      | 0x0501 | Wird von `getError` zurückgegeben. |
-| `INVALID_OPERATION`  | 0x0502 | Wird von `getError` zurückgegeben. |
-| `OUT_OF_MEMORY`      | 0x0505 | Wird von `getError` zurückgegeben. |
-| `CONTEXT_LOST_WEBGL` | 0x9242 | Wird von `getError` zurückgegeben. |
+| Konstantenname       | Wert   | Beschreibung                  |
+| -------------------- | ------ | ----------------------------- |
+| `NO_ERROR`           | 0      | Von `getError` zurückgegeben. |
+| `INVALID_ENUM`       | 0x0500 | Von `getError` zurückgegeben. |
+| `INVALID_VALUE`      | 0x0501 | Von `getError` zurückgegeben. |
+| `INVALID_OPERATION`  | 0x0502 | Von `getError` zurückgegeben. |
+| `OUT_OF_MEMORY`      | 0x0505 | Von `getError` zurückgegeben. |
+| `CONTEXT_LOST_WEBGL` | 0x9242 | Von `getError` zurückgegeben. |
 
-### Vorderseite
+### Front Face Richtungen
 
 Konstanten, die an [`WebGLRenderingContext.frontFace()`](/de/docs/Web/API/WebGLRenderingContext/frontFace) übergeben werden.
 
-| Konstantenname | Wert   | Beschreibung                                                                                                             |
-| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `CW`           | 0x0900 | Wird an `frontFace` übergeben, um anzugeben, dass die Vorderseite eines Polygons im Uhrzeigersinn gezeichnet wird        |
-| `CCW`          | 0x0901 | Wird an `frontFace` übergeben, um anzugeben, dass die Vorderseite eines Polygons gegen den Uhrzeigersinn gezeichnet wird |
+| Konstantenname | Wert   | Beschreibung                                                                                                         |
+| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| `CW`           | 0x0900 | An `frontFace` übergeben, um anzugeben, dass die Vorderseite eines Polygons im Uhrzeigersinn gezeichnet wird.        |
+| `CCW`          | 0x0901 | An `frontFace` übergeben, um anzugeben, dass die Vorderseite eines Polygons gegen den Uhrzeigersinn gezeichnet wird. |
 
 ### Hinweise
 
-Konstanten, die an [`WebGLRenderingContext.hint()`](/de/docs/Web/API/WebGLRenderingContext/hint) übergeben werden
+Konstanten, die an [`WebGLRenderingContext.hint()`](/de/docs/Web/API/WebGLRenderingContext/hint) übergeben werden.
 
-| Konstantenname         | Wert   | Beschreibung                                                                                                                                                                  |
-| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DONT_CARE`            | 0x1100 | Es gibt keine Präferenz für dieses Verhalten.                                                                                                                                 |
-| `FASTEST`              | 0x1101 | Das effizienteste Verhalten sollte verwendet werden.                                                                                                                          |
-| `NICEST`               | 0x1102 | Die korrekteste oder qualitativ hochwertigste Option sollte verwendet werden.                                                                                                 |
-| `GENERATE_MIPMAP_HINT` | 0x8192 | Hinweis auf die Qualität des Filterns beim Erzeugen von Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap). |
+| Konstantenname         | Wert   | Beschreibung                                                                                                                                                                        |
+| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DONT_CARE`            | 0x1100 | Es besteht keine Präferenz für dieses Verhalten.                                                                                                                                    |
+| `FASTEST`              | 0x1101 | Das effizienteste Verhalten sollte genutzt werden.                                                                                                                                  |
+| `NICEST`               | 0x1102 | Die korrekteste oder die qualitativ hochwertigste Option sollte genutzt werden.                                                                                                     |
+| `GENERATE_MIPMAP_HINT` | 0x8192 | Hinweis für die Qualität des Filterings bei der Erzeugung von Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap). |
 
 ### Datentypen
 
@@ -287,44 +287,44 @@ Konstanten, die an [`WebGLRenderingContext.hint()`](/de/docs/Web/API/WebGLRender
 
 Konstanten, die an [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader) oder [`WebGLRenderingContext.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter) übergeben werden.
 
-| Konstantenname                     | Wert   | Beschreibung                                                                                                                                                                                                                                                 |
-| ---------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `FRAGMENT_SHADER`                  | 0x8B30 | Wird an `createShader` übergeben, um einen Fragment-Shader zu definieren.                                                                                                                                                                                    |
-| `VERTEX_SHADER`                    | 0x8B31 | Wird an `createShader` übergeben, um einen Vertex-Shader zu definieren.                                                                                                                                                                                      |
-| `COMPILE_STATUS`                   | 0x8B81 | Wird an `getShaderParameter` übergeben, um den Status der Kompilierung zu erhalten. Gibt false zurück, wenn der Shader nicht kompiliert wurde. Sie können dann `getShaderInfoLog` abfragen, um den genauen Fehler zu ermitteln.                              |
-| `DELETE_STATUS`                    | 0x8B80 | Wird an `getShaderParameter` übergeben, um festzustellen, ob ein Shader über `deleteShader` gelöscht wurde. Gibt true zurück, wenn dies der Fall war, andernfalls false.                                                                                     |
-| `LINK_STATUS`                      | 0x8B82 | Wird an `getProgramParameter` übergeben, nachdem `linkProgram` aufgerufen wurde, um festzustellen, ob ein Programm korrekt verknüpft wurde. Gibt false zurück, wenn Fehler auftraten. Verwenden Sie `getProgramInfoLog`, um den genauen Fehler zu ermitteln. |
-| `VALIDATE_STATUS`                  | 0x8B83 | Wird an `getProgramParameter` übergeben, nachdem `validateProgram` aufgerufen wurde, um festzustellen, ob es gültig ist. Gibt false zurück, wenn Fehler gefunden wurden.                                                                                     |
-| `ATTACHED_SHADERS`                 | 0x8B85 | Wird an `getProgramParameter` übergeben, nachdem `attachShader` aufgerufen wurde, um festzustellen, ob der Shader korrekt angehängt wurde. Gibt false zurück, wenn Fehler aufgetreten sind.                                                                  |
-| `ACTIVE_ATTRIBUTES`                | 0x8B89 | Wird an `getProgramParameter` übergeben, um die Anzahl der aktiven Attribute in einem Programm zu erhalten.                                                                                                                                                  |
-| `ACTIVE_UNIFORMS`                  | 0x8B86 | Wird an `getProgramParameter` übergeben, um die Anzahl der aktiven Uniforms in einem Programm zu erhalten.                                                                                                                                                   |
-| `MAX_VERTEX_ATTRIBS`               | 0x8869 | Die maximale Anzahl von Einträgen, die in der Vertex-Attributliste möglich sind.                                                                                                                                                                             |
-| `MAX_VERTEX_UNIFORM_VECTORS`       | 0x8DFB |                                                                                                                                                                                                                                                              |
-| `MAX_VARYING_VECTORS`              | 0x8DFC |                                                                                                                                                                                                                                                              |
-| `MAX_COMBINED_TEXTURE_IMAGE_UNITS` | 0x8B4D |                                                                                                                                                                                                                                                              |
-| `MAX_VERTEX_TEXTURE_IMAGE_UNITS`   | 0x8B4C |                                                                                                                                                                                                                                                              |
-| `MAX_TEXTURE_IMAGE_UNITS`          | 0x8872 | Implementierungsabhängige Anzahl der maximalen Textur-Einheiten. Mindestens 8.                                                                                                                                                                               |
-| `MAX_FRAGMENT_UNIFORM_VECTORS`     | 0x8DFD |                                                                                                                                                                                                                                                              |
-| `SHADER_TYPE`                      | 0x8B4F |                                                                                                                                                                                                                                                              |
-| `SHADING_LANGUAGE_VERSION`         | 0x8B8C |                                                                                                                                                                                                                                                              |
-| `CURRENT_PROGRAM`                  | 0x8B8D |                                                                                                                                                                                                                                                              |
+| Konstantenname                     | Wert   | Beschreibung                                                                                                                                                                                                                                            |
+| ---------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FRAGMENT_SHADER`                  | 0x8B30 | An `createShader` übergeben, um einen Fragment-Shader zu definieren.                                                                                                                                                                                    |
+| `VERTEX_SHADER`                    | 0x8B31 | An `createShader` übergeben, um einen Vertex-Shader zu definieren.                                                                                                                                                                                      |
+| `COMPILE_STATUS`                   | 0x8B81 | An `getShaderParameter` übergeben, um den Status der Kompilierung abzurufen. Gibt false zurück, wenn der Shader nicht kompiliert wurde. Sie können dann `getShaderInfoLog` abfragen, um den genauen Fehler zu finden.                                   |
+| `DELETE_STATUS`                    | 0x8B80 | An `getShaderParameter` übergeben, um festzustellen, ob ein Shader über `deleteShader` gelöscht wurde. Gibt true zurück, wenn er gelöscht wurde, andernfalls false.                                                                                     |
+| `LINK_STATUS`                      | 0x8B82 | An `getProgramParameter` nach einem Aufruf von `linkProgram` übergeben, um festzustellen, ob ein Programm korrekt verknüpft wurde. Gibt false zurück, wenn Fehler aufgetreten sind. Verwenden Sie `getProgramInfoLog`, um den genauen Fehler zu finden. |
+| `VALIDATE_STATUS`                  | 0x8B83 | An `getProgramParameter` nach einem Aufruf von `validateProgram` übergeben, um festzustellen, ob es gültig ist. Gibt false zurück, wenn Fehler gefunden wurden.                                                                                         |
+| `ATTACHED_SHADERS`                 | 0x8B85 | An `getProgramParameter` nach einem Aufruf von `attachShader` übergeben, um festzustellen, ob der Shader korrekt angehängt wurde. Gibt false zurück, wenn Fehler aufgetreten sind.                                                                      |
+| `ACTIVE_ATTRIBUTES`                | 0x8B89 | An `getProgramParameter` übergeben, um die Anzahl der aktiven Attribute in einem Programm abzurufen.                                                                                                                                                    |
+| `ACTIVE_UNIFORMS`                  | 0x8B86 | An `getProgramParameter` übergeben, um die Anzahl der aktiven Uniforms in einem Programm abzurufen.                                                                                                                                                     |
+| `MAX_VERTEX_ATTRIBS`               | 0x8869 | Die maximale Anzahl der möglichen Einträge in der Vertex-Attributsliste.                                                                                                                                                                                |
+| `MAX_VERTEX_UNIFORM_VECTORS`       | 0x8DFB |                                                                                                                                                                                                                                                         |
+| `MAX_VARYING_VECTORS`              | 0x8DFC |                                                                                                                                                                                                                                                         |
+| `MAX_COMBINED_TEXTURE_IMAGE_UNITS` | 0x8B4D |                                                                                                                                                                                                                                                         |
+| `MAX_VERTEX_TEXTURE_IMAGE_UNITS`   | 0x8B4C |                                                                                                                                                                                                                                                         |
+| `MAX_TEXTURE_IMAGE_UNITS`          | 0x8872 | Implementierungsabhängige Anzahl der maximalen Textureinheiten. Mindestens 8.                                                                                                                                                                           |
+| `MAX_FRAGMENT_UNIFORM_VECTORS`     | 0x8DFD |                                                                                                                                                                                                                                                         |
+| `SHADER_TYPE`                      | 0x8B4F |                                                                                                                                                                                                                                                         |
+| `SHADING_LANGUAGE_VERSION`         | 0x8B8C |                                                                                                                                                                                                                                                         |
+| `CURRENT_PROGRAM`                  | 0x8B8D |                                                                                                                                                                                                                                                         |
 
-### Tiefen- oder Schablonentests
+### Tiefen- oder Stencilt-Tests
 
 Konstanten, die an [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc) oder [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc) übergeben werden.
 
-| Konstantenname | Wert   | Beschreibung                                                                                                                                                                                               |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NEVER`        | 0x0200 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests nie bestanden werden, d.h. nichts wird gezeichnet.                                           |
-| `LESS`         | 0x0201 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner ist als der gespeicherte Wert.            |
-| `EQUAL`        | 0x0202 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert dem gespeicherten Wert entspricht.                |
-| `LEQUAL`       | 0x0203 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner oder gleich dem gespeicherten Wert ist.   |
-| `GREATER`      | 0x0204 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer ist als der gespeicherte Wert.             |
-| `NOTEQUAL`     | 0x0205 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert ungleich dem gespeicherten Wert ist.              |
-| `GEQUAL`       | 0x0206 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer oder gleich dem gespeicherten Wert ist.    |
-| `ALWAYS`       | 0x0207 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests immer bestanden werden, d.h. die Pixel werden in der Reihenfolge ihrer Zeichnung gezeichnet. |
+| Konstantenname | Wert   | Beschreibung                                                                                                                                                                                      |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NEVER`        | 0x0200 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests nie bestehen, d.h. es wird nichts gezeichnet.                                                  |
+| `LESS`         | 0x0201 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert kleiner als der gespeicherte Wert ist.                      |
+| `EQUAL`        | 0x0202 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert gleich dem gespeicherten Wert ist.                          |
+| `LEQUAL`       | 0x0203 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert kleiner oder gleich dem gespeicherten Wert ist.             |
+| `GREATER`      | 0x0204 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert größer als der gespeicherte Wert ist.                       |
+| `NOTEQUAL`     | 0x0205 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert ungleich dem gespeicherten Wert ist.                        |
+| `GEQUAL`       | 0x0206 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests bestehen, wenn der neue Tiefenwert größer oder gleich dem gespeicherten Wert ist.              |
+| `ALWAYS`       | 0x0207 | An `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass Tiefen- oder Stencil-Tests immer bestehen, d.h. Pixel werden in der Reihenfolge gezeichnet, in der sie gezeichnet werden. |
 
-### Schablonenaktionen
+### Stencil-Aktionen
 
 Konstanten, die an [`WebGLRenderingContext.stencilOp()`](/de/docs/Web/API/WebGLRenderingContext/stencilOp) übergeben werden.
 
@@ -342,36 +342,36 @@ Konstanten, die an [`WebGLRenderingContext.stencilOp()`](/de/docs/Web/API/WebGLR
 
 Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/WebGLRenderingContext/texParameter), [`WebGLRenderingContext.texParameterf()`](/de/docs/Web/API/WebGLRenderingContext/texParameter), [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture), [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und andere übergeben werden.
 
-| Konstantenname                | Wert            | Beschreibung                      |
-| ----------------------------- | --------------- | --------------------------------- |
-| `NEAREST`                     | 0x2600          |                                   |
-| `LINEAR`                      | 0x2601          |                                   |
-| `NEAREST_MIPMAP_NEAREST`      | 0x2700          |                                   |
-| `LINEAR_MIPMAP_NEAREST`       | 0x2701          |                                   |
-| `NEAREST_MIPMAP_LINEAR`       | 0x2702          |                                   |
-| `LINEAR_MIPMAP_LINEAR`        | 0x2703          |                                   |
-| `TEXTURE_MAG_FILTER`          | 0x2800          |                                   |
-| `TEXTURE_MIN_FILTER`          | 0x2801          |                                   |
-| `TEXTURE_WRAP_S`              | 0x2802          |                                   |
-| `TEXTURE_WRAP_T`              | 0x2803          |                                   |
-| `TEXTURE_2D`                  | 0x0DE1          |                                   |
-| `TEXTURE`                     | 0x1702          |                                   |
-| `TEXTURE_CUBE_MAP`            | 0x8513          |                                   |
-| `TEXTURE_BINDING_CUBE_MAP`    | 0x8514          |                                   |
-| `TEXTURE_CUBE_MAP_POSITIVE_X` | 0x8515          |                                   |
-| `TEXTURE_CUBE_MAP_NEGATIVE_X` | 0x8516          |                                   |
-| `TEXTURE_CUBE_MAP_POSITIVE_Y` | 0x8517          |                                   |
-| `TEXTURE_CUBE_MAP_NEGATIVE_Y` | 0x8518          |                                   |
-| `TEXTURE_CUBE_MAP_POSITIVE_Z` | 0x8519          |                                   |
-| `TEXTURE_CUBE_MAP_NEGATIVE_Z` | 0x851A          |                                   |
-| `MAX_CUBE_MAP_TEXTURE_SIZE`   | 0x851C          |                                   |
-| `TEXTURE0 - 31`               | 0x84C0 - 0x84DF | Eine Textureinheit.               |
-| `ACTIVE_TEXTURE`              | 0x84E0          | Die aktuell aktive Textureinheit. |
-| `REPEAT`                      | 0x2901          |                                   |
-| `CLAMP_TO_EDGE`               | 0x812F          |                                   |
-| `MIRRORED_REPEAT`             | 0x8370          |                                   |
+| Konstantenname                | Wert            | Beschreibung                       |
+| ----------------------------- | --------------- | ---------------------------------- |
+| `NEAREST`                     | 0x2600          |                                    |
+| `LINEAR`                      | 0x2601          |                                    |
+| `NEAREST_MIPMAP_NEAREST`      | 0x2700          |                                    |
+| `LINEAR_MIPMAP_NEAREST`       | 0x2701          |                                    |
+| `NEAREST_MIPMAP_LINEAR`       | 0x2702          |                                    |
+| `LINEAR_MIPMAP_LINEAR`        | 0x2703          |                                    |
+| `TEXTURE_MAG_FILTER`          | 0x2800          |                                    |
+| `TEXTURE_MIN_FILTER`          | 0x2801          |                                    |
+| `TEXTURE_WRAP_S`              | 0x2802          |                                    |
+| `TEXTURE_WRAP_T`              | 0x2803          |                                    |
+| `TEXTURE_2D`                  | 0x0DE1          |                                    |
+| `TEXTURE`                     | 0x1702          |                                    |
+| `TEXTURE_CUBE_MAP`            | 0x8513          |                                    |
+| `TEXTURE_BINDING_CUBE_MAP`    | 0x8514          |                                    |
+| `TEXTURE_CUBE_MAP_POSITIVE_X` | 0x8515          |                                    |
+| `TEXTURE_CUBE_MAP_NEGATIVE_X` | 0x8516          |                                    |
+| `TEXTURE_CUBE_MAP_POSITIVE_Y` | 0x8517          |                                    |
+| `TEXTURE_CUBE_MAP_NEGATIVE_Y` | 0x8518          |                                    |
+| `TEXTURE_CUBE_MAP_POSITIVE_Z` | 0x8519          |                                    |
+| `TEXTURE_CUBE_MAP_NEGATIVE_Z` | 0x851A          |                                    |
+| `MAX_CUBE_MAP_TEXTURE_SIZE`   | 0x851C          |                                    |
+| `TEXTURE0 - 31`               | 0x84C0 - 0x84DF | Eine Textureinheit.                |
+| `ACTIVE_TEXTURE`              | 0x84E0          | Die aktuelle aktive Textureinheit. |
+| `REPEAT`                      | 0x2901          |                                    |
+| `CLAMP_TO_EDGE`               | 0x812F          |                                    |
+| `MIRRORED_REPEAT`             | 0x8370          |                                    |
 
-### Uniform-Typen
+### Unitformen-Typen
 
 | Konstantenname | Wert   | Beschreibung |
 | -------------- | ------ | ------------ |
@@ -391,7 +391,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `SAMPLER_2D`   | 0x8B5E |              |
 | `SAMPLER_CUBE` | 0x8B60 |              |
 
-### Shader Präzisionsspezifizierte Typen
+### Shader-Präzision-spezifizierte Typen
 
 | Konstantenname | Wert   | Beschreibung |
 | -------------- | ------ | ------------ |
@@ -402,7 +402,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `MEDIUM_INT`   | 0x8DF4 |              |
 | `HIGH_INT`     | 0x8DF5 |              |
 
-### Framebuffers und Renderbuffers
+### Framebuffer und Renderbuffer
 
 | Konstantenname                                 | Wert   | Beschreibung |
 | ---------------------------------------------- | ------ | ------------ |
@@ -452,13 +452,13 @@ Konstanten, die an [`WebGLRenderingContext.pixelStorei()`](/de/docs/Web/API/WebG
 | `UNPACK_PREMULTIPLY_ALPHA_WEBGL`     | 0x9241 |              |
 | `UNPACK_COLORSPACE_CONVERSION_WEBGL` | 0x9243 |              |
 
-## Zusätzliche Konstanten in WebGL 2 definiert
+## Zusätzliche Konstanten definiert in WebGL 2
 
-Diese Konstanten sind in der [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Schnittstelle definiert. Alle WebGL-1-Konstanten sind auch in einem WebGL-2-Kontext verfügbar.
+Diese Konstanten sind in der [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Schnittstelle definiert. Alle WebGL 1 Konstanten sind auch in einem WebGL 2 Kontext verfügbar.
 
 ### Abrufen von GL-Parameterinformationen
 
-Konstanten, die an [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) übergeben werden, um anzugeben, welche Informationen zurückgegeben werden sollen.
+Konstanten, die an [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) übergeben werden, um zu spezifizieren, welche Informationen zurückgegeben werden sollen.
 
 | Konstantenname                    | Wert   | Beschreibung |
 | --------------------------------- | ------ | ------------ |
@@ -585,7 +585,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `ANY_SAMPLES_PASSED`              | 0x8C2F |              |
 | `ANY_SAMPLES_PASSED_CONSERVATIVE` | 0x8D6A |              |
 
-### Draw Buffers
+### Zeichnen von Puffern
 
 | Konstantenname          | Wert   | Beschreibung |
 | ----------------------- | ------ | ------------ |
@@ -643,7 +643,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `MAX_SAMPLES`                   | 0x8D57 |              |
 | `SAMPLER_BINDING`               | 0x8919 |              |
 
-### Buffer
+### Puffer
 
 | Konstantenname                | Wert   | Beschreibung |
 | ----------------------------- | ------ | ------------ |
@@ -679,7 +679,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `VERTEX_ATTRIB_ARRAY_INTEGER` | 0x88FD |              |
 | `VERTEX_ATTRIB_ARRAY_DIVISOR` | 0x88FE |              |
 
-### Transformations-Feedback
+### Transform-Feedback
 
 | Konstantenname                                  | Wert   | Beschreibung |
 | ----------------------------------------------- | ------ | ------------ |
@@ -755,7 +755,7 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER`   | 0x8A44 |              |
 | `UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER` | 0x8A46 |              |
 
-### Synchronisationsobjekte
+### Synchron-Objekte
 
 | Konstantenname               | Wert       | Beschreibung |
 | ---------------------------- | ---------- | ------------ |
@@ -795,24 +795,24 @@ Konstanten, die an [`WebGLRenderingContext.texParameteri()`](/de/docs/Web/API/We
 | `TIMEOUT_IGNORED`               | -1         |              |
 | `MAX_CLIENT_WAIT_TIMEOUT_WEBGL` | 0x9247     |              |
 
-## Konstanten in WebGL-Erweiterungen definiert
+## Konstanten definiert in WebGL-Erweiterungen
 
 ### ANGLE_instanced_arrays
 
-| Konstantenname                      | Wert   | Beschreibung                                                                      |
-| ----------------------------------- | ------ | --------------------------------------------------------------------------------- |
-| `VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE` | 0x88FE | Beschreibt den Frequenzteiler, der für das instanzierte Rendering verwendet wird. |
+| Konstantenname                      | Wert   | Beschreibung                                                                    |
+| ----------------------------------- | ------ | ------------------------------------------------------------------------------- |
+| `VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE` | 0x88FE | Beschreibt die Frequenzteilung, die für instanziertes Rendering verwendet wird. |
 
-Weitere Informationen finden Sie unter [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays).
+Weitere Informationen finden Sie in [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays).
 
 ### WEBGL_debug_renderer_info
 
-| Konstantenname            | Wert   | Beschreibung                                                                              |
-| ------------------------- | ------ | ----------------------------------------------------------------------------------------- |
-| `UNMASKED_VENDOR_WEBGL`   | 0x9245 | Wird an `getParameter` übergeben, um den Herstellerstring des Grafiktreibers zu erhalten. |
-| `UNMASKED_RENDERER_WEBGL` | 0x9246 | Wird an `getParameter` übergeben, um den Rendererstring des Grafiktreibers zu erhalten.   |
+| Konstantenname            | Wert   | Beschreibung                                                                               |
+| ------------------------- | ------ | ------------------------------------------------------------------------------------------ |
+| `UNMASKED_VENDOR_WEBGL`   | 0x9245 | Wird an `getParameter` übergeben, um den Hersteller-String des Grafiktreibers zu erhalten. |
+| `UNMASKED_RENDERER_WEBGL` | 0x9246 | Wird an `getParameter` übergeben, um den Renderer-String des Grafiktreibers zu erhalten.   |
 
-Weitere Informationen finden Sie unter [`WEBGL_debug_renderer_info`](/de/docs/Web/API/WEBGL_debug_renderer_info).
+Weitere Informationen finden Sie in [`WEBGL_debug_renderer_info`](/de/docs/Web/API/WEBGL_debug_renderer_info).
 
 ### EXT_texture_filter_anisotropic
 
@@ -821,46 +821,46 @@ Weitere Informationen finden Sie unter [`WEBGL_debug_renderer_info`](/de/docs/We
 | `MAX_TEXTURE_MAX_ANISOTROPY_EXT` | 0x84FF | Gibt die maximal verfügbare Anisotropie zurück.                                                       |
 | `TEXTURE_MAX_ANISOTROPY_EXT`     | 0x84FE | Wird an `texParameter` übergeben, um die gewünschte maximale Anisotropie für eine Textur festzulegen. |
 
-Weitere Informationen finden Sie unter [`EXT_texture_filter_anisotropic`](/de/docs/Web/API/EXT_texture_filter_anisotropic).
+Weitere Informationen finden Sie in [`EXT_texture_filter_anisotropic`](/de/docs/Web/API/EXT_texture_filter_anisotropic).
 
 ### WEBGL_compressed_texture_s3tc
 
-| Konstantenname                  | Wert   | Beschreibung                                                                                                                                                                  |
-| ------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `COMPRESSED_RGB_S3TC_DXT1_EXT`  | 0x83F0 | Ein DXT1-komprimiertes Bild im RGB-Bildformat.                                                                                                                                |
-| `COMPRESSED_RGBA_S3TC_DXT1_EXT` | 0x83F1 | Ein DXT1-komprimiertes Bild im RGB-Bildformat mit einem Ein/Aus-Alpha-Wert.                                                                                                   |
-| `COMPRESSED_RGBA_S3TC_DXT3_EXT` | 0x83F2 | Ein DXT3-komprimiertes Bild im RGBA-Bildformat. Im Vergleich zu einer 32-Bit-RGBA-Textur bietet es eine 4:1-Kompression.                                                      |
-| `COMPRESSED_RGBA_S3TC_DXT5_EXT` | 0x83F3 | Ein DXT5-komprimiertes Bild im RGBA-Bildformat. Es bietet ebenfalls eine 4:1-Kompression, unterscheidet sich jedoch von der DXT3-Kompression in der Art der Alphakompression. |
+| Konstantenname                  | Wert   | Beschreibung                                                                                                                                                             |
+| ------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `COMPRESSED_RGB_S3TC_DXT1_EXT`  | 0x83F0 | Eine DXT1-komprimierte Bilddatei im RGB-Bildformat.                                                                                                                      |
+| `COMPRESSED_RGBA_S3TC_DXT1_EXT` | 0x83F1 | Eine DXT1-komprimierte Bilddatei im RGB-Bildformat mit einem An-/Aus-Alpha-Wert.                                                                                         |
+| `COMPRESSED_RGBA_S3TC_DXT3_EXT` | 0x83F2 | Eine DXT3-komprimierte Bilddatei im RGBA-Bildformat. Im Vergleich zu einer 32-Bit-RGBA-Textur bietet sie eine 4:1-Komprimierung.                                         |
+| `COMPRESSED_RGBA_S3TC_DXT5_EXT` | 0x83F3 | Eine DXT5-komprimierte Bilddatei im RGBA-Bildformat. Sie bietet ebenfalls eine 4:1-Komprimierung, unterscheidet sich jedoch in der Art der Alpha-Komprimierung zur DXT3. |
 
-Weitere Informationen finden Sie unter [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc).
+Weitere Informationen finden Sie in [`WEBGL_compressed_texture_s3tc`](/de/docs/Web/API/WEBGL_compressed_texture_s3tc).
 
 ### WEBGL_compressed_texture_etc
 
-| Konstantenname                              | Wert   | Beschreibung                                                                                                                                            |
-| ------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `COMPRESSED_R11_EAC`                        | 0x9270 | Kompression im ein-Kanal (rot) unsigned Format.                                                                                                         |
-| `COMPRESSED_SIGNED_R11_EAC`                 | 0x9271 | Kompression im ein-Kanal (rot) signed Format.                                                                                                           |
-| `COMPRESSED_RG11_EAC`                       | 0x9272 | Kompression im zwei-Kanal (rot und grün) unsigned Format.                                                                                               |
-| `COMPRESSED_SIGNED_RG11_EAC`                | 0x9273 | Kompression im zwei-Kanal (rot und grün) signed Format.                                                                                                 |
-| `COMPRESSED_RGB8_ETC2`                      | 0x9274 | Komprimiert RGB8-Daten ohne Alphakanal.                                                                                                                 |
-| `COMPRESSED_RGBA8_ETC2_EAC`                 | 0x9275 | Komprimiert RGBA8-Daten. Der RGB-Teil wird genauso wie `RGB_ETC2` encodiert, aber der Alpha-Teil wird separat encodiert.                                |
-| `COMPRESSED_SRGB8_ETC2`                     | 0x9276 | Komprimiert sRGB8-Daten ohne Alphakanal.                                                                                                                |
-| `COMPRESSED_SRGB8_ALPHA8_ETC2_EAC`          | 0x9277 | Komprimiert sRGBA8-Daten. Der sRGB-Teil wird genauso wie `SRGB_ETC2` encodiert, aber der Alpha-Teil wird separat encodiert.                             |
-| `COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2`  | 0x9278 | Ähnlich wie `RGB8_ETC`, aber mit der Fähigkeit, den Alphakanal durchzustoßen, was bedeutet, ihn vollständig undurchsichtig oder transparent zu machen.  |
-| `COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2` | 0x9279 | Ähnlich wie `SRGB8_ETC`, aber mit der Fähigkeit, den Alphakanal durchzustoßen, was bedeutet, ihn vollständig undurchsichtig oder transparent zu machen. |
+| Konstantenname                              | Wert   | Beschreibung                                                                                                                                      |
+| ------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `COMPRESSED_R11_EAC`                        | 0x9270 | Ein-Kanal (rot) Komprimierung mit unsigniertem Format.                                                                                            |
+| `COMPRESSED_SIGNED_R11_EAC`                 | 0x9271 | Ein-Kanal (rot) Komprimierung mit signiertem Format.                                                                                              |
+| `COMPRESSED_RG11_EAC`                       | 0x9272 | Zwei-Kanal (rot und grün) Komprimierung mit unsigniertem Format.                                                                                  |
+| `COMPRESSED_SIGNED_RG11_EAC`                | 0x9273 | Zwei-Kanal (rot und grün) Komprimierung mit signiertem Format.                                                                                    |
+| `COMPRESSED_RGB8_ETC2`                      | 0x9274 | Komprimiert RGB8-Daten ohne Alphakanal.                                                                                                           |
+| `COMPRESSED_RGBA8_ETC2_EAC`                 | 0x9275 | Komprimiert RGBA8-Daten. Der RGB-Teil wird genauso kodiert wie `RGB_ETC2`, aber der Alpha-Teil wird separat kodiert.                              |
+| `COMPRESSED_SRGB8_ETC2`                     | 0x9276 | Komprimiert sRGB8-Daten ohne Alphakanal.                                                                                                          |
+| `COMPRESSED_SRGB8_ALPHA8_ETC2_EAC`          | 0x9277 | Komprimiert sRGBA8-Daten. Der sRGB-Teil wird genauso kodiert wie `SRGB_ETC2`, aber der Alpha-Teil wird separat kodiert.                           |
+| `COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2`  | 0x9278 | Ähnlich wie `RGB8_ETC`, aber mit der Möglichkeit, den Alphakanal durchzuschalten, was bedeutet, ihn vollständig opak oder transparent zu machen.  |
+| `COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2` | 0x9279 | Ähnlich wie `SRGB8_ETC`, aber mit der Möglichkeit, den Alphakanal durchzuschalten, was bedeutet, ihn vollständig opak oder transparent zu machen. |
 
-Weitere Informationen finden Sie unter [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc).
+Weitere Informationen finden Sie in [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc).
 
 ### WEBGL_compressed_texture_pvrtc
 
-| Konstantenname                     | Wert   | Beschreibung                                                 |
-| ---------------------------------- | ------ | ------------------------------------------------------------ |
-| `COMPRESSED_RGB_PVRTC_4BPPV1_IMG`  | 0x8C00 | RGB-Kompression im 4-Bit-Modus. Ein Block für je 4×4 Pixel.  |
-| `COMPRESSED_RGBA_PVRTC_4BPPV1_IMG` | 0x8C02 | RGBA-Kompression im 4-Bit-Modus. Ein Block für je 4×4 Pixel. |
-| `COMPRESSED_RGB_PVRTC_2BPPV1_IMG`  | 0x8C01 | RGB-Kompression im 2-Bit-Modus. Ein Block für je 8×4 Pixel.  |
-| `COMPRESSED_RGBA_PVRTC_2BPPV1_IMG` | 0x8C03 | RGBA-Kompression im 2-Bit-Modus. Ein Block für je 8×4 Pixel. |
+| Konstantenname                     | Wert   | Beschreibung                                                        |
+| ---------------------------------- | ------ | ------------------------------------------------------------------- |
+| `COMPRESSED_RGB_PVRTC_4BPPV1_IMG`  | 0x8C00 | RGB-Komprimierung im 4-Bit-Modus. Ein Block für jeweils 4×4 Pixel.  |
+| `COMPRESSED_RGBA_PVRTC_4BPPV1_IMG` | 0x8C02 | RGBA-Komprimierung im 4-Bit-Modus. Ein Block für jeweils 4×4 Pixel. |
+| `COMPRESSED_RGB_PVRTC_2BPPV1_IMG`  | 0x8C01 | RGB-Komprimierung im 2-Bit-Modus. Ein Block für jeweils 8×4 Pixel.  |
+| `COMPRESSED_RGBA_PVRTC_2BPPV1_IMG` | 0x8C03 | RGBA-Komprimierung im 2-Bit-Modus. Ein Block für jeweils 8×4 Pixel. |
 
-Weitere Informationen finden Sie unter [`WEBGL_compressed_texture_pvrtc`](/de/docs/Web/API/WEBGL_compressed_texture_pvrtc).
+Weitere Informationen finden Sie in [`WEBGL_compressed_texture_pvrtc`](/de/docs/Web/API/WEBGL_compressed_texture_pvrtc).
 
 ### WEBGL_compressed_texture_etc1
 
@@ -868,103 +868,103 @@ Weitere Informationen finden Sie unter [`WEBGL_compressed_texture_pvrtc`](/de/do
 | --------------------------- | ------ | --------------------------------------------- |
 | `COMPRESSED_RGB_ETC1_WEBGL` | 0x8D64 | Komprimiert 24-Bit-RGB-Daten ohne Alphakanal. |
 
-Weitere Informationen finden Sie unter [`WEBGL_compressed_texture_etc1`](/de/docs/Web/API/WEBGL_compressed_texture_etc1).
+Weitere Informationen finden Sie in [`WEBGL_compressed_texture_etc1`](/de/docs/Web/API/WEBGL_compressed_texture_etc1).
 
 ### WEBGL_depth_texture
 
 | Konstantenname            | Wert   | Beschreibung                                       |
 | ------------------------- | ------ | -------------------------------------------------- |
-| `UNSIGNED_INT_24_8_WEBGL` | 0x84FA | Unsigned Integer Typ für 24-Bit-Tiefentexturdaten. |
+| `UNSIGNED_INT_24_8_WEBGL` | 0x84FA | Unsigned integer Typ für 24-Bit Tiefe-Texturdaten. |
 
-Weitere Informationen finden Sie unter [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture).
+Weitere Informationen finden Sie in [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture).
 
 ### OES_texture_half_float
 
-| Konstantenname   | Wert   | Beschreibung                   |
-| ---------------- | ------ | ------------------------------ |
-| `HALF_FLOAT_OES` | 0x8D61 | Halber Gleitkommatyp (16-Bit). |
+| Konstantenname   | Wert   | Beschreibung                    |
+| ---------------- | ------ | ------------------------------- |
+| `HALF_FLOAT_OES` | 0x8D61 | Halber Fließkomma-Typ (16-Bit). |
 
-Weitere Informationen finden Sie unter [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float).
+Weitere Informationen finden Sie in [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float).
 
 ### WEBGL_color_buffer_float
 
-| Konstantenname                              | Wert   | Beschreibung                             |
-| ------------------------------------------- | ------ | ---------------------------------------- |
-| `RGBA32F_EXT`                               | 0x8814 | RGBA 32-Bit Gleitkomma Farbrenderformat. |
-| `RGB32F_EXT`                                | 0x8815 | RGB 32-Bit Gleitkomma Farbrenderformat.  |
-| `FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT` | 0x8211 |                                          |
-| `UNSIGNED_NORMALIZED_EXT`                   | 0x8C17 |                                          |
+| Konstantenname                              | Wert   | Beschreibung                                    |
+| ------------------------------------------- | ------ | ----------------------------------------------- |
+| `RGBA32F_EXT`                               | 0x8814 | RGBA 32-Bit Fließkomma-farb-renderbares Format. |
+| `RGB32F_EXT`                                | 0x8815 | RGB 32-Bit Fließkomma-farb-renderbares Format.  |
+| `FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT` | 0x8211 |                                                 |
+| `UNSIGNED_NORMALIZED_EXT`                   | 0x8C17 |                                                 |
 
-Weitere Informationen finden Sie unter [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float).
+Weitere Informationen finden Sie in [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float).
 
 ### EXT_blend_minmax
 
-| Konstantenname | Wert   | Beschreibung                                                      |
-| -------------- | ------ | ----------------------------------------------------------------- |
-| `MIN_EXT`      | 0x8007 | Erzeugt die minimalen Farbkomponenten der Quell- und Ziel-Farben. |
-| `MAX_EXT`      | 0x8008 | Erzeugt die maximalen Farbkomponenten der Quell- und Ziel-Farben. |
+| Konstantenname | Wert   | Beschreibung                                                         |
+| -------------- | ------ | -------------------------------------------------------------------- |
+| `MIN_EXT`      | 0x8007 | Produziert die minimalen Farbkomponenten der Quell- und Ziel-Farben. |
+| `MAX_EXT`      | 0x8008 | Produziert die maximalen Farbkomponenten der Quell- und Ziel-Farben. |
 
-Weitere Informationen finden Sie unter [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax).
+Weitere Informationen finden Sie in [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax).
 
 ### EXT_sRGB
 
-| Konstantenname                              | Wert   | Beschreibung                                                  |
-| ------------------------------------------- | ------ | ------------------------------------------------------------- |
-| `SRGB_EXT`                                  | 0x8C40 | Unsized sRGB-Format, das die Präzision dem Treiber überlässt. |
-| `SRGB_ALPHA_EXT`                            | 0x8C42 | Unsized sRGB-Format mit unsized Alphakomponente.              |
-| `SRGB8_ALPHA8_EXT`                          | 0x8C43 | Sized (8-Bit) sRGB- und Alpha-Formate.                        |
-| `FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT` | 0x8210 | Gibt die Farb-Codierung des Framebuffers zurück.              |
+| Konstantenname                              | Wert   | Beschreibung                                                           |
+| ------------------------------------------- | ------ | ---------------------------------------------------------------------- |
+| `SRGB_EXT`                                  | 0x8C40 | Unsanktioniertes sRGB-Format, das die Präzision dem Treiber überlässt. |
+| `SRGB_ALPHA_EXT`                            | 0x8C42 | Unsanktioniertes sRGB-Format mit unsanktioniertem Alphakomponente.     |
+| `SRGB8_ALPHA8_EXT`                          | 0x8C43 | Gegrößertes (8-Bit) sRGB- und Alphakomponentenformate.                 |
+| `FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT` | 0x8210 | Gibt die Farb-Codierung des Framebuffers zurück.                       |
 
-Weitere Informationen finden Sie unter [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB).
+Weitere Informationen finden Sie in [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB).
 
 ### OES_standard_derivatives
 
 | Konstantenname                        | Wert   | Beschreibung                                                                                                        |
 | ------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| `FRAGMENT_SHADER_DERIVATIVE_HINT_OES` | 0x8B8B | Gibt die Genauigkeit der Ableitungsberechnung für die eingebauten GLSL-Funktionen an: `dFdx`, `dFdy`, und `fwidth`. |
+| `FRAGMENT_SHADER_DERIVATIVE_HINT_OES` | 0x8B8B | Gibt die Genauigkeit der Ableitungsberechnung für die GLSL eingebauten Funktionen an: `dFdx`, `dFdy`, und `fwidth`. |
 
-Weitere Informationen finden Sie unter [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives).
+Weitere Informationen finden Sie in [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives).
 
 ### WEBGL_draw_buffers
 
-| Konstantenname                | Wert   | Beschreibung                                                |
-| ----------------------------- | ------ | ----------------------------------------------------------- |
-| `COLOR_ATTACHMENT0_WEBGL`     | 0x8CE0 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT1_WEBGL`     | 0x8CE1 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT2_WEBGL`     | 0x8CE2 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT3_WEBGL`     | 0x8CE3 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT4_WEBGL`     | 0x8CE4 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT5_WEBGL`     | 0x8CE5 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT6_WEBGL`     | 0x8CE6 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT7_WEBGL`     | 0x8CE7 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT8_WEBGL`     | 0x8CE8 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT9_WEBGL`     | 0x8CE9 | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT10_WEBGL`    | 0x8CEA | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT11_WEBGL`    | 0x8CEB | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT12_WEBGL`    | 0x8CEC | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT13_WEBGL`    | 0x8CED | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT14_WEBGL`    | 0x8CEE | Farb-Anheftungspunkt des Framebuffers                       |
-| `COLOR_ATTACHMENT15_WEBGL`    | 0x8CEF | Farb-Anheftungspunkt des Framebuffers                       |
-| `DRAW_BUFFER0_WEBGL`          | 0x8825 | Zeichenpuffer                                               |
-| `DRAW_BUFFER1_WEBGL`          | 0x8826 | Zeichenpuffer                                               |
-| `DRAW_BUFFER2_WEBGL`          | 0x8827 | Zeichenpuffer                                               |
-| `DRAW_BUFFER3_WEBGL`          | 0x8828 | Zeichenpuffer                                               |
-| `DRAW_BUFFER4_WEBGL`          | 0x8829 | Zeichenpuffer                                               |
-| `DRAW_BUFFER5_WEBGL`          | 0x882A | Zeichenpuffer                                               |
-| `DRAW_BUFFER6_WEBGL`          | 0x882B | Zeichenpuffer                                               |
-| `DRAW_BUFFER7_WEBGL`          | 0x882C | Zeichenpuffer                                               |
-| `DRAW_BUFFER8_WEBGL`          | 0x882D | Zeichenpuffer                                               |
-| `DRAW_BUFFER9_WEBGL`          | 0x882E | Zeichenpuffer                                               |
-| `DRAW_BUFFER10_WEBGL`         | 0x882F | Zeichenpuffer                                               |
-| `DRAW_BUFFER11_WEBGL`         | 0x8830 | Zeichenpuffer                                               |
-| `DRAW_BUFFER12_WEBGL`         | 0x8831 | Zeichenpuffer                                               |
-| `DRAW_BUFFER13_WEBGL`         | 0x8832 | Zeichenpuffer                                               |
-| `DRAW_BUFFER14_WEBGL`         | 0x8833 | Zeichenpuffer                                               |
-| `DRAW_BUFFER15_WEBGL`         | 0x8834 | Zeichenpuffer                                               |
-| `MAX_COLOR_ATTACHMENTS_WEBGL` | 0x8CDF | Maximale Anzahl von Farb-Anheftungspunkten des Framebuffers |
-| `MAX_DRAW_BUFFERS_WEBGL`      | 0x8824 | Maximale Anzahl von Zeichenpuffern                          |
+| Konstantenname                | Wert   | Beschreibung                                       |
+| ----------------------------- | ------ | -------------------------------------------------- |
+| `COLOR_ATTACHMENT0_WEBGL`     | 0x8CE0 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT1_WEBGL`     | 0x8CE1 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT2_WEBGL`     | 0x8CE2 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT3_WEBGL`     | 0x8CE3 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT4_WEBGL`     | 0x8CE4 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT5_WEBGL`     | 0x8CE5 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT6_WEBGL`     | 0x8CE6 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT7_WEBGL`     | 0x8CE7 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT8_WEBGL`     | 0x8CE8 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT9_WEBGL`     | 0x8CE9 | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT10_WEBGL`    | 0x8CEA | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT11_WEBGL`    | 0x8CEB | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT12_WEBGL`    | 0x8CEC | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT13_WEBGL`    | 0x8CED | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT14_WEBGL`    | 0x8CEE | Framebuffer Farb-Anhangspunkt                      |
+| `COLOR_ATTACHMENT15_WEBGL`    | 0x8CEF | Framebuffer Farb-Anhangspunkt                      |
+| `DRAW_BUFFER0_WEBGL`          | 0x8825 | Zeichenpuffer                                      |
+| `DRAW_BUFFER1_WEBGL`          | 0x8826 | Zeichenpuffer                                      |
+| `DRAW_BUFFER2_WEBGL`          | 0x8827 | Zeichenpuffer                                      |
+| `DRAW_BUFFER3_WEBGL`          | 0x8828 | Zeichenpuffer                                      |
+| `DRAW_BUFFER4_WEBGL`          | 0x8829 | Zeichenpuffer                                      |
+| `DRAW_BUFFER5_WEBGL`          | 0x882A | Zeichenpuffer                                      |
+| `DRAW_BUFFER6_WEBGL`          | 0x882B | Zeichenpuffer                                      |
+| `DRAW_BUFFER7_WEBGL`          | 0x882C | Zeichenpuffer                                      |
+| `DRAW_BUFFER8_WEBGL`          | 0x882D | Zeichenpuffer                                      |
+| `DRAW_BUFFER9_WEBGL`          | 0x882E | Zeichenpuffer                                      |
+| `DRAW_BUFFER10_WEBGL`         | 0x882F | Zeichenpuffer                                      |
+| `DRAW_BUFFER11_WEBGL`         | 0x8830 | Zeichenpuffer                                      |
+| `DRAW_BUFFER12_WEBGL`         | 0x8831 | Zeichenpuffer                                      |
+| `DRAW_BUFFER13_WEBGL`         | 0x8832 | Zeichenpuffer                                      |
+| `DRAW_BUFFER14_WEBGL`         | 0x8833 | Zeichenpuffer                                      |
+| `DRAW_BUFFER15_WEBGL`         | 0x8834 | Zeichenpuffer                                      |
+| `MAX_COLOR_ATTACHMENTS_WEBGL` | 0x8CDF | Maximale Anzahl der Framebuffer Farb-Anhangspunkte |
+| `MAX_DRAW_BUFFERS_WEBGL`      | 0x8824 | Maximale Anzahl der Zeichenpuffer                  |
 
-Weitere Informationen finden Sie unter [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers).
+Weitere Informationen finden Sie in [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers).
 
 ### OES_vertex_array_object
 
@@ -972,21 +972,21 @@ Weitere Informationen finden Sie unter [`WEBGL_draw_buffers`](/de/docs/Web/API/W
 | -------------------------- | ------ | ---------------------------------------- |
 | `VERTEX_ARRAY_BINDING_OES` | 0x85B5 | Das gebundene Vertex-Array-Objekt (VAO). |
 
-Weitere Informationen finden Sie unter [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object).
+Weitere Informationen finden Sie in [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object).
 
 ### EXT_disjoint_timer_query
 
-| Konstantenname               | Wert   | Beschreibung                                                                                            |
-| ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
-| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die zur Speicherung des Abfrageergebnisses für das gegebene Ziel verwendet werden. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                                                             |
-| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                                    |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der angibt, ob ein Abfrageergebnis verfügbar ist.                                          |
-| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                                    |
-| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                      |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der angibt, ob die GPU eine disjunkte Operation ausgeführt hat.                            |
+| Konstantenname               | Wert   | Beschreibung                                                                                           |
+| ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten.     |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                            |
+| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                                   |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.                              |
+| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                                   |
+| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                     |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der angibt, ob die GPU eine nicht zusammenhängende Operation durchgeführt hat oder nicht. |
 
-Weitere Informationen finden Sie unter [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query).
+Weitere Informationen finden Sie in [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query).
 
 ## Spezifikationen
 

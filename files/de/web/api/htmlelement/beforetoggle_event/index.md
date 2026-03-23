@@ -1,28 +1,28 @@
 ---
-title: "HTMLElement: beforetoggle Ereignis"
+title: "HTMLElement: beforetoggle Event"
 slug: Web/API/HTMLElement/beforetoggle_event
 l10n:
-  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
+  sourceCommit: 887acda9b43338ce492d4c0ad1a2145e383187b9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`beforetoggle`** Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interfaces wird an einem [Popover](/de/docs/Web/API/Popover_API) oder einem {{htmlelement("dialog")}} Element kurz bevor es angezeigt oder versteckt wird, ausgelöst.
+Das **`beforetoggle`**-Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces wird bei einem [Popover](/de/docs/Web/API/Popover_API) oder {{htmlelement("dialog")}}-Element unmittelbar bevor es angezeigt oder verborgen wird, ausgelöst.
 
-- Wenn das Element von versteckt zu sichtbar wechselt, wird die Eigenschaft [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState) auf `closed` gesetzt und die Eigenschaft [`event.newState`](/de/docs/Web/API/ToggleEvent/newState) wird auf `open` gesetzt.
-- Wenn das Element von sichtbar zu versteckt wechselt, dann ist `event.oldState` `open` und `event.newState` `closed`.
+- Wenn das Element von verborgen zu angezeigt wechselt, ist die [`event.oldState`](/de/docs/Web/API/ToggleEvent/oldState)-Eigenschaft auf `closed` gesetzt und die [`event.newState`](/de/docs/Web/API/ToggleEvent/newState)-Eigenschaft auf `open`.
+- Wenn das Element von angezeigt zu verborgen wechselt, wird `event.oldState` `open` sein und `event.newState` `closed`.
 
-Dieses Ereignis ist [abbrechbar](/de/docs/Web/API/Event/cancelable), wenn ein Element geöffnet ("show") wird, jedoch nicht, wenn das Element geschlossen wird.
+Dieses Ereignis ist [abbrechbar](/de/docs/Web/API/Event/cancelable), wenn ein Element zu "offen" ("show") umgeschaltet wird, jedoch nicht, wenn das Element geschlossen wird.
 
-Dieses Ereignis kann unter anderem dazu verwendet werden, um:
+Unter anderem kann dieses Ereignis verwendet werden, um:
 
 - zu verhindern, dass ein Element angezeigt wird.
-- Klassen oder Eigenschaften vom Element oder zugehörigen Elementen hinzuzufügen oder zu entfernen, beispielsweise um das Animationsverhalten eines Dialogs beim Öffnen und Schließen zu steuern.
-- den Zustand des Elements zu löschen, bevor es geöffnet oder nachdem es versteckt wurde, beispielsweise um ein Dialogformular und den Rückgabewert auf einen leeren Zustand zurückzusetzen oder um alle verschachtelten manuellen Popover beim erneuten Öffnen eines Popups zu verstecken.
+- Klassen oder Eigenschaften von dem Element oder assoziierten Elementen hinzuzufügen oder zu entfernen, um beispielsweise das Animationsverhalten eines Dialogs zu steuern, während er geöffnet und geschlossen wird.
+- den Zustand des Elements zu löschen, bevor es geöffnet oder nachdem es verborgen wurde, um zum Beispiel ein Dialogformular zurückzusetzen und den Rückgabewert in einen leeren Zustand zu versetzen oder geschachtelte manuelle Popovers zu verbergen, wenn ein Popup wieder geöffnet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("beforetoggle", (event) => { })
@@ -38,15 +38,16 @@ Ein [`ToggleEvent`](/de/docs/Web/API/ToggleEvent). Erbt von [`Event`](/de/docs/W
 
 ## Beispiele
 
-Die untenstehenden Beispiele zeigen, wie das `beforetoggle` Ereignis für ein [Popover](/de/docs/Web/API/Popover_API) oder ein {{htmlelement("dialog")}} Element verwendet werden könnte. Dieselben Beispiele würden ähnlich auf anderen Elementtypen funktionieren.
+Die folgenden Beispiele demonstrieren, wie das `beforetoggle`-Ereignis für ein [Popover](/de/docs/Web/API/Popover_API)-Element verwendet werden könnte.
+Die gleichen Beispiele würden ähnlich auf einem {{htmlelement("dialog")}}-Element funktionieren.
 
 ### Einfaches Beispiel
 
-Dieses Beispiel zeigt, wie man das `beforetoggle` Ereignis abfängt und das Ergebnis protokolliert.
+Dieses Beispiel zeigt, wie das `beforetoggle`-Ereignis überwacht und das Ergebnis protokolliert wird.
 
 #### HTML
 
-Das HTML besteht aus einem Popover und einem Schalter, um es zu öffnen und zu schließen.
+Das HTML besteht aus einem Popover und einem Button, um es zu öffnen und zu schließen.
 
 ```html
 <button popovertarget="mypopover">Toggle the popover</button>
@@ -76,7 +77,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code fügt einen Ereignis-Listener für das `beforetoggle` Ereignis hinzu und protokolliert den Zustand.
+Der Code fügt einen Ereignislistener für das `beforetoggle`-Ereignis hinzu und protokolliert den Zustand.
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -92,17 +93,17 @@ popover.addEventListener("beforetoggle", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Einfaches Beispiel", '100%', "250px")}}
+{{EmbedLiveSample("Basic example", '100%', "250px")}}
 
 ### Verhindern, dass ein Popover geöffnet wird
 
-Das `beforetoggle` Ereignis ist abbrechbar, wenn es beim Öffnen eines Elements ausgelöst wird.
+Das `beforetoggle`-Ereignis ist abbrechbar, wenn es beim Öffnen eines Elements ausgelöst wird.
 
-Unten zeigen wir, wie ein Popover zuerst überprüfen könnte, ob es geöffnet werden darf, und falls nicht, wird [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen, um das Ereignis abzubrechen. In diesem Beispiel verwenden wir einen Schalter, um festzulegen, ob das Popover geöffnet werden kann oder nicht: In einem "vollständigeren" Beispiel könnte dies vom Anwendungszustand oder davon abhängen, ob die Daten im Popover zum Anzeigen bereit sind.
+Unten zeigen wir, wie ein Popover zuerst überprüft, ob es geöffnet werden darf, und wenn nicht, wird [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen, um das Ereignis abzubrechen. In diesem Beispiel verwenden wir eine Checkbox, um festzulegen, ob das Popover geöffnet werden kann oder nicht: In einem umfassenderen Beispiel könnte dies vom Anwendungszustand oder davon abhängen, ob die Daten im Popover bereit zur Anzeige sind.
 
 #### HTML
 
-Das HTML besteht aus einem Popover, einem Schalter, um es zu öffnen und zu schließen, und einem Schalter, um festzulegen, ob der Button geöffnet werden kann.
+Das HTML besteht aus einem Popover, einem Button zum Öffnen und Schließen und einer Checkbox, um festzulegen, ob das Popover geöffnet werden darf.
 
 ```html
 <button popovertarget="mypopover">Toggle the popover</button>
@@ -135,7 +136,8 @@ function log(text) {
 
 #### JavaScript
 
-Zuerst richten wir den Code ein, um einen Zustand zu simulieren, in dem wir nicht möchten, dass das Popover geöffnet wird. Dies wird durch die Variable `allowOpen` dargestellt, die umgeschaltet wird, wenn das zugehörige Kontrollkästchen umgeschaltet wird.
+Zuerst setzen wir den Code auf, um einen Zustand zu simulieren, in dem wir dem Popover erlauben wollen, sich zu öffnen.
+Dies wird durch die Variable `allowOpen` dargestellt, die umgeschaltet wird, wenn die zugehörige Checkbox umgeschaltet wird.
 
 ```js
 const allowCheckbox = document.getElementById("allow-popover");
@@ -147,7 +149,8 @@ allowCheckbox.addEventListener("change", (event) => {
 });
 ```
 
-Der Code fügt einen Ereignis-Listener für das `beforetoggle` Ereignis hinzu. Wenn `allowOpen` false ist, wird `preventDefault()` aufgerufen, was verhindert, dass das Popup geöffnet wird.
+Der Code fügt einen Ereignislistener für das `beforetoggle`-Ereignis hinzu.
+Wenn `allowOpen` falsch ist, wird `preventDefault()` aufgerufen, was das Öffnen des Popups verhindert.
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -168,27 +171,11 @@ popover.addEventListener("beforetoggle", (event) => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Verhindern, dass ein Popover geöffnet wird", '100%', "250px")}}
-
-### Eine Anmerkung zur Zusammenführung von beforetoggle Ereignissen
-
-Wenn mehrere `beforetoggle` Ereignisse ausgelöst werden, bevor der Ereignisschleifen-Zyklus eine Chance hat, nur ein einziges Ereignis wird ausgelöst. Dies wird als "Ereignis-Zusammenführung" bezeichnet.
-
-Zum Beispiel:
-
-```js
-popover.addEventListener("beforetoggle", () => {
-  // …
-});
-
-popover.showPopover();
-popover.hidePopover();
-// `beforetoggle` only fires once
-```
+{{EmbedLiveSample("Prevent a popover opening", '100%', "250px")}}
 
 ### Weitere Beispiele
 
-- Beispiel zum [Öffnen eines modalen Dialogs](/de/docs/Web/API/HTMLDialogElement#open_close_a_modal_dialog) in `HTMLDialogElement`
+- [Öffnen eines modalen Dialogs](/de/docs/Web/API/HTMLDialogElement#open_close_a_modal_dialog) im Beispiel `HTMLDialogElement`
 
 ## Spezifikationen
 
@@ -200,6 +187,6 @@ popover.hidePopover();
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) HTML globaler Attribut
+- [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globales HTML-Attribut
 - [Popover API](/de/docs/Web/API/Popover_API)
 - Verwandtes Ereignis: [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)

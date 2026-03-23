@@ -3,14 +3,14 @@ title: "ReportingObserver: disconnect() Methode"
 short-title: disconnect()
 slug: Web/API/ReportingObserver/disconnect
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`disconnect()`**-Methode des [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Interfaces stoppt einen Berichtsbeobachter, der zuvor begonnen hatte, zu beobachten und Berichte zu sammeln.
+Die **`disconnect()`** Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Schnittstelle stoppt einen Reporting-Observer, der zuvor mit dem Sammeln von Berichten begonnen hatte.
 
-Nach dem Aufruf von `disconnect()` werden weder [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) noch der `records`-Parameter des [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Callbacks Berichte zurückgeben. Der zugehörige Beobachter wird nicht mehr aktiv sein.
+Nach dem Aufruf von `disconnect()` werden weder [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) noch der [`reports`](/de/docs/Web/API/ReportingObserver/ReportingObserver#reports) Parameter des `ReportingObserver()` Rückrufs Berichte zurückgeben. Der zugehörige Observer wird nicht mehr aktiv sein.
 
 ## Syntax
 
@@ -24,9 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 const options = {

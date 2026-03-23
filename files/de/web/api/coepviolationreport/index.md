@@ -2,67 +2,67 @@
 title: COEPViolationReport
 slug: Web/API/COEPViolationReport
 l10n:
-  sourceCommit: 2d0aa21573c6ceb33aeadf94ce6cd84588b74123
+  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
 ---
 
 {{APIRef("Reporting API")}}
 
-Das `COEPViolationReport`-Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert einen Bericht, der erstellt wird, wenn ein Dokument seine {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) verletzt.
+Das `COEPViolationReport`-Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) stellt einen Bericht dar, der erstellt wird, wenn ein Dokument seine {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) verletzt.
 
-Berichte dieser Art können innerhalb einer Seite mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, oder eine serialisierte Version kann an einen [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
+Berichte dieser Art können innerhalb einer Seite mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, oder eine serialisierte Version kann an einen [Berichtsserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
 
 ## Instanz-Eigenschaften
 
 - `body`
-  - : Der Hauptteil des Berichts, der mehr Informationen über den Verstoß enthält.
+  - : Der Inhalt des Berichts.
     Dies ist ein Objekt mit den folgenden Eigenschaften:
     - `type`
-      - : Ein String, der die Ursache des Verstoßes darstellt, der den Bericht ausgelöst hat.
-        Dieser kann einen der folgenden Werte haben:
+      - : Ein String, der die Ursache der Verletzung beschreibt, die den Bericht ausgelöst hat.
+        Dies kann einen der folgenden Werte haben:
         - `"corp"`
-          - : Ein Dokument mit einer auf [`require-corp`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#require-corp) gesetzten {{httpheader("Cross-Origin-Embedder-Policy")}} versuchte, eine Cross-Origin-Subressource zu laden, die nicht explizit erlaubt, eingebettet zu werden (durch Setzen einer geeigneten {{httpheader("Cross-Origin-Resource-Policy")}}).
+          - : Ein Dokument mit {{httpheader("Cross-Origin-Embedder-Policy")}} auf [`require-corp`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#require-corp) gesetzt, hat versucht, eine Cross-Origin-Unterressource zu laden, die nicht explizit erlaubt, eingebettet zu werden (indem es eine passende {{httpheader("Cross-Origin-Resource-Policy")}} setzt).
         - `"navigation"`
-          - : Ein {{htmlelement("iframe")}} in einem Dokument, das entweder COEP-`require-corp`- oder `credentialless`-Direktiven hat, lädt ein Dokument, das:
-            - Weder die COEP-`require-corp`- noch die `credentialless`-Direktive hat
-            - Cross-Origin mit dem einbettenden Dokument ist und keinen CORP-Header hat, der das Einbetten im übergeordneten Dokument erlaubt
+          - : Ein {{htmlelement("iframe")}} in einem Dokument, das entweder die COEP-Direktiven `require-corp` oder `credentialless` hat, lädt ein Dokument, das:
+            - Weder die COEP-Direktive `require-corp` noch `credentialless` hat
+            - Cross-Origin mit dem einbettenden Dokument ist und keinen CORP-Header hat, der das Einbetten in das Eltern-Dokument erlaubt
         - `"worker initialization"`
-          - : Ein dedizierter Worker, der von einem Dokument mit entweder COEP-`require-corp`- oder `credentialless`-Direktiven erstellt wurde, versucht, ein Worker-Skript zu laden, bei dem keine dieser Direktiven gesetzt ist.
+          - : Ein dedizierter Worker, der von einem Dokument mit den COEP-Direktiven `require-corp` oder `credentialless` erstellt wird, versucht ein Workerskript zu laden, das keine dieser Direktiven gesetzt hat.
 
     - `blockedURL`
-      - : Ein String, der die URL der Ressource enthält, die durch einen erzwungenen COEP-Verstoß vom Laden abgehalten wurde.
+      - : Ein String, der die URL der Ressource enthält, die durch eine durchgesetzte COEP-Verletzung vom Laden blockiert wurde.
     - `destination` {{non-standard_inline}}
       - : Ein String, der das _Ziel_ der blockierten Ressource angibt.
         Dies kann einen der Werte von [`Request.destination`](/de/docs/Web/API/Request/destination#value) haben.
     - `disposition`
-      - : Ein String, der angibt, ob der Verstoß erzwungen oder nur gemeldet wurde.
-        Dieser kann einen der folgenden Werte haben:
+      - : Ein String, der angibt, ob die Verletzung durchgesetzt oder nur berichtet wurde.
+        Dies kann einen der folgenden Werte haben:
         - `"enforce"`
-          - : Der Verstoß verursachte die Blockierung des Ladens der eingebetteten Ressource.
-            Dies ist der Fall bei Verstößen gegen Richtlinien, die mit {{httpheader("Cross-Origin-Embedder-Policy")}} festgelegt werden.
+          - : Die Verletzung hat das Laden der eingebetteten Ressource blockiert.
+            Dies wird für Verletzungen von Richtlinien gesetzt, die mit {{httpheader("Cross-Origin-Embedder-Policy")}} festgelegt wurden.
         - `"reporting"`
-          - : Der Verstoß wurde gemeldet, ohne die Ressource am Laden zu hindern.
-            Dies ist der Fall bei Verstößen gegen Richtlinien, die mit {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} festgelegt werden.
+          - : Die Verletzung wurde gemeldet, ohne die Ressource vom Laden zu blockieren.
+            Dies wird für Verletzungen von Richtlinien gesetzt, die mit {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} festgelegt wurden.
 
 - `type`
-  - : Der String `"coep"`, der angibt, dass es sich um einen COEP-Verstoßbericht handelt.
+  - : Der String `"coep"`, der angibt, dass dies ein COEP-Verletzungsbericht ist.
 
 - `url`
-  - : Ein String, der die URL des Dokuments repräsentiert, das den Bericht erstellt hat.
+  - : Ein String, der die URL des Dokuments darstellt, das den Bericht erzeugt hat.
 
 ## Beschreibung
 
-Die Richtlinien eines Dokuments zum Laden und Einbetten von Cross-Origin-Ressourcen, die im `no-cors`-Modus angefordert werden, werden mittels des {{httpheader("Cross-Origin-Embedder-Policy")}}-HTTP-Headers konfiguriert und erzwungen und können auch gemeldet, aber nicht erzwungen werden, unter Verwendung des {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}}-Headers.
+Die Richtlinien eines Dokuments zum Laden und Einbetten von Cross-Origin-Ressourcen, die im `no-cors`-Modus angefordert werden, werden mit dem {{httpheader("Cross-Origin-Embedder-Policy")}} HTTP-Header konfiguriert und durchgesetzt, und können auch mit dem {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}}-Header gemeldet, aber nicht durchgesetzt werden.
 
-COEP-Richtlinienverstöße können gemeldet werden, wann immer eine durch diese Header festgelegte Richtlinie das Laden einer Ressource blockiert (oder blockieren würde).
+COEP-Richtlinienverletzungen können jederzeit gemeldet werden, wenn eine durch diese Header festgelegte Richtlinie das Laden einer Ressource blockiert (oder blockieren würde).
 
-Sie können COEP-Verstoßberichte innerhalb der Seite überwachen, die die Richtlinie festlegt, indem Sie die [Reporting API](/de/docs/Web/API/Reporting_API) verwenden.
-Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte zu lauschen, indem Sie eine Callback-Methode und eine (optionale) `options`-Eigenschaft übergeben, die die Arten von Berichten spezifiziert, die Sie berichten möchten.
-Die Callback-Methode wird dann mit Berichten der angeforderten Arten aufgerufen, wobei ein Berichtsobjekt übergeben wird.
-Für COEP-Verstöße wird das Objekt ein `COEPViolationReport` sein (das die [`type`](#type)-Eigenschaft mit dem Wert `"coep"` gesetzt hat).
+Sie können COEP-Verletzungsberichte innerhalb der Seite überwachen, die die Richtlinie setzt, indem Sie die [Reporting API](/de/docs/Web/API/Reporting_API) verwenden.
+Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte zu lauschen. Dabei wird eine Callback-Methode und eine (optionale) `options`-Eigenschaft übergeben, die die Typen von Berichten spezifiziert, die Sie melden möchten.
+Die Callback-Methode wird dann mit Berichten der angeforderten Typen aufgerufen, wobei ein Berichtsobjekt übergeben wird.
+Für COEP-Verletzungen wird das Objekt ein `COEPViolationReport` sein (das die [`type`](#type) Eigenschaft auf `"coep"` gesetzt hat).
 
-Die Struktur eines typischen Berichts ist unten dargestellt.
-Beachten Sie, dass wir sowohl die URL der Seite, deren Richtlinie verletzt wurde (`url`), als auch die Ressource, die vom Laden blockiert wurde (`body.blockedURL`), sehen können.
-Wir können auch sehen, dass der Bericht durch einen `corp`-Verstoß ausgelöst wurde und dass er durch `body.disposition` erzwungen wurde (und nicht nur gemeldet).
+Die Struktur eines typischen Berichts wird unten gezeigt.
+Beachten Sie, dass wir die URL der Seite sehen können, deren Richtlinie verletzt wurde (`url`), und die Ressource, die vom Laden blockiert wurde (`body.blockedURL`).
+Wir können auch sehen, dass der Bericht durch eine `corp`-Verletzung ausgelöst wurde und aus der `body.disposition`, dass sie durchgesetzt wurde (und nicht nur gemeldet).
 
 ```json
 {
@@ -77,11 +77,11 @@ Wir können auch sehen, dass der Bericht durch einen `corp`-Verstoß ausgelöst 
 }
 ```
 
-Verstoßberichte können auch als JSON-Objekt in einem `POST` an einen konfigurierten [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
-Der Name des Reporting-Server-Endpunkts wird in der [`report-to`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#report-to_endpoint_name)-Richtliniendirektive des {{httpheader("Cross-Origin-Embedder-Policy")}}- oder {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}}-Headers spezifiziert.
-Gültige Endpunktnamen und deren Zuordnung zu einer bestimmten URL werden unter Verwendung des {{httpheader("Reporting-Endpoints")}}-Headers definiert.
+Verletzungsberichte können auch als JSON-Objekt in einem `POST` an einen konfigurierten [Berichtsserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
+Der Name des Berichtsserver-Endpunkts wird in der [`report-to`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#report-to_endpoint_name)-Richtliniendirektive des {{httpheader("Cross-Origin-Embedder-Policy")}} oder {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}}-Headers angegeben.
+Gültige Endpunktnamen und deren Zuordnung zu einer bestimmten URL werden mit dem {{httpheader("Reporting-Endpoints")}}-Header definiert.
 
-Die Struktur des Serverberichts ist nahezu identisch mit `COEPViolationReport`, außer dass er zusätzlich `age`- und `user_agent`-Felder enthält.
+Die Struktur des Serverberichts ist fast genau gleich wie `COEPViolationReport`, enthält jedoch zusätzlich `age` und `user_agent` Felder.
 
 ```json
 [
@@ -102,29 +102,29 @@ Die Struktur des Serverberichts ist nahezu identisch mit `COEPViolationReport`, 
 
 ## Beispiele
 
-### Verwendung der `ReportingObserver`-Schnittstelle
+### Verwendung des `ReportingObserver`-Interfaces
 
-Dieses Beispiel zeigt, wie Sie COEP-Verstoßberichte mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) erhalten können.
+Dieses Beispiel zeigt, wie Sie COEP-Verletzungsberichte mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) erhalten können.
 
-Betrachten Sie zunächst den Fall, bei dem wir eine HTML-Datei haben, die auf dem Ursprung `https://example.com` gehostet wird und ein {{htmlelement("img")}}-Element enthält, das als Quelle die (Cross-Origin) Ressource `some-image.png` festlegt.
+Betrachten Sie zunächst den Fall, in dem wir eine HTML-Datei haben, die unter dem Ursprung `https://example.com` gehostet wird und ein {{htmlelement("img")}}-Element enthält, das als Quelle die (cross-origin) Ressource `some-image.png` setzt.
 Da das Element das [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)-Attribut nicht setzt, wird es im `no-cors`-Modus angefordert.
-Standardmäßig, wenn `some-image.png` nicht mit dem {{httpheader("Cross-Origin-Embedder-Policy")}}-Header bereitgestellt wird, wird diese Anforderung erfolgreich sein.
+Standardmäßig wird diese Anfrage erfolgreich sein, wenn `some-image.png` nicht mit dem {{httpheader("Cross-Origin-Embedder-Policy")}}-Header bereitgestellt wird.
 
 ```html
 <img src="https://another-example.com/some-image.png" />
 ```
 
-Um sicherzustellen, dass das Dokument nur Cross-Origin-Ressourcen lädt, die anzeigen, dass sie sicher im Ursprung unseres Dokuments geladen werden können, können wir den {{httpheader("Cross-Origin-Embedder-Policy")}}-Header mit der [`require-corp`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#require-corp) Direktiv wie gezeigt festlegen:
+Um sicherzustellen, dass das Dokument nur Cross-Origin-Ressourcen lädt, die angeben, dass sie im Ursprungsdokument sicher geladen werden können, können wir den {{httpheader("Cross-Origin-Embedder-Policy")}}-Header mit der [`require-corp`](/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#require-corp)-Direktive wie folgt setzen:
 
 ```http
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Dieser Header erzwingt, dass alle Ressourcen mit dem {{HTTPHeader("Cross-Origin-Resource-Policy")}}-Header und einem Wert von `cross-origin` bereitgestellt werden müssen, um in den Dokumentursprung (`https://example.com`) geladen zu werden.
-Vorausgesetzt, der Server, der `some-image.png` hostet, setzt den Header nicht, müssen wir nichts weiter tun, um einen COEP-Verstoß zu provozieren.
+Dieser Header erzwingt, dass alle Ressourcen mit dem {{HTTPHeader("Cross-Origin-Resource-Policy")}}-Header und einem Wert von `cross-origin` bereitgestellt werden müssen, um in den Dokumentursprung (`https://example.com`) geladen werden zu können.
+Sofern der Server, der `some-image.png` hostet, den Header nicht setzt, müssen wir nichts weiter tun, um eine COEP-Verletzung auszulösen.
 
-Um Verstöße innerhalb der Seite zu beobachten, konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte vom Typ `"coep"` zu lauschen und eine Callback-Funktion zu übergeben, die die Berichte empfängt und protokolliert.
-Dieser Code muss vor dem Skript geladen werden, das den Verstoß verursacht:
+Um Verletzungen innerhalb der Seite zu beobachten, konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um Berichte mit dem Typ `"coep"` abzuhören, und übergeben einen Callback, der die Berichte empfängt und protokolliert.
+Dieser Code muss geladen werden, bevor das Skript, das die Verletzung verursacht, geladen wird:
 
 ```js
 const options = {
@@ -142,8 +142,8 @@ const observer = new ReportingObserver((reports, observer) => {
 observer.observe();
 ```
 
-Oben protokollieren wir jedes Verstoßberichtsobjekt und eine JSON-String-Version des Objekts, die dem unten dargestellten Objekt ähnelt.
-Beachten Sie, dass der `type`-Wert `"coep"` ist.
+Oben protokollieren wir jedes Verletzungsberichtsobjekt und eine JSON-String-Version des Objekts, die dem unten gezeigten Objekt ähneln könnte.
+Beachten Sie, dass der `type` `"coep"` ist.
 
 ```json
 {
@@ -158,23 +158,23 @@ Beachten Sie, dass der `type`-Wert `"coep"` ist.
 }
 ```
 
-Der gleiche Bericht könnte erzeugt werden, indem {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} verwendet wird, außer dass die [disposition](#disposition) als `"reporting"` gemeldet würde.
+Der gleiche Bericht könnte mit {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} erzeugt werden, außer dass die [disposition](#disposition) als `"reporting"` gemeldet würde.
 
-### Senden eines Berichts an einen Reporting-Endpunkt
+### Senden eines Berichts an einen Berichtsendpunkt
 
-Die Konfiguration einer Webseite zum Senden eines COEP-Berichts an einen [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) ist fast identisch mit dem vorherigen Beispiel.
-Der einzige Unterschied besteht darin, dass wir einen Reporting-Endpunkt angeben müssen, an den die Berichte gesendet werden sollen, indem wir den {{httpheader("Reporting-Endpoints")}}-Antwort-Header verwenden und dann diese im `report-to`-Parameter beim Festlegen der Richtlinie referenzieren.
+Die Konfiguration einer Webseite zum Senden eines COEP-Berichts an einen [Berichtsserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) ist fast identisch mit dem vorherigen Beispiel.
+Der einzige Unterschied besteht darin, dass wir einen Berichts-Endpunkt angeben müssen, an den wir die Berichte senden möchten, indem wir den {{httpheader("Reporting-Endpoints")}}-Antwortheader verwenden und diesen dann im `report-to`-Parameter beim Setzen der Richtlinie referenzieren.
 
-Sie sehen dies unten, wo wir den Endpunkt mit dem Namen `coep-endpoint` definieren und ihn dann in unserer Richtlinie referenzieren:
+Sie können dies unten sehen, wo wir den Endpunkt namens `coep-endpoint` definieren und ihn dann in unserer Richtlinie referenzieren:
 
 ```http
 Reporting-Endpoints: coep-endpoint="https://some-example.com/coep"
 Cross-Origin-Embedder-Policy: require-corp; report-to="coep-endpoint"
 ```
 
-Der Verstoßbericht wird dann als JSON-Objekt in einem `POST` an den durch `coep-endpoint` referenzierten Endpunkt gesendet.
+Der Verletzungsbericht wird dann als JSON-Objekt in einem `POST` an den durch `coep-endpoint` referenzierten Endpunkt gesendet.
 
-Das Berichtsobjekt hat die gleiche Struktur wie das vom `ReportingObserver`-Callback zurückgegebene, mit Ausnahme der zusätzlichen `age`- und `user_agent`-Eigenschaften.
+Das Bericht-Objekt hat die gleiche Struktur wie bei der Rückgabe aus dem `ReportingObserver`-Callback, mit Ausnahme der Ergänzungen von `age` und `user_agent` Eigenschaften.
 
 ```json
 [
@@ -193,7 +193,7 @@ Das Berichtsobjekt hat die gleiche Struktur wie das vom `ReportingObserver`-Call
 ]
 ```
 
-Der gleiche Bericht würde generiert, wenn wir {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} auf die gleiche Weise setzen, außer dass die [disposition](#disposition) auf `"reporting"` gesetzt würde.
+Der gleiche Bericht würde erzeugt werden, wenn wir {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}} auf die gleiche Weise setzen, außer dass die [disposition](#disposition) auf `"reporting"` gesetzt würde.
 
 ## Spezifikationen
 
@@ -210,4 +210,4 @@ Der gleiche Bericht würde generiert, wenn wir {{httpheader("Cross-Origin-Embedd
 - {{httpheader("Cross-Origin-Embedder-Policy-Report-Only")}}
 - {{HTTPHeader("Reporting-Endpoints")}}
 - [Reporting API](/de/docs/Web/API/Reporting_API)
-- [The Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api) (developer.chrome.com)
+- [Die Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api) (developer.chrome.com)
