@@ -2,7 +2,7 @@
 title: "Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel"
 slug: Web/HTTP/Guides/CORS/Errors/CORSMissingAllowHeaderFromPreflight
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 92396cf8979e107c3ac42c2b9fc382013ea1c234
 ---
 
 ## Grund
@@ -13,9 +13,11 @@ Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from C
 
 ## Was ist schiefgelaufen?
 
-Der `Access-Control-Allow-Headers`-Header wird vom Server gesendet, um dem Client mitzuteilen, welche Header er für {{Glossary("CORS", "CORS")}}-Anfragen unterstützt. Der Wert von `Access-Control-Allow-Headers` sollte eine durch Kommas getrennte Liste von Header-Namen sein, wie `X-Custom-Information` oder einem der standardmäßigen, aber nicht grundlegenden Header-Namen (die immer erlaubt sind).
+Der `Access-Control-Allow-Headers`-Header wird vom Server gesendet, um dem Client mitzuteilen, welche Header er für {{Glossary("CORS", "CORS")}}-Anfragen unterstützt. Der Wert von `Access-Control-Allow-Headers` sollte eine durch Kommas getrennte Liste von Headernamen sein, wie z. B. `X-Custom-Information` oder andere Standard- aber nicht-basische Headernamen (die immer erlaubt sind).
 
-Dieser Fehler tritt auf, wenn versucht wird, einen Header vorzuladen, der nicht ausdrücklich erlaubt ist (das heißt, er ist nicht in der vom Server gesendeten Liste des `Access-Control-Allow-Headers`-Headers enthalten). Um dies zu beheben, muss der Server aktualisiert werden, damit er den angegebenen Header zulässt, oder Sie müssen vermeiden, diesen Header zu verwenden.
+Dieser Fehler tritt auf, wenn versucht wird, einen Header im Vorflug zu verwenden, der nicht ausdrücklich erlaubt ist (d.h. er ist nicht in der vom Server gesendeten Liste angegeben, die der `Access-Control-Allow-Headers`-Header enthält). Um dies zu beheben, muss der Server so aktualisiert werden, dass er den angegebenen Header zulässt, oder Sie müssen die Verwendung dieses Headers vermeiden.
+
+Wenn Sie keinen Zugriff auf die Serverkonfiguration haben, siehe [Überlegungen auf Clientseite](/de/docs/Web/HTTP/Guides/CORS/Errors#client-side_considerations) für alternative Ansätze.
 
 ## Siehe auch
 

@@ -2,7 +2,7 @@
 title: "Reason: CORS preflight channel did not succeed"
 slug: Web/HTTP/Guides/CORS/Errors/CORSPreflightDidNotSucceed
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 92396cf8979e107c3ac42c2b9fc382013ea1c234
 ---
 
 ## Grund
@@ -13,10 +13,12 @@ Reason: CORS preflight channel did not succeed
 
 ## Was ist schiefgelaufen?
 
-Die {{Glossary("CORS", "CORS")}}-Anfrage erfordert ein Preflight, das jedoch nicht durchgeführt werden konnte. Es gibt einige Gründe, warum das Preflighting fehlschlagen könnte:
+Die {{Glossary("CORS", "CORS")}}-Anfrage erfordert eine Vorabprüfung, die jedoch nicht durchgeführt werden konnte. Es gibt einige Gründe, warum die Vorabprüfung fehlschlagen könnte:
 
-- Eine Cross-Site-Anfrage wurde bereits durchgeführt, die ein Preflight durchgeführt hat, und das erneute Durchführen des Preflights ist nicht erlaubt. Stellen Sie sicher, dass Ihr Code nur einmal pro Verbindung ein Preflight durchführt.
-- Die Preflight-Anfrage hat einen Netzwerkfehler erlitten, der normalerweise auftreten könnte.
+- Es wurde bereits zuvor eine Cross-Site-Anfrage durchgeführt, die bereits eine Vorabprüfung vorgenommen hat, und das erneute Durchführen der Vorabprüfung ist nicht gestattet. Stellen Sie sicher, dass Ihr Code die Vorabprüfung nur einmal pro Verbindung durchführt.
+- Die Vorabprüfungsanfrage erlitt irgendeine Art von Netzwerkfehler, der gewöhnlich auftreten könnte.
+
+Wenn der Server nicht unter Ihrer Kontrolle ist, lesen Sie [Client-seitige Überlegungen](/de/docs/Web/HTTP/Guides/CORS/Errors#client-side_considerations) für alternative Ansätze.
 
 ## Siehe auch
 

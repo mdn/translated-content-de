@@ -1,12 +1,12 @@
 ---
-title: "size: Wasm table Anweisung"
+title: "size: Wasm table instruction"
 short-title: size
 slug: WebAssembly/Reference/Table/size
 l10n:
-  sourceCommit: c49748a0ce4fdf77427e29cb6edbca8953a514e7
+  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
 ---
 
-Die **`table.size`** [Tabelle Anweisung](/de/docs/WebAssembly/Reference/Table) gibt die aktuelle Größe der Tabelle zurück.
+Die **`table.size`** [Tabelleninstruktion](/de/docs/WebAssembly/Reference/Table) gibt die aktuelle Größe der Tabelle zurück.
 
 {{InteractiveExample("Wat Demo: table.size", "tabbed-taller")}}
 
@@ -42,13 +42,13 @@ table.size identifier
 ```
 
 - `table.size`
-  - : Der `table.size` Anweisungstyp. Muss immer zuerst angegeben werden.
+  - : Der `table.size` Instruktionstyp. Muss immer zuerst enthalten sein.
 - `identifier` {{optional_inline}}
   - : Der Bezeichner für die Tabelle, deren Größe Sie abrufen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Ein Identifizierungsname [festgelegt für die Tabelle](/de/docs/WebAssembly/Reference/Definitions/table#name) bei ihrer Erstellung. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein identifizierender Name [für die Tabelle festgelegt](/de/docs/WebAssembly/Reference/Definitions/table#name), als sie zuerst erstellt wurde. Dieser muss mit einem `$`-Symbol beginnen, z.B. `$my_table`.
     - `index`
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
+      - : Die Indexnummer der Tabelle, z.B. `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite, usw.
 
     Wenn der `identifier` weggelassen wird, wird er standardmäßig auf `0` gesetzt.
 
@@ -58,34 +58,34 @@ table.size identifier
 [] -> [length]
 ```
 
-- length
-  - : Ein `i32`, das der aktuellen Anzahl von Elementen in der Tabelle entspricht.
+- Länge
+  - : Ein `i32`, der der aktuellen Anzahl der in der Tabelle enthaltenen Elemente entspricht.
 
 ### Opcodes
 
-| Anweisung    | Binärer Opcode                                                                                                 |
-| ------------ | -------------------------------------------------------------------------------------------------------------- |
-| `table.size` | `𝟶𝚡𝙵𝙲 16:𝚞𝟹𝟸` ([variable-width LEB128](https://webassembly.github.io/spec/core/binary/values.html#binary-int)) |
+| Instruktion  | Binärformat              | Beispieltext => binär              |
+| ------------ | ------------------------ | ---------------------------------- |
+| `table.size` | `0xFC 16:u32 𝑥:tableidx` | `table.size 0` => `0xfc 0x10 0x00` |
 
 ## Beschreibung
 
 `table.size` wird verwendet, um die Größe einer Tabelle zurückzugeben.
 
-Die Größe einer Wasm-Tabelle kann über JavaScript mit der Eigenschaft [`table.length`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/length) abgerufen werden.
+Die Größe einer Wasm-Tabelle kann über JavaScript mit der [`table.length`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/length) Eigenschaft abgerufen werden.
 
 ## Beispiele
 
 ### Beobachtung von Zunahmen der Tabellengröße
 
-Dieses Beispiel zeigt, wie man eine Tabelle erstellt und deren Größe beobachtet, während die Tabelle mittels `table.size` wächst.
+Dieses Beispiel zeigt, wie man eine Tabelle erstellt und deren Größe beobachtet, während die Tabelle über `table.size` wächst.
 
 #### JavaScript
 
-In unserem Skript beginnen wir mit dem Abrufen einer Referenz auf ein {{htmlelement("p")}}-Element, an das wir Ergebnisse ausgeben werden. Wir definieren dann ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
+In unserem Skript beginnen wir mit dem Abrufen einer Referenz auf ein {{htmlelement("p")}}-Element, an das wir Ergebnisse ausgeben werden. Anschließend definieren wir ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
 
-Anschließend kompilieren und instanziieren wir unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren das `obj`-Objekt bei diesem Vorgang.
+Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das `obj`-Objekt.
 
-Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf, die im WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist, und übergeben ihr das `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf dem WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt auf und übergeben ihr das `outputElem`-Element als Parameter.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -109,15 +109,15 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie zwei Parameter hat, einen [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und einen `i32`.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie zwei Parameter hat: ein [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und ein `i32`.
 
-Als Nächstes definieren wir eine `table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und leer ist.
+Dann definieren wir eine `table`, die Funktionsreferenzen speichert (daher `funcref` angegeben) und leer ist.
 
-Schließlich exportieren wir die `run()`-Funktion, die einen `externref` mit dem Namen `$elem` als Parameter übernimmt. Innerhalb des Funktionskörpers:
+Schließlich exportieren wir die `run()`-Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Im Funktionskörper:
 
-- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu erhöhen, mit einem anfänglichen `ref.null`-Wert.
-- Rufen wir die importierte `$output`-Funktion auf, indem wir ihr als Parameter den übergebenen `$elem` `externref` in die `output()`-Funktion und den Rückgabewert der `table.size`-Anweisung übergeben. Dadurch wird die Tabellengröße im DOM ausgegeben.
-- Wiederholen die letzten beiden Schritte erneut, wodurch die Tabelle um ein weiteres Element wächst und die Größe erneut im DOM ausgegeben wird.
+- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu erhöhen, mit einem anfänglichen `ref.null` Wert.
+- Rufen wir die importierte `$output`-Funktion auf und übergeben ihr als Parameter das `$elem` `externref`, das in die `output()`-Funktion übergeben wurde, und den Rückgabewert der `table.size` Instruktion. Dadurch wird die Tabellengröße im DOM ausgegeben.
+- Wiederholen wir die letzten beiden Schritte erneut, wodurch die Tabelle um ein weiteres Element wächst und die Größe erneut im DOM ausgegeben wird.
 
 ```wat live-sample___basic-usage
 (module
@@ -159,11 +159,11 @@ Schließlich exportieren wir die `run()`-Funktion, die einen `externref` mit dem
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Dies ist sinnvoll, da jedes Mal, wenn die `output()`-Funktion aus dem Wasm-Modul heraus aufgerufen wird, der Wert, der ihr als zweiter Parameter übergeben wird, in unser Ergebnis-`<p>` im DOM gedruckt wird. Jeder Wert ist die Tabellengröße zu jedem Zeitpunkt — `1` und `2` jeweils.
+Das ergibt Sinn, da jedes Mal, wenn die `output()`-Funktion aus dem Wasm-Modul aufgerufen wird, der als zweiter Parameter übergebene Wert in unserem Ergebnis-`<p>` im DOM ausgegeben wird. Jeder Wert entspricht der Tabellengröße zu jedem Zeitpunkt — `1` und `2` jeweils.
 
 ## Spezifikationen
 

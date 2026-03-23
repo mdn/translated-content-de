@@ -2,34 +2,34 @@
 title: BufferedChangeEvent
 slug: Web/API/BufferedChangeEvent
 l10n:
-  sourceCommit: 4be29f6917b698805c919c5d290359bc13c62384
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Das **`BufferedChangeEvent`** Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) repräsentiert das Ereignisobjekt für das [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignis, das auf einem [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) ausgelöst wird. Dieses Ereignis wird immer dann ausgelöst, wenn sich die gepufferten Bereiche des `ManagedSourceBuffer` ändern, zum Beispiel als Ergebnis von Aufrufen wie [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove) oder [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream), oder wenn der Benutzeragent den Speicherbereinigungsalgorithmus ausführt.
+Die **`BufferedChangeEvent`**-Schnittstelle der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) repräsentiert das Ereignisobjekt für das [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignis, das auf einem [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) ausgelöst wird. Dieses Ereignis wird immer dann ausgelöst, wenn sich die gepufferten Bereiche des `ManagedSourceBuffer` ändern, zum Beispiel als Ergebnis von Aufrufen von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove) oder [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) oder wenn der Benutzeragent den Algorithmus zur Speicherbereinigung ausführt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`BufferedChangeEvent()`](/de/docs/Web/API/BufferedChangeEvent/BufferedChangeEvent)
+- [`BufferedChangeEvent()`](/de/docs/Web/API/BufferedChangeEvent/BufferedChangeEvent) {{experimental_inline}}
   - : Erstellt und gibt ein neues `BufferedChangeEvent`-Objekt zurück.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-Interface, [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- [`BufferedChangeEvent.addedRanges`](/de/docs/Web/API/BufferedChangeEvent/addedRanges) {{ReadOnlyInline}}
+- [`BufferedChangeEvent.addedRanges`](/de/docs/Web/API/BufferedChangeEvent/addedRanges) {{ReadOnlyInline}} {{experimental_inline}}
   - : Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das die Zeitbereiche repräsentiert, die dem Puffer des [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) hinzugefügt wurden.
-- [`BufferedChangeEvent.removedRanges`](/de/docs/Web/API/BufferedChangeEvent/removedRanges) {{ReadOnlyInline}}
+- [`BufferedChangeEvent.removedRanges`](/de/docs/Web/API/BufferedChangeEvent/removedRanges) {{ReadOnlyInline}} {{experimental_inline}}
   - : Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das die Zeitbereiche repräsentiert, die aus dem Puffer des [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) entfernt wurden.
 
 ## Beispiele
 
-### Umgang mit Änderungen der gepufferten Bereiche
+### Behandlung von Änderungen der gepufferten Bereiche
 
-Dieses Beispiel erstellt eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource), fügt sie einem {{htmlelement("video")}}-Element hinzu, holt eine fragmentierte MP4-Datei und lauscht auf das `bufferedchange`-Ereignis. Wenn das Ereignis ausgelöst wird, protokolliert es die hinzugefügten Zeitbereiche.
+Dieses Beispiel erstellt eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource), verbindet sie mit einem {{htmlelement("video")}}-Element, ruft eine fragmentierte MP4-Datei ab und lauscht dem `bufferedchange`-Ereignis. Wenn das Ereignis ausgelöst wird, protokolliert es die hinzugefügten Zeitbereiche.
 
 ```js
 const videoUrl =

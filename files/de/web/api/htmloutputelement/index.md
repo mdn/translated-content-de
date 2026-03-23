@@ -2,7 +2,7 @@
 title: HTMLOutputElement
 slug: Web/API/HTMLOutputElement
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: af9a8ff87cfa6563c9a082162ce4ed7ba0b204e1
 ---
 
 {{APIRef("HTML DOM")}}
@@ -11,60 +11,65 @@ Das **`HTMLOutputElement`**-Interface bietet Eigenschaften und Methoden (über d
 
 {{InheritanceDiagram}}
 
+## Konstruktor
+
+- [`HTMLOutputElement()`](/de/docs/Web/API/HTMLOutputElement/HTMLOutputElement) {{experimental_inline}}
+  - : Erstellt ein neues `HTMLOutputElement`-Objekt.
+
 ## Instanz-Eigenschaften
 
 _Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLOutputElement.defaultValue`](/de/docs/Web/API/HTMLOutputElement/defaultValue)
-  - : Ein String, der den Standardwert des Elements darstellt, anfänglich der leere String.
+  - : Ein String, der den Standardwert des Elements darstellt, anfangs der leere String.
 - [`HTMLOutputElement.form`](/de/docs/Web/API/HTMLOutputElement/form) {{ReadOnlyInline}}
-  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular anzeigt, das mit der Steuerung verbunden ist und das HTML-Attribut [`form`](/de/docs/Web/HTML/Reference/Elements/output#form) widerspiegelt, wenn es definiert ist.
+  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular angibt, das mit dem Steuerelement verbunden ist, wobei das [`form`](/de/docs/Web/HTML/Reference/Elements/output#form)-HTML-Attribut widergespiegelt wird, falls es definiert ist.
 - [`HTMLOutputElement.htmlFor`](/de/docs/Web/API/HTMLOutputElement/htmlFor) {{ReadOnlyInline}}
-  - : Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die das HTML-Attribut [`for`](/de/docs/Web/HTML/Reference/Elements/output#for) widerspiegelt und eine Liste von IDs anderer Elemente im selben Dokument enthält, die zu dem berechneten `value` beitragen (oder es anderweitig beeinflussen).
+  - : Ein [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), das das [`for`](/de/docs/Web/HTML/Reference/Elements/output#for)-HTML-Attribut widergespiegelt, enthält eine Liste von IDs anderer Elemente im selben Dokument, die zur Berechnung des `value` beitragen (oder es anderweitig beeinflussen).
 - [`HTMLOutputElement.labels`](/de/docs/Web/API/HTMLOutputElement/labels) {{ReadOnlyInline}}
-  - : Eine [`NodeList`](/de/docs/Web/API/NodeList) von {{HTMLElement("label")}}-Elementen, die mit dem Element assoziiert sind.
+  - : Ein [`NodeList`](/de/docs/Web/API/NodeList) von {{HTMLElement("label")}}-Elementen, die mit dem Element verbunden sind.
 - [`HTMLOutputElement.name`](/de/docs/Web/API/HTMLOutputElement/name)
-  - : Ein String, der das HTML-Attribut [`name`](/de/docs/Web/HTML/Reference/Elements/output#name) widerspiegelt und den Namen für die Steuerung enthält, der mit Formulardaten übermittelt wird.
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Reference/Elements/output#name)-HTML-Attribut widergespiegelt, enthält den Namen für das Steuerelement, der mit den Formulardaten übermittelt wird.
 - [`HTMLOutputElement.type`](/de/docs/Web/API/HTMLOutputElement/type) {{ReadOnlyInline}}
   - : Der String `"output"`.
 - [`HTMLOutputElement.validationMessage`](/de/docs/Web/API/HTMLOutputElement/validationMessage) {{ReadOnlyInline}}
-  - : Ein String, der eine lokalisierte Nachricht beschreibt, die die Validierungsbeschränkungen erklärt, die die Steuerung nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`) oder ihre Beschränkungen erfüllt.
+  - : Ein String, der eine lokalisierte Nachricht darstellt, die die Validierungsbeschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement kein Kandidat für die Überprüfung von Constraints ist (`willValidate` ist `false`), oder es erfüllt seine Beschränkungen.
 - [`HTMLOutputElement.validity`](/de/docs/Web/API/HTMLOutputElement/validity) {{ReadOnlyInline}}
-  - : Ein [`ValidityState`](/de/docs/Web/API/ValidityState), der die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
+  - : Ein [`ValidityState`](/de/docs/Web/API/ValidityState), das die Validitätszustände darstellt, in denen sich dieses Element befindet.
 - [`HTMLOutputElement.value`](/de/docs/Web/API/HTMLOutputElement/value)
-  - : Ein String, der den Wert des Inhalts der Elemente darstellt. Verhält sich wie die Eigenschaft [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+  - : Ein String, der den Wert des Inhalts der Elemente darstellt. Verhält sich wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 - [`HTMLOutputElement.willValidate`](/de/docs/Web/API/HTMLOutputElement/willValidate) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob das Element ein Kandidat für die Einschränkungsvalidierung ist. Immer `false` für `HTMLOutputElement`-Objekte.
+  - : Gibt einen booleschen Wert zurück, der anzeigt, ob das Element ein Kandidat für die Überprüfung von Constraints ist. Immer `false` für `HTMLOutputElement`-Objekte.
 
 ## Instanz-Methoden
 
 _Dieses Interface erbt auch Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
-  - : Überprüft die Gültigkeit des Elements und gibt einen booleschen Wert zurück, der das Ergebnis der Überprüfung enthält.
+  - : Überprüft die Gültigkeit des Elements und gibt einen booleschen Wert mit dem Ergebnis der Überprüfung zurück.
 - [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
-  - : Diese Methode meldet dem Benutzer die Probleme mit den Einschränkungen des Elements, falls vorhanden. Wenn es Probleme gibt, wird ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element ausgelöst und `false` zurückgegeben; wenn keine Probleme vorliegen, wird `true` zurückgegeben.
+  - : Diese Methode meldet dem Benutzer die Probleme mit den Constraints des Elements, falls vorhanden. Bei Problemen löst sie ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis auf dem Element aus und gibt `false` zurück; treten keine Probleme auf, gibt sie `true` zurück.
 
-    Wenn das Problem gemeldet wird, kann der Benutzeragent das Element in den Fokus rücken und die Scrollposition des Dokuments ändern oder eine andere Aktion ausführen, um das Element in den Fokus des Benutzers zu rücken. Benutzeragenten können mehr als eine Einschränkungsverletzung melden, wenn dieses Element unter mehreren Problemen gleichzeitig leidet. Wenn das Element nicht gerendert wird, kann der Benutzeragent den Fehler für das laufende Skript melden, anstatt den Benutzer zu benachrichtigen.
+    Wenn das Problem gemeldet wird, kann die Benutzeroberfläche das Element fokussieren und die Bildlaufposition des Dokuments ändern oder eine andere Aktion ausführen, die das Element in den Fokus des Benutzers rückt. Benutzeroberflächen können mehr als eine Verletzung von Constraints melden, wenn dieses Element gleichzeitig von mehreren Problemen betroffen ist. Wenn das Element nicht gerendert wird, kann die Benutzeroberfläche den Fehler stattdessen für das ausgeführte Skript melden, anstatt den Benutzer zu benachrichtigen.
 
 - [`HTMLOutputElement.setCustomValidity()`](/de/docs/Web/API/HTMLOutputElement/setCustomValidity)
-  - : Legt eine benutzerdefinierte Fehlermeldung für das Element fest. Wenn diese Nachricht nicht der leere String ist, dann leidet das Element unter einem benutzerdefinierten Gültigkeitsfehler und wird nicht validiert.
+  - : Setzt eine benutzerdefinierte Validitätsnachricht für das Element. Wenn diese Nachricht nicht der leere String ist, leidet das Element unter einem benutzerdefinierten Validitätsfehler und wird nicht validiert.
 
 ## Modi
 
-Dieses Element verhält sich in einem von zwei Modi: _default_-Modus und _value_-Modus.
+Dieses Element verhält sich in einem von zwei Modi: _Standard_-Modus und _Wert_-Modus.
 
-### Default-Modus
+### Standard-Modus
 
-Anfangs befindet sich das Element im Default-Modus, und der Inhalt des Elements repräsentiert sowohl den Wert des Elements als auch seinen Standardwert.
+Anfangs befindet sich das Element im Standard-Modus, und der Inhalt des Elements stellt sowohl den Wert des Elements als auch seinen Standardwert dar.
 
-Wenn das Element im Default-Modus ist, wenn die Nachkommen des Elements auf irgendeine Weise geändert werden, wird die Eigenschaft `defaultValue` auf den Wert der Eigenschaft [`textContent`](/de/docs/Web/API/Node/textContent) gesetzt.
+Wenn sich das Element im Standard-Modus befindet und die Nachfahren des Elements in irgendeiner Weise geändert werden, wird die `defaultValue`-Eigenschaft auf den Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft gesetzt.
 
-Das Zurücksetzen des Formulars versetzt das Element in den Default-Modus und setzt die Eigenschaft [`textContent`](/de/docs/Web/API/Node/textContent) auf den Wert der `defaultValue`-Eigenschaft.
+Das Zurücksetzen des Formulars versetzt das Element in den Standard-Modus und setzt die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft auf den Wert der `defaultValue`-Eigenschaft.
 
-### Value-Modus
+### Wert-Modus
 
-Das Element wechselt in den Value-Modus, wenn der Inhalt der `value`-Eigenschaft gesetzt wird. Die `value`-Eigenschaft verhält sich ansonsten wie die Eigenschaft [`textContent`](/de/docs/Web/API/Node/textContent). Wenn das Element im Value-Modus ist, ist der Standardwert nur über die `defaultValue`-Eigenschaft zugänglich.
+Das Element geht in den Wert-Modus über, wenn der Inhalt der `value`-Eigenschaft gesetzt wird. Die `value`-Eigenschaft verhält sich ansonsten wie die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft. Wenn sich das Element im Wert-Modus befindet, ist der Standardwert nur über die `defaultValue`-Eigenschaft zugänglich.
 
 ## Spezifikationen
 

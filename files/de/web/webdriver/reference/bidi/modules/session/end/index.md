@@ -1,12 +1,14 @@
 ---
-title: session.end-Befehl
+title: session.end Befehl
 short-title: session.end
 slug: Web/WebDriver/Reference/BiDi/Modules/session/end
 l10n:
-  sourceCommit: fbf733732bf531a1be40a0c646bcbc4b31618476
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-Der `session.end`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session)-Moduls beendet die aktuelle BiDi-Sitzung des Clients mit dem Browser.
+{{SeeCompatTable}}
+
+Der `session.end` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls beendet die aktuelle BiDi-Sitzung des Clients mit dem Browser.
 
 ## Syntax
 
@@ -19,17 +21,17 @@ Der `session.end`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#command
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einschließen und es auf ein leeres Objekt (`{}`) setzen.
+Keine. Dennoch müssen Sie das `params` Feld einfügen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
-Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
+Das `result` Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 ## Beispiele
 
 ### Beenden einer Automatisierungssitzung mit dem Browser
 
-Mit einer etablierten WebDriver-BiDi-Verbindung senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
+Sobald eine WebDriver BiDi-Verbindung hergestellt ist, senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
 
 ```json
 {
@@ -49,7 +51,7 @@ Der Browser antwortet mit:
 }
 ```
 
-Die Erfolgsantwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wird.
+Die erfolgreiche Antwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wird.
 
 ## Spezifikationen
 
@@ -61,5 +63,5 @@ Die Erfolgsantwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wi
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
-- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status)-Befehl
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
+- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status) Befehl

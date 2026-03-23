@@ -2,12 +2,14 @@
 title: background-repeat-x
 slug: Web/CSS/Reference/Properties/background-repeat-x
 l10n:
-  sourceCommit: 739c9994ad2e83809110f601d8941f61d6785f29
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
+
+{{SeeCompatTable}}
 
 Die **`background-repeat-x`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Hintergrundbilder entlang der horizontalen Achse wiederholt werden oder nicht.
 
-Die Eigenschaften `background-repeat-x` und {{cssxref("background-repeat-y")}} können auch durch die Kurzschreibweisen {{cssxref("background-repeat")}} oder {{cssxref("background")}} festgelegt werden.
+Die Eigenschaften `background-repeat-x` und {{cssxref("background-repeat-y")}} können auch mithilfe der Kurzschreibweise {{cssxref("background-repeat")}} oder {{cssxref("background")}} festgelegt werden.
 
 {{InteractiveExample("CSS Demo: background-repeat-x")}}
 
@@ -59,33 +61,33 @@ background-repeat-x: revert-layer;
 background-repeat-x: unset;
 ```
 
-Die Eigenschaft `background-repeat-x` wird als eine oder mehrere Werte angegeben, getrennt durch Kommas.
+Die Eigenschaft `background-repeat-x` wird als ein oder mehrere Werte angegeben, die durch Kommas getrennt sind.
 
 ## Werte
 
 - `repeat`
-  - : Der Standardwert. Das Bild wird so oft wie nötig wiederholt, um die gesamte Breite des Hintergrundbild-Malbereichs abzudecken. Das Randbild wird abgeschnitten, wenn mehrere Bilder nicht genau in die Hintergrundbreite passen.
+  - : Der Standardwert. Das Bild wird so oft wiederholt, dass es die gesamte Breite des Bereichs für die Hintergrundbildbemalung abdeckt. Das Randbild wird abgeschnitten, wenn mehrere Bilder nicht genau in die Hintergrundbreite passen.
 
 - `no-repeat`
-  - : Das Bild wird nicht wiederholt. Die Position des nicht wiederholten Hintergrundbildes wird durch die CSS Eigenschaft {{cssxref("background-position")}} definiert.
+  - : Das Bild wird nicht wiederholt. Die Position des nicht wiederholten Hintergrundbildes wird durch die {{cssxref("background-position")}} CSS-Eigenschaft definiert.
 
 - `space`
-  - : Das Bild wird so oft wie möglich ohne Abschneiden wiederholt. Die ersten und letzten Bilder sind am linken und rechten Rand des Elements fixiert, und der Leerraum wird gleichmäßig zwischen ihnen verteilt. Die Eigenschaft {{cssxref("background-position-x")}} wird ignoriert, es sei denn, ein oder mehrere Bilder können ohne Abschneiden angezeigt werden. Wenn das Bild breiter als das Element ist, wird es abgeschnitten, da nicht genügend Platz vorhanden ist, um es anzuzeigen.
+  - : Das Bild wird so oft wie möglich ohne Abschneiden wiederholt. Die ersten und letzten Bilder werden an die linke und rechte Seite des Elements geheftet, und der Leerraum wird gleichmäßig dazwischen verteilt. Die Eigenschaft {{cssxref("background-position-x")}} wird ignoriert, es sei denn, ein oder mehrere Bilder können ohne Zuschneiden angezeigt werden. Wenn das Bild breiter als das Element ist, wird es abgeschnitten, da nicht genug Platz ist, um es anzuzeigen.
 
 - `round`
-  - : Das Bild wird horizontal wiederholt. Wenn der verfügbare Platz wächst, werden die wiederholten Bilder gestreckt (ohne Lücken zu lassen), bis Platz für ein weiteres Bild vorhanden ist. Wenn mehrere Bilder nicht genau in den Hintergrund passen, werden sie skaliert, um zu passen.
+  - : Das Bild wird horizontal wiederholt. Wenn der verfügbare Platz größer wird, strecken sich die wiederholten Bilder (ohne Lücken zu lassen), bis Platz ist, ein weiteres hinzuzufügen. Wenn mehrere Bilder nicht genau in den Hintergrund passen, werden sie skaliert, um zu passen.
 
 ## Beschreibung
 
-Die Eigenschaft `background-repeat-x` akzeptiert eine durch Kommas getrennte Liste von [`<repetition>`](#werte) Schlüsselbegriffen, die definieren, wie das/die Hintergrundbild/-er horizontal wiederholt werden soll/en oder gar nicht wiederholt werden soll/en.
+Die Eigenschaft `background-repeat-x` akzeptiert eine durch Kommas getrennte Liste von [`<repetition>`](#werte) Schlüsselbegriffen, die definieren, wie das oder die Hintergrundbilder horizontal wiederholt oder gar nicht wiederholt werden sollen.
 
-Der Standardwert ist `repeat`. Mit diesem Wert wird das Hintergrundbild horizontal wiederholt, um die gesamte Breite des Hintergrundmalbereichs abzudecken, wobei Randbilder auf die Größe des Elements abgeschnitten werden. Ob die linken, rechten oder beide Ränder abgeschnitten werden, hängt vom Wert der entsprechenden {{cssxref("background-position")}} Eigenschaft ab. Wie oft Bilder wiederholt werden und wie stark die Bilder an den Rändern abgeschnitten werden, hängt von der Größe des Hintergrundmalbereichs und dem Breitenwert der entsprechenden {{cssxref("background-size")}} Eigenschaft ab.
+Der Standardwert ist `repeat`. Mit diesem Wert wird das Hintergrundbild horizontal wiederholt und deckt die gesamte Breite des Hintergrundbemalungsbereichs ab, wobei Randbilder auf die Größe des Elements zugeschnitten werden. Ob die linken, rechten oder beide Ränder zugeschnitten werden, hängt vom Wert der entsprechenden {{cssxref("background-position")}} ab. Wie oft Bilder wiederholt werden und wie viel die Bilder an den Rändern zugeschnitten werden, hängt von der Größe des Hintergrundbemalungsbereichs und dem Breitenwert der entsprechenden {{cssxref("background-size")}} Eigenschaft ab.
 
-Die wiederholten Bilder können gleichmäßig auseinandergesetzt werden, sodass die wiederholten Bilder in horizontaler Richtung nicht abgeschnitten werden. Mit dem `space` Wert, falls die Breite des Hintergrundmalbereichs kein Vielfaches der Bildbreite ist oder eine andere Größe hat, die ein Vielfaches des Hintergrundes in der Breitenrichtung ist, gibt es Bereiche, die nicht vom Hintergrundbild abgedeckt sind.
+Die wiederholten Bilder können gleichmäßig voneinander entfernt sein, um sicherzustellen, dass die wiederholten Bilder nicht in horizontaler Richtung zugeschnitten werden. Mit dem Wert `space`, wenn die Breite des Hintergrundbemalungsbereichs kein Vielfaches der Breite des Bildes ist oder anderweitig keine Größe hat, die ein Vielfaches der Hintergrundgröße in Breitenrichtung ist, gibt es Bereiche, die nicht vom Hintergrundbild abgedeckt sind.
 
-Alternativ kann das wiederholte Hintergrundbild gestreckt werden, um die gesamte Breite des Hintergrundbereichs ohne Abschneiden zu bedecken. Mit `round` wird das wiederholte Bild gestreckt, um den gesamten verfügbaren Platz zu füllen, bis Platz für ein zusätzliches wiederholtes Bild vorhanden ist.
+Alternativ kann das wiederholte Hintergrundbild gestreckt werden, um die gesamte Breite des Hintergrundbereichs ohne Zuschneiden abzudecken. Mit `round` wird das Wiederholungsbild gestreckt, um den gesamten verfügbaren Raum auszufüllen, bis Platz ist, ein weiteres Wiederholungsbild hinzuzufügen.
 
-Zum Beispiel, bei einem Hintergrundbild, das `100px` x `100px` groß ist, und einem Hintergrundmalbereich, der `1099px` breit ist, wird das Bild auf `109,9px breite` skaliert und 10 Mal in der horizontalen Richtung wiederholt. Dies wird das Seitenverhältnis {{Glossary("aspect_ratio", "aspect ratio")}} des Bildes verändern und es verzerren. Wenn die Breite des Malbereichs um `1px` auf `1100px` zunimmt, wird ein elftes Bild horizontal passen, wobei jedes Bild mit `100px` Breite gezeichnet wird und nicht mehr horizontal verzerrt ist.
+Zum Beispiel wird bei einem Hintergrundbild, das `100px` x `100px` groß ist, und einem Hintergrundbemalungsbereich, der `1099px` breit ist, das Bild auf `109.9px Breite` skaliert und 10 Mal in der horizontalen Richtung wiederholt. Dadurch wird das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Bildes geändert und verzerrt. Falls die Breite des Bemalungsbereichs um `1px` auf `1100px` anwächst, passt horizontal ein 11. Bild hinein, wobei jedes Bild in `100px` Breite gezeichnet wird und nicht mehr horizontal verzerrt ist.
 
 ## Formale Definition
 
@@ -97,7 +99,7 @@ Zum Beispiel, bei einem Hintergrundbild, das `100px` x `100px` groß ist, und ei
 
 ## Beispiele
 
-### Festlegen von background-repeat-x
+### Einstellen von background-repeat-x
 
 #### HTML
 
@@ -170,7 +172,7 @@ div {
 
 #### Ergebnis
 
-In diesem Beispiel wird jeder Listeneintrag mit einem anderen Wert von `background-repeat-x` abgeglichen.
+In diesem Beispiel wird jedes Listenelement mit einem anderen Wert von `background-repeat-x` abgeglichen.
 
 {{EmbedLiveSample('Setting_background-repeat-x', 240, 460)}}
 
@@ -185,7 +187,7 @@ In diesem Beispiel wird jeder Listeneintrag mit einem anderen Wert von `backgrou
 ## Siehe auch
 
 - {{cssxref("background-repeat-y")}} und die {{cssxref("background-repeat")}} Kurzschreibweise.
-- {{cssxref("background")}} Kurzschreibkomponenten: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}} ({{cssxref("background-position-x")}} und {{cssxref("background-position-y")}}), und {{cssxref("background-size")}}
+- {{cssxref("background")}} Kurzschreibweise Komponenten: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}} ({{cssxref("background-position-x")}} und {{cssxref("background-position-y")}}), und {{cssxref("background-size")}}
 - [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
 - [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds) Modul
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)

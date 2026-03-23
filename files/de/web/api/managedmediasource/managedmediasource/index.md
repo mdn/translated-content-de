@@ -3,12 +3,12 @@ title: "ManagedMediaSource: ManagedMediaSource() Konstruktor"
 short-title: ManagedMediaSource()
 slug: Web/API/ManagedMediaSource/ManagedMediaSource
 l10n:
-  sourceCommit: 4be29f6917b698805c919c5d290359bc13c62384
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Der **`ManagedMediaSource()`** Konstruktor der [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) Schnittstelle erstellt und gibt eine neue `ManagedMediaSource`-Objektinstanz ohne zugehörige Quellpuffer zurück.
+Der **`ManagedMediaSource()`**-Konstruktor der [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) Schnittstelle erstellt und gibt eine neue `ManagedMediaSource`-Objektinstanz ohne zugeordnete Quellpuffer zurück.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Eine neue [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) Objektinst
 
 ## Beispiele
 
-### Erstellen eines ManagedMediaSource und Anfügen an ein Videoelement
+### Erstellen einer ManagedMediaSource und Anfügen an ein Videoelement
 
-Das folgende Beispiel erzeugt eine neue `ManagedMediaSource`, fügt sie einem {{htmlelement("video")}}-Element hinzu und verwendet das [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event) Ereignis, um das Abrufen von Mediendaten zu starten.
+Im folgenden Beispiel wird eine neue `ManagedMediaSource` erstellt, an ein {{htmlelement("video")}}-Element angehängt und das [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event)-Ereignis verwendet, um mit dem Abrufen von Mediendaten zu beginnen.
 
 ```js
 const videoUrl =

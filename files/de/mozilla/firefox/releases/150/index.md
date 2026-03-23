@@ -1,18 +1,18 @@
 ---
-title: Firefox 150 Versionshinweise für Entwickler (Nightly)
-short-title: Firefox 150 (Nightly)
+title: Firefox 150 Versionshinweise für Entwickler (Beta)
+short-title: Firefox 150 (Beta)
 slug: Mozilla/Firefox/Releases/150
 l10n:
-  sourceCommit: 21638327a5baa7ecf918835c4a233a74f25b02ed
+  sourceCommit: 4e100cee733013cb48babc0c734fe96dda9ece6c
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 150, die Entwickler betreffen.
-Firefox 150 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [21. April 2026](https://whattrainisitnow.com/release/?version=150) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 150, die Entwickler betreffen.
+Firefox 150 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [21. April 2026](https://whattrainisitnow.com/release/?version=150) veröffentlicht.
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften ein, für die Sie Anmerkungen schreiben -->
+<!-- Autoren: Bitte entfernen Sie die Auskommentierung bei den Überschriften, zu denen Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -20,35 +20,35 @@ Firefox 150 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- ### HTML -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### CSS -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### APIs -->
 
@@ -56,11 +56,11 @@ Firefox 150 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -72,12 +72,12 @@ Firefox 150 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-<!-- ### Entfernungen -->
+<!-- ### Entfernt -->
 
-<!-- ### Sonstige -->
+<!-- ### Andere -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen werden in Firefox 150 bereitgestellt, sind jedoch standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
-Sie können weitere solcher Funktionen auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features) finden.
+Diese Funktionen sind in Firefox 150 enthalten, aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).

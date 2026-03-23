@@ -2,57 +2,54 @@
 title: DeprecationReport
 slug: Web/API/DeprecationReport
 l10n:
-  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}
 
-Das `DeprecationReport` Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert einen Veraltet-Bericht.
+Das `DeprecationReport` Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert einen Abschreibungsbericht.
 
-Ein Veraltet-Bericht kann generiert werden, wenn ein veraltetes Feature (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird.
-Beachten Sie, dass das Empfangen nützlicher Veraltet-Berichte davon abhängt, dass Browseranbieter diese Warnungen für veraltete Features hinzufügen.
+Ein Abschreibungsbericht kann generiert werden, wenn ein veraltetes Merkmal (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird. Beachten Sie, dass nützliche Abschreibungsberichte davon abhängen, dass Browser-Anbieter diese Warnungen für veraltete Merkmale hinzufügen.
 
-Berichte dieser Art können innerhalb einer Seite mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, und eine serialisierte Version kann zum Standard-[Berichtsserverendpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
+Berichte dieser Art können innerhalb einer Seite mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, und eine serialisierte Version kann an den Standard-[Berichtserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden.
 
 ## Instanzeigenschaften
 
 - `body`
-  - : Der Inhalt des Berichts.
+  - : Der Körper des Berichts.
     Dies ist ein Objekt mit den folgenden Eigenschaften:
     - `id` {{experimental_inline}}
-      - : Ein String, der das Feature oder die API darstellt, das/die veraltet ist, zum Beispiel `NavigatorGetUserMedia`.
-        Dies kann verwendet werden, um Berichte nach veraltetem Feature zu gruppieren.
+      - : Ein String, der das Merkmal oder die API repräsentiert, das veraltet ist, zum Beispiel `NavigatorGetUserMedia`.
+        Dies kann verwendet werden, um Berichte nach veraltetem Merkmal zu gruppieren.
     - `anticipatedRemoval` {{Experimental_Inline}}
-      - : Ein {{jsxref("Date")}} Objekt (als String gerendert), das das Datum darstellt, an dem das Feature voraussichtlich aus dem aktuellen Browser entfernt wird.
-        Wenn das Datum nicht bekannt ist, wird diese Eigenschaft `null` zurückgeben.
+      - : Ein {{jsxref("Date")}}-Objekt (als String dargestellt), das das Datum repräsentiert, an dem das Merkmal voraussichtlich aus dem aktuellen Browser entfernt wird.
+        Wenn das Datum nicht bekannt ist, gibt diese Eigenschaft `null` zurück.
         Dieser Wert kann verwendet werden, um Warnungen zu priorisieren.
-        Wenn diese Eigenschaft `null` zurückgibt, weil das Datum unbekannt ist, sollte die Veraltung als niedrigprioritär betrachtet werden.
+        Wenn diese Eigenschaft `null` zurückgibt, weil das Datum unbekannt ist, dann sollte die Abschreibung als von geringer Priorität betrachtet werden.
     - `message` {{experimental_inline}}
-      - : Ein String, der eine menschenlesbare Beschreibung der Veraltung enthält, einschließlich Informationen darüber, welches neuere Feature es gegebenenfalls ersetzt hat.
-        Dies stimmt typischerweise mit der Nachricht überein, die ein Browser in seiner DevTools-Konsole anzeigt, wenn ein veraltetes Feature verwendet wird, falls verfügbar.
+      - : Ein String, der eine menschenlesbare Beschreibung der Abschreibung enthält, einschließlich Informationen darüber, welches neuere Merkmal es gegebenenfalls ersetzt hat.
+        Dies entspricht in der Regel der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn ein veraltetes Merkmal verwendet wird, sofern eine vorhanden ist.
     - `sourceFile` {{experimental_inline}}
-      - : Ein String, der den Pfad zur Quelldatei enthält, in der das veraltete Feature verwendet wurde, falls bekannt, oder `null` andernfalls.
+      - : Ein String, der den Pfad zur Quelldatei enthält, in der das veraltete Merkmal verwendet wurde, falls bekannt, oder andernfalls `null`.
     - `lineNumber` {{experimental_inline}}
-      - : Eine Zahl, die die Zeile in der Quelldatei darstellt, in der das veraltete Feature verwendet wurde, falls bekannt, oder `null` andernfalls.
+      - : Eine Zahl, die die Zeile in der Quelldatei repräsentiert, in der das veraltete Merkmal verwendet wurde, falls bekannt, oder andernfalls `null`.
     - `columnNumber` {{experimental_inline}}
-      - : Eine Zahl, die die Zeichenposition in der Zeile der Quelldatei darstellt, in der das veraltete Feature erstmals verwendet wurde, falls bekannt, oder `null` andernfalls.
+      - : Eine Zahl, die die Zeichnungsposition in der Zeile der Quelldatei repräsentiert, in der das veraltete Merkmal erstmals verwendet wurde, falls bekannt, oder andernfalls `null`.
 
 - `type`
-  - : Der String `"deprecation"`, der anzeigt, dass dies ein Veraltet-Bericht ist.
+  - : Der String `"deprecation"` zeigt an, dass dies ein Abschreibungsbericht ist.
 - `url`
-  - : Ein String, der die URL des Dokuments darstellt, das den Bericht generiert hat.
+  - : Ein String, der die URL des Dokuments repräsentiert, das den Bericht generiert hat.
 
 ## Beschreibung
 
-Ein Veraltet-Bericht kann generiert werden, wenn ein veraltetes Feature (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird.
+Ein Abschreibungsbericht kann generiert werden, wenn ein veraltetes Merkmal (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird.
 
-Sie können innerhalb der Seite, in der sie ausgelöst werden, Veraltet-Berichte überwachen, indem Sie die [Reporting API](/de/docs/Web/API/Reporting_API) nutzen.
-Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Objekt, um Berichte zu empfangen, indem Sie eine Rückruffunktion übergeben und optional eine `options`-Eigenschaft angeben, die die Arten von Berichten spezifiziert, die Sie beobachten möchten.
-Die Rückruffunktion wird dann mit Berichten der angeforderten Typen aufgerufen, indem ein Bericht-Objekt übergeben wird.
-Für Veraltet-Berichte ist das Objekt eine `DeprecationReport`-Instanz (die die [`type`](#type) Eigenschaft mit dem Wert `"deprecation"` hat).
+Sie können innerhalb der Seite, in der sie ausgelöst werden, auf Abschreibungsberichte mit der [Reporting API](/de/docs/Web/API/Reporting_API) überwachen. Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte zu lauschen. Sie übergeben eine Callback-Methode und optional eine `options`-Eigenschaft, die die Arten von Berichten angibt, über die Sie berichten möchten. Die Callback-Methode wird dann mit Berichten der angeforderten Typen aufgerufen und übergibt ein Berichtsobjekt.
+Für Abschreibungsberichte wird das Objekt eine `DeprecationReport` Instanz (die die [`type`](#type) Eigenschaft auf `"deprecation"` gesetzt hat).
 
-Ein typischer Veraltet-Bericht ist unten gezeigt.
-Beachten Sie, dass `url` die ursprüngliche Seite darstellt, die geladen wurde, während `body.sourceFile`, `body.lineNumber` und `body.columnNumber` den spezifischen Ort des API-Aufrufs angeben, der die Intervention ausgelöst hat (in diesem Beispiel sind sie dieselbe Datei).
+Ein typischer Abschreibungsbericht wird unten gezeigt.
+Beachten Sie, dass `url` die ursprünglich geladene Seite darstellt, während `body.sourceFile`, `body.lineNumber` und `body.columnNumber` den spezifischen Ort des API-Aufrufs kennzeichnen, der die Maßnahme ausgelöst hat (in diesem Beispiel ist es die gleiche Datei).
 
 ```json
 {
@@ -69,10 +66,9 @@ Beachten Sie, dass `url` die ursprüngliche Seite darstellt, die geladen wurde, 
 }
 ```
 
-Veraltet-Berichte werden auch als JSON-Objekt in einem {{httpmethod("POST")}}-Anfrage an den [Berichtsserverendpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) namens `"default"` gesendet, wenn dieser definiert ist.
-Der Berichtsserverendpunkt und seine Zuordnung zu einer bestimmten URL werden mit dem {{httpheader("Reporting-Endpoints")}} Header gesetzt.
+Abschreibungsberichte werden auch als JSON-Objekt in einer {{httpmethod("POST")}}-Anfrage an den [Berichtserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) namens "default" gesendet, falls dieser definiert ist. Der Berichtserver-Endpunkt und seine Zuordnung zu einer bestimmten URL werden mit dem {{httpheader("Reporting-Endpoints")}} Header festgelegt.
 
-Die Struktur des Serverberichts ist fast genau dieselbe wie `DeprecationReport`, außer dass sie zusätzlich die Felder `age` und `user_agent` umfasst.
+Der Aufbau des Serverberichts ist fast genau der gleiche wie `DeprecationReport`, mit Ausnahme der zusätzlichen Felder `age` und `user_agent`.
 
 ```json
 {
@@ -93,9 +89,9 @@ Die Struktur des Serverberichts ist fast genau dieselbe wie `DeprecationReport`,
 
 ## Beispiele
 
-### Verwendung der `ReportingObserver` Schnittstelle
+### Verwendung der `ReportingObserver`-Schnittstelle
 
-Dieses Beispiel zeigt, wie `"deprecation"` Berichte innerhalb einer Seite beobachtet werden, die sie auslöst.
+Dieses Beispiel zeigt, wie Sie "`deprecation`"-Berichte innerhalb einer Seite beobachten können, die sie auslöst.
 
 ```html hidden
 <pre id="log"></pre>
@@ -121,7 +117,7 @@ function log(text) {
 
 #### JavaScript
 
-Zuerst konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Objekt, um Berichte vom Typ `"deprecation"` zu empfangen, indem eine Rückruffunktion übergeben wird, die die Berichte empfängt und protokolliert.
+Zuerst erzeugen wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte mit dem Typ "`deprecation`" zu hören, und übergeben einen Callback, der die Berichte empfangen und protokollieren wird.
 
 ```js
 const options = {
@@ -140,8 +136,7 @@ const observer = new ReportingObserver((reports, observer) => {
 observer.observe();
 ```
 
-Dann rufen wir den folgenden Code auf, der synchrones XHR verwendet (veraltete API).
-Beachten Sie, dass dies nach dem Beobachter definiert ist und ihn auslöst, sobald der Beobachter läuft.
+Dann rufen wir den folgenden Code auf, der synchrones XHR (veraltete API) verwendet. Beachten Sie, dass dies nach dem Beobachter definiert ist, den es auslöst, sobald der Beobachter läuft.
 
 ```js
 const xhr = new XMLHttpRequest();
@@ -151,18 +146,18 @@ xhr.send();
 
 #### Ergebnisse
 
-In Browsern, die Veraltet-Berichte unterstützen, sollte unten ein Bericht angezeigt werden.
-Beachten Sie, dass der `type` `"deprecation"` ist.
+In Browsern, die Abschreibungsberichte unterstützen, sollte ein Bericht unten angezeigt werden.
+Beachten Sie, dass der `type` "`deprecation`" ist.
 
-{{EmbedLiveSample("Using the `ReportingObserver` interface", "100%", "280px")}}
+{{EmbedLiveSample("Verwendung der `ReportingObserver`-Schnittstelle", "100%", "280px")}}
 
-### Senden eines Berichts an einen Berichts-Endpunkt
+### Senden eines Berichts an einen Berichtsendpunkt
 
-Um eine Webseite zu konfigurieren, die einen Veraltet-Bericht sendet, müssen Sie mit dem {{httpheader("Reporting-Endpoints")}} Header einen [Berichtsserverendpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) namens "default" festlegen.
+Um eine Webseite zu konfigurieren, um einen Abschreibungsbericht zu senden, müssen Sie einen [Berichtserver-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) namens "default" mit dem {{httpheader("Reporting-Endpoints")}} Header festlegen.
 Unten setzen wir den `default` Endpunkt auf `https://example.com/deprecation`:
 
-Der Bericht wird dann als JSON-Objekt in einem {{httpmethod("POST")}} Antrag an den Endpunkt gesendet, wann immer eine veraltete API verwendet wird.
-Er hat die gleiche Struktur wie `DeprecationReport`, außer dem Zusatz der Eigenschaften `age` und `user_agent`.
+Der Bericht wird dann als JSON-Objekt in einer {{httpmethod("POST")}}-Anfrage an den Endpunkt gesendet, wann immer eine veraltete API verwendet wird.
+Er hat die gleiche Struktur wie `DeprecationReport`, mit Ausnahme der zusätzlichen Eigenschaften `age` und `user_agent`.
 
 ```json
 [

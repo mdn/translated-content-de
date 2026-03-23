@@ -2,18 +2,18 @@
 title: Dokument
 slug: Web/API/Document
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
 {{APIRef("DOM")}}
 
-Das **`Document`**-Interface repräsentiert jede im Browser geladene Webseite und dient als Einstiegspunkt in den Inhalt der Webseite, nämlich den [DOM-Baum](/de/docs/Web/API/Document_Object_Model#what_is_a_dom_tree).
+Die **`Document`**-Schnittstelle repräsentiert jede Webseite, die im Browser geladen wird, und dient als Einstiegspunkt in den Inhalt der Webseite, welcher der [DOM-Baum](/de/docs/Web/API/Document_Object_Model#what_is_a_dom_tree) ist.
 
-Der DOM-Baum umfasst Elemente wie {{HTMLElement("body")}} und {{HTMLElement("table")}}, unter [vielen anderen](/de/docs/Web/HTML/Reference/Elements). Es bietet Funktionalitäten global für das Dokument, wie das Abrufen der URL der Seite und das Erstellen neuer Elemente im Dokument.
+Der DOM-Baum umfasst Elemente wie {{HTMLElement("body")}} und {{HTMLElement("table")}}, neben [vielen anderen](/de/docs/Web/HTML/Reference/Elements). Er bietet dem Dokument auf globaler Ebene Funktionen, wie zum Beispiel das Abrufen der URL der Seite und das Erstellen neuer Elemente im Dokument.
 
 {{InheritanceDiagram}}
 
-Das `Document`-Interface beschreibt die gemeinsamen Eigenschaften und Methoden für jede Art von Dokument. Abhängig vom Dokumenttyp (z.B. [HTML](/de/docs/Web/HTML), [XML](/de/docs/Web/XML), SVG, …), steht eine umfassendere API zur Verfügung: HTML-Dokumente, die mit dem Inhaltstyp `"text/html"` bereitgestellt werden, implementieren auch das [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Interface, während XML- und SVG-Dokumente das [`XMLDocument`](/de/docs/Web/API/XMLDocument)-Interface implementieren.
+Die `Document`-Schnittstelle beschreibt die gemeinsamen Eigenschaften und Methoden für jede Art von Dokument. Je nach Art des Dokuments (z. B. [HTML](/de/docs/Web/HTML), [XML](/de/docs/Web/XML), SVG, …) steht eine größere API zur Verfügung: HTML-Dokumente, die mit dem Inhaltstyp `"text/html"` bereitgestellt werden, implementieren ebenfalls die [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Schnittstelle, während XML- und SVG-Dokumente die [`XMLDocument`](/de/docs/Web/API/XMLDocument)-Schnittstelle implementieren.
 
 ## Konstruktor
 
@@ -22,16 +22,17 @@ Das `Document`-Interface beschreibt die gemeinsamen Eigenschaften und Methoden f
 
 ## Instanzeigenschaften
 
-_Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle erbt auch von den Schnittstellen [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) {{ReadOnlyInline}}
   - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit den Fokus hat.
 - [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition) {{ReadOnlyInline}}
-  - : Gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit im Dokument aktive [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) repräsentiert, oder `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
+  - : Gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit im Dokument aktive [View-Transition](/de/docs/Web/API/View_Transition_API) repräsentiert, oder `null`, wenn keine aktive View-Transition vorhanden ist.
 - [`Document.adoptedStyleSheets`](/de/docs/Web/API/Document/adoptedStyleSheets)
-  - : Fügt dem Dokument ein Array aus konstruierten Stilblättern hinzu. Diese Stilblätter können auch mit Schatten-DOM-Unterbäumen desselben Dokuments geteilt werden.
+  - : Fügt ein Array von konstruierten Stylesheets hinzu, die vom Dokument verwendet werden sollen.
+    Diese Stylesheets können auch mit Shadow-DOM-Teilbäumen desselben Dokuments geteilt werden.
 - [`Document.body`](/de/docs/Web/API/Document/body)
-  - : Gibt den {{HTMLElement("body")}} oder {{htmlelement("frameset")}}-Knoten des aktuellen Dokuments zurück.
+  - : Gibt den {{HTMLElement("body")}}- oder {{htmlelement("frameset")}}-Knoten des aktuellen Dokuments zurück.
 - [`Document.characterSet`](/de/docs/Web/API/Document/characterSet) {{ReadOnlyInline}}
   - : Gibt das Zeichensatz zurück, das vom Dokument verwendet wird.
 - [`Document.childElementCount`](/de/docs/Web/API/Document/childElementCount) {{ReadOnlyInline}}
@@ -45,17 +46,17 @@ _Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) u
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript) {{ReadOnlyInline}}
   - : Gibt das {{HTMLElement("script")}}-Element zurück, dessen Skript derzeit verarbeitet wird und [kein JavaScript-Modul ist](https://github.com/whatwg/html/issues/997).
 - [`Document.customElementRegistry`](/de/docs/Web/API/Document/customElementRegistry) {{ReadOnlyInline}}
-  - : Das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt, das diesem Dokument zugeordnet ist, oder `null`, wenn keines festgelegt wurde.
+  - : Das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt, das diesem Dokument zugeordnet ist, oder `null`, wenn keins festgelegt wurde.
 - [`Document.doctype`](/de/docs/Web/API/Document/doctype) {{ReadOnlyInline}}
   - : Gibt die Dokumenttypdefinition (DTD) des aktuellen Dokuments zurück.
 - [`Document.documentElement`](/de/docs/Web/API/Document/documentElement) {{ReadOnlyInline}}
-  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das ein direktes Kind des Dokuments ist. Für HTML-Dokumente ist dies normalerweise das [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement)-Objekt, das das {{HTMLElement("html")}}-Element des Dokuments repräsentiert.
+  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das ein direktes Kindelement des Dokuments ist. Bei HTML-Dokumenten ist dies normalerweise das [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement)-Objekt, das das {{HTMLElement("html")}}-Element des Dokuments repräsentiert.
 - [`Document.documentURI`](/de/docs/Web/API/Document/documentURI) {{ReadOnlyInline}}
-  - : Gibt den Dokumentstandort als Zeichenfolge zurück.
+  - : Gibt den Speicherort des Dokuments als Zeichenkette zurück.
 - [`Document.embeds`](/de/docs/Web/API/Document/embeds) {{ReadOnlyInline}}
   - : Gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der eingebetteten {{HTMLElement('embed')}}-Elemente im Dokument zurück.
 - [`Document.featurePolicy`](/de/docs/Web/API/Document/featurePolicy) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt die [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle zurück, mit den auf das Dokument angewendeten Richtlinien.
+  - : Gibt die [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle mit den auf das Dokument angewendeten Feature-Richtlinien zurück.
 - [`Document.firstElementChild`](/de/docs/Web/API/Document/firstElementChild) {{ReadOnlyInline}}
   - : Gibt das erste Kindelement des aktuellen Dokuments zurück.
 - [`Document.fonts`](/de/docs/Web/API/Document/fonts)
@@ -65,134 +66,134 @@ _Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) u
 - [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) {{ReadOnlyInline}}
   - : Gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
 - [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) {{ReadOnlyInline}}
-  - : Das Element, das sich derzeit im Vollbildmodus für dieses Dokument befindet.
+  - : Das Element, das derzeit im Vollbildmodus für dieses Dokument angezeigt wird.
 - [`Document.head`](/de/docs/Web/API/Document/head) {{ReadOnlyInline}}
   - : Gibt das {{HTMLElement("head")}}-Element des aktuellen Dokuments zurück.
 - [`Document.hidden`](/de/docs/Web/API/Document/hidden) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob die Seite als versteckt betrachtet wird oder nicht.
+  - : Gibt einen Booleschen Wert zurück, der angibt, ob die Seite als verborgen betrachtet wird oder nicht.
 - [`Document.images`](/de/docs/Web/API/Document/images) {{ReadOnlyInline}}
   - : Gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der Bilder im Dokument zurück.
 - [`Document.implementation`](/de/docs/Web/API/Document/implementation) {{ReadOnlyInline}}
-  - : Gibt die mit dem aktuellen Dokument verbundene DOM-Implementierung zurück.
+  - : Gibt die DOM-Implementierung zurück, die mit dem aktuellen Dokument verknüpft ist.
 - [`Document.lastElementChild`](/de/docs/Web/API/Document/lastElementChild) {{ReadOnlyInline}}
   - : Gibt das letzte Kindelement des aktuellen Dokuments zurück.
 - [`Document.links`](/de/docs/Web/API/Document/links) {{ReadOnlyInline}}
   - : Gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der Hyperlinks im Dokument zurück.
 - [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement) {{ReadOnlyInline}}
-  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit im Bild-im-Bild-Modus in diesem Dokument dargestellt wird.
+  - : Gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit im Bild-im-Bild-Modus in diesem Dokument präsentiert wird.
 - [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die Bild-im-Bild-Funktion aktiviert ist.
+  - : Gibt true zurück, wenn das Bild-im-Bild-Feature aktiviert ist.
 - [`Document.plugins`](/de/docs/Web/API/Document/plugins) {{ReadOnlyInline}}
   - : Gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der verfügbaren Plugins zurück.
 - [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement) {{ReadOnlyInline}}
-  - : Gibt das Element zurück, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist. `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel in einem anderen Dokument liegt.
+  - : Gibt das Element zurück, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist. `null`, wenn die Sperre noch aussteht, der Zeiger entsperrt ist oder wenn das Ziel in einem anderen Dokument liegt.
 - [`Document.prerendering`](/de/docs/Web/API/Document/prerendering) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob das Dokument derzeit im Prozess des Vor-Renderings ist, wie über die [Spekulationsregeln-API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
+  - : Gibt einen Booleschen Wert zurück, der anzeigt, ob das Dokument derzeit im Prozess des Vorausladens ist, wie über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
 - [`Document.scripts`](/de/docs/Web/API/Document/scripts) {{ReadOnlyInline}}
   - : Gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der {{HTMLElement("script")}}-Elemente im Dokument zurück.
 - [`Document.scrollingElement`](/de/docs/Web/API/Document/scrollingElement) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu dem [`Element`](/de/docs/Web/API/Element) zurück, das das Dokument scrollt.
+  - : Gibt einen Verweis auf das [`Element`](/de/docs/Web/API/Element) zurück, das das Dokument scrollt.
 - [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) {{ReadOnlyInline}}
-  - : Gibt eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten für Stilblätter zurück, die explizit in ein Dokument eingebunden oder eingebettet sind.
+  - : Gibt eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten für Stylesheets zurück, die explizit in ein Dokument eingebunden oder eingebettet sind.
 - [`Document.timeline`](/de/docs/Web/API/Document/timeline) {{ReadOnlyInline}}
-  - : Gibt die Zeitachse zurück als spezielle Instanz von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline), die automatisch beim Laden der Seite erstellt wird.
+  - : Gibt die Timeline als spezielle Instanz von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) zurück, die automatisch beim Laden der Seite erstellt wird.
 - [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) {{ReadOnlyInline}}
-  - : Gibt eine `string` zurück, die den Sichtbarkeitsstatus des Dokuments angibt. Mögliche Werte sind `sichtbar`, `versteckt` und `entladen`.
+  - : Gibt eine `string`-Zeichenkette zurück, die den Sichtbarkeitszustand des Dokuments bezeichnet. Mögliche Werte sind `visible`, `hidden` und `unloaded`.
 
 ### Erweiterungen für HTMLDocument
 
-_Das `Document`-Interface für HTML-Dokumente erbt vom [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Interface oder wird für solche Dokumente erweitert._
+_Die `Document`-Schnittstelle für HTML-Dokumente erbt von der [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Schnittstelle oder wird für solche Dokumente erweitert._
 
 - [`Document.cookie`](/de/docs/Web/API/Document/cookie)
-  - : Gibt eine durch Semikolons getrennte Liste der Cookies für dieses Dokument zurück oder setzt ein einzelnes Cookie.
+  - : Gibt eine durch Semikolon getrennte Liste der Cookies für dieses Dokument zurück oder setzt ein einzelnes Cookie.
 - [`Document.defaultView`](/de/docs/Web/API/Document/defaultView) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das Fenster-Objekt zurück.
+  - : Gibt einen Verweis auf das Fensterobjekt zurück.
 - [`Document.designMode`](/de/docs/Web/API/Document/designMode)
-  - : Ruft die Fähigkeit ab oder setzt diese, um das gesamte Dokument zu bearbeiten.
+  - : Erfasst/legt die Möglichkeit fest, das gesamte Dokument zu bearbeiten.
 - [`Document.dir`](/de/docs/Web/API/Document/dir)
-  - : Ruft die Richtung (rtl/ltr) des Dokuments ab oder setzt diese.
+  - : Erfasst/legt die Richtung (rtl/ltr) des Dokuments fest.
 - [`Document.fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled) {{ReadOnlyInline}}
   - : Gibt an, ob der Vollbildmodus verfügbar ist.
 - [`Document.lastModified`](/de/docs/Web/API/Document/lastModified) {{ReadOnlyInline}}
   - : Gibt das Datum zurück, an dem das Dokument zuletzt geändert wurde.
 - [`Document.location`](/de/docs/Web/API/Document/location) {{ReadOnlyInline}}
-  - : Gibt den URI des aktuellen Dokuments zurück.
+  - : Gibt die URI des aktuellen Dokuments zurück.
 - [`Document.readyState`](/de/docs/Web/API/Document/readyState) {{ReadOnlyInline}}
   - : Gibt den Ladezustand des Dokuments zurück.
 - [`Document.referrer`](/de/docs/Web/API/Document/referrer) {{ReadOnlyInline}}
-  - : Gibt den URI der Seite zurück, die auf diese Seite verlinkt hat.
+  - : Gibt die URI der Seite zurück, die auf diese Seite verlinkt hat.
 - [`Document.title`](/de/docs/Web/API/Document/title)
   - : Setzt oder ruft den Titel des aktuellen Dokuments ab.
 - [`Document.URL`](/de/docs/Web/API/Document/URL) {{ReadOnlyInline}}
-  - : Gibt den Dokumentstandort als Zeichenfolge zurück.
+  - : Gibt den Speicherort des Dokuments als Zeichenkette zurück.
 - Benannte Eigenschaften
-  - : Einige Elemente im Dokument werden auch als Eigenschaften exponiert:
-    - Für jedes {{HTMLElement("embed")}}, {{HTMLElement("form")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}} und {{HTMLElement("object")}}-Element wird sein `name` (wenn nicht leer) exponiert.
-      Wenn das Dokument z.B. `<form name="my_form">` enthält, dann gibt `document["my_form"]` (und sein Äquivalent `document.my_form`) eine Referenz auf dieses Element zurück.
-    - Für jedes {{HTMLElement("object")}}-Element wird sein `id` (wenn nicht leer) exponiert.
-    - Für jedes {{HTMLElement("img")}}-Element mit nicht leerem `name` wird sein `id` (wenn nicht leer) exponiert.
+  - : Einige Elemente im Dokument werden auch als Eigenschaften bereitgestellt:
+    - Für jedes {{HTMLElement("embed")}}, {{HTMLElement("form")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}} und {{HTMLElement("object")}}-Element wird sein `name` (wenn nicht leer) bereitgestellt.
+      Beispielsweise, wenn das Dokument `<form name="my_form">` enthält, dann gibt `document["my_form"]` (und sein Äquivalent `document.my_form`) einen Verweis auf dieses Element zurück.
+    - Für jedes {{HTMLElement("object")}}-Element wird sein `id` (wenn nicht leer) bereitgestellt.
+    - Für jedes {{HTMLElement("img")}}-Element mit nicht leerem `name` wird sein `id` (wenn nicht leer) bereitgestellt.
 
-    Wenn eine Eigenschaft einem einzelnen Element entspricht, wird dieses Element direkt zurückgegeben. Wenn dieses einzelne Element ein iframe ist, dann wird sein [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) stattdessen zurückgegeben. Wenn die Eigenschaft mehreren Elementen entspricht, wird eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurückgegeben, die alle diese enthält.
+    Wenn eine Eigenschaft einem einzelnen Element entspricht, wird dieses Element direkt zurückgegeben. Wenn dieses einzelne Element ein iframe ist, wird stattdessen dessen [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) zurückgegeben. Wenn die Eigenschaft mehreren Elementen entspricht, wird eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurückgegeben, die alle von ihnen enthält.
 
 ### Veraltete Eigenschaften
 
 - [`Document.alinkColor`](/de/docs/Web/API/Document/alinkColor) {{Deprecated_Inline}}
-  - : Gibt die Farbe aktiver Links im Dokumentkörper zurück oder setzt diese.
+  - : Gibt die Farbe der aktiven Links im Dokumentkörper zurück oder setzt diese.
 - [`Document.all`](/de/docs/Web/API/Document/all) {{Deprecated_Inline}}
-  - : Bietet Zugriff auf alle Elemente im Dokument — es gibt eine [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück, die an der Dokumentknoten-Wurzel verwurzelt ist. Dies ist eine alte, nicht-standardisierte Eigenschaft und sollte nicht verwendet werden.
+  - : Bietet Zugriff auf alle Elemente im Dokument — es gibt eine an der Dokumentknoten verwurzelte [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück. Dies ist eine veraltete, nicht-standardisierte Eigenschaft und sollte nicht verwendet werden.
 - [`Document.anchors`](/de/docs/Web/API/Document/anchors) {{Deprecated_Inline}} {{ReadOnlyInline}}
   - : Gibt eine Liste aller Anker im Dokument zurück.
 - [`Document.applets`](/de/docs/Web/API/Document/applets) {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Gibt eine leere [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück. Veraltete Eigenschaft, die früher die Liste der Applets in einem Dokument zurückgab.
+  - : Gibt eine leere [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück. Veraltete Eigenschaft, die früher die Liste der Applets innerhalb eines Dokuments zurückgab.
 - [`Document.bgColor`](/de/docs/Web/API/Document/bgColor) {{Deprecated_Inline}}
-  - : Ruft die Hintergrundfarbe des aktuellen Dokuments ab oder setzt diese.
+  - : Erfasst/legt die Hintergrundfarbe des aktuellen Dokuments fest.
 - [`Document.charset`](/de/docs/Web/API/Document/characterSet) {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Alias von [`Document.characterSet`](/de/docs/Web/API/Document/characterSet). Verwenden Sie diese Eigenschaft stattdessen.
+  - : Alias von [`Document.characterSet`](/de/docs/Web/API/Document/characterSet). Verwenden Sie stattdessen diese Eigenschaft.
 - [`Document.domain`](/de/docs/Web/API/Document/domain) {{Deprecated_Inline}}
-  - : Ruft die Domain des aktuellen Dokuments ab oder setzt diese.
+  - : Erfasst/legt die Domain des aktuellen Dokuments fest.
 - [`Document.fgColor`](/de/docs/Web/API/Document/fgColor) {{Deprecated_Inline}}
-  - : Ruft die Vordergrundfarbe oder Textfarbe des aktuellen Dokuments ab oder setzt diese.
+  - : Erfasst/legt die Vordergrundfarbe oder Textfarbe des aktuellen Dokuments fest.
 - [`Document.fullscreen`](/de/docs/Web/API/Document/fullscreen) {{Deprecated_Inline}}
   - : Gibt `true` zurück, wenn das Dokument im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API) ist.
 - [`Document.inputEncoding`](/de/docs/Web/API/Document/characterSet) {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Alias von [`Document.characterSet`](/de/docs/Web/API/Document/characterSet). Verwenden Sie diese Eigenschaft stattdessen.
+  - : Alias von [`Document.characterSet`](/de/docs/Web/API/Document/characterSet). Verwenden Sie stattdessen diese Eigenschaft.
 - [`Document.lastStyleSheetSet`](/de/docs/Web/API/Document/lastStyleSheetSet) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt den Namen des zuletzt aktiven Stilblatt-Sets zurück. Hat den Wert `null`, bis das Stilblatt durch das Festlegen des Wertes von [`selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) geändert wird.
+  - : Gibt den Namen des zuletzt aktivierten Stylesheet-Sets zurück. Hat den Wert `null`, bis das Stylesheet durch Setzen des Werts von [`selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) geändert wird.
 - [`Document.linkColor`](/de/docs/Web/API/Document/linkColor) {{Deprecated_Inline}}
-  - : Ruft die Farbe von Hyperlinks im Dokument ab oder setzt diese.
+  - : Erfasst/legt die Farbe der Hyperlinks im Dokument fest.
 - [`Document.preferredStyleSheetSet`](/de/docs/Web/API/Document/preferredStyleSheetSet) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt das bevorzugte Stilblatt-Set zurück, wie vom Seitenautor spezifiziert.
+  - : Gibt das vom Seitenautor spezifizierte bevorzugte Stylesheet-Set zurück.
 - [`Document.rootElement`](/de/docs/Web/API/Document/rootElement) {{Deprecated_Inline}}
-  - : Wie [`Document.documentElement`](/de/docs/Web/API/Document/documentElement), aber nur für Wurzelelemente des {{SVGElement("svg")}}. Verwenden Sie diese Eigenschaft stattdessen.
+  - : Wie [`Document.documentElement`](/de/docs/Web/API/Document/documentElement), aber nur für {{SVGElement("svg")}}-Wurzelelemente. Verwenden Sie stattdessen diese Eigenschaft.
 - [`Document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt zurück, welches Stilblatt-Set derzeit verwendet wird.
+  - : Gibt zurück, welches Stylesheet-Set derzeit verwendet wird.
 - [`Document.styleSheetSets`](/de/docs/Web/API/Document/styleSheetSets) {{Deprecated_Inline}} {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt eine Liste der auf dem Dokument verfügbaren Stilblatt-Sets zurück.
+  - : Gibt eine Liste der auf dem Dokument verfügbaren Stylesheet-Sets zurück.
 - [`Document.vlinkColor`](/de/docs/Web/API/Document/vlinkColor) {{Deprecated_Inline}}
-  - : Ruft die Farbe besuchter Hyperlinks ab oder setzt diese.
+  - : Erfasst/legt die Farbe der besuchten Hyperlinks fest.
 - [`Document.xmlEncoding`](/de/docs/Web/API/Document/xmlEncoding) {{Deprecated_Inline}}
-  - : Gibt die Kodierung zurück, wie von der XML-Deklaration bestimmt.
+  - : Gibt die Kodierung zurück, wie sie in der XML-Deklaration bestimmt wurde.
 - `Document.xmlStandalone` {{Deprecated_Inline}}
-  - : Gibt `true` zurück, wenn die XML-Deklaration angibt, dass das Dokument eigenständig ist (z.B. beeinflusst ein externer Teil der DTD den Inhalt des Dokuments), andernfalls `false`.
+  - : Gibt `true` zurück, wenn die XML-Deklaration angibt, dass das Dokument eigenständig ist (_z. B._, ein externer Teil der DTD beeinflusst den Inhalt des Dokuments), andernfalls `false`.
 - [`Document.xmlVersion`](/de/docs/Web/API/Document/xmlVersion) {{Deprecated_Inline}}
-  - : Gibt die Versionsnummer zurück, wie in der XML-Deklaration angegeben, oder `"1.0"`, wenn die Deklaration fehlt.
+  - : Gibt die Versionsnummer zurück, wie sie in der XML-Deklaration angegeben ist, oder `"1.0"`, wenn die Deklaration fehlt.
 
 ## Instanzmethoden
 
-_Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle erbt auch von den Schnittstellen [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Document.adoptNode()`](/de/docs/Web/API/Document/adoptNode)
-  - : Übernimmt einen Knoten aus einem externen Dokument.
+  - : Adoptieren Sie einen Knoten aus einem externen Dokument.
 - [`Document.append()`](/de/docs/Web/API/Document/append)
   - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen nach dem letzten Kind des Dokuments ein.
 - [`Document.ariaNotify()`](/de/docs/Web/API/Document/ariaNotify) {{Experimental_Inline}}
-  - : Gibt an, dass eine bestimmte Textzeichenfolge von einem Bildschirmlesegerät angesagt werden soll.
+  - : Gibt an, dass eine bestimmte Zeichenfolgenfolge von einem Bildschirmleser angesagt werden soll.
 - [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) {{non-standard_inline}} {{deprecated_inline}}
-  - : Gibt ein Versprechen zurück, das mit einem Array von Objekten erfüllt wird, die die Top-Themen für den Benutzer darstellen, eines aus jedem der letzten drei Epochen. Standardmäßig bewirkt die Methode auch, dass der Browser den aktuellen Seitenbesuch als von dem Anrufer beobachtet erfasst, sodass der Hostname der Seite später in der Themenberechnung verwendet werden kann. Weitere Details siehe [Topics API](/de/docs/Web/API/Topics_API).
+  - : Gibt ein Versprechen zurück, das sich mit einem Array von Objekten erfüllt, die die wichtigsten Themen für den Benutzer repräsentieren, eines aus jeder der letzten drei Epochen. Standardmäßig führt die Methode auch dazu, dass der Browser den aktuellen Seitenbesuch als vom Anrufer beobachtet aufzeichnet, sodass der Hostname der Seite später in der Themensberechnung verwendet werden kann. Siehe das [Topics API](/de/docs/Web/API/Topics_API) für mehr Details.
 - `Document.captureEvents()` {{Deprecated_Inline}}
   - : Siehe [`Window.captureEvents`](/de/docs/Web/API/Window/captureEvents).
 - [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint)
-  - : Gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das den DOM-Knoten enthält, der den Kursor enthält, und den Zeichenoffset des Kursors innerhalb dieses Knotens.
+  - : Gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das den DOM-Knoten enthält, in dem sich die Einfügemarke befindet, und den Zeichenoffset der Einfügemarke innerhalb dieses Knotens.
 - [`Document.caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint) {{Non-standard_Inline}}
   - : Ruft ein [`Range`](/de/docs/Web/API/Range)-Objekt für das Dokumentfragment unter den angegebenen Koordinaten ab.
 - [`Document.createAttribute()`](/de/docs/Web/API/Document/createAttribute)
@@ -206,9 +207,9 @@ _Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) u
 - [`Document.createDocumentFragment()`](/de/docs/Web/API/Document/createDocumentFragment)
   - : Erstellt ein neues Dokumentfragment.
 - [`Document.createElement()`](/de/docs/Web/API/Document/createElement)
-  - : Erstellt ein neues Element mit dem angegebenen Tag-Namen.
+  - : Erstellt ein neues Element mit dem gegebenen Tag-Namen.
 - [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS)
-  - : Erstellt ein neues Element mit dem angegebenen Tag-Namen und dem Namespace-URI.
+  - : Erstellt ein neues Element mit dem gegebenen Tag-Namen und Namespace-URI.
 - [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) {{deprecated_inline}}
   - : Erstellt ein Ereignisobjekt.
 - [`Document.createNodeIterator()`](/de/docs/Web/API/Document/createNodeIterator)
@@ -230,165 +231,165 @@ _Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) u
 - [`Document.elementsFromPoint()`](/de/docs/Web/API/Document/elementsFromPoint)
   - : Gibt ein Array aller Elemente an den angegebenen Koordinaten zurück.
 - [`Document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Aktiviert die Stilblätter für das angegebene Stilblatt-Set.
+  - : Aktiviert die Stylesheets für das angegebene Stylesheet-Set.
 - [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
   - : Beendet die Anzeige des Vollbild-Elements des Dokuments im Vollbildmodus.
 - [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture)
-  - : Entfernt das Video aus dem schwebenden Bild-im-Bild-Fenster zurück zu seinem ursprünglichen Container.
+  - : Entfernt das Video aus dem schwebenden Fenster des Bild-im-Bild-Modus zurück in seinen ursprünglichen Container.
 - [`Document.exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock)
   - : Hebt die Zeigersperre auf.
 - [`Document.getAnimations()`](/de/docs/Web/API/Document/getAnimations)
-  - : Gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die derzeit wirken und deren Ziel-Elemente Nachkommen des `document` sind.
+  - : Gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die derzeit in Kraft sind und deren Zielelemente Nachkommen des `Dokuments` sind.
 - `Document.getBoxQuads()` {{Experimental_Inline}}
   - : Gibt eine Liste von [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekten zurück, die die CSS-Fragmente des Knotens darstellen.
 - [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById)
-  - : Gibt eine Objekt-Referenz auf das identifizierte Element zurück.
+  - : Gibt einen Objektverweis auf das identifizierte Element zurück.
 - [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName)
-  - : Gibt eine Liste von Elementen mit dem angegebenen Klassennamen zurück.
+  - : Gibt eine Liste der Elemente mit dem gegebenen Klassennamen zurück.
 - [`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName)
-  - : Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen zurück.
+  - : Gibt eine Liste der Elemente mit dem gegebenen Tag-Namen zurück.
 - [`Document.getElementsByTagNameNS()`](/de/docs/Web/API/Document/getElementsByTagNameNS)
-  - : Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen und Namespace zurück.
+  - : Gibt eine Liste der Elemente mit dem gegebenen Tag-Namen und Namespace zurück.
 - [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection)
-  - : Gibt ein [`Selection`](/de/docs/Web/API/Selection)-Objekt zurück, das den von dem Benutzer ausgewählten Textbereich oder die aktuelle Position des Cursors repräsentiert.
+  - : Gibt ein [`Selection`](/de/docs/Web/API/Selection)-Objekt zurück, das den vom Benutzer ausgewählten Textbereich oder die aktuelle Position der Einfügemarke repräsentiert.
 - [`Document.hasPrivateToken()`](/de/docs/Web/API/Document/hasPrivateToken) {{experimental_inline}}
-  - : Gibt ein Versprechen zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob der Browser ein [privates Zustandstoken](/de/docs/Web/API/Private_State_Token_API) von einem bestimmten Herausgeber gespeichert hat.
+  - : Gibt ein Versprechen zurück, das sich mit einem Booleschen erfüllt, das angibt, ob der Browser ein [privaten Zustands-Token](/de/docs/Web/API/Private_State_Token_API) gespeichert hat, der von einem bestimmten Aussteller stammt.
 - [`Document.hasRedemptionRecord()`](/de/docs/Web/API/Document/hasRedemptionRecord) {{experimental_inline}}
-  - : Gibt ein Versprechen zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob der Browser ein [Einlösungsprotokoll](/de/docs/Web/API/Private_State_Token_API/Using#redeeming_tokens) von einem bestimmten Herausgeber vorliegen hat.
+  - : Gibt ein Versprechen zurück, das sich mit einem Booleschen erfüllt, das angibt, ob der Browser ein [Einlösungsprotokoll](/de/docs/Web/API/Private_State_Token_API/Using#redeeming_tokens) besitzt, das von einem bestimmten Aussteller stammt.
 - [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess)
-  - : Gibt eine {{jsxref("Promise")}} zurück, die sich mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf unpartitionierte Cookies hat.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Booleschen Wert erfüllt, der angibt, ob das Dokument Zugriff auf unpartitionierte Cookies hat.
 - [`Document.hasUnpartitionedCookieAccess()`](/de/docs/Web/API/Document/hasUnpartitionedCookieAccess)
   - : Neuer Name für [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess).
 - [`Document.importNode()`](/de/docs/Web/API/Document/importNode)
   - : Gibt eine Kopie eines Knotens aus einem externen Dokument zurück.
 - [`Document.moveBefore()`](/de/docs/Web/API/Document/moveBefore)
-  - : Bewegt einen gegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des `Document`-DOM-Knotens als direktes Kind, vor einem gegebenen Referenzknoten, ohne den Knoten zu entfernen und dann wieder einzufügen.
+  - : Verschiebt einen angegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des `Document`-DOM-Knotens als direktes Kind vor einem angegebenen Referenzknoten, ohne den Knoten zu entfernen und dann einzufügen.
 - [`Document.mozSetImageElement()`](/de/docs/Web/API/Document/mozSetImageElement) {{Non-standard_Inline}}
-  - : Ermöglicht die Änderung des Elements, das als Hintergrundbild für eine bestimmte Element-ID verwendet wird.
+  - : Ermöglicht es Ihnen, das Element zu ändern, das als Hintergrundbild für eine bestimmte Element-ID verwendet wird.
 - [`Document.prepend()`](/de/docs/Web/API/Document/prepend)
   - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokuments ein.
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)
-  - : Gibt den ersten Elementknoten innerhalb des Dokuments in Dokumentreihenfolge zurück, der den angegebenen Selektoren entspricht.
+  - : Gibt das erste Elementknoten innerhalb des Dokuments in Dokumentreihenfolge zurück, das den angegebenen Selektoren entspricht.
 - [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
-  - : Gibt eine Liste aller Elementknoten innerhalb des Dokuments zurück, die den angegebenen Selektoren entsprechen.
+  - : Gibt eine Liste aller Elementknoten im Dokument zurück, die den angegebenen Selektoren entsprechen.
 - [`Document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) {{Non-standard_Inline}}
-  - : Gibt die aktuelle Mausaufnahme frei, wenn sie auf einem Element in diesem Dokument liegt.
+  - : Gibt die aktuelle Mauserfassung frei, wenn sie auf einem Element in diesem Dokument ist.
 - `Document.releaseEvents()` {{Deprecated_Inline}}
   - : Siehe [`Window.releaseEvents()`](/de/docs/Web/API/Window/releaseEvents).
 - [`Document.replaceChildren()`](/de/docs/Web/API/Document/replaceChildren)
-  - : Ersetzt die bestehenden Kinder eines Dokuments durch ein angegebenes neues Set von Kindern.
+  - : Ersetzt die vorhandenen Kinder eines Dokuments durch eine angegebene neue Menge von Kindern.
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-  - : Ermöglicht einem in einem Drittanbieter-Kontext geladenen Dokument (d.h. eingebettet in einem {{htmlelement("iframe")}}), Zugriff auf unpartitionierte Cookies zu beantragen, in Fällen, in denen Benutzeragenten standardmäßig den Zugriff auf unpartitionierte Cookies von in einem Drittanbieter-Kontext geladenen Seiten blockieren, um die Privatsphäre zu verbessern.
-- [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{experimental_inline}}
-  - : Ermöglicht Top-Level-Sites, im Namen von eingebetteten Inhalten, die von einer anderen Site im selben [verbundenen Websiteset](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen, Drittanbieter-Cookie-Zugriff anzufordern.
+  - : Ermöglicht es einem in einem Drittanbieter-Kontext geladenen Dokument (d.h. eingebettet in ein {{htmlelement("iframe")}}), Zugriff auf unpartitionierte Cookies anzufordern, in Fällen, in denen Benutzeragenten standardmäßig den Zugriff auf unpartitionierte Cookies durch Seiten, die in einem Drittanbieter-Kontext geladen sind, blockieren, um die Privatsphäre zu verbessern.
+- [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{deprecated_inline}}
+  - : Ermöglicht es Top-Level-Sites, Drittanbieter-Cookie-Zugriff im Namen von eingebetteten Inhalten, die von einer anderen Site im gleichen [verwandten Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen, anzufordern.
 - [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)
-  - : Startet einen neuen [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das ihn repräsentiert.
+  - : Startet eine neue [View-Transition](/de/docs/Web/API/View_Transition_API) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, um sie zu repräsentieren.
 
-Das `Document`-Interface wird mit dem [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Interface erweitert:
+Die `Document`-Schnittstelle wird mit der [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Schnittstelle erweitert:
 
 - [`Document.createExpression()`](/de/docs/Web/API/Document/createExpression)
   - : Kompiliert ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das dann für (wiederholte) Auswertungen verwendet werden kann.
 - [`Document.createNSResolver()`](/de/docs/Web/API/Document/createNSResolver) {{deprecated_inline}}
   - : Gibt den Eingabeknoten unverändert zurück.
 - [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate)
-  - : Wertet einen XPath-Ausdruck aus.
+  - : Bewertet einen XPath-Ausdruck.
 
 ### Erweiterung für HTML-Dokumente
 
-Das `Document`-Interface für HTML-Dokumente erbt vom [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Interface oder wird für solche Dokumente erweitert:
+Die `Document`-Schnittstelle für HTML-Dokumente erbt von der [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Schnittstelle oder wird für solche Dokumente erweitert:
 
 - [`Document.clear()`](/de/docs/Web/API/Document/clear) {{Deprecated_Inline}}
   - : Diese Methode tut nichts.
 - [`Document.close()`](/de/docs/Web/API/Document/close)
-  - : Schließt einen Dokument-Stream fürs Schreiben.
+  - : Schließt einen Dokumentstream zum Schreiben.
 - [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand) {{Deprecated_Inline}}
-  - : Führt in einem bearbeitbaren Dokument einen Formatierungsbefehl aus.
+  - : Führt einen Formatierungsbefehl auf einem editierbaren Dokument aus.
 - [`Document.getElementsByName()`](/de/docs/Web/API/Document/getElementsByName)
-  - : Gibt eine Liste von Elementen mit dem angegebenen Namen zurück.
+  - : Gibt eine Liste der Elemente mit dem gegebenen Namen zurück.
 - [`Document.hasFocus()`](/de/docs/Web/API/Document/hasFocus)
-  - : Gibt `true` zurück, wenn der Fokus derzeit irgendwo innerhalb des angegebenen Dokuments liegt.
+  - : Gibt `true` zurück, wenn sich der Fokus derzeit irgendwo innerhalb des angegebenen Dokuments befindet.
 - [`Document.open()`](/de/docs/Web/API/Document/open)
-  - : Öffnet einen Dokument-Stream fürs Schreiben.
+  - : Öffnet einen Dokumentstream zum Schreiben.
 - [`Document.queryCommandEnabled()`](/de/docs/Web/API/Document/queryCommandEnabled) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt `true` zurück, wenn der Formatierungsbefehl auf dem aktuellen Bereich ausgeführt werden kann.
+  - : Gibt zurück, ob der Formatierungsbefehl im aktuellen Bereich ausgeführt werden kann.
 - `Document.queryCommandIndeterm()` {{Deprecated_Inline}}
-  - : Gibt `true` zurück, wenn der Formatierungsbefehl sich in einem unbestimmten Zustand auf dem aktuellen Bereich befindet.
+  - : Gibt `true` zurück, wenn der Formatierungsbefehl im aktuellen Bereich in einem unbestimmten Zustand ist.
 - [`Document.queryCommandState()`](/de/docs/Web/API/Document/queryCommandState) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt `true` zurück, wenn der Formatierungsbefehl auf dem aktuellen Bereich ausgeführt wurde.
+  - : Gibt zurück, ob der Formatierungsbefehl im aktuellen Bereich ausgeführt wurde.
 - [`Document.queryCommandSupported()`](/de/docs/Web/API/Document/queryCommandSupported) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt `true` zurück, wenn der Formatierungsbefehl auf dem aktuellen Bereich unterstützt wird.
+  - : Gibt zurück, ob der Formatierungsbefehl im aktuellen Bereich unterstützt wird.
 - `Document.queryCommandValue()` {{Deprecated_Inline}}
   - : Gibt den aktuellen Wert des aktuellen Bereichs für einen Formatierungsbefehl zurück.
 - [`Document.write()`](/de/docs/Web/API/Document/write) {{deprecated_inline}}
   - : Schreibt Text in ein Dokument.
 - [`Document.writeln()`](/de/docs/Web/API/Document/writeln) {{deprecated_inline}}
-  - : Schreibt eine Zeile Text in ein Dokument.
+  - : Schreibt eine Textzeile in ein Dokument.
 
 ## Statische Methoden
 
-_Dieses Interface erbt auch von den Interfaces [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle erbt auch von den Schnittstellen [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static) {{experimental_inline}}
-  - : Erstellt ein neues `Document`-Objekt aus einer HTML-Zeichenfolge auf XSS-sichere Weise mit Sanitärmaßnahmen.
+  - : Erstellt ein neues `Document`-Objekt aus einer HTML-Zeichenfolge auf XSS-sichere Weise mit Bereinigung.
 - [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static)
-  - : Erstellt ein neues `Document`-Objekt aus einer HTML-Zeichenfolge, ohne Sanitärmaßnahmen durchzuführen.
-    Die Zeichenfolge kann deklarative Schattenwurzeln enthalten.
+  - : Erstellt ein neues `Document`-Objekt aus einer HTML-Zeichenfolge ohne Bereinigung auszuführen.
+    Die Zeichenfolge kann deklarative Shadow-Roots enthalten.
 
 ## Ereignisse
 
-Diese Ereignisse können mit `addEventListener()` oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces abgehört werden. Zusätzlich zu den unten aufgeführten Ereignissen können viele Ereignisse von [Knoten](/de/docs/Web/API/Node) aus, die im Dokumentbaum enthalten sind, nach außen dringen.
+Diese Ereignisse können mit `addEventListener()` oder durch Zuweisung eines Ereignislisteners zur `oneventname`-Eigenschaft dieser Schnittstelle gehört werden. Zusätzlich zu den unten aufgeführten Ereignissen können viele Ereignisse von [Nodes](/de/docs/Web/API/Node), die im Dokumentbaum enthalten sind, ausgeprägt werden.
 
 - [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) {{Non-standard_Inline}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen seines Skripts beendet.
+  - : Wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Script beendet hat
 - [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) {{Non-standard_Inline}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen beginnt.
+  - : Wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element dabei ist, das Script zu starten.
 - [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) {{experimental_inline}}
-  - : Wird bei einem vorgeladenen Dokument ausgelöst, wenn es aktiviert wird (d.h. der Benutzer die Seite ansieht).
+  - : Wird ausgelöst auf einem Vorausgeladenen Dokument, wenn es aktiviert wird (d.h. der Benutzer die Seite ansieht).
 - [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event)
-  - : Wird ausgelöst, wenn eine Inhalts-Sicherheitsrichtlinie verletzt wird.
+  - : Wird ausgelöst, wenn eine Content-Sicherheitsrichtlinie verletzt wird.
 - [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)
-  - : Wird ausgelöst, wenn der Inhalt eines Tabs sichtbar geworden oder ausgeblendet wurde.
+  - : Wird ausgelöst, wenn der Inhalt eines Tabs sichtbar geworden oder versteckt wurde.
 
 ### Vollbild-Ereignisse
 
 - [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)
-  - : Wird ausgelöst, wenn das `Document` in den [Vollbildmodus wechselt](/de/docs/Web/API/Fullscreen_API/Guide) oder diesen verlässt.
+  - : Wird ausgelöst, wenn das `Document` in den oder aus dem [Vollbildmodus](/de/docs/Web/API/Fullscreen_API/Guide) wechselt.
 - [`fullscreenerror`](/de/docs/Web/API/Document/fullscreenerror_event)
-  - : Wird ausgelöst, wenn ein Fehler auftritt, während versucht wird, in den [Vollbildmodus zu wechseln](/de/docs/Web/API/Fullscreen_API/Guide) oder ihn zu verlassen.
+  - : Wird ausgelöst, wenn ein Fehler auftritt, während versucht wird, in den oder aus dem [Vollbildmodus](/de/docs/Web/API/Fullscreen_API/Guide) zu wechseln.
 
-### Lade- & Entlade-Ereignisse
+### Lade- und Entladeereignisse
 
 - [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)
-  - : Wird ausgelöst, wenn das Dokument vollständig geladen und geparst wurde, ohne auf das Laden von Stylesheets, Bildern und Subframes zu warten.
+  - : Wird ausgelöst, wenn das Dokument vollständig geladen und geparst wurde, ohne auf die Fertigstellung von Stylesheets, Bildern und Subframes zu warten.
 - [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)
   - : Wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState)-Attribut eines Dokuments geändert hat.
 
-### Zeigersperre-Ereignisse
+### Zeigersperren-Ereignisse
 
 - [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event)
-  - : Wird ausgelöst, wenn der Zeiger gesperrt/entsperrt wird.
+  - : Wird ausgelöst, wenn der Zeiger gesperrt oder entsperrt wird.
 - [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event)
-  - : Wird ausgelöst, wenn das Sperren des Zeigers fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn das Sperren des Zeigers fehlschlägt.
 
 ### Scroll-Ereignisse
 
 - [`scroll`](/de/docs/Web/API/Document/scroll_event)
   - : Wird ausgelöst, wenn die Dokumentansicht oder ein Element gescrollt wurde.
 - [`scrollend`](/de/docs/Web/API/Document/scrollend_event)
-  - : Wird ausgelöst, wenn die Dokumentansicht oder ein Element das Scrollen abgeschlossen hat.
+  - : Wird ausgelöst, wenn das Scrollen der Dokumentansicht oder eines Elements abgeschlossen ist.
 - [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event) {{experimental_inline}}
-  - : Wird am Scroll-Container am Ende eines Scroll-Vorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wurde.
+  - : Wird auf dem Rollcontainer am Ende einer Rolloperation ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wurde.
 - [`scrollsnapchanging`](/de/docs/Web/API/Document/scrollsnapchanging_event) {{experimental_inline}}
-  - : Wird am Scroll-Container ausgelöst, wenn der Browser feststellt, dass ein neues Scroll-Snap-Ziel aussteht, d.h. es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
+  - : Wird auf dem Rollcontainer ausgelöst, wenn der Browser feststellt, dass ein neues Scroll-Snap-Ziel aussteht, d.h. es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
 
 ### Auswahl-Ereignisse
 
 - [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)
-  - : Wird ausgelöst, wenn die aktuelle Textauswahl in einem Dokument geändert wird.
+  - : Wird ausgelöst, wenn die aktuelle Textauswahl auf einem Dokument geändert wird.
 
-### Blasen-Ereignisse
+### Weitergeleitete Ereignisse
 
-Nicht alle Ereignisse, die blasen können, können das `Document`-Objekt erreichen. Nur die folgenden können es und können auf dem `Document`-Objekt abgehört werden:
+Nicht alle Ereignisse, die weitergeleitet werden können, erreichen das `Dokument`-Objekt. Nur die folgenden tun dies und können auf dem `Dokument`-Objekt gehört werden:
 
 - `abort`
 - [`auxclick`](/de/docs/Web/API/Element/auxclick_event)

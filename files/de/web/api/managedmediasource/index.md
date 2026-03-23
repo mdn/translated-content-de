@@ -2,50 +2,50 @@
 title: ManagedMediaSource
 slug: Web/API/ManagedMediaSource
 l10n:
-  sourceCommit: 4be29f6917b698805c919c5d290359bc13c62384
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Das **`ManagedMediaSource`** Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ist ein [`MediaSource`](/de/docs/Web/API/MediaSource), das aktiv seinen Speicherinhalt verwaltet. Im Gegensatz zu einer regulären `MediaSource` kann der Benutzeragent Inhalte aus seinen [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) Objekten jederzeit entfernen, etwa aufgrund von Speicher- oder Hardwarebeschränkungen. Dies macht es geeignet für energieeffiziente Streaming-Szenarien, bei denen der Benutzeragent mehr Kontrolle über gepufferte Mediendaten benötigt.
+Das **`ManagedMediaSource`**-Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ist eine [`MediaSource`](/de/docs/Web/API/MediaSource), die ihren Speicherinhalt aktiv verwaltet. Im Gegensatz zu einer regulären `MediaSource` kann der Benutzeragent jederzeit Inhalte aus seinen [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer)-Objekten entfernen, z.B. aus Gründen wie Speicher- oder Hardwarebeschränkungen. Dies macht sie geeignet für energieeffiziente Streaming-Szenarien, bei denen der Benutzeragent mehr Kontrolle über gepufferte Mediendaten benötigt.
 
-Wenn [`addSourceBuffer()`](/de/docs/Web/API/MediaSource/addSourceBuffer) auf einer `ManagedMediaSource` aufgerufen wird, werden [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer) Objekte (anstelle von [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Objekten) erstellt, die [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event) Ereignisse auslösen, um die Anwendung zu benachrichtigen, wenn gepufferte Bereiche vom Benutzeragenten geändert werden.
+Wenn [`addSourceBuffer()`](/de/docs/Web/API/MediaSource/addSourceBuffer) auf einer `ManagedMediaSource` aufgerufen wird, erstellt es [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer)-Objekte (statt [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte), die [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignisse auslösen, um die Anwendung zu benachrichtigen, wenn gepufferte Bereiche vom Benutzeragenten geändert werden.
 
 > [!NOTE]
-> Unter Safari wird `ManagedMediaSource` nur aktiviert, wenn die Fernwiedergabe im Media-Element ausdrücklich deaktiviert wird (durch Setzen von [`HTMLMediaElement.disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback) auf `true`) oder wenn eine AirPlay-Quellenalternative bereitgestellt wird (zum Beispiel ein HLS {{htmlelement("source")}} Element). Ohne eines dieser beiden wird das [`sourceopen`](/de/docs/Web/API/MediaSource/sourceopen_event) Ereignis nicht ausgelöst.
+> In Safari wird die `ManagedMediaSource` nur aktiviert, wenn die Fernwiedergabe explizit auf dem Medienelement deaktiviert ist (indem [`HTMLMediaElement.disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback) auf `true` gesetzt wird) oder wenn eine AirPlay-Quellenalternative bereitgestellt wird (zum Beispiel ein HLS {{htmlelement("source")}}-Element). Ohne eine dieser Bedingungen wird das [`sourceopen`](/de/docs/Web/API/MediaSource/sourceopen_event)-Ereignis nicht ausgelöst.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`ManagedMediaSource()`](/de/docs/Web/API/ManagedMediaSource/ManagedMediaSource)
-  - : Erstellt und gibt eine neue `ManagedMediaSource` Objektinstanz ohne zugehörige Quellenpuffer zurück.
+- [`ManagedMediaSource()`](/de/docs/Web/API/ManagedMediaSource/ManagedMediaSource) {{experimental_inline}}
+  - : Erstellt und gibt eine neue Instanz des `ManagedMediaSource`-Objekts zurück, ohne zugehörige Quellenpuffer.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
 
-- [`ManagedMediaSource.streaming`](/de/docs/Web/API/ManagedMediaSource/streaming) {{ReadOnlyInline}}
-  - : Ein Boolean, der anzeigt, ob das `ManagedMediaSource` Objekt derzeit streamt. Wenn `true`, sollte die Anwendung aktiv Mediendaten abrufen und anhängen. Wenn `false`, kann die Anwendung das Abrufen neuer Daten stoppen.
+- [`ManagedMediaSource.streaming`](/de/docs/Web/API/ManagedMediaSource/streaming) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein boolescher Wert, der anzeigt, ob das `ManagedMediaSource`-Objekt derzeit streamt. Wenn `true`, sollte die Anwendung aktiv Mediendaten abrufen und anhängen. Wenn `false`, kann die Anwendung aufhören, neue Daten abzurufen.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seiner übergeordneten Schnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
+_Erbt Methoden von seiner Elternschnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner übergeordneten Schnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
+_Erbt auch Ereignisse von seiner Elternschnittstelle, [`MediaSource`](/de/docs/Web/API/MediaSource)._
 
-- [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event)
-  - : Wird ausgelöst, wenn sich die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming) Eigenschaft der `ManagedMediaSource` von `false` auf `true` ändert, was bedeutet, dass die Mediaquelle das Streaming gestartet hat.
-- [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event)
-  - : Wird ausgelöst, wenn sich die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming) Eigenschaft der `ManagedMediaSource` von `true` auf `false` ändert, was bedeutet, dass die Mediaquelle das Streaming gestoppt hat.
+- [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming)-Eigenschaft der `ManagedMediaSource` von `false` auf `true` wechselt, was bedeutet, dass die Medienquelle mit dem Streaming begonnen hat.
+- [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn die [`streaming`](/de/docs/Web/API/ManagedMediaSource/streaming)-Eigenschaft der `ManagedMediaSource` von `true` auf `false` wechselt, was bedeutet, dass die Medienquelle das Streaming beendet hat.
 
 ## Beispiele
 
 ### Einrichten einer verwalteten Medienquelle
 
-Das folgende Beispiel richtet eine `ManagedMediaSource` ein, verbindet sie mit einem {{htmlelement("video")}} Element und lauscht auf die [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event) und [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event) Ereignisse, um zu steuern, wann Mediendaten abgerufen werden. [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event) Ereignisse werden unter dem Video protokolliert.
+Das folgende Beispiel richtet eine `ManagedMediaSource` ein, verbindet sie mit einem {{htmlelement("video")}}-Element und hört auf die [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event) und [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event)-Ereignisse, um zu steuern, wann Mediendaten abgerufen werden. [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignisse werden unter dem Video protokolliert.
 
 ```js
 const videoUrl =

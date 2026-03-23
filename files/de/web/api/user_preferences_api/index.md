@@ -2,26 +2,26 @@
 title: User Preferences API
 slug: Web/API/User_Preferences_API
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
 {{DefaultAPISidebar("User Preferences API")}}{{SeeCompatTable}}
 
-Die **Benutzerpräferenzen-API** ermöglicht es Seitenautoren, benutzerpräferenzbezogene [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using)-Einstellungen programmatisch zu überschreiben.
+Die **User Preferences API** ermöglicht es Seitenautoren, auf programmatische Weise benutzerpräferenzbezogene [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)-Einstellungen zu überschreiben.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Unterstützende Benutzeragenten definieren Werte für die CSS Media Queries {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}}, {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}}, {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} und {{cssxref("@media/prefers-reduced-data", "prefers-reduced-data")}}. Das [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Objekt bietet einen programmgesteuerten Zugang zu diesen Präferenzen, sodass Seitenautoren auf Präferenzänderungen lauschen und diese überschreiben können.
+Unterstützende User Agents definieren Werte für die CSS-Media Queries {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}}, {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}}, {{cssxref("@media/prefers-reduced-transparency", "prefers-reduced-transparency")}} und {{cssxref("@media/prefers-reduced-data", "prefers-reduced-data")}}. Das [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Objekt ermöglicht programmatischen Zugriff auf diese Präferenzen, wodurch Seitenautoren auf Präferenzänderungen lauschen und diese überschreiben können.
 
 ## Beispiele
 
-### Umschaltung des Dunkelmodus
+### Umschalten des Dunkelmodus
 
-Der folgende Code implementiert eine minimale Umschaltung für den Dunkelmodus.
+Der folgende Code implementiert ein minimales Umschalten für den Dunkelmodus.
 
 #### HTML
 
-Das HTML enthält ein Formular mit drei Optionsfeldern. Diese Optionsfelder setzen das `color-scheme`-Feld entweder auf `system`, `light` oder `dark`.
+Das HTML enthält ein Formular mit drei Optionsfeldern. Diese Optionsfelder setzen das `color-scheme`-Feld auf entweder `system`, `light` oder `dark`.
 
 ```html live-sample___dark-mode-toggle
 <!doctype html>
@@ -46,7 +46,7 @@ Das HTML enthält ein Formular mit drei Optionsfeldern. Diese Optionsfelder setz
 
 #### JavaScript
 
-Das JavaScript registriert Änderungsereignislistener für alle Elemente mit dem Namen `color-scheme`. Wenn der Wert `system` ist, löscht der Handler die Farbschema-Überschreibung. Andernfalls fordert er eine Überschreibung des Farbschemas mit dem Wert des Eingabeelements an.
+Das JavaScript registriert Ereignis-Listener für alle Elemente mit dem Namen `color-scheme`. Wenn der Wert `system` ist, entfernt der Handler das Überschreiben des Farbschemas. Andernfalls wird ein Farbschema-Überschreiben mit dem Wert des Eingabeelements angefordert.
 
 ```js live-sample___dark-mode-toggle
 if (navigator.preferences) {

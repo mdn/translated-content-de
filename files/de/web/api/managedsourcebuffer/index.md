@@ -2,37 +2,37 @@
 title: ManagedSourceBuffer
 slug: Web/API/ManagedSourceBuffer
 l10n:
-  sourceCommit: 4be29f6917b698805c919c5d290359bc13c62384
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Das **`ManagedSourceBuffer`**-Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ist ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer), das von einer [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) erstellt wird, wenn [`addSourceBuffer()`](/de/docs/Web/API/MediaSource/addSourceBuffer) aufgerufen wird. Es erbt alle Eigenschaften und Methoden von `SourceBuffer` und löst zusätzlich ein [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignis aus, wann immer sich die gepufferten Bereiche ändern – einschließlich der Fälle, in denen der User Agent Inhalte im Rahmen seines Speicherbereinigungsalgorithmus entfernt.
+Die **`ManagedSourceBuffer`**-Schnittstelle der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ist ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer), der von einem [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) erstellt wird, wenn [`addSourceBuffer()`](/de/docs/Web/API/MediaSource/addSourceBuffer) aufgerufen wird. Sie erbt alle Eigenschaften und Methoden von `SourceBuffer` und löst zusätzlich ein [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)-Ereignis aus, wann immer sich die gepufferten Bereiche ändern – einschließlich wenn der Benutzeragent Inhalte als Teil seines Speicherbereinigungsalgorithmus entfernt.
 
-Anwendungen sollten auf das `bufferedchange`-Ereignis hören, um Änderungen an gepufferten Daten zu verfolgen, da eine `ManagedMediaSource` Inhalte jederzeit aus Gründen wie Speicher- oder Hardwarebeschränkungen entfernen kann.
+Anwendungen sollten auf das `bufferedchange`-Ereignis hören, um Änderungen an gepufferten Daten zu verfolgen, da ein `ManagedMediaSource` Inhalte jederzeit aus Gründen wie Speicher- oder Hardwarebeschränkungen entfernen kann.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seiner Elternschnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
+_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seiner Elternschnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
+_Erbt Methoden von seiner übergeordneten Schnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner Elternschnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
+_Erbt auch Ereignisse von seiner übergeordneten Schnittstelle, [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)._
 
-- [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event)
-  - : Wird ausgelöst, wenn sich der gepufferte Bereich des `ManagedSourceBuffer` ändert, nachdem ein Aufruf von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove), [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream), oder als Folge des Speicherbereinigungsalgorithmus des User Agents erfolgt.
+- [`bufferedchange`](/de/docs/Web/API/ManagedSourceBuffer/bufferedchange_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn sich der gepufferte Bereich des `ManagedSourceBuffer` ändert, nach einem Aufruf von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove), [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) oder als Konsequenz des Speicherbereinigungsalgorithmus des Benutzeragents.
 
 ## Beispiele
 
-### Überwachung von Änderungen der gepufferten Bereiche
+### Überwachen von Veränderungen der gepufferten Bereiche
 
-Dieses Beispiel richtet eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) ein, fügt einen `ManagedSourceBuffer` hinzu, ruft eine fragmentierte MP4-Datei ab und überwacht das `bufferedchange`-Ereignis, um Änderungen an den gepufferten Bereichen zu protokollieren.
+Dieses Beispiel richtet eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) ein, fügt einen `ManagedSourceBuffer` hinzu, ruft eine fragmentierte MP4-Datei ab und hört auf das `bufferedchange`-Ereignis, um alle Änderungen an den gepufferten Bereichen zu protokollieren.
 
 ```js
 const videoUrl =

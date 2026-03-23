@@ -3,24 +3,24 @@ title: "ManagedMediaSource: streaming-Eigenschaft"
 short-title: streaming
 slug: Web/API/ManagedMediaSource/streaming
 l10n:
-  sourceCommit: 4be29f6917b698805c919c5d290359bc13c62384
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
-{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`streaming`** des [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource)-Interfaces ist ein boolescher Wert, der angibt, ob die Anwendung aktiv Mediendaten abrufen und anhängen soll.
+Die schreibgeschützte Eigenschaft **`streaming`** des [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource)-Interfaces ist ein Boolean, der angibt, ob die Anwendung aktiv Mediendaten abrufen und anhängen sollte.
 
 Der Wert dieser Eigenschaft wird durch den Überwachungsalgorithmus des Benutzeragenten aktualisiert. Wenn sich der Wert ändert, wird das entsprechende [`startstreaming`](/de/docs/Web/API/ManagedMediaSource/startstreaming_event)- oder [`endstreaming`](/de/docs/Web/API/ManagedMediaSource/endstreaming_event)-Ereignis ausgelöst.
 
 ## Wert
 
-Ein boolescher Wert, der anfänglich `false` ist. Wenn `true`, benötigt der Benutzeragent mehr Daten, um eine unterbrechungsfreie Wiedergabe zu gewährleisten. Wenn `false`, hat der Benutzeragent genügend Daten gepuffert und die Anwendung kann das Abrufen neuer Segmente einstellen.
+Ein Boolean, der initial `false` ist. Wenn `true`, benötigt der Benutzeragent mehr Daten, um eine unterbrechungsfreie Wiedergabe sicherzustellen. Wenn `false`, hat der Benutzeragent genug Daten gepuffert und die Anwendung kann das Abrufen neuer Segmente stoppen.
 
 ## Beispiele
 
 ### Überprüfung des Streaming-Zustands
 
-Dieses Beispiel erstellt eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource), verbindet sie mit einem {{htmlelement("video")}}-Element und protokolliert den Wert von `streaming`, wann immer er zwischen `true` und `false` wechselt.
+Dieses Beispiel erstellt eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource), verbindet sie mit einem {{htmlelement("video")}}-Element und protokolliert den Wert von `streaming`, wann immer er sich zwischen `true` und `false` ändert.
 
 ```js
 const mediaType = 'video/mp4; codecs="avc1.64001F, mp4a.40.2"';

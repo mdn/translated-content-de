@@ -3,12 +3,12 @@ title: "Navigator: preferences-Eigenschaft"
 short-title: preferences
 slug: Web/API/Navigator/preferences
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`preferences`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Objekt für das aktuelle Dokument zurück. Dies ist der Einstiegspunkt für die [User Preferences API](/de/docs/Web/API/User_Preferences_API)-Funktionalität.
+Die **`preferences`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Objekt für das aktuelle Dokument zurückgibt. Dies ist der Ausgangspunkt für die Funktionalität der [User Preferences API](/de/docs/Web/API/User_Preferences_API).
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Objekt.
 
 ## Beispiele
 
-### Abfrage der Farbdesign-Präferenz
+### Farbpräferenz abrufen
 
-Dieses Beispiel zeigt, wie die bevorzugte Farbgestaltung des Benutzers abgefragt werden kann.
+Dieses Beispiel zeigt, wie Sie die bevorzugte Farbgestaltung des Benutzers abfragen können.
 
 ```js
 if (navigator.preferences.colorScheme.value === "dark") {
