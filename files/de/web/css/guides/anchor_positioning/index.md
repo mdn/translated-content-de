@@ -1,17 +1,17 @@
 ---
-title: CSS-Ankerpositionierung
+title: CSS-Verankerungspositionierung
 short-title: Anchor positioning
 slug: Web/CSS/Guides/Anchor_positioning
 l10n:
-  sourceCommit: 8300697ca75ca1e77175912110d4fe9ef48cb0bb
+  sourceCommit: 879a1aece3a1d4eb28c0024f0baac6aa1b96638e
 ---
 
-Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Ankerelemente** definiert; **ankerpositionierte Elemente** können dann ihre Größe und Position basierend auf der Größe und Lage der Ankerelemente, mit denen sie verbunden sind, festlegen.
+Das **CSS-Verankerungspositionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Verankerungselemente** definiert; **verankerungspositionierte Elemente** können dann in ihrer Größe und Position basierend auf der Größe und der Position der Verankerungselemente, an die sie gebunden sind, gesetzt werden.
 
-Darüber hinaus bietet die Spezifikation rein CSS-basierte Mechanismen, um:
+Darüber hinaus bietet die Spezifikation reine CSS-Mechanismen um:
 
-- Eine Reihe von alternativen Positionen für ein verankertes Element anzugeben; wenn die Standardpositionierung dazu führt, dass es seinen enthaltenen Block überläuft und/oder außerhalb des Bildschirms dargestellt wird, wird der Browser versuchen, das verankerte Element in den alternativen Positionen darzustellen.
-- Bedingungen festzulegen, unter denen ankerpositionierte Elemente ausgeblendet werden sollten, in Situationen, in denen es nicht angemessen ist, sie mit Ankerelementen zu verbinden.
+- Eine Reihe von alternativen Positionen für ein verankertes Element anzugeben; wenn die Standard-Rendering-Position dazu führt, dass es über seinen enthaltenden Block hinaus und/oder außerhalb des Bildschirms gerendert wird, versucht der Browser, das verankerte Element stattdessen in den alternativen Positionen zu rendern.
+- Bedingungen zu deklarieren, unter denen verankerungspositionierte Elemente ausgeblendet werden sollten, in Situationen, in denen es nicht angebracht ist, sie an Verankerungselemente zu binden.
 
 ## Referenz
 
@@ -56,11 +56,14 @@ Darüber hinaus bietet die Spezifikation rein CSS-basierte Mechanismen, um:
 
 ## Leitfäden
 
-- [CSS-Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
-  - : Ein einführender Leitfaden zu grundlegenden Konzepten der Ankerpositionierung, einschließlich der Zuordnung, Positionierung und Größenanpassung von Elementen im Verhältnis zu ihrem Anker.
+- [Verwendung der CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+  - : Ein Einführungsguide zu grundlegenden Konzepten der Verankerungspositionierung, einschließlich der Zuordnung, Positionierung und Größenanpassung von Elementen relativ zu ihrer Verankerung.
 
 - [Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
-  - : Ein Leitfaden zu den Mechanismen, die die CSS-Ankerpositionierung bietet, um zu verhindern, dass ankerpositionierte Elemente ihre enthaltenen Elemente oder den Viewport überlaufen, einschließlich Fallback-Optionen bei der Positionierung und bedingt ausblendbaren Elementen.
+  - : Ein Leitfaden zu den Mechanismen, die die CSS-Verankerungspositionierung bietet, um zu verhindern, dass verankerungspositionierte Elemente ihren enthaltenden Elementen oder dem Viewport überlaufen, einschließlich der Fälle, in denen die Möglichkeit besteht, Positionen zu versuchen und Elemente bei Bedarf auszublenden.
+
+- [Verwendung verankerter Container-Abfragen](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
+  - : Erklärt, wie man verankerte Container-Abfragen verwendet, um bedingt Stile auf verankerungspositionierte Elemente anzuwenden, abhängig davon, welche Positionsversuche für sie aktiv sind.
 
 ## Verwandte Konzepte
 
@@ -90,7 +93,7 @@ Darüber hinaus bietet die Spezifikation rein CSS-basierte Mechanismen, um:
   - {{cssxref("left")}}
   - {{cssxref("bottom")}}
   - {{cssxref("right")}}
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul:
+- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul:
   - {{cssxref("width")}}
   - {{cssxref("height")}}
   - {{cssxref("min-width")}}
@@ -116,7 +119,7 @@ Darüber hinaus bietet die Spezifikation rein CSS-basierte Mechanismen, um:
 
 ## Siehe auch
 
-- [CSS-Scrollverankerung](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
+- [CSS Scroll-Ankerung](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
 - [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
-- [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
+- [Lernen: Größenänderung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
