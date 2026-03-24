@@ -3,7 +3,7 @@ title: session.end Befehl
 short-title: session.end
 slug: Web/WebDriver/Reference/BiDi/Modules/session/end
 l10n:
-  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
+  sourceCommit: f83c12ab41865e0e195dd36ad9cdcad511a36957
 ---
 
 {{SeeCompatTable}}
@@ -21,17 +21,17 @@ Der `session.end` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#command
 
 ### Parameter
 
-Keine. Dennoch müssen Sie das `params` Feld einfügen und auf ein leeres Objekt (`{}`) setzen.
+Keine. Sie müssen jedoch das `params`-Feld einschließen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
-Das `result` Feld in der Antwort ist ein leeres Objekt (`{}`).
+Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 ## Beispiele
 
 ### Beenden einer Automatisierungssitzung mit dem Browser
 
-Sobald eine WebDriver BiDi-Verbindung hergestellt ist, senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
+Mit einer etablierten [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
 
 ```json
 {
@@ -51,7 +51,7 @@ Der Browser antwortet mit:
 }
 ```
 
-Die erfolgreiche Antwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wird.
+Die Erfolgsantwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wird.
 
 ## Spezifikationen
 

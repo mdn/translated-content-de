@@ -3,10 +3,11 @@ title: WebDriver BiDi-Module
 short-title: Modules
 slug: Web/WebDriver/Reference/BiDi/Modules
 l10n:
-  sourceCommit: fbf733732bf531a1be40a0c646bcbc4b31618476
+  sourceCommit: f83c12ab41865e0e195dd36ad9cdcad511a36957
 ---
 
-Das WebDriver BiDi-Protokoll ist in Module gegliedert. Jedes Modul repräsentiert eine Sammlung von zusammenhängenden [Befehlen](#befehle) und [Ereignissen](#ereignisse), die in spezifischen Automatisierungsfällen im Browser verwendet werden.
+Das WebDriver BiDi-Protokoll ist in Module organisiert.
+Jedes Modul stellt eine Sammlung von verwandten [Befehlen](#befehle) und [Ereignissen](#ereignisse) dar, die in bestimmten Fällen der Browserautomatisierung verwendet werden.
 
 Sowohl Befehls- als auch Ereignisnamen verwenden den Modulnamen als Präfix: `module_name.command_name` für Befehle und `module_name.event_name` für Ereignisse.
 
@@ -16,13 +17,13 @@ Sowohl Befehls- als auch Ereignisnamen verwenden den Modulnamen als Präfix: `mo
 
 ## Befehle
 
-Ein Befehl ist eine asynchrone Operation, die vom Client an den Browser gesendet wird. Jede Befehlsnachricht, die Sie an den Browser senden, enthält drei Felder:
+Ein Befehl ist eine asynchrone Operation, die vom Client an den Browser gesendet wird. Jede Befehlsmeldung, die Sie an den Browser senden, umfasst drei Felder:
 
-- `id`: Eine Zahl, die Sie dem Befehl zuweisen. Im Gegensatz zu HTTP, bei dem jede Anfrage auf eine Antwort wartet, kann eine WebSocket-Verbindung mehrere Befehle gleichzeitig bearbeiten, und Antworten können in beliebiger Reihenfolge eintreffen. Die `id` hilft Ihnen, jede Antwort dem Befehl zuzuordnen, der sie ausgelöst hat.
-- `method`: Der auszuführende Befehl im Format `module_name.command_name`.
+- `id`: Eine Nummer, die Sie dem Befehl zuweisen. Im Gegensatz zu HTTP, bei dem jede Anfrage auf eine Antwort wartet, kann eine WebSocket-Verbindung mehrere Befehle gleichzeitig ausführen, und die Antworten können in ungeordneter Reihenfolge eintreffen. Die `id` ermöglicht es Ihnen, jede Antwort dem Befehl zuzuordnen, der sie ausgelöst hat.
+- `method`: Der auszuführende Befehl in der Form `module_name.command_name`.
 - `params`: Ein Objekt mit allen zusätzlichen Informationen, die der Befehl benötigt. Einige Befehle erfordern keine Parameter, aber ein leeres `params`-Objekt (`{}`) muss dennoch gesendet werden.
 
-Zum Beispiel, um eine neue Sitzung zu erstellen, würden Sie den [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl wie folgt senden:
+Um beispielsweise eine neue Sitzung zu erstellen, würden Sie den Befehl [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) wie folgt senden:
 
 ```json
 {
@@ -32,17 +33,18 @@ Zum Beispiel, um eine neue Sitzung zu erstellen, würden Sie den [`session.new`]
 }
 ```
 
-Jeder Befehl führt entweder zu einer erfolgreichen Antwort mit einem `result`-Feld oder zu einer Fehlerantwort mit einem `error`-Feld. Die Struktur von `result` ist spezifisch für jeden Befehl.
+Jeder Befehl führt entweder zu einer Erfolgsmeldung, die ein `result`-Feld enthält, oder zu einer Fehlermeldung, die ein `error`-Feld enthält. Die Struktur von `result` ist spezifisch für jeden Befehl.
 
-Alle Befehle außer [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) und [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status) erfordern eine aktive WebDriver BiDi-Sitzung.
+Alle Befehle mit Ausnahme von [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) und [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status) erfordern eine aktive WebDriver BiDi-Sitzung.
 
 ## Ereignisse
 
-Ein Ereignis ist eine Benachrichtigung, die vom Browser an den Client gesendet wird, wenn etwas von Interesse auftritt. Um Ereignisse zu empfangen, muss der Client sich zuerst mit dem Befehl `session.subscribe` anmelden.
+Ein Ereignis ist eine Benachrichtigung, die vom Browser an den Client gesendet wird, wenn etwas von Interesse geschieht.
+Um Ereignisse zu empfangen, muss der Client zuerst mit dem Befehl `session.subscribe` abonnieren.
 
-Der Client kann sich entweder für ein spezifisches Ereignis oder für alle Ereignisse in einem Modul anmelden. Zum Beispiel, durch die Anmeldung bei `"browsingContext.contextCreated"` wird der Client für dieses einzelne Ereignis angemeldet, während die Anmeldung bei `"browsingContext"` den Client für jedes Ereignis im Modul `browsingContext` anmeldet.
+Der Client kann sich auf ein bestimmtes Ereignis oder auf alle Ereignisse in einem Modul abonnieren. Wenn der Client beispielsweise `"browsingContext.contextCreated"` abonniert, wird er für dieses einzelne Ereignis abonniert. Abonnieren von `"browsingContext"` abonniert den Client für jedes Ereignis im `browsingContext`-Modul.
 
-Folgendes ist eine Beispielnachricht, die vom Browser gesendet wird, wenn der Client bei `log.entryAdded` angemeldet ist und eine Konsolennachricht geloggt wird (einige Felder wurden der Kürze halber ausgelassen):
+Das folgende ist eine Beispiel-Ereignismeldung, die vom Browser gesendet wird, wenn der Client auf `log.entryAdded` abonniert ist und eine Konsolennachricht protokolliert wird (einige Felder wurden der Kürze halber ausgelassen):
 
 ```json
 {
@@ -62,3 +64,7 @@ Folgendes ist eine Beispielnachricht, die vom Browser gesendet wird, wenn der Cl
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [WebDriver BiDi Web-Client](https://firefox-dev.tools/bidi-web-client/web/)
