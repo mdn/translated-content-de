@@ -22,9 +22,16 @@
     "lint:md": "markdownlint-cli2 \"**/*.md\" && node ./scripts/check-url-locale.js files && npx autocorrect --lint . && prettier -c \"**/*.md\"",
     "lint:yml": "prettier -c \"**/*.yml\""
   },
+  "packageManager": "npm@11.9.0",
   "engines": {
     "node": ">=24",
     "npm": "^11"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11.8.0"
+    }
   },
   "dependencies": {
     "autocorrect-node": "2.14.0",
@@ -43,6 +50,5 @@
   },
   "devDependencies": {
     "lefthook": "^2.1.4"
-  },
-  "packageManager": "npm@11.6.2"
+  }
 }
