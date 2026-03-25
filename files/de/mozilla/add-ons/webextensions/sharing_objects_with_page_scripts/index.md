@@ -2,37 +2,37 @@
 title: Objekte mit Seitenskripten teilen
 slug: Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: d1d2fb19fa649240ce6e25c4d79e21d9a5f6de37
 ---
 
 > [!NOTE]
-> Die Techniken, die in diesem Abschnitt beschrieben werden, sind nur in Firefox verfügbar, und zwar erst ab Firefox 49.
+> Die in diesem Abschnitt beschriebenen Techniken sind nur in Firefox verfügbar und erst ab Firefox 49. [`structuredClone`](/de/docs/Web/API/Window/structuredClone) bietet eine plattformübergreifende API, die strukturierte Klone erstellt.
 
 > [!WARNING]
-> Als Erweiterungsentwickler sollten Sie bedenken, dass Skripte, die auf beliebigen Webseiten ausgeführt werden, feindlicher Code sind, dessen Ziel es ist, die persönlichen Informationen des Benutzers zu stehlen, seinen Computer zu beschädigen oder ihn auf andere Weise anzugreifen.
+> Als Erweiterungsentwickler sollten Sie berücksichtigen, dass Skripte, die in beliebigen Webseiten ausgeführt werden, feindlicher Code sein könnten, dessen Ziel es ist, persönliche Informationen der Nutzer zu stehlen, deren Computer zu beschädigen oder sie auf andere Weise anzugreifen.
 >
-> Die Isolation zwischen Inhaltsskripten und Skripten von Webseiten soll es feindlichen Webseiten erschweren, dies zu tun.
+> Die Isolierung zwischen Inhaltsskripten und Skripten, die von Webseiten geladen werden, soll es feindlichen Webseiten erschweren, dies zu tun.
 >
-> Da die in diesem Abschnitt beschriebenen Techniken diese Isolation aufheben, sind sie von Natur aus gefährlich und sollten mit großer Vorsicht verwendet werden.
+> Da die in diesem Abschnitt beschriebenen Techniken diese Isolation durchbrechen, sind sie von Natur aus gefährlich und sollten mit großer Sorgfalt eingesetzt werden.
 
-Wie im [Leitfaden für Inhaltsskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access) erwähnt, sehen Inhaltsskripte keine Änderungen, die von Skripten auf Webseiten am DOM vorgenommen wurden. Das bedeutet zum Beispiel, dass, wenn eine Webseite eine Bibliothek wie jQuery lädt, Inhaltsskripte sie nicht verwenden können und ihre eigene Kopie laden müssen. Umgekehrt können Skripte von Webseiten keine Änderungen sehen, die von Inhaltsskripten vorgenommen wurden.
+Wie der [Leitfaden für Inhaltsskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access) anmerkt, sehen Inhaltsskripte keine Änderungen am DOM durch Skripte, die von Webseiten geladen werden. Das bedeutet zum Beispiel, dass Inhaltsskripte nicht in der Lage sind, eine von einer Webseite geladene Bibliothek wie jQuery zu nutzen, und ihre eigene Kopie laden müssen. Umgekehrt können Skripte, die von Webseiten geladen werden, die durch Inhaltsskripte vorgenommenen Änderungen nicht sehen.
 
 Firefox bietet jedoch einige APIs, die es Inhaltsskripten ermöglichen:
 
-- auf JavaScript-Objekte zuzugreifen, die von Seitenskripten erstellt wurden
-- ihre eigenen JavaScript-Objekte für Seitenskripte bereitzustellen.
+- Zugriff auf JavaScript-Objekte, die von Seitenskripten erstellt wurden.
+- Ihre JavaScript-Objekte für Seitenskripte freizugeben.
 
-## Röntgensicht in Firefox
+## Röntgenblick in Firefox
 
-In Firefox wird ein Teil der Isolation zwischen Inhaltsskripten und Seitenskripten durch eine Funktion namens "Xray vision" implementiert. Wenn ein Skript in einem privilegierteren Bereich auf ein Objekt zugreift, das in einem weniger privilegierten Bereich definiert ist, sieht es nur die "native Version" des Objekts. Alle {{Glossary("Expando", "Expando")}}-Eigenschaften sind unsichtbar und wenn Eigenschaften des Objekts neu definiert wurden, sieht es die ursprüngliche Implementierung, nicht die neu definierte Version.
+In Firefox wird ein Teil der Isolierung zwischen Inhaltsskripten und Seitenskripten mithilfe einer Funktion namens "Röntgenblick" umgesetzt. Wenn ein Skript in einem anspruchsvolleren Bereich auf ein Objekt zugreift, das in einem weniger anspruchsvollen Bereich definiert ist, sieht es nur die "native Version" des Objekts. Alle {{Glossary("Expando", "Expando")}}-Eigenschaften sind unsichtbar, und wenn Eigenschaften des Objekts neu definiert wurden, sieht es die Originalimplementierung, nicht die neu definierte Version.
 
-Der Zweck dieser Funktion ist es, es dem weniger privilegierten Skript zu erschweren, das privilegiertere Skript zu verwirren, indem native Eigenschaften von Objekten neu definiert werden.
+Ziel dieser Funktion ist es, es einem weniger anspruchsvollen Skript zu erschweren, das anspruchsvollere Skript durch Neudefinition der nativen Eigenschaften von Objekten zu verwirren.
 
-Wenn ein Inhaltsskript also beispielsweise auf das [window](/de/docs/Web/API/Window) einer Seite zugreift, sieht es keine Eigenschaften, die das Seitenskript zum Fenster hinzugefügt hat, und wenn das Seitenskript bereits vorhandene Eigenschaften des Fensters neu definiert hat, sieht das Inhaltsskript die ursprüngliche Version.
+Wenn also beispielsweise ein Inhaltsskript auf das [window](/de/docs/Web/API/Window) der Seite aus einer [Inhaltsskript-Umgebung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) zugreift, sieht es keine Eigenschaften, die das Seitenskript dem Fenster hinzugefügt hat, und wenn das Seitenskript vorhandene Eigenschaften des Fensters neu definiert hat, sieht das Inhaltsskript die Originalversion.
 
-## Zugriff auf Seitenskriptobjekte aus Inhaltsskripten
+## Zugriff auf Seitenskript-Objekte von Inhaltsskripten aus
 
-In Firefox erhalten DOM-Objekte in Inhaltsskripten eine zusätzliche Eigenschaft `wrappedJSObject`. Dies ist eine "entpackte" Version des Objekts, die alle Änderungen einschließt, die an diesem Objekt durch beliebige Seitenskripte vorgenommen wurden.
+In Firefox erhalten DOM-Objekte in Inhaltsskripten eine zusätzliche Eigenschaft `wrappedJSObject`. Dies ist eine "nicht umschlossene" Version des Objekts, die alle Änderungen umfasst, die von Seitenskripten an diesem Objekt vorgenommen wurden.
 
 Nehmen wir ein Beispiel. Angenommen, eine Webseite lädt ein Skript:
 
@@ -48,7 +48,7 @@ Nehmen wir ein Beispiel. Angenommen, eine Webseite lädt ein Skript:
 </html>
 ```
 
-Das Skript fügt eine Expando-Eigenschaft zum globalen `window` hinzu:
+Das Skript fügt dem globalen `window` eine Expando-Eigenschaft hinzu:
 
 ```js
 // main.js
@@ -56,7 +56,7 @@ Das Skript fügt eine Expando-Eigenschaft zum globalen `window` hinzu:
 let foo = "I'm defined in a page script!";
 ```
 
-Aufgrund der Röntgensicht bedeutet das, dass, wenn ein Inhaltsskript versucht, auf `foo` zuzugreifen, es undefiniert sein wird:
+Röntgenblick bedeutet, dass `foo` undefiniert sein wird, wenn ein Inhaltsskript versucht, darauf zuzugreifen:
 
 ```js
 // content-script.js
@@ -72,29 +72,30 @@ In Firefox können Inhaltsskripte `window.wrappedJSObject` verwenden, um die Exp
 console.log(window.wrappedJSObject.foo); // "I'm defined in a page script!"
 ```
 
-Beachten Sie, dass Sie sich, sobald Sie dies tun, nicht mehr darauf verlassen können, dass die Eigenschaften oder Funktionen dieses Objekts wie erwartet sind oder funktionieren. Jede von ihnen, sogar Setter und Getter, könnte von nicht vertrauenswürdigem Code neu definiert worden sein.
+Beachten Sie, dass Sie, sobald Sie dies tun, nicht mehr darauf vertrauen können, dass Eigenschaften oder Funktionen dieses Objekts das sind, was Sie erwarten. Jede davon, sogar Setter und Getter, könnte von unsicherem Code neu definiert worden sein.
 
-Beachten Sie auch, dass das Entpacken transitiv ist: Wenn Sie `wrappedJSObject` verwenden, werden alle Eigenschaften des entpackten Objekts selbst entpackt (und daher unzuverlässig). Es ist daher eine gute Praxis, das Objekt, sobald Sie es haben, wieder zu verpacken, was Sie folgendermaßen tun können:
+Beachten Sie auch, dass das Entpacken übertragbar ist: Wenn Sie `wrappedJSObject` verwenden, werden alle Eigenschaften des nicht umschlossenen Objekts selbst nicht umschlossen (und sind daher unzuverlässig). Es ist also eine gute Praxis, sobald Sie das benötigte Objekt haben, es erneut zu umschließen, was Sie folgendermaßen tun können:
 
 ```js
 XPCNativeWrapper(window.wrappedJSObject.foo);
 ```
 
-Siehe das Dokument über [Xray vision](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) für ausführlichere Informationen.
+Sehen Sie sich das Dokument über [Röntgenblick](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) für viel mehr Details dazu an.
 
-## Teilen von Inhaltsskriptobjekten mit Seitenskripten
+## Teilen von Inhaltsskript-Objekten mit Seitenskripten
 
-Firefox bietet auch APIs, mit denen Inhaltsskripte Objekte für Seitenskripte bereitstellen können. Es gibt hier mehrere Ansätze:
+Firefox bietet auch APIs, die es Inhaltsskripten ermöglichen, Objekte für Seitenskripte verfügbar zu machen. Es gibt verschiedene Ansätze hierfür:
 
 - [`exportFunction()`](#exportfunction): eine Funktion für Seitenskripte exportieren.
 - [`cloneInto()`](#cloneinto): ein Objekt für Seitenskripte exportieren.
-- Konstruktoren aus dem Seitenkontext
+- `window.structuredClone()`: eine Alternative zu `cloneInto` in einigen Fällen, siehe [`structuredClone` in Inhaltsskripten](#structuredclone).
+- [Konstruktoren aus dem Seitenkontext](#konstruktoren_aus_dem_seitenkontext).
 
 ### exportFunction
 
-Mit [`exportFunction()`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) kann eine im Inhaltsskript definierte Funktion in den Gültigkeitsbereich des Seitenskripts exportiert werden, sodass das Seitenskript sie aufrufen kann.
+Wenn eine im Inhaltsskript definierte Funktion gegeben ist, exportiert [`exportFunction()`](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/exportFunction) diese in den Bereich des Seitenskripts, sodass das Seitenskript sie aufrufen kann.
 
-Zum Beispiel betrachtet man eine Erweiterung, die ein Hintergrundskript wie dieses hat:
+Beispielsweise betrachten wir eine Erweiterung, die ein Hintergrundskript wie dieses hat:
 
 ```js
 /*
@@ -127,10 +128,10 @@ browser.runtime.onMessage.addListener((message) => {
 
 Dies tut zwei Dinge:
 
-- ein Inhaltsskript im aktuellen Tab ausführen, wenn der Benutzer auf eine Browser-Aktion klickt
-- auf Nachrichten vom Inhaltsskript hören und eine [Benachrichtigung](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) anzeigen, wenn die Nachricht eintrifft.
+- Ein Inhaltsskript im aktuellen Tab ausführen, wenn der Benutzer auf eine Browser-Aktion klickt
+- Auf Nachrichten vom Inhaltsskript hören und eine [Benachrichtigung](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) anzeigen, wenn die Nachricht eintrifft.
 
-Das Inhaltsskript sieht folgendermaßen aus:
+Das Inhaltsskript sieht so aus:
 
 ```js
 /*
@@ -144,7 +145,7 @@ function notify(message) {
 exportFunction(notify, window, { defineAs: "notify" });
 ```
 
-Es definiert eine Funktion `notify()`, die nur ihr Argument an das Hintergrundskript sendet. Diese Funktion wird dann in den Gültigkeitsbereich des Seitenskripts exportiert. Jetzt kann das Seitenskript diese Funktion aufrufen:
+Dies definiert eine Funktion `notify()`, die einfach ihr Argument an das Hintergrundskript sendet. Es exportiert dann die Funktion in den Bereich des Seitenskripts. Jetzt kann das Seitenskript diese Funktion aufrufen:
 
 ```js
 window.notify("Message from the page script!");
@@ -152,9 +153,9 @@ window.notify("Message from the page script!");
 
 ### cloneInto
 
-Mit [cloneInto()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/cloneInto) wird ein im Inhaltsskript definiertes Objekt in den Gültigkeitsbereich des Seitenskripts geklont, sodass der Klon für Seitenskripte zugänglich wird. Standardmäßig wird der [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) verwendet, um das Objekt zu klonen, was bedeutet, dass Funktionen im Objekt nicht im Klon enthalten sind. Um Funktionen einzuschließen, geben Sie die Option `cloneFunctions` an.
+Wenn ein im Inhaltsskript definiertes Objekt gegeben ist, erstellt [cloneInto()](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts/cloneInto) einen Klon des Objekts im Bereich des Seitenskripts, wodurch der Klon für Seitenskripte zugänglich wird. Standardmäßig verwendet dies den [Strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), um das Objekt zu klonen, was bedeutet, dass Funktionen im Objekt nicht im Klon enthalten sind. Um Funktionen einzuschließen, übergeben Sie die Option `cloneFunctions`.
 
-Zum Beispiel wird hier ein Inhaltsskript dargestellt, das ein Objekt mit einer Funktion definiert und es dann in den Gültigkeitsbereich des Seitenskripts klont:
+Hier ist ein Beispiel für ein Inhaltsskript, das ein Objekt definiert, das eine Funktion enthält, und es dann in den Bereich des Seitenskripts klont:
 
 ```js
 /*
@@ -179,17 +180,43 @@ window.wrappedJSObject.messenger = cloneInto(messenger, window, {
 });
 ```
 
-Jetzt sehen die Seitenskripte eine neue Eigenschaft im Fenster, `messenger`, die über eine Funktion `notify()` verfügt:
+Jetzt sehen Seitenskripte eine neue Eigenschaft im Fenster, `messenger`, die eine Funktion `notify()` hat:
 
 ```js
 window.messenger.notify("Message from the page script!");
 ```
 
+### structuredClone
+
+Inhaltsskripte können auch [`structuredClone`](/de/docs/Web/API/Window/structuredClone) verwenden, um strukturierte Klone zu erstellen. Verwenden Sie `window.structuredClone(value)`, um Werte im Bereich der Seite zu klonen. Ein direkter Aufruf von `structuredClone(value)` oder `globalThis.structuredClone(value)` klont in den Bereich des Inhaltsskriptes.
+
+Die Wahl der Methode beeinflusst, wie der Rückgabewert verwendet werden kann. Ein in das Inhaltsskript geklonter Wert kann im Inhaltsskript wie jeder andere reguläre Wert verwendet werden, aber wenn er mit der Webseite geteilt wird, wird der Webseite der Zugriff auf seine Eigenschaften verweigert. Umgekehrt kann ein in die Webseite geklonter Wert von der Webseite wie jeder andere Wert verwendet werden, aber Inhaltsskripte können über [Röntgenblick](#röntgenblick_in_firefox) verfügen. Eine Konsequenz von Röntgenblick ist die Unfähigkeit, Funktionen aus dem Inhaltsskript an Objekte im Bereich der Seite zuzuweisen.
+
+Firefox ist der einzige Browser, der diese Verhaltensunterschiede aufgrund von Unterschieden in [der Inhaltsskript-Umgebung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) aufweist.
+
+> [!NOTE]
+> In Firefox 148 und früher erstellt `window.structuredClone(value)` Werte im Bereich des Aufrufers statt im Bereich des Fensters. Verwenden Sie [`cloneInto()`](#cloneinto), wenn Sie Firefox 148 und früher unterstützen möchten.
+
+Hier ist ein Inhaltsskript, das versucht, einen Wert durch den globalen Bereich der Seite zu teilen:
+
+```js
+let value = { test: "hello" };
+
+// Wrong usage: page access to sharedBad's properties will be denied
+window.wrappedJSObject.sharedBad = structuredClone(value);
+
+// Good usage, works in Firefox 149+:
+window.wrappedJSObject.sharedGood = window.structuredClone(value);
+
+// Alternative with same effect:
+window.wrappedJSObject.sharedGood2 = cloneInto(value, window);
+```
+
 ### Konstruktoren aus dem Seitenkontext
 
-Auf dem geröntgten Fensterobjekt sind unberührte Konstruktoren für einige eingebaute JavaScript-Objekte wie `Object`, `Function` oder `Proxy` und verschiedene DOM-Klassen verfügbar. `XMLHttpRequest` verhält sich nicht auf diese Weise, siehe den Abschnitt [XHR und fetch](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch) für Details. Sie erstellen Instanzen, die zur Objekt-Hierarchie des Seiten-Gobals gehören und dann einen Röntgen-Wrapper zurückgeben.
+Auf dem xrayed Fensterobjekt stehen frische Konstruktoren für einige eingebaute JavaScript-Objekte wie `Object`, `Function` oder `Proxy` und verschiedene DOM-Klassen zur Verfügung. `XMLHttpRequest` verhält sich nicht auf diese Weise, siehe den Abschnitt [XHR und fetch](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch) für Details. Sie werden Instanzen erstellen, die zur Objekt-Hierarchie des Seitenglobals gehören, und dann einen xray-Wrapper zurückgeben.
 
-Da auf diese Weise erstellte Objekte bereits zur Seite gehören und nicht zum Inhaltsskript, erfordert das Zurückgeben an die Seite kein zusätzliches Klonen oder Exportieren.
+Da auf diese Weise erstellte Objekte bereits zur Seite gehören und nicht zum Inhaltsskript, erfordert das Zurückpassen an die Seite kein zusätzliches Klonen oder Exportieren.
 
 ```js
 /* JavaScript built-ins */
@@ -266,7 +293,7 @@ document.dispatchEvent(ev); // true, undefined, "unwrapped", "propC"
 
 ### Promise-Klonen
 
-Ein Promise kann nicht direkt mit `cloneInto` geklont werden, da Promise nicht durch den [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) unterstützt wird. Das gewünschte Ergebnis kann jedoch erreicht werden, indem `window.Promise` anstelle von `Promise` verwendet wird und dann der Auflösungswert wie folgt geklont wird:
+Ein Promise kann nicht direkt mit `cloneInto` geklont werden, da Promise nicht vom [Strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) unterstützt wird. Das gewünschte Ergebnis kann jedoch erzielt werden, indem `window.Promise` anstelle von `Promise` verwendet wird und der Auflösungswert dann wie folgt geklont wird:
 
 ```js
 const promise = new window.Promise((resolve) => {
