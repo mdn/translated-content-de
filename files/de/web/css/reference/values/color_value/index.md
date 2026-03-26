@@ -65,7 +65,7 @@ light-dark(rgb(255 255 255), rgb(0 0 0))
 
 Ein `<color>`-Wert kann mit einer der unten aufgeführten Methoden angegeben werden:
 
-- Durch Schlüsselwörter: {{cssxref("named-color")}} (wie `blue` oder `pink`), {{CSSXref("&lt;system-color&gt;")}} und [`currentColor`](#currentcolor_keyword).
+- Durch Schlüsselwörter: {{cssxref("named-color")}} (wie `blue` oder `pink`), {{CSSXref("&lt;system-color&gt;")}} und [`currentColor`](#currentcolor_schlüsselwort).
 - Durch hexadezimale Notationen: {{CSSXref("&lt;hex-color&gt;")}} (wie `#ff0000`).
 - Durch `<color-function>`, mit Parametern in einem {{Glossary("color_space", "Farbraum")}} unter Verwendung funktionaler Notationen:
   - [sRGB](https://en.wikipedia.org/wiki/SRGB) Farbraum: {{CSSXref("color_value/hsl", "hsl()")}}, {{CSSXref("color_value/hwb", "hwb()")}} und {{CSSXref("color_value/rgb", "rgb()")}}.
@@ -102,7 +102,7 @@ Wird `currentColor` als Wert der `color`-Eigenschaft verwendet, nimmt er stattde
 }
 ```
 
-{{EmbedLiveSample("currentcolor_keyword", "100%", 80)}}
+{{EmbedLiveSample("currentcolor_schlüsselwort", "100%", 80)}}
 
 ### Fehlende Farbkomponenten
 
