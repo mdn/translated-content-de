@@ -3,10 +3,10 @@ title: CSS-Eigenschaften
 short-title: Properties
 slug: Web/CSS/Reference/Properties
 l10n:
-  sourceCommit: 8a74d8feac267c1ddc37a4a8bc61e9aa8db75b12
+  sourceCommit: 26e03490d14803dc2ae8b85ec5c0c2b26d6b50d1
 ---
 
-Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte ausgewählter Elemente zu gestalten. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Deckkraft eines ausgewählten Elements festzulegen und steuert somit, ob Inhalte hinter diesem Element sichtbar sind:
+Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) verwendet wird, um bestimmte Aspekte ausgewählter Elemente zu stylen. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Opazität eines ausgewählten Elements festzulegen, sodass Sie kontrollieren können, ob Inhalte hinter diesem Element sichtbar sind:
 
 ```css
 /* Set 0.8 opacity on <img> elements */
@@ -15,7 +15,7 @@ img {
 }
 ```
 
-Jede Eigenschaft hat einen Namen (z. B. `opacity`), einen Wert (z. B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments. CSS definiert auch Kurzformen von Eigenschaften, sodass Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration angeben können. Beispielsweise ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzform für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, womit der Abstand auf allen vier Seiten eines Elements festgelegt wird:
+Jede Eigenschaft hat einen Namen (z.B. `opacity`), einen Wert (z.B. `0.8`) und ein definiertes Verhalten bezüglich des Renderings des Dokuments. CSS definiert auch Kurzschreib-Eigenschaften, sodass Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration angeben können. Zum Beispiel ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzform für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, um den Rand aller vier Seiten eines Elements festzulegen:
 
 ```css
 /* Give <img> elements 1rem of margin */
@@ -34,7 +34,7 @@ selector {
 
 ## Alphabetisches Verzeichnis der Eigenschaften
 
-Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
+Zu den standardmäßig durch CSS-Spezifikationen definierten Eigenschaften gehören folgende:
 
 ### Verschiedenes
 
@@ -47,7 +47,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("align-items")}}
 - {{CSSxRef("align-self")}}
 - {{CSSxRef("alignment-baseline")}}
-- {{CSSxRef("all")}} (Kurzform)
+- {{CSSxRef("all")}} (Kurzschreibweise)
 - {{CSSxRef("anchor-name")}}
 - {{CSSxRef("anchor-scope")}}
 - {{CSSxRef("animation-composition")}}
@@ -60,10 +60,10 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("animation-play-state")}}
 - {{CSSxRef("animation-range-end")}}
 - {{CSSxRef("animation-range-start")}}
-- {{CSSxRef("animation-range")}} (Kurzform)
+- {{CSSxRef("animation-range")}} (Kurzschreibweise)
 - {{CSSxRef("animation-timeline")}}
 - {{CSSxRef("animation-timing-function")}}
-- {{CSSxRef("animation")}} (Kurzform)
+- {{CSSxRef("animation")}} (Kurzschreibweise)
 - {{CSSxRef("appearance")}}
 - {{CSSxRef("aspect-ratio")}}
 
@@ -80,37 +80,37 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("background-position-x")}}
 - {{CSSxRef("background-position-y")}}
 - {{CSSxRef("background-position")}}
-- {{CSSxRef("background-repeat")}} (Kurzform)
+- {{CSSxRef("background-repeat")}} (Kurzschreibweise)
 - {{CSSxRef("background-repeat-x")}}
 - {{CSSxRef("background-repeat-y")}}
 - {{CSSxRef("background-size")}}
-- {{CSSxRef("background")}} (Kurzform)
+- {{CSSxRef("background")}} (Kurzschreibweise)
 - {{CSSxRef("baseline-shift")}}
 - {{CSSxRef("baseline-source")}}
 - {{CSSxRef("block-size")}}
 
-### Border-\*
+### Grenze-\*
 
 - {{CSSxRef("border-block-color")}}
 - {{CSSxRef("border-block-end-color")}}
 - {{CSSxRef("border-block-end-style")}}
 - {{CSSxRef("border-block-end-width")}}
-- {{CSSxRef("border-block-end")}} (Kurzform)
+- {{CSSxRef("border-block-end")}} (Kurzschreibweise)
 - {{CSSxRef("border-block-start-color")}}
 - {{CSSxRef("border-block-start-style")}}
 - {{CSSxRef("border-block-start-width")}}
-- {{CSSxRef("border-block-start")}} (Kurzform)
+- {{CSSxRef("border-block-start")}} (Kurzschreibweise)
 - {{CSSxRef("border-block-style")}}
 - {{CSSxRef("border-block-width")}}
-- {{CSSxRef("border-block")}} (Kurzform)
+- {{CSSxRef("border-block")}} (Kurzschreibweise)
 - {{CSSxRef("border-bottom-color")}}
 - {{CSSxRef("border-bottom-left-radius")}}
 - {{CSSxRef("border-bottom-right-radius")}}
 - {{CSSxRef("border-bottom-style")}}
 - {{CSSxRef("border-bottom-width")}}
-- {{CSSxRef("border-bottom")}} (Kurzform)
+- {{CSSxRef("border-bottom")}} (Kurzschreibweise)
 - {{CSSxRef("border-collapse")}}
-- {{CSSxRef("border-color")}} (Kurzform)
+- {{CSSxRef("border-color")}} (Kurzschreibweise)
 - {{CSSxRef("border-end-end-radius")}}
 - {{CSSxRef("border-end-start-radius")}}
 - {{CSSxRef("border-image-outset")}}
@@ -118,40 +118,40 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("border-image-slice")}}
 - {{CSSxRef("border-image-source")}}
 - {{CSSxRef("border-image-width")}}
-- {{CSSxRef("border-image")}} (Kurzform)
+- {{CSSxRef("border-image")}} (Kurzschreibweise)
 - {{CSSxRef("border-inline-color")}}
 - {{CSSxRef("border-inline-end-color")}}
 - {{CSSxRef("border-inline-end-style")}}
 - {{CSSxRef("border-inline-end-width")}}
-- {{CSSxRef("border-inline-end")}} (Kurzform)
+- {{CSSxRef("border-inline-end")}} (Kurzschreibweise)
 - {{CSSxRef("border-inline-start-color")}}
 - {{CSSxRef("border-inline-start-style")}}
 - {{CSSxRef("border-inline-start-width")}}
-- {{CSSxRef("border-inline-start")}} (Kurzform)
+- {{CSSxRef("border-inline-start")}} (Kurzschreibweise)
 - {{CSSxRef("border-inline-style")}}
 - {{CSSxRef("border-inline-width")}}
-- {{CSSxRef("border-inline")}} (Kurzform)
+- {{CSSxRef("border-inline")}} (Kurzschreibweise)
 - {{CSSxRef("border-left-color")}}
 - {{CSSxRef("border-left-style")}}
 - {{CSSxRef("border-left-width")}}
-- {{CSSxRef("border-left")}} (Kurzform)
-- {{CSSxRef("border-radius")}} (Kurzform)
+- {{CSSxRef("border-left")}} (Kurzschreibweise)
+- {{CSSxRef("border-radius")}} (Kurzschreibweise)
 - {{CSSxRef("border-right-color")}}
 - {{CSSxRef("border-right-style")}}
 - {{CSSxRef("border-right-width")}}
-- {{CSSxRef("border-right")}} (Kurzform)
+- {{CSSxRef("border-right")}} (Kurzschreibweise)
 - {{CSSxRef("border-spacing")}}
 - {{CSSxRef("border-start-end-radius")}}
 - {{CSSxRef("border-start-start-radius")}}
-- {{CSSxRef("border-style")}} (Kurzform)
+- {{CSSxRef("border-style")}} (Kurzschreibweise)
 - {{CSSxRef("border-top-color")}}
 - {{CSSxRef("border-top-left-radius")}}
 - {{CSSxRef("border-top-right-radius")}}
 - {{CSSxRef("border-top-style")}}
 - {{CSSxRef("border-top-width")}}
-- {{CSSxRef("border-top")}} (Kurzform)
-- {{CSSxRef("border-width")}} (Kurzform)
-- {{CSSxRef("border")}} (Kurzform)
+- {{CSSxRef("border-top")}} (Kurzschreibweise)
+- {{CSSxRef("border-width")}} (Kurzschreibweise)
+- {{CSSxRef("border")}} (Kurzschreibweise)
 
 ### B - C
 
@@ -174,7 +174,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("caret-animation")}}
 - {{CSSxRef("caret-color")}}
 - {{CSSxRef("caret-shape")}}
-- {{CSSxRef("caret")}} (Kurzform)
+- {{CSSxRef("caret")}} (Kurzschreibweise)
 - {{CSSxRef("clear")}}
 - {{CSSxRef("clip-path")}}
 - {{CSSxRef("clip-rule")}}
@@ -190,39 +190,39 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("column-rule-color")}}
 - {{CSSxRef("column-rule-style")}}
 - {{CSSxRef("column-rule-width")}}
-- {{CSSxRef("column-rule")}} (Kurzform)
+- {{CSSxRef("column-rule")}} (Kurzschreibweise)
 - {{CSSxRef("column-span")}}
 - {{CSSxRef("column-width")}}
 - {{CSSxRef("column-wrap")}}
-- {{CSSxRef("columns")}} (Kurzform)
+- {{CSSxRef("columns")}} (Kurzschreibweise)
 - {{CSSxRef("contain-intrinsic-block-size")}}
 - {{CSSxRef("contain-intrinsic-height")}}
 - {{CSSxRef("contain-intrinsic-inline-size")}}
-- {{CSSxRef("contain-intrinsic-size")}} (Kurzform)
+- {{CSSxRef("contain-intrinsic-size")}} (Kurzschreibweise)
 - {{CSSxRef("contain-intrinsic-width")}}
 - {{CSSxRef("contain")}}
 - {{CSSxRef("container-name")}}
 - {{CSSxRef("container-type")}}
-- {{CSSxRef("container")}} (Kurzform)
+- {{CSSxRef("container")}} (Kurzschreibweise)
 - {{CSSxRef("content-visibility")}}
 - {{CSSxRef("content")}}
 - {{CSSxRef("corner-block-end-shape")}}
 - {{CSSxRef("corner-block-start-shape")}}
 - {{CSSxRef("corner-bottom-left-shape")}}
 - {{CSSxRef("corner-bottom-right-shape")}}
-- {{CSSxRef("corner-bottom-shape")}} (Kurzform)
+- {{CSSxRef("corner-bottom-shape")}} (Kurzschreibweise)
 - {{CSSxRef("corner-end-end-shape")}}
 - {{CSSxRef("corner-end-start-shape")}}
 - {{CSSxRef("corner-inline-end-shape")}}
 - {{CSSxRef("corner-inline-start-shape")}}
-- {{CSSxRef("corner-left-shape")}} (Kurzform)
-- {{CSSxRef("corner-right-shape")}} (Kurzform)
-- {{CSSxRef("corner-shape")}} (Kurzform)
+- {{CSSxRef("corner-left-shape")}} (Kurzschreibweise)
+- {{CSSxRef("corner-right-shape")}} (Kurzschreibweise)
+- {{CSSxRef("corner-shape")}} (Kurzschreibweise)
 - {{CSSxRef("corner-start-end-shape")}}
 - {{CSSxRef("corner-start-start-shape")}}
 - {{CSSxRef("corner-top-left-shape")}}
 - {{CSSxRef("corner-top-right-shape")}}
-- {{CSSxRef("corner-top-shape")}} (Kurzform)
+- {{CSSxRef("corner-top-shape")}} (Kurzschreibweise)
 - {{CSSxRef("counter-increment")}}
 - {{CSSxRef("counter-reset")}}
 - {{CSSxRef("counter-set")}}
@@ -245,11 +245,11 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("filter")}}
 - {{CSSxRef("flex-basis")}}
 - {{CSSxRef("flex-direction")}}
-- {{CSSxRef("flex-flow")}} (Kurzform)
+- {{CSSxRef("flex-flow")}} (Kurzschreibweise)
 - {{CSSxRef("flex-grow")}}
 - {{CSSxRef("flex-shrink")}}
 - {{CSSxRef("flex-wrap")}}
-- {{CSSxRef("flex")}} (Kurzform)
+- {{CSSxRef("flex")}} (Kurzschreibweise)
 - {{CSSxRef("float")}}
 - {{CSSxRef("flood-color")}}
 - {{CSSxRef("flood-opacity")}}
@@ -268,7 +268,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("font-synthesis-small-caps")}}
 - {{CSSxRef("font-synthesis-style")}}
 - {{CSSxRef("font-synthesis-weight")}}
-- {{CSSxRef("font-synthesis")}} (Kurzform)
+- {{CSSxRef("font-synthesis")}} (Kurzschreibweise)
 - {{CSSxRef("font-variant-alternates")}}
 - {{CSSxRef("font-variant-caps")}}
 - {{CSSxRef("font-variant-east-asian")}}
@@ -276,31 +276,31 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("font-variant-ligatures")}}
 - {{CSSxRef("font-variant-numeric")}}
 - {{CSSxRef("font-variant-position")}}
-- {{CSSxRef("font-variant")}} (Kurzform)
+- {{CSSxRef("font-variant")}} (Kurzschreibweise)
 - {{CSSxRef("font-variation-settings")}}
 - {{CSSxRef("font-weight")}}
 - {{CSSxRef("font-width")}}
-- {{CSSxRef("font")}} (Kurzform)
+- {{CSSxRef("font")}} (Kurzschreibweise)
 - {{CSSxRef("forced-color-adjust")}}
 
 ### G - I
 
-- {{CSSxRef("gap")}} (Kurzform)
-- {{CSSxRef("grid-area")}} (Kurzform)
+- {{CSSxRef("gap")}} (Kurzschreibweise)
+- {{CSSxRef("grid-area")}} (Kurzschreibweise)
 - {{CSSxRef("grid-auto-columns")}}
 - {{CSSxRef("grid-auto-flow")}}
 - {{CSSxRef("grid-auto-rows")}}
 - {{CSSxRef("grid-column-end")}}
 - {{CSSxRef("grid-column-start")}}
-- {{CSSxRef("grid-column")}} (Kurzform)
+- {{CSSxRef("grid-column")}} (Kurzschreibweise)
 - {{CSSxRef("grid-row-end")}}
 - {{CSSxRef("grid-row-start")}}
-- {{CSSxRef("grid-row")}} (Kurzform)
+- {{CSSxRef("grid-row")}} (Kurzschreibweise)
 - {{CSSxRef("grid-template-areas")}}
 - {{CSSxRef("grid-template-columns")}}
 - {{CSSxRef("grid-template-rows")}}
-- {{CSSxRef("grid-template")}} (Kurzform)
-- {{CSSxRef("grid")}} (Kurzform)
+- {{CSSxRef("grid-template")}} (Kurzschreibweise)
+- {{CSSxRef("grid")}} (Kurzschreibweise)
 - {{CSSxRef("hanging-punctuation")}}
 - {{CSSxRef("height")}}
 - {{CSSxRef("hyphenate-character")}}
@@ -313,11 +313,14 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("inline-size")}}
 - {{CSSxRef("inset-block-end")}}
 - {{CSSxRef("inset-block-start")}}
-- {{CSSxRef("inset-block")}} (Kurzform)
+- {{CSSxRef("inset-block")}} (Kurzschreibweise)
+- {{CSSxRef("inset-block")}} (Kurzschreibweise)
 - {{CSSxRef("inset-inline-end")}}
 - {{CSSxRef("inset-inline-start")}}
-- {{CSSxRef("inset-inline")}} (Kurzform)
-- {{CSSxRef("inset")}} (Kurzform)
+- {{CSSxRef("inset-inline")}} (Kurzschreibweise)
+- {{CSSxRef("inset-inline")}} (Kurzschreibweise)
+- {{CSSxRef("inset")}} (Kurzschreibweise)
+- {{CSSxRef("inset")}} (Kurzschreibweise)
 - {{CSSxRef("interactivity")}}
 - {{CSSxRef("interest-delay")}}
 - {{CSSxRef("interest-delay-end")}}
@@ -340,19 +343,20 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("list-style-image")}}
 - {{CSSxRef("list-style-position")}}
 - {{CSSxRef("list-style-type")}}
-- {{CSSxRef("list-style")}} (Kurzform)
+- {{CSSxRef("list-style")}} (Kurzschreibweise)
+- {{CSSxRef("list-style")}} (Kurzschreibweise)
 - {{CSSxRef("margin-block-end")}}
 - {{CSSxRef("margin-block-start")}}
-- {{CSSxRef("margin-block")}} (Kurzform)
+- {{CSSxRef("margin-block")}} (Kurzschreibweise)
 - {{CSSxRef("margin-bottom")}}
 - {{CSSxRef("margin-inline-end")}}
 - {{CSSxRef("margin-inline-start")}}
-- {{CSSxRef("margin-inline")}} (Kurzform)
+- {{CSSxRef("margin-inline")}} (Kurzschreibweise)
 - {{CSSxRef("margin-left")}}
 - {{CSSxRef("margin-right")}}
 - {{CSSxRef("margin-top")}}
 - {{CSSxRef("margin-trim")}}
-- {{CSSxRef("margin")}} (Kurzform)
+- {{CSSxRef("margin")}} (Kurzschreibweise)
 - {{CSSxRef("marker-end")}}
 - {{CSSxRef("marker-mid")}}
 - {{CSSxRef("marker-start")}}
@@ -363,7 +367,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("mask-border-slice")}}
 - {{CSSxRef("mask-border-source")}}
 - {{CSSxRef("mask-border-width")}}
-- {{CSSxRef("mask-border")}} (Kurzform)
+- {{CSSxRef("mask-border")}} (Kurzschreibweise)
 - {{CSSxRef("mask-clip")}}
 - {{CSSxRef("mask-composite")}}
 - {{CSSxRef("mask-image")}}
@@ -373,7 +377,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("mask-repeat")}}
 - {{CSSxRef("mask-size")}}
 - {{CSSxRef("mask-type")}}
-- {{CSSxRef("mask")}} (Kurzform)
+- {{CSSxRef("mask")}} (Kurzschreibweise)
 - {{CSSxRef("math-depth")}}
 - {{CSSxRef("math-shift")}}
 - {{CSSxRef("math-style")}}
@@ -397,7 +401,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("offset-path")}}
 - {{CSSxRef("offset-position")}}
 - {{CSSxRef("offset-rotate")}}
-- {{CSSxRef("offset")}} (Kurzform)
+- {{CSSxRef("offset")}} (Kurzschreibweise)
 - {{CSSxRef("opacity")}}
 - {{CSSxRef("order")}}
 - {{CSSxRef("orphans")}}
@@ -405,7 +409,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("outline-offset")}}
 - {{CSSxRef("outline-style")}}
 - {{CSSxRef("outline-width")}}
-- {{CSSxRef("outline")}} (Kurzform)
+- {{CSSxRef("outline")}} (Kurzschreibweise)
 - {{CSSxRef("overflow-anchor")}}
 - {{CSSxRef("overflow-block")}}
 - {{CSSxRef("overflow-clip-margin")}}
@@ -413,24 +417,24 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("overflow-wrap")}}
 - {{CSSxRef("overflow-x")}}
 - {{CSSxRef("overflow-y")}}
-- {{CSSxRef("overflow")}} (Kurzform)
+- {{CSSxRef("overflow")}} (Kurzschreibweise)
 - {{CSSxRef("overlay")}}
 - {{CSSxRef("overscroll-behavior-block")}}
 - {{CSSxRef("overscroll-behavior-inline")}}
 - {{CSSxRef("overscroll-behavior-x")}}
 - {{CSSxRef("overscroll-behavior-y")}}
-- {{CSSxRef("overscroll-behavior")}} (Kurzform)
+- {{CSSxRef("overscroll-behavior")}} (Kurzschreibweise)
 - {{CSSxRef("padding-block-end")}}
 - {{CSSxRef("padding-block-start")}}
-- {{CSSxRef("padding-block")}} (Kurzform)
+- {{CSSxRef("padding-block")}} (Kurzschreibweise)
 - {{CSSxRef("padding-bottom")}}
 - {{CSSxRef("padding-inline-end")}}
 - {{CSSxRef("padding-inline-start")}}
-- {{CSSxRef("padding-inline")}} (Kurzform)
+- {{CSSxRef("padding-inline")}} (Kurzschreibweise)
 - {{CSSxRef("padding-left")}}
 - {{CSSxRef("padding-right")}}
 - {{CSSxRef("padding-top")}}
-- {{CSSxRef("padding")}} (Kurzform)
+- {{CSSxRef("padding")}} (Kurzschreibweise)
 - {{CSSxRef("page-break-after")}}
 - {{CSSxRef("page-break-before")}}
 - {{CSSxRef("page-break-inside")}}
@@ -438,15 +442,15 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("paint-order")}}
 - {{CSSxRef("perspective-origin")}}
 - {{CSSxRef("perspective")}}
-- {{CSSxRef("place-content")}} (Kurzform)
-- {{CSSxRef("place-items")}} (Kurzform)
-- {{CSSxRef("place-self")}} (Kurzform)
+- {{CSSxRef("place-content")}} (Kurzschreibweise)
+- {{CSSxRef("place-items")}} (Kurzschreibweise)
+- {{CSSxRef("place-self")}} (Kurzschreibweise)
 - {{CSSxRef("pointer-events")}}
 - {{CSSxRef("position-anchor")}}
 - {{CSSxRef("position-area")}}
 - {{CSSxRef("position-try-fallbacks")}}
 - {{CSSxRef("position-try-order")}}
-- {{CSSxRef("position-try")}} (Kurzform)
+- {{CSSxRef("position-try")}} (Kurzschreibweise)
 - {{CSSxRef("position-visibility")}}
 - {{CSSxRef("position")}}
 - {{CSSxRef("print-color-adjust")}}
@@ -471,34 +475,34 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("scroll-initial-target")}}
 - {{CSSxRef("scroll-margin-block-end")}}
 - {{CSSxRef("scroll-margin-block-start")}}
-- {{CSSxRef("scroll-margin-block")}} (Kurzform)
+- {{CSSxRef("scroll-margin-block")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-margin-bottom")}}
 - {{CSSxRef("scroll-margin-inline-end")}}
 - {{CSSxRef("scroll-margin-inline-start")}}
-- {{CSSxRef("scroll-margin-inline")}} (Kurzform)
+- {{CSSxRef("scroll-margin-inline")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-margin-left")}}
 - {{CSSxRef("scroll-margin-right")}}
 - {{CSSxRef("scroll-margin-top")}}
-- {{CSSxRef("scroll-margin")}} (Kurzform)
+- {{CSSxRef("scroll-margin")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-marker-group")}}
 - {{CSSxRef("scroll-padding-block-end")}}
 - {{CSSxRef("scroll-padding-block-start")}}
-- {{CSSxRef("scroll-padding-block")}} (Kurzform)
+- {{CSSxRef("scroll-padding-block")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-padding-bottom")}}
 - {{CSSxRef("scroll-padding-inline-end")}}
 - {{CSSxRef("scroll-padding-inline-start")}}
-- {{CSSxRef("scroll-padding-inline")}} (Kurzform)
+- {{CSSxRef("scroll-padding-inline")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-padding-left")}}
 - {{CSSxRef("scroll-padding-right")}}
 - {{CSSxRef("scroll-padding-top")}}
-- {{CSSxRef("scroll-padding")}} (Kurzform)
+- {{CSSxRef("scroll-padding")}} (Kurzschreibweise)
 - {{CSSxRef("scroll-snap-align")}}
 - {{CSSxRef("scroll-snap-stop")}}
 - {{CSSxRef("scroll-snap-type")}}
 - {{CSSxRef("scroll-target-group")}}
 - {{CSSxRef("scroll-timeline-axis")}}
 - {{CSSxRef("scroll-timeline-name")}}
-- {{CSSxRef("scroll-timeline")}} (Kurzform)
+- {{CSSxRef("scroll-timeline")}} (Kurzschreibweise)
 - {{CSSxRef("scrollbar-color")}}
 - {{CSSxRef("scrollbar-gutter")}}
 - {{CSSxRef("scrollbar-width")}}
@@ -528,7 +532,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("text-autospace")}}
 - {{CSSxRef("text-box-edge")}}
 - {{CSSxRef("text-box-trim")}}
-- {{CSSxRef("text-box")}} (Kurzform)
+- {{CSSxRef("text-box")}} (Kurzschreibweise)
 - {{CSSxRef("text-combine-upright")}}
 - {{CSSxRef("text-decoration-color")}}
 - {{CSSxRef("text-decoration-inset")}}
@@ -537,11 +541,11 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("text-decoration-skip")}}
 - {{CSSxRef("text-decoration-style")}}
 - {{CSSxRef("text-decoration-thickness")}}
-- {{CSSxRef("text-decoration")}} (Kurzform)
+- {{CSSxRef("text-decoration")}} (Kurzschreibweise)
 - {{CSSxRef("text-emphasis-color")}}
 - {{CSSxRef("text-emphasis-position")}}
 - {{CSSxRef("text-emphasis-style")}}
-- {{CSSxRef("text-emphasis")}} (Kurzform)
+- {{CSSxRef("text-emphasis")}} (Kurzschreibweise)
 - {{CSSxRef("text-indent")}}
 - {{CSSxRef("text-justify")}}
 - {{CSSxRef("text-orientation")}}
@@ -555,7 +559,7 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("text-underline-position")}}
 - {{CSSxRef("text-wrap-mode")}}
 - {{CSSxRef("text-wrap-style")}}
-- {{CSSxRef("text-wrap")}} (Kurzform)
+- {{CSSxRef("text-wrap")}} (Kurzschreibweise)
 - {{CSSxRef("timeline-scope")}}
 - {{CSSxRef("top")}}
 - {{CSSxRef("touch-action")}}
@@ -568,17 +572,17 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("transition-duration")}}
 - {{CSSxRef("transition-property")}}
 - {{CSSxRef("transition-timing-function")}}
-- {{CSSxRef("transition")}} (Kurzform)
+- {{CSSxRef("transition")}} (Kurzschreibweise)
 - {{CSSxRef("translate")}}
 - {{CSSxRef("unicode-bidi")}}
 - {{CSSxRef("user-modify")}}
 - {{CSSxRef("user-select")}}
 - {{CSSxRef("vector-effect")}}
-- {{CSSxRef("vertical-align")}}
+- {{CSSxRef("vertical-align")}} (Kurzschreibweise)
 - {{CSSxRef("view-timeline-axis")}}
 - {{CSSxRef("view-timeline-inset")}}
 - {{CSSxRef("view-timeline-name")}}
-- {{CSSxRef("view-timeline")}} (Kurzform)
+- {{CSSxRef("view-timeline")}} (Kurzschreibweise)
 - {{CSSxRef("view-transition-class")}}
 - {{CSSxRef("view-transition-name")}}
 - {{CSSxRef("visibility")}}
@@ -595,9 +599,9 @@ Von CSS-Spezifikationen definierte Standard-Eigenschaften umfassen folgende:
 - {{CSSxRef("z-index")}}
 - {{CSSxRef("zoom")}}
 
-### Nicht-standardisierte Eigenschaften
+### Nicht standardisierte Eigenschaften
 
-Nicht-standardisierte vendor-präfixierte Eigenschaften umfassen:
+Nicht standardisierte, herstellerspezifische Eigenschaften umfassen:
 
 #### `-moz-` Präfix
 
@@ -610,8 +614,8 @@ Nicht-standardisierte vendor-präfixierte Eigenschaften umfassen:
 #### `-webkit-` Präfix
 
 - {{CSSxRef("-webkit-box-reflect")}}
-- {{CSSxRef("-webkit-border-before")}} (Kurzform)
-- {{CSSxRef("-webkit-mask-box-image")}} (Kurzform)
+- {{CSSxRef("-webkit-border-before")}} (Kurzschreibweise)
+- {{CSSxRef("-webkit-mask-box-image")}} (Kurzschreibweise)
 - {{CSSxRef("-webkit-mask-composite")}}
 - {{CSSxRef("-webkit-mask-position-x")}}
 - {{CSSxRef("-webkit-mask-position-y")}}
@@ -620,7 +624,7 @@ Nicht-standardisierte vendor-präfixierte Eigenschaften umfassen:
 - {{CSSxRef("-webkit-tap-highlight-color")}}
 - {{CSSxRef("-webkit-text-fill-color")}}
 - {{CSSxRef("-webkit-text-security")}}
-- {{CSSxRef("-webkit-text-stroke")}} (Kurzform)
+- {{CSSxRef("-webkit-text-stroke")}} (Kurzschreibweise)
 - {{CSSxRef("-webkit-text-stroke-color")}}
 - {{CSSxRef("-webkit-text-stroke-width")}}
 - {{CSSxRef("-webkit-touch-callout")}}
@@ -633,6 +637,6 @@ Nicht-standardisierte vendor-präfixierte Eigenschaften umfassen:
 
 - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
 - [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
-- [Firefox (-moz-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [WebKit (-webkit-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_prefix", "Vendor-Präfix")}}
+- [Firefox (-moz-) herstellerspezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [WebKit (-webkit-) herstellerspezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- {{Glossary("Vendor_prefix", "Herstellerpräfix")}}

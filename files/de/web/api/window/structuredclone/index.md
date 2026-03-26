@@ -3,14 +3,19 @@ title: "Window: structuredClone() Methode"
 short-title: structuredClone()
 slug: Web/API/Window/structuredClone
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: d1d2fb19fa649240ce6e25c4d79e21d9a5f6de37
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`structuredClone()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Werts unter Verwendung des [structured clone algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+Die **`structuredClone()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle erstellt einen {{Glossary("Deep_copy", "tiefen Klon")}} eines Wertes unter Verwendung des [Structured Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
-Die Methode ermöglicht auch, dass [übertragbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert _übertragen_ anstatt geklont werden. Übertragene Objekte werden vom ursprünglichen Objekt getrennt und dem neuen Objekt zugeordnet; sie sind im ursprünglichen Objekt nicht mehr zugänglich.
+Die Methode erlaubt es auch, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im Originalwert _zu übertragen_ anstatt sie zu klonen und in das neue Objekt zu verschieben. Übertragene Objekte werden vom Originalobjekt getrennt und an das neue Objekt angehängt; sie sind im Originalobjekt nicht mehr zugänglich.
+
+> [!NOTE]
+> Bis einschließlich Firefox 148 erstellte `structuredClone.call(iframe.contentWindow)` fälschlicherweise Objekte im [Realm](/de/docs/Web/JavaScript/Reference/Execution_model#realms) des Aufrufers anstatt im Realm des iframes. In Firefox 149 wurde die Implementierung geändert, um Objekte im `this`-Realm zu instanziieren, sodass das Verhalten der Methode enger an die Spezifikation heranreicht.
+>
+> In allen Browsern klont ein direkter Aufruf `structuredClone(value)` Werte im Realm des Aufrufers. Ab Firefox 149 können [Web-Erweiterungs-Content-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) `window.structuredClone(value)` aufrufen, um Werte im Realm der Seite zu klonen und `globalThis.structuredClone(value)`, um in das Realm des Content-Skripts zu klonen. Weitere Informationen finden Sie in [`structuredClone` in Content-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#structuredclone).
 
 ## Syntax
 
@@ -22,15 +27,16 @@ structuredClone(value, options)
 ### Parameter
 
 - `value`
-  - : Das zu klonende Objekt. Dies kann jeder [strukturklonbare Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) sein.
+  - : Das zu klonende Objekt.
+    Dies kann jeden [strukturiert klonbaren Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) umfassen.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `transfer`
-      - : Ein Array von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die anstatt geklont, in das zurückgegebene Objekt verschoben werden.
+      - : Ein Array von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die verschoben statt geklont werden, um das zurückgegebene Objekt zu bilden.
 
 ### Rückgabewert
 
-Eine {{Glossary("Deep_copy", "tiefe Kopie")}} des ursprünglichen `value`.
+Eine {{Glossary("Deep_copy", "tiefe Kopie")}} des originalen `value`.
 
 ### Ausnahmen
 
@@ -55,14 +61,14 @@ console.assert(clone.name === "MDN"); // they do have the same values
 console.assert(clone.itself === clone); // and the circular reference is preserved
 ```
 
-### Übertragen von Werten
+### Werte übertragen
 
-[Übertragbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) (nur) können anstelle der Duplizierung im geklonten Objekt übertragen werden, indem die `transfer`-Eigenschaft des `options`-Parameters verwendet wird. Das Übertragen macht das ursprüngliche Objekt unbrauchbar.
+[Transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) (nur diese) können anstatt dupliziert in das geklonte Objekt über die `transfer` Eigenschaft des `options`-Parameters übertragen werden. Das Übertragen macht das Originalobjekt unbrauchbar.
 
 > [!NOTE]
-> Ein Szenario, in dem dies nützlich sein könnte, ist, wenn Daten in einem Puffer asynchron validiert werden, bevor sie gespeichert werden. Um zu vermeiden, dass der Puffer verändert wird, bevor die Daten gespeichert werden, können Sie den Puffer klonen und diese Daten validieren. Wenn Sie die Daten auch _übertragen_, werden alle Versuche, den ursprünglichen Puffer zu ändern, fehlschlagen, was einen versehentlichen Missbrauch verhindert.
+> Ein Szenario, in dem dies nützlich sein könnte, ist die asynchrone Validierung von Daten in einem Puffer, bevor diese gespeichert werden. Um zu vermeiden, dass der Puffer verändert wird, bevor die Daten gespeichert sind, können Sie den Puffer klonen und diese Daten validieren. Wenn Sie die Daten zusätzlich _übertragen_, schlagen Versuche, den ursprünglichen Puffer zu ändern, fehl und verhindern so eine versehentliche Fehlverwendung.
 
-Der folgende Code zeigt, wie man ein Array klont und dessen zugrunde liegende Ressourcen in das neue Objekt überträgt. Nach der Rückkehr wird der ursprüngliche `uInt8Array.buffer` geleert.
+Dieser Code zeigt, wie man ein Array klont und dessen zugrundeliegende Ressourcen an das neue Objekt überträgt. Bei Rückkehr ist das ursprüngliche `uInt8Array.buffer` gelöscht.
 
 ```js
 // 16MB = 1024 * 1024 * 16
@@ -74,7 +80,7 @@ const transferred = structuredClone(uInt8Array, {
 console.log(uInt8Array.byteLength); // 0
 ```
 
-Sie können beliebig viele Objekte klonen und einen Teil dieser Objekte übertragen. Zum Beispiel würde der untenstehende Code `arrayBuffer1` aus dem übergebenen Wert übertragen, jedoch nicht `arrayBuffer2`.
+Sie können eine beliebige Anzahl von Objekten klonen und davon eine beliebige Teilmenge übertragen. Dieses Beispiel überträgt `arrayBuffer1` aus dem übergebenen Wert, aber nicht `arrayBuffer2`.
 
 ```js
 const transferred = structuredClone(
@@ -85,9 +91,9 @@ const transferred = structuredClone(
 
 ## Beispiele
 
-### Klonen eines Objekts
+### Ein Objekt klonen
 
-In diesem Beispiel klonen wir ein Objekt mit einem Mitglied, welches ein Array ist. Nach dem Klonen beeinflussen Änderungen an jedem Objekt nicht das andere Objekt.
+In diesem Beispiel klonen wir ein Objekt mit einem Element, das ein Array ist. Nach dem Klonen wirken sich Änderungen an jedem Objekt nicht auf das andere Objekt aus.
 
 ```js
 const mushrooms1 = {
@@ -103,9 +109,9 @@ console.log(mushrooms2.amanita); // ["muscaria", "virosa", "pantherina"]
 console.log(mushrooms1.amanita); // ["muscaria"]
 ```
 
-### Übertragen eines Objekts
+### Ein Objekt übertragen
 
-In diesem Beispiel erstellen wir ein {{jsxref("ArrayBuffer")}} und klonen dann das Objekt, dessen Mitglied es ist, wobei der Puffer übertragen wird. Wir können den Puffer im geklonten Objekt verwenden, aber wenn wir versuchen, den ursprünglichen Puffer zu verwenden, erhalten wir eine Ausnahme.
+In diesem Beispiel erstellen wir einen {{jsxref("ArrayBuffer")}} und klonen dann das Objekt, dem es zugehörig ist, und übertragen den Puffer. Wir können den Puffer im geklonten Objekt verwenden, jedoch führt ein Versuch, den ursprünglichen Puffer zu verwenden, zu einer Ausnahme.
 
 ```js
 // Create an ArrayBuffer with a size in bytes
@@ -137,6 +143,6 @@ const int32View1 = new Int32Array(object1.buffer);
 
 ## Siehe auch
 
-- [Ein Polyfill von `structuredClone`](https://github.com/zloirock/core-js#structuredclone) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
-- [Structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
-- [Structured clone polyfill](https://github.com/ungap/structured-clone)
+- [Ein Polyfill von `structuredClone`](https://github.com/zloirock/core-js#structuredclone) ist verfügbar in [`core-js`](https://github.com/zloirock/core-js)
+- [Structured Clone-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)
+- [Structured Clone Polyfill](https://github.com/ungap/structured-clone)
