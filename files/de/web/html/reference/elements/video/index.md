@@ -2,10 +2,10 @@
 title: "<video>: Das Video-Einbettungselement"
 slug: Web/HTML/Reference/Elements/video
 l10n:
-  sourceCommit: b0c2ce683687410406fa7ccdef391ff1d41503bb
+  sourceCommit: 8db892b3e7ca294621898441e7db2481e0e6d939
 ---
 
-Das **`<video>`**-Element [HTML](/de/docs/Web/HTML) bettet einen Mediaplayer ein, der die Videowiedergabe im Dokument unterstützt. Sie können `<video>` auch für Audioinhalte verwenden, aber das {{HTMLElement("audio")}}-Element könnte ein besseres Benutzererlebnis bieten.
+Das **`<video>`**-Element in [HTML](/de/docs/Web/HTML) bettet einen Mediaplayer ein, der die Videowiedergabe im Dokument unterstützt. Sie können `<video>` auch für Audioinhalte verwenden, aber das {{HTMLElement("audio")}}-Element könnte eine angemessenere Benutzererfahrung bieten.
 
 {{InteractiveExample("HTML Demo: &lt;video&gt;", "tabbed-standard")}}
 
@@ -23,128 +23,160 @@ Das **`<video>`**-Element [HTML](/de/docs/Web/HTML) bettet einen Mediaplayer ein
 </video>
 ```
 
-Das obige Beispiel zeigt, wie das `<video>`-Element verwendet wird. Ähnlich wie beim {{htmlelement("img")}}-Element geben wir im `src`-Attribut einen Pfad zu den Medien an, die wir anzeigen möchten. Wir können weitere Attribute einschließen, um Informationen wie Video-Breite und -Höhe, ob wir es automatisch abspielen und schleifen lassen wollen oder die Standard-Videosteuerungen des Browsers anzeigen möchten, und so weiter.
+Das obige Beispiel zeigt, wie das `<video>`-Element verwendet wird. Ähnlich wie beim {{htmlelement("img")}}-Element geben wir einen Pfad zu den anzuzeigenden Medien im `src`-Attribut an; wir können andere Attribute einschließen, um Informationen wie Video-Breite und -Höhe, Autoplay und Schleifen oder das Anzeigen der Standard-Videosteuerungen des Browsers usw. zu spezifizieren.
 
-Der Inhalt zwischen den öffnenden und schließenden `<video></video>`-Tags wird in Browsern angezeigt, die das Element nicht unterstützen.
+Der Inhalt zwischen dem öffnenden und schließenden `<video></video>`-Tag wird als Fallback in Browsern angezeigt, die das Element nicht unterstützen.
 
 ## Attribute
 
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `autoplay`
-  - : Ein Boolean-Attribut; wenn angegeben, beginnt das Video automatisch mit der Wiedergabe, sobald es kann, ohne zu stoppen, um das Laden der Daten abzuschließen.
+  - : Ein Boolesches Attribut; wenn angegeben, beginnt das Video automatisch mit der Wiedergabe, sobald es geladen ist, ohne auf das vollständige Laden der Daten zu warten.
 
     > [!NOTE]
-    > Moderne Browser blockieren Audio (oder Videos mit einer nicht stummgeschalteten Audiospur) von der automatischen Wiedergabe, da Websites, die automatisch Audio abspielen, für Nutzer eine unangenehme Erfahrung sein können. Siehe unseren [Autoplay-Leitfaden](/de/docs/Web/Media/Guides/Autoplay) für zusätzliche Informationen zur korrekten Verwendung von Autoplay.
+    > Moderne Browser blockieren Audio (oder Videos mit einer nicht stummgeschalteten Tonspur) vom automatischen Abspielen, da Websites, die Audio automatisch abspielen, eine unangenehme Erfahrung für Benutzer sein können. Siehe unseren [Autoplay-Leitfaden](/de/docs/Web/Media/Guides/Autoplay) für weitere Informationen zur richtigen Verwendung von Autoplay.
 
-    Um die automatische Videowiedergabe zu deaktivieren, funktioniert `autoplay="false"` nicht; das Video wird automatisch abgespielt, wenn das Attribut überhaupt im `<video>`-Tag vorhanden ist. Um die automatische Wiedergabe zu entfernen, muss das Attribut vollständig entfernt werden.
+    Um das automatische Abspielen von Videos zu deaktivieren, funktioniert `autoplay="false"` nicht; das Video startet automatisch, wenn das Attribut im `<video>`-Tag vorhanden ist. Um Autoplay zu entfernen, muss das Attribut vollständig entfernt werden.
+
+    > [!NOTE]
+    > Videos mit dem Attribut [`loading="lazy"`](#loading) werden nicht heruntergeladen und abgespielt, bis das Element sich in der Nähe des oder innerhalb des Sichtfensters befindet.
 
 - `controls`
-  - : Wenn dieses Attribut vorhanden ist, bietet der Browser Steuerungen an, mit denen der Benutzer unter anderem die Videowiedergabe, Lautstärke, Suche und Pause/Resümee steuern kann.
+  - : Wenn dieses Attribut vorhanden ist, bietet der Browser Steuerungen an, um dem Benutzer die Kontrolle über die Videowiedergabe zu ermöglichen, einschließlich Lautstärke, Suchfunktion und Pause/Wiedergabe.
 - `controlslist`
-  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut hilft bei Angabe dem Browser, welche Steuerungen er für das `video`-Element anzeigen soll, wenn der Browser seine eigenen Steuerungen zeigt (also wenn das `controls`-Attribut angegeben ist).
+  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut hilft dem Browser, auszuwählen, welche Steuerungen für das `video`-Element angezeigt werden sollen, wenn der Browser sein eigenes Satz von Steuerungen zeigt (d.h. wenn das `controls`-Attribut angegeben ist).
 
-    Zulässige Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
+    Die erlaubten Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
 
-    Verwenden Sie das Attribut [`disablepictureinpicture`](#disablepictureinpicture), wenn Sie den Picture-In-Picture-Modus (und die Steuerung) deaktivieren wollen.
+    Verwenden Sie das [`disablepictureinpicture`](#disablepictureinpicture)-Attribut, wenn Sie den Bild-in-Bild-Modus (und die Steuerung) deaktivieren möchten.
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
-  - : Dieses {{Glossary("Enumerated", "aufgezählte")}} Attribut gibt an, ob CORS verwendet werden soll, um das zugehörige Video abzurufen. [CORS-fähige Ressourcen](/de/docs/Web/HTML/How_to/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element verwendet werden, ohne _verunreinigt_ zu sein. Die zulässigen Werte sind:
+  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, ob CORS verwendet werden soll, um das zugehörige Video abzurufen. [CORS-fähige Ressourcen](/de/docs/Web/HTML/How_to/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verunreinigt_ zu sein. Die erlaubten Werte sind:
     - `anonymous`
-      - : Sendet eine anonyme Anfrage ohne Anmeldedaten. Anders ausgedrückt, es sendet den HTTP-Header `Origin:` ohne Cookie, X.509-Zertifikat oder Durchführung der HTTP-Basisauthentifizierung. Wenn der Server der Ursprungsseite keine Anmeldeinformationen gibt (indem er den HTTP-Header `Access-Control-Allow-Origin:` nicht setzt), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
+      - : Sendet eine Cross-Origin-Anfrage ohne Berechtigung. Mit anderen Worten, es sendet den `Origin:` HTTP-Header ohne einen Cookie, X.509-Zertifikat oder Durchführung der HTTP-Basisauthentifizierung. Wenn der Server der Ursprung-Website keine Berechtigungen erteilt (durch Nichtsetzen des `Access-Control-Allow-Origin:` HTTP-Headers), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
     - `use-credentials`
-      - : Sendet eine Anfrage mit Anmeldedaten. Anders ausgedrückt, es sendet den HTTP-Header `Origin:` zusammen mit einem Cookie, einem Zertifikat oder durch Durchführung der HTTP-Basisauthentifizierung. Wenn der Server der Ursprungsseite keine Anmeldeinformationen gibt (durch den HTTP-Header `Access-Control-Allow-Credentials:`), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
+      - : Sendet eine Cross-Origin-Anfrage mit Berechtigung. Mit anderen Worten, es sendet den `Origin:` HTTP-Header mit einem Cookie, einem Zertifikat oder Durchführung der HTTP-Basisauthentifizierung. Wenn der Server der Ursprung-Website keine Berechtigungen erteilt (durch den `Access-Control-Allow-Credentials:` HTTP-Header), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
 
-    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgefragt (d.h. ohne den HTTP-Header `Origin:` zu senden), wodurch ihre nicht verunreinigte Verwendung in {{HTMLElement('canvas')}}-Elementen verhindert wird. Wenn ungültig, wird es so behandelt, als ob das aufgezählte Schlüsselwort `anonymous` verwendet wurde. Weitere Informationen finden Sie unter [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
+    Wenn nicht vorhanden, wird die Ressource ohne CORS-Anfrage abgefragt (d.h. ohne Senden des `Origin:` HTTP-Headers), was ihre unverunreinigte Verwendung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das enumerierte Schlüsselwort `anonymous` verwendet wurde. Siehe [CORS-Einstellungs-Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für weitere Informationen.
 
 - `disablepictureinpicture`
-  - : Verhindert, dass der Browser ein Picture-in-Picture-Kontextmenü vorschlägt oder in einigen Fällen automatisch Picture-in-Picture anfordert.
+  - : Verhindert, dass der Browser ein Bild-in-Bild-Kontextmenü vorschlägt oder automatisch in einigen Fällen Bild-in-Bild anfordert.
 - `disableremoteplayback`
-  - : Ein Boolean-Attribut, das verwendet wird, um die Möglichkeit der Remote-Wiedergabe auf Geräten zu deaktivieren, die über kabelgebundene (HDMI, DVI, usw.) und kabellose Techniken (Miracast, Chromecast, DLNA, AirPlay, usw.) angeschlossen sind.
+  - : Ein Boolesches Attribut, das die Fähigkeit zur Fernwiedergabe auf Geräten deaktiviert, die über kabelgebundene (HDMI, DVI usw.) und drahtlose Technologien (Miracast, Chromecast, DLNA, AirPlay usw.) angeschlossen sind.
 
     In Safari können Sie [`x-webkit-airplay="deny"`](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html) als Fallback verwenden.
 
 - `height`
   - : Die Höhe des Anzeigebereichs des Videos in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px) (nur absolute Werte; [keine Prozentsätze](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes)).
-- `loop`
-  - : Ein Boolean-Attribut; wenn angegeben, springt der Browser automatisch zurück zum Start, wenn das Ende des Videos erreicht wird.
-- `muted`
-  - : Ein Boolean-Attribut, das die Standardeinstellung für die Stummschaltung des im Video enthaltenen Audios angibt. Wenn gesetzt, wird das Audio zunächst stummgeschaltet. Der Standardwert ist `false`, was bedeutet, dass das Audio abgespielt wird, wenn das Video abgespielt wird.
-- `playsinline`
-  - : Ein Boolean-Attribut, das angibt, dass das Video "inline" abgespielt werden soll, das heißt innerhalb des Wiedergabebereichs des Elements. Beachten Sie, dass das Fehlen dieses Attributs _nicht_ bedeutet, dass das Video immer im Vollbild abgespielt wird.
-- `poster`
-  - : Eine URL für ein Bild, das angezeigt wird, während das Video heruntergeladen wird. Wenn dieses Attribut nicht angegeben ist, wird nichts angezeigt, bis der erste Frame verfügbar ist. Dann wird der erste Frame als Posterbild angezeigt.
-- `preload`
-  - : Dieses {{Glossary("enumerated", "aufgezählte")}} Attribut soll dem Browser einen Hinweis darauf geben, was der Autor als die beste Benutzererfahrung in Bezug auf die zu ladenden Inhalte vor dem Abspielen des Videos ansieht. Es kann einen der folgenden Werte haben:
-    - `none`: Gibt an, dass das Video nicht vorgeladen werden sollte.
-    - `metadata`: Gibt an, dass nur Videometadaten (z.B. Länge) abgerufen werden.
-    - `auto`: Gibt an, dass die gesamte Videodatei heruntergeladen werden kann, auch wenn der Benutzer nicht erwartet wird, sie zu verwenden.
-    - _leerer String_: Ein Synonym für den Wert `auto`.
 
-    Der Standardwert ist für jeden Browser unterschiedlich. Die Spezifikation empfiehlt, diesen auf `metadata` zu setzen.
+- `loading`
+  - : Gibt an, wie der Browser das Video (einschließlich eines Posterbildes) laden soll:
+    - `eager`
+      - : Lädt das Video sofort, unabhängig davon, ob sich das Video derzeit im sichtbaren Bereich befindet oder nicht (dies ist der Standardwert).
+    - `lazy`
+      - : Verschiebt das Laden des Videos, bis es einen berechneten Abstand vom Ansichtsfenster erreicht, wie vom Browser definiert.
+
+        Das „Lazy Loading“ vermeidet den Netzwerk- und Speicherkapazitätsbedarf, um das Video zu handhaben, bis relativ sicher ist, dass es benötigt wird. Dies verbessert die Leistung in den meisten typischen Nutzungsszenarien.
+
+    Während explizite [`width`](#width)- und [`height`](#height)-Attribute für alle Videos empfohlen werden, um Layoutverschiebungen zu vermeiden, sind sie besonders wichtig für „Lazy Loaded“-Videos. „Lazy Loaded“-Videos werden niemals geladen, wenn sie keinen sichtbaren Teil eines Elements schneiden, selbst wenn das Laden sie ändern würde, da ungeladene Videos eine `width` und `height` von `0` haben. Es führt zu einer noch störenderen Benutzererfahrung, wenn sich der Inhalt im sichtbaren Bereich während des Lesens neu formatiert.
+
+    „Lazy Loaded“-Videos, die sich im visuellen Ansichtsfenster befinden, sind möglicherweise noch nicht sichtbar, wenn das Window-Objekt [`load`](/de/docs/Web/API/Window/load_event)-Ereignis ausgelöst wird. Dies liegt daran, dass das Ereignis basierend auf „Eager Loaded“-Videos ausgelöst wird – „Lazy Loaded“-Videos werden nicht berücksichtigt, selbst wenn sie sich im visuellen Ansichtsfenster beim ersten Laden der Seite befinden.
+
+    Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Maßnahme gegen das Verfolgen, da, wenn eine Benutzeragent „Lazy Loading“ unterstützt, wenn das Skripten deaktiviert ist, es immer noch möglich wäre, die ungefähre Scrollposition eines Benutzers während einer Sitzung zu verfolgen, indem strategisch Videos im Markup einer Seite platziert werden, sodass ein Server verfolgen kann, wie viele Videos angefordert werden und wann.
+
+    > [!NOTE]
+    > Das Attribut `loading="lazy"` beeinflusst auch die Attribute [`autoplay`](#autoplay), [`poster`](#poster) und [`preload`](#preload), wie in den jeweiligen Abschnitten der Seite beschrieben.
+
+- `loop`
+  - : Ein Boolesches Attribut; wenn angegeben, geht der Browser automatisch zum Anfang zurück, wenn das Ende des Videos erreicht ist.
+
+- `muted`
+  - : Ein Boolesches Attribut, das die Standardeinstellung für die Stummschaltung des im Video enthaltenen Audios angibt. Wenn gesetzt, wird der Ton initial stummgeschaltet. Der Standardwert ist `false`, was bedeutet, dass der Ton abgespielt wird, wenn das Video abgespielt wird.
+
+- `playsinline`
+  - : Ein Boolesches Attribut, das angibt, dass das Video „inline“ abgespielt werden soll, das heißt, innerhalb des Abspielbereichs des Elements. Beachten Sie, dass das Fehlen dieses Attributs _nicht_ impliziert, dass das Video immer im Vollbildmodus abgespielt wird.
+
+- `poster`
+  - : Eine URL für ein Bild, das angezeigt wird, während das Video heruntergeladen wird. Wenn dieses Attribut nicht angegeben ist, wird nichts angezeigt, bis der erste Frame verfügbar ist, dann wird der erste Frame als Posterframe angezeigt.
+
+    > [!NOTE]
+    > Videos, bei denen das Attribut [`loading="lazy"`](#loading) gesetzt ist, laden die `poster`-Ressource nur herunter, wenn sich das Video in der Nähe des oder innerhalb des Ansichtsfensters befindet.
+
+- `preload`
+  - : Dieses {{Glossary("enumerated", "enumerierte")}} Attribut soll einen Hinweis für den Browser bieten, was der Autor für die beste Benutzererfahrung hält, in Bezug auf den Inhalt, der vor der Videowiedergabe geladen wird. Es kann einen der folgenden Werte haben:
+    - `none`: Gibt an, dass das Video nicht vorab geladen werden sollte.
+    - `metadata`: Gibt an, dass nur Metadaten des Videos (z.B. Länge) abgerufen werden.
+    - `auto`: Gibt an, dass die ganze Videodatei heruntergeladen werden kann, selbst wenn der Benutzer sie voraussichtlich nicht verwenden wird.
+    - _leere Zeichenkette_: Ein Synonym für den Wert `auto`.
+
+    Der Standardwert ist für jeden Browser unterschiedlich. Die Spezifikation empfiehlt, ihn auf `metadata` zu setzen.
 
     > [!NOTE]
     >
-    > - Das `autoplay`-Attribut hat Vorrang vor `preload`. Wenn `autoplay` angegeben ist, müsste der Browser offensichtlich beginnen, das Video für die Wiedergabe herunterzuladen.
-    > - Die Spezifikation zwingt den Browser nicht dazu, den Wert dieses Attributs zu befolgen; es ist lediglich ein Hinweis.
+    > - Das `autoplay`-Attribut hat Vorrang vor `preload`. Wenn `autoplay` angegeben ist, müsste der Browser offensichtlich anfangen, das Video für die Wiedergabe herunterzuladen.
+    > - Die Spezifikation zwingt den Browser nicht, dem Wert dieses Attributs zu folgen; es ist lediglich ein Hinweis.
+
+    > [!NOTE]
+    > Videos, bei denen das Attribut [`loading="lazy"`](#loading) gesetzt ist, wenden das `preload`-Verhalten erst an, wenn sich das Video in der Nähe des oder innerhalb des Ansichtsfensters befindet.
 
 - `src`
-  - : Die URL des einzubettenden Videos. Dies ist optional; Sie können stattdessen das {{HTMLElement("source")}}-Element innerhalb des Videoblocks verwenden, um das einzubettende Video anzugeben.
+  - : Die URL des einzubettenden Videos. Dies ist optional; stattdessen können Sie das {{HTMLElement("source")}}-Element innerhalb des Videoblocks verwenden, um das einzubettende Video anzugeben.
 - `width`
   - : Die Breite des Anzeigebereichs des Videos in [CSS-Pixeln](https://drafts.csswg.org/css-values/#px) (nur absolute Werte; [keine Prozentsätze](https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes)).
 
 ## Ereignisse
 
 - [`audioprocess`](/de/docs/Web/API/ScriptProcessorNode/audioprocess_event) {{Deprecated_Inline}}
-  - : Der Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Objekts ist zur Verarbeitung bereit.
+  - : Der Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) ist bereit zur Verarbeitung.
 - [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)
-  - : Der Browser kann die Medien abspielen, schätzt jedoch, dass nicht genug Daten geladen wurden, um die Medien ohne Zwischenstopps bis zum Ende abzuspielen.
+  - : Der Browser kann die Medien abspielen, schätzt jedoch, dass nicht genügend Daten geladen wurden, um die Medien bis zum Ende der Datei abzuspielen, ohne für weiteres Puffern des Inhalts anhalten zu müssen.
 - [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)
-  - : Der Browser schätzt, dass er die Medien bis zum Ende abspielen kann, ohne für das Puffern von Inhalten stoppen zu müssen.
+  - : Der Browser schätzt, dass er das Medium bis zum Ende abspielen kann, ohne für das Puffern von Inhalten anzuhalten.
 - [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)
-  - : Die Rendering eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) ist abgeschlossen.
+  - : Das Rendering eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) ist beendet.
 - [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)
-  - : Das `duration`-Attribut wurde aktualisiert.
+  - : Das Attribut `duration` wurde aktualisiert.
 - [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)
-  - : Die Medien sind leer geworden; zum Beispiel wird dieses Ereignis gesendet, wenn die Medien bereits geladen sind (oder teilweise geladen) und die Methode [`load()`](/de/docs/Web/API/HTMLMediaElement/load) aufgerufen wird, um sie neu zu laden.
+  - : Die Medien sind leer geworden; dieses Ereignis wird beispielsweise gesendet, wenn die Medien bereits geladen (oder teilweise geladen) waren und die [`load()`](/de/docs/Web/API/HTMLMediaElement/load)-Methode aufgerufen wird, um sie erneut zu laden.
 - [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
-  - : Die Wiedergabe wurde gestoppt, weil das Ende der Medien erreicht wurde.
+  - : Die Wiedergabe wurde gestoppt, weil das Ende des Mediums erreicht wurde.
 - [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)
-  - : Ein Fehler trat auf, während die Mediendaten abgerufen wurden, oder der Typ der Ressource ist kein unterstütztes Medienformat.
+  - : Ein Fehler trat auf, während die Mediendaten geholt wurden, oder der Typ der Ressource ist kein unterstütztes Medienformat.
 - [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)
-  - : Der erste Frame der Medien ist vollständig geladen.
+  - : Der erste Frame des Mediums ist fertig geladen.
 - [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)
   - : Die Metadaten wurden geladen.
 - [`loadstart`](/de/docs/Web/API/HTMLMediaElement/loadstart_event)
   - : Wird ausgelöst, wenn der Browser begonnen hat, die Ressource zu laden.
 - [`pause`](/de/docs/Web/API/HTMLMediaElement/pause_event)
-  - : Die Wiedergabe wurde angehalten.
+  - : Die Wiedergabe wurde pausiert.
 - [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)
   - : Die Wiedergabe hat begonnen.
 - [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
-  - : Die Wiedergabe ist bereit zu beginnen, nachdem sie pausiert oder aufgrund von Datenmangel verzögert wurde.
+  - : Die Wiedergabe ist bereit zu beginnen, nachdem sie pausiert wurde oder durch Datenmangel verzögert wurde.
 - [`progress`](/de/docs/Web/API/HTMLMediaElement/progress_event)
   - : Wird periodisch ausgelöst, während der Browser eine Ressource lädt.
 - [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)
   - : Die Wiedergabegeschwindigkeit wurde geändert.
 - [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)
-  - : Eine _Seek_-Operation wurde abgeschlossen.
+  - : Eine _Such_-Operation wurde abgeschlossen.
 - [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
-  - : Eine _Seek_-Operation hat begonnen.
+  - : Eine _Such_-Operation hat begonnen.
 - [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)
-  - : Der Benutzeragent versucht, Mediendaten abzurufen, aber die Daten kommen unerwartet nicht.
+  - : Die Benutzeragent versucht, Mediendaten zu holen, aber Daten kommen unerwartet nicht weiter.
 - [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)
-  - : Das Laden von Mediendaten wurde ausgesetzt.
+  - : Das Laden der Mediendaten wurde unterbrochen.
 - [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)
-  - : Die vom `currentTime`-Attribut angegebene Zeit wurde aktualisiert.
+  - : Die durch das `currentTime`-Attribut angegebene Zeit wurde aktualisiert.
 - [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)
   - : Die Lautstärke wurde geändert.
 - [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
-  - : Die Wiedergabe wurde gestoppt, weil ein vorübergehender Datenmangel vorliegt.
+  - : Die Wiedergabe wurde gestoppt, weil temporär keine Daten verfügbar sind.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Browser unterstützen nicht alle die gleichen Videoformate; Sie können mehrere Quellen innerhalb geschachtelter {{htmlelement("source")}}-Elemente bereitstellen, und der Browser verwendet dann die erste, die er versteht.
+Browser unterstützen nicht alle dasselben Videoformate; Sie können mehrere Quellen innerhalb verschachtelter {{htmlelement("source")}}-Elemente bereitstellen, und der Browser verwendet dann die erste, die er versteht.
 
 ```html
 <video controls>
@@ -157,33 +189,33 @@ Browser unterstützen nicht alle die gleichen Videoformate; Sie können mehrere 
 </video>
 ```
 
-Wenn Sie {{htmlelement("source")}}-Elemente verwenden, versucht der Browser, jede Quelle nacheinander zu laden. Wenn eine Quelle fehlschlägt (z.B. aufgrund einer ungültigen URL oder nicht unterstützten Formats), wird die nächste Quelle ausprobiert, und so weiter. Ein `error`-Ereignis wird auf dem `<video>`-Element ausgelöst, nachdem alle Quellen fehlgeschlagen sind; `error`-Ereignisse werden nicht auf jedem einzelnen `<source>`-Element ausgelöst.
+Wenn Sie {{htmlelement("source")}}-Elemente verwenden, versucht der Browser, jede Quelle der Reihe nach zu laden. Wenn eine Quelle fehlschlägt (z.B. aufgrund einer ungültigen URL oder eines nicht unterstützten Formats), wird die nächste Quelle versucht, und so weiter. Ein `error`-Ereignis wird auf dem `<video>`-Element ausgelöst, nachdem alle Quellen fehlgeschlagen sind; `error`-Ereignisse werden nicht auf jedem `<source>`-Element einzeln ausgelöst.
 
-Wir bieten einen umfassenden und gründlichen [Leitfaden zu Medien-Dateitypen](/de/docs/Web/Media/Guides/Formats) und den [Leitfaden zu unterstützten Codecs für Video](/de/docs/Web/Media/Guides/Formats/Video_codecs). Außerdem gibt es einen Leitfaden zu [Audiocodecs, die mit ihnen verwendet werden können](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
+Wir bieten einen umfassenden und gründlichen [Leitfaden zu Medien-Dateiformaten](/de/docs/Web/Media/Guides/Formats) und zum [Leitfaden zu den unterstützten Codecs für Video](/de/docs/Web/Media/Guides/Formats/Video_codecs). Auch verfügbar ist ein Leitfaden zu [Audiocodecs, die mit ihnen verwendet werden können](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
 
-Andere Anwendungshinweise:
+Weitere Verwendungshinweise:
 
-- Wenn Sie das `controls`-Attribut nicht angeben, enthält das Video nicht die Standardsteuerungen des Browsers; Sie können Ihre eigenen benutzerdefinierten Steuerungen mit JavaScript und der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API erstellen. Weitere Details finden Sie unter [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
-- Um präzise Kontrolle über Ihre Video- (und Audio-)Inhalte zu haben, lösen `HTMLMediaElement`s viele verschiedene [Ereignisse](/de/docs/Web/API/HTMLMediaElement#events) aus. Diese Ereignisse ermöglichen nicht nur Steuerbarkeit, sondern auch die Überwachung des Fortschritts von sowohl Download als auch Wiedergabe der Medien, sowie des Wiedergabezustands und der -position.
-- Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um die Position des Videos innerhalb des Rahmens des Elements anzupassen, und die {{cssxref("object-fit")}}-Eigenschaft, um zu steuern, wie die Größe des Videos angepasst wird, um in den Rahmen zu passen.
-- Um Untertitel zusammen mit Ihrem Video anzuzeigen, können Sie JavaScript zusammen mit dem {{htmlelement("track")}}-Element und dem [WebVTT](/de/docs/Web/API/WebVTT_API)-Format verwenden. Weitere Informationen finden Sie unter [Hinzufügen von Untertiteln und Beschriftungen zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video).
-- Sie können Audiodateien mit einem `<video>`-Element abspielen. Dies kann nützlich sein, wenn Sie beispielsweise Audio mit einem [WebVTT](/de/docs/Web/API/WebVTT_API)-Transkript aufführen, da das {{HTMLElement("audio")}}-Element keine Untertitel mit WebVTT erlaubt.
-- Um den Fallback-Inhalt bei Browsern zu testen, die das Element unterstützen, können Sie `<video>` durch ein nicht existierendes Element wie `<notavideo>` ersetzen.
+- Wenn Sie das `controls`-Attribut nicht angeben, enthält das Video nicht die Standardsteuerungen des Browsers; Sie können Ihre eigenen benutzerdefinierten Steuerungen mit JavaScript und der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API erstellen. Siehe [Erstellung eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player) für mehr Details.
+- Um eine genaue Kontrolle über Ihre Video- (und Audio-) Inhalte zu ermöglichen, lösen `HTMLMediaElement`s viele verschiedene [Ereignisse](/de/docs/Web/API/HTMLMediaElement#events) aus. Neben der Bereitstellung von Steuerungsmöglichkeiten ermöglichen diese Ereignisse, den Fortschritt des Downloads und der Wiedergabe des Mediums sowie den Wiedergabezustand und die Position zu überwachen.
+- Sie können die {{cssxref("object-position")}}-Eigenschaft verwenden, um die Positionierung des Videos im Rahmen des Elements anzupassen, und die {{cssxref("object-fit")}}-Eigenschaft, um zu steuern, wie die Größe des Videos angepasst wird, um in den Rahmen zu passen.
+- Um Untertitel zusammen mit Ihrem Video anzuzeigen, können Sie etwas JavaScript zusammen mit dem {{htmlelement("track")}}-Element und dem [WebVTT](/de/docs/Web/API/WebVTT_API)-Format verwenden. Siehe [Hinzufügen von Untertiteln zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) für weitere Informationen.
+- Sie können Audiodateien über ein `<video>`-Element abspielen. Dies kann nützlich sein, wenn Sie beispielsweise Audio mit einem [WebVTT](/de/docs/Web/API/WebVTT_API)-Transkript durchführen müssen, da das {{HTMLElement("audio")}}-Element keine Untertitel mit WebVTT zulässt.
+- Um den Fallback-Inhalt in Browsern zu testen, die das Element unterstützen, können Sie `<video>` durch ein nicht vorhandenes Element wie `<notavideo>` ersetzen.
 
-Eine gute allgemeine Informationsquelle zur Verwendung von HTML-`<video>` ist das [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) Anfänger-Tutorial.
+Eine gute allgemeine Informationsquelle zur Verwendung von HTML-`<video>` ist das [HTML Video und Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) Einsteigertutorial.
 
 ### Styling mit CSS
 
-Das `<video>`-Element ist ein ersetztes Element — sein {{cssxref("display")}}-Wert ist standardmäßig `inline` — aber seine Standardbreite und -höhe im Ansichtsfenster werden durch das eingebettete Video definiert.
+Das `<video>`-Element ist ein ersetztes Element — sein {{cssxref("display")}}-Wert ist standardmäßig `inline` — aber seine Standardbreite und -höhe im Ansichtsfenster wird durch das eingebettete Video definiert.
 
-Es gibt keine besonderen Überlegungen für das Styling von `<video>`; eine gängige Strategie ist es, ihm einen `display`-Wert von `block` zu geben, um es leichter positionierbar und größenveränderbar zu machen, und dann die erforderlichen Styling- und Layoutinformationen bereitzustellen. [Grundlagen zur Videoplayer-Stilgestaltung](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics) bieten einige nützliche Styling-Techniken.
+Für das Styling von `<video>` gibt es keine speziellen Überlegungen; eine übliche Strategie ist, ihm einen `display`-Wert von `block` zu geben, um das Positionieren, Größenanpassung usw. zu erleichtern, und dann Styling- und Layoutinformationen nach Bedarf bereitzustellen. [Grundlagen der Videoplayer-Styling](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics) bieten einige nützliche Styling-Techniken.
 
 ### Hinzufügen von Untertiteln und anderen zeitgesteuerten Textspuren
 
-Zeitgesteuerte Textspuren für Untertitel, geschlossene Beschriftungen, Kapitelüberschriften und so weiter können deklarativ hinzugefügt werden, indem das {{HTMLElement("track")}}-Element geschachtelt wird.
-Die Spuren werden im [Web Video Text Tracks File Format (WebVTT)](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) (`.vtt`-Dateien) angegeben.
+Zeitgesteuerte Textspuren für Untertitel, geschlossene Untertitel, Kapitelüberschriften usw. können deklarativ hinzugefügt werden, indem das {{HTMLElement("track")}}-Element verschachtelt wird.
+Die Spuren werden in [Web Video Text Tracks File Format (WebVTT)](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) (`.vtt`-Dateien) angegeben.
 
-Zum Beispiel enthält das untenstehende HTML die Datei "captions.vtt", die verwendet wird, um geschlossene Beschriftungen auf dem Video zu überlagern, wenn die Beschriftungen vom Benutzer aktiviert sind.
+Zum Beispiel enthält das untenstehende HTML die Datei "captions.vtt", die verwendet wird, um geschlossene Untertitel auf das Video zu überlagern, wenn Untertitel vom Benutzer aktiviert sind.
 
 ```html
 <video controls src="video.webm">
@@ -191,24 +223,24 @@ Zum Beispiel enthält das untenstehende HTML die Datei "captions.vtt", die verwe
 </video>
 ```
 
-Zeitgesteuerte Textspuren können auch programmatisch mit der [WebVTT API](/de/docs/Web/API/WebVTT_API) hinzugefügt werden.
+Zeitgesteuerte Textspuren können auch programmgesteuert mithilfe der [WebVTT API](/de/docs/Web/API/WebVTT_API) hinzugefügt werden.
 
-### Erkennung von Spurzugaben und Entfernungen
+### Erkennung der Spurenhinzufügung und -entfernung
 
-Sie können erkennen, wann Spuren zu einem `<video>`-Element hinzugefügt oder daraus entfernt werden, indem Sie die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse überwachen. Diese Ereignisse werden jedoch nicht direkt an das `<video>`-Element selbst gesendet.
-Stattdessen werden sie an das Spurlistenobjekt innerhalb des `<video>`-Elements gesendet, das dem Typ der hinzugefügten Spur entspricht:
+Sie können erkennen, wann Spuren einem `<video>`-Element hinzugefügt und daraus entfernt werden, indem Sie die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse verwenden. Diese Ereignisse werden jedoch nicht direkt an das `<video>`-Element selbst gesendet.
+Stattdessen werden sie an das Tracklist-Objekt innerhalb des `<video>`-Elements gesendet, das zur Art der Spur im {{HTMLElement}}-Element gehört:
 
 - [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)
-  - : Eine [`AudioTrackList`](/de/docs/Web/API/AudioTrackList), die alle Audiotracks des Media-Elements enthält.
-    Fügen Sie einen Listener für `addtrack` zu diesem Objekt hinzu, um benachrichtigt zu werden, wenn neue Audiotracks zum Element hinzugefügt werden.
+  - : Eine [`AudioTrackList`](/de/docs/Web/API/AudioTrackList), die alle Audiotracks des Medienelements enthält.
+    Fügt diesem Objekt einen Listener für `addtrack` hinzu, um benachrichtigt zu werden, wenn neue Audiotracks zum Element hinzugefügt werden.
 - [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)
-  - : Eine [`VideoTrackList`](/de/docs/Web/API/VideoTrackList), die alle Videotracks des Media-Elements enthält.
-    Fügen Sie einen `addtrack`-Listener zu diesem Objekt hinzu, um benachrichtigt zu werden, wenn Videotracks zum Element hinzugefügt werden.
+  - : Eine [`VideoTrackList`](/de/docs/Web/API/VideoTrackList), die alle Videotracks des Medienelements enthält.
+    Fügt diesem Objekt einen Listener für `addtrack` hinzu, um benachrichtigt zu werden, wenn Videotracks zum Element hinzugefügt werden.
 - [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks)
-  - : Eine [`TextTrackList`](/de/docs/Web/API/TextTrackList), die alle Textspuren des Media-Elements enthält (die für Untertitel, geschlossene Beschriftungen usw. verwendet werden).
-    Fügen Sie einen `addtrack`-Listener zu diesem Objekt hinzu, um benachrichtigt zu werden, wenn Textspuren zum Element hinzugefügt werden.
+  - : Eine [`TextTrackList`](/de/docs/Web/API/TextTrackList), die alle Texttracks des Medienelements enthält (die für Untertitel, geschlossene Untertitel usw. verwendet werden).
+    Fügt diesem Objekt einen Listener für `addtrack` hinzu, um benachrichtigt zu werden, wenn Texttracks zum Element hinzugefügt werden.
 
-Zum Beispiel, um zu erkennen, wann Audiotracks zu oder aus einem `<video>`-Element hinzugefügt oder entfernt werden, können Sie folgenden Code verwenden:
+Zum Beispiel, um zu erkennen, wann Audiotracks zu einem `<video>`-Element hinzugefügt oder daraus entfernt werden, können Sie Code wie diesen verwenden:
 
 ```js
 const elem = document.querySelector("video");
@@ -222,31 +254,31 @@ elem.audioTracks.onremovetrack = (event) => {
 };
 ```
 
-Dieser Code überwacht, wenn Audiotracks zum Element hinzugefügt oder daraus entfernt werden, und ruft eine hypothetische Funktion auf einem Track-Editor auf, um den Track in der Liste der verfügbaren Tracks des Editors zu registrieren oder zu entfernen.
+Dieser Code überwacht, ob Audiotracks zum Element hinzugefügt oder daraus entfernt werden, und ruft eine hypothetische Funktion auf einem Track-Editor auf, um den Track in die Liste der verfügbaren Tracks des Editors aufzunehmen oder daraus zu entfernen.
 
-Sie können auch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um auf die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse zu hören.
+Sie können auch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um die [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event) Ereignisse zu überwachen.
 
-### Server-Unterstützung für Video
+### Serverunterstützung für Videos
 
-Wenn der MIME-Typ für das Video auf dem Server nicht korrekt eingestellt ist, wird das Video möglicherweise nicht angezeigt oder zeigt ein graues Kästchen mit einem X (wenn JavaScript aktiviert ist).
+Wenn der MIME-Typ für das Video auf dem Server nicht korrekt gesetzt ist, wird das Video möglicherweise nicht angezeigt oder es wird ein graues Feld mit einem X angezeigt (wenn JavaScript aktiviert ist).
 
-Wenn Sie Apache Web Server verwenden, um WebM-Videos zu servieren, können Sie dieses Problem beheben, indem Sie die Erweiterungen des Video-Dateityps zum `video/webm` MIME-Typ hinzufügen (die häufigste WebM-Dateiendung ist `.webm`). Um dies zu tun, bearbeiten Sie die Datei `mime.types` in `/etc/apache` oder verwenden Sie die Konfigurationsdirektive `AddType` in `httpd.conf`:
+Wenn Sie den Apache-Webserver verwenden, um WebM-Videos zu bedienen, können Sie dieses Problem beheben, indem Sie die Dateityp-Erweiterungen zu dem MIME-Typ `video/webm` hinzufügen (die häufigste WebM-Dateierweiterung ist `.webm`). Um dies zu tun, bearbeiten Sie die Datei `mime.types` in `/etc/apache` oder verwenden Sie die `AddType` Konfigurationsanweisung in `httpd.conf`:
 
 ```plain
 AddType video/webm .webm
 ```
 
-Ihr Webhoster kann eine einfach zu bedienende Schnittstelle für MIME-Typ-Konfigurationsänderungen für neue Technologien bereitstellen, bis ein globales Update natürlich erfolgt.
+Ihr Webhoster bietet möglicherweise eine einfache Schnittstelle zu MIME-Typ-Konfigurationsänderungen für neue Technologien, bis ein globales Update auf natürlichem Wege erfolgt.
 
 ## Barrierefreiheit
 
-Videos sollten sowohl Untertitel als auch Transkripte bieten, die den Inhalt genau beschreiben (sehen Sie [Hinzufügen von Untertiteln und Beschriftungen zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) für weitere Informationen zur Implementierung). Untertitel ermöglichen es Menschen mit Hörverlust, den Audiogehalt eines Videos während der Wiedergabe zu verstehen, während Transkripte Menschen, die mehr Zeit benötigen, ermöglichen, Audiogehalt in einem Tempo und Format zu überprüfen, das für sie angenehm ist.
+Videos sollten sowohl Untertitel als auch Transkriptionen bieten, die ihren Inhalt genau beschreiben (siehe [Hinzufügen von Untertiteln zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) für weitere Informationen über die Implementierung dieser). Untertitel ermöglichen es Personen, die Hörverlust haben, den Audiogehalt eines Videos zu verstehen, während das Video abgespielt wird, während Transkriptionen denjenigen, die mehr Zeit benötigen, ermöglichen, Audioinhalte in einem Tempo und Format zu überprüfen, das für sie komfortabel ist.
 
-Es ist erwähnenswert, dass Sie, obwohl Sie Audiomedien beschriften können, dies nur beim Abspielen von Audio in einem `<video>`-Element tun können, da die Videoregion des Elements verwendet wird, um die Untertitel anzuzeigen. Dies ist eines der besonderen Szenarien, in denen es nützlich ist, Audio in einem Videoelement abzuspielen.
+Es ist erwähnenswert, dass während Sie Audioinhalte untertiteln können, dies nur möglich ist, wenn Audio in einem `<video>`-Element abgespielt wird, da der Videobereich des Elements verwendet wird, um die Untertitel darzustellen. Dies ist eines der speziellen Szenarien, in denen es nützlich ist, Audio in einem Videoelement abzuspielen.
 
-Wenn automatische Untertitelungsdienste verwendet werden, ist es wichtig, den erzeugten Inhalt zu überprüfen, um sicherzustellen, dass er die Originalvideoquelle genau wiedergibt.
+Wenn automatische Untertitelungsdienste genutzt werden, ist es wichtig, die generierten Inhalte zu überprüfen, um sicherzustellen, dass sie die Ursprungsdatei genau wiedergeben.
 
-Zusätzlich zu gesprochenen Dialogen sollten Untertitel und Transkripte auch Musik und Soundeffekte identifizieren, die wichtige Informationen kommunizieren. Dies schließt Emotion und Ton ein:
+Zusätzlich zu gesprochenem Dialog sollten Untertitel und Transkriptionen auch Musik und Soundeffekte identifizieren, die wichtige Informationen vermitteln. Dies schließt Emotion und Ton ein:
 
 ```plain
 14
@@ -266,19 +298,19 @@ It's… it's a…
 [Dishes clattering]
 ```
 
-Untertitel sollten das Hauptthema des Videos nicht verdecken. Sie können mit [der `align` VTT-Cue-Einstellung](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format#cue_settings) positioniert werden.
+Untertitel sollten das Hauptmotiv des Videos nicht verdecken. Sie können positioniert werden, indem Sie die [VTT-Cue-Einstellung `align`](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format#cue_settings) verwenden.
 
 - [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
-- [WebAIM: Untertitel, Transkripte und Audiobeschreibungen](https://webaim.org/techniques/captions/)
-- [MDN Verstehen der WCAG, Leitlinie 1.2 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.2_—_providing_text_alternatives_for_time-based_media)
-- [Verstehen des Erfolgskriteriums 1.2.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html)
-- [Verstehen des Erfolgskriteriums 1.2.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html)
+- [WebAIM: Untertitel, Transkriptionen und Audiobeschreibungen](https://webaim.org/techniques/captions/)
+- [MDN Verstehen von WCAG, Leitlinie 1.2 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.2_—_providing_text_alternatives_for_time-based_media)
+- [Verstehen des Erfolgskriteriums 1.2.1 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html)
+- [Verstehen des Erfolgskriteriums 1.2.2 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html)
 
 ## Beispiele
 
-### Einzelne Quelle
+### Einzelquelle
 
-Dieses Beispiel spielt ein Video ab, wenn es aktiviert wird, und bietet dem Benutzer die Standard-Videosteuerungen des Browsers zur Steuerung der Wiedergabe.
+Dieses Beispiel spielt ein Video ab, wenn es aktiviert wird, und bietet dem Benutzer die Standard-Videosteuerungen des Browsers, um die Wiedergabe zu steuern.
 
 #### HTML
 
@@ -301,11 +333,11 @@ Dieses Beispiel spielt ein Video ab, wenn es aktiviert wird, und bietet dem Benu
 
 {{EmbedLiveSample('Single source', '', '400')}}
 
-Bis das Video zu spielen beginnt, wird das im `poster`-Attribut angegebene Bild als Platzhalter angezeigt. Wenn der Browser die Videowiedergabe nicht unterstützt, wird der Fallback-Text angezeigt.
+Bis das Video zu spielen beginnt, wird das im `poster`-Attribut angegebene Bild an seiner Stelle angezeigt. Wenn der Browser keine Videowiedergabe unterstützt, wird der Fallback-Text angezeigt.
 
 ### Mehrere Quellen
 
-Dieses Beispiel baut auf dem letzten auf und bietet drei verschiedene Quellen für die Medien; dies ermöglicht es, das Video unabhängig davon anzusehen, welche Videocodecs vom Browser unterstützt werden.
+Dieses Beispiel baut auf dem letzten auf und bietet drei verschiedene Quellen für die Medien an; dies ermöglicht es, das Video unabhängig davon anzusehen, welche Video-Codecs vom Browser unterstützt werden.
 
 #### HTML
 
@@ -338,9 +370,9 @@ Dieses Beispiel baut auf dem letzten auf und bietet drei verschiedene Quellen f�
 
 {{EmbedLiveSample('Multiple sources', '', '400')}}
 
-Zuerst wird AVI versucht. Wenn das nicht abgespielt werden kann, wird [MP4](/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4) versucht. Eine Fallback-Nachricht wird angezeigt, wenn das Videoelement nicht unterstützt wird, jedoch nicht, wenn alle Quellen fehlschlagen.
+Zuerst wird AVI ausprobiert. Wenn das nicht abgespielt werden kann, wird [MP4](/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4) versucht. Eine Fallback-Nachricht wird angezeigt, wenn das Videoelement nicht unterstützt wird, aber nicht, wenn alle Quellen fehlschlagen.
 
-Einige Medien-Dateitypen ermöglichen es, spezifischere Informationen mit dem [`codecs`](/de/docs/Web/Media/Guides/Formats/codecs_parameter)-Parameter als Teil der Typzeichenfolge der Datei bereitzustellen. Zum Beispiel, `video/webm; codecs="vp8, vorbis"` gibt an, dass die Datei ein [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)-Video ist, das [VP8](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) für sein Video und [Vorbis](/de/docs/Web/Media/Guides/Formats/Audio_codecs#vorbis) für Audio verwendet.
+Einige Mediendateiformate ermöglichen es, spezifischere Informationen mit dem [`codecs`](/de/docs/Web/Media/Guides/Formats/codecs_parameter) Parameter als Teil des Dateityp-Strings anzugeben. Zum Beispiel sagt `video/webm; codecs="vp8, vorbis"` aus, dass die Datei ein [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)-Video ist, das [VP8](/de/docs/Web/Media/Guides/Formats/Video_codecs#vp8) für seine Video- und [Vorbis](/de/docs/Web/Media/Guides/Formats/Audio_codecs#vorbis) für seine Audiospur verwendet.
 
 ## Technische Zusammenfassung
 
@@ -351,38 +383,38 @@ Einige Medien-Dateitypen ermöglichen es, spezifischere Informationen mit dem [`
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>, Phrasing-Inhalt, eingebetteter Inhalt. Wenn es ein <a href="#controls"><code>controls</code></a>-Attribut hat: interaktiver Inhalt und fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>, Formulierungsinhalt, eingebetteter Inhalt. Wenn es ein <a href="#controls"><code>controls</code></a> Attribut hat: interaktiver Inhalt und handfester Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
-          Wenn das Element ein <a href="#src"><code>src</code></a>-Attribut hat: null oder mehr {{HTMLElement("track")}}-Elemente, gefolgt von transparentem Inhalt, der keine Medienelemente enthält – d.h. kein {{HTMLElement("audio")}} oder <code>&lt;video&gt;</code>.
+          Wenn das Element ein <a href="#src"><code>src</code></a>
+          Attribut hat: null oder mehr {{HTMLElement("track")}}-Elemente, gefolgt von transparentem Inhalt, der keine Medienelemente enthält, d.h. keine {{HTMLElement("audio")}} oder <code>&lt;video&gt;</code>.
         </p>
         <p>
-          Andernfalls: null oder mehr {{HTMLElement("source")}}-Elemente, gefolgt von null oder mehr {{HTMLElement("track")}}-Elementen, gefolgt von transparentem Inhalt, der keine Medienelemente enthält – d.h. kein {{HTMLElement("audio")}} oder <code>&lt;video&gt;</code>.
+          Andernfalls: null oder mehr {{HTMLElement("source")}}-Elemente, gefolgt von null oder mehr {{HTMLElement("track")}}-Elementen, gefolgt von transparentem Inhalt, der keine Medienelemente enthält, d.h. keine {{HTMLElement("audio")}} oder <code>&lt;video&gt;</code>.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Jedes Element, das eingebettete Inhalte akzeptiert.</td>
+      <td>Jedes Element, das eingebetteten Inhalt akzeptiert.</td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+          >Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role"><code>application</code></a></td>
     </tr>
     <tr>
@@ -402,13 +434,13 @@ Einige Medien-Dateitypen ermöglichen es, spezifischere Informationen mit dem [`
 
 ## Siehe auch
 
-- [Leitfaden zu Medien-Typen und Formaten im Web](/de/docs/Web/Media/Guides/Formats)
-  - [Mediencontainer-Formate (Dateitypen)](/de/docs/Web/Media/Guides/Formats/Containers)
-  - [Web Video Codec-Leitfaden](/de/docs/Web/Media/Guides/Formats/Video_codecs)
-  - [Web Audio Codec-Leitfaden](/de/docs/Web/Media/Guides/Formats/Audio_codecs)
+- [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats)
+  - [Mediencontainerformate (Dateitypen)](/de/docs/Web/Media/Guides/Formats/Containers)
+  - [Leitfaden zu Web-Video-Codecs](/de/docs/Web/Media/Guides/Formats/Video_codecs)
+  - [Leitfaden zu Web-Audio-Codecs](/de/docs/Web/Media/Guides/Formats/Audio_codecs)
 
-- Positionierung und Größenanpassung des Bildes innerhalb des Rahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}
+- Positionierung und Größenanpassung des Bildes innerhalb seines Rahmens: {{cssxref("object-position")}} und {{cssxref("object-fit")}}
 - {{htmlelement("audio")}}
 - [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)
 - [Manipulation von Video mit Canvas](/de/docs/Web/API/Canvas_API/Manipulating_video_using_canvas)
-- [Konfigurieren von Servern für Ogg-Medien](/de/docs/Web/Media/Guides/Formats/Configuring_servers_for_Ogg_media)
+- [Serverkonfigurationen für Ogg-Medien](/de/docs/Web/Media/Guides/Formats/Configuring_servers_for_Ogg_media)

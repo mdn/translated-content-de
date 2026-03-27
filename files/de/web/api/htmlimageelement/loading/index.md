@@ -3,20 +3,22 @@ title: "HTMLImageElement: loading-Eigenschaft"
 short-title: loading
 slug: Web/API/HTMLImageElement/loading
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: 8db892b3e7ca294621898441e7db2481e0e6d939
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`loading`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces bietet dem {{Glossary("user_agent", "User Agent")}} einen Hinweis darauf, wie die Ladebehandlung des Bildes vorgenommen werden soll, das sich derzeit außerhalb des {{Glossary("visual_viewport", "visuellen Viewports")}} des Fensters befindet. Dies hilft, die Ladezeit des Inhalts eines Dokuments zu optimieren, indem das Laden des Bildes aufgeschoben wird, bis es voraussichtlich benötigt wird, anstatt es sofort während des initialen Seitenladevorgangs zu laden. Es spiegelt das [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Inhaltsattribut des `<img>`-Elements wider.
+Die **`loading`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt dem Browser einen Hinweis, wie das Laden des Bildes, das sich derzeit außerhalb des {{Glossary("visual_viewport", "Sichtfensters")}} befindet, gehandhabt werden soll. Dies hilft dabei, das Laden der Inhalte des Dokuments zu optimieren, indem das Laden des Bildes aufgeschoben wird, bis es voraussichtlich benötigt wird, anstatt es sofort beim initialen Laden der Seite zu laden. Es spiegelt das [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Ein String, dessen Wert entweder `eager` oder `lazy` ist. Für ihre Bedeutungen, siehe die HTML-Referenz für [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#loading).
+Ein Zeichenfolgenwert, der entweder `eager` oder `lazy` ist. Für deren Bedeutungen siehe die HTML [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Referenz.
 
 ## Beispiele
 
-Die Funktion `addImageToList()`, die unten gezeigt wird, fügt eine Foto-Miniaturansicht zu einer Liste von Elementen hinzu und verwendet Lazy-Loading, um zu vermeiden, dass das Bild aus dem Netzwerk geladen wird, bevor es tatsächlich benötigt wird.
+### Grundlegende Verwendung
+
+Die unten gezeigte Funktion `addImageToList()` fügt eine Foto-Miniaturansicht zu einer Liste von Elementen hinzu, wobei Lazy-Loading verwendet wird, um zu vermeiden, dass das Bild aus dem Netzwerk geladen wird, bevor es tatsächlich benötigt wird.
 
 ```js
 function addImageToList(url) {
