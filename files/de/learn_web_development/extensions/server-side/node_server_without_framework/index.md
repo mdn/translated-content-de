@@ -3,14 +3,14 @@ title: Node.js-Server ohne Framework
 short-title: Einfacher Node.js-Server
 slug: Learn_web_development/Extensions/Server-side/Node_server_without_framework
 l10n:
-  sourceCommit: f85d2e26b062decf7a2bb9179c3a93003f4067a9
+  sourceCommit: c5d8af227105b2a6d2ab50ff74295ead221fce64
 ---
 
-Dieser Artikel zeigt einen statischen Dateiserver, der in [Node.js](https://nodejs.org/en/) ohne die Verwendung von Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir für den statischen Dateiserver benötigen, durch integrierte APIs und einige wenige Codezeilen bereitgestellt wird.
+Dieser Artikel zeigt einen statischen Dateiserver, der in [Node.js](https://nodejs.org/en/) ohne Nutzung eines Frameworks erstellt wurde. Der aktuelle Stand von Node.js ist so, dass fast alles, was wir für den statischen Dateiserver benötigen, von den eingebauten APIs und ein paar Zeilen Code bereitgestellt wird.
 
 ## Beispiel
 
-Ein statischer Dateiserver, der mit Node.js erstellt wurde:
+Ein statischer Dateiserver, erstellt mit Node.js:
 
 ```js
 import * as fs from "node:fs";
@@ -36,7 +36,8 @@ const STATIC_PATH = path.join(process.cwd(), "./static");
 const toBool = [() => true, () => false];
 
 const prepareFile = async (url) => {
-  const paths = [STATIC_PATH, url];
+  const urlAsPath = decodeURI(url);
+  const paths = [STATIC_PATH, urlAsPath];
   if (url.endsWith("/")) paths.push("index.html");
   const filePath = path.join(...paths);
   const pathTraversal = !filePath.startsWith(STATIC_PATH);
@@ -62,7 +63,7 @@ http
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 ```
 
-### Erklärungen
+### Erklärung
 
 Die folgenden Zeilen importieren interne Node.js-Module.
 
@@ -72,7 +73,7 @@ import * as http from "node:http";
 import * as path from "node:path";
 ```
 
-Als Nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Hören auf `PORT` starten können.
+Als nächstes haben wir eine Funktion zur Erstellung des Servers. `https.createServer` gibt ein `Server`-Objekt zurück, das wir durch Hören auf `PORT` starten können.
 
 ```js
 http
@@ -84,11 +85,13 @@ http
 console.log(`Server running at http://127.0.0.1:${PORT}/`);
 ```
 
-Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`. Wenn die Datei bereitgestellt werden kann (der Serverprozess hat Zugriff und es wird keine Pfad-Traversierungsschwachstelle gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, was Erfolg anzeigt (anderenfalls geben wir `HTTP 404` zurück). Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` gefunden werden können. Mit dem `404`-Status geben wir den Inhalt der Datei `'/404.html'` zurück.
+Die asynchrone Funktion `prepareFile` gibt die Struktur zurück: `{ found: boolean, ext: string, stream: ReadableStream }`.
+Wenn die Datei bereitgestellt werden kann (der Serverprozess hat Zugriff und es wurde keine Pfad-Traversal-Schwachstelle gefunden), geben wir den HTTP-Status `200` als `statusCode` zurück, was auf Erfolg hinweist (ansonsten geben wir `HTTP 404` zurück).
+Beachten Sie, dass andere Statuscodes in `http.STATUS_CODES` gefunden werden können. Mit dem Status `404` geben wir den Inhalt der Datei `'/404.html'` zurück.
 
 Die Erweiterung der angeforderten Datei wird analysiert und in Kleinbuchstaben umgewandelt. Danach durchsuchen wir die `MIME_TYPES`-Sammlung nach den richtigen [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types). Wenn keine Übereinstimmungen gefunden werden, verwenden wir `application/octet-stream` als Standardtyp.
 
-Schließlich, wenn keine Fehler auftreten, senden wir die angeforderte Datei. `file.stream` wird einen `Readable`-Stream enthalten, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
+Schließlich, wenn keine Fehler vorliegen, senden wir die angeforderte Datei. Der `file.stream` enthält einen `Readable`-Stream, der in `res` (eine Instanz des `Writable`-Streams) geleitet wird.
 
 ```js
 res.writeHead(statusCode, { "Content-Type": mimeType });
