@@ -2,10 +2,10 @@
 title: Keyframe-Selektoren
 slug: Web/CSS/Reference/Selectors/Keyframe_selectors
 l10n:
-  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
+  sourceCommit: f94b7a0b06a0e32df81ec8197720d306fe50a4a0
 ---
 
-CSS **Keyframe-Selektoren** identifizieren spezielle Punkte auf einer Animationstimeline, an denen Keyframe-Stile angewendet werden sollen. Diese Selektoren werden ausschließlich innerhalb der {{cssxref("@keyframes")}} at-rule verwendet.
+CSS-**Keyframe-Selektoren** identifizieren spezifische Punkte in einem Animation-Timeline, an denen Keyframe-Stile angewendet werden sollten. Diese Selektoren werden ausschließlich innerhalb der {{cssxref("@keyframes")}}-Regel verwendet.
 
 ## Syntax
 
@@ -43,33 +43,33 @@ to {
 ### Werte
 
 - `from`
-  - : Repräsentiert den Beginn der Animationssequenz. Es entspricht `0%`.
+  - : Repräsentiert den Beginn der Animationssequenz. Es ist gleichbedeutend mit `0%`.
 - `to`
-  - : Repräsentiert das Ende der Animationssequenz. Es entspricht `100%`.
+  - : Repräsentiert das Ende der Animationssequenz. Es ist gleichbedeutend mit `100%`.
 - `<percentage>`
-  - : Ein {{cssxref("percentage")}} zwischen `0%` und `100%`, inklusive, das den gesamten Fortschritt durch die Animationssequenz repräsentiert.
+  - : Ein {{cssxref("percentage")}} zwischen `0%` und `100%`, einschließlich, das den gesamten Fortschritt durch die Animationssequenz darstellt.
 - `<timeline-range-name> <percentage>`
-  - : Ein {{cssxref("timeline-range-name")}} vor einer `<percentage>`-Komponente repräsentiert einen spezifischen Fortschrittspunkt innerhalb des benannten Zeitbereichs.
+  - : Ein {{cssxref("timeline-range-name")}}, das einem `<percentage>`-Komponenten vorausgeht, repräsentiert einen spezifischen Fortschrittspunkt innerhalb des benannten Timeline-Bereichs.
 
 ## Beschreibung
 
-Ein `<keyframe-selector>` kann das `to`- oder `from`-Schlüsselwort sein, ein Prozentsatz zwischen `0%` und `100%`, inklusive, oder eine durch Kommas getrennte Liste dieser Schlüsselwörter und/oder Prozentsätze. Wenn dem Prozentsatz ein {{cssxref("timeline-range-name")}} vorangestellt ist, definiert er einen Zeitbereich, wenn die Animationstimeline eine Fortschrittstimeline ist; andernfalls wird der Selektor ignoriert. Wenn eine durch Kommas getrennte `<keyframe-selector>`-Liste verwendet wird, gilt der darauf folgende Stilblock für alle angegebenen Fortschrittspunkte.
+Ein `<keyframe-selector>` kann das Schlüsselwort `to` oder `from`, ein Prozentsatz zwischen `0%` und `100%`, einschließlich, oder eine kommagetrennte Liste dieser Schlüsselwörter und/oder Prozentsätze sein. Wenn der Prozentsatz von einem {{cssxref("timeline-range-name")}} vorangestellt wird, definiert er einen Timeline-Bereich, falls die Animation-Timeline eine Fortschrittsbetrachtungs-Timeline ist; andernfalls wird der Selektor ignoriert. Wenn eine kommagetrennte `<keyframe-selector>`-Liste verwendet wird, gilt der darauf folgende Stilblock für alle angegebenen Fortschrittspunkte.
 
 ### Gültige Prozentwerte
 
-Prozentwerte müssen das Prozentzeichen (`%`) enthalten. Werte ohne Einheit (wie `0` und `20`) und Werte außerhalb des Bereichs von `0%` bis `100%` (wie `-10%` oder `110%`) sind ungültig und führen dazu, dass der Keyframe-Block ignoriert wird.
+Prozentwerte müssen das Prozentzeichen (`%`) beinhalten. Einheitliche Werte (wie `0` und `20`) und Werte außerhalb des Bereichs von `0%` bis `100%` (wie `-10%` oder `110%`) sind ungültig und führen dazu, dass der Keyframe-Block ignoriert wird.
 
-### Kaskade, Reihenfolge, Präzedenz und Wichtigkeit
+### Kaskade, Reihenfolge, Vorrang und Wichtigkeit
 
-Durch Animation `@keyframes` gesetzte Eigenschaftswerte sind wichtiger als alle normalen Stile, was bedeutet, dass unabhängig von der [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) ein animierter Wert Werte überschreibt, die nicht das {{cssxref("important", "!important")}}-Flag gesetzt haben. Nur wichtige Eigenschaftswerte und Werte, die derzeit übergangsweise geändert werden, haben Vorrang vor animierten Eigenschaftswerten.
+Eigenschaftswerte, die durch Animation-`@keyframes` gesetzt werden, sind wichtiger als alle normalen Stile, was bedeutet, dass unabhängig von der [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) ein animierter Wert Werte überschreibt, die kein {{cssxref("important", "!important")}}-Flag gesetzt haben. Nur wichtige Eigenschaftswerte und Werte, die derzeit übergehen, haben Vorrang vor animierten Eigenschaftswerten.
 
-Alle Keyframe-Selektoren haben die gleiche Spezifität. Die Reihenfolge der Keyframe-Selektoren innerhalb der Selektorliste spielt keine Rolle. Die Reihenfolge der Quelle ist nur wichtig, wenn ein doppelter Keyframe-Selektor einen anderen Wert für eine bereits deklarierte Eigenschaft am selben Selektor angibt.
+Alle Keyframe-Selektoren haben die gleiche Spezifität. Die Reihenfolge der Keyframe-Selektoren innerhalb der Selektorliste spielt keine Rolle. Die Quellreihenfolge ist nur wichtig, wenn ein doppelter Keyframe-Selektor einen anderen Wert für eine bereits deklarierte Eigenschaft auf demselben Selektor deklariert.
 
 Das `!important`-Flag ist innerhalb einer `@keyframes`-Definition nicht gültig.
 
-### Ausgelassene Start- und Endselektoren
+### Weggelassene Start- und Endselektoren
 
-Wenn kein `0%` (oder `from`) oder `100%` (oder `to`) Keyframe angegeben ist, verwendet der Browser die berechneten Stile des Elements für diese Zustände, was es der Animation ermöglicht, nahtlos von oder zu den nicht animierten Eigenschaftswerten des Elements zu übergehen. Mit anderen Worten, wenn eine Eigenschaft in einem Keyframe der Mitte der Timeline angegeben wird, ohne dass sie in einem Start- oder End-Keyframe-Selektorblock gesetzt wurde, wird die Eigenschaft von ihrem ursprünglichen Wert zu diesem Wert animiert.
+Wenn keine `0%` (oder `from`) oder `100%` (oder `to`) Keyframe angegeben ist, verwendet der Browser die berechneten Stile des Elements für diese Zustände, um eine flüssige Transition von oder zu den nicht animierten Eigenschaftswerten des Elements zu ermöglichen. Anders ausgedrückt: Wenn eine Eigenschaft in einem mittleren Timeline-Keyframe angegeben ist, ohne dass sie innerhalb eines Start- oder Endselektorblocks gesetzt ist, wird die Eigenschaft von ihrem ursprünglichen Wert zu diesem Wert animiert.
 
 Zum Beispiel, wenn ein Element eine `rote` Hintergrundfarbe hat und die folgende Animation angewendet wird:
 
@@ -82,19 +82,19 @@ Zum Beispiel, wenn ein Element eine `rote` Hintergrundfarbe hat und die folgende
 }
 ```
 
-Die Hintergrundfarbe wird am Anfang der Animation `rot` sein, wechselt ein Viertel der Animation zu `lila`, bleibt für die Hälfte der Animation `lila` und wechselt dann wieder zu `rot`, der ursprünglichen Hintergrundfarbe, ab `75%` der [Animationstimeline](/de/docs/Web/CSS/Reference/Properties/animation-timeline). Siehe das Beispiel, das [`to` und `from` auslässt](#omitting_to_and_from).
+Die Hintergrundfarbe wird zu Beginn der Animation `rot` sein, wechselt ein Viertel der Animation zu `lila`, bleibt für die Hälfte der Animation `lila` und wechselt ab `75%` des [Animation-Timelines](/de/docs/Web/CSS/Reference/Properties/animation-timeline) zurück zu `rot`, der ursprünglichen Hintergrundfarbe. Siehe das Beispiel, das [das Weglassen von `to` und `from`](#omitting_to_and_from) zeigt.
 
-#### Ausgelassene Eigenschaftsdeklarationen
+#### Weggelassene Eigenschaftsdeklarationen
 
-Beim Erstellen einer `@keyframes`-Animation zur Animation mehrerer Eigenschaften müssen nicht alle Eigenschaften in allen Keyframe-Selektorblöcken deklariert werden.
+Beim Erstellen einer `@keyframes`-Animation zur Animation mehrerer Eigenschaften müssen nicht alle Eigenschaften in allen Keyframe-Selektor-Blöcken deklariert werden.
 
-Zum Beispiel, im [Basisgebrauch](#basisgebrauch)-Beispiel wird die `opacity` in allen Keyframe-Selektorblöcken deklariert, aber nur Start- und Endwerte `transform` werden eingestellt. In diesem Fall wird das Element bis zur Hälfte der Animations-Timeline vollständig undurchsichtig sein, aber der Punkt, an dem das Element um `25vw` nach rechts verändert wird, hängt von der {{cssxref("animation-timing-function")}} ab — es wird `50%` im Fall von `linear` sein, aber nicht, wenn `ease-in` verwendet wird (was in diesem Fall der Fall ist).
+Im [Grundlagenbeispiel](#grundlegende_nutzung), ist `opacity` in allen Keyframe-Selektor-Blöcken deklariert, aber nur Start- und End-`transform`-Werte sind gesetzt. In diesem Fall wird das Element in der Mitte der Animation vollständig undurchsichtig sein, aber der Punkt, an dem das Element um `25vw` nach rechts transformiert wird, hängt von der {{cssxref("animation-timing-function")}} ab — es wird `50%` im Fall von `linear` sein, aber nicht, wenn `ease-in` verwendet wird (was in diesem Fall der Fall ist).
 
-### Kaskadenreihenfolge
+### Kaskadenfolge
 
-Wenn mehrere Keyframe-Blöcke denselben `<keyframe-selector>` verwenden, [kaskadieren](/de/docs/Web/CSS/Guides/Cascade/Introduction) sie. Das bedeutet, dass, wenn dieselbe Eigenschaft in mehreren Blöcken mit demselben Selektor definiert ist, die letzte Deklaration in der Regel Vorrang hat. Wenn sie unterschiedliche Eigenschaften definieren, werden sie zusammengeführt.
+Wenn mehrere Keyframe-Blöcke denselben `<keyframe-selector>` verwenden, [kaskadieren sie](/de/docs/Web/CSS/Guides/Cascade/Introduction). Das bedeutet, dass, wenn dieselbe Eigenschaft in mehreren Blöcken mit demselben Selektor definiert ist, die letzte Deklaration in der Regel Vorrang hat. Wenn sie unterschiedliche Eigenschaften definieren, werden sie zusammengeführt.
 
-Diese Animation wiederholt unveränderte Werte in mehreren Selektorblöcken, was nicht notwendig ist:
+Diese Animation wiederholt unveränderte Werte in mehreren Selektor-Blöcken, was nicht notwendig ist:
 
 ```css
 @keyframes uglyAnimation {
@@ -121,7 +121,7 @@ Diese Animation wiederholt unveränderte Werte in mehreren Selektorblöcken, was
 }
 ```
 
-Wir können die Kaskade verwenden, um Werte in einem Selektorblock zu gruppieren und sie dann nach Bedarf zu überschreiben. Das Folgende ist äquivalent zu der vorherigen Animation, aber mit weniger CSS-Zeilen:
+Wir können die Kaskade nutzen, um Werte in einem Selektorblock zu gruppieren und dann nach Bedarf zu überschreiben. Das folgende ist gleichwertig zur vorherigen Animation, jedoch mit weniger Zeilen CSS:
 
 ```css
 @keyframes uglyAnimation {
@@ -145,7 +145,7 @@ Wir können die Kaskade verwenden, um Werte in einem Selektorblock zu gruppieren
 }
 ```
 
-Die Reihenfolge ist wichtig! Wir können die Kaskade nicht ignorieren. Wenn wir das Obige falsch umordnen, verlieren wir die Übergänge. Das Folgende macht das Element `lila`, vollständig undurchsichtig, und setzt alle Transformationen zurück, während die Animation angewendet wird. Die Eigenschaftswerte werden angewendet und bleiben statisch, weil die letzte Deklaration die Deklarationen in den vorherigen Keyframe-Selektorblöcken überschreibt.
+Die Reihenfolge ist wichtig! Wir können die Kaskade nicht ignorieren. Wenn wir das Obige falsch neu ordnen, verlieren wir die Übergänge. Das Folgende macht das Element lila, vollständig undurchsichtig und setzt alle Transformationen zurück, solange die Animation angewendet wird. Die Eigenschaftswerte werden angewendet und bleiben statisch, weil die letzte Deklaration die Deklarationen in den vorherigen Keyframe-Selektor-Blöcken überschreibt.
 
 ```css
 @keyframes makeItPurpleOnly {
@@ -172,9 +172,9 @@ Die Reihenfolge ist wichtig! Wir können die Kaskade nicht ignorieren. Wenn wir 
 }
 ```
 
-### Mit benannten Zeitbereichen
+### Mit benannten Timeline-Bereichen
 
-Ursprünglich definiert im [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations), hat das [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul den Keyframe-Selektor erweitert, um die Fortschrittszeitbereichsinformationen direkt in der Definition der `@keyframes`-Animation einzuschließen. Ein {{cssxref("timeline-range-name")}} kann der `<percentage>` Komponente des Selektors vorangestellt werden, um Keyframes an bestimmten Fortschrittspunkten innerhalb des benannten Zeitbereichs anzuhängen. Der `<timeline-range-name>` repräsentiert den ausgewählten vordefinierten benannten Zeitbereich, und das `<percentage>` danach repräsentiert den Prozentfortschritt zwischen dem Anfang und dem Ende dieses benannten Zeitbereichs.
+Ursprünglich im [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations) definiert, hat das [CSS-scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)-Modul den Keyframe-Selektor erweitert, um Informationen zum Fortgang des Timeline-Bereichs direkt in der `@keyframes`-Animationsdefinition einzuschließen. Ein {{cssxref("timeline-range-name")}} kann dem `<percentage>`-Komponenten des Selektors vorangestellt werden, um Keyframes an spezifische Fortschrittspunkte innerhalb des benannten Timeline-Bereichs anzuhängen. Der `<timeline-range-name>` repräsentiert den ausgewählten vordefinierten benannten Timeline-Bereich, und der darauf folgende `<percentage>` repräsentiert den prozentualen Fortschritt zwischen dem Beginn und Ende dieses benannten Timeline-Bereichs.
 
 ```css
 @keyframes in-and-out {
@@ -197,13 +197,13 @@ Ursprünglich definiert im [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animati
 }
 ```
 
-Wenn die Animationstimeline des Elements keinen entsprechenden benannten Ansichts-Zeitbereich hat, werden alle Keyframes, die an Punkte auf diesem benannten Zeitbereich angehängt sind, ignoriert. Diese Befestigungspunkte können außerhalb des aktiven Zeitintervalls der Animation liegen. Wenn dies der Fall ist, werden die automatische `from` (`0%`) und `to` (`100%`) Keyframes nur für Eigenschaften generiert, die keine Keyframes bei oder vor `0%` oder bei oder nach `100%` haben.
+Wenn die Animation-Timeline des Elements keinen entsprechenden benannten Ansichtstimeline-Bereich hat, werden alle Keyframes, die an Punkte auf diesem benannten Timeline-Bereich angehängt sind, ignoriert. Diese Befestigungspunkte können außerhalb des aktiven Intervalls der Animation liegen. Wenn dies auftritt, werden die automatischen `from` (`0%`) und `to` (`100%`) Keyframes nur für Eigenschaften generiert, die keine Keyframes bei oder vor `0%` oder bei oder nach `100%` haben. Siehe den [Leitfaden zu Timeline-Bereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names) für weitere Informationen.
 
 ## Beispiele
 
-### Basisgebrauch
+### Grundlegende Nutzung
 
-Dieses Beispiel demonstriert die Verwendung von Schlüsselwörtern und Prozentsätzen durch das Erstellen einer Keyframe-Animation, die diese Keyframe-Selektortypen verwendet.
+Dieses Beispiel zeigt die Verwendung von Schlüsselwörtern und Prozentsätzen, indem eine Keyframe-Animation erstellt wird, die diese Arten von Keyframe-Selektoren verwendet.
 
 #### HTML
 
@@ -215,7 +215,7 @@ Wir fügen ein Element ein, das wir animieren werden.
 
 #### CSS
 
-Wir stellen unserem Kasten grundlegende Stile zur Verfügung:
+Wir stellen unserem Kasten einige grundlegende Stile zur Verfügung:
 
 ```css
 div {
@@ -227,7 +227,7 @@ div {
 }
 ```
 
-Wir erstellen eine {{cssxref("@keyframes")}}-Animation, die Stile auf die `from`- und `to`-Schlüsselwörter sowie auf einen Prozentwert in der Mitte anwendet. Wir animieren die {{cssxref("opacity")}} und die {{cssxref("transform")}} Eigenschaften.
+Wir erstellen eine {{cssxref("@keyframes")}}-Animation, die Stile auf die Schlüsselwörter `from` und `to` und einen mittleren Prozentsatz anwendet. Wir animieren die Eigenschaften {{cssxref("opacity")}} und {{cssxref("transform")}}.
 
 ```css
 @keyframes slide-and-fade {
@@ -245,7 +245,7 @@ Wir erstellen eine {{cssxref("@keyframes")}}-Animation, die Stile auf die `from`
 }
 ```
 
-Wir wenden unsere Animation auf das Element an, indem wir die {{cssxref("animation")}} Kurzform-Eigenschaft verwenden:
+Wir wenden unsere Animation auf das Element mithilfe der {{cssxref("animation")}}-Kurzform-Eigenschaft an:
 
 ```css
 div {
@@ -259,7 +259,7 @@ div {
 
 ### Selektorlisten
 
-Mit demselben HTML und grundlegender Formatierung wie im vorherigen Beispiel veranschaulicht dieses Beispiel die Verwendung von kommagetrennten Selektoren, um Keyframes zu gruppieren und dieselben Stile an mehreren Punkten in einer Animation anzuwenden.
+Unter Verwendung desselben HTML und grundlegender Stilgebung wie im vorherigen Beispiel, demonstriert dieses Beispiel die Verwendung von kommagetrennten Selektoren, um Keyframes zu gruppieren und dieselben Stile an mehreren Punkten in einer Animation anzuwenden.
 
 ```html hidden
 <div>I am animated</div>
@@ -303,15 +303,15 @@ div {
 
 {{EmbedLiveSample("Selector lists and initial values","100%","125")}}
 
-Durch die Verwendung einer Selektorliste mit mehreren kommagetrennten Keyframe-Selektoren "pausiert" die Animation vom `25%` Keyframe, bis sie den `75%` Keyframe erreicht.
+Durch die Verwendung einer Selektorliste mit mehreren kommagetrennten Keyframe-Selektoren "pausiert" die Animation vom `25%`-Keyframe, bis sie den `75%`-Keyframe erreicht.
 
-### Auslassen von `to` und `from`
+### Weglassen von `to` und `from`
 
-Dieses Beispiel zeigt, wie die animierten Eigenschaften zu und von den ursprünglichen, nicht animierten Eigenschaftswerten animiert werden, wenn die `to` oder `from` Keyframe-Selektoren in einer `@keyframes`-Animationsdefinition nicht enthalten sind.
+Dieses Beispiel zeigt, wie, wenn die Keyframe-Selektoren `to` oder `from` in einer `@keyframes`-Animationsdefinition nicht enthalten sind, die animierten Eigenschaften zu und von den ursprünglichen, nicht animierten Eigenschaftswerten animieren.
 
 #### HTML
 
-Wir fügen einige Elemente ein. Wir werden alle von ihnen animieren.
+Wir fügen ein paar Elemente ein. Wir werden alle von ihnen animieren.
 
 ```html
 <div>I am animated</div>
@@ -321,7 +321,7 @@ Wir fügen einige Elemente ein. Wir werden alle von ihnen animieren.
 
 #### CSS
 
-Wir stellen unseren Elementen grundlegende Stile zur Verfügung und geben jedem eine andere {{cssxref("outline-width")}} und {{cssxref("background-color")}}. Wir werden diese beiden Eigenschaften animieren.
+Wir geben unseren Elementen grundlegende Stile und geben jedem eine andere {{cssxref("outline-width")}} und {{cssxref("background-color")}}. Wir werden diese beiden Eigenschaften animieren.
 
 ```css
 div {
@@ -345,7 +345,7 @@ div:last-of-type {
 }
 ```
 
-Wir erstellen eine Animation, die die `background-color` und `outline-width` eines Elements bei `30%` und `40%` Keyframes setzt.
+Wir erstellen eine Animation, die die `background-color` und `outline-width` eines Elements bei `30%` und `40%`-Keyframes setzt.
 
 ```css
 @keyframes changes {
@@ -359,7 +359,7 @@ Wir erstellen eine Animation, die die `background-color` und `outline-width` ein
 
 {{EmbedLiveSample("Omitting to and from","100%","420")}}
 
-Die `background-color` und `outline-width` Eigenschaften werden in `30%` und `40%` Keyframes gesetzt. Infolgedessen animieren sich die `background-color` Werte der Elemente von `grün`, `magenta` und `blau` zu `schwarz`, während ihre `outline-width` Werte von `0px`, `10px` und `20px` zu `15px` animieren. Sie bleiben für ein Zehntel der Animation in diesem Zustand — zwischen `30%` und `40%` Dauer. Nach `40%` Dauer animieren diese Eigenschaften zurück zu ihren ursprünglichen Werten.
+Die Eigenschaften `background-color` und `outline-width` sind in `30%` und `40%`-Keyframes gesetzt. Infolgedessen animieren sich die `background-color`-Werte der Elemente von `grün`, `magenta` und `blau` zu `schwarz`, während ihre `outline-width`-Werte von `0px`, `10px` und `20px` zu `15px` animieren. Sie bleiben für ein Zehntel der Animation in diesem Zustand — zwischen `30%` und `40%` der Dauer. Nach `40%` der Dauer animieren sich diese Eigenschaften wieder zurück zu ihren ursprünglichen Werten.
 
 ## Spezifikationen
 
@@ -374,6 +374,7 @@ Die `background-color` und `outline-width` Eigenschaften werden in `30%` und `40
 - {{cssxref("@keyframes")}}
 - {{cssxref("animation")}}
 - {{cssxref("animation-range")}}
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
-- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
-- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [Verstehen von Timeline-Bereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animations](/de/docs/Web/CSS/Guides/Animations) Modul
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
