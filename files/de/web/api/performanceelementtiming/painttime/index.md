@@ -3,12 +3,12 @@ title: "PerformanceElementTiming: paintTime-Eigenschaft"
 short-title: paintTime
 slug: Web/API/PerformanceElementTiming/paintTime
 l10n:
-  sourceCommit: c46f0b3d68f5b4ed87a571bbdbce75244c5fe333
+  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`paintTime`**-Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Rendering-Phase endete und die Malphase begann.
+Die schreibgeschützte Eigenschaft **`paintTime`** der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Rendering-Phase endete und die Paint-Phase begann.
 
 Die `paintTime` ist weitgehend interoperabel: Der Wert sollte in verschiedenen Implementierungen gleich sein.
 
@@ -18,7 +18,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Beobachten von separaten Mal- und Präsentationszeiten](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
+Siehe [Beobachtung separater Paint- und Präsentationszeiten](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
 
 ## Spezifikationen
 

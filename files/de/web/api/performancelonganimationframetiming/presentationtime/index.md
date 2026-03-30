@@ -1,16 +1,16 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: presentationTime-Eigenschaft"
+title: "PerformanceLongAnimationFrameTiming: presentationTime Eigenschaft"
 short-title: presentationTime
 slug: Web/API/PerformanceLongAnimationFrameTiming/presentationTime
 l10n:
-  sourceCommit: c46f0b3d68f5b4ed87a571bbdbce75244c5fe333
+  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`presentationTime`**-Eigenschaft, die schreibgeschützt ist, des Interfaces [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem das UI-Update tatsächlich auf dem Bildschirm gezeichnet wurde.
+Die **`presentationTime`** schreibgeschützte Eigenschaft des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem das UI-Update tatsächlich auf dem Bildschirm gezeichnet wurde.
 
-Der `presentationTime` ist optional — einige Browser können sich entscheiden, immer `0` zurückzugeben oder den Wert überhaupt nicht offenzulegen. Der Wert hängt auch von der Implementierung ab — er kann sich in Browsern unterscheiden, die sich entscheiden, ihn offenzulegen.
+Die `presentationTime` ist optional — einige Browser können sich entscheiden, immer `0` zurückzugeben oder den Wert überhaupt nicht offenzulegen. Der Wert ist auch implementierungsabhängig — er kann bei Browsern, die sich entscheiden, ihn offenzulegen, unterschiedlich sein.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref(
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Lange Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 

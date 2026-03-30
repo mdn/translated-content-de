@@ -3,22 +3,22 @@ title: "PerformanceElementTiming: Eigenschaft presentationTime"
 short-title: presentationTime
 slug: Web/API/PerformanceElementTiming/presentationTime
 l10n:
-  sourceCommit: c46f0b3d68f5b4ed87a571bbdbce75244c5fe333
+  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`presentationTime`** des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem das Element tatsächlich auf dem Bildschirm angezeigt wurde.
+Die **`presentationTime`**-Eigenschaft der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle gibt einen schreibgeschützten [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann das Element tatsächlich auf dem Bildschirm gezeichnet wurde.
 
-Die `presentationTime` ist optional – einige Browser können immer `0` zurückgeben oder den Wert überhaupt nicht bereitstellen. Der Wert hängt auch von der Implementierung ab – er kann sich zwischen Browsern unterscheiden, die ihn bereitstellen.
+Die `presentationTime` ist optional — einige Browser können immer `0` zurückgeben oder den Wert überhaupt nicht anzeigen. Der Wert ist auch implementierungsabhängig — er kann zwischen Browsern, die sich dafür entscheiden, ihn anzuzeigen, unterschiedlich sein.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("Operators/null", "null")}}, wenn der Wert nicht verfügbar ist.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("Operators/null", "null")}}, wenn der Wert nicht angezeigt wird.
 
 ## Beispiele
 
-Siehe [Beobachtung separater Mal- und Darstellungstiming](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
+Siehe [Beobachtung von getrennten Paint- und Presentation-Timings](/de/docs/Web/API/PerformanceElementTiming#observing_separate_paint_and_presentation_timings).
 
 ## Spezifikationen
 

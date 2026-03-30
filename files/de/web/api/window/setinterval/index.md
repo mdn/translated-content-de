@@ -3,7 +3,7 @@ title: "Window: setInterval() Methode"
 short-title: setInterval()
 slug: Web/API/Window/setInterval
 l10n:
-  sourceCommit: 21ed9a1338b207e8a39064583c19d9f720235235
+  sourceCommit: 6ee50f37f78b647f2d61741e94d0792098d8af88
 ---
 
 {{APIRef("HTML DOM")}}
@@ -12,10 +12,10 @@ l10n:
 > Wenn der `code`-Parameter verwendet wird, führt diese Methode ihren Wert dynamisch als JavaScript aus.
 > Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und können ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe sein.
 >
-> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`setInterval()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle ruft wiederholt eine Funktion auf oder führt einen Code-Snippet aus, wobei zwischen jedem Aufruf ein fester Zeitabstand liegt.
+Die **`setInterval()`** Methode des [`Window`](/de/docs/Web/API/Window) Interface ruft wiederholt eine Funktion auf oder führt ein Code-Snippet aus, mit einer festen Zeitverzögerung zwischen jedem Aufruf.
 
 ## Syntax
 
@@ -37,65 +37,64 @@ setInterval(func, delay, param1, param2, /* …, */ paramN)
     Die erste Ausführung erfolgt nach `delay` Millisekunden.
 - `code`
   - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder ein String von beliebigem Code, der alle `delay` Millisekunden kompiliert und ausgeführt wird.
-    Dies kann anstelle des Übergebens einer Funktion verwendet werden, wird jedoch _dringend abgeraten_, aus den gleichen Gründen, die die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
+    Dies kann anstelle einer Funktion verwendet werden, wird jedoch _dringend abgeraten_, aus den gleichen Gründen, die die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
 - `delay` {{optional_inline}}
   - : Die Verzögerungszeit zwischen den Ausführungen der angegebenen Funktion oder des Codes, in Millisekunden.
     Standardmäßig 0, wenn nicht angegeben.
-    Siehe [Verzögerungsbeschränkungen](#verzögerungsbeschränkungen) unten für Details zum erlaubten Bereich der `delay`-Werte.
+    Siehe [Delay-Beschränkungen](#delay-beschränkungen) unten für Details zum zulässigen Bereich der `delay`-Werte.
 - `param1`, …, `paramN` {{optional_inline}}
-  - : Zusätzliche Argumente, die der durch _func_ angegebenen Funktion übergeben werden, sobald der Timer abläuft.
+  - : Zusätzliche Argumente, die an die Funktion übergeben werden, die von _func_ spezifiziert wird, sobald der Timer abläuft.
 
 ### Rückgabewert
 
-Eine positive ganze Zahl (typischerweise im Bereich von 1 bis 2.147.483.647), die den durch den Aufruf erstellten Intervall-Timer eindeutig identifiziert.
+Eine positive ganze Zahl (typischerweise im Bereich von 1 bis 2.147.483.647), die den Intervall-Timer identifiziert, der durch den Aufruf erstellt wird.
 
-Dieser Bezeichner, oft als "Intervall-ID" bezeichnet, kann an [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
+Dieser Bezeichner, häufig als "interval ID" bezeichnet, kann an [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Der `code` kann nicht als Skript geparst werden.
+  - : Der `code` kann nicht als Script geparst werden.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `code`-Parameter auf einen String gesetzt wird, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
-    Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, ein String oder `TrustedScript`.
+  - : Wird ausgelöst, wenn der `code`-Parameter auf einen String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) durch eine CSP [durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist. Sie wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, ein String oder `TrustedScript`.
 
 ## Beschreibung
 
-Die `setInterval()` Funktion wird häufig verwendet, um eine Verzögerung für Funktionen einzustellen, die immer wieder ausgeführt werden, wie zum Beispiel Animationen.
+Die `setInterval()` Funktion wird häufig verwendet, um eine Verzögerung für Funktionen einzustellen, die immer wieder ausgeführt werden, wie z.B. Animationen.
 Sie können das Intervall mit [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) abbrechen.
 
-Möchten Sie Ihre Funktion _einmal_ nach der angegebenen Verzögerung aufrufen, verwenden Sie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout).
+Wenn Ihre Funktion _einmal_ nach der angegebenen Verzögerung aufgerufen werden soll, verwenden Sie [`setTimeout()`](/de/docs/Web/API/Window/setTimeout).
 
-### Verzögerungsbeschränkungen
+### Delay-Beschränkungen
 
-Es ist möglich, dass Intervalle verschachtelt sind; das heißt, der Rückruf für `setInterval()` kann seinerseits `setInterval()` aufrufen, um ein anderes Intervall zu starten, obwohl das erste noch läuft.
-Um die potenziellen Auswirkungen auf die Leistung zu mindern, erzwingt der Browser, sobald Intervalle tiefer als fünf Ebenen verschachtelt sind, automatisch einen minimalen Wert von 4 ms für das Intervall.
-Versuche, in tief verschachtelten Aufrufen von `setInterval()` einen Wert kleiner als 4 ms anzugeben, werden auf 4 ms festgelegt.
+Es ist möglich, dass Intervalle geschachtelt sind; d.h. der Rückruf für `setInterval()` kann wiederum `setInterval()` aufrufen, um ein weiteres Intervall zu starten, auch wenn das erste noch läuft.
+Um die möglichen Auswirkungen auf die Leistung zu mindern, erzwingt der Browser automatisch einen Mindestwert von 4 ms für das Intervall, sobald Intervalle tiefer als fünf Ebenen geschachtelt sind.
+Versuche, einen Wert von weniger als 4 ms in tief geschachtelten Aufrufen von `setInterval()` anzugeben, werden auf 4 ms festgelegt.
 
-Browser können unter bestimmten Umständen noch strengere Mindestwerte für das Intervall durchsetzen, obwohl diese nicht häufig sein sollten.
-Beachten Sie auch, dass die tatsächliche Zeit, die zwischen den Aufrufen des Rückrufs verstreicht, länger als die angegebene `delay` sein kann; siehe [Gründe für Verzögerungen, die länger als angegeben sind](/de/docs/Web/API/Window/setTimeout#reasons_for_longer_delays_than_specified) für Beispiele.
+Unter bestimmten Umständen können Browser noch strengere Mindestwerte für das Intervall durchsetzen, obwohl diese nicht häufig vorkommen sollten.
+Beachten Sie auch, dass die tatsächlich verstrichene Zeit zwischen den Aufrufen des Rückrufs länger als die angegebene `delay` sein kann; siehe [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/Window/setTimeout#reasons_for_longer_delays_than_specified) für Beispiele.
 
 > [!NOTE]
-> Das `delay` Argument wird in ein vorzeichenbehaftetes 32-Bit Ganzzahl umgewandelt, was den Wert auf 2147483647 ms, oder etwa 24,8 Tage begrenzt.
+> Das `delay` Argument wird in eine signierte 32-Bit-Ganzzahl umgewandelt, die den Wert auf 2147483647 ms beschränkt, was ungefähr 24,8 Tagen entspricht.
 
 ### Intervall-IDs werden mit `setTimeout()` geteilt
 
-Die Methode gibt einen Bezeichner zurück, der den durch den Aufruf erstellten Intervall-Timer eindeutig identifiziert.
-Dieser Bezeichner, der oft als "Intervall-ID" bezeichnet wird, kann an [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
+Die Methode gibt einen Bezeichner zurück, der den Intervall-Timer, der durch den Aufruf erstellt wurde, eindeutig identifiziert.
+Dieser Bezeichner, der häufig als "interval ID" bezeichnet wird, kann an [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
 
-Innerhalb derselben globalen Umgebung (z. B. eines bestimmten Fensters oder Arbeiters) bleibt die Intervall-ID eindeutig und wird nicht für einen neuen Intervall-Timer wiederverwendet, solange der ursprüngliche Timer noch aktiv ist.
-Verschiedene globale Umgebungen führen jedoch ihre eigenen unabhängigen Pools von Intervall-IDs.
+Innerhalb desselben globalen Umfelds (z.B. ein bestimmtes Fenster oder Worker) bleibt die Intervall-ID eindeutig und wird nicht für einen neuen Intervall-Timer wiederverwendet, solange der ursprüngliche Timer noch aktiv ist.
+Verschiedene globale Umgebungen pflegen jedoch ihre eigenen unabhängigen Pools von Intervall-IDs.
 
-Beachten Sie, dass `setInterval()` und [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) den gleichen Pool von IDs teilen und dass `clearInterval()` und [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) technisch austauschbar verwendet werden können.
-Aus Gründen der Klarheit sollten Sie jedoch versuchen, sie immer zuzuordnen, um Verwirrung bei der Wartung Ihres Codes zu vermeiden.
+Beachten Sie, dass `setInterval()` und [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) denselben Pool von IDs teilen und dass `clearInterval()` und [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) technisch austauschbar verwendet werden können.
+Um Klarheit zu bewahren, sollten Sie jedoch immer versuchen, sie zuzuordnen, um Verwirrung bei der Wartung Ihres Codes zu vermeiden.
 
 ### Sicherstellen, dass die Ausführungsdauer kürzer als die Intervallfrequenz ist
 
-Wenn die Möglichkeit besteht, dass Ihre Logik länger dauern könnte als die Intervallzeit, wird empfohlen, dass Sie eine benannte Funktion rekursiv mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) aufrufen.
-Wenn Sie zum Beispiel `setInterval()` verwenden, um alle 5 Sekunden einen Remote-Server abzufragen, könnten Netzwerkverzögerung, ein nicht antwortender Server und eine Vielzahl anderer Probleme verhindern, dass die Anforderung in ihrer zugewiesenen Zeit abgeschlossen wird.
-Daher können Sie sich mit XHR-Anfragen in der Warteschlange wiederfinden, die nicht unbedingt in der Reihenfolge zurückkehren.
+Wenn die Möglichkeit besteht, dass Ihre Logik länger zur Ausführung benötigt als die Intervallzeit, wird empfohlen, dass Sie rekursiv eine benannte Funktion mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) aufrufen.
+Beispielsweise, wenn Sie `setInterval()` verwenden, um alle 5 Sekunden einen externen Server zu pollieren, könnten Netzwerkverzögerungen, ein nicht reagierender Server und eine Vielzahl anderer Probleme verhindern, dass die Anforderung in ihrer vorgegebenen Zeit abgeschlossen wird.
+In solchen Fällen könnten Sie mit aufgereihten XHR-Anfragen konfrontiert sein, die nicht unbedingt in der richtigen Reihenfolge zurückkehren.
 
-In diesen Fällen wird ein rekursives `setTimeout()`-Muster bevorzugt:
+In diesen Fällen wird ein rekursives `setTimeout()` Muster bevorzugt:
 
 ```js
 (function loop() {
@@ -107,85 +106,121 @@ In diesen Fällen wird ein rekursives `setTimeout()`-Muster bevorzugt:
 })();
 ```
 
-Im obigen Ausschnitt wird eine benannte Funktion `loop()` deklariert und sofort ausgeführt.
-`loop()` wird rekursiv innerhalb `setTimeout()` aufgerufen, nachdem die Logik abgeschlossen ist.
-Während dieses Muster keine Ausführung in einem festen Intervall garantiert, garantiert es, dass das vorherige Intervall abgeschlossen ist, bevor es erneut aufgerufen wird.
+Im obigen Beispiel wird eine benannte Funktion `loop()` deklariert und sofort ausgeführt.
+`loop()` wird rekursiv innerhalb von `setTimeout()` aufgerufen, nachdem die Logik ausgeführt wurde.
+Während dieses Muster keine garantierte Ausführung in einem festen Intervall sicherstellt, garantiert es, dass das vorherige Intervall abgeschlossen ist, bevor es rekursiv aufgerufen wird.
 
 ### Funktionen werden mit dem globalen `this` aufgerufen
 
-Methoden oder Funktionen, die an `setInterval()` übergeben werden, laufen nicht im selben Ausführungskontext wie `setInterval()`, und haben daher auch nicht dasselbe [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) wie die Funktion, die `setInterval()` aufruft.
-Stattdessen hat die aufgerufene Funktion ein `this`-Schlüsselwort, das auf das `window`- (oder `global`-)Objekt gesetzt ist.
+Die an `setInterval()` übergebenen Funktionen werden mit normalen Funktionsaufruf-Semantiken ausgeführt, um die Referenz von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zu bestimmen.
 Dieses Problem wird im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference/Operators/this#callbacks) ausführlich erklärt.
 
-Das folgende Beispiel zeigt, wie dies zu unerwartetem Verhalten führen kann (mit `setTimeout()` anstelle von `setInterval()`, aber das Problem gilt für beide Timer):
+Für nicht-Arrow-Funktionen wird der `this`-Kontext auf das [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) (ein Alias für [`window`](/de/docs/Web/API/Window/window) in Browsern) Objekt gesetzt.
+
+Das folgende Beispiel zeigt, wie dies zu unerwartetem Verhalten führen kann. Hier, wenn wir die Methode `counter.count` direkt an `setInterval()` übergeben, geht der `this` Kontext verloren und die Methode wird auf dem globalen Objekt anstelle der `Counter` Instanz aufgerufen, was zu einem `TypeError` führt, wenn die `count`-Methode versucht, auf `this` zuzugreifen:
 
 ```js
-myArray = ["zero", "one", "two"];
+class Counter {
+  constructor() {
+    this.data = new Map();
+  }
 
-myArray.myMethod = function (sProperty) {
-  alert(arguments.length > 0 ? this[sProperty] : this);
-};
+  count(item) {
+    this.data.set(item, (this.data.get(item) || 0) + 1);
+  }
+}
 
-myArray.myMethod(); // prints "zero,one,two"
-myArray.myMethod(1); // prints "one"
-setTimeout(myArray.myMethod, 1000); // Alerts "[object Window]" after 1 second
-setTimeout(myArray.myMethod, 1500, "1"); // Alerts "undefined" after 1.5 seconds
+const counter = new Counter();
+
+counter.count("foo"); // Successfully adds "foo" to the map
+setInterval(counter.count, 1000, "bar");
+// TypeError: Cannot read properties of undefined (reading 'set')
 ```
 
-Sie können [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) verwenden, um das `this` der Funktion zu übernehmen, in der `setTimeout()` aufgerufen wird (Pfeilfunktionen haben ein lexikalisches `this`).
+Um dies zu umgehen, müssen Sie sicherstellen, dass die an `setInterval` übergebene Funktion den korrekten `this` Kontext hat. Es gibt drei Hauptwege, dies zu tun:
 
-Sie können dies mit dem folgenden Code testen.
+1. Wenn Sie den `this` Kontext explizit angeben möchten, anstatt die Methode direkt zu übergeben, wickeln Sie den Methodenaufruf in eine andere anonyme Funktion, die die Methode explizit mit dem korrekten Kontext aufruft:
 
-```js
-setTimeout(() => myArray.myMethod(), 1000); // Alert "zero,one,two" after 1 second
-setTimeout(() => myArray.myMethod(1), 1500); // Alert "one" after 1.5 seconds
-setTimeout(() => myArray.myMethod(2), 3000); // Alert "one" after 3 seconds
-```
+   ```js
+   setInterval(() => counter.count("bar"), 1000);
+   setInterval(function () {
+     counter.count("bar");
+   }, 1000);
+   ```
 
-Sie können auch die Methode [`Function.prototype.bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) verwenden, die es Ihnen ermöglicht, den Wert zu spezifizieren, der als `this` für alle Aufrufe einer gegebenen Funktion verwendet werden soll.
-Dies lässt Sie Probleme umgehen, bei denen unklar ist, was `this` sein wird, abhängig vom Kontext, aus dem Ihre Funktion aufgerufen wurde.
+2. Wenn Sie den `this` Kontext des Codes verwenden möchten, der `setInterval()` aufruft, verwenden Sie immer eine Arrow-Funktion, die den `this` Kontext ihres umgebenden Scopes erbt:
+
+   ```js example-bad
+   class Counter {
+     // …
+     repeatedCount(item) {
+       // BAD: the `this` context is lost in the callback
+       setInterval(function () {
+         this.data.set(item, (this.data.get(item) || 0) + 1);
+       }, 1000);
+     }
+   }
+   ```
+
+   ```js example-good
+   class Counter {
+     // …
+     repeatedCount(item) {
+       // GOOD: the arrow function inherits the `this` context of `repeatedCount()`
+       setInterval(() => {
+         this.data.set(item, (this.data.get(item) || 0) + 1);
+       }, 1000);
+     }
+   }
+   ```
+
+3. Wenn Sie zusätzliche Funktions-Wrapper vermeiden möchten (die den Speicherverbrauch erhöhen), während Sie explizit den `this` Kontext angeben, können Sie die Methode [`Function.prototype.bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) verwenden, um eine neue Funktion mit dem korrekten `this` Kontext zu erstellen:
+
+   ```js
+   setInterval(counter.count.bind(counter), 1000, "bar");
+   ```
 
 ### Sicherheitsüberlegungen
 
-Die Methode kann verwendet werden, um willkürlichen Input im `code`-Parameter auszuführen.
-Wenn der Input ein potenziell unsicherer String von einem Benutzer bereitgestellt wird, ist dies ein möglicher Angriffsvektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe.
+Die Methode kann verwendet werden, um beliebige Eingaben auszuführen, die im `code` Parameter übergeben werden.
+Wenn die Eingabe ein möglicherweise unsicherer String ist, der von einem Benutzer bereitgestellt wird, ist dies ein möglicher Vektor für [Cross-site-scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe.
 
-Zum Beispiel zeigt der folgende Code, wie `setInterval()` möglicherweise `untrustedCode`, das von einem Benutzer bereitgestellt wird, ausführen könnte:
+Zum Beispiel zeigt der folgende Code, wie `setInterval()` den von einem Benutzer bereitgestellten `untrustedCode` ausführen könnte:
 
 ```js example-bad
 const untrustedCode = "alert('Potentially evil code!');";
 const id = setInterval(untrustedCode, 1000);
 ```
 
-Websites mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), die [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) spezifiziert, werden solch einen Code standardmäßig verhindern.
-Sie können [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) in Ihrer CSP angeben, um `setInterval()` ausführen zu lassen, aber dies ist unsicher, da es eine der Hauptschutzmaßnahmen der CSP deaktiviert.
+Websites mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), die [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) spezifiziert, verhindern standardmäßig die Ausführung solcher Codes.
+Sie können [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) in Ihrer CSP angeben, um `setInterval()` die Ausführung zu erlauben, aber dies ist unsicher, da es einen der wichtigsten Schutzmechanismen der CSP deaktiviert.
 
-Siehe [Inline JavaScript](/de/docs/Web/HTTP/Guides/CSP#inline_javascript) im CSP-Leitfaden.
+Siehe [Inline JavaScript](/de/docs/Web/HTTP/Guides/CSP#inline_javascript) im CSP Guide.
 
-Wenn Sie die Skripte über `setInterval()` ausführen lassen müssen, können Sie diese Probleme mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Richtlinie nutzen.
-Dies stellt sicher, dass der Input durch eine Transformationsfunktion geleitet wird.
+Wenn Sie die Ausführung der Skripte über `setInterval()` erlauben müssen, können Sie diese Probleme mildern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstatt Strings zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types), indem Sie die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive verwenden.
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion übergeben wird.
 
-Um `setInterval()` ausführen zu lassen, müssen Sie zusätzlich das [`trusted-types-eval` Schlüsselwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval) in Ihrer CSP `script-src`-Direktive angeben.
-Dies wirkt in gleicher Weise wie `unsafe-eval`, erlaubt jedoch _nur_ die Methode zu bewerten, wenn Trusted Types aktiviert sind (wenn Sie `unsafe-eval` verwenden würden, würde es die Ausführung auch in Browsern erlauben, die Trusted Types nicht unterstützen).
+Um `setInterval()` ausführen zu lassen, müssen Sie zusätzlich das [`trusted-types-eval` Schlüsselwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval) in Ihrem CSP `script-src`-Direktiv angeben.
+Dies wirkt in derselben Weise wie `unsafe-eval`, erlaubt jedoch _nur_ die Ausführung der Methode, wenn Trusted Types aktiviert sind (wenn Sie `unsafe-eval` verwenden würden, würde es die Ausführung auch in Browsern erlauben, die Trusted Types nicht unterstützen).
 
-Zum Beispiel könnte die erforderliche CSP für Ihre Website so aussehen:
+Zum Beispiel könnte die erforderliche CSP für Ihre Website folgendermaßen aussehen:
 
 ```http
 Content-Security-Policy: require-trusted-types-for 'script'; script-src '<your_allowlist>' 'trusted-types-eval'
 ```
 
 Das Verhalten der Transformationsfunktion hängt vom spezifischen Anwendungsfall ab, der ein vom Benutzer bereitgestelltes Skript erfordert.
-Wenn möglich, sollten Sie die zulässigen Skripte genau auf den Code beschränken, dem Sie vertrauen, ihn auszuführen.
+Wenn möglich, sollten Sie die erlaubten Skripte genau auf den Code beschränken, dem Sie vertrauen, dass er ausgeführt wird.
 Wenn das nicht möglich ist, könnten Sie die Verwendung bestimmter Funktionen innerhalb des bereitgestellten Strings erlauben oder blockieren.
 
 ## Beispiele
 
-Beachten Sie, dass diese Beispiele aus Gründen der Kürze auf die Verwendung von Trusted Types verzichten.
+Beachten Sie, dass diese Beispiele aus Gründen der Kürze keine Trusted Types verwenden.
 Siehe [Verwendung von `TrustedScript`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_trustedscript) in `eval()` für Code, der den erwarteten Ansatz zeigt.
 
-### Beispiel 1: Grundlegende Syntax
+### Beispiel 1: Grundsyntax
 
-Das folgende Beispiel zeigt die grundlegende Syntax von `setInterval()`.
+Das folgende Beispiel demonstriert die Grundsyntax von `setInterval()`.
 
 ```js
 const intervalID = setInterval(myCallback, 500, "Parameter 1", "Parameter 2");
@@ -198,9 +233,9 @@ function myCallback(a, b) {
 }
 ```
 
-### Beispiel 2: Abwechseln zwischen zwei Farben
+### Beispiel 2: Zwei Farben abwechselnd
 
-Das folgende Beispiel ruft die `flashtext()` Funktion jede Sekunde auf, bis die Stop-Taste gedrückt wird.
+Das folgende Beispiel ruft die Funktion `flashtext()` einmal pro Sekunde auf, bis die Stop-Taste gedrückt wird.
 
 #### HTML
 
@@ -263,7 +298,7 @@ document.getElementById("stop").addEventListener("click", stopTextColor);
 
 ## Siehe auch
 
-- [Polyfill von `setInterval`, das das Übergeben von Argumenten an den Rückruf in `core-js` erlaubt](https://github.com/zloirock/core-js#settimeout-and-setinterval)
+- [Polyfill von `setInterval`, das das Übergeben von Argumenten an den Rückruf in `core-js` ermöglicht](https://github.com/zloirock/core-js#settimeout-and-setinterval)
 - [`Window.clearInterval()`](/de/docs/Web/API/Window/clearInterval)
 - [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)
 - [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout)

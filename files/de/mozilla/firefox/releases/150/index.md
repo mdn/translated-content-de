@@ -1,22 +1,22 @@
 ---
-title: Veröffentlichungshinweise zu Firefox 150 für Entwickler (Beta)
+title: Firefox 150 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 150 (Beta)
 slug: Mozilla/Firefox/Releases/150
 l10n:
-  sourceCommit: 1c7b8308c11efc3468214b997eb1ac4150f76c18
+  sourceCommit: fdaba0255e02b46e8af2495d18999da32174125a
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 150, die Entwickler betreffen.
-Firefox 150 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [21. April 2026](https://whattrainisitnow.com/release/?version=150) veröffentlicht.
+Firefox 150 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [21. April 2026](https://whattrainisitnow.com/release/?version=150).
 
 > [!NOTE]
-> Die Veröffentlichungshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentierung von Überschriften, für die Sie Anmerkungen schreiben -->
+<!-- Autoren: Bitte entfernen Sie die Kommentare bei allen Abschnitten, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwickler-Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
@@ -54,7 +54,14 @@ Firefox 150 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 #### DOM
 
-- Die nicht-standardisierte Methode [`caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint) der Schnittstelle [`Document`](/de/docs/Web/API/Document) wird jetzt unterstützt. ([Firefox Bug 1550635](https://bugzil.la/1550635)).
+- Das [`options.shadowRoots`](/de/docs/Web/API/Document/caretPositionFromPoint#shadowroots)-Argument der [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint)-Methode wird jetzt unterstützt.
+  Dies ermöglicht es der Methode, den Knoten zurückzugeben, der das Caret innerhalb eines Shadow DOMs enthält, vorausgesetzt, dessen zugehöriges [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) wurde als Option übergeben.
+  ([Firefox Bug 1914596](https://bugzil.la/1914596)).
+
+- Die nicht standardmäßige [`caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint)-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle wird jetzt unterstützt. ([Firefox Bug 1550635](https://bugzil.la/1550635)).
+- Die `ariaNotify()`-Methode wird jetzt sowohl auf [`Document`](/de/docs/Web/API/Document/ariaNotify) als auch auf [`Element`](/de/docs/Web/API/Element/ariaNotify) unterstützt.
+  Dies stellt eine Zeichenfolge von Text in die Warteschlange, die von einem {{Glossary("screen_reader", "Screenreader")}} angekündigt werden soll, und bietet eine ergonomischere und zuverlässigere Alternative zu [ARIA Live-Bereichen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions).
+  ([Firefox Bug 2018095](https://bugzil.la/2018095)).
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
@@ -76,10 +83,10 @@ Firefox 150 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### Entfernungen -->
 
-<!-- ### Andere -->
+<!-- ### Sonstiges -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Funktionen werden in Firefox 150 ausgeliefert, sind jedoch standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 150 enthalten, sind aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite für [experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

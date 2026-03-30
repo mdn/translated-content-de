@@ -1,12 +1,12 @@
 ---
-title: HTML accesskey globales Attribut
+title: HTML-Attribut accesskey (global)
 short-title: accesskey
 slug: Web/HTML/Reference/Global_attributes/accesskey
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 1696e3eadd2b142341a65a1cf6e9a4f3416412d1
 ---
 
-Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) bietet einen Hinweis zur Erstellung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem druckbaren Zeichen bestehen (einschließlich akzentuierter und anderer Zeichen, die über die Tastatur erzeugt werden können).
+Das globale **`accesskey`**-[Attribut](/de/docs/Web/HTML/Reference/Global_attributes) gibt einen Hinweis zur Erstellung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (dies schließt Akzentzeichen und andere Zeichen ein, die von der Tastatur erzeugt werden können).
 
 {{InteractiveExample("HTML Demo: accesskey", "tabbed-shorter")}}
 
@@ -21,7 +21,7 @@ b {
 }
 ```
 
-Die Methode zur Aktivierung des `accesskey` hängt vom Browser und dessen Plattform ab:
+Die Aktivierung der `accesskey`-Tastenkombination hängt vom Browser und seinem Plattform ab:
 
 <table class="standard-table">
   <tbody>
@@ -33,34 +33,35 @@ Die Methode zur Aktivierung des `accesskey` hängt vom Browser und dessen Plattf
     </tr>
     <tr>
       <th>Firefox</th>
-      <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd><em>Taste</em></kbd></td>
+      <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd><em>key</em></kbd></td>
       <td>
         <kbd>Control</kbd> + <kbd>Option</kbd> +
-        <kbd><em>Taste</em></kbd> oder <kbd>Control</kbd> + <kbd>Alt</kbd> +
-        <kbd><em>Taste</em></kbd>
+        <kbd><em>key</em></kbd> oder <kbd>Control</kbd> + <kbd>Alt</kbd> +
+        <kbd><em>key</em></kbd>
       </td>
     </tr>
     <tr>
       <th>MS Edge</th>
-      <td rowspan="2"><kbd>Alt</kbd> + <kbd><em>Taste</em></kbd></td>
+      <td rowspan="2"><kbd>Alt</kbd> + <kbd><em>key</em></kbd></td>
       <td rowspan="2">
-        <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>Taste</em></kbd><br>oder <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> +
-        <kbd><em>Taste</em></kbd>
+        <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>key</em></kbd><br>oder <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> +
+        <kbd><em>key</em></kbd>
       </td>
-      <td rowspan="2"><kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>Taste</em></kbd></td>
+      <td rowspan="2"><kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>key</em></kbd></td>
     </tr>
     <tr>
       <th>Google Chrome</th>
     </tr>
     <tr>
       <th>Safari</th>
-      <td colspan="2">n/v</td>
-      <td><kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>Taste</em></kbd></td>
+      <td colspan="2">n/a</td>
+      <td><kbd>Control</kbd> + <kbd>Option</kbd> + <kbd><em>key</em></kbd></td>
     </tr>
     <tr>
       <th>Opera</th>
-      <td colspan="2"><kbd>Alt</kbd> + <kbd><em>Taste</em></kbd></td>
-      <td><kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd><em>Taste</em></kbd></td>
+      <td><kbd>Alt</kbd> + <kbd><em>key</em></kbd></td>
+      <td><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd><em>key</em></kbd></td>
+      <td><kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd><em>key</em></kbd></td>
     </tr>
   </tbody>
 </table>
@@ -69,14 +70,14 @@ Die Methode zur Aktivierung des `accesskey` hängt vom Browser und dessen Plattf
 
 Es gibt zahlreiche Bedenken bezüglich des `accesskey`-Attributs:
 
-- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder Funktionen unterstützender Technologien in Konflikt stehen. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, kann mit anderen Kombinationen nicht funktionieren.
-- Bestimmte `accesskey`-Werte sind möglicherweise auf bestimmten Tastaturen nicht vorhanden, insbesondere wenn die Internationalisierung eine Rolle spielt. Die Anpassung an spezifische Sprachen könnte weitere Probleme verursachen.
-- `accesskey`-Werte, die auf Zahlen beruhen, können für Personen mit kognitiven Einschränkungen verwirrend sein, da die Zahl nicht logisch mit der Funktionalität assoziiert ist, die sie auslöst.
-- Es muss sichergestellt werden, dass der Benutzer darüber informiert wird, dass `accesskey`s vorhanden sind, damit er sich der Funktionalität bewusst ist. Wenn das System keine Methode zur Benachrichtigung des Benutzers über diese Funktion bietet, könnten `accesskey`s versehentlich aktiviert werden.
+- Ein `accesskey`-Wert kann mit einem Tastenkürzel des Systems oder Browsers oder der Funktionalität assistiver Technologien in Konflikt geraten. Was für eine Kombination aus Betriebssystem, assistiver Technologie und Browser funktioniert, funktioniert möglicherweise nicht mit anderen Kombinationen.
+- Bestimmte `accesskey`-Werte sind möglicherweise nicht auf bestimmten Tastaturen vorhanden, insbesondere wenn Internationalisierung eine Rolle spielt. Die Anpassung an spezifische Sprachen könnte daher weitere Probleme verursachen.
+- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Einschränkungen verwirrend sein, bei denen die Zahl keine logische Verbindung zur Funktionalität hat, die sie auslöst.
+- Den Benutzer darüber zu informieren, dass `accesskey`s vorhanden sind, damit er über die Funktionalität informiert ist. Wenn dem System eine Methode fehlt, den Benutzer über diese Funktion zu informieren, könnte der Benutzer `accesskey`s versehentlich aktivieren.
 
-Aufgrund dieser Probleme wird im Allgemeinen davon abgeraten, `accesskey`s für die meisten allgemeingültigen Websites und Webanwendungen zu verwenden.
+Aufgrund dieser Probleme wird im Allgemeinen empfohlen, auf den Einsatz von `accesskey`s für die meisten allgemeinen Webseiten und Web-Apps zu verzichten.
 
-- [WebAIM: Tastaturzugänglichkeit - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
+- [WebAIM: Tastatur-Zugänglichkeit - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
 
 ## Spezifikationen
 
