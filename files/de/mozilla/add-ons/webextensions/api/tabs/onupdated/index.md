@@ -2,16 +2,16 @@
 title: tabs.onUpdated
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/onUpdated
 l10n:
-  sourceCommit: a0cae6a26d6b7263ddea94c4e3b3484fe218b354
+  sourceCommit: 8bc98818dfbc851ee6749b123e98f5eeb7e43923
 ---
 
 Wird ausgelöst, wenn ein Tab aktualisiert wird.
 
-Wenn der Benutzer in einem Tab zu einer neuen URL navigiert, werden typischerweise mehrere `onUpdated`-Ereignisse erzeugt, da verschiedene Eigenschaften des {{WebExtAPIRef("tabs.Tab")}}-Objekts aktualisiert werden. Dies schließt die `url` ein, aber potenziell auch die Eigenschaften `title` und `favIconUrl`. Die `status`-Eigenschaft wechselt zwischen `"loading"` und `"complete"`.
+Wenn der Benutzer zu einer neuen URL in einem Tab navigiert, werden typischerweise mehrere `onUpdated`-Ereignisse generiert, da verschiedene Eigenschaften des {{WebExtAPIRef("tabs.Tab")}}-Objekts aktualisiert werden. Dies schließt die `url` ein, aber auch potenziell die `title`- und `favIconUrl`-Eigenschaften. Die `status`-Eigenschaft durchläuft die Zustände `"loading"` und `"complete"`.
 
-Dieses Ereignis wird auch für Änderungen der Eigenschaften eines Tabs ausgelöst, die keine Navigation beinhalten, wie das Anheften und Lösen (was die `pinned`-Eigenschaft aktualisiert) sowie das Stummschalten oder Aufheben der Stummschaltung (was die Eigenschaften `audible` und `mutedInfo` aktualisiert).
+Dieses Ereignis wird auch für Änderungen an den Eigenschaften eines Tabs ausgelöst, die keine Navigation beinhalten, wie etwa das Anpinnen und Lösen eines Pins (was die `pinned`-Eigenschaft aktualisiert) sowie das Stummschalten oder Aufheben der Stummschaltung (was die Eigenschaften `audible` und `mutedInfo` aktualisiert).
 
-Sie können dieses Ereignis filtern, sodass es nur für Tabs ausgelöst wird, deren URLs bestimmte [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entsprechen, Änderungen an bestimmten Eigenschaften, Änderungen an einem Tab oder Fenster oder jegliche Kombination dieser Einschränkungen.
+Sie können dieses Ereignis filtern, sodass es nur für Tabs ausgelöst wird, deren URLs bestimmten [Mustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entsprechen, für Änderungen an bestimmten Eigenschaften, Änderungen an einem Tab oder Fenster oder jede Kombination dieser Einschränkungen.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(callback, filter)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu hören. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
 
 ## addListener Syntax
 
@@ -42,16 +42,16 @@ Ereignisse haben drei Funktionen:
     - `tabId`
       - : `integer`. Die ID des aktualisierten Tabs.
     - `changeInfo`
-      - : `object`. Eigenschaften des Tabs, die sich geändert haben. Siehe den Abschnitt [changeInfo](#changeinfo) für weitere Details.
+      - : `object`. Die Eigenschaften des Tabs, die sich geändert haben. Siehe den Abschnitt [changeInfo](#changeinfo) für weitere Details.
     - `tab`
       - : {{WebExtAPIRef('tabs.Tab')}}. Der neue Zustand des Tabs.
 
 - `filter` {{optional_inline}}
-  - : `object`. Eine Reihe von Filtern, die die an diesen Listener gesendeten Ereignisse einschränken. Dieses Objekt kann eine oder mehrere dieser Eigenschaften haben. Ereignisse werden nur gesendet, wenn sie alle angegebenen Filter erfüllen.
+  - : `object`. Eine Menge von Filtern, die die Ereignisse einschränken, die an diesen Listener gesendet werden. Dieses Objekt kann eine oder mehrere dieser Eigenschaften haben. Ereignisse werden nur gesendet, wenn alle bereitgestellten Filter erfüllt sind.
     - `urls`
-      - : `Array`. Ein Array von [Musterdefinitionen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Löst das Ereignis nur für Tabs aus, deren aktuelle `url`-Eigenschaft mit einem der Muster übereinstimmt.
+      - : `Array`. Ein Array von [Übereinstimmungsmustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Löst das Ereignis nur für Tabs aus, deren aktuelle `url`-Eigenschaft einem der Muster entspricht.
     - `properties`
-      - : `Array`. Ein Array von Zeichenfolgen, bestehend aus unterstützten {{WebExtAPIRef("tabs.Tab")}}-Objekteigenschaftsnamen. Löst das Ereignis nur für Änderungen an einer der in dem Array genannten Eigenschaften aus. Diese Eigenschaften können verwendet werden:
+      - : `Array`. Ein Array von Strings, bestehend aus unterstützten {{WebExtAPIRef("tabs.Tab")}}-Objekteigenschaftsnamen. Löst das Ereignis nur für Änderungen an einem der in dem Array benannten Eigenschaften aus. Diese Eigenschaften können verwendet werden:
         - "attention"
         - "autoDiscardable"
         - "audible"
@@ -69,10 +69,10 @@ Ereignisse haben drei Funktionen:
         - "url"
 
         > [!NOTE]
-        > Der Wert "url" wird seit Firefox 88 unterstützt. In Firefox 87 und früher können Änderungen an "url" durch Filtern nach "status" beobachtet werden.
+        > Der Wert "url" wird seit Firefox 88 unterstützt. In Firefox 87 und früher können "url"-Änderungen durch Filterung nach "status" beobachtet werden.
 
     - `tabId`
-      - : `Integer`. Löst dieses Ereignis nur für den Tab mit dieser ID aus.
+      - : `Integer`. Löst dieses Ereignis nur für den Tab aus, der durch diese ID identifiziert wird.
     - `windowId`
       - : `Integer`. Löst dieses Ereignis nur für Tabs im Fenster mit dieser ID aus.
     - `cookieStoreId`
@@ -89,35 +89,35 @@ Listet die Änderungen am Zustand des aktualisierten Tabs auf. Um mehr über die
 - `audible` {{optional_inline}}
   - : `boolean`. Der neue hörbare Zustand des Tabs.
 - `autoDiscardable` {{optional_inline}}
-  - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
+  - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Er kann jedoch manuell durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
 - `discarded` {{optional_inline}}
-  - : `boolean`. Ob der Tab verworfen ist. Ein verworfener Tab ist ein Tab, dessen Inhalt aus dem Speicher entladen wurde, aber im Tabstreifen sichtbar ist. Sein Inhalt wird beim nächsten Aktivieren neu geladen.
+  - : `boolean`. Ob der Tab verworfen ist. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber im Tabstreifen sichtbar bleibt. Sein Inhalt wird erneut geladen, wenn er das nächste Mal aktiviert wird.
 - `favIconUrl` {{optional_inline}}
-  - : `string`. Die neue Favicon-URL des Tabs. Wird nicht eingeschlossen, wenn ein Tab sein Favicon verliert (z. B. beim Navigieren von einer Seite mit Favicon zu einer Seite ohne Favicon). Prüfen Sie `favIconUrl` stattdessen im [tab](#tab).
+  - : `string`. Die neue Favicon-URL des Tabs. Nicht enthalten, wenn ein Tab sein Favicon verliert (z. B. beim Navigieren von einer Seite mit einem Favicon zu einer ohne Favicon). Prüfen Sie `favIconUrl` in [tab](#tab) stattdessen.
 - `groupId` {{optional_inline}}
-  - : `integer`. Die ID der Gruppe, zu der die Tabs gehören, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs.
+  - : `integer`. Die ID der Gruppe, in der sich die Tabs befinden, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs.
 - `hidden` {{optional_inline}}
-  - : `boolean`. Wahr, wenn der Tab {{WebExtAPIRef("tabs.hide()", "hidden")}} ist.
+  - : `boolean`. Wahr, wenn der Tab {{WebExtAPIRef("tabs.hide()", "versteckt")}} ist.
 - `isArticle` {{optional_inline}}
   - : `boolean`. Wahr, wenn der Tab ein Artikel ist und daher für die Anzeige im [Reader-Modus](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/toggleReaderMode) geeignet ist.
 - `mutedInfo` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.MutedInfo')}}. Der neue stumme Zustand des Tabs und der Grund für die Änderung.
+  - : {{WebExtAPIRef('tabs.MutedInfo')}}. Der neue stummgeschaltete Zustand des Tabs und der Grund für die Änderung.
 - `openerTabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat, falls vorhanden. Diese Eigenschaft ist nur vorhanden, wenn der öffnende Tab existiert und im selben Fenster ist.
+  - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat, falls vorhanden. Diese Eigenschaft ist nur vorhanden, wenn der öffnende Tab existiert und sich im gleichen Fenster befindet.
 - `pinned` {{optional_inline}}
-  - : `boolean`. Der neue fixierte Zustand des Tabs.
+  - : `boolean`. Der neue angepinnte Zustand des Tabs.
 - `splitViewId` {{optional_inline}}
-  - : `integer`. Die ID der geteilten Ansicht, zu der der Tab gehört. Wird auf {{WebExtAPIRef('tabs.SPLIT_VIEW_ID_NONE')}} gesetzt, wenn der Tab nicht zu einer geteilten Ansicht gehört.
+  - : `integer`. Die ID der [geteilten Ansicht](/de/docs/Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API#working_with_tab_split_views), zu der der Tab gehört. Wird auf {{WebExtAPIRef('tabs.SPLIT_VIEW_ID_NONE')}} gesetzt, wenn der Tab keiner geteilten Ansicht angehört.
 - `status` {{optional_inline}}
   - : `string`. Der Status des Tabs. Kann entweder _loading_ oder _complete_ sein.
 - `title` {{optional_inline}}
   - : `string`. Der neue Titel des Tabs.
 - `url` {{optional_inline}}
-  - : `string`. Die URL des Tabs, wenn sie sich geändert hat.
+  - : `string`. Die URL des Tabs, falls sie sich geändert hat.
 
 ## Beispiele
 
-Hören Sie auf und protokollieren Sie alle Änderungsinformationen und den neuen Zustand:
+Lauschen Sie auf und protokollieren Sie alle Änderungsinformationen und den neuen Zustand:
 
 ```js
 function handleUpdated(tabId, changeInfo, tabInfo) {
@@ -141,9 +141,9 @@ function handleUpdated(tabId, changeInfo, tabInfo) {
 browser.tabs.onUpdated.addListener(handleUpdated);
 ```
 
-### Beispiele für Filterung
+### Filterbeispiele
 
-Protokollieren Sie Änderungen nur an Tabs, deren `url`-Eigenschaft mit `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns):
+Protokollieren Sie Änderungen nur für Tabs, deren `url`-Eigenschaft durch `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns):
 
 ```js
 const pattern1 = "https://developer.mozilla.org/*";
@@ -162,7 +162,7 @@ function handleUpdated(tabId, changeInfo, tabInfo) {
 browser.tabs.onUpdated.addListener(handleUpdated, filter);
 ```
 
-Protokollieren Sie Änderungen nur an der `pinned`-Eigenschaft von Tabs (das heißt, Anheften und Lösen von Aktionen):
+Protokollieren Sie Änderungen nur an der `pinned`-Eigenschaft von Tabs (d.h. Pin- und Unpin-Aktionen):
 
 ```js
 const filter = {
@@ -178,7 +178,7 @@ function handleUpdated(tabId, changeInfo, tabInfo) {
 browser.tabs.onUpdated.addListener(handleUpdated, filter);
 ```
 
-Kombinieren Sie beide vorherigen Filter, und protokollieren Sie nur, wenn sich die `pinned`-Eigenschaft von Tabs ändert, deren `url`-Eigenschaft mit `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns):
+Kombinieren Sie beide vorherigen Filter, protokollieren Sie nur, wenn sich die `pinned`-Eigenschaft von Tabs ändert, deren `url`-Eigenschaft durch `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns):
 
 ```js
 const pattern1 = "https://developer.mozilla.org/*";
@@ -198,7 +198,7 @@ function handleUpdated(tabId, changeInfo, tabInfo) {
 browser.tabs.onUpdated.addListener(handleUpdated, filter);
 ```
 
-Protokollieren Sie Änderungen nur, wenn sich die `pinned`-Eigenschaft von Tabs ändert, deren `url`-Eigenschaft mit `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) und der Tab Teil des aktuellen Browserfensters war, als das Aktualisierungsereignis ausgelöst wurde:
+Protokollieren Sie Änderungen nur, wenn sich die `pinned`-Eigenschaft von Tabs ändert, deren `url`-Eigenschaft durch `https://developer.mozilla.org/*` oder `https://mastodon.social/@mdn` [übereinstimmt](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), wobei der Tab zum Zeitpunkt des Aktualisierungsereignisses Teil des aktuellen Browser-Fensters war:
 
 ```js
 const pattern1 = "https://developer.mozilla.org/*";
@@ -226,4 +226,4 @@ browser.tabs.onUpdated.addListener(handleUpdated, filter);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onUpdated). Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onUpdated) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.

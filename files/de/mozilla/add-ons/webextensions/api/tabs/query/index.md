@@ -2,10 +2,10 @@
 title: tabs.query()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/query
 l10n:
-  sourceCommit: a0cae6a26d6b7263ddea94c4e3b3484fe218b354
+  sourceCommit: 8bc98818dfbc851ee6749b123e98f5eeb7e43923
 ---
 
-Erhält alle Tabs, die die angegebenen Eigenschaften haben, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
+Ruft alle Tabs ab, die die angegebenen Eigenschaften aufweisen, oder alle Tabs, wenn keine Eigenschaften angegeben sind.
 
 ## Syntax
 
@@ -16,9 +16,9 @@ let querying = browser.tabs.query(queryInfo)
 ### Parameter
 
 - `queryInfo`
-  - : `object`. Die Funktion `query()` erhält die Tabs, deren Eigenschaften mit den hier eingeschlossenen Eigenschaften übereinstimmen.
+  - : `object`. Die `query()`-Funktion ruft die Tabs ab, deren Eigenschaften mit den hier angegebenen Eigenschaften übereinstimmen.
 
-    Für mehr Informationen über diese Eigenschaften siehe die {{WebExtAPIRef("tabs.Tab")}} Dokumentation.
+    Siehe die {{WebExtAPIRef("tabs.Tab")}}-Dokumentation, um mehr über diese Eigenschaften zu erfahren.
     - `active` {{optional_inline}}
       - : `boolean`. Ob die Tabs in ihren Fenstern aktiv sind.
     - `attention` {{optional_inline}}
@@ -28,15 +28,15 @@ let querying = browser.tabs.query(queryInfo)
     - `autoDiscardable` {{optional_inline}}
       - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
     - `cookieStoreId` {{optional_inline}}
-      - : `string` oder `array` von `string`. Verwenden Sie dies, um Tabs zurückzugeben, deren `tab.cookieStoreId` mit einem der `cookieStoreId`-Strings übereinstimmt. Diese Option ist nur verfügbar, wenn das Add-on die Berechtigung `"cookies"` hat. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+      - : `string` oder `array` von `string`. Verwenden Sie dies, um Tabs zurückzugeben, deren `tab.cookieStoreId` mit einem der `cookieStoreId`-Strings übereinstimmt. Diese Option ist nur verfügbar, wenn das Add-on die Berechtigung `"cookies"` hat. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
     - `currentWindow` {{optional_inline}}
       - : `boolean`. Ob die Tabs im aktuellen Fenster sind.
     - `discarded` {{optional_inline}}
-      - : `boolean`. Ob die Tabs verworfen werden. Ein verworfener Tab ist einer, dessen Inhalt aus dem Speicher entladen wurde, aber immer noch im Tab-Streifen sichtbar ist. Sein Inhalt wird erneut geladen, das nächste Mal, wenn er aktiviert wird.
+      - : `boolean`. Ob die Tabs verworfen wurden. Ein verworfener Tab ist einer, dessen Inhalte aus dem Speicher entladen wurden, aber noch im Tab-Streifen sichtbar sind. Sein Inhalt wird beim nächsten Aktivieren neu geladen.
     - `groupId` {{optional_inline}}
-      - : `integer`. Die ID der Tab-Gruppe, in der sich die Tabs befinden, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs. Für mehr Informationen über Tab-Gruppen siehe {{WebExtAPIRef("tabGroups")}}.
+      - : `integer`. Die ID der Tab-Gruppe, in der sich die Tabs befinden, oder `-1` ({{WebExtAPIRef("tabGroups.TAB_GROUP_ID_NONE")}}) für nicht gruppierte Tabs. Weitere Informationen zu Tab-Gruppen finden Sie in {{WebExtAPIRef("tabGroups")}}.
     - `hidden` {{optional_inline}}
-      - : `boolean`. Ob die Tabs versteckt sind.
+      - : `boolean`. Ob die Tabs ausgeblendet sind.
     - `highlighted` {{optional_inline}}
       - : `boolean`. Ob die Tabs hervorgehoben sind.
     - `index` {{optional_inline}}
@@ -48,23 +48,23 @@ let querying = browser.tabs.query(queryInfo)
     - `pinned` {{optional_inline}}
       - : `boolean`. Ob die Tabs angeheftet sind.
     - `splitViewId` {{optional_inline}}
-      - : `integer`. Die ID der geteilten Ansicht, zu der der Tab gehört. Setzen Sie diese auf {{WebExtAPIRef('tabs.SPLIT_VIEW_ID_NONE')}} um die Tabs abzufragen, die nicht zu einer geteilten Ansicht gehören.
+      - : `integer`. Die ID der [geteilten Ansicht](/de/docs/Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API#working_with_tab_split_views), zu der der Tab gehört. Setzen Sie auf {{WebExtAPIRef('tabs.SPLIT_VIEW_ID_NONE')}}, um die Tabs abzufragen, die nicht zu einer geteilten Ansicht gehören.
     - `status` {{optional_inline}}
       - : {{WebExtAPIRef('tabs.TabStatus')}}. Ob die Tabs das Laden abgeschlossen haben.
     - `title` {{optional_inline}}
-      - : `string`. Übereinstimmung von Seitentiteln mit einem Muster. Erfordert die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
+      - : `string`. Übereinstimmung von Seitentiteln mit einem Muster. Erfordert die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Tab-Übereinstimmung.
     - `url` {{optional_inline}}
-      - : `string` oder `array` von `string`. Abgleich von Tabs mit einem oder mehreren [Musterabgleichen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Beachten Sie, dass Fragmentbezeichner nicht abgeglichen werden. Erfordert die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), damit der Tab übereinstimmt.
+      - : `string` oder `array` von `string`. Übereinstimmung von Tabs mit einem oder mehreren [Übereinstimmungsmustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Beachten Sie, dass Fragment-Identifier nicht übereinstimmen. Erfordert die Berechtigung "tabs" oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Tab-Übereinstimmung.
     - `windowId` {{optional_inline}}
       - : `integer`. Die `id` des übergeordneten Fensters oder {{WebExtAPIRef('windows.WINDOW_ID_CURRENT')}} für das aktuelle Fenster.
     - `windowType` {{optional_inline}}
-      - : {{WebExtAPIRef('tabs.WindowType')}}. Der Fenstertyp, in dem sich die Tabs befinden.
+      - : {{WebExtAPIRef('tabs.WindowType')}}. Der Typ des Fensters, in dem sich die Tabs befinden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, die Informationen über jeden übereinstimmenden Tab enthalten.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` von {{WebExtAPIRef('tabs.Tab')}}-Objekten erfüllt wird, die Informationen zu jedem übereinstimmenden Tab enthalten.
 
-Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
@@ -143,4 +143,4 @@ browser.tabs.query({ url: "*://*.mozilla.org/*" }).then(logTabs, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-query)-API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-query) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.

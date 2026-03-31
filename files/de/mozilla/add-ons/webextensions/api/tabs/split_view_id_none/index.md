@@ -2,10 +2,10 @@
 title: tabs.SPLIT_VIEW_ID_NONE
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/SPLIT_VIEW_ID_NONE
 l10n:
-  sourceCommit: a0cae6a26d6b7263ddea94c4e3b3484fe218b354
+  sourceCommit: 8bc98818dfbc851ee6749b123e98f5eeb7e43923
 ---
 
-Ein spezieller ID-Wert, der Tabs zugewiesen wird, die nicht in einer geteilten Ansicht sind.
+Ein spezieller ID-Wert, der Tabs zugewiesen wird, die sich nicht in einer [geteilten Ansicht](/de/docs/Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API#working_with_tab_split_views) befinden.
 
 Sein Wert ist `-1`.
 

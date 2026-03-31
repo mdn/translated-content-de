@@ -1,19 +1,21 @@
 ---
-title: WebAssembly SIMD-Instruktionen
+title: WebAssembly SIMD-Anweisungen
 slug: WebAssembly/Reference/SIMD
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: d3b22d8099235ad3a0ef2a494106fc2ea178863d
 ---
 
-WebAssembly SIMD (Single Instruction, Multiple Data) Instruktionen.
+WebAssembly SIMD (single instruction, multiple data) Anweisungen.
 
-- [Bitweise Instruktionen](/de/docs/WebAssembly/Reference/SIMD/bitwise)
-  - : Bitweise SIMD-Instruktionen.
-- [Konvertierungsinstruktionen](/de/docs/WebAssembly/Reference/SIMD/conversion)
-  - : SIMD-Konvertierungsinstruktionen.
-- [Extraktionsinstruktionen](/de/docs/WebAssembly/Reference/SIMD/extract)
-  - : SIMD-Extraktionsinstruktionen.
+- [Bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)
+  - : SIMD bitweise Anweisungen.
+- [Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+  - : SIMD Konvertierungsanweisungen.
+- [Extraktionsanweisungen](/de/docs/WebAssembly/Reference/SIMD/extract)
+  - : SIMD Extraktionsanweisungen.
+- [Ladeanweisungen](/de/docs/WebAssembly/Reference/SIMD/load)
+  - : SIMD Ladeanweisungen.
 
 ## Siehe auch
 
-- Typ [`v128`](/de/docs/WebAssembly/Reference/Types/v128)
+- [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typ
