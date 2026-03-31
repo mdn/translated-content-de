@@ -3,12 +3,12 @@ title: Sec-Fetch-User header
 short-title: Sec-Fetch-User
 slug: Web/HTTP/Reference/Headers/Sec-Fetch-User
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 81bf621759d3a52fdf737c2d75f186a0073d1406
 ---
 
-Der HTTP **`Sec-Fetch-User`** {{Glossary("fetch_metadata_request_header", "Fetch-Metadaten-Anforderungs-Header")}} wird für Anfragen gesendet, die durch eine Benutzeraktion initiiert wurden, und sein Wert ist immer `?1`.
+Der HTTP **`Sec-Fetch-User`** [Fetch-Metadaten-Anforderungs-Header](/de/docs/Web/HTTP/Guides/Fetch_metadata) wird für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert werden, und sein Wert ist immer `?1`.
 
-Ein Server kann diesen Header verwenden, um festzustellen, ob eine Navigationsanforderung von einem Dokument, `iframe` usw. durch den Benutzer initiiert wurde.
+Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigationsanforderung von einem Dokument, iFrame usw. vom Benutzer stammt.
 
 <table class="properties">
   <tbody>
@@ -18,11 +18,11 @@ Ein Server kann diesen Header verwenden, um festzustellen, ob eine Navigationsan
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
-      <td>Ja (<code>Sec-</code>-Prefix)</td>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-gewhitelisteter Anforderungs-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungs-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -37,13 +37,13 @@ Sec-Fetch-User: ?1
 
 ## Direktiven
 
-Der Wert wird immer `?1` sein. Wenn eine Anfrage durch etwas anderes als eine Benutzeraktivierung ausgelöst wird, verlangt die Spezifikation, dass Browser den Header vollständig weglassen.
+Der Wert wird immer `?1` sein. Wenn eine Anforderung nicht durch eine Benutzeraktivierung ausgelöst wird, verlangt die Spezifikation, dass Browser den Header vollständig weglassen.
 
 ## Beispiele
 
 ### Verwendung von Sec-Fetch-User
 
-Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite im gleichen Ursprung klickt, würde die resultierende Anfrage die folgenden Header enthalten:
+Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite am selben Ursprung klickt, hätte die resultierende Anfrage die folgenden Header:
 
 ```http
 Sec-Fetch-Dest: document
@@ -63,5 +63,5 @@ Sec-Fetch-User: ?1
 ## Siehe auch
 
 - {{HTTPHeader("Sec-Fetch-Dest")}}, {{HTTPHeader("Sec-Fetch-Mode")}}, {{HTTPHeader("Sec-Fetch-Site")}} Fetch-Metadaten-Anforderungs-Header
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers Spielwiese](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Schützen Sie Ihre Ressourcen vor Webangriffen mithilfe von Fetch-Metadaten](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Fetch Metadata Request Headers Playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
