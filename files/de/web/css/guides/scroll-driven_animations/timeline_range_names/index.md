@@ -1,25 +1,25 @@
 ---
-title: Verstehen von Zeitachsenbereichsnamen
+title: Verständigung von Zeitachsenbereichsnamen
 slug: Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names
 l10n:
-  sourceCommit: f94b7a0b06a0e32df81ec8197720d306fe50a4a0
+  sourceCommit: 3d49f18251e1f3493ef2e3a70519603345f8b7dc
 ---
 
-Standardmäßig verfolgen [View-Progress-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) Elemente über den gesamten Scrollbereich. Die Animationszeitachse beginnt, wenn der erste Pixel der Startecke des Elements die Endkante des Scrollbereichs schneidet, und endet, wenn die Endkante des Elements die Startkante des Scrollbereichs überschreitet. Sie können diesen Standardbereich der Animation anhängen. Beispielsweise können Sie die View-Progress-Zeitachse einschränken, sodass sie erst beginnt, wenn das Element vollständig in den Scrollbereich eingetreten ist.
+Standardmäßig verfolgen [Ansichtsfortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) Elemente über den gesamten Scrollbereich. Die Animationszeitachse beginnt, wenn das erste Pixel der Startränder des Elements die Endkante des Scrollbereichs überschreitet und endet, wenn die Endkante des Elements die Startkante des Scrollbereichs überschreitet. Sie können diesen standardmäßigen Animationsanheftungsbereich ändern. Beispielsweise können Sie die Ansichtsfortschritts-Zeitachse so einschränken, dass sie erst beginnt, wenn das Ziel-Element vollständig in den Scrollbereich eingetreten ist.
 
-Dieser Leitfaden erklärt, wie Sie Zeitachsenbereichsnamen ändern. Insbesondere wird untersucht, welche verschiedenen Zeitachsenbereichsnamen es gibt, welche Bedeutung sie haben und wie sie verwendet werden.
+Dieser Leitfaden erklärt, wie Sie Zeitachsenbereichsnamen modifizieren, indem speziell die verschiedenen Zeitachsenbereichsnamen, ihre Bedeutungen und ihre Verwendung untersucht werden.
 
-## Grundlagen der View-Progress-Zeitleiste
+## Einführung in die Ansichtsfortschritts-Zeitachse
 
-[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) werden erstellt, indem {{cssxref("@keyframes")}}-Animationen an ein Element mithilfe der {{cssxref("animation-name")}}-Eigenschaft (oder {{cssxref("animation")}}-Kurzform) angehängt werden. Die Keyframes definieren das Verhalten der Animation, während die {{cssxref("animation-timeline")}} bestimmt, wann und wie das Element durch diese Keyframes fortschreitet.
+[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) werden erstellt, indem {{cssxref("@keyframes")}}-Animationen an ein Element mit der {{cssxref("animation-name")}}-Eigenschaft (oder der {{cssxref("animation")}}-Kurzschreibweise) angehängt werden. Die Keyframes definieren das Verhalten der Animation, während die {{cssxref("animation-timeline")}} bestimmt, wann und wie das Element durch diese Keyframes fortschreitet.
 
-Standardmäßig ist die Zeitleiste der Animation die standardmäßige zeitbasierte [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) des Dokuments. Bei [CSS-Scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) wird die Zeitleiste der Animation oder der Fortschritt entweder durch das Scrollen des Benutzers ([Scroll-Fortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines)) oder die Sichtbarkeit des Elements ([View-Progress-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines)) angetrieben, anstelle des Zeitablaufs.
+Standardmäßig ist die Zeitachse der Animation die standardmäßige zeitbasierte [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) des Dokuments. Bei [CSS-Scroll-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) wird der Fortschritt der Animation entweder durch den Bildlauf des Nutzers ([Scrollfortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines)) oder die Sichtbarkeit des Elements ([Ansichtsfortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines)) angetrieben, anstatt durch den Zeitablauf.
 
-Bei View-Progress-Zeitachsen ist der Fortschritt der Keyframes mit dem Anteil des Elements verbunden, der im Scroller sichtbar ist, und mit der Position des Elements innerhalb des Scrollers. Wenn das Element den Viewport betritt, schreitet die Zeitleiste fort. Wenn der Benutzer das Scrollen umkehrt, kehrt die Zeitleiste um. Mit anderen Worten, wenn das Element ins Sichtfeld kommt oder dieses verlässt, schreitet die Zeitleiste entsprechend voran oder zurück. Die Animation tritt nur auf, wenn das Element innerhalb seines Scrollbereichs sichtbar ist. Wenn das Scrollen stoppt, während das Element sichtbar ist, pausiert die Animation.
+Mit Ansichtsfortschritts-Zeitachsen ist der Fortschritt der Keyframes an die Sichtbarkeit des Ziel-Elements innerhalb des Scrollers und seiner Position innerhalb des Scrollers gebunden. Wenn das Element den Viewport betritt, schreitet die Zeitachse voran. Wenn der Nutzer den Bildlauf umkehrt, kehrt die Zeitachse um. Mit anderen Worten, während das Element ins Sichtfeld gelangt oder dieses verlässt, schreitet die Zeitachse vor oder zurück. Die Animation tritt nur auf, wenn das Ziel innerhalb seines Scrollbereichs sichtbar ist. Hört der Bildlauf auf, während das Element im Sichtbereich ist, pausiert die Animation.
 
-### Standard-View-Progress-Zeitleiste
+### Standardmäßige Ansichtsfortschritts-Zeitachse
 
-Standardmäßig beginnt der Fortschritt der [View-Progress-Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines), wenn die Startecke des verfolgten Elements die Endkante des Scrollbereichs schneidet und endet, wenn die Endkante des Elements die Startkante des Scrollbereichs verlässt. Diese sind die oberen und unteren Kanten des Elements und des Scrollbereichs beim vertikalen Scrollen, und die linken und rechten oder rechten und linken Kanten beim horizontalen Scrollen, je nach Schreibmodus.
+Standardmäßig beginnt der Fortschritt der [Ansichtsfortschritts-Zeitachse](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines), wenn der Start-Rand des verfolgten Ziels die Endkante des Scrollbereichs schneidet, und endet, wenn der End-Rand des Ziels die Startkante des Scrollbereichs verlässt. Dies sind die oberen und unteren Kanten des Ziels und Scrollbereichs bei vertikalem Scrollen und die linken und rechten oder rechten und linken Kanten bei horizontalem Scrollen, abhängig vom Schreibmodus.
 
 ```html hidden live-sample___initial live-sample___entry_exit live-sample___inset_cover live-sample___contains live-sample___inset_contain live-sample___cover_contain live-sample___entry_crossing live-sample___exit_crossing
 <main>
@@ -186,31 +186,31 @@ body::before {
 }
 ```
 
-Im folgenden Beispiel versuchen Sie, nach unten zu scrollen. Beachten Sie, wie die Animation genau dann beginnt, wenn die obere Kante des animierten Elements mit der unteren Kante des Scrollcontainers ausgerichtet ist und endet und `100%` Fortschritt erreicht, wenn die untere Kante mit der oberen Kante des Containers ausgerichtet ist, unabhängig davon, wie hoch das animierte Element ist.
+Im folgenden Beispiel versuchen Sie, nach unten zu scrollen. Beachten Sie, wie die Animation genau dann beginnt, wenn die obere Kante des animierten Elements mit der unteren Kante des Scrollcontainers übereinstimmt und endet, bei Erreichen von `100%` Fortschritt, wenn die untere Kante mit der oberen Kante des Containers übereinstimmt, unabhängig davon, wie hoch das animierte Element ist.
 
 {{EmbedLiveSample("initial", "100%", "400")}}
 
-Der Schreibmodus des Scrollcontainers und die Scrollrichtung bestimmen die Start- und Endkanten des Scrollcontainers.
+Der Schreibmodus und die Scrollrichtung des Scrollcontainers bestimmen die Start- und Endkanten des Scrollcontainers.
 
 ## Der Animationsanheftungsbereich
 
-Standardmäßig wird das Element die gesamte Zeit animiert, während irgendein Teil des Elements sichtbar ist. Das bedeutet, dass der Standard-**Animationsanheftungsbereich** die Summe der Höhe des Scrollcontainers und der Höhe des Elements ist, wobei diese zusätzliche Höhe an der Endkante des Scrollbereichs liegt.
+Standardmäßig wird das Element während der gesamten Zeit animiert, in der ein Teil des Ziel-Elements sichtbar ist. Das bedeutet, dass der standardmäßige **Animationsanheftungsbereich** die Summe aus der Höhe des Scrollcontainers und der Höhe des Ziel-Elements ist, wobei diese zusätzliche Höhe an der Endkante des Scrollbereichs liegt.
 
-Im vorherigen Beispiel ist der Scrollcontainer `250px` hoch und das animierte Element ist standardmäßig `50px` hoch, was bedeutet, dass der vertikale Animationsanheftungsbereich `300px` hoch ist. Wenn das Element auf `250px` gesetzt wird, beträgt der Bereich `500px`; wenn das Element auf `500px` gesetzt wird, wächst die Größe des Animationsanheftungsbereichs auf `750px`.
+Im vorherigen Beispiel ist der Scrollcontainer `250px` hoch und das animierte Element ist standardmäßig `50px` hoch, was bedeutet, dass der vertikale Animationsanheftungsbereich `300px` hoch ist. Wenn das Ziel auf `250px` eingestellt ist, wird der Bereich `500px`; wenn das Element auf `500px` eingestellt ist, wächst die Größe des Anheftungsbereichs auf `750px`.
 
-Das Modul [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) bietet Mechanismen zur Definition verschiedener Animationsanheftungsbereiche. Die Eigenschaften {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}}, die beide mit der Kurzform {{cssxref("animation-range")}} festgelegt werden können, definieren den Anheftungsbereich für die Start- und Endkante des Animationsbereichs, jeweils mit beliebigen Einfassungen von beiden Kanten.
+Das [CSS-Scroll-Animations](/de/docs/Web/CSS/Guides/Scroll-driven_animations)-Modul bietet Mechanismen zur Definition unterschiedlicher Animationsanheftungsbereiche. Die {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}} Eigenschaften, die beide mit der {{cssxref("animation-range")}} Kurzschreibweise gesetzt werden können, definieren den Anheftungsbereich für den Start- und Endrand des Animationsbereichs, zusammen mit jeglichen Versätzen von beiden Kanten.
 
-Die Animation-Range-Eigenschaften akzeptieren das Schlüsselwort `normal`, einen {{cssxref("timeline-range-name")}}, ein {{cssxref("length-percentage")}}, oder sowohl einen `<timeline-range-name>` als auch das `<length-percentage>`. In diesem Leitfaden behandeln wir nur die Werte für die `<timeline-range-name>`-Komponente des Wertes.
+Die animation-range Eigenschaften akzeptieren das Schlüsselwort `normal`, einen {{cssxref("timeline-range-name")}}, einen {{cssxref("length-percentage")}}, oder sowohl einen `<timeline-range-name>` als auch den `<length-percentage>`. In diesem Leitfaden behandeln wir nur die Werte für die `<timeline-range-name>` Komponente des Wertes.
 
-## Zeitachsenbereichsnamen
+## Zeitachsenbereichs-Namen
 
-Der Wertetyp `<timeline-range-name>` akzeptiert sechs Schlüsselwörter: `cover`, `contain`, `entry`, `exit`, `entry-crossing` und `exit-crossing`. Jedes dieser Schlüsselwörter stellt einen vordefinierten _benannten Zeitachsenbereich_ dar. Ein benannter Zeitachsenbereich ist ein benannter Abschnitt einer Animationszeitachse. Diese Schlüsselwörter ermöglichen es dem Entwickler, die Basis des Animationsanheftungsbereichs festzulegen, auf die sich Versätze beziehen. Der Beginn des Segments wird als `0%` Fortschritt durch den Bereich dargestellt; das Ende des Segments wird als `100%` Fortschritt durch den Bereich dargestellt. Wo sich diese Punkte befinden, hängt vom verwendeten benannten Bereich ab.
+Der `<timeline-range-name>` Wertstyp akzeptiert sechs Schlüsselwörter: `cover`, `contain`, `entry`, `exit`, `entry-crossing`, und `exit-crossing`. Jedes dieser Wörter stellt einen vordefinierten _benannten Zeitachsenbereich_ dar. Ein benannter Zeitachsenbereich ist ein benannter Abschnitt einer Animationszeitachse. Diese Schlüsselwörter ermöglichen es dem Entwickler, die Basis des Animationsanheftungsbereichs festzulegen, relativ zu der Offsets sind. Der Anfang des Abschnitts wird als `0%` Fortschritt durch den Bereich dargestellt; das Ende des Abschnitts wird als `100%` Fortschritt durch den Bereich dargestellt. Wo sich diese Punkte befinden, hängt vom verwendeten benannten Bereich ab.
 
 ### Cover
 
-Der Animationsanheftungsbereich in den vorherigen Beispielen umfasst den gesamten Bereich. Dieser Bereich stellt den gesamten Bereich der View-Progress-Zeitachse dar. `0%` Fortschritt stellt den Punkt dar, an dem die Startkante des Elements mit der Endkante des Scrollbereichs ausgerichtet ist, und `100%` Fortschritt stellt den Punkt dar, an dem die Endkante des Elements die Startkante des Scrollbereichs erreicht. Wie wir gesehen haben, ist die Größe des `cover`-Bereichs die Summe der Dimensionen des Elements und des Scrollbereichs in der Scrollrichtung. In allen bisherigen Beispielen entspricht die Höhe des Animationsanheftungsbereichs der Höhe des Containers plus der Höhe des animierten Elements.
+Der Animationsanheftungsbereich in den vorherigen Beispielen "deckt" alle den gesamten Bereich ab. Dieser Bereich stellt den gesamten Bereich der Ansichtsfortschritts-Zeitachse dar. `0%` Fortschritt bezeichnet den Punkt, an dem die Startrandkante des Ziels mit der Endkante des Scrollbereichs übereinstimmt, und `100%` Fortschritt bezeichnet den Punkt, an dem die Endrandkante des Ziels die Startkante des Scrollbereichs erreicht. Wie wir gesehen haben, ist die Größe des `cover` Bereichs die Summe der Größen der Ziel- und Scrollbereichsmaße in Scrollrichtung. In all den bisherigen Beispielen ist die Höhe des Animationsanheftungsbereichs die Höhe des Containers plus die Höhe des animierten Elements.
 
-Der `cover`-benannte Zeitachsenbereich ist der Standardbereich. Wir hätten die `<timeline-range-name>` explizit auf dasselbe Ergebnis setzen können:
+Der `cover` benannte Zeitachsenbereich ist der Standardbereich. Wir hätten den `<timeline-range-name>` explizit auf dasselbe Ergebnis setzen können:
 
 ```css
 .animated_element {
@@ -240,21 +240,21 @@ Der `cover`-benannte Zeitachsenbereich ist der Standardbereich. Wir hätten die 
 
 {{EmbedLiveSample("svg_cover", "100%", "720")}}
 
-Das Bild zeigt die Animationszeitachse. Die Position des Elements, wenn es den Beginn des Animationsanheftungsbereichs bei `0%`-Markierung erreicht, wird durch einen gelben Block dargestellt. Dies repräsentiert die Position des Elements, wenn das `from`-Keyframe angewendet wird. Der rote Block stellt die Position des Elements relativ zum Scrollbereich dar, wenn das `to`-Keyframe angewendet wird. Dies ist die Position des animierten Elements, wenn es das Ende der Animation erreicht.
+Das Bild zeigt die Animationszeitachse. Die Position des Elements, wenn es den Start des Animationsanheftungsbereichs bei `0%` erreicht, wird als gelber Block dargestellt. Dies repräsentiert die Elementposition, wenn das `from` Keyframe angewendet wird. Der rote Block repräsentiert die Position des Zielelements relativ zum Scrollbereich, wenn das `to` Keyframe angewendet wird. Dies ist die Position des animierten Elements, wenn es das Ende der Animation erreicht.
 
-Je nach Größe des Elements und des gewählten Zeitachsenbereichs können sich die Start- und Endpositionen überschneiden. Überlappungsbereiche (wie in den nachfolgenden Diagrammen zu sehen) werden durch gestreifte rote und gelbe Bereiche dargestellt.
+Je nach Größe des Ziel-Elements und dem gewählten Zeitachsenbereich können sich Start- und Endposition überlappen. Bereiche der Überlappung (wie in nachfolgenden Diagrammen zu sehen) werden durch gestreifte rote und gelbe Bereiche dargestellt.
 
 ### Contain
 
-Der `contain`-benannte Zeitachsenbereich umfasst die Animation vollständig innerhalb des Scrollbereichs — der Bereich beginnt, wenn das animierte Element zu 100% sichtbar ist, und endet, wenn es nicht mehr vollständig sichtbar ist, falls es vollständig sichtbar sein kann.
+Der `contain` benannte Zeitachsenbereich _enthält_ die Animation vollständig innerhalb des Scrollbereichs — der Bereich beginnt, wenn das animierte Element zu 100% sichtbar ist und endet, wenn es nicht mehr vollständig sichtbar ist, sofern es vollständig sichtbar sein kann.
 
-Der `contain`-Wert stellt den Bereich dar, während dessen die Hauptkiste entweder vollständig vom Sichtbereich des Scrollbereichs umfasst wird oder vollständig diesen überdeckt, je nachdem, ob das Element kleiner ist (vollständig umfasst werden kann) oder größer ist als der Scrollbereich.
+Der `contain` Wert repräsentiert den Bereich, in dem das Hauptelement entweder vollständig vom oder vollständig über das Ansichtsfortschritts-Sichtbarkeitsbereich im Scrollbereich enthält, abhängig davon, ob das Zielelement kleiner (vollständig enthalten) oder größer als der Scrollbereich ist.
 
-- Wenn das Element kleiner ist als der Scrollbereich in der Scrollrichtung, tritt `0%` auf, wenn die Endkante des animierten Elements mit der Endkante des Scrollbereichs ausgerichtet ist, und `100%`, wenn die Startkante des animierten Elements mit der Startkante des Scrollbereichs ausgerichtet ist. Mit anderen Worten: Der `contain`-Wert reicht von dem Punkt, an dem das Element erstmals vollständig vom Scrollbereich umfasst wird (`0%`), bis zu dem Punkt, an dem es nicht mehr vollständig vom Scrollbereich umfasst wird (`100%`).
+- Ist das Element in der Scrollrichtung kleiner als der Scrollbereich, tritt `0%` auf, wenn die Endrandkante des animierten Elements mit der Endkante des Scrollbereichs übereinstimmt, und `100%`, wenn die Startrandkante des animierten Elements mit der Startkante des Scrollbereichs übereinstimmt. Mit anderen Worten, der `contain` Wert reicht von dem Punkt, an dem das Zielelement erstmals vollständig vom Scrollbereich enthalten wird (`0%`), bis zu dem Punkt, an dem es nicht mehr vollständig vom Scrollbereich enthalten wird (`100%`).
 
-- Wenn das Element größer ist als der Scrollbereich, tritt `0%` Fortschritt auf, wenn die Startkante des animierten Elements die Startkante des Scrollbereichs erreicht, und `100%`, wenn die Endkante ausgerichtet ist. Mit anderen Worten: Wenn die Animation größer ist als ihr Container, ist das animierte Element nie vollständig sichtbar, da es nicht im Scrollbereich "enthalten" ist. Die Animation beginnt, wenn die Startkante die Startkante des Scrollbereichs erreicht, und endet, wenn die Endkante des animierten Elements die Endkante des Containers erreicht.
+- Ist das Element größer als der Scrollbereich, ist der `0%` Fortschritt, wenn die Startrandkante des animierten Elements die Startkante des Scrollbereichs erreicht, und `100%`, wenn die Endrandkante mit der Endkante übereinstimmt. Mit anderen Worten, wenn die Animation größer als ihr Container ist, ist das animierte Element nie vollständig sichtbar, da es nicht "enthalten" im Scrollbereich ist. Die Animation beginnt, wenn die Startrandkante die Startkante des Scrollbereichs erreicht, und endet, wenn die Endrandkante des animierten Elements die Endkante des Containers erreicht.
 
-- Wenn das animierte Element dieselbe Größe hat wie der Container, findet die Animation immer noch statt, aber über `0px`, was für den Benutzer nicht sichtbar ist.
+- Ist das animierte Element gleich groß wie sein Container, wird die Animation dennoch ausgeführt, jedoch über `0px`, was für den Nutzer nicht sichtbar ist.
 
 ```css live-sample___contains
 .animated_element {
@@ -270,11 +270,11 @@ body::before {
 
 {{EmbedLiveSample("contains", "100%", "400")}}
 
-In diesem Beispiel beträgt die ursprüngliche Höhe des animierten Elements 20% der Höhe des Scrollbereichs und kann daher vollständig darin enthalten sein. Daher sollte, wie zuvor erklärt, die Animation starten, sobald das Element in den Scrollbereich zu gelangen beginnt, und sie sollte enden, sobald das Element zu verlassen beginnt.
+In diesem Beispiel beträgt die ursprüngliche Höhe des animierten Elements 20% der Höhe des Scrollbereichs und kann daher vollständig innerhalb desselben enthalten sein. Therefore, wie zuvor erklär, sollte die Animation beginnen, sobald das Element beginnt, in den Scrollbereich einzutreten, und enden, sobald es beginnt, den Scrollbereich zu verlassen.
 
-Wenn Sie die Option `500px` auswählen, wird das Element doppelt so hoch wie der Scrollbereich. Der Animationsbereich beginnt, wenn das Element den Scrollbereich zum ersten Mal vollständig abdeckt, wobei `0%` dann erreicht wird, wenn die Startkante die Startkante des Containers erreicht. Er endet, wenn das Element den Scrollbereich nicht mehr vollständig abdeckt, wobei `100%` erreicht wird, wenn die Endkante die Endkante des Containers überschreitet.
+Wenn Sie die `500px` Radiotaste auswählen, wird das Ziel doppelt so hoch wie der Scrollbereich. Der Animationsbereich beginnt, wenn das Zielelement erstmals den Scrollbereich vollständig abdeckt, wobei `0%` auftritt, wenn die Startrandkante die Startkante des Containers erreicht. Die Animation endet, wenn das Element den Scrollbereich nicht mehr vollständig abdeckt, wobei `100%` auftritt, wenn die Endrandkante die Endkante des Containers erreicht.
 
-Wenn das Element dieselbe Größe wie der Scrollcontainer hat, wie es der Fall ist, wenn `250px` ausgewählt ist, findet die Animation immer noch statt, aber über `0px`. Da `0%` und `100%` gleichzeitig auftreten, ist die Animation sofortig. Der Unterschied in der Gestaltung ist nur wahrnehmbar, weil die Eigenschaften, die im `100%`-Keyframe-Zustand definiert sind, nach dem Ende der Animation angewendet werden. Dies ist so, weil die Eigenschaft {{cssxref("animation-fill-mode")}} auf `forwards` gesetzt ist. Andernfalls würde das mittelgroße `250px`-Element, das dieselbe Höhe wie der Scrollcontainer hat, so erscheinen, als ob es sich überhaupt nicht animieren würde.
+Wenn das Ziel genauso groß ist wie der Scrollcontainer, wie es ist, wenn `250px` ausgewählt ist, tritt die Animation dennoch auf, jedoch über `0px`. Da `0%` und `100%` zur gleichen Zeit auftreten, ist die Animation augenblicklich. Der Unterschied im Stil ist nur wahrnehmbar, da die in den `100%` Keyframe-Zustand definierten Eigenschaften nach dem Ende der Animation angewendet werden. Dies liegt daran, dass die {{cssxref("animation-fill-mode")}} Eigenschaft auf `forwards` gesetzt ist. Andernfalls würde der mittelgroße `250px` Ziel, der dieselbe Höhe wie der Scrollcontainer hat, überhaupt nicht animiert erscheinen.
 
 ```html hidden live-sample___svg_contain
 <div>
@@ -306,9 +306,9 @@ body svg {
 
 {{EmbedLiveSample("svg_contain", "100%", "450")}}
 
-Die Animation tritt auf, wenn sich das Element innerhalb der durch das Weiß des Containers im `50px`-Beispiel dargestellten Bereiche und innerhalb der roten/gelben Bereiche im `250px`- und `500px`-Beispiel befindet.
+Die Animation tritt auf, wenn sich das Element innerhalb der durch das Weiß des Containers im `50px` Beispiel und durch die rot/gelben Bereiche in den `250px` und `500px` Beispielen dargestellten Bereiche befindet.
 
-Für einige kann es hilfreich sein, die Werte `cover` und `contain` miteinander zu vergleichen und gegenüberzustellen. Wir können die Kurzform-Eigenschaft `animation-range` verwenden, um die `animation-range-start` und `animation-range-end` Eigenschaften auf denselben `<animation-name-range>`-Wert zu setzen:
+Es kann für einige hilfreich sein, die `cover` und `contain` Werte zu vergleichen und gegenüberzustellen. Wir können die Kurzschreibweise `animation-range` Eigenschaft verwenden, um die `animation-range-start` und `animation-range-end` Eigenschaften auf denselben `<animation-name-range>` Wert einzustellen:
 
 ```css live-sample___cover_contain
 #A {
@@ -337,28 +337,28 @@ body::before {
 
 {{EmbedLiveSample("cover_contain", "100%", "420")}}
 
-Wählen Sie verschiedene Optionsfelder aus und scrollen Sie den Scrollbereich, um die Auswirkungen der Werte `cover` und `contain` auf Animationszeitachsen zu vergleichen.
+Wählen Sie verschiedene Radiotasten aus und scrollen Sie den Scrollbereich, um die Effekte der `cover` und `contain` Werte auf Animationszeitachsen zu vergleichen.
 
-Schauen wir uns die anderen `<timeline-range-name>` Schlüsselwortwerte an!
+Lassen Sie uns die anderen `<timeline-range-name>` Schlüsselwert-Werte betrachten!
 
-### Entry und Exit
+### Entry und exit
 
-Um die gesamte Animation nur dann stattfinden zu lassen, wenn sich das Element in den Prozess des Eintritts in oder Austritts aus dem Scrollbereich befindet, verwenden Sie die Werte `entry` oder `exit`. Mit diesen beiden Werten basiert der Animationsanheftungsbereich auf der Größe des animierten Elements, nicht auf der Größe des Scrollbereichs.
+Um die gesamte Animation nur dann stattfinden zu lassen, wenn das Ziel dabei ist, den Scrollbereich zu betreten oder zu verlassen, verwenden Sie die `entry` oder `exit` Werte, je nachdem. Mit diesen beiden Werten basiert der Animationsanheftungsbereich auf der Größe des animierten Elements und nicht auf der Größe des Scrollbereichs.
 
 #### Entry
 
-Bei `entry` tritt `0%` Fortschritt ein, sobald das animierte Element beginnt, in den Scrollbereich einzutreten, wenn die Startkante des Elements die Endkante des Scrollbereichs überschreitet.
+Bei `entry` tritt `0%` Fortschritt in dem Moment ein, in dem das animierte Element beginnt, den Scrollbereich zu betreten, wenn die Startrandkante des Ziels die Endkante des Scrollbereichs kreuzt.
 
-Die gesamte Animation tritt auf, wenn das Element ins Sichtfeld kommt und endet, wenn es komplett sichtbar wird oder wenn es die Startkante erreicht; je nachdem, was zuerst eintritt. Wenn das animierte Element kleiner ist als der Scrollbereich, ist der Animationsanheftungsbereich die Größe des Elements.
+Die gesamte Animation findet statt, während das Ziel ins Sichtfeld kommt und endet, wenn es vollständig sichtbar wird oder wenn es die Startkante erreicht; je nachdem, was zuerst eintritt. Wenn das animierte Element kleiner als der Scrollbereich ist, ist der Animationsanheftungsbereich die Größe des Ziels.
 
 {{EmbedLiveSample("svg_entry_only", "100%", "500")}}
 
-Die Position bei `0%` Fortschritt wird in Gelb angezeigt. Die Position bei `100%` Fortschritt wird in Rot angezeigt. Wenn das animierte Element größer ist als der Scrollbereich, überlappen sich diese beiden Positionen, was durch einen gestreiften Hintergrund angezeigt wird.
+Die Position bei `0%` Fortschritt wird in Gelb dargestellt. Die Position bei `100%` Fortschritt wird in Rot angezeigt. Wenn das animierte Element größer als der Scrollbereich ist, überlappen sich diese beiden Positionen, was durch einen gestreiften Hintergrund gekennzeichnet ist.
 
-Bei `entry` entspricht der Animationsanheftungsbereich entweder der Größe des animierten Elements oder der Größe des Containers, je nachdem, was kleiner ist. Wenn das Element größer als der Scrollbereich ist, umfasst der Animationsanheftungsbereich den gesamten Scrollbereich. Bei `entry` tritt `100%` ein, wenn die Endkante des Elements die Endkante des Scrollbereichs überschreitet oder, wenn das animierte Element größer ist als der Scrollbereich in der Scrollrichtung, wenn die Startkante des Elements die Startkante des Scrollbereichs erreicht.
+Bei `entry` ist der Animationsanheftungsbereich entweder die Größe des animierten Elements oder die Größe des Containers, je nachdem, was kleiner ist. Ist das Ziel größer als der Scrollbereich, ist der Animationsanheftungsbereich der gesamte Scrollbereich. Bei `entry` tritt `100%` auf, wenn die Endrandkante des Ziels die Endkante des Scrollbereichs schneidet oder, wenn das animierte Element in der Scrollrichtung größer als der Scrollbereich ist, wenn die Startrandkante des animierten Elements die Startkante des Scrollbereichs erreicht.
 
-Das Setzen von `animation-range-start: entry` ist dasselbe wie das Setzen von `animation-range-start: cover`.
-Das Setzen von `animation-range-end: entry` ist gleichbedeutend mit dem Setzen von `animation-range-end: contain`.
+Die Einstellung `animation-range-start: entry` entspricht der Einstellung `animation-range-start: cover`.
+Die Einstellung `animation-range-end: entry` entspricht der Einstellung `animation-range-end: contain`.
 
 ```html hidden live-sample___svg_entry_only
 <div>
@@ -384,8 +384,8 @@ Das Setzen von `animation-range-end: entry` ist gleichbedeutend mit dem Setzen v
 
 #### Exit
 
-Der `exit`-Wert ist das Gegenteil von `entry`.
-Bei `exit` beginnt der Anheftungsbereich, wenn die Startkante des animierten Elements die Startkante des Scrollbereichs überschreitet.
+Der `exit` Wert ist das Gegenteil von `entry`.
+Bei `exit` beginnt der Anheftungsbereich, wenn die Startrandkante des animierten Elements die Startkante des Scrollbereichs kreuzt.
 
 ```html hidden live-sample___svg_exit_only
 <div>
@@ -417,14 +417,14 @@ Bei `exit` beginnt der Anheftungsbereich, wenn die Startkante des animierten Ele
 
 {{EmbedLiveSample("svg_exit_only", "100%", "460")}}
 
-Der `0%`-Fortschritt tritt auf, wenn die Startkante des Elements die Startkante des Scrollbereichs erreicht.
-Der `100%`-Fortschritt tritt auf, wenn die Endkante des Elements die Startkante überschreitet.
-Das Setzen von `animation-range-start: exit 0%` ist gleichbedeutend mit `animation-range-start: contain 100%`.
-Das Setzen von `animation-range-end: exit 100%` ist gleichbedeutend mit `animation-range-end: cover 100%`.
+Der `0%` Fortschritt tritt ein, wenn die Startrandkante des Ziels die Startkante des Scrollbereichs erreicht.
+Der `100%` Fortschritt tritt ein, wenn die Endrandkante des Ziels die Startkante schneidet.
+Die Einstellung `animation-range-start: exit 0%` entspricht der Einstellung `animation-range-start: contain 100%`.
+Die Einstellung `animation-range-end: exit 100%` entspricht der Einstellung `animation-range-end: cover 100%`.
 
-#### Vergleich von Entry und Exit
+#### Vergleich von entry und exit
 
-Es kann hilfreich sein, `entry` und `exit` nebeneinander zu betrachten, um zu verstehen, welchen Einfluss die Größe des Elements auf den Animationsanheftungsbereich hat: Bei diesen beiden Werten ist der Animationsanheftungsbereich nie größer als der Container.
+Es kann helfen, `entry` und `exit` nebeneinander zu betrachten, um den Einfluss der Größe des Ziels auf den Animationsanheftungsbereich zu verstehen: mit diesen beiden Werten ist der Animationsanheftungsbereich nie größer als der Container.
 
 ```css live-sample___entry_exit
 #A {
@@ -451,34 +451,34 @@ body::before {
 }
 ```
 
-Scrollen Sie die Viewbox, um die Reichweite der `entry`- und `exit`-Werte zu sehen, ändern Sie dann die Größe der Elemente mit den Optionsfeldern und scrollen Sie erneut.
+Scrollen Sie die Viewbox, um die Reichweite der `entry` und `exit` Werte zu sehen, ändern Sie dann die Größe der Ziele mit den Radiotasten und scrollen Sie erneut.
 
 {{EmbedLiveSample("entry_exit", "100%", "400")}}
 
-Wenn die Elemente klein genug sind, um vollständig im Scrollbereich untergebracht zu werden, befindet sich die Animationsanheftungszeitachse am Anfang (`entry`) oder Ende (`exit`) des Scrollbereichs, und die Größe des Anheftungsbereichs ist auf die Größe des animierten Elements in der Scrollrichtung begrenzt.
+Wenn die Ziele klein genug sind, um vollständig im Scrollbereich enthalten zu sein, befindet sich der Zeitrahmen des Animationsanheftungsbereichs am Anfang (`entry`) oder Ende (`exit`) des Scrollbereichs, und die Größe des Anheftungsbereichs ist auf die Größe des animierten Elements in der Scrollrichtung beschränkt.
 
-Mit `entry` und `exit` ist der Animationsbereich auf die Größe des Scrollbereichs beschränkt, während das Element nicht ist.
+Bei `entry` und `exit` ist der Animationsbereich auf die Größe des Scrollbereichs beschränkt, während das Element nicht ist.
 
-Wenn das Element dieselbe Größe wie der Scrollbereich oder größer ist:
+Wenn das Zielelement die Größe des Scrollbereichs oder größer hat:
 
-- Im Fall von `entry` endet die Animation, wenn das Element den Scrollbereich in der Scrollrichtung vollständig überdeckt.
-- Im Fall von `exit` beginnt die Animation erst, wenn das Element den Scrollbereich in der Scrollrichtung vollständig überdeckt.
+- Im Falle von `entry` endet die Animation, wenn das Element den Scrollbereich in der Scrollrichtung vollständig abdeckt.
+- Im Falle von `exit` beginnt die Animation erst, wenn das Element den Scrollbereich in der Scrollrichtung vollständig abdeckt.
 
-Dies ist möglicherweise nicht der Effekt, den Sie wünschen. Wenn Sie möchten, dass eine Entry-Animation weiterhin läuft, bis das gesamte Element den Startpunkt des Scrollbereichs vollständig passiert hat, oder wenn Sie möchten, dass eine Exit-Animation startet, sobald das Element beginnt, die Endkante des Scrollbereichs zu verlassen, müssen Sie `entry-crossing` und `exit-crossing` verwenden.
+Dies ist möglicherweise nicht der Effekt, den Sie möchten. Wenn Sie möchten, dass eine Eintrittsanimation so lange läuft, bis das gesamte Element die Startkante des Scrollbereichs erreicht hat, oder wenn Sie möchten, dass eine Austrittsanimation beginnt, sobald das Element beginnt, die Endkante des Scrollbereichs zu verlassen, müssen Sie `entry-crossing` und `exit-crossing` verwenden.
 
-### Entry- und Exit-Crossing
+### Entry- und exit-crossing
 
-Wenn das Element kleiner als der Scrollbereich ist und Sie möchten, dass die vollständige Animation abläuft, während das Element in den Scrollbereich eintritt oder diesen verlässt, können Sie glücklich die Werte [`entry`](#entry) oder [`exit`](#exit) verwenden.
+Wenn das Zielelement kleiner ist als der Scrollbereich und Sie möchten, dass die gesamte Animation stattfindet, während es den Scrollbereich betritt oder verlässt, können Sie glücklich [`entry`](#entry) oder [`exit`](#exit) verwenden, je nachdem.
 
-Wenn das Element größer als der Scrollbereich ist, läuft die Animation nicht über den gesamten Verlauf des Ein- oder Austretens des Elements aus dem Scrollbereich. Der `entry`-Wert setzt den `100%` Fortschritt als den Punkt, an dem die Startkante des Elements die Startkante des Scrollbereichs erreicht, bevor das Element vollständig in den Scrollbereich eingetreten ist. Bei `exit` tritt der `0%`-Fortschritt ein, wenn die Endkante des Elements die Endkante des Scrollcontainers erreicht, wenn bereits ein Teil des Elements den Scrollbereich verlassen hat. Bei beiden Werten ist der Animationsanheftungsbereich kleiner als das Element. Wenn dies nicht der gewünschte Effekt ist, könnten die `*-crossing`-Werte die Lösung sein, die Sie suchen.
+Wenn das Ziel größer als der Scrollbereich ist, läuft die Animation nicht über die vollständige Länge des Elements, während es den Scrollbereich betritt oder verlässt. Der `entry` Wert setzt den `100%` Fortschritt auf den Punkt, an dem das Element die Startkante des Scrollbereichs erreicht, bevor das Element vollständig in den Scrollbereich eingetreten ist. Bei `exit` tritt der `0%` Fortschritt auf, wenn die Endrandkante des Elements die Endkante des Scrollcontainers erreicht hat, wenn ein Teil des Ziels bereits den Scrollbereich verlassen hat. Bei beiden Werten ist der Animationsanheftungsbereich kleiner als das Ziel. Wenn dies nicht der gewünschte Effekt ist, könnten die `*-crossing` Werte die Lösung sein, die Sie suchen.
 
-#### Entry-Crossing
+#### Entry-crossing
 
-Der `entry-crossing`-Wert stellt den Bereich dar, während dessen das animierte Element die Endkante des Scrollbereichs überschreitet, wobei der `0%`-Fortschritt eintritt, wenn die Startkante des Elements mit der Endkante des Scrollbereichs ausgerichtet ist, und der `100%`-Fortschritt eintritt, wenn die Endkante des Elements die Endkante des Scrollbereichs erreicht, was bedeutet, dass es vollständig in den Scrollbereich gescrollt ist.
+Der `entry-crossing` Wert repräsentiert den Bereich, in dem das animierte Element die Endkante des Scrollbereichs kreuzt, wobei der `0%` Fortschritt eintritt, wenn die Startrandkante des Elements mit der Endkante des Scrollbereichs übereinstimmt, und der `100%` Fortschritt auftritt, wenn die Endrandkante des Elements die Endkante des Scrollbereichs erreicht und somit vollständig in den Scrollbereich gescrollt ist.
 
 {{EmbedLiveSample("svg_entry-crossing", "100%", "600")}}
 
-Es könnte hilfreich sein, die beiden Werte in einem Live-Beispiel zu vergleichen.
+Es kann hilfreich sein, die beiden Werte in einem Live-Beispiel zu vergleichen.
 
 ```css live-sample___entry_crossing
 #A {
@@ -505,9 +505,9 @@ Wählen Sie die verschiedenen Höhenwerte aus und scrollen Sie dann, um `entry` 
 
 {{EmbedLiveSample("entry_crossing", "100%", "400")}}
 
-Beachten Sie, wie sich die Effekte ähneln, außer wenn `500px` ausgewählt ist und das animierte Element größer ist als der Container.
-Der `entry-crossing`-Bereich erzielt dieselben Ergebnisse wie `entry`, wenn das Element gleich oder kleiner als der Scrollbereich ist, aber wenn das Element größer ist als der Scrollbereich, erfolgt `100%` später, nämlich erst, wenn die Endkante den Viewport erreicht hat.
-Der Animationsanheftungsbereich ist die Größe des Elements und nicht auf die Größe des Scrollbereichs beschränkt.
+Beachten Sie, wie die Effekte ähnlich sind, außer wenn `500px` ausgewählt ist und das animierte Element höher als der Container ist.
+Der `entry-crossing` Bereich liefert die gleichen Ergebnisse wie `entry`, wenn das Element gleich groß oder kleiner als der Scrollbereich ist, aber wenn das Element größer als der Scrollbereich ist, tritt der `100%` später ein, nämlich nur dann, wenn die Endrandkante in den Viewport eingetreten ist.
+Der Animationsanheftungsbereich ist in der Größe auf das Ziel beschränkt und nicht auf die Größe des Scrollbereichs begrenzt.
 
 ```html hidden live-sample___svg_entry-crossing
 <div>
@@ -556,13 +556,13 @@ Der Animationsanheftungsbereich ist die Größe des Elements und nicht auf die G
 }
 ```
 
-#### Exit-Crossing
+#### Exit-crossing
 
-Der `exit-crossing`-Wert stellt den Bereich dar, während dessen das animierte Element die Startkante des Scrollbereichs überschreitet, wobei der `0%`-Fortschritt auftritt, wenn die Startkante des Elements mit der Startkante des Scrollbereichs ausgerichtet ist, und der `100%`-Fortschritt auftritt, wenn die Endkante des Elements die Startkante des Scrollbereichs erreicht.
+Der `exit-crossing` Wert repräsentiert den Bereich, in dem das animierte Element die Startkante des Scrollbereichs kreuzt, wobei der `0%` Fortschritt eintritt, wenn die Startrandkante des Elements mit der Startkante des Scrollbereichs übereinstimmt, und der `100%` Fortschritt auftritt, wenn die Endrandkante des Elements die Startkante des Scrollbereichs erreicht.
 
 {{EmbedLiveSample("svg_exit_crossing", "100%", "540")}}
 
-Bei `exit-crossing` beginnt die Animation, sobald das Element den Scrollbereich bedeckt (bei `exit` beginnt die Animation erst, wenn die Endkante des Elements in den Blickfeld eintritt). In beiden Fällen läuft die Animation weiter, bis das Element den Scrollbereich vollständig an der Startkante verlässt.
+Bei `exit-crossing` beginnt die Animation, sobald das Ziel den Scrollbereich abdeckt (bei `exit` beginnt die Animation erst, wenn die Endrandkante des Ziels ins Sichtfeld eintritt). In beiden Fällen läuft die Animation weiter, bis das Ziel vollständig die Startkante des Scrollbereichs verlässt.
 
 ```css live-sample___exit_crossing
 #A {
@@ -585,11 +585,11 @@ body::before {
 }
 ```
 
-Der `exit-crossing`-Wert ergibt die gleichen Ergebnisse wie `exit`, wenn das Element gleich oder kleiner als der Scrollbereich ist, aber wenn das Element größer ist als der Scrollbereich, tritt `0%` früher auf, nämlich sobald die Startkante des Elements die Startkante des Scrollbereichs erreicht, anstatt darauf zu warten, dass die Endkante des Elements in den Scrollbereich eintritt.
+Der `exit-crossing` liefert die gleichen Ergebnisse wie `exit`, wenn das Element gleich groß oder kleiner als der Scrollbereich ist, aber wenn das Element größer als der Scrollbereich ist, tritt der `0%` früher ein, wobei der Eintritt auftritt, sobald die Startrandkante des Elements die Startkante des Scrollbereichs erreicht, anstatt abzuwarten, bis die Endrandkante des Elements in den Scrollbereich eintritt.
 
 {{EmbedLiveSample("exit_crossing", "100%", "400")}}
 
-Wie bei `entry-crossing` entspricht der Animationsanheftungsbereich der Größe des Elements und ist nicht auf die Größe des Scrollbereichs beschränkt.
+Wie bei `entry-crossing` ist der Animationsanheftungsbereich in der Größe auf das Ziel beschränkt und nicht auf die Größe des Scrollbereichs begrenzt.
 
 ```html hidden live-sample___svg_exit_crossing
 <div>
@@ -700,7 +700,7 @@ line {
 
 - {{cssxref("timeline-range-name")}} Datentyp
 - [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors)
-- [Scroll-gesteuerte Animationszeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [Scroll-gesteuerte Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Scroll-animation-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [Scroll-animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

@@ -3,28 +3,28 @@ title: "HTMLGeolocationElement: initialPermissionStatus-Eigenschaft"
 short-title: initialPermissionStatus
 slug: Web/API/HTMLGeolocationElement/initialPermissionStatus
 l10n:
-  sourceCommit: 3712f845b54b2754b2b550c7d7dca18f0277c0ad
+  sourceCommit: 3d49f18251e1f3493ef2e3a70519603345f8b7dc
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`initialPermissionStatus`** des [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Interfaces gibt einen enumerierten Wert zurück, der den Berechtigungsstatus für das `geolocation`-Feature beim ersten Laden der Seite darstellt.
+Die **`initialPermissionStatus`** schreibgeschützte Eigenschaft der [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Schnittstelle gibt einen enumerierten Wert zurück, der den Berechtigungsstatus für die `geolocation`-Funktion beim ersten Laden der Seite darstellt.
 
-Wenn Sie den aktuellen Berechtigungsstatus für das `geolocation`-Feature abrufen möchten, verwenden Sie die [`HTMLGeolocationElement.permissionStatus`](/de/docs/Web/API/HTMLGeolocationElement/permissionStatus)-Eigenschaft.
+Wenn Sie auf den aktuellen Berechtigungsstatus für die `geolocation`-Funktion zugreifen möchten, verwenden Sie die [`HTMLGeolocationElement.permissionStatus`](/de/docs/Web/API/HTMLGeolocationElement/permissionStatus)-Eigenschaft.
 
 ## Wert
 
 Ein enumerierter Wert, der einer der folgenden sein kann:
 
 - `granted`
-  - : Der Benutzer hat zuvor die Erlaubnis erteilt, dass der Browser das `geolocation`-Feature verwenden darf, entweder über das {{htmlelement("geolocation")}}-Element oder einen anderen Mechanismus. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor den angezeigten Button gedrückt und eine "Erlauben"-Option ausgewählt hat.
+  - : Der Benutzer hat zuvor die Erlaubnis erteilt, dass der Browser die `geolocation`-Funktion verwenden darf, entweder über das {{htmlelement("geolocation")}}-Element oder einen anderen Mechanismus. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor den angezeigten Button gedrückt und eine "erlauben" Option ausgewählt hat.
 
-    Wenn das `<geolocation>`-Element das [`autolocate`](/de/docs/Web/HTML/Reference/Elements/geolocation#autolocate)-Attribut auf `true` gesetzt hat, und die Erlaubnis zuvor erteilt wurde, wird der Browser beginnen, Standortdaten anzufordern, sobald die Seite geladen wird, ohne dass der Benutzer den Button drücken muss.
+    Wenn das `<geolocation>`-Element sein [`autolocate`](/de/docs/Web/HTML/Reference/Elements/geolocation#autolocate)-Attribut auf `true` gesetzt hat und die Erlaubnis zuvor erteilt wurde, wird der Browser beginnen, Standortdaten anzufordern, sobald die Seite geladen wird, ohne dass der Benutzer den Button drücken muss.
 
 - `denied`
-  - : Der Benutzer hat zuvor die Erlaubnis verweigert, dass der Browser das `geolocation`-Feature verwenden darf, entweder über das `<geolocation>`-Element oder einen anderen Mechanismus. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor den angezeigten Button gedrückt und eine "Nicht erlauben"-Option ausgewählt hat.
+  - : Der Benutzer hat zuvor die Erlaubnis verweigert, dass der Browser die `geolocation`-Funktion verwenden darf, entweder über das `<geolocation>`-Element oder einen anderen Mechanismus. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor den angezeigten Button gedrückt und eine "nicht erlauben" Option ausgewählt hat.
 - `prompt`
-  - : Der Benutzer hat zuvor weder die Erlaubnis erteilt noch verweigert, dass der Browser das `geolocation`-Feature verwenden darf. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor den angezeigten Button nicht gedrückt hat.
+  - : Der Benutzer hat zuvor weder die Erlaubnis erteilt noch verweigert, dass der Browser die `geolocation`-Funktion verwenden darf. Beim Verwenden des `<geolocation>`-Elements bedeutet dies, dass der Benutzer zuvor nicht den angezeigten Button gedrückt hat.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ In diesem Beispiel verwenden wir den anfänglichen Berechtigungsstatus, um eine 
 
 #### HTML
 
-Wir fügen ein `<geolocation>`-Element und zwei {{htmlelement("p")}}-Elemente hinzu, eines für die Ausgabe von Berechtigungsstatusmeldungen und eines für die Ausgabe von Standortdaten.
+Wir fügen ein `<geolocation>`-Element und zwei {{htmlelement("p")}}-Elemente hinzu, eines zur Ausgabe von Berechtigungsstatus-Nachrichten und eines zur Ausgabe von Standortdaten.
 
 ```html
 <geolocation>
@@ -58,7 +58,7 @@ Wir fügen ein `<geolocation>`-Element und zwei {{htmlelement("p")}}-Elemente hi
 
 #### JavaScript
 
-In unserem JavaScript beginnen wir damit, Referenzen zu allen drei unserer HTML-Elemente zu erhalten:
+In unserem JavaScript beginnen wir damit, Referenzen zu allen unseren drei HTML-Elementen zu erhalten:
 
 ```js
 const statusElem = document.querySelector("#status");
@@ -66,7 +66,7 @@ const outputElem = document.querySelector("#output");
 const geo = document.querySelector("geolocation");
 ```
 
-Als Nächstes integrieren wir eine `if...else if`-Struktur, die überprüft, welchen Wert `initialPermissionStatus` hat, und eine Statusmeldung auf den Bildschirm ausgibt, um den Benutzer über den Status zu informieren, was er tun muss, um die App zu verwenden, und was der Button bei Betätigung tun wird.
+Anschließend fügen wir eine `if...else if`-Struktur ein, die überprüft, welchen Wert `initialPermissionStatus` hat, und eine Statusnachricht auf dem Bildschirm ausgibt, um den Benutzer darüber zu informieren, wie der Status ist, was er tun muss, um die App zu verwenden, und was der Button tun wird, wenn er gedrückt wird.
 
 ```js
 if (geo.initialPermissionStatus === "prompt") {
@@ -81,7 +81,7 @@ if (geo.initialPermissionStatus === "prompt") {
 }
 ```
 
-Schließlich fügen wir dem `HTMLGeolocationElement`-Objekt einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Ereignislistener hinzu, um zu erkennen, wann die Standortdatenanfrage zurückgegeben wird. Wenn die Daten erfolgreich abgerufen werden, greifen wir über die [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft darauf zu und geben die Breitengrad- und Längengrad-Werte im Ausgabebereich aus. Wenn die Datenanfrage fehlschlägt, greifen wir über die [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft auf den Fehler zu und geben ihn im Ausgabebereich aus.
+Schließlich fügen wir einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Ereignislistener zum `HTMLGeolocationElement`-Objekt hinzu, um zu erkennen, wann die Anforderung der Standortdaten zurückgegeben wird. Wenn die Daten erfolgreich zurückgegeben werden, greifen wir über die [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft darauf zu und drucken die Breitengrad- und Längengradwerte in den Ausgabeabsatz. Wenn die Datenanforderung fehlschlägt, greifen wir über die [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft auf den Fehler zu und drucken ihn in den Ausgabeabsatz.
 
 ```js
 geo.addEventListener("location", () => {
@@ -96,7 +96,7 @@ geo.addEventListener("location", () => {
 
 #### Ergebnis
 
-Sehen Sie sich das Beispiel [live in Aktion](https://mdn.github.io/dom-examples/geolocation-element/initial-permission-status/) an ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/initial-permission-status)). Versuchen Sie, den `<geolocation>`-Button mehrmals zu drücken, indem Sie jedes Mal eine andere Option im resultierenden Dialog auswählen und die Seite neu laden, um zu sehen, wie sich die Ausgabemeldung ändert, um die Situation widerzuspiegeln.
+Sehen Sie sich das Beispiel [live ausführen](https://mdn.github.io/dom-examples/geolocation-element/initial-permission-status/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/initial-permission-status)) an. Versuchen Sie, den `<geolocation>`-Button mehrmals auszuwählen, jedes Mal eine andere Option aus dem resultierenden Dialog auszuwählen und die Seite neu zu laden, um zu sehen, wie sich die Ausgabenachricht ändert, um die Situation widerzuspiegeln.
 
 ## Spezifikationen
 

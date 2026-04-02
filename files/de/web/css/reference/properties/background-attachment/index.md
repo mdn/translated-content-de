@@ -2,10 +2,10 @@
 title: background-attachment
 slug: Web/CSS/Reference/Properties/background-attachment
 l10n:
-  sourceCommit: d35f07a74f76374a6d98aa07b0b42e79322b02ec
+  sourceCommit: 3d49f18251e1f3493ef2e3a70519603345f8b7dc
 ---
 
-Die **`background-attachment`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Position eines Hintergrundbildes innerhalb des {{Glossary("viewport", "Viewports")}} fixiert ist oder mit seinem umgebenden Block scrollt.
+Die **`background-attachment`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob die Position eines Hintergrundbildes innerhalb des {{Glossary("viewport", "Ansichtsfensters")}} festgelegt ist oder mit seinem enthaltenden Block scrollt.
 
 {{InteractiveExample("CSS Demo: background-attachment")}}
 
@@ -86,16 +86,16 @@ background-attachment: revert-layer;
 background-attachment: unset;
 ```
 
-Die `background-attachment` Eigenschaft wird als eines oder mehrere der Schlüsselwortwerte festgelegt, getrennt durch Kommas.
+Die `background-attachment`-Eigenschaft wird als eines oder mehrere der Schlüsselwortwerte, getrennt durch Kommas, angegeben.
 
 ### Werte
 
 - `fixed`
-  - : Der Hintergrund ist relativ zum Viewport fixiert. Selbst wenn ein Element einen Scroll-Mechanismus hat, bewegt sich der Hintergrund nicht mit dem Element. Wenn gesetzt, wird die {{cssxref("background-origin")}} Eigenschaft ignoriert.
+  - : Der Hintergrund ist relativ zum Ansichtsfenster fixiert. Selbst wenn ein Element einen Scrollmechanismus hat, bewegt sich der Hintergrund nicht mit dem Element. Falls festgelegt, wird die {{cssxref("background-origin")}}-Eigenschaft ignoriert.
 - `local`
-  - : Der Hintergrund ist relativ zu den Inhalten des Elements fixiert. Wenn das Element einen Scroll-Mechanismus hat, scrollt der Hintergrund mit den Inhalten des Elements, und der Bereich für die Hintergrundmalerei sowie der Hintergrundpositionierungsbereich sind relativ zum scrollbaren Bereich des Elements anstatt zum ihn umrahmenden Rand.
+  - : Der Hintergrund ist relativ zum Inhalt des Elements fixiert. Wenn das Element einen Scrollmechanismus hat, scrollt der Hintergrund mit den Inhalten des Elements, und der Hintergrundmalbereich und der Hintergrundpositionierungsbereich sind relativ zum scrollbaren Bereich des Elements und nicht zu dem sie umrahmenden Rand.
 - `scroll`
-  - : Der Hintergrund ist relativ zum Element selbst fixiert und scrollt nicht mit dessen Inhalten. (Es ist praktisch am Rand des Elements befestigt.)
+  - : Der Hintergrund ist relativ zum Element selbst fixiert und scrollt nicht mit dessen Inhalt. (Er ist praktisch am Rand des Elements befestigt.)
 
 ## Formale Definition
 
@@ -107,7 +107,7 @@ Die `background-attachment` Eigenschaft wird als eines oder mehrere der Schlüss
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 #### HTML
 
@@ -132,7 +132,7 @@ Wir fügen eine ungeordnete Liste ({{htmlelement("ul")}}) mit einigen Listenelem
 
 #### CSS
 
-Wir definieren ein {{cssxref("background-image")}} und setzen `background-attachment` auf `fixed`. Wir fügen auch eine {{cssxref("height")}}, {{cssxref("width")}} und {{cssxref("overflow")}} hinzu, um sicherzustellen, dass das Element scrollt.
+Wir definieren ein {{cssxref("background-image")}} und setzen `background-attachment` auf `fixed`. Wir fügen auch {{cssxref("height")}}, {{cssxref("width")}} und {{cssxref("overflow")}} hinzu, um sicherzustellen, dass das Element scrollt.
 
 ```css
 ul {
@@ -149,11 +149,11 @@ ul {
 
 {{EmbedLiveSample("Basic_example")}}
 
-Beachten Sie, wie der Hintergrund relativ zum Viewport der Liste fixiert bleibt, wenn Sie den überlaufenden Text in den Sichtbereich scrollen.
+Beachten Sie, wie der Hintergrund relativ zum Ansichtsfenster der Liste fixiert bleibt, wenn Sie den überflüssigen Text in den sichtbaren Bereich scrollen.
 
 ### Mehrere Hintergrundbilder
 
-Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können für jeden Hintergrund ein anderes `<attachment>` angeben, getrennt durch Kommas. Jedes Bild wird mit dem entsprechenden `<attachment>` Typ abgeglichen, vom zuerst angegebenen zum zuletzt angegebenen.
+Diese Eigenschaft unterstützt mehrere Hintergrundbilder. Sie können für jedes Hintergrundbild ein anderes `<attachment>` angeben, durch Kommas getrennt. Jedes Bild wird mit dem entsprechenden `<attachment>`-Typ von erstem zu letztem spezifizierten verknüpft.
 
 #### HTML
 
@@ -199,7 +199,7 @@ Wir fügen das gesamte Gedicht von Dr. Seuss ein.
 
 Wir fügen eine {{cssxref("height")}}, {{cssxref("width")}} und {{cssxref("overflow")}} auf dem übergeordneten {{htmlelement("div")}} hinzu, um sicherzustellen, dass die Inhalte scrollen.
 
-Wir definieren zwei durch Kommas getrennte Hintergrundbilder auf der Liste und setzen `background-attachment` auf `fixed, scroll`, was bedeutet, dass das erste Hintergrundbild `fixed` und das zweite `scroll` sein wird. Wir setzen {{cssxref("background-repeat")}}, um beide Hintergrundbilder vertikal zu wiederholen, indem wir sie mit der {{cssxref("background-position")}} Eigenschaft trennen.
+Wir definieren zwei durch Komma getrennte Hintergrundbilder auf der Liste und setzen `background-attachment` auf `fixed, scroll`, was bedeutet, dass das erste Hintergrundbild `fixiert` und das zweite `scrollt` wird. Wir setzen die {{cssxref("background-repeat")}}, um beide Hintergrundbilder vertikal zu wiederholen, und trennen sie mit der {{cssxref("background-position")}}-Eigenschaft.
 
 ```css
 div {
@@ -221,7 +221,7 @@ ul {
 
 {{EmbedLiveSample("Multiple_background_images")}}
 
-Beachten Sie, wie das erste Hintergrundbild am Viewport fixiert ist, während das zweite Hintergrundbild relativ zur Liste fixiert ist.
+Beachten Sie, wie das erste Hintergrundbild am Ansichtsfenster fixiert ist, während das zweite Hintergrundbild relativ zur Liste fixiert ist.
 
 ## Spezifikationen
 
@@ -241,5 +241,5 @@ Beachten Sie, wie das erste Hintergrundbild am Viewport fixiert ist, während da
   - {{cssxref("background-position")}}
   - {{cssxref("background-repeat")}}
   - {{cssxref("background-size")}}
-- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
+- [Verwendung von mehreren Hintergründen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
 - [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
