@@ -2,15 +2,15 @@
 title: font-width
 slug: Web/SVG/Reference/Attribute/font-width
 l10n:
-  sourceCommit: 3e97bf7d99f829a3cab9676837e8d9beabf9a1de
+  sourceCommit: 40fa68f80d38ba7142d47f52cdd0960325d63a44
 ---
 
-{{SeeCompatTable}}
+{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`font-width`**-Attribut wählt ein normales, komprimiertes oder erweitertes Schriftbild aus einer Schriftfamilie für die Zeichen, die zum Rendern des Textes verwendet werden.
+Das **`font-width`** Attribut wählt eine normale, kondensierte oder erweiterte Variante aus einer Schriftfamilie aus, die für die Glyphen verwendet wird, um den Text darzustellen.
 
 > [!NOTE]
-> Das `font-width`-Attribut ist der moderne Ersatz für das {{SVGAttr("font-stretch")}}-Attribut, das ein veraltetes Alias ist. Während `font-width` der bevorzugte Name in der Spezifikation ist, hat `font-stretch` derzeit eine breitere Browser-Unterstützung.
+> Das `font-width` Attribut ist der moderne Ersatz für das {{SVGAttr("font-stretch")}} Attribut, das ein veraltetes Alias ist. Während `font-width` der im Standard bevorzugte Name ist, hat `font-stretch` derzeit breitere Browser-Unterstützung.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -19,9 +19,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-width` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("font-width")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `font-width` auch ein entsprechendes CSS-Attribut: {{cssxref("font-width")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -50,6 +50,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- CSS {{cssxref("font-width")}}-Eigenschaft
-- Veraltetes SVG {{SVGAttr("font-stretch")}}-Attribut
-- CSS {{cssxref("font-stretch")}}-Eigenschaft
+- CSS {{cssxref("font-width")}} Eigenschaft
+- Veraltetes SVG {{SVGAttr("font-stretch")}} Attribut
+- CSS {{cssxref("font-stretch")}} Eigenschaft
