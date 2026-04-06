@@ -1,12 +1,12 @@
 ---
-title: "load64_lane: Wasm SIMD Ladeinstruktion"
+title: "load64_lane: Wasm SIMD Ladeanweisung"
 short-title: load64_lane
 slug: WebAssembly/Reference/SIMD/load/load64_lane
 l10n:
-  sourceCommit: d3b22d8099235ad3a0ef2a494106fc2ea178863d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Die **`load64_lane`** [SIMD-Ladeinstruktion](/de/docs/WebAssembly/Reference/SIMD/load) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in die spezifizierte Lane eines `v128` Typs mit der `i64x2`-Wertinterpretation.
+Die **`load64_lane`** [SIMD Ladeanweisung](/de/docs/WebAssembly/Reference/SIMD/load) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in die spezifizierte Spur eines `v128`-Typs mit der `i64x2` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load64_lane", "tabbed-taller")}}
 
@@ -34,22 +34,22 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 
 ```plain
 ;; Common usage
-v128.load64_lane laneidx
+v128.load64_lane lane_idx
 
-;; With optional immediates
-v128.load64_lane memidx offset=int align=int laneidx
+;; With optional immediate operands
+v128.load64_lane mem_idx offset=int align=int lane_idx
 ```
 
 - `v128.load64_lane`
-  - : Die `v128.load64_lane`-Instruktion.
-- `memidx` {{optional_inline}}
-  - : Ein Integer, der den Speicherindex darstellt, falls das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Die `v128.load64_lane` Anweisung.
+- `mem_idx` {{optional_inline}}
+  - : Eine ganze Zahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standard ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden. Der Standardwert ist `0`.
+  - : Eine ganze Zahl, die eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standard ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Integer, der dem Wasm-Motor einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Zweierpotenz sein.
-- `laneidx`
-  - : Ein Integer, der den Index der Lane darstellt, in die ein Wert geladen werden soll.
+  - : Eine ganze Zahl, die dem Wasm-Engine einen Hinweis gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Maximalwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+- `lane_idx`
+  - : Eine ganze Zahl, die den Index der Spur darstellt, in die ein Wert geladen werden soll.
 
 ### Typ
 
@@ -58,20 +58,20 @@ v128.load64_lane memidx offset=int align=int laneidx
 ```
 
 - `memory_address`
-  - : Ein Integer, der die Speicheradresse darstellt, von der geladen werden soll.
+  - : Eine ganze Zahl, die die Speicheradresse darstellt, von der geladen wird.
 - `input`
-  - : Der Eingabe-`v128`-Typ mit der `i64x2`-Wertinterpretation.
+  - : Die Eingabe `v128` Typ `i64x2` Wertinterpretation.
 - `output`
-  - : Der Ausgabe-`v128`-Typ mit der `i64x2`-Wertinterpretation.
+  - : Die Ausgabe `v128` Typ `i64x2` Wertinterpretation.
 
 ### Binärcodierung
 
-| Instruktion        | Binärformat                                             | Beispieltext => Binär                                                 |
-| ------------------ | ------------------------------------------------------- | --------------------------------------------------------------------- |
-| `v128.load64_lane` | `0xFD 87:u32 memidx:u8 offset:u32 align:u32 laneidx:u8` | `v128.load64_lane 0 offset=0 align=8 0` => `0xfd 0x57 0x03 0x00 00x0` |
+| Anweisung          | Binärformat                                               | Beispiel Text => binär                                                |
+| ------------------ | --------------------------------------------------------- | --------------------------------------------------------------------- |
+| `v128.load64_lane` | `0xFD 87:u32 mem_idx:u8 offset:u32 align:u32 lane_idx:u8` | `v128.load64_lane 0 offset=0 align=8 0` => `0xfd 0x57 0x03 0x00 00x0` |
 
 > [!NOTE]
-> Während im Wasm-Textformat der Literalwert `align` angegeben wird, repräsentiert das Binäräquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. So ist zum Beispiel `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
+> Während das Wasm-Textformat den Literalwert `align` angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist beispielsweise `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -83,4 +83,4 @@ v128.load64_lane memidx offset=int align=int laneidx
 
 ## Siehe auch
 
-- [SIMD-Ladeinstruktionen](/de/docs/WebAssembly/Reference/SIMD/load)
+- [SIMD Ladeanweisungen](/de/docs/WebAssembly/Reference/SIMD/load)

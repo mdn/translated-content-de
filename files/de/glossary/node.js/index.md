@@ -2,21 +2,21 @@
 title: Node.js
 slug: Glossary/Node.js
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
 Node.js ist eine plattformübergreifende {{Glossary("JavaScript", "JavaScript")}}-Laufzeitumgebung, die es Entwicklern ermöglicht, serverseitige und Netzwerk-Anwendungen mit JavaScript zu erstellen.
 
 ## Node Package Manager (npm)
 
-[npm](https://www.npmjs.com/) ist ein Paketmanager, der zusammen mit Node.js heruntergeladen und gebündelt wird. Sein Kommandozeilen-Client (CLI) `npm` kann verwendet werden, um Pakete herunterzuladen, zu konfigurieren und zu erstellen, die in Node.js-Projekten verwendet werden können. Heruntergeladene Pakete können mittels [ES imports](/de/docs/Web/JavaScript/Reference/Statements/import) und [CommonJS `require()`](https://en.wikipedia.org/wiki/CommonJS) importiert werden, ohne das Abhängigkeitsverzeichnis `node_modules/`, in das sie heruntergeladen werden, einbinden zu müssen, da Node.js Pakete auflöst, ohne dass ein relativer oder absoluter Pfad in ihrem Import angegeben wird.
+[npm](https://www.npmjs.com/) ist ein Paketmanager, der zusammen mit Node.js heruntergeladen und gebündelt wird. Der Befehlszeilen-Client (CLI) `npm` kann verwendet werden, um Pakete für die Verwendung in Node.js-Projekten herunterzuladen, zu konfigurieren und zu erstellen. Heruntergeladene Pakete können durch [ES imports](/de/docs/Web/JavaScript/Reference/Statements/import) und [CommonJS `require()`](https://en.wikipedia.org/wiki/CommonJS) importiert werden, ohne das Abhängigkeitsverzeichnis `node_modules/`, in das sie heruntergeladen werden, anzugeben, da Node.js Pakete [auflöst](https://nodejs.org/api/modules.html#loading-from-node_modules-folders), ohne dass ein relativer oder absoluter Pfad in ihrem Import angegeben wird.
 
-Pakete, die auf npm gehostet werden, werden aus dem Registry unter [https://registry.npmjs.org/](https://registry.npmjs.org/) heruntergeladen, aber der CLI kann so konfiguriert werden, dass jede kompatible Instanz verwendet wird.
+Pakete, die auf npm gehostet werden, werden aus dem Registry unter [https://registry.npmjs.org/](https://registry.npmjs.org/) heruntergeladen, aber der CLI-Client kann so konfiguriert werden, dass er jede kompatible Instanz verwendet.
 
 ## Siehe auch
 
 - [Node.js](https://en.wikipedia.org/wiki/Node.js) auf Wikipedia
-- [Node.js-Website](https://nodejs.org/)
+- [Node.js Webseite](https://nodejs.org/)
 - [API-Referenzdokumentation](https://nodejs.org/api/)
-- [Leitfäden](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
-- [npm-Dokumentation](https://docs.npmjs.com/)
+- [Leitfaden](https://nodejs.org/learn/getting-started/introduction-to-nodejs)
+- [npm Dokumentation](https://docs.npmjs.com/)

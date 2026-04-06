@@ -1,12 +1,12 @@
 ---
-title: "shuffle: Wasm SIMD-Konvertierungsanweisung"
+title: "shuffle: Wasm SIMD Konvertierungsbefehl"
 short-title: shuffle
 slug: WebAssembly/Reference/SIMD/conversion/shuffle
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Die **`shuffle`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wert zurück, dessen Lanes aus zwei Eingabe-`v128`-Werten ausgewählt werden, die durch gegebene Indexwerte bestimmt werden.
+Der **`shuffle`** [SIMD Konvertierungsbefehl](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wert zurück, dessen Lane-Werte aus zwei Eingabe-`v128`-Werten ausgewählt werden, bestimmt durch die bereitgestellten Indexwerte.
 
 {{InteractiveExample("Wat Demo: shuffle", "tabbed-taller")}}
 
@@ -29,7 +29,7 @@ Die **`shuffle`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 14 des `shuffle`-Anweisungsausgabewerts. Dies wird `5` sein, da die `shuffle`-Anweisung den Wert an Indexposition 3 des zweiten `v128`-Eingabewertes (dargestellt durch den Indexwert `18`) ausgewählt hat, um ihn an Indexposition 14 des `output` zu setzen.
+Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 14 des Ausgabewertes der `shuffle`-Anweisung. Dieser wird `5` sein, da die Shuffle-Anweisung den Wert an der Indexposition 3 des zweiten `v128`-Eingabewertes (dargestellt durch den Indexwert `18`) ausgewählt hat, um ihn an die Indexposition 14 des `output` zu setzen.
 
 ## Syntax
 
@@ -38,12 +38,12 @@ value_type.shuffle indices
 ```
 
 - `value_type`
-  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `shuffle`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `shuffle`:
     - `i8x16`
 - `shuffle`
-  - : Die `shuffle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `shuffle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 - `indices`
-  - : 16 ganze Zahlen im Bereich von `0` bis `31` inklusive, die die Indizes der Werte darstellen, die von den beiden Eingabewerten genommen werden sollen. Werte von `0` bis `15` repräsentieren die 16 Indizes des ersten Eingabewerts, und Werte von `16` bis `31` repräsentieren die 16 Indizes des zweiten Eingabewerts.
+  - : 16 Ganzzahlen im Bereich `0` bis `31` inklusive, die die Indizes der Werte darstellen, die aus den beiden Eingabewerten genommen werden sollen. Werte von `0` bis `15` repräsentieren die 16 Indizes des ersten Eingabewertes, und Werte von `16` bis `31` repräsentieren die 16 Indizes des zweiten Eingabewertes.
 
 ### Typ
 
@@ -60,9 +60,9 @@ value_type.shuffle indices
 
 ### Binäre Kodierung
 
-| Anweisung       | Binäres Format            | Beispieltext => binär                                                                                                                                     |
-| --------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `i8x16.shuffle` | `0xfd 13:u32 l:laneidx¹⁶` | `i8x16.shuffle 0 17 2 3 8 9 10 11 31 30 28 27 16 17 18 19` => `0xfd 0x0d 0x00 0x11 0x02 0x03 0x08 0x09 0x0a 0x0b 0x1f 0x1e 0x1c 0x1b 0x10 0x11 0x12 0x13` |
+| Anweisung       | Binärformat                | Beispieltext => binär                                                                                                                                     |
+| --------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `i8x16.shuffle` | `0xfd 13:u32 l:lane_idx¹⁶` | `i8x16.shuffle 0 17 2 3 8 9 10 11 31 30 28 27 16 17 18 19` => `0xfd 0x0d 0x00 0x11 0x02 0x03 0x08 0x09 0x0a 0x0b 0x1f 0x1e 0x1c 0x1b 0x10 0x11 0x12 0x13` |
 
 ## Spezifikationen
 
@@ -74,4 +74,4 @@ value_type.shuffle indices
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Konvertierungsbefehle](/de/docs/WebAssembly/Reference/SIMD/conversion)

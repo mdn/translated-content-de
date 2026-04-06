@@ -2,12 +2,12 @@
 title: random()
 slug: Web/CSS/Reference/Values/random
 l10n:
-  sourceCommit: 84384e0029a4ba7b4646d2d1c989e0865ac8d9e1
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
 {{SeeCompatTable}}
 
-Die **`random()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) generiert einen zufälligen Wert innerhalb eines angegebenen Bereichs, wobei optional die möglichen Werte auf Schrittgrößen-Intervalle zwischen diesen Grenzen beschränkt werden können. Sie kann verwendet werden, wenn ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{cssxref("angle")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, oder {{CSSxRef("&lt;integer&gt;")}} innerhalb eines Eigenschaftswerts angegeben wird.
+Die **`random()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt einen zufälligen Wert innerhalb eines festgelegten Bereichs und kann optional die möglichen Werte auf Intervallgrößen zwischen diesen Grenzen begrenzen. Sie kann verwendet werden, um einen {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{cssxref("angle")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;resolution&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}} oder {{CSSxRef("&lt;integer&gt;")}} innerhalb eines Eigenschaftswertes festzulegen.
 
 {{InteractiveExample("CSS Demo: random()")}}
 
@@ -57,47 +57,47 @@ random(--my-base, 1em, 3rem, 2px)
 ### Parameter
 
 - `<random-value-sharing>` {{optional_inline}}
-  - : Steuert, welche `random()`-Funktionen im Dokument einen gemeinsamen zufälligen Basiswert teilen und welche unterschiedliche Werte erhalten.
-    Dies kann einer der folgenden Werte sein oder ein benutzerdefinierter Schlüssel zusammen mit dem Schlüsselbegriff `element-shared`, getrennt durch ein Leerzeichen:
+  - : Bestimmt, welche `random()` Funktionen im Dokument einen gemeinsamen Zufallsbasiswert nutzen und welche unabhängige Werte erhalten.
+    Dies kann einer der folgenden Werte sein, oder sowohl ein benutzerdefinierter Schlüssel als auch der Schlüsselbegriff `element-shared`, getrennt durch ein Leerzeichen:
     - `auto`
-      - : Jede Verwendung von `random()` im Stil eines Elements erhält ihren eigenen einzigartigen zufälligen Basiswert.
+      - : Jede Verwendung von `random()` im Stil eines Elements erhält einen eigenen eindeutigen Zufallsbasiswert.
     - {{cssxref("dashed-ident")}}
-      - : Ein benutzerdefinierter Schlüssel (z. B. `--my-random-key`) zur gemeinsamen Nutzung desselben zufälligen Basiswerts über die Eigenschaften eines Elements hinweg.
+      - : Ein benutzerdefinierter Schlüssel (z.B. `--my-random-key`) zur gemeinsamen Nutzung desselben Zufallsbasiswertes über Eigenschaften eines Elements hinweg.
     - `element-shared`
-      - : Ein zufälliger Basiswert wird über alle Elemente für dieselbe Eigenschaft, die diesen Schlüsselbegriff verwenden, geteilt. Dieser Basiswert ist unabhängig von den `random()`-Funktionen, die in den Werten anderer Eigenschaften auf demselben Element enthalten sind, es sei denn, die zufälligen Funktionen enthalten auch denselben benutzerdefinierten Schlüssel.
+      - : Ein Zufallsbasiswert wird über alle Elemente für dasselbe Attribut, das dieses Schlüsselwort verwendet, geteilt. Dieser Basiswert ist unabhängig von den `random()` Funktionen, die in den Werten anderer Eigenschaften desselben Elements enthalten sind, es sei denn, die zufälligen Funktionen beinhalten auch den gleichen benutzerdefinierten Schlüssel.
     - `fixed <number>`
-      - : Gibt einen Basiswert zwischen `0` und `1`, einschließlich, für den zu generierenden zufälligen Wert an.
+      - : Gibt einen Basiswert zwischen `0` und `1` an, inklusiv, von dem aus der Zufallswert generiert wird.
 
 - `<calc-sum>, <calc-sum>`
-  - : Zwei erforderliche, kommagetrennte `<number>`, `<dimension>`, oder `<percentage>` Werte oder Berechnungen, die zu einem dieser Typen aufgelöst werden, die die minimalen und maximalen Werte definieren. Beide Werte müssen auf denselben [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) auflösbar sein. Wenn das Maximum kleiner als das Minimum ist, gibt die Funktion den ersten `<calc-sum>` Wert zurück.
+  - : Zwei erforderliche, kommagetrennte `<number>`, `<dimension>` oder `<percentage>` Werte oder Berechnungen, die sich zu einem dieser Typen auflösen, und die die minimalen und maximalen Werte definieren. Beide Werte müssen zu demselben [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) auflösbar sein. Wenn das Maximum kleiner als das Minimum ist, gibt die Funktion den ersten `<calc-sum>` Wert zurück.
 
 - `<calc-sum>` {{optional_inline}}
-  - : Der optionale dritte `<calc-sum>`, dem ein Komma vorausgeht, gibt das Schrittintervall an. Wenn vorhanden und vom gleichen Datentyp wie die beiden kommagetrennten minimalen und maximalen `<calc-sum>` Werte, definiert es den Rückgabewert, der der Mindestwert oder in Schritten des Schrittwertes ab dem Mindestwert bis zum Höchstwert ist.
+  - : Der optionale dritte `<calc-sum>`, durch ein Komma getrennt, spezifiziert das Intervall der Schritte. Wenn vorhanden und vom gleichen Datentyp wie die beiden kommagetrennten minimalen und maximalen `<calc-sum>` Werte, definiert dies den Rückgabewert, der der Minimalwert oder in Schritten des Schrittswertes vom Minimalwert bis zum Maximalwert ist.
 
 ### Rückgabewert
 
-Gibt einen zufälligen `<number>`, `<dimension>`, oder `<percentage>` zwischen den minimalen und maximalen Bereichswerten zurück, und zwar im gleichen Typ wie die `<calc-sum>` Parameter.
+Gibt einen zufälligen `<number>`, `<dimension>`, oder `<percentage>` Wert zwischen den minimalen und maximalen Bereichswerten zurück, inklusiv, im gleichen Typ wie die `<calc-sum>` Parameter.
 
 ## Beschreibung
 
-Die `random(SEED, MIN, MAX, STEP)` Funktion spezifiziert die minimalen und maximalen Werte und optionale Schrittinkremente, beginnend beim Minimalwert. Die Funktion generiert ein zufälliges Ergebnis innerhalb des angegebenen Bereichs. Der Seed, ein [optional `<random-value-sharing>`](#random-value-sharing) Parameter, ermöglicht das Teilen oder Variieren von zufälligen Basiswerten über verschiedene Eigenschaften und Elemente hinweg.
+Die Funktion `random(SEED, MIN, MAX, STEP)` spezifiziert die minimalen und maximalen Werte und optionale Schrittinkremente, beginnend beim Minimalwert. Die Funktion generiert ein zufälliges Ergebnis innerhalb des angegebenen Bereichs. Der Seed, ein [optionalem `<random-value-sharing>`](#random-value-sharing) Parameter, ermöglicht das Teilen oder Variieren von Zufallsbasiswerten über verschiedene Eigenschaften und Elemente hinweg.
 
-Die angegebenen Minimal-, Maximal- und Schrittwerte müssen vom gleichen Datentyp sein, damit die Funktion gültig ist. Während die Einheiten in den zwei bis drei `<calc-sum>` Parametern nicht gleich sein müssen, müssen sie vom gleichen Datentyp, wie {{cssxref("number")}}, {{cssxref("percentage")}}, {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}}, sein, um gültig zu sein.
+Die angegebenen Minimal-, Maximal- und Schrittwerte müssen vom gleichen Datentyp sein, damit die Funktion gültig ist. Während die Einheiten in den zwei bis drei `<calc-sum>` Parametern nicht gleich sein müssen, müssen sie vom gleichen Datentyp sein, z.B. {{cssxref("number")}}, {{cssxref("percentage")}}, {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}}, um gültig zu sein.
 
-### Zufälliger Basiswert
+### Zufallsbasiswert
 
-Der zufällige Basiswert funktioniert wie ein {{Glossary("RNG", "Seed für Zufälligkeit")}}. Es ist eine Startzahl, die zur Generierung des endgültigen zufälligen Ergebnisses verwendet wird. Wenn zwei `random()`-Funktionen denselben Basiswert teilen, variieren ihre Ergebnisse zusammen in einem vorhersehbaren Muster. Haben sie unterschiedliche Basiswerte, sind ihre Ergebnisse vollständig unabhängig voneinander.
+Der Zufallsbasiswert funktioniert wie ein {{Glossary("RNG", "Seed für Zufälligkeit")}}. Es ist eine Startzahl, die verwendet wird, um das endgültige Zufallsergebnis zu generieren. Wenn zwei `random()` Funktionen denselben Basiswert teilen, variieren ihre Ergebnisse zusammen in einem vorhersehbaren Muster. Wenn sie unterschiedliche Basiswerte haben, sind ihre Ergebnisse völlig unabhängig voneinander.
 
-Der optionale erste `<random-value-sharing>` Parameter steuert, wie der zufällige Basiswert geteilt wird. Das Teilen ermöglicht die Wiederverwendung desselben zufällig generierten Werts, eine Notwendigkeit für einige Design-Effekte. Der Wert kann auf `auto`, das `element-shared` Schlüsselwort, ein benutzerdefiniertes {{cssxref("dashed-ident")}}, oder `fixed <number>` gesetzt werden. Das Einfügen eines benutzerdefinierten {{cssxref("dashed-ident")}} mit dem `element-shared` Schlüsselwort, getrennt durch ein Leerzeichen, ist ebenfalls gültig.
+Der optionale erste `<random-value-sharing>` Parameter steuert, wie der Zufallsbasiswert geteilt wird. Das Teilen ermöglicht die Wiederverwendung desselben zufällig generierten Werts, eine notwendige Funktion für einige Designeffekte. Der Wert kann so eingestellt werden, dass er `auto`, das Schlüsselwort `element-shared`, ein benutzerdefiniertes {{cssxref("dashed-ident")}}, oder `fixed <number>` verwendet. Das Einbeziehen eines benutzerdefinierten {{cssxref("dashed-ident")}} mit dem `element-shared` Schlüsselwort, getrennt durch ein Leerzeichen, ist ebenfalls zulässig.
 
 #### Das `element-shared` Schlüsselwort
 
-Alle `random()`-Funktionen mit dem `element-shared` Schlüsselwort teilen denselben zufälligen Basiswert für eine einzelne Eigenschaft über alle Elemente hinweg. Wenn zum Beispiel folgendes deklariert wird, werden A, B und C identisch große Rechtecke sein, alle drei mit derselben zufälligen Breite und alle drei mit derselben, unabhängig erzeugten zufälligen Höhe:
+Alle `random()` Funktionen mit dem `element-shared` Schlüsselwort teilen denselben Zufallsbasiswert für eine einzelne Eigenschaft über alle Elemente hinweg. Zum Beispiel, wenn Folgendes deklariert wird, werden `.a`, `.b` und `.c` identisch große Rechtecke sein, alle drei mit derselben zufälligen Breite und alle drei mit derselben, unabhängig generierten zufälligen Höhe:
 
 ```css
-A,
-B,
-C {
+.a,
+.b,
+.c {
   width: random(element-shared, 10px, 200px);
   height: random(element-shared, 10px, 200px);
 }
@@ -105,25 +105,25 @@ C {
 
 #### Benutzerdefinierte Namen
 
-Wenn Sie ein `<dashed-ident>` angeben (z.B. `--custom-name`), teilt jedes Element in den Stilen eines Elements mit demselben Namen denselben zufälligen Basiswert, und solche mit unterschiedlichen `<dashed-ident>` Werten erhalten unterschiedliche zufällige Basiswerte. Wenn folgendes deklariert wird, werden A, B und C alle Quadrate sein, da innerhalb jedes Elements alle Eigenschaften, die sich auf dasselbe ident beziehen, denselben Basiswert teilen. Deshalb wird die Breite jeder der Höhe entsprechen. Beachten Sie jedoch, dass in diesem Fall A, B und C unterschiedliche Größen haben werden, da das Teilen des Basiswerts zwischen Eigenschaften eines Elements, nicht zwischen Elementen erfolgt.
+Wenn Sie ein `<dashed-ident>` (z.B. `--custom-name`) angeben, teilen alle Stile eines Elements mit demselben Namen denselben Zufallsbasiswert und solche mit unterschiedlichen `<dashed-ident>` Werten zugewiesene unterschiedliche Zufallsbasiswerte. Wenn das Folgende deklariert wird, werden `.a`, `.b`, und `.c` alle Quadrate sein, da innerhalb jedes Elements alle Eigenschaften, die denselben Ident nutzen, denselben Basiswert teilen werden. Daher wird die Breite jedes Elements gleich der Höhe sein. Beachten Sie, dass in diesem Fall `.a`, `.b`, und `.c` unterschiedliche Größen haben werden, da das Basiswertteilen zwischen Eigenschaften eines Elements und nicht zwischen Elementen erfolgt.
 
 ```css
-A,
-B,
-C {
+.a,
+.b,
+.c {
   width: random(--custom-name, 10px, 200px);
   height: random(--custom-name, 10px, 200px);
 }
 ```
 
-#### Festlegen von sowohl `<dashed-ident>` als auch `element-shared`
+#### Festlegung beider `<dashed-ident>` und `element-shared`
 
-Die Kombination eines `<dashed-ident>` mit `element-shared` (z.B. `random(--custom-name element-shared, 0, 100)`) teilt den zufälligen Basiswert sowohl über die Elemente als auch über die Eigenschaften, die denselben `<random-value-sharing>` Parameter verwenden. Bei folgendem werden A, B und C Quadrate derselben Größe sein:
+Kombinieren eines `<dashed-ident>` mit `element-shared` (z.B., `random(--custom-name element-shared, 0, 100)`) teilt den Zufallsbasiswert sowohl über die Elemente als auch über die Eigenschaften, die denselben `<random-value-sharing>` Parameter verwenden. Gegeben das Folgende, werden `.a`, `.b`, und `.c` alle Quadrate von gleicher Größe sein:
 
 ```css
-A,
-B,
-C {
+.a,
+.b,
+.c {
   width: random(--custom-name element-shared, , 10px, 200px);
   height: random(--custom-name element-shared, 10px, 200px);
 }
@@ -131,7 +131,7 @@ C {
 
 #### Automatisches Verhalten
 
-Wenn der erste Parameter weggelassen oder explizit auf `auto` gesetzt wird, wird ein Identifikator automatisch aus dem Eigenschaftsnamen und der Position generiert. Dieses Verhalten kann zu unerwartetem Teilen des zufälligen Basiswerts führen.
+Wenn der erste Parameter weggelassen oder explizit auf `auto` gesetzt wird, wird ein Ident automatisch aus dem Eigenschaftsnamen und der Position generiert. Dieses Verhalten kann einige unerwartete Zufallsbasiswert-Teilen verursachen.
 
 ```css
 .foo {
@@ -149,21 +149,21 @@ Wenn der erste Parameter weggelassen oder explizit auf `auto` gesetzt wird, wird
 }
 ```
 
-Wenn der `<random-value-sharing>` Standardwert oder explizit auf `auto` gesetzt wird, generiert der Nutzeragent einen Seed-Namen oder einen _generated value sharing identifier_, basierend auf konsistenten Regeln in Bezug auf den Eigenschaftsnamen und die Reihenfolge. Aus diesem Grund können `random()`-Funktionen mit demselben Seed-Namen und daher demselben zufälligen Basiswert enden. In diesem Beispiel ist der generierte Value Sharing Identifier für die `random()`-Funktion im `width` Eigenschaftswert derselbe für `.foo` wie für `.foo:hover`, sodass sich der Wert zwischen den Zuständen nicht ändert. Ebenso haben die ersten beiden `random()`-Funktionen in beiden `margin`-Deklarationen denselben generierten Value Sharing Identifier, was bedeutet, dass die ersten beiden Werte in der `margin`-Kurzform unverändert bleiben, wenn sie schwebt; beim Schweben bleiben die oberen und rechten Ränder von `bar` gleich, aber die unteren und linken Ränder erhalten unabhängige zufällige Werte. Um einen unabhängigen Wert für jede `random()`-Funktion zu erhalten, geben Sie ein eindeutiges {{cssxref("dashed-ident")}} an.
+Wenn `<random-value-sharing>` standardmäßig oder explizit auf `auto` gesetzt ist, generiert der Benutzeragent einen Seed-Namen oder _generated value sharing identifier_ nach konsistenten Regeln basierend auf Eigenschaftsnamen und Reihenfolge. Dadurch können `random()` Funktionen den gleichen Seed-Namen und daher den gleichen Zufallsbasiswert haben. In diesem Beispiel ist der generierte Wert-Teilen-Identifikator für die `random()` Funktion im `width` Eigenschaftswert der gleiche für `.foo` wie für `.foo:hover`, sodass der Wert zwischen den Zuständen nicht ändert. Ebenso haben die ersten zwei `random()` Funktionen in beiden `margin` Deklarationen denselben generierten Wert-Teilen-Identifikator, was bedeutet, dass die ersten beiden Werte im `margin` Shorthand sich nicht ändern, wenn darüber gefahren wird; beim Hovern werden `bar`'s obere und rechte Ränder gleich bleiben, aber die unteren und linken Ränder erhalten unabhängige zufällige Werte. Um für jede `random()` Funktion einen unabhängigen Wert zu erhalten, geben Sie einen eindeutigen {{cssxref("dashed-ident")}} an.
 
 ### Benutzerdefinierte Eigenschaften
 
-Wie bei allen CSS-Funktionen bleibt bei der Einbeziehung einer `random()`-Funktion in einen benutzerdefinierten Eigenschaftswert der Wert eine Funktion; verhält sich wie ein Textersetzungsmechanismus und speichert keinen einzelnen Rückgabewert.
+Wie bei allen CSS-Funktionen bleibt eine `random()` Funktion, wenn sie in einem benutzerdefinierten Eigenschaftswert enthalten ist, eine Funktion; sie verhält sich wie ein Textersetzungsmechanismus und speichert keinen einzelnen Rückgabewert.
 
 ```css
 --random-size: random(1px, 100px);
 ```
 
-In diesem Beispiel "speichert" die `--random-size` benutzerdefinierte Eigenschaft das zufällig generierte Ergebnis nicht. Wenn `var(--random-size)` geparst wird, wird es effektiv durch `random(1px, 100px)` ersetzt, was bedeutet, dass jede Verwendung einen neuen `random()`-Funktionsaufruf mit eigenem Basiswert je nach Kontext, in dem sie verwendet wird, erstellt.
+In diesem Beispiel speichert die benutzerdefinierte Eigenschaft `--random-size` nicht das zufällig generierte Ergebnis. Wenn `var(--random-size)` geparst wird, wird es effektiv durch `random(1px, 100px)` ersetzt, was bedeutet, dass jede Verwendung einen neuen `random()` Funktionsaufruf mit einem eigenen Basiswert abhängig vom Kontext, in dem es verwendet wird, erzeugt.
 
-Dies ist nicht der Fall bei der Verwendung von `random()` bei der Registrierung einer benutzerdefinierten Eigenschaft mit {{cssxref("@property")}}. Registrierte benutzerdefinierte Eigenschaften berechnen zufällige Werte und speichern sie.
+Dies ist nicht der Fall bei der Verwendung von `random()` beim Registrieren einer benutzerdefinierten Eigenschaft mit {{cssxref("@property")}}. Registrierte benutzerdefinierte Eigenschaften berechnen zufällige Werte und speichern sie.
 
-In diesem Beispiel, da `--defaultSize` registriert ist, werden A, B und C Quadrate gleicher Größe sein, aber ihre Farben werden zufällig sein, da `--random-angle` nicht registriert wurde:
+In diesem Beispiel, da `--defaultSize` registriert ist, werden `.a`, `.b`, und `.c` Quadrate von gleicher Größe sein, aber ihre Farben werden zufällig sein, da `--random-angle` nicht registriert wurde:
 
 ```css
 @property --defaultSize {
@@ -174,9 +174,9 @@ In diesem Beispiel, da `--defaultSize` registriert ist, werden A, B und C Quadra
 :root {
   --random-angle: random(0deg, 360deg);
 }
-A,
-B,
-C {
+.a,
+.b,
+.c {
   background-color: hsl(var(--random-angle) 100% 50%);
   height: var(--defaultSize);
   width: var(--defaultSize);
@@ -185,7 +185,7 @@ C {
 
 ## Barrierefreiheit
 
-Da `random()` einen unbekannten Wert innerhalb eines Bereichs generieren kann, haben Sie nicht die volle Kontrolle darüber, was Sie erhalten. Dies kann zu nicht zugänglichen Ergebnissen führen. Wenn Sie beispielsweise `random()` verwenden, um eine Textfarbe zu generieren, könnten Sie am Ende mit einem Wert, der einen niedrigen Kontrast zu seinem Hintergrund hat, da stehen. Es ist wichtig, den Kontext, in dem `random()` verwendet wird, sorgfältig zu berücksichtigen, um sicherzustellen, dass Ihre Ergebnisse immer zugänglich sind.
+Da `random()` einen unbekannten Wert innerhalb eines Bereichs generieren kann, haben Sie keine vollständige Kontrolle darüber, was Sie erhalten. Dies kann zu nicht zugänglichen Ergebnissen führen. Wenn Sie beispielsweise `random()` verwenden, um Textfarbe zu generieren, können Sie mit einem Wert enden, der einen geringen Kontrast zu seinem Hintergrund hat. Es ist wichtig, den Kontext zu berücksichtigen, in dem `random()` verwendet wird, um sicherzustellen, dass Ihre Ergebnisse stets zugänglich sind.
 
 ## Formale Syntax
 
@@ -195,11 +195,11 @@ Da `random()` einen unbekannten Wert innerhalb eines Bereichs generieren kann, h
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel werden wir zufällige Farben für einige kreisförmige Plaketten erzeugen, um die grundlegende Verwendung der `random()` Funktion zu demonstrieren.
+In diesem Beispiel werden wir zufällige Farben für einige runde Abzeichen generieren, um die grundlegende Verwendung der `random()` Funktion zu demonstrieren.
 
 #### HTML
 
-Wir fügen fünf Plaketten ein, eine mit der `desaturated` Klasse und zwei mit der `unique` Klasse.
+Wir fügen fünf Abzeichen hinzu, eines mit der `desaturated` Klasse und zwei mit der `unique` Klasse.
 
 ```html
 <div class="badge"></div>
@@ -211,7 +211,7 @@ Wir fügen fünf Plaketten ein, eine mit der `desaturated` Klasse und zwei mit d
 
 #### CSS
 
-Wir rendern die fünf Plaketten als Kreise. Wir verwenden die `random()` Funktion innerhalb einer {{cssxref("hsl()")}} Farb-Funktion, um den {{cssxref("angle")}} des {{cssxref("hue")}} zu definieren. Wir setzen `element-shared`, um den zufälligen Basiswert zwischen der Standard-`badge` und der `desaturated` zu teilen, sodass es sich um eine weniger gesättigte Version desselben {{cssxref("hue")}} handelt. Wir überschreiben dann die `unique` Plaketten, um einen wirklich zufälligen `hue` zu haben, indem wir den Basiswert-Teilungsparameter standardmäßig auf `auto` lassen.
+Wir rendern die fünf Abzeichen als Kreise. Wir verwenden die `random()` Funktion innerhalb einer {{cssxref("color_value/hsl()")}} Farb-Funktion, um den {{cssxref("angle")}} des {{cssxref("hue")}} zu definieren. Wir setzen `element-shared`, um den Zufallsbasiswert zwischen dem Standard-Abzeichen und dem `desaturated` Abzeichen zu teilen, sodass es eine weniger gesättigte Version desselben {{cssxref("hue")}} ist. Wir überschreiben dann die `unique` Abzeichen, um einen wirklich zufälligen `hue` zu haben, indem wir das Basiswert-Teilen-Parameter auf `auto` basieren lassen.
 
 ```css
 .badge {
@@ -239,13 +239,13 @@ Wir rendern die fünf Plaketten als Kreise. Wir verwenden die `random()` Funktio
 
 {{EmbedLiveSample('Generate random colors for circular badge', '100%', '300px')}}
 
-### Zufällige Wertteilung zwischen Eigenschaften
+### Zufälliges Wert-Teilen zwischen Eigenschaften
 
-In diesem Beispiel erstellen wir einen sternenklaren Hintergrund, um die Verwendung eines `<dashed-ident>` zur gemeinsamen Nutzung eines Seed-Werts zwischen den Eigenschaften eines Elements zu demonstrieren.
+In diesem Beispiel erstellen wir einen sternklaren Hintergrund, um die Nutzung eines `<dashed-ident>` zu demonstrieren, um einen Seed-Wert zwischen Eigenschaften eines Elements zu teilen.
 
 #### HTML
 
-Wir fügen fünf Partikel ein, die alle denselben Klassennamen teilen.
+Wir fügen fünf Partikel hinzu, alle mit demselben Klassennamen.
 
 ```html
 <div class="particle"></div>
@@ -257,7 +257,7 @@ Wir fügen fünf Partikel ein, die alle denselben Klassennamen teilen.
 
 #### CSS
 
-Jedes Teilchen hat dieselben Stile. Wir verwenden die `random()` Funktion für die {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("top")}}, und {{cssxref("left")}} Werte, um jedes Teilchen zufällig zu dimensionieren und zu positionieren. Wir verwenden ein `<dashed-ident>` als Basiswert für die `height` und `width`, was bedeutet, dass die Größe der Teilchen unabhängig voneinander ist, innerhalb eines festgelegten Bereichs, aber die `height` jedes Teilchens die gleiche wie die `width` sein wird. Wir erlauben dem Basiswert, sich zu `auto` für die `top` und `left` Eigenschaften aufzulösen, sodass der Basiswert für jede Eigenschaft und jedes Element unabhängig voneinander ist.
+Jedes Partikel hat dieselben Stile. Wir verwenden die `random()` Funktion für die {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("top")}}, und {{cssxref("left")}} Werte, um jede Partikel zufällig zu dimensionieren und zu positionieren. Wir verwenden ein `<dashed-ident>` als Basiswert für die `height` und `width`, was bedeutet, dass die Größe der Partikel unabhängig voneinander innerhalb eines festgelegten Bereichs sind, aber die `height` jedes Partikels wird die gleiche wie die `width` sein. Wir erlauben es dem Basiswert, sich auf `auto` bei den `top` und `left` Eigenschaften aufzulösen, damit der Basiswert für jede Eigenschaft und jedes Element unabhängig voneinander ist.
 
 ```css
 body {
@@ -300,7 +300,7 @@ body {
 ## Siehe auch
 
 - {{cssxref("calc()")}}
-- [CSS-Einheiten und Werte](/de/docs/Web/CSS/Guides/Values_and_units) Modul
-- [`Math.random()`](/de/docs/Web/API/Math/random)
+- [CSS-Einheiten und -Werte](/de/docs/Web/CSS/Guides/Values_and_units) Modul
+- {{jsxref("Math.random()")}}
 - [Rolling the Dice with CSS random()](https://webkit.org/blog/17285/rolling-the-dice-with-css-random/) über webkit.org (2025)
 - [CSS Almanac: random()](https://css-tricks.com/almanac/functions/r/random/) über CSS-Tricks.com

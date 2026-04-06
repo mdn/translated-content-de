@@ -1,12 +1,12 @@
 ---
-title: "load8_splat: Wasm SIMD-Ladebefehl"
+title: "load8_splat: Wasm SIMD Ladeanweisung"
 short-title: load8_splat
 slug: WebAssembly/Reference/SIMD/load/load8_splat
 l10n:
-  sourceCommit: d3b22d8099235ad3a0ef2a494106fc2ea178863d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Der **`load8_splat`** [SIMD-Ladebefehl](/de/docs/WebAssembly/Reference/SIMD/load) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in alle Lanes eines `i8x16`-Wertinterpretationstyps vom Typ [`v128`](/de/docs/WebAssembly/Reference/Types/v128).
+Die **`load8_splat`** [SIMD Ladeanweisung](/de/docs/WebAssembly/Reference/SIMD/load) lädt einen einzelnen Wert von einer gegebenen Speicheradresse in alle Lanes eines [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typs `i8x16`-Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load8_splat", "tabbed-taller")}}
 
@@ -35,18 +35,18 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ;; Common usage
 v128.load8_splat
 
-;; With optional immediates
-v128.load8_splat memidx offset=int align=int
+;; With optional immediate operands
+v128.load8_splat mem_idx offset=int align=int
 ```
 
 - `v128.load8_splat`
-  - : Der `v128.load8_splat`-Befehl.
-- `memidx` {{optional_inline}}
-  - : Eine Ganzzahl, die den Speicherindex repräsentiert, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Die `v128.load8_splat` Anweisung.
+- `mem_idx` {{optional_inline}}
+  - : Eine ganze Zahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Eine Ganzzahl, die eine konstante Anzahl von Bytes angibt, die zur Speicheradresse hinzugerechnet werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Eine ganze Zahl, die eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Eine Ganzzahl, die dem Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die finale Adresse erwartet wird. Der Mindestwert, Standardwert und Höchstwert ist `1`.
+  - : Eine ganze Zahl, die der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der minimale, Standard- und maximale Wert ist `1`.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load8_splat memidx offset=int align=int
 ```
 
 - `memory_address`
-  - : Eine Ganzzahl, die die Speicheradresse darstellt, von der geladen werden soll.
+  - : Eine ganze Zahl, die die Speicheradresse darstellt, von der geladen wird.
 - `output`
-  - : Die Ausgabe vom Typ `v128` in der `i8x16`-Wertinterpretation.
+  - : Die Ausgabe `v128` Typ `i8x16`-Wertinterpretation.
 
 ### Binäre Kodierung
 
-| Befehl             | Binärformat                                 | Beispiel Text => binär                                         |
-| ------------------ | ------------------------------------------- | -------------------------------------------------------------- |
-| `v128.load8_splat` | `0xFD 7:u32 memidx:u8 offset:u32 align:u32` | `v128.load8_splat 0 offset=0 align=1` => `0xfd 0x07 0x00 0x00` |
+| Anweisung          | Binärformat                                  | Beispiel Text => Binär                                         |
+| ------------------ | -------------------------------------------- | -------------------------------------------------------------- |
+| `v128.load8_splat` | `0xFD 7:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load8_splat 0 offset=0 align=1` => `0xfd 0x07 0x00 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den literalen `align`-Wert angibt, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Also ist `align=1` äquivalent zu `0x00` (`2^0`).
+> Während das Wasm-Textformat den literalen `align` Wert spezifiziert, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Somit ist `align=1` äquivalent zu `0x00` (`2^0`).
 
 ## Spezifikationen
 
@@ -78,4 +78,4 @@ v128.load8_splat memidx offset=int align=int
 
 ## Siehe auch
 
-- [SIMD-Ladebefehle](/de/docs/WebAssembly/Reference/SIMD/load)
+- [SIMD Ladeanweisungen](/de/docs/WebAssembly/Reference/SIMD/load)

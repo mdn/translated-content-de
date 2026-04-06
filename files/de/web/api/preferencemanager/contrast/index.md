@@ -3,24 +3,24 @@ title: "PreferenceManager: contrast-Eigenschaft"
 short-title: contrast
 slug: Web/API/PreferenceManager/contrast
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`contrast`** Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager) Schnittstelle gibt ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Benutzerpräferenz für den [Kontrast](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-contrast) der Seite zu überschreiben.
+Die schreibgeschützte **`contrast`**-Eigenschaft der [`PreferenceManager`](/de/docs/Web/API/PreferenceManager)-Schnittstelle gibt ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) zurück, das verwendet wird, um die Kontrasteinstellung des Nutzers für die Website zu überschreiben.
 
-Gültige `contrast` [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) Einstellungen sind `more`, `less` und `no-preference`.
+Gültige `contrast`-Einstellungen von [`PreferenceObject.value`](/de/docs/Web/API/PreferenceObject/value) sind `more`, `less` und `no-preference`.
 
 ## Wert
 
-Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Benutzerpräferenz für den [Kontrast](/de/docs/Web/CSS/Reference/Reference/At-rules/@media/prefers-contrast) der Seite zu überschreiben.
+Ein [`PreferenceObject`](/de/docs/Web/API/PreferenceObject), das verwendet wird, um die Kontrasteinstellung des Nutzers für die Website zu überschreiben.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Sie die Kontrastpräferenz des Benutzers abfragen können.
+Dieses Beispiel zeigt, wie man die Kontrasteinstellung des Nutzers abfragt.
 
 ```js
 if (navigator.preferences.contrast.value === "more") {

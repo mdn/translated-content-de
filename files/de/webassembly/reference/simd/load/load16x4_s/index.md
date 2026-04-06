@@ -1,12 +1,12 @@
 ---
-title: "load16x4_s: Wasm SIMD Ladeanweisung"
+title: "load16x4_s: Wasm SIMD Load-Befehl"
 short-title: load16x4_s
 slug: WebAssembly/Reference/SIMD/load/load16x4_s
 l10n:
-  sourceCommit: d3b22d8099235ad3a0ef2a494106fc2ea178863d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Die **`load16x4_s`** [SIMD Ladeanweisung](/de/docs/WebAssembly/Reference/SIMD/load) lädt vier 16-Bit-Ganzzahlen von einer angegebenen Speicheradresse und erweitert jede auf ein 32-Bit-Lane, wobei sie eine [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Typ `i32x4`-Wertinterpretation ausgibt.
+Der **`load16x4_s`** [SIMD Load-Befehl](/de/docs/WebAssembly/Reference/SIMD/load) lädt vier 16-Bit-Ganzzahlen von einer gegebenen Speicheradresse und erweitert jede auf das Vorzeichen zu einem 32-Bit-Lane, wobei eine [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typ `i32x4` Werteinterpretation ausgegeben wird.
 
 {{InteractiveExample("Wat Demo: load16x4_s", "tabbed-taller")}}
 
@@ -35,18 +35,18 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ;; Common usage
 v128.load16x4_s
 
-;; With optional immediates
-v128.load16x4_s memidx offset=int align=int
+;; With optional immediate operands
+v128.load16x4_s mem_idx offset=int align=int
 ```
 
 - `v128.load16x4_s`
-  - : Die `v128.load16x4_s` Anweisung.
-- `memidx` {{optional_inline}}
-  - : Ein Integer, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Der `v128.load16x4_s` Befehl.
+- `mem_idx` {{optional_inline}}
+  - : Ein Ganzzahlwert, der den Speicherindex darstellt, wenn das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Integer, der einen Hinweis an die Wasm-Engine über die erwartete Ausrichtung der Endadresse darstellt. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein Ganzzahlwert, der dem Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load16x4_s memidx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein Integer, der die zu ladende Speicheradresse darstellt.
+  - : Eine Ganzzahl, die die Speicheradresse darstellt, von der geladen werden soll.
 - `output`
-  - : Die Ausgabe `v128` Typ `i32x4` Wertinterpretation.
+  - : Die Ausgabe `v128` Typ `i32x4` Werteinterpretation.
 
-### Binäre Codierung
+### Binärcodierung
 
-| Anweisung         | Binärformat                                 | Beispieltext => binär                                         |
-| ----------------- | ------------------------------------------- | ------------------------------------------------------------- |
-| `v128.load16x4_s` | `0xFD 3:u32 memidx:u8 offset:u32 align:u32` | `v128.load16x4_s 0 offset=0 align=4` => `0xfd 0x03 0x02 0x00` |
+| Befehl            | Binärformat                                  | Beispiel Text => Binär                                        |
+| ----------------- | -------------------------------------------- | ------------------------------------------------------------- |
+| `v128.load16x4_s` | `0xFD 3:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load16x4_s 0 offset=0 align=4` => `0xfd 0x03 0x02 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So entspricht beispielsweise `align=1` dem Wert `0x00` (`2^0`), während `align=8` dem Wert `0x03` (`2^3`) entspricht.
+> Während das Wasm-Textformat den literalen `align`-Wert angibt, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. So ist zum Beispiel `align=1` gleichbedeutend mit `0x00` (`2^0`), während `align=8` gleichbedeutend mit `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -78,4 +78,4 @@ v128.load16x4_s memidx offset=int align=int
 
 ## Siehe auch
 
-- [SIMD Ladeanweisungen](/de/docs/WebAssembly/Reference/SIMD/load)
+- [SIMD Load-Befehle](/de/docs/WebAssembly/Reference/SIMD/load)
