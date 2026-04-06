@@ -48,6 +48,6 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "lefthook": "^2.1.4"
+    "lefthook": "^2.1.5"
   }
 }
