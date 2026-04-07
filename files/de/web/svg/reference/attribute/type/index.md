@@ -2,14 +2,14 @@
 title: type
 slug: Web/SVG/Reference/Attribute/type
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
-Das `type`-Attribut ist ein generisches Attribut und hat je nach Kontext, in dem es verwendet wird, unterschiedliche Bedeutungen.
+Das `type`-Attribut ist ein allgemeines Attribut und hat je nach Kontext, in dem es verwendet wird, eine unterschiedliche Bedeutung.
 
-- Für das {{SVGElement("animateTransform")}}-Element definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
-- Für das {{SVGElement("feColorMatrix")}}-Element gibt es den Typ der Matrixoperation an. Das Schlüsselwort `matrix` weist darauf hin, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen praktische Abkürzungen dar, um häufig verwendete Farboperationen ohne Angabe einer vollständigen Matrix durchzuführen.
-- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} gibt es den Typ der Komponententransferfunktion an.
+- Für das {{SVGElement("animateTransform")}}-Element definiert es die Art der Transformation, deren Werte sich über die Zeit ändern.
+- Für das {{SVGElement("feColorMatrix")}}-Element gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen bequeme Abkürzungen dar, um häufig verwendete Farboperationen ohne Angabe einer vollständigen Matrix durchzuführen.
+- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} gibt es den Typ der Komponenten-Transferfunktion an.
 - Für das {{SVGElement("feTurbulence")}}-Element gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
 - Für die Elemente {{SVGElement("style")}} und {{SVGElement("script")}} definiert es den Inhaltstyp des Elements.
 
@@ -161,7 +161,7 @@ SVG-Element: {{SVGElement("feTurbulence")}}
   </tbody>
 </table>
 
-### Für die &lt;style&gt;- und &lt;script&gt;-Elemente
+### Für die &lt;style&gt; und &lt;script&gt;-Elemente
 
 SVG-Elemente: {{SVGElement("style")}}, {{SVGElement("script")}}
 
@@ -183,11 +183,11 @@ SVG-Elemente: {{SVGElement("style")}}, {{SVGElement("script")}}
       <th scope="row">Normatives Dokument</th>
       <td>
         <a
-          href="https://svgwg.org/svg2-draft/interact.html#ScriptElementTypeAttribute"
+          href="https://w3c.github.io/svgwg/svg2-draft/interact.html#ScriptElementTypeAttribute"
           rel="external"
           >Scalable Vector Graphics (SVG) 2</a
         ><br /><a
-          href="https://svgwg.org/svg2-draft/styling.html#StyleElementTypeAttribute"
+          href="https://w3c.github.io/svgwg/svg2-draft/styling.html#StyleElementTypeAttribute"
           rel="external"
           >Scalable Vector Graphics (SVG) 2</a
         >
