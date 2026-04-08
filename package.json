@@ -20,7 +20,8 @@
     "fix:yml": "prettier -w \"**/*.yml\"",
     "lint:json": "prettier -c \"**/*.json(c)?\"",
     "lint:md": "markdownlint-cli2 \"**/*.md\" && node ./scripts/check-url-locale.js files && npx autocorrect --lint . && prettier -c \"**/*.md\"",
-    "lint:yml": "prettier -c \"**/*.yml\""
+    "lint:yml": "prettier -c \"**/*.yml\"",
+    "test": "node --test"
   },
   "packageManager": "npm@11.9.0",
   "engines": {
