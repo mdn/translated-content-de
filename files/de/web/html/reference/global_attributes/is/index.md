@@ -1,17 +1,17 @@
 ---
-title: HTML ist globales Attribut
+title: "`is` HTML globales Attribut"
 short-title: is
 slug: Web/HTML/Reference/Global_attributes/is
 l10n:
-  sourceCommit: 56f5609d323467cd08eeaddc57e4490a02be1889
+  sourceCommit: 1bc1971a1265d1792c94b99b736c5accec1fec6d
 ---
 
 > [!NOTE]
-> [Safari plant nicht, unterstützte eingebaute benutzerdefinierte Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browser-Hersteller erkunden alternative Lösungen zur Anpassung eingebauter Elemente](https://github.com/WICG/webcomponents/issues/1029). Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung.
+> [Safari plant nicht, angepasste eingebaute Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browser-Anbieter erkunden alternative Lösungen zur Anpassung von eingebauten Elementen](https://github.com/WICG/webcomponents/issues/1029). Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung.
 
-Das **`is`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ermöglicht es Ihnen, festzulegen, dass ein Standard-HTML-Element wie ein definiertes benutzerdefiniertes eingebautes Element funktionieren soll (siehe [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Details).
+Das **`is`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ermöglicht es Ihnen, anzugeben, dass ein standardmäßiges HTML-Element sich wie ein definiertes angepasstes eingebautes Element verhalten soll. Weitere Informationen finden Sie unter [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements).
 
-Dieses Attribut kann nur verwendet werden, wenn der angegebene Name des benutzerdefinierten Elements erfolgreich im aktuellen Dokument [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und den Elementtyp erweitert, auf den es angewendet wird.
+Dieses Attribut kann nur verwendet werden, wenn der angegebene Name des benutzerdefinierten Elements im aktuellen Dokument erfolgreich [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und den Elementtyp erweitert, auf den es angewendet wird.
 
 ## Beispiele
 
