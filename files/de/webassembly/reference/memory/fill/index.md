@@ -1,18 +1,19 @@
 ---
-title: "fill: Wasm-Textinstruktion"
+title: "fill: Wasm-Textanweisung"
 short-title: fill
 slug: WebAssembly/Reference/Memory/fill
 l10n:
-  sourceCommit: e134d50d779647ba26ee41d7bbefc8d3b4e8fba6
+  sourceCommit: fb9290c58b1575b6869bd0a69ab7edb3e2184892
 ---
 
-Die **`memory.fill`** [Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
+Die **`memory.fill`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
 
-Die Instruktion gibt keinen Wert zurück. Sie löst eine Ausnahme aus, wenn der angezeigte Speicherbereich außerhalb der Grenzen liegt.
+Die Anweisung gibt keinen Wert zurück.
+Es wird eine Ausnahme ausgelöst, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
 
 ## Syntax
 
-Füllen innerhalb des Standardspeichers
+Füllen innerhalb des Standard-Speichers
 
 ```wat
 ;; Fill region at offset/range in default memory with 255
@@ -21,11 +22,11 @@ i32.const 255 ;; The value to set each byte to (must be < 256)
 i32.const 100 ;; The number of bytes to update
 memory.fill ;; Fill default memory
 
-;; Fill default memory using an S-function
+;; Fill default memory using an S-expression
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen des angegebenen Speichers (falls Multi-Speicher unterstützt wird)
+Füllen eines angegebenen Speichers (wenn Multi-Speicher unterstützt wird)
 
 ```wat
 ;; Fill specific memory referenced by its index
@@ -40,13 +41,13 @@ i32.const 255 ;; The value to set each byte to (must be < 256)
 i32.const 100 ;; The number of bytes to update
 memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 
-;; Fill same memory using an S function
+;; Fill same memory using an S-expression
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binärer Opcode |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -59,4 +60,4 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle gibt die Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.

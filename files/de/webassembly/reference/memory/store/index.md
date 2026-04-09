@@ -1,14 +1,14 @@
 ---
-title: "store: Wasm-Textbefehl"
+title: "store: Wasm-Text-Instruktion"
 short-title: store
 slug: WebAssembly/Reference/Memory/store
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: fb9290c58b1575b6869bd0a69ab7edb3e2184892
 ---
 
-Die **`store`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus dem Stack im Speicher abzulegen.
+Die **`store`**-Instruktionen der [Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stapel in einem Speicher abzulegen.
 
-Es gibt `store`-Anweisungen, um `i32`, `i64`, `f32` und `f64` im Speicher abzulegen. Für die Ganzzahlen gibt es separate Anweisungsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher abzulegen. Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Speicherplatz speichern, indem Sie `i32.store8` verwenden. Wenn die Zahl nicht in den engeren Zahlentyp passt, wird sie umgewickelt. Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
+Es gibt `store`-Instruktionen, um ein `i32`, `i64`, `f32` und `f64` im Speicher abzulegen. Für die Ganzzahlen gibt es separate Instruktionsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher abzulegen. Zum Beispiel können Sie eine 32-Bit-Zahl in einen 8-Bit-Slot im Speicher mit `i32.store8` ablegen. Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgeschlagen. Alle Varianten sind [unten aufgeführt](#instruktionen_und_opcodes).
 
 {{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
 
@@ -47,7 +47,7 @@ console.log(first_number_in_mem);
 
 ## Syntax
 
-Speichern im Standardspeicher
+Standardmäßig in einen Speicher ablegen
 
 ```wat
 ;; Store value in default memory at particular offset
@@ -55,11 +55,11 @@ i32.const 0 ;; stack variable with offset in memory to store the number
 i32.const 20 ;; stack variable with the number to store
 i32.store ;; store in default memory
 
-;; Store using S-function (same values and offset)
+;; Store using S-expression (same values and offset)
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-Speichern in einem angegebenen Speicher (falls Mehrfachspeicher unterstützt wird)
+In angegebene Speicher ablegen (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Store in memory referenced by its index
@@ -72,13 +72,13 @@ i32.const 0 ;; offset to store the number
 i32.const 20 ;; the number to store
 i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 
-;; Store in same memory using an S function
+;; Store in same memory using an S-expression
 (i32.store (memory $memoryName) (i32.const 0) (i32.const 20))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung     | Binärer Opcode |
+| Instruktion   | Binärer Opcode |
 | ------------- | -------------- |
 | `i32.store`   | `0x36`         |
 | `i64.store`   | `0x37`         |
@@ -99,4 +99,4 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle gibt die Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
+> Die Tabelle zur `multiMemory`-Kompatibilität zeigt die Versionen an, in denen `store` mit einem spezifizierten Speicher verwendet werden kann.
