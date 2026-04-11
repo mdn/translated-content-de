@@ -2,24 +2,24 @@
 title: CSSMathClamp
 slug: Web/API/CSSMathClamp
 l10n:
-  sourceCommit: 8446f51f9a446af6a9ed878ff8f9515d60d28ed5
+  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSMathClamp`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS-Funktion {{CSSXref("clamp","clamp()")}}. Es erbt Eigenschaften und Methoden von seinem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Die **`CSSMathClamp`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS {{CSSXref("clamp","clamp()")}}-Funktion. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`CSSMathClamp()`](/de/docs/Web/API/CSSMathClamp/CSSMathClamp) {{Experimental_Inline}}
+- [`CSSMathClamp()`](/de/docs/Web/API/CSSMathClamp/CSSMathClamp)
   - : Erstellt ein neues `CSSMathClamp`-Objekt.
 
 ## Instanz-Eigenschaften
 
 - [`CSSMathClamp.lower`](/de/docs/Web/API/CSSMathClamp/lower)
-  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den minimalen Wert enthält.
+  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Minimalwert enthält.
 - [`CSSMathClamp.value`](/de/docs/Web/API/CSSMathClamp/value)
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den bevorzugten Wert enthält.
 - [`CSSMathClamp.upper`](/de/docs/Web/API/CSSMathClamp/upper)
@@ -27,11 +27,11 @@ Das **`CSSMathClamp`**-Interface der [CSS Typed Object Model API](/de/docs/Web/A
 
 ## Statische Methoden
 
-_Das Interface erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Die Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Instanz-Methoden
 
-_Das Interface erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Die Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Beispiele
 
