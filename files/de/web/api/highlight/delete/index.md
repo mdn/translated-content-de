@@ -1,14 +1,14 @@
 ---
-title: "Highlight: delete()-Methode"
+title: "Highlight: delete() Methode"
 short-title: delete()
 slug: Web/API/Highlight/delete
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`delete()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle entfernt ein angegebenes [`Range`](/de/docs/Web/API/Range)-Objekt aus einem `Highlight`-Objekt.
+Die **`delete()`** Methode des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces entfernt ein angegebenes [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt aus einem `Highlight`-Objekt.
 
 `Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.delete()")}}.
 
@@ -21,15 +21,15 @@ delete(range)
 ### Parameter
 
 - `range`
-  - : Das [`Range`](/de/docs/Web/API/Range)-Objekt, das aus dem `Highlight` entfernt werden soll.
+  - : Das [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt, das aus dem `Highlight` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `range` bereits im `Highlight` war; andernfalls `false`.
+Gibt `true` zurück, wenn `range` bereits in `Highlight` war; ansonsten `false`.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie Sie ein neues Highlight mit zwei Bereichen erstellen und dann einen davon löschen:
+Der folgende Codeausschnitt zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann einen davon löscht:
 
 ```js
 const range1 = new Range();

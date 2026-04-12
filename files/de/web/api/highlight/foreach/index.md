@@ -3,12 +3,12 @@ title: "Highlight: forEach() Methode"
 short-title: forEach()
 slug: Web/API/Highlight/forEach
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`forEach()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle führt eine bereitgestellte Funktion einmal für jedes [`Range`](/de/docs/Web/API/Range)-Objekt im `Highlight`-Objekt in der Einfügereihenfolge aus.
+Die **`forEach()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight) Schnittstelle führt eine bereitgestellte Funktion einmal für jedes [`AbstractRange`](/de/docs/Web/API/AbstractRange) Objekt im `Highlight`-Objekt aus, in Einfügereihenfolge.
 
 `Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.forEach()")}}.
 
@@ -22,15 +22,15 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callback`
-  - : Funktion, die für jedes `Range`-Objekt ausgeführt werden soll und drei Argumente nimmt:
+  - : Funktion, die für jedes `AbstractRange`-Objekt ausgeführt wird, mit drei Argumenten:
     - `range`, `key`
-      - : Das aktuelle `Range`-Objekt, das im `Highlight` verarbeitet wird. Da es in `Highlight` keine
+      - : Das aktuelle `AbstractRange`-Objekt, das im `Highlight` verarbeitet wird. Da es in `Highlight` keine
         Schlüssel gibt, wird das `range` für beide Argumente übergeben.
     - `highlight`
-      - : Das `Highlight`-Objekt, bei dem `forEach()` aufgerufen wurde.
+      - : Das `Highlight`-Objekt, auf das `forEach()` aufgerufen wurde.
 
 - `thisArg`
-  - : Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
+  - : Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -38,7 +38,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Code zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann die Bereiche mithilfe der `forEach()`-Methode protokolliert:
+Das folgende Code-Beispiel zeigt, wie ein neues Highlight mit zwei Bereichen erstellt wird, und dann wie die Bereiche durch die Verwendung der `forEach()`-Methode protokolliert werden:
 
 ```js
 function logRanges(range, key, highlight) {
@@ -73,4 +73,4 @@ myHighlight.forEach(logRanges);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

@@ -3,14 +3,14 @@ title: "Highlight: add() Methode"
 short-title: add()
 slug: Web/API/Highlight/add
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`add()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle fügt ein neues [`Range`](/de/docs/Web/API/Range)-Objekt einem Highlight hinzu, das mithilfe der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestylt werden soll.
+Die **`add()`** Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle fügt ein neues [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt zu einem Highlight hinzu, das mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestylt werden soll.
 
-`Highlight` ist ein objektähnliches {{jsxref("Set")}}, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.add()")}}.
+`Highlight` ist ein Objekt ähnlich wie ein {{jsxref("Set")}}, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Set.add()")}}.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ add(range)
 ### Parameter
 
 - `range`
-  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das dem `Highlight` hinzugefügt wird.
+  - : Ein [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekt, das zum `Highlight` hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Das `Highlight`-Objekt mit dem hinzugefügten Bereich.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie man zwei Bereiche zu einem neuen Highlight-Objekt hinzufügt:
+Der folgende Codeausschnitt zeigt, wie zwei Bereiche zu einem neuen Highlight-Objekt hinzugefügt werden:
 
 ```js
 const highlight = new Highlight();
@@ -53,4 +53,4 @@ console.log(highlight.size); // 2
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

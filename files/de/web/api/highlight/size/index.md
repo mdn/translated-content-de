@@ -3,16 +3,16 @@ title: "Highlight: size-Eigenschaft"
 short-title: size
 slug: Web/API/Highlight/size
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`size`**-Eigenschaft gibt die Anzahl der [`Range`](/de/docs/Web/API/Range)-Objekte in einem [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück.
+Die **`size`**-Eigenschaft gibt die Anzahl der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekte in einem [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück.
 
 ## Wert
 
-Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt enthält.
+Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt hat.
 
 ## Beispiele
 
