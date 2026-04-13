@@ -3,20 +3,18 @@ title: "DedicatedWorkerGlobalScope: postMessage()-Methode"
 short-title: postMessage()
 slug: Web/API/DedicatedWorkerGlobalScope/postMessage
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ff81a4e4cb740060aca2df256ce2e07d1e2c0b4e
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`postMessage()`**-Methode der [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Schnittstelle sendet eine Nachricht an den Hauptthread, der sie erstellt hat.
+Die **`postMessage()`**-Methode des [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Interfaces sendet eine Nachricht an den Hauptthread, der ihn erzeugt hat.
 
-Diese akzeptiert einen Datenparameter, der die zu kopierenden Daten vom Worker zum Haupt-Thread enthält.
-Die Daten können jeden Wert oder jedes JavaScript-Objekt enthalten, das vom [Structured Clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus behandelt wird, der zirkuläre Verweise einschließt.
+Diese Methode akzeptiert einen Datenparameter, der Daten enthält, die vom Worker an den Hauptthread kopiert werden sollen. Die Daten können jeden Wert oder jedes JavaScript-Objekt umfassen, das vom [structured clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus behandelt wird, einschließlich zyklischer Referenzen.
 
-Die Methode akzeptiert auch ein optionales Array von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), um sie an den Haupt-Thread zu _übertragen_; im Gegensatz zum Datenparameter sind übertragene Objekte im Worker-Thread nicht mehr nutzbar.
-(Wenn möglich, werden Objekte mit einer leistungsstarken Zero-Copy-Operation übertragen).
+Die Methode akzeptiert auch ein optionales Array von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die an den Hauptthread _übertragen_ werden sollen; Im Gegensatz zu dem Datenparameter sind übertragene Objekte im Worker-Thread nicht mehr verwendbar. (Wo möglich, werden Objekte mittels einer leistungsstarken Zero-Copy-Operation übertragen).
 
-Der Hauptbereich, der den Worker erzeugt hat, kann mit der [`Worker.postMessage`](/de/docs/Web/API/Worker/postMessage)-Methode Informationen an den Thread zurücksenden, der ihn erzeugt hat.
+Der Haupt-Scope, der den Worker erzeugt hat, kann mithilfe der [`Worker.postMessage`](/de/docs/Web/API/Worker/postMessage)-Methode Informationen an den Thread, der ihn erzeugt hat, zurücksenden.
 
 ## Syntax
 
@@ -29,13 +27,12 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Das Objekt, das an den Haupt-Thread übermittelt werden soll; dies wird im Datenfeld des an das [`message`](/de/docs/Web/API/Window/message_event)-Event übermittelten Events vorhanden sein.
-    Dies kann jeden Wert oder jedes JavaScript-Objekt enthalten, das vom [Structured Clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus behandelt wird, der zirkuläre Verweise einschließt.
+  - : Das Objekt, das an den Hauptthread übermittelt werden soll; dieses wird im Datenfeld im Event, das an das [`message`](/de/docs/Web/API/Window/message_event)-Event geliefert wird, enthalten sein. Dies kann jeden Wert oder jedes JavaScript-Objekt umfassen, das vom [structured clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus behandelt wird, einschließlich zyklischer Referenzen.
 
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentum übertragen werden soll. Das Eigentum dieser Objekte wird auf die Zielseite übertragen und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie verschoben, aber tatsächlich nicht zugänglich auf der empfangenden Seite sein.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentum übertragen werden soll. Das Eigentum dieser Objekte wird der Empfängerseite übertragen und sie sind auf der sendenden Seite nicht mehr verwendbar. Diese transferierbaren Objekte werden nicht automatisch gesendet; sie müssen entweder in der Nachricht enthalten sein oder dem Empfänger auf andere Weise zugänglich gemacht werden, z. B. über [`MessagePort`](/de/docs/Web/API/MessagePort) via [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports).
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt mit den folgenden Eigenschaften:
+  - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
     - `transfer` {{optional_inline}}
       - : Hat die gleiche Bedeutung wie der `transfer`-Parameter.
 
@@ -45,8 +42,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt `worker.js`, in dem ein `onmessage`-Handler verwendet wird, um Nachrichten aus dem Hauptskript zu bearbeiten.
-Innerhalb des Handlers wird eine Berechnung durchgeführt, aus der eine Ergebnisnachricht erzeugt wird; diese wird dann mit `postMessage(workerResult);` an den Haupt-Thread zurückgesendet.
+Der folgende Codeausschnitt zeigt `worker.js`, in dem ein `onmessage`-Handler verwendet wird, um Nachrichten vom Hauptskript zu verarbeiten. Innerhalb des Handlers wird eine Berechnung durchgeführt, aus der eine Ergebnisnachricht erstellt wird; diese wird dann mithilfe von `postMessage(workerResult);` an den Hauptthread zurückgesendet.
 
 ```js
 onmessage = (e) => {
@@ -57,11 +53,12 @@ onmessage = (e) => {
 };
 ```
 
-Im Hauptskript müsste `onmessage` auf einem `Worker-Objekt` aufgerufen werden, während im Worker-Skript nur `onmessage` benötigt wird, da der Worker effektiv der globale Bereich ([`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)) ist.
+Im Hauptskript müsste `onmessage` an einem `Worker-Objekt` aufgerufen werden, während Sie im Worker-Skript nur `onmessage` benötigen, da der Worker effektiv der globale Scope ([`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)) ist.
 
-Für ein vollständiges Beispiel siehe unser [Einfaches dedicatetes Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([ausführen dedicateten Worker](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Ein vollständiges Beispiel finden Sie in unserem [einfachen dedizierten Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
-> [!NOTE] > `postMessage()` kann nur ein einziges Objekt gleichzeitig senden. Wie oben zu sehen, können Sie, wenn Sie mehrere Werte übergeben möchten, ein Array senden.
+> [!NOTE]
+> `postMessage()` kann nur ein einzelnes Objekt gleichzeitig senden. Wie oben gezeigt, können Sie, wenn Sie mehrere Werte übergeben möchten, ein Array senden.
 
 ## Spezifikationen
 
@@ -73,4 +70,4 @@ Für ein vollständiges Beispiel siehe unser [Einfaches dedicatetes Worker-Beisp
 
 ## Siehe auch
 
-Die [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Schnittstelle, zu der es gehört.
+Das [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Interface, zu dem es gehört.
