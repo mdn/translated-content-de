@@ -2,101 +2,101 @@
 title: Bedrohungsmodellierungs-Frameworks und -Tools
 slug: Web/Security/Threat_modeling/Frameworks
 l10n:
-  sourceCommit: 254daa6717e1d162f9fff51a0c49162c798f9bb0
+  sourceCommit: ef78a9a3336c884fb3587e4ff833e64704296f01
 ---
 
 Bedrohungsmodellierung ist ein Prozess, der Entwicklern helfen kann, potenzielle Sicherheitsrisiken in Anwendungen und Websites zu identifizieren und zu verstehen.
 
-Der [Leitfaden zur Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling) beschreibt, wie Sie die Bedrohungsmodellierung durchführen können. Er bietet einen leichtgewichtigen Überblick über den Bedrohungsmodellierungsprozess, der sich auf die vier zentralen Fragen konzentriert, wie sie im [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) definiert sind.
+Der [Leitfaden zur Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling) beschreibt, wie man die Bedrohungsmodellierung durchführt. Er bietet eine vereinfachte Übersicht über den Bedrohungsmodellierungsprozess und konzentriert sich auf die vier Schlüsselfragen, wie sie im [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org) definiert sind.
 
 Dieser Artikel beschreibt die [STRIDE](#stride)- und [LINDDUN](#linddun)-Frameworks, die Struktur für Bedrohungsmodellierungsprozesse bieten, zusammen mit zusätzlichen Ressourcen.
 
 ## Frameworks
 
-Es existieren Frameworks und Techniken, die Ihnen helfen können, Bedrohungen aus verschiedenen Perspektiven zu betrachten. Sie helfen Ihnen, strukturierte Antworten auf die [vier Fragen zur Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling#1._what_are_we_working_on) zu finden, insbesondere auf die zentrale Frage "Was kann schiefgehen?". Sie tun dies, indem sie Bedrohungskategorien anbieten.
+Frameworks und Techniken existieren, die Ihnen helfen können, Bedrohungen aus verschiedenen Perspektiven zu betrachten. Sie können Ihnen helfen, strukturierte Antworten auf die [vier Fragen der Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling#1._what_are_we_working_on) zu finden, insbesondere auf die Schlüsselfrage „Was kann schiefgehen“. Dies geschieht durch das Anbieten von Bedrohungskategorien.
 
-Sie können diese Kategorien in Ihrem Bedrohungsmodell referenzieren (zum Beispiel, "STRIDE: Manipulation"), um anzuzeigen, dass Sie über eine bekannte Bedrohungskategorie nachgedacht haben.
+Sie können auf diese Kategorien in Ihrem Bedrohungsmodell verweisen (zum Beispiel „STRIDE: Manipulation“), um anzugeben, dass Sie über eine bekannte Kategorie des Bedrohungsmodells nachgedacht haben.
 
-Zwei beliebte Bedrohungsanalysemethoden sind [STRIDE](#stride), das sich auf Sicherheit konzentriert, und [LINDDUN](#linddun), das sich auf Datenschutz konzentriert.
+Zwei beliebte Bedrohungsanalyse-Frameworks sind [STRIDE](#stride), das sich auf Sicherheit konzentriert, und [LINDDUN](#linddun), das sich auf Datenschutz fokussiert.
 
 ### STRIDE
 
-Das [STRIDE](https://en.wikipedia.org/wiki/STRIDE_model)-Framework ist eine weithin anerkannte Methode der Bedrohungsmodellierung, die von Microsoft entwickelt wurde. Jeder Buchstabe im STRIDE-Akronym steht für eine der sechs Sicherheitsbedrohungskategorien. Innerhalb jeder Kategorie haben wir relevante Fragen eingefügt, die Sie in Ihr Bedrohungsmodell aufnehmen können.
+Das [STRIDE](https://en.wikipedia.org/wiki/STRIDE_model)-Framework ist eine weithin anerkannte Methode zur Bedrohungsmodellierung, die von Microsoft entwickelt wurde. Jeder Buchstabe im STRIDE-Akronym steht für eine der sechs Kategorien von Sicherheitsbedrohungen. Innerhalb jeder Kategorie haben wir relevante Fragen aufgenommen, die Sie in Ihr Bedrohungsmodell einbeziehen können.
 
-- **Spoofing**
-  - : Sich als ein anderer Benutzer oder ein anderes System ausgeben, um unbefugten Zugriff zu erlangen, wie beispielsweise ein Angreifer, der eine gefälschte Anmeldeschnittstelle benutzt, um Benutzeranmeldedaten zu stehlen.
+- **Spoofing** (Täuschung)
+  - : Die Nachahmung eines anderen Benutzers oder Systems, um unbefugten Zugriff zu erlangen, wie zum Beispiel ein Angreifer, der eine Anmeldeschnittstelle vortäuscht, um Benutzeranmeldedaten zu stehlen.
     - Sind Cookies vor Diebstahl oder Wiederverwendung geschützt?
     - Könnte ein Angreifer alte Anmeldedaten oder Sitzungen wiederverwenden?
-- **Tampering**
-  - : Unbefugte Änderung von Daten oder Systemen, wie zum Beispiel das Ändern eines versteckten Eingabefeldes in einem Checkout-Formular.
+- **Tampering** (Manipulation)
+  - : Unbefugte Änderung von Daten oder Systemen, wie das Ändern eines versteckten Eingabefeldes in einem Bestellformular.
     - Ist alles mit HTTPS verschlüsselt?
-    - Können Benutzer Anforderungsparameter, Header oder API-Daten ändern?
-- **Repudiation**
-  - : Das Behaupten, eine Handlung nicht durchgeführt zu haben, wie zum Beispiel das Löschen von Daten durch einen Benutzer ohne einen Löschprotokoll.
+    - Können Benutzer Anfrageparameter, -header, API-Nutzlasten ändern?
+- **Repudiation** (Abstreitbarkeit)
+  - : Die Behauptung, eine Aktion nicht ausgeführt zu haben, wie bei einem Benutzer, der Daten löscht und kein Löschprotokoll hinterlässt.
     - Protokollieren wir sicherheitsrelevante Ereignisse wie Anmeldeausfälle?
-    - Können wir Aktionen auf einen bestimmten Benutzer zurückverfolgen?
-- **Information disclosure**
-  - : Unbefugte Offenlegung von vertraulichen Informationen, wie das Pushen sensibler Umgebungswerte in die Produktion.
-    - Werden personenbezogene Daten über URL-Query-Strings offengelegt?
+    - Können wir Aktionen zu einem bestimmten Benutzer zurückverfolgen?
+- **Information disclosure** (Informationsoffenlegung)
+  - : Unbefugte Offenlegung vertraulicher Informationen, wie das in Produktion drücken sensibler Umweltwerte.
+    - Werden persönliche Daten über URL-Abfragezeichenfolgen offengelegt?
     - Werden geheime Anmeldedaten dem Client offengelegt?
     - Werden private Produktionsdaten in einer Testumgebung offengelegt?
-- **Denial of Service (DoS)**
-  - : Unterbrechen von Diensten, um sie unzugänglich zu machen, wie zum Beispiel clientseitige Endlosschleifen, die den Browser einfrieren können, oder unendliche Anfragen, die den Server überlasten können.
-    - Können große Uploads oder umfangreiche Datenbankabfragen durch Benutzer ausgelöst werden?
+- **Denial of Service (DoS)** (Dienstverweigerung)
+  - : Störung von Diensten, um sie unzugänglich zu machen, wie beispielsweise durch Endlosschleifen auf der Client-Seite, die den Browser einfrieren können, oder unendliche Anfragen, die den Server überlasten.
+    - Können große Uploads oder schwere Datenbankabfragen von Benutzern ausgelöst werden?
     - Können API-Endpunkte wiederholt ohne Einschränkungen aufgerufen werden?
-- **Elevation of privilege**
-  - : Erlangen höherer Zugangsrechte als erlaubt, wie zum Beispiel ein Benutzer, der sich als Administrator ausgibt.
-    - Können Benutzer URL-Endpunkte für Administratoren erraten?
-    - Wann werden Berechtigungsüberprüfungen durchgeführt?
+- **Elevation of privilege** (Rechteerweiterung)
+  - : Erlangen höherer Zugriffsrechte als erlaubt, wie ein Benutzer, der sich als Admin ausgibt.
+    - Können Benutzer Admin-Endpunkt-URLs erraten?
+    - Wann werden Rechteprüfungen durchgeführt?
 
 ### LINDDUN
 
-Das [LINDDUN](https://linddun.org)-Framework ist ein weithin anerkanntes Bedrohungsmodellierungs-Framework, inspiriert von STRIDE, das sich auf Datenschutzbedrohungen konzentriert. Jeder Buchstabe im LINDDUN-Akronym steht für eine der sieben Kategorien von Datenschutzbedrohungen. Innerhalb jeder Kategorie des Bedrohungsmodells haben wir Fragen eingefügt, die Sie in Ihr Bedrohungsmodell aufnehmen können, die für die aufgeführte Kategorie relevant sind.
+Das [LINDDUN](https://linddun.org)-Framework ist ein weithin anerkanntes Framework zur Bedrohungsmodellierung, inspiriert von STRIDE, das sich auf Datenschutzbedrohungen konzentriert. Jeder Buchstabe im LINDDUN-Akronym steht für eine der sieben Kategorien von Datenschutzbedrohungen. Innerhalb jeder Bedrohungsmodellkategorie haben wir Fragen aufgenommen, die Sie in Ihr Bedrohungsmodell einbeziehen können, die für die aufgelistete Kategorie relevant sind.
 
 - **Linking**
-  - : Die Fähigkeit, Daten oder Aktionen einer Einzelperson oder Gruppe zuzuordnen.
+  - : Die Fähigkeit, Daten oder Aktionen einer Person oder Gruppe zuzuordnen.
     - Können Dritte das Verhalten von Benutzern über Websites hinweg verfolgen?
-- **Identifying**
-  - : Die Identität einer Person herausfinden.
+- **Identifying** (Identifikation)
+  - : Die Identität einer Person zu erfahren.
     - Sind Pseudonyme oder Benutzer-IDs wirklich nicht identifizierend?
-    - Könnten Identitäten durch Kombination öffentlich verfügbarer Daten aufgedeckt werden?
-- **Non-repudiation**
-  - : Die Fähigkeit, einen Anspruch (oder eine Aktion) einer Einzelperson zuordnen zu können.
+    - Könnten Identitäten durch die Kombination öffentlich zugänglicher Daten aufgedeckt werden?
+- **Non-repudiation** (Nichtabstreitbarkeit)
+  - : Die Möglichkeit, eine Behauptung (oder Aktion) einer Person zuzuordnen.
     - Können Benutzer Aktionen ohne dauerhafte Aufzeichnungen ausführen?
-    - Werden Protokolle länger als notwendig aufbewahrt?
-- **Detecting**
-  - : Das Feststellen der Beteiligung einer Person basierend auf Beobachtung.
-    - Erkennt der Anmeldevorgang, ob ein Benutzer existiert?
-    - Gibt das System Informationen preis, wenn ein Administrator online ist?
-- **Data disclosure**
-  - : Sammlung von mehr Informationen als erforderlich, Speichern, Verarbeiten oder Teilen von personenbezogenen Daten.
+    - Werden Protokolle länger als nötig aufbewahrt?
+- **Detecting** (Erkennung)
+  - : Das Bestimmen der Beteiligung einer Person basierend auf Beobachtung.
+    - Zeigt das Login, ob ein Benutzer existiert?
+    - Leckt das System Informationen, wenn ein Administrator online ist?
+- **Data disclosure** (Datenoffenlegung)
+  - : Erheben, Speichern, Verarbeiten oder Weitergeben von mehr Informationen als nötig, einschließlich personenbezogener Daten.
     - Sind Backups, Protokolle oder Exporte geschützt?
-    - Empfangen Analysen oder andere Metriken-Einbindungen personenbezogene Daten?
-- **Unawareness**
-  - : Unzureichende Information, Einbeziehung oder Ermächtigung von Individuen bei der Verarbeitung personenbezogener Daten.
-    - Verstehen die Benutzer Opt-In- oder Opt-Out-Dialoge?
-    - Verstehen die Benutzer, welche Daten gesammelt und warum gesammelt werden?
-- **Non-compliance**
-  - : Abweichen von Sicherheits- und Datenmanagement-Best Practices, Standards und Gesetzgebung.
+    - Erhalten Analysen oder andere Metrik-Erfassungen personenbezogene Daten?
+- **Unawareness** (Unkenntnis)
+  - : Unzureichende Information, Beteiligung oder Befähigung von Personen bei der Verarbeitung personenbezogener Daten.
+    - Verstehen Benutzer Opt-in- oder Opt-out-Dialogfelder?
+    - Verstehen Benutzer, welche Daten gesammelt werden und warum?
+- **Non-compliance** (Nichteinhaltung)
+  - : Abweichung von Sicherheits- und Datenmanagement-Best Practices, Standards und Gesetzen.
     - Können Benutzer die Löschung oder den Export ihrer Daten anfordern?
-    - Sind Drittanbieter-Dienste mit Ihren Richtlinien konform?
+    - Sind Drittanbieterdienste mit Ihren Richtlinien konform?
 
 ## Weitere Ressourcen
 
-Die folgenden Dokumente listen eine breite und vielfältige Reihe von Bedrohungen und Bedrohungsmodellen auf, die Sie berücksichtigen sollten:
+Die folgenden Dokumente listen eine breite und vielfältige Auswahl an Bedrohungen und Bedrohungsmodellen zur Ihrer Berücksichtigung auf:
 
-- [RFC 9620 Menschenrechtsüberlegungen](https://datatracker.ietf.org/doc/rfc9620/)
-- [W3C TAG: Ethische Web-Prinzipien](https://w3ctag.github.io/ethical-web-principles/)
-- [W3C Selbstüberprüfungs-Fragebogen: Sicherheit und Datenschutz](https://www.w3.org/TR/security-privacy-questionnaire/#missing-questions)
-- [RFC 6973 Datenschutzüberlegungen für Internetprotokolle](https://datatracker.ietf.org/doc/html/rfc6973)
-- [RFC 3552 Richtlinien für das Schreiben von RFC-Texten zu Sicherheitsüberlegungen](https://datatracker.ietf.org/doc/html/rfc3552)
-- [Invariant-zentrierte Bedrohungsmodellierung](https://github.com/defuse/ictm)
+- [RFC 9620 Human Rights Considerations](https://datatracker.ietf.org/doc/rfc9620/)
+- [W3C TAG: Ethical Web Principles](https://w3ctag.github.io/ethical-web-principles/)
+- [W3C Self-Review Questionnaire: Security and Privacy](https://www.w3.org/TR/security-privacy-questionnaire/#missing-questions)
+- [RFC 6973 Privacy Considerations for Internet Protocols](https://datatracker.ietf.org/doc/html/rfc6973)
+- [RFC 3552 Guidelines for Writing RFC Text on Security Considerations](https://datatracker.ietf.org/doc/html/rfc3552)
+- [Invariant-centric threat modeling](https://github.com/defuse/ictm)
 
 ## Bedrohungsmodellierungs-Tools
 
-Ein effektives Modell ist eines, das hilft, ein besseres Verständnis Ihres Systems zu entwickeln. Bedrohungsmodellierungs-Tools können es einfacher machen, Diagramme zu erstellen, Datenflüsse zu visualisieren und so weiter, die zu diesem Ziel beitragen.
+Ein effektives Modell ist eines, das dabei hilft, ein besseres Verständnis Ihres Systems zu entwickeln. Bedrohungsmodellierungs-Tools können es einfacher machen, Diagramme zu erstellen, Datenflüsse zu visualisieren und so weiter, die zu diesem Ziel beitragen.
 
-Es ist wichtig zu beachten, dass Sie keine teuren und leistungsstarken Tools benötigen, um ein effektives Bedrohungsmodell zu erstellen. Wichtig ist der methodische Ansatz und die Diskussion über Ihr System. Zu komplexe Diagramme können tatsächlich nachteilig sein, wenn sie diese Diskussion nicht fördern und unterstützen.
+Es ist wichtig zu beachten, dass Sie keine teuren und leistungsstarken Tools benötigen, um ein effektives Bedrohungsmodell zu erstellen. Wichtig ist der methodische Ansatz und die Diskussion über Ihr System. Übermäßig komplexe Diagramme können tatsächlich nachteilig sein, wenn sie diese Diskussion nicht fördern und unterstützen.
 
 - [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/)
 - [Microsoft Threat Modeling Tool](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool)
@@ -104,10 +104,10 @@ Es ist wichtig zu beachten, dass Sie keine teuren und leistungsstarken Tools ben
 ## Siehe auch
 
 - [Leitfaden zur Bedrohungsmodellierung](/de/docs/Web/Security/Threat_modeling)
-- [Beispiel-Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model)
+- [Beispiel für ein Bedrohungsmodell](/de/docs/Web/Security/Threat_modeling/Example_threat_model)
 - [Sicherheit](/de/docs/Web/Security)
 - [Threat Modeling Manifesto](https://www.threatmodelingmanifesto.org)
-- [W3C Bedrohungsmodellierungs-Leitfaden für Spezifikationsautoren](https://w3c.github.io/threat-modeling-guide/)
-- [Bedrohungsmodell für die Web-Plattform](https://w3c.github.io/threat-model-web/)
+- [W3C Threat Modeling Guide für Spezifikationsautoren](https://w3c.github.io/threat-modeling-guide/)
+- [Threat Model for the Web Platform](https://w3c.github.io/threat-model-web/)
 - [OWASP Threat Modeling Playbook](https://github.com/OWASP/threat-modeling-playbook)
-- [OWASP Bedrohungsmodellierungs-Spickzettel](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
+- [OWASP Threat Modeling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html)
