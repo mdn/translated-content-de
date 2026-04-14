@@ -1,15 +1,14 @@
 ---
-title: "MessagePort: postMessage() Methode"
+title: "MessagePort: postMessage()-Methode"
 short-title: postMessage()
 slug: Web/API/MessagePort/postMessage
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: ff81a4e4cb740060aca2df256ce2e07d1e2c0b4e
 ---
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`postMessage()`**-Methode der
-[`MessagePort`](/de/docs/Web/API/MessagePort)-Schnittstelle sendet eine Nachricht vom Port und überträgt optional die Eigentumsrechte von Objekten auf andere Browsing-Kontexte.
+Die **`postMessage()`**-Methode des [`MessagePort`](/de/docs/Web/API/MessagePort)-Interfaces sendet eine Nachricht vom Port und überträgt optional die Eigentümerschaft von Objekten an andere Browsing-Kontexte.
 
 ## Syntax
 
@@ -22,13 +21,13 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Die Nachricht, die Sie über den Kanal senden möchten. Dies kann jeglicher Basisdatentyp sein. Mehrere Datenobjekte können als Array gesendet werden.
+  - : Die Nachricht, die Sie über den Kanal senden möchten. Diese kann von jedem grundlegenden Datentyp sein. Mehrere Datenobjekte können als Array gesendet werden.
 
     > [!NOTE]
-    > Ausführungskontexte, die einander Nachrichten senden können, müssen sich möglicherweise nicht im selben [Agenten-Cluster](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) befinden und können daher keinen Speicher teilen. {{jsxref("SharedArrayBuffer")}}-Objekte oder Pufferansichten, die von einem solchen unterstützt werden, können nicht über Agenten-Cluster hinweg gesendet werden. Der Versuch, dies zu tun, wird ein [`messageerror`](/de/docs/Web/API/BroadcastChannel/messageerror_event)-Ereignis erzeugen, das ein `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException) auf der empfangenden Seite enthält.
+    > Ausführungskontexte, die miteinander Nachrichten austauschen können, befinden sich möglicherweise nicht im selben [Agent-Cluster](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) und können daher keinen Speicher gemeinsam nutzen. {{jsxref("SharedArrayBuffer")}}-Objekte oder darauf basierende Pufferansichten können nicht über Agent-Cluster hinweg gepostet werden. Ein Versuch, dies zu tun, erzeugt ein [`messageerror`](/de/docs/Web/API/BroadcastChannel/messageerror_event)-Ereignis mit einer `DataCloneError`-[`DOMException`](/de/docs/Web/API/DOMException) auf der Empfangsseite.
 
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), um deren Eigentumsrechte zu übertragen. Das Eigentum dieser Objekte wird auf die Zielseite übertragen und sie sind auf der sendenden Seite nicht mehr verwendbar. Diese übertragbaren Objekte sollten der Nachricht beigefügt werden; andernfalls würden sie verschoben, aber auf der Empfängerseite nicht tatsächlich zugänglich sein.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentümerschaft übertragen werden soll. Das Eigentum dieser Objekte wird auf die Empfängerseite übertragen und sie sind auf der Senderseite nicht mehr verwendbar. Diese übertragbaren Objekte werden nicht automatisch gesendet; sie müssen entweder in der Nachricht enthalten sein oder dem Empfänger auf andere Weise zugänglich gemacht werden, wie z.B. [`MessagePort`](/de/docs/Web/API/MessagePort) über [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports).
 - `options` {{optional_inline}}
   - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
     - `transfer` {{optional_inline}}
@@ -36,18 +35,11 @@ postMessage(message, options)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mithilfe des
-[`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktors erstellt wird. Wenn das
-IFrame geladen ist, übergeben wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mithilfe von
-[`window.postMessage`](/de/docs/Web/API/Window/postMessage) zusammen mit einer Nachricht. Das iframe empfängt die Nachricht
-und sendet eine Nachricht zurück über den `MessageChannel` mit `postMessage()`.
-Der `handleMessage`-Handler reagiert dann auf eine Nachricht vom IFrame über
-`onmessage`, indem er sie in einen Absatz einfügt —
-[`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) wird überwacht, um zu prüfen, wann die Nachricht ankommt.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird. Wenn das IFrame geladen ist, übergeben wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mittels [`window.postMessage`](/de/docs/Web/API/Window/postMessage) zusammen mit einer Nachricht. Das Iframe empfängt die Nachricht und sendet eine Nachricht über den `MessageChannel` mit `postMessage()` zurück. Der `handleMessage`-Handler antwortet dann auf eine Nachricht, die vom IFrame zurückgesendet wird, indem er `onmessage` verwendet und sie in einen Absatz schreibt — [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) wird abgehört, um zu prüfen, wann die Nachricht ankommt.
 
 ```js
 const channel = new MessageChannel();
@@ -75,7 +67,7 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Für ein vollständiges funktionierendes Beispiel siehe unser [Grundlegendes Demo zur Kanalnachrichtenübermittlung](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel sehen Sie sich unser [grundlegendes Demonstrationsprojekt zur Kanalnachricht](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -87,4 +79,4 @@ Für ein vollständiges funktionierendes Beispiel siehe unser [Grundlegendes Dem
 
 ## Siehe auch
 
-- [Verwendung der Nachrichtenübermittlung über Kanäle](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung der Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

@@ -2,52 +2,52 @@
 title: RTCEncodedVideoFrame
 slug: Web/API/RTCEncodedVideoFrame
 l10n:
-  sourceCommit: 23398d025295ad1eaf1663a26fbe738a8fe12883
+  sourceCommit: bbb1d10fbbb06665b9587b6c953e5cafb62ab7dc
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`RTCEncodedVideoFrame`** der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert einen kodierten Videorahmen in der WebRTC-Empfänger- oder Sender-Pipeline, der mithilfe eines [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) modifiziert werden kann.
+Der **`RTCEncodedVideoFrame`** der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert einen kodierten Videoframe in der WebRTC-Empfänger- oder Sender-Pipeline, der mithilfe eines [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) modifiziert werden kann.
 
 ## Konstruktor
 
 - [`RTCEncodedVideoFrame()`](/de/docs/Web/API/RTCEncodedVideoFrame/RTCEncodedVideoFrame)
-  - : Copy-Konstruktor. Erstellt ein neues und unabhängiges `RTCEncodedVideoFrame`-Objekt aus einem anderen Rahmen und überschreibt dabei optional einige der kopierten Metadaten.
+  - : Kopierkonstruktor. Erstellt ein neues und unabhängiges `RTCEncodedVideoFrame`-Objekt aus einem anderen Frame und überschreibt optional einige der kopierten Metadaten.
 
 ## Instanz-Eigenschaften
 
 - [`RTCEncodedVideoFrame.type`](/de/docs/Web/API/RTCEncodedVideoFrame/type) {{ReadOnlyInline}}
-  - : Gibt zurück, ob der aktuelle Rahmen ein Schlüsselrahmen, Delta-Rahmen oder leerer Rahmen ist.
+  - : Gibt zurück, ob der aktuelle Frame ein Key-Frame oder ein Delta-Frame ist.
 - [`RTCEncodedVideoFrame.timestamp`](/de/docs/Web/API/RTCEncodedVideoFrame/timestamp) {{ReadOnlyInline}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt den Zeitstempel zurück, zu dem die Abtastung des Rahmens begann.
+  - : Gibt den Zeitstempel zurück, zu dem das Sampling des Frames begann.
 - [`RTCEncodedVideoFrame.data`](/de/docs/Web/API/RTCEncodedVideoFrame/data)
-  - : Gibt einen Puffer zurück, der die kodierten Rahmendaten enthält.
+  - : Gibt einen Puffer mit den kodierten Frame-Daten zurück.
 
 ## Instanz-Methoden
 
 - [`RTCEncodedVideoFrame.getMetadata()`](/de/docs/Web/API/RTCEncodedVideoFrame/getMetadata)
-  - : Gibt die mit dem Rahmen assoziierten Metadaten zurück.
+  - : Gibt die mit dem Frame verknüpften Metadaten zurück.
 
 ## Beschreibung
 
-Rohvideodaten werden als eine Sequenz von Rahmen generiert, wobei jeder Rahmen ein zweidimensionales Array von Pixelwerten ist.
-Videokodierer transformieren dieses Rohmaterial in eine komprimierte Darstellung des Originals für Übertragung und Speicherung.
-Ein gängiger Ansatz ist das Senden von "Schlüsselbildern", die genügend Informationen enthalten, um ein vollständiges Bild bei relativ niedriger Rate wiederzugeben, und zwischen den Schlüsselrahmen das Senden von vielen kleineren "Delta-Rahmen", die nur die Änderungen seit dem vorherigen Rahmen kodieren.
+Rohvideodaten werden als Folge von Frames erzeugt, wobei jeder Frame ein zweidimensionales Array von Pixelwerten ist.
+Videokodierer wandeln diesen Rohinput in eine komprimierte Darstellung des Originals für die Übertragung und Speicherung um.
+Ein allgemeiner Ansatz besteht darin, "Key-Frames" zu senden, die genügend Informationen enthalten, um ein ganzes Bild mit relativ niedriger Rate wiederzugeben, und zwischen den Key-Frames viele viel kleinere "Delta-Frames" zu senden, die nur die Änderungen seit dem vorherigen Frame kodieren.
 
-Es gibt viele verschiedene Codecs, wie H.264, VP8 und VP9, die jeweils unterschiedliche Kodierungsprozesse und Konfigurationen haben und unterschiedliche Kompromisse zwischen Komprimierungseffizienz und Videoqualität bieten.
+Es gibt viele verschiedene Codecs, wie H.264, VP8 und VP9, die jeweils unterschiedliche Kodierprozesse und Konfigurationen haben, welche unterschiedliche Kompromisse zwischen Kompressionseffizienz und Videoqualität bieten.
 
-Das **`RTCEncodedVideoFrame`** repräsentiert einen einzelnen Rahmen, der mit einem bestimmten Videokodierer kodiert wurde.
-Die [`type`](/de/docs/Web/API/RTCEncodedVideoFrame/type)-Eigenschaft gibt an, ob der Rahmen ein "Schlüssel" oder "Delta"-Rahmen ist, und Sie können die Methode [`getMetadata()`](/de/docs/Web/API/RTCEncodedVideoFrame/getMetadata) verwenden, um weitere Details über die Kodierungsmethode zu erhalten.
-Die [`data`](/de/docs/Web/API/RTCEncodedVideoFrame/data)-Eigenschaft bietet Zugriff auf die kodierten Bilddaten für den Rahmen, die dann modifiziert ("transformiert") werden können, wenn Rahmen gesendet oder empfangen werden.
+Der **`RTCEncodedVideoFrame`** repräsentiert einen einzelnen Frame, der mit einem bestimmten Videokodierer kodiert wurde.
+Die [`type`](/de/docs/Web/API/RTCEncodedVideoFrame/type)-Eigenschaft zeigt an, ob der Frame ein "Key" oder "Delta"-Frame ist, und Sie können die [`getMetadata()`](/de/docs/Web/API/RTCEncodedVideoFrame/getMetadata)-Methode verwenden, um weitere Details über die Kodierungsmethode zu erhalten.
+Die [`data`](/de/docs/Web/API/RTCEncodedVideoFrame/data)-Eigenschaft bietet Zugriff auf die kodierten Bilddaten des Frames, die dann modifiziert ("transformiert") werden können, wenn Frames gesendet oder empfangen werden.
 
 ## Beispiele
 
-### Transformieren eines kodierten Videorahmens
+### Transformieren eines kodierten Videoframes
 
-Dieses Codebeispiel zeigt einen Handler für das `rtctransform`-Ereignis in einem [`Worker`](/de/docs/Web/API/Worker), der einen [`TransformStream`](/de/docs/Web/API/TransformStream) implementiert und kodierte Rahmen durch diesen von `event.transformer.readable` zu `event.transformer.writable` leitet (`event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Gegenstück auf der Worker-Seite von [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)).
+Dieser Codeausschnitt zeigt einen Handler für das `rtctransform`-Ereignis in einem [`Worker`](/de/docs/Web/API/Worker), der einen [`TransformStream`](/de/docs/Web/API/TransformStream) implementiert, und leitet kodierte Frames von `event.transformer.readable` zu `event.transformer.writable` um (`event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Pendant auf der Worker-Seite zu [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)).
 
-Wenn der Transformer in einen Videostream eingefügt wird, wird die Methode `transform()` mit einem `RTCEncodedVideoFrame` aufgerufen, sobald ein neuer Rahmen in `event.transformer.readable` eingereiht wird.
-Die Methode `transform()` zeigt, wie dies gelesen werden kann, indem die Bits invertiert werden, und dann in den Controller eingereiht wird (dies leitet es letztendlich durch zu `event.transformer.writable` und dann zurück in die WebRTC-Pipeline).
+Wenn der Transformer in einen Videostream eingefügt wird, wird die `transform()`-Methode mit einem `RTCEncodedVideoFrame` aufgerufen, wann immer ein neuer Frame in `event.transformer.readable` eingereiht wird.
+Die `transform()`-Methode zeigt, wie dies gelesen, durch Invertieren der Bits modifiziert und dann im Controller eingereiht werden kann (dies leitet es letztendlich zu `event.transformer.writable` und dann zurück in die WebRTC-Pipeline).
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -75,7 +75,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass ausführlichere Beispiele unter [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt werden.
+Beachten Sie, dass vollständigere Beispiele in [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt werden.
 
 ## Spezifikationen
 
@@ -87,7 +87,7 @@ Beachten Sie, dass ausführlichere Beispiele unter [Using WebRTC Encoded Transfo
 
 ## Siehe auch
 
-- [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
 - [`TransformStream`](/de/docs/Web/API/TransformStream)
 - [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)
 - [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)

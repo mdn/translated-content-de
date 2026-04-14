@@ -3,16 +3,16 @@ title: "Worker: postMessage() Methode"
 short-title: postMessage()
 slug: Web/API/Worker/postMessage
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ff81a4e4cb740060aca2df256ce2e07d1e2c0b4e
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`postMessage()`**-Methode der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle sendet eine Nachricht an den Worker. Der erste Parameter sind die Daten, die an den Worker gesendet werden sollen. Die Daten können jedes JavaScript-Objekt sein, das vom [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) verarbeitet werden kann.
+Die **`postMessage()`** Methode des [`Worker`](/de/docs/Web/API/Worker)-Interfaces sendet eine Nachricht an den Worker. Der erste Parameter ist die Daten, die an den Worker gesendet werden sollen. Die Daten können jedes JavaScript-Objekt sein, das vom [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) verarbeitet werden kann.
 
-Die [`Worker`](/de/docs/Web/API/Worker) `postMessage()`-Methode leitet an die [`MessagePort`](/de/docs/Web/API/MessagePort) [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage)-Methode weiter, die eine Aufgabe in der Ereignisschleife hinzufügt, die zum empfangenden [`MessagePort`](/de/docs/Web/API/MessagePort) gehört.
+Die [`Worker`](/de/docs/Web/API/Worker) `postMessage()` Methode delegiert an die [`MessagePort`](/de/docs/Web/API/MessagePort) [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage) Methode, die eine Aufgabe in die Ereignisschleife für den empfangenden [`MessagePort`](/de/docs/Web/API/MessagePort) einfügt.
 
-Der `Worker` kann Informationen an den Thread zurücksenden, der ihn erstellt hat, indem er die [`DedicatedWorkerGlobalScope.postMessage`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Methode verwendet.
+Der `Worker` kann mithilfe der [`DedicatedWorkerGlobalScope.postMessage`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) Methode Informationen an den Thread zurücksenden, der ihn erstellt hat.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Das Objekt, das an den Worker gesendet werden soll; dies wird im `data`-Feld im Event platziert, das an das [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)-Ereignis geliefert wird. Dies kann jeder Wert oder jedes JavaScript-Objekt sein, das vom [structured clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus verarbeitet werden kann, einschließlich zyklischer Referenzen.
+  - : Das Objekt, das an den Worker übermittelt wird; dies befindet sich im `data` Feld im an das [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event) Ereignis gelieferten Event. Dies kann jeder Wert oder ein JavaScript-Objekt sein, das vom [structured clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) Algorithmus verarbeitet wird und zyklische Referenzen einschließt.
 
-    Der `message`-Parameter ist obligatorisch. Wenn die an den Worker zu übergebenden Daten unwichtig sind, muss `null` oder `undefined` explizit übergeben werden.
+    Der `message` Parameter ist erforderlich. Wenn die an den Worker zu übergebenden Daten nicht wichtig sind, müssen `null` oder `undefined` explizit übergeben werden.
 
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [transferable objects](/de/docs/Web/API/Web_Workers_API/Transferable_objects) zur Übertragung des Eigentums an den Zielort. Das Eigentum dieser Objekte wird der Empfangsseite übergeben, und sie sind auf der sendenden Seite nicht mehr verwendbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie verschoben, aber eigentlich nicht auf der Empfangsseite zugänglich sein.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentum übertragen werden soll. Das Eigentum dieser Objekte wird an die Zielseite gegeben und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese übertragbaren Objekte werden nicht automatisch gesendet; sie müssen entweder in der Nachricht enthalten sein oder dem Empfänger über andere Mittel zugänglich gemacht werden, wie z.B. [`MessagePort`](/de/docs/Web/API/MessagePort) über [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports).
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `transfer` {{optional_inline}}
-      - : Hat die gleiche Bedeutung wie der `transfer`-Parameter.
+      - : Hat dieselbe Bedeutung wie der `transfer` Parameter.
 
 ### Rückgabewert
 
@@ -42,7 +42,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Wenn einer der beiden Formulareingaben (`first` und `second`) ihre Werte ändern, rufen `change`-Ereignisse `postMessage()` auf, um den Wert beider Eingaben an den aktuellen Worker zu senden.
+Das folgende Codebeispiel zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker) Konstruktor. Wenn bei einem der beiden Formulareingaben (`first` und `second`) die Werte geändert werden, rufen [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignisse `postMessage()` auf, um den Wert beider Eingaben an den aktuellen Worker zu senden.
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -55,13 +55,14 @@ const myWorker = new Worker("worker.js");
 });
 ```
 
-Für ein vollständiges Beispiel siehe unser [einfaches Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([Beispiel ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Für ein vollständiges Beispiel, siehe unser [einfaches Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([Beispiel ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
-> [!NOTE] > `postMessage()` kann nur ein einziges Objekt gleichzeitig senden. Wie oben gezeigt, können Sie ein Array senden, wenn Sie mehrere Werte übergeben möchten.
+> [!NOTE]
+> `postMessage()` kann nur ein einzelnes Objekt gleichzeitig senden. Wie oben gezeigt, können Sie, wenn Sie mehrere Werte übergeben möchten, ein Array senden.
 
-### Transferbeispiel
+### Transfer-Beispiel
 
-Dieses minimale Beispiel lässt `main` ein `ArrayBuffer` erstellen und an `myWorker` übertragen, und dann `myWorker` es zurück an `main` senden, wobei die Größe in jedem Schritt geloggt wird.
+Dieses Minimalbeispiel lässt `main` einen `ArrayBuffer` erstellen und an `myWorker` übertragen, woraufhin `myWorker` ihn zurück an `main` überträgt, wobei die Größe bei jedem Schritt protokolliert wird.
 
 #### main.js Code
 
@@ -122,7 +123,7 @@ self.onmessage = (msg) => {
 };
 ```
 
-#### Ausgabe geloggt
+#### Protokollierte Ausgabe
 
 ```bash
 buf.byteLength in main BEFORE transfer to worker:        8                     main.js:19
@@ -136,7 +137,7 @@ message from worker received in main:                    MessageEvent { ... }  m
 buf.byteLength in main AFTER transfer back from worker:  8                     main.js:10
 ```
 
-`byteLength` reduziert sich auf 0, nachdem das `ArrayBuffer` übertragen wurde. Für ein ausgefeilteres vollständiges funktionierendes Beispiel für die Übertragung von `ArrayBuffer`, siehe dieses Firefox-Demo-Add-on: [GitHub :: ChromeWorker - demo-transfer-arraybuffer](https://github.com/Noitidart/ChromeWorker/tree/aca57d9cadc4e68af16201bdecbfb6f9a6f9ca6b)
+`byteLength` wird zu 0, nachdem der `ArrayBuffer` übertragen wurde. Für ein ausgefeilteres, vollständiges Arbeitsbeispiel der `ArrayBuffer`-Übertragung, siehe dieses Firefox-Demo-Add-On: [GitHub :: ChromeWorker - demo-transfer-arraybuffer](https://github.com/Noitidart/ChromeWorker/tree/aca57d9cadc4e68af16201bdecbfb6f9a6f9ca6b)
 
 ## Spezifikationen
 
@@ -148,4 +149,4 @@ buf.byteLength in main AFTER transfer back from worker:  8                     m
 
 ## Siehe auch
 
-- Die [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle, zu der sie gehört.
+- Das [`Worker`](/de/docs/Web/API/Worker) Interface, zu dem es gehört.

@@ -2,10 +2,10 @@
 title: dx
 slug: Web/SVG/Reference/Attribute/dx
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
-Das **`dx`** Attribut gibt eine Verschiebung entlang der x-Achse an der Position eines Elements oder seines Inhalts an.
+Das **`dx`** Attribut gibt eine Verschiebung entlang der x-Achse für die Position eines Elements oder dessen Inhalt an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -51,7 +51,7 @@ line {
 
 ## feDropShadow
 
-Für {{SVGElement('feDropShadow')}} definiert `dx` den x-Versatz des Schattenwurfs. Die Einheit, die zur Bestimmung des Attributwerts verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}} Attribut des {{SVGElement('filter')}} Elements festgelegt.
+Für {{SVGElement('feDropShadow')}} definiert `dx` den x-Versatz des erzeugten Schattens. Die Einheit, die zur Bestimmung des Wertes des Attributs verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}} Attribut des {{SVGElement('filter')}} Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -76,7 +76,7 @@ Für {{SVGElement('feDropShadow')}} definiert `dx` den x-Versatz des Schattenwur
 
 ## feOffset
 
-Für {{SVGElement('feOffset')}} definiert `dx` den x-Versatz der Filtereingabe-Grafik. Die Einheit, die zur Bestimmung des Attributwerts verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}} Attribut des {{SVGElement('filter')}} Elements festgelegt.
+Für {{SVGElement('feOffset')}} definiert `dx` den x-Versatz der Filtereingabe-Grafik. Die Einheit, die zur Bestimmung des Wertes des Attributs verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}} Attribut des {{SVGElement('filter')}} Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -101,9 +101,9 @@ Für {{SVGElement('feOffset')}} definiert `dx` den x-Versatz der Filtereingabe-G
 
 ## text
 
-Für {{SVGElement('text')}} definiert `dx` bei einem einzelnen Wert eine Verschiebung entlang der x-Achse für alle Glyphen.
+Für {{SVGElement('text')}}, falls es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle Zeichen.
 
-Wenn mehrere Werte vorhanden sind, definiert `dx` eine Verschiebung entlang der x-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn weniger Werte als Glyphen vorhanden sind, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn mehr Werte als Glyphen vorhanden sind, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Zeichen relativ zum vorhergehenden Zeichen. Wenn es weniger Werte als Zeichen gibt, verwenden die verbleibenden Zeichen einen Wert von `0`. Wenn es mehr Werte als Zeichen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -175,9 +175,9 @@ line {
 
 ## tspan
 
-Für {{SVGElement('tspan')}} definiert `dx` bei einem einzelnen Wert eine Verschiebung entlang der x-Achse für alle alternativen Glyphen.
+Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `dx` eine Verschiebung entlang der x-Achse für alle alternierenden Zeichen.
 
-Wenn mehrere Werte vorhanden sind, definiert `dx` eine Verschiebung entlang der x-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn weniger Werte als Glyphen vorhanden sind, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn mehr Werte als Glyphen vorhanden sind, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte gibt, definiert `dx` eine Verschiebung entlang der x-Achse für jedes einzelne Zeichen relativ zum vorhergehenden Zeichen. Wenn es weniger Werte als Zeichen gibt, verwenden die verbleibenden Zeichen einen Wert von `0`. Wenn es mehr Werte als Zeichen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>

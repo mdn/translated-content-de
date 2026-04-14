@@ -1,17 +1,17 @@
 ---
-title: session.new Befehl
+title: session.new-Befehl
 short-title: session.new
 slug: Web/WebDriver/Reference/BiDi/Modules/session/new
 l10n:
-  sourceCommit: f83c12ab41865e0e195dd36ad9cdcad511a36957
+  sourceCommit: c09036bf0ea2f0b6e322dfdeee64b26ab53e2797
 ---
 
-Der `session.new` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls erstellt eine neue BiDi-Sitzung mit dem Browser.
+Der `session.new` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session)-Moduls erstellt eine neue BiDi-Sitzung mit dem Browser.
 
-Da dieser Befehl verwendet wird, um eine neue Sitzung zu erstellen, läuft er ohne eine bereits aktive Sitzung. (In BiDi wird ein solcher Befehl als statischer Befehl bezeichnet.)
+Da dieser Befehl verwendet wird, um eine neue Sitzung zu erstellen, wird er ohne eine bereits aktive Sitzung ausgeführt. (Im BiDi wird ein solcher Befehl als statischer Befehl bezeichnet.)
 
 > [!NOTE]
-> Eine auf diese Weise erstellte Sitzung ist nur über WebSocket zugänglich und kann nicht mit klassischen WebDriver-HTTP-Befehlen verwaltet werden.
+> Eine auf diese Weise erstellte Sitzung ist nur über WebSocket zugänglich und kann nicht mit den klassischen WebDriver-HTTP-Befehlen verwaltet werden.
 
 ## Syntax
 
@@ -26,43 +26,43 @@ Da dieser Befehl verwendet wird, um eine neue Sitzung zu erstellen, läuft er oh
 
 ### Parameter
 
-Das `params` Feld enthält:
+Das `params`-Feld enthält:
 
 - `capabilities`
-  - : Ein Objekt, das die angeforderten Funktionen für die Sitzung spezifiziert. Es kann die folgenden Felder umfassen:
+  - : Ein Objekt, das die angeforderten Funktionen für die Sitzung angibt. Es kann die folgenden Felder enthalten:
     - `alwaysMatch` {{optional_inline}}
-      - : Ein Objekt, das die angeforderten Funktionen spezifiziert, die alle vom Browser zur Sitzungserstellung erfüllt werden müssen.
+      - : Ein Objekt, das die angeforderten Funktionen spezifiziert, die alle vom Browser erfüllt werden müssen, um die Sitzung zu erstellen.
         Wenn der Browser nicht alle angeforderten Funktionen in diesem Objekt erfüllen kann, wird die Sitzung nicht erstellt.
     - `firstMatch` {{optional_inline}}
-      - : Ein Array von Objekten, von denen jedes eine alternative Menge angeforderter Funktionen für die Sitzungserstellung spezifiziert.
-        Der Browser versucht jede Menge in der angegebenen Reihenfolge und erstellt eine Sitzung mit der ersten, bei der alle angeforderten Funktionen erfüllt werden können.
-        Wenn der Browser alle angeforderten Funktionen in keiner der Sätze erfüllen kann, wird die Sitzung nicht erstellt.
+      - : Ein Array von Objekten, von denen jedes eine alternative Menge von angeforderten Funktionen für die Sitzungserstellung spezifiziert.
+        Der Browser versucht die Sätze in der angegebenen Reihenfolge und erstellt eine Sitzung mit dem ersten, bei dem alle angeforderten Funktionen erfüllt werden können.
+        Wenn der Browser alle angeforderten Funktionen in keinem der Sätze erfüllen kann, wird die Sitzung nicht erstellt.
 
-Die `alwaysMatch` und `firstMatch` Objekte können die folgenden Funktionen enthalten:
+Die Objekte `alwaysMatch` und `firstMatch` können die folgenden Funktionen umfassen:
 
-- [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts) {{optional_inline}}
-  - : Ein Boolescher Wert, der angibt, ob nicht vertrauenswürdige TLS-Zertifikate (zum Beispiel selbstsignierte oder abgelaufene) für die Dauer der Sitzung akzeptiert werden.
+- `acceptInsecureCerts` {{optional_inline}}
+  - : Ein boolescher Wert, der steuert, ob nicht vertrauenswürdige TLS-Zertifikate (zum Beispiel selbstsigniert oder abgelaufen) für die Dauer der Sitzung akzeptiert werden.
 - `browserName` {{optional_inline}}
-  - : Ein String, der den Namen des zu verwendenden Browsers angibt (zum Beispiel, `"firefox"` oder `"chrome"`).
+  - : Ein String, der den Namen des Browsers angibt, der verwendet werden soll (zum Beispiel `"firefox"` oder `"chrome"`).
 - `browserVersion` {{optional_inline}}
-  - : Ein String, der die zu verwendende Browserversion angibt (zum Beispiel, `"120.0"`).
+  - : Ein String, der die zu verwendende Browserversion angibt (zum Beispiel `"120.0"`).
 - `platformName` {{optional_inline}}
-  - : Ein String, der das Betriebssystem angibt, das verwendet werden soll (zum Beispiel, `"windows"`, `"mac"`, `"android"` oder `"linux"`).
+  - : Ein String, der das zu verwendende Betriebssystem angibt (zum Beispiel `"windows"`, `"mac"`, `"android"` oder `"linux"`).
 - `proxy` {{optional_inline}}
-  - : Ein Objekt, das die Proxy-Konfiguration spezifiziert, die der Browser für Netzwerkanforderungen verwenden soll.
+  - : Ein Objekt, das die Proxy-Konfiguration angibt, die der Browser für Netzwerkanfragen verwenden soll.
 - `unhandledPromptBehavior` {{optional_inline}}
-  - : Ein Objekt, das das Standardverhalten spezifiziert, wenn während eines Befehls eine Benutzerabfrage (wie ein `alert`, `confirm` oder `prompt` Dialog) auftritt.
+  - : Ein Objekt, das das Standardverhalten beschreibt, wenn ein Benutzeraufforderungsdialog (wie `alert`, `confirm` oder `prompt`) während eines Befehls auftritt.
 
 ### Rückgabewert
 
-Die folgenden Felder im `result` Objekt der Antwort beschreiben die Eigenschaften der erstellten Sitzung:
+Die folgenden Felder im `result`-Objekt der Antwort beschreiben die Eigenschaften der erstellten Sitzung:
 
 - `sessionId`
-  - : Ein String, der den eindeutigen Bezeichner für die neu erstellte Sitzung enthält.
+  - : Ein String, der die eindeutige Kennung für die neu erstellte Sitzung enthält.
 - `capabilities`
-  - : Ein Objekt, das die ausgehandelten und aktiven Funktionen für die Sitzung beschreibt. Es beinhaltet die folgenden Felder:
+  - : Ein Objekt, das die vereinbarten und aktiven Fähigkeiten der Sitzung beschreibt. Es beinhaltet die folgenden Felder:
     - [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts)
-      - : Ein Boolescher Wert, der angibt, ob nicht vertrauenswürdige TLS-Zertifikate (zum Beispiel selbstsignierte oder abgelaufene) für die Dauer der Sitzung akzeptiert werden.
+      - : Ein boolescher Wert, der angibt, ob nicht vertrauenswürdige TLS-Zertifikate (zum Beispiel selbstsigniert oder abgelaufen) für die Dauer der Sitzung akzeptiert werden.
     - `browserName`
       - : Ein String, der den Namen des Browsers enthält.
     - `browserVersion`
@@ -70,28 +70,28 @@ Die folgenden Felder im `result` Objekt der Antwort beschreiben die Eigenschafte
     - `platformName`
       - : Ein String, der den Namen des Betriebssystems enthält.
     - `setWindowRect`
-      - : Ein Boolescher Wert, der angibt, ob das Browserfenster mit dem [Set Window Rect](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetWindowRect) Befehl in der Größe verändert und repositioniert werden kann.
+      - : Ein boolescher Wert, der angibt, ob das Browserfenster mithilfe des [Set Window Rect](/de/docs/Web/WebDriver/Reference/Classic/Commands/SetWindowRect)-Befehls in der Größe geändert und verschoben werden kann.
     - `userAgent`
-      - : Ein String, der die User-Agent-Zeichenkette des Browsers enthält (zum Beispiel, `"Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0"`).
+      - : Ein String, der die User-Agent-Zeichenfolge des Browsers enthält (zum Beispiel `"Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0"`).
     - `proxy` {{optional_inline}}
       - : Ein Objekt, das die aktive Proxy-Konfiguration beschreibt. Ein leeres Objekt (`{}`) zeigt an, dass kein Proxy konfiguriert ist.
     - `unhandledPromptBehavior` {{optional_inline}}
-      - : Ein Objekt, das das Standardverhalten beschreibt, wenn während eines Befehls eine Benutzerabfrage (wie ein `alert`, `confirm` oder `prompt` Dialog) auftritt. Dieses Feld ist nur vorhanden, wenn es im `capabilities` Parameter spezifiziert wurde.
+      - : Ein Objekt, das das Standardverhalten beschreibt, wenn ein Benutzeraufforderungsdialog (wie `alert`, `confirm` oder `prompt`) während eines Befehls auftritt. Dieses Feld ist nur vorhanden, wenn es im `capabilities`-Parameter angegeben ist.
     - [`webSocketUrl`](/de/docs/Web/WebDriver/Reference/Capabilities/webSocketUrl) {{optional_inline}}
       - : Ein String, der die WebSocket-URL für die Sitzung enthält.
 
-Der Browser kann auch browserspezifische Funktionen zurückgeben, die mit einem Browser-Bezeichner präfixiert sind (zum Beispiel, `moz:buildID` für Firefox).
+Der Browser kann auch herstellerspezifische Fähigkeiten zurückgeben, die mit einem Browser-Identifier (zum Beispiel `moz:buildID` für Firefox) versehen sind.
 
 ### Fehler
 
 - Sitzung nicht erstellt
-  - : Eine Sitzung existiert bereits, oder der Browser ist nicht in der Lage, eine neue Sitzung zu erstellen (zum Beispiel, weil eine angeforderte Funktion nicht erfüllt werden kann).
+  - : Es existiert bereits eine Sitzung oder der Browser kann keine neue Sitzung erstellen (zum Beispiel, weil eine angeforderte Fähigkeit nicht erfüllt werden kann).
 
 ## Beispiele
 
-### Erstellen einer Sitzung mit Standardfunktionen
+### Erstellen einer Sitzung mit Standardfähigkeiten
 
-Bei einer etablierten WebDriver BiDi-Verbindung senden Sie die folgende Nachricht, um eine neue Sitzung mit den Standardfunktionen zu erstellen:
+Mit einer etablierten WebDriver BiDi-Verbindung senden Sie die folgende Nachricht, um eine neue Sitzung mit Standardfähigkeiten zu erstellen:
 
 ```json
 {
@@ -103,7 +103,7 @@ Bei einer etablierten WebDriver BiDi-Verbindung senden Sie die folgende Nachrich
 }
 ```
 
-Der Browser antwortet mit dem Sitzungsbezeichner und den ausgehandelten Funktionen:
+Der Browser antwortet mit der Sitzungskennung und den ausgehandelten Fähigkeiten:
 
 ```json
 {
@@ -124,9 +124,9 @@ Der Browser antwortet mit dem Sitzungsbezeichner und den ausgehandelten Funktion
 }
 ```
 
-### Erstellen einer Sitzung mit erforderlichen Funktionen
+### Erstellen einer Sitzung mit erforderlichen Fähigkeiten
 
-Um einen bestimmten Browser zu verwenden und unsichere Zertifikate mit `alwaysMatch` zu akzeptieren, senden Sie die folgende Nachricht:
+Um einen bestimmten Browser zu verlangen und unsichere Zertifikate mithilfe von `alwaysMatch` zu akzeptieren, senden Sie die folgende Nachricht:
 
 ```json
 {
@@ -143,7 +143,7 @@ Um einen bestimmten Browser zu verwenden und unsichere Zertifikate mit `alwaysMa
 }
 ```
 
-Wenn der Browser die angeforderten Funktionen erfüllen kann, antwortet er mit dem Sitzungsbezeichner und den ausgehandelten Funktionen wie folgt:
+Wenn der Browser die angeforderten Fähigkeiten erfüllen kann, antwortet er mit der Sitzungskennung und den ausgehandelten Fähigkeiten wie folgt:
 
 ```json
 {
@@ -164,9 +164,9 @@ Wenn der Browser die angeforderten Funktionen erfüllen kann, antwortet er mit d
 }
 ```
 
-### Versuch, eine Sitzung zu erstellen, wenn bereits eine existiert
+### Versuch, eine Sitzung zu erstellen, wenn bereits eine besteht
 
-In Browsern, die keine Mehrfachsitzungen unterstützen (z.B. Firefox), führt das Senden von `session.new`, wenn bereits eine Sitzung aktiv ist, zu einer Fehlermeldung:
+In Browsern, die keine mehreren Sitzungen unterstützen (z.B. Firefox), führt das Senden von `session.new`, wenn bereits eine Sitzung aktiv ist, zu einer Fehlerantwort:
 
 ```json
 {
@@ -188,5 +188,5 @@ In Browsern, die keine Mehrfachsitzungen unterstützen (z.B. Firefox), führt da
 
 ## Siehe auch
 
-- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status) Befehl
-- [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end) Befehl
+- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status)-Befehl
+- [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end)-Befehl

@@ -1,22 +1,26 @@
 ---
-title: "CSSUnitValue: unit-Eigenschaft"
+title: "CSSUnitValue: unit Eigenschaft"
 short-title: unit
 slug: Web/API/CSSUnitValue/unit
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: efab12f729b549406b2e0789a87590572f5af6af
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft **`CSSUnitValue.unit`** der Schnittstelle [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) gibt einen String zurück, der den Typ der Einheit angibt.
+Die **`CSSUnitValue.unit`** schreibgeschützte Eigenschaft
+der [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Schnittstelle gibt einen String zurück,
+der den [Einheitstyp](/de/docs/Web/CSS/Guides/Values_and_units#units) angibt.
 
 ## Wert
 
-Ein String.
+Ein String, der den Einheitstyp angibt, wie zum Beispiel `"em"`, `"px"`, `"%"`, etc.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue` Konstruktoren und fragt anschließend die `CSSUnitValue.unit` ab.
+Das folgende Beispiel erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen
+`CSSUnitValue` Konstruktoren und fragt dann die
+`CSSUnitValue.unit` ab.
 
 ```js
 const pos = new CSSPositionValue(
@@ -39,6 +43,7 @@ console.log(pos.y.unit); // "em"
 ## Siehe auch
 
 - [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
-- [Abmessungen in CSS-Werten und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#dimensions)
+- [CSS numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units), eine Auflistung aller möglichen Einheitstypen
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
-- [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
+- [CSS Typisiertes Objektmodell API](/de/docs/Web/API/CSS_Typed_OM_API)

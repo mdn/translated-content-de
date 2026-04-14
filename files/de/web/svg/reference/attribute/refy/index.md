@@ -2,10 +2,10 @@
 title: refY
 slug: Web/SVG/Reference/Attribute/refY
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
-Das **`refY`**-Attribut definiert die y-Koordinate des Referenzpunktes eines Elements.
+Das **`refY`**-Attribut definiert die y-Koordinate des Referenzpunkts eines Elements.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -14,7 +14,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## marker
 
-Für {{SVGElement("marker")}} definiert `refY` die y-Koordinate des Referenzpunktes des Markers, der genau an der Position des Markers auf der Form platziert wird.
+Für {{SVGElement("marker")}} definiert `refY` die y-Koordinate des Referenzpunkts des Markers, der genau an der Position des Markers auf der Form platziert wird.
 
 <table class="properties">
   <tbody>
@@ -38,12 +38,12 @@ Für {{SVGElement("marker")}} definiert `refY` die y-Koordinate des Referenzpunk
 </table>
 
 - `<length-percentage>`
-  - : Längen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
+  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
-    Prozentwerte werden als Prozentsatz der Höhe des {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der Höhe der {{SVGAttr("viewBox")}} interpretiert.
 
 - `<number>`
-  - : Zahlen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
+  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 - `top`
   - : Der Referenzpunkt des Markers wird an der oberen Kante der Form platziert.
 - `center`
@@ -53,12 +53,12 @@ Für {{SVGElement("marker")}} definiert `refY` die y-Koordinate des Referenzpunk
 
 ## symbol
 
-Für {{SVGElement("symbol")}} definiert `refY` die y-Koordinate des Symbols, die durch die kumulative Wirkung des {{SVGAttr("y")}}-Attributs und aller Transformationen auf das {{SVGElement("symbol")}} und sein Host-{{SVGElement("use")}}-Element definiert wird.
+Für {{SVGElement("symbol")}} definiert `refY` die y-Koordinate des Symbols, die durch den kumulativen Effekt des Attributs {{SVGAttr("y")}} und aller Transformationen auf das {{SVGElement("symbol")}} und dessen Host-{{SVGElement("use")}}-Element bestimmt wird.
 
 Im Gegensatz zu anderen Positionierungsattributen wird `refY` im Koordinatensystem der Symbolinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}. Wenn das Attribut nicht angegeben ist, wird keine vertikale Anpassung vorgenommen, und die obere Seite des rechteckigen Ansichtsbereichs des Symbols (unabhängig von der `viewBox`-Koordinate) wird an der y-Koordinate positioniert.
 
 > [!NOTE]
-> Zur Wahrung der Abwärtskompatibilität unterscheidet sich das Verhalten, wenn `refY` auf einem `<symbol>`-Element nicht angegeben ist, von dem, wenn es mit einem Wert von `0` angegeben ist, und daher von dem Verhalten, wenn ein gleichwertiges Attribut auf einem {{SVGElement("marker")}}-Element nicht angegeben wird.
+> Aus Gründen der Rückwärtskompatibilität unterscheidet sich das Verhalten, wenn `refY` bei einem `<symbol>`-Element nicht spezifiziert ist, von dem, wenn es mit einem Wert von `0` angegeben wird, und somit von dem Verhalten, wenn ein gleichwertiges Attribut bei einem {{SVGElement("marker")}}-Element nicht spezifiziert wird.
 
 <table class="properties">
   <tbody>
@@ -71,7 +71,7 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refY` im Koordinatensyst
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Keiner</td>
+      <td>None</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -81,12 +81,12 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refY` im Koordinatensyst
 </table>
 
 - `<length-percentage>`
-  - : Längen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
+  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
-    Prozentwerte werden als Prozentsatz der Höhe des {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der Höhe der {{SVGAttr("viewBox")}} interpretiert.
 
 - `<number>`
-  - : Zahlen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
+  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 - `top`
   - : Der Referenzpunkt des Markers wird an der oberen Kante der Form platziert.
 - `center`

@@ -2,10 +2,10 @@
 title: text-indent
 slug: Web/CSS/Reference/Properties/text-indent
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: 8d521c461c52730012ec7a06c36841e44ca98090
 ---
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Länge des Leerraums (Einrückung) fest, der vor den Textzeilen in einem Block eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Länge des Leerraums (Einzug) fest, der vor Textzeilen in einem Block eingefügt wird.
 
 {{InteractiveExample("CSS Demo: text-indent")}}
 
@@ -64,23 +64,18 @@ section {
 }
 ```
 
-Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei einem von rechts nach links ausgerichteten Layout) Rand des Inhaltsbereichs des enthaltenden Block-Level-Elements.
-
 ## Syntax
 
 ```css
-/* <length> values */
+/* <length-percentage> values */
 text-indent: 3mm;
 text-indent: 40px;
-
-/* <percentage> value
-   relative to the containing block width */
 text-indent: 15%;
 
-/* Keyword values */
+/* with keyword values */
 text-indent: 5em each-line;
-text-indent: 5em hanging;
-text-indent: 5em hanging each-line;
+text-indent: 5vb hanging;
+text-indent: 5% hanging each-line;
 
 /* Global values */
 text-indent: inherit;
@@ -93,13 +88,23 @@ text-indent: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Einrückung wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind zulässig. Siehe {{cssxref("&lt;length&gt;")}}-Werte für mögliche Einheiten.
+  - : Der Einzug wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}}-Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenden Blocks.
+  - : Der Einzug ist ein {{cssxref("&lt;percentage&gt;")}}. Der Prozentsatz bezieht sich auf die eigene innere Inline-Größe des Containers.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Block-Containers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, jedoch nicht die Zeilen nach einem _weichen Umbruch_.
+  - : Der Einzug betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, aber nicht nach einem _weichen Umbruch_.
 - `hanging`
   - : Kehrt um, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
+
+## Beschreibung
+
+Die `text-indent` [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Länge des Leerraums (Einzug) fest, der vor Textzeilen in einem Blockcontainer eingefügt wird. Der durch die Eigenschaft gesetzte Einzug erfolgt am Inline-Start-Rand der Content Box. Der Wert ist ein {{cssxref("length-percentage")}}, optional mit einem oder beiden Schlüsselwörtern `each-line` und/oder `hanging`. Der Anfangswert ist `0`.
+
+Prozentwerte sind relativ zur inneren Inline-Achse des Blockcontainers bemessen, was die Dimension des Inhaltsbereichs ohne Berücksichtigung von Polsterung und Rand des Containers ist.
+
+Das `<length-percentage>` kann einen positiven oder negativen Wert haben. Ein negativer Wert erzeugt einen Austritt, der dem absoluten Wert des positiven `<length-percentage>`-Äquivalents entspricht. Ein negativer Wert verschiebt den Text effektiv um die Größe des Wertes, aber in die entgegengesetzte Richtung. Zum Beispiel rückt `text-indent: 3%;` die erste Zeile des Textes ein, fügt weißen Raum ein, der 3% der inneren Größe des Containers vor dem Text entspricht, und schiebt die erste Zeile des Inhalts in Richtung Inline-End. Das Setzen von `text-indent: -3%` rückt die erste Zeile des Textes aus, indem es den Anfang der ersten Zeile des Textes 3% der inneren Größe des Containers über den Inline-Start des Inhaltsbereichs hinaus in die Polsterung und den Rand verschiebt, was möglicherweise zum Überlaufen des Containers führt.
+
+Ein negativer Wert unterscheidet sich von der Hinzufügung des Schlüsselwortes `hanging` zu einem positiven Wert. In demselben Beispiel rückt `text-indent: 3% hanging` nicht die erste Zeile des Textes aus. Es rückt vielmehr alle Zeilen des Textes _außer_ der ersten Zeile um 3% der inneren Größe des Containers ein.
 
 ## Formale Definition
 
@@ -111,9 +116,13 @@ text-indent: unset;
 
 ## Beispiele
 
-### Grundlegende Einrückung
+### Grundlegende Nutzung
+
+Dieses Beispiel demonstriert die grundlegende Nutzung der `text-indent`-Eigenschaft.
 
 #### HTML
+
+Wir fügen zwei Textabsätze ein.
 
 ```html
 <p>
@@ -128,6 +137,8 @@ text-indent: unset;
 
 #### CSS
 
+Wir verwenden die `text-indent`-Eigenschaft, um die erste Zeile jedes Absatzes um `5em` einzurücken.
+
 ```css
 p {
   text-indent: 5em;
@@ -137,13 +148,50 @@ p {
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Basic_indent','100%','100%') }}
+{{ EmbedLiveSample('Basic_usage','100%','100%') }}
 
-### Auslassen der Einrückung im ersten Absatz
+### Prozentsatz-Einzug
 
-Eine häufige typografische Praxis, wenn Absatzeinrückungen vorhanden sind, ist das Auslassen der Einrückung für den ersten Absatz. Wie es _The Chicago Manual of Style_ beschreibt: "Die erste Zeile des Textes nach einer Überschrift kann bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt werden."
+Mit demselben HTML wie im vorherigen Beispiel zeigen wir hier die Verwendung von Prozentwerten und wie diese relativ zum Inhaltsbereich des Elements in Richtung Inline-Achse sind.
 
-Erster Absätze anders zu behandeln als nachfolgende Absätze kann mit dem [next-sibling Kombinator](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
+```html hidden
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+</p>
+```
+
+#### CSS
+
+Wir setzen die `text-indent`-Eigenschaft auf einen Prozentwert. Wir haben auch Polsterung und vertikale Streifen hinzugefügt, um die Größe des Einzugs im Verhältnis zum Boxmodell des Elements besser beurteilen zu können.
+
+```css
+p {
+  text-indent: 30%;
+
+  padding: 30px;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0 9.5%,
+    #dedede 9.5% 10%
+  );
+  background-color: plum;
+}
+```
+
+#### Ergebnis
+
+{{ EmbedLiveSample('Percentage_indent','100%','100%') }}
+
+### Überspringen des Einzugs beim ersten Absatz
+
+Eine gängige typografische Praxis bei vorhandenem Absatzeinzug ist das Überspringen des Einzugs für den ersten Absatz. Wie im _The Chicago Manual of Style_ beschrieben, "kann die erste Zeile des Textes nach einer Unterüberschrift linksbündig beginnen oder durch den üblichen Absatzeinzug eingerückt werden."
+
+Die unterschiedliche Behandlung des ersten Absatzes gegenüber den folgenden Absätzen kann mit dem [Next-Sibling-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -206,34 +254,6 @@ p + p {
 
 {{ EmbedLiveSample('Skipping_indentation_on_the_first_paragraph','','500px') }}
 
-### Prozentuale Einrückung
-
-#### HTML
-
-```html
-<p>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-</p>
-<p>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-  nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-</p>
-```
-
-#### CSS
-
-```css
-p {
-  text-indent: 30%;
-  background: plum;
-}
-```
-
-#### Ergebnis
-
-{{ EmbedLiveSample('Percentage_indent','100%','100%') }}
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -244,14 +264,13 @@ p {
 
 ## Siehe auch
 
-- [Lernen Sie, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
 - Verwandte CSS-Eigenschaften:
   - {{cssxref("text-justify")}}
   - {{cssxref("text-orientation")}}
   - {{cssxref("text-overflow")}}
   - {{cssxref("text-rendering")}}
   - {{cssxref("text-transform")}}
-  - {{cssxref('hanging-punctuation')}}
-
-- [CSS Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) CSS-Modul
-- [CSS Textmodul](/de/docs/Web/CSS/Guides/Text)
+  - {{cssxref("hanging-punctuation")}}
+- [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration)-Modul
+- [CSS-Text](/de/docs/Web/CSS/Guides/Text)-Modul
+- [Lernen, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)

@@ -1,11 +1,11 @@
 ---
-title: Abrufen eines Elementattributs
+title: Attribut eines Elements abrufen
 slug: Web/WebDriver/Reference/Classic/Commands/GetElementAttribute
 l10n:
-  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
+  sourceCommit: b666ae21090eec89e76789635c2774452ed68281
 ---
 
-Der _Abrufen eines Elementattributs_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt das Attribut des referenzierten [Web-Elements](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Wenn das Element beispielsweise ein {{HTMLElement("img")}} ist, wird das Attribut `"//TODO"` zurückgegeben, was dem Aufruf von [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) auf dem Element entspricht. Für XML/XHTML-Dokumente kann es unterschiedlich großgeschrieben werden.
+Der _Attribut eines Elements abrufen_- [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Wert zurück, der mit dem Attribut des angegebenen Namens des referenzierten [Webelements](/de/docs/Web/WebDriver/Reference/WebElement) verknüpft ist. Für boolesche Attribute ist der zugeordnete Wert `"true"`, wenn er vorhanden ist. Fehlende Attribute geben `null` zurück. Dies entspricht dem Aufruf von [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) am Element in JavaScript.
 
 ## Syntax
 
@@ -18,18 +18,18 @@ Der _Abrufen eines Elementattributs_ [Befehl](/de/docs/Web/WebDriver/Reference/C
 - `session id`
   - : Kennung der Sitzung.
 - `element id`
-  - : Kennung des [Web-Elements](/de/docs/Web/WebDriver/Reference/WebElement), dessen Tag-Name abgerufen werden soll.
+  - : Kennung des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), um den Tag-Namen abzurufen.
 - `name`
-  - : Kennung des Attributs des [Web-Elements](/de/docs/Web/WebDriver/Reference/WebElement), das abgerufen werden soll.
+  - : Kennung des Attributs des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), das abgerufen werden soll.
 
 ### Fehler
 
 - [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
-  - : Die Sitzung existiert nicht.
+  - : Sitzung existiert nicht.
 - [Kein solches Fenster](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
-- [Unerwartete Warnmeldung geöffnet](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
+  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass die Registerkarte oder das Fenster geschlossen wurde.
+- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzereingabeaufforderung, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ search_box = session.find_element_by_id("q")
 print(search_box.get_attribute("id"))
 ```
 
-Ausgabe:
+Output:
 
 ```plain
 q
