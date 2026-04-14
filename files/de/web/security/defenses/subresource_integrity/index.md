@@ -2,131 +2,125 @@
 title: Subresource Integrity
 slug: Web/Security/Defenses/Subresource_Integrity
 l10n:
-  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
+  sourceCommit: fef6630e9b90f9794d3194ea8389ff70599c6884
 ---
 
-**Subresource Integrity** (SRI) ist ein Sicherheitsfeature, das es Browsern ermöglicht zu überprüfen, ob die von ihnen abgerufenen Ressourcen (zum Beispiel von einem {{Glossary("CDN", "CDN")}}) ohne unerwartete Manipulation geliefert werden. Es funktioniert, indem Sie einen kryptografischen Hash bereitstellen, der mit der abgerufenen Ressource übereinstimmen muss.
-
-> [!NOTE]
-> Für die Überprüfung der Subresource Integrity einer Ressource, die von einem anderen Ursprung als dem Dokument, in dem sie eingebettet ist, bereitgestellt wird, prüfen Browser die Ressource zusätzlich mit Hilfe von [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS), um sicherzustellen, dass der Ursprung, der die Ressource bereitstellt, es erlaubt, sie mit dem anfragenden Ursprung zu teilen.
+**Subresource Integrity** (SRI) ist ein Sicherheitsmerkmal, das es Browsern ermöglicht sicherzustellen, dass die von ihnen abgerufenen Ressourcen (zum Beispiel von einem {{Glossary("CDN", "CDN")}}) ohne unerwartete Manipulation bereitgestellt werden. Es funktioniert, indem Sie einen {{Glossary("hash_function", "kryptografischen Hash")}} angeben können, den eine abgerufene Ressource erfüllen muss.
 
 ## Wie Subresource Integrity hilft
 
-Webseiten verlassen sich manchmal auf Dritte wie ein {{Glossary("CDN", "Content Delivery Network (CDN)")}}, um einige ihrer Ressourcen zu hosten, anstatt alle ihre Ressourcen selbst zu hosten. Ein Dokument, das beispielsweise von `https://example.com` bereitgestellt wird, könnte eine Ressource von einem anderen Ort enthalten:
+Websites entscheiden sich manchmal dafür, einen Drittanbieter wie ein {{Glossary("CDN", "Content Delivery Network (CDN)")}} zu nutzen, um einige ihrer Ressourcen zu hosten, anstatt alle Ressourcen selbst zu hosten. Zum Beispiel könnte ein Dokument, das von `https://example.com` bereitgestellt wird, eine Ressource von einem anderen Standort einbinden:
 
 ```html
 <script src="https://not-example.com/script.js"></script>
 ```
 
-Dies birgt ein Risiko, da wenn ein Angreifer Kontrolle über den Drittanbieter-Host erlangt, dieser beliebigen bösartigen Inhalt in seine Dateien einfügen (oder die Dateien vollständig ersetzen) und somit möglicherweise auch die Seiten angreifen kann, die Dateien von dort abrufen.
+Dies birgt ein Risiko, denn wenn ein Angreifer die Kontrolle über den Drittanbieter-Host erlangt, kann er beliebigen schädlichen Code in seine Dateien einfügen (oder die Dateien komplett ersetzen). Dies wird als [Supply-Chain-Angriff](/de/docs/Web/Security/Attacks/Supply_chain_attacks) bezeichnet.
 
-Subresource Integrity ermöglicht es Ihnen, einige Risiken solcher Angriffe zu mindern, indem sichergestellt wird, dass die Dateien, die Ihre Webanwendung oder Ihr Webdokument abruft, geliefert wurden, ohne dass ein Angreifer zusätzlichen Inhalt in diese Dateien eingefügt hat — und ohne dass jegliche andere Änderungen an diesen Dateien vorgenommen wurden.
+Subresource Integrity bietet Schutz gegen solche Angriffe, indem sichergestellt wird, dass die Dateien, die Ihre Webanwendung abruft, genau die Inhalte haben, die Sie erwarten.
 
 ## Verwendung von Subresource Integrity
 
-Sie verwenden das Subresource Integrity-Feature, indem Sie einen base64-kodierten kryptografischen Hash einer Ressource (Datei), die Sie den Browser anweisen abzurufen, im Wert des `integrity`-Attributs eines {{HTMLElement("script")}}-Elements oder eines {{HTMLElement("link")}}-Elements mit [`rel="stylesheet"`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet), [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) oder [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) angeben.
+Sie können Subresource Integrity verwenden mit:
 
-Ein `integrity`-Wert beginnt mit mindestens einem String, wobei jeder String ein Präfix enthält, das einen bestimmten Hash-Algorithmus angibt (derzeit sind die zulässigen Präfixe `sha256`, `sha384` und `sha512`), gefolgt von einem Bindestrich und endet mit dem eigentlichen base64-kodierten Hash.
+- {{HTMLElement("script")}}-Elementen.
+- {{HTMLElement("link")}}-Elementen, deren [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attributwert [`stylesheet`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet), [`preload`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) oder [`modulepreload`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) ist.
 
-> [!NOTE]
-> Ein **integrity**-Wert kann mehrere durch Leerzeichen getrennte Hashes enthalten. Eine Ressource wird geladen, wenn sie mit einem dieser Hashes übereinstimmt.
+### Festlegen des `integrity`-Attributs
 
-Beispiel eines `integrity`-Strings mit base64-kodiertem sha384-Hash:
+Um die Funktion zu verwenden, fügen Sie dem Element das [`integrity`](/de/docs/Web/HTML/Reference/Attributes/integrity)-Attribut hinzu. Der Wert von `integrity` ist eine durch Leerzeichen getrennte Liste von {{Glossary("hash_function", "kryptografischen Hashes")}} des Inhalts der verlinkten Ressource, wobei jeder Hash mit einem Identifikator für den verwendeten Hash-Algorithmus beginnt, gefolgt von einem Bindestrich und dem eigentlichen base64-kodierten Hash-Wert.
 
-```plain
-sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC
+Derzeit sind die erlaubten Präfixe `sha256`, `sha384` und `sha512`.
+
+Zum Beispiel fügt das folgende Markup ein `integrity`-Attribut zu einem `<script>`-Element hinzu. Das Attribut enthält zwei SHA-384-Hashes und zwei SHA-512-Hashes:
+
+```html
+<script
+  src="https://cdn.example.com/script.js"
+  integrity="
+  sha384-Tk2Yjg3YmYzMWNkZTdhMTFkM2FlNDg4ZjE3MzEzNTk3ZDlh
+  sha384-DEzZmZhMGFkMGQ0OTQ3MzZkNGY0OTg4NGIwN2ZiMMTM3YmQ
+  sha512-ZmQ5NjNiYWJjYTM3MjRhMGI4MTQzNWRmZTZkZGYyMzQyOGYYTZkYjBm
+  sha512-OGUwYThkZDc2YzFlZGI5MDEzZmZhMGFkMGQ0OTQ3MzZkNGYZTEzODk2"
+  crossorigin="anonymous"></script>
 ```
 
-Also ist `oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC` der „Hash“-Teil, und das Präfix `sha384` zeigt an, dass es sich um einen sha384-Hash handelt.
+### Wie Browser Subresource Integrity handhaben
 
-> [!NOTE]
-> Der „Hash“-Teil eines `integrity`-Wertes ist streng genommen ein **_kryptografischer_ _Digest_**, der durch Anwendung einer bestimmten Hash-Funktion auf einige Eingaben (z.B. eine Skript- oder Stylesheet-Datei) gebildet wird. Es ist jedoch üblich, die Kurzform „Hash“ zu verwenden, um _kryptografischer_ _Digest_ zu meinen, daher wird dies in diesem Artikel so gehandhabt.
+Wenn ein Browser ein {{HTMLElement("script")}}- oder {{HTMLElement("link")}}-Element mit einem `integrity`-Attribut begegnet, muss der Browser, bevor er das Skript ausführt oder ein vom {{HTMLElement("link")}}-Element angegebenes Stylesheet anwendet, das Skript oder das Stylesheet mit den erwarteten Hashes, die im `integrity`-Wert angegeben sind, vergleichen.
 
-### Werkzeuge zum Erstellen von SRI-Hashes
+Die verschiedenen Hash-Funktionen haben unterschiedliche Stärken: von schwächer zu stärker lautet die Reihenfolge SHA-256, SHA-384, SHA-512. Wenn der Browser eine Ressource mit gesetztem `integrity`-Attribut herunterlädt, wählt er zunächst die Menge der Hashes, die mit der stärksten vorhandenen Hash-Funktion generiert wurden. Das heißt, wenn das Attribut Werte enthält, die mit SHA-256 und SHA-384 generiert wurden, werden nur die Hashes verwendet, die mit SHA-384 generiert wurden. Alle anderen Hashes werden ignoriert.
 
-#### SRI Hash Generator
+Der Browser berechnet dann den Hash der Ressourcendaten mit der angegebenen Funktion und vergleicht das Ergebnis mit allen angegebenen Werten: Wenn der tatsächliche Wert mit einem der angegebenen Werte übereinstimmt, lädt der Browser die Ressource, andernfalls lehnt er das Laden der Ressource ab und gibt einen Netzwerkfehler zurück.
 
-Der [SRI Hash Generator](https://srihash.org/) ist ein Online-Tool, das Sie verwenden können, um SRI-Hashes zu generieren.
+Das bedeutet, dass Entwickler:
 
-#### Verwendung von OpenSSL
+- **Mehrere Werte mit unterschiedlichen Hash-Funktionen bereitstellen**, und der Browser wird nur die stärkste bereitgestellte Funktion verwenden.
+- **Mehrere Werte mit derselben Hash-Funktion bereitstellen**, und der Browser wird das Attribut validieren, wenn einer von ihnen übereinstimmt: Dies ermöglicht es einem Entwickler, alternative Versionen einer Ressource bereitzustellen, während ihre Integrität überprüft wird.
 
-Sie können SRI-Hashes über die Befehlszeile mit **OpenSSL** generieren, indem Sie einen Befehl wie diesen aufrufen:
+## Subresource Integrity und CORS
 
-```bash
-cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A
-```
+Cross-Origin-Anfragen, die Subresource Integrity nutzen, müssen das [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)-Protokoll verwenden. Das bedeutet, dass der Server, der die Ressource bereitstellt, explizit dem Browser mitteilen muss, dass der anfragende Ursprung berechtigt ist, die Ressource zu verwenden. Dies erfolgt durch das Senden des entsprechenden {{httpheader("Access-Control-Allow-Origin")}}-Antwort-Headers.
 
-In einer Windows-Umgebung können Sie ein Tool erstellen, um SRI-Hashes mit folgendem Code zu generieren:
-
-```batch
-@echo off
-set bits=384
-openssl dgst -sha%bits% -binary %1% | openssl base64 -A > tmp
-set /p a= < tmp
-del tmp
-echo sha%bits%-%a%
-pause
-```
-
-Um diesen Code zu nutzen:
-
-1. Speichern Sie den Code in einer Datei namens `sri-hash.bat` im SendTo-Ordner in Ihrer Windows-Umgebung (zum Beispiel `C:\Users\USER\AppData\Roaming\Microsoft\Windows\SendTo`).
-2. Klicken Sie mit der rechten Maustaste auf eine Datei im Datei-Explorer, wählen Sie **Senden an…**, und wählen Sie dann `sri-hash`. Sie sehen den Integritätswert in einem Befehlsfenster.
-3. Wählen Sie den Integritätswert aus und klicken Sie mit der rechten Maustaste, um ihn in die Zwischenablage zu kopieren.
-4. Drücken Sie eine beliebige Taste, um das Befehlsfenster zu schließen.
-
-> [!NOTE]
-> Falls OpenSSL nicht auf Ihrem System installiert ist, besuchen Sie die [OpenSSL-Projekt-Website](https://www.openssl.org/) für Informationen zum Download und zur Installation. Das OpenSSL-Projekt hostet keine eigenen Binärverteilungen von OpenSSL, unterhält aber eine informelle Liste von Drittanbieterverteilungen: https://github.com/openssl/openssl/wiki/Binaries.
-
-#### Verwendung von shasum
-
-Sie können SRI-Hashes mit [**shasum**](https://linux.die.net/man/1/shasum) generieren, indem Sie einen Befehl wie diesen aufrufen:
-
-```bash
-shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64
-```
-
-- Der Durchlauf durch `xxd` konvertiert die hexadezimale Ausgabe von `shasum` in binäre Daten.
-- Der Durchlauf durch `awk` ist notwendig, weil `shasum` den gehashten Dateinamen in seiner Ausgabe an `xxd` weitergibt. Dies kann katastrophale Folgen haben, wenn der Dateiname gültige Hex-Zeichen enthält — da `xxd` dies ebenfalls dekodiert und an `base64` weitergibt.
-
-### Cross-Origin Resource Sharing und Subresource Integrity
-
-Für die Überprüfung der Subresource Integrity einer Ressource, die von einem anderen Ursprung als dem Dokument, in dem sie eingebettet ist, bereitgestellt wird, prüfen Browser die Ressource zusätzlich mit Hilfe von [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS), um sicherzustellen, dass der Ursprung, der die Ressource bereitstellt, es erlaubt, sie mit dem anfragenden Ursprung zu teilen. Daher muss die Ressource mit einem [`Access-Control-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)-Header bereitgestellt werden, der es erlaubt, die Ressource mit dem anfragenden Ursprung zu teilen; zum Beispiel:
+Ein CDN wird oft den Platzhalterwert dafür verwenden:
 
 ```http
 Access-Control-Allow-Origin: *
 ```
 
-## Wie Browser mit Subresource Integrity umgehen
+### `no-cors`-Modus und das `crossorigin`-Attribut
 
-Browser verarbeiten SRI, indem sie folgendes tun:
+Als Konsequenz aus der Anforderung, CORS bei der Anfrage einer Ressource mit Integrität zu verwenden, müssen Sie das [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)-Attribut in Ihr Markup einfügen:
 
-1. Wenn ein Browser auf ein {{HTMLElement("script")}}- oder {{HTMLElement("link")}}-Element mit einem `integrity`-Attribut trifft, vergleicht der Browser vor der Ausführung des Skripts oder bevor ein vom {{HTMLElement("link")}}-Element angegebenes Stylesheet angewendet wird, dieses Skript oder Stylesheet mit dem erwarteten Hash, der im `integrity`-Wert angegeben ist.
+```html
+<script
+  src="https://cdn.example.com"
+  integrity="sha512-abcde"
+  crossorigin="anonymous"></script>
+```
 
-   Für die Überprüfung der Subresource Integrity einer Ressource, die von einem anderen Ursprung als dem Dokument, in dem sie eingebettet ist, bereitgestellt wird, prüfen Browser die Ressource zusätzlich mit Hilfe von [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS), um sicherzustellen, dass der Ursprung, der die Ressource bereitstellt, es erlaubt, sie mit dem anfragenden Ursprung zu teilen.
+Dies ist erforderlich, weil eine Ressource, die aus der HTML eines Dokuments geladen wird, standardmäßig im `no-cors`-Modus geladen wird:
 
-2. Wenn das Skript oder Stylesheet nicht mit seinem zugeordneten `integrity`-Wert übereinstimmt, muss der Browser verweigern, das Skript auszuführen oder das Stylesheet anzuwenden, und muss stattdessen einen Netzwerkfehler zurückgeben, der anzeigt, dass das Abrufen dieses Skripts oder Stylesheets fehlgeschlagen ist.
+```html
+<script src="https://cdn.example.com"></script>
+<!-- loaded in no-cors mode -->
+```
+
+Im `no-cors`-Modus wird eine Cross-Origin-Anfrage auch dann erfolgreich sein, wenn der Eigentümer der Ressource nicht die entsprechenden CORS-Header sendet, aber der Inhalt der Antwort wird nicht an den Anfrager weitergegeben. Ein Dokument kann also eine Ressource _nutzen_, die es mit `no-cors` angefordert hat, aber es kann sie nicht _lesen_.
+
+Jedoch könnte Subresource Integrity einem Angreifer Informationen über den Inhalt einer Subresource geben, auch wenn diese im `no-cors`-Modus angefordert wird. Dazu erstellt der Angreifer eine Seite, die:
+
+- Die Ressource anfordert und einen bestimmten Hash-Wert als `integrity`-Wert bereitstellt.
+- Den Erfolg oder Misserfolg des Ressourceladens überwacht (zum Beispiel durch [das Abhören von `error`-Ereignissen](/de/docs/Web/Security/Attacks/XS-Leaks#leaking_page_existence_using_error_events)).
+
+Der Angreifer bringt dann das Ziel dazu, die Seite zu laden: Wenn die Ressource erfolgreich geladen wird, dann weiß der Angreifer, dass die Ressource Inhalte hat, die mit dem Hash übereinstimmen.
+
+Um diesen Angriff zu verhindern, erlauben es Browser nicht, dass `no-cors`-Anfragen Subresource Integrity verwenden, sodass eine Anfrage wie diese immer fehlschlagen wird:
+
+```html example-bad
+<script src="https://cdn.example.com" integrity="sha512-abcde"></script>
+```
 
 ## Integritätsrichtlinie
 
-Die {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} HTTP-Header ermöglichen es einem Dokument, eine Richtlinie bezüglich der Anforderungen an Integritätsmetadaten für geladene Skript- und Stylesheet-Ressourcen durchzusetzen.
+Die HTTP-Header {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} ermöglichen es einem Dokument, eine Richtlinie bezüglich der Integritätsmetadatenanforderungen für geladene Skript- und Stylesheet-Subressourcen durchzusetzen. Mit anderen Worten, die Richtlinie erlaubt es einer Website, zu _fordern_, dass das `integrity`-Attribut für geladene Ressourcen angegeben wird.
 
-Wenn ein `Integrity-Policy`-Header angegeben ist, blockiert der Browser Anfragen im [no-cors](/de/docs/Web/API/Request/mode#no-cors) Modus oder ohne ein `integrity`-Attribut und wird Verstöße melden, wenn ein gültiger Melde-Endpunkt spezifiziert ist. Wenn ein `Integrity-Policy-Report-Only`-Header angegeben ist, erlaubt der Browser Anfragen, die die Richtlinie verletzen, wird aber Verstöße an den Melde-Endpunkt melden (wenn ein gültiger Melde-Endpunkt spezifiziert ist).
+Wenn ein `Integrity-Policy`-Header angegeben ist, blockiert der Browser Anfragen mit [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus oder ohne ein `integrity`-Attribut und berichtet auch über Verstöße, wenn ein gültiger Berichts-Endpunkt angegeben ist. Wenn ein `Integrity-Policy-Report-Only`-Header angegeben ist, erlaubt der Browser Anfragen, die die Richtlinie verletzen, berichtet aber über Verstöße an den Berichts-Endpunkt (falls ein gültiger Berichts-Endpunkt angegeben ist).
 
-Entwickler würden typischerweise `Integrity-Policy-Report-Only` als ersten Implementierungsschritt in ihrem Integritätsrichtlinien-Prozess verwenden, um sicherzustellen, dass alle in ihren Dokumenten geladenen Skripte und Stylesheets über geeignete Integritätsmetadaten verfügen. Sobald sie feststellen, dass keine Verletzungsmeldungen eingehen, könnten sie sicher sein, dass sie die Blockierung mit dem `Integrity-Policy`-Header aktivieren können, ohne das Risiko einzugehen, dass es zu Benutzer-bezogenen Problemen kommt.
+Entwickler würden typischerweise `Integrity-Policy-Report-Only` als ersten Bereitstellungsschritt in ihrer Integritätsrichtlinienreise verwenden, um sicherzustellen, dass alle Skripte und Stylesheets, die in ihren Dokumenten geladen werden, die entsprechenden Integritätsmetadaten haben. Sobald sie keine Verletzungsberichte mehr erhalten, wissen sie, dass sie das Blockieren mithilfe des `Integrity-Policy`-Headers aktivieren können, ohne ein Risiko für Benutzerstörungen einzugehen.
 
 Die Header-Werte sind als strukturierte Felddictionaries mit den folgenden Schlüsseln definiert:
 
 - `blocked-destinations`
-  - : Definiert eine Liste von [Anfragezielen](/de/docs/Web/API/Request/destination), die blockiert werden sollen. Die einzigen zulässigen Werte sind `script` und `style`.
+  - : Definiert eine Liste von [Zielorten für Anfragen](/de/docs/Web/API/Request/destination), die blockiert werden sollen. Die einzigen erlaubten Werte sind `script` und `style`.
 - `sources` {{optional_inline}}
-  - : Definiert eine Liste von Integritätsquellen. Der einzige derzeit unterstützte Wert ist `inline`. Das Hinzufügen von `sources=(inline)` zum Header hat daher eine ähnliche Wirkung wie das Weglassen von `sources`.
+  - : Definiert eine Liste von Integritätsquellen. Der Standard und derzeit einzige unterstützte Wert ist `inline`. Das Hinzufügen von `sources=(inline)` zum Header hat daher eine ähnliche Wirkung wie das Weglassen von `sources`.
 - `endpoints` {{optional_inline}}
-  - : Definiert eine Liste von [Melde-Endpunkten](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint). Die Melde-Endpunkte müssen in einem {{httpheader("Reporting-Endpoints")}} Header definiert werden.
+  - : Definiert eine Liste von [Berichts-Endpunkten](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint). Die Berichts-Endpunkte müssen in einem {{httpheader("Reporting-Endpoints")}}-Header definiert sein.
 
-In Fällen, in denen eine Anfrage durch eine Integritätsrichtlinie blockiert wird, wird ein [Reporting API](/de/docs/Web/API/Reporting_API) Verstoßbericht mit einer Typ-Eigenschaft von `integrity-violation` und der durch [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport) definierten Struktur erstellt, die Informationen wie die URL des Dokuments und der blockierten Ressource enthält.
+In Fällen, in denen eine Anfrage durch eine Integritätsrichtlinie blockiert wird, wird ein [Reporting-API](/de/docs/Web/API/Reporting_API)-Verletzungsbericht erstellt, mit einem Typfeld von `integrity-violation` und der Struktur, die durch [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport) definiert ist, das Informationen wie die URL des Dokuments und die blockierte Ressource enthält.
 
-Ein typischer Bericht könnte folgendermaßen aussehen
+Ein typischer Bericht könnte so aussehen
 
 ```json
 {
@@ -141,49 +135,95 @@ Ein typischer Bericht könnte folgendermaßen aussehen
 }
 ```
 
-## Beispiele
+## Werkzeuge zur Generierung von SRI-Hashes
 
-In den folgenden Beispielen nehmen wir an, dass `oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC` bereits als der erwartete SHA-384-Hash (Digest) eines bestimmten Skripts `example-framework.js` bekannt ist und dass es eine Kopie des Skripts unter `https://example.com/example-framework.js` gibt.
+### SRI Hash Generator
+
+Der [SRI Hash Generator](https://srihash.org/) ist ein Online-Werkzeug, das Sie zur Generierung von SRI-Hashes verwenden können.
+
+### Nutzung von OpenSSL
+
+Sie können SRI-Hashes von der Befehlszeile aus mit **OpenSSL** durch einen Befehlsaufruf wie diesen generieren:
+
+```bash
+cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A
+```
+
+In einer Windows-Umgebung können Sie ein Werkzeug zur Generierung von SRI-Hashes mit dem folgenden Code erstellen:
+
+```batch
+@echo off
+set bits=384
+openssl dgst -sha%bits% -binary %1% | openssl base64 -A > tmp
+set /p a= < tmp
+del tmp
+echo sha%bits%-%a%
+pause
+```
+
+Um diesen Code zu verwenden:
+
+1. Speichern Sie diesen Code in einer Datei mit dem Namen `sri-hash.bat` im Windows-SendTo-Ordner in Ihrer Umgebung (zum Beispiel `C:\Users\USER\AppData\Roaming\Microsoft\Windows\SendTo`).
+2. Klicken Sie mit der rechten Maustaste auf eine Datei im Datei-Explorer, wählen Sie **Senden an…**, und wählen Sie dann `sri-hash`. Sie sehen den Integritätswert in einem Befehlsfenster.
+3. Wählen Sie den Integritätswert aus und klicken Sie mit der rechten Maustaste, um ihn in die Zwischenablage zu kopieren.
+4. Drücken Sie eine beliebige Taste, um das Befehlsfenster zu schließen.
+
+> [!NOTE]
+> Wenn OpenSSL nicht auf Ihrem System installiert ist, besuchen Sie die [OpenSSL-Projekt-Website](https://www.openssl.org/) für Informationen über das Herunterladen und Installieren. Das OpenSSL-Projekt hostet selbst keine Binärdistributionspakete von OpenSSL, führt aber eine informelle Liste von Drittanbieter-Distributionen: https://github.com/openssl/openssl/wiki/Binaries.
+
+### Nutzung von shasum
+
+Sie können SRI-Hashes mit [**shasum**](https://linux.die.net/man/1/shasum) durch einen Befehlsaufruf wie diesen generieren:
+
+```bash
+shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64
+```
+
+- Der Einspeisungsschritt `xxd` nimmt die hexadezimale Ausgabe von `shasum` und wandelt diese in Binärform um.
+- Der Einspeisungsschritt `awk` ist erforderlich, weil `shasum` den gehashten Dateinamen in seiner Ausgabe an `xxd` weitergeben wird. Dies kann katastrophale Konsequenzen haben, wenn der Dateiname zufällig gültige Hexzeichen enthält — da `xxd` dies auch dekodieren und an `base64` weitergeben wird.
+
+## Beispiele
 
 ### Subresource Integrity mit dem `<script>`-Element
 
-Sie können das folgende {{HTMLElement("script")}}-Element verwenden, um einem Browser zu signalisieren, dass er, bevor er das Skript `https://example.com/example-framework.js` ausführt, dieses zuerst mit dem erwarteten Hash vergleichen und überprüfen muss, ob eine Übereinstimmung vorliegt.
+Dieses Beispiel fügt einem {{htmlelement("script")}}-Element ein `integrity`-Attribut hinzu. Das Attribut enthält vier Hashes: zwei, die mit SHA-384 berechnet wurden, und die anderen beiden mit SHA-512. Der Browser wird:
+
+- die beiden SHA-512-Hashes auswählen
+- die Dateiinhalte mit SHA-512 hashen
+
+Wenn das Ergebnis mit einem der beiden aufgelisteten SHA-512-Hashes übereinstimmt, dann lädt und führt der Browser das Skript aus: andernfalls gibt er einen Netzwerkfehler zurück.
 
 ```html
 <script
-  src="https://example.com/example-framework.js"
-  integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+  src="https://cdn.example.com/script.js"
+  integrity="
+  sha384-Tk2Yjg3YmYzMWNkZTdhMTFkM2FlNDg4ZjE3MzEzNTk3ZDlh
+  sha384-DEzZmZhMGFkMGQ0OTQ3MzZkNGY0OTg4NGIwN2ZiMMTM3YmQ
+  sha512-ZmQ5NjNiYWJjYTM3MjRhMGI4MTQzNWRmZTZkZGYyMzQyOGYYTZkYjBm
+  sha512-OGUwYThkZDc2YzFlZGI5MDEzZmZhMGFkMGQ0OTQ3MzZkNGYZTEzODk2"
   crossorigin="anonymous"></script>
 ```
 
 > [!NOTE]
-> Für weitere Details zum Zweck des `crossorigin`-Attributs siehe [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
+> Für weitere Details zum Zweck des `crossorigin`-Attributs siehe [CORS-Einstellung-Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
 
-### Integritätsdurchsetzung mit dem `Integrity-Policy`-Header
+### Durchsetzung von Integrität mit dem `Integrity-Policy`-Header
 
-Sie können den {{httpheader("Integrity-Policy")}}-Header zu Ihrem Dokument hinzufügen, um sicherzustellen, dass die geladenen externen Ressourcen (in diesem Fall Skripte) mit Integrität geladen werden (und nicht im [no-cors](/de/docs/Web/API/Request/mode#no-cors) Modus geladen werden).
+Sie können den {{httpheader("Integrity-Policy")}}-Header zu Ihrem Dokument hinzufügen, um sicherzustellen, dass die externen Ressourcen, die es lädt (in diesem Fall Skripte), mit Integrität geladen werden (und nicht im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus geladen werden)
 
 ```http
 Integrity-Policy: blocked-destinations=(script), endpoints=(integrity-endpoint, some-other-integrity-endpoint)
 ```
 
-Wenn Sie nicht sicher sind, ob alle externen Skripte Integritätsmetadaten haben, können Sie die nur berichtende Version der Funktion aktivieren und beginnen, Berichte über Verstöße zu erhalten. Sie können dies mit dem {{httpheader("Integrity-Policy-Report-Only")}}-Header tun.
+Wenn Sie nicht sicher sind, ob alle externen Skripte Integritätsmetadaten haben, können Sie die nur Bericht-erstellende Version der Funktion aktivieren und Berichte über Verstöße zu erhalten beginnen. Dies können Sie mit dem {{httpheader("Integrity-Policy-Report-Only")}}-Header tun.
 
 ```http
 Integrity-Policy-Report-Only: blocked-destinations=(script), endpoints=(integrity-endpoint, some-other-integrity-endpoint)
 ```
 
-## Spezifikationen
-
-{{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Siehe auch
 
 - [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)
 - Der {{httpheader("Content-Security-Policy")}} HTTP-Header.
-- [A CDN that can not XSS you: Using Subresource Integrity](https://frederikbraun.de/using-subresource-integrity.html)
+- [Ein CDN, das Sie nicht XSS-en kann: Verwendung von Subresource Integrity](https://frederikbraun.de/using-subresource-integrity.html)
 - [SRI Hash Generator](https://srihash.org/)
