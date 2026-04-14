@@ -625,7 +625,7 @@ Scrollen Sie nach unten auf der Seite und beachten Sie, wie das positionierte El
 
 ## Siehe auch
 
-- [CSS-Anker-Positionierung](/en-US/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
 - [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul

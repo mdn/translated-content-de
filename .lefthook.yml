@@ -11,7 +11,7 @@ pre-commit:
       run: npx autocorrect --fix {staged_files}
       stage_fixed: true
 
-    - name: Format markdown
+    - name: Fix markdown
       glob: "*.md"
       group:
         parallel: true
@@ -27,6 +27,14 @@ pre-commit:
           - name: Prettier
             run: npx prettier --write --cache {staged_files}
             stage_fixed: true
+
+    - name: Run unit tests
+      glob:
+        - "*.*"
+        - "scripts/**"
+      exclude:
+        - "*.md"
+      run: npm test
 
 post-merge:
   only:

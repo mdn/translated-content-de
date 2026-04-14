@@ -29,7 +29,8 @@
   "ol-prefix": {
     "style": "ordered",
   },
-  "no-inline-html": {
+  "no-inline-html": false, // Disabled in favor of custom `escape-html` rule.
+  "escape-html": {
     "allowed_elements": [
       "a",
       "abbr",
@@ -217,13 +218,6 @@
         "message": "Don't use localhost for links",
         "searchPattern": "/\\]\\(https?:\\/\\/localhost:\\d+\\//g",
         "replace": "](/",
-        "searchScope": "text",
-      },
-      {
-        "name": "inline-html",
-        "message": "Put inline HTML tags in code spans",
-        "searchPattern": "/(?<!`)\\\\?(<(article|audio|body|button|canvas|dialog|fieldset|head|html|iframe|input|legend|link|object|pattern|script|select|span|style|svg|textarea|track|video)>)/g",
-        "replace": "`$1`",
         "searchScope": "text",
       },
       {

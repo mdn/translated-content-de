@@ -2,6 +2,9 @@
   "config": {
     "extends": "./.markdownlint.jsonc",
   },
-  "customRules": ["markdownlint-rule-search-replace"],
+  "customRules": [
+    "markdownlint-rule-search-replace",
+    "../../scripts/markdownlint-escape-html.js",
+  ],
   "ignores": ["PROMPT.md"],
 }
