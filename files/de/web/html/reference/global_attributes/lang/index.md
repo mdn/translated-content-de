@@ -1,15 +1,15 @@
 ---
-title: HTML lang globales Attribut
+title: "`lang` HTML global attribute"
 short-title: lang
 slug: Web/HTML/Reference/Global_attributes/lang
 l10n:
-  sourceCommit: a2a094e0c6b051595a6d33c06650c5faca202d14
+  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
 ---
 
-Das **`lang`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) hilft, die Sprache eines Elements zu definieren: die Sprache, in der nicht bearbeitbare Elemente geschrieben sind, oder die Sprache, in der die bearbeitbaren Elemente vom Benutzer geschrieben werden sollten. Das Attribut enthält ein einzelnes {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}.
+Das **`lang`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) hilft dabei, die Sprache eines Elements zu definieren: die Sprache, in der nicht bearbeitbare Elemente geschrieben sind, oder die Sprache, in der die bearbeitbaren Elemente vom Benutzer geschrieben werden sollten. Das Attribut enthält einen einzelnen {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}.
 
 > [!NOTE]
-> Wenn der Wert von `lang` auf einen leeren String gesetzt ist, ist die Sprache explizit unbekannt. Daher wird empfohlen, immer einen geeigneten Wert für dieses Attribut anzugeben.
+> Wenn der Wert von `lang` auf eine leere Zeichenkette gesetzt wird, ist die Sprache explizit unbekannt. Daher wird empfohlen, immer einen geeigneten Wert für dieses Attribut anzugeben.
 
 {{InteractiveExample("HTML Demo: lang", "tabbed-shorter")}}
 
@@ -35,21 +35,21 @@ p::before {
 }
 ```
 
-Wenn der Attributwert der _leere String_ (`lang=""`) ist, wird die Sprache auf _unbekannt_ gesetzt; Wenn das Sprach-Tag gemäß BCP47 nicht gültig ist, wird es auf _ungültig_ gesetzt.
+Wenn der Attributwert die _leere Zeichenkette_ (`lang=""`) ist, wird die Sprache auf _unbekannt_ gesetzt; wenn der Sprach-Tag gemäß BCP47 ungültig ist, wird er auf _ungültig_ gesetzt.
 
-Selbst wenn das `lang`-Attribut gesetzt ist, wird es möglicherweise nicht beachtet, da das `xml:lang`-Attribut Priorität hat.
+Selbst wenn das `lang` Attribut gesetzt ist, könnte es nicht berücksichtigt werden, da das `xml:lang` Attribut Vorrang hat.
 
-Für die CSS-Pseudoklasse {{cssxref(":lang")}} sind zwei ungültige Sprachnamen unterschiedlich, wenn ihre Namen unterschiedlich sind. Während `:lang(es)` sowohl `lang="es-ES"` als auch `lang="es-419"` übereinstimmt, würde `:lang(xyzzy)` _nicht_ mit `lang="xyzzy-Zorp!"` übereinstimmen.
+Für die CSS-Pseudoklasse {{cssxref(":lang")}} sind zwei ungültige Sprachbezeichnungen unterschiedlich, wenn ihre Namen unterschiedlich sind. Während `:lang(es)` sowohl `lang="es-ES"` als auch `lang="es-419"` entspricht, würde `:lang(xyzzy)` _nicht_ `lang="xyzzy-Zorp!"` entsprechen.
 
-## Barrierefreiheit
+## Barrierefreiheitsanliegen
 
-Das WCAG Erfolgsmerkmal 3.1.1 **erfordert**, dass eine Seitensprache in einer Weise spezifiziert wird, die „programmatisch bestimmt“ werden kann (d.h. über das **`lang`**-Attribut).
+Das WCAG Erfolgskriterium 3.1.1 **erfordert**, dass eine Seiten-Sprache in einer Weise angegeben wird, die „programmatisch bestimmt“ werden kann (d.h. über das **`lang`** Attribut).
 
-Das WCAG Erfolgsmerkmal 3.1.2 erfordert, dass Seiten mit **Teilen** in unterschiedlichen Sprachen auch die Sprachen dieser Teile spezifiziert haben. Auch hier ist das **`lang`**-Attribut der richtige Mechanismus dafür.
+Das WCAG Erfolgskriterium 3.1.2 erfordert, dass Seiten mit **Teilen** in verschiedenen Sprachen auch die Sprachen dieser Teile angeben. Auch hier ist das **`lang`** Attribut der richtige Mechanismus dafür.
 
-Der Zweck dieser Anforderungen ist in erster Linie, unterstützende Technologien wie Bildschirmlesegeräte in die Lage zu versetzen, die korrekte Aussprache anzuwenden.
+Der Zweck dieser Anforderungen besteht hauptsächlich darin, unterstützende Technologien wie Bildschirmleser in die Lage zu versetzen, die korrekte Aussprache aufzurufen.
 
-Beispielsweise enthält das Sprachmenü auf dieser Seite (MDN) ein **`lang`**-Attribut für jeden Eintrag:
+Zum Beispiel enthält das Sprachmenü auf dieser Seite (MDN) ein **`lang`** Attribut für jeden Eintrag:
 
 ```html
 <div class="dropdown-container language-menu">
@@ -152,7 +152,7 @@ Beispielsweise enthält das Sprachmenü auf dieser Seite (MDN) ein **`lang`**-At
 
 ## Vererbung
 
-Wenn ein Element kein `lang`-Attribut hat, erbt es den `lang`-Wert, der auf seinem {{Glossary("Node/DOM", "übergeordneten Knoten")}} gesetzt ist, der ihn wiederum von seinem übergeordneten Knoten erben kann, und so weiter.
+Wenn ein Element kein `lang` Attribut hat, erbt es den `lang` Wert, der auf seinem {{Glossary("Node/DOM", "Elternknoten")}} gesetzt ist, welcher wiederum diesen von seinem Elternknoten erben kann, und so weiter.
 
 ## Spezifikationen
 
@@ -165,5 +165,5 @@ Wenn ein Element kein `lang`-Attribut hat, erbt es den `lang`-Wert, der auf sein
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-- [`Content-Language` HTTP-Header](/de/docs/Web/HTTP/Reference/Headers/Content-Language)
+- [`Content-Language` HTTP Header](/de/docs/Web/HTTP/Reference/Headers/Content-Language)
 - HTML [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate) Attribut

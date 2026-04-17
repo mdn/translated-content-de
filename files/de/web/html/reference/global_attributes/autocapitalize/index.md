@@ -1,17 +1,17 @@
 ---
-title: HTML autocapitalize globales Attribut
+title: "`autocapitalize` HTML-Globalattribut"
 short-title: autocapitalize
 slug: Web/HTML/Reference/Global_attributes/autocapitalize
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
 ---
 
-Das **`autocapitalize`**-Attribut [globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumerated")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und wenn ja, in welcher Weise. Dies ist relevant für:
+Das **`autocapitalize`** [Globalattribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und, wenn ja, auf welche Weise. Dies ist relevant für:
 
-- {{htmlelement("input")}} und {{htmlelement("textarea")}} Elemente.
-- Jedes Element mit aktivierter [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Eigenschaft.
+- {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elemente.
+- Jedes Element, auf dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) gesetzt ist.
 
-`autocapitalize` beeinflusst nicht das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtueller Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Benutzern dabei helfen, die Dateneingabe schneller und einfacher zu gestalten, zum Beispiel indem der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
+`autocapitalize` beeinflusst nicht das Eingabeverhalten bei der Nutzung einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Nutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem z. B. der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
 
 ## Wert
 
@@ -26,11 +26,11 @@ Mögliche Werte sind:
 - `characters`
   - : Jeder Buchstabe wird automatisch großgeschrieben.
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
-- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elemente gesetzt werden _und_ auf die enthaltenen {{htmlelement("form")}}-Elemente. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, legt es das Verhalten des Autocapitalize für alle enthaltenen `<input>`s und `<textarea>`s fest und überschreibt alle `autocapitalize`-Werte, die auf den enthaltenen Elementen gesetzt sind.
-- `autocapitalize` hat keine Wirkung auf die `url`-, `email`- oder `password`-`<input>`-Typen, bei denen die automatische Großschreibung niemals aktiviert ist.
-- Wo `autocapitalize` nicht angegeben ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
+- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elementen sowie auf ihren umschließenden {{htmlelement("form")}}-Elementen gesetzt werden. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, wird das Autokapitalisierungsverhalten für alle darin enthaltenen `<input>`s und `<textarea>`s festgelegt, wobei alle `autocapitalize`-Werte überschrieben werden, die auf enthaltenen Elementen gesetzt sind.
+- `autocapitalize` hat keine Auswirkung auf die `url`-, `email`- oder `password`-`<input>`-Typen, bei denen Autokapitalisierung nie aktiviert ist.
+- Wenn `autocapitalize` nicht angegeben ist, variiert das übernommene Standardverhalten zwischen den Browsern. Zum Beispiel:
   - Chrome und Safari standardmäßig `on`/`sentences`
   - Firefox standardmäßig `off`/`none`.
 
@@ -104,7 +104,7 @@ div {
 
 ## Ergebnis
 
-Testen Sie die Wirkung auf jede Eingabe mit einer virtuellen Tastatur oder Spracheingabe (Tastatureingabe auf einer physischen Tastatur wird nicht funktionieren).
+Testen Sie die Wirkung auf jede Eingabe mit einer virtuellen Tastatur oder Spracheingabe (Eingabe über die Tastatur funktioniert nicht).
 
 {{ EmbedLiveSample("Examples", "100%", "500") }}
 

@@ -1,11 +1,12 @@
 ---
-title: :checked
+title: "`:checked` CSS-Pseudoklasse"
+short-title: :checked
 slug: Web/CSS/Reference/Selectors/:checked
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes **radio** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das aktiviert ist oder auf einen `on`-Zustand umgeschaltet wurde.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklasse-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes **Radiobutton** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Kontrollkästchen** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das aktiviert oder auf einen `on`-Zustand geschaltet ist.
 
 {{InteractiveExample("CSS Demo: :checked", "tabbed-shorter")}}
 
@@ -45,10 +46,10 @@ input:checked {
 </form>
 ```
 
-Der Benutzer kann diesen Zustand durch An- oder Abwählen eines Elements ein- oder ausschalten.
+Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt oder markiert, oder er kann ihn deaktivieren, indem er das Element abwählt oder dessen Markierung aufhebt.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert das Maß der Styling-Fähigkeit mit der `:checked`-Pseudoklasse von Browser zu Browser. Mit [anpassbarer Select-Element]-Funktionalität](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) kann in unterstützenden Browsern eine vollständige Anpassung von `<option>`-Elementen ebenso wie bei regulären DOM-Elementen erreicht werden.
+> Da Browser `<option>`s oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert das Ausmaß, in dem sie mit der `:checked`-Pseudoklasse gestylt werden können, von Browser zu Browser. Die Funktionalität von [anpassbaren Select-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) kann verwendet werden, um die vollständige Anpassung von `<option>`-Elementen wie bei jedem regulären DOM-Element in unterstützten Browsern zu ermöglichen.
 
 ## Syntax
 
@@ -119,9 +120,9 @@ option:checked {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Elemente mit einem versteckten Kontrollkästchen umschalten
+### Umschalten von Elementen mit einem versteckten Kontrollkästchen
 
-Dieses Beispiel nutzt die `:checked` Pseudoklasse, um es dem Benutzer zu ermöglichen, Inhalte basierend auf dem Zustand eines Kontrollkästchens umzuschalten, ganz ohne [JavaScript](/de/docs/Web/JavaScript).
+Dieses Beispiel verwendet die `:checked`-Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand eines Kontrollkästchens zu ermöglichen, ohne [JavaScript](/de/docs/Web/JavaScript) zu verwenden.
 
 #### HTML
 
@@ -219,5 +220,5 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, um es dem Benutzer zu ermögl
 
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
 - [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
+- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), {{HTMLElement("select")}} und {{HTMLElement("option")}}
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

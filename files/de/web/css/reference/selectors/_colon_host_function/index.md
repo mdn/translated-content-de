@@ -1,16 +1,17 @@
 ---
-title: :host()
+title: "`:host()` CSS-Pseudoklasse"
+short-title: :host()
 slug: Web/CSS/Reference/Selectors/:host_function
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:host()`**-Funktion der [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Schatten-Host des [Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird (damit Sie ein benutzerdefiniertes Element innerhalb seines Shadow-DOM auswählen können) — aber nur, wenn der als Parameter der Funktion angegebene Selektor mit dem Schatten-Host übereinstimmt. **`:host()`** hat keine Wirkung, wenn sie außerhalb eines Shadow-DOMs verwendet wird.
+Die **`:host()`**-Funktion der [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, das das CSS enthält, in dem es verwendet wird (so dass Sie ein benutzerdefiniertes Element von innerhalb seines Shadow DOMs auswählen können) — aber nur, wenn der als Parameter der Funktion angegebene Selektor mit dem Shadow-Host übereinstimmt. **`:host()`** hat keine Wirkung, wenn es außerhalb eines Shadow DOM verwendet wird.
 
-Der offensichtlichste Nutzen hiervon ist, einen Klassennamen nur auf bestimmten Instanzen eines benutzerdefinierten Elements zu setzen und dann den relevanten Klassen-Selektor als Funktionsargument einzuschließen. Sie können dies nicht mit einem Nachfahren-Selektor-Ausdruck verwenden, um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines bestimmten Vorfahren befinden. Das ist die Aufgabe von {{cssxref(":host-context()")}}.
+Die offensichtlichste Anwendung dafür besteht darin, einen Klassennamen nur auf bestimmten Instanzen eines benutzerdefinierten Elements zu setzen und dann den entsprechenden Klassenselektor als Funktionsargument einzuschließen. Sie können dies nicht mit einem Nachfahrenselektor-Ausdruck verwenden, um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines bestimmten Vorfahren befinden. Dafür ist {{cssxref(":host-context()")}} zuständig.
 
 > [!NOTE]
-> Während andere funktionale Pseudo-Klassen wie {{cssxref(":is()")}} und {{cssxref(":not()")}} eine Liste von Selektoren als Parameter akzeptieren, nimmt `:host()` einen einzigen zusammengesetzten Selektor als Parameter. Darüber hinaus berücksichtigen `:is()` und `:not()` nur die Spezifität ihres Arguments, während die Spezifität von `:host()` sowohl die Spezifität der Pseudoklasse als auch die Spezifität ihres Arguments ist.
+> Während andere funktionale Pseudoklassen wie {{cssxref(":is()")}} und {{cssxref(":not()")}} eine Liste von Selektoren als Parameter akzeptieren, nimmt `:host()` einen einzelnen zusammengesetzten Selektor als Parameter. Außerdem berücksichtigen `:is()` und `:not()` nur die Spezifität ihres Arguments, während die Spezifität von `:host()` sowohl die Spezifität der Pseudoklasse **als auch** die Spezifität ihres Arguments umfasst.
 
 {{InteractiveExample("CSS Demo: :host()", "tabbed-shorter")}}
 
@@ -76,9 +77,9 @@ function init() {
 
 ## Beispiele
 
-### Selektives Stylen von Schatten-Hosts
+### Selektives Styling von Shadow Hosts
 
-Die folgenden Codebeispiele stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Codeausschnitte stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([siehe es auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
 
 In diesem Beispiel haben wir ein benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum platzieren können:
 
@@ -88,7 +89,7 @@ In diesem Beispiel haben wir ein benutzerdefiniertes Element — `<context-span>
 </h1>
 ```
 
-Im Konstruktor des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und das `style`-Element mit einigen CSS-Regeln:
+Innerhalb des Konstruktors des Elements erstellen wir `style`- und `span`-Elemente, füllen den `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style`-Element mit einigen CSS-Regeln:
 
 ```js
 const style = document.createElement("style");
@@ -108,7 +109,7 @@ style.textContent =
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die Regel `:host(.footer) { color : red; }` stylt alle Instanzen des `<context-span>`-Elements (den Schatten-Host in diesem Fall) im Dokument, die die Klasse `footer` gesetzt haben — wir haben es verwendet, um Instanzen des Elements innerhalb des {{htmlelement("footer")}} eine spezielle Farbe zu geben.
+Die Regel `:host(.footer) { color : red; }` stylt alle Instanzen des `<context-span>`-Elements (den Shadow-Host in diesem Fall) im Dokument, die die Klasse `footer` gesetzt haben — wir haben es verwendet, um Instanzen des Elements innerhalb des {{htmlelement("footer")}} eine spezielle Farbe zu geben.
 
 ## Spezifikationen
 
@@ -120,7 +121,7 @@ Die Regel `:host(.footer) { color : red; }` stylt alle Instanzen des `<context-s
 
 ## Siehe auch
 
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [Web Components](/de/docs/Web/API/Web_components)
 - {{CSSxRef(":host")}}
 - {{cssxref(":host-context()")}}
 - {{CSSxRef(":state",":state()")}}

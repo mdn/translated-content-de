@@ -1,11 +1,12 @@
 ---
-title: :indeterminate
+title: "`:indeterminate` CSS-Pseudoklasse"
+short-title: :indeterminate
 slug: Web/CSS/Reference/Selectors/:indeterminate
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:indeterminate`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes Formularelement, dessen Zustand unbestimmt ist, wie z.B. Checkboxen, die mit JavaScript in einen [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate) Zustand versetzt wurden, Radiobuttons, die Mitglied einer Gruppe sind, in der alle Radiobuttons nicht ausgewählt sind, und {{HTMLElement("progress")}} Elemente ohne `value` Attribut.
+Die **`:indeterminate`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes Formularelement, dessen Zustand unbestimmt ist, wie z.B. Kontrollkästchen, die mit JavaScript in einen [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Zustand versetzt wurden, Optionsfelder, die Mitglieder einer Gruppe sind, in der alle Optionsfelder nicht angekreuzt sind, und {{HTMLElement("progress")}}-Elemente ohne `value`-Attribut.
 
 ```css
 /* Selects any <input> whose state is indeterminate */
@@ -16,9 +17,9 @@ input:indeterminate {
 
 Elemente, die durch diesen Selektor angesprochen werden, sind:
 
-- [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) Elemente mit der [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate) Eigenschaft auf `true` gesetzt.
-- [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio) Elemente mit demselben `name` Wert, von denen keines `checked` ist.
-- {{HTMLElement("progress")}} Elemente ohne `value`, die sich dadurch in einem unbestimmten Zustand befinden.
+- [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Elemente mit der [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Eigenschaft auf `true` gesetzt.
+- [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Elemente mit demselben `name`-Wert, von denen keines `checked` ist.
+- {{HTMLElement("progress")}}-Elemente ohne `value`, die somit in einem unbestimmten Zustand sind.
 
 ## Syntax
 
@@ -30,9 +31,9 @@ Elemente, die durch diesen Selektor angesprochen werden, sind:
 
 ## Beispiele
 
-### Checkbox & Radiobutton
+### Kontrollkästchen & Optionsfeld
 
-Dieses Beispiel wendet spezielle Stile auf die Labels an, die mit unbestimmten Formularfeldern verknüpft sind.
+Dieses Beispiel wendet spezielle Stile auf die Labels an, die mit unbestimmten Formularfeldern verbunden sind.
 
 #### HTML
 
@@ -129,8 +130,8 @@ progress:indeterminate {
 
 ## Siehe auch
 
-- [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
-- [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- Die [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) Eigenschaft [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, die es implementiert.
-- Der {{cssxref(":checked")}} CSS Selektor ermöglicht es, Checkboxen basierend darauf zu stylen, ob sie ausgewählt sind oder nicht.
+- [Web-Formulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
+- [Styling von Web-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- Die [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Eigenschaft [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
+- Der {{cssxref(":checked")}} CSS-Selektor ermöglicht es Ihnen, Kontrollkästchen basierend darauf zu stylen, ob sie angekreuzt sind oder nicht.

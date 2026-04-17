@@ -1,11 +1,12 @@
 ---
-title: :first
+title: "`:first` CSS-Pseudoklasse"
+short-title: :first
 slug: Web/CSS/Reference/Selectors/:first
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), die mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) verwendet wird, repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
+Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das generelle erste Element eines Knotens.)
 
 ```css
 /* Selects the first page when printing */
@@ -16,7 +17,7 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Referen
 ```
 
 > [!NOTE]
-> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudoklasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Darüber hinaus dürfen Sie nur [absolute-Längen](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) Einheiten verwenden, wenn Sie die Ränder definieren. Alle anderen Eigenschaften werden ignoriert.
+> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudoklasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Außerdem dürfen Sie nur [absolute Längeneinheiten](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) definieren, wenn Sie die Ränder festlegen. Alle anderen Eigenschaften werden ignoriert.
 
 ## Syntax
 
@@ -28,9 +29,9 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Referen
 
 ## Beispiele
 
-### Verwendung von `:first` für Druckstile
+### Verwendung von `:first` für Druckseitenstile
 
-Drücken Sie die Schaltfläche "Drucken!", um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich irgendwo in der Mitte befinden, während andere Seiten ihre Inhalte an der Standardposition haben:
+Drücken Sie den "Print!"-Button, um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich irgendwo in der Mitte befinden, während andere Seiten ihren Inhalt an der Standardposition haben werden:
 
 ```html live-sample___colon-first
 <p>First Page.</p>

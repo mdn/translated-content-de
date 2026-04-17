@@ -3,16 +3,16 @@ title: <script type="importmap">
 short-title: importmap
 slug: Web/HTML/Reference/Elements/script/type/importmap
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 16c2dc9c347065f648a0d6204b814657480ed25b
 ---
 
-Der **`importmap`** Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/script/type) Attributs des [`<script>` Element](/de/docs/Web/HTML/Reference/Elements/script) gibt an, dass der Inhalt des Elements eine Importkarte enthält.
+Der **`importmap`**-Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attributs des [`<script>`-Elements](/de/docs/Web/HTML/Reference/Elements/script) gibt an, dass der Inhalt des Elements eine Importkarte (import map) enthält.
 
-Eine Importkarte ist ein JSON-Objekt, das es Entwicklern ermöglicht, zu steuern, wie der Browser Modulspezifizierer auflöst, wenn [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) importiert werden. Sie bietet eine Zuordnung zwischen dem Text, der als Modulspezifizierer in einer [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder dem [`import()` Operator](/de/docs/Web/JavaScript/Reference/Operators/import) verwendet wird, und dem entsprechenden Wert, der den Text beim Auflösen des Spezifizierers ersetzt. Das JSON-Objekt muss dem [Importkartenschema im JSON-Format](#importkarten-json-darstellung) entsprechen.
+Eine Importkarte ist ein JSON-Objekt, das es Entwicklern ermöglicht, zu steuern, wie der Browser Modulspezifizierer auflöst, wenn [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) importiert werden. Sie bietet eine Zuordnung zwischen dem Text, der als Modulspezifizierer in einer [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder dem [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) verwendet wird, und dem entsprechenden Wert, der den Text beim Auflösen des Spezifizierers ersetzt. Das JSON-Objekt muss dem [JSON-Darstellungsformat der Importkarte](#json-darstellung_von_importkarten) entsprechen.
 
-Eine Importkarte wird verwendet, um Modulspezifizierer in statischen und dynamischen Imports aufzulösen, und muss daher deklariert und verarbeitet werden, bevor irgendwelche `<script>` Elemente Module mit in der Karte deklarierten Spezifizierern importieren. Beachten Sie, dass die Importkarte nur auf Modulspezifizierer in der [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder dem [`import()` Operator](/de/docs/Web/JavaScript/Reference/Operators/import) für Module, die in Dokumente geladen werden, anwendbar ist; sie gilt nicht für den Pfad, der im `src` Attribut eines `<script>` Elements angegeben ist oder für Module, die in Worker oder Worklets geladen werden.
+Eine Importkarte wird verwendet, um Modulspezifizierer in statischen und dynamischen Importen aufzulösen und muss daher vor allen `<script>`-Elementen deklariert und verarbeitet werden, die Module mit in der Karte deklarierten Spezifizierern importieren. Beachten Sie, dass die Importkarte nur auf Modulspezifizierer in der [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) oder dem [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) für in Dokumente geladene Module angewendet wird; sie gilt nicht für den im `src`-Attribut eines `<script>`-Elements angegebenen Pfad oder für Module, die in Worker oder Worklets geladen werden.
 
-Weitere Informationen finden Sie im Abschnitt [Module mit Importkarten importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) im JavaScript-Module-Leitfaden.
+Weitere Informationen finden Sie im Abschnitt [Importieren von Modulen mit Importkarten](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) im JavaScript-Module-Leitfaden.
 
 ## Syntax
 
@@ -22,31 +22,31 @@ Weitere Informationen finden Sie im Abschnitt [Module mit Importkarten importier
 </script>
 ```
 
-Die Attribute `src`, `async`, `nomodule`, `defer`, `crossorigin`, `integrity`, und `referrerpolicy` dürfen nicht angegeben werden.
+Die Attribute `src`, `async`, `nomodule`, `defer`, `crossorigin`, `integrity` und `referrerpolicy` dürfen nicht angegeben werden.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Die Definition der Importkarte ist kein JSON-Objekt, der `importmap` Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt, oder der `scopes` Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt.
+  - : Die Importkartendefinition ist kein JSON-Objekt, der `importmap`-Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt, oder der `scopes`-Schlüssel ist definiert, aber sein Wert ist kein JSON-Objekt.
 
-Browser generieren Konsolenwarnungen für andere Fälle, in denen das Importkarte-JSON nicht dem [Importkartenschema](#importkarten-json-darstellung) entspricht.
+Browser generieren Konsolenwarnungen für andere Fälle, in denen das Importkarten-JSON nicht dem [Importkarten-Schema](#json-darstellung_von_importkarten) entspricht.
 
 ## Beschreibung
 
-Beim Importieren eines [JavaScript-Moduls](/de/docs/Web/JavaScript/Guide/Modules) haben sowohl die [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) als auch der [`import()` Operator](/de/docs/Web/JavaScript/Reference/Operators/import) einen "Modulspezifizierer", der angibt, welches Modul importiert werden soll. Ein Browser muss in der Lage sein, diesen Spezifizierer zu einer absoluten URL aufzulösen, um das Modul zu importieren.
+Beim Importieren eines [JavaScript-Moduls](/de/docs/Web/JavaScript/Guide/Modules) haben sowohl die [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import) als auch der [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import) einen "Modulspezifizierer", der angibt, welches Modul importiert wird. Ein Browser muss in der Lage sein, diesen Spezifizierer zu einer absoluten URL aufzulösen, um das Modul zu importieren.
 
-Zum Beispiel importieren die folgenden Anweisungen Elemente vom Modulspezifizierer `"https://example.com/shapes/circle.js"`, was eine absolute URL ist, und vom Modulspezifizierer `"./modules/shapes/square.js"`, was ein Pfad relativ zur Basis-URL des Dokuments ist.
+Zum Beispiel importieren die folgenden Anweisungen Elemente aus dem Modulspezifizierer `"https://example.com/shapes/circle.js"`, der eine absolute URL ist, und dem Modulspezifizierer `"./modules/shapes/square.js"`, der ein pfadrelativer zum Basis-URL des Dokuments ist.
 
 ```js
 import { name as circleName } from "https://example.com/shapes/circle.js";
 import { name as squareName, draw } from "./modules/shapes/square.js";
 ```
 
-Importkarten erlauben es Entwicklern, (fast) jeden gewünschten Text im Modulspezifizierer anzugeben; die Karte liefert einen entsprechenden Wert, der den Text ersetzt, wenn der Modulspezifizierer aufgelöst wird.
+Importkarten ermöglichen es Entwicklern, (fast) beliebigen Text im Modulspezifizierer anzugeben; die Karte bietet einen entsprechenden Wert, der den Text ersetzt, wenn der Modulspezifizierer aufgelöst wird.
 
-### Bare modules
+### Bare Module
 
-Die unten gezeigte Importkarte definiert einen `imports` Schlüssel, der eine "Modulspezifiziererkarte" mit den Eigenschaften `circle` und `square` enthält.
+Die untenstehende Importkarte definiert einen `imports`-Schlüssel, der eine "Modulspezifiziererkarte" mit den Eigenschaften `circle` und `square` enthält.
 
 ```html
 <script type="importmap">
@@ -59,7 +59,7 @@ Die unten gezeigte Importkarte definiert einen `imports` Schlüssel, der eine "M
 </script>
 ```
 
-Mit dieser Importkarte können wir dieselben Module wie oben importieren, aber in unseren Modulspezifizierern "bare modules" verwenden:
+Mit dieser Importkarte können wir dieselben Module wie oben importieren, jedoch mit "Bare Modules" in unseren Modulspezifizierern:
 
 ```js
 import { name as circleName } from "circle";
@@ -68,7 +68,7 @@ import { name as squareName, draw } from "square";
 
 ### Zuordnung von Pfadpräfixen
 
-Ein Schlüssel in der Modulspezifiziererkarte kann auch verwendet werden, um ein Pfadpräfix in einem Modulspezifizierer neu zuzuordnen. Beachten Sie, dass in diesem Fall sowohl die Eigenschaft als auch der zugeordnete Pfad ein abschließendes Schrägstrich (`/`) haben müssen.
+Ein Schlüssel in der Modulspezifiziererkarte kann auch verwendet werden, um ein Pfadpräfix in einem Modulspezifizierer neu zuzuordnen. Beachten Sie, dass in diesem Fall sowohl die Eigenschaft als auch der zugeordnete Pfad mit einem Schrägstrich (`/`) enden müssen.
 
 ```html
 <script type="importmap">
@@ -87,9 +87,9 @@ Wir könnten dann ein Kreis-Modul wie gezeigt importieren.
 import { name as circleName } from "shapes/circle.js";
 ```
 
-### Pfade im Schlüssel der Modulspezifiziererkarte
+### Pfade im Modulspezifiziererkarte-Schlüssel
 
-Modulspezifiziererschlüssel müssen keine einzelnen Wortnamen ("bare names") sein. Sie können auch Pfadtrennzeichen enthalten oder mit ihnen enden oder absolute URLs sein oder relative URL-Pfade, die mit `/`, `./`, oder `../` beginnen.
+Modulspezifizierer-Schlüssel müssen keine einfachen Wörternamen ("Bare Names") sein. Sie können auch Pfadtrennzeichen enthalten oder mit diesen enden, oder absolute URLs sein oder relative URL-Pfade, die mit `/`, `./` oder `../` beginnen.
 
 ```json
 {
@@ -102,15 +102,15 @@ Modulspezifiziererschlüssel müssen keine einzelnen Wortnamen ("bare names") se
 }
 ```
 
-Wenn es mehrere Modulspezifiziererschlüssel in einer Modulspezifiziererkarte gibt, die übereinstimmen könnten, wird der spezifischste Schlüssel ausgewählt (d.h. der mit dem längeren Pfad/Wert).
+Wenn es mehrere Modulspezifizierer-Schlüssel in einer Modulspezifiziererkarte gibt, die möglicherweise übereinstimmen, wird der spezifischste Schlüssel ausgewählt (d.h. der mit dem längeren Pfad/Wert).
 
-Ein Modulspezifizierer von `./foo/../js/app.js` würde vor dem Abgleichen zu `./js/app.js` aufgelöst. Das bedeutet, dass ein Modulspezifiziererschlüssel von `./js/app.js` dem Modulspezifizierer entsprechen würde, auch wenn sie nicht genau gleich sind.
+Ein Modulspezifizierer von `./foo/../js/app.js` würde zu `./js/app.js` aufgelöst, bevor er abgeglichen wird. Das bedeutet, dass ein Modulspezifizierer-Schlüssel von `./js/app.js` mit dem Modulspezifizierer übereinstimmen würde, auch wenn sie nicht genau gleich sind.
 
-### Gescopte Modulspezifiziererkarten
+### Modulsspezifizierer Karten mit Scopes
 
-Sie können den `scopes` Schlüssel verwenden, um Zuordnungen bereitzustellen, die nur verwendet werden, wenn das Script, das das Modul importiert, einen bestimmten URL-Pfad enthält. Wenn die URL des ladenden Script den angegebenen Pfad erfüllt, wird die mit dem Scope verbundene Zuordnung verwendet. Dies ermöglicht die Verwendung verschiedener Versionen des Moduls, je nachdem, welcher Code den Import durchführt.
+Sie können den `scopes`-Schlüssel verwenden, um Zuordnungen bereitzustellen, die nur verwendet werden, wenn das Skript, das das Modul importiert, einen bestimmten URL-Pfad enthält. Wenn die URL des ladenden Skripts mit dem angegebenen Pfad übereinstimmt, wird die Zuordnung verwendet, die mit dem Scope verbunden ist. Dies ermöglicht die Verwendung verschiedener Versionen des Moduls, abhängig davon, welches Code das Importieren durchführt.
 
-Zum Beispiel wird die unten stehende Karte nur die gescopte Karte verwenden, wenn das ladende Modul eine URL hat, die den Pfad: "/modules/custom-shapes/" enthält.
+Zum Beispiel wird die untenstehende Karte nur die gescope-te Karte verwenden, wenn das ladende Modul eine URL enthält, die den Pfad enthält: "/modules/custom-shapes/".
 
 ```html
 <script type="importmap">
@@ -127,15 +127,15 @@ Zum Beispiel wird die unten stehende Karte nur die gescopte Karte verwenden, wen
 </script>
 ```
 
-Wenn mehrere Scopes mit der Referrer-URL übereinstimmen, wird der spezifischste Scope-Pfad verwendet (der Scopeschlüsselname mit dem längsten Namen). Der Browser wechselt zum nächstspezifischeren Scope-Pfad, wenn kein übereinstimmender Spezifizierer vorhanden ist, und so weiter, falls nötig, bis letztlich auf die Modulspezifiziererkarte im `imports` Schlüssel zurückgegriffen wird.
+Wenn mehrere Scopes mit der Referrer-URL übereinstimmen, wird der spezifischste Scope-Pfad verwendet (der Scope-Schlüsselname mit dem längsten Namen). Der Browser fällt auf den nächsten spezifischsten gescope-ten Pfad zurück, wenn kein übereinstimmender Spezifizierer vorhanden ist, und so weiter, bis schließlich auf die Modulspezifizierer-Karte im `imports`-Schlüssel zurückgefallen wird.
 
 ### Integritätsmetadatenkarte
 
-Sie können den `integrity` Schlüssel verwenden, um eine Zuordnung für Modul-[Integritätsmetadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) bereitzustellen. Dies ermöglicht es Ihnen, die Integrität von dynamisch oder statisch importierten Modulen sicherzustellen. `integrity` ermöglicht Ihnen auch, einen Fallback für Top-Level- oder vorgeladene Module bereitzustellen, falls sie nicht bereits ein `integrity` Attribut enthalten.
+Sie können den `integrity`-Schlüssel verwenden, um Zuordnungen für [Integritätsmetadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) des Moduls bereitzustellen. Dies ermöglicht es Ihnen, die Integrität von dynamisch oder statisch importierten Modulen sicherzustellen. `integrity` ermöglicht es Ihnen auch, ein Fallback für Top-Level- oder vorgeladene Module bereitzustellen, falls diese nicht bereits ein `integrity`-Attribut enthalten.
 
-Die Kartenschlüssel repräsentieren Modul-URLs, die entweder absolut oder relativ sein können (beginnend mit `/`, `./`, oder `../`). Die Kartenwerte repräsentieren Integritätsmetadaten, identisch mit denen, die in `integrity` Attributwerten verwendet werden.
+Die Kartenschlüssel repräsentieren Modul-URLs, die entweder absolut oder relativ sein können (beginnend mit `/`, `./` oder `../`). Die Kartenwerte repräsentieren Integritätsmetadaten, identisch mit denen, die in [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attributswerten verwendet werden.
 
-Zum Beispiel definiert die unten stehende Karte Integritätsmetadaten für das `square.js` Modul (direkt) und seinen bare Spezifizierer (transitiv über den `imports` Schlüssel).
+Zum Beispiel definiert die untenstehende Karte Integritätsmetadaten für das `square.js`-Modul (direkt) und seinen Bare-Spezifizierer (transitiv über den `imports`-Schlüssel).
 
 ```html
 <script type="importmap">
@@ -152,9 +152,11 @@ Zum Beispiel definiert die unten stehende Karte Integritätsmetadaten für das `
 
 ### Zusammenführen mehrerer Importkarten
 
-Browser verwalten intern eine einzige globale Importkarten-Darstellung. Wenn mehrere Importkarten in ein Dokument aufgenommen werden, werden deren Inhalte beim Registrieren in die globale Importkarte zusammengeführt.
+Unterstützende Browser können eine oder mehrere Importkarten an beliebiger Stelle im Dokument deklarieren, vorausgesetzt, sie sind definiert, bevor ein Modul, das von ihnen abhängt, geladen wird (einige [Browserversionen](#browser-kompatibilität) erlauben nur eine einzige Importkartendeklaration, die vor dem Laden eines Moduls erscheinen muss).
 
-Zum Beispiel, betrachten Sie die folgenden zwei Importkarten:
+Intern pflegen Browser eine einzige globale Importkarten-Darstellung. Wenn mehrere Importkarten in ein Dokument aufgenommen werden, werden deren Inhalte bei der Registrierung in die globale Importkarte zusammengeführt.
+
+Zum Beispiel, berücksichtigen Sie die folgenden zwei Importkarten:
 
 ```html
 <script type="importmap">
@@ -181,7 +183,7 @@ Zum Beispiel, betrachten Sie die folgenden zwei Importkarten:
 </script>
 ```
 
-Diese sind äquivalent zu der folgenden einzigen Importkarte:
+Diese entsprechen der folgenden einzelnen Importkarte:
 
 ```html
 <script type="importmap">
@@ -199,9 +201,9 @@ Diese sind äquivalent zu der folgenden einzigen Importkarte:
 </script>
 ```
 
-Modulspezifizierer in jeder registrierten Karte, die bereits vorher aufgelöst wurden, werden ignoriert. Nachfolgende Auflösungen dieser Spezifizierer liefern dieselben Ergebnisse wie ihre vorherigen Auflösungen.
+Modulspezifizierer in jeder registrierten Karte, die vorher bereits aufgelöst wurden, werden ignoriert. Nachfolgende Auflösungen dieser Spezifizierer liefern die gleichen Ergebnisse wie ihre vorherigen Auflösungen.
 
-Zum Beispiel, wenn der Modulspezifizierer `/app/helper.js` bereits aufgelöst wurde, würde die folgende neue Importkarte:
+Zum Beispiel, wenn der Modulspezifizierer `/app/helper.js` bereits aufgelöst wurde, wäre die folgende neue Importkarte:
 
 ```html
 <script type="importmap">
@@ -214,7 +216,7 @@ Zum Beispiel, wenn der Modulspezifizierer `/app/helper.js` bereits aufgelöst wu
 </script>
 ```
 
-gleichwertig mit:
+Äquivalent zu:
 
 ```html
 <script type="importmap">
@@ -226,11 +228,11 @@ gleichwertig mit:
 </script>
 ```
 
-Die `/app/helper.js` Regel wurde ignoriert und nicht in die Karte aufgenommen.
+Die `/app/helper.js`-Regel wurde ignoriert und nicht in die Karte aufgenommen.
 
-Ebenso werden Modulspezifizierer in einer registrierten Karte, die bereits zu URLs in der globalen Karte zugeordnet wurden, ignoriert; ihre vorherige Zuordnung bleibt bestehen.
+Ebenso werden Modulspezifizierer in einer registrierten Karte, die bereits zu URLs in der globalen Karte zugeordnet waren, ignoriert; ihre vorherige Zuordnung bleibt bestehen.
 
-Zum Beispiel die folgenden zwei Importkarten:
+Zum Beispiel, die folgenden zwei Importkarten:
 
 ```html
 <script type="importmap">
@@ -253,7 +255,7 @@ Zum Beispiel die folgenden zwei Importkarten:
 </script>
 ```
 
-sind gleichwertig mit der folgenden einzigen Importkarte:
+sind äquivalent zu der folgenden einzelnen Importkarte:
 
 ```html
 <script type="importmap">
@@ -266,48 +268,48 @@ sind gleichwertig mit der folgenden einzigen Importkarte:
 </script>
 ```
 
-Die `/app/helper/` Regel wurde aus der zweiten Karte entfernt.
+Die `/app/helper/`-Regel wurde aus der zweiten Karte entfernt.
 
 > [!NOTE]
-> In nicht unterstützenden Browsern (überprüfen Sie die [Kompatibilitätsdaten](#browser-kompatibilität)) kann ein [Polyfill](https://github.com/guybedford/es-module-shims) verwendet werden, um Probleme im Zusammenhang mit der Modulauflösung zu vermeiden.
+> In Browsern, die Importkarten nicht unterstützen (sehen Sie sich die [Kompatibilitätsdaten](#browser-kompatibilität) an), kann ein [Polyfill](https://github.com/guybedford/es-module-shims) verwendet werden, um Probleme im Zusammenhang mit der Modulauflösung zu vermeiden.
 
-## Importkarten-JSON-Darstellung
+## JSON-Darstellung von Importkarten
 
-Das Folgende ist eine "formale" Definition der Importkarten-JSON-Darstellung.
+Das Folgende ist eine "formale" Definition der JSON-Darstellung einer Importkarte.
 
-Die Importkarte muss ein gültiges JSON-Objekt sein, das beliebige der optionalen Schlüssel `imports`, `scopes` und `integrity` definieren kann. Der Wert jedes Schlüssels muss ein Objekt sein, das leer sein darf.
+Die Importkarte muss ein gültiges JSON-Objekt sein, das beliebige der optionalen Schlüssel `imports`, `scopes` und `integrity` definieren kann. Der Wert jedes Schlüssels muss ein Objekt sein, das leer sein kann.
 
 - `imports` {{optional_inline}}
-  - : Der Wert ist eine [Modulspezifiziererkarte](#module_specifier_map), die die Zuordnungen zwischen Modulspezifizierertext, der in einer `import` Anweisung oder einem `import()` Operator erscheinen könnte, und dem Text bereitstellt, der ihn ersetzt, wenn der Spezifizierer aufgelöst wird.
+  - : Der Wert ist eine [Modulspezifizierer-Karte](#module_specifier_map), die die Zuordnungen zwischen Modulspezifizierertest, das in einer `import`-Anweisung oder einem `import()`-Operator auftreten könnte, und dem Text bereitstellt, der es bei der Auflösung des Spezifizierers ersetzt.
 
-    Dies ist die Fallback-Karte, die nach übereinstimmenden Modulspezifizierern durchsucht wird, wenn keine `scopes` Pfad-URLs übereinstimmen oder wenn die Modulspezifiziererkarten in übereinstimmenden `scopes` Pfaden keinen Schlüssel enthalten, der dem Modulspezifizierer entspricht.
+    Dies ist die Fallback-Karte, die nach passenden Modulspezifizierern durchsucht wird, wenn keine `scopes`-Pfad-URLs übereinstimmen oder wenn Modulspezifizierer-Karten in passenden `scopes`-Pfade keinen Schlüssel enthalten, der mit dem Modulspezifizierer übereinstimmt.
     - `<module specifier map>`
-      - : Eine "Modulspezifiziererkarte" ist ein gültiges JSON-Objekt, in dem die _Schlüssel_ Texte sind, die im Modulspezifizierer beim Importieren eines Moduls vorkommen können, und die entsprechenden _Werte_ die URLs oder Pfade, die diesen Text ersetzen, wenn der Modulspezifizierer zu einer Adresse aufgelöst wird.
+      - : Eine "Modulspezifizierer-Karte" ist ein gültiges JSON-Objekt, in dem die _Schlüssel_ Text sind, der im Modulspezifizierer beim Importieren eines Moduls vorhanden sein kann, und die entsprechenden _Werte_ die URLs oder Pfade sind, die diesen Text ersetzen, wenn der Modulspezifizierer zu einer Adresse aufgelöst wird.
 
-        Das JSON-Objekt der Modulspezifiziererkarte hat folgende Anforderungen:
+        Das JSON-Objekt der Modulspezifizierer-Karte hat die folgenden Anforderungen:
         - Keiner der Schlüssel darf leer sein.
-        - Alle Werte müssen Strings sein, die entweder eine gültige absolute URL oder eine gültige URL darstellen, die mit `/`, `./`, oder `../` beginnt.
-        - Wenn ein Schlüssel mit `/` endet, dann muss der entsprechende Wert auch mit `/` enden.
-          Ein Schlüssel mit einem abschließenden `/` kann als Präfix verwendet werden, wenn Moduladressen gemappt (oder neu gemappt) werden.
-        - Die Reihenfolge der Objekteigenschaften ist irrelevant: Wenn mehrere Schlüssel dem Modulspezifizierer entsprechen können, wird der spezifischste Schlüssel verwendet (in anderen Worten, ein Spezifizierer "olive/branch/" würde vor "olive/" übereinstimmen).
+        - Alle Werte müssen Strings sein, die entweder eine gültige absolute URL oder einen gültigen URL-String definieren, der mit `/`, `./` oder `../` beginnt.
+        - Wenn ein Schlüssel mit `/` endet, muss der entsprechende Wert ebenfalls mit `/` enden.
+          Ein Schlüssel mit einem abschließenden `/` kann als Präfix verwendet werden, wenn Moduladressen zugeordnet (oder neu zugeordnet) werden.
+        - Die Ordnung der Objekteigenschaften ist irrelevant: Wenn mehrere Schlüssel mit dem Modulspezifizierer übereinstimmen können, wird der spezifischste Schlüssel verwendet (mit anderen Worten, ein Spezifizierer "olive/branch/" würde vor "olive/" übereinstimmen).
 
 - `integrity` {{optional_inline}}
   - : Definiert ein gültiges JSON-Objekt, in dem die _Schlüssel_ Strings mit gültigen absoluten oder relativen URLs (beginnend mit `/`, `./`, oder `../`) sind,
     und die entsprechenden _Werte_ sind gültige [Integritätsmetadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity).
 
-    Wenn die URL eines Scripts, das ein Modul importiert oder vorlädt, einem Schlüssel im `integrity` Objekt entspricht, werden die entsprechenden Integritätsmetadaten auf die Fetch-Optionen des Scripts angewendet,
-    sofern sie nicht bereits Integritätsmetadaten enthalten.
+    Wenn die URL eines Skripts, das ein Modul importiert oder vorlädt, mit einem Schlüssel im `integrity`-Objekt übereinstimmt, werden die entsprechenden Integritätsmetadaten auf die Fetch-Optionen des Skripts angewendet,
+    es sei denn, sie haben bereits Integritätsmetadaten angehängt.
 
 - `scopes` {{optional_inline}}
-  - : Scopes definieren pfadspezifische [Modulspezifiziererkarten](#module_specifier_map), sodass die Auswahl der Karte vom Pfad des den Import ausführenden Codes abhängen kann.
+  - : Scopes definieren pfadspezifische [Modulspezifizierer-Karten](#module_specifier_map) und ermöglichen die Wahl der Karte abhängig vom Pfad des Codes, der das Modul importiert.
 
-    Das `scopes` Objekt ist ein gültiges JSON-Objekt, in dem jede Eigenschaft ein `<scope key>` ist, ein URL-Pfad, mit einem entsprechenden Wert, der eine `<module specifier map>` ist.
+    Das Scopes-Objekt ist ein gültiges JSON-Objekt, in dem jede Eigenschaft ein `<scope key>` ist, der ein URL-Pfad ist, mit einem entsprechenden Wert, der eine `<module specifier map>` ist.
 
-    Wenn die URL eines Scripts, das ein Modul importiert, einem `<scope key>` Pfad entspricht, wird der `<module specifier map>` Wert, der dem Schlüssel zugeordnet ist, zuerst auf übereinstimmende Spezifizierer geprüft.
-    Wenn es mehrere übereinstimmende Scopeschlüssel gibt, werden die Werte der spezifischsten/verschachtelten Scopepfade zuerst auf übereinstimmende Modulspezifizierer geprüft.
-    Die Fallback-Modulspezifiziererkarte in `imports` wird verwendet, wenn es keine übereinstimmenden Modulspezifiziererschlüssel in einer der übereinstimmenden gescopten Modulspezifiziererkarten gibt.
+    Wenn die URL eines Skripts, das ein Modul importiert, mit einem `<scope key>`-Pfad übereinstimmt, dann wird der mit dem Schlüssel verbundene `<module specifier map>`-Wert zuerst auf übereinstimmende Spezifizierer überprüft.
+    Wenn es mehrere übereinstimmende Scope-Schlüssel gibt, wird der Wert, der mit den spezifischsten/genesten Scope-Pfaden verknüpft ist, zuerst auf übereinstimmende Modulspezifizierer überprüft.
+    Die Fallback-Modulspezifizierer-Karte in `imports` wird verwendet, wenn keine übereinstimmenden Modulspezifizierer-Schlüssel in einer der übereinstimmenden gescope-ten Modulspezifizierer-Karten vorhanden sind.
 
-    Beachten Sie, dass der Scope nicht ändert, wie eine Adresse aufgelöst wird; relative Adressen werden immer zur Importkarten-Basis-URL aufgelöst.
+    Beachten Sie, dass der Scope nicht ändert, wie eine Adresse aufgelöst wird; relative Adressen werden immer auf die Basis-URL der Importkarte aufgelöst.
 
 ## Spezifikationen
 
@@ -319,7 +321,7 @@ Die Importkarte muss ein gültiges JSON-Objekt sein, das beliebige der optionale
 
 ## Siehe auch
 
-- [JavaScript-Module > Module mit Importkarten importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps)
-- [Das `type` Attribut von HTML `<script>` Elementen](/de/docs/Web/HTML/Reference/Elements/script/type)
-- [`import` Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import)
-- [`import()` Operator](/de/docs/Web/JavaScript/Reference/Operators/import)
+- [JavaScript-Module > Importieren von Modulen mit Importkarten](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps)
+- [Das `type`-Attribut von HTML-`<script>`-Elementen](/de/docs/Web/HTML/Reference/Elements/script/type)
+- [`import`-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/import)
+- [`import()`-Operator](/de/docs/Web/JavaScript/Reference/Operators/import)

@@ -1,15 +1,16 @@
 ---
-title: ::spelling-error
+title: "`::spelling-error` CSS pseudo-element"
+short-title: ::spelling-error
 slug: Web/CSS/Reference/Selectors/::spelling-error
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Der **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert ein Textsegment, das vom {{Glossary("user_agent", "User-Agent")}} als falsch geschrieben markiert wurde.
+Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert ein Textsegment, das von der {{Glossary("user_agent", "Benutzer-Agent")}} als falsch geschrieben markiert wurde.
 
-Das `::spelling-error` Pseudo-Element folgt einem speziellen Vererbungsmodell, das allen Hervorhebungs-Pseudo-Elementen gemein ist. Weitere Details dazu, wie diese Vererbung funktioniert, finden Sie im Abschnitt [Hervorhebungs-Pseudo-Elemente Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::spelling-error`-Pseudoelement folgt einem speziellen Vererbungsmodell, das allen Hervorhebungs-Pseudoelementen gemeinsam ist. Weitere Einzelheiten zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Vererbung von Hervorhebungs-Pseudoelementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
 Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::spelling-error` im Selektor verwendet werden:
 
@@ -18,7 +19,7 @@ Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::spell
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
 - {{cssxref("outline")}} und seine Langformen
-- {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
+- {{cssxref("text-decoration")}} und die dazugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
 
@@ -32,9 +33,9 @@ Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::spell
 
 ## Beispiele
 
-### Grundlegende Dokumenten-Rechtschreibprüfung
+### Grundlegende Dokument-Rechtschreibprüfung
 
-In diesem Beispiel sollten unterstützende Browser alle markierten Rechtschreibfehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser jegliche markierten Rechtschreibfehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

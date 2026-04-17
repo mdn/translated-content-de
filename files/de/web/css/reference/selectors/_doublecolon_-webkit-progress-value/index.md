@@ -1,8 +1,9 @@
 ---
-title: ::-webkit-progress-value
+title: "`::-webkit-progress-value` CSS pseudo-element"
+short-title: ::-webkit-progress-value
 slug: Web/CSS/Reference/Selectors/::-webkit-progress-value
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
@@ -10,7 +11,7 @@ l10n:
 Das **`::-webkit-progress-value`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den gefüllten Teil der Leiste eines {{HTMLElement("progress")}}-Elements. Es ist ein Kind des {{cssxref("::-webkit-progress-bar")}}-Pseudoelements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` am `<progress>`-Element gesetzt werden.
+> Damit `::-webkit-progress-value` wirksam wird, muss das {{cssxref("appearance")}}-Attribut auf `none` beim `<progress>`-Element gesetzt werden.
 
 ## Syntax
 
@@ -46,15 +47,15 @@ progress {
 
 {{EmbedLiveSample("Examples", 200, 50)}}
 
-### Ergebnis-Screenshot
+### Bildschirmfoto des Ergebnisses
 
-Ein Fortschrittsbalken mit dem obigen Stil würde so aussehen:
+Eine Fortschrittsleiste, die den obigen Stil verwendet, würde so aussehen:
 
 ![Eine lange orange und graue Box. Die linken 20% sind orange. Die rechten 80% sind grau.](progress-value.png)
 
 ## Spezifikationen
 
-Nicht Bestandteil eines Standards.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

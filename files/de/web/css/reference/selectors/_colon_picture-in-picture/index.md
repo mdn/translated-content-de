@@ -1,11 +1,12 @@
 ---
-title: :picture-in-picture
+title: "`:picture-in-picture` CSS-Pseudoklasse"
+short-title: :picture-in-picture
 slug: Web/CSS/Reference/Selectors/:picture-in-picture
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) selektiert das Element, das sich aktuell im Picture-in-Picture-Modus befindet.
+Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) entspricht dem Element, das sich derzeit im Bild-in-Bild-Modus befindet.
 
 ## Syntax
 
@@ -15,17 +16,17 @@ Die **`:picture-in-picture`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/W
 }
 ```
 
-## Nutzungshinweise
+## Anmerkungen zur Nutzung
 
-Die `:picture-in-picture` Pseudo-Klasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass die Größe, der Stil oder das Layout von Inhalten automatisch angepasst werden, wenn ein Video zwischen dem Picture-in-Picture-Modus und dem traditionellen Präsentationsmodus wechselt.
+Die `:picture-in-picture`-Pseudoklasse ermöglicht es Ihnen, Ihre Stylesheets so zu konfigurieren, dass die Größe, der Stil oder das Layout von Inhalten automatisch angepasst werden, wenn ein Video zwischen Bild-in-Bild-Modus und herkömmlicher Präsentationsweise wechselt.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Video einen Rahmen-Schatten, wenn es im schwebenden Fenster angezeigt wird.
+In diesem Beispiel hat ein Video einen Box-Shadow, wenn es im schwebenden Fenster angezeigt wird.
 
 ### HTML
 
-Das HTML der Seite sieht folgendermaßen aus:
+Das HTML der Seite sieht so aus:
 
 ```html
 <h1>MDN Web Docs Demo: :picture-in-picture pseudo-class</h1>
@@ -38,11 +39,11 @@ Das HTML der Seite sieht folgendermaßen aus:
 <video id="pip-video"></video>
 ```
 
-Das {{HTMLElement("video")}} mit der ID `"pip-video"` wechselt zwischen einem roten Rahmen-Schatten und keinem, je nachdem ob es im Picture-in-Picture schwebenden Fenster angezeigt wird oder nicht.
+Das {{HTMLElement("video")}} mit der ID `"pip-video"` wird zwischen einem roten Box-Shadow wechseln oder nicht, abhängig davon, ob es im schwebenden Bild-in-Bild-Fenster angezeigt wird oder nicht.
 
 ### CSS
 
-Die Magie passiert im CSS.
+Das Besondere passiert im CSS.
 
 ```css
 :picture-in-picture {
@@ -60,7 +61,7 @@ Die Magie passiert im CSS.
 
 ## Siehe auch
 
-- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API)
+- [Bild-in-Bild-API](/de/docs/Web/API/Picture-in-Picture_API)
 - [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
 - [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
 - [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)

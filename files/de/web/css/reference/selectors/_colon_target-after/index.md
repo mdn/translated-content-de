@@ -1,16 +1,17 @@
 ---
-title: :target-after
+title: CSS-Pseudoklasse `:target-after`
+short-title: :target-after
 slug: Web/CSS/Reference/Selectors/:target-after
 l10n:
-  sourceCommit: 9dbcd91284ec1ec64c4d8b343c3770880dd25129
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 {{SeeCompatTable}}
 
-Die **`:target-after`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt Scrollmarkierungen aus, die _nach_ der aktiven Scrollmarkierung (diejenige, die derzeit mit {{cssxref(":target-current")}} übereinstimmt) innerhalb einer Scrollmarkierungsgruppe kommen. Sie können diesen Selektor verwenden, um Navigationselemente zu stylen, die nach der aktuellen Navigationsposition innerhalb einer Scrollmarkierungsgruppe kommen.
+Die **`:target-after`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt Scrollmarkierungen aus, die _nach_ der aktiven Scrollmarkierung (diejenige, die derzeit {{cssxref(":target-current")}} entspricht) innerhalb einer Scrollmarkierungsgruppe kommen. Sie können diesen Selektor verwenden, um Navigationselemente zu stylen, die nach der aktuellen Navigationsposition innerhalb einer Scrollmarkierungsgruppe kommen.
 
 > [!NOTE]
-> Die `:target-after` Pseudoklasse ist nur gültig auf {{cssxref("::scroll-marker")}} Pseudoelementen und Elementen, die als Scrollmarkierungen über die {{cssxref("scroll-target-group")}} Eigenschaft festgelegt wurden.
+> Die Pseudoklasse `:target-after` ist nur gültig auf {{cssxref("::scroll-marker")}}-Pseudoelementen und Elementen, die als Scrollmarkierungen über die Eigenschaft {{cssxref("scroll-target-group")}} definiert wurden.
 
 ## Syntax
 
@@ -22,13 +23,13 @@ Die **`:target-after`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-### Navigationselemente vor und nach der aktiven Scrollmarkierung stylen
+### Navigationselemente vor und nach der aktiven Scrollmarkierung gestalten
 
-In diesem Beispiel verwenden wir die {{cssxref(":target-before")}} und `:target-after` Pseudoklassen, um die Scrollmarkierungen vor und nach der aktiven zu markieren und so die Elemente anzuzeigen, die der Benutzer bereits gesehen hat, und diejenigen, die noch kommen.
+In diesem Beispiel verwenden wir die Pseudoklassen {{cssxref(":target-before")}} und `:target-after`, um die Scrollmarkierungen vor und nach der aktiven zu markieren, was anzeigt, welche Elemente der Benutzer bereits gesehen hat und welche noch folgen.
 
 #### HTML
 
-Das Markup enthält ein Inhaltsverzeichnis, das mit einer geordneten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}} Elementen erstellt wurde. Darauf folgt eine Reihe von {{htmlelement("section")}} Elementen, die Inhalte enthalten.
+Das Markup enthält ein Inhaltsverzeichnis, erstellt mit einer geordneten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}}-Elementen. Es folgt eine Reihe von {{htmlelement("section")}}-Elementen mit Inhalt.
 
 ```html
 <nav id="toc">
@@ -163,7 +164,7 @@ Das Markup enthält ein Inhaltsverzeichnis, das mit einer geordneten Liste ({{ht
 
 #### CSS
 
-Wir haben `scroll-target-group: auto` auf das `<ol>` gesetzt, um es in einen Scrollmarkierungsgruppenkontainer zu verwandeln, und lassen den Browser bestimmen, welches `<a>` Element die aktive Scrollmarkierung zu einem bestimmten Zeitpunkt ist (also, welches Ziel des Links derzeit sichtbar ist). Wir stylen dann die `:target-current` Pseudoklasse mit einer `roten` {{cssxref("color")}}, damit sie deutlich hervorsticht.
+Wir haben `scroll-target-group: auto` auf die `<ol>` gesetzt, um sie in einen Scrollmarkierungsgruppen-Container zu verwandeln und dem Browser zu ermöglichen, zu bestimmen, welches `<a>`-Element zu einem beliebigen Zeitpunkt die aktive Scrollmarkierung ist (also, welcher Link gerade im Sichtfeld ist). Dann stylen wir die Pseudoklasse `:target-current` mit einer `roten` {{cssxref("color")}}, damit sie deutlich hervorsticht.
 
 ```css hidden live-sample___targeting-before-and-after
 body {
@@ -232,7 +233,7 @@ ol {
 }
 ```
 
-Schließlich verwenden wir die `:target-before` Pseudoklasse, um alle `<a>` Elemente vor der aktiven Scrollmarkierung mit einer grauen Farbe und Durchstreichung zu stylen, um sie als abgeschlossen/fertig aussehen zu lassen, und wir verwenden die `:target-after` Pseudoklasse, um alle `<a>` Elemente nach der aktiven Scrollmarkierung mit einer hellen Unterstreichung zu stylen.
+Schließlich verwenden wir die Pseudoklasse `:target-before`, um alle `<a>`-Elemente vor der aktiven Scrollmarkierung mit einer grauen Farbe und einem Durchstrich zu stylen, um sie als erledigt/abgeschlossen aussehen zu lassen, und wir verwenden die Pseudoklasse `:target-after`, um alle `<a>`-Elemente nach der aktiven Scrollmarkierung mit einer hellen Unterstreichung zu stylen.
 
 ```css live-sample___targeting-before-and-after
 a:target-before {
@@ -247,7 +248,7 @@ a:target-after {
 
 #### Ergebnis
 
-Versuchen Sie, entweder durch Klicken auf die Links oder durch Scrollen zu navigieren. In beiden Fällen werden Sie sehen, dass die rote Textfarbe zwischen den Links wechselt, um der Sektion zu entsprechen, die gerade im Blick ist. Die Links vor und nach dem aktuellen roten Link werden auch aktualisiert, um die in den `a:target-before` und `a:target-after` Regeln definierten Stile zu verwenden.
+Versuchen Sie, entweder durch Klicken auf die Links oder durch Scrollen zu navigieren. In beiden Fällen werden Sie sehen, dass sich die rote Textfarbe zwischen den Links bewegt, um der gerade sichtbaren Abschnitt zu entsprechen. Die Links vor und nach dem aktuellen roten Link aktualisieren sich ebenfalls, um die in den Regeln `a:target-before` und `a:target-after` definierten Stile zu verwenden.
 
 {{EmbedLiveSample("targeting-before-and-after", "100%", 500)}}
 
@@ -266,6 +267,6 @@ Versuchen Sie, entweder durch Klicken auf die Links oder durch Scrollen zu navig
 - {{cssxref(":target-current")}}, {{cssxref(":target-before")}}
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::scroll-marker-group")}}
-- [CSS-Karussells erstellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
-- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)-Modul
 - [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)

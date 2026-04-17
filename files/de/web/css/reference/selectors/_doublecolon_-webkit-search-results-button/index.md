@@ -1,13 +1,14 @@
 ---
-title: ::-webkit-search-results-button
+title: "`::-webkit-search-results-button` CSS pseudo-element"
+short-title: ::-webkit-search-results-button
 slug: Web/CSS/Reference/Selectors/::-webkit-search-results-button
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Der **`::-webkit-search-results-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Button (den "Suchergebnis-Button") am linken Rand eines {{HTMLElement("input")}} mit `type="search"`, der beim Klicken ein Menü anzeigt, das es dem Benutzer ermöglicht, aus vorherigen Suchanfragen auszuwählen. Dieser Button und das Pseudoelement sind nicht standardisiert, sondern nur in WebKit und Blink unterstützt, daher das herstellerspezifische Präfix. Der Suchergebnis-Button wird nur bei Such-{{HTMLElement("input")}}-Elementen angezeigt, die ein [`results`](/de/docs/Web/HTML/Reference/Elements/input#results)-Attribut haben.
+Das **`::-webkit-search-results-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert eine Schaltfläche (die "Suchergebnisschaltfläche") am linken Rand eines {{HTMLElement("input")}} mit `type="search"`, die bei Klick ein Menü anzeigt, das es dem Benutzer erlaubt, aus vorherigen Suchanfragen auszuwählen. Diese Schaltfläche und das Pseudoelement sind nicht standardisiert, werden nur in WebKit und Blink unterstützt, daher das Anbieter-Präfix. Die Suchergebnisschaltfläche wird nur bei Such-{{HTMLElement("input")}}-Elementen angezeigt, die ein [`results`](/de/docs/Web/HTML/Reference/Elements/input#results) Attribut besitzen.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ selector::-webkit-search-results-button {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 

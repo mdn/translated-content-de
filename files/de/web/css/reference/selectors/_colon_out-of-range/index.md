@@ -1,11 +1,12 @@
 ---
-title: :out-of-range
+title: "`:out-of-range` CSS-Pseudoklasse"
+short-title: :out-of-range
 slug: Web/CSS/Reference/Selectors/:out-of-range
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:out-of-range`**-[CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute angegebenen Bereichsgrenzen liegt.
+Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
 
 {{InteractiveExample("CSS Demo: :out-of-range", "tabbed-shorter")}}
 
@@ -39,10 +40,10 @@ input:out-of-range {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der zulässigen Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer einen visuellen Hinweis darauf zu geben, dass der aktuelle Wert eines Feldes außerhalb der zulässigen Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbegrenzung haben (und haben können). Ohne eine solche Begrenzung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichseinschränkung haben (und annehmen können). In Abwesenheit einer solchen Einschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 

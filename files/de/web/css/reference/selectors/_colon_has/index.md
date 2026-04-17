@@ -1,11 +1,12 @@
 ---
-title: :has()
+title: "`:has()` CSS-Pseudoklasse"
+short-title: :has()
 slug: Web/CSS/Reference/Selectors/:has
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die funktionale **`:has()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, wenn einer der als Argument übergebenen [relativen Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#relative_selector) mindestens ein Element selektiert, wenn er an diesem Element verankert ist. Diese Pseudoklasse bietet eine Möglichkeit, ein Elternelement oder ein vorheriges Geschwisterelement in Bezug auf ein Bezugselement zu selektieren, indem sie eine [relative Selektorenliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#relative_selector_list) als Argument verwendet.
+Die funktionale **`:has()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, wenn irgendeiner der [relativen Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#relative_selector) als Argument mindestens ein Element trifft, wenn es gegen dieses Element verankert ist. Diese Pseudoklasse bietet eine Möglichkeit, ein Elternelement oder ein vorheriges Geschwisterelement relativ zu einem Referenzelement auszuwählen, indem eine [relative Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#relative_selector_list) als Argument genommen wird.
 
 ```css
 /* Selects an h1 heading with a
@@ -16,7 +17,7 @@ h1:has(+ p) {
 }
 ```
 
-Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) des spezifischsten Selektors in ihren Argumenten, genauso wie {{cssxref(":is()")}} und {{cssxref(":not()")}} dies tun.
+Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) des spezifischsten Selektors in ihren Argumenten auf die gleiche Weise wie {{cssxref(":is()")}} und {{cssxref(":not()")}}.
 
 ## Syntax
 
@@ -26,17 +27,17 @@ Die `:has()`-Pseudoklasse übernimmt die [Spezifität](/de/docs/Web/CSS/Guides/C
 }
 ```
 
-Falls die `:has()`-Pseudoklasse in einem Browser nicht unterstützt wird, schlägt der gesamte Selektorblock fehl, es sei denn, `:has()` befindet sich in einer toleranten Selektorenliste, wie in [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is) und [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where).
+Wenn die `:has()`-Pseudoklasse in einem Browser nicht unterstützt wird, schlägt der gesamte Selektorblock fehl, es sei denn, `:has()` befindet sich in einer verzeihenden Selektorliste, wie in [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is) und [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where).
 
-Die `:has()`-Pseudoklasse kann nicht in einer anderen `:has()` eingebettet werden.
+Die `:has()`-Pseudoklasse kann nicht verschachtelt in einer anderen `:has()` sein.
 
-Pseudoelemente sind ebenfalls keine gültigen Selektoren innerhalb von `:has()` und Pseudoelemente sind keine gültigen Anker für `:has()`. Dies liegt daran, dass viele Pseudoelemente bedingt existieren, basierend auf dem Styling ihrer Vorfahren, und das Zulassen dieser zur Abfrage durch `:has()` kann zirkuläre Abfragen einführen.
+Pseudoelemente sind ebenfalls keine gültigen Selektoren innerhalb von `:has()`, und Pseudoelemente sind keine gültigen Anker für `:has()`. Dies liegt daran, dass viele Pseudoelemente bedingt basierend auf dem Styling ihrer Vorfahren existieren und deren Abfrage durch `:has()` zyklische Abfragen einführen könnte.
 
 ## Beispiele
 
-### Selektieren eines Elternelements
+### Auswahl eines Elternelements
 
-Sie suchen möglicherweise nach einem "Eltern-[Kombinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators)", der es Ihnen ermöglicht, im DOM-Baum nach oben zu gehen und das Elternelement eines spezifischen Elements auszuwählen. Die `:has()`-Pseudoklasse tut dies, indem sie `parent:has(child)` (für jedes Elternteil) oder `parent:has(> child)` (für direkte Elternteile) verwendet. Dieses Beispiel zeigt, wie ein `<section>`-Element gestylt wird, wenn es ein Kind mit der `featured`-Klasse enthält.
+Sie könnten nach einem "Elternkombinator" ([combinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators)) suchen, der es Ihnen ermöglicht, den DOM-Baum hinaufzugehen und das Elternelement eines bestimmten Elements auszuwählen. Die `:has()`-Pseudoklasse ermöglicht dies durch die Verwendung von `parent:has(child)` (für jedes Elternteil) oder `parent:has(> child)` (für das direkte Elternteil). Dieses Beispiel zeigt, wie ein `<section>`-Element gestylt wird, wenn es ein Kind mit der Klasse `featured` enthält.
 
 ```html
 <section>
@@ -58,9 +59,9 @@ section:has(.featured) {
 
 {{EmbedLiveSample('Selecting a parent element', , 200)}}
 
-### Mit dem Geschwister-Kombinator
+### Mit dem Geschwisterkombinator
 
-Die `:has()`-Stildeklaration im folgenden Beispiel passt den Abstand nach `<h1>`-Überschriften an, wenn sie unmittelbar von einer `<h2>`-Überschrift gefolgt werden.
+Die `:has()`-Stildeklaration im folgenden Beispiel passt den Abstand nach `<h1>`-Überschriften an, wenn sie direkt von einer `<h2>`-Überschrift gefolgt werden.
 
 #### HTML
 
@@ -124,11 +125,11 @@ h1:has(+ h2) {
 
 {{EmbedLiveSample('With_the_sibling_combinator', 600, 150)}}
 
-Dieses Beispiel zeigt zwei ähnliche Texte nebeneinander zum Vergleich – den linken mit einer `H1`-Überschrift gefolgt von einem Absatz und den rechten mit einer `H1`-Überschrift gefolgt von einer `H2`-Überschrift und dann einem Absatz. Im Beispiel rechts hilft `:has()`, das `H1`-Element auszuwählen, das unmittelbar von einem `H2`-Element (angezeigt durch den nächsten Geschwister-Kombinator [`+`](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator)) gefolgt wird, und die CSS-Regel verringert den Abstand nach einem solchen `H1`-Element. Ohne die `:has()`-Pseudoklasse können Sie keine CSS-Selektoren verwenden, um ein vorhergehendes Geschwisterelement eines anderen Typs oder ein Elternelement auszuwählen.
+Dieses Beispiel zeigt zwei ähnliche Texte nebeneinander zum Vergleich – links eine `H1`-Überschrift gefolgt von einem Absatz und rechts eine `H1`-Überschrift gefolgt von einer `H2`-Überschrift und dann einem Absatz. Im Beispiel rechts hilft `:has()`, das `H1`-Element auszuwählen, das sofort von einem `H2`-Element gefolgt wird (angezeigt durch den Geschwisterkombinator [`+`](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator)), und die CSS-Regel reduziert den Abstand nach einem solchen `H1`-Element. Ohne die `:has()`-Pseudoklasse können Sie CSS-Selektoren nicht verwenden, um ein vorheriges Geschwisterelement eines anderen Typs oder ein Elternelement auszuwählen.
 
-### Mit der :is() Pseudoklasse
+### Mit der :is()-Pseudoklasse
 
-Dieses Beispiel baut auf dem vorherigen auf, um zu zeigen, wie man mehrere Elemente mit `:has()` auswählt.
+Dieses Beispiel baut auf dem vorherigen Beispiel auf, um zu zeigen, wie man mehrere Elemente mit `:has()` auswählt.
 
 #### HTML
 
@@ -199,9 +200,9 @@ h3 {
 
 {{EmbedLiveSample('With_the_:is()_pseudo-class', 600, 170)}}
 
-Hier wird die erste [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is) Pseudoklasse verwendet, um eines der Überschriftelemente in der Liste auszuwählen. Die zweite `:is()`-Pseudoklasse wird verwendet, um eine Liste von nächsten Geschwisterselektoren als Argument an `:has()` zu übergeben. Die `:has()`-Pseudoklasse hilft, jedes `H1`, `H2` oder `H3`-Element auszuwählen, das unmittelbar von (angezeigt durch [`+`](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator)) einem `H2`, `H3` oder `H4`-Element gefolgt wird, und die CSS-Regel verringert den Abstand nach solchen `H1`, `H2` oder `H3`-Elementen.
+Hier wird die erste [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is)-Pseudoklasse verwendet, um eines der Überschriftelemente in der Liste auszuwählen. Die zweite `:is()`-Pseudoklasse wird verwendet, um eine Liste von Geschwisterselektoren als Argument für `:has()` zu übergeben. Die `:has()`-Pseudoklasse hilft, jedes `H1`-, `H2`- oder `H3`-Element auszuwählen, das sofort gefolgt wird (angezeigt durch [`+`](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator)) von einem `H2`-, `H3`- oder `H4`-Element, und die CSS-Regel reduziert den Abstand nach solchen `H1`-, `H2`- oder `H3`-Elementen.
 
-Dieser Selektor könnte auch so geschrieben werden:
+Dieser Selektor könnte auch geschrieben werden als:
 
 ```css
 :is(h1, h2, h3):has(+ h2, + h3, + h4) {
@@ -211,11 +212,11 @@ Dieser Selektor könnte auch so geschrieben werden:
 
 ### Logische Operationen
 
-Der `:has()` relationale Selektor kann verwendet werden, um zu überprüfen, ob eines von mehreren Merkmalen zutrifft oder ob alle Merkmale zutreffen.
+Der `:has()`-relationale Selektor kann verwendet werden, um zu prüfen, ob eines der Merkmale wahr ist oder ob alle Merkmale wahr sind.
 
-Indem Sie Komma-getrennte Werte innerhalb des `:has()` relationalen Selektors verwenden, prüfen Sie, ob eines der Parameter existiert. `x:has(a, b)` wird `x` stylen, wenn Nachkommen `a` ODER `b` existieren.
+Durch die Verwendung von durch Komma getrennten Werten innerhalb des `:has()`-relationalen Selektors prüfen Sie, ob einer der Parameter existiert. `x:has(a, b)` wird `x` stylen, wenn Nachkomme `a` ODER `b` existiert.
 
-Indem Sie mehrere `:has()` relationale Selektoren miteinander verknüpfen, prüfen Sie, ob alle Parameter existieren. `x:has(a):has(b)` wird `x` stylen, wenn Nachkommen `a` UND `b` existieren.
+Indem Sie mehrere `:has()`-relationale Selektoren miteinander verketten, prüfen Sie, ob alle Parameter existieren. `x:has(a):has(b)` wird `x` stylen, wenn Nachkomme `a` UND `b` existiert.
 
 ```css
 body:has(video, audio) {
@@ -228,25 +229,25 @@ body:has(video):has(audio) {
 
 ## Analogie zwischen :has() und regulären Ausdrücken
 
-Interessanterweise können wir einige CSS `:has()`-Konstrukte mit der [Lookahead Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) in regulären Ausdrücken in Zusammenhang bringen, da beide es Ihnen ermöglichen, Elemente (oder Zeichenfolgen in regulären Ausdrücken) basierend auf einer Bedingung auszuwählen, ohne tatsächlich das die Bedingung erfüllende Element (oder Zeichenfolge) selbst auszuwählen.
+Interessanterweise können wir einige CSS-`:has()`-Konstrukte mit der [Lookahead Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) in regulären Ausdrücken in Verbindung bringen, da beide es ermöglichen, Elemente (oder Zeichenfolgen in regulären Ausdrücken) basierend auf einer Bedingung auszuwählen, ohne tatsächlich das Bedingungsmatchingelement (oder die Zeichenfolge) selbst auszuwählen.
 
-### Positiver Lookahead (?=pattern)
+### Positive Lookahead (?=pattern)
 
-Im regulären Ausdruck `abc(?=xyz)` wird die Zeichenfolge `abc` nur dann übereinstimmend gefunden, wenn sie unmittelbar von der Zeichenfolge `xyz` gefolgt wird. Da es sich um eine Lookahead-Operation handelt, ist `xyz` nicht in der Übereinstimmung enthalten.
+Im regulären Ausdruck `abc(?=xyz)` wird die Zeichenfolge `abc` nur dann gematcht, wenn sie unmittelbar von der Zeichenfolge `xyz` gefolgt wird. Da es sich um eine Lookahead-Operation handelt, wird `xyz` nicht im Match eingeschlossen.
 
-Das analoge Konstrukt in CSS wäre `.abc:has(+ .xyz)`: es selektiert das Element `.abc` nur, wenn ein nächstes Geschwisterelement `.xyz` vorhanden ist. Der Teil `:has(+ .xyz)` fungiert als Lookahead-Operation, da das Element `.abc` und nicht das Element `.xyz` ausgewählt wird.
+Das analoge Konstrukt in CSS wäre `.abc:has(+ .xyz)`: Es wählt das Element `.abc` nur aus, wenn ein nächstes Geschwister `.xyz` vorhanden ist. Der Teil `:has(+ .xyz)` fungiert als Lookahead-Operation, da das `.abc`-Element ausgewählt wird und nicht das `.xyz`-Element.
 
-### Negativer Lookahead (?!pattern)
+### Negative Lookahead (?!pattern)
 
-Ähnlich verhält es sich im Fall des negativen Lookaheads, im regulären Ausdruck `abc(?!xyz)`, wird die Zeichenfolge `abc` nur dann übereinstimmend gefunden, wenn sie _nicht_ von `xyz` gefolgt wird. Das analoge CSS-Konstrukt `.abc:has(+ :not(.xyz))` selektiert das Element `.abc` nicht, wenn das nächste Element `.xyz` ist.
+Ähnlich verhält es sich bei der negativen Lookahead-Situation, im regulären Ausdruck `abc(?!xyz)` wird die Zeichenfolge `abc` nur dann gematcht, wenn sie _nicht_ von `xyz` gefolgt wird. Das analoge CSS-Konstrukt `.abc:has(+ :not(.xyz))` wählt das Element `.abc` nicht aus, wenn das nächste Element `.xyz` ist.
 
 ## Leistungserwägungen
 
-Bestimmte Verwendungen der `:has()`-Pseudoklasse können die Seitenleistung erheblich beeinflussen, insbesondere bei dynamischen Updates (DOM-Mutationen). Browser-Engines müssen die `:has()`-Selektoren neu bewerten, wenn sich das DOM ändert, und komplexe oder schlecht eingeschränkte Selektoren können zu kostenintensiven Berechnungen führen.
+Bestimmte Verwendungen der `:has()`-Pseudoklasse können die Seitenleistung erheblich beeinträchtigen, insbesondere bei dynamischen Updates (DOM-Mutationen). Browser-Engines müssen `:has()`-Selektoren neu bewerten, wenn sich der DOM ändert, und komplexe oder schlecht eingeschränkte Selektoren können zu teuren Berechnungen führen.
 
-### Vermeiden Sie breite Verankerung
+### Vermeiden Sie breite Anker
 
-Der Ankerselektor (das `A` in `A:has(B)`) sollte kein Element sein, das zu viele Kinder hat, wie `body`, `:root` oder `*`. Das Verankern von `:has()` an sehr allgemeinen Selektoren kann die Leistung beeinträchtigen, weil jede DOM-Änderung innerhalb des gesamten Unterbaums eines breit ausgewählten Elements den Browser zwingt, die `:has()`-Bedingung erneut zu überprüfen.
+Der Ankerselektor (das `A` in `A:has(B)`) sollte kein Element sein, das zu viele Kinder hat, wie `body`, `:root` oder `*`. Das Ankern von `:has()` an sehr allgemeine Selektoren kann die Leistung beeinträchtigen, da jede DOM-Änderung innerhalb des gesamten Unterbaums eines breit ausgewählten Elements erfordert, dass der Browser die `:has()`-Bedingung erneut überprüft.
 
 ```css example-bad
 /* Avoid anchoring :has() to broad elements */
@@ -276,11 +277,11 @@ Stattdessen sollte `:has()` an spezifische Elemente wie `.container` oder `.gall
 }
 ```
 
-### Minimieren von Unterbaum-Traversalen
+### Minimieren Sie Unterbaumbesichtigungen
 
-Der innere Selektor (das `B` in `A:has(B)`) sollte Kombinatoren wie `>` oder `+` verwenden, um die Traversierung zu begrenzen. Wenn der Selektor innerhalb von `:has()` nicht eng eingeschränkt ist, muss der Browser möglicherweise den gesamten Unterbaum des Ankerelements bei jeder DOM-Änderung durchlaufen, um zu überprüfen, ob die Bedingung noch zutrifft.
+Der innere Selektor (das `B` in `A:has(B)`) sollte Kombinatoren wie `>` oder `+` verwenden, um die Traversierung einzuschränken. Wenn der Selektor innerhalb von `:has()` nicht stark eingeschränkt ist, muss der Browser möglicherweise bei jeder DOM-Mutation den gesamten Unterbaum des Ankerelements durchlaufen, um zu überprüfen, ob die Bedingung weiterhin erfüllt ist.
 
-In diesem Beispiel erfordert jede Änderung innerhalb von `.ancestor` die Überprüfung aller Nachkommen auf `.foo`:
+In diesem Beispiel erfordert jede Änderung innerhalb von `.ancestor`, dass alle Nachkommen auf `.foo` geprüft werden:
 
 ```css example-bad
 /* May trigger full subtree traversal */
@@ -289,7 +290,7 @@ In diesem Beispiel erfordert jede Änderung innerhalb von `.ancestor` die Überp
 }
 ```
 
-Die Verwendung von Kind- oder Geschwisterkombinatoren begrenzt den Umfang des inneren Selektors und reduziert die Leistungskosten von DOM-Mutationen. In diesem Beispiel muss der Browser nur direkte Kinder oder die Nachkommen eines bestimmten Geschwisters überprüfen:
+Durch die Verwendung von Kind- oder Geschwisterkombinatoren wird der Umfang des inneren Selektors eingeschränkt, wodurch die Leistungskosten von DOM-Mutationen reduziert werden. In diesem Beispiel muss der Browser nur die direkten Kinder oder die Nachkommen eines bestimmten Geschwisters überprüfen:
 
 ```css example-good
 /* More constrained - limits traversal */
@@ -301,9 +302,9 @@ Die Verwendung von Kind- oder Geschwisterkombinatoren begrenzt den Umfang des in
 }
 ```
 
-Bestimmte innere Selektoren können den Browser zwingen, bei jeder DOM-Änderung die Ahnenkette nach potenziellen Ankern zu durchsuchen, die aktualisiert werden müssen. Dies passiert, wenn die Struktur impliziert, dass Ahnen der geänderten Elemente überprüft werden müssen.
+Bestimmte innere Selektoren können den Browser zwingen, für jede DOM-Mutation die Vorfahrenkette nach potenziellen Ankern zu durchsuchen, die aktualisiert werden müssen. Dies geschieht, wenn die Struktur impliziert, dass die Vorfahren des mutierten Elements überprüft werden müssen.
 
-In diesem Beispiel erfordert jede DOM-Änderung die Überprüfung, ob das geänderte Element ein beliebiges Element (`*`) ist, das ein direkter Nachkomme von `.foo` ist und ob sein Elternteil (oder weitere Vorfahren) `.ancestor` sind.
+In diesem Beispiel erfordert jede DOM-Änderung zu prüfen, ob das geänderte Element ein beliebiges Element (`*`) ist, das ein direktes Kind von `.foo` ist, und ob sein Elternteil (oder weitere Vorfahren) `.ancestor` ist.
 
 ```css example-bad
 /* Might trigger ancestor traversal */
@@ -312,7 +313,7 @@ In diesem Beispiel erfordert jede DOM-Änderung die Überprüfung, ob das geänd
 }
 ```
 
-Das Einschränken des inneren Selektors mit spezifischen Klassen oder direkten Kind-Kombinatoren (z. B. `.specific-child` im nächsten Snippet) reduziert teure Ahnen-Traversalen, indem die Überprüfung des Browsers auf ein gut definiertes Element beschränkt wird und so die Leistung verbessert wird.
+Die Eingrenzung des inneren Selektors mit spezifischen Klassen oder direkten Kindkombinatoren (z.B. `.specific-child` im nächsten Schnipsel) reduziert teure Vorfahrensdurchsuchungen, indem die Überprüfung des Browsers auf ein wohldefiniertes Element beschränkt wird, und verbessert die Leistung.
 
 ```css example-good
 /* Constrain the inner selector to avoid ancestor traversals */
@@ -322,7 +323,7 @@ Das Einschränken des inneren Selektors mit spezifischen Klassen oder direkten K
 ```
 
 > [!NOTE]
-> Diese Leistungsmerkmale können sich verbessern, wenn Browser `:has()`-Implementierungen optimieren, aber die grundlegenden Einschränkungen bleiben: `:has()` muss einen ganzen Unterbaum durchlaufen, daher ist die Minimierung der Größe des Unterbaums erforderlich. In einem Selektor wie `A:has(B)` stellen Sie sicher, dass Ihr `A` nicht zu viele Kinder hat und dass Ihr `B` eng gefasst ist, um unnötige Traversierungen zu vermeiden.
+> Diese Leistungsmerkmale können sich verbessern, wenn Browser `:has()`-Implementierungen optimieren, aber die grundlegenden Einschränkungen bleiben bestehen: `:has()` muss einen ganzen Unterbaum durchlaufen, daher sollten Sie die Größe des Unterbaums minimieren. In einem Selektor wie `A:has(B)` stellen Sie sicher, dass Ihr `A` nicht zu viele Kinder hat und dass Ihr `B` eng eingeschränkt ist, um unnötige Traversierungen zu vermeiden.
 
 ## Spezifikationen
 
@@ -337,6 +338,6 @@ Das Einschränken des inneren Selektors mit spezifischen Klassen oder direkten K
 - [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is), [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where), [`:not()`](/de/docs/Web/CSS/Reference/Selectors/:not)
 - [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators)
 - [CSS-Selektorstruktur](/de/docs/Web/CSS/Guides/Selectors/Selector_structure)
-- [Selektorenliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list)
+- [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list)
 - [CSS-Selektormodul](/de/docs/Web/CSS/Guides/Selectors)
-- [Selektion und Traversierung im DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
+- [Auswahl und Navigation im DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)

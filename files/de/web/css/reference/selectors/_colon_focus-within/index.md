@@ -1,11 +1,12 @@
 ---
-title: :focus-within
+title: "`:focus-within` CSS-Pseudoklasse"
+short-title: :focus-within
 slug: Web/CSS/Reference/Selectors/:focus-within
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt ein Element aus, wenn dieses Element oder eines seiner Nachkommen fokussiert ist. Mit anderen Worten, es repräsentiert ein Element, das selbst durch die {{CSSxRef(":focus")}} Pseudoklasse ausgewählt wird oder einen Nachkommen hat, der durch `:focus` ausgewählt wird. (Dies schließt Nachkommen in [Shadow-Bäumen](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) trifft auf ein Element zu, wenn das Element selbst oder eines seiner Nachfahren fokussiert ist. Mit anderen Worten, sie repräsentiert ein Element, das selbst von der {{CSSxRef(":focus")}} Pseudoklasse erfasst wird oder einen Nachfahren hat, der von `:focus` erfasst wird. (Dies schließt Nachfahren in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
 
 {{InteractiveExample("CSS Demo: :focus-within", "tabbed-shorter")}}
 
@@ -36,7 +37,7 @@ label:focus-within {
 </form>
 ```
 
-Dieser Selektor ist nützlich, um ein gängiges Beispiel zu nennen, um einen gesamten {{HTMLElement("form")}}-Container hervorzuheben, wenn der Benutzer eines seiner {{HTMLElement("input")}}-Felder fokussiert.
+Dieser Selektor ist nützlich, um, um ein häufiges Beispiel zu nennen, einen gesamten {{HTMLElement("form")}}-Container hervorzuheben, wenn der Benutzer eines seiner {{HTMLElement("input")}}-Felder fokussiert.
 
 ## Syntax
 
@@ -48,7 +49,7 @@ Dieser Selektor ist nützlich, um ein gängiges Beispiel zu nennen, um einen ges
 
 ## Beispiele
 
-In diesem Beispiel wird das Formular spezielle Farbgebungsstile erhalten, wenn eines der Texteingabefelder fokussiert wird.
+In diesem Beispiel wird das Formular spezielle Farb-Stile erhalten, wenn eines der Textfelder den Fokus erhält.
 
 ### HTML
 
@@ -99,4 +100,4 @@ input {
 
 - {{CSSxRef(":focus")}}
 - {{CSSxRef(":focus-visible")}}
-- [Erregen Sie die Aufmerksamkeit Ihrer Benutzer mit dem focus-within-Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)
+- [Erregen Sie die Aufmerksamkeit Ihrer Benutzer mit dem `focus-within`-Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)

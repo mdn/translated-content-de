@@ -1,20 +1,20 @@
 ---
-title: HTML writingsuggestions globales Attribut
+title: "`writingsuggestions` HTML Globales Attribut"
 short-title: writingsuggestions
 slug: Web/HTML/Reference/Global_attributes/writingsuggestions
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
 ---
 
-Das **`writingsuggestions`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("enumerated", "aufzählbares")}} Attribut, das angibt, ob browserbereitgestellte Schreibvorschläge im Geltungsbereich des Elements aktiviert sein sollen oder nicht.
+Das **`writingsuggestions`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("enumerated", "enumeriertes Attribut")}}, das angibt, ob vom Browser bereitgestellte Schreibvorschläge im Bereich des Elements aktiviert sein sollen oder nicht.
 
-Einige Browser bieten Benutzern während der Eingabe in editierbaren Feldern Schreibvorschläge an. Vorschläge erscheinen normalerweise als ausgegrauter Text, der nach dem Textcursor steht und den Satz des Benutzers vervollständigt. Obwohl dies für Benutzer hilfreich sein kann, möchten Entwickler möglicherweise in einigen Fällen die Schreibvorschläge deaktivieren, beispielsweise wenn sie speziell auf die Website abgestimmte Schreibvorschläge bereitstellen.
+Einige Browser bieten den Nutzern während der Eingabe in editierbaren Feldern Schreibvorschläge an. Vorschläge erscheinen normalerweise als ausgegrauter Text, der nach dem Textcursor positioniert ist und den Satz des Nutzers vervollständigt. Obwohl dies für die Nutzer hilfreich sein kann, möchten Entwickler in einigen Fällen die Schreibvorschläge deaktivieren, z. B. wenn sie spezifische Schreibvorschläge für die Website bereitstellen.
 
-Das `writingsuggestions`-Attribut kann auf editierbaren Feldern wie {{htmlelement('input')}}- oder {{htmlelement('textarea')}}-Elementen gesetzt werden oder auf anderen HTML-Elementen, um das Verhalten der Browser-Vorschläge in bestimmten Bereichen einer Seite oder auf der gesamten Seite zu steuern.
+Das `writingsuggestions`-Attribut kann auf editierbaren Feldern wie {{htmlelement('input')}}- oder {{htmlelement('textarea')}}-Elementen gesetzt werden oder auf anderen HTML-Elementen, um das Verhalten der Browserschreibvorschläge in bestimmten Bereichen einer Seite oder auf der gesamten Seite zu steuern.
 
 ## Syntax
 
-In unterstützenden Browsern sind Schreibvorschläge standardmäßig aktiviert. Um sie zu deaktivieren, setzen Sie den Wert des `writingsuggestions`-Attributs auf `false`. Durch Setzen des Wertes auf `true` oder das Weglassen des Wertes werden Schreibvorschläge aktiviert.
+In Browsern, die sie unterstützen, sind Schreibvorschläge standardmäßig aktiviert. Um sie zu deaktivieren, setzen Sie den Wert des `writingsuggestions`-Attributs auf `false`. Wird der Wert auf `true` gesetzt oder weggelassen, sind Schreibvorschläge aktiviert.
 
 Um Schreibvorschläge zu deaktivieren:
 
@@ -40,9 +40,9 @@ Um Schreibvorschläge zu aktivieren:
 
 ## Siehe auch
 
-- [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut
-- [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)-Attribut
-- [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut
+- [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete) Attribut
+- [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck) Attribut
+- [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("input")}}
-- {{HTMLElement("datalist")}} und [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut
+- {{HTMLElement("datalist")}} und [`list`](/de/docs/Web/HTML/Reference/Elements/input#list) Attribut

@@ -1,11 +1,12 @@
 ---
-title: :empty
+title: "`:empty` CSS-Pseudoklasse"
+short-title: :empty
 slug: Web/CSS/Reference/Selectors/:empty
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:empty`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes Element, das keine Kinder hat. Kinder können entweder Elementknoten oder Text (einschließlich Leerzeichen) sein. Kommentare, Verarbeitungsanweisungen und CSS {{cssxref("content")}} beeinflussen nicht, ob ein Element als leer betrachtet wird.
+Die **`:empty`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes Element, das keine Kinder hat. Kinder können entweder Element-Knoten oder Text (einschließlich Leerzeichen) sein. Kommentare, Verarbeitungshinweise und CSS {{cssxref("content")}} beeinflussen nicht, ob ein Element als leer betrachtet wird.
 
 {{InteractiveExample("CSS Demo: :empty", "tabbed-shorter")}}
 
@@ -28,7 +29,7 @@ div:empty {
 ```
 
 > [!NOTE]
-> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo), wurde die `:empty` Pseudoklasse geändert, um wie {{CSSxRef(":-moz-only-whitespace")}} zu handeln, aber derzeit unterstützt kein Browser dies.
+> In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo) wurde die `:empty` Pseudoklasse verändert, um wie {{CSSxRef(":-moz-only-whitespace")}} zu agieren, aber kein Browser unterstützt dies derzeit.
 
 ## Syntax
 
@@ -40,14 +41,14 @@ div:empty {
 
 ## Barrierefreiheit
 
-Hilfstechnologien wie Bildschirmleser können interaktive Inhalte, die leer sind, nicht parsen. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der erstellt wird, indem man dem übergeordneten Element des interaktiven Steuerelements ([Anker](/de/docs/Web/HTML/Reference/Elements/a), [Buttons](/de/docs/Web/HTML/Reference/Elements/button), usw.) einen Textwert zuweist. Zugängliche Namen machen das interaktive Steuerelement für den [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, eine API, die Informationen bereitstellt, die für Hilfstechnologien nützlich sind.
+Unterstützende Technologien wie Screenreader können interaktiven Inhalt, der leer ist, nicht parsen. Alle interaktiven Inhalte müssen einen zugänglichen Namen haben, der erzeugt wird, indem ein Textwert für das Elternelement des interaktiven Steuerungselements bereitgestellt wird ([Anker](/de/docs/Web/HTML/Reference/Elements/a), [Buttons](/de/docs/Web/HTML/Reference/Elements/button), etc.). Zugängliche Namen machen das interaktive Steuerungselement für den [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) zugänglich, eine API, die Informationen überträgt, die für unterstützende Technologien nützlich sind.
 
-Der Text, der den zugänglichen Namen des interaktiven Steuerelements bereitstellt, kann mit [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) verborgen werden, die es visuell vom Bildschirm entfernen, aber von Hilfstechnologien weiterhin parsiert werden können. Dies wird häufig für Buttons verwendet, die sich ausschließlich auf ein Symbol verlassen, um ihren Zweck zu vermitteln.
+Der Text, der den zugänglichen Namen des interaktiven Steuerungselements bereitstellt, kann mittels [einer Kombination von Eigenschaften](https://gomakethings.com/hidden-content-for-better-a11y/#hiding-the-link) versteckt werden, die ihn visuell vom Bildschirm entfernt, ihn aber für unterstützende Technologien parsbar hält. Dies wird häufig für Buttons verwendet, die ausschließlich auf ein Icon setzen, um ihren Zweck zu vermitteln.
 
 - [Was ist ein zugänglicher Name? | Vispero](https://vispero.com/resources/what-is-an-accessible-name/)
-- [Verborgene Inhalte für bessere Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
-- [MDN Verständnis von WCAG, Leitfaden 2.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
-- [Verständnis des Erfolgs-Kriteriums 2.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
+- [Versteckter Inhalt für bessere Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
+- [MDN Verständnis der WCAG, Erklärung der Richtlinie 2.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are)
+- [Verständnis des Erfolgskriteriums 2.4.4 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html)
 
 ## Beispiele
 
@@ -101,5 +102,5 @@ body {
 
 ## Siehe auch
 
-- {{CSSxRef(":-moz-only-whitespace")}} – Die {{Glossary("Vendor_Prefix", "mit Präfix versehene")}} Implementierung der Änderungen in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
+- {{CSSxRef(":-moz-only-whitespace")}} – Die {{Glossary("Vendor_Prefix", "präfixierte")}} Implementierung der Änderungen in [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
 - {{CSSxRef(":blank")}}

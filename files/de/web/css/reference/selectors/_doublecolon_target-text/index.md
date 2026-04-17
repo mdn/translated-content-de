@@ -1,13 +1,14 @@
 ---
-title: ::target-text
+title: "`::target-text` CSS pseudo-element"
+short-title: ::target-text
 slug: Web/CSS/Reference/Selectors/::target-text
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Das **`::target-text`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den Text, zu dem gescrollt wurde, wenn der Browser [Textfragmente](/de/docs/Web/URI/Reference/Fragment/Text_fragments) unterstützt. Es ermöglicht Autoren, auszuwählen, wie dieser Textabschnitt hervorgehoben wird.
+Das **`::target-text`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) stellt den Text dar, zu dem gescrollt wurde, falls der Browser [Textfragmente](/de/docs/Web/URI/Reference/Fragment/Text_fragments) unterstützt. Es ermöglicht Autoren zu bestimmen, wie dieser Textabschnitt hervorgehoben wird.
 
-Das `::target-text` Pseudo-Element folgt einem speziellen Vererbungsmuster, das allen Hervorhebungs-Pseudo-Elementen gemeinsam ist. Für weitere Informationen darüber, wie diese Vererbung funktioniert, siehe den Abschnitt [Vererbung von Hervorhebungs-Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::target-text` Pseudoelement folgt einem speziellen Vererbungsmodell, das für alle Highlight-Pseudoelemente gilt. Weitere Details, wie diese Vererbung funktioniert, finden Sie im Abschnitt [Highlight-Pseudoelements-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
 ## Syntax
 
@@ -19,7 +20,7 @@ Das `::target-text` Pseudo-Element folgt einem speziellen Vererbungsmuster, das 
 
 ## Beispiele
 
-### Hervorheben von Textfragmenten
+### Hervorhebung von Textfragmenten
 
 ```css
 ::target-text {

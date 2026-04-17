@@ -1,12 +1,13 @@
 ---
-title: :playing
+title: "`:playing` CSS-Pseudoklasse"
+short-title: :playing
 slug: Web/CSS/Reference/Selectors/:playing
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor repräsentiert den Wiedergabestatus eines Elements, das abspielbar ist, wie beispielsweise {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "abgespielt" wird.
-Ein Element gilt als abgespielt, wenn es die Mediendatei aktuell wiedergibt oder vorübergehend aus anderen Gründen als dem Benutzerwunsch gestoppt wurde (wie etwa {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
+Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor repräsentiert den Wiedergabestatus eines Elements, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "wiedergibt".
+Ein Element wird als abspielend betrachtet, wenn es derzeit die Medienressource wiedergibt oder wenn es vorübergehend aus anderen Gründen als durch den Benutzer gestoppt wurde (wie etwa {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
 
 ## Syntax
 

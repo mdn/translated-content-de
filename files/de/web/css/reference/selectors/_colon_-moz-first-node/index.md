@@ -1,16 +1,17 @@
 ---
-title: :-moz-first-node
+title: "`:-moz-first-node` CSS-Pseudoklasse"
+short-title: :-moz-first-node
 slug: Web/CSS/Reference/Selectors/:-moz-first-node
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein erstes Kind-Element abgleicht, das (nicht-leeren) Text davor hat.
+Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein beliebiges Element darstellt, welches das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein erstes Kind-Element erfasst, das davor (nicht-leeren) Text hat.
 
 > [!NOTE]
-> Jegliche Leerzeichen zu Beginn eines Elements werden bei der Bestimmung von `:-moz-first-node` ignoriert.
+> Jegliche Leerzeichen am Anfang eines Elements werden bei der Bestimmung von `:-moz-first-node` ignoriert.
 
 ## Syntax
 

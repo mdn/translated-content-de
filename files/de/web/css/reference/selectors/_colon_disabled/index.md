@@ -1,11 +1,12 @@
 ---
-title: :disabled
+title: "`:disabled` CSS-Pseudoklasse"
+short-title: :disabled
 slug: Web/CSS/Reference/Selectors/:disabled
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, beschrieben, usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
+Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, beschrieben usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert werden oder den Fokus erhalten kann.
 
 {{InteractiveExample("CSS Demo: :disabled", "tabbed-standard")}}
 
@@ -51,7 +52,7 @@ label {
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein grundlegendes Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis, um dem Benutzer zu erlauben, die Rechnungsfelder zu aktivieren/deaktivieren.
+Dieses Beispiel zeigt ein einfaches Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis, um dem Benutzer zu ermöglichen, die Rechnungsfelder zu aktivieren/deaktivieren.
 
 ### HTML
 
@@ -86,7 +87,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Deaktivierte Eingabefelder umschalten, wenn das Kontrollkästchen angeklickt wird
+Aktiviert oder deaktiviert die Eingabefelder, wenn das Kontrollkästchen angeklickt wird
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");

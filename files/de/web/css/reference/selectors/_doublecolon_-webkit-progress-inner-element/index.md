@@ -1,16 +1,17 @@
 ---
-title: ::-webkit-progress-inner-element
+title: "`::-webkit-progress-inner-element` CSS pseudo-element"
+short-title: ::-webkit-progress-inner-element
 slug: Web/CSS/Reference/Selectors/::-webkit-progress-inner-element
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den äußersten Container des {{HTMLElement("progress")}}-Elements. Es ist das übergeordnete Element des {{cssxref("::-webkit-progress-bar")}}-Pseudo-Elements.
+Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den äußersten Container des {{HTMLElement("progress")}}-Elements. Es ist das übergeordnete Element des {{cssxref("::-webkit-progress-bar")}}-Pseudoelements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
+> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` beim `<progress>`-Element gesetzt werden.
 
 ## Syntax
 
@@ -22,11 +23,11 @@ Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudo-Eleme
 
 ## Beispiele
 
-Diese Beispiele funktionieren nur in Blink und WebKit.
+Diese Beispiele funktionieren nur unter Blink und WebKit.
 
-### Hinzufügen eines schwarzen Rahmens um die Fortschrittsanzeige
+### Einen schwarzen Rand um die Fortschrittsleiste hinzufügen
 
-In diesem Beispiel wird ein 2px schwarzer Rahmen um die Fortschrittsanzeige hinzugefügt.
+In diesem Beispiel wird ein 2px breiter schwarzer Rand um die Fortschrittsleiste hinzugefügt.
 
 #### HTML
 
@@ -50,15 +51,15 @@ progress {
 
 {{EmbedLiveSample("Adding_a_black_border_around_the_progress_bar", 200, 50)}}
 
-#### Ergebnis-Screenshot
+#### Screenshot des Ergebnisses
 
-Wenn Sie keinen Blink- oder WebKit-Browser verwenden, sieht die Fortschrittsanzeige im obigen Code wie folgt aus:
+Wenn Sie keinen Blink- oder WebKit-Browser verwenden, sieht die obige Code-Fortschrittsleiste wie folgt aus:
 
-![Fortschrittsbalken ist ein langes grünes und graues Feld mit einem schwarzen Rand. Die linken 20% des Feldes sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
+![Die Fortschrittsleiste ist ein langes grünes und graues Kästchen mit einem schwarzen Rand. Die linken 20% des Kästchens sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
 
 ## Spezifikationen
 
-Teil keines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -66,7 +67,7 @@ Teil keines Standards.
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
+- Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
   - {{cssxref("::-webkit-progress-bar")}}
   - {{cssxref("::-webkit-progress-value")}}
 

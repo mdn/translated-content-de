@@ -1,15 +1,16 @@
 ---
-title: :muted
+title: "`:muted` CSS-Pseudoklasse"
+short-title: :muted
 slug: Web/CSS/Reference/Selectors/:muted
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Der **`:muted`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber stummgeschaltet ist (erzwungen leise).
+Der **`:muted`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch stummgeschaltet (erzwungen stumm) ist.
 
-`Muted` unterscheidet sich von {{cssxref(":volume-locked")}}, da der Seitenautor die Kontrolle darüber hat, ob ein Medienelement stummgeschaltet oder aktiviert werden kann.
-Benutzeragenten können den Medienwert `muted` entsprechend den Benutzervorlieben setzen (z.B. das letzte festgelegte Wert über Sitzungen hinweg zu speichern, auf einer per-Site-Basis oder anderweitig).
-Ein Element, das `:volume-locked` ist, kann aufgrund von Betriebs- oder Benutzeragentenvoreinstellungen nicht stummgeschaltet, aktiviert oder seine Lautstärke per JavaScript verändert werden.
+`Muted` unterscheidet sich von {{cssxref(":volume-locked")}} dadurch, dass der Seitenautor die Kontrolle darüber hat, ob ein Medienelement stummgeschaltet oder die Stummschaltung aufgehoben werden kann.
+Benutzeragenten können den `muted`-Wert von Medien entsprechend der Nutzerpräferenzen festlegen (z.B. indem der zuletzt eingestellte Wert über Sitzungen hinweg, für jede Website einzeln oder auf andere Weise gemerkt wird).
+Ein Element, das `:volume-locked` ist, kann aufgrund einer Präferenz des Betriebssystems oder des Benutzeragenten nicht stummgeschaltet, die Stummschaltung aufgehoben oder seine Lautstärke über JavaScript geändert werden.
 
 ## Syntax
 
@@ -50,4 +51,4 @@ video:muted {
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
 - [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
-- [`muted`]-Eigenschaft von [`HTMLMediaElement`]-Objekten (/de/docs/Web/API/HTMLMediaElement/muted)
+- [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten

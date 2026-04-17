@@ -3,12 +3,12 @@ title: "HighlightRegistry: highlightsFromPoint() Methode"
 short-title: highlightsFromPoint()
 slug: Web/API/HighlightRegistry/highlightsFromPoint
 l10n:
-  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
+  sourceCommit: 7609247efad08c302a7d375786db3c8339f003bd
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die Methode **`highlightsFromPoint()`** der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt ein Array von Objekten zurück, die die benutzerdefinierten Hervorhebungen darstellen, die an einem bestimmten Punkt innerhalb des Ansichtsfensters angewendet wurden.
+Die **`highlightsFromPoint()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt ein Array von Objekten zurück, die die benutzerdefinierten Highlights darstellen, die an einem bestimmten Punkt innerhalb des Viewports angewendet werden.
 
 ## Syntax
 
@@ -20,36 +20,36 @@ highlightsFromPoint(x, y, options)
 ### Parameter
 
 - `x`
-  - : Die x-Koordinate des Punkts innerhalb des Ansichtsfensters, von dem benutzerdefinierte Hervorhebungsinformationen zurückgegeben werden sollen.
+  - : Die x-Koordinate des Punktes innerhalb des Viewports, von dem aus Informationen zu benutzerdefinierten Highlights zurückgegeben werden sollen.
 - `y`
-  - : Die y-Koordinate des Punkts innerhalb des Ansichtsfensters, von dem benutzerdefinierte Hervorhebungsinformationen zurückgegeben werden sollen.
+  - : Die y-Koordinate des Punktes innerhalb des Viewports, von dem aus Informationen zu benutzerdefinierten Highlights zurückgegeben werden sollen.
 - `options` {{optional_inline}}
   - : Ein Objekt, das Optionen enthält, die Folgendes umfassen können:
     - `shadowRoots`
-      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten. Benutzerdefinierte Hervorhebungen, die an dem angegebenen Punkt innerhalb der im Array gelisteten Shadow Roots existieren, werden ebenfalls zusätzlich zu denen im Light DOM in den Rückgabewert aufgenommen. Standardmäßig werden Hervorhebungen in Shadow Roots nicht zurückgegeben.
+      - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten. Benutzerdefinierte Highlights, die an dem angegebenen Punkt innerhalb der im Array enthaltenen Shadow Roots existieren, werden ebenfalls in den Rückgabewert einbezogen, zusätzlich zu denen im Light DOM. Standardmäßig werden keine Highlights innerhalb von Shadow Roots zurückgegeben.
 
 ### Rückgabewert
 
-Ein Array von `HighlightHitResult`-Objekten, die die benutzerdefinierten Hervorhebungen darstellen, die am durch die Parameter `x` und `y` angegebenen Punkt im Ansichtsfenster angewendet wurden.
+Ein Array von `HighlightHitResult`-Objekten, die die benutzerdefinierten Highlights darstellen, die am im `x` und `y`-Parameter angegebenen Punkt im Viewport angewendet werden.
 
 Jedes `HighlightHitResult`-Objekt enthält die folgenden Eigenschaften:
 
 - `highlight`
-  - : Ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt, das die angewendete benutzerdefinierte Hervorhebung darstellt.
+  - : Ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt, das das angewendete benutzerdefinierte Highlight darstellt.
 - `ranges`
-  - : Ein Array von [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekten, die die Bereiche darstellen, auf die die benutzerdefinierte Hervorhebung angewendet wird.
+  - : Ein Array von [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekten, die die Bereiche darstellen, auf die das benutzerdefinierte Highlight angewendet wird.
 
-Wenn an dem angegebenen Punkt keine benutzerdefinierten Hervorhebungen angewendet werden oder der angegebene Punkt außerhalb des Ansichtsfensters liegt, gibt die Methode ein leeres Array zurück.
+Wenn an dem angegebenen Punkt keine benutzerdefinierten Highlights angewendet werden oder der angegebene Punkt außerhalb des Viewports liegt, gibt die Methode ein leeres Array zurück.
 
 ## Beispiele
 
-### Ausgabe benutzerdefinierter Hervorhebungen an der Position des Mauszeigers
+### Ausgabe der benutzerdefinierten Highlights an der Position des Mauszeigers
 
-In diesem Beispiel können Sie benutzerdefinierte Hervorhebungen auf einen Textabsatz anwenden. Diese benutzerdefinierten Hervorhebungen können sich überlappen. Wenn der Benutzer auf den Absatz doppelklickt, verwenden wir die Methode `highlightsFromPoint()`, um den Inhalt der benutzerdefinierten Hervorhebungen an den Mauszeiger-Koordinaten des Doppelklicks zurückzugeben.
+In diesem Beispiel können Sie benutzerdefinierte Highlights auf einen Absatz Text anwenden. Diese benutzerdefinierten Highlights können sich überlappen. Wenn der Benutzer den Absatz doppelt anklickt, verwenden wir die `highlightsFromPoint()`-Methode, um den Inhalt aller benutzerdefinierten Highlights zurückzugeben, die sich an den Mauszeigerkoordinaten des Doppelklicks befinden.
 
 #### HTML
 
-Das Markup umfasst ein {{htmlelement("p")}}-Element, das Text enthält, auf den benutzerdefinierte Hervorhebungen angewendet werden können, und ein {{htmlelement("section")}}-Element, in das wir die hervorgehobenen Textfragmente ausgeben.
+Das Markup enthält ein {{htmlelement("p")}}-Element, das Text enthält, auf den Sie benutzerdefinierte Highlights anwenden können, und ein {{htmlelement("section")}}-Element, in das wir die hervorgehobenen Textfragmente ausgeben werden.
 
 ```html live-sample___highlights-from-point-example
 <h1>highlightsFromPoint() demo</h1>
@@ -67,7 +67,7 @@ Das Markup umfasst ein {{htmlelement("p")}}-Element, das Text enthält, auf den 
 
 #### CSS
 
-Im CSS definieren wir das Styling für drei benutzerdefinierte Hervorhebungen mit den Namen `highlight1`, `highlight2` und `highlight3`. Wir selektieren jede benutzerdefinierte Hervorhebung, indem wir ihren Namen in das {{cssxref("::highlight()")}} Pseudo-Element übergeben und ihnen jeweils gelbe, rote und blaue Hintergrundfarben zuweisen.
+Im CSS definieren wir das Styling für drei benutzerdefinierte Highlights mit den Namen `highlight1`, `highlight2` und `highlight3`. Wir wählen jedes benutzerdefinierte Highlight aus, indem wir seinen Namen in das {{cssxref("::highlight()")}}-Pseudo-Element übergeben und ihnen jeweils gelbe, rote und blaue Hintergrundfarben zuweisen.
 
 ```css hidden live-sample___highlights-from-point-example
 * {
@@ -122,11 +122,11 @@ article {
 
 #### JavaScript
 
-Das Skript für dieses Beispiel hat zwei verschiedene Funktionsbereiche: Zuerst müssen wir benutzerdefinierte Hervorhebungen erstellen und auf unsere Inhalte anwenden, dann können wir die Methode `highlightsFromPoint()` verwenden, um benutzerdefinierte Hervorhebungen von einem bestimmten Punkt zurückzugeben.
+Das Skript für dieses Beispiel hat zwei verschiedene Funktionsbereiche: Zuerst müssen wir benutzerdefinierte Highlights erstellen und auf unseren Inhalt anwenden, dann können wir die `highlightsFromPoint()`-Methode verwenden, um benutzerdefinierte Highlights von einem bestimmten Punkt zurückzugeben.
 
-##### Erstellen und Anwenden benutzerdefinierter Hervorhebungen
+##### Erstellen und Anwenden von benutzerdefinierten Highlights
 
-Um benutzerdefinierte Hervorhebungen zu erstellen, holen wir zuerst Verweise auf das `<p>` Element und dessen enthaltenen Textknoten. Dann erstellen wir eine Variable namens `highlightCount`, die zunächst auf `1` gesetzt ist und später zur Angabe der anzuwendenden benutzerdefinierten Hervorhebung verwendet wird.
+Um benutzerdefinierte Highlights zu erstellen, fangen wir an, Referenzen auf das `<p>`-Element und seinen enthaltenen Textknoten zu erfassen. Wir erstellen dann eine Variable namens `highlightCount`, die anfänglich auf `1` gesetzt ist und verwendet wird, um später anzugeben, welches benutzerdefinierte Highlight angewendet werden soll.
 
 ```js live-sample___highlights-from-point-example
 const pElem = document.querySelector(".highlightable-text");
@@ -134,11 +134,11 @@ const textNode = pElem.firstChild;
 let highlightCount = 1;
 ```
 
-Als nächstes definieren wir einen [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignis-Handler, der eine benutzerdefinierte Hervorhebung auf einen beliebigen ausgewählten Text anwendet, wenn die Taste <kbd>h</kbd> auf der Tastatur gedrückt wird. Im Inneren beginnen wir damit, den ausgewählten Text mit [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) zu erfassen und ihn mit [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) in einen [`Range`](/de/docs/Web/API/Range) zu konvertieren.
+Als nächstes definieren wir einen [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignishandler, der ein benutzerdefiniertes Highlight auf jeden ausgewählten Text anwendet, wenn <kbd>h</kbd> auf der Tastatur gedrückt wird. Im Inneren beginnen wir, den ausgewählten Text mithilfe von [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) zu erfassen und in eine [`Range`](/de/docs/Web/API/Range) mithilfe von [`Selection.getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) zu konvertieren.
 
-Wir überprüfen, ob der [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) und [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) des `selectedRange`-Objekts beide dem Absatz-`textNode` entsprechen, um sicherzustellen, dass wir keine kontenuerübergreifenden Hervorhebungen zulassen. Falls ja, setzen wir den benutzerdefinierten `highlightName`, den wir auf den `selectedRange` anwenden möchten, auf `highlight${highlightCount++}`. Da wir `highlightCount` erhöhen, fügen wir eine Überprüfung hinzu — wenn es `4` erreicht, setzen wir es wieder auf `1`. Dies bewirkt, dass die verfügbaren Hervorhebungen nacheinander durchlaufen werden, wenn sie gesetzt werden.
+Wir prüfen, ob die [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) und [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) des `selectedRange`-Objekts beide gleich dem Absatz-`textNode` sind, um sicherzustellen, dass keine bereichsübergreifenden Highlights erlaubt sind. Falls ja, setzen wir den benutzerdefinierten `highlightName`, den wir auf den `selectedRange` anwenden möchten, auf `highlight${highlightCount++}`. Da wir `highlightCount` inkrementieren, fügen wir eine Überprüfung hinzu — wenn er `4` erreicht, setzen wir ihn wieder auf `1`. Dies hat den Effekt, die verfügbaren Highlights nacheinander in der Reihenfolge anzuwenden, in der sie gesetzt werden.
 
-Abschließend für den `keydown` Ereignis-Handler erstellen wir ein neues `highlight` Objekt mit dem [`Highlight()`](/de/docs/Web/API/Highlight/Highlight) Konstruktor, dem wir den zuvor erstellten `selectedRange` übergeben. Dann wenden wir die im `highlightName` referenzierte benutzerdefinierte Hervorhebung mit der [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set) Methode auf `highlight` an.
+Schließlich erstellen wir für den `keydown`-Ereignishandler ein neues `highlight`-Objekt mithilfe des [`Highlight()`](/de/docs/Web/API/Highlight/Highlight)-Konstruktors und übergeben ihm das früher erstellte `selectedRange`. Wir wenden dann das ausgewählte benutzerdefinierte Highlight, das in `highlightName` referenziert wird, auf `highlight` unter Verwendung der [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set)-Methode an.
 
 ```js live-sample___highlights-from-point-example
 window.addEventListener("keydown", (event) => {
@@ -160,13 +160,13 @@ window.addEventListener("keydown", (event) => {
 });
 ```
 
-##### Rückgabe benutzerdefinierter Hervorhebungen von einem Punkt
+##### Zurückgeben von benutzerdefinierten Highlights von einem Punkt
 
-Da wir nun in der Lage sind, benutzerdefinierte Hervorhebungen zu erstellen und anzuwenden, können wir die `highlightsFromPoint()` Methode verwenden, um die angewendeten benutzerdefinierten Hervorhebungen an einem bestimmten Punkt zurückzugeben.
+Jetzt, da wir die Fähigkeit haben, benutzerdefinierte Highlights zu erstellen und anzuwenden, können wir die `highlightsFromPoint()`-Methode verwenden, um die benutzerdefinierten Highlights zurückzugeben, die an einem bestimmten Punkt angewendet werden.
 
-Wir holen einen Verweis auf unser `<section>` Element und definieren dann eine [`dblclick`](/de/docs/Web/API/Element/dblclick_event) Ereignis-Handler-Funktion, um die hervorgehobenen Texte an der Mauszeigerposition auszugeben, wenn das Ereignis ausgelöst wird. Innerhalb des Handlers übergeben wir die aktuellen Mauskoordinaten in einen `highlightsFromPoint()` Aufruf, leeren den Inhalt des `<section>` Elements und durchlaufen dann jedes Highlight im `highlights` Array.
+Wir erfassen eine Referenz auf unser `<section>`-Element und definieren dann eine [`dblclick`](/de/docs/Web/API/Element/dblclick_event) Ereignishandlerfunktion, um den hervorgehobenen Text an der Mauszeigerposition auszugeben, wenn das Ereignis ausgelöst wird. Im Inneren des Handlers übergeben wir die aktuellen Mauskoordinaten in einen `highlightsFromPoint()`-Aufruf, leeren den Inhalt des `<section>`-Elements und durchlaufen dann jedes Highlight im `highlights`-Array.
 
-Für jedes `highlight` erfassen wir den ersten Bereich im [`ranges`](#ranges) Array (es gibt nur einen Bereich in jedem Highlight in diesem Fall), dann erhalten wir den genau hervorgehobenen String mittels [`Range.toString()`](/de/docs/Web/API/Range/toString) und fügen ihn in das `innerHTML` des `<section>` Elements innerhalb eines `<article>` Elements ein.
+Für jedes `highlight` erfassen wir den ersten Bereich im [`ranges`](#ranges)-Array (es gibt in diesem Fall immer nur einen Bereich in jedem Highlight), dann erhalten wir den genau hervorgehobenen String mithilfe von [`Range.toString()`](/de/docs/Web/API/Range/toString) und fügen ihn in das `innerHTML` des `<section>`-Elements ein, innerhalb eines `<article>`-Elements.
 
 ```js live-sample___highlights-from-point-example
 const section = document.querySelector("section");
@@ -200,5 +200,5 @@ pElem.addEventListener("dblclick", (event) => {
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
+- [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
+- [CSS custom highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul

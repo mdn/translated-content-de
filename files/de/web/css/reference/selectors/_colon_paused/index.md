@@ -1,14 +1,14 @@
 ---
-title: :paused
+title: "`:paused` CSS-Pseudoklasse"
+short-title: :paused
 slug: Web/CSS/Reference/Selectors/:paused
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Der **`:paused`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "pausiert" ist (d.h. nicht "wiedergibt").
+Der **`:paused`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor repräsentiert ein Element, das abspielbar ist, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "pausiert" ist (d.h. nicht "spielend").
 
-Eine Ressource ist pausiert, wenn der Benutzer sie explizit pausiert hat oder wenn sie sich in einem nicht aktivierten oder anderen nicht abspielenden Zustand befindet, wie etwa "geladen, aber noch nicht aktiviert".
-Dies unterscheidet sich von `:buffering` oder `:stalled`, die Zustände sind, die auftreten, während die Ressource als "abspielend" betrachtet wird.
+Eine Ressource ist pausiert, wenn der Benutzer sie explizit pausiert hat oder wenn sie sich in einem nicht aktivierten oder anderen nicht abspielenden Zustand befindet, wie "geladen, wurde noch nicht aktiviert". Dies unterscheidet sich von `:buffering` oder `:stalled`, welche Zustände sind, die auftreten, während die Ressource als "spielend" betrachtet wird.
 
 ## Syntax
 

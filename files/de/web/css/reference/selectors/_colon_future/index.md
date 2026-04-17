@@ -1,11 +1,12 @@
 ---
-title: :future
+title: "`:future` CSS-Pseudoklasse"
+short-title: :future
 slug: Web/CSS/Reference/Selectors/:future
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Der **`:future`** [CSS](/de/docs/Web/CSS) [pseudo-class](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudo-Klasse, die für jedes Element übereinstimmt, das vollständig nach einem Element erscheint, das mit {{cssxref(":current")}} übereinstimmt. Ein Beispiel dafür ist ein Video mit Untertiteln, die mit [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Der **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)-Selektor ist eine zeitdimensionale Pseudoklasse, die jedes Element abgleicht, das vollständig nach einem Element erscheint, das zur {{cssxref(":current")}} passt. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :future(p, span) {

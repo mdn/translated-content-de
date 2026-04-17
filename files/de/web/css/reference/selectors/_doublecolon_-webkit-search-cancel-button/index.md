@@ -1,13 +1,14 @@
 ---
-title: ::-webkit-search-cancel-button
+title: "`::-webkit-search-cancel-button` CSS pseudo-element"
+short-title: ::-webkit-search-cancel-button
 slug: Web/CSS/Reference/Selectors/::-webkit-search-cancel-button
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Der **`::-webkit-search-cancel-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Button (den "Cancel-Button") am Rand eines {{HTMLElement("input")}} vom `type="search"`, der den aktuellen Wert des {{HTMLElement("input")}}-Elements entfernt. Dieser Button und das Pseudoelement sind nicht standardisiert, sondern nur in WebKit und Blink unterstützt, daher das Herstellerpräfix. Der Clear-Button wird nur bei nicht-leeren Such-{{HTMLElement("input")}}-Elementen angezeigt.
+Das **`::-webkit-search-cancel-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Button (den "Abbrechen-Button") am Rand eines {{HTMLElement("input")}} mit `type="search"`, der den aktuellen Wert des {{HTMLElement("input")}}-Elements löscht. Dieser Button und das Pseudoelement sind nicht standardisiert und werden nur in WebKit und Blink unterstützt, daher das Vendor-Präfix. Der Abbrechen-Button wird nur bei nicht-leeren Such-{{HTMLElement("input")}}-Elementen angezeigt.
 
 ## Syntax
 

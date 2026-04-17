@@ -1,16 +1,17 @@
 ---
-title: ::-moz-meter-bar
+title: "`::-moz-meter-bar` CSS pseudo-element"
+short-title: ::-moz-meter-bar
 slug: Web/CSS/Reference/Selectors/::-moz-meter-bar
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Der **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudoelement")}} repräsentiert die Anzeigenleiste in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Anzeigeleiste innerhalb eines `meter`-Elements anzuwenden.
+Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudoelement")}} repräsentiert die Anzeigeskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile für die Skala innerhalb eines Meter-Elements auszuwählen und anzuwenden.
 
 > [!NOTE]
-> Standardmäßig verwendet das `<meter>`-Element native Stile. Um eigene Stile anzuwenden, setzen Sie zuerst `appearance: none` auf das `<meter>`-Element und stylen Sie dann mit `::-moz-meter-bar`.
+> Standardmäßig verwendet das `<meter>`-Element ein natives Styling. Um eigene Stile anzuwenden, setzen Sie zunächst `appearance: none` auf das `<meter>`-Element und stylen Sie dann mit `::-moz-meter-bar`.
 
 ## Syntax
 
@@ -61,7 +62,7 @@ meter {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

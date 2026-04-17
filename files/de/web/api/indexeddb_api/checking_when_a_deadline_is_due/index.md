@@ -1,35 +1,35 @@
 ---
-title: Überprüfen, wann eine Frist fällig ist
+title: Überprüfung, wann eine Frist fällig ist
 slug: Web/API/IndexedDB_API/Checking_when_a_deadline_is_due
 l10n:
-  sourceCommit: e6f2bf43b5c3adb492ca11261ea5cf71dd3fa935
+  sourceCommit: 0118259a43f804bf9f4a68895beb03cec955c909
 ---
 
 {{DefaultAPISidebar("IndexedDB")}}
 
-In diesem Artikel betrachten wir ein komplexes Beispiel, bei dem die aktuelle Zeit und das aktuelle Datum mit einer über IndexedDB gespeicherten Frist verglichen werden. Die Hauptschwierigkeit besteht darin, die gespeicherten Fristinformationen (Monat, Stunde, Tag usw.) mit der aktuellen Zeit und dem Datum eines [Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekts abzugleichen.
+In diesem Artikel betrachten wir ein komplexes Beispiel, bei dem die aktuelle Zeit und das aktuelle Datum mit einer über IndexedDB gespeicherten Frist verglichen werden. Die Hauptschwierigkeit besteht hier darin, die gespeicherten Fristinformationen (Monat, Stunde, Tag, usw.) mit der aktuellen Zeit und dem aktuellen Datum, die von einem [Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt stammen, zu vergleichen.
 
-![Ein Screenshot der Beispielanwendung. Ein roter Haupttitel mit der Aufschrift "To-do app", ein Test-To-do-Item und ein rotes Formular, in dem Benutzer neue Aufgaben eingeben können](to-do-app.png)
+![Ein Screenshot der Beispielanwendung. Ein roter Haupttitel mit der Aufschrift "To-do App", ein Test-To-do-Element und ein rotes Formular, in dem Benutzer neue Aufgaben eingeben können](to-do-app.png)
 
-Die Hauptbeispielanwendung, auf die wir uns in diesem Artikel beziehen, ist **To-do list notifications**, eine einfache To-do-Listen-Anwendung, die Aufgaben-Titel und Fristzeiten und -daten über [IndexedDB](/de/docs/Web/API/IndexedDB_API) speichert und dann Benachrichtigungen bereitstellt, wenn Fristen erreicht sind, über die [Notification](/de/docs/Web/API/Notification) und [Vibration](/de/docs/Web/API/Vibration_API) APIs. Sie können [die To-do-Listen-Benachrichtigungs-App von GitHub herunterladen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) und mit dem Quellcode experimentieren oder [die App live ausführen](https://mdn.github.io/dom-examples/to-do-notifications/).
+Die Hauptbeispielanwendung, auf die wir uns in diesem Artikel beziehen, sind die **Benachrichtigungen zur To-do-Liste**, eine einfache To-do-Listenanwendung, die Aufgabentitel sowie Fristzeitpunkte und -daten über [IndexedDB](/de/docs/Web/API/IndexedDB_API) speichert und dann den Benutzern Benachrichtigungen bereitstellt, wenn Fristdaten erreicht werden, über die [Notification](/de/docs/Web/API/Notification) und [Vibration](/de/docs/Web/API/Vibration_API) APIs. Sie können [die To-do-Listen-Benachrichtigungs-App von GitHub herunterladen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) und mit dem Quellcode experimentieren oder [die App live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/).
 
 ## Das grundlegende Problem
 
-In der To-do-App wollten wir zunächst Zeit- und Datumsinformationen in einem Format aufzeichnen, das sowohl maschinenlesbar als auch für Menschen verständlich ist, wenn es angezeigt wird. Dann wollten wir überprüfen, ob jede Zeit und jedes Datum derzeit stattfindet. Im Grunde möchten wir überprüfen, welche Zeit und welches Datum gerade ist, und dann jedes gespeicherte Ereignis überprüfen, um festzustellen, ob eine der Fristen mit der aktuellen Zeit und dem aktuellen Datum übereinstimmt. Wenn dies der Fall ist, möchten wir den Benutzer mit einer Art von Benachrichtigung informieren.
+In der To-do-App wollten wir zuerst Zeit- und Datumsinformationen in einem Format aufzeichnen, das sowohl maschinenlesbar als auch für Menschen verständlich ist, wenn es angezeigt wird, und dann überprüfen, ob jede Zeit und jedes Datum gerade jetzt stattfindet. Im Wesentlichen möchten wir herausfinden, wie die aktuelle Uhrzeit und das aktuelle Datum lauten, und dann jedes gespeicherte Ereignis überprüfen, um festzustellen, ob deren Fristen mit der aktuellen Uhrzeit und dem aktuellen Datum übereinstimmen. Wenn dies der Fall ist, möchten wir den Benutzer mit einer Art Benachrichtigung darüber informieren.
 
-Dies wäre einfach, wenn wir nur zwei {{jsxref("Global_Objects/Date", "Date")}}-Objekte vergleichen würden. Natürlich wollen Menschen die Fristinformationen nicht in dem Format eingeben, das JavaScript versteht. Menschlich lesbare Daten sind ziemlich unterschiedlich und es gibt viele verschiedene Darstellungsweisen.
+Dies wäre einfach, wenn wir nur zwei {{jsxref("Global_Objects/Date", "Date")}}-Objekte vergleichen würden, aber natürlich möchten Menschen keine Fristinformationen in dem Format eingeben, das JavaScript versteht. Menschlich lesbare Daten sind ziemlich unterschiedlich und haben verschiedene Darstellungsformen.
 
-### Aufzeichnung der Datumsinformationen
+### Aufzeichnen der Datumsinformationen
 
-Um ein angemessenes Benutzererlebnis auf mobilen Geräten zu bieten und Mehrdeutigkeiten zu reduzieren, habe ich beschlossen, ein HTML-Formular zu erstellen mit:
+Um auf mobilen Geräten eine angemessene Benutzererfahrung zu bieten und Mehrdeutigkeiten zu reduzieren, habe ich mich entschlossen, ein HTML-Formular zu erstellen mit:
 
-![Das Formular der To-do-App, das Felder enthält, um einen Aufgabentitel sowie Minuten-, Stunden-, Tages-, Monats- und Jahreswerte für die Frist auszufüllen.](to-do-app-form2.png)
+![Das Formular der To-do-App, das Felder enthält, um einen Aufgabentitel einzugeben, sowie Minuten-, Stunden-, Tages-, Monats- und Jahreswerte für die Frist.](to-do-app-form2.png)
 
-- Einem Texteingabefeld zum Eingeben eines Titels für Ihre To-do-Liste. Dies ist der am wenigsten vermeidbare Teil der Benutzereingabe.
-- Zahleneingabefelder für die Stunden- und Minutenkomponenten der Frist. In Browsern, die `type="number"` unterstützen, bekommt man einen schönen kleinen Aufwärts- und Abwärtspfeil zur Auswahl von Zahlen. Auf mobilen Plattformen erhält man in der Regel eine numerische Tastatur für die Dateneingabe, was hilfreich ist. Bei anderen Plattformen bekommt man einfach ein standardmäßiges Texteingabefeld, was in Ordnung ist.
-- {{HTMLElement("select")}}-Elemente zur Eingabe des Tags, Monats und Jahres der Frist. Da diese Werte am anfälligsten dafür sind, dass Benutzer sie mehrdeutig eingeben (7, Sonntag, son? 04, 4, April, Apr? 2013, '13, 13?), habe ich beschlossen, dass es die beste Lösung ist, Benutzern eine Auswahlmöglichkeit zu geben, was auch das lästige Tippen für mobile Benutzer reduziert. Die Tage werden als numerische Tage des Monats aufgezeichnet, die Monate als vollständige Monatsnamen und die Jahre beginnen ab dem aktuellen Jahr und gehen 12 Jahre in die Zukunft.
+- Ein Texteingabefeld für die Eingabe eines Titels für Ihre To-do-Liste. Dies ist der unvermeidlichste Teil der Benutzereingabe.
+- Nummerneingaben für die Stunden- und Minutenteile der Frist. In Browsern, die `type="number"` unterstützen, erhalten Sie einen kleinen Auf- und Abwärtspfeil-Zahlenwähler. Auf mobilen Plattformen erhalten Sie in der Regel ein numerisches Tastenfeld zur Dateneingabe, was hilfreich ist. Bei anderen erhalten Sie einfach eine Standard-Text-Eingabe, was in Ordnung ist.
+- {{HTMLElement("select")}}-Elemente zur Eingabe des Tages, Monats und Jahres der Frist. Da diese Werte für Benutzer am unklarsten einzugeben sind (7, Sonntag, So? 04, 4, April, Apr? 2013, '13, 13?), entschied ich, dass die beste Lösung darin bestand, ihnen eine Auswahl zu geben, aus der sie ihre Werte wählen können, was auch das lästige Tippen für mobile Benutzer erspart. Die Tage werden als numerische Tage des Monats erfasst, die Monate als vollständige Monatsnamen und die Jahre beginnen beim aktuellen Jahr und reichen 12 Jahre in die Zukunft.
 
-Während der Initialisierung der App füllen wir das Jahr-Dropdown aus und speichern das aktuelle Jahr zur späteren Verwendung:
+Während der App-Initialisierung füllen wir das Jahr-Dropdown aus und speichern das aktuelle Jahr zur späteren Verwendung:
 
 ```js
 const currentYear = new Date().getFullYear();
@@ -43,7 +43,7 @@ for (let i = 0; i <= 12; i++) {
 year.value = currentYear;
 ```
 
-Wenn die Absendetaste des Formulars gedrückt wird, führen wir die Funktion `addData()` aus, die so beginnt:
+Wenn die Absenden-Schaltfläche des Formulars gedrückt wird, führen wir die `addData()`-Funktion aus, die so beginnt:
 
 ```js
 function addData(e) {
@@ -65,7 +65,7 @@ function addData(e) {
 }
 ```
 
-In diesem Abschnitt prüfen wir, ob alle Formularfelder ausgefüllt wurden. Wenn nicht, geben wir eine Meldung in unser Paneel für Entwicklerbenachrichtigungen ein (siehe unten links in der App-Benutzeroberfläche), um dem Benutzer mitzuteilen, was los ist, und verlassen die Funktion. Dieser Schritt ist hauptsächlich für Browser gedacht, die keine HTML-Formularvalidierung unterstützen (ich habe das `required`-Attribut in meinem HTML verwendet, um die Validierung in denen zu erzwingen, die es doch tun).
+In diesem Abschnitt überprüfen wir, ob alle Formularfelder ausgefüllt wurden. Falls nicht, fügen wir unserem Entwickler-Benachrichtigungsbereich (unten links in der App-UI) eine Nachricht hinzu, um dem Benutzer mitzuteilen, was vor sich geht, und verlassen die Funktion. Dieser Schritt ist hauptsächlich für Browser gedacht, die HTML-Formularvalidierung nicht unterstützen (ich habe das `required`-Attribut in meinem HTML verwendet, um die Validierung zu erzwingen, bei denjenigen, die dies tun).
 
 ```js
 function addData(e) {
@@ -106,10 +106,10 @@ function addData(e) {
 }
 ```
 
-In diesem Abschnitt erstellen wir ein Objekt namens `newItem`, das die Daten im erforderlichen Format speichert, um sie in die Datenbank einzufügen. Die nächsten Zeilen öffnen die Datenbanktransaktion und übermitteln Meldungen, um zu informieren, ob dies erfolgreich war oder fehlgeschlagen ist. Dann wird ein `objectStore` erstellt, in den das neue Element eingefügt wird. Die `notified`-Eigenschaft des Datenobjekts zeigt an, dass die Frist für den To-do-Listeneintrag noch nicht gekommen ist und benachrichtigt wurde - mehr dazu später!
+In diesem Abschnitt erstellen wir ein Objekt namens `newItem`, das die Daten im erforderlichen Format speichert, um es in die Datenbank einzufügen. Die nächsten Zeilen öffnen die Datenbanktransaktion und liefern Nachrichten, um den Benutzer zu benachrichtigen, ob dies erfolgreich war oder nicht. Dann wird ein `objectStore` erstellt, in den das neue Element hinzugefügt wird. Die `notified`-Eigenschaft des Datenobjekts zeigt an, dass die Frist des To-do-Listen-Elements noch nicht erreicht und benachrichtigt wurde - dazu später mehr!
 
 > [!NOTE]
-> Die `db`-Variable speichert eine Referenz auf die IndexedDB-Datenbankinstanz; wir können dann verschiedene Eigenschaften dieser Variablen verwenden, um die Daten zu manipulieren.
+> Die `db`-Variable speichert einen Verweis auf die IndexedDB-Datenbankinstanz; wir können dann verschiedene Eigenschaften dieser Variablen verwenden, um die Daten zu manipulieren.
 
 ```js
 function addData(e) {
@@ -130,11 +130,11 @@ function addData(e) {
 }
 ```
 
-Dieser nächste Abschnitt erstellt eine Protokollmeldung, dass das Hinzufügen des neuen Elements erfolgreich war, und setzt das Formular zurück, sodass es für die nächste Aufgabe bereit ist. Beachten Sie, dass das Jahrfeld auf `currentYear` zurückgesetzt wird, das beim Initialisieren der App festgelegt wird. Zuletzt wird die Funktion `displayData()` ausgeführt, die die Anzeige der Daten in der App aktualisiert, um die gerade eingegebene neue Aufgabe anzuzeigen.
+Dieser nächste Abschnitt erstellt eine Protokollnachricht, um anzuzeigen, dass das Hinzufügen des neuen Elements erfolgreich war, und setzt das Formular zurück, damit es bereit ist, die nächste Aufgabe einzugeben. Beachten Sie, dass das Jahresfeld auf `currentYear` zurückgesetzt wird, das beim Initialisieren der App gesetzt wurde. Zuletzt führen wir die `displayData()`-Funktion aus, die die Darstellung der Daten in der App aktualisiert, um die neue gerade eingegebene Aufgabe anzuzeigen.
 
 ### Überprüfen, ob eine Frist erreicht wurde
 
-An diesem Punkt sind unsere Daten in der Datenbank; jetzt möchten wir prüfen, ob eine der Fristen erreicht wurde. Dies geschieht durch unsere Funktion `checkDeadlines()`:
+An diesem Punkt befinden sich unsere Daten in der Datenbank; nun wollen wir überprüfen, ob eine der Fristen erreicht wurde. Dies wird durch unsere `checkDeadlines()`-Funktion durchgeführt:
 
 ```js
 function checkDeadlines() {
@@ -148,7 +148,7 @@ function checkDeadlines() {
 }
 ```
 
-Zuerst holen wir uns das aktuelle Datum und die aktuelle Uhrzeit, indem wir ein leeres `Date`-Objekt erstellen. Das `Date`-Objekt verfügt über eine Reihe von Methoden, um verschiedene Teile des Datums und der Uhrzeit daraus zu extrahieren. Hier rufen wir die aktuellen Minuten ab (liefert einen einfachen numerischen Wert), Stunden (liefert einen einfachen numerischen Wert), Tagesdatum des Monats (`getDate()` ist dafür erforderlich, da `getDay()` den Wochentag von 1 bis 7 zurückgibt), Monat (gibt eine Zahl von 0 bis 11 zurück, siehe unten) und Jahr (`getFullYear()` ist erforderlich; `getYear()` ist veraltet und liefert einen seltsamen Wert, der nicht sehr nützlich ist.)
+Zuerst holen wir das aktuelle Datum und die aktuelle Uhrzeit, indem wir ein leeres `Date`-Objekt erstellen. Das `Date`-Objekt hat eine Reihe von Methoden, um verschiedene Teile des Datums und der Uhrzeit daraus zu extrahieren. Hier holen wir die aktuellen Minuten (liefert einen einfachen numerischen Wert), Stunden (liefert einen einfachen numerischen Wert), Tag des Monats (`getDate()` ist dafür notwendig, da `getDay()` den Wochentag zurückgibt, 0-6), Monat (liefert eine Zahl von 0-11, siehe unten) und Jahr (`getFullYear()` ist notwendig; `getYear()` ist veraltet und liefert einen merkwürdigen Wert, der für niemanden wirklich nützlich ist!)
 
 ```js
 function checkDeadlines() {
@@ -168,9 +168,9 @@ function checkDeadlines() {
 }
 ```
 
-Als nächstes erstellen wir einen weiteren `objectStore` in IndexedDB und verwenden die Methode `openCursor()`, um einen Cursor zu öffnen. Der Cursor ist im Grunde eine Methode in IndexedDB, um durch alle Elemente im Speicher zu iterieren. Wir durchlaufen dann alle Elemente im Cursor, solange ein gültiges Element im Cursor vorhanden ist. Die letzte Zeile der Funktion bewegt den Cursor weiter, was dazu führt, dass der oben erwähnte Fristenüberprüfungsmechanismus für die nächste in der IndexedDB gespeicherte Aufgabe ausgeführt wird.
+Als Nächstes erstellen wir einen weiteren IndexedDB `objectStore` und verwenden die `openCursor()`-Methode, um einen Cursor zu öffnen, was in IndexedDB im Wesentlichen eine Möglichkeit ist, durch alle Elemente im Speicher zu iterieren. Wir durchlaufen dann alle Elemente im Cursor, solange noch ein gültiges Element im Cursor vorhanden ist. Die letzte Zeile der Funktion bewegt den Cursor weiter, wodurch der oben beschriebene Fristenprüfmechanismus für die nächste in der IndexedDB gespeicherte Aufgabe ausgeführt wird.
 
-Nun beginnen wir, den Code im `onsuccess`-Handler zu füllen, um Fristen zu überprüfen.
+Nun beginnen wir, den Code im `onsuccess`-Handler zum Überprüfen von Fristen zu füllen.
 
 ```js
 const { hours, minutes, day, month, year, notified, taskTitle } = cursor.value;
@@ -178,9 +178,9 @@ const monthNumber = MONTHS.indexOf(month);
 if (monthNumber === -1) throw new Error("Incorrect month entered in database.");
 ```
 
-Das erste, was wir tun, ist, die in der Datenbank gespeicherten Monatsnamen in eine Monatszahl zu konvertieren, die JavaScript verstehen kann. Wie wir zuvor gesehen haben, erstellt das JavaScript `Date`-Objekt Monatswerte als Zahl zwischen 0 und 11.
+Das Erste, was wir tun, ist die im Datenbankspeicher gespeicherten Monatsnamen in eine Monatsnummer zu konvertieren, die von JavaScript verstanden wird. Wie wir zuvor gesehen haben, erstellt das JavaScript `Date`-Objekt Monatswerte als eine Zahl zwischen 0 und 11.
 
-Mit den aktuellen Zeit- und Datumsabschnitten, die wir gegen die in der IndexedDB gespeicherten Werte prüfen möchten, können wir die Überprüfungen durchführen. Wir möchten, dass alle Werte übereinstimmen, bevor wir dem Benutzer eine Benachrichtigung anzeigen, dass seine Frist abgelaufen ist. Wenn alle Überprüfungen passen, führen wir die Funktion `createNotification()` aus, um dem Benutzer eine Benachrichtigung bereitzustellen.
+Mit den aktuellen Zeit- und Datumssegmenten, die wir gegen die in IndexedDB gespeicherten Werte überprüfen möchten, ist es an der Zeit, die Überprüfungen durchzuführen. Wir möchten, dass alle Werte übereinstimmen, bevor wir dem Benutzer irgendeine Art von Benachrichtigung zeigen, um ihm mitzuteilen, dass seine Frist abgelaufen ist. Wenn alle Prüfungen übereinstimmen, führen wir die `createNotification()`-Funktion aus, um dem Benutzer eine Benachrichtigung bereitzustellen.
 
 ```js
 let matched = parseInt(hours, 10) === hourCheck;
@@ -197,7 +197,7 @@ if (matched && notified === "no") {
 }
 ```
 
-Der `notified === "no"`-Check ist dafür vorgesehen, dass Sie nur eine Benachrichtigung pro To-do-Item erhalten. Wenn für jedes Element-Objekt eine Benachrichtigung ausgelöst wird, wird seine `notification`-Eigenschaft auf `"yes"` gesetzt, sodass dieser Check bei der nächsten Iteration nicht erfolgreich ist, über den folgenden Code in der Funktion `createNotification()` (lesen Sie [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB) für eine Erklärung):
+Die Abfrage `notified === "no"` soll sicherstellen, dass Sie nur eine Benachrichtigung pro To-do-Element erhalten. Wenn eine Benachrichtigung für jedes Objektelement ausgelöst wird, wird die `notification`-Eigenschaft auf `"yes"` gesetzt, sodass diese Überprüfung bei der nächsten Iteration nicht mehr bestanden wird, durch den folgenden Code innerhalb der `createNotification()`-Funktion (lesen Sie [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB) für eine Erklärung):
 
 ```js
 // now we need to update the value of notified to "yes" in this particular data object, so the
@@ -230,7 +230,7 @@ objectStoreTitleRequest.onsuccess = () => {
 
 ### Weiterhin überprüfen!
 
-Natürlich bringt es nichts, die oben genannte Fristenüberprüfungsfunktion nur einmal auszuführen! Wir möchten ständig prüfen, ob eine der Fristen erreicht wird. Dazu verwenden wir `setInterval()`, um `checkDeadlines()` einmal pro Sekunde auszuführen:
+Natürlich nützt es nichts, die obige Fristenprüffunktion nur einmal auszuführen! Wir möchten die Fristen ständig überprüfen, um zu sehen, ob eine von ihnen erreicht wird. Dazu verwenden wir `setInterval()`, um `checkDeadlines()` einmal pro Sekunde auszuführen:
 
 ```js
 setInterval(checkDeadlines, 1000);

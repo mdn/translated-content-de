@@ -1,8 +1,9 @@
 ---
-title: :only-of-type
+title: "`:only-of-type` CSS-Pseudoklasse"
+short-title: :only-of-type
 slug: Web/CSS/Reference/Selectors/:only-of-type
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 Die **`:only-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das keine Geschwister desselben Typs (Tag-Name) hat.
@@ -49,7 +50,7 @@ dd:only-of-type {
 
 ## Beispiele
 
-### Elemente stylen, die keine Geschwister desselben Typs haben
+### Stilisierung von Elementen ohne Geschwister desselben Typs
 
 #### HTML
 
