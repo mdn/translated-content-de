@@ -1,11 +1,12 @@
 ---
-title: invert()
+title: "`invert()` CSS-Funktion"
+short-title: invert()
 slug: Web/CSS/Reference/Values/filter-function/invert
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) invertiert die Farbmuster im Eingabebild. Ihr Ergebnis ist eine {{cssxref("filter-function")}}.
+Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) invertiert die Farbmuster im Eingabebild. Das Ergebnis ist eine {{cssxref("filter-function")}}.
 
 {{InteractiveExample("CSS Demo: invert()")}}
 
@@ -58,7 +59,7 @@ invert(60%)
 ### Parameter
 
 - {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} {{Optional_Inline}}
-  - : Gibt die Menge der Konvertierung an. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` den Eingang unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Ausgangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Gibt die Menge der Umkehrung an. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` den Eingabewert unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der anfängliche Wert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -66,7 +67,7 @@ invert(60%)
 
 ## SVG-Filter
 
-Das SVG-{{SVGElement("feComponentTransfer")}}-Filterelement kann auch verwendet werden, um Inhalte zu invertieren, indem eine äquivalente Inversion auf verschachtelten {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncB")}} Tabellenelementen erzeugt wird. Wir setzen denselben `tableValue` für die roten, grünen und blauen Filterprimitiven auf denselben Wert, dann können wir den SVG-Effekt durch die ID des {{SVGElement("filter")}} referenzieren:
+Das SVG-{{SVGElement("feComponentTransfer")}}-Filterelement kann ebenfalls verwendet werden, um Inhalte zu invertieren, indem eine äquivalente Inversion auf verschachtelten {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncB")}} Tabellenelementen erstellt wird. Wir setzen denselben `tableValue` für die roten, grünen und blauen Filterprimitiven auf denselben Wert, dann können wir den SVG-Effekt über die ID des {{SVGElement("filter")}} referenzieren:
 
 ```html
 <svg role="none">
@@ -80,7 +81,7 @@ Das SVG-{{SVGElement("feComponentTransfer")}}-Filterelement kann auch verwendet 
 </svg>
 ```
 
-Die folgenden Deklarationen erzeugen denselben Effekt:
+Die folgenden Deklarationen erzielen den gleichen Effekt:
 
 ```css
 filter: invert(0.9);
@@ -91,7 +92,7 @@ filter: url("fileName.svg#invert90"); /* external SVG */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit einer angewendeten `invert()`-Filterfunktion, ein Bild mit der äquivalenten SVG-Funktion und das Originalbild:
+Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit einer `invert()`-Filterfunktion angewendet, ein Bild mit der äquivalenten SVG-Funktion angewendet und das Originalbild:
 
 ### SVG
 
@@ -111,7 +112,7 @@ Wir erstellen einen SVG-Filter, der den Inhalt, auf den er angewendet wird, um 7
 
 ### CSS
 
-Wir fügen CSS hinzu, das Elemente basierend auf ihrer `filter`- oder `svgFilter`-Klasse invertiert:
+Wir verwenden CSS, das Elemente basierend auf ihrer `filter`- oder `svgFilter`-Klasse invertiert:
 
 ```css
 .filter {
@@ -184,7 +185,7 @@ td {
 
 ## Siehe auch
 
-Die anderen {{cssxref("filter-function")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+Die anderen {{cssxref("filter-function")}}-Funktionen, die in den Werten der {{cssxref("filter")}}- und {{cssxref("backdrop-filter")}}-Eigenschaften verwendet werden können, sind:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

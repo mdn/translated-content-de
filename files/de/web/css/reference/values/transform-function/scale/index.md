@@ -1,11 +1,12 @@
 ---
-title: scale()
+title: "`scale()` CSS-Funktion"
+short-title: scale()
 slug: Web/CSS/Reference/Values/transform-function/scale
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`scale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene skaliert. Da die Skalierungsmenge durch einen Vektor [sx, sy] definiert wird, können die horizontalen und vertikalen Dimensionen in unterschiedlichen Maßstäben skaliert werden. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene vergrößert oder verkleinert. Da die Skalierung durch einen Vektor [sx, sy] definiert ist, kann sie die horizontalen und vertikalen Dimensionen in unterschiedlichen Maßstäben verändern. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scale()")}}
 
@@ -35,13 +36,12 @@ transform: scale(-0.5, 1);
 </section>
 ```
 
-Diese Skalierungstransformation wird durch einen zweidimensionalen Vektor charakterisiert. Seine Koordinaten definieren, wie viel Skalierung in jeder Richtung vorgenommen wird. Wenn beide Koordinaten gleich sind, ist die Skalierung einheitlich (_isotrop_) und das Seitenverhältnis des Elements wird beibehalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalentransformation wird durch einen zweidimensionalen Vektor charakterisiert. Dessen Koordinaten definieren, wie viel Skalierung in jede Richtung vorgenommen wird. Wenn beide Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das Seitenverhältnis des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element in dieser Dimension; wenn er innerhalb liegt, schrumpft es. Ein negativer Wert führt zu einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Der Wert `1` hat keinen Effekt.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; wenn er innerhalb liegt, schrumpft es. Ein negativer Wert führt zu einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Der Wert `1` hat keinen Effekt.
 
 > [!NOTE]
-> Die `scale()` Funktion skaliert nur in 2D. Um in 3D zu skalieren, verwenden Sie stattdessen
-> [`scale3d()`](/de/docs/Web/CSS/Reference/Values/transform-function/scale3d).
+> Die `scale()`-Funktion skaliert nur in 2D. Um in 3D zu skalieren, verwenden Sie stattdessen [`scale3d()`](/de/docs/Web/CSS/Reference/Values/transform-function/scale3d).
 
 ## Syntax
 
@@ -54,10 +54,9 @@ scale(sx, sy)
 ### Werte
 
 - `sx`
-  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} der die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
+  - : Eine {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
 - `sy` {{optional_inline}}
-  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} der die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
-    Wenn nicht definiert, ist der Standardwert `sx`, was eine einheitliche Skalierung zur Folge hat, die das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements beibehält.
+  - : Eine {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt. Wenn nicht definiert, ist der Standardwert `sx`, was zu einer gleichmäßigen Skalierung führt, die das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bewahrt.
 
 <table class="standard-table">
   <thead>
@@ -103,18 +102,18 @@ scale(sx, sy)
 
 ## Barrierefreiheit
 
-Skalierungs-/Zoomen-Animationen sind problematisch für die Barrierefreiheit, da sie häufig ein Auslöser für bestimmte Arten von Migräne sind. Wenn Sie solche Animationen auf Ihrer Website verwenden müssen, sollten Sie eine Steuerung bereitstellen, die es den Nutzern erlaubt, Animationen zu deaktivieren, vorzugsweise site-weit.
+Skalierungs-/Zoom-Animationen sind im Hinblick auf die Barrierefreiheit problematisch, da sie ein häufiger Auslöser für bestimmte Arten von Migräne sind. Wenn Sie solche Animationen auf Ihrer Website einfügen müssen, sollten Sie eine Steuerung bereitstellen, mit der Benutzer Animationen deaktivieren können, vorzugsweise site-weit.
 
-Überlegen Sie auch, die Medienfunktion {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} zu nutzen — verwenden Sie sie, um eine [Media Query](/de/docs/Web/CSS/Guides/Media_queries) zu schreiben, die Animationen ausschaltet, wenn der Nutzer in seinen Systemeinstellungen reduzierte Animationen angegeben hat.
+Berücksichtigen Sie auch die Verwendung des {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Media Features — verwenden Sie es, um eine [Media Query](/de/docs/Web/CSS/Guides/Media_queries) zu schreiben, die Animationen deaktiviert, wenn der Benutzer reduzierte Animationen in seinen Systemeinstellungen angegeben hat.
 
 Erfahren Sie mehr:
 
-- [MDN Verstehen von WCAG, Richtlinie 2.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_%e2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
-- [Verstehen des Erfolgskriteriums 2.3.3 | W3C Verstehen von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
+- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 2.3](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable#guideline_2.3_%e2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
+- [Verstehen des Erfolgskriteriums 2.3.3 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
 
 ## Beispiele
 
-### Die X- und Y-Dimensionen zusammen skalieren
+### Skalierung der X- und Y-Dimensionen gemeinsam
 
 #### HTML
 
@@ -142,7 +141,7 @@ div {
 
 {{EmbedLiveSample("Scaling_the_X_and_Y_dimensions_together", "200", "200")}}
 
-### Die X- und Y-Dimensionen separat skalieren und den Ursprung verschieben
+### Skalierung der X- und Y-Dimensionen separat und Verschiebung des Ursprungs
 
 #### HTML
 
@@ -186,4 +185,4 @@ div {
 - {{cssxref("zoom")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-function/scale3d", "scale3d()")}}
-- Weitere einzelne Transformations-Eigenschaften {{cssxref("translate")}} und {{cssxref("rotate")}}
+- Andere einzelne Transformations-Eigenschaften: {{cssxref("translate")}} und {{cssxref("rotate")}}

@@ -1,11 +1,12 @@
 ---
-title: matrix3d()
+title: "`matrix3d()` CSS-Funktion"
+short-title: matrix3d()
 slug: Web/CSS/Reference/Values/transform-function/matrix3d
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`matrix3d()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Daten-Typ.
 
 {{InteractiveExample("CSS Demo: matrix3d()")}}
 
@@ -69,30 +70,30 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
 
 ### Werte
 
-Die `matrix3d()` Funktion wird mit 16 Werten angegeben. Diese werden in Spalten-Major-Reihenfolge beschrieben.
+Die `matrix3d()`-Funktion wird mit 16 Werten angegeben. Sie sind in der Spalten-Major-Ordnung beschrieben.
 
 - _a1_ _b1_ _c1_ _d1_ _a2_ _b2_ _c2_ _d2_
   _a3_ _b3_ _c3_ _d3_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}, die die lineare Transformation beschreiben.
 - _a4_ _b4_ _c4 d4_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Translation beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}, die die anzuwendende Translation beschreiben.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht in der Ebene dargestellt werden.
+        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
-        Eine generische 3D <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
+        Eine generische 3D-<a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
       </td>
       <td>
         <math display="block">
@@ -109,9 +110,9 @@ Die `matrix3d()` Funktion wird mit 16 Werten angegeben. Diese werden in Spalten-
 
 ## Beispiele
 
-### Würfelverformungsbeispiel
+### Beispiel zur Verzerrung eines Würfels
 
-Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, der beim Überfahren/Fokussieren eine `matrix3d()`-Transformation anwendet.
+Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde, der bei Hover/Focus eine `matrix3d()`-Transformation auf ihn anwendet.
 
 #### HTML
 
@@ -191,9 +192,9 @@ Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transfor
 
 {{EmbedLiveSample('Cube_squashing_example', '100%', '300px')}}
 
-### Matrix-Translation und Skalierungsbeispiel
+### Beispiel zur Matrix-Translation und Skalierung
 
-Ein weiteres `transform3d()` Beispiel, das eine animierte kombinierte Translation und Skalierung implementiert.
+Ein weiteres `transform3d()`-Beispiel, das eine animierte Kombination aus Translation und Skalierung implementiert.
 
 #### HTML
 

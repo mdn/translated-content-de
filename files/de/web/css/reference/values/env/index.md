@@ -1,11 +1,12 @@
 ---
-title: env()
+title: "`env()` CSS-Funktion"
+short-title: env()
 slug: Web/CSS/Reference/Values/env
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`env()`**-Funktion in [CSS](/de/docs/Web/CSS) kann verwendet werden, um den Wert einer von einem Benutzeragenten definierten [Umgebungsvariable](/de/docs/Web/CSS/Guides/Environment_variables/Using) in Ihr CSS einzufügen.
+Die **`env()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann verwendet werden, um den Wert einer vom Benutzeragenten definierten [Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using) in Ihr CSS einzufügen.
 
 ## Syntax
 
@@ -23,63 +24,63 @@ env(viewport-segment-width 0 0, 40%);
 
 ### Parameter
 
-Die Funktion `env( <environment-variable>, <fallback> )` akzeptiert die folgenden Parameter:
+Die `env( <environment-variable>, <fallback> )` Funktion akzeptiert die folgenden Parameter:
 
 - [`<environment-variable>`](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables)
-  - : Ein {{cssxref("&lt;custom-ident>")}}, das den Namen der einzufügenden Umgebungsvariable angibt. Wenn der bereitgestellte Name einer array-ähnlichen Umgebungsvariable entspricht, wird der Name von {{cssxref("&lt;integer>")}}-Werten gefolgt, die die spezifische Instanz identifizieren, auf die sich der Name bezieht. Der case-sensitive Name der Umgebungsvariable kann einer der folgenden sein:
+  - : Ein {{cssxref("&lt;custom-ident>")}}, der den Namen der Umgebungsvariablen angibt, die eingefügt werden soll. Wenn der angegebene Name eine array-ähnliche Umgebungsvariable darstellt, folgt dem Namen ein {{cssxref("&lt;integer>")}}-Wert, der die spezifische Instanz identifiziert, auf die sich der Name bezieht. Der case-sensitive Name der Umgebungsvariablen kann einer der folgenden sein:
     - `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom`, `safe-area-inset-left`
-      - : Der sichere Abstand von der oberen, rechten, unteren oder linken Einpassungskante des Ansichtsfensters, der definiert, wo es sicher ist, Inhalte ohne Risiko, durch die Form eines nicht-rechteckigen Displays abgeschnitten zu werden, zu platzieren. Die vier Werte bilden ein Rechteck, innerhalb dessen alle Inhalte sichtbar sind. Die Werte sind `0`, wenn das Ansichtsfenster ein Rechteck ist und keine Features - wie z. B. Werkzeugleisten oder dynamische Tastaturen - den Ansichtsfensterraum beanspruchen; andernfalls ist es ein `px`-Wert, der größer als `0` ist.
+      - : Der sichere Abstand von der oberen, rechten, unteren oder linken Einfügekante des Ansichtsfensters, der angibt, wo Inhalte eingefügt werden können, ohne dass das Risiko besteht, dass sie durch die Form eines nicht-rechteckigen Displays abgeschnitten werden. Die vier Werte bilden ein Rechteck, innerhalb dessen alle Inhalte sichtbar sind. Die Werte sind `0`, wenn das Ansichtsfenster ein Rechteck ist und keine Funktionen — wie Toolbars oder dynamische Tastaturen — Platz im Ansichtsfenster einnehmen; andernfalls ist es ein `px`-Wert, der größer als `0` ist.
     - `safe-area-max-inset-top`, `safe-area-max-inset-right`, `safe-area-max-inset-bottom`, `safe-area-max-inset-left`
-      - : Die statischen Maximalwerte ihrer dynamischen `safe-area-inset-*`-Variablen-Gegenstücke, wenn alle dynamischen Benutzeroberflächenfunktionen zurückgezogen sind. Während sich die `safe-area-inset-*`-Werte ändern, wenn sich der aktuell sichtbare Inhaltsbereich ändert, sind die `safe-area-max-inset-*`-Werte Konstanten.
+      - : Die statischen Maximalwerte ihrer dynamischen Gegenstücke der `safe-area-inset-*`-Variablen, wenn alle dynamischen Benutzeroberflächenfunktionen zurückgezogen sind. Während sich die `safe-area-inset-*`-Werte ändern, wenn der derzeit sichtbare Inhaltsbereich sich ändert, sind die `safe-area-max-inset-*`-Werte Konstanten.
     - `titlebar-area-x`, `titlebar-area-y`, `titlebar-area-width`, `titlebar-area-height`
-      - : Die Abmessungen eines sichtbaren `titlebar-area-*`-Bereichs. Diese Variablen sind verfügbar, wenn das `window-controls-overlay`-[`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) Manifestfeld verwendet wird. Die Variablenwerte können verwendet werden, um sicherzustellen, dass Inhalte keine Fenstersteuerungstasten überlappen (also minimieren, maximieren und schließen) mit progressiven Web-Apps (PWA), die auf Desktop-Geräten installiert sind.
+      - : Die Dimensionen eines sichtbaren `titlebar-area-*`-Bereichs. Diese Variablen stehen zur Verfügung, wenn das `window-controls-overlay` [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) Manifestfeld verwendet wird. Die Variablenwerte können verwendet werden, um sicherzustellen, dass Inhalte nicht Fenstersteuerungsschaltflächen (also Minimieren, Maximieren und Schließen) bei progressiven Web-Apps (PWA), die auf Desktop-Geräten installiert sind, überlappen.
     - `keyboard-inset-top`, `keyboard-inset-right`, `keyboard-inset-bottom`, `keyboard-inset-left`, `keyboard-inset-width`, `keyboard-inset-height`
-      - : Die Einpassungen vom Rand des Ansichtsfensters und die Abmessungen der On-Screen-Virtuellen Tastatur des Geräts. Definiert in der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API).
+      - : Die Einfügungen von der Kante des Ansichtsfensters und die Abmessungen der virtuellen Bildschirmtastatur des Geräts. Definiert in der [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API).
     - `viewport-segment-width`, `viewport-segment-height`, `viewport-segment-top`, `viewport-segment-right`, `viewport-segment-bottom`, `viewport-segment-left`
-      - : Die Abmessungen und Offset-Positionen spezifischer Viewport-Segmente. Das Schlüsselwort `viewport-segment-*` wird von zwei durch Leerzeichen getrennten {{cssxref("&lt;integer>")}}-Werten gefolgt, die die horizontale und vertikale Position oder die Indizes des Segments anzeigen. Die viewport-segment Schlüsselwörter sind nur definiert, wenn das Ansichtsfenster aus zwei oder mehr Segmenten besteht, wie bei klappbaren oder gelenkigen Geräten.
+      - : Die Abmessungen und Offset-Positionen bestimmter Ansichtsfenstersegmente. Das `viewport-segment-*`-Schlüsselwort wird von zwei leerzeichengetrennten {{cssxref("&lt;integer>")}}-Werten gefolgt, die die horizontale und vertikale Position oder Indizes des Segments angeben. Die viewport-segment-Schlüsselwörter sind nur definiert, wenn das Ansichtsfenster aus zwei oder mehr Segmenten besteht, wie bei faltbaren oder klappbaren Geräten.
 
 - `<fallback>` {{optional_inline}}
-  - : Ein Fallback-Wert, der eingefügt werden soll, wenn die in das erste Argument referenzierte Umgebungsvariable nicht vorhanden ist. Alles nach dem ersten Komma wird als Fallback-Wert angesehen. Dies kann ein Einzelwert, eine weitere `env()`-Funktion oder eine durch Kommas getrennte Liste von Werten sein.
+  - : Ein Fallback-Wert, der eingefügt wird, wenn die in dem ersten Argument referenzierte Umgebungsvariable nicht existiert. Alles, was nach dem ersten Komma kommt, wird als Fallback-Wert angesehen. Dies kann ein einzelner Wert, eine weitere `env()`-Funktion oder eine kommagetrennte Liste von Werten sein.
 
 ## Beschreibung
 
-Die Funktion `env()` wird verwendet, um den Wert einer global definierten, [vom Benutzeragenten definierten Umgebungsvariable](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables) in Ihr CSS einzufügen. Die Funktion `env()` kann als Property-Wert oder anstelle eines Teils eines Property-Werts oder -Deskriptors verwendet werden (zum Beispiel in [Medienabfragerichtlinien](/de/docs/Web/CSS/Reference/At-rules/@media)).
+Die `env()`-Funktion wird verwendet, um den Wert einer globalen, [vom Benutzeragenten definierten Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables) in Ihr CSS einzufügen. Die `env()`-Funktion kann als Eigenschaftswert oder anstelle eines Teils eines Eigenschaftswerts oder Deskriptors verwendet werden (zum Beispiel in [Media-Query-Regeln](/de/docs/Web/CSS/Reference/At-rules/@media)).
 
-Die Funktion akzeptiert ein `<environment-variable>` als ihr erstes Argument. Dies ist ein case-sensitives {{cssxref("&lt;custom-ident>")}}, das gleich dem [Namen der Umgebungsvariable](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables) ist, die substituiert werden soll, aber es kann auch zusätzliche durch Leerzeichen getrennte Werte enthalten, wenn erforderlich. Zum Beispiel würde `env(viewport-segment-width 0 0)` die Breite des oberen oder linken Segments im Fall eines Geräts mit mehreren Viewport-Segmenten zurückgeben.
+Die Funktion akzeptiert ein `<environment-variable>` als erstes Argument. Dies ist ein case-sensitives {{cssxref("&lt;custom-ident>")}}, das dem [Namen der Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables) entspricht, die ersetzt werden soll, kann jedoch auch zusätzliche leerzeichengetrennte Werte enthalten, falls erforderlich. Zum Beispiel würde `env(viewport-segment-width 0 0)` die Breite des oberen oder linken Segments im Fall eines Geräts mit mehreren Ansichtsfenster-Segmenten zurückgeben.
 
-Das zweite Argument, falls angegeben, ist der Fallback-Wert, der verwendet wird, wenn die in das erste Argument referenzierte Umgebungsvariable nicht unterstützt wird oder nicht existiert. Das Fallback kann eine andere Umgebungsvariable sein, sogar mit ihrem eigenen Fallback.
+Das zweite Argument, falls bereitgestellt, ist der Fallback-Wert, der verwendet wird, wenn die im ersten Argument referenzierte Umgebungsvariable nicht unterstützt wird oder nicht existiert. Der Fallback kann eine andere Umgebungsvariable sein, sogar mit ihrem eigenen Fallback.
 
-Die Syntax des Fallbacks ähnelt der Fallback-Syntax der {{cssxref("var()")}}-Funktion, die verwendet wird, um [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) einzufügen, indem sie mehrere Kommas zulässt. Alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet. Wird die `env()`-Funktion jedoch innerhalb eines Property-Werts oder -Deskriptors verwendet, der keine Kommas enthält, wird ein Fallback-Wert, der Kommas enthält, nicht gültig sein.
+Die Syntax des Fallbacks ähnelt der Fallback-Syntax der {{cssxref("var()")}}-Funktion, die zum Einfügen von [CSS-Benutzereigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) verwendet wird, insofern sie mehrere Kommata erlaubt. Alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet. Wenn jedoch die `env()`-Funktion innerhalb eines Eigenschaftswertes oder Deskriptors verwendet wird, der keine Kommata enthält, ist ein Fallback-Wert, der Kommata enthält, nicht gültig.
 
-Ein Property oder Deskriptor, das eine syntaktisch gültige `env()`-Funktion enthält, wird zur Parsezeit als gültig angesehen, wenn der Browser den heruntergeladenen CSS-Text zuerst liest und interpretiert. Es wird nur zur Berechnungszeit syntaktisch überprüft, nachdem jede `env()`-Funktion mit ihrem vom Browser bereitgestellten Wert (oder dem Fallback-Wert, wenn die als erster Parameter übergebene Umgebungsvariable kein erkannter Umgebungsvariablenname ist) ersetzt wurde. Ist der Wert ungültig und es wird kein Fallback bereitgestellt, ist das Property oder der Deskriptor, der die `env()`-Funktion enthält, [zur Berechnungswert-Zeit ungültig](/de/docs/Web/CSS/Guides/Syntax/Error_handling#invalid_custom_properties).
+Eine Eigenschaft oder ein Deskriptor, der eine syntaktisch gültige `env()`-Funktion enthält, wird zur Zeit der Analyse als gültig angesehen, wenn der Browser zuerst den heruntergeladenen CSS-Text liest und interpretiert. Es wird nur zur Laufzeit der Berechnung auf Syntax überprüft, nachdem jede `env()`-Funktion durch ihren vom Browser bereitgestellten Wert (oder den Fallback-Wert, wenn die als erster Parameter übergebene Umgebungsvariable kein erkannter Name einer Umgebungsvariablen ist) ersetzt wurde. Wenn der Wert ungültig ist und kein Fallback bereitgestellt wird, ist die Eigenschaft oder der Deskriptor, der die `env()`-Funktion enthält, [zur Laufzeit ungültig](/de/docs/Web/CSS/Guides/Syntax/Error_handling#invalid_custom_properties).
 
-Wenn eine `env()`-Substitution ungültig ist und ein ungültiges Fallback enthalten ist oder das Fallback weggelassen wird, wird die Deklaration nicht ignoriert. Stattdessen wird der [Anfangs-](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) oder [vererbte](/de/docs/Web/CSS/Guides/Cascade/Inheritance) Wert der Eigenschaft verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, jedoch möglicherweise nicht auf den erwarteten.
+Wenn eine `env()`-Substitution ungültig ist und ein ungültiger Fallback eingeschlossen ist oder der Fallback weggelassen wird, wird die Deklaration nicht ignoriert. Stattdessen wird der [Initialwert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) oder [vererbte](/de/docs/Web/CSS/Guides/Cascade/Inheritance) Wert der Eigenschaft verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, aber es könnte nicht der erwartete sein.
 
 ### Anwendungsfälle
 
-Die `safe-area-inset-*`-Werte wurden ursprünglich vom iOS-Browser bereitgestellt, um Entwicklern die Möglichkeit zu geben, ihre Inhalte in einem sicheren Bereich des Ansichtsfensters zu platzieren, ohne von Geräteaussparungen oder abgerundeten Ecken verdeckt zu werden. Diese Funktion wurde später über den ursprünglichen Zweck hinaus erweitert, um Anwendungsfälle wie [das Verhindern, dass Gerätemeldungen einige Benutzeroberflächen der App verdecken](#using_env_to_ensure_buttons_are_not_obscured_by_device_ui) zu ermöglichen.
+Ursprünglich von iOS-Browsern bereitgestellt, um Entwicklern zu ermöglichen, ihre Inhalte in einem sicheren Bereich des Ansichtsfensters zu platzieren, ohne dass sie durch Geräteeinschnitte oder abgerundete Ecken verdeckt werden, können die `safe-area-inset-*`-Werte verwendet werden, um sicherzustellen, dass Inhalte für die Betrachter sichtbar sind. Diese Funktion wurde später über den ursprünglichen Zweck hinaus erweitert, um Anwendungsfälle wie das [Verhindern, dass Gerätebenachrichtigungen Teile der App-Benutzeroberfläche verdecken](#using_env_to_ensure_buttons_are_not_obscured_by_device_ui) zu ermöglichen.
 
-Ein weiterer Anwendungsfall für `env()`-Variablen sind Desktop- [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs), die die [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API)-Funktion nutzen, um die gesamte Anwendungsfensterfläche auszunutzen. Mit den [`titlebar-area-*`-Werten](#titlebar-area-x) können Entwickler Elemente dort positionieren, wo sich die Titelleiste befunden hätte, und [sicherstellen, dass der Inhalt nicht von Fenstersteuerungsknöpfen überlagert wird](#using_env_to_ensure_content_is_not_obscured_by_window_control_buttons_in_desktop_pwas).
+Ein weiterer Anwendungsfall für `env()`-Variablen ist für [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs) auf dem Desktop, die das [Window Controls Overlay](/de/docs/Web/API/Window_Controls_Overlay_API) Feature nutzen, um die gesamte Fensterfläche der Anwendung zu nutzen. Mithilfe der [`titlebar-area-*`-Werte](#titlebar-area-x) können Entwickler Elemente dort positionieren, wo sich normalerweise die Titelleiste befunden hätte, und [sicherstellen, dass Inhalte nicht durch Fenstersteuerungsschaltflächen verdeckt werden](#using_env_to_ensure_content_is_not_obscured_by_window_control_buttons_in_desktop_pwas), die sich in PWAs befinden, die auf Desktop-Geräten installiert sind.
 
-Die `viewport-segment-*`-Variablennamen können verwendet werden, um Ihre Container so anzupassen, dass sie nahtlos in die verfügbaren Segmente eines Geräts mit mehreren Ansichtsfenstersegmenten passen, wie ein Gelenk- oder Klappgerät. Die auf die `viewport-segment-*`-Namen folgenden Ganzzahlen geben an, welches Segment der mehreren Segmente die Umgebungsvariable referenziert.
+Die `viewport-segment-*`-Variablenbezeichnungen können verwendet werden, um Ihre Container nahtlos in die verfügbaren Segmente eines Multi-Viewport-Segment-Geräts, wie ein klappbares oder faltbares Gerät, einzufügen. Die auf die `viewport-segment-*`-Bezeichnung folgenden Ganzzahlen geben an, welches Segment der mehreren Segmente durch die Umgebungsvariable referenziert wird.
 
-### Namen gefolgt von ganzzahligen Werten
+### Namen gefolgt von Ganzzahlen
 
-Wenn die Umgebungsvariable array-ähnlich ist, was bedeutet, dass der Name mehr als einen Wert referenzieren kann, wie dies bei Geräten mit mehreren Ansichtsfenster-Segmenten der Fall ist, enthält der `<environment-variable>`-Parameter sowohl den Namen der Variablen als auch die Indizes der spezifischen Instanz der Variablen, auf die die Funktion referenziert. Zum Beispiel, im Fall der `viewport-segment-*`-Variablen, werden die Variablennamen an die `env()`-Funktion zusammen mit zwei Ganzzahlen übergeben, die die Indizes des Segments angeben, für das der Wert zurückgegeben werden soll. Diese Werte sind beide Ganzzahlen von `0` oder größer. Die erste Ganzzahl repräsentiert den horizontalen Index des Segments, wobei `0` das am weitesten links liegende Segment ist, und der zweite Wert repräsentiert den vertikalen Index des Segments, wobei `0` das am weitesten unten liegende Segment darstellt:
+Wenn die Umgebungsvariable array-ähnlich ist, was bedeutet, der Name kann mehr als einen Wert referenzieren, wie es bei Geräten mit mehreren Ansichtsfenster-Segmenten der Fall ist, beinhaltet der `<environment-variable>`-Parameter sowohl den Namen der Variablen als auch die Indizes der spezifischen Instanz der Variablen, auf die die Funktion verweist. Zum Beispiel, im Fall der `viewport-segment-*`-Variablen werden die Variablennamen zusammen mit zwei Ganzzahlen, die die Indizes des Segments angeben, an die `env()`-Funktion übergeben, um den Wert für diese zu erhalten. Diese Werte sind beide Ganzzahlen von `0` oder größer. Die erste Ganzzahl repräsentiert den horizontalen Index des Segments, wobei `0` das linkeste Segment ist, und der zweite Wert repräsentiert den vertikalen Index des Segments, wobei `0` das unterste Segment ist:
 
-![Zwei Geräte-Segmentlayouts; in einem horizontalen Layout ist 0 0 das erste Segment und 1 0 das zweite Segment. In einem vertikalen Layout sind die Indizes 0 0 und 0 1](env-var-indices.png)
+![Zwei Geräte-Segment-Layouts; in einem horizontalen Layout ist 0 0 das erste Segment und 1 0 das zweite Segment. In einem vertikalen Layout sind die Indizes 0 0 und 0 1](env-var-indices.png)
 
-- In einem horizontalen nebeneinander Layout wird das linke Segment durch `0 0` repräsentiert, und das rechte Segment wird durch `1 0` repräsentiert.
-- In einem vertikalen Layout von oben nach unten wird das obere Segment durch `0 0` repräsentiert, und das untere Segment wird durch `0 1` repräsentiert.
-- Bei Geräten mit mehr als zwei Segmenten können die Zahlen größer sein. Zum Beispiel kann ein Gerät mit drei horizontalen Segmenten das mittlere Segment durch `1 0` und das rechte Segment durch `2 0` repräsentieren.
+- In einem horizontal nebeneinander angeordneten Layout wird das linke Segment durch `0 0` repräsentiert, und das rechte Segment wird durch `1 0` repräsentiert.
+- In einem vertikalen, von oben nach unten angeordneten Layout wird das obere Segment durch `0 0` repräsentiert, und das untere Segment wird durch `0 1` repräsentiert.
+- Bei Geräten mit mehr als zwei Segmenten könnten die Zahlen größer sein. Zum Beispiel könnte ein Gerät mit drei horizontalen Segmenten das mittlere Segment durch `1 0` repräsentieren und das rechte Segment durch `2 0`.
 
-Zum Beispiel gibt das folgende Beispiel die Breite des rechten Segments auf einem faltbaren Gerät mit zwei Segmenten zurück, bei dem die Segmente horizontal ausgerichtet sind:
+Zum Beispiel gibt das folgende die Breite des rechten der beiden Segmente eines faltbaren Geräts zurück, bei dem die Segmente horizontal ausgerichtet sind:
 
 ```css
 env(viewport-segment-width 1 0)
 ```
 
-Sehen Sie sich die [Viewport segment API-Demo](https://mdn.github.io/dom-examples/viewport-segments-api/) für eine vollständige Arbeitsdemo an ([Quellcode](https://github.com/mdn/dom-examples/tree/main/viewport-segments-api)). Sehen Sie sich auch [Verwendung der Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using) für eine vollständige Erklärung der Demo an.
+Siehe das [Viewport-Segment-API-Demo](https://mdn.github.io/dom-examples/viewport-segments-api/) für eine voll funktionsfähige Demo ([Quellcode](https://github.com/mdn/dom-examples/tree/main/viewport-segments-api)). Schauen Sie sich auch [Verwendung der Viewport-Segments-API](/de/docs/Web/API/Viewport_segments_API/Using) für eine vollständige Demo-Erklärung an.
 
 ## Formale Syntax
 
@@ -87,13 +88,13 @@ Sehen Sie sich die [Viewport segment API-Demo](https://mdn.github.io/dom-example
 
 ## Beispiele
 
-### Verwendung von env(), um sicherzustellen, dass Schaltflächen nicht von der Geräte-UI verdeckt werden
+### Verwendung von env() um sicherzustellen, dass Schaltflächen nicht durch Gerät UI verdeckt werden
 
-Im folgenden Beispiel wird `env()` verwendet, um sicherzustellen, dass feste App-Toolbar-Schaltflächen nicht von Gerätemeldungen verdeckt werden, die am unteren Rand des Bildschirms erscheinen. Auf dem Desktop ist `safe-area-inset-bottom` `0`. Auf Geräten, die Meldungen am unteren Rand des Bildschirms anzeigen, wie iOS, erhält er jedoch einen Wert, der Platz lässt, damit die Meldung angezeigt werden kann. Dieser kann dann im Wert für {{cssxref("padding-bottom")}} verwendet werden, um eine Lücke zu schaffen, die auf diesem Gerät natürlich erscheint.
+Im folgenden Beispiel wird `env()` verwendet, um sicherzustellen, dass feste Anwendungs-Toolbar-Schaltflächen nicht durch Gerätemitteilungen, die unten auf dem Bildschirm angezeigt werden, verdeckt werden. Auf dem Desktop ist `safe-area-inset-bottom` `0`. Bei Geräten, die Benachrichtigungen unten auf dem Bildschirm anzeigen, wie iOS, enthält es jedoch einen Wert, der Platz für die Anzeige der Benachrichtigung lässt. Dies kann dann im Wert von {{cssxref("padding-bottom")}} verwendet werden, um eine Lücke zu schaffen, die auf dem Gerät natürlich erscheint.
 
 #### HTML
 
-Wir haben einen {{htmlelement("main")}}-Abschnitt, der eine gefälschte Anwendung enthält, und einen {{htmlelement("footer")}} mit zwei {{htmlelement("button")}}-Elementen:
+Wir haben einen {{htmlelement("main")}}-Abschnitt, der eine Fake-Anwendung enthält und einen {{htmlelement("footer")}} mit zwei {{htmlelement("button")}}-Elementen:
 
 ```html
 <main>Main content of app here</main>
@@ -105,7 +106,7 @@ Wir haben einen {{htmlelement("main")}}-Abschnitt, der eine gefälschte Anwendun
 
 #### CSS
 
-Mit dem [CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) erstellen wir einen Footer, der nur so hoch ist, wie er sein muss, während der Hauptabschnitt, der die Anwendung enthält, den Rest des Ansichtsfensters ausfüllt:
+Mit dem [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) erstellen wir einen Footer, der nur so hoch ist, wie er sein muss, während der Main-Bereich, der die Anwendung enthält, den Rest des Ansichtsfensters ausfüllt:
 
 ```css
 body {
@@ -140,7 +141,7 @@ button {
 }
 ```
 
-Wir setzen [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position#sticky), um den Footer am unteren Rand des Ansichtsfensters zu fixieren. Dann verwenden wir die {{cssxref("padding")}}-Kurzschrift, um dem Footer Padding hinzuzufügen. Wir fügen dem anfänglichen `1em` von Bodenpolster den Wert der `safe-area-inset-bottom`-Umgebungsvariable hinzu. Auf Geräten, die einen positiven Wert für diese Variable haben, wird ein größerer schwarzer Bereich angezeigt, der sicherstellt, dass die Schaltflächen im Footer niemals verdeckt werden.
+Wir setzen [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position#sticky), um den Footer am unteren Rand des Ansichtsfensters zu fixieren. Wir verwenden dann die {{cssxref("padding")}}-Kurzschreibweise, um dem Footer ein Padding hinzuzufügen. Wir fügen dem anfänglichen `1em`-Puffer unten den Wert der `safe-area-inset-bottom`-Umgebung hinzu. Ein größerer schwarzer Bereich wird auf Geräten angezeigt, die einen positiven Wert für diese Variable haben, was sicherstellt, dass die Schaltflächen im Footer niemals verdeckt werden.
 
 ```css
 footer {
@@ -161,7 +162,7 @@ Dieses Beispiel nutzt den optionalen zweiten Parameter von `env()`, der einen Fa
 
 #### HTML
 
-Wir fügen einen Absatz Text ein:
+Wir fügen einen Absatz Text hinzu:
 
 ```html
 <p>
@@ -175,7 +176,7 @@ Wir fügen einen Absatz Text ein:
 
 #### CSS
 
-Wir setzen eine {{cssxref("width")}} von `300px` und eine {{cssxref("border")}}. Dann fügen wir {{cssxref("padding")}} hinzu, wobei wir die `env()`-Funktion mit einem Fallback für die Größe des Paddings an jeder Seite verwenden. Wir setzen absichtlich einen ungültigen Wert für das linke Padding (denken Sie daran, Umgebungsvariablennamen sind case-sensitiv), um die Verwendung des Fallback-Werts zu demonstrieren.
+Wir setzen eine {{cssxref("width")}} von `300px` und eine {{cssxref("border")}}. Wir fügen dann {{cssxref("padding")}} hinzu, indem wir die `env()`-Funktion mit einem Fallback für die Größe des Paddings auf jeder Seite verwenden. Wir setzen absichtlich einen ungültigen Wert für das linke Padding (denken Sie daran, dass Umgebungsvariablennamen case-sensitive sind), um die Verwendung des Fallback-Werts zu demonstrieren.
 
 ```css
 p {
@@ -190,17 +191,17 @@ p {
 
 {{EmbedLiveSample("Using_the_fallback_value", "350px", "250px")}}
 
-### Verwendung von env(), um sicherzustellen, dass Inhalte nicht von Fenstersteuerungsknöpfen in Desktop-PWAs verdeckt werden
+### Verwendung von env() um sicherzustellen, dass Inhalte nicht durch Fenstersteuerungsschaltflächen in Desktop-PWAs verdeckt werden
 
-Im folgenden Beispiel stellt `env()` sicher, dass Inhalte, die in einer Desktop-Progressive-Web-App angezeigt werden, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwendet, nicht von den Fenstersteuerungsknöpfen des Betriebssystems verdeckt werden. Die `titlebar-area-*`-Werte definieren ein Rechteck, in dem die Titelleiste normalerweise angezeigt worden wäre. Auf Geräten, die die Window Controls Overlay-Funktion nicht unterstützen, wie mobilen Geräten, werden die Fallback-Werte verwendet.
+Im folgenden Beispiel stellt `env()` sicher, dass Inhalte, die in einer Desktop-Progressive-Web-App, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwendet, angezeigt werden, nicht durch die Fenstersteuerungsschaltflächen des Betriebssystems verdeckt werden. Die `titlebar-area-*`-Werte definieren ein Rechteck, wo normalerweise die Titelleiste angezeigt worden wäre. Bei Geräten, die die Window-Controls-Overlay-Funktion nicht unterstützen, wie mobile Geräte, werden die Fallback-Werte verwendet.
 
-So sieht eine PWA aus, die auf einem Desktop-Gerät installiert ist:
+So sieht eine PWA, die auf einem Desktop-Gerät installiert ist, normalerweise aus:
 
-![Illustration, wie eine PWA aussieht, die normalerweise auf einem Desktop installiert ist, mit Fenstersteuerungsknöpfen, einer Titelleiste und Webinhalten darunter](desktop-pwa-window.png)
+![Illustration, wie eine PWA, die auf einem Desktop installiert ist, normalerweise aussieht, mit Fenstersteuerungsschaltflächen, einer Titelleiste und Webinhalten darunter](desktop-pwa-window.png)
 
-Mit der Window Controls Overlay-Funktion umfassen die Webinhalte die gesamte App-Fensterfläche, wobei die Fenstersteuerungen und PWA-Schaltflächen als Overlays angezeigt werden:
+Mit der Window-Controls-Overlay-Funktion bedecken die Webinhalte die gesamte Fensterfläche der App, wobei die Fenstersteuerungen und PWA-Schaltflächen als Überlagerungen angezeigt werden:
 
-![Illustration, wie eine PWA aussieht, die auf einem Desktop mit der Window Controls Overlay-Funktion installiert ist, mit Fenstersteuerungsknöpfen, keiner Titelleiste und Webinhalt über das ganze Fenster](desktop-pwa-window-wco.png)
+![Illustration, wie eine PWA, die auf einem Desktop installiert ist, mit der Window-Controls-Overlay-Funktion aussieht, mit Fenstersteuerungsschaltflächen, keiner Titelleiste und Webinhalten, die das gesamte Fenster einnehmen](desktop-pwa-window-wco.png)
 
 ```html
 <header>Title of the app here</header>
@@ -222,11 +223,11 @@ main {
 ```
 
 > [!NOTE]
-> Die Verwendung von `position:fixed` stellt sicher, dass der Header nicht mit dem Rest des Inhalts scrollt, sondern stattdessen mit den Fenstersteuerungsknöpfen ausgerichtet bleibt, selbst auf Geräte/Browser, die elastisches Scrollen (auch bekannt als Rubber Banding) unterstützen.
+> Die Verwendung von `position:fixed` stellt sicher, dass der Header nicht mit dem Rest des Inhalts scrollt, sondern stattdessen mit den Fenstersteuerungsschaltflächen ausgerichtet bleibt, selbst bei Geräten/Browsers, die elastisches Überscrollen unterstützen (auch bekannt als Gummiband-Effekt).
 
-### Viewport Segmente
+### Ansichtsfenster-Segmente
 
-Die [Viewport segment API-Demo](https://mdn.github.io/dom-examples/viewport-segments-api/) und der [Verwendung der Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using)-Leitfaden bieten eine Demonstration und Erklärung zur Verwendung der `env()`-Funktion mit den `viewport-segments-*`-Umgebungsvariablen.
+Das [Viewport-Segment-API-Demo](https://mdn.github.io/dom-examples/viewport-segments-api/) und der [Verwendung der Viewport-Segments-API](/de/docs/Web/API/Viewport_segments_API/Using) Leitfaden bietet eine Demonstration und Erklärung der Verwendung der `env()`-Funktion mit den `viewport-segments-*`-Umgebungsvariablen.
 
 ## Spezifikationen
 
@@ -239,12 +240,12 @@ Die [Viewport segment API-Demo](https://mdn.github.io/dom-examples/viewport-segm
 ## Siehe auch
 
 - [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using)
-- Modul zu [CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables)
+- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables) Modul
 - {{CSSxRef("var")}}
-- Modul zu [CSS-Benutzerdefinierten Eigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/Guides/Cascading_variables)
-- [Benutzerdefinierte Eigenschaften (`--*`): CSS-Variablen](/de/docs/Web/CSS/Reference/Properties/--*)
-- [Verwendung von CSS-Benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
-- [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API)
-- [Passen Sie die Fenstersteuerungs-Overlays der Titelleiste Ihrer PWA an](https://web.dev/articles/window-controls-overlay)
-- [Inhalt in der Titelleiste anzeigen](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/window-controls-overlay)
-- [Aus der Box ausbrechen](https://alistapart.com/article/breaking-out-of-the-box/)
+- [CSS-Benutzereigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul
+- [Benutzereigenschaften (`--*`): CSS-Variablen](/de/docs/Web/CSS/Reference/Properties/--*)
+- [Verwendung von CSS-Benutzereigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
+- [Viewport-Segments API](/de/docs/Web/API/Viewport_segments_API)
+- [Passen Sie das Fenstersteuerungs-Overlay der Titelleiste Ihrer PWA an](https://web.dev/articles/window-controls-overlay)
+- [Inhalte in der Titelleiste anzeigen](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/window-controls-overlay)
+- [Ausbrechen aus dem Rahmen](https://alistapart.com/article/breaking-out-of-the-box/)

@@ -1,11 +1,12 @@
 ---
-title: skewX()
+title: "`skewX()` CSS-Funktion"
+short-title: skewX()
 slug: Web/CSS/Reference/Values/transform-function/skewX
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`skewX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene in horizontaler Richtung schiefstellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skewX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element in horizontaler Richtung auf der 2D-Ebene neigt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: skewX()")}}
 
@@ -35,10 +36,10 @@ transform: skewX(0.352rad);
 </section>
 ```
 
-Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in der horizontalen Richtung verzerrt. Die Abszisse (horizontal, x-Koordinate) jedes Punktes wird durch einen Wert verändert, der proportional zum angegebenen Winkel und zur Entfernung vom Ursprung ist; daher wird der Wert, der hinzugefügt wird, umso größer, je weiter ein Punkt vom Ursprung entfernt ist.
+Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in horizontaler Richtung verzerrt. Die Abszisse (horizontal, x-Koordinate) jedes Punktes wird um einen Wert modifiziert, der proportional zu dem angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
 
 > [!NOTE]
-> `skewX(a)` ist gleichbedeutend mit
+> `skewX(a)` ist äquivalent zu
 > `skew(a)`.
 
 ## Syntax
@@ -50,7 +51,7 @@ skewX(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{cssxref("angle")}}, der den Winkel darstellt, der zur Verzerrung des Elements entlang der Abszisse (horizontal, x-Koordinate) verwendet wird.
+  - : Ist ein {{cssxref("angle")}}, der den Winkel darstellt, um das Element entlang der Abszisse (horizontal, x-Koordinate) zu verzerren.
 
 <table class="standard-table">
   <thead>

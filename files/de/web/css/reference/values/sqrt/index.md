@@ -1,13 +1,14 @@
 ---
-title: sqrt()
+title: "`sqrt()` CSS-Funktion"
+short-title: sqrt()
 slug: Web/CSS/Reference/Values/sqrt
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) einer Zahl zurückgibt.
+Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://de.wikipedia.org/wiki/Quadratwurzel) einer Zahl zurückgibt.
 
-Die Funktion `pow(x, 0.5)` ist gleichbedeutend mit `sqrt(x)`.
+Die Funktion `pow(x, 0.5)` ist äquivalent zu `sqrt(x)`.
 
 ## Syntax
 
@@ -20,14 +21,14 @@ width: calc(100px * sqrt(100)); /* 1000px */
 
 ### Parameter
 
-Die `sqrt(x)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `sqrt(x)` akzeptiert nur einen Wert als Parameter.
 
 - `x`
-  - : Eine Berechnung, die sich als {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} auflöst, die größer oder gleich 0 ist.
 
 ### Rückgabewert
 
-Gibt eine {{cssxref("&lt;number&gt;")}} zurück, welche die Quadratwurzel von `x` ist.
+Gibt eine {{cssxref("&lt;number&gt;")}} zurück, die die Quadratwurzel von `x` ist.
 
 - Wenn `x` `+∞` ist, ist das Ergebnis `+∞`.
 - Wenn `x` `0⁻` ist, ist das Ergebnis `0⁻`.
@@ -39,9 +40,9 @@ Gibt eine {{cssxref("&lt;number&gt;")}} zurück, welche die Quadratwurzel von `x
 
 ## Beispiele
 
-### Größen basierend auf Quadratwurzel skalieren
+### Größen basierend auf der Quadratwurzel skalieren
 
-Dieses Beispiel zeigt, wie Sie die `sqrt()` Funktion verwenden können, um Größen zu berechnen.
+Dieses Beispiel zeigt, wie die `sqrt()`-Funktion zur Berechnung von Größen verwendet werden kann.
 
 #### HTML
 
@@ -56,7 +57,7 @@ Dieses Beispiel zeigt, wie Sie die `sqrt()` Funktion verwenden können, um Grö�
 
 #### CSS
 
-Hier verwenden wir [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
+Hier verwenden wir [CSS-Custom-Properties](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
 
 - `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was 100px ergibt.
 - `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was 150px ergibt.
@@ -89,7 +90,7 @@ Hier verwenden wir [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guide
 }
 ```
 
-Die Größen werden dann als `width` und `height` Werte der Selektoren angewendet.
+Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewendet.
 
 ```css
 .one {

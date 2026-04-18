@@ -1,11 +1,12 @@
 ---
-title: rotate()
+title: "`rotate()` CSS Funktion"
+short-title: rotate()
 slug: Web/CSS/Reference/Values/transform-function/rotate
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um einen festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um einen festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: rotate()")}}
 
@@ -35,7 +36,7 @@ transform: rotate(3.142rad);
 </section>
 ```
 
-Der feste Punkt, um den das Element rotiert — wie oben erwähnt — wird auch als **transform origin** bezeichnet. Dies ist standardmäßig das Zentrum des Elements, aber Sie können Ihren eigenen benutzerdefinierten Ursprung verwenden, indem Sie die {{ cssxref("transform-origin") }} Eigenschaft setzen.
+Der feste Punkt, um den sich das Element dreht – oben erwähnt – ist auch als **Transformationsursprung** bekannt. Dieser ist standardmäßig das Zentrum des Elements, aber Sie können Ihren eigenen benutzerdefinierten Transformationsursprung mit der {{ cssxref("transform-origin") }} Eigenschaft festlegen.
 
 ## Syntax
 
@@ -46,7 +47,7 @@ rotate(a)
 ### Werte
 
 - _a_
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} der den Winkel der Rotation repräsentiert. Die Drehrichtung hängt von der Schreibrichtung ab. In einem von links nach rechts Kontext bedeutet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem von rechts nach links Kontext bedeutet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn und ein negativer eine Drehung im Uhrzeigersinn. Eine Drehung um 180° wird als _Punktspiegelung_ bezeichnet.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und stellt den Winkel der Drehung dar. Die Drehrichtung hängt von der Schreibrichtung ab. In einem Links-nach-Rechts-Kontext bezeichnet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem Rechts-nach-Links-Kontext bezeichnet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn. Eine Drehung um 180° wird als _Punktspiegelung_ bezeichnet.
 
 <table class="standard-table">
   <thead>
@@ -120,11 +121,9 @@ div {
 
 {{EmbedLiveSample("Basic_example", "auto", 180)}}
 
-### Kombination von Drehung mit einer anderen Transformation
+### Kombination der Drehung mit einer anderen Transformation
 
-Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, achten Sie auf die Reihenfolge, in der Sie Ihre
-Transformationen angeben. Wenn Sie zum Beispiel vor der Translation rotieren, erfolgt die Translation entlang der neuen Achse der
-Drehung!
+Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, seien Sie vorsichtig mit der Reihenfolge, in der Sie Ihre Transformationen angeben. Wenn Sie beispielsweise vor der Translation rotieren, erfolgt die Translation entlang der neuen Drehachse!
 
 #### HTML
 

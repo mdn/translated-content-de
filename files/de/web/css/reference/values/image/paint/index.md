@@ -1,8 +1,9 @@
 ---
-title: paint()
+title: "`paint()` CSS-Funktion"
+short-title: paint()
 slug: Web/CSS/Reference/Values/image/paint
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
 Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert einen {{cssxref("image")}}-Wert, der mit einem PaintWorklet erzeugt wird.
@@ -20,7 +21,7 @@ wo:
 - _parameters_ {{optional_inline}}
   - : Optionale zusätzliche Parameter, die an das paintWorklet übergeben werden
 
-## Formaler Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
@@ -28,7 +29,7 @@ wo:
 
 ### Grundlegende Verwendung von CSS paint()
 
-Angenommen, das folgende HTML:
+Gegeben folgendes HTML:
 
 ```html live-sample___example-boxbg
 <ul>
@@ -54,7 +55,7 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-Im CSS definieren wir das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen, `boxbg`, sowie alle Variablen (z.B. `--box-color` und `--width-subtractor`), die das Worklet verwenden wird:
+Im CSS definieren wir das `background-image` als einen `paint()`-Typ mit dem Worklet-Namen `boxbg` sowie mit Variablen (z.B. `--box-color` und `--width-subtractor`), die das Worklet verwenden wird:
 
 ```css live-sample___example-boxbg
 body {
@@ -80,7 +81,7 @@ li:nth-of-type(3n + 1) {
 
 ### CSS paint() mit Parametern
 
-Sie können optionale Argumente in der CSS `paint()`-Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` auf einer Gruppe von Listenelementen `gefüllt` ist oder eine `stroke`-Umrandung hat, und die `width` dieser Umrandung:
+Sie können optionale Argumente in der CSS `paint()`-Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben, die steuern, ob das `background-image` einer Gruppe von Listenelementen `filled` ist oder eine `stroke`-Kontur hat und die `width` dieser Kontur:
 
 ```html hidden live-sample___example-highlight
 <ul>
@@ -125,7 +126,7 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock aufgenommen, die einen boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
+Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock enthalten, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
 
 {{EmbedLiveSample("example-highlight", "", "300px")}}
 

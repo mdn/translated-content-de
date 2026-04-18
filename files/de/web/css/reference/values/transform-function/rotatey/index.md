@@ -1,11 +1,12 @@
 ---
-title: rotateY()
+title: "`rotateY()` CSS-Funktion"
+short-title: rotateY()
 slug: Web/CSS/Reference/Values/transform-function/rotateY
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) rotiert, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um die y-Achse (vertikal) dreht, ohne es zu verzerren. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: rotateY()")}}
 
@@ -35,14 +36,15 @@ transform: rotateY(3.142rad);
 </section>
 ```
 
-Die Rotationsachse läuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
 > [!NOTE]
 > `rotateY(a)` ist äquivalent zu
 > `rotate3d(0, 1, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen üblicherweise
+> nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
@@ -53,7 +55,7 @@ rotateY(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Rotation. Ein positiver Winkel gibt eine Drehung im Uhrzeigersinn an, ein negativer Winkel eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Rotation. Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -67,7 +69,7 @@ rotateY(a)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird im 3D-Raum angewendet und kann nicht in der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

@@ -1,13 +1,14 @@
 ---
-title: exp()
+title: "`exp()` CSS-Funktion"
+short-title: exp()
 slug: Web/CSS/Reference/Values/exp
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine Exponentialfunktion, die eine Zahl als Argument nimmt und die mathematische Konstante `e` ergibt, die zur Potenz der gegebenen Zahl erhoben wird.
+Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine Exponentialfunktion, die eine Zahl als Argument akzeptiert und die mathematische Konstante `e` hoch der gegebenen Zahl zurückgibt.
 
-Die mathematische Konstante [`e`](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis der natürlichen Logarithmen und ist ungefähr `2.718281828459045`.
+Die mathematische Konstante [`e`](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis der natürlichen Logarithmen und beträgt ungefähr `2.718281828459045`.
 
 Die `exp(number)`-Funktion enthält eine Berechnung, die denselben Wert wie {{CSSxRef("pow", "pow(e, number)")}} zurückgibt.
 
@@ -25,11 +26,11 @@ width: calc(100px * exp(1)); /* 100px * 2.718281828459045 = 271.8px */
 Die `exp(number)`-Funktion akzeptiert nur einen Wert als ihren Parameter.
 
 - `number`
-  - : Eine Berechnung, die sich zu einer {{CSSxRef("number")}} auflöst. Sie repräsentiert den Wert, der mit einer Potenz von `e` potenziert wird.
+  - : Eine Berechnung, die auf ein {{CSSxRef("number")}} aufgelöst wird. Stellt den Wert dar, der um eine Potenz von `e` erhöht werden soll.
 
 ### Rückgabewert
 
-Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> repräsentiert und das Ergebnis der Berechnung von `e` zur Potenz von `number` ist.
+Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> darstellt, das Ergebnis der Berechnung von `e` hoch der Potenz von `number`.
 
 - Wenn `number` `-Infinity` ist, ist das Ergebnis `0`.
 - Wenn `number` `0` ist, ist das Ergebnis `1`.
@@ -95,9 +96,9 @@ div.box-5 {
 
 {{EmbedLiveSample('Rotate elements', '100%', '200px')}}
 
-### Überschriften im festen Verhältnis skalieren
+### Überschriften mit festem Verhältnis skalieren
 
-Die `exp()`-Funktion kann nützlich für Strategien wie den CSS-Modulmaßstab sein, der alle Schriftgrößen auf einer Seite in einem festen Verhältnis zueinander setzt.
+Die `exp()`-Funktion kann nützlich für Strategien wie die CSS-Modularskala sein, die alle Schriftgrößen auf einer Seite in einem festen Verhältnis zueinander setzt.
 
 #### HTML
 
