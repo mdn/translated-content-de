@@ -1,15 +1,16 @@
 ---
-title: resolution
+title: "`resolution` CSS-Medienmerkmal"
+short-title: resolution
 slug: Web/CSS/Reference/At-rules/@media/resolution
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`resolution`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
+Das **`resolution`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `resolution`-Funktion wird als ein {{cssxref("resolution")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Das `resolution`-Merkmal wird als {{cssxref("resolution")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts repräsentiert. Es handelt sich um ein Bereichsmerkmal, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 
@@ -65,4 +66,4 @@ Die `resolution`-Funktion wird als ein {{cssxref("resolution")}}-Wert angegeben,
 ## Siehe auch
 
 - [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
-- Die {{cssxref("image-resolution")}} Eigenschaft
+- Die {{cssxref("image-resolution")}}-Eigenschaft

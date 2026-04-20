@@ -1,25 +1,26 @@
 ---
-title: scripting
+title: "`scripting` CSS-Medienmerkmal"
+short-title: scripting
 slug: Web/CSS/Reference/At-rules/@media/scripting
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`scripting`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob Skripting (wie JavaScript) verfügbar ist.
+Das **`scripting`** [CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob Skripting (wie JavaScript) verfügbar ist.
 
 > [!NOTE]
-> Die Erkennung erfolgt durch die Browser basierend auf den Benutzereinstellungen. Einige Browser-Erweiterungen können Skript-Blockierung mithilfe verschiedener Techniken implementieren. In solchen Fällen kann es sein, dass die `scripting` Media-Funktion nicht wie erwartet funktioniert.
+> Die Erkennung erfolgt durch die Browser basierend auf den Nutzereinstellungen. Einige Browser-Erweiterungen können Skriptblockierung durch verschiedene Techniken implementieren. In solchen Fällen kann es sein, dass das `scripting`-Medienmerkmal nicht wie erwartet funktioniert.
 
 ## Syntax
 
-Die `scripting`-Funktion wird als Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Das `scripting`-Merkmal wird als Schlüsselwortwert aus der untenstehenden Liste festgelegt.
 
 - `none`
   - : Skripting ist im aktuellen Dokument vollständig nicht verfügbar.
 - `initial-only`
-  - : Skripting ist beim initialen Laden der Seite aktiviert, aber danach nicht mehr.
+  - : Skripting ist während des ersten Ladens der Seite aktiviert, danach jedoch nicht mehr.
 - `enabled`
-  - : Skripting wird im aktuellen Dokument unterstützt und ist aktiv.
+  - : Skripting wird unterstützt und ist im aktuellen Dokument aktiv.
 
 ## Beispiele
 

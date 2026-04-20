@@ -1,18 +1,18 @@
 ---
-title: "HTML-Attribut: elementtiming"
+title: "`elementtiming` HTML-Attribut"
 short-title: elementtiming
 slug: Web/HTML/Reference/Attributes/elementtiming
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
 ---
 
-Das **`elementtiming`**-Attribut wird verwendet, um anzugeben, dass ein Element für die Überwachung durch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekte mit dem Typ "element" markiert ist. Für weitere Details siehe die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle.
+Das **`elementtiming`**-Attribut wird verwendet, um anzugeben, dass ein Element für die Überwachung durch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekte mit dem Typ `"element"` markiert ist. Weitere Details finden Sie in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle.
 
-Dieses Attribut kann auf {{htmlelement("img")}}, {{SVGElement("image")}}-Elemente innerhalb eines {{SVGElement("svg")}}, Posterbilder von {{htmlelement("video")}}-Elementen, Elemente mit einem {{cssxref("background-image")}} und Elemente, die Textknoten enthalten, wie ein {{htmlelement("p")}}, angewendet werden.
+Dieses Attribut kann auf {{htmlelement("img")}}, {{SVGElement("image")}}-Elemente innerhalb eines {{SVGElement("svg")}}, Posterbilder von {{htmlelement("video")}}-Elementen, Elemente mit einem {{cssxref("background-image")}} und Elemente, die Textknoten enthalten, wie zum Beispiel ein {{htmlelement("p")}}, angewendet werden.
 
 Im DOM wird dieses Attribut als [`Element.elementTiming`](/de/docs/Web/API/Element/elementTiming) widergespiegelt.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 Der für `elementtiming` angegebene Wert wird zu einem Bezeichner für das beobachtete Element.
 
@@ -23,8 +23,8 @@ Der für `elementtiming` angegebene Wert wird zu einem Bezeichner für das beoba
 Gute Kandidaten für Elemente, die Sie beobachten möchten, sind:
 
 - Das Hauptbild für einen Artikel.
-- Ein Blogpost-Titel
-- Bilder in einem Karussell für eine Einkaufsseite.
+- Ein Blogbeitragstitel
+- Bilder in einem Karussell für eine Shopping-Site.
 - Das Posterbild für das Hauptvideo auf einer Seite.
 
 ## Beispiele

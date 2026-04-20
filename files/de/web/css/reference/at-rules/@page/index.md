@@ -1,11 +1,12 @@
 ---
-title: "@page"
+title: "`@page` CSS at-rule"
+short-title: "@page"
 slug: Web/CSS/Reference/At-rules/@page
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: e328268bb418551ab451881845881b5837c9da83
 ---
 
-Die **`@page`** At-Regel ist eine CSS-At-Regel, die verwendet wird, um verschiedene Aspekte gedruckter Seiten zu ändern. Sie zielt auf die Dimensionen, die Orientierung und die Ränder der Seite ab und modifiziert diese. Die `@page` At-Regel kann verwendet werden, um alle Seiten eines Ausdrucks oder einen Teil davon mittels ihrer verschiedenen Pseudoklassen anzusprechen.
+Die **`@page`** Regel ist eine CSS-Regel, die verwendet wird, um verschiedene Aspekte von gedruckten Seiten zu modifizieren. Sie zielt auf die Dimensionen, Ausrichtung und Ränder der Seite ab und verändert diese. Die `@page` Regel kann verwendet werden, um alle Seiten in einem Ausdruck oder eine Teilmenge durch ihre verschiedenen Pseudo-Klassen anzusprechen.
 
 ## Syntax
 
@@ -40,126 +41,126 @@ Die **`@page`** At-Regel ist eine CSS-At-Regel, die verwendet wird, um verschied
 }
 ```
 
-### Seiteneigenschaften
+### Seiten-Eigenschaften
 
-Die `@page` At-Regel kann nur Seitenbeschreibungen und [Margin-At-Regeln](#margin-at-regeln) enthalten. Die folgenden Beschreibungen wurden von mindestens einem Browser implementiert:
+Die `@page` Regel kann nur Seitendeskriptoren und [Rand-Regeln](#randregeln) enthalten. Die folgenden Deskriptoren wurden von mindestens einem Browser implementiert:
 
 - {{cssxref("margin")}}
-  - : Gibt die Seitenränder an. Einzelne Rand-Eigenschaften wie {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}} können ebenfalls verwendet werden.
+  - : Gibt die Seitenränder an. Einzelne Rand-Attribute {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}} können ebenfalls verwendet werden.
 - [`page-orientation`](/de/docs/Web/CSS/Reference/At-rules/@page/page-orientation)
-  - : Gibt die Orientierung der Seite an. Dies hat keinen Einfluss auf das Layout der Seite; die Drehung wird nach dem Layout im Ausgabemedium angewendet.
+  - : Gibt die Ausrichtung der Seite an. Dies beeinflusst nicht das Layout der Seite; die Rotation wird nach dem Layout im Ausgabemedium angewendet.
 - [`size`](/de/docs/Web/CSS/Reference/At-rules/@page/size)
-  - : Bestimmt die Zielgröße und Orientierung des die Seite enthaltenen Blockes. Im allgemeinen Fall, wenn ein Seitenblock auf ein Blatt projiziert wird, zeigt es auch die Größe des Ziel-Seitenblattes an.
+  - : Gibt die Zielgröße und Ausrichtung des enthaltenden Blocks der Seitenbox an. Im allgemeinen Fall, wo eine Seitenbox auf ein Blatt gedruckt wird, gibt es auch die Größe des Zielblattes an.
 
-Die Spezifikation erwähnt, dass die folgenden CSS-Eigenschaften auf Seitenboxen über die @page-At-Regel anwendbar sein sollen. Diese werden jedoch _noch nicht_ von einem Benutzeragenten unterstützt.
+Die Spezifikationen erwähnen die folgenden CSS-Eigenschaften, die für Seitenboxen mittels der @page Regel anwendbar sind. Diese wurden jedoch _noch nicht_ von einem Benutzeragenten unterstützt.
 
 <details>
 <summary>Verbleibende Seiteneigenschaften</summary>
 
-| Merkmal                  | CSS-Eigenschaften     |
-| ------------------------ | --------------------- |
-| bidi-Eigenschaften       | direction             |
-| Hintergrundeigenschaften | background-color      |
-|                          | background-image      |
-|                          | background-repeat     |
-|                          | background-attachment |
-|                          | background-position   |
-|                          | background            |
-| Randeigenschaften        | border-top-width      |
-|                          | border-right-width    |
-|                          | border-bottom-width   |
-|                          | border-left-width     |
-|                          | border-width          |
-|                          | border-top-color      |
-|                          | border-right-color    |
-|                          | border-bottom-color   |
-|                          | border-left-color     |
-|                          | border-color          |
-|                          | border-top-style      |
-|                          | border-right-style    |
-|                          | border-bottom-style   |
-|                          | border-left-style     |
-|                          | border-short-style    |
-|                          | border-top            |
-|                          | border-right          |
-|                          | border-bottom         |
-|                          | border-left           |
-|                          | border                |
-| Zählereigenschaften      | counter-reset         |
-|                          | counter-increment     |
-| Farbe                    | color                 |
-| Schriftarteigenschaften  | font-family           |
-|                          | font-size             |
-|                          | font-style            |
-|                          | font-variant          |
-|                          | font-weight           |
-|                          | font                  |
-| Höheneigenschaften       | height                |
-|                          | min-height            |
-|                          | max-height            |
-| Zeilenhöhe               | line-height           |
-| Randeigenschaften        | margin-top            |
-|                          | margin-right          |
-|                          | margin-bottom         |
-|                          | margin-left           |
-|                          | margin                |
-| Umrisseigenschaften      | outline-width         |
-|                          | outline-style         |
-|                          | outline-color         |
-|                          | outline               |
-| Abständeigenschaften     | padding-top           |
-|                          | padding-right         |
-|                          | padding-bottom        |
-|                          | padding-left          |
-|                          | padding               |
-| Anführungszeichen        | quotes                |
-| Texteigenschaften        | letter-spacing        |
-|                          | text-align            |
-|                          | text-decoration       |
-|                          | text-indent           |
-|                          | text-transform        |
-|                          | white-space           |
-|                          | word-spacing          |
-| Sichtbarkeit             | visibility            |
-| Breiteeigenschaften      | width                 |
-|                          | min-width             |
-|                          | max-width             |
+| Feature                   | CSS properties        |
+| ------------------------- | --------------------- |
+| bidi Properties           | direction             |
+| Hintergrundeigenschaften  | background-color      |
+|                           | background-image      |
+|                           | background-repeat     |
+|                           | background-attachment |
+|                           | background-position   |
+|                           | background            |
+| Rahmeneigenschaften       | border-top-width      |
+|                           | border-right-width    |
+|                           | border-bottom-width   |
+|                           | border-left-width     |
+|                           | border-width          |
+|                           | border-top-color      |
+|                           | border-right-color    |
+|                           | border-bottom-color   |
+|                           | border-left-color     |
+|                           | border-color          |
+|                           | border-top-style      |
+|                           | border-right-style    |
+|                           | border-bottom-style   |
+|                           | border-left-style     |
+|                           | border-short-style    |
+|                           | border-top            |
+|                           | border-right          |
+|                           | border-bottom         |
+|                           | border-left           |
+|                           | border                |
+| Zähleigenschaften         | counter-reset         |
+|                           | counter-increment     |
+| Farbe                     | color                 |
+| Schriftarteneigenschaften | font-family           |
+|                           | font-size             |
+|                           | font-style            |
+|                           | font-variant          |
+|                           | font-weight           |
+|                           | font                  |
+| Höheneigenschaften        | height                |
+|                           | min-height            |
+|                           | max-height            |
+| Zeilenhöhe                | line-height           |
+| Randeigenschaften         | margin-top            |
+|                           | margin-right          |
+|                           | margin-bottom         |
+|                           | margin-left           |
+|                           | margin                |
+| Umrisseigenschaften       | outline-width         |
+|                           | outline-style         |
+|                           | outline-color         |
+|                           | outline               |
+| Polstereigenschaften      | padding-top           |
+|                           | padding-right         |
+|                           | padding-bottom        |
+|                           | padding-left          |
+|                           | padding               |
+| Anführungszeichen         | quotes                |
+| Texteigenschaften         | letter-spacing        |
+|                           | text-align            |
+|                           | text-decoration       |
+|                           | text-indent           |
+|                           | text-transform        |
+|                           | white-space           |
+|                           | word-spacing          |
+| Sichtbarkeit              | visibility            |
+| Breieteneigenschaften     | width                 |
+|                           | min-width             |
+|                           | max-width             |
 
 </details>
 
 ## Beschreibung
 
-Die @page-Regel definiert Eigenschaftten der Seitenbox. Die `@page` At-Regel ist über die CSS-Objektmodell-Schnittstelle [`CSSPageRule`](/de/docs/Web/API/CSSPageRule) zugänglich.
+Die @page Regel definiert Eigenschaften der Seitenbox. Die `@page` Regel kann über die CSS-Objektmodell-Schnittstelle [`CSSPageRule`](/de/docs/Web/API/CSSPageRule) abgerufen werden.
 
 > [!NOTE]
-> Das W3C diskutiert, wie mit viewport-bezogenen {{cssxref("&lt;length&gt;")}} Einheiten, `vh`, `vw`, `vmin` und `vmax` umgegangen wird. Verwenden Sie diese Einheiten vorerst nicht innerhalb einer `@page` At-Regel.
+> Das W3C diskutiert, wie man mit viewportbezogenen {{cssxref("&lt;length&gt;")}} Einheiten, `vh`, `vw`, `vmin` und `vmax` umgeht. Zwischenzeitlich sollten Sie diese nicht innerhalb einer `@page` Regel verwenden.
 
 ### Verwandte Eigenschaften
 
-Die `@page` At-Regel ermöglicht es dem Benutzer, der Regel einen Namen zuzuweisen, der dann in einer Deklaration durch die Verwendung der `page` Eigenschaft aufgerufen wird.
+Die `@page` Regel ermöglicht es dem Benutzer, der Regel einen Namen zuzuweisen, der dann in einer Deklaration unter Verwendung der `page` Eigenschaft aufgerufen wird.
 
 - {{Cssxref("page")}}
-  - : Ermöglicht einen Selektor, eine benutzerdefinierte **benannte Seite** zu nutzen.
+  - : Erlaubt einem Selektor, eine benutzerdefinierte **benannte Seite** zu verwenden
 
 ## Formale Syntax
 
 {{csssyntax}}
 
-Wobei der `<page-body>` umfasst:
+Wo der `<page-body>` Folgendes beinhaltet:
 
-- Seiteneigenschaften
-- Seitenrand-Eigenschaften
+- Seiten-Eigenschaften
+- Seiten-Rand-Eigenschaften
 
-und `<pseudo-page>` diese Pseudoklassen repräsentiert:
+und `<pseudo-page>` repräsentiert diese Pseudo-Klassen:
 
 - {{Cssxref(":blank")}}
 - {{Cssxref(":first")}}
 - {{Cssxref(":left")}}
 - {{Cssxref(":right")}}
 
-## Margin-At-Regeln
+## Randregeln
 
-Die Margin-At-Regeln werden innerhalb der `@page` At-Regel verwendet. Jede zielt auf einen anderen Abschnitt der gedruckten Dokumentseite ab und gestaltet den Bereich der gedruckten Seite basierend auf den im Stilblock festgelegten Eigenschaftswerten:
+Die Randregeln werden innerhalb der `@page` Regel verwendet. Sie zielen jeweils auf einen anderen Abschnitt der gedruckten Seite ab und gestalten den Bereich der gedruckten Seite basierend auf den in dem Stilblock festgelegten Eigenschaftswerten:
 
 ```css
 @page {
@@ -169,9 +170,9 @@ Die Margin-At-Regeln werden innerhalb der `@page` At-Regel verwendet. Jede zielt
 }
 ```
 
-**`@top-left`** zielt auf den oberen linken Bereich des Dokuments ab und wendet die Änderungen basierend auf den Seitenrand-Eigenschaften an.
+**`@top-left`** zielt auf die obere linke Ecke des Dokuments ab und wendet die Änderungen basierend auf den eingestellten Seiten-Rand-Eigenschaften an.
 
-Andere Margin-At-Regeln umfassen:
+Andere Randregeln umfassen:
 
 ```css-nolint
 @top-left-corner
@@ -194,99 +195,99 @@ Andere Margin-At-Regeln umfassen:
 
 ### Seitenrand-Eigenschaften
 
-Die Seitenrand-Eigenschaften sind der Satz von CSS-Eigenschaften, der in einer beliebigen einzelnen Margin-At-Regel gesetzt werden kann. Sie umfassen:
+Die Seitenrand-Eigenschaften sind die Reihe von CSS-Eigenschaften, die in jeder einzelnen Randregel festgelegt werden können. Dazu gehören:
 
 <details>
 <summary>Seitenrand-Eigenschaften</summary>
 
-| Merkmal                  | CSS-Eigenschaften     |
-| ------------------------ | --------------------- |
-| bidi-Eigenschaften       | direction             |
-| Hintergrundeigenschaften | background-color      |
-|                          | background-image      |
-|                          | background-repeat     |
-|                          | background-attachment |
-|                          | background-position   |
-|                          | background            |
-| Randeigenschaften        | border-top-width      |
-|                          | border-right-width    |
-|                          | border-bottom-width   |
-|                          | border-left-width     |
-|                          | border-width          |
-|                          | border-top-color      |
-|                          | border-right-color    |
-|                          | border-bottom-color   |
-|                          | border-left-color     |
-|                          | border-color          |
-|                          | border-top-style      |
-|                          | border-right-style    |
-|                          | border-bottom-style   |
-|                          | border-left-style     |
-|                          | border-short-style    |
-|                          | border-top            |
-|                          | border-right          |
-|                          | border-bottom         |
-|                          | border-left           |
-|                          | border                |
-| Zählereigenschaften      | counter-reset         |
-|                          | counter-increment     |
-| Inhalt                   | content               |
-| Farbe                    | color                 |
-| Schriftarteigenschaften  | font-family           |
-|                          | font-size             |
-|                          | font-style            |
-|                          | font-variant          |
-|                          | font-weight           |
-|                          | font                  |
-| Höheneigenschaften       | height                |
-|                          | min-height            |
-|                          | max-height            |
-| Zeilenhöhe               | line-height           |
-| Randeigenschaften        | margin-top            |
-|                          | margin-right          |
-|                          | margin-bottom         |
-|                          | margin-left           |
-|                          | margin                |
-| Umrisseigenschaften      | outline-width         |
-|                          | outline-style         |
-|                          | outline-color         |
-|                          | outline               |
-| Abständeigenschaften     | padding-top           |
-|                          | padding-right         |
-|                          | padding-bottom        |
-|                          | padding-left          |
-|                          | padding               |
-| Anführungszeichen        | quotes                |
-| Texteigenschaften        | letter-spacing        |
-|                          | text-align            |
-|                          | text-decoration       |
-|                          | text-indent           |
-|                          | text-transform        |
-|                          | white-space           |
-|                          | word-spacing          |
-| Vertikale Ausrichtung    | vertical-align        |
-| Sichtbarkeit             | visibility            |
-| Breiteeigenschaften      | width                 |
-|                          | min-width             |
-|                          | max-width             |
-| z-Index                  | z-index               |
+| Feature                   | CSS properties        |
+| ------------------------- | --------------------- |
+| bidi Properties           | direction             |
+| Hintergrundeigenschaften  | background-color      |
+|                           | background-image      |
+|                           | background-repeat     |
+|                           | background-attachment |
+|                           | background-position   |
+|                           | background            |
+| Rahmeneigenschaften       | border-top-width      |
+|                           | border-right-width    |
+|                           | border-bottom-width   |
+|                           | border-left-width     |
+|                           | border-width          |
+|                           | border-top-color      |
+|                           | border-right-color    |
+|                           | border-bottom-color   |
+|                           | border-left-color     |
+|                           | border-color          |
+|                           | border-top-style      |
+|                           | border-right-style    |
+|                           | border-bottom-style   |
+|                           | border-left-style     |
+|                           | border-short-style    |
+|                           | border-top            |
+|                           | border-right          |
+|                           | border-bottom         |
+|                           | border-left           |
+|                           | border                |
+| Zähleigenschaften         | counter-reset         |
+|                           | counter-increment     |
+| Inhalt                    | content               |
+| Farbe                     | color                 |
+| Schriftarteneigenschaften | font-family           |
+|                           | font-size             |
+|                           | font-style            |
+|                           | font-variant          |
+|                           | font-weight           |
+|                           | font                  |
+| Höheneigenschaften        | height                |
+|                           | min-height            |
+|                           | max-height            |
+| Zeilenhöhe                | line-height           |
+| Randeigenschaften         | margin-top            |
+|                           | margin-right          |
+|                           | margin-bottom         |
+|                           | margin-left           |
+|                           | margin                |
+| Umrisseigenschaften       | outline-width         |
+|                           | outline-style         |
+|                           | outline-color         |
+|                           | outline               |
+| Polstereigenschaften      | padding-top           |
+|                           | padding-right         |
+|                           | padding-bottom        |
+|                           | padding-left          |
+|                           | padding               |
+| Anführungszeichen         | quotes                |
+| Texteigenschaften         | letter-spacing        |
+|                           | text-align            |
+|                           | text-decoration       |
+|                           | text-indent           |
+|                           | text-transform        |
+|                           | white-space           |
+|                           | word-spacing          |
+| Vertikale Ausrichtung     | vertical-align        |
+| Sichtbarkeit              | visibility            |
+| Breieteneigenschaften     | width                 |
+|                           | min-width             |
+|                           | max-width             |
+| Z-Index                   | z-index               |
 
 </details>
 
 ## Benannte Seiten
 
-Benannte Seiten ermöglichen, ein pro-Seiten-Layout zu gestalten und [Seitenumbrüche](/de/docs/Web/CSS/Guides/Fragmentation) auf deklarative Weise beim Drucken hinzuzufügen.
+Benannte Seiten ermöglichen eine pro-Seiten Darstellung und das Hinzufügen von [Seitenumbrüchen](/de/docs/Web/CSS/Guides/Fragmentation) auf deklarative Weise beim Drucken.
 
-Benannte Seiten können über die {{Cssxref("page")}} Eigenschaft angewendet werden. Dies erlaubt es dem Benutzer, unterschiedliche Seitenkonfigurationen zur Nutzung in Drucklayouts zu erstellen.
+Benannte Seiten können mit der {{Cssxref("page")}} Eigenschaft angewendet werden. Dies ermöglicht es dem Benutzer, verschiedene Seitenkonfigurationen für den Einsatz in Drucklayouts zu erstellen.
 
-Ein Beispiel dafür findet sich in den [`page`](/de/docs/Web/CSS/Reference/Properties/page#examples) Beispielen.
+Ein Beispiel hierfür finden Sie in den [`page`](/de/docs/Web/CSS/Reference/Properties/page#examples) Beispielen.
 
 ## Beispiele
 
-### Die Verwendung der `size`-Eigenschaft zur Änderung der Seitenorientierung
+### Verwendung der size-Eigenschaft, um die Ausrichtung der Seite zu ändern
 
-Dieses Beispiel zeigt, wie die `<section>`s in einzelne Seiten im `landscape`-Format mit einem 20% Rand bei jedem Ausdruck aufgeteilt werden können.
-Durch den Klick auf die Druckschaltfläche wird ein Druckdialog geöffnet, wobei die HTML-Abschnitte in einzelne Seiten aufgeteilt sind.
+Dieses Beispiel zeigt, wie man die `<section>`s in einzelne Seiten im `landscape`-Format aufteilt, wobei jede Seite beim Drucken einen 20%-Rand hat.
+Das Klicken auf die Drucktaste öffnet ein Druckdialogfeld mit den HTML-Abschnitten, die in einzelne Seiten aufgeteilt sind.
 
 ```html live-sample___page-size
 <button>Print page</button>
@@ -359,9 +360,9 @@ section {
 
 {{EmbedLiveSample('page-size', '100%', '540', , , , , "allow-modals")}}
 
-### @page Pseudoklassen-Beispiele
+### @page Pseudo-Klassen-Beispiele
 
-Sehen Sie sich die verschiedenen [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) der `@page` für Beispiele an.
+Sehen Sie sich die verschiedenen [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) von `@page` für Beispiele an.
 
 - {{Cssxref(":blank")}}
 - {{Cssxref(":first")}}
@@ -380,5 +381,5 @@ Sehen Sie sich die verschiedenen [Pseudoklassen](/de/docs/Web/CSS/Reference/Sele
 
 - Die {{cssxref("page")}} Eigenschaft
 - Der `@page` [`size`](/de/docs/Web/CSS/Reference/At-rules/@page/size) Deskriptor
-- [CSS Paged Media](/de/docs/Web/CSS/Guides/Paged_media) Modul
-- [\[META\] CSS Paged Media Module Level 3](https://bugzil.la/286443) Bugzilla zur Verfolgung des Fortschritts zu diesem Thema (seitenbasierte Zähler, etc.)
+- [CSS gedruckte Medien](/de/docs/Web/CSS/Guides/Paged_media) Modul
+- [\[META\] CSS Paged Media Module Level 3](https://bugzil.la/286443) Bugzilla zum Fortschritts-Tracking des Themas (seitenbasierte Zähler usw.)

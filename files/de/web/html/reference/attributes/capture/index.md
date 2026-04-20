@@ -1,24 +1,24 @@
 ---
-title: "HTML-Attribut: capture"
+title: "`capture` HTML-Attribut"
 short-title: capture
 slug: Web/HTML/Reference/Attributes/capture
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
 ---
 
-Das **`capture`**-Attribut gibt optional an, dass eine neue Datei erfasst werden soll und welches Gerät verwendet werden soll, um das neue Medium eines vom [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut definierten Typs zu erfassen.
+Das **`capture`**-Attribut gibt an, dass optional eine neue Datei aufgenommen werden soll und welches Gerät zur Aufnahme dieser neuen Medien eines vom [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut definierten Typs verwendet werden soll.
 
-Zu den Werten gehören `user` und `environment`. Das `capture`-Attribut wird für den {{HTMLElement("input/file", "file")}} Eingabetyp unterstützt.
+Werte umfassen `user` und `environment`. Das `capture`-Attribut wird für den {{HTMLElement("input/file", "file")}} Eingabetyp unterstützt.
 
-Das `capture`-Attribut nimmt als Wert eine Zeichenkette an, die angibt, welche Kamera zur Erfassung von Bild- oder Videodaten verwendet werden soll, falls das [accept](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut angibt, dass die Eingabe einer dieser Typen sein sollte.
+Das `capture`-Attribut nimmt als Wert einen String, der angibt, welche Kamera für die Aufnahme von Bild- oder Videodaten verwendet werden soll, wenn das [accept](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut angibt, dass die Eingabe einer dieser Typen sein sollte.
 
-| Wert          | Beschreibung                                                                            |
-| ------------- | --------------------------------------------------------------------------------------- |
-| `user`        | Die zur Benutzerseite gerichtete Kamera und/oder das Mikrofon sollten verwendet werden. |
-| `environment` | Die nach außen gerichtete Kamera und/oder das Mikrofon sollten verwendet werden.        |
+| Wert          | Beschreibung                                                                     |
+| ------------- | -------------------------------------------------------------------------------- |
+| `user`        | Die benutzerorientierte Kamera und/oder das Mikrofon sollten verwendet werden.   |
+| `environment` | Die nach außen gerichtete Kamera und/oder das Mikrofon sollten verwendet werden. |
 
 > [!NOTE]
-> Capture war zuvor ein boolesches Attribut, das bei Vorhandensein anforderte, dass das Medienerfassungsgerät des Geräts, wie Kamera oder Mikrofon, anstelle der Anforderung einer Dateieingabe verwendet wird.
+> Capture war zuvor ein Boolean-Attribut, welches, wenn vorhanden, verlangte, dass das Medienerfassungsgerät(e) des Geräts wie Kamera oder Mikrofon verwendet wird, anstatt eine Dateieingabe anzufordern.
 
 {{InteractiveExample("HTML Demo: capture", "tabbed-standard")}}
 
@@ -50,7 +50,7 @@ input {
 
 ## Beispiele
 
-Wenn es auf einen Datei-Eingabetyp gesetzt ist, zeigen Betriebssysteme mit Mikrofonen und Kameras eine Benutzeroberfläche, die die Auswahl aus einer vorhandenen Datei oder das Erstellen einer neuen Datei ermöglicht.
+Wenn es auf einen Dateieingabetyp gesetzt ist, zeigen Betriebssysteme mit Mikrofonen und Kameras eine Benutzeroberfläche an, die die Auswahl aus einer vorhandenen Datei oder die Erstellung einer neuen Datei ermöglicht.
 
 ```html
 <p>
@@ -69,7 +69,7 @@ Wenn es auf einen Datei-Eingabetyp gesetzt ist, zeigen Betriebssysteme mit Mikro
 
 {{EmbedLiveSample('Examples', '100%', 200)}}
 
-Beachten Sie, dass diese Funktion auf mobilen Geräten besser funktioniert. Wenn Ihr Gerät ein Desktop-Computer ist, wird wahrscheinlich ein typischer Dateiauswahldialog angezeigt.
+Beachten Sie, dass diese auf mobilen Geräten besser funktionieren; wenn Ihr Gerät ein Desktop-Computer ist, erhalten Sie wahrscheinlich einen typischen Dateiauswahldialog.
 
 ## Spezifikationen
 

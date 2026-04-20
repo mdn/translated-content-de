@@ -1,21 +1,22 @@
 ---
-title: -webkit-transition
+title: "`-webkit-transition` CSS-Media-Feature"
+short-title: -webkit-transition
 slug: Web/CSS/Reference/At-rules/@media/-webkit-transition
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-{{deprecated_header}} {{ Non-standard_header }}
+{{deprecated_header}} {{Non-standard_header}}
 
 > [!NOTE]
-> Alle Browser unterstützen die Eigenschaft [`transition`](/de/docs/Web/CSS/Reference/Properties/transition#browser_compatibility) ohne Anbieterpräfixe. Nur auf WebKit (Safari) basierende Browser und nicht auf Chromium basierende Browser unterstützen das `-webkit-transition`-Medienfeature. Kein Browser unterstützt `transition` ohne das Präfix als Medienabfrage (obwohl einige Browser - {{cssxref("@media/-webkit-transform-3d", "-webkit-transform-3d")}} unterstützen). Verwenden Sie stattdessen die Feature-Abfrage [`@supports (transition)`](/de/docs/Web/CSS/Reference/At-rules/@supports).
+> Alle Browser unterstützen die [`transition`](/de/docs/Web/CSS/Reference/Properties/transition#browser_compatibility)-Eigenschaft ohne Vendor-Präfixe. Nur WebKit (Safari) und nicht auf Chromium basierende Browser unterstützen die `-webkit-transition`-Media-Feature. Kein Browser unterstützt `transition` ohne das Präfix als Media Query (obwohl einige Browser - {{cssxref("@media/-webkit-transform-3d", "-webkit-transform-3d")}} unterstützen). Verwenden Sie stattdessen die [`@supports (transition)`](/de/docs/Web/CSS/Reference/At-rules/@supports)-Feature-Abfrage.
 
-Das **`-webkit-transition`** ist ein Boolean-nicht-standardisiertes [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features), eine [WebKit-Erweiterung](/de/docs/Web/CSS/Reference/Webkit_extensions), deren Wert `true` ist, wenn der Browsing-Kontext [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) unterstützt.
+Das **`-webkit-transition`** ist ein Boolean Non-Standard [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features), eine [WebKit-Erweiterung](/de/docs/Web/CSS/Reference/Webkit_extensions), deren Wert `true` ist, wenn der Browsing-Kontext [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) unterstützt.
 
-Apple bietet [eine Beschreibung in der Safari-CSS-Referenz](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/OtherStandardCSS3Features.html#//apple_ref/doc/uid/TP40007601-SW3); dies wird dort nun als `transition` bezeichnet.
+Apple hat [eine Beschreibung in der Safari CSS-Referenz](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/OtherStandardCSS3Features.html#//apple_ref/doc/uid/TP40007601-SW3); dies wird dort jetzt `transition` genannt.
 
 > [!NOTE]
-> Dieses Medienfeature sollte nicht verwendet werden; es wurde nie spezifiziert, nie weit verbreitet implementiert und wurde aus [den meisten Browsern entfernt](#browser-kompatibilität). Verwenden Sie stattdessen die {{cssxref("@supports")}} Feature-Abfrage.
+> Sie sollten dieses Media-Feature nicht verwenden; es wurde nie spezifiziert, nie weit verbreitet implementiert und wurde [aus den meisten Browsern entfernt](#browser-kompatibilität). Verwenden Sie stattdessen eine {{cssxref("@supports")}}-Feature-Abfrage.
 
 ## Syntax
 
@@ -27,9 +28,9 @@ Apple bietet [eine Beschreibung in der Safari-CSS-Referenz](https://developer.ap
 
 ## Beispiele
 
-### Verwendung von @supports
+### Verwenden Sie @supports stattdessen
 
-Verwenden Sie nicht das `-webkit-transition`-Medienfeature. Testen Sie stattdessen die Unterstützung von Transitionen mit dem CSS-{{cssxref("@supports")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), wie folgt:
+Verwenden Sie nicht das `-webkit-transition`-Media-Feature. Testen Sie stattdessen die Unterstützung für Übergänge mit der CSS {{cssxref("@supports")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), wie folgt:
 
 ```css
 @supports (transition: initial) {
@@ -39,7 +40,7 @@ Verwenden Sie nicht das `-webkit-transition`-Medienfeature. Testen Sie stattdess
 
 ### Veraltetes Beispiel
 
-Bevor dies veraltet wurde, konnten Sie `-webkit-transition` in Ihrem CSS so verwenden:
+Bevor dies veraltet wurde, konnten Sie `-webkit-transition` in Ihrem CSS wie folgt verwenden:
 
 ```css
 @media (-webkit-transition) {
@@ -60,6 +61,6 @@ Nicht Teil eines Standards.
 - {{cssxref("@media/-webkit-transform-3d", "-webkit-transform-3d")}}
 - {{cssxref("@media/-webkit-transform-2d", "-webkit-transform-2d")}}
 - {{cssxref("@media/-webkit-animation", "-webkit-animation")}}
-- {{cssxref("transition")}} und [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
-- {{cssxref("@media")}} und [Verwendung von Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- {{cssxref("transition")}} und [die Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
+- {{cssxref("@media")}} und [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - {{cssxref("@supports")}} und [Verwendung von Feature-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)

@@ -1,23 +1,24 @@
 ---
-title: overflow-inline
+title: "`overflow-inline` CSS-Media-Feature"
+short-title: overflow-inline
 slug: Web/CSS/Reference/At-rules/@media/overflow-inline
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`overflow-inline`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die den ursprünglichen [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) entlang der Inline-Achse überlaufen.
+Die **`overflow-inline`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die entlang der Inline-Achse den initialen [umgebenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) überlaufen.
 
 > [!NOTE]
-> Die `overflow-inline`-Eigenschaft bestimmt nicht, ob ein Überlauf auftritt; vielmehr zeigt sie, wie das Gerät mit einem solchen Überlauf umgeht. Typischerweise wird auf Bildschirmen in den meisten Browsern das Verhalten "scroll" sein: Wenn Inhalte den verfügbaren horizontalen Raum überschreiten, ermöglicht das Gerät das Scrollen, um auf die überlaufenden Inhalte zuzugreifen.
+> Die Eigenschaft `overflow-inline` bestimmt nicht, ob ein Überlauf auftritt; sie zeigt vielmehr, wie das Gerät einen solchen Überlauf behandelt. Typischerweise wird das Verhalten auf Bildschirmen in den meisten Browsern "scroll" sein: Wenn der Inhalt den verfügbaren horizontalen Raum überschreitet, ermöglicht es das Gerät, durch Scrollen auf den übergelaufenen Inhalt zuzugreifen.
 
 ## Syntax
 
-Die `overflow-inline`-Eigenschaft wird als Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Die `overflow-inline`-Feature wird als Schlüsselwortwert angegeben, der aus der nachstehenden Liste ausgewählt wird.
 
 - `none`
-  - : Inhalte, die die Inline-Achse überlaufen, werden nicht angezeigt.
+  - : Inhalt, der die Inline-Achse überläuft, wird nicht angezeigt.
 - `scroll`
-  - : Inhalte, die die Inline-Achse überlaufen, können durch Scrollen betrachtet werden.
+  - : Inhalt, der die Inline-Achse überläuft, kann durch Scrollen sichtbar gemacht werden.
 
 ## Beispiele
 

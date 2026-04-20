@@ -1,25 +1,22 @@
 ---
-title: "HTML-Attribut: content"
+title: "`content` HTML-Attribut"
 short-title: content
 slug: Web/HTML/Reference/Attributes/content
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
 ---
 
-Das **`content`**-Attribut gibt den Wert eines Metadaten-Namens an, der durch das `<meta>`-Attribut [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) definiert ist.
-Es nimmt einen String als Wert, und die erwartete Syntax variiert je nach verwendetem `name`-Wert.
+Das **`content`**-Attribut gibt den Wert eines durch das `<meta>`-Element definierten Metadatanamens an, der durch das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)-Attribut festgelegt wird. Es nimmt einen String als Wert an, und die erwartete Syntax variiert je nach verwendetem `name`-Wert.
 
 ## Wert
 
-Die Art der Werte, die ein `content`-Attribut akzeptiert, hängt vom `name`-Wert ab.
-Für Details zu spezifischen Formaten und Typen siehe die Seite über das [`<meta>` `name`-Attribut](/de/docs/Web/HTML/Reference/Elements/meta/name).
+Die Art der Werte, die ein `content`-Attribut akzeptiert, hängt vom `name`-Wert ab. Für Details zu spezifischen Formaten und Typen siehe die Seite des [`<meta>` `name`-Attributs](/de/docs/Web/HTML/Reference/Elements/meta/name).
 
 ## Beispiele
 
 ### Festlegen einer Meta-Beschreibung für ein Dokument
 
-Das folgende `<meta>`-Tag verwendet `name=description`, um eine "Meta-Beschreibung" für ein Dokument festzulegen.
-Das `content`-Attribut liefert den Wert für die Metadaten:
+Das folgende `<meta>`-Tag verwendet `name=description`, um eine "Meta-Beschreibung" für ein Dokument festzulegen. Das `content`-Attribut liefert den Wert für die Metadaten:
 
 ```html
 <meta

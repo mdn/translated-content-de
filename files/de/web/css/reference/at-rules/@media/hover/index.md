@@ -1,20 +1,21 @@
 ---
-title: hover
+title: "`hover` CSS Medienmerkmal"
+short-title: hover
 slug: Web/CSS/Reference/At-rules/@media/hover
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`hover`** [CSS](/de/docs/Web/CSS) [Medienabfrage](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob das _primäre_ Eingabegerät des Benutzers über Elemente schweben kann.
+Das **`hover`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob der _primäre_ Eingabemechanismus des Benutzers über Elemente schweben kann.
 
 ## Syntax
 
-Das `hover`-Feature wird als Schlüsselwortwert angegeben, das aus der nachstehenden Liste ausgewählt wird.
+Das `hover`-Merkmal wird als ein Schlüsselwortwert angegeben, das aus der untenstehenden Liste ausgewählt wird.
 
 - `none`
-  - : Das primäre Eingabegerät kann überhaupt nicht oder nicht bequem über Elemente schweben (z. B. simulieren viele mobile Geräte das Schweben, wenn der Benutzer einen unbequemen langen Tap ausführt), oder es gibt keinen primären Zeigeeingabemechanismus.
+  - : Der primäre Eingabemechanismus kann überhaupt nicht schweben oder nicht bequem schweben (z.B. viele mobile Geräte emulieren das Schweben, wenn der Benutzer eine unbequeme lange Berührung durchführt), oder es gibt keinen primären Zeigegerät-Eingabemechanismus.
 - `hover`
-  - : Das primäre Eingabegerät kann bequem über Elemente schweben.
+  - : Der primäre Eingabemechanismus kann bequem über Elemente schweben.
 
 ## Beispiele
 

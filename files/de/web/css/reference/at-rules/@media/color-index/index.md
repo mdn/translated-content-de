@@ -1,15 +1,16 @@
 ---
-title: color-index
+title: "`color-index` CSS Media-Feature"
+short-title: color-index
 slug: Web/CSS/Reference/At-rules/@media/color-index
 l10n:
-  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`color-index`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts zu testen.
+Das **`color-index`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbabruftabelle des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `color-index`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät keine solche Tabelle verwendet.) Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die präfixierten Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um nach Mindest- bzw. Höchstwerten zu fragen.
+Das `color-index` Feature wird als ein {{cssxref("&lt;integer&gt;")}} Wert spezifiziert, der die Anzahl der Einträge in der Farbabruftabelle des Ausgabegeräts repräsentiert. (Dieser Wert ist null, wenn das Gerät keine solche Tabelle verwendet.) Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 
