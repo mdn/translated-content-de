@@ -1,18 +1,20 @@
 ---
-title: view-timeline-inset
+title: "`view-timeline-inset` CSS property"
+short-title: view-timeline-inset
 slug: Web/CSS/Reference/Properties/view-timeline-inset
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung an die Position des Scrollports darstellen (siehe {{Glossary("Scroll_container", "Scroll container")}} für weitere Details), in dem das Subjektelement einer _benannten View-Progress-Timeline_-Animation als sichtbar angesehen wird. Mit anderen Worten, dies ermöglicht es Ihnen, Start- und/oder End-Inset- (oder Outset-)Werte festzulegen, die die Position der Timeline versetzen.
+Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe {{Glossary("Scroll_container", "Scrollcontainer")}} für weitere Details), in dem das Subjektelement einer Animation einer _benannten Sichtfortschritts-Timeline_ als sichtbar angesehen wird. Anders ausgedrückt ermöglicht dies, Start- und/oder End-Einsetzungen (oder Außensetzungen) anzugeben, die die Position der Timeline versetzen.
 
-Dies kann kombiniert oder anstelle von {{cssxref("animation-range")}} und seinen Langform-Eigenschaften verwendet werden, die zum Festlegen des Anwendungsbereichs einer Animation entlang ihrer Timeline verwendet werden können. Siehe [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) für weitere Details.
+Diese Eigenschaft kann mit {{cssxref("animation-range")}} und deren Langform-Eigenschaften kombiniert oder anstelle davon verwendet werden, um den Anwendungsbereich einer Animation entlang ihrer Timeline festzulegen.
+Siehe [CSS-Scroll-getriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) für weitere Details.
 
 > [!NOTE]
-> Wenn das Scroller-Element seinen Container in der Achsenrichtung nicht überläuft oder wenn das Überlaufrollen ausgeblendet oder abgeschnitten wird, wird keine Scroll-Fortschrittstimeline erstellt.
+> Wenn das Scroller-Element in der Achsendimension seinen Container nicht überläuft oder wenn der Überlauf verborgen oder abgeschnitten ist, wird keine Fortschritts-Timeline erstellt.
 
-Die `view-timeline-inset`, {{cssxref("view-timeline-axis")}}, und {{cssxref("view-timeline-name")}} Eigenschaften können auch mithilfe der {{cssxref("view-timeline")}} Kurzform-Eigenschaft gesetzt werden.
+Die `view-timeline-inset`, {{cssxref("view-timeline-axis")}} und {{cssxref("view-timeline-name")}} Eigenschaften können auch mit der Abkürzungseigenschaft {{cssxref("view-timeline")}} festgelegt werden.
 
 ## Syntax
 
@@ -33,13 +35,13 @@ view-timeline-inset: 20% 200px;
 Zulässige Werte für `view-timeline-inset` sind:
 
 - `auto`
-  - : Wenn festgelegt, wird das entsprechende {{cssxref("scroll-padding")}} (oder der gleichwertige Langform-Wert) für diese Kante des Scrollports verwendet. Falls dies nicht festgelegt ist (oder auf `auto` gesetzt ist), wird der Wert normalerweise 0 sein, obwohl einige Benutzeragenten Heuristiken verwenden können, um einen anderen Standardwert festzulegen, wenn es angebracht ist.
+  - : Wenn festgelegt, wird der entsprechende {{cssxref("scroll-padding")}} (oder gleichwertiger Langform-Wert) für diese Kante des Scrollports verwendet. Wenn dies nicht festgelegt ist (oder auf `auto` gesetzt ist), beträgt der Wert normalerweise 0, obwohl einige User Agents Heuristiken verwenden können, um einen anderen Standardwert zu bestimmen, wenn dies angebracht ist.
 - {{cssxref("length-percentage")}}
-  - : Jeder gültige `<length-percentage>`-Wert wird als Inset-/Outset-Wert akzeptiert.
+  - : Jeder gültige `<length-percentage>` Wert wird als Einsetz-/Außensetz-Wert akzeptiert.
     - Wenn der Wert positiv ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder den Prozentsatz innerhalb des Scrollports verschoben.
-    - Wenn der Wert negativ ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder den Prozentsatz außerhalb des Scrollports verschoben, d.h. sie beginnt zu animieren, bevor sie im Scrollport erscheint, oder endet mit der Animation, nachdem sie den Scrollport verlassen hat.
+    - Wenn der Wert negativ ist, wird die Position des Start-/Endpunkts der Animation um die angegebene Länge oder den Prozentsatz außerhalb des Scrollports verschoben, d.h. sie beginnt zu animieren, bevor sie im Scrollport erscheint, oder beendet das Animieren, nachdem sie den Scrollport verlassen hat.
 
-Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Start-Inset/Outset in der entsprechenden Achse (wo die Animation beginnt) und der zweite Wert das End-Inset/Outset (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden Start- und End-Inset/Outset auf denselben Wert gesetzt.
+Wenn zwei Werte angegeben werden, steht der erste Wert für die Start-Einsetzung/Außensetzung in der relevanten Achse (wo die Animation beginnt) und der zweite Wert für die End-Einsetzung/Außensetzung (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden sowohl Start- als auch End-Einsetzung/Außensetzung auf denselben Wert gesetzt.
 
 ## Formale Definition
 
@@ -51,15 +53,15 @@ Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Start-Inset/
 
 ## Beispiele
 
-### Erstellen einer benannten View-Progress-Timeline mit Inset
+### Erstellen einer benannten Sichtfortschritts-Timeline mit Einsetzung
 
-Eine View-Progress-Timeline mit dem Namen `--subject-reveal` wird mit der Eigenschaft `view-timeline` auf einem Subjektelement mit einer `class` von `animation` definiert. Diese wird dann als Timeline für dasselbe Element mit `animation-timeline: --subject-reveal;` gesetzt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es beim Scrollen nach oben durch das Dokument bewegt wird.
+Eine Sichtfortschritts-Timeline, die `--subject-reveal` genannt wird, wird mithilfe der `view-timeline` Eigenschaft auf einem Subjektelement mit einer `class` von `animation` definiert. Dies wird dann als Timeline für dasselbe Element mit `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es beim Scrollen durch das Dokument nach oben bewegt wird.
 
-Eine `view-timeline-inset`-Deklaration wird ebenfalls festgelegt, um die Animation später als erwartet beginnen und früher enden zu lassen.
+Eine `view-timeline-inset` Deklaration wird ebenfalls eingestellt, um die Animation später als erwartet beginnen zu lassen und früher zu beenden.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -98,7 +100,7 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein enthaltendes `content`-Element werden minimal gestylt, und dem Textinhalt werden einige grundlegende Schrifteinstellungen zugewiesen:
+Das `subject`-Element und sein enthaltenes `content`-Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -129,9 +131,9 @@ p {
 }
 ```
 
-Dem `<div>` mit der Klasse `subject` wird auch eine Klasse `animation` zugewiesen — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Timeline zu definieren. Wir geben ihm auch eine `view-timeline-inset`-Deklaration, um die Animation später als erwartet beginnen und früher enden zu lassen. Ihm wird auch ein `animation-timeline`-Name mit demselben Wert zugewiesen, um zu deklarieren, dass dies das Element sein wird, das animiert wird, während die View-Progress-Timeline fortschreitet.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` eingestellt, um eine benannte Sichtfortschritts-Timeline zu definieren. Wir geben ihm auch eine `view-timeline-inset` Deklaration, um die Animation später als erwartet beginnen zu lassen und früher zu beenden. Es wird auch ein `animation-timeline` Name mit demselben Wert zugewiesen, um zu erklären, dass dies das Element ist, das animiert wird, während die Sichtfortschritts-Timeline fortschreitet.
 
-Zuletzt wird auf dem Element eine Animation spezifiziert, die seine Transparenz und Skalierung animiert, wodurch es einblendet und sich vergrößert, während es den Scroller hinaufbewegt.
+Schließlich wird eine Animation auf dem Element angegeben, die seine Deckkraft und Skalierung animiert, wodurch es beim Aufwärtsschieben im Scroller einblendet und größer wird.
 
 ```css
 .animation {
@@ -159,7 +161,7 @@ Zuletzt wird auf dem Element eine Animation spezifiziert, die seine Transparenz 
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
+Scrollen Sie, um das Subjektelement animiert zu sehen.
 
 {{EmbedLiveSample("Creating a named view progress timeline with inset", "100%", "480px")}}
 
@@ -176,4 +178,4 @@ Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 - {{cssxref("animation-timeline")}}
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline")}}, {{cssxref("view-timeline-axis")}}, {{cssxref("view-timeline-name")}}
-- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [CSS-Scroll-getriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

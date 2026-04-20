@@ -1,13 +1,14 @@
 ---
-title: inset-block-end
+title: "`inset-block-end` CSS property"
+short-title: inset-block-end
 slug: Web/CSS/Reference/Properties/inset-block-end
 l10n:
-  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`inset-block-end`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert den logischen Blockend-Offset eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Einsatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`inset-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Block-End-Versatz eines Elements, der abhängig vom Schreibrichtung, der Richtung und der Textausrichtung des Elements auf eine physische Einfügung abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkungen auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-block-end")}}
 
@@ -88,7 +89,7 @@ inset-block-end: unset;
 
 ### Werte
 
-Die `inset-block-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}} Eigenschaft an.
+Die `inset-block-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -100,7 +101,7 @@ Die `inset-block-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("to
 
 ## Beispiele
 
-### Setzen des Blockend-Offsets
+### Festlegung des Block-End-Versatzes
 
 #### HTML
 
@@ -141,6 +142,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Inset-Werte definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Einfügungen definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}} und {{cssxref("inset-inline-end")}}
+- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

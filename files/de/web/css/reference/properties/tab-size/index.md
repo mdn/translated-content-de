@@ -1,11 +1,12 @@
 ---
-title: tab-size
+title: "`tab-size` CSS property"
+short-title: tab-size
 slug: Web/CSS/Reference/Properties/tab-size
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`tab-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
 {{InteractiveExample("CSS Demo: tab-size")}}
 
@@ -59,7 +60,7 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Voranschrittsbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet wird. Muss nicht negativ sein. Die Voranschrittsbreite bezeichnet die Strecke, die ein Cursor oder ein Druckkopf zurücklegt, bevor der nächste Buchstabe gedruckt wird.
+  - : Ein Vielfaches der Voranschrittsbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet wird. Muss nicht negativ sein. Die Voranschrittsbreite bedeutet die Distanz, die ein Cursor oder Druckkopf vor dem Druck des nächsten Zeichens zurücklegt.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Die Breite der Tabs. Muss nicht negativ sein.
 
@@ -73,7 +74,7 @@ tab-size: unset;
 
 ## Beispiele
 
-### Erweitern durch Zeichenanzahl
+### Erweiterung durch Zeichenanzahl
 
 ```css
 pre {
@@ -81,7 +82,7 @@ pre {
 }
 ```
 
-### Tabs Zusammenfassen
+### Tabs reduzieren
 
 ```css
 pre {
@@ -89,9 +90,9 @@ pre {
 }
 ```
 
-### Standard-Tab-Größe vs. Benutzerdefinierte Größen
+### Standard-Tabgröße vs. benutzerdefinierte Größen
 
-Dieses Beispiel vergleicht eine Standard-Tab-Größe mit einer benutzerdefinierten Tab-Größe. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammengefasst werden.
+Dieses Beispiel vergleicht eine Standard-Tabgröße mit einer benutzerdefinierten Tabgröße. Beachten Sie, dass {{cssxref("white-space")}} auf `pre` gesetzt ist, um zu verhindern, dass die Tabs zusammengefasst werden.
 
 #### HTML
 

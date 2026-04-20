@@ -1,11 +1,12 @@
 ---
-title: text-autospace
+title: "`text-autospace` CSS property"
+short-title: text-autospace
 slug: Web/CSS/Reference/Properties/text-autospace
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-autospace`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, den Abstand zu spezifizieren, der zwischen chinesischen/japanischen/koreanischen (CJK) und nicht-CJK-Zeichen angewendet wird.
+Die **`text-autospace`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, den Abstand zwischen chinesischen/japanischen/koreanischen (CJK) und nicht-CJK-Zeichen festzulegen.
 
 ## Syntax
 
@@ -33,29 +34,29 @@ text-autospace: unset;
 ### Werte
 
 - `normal`
-  - : Erzeugt das Standardverhalten, um automatisch Abstände zwischen CJK- und nicht-CJK-Zeichen und um Satzzeichen herum anzuwenden. Dieser Wert hat denselben Effekt wie die Anwendung von sowohl [`ideograph-alpha`](#ideograph-alpha) als auch [`ideograph-numeric`](#ideograph-numeric).
+  - : Erzeugt das Standardverhalten, um automatisch Abstände zwischen CJK- und nicht-CJK-Zeichen sowie um Satzzeichen herum anzuwenden. Dieser Wert hat denselben Effekt wie das Anwenden von sowohl [`ideograph-alpha`](#ideograph-alpha) als auch [`ideograph-numeric`](#ideograph-numeric).
 - `<autospace>`
-  - : Bietet mehr Kontrolle über das Verhalten der Abstände. Es akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination aus einem oder mehreren der Begriffe `ideograph-alpha`, `ideograph-numeric` und `punctuation`, gefolgt optional von `insert` oder `replace`.
+  - : Bietet mehr Kontrolle über das Verhalten der Abstände. Es akzeptiert das Schlüsselwort `no-autospace` oder eine Kombination von einem oder mehreren der Werte `ideograph-alpha`, `ideograph-numeric` und `punctuation`, optional gefolgt von `insert` oder `replace`.
     - `no-autospace`
       - : Deaktiviert den automatischen Abstand zwischen CJK- und nicht-CJK-Zeichen.
     - `ideograph-alpha`
-      - : Fügt nur Abstände zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Buchstaben (wie Latein) hinzu. Es fügt keine Abstände zwischen ideografischen Zeichen und nicht-ideografischen Zahlen hinzu.
+      - : Fügt nur einen Abstand zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Buchstaben (wie Latein) hinzu. Es wird kein Abstand zwischen ideografischen Zeichen und nicht-ideografischen Zahlen hinzugefügt.
     - `ideograph-numeric`
-      - : Fügt nur Abstände zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Zahlen (wie Latein) hinzu. Es fügt keine Abstände zwischen ideografischen Zeichen und nicht-ideografischen Buchstaben hinzu.
+      - : Fügt nur einen Abstand zwischen ideografischen Zeichen (wie Katakana und Han) und nicht-ideografischen Zahlen (wie Latein) hinzu. Es wird kein Abstand zwischen ideografischen Zeichen und nicht-ideografischen Buchstaben hinzugefügt.
     - `punctuation`
-      - : Fügt nicht brechende Abstände um Satzzeichen hinzu, wie sie durch sprachspezifische typografische Konventionen erforderlich sind.
+      - : Fügt nicht trennende Abstände um Satzzeichen hinzu, wie es die sprachspezifischen typografischen Konventionen erfordern.
     - `insert`
-      - : Fügt den angegebenen Abstand nur hinzu, wenn zwischen den ideografischen und nicht-ideografischen Schriftsystemen keine bestehenden Abstände vorhanden sind.
+      - : Fügt den angegebenen Abstand nur hinzu, wenn es keine vorhandenen Abstände zwischen dem ideografischen und nicht-ideografischen Text gibt.
     - `replace`
-      - : Ersetzt bestehende Abstände (wie {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht-ideografischen Zeichen durch den angegebenen Abstand.
+      - : Ersetzt vorhandene Abstände (wie {{Glossary("Whitespace", "U+0020")}}) zwischen ideografischen und nicht-ideografischen Zeichen durch den angegebenen Abstand.
 - `auto`
-  - : Überlässt es dem Browser, typografisch passende Abstände zu wählen. Der Abstand kann je nach Browser und Plattform variieren.
+  - : Lässt den Browser typografisch angemessene Abstände wählen. Die Abstände können zwischen verschiedenen Browsern und Plattformen variieren.
 
 > [!NOTE]
-> Wenn weder `insert` noch `replace` spezifiziert sind, entspricht das Verhalten `insert`.
+> Wenn weder `insert` noch `replace` angegeben sind, ist das Verhalten dasselbe wie bei `insert`.
 
 > [!NOTE]
-> Diese Eigenschaft ist additiv mit den {{CSSXRef("word-spacing")}} und {{CSSXRef("letter-spacing")}} Eigenschaften. Die durch die `letter-spacing`-Einstellung beigetragenen Abstände werden zu den durch `text-autospace` erzeugten Abständen hinzugefügt. Dasselbe gilt für `word-spacing`.
+> Diese Eigenschaft ist additiv mit den Eigenschaften {{CSSXRef("word-spacing")}} und {{CSSXRef("letter-spacing")}}. Der durch die Einstellung von `letter-spacing` erzeugte Abstand wird zu dem durch `text-autospace` erzeugten Abstand hinzugefügt. Dasselbe gilt für `word-spacing`.
 
 ## Formale Definition
 
@@ -67,7 +68,7 @@ text-autospace: unset;
 
 ## Beispiele
 
-Dieses Beispiel zeigt den Unterschied zwischen verschiedenen Werten von `text-autospace`. Versuchen Sie eine Auswahl aus der Dropdown-Liste zu treffen, um zu sehen, wie sie den Abstand im Text beeinflusst.
+Dieses Beispiel zeigt den Unterschied zwischen den verschiedenen Werten von `text-autospace`. Versuchen Sie, einen Wert aus dem Dropdown-Menü auszuwählen, um zu sehen, wie er den Abstand im Text beeinflusst.
 
 ```html hidden
 <form>

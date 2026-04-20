@@ -1,13 +1,14 @@
 ---
-title: border-block-width
+title: "`border-block-width` CSS property"
+short-title: border-block-width
 slug: Web/CSS/Reference/Properties/border-block-width
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-block-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite der logischen Blockränder eines Elements, die je nach Schreibmodus, Richtung und Textorientierung des Elements einer physischen Rahmenbreite entspricht. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}}, und {{cssxref("border-right-width")}} Eigenschaft, je nach den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-width`**-Eigenschaft aus [CSS](/de/docs/Web/CSS) definiert die Breite der logischen Blockränder eines Elements. Diese entspricht einer physischen Randbreite, abhängig vom Schreibmodus, der Richtung und Textorientierung des Elements. Sie korrespondiert mit den Eigenschaften {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}} oder {{cssxref("border-left-width")}} und {{cssxref("border-right-width")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Die Rahmenbreite in der anderen Dimension kann mit {{cssxref("border-inline-width")}} festgelegt werden, was {{cssxref("border-inline-start-width")}} und {{cssxref("border-inline-end-width")}} setzt.
+Die Randbreite in der anderen Dimension kann mit {{cssxref("border-inline-width")}} festgelegt werden, was {{cssxref("border-inline-start-width")}} und {{cssxref("border-inline-end-width")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-block-width")}}
 
@@ -65,7 +66,7 @@ border-block-width: unset;
 ### Werte
 
 - `<'border-width'>`
-  - : Die Breite des Rahmens. Siehe {{ cssxref("border-width") }}.
+  - : Die Breite des Randes. Siehe {{ cssxref("border-width") }}.
 
 ## Formale Definition
 
@@ -77,7 +78,7 @@ border-block-width: unset;
 
 ## Beispiele
 
-### Rahmenbreite mit vertikalem Text
+### Randbreite mit vertikalem Text
 
 #### HTML
 
@@ -117,6 +118,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft entspricht einer der physischen Rahmen-Eigenschaften: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft entspricht einer der physischen Rand-Eigenschaften: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

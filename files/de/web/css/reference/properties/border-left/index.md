@@ -1,11 +1,12 @@
 ---
-title: border-left
+title: "`border-left` CSS-Eigenschaft"
+short-title: border-left
 slug: Web/CSS/Reference/Properties/border-left
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-left`** [Abkürzung](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-left`** [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-left")}}
 
@@ -47,9 +48,9 @@ border-left: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Einzelne Eigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-left-color")}}
 - {{cssxref("border-left-style")}}
@@ -70,7 +71,7 @@ border-left: revert-layer;
 border-left: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei davon können weggelassen werden.
+Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -83,21 +84,21 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
 
 ## Beschreibung
 
-Wie bei allen Kurzform-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie alle Kurzform-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt die nicht angegebenen auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Er entspricht tatsächlich diesem hier:
+Er ist tatsächlich derselbe wie dieser:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der vor `border-left` angegebene Wert von {{cssxref("border-left-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nichterwähnen des `border-style` Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rahmen.
 
 ## Formale Definition
 
@@ -148,4 +149,4 @@ div {
 - {{cssxref("border-block")}}
 - {{cssxref("outline")}}
 - [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
-- [Lernen Sie CSS: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)

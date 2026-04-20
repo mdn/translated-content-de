@@ -1,21 +1,22 @@
 ---
-title: <frequency-percentage>
+title: "`<frequency-percentage>` CSS-Typ"
+short-title: <frequency-percentage>
 slug: Web/CSS/Reference/Values/frequency-percentage
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keinem CSS-Attribut verwendet.
+Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z. B. die Tonhöhe einer Sprechstimme, werden derzeit in keinem CSS-Attribut verwendet.
 
 ## Syntax
 
-Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; sehen Sie sich deren jeweilige Referenzseiten für Details zu ihren Syntaxen an.
+Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; siehe deren jeweilige Referenzseiten für Details zu ihren Syntaxen.
 
 ## Beschreibung
 
 ### Verwendung in calc()
 
-Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/Reference/Values/calc) Ausdruck verwendet werden kann.
+Wenn ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass sich der Prozentsatz zu einer Frequenz auflöst und daher in einem [`calc()`](/de/docs/Web/CSS/Reference/Values/calc)-Ausdruck verwendet werden kann.
 
 ## Formale Syntax
 
@@ -23,7 +24,7 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 
 ## Beispiele
 
-### Gültige Prozentsatzwerte
+### Gültige Prozentwerte
 
 ```plain example-good
 90% Positive percentage
@@ -31,7 +32,7 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 -90% Negative percentage — not valid for all properties that use percentages
 ```
 
-### Ungültige Prozentsatzwerte
+### Ungültige Prozentwerte
 
 ```plain example-bad
 90 % No space is allowed between the number and the unit
@@ -66,7 +67,7 @@ Derzeit unterstützen keine Browser dieses Feature.
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - Verwandte CSS-Datentypen:
   - {{cssxref("frequency", "&lt;frequency&gt;")}}
   - {{cssxref("percentage", "&lt;percentage&gt;")}}

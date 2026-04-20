@@ -1,13 +1,14 @@
 ---
-title: inset-inline-start
+title: "`inset-inline-start` CSS property"
+short-title: inset-inline-start
 slug: Web/CSS/Reference/Properties/inset-inline-start
 l10n:
-  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`inset-inline-start`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Start-Abstand eines Elements, der abhängig von der Schreibrichtung, Richtung und Textausrichtung des Elements in einen physischen Versatz umgewandelt wird. Diese Eigenschaft entspricht in Abhängigkeit von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}.
+Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Start-Abstand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements in einen physischen Versatz umgewandelt wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}}, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht-positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-inline-start")}}
 
@@ -92,7 +93,7 @@ Die Kurzform für `inset-inline-start` und {{cssxref("inset-inline-end")}} ist {
 
 ### Werte
 
-Die `inset-inline-start`-Eigenschaft nimmt dieselben Werte wie die {{cssxref("top")}}-Eigenschaft an.
+Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -104,7 +105,7 @@ Die `inset-inline-start`-Eigenschaft nimmt dieselben Werte wie die {{cssxref("to
 
 ## Beispiele
 
-### Einstellen des Inline-Start-Abstandes
+### Festlegen des Inline-Start-Abstands
 
 #### HTML
 

@@ -1,11 +1,12 @@
 ---
-title: backdrop-filter
+title: "`backdrop-filter` CSS property"
+short-title: backdrop-filter
 slug: Web/CSS/Reference/Properties/backdrop-filter
 l10n:
-  sourceCommit: 20bd509c6ecd41c30f27cef9cd466adf4de5efa3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`backdrop-filter`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebung auf den Bereich hinter einem Element anzuwenden. Da sie auf alles _hinter_ dem Element angewendet wird, muss das Element oder dessen Hintergrund transparent oder teilweise transparent sein, um den Effekt sichtbar zu machen.
+Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebung auf den Bereich _hinter_ einem Element anzuwenden. Da sie auf alles _hinter_ dem Element angewendet wird, muss das Element oder dessen Hintergrund durchsichtig oder teilweise durchsichtig sein, um den Effekt sehen zu können.
 
 {{InteractiveExample("CSS Demo: backdrop-filter()")}}
 
@@ -87,27 +88,27 @@ backdrop-filter: unset;
 - `none`
   - : Kein Filter wird auf den Hintergrund angewendet.
 - `<filter-value-list>`
-  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("filter-function")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter), der auf den Hintergrund angewendet wird. CSS-`<filter-function>`s beinhalten {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}}, und {{CSSxRef("filter-function/sepia", "sepia()")}}.
+  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("filter-function")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Reference/Element/filter), der auf den Hintergrund angewendet wird. Zu den CSS-`<filter-function>`s gehören {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}} und {{CSSxRef("filter-function/sepia", "sepia()")}}.
 
 ## Beschreibung
 
-Die `backdrop-filter`-Eigenschaft wendet Filtereffekte auf die Pixel an, die _hinter_ einem Element gemalt werden, bis zum nächstgelegenen Vorfahren, der eine **Backdrop-Root** ist. Inhalte oberhalb der Backdrop-Root werden nicht beeinflusst.
+Die `backdrop-filter`-Eigenschaft wendet Filtereffekte auf die Pixel an, die _hinter_ einem Element gemalt sind, bis zum nächstgelegenen Vorfahren, der eine **Backdrop-Root** ist. Inhalte über der Backdrop-Root sind nicht betroffen.
 
-### Backdrop Root
+### Backdrop-Root
 
-Eine Backdrop-Root ist ein Element, das eine Grenze für die `backdrop-filter`-Effekte festlegt. Die folgenden Elemente sind Backdrop-Roots:
+Eine Backdrop-Root ist ein Element, das eine Grenze für `backdrop-filter`-Effekte schafft. Die folgenden Elemente sind Backdrop-Roots:
 
-- Das Root-Element ({{HTMLElement("html")}})
+- Das Stamm-Element ({{HTMLElement("html")}})
 - Ein Element mit einem {{cssxref("filter")}}-Wert ungleich `none`
 - Ein Element mit einem {{cssxref("opacity")}}-Wert kleiner als `1`
 - Ein Element mit einem {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-border")}}, oder {{cssxref("clip-path")}}-Wert ungleich `none`
 - Ein Element mit einem `backdrop-filter`-Wert ungleich `none`
 - Ein Element mit einem {{cssxref("mix-blend-mode")}}-Wert ungleich `normal`
-- Ein Element mit {{cssxref("will-change")}} für eine der oben genannten Eigenschaften
+- Ein Element mit {{cssxref("will-change")}} gesetzt auf eine der oben genannten Eigenschaften
 
-Dies bedeutet, dass wenn ein übergeordnetes Element `opacity: 0.9` hat, es zu einer Backdrop-Root wird und der `backdrop-filter` eines untergeordneten Elements nur den Inhalt zwischen diesem übergeordneten Element und dem Kind verwischt - nicht den Inhalt hinter dem übergeordneten Element. Dies ist eine häufige Quelle der Verwirrung, wenn `backdrop-filter` trotz korrekter Anwendung keinen sichtbaren Effekt hat.
+Das bedeutet, wenn ein übergeordnetes Element `opacity: 0.9` hat, wird es zu einer Backdrop-Root und der `backdrop-filter` eines Kindes wird nur den Inhalt zwischen diesem übergeordneten Element und dem Kind verwischen - nicht den Inhalt hinter dem übergeordneten Element. Dies ist eine häufige Quelle der Verwirrung, wenn `backdrop-filter` keine sichtbare Wirkung zu haben scheint, obwohl es korrekt angewendet wird.
 
-Das folgende Beispiel zeigt, wie sich Backdrop-Roots auf die `backdrop-filter`-Eigenschaft auswirken. Der erste Container hat `will-change: opacity` und wird dadurch zu einer Backdrop-Root - beachten Sie, dass der Unschärfekreis nur den Text und das Quadrat im Container betrifft, nicht jedoch den karierten Hintergrund dahinter. Der zweite Container ist keine Backdrop-Root, daher beeinflusst sein Unschärfekreis alles dahinter, einschließlich des Seitenhintergrunds.
+Das folgende Beispiel zeigt, wie Backdrop-Roots `backdrop-filter` beeinflussen. Der erste Container hat `will-change: opacity`, was ihn zu einer Backdrop-Root macht - beachten Sie, dass der Unschärfekreis nur den Text und das Quadrat innerhalb des Containers beeinflusst, nicht den karierten Hintergrund dahinter. Der zweite Container ist keine Backdrop-Root, sodass sein Unschärfekreis alles dahinter beeinflusst, einschließlich des Seitenhintergrunds.
 
 ```html
 <div class="parent backdrop-root">
@@ -241,7 +242,7 @@ body {
 
 ### Ergebnis
 
-{{EmbedLiveSample("Examples", 600, 400)}}
+{{EmbedLiveSample("Beispiele", 600, 400)}}
 
 ## Spezifikationen
 

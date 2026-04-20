@@ -1,13 +1,14 @@
 ---
-title: empty-cells
+title: "`empty-cells` CSS property"
+short-title: empty-cells
 slug: Web/CSS/Reference/Properties/empty-cells
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Rahmen und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
+Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Ränder und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
 
-Diese Eigenschaft hat nur dann eine Auswirkung, wenn die {{cssxref("border-collapse")}}-Eigenschaft auf `separate` gesetzt ist.
+Diese Eigenschaft hat nur Auswirkungen, wenn die {{cssxref("border-collapse")}}-Eigenschaft auf `separate` gesetzt ist.
 
 {{InteractiveExample("CSS Demo: empty-cells")}}
 
@@ -71,14 +72,14 @@ empty-cells: revert-layer;
 empty-cells: unset;
 ```
 
-Die `empty-cells`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `empty-cells`-Eigenschaft wird als eines der unten aufgelisteten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `show`
-  - : Rahmen und Hintergründe werden wie bei normalen Zellen gezeichnet.
+  - : Ränder und Hintergründe werden wie bei normalen Zellen gezeichnet.
 - `hide`
-  - : Keine Rahmen oder Hintergründe werden gezeichnet.
+  - : Keine Ränder oder Hintergründe werden gezeichnet.
 
 ## Formale Definition
 
@@ -90,7 +91,7 @@ Die `empty-cells`-Eigenschaft wird als einer der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Leere Tabellenzellen anzeigen und ausblenden
+### Leere Tabellenzellen zeigen und verstecken
 
 #### HTML
 
@@ -155,5 +156,5 @@ th {
 ## Siehe auch
 
 - {{cssxref("border-collapse")}}
-- [Erlernen: Tabellen stilisieren](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
-- [CSS-Tabellen](/de/docs/Web/CSS/Guides/Table) Modul
+- [Lernen: Tabellen stylen](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
+- [CSS-Tabelle](/de/docs/Web/CSS/Guides/Table) Modul

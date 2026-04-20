@@ -1,11 +1,12 @@
 ---
-title: columns
+title: "`columns` CSS-Eigenschaft"
+short-title: columns
 slug: Web/CSS/Reference/Properties/columns
 l10n:
-  sourceCommit: 04defe50e601cf53adde40c4bd652a7a4e6eae55
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`columns`** [CSS](/de/docs/Web/CSS) Kurzform-Eigenschaft legt die maximale Anzahl der Spalten fest, die beim Zeichnen des Inhalts eines Elements verwendet werden sollen, zusammen mit der minimalen Breite und der maximalen Höhe der Spalten des Elements.
+Die **`columns`** [CSS](/de/docs/Web/CSS)-Kurzschreibweise legt die maximale Anzahl von Spalten fest, die beim Zeichnen des Inhalts eines Elements verwendet werden sollen, zusammen mit der minimalen Breite und der maximalen Höhe der Spalten des Elements.
 
 {{InteractiveExample("CSS Demo: columns")}}
 
@@ -44,9 +45,9 @@ columns: 3;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Konsistente Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("column-count")}}
 - {{cssxref("column-width")}}
@@ -85,14 +86,14 @@ Der Wert der `columns`-Eigenschaft kann als [`<column-count>`](/de/docs/Web/CSS/
 ### Werte
 
 - `<'column-width'>`
-  - : Die ideale Spaltenbreite, definiert als {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um den verfügbaren Platz zu füllen. Siehe {{cssxref("column-width")}}.
+  - : Die ideale Spaltenbreite, definiert als {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Die tatsächliche Breite kann breiter oder schmaler sein, um in den verfügbaren Raum zu passen. Siehe {{cssxref("column-width")}}.
 - `<'column-count'>`
-  - : Die ideale Anzahl der Spalten, in die der Inhalt des Elements fließen sollte, definiert als {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wenn sie als `<integer>` angegeben ist, definiert sie die maximal zulässige Anzahl von Spalten. Siehe {{cssxref("column-count")}}.
+  - : Die ideale Anzahl von Spalten, in die der Inhalt des Elements aufgeteilt werden soll, definiert als {{cssxref("&lt;integer&gt;")}} oder das Schlüsselwort `auto`. Wird dies als `<integer>` angegeben, wird die maximal zulässige Anzahl von Spalten festgelegt. Siehe {{cssxref("column-count")}}.
 - `<'column-height'>`
   - : Die Höhe der Spalten, definiert als {{cssxref("&lt;length&gt;")}} oder das Schlüsselwort `auto`. Siehe {{cssxref("column-height")}}.
 
 > [!NOTE]
-> Das Setzen eines `<column-height>`-Werts setzt die {{cssxref("column-wrap")}}-Eigenschaft auf ihren Anfangswert `auto` zurück. Wenn `<column-height>` auf ein `<length>` gesetzt ist, wird der `auto`-Wert von {{cssxref("column-wrap")}} zu `wrap`. Wenn `<column-height>` auf `auto` gesetzt ist, wird es zu `nowrap`.
+> Das Setzen eines `<column-height>`-Wertes setzt die {{cssxref("column-wrap")}}-Eigenschaft auf ihren ursprünglichen Wert `auto` zurück. Wenn `<column-height>` auf einen `<length>` gesetzt ist, wird der `auto`-Wert von {{cssxref("column-wrap")}} zu `wrap` aufgelöst. Wenn `<column-height>` auf `auto` gesetzt ist, wird es zu `nowrap` aufgelöst.
 
 ## Formale Definition
 
@@ -106,11 +107,11 @@ Der Wert der `columns`-Eigenschaft kann als [`<column-count>`](/de/docs/Web/CSS/
 
 ### Drei gleiche Spalten einstellen
 
-Dieses Beispiel zeigt, wie ein Textcontainer in drei gleiche Spalten aufgeteilt wird.
+Dieses Beispiel zeigt, wie man einen Textcontainer in drei gleiche Spalten aufteilt.
 
 #### HTML
 
-Wir fügen ein einfaches {{htmlelement("p")}}-Element mit Textinhalt ein.
+Wir fügen ein grundlegendes {{htmlelement("p")}}-Element mit Textinhalt ein.
 
 ```html live-sample___three_equal_columns
 <p class="content-box">
@@ -122,7 +123,7 @@ Wir fügen ein einfaches {{htmlelement("p")}}-Element mit Textinhalt ein.
 
 #### CSS
 
-Wir setzen einen `columns`-Eigenschaftswert auf den Absatz, der einen `<column-count>`-Wert von `3` und einen `<column-width>`-Wert von `auto` enthält.
+Wir setzen einen `columns`-Eigenschaftswert im Absatz, der einen `<column-count>`-Wert von `3` und einen `<column-width>`-Wert von `auto` enthält.
 
 ```css hidden live-sample___three_equal_columns
 body {
@@ -143,13 +144,13 @@ body {
 
 Beachten Sie, wie der Text in drei Spalten aufgeteilt wird.
 
-### Erstellen von Zeilenumbruch, feste Höhen-Spalten
+### Erstellen von umbrechenden, fixen Höhen-Spalten
 
-Dieses Beispiel demonstriert die Verwendung eines `<column-height>`-Werts mit der `columns`-Kurzform-Eigenschaft, um einen Textcontainer in festhöhe Spalten aufzuteilen, die in neue Zeilen umgebrochen werden, wenn der Container den Inline-Rand erreicht.
+Dieses Beispiel zeigt, wie ein `<column-height>`-Wert mit der `columns`-Kurzschreibweise hinzugefügt wird, um einen Textcontainer in Spalten mit fester Höhe zu unterteilen, die auf neue Zeilen umschlagen, wenn die Inline-Kante des Containers erreicht ist.
 
 #### HTML
 
-Wir fügen ein einfaches {{htmlelement("p")}}-Element mit etwas Text ein.
+Wir fügen ein grundlegendes {{htmlelement("p")}}-Element mit etwas Text ein.
 
 ```html live-sample___fixed-height
 <p class="content-box">
@@ -167,7 +168,7 @@ Wir fügen ein einfaches {{htmlelement("p")}}-Element mit etwas Text ein.
 
 #### CSS
 
-Wir setzen einen `columns`-Eigenschaftswert auf den Absatz, der einen `<column-count>`-Wert von `3`, einen `<column-width>`-Wert von `auto` und einen `<column-height>`-Wert von `5em` enthält. Weil `<column-height>` auf ein `<length>` gesetzt ist, berechnet sich der {{cssxref("column-wrap")}}-Wert des Absatzes zu `wrap`, was es den Spalten ermöglicht, sich auf mehrere Zeilen zu erstrecken.
+Wir setzen einen `columns`-Eigenschaftswert im Absatz, der einen `<column-count>`-Wert von `3`, einen `<column-width>`-Wert von `auto` und einen `<column-height>`-Wert von `5em` enthält. Da `<column-height>` auf einen `<length>` gesetzt ist, berechnet sich der {{cssxref("column-wrap")}}-Wert des Absatzes zu `wrap`, was es den Spalten ermöglicht, auf mehrere Zeilen umzubrechen.
 
 ```css live-sample___fixed-height
 .content-box {
@@ -200,7 +201,7 @@ body {
 
 {{EmbedLiveSample('fixed-height', 'auto', 320)}}
 
-Beachten Sie, wie der Text in drei Spalten aufgeteilt wird. Jede Spalte ist `5em` hoch. Nach jeder dritten Spalte brechen die Spalten in eine neue Zeile in Blockrichtung um.
+Beachten Sie, wie der Text in drei Spalten aufgeteilt wird. Jede Spalte ist `5em` hoch. Nach jeder dritten Spalte schlagen die Spalten in Blockrichtung auf eine neue Zeile um.
 
 ## Spezifikationen
 

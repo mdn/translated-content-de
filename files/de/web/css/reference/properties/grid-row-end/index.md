@@ -1,11 +1,12 @@
 ---
-title: grid-row-end
+title: "`grid-row-end` CSS property"
+short-title: grid-row-end
 slug: Web/CSS/Reference/Properties/grid-row-end
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`grid-row-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Endposition eines Grid-Items innerhalb der Grid-Zeile fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und damit die Inline-Endkante seines {{Glossary("grid_areas", "Grid-Bereichs")}} angibt.
+Die **`grid-row-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Endposition eines Grid-Elements innerhalb der Grid-Zeile fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und damit die inline-Endkante seines {{Glossary("grid_areas", "Grid-Bereichs")}} bestimmt.
 
 {{InteractiveExample("CSS Demo: grid-row-end")}}
 
@@ -85,30 +86,30 @@ grid-row-end: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Items beiträgt. Es bedeutet eine automatische Platzierung, eine automatische Spanne oder eine Standardsende von `1`.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt und die automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` festlegt.
 - `<custom-ident>`
-  - : Wenn es eine benannte Linie mit dem Namen '\<custom-ident>-end' gibt, trägt sie die erste solche Linie zur Platzierung des Grid-Items bei.
+  - : Wenn es eine benannte Linie mit dem Namen '\<custom-ident>-end' gibt, trägt die erste solche Linie zur Platzierung des Grid-Elements bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche erzeugen automatisch implizite benannte Linien in dieser Form, sodass die Angabe von `grid-row-end: foo;` die Endkante des benannten Grid-Bereichs wählt (es sei denn, es wurde zuvor eine andere Linie mit dem Namen `foo-end` explizit angegeben).
+    > Benannte Grid-Bereiche erzeugen automatisch implizite benannte Linien dieser Form, sodass `grid-row-end: foo;` die Endkante dieses benannten Grid-Bereichs auswählt (sofern nicht zuvor eine andere Linie namens `foo-end` explizit angegeben wurde).
 
-    Andernfalls wird dies so behandelt, als ob die ganze Zahl `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
+    Andernfalls wird dies so behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
     Das `<custom-ident>` kann nicht die Werte `span` und `auto` annehmen.
 
 - `<integer> && <custom-ident>?`
-  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Items bei. Wenn eine negative ganze Zahl angegeben wird, wird im Gegenteil rückwärts gezählt, beginnend von der Endkante des expliziten Grids.
+  - : Trägt die n-te Linie des Grids zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, wird sie stattdessen in umgekehrter Richtung gezählt, beginnend an der Endkante des expliziten Grids.
 
-    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Grid-Linien diesen Namen haben, um diese Position zu finden.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Existieren nicht genügend Linien mit diesem Namen, werden alle impliziten Grid-Linien zu diesem Zweck als mit diesem Namen versehen betrachtet.
 
-    Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
+    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-  - : Trägt eine Grid-Spanne zur Platzierung des Grid-Items bei, sodass die Zeilenendkante des Grid-Bereichs des Grid-Items n Linien von der Startkante entfernt ist.
+  - : Trägt eine Grid-Spanne zur Platzierung des Grid-Elements bei, sodass die Endkante des Grid-Bereichs des Elements n Linien von der Startkante entfernt ist.
 
-    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Existieren nicht genügend Linien mit diesem Namen, werden alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, als mit diesem Namen versehen betrachtet.
 
-    Wenn die \<integer> weggelassen wird, ist der Standardwert `1`. Negative ganze Zahlen oder 0 sind ungültig.
+    Wenn der \<integer> weggelassen wird, sind es standardmäßig `1`. Negative Ganzzahlen oder 0 sind ungültig.
 
 ## Formale Definition
 
@@ -120,7 +121,7 @@ grid-row-end: unset;
 
 ## Beispiele
 
-### Zeilenende für ein Grid-Element festlegen
+### Festlegen der Zeilenendposition für ein Grid-Element
 
 #### HTML
 
@@ -203,5 +204,5 @@ grid-row-end: unset;
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
 - {{cssxref("grid-column")}}
-- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Zellplatzierung mit CSS-Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
 - Video: [Linienbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)

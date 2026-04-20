@@ -1,11 +1,12 @@
 ---
-title: inset-inline-end
+title: "`inset-inline-end` CSS property"
+short-title: inset-inline-end
 slug: Web/CSS/Reference/Properties/inset-inline-end
 l10n:
-  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`inset-inline-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Endversatz eines Elements, der je nach Schreibmodus des Elements, Richtung und Textausrichtung auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}}-Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`inset-inline-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Enden-Offset eines Elements, der je nach Schreibweise, Richtung und Textorientierung des Elements auf einen physischen Offset abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
 Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
@@ -88,11 +89,11 @@ inset-inline-end: revert-layer;
 inset-inline-end: unset;
 ```
 
-Die Kurzform für {{cssxref("inset-inline-start")}} und `inset-inline-end` ist {{cssxref("inset-inline")}}.
+Die Kurzschreibweise für {{cssxref("inset-inline-start")}} und `inset-inline-end` ist {{cssxref("inset-inline")}}.
 
 ### Werte
 
-Die `inset-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}}-Eigenschaft an.
+Die `inset-inline-end`-Eigenschaft nimmt dieselben Werte an wie die {{cssxref("top")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -104,7 +105,7 @@ Die `inset-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("t
 
 ## Beispiele
 
-### Festlegen des Inline-Endversatzes
+### Inline-Enden-Offset festlegen
 
 #### HTML
 
@@ -146,5 +147,5 @@ div {
 ## Siehe auch
 
 - Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-start")}}
-- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

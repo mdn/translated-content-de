@@ -1,13 +1,14 @@
 ---
-title: -webkit-text-stroke
+title: "`-webkit-text-stroke` CSS-Eigenschaft"
+short-title: -webkit-text-stroke
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Konturen für Textzeichen an. Dies ist eine Kurzschreibweise für die Langschreib-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrissen für Textzeichen fest. Dies ist eine Kurzschreibweise für die Langschreibereigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
-## Einzelne Eigenschaften
+## Zughörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -31,9 +32,9 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite der Kontur.
+  - : Die Breite des Umrisses.
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Kontur.
+  - : Die Farbe des Umrisses.
 
 ## Formale Definition
 
@@ -45,7 +46,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 
 ## Beispiele
 
-### Hinzufügen einer roten Textkontur
+### Hinzufügen eines roten Textumrisses
 
 #### HTML
 

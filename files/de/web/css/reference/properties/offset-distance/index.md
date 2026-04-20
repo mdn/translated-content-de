@@ -1,11 +1,12 @@
 ---
-title: offset-distance
+title: "`offset-distance` CSS property"
+short-title: offset-distance
 slug: Web/CSS/Reference/Properties/offset-distance
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`offset-distance`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Punkt entlang eines {{CSSxRef("offset-path")}} fest, an dem ein Element positioniert werden soll.
+Die **`offset-distance`** [CSS](/de/docs/Web/CSS) Eigenschaft legt eine Position entlang eines {{CSSxRef("offset-path")}} für ein Element fest.
 
 {{InteractiveExample("CSS Demo: offset-distance")}}
 
@@ -65,9 +66,9 @@ offset-distance: unset;
 ```
 
 - {{cssxref('&lt;length-percentage&gt;')}}
-  - : Eine Länge, die angibt, wie weit das Element entlang des Pfades (definiert mit {{cssxref('offset-path')}}) ist.
+  - : Eine Länge, die angibt, wie weit das Element entlang des Pfads (definiert mit {{cssxref('offset-path')}}) ist.
 
-    100% repräsentiert die gesamte Länge des Pfades (wenn der `offset-path` als grundlegende Form oder `path()` definiert ist).
+    100% repräsentiert die Gesamtlänge des Pfades (wenn der `offset-path` als Grundform oder `path()` definiert ist).
 
 ## Formale Definition
 
@@ -81,7 +82,7 @@ offset-distance: unset;
 
 ### Verwendung von offset-distance in einer Animation
 
-Der Bewegungsaspekt im CSS Motion Path ergibt sich typischerweise aus der Animation der `offset-distance` Eigenschaft. Wenn Sie ein Element entlang seines gesamten Pfads animieren möchten, definieren Sie seinen {{cssxref('offset-path')}} und richten dann eine Animation ein, die den `offset-distance` von `0%` bis `100%` durchläuft.
+Der Bewegungseffekt in CSS Motion Path resultiert typischerweise aus der Animation der `offset-distance`-Eigenschaft. Möchten Sie ein Element entlang seines gesamten Pfades animieren, definieren Sie dessen {{cssxref('offset-path')}} und richten dann eine Animation ein, die die `offset-distance` von `0%` bis `100%` nimmt.
 
 #### HTML
 

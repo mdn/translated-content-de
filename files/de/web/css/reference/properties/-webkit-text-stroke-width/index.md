@@ -1,11 +1,12 @@
 ---
-title: -webkit-text-stroke-width
+title: "`-webkit-text-stroke-width` CSS property"
+short-title: -webkit-text-stroke-width
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke-width
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des Strichs für Text fest.
+Die CSS-Eigenschaft **`-webkit-text-stroke-width`** legt die Breite des Rahmens für Text fest.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die
 ### Werte
 
 - `<line-width>`
-  - : Die Breite des Strichs.
+  - : Die Breite des Rahmens.
 
 ## Formale Definition
 
@@ -44,7 +45,7 @@ Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die
 
 ## Beispiele
 
-### Unterschiedliche Strichbreiten
+### Unterschiedliche Rahmenbreiten
 
 #### CSS
 
@@ -91,7 +92,7 @@ p {
 ## Siehe auch
 
 - [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}
 - {{cssxref("-webkit-text-fill-color")}}

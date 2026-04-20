@@ -1,11 +1,12 @@
 ---
-title: border-image-repeat
+title: "`border-image-repeat` CSS property"
+short-title: border-image-repeat
 slug: Web/CSS/Reference/Properties/border-image-repeat
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die Bilder für die Seiten und den mittleren Teil des [Rahmenbildes](/de/docs/Web/CSS/Reference/Properties/border-image) skaliert und gekachelt werden. Der mittlere Bereich kann angezeigt werden, indem das Schlüsselwort "fill" in der {{cssxref("border-image-slice")}} Eigenschaft verwendet wird.
+Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die Bilder für die Seiten und den mittleren Teil des [Randbildes](/de/docs/Web/CSS/Reference/Properties/border-image) skaliert und gekachelt werden. Der mittlere Bereich kann durch die Verwendung des Schlüsselworts "fill" in der {{cssxref("border-image-slice")}} Eigenschaft angezeigt werden.
 
 {{InteractiveExample("CSS Demo: border-image-repeat")}}
 
@@ -72,21 +73,21 @@ border-image-repeat: revert-layer;
 border-image-repeat: unset;
 ```
 
-Die Eigenschaft `border-image-repeat` kann mit einem oder zwei Werten aus der unten stehenden Liste angegeben werden.
+Die `border-image-repeat` Eigenschaft kann mittels eines oder zweier Werte spezifiziert werden, die aus der untenstehenden Werteliste ausgewählt werden.
 
-- Wenn **ein** Wert angegeben wird, gilt das gleiche Verhalten auf **allen vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, wird der erste für **oben, Mitte und unten** und der zweite für **links und rechts** angewendet.
+- Wenn **ein** Wert angegeben wird, gilt er für **alle vier Seiten** gleich.
+- Wenn **zwei** Werte angegeben werden, gilt der erste für **oben, Mitte und unten**, der zweite für **links und rechts**.
 
 ### Werte
 
 - `stretch`
-  - : Die Kantenregionen des Quellbildes werden gedehnt, um den Abstand zwischen den jeweiligen Rändern zu füllen.
+  - : Die Randbereiche des Quellbildes werden gedehnt, um den Abstand zwischen jedem Rand zu füllen.
 - `repeat`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Kacheln können abgeschnitten werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen jedem Rand zu füllen. Kacheln können zugeschnitten werden, um die richtige Passform zu erreichen.
 - `round`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Kacheln können gedehnt werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen jedem Rand zu füllen. Kacheln können gedehnt werden, um die richtige Passform zu erreichen.
 - `space`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Zusätzlicher Raum wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen jedem Rand zu füllen. Extra Platz wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
 
 ## Formale Definition
 
@@ -98,7 +99,7 @@ Die Eigenschaft `border-image-repeat` kann mit einem oder zwei Werten aus der un
 
 ## Beispiele
 
-### Wiederholende Rahmenbilder
+### Wiederholende Randbilder
 
 #### CSS
 
@@ -149,5 +150,5 @@ repetition.addEventListener("change", (evt) => {
 ## Siehe auch
 
 - [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Rahmenbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [CSS Lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Randbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

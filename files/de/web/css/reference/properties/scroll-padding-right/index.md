@@ -1,11 +1,12 @@
 ---
-title: scroll-padding-right
+title: "`scroll-padding-right` CSS property"
+short-title: scroll-padding-right
 slug: Web/CSS/Reference/Properties/scroll-padding-right
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die Eigenschaft `scroll-padding-right` legt Versätze für die rechte Seite der _optimalen Anzeigezone_ des Scrollports fest: die Zone, die als Zielregion verwendet wird, um Dinge in den Sichtbereich des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie z. B. fest positionierte Symbolleisten oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die `scroll-padding-right`-Eigenschaft definiert Versätze für die rechte Seite des _optimalen Betrachtungsbereichs_ des Scrollports: der Bereich, der als Zielregion für das Platzieren von Inhalten im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch anderen Inhalt verdeckt werden (wie fixierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-right")}}
 
@@ -94,9 +95,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollports, als eine gültige Länge oder ein Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der oberen Kante des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Üblicherweise wird dies 0px sein, jedoch kann ein Benutzeragent erkennen und etwas anderes tun, wenn ein anderer Wert als 0 angemessener ist.
 
 ## Formale Definition
 
@@ -117,4 +118,4 @@ scroll-padding-right: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Well-controlled scrolling with CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [Gut kontrolliertes Scrolling mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

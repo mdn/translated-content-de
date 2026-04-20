@@ -1,14 +1,14 @@
 ---
-title: font-family
+title: "`font-family` CSS At-Regel Deskriptor"
+short-title: font-family
 slug: Web/CSS/Reference/At-rules/@font-face/font-family
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`font-family`** [CSS](/de/docs/Web/CSS) Deskriptor legt die Schriftfamilie für eine Schriftart fest, die in einer {{cssxref("@font-face")}} At-Regel angegeben ist.
+Der **`font-family`** [CSS](/de/docs/Web/CSS) Deskriptor legt die Schriftfamilie für eine in einer {{cssxref("@font-face")}} At-Regel angegebene Schriftart fest.
 
-Der Wert wird für das Namensabgleich mit einem bestimmten `@font-face` verwendet, wenn Elemente unter Verwendung der {{cssxref("font-family")}} Eigenschaft gestylt werden.
-Jeder Name kann verwendet werden und überschreibt jeden Namen, der in den zugrunde liegenden Schriftdaten angegeben ist.
+Der Wert wird für die Namensübereinstimmung mit einer bestimmten `@font-face` verwendet, wenn Elemente mit der {{cssxref("font-family")}} Eigenschaft gestaltet werden. Jeder Name kann verwendet werden und überschreibt jeden im zugrunde liegenden Schriftartdaten angegebener Name.
 
 ## Syntax
 

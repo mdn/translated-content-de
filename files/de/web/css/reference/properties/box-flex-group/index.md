@@ -1,20 +1,21 @@
 ---
-title: box-flex-group
+title: "`box-flex-group` CSS property"
+short-title: box-flex-group
 slug: Web/CSS/Reference/Properties/box-flex-group
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_Header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls. Sie wurde in der Spezifikation ersetzt. Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls. Sie wurde in der Spezifikation ersetzt. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
-Die **`box-flex-group`** [CSS](/de/docs/Web/CSS) Eigenschaft ordnet die Kind-Elemente des Flexbox-Containers einer Flex-Gruppe zu.
+Die **`box-flex-group`** [CSS](/de/docs/Web/CSS) Eigenschaft ordnet die Kind-Elemente des Flexbox-Layouts einer Flex-Gruppe zu.
 
-Für flexible Elemente, die Flex-Gruppen zugewiesen sind, ist die erste Flex-Gruppe 1 und höhere Werte bestimmen nachfolgende Flex-Gruppen. Der Anfangswert ist 1. Beim Verteilen des zusätzlichen Raums des Containers berücksichtigt der Browser zuerst alle Elemente innerhalb der ersten Flex-Gruppe. Jedes Element innerhalb dieser Gruppe erhält zusätzlichen Raum basierend auf dem Verhältnis der Flexibilität dieses Elements im Vergleich zur Flexibilität anderer Elemente innerhalb derselben Flex-Gruppe. Wenn der Raum aller flexiblen Kinder innerhalb der Gruppe auf das Maximum erhöht wurde, wiederholt sich der Vorgang für die Kinder innerhalb der nächsten Flex-Gruppe, wobei der übrig gebliebene Raum aus der vorherigen Flex-Gruppe verwendet wird. Sobald keine weiteren Flex-Gruppen mehr vorhanden sind und noch Raum übrig ist, wird der zusätzliche Raum innerhalb des umschließenden Containers entsprechend der {{cssxref("box-pack")}} Eigenschaft aufgeteilt.
+Für flexible Elemente, die Flex-Gruppen zugewiesen sind, ist die erste Flex-Gruppe 1, und höhere Werte geben nachfolgende Flex-Gruppen an. Der Anfangswert ist 1. Beim Aufteilen des überschüssigen Platzes der Box berücksichtigt der Browser zunächst alle Elemente innerhalb der ersten Flex-Gruppe. Jedes Element innerhalb dieser Gruppe erhält zusätzlichen Platz basierend auf dem Verhältnis der Flexibilität dieses Elements im Vergleich zur Flexibilität anderer Elemente innerhalb derselben Flex-Gruppe. Wenn der Platz aller flexiblen Kinder innerhalb der Gruppe auf das Maximum vergrößert wurde, wird der Vorgang für die Kinder innerhalb der nächsten Flex-Gruppe wiederholt, wobei der verbleibende Platz von der vorherigen Flex-Gruppe verwendet wird. Sobald es keine weiteren Flex-Gruppen mehr gibt und immer noch Platz verbleibt, wird der zusätzliche Raum innerhalb der umschließenden Box gemäß der Eigenschaft {{cssxref("box-pack")}} aufgeteilt.
 
-Wenn der Container nach der Berechnung des bevorzugten Raums der Kinder überläuft, wird Raum von den flexiblen Elementen entfernt, ähnlich wie beim Hinzufügen von zusätzlichem Raum. Jede Flex-Gruppe wird der Reihe nach untersucht, und Raum wird gemäß dem Verhältnis der Flexibilität jedes Elements entfernt. Elemente schrumpfen nicht unter ihre Mindestbreiten.
+Wenn die Box nach Berechnung des bevorzugten Platzes der Kinder überlaufen würde, wird der Raum von flexiblen Elementen auf ähnliche Weise entfernt, wie er beim Hinzufügen zusätzlichen Raums eingesetzt wird. Jede Flex-Gruppe wird nacheinander geprüft, und der Raum wird entsprechend dem Flexibilitätsverhältnis jedes Elements entfernt. Elemente schrumpfen nicht unter ihre minimalen Breiten.
 
 ## Syntax
 
@@ -41,9 +42,9 @@ Die `box-flex-group` Eigenschaft wird als jede positive {{CSSxRef("&lt;integer&g
 
 ## Beispiele
 
-### Grundlegendes Anwendungsbeispiel
+### Einfaches Anwendungsbeispiel
 
-Im ursprünglichen Flexbox-Spezifikation konnte `box-flex-group` verwendet werden, um Flex-Kinder verschiedenen Gruppen zuzuweisen, um den flexiblen Raum zu verteilen:
+Im ursprünglichen Flexbox-Standard konnte `box-flex-group` verwendet werden, um Flex-Kinder verschiedenen Gruppen zuzuweisen, um flexiblen Raum zu verteilen:
 
 ```css
 article:nth-child(1) {
@@ -55,7 +56,7 @@ article:nth-child(2) {
 }
 ```
 
-Dies wurde nur in WebKit-basierten Browsern mit einem Präfix unterstützt, und in späteren Versionen der Spezifikation gibt es keine entsprechende Funktionalität. Stattdessen wird die Verteilung des Raums innerhalb des Flex-Containers jetzt mit {{cssxref("flex-basis")}}, {{cssxref("flex-grow")}}, und {{cssxref("flex-shrink")}} gehandhabt.
+Dies wurde nur jemals in WebKit-basierten Browsern mit einem Präfix unterstützt, und in nachfolgenden Versionen der Spezifikation gibt es hierfür kein Äquivalent. Stattdessen wird die Verteilung des Raumes innerhalb des Flex-Containers jetzt mithilfe von {{cssxref("flex-basis")}}, {{cssxref("flex-grow")}} und {{cssxref("flex-shrink")}} behandelt.
 
 ## Spezifikationen
 

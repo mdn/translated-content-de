@@ -1,11 +1,12 @@
 ---
-title: border-right
+title: "`border-right` CSS-Eigenschaft"
+short-title: border-right
 slug: Web/CSS/Reference/Properties/border-right
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-right`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Borders](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-right`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Randes](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-right")}}
 
@@ -47,7 +48,7 @@ border-right: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandeigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -70,7 +71,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Shorthandeigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können ausgelassen werden.
+Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -83,21 +84,21 @@ Die drei Werte der Shorthandeigenschaft können in beliebiger Reihenfolge angege
 
 ## Beschreibung
 
-Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Diejenigen, die nicht spezifiziert werden, werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzform-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Es ist tatsächlich dasselbe wie dieser:
+Er ist tatsächlich derselbe wie dieser:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der vor `border-right` angegebene Wert von {{cssxref("border-right-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Border.
+Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Fehlen der `border-style` Angabe zu keinem Rand.
 
 ## Formale Definition
 
@@ -109,7 +110,7 @@ Der vor `border-right` angegebene Wert von {{cssxref("border-right-style")}} wir
 
 ## Beispiele
 
-### Anwenden eines rechten Borders
+### Anwenden eines rechten Randes
 
 #### HTML
 

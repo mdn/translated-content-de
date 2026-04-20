@@ -1,11 +1,12 @@
 ---
-title: border-left-width
+title: "`border-left-width` CSS property"
+short-title: border-left-width
 slug: Web/CSS/Reference/Properties/border-left-width
 l10n:
-  sourceCommit: 893eb2dfe0ce3e837b3a7512a684b2f02e31d64e
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-left-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des linken Randes eines Elements fest.
+Die **`border-left-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des linken Rands eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-left-width")}}
 
@@ -72,7 +73,7 @@ border-left-width: unset;
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Randes, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Rahmens entweder explizit als nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
     - `thin`
       - Entspricht `1px`.
     - `medium`
@@ -90,7 +91,7 @@ border-left-width: unset;
 
 ## Beispiele
 
-### Vergleich von Randbreiten
+### Vergleich von Rahmenbreiten
 
 #### HTML
 
@@ -129,5 +130,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen verwandten CSS-Eigenschaften für Randbreiten: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen verwandten CSS-Eigenschaften für den linken Rand: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Rahmenbreite beziehen: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die linke Rahmenbreite beziehen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.

@@ -1,11 +1,12 @@
 ---
-title: outline-offset
+title: "`outline-offset` CSS property"
+short-title: outline-offset
 slug: Web/CSS/Reference/Properties/outline-offset
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen einer [Kontur](/de/docs/Web/CSS/Reference/Properties/outline) und dem Rand oder der Grenze eines Elements fest.
+Die **`outline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen einem [Kontur](/de/docs/Web/CSS/Reference/Properties/outline) und dem Rand oder der Grenze eines Elements fest.
 
 {{InteractiveExample("CSS Demo: outline-offset")}}
 
@@ -58,11 +59,11 @@ outline-offset: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Raums zwischen dem Element und seiner Kontur. Ein negativer Wert platziert die Kontur innerhalb des Elements. Ein Wert von `0` platziert die Kontur so, dass kein Raum zwischen ihr und dem Element ist.
+  - : Die Breite des Abstands zwischen dem Element und seiner Kontur. Ein negativer Wert platziert die Kontur innerhalb des Elements. Ein Wert von `0` platziert die Kontur so, dass es keinen Abstand zwischen ihr und dem Element gibt.
 
 ## Beschreibung
 
-Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des Randes. Der Raum zwischen einem Element und seiner Kontur ist transparent. Mit anderen Worten, er ist identisch mit dem Hintergrund des Elternelements.
+Eine Kontur ist eine Linie, die um ein Element gezeichnet wird, außerhalb des Randbereichs. Der Raum zwischen einem Element und seiner Kontur ist transparent. Mit anderen Worten, es ist dasselbe wie der Hintergrund des übergeordneten Elements.
 
 ## Formale Definition
 

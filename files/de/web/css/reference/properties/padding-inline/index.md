@@ -1,11 +1,12 @@
 ---
-title: padding-inline
+title: CSS-Eigenschaft `padding-inline`
+short-title: padding-inline
 slug: Web/CSS/Reference/Properties/padding-inline
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den logischen Inline-Anfangs- und Endabstand eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements auf physikalische Abstands-Eigenschaften abgebildet wird.
+Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den logischen Inline-Anfangs- und End-Abstand eines Elements, welcher je nach Schreibmodus des Elements, der Richtung und der Textausrichtung auf physische Abstands-Eigenschaften abgebildet wird.
 
 {{InteractiveExample("CSS Demo: padding-inline")}}
 
@@ -49,7 +50,7 @@ direction: rtl;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -80,13 +81,13 @@ Die `padding-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werde
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht-negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältlichen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht-negativ sein.
 
 ## Beschreibung
 
-Die durch `padding-inline` festgelegten Abstände können äquivalent zu den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} sein, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die durch `padding-inline` angegebenen Abstands-Werte können den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} entsprechen, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
 ## Formale Definition
 
@@ -98,7 +99,7 @@ Die durch `padding-inline` festgelegten Abstände können äquivalent zu den Eig
 
 ## Beispiele
 
-### Festlegen von Inline-Abstand für vertikalen Text
+### Setzen des Inline-Abstands für vertikalen Text
 
 #### HTML
 
@@ -139,5 +140,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

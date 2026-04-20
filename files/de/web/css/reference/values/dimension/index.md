@@ -1,21 +1,22 @@
 ---
-title: <dimension>
+title: "`<dimension>` CSS-Typ"
+short-title: <dimension>
 slug: Web/CSS/Reference/Values/dimension
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen {{CSSxRef("&lt;number&gt;")}} mit einer Einheit, z. B. `10px`.
+Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine {{CSSxRef("&lt;number&gt;")}} mit einer Einheit, zum Beispiel `10px`.
 
-CSS verwendet Dimensionen, um Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{cssxref("resolution")}}) und andere Größen anzugeben.
+CSS verwendet Maßeinheiten, um Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{cssxref("resolution")}}) und andere Größen zu definieren.
 
 ## Syntax
 
-Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, dem sofort eine Einheit folgt, die ein Bezeichner ist. Einheitsbezeichner sind nicht case-sensitiv.
+Die Syntax von `<dimension>` ist eine {{CSSxRef("&lt;number&gt;")}}, der sofort eine Einheit folgt, die ein Bezeichner ist. Einheitsbezeichner sind nicht case-sensitiv.
 
 ## Beispiele
 
-### Gültige Dimensionen
+### Gültige Maßeinheiten
 
 ```plain example-good
 12px      12 pixels
@@ -27,7 +28,7 @@ Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, de
 200Hz     200 Hertz (values are case insensitive)
 ```
 
-### Ungültige Dimensionen
+### Ungültige Maßeinheiten
 
 ```plain example-bad
 12 px       The unit must come immediately after the number.
@@ -46,5 +47,5 @@ Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, de
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- [HTML mit CSS gestalten lernen](/de/docs/Learn_web_development/Core/Styling_basics)
-- CSS-Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{cssxref("resolution")}})
+- [Lernen, HTML mit CSS zu stylen](/de/docs/Learn_web_development/Core/Styling_basics)
+- CSS-Abstände ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), und Auflösungen ({{cssxref("resolution")}})

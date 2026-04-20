@@ -1,11 +1,12 @@
 ---
-title: initial-letter
+title: "`initial-letter` CSS property"
+short-title: initial-letter
 slug: Web/CSS/Reference/Properties/initial-letter
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`initial-letter`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe und das Einsinken von fallenden, erhöhten und eingesunkenen Anfangsbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}} Pseudoelemente und für erste Inline-Kindelemente von Block-Containern.
+Die **`initial-letter`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe und Absenkung für fallende, erhabene und abgesenkte Initialbuchstaben fest. Diese Eigenschaft gilt für {{cssxref("::first-letter")}} Pseudoelemente und für die auf Block-Container folgenden Inline-Elemente.
 
 ## Syntax
 
@@ -31,14 +32,14 @@ initial-letter: unset;
 
 ### Werte
 
-Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem `<integer>`.
+Der Schlüsselwortwert `normal` oder ein `<number>`, optional gefolgt von einem `<integer>`.
 
 - `normal`
   - : Kein spezieller Initialbuchstaben-Effekt. Text verhält sich normal.
 - `<number>`
-  - : Definiert die Größe des Anfangsbuchstabens, in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
+  - : Definiert die Größe des Initialbuchstabens in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
 - `<integer>`
-  - : Definiert die Anzahl der Zeilen, die der Anfangsbuchstabe einsinken soll, wenn seine Größe angegeben ist. Werte müssen größer als null sein. Wenn weggelassen, wird der Größenwert dupliziert und auf die nächste positive ganze Zahl abgerundet.
+  - : Definiert die Anzahl der Zeilen, die der Initialbuchstabe absinken soll, wenn die Größe angegeben ist. Werte müssen größer als null sein. Wenn weggelassen, dupliziert es den Größenwert, abgerundet auf die nächstliegende positive ganze Zahl.
 
 ## Formale Definition
 
@@ -50,7 +51,7 @@ Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem
 
 ## Beispiele
 
-### Größe des Anfangsbuchstabens einstellen
+### Größe des Initialbuchstabens festlegen
 
 #### HTML
 
@@ -87,9 +88,9 @@ p {
 
 {{EmbedLiveSample('Setting_initial_letter_size', 250, 180)}}
 
-### Einsinkwert einstellen
+### Den Absenkungswert festlegen
 
-In diesem Beispiel haben alle Anfangsbuchstaben die gleiche Größe, jedoch unterschiedliche Einsinkwerte.
+In diesem Beispiel haben alle Initialbuchstaben die gleiche Größe, jedoch unterschiedliche Absenkungswerte.
 
 #### HTML
 
@@ -144,4 +145,4 @@ p {
 
 - {{cssxref("::first-letter")}}
 - {{cssxref(":first-child")}}
-- [Drop caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) via Oddbird (2017)
+- [Drop caps in CSS](https://www.oddbird.net/2017/01/03/initial-letter/) über Oddbird (2017)

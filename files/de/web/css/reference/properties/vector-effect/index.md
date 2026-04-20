@@ -1,11 +1,12 @@
 ---
-title: vector-effect
+title: "`vector-effect` CSS property"
+short-title: vector-effect
 slug: Web/CSS/Reference/Properties/vector-effect
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`vector-effect`** [CSS](/de/docs/Web/CSS)-Eigenschaft unterdrückt bestimmte [Transformationseffekte](/de/docs/Web/SVG/Reference/Attribute/transform) in SVG und ermöglicht so Effekte wie eine Straße auf einer Karte, die unabhängig vom Zoom derselben Breite bleibt, oder ein Diagrammschlüssel, der seine Position und Größe unabhängig von anderen Transformationen beibehält. Sie kann nur mit SVG-Elementen verwendet werden, die das Attribut {{SVGAttr("vector-effect")}} akzeptieren. Bei Verwendung überschreibt der CSS-Wert alle Werte des `vector-effect`-Attributs des Elements.
+Die **`vector-effect`** [CSS](/de/docs/Web/CSS)-Eigenschaft unterdrückt bestimmte [Transformationseffekte](/de/docs/Web/SVG/Reference/Attribute/transform) in SVG und ermöglicht so Effekte wie z.B., dass eine Straße auf einer Karte die gleiche Breite beibehält, egal wie stark die Karte gezoomt wird, oder dass ein Diagrammschlüssel seine Position und Größe unabhängig von anderen Transformationen beibehält. Es kann nur mit SVG-Elementen verwendet werden, die das {{SVGAttr("vector-effect")}}-Attribut akzeptieren. Wenn es verwendet wird, überschreibt der CSS-Wert alle Werte des `vector-effect`-Attributs des Elements.
 
 ## Syntax
 
@@ -25,12 +26,12 @@ vector-effect: unset;
 ### Werte
 
 - `none`
-  - : Es werden keine Vektoreffekte auf das Element angewendet, was bedeutet, dass es vollständig von Transformationen wie üblich beeinflusst wird.
+  - : Es werden keine Vektoreffekte auf das Element angewendet, was bedeutet, dass es vollständig durch Transformationen wie gewohnt beeinflusst wird.
 - `non-scaling-stroke`
-  - : Die gezeichnete Strichbreite des Elements entspricht physisch ihrer definierten Strichbreite, selbst wenn das Element aufgrund von Transformationen entweder seiner selbst oder seines Koordinatensystems vergrößert oder verkleinert wurde. Dies gilt sowohl für Skalierungen durch Transformationen als auch für physische Größenänderungen des gesamten Bildes.
+  - : Die gezeichnete Strichbreite des Elements wird physisch gleich groß sein wie die definierte Strichbreite, auch wenn das Element aufgrund von Transformationen entweder für sich selbst oder für sein Koordinatensystem skaliert wurde. Dies ist der Fall, ob das Element mit Transformationen oder durch physikalisches Vergrößern des gesamten Bildes skaliert wird.
 
 > [!NOTE]
-> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation` und `fixed-position`, diese sind jedoch nicht implementiert und gelten als risikobehaftet.
+> Die Spezifikation definiert drei weitere Werte, `non-scaling-size`, `non-rotation` und `fixed-position`, aber diese haben keine Implementierungen und gelten als gefährdet.
 
 ## Formale Syntax
 
@@ -40,7 +41,7 @@ vector-effect: unset;
 
 ### Verhindern der SVG-Strichskalierung mit CSS
 
-Hier starten wir mit einer 200x100 SVG-Graphik, die zwei Rechtecke innerhalb einer Gruppe enthält. Die Gruppe wird vergrößert und rotiert. Das zweite der beiden Rechtecke hat die Klasse `thinned`.
+Hier beginnen wir mit einem 200x100 SVG-Bild, das zwei Rechtecke in einer Gruppe enthält. Die Gruppe wird vergrößert und gedreht. Das zweite der beiden Rechtecke hat eine Klasse namens `thinned`.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
@@ -56,7 +57,7 @@ Hier starten wir mit einer 200x100 SVG-Graphik, die zwei Rechtecke innerhalb ein
 </svg>
 ```
 
-Auf dieses SVG-Bild wenden wir `width: 500px` an, um es größer als seine intrinsische Größe zu machen, und setzen das klassifizierte {{SVGElement("rect")}}, damit die Striche nicht skaliert werden.
+Auf dieses SVG-Bild wenden wir `width: 500px` an, um es größer als seine intrinsische Größe zu machen, und setzen das klassifizierte {{SVGElement("rect")}} so, dass seine Striche nicht skaliert werden.
 
 ```css
 svg {
@@ -67,13 +68,13 @@ svg rect.thinned {
 }
 ```
 
-Das Ergebnis ist, dass das erste der beiden Rechtecke eine scheinbare (visuelle) Strichbreite von ungefähr 17 hat, während das zweite Rechteck trotz derselben Skalierung eine scheinbare Strichbreite von 3 hat.
+Das Ergebnis ist, dass das erste der beiden Rechtecke eine scheinbare (visuelle) Strichbreite von ungefähr 17 hat, während das zweite Rechteck trotz derselben Vergrößerung wie das erste Rechteck immer noch eine scheinbare Strichbreite von 3 hat.
 
 {{EmbedLiveSample("Preventing SVG stroke scaling with CSS", "500", "250")}}
 
-### Überschreiben von SVG-Strichskalierungswerten mit CSS
+### Überschreiben der SVG-Strichskalierungswerte mit CSS
 
-In diesem Fall beginnen wir mit einem ähnlichen SVG-Bild wie im vorherigen Beispiel. Hier wird das {{SVGElement("g")}}-Element wie zuvor gedreht, aber es wird keine Skalierung darauf angewendet. Die `<rect>`-Elemente haben einen gemeinsamen Transformationsursprung und ihre `vector-effect`-SVG-Attribute sind auf einen Wert von `none` gesetzt.
+In diesem Fall beginnen wir mit einem ähnlichen SVG-Bild wie im vorherigen Beispiel. Hier wird das {{SVGElement("g")}}-Element wie zuvor gedreht, jedoch keine Skalierung darauf angewendet. Die `<rect>`-Elemente haben einen gemeinsamen Ursprung für ihre Transformationen und haben ihre `vector-effect`-SVG-Attribute auf einen Wert von `none` gesetzt.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
@@ -102,7 +103,7 @@ In diesem Fall beginnen wir mit einem ähnlichen SVG-Bild wie im vorherigen Beis
 </svg>
 ```
 
-Wie zuvor wird das SVG mit CSS größer als seine intrinsische Größe gemacht. Dieses Mal wird die Skalierung direkt auf die `<rect>`-Elemente angewendet, und das zweite Rechteck wird so eingestellt, dass seine Striche nicht skaliert werden.
+Wie zuvor wird das SVG mit CSS größer als seine intrinsische Größe gemacht. Diesmal wird die Skalierung direkt auf die `<rect>`-Elemente angewendet, und das zweite Rechteck wird so eingestellt, dass seine Striche nicht skaliert werden.
 
 ```css
 svg {
@@ -116,7 +117,7 @@ svg rect.thinned {
 }
 ```
 
-Das Ergebnis ist visuell identisch mit dem des vorherigen Beispiels. Was wir sehen können, ist, dass der Attributwert `none` vom CSS-Wert `non-scaling-stroke` überschrieben wird, und dass die Vektoreffekte beachtet werden, obwohl die Skalierung direkt auf den `<rect>` anstelle des Elternelements `<g>` angewendet wurde.
+Das Ergebnis ist visuell identisch mit dem des vorherigen Beispiels. Was wir sehen können, ist, dass der Attributwert von `none` durch den CSS-Wert `non-scaling-stroke` überschrieben wird und dass die Vektoreffekte berücksichtigt werden, obwohl die Skalierung direkt am `<rect>` und nicht am übergeordneten `<g>`-Element vorgenommen wurde.
 
 {{EmbedLiveSample("Overriding SVG stroke scaling values with CSS", "500", "250")}}
 

@@ -1,11 +1,12 @@
 ---
-title: text-emphasis-style
+title: "`text-emphasis-style` CSS property"
+short-title: text-emphasis-style
 slug: Web/CSS/Reference/Properties/text-emphasis-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-emphasis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild von Betonungszeichen fest. Sie kann auch mit der {{cssxref("text-emphasis")}} Kurzschreibweise gesetzt und zurückgesetzt werden.
+Die **`text-emphasis-style`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt das Aussehen von Betonungsmarkierungen fest. Sie kann auch mit dem {{cssxref("text-emphasis")}}-Shorthand gesetzt und zurückgesetzt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-style")}}
 
@@ -73,23 +74,23 @@ text-emphasis-style: unset;
 ### Werte
 
 - `none`
-  - : Keine Betonungszeichen.
+  - : Keine Betonungsmarkierungen.
 - `filled`
-  - : Die Form ist mit einer Volltonfarbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standard.
+  - : Die Form ist mit einer soliden Farbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standard.
 - `open`
   - : Die Form ist hohl.
 - `dot`
-  - : Zeigt kleine Kreise als Zeichen an. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
+  - : Zeigt kleine Kreise als Markierungen. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
 - `circle`
-  - : Zeigt große Kreise als Zeichen an. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`).
+  - : Zeigt große Kreise als Markierungen. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`).
 - `double-circle`
-  - : Zeigt Doppelkreise als Zeichen an. Der gefüllte Doppelkraus ist `'◉'` (`U+25C9`), und der offene Doppelkraus ist `'◎'` (`U+25CE`).
+  - : Zeigt doppelte Kreise als Markierungen. Der gefüllte Doppelkegel ist `'◉'` (`U+25C9`), und der offene Doppelkegel ist `'◎'` (`U+25CE`).
 - `triangle`
-  - : Zeigt Dreiecke als Zeichen an. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
+  - : Zeigt Dreiecke als Markierungen. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
 - `sesame`
-  - : Zeigt Sesamzeichen an. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`).
+  - : Zeigt Sesamkörner als Markierungen. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`).
 - `<string>`
-  - : Zeigt den angegebenen String als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der UA kann Strings, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
+  - : Zeigt die angegebene Zeichenkette als Markierungen. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der UA kann Zeichenfolgen, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
 
 ## Formale Definition
 
@@ -120,5 +121,5 @@ h2 {
 
 ## Siehe auch
 
-- Die verwandten Eigenschaften {{cssxref('text-emphasis-color')}}, {{cssxref('text-emphasis')}}.
-- Die {{cssxref('text-emphasis-position')}} Eigenschaft, die es erlaubt, die Position der Betonungszeichen zu definieren.
+- Die zugehörigen Eigenschaften {{cssxref('text-emphasis-color')}}, {{cssxref('text-emphasis')}}.
+- Die Eigenschaft {{cssxref('text-emphasis-position')}}, die es ermöglicht, die Position der Betonungsmarkierungen festzulegen.

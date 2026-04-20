@@ -1,19 +1,20 @@
 ---
-title: stroke-miterlimit
+title: "`stroke-miterlimit` CSS property"
+short-title: stroke-miterlimit
 slug: Web/CSS/Reference/Properties/stroke-miterlimit
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`stroke-miterlimit`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert eine Begrenzung des Verhältnisses von der Länge der Fase zur {{CSSxref("stroke-width")}}, wenn die Form, die an den Ecken eines [SVG](/de/docs/Web/SVG)-Elements für den Pfadstrich verwendet wird, ein Fasenverbinder ist. Wird das durch diese Eigenschaft definierte Limit überschritten, wird der Verbinder von `miter` zu `bevel` geändert, wodurch die Ecke abgeschnitten erscheint.
+Die **`stroke-miterlimit`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert eine Begrenzung für das Verhältnis der Miterlänge zur {{CSSxref("stroke-width") }}, wenn die Form, die an den Ecken eines gestrichelten Pfades eines [SVG](/de/docs/Web/SVG)-Elements verwendet werden soll, ein Gehrungsanschluss (mitered join) ist. Wenn die durch diese Eigenschaft definierte Grenze überschritten wird, wird der Anschluss von `miter` zu `bevel` konvertiert, sodass die Ecke abgeschnitten erscheint.
 
-Diese Eigenschaft gilt für jede SVG-Eckenerzeugende Form oder Textinhalts-Element (siehe {{SVGAttr("stroke-miterlimit")}} für eine vollständige Liste), kann aber als geerbte Eigenschaft auch auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch die beabsichtigte Wirkung auf die Striche der Nachkommenelemente. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-miterlimit")}} Attribut des Elements.
+Diese Eigenschaft gilt für jede SVG-Eckenerzeugende Form oder Textinhaltselement (siehe {{SVGAttr("stroke-miterlimit")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem die beabsichtigte Wirkung auf die Striche der Nachkommenelemente haben. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-miterlimit")}}-Attribut des Elements.
 
 ## Beschreibung
 
-Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbinder für {{ CSSxref("stroke-linejoin") }} angegeben sind oder den Standardwert annehmen, ist es möglich, dass die Fase weit über die Dicke der Linie hinaus reicht, die den Pfad überstreicht. Das Verhältnis `stroke-miterlimit` wird verwendet, um eine Grenze zu definieren, über die der Verbinder von einer Fase zu einer Schräge geändert wird.
+Wenn zwei Liniensegmente in einem scharfen Winkel und `miter`-Verbindungen für {{ CSSxref("stroke-linejoin") }} angegeben wurden oder wenn sie standardmäßig auf diesen Wert eingestellt sind, kann es passieren, dass sich das Gehrungsstück weit über die Dicke der den Pfad überstreichenden Linie hinaus erstreckt. Das `stroke-miterlimit`-Verhältnis wird verwendet, um eine Grenze zu definieren, über die hinaus der Anschluss von einer Gehrung zu einer Fase konvertiert wird.
 
-Das Verhältnis der Fasenlänge (die Entfernung zwischen der äußeren Spitze und der inneren Ecke der Fase) zur {{ CSSxref("stroke-width") }} steht in direktem Bezug zum Winkel (theta) zwischen den Segmenten im Benutzerraum durch die Formel:
+Das Verhältnis der Miterlänge (der Abstand zwischen der äußeren Spitze und der inneren Ecke des Gehrungsstücks) zur {{ CSSxref("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzeraum durch die Formel:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -21,7 +22,7 @@ Das Verhältnis der Fasenlänge (die Entfernung zwischen der äußeren Spitze un
 </math>
 <!-- prettier-ignore-end -->
 
-Zum Beispiel konvertiert ein Fasengrenzwert von `1.414` Fasen zu Schräge bei einem Theta-Wert von weniger als 90 Grad, ein Grenzwert von `4.0` konvertiert sie bei einem Theta von weniger als etwa 29 Grad, und ein Grenzwert von `10.0` konvertiert sie bei einem Theta von weniger als etwa 11,5 Grad.
+Zum Beispiel wandelt ein Gehrungslimit von `1.414` die Gehrung zu Fasen für einen Theta-Wert von weniger als 90 Grad um, ein Limit von `4.0` konvertiert sie für einen Theta von weniger als etwa 29 Grad, und ein Limit von `10.0` konvertiert sie für einen Theta von weniger als etwa 11,5 Grad.
 
 ## Syntax
 
@@ -41,7 +42,7 @@ stroke-miterlimit: unset;
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Jede reale positive Zahl, die gleich oder größer als `1` ist; Werte unterhalb davon sind ungültig. Der Anfangswert ist `4`.
+  - : Jede reale positive Zahl, die gleich oder größer als `1` ist; Werte darunter sind ungültig. Der Standardwert ist `4`.
 
 ## Formale Definition
 
@@ -53,13 +54,13 @@ stroke-miterlimit: unset;
 
 ## Beispiele
 
-### Verschiedene Fasenbegrenzungen
+### Verschiedene Gehrungsgrenzen
 
-Dieses Beispiel demonstriert die Wirkung verschiedener Werte der Eigenschaft `stroke-miterlimit`.
+Dieses Beispiel demonstriert die Wirkung verschiedener Werte für die Eigenschaft `stroke-miterlimit`.
 
 #### HTML
 
-Wir erstellen fünf Pfade mit mehreren Segmenten, die alle einen schwarzen Strich mit einer Breite von eins und keine Füllung haben. Jeder Pfad erzeugt eine Reihe von Bergsymbolen, die von links (einem flachen Eckwinkel) nach rechts (einem extremen Eckwinkel) verlaufen.
+Wir richten fünf mehrsegmentige Pfade ein, die alle einen schwarzen Strich mit einer Breite von eins und keine Füllung verwenden. Jeder Pfad erstellt eine Reihe von Bergsymbolen, die von links (ein flacher Eckwinkel) nach rechts (ein extremer Eckwinkel) gehen.
 
 ```html
 <svg viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +85,7 @@ Wir erstellen fünf Pfade mit mehreren Segmenten, die alle einen schwarzen Stric
 
 #### CSS
 
-Wir wenden zunehmend größere Werte von `stroke-miterlimit` auf die Pfade an, sodass beim ersten Pfad nur der erste (ganz linke) Unterpfad gefast wird; beim zweiten Pfad die ersten zwei Unterpfade gefast werden; und so weiter, bis beim fünften Pfad alle fünf Unterpfade gefast werden.
+Wir wenden zunehmend größere Werte von `stroke-miterlimit` auf die Pfade an, sodass beim ersten Pfad nur der erste (linkeste) Unterpfad gegehrt ist; beim zweiten Pfad sind die ersten beiden Unterpfade gegehrt; und so weiter, bis beim fünften Pfad alle fünf Unterpfade gegehrt sind.
 
 ```css
 path:nth-child(1) {

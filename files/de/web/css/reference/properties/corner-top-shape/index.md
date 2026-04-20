@@ -1,19 +1,20 @@
 ---
-title: corner-top-shape
+title: "`corner-top-shape` CSS property"
+short-title: corner-top-shape
 slug: Web/CSS/Reference/Properties/corner-top-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der oberen Kante eines Kastens, innerhalb ihres {{cssxref("border-radius")}} Bereichs.
+Die **`corner-top-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der oberen Kante eines Rahmens innerhalb ihres {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens der Eckformen und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}} Kurzform-Eigenschaft.
+Für eine vollständige Beschreibung des Verhaltens der Eckformen und mehrere Beispiele, siehe die {{cssxref("corner-shape")}} Kurzschreibweise-Seite.
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Die `corner-top-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
+Die `corner-top-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
 - {{cssxref("corner-top-left-shape")}}
 - {{cssxref("corner-top-right-shape")}}
@@ -43,10 +44,10 @@ corner-top-shape: unset;
 
 ### Werte
 
-Die `corner-top-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die `corner-top-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten spezifiziert:
 
-- Wenn **ein Wert** verwendet wird, wird die Form beider **oberen Ecken** festgelegt.
-- Wenn **zwei Werte** verwendet werden, legt der erste die Form der **oberen linken** Ecke fest, und der zweite die Form der **oberen rechten** Ecke.
+- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider oberer Ecken**.
+- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **oberen linken** Ecke, und der zweite die Form der **oberen rechten** Ecke.
 
 ## Formale Definition
 
@@ -72,7 +73,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Übersichtlichkeit halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-top-shape` von `scoop notch` an.
+Wir geben dem Rahmen einige grundlegende Stile, die wir aus Gründen der Kürze verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixel und eine `corner-top-shape` von `scoop notch` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -106,7 +107,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht wie folgt aus:
+Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -120,10 +121,10 @@ Das gerenderte Ergebnis sieht wie folgt aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise-Eigenschaft
 - {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}}, und {{cssxref("corner-right-shape")}}
 - {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise-Eigenschaft
 - {{cssxref("border-top-left-radius")}} und {{cssxref("border-top-right-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS-Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

@@ -1,15 +1,16 @@
 ---
-title: stroke-opacity
+title: "`stroke-opacity` CSS property"
+short-title: stroke-opacity
 slug: Web/CSS/Reference/Properties/stroke-opacity
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Deckkraft eines [SVG](/de/docs/Web/SVG)-Form-Umrisses. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, außer dass er nur auf den Umriss angewendet wird und nicht auf das gesamte Element. Falls vorhanden, überschreibt er das {{SVGAttr("stroke-opacity")}}-Attribut des Elements.
+Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Deckkraft des Strichs einer [SVG](/de/docs/Web/SVG)-Form. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, außer dass er nur auf den Strich und nicht auf das gesamte Element angewendet wird. Wenn vorhanden, überschreibt er das {{SVGAttr("stroke-opacity")}}-Attribut des Elements.
 
-Diese Eigenschaft gilt für SVG-Formen und Textinhaltelemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem die beabsichtigte Wirkung auf die Umrisse der Nachfahren-Elemente haben.
+Diese Eigenschaft gilt für SVG-Formen und Textinhaltelemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche von Nachfahrenelementen haben.
 
-Beachten Sie, dass der Umriss einer Form teilweise die Füllung dieser Form überdeckt. Ein Umriss mit einer Deckkraft von weniger als `1` zeigt die Füllung, die mit dem Umriss dort vermischt ist, wo sie sich überlappen. Um diesen Effekt zu vermeiden, ist es möglich, eine globale Deckkraft mit der {{cssxref('opacity')}}-Eigenschaft anzuwenden oder den Umriss hinter die Füllung mit dem {{cssxref('paint-order')}}-Attribut zu legen.
+Beachten Sie, dass der Strich einer Form teilweise die Füllung dieser Form überdeckt, sodass ein Strich mit einer Deckkraft von weniger als `1` die Füllung mit dem Strich dort mischen wird, wo sie sich überlappen. Um diesen Effekt zu vermeiden, kann eine globale Deckkraft mit der {{cssxref('opacity')}}-Eigenschaft angewendet oder der Strich hinter die Füllung mit dem {{cssxref('paint-order')}}-Attribut gesetzt werden.
 
 ## Syntax
 
@@ -30,10 +31,10 @@ stroke-opacity: unset;
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Umriss vollständig transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs 0 – 1 werden auf das nächste Ende dieses Bereichs abgeschnitten; negative Werte werden also auf `0` abgeschnitten.
+  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Strich vollständig transparent, und ein Wert von `1` macht ihn vollständig opak. Werte außerhalb des Bereichs 0 – 1 werden auf das nächste Ende dieses Bereichs begrenzt; negative Werte werden somit auf `0` gekappt.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Das gleiche wie `<number>` (siehe oben), außer der zulässige Bereich ist 0% bis 100%, und das Abschnitten erfolgt in Bezug auf diesen Bereich.
+  - : Dasselbe wie `<number>` (siehe oben), außer dass der zulässige Bereich 0 % bis 100 % beträgt und das Kappen in Bezug auf diesen Bereich erfolgt.
 
 ## Formale Definition
 
@@ -45,13 +46,13 @@ stroke-opacity: unset;
 
 ## Beispiele
 
-### Verschiedene Umriss-Deckkräfte
+### Verschiedene Strichdeckkraftstufen
 
-Dieses Beispiel zeigt die grundlegende Verwendung der `stroke-opacity`-Eigenschaft und wie ein Umriss, dessen Deckkraft weniger als `1` beträgt, mit der Füllung dort vermischt, wo sie sich überlappen.
+Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-opacity`-Eigenschaft und wie, da der Strich einer Form teilweise ihre Füllung überdeckt, ein Strich mit einer Deckkraft von weniger als `1` mit der Füllung dort mischen wird, wo sie sich überlappen.
 
 #### HTML
 
-Zuerst richten wir fünf Pfade mit mehreren Segmenten ein, die alle einen schwarzen Umriss mit einer Breite von einem und eine `dodgerblue`-Füllung für die Unterpfade verwenden. Jeder Pfad erstellt eine Reihe von Bergsymbolen, die von links (ein flacher Eckwinkel) nach rechts (ein extremer Eckwinkel) verlaufen.
+Zuerst richten wir fünf mehrsegmentige Pfade ein, die alle einen schwarzen Strich mit einer Breite von eins und eine `dodgerblue`-Füllung für die Unterpfade verwenden. Jeder Pfad erstellt eine Reihe von Bergsymbolen, die von links (einem flachen Eckwinkel) nach rechts (einem extremen Eckwinkel) verlaufen.
 
 ```html
 <svg viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +77,7 @@ Zuerst richten wir fünf Pfade mit mehreren Segmenten ein, die alle einen schwar
 
 #### CSS
 
-Für diese Pfade wenden wir nacheinander einen höheren Umriss-Deckkraftwert an. Bei den ersten vier Pfaden ist die Füllung durch die innere Hälfte des Umrisswegs zu sehen, obwohl es beim vierten Pfad schwer zu erkennen sein kann. Beim fünften und letzten Pfad ist der Umriss vollständig undurchsichtig, sodass die Füllung nicht durch den Umriss gesehen werden kann.
+Auf diese Pfade wenden wir nacheinander höhere Strichdeckkraftwerte an. Bei den ersten vier Pfaden ist die Füllung durch die innere Hälfte des Strichpfads sichtbar, obwohl es beim vierten Pfad schwierig sein könnte zu erkennen. Beim fünften und letzten Pfad ist der Strich vollständig undurchsichtig, sodass die Füllung nicht durch den Strich sichtbar ist.
 
 ```css
 g path:nth-child(1) {

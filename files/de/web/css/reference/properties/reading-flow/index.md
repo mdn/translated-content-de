@@ -1,13 +1,14 @@
 ---
-title: reading-flow
+title: "`reading-flow` CSS property"
+short-title: reading-flow
 slug: Web/CSS/Reference/Properties/reading-flow
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`reading-flow`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, die {{Glossary("reading_order", "Lesereihenfolge")}} von Kindelementen eines {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Layouts zu ändern. Dies beeinflusst die Reihenfolge, in der sie beim Vorlesen und in der sequentiellen Navigation, wie dem Tabben zu Links oder Schaltflächen, angesprochen werden.
+Die **`reading-flow`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht das Ändern der {{Glossary("reading_order", "Lesereihenfolge")}} von Kinderelementen in einem {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Layout. Dies beeinflusst die Reihenfolge, in der sie für Sprachausgaben gerendert und bei sequentieller Navigation, z.B. beim Tabben zu Links oder Buttons, angesteuert werden.
 
 ## Syntax
 
@@ -31,42 +32,42 @@ reading-flow: unset;
 
 ### Wert
 
-Die `reading-flow`-Eigenschaft nimmt eines der folgenden Schlüsselwörter als Wert:
+Die `reading-flow`-Eigenschaft nimmt einen der folgenden Schlüsselwörter als Wert an:
 
 - `normal`
   - : Der Standardwert. Die Lesereihenfolge folgt der Reihenfolge der Elemente im DOM.
 
 - `flex-visual`
-  - : Betrifft nur {{Glossary("Flex_Container", "Flex-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der `flex`-Elemente, wobei der {{cssxref("writing-mode")}} berücksichtigt wird. Ein Dokument in Englisch mit `flex-direction: row-reverse` und gesetztem `reading-flow: flex-visual` hätte daher eine Lesereihenfolge von links nach rechts.
+  - : Beeinflusst nur {{Glossary("Flex_Container", "Flex-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der `flex`-Elemente unter Berücksichtigung des {{cssxref("writing-mode")}}. Ein Dokument in Englisch mit `flex-direction: row-reverse` und gesetztem `reading-flow: flex-visual` hätte daher eine Lesereihenfolge von links nach rechts.
 
 - `flex-flow`
-  - : Betrifft nur Flex-Container. Die Lesereihenfolge folgt der {{cssxref("flex-flow")}}-Richtung.
+  - : Beeinflusst nur Flex-Container. Die Lesereihenfolge folgt der Richtung von {{cssxref("flex-flow")}}.
 
 - `grid-columns`
-  - : Betrifft nur {{Glossary("Grid_Container", "Grid-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, spaltenweise, wobei der Schreibmodus berücksichtigt wird.
+  - : Beeinflusst nur {{Glossary("Grid_Container", "Grid-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, spaltenweise, unter Berücksichtigung des Schreibmodus.
 
 - `grid-rows`
-  - : Betrifft nur Grid-Container. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, zeilenweise, wobei der Schreibmodus berücksichtigt wird.
+  - : Beeinflusst nur Grid-Container. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, zeilenweise, unter Berücksichtigung des Schreibmodus.
 
 - `grid-order`
-  - : Betrifft nur Grid-Container. Wenn die {{cssxref("order")}}-Eigenschaft auf eines der Kinder des Containers angewendet wird, folgt die Lesereihenfolge der modifizierten Elementreihenfolge. Wenn die `order`-Eigenschaft nicht auf die Grid-Elemente angewendet wird, verhält sich `grid-order` wie `normal`.
+  - : Beeinflusst nur Grid-Container. Falls die Eigenschaft {{cssxref("order")}} auf eines der Kinder des Containers angewendet wurde, folgt die Lesereihenfolge der geänderten Reihenfolge der Elemente. Wenn die `order`-Eigenschaft nicht auf die Grid-Elemente angewendet wurde, verhält sich `grid-order` wie `normal`.
 
 - `source-order`
-  - : Betrifft Grid-, Flex- und Block-Container. Hat keinen Effekt von sich aus — die Lesereihenfolge des Containers folgt weiterhin der Reihenfolge der Elemente im DOM — ermöglicht aber die Modifikation der Lesereihenfolge durch Setzen der {{cssxref("reading-order")}}-Eigenschaft auf die Kinder des Containers.
+  - : Beeinflusst Grid-, Flex- und Block-Container. Hat für sich genommen keine Wirkung — die Lesereihenfolge des Containers folgt weiterhin der Reihenfolge der Elemente im DOM —, ermöglicht es jedoch, die Lesereihenfolge durch Setzen der Eigenschaft {{cssxref("reading-order")}} auf die Kinder des Containers zu ändern.
 
 ## Beschreibung
 
-Die `reading-flow`-Eigenschaft verändert die {{Glossary("reading_order", "Lesereihenfolge")}} von Elementen innerhalb eines {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containers, wenn sie auf einen anderen Wert als `normal` gesetzt wird. Solch ein Container wird als {{Glossary("Reading_order#reading_flow_container", "Lesefluss-Container")}} bezeichnet.
+Die `reading-flow`-Eigenschaft ändert die {{Glossary("reading_order", "Lesereihenfolge")}} von Elementen innerhalb eines {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containers, wenn sie auf einen anderen Wert als `normal` gesetzt ist. Ein solcher Container wird als {{Glossary("Reading_order#reading_flow_container", "Reading Flow Container")}} bezeichnet.
 
-Standardmäßig wird Web-Inhalt in der DOM-Quellenreihenfolge vorgelesen. Im Allgemeinen sollte die Quellenreihenfolge eine sinnvolle Lesereihenfolge für den Inhalt ausdrücken, und dies sollte auch in der visuellen Ordnung im Inhaltslayout widergespiegelt werden. Manchmal jedoch unterscheidet sich die visuelle Ordnung oder Tab-Reihenfolge von der Quellenreihenfolge. Zum Beispiel, wenn mehrere Flexbox- oder Grid-Layouts über [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) auf ein Dokument angewendet werden, um unterschiedliche Geräte- oder Benutzeranforderungen zu erfüllen, kann sich die Inhaltsreihenfolge basierend auf der Ansichtsfensterbreite unterscheiden. In einem solchen Fall kann `reading-flow` verwendet werden, um sicherzustellen, dass die Lese- und Tab-Reihenfolge die visuelle Ordnung widerspiegelt.
+Standardmäßig wird Webinhalt in der DOM-Quellenreihenfolge vorgelesen. Im Allgemeinen sollte die Quellenreihenfolge eine sinnvolle Lesereihenfolge für den Inhalt ausdrücken, und dies sollte auch durch die visuelle Reihenfolge im Inhaltslayout widergespiegelt werden. Manchmal unterscheidet sich jedoch die visuelle Ordnung oder Tab-Reihenfolge von der Quellenreihenfolge. Zum Beispiel, wenn beim Anwenden mehrerer Flexbox- oder Grid-Layouts auf ein Dokument mittels [media queries](/de/docs/Web/CSS/Guides/Media_queries/Using) zur Anpassung an unterschiedliche Geräte- oder Benutzeranforderungen die Reihenfolge des Inhalts je nach Ansichtsfeldbreite abweichen kann. In einem solchen Fall kann `reading-flow` verwendet werden, um sicherzustellen, dass die Lese- und Tab-Reihenfolge der visuellen Reihenfolge entspricht.
 
-In einigen Fällen möchten Sie möglicherweise die Lesereihenfolge innerhalb eines Lesefluss-Containers weiter verfeinern. Sie können die {{cssxref("reading-order")}}-Eigenschaftswerte auf die Kinder des Containers anwenden, um sie in ordinale Gruppen zu unterteilen, die dann in numerischer Reihenfolge vorgelesen werden.
+In einigen Fällen möchten Sie möglicherweise die Lesereihenfolge innerhalb eines Reading Flow Containers weiter optimieren. Sie können Werte der Eigenschaft {{cssxref("reading-order")}} auf die Kinder des Containers anwenden, um sie in ordinale Gruppen zu setzen, die dann in numerischer Reihenfolge vorgelesen werden.
 
 ### Interaktion mit `tabindex`
 
-Wenn ein Satz von nicht standardmäßig fokussierbaren Elementen innerhalb eines Lesefluss-Containers mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) fokussierbar gemacht wird, wird ihre Lesereihenfolge erwartungsgemäß durch die `reading-flow`- und `reading-order`-Eigenschaften geändert, genau wie bei interaktiven Elementen wie {{htmlelement("a")}} oder {{htmlelement("button")}}.
+Wenn eine Gruppe von Kindern eines Reading Flow Containers, die normalerweise nicht fokussierbar sind, durch [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) fokussierbar gemacht werden, wird ihre Lesereihenfolge wie erwartet durch die Eigenschaften `reading-flow` und `reading-order` geändert, genauso wie dies bei interaktiven Elementen wie {{htmlelement("a")}} oder {{htmlelement("button")}} der Fall ist.
 
-Jeder Versuch, die Tab-Reihenfolge des Inhalts eines Lesefluss-Containers mittels positiver `tabindex`-Werte zu ändern, wird jedoch ignoriert — sie wird von den Effekten von `reading-flow` und `reading-order` überschrieben. Solche Änderungen sollten ohnehin vermieden werden; siehe [Don't Use Tabindex Greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html). Die `reading-flow`- und `reading-order`-Eigenschaften bieten eine viel bessere Möglichkeit, die Tab-Reihenfolge bei Bedarf zu ändern.
+Jedoch wird jeder Versuch, die Tab-Reihenfolge des Inhalts eines Reading Flow Containers mit positiven `tabindex`-Werten zu ändern, ignoriert — überschrieben durch die Effekte von `reading-flow` und `reading-order`. Diese sollten generell vermieden werden; siehe [Don't Use Tabindex Greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html). Die Eigenschaften `reading-flow` und `reading-order` bieten eine viel bessere Möglichkeit, die Tab-Reihenfolge zu ändern, falls erforderlich.
 
 ## Formale Definition
 
@@ -76,11 +77,11 @@ Jeder Versuch, die Tab-Reihenfolge des Inhalts eines Lesefluss-Containers mittel
 
 ### Flex-Wertvergleich
 
-In diesem Beispiel demonstrieren wir die Auswirkungen unterschiedlicher `reading-flow`-Werte auf einen Flex-Container mit umgekehrten Flex-Elementen.
+In diesem Beispiel demonstrieren wir die Auswirkungen verschiedener `reading-flow`-Werte auf einen Flex-Container mit umgekehrten Flex-Elementen.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("select")}}-Element zum Auswählen unterschiedlicher `reading-flow`-Werte und einen Wrapper-{{htmlelement("div")}}, der drei {{htmlelement("a")}}-Elemente enthält.
+Das Markup enthält ein {{htmlelement("select")}}-Element zur Auswahl verschiedener `reading-flow`-Werte und einen Wrapper-{{htmlelement("div")}}, der drei {{htmlelement("a")}}-Elemente enthält.
 
 ```html
 <form>
@@ -100,9 +101,9 @@ Das Markup enthält ein {{htmlelement("select")}}-Element zum Auswählen untersc
 
 #### CSS
 
-Wir verwenden einen {{cssxref("display")}}-Wert von `flex`, um das `<div>` in einen Flex-Container zu verwandeln, und zeigen die Flex-Elemente in einer Zeile in umgekehrter DOM-Reihenfolge mit einem {{cssxref("flex-direction")}}-Wert von `row-reverse`. Anfangs setzen wir einen `reading-flow` von `normal`, damit die Elemente in der DOM-Quellenreihenfolge gelesen oder durch Tabben angesprochen werden.
+Wir verwenden einen {{cssxref("display")}}-Wert von `flex`, um das `<div>` in einen Flex-Container zu verwandeln, und zeigen die Flex-Elemente in einer Zeile in umgekehrter DOM-Reihenfolge mit einem {{cssxref("flex-direction")}}-Wert von `row-reverse` an. Zunächst setzen wir ein `reading-flow` von `normal`, damit die Elemente in der DOM-Quellenreihenfolge gelesen oder durchgetabt werden.
 
-Wir setzen auch einen {{cssxref("order")}}-Wert von `1` auf das erste `<a>`-Element, damit es nach dem zweiten und dritten Element im Flexfluss angezeigt wird. Die resultierende visuelle Anordnung der Flex-Elemente von links nach rechts lautet "Element 1", "Element 3" und dann "Element 2", aber die DOM-Reihenfolge bleibt unverändert.
+Wir setzen auch einen {{cssxref("order")}}-Wert von `1` auf das erste `<a>`-Element, damit es nach dem zweiten und dritten Element im Flex-Flow angezeigt wird. Die resultierende visuelle Reihenfolge der Flex-Elemente von links nach rechts ist "Item 1", "Item 3", dann "Item 2", aber die DOM-Reihenfolge bleibt unverändert.
 
 ```css
 .wrapper {
@@ -119,7 +120,7 @@ a:first-child {
 
 #### JavaScript
 
-In unserem Skript greifen wir auf das `<select>`-Element und den Wrapper `<div>` zu und fügen einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignislistener zum `<select>`-Element hinzu. Wenn ein neuer Wert ausgewählt wird, wird dieser als `reading-flow`-Eigenschaftswert auf den Wrapper gesetzt.
+In unserem Skript greifen wir auf die Referenzen des `<select>`-Elements und des Wrapper-`<div>` zu und fügen dem `<select>`-Element einen [`change`](/de/docs/Web/API/HTMLElement/change_event) Event-Listener hinzu. Wenn ein neuer Wert ausgewählt wird, wird er als Wert der `reading-flow`-Eigenschaft auf dem Wrapper gesetzt.
 
 ```js
 const selectElem = document.getElementById("reading-flow");
@@ -132,24 +133,24 @@ selectElem.addEventListener("change", () => {
 
 #### Ergebnis
 
-Die Demo rendert wie folgt:
+Die Demo rendert folgendermaßen:
 
 {{EmbedLiveSample('Flex value comparison', '', '100px')}}
 
-Versuchen Sie zunächst, mit `reading-flow: normal` durch die Links zu tabben. Die Tab-Reihenfolge ist "Element 1", "Element 2" und dann "Element 3", da dies die Reihenfolge der Elemente im DOM ist.
+Versuchen Sie zuerst, durch die Links zu tabben, während `reading-flow: normal` gesetzt ist. Die Tab-Reihenfolge ist "Item 1", "Item 2", dann "Item 3", da dies die Reihenfolge der Elemente im DOM ist.
 
-Ändern Sie nun den `reading-flow`-Wert und tabben Sie erneut durch die Links:
+Versuchen Sie nun, den Wert von `reading-flow` zu ändern und erneut durch die Links zu tabben:
 
-- Ein Wert von `flex-visual` bewirkt, dass die Elemente in der Reihenfolge "Element 1", "Element 3" und dann "Element 2" durchgetabbt werden, was der visuellen Anzeigeordnung entspricht, die sich aus den angewendeten Flexbox-Eigenschaften ergibt.
-- Ein Wert von `flex-flow` bewirkt, dass die Elemente in der Reihenfolge "Element 2", "Element 3" und dann "Element 1" durchgetabbt werden, was der Richtung des `flex-flow` entspricht — in diesem Fall `row-reverse`. Hier ist die Tab-Reihenfolge das Gegenteil der Anzeigeordnung.
+- Ein Wert von `flex-visual` bewirkt, dass die Elemente in der Reihenfolge "Item 1", "Item 3", dann "Item 2" durchgetabt werden, was der visuellen Anzeigereihenfolge entspricht, die durch die angewandten Flexbox-Eigenschaften resultiert.
+- Ein Wert von `flex-flow` bewirkt, dass die Elemente in der Reihenfolge "Item 2", "Item 3", dann "Item 1" durchgetabt werden, was der Richtung des `flex-flow` entspricht — in diesem Fall `row-reverse`. Hier ist die Tab-Reihenfolge das Gegenteil der Anzeigereihenfolge.
 
 ### Grid-Wertvergleich
 
-In diesem Beispiel demonstrieren wir die Auswirkungen unterschiedlicher `reading-flow`-Werte auf einen Grid-Container.
+In diesem Beispiel demonstrieren wir die Auswirkungen verschiedener `reading-flow`-Werte auf einen Grid-Container.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("select")}}-Element zum Auswählen unterschiedlicher `reading-flow`-Werte und einen Wrapper-{{htmlelement("div")}}, der vier {{htmlelement("a")}}-Elemente enthält.
+Das Markup enthält ein {{htmlelement("select")}}-Element zur Auswahl verschiedener `reading-flow`-Werte und einen Wrapper-{{htmlelement("div")}}, der vier {{htmlelement("a")}}-Elemente enthält.
 
 ```html
 <form>
@@ -171,11 +172,11 @@ Das Markup enthält ein {{htmlelement("select")}}-Element zum Auswählen untersc
 
 #### CSS
 
-Wir verwenden einen {{cssxref("display")}}-Wert von `grid`, um das `<div>` in einen Grid-Container zu verwandeln, und zeigen die Grid-Elemente in drei Spalten mit {{cssxref("grid-template-columns")}} an. Wir setzen auch {{cssxref("grid-template-areas")}}, um unterschiedliche Platzierungsbereiche in diesen Spalten zu beschreiben, und platzieren die `<a>`-Elemente in diesen Bereichen mithilfe von {{cssxref("grid-area")}}. Anfangs setzen wir einen `reading-flow` von `normal`, damit die Elemente in der Standard-DOM-Quellenreihenfolge gelesen oder durch Tabben angesprochen werden.
+Wir verwenden einen {{cssxref("display")}}-Wert von `grid`, um das `<div>` in einen Grid-Container zu verwandeln, und zeigen die Grid-Elemente in drei Spalten mit {{cssxref("grid-template-columns")}} an. Wir setzen auch {{cssxref("grid-template-areas")}}, um verschiedene Platzierungsbereiche in diesen Spalten zu beschreiben, und platzieren die `<a>`-Elemente in diesen Bereichen mithilfe von {{cssxref("grid-area")}}. Zunächst setzen wir ein `reading-flow` von `normal`, damit die Elemente in der Standard-DOM-Quellenreihenfolge gelesen oder durchgetabt werden.
 
 Schließlich setzen wir einen {{cssxref("order")}}-Wert von `1` auf das erste `<a>`-Element; dies hat keinen Einfluss auf das Layout, da es die Grid-Bereichsplatzierung nicht überschreibt, aber es hat einen Effekt, wenn ein bestimmter `reading-flow`-Wert gesetzt ist, wie Sie später sehen werden.
 
-Von links nach rechts gelesen, lautet die resultierende Anzeigeordnung der Grid-Elemente "Element D", "Element B", "Element C" und dann "Element A".
+Von links nach rechts gelesen, ist die resultierende Anzeigereihenfolge der Grid-Elemente "Item D", "Item B", "Item C", dann "Item A".
 
 ```css
 .wrapper {
@@ -207,7 +208,7 @@ a:first-child {
 
 #### JavaScript
 
-In unserem Skript greifen wir auf das `<select>`-Element und den Wrapper `<div>` zu und fügen einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignislistener zum `<select>`-Element hinzu. Wenn ein neuer Wert ausgewählt wird, wird dieser als `reading-flow`-Eigenschaftswert auf den Wrapper gesetzt.
+In unserem Skript greifen wir auf die Referenzen des `<select>`-Elements und des Wrapper-`<div>` zu und fügen dem `<select>`-Element einen [`change`](/de/docs/Web/API/HTMLElement/change_event) Event-Listener hinzu. Wenn ein neuer Wert ausgewählt wird, wird er als Wert der `reading-flow`-Eigenschaft auf dem Wrapper gesetzt.
 
 ```js
 const selectElem = document.getElementById("reading-flow");
@@ -220,19 +221,19 @@ selectElem.addEventListener("change", () => {
 
 #### Ergebnis
 
-Die Demo rendert wie folgt:
+Die Demo rendert folgendermaßen:
 
 {{EmbedLiveSample('Grid value comparison', '', '100px')}}
 
-Versuchen Sie zunächst, mit `reading-flow: normal` durch die Links zu tabben. Die Tab-Reihenfolge ist "Element A", "Element B", "Element C" und "Element D", da dies die Reihenfolge der Elemente im DOM ist.
+Versuchen Sie zuerst, durch die Links zu tabben, während `reading-flow: normal` gesetzt ist. Die Tab-Reihenfolge ist "Item A", "Item B", "Item C", und "Item D", da dies die Reihenfolge der Elemente im DOM ist.
 
-Ändern Sie nun den `reading-flow`-Wert und dann versuchen Sie erneut, durch die Links zu tabben:
+Ändern Sie nun den Wert von `reading-flow` und versuchen Sie dann erneut durch die Links zu tabben:
 
-- Ein Wert von `grid-rows` bewirkt, dass die Elemente in der visuellen Anzeigeordnung pro Zeile durchgetabbt werden. Das ist "Element D", "Element B", "Element C" und dann "Element A".
-- Ein Wert von `grid-columns` bewirkt, dass die Elemente in der visuellen Anzeigeordnung pro Spalte durchgetabbt werden. Das ist "Element D", "Element C", "Element B" und dann "Element A".
-- Ein Wert von `grid-order` bewirkt, dass die Elemente in DOM-Reihenfolge durchgetabbt werden, aber jegliche `order`-Wertänderungen berücksichtigt werden. Da wir `order: 1;` auf das erste `<a>`-Element gesetzt haben, ist die Tab-Reihenfolge "Element B", "Element C", "Element D" und dann "Element A".
+- Ein Wert von `grid-rows` bewirkt, dass die Elemente in der visuellen Anzeigereihenfolge zeilenweise durchgetabt werden. Dies ist "Item D", "Item B", "Item C", dann "Item A".
+- Ein Wert von `grid-columns` bewirkt, dass die Elemente in der visuellen Anzeigereihenfolge spaltenweise durchgetabt werden. Dies ist "Item D", "Item C", "Item B", dann "Item A".
+- Ein Wert von `grid-order` bewirkt, dass die Elemente in der DOM-Reihenfolge durchgetabt werden, berücksichtigt jedoch alle `order`-Wertänderungen. Da wir `order: 1;` auf das erste `<a>`-Element gesetzt haben, ist die Tab-Reihenfolge "Item B", "Item C", "Item D", dann "Item A".
 
-### Anpassung der Lesereihenfolge auf Block-Containern
+### Anpassung der Lesereihenfolge bei Block-Containern
 
 In diesem Beispiel demonstrieren wir die Auswirkungen des Wertes `reading-flow: source-order` auf einen Block-Container.
 
@@ -251,7 +252,7 @@ Das Markup enthält einen Wrapper-{{htmlelement("div")}}, der vier {{htmlelement
 
 #### CSS
 
-Wir setzen einen `reading-flow` von `source-order`, damit die Elemente in DOM-Quellenreihenfolge gelesen oder durch Tabben angesprochen werden, aber Änderungen an der Lesereihenfolge über {{cssxref("reading-order")}} zulässig sind. Wir setzen einen `reading-order`-Wert von `1` auf das erste `<a>`-Element.
+Wir setzen ein `reading-flow` von `source-order`, sodass die Elemente in der DOM-Quellenreihenfolge gelesen oder durchgetabt werden, aber Anpassungen der Lesereihenfolge über {{cssxref("reading-order")}} erlaubt sind. Wir setzen einen `reading-order`-Wert von `1` auf das erste `<a>`-Element.
 
 ```css
 .wrapper {
@@ -265,11 +266,11 @@ a:first-child {
 
 #### Ergebnis
 
-Die Demo rendert wie folgt:
+Die Demo rendert folgendermaßen:
 
 {{EmbedLiveSample('Reading flow adjustment on block containers', '', '100px')}}
 
-Versuchen Sie, durch die Links zu tabben: Die Tab-Reihenfolge ist "Element B", "Element C", "Element D" und dann "Element A" — die Reihenfolge der Elemente im DOM wird befolgt, aber Element A wurde in eine höhere Lesereihenfolge-Gruppe als die anderen gesetzt (der Standardwert für `reading-order` ist `0`), daher wird es zuletzt angegangen.
+Versuchen Sie, durch die Links zu tabben: Die Tab-Reihenfolge ist "Item B", "Item C", "Item D", dann "Item A" — die Reihenfolge der Elemente im DOM wird befolgt, aber Item A wurde in eine höhere ordinale Lesereihenfolge-Gruppe als die anderen (der Standard-`reading-order`-Wert ist `0`) gesetzt, daher wird es zuletzt getabt.
 
 ## Spezifikationen
 
@@ -282,4 +283,4 @@ Versuchen Sie, durch die Links zu tabben: Die Tab-Reihenfolge ist "Element B", "
 ## Siehe auch
 
 - {{cssxref("reading-order")}}
-- [CSS `reading-flow` Beispiele](https://chrome.dev/reading-flow-examples/) via chrome.dev
+- [CSS `reading-flow` Beispiele](https://chrome.dev/reading-flow-examples/) über chrome.dev

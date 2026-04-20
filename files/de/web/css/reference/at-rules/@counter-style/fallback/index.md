@@ -1,11 +1,12 @@
 ---
-title: fallback
+title: "`fallback` CSS At-Regel-Deskriptor"
+short-title: fallback
 slug: Web/CSS/Reference/At-rules/@counter-style/fallback
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`fallback`** Deskriptor der {{cssxref("@counter-style")}} At-Regel kann verwendet werden, um einen Zählerstil anzugeben, auf den zurückgegriffen wird, wenn der definierte Zählerstil keine Markierung für einen bestimmten Zählerwert erstellen kann.
+Der **`fallback`** Deskriptor der {{cssxref("@counter-style")}} At-Regel kann verwendet werden, um einen Zählerstil anzugeben, auf den zurückgegriffen wird, wenn der definierte Zählerstil keine Marker-Darstellung für einen bestimmten Zählerwert erstellen kann.
 
 ## Syntax
 
@@ -20,15 +21,15 @@ fallback: custom-gangnam-style;
 Der Deskriptor nimmt einen einzelnen `<counter-style-name>` als Wert an:
 
 - [`<counter-style-name>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style#counter-style-name)
-  - : Gibt den Namen des Zählerstils an, der als Fallback verwendet werden soll, entweder das groß- und kleinschreibungssensitive `<custom-ident>` eines benutzerdefinierten CSS-Zählerstils (ohne Anführungszeichen) oder ein groß- und kleinschreibungsunsensitiver Wert der {{cssxref("list-style-type")}}-Eigenschaft wie `decimal`, `disc` usw.
+  - : Gibt den Namen des Zählerstils an, der als Fallback verwendet werden soll, entweder das groß-/kleinschreibungssensitive `<custom-ident>` eines benutzerdefinierten CSS-Zählerstils (ohne Anführungszeichen) oder einen groß-/kleinschreibungsinsensitiven {{cssxref("list-style-type")}} Eigenschaftswert wie `decimal`, `disc` und so weiter.
 
-Wird dieser Wert weggelassen, fällt die Zähler-Ersetzung auf `decimal` zurück.
+Wird dies weggelassen, wird der Zähler-Fallback standardmäßig auf `decimal` gesetzt.
 
 ## Beschreibung
 
-Der als Wert des `fallback` Deskriptors angegebene Zählerstil wird verwendet, wenn ein {{cssxref('@counter-style/range', 'range')}}-Deskriptor für einen Zählerstil angegeben ist; der `fallback` Stil wird verwendet, um alle Werte darzustellen, die außerhalb des Bereichs liegen. Der `fallback` Stil wird auch verwendet, wenn das `fixed`-System von {{cssxref('@counter-style/system', 'system')}} verwendet wird und nicht genügend Symbole vorhanden sind, um alle Listenelemente abzudecken; der `fallback` Stil wird verwendet, um alle Werte außerhalb des Anwendungsbereichs des festen Systems darzustellen. In beiden Fällen und immer dann, wenn der definierte Zähler keinen spezifischen Zählerwert erstellen kann, wird der `fallback` Stil verwendet.
+Der Zählerstil, der als Wert des `fallback` Deskriptors angegeben ist, wird verwendet, wenn ein {{cssxref('@counter-style/range', 'range')}} Deskriptor für einen Zählerstil spezifiziert ist; der `fallback` Stil wird verwendet, um alle Werte zu repräsentieren, die außerhalb des Bereichs liegen. Der `fallback` Stil wird auch verwendet, wenn das `fixed` {{cssxref('@counter-style/system', 'system')}} verwendet wird und es nicht genug Symbole gibt, um alle Listenelemente abzudecken; der `fallback` Stil wird verwendet, um alle Werte zu repräsentieren, die außerhalb des Bereichs des festen Systems liegen. In beiden Fällen und immer dann, wenn der definierte Zähler keinen spezifischen Zählerwert erstellen kann, wird der `fallback` Stil verwendet.
 
-Wenn der angegebene Fallback-Stil ebenfalls keine Darstellung konstruieren kann, wird der `fallback` Wert dieses Fallback-Zählers verwendet. Wenn auch der Fallback des Fallback-Stils keine Darstellung konstruieren kann, wird der Fallback des Fallbacks verwendet. Dieser Rückgriff setzt sich fort, bis ein Fallback gefunden wird, der die Zählerdarstellung konstruieren kann. Wenn kein `fallback` Wert eine Darstellung konstruieren kann - wenn ein Fallback-Stil keinen `fallback` Wert gesetzt hat oder ein `fallback` Wert nicht angegeben oder ungültig ist - fällt der `fallback` auf `decimal` zurück.
+Wenn der angegebene Fallbackstil auch nicht in der Lage ist, eine Darstellung zu konstruieren, wird der `fallback` Wert dieses Fallback-Zählers verwendet. Wenn der Fallback des Fallbackstils ebenfalls keine Darstellung konstruieren kann, wird der Fallback des Fallbacks verwendet. Dieses Zurückfallen geht so lange weiter, bis ein Fallback gefunden wird, das die Zählerdarstellung konstruieren kann. Wenn kein Fallback `fallback` Wert eine Darstellung konstruieren kann — wenn ein Fallbackstil keinen `fallback` Wert gesetzt hat, oder wenn ein `fallback` Wert nicht spezifiziert oder ungültig ist — wird der `fallback` standardmäßig auf `decimal` gesetzt.
 
 ## Formale Definition
 
@@ -40,7 +41,7 @@ Wenn der angegebene Fallback-Stil ebenfalls keine Darstellung konstruieren kann,
 
 ## Beispiele
 
-### Festlegen eines Fallback-Zählerstils
+### Angeben eines Fallback-Zählerstils
 
 #### HTML
 

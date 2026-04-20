@@ -1,26 +1,27 @@
 ---
-title: inherit
+title: "`inherit` CSS-Schlüsselwort"
+short-title: inherit
 slug: Web/CSS/Reference/Values/inherit
 l10n:
-  sourceCommit: d76ae0015414759841076ae52869839b41d6b264
+  sourceCommit: aaedffba9f47d6dce7967a4191963378026d9406
 ---
 
-Das **`inherit`** [CSS](/de/docs/Web/CSS) Schlüsselwort bewirkt, dass das Element den [berechneten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der Eigenschaft von seinem übergeordneten Element übernimmt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
+Das **`inherit`** [CSS](/de/docs/Web/CSS) Schlüsselwort bewirkt, dass das Element den [berechneten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der Eigenschaft von seinem Elternelement übernimmt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzeigenschaft {{cssxref("all")}}.
 
-Bei [vererbten Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) verstärkt dies das Standardverhalten und wird nur benötigt, um eine andere Regel zu überschreiben.
+Für [vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) verstärkt dies das Standardverhalten und ist nur erforderlich, um eine andere Regel zu überschreiben.
 
 > [!NOTE]
-> Die Vererbung erfolgt immer vom übergeordneten Element im Dokumentbaum, selbst wenn das übergeordnete Element nicht der das Element enthaltende Block ist.
+> Vererbung erfolgt immer vom Elternelement im Dokumentbaum, auch wenn das Elternelement nicht der enthaltende Block ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel demonstrieren wir die Wirkung des `inherit` Schlüsselworts, indem wir zwei Absätze mit verschachtelten Elementen vergleichen: Die Inline-Elemente in einem verwenden ihre Browser-Standardstile, während die in dem anderen einzelne Eigenschaftswerte von ihrem Elternteil erben.
+In diesem Beispiel demonstrieren wir die Wirkung des `inherit` Schlüsselworts, indem wir zwei Absätze mit verschachtelten Elementen vergleichen: Die Inline-Elemente in einem verwenden ihre Standard-Browserstile, während diejenigen im anderen einzelne Eigenschaftswerte von ihrem Elternteil erben.
 
 #### HTML
 
-Wir fügen zwei identische Absätze mit mehreren Inline-Elementen ein.
+Wir fügen zwei identische Absätze mit mehreren Inline-Elementen hinzu.
 
 ```html
 <p>
@@ -35,8 +36,7 @@ Wir fügen zwei identische Absätze mit mehreren Inline-Elementen ein.
 
 #### CSS
 
-Wir stylen die Inline-Elemente im ersten Absatz nicht, sodass sie ihre Standard-Browserstile verwenden.
-Im zweiten Absatz setzen wir Eigenschaften auf jedem Inline-Element auf `inherit`, damit sie die berechneten Stile vom übergeordneten {{htmlelement("p")}} Element übernehmen.
+Wir stylen die Inline-Elemente im ersten Absatz nicht, sodass sie ihre Standard-Browserstile verwenden. Im zweiten Absatz setzen wir die Eigenschaften jedes Inline-Elements auf `inherit`, sodass sie die berechneten Stile vom übergeordneten {{htmlelement("p")}} Element übernehmen.
 
 ```css
 p:nth-of-type(2) {
@@ -57,9 +57,9 @@ p:nth-of-type(2) {
 
 {{EmbedLiveSample("Basic usage", "100%", 100)}}
 
-### Erben aller Eigenschaftswerte
+### Alle Eigenschaftswerte erben
 
-In diesem Beispiel verwenden wir denselben HTML-Code wie im vorherigen Beispiel, um die Probleme zu demonstrieren, die auftreten können, wenn das `inherit` Schlüsselwort auf alle Eigenschaften angewendet wird.
+In diesem Beispiel verwenden wir das gleiche HTML wie im vorherigen Beispiel, um die Probleme zu demonstrieren, die auftreten können, wenn das `inherit` Schlüsselwort auf alle Eigenschaften angewendet wird.
 
 ```html hidden
 <p>
@@ -74,7 +74,7 @@ In diesem Beispiel verwenden wir denselben HTML-Code wie im vorherigen Beispiel,
 
 #### CSS
 
-Im zweiten Absatz setzen wir nicht einzelne Eigenschaften auf `inherit`, sondern die {{cssxref("all")}} Eigenschaft auf allen Inline-Elementen auf `inherit`, damit sie alle berechneten Stile vom übergeordneten {{htmlelement("p")}} Element übernehmen.
+Im zweiten Absatz setzen wir statt einzelner Eigenschaften die {{cssxref("all")}} Eigenschaft auf allen Inline-Elementen auf `inherit`, sodass sie alle berechneten Stile vom übergeordneten {{htmlelement("p")}} Element erhalten.
 
 ```css
 p:nth-of-type(2) > * {
@@ -86,15 +86,15 @@ p:nth-of-type(2) > * {
 
 {{EmbedLiveSample("Inheriting all property values", "100%", 270)}}
 
-Beachten Sie, wie das Inline-Element alle Eigenschaften des übergeordneten `<p>` erbt, einschließlich des block-level {{cssxref("display")}} Werts des Absatzes. Dies ist wahrscheinlich nicht das gewünschte Ergebnis.
+Beachten Sie, wie das Inline-Element alle Eigenschaften des übergeordneten `<p>` erbt, einschließlich des Block-Level-{{cssxref("display")}}-Werts des Absatzes. Dies ist wahrscheinlich nicht der gewünschte Effekt.
 
 ### Ausgewählte Elemente von einer Regel ausschließen
 
-Dieses Beispiel demonstriert, wie das `inherit` Schlüsselwort verwendet werden kann, um ausgewählte Elemente von einer Farbregel auszuschließen, sodass sie stattdessen die Farbe ihres übergeordneten Elements verwenden.
+Dieses Beispiel zeigt, wie das `inherit` Schlüsselwort verwendet werden kann, um ausgewählte Elemente von einer Farbvorgabe auszuschließen, sodass sie die Farbe ihres Elternteils verwenden.
 
 #### HTML
 
-Wir fügen etwas semantisch strukturierten Inhalt ein.
+Wir fügen semantisch strukturierte Inhalte hinzu.
 
 ```html
 <header>
@@ -125,7 +125,7 @@ Wir fügen etwas semantisch strukturierten Inhalt ein.
 
 #### CSS
 
-Wir setzen die Textfarbe des `<main>` Elements auf `blue` und alle `<h2>` Elemente auf `green` in `monospace` Schriftart. Die `<h2>` Elemente innerhalb eines `<section>` erben die Textfarbe ihres übergeordneten Elements.
+Wir setzen die Textfarbe des `<main>` Elements auf `blau` und alle `<h2>` Elemente auf `grün` in `monospace` Schriftart. Die `<h2>` Elemente innerhalb eines `<section>` erben die Textfarbe ihres Elternteils.
 
 ```css
 main {
@@ -146,7 +146,7 @@ section h2 {
 
 {{EmbedLiveSample("Exclude selected elements from a rule", "100%", 470)}}
 
-Die `<h2>` Elemente sind alle `green`. Wenn sie jedoch in einem {{htmlelement("section")}} Element verschachtelt sind, erben sie ihre Farbe von ihrem Elternteil, was innerhalb von {{htmlelement("main")}} `blue` ist. Die Standardtextfarbe ist sonst schwarz.
+Die `<h2>` Elemente sind alle `grün`. Wenn sie jedoch in einem {{htmlelement("section")}} Element verschachtelt sind, erben sie ihre Farbe von ihrem Elternteil, welches innerhalb von {{htmlelement("main")}} `blau` ist. Die Standard-Textfarbe ist ansonsten schwarz.
 
 ## Spezifikationen
 

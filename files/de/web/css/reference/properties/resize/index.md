@@ -1,11 +1,12 @@
 ---
-title: resize
+title: "`resize` CSS property"
+short-title: resize
 slug: Web/CSS/Reference/Properties/resize
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`resize`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob ein Element skalierbar ist und wenn ja, in welche Richtungen.
+Die **`resize`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element größenveränderbar ist und, wenn ja, in welche Richtungen.
 
 {{InteractiveExample("CSS Demo: resize")}}
 
@@ -47,7 +48,7 @@ resize: none;
 }
 ```
 
-`resize` gilt nicht für die folgenden:
+`resize` wirkt nicht auf die folgenden:
 
 - Inline-Elemente
 - Block-Elemente, für die die {{cssxref("overflow")}}-Eigenschaft auf `visible` oder `clip` gesetzt ist
@@ -71,36 +72,36 @@ resize: revert-layer;
 resize: unset;
 ```
 
-Die `resize`-Eigenschaft wird als ein einzelner Schlüsselwortwert aus der folgenden Liste angegeben.
+Die `resize`-Eigenschaft wird als ein Schlüsselwortwert aus der unten stehenden Liste angegeben.
 
 ### Werte
 
 - `none`
-  - : Das Element bietet keine benutzerkontrollierbare Methode zum Skalieren.
+  - : Das Element bietet keine benutzerkontrollierte Methode, um es zu vergrößern.
 - `both`
-  - : Das Element zeigt ein Mechanismus an, der es dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu skalieren.
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu vergrößern.
 - `horizontal`
-  - : Das Element zeigt ein Mechanismus an, der es dem Benutzer erlaubt, es in der _horizontalen_ Richtung zu skalieren.
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in horizontaler Richtung zu vergrößern.
 - `vertical`
-  - : Das Element zeigt ein Mechanismus an, der es dem Benutzer erlaubt, es in der _vertikalen_ Richtung zu skalieren.
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in vertikaler Richtung zu vergrößern.
 - `block`
-  - : Das Element zeigt ein Mechanismus an, das es dem Benutzer erlaubt, es in der _Block_-Richtung zu skalieren (entweder horizontal oder vertikal, abhängig von dem {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in der Block-Richtung zu vergrößern (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
 - `inline`
-  - : Das Element zeigt ein Mechanismus an, das es dem Benutzer erlaubt, es in der _Inline_-Richtung zu skalieren (entweder horizontal oder vertikal, abhängig von dem {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in der Inline-Richtung zu vergrößern (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
 
-## Formal definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formal syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Deaktivierung der Skalierbarkeit von Textbereichen
+### Deaktivieren der Größenzuveränderbarkeit von Textbereichen
 
-In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig skalierbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
+In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig größenveränderbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
 
 #### HTML
 
@@ -122,7 +123,7 @@ textarea {
 
 ### Verwendung von resize mit beliebigen Elementen
 
-Sie können die `resize`-Eigenschaft verwenden, um jedes Element skalierbar zu machen. Im untenstehenden Beispiel enthält ein skalierbares {{HTMLElement("div")}} ein skalierbares Absatz-Element ({{HTMLElement("p")}}).
+Sie können die `resize`-Eigenschaft verwenden, um jedes Element größenveränderbar zu machen. Im unten stehenden Beispiel enthält ein größenveränderbares {{HTMLElement("div")}} ein größenveränderbares Absatz-Element ({{HTMLElement("p")}}).
 
 #### HTML
 

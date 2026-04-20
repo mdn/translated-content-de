@@ -1,18 +1,19 @@
 ---
-title: marker
+title: "`marker` CSS property"
+short-title: marker
 slug: Web/CSS/Reference/Properties/marker
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Eckpunkten des Pfads des Elements gezeichnet wird; das heißt, an allen Eckpunkten. Der Marker muss mit einem SVG-{{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker` und `marker-end` Attribute im SVG.
+Die **`marker`**-[CSS](/de/docs/Web/CSS)-Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Scheitelpunkten des Pfads eines Elements gezeichnet wird; das heißt, an allen seinen Scheitelpunkten. Der Marker muss mithilfe eines SVG-{{SVGElement('marker')}}-Elements definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der Attribute `marker-start`, `marker` und `marker-end` im SVG.
 
-Bei vielen Formen, die Marker unterstützen, befinden sich die ersten und letzten Eckpunkte an derselben Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen, wenn sowohl die ersten als auch die letzten Marker definiert sind, werden zwei Marker an diesem Punkt gezeichnet, auch wenn sie möglicherweise nicht in die gleiche Richtung zeigen.
+Für viele Formen, die Marker unterstützen, befinden sich die ersten und letzten Scheitelpunkte an derselben Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden an diesem Punkt zwei Marker gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
-Für die mittleren Eckpunkte ist die Richtung, in die jeder Marker zeigt, definiert als die Richtung zur Hälfte zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung am Anfang des folgenden Pfadsegments. Dies kann als das Kreuzprodukt der Vektoren betrachtet werden, die durch die beiden Pfadrichtungen definiert sind.
+Für die mittleren Scheitelpunkte wird die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die in der Mitte zwischen der Richtung am Ende des vorherigen Pfadsegments und der Richtung am Anfang des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der durch die zwei Pfadrichtungen definierten Vektoren betrachtet werden.
 
 > [!NOTE]
-> Die `marker` Eigenschaft hat nur eine Wirkung auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker`-Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
@@ -31,10 +32,10 @@ marker: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass an jedem Eckpunkt des Pfads des Elements kein Marker gezeichnet wird.
+  - : Dies bedeutet, dass kein Marker an jedem Scheitelpunkt des Pfads des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, das auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert wird und an jedem Eckpunkt des Pfads des Elements gezeichnet wird. Wenn die URL-Referenz ungültig ist, wird an den Eckpunkten des Pfads kein Marker gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert wurde und der an jedem Scheitelpunkt des Pfads des Elements gezeichnet werden soll. Falls der URL-Verweis ungültig ist, wird kein Marker an den Scheitelpunkten des Pfads gezeichnet.
 
 ## Formale Definition
 
@@ -97,4 +98,4 @@ polyline#test {
 
 - {{cssxref("marker-start")}}
 - {{cssxref("marker-end")}}
-- SVG-{{SVGElement("marker")}}-Element
+- SVG {{SVGElement("marker")}}-Element

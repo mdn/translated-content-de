@@ -1,11 +1,12 @@
 ---
-title: border-bottom-right-radius
+title: "`border-bottom-right-radius` CSS property"
+short-title: border-bottom-right-radius
 slug: Web/CSS/Reference/Properties/border-bottom-right-radius
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-bottom-right-radius`**-Eigenschaft von [CSS](/de/docs/Web/CSS) rundet die untere rechte Ecke eines Elements ab, indem sie den Radius (oder den Radius der Haupt- und Nebenachsen) der Ellipse angibt, die die Krümmung der Ecke definiert.
+Die **`border-bottom-right-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die untere rechte Ecke eines Elements, indem sie den Radius (oder den Radius der semi-major und semi-minor Achsen) der Ellipse angibt, die die Krümmung der Ecke definiert.
 
 {{InteractiveExample("CSS Demo: border-bottom-right-radius")}}
 
@@ -74,34 +75,34 @@ border-bottom-right-radius: unset;
 
 Mit einem Wert:
 
-- Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der den Radius des Kreises angibt, der für den Rand in dieser Ecke verwendet werden soll.
+- Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der den Radius des Kreises angibt, der in dieser Ecke für den Rand verwendet werden soll.
 
 Mit zwei Werten:
 
-- Der erste Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die horizontale Hauptachse der Ellipse angibt, die für den Rand in dieser Ecke verwendet werden soll.
-- Der zweite Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die vertikale Hauptachse der Ellipse angibt, die für den Rand in dieser Ecke verwendet werden soll.
+- Der erste Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die horizontale semi-major Achse der Ellipse angibt, die in dieser Ecke für den Rand verwendet werden soll.
+- Der zweite Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die vertikale semi-major Achse der Ellipse angibt, die in dieser Ecke für den Rand verwendet werden soll.
 
 ### Werte
 
 - `<length-percentage>`
-  - : Gibt die Größe des Kreisradius oder die Haupt- und Nebenachsen der Ellipse an. Als absolute Länge kann sie in jeder von CSS {{cssxref("&lt;length&gt;")}} erlaubten Einheit ausgedrückt werden. Prozentwerte für die horizontale Achse beziehen sich auf die Breite der Box, Prozentwerte für die vertikale Achse beziehen sich auf die Höhe der Box. Negative Werte sind ungültig.
+  - : Bezeichnet die Größe des Kreisbogenradius oder der semi-major und semi-minor Achsen der Ellipse. Als absolute Länge kann sie in jeder Einheit ausgedrückt werden, die vom CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubt wird. Prozentangaben für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentangaben für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
 
 ## Beschreibung
 
-Die Abrundung kann ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, erfolgt keine Abrundung und die Ecke ist quadratisch.
+Die Abrundung kann ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, wird keine Abrundung vorgenommen und die Ecke ist quadratisch.
 
 ![border-bottom-right-radius.png](border-bottom-right-radius.png)
 
-Ein Hintergrund, sei es ein Bild oder eine Farbe, wird an der Grenze abgeschnitten, auch an einer abgerundeten; die genaue Position des Clippings wird durch den Wert der {{cssxref("background-clip")}}-Eigenschaft definiert.
+Ein Hintergrund, sei es ein Bild oder eine Farbe, wird am Rand beschnitten, auch an einem abgerundeten; der exakte Ort des Zuschnitts wird durch den Wert der {{cssxref("background-clip")}} Eigenschaft definiert.
 
 > [!NOTE]
-> Wenn der Wert dieser Eigenschaft nicht in einer {{cssxref("border-radius")}}-Kurzschreibweise gesetzt ist, die auf das Element nach der `border-bottom-right-radius` CSS-Eigenschaft angewendet wird, wird der Wert dieser Eigenschaft dann durch die [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) auf seinen Anfangswert zurückgesetzt.
+> Wenn der Wert dieser Eigenschaft in einer {{cssxref("border-radius")}} Shorthand-Eigenschaft, die nach der `border-bottom-right-radius` CSS Eigenschaft auf das Element angewendet wird, nicht gesetzt ist, wird der Wert dieser Eigenschaft durch die [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) auf ihren Anfangswert zurückgesetzt.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -109,7 +110,7 @@ Ein Hintergrund, sei es ein Bild oder eine Farbe, wird an der Grenze abgeschnitt
 
 ### Bogen eines Kreises
 
-Ein einzelner `<length>`-Wert erzeugt einen Bogen eines Kreises.
+Ein einzelner `<length>` Wert erzeugt einen Bogen eines Kreises.
 
 ```html hidden
 <div></div>
@@ -129,7 +130,7 @@ div {
 
 ### Bogen einer Ellipse
 
-Zwei unterschiedliche `<length>`-Werte erzeugen einen Bogen einer Ellipse.
+Zwei unterschiedliche `<length>` Werte erzeugen einen Bogen einer Ellipse.
 
 ```html hidden
 <div></div>
@@ -147,9 +148,9 @@ div {
 
 {{EmbedLiveSample("Arc_of_an_ellipse")}}
 
-### Quadratisches Element mit prozentualem Radius
+### Quadratisches Element mit Prozentwert-Radius
 
-Ein quadratisches Element mit einem einzelnen `<percentage>`-Wert erzeugt einen Bogen eines Kreises.
+Ein quadratisches Element mit einem einzelnen `<percentage>` Wert erzeugt einen Bogen eines Kreises.
 
 ```html hidden
 <div></div>
@@ -167,9 +168,9 @@ div {
 
 {{EmbedLiveSample("Square_element_with_percentage_radius")}}
 
-### Nicht-quadratisches Element mit prozentualem Radius
+### Nicht-quadratisches Element mit Prozentwert-Radius
 
-Ein nicht-quadratisches Element mit einem einzelnen `<percentage>`-Wert erzeugt einen Bogen einer Ellipse.
+Ein nicht-quadratisches Element mit einem einzelnen `<percentage>` Wert erzeugt einen Bogen einer Ellipse.
 
 ```html hidden
 <div></div>
@@ -197,5 +198,5 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("border-radius")}}-Kurzschreibweise
+- {{cssxref("border-radius")}} Shorthand-Eigenschaft
 - {{cssxref("border-top-right-radius")}}, {{cssxref("border-bottom-left-radius")}}, und {{cssxref("border-top-left-radius")}}

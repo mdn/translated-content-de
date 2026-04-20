@@ -1,11 +1,12 @@
 ---
-title: clear
+title: "`clear` CSS property"
+short-title: clear
 slug: Web/CSS/Reference/Properties/clear
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`clear`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt fest, ob ein Element unterhalb der ihm vorangehenden [floatenden](/de/docs/Web/CSS/Reference/Properties/float) Elemente verschoben werden muss (geklärt). Die `clear`-Eigenschaft gilt für floatende und nicht-floatende Elemente.
+Die **`clear`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt fest, ob ein Element unterhalb (vorherige) [schwebende](/de/docs/Web/CSS/Reference/Properties/float) Elemente verschoben werden muss. Die `clear`-Eigenschaft gilt für schwebende und nicht schwebende Elemente.
 
 {{InteractiveExample("CSS Demo: clear")}}
 
@@ -86,28 +87,28 @@ clear: unset;
 ### Werte
 
 - `none`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element _nicht_ nach unten verschoben wird, um an floatenden Elementen vorbeizukommen.
+  - : Ein Schlüsselwort, das angibt, dass das Element _nicht_ nach unten verschoben wird, um an schwebenden Elementen vorbeizugehen.
 - `left`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _left_-Floats vorbeizukommen.
+  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _linken_ schwebenden Elementen vorbeizugehen.
 - `right`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _right_-Floats vorbeizukommen.
+  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _rechten_ schwebenden Elementen vorbeizugehen.
 - `both`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _both_ left und right Floats vorbeizukommen.
+  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _beiden_ schwebenden Elementen vorbeizugehen.
 - `inline-start`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Floats auf der _Startseite seines umgebenden Blocks_ zu klären, d.h. die _left_-Floats bei ltr-Skripten und die _right_-Floats bei rtl-Skripten.
+  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an schwebenden Elementen auf der _Startseite seines umgebenden Blocks_ vorbeizugehen, das heißt, den _linken_ schwebenden Elementen bei ltr-Skripten und den _rechten_ bei rtl-Skripten.
 - `inline-end`
-  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Floats auf der _Endseite seines umgebenden Blocks_ zu klären, d.h. die _right_-Floats bei ltr-Skripten und die _left_-Floats bei rtl-Skripten.
+  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an schwebenden Elementen auf der _Endseite seines umgebenden Blocks_ vorbeizugehen, das heißt, den _rechten_ schwebenden Elementen bei ltr-Skripten und den _linken_ bei rtl-Skripten.
 
 ## Beschreibung
 
-Wenn es auf nicht-floatende Blöcke angewendet wird, verschiebt es die [Randkante](/de/docs/Web/CSS/Guides/Box_model/Introduction#border_area) des Elements nach unten, bis es unterhalb der [Marge](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) aller relevanten Floats liegt. Die obere Marge des nicht-floatenden Blocks kollabiert.
+Wenn es auf nicht schwebende Blöcke angewendet wird, bewegt es die [Rahmenkante](/de/docs/Web/CSS/Guides/Box_model/Introduction#border_area) des Elements nach unten, bis es unterhalb der [Randkante](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) aller relevanten schwebenden Elemente liegt. Der obere Rand des nicht schwebenden Blocks kollabiert.
 
-Vertikale Margen zwischen zwei floatenden Elementen werden hingegen nicht kollabieren. Wenn es auf floatende Elemente angewendet wird, wird die Margenkante des unteren Elements unter die Margenkante aller relevanten Floats verschoben. Dies beeinflusst die Position späterer Floats, da diese nicht höher positioniert werden können als frühere.
+Vertikale Ränder zwischen zwei schwebenden Elementen hingegen kollabieren nicht. Wenn es auf schwebende Elemente angewendet wird, wird die Randkante des unteren Elements unter die Randkante aller relevanten schwebenden Elemente bewegt. Dies beeinflusst die Position nachfolgender schwebender Elemente, da nachfolgende schwebende Elemente nicht höher positioniert werden können als frühere.
 
-Die Floats, die zu klären sind, sind die früheren Floats innerhalb desselben [Blockformatierungskontexts](/de/docs/Web/CSS/Guides/Display/Block_formatting_context).
+Die schwebenden Elemente, die relevant sind, um freigeschaltet zu werden, sind die früheren schwebenden Elemente innerhalb desselben [Blockformatierungskontexts](/de/docs/Web/CSS/Guides/Display/Block_formatting_context).
 
 > [!NOTE]
-> Wenn ein Element nur floatende Elemente enthält, kollabiert seine Höhe auf null. Wenn Sie möchten, dass es immer in der Lage ist, die Größe zu ändern, um floatende Elemente darin aufzunehmen, setzen Sie den Wert der {{cssxref("display")}}-Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/Reference/Properties/display#flow-root).
+> Wenn ein Element nur schwebende Elemente enthält, kollabiert seine Höhe zu nichts. Wenn Sie möchten, dass es immer in der Lage ist, in der Größe zu ändern, so dass es schwebende Elemente in sich enthält, setzen Sie den Wert der {{cssxref("display")}}-Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/Reference/Properties/display#flow-root).
 >
 > ```css
 > #container {
@@ -277,4 +278,4 @@ p {
 
 ## Siehe auch
 
-- [CSS Grundlegendes Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
+- [CSS-Grundlagen des Box-Modells](/de/docs/Web/CSS/Guides/Box_model/Introduction)

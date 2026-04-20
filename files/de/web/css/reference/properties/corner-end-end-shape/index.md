@@ -1,15 +1,16 @@
 ---
-title: corner-end-end-shape
+title: "`corner-end-end-shape` CSS property"
+short-title: corner-end-end-shape
 slug: Web/CSS/Reference/Properties/corner-end-end-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-end-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der block-end und inline-end Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
+Die **`corner-end-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der block-end und inline-end Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}}-Bereiches fest.
 
-Für eine vollständige Beschreibung des Verhaltens der Eckform und mehrere Beispiele, siehe die Seite zur Kurzform der {{cssxref("corner-shape")}} Eigenschaft.
+Für eine vollständige Beschreibung des Verhaltens der Eckenform und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}}-Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ corner-end-end-shape: unset;
 
 ### Werte
 
-Die `corner-end-end-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes spezifiziert.
+Die `corner-end-end-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes angegeben.
 
 ## Formale Definition
 
@@ -44,7 +45,7 @@ Die `corner-end-end-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&l
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der Referenzseite von {{cssxref("corner-shape")}}.
+Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-end-end-shape`
 
@@ -58,7 +59,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-end-end-shape` von `squircle` an.
+Wir geben dem Kasten einige grundlegende Stildefinitionen, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und ein `corner-end-end-shape` von `squircle` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -106,10 +107,10 @@ Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, und {{cssxref("corner-end-start-shape")}}
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-end-end-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS Umrandungen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS Hintergründe und Umrandungen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

@@ -1,16 +1,17 @@
 ---
-title: marker-start
+title: "`marker-start` CSS property"
+short-title: marker-start
 slug: Web/CSS/Reference/Properties/marker-start
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`marker-start`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der am ersten Scheitelpunkt des Pfades des Elements gezeichnet wird; das heißt, an seinem Startpunkt. Der Marker muss mit einem SVG-{{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-start`-Attributs im SVG.
+Die **`marker-start`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der an der ersten Ecke des Pfads des Elements gezeichnet wird; das heißt, an seinem Startpunkt. Der Marker muss mit einem SVG {{SVGElement('marker')}}-Element definiert worden sein und kann nur mit einem {{cssxref("url_value", "&lt;url&gt;")}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-start`-Attributs im SVG.
 
-Bei vielen formenunterstützenden Formen befinden sich die ersten und letzten Scheitelpunkte an der gleichen Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden an diesem Punkt zwei Marker gezeichnet, auch wenn sie möglicherweise nicht in die gleiche Richtung zeigen.
+Bei vielen Markern unterstützenden Formen befinden sich die ersten und letzten Ecken an der gleichen Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl die ersten als auch die letzten Marker definiert sind, werden an diesem Punkt zwei Marker gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
 > [!NOTE]
-> Die `marker-start`-Eigenschaft wird nur für Elemente wirksam, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker-start`-Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
@@ -29,10 +30,10 @@ marker-start: unset;
 ### Werte
 
 - `none`
-  - : Dies bedeutet, dass kein Marker am ersten Scheitelpunkt des Pfades des Elements gezeichnet wird.
+  - : Das bedeutet, dass kein Marker an der ersten Ecke des Pfads des Elements gezeichnet wird.
 
 - `<marker-ref>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert ist und am ersten Scheitelpunkt des Pfades des Elements gezeichnet werden soll. Wenn der URL-Verweis ungültig ist, wird kein Marker am ersten Scheitelpunkt des Pfades gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, das auf einen durch ein SVG {{SVGElement('marker')}}-Element definierten Marker verweist, der an der ersten Ecke des Pfads des Elements gezeichnet wird. Ist der URL-Verweis ungültig, wird kein Marker an der ersten Ecke des Pfads gezeichnet.
 
 ## Formale Definition
 
@@ -96,4 +97,4 @@ polyline#test {
 - {{cssxref("marker-mid")}}
 - {{cssxref("marker-end")}}
 - {{cssxref("marker")}}
-- SVG {{SVGAttr("marker-start")}} Attribut
+- SVG {{SVGAttr("marker-start")}}-Attribut

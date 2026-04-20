@@ -1,11 +1,12 @@
 ---
-title: ascent-override
+title: "`ascent-override` CSS-Attributbeschreibung"
+short-title: ascent-override
 slug: Web/CSS/Reference/At-rules/@font-face/ascent-override
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`ascent-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Ascendenty-Metrik für die Schriftart. Die Ascendenty-Metrik ist die Höhe über der Basislinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext auszurichten.
+Die **`ascent-override`** [CSS](/de/docs/Web/CSS)-Attributbeschreibung für die {{cssxref("@font-face")}}-Regel definiert die Ascent-Metrik für die Schriftart. Die Ascent-Metrik ist die Höhe über der Grundlinie, die CSS zur Anordnung von Zeilenboxen in einem Inline-Formatierungskontext verwendet.
 
 ## Syntax
 
@@ -17,9 +18,9 @@ ascent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Wenn verwendet, wird der metrische Wert aus der Schriftartdatei übernommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftdatei bezogen.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
 ## Formale Definition
 
@@ -31,9 +32,9 @@ ascent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben von Metriken einer Ersatzschrift
+### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Ersatzschrift überschrieben werden müssen, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
+Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um diese besser an die einer primären Webschriftart anzupassen.
 
 ```css
 @font-face {
@@ -69,4 +70,4 @@ Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Ersatzsch
 - {{cssxref("@font-face/line-gap-override", "line-gap-override")}}
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/size-adjust", "size-adjust")}}
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}} Attributbeschreibung

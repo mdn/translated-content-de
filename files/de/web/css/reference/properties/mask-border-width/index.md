@@ -1,11 +1,12 @@
 ---
-title: mask-border-width
+title: "`mask-border-width` CSS property"
+short-title: mask-border-width
 slug: Web/CSS/Reference/Properties/mask-border-width
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mask-border-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des [Maskenrahmens](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements fest.
+Die **`mask-border-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite der [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements fest.
 
 ## Syntax
 
@@ -39,35 +40,35 @@ mask-border-width: revert-layer;
 mask-border-width: unset;
 ```
 
-Die `mask-border-width` Eigenschaft kann mit einem, zwei, drei oder vier Werten aus der untenstehenden Liste angegeben werden.
+Die Eigenschaft `mask-border-width` kann mit einem, zwei, drei oder vier Werten aus der nachfolgenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben ist, gilt dieselbe Breite für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben sind, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben sind, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
-- Wenn **vier** Werte angegeben sind, gelten die Breiten für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, gilt die gleiche Breite für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Breiten in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
 
 ### Werte
 
 - `<length-percentage>`
-  - : Die Breite des Maskenrahmens, angegeben als ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentangaben beziehen sich auf die _Breite_ des Rahmenbereichs für horizontale Verschiebungen und die _Höhe_ des Rahmenbereichs für vertikale Verschiebungen. Darf nicht negativ sein.
+  - : Die Breite des Maskenrands, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Randbereichs für horizontale Abstände und die _Höhe_ des Randbereichs für vertikale Abstände. Darf nicht negativ sein.
 - `<number>`
-  - : Die Breite des Maskenrahmens, angegeben als ein Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
+  - : Die Breite des Maskenrands, angegeben als ein Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
 - `auto`
-  - : Die Breite des Maskenrahmens wird gleich der intrinsischen Breite oder Höhe (je nachdem, was zutrifft) des entsprechenden {{cssxref("mask-border-slice")}} gesetzt. Wenn das Bild nicht über die erforderliche intrinsische Dimension verfügt, wird stattdessen die entsprechende `border-width` verwendet.
+  - : Die Breite des Maskenrands wird gleich der intrinsischen Breite oder Höhe (je nachdem, was zutrifft) der entsprechenden {{cssxref("mask-border-slice")}} gemacht. Wenn das Bild nicht die erforderliche intrinsische Dimension hat, wird stattdessen die entsprechende `border-width` verwendet.
 
-## Formal definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formal syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-`mask-border-width` definiert die Breite des Maskenrahmens – wird diese auf einen anderen Wert als {{cssxref("mask-border-slice")}} gesetzt, werden die Abschnitte skaliert, um in den Maskenrahmen zu passen.
+`mask-border-width` definiert die Breite des Randmaskens — das Festlegen auf einen anderen Wert als {{cssxref("mask-border-slice")}} bewirkt, dass die Scheiben skaliert werden, um in die Randmaskens zu passen.
 
 ```css
 /* Final mask scaled down to 20px wide */
@@ -82,7 +83,7 @@ Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaf
 ```
 
 > [!NOTE]
-> Die Seite {{cssxref("mask-border")}} enthält ein funktionierendes Beispiel (unter Verwendung der veralteten vorgepräfixen Maskenrahmen-Eigenschaften, die in Chromium unterstützt werden), sodass Sie eine Vorstellung vom Effekt bekommen können.
+> Die Seite {{cssxref("mask-border")}} enthält ein funktionierendes Beispiel (mit den veralteten, in Chromium unterstützten, mit Präfix versehenen Randmasken-Eigenschaften), sodass Sie eine Vorstellung von der Wirkung bekommen können.
 
 ## Spezifikationen
 

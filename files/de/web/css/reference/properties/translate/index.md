@@ -1,11 +1,12 @@
 ---
-title: translate
+title: "`translate` CSS property"
+short-title: translate
 slug: Web/CSS/Reference/Properties/translate
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`translate`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, Translations-Transformationen einzeln und unabhängig von der {{CSSxRef("transform")}} Eigenschaft anzugeben. Dies entspricht besser der typischen Nutzung in Benutzeroberflächen und spart das Merken der genauen Reihenfolge der Transformationsfunktionen im `transform` Wert.
+Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Translationstransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies entspricht eher der üblichen Verwendung in Benutzeroberflächen und erspart es, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden müssen.
 
 {{InteractiveExample("CSS Demo: translate")}}
 
@@ -126,12 +127,12 @@ translate: unset;
 
 ### Werte
 
-- Einzelner {{cssxref("&lt;length-percentage&gt;")}} Wert
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Translation entlang der X-Achse angibt. Entspricht einer `translate()` (2D-Translation) Funktion mit einem angegebenen Wert.
-- Zwei {{cssxref("&lt;length-percentage&gt;")}} Werte
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Translationswerte (jeweils) einer 2D-Translation angeben. Entspricht einer `translate()` (2D-Translation) Funktion mit zwei angegebenen Werten.
+- Ein einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das eine Translation entlang der X-Achse spezifiziert. Entspricht einer `translate()`-Funktion (2D-Translation) mit einem einzigen angegebenen Wert.
+- Zwei {{cssxref("&lt;length-percentage&gt;")}}-Werte
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Translationswerte (jeweils) einer 2D-Translation angeben. Entspricht einer `translate()`-Funktion (2D-Translation) mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen-Translationswerte (jeweils) einer 3D-Translation angeben. Entspricht einer `translate3d()` (3D-Translation) Funktion.
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}}-Wert, die die X-, Y- und Z-Achsen-Translationswerte (jeweils) einer 3D-Translation angeben. Entspricht einer `translate3d()`-Funktion (3D-Translation).
 - `none`
   - : Gibt an, dass keine Translation angewendet werden soll.
 
@@ -145,11 +146,11 @@ translate: unset;
 
 ## Beispiele
 
-### Übersetzen eines Elements beim Hover
+### Translating ein Element beim Hover
 
-Dieses Beispiel zeigt, wie die `translate` Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben.
-Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben.
-Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und hat aufgrund der Hinzufügung von {{cssxref('perspective')}} zum übergeordneten Element den Anschein, sich auf den Betrachter zu zubewegen.
+Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu bewegen.
+Das erste Feld wird entlang der X-Achse verschoben und das zweite Feld wird entlang der X- und Y-Achsen verschoben.
+Das dritte Feld wird entlang der X-, Y- und Z-Achsen verschoben und hat durch die Hinzufügung von {{cssxref('perspective')}} zum Elternelement das Aussehen, sich auf den Betrachter zuzubewegen.
 
 #### HTML
 
@@ -207,4 +208,4 @@ Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und hat auf
 - {{cssxref('rotate')}}
 - {{cssxref('transform')}}
 
-Hinweis: skew ist kein unabhängiger Transformationswert
+Hinweis: `skew` ist kein unabhängiger Transformationswert

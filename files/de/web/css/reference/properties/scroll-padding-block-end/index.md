@@ -1,11 +1,12 @@
 ---
-title: scroll-padding-block-end
+title: "`scroll-padding-block-end` CSS property"
+short-title: scroll-padding-block-end
 slug: Web/CSS/Reference/Properties/scroll-padding-block-end
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die Eigenschaft `scroll-padding-block-end` definiert Versätze für die Endkante in der Blockdimension der _optimalen Anzeigeregion_ des Scrollports: Die Region, die als Zielregion für das Platzieren von Inhalten im Sichtbereich des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die von anderem Inhalt (wie z. B. fest positionierten Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Platz zwischen einem angezielten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-block-end` definiert Offsets für die Endkante in der Block-Dimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge in das Sichtfeld des Benutzers zu stellen. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block-end")}}
 
@@ -91,9 +92,9 @@ scroll-padding-block-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Blockendkante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Offset von der Endkante des Scrollports in der Block-Dimension, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom User Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User Agent kann erkennen und etwas anderes tun, wenn ein von 0 abweichender Wert geeigneter ist.
+  - : Der Offset wird durch den Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein von Null abweichender Wert angemessener ist.
 
 ## Formale Definition
 
@@ -114,4 +115,4 @@ scroll-padding-block-end: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

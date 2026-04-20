@@ -1,13 +1,14 @@
 ---
-title: -webkit-mask-repeat-x
+title: "`-webkit-mask-repeat-x` CSS property"
+short-title: -webkit-mask-repeat-x
 slug: Web/CSS/Reference/Properties/-webkit-mask-repeat-x
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}
 
-Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horizontal wiederholt (gekachelt) wird.
+Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild horizontal wiederholt (gekachelt) wird.
 
 ## Syntax
 
@@ -38,9 +39,9 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 - repeat
   - : Das Maskenbild wird sowohl horizontal als auch vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Das erste und letzte Bild werden an beiden Seiten des Elements befestigt, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden angezeigt werden. Der einzige Fall, in dem beim Verwenden von space ein Zuschneiden erfolgt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild darzustellen.
+  - : Das Bild wird so oft wie möglich ohne Zuschneiden wiederholt. Das erste und letzte Bild werden an beiden Seiten des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Zuschneiden angezeigt werden. Der einzige Fall, in dem das Zuschneiden bei der Verwendung von space auftritt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
 - round
-  - : Wenn der verfügbare Platz wächst, werden die wiederholten Bilder gedehnt (sodass keine Lücken entstehen), bis Platz für ein weiteres Bild ist. Wenn das nächste Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer Originalbreite von 260px, das dreimal wiederholt wird, kann sich dehnen, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px komprimiert.
+  - : Wenn der zur Verfügung stehende Platz größer wird, dehnen sich die wiederholten Bilder (ohne Lücken zu hinterlassen), bis Platz für ein weiteres Bild ist. Wenn das nächste Bild hinzugefügt wird, komprimieren sich alle aktuellen Bilder, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Sie komprimieren dann auf 225px.
 
 ## Formale Definition
 
@@ -52,7 +53,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines wiederholten oder nicht wiederholten Maskenbildes
 
 ```css
 .example-one {
@@ -68,7 +69,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horiz
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommata:
+Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
 
 ```css
 .example-three {
@@ -77,7 +78,7 @@ Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgestimmt, vom zuerst angegebenen bis zum letzten.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen, vom zuerst angegebenen bis zum zuletzt angegebenen.
 
 ## Spezifikationen
 

@@ -1,11 +1,12 @@
 ---
-title: mask-clip
+title: "`mask-clip` CSS property"
+short-title: mask-clip
 slug: Web/CSS/Reference/Properties/mask-clip
 l10n:
-  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mask-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der gemalte Inhalt eines Elements muss auf diesen Bereich beschränkt werden.
+Die **`mask-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der bemalte Inhalt eines Elements muss auf diesen Bereich beschränkt sein.
 
 ## Syntax
 
@@ -35,22 +36,22 @@ mask-clip: unset;
 
 ### Werte
 
-Die Eigenschaft akzeptiert eine kommaseparierte Liste von Schlüsselwortwerten. Jeder Wert ist entweder ein `<coord-box>` oder `no-clip`:
+Die Eigenschaft akzeptiert eine durch Kommas getrennte Liste von Schlüsselwortwerten. Jeder Wert ist ein `<coord-box>` oder `no-clip`:
 
 - `content-box`
-  - : Der gemalte Inhalt wird auf die content box beschnitten.
+  - : Der bemalte Inhalt wird auf die Inhaltsbox (content box) zugeschnitten.
 - `padding-box`
-  - : Der gemalte Inhalt wird auf die padding box beschnitten.
+  - : Der bemalte Inhalt wird auf die Padding-Box zugeschnitten.
 - `border-box`
-  - : Der gemalte Inhalt wird auf die border box beschnitten.
+  - : Der bemalte Inhalt wird auf die Rahmenbox (border box) zugeschnitten.
 - `fill-box`
-  - : Der gemalte Inhalt wird auf die Bounding-Box des Objekts beschnitten.
+  - : Der bemalte Inhalt wird auf die Objektbegrenzungsbox zugeschnitten.
 - `stroke-box`
-  - : Der gemalte Inhalt wird auf die Stroke-Bounding-Box beschnitten.
+  - : Der bemalte Inhalt wird auf die Umrandungsbox (stroke bounding box) zugeschnitten.
 - `view-box`
-  - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Reference/Attribute/viewBox) Attribut für das Element, das den SVG-Viewport erzeugt, angegeben wird, wird die Referenzbox an den Ursprung des durch das `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breite und Höhe der `viewBox` Attributwerte gesetzt.
+  - : Verwendet die nächstgelegene SVG-Ansichtsportbox als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Reference/Attribute/viewBox)-Attribut für das Element, das den SVG-Ansichtsport erstellt, angegeben ist, wird die Referenzbox am Ursprung des Koordinatensystems positioniert, das durch das `viewBox`-Attribut etabliert wird, und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs festgelegt.
 - `no-clip`
-  - : Der gemalte Inhalt wird nicht beschnitten.
+  - : Der bemalte Inhalt wird nicht zugeschnitten.
 - `border`
   - : Dieses Schlüsselwort verhält sich wie `border-box`.
 - `padding`
@@ -62,13 +63,13 @@ Die Eigenschaft akzeptiert eine kommaseparierte Liste von Schlüsselwortwerten. 
 
 ## Beschreibung
 
-Die `mask-clip` Eigenschaft definiert den Bereich des Elements, der von der angewendeten Maske betroffen ist.
+Die `mask-clip`-Eigenschaft definiert den Bereich des Elements, der von der angewendeten Maske betroffen ist.
 
-Für Maskenebenenbilder, die sich nicht auf ein SVG {{svgelement("mask")}} Element beziehen, definiert die `mask-clip` Eigenschaft den Bereich, der gemalt wird, oder den Bereich, der von der Maske betroffen ist. Der gemalte Inhalt des Elements wird auf diesen Bereich beschränkt.
+Für Maskenebenenbilder, die keine SVG {{svgelement("mask")}}-Elemente referenzieren, definiert die `mask-clip`-Eigenschaft den Maskenmalbereich oder den Bereich, der von der Maske betroffen ist. Der bemalte Inhalt des Elements wird auf diesen Bereich beschränkt.
 
-Die `mask-clip` Eigenschaft hat keine Auswirkungen auf ein Maskenebenenbild, das auf ein `<mask>` Element verweist. Die {{svgAttr("x")}}, {{svgAttr("y")}}, {{svgAttr("width")}}, {{svgAttr("height")}} und {{svgAttr("maskUnits")}} Attribute des `<mask>` Elements bestimmen den Malbereich der Maske, wenn die Quelle des {{cssxref("mask-image")}} ein `<mask>` ist.
+Die `mask-clip`-Eigenschaft hat keinen Einfluss auf ein Maskenebenenbild, das ein `<mask>`-Element referenziert. Die `<mask>`-Elemente {{svgAttr("x")}}, {{svgAttr("y")}}, {{svgAttr("width")}}, {{svgAttr("height")}}, und {{svgAttr("maskUnits")}} Attribute bestimmen den Maskenmalbereich, wenn die Quelle des {{cssxref("mask-image")}} ein `<mask>` ist.
 
-Ein Element kann mehrere Maskenebenen haben. Die Anzahl der Ebenen wird durch die Anzahl der kommagetrennten Werte in der `mask-image` Eigenschaftenwert (selbst wenn ein Wert `none` ist) bestimmt. Jeder `mask-clip` Wert in der kommagetrennten Liste von Werten wird der Reihe nach den `mask-image` Werten zugeordnet. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist, werden überschüssige Werte von `mask-clip` nicht verwendet, oder, wenn `mask-clip` weniger Werte als `mask-image` hat, werden die `mask-clip` Werte wiederholt.
+Ein Element kann mehrere Maskenebenen angewendet haben. Die Anzahl der Ebenen wird durch die Anzahl der durch Kommas getrennten Werte im `mask-image`-Eigenschaftswert bestimmt (auch wenn ein Wert `none` ist). Jeder `mask-clip`-Wert in der Liste der kommagetrennten Werte wird mit den `mask-image`-Werten verglichen, in der Reihenfolge. Wenn die Anzahl der Werte in den beiden Eigenschaften unterschiedlich ist, werden alle überzähligen Werte von `mask-clip` nicht verwendet, oder, wenn `mask-clip` weniger Werte hat als `mask-image`, werden die `mask-clip`-Werte wiederholt.
 
 ## Formale Definition
 
@@ -80,13 +81,13 @@ Ein Element kann mehrere Maskenebenen haben. Die Anzahl der Ebenen wird durch di
 
 ## Beispiele
 
-### Eine Maske auf die Border-Box zuschneiden
+### Maskierung auf die Rahmenbox zuschneiden
 
-Dieses Beispiel demonstriert drei `mask-clip` Werte.
+Dieses Beispiel demonstriert drei `mask-clip`-Werte.
 
 #### HTML
 
-Wir fügen drei Elemente ein, jedes mit einem anderen `<coord-box>` Wert als Klassennamen.
+Wir fügen drei Elemente ein, jedes mit einem anderen `<coord-box>`-Wert als Klassenname.
 
 ```html live-sample___mask-clip-example
 <div class="border-box"></div>
@@ -96,7 +97,7 @@ Wir fügen drei Elemente ein, jedes mit einem anderen `<coord-box>` Wert als Kla
 
 #### CSS
 
-Das CSS definiert das Element mit einem Hintergrund, Rahmen, Padding und Margin, zusammen mit einem Maskenbild, wobei jedes `<div>` einen anderen `<coord-box>` hat. Wir haben Inhalt mit dem Namen der Klasse generiert, wobei dieser Text um 10px nach oben verschoben wird, um zu verhindern, dass er aus dem Sichtfeld maskiert wird.
+Das CSS definiert das Element mit einem Hintergrund, Rahmen, Padding und Margin und einem Maskenbild, wobei jedes `<div>` eine andere `<coord-box>` hat. Wir haben Inhalt mit dem Namen der Klasse generiert und diesen Text um 10px nach oben verschoben, um zu verhindern, dass er aus der Sicht maskiert wird.
 
 ```css live-sample___mask-clip-example
 div {
@@ -146,7 +147,7 @@ body {
 
 ## Siehe auch
 
-- {{cssxref("mask")}} Kurzform
+- {{cssxref("mask")}} Kurzschreibweise
 - {{cssxref("mask-image")}}
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-position")}}
@@ -155,8 +156,8 @@ body {
 - {{cssxref("mask-border")}}
 - {{cssxref("clip-path")}}
 - {{cssxref("background-clip")}}
-- [Einführung in CSS Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)
-- [Einführung in CSS Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
-- [CSS `mask` Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
-- [CSS Masking](/de/docs/Web/CSS/Guides/Masking) Modul
+- [Einführung in das Zuschneiden mit CSS](/de/docs/Web/CSS/Guides/Masking/Clipping)
+- [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS `mask`-Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Deklaration mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul

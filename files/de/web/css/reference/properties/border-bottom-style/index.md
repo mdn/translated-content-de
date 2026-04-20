@@ -1,14 +1,15 @@
 ---
-title: border-bottom-style
+title: "`border-bottom-style` CSS property"
+short-title: border-bottom-style
 slug: Web/CSS/Reference/Properties/border-bottom-style
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 Die **`border-bottom-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des unteren {{cssxref("border")}} eines Elements fest.
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie Ränder unterschiedlicher Stile an den Ecken verbunden werden.
 
 {{InteractiveExample("CSS Demo: border-bottom-style")}}
 
@@ -82,7 +83,7 @@ border-bottom-style: revert-layer;
 border-bottom-style: unset;
 ```
 
-Die Eigenschaft `border-bottom-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die `border-bottom-style`-Eigenschaft wird als einzelnes {{cssxref("line-style")}} Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -94,7 +95,7 @@ Die Eigenschaft `border-bottom-style` wird als einzelnes {{cssxref("line-style")
 
 ## Beispiele
 
-### Demonstration aller Randstile
+### Vorführung aller Rahmenstile
 
 #### HTML
 
@@ -181,5 +182,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rand-Eigenschaften: {{ Cssxref("border-left-style") }}, {{ Cssxref("border-right-style") }}, {{ Cssxref("border-top-style") }}, und {{ Cssxref("border-style") }}.
-- Die anderen untereren Rand-bezogenen Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }}, und {{ Cssxref("border-bottom-width") }}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{ Cssxref("border-left-style") }}, {{ Cssxref("border-right-style") }}, {{ Cssxref("border-top-style") }}, und {{ Cssxref("border-style") }}.
+- Die anderen unteren Rahmen-bezogenen Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }}, und {{ Cssxref("border-bottom-width") }}.

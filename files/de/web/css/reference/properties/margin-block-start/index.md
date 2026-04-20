@@ -1,11 +1,12 @@
 ---
-title: margin-block-start
+title: "`margin-block-start` CSS property"
+short-title: margin-block-start
 slug: Web/CSS/Reference/Properties/margin-block-start
 l10n:
-  sourceCommit: 12b2bba6348add286377d12f0806d43ddc72bdb7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`margin-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Rand eines Elements, der in einen physischen Rand umgewandelt wird, abhängig vom Schreibrichtungmodus, der Richtung und der Textausrichtung des Elements.
+Die **`margin-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Rand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Randangabe zugeordnet wird.
 
 {{InteractiveExample("CSS Demo: margin-block-start")}}
 
@@ -85,9 +86,9 @@ margin-block-start: revert-layer;
 margin-block-start: unset;
 ```
 
-Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Es entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
-Sie steht in Beziehung zu {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}, welche die anderen Ränder des Elements definieren.
+Es bezieht sich auf {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
@@ -103,7 +104,7 @@ Die `margin-block-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxr
 
 ## Beispiele
 
-### Festlegung des Blockanfangs-Rands
+### Blockanfang-Rand einstellen
 
 #### HTML
 
@@ -143,6 +144,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
 - Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

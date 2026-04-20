@@ -1,11 +1,12 @@
 ---
-title: margin-block-end
+title: "`margin-block-end` CSS property"
+short-title: margin-block-end
 slug: Web/CSS/Reference/Properties/margin-block-end
 l10n:
-  sourceCommit: 12b2bba6348add286377d12f0806d43ddc72bdb7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`margin-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockendrand eines Elements, der je nach Schreibmodus, Leserichtung und Textorientierung des Elements einer physikalischen Randbreite zugeordnet wird.
+Die **`margin-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockendrand eines Elements, der je nach Schreibweise, Richtung und Textausrichtung des Elements einer physischen Randseite zugeordnet wird.
 
 {{InteractiveExample("CSS Demo: margin-block-end")}}
 
@@ -85,13 +86,13 @@ margin-block-end: revert-layer;
 margin-block-end: unset;
 ```
 
-Sie entspricht der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Sie steht in Beziehung zu {{cssxref("margin-block-start")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, welche die anderen Ränder des Elements definieren.
+Sie steht im Zusammenhang mit {{cssxref("margin-block-start")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-block-end` Eigenschaft nimmt die gleichen Werte an wie die Eigenschaft {{cssxref("margin-top")}}.
+Die `margin-block-end`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("margin-top")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -143,6 +144,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die zugeordneten physikalischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
+- [CSS logisch Eigenschafen und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die abgebildeten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -1,11 +1,12 @@
 ---
-title: ruby-align
+title: "`ruby-align` CSS property"
+short-title: ruby-align
 slug: Web/CSS/Reference/Properties/ruby-align
 l10n:
-  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`ruby-align`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Verteilung der verschiedenen Ruby-Elemente über die Basis.
+Die **`ruby-align`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Verteilung der verschiedenen Ruby-Elemente über dem Basistext.
 
 ## Syntax
 
@@ -27,9 +28,9 @@ ruby-align: unset;
 ### Werte
 
 - `start`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby mit dem Anfang des Basistexts ausgerichtet wird.
+  - : Ist ein Schlüsselwort, das angibt, dass das Ruby am Anfang des Basistextes ausgerichtet wird.
 - `center`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby in der Mitte des Basistexts ausgerichtet wird.
+  - : Ist ein Schlüsselwort, das angibt, dass das Ruby in der Mitte des Basistextes ausgerichtet wird.
 - `space-between`
   - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Ruby verteilt wird.
 - `space-around`
@@ -45,7 +46,7 @@ ruby-align: unset;
 
 ## Beispiele
 
-### Ruby am Anfang des Basistexts ausgerichtet
+### Ruby am Anfang des Basistextes ausgerichtet
 
 #### HTML
 
@@ -68,7 +69,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_aligned_at_the_start_of_the_base_text", 180, 40)}}
 
-### Ruby in der Mitte des Basistexts ausgerichtet
+### Ruby in der Mitte des Basistextes ausgerichtet
 
 #### HTML
 

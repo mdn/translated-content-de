@@ -1,15 +1,16 @@
 ---
-title: <flex>
+title: "`<flex>` CSS-Typ"
+short-title: <flex>
 slug: Web/CSS/Reference/Values/flex_value
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
 Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine flexible Länge innerhalb eines Grid-Containers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<flex>`-Datentyp wird als {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die Einheit `fr` repräsentiert einen Bruchteil des verbleibenden Platzes im Grid-Container. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Einheit und der Zahl.
+Der `<flex>`-Datentyp wird als eine {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die Einheit `fr` stellt einen Bruchteil des verbleibenden Raums im Grid-Container dar. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen der Einheit und der Zahl.
 
 ## Beispiele
 
@@ -20,7 +21,7 @@ Der `<flex>`-Datentyp wird als {{cssxref("&lt;number&gt;")}} gefolgt von der Ein
 2.5fr  /* Using a float value */
 ```
 
-### Beispiel für die Verwendung in einer Spuraufzählung für CSS-Grid-Layout
+### Beispiel für die Verwendung in einer Tracks-Auflistung für das CSS-Grid-Layout
 
 ```css
 .grid {

@@ -1,13 +1,14 @@
 ---
-title: border-image-outset
+title: "`border-image-outset` CSS property"
+short-title: border-image-outset
 slug: Web/CSS/Reference/Properties/border-image-outset
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-image-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den das [Randelementbild](/de/docs/Web/CSS/Reference/Properties/border-image) von seinem Randbereich gesetzt wird.
+Die **`border-image-outset`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Abstand fest, um den das [Rahmenbild (border image)](/de/docs/Web/CSS/Reference/Properties/border-image) von der Rahmenumrandung eines Elements herausgesetzt wird.
 
-Die Teile des Randelementbildes, die außerhalb des Randbereichs des Elements mit `border-image-outset` gerendert werden, lösen keine Überlauf-Scrollleisten aus und erfassen keine Mausereignisse.
+Die Teile des Rahmenbildes, die mit `border-image-outset` außerhalb des Rahmenumrandungsrahmens eines Elements gerendert werden, erzeugen keine Überlauf-Scrollleisten und erfassen keine Mausereignisse.
 
 {{InteractiveExample("CSS Demo: border-image-outset")}}
 
@@ -76,19 +77,19 @@ border-image-outset: revert-layer;
 border-image-outset: unset;
 ```
 
-Die Eigenschaft `border-image-outset` kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset`-Angabe ignoriert wird.
+Die `border-image-outset`-Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset` Deklaration ignoriert wird.
 
-1. Wenn **ein** Wert angegeben ist, gilt er für **alle vier Seiten**.
-2. Wenn **zwei** Werte angegeben sind, gilt der erste für **oben und unten** und der zweite für **links und rechts**.
-3. Wenn **drei** Werte angegeben sind, gilt der erste für **oben**, der zweite für **links und rechts** und der dritte für **unten**.
-4. Wenn **vier** Werte angegeben sind, gelten sie für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+1. Wenn **ein** Wert angegeben wird, gilt er für **alle vier Seiten**.
+2. Wenn **zwei** Werte angegeben werden, gilt der erste für **oben und unten** und der zweite für **links und rechts**.
+3. Wenn **drei** Werte angegeben werden, gilt der erste für **oben**, der zweite für **links und rechts**, und der dritte für **unten**.
+4. Wenn **vier** Werte angegeben werden, gelten sie für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des `border-image`-Outsets als Dimension — eine Zahl mit einer Einheit.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des `border-image`-Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}s des Elements. Wenn ein Element zum Beispiel `border-width: 1em 2px 0 1.5rem` hat und `border-image-outset: 2`, würde der endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet.
+  - : Die Größe des `border-image`-Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}s des Elements. Zum Beispiel, wenn ein Element `border-width: 1em 2px 0 1.5rem` hat, und `border-image-outset: 2` gesetzt ist, würde das endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet.
 
 ## Formale Definition
 
@@ -100,7 +101,7 @@ Die Eigenschaft `border-image-outset` kann mit einem, zwei, drei oder vier Werte
 
 ## Beispiele
 
-### Erweiterung eines Randelementbildes
+### Heraussetzen eines Rahmenbildes
 
 #### HTML
 
@@ -135,6 +136,6 @@ Die Eigenschaft `border-image-outset` kann mit einem, zwei, drei oder vier Werte
 
 ## Siehe auch
 
-- [Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Randelementbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Rahmenbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

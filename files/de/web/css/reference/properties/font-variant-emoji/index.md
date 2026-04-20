@@ -1,13 +1,14 @@
 ---
-title: font-variant-emoji
+title: "`font-variant-emoji` CSS property"
+short-title: font-variant-emoji
 slug: Web/CSS/Reference/Properties/font-variant-emoji
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`font-variant-emoji`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Standardpräsentationsstil für die Anzeige von Emojis fest.
+Die **`font-variant-emoji`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt den Standarddarstellungsstil für die Anzeige von Emojis an.
 
-Traditionell wurde dies durch Anhängen eines _Variation Selector_, `U+FE0E` für Text und `U+FE0F` für Emoji, an den Emoji-Codepunkt durchgeführt. Nur Emojis, die zu einer [Unicode-Emoji-Präsentationssequenz](https://www.unicode.org/emoji/charts/emoji-variants.html) beitragen, werden von dieser Eigenschaft beeinflusst.
+Traditionell wurde dies durch das Anhängen eines _Variation Selectors_, `U+FE0E` für Text und `U+FE0F` für Emoji, an den Emoji-Codepunkt erreicht. Nur Emojis, die zu einer [Unicode-Emoji-Darstellungssequenz](https://www.unicode.org/emoji/charts/emoji-variants.html) beitragen, werden von dieser Eigenschaft beeinflusst.
 
 ## Syntax
 
@@ -26,18 +27,18 @@ font-variant-emoji: revert-layer;
 font-variant-emoji: unset;
 ```
 
-Die `font-variant-emoji`-Eigenschaft wird mit einem einzelnen Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Die `font-variant-emoji` Eigenschaft wird durch einen einzelnen Schlüsselwortwert aus der unten stehenden Liste festgelegt.
 
 ### Werte
 
 - `normal`
-  - : Ermöglicht es einem Browser, auszuwählen, wie das Emoji angezeigt werden soll. Dies folgt oft der Einstellung des Betriebssystems.
+  - : Ermöglicht es einem Browser, zu wählen, wie das Emoji angezeigt wird. Dies folgt oft der Betriebssystemeinstellung.
 - `text`
-  - : Stellt das Emoji so dar, als ob es den Unicode-Textvariationsselektor (`U+FE0E`) verwenden würde.
+  - : Rendert das Emoji, als ob es den Unicode-Text-Variation-Selector (`U+FE0E`) verwendet.
 - `emoji`
-  - : Stellt das Emoji so dar, als ob es den Unicode-Emoji-Variationsselektor (`U+FE0F`) verwenden würde.
+  - : Rendert das Emoji, als ob es den Unicode-Emoji-Variation-Selector (`U+FE0F`) verwendet.
 - `unicode`
-  - : Stellt das Emoji gemäß den [Emoji-Präsentationseigenschaften](https://www.unicode.org/reports/tr51/tr51-23.html#Emoji_Presentation) dar. Wenn der `U+FE0E` oder `U+FE0F` Variationsselektor vorhanden ist, wird dieser den Wert überschreiben.
+  - : Rendert das Emoji gemäß den [Emoji-Darstellungseigenschaften](https://www.unicode.org/reports/tr51/tr51-23.html#Emoji_Presentation). Wenn der `U+FE0E` oder `U+FE0F` Variation Selector vorhanden ist, überschreibt er diese Wert-Einstellung.
 
 ## Formale Definition
 
@@ -49,19 +50,19 @@ Die `font-variant-emoji`-Eigenschaft wird mit einem einzelnen Schlüsselwortwert
 
 ## Barrierefreiheit
 
-Obwohl die Nutzung von Emojis unterhaltsam erscheinen mag, sollten Sie deren Einfluss auf die Barrierefreiheit berücksichtigen, insbesondere für Benutzer mit visuellen und kognitiven Einschränkungen. Beachten Sie die folgenden Faktoren bei der Verwendung von Emojis:
+Während der Gebrauch von Emojis unterhaltsam erscheinen mag, sollten Sie deren Einfluss auf die Barrierefreiheit, insbesondere für Nutzer mit Seh- und kognitiven Beeinträchtigungen, berücksichtigen. Berücksichtigen Sie die folgenden Faktoren bei der Verwendung von Emojis:
 
-- Anzeige auf Screenreadern: Screenreader lesen den Alt-Text eines Emojis vor. Berücksichtigen Sie dies, wenn Sie die Position eines Emojis im Inhalt wählen. Wiederholte und übermäßige Verwendung von Emojis wirkt sich nachteilig auf Benutzer von Screenreadern aus. Es ist besser, Emojis statt Emoticons zu verwenden; Emoticons werden als Satzzeichen vorgelesen.
+- Darstellung auf Screenreadern: Screenreader lesen den Alt-Text eines Emojis vor. Beachten Sie dies, um die Position eines Emojis im Inhalt zu berücksichtigen. Die wiederholte und übermäßige Verwendung von Emojis wirkt sich negativ auf Screenreader-Nutzer aus. Es ist besser, Emojis anstelle von Emoticons zu verwenden; Emoticons werden als Interpunktionszeichen vorgelesen.
 
-- Kontrast mit dem Hintergrund: Bei der Verwendung von Emojis sollten Sie deren Farben und deren Wirkung mit der Hintergrundfarbe berücksichtigen, insbesondere wenn Sie Hintergrundfarben haben, die sich ändern können, wie z. B. Licht-/Dunkelmodus.
+- Kontrast zum Hintergrund: Berücksichtigen Sie bei der Verwendung von Emojis deren Farben und wie sie mit der Hintergrundfarbe funktionieren, insbesondere wenn Sie Hintergrundfarben haben, die sich ändern können, wie z.B. im Hell/Dunkel-Modus.
 
-- Absicht der Verwendung: Verwenden Sie Emojis nicht als Ersatz für Wörter, da Ihr Verständnis der Bedeutung des Emojis von dem der Benutzer abweichen kann. Bedenken Sie auch, dass Emojis in verschiedenen Kulturen und Geografien unterschiedliche Bedeutungen haben könnten. Unsere Empfehlung ist, die Verwendung auf allgemein bekannte Emojis zu beschränken.
+- Verwendungszweck: Verwenden Sie Emojis nicht als Ersatz für Wörter, da Ihr Verständnis der Emoji-Bedeutung von dem der Nutzer abweichen kann. Berücksichtigen Sie auch, dass Emojis in verschiedenen Kulturen und geografischen Regionen unterschiedliche Bedeutungen haben können. Unsere Empfehlung ist, die Nutzung auf allgemein bekannte Emojis zu beschränken.
 
 ## Beispiele
 
-### Ändern der Art und Weise, wie ein Emoji angezeigt wird
+### Änderung der Anzeigeart eines Emojis
 
-Dieses Beispiel zeigt, wie Sie ein Emoji in seiner `text`- oder `emoji`-Präsentation rendern können.
+Dieses Beispiel zeigt, wie Sie ein Emoji in seiner `text`- oder `emoji`-Darstellung rendern können.
 
 #### HTML
 
@@ -143,4 +144,4 @@ Dieses Beispiel zeigt, wie Sie ein Emoji in seiner `text`- oder `emoji`-Präsent
 - [font-variant-east-asian](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian)
 - [font-variant-ligatures](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures)
 - [font-variant-numeric](/de/docs/Web/CSS/Reference/Properties/font-variant-numeric)
-- [Emojis and accessibility: How to use them properly](https://uxdesign.cc/emojis-in-accessibility-how-to-use-them-properly-66b73986b803)
+- [Emojis und Barrierefreiheit: Wie man sie richtig verwendet](https://uxdesign.cc/emojis-in-accessibility-how-to-use-them-properly-66b73986b803)

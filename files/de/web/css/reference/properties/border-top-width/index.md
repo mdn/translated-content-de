@@ -1,11 +1,12 @@
 ---
-title: border-top-width
+title: "`border-top-width` CSS property"
+short-title: border-top-width
 slug: Web/CSS/Reference/Properties/border-top-width
 l10n:
-  sourceCommit: 893eb2dfe0ce3e837b3a7512a684b2f02e31d64e
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-top-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des oberen Rahmens eines Elements fest.
+Die **`border-top-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des oberen Randes eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-top-width")}}
 
@@ -72,7 +73,7 @@ border-top-width: unset;
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
+  - : Bestimmt die Breite des Randes, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
     - `thin`
       - Entspricht `1px`.
     - `medium`
@@ -80,11 +81,11 @@ border-top-width: unset;
     - `thick`
       - Entspricht `5px`.
 
-## Formale Definition
+## Offizielle Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Offizielles Syntax
 
 {{csssyntax}}
 
@@ -127,5 +128,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen border-width-bezogenen CSS Eigenschaften: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen border-top-bezogenen CSS Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-top-color")}}.
+- Die anderen Randbreite-bezogenen CSS-Eigenschaften: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen oberen Rand-bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-top-color")}}.

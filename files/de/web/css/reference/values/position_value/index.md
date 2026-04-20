@@ -1,26 +1,27 @@
 ---
-title: <position>
+title: "`<position>` CSS-Typ"
+short-title: <position>
 slug: Web/CSS/Reference/Values/position_value
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<position>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine zweidimensionale Koordinate, die verwendet wird, um eine Position relativ zu einem Elementrahmen festzulegen. Er wird in den Eigenschaften {{cssxref("background-position")}}, {{cssxref("object-position")}}, {{cssxref("mask-position")}}, {{cssxref("offset-position")}}, {{cssxref("offset-anchor")}} und {{cssxref("transform-origin")}} verwendet.
+Der **`<position>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine zweidimensionale Koordinate, die verwendet wird, um eine Position relativ zu einem Elementrahmen festzulegen. Er wird in den Eigenschaften {{cssxref("background-position")}}, {{cssxref("object-position")}}, {{cssxref("mask-position")}} {{cssxref("offset-position")}}, {{cssxref("offset-anchor")}} und {{cssxref("transform-origin")}} verwendet.
 
 > [!NOTE]
-> Die endgültige Position, die durch den `<position>`-Wert beschrieben wird, muss sich nicht innerhalb des Rahmens des Elements befinden.
+> Die durch den `<position>`-Wert beschriebene Endposition muss sich nicht innerhalb des Elementrahmens befinden.
 
 ## Syntax
 
-![Raster, das die Platzierung verschiedener Werte zeigt. 0 0 ist die obere linke Ecke. Die vier Werte, right, right center, center left 100% und top 50% left 100%, sind alle gleichwertig und befinden sich am rechten Rand in der Mitte vertikal. Die beiden Werte, top 75px left 100px und left 100px top 75px, sind identisch. Bottom left 25% ist dasselbe wie top 100% left 25%.](position_type.png)
+![Gitter zeigt die Platzierung verschiedener Werte. 0 0 ist die obere linke Ecke. Die vier Werte, right, right center, center left 100% und top 50% left 100%, sind alle gleichwertig und befinden sich am rechten Rand in der Mitte vertikal. Die beiden Werte, top 75px left 100px und left 100px top 75px, sind identisch. Bottom left 25% ist dasselbe wie top 100% left 25%.](position_type.png)
 
-Der `<position>`-Datentyp wird mit ein oder zwei Schlüsselwörtern angegeben, mit optionalen Versetzungen.
+Der `<position>`-Datentyp wird mit einem oder zwei Schlüsselwörtern angegeben, mit optionalen Versätzen.
 
 Die Schlüsselwortwerte sind `center`, `top`, `right`, `bottom` und `left`. Jedes Schlüsselwort repräsentiert entweder eine Kante des Elementrahmens oder die Mittellinie zwischen zwei Kanten. Je nach Kontext repräsentiert `center` entweder die Mitte zwischen den linken und rechten Kanten oder die Mitte zwischen den oberen und unteren Kanten.
 
-Falls angegeben, kann eine Versetzung entweder ein relatives {{cssxref("&lt;percentage&gt;")}}-Wert oder ein absolutes {{cssxref("&lt;length&gt;")}}-Wert sein. Positive Werte sind in Richtung rechts oder unten, je nachdem, was passend ist. Negative Werte sind in die entgegengesetzten Richtungen versetzt.
+Wenn angegeben, kann ein Versatz entweder ein relatives {{cssxref("&lt;percentage&gt;")}}-Wert oder ein absoluter {{cssxref("&lt;length&gt;")}}-Wert sein. Positive Werte sind versetzt nach rechts oder unten, je nachdem, was zutrifft. Negative Werte sind in die entgegengesetzten Richtungen versetzt.
 
-Wenn nur ein einziger Versetzungswert angegeben wird, definiert dieser die x-Koordinate, wobei der Wert für die andere Achse standardmäßig auf `center` gesetzt wird.
+Wenn nur ein einzelner Versatzwert angegeben wird, definiert er die x-Koordinate, wobei der Wert für die andere Achse standardmäßig `center` ist.
 
 ```css
 /* 1-value syntax */
@@ -38,11 +39,11 @@ keyword value keyword value /* Each value is an offset from the keyword that pre
 ```
 
 > [!NOTE]
-> Die Eigenschaft {{cssxref("background-position")}} akzeptiert auch eine Drei-Werte-Syntax. Dies ist in anderen Eigenschaften, die `<position>` verwenden, nicht erlaubt.
+> Die {{cssxref("background-position")}}-Eigenschaft akzeptiert auch eine Drei-Wert-Syntax. Dies ist in anderen Eigenschaften, die `<position>` verwenden, nicht zulässig.
 
 ## Interpolation
 
-Bei Animationen werden der Abszissen- und Ordinatenwert eines Punktes unabhängig voneinander interpoliert. Da jedoch die Geschwindigkeit der Interpolation durch eine einzige [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) für beide Koordinaten bestimmt wird, bewegt sich der Punkt auf einer geraden Linie.
+Wenn animiert, werden die Werte der Abszisse und Ordinate eines Punktes unabhängig interpoliert. Da jedoch die Geschwindigkeit der Interpolation durch eine einzelne [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) für beide Koordinaten bestimmt wird, bewegt sich der Punkt in einer geraden Linie.
 
 ## Formale Syntax
 
@@ -82,7 +83,7 @@ bottom top
 
 ## Siehe auch
 
-- [Modul: CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units)
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [Lernen: CSS-Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
 - {{cssxref("background-position")}}
 - {{cssxref("gradient/radial-gradient", "radial-gradient()")}}

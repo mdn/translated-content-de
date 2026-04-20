@@ -1,11 +1,12 @@
 ---
-title: place-items
+title: "`place-items` CSS-Eigenschaft"
+short-title: place-items
 slug: Web/CSS/Reference/Properties/place-items
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die [CSS](/de/docs/Web/CSS) **`place-items`** [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) richtet Elemente sowohl in Block- als auch in Inline-Richtung gleichzeitig aus. Sie setzt die Werte der {{CSSxRef("align-items")}}- und {{CSSxRef("justify-items")}}-Eigenschaften. Wenn der zweite Wert nicht gesetzt ist, wird der erste Wert auch dafür verwendet.
+Die [CSS](/de/docs/Web/CSS) **`place-items`** [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) richtet Elemente gleichzeitig sowohl in Block- als auch Inline-Richtung aus. Sie setzt die Werte der Eigenschaften {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}. Wenn der zweite Wert nicht angegeben ist, wird der erste Wert auch für diesen verwendet.
 
 {{InteractiveExample("CSS Demo: place-items")}}
 
@@ -53,9 +54,9 @@ place-items: end center;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("align-items")}}
 - {{cssxref("justify-items")}}
@@ -93,8 +94,8 @@ place-items: unset;
 
 Eine der folgenden Formen:
 
-- Ein einzelner {{cssxref("align-items")}}-Wert, der für die Ausrichtung sowohl in Block- als auch in Inline-Richtung verwendet wird.
-- Ein {{cssxref("align-items")}}-Wert, der die Ausrichtung in Block-Richtung festlegt, gefolgt von einem {{cssxref("justify-items")}}-Wert, der die Ausrichtung in Inline-Richtung festlegt.
+- Ein einzelner {{cssxref("align-items")}} Wert, der die Ausrichtung sowohl in der Block- als auch in der Inline-Richtung festlegt.
+- Ein {{cssxref("align-items")}} Wert, der die Ausrichtung in der Block-Richtung festlegt, gefolgt von einem {{cssxref("justify-items")}} Wert, der die Ausrichtung in der Inline-Richtung festlegt.
 
 ## Formale Definition
 
@@ -106,9 +107,9 @@ Eine der folgenden Formen:
 
 ## Beispiele
 
-### Elemente in einem Flex-Container platzieren
+### Platzierung von Elementen in einem Flex-Container
 
-Im Flexbox-Layout ist {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht anwendbar, da auf der Hauptachse die Elemente als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
+In Flexbox gelten {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht, da die Elemente auf der Hauptachse als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
 
 ```css hidden
 div > div {
@@ -220,9 +221,9 @@ values.addEventListener("change", (evt) => {
 
 {{EmbedLiveSample("Placing_items_in_a_flex_container", 260, 290)}}
 
-### Elemente in einem Grid-Container platzieren
+### Platzierung von Elementen in einem Grid-Container
 
-Der folgende Grid-Container enthält Elemente, die kleiner als die zugewiesenen Rasterflächen sind, daher wird `place-items` sie in den Block- und Inline-Dimensionen verschieben.
+Der folgende Grid-Container enthält Elemente, die kleiner sind als die Grid-Bereiche, in denen sie platziert sind. Daher wird `place-items` sie in der Block- und Inline-Dimension verschieben.
 
 ```css hidden
 div > div {
@@ -352,6 +353,6 @@ values.addEventListener("change", (evt) => {
 - {{CSSxRef("justify-items")}}
 - {{CSSxRef("justify-self")}}
 - [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
 - [Box-Ausrichtung im Raster-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
+- [CSS Box-Ausrichtungs](/de/docs/Web/CSS/Guides/Box_alignment) Modul

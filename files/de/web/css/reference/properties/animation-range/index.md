@@ -1,15 +1,16 @@
 ---
-title: animation-range
+title: CSS-Eigenschaft `animation-range`
+short-title: animation-range
 slug: Web/CSS/Reference/Properties/animation-range
 l10n:
-  sourceCommit: 2b6ef419bcd9bcc4316ae59c41b3a956c8fa5749
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) wird verwendet, um den Anfang und das Ende des Anwendungsbereichs einer Animation entlang ihrer Zeitleiste festzulegen, d.h. wo entlang der Zeitleiste eine Animation starten und enden wird.
+Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) wird verwendet, um den Anfang und das Ende des Anhangsbereichs einer Animation entlang ihrer Zeitachse festzulegen, d.h. wo entlang der Zeitachse eine Animation starten und enden wird.
 
-## Bestandteile der Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("animation-range-start")}}
 - {{cssxref("animation-range-end")}}
@@ -50,45 +51,45 @@ animation-range: revert-layer;
 animation-range: unset;
 ```
 
-Die `animation-range`-Kurzform-Eigenschaft wird als eine oder mehrere einzelne Animationsbereiche angegeben, getrennt durch Kommas. Jeder Animationsbereich wird als ein bis vier durch Leerzeichen getrennte Werte angegeben, die aus `<timeline-range-name>`-Werten, `<length-percentage>`-Werten und/oder dem Schlüsselwort `normal` bestehen.
+Die Kurzschreibweise `animation-range` wird als eine oder mehrere einzelne Animationsbereiche angegeben, die durch Kommata getrennt sind. Jeder Animationsbereich wird als ein bis vier durch Leerzeichen getrennte Werte angegeben, die aus `<timeline-range-name>`-Werten, `<length-percentage>`-Werten und/oder dem Schlüsselwort `normal` bestehen.
 
 ### Werte
 
 - `<animation-range-start>`
-  - : Das Schlüsselwort `normal`, ein `<length-percentage>`, ein {{cssxref("timeline-range-name")}} oder ein `<timeline-range-name> <length-percentage>`-Paar, das den {{cssxref("animation-range-start")}} darstellt. Wenn ein `<timeline-range-name>` ohne `<length-percentage>` festgelegt ist, ist das `<length-percentage>` standardmäßig `0%`.
+  - : Das Schlüsselwort `normal`, ein `<length-percentage>`, ein {{cssxref("timeline-range-name")}} oder ein Paar `<timeline-range-name> <length-percentage>`, das den {{cssxref("animation-range-start")}} darstellt. Wenn ein `<timeline-range-name>` ohne `<length-percentage>` festgelegt wird, defaultet `<length-percentage>` auf `0%`.
 - `<animation-range-end>`
-  - : Das Schlüsselwort `normal`, ein `<length-percentage>`, ein `<timeline-range-name>` oder ein `<timeline-range-name> <length-percentage>`-Paar, das den {{cssxref("animation-range-end")}} darstellt. Wenn ein `<timeline-range-name>` ohne `<length-percentage>` festgelegt ist, ist das `<length-percentage>` standardmäßig `100%`.
+  - : Das Schlüsselwort `normal`, ein `<length-percentage>`, ein `<timeline-range-name>` oder ein Paar `<timeline-range-name> <length-percentage>`, das den {{cssxref("animation-range-end")}} darstellt. Wenn ein `<timeline-range-name>` ohne `<length-percentage>` festgelegt wird, defaultet `<length-percentage>` auf `100%`.
 
 ## Beschreibung
 
-Die `animation-range`-Kurzform-Eigenschaft legt die Werte für `animation-range-start` und `animation-range-end` fest und definiert, wo entlang der Animations-Zeitleiste die Animation starten und enden wird. Standardmäßig werden die in einer Keyframe-Animation definierten Stilelemente nur auf ein Element angewendet, während dieses Element animiert wird. Wann eine Keyframe-Animation auf ein Element angewendet wird, hängt von der Animations-Zeitleiste dieser Animation ab. Standardmäßig werden Animationen nur zwischen dem Bereichsstart und dem Bereichsende der Zeitleiste angewendet. Um die Animation außerhalb dieses Bereichs anzuwenden, setzen Sie den {{cssxref("animation-fill-mode")}} auf `backwards`, `forwards` oder `both`. Diese drei `animation-fill-mode`-Werte wenden die ersten Keyframe-Stile bis zum Bereichsstart, die letzten Keyframe-Stile nach dem Ende der Animation oder beide sowohl davor als auch danach an.
+Die Kurzschreibweise `animation-range` legt die Werte `animation-range-start` und `animation-range-end` fest und definiert, wo entlang der Animationszeitleiste die Animation beginnen und enden wird. Standardmäßig werden die in einer Keyframe-Animation definierten Stile nur auf ein Element angewendet, während dieses Element animiert wird. Wann eine Keyframe-Animation auf ein Element angewendet wird, hängt von der Animationszeitleiste dieser Animation ab. Standardmäßig werden Animationen nur zwischen dem Beginn und dem Ende der Zeitleistenbereich angewendet. Um die Animation außerhalb dieses Bereichs anzuwenden, legen Sie für {{cssxref("animation-fill-mode")}} `backwards`, `forwards` oder `both` fest. Diese drei `animation-fill-mode`-Werte wenden die Stile des ersten Keyframes bis zum Bereichsstart, die Stile des letzten Keyframes nach dem Ende der Animation oder jeweils vor und nach der Animation an.
 
-Der {{Glossary("Scroll_container", "Scrollport")}}-Bereich, der als Bereich für die Sichtbarkeitsfortschritte bekannt ist, ist der Bereich, innerhalb dessen das Element einer Animation mit einer [benannten Sichtbarkeitsfortschritts-Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) als sichtbar angesehen wird. Standardmäßig ist dies der vollständige Bereich des Scrollports, kann jedoch mit der {{cssxref("view-timeline-inset")}}-Eigenschaft angepasst werden.
+Der Bereich des {{Glossary("Scroll_container", "Scroll-Ports")}}, bekannt als Sichtbarkeitsbereich des Fortschritts, ist der Bereich, in dem das Subjektelement einer [benannten Fortschrittszeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines)-Animation als sichtbar betrachtet wird. Standardmäßig ist dies der gesamte Bereich des Scrollports, aber es kann mit der Eigenschaft {{cssxref("view-timeline-inset")}} angepasst werden.
 
-Wenn zwei Werte als Bestandteile der `<animation-range>`-Eigenschaft angegeben werden, werden sie in der Reihenfolge `<animation-range-start>` gefolgt von `<animation-range-end>` interpretiert. Der Wert jeder Komponente ist entweder das Schlüsselwort `normal`, ein {{cssxref("length-percentage")}} oder ein {{cssxref("timeline-range-name")}}, gefolgt von einem `<length-percentage>`. Diese Werte sind durch Leerzeichen getrennt. Normal entspricht `0%` für den Start und `100%` für das Ende. Das Festlegen von `normal` mit einem `<length-percentage>` für entweder den Start- oder Endbereich ist ungültig.
+Wenn zwei Werte als Komponenten der `<animation-range>`-Eigenschaft spezifiziert werden, werden sie in der Reihenfolge `<animation-range-start>` gefolgt von `<animation-range-end>` interpretiert. Der Wert jeder Komponente ist entweder das Schlüsselwort `normal`, ein {{cssxref("length-percentage")}}, oder ein {{cssxref("timeline-range-name")}}, der optional von einem `<length-percentage>` gefolgt wird. Diese Werte werden mit Leerzeichen getrennt. Normal entspricht `0%` für den Start und `100%` für das Ende. Die Festlegung von `normal` mit einem `<length-percentage>` entweder für den Anfangs- oder Endbereich ist ungültig.
 
-### Definieren des Bereichsstarts und Festlegen des Bereichsendes als Standardwert
+### Festlegen des Bereichsanfrangs und Standardisierung des Bereichsende
 
-Wenn Sie nur `<animation-range-start>` durch Festlegen eines einzelnen {{cssxref("length-percentage")}}, eines einzelnen {{cssxref("timeline-range-name")}} oder das Schlüsselwort `normal` definieren oder indem Sie einen einzelnen `<timeline-range-name>` gefolgt von einem einzelnen `<length-percentage>` angeben, folgen dem berechneten Wert von `<animation-range-end>` spezifische Regeln:
+Wenn Sie nur `<animation-range-start>` definieren, entweder durch Festlegen eines einzelnen {{cssxref("length-percentage")}}, eines einzelnen {{cssxref("timeline-range-name")}}, oder des Schlüsselworts `normal`, oder durch Angabe eines einzelnen `<timeline-range-name>` gefolgt von einem einzelnen `<length-percentage>`, folgt der berechnete Wert des `<animation-range-end>` bestimmten Regeln:
 
-Wenn der Wert ein einzelnes `<length-percentage>` oder das Schlüsselwort `normal` ist, definiert dieser Wert das `<animation-range-start>`, und das `<animation-range-end>` wird implizit auf `normal` gesetzt. Zum Beispiel:
+Wenn der Wert ein einzelnes `<length-percentage>` oder das Schlüsselwort `normal` ist, definiert dieser Wert den `<animation-range-start>` und das `<animation-range-end>` wird implizit auf `normal` gesetzt. Zum Beispiel:
 
 - `animation-range: 20%;` ist gleichbedeutend mit `animation-range-start: 20%; animation-range-end: normal;`
 - `animation-range: normal;` ist gleichbedeutend mit `animation-range-start: normal; animation-range-end: normal;`
 
-Wenn der Wert ein einzelner {{cssxref("timeline-range-name")}} (ohne ein folgendes `<length-percentage>`)-Wert ist, wird dieser Zeitleistenbereichsname auf die Komponenten `<animation-range-start>` und `<animation-range-end>` angewendet, und die Bereiche von `0%` bzw. `100%` sind impliziert. Zum Beispiel:
+Wenn der Wert ein einzelnes {{cssxref("timeline-range-name")}} (ohne ein folgendes `<length-percentage>`) ist, wird dieser Zeitleistenbereichsname sowohl auf die `<animation-range-start>`- als auch `<animation-range-end>`-Komponenten angewendet und die Bereiche von `0%` bzw. `100%` impliziert. Zum Beispiel:
 
 - `animation-range: contain;` ist gleichbedeutend mit `animation-range-start: contain 0%; animation-range-end: contain 100%;`
 - `animation-range: cover;` ist gleichbedeutend mit `animation-range-start: cover 0%; animation-range-end: cover 100%;`
 
-Wenn der Wert ein einzelner `<timeline-range-name>` ist, gefolgt von einem einzelnen `<length-percentage>` in dieser Reihenfolge, definiert das Paar das `<animation-range-start>`, und der definierte `<timeline-range-name>` wird auf `<animation-range-end>` bei `100%` angewendet. Zum Beispiel:
+Wenn der Wert ein einzelnes `<timeline-range-name>` mit einem darauf folgenden `<length-percentage>` ist, in dieser Reihenfolge, definiert das Paar den `<animation-range-start>`, und der definierte `<timeline-range-name>` wird auf den `<animation-range-end>` bei `100%` angewendet. Zum Beispiel:
 
 - `animation-range: cover 20%;` ist gleichbedeutend mit `animation-range-start: cover 20%; animation-range-end: cover 100%;`
 - `animation-range: contain 100px;` ist gleichbedeutend mit `animation-range-start: contain 100px; animation-range-end: contain 100%;`
 
-### Explizites Definieren von Bereichsstart und -ende mit zwei Werten
+### Explizites Definieren von sowohl Bereichsanfang als auch Bereichsende mit zwei Werten
 
-Wenn zwei oder mehr Werte in Ihrer `animation-range`-Deklaration enthalten sind und die Werte alles andere als ein einzelner `<timeline-range-name>` gefolgt von einem `<length-percentage>` sind, werden sowohl `<animation-range-start>` als auch `<animation-range-end>` explizit festgelegt.
+Wenn zwei oder mehr Werte in Ihrer `animation-range`-Deklaration enthalten sind und die Werte alles andere als ein einzelnes `<timeline-range-name>` gefolgt von einem `<length-percentage>` sind, werden sowohl `<animation-range-start>` als auch `<animation-range-end>` explizit festgelegt.
 
 Wenn Sie zwei Werte einschließen und der erste Wert das Schlüsselwort `normal` oder ein `<length-percentage>` ist, definiert dieser Wert den `<animation-range-start>`, und der zweite Wert definiert den `<animation-range-end>`. Zum Beispiel:
 
@@ -99,7 +100,7 @@ Wenn Sie zwei Werte einschließen und der erste Wert das Schlüsselwort `normal`
 
 ### Mehrere Animationen
 
-Bei der Angabe von Bereichen für mehrere Animationen wird die `animation-range`-Kurzform-Eigenschaft als eine oder mehrere einzelne Animationsbereiche angegeben, getrennt durch Kommas. Jeder Animationsbereich wird auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. In Situationen, in denen die Anzahl der Animationen und die `animation-range`-Eigenschaftswerte nicht übereinstimmen, werden die zusätzlichen Bereiche ignoriert, wenn es mehr `animation-range`-Werte als Animationen gibt. Wenn es mehr Animationen als Bereiche gibt, werden die Liste der `animation-range`-Werte wiederholt, bis es für jede Animation einen entsprechenden Bereich gibt. Zum Beispiel, wenn wir `animation-range: 25% 75%, normal;` festlegen, ist der Animationsbereich aller ungeraden Animationen `25% 75%` und aller geraden Animationen `0% 100%`.
+Bei der Angabe von Bereichen für mehrere Animationen wird die Kurzschreibweise `animation-range` als eine oder mehrere einzelne Animationsbereiche angegeben, die durch Kommata getrennt sind. Jeder Animationsbereich wird auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}-Einstellungen erscheinen. In Situationen, in denen die Anzahl der Animationen und die Werte der `animation-range`-Eigenschaft nicht übereinstimmen, werden, wenn es mehr `animation-range`-Werte als Animationen gibt, die zusätzlichen Bereiche ignoriert. Wenn es mehr Animationen als Bereiche gibt, wird die Liste der `animation-range`-Werte wiederholt, bis jeder Animation ein entsprechender Bereich zugeordnet ist. Wenn wir zum Beispiel `animation-range: 25% 75%, normal;` setzen, wird der Animationsbereich aller ungeraden Animationen `25% 75%` und aller geraden Animationen `0% 100%` sein.
 
 ## Formale Definition
 
@@ -113,11 +114,11 @@ Bei der Angabe von Bereichen für mehrere Animationen wird die `animation-range`
 
 ### Grundlegende Verwendung der `animation-range`-Eigenschaft
 
-In diesem Beispiel verkürzen wir die Dauer der Ansicht-Fortschritts-Scroll-Animation, indem wir die `animation-range`-Eigenschaft verwenden, um den Start und das Ende der Animation zu versetzen, und demonstrieren die Wirkung der {{cssxref("animation-fill-mode")}}-Eigenschaft auf verkürzte Animations-Zeitleisten.
+In diesem Beispiel verkürzen wir die Dauer der Fortschrittsanimation der Sichtbarkeit, indem wir die `animation-range`-Eigenschaft verwenden, um den Anfang und das Ende der Animation zu verschieben, und demonstrieren die Wirkung der {{cssxref("animation-fill-mode")}}-Eigenschaft auf verkürzte Animationszeitleisten.
 
 #### HTML
 
-In der Mitte eines Textwalls fügen wir ein Element ein, das wir animieren werden. Wir fügen viel Text hinzu, um sicherzustellen, dass unser Inhalt seinen Container überfließt, aber dies ist der Kürze halber ausgeblendet. Wir fügen auch ein Kontrollkästchen ein, um die {{cssxref("animation-fill-mode")}}-Eigenschaft ein- und auszuschalten, um ihre Wirkung auf verkürzte Animations-Zeitleisten zu demonstrieren. Auch dies ist ausgeblendet.
+Inmitten eines Textblocks fügen wir ein Element ein, das wir animieren werden. Wir fügen viel Text hinzu, um sicherzustellen, dass unser Inhalt seinen Container überläuft, aber dieser bleibt der Kürze halber verborgen. Wir fügen auch ein Kontrollkästchen hinzu, um die {{cssxref("animation-fill-mode")}}-Eigenschaft ein- und auszuschalten, um ihre Wirkung auf verkürzte Animationszeitleisten zu demonstrieren. Auch dies bleibt verborgen.
 
 ```html-nolint hidden
 <div class="content">
@@ -163,11 +164,11 @@ In der Mitte eines Textwalls fügen wir ein Element ein, das wir animieren werde
 
 #### CSS
 
-Wir definieren eine Animation, die die Deckkraft, die Skalierung und die Hintergrundfarbe eines Elements animiert, wodurch es beim Fortschreiten der Animation verblasst, vergrößert wird und seine Farbe ändert. Wir wenden diese Animation mit der {{cssxref("animation")}}-Kurzform auf das `animatedElement` an.
+Wir definieren eine Animation, die die Opazität, Skalierung und Hintergrundfarbe eines Elements animiert, sodass es beim Fortschreiten der Animation einblendet, vergrößert und die Farbe ändert. Wir wenden diese Animation mithilfe der {{cssxref("animation")}}-Kurzschreibweise auf das `animatedElement` an.
 
-Eine Fortschritts-Zeitleiste wird erstellt, indem die {{cssxref("animation-timeline/view", "view()")}}-Funktion als Wert der {{cssxref("animation-timeline")}}-Eigenschaft auf unser `animatedElement` gesetzt wird. Das Ergebnis ist, dass das Element animiert wird, während es beim Scrollen durch das Dokument nach oben bewegt wird. Wir deklarieren die `animation-timeline`-Eigenschaft nach der Kurzform, da die Kurzform diese Eigenschaft zurücksetzt.
+Eine Fortschrittszeitleiste der Sichtbarkeit wird erstellt, indem die {{cssxref("animation-timeline/view", "view()")}}-Funktion als Wert der {{cssxref("animation-timeline")}}-Eigenschaft auf unserem `animatedElement` gesetzt wird. Das Ergebnis ist, dass das Element animiert wird, während es nach oben durch das Dokument scrollt. Wir deklarieren die `animation-timeline`-Eigenschaft nach der Kurzschreibweise, da die Kurzschreibweise diese Eigenschaft zurücksetzt.
 
-Schließlich wird eine `animation-range`-Deklaration festgelegt, um die Animation später als erwartet beginnen und früher beenden zu lassen.
+Schließlich wird eine `animation-range`-Deklaration gesetzt, um die Animation später als erwartet beginnen und früher beenden zu lassen.
 
 ```css
 .animatedElement {
@@ -192,7 +193,7 @@ Schließlich wird eine `animation-range`-Deklaration festgelegt, um die Animatio
 }
 ```
 
-Wir fügen auch bedingte Formatierungen hinzu: Wenn das Kontrollkästchen aktiviert ist, wird die `animation-fill-mode`-Eigenschaft auf das animierte Element angewendet:
+Wir fügen auch bedingte Stile hinzu: Wenn das Kontrollkästchen aktiviert ist, wird die `animation-fill-mode`-Eigenschaft auf das animierte Element angewendet:
 
 ```css
 :has(:checked) .animatedElement {
@@ -200,7 +201,7 @@ Wir fügen auch bedingte Formatierungen hinzu: Wenn das Kontrollkästchen aktivi
 }
 ```
 
-Die anderen Stile sind ebenfalls der Kürze halber ausgeblendet.
+Die anderen Stile sind der Kürze halber verborgen.
 
 ```css hidden
 .animatedElement {
@@ -250,11 +251,11 @@ Scrollen Sie, um das animierte Element zu sehen.
 
 {{EmbedLiveSample("Examples", "100%", "480px")}}
 
-Beachten Sie, wie die `from`- oder `0%`-Keyframe-Property-Werte nicht auf das animierte Element angewendet werden, bis der obere Blockaußenrand um `10%` über den unteren Rand des Containers hinausragt; es ist voll groß, vollständig deckend und magentafarben. Zu diesem Zeitpunkt wird die Animation angewendet, und es wird mit den Werten gestylt, die durch den `0%` [Keyframe-Selector](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) definiert sind. Wenn das `animation-range-end` erreicht ist, `25%` vom oberen Rand des Scrollport entfernt, springt es zu seinem ursprünglichen Styling zurück.
+Beachten Sie, wie die `from`- oder `0%`-Keyframe-Eigenschaftswerte nicht auf das animierte Element angewendet werden, bis die obere Blockrandkante `10%` über die untere Kante des Containers hinausgeht; es ist vollständig groß, vollständig undurchsichtig und magenta. An diesem Punkt wird die Animation angewendet und es wird mit den durch den `0%`- [Keyframe-Selektor](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) definierten Werten gestylt. Wenn das `animation-range-end` erreicht ist, 25% von der oberen Kante des Scrollports, springt es zurück zu seinem ursprünglichen Stil.
 
-In der Regel sollten Sie `animation-fill-mode: both` einstellen, wenn Sie [Scroll-basierte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) erstellen. Der Sprung zum Standardzustand erfolgt, weil wir die {{cssxref("animation-fill-mode")}}-Eigenschaft nicht auf das Element gesetzt haben, die verwendet werden kann, um die Stile einer Animation auf ein Element vor und nach ihrer Ausführung anzuwenden. In diesem Beispiel haben wir die Eigenschaft zunächst weggelassen, um die Auswirkungen von `animation-range` besser visualisieren zu können.
+Im Allgemeinen möchten Sie `animation-fill-mode: both` festlegen, wenn Sie [scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) erstellen. Der Sprung in den Standardzustand erfolgt, weil wir die {{cssxref("animation-fill-mode")}}-Eigenschaft nicht auf das Element gesetzt haben, die verwendet werden kann, um die Stile einer Animation vor und nach der Ausführung auf ein Element anzuwenden. Wir haben die Eigenschaft in diesem Beispiel zunächst weggelassen, um die Auswirkungen von `animation-range` besser visualisieren zu können.
 
-Aktivieren Sie das Kontrollkästchen, um die `animation-fill-mode`-Eigenschaft auf das animierte Element anzuwenden, und scrollen Sie erneut: Die Animationsstile sollten jetzt kontinuierlich angewendet werden.
+Aktivieren Sie das Kontrollkästchen, um die `animation-fill-mode`-Eigenschaft auf das animierte Element anzuwenden, und scrollen Sie dann erneut: Die Animationsstile sollten jetzt kontinuierlich angewendet werden.
 
 ## Spezifikationen
 
@@ -273,6 +274,6 @@ Aktivieren Sie das Kontrollkästchen, um die `animation-fill-mode`-Eigenschaft a
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline-inset")}}
 - {{cssxref("animation-fill-mode")}}
-- [Verstehen von Zeitleistenbereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
-- [Ansichts-Zeitleiste Bereichs-Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/)
+- [Verständnis von Zeitleistenbereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Ansichtszeitbereichs-Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/)

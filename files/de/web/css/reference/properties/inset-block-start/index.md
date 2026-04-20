@@ -1,13 +1,14 @@
 ---
-title: inset-block-start
+title: "`inset-block-start` CSS property"
+short-title: inset-block-start
 slug: Web/CSS/Reference/Properties/inset-block-start
 l10n:
-  sourceCommit: 2fe84cf3af6fab1d4009fe99b4a69332e1629838
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements auf einen physischen Versatz abgebildet wird. Dies entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
+Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Einsatz abbildet. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
 
-Diese {{Glossary("inset_properties", "Versatz-Eigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-block-start")}}
 
@@ -101,7 +102,7 @@ Die `inset-block-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("
 
 ## Beispiele
 
-### Einstellen des Blockanfangs-Versatzes
+### Festlegen des Blockanfang-Versatzes
 
 #### HTML
 
@@ -142,6 +143,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Versätze definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
 - Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

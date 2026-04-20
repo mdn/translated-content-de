@@ -1,17 +1,18 @@
 ---
-title: <angle-percentage>
+title: "`<angle-percentage>` CSS-Typ"
+short-title: <angle-percentage>
 slug: Web/CSS/Reference/Values/angle-percentage
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
 Der **`<angle-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Wert, der entweder ein {{Cssxref("angle")}} oder ein {{Cssxref("percentage")}} sein kann.
 
-Wo ein `<angle-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einem Winkel aufgelöst wird und daher in einem {{cssxref("calc()")}}-Ausdruck verwendet werden kann.
+Wenn ein `<angle-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in einen Winkel aufgelöst wird und daher in einem {{cssxref("calc()")}}-Ausdruck verwendet werden kann.
 
 ## Syntax
 
-Verweisen Sie auf die Dokumentation für {{Cssxref("angle")}} und {{Cssxref("percentage")}}, um Details zu den einzelnen syntaktisch zulässigen Strukturen dieses Typs zu erfahren.
+Für Details zu den einzelnen Syntaxen, die durch diesen Typ erlaubt sind, konsultieren Sie die Dokumentation für {{Cssxref("angle")}} und {{Cssxref("percentage")}}.
 
 ## Formale Syntax
 

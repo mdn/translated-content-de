@@ -1,33 +1,34 @@
 ---
-title: <custom-ident>
+title: "`<custom-ident>` CSS-Typ"
+short-title: <custom-ident>
 slug: Web/CSS/Reference/Values/custom-ident
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine willkürliche, benutzerdefinierte Zeichenfolge, die als {{Glossary("identifier", "Identifier")}} verwendet wird. Er ist Groß- und Kleinschreibung beachtend, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
+Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine beliebige, vom Benutzer definierte Zeichenkette, die als {{Glossary("identifier", "Identifier")}} verwendet wird. Er ist case-sensitiv, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
 
 ## Syntax
 
-Die Syntax von `<custom-ident>` ähnelt den CSS-Identifikatoren (wie Eigenschaftsnamen), mit der Ausnahme, dass sie [Groß- und Kleinschreibung beachtend](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie besteht aus einem oder mehreren Zeichen, wobei Zeichen wie folgt sein können:
+Die Syntax von `<custom-ident>` ist ähnlich wie bei CSS-Identifikatoren (wie Eigenschaftsnamen), mit dem Unterschied, dass sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie besteht aus einem oder mehreren Zeichen, wobei die Zeichen wie folgt sein können:
 
-- jedes alphabetische Zeichen (`A` bis `Z` oder `a` bis `z`),
-- jede Dezimalziffer (`0` bis `9`),
+- ein beliebiges alphabetisches Zeichen (`A` bis `Z` oder `a` bis `z`),
+- eine beliebige Dezimalziffer (`0` bis `9`),
 - ein Bindestrich (`-`),
 - ein Unterstrich (`_`),
-- ein [entkommenes Zeichen](#zeichen_entkommen) (gekennzeichnet durch einen umgekehrten Schrägstrich, `\`),
-- ein [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines umgekehrten Schrägstrichs, `\`, gefolgt von ein bis sechs Hexadezimalziffern, die seinen Unicode-Codierungspunkt repräsentieren)
+- ein [entwertetes Zeichen](#entwerten_von_zeichen) (vorangestellt durch einen Backslash, `\`),
+- ein [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines Backslashs, `\`, gefolgt von ein bis sechs hexadezimalen Ziffern, die seinen Unicode-Codepunkt darstellen)
 
-Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` alle unterschiedliche Identifier sind, da sie [Groß- und Kleinschreibung beachtend](https://en.wikipedia.org/wiki/Case_sensitivity) sind.
+Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` alle unterschiedliche Identifikatoren sind, da sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) sind.
 
-### Zeichen entkommen
+### Entwerten von Zeichen
 
-Jeder Unicode-Codierungspunkt kann als Teil eines `<custom-ident>` oder eines in Anführungszeichen gesetzten {{cssxref("string")}} durch Escape eingeschlossen werden.
+Jeder Unicode-Codepunkt kann als Teil eines `<custom-ident>` oder in einem {{cssxref("string")}} aufgenommen werden, indem man ihn entwertet.
 
-In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu entkommen. Escape-Sequenzen beginnen mit einem umgekehrten Schrägstrich (`\`) und gehen weiter mit:
+In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu entwerten. Escape-Sequenzen beginnen mit einem Backslash (`\`) und setzen sich fort mit:
 
-- Einer bis sechs Hex-(`ABCDEF0123456789`) Ziffern. Die Hex-Ziffern können optional durch Leerzeichen gefolgt werden. Die Hex-Escape-Sequenz wird durch den Unicode-Codierungspunkt ersetzt, dessen Wert durch diese Ziffern angegeben wird. Das Leerzeichen ermöglicht, dass die Sequenzen von tatsächlichen Hex-Ziffern (anstatt von ersetzten) gefolgt werden können.
-- Jedem Unicode-Codierungspunkt, der keine Hex-Ziffer oder kein Zeilenumbruch-Zeichen ist.
+- Einer bis sechs hexadezimalen (`ABCDEF0123456789`) Ziffern. Die hexadezimalen Ziffern können optional durch ein Leerzeichen gefolgt werden. Die hexadezimale Escape-Sequenz wird durch den Unicode-Codepunkt ersetzt, dessen Wert durch diese Ziffern angegeben wird. Das Leerzeichen ermöglicht es den Sequenzen, von tatsächlichen hexadezimalen Ziffern (im Gegensatz zu ersetzten) gefolgt zu werden.
+- Jedem Unicode-Codepunkt, der keine hexadezimale Ziffer oder ein Zeilenumbruchzeichen ist.
 
 Beispiele:
 
@@ -35,25 +36,25 @@ Beispiele:
 - "hi.there" kann als `hi\.there` oder `hi\002Ethere` geschrieben werden.
 - "toto?" kann als `toto\?`, `toto\3F` oder `toto\00003F` geschrieben werden.
 
-Um tatsächliche Leerzeichen nach einer Escape-Sequenz einzuschließen, schließen Sie zwei Leerzeichen in die Escape-Sequenz ein.
+Um tatsächlich Leerzeichen nach einer Escape-Sequenz einzufügen, müssen zwei Leerzeichen in der Escape-Sequenz enthalten sein.
 
 ### Verbotene Werte
 
-Ein `<custom-ident>` darf nicht in Einzel- oder Doppel-Zitate gesetzt werden, da dies identisch mit einem {{CSSxRef("&lt;string&gt;")}} wäre. Außerdem darf das erste Zeichen keine Dezimalziffer oder ein Bindestrich (`-`) gefolgt von einer Dezimalziffer sein.
+Ein `<custom-ident>` darf nicht in einfache oder doppelte Anführungszeichen gesetzt werden, da dies mit einem {{CSSxRef("&lt;string&gt;")}} identisch wäre. Außerdem darf das erste Zeichen keine Dezimalziffer sein, noch darf es sich um einen Bindestrich (`-`) handeln, der von einer Dezimalziffer gefolgt wird.
 
-Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Verwendung bestimmter Werte:
+Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Verwendung spezifischer Werte:
 
 - {{CSSxRef("animation-name")}}
-  - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
+  - : Verbietet die globalen CSS-Werte (`unset`, `initial`, und `inherit`), sowie `none`.
 - {{CSSxRef("counter-reset")}}, {{CSSxRef("counter-increment")}}
-  - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
+  - : Verbietet die globalen CSS-Werte (`unset`, `initial`, und `inherit`), sowie `none`.
 - {{CSSxRef("@counter-style")}}, {{CSSxRef("list-style-type")}}
-  - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie die Werte:
+  - : Verbietet die globalen CSS-Werte (`unset`, `initial`, und `inherit`), sowie die folgenden Werte:
     - `none`
     - `inline`
     - `outside`
 
-    Außerdem werden eine Vielzahl vordefinierter Werte von den verschiedenen Browsern implementiert:
+    Außerdem werden viele vordefinierte Werte von den verschiedenen Browsern implementiert:
     - `disc`
     - `circle`
     - `square`
@@ -113,13 +114,13 @@ Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident
 - {{CSSxRef("grid-row-start")}}, {{CSSxRef("grid-row-end")}}, {{CSSxRef("grid-column-start")}}, {{CSSxRef("grid-column-end")}}, {{CSSxRef("grid-template-rows")}}, {{CSSxRef("grid-template-columns")}}
   - : Verbietet die Werte `span` und `auto`.
 - {{CSSxRef("view-transition-name")}}
-  - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
+  - : Verbietet die globalen CSS-Werte (`unset`, `initial`, und `inherit`), sowie `none`.
 - {{CSSxRef("will-change")}}
-  - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie die Werte `will-change`, `auto`, `scroll-position` und `contents`.
+  - : Verbietet die globalen CSS-Werte (`unset`, `initial`, und `inherit`), sowie die Werte `will-change`, `auto`, `scroll-position`, und `contents`.
 
 ## Beispiele
 
-### Gültige Identifier
+### Gültige Identifikatoren
 
 ```plain example-good
 nono79            A mix of alphanumeric characters and numbers
@@ -130,7 +131,7 @@ _internal         An underscore followed by alphanumeric characters
 scooby\.doo       A correctly escaped period
 ```
 
-### Ungültige Identifier
+### Ungültige Identifikatoren
 
 ```plain example-bad
 34rem             It must not start with a decimal digit.
@@ -146,7 +147,7 @@ scooby.doo        Only alphanumeric characters, _, and - needn't be escaped.
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein echter Typ, sondern ein bequemlichkeitstyp zur Vereinfachung der Beschreibung von erlaubten Werten ist, gibt es keine Informationen zur Browser-Kompatibilität._
+_Da dieser Typ kein echter Typ ist, sondern ein Bequemlichkeitstyp zur Vereinfachung der Beschreibung erlaubter Werte, gibt es keine Informationen zur Browser-Kompatibilität._
 
 ## Siehe auch
 

@@ -1,11 +1,12 @@
 ---
-title: text-emphasis
+title: "`text-emphasis` CSS-Eigenschaft"
+short-title: text-emphasis
 slug: Web/CSS/Reference/Properties/text-emphasis
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-emphasis`** [CSS](/de/docs/Web/CSS)-Eigenschaft wendet Betonungszeichen auf Text an (ausgenommen Leerzeichen und Steuerzeichen). Sie ist eine [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) für {{cssxref("text-emphasis-style")}} und {{cssxref("text-emphasis-color")}}.
+Die **`text-emphasis`** [CSS](/de/docs/Web/CSS)-Eigenschaft wendet Betonungszeichen auf Text an (außer auf Leerzeichen und Steuerzeichen). Sie ist eine [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) für {{cssxref("text-emphasis-style")}} und {{cssxref("text-emphasis-color")}}.
 
 {{InteractiveExample("CSS Demo: text-emphasis")}}
 
@@ -41,14 +42,14 @@ p {
 }
 ```
 
-Die `text-emphasis`-Eigenschaft unterscheidet sich erheblich von {{cssxref("text-decoration")}}. Die `text-decoration`-Eigenschaft wird nicht vererbt, und die angegebene Dekoration wird auf das gesamte Element angewendet. `text-emphasis` hingegen wird vererbt, was bedeutet, dass es möglich ist, Betonungszeichen für Nachfahren zu ändern.
+Die `text-emphasis`-Eigenschaft unterscheidet sich stark von {{cssxref("text-decoration")}}. Die `text-decoration`-Eigenschaft wird nicht vererbt, und die angegebene Dekoration wird über das ganze Element angewendet. `text-emphasis` hingegen wird vererbt, was bedeutet, dass es möglich ist, Betonungszeichen für Nachfahren zu ändern.
 
-Die Größe des Betonungssymbols, ähnlich wie bei Rubysymbolen, beträgt etwa 50% der Schriftgröße, und `text-emphasis` kann die Linienhöhe beeinflussen, wenn der aktuelle Zeilenabstand nicht ausreichend für die Zeichen ist.
+Die Größe des Betonungssymbols, ähnlich wie Ruby-Symbole, beträgt etwa 50% der Schriftgröße, und `text-emphasis` kann die Zeilenhöhe beeinflussen, wenn das aktuelle Führungsmaß nicht ausreichend für die Zeichen ist.
 
 > [!NOTE]
-> `text-emphasis` setzt den Wert von {{cssxref("text-emphasis-position")}} nicht zurück. Das liegt daran, dass, wenn der Stil und die Farbe der Betonungszeichen in einem Text variieren können, es äußerst unwahrscheinlich ist, dass sich deren Position ändern wird. In den sehr seltenen Fällen, in denen dies nötig ist, verwenden Sie die Eigenschaft {{cssxref("text-emphasis-position")}}.
+> `text-emphasis` setzt den Wert von {{cssxref("text-emphasis-position")}} nicht zurück. Dies liegt daran, dass, selbst wenn der Stil und die Farbe von Betonungszeichen in einem Text variieren können, es extrem unwahrscheinlich ist, dass sich deren Position ändern wird. In den sehr seltenen Fällen, in denen dies erforderlich ist, verwenden Sie die Eigenschaft {{cssxref("text-emphasis-position")}}.
 
-## Einzelne Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -90,23 +91,23 @@ text-emphasis: unset;
 - `none`
   - : Keine Betonungszeichen.
 - `filled`
-  - : Die Form wird mit einer Vollfarbe ausgefüllt. Wenn weder `filled` noch `open` angegeben sind, ist dies der Standard.
+  - : Die Form ist mit einer Vollfarbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standardwert.
 - `open`
   - : Die Form ist hohl.
 - `dot`
   - : Zeigt kleine Kreise als Zeichen an. Der gefüllte Punkt ist `'•'` (`U+2022`), und der offene Punkt ist `'◦'` (`U+25E6`).
 - `circle`
-  - : Zeigt große Kreise als Zeichen an. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`). Dies ist die Standardform in horizontalen Schreibmodi, wenn keine andere Form angegeben ist.
+  - : Zeigt große Kreise als Zeichen an. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`). Dies ist die Standardform in horizontalen Schreibrichtungen, wenn keine andere Form angegeben ist.
 - `double-circle`
-  - : Zeigt Doppelkreise als Zeichen an. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
+  - : Zeigt doppelte Kreise als Zeichen an. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
 - `triangle`
   - : Zeigt Dreiecke als Zeichen an. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
 - `sesame`
-  - : Zeigt Sesamzeichen an. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`). Dies ist die Standardform in vertikalen Schreibmodi, wenn keine andere Form angegeben ist.
+  - : Zeigt Sesamene als Zeichen an. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`). Dies ist die Standardform in vertikalen Schreibrichtungen, wenn keine andere Form angegeben ist.
 - `<string>`
-  - : Zeigt die angegebene Zeichenkette als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Der benutzerseitige Agent (UA) kann Zeichenfolgen, die aus mehr als einem Grapheme-Cluster bestehen, kürzen oder ignorieren.
+  - : Zeigt die angegebene Zeichenkette als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Die UA kann Zeichenfolgen, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
 - `<color>`
-  - : Definiert die Farbe des Zeichens. Wenn keine Farbe angegeben ist, wird `currentColor` als Standardwert verwendet.
+  - : Definiert die Farbe des Zeichens. Wenn keine Farbe vorhanden ist, wird `currentColor` als Standard verwendet.
 
 ## Formale Definition
 
@@ -118,9 +119,9 @@ text-emphasis: unset;
 
 ## Beispiele
 
-### Eine Überschrift mit Betonungsform und Farbe
+### Eine Überschrift mit Betonungsform und -farbe
 
-Dieses Beispiel zeichnet eine Überschrift mit Dreiecken, die zur Betonung jedes Zeichens verwendet werden.
+Dieses Beispiel zeichnet eine Überschrift, bei der Dreiecke verwendet werden, um jedes Zeichen zu betonen.
 
 #### CSS
 
@@ -150,5 +151,5 @@ h2 {
 
 ## Siehe auch
 
-- Die Langformen der Eigenschaften {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis-color')}}.
-- Die {{cssxref('text-emphasis-position')}}-Eigenschaft, die es ermöglicht, die Position der Betonungszeichen zu definieren.
+- Die Langform-Eigenschaften {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis-color')}}.
+- Die Eigenschaft {{cssxref('text-emphasis-position')}}, die es ermöglicht, die Position der Betonungszeichen zu definieren.

@@ -1,11 +1,12 @@
 ---
-title: scroll-padding-bottom
+title: "`scroll-padding-bottom` CSS property"
+short-title: scroll-padding-bottom
 slug: Web/CSS/Reference/Properties/scroll-padding-bottom
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die Eigenschaft `scroll-padding-bottom` definiert Abstände für den unteren Bereich der _optimalen Anzeigefläche_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Dinge für den Benutzer sichtbar zu machen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die `scroll-padding-bottom`-Eigenschaft definiert Versätze für die Unterseite der _optimalen Anzeigeregion_ des Scrollportals: die Region, die als Zielregion verwendet wird, um Elemente für den Benutzer im Blickfeld zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollportals auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollportals zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-bottom")}}
 
@@ -91,9 +92,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein interner Abstand von der unteren Kante des Scrollports, angegeben als gültige Länge oder Prozentzahl.
+  - : Ein nach innen gerichteter Versatz vom unteren Rand des Scrollportals, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Abstand wird vom Benutzeragenten bestimmt. Dieser wird im Allgemeinen 0px betragen, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein von null abweichender Wert geeigneter ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Im Allgemeinen wird dies 0px sein, aber ein Benutzeragent kann etwas anderes tun, wenn ein von Null abweichender Wert angemessener ist.
 
 ## Formale Definition
 
@@ -114,4 +115,4 @@ scroll-padding-bottom: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

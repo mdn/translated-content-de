@@ -1,15 +1,16 @@
 ---
-title: mask-border
+title: "`mask-border` CSS-Eigenschaft"
+short-title: mask-border
 slug: Web/CSS/Reference/Properties/mask-border
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mask-border`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es Ihnen, eine Maske entlang des Randes eines Elements zu erstellen.
+Die **`mask-border`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es Ihnen, eine Maske entlang des Randes eines Elementes zu erstellen.
 
-## Zusammengesetzte Eigenschaften
+## Zusammengehörige Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("mask-border-mode")}}
 - {{cssxref("mask-border-outset")}}
@@ -46,15 +47,15 @@ mask-border: unset;
 - `<'mask-border-source'>`
   - : Das Quellbild. Siehe {{cssxref("mask-border-source")}}.
 - `<'mask-border-slice'>`
-  - : Die Abmessungen für das Zerschneiden des Quellbildes in Bereiche. Es können bis zu vier Werte angegeben werden. Siehe {{cssxref("mask-border-slice")}}.
+  - : Die Maße für das Zerschneiden des Quellbildes in Bereiche. Es können bis zu vier Werte angegeben werden. Siehe {{cssxref("mask-border-slice")}}.
 - `<'mask-border-width'>`
   - : Die Breite der Randmaske. Es können bis zu vier Werte angegeben werden. Siehe {{cssxref("mask-border-width")}}.
 - `<'mask-border-outset'>`
-  - : Der Abstand der Randmaske vom äußeren Rand des Elements. Es können bis zu vier Werte angegeben werden. Siehe {{cssxref("mask-border-outset")}}.
+  - : Der Abstand der Randmaske von der Außenkante des Elements. Es können bis zu vier Werte angegeben werden. Siehe {{cssxref("mask-border-outset")}}.
 - `<'mask-border-repeat'>`
-  - : Definiert, wie die Randbereiche des Quellbildes angepasst werden, um die Abmessungen der Randmaske zu erfüllen. Es können bis zu zwei Werte angegeben werden. Siehe {{cssxref("mask-border-repeat")}}.
+  - : Definiert, wie die Randbereiche des Quellbildes angepasst werden, um die Dimensionen der Randmaske zu erfüllen. Es können bis zu zwei Werte angegeben werden. Siehe {{cssxref("mask-border-repeat")}}.
 - `<'mask-border-mode'>`
-  - : Bestimmt, ob das Quellbild als Luminanz- oder Alphamaske behandelt wird. Siehe {{cssxref("mask-border-mode")}}.
+  - : Definiert, ob das Quellbild als Luminanzmaske oder als Alphamaske behandelt wird. Siehe {{cssxref("mask-border-mode")}}.
 
 ## Formale Definition
 
@@ -66,13 +67,13 @@ mask-border: unset;
 
 ## Beispiele
 
-### Setzen einer bitmap-basierten Maskenbegrenzung
+### Festlegen einer bitmap-basierten Randmaske
 
-In diesem Beispiel maskieren wir den Rand eines Elements mit einem Rautenmuster. Die Quelle für die Maske ist eine ".png"-Datei mit 90 mal 90 Pixeln, die drei Rauten vertikal und horizontal enthält:
+In diesem Beispiel werden wir die Umrandung eines Elements mit einem Diamantmuster maskieren. Die Quelle für die Maske ist eine ".png"-Datei mit 90 mal 90 Pixeln, mit drei vertikalen und horizontalen Diamanten:
 
-<img src="https://mdn.github.io/shared-assets/images/examples/mask-border-diamonds.png" alt="Das für die Maskenbeispiele auf dieser Seite verwendete Bild. Die Maske ist ein transparenter Quadrat mit drei Reihen zu je drei Rauten. Die Rauten sind in einem sehr hellen, fast weißen Grauton gehalten. Der Mittelteil zwischen den Rauten ist ebenfalls einheitlich grau. Die Bereiche zwischen den Außenkanten der Rauten und dem Rand des Bildes sind transparent." loading="lazy" style="background-color: black;">
+<img src="https://mdn.github.io/shared-assets/images/examples/mask-border-diamonds.png" alt="Das für die Maskenbeispiele auf dieser Seite verwendete Bild. Die Maske ist ein transparenter Quadrat mit drei Reihen von je drei Diamanten. Die Diamanten sind in einem sehr hellen, fast weißen, Grauton. Der mittlere Teil zwischen den Diamanten ist ebenfalls einheitlich grau. Die Bereiche zwischen der Außenseite der Diamanten und dem Rand des Bildes sind transparent." loading="lazy" style="background-color: black;">
 
-Um die Größe einer einzelnen Raute anzupassen, verwenden wir einen Wert von 90 geteilt durch 3, also `30`, um das Bild in Ecken- und Randbereiche zu zerschneiden. Ein Wiederholungswert von `round` sorgt dafür, dass die Maskenschnitte gleichmäßig passen, d.h. ohne Abschneiden oder Lücken.
+Um die Größe eines einzelnen Diamanten anzupassen, verwenden wir einen Wert von 90 geteilt durch 3, also `30`, um das Bild in Eck- und Randbereiche zu zerteilen. Ein Wiederholungswert von `round` sorgt dafür, dass die Maskenschnitte gleichmäßig passen, d.h. ohne Beschneidung oder Lücken.
 
 ```html live-sample___mask-border-example
 <div class="masked">

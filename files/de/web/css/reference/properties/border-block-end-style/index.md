@@ -1,11 +1,12 @@
 ---
-title: border-block-end-style
+title: "`border-block-end-style` CSS property"
+short-title: border-block-end-style
 slug: Web/CSS/Reference/Properties/border-block-end-style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-block-end-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Stil des logischen Block-End-Rahmens eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Rahmenstil zugeordnet wird. Sie entspricht der {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} oder {{cssxref("border-left-style")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-end-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Block-Endes eines Elements, welches je nach dem Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Rahmenstil abgebildet wird. Sie entspricht der {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} oder {{cssxref("border-left-style")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
 {{InteractiveExample("CSS Demo: border-block-end-style")}}
 
@@ -65,7 +66,7 @@ border-block-end-style: revert-layer;
 border-block-end-style: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}}, die die anderen Rahmenstile des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}}, welche die anderen Rahmenstile des Elements definieren.
 
 ### Werte
 
@@ -82,7 +83,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref(
 
 ## Beispiele
 
-### Gepunkteter Rahmen mit vertikalem Text
+### Gestrichelter Rahmen mit vertikalem Text
 
 #### HTML
 
@@ -122,6 +123,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}} und {{cssxref("border-left-style")}}.
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird auf eine der physischen Rahmen-Eigenschaften abgebildet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, und {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

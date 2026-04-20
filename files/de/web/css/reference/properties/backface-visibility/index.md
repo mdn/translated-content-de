@@ -1,13 +1,14 @@
 ---
-title: backface-visibility
+title: "`backface-visibility` CSS property"
+short-title: backface-visibility
 slug: Web/CSS/Reference/Properties/backface-visibility
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`backface-visibility`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
+Die **`backface-visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl in 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum drehen lässt. (Diese Eigenschaft hat keine Wirkung auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl im 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation dazu führt, dass das Element im 3D-Raum gedreht wird. (Diese Eigenschaft hat keine Auswirkung auf 2D-Transformationen, die keine Perspektive haben.)
 
 {{InteractiveExample("CSS Demo: backface-visibility")}}
 
@@ -99,7 +100,7 @@ Die `backface-visibility`-Eigenschaft wird als eines der unten aufgeführten Sch
 - `visible`
   - : Die Rückseite ist sichtbar, wenn sie dem Benutzer zugewandt ist.
 - `hidden`
-  - : Die Rückseite ist verborgen, was das Element effektiv unsichtbar macht, wenn es vom Benutzer abgewandt ist.
+  - : Die Rückseite ist verborgen, wodurch das Element effektiv unsichtbar wird, wenn es vom Benutzer abgewandt ist.
 
 ## Formale Definition
 
@@ -261,4 +262,4 @@ td {
 
 ## Siehe auch
 
-- [CSS-Transformationen verwenden](/de/docs/Web/CSS/Guides/Transforms/Using)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)

@@ -1,13 +1,14 @@
 ---
-title: animation-duration
+title: "`animation-duration` CSS property"
+short-title: animation-duration
 slug: Web/CSS/Reference/Properties/animation-duration
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`animation-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Zeitspanne fest, die eine Animation benötigt, um einen vollständigen Zyklus abzuschließen.
+Die **`animation-duration`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Dauer, die eine Animation benötigt, um einen Zyklus zu vervollständigen.
 
-Es ist oft bequem, die Kurzform-Eigenschaft {{ cssxref("animation") }} zu verwenden, um alle Animations-Eigenschaften gleichzeitig festzulegen.
+Es ist oft praktisch, die Kurzschreibweise {{ cssxref("animation") }} zu verwenden, um alle Animationseigenschaften auf einmal zu setzen.
 
 {{InteractiveExample("CSS Demo: animation-duration")}}
 
@@ -107,24 +108,24 @@ animation-duration: unset;
 ### Werte
 
 - `auto`
-  - : Für zeitbasierte Animationen entspricht `auto` einem Wert von `0s` (siehe unten). Bei [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) füllt `auto` die gesamte Zeitleiste mit der Animation.
+  - : Für zeitbasierte Animationen ist `auto` äquivalent zu einem Wert von `0s` (siehe unten). Bei [CSS-Scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) füllt `auto` die gesamte Zeitleiste mit der Animation aus.
 
 - {{cssxref("&lt;time&gt;")}}
-  - : Die Zeit, die eine Animation benötigt, um einen vollständigen Zyklus abzuschließen. Dies kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Der Wert muss positiv oder null sein und die Einheit ist erforderlich.
+  - : Die Zeit, die eine Animation benötigt, um einen Zyklus zu vervollständigen. Diese kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Der Wert muss positiv oder null sein, und die Einheit ist erforderlich.
 
-    Wenn kein Wert angegeben wird, wird der Standardwert von `0s` verwendet, wobei die Animation trotzdem ausgeführt wird (die [`animationStart`](/de/docs/Web/API/Element/animationstart_event) und [`animationEnd`](/de/docs/Web/API/Element/animationend_event) Ereignisse werden ausgelöst). Ob die Animation sichtbar ist, wenn die Dauer `0s` beträgt, hängt vom Wert von {{cssxref("animation-fill-mode")}} ab, wie unten erläutert:
-    - Wenn `animation-fill-mode` auf `backwards` oder `both` gesetzt ist, wird der erste Frame der Animation, wie durch `animation-direction` definiert, während des {{cssxref("animation-delay")}} Countdowns angezeigt.
-    - Wenn `animation-fill-mode` auf `forwards` oder `both` gesetzt ist, wird der letzte Frame der Animation, wie durch `animation-direction` definiert, nach Ablauf des `animation-delay` angezeigt.
+    Wenn kein Wert angegeben wird, wird der Standardwert `0s` verwendet, in welchem Fall die Animation dennoch ausgeführt wird (die Ereignisse [`animationStart`](/de/docs/Web/API/Element/animationstart_event) und [`animationEnd`](/de/docs/Web/API/Element/animationend_event) werden ausgelöst). Ob die Animation sichtbar ist, wenn die Dauer `0s` beträgt, hängt vom Wert von {{cssxref("animation-fill-mode")}} ab, wie unten erläutert:
+    - Wenn `animation-fill-mode` auf `backwards` oder `both` gesetzt ist, wird das erste Bild der Animation, wie durch `animation-direction` definiert, während der {{cssxref("animation-delay")}}-Countdown angezeigt.
+    - Wenn `animation-fill-mode` auf `forwards` oder `both` gesetzt ist, wird das letzte Bild der Animation, wie durch `animation-direction` definiert, nach Ablauf des `animation-delay` angezeigt.
     - Wenn `animation-fill-mode` auf `none` gesetzt ist, hat die Animation keinen sichtbaren Effekt.
 
 > [!NOTE]
-> Negative Werte sind ungültig und führen dazu, dass die Deklaration ignoriert wird. Einige frühe, mit Präfix versehene Implementierungen könnten sie als identisch mit `0s` behandeln.
+> Negative Werte sind ungültig und führen dazu, dass die Deklaration ignoriert wird. Einige frühe, mit Präfix versehene Implementierungen könnten sie als identisch mit `0s` betrachten.
 
 > [!NOTE]
-> Wenn Sie mehrere kommagetrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+> Wenn Sie mehrere komma-separierte Werte bei einer `animation-*` Eigenschaft angeben, werden sie auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) macht es nicht wirklich Sinn, einen `animation-duration` Wert in Sekunden oder Millisekunden anzugeben. In Tests schien es keinen Einfluss auf Scroll-Fortschritts-Timeline-Animationen zu haben, während bei View-Fortschritts-Timeline-Animationen die Animation näher am Ende der Zeitleiste stattfand. Firefox erfordert jedoch, dass `animation-duration` gesetzt ist, damit die Animation erfolgreich angewendet wird. Es wird daher empfohlen, `animation-duration` auf `1ms` zu setzen, damit Animationen in Firefox funktionieren, der Effekt jedoch nicht zu stark verändert wird.
+> Beim Erstellen von [CSS-Scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) macht es wenig Sinn, einen `animation-duration` Wert in Sekunden oder Millisekunden anzugeben. In Tests schien es keinen Einfluss auf Scrollfortschritts-Timeline-Animationen zu haben, während es bei Ansichtsfortschritts-Timeline-Animationen die Animation näher ans Ende der Zeitleiste verschieben zu schien. Allerdings erfordert Firefox, dass eine `animation-duration` festgelegt wird, damit die Animation erfolgreich angewandt wird. Daher wird empfohlen, `animation-duration` auf `1ms` zu setzen, damit die Animationen in Firefox funktionieren, ohne dass der Effekt zu stark verändert wird.
 
 ## Formale Definition
 
@@ -136,9 +137,9 @@ animation-duration: unset;
 
 ## Beispiele
 
-### Animation-Dauer festlegen
+### Festlegen der Animationsdauer
 
-Diese Animation hat eine `animation-duration` von 0,7 Sekunden.
+Diese Animation hat eine Animationsdauer von 0,7 Sekunden.
 
 #### HTML
 

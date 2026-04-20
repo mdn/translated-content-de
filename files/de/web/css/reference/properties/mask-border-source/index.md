@@ -1,13 +1,14 @@
 ---
-title: mask-border-source
+title: "`mask-border-source` CSS property"
+short-title: mask-border-source
 slug: Web/CSS/Reference/Properties/mask-border-source
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mask-border-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um den [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu erstellen.
+Die **`mask-border-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um den [Maskenrahmen](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu erstellen.
 
-Die {{cssxref("mask-border-slice")}}-Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf den endgültigen Maskenrand angewendet werden.
+Die {{cssxref("mask-border-slice")}}-Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf den endgültigen Maskenrahmen angewendet werden.
 
 ## Syntax
 
@@ -30,9 +31,9 @@ mask-border-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Maskenrand verwendet.
+  - : Es wird kein Maskenrahmen verwendet.
 - {{cssxref("image")}}
-  - : Bildreferenz, die für den Maskenrand verwendet wird.
+  - : Bildreferenz zur Verwendung für den Maskenrahmen.
 
 ## Formale Definition
 
@@ -46,7 +47,7 @@ mask-border-source: unset;
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit nirgends unterstützt zu werden. Sobald sie jedoch unterstützt wird, dient sie dazu, die Quelle der Maskenrandmaske zu definieren.
+Diese Eigenschaft wird anscheinend noch nicht unterstützt. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, die Quelle der Randmaske zu definieren.
 
 ```css
 mask-border-source: url("image.jpg");
@@ -59,7 +60,7 @@ Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaf
 ```
 
 > [!NOTE]
-> Die Seite {{cssxref("mask-border")}} enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Maskenrand-Eigenschaften, die in Chromium unterstützt werden), sodass Sie eine Vorstellung von der Wirkung bekommen können.
+> Die Seite {{cssxref("mask-border")}} enthält ein funktionierendes Beispiel (unter Verwendung der veralteten Maskenrahmeneigenschaften mit Präfix, die in Chromium unterstützt werden), sodass Sie eine Vorstellung vom Effekt bekommen können.
 
 ## Spezifikationen
 

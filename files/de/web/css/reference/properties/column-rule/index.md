@@ -1,11 +1,12 @@
 ---
-title: column-rule
+title: "`column-rule` CSS-Eigenschaft"
+short-title: column-rule
 slug: Web/CSS/Reference/Properties/column-rule
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`column-rule`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite, den Stil und die Farbe der Linie, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -45,9 +46,9 @@ column-rule: thick inset blue;
 }
 ```
 
-## Bestandteileigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -71,14 +72,14 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule` Eigenschaft wird als ein, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
+Die `column-rule`-Eigenschaft wird als eine, zwei oder drei der unten aufgelisteten Werte in beliebiger Reihenfolge angegeben.
 
 - `<'column-rule-width'>`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
-  - : Ist ein {{cssxref("&lt;color&gt;")}} Wert.
+  - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
 
 ## Formale Definition
 

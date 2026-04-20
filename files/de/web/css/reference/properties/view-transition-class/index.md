@@ -1,11 +1,12 @@
 ---
-title: view-transition-class
+title: "`view-transition-class` CSS property"
+short-title: view-transition-class
 slug: Web/CSS/Reference/Properties/view-transition-class
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`view-transition-class`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet den ausgewählten Elementen eine identifizierende Klasse (ein {{cssxref("custom-ident")}}) und stellt eine zusätzliche Methode zur Verfügung, um die Ansichtsübergänge für diese Elemente zu gestalten.
+Die **`view-transition-class`**-Eigenschaft [CSS](/de/docs/Web/CSS) versieht die ausgewählten Elemente mit einer identifizierenden Klasse (einem {{cssxref("custom-ident")}}) und bietet damit eine zusätzliche Methode zum Stylen der Ansichtstransitionen für diese Elemente.
 
 ## Syntax
 
@@ -27,24 +28,23 @@ view-transition-class: unset;
 ### Werte
 
 - {{cssxref("custom-ident")}}
-  - : Ein identifizierender Name, der dazu führt, dass das ausgewählte Element an einem separaten [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) vom Root-Ansichtsübergang teilnimmt. Der Bezeichner muss einzigartig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und der Übergang wird übersprungen.
+  - : Ein identifizierender Name, der dazu führt, dass das ausgewählte Element an einer separaten [Ansichtstransition](/de/docs/Web/API/View_Transition_API) von der Wurzelansichtstransition teilnimmt. Der Bezeichner muss eindeutig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und die Transition wird übersprungen.
 - `none`
-  - : Es wird keine Klasse auf die benannten Ansichtübergangs-Pseudoelemente angewendet, die für dieses Element generiert werden.
+  - : Es wird keine Klasse auf die benannten Ansichtstransition-Pseudo-Elemente angewendet, die für dieses Element erzeugt werden.
 
 ## Beschreibung
 
-Der `view-transition-class` Wert bietet einen Stil-Ansatzpunkt, ähnlich wie ein CSS-Klassenname, der verwendet werden kann, um dieselben Stile auf mehrere Ansichtübergangs-Pseudoelemente anzuwenden. Es markiert ein Element nicht zur Erfassung. Jedes einzelne Element benötigt weiterhin seinen eigenen eindeutigen {{cssxref("view-transition-name")}}; die `view-transition-class` wird nur als zusätzliche Möglichkeit verwendet, um Elemente zu gestalten, die bereits einen `view-transition-name` haben.
-Die Unterstützung zur automatischen Bestimmung des `view-transition-name` wird in der [CSS View Transitions Module Level 2](https://drafts.csswg.org/css-view-transitions-2/#auto-vt-name) Spezifikation diskutiert.
+Der `view-transition-class`-Wert bietet ein Styling-Element, ähnlich wie ein CSS-Klassenname, mit dem dieselben Stile auf mehrere Ansichtstransition-Pseudo-Elemente angewendet werden können. Es markiert kein Element zum Erfassen. Jedes einzelne Element benötigt weiterhin seinen eigenen eindeutigen {{cssxref("view-transition-name")}}; die `view-transition-class` wird nur als zusätzliche Möglichkeit genutzt, um Elemente zu stylen, die bereits einen `view-transition-name` haben. Die Unterstützung zur automatischen Bestimmung des `view-transition-name` wird in der Spezifikation [CSS View Transitions Module Level 2](https://drafts.csswg.org/css-view-transitions-2/#auto-vt-name) diskutiert.
 
-Die `view-transition-class` wendet Stile mithilfe der Ansichtübergangs-Pseudoelemente an, einschließlich {{cssxref("::view-transition-group()")}}, {{cssxref("::view-transition-image-pair()")}}, {{cssxref("::view-transition-old()")}}, und {{cssxref("::view-transition-new()")}}. Dies ist anders als der `view-transition-name`, der Ansichtübergänge zwischen dem Element im alten Zustand und seinem entsprechenden Element im neuen Zustand verbindet.
+Die `view-transition-class` wendet Stile mit den Ansichtstransition-Pseudo-Elementen an, einschließlich {{cssxref("::view-transition-group()")}}, {{cssxref("::view-transition-image-pair()")}}, {{cssxref("::view-transition-old()")}}, und {{cssxref("::view-transition-new()")}}. Dies unterscheidet sich von dem `view-transition-name`, der Ansichtstransitionen zwischen dem Element im alten Zustand und seinem entsprechenden Element im neuen Zustand abgleicht.
 
-Bis die `view-transition-class` Eigenschaft in allen Browsern, die Ansichtübergänge unterstützen, vollständig unterstützt wird, fügen Sie ein benutzerdefiniertes `::view-transition-group()` für jedes Element hinzu.
+Bis die `view-transition-class`-Eigenschaft in allen Browsern, die Ansichtstransitionen unterstützen, vollständig unterstützt wird, sollte ein benutzerdefiniertes `::view-transition-group()` für jedes Element enthalten werden.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -79,6 +79,6 @@ Bis die `view-transition-class` Eigenschaft in allen Browsern, die Ansichtüberg
 ## Siehe auch
 
 - {{cssxref("view-transition-name")}}
-- [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using) Leitfaden
+- [Using the View Transition API](/de/docs/Web/API/View_Transition_API/Using) Leitfaden
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

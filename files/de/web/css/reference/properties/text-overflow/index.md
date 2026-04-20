@@ -1,11 +1,12 @@
 ---
-title: text-overflow
+title: "`text-overflow` CSS property"
+short-title: text-overflow
 slug: Web/CSS/Reference/Properties/text-overflow
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-overflow`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie verborgener Überlaufinhalt den Benutzern angezeigt wird. Es kann abgeschnitten, mit einem Auslassungszeichen (`…`) oder mit einem benutzerdefinierten String angezeigt werden.
+Die **`text-overflow`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie verborgene Überlaufinhalte den Benutzern signalisiert werden. Sie kann abgeschnitten, durch ein Ellipsenzeichen (`…`) ersetzt oder mit einer benutzerdefinierten Zeichenkette angezeigt werden.
 
 {{InteractiveExample("CSS Demo: text-overflow")}}
 
@@ -50,14 +51,14 @@ text-overflow: "";
 }
 ```
 
-Die `text-overflow`-Eigenschaft erzwingt keinen Überlauf. Um Text den Container überlaufen zu lassen, müssen andere CSS-Eigenschaften gesetzt werden: {{cssxref("overflow")}} und {{cssxref("white-space")}}. Zum Beispiel:
+Die Eigenschaft `text-overflow` erzwingt nicht, dass ein Überlauf stattfindet. Um zu erreichen, dass Text seinen Container überläuft, müssen Sie andere CSS-Eigenschaften setzen: {{cssxref("overflow")}} und {{cssxref("white-space")}}. Zum Beispiel:
 
 ```css
 overflow: hidden;
 white-space: nowrap;
 ```
 
-Die `text-overflow`-Eigenschaft betrifft nur Inhalt, der ein Block-Container-Element in seiner _inline_-Fortschrittsrichtung überläuft (nicht Text, der unten in einer Box überläuft, zum Beispiel).
+Die Eigenschaft `text-overflow` wirkt sich nur auf Inhalte aus, die in der _inline_-Fortschrittsrichtung eines Block-Container-Elements überlaufen (nicht auf Text, der am unteren Rand einer Box überläuft, zum Beispiel).
 
 ## Syntax
 
@@ -74,16 +75,16 @@ text-overflow: revert-layer;
 text-overflow: unset;
 ```
 
-Die `text-overflow`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, legt er das Überlaufverhalten für das Ende der Zeile fest (das rechte Ende bei von links nach rechts laufendem Text, das linke Ende bei von rechts nach links laufendem Text). Wenn zwei Werte angegeben werden, spezifiziert der erste das Überlaufverhalten für das linke Ende der Zeile und der zweite für das rechte Ende. Die Eigenschaft akzeptiert entweder einen Schlüsselwortwert (`clip` oder `ellipsis`) oder einen `<string>`-Wert.
+Die Eigenschaft `text-overflow` kann mit ein oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, gibt er das Überlaufverhalten für das Ende der Linie an (das rechte Ende für von links nach rechts laufenden Text, das linke Ende für von rechts nach links laufenden Text). Wenn zwei Werte angegeben werden, gibt der erste das Überlaufverhalten für das linke Ende der Linie an, und der zweite spezifiziert es für das rechte Ende der Linie. Die Eigenschaft akzeptiert entweder einen Schlüsselwortwert (`clip` oder `ellipsis`) oder einen `<string>`-Wert.
 
 ### Werte
 
 - `clip`
-  - : Der Standardwert für diese Eigenschaft. Dieser Schlüsselwortwert wird den Text an der Grenze des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) abschneiden, daher kann die Trennung mitten in einem Zeichen erfolgen. Um den Abschluss zwischen Zeichen zu schneiden, können Sie `text-overflow` als leeren String angeben, wenn dies in Ihren Ziel-Browsern unterstützt wird: `text-overflow: '';`.
+  - : Der Standardwert für diese Eigenschaft. Dieser Schlüsselwortwert wird den Text am Limit des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) abschneiden, daher kann das Abschneiden in der Mitte eines Zeichens geschehen. Um an der Übergangsstelle zwischen Zeichen zu schneiden, können Sie `text-overflow` als leere Zeichenfolge angeben, wenn dies in Ihren Ziel-Browsern unterstützt wird: `text-overflow: '';`.
 - `ellipsis`
-  - : Dieser Schlüsselwortwert wird ein Auslassungszeichen (`'…'`, `U+2026 HORIZONTAL ELLIPSIS`) anzeigen, um abgeschnittenen Text zu repräsentieren. Das Auslassungszeichen wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt, wodurch die Menge des angezeigten Textes verringert wird. Wenn nicht genug Platz ist, um das Auslassungszeichen anzuzeigen, wird es abgeschnitten.
+  - : Dieser Schlüsselwortwert zeigt ein Ellipsenzeichen (`'…'`, `U+2026 HORIZONTAL ELLIPSIS`) an, um abgeschnittenen Text darzustellen. Das Ellipsenzeichen wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt, wodurch die Menge des angezeigten Texts verringert wird. Wenn nicht genug Platz vorhanden ist, um das Ellipsenzeichen anzuzeigen, wird es abgeschnitten.
 - `<string>`
-  - : Der {{cssxref("&lt;string&gt;")}}-Wert, der verwendet wird, um abgeschnittenen Text darzustellen. Der String wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt und verkürzt die Größe des angezeigten Textes. Wenn nicht genug Platz ist, um den String selbst anzuzeigen, wird er abgeschnitten.
+  - : Der {{cssxref("&lt;string&gt;")}}, der verwendet werden soll, um abgeschnittenen Text darzustellen. Die Zeichenkette wird innerhalb des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction) angezeigt, wodurch die Größe des angezeigten Texts verkürzt wird. Wenn nicht genug Platz vorhanden ist, um die Zeichenkette selbst anzuzeigen, wird sie abgeschnitten.
 
 ## Formale Definition
 
@@ -97,7 +98,7 @@ Die `text-overflow`-Eigenschaft kann mit einem oder zwei Werten angegeben werden
 
 ### Ein-Wert-Syntax
 
-Dieses Beispiel zeigt verschiedene Werte für `text-overflow`, die auf einen Absatz für von links nach rechts und von rechts nach links laufenden Text angewendet werden.
+Dieses Beispiel zeigt verschiedene Werte für `text-overflow`, die auf einen Absatz angewendet werden, für von links nach rechts und von rechts nach links laufenden Text.
 
 #### HTML
 
@@ -180,8 +181,7 @@ body {
 
 ### Zwei-Wert-Syntax
 
-Dieses Beispiel zeigt die Zwei-Wert-Syntax für `text-overflow`, bei der Sie unterschiedliches Überlaufverhalten für den Anfang und das Ende des Textes definieren können.
-Um den Effekt zu zeigen, müssen wir die Zeile scrollen, sodass auch der Anfang der Zeile verborgen ist.
+Dieses Beispiel zeigt die Zwei-Wert-Syntax für `text-overflow`, bei der Sie unterschiedliches Überlaufverhalten für den Anfang und das Ende des Textes definieren können. Um den Effekt zu zeigen, müssen wir die Zeile scrollen, damit auch der Anfang der Zeile verborgen ist.
 
 #### HTML
 
@@ -253,7 +253,7 @@ for (const para of paras) {
 
 {{Specifications}}
 
-Eine frühere Version dieser Schnittstelle erreichte den Status _Candidate Recommendation_. Da einige nicht als gefährdet eingestufte Funktionen entfernt werden mussten, wurde die Spezifikation auf den _Working Draft_-Status herabgestuft, was erklärt, warum Browser diese Eigenschaft unverändert implementiert haben, obwohl sie nicht im CR-Status ist.
+Eine frühere Version dieser Schnittstelle erreichte den Status _Candidate Recommendation_. Da einige als nicht riskant gelistete Funktionen entfernt werden mussten, wurde die Spezifikation auf das Niveau _Working Draft_ herabgestuft, was erklärt, warum Browser diese Eigenschaft ohne Präfix implementierten, obwohl sie nicht im CR-Zustand ist.
 
 ## Browser-Kompatibilität
 

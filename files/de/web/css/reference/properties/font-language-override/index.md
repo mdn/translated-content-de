@@ -1,15 +1,16 @@
 ---
-title: font-language-override
+title: "`font-language-override` CSS property"
+short-title: font-language-override
 slug: Web/CSS/Reference/Properties/font-language-override
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`font-language-override`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von sprachspezifischen Glyphen in einem Schriftsatz.
+Die **`font-language-override`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von sprachspezifischen Glyphen in einer Schriftart.
 
-Standardmäßig teilt das `lang`-Attribut von HTML den Browsern mit, dass sie speziell für diese Sprache entworfene Glyphen anzeigen sollen. Zum Beispiel haben viele Schriftarten ein spezielles Zeichen für das Digraph `fi`, das den Punkt auf dem „i“ mit dem „f“ verschmilzt. Wenn die Sprache jedoch auf Türkisch eingestellt ist, wird die Schriftart wahrscheinlich wissen, dass das verschmolzene Glyphe nicht verwendet werden soll; Türkisch hat zwei Versionen des "i," eine mit einem Punkt (`i`) und eine ohne (`ı`), und die Verwendung der Ligatur würde ein gepunktetes "i" fälschlicherweise in ein punktloses "i" umwandeln.
+Standardmäßig weist das HTML-Attribut `lang` Browser an, Glyphen anzuzeigen, die speziell für diese Sprache entworfen wurden. Viele Schriftarten haben beispielsweise ein spezielles Zeichen für das Digraph `fi`, das den Punkt auf dem "i" mit dem "f" verbindet. Wenn jedoch die Sprache auf Türkisch eingestellt ist, wird die Schriftart wahrscheinlich wissen, diesen verknüpften Glyphe nicht zu verwenden; Türkisch hat zwei Versionen des "i", eine mit Punkt (`i`) und eine ohne (`ı`), und die Verwendung der Ligatur würde ein gepunktetes "i" fälschlicherweise in ein punktloses "i" verwandeln.
 
-Die Eigenschaft `font-language-override` ermöglicht es Ihnen, das Verhalten der Schriftart für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, wenn die verwendete Schriftart nicht ordnungsgemäß für die Sprache unterstützt wird. Wenn eine Schriftart beispielsweise keine ordnungsgemäßen Regeln für die aserbaidschanische Sprache hat, können Sie die Schrift zwingen, türkische Glyphen zu verwenden, die ähnlichen Regeln folgen.
+Die `font-language-override` Eigenschaft ermöglicht es Ihnen, das Verhalten der Schriftart für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, wenn beispielsweise die von Ihnen verwendete Schriftart keine ordnungsgemäße Unterstützung für die Sprache bietet. Wenn eine Schriftart keine ordnungsgemäßen Regeln für die aserbaidschanische Sprache enthält, können Sie etwa die Schrift zwingen, türkische Glyphen zu verwenden, die ähnlichen Regeln folgen.
 
 ## Syntax
 
@@ -29,14 +30,14 @@ font-language-override: revert-layer;
 font-language-override: unset;
 ```
 
-Die `font-language-override`-Eigenschaft wird als Schlüsselwort `normal` oder als `<string>` angegeben.
+Die `font-language-override` Eigenschaft wird als das Schlüsselwort `normal` oder ein `<string>` angegeben.
 
 ### Werte
 
 - `normal`
-  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die durch das `lang`-Attribut angegebene Sprache geeignet sind. Dies ist der Standardwert.
+  - : Weist den Browser an, Schrift-Glyphen zu verwenden, die für die Sprache geeignet sind, die durch das `lang`-Attribut angegeben ist. Dies ist der Standardwert.
 - {{cssxref("string")}}
-  - : Weist den Browser an, Schriftglyphen zu verwenden, die für die durch den String angegebene Sprache geeignet sind. Der String muss einem Sprach-Tag entsprechen, das im [OpenType-Sprachsystem](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) gefunden wird. Zum Beispiel ist "ENG" Englisch und "KOR" Koreanisch.
+  - : Weist den Browser an, Schrift-Glyphen zu verwenden, die für die Sprache geeignet sind, die durch den String angegeben wird. Der String muss einem Sprach-Tag im [OpenType language system](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) entsprechen. Zum Beispiel steht "ENG" für Englisch und "KOR" für Koreanisch.
 
 ## Formale Definition
 
@@ -48,7 +49,7 @@ Die `font-language-override`-Eigenschaft wird als Schlüsselwort `normal` oder a
 
 ## Beispiele
 
-### Verwendung dänischer Glyphen
+### Verwendung von dänischen Glyphen
 
 #### HTML
 

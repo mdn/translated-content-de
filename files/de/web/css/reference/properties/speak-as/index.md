@@ -1,15 +1,16 @@
 ---
-title: speak-as
+title: "`speak-as` CSS property"
+short-title: speak-as
 slug: Web/CSS/Reference/Properties/speak-as
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`speak-as`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um zu definieren, wie [HTML](/de/docs/Web/HTML) Inhalt gesprochen wird. Die ein bis drei aufgezählten Schlüsselbegriffe bestimmen die Art und Weise, wie Elemente und Texte durch Audio-Technologien wie {{Glossary("screen_reader", "Screenreader")}} und digitale Assistenten wiedergegeben werden.
+Die **`speak-as`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um zu definieren, wie [HTML](/de/docs/Web/HTML)-Inhalte gesprochen werden. Die ein bis drei aufgeführten Schlüsselbegriffe bestimmen die Art und Weise, wie Elemente und Text von auditiven Technologien, wie {{Glossary("screen_reader", "Screenreadern")}} und digitalen Assistenten, wiedergegeben werden.
 
-Diese Eigenschaft gilt für alle Inhalte, einschließlich Pseudo-Elementen, mit der Ausnahme von {{cssxref("::marker")}} Pseudo-Elementen, die über einen {{cssxref("@counter-style")}} mit einem definierten [`speak-as`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/speak-as) Deskriptor konstruiert sind, welcher Vorrang vor jedem geerbten `speak-as` Eigenschaftswert hat.
+Diese Eigenschaft gilt für alle Inhalte, einschließlich Pseudo-Elementen, mit Ausnahme der {{cssxref("::marker")}}-Pseudo-Elemente, die über ein {{cssxref("@counter-style")}}-Stylesheet mit einem definierten [`speak-as`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/speak-as)-Deskriptor konstruiert sind. Dieser Deskriptor hat Vorrang vor jedem geerbten `speak-as`-Eigenschaftswert.
 
 ## Syntax
 
@@ -33,18 +34,18 @@ speak-as: spell-out digits no-punctuation;
 ### Werte
 
 - `normal`
-  - : Normale Aussprache-Regeln mit durch Pausen ersetzter Interpunktion. Zum Beispiel würde "Hello, world!" als "Hello (Pause) world (Pause)" ausgesprochen. Dies ist der Standardwert.
+  - : Normale Ausspracheregeln mit durch Pausen ersetzter Interpunktion. Zum Beispiel würde "Hallo, Welt!" als "Hallo (Pause) Welt (Pause)" ausgesprochen. Dies ist der Standardwert.
 - `spell-out`
-  - : Inhalt wird Buchstabe für Buchstabe buchstabiert. Zum Beispiel würde "role" als "r" "o" "l" "e" ausgesprochen.
+  - : Inhalt wird buchstabenweise buchstabiert. Zum Beispiel würde "Rolle" als "r" "o" "l" "e" ausgesprochen.
 - `literal-punctuation`
-  - : Interpunktionszeichen werden buchstäblich ausgesprochen. Zum Beispiel würde "Hello, world!" als "Hello Komma world Ausrufezeichen" ausgesprochen.
+  - : Interpunktionszeichen werden wörtlich buchstabiert. Zum Beispiel würde "Hallo, Welt!" als "Hallo Komma Welt Ausrufezeichen" ausgesprochen.
 - `digits`
   - : Zahlen werden als einzelne Ziffern ausgesprochen. Zum Beispiel würde "31" als "drei eins" ausgesprochen.
 - `no-punctuation`
-  - : Inhalt wird normal ohne jegliche Interpunktion ausgesprochen. Zum Beispiel würde "Hello, world!" als "Hello" "world" ausgesprochen.
+  - : Inhalt wird normal ohne jegliche Interpunktion ausgesprochen. Zum Beispiel würde "Hallo, Welt!" als "Hallo" "Welt" ausgesprochen.
 
 > [!NOTE]
-> Die Unterstützung der `speak-as` Eigenschaft ist begrenzt und wird inkonsistent über verschiedene unterstützende Technologien, wie Screenreader oder Sprachsynthesizer, implementiert. Um sicherzustellen, dass ausspracheabhängige kritische Informationen benutzerfreundlich und für ein breites Publikum zugänglich bleiben, sollten Sie sich nicht ausschließlich auf diese CSS-Eigenschaft verlassen, um zu definieren, wie diese Informationsinhalte auditiv präsentiert werden.
+> Die Unterstützung der `speak-as`-Eigenschaft ist begrenzt und in verschiedenen assistiven Technologien, wie Screenreadern oder Sprachsynthesizern, uneinheitlich implementiert. Um sicherzustellen, dass alle von der Aussprache abhängigen wichtigen Informationen benutzerfreundlich und für ein breites Publikum zugänglich bleiben, verlassen Sie sich nicht ausschließlich auf diese CSS-Eigenschaft, um festzulegen, wie diese Information akustisch präsentiert wird.
 
 ## Formale Definition
 
@@ -104,7 +105,7 @@ speak-as: spell-out digits no-punctuation;
 
 ## Siehe auch
 
-- {{cssxref("@counter-style")}} Regel {{cssxref("@counter-style/speak-as", "speak-as")}} Deskriptor
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- {{cssxref("@counter-style")}} At-Regel {{cssxref("@counter-style/speak-as", "speak-as")}} Deskriptor
+- [CSS Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
 - [Web Speech API](/de/docs/Web/API/Web_Speech_API)

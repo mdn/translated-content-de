@@ -1,15 +1,16 @@
 ---
-title: <filter-function>
+title: "`<filter-function>` CSS-Typ"
+short-title: <filter-function>
 slug: Web/CSS/Reference/Values/filter-function
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
 Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen grafischen Effekt, der das Erscheinungsbild eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 ## Syntax
 
-Der `<filter-function>` Datentyp wird unter Verwendung einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, falls ungültig, dazu führt, dass kein Filter angewendet wird.
+Der `<filter-function>`-Datentyp wird durch eine der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, wenn es ungültig ist, dazu führt, dass kein Filter angewendet wird.
 
 - {{cssxref("filter-function/blur", "blur()")}}
   - : Weichzeichnet das Bild.
@@ -40,9 +41,9 @@ Der `<filter-function>` Datentyp wird unter Verwendung einer der unten aufgefüh
 
 ### Vergleich von Filterfunktionen
 
-Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, mit dem Sie zwischen den verschiedenen Arten von Filterfunktionen wählen können, und einen Schieberegler, mit dem Sie die innerhalb der Filterfunktion verwendeten Werte variieren können. Die Aktualisierung der Steuerelemente aktualisiert den Filtereffekt in Echtzeit, sodass Sie die Effekte verschiedener Filter untersuchen können.
+Dieses Beispiel bietet eine Grafik, ein Auswahlmenü, um zwischen den verschiedenen Arten von Filterfunktionen zu wählen, und einen Schieberegler, um die innerhalb der Filterfunktion verwendeten Werte zu variieren. Das Aktualisieren der Bedienelemente aktualisiert den Filtereffekt in Echtzeit, sodass Sie die Auswirkungen der unterschiedlichen Filter untersuchen können.
 
-Das Dropdown-Menü wählt den Funktionsnamen aus, und der Schieberegler setzt den Parameterwert für diese Funktion. Für `drop-shadow` wird der Wert sowohl für die horizontalen als auch vertikalen Versätze verwendet, und der Radius wird auf die Hälfte des Wertes gesetzt.
+Das Dropdown-Menü wählt den Funktionsnamen aus, und der Schieberegler setzt den Parameterwert für diese Funktion. Bei `drop-shadow` wird der Wert sowohl für die horizontalen als auch vertikalen Versätze verwendet, und der Radius wird auf die Hälfte des Wertes gesetzt.
 
 ```html hidden live-sample___filter-functions
 <div></div>

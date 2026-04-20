@@ -1,11 +1,12 @@
 ---
-title: <display-internal>
+title: "`<display-internal>` CSS-Typ"
+short-title: <display-internal>
 slug: Web/CSS/Reference/Values/display-internal
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Einige Layoutmodelle wie `table` und `ruby` haben eine komplexe interne Struktur, mit verschiedenen Rollen, die ihre Kinder und Nachkommen ausfüllen können. Diese Seite definiert diese "internen" Display-Werte, die nur innerhalb des jeweiligen Layoutmodus Bedeutung haben.
+Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen einnehmen können. Diese Seite definiert diese "internen" Anzeige-Werte, die nur innerhalb des jeweiligen Layout-Modus eine Bedeutung haben.
 
 ## Syntax
 
@@ -42,9 +43,9 @@ Gültige `<display-internal>` Werte:
 
 ## Beispiele
 
-### CSS-Tabellenbeispiel
+### CSS-Tabellen-Beispiel
 
-Das folgende Beispiel zeigt, wie ein Formular-Layout mit CSS-Tabellenlayout erstellt wird.
+Das folgende Beispiel demonstriert die Anordnung eines Formulars mithilfe von CSS-Tabellenlayout.
 
 #### HTML
 

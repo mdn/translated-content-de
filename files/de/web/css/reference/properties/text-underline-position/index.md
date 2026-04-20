@@ -1,11 +1,12 @@
 ---
-title: text-underline-position
+title: "`text-underline-position` CSS property"
+short-title: text-underline-position
 slug: Web/CSS/Reference/Properties/text-underline-position
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-underline-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Position der Unterstreichung fest, die mithilfe des `underline` Wertes der {{cssxref("text-decoration")}} Eigenschaft gesetzt wird.
+Die **`text-underline-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Position der Unterstreichung fest, die mit dem `underline`-Wert der {{cssxref("text-decoration")}}-Eigenschaft gesetzt wird.
 
 {{InteractiveExample("CSS Demo: text-underline-position")}}
 
@@ -62,11 +63,11 @@ text-underline-position: unset;
 ### Werte
 
 - `auto`
-  - : Der {{Glossary("user_agent", "User Agent")}} verwendet seinen eigenen Algorithmus, um die Linie auf oder unter der {{Glossary("/Baseline/Typography", "alphabetischen Grundlinie")}} zu platzieren.
+  - : Der {{Glossary("user_agent", "User-Agent")}} verwendet seinen eigenen Algorithmus, um die Linie an oder unter der {{Glossary("/Baseline/Typography", "alphabetischen Grundlinie")}} zu platzieren.
 - `from-font`
-  - : Wenn die Schriftart-Datei Informationen über eine bevorzugte Position enthält, wird dieser Wert verwendet. Wenn die Schriftart-Datei diese Informationen nicht enthält, verhält es sich, als wäre `auto` gesetzt, wobei der Browser eine geeignete Position wählt.
+  - : Wenn die Schriftart-Datei Informationen über eine bevorzugte Position enthält, wird dieser Wert verwendet. Wenn die Schriftart-Datei diese Informationen nicht enthält, verhält es sich so, als ob `auto` gesetzt wäre, wobei der Browser eine geeignete Position wählt.
 - `under`
-  - : Erzwingt, dass die Linie unter der alphabetischen Grundlinie gesetzt wird, an einer Position, an der sie keine Unterlängen kreuzt. Dies ist nützlich, um die Lesbarkeit bei chemischen und mathematischen Formeln zu gewährleisten, die häufig Tiefstellungen verwenden.
+  - : Erzwingt, dass die Linie unterhalb der alphabetischen Grundlinie gesetzt wird, an einer Position, an der sie keine Unterlängen kreuzt. Dies ist nützlich, um die Lesbarkeit bei chemischen und mathematischen Formeln zu gewährleisten, die stark auf Tiefstellungen angewiesen sind.
 - `left`
   - : In vertikalen Schreibmodi erzwingt dieses Schlüsselwort, dass die Linie auf der _linken_ Seite des Textes platziert wird. In horizontalen Schreibmodi ist es ein Synonym für `auto`.
 - `right`
@@ -82,7 +83,7 @@ text-underline-position: unset;
 
 ## Beispiele
 
-### Ein grundlegendes Beispiel
+### Ein einfaches Beispiel
 
 Wir erstellen zwei Beispielabsätze:
 
@@ -120,17 +121,17 @@ p {
 }
 ```
 
-In diesem Beispiel setzen wir bei beiden Absätzen eine dicke Unterstreichung. Im horizontalen Text verwenden wir `text-underline-position: under;`, um die Unterstreichung unter allen Unterlängen zu platzieren.
+In diesem Beispiel haben wir beide Absätze so eingestellt, dass sie eine dicke Unterstreichung haben. Im horizontalen Text verwenden wir `text-underline-position: under;`, um die Unterstreichung unterhalb aller Unterlängen zu platzieren.
 
-Im Text mit einem vertikalen {{cssxref("writing-mode")}} können wir dann die Werte `left` oder `right` verwenden, um die Unterstreichung wie gewünscht links oder rechts vom Text erscheinen zu lassen.
+Im Text mit einem vertikalen {{cssxref("writing-mode")}} können wir dann die Werte `left` oder `right` verwenden, um die Unterstreichung auf der linken oder rechten Seite des Textes erscheinen zu lassen.
 
 Das Live-Beispiel sieht so aus:
 
 {{EmbedLiveSample('A_basic_example', '100%', 600)}}
 
-### Setzen der text-underline-position global
+### Globale Einstellung von text-underline-position
 
-Da die Eigenschaft `text-underline-position` vererbt wird und nicht durch die {{cssxref("text-decoration")}} Kurzform-Eigenschaft zurückgesetzt wird, kann es sinnvoll sein, ihren Wert global festzulegen. Zum Beispiel könnte der Wert `under` für ein Dokument mit vielen chemischen und mathematischen Formeln geeignet sein, die häufig tiefgestellt sind.
+Da die `text-underline-position`-Eigenschaft vererbt wird und nicht durch die {{cssxref("text-decoration")}}-Kurzschreibweise zurückgesetzt wird, kann es angebracht sein, ihren Wert global festzulegen. Zum Beispiel kann der Wert `under` für ein Dokument mit vielen chemischen und mathematischen Formeln angemessen sein, die stark auf Tiefstellungen angewiesen sind.
 
 ```css
 :root {
@@ -148,4 +149,4 @@ Da die Eigenschaft `text-underline-position` vererbt wird und nicht durch die {{
 
 ## Siehe auch
 
-- Die {{cssxref("text-decoration")}} Eigenschaft ist eine Kurzform zum Setzen der meisten Textdekorationseigenschaften, einschließlich {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, und {{cssxref("text-decoration-style")}}. Sie setzt jedoch nicht `text-underline-position`.
+- Die {{cssxref("text-decoration")}}-Eigenschaft ist eine Kurzschreibweise zum Festlegen der meisten Textdekorationseigenschaften, einschließlich {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}} und {{cssxref("text-decoration-style")}}. Sie setzt jedoch nicht `text-underline-position`.
