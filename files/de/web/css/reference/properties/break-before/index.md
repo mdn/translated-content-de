@@ -6,7 +6,7 @@ l10n:
   sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`break-before`** [CSS](/de-DE/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionsumbrüche vor einem generierten Rahmen eingestellt sein sollen. Wenn kein generierter Rahmen vorhanden ist, wird die Eigenschaft ignoriert.
+Die **`break-before`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionsumbrüche vor einem generierten Rahmen eingestellt sein sollen. Wenn kein generierter Rahmen vorhanden ist, wird die Eigenschaft ignoriert.
 
 {{InteractiveExample("CSS Demo: break-before")}}
 
@@ -260,5 +260,5 @@ article {
 
 ## Siehe auch
 
-- [Leitfaden: Mehrspaltiges Layout](/de-DE/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Leitfaden: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - [Breaking Boxes With CSS Fragmentation](https://www.smashingmagazine.com/2019/02/css-fragmentation/)

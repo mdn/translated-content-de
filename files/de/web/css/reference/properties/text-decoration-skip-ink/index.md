@@ -6,7 +6,7 @@ l10n:
   sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-decoration-skip-ink`** [CSS](/de-DE/docs/Web/CSS) Eigenschaft legt fest, wie Über- und Unterstriche gezeichnet werden, wenn sie über Buchstabenober- und Unterlängen verlaufen.
+Die **`text-decoration-skip-ink`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Über- und Unterstriche gezeichnet werden, wenn sie über Buchstabenober- und Unterlängen verlaufen.
 
 {{InteractiveExample("CSS Demo: text-decoration-skip-ink")}}
 
