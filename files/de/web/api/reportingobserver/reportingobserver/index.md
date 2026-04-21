@@ -3,12 +3,12 @@ title: "ReportingObserver: ReportingObserver() Konstruktor"
 short-title: ReportingObserver()
 slug: Web/API/ReportingObserver/ReportingObserver
 l10n:
-  sourceCommit: a019b326a3ad0c16d78d236582927a38ccaea8b4
+  sourceCommit: 927ef5f1b2906bae06ff98ea5148a1808b01f07b
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Der **`ReportingObserver()`** Konstruktor der [Reporting API](/de/docs/Web/API/Reporting_API) erstellt eine neue [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Objektinstanz, die verwendet werden kann, um Berichte zu sammeln und darauf zuzugreifen.
+Der **`ReportingObserver()`** Konstruktor der [Reporting API](/de/docs/Web/API/Reporting_API) erstellt eine neue Instanz des [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekts, das zum Sammeln und Zugreifen auf Berichte verwendet werden kann.
 
 ## Syntax
 
@@ -20,65 +20,65 @@ new ReportingObserver(callback, options)
 ### Parameter
 
 - `callback`
-  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Beobachter beginnt, Berichte zu sammeln (also über [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)).
+  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Beobachter beginnt, Berichte zu sammeln (d.h. über [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)).
     Der Callback-Funktion werden zwei Parameter übergeben:
     - `reports`
-      - : Eine Sequenz von Objekten, die die im Berichts-Queue des Beobachters gesammelten Berichte darstellen.
+      - : Eine Sequenz von Objekten, die die Berichte darstellen, die in der Berichtswarteschlange des Beobachters gesammelt wurden.
 
-        Berichtsobjekte sollten die folgenden Eigenschaften haben:
+        Es wird erwartet, dass Berichtsobjekte die folgenden Eigenschaften haben:
         - `body`
-          - : Ein Objekt, das den Hauptteil des Berichts darstellt.
-            Die Struktur des Berichts (insbesondere dessen Hauptteil) hängt von dessen [`type`](#type) ab.
+          - : Ein Objekt, das den Inhalt des Berichts darstellt.
+            Die Struktur des Berichts (insbesondere seines Inhalts) hängt von seinem [`type`](#type) ab.
         - `type`
           - : Ein String, der den Typ des Berichts angibt.
-            Informationen zu Berichtstypen finden Sie unten bei [`options.types`](#types).
+            Für Informationen zu Berichtstypen siehe [`options.types`](#types) unten.
         - `url`
-          - : Ein String, der die URL des Dokuments darstellt, das den Bericht generiert hat.
+          - : Ein String, der die URL des Dokuments darstellt, das den Bericht erzeugt hat.
 
     - `observer`
-      - : Ein Verweis auf dasselbe `ReportingObserver` Objekt, was rekursive Berichtssammlung usw. ermöglicht.
+      - : Ein Verweis auf dasselbe `ReportingObserver`-Objekt, der eine rekursive Berichtssammlung ermöglicht und so weiter.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Ihnen erlaubt, die Optionen für die Objekterstellung festzulegen.
+  - : Ein Objekt, das Ihnen ermöglicht, die Optionen für die Erstellung des Objekts festzulegen.
     Die verfügbaren Optionen sind:
     - `types`
-      - : Ein Array von Strings, das die Typen von Berichten darstellt, die von diesem Beobachter gesammelt werden sollen.
-        Verfügbare Typen sind unter anderem:
+      - : Ein Array von Strings, das die Typen der Berichte darstellt, die von diesem Beobachter gesammelt werden sollen.
+        Verfügbare Typen umfassen:
         - `coep`
-          - : Verstöße gegen die {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) der Seite.
+          - : Verstöße gegen die {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) der Website.
             Berichte sind Instanzen von [`COEPViolationReport`](/de/docs/Web/API/COEPViolationReport).
         - `coop`
-          - : Verstöße gegen die {{httpheader("Cross-Origin-Opener-Policy")}} (COOP) der Seite.
+          - : Verstöße gegen die {{httpheader("Cross-Origin-Opener-Policy")}} (COOP) der Website.
             Berichte sind Instanzen von [`COOPViolationReport`](/de/docs/Web/API/COOPViolationReport).
         - `crash`
           - : Browser-Absturzberichte.
-            (Absturzberichte sind über einen `ReportingObserver` nicht abrufbar, können aber an einen Server gesendet werden).
+            Berichte sind Instanzen von [`CrashReport`](/de/docs/Web/API/CrashReport). Beachten Sie, dass Absturzberichte nicht über einen `ReportingObserver` abrufbar sind, jedoch an einen Server gesendet werden können.
         - `csp-violation`
-          - : Verstöße gegen die CSP-Richtlinie der Seite.
+          - : Verstöße gegen die CSP-Richtlinie der Website.
             Berichte sind Instanzen von [`CSPViolationReport`](/de/docs/Web/API/CSPViolationReport).
         - `deprecation`
-          - : Veraltete Funktionen, die von der Seite verwendet werden.
+          - : Veraltete Funktionen, die von der Website verwendet werden.
             Berichte sind Instanzen von [`DeprecationReport`](/de/docs/Web/API/DeprecationReport).
         - `integrity-violation`
           - : Verstöße gegen die Integritätsrichtlinie der Seite.
             Berichte sind Instanzen von [`IntegrityViolationReport`](/de/docs/Web/API/IntegrityViolationReport).
         - `intervention`
-          - : Funktionen, die vom User Agent blockiert werden, zum Beispiel, wenn eine Anzeige die Seitenleistung erheblich beeinträchtigt.
+          - : Funktionen, die vom Benutzeragenten blockiert wurden, zum Beispiel, wenn eine Anzeige die Seitenleistung erheblich beeinträchtigt.
             Berichte sind Instanzen von [`InterventionReport`](/de/docs/Web/API/InterventionReport).
         - `permissions-policy-violation`
-          - : Verstöße gegen die {{httpheader("Permissions-Policy")}} der Seite.
+          - : Verstöße gegen die {{httpheader("Permissions-Policy")}} der Website.
             Berichte sind Instanzen von [`PermissionsPolicyViolationReport`](/de/docs/Web/API/PermissionsPolicyViolationReport).
 
-        Wenn diese Option ausgelassen wird, werden alle unterstützten Typen gesammelt.
+        Wenn diese Option weggelassen wird, werden alle unterstützten Typen gesammelt.
 
     - `buffered`
-      - : Ein boolescher Wert, der definiert, ob die Berichte, die generiert wurden, bevor der Beobachter erstellt werden konnte, beobachtbar sein sollen (`true`) oder nicht (`false`).
+      - : Ein Boolean, der definiert, ob die Berichte, die generiert wurden, bevor der Beobachter erstellt werden konnte, beobachtbar (`true`) sein sollen oder nicht (`false`).
 
 ## Beispiele
 
-### Bestimmte Berichtstypen anzeigen
+### Spezifische Berichtstypen anzeigen
 
-Dieser Code zeigt, wie ein `ReportingObserver` erstellt werden kann, der verwendet werden könnte, um [`deprecation`](#deprecation) und [`integrity-violation`](#integrity-violation) Berichte zu beobachten.
+Dieser Code zeigt, wie ein `ReportingObserver` erstellt wird, der verwendet werden könnte, um [`deprecation`](#deprecation) und [`integrity-violation`](#integrity-violation) Berichte zu beobachten.
 
 ```js
 const options = {

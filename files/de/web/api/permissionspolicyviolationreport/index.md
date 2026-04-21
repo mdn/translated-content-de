@@ -2,14 +2,14 @@
 title: PermissionsPolicyViolationReport
 slug: Web/API/PermissionsPolicyViolationReport
 l10n:
-  sourceCommit: a019b326a3ad0c16d78d236582927a38ccaea8b4
+  sourceCommit: dd1e8282ab6621b62399d65cad46177d426d1d93
 ---
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Das `PermissionsPolicyViolationReport`-Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert einen Bericht, der erstellt wird, wenn ein Dokument seine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) verletzt.
+Das `PermissionsPolicyViolationReport`-Wörterbuch der [Reporting API](/de/docs/Web/API/Reporting_API) stellt einen Bericht dar, der erstellt wird, wenn ein Dokument seine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) verletzt.
 
-Berichte dieser Art können von einer Seite aus mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, und eine serialisierte Version kann an den [Standard-Reporting-Server-Endpunkt](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#default_reporting_endpoint) gesendet werden.
+Berichte dieses Typs können innerhalb einer Seite mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden, und eine serialisierte Version kann an einen Reporting-Server-Endpunkt gesendet werden.
 
 ## Instanzeigenschaften
 
@@ -17,43 +17,44 @@ Berichte dieser Art können von einer Seite aus mit einem [`ReportingObserver`](
   - : Der Hauptteil des Berichts.
     Dies ist ein Objekt mit den folgenden Eigenschaften:
     - `columnNumber`
-      - : Die Zeichenposition in der Zeile des Skripts, an der die Verletzung aufgetreten ist, oder `null`, wenn nicht bekannt.
+      - : Die Zeichenposition in der Zeile des Skripts, an der die Verletzung auftrat, oder `null`, wenn nicht bekannt.
     - `disposition`
       - : Ein String, der angibt, ob die verletzte Richtlinie durchgesetzt oder nur gemeldet wurde.
-        Dies kann den Wert `"enforce"` für Verstöße gegen Richtlinien haben, die mit {{httpheader("Permissions-Policy")}} gesetzt wurden, und `report` für Verstöße, die mit `Permissions-Policy-Report-Only` gesetzt wurden.
+        Dies kann den Wert `"enforce"` für Verletzungen von Richtlinien haben, die mit {{httpheader("Permissions-Policy")}} festgelegt wurden, und `report` für Verletzungen, die mit `Permissions-Policy-Report-Only` festgelegt wurden.
     - `featureId`
-      - : Ein String, der die [Permissions Policy Directive](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#directives) darstellt, die verletzt wurde (zum Beispiel `"geolocation"`).
+      - : Ein String, der die verletzte [Permissions Policy Direktive](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#directives) darstellt (zum Beispiel `"geolocation"`).
     - `lineNumber`
-      - : Die Zeilennummer im Skript, an der die Verletzung aufgetreten ist, oder `null`, wenn nicht bekannt.
+      - : Die Zeilennummer im Skript, an der die Verletzung auftrat, oder `null`, wenn nicht bekannt.
     - `message`
-      - : Ein String, der eine lesbare Beschreibung der Verletzung enthält.
+      - : Ein String mit einer menschenlesbaren Beschreibung der Verletzung.
     - `sourceFile`
-      - : Ein String, der die URL des Skripts darstellt, in dem die Verletzung aufgetreten ist, oder `null`, wenn nicht bekannt.
-        Sowohl `columnNumber` als auch `lineNumber` sollten nicht-null Werte haben, wenn diese Eigenschaft nicht `null` ist.
+      - : Ein String, der die URL des Skripts darstellt, in dem die Verletzung auftrat, oder `null`, wenn nicht bekannt.
+        Sowohl `columnNumber` als auch `lineNumber` sollten Nicht-Null-Werte haben, wenn diese Eigenschaft nicht `null` ist.
 
 - `type`
-  - : Der String `"permissions-policy-violation"`, was anzeigt, dass dies ein Bericht über eine Verletzung der Permissions Policy ist.
+  - : Der String `"permissions-policy-violation"`, der anzeigt, dass es sich um einen Bericht über eine Verletzung der Permissions Policy handelt.
 - `url`
-  - : Ein String, der die URL des Dokuments darstellt, das den Bericht erzeugt hat.
+  - : Ein String, der die URL des Dokuments darstellt, das den Bericht erstellt hat.
 
 > [!NOTE]
-> Die serverseitige Serialisierung von Chrome verwendet `policyId` anstelle von `featureId` für den Eigenschaftsnamen im Hauptteil eines Serverberichts.
-> Für die plattformübergreifende Browser-Kompatibilität müssen Entwickler beide Felder in Reporting-Endpunkten verarbeiten.
+> Die serverseitige Serialisierung von Chrome verwendet `policyId` anstelle von `featureId` für den Funktionsnamen im Hauptteil eines Serverberichts.
+> Für die Browser-Kompatibilität müssen Entwickler beide Felder in Reporting-Endpunkten verarbeiten.
 > Der Bericht, der von einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zurückgegeben wird, folgt der Spezifikation.
 
 ## Beschreibung
 
-Berichte über Verletzungen von Permissions Policies werden erzeugt, wenn ein Dokument versucht, eine Browserfunktion zu verwenden, die durch seine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
-Die Richtlinie wird durch den {{httpheader("Permissions-Policy")}} HTTP-Header oder ein `<meta http-equiv="permissions-policy">`-Element gesetzt.
+Verletzungen der Permissions Policy werden gemeldet, wenn ein Dokument versucht, eine Browser-Funktion zu nutzen, die durch seine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
+Die Richtlinie wird mit dem {{httpheader("Permissions-Policy")}} HTTP-Header oder einem `<meta http-equiv="permissions-policy">`-Element festgelegt.
+Verletzungen der Richtlinie können auch gemeldet, aber nicht durchgesetzt werden, indem der {{httpheader("Permissions-Policy-Report-Only")}} HTTP-Header oder ein `<meta http-equiv="permissions-policy-report-only">`-Element verwendet wird.
 
-Sie können innerhalb der Seite, die die Richtlinie setzt, mit der [Reporting API](/de/docs/Web/API/Reporting_API) auf Berichte über Violations-Reports zu Permissions Policy überwachen.
-Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um Berichte zu lauschen, indem Sie eine Callback-Methode und eine (optionale) `options`-Eigenschaft angeben, die die Berichtstypen spezifiziert, über die Sie berichten möchten.
-Die Callback-Methode wird dann mit Berichten der angeforderten Typen aufgerufen und übergibt ein Berichtsobjekt.
-Für Verstöße gegen `Permissions-Policy` wird das Objekt eine `PermissionsPolicyViolationReport`-Instanz mit `PermissionsPolicyViolationReport.type == "permissions-policy-violation"` sein.
+Sie können innerhalb der Seite, die die Richtlinie festlegt, Berichte über Verstöße gegen die Permissions-Policy mithilfe der [Reporting API](/de/docs/Web/API/Reporting_API) überwachen.
+Dazu erstellen Sie ein [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte zu lauschen, indem Sie eine Callback-Methode und eine (optionale) `options`-Eigenschaft angeben, die die Arten von Berichten spezifiziert, über die Sie berichten möchten.
+Die Callback-Methode wird dann mit Berichten der gewünschten Typen aufgerufen, indem ein Berichtobjekt übergeben wird.
+Für `Permissions-Policy`- oder `Permissions-Policy-Report-Only`-Verletzungen ist das Objekt eine `PermissionsPolicyViolationReport`-Instanz, bei der `PermissionsPolicyViolationReport.type === "permissions-policy-violation"`.
 
-Die Struktur eines typischen In-Page-Berichts ist unten dargestellt.
-Beachten Sie, dass wir die URL der Seite sehen können, deren Richtlinie verletzt wurde (`url`), und aus `body.featureId` können wir sehen, welche Funktion blockiert wurde.
-Das Feld `body.disposition` zeigt, dass die Verletzung durchgesetzt wurde.
+Die Struktur eines typischen In-Page-Berichts ist unten gezeigt.
+Beachten Sie, dass wir die URL der Seite sehen können, deren Richtlinie verletzt wurde (`url`), und aus `body.featureId`, welche Funktion blockiert wurde.
+Das Feld `body.disposition` zeigt, ob die Verletzung durchgesetzt oder nur gemeldet wurde.
 
 ```json
 {
@@ -64,16 +65,16 @@ Das Feld `body.disposition` zeigt, dass die Verletzung durchgesetzt wurde.
     "lineNumber": 44,
     "columnNumber": 29,
     "featureId": "geolocation",
-    "disposition": "enforce",
+    "disposition": "enforce", // Policy was enforced!
     "message": "Permissions policy violation: geolocation access has been blocked because of a permissions policy applied to the current document."
   }
 }
 ```
 
-Verletzungsberichte können auch als JSON-Objekt in einer {{httpmethod("POST")}}-Anfrage an den [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden, der `"default"` genannt wird, falls einer definiert ist.
-Der Reporting-Server-Endpunkt und seine Zuordnung zu einer bestimmten URL werden durch den {{httpheader("Reporting-Endpoints")}}-Header festgelegt.
+Verletzungsberichte können auch als JSON-Objekt in einer {{httpmethod("POST")}}-Anfrage an den im `report-to`-Parameter pro Direktive angegebenen [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) gesendet werden, mit Rückgriff auf den [`default`-Reporting-Server-Endpunkt](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#default_reporting_endpoint) (falls definiert).
+Der Reporting-Server-Endpunkt und seine Zuordnung zu einer bestimmten URL werden über den {{httpheader("Reporting-Endpoints")}} Antwort-Header festgelegt.
 
-Die Struktur des Serverberichts ist fast genau dieselbe wie die von `PermissionsPolicyViolationReport`, außer dass sie zusätzlich `age` und `user_agent` Felder enthält.
+Die Struktur des Serverberichts ist fast genau die gleiche wie `PermissionsPolicyViolationReport`, außer dass sie zusätzlich `age`- und `user_agent`-Felder enthält.
 
 ```json
 [
@@ -98,9 +99,9 @@ Die Struktur des Serverberichts ist fast genau dieselbe wie die von `Permissions
 
 ### Verwendung der `ReportingObserver`-Schnittstelle
 
-Sie können ein `PermissionsPolicyViolationReport`-Objekt erhalten, indem Sie Ihre Seite so konfigurieren, dass eine Browserfunktion blockiert wird, und dann versuchen, sie zu verwenden.
+Sie können ein `PermissionsPolicyViolationReport`-Objekt erhalten, indem Sie Ihre Seite so konfigurieren, dass sie eine Browser-Funktion blockiert, und dann versuchen, diese zu verwenden.
 
-In diesem Beispiel werden wir die Geolocation API für das aktuelle Dokument entweder durch den {{httpheader("Permissions-Policy")}} HTTP-Header blockieren:
+In diesem Beispiel blockieren wir die Geolocation-API für das aktuelle Dokument, indem wir entweder den {{httpheader("Permissions-Policy")}} HTTP-Header verwenden:
 
 ```http
 Permissions-Policy: geolocation=()
@@ -112,7 +113,7 @@ Oder gleichwertig über ein HTML-`<meta>`-Element:
 <meta http-equiv="permissions-policy" content="geolocation=()" />
 ```
 
-Dann werden wir versuchen, die Geolocation API zu verwenden:
+Dann versuchen wir, die Geolocation-API zu benutzen:
 
 ```js
 // This should generate a Permissions Policy violation
@@ -122,7 +123,7 @@ navigator.geolocation.getCurrentPosition(
 );
 ```
 
-Schließlich werden wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt erstellen, um auf Verstöße gegen Permissions Policy zu lauschen (dies muss geladen werden, bevor der Code geladen wird, der die Verletzung auslöst).
+Schließlich erstellen wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Verstöße gegen die Permissions Policy zu lauschen (dies muss vor dem Laden des Codes geschehen, der die Verletzung auslöst).
 
 ```js
 const observer = new ReportingObserver(
@@ -141,7 +142,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Oben protokollieren wir jedes Verstoßbericht-Objekt und eine JSON-String-Version des Objekts, die dem unten ähnelt.
+Oben protokollieren wir jedes Verletzungsbericht-Objekt und eine JSON-String-Version des Objekts, die dem unten gezeigten Objekt ähnlich aussieht.
 Beachten Sie, dass der `type` `"permissions-policy-violation"` ist und `body.featureId` die blockierte Funktion identifiziert.
 
 ```json
@@ -161,14 +162,25 @@ Beachten Sie, dass der `type` `"permissions-policy-violation"` ist und `body.fea
 
 ### Senden eines Berichts über eine Verletzung der Permissions Policy an einen Reporting-Endpunkt
 
-Hier definieren wir den Reporting-Endpunkt namens `"default"` mit dem {{httpheader("Reporting-Endpoints")}} Antwortheader und setzen den `Permissions-Policy`-Header, um die Nutzung der `geolocation`-Funktion zu blockieren.
+Dieses Beispiel zeigt, wie Sie die Berichterstattung von `Permissions-Policy`-Verletzungen an einen Server-Endpunkt konfigurieren.
+
+Die Antwort-Header unten blockieren die Geolocation und definieren den Reporting-Endpunktnamen für die Funktion als "geo_endpoint".
+Der {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header wird verwendet, um die URL dieses Endpunktnamens zu definieren.
 
 ```http
-Reporting-Endpoints: default="https://example.com/reports"
-Permissions-Policy: geolocation=()
+Reporting-Endpoints: geo_endpoint="https://example.com/reports"
+Permissions-Policy: geolocation=();report-to=geo_endpoint
 ```
 
-Wie zuvor wird eine Verletzung durch den Versuch ausgelöst, eine blockierte Funktion zu nutzen:
+> [!NOTE]
+> Um alle Verletzungsberichte an denselben Endpunkt zu senden, könnten wir stattdessen den [`"default"`-Reporting-Endpunkt](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#default_reporting_endpoint) definieren:
+>
+> ```http
+> Reporting-Endpoints: default="https://example.com/reports"
+> Permissions-Policy: geolocation=()
+> ```
+
+Wie zuvor wird eine Verletzung durch den Versuch ausgelöst, eine blockierte Funktion zu verwenden:
 
 ```js
 // This should generate a Permissions Policy violation
@@ -212,6 +224,7 @@ Beachten Sie, dass der `type` `"permissions-policy-violation"` ist und die `body
 
 - [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)
 - {{httpheader("Permissions-Policy")}}
+- {{httpheader("Permissions-Policy-Report-Only")}}
 - {{httpheader("Reporting-Endpoints")}}
 - [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)
