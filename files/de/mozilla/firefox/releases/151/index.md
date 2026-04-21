@@ -3,16 +3,16 @@ title: Firefox 151 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 151 (Beta)
 slug: Mozilla/Firefox/Releases/151
 l10n:
-  sourceCommit: ce29b1c36065db92c2a59ba507a4941fbf0a5159
+  sourceCommit: ead2ee795d41d4edf64c3183df253fe58e4a53fc
 ---
 
-Dieser Artikel enthält Informationen über die Änderungen in Firefox 151, die Entwickler betreffen.
+Dieser Artikel liefert Informationen über die Änderungen in Firefox 151, die Entwickler betreffen.
 Firefox 151 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [19. Mai 2026](https://whattrainisitnow.com/release/?version=151) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Anmerkungen schreiben -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -22,33 +22,33 @@ Firefox 151 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### CSS -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### APIs -->
 
@@ -56,11 +56,11 @@ Firefox 151 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
@@ -72,12 +72,13 @@ Firefox 151 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-<!-- ### Entfernungen -->
+- {{WebExtAPIRef("tabs.group()")}} und {{WebExtAPIRef("tabs.ungroup()")}} fügen nun korrekt eine geteilte Ansicht hinzu oder entfernen sie, wenn ein Aufruf einen der Tabs der geteilten Ansicht einschließt. Zuvor schlug ein Aufruf fehl oder trennte die geteilte Ansicht. ([Firefox Bug 2029099](https://bugzil.la/2029099))
+- {{WebExtAPIRef("tabs.move()")}} verschiebt nun korrekt eine geteilte Ansicht nach rechts, wenn ein Aufruf einen der Tabs der geteilten Ansicht einschließt. Zuvor wurde die geteilte Ansicht nur nach links oder an das Ende der Tab-Liste verschoben. ([Firefox Bug 2027855](https://bugzil.la/2027855))
+
+<!-- ### Entfernt -->
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Funktionen
 
-Diese Funktionen werden in Firefox 151 ausgeliefert, sind jedoch standardmäßig deaktiviert.
-Um sie zu testen, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 151 enthalten, aber standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
