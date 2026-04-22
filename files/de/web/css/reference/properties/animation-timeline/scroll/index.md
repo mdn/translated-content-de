@@ -3,7 +3,7 @@ title: "`scroll()` CSS-Funktion"
 short-title: scroll()
 slug: Web/CSS/Reference/Properties/animation-timeline/scroll
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
 ---
 
 Die **`scroll()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann mit der {{cssxref("animation-timeline")}}-Eigenschaft verwendet werden, um eine [anonyme Scroll-Fortschritts-Zeitachse](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_scroll_progress_timelines) zu erstellen, die den Scroller und die Achse der Zeitachse definiert.
@@ -36,20 +36,20 @@ animation-timeline: scroll(x self);
 - `<scroller>`
   - : Das Scroller-Element, das die Scroll-Fortschritts-Zeitachse bereitstellen wird. Gültige Werte umfassen:
     - `nearest`
-      - : Der nächste Vorfahre des aktuellen Elements, der auf einer der beiden Achsen Scrollbalken hat. Dies ist der Standardwert.
+      - : Der nächste Vorfahre des aktuellen Elements, der Bildlaufleisten in einer der Achsen hat. Dies ist der Standardwert.
     - `root`
       - : Das Wurzelelement des Dokuments.
     - `self`
       - : Das aktuelle Element selbst.
 
 - `<axis>`
-  - : Ein {{ cssxref("axis") }} Schlüsselwortwert, der die Richtung oder Achse des Scrollport beschreibt, der die scrollgesteuerte Animation steuert. Der Standardwert ist `block`.
+  - : Ein {{ cssxref("axis") }} Schlüsselwortwert, der die Richtung oder Achse des Scrollports beschreibt, der die scrollgesteuerte Animation steuert. Der Standardwert ist `block`.
 
 ## Beschreibung
 
-Die `scroll()` CSS-Funktion kann als einzelner Wert innerhalb der durch Kommas getrennten {{cssxref("animation-timeline")}}-Eigenschaft verwendet werden, um eine Scroll-Fortschritts-Zeitachse für eine {{cssxref("@keyframes")}}-Animation anzugeben. Es definiert das scrollbare Element (_Scroller_) und die Scrollbalkenachse, die die Animations-Zeitachse bereitstellen wird.
+Die `scroll()` CSS-Funktion kann als Einzelwert innerhalb der durch Kommas getrennten {{cssxref("animation-timeline")}}-Eigenschaft verwendet werden, um eine Scroll-Fortschritts-Zeitachse für eine {{cssxref("@keyframes")}}-Animation festzulegen. Sie definiert das scrollbare Element (_scroller_) und die Bildlaufleistenachse, die die Animations-Zeitachse bereitstellen wird.
 
-Standardmäßig verweist `scroll()` auf die `block`-Achse des `nearest` Vorfahren-Scrollcontainers. Die Scroller- und Achsenwerte können in beliebiger Reihenfolge angegeben werden.
+Standardmäßig bezieht sich `scroll()` auf die `block`-Achse des `nearest` Vorfahre-Scrollcontainers. Die Scroller- und Achsenwerte können in beliebiger Reihenfolge angegeben werden.
 
 Die folgenden fünf Deklarationen sind gleichwertig:
 
@@ -61,7 +61,7 @@ animation-timeline: scroll(block nearest);
 animation-timeline: scroll(nearest block);
 ```
 
-Die Scroll-Fortschritts-Zeitachse wird durch das horizontale oder vertikale Scrollen des Scrollers durchlaufen, abhängig von der `<axis>` und dem [Schriftsystem](/de/docs/Web/CSS/Guides/Writing_modes/Writing_mode_systems). Wenn die angegebene Achse keinen Scrollbalken enthält, wird die Animationszeitachse inaktiv sein.
+Die Scroll-Fortschritts-Zeitachse wird durch horizontalen oder vertikalen Scrollen des Scrollers durchlaufen, abhängig von der `<axis>` und dem [Schriftsystem](/de/docs/Web/CSS/Guides/Writing_modes/Writing_mode_systems). Wenn die angegebene Achse keine Bildlaufleiste enthält, bleibt die Animations-Zeitachse inaktiv.
 
 ## Formale Syntax
 
@@ -69,14 +69,13 @@ Die Scroll-Fortschritts-Zeitachse wird durch das horizontale oder vertikale Scro
 
 ## Beispiele
 
-### Festlegen einer anonymen Scroll-Fortschritts-Zeitachse
+### Anonyme Scroll-Fortschritts-Zeitachse festlegen
 
-In diesem Beispiel wird das `#square`-Element mithilfe einer anonymen Scroll-Fortschritts-Zeitachse animiert, die auf das zu animierende Element mithilfe der `scroll()`-Funktion angewendet wird.
-Die Zeitachse in diesem speziellen Beispiel wird durch das nächstgelegene Elternelement bereitgestellt, das (jeden) Scrollbalken hat, von dem Scrollbalken in der Blockrichtung.
+In diesem Beispiel wird das `#square` Element mit einer anonymen Scroll-Fortschritts-Zeitachse animiert, die auf das zu animierende Element mit der `scroll()`-Funktion angewendet wird. Die Zeitachse in diesem speziellen Beispiel wird durch das nächste Elternelement mit (irgendeiner) Bildlaufleiste bereitgestellt, und zwar der Bildlaufleiste in der Blockrichtung.
 
 #### HTML
 
-Der HTML-Code für das Beispiel ist unten dargestellt.
+Der HTML-Code für das Beispiel wird unten gezeigt.
 
 ```html
 <div id="container">
@@ -87,11 +86,10 @@ Der HTML-Code für das Beispiel ist unten dargestellt.
 
 #### CSS
 
-Der untenstehende CSS-Code definiert ein Quadrat, das sich in abwechselnde Richtungen dreht, entsprechend der durch die `animation-timeline`-Eigenschaft bereitgestellten Zeitachse.
-In diesem Fall wird die Zeitachse durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass der Scrollbalken in der Blockrichtung des nächstgelegenen Vorfahrenelements ausgewählt wird, das Scrollbalken hat; in diesem Fall der vertikale Scrollbalken des „container“-Elements.
+Der CSS-Code unten definiert ein Quadrat, das sich abwechselnd nach den Richtungen der durch die `animation-timeline`-Eigenschaft bereitgestellten Zeitachse dreht. In diesem Fall wird die Zeitachse durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass sie die Bildlaufleiste in der Blockrichtung des nächsten Vorfahre-Elements auswählt, das Bildlaufleisten hat; in diesem Fall die vertikale Bildlaufleiste des "Container"-Elements.
 
 > [!NOTE]
-> `block` und `nearest` sind tatsächlich die Standardparameterwerte, daher hätten wir einfach `scroll()` verwenden können.
+> `block` und `nearest` sind tatsächlich die Standardparameterwerte, daher hätten wir nur `scroll()` verwenden können.
 
 ```css
 #square {
@@ -118,9 +116,7 @@ In diesem Fall wird die Zeitachse durch `scroll(block nearest)` bereitgestellt, 
 }
 ```
 
-Der CSS-Code für den Container setzt seine Höhe auf 300px und wir legen auch fest, dass der Container einen vertikalen Scrollbalken erzeugt, falls er überläuft.
-Die "stretcher" CSS setzt die Blockhöhe auf 600px, wodurch das Container-Element zum Überlaufen gezwungen wird.
-Diese beiden zusammen stellen sicher, dass der Container einen vertikalen Scrollbalken hat, der als Quelle der anonymen Scroll-Fortschritts-Zeitachse verwendet werden kann.
+Der CSS-Code für den Container setzt seine Höhe auf 300px und wir setzen den Container so, dass er eine vertikale Bildlaufleiste erzeugt, wenn er überläuft. Der "Stretcher"-CSS setzt die Blockhöhe auf 600px, was das Überlaufen des Containerelements erzwingt. Diese beiden zusammen sorgen dafür, dass der Container eine vertikale Bildlaufleiste hat, was erlaubt, ihn als Quelle der anonymen Scroll-Fortschritts-Zeitachse zu verwenden.
 
 ```css
 #container {
@@ -142,7 +138,7 @@ Diese beiden zusammen stellen sicher, dass der Container einen vertikalen Scroll
       background-color: wheat;
       display: block;
       text-align: center;
-      padding: 1em;
+      padding: 1rem 0;
     }
   }
 }
@@ -164,8 +160,8 @@ Scrollen Sie, um zu sehen, wie das quadratische Element animiert wird.
 
 ## Siehe auch
 
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
-- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
-- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Animations-Modul](/de/docs/Web/CSS/Guides/Animations)
+- [CSS scrollgesteuerte Animationen-Modul](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

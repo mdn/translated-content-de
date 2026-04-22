@@ -3,30 +3,30 @@ title: Verwendung von verankerten Container-Abfragen
 short-title: Verankerte Container-Abfragen
 slug: Web/CSS/Guides/Anchor_positioning/Anchored_container_queries
 l10n:
-  sourceCommit: 879a1aece3a1d4eb28c0024f0baac6aa1b96638e
+  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
 ---
 
-[CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) beinhaltet Mechanismen zur Bereitstellung von [Fallback-Optionen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding). Dabei handelt es sich um alternative Positionen, in denen der Browser versuchen kann, ein ankerpositioniertes Element in Bezug auf seinen Anker zu platzieren, um es wieder auf dem Bildschirm darzustellen, falls das positionierte Element beginnt, den Viewport zu überlaufen.
+[CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) umfasst Mechanismen zur Bereitstellung von [Fallback-Optionen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding). Dies sind alternative Positionen, die der Browser versuchen kann, ein anker-positioniertes Element relativ zu seinem Anker zu platzieren, um es wieder auf dem Bildschirm anzuzeigen, wenn das positionierte Element beginnt, den Viewport zu überlaufen.
 
-**Verankerte Container-Abfragen** erhöhen die Nützlichkeit der Fallback-Optionen der Ankerpositionierung weiter, indem sie eine unterschiedliche Gestaltung des ankerpositionierten Elements abhängig davon ermöglichen, in welche Fallback-Position es platziert wird. Dieser Leitfaden zeigt, wie man verankerte Container-Abfragen verwendet, und bietet einige Beispiele.
+**Verankerte Container-Abfragen** erhöhen die Nützlichkeit der Fallback-Optionen der Anker-Positionierung, indem sie eine unterschiedliche Gestaltung des anker-positionierten Elements ermöglichen, je nachdem, welche Fallback-Position es einnimmt. Dieser Leitfaden zeigt, wie verankerte Container-Abfragen verwendet werden und bietet einige Beispiele.
 
 > [!NOTE]
-> Informationen zu den grundlegenden Grundlagen der CSS-Ankerpositionierung finden Sie unter [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
+> Informationen zu den grundlegenden Grundlagen der CSS-Anker-Positionierung finden Sie unter [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
 
 ## Funktionsübersicht
 
-Wenn ein Tooltip relativ zu einem UI-Element mithilfe der Ankerpositionierung positioniert wird, ist es sinnvoll, `position-try` Fallback-Optionen über die {{cssxref("position-try-fallbacks")}}-Eigenschaft bereitzustellen. Diese können verwendet werden, um sicherzustellen, dass das Tooltip so lange wie möglich auf dem Bildschirm angezeigt wird.
+Wenn ein Tooltipp relativ zu einem UI-Element unter Verwendung der Anker-Positionierung positioniert wird, ist es sinnvoll, Fallback-Optionen `position-try` über die Eigenschaft {{cssxref("position-try-fallbacks")}} bereitzustellen. Diese können verwendet werden, um sicherzustellen, dass der Tooltipp so lange wie möglich auf dem Bildschirm angezeigt wird.
 
-Zum Beispiel, wenn das Tooltip standardmäßig über dem UI-Element platziert wird, an das es verankert ist, können Sie Fallbacks verwenden, um das Tooltip unter das Element zu verschieben, gerade bevor das Tooltip vom Bildschirm verschwindet, wenn der Benutzer nach oben scrollt.
+Wenn der Tooltipp beispielsweise standardmäßig über dem UI-Element platziert wird, an das er verankert ist, können Sie Fallbacks verwenden, um den Tooltipp unter das Element zu verschieben, bevor der Tooltipp vom Bildschirm verschwindet, wenn der Benutzer nach oben scrollt.
 
-Ein Problem, das dadurch nicht alleine gelöst wird, ist die Aktualisierung der Gestaltung des ankerpositionierten Elements, um die unterschiedlichen Fallback-Optionen zu berücksichtigen. Beispielsweise ist es üblich, einen kleinen Pfeil auf das Tooltip zu setzen, der auf das Ankerelement zeigt, mit dem es verknüpft ist, um die Benutzererfahrung zu verbessern, indem die visuelle Zuordnung klarer gemacht wird. Wenn sich das Tooltip in eine andere Position bewegt, müssen auch die Position und die Ausrichtung des Pfeils geändert werden, sonst sieht es falsch aus.
+Ein Problem, das dies nicht eigenständig löst, ist die Aktualisierung der Gestaltung des anker-positionierten Elements, um zu den verschiedenen Fallback-Optionen zu passen. Zum Beispiel ist es üblich, einen kleinen Pfeil auf dem Tooltipp einzuschließen, der auf das Ankerelement zeigt, mit dem er verbunden ist, und dadurch die Benutzererfahrung verbessert, indem er die visuelle Verbindung klarer macht. Wenn der Tooltipp an eine andere Position wechselt, müssen auch die Position und die Ausrichtung des Pfeils geändert werden, da er sonst falsch aussieht.
 
-Um dieses Problem zu lösen, können Sie verankerte Container-Abfragen verwenden. Diese erweitern die Funktionalität von [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries), um es Ihnen zu ermöglichen, zu erkennen, wann eine bestimmte Fallback-Option auf ein ankerpositioniertes Element angewendet wird, und CSS auf dessen Nachkommen anzuwenden. Insbesondere verlassen sich verankerte Container-Abfragen auf zwei Funktionen:
+Um dieses Problem zu lösen, können Sie verankerte Container-Abfragen verwenden. Diese erweitern die Funktionalität von [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries), um Ihnen zu ermöglichen, zu erkennen, wann eine bestimmte Fallback-Option auf ein anker-positioniertes Element angewendet wird, und CSS auf seine Nachkommen anzuwenden. Insbesondere beruhen verankerte Container-Abfragen auf zwei Funktionen:
 
-- Die Eigenschaft {{cssxref("container-type")}} mit dem Wert `anchored`: Wenden Sie dies auf das ankerpositionierte Element an, um zu erkennen, wann verschiedene Fallback-Optionen darauf angewendet werden.
-- Die {{cssxref("@container")}}-Regel mit der `anchored()`-Funktion: Diese erhält einen [`fallback`-Deskriptor](/de/docs/Web/CSS/Reference/At-rules/@container#fallback) als Argument. Der Wert des Deskriptors ist ein Wert der `position-try-fallbacks`.
+- Der `anchored` Wert der {{cssxref("container-type")}} Eigenschaft: Diese wird auf das anker-positionierte Element angewendet, um zu beginnen, zu erkennen, wann verschiedene Fallback-Optionen auf es angewendet werden.
+- Die {{cssxref("@container")}} At-Regel `anchored()` Funktion: Diese wird mit einem [`fallback` Descriptor](/de/docs/Web/CSS/Reference/At-rules/@container#fallback) als Argument verwendet. Der Wert des Descriptors ist ein `position-try-fallbacks` Wert.
 
-Lassen Sie uns ein Beispiel betrachten: Angenommen, wir haben ein Tooltip-Element, das standardmäßig über seinem Anker über einen {{cssxref("position-area")}}-Wert von `top` positioniert wird, aber einen {{cssxref("position-try-fallbacks")}}-Wert von `flip-block` angegeben hat. Dies führt dazu, dass das Tooltip in der Block-Richtung an die Unterseite seines Ankers bewegt wird, wenn es beginnt, die Oberseite des Viewports zu überlaufen. Wenn wir erkennen möchten, wann der Fallback auf das Tooltip angewendet wird, müssen wir zunächst `container-type: anchored` darauf setzen, um es in einen verankerten Abfrage-Container zu verwandeln.
+Nehmen wir zum Beispiel an, wir haben ein Tooltip-Element, das standardmäßig über seinem Anker über einen {{cssxref("position-area")}} Wert von `top` positioniert ist, aber einen {{cssxref("position-try-fallbacks")}} Wert von `flip-block` spezifiziert hat. Dies wird dazu führen, dass der Tooltipp in der Blockrichtung an die Unterseite seines Ankers wechselt, wenn er beginnt, die Oberseite des Viewports zu überlaufen. Wenn wir erkennen wollen, wann das Fallback auf den Tooltipp angewendet wird, müssen wir zuerst `container-type: anchored` auf ihn setzen, um ihn in einen verankerten Abfrage-Container zu verwandeln.
 
 ```css
 .tooltip {
@@ -38,7 +38,7 @@ Lassen Sie uns ein Beispiel betrachten: Angenommen, wir haben ein Tooltip-Elemen
 }
 ```
 
-Mit diesem in Kraft können wir nun eine Container-Abfrage wie folgt schreiben:
+Mit diesem in place können wir nun eine Container-Abfrage wie folgt schreiben:
 
 ```css
 @container anchored(fallback: flip-block) {
@@ -46,17 +46,17 @@ Mit diesem in Kraft können wir nun eine Container-Abfrage wie folgt schreiben:
 }
 ```
 
-Der Abfragetest — `anchored(fallback: flip-block)` — wird wahr zurückgeben, wenn die `flip-block` Fallback-Option auf das Tooltip angewendet wird, wobei die innerhalb des `@container`-Blocks angegebenen Stile angewendet werden. Sie könnten beispielsweise die Position und die Ausrichtung eines Pfeils ändern, sodass er nach oben anstatt nach unten zeigt, oder die Richtung eines Farbverlaufs ändern.
+Der Abfragetest — `anchored(fallback: flip-block)` — wird wahr zurückgeben, wenn die `flip-block` Fallback-Option auf den Tooltipp angewendet wird. In diesem Fall werden die innerhalb des `@container` Blocks angegebenen Stile angewendet. Sie könnten beispielsweise die Position und Ausrichtung eines Pfeils ändern, sodass er nach oben statt nach unten zeigt, oder die Richtung eines Farbverlaufs ändern.
 
 > [!NOTE]
-> Bedenken Sie, dass, wie bei allen Container-Abfragen, die angewendeten Stile nur die Nachkommen des Containers betreffen können, nicht den Container selbst. Dies könnte erfordern, dass Sie einige Ihrer positionierten Elementstile auf ein Wrapper-Element innerhalb davon anwenden, anstatt auf das Element selbst, wie im [Beispiel für mehrere Fallbacks](#beispiel_für_mehrere_fallbacks) demonstriert.
+> Beachten Sie, dass, wie bei allen Container-Abfragen, die angewendeten Stile nur die Nachkommen des Containers beeinflussen können, nicht den Container selbst. Dies könnte erfordern, dass Sie einige Ihrer positionierten Elementstile auf ein Umwicklungselement innerhalb davon anwenden, anstatt auf das Element selbst, wie im Beispiel [Mehrere Fallbacks Beispiel](#beispiel_für_mehrere_fallbacks) demonstriert.
 
-## Grundlegendes Anwendungsbeispiel
+## Beispiel für die Grundnutzung
 
-In diesem Beispiel ist ein Ankerelement enthalten, das eine Infobox relativ zu sich positioniert hat.
-Anfangs ist die Infobox oberhalb des Ankers positioniert und enthält einen Pfeil, der nach unten auf den Anker zeigt. Wir fügen eine Positionstryg-Fallback-Option hinzu, sodass sich die Infobox unter den Anker bewegt, wenn der Inhalt ausreichend nach oben scrollt, dass die Infobox beginnt, vom oberen Rand des Viewports zu scrollen. Darüber hinaus verwenden wir eine verankerte Container-Abfrage, um Stile zu ändern, sobald der Fallback eintritt, wobei der Pfeil nach oben verschoben und aufwärts gerichtet wird.
+Dieses Beispiel enthält ein Ankerelement, das ein Infobox-Element im Verhältnis dazu positioniert hat.
+Zunächst wird die Infobox oberhalb des Ankers positioniert und enthält einen Pfeil, der nach unten zum Anker zeigt. Wir fügen einen `position-try` Fallback hinzu, sodass die Infobox unter den Anker verschoben wird, wenn der Inhalt so weit nach oben scrollt, dass die Infobox beginnt, sich vom oberen Rand des Viewports zu verschieben. Darüber hinaus verwenden wir eine verankerte Container-Abfrage, um Stile zu ändern, sobald das Fallback eintritt, wodurch der Pfeil verschoben und nach oben zeigt.
 
-Der Anker und die Infobox werden durch zwei {{htmlelement("div")}}-Elemente dargestellt, wie unten gezeigt. Sie sind von Textinhalt umgeben in der finalen Darstellung, um die Seite zum Scrollen zu bringen, aber wir haben es zur Übersichtlichkeit verborgen:
+Der Anker und die Infobox werden durch zwei {{htmlelement("div")}} Elemente dargestellt, wie unten gezeigt. Sie sind im endgültigen Rendering von Textinhalt umgeben, um die Seite zum Scrollen zu bringen, aber wir haben es der Kürze halber versteckt:
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -114,7 +114,7 @@ Der Anker und die Infobox werden durch zwei {{htmlelement("div")}}-Elemente darg
 </p>
 ```
 
-In unserem CSS geben wir zuerst das `anchor`-`<div>` als Ankerelement an, indem wir ihm einen {{cssxref("anchor-name")}} von `--my-anchor` zuweisen.
+In unserem CSS beginnen wir damit, dem `anchor` `<div>` als Ankerelement einen {{cssxref("anchor-name")}} von `--my-anchor` zuzuweisen.
 
 ```css hidden live-sample___basic-example
 * {
@@ -167,22 +167,10 @@ p {
 @supports not (container-type: anchored) {
   body::before {
     content: "Your browser does not support anchored container queries.";
-    color: black;
-    background-color: #ffcd33;
+    background-color: wheat;
     display: block;
-    width: 100%;
     text-align: center;
     padding: 1rem 0;
-  }
-
-  body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-  }
-
-  body > * {
-    display: none;
   }
 }
 ```
@@ -193,9 +181,9 @@ p {
 }
 ```
 
-Als nächstes geben wir dem `infobox`-`<div>` einen {{cssxref("position")}}-Wert von `fixed` und einen {{cssxref("position-anchor")}}-Wert von `--my-anchor` zu, um es mit dem Ankerelement zu verknüpfen. Dann geben wir der Infobox einen {{cssxref("position-area")}}-Wert von `top`, um sie oberhalb des Ankerelements zu positionieren, und einen {{cssxref("position-try-fallbacks")}}-Wert von `bottom`, sodass die Infobox unter den Anker verschoben wird, wenn sie beginnt, den oberen Rand des Viewports zu überlaufen, wenn der Inhalt nach oben gescrollt wird.
+Als nächstes geben wir dem `infobox` `<div>` einen {{cssxref("position")}} Wert von `fixed` und einen {{cssxref("position-anchor")}} Wert von `--my-anchor`, um es mit dem Ankerelement zu verbinden. Dann geben wir der Infobox einen {{cssxref("position-area")}} Wert von `top`, um sie oberhalb des Ankerelements zu positionieren, und einen {{cssxref("position-try-fallbacks")}} Wert von `bottom`, damit die Infobox unter den Anker verschoben wird, wenn sie beginnt, die Oberseite des Viewports zu überlaufen, während der Inhalt nach oben gescrollt wird.
 
-Schließlich setzen wir einen {{cssxref("container-type")}}-Wert von `anchored` auf die Infobox, um sie als verankerten Abfrage-Container zu kennzeichnen, was bedeutet, dass wir jetzt erkennen können, wann verschiedene `position-try-fallbacks` auf die Infobox aktiv sind, und Stile auf ihre Nachkommen über {{cssxref("@container")}}-Regeln aktualisieren.
+Schließlich setzen wir einen {{cssxref("container-type")}} Wert von `anchored` auf die Infobox, um sie als verankerten Abfrage-Container zu kennzeichnen. Das bedeutet, dass wir nun erkennen können, wann verschiedene `position-try-fallbacks` auf der Infobox über {{cssxref("@container")}} At-Regeln aktiv sind und Stile auf ihre Nachkommen als Ergebnis aktualisieren können.
 
 ```css live-sample___basic-example
 .infobox {
@@ -207,7 +195,7 @@ Schließlich setzen wir einen {{cssxref("container-type")}}-Wert von `anchored` 
 }
 ```
 
-Nun fügen wir einen Pfeil zur Infobox hinzu, indem wir erzeugten Inhalt auf dem {{cssxref("::before")}}-Pseudo-Element verwenden. Wir setzen die {{cssxref("content")}}-Eigenschaft des Pseudo-Elements auf ein geeignetes Abwärtspfeil-Icon, positionieren es absolut und setzen seine {{cssxref("top")}}-Eigenschaft auf `105%`, um es am unteren Rand der Infobox zu positionieren (wir setzen es auf mehr als `100%`, damit es visuell mit der Position des entsprechenden Aufwärtspfeils übereinstimmt).
+Nun fügen wir den Pfeil zur Infobox hinzu, indem wir generierten Inhalt auf ihrem {{cssxref("::before")}} Pseudo-Element verwenden. Wir setzen die {{cssxref("content")}} Eigenschaft des Pseudo-Elements auf ein geeignetes Abwärtspfeil-Symbol, positionieren es absolut und setzen seine {{cssxref("top")}} Eigenschaft auf `105%`, um es am unteren Rand der Infobox zu positionieren (wir setzen es auf mehr als `100%`, damit es optisch mit der Position des entsprechenden Aufwärtspfeils übereinstimmt).
 
 ```css live-sample___basic-example
 .infobox::before {
@@ -217,7 +205,7 @@ Nun fügen wir einen Pfeil zur Infobox hinzu, indem wir erzeugten Inhalt auf dem
 }
 ```
 
-Als nächstes fügen wir die verankerte Container-Abfrage hinzu. Wir fügen eine `@container`-Regel mit ihrem Test `anchored(fallback: bottom)` ein. Dies bedeutet, dass wenn der `bottom`-Position-try-Fallback auf die Infobox angewendet wird, das CSS innerhalb der Regel auf das Dokument angewendet wird. Im Inneren definieren wir alternative Stile für das `infobox`-`::before`-Pseudo-Element, das das Abwärtspfeilsymbol gegen ein Aufwärtspfeilsymbol austauscht und es am oberen Rand der Infobox positioniert.
+Als nächstes fügen wir die verankerte Container-Abfrage hinzu. Wir enthalten eine `@container` At-Regel mit ihrem Test definiert als `anchored(fallback: bottom)`. Das bedeutet, dass, wenn der `bottom` position-try Fallback auf die Infobox angewendet wird, das CSS innerhalb der At-Regel auf das Dokument angewendet wird. Innen definieren wir alternative Stile für das `::before` Pseudo-Element der Infobox, das das Abwärtspfeilsymbol gegen ein Aufwärtspfeilsymbol austauscht und es am oberen Rand der Infobox positioniert.
 
 ```css live-sample___basic-example
 @container anchored(fallback: bottom) {
@@ -230,21 +218,21 @@ Als nächstes fügen wir die verankerte Container-Abfrage hinzu. Wir fügen eine
 ```
 
 > [!NOTE]
-> In diesem Beispiel gibt es weitere CSS, um die grundlegende Gestaltung aller Elemente zu behandeln, aber wir haben Ihnen nur die Teile gezeigt, die für verankerte Container-Abfragen relevant sind. Um den vollständigen Code zu sehen, öffnen Sie das Beispiel im MDN Playground, indem Sie die "Play"-Schaltfläche auf einem der Codeblöcke oder die Live-Wiedergabe drücken.
+> Es gibt mehr CSS in diesem Beispiel, um das grundlegende Styling aller Elemente zu bearbeiten, aber wir haben nur Ihnen die Teile gezeigt, die für verankerte Container-Abfragen relevant sind. Um den vollständigen Code zu sehen, öffnen Sie das Beispiel im MDN Playground, indem Sie auf die Schaltfläche "Abspielen" auf einem der Codeblöcke oder des Live-Renderings drücken.
 
-Dieses Beispiel wird folgendermaßen gerendert:
+Dieses Beispiel rendert wie folgt:
 
 {{ EmbedLiveSample("basic-example", "100%", "350") }}
 
-Versuchen Sie, die Demo zu scrollen, sodass der Anker sich nahe dem oberen Rand des Viewports befindet, und beachten Sie, dass sich nicht nur die Infobox unter den Anker bewegt, um auf dem Bildschirm zu bleiben, sondern auch die Gestaltung aktualisiert wird, sodass das Pfeilsymbol weiterhin für die neue Infobox-Position funktioniert.
+Versuchen Sie, die Demo zu scrollen, sodass der Anker in die Nähe des oberen Randes des Viewports bewegt wird und dass Sie bemerken, dass sich nicht nur die Infobox unter den Anker bewegt, um auf dem Bildschirm zu bleiben, sondern dass sich auch das Styling aktualisiert, so dass das Pfeilsymbol immer noch für die neue Infobox-Position funktioniert.
 
-Wenn Sie den Anker wieder nach unten in Richtung des unteren Randes des Viewports scrollen, bewegt sich die Infobox wieder über ihn nach oben. Wir müssen keinen zusätzlichen `position-try-fallbacks`-Wert `top` angeben, um dies zu erreichen, da `position-area: top` die standardmäßig vorgesehene Position der Infobox ist. Wenn die vorgesehenen Fallbacks das ankerpositionierte Element nicht daran hindern, überzulaufen, wird der Browser zu seiner Standardposition zurückkehren.
+Wenn Sie den Anker wieder nach unten in Richtung des unteren Randes des Viewports scrollen, wird die Infobox wieder darüber verschoben. Wir müssen keinen zusätzlichen `position-try-fallbacks` Wert von `top` angeben, um dies zu erreichen, da `position-area: top` die standardmäßig bereitgestellte Position der Infobox ist. Wenn die bereitgestellten Fallbacks das anker-positionierte Element nicht daran hindern, überzulaufen, wird der Browser zu seiner Standardposition zurückkehren.
 
 ## Beispiel für mehrere Fallbacks
 
-Dieses Beispiel zeigt mehrere Position-try-Fallbacks und verankerte Container-Abfragen in Aktion und behandelt auch das Problem, was zu tun ist, wenn Sie verankerte Container-Abfragen verwenden möchten, um Stile auf das ankerpositionierte Element selbst anstelle seiner Nachkommen anzuwenden, indem ein zusätzliches Wrapper-Element verwendet wird. Das Beispiel enthält auch etwas JavaScript, das es Ihnen ermöglicht, das Ankerelement mithilfe der Maus oder der Tastatur auf dem Bildschirm zu bewegen, um die verschiedenen Fallbacks zu überprüfen.
+Dieses Beispiel zeigt mehrere `position-try` Fallbacks und verankerte Container-Abfragen in Aktion und befasst sich auch mit dem Problem, was zu tun ist, wenn Sie verankerte Container-Abfragen verwenden möchten, um Stile auf das anker-positionierte Element selbst anzuwenden, anstatt auf seine Nachkommen, unter Verwendung eines zusätzlichen Wrapper-Elements. Das Beispiel enthält auch etwas JavaScript, das es Ihnen ermöglicht, das Ankerelement mit der Maus oder der Tastatur auf dem Bildschirm zu bewegen, um die verschiedenen Fallbacks zu überprüfen.
 
-Das HTML für dieses Beispiel enthält zwei {{htmlelement("div")}}-Elemente, um den Anker und die Infobox darzustellen. Das `anchor`-`<div>` enthält ein [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut, um es per Tastatur fokussierbar zu machen, während die `infobox`-`<div>` ein zusätzliches Wrapper-`<div>` enthält, auf das die Infobox-Stile angewendet werden, sodass wir es über `@container`-Regeln gestalten können.
+Das HTML für dieses Beispiel umfasst zwei {{htmlelement("div")}} Elemente, um den Anker und die Infobox darzustellen. Das `anchor` `<div>` enthält ein [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) Attribut, um es über die Tastatur fokussierbar zu machen, während das `infobox` `<div>` ein zusätzliches Wrapper `<div>` enthält, auf das die Infoboxstile angewendet werden können, sodass wir es über `@container` At-Regeln stylen können.
 
 ```html live-sample___multiple-fallbacks
 <div class="anchor" tabindex="0">⚓︎</div>
@@ -254,7 +242,7 @@ Das HTML für dieses Beispiel enthält zwei {{htmlelement("div")}}-Elemente, um 
 </div>
 ```
 
-Wir beginnen unsere Stile, indem wir das `anchor`-`<div>` als Ankerelement angeben, erneut indem wir ihm einen `anchor-name` von `--my-anchor` geben. Wir positionieren es auch absolut, damit wir es durch Setzen verschiedener {{Glossary("inset_properties", "Einsetzeigenschaften")}} über JavaScript herumbewegen können.
+Wir beginnen unsere Stile, indem wir dem `anchor` `<div>` erneut als Ankerelement einen `anchor-name` von `--my-anchor` zuweisen. Wir positionieren es auch absolut, damit wir es durch das Festlegen verschiedener {{Glossary("inset_properties", "Inset-Eigenschaften")}} Werte über JavaScript bewegen können.
 
 ```css hidden live-sample___multiple-fallbacks
 * {
@@ -287,16 +275,10 @@ p {
 @supports not (container-type: anchored) {
   body::before {
     content: "Your browser does not support anchored container queries.";
-    color: black;
-    background-color: #ffcd33;
+    background-color: wheat;
     display: block;
-    width: 100%;
     text-align: center;
     padding: 1rem 0;
-  }
-
-  body > * {
-    display: none;
   }
 }
 ```
@@ -308,7 +290,7 @@ p {
 }
 ```
 
-Als nächstes positionieren wir unsere Infobox relativ zu unserem Anker, indem wir sie absolut positionieren und einen `position-anchor`-Wert von `--my-anchor` geben. Dieses Mal positionieren wir sie in der oberen linken Ecke des Ankers mit einem `position-area`-Wert von `top left`. Dann setzen wir drei `position-try-fallbacks` — `flip-block`, `flip-inline` und `flip-block flip-inline` — dies führt dazu, dass die Infobox ihre Position entlang ihrer Blockachse, Inline-Achse oder beides umschaltet, um auf dem Bildschirm zu bleiben, wenn der Anker in die Nähe der verschiedenen Ränder des Viewports gelangt.
+Als nächstes positionieren wir unsere Infobox relativ zu unserem Anker, indem wir sie absolut positionieren und ihr einen `position-anchor` Wert von `--my-anchor` zuweisen. Diesmal positionieren wir sie oben links von dem Anker mit einem `position-area` Wert von `top left`. Wir setzen dann drei `position-try-fallbacks` — `flip-block`, `flip-inline` und `flip-block flip-inline` — dies bewirkt, dass die Infobox ihre Position entlang ihrer Blockachse, Inlineachse oder beider wechselt, um auf dem Bildschirm zu bleiben, wenn der Anker in die Nähe der verschiedenen Ränder des Viewports gelangt.
 
 Schließlich verwandeln wir die Infobox in einen verankerten Abfrage-Container, indem wir `container-type: anchored` setzen.
 
@@ -325,9 +307,9 @@ Schließlich verwandeln wir die Infobox in einen verankerten Abfrage-Container, 
 }
 ```
 
-An diesem Punkt zeigen wir Ihnen die grundlegenden visuellen Stile, die auf die Infobox gesetzt sind, um zu veranschaulichen, dass wir in diesem Fall diese Stile auf das Wrapper-`<div>` innerhalb der Infobox setzen, anstatt auf die Infobox selbst. Wie bereits erwähnt, tun wir dies, damit wir diese Stile über verankerte Container-Abfragen manipulieren können. Dies wäre nicht möglich, wenn sie direkt auf die Infobox gesetzt würden, da es sich um den verankerten Abfrage-Container handelt.
+An diesem Punkt zeigen wir Ihnen die grundlegenden visuellen Stile, die auf die Infobox gesetzt werden, um zu veranschaulichen, dass wir in diesem Fall diese Stile auf das Wrapper `<div>` innerhalb der Infobox setzen und nicht auf die Infobox selbst. Wie bereits erwähnt, tun wir dies, um diese Stile über verankerte Container-Abfragen zu manipulieren. Dies wäre nicht möglich, wenn sie direkt auf der Infobox gesetzt wären, da es der verankerte Abfrage-Container ist.
 
-Insbesondere setzen wir hier einen {{cssxref("border-radius")}}-Wert, der eine abgerundete Ecke auf jeder Ecke der Infobox außer der unteren rechten Ecke erzeugt. Da die Infobox in der oberen linken Ecke des Ankers positioniert ist, wirkt diese Ecke wie ein Pfeil, der auf den Anker zeigt.
+Am auffälligsten ist hier, dass wir einen {{cssxref("border-radius")}} Wert festlegen, der eine abgerundete Ecke auf jeder Ecke der Infobox außer der unteren rechten Ecke erzeugt. Da die Infobox oben links am Anker positioniert ist, fungiert diese Ecke als Pfeil, der auf den Anker zeigt.
 
 ```css live-sample___multiple-fallbacks
 .infobox div {
@@ -341,7 +323,7 @@ Insbesondere setzen wir hier einen {{cssxref("border-radius")}}-Wert, der eine a
 }
 ```
 
-Schließlich definieren wir für jeden Position-try-Fallback, der auf die Infobox angewendet werden kann, eine verankerte Container-Abfrage unter Verwendung von `@container`-Regeln. In jedem Fall ändern wir die abgerundeten Ecken, die auf das `infobox` Wrapper-`<div>` angewendet werden, sodass die Ecke, die dem Anker am nächsten ist, immer nicht abgerundet ist.
+Schließlich definieren wir eine verankerte Container-Abfrage für jedes `position-try` Fallback, das auf die Infobox über `@container` At-Regeln angewendet werden kann. In jedem Fall ändern wir die abgerundeten Ecken, die auf das Infobox-Wrapper `<div>` angewendet werden, sodass die nächste Ecke zum Anker immer nicht abgerundet ist.
 
 ```css live-sample___multiple-fallbacks
 @container anchored(fallback: flip-block) {
@@ -364,7 +346,7 @@ Schließlich definieren wir für jeden Position-try-Fallback, der auf die Infobo
 ```
 
 > [!NOTE]
-> Erneut haben wir den größten Teil des grundlegenden Stylings aus Platzgründen ausgeblendet, ebenso wie das JavaScript, das die Bewegungssteuerungen bereitstellt (dies ist nicht relevant für das, was wir hier demonstrieren möchten). Um den vollständigen Code zu sehen, öffnen Sie das Beispiel im MDN Playground, indem Sie die "Play"-Schaltfläche auf einem der Codeblöcke oder die Live-Wiedergabe drücken.
+> Erneut haben wir die meisten grundlegenden Stile der Kürze halber versteckt, ebenso wie das JavaScript, das die Bewegungssteuerungen bietet (dies ist nicht relevant für das, was wir hier demonstrieren möchten). Um den vollständigen Code zu sehen, öffnen Sie das Beispiel im MDN Playground, indem Sie auf die Schaltfläche "Abspielen" auf einem der Codeblöcke oder des Live-Renderings drücken.
 
 ```js hidden live-sample___multiple-fallbacks
 const anchorDiv = document.querySelector(".anchor");
@@ -420,21 +402,21 @@ document.body.addEventListener("click", (e) => {
 });
 ```
 
-Dieses Beispiel wird folgendermaßen gerendert:
+Dieses Beispiel rendert wie folgt:
 
 {{ EmbedLiveSample("multiple-fallbacks", "100%", "350") }}
 
 Versuchen Sie, das Ankerelement im Viewport zu bewegen, indem Sie:
 
-- Mit der Maus klicken (oder den Bildschirm berühren, wenn Sie ein Touchscreen-Gerät verwenden) an der Position, an die Sie den Anker bewegen möchten.
-- Verwenden Sie die <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd>-Tasten, um den Anker nach oben, links, unten und rechts zu bewegen.
+- Auf die Maus klicken (oder den Bildschirm tippen, wenn Sie ein Touchscreen-Gerät verwenden) an der Position, zu der Sie den Anker bewegen möchten.
+- Verwenden der <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> Tasten, um den Anker nach oben, links, unten und rechts zu bewegen, jeweils.
 
-Wenn Sie das Ankerelement in die Nähe der Bildschirmränder bewegen, beachten Sie, wie die Infobox in verschiedene Positionen um es herum verschoben wird, um auf dem Bildschirm zu bleiben, und auch wie der `border-radius`, der auf die Infobox gesetzt ist, sich ändert, damit immer die nicht abgerundete Ecke auf den Anker zeigt. Wenn Sie den Anker in die verschiedenen Ecken bewegen, werden Ihnen garantiert die unterschiedlichen Effekte angezeigt.
+Wenn Sie das Ankerelement in die Nähe der Bildschirmränder bewegen, beachten Sie, wie die Infobox sich an verschiedene Positionen um es herum bewegt, um auf dem Bildschirm zu bleiben, und auch, wie der `border-radius` Wert auf der Infobox sich ändert, sodass die nicht abgerundete Ecke immer auf den Anker zeigt. Das Bewegen des Ankers in die verschiedenen Ecken garantiert, dass Sie die verschiedenen Effekte sehen.
 
 ## Siehe auch
 
 - [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
 - [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
-- [Verwendung von Container-Scroll-Status-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
-- [CSS-Ankerpositionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning)
+- [Verwendung von Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
+- [CSS-Anker-Positionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning)
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)

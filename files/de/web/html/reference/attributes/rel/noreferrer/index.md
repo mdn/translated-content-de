@@ -1,11 +1,12 @@
 ---
-title: rel="noreferrer"
+title: '`rel="noreferrer"` HTML-Attributwert'
+short-title: noreferrer
 slug: Web/HTML/Reference/Attributes/rel/noreferrer
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: bf5017c389132af39b50106cf1763fa7106e87b4
 ---
 
-Das **`noreferrer`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel) Attribut der {{HTMLElement("a")}}, {{HTMLElement("area")}}, und {{HTMLElement("form")}} Elemente weist den Browser an, beim Navigieren zur Zielressource den {{HTTPHeader("Referer")}} Header wegzulassen und keine Referrer-Informationen weiterzugeben — und zusätzlich sich so zu verhalten, als ob das [`noopener`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener) Schlüsselwort ebenfalls angegeben wäre.
+Das **`noreferrer`**-Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut der {{HTMLElement("a")}}, {{HTMLElement("area")}} und {{HTMLElement("form")}} Elemente weist den Browser an, beim Navigieren zur Zielressource den {{HTTPHeader("Referer")}}-Header zu weglassen und keine Referrer-Informationen preiszugeben — und sich zusätzlich so zu verhalten, als wäre das [`noopener`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener)-Schlüsselwort ebenfalls angegeben.
 
 ## Spezifikationen
 

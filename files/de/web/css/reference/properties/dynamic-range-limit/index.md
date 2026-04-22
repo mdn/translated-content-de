@@ -3,10 +3,10 @@ title: "`dynamic-range-limit` CSS property"
 short-title: dynamic-range-limit
 slug: Web/CSS/Reference/Properties/dynamic-range-limit
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 314e1451345c061ad4ecc7a9d1845e3e8a9a23f4
 ---
 
-Die **`dynamic-range-limit`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die maximale Helligkeit an, die für Inhalte im High Dynamic Range (HDR) erlaubt ist.
+Die **`dynamic-range-limit`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die maximal zulässige Leuchtdichte für High Dynamic Range (HDR)-Inhalte an.
 
 ## Syntax
 
@@ -29,36 +29,32 @@ dynamic-range-limit: unset;
 
 ### Werte
 
-Die `dynamic-range-limit` Eigenschaft wird als eines der folgenden Schlüsselwörter oder als ein Aufruf der Funktion {{cssxref("dynamic-range-limit-mix()")}} angegeben.
-
-Die folgenden Schlüsselwortwerte können angegeben werden:
-
 - `standard`
-  - : Gibt die maximale Helligkeit als **HDR-Referenzweiß** an, welches der CSS-Farbe `white` entspricht.
+  - : Gibt die maximale Leuchtdichte als High Dynamic Range (HDR) Referenzweiß an, welches die CSS-Farbe `white` ist.
 - `no-limit`
-  - : Gibt die maximale Helligkeit als deutlich höher als die von HDR-Referenzweiß an. Das genaue Level wird nicht spezifiziert.
+  - : Gibt die maximale Leuchtdichte an, die viel höher ist als die des HDR-Referenzweiß. Das genaue Niveau ist nicht spezifiziert. Dies ist der Anfangswert.
 - `constrained`
-  - : Gibt die maximale Helligkeit als etwas höher als die von HDR-Referenzweiß an, so dass eine Mischung aus Standard Dynamic Range (SDR) und HDR-Inhalten bequem zusammen angeschaut werden kann. Das genaue Level wird nicht spezifiziert.
-
-Die Funktion {{cssxref("dynamic-range-limit-mix()")}} gibt die maximale Helligkeit als einen benutzerdefinierten Wert an, der eine Kombination der verschiedenen Schlüsselwortwerte im Verhältnis zu den angegebenen Prozentsätzen ist. Sie nimmt zwei oder mehr Paare, von denen jedes aus einem `dynamic-range-limit` Schlüsselwort (oder einer geschachtelten `dynamic-range-limit-mix()` Funktion) und einem Prozentsatz besteht.
+  - : Gibt die maximale Leuchtdichte etwas höher als die des HDR-Referenzweiß an, sodass eine Mischung aus Standard Dynamic Range (SDR) und HDR-Inhalten bequem zusammen betrachtet werden kann. Das genaue Niveau ist nicht spezifiziert.
+- {{cssxref("dynamic-range-limit-mix()")}}
+  - : Gibt die maximale Leuchtdichte als benutzerdefinierten Wert an, der eine Kombination der unterschiedlichen Schlüsselwortwerte proportional zu den angegebenen Prozentsätzen darstellt. Es erfordert zwei oder mehr Paare, die jeweils aus einem `dynamic-range-limit` Schlüsselwort oder einer verschachtelten `dynamic-range-limit-mix()` Funktion und einem Prozentsatz bestehen.
 
 ## Beschreibung
 
-Dynamikbereich ist der Unterschied in Helligkeit (Leuchtkraft) zwischen den hellsten und dunkelsten Teilen eines Inhalts. Der Dynamikbereich wird in fotografischen Blenden gemessen, wobei eine Erhöhung um eine Blende eine Verdopplung der Leuchtkraft darstellt.
+Die `dynamic-range-limit`-Eigenschaft gibt die maximal zulässige Leuchtdichte auf Bildschirmen an, die in der Lage sind, Farben mit hohem Dynamikumfang darzustellen. Ein **dynamischer Bereich** ist der Unterschied in der Leuchtdichte (Helligkeit) zwischen den hellsten und dunkelsten Teilen von Inhalten. Der Dynamikumfang wird in Fotografiestufen gemessen, wobei eine Erhöhung um eine Stufe einer Verdoppelung der Leuchtdichte entspricht.
 
-### SDR, HDR und Headroom
+### SDR, HDR und Puffer
 
-Traditionelle Webinhalte verwenden den **Standard Dynamic Range (SDR)**, bei dem die hellste Farbe dem CSS-Farbwert `white` (`#ffffff` in Hexadezimal) entspricht. Die Helligkeit in **High Dynamic Range (HDR)** Inhalten kann hingegen über das Standardweiß hinausgehen. In der HDR-Terminologie wird das Standard-CSS-`white` auch als HDR-Referenzweiß bezeichnet.
+Traditionelle Web-Inhalte verwenden **Standard Dynamic Range (SDR)**, bei dem die hellste Farbe dem CSS-Farbe `white` (`#ffffff` im Hexadezimal) entspricht. Die Helligkeit in **High Dynamic Range (HDR)**-Inhalten kann jedoch über das Standard-Weiß hinausgehen. In der HDR-Nomenklatur wird das Standard-CSS-`white` auch als HDR-Referenzweiß bezeichnet.
 
-Die Spitzenhelligkeit, bei der Inhalte angezeigt werden können, hängt von den Inhalten, der verfügbaren Hardware zum Anzeigen und den Benutzereinstellungen ab. Der Betrag, um den die Spitzenhelligkeit von Weiß das HDR-Referenzweiß überschreiten kann, wird als **HDR-Headroom** bezeichnet und wird typischerweise in fotografischen Blenden ausgedrückt.
+Die maximale Leuchtdichte, mit der Inhalte angezeigt werden können, hängt von den Inhalten, der verfügbaren Hardware und den Benutzerpräferenzen ab. Der Betrag, um den die Spitzenleuchtdichte von Weiß das HDR-Referenzweiß übersteigen kann, wird als **HDR-Puffer** bezeichnet und typischerweise in Fotografiestufen ausgedrückt.
 
-SDR-Inhalte haben immer einen HDR-Headroom von `0`, da ihr hellstes Weiß das HDR-Referenzweiß _ist_. Ältere Monitore können ebenfalls einen HDR-Headroom von `0` haben, da sie keine helleren Farben anzeigen können. Neuere Monitore können einen HDR-Headroom größer als `0` haben, was es ihnen ermöglicht, die helleren Farben anzuzeigen, die in HDR-Inhalten verfügbar sind.
+SDR-Inhalte haben immer einen HDR-Puffer von `0`, da ihr hellstes Weiß das HDR-Referenzweiß _ist_. Ältere Monitore können ebenfalls einen HDR-Puffer von `0` haben, da sie nicht in der Lage sind, hellere Farben darzustellen. Neuere Monitore können einen HDR-Puffer größer als `0` haben, wodurch sie die helleren Farben anzeigen können, die in HDR-Inhalten verfügbar sind.
 
 ### Der Anwendungsfall für `dynamic-range-limit`
 
-Die Helligkeit von HDR-Inhalten kann für den Betrachter erschreckend sein. Dies ist besonders in Apps auffällig, in denen eine Mischung aus HDR- und SDR-Inhalten angezeigt wird, was zu Inkonsistenzen in der Helligkeit führt.
+Die Helligkeit von HDR-Inhalten kann für den Betrachter überraschend sein. Dies ist insbesondere in Anwendungen offensichtlich, in denen eine Mischung aus HDR- und SDR-Inhalten angezeigt wird, was zu Inkonsistenzen in der Helligkeit führt.
 
-Die `dynamic-range-limit` Eigenschaft ermöglicht es Ihnen, die Helligkeit von HDR-Inhalten zu steuern. Zum Beispiel möchten Sie möglicherweise die maximale Helligkeit aller Miniaturansichten in einer Foto- oder Videogalerie auf HDR-Referenzweiß beschränken (das ist es, was das Schlüsselwort `standard` bewirkt) oder auf eine Helligkeit, die nur geringfügig mehr als das HDR-Referenzweiß beträgt (unter Verwendung des `constrained` Schlüsselwortes oder eines benutzerdefinierten Limits, das mit {{cssxref("dynamic-range-limit-mix()")}} erstellt wurde). Wenn ein Benutzer dann ein einzelnes HDR-Bild betrachtet oder wenn der Benutzer eine Präferenz auswählt, um es zu aktivieren, könnten Sie das `dynamic-range-limit` des Bildes auf `no-limit` setzen.
+Die `dynamic-range-limit`-Eigenschaft ermöglicht es Ihnen, die Helligkeit von HDR-Inhalten zu kontrollieren. Beispielsweise könnten Sie die maximale Helligkeit aller Thumbnails in einer Foto- oder Videogalerie auf HDR-Referenzweiß beschränken (das ist, was der `standard`-Schlüsselwortwert macht) oder auf eine Helligkeit, die nur geringfügig über dem HDR-Referenzweiß liegt (unter Verwendung des `constrained`-Schlüsselwortwerts oder eines benutzerdefinierten Limits, das mit {{cssxref("dynamic-range-limit-mix()")}} erstellt wurde). Wenn ein Benutzer ein einzelnes HDR-Bild betrachtet oder falls der Benutzer eine Präferenz auswählt, um es zu aktivieren, könnten Sie dann das `dynamic-range-limit` des Bildes auf `no-limit` setzen.
 
 ## Formale Definition
 
@@ -70,13 +66,13 @@ Die `dynamic-range-limit` Eigenschaft ermöglicht es Ihnen, die Helligkeit von H
 
 ## Beispiele
 
-### Grundlegende Nutzung von `dynamic-range-limit`
+### Grundlegende `dynamic-range-limit` Verwendung
 
-In unserem [dynamic-range-limit Eigenschafts-Demo](https://github.com/mdn/dom-examples/tree/main/dynamic-range-limit) haben wir ein HDR-Bild eingebunden, das durch Hovern und Fokussieren den `dynamic-range-limit` Wert ändern kann. [Schauen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/dynamic-range-limit/) auf einem Display, das HDR-Farben darstellen kann, und probieren Sie es aus. Der Code wird unten erklärt.
+In unserem [dynamic-range-limit Eigenschaft Demo](https://github.com/mdn/dom-examples/tree/main/dynamic-range-limit) binden wir ein HDR-Bild ein, das beim Überfahren und Fokussieren den `dynamic-range-limit`-Wert ändern kann. [Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/dynamic-range-limit/) auf einem Display, das in der Lage ist, HDR-Farben darzustellen, und probieren Sie es aus. Der Code wird unten erklärt.
 
 #### HTML
 
-Im Markup binden wir ein HDR-Bild mit einem {{htmlelement("img")}} Element ein. Wir fügen einen [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) Wert von `0` hinzu, um das Bild über die Tastatur fokussierbar zu machen.
+Im Markup binden wir ein HDR-Bild mit einem {{htmlelement("img")}} Element ein. Wir fügen einen [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Wert von `0` hinzu, um das Bild über die Tastatur fokussierbar zu machen.
 
 ```html
 <img
@@ -87,7 +83,7 @@ Im Markup binden wir ein HDR-Bild mit einem {{htmlelement("img")}} Element ein. 
 
 #### CSS
 
-Wir geben unserem `<img>` Element einige rudimentäre Stile und setzen dann seine `dynamic-range-limit` Eigenschaft auf `standard`, was bedeutet, dass es nicht heller als HDR-Referenzweiß angezeigt wird. Wir setzen auch eine {{cssxref("transition")}} Eigenschaft, so dass der `dynamic-range-limit` Wert des `<img>` Elements über `0.6` Sekunden übergeht, wenn sich sein Zustand ändert.
+Wir verleihen unserem `<img>` Element einige grundlegende Stile und setzen dann seine `dynamic-range-limit`-Eigenschaft auf `standard`, was bedeutet, dass es nicht heller als HDR-Referenzweiß angezeigt wird. Wir setzen ebenfalls eine {{cssxref("transition")}}-Eigenschaft, sodass der `dynamic-range-limit`-Wert des `<img>`-Elements über `0.6` Sekunden übergeht, wenn sich sein Zustand ändert.
 
 ```css
 img {
@@ -98,7 +94,7 @@ img {
 }
 ```
 
-Bei Hover oder Fokus ändern wir den Wert der `dynamic-range-limit` Eigenschaft des `<img>` Elements auf `no-limit`, sodass es so hell wie vom Browser und Display-Setup erlaubt angezeigt wird.
+Beim Überfahren oder Fokussieren ändern wir den Wert des `dynamic-range-limit` des `<img>`-Elements auf `no-limit`, sodass es so hell wie möglich angezeigt wird, wie der Browser und das Display-Setup es zulassen.
 
 ```css
 img:hover,
@@ -117,4 +113,4 @@ img:focus {
 
 ## Siehe auch
 
-[`dynamic-range`](/de/docs/Web/CSS/Reference/At-rules/@media/dynamic-range) und [`video-dynamic-range`](/de/docs/Web/CSS/Reference/At-rules/@media/video-dynamic-range) Medienfeatures
+- [`dynamic-range`](/de/docs/Web/CSS/Reference/At-rules/@media/dynamic-range) und [`video-dynamic-range`](/de/docs/Web/CSS/Reference/At-rules/@media/video-dynamic-range) Medien-Features

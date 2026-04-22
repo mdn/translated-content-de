@@ -3,10 +3,18 @@ title: log Modul
 short-title: log
 slug: Web/WebDriver/Reference/BiDi/Modules/log
 l10n:
-  sourceCommit: fbf733732bf531a1be40a0c646bcbc4b31618476
+  sourceCommit: 253bed3def8e1680475ea75987d24ca62ee9f989
 ---
 
-Das **`log`** Modul enthält Ereignisse im Zusammenhang mit der Protokollierung.
+Das **`log`** Modul bietet ein Ereignis zur Überwachung von Browser-Protokolleinträgen, einschließlich der Ausgabe der [console API](/de/docs/Web/API/console) und unbehandelter JavaScript-Fehler.
+
+## Befehle
+
+Das `log` Modul hat keine damit verbundenen Befehle.
+
+## Ereignisse
+
+{{ListSubPages}}
 
 ## Spezifikationen
 
