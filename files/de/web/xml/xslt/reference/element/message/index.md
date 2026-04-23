@@ -2,10 +2,10 @@
 title: <xsl:message>
 slug: Web/XML/XSLT/Reference/Element/message
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 03805fdedbc5126374fd9149e5886cb066c2515d
 ---
 
-Das `<xsl:message>`-Element gibt eine Nachricht aus (an die JavaScript-Konsole in NS) und beendet optional die Ausführung des Stylesheets. Es kann nützlich für das Debugging sein.
+Das `<xsl:message>`-Element gibt eine Nachricht aus (an die JavaScript-Konsole im Browser) und kann optional die Ausführung des Stylesheets beenden. Es kann nützlich für das Debugging sein.
 
 ## Syntax
 
