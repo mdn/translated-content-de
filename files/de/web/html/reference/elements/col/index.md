@@ -1,11 +1,12 @@
 ---
-title: "<col>: Das Tabellenspalten-Element"
+title: "`<col>` HTML-Tabellenspalten-Element"
+short-title: <col>
 slug: Web/HTML/Reference/Elements/col
 l10n:
-  sourceCommit: 7c28cd21b705e7b7664d53b4d7822469ea8e6e15
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<col>`** [HTML](/de/docs/Web/HTML) Element definiert eine oder mehrere Spalten in einer Spaltengruppe, die durch ihr übergeordnetes {{HTMLElement("colgroup")}}-Element dargestellt wird. Das `<col>`-Element ist nur als untergeordnetes Element eines {{HTMLElement("colgroup")}}-Elements gültig, das kein [`span`](/de/docs/Web/HTML/Reference/Elements/colgroup#span)-Attribut definiert.
+Das **`<col>`** [HTML](/de/docs/Web/HTML)-Element definiert eine oder mehrere Spalten in einer durch ihr übergeordnetes {{HTMLElement("colgroup")}}-Element dargestellten Spaltengruppe. Das `<col>`-Element ist nur als Kindelement eines {{HTMLElement("colgroup")}}-Elements gültig, das kein [`span`](/de/docs/Web/HTML/Reference/Elements/colgroup#span)-Attribut definiert hat.
 
 {{InteractiveExample("HTML Demo: &lt;col&gt;", "tabbed-taller")}}
 
@@ -75,66 +76,66 @@ td {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
 
 - `span`
-  - : Gibt die Anzahl der aufeinanderfolgenden Spalten an, die das `<col>`-Element überspannt. Der Wert muss eine positive ganze Zahl größer als null sein. Wenn nicht vorhanden, ist der Standardwert `1`.
+  - : Gibt die Anzahl der aufeinanderfolgenden Spalten an, die das `<col>`-Element umfasst. Der Wert muss eine positive ganze Zahl größer als Null sein. Wenn das Attribut nicht vorhanden ist, beträgt der Standardwert `1`.
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier aus Gründen der Referenzierung beim Aktualisieren bestehender Codes und aus historischem Interesse dokumentiert.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie werden hier nur zu Referenzzwecken bei der Aktualisierung vorhandenen Codes und aus historischem Interesse dokumentiert.
 
 - `align` {{deprecated_inline}}
-  - : Gibt die horizontale Ausrichtung jeder Tabellenspalte an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den Textinhalt an dem im [`char`](#char)-Attribut definierten Zeichen und dem durch das [`charoff`](#charoff)-Attribut definierten Versatz aus. Beachten Sie, dass dieses Attribut die für sein {{HTMLElement("colgroup")}} übergeordnetes Element angegebene [`align`](/de/docs/Web/HTML/Reference/Elements/colgroup#align) außer Kraft setzt. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Spaltenzelle an. Die möglichen {{Glossary("enumerated", "Aufzählungswerte")}} sind `left`, `center`, `right`, `justify` und `char`. Wenn `char` unterstützt wird, richtet dieser Wert den Textinhalt am Zeichen aus, das im [`char`](#char)-Attribut definiert ist, sowie am Offset, das durch das [`charoff`](#charoff)-Attribut definiert ist. Beachten Sie, dass dieses Attribut die im {{HTMLElement("colgroup")}}-Elternelement angegebene [`align`](/de/docs/Web/HTML/Reference/Elements/colgroup#align) überschreibt. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft in den {{htmlelement("td")}}- und {{htmlelement("th")}}-Elementen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
-    > Die Einstellung von `text-align` auf das `<col>`-Element hat keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente davon erben.
+    > Das Setzen von `text-align` auf das `<col>`-Element hat keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente von ihm erben.
     >
-    > Wenn die Tabelle kein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, verwenden Sie den CSS-Selector `td:nth-of-type(an+b)`. Setzen Sie `a` auf null und `b` auf die Position der Spalte in der Tabelle, z.B. `td:nth-of-type(2) { text-align: right; }`, um die Zellen der zweiten Spalte rechts auszurichten.
+    > Wenn die Tabelle kein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, verwenden Sie den `td:nth-of-type(an+b)`-CSS-Selektor. Setzen Sie `a` auf null und `b` auf die Position der Spalte in der Tabelle, z.B. `td:nth-of-type(2) { text-align: right; }`, um die Zellen der zweiten Spalte rechts auszurichten.
     >
-    > Wenn die Tabelle ein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, kann der Effekt durch Kombination geeigneter CSS-Attribut-Selektoren wie `[colspan=n]` erzielt werden, obwohl dies nicht trivial ist.
+    > Wenn die Tabelle ein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, kann der Effekt durch die Kombination geeigneter CSS-Attributselektoren wie `[colspan=n]` erreicht werden, obwohl dies nicht trivial ist.
 
 - `bgcolor` {{deprecated_inline}}
-  - : Definiert die Hintergrundfarbe jeder Tabellenspalte. Der Wert ist eine HTML-Farbe, entweder ein [6-stelliges hexadezimales RGB-Code](/de/docs/Web/CSS/Reference/Values/hex-color), vorangestellt von einem `#`, oder ein [Farbenschlüsselwort](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS {{cssxref("&lt;color&gt;")}} Werte werden nicht unterstützt. Verwenden Sie die {{cssxref("background-color")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe jeder Spaltenzelle. Der Wert ist eine HTML-Farbe, entweder ein [6-stelliges hexadezimales RGB](hex-color) mit `#`-Präfix oder ein [Farb-Schlüsselwort](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS {{cssxref("&lt;color&gt;")}}-Werte werden nicht unterstützt. Verwenden Sie die {{cssxref("background-color")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
-  - : Hat keine Wirkung. Es sollte ursprünglich die Ausrichtung des Inhalts an einem Zeichen jeder Tabellenspalte spezifizieren. Typische Werte dafür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert, obwohl es trotzdem die für sein {{HTMLElement("colgroup")}} übergeordnetes Element angegebene [`char`](/de/docs/Web/HTML/Reference/Elements/colgroup#char) außer Kraft setzt.
+  - : Hat keine Wirkung. Es war ursprünglich dazu gedacht, die Ausrichtung des Inhalts an einem Zeichen jeder Spaltenzelle festzulegen. Typische Werte dafür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldbeträge auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert, es überschreibt jedoch weiterhin das im {{HTMLElement("colgroup")}}-Elternelement angegebene [`char`](/de/docs/Web/HTML/Reference/Elements/colgroup#char).
 
 - `charoff` {{deprecated_inline}}
-  - : Hat keine Wirkung. Es sollte ursprünglich die Anzahl der Zeichen angeben, um den Tabellenspalteninhalt vom im [`char`](#char)-Attribut spezifizierten Ausrichtung Zeichen zu versetzen.
+  - : Hat keine Wirkung. Es war ursprünglich dazu gedacht, die Anzahl der Zeichen anzugeben, um die der Inhalts der Spaltenzelle vom in [`char`](#char) angegebenen Ausrichtungszeichen versetzt wird.
 
 - `valign` {{deprecated_inline}}
-  - : Gibt die vertikale Ausrichtung jeder Tabellenspalte an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Beachten Sie, dass dieses Attribut die für sein {{HTMLElement("colgroup")}} übergeordnetes Element angegebene [`valign`](/de/docs/Web/HTML/Reference/Elements/colgroup#valign) außer Kraft setzt. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Spaltenzelle an. Die möglichen {{Glossary("enumerated", "Aufzählungswerte")}} sind `baseline`, `bottom`, `middle` und `top`. Beachten Sie, dass dieses Attribut die im {{HTMLElement("colgroup")}}-Elternelement angegebene [`valign`](/de/docs/Web/HTML/Reference/Elements/colgroup#valign) überschreibt. Verwenden Sie die {{cssxref("vertical-align")}}-CSS-Eigenschaft in den {{htmlelement("td")}}- und {{htmlelement("th")}}-Elementen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
-    > Die Einstellung von `vertical-align` auf das `<col>`-Element hat keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente davon erben.
+    > Das Setzen von `vertical-align` auf das `<col>`-Element hat keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente von ihm erben.
     >
-    > Wenn die Tabelle kein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, verwenden Sie den CSS-Selector `td:nth-of-type(an+b)`. Setzen Sie `a` auf null und `b` auf die Position der Spalte in der Tabelle, z.B. `td:nth-of-type(2) { vertical-align: middle; }`, um die Zellen der zweiten Spalte vertikal zu zentrieren.
+    > Wenn die Tabelle kein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, verwenden Sie den `td:nth-of-type(an+b)`-CSS-Selektor. Setzen Sie `a` auf null und `b` auf die Position der Spalte in der Tabelle, z.B. `td:nth-of-type(2) { vertical-align: middle; }`, um die Zellen der zweiten Spalte vertikal zu zentrieren.
     >
-    > Wenn die Tabelle ein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, kann der Effekt durch Kombination geeigneter CSS-Attribut-Selektoren wie `[colspan=n]` erzielt werden, obwohl dies nicht trivial ist.
+    > Wenn die Tabelle ein [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut verwendet, kann der Effekt durch die Kombination geeigneter CSS-Attributselektoren wie `[colspan=n]` erreicht werden, obwohl dies nicht trivial ist.
 
 - `width` {{deprecated_inline}}
-  - : Gibt eine Standardbreite für jede Tabellenspalte an. Zusätzlich zu den Standardpixel- und Prozentwerten kann dieses Attribut die spezielle Form `0*` annehmen, was bedeutet, dass die Breite jeder überspannten Spalte die minimale Breite sein soll, die notwendig ist, um den Inhalt der Spalte aufzunehmen. Auch relative Breiten wie `5*` können verwendet werden. Beachten Sie, dass dieses Attribut die für sein {{HTMLElement("colgroup")}} übergeordnetes Element angegebene [`width`](/de/docs/Web/HTML/Reference/Elements/colgroup#width) außer Kraft setzt. Verwenden Sie die {{cssxref("width")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
+  - : Gibt eine Standardbreite für jede Spalte an. Neben den Standard-Pixel- und Prozentwerten kann dieses Attribut die spezielle Form `0*` annehmen, was bedeutet, dass die Breite jeder umspannten Spalte die Mindestbreite sein soll, die erforderlich ist, um den Inhalt der Spalte zu halten. Es können auch relative Breiten wie `5*` verwendet werden. Beachten Sie, dass dieses Attribut die im {{HTMLElement("colgroup")}}-Elternelement angegebene [`width`](/de/docs/Web/HTML/Reference/Elements/colgroup#width) überschreibt. Verwenden Sie die {{cssxref("width")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 - Das `<col>`-Element wird innerhalb eines {{HTMLElement("colgroup")}}-Elements verwendet, das kein `span`-Attribut hat.
-- Die `<col>`-Elemente gruppieren Spalten nicht strukturell zusammen. Dies ist die Rolle des {{HTMLElement("colgroup")}}-Elements.
-- Nur eine begrenzte Anzahl von CSS-Eigenschaften wirken sich auf `<col>` aus:
-  - {{cssxref("background")}}: Die verschiedenen `background`-Eigenschaften setzen den Hintergrund für Zellen innerhalb der Spalte. Da die Hintergrundfarbe der Spalte über die Tabelle und die Spaltengruppen ({{HTMLElement("colgroup")}}) gemalt wird, aber hinter Hintergrundfarben, die auf die Zeilengruppen ({{htmlelement("thead")}}, {{htmlelement("tbody")}} und {{htmlelement("tfoot")}}), die Zeilen ({{htmlelement("tr")}}) und die einzelnen Zellen ({{htmlelement("th")}} und {{htmlelement("td")}}) angewendet werden, sind die auf Tabellenspalten angewendeten Hintergründe nur sichtbar, wenn jede darauf gemalte Schicht einen transparenten Hintergrund hat.
-  - {{cssxref("border")}}: Die verschiedenen `border`-Eigenschaften gelten nur, wenn das `<table>` {{cssxref("border-collapse", "border-collapse: collapse")}} gesetzt hat.
-  - {{cssxref("visibility")}}: Der Wert `collapse` für eine Spalte führt dazu, dass alle Zellen dieser Spalte nicht gerendert werden und Zellen, die in andere Spalten hineinreichen, abgeschnitten werden. Der Platz, den diese Spalten eingenommen hätten, wird entfernt. Die Größe anderer Spalten wird jedoch weiterhin berechnet, als ob die Zellen in der gelöschten Spalte(n) vorhanden wären. Andere Werte für `visibility` haben keine Wirkung.
-  - {{cssxref("width")}}: Die `width`-Eigenschaft definiert eine Mindestbreite für die Spalte, als ob {{cssxref("min-width")}} gesetzt wäre.
+- Die `<col>`-Elemente gruppieren die Spalten nicht strukturell. Dies ist die Aufgabe des {{HTMLElement("colgroup")}}-Elements.
+- Nur eine begrenzte Anzahl von CSS-Eigenschaften wirkt sich auf `<col>` aus:
+  - {{cssxref("background")}}: Die verschiedenen `background`-Eigenschaften setzen den Hintergrund für Zellen innerhalb der Spalte. Da die Hintergrundfarbe der Spalte über dem Tisch und den Spaltengruppen ({{HTMLElement("colgroup")}}), aber hinter den auf die Zeilengruppen ({{htmlelement("thead")}}, {{htmlelement("tbody")}}, und {{htmlelement("tfoot")}}) sowie den Zeilen ({{htmlelement("tr")}}) und den einzelnen Zellen ({{htmlelement("th")}} und {{htmlelement("td")}}) angewandten Hintergrundfarben aufgetragen wird, sind auf Spalten angewendete Hintergründe nur sichtbar, wenn jede darüber gestrichene Schicht einen transparenten Hintergrund hat.
+  - {{cssxref("border")}}: Die verschiedenen `border`-Eigenschaften gelten, jedoch nur, wenn das `<table>` {{cssxref("border-collapse", "border-collapse: collapse")}} gesetzt hat.
+  - {{cssxref("visibility")}}: Der Wert `collapse` für eine Spalte bewirkt, dass alle Zellen dieser Spalte nicht gerendert und in andere Spalten reichende Zellen abgeschnitten werden. Der Platz, den diese Spalten belegt hätten, wird entfernt. Die Größe anderer Spalten wird jedoch weiterhin berechnet, als ob die Zellen in den zusammengebrochenen Spalten vorhanden wären. Andere Werte für `visibility` haben keine Wirkung.
+  - {{cssxref("width")}}: Die `width`-Eigenschaft definiert eine Mindestbreite für die Spalte, so als wäre {{cssxref("min-width")}} gesetzt.
 
 ## Beispiel
 
-Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel mit allgemeinen Standards und Best Practices.
+Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Verfahren einführt.
 
-Dieses Beispiel zeigt eine Acht-Spalten-Tabelle, die in drei `<col>`-Elemente unterteilt ist.
+Dieses Beispiel zeigt eine achtspaltige Tabelle, die in drei `<col>`-Elemente unterteilt ist.
 
 ### HTML
 
-Ein {{HTMLElement("colgroup")}}-Element bietet Strukturen für eine grundlegende Tabelle und erstellt eine einzelne implizite Spaltengruppe. Drei `<col>`-Elemente sind innerhalb der `<colgroup>` enthalten und erstellen drei stilisierbare Spalten. Das [`span`](#span)-Attribut gibt an, wie viele Tabellenspalten jedes `<col>` überspannen soll (Standard ist `1` bei Auslassung), wodurch Attribute über die Spalten in jedem `<col>` hinweg geteilt werden können.
+Ein {{HTMLElement("colgroup")}}-Element bietet Strukturen für eine einfache Tabelle und erstellt eine einzelne implizite Spaltengruppe. Innerhalb des `<colgroup>` sind drei `<col>`-Elemente enthalten, die drei stilbare Spalten erstellen. Das [`span`](#span)-Attribut gibt an, wie viele Tabellenspalten jedes `<col>` umfassen soll (Standardwert `1`, wenn weggelassen), und erlaubt es, Attribute auf die Spalten in jedem `<col>` zu übertragen.
 
 ```html
 <table>
@@ -185,7 +186,7 @@ Ein {{HTMLElement("colgroup")}}-Element bietet Strukturen für eine grundlegende
 
 ### CSS
 
-Wir verwenden CSS statt veralteter HTML-Attribute, um eine Hintergrundfarbe für die Spalten bereitzustellen und den Zellinhalt auszurichten:
+Wir verwenden CSS anstelle von veralteten HTML-Attributen, um den Spalten eine Hintergrundfarbe zu geben und den Zellinhalt auszurichten:
 
 ```css
 table {
@@ -240,22 +241,22 @@ table {
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Kein; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <th scope="row">Tag-Weglassung</th>
+      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Nur {{HTMLElement("colgroup")}}, obwohl es implizit definiert werden kann, da sein Start-Tag nicht obligatorisch ist. Das
+        Nur {{HTMLElement("colgroup")}}, obwohl es implizit definiert werden kann, da sein Start-Tag nicht zwingend erforderlich ist. Das
         {{HTMLElement("colgroup")}} darf kein
         <a href="/de/docs/Web/HTML/Reference/Elements/colgroup#span"><code>span</code></a>-Attribut haben.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -263,8 +264,8 @@ table {
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Keine <code>role</code> zulässig</td>
+      <th scope="row">Erlaubte ARIA Rollen</th>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -284,10 +285,10 @@ table {
 ## Siehe auch
 
 - {{HTMLElement("caption")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft zur Einstellung der Hintergrundfarbe jeder Tabellenspalte
-- {{cssxref("border")}}: CSS-Eigenschaft zum Steuern der Ränder von Tabellenspalten
-- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Tabellenspalte
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Tabellenspalte
-- {{cssxref("visibility")}}: CSS-Eigenschaft zum Ausblenden der Zellen einer Spalte
-- {{cssxref("width")}}: CSS-Eigenschaft zur Steuerung der Standardbreite für jede Tabellenspalte
-- {{cssxref(":nth-of-type")}}, {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}: CSS-Pseudoklassen zur Auswahl der gewünschten Tabellenspaltenzellen
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Spaltenzelle festzulegen
+- {{cssxref("border")}}: CSS-Eigenschaft, um die Rahmen von Spaltenzellen zu steuern
+- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Inhalt jeder Spaltenzelle horizontal auszurichten
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft, um den Inhalt jeder Spaltenzelle vertikal auszurichten
+- {{cssxref("visibility")}}: CSS-Eigenschaft, um die Zellen einer Spalte zu verbergen
+- {{cssxref("width")}}: CSS-Eigenschaft, um die Standardbreite für jede Spalte zu steuern
+- {{cssxref(":nth-of-type")}}, {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}: CSS-Pseudoklassen, um die gewünschten Spaltenzellen auszuwählen

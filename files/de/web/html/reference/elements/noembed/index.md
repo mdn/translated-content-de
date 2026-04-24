@@ -1,22 +1,23 @@
 ---
-title: "<noembed>: Das Embed-Fallback-Element"
+title: "`<noembed>` HTML embed fallback Element"
+short-title: <noembed>
 slug: Web/HTML/Reference/Elements/noembed
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{deprecated_header}}
 
-Das **`<noembed>`** [HTML](/de/docs/Web/HTML)-Element ist eine veraltete, nicht standardisierte Methode, um alternative oder "Fallback"-Inhalte für Browser bereitzustellen, die das {{HTMLElement("embed")}}-Element nicht unterstützen oder die Art von [eingebetteten Inhalten](/de/docs/Web/HTML/Guides/Content_categories#embedded_content) nicht unterstützen, die ein Autor verwenden möchte. Dieses Element wurde in HTML 4.01 und höher zugunsten von Fallback-Inhalten, die zwischen den öffnenden und schließenden Tags eines {{HTMLElement("object")}}-Elements platziert werden, für veraltet erklärt.
+Das **`<noembed>`** [HTML](/de/docs/Web/HTML)-Element ist eine veraltete, nicht standardisierte Methode, um alternative oder "Fallback"-Inhalte für Browser bereitzustellen, die das {{HTMLElement("embed")}}-Element nicht unterstützen oder den Typ von [eingebetteten Inhalten](/de/docs/Web/HTML/Guides/Content_categories#embedded_content) nicht unterstützen, den ein Autor verwenden möchte. Dieses Element wurde in HTML 4.01 und höher zugunsten des Platzierens von Fallback-Inhalten zwischen den öffnenden und schließenden Tags eines {{HTMLElement("object")}}-Elements als veraltet erklärt.
 
 > [!NOTE]
-> Auch wenn dieses Element derzeit noch in vielen Browsern funktioniert, ist es veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen {{HTMLElement("object")}}, mit Fallback-Inhalten zwischen den öffnenden und schließenden Tags des Elements.
+> Obwohl dieses Element derzeit noch in vielen Browsern funktioniert, ist es veraltet und sollte nicht verwendet werden. Verwenden Sie stattdessen {{HTMLElement("object")}}, mit Fallback-Inhalten zwischen den öffnenden und schließenden Tags des Elements.
 
 ## Beispiele
 
-Die Nachricht innerhalb des `<noembed>`-Tags wird nur angezeigt, wenn Ihr Browser das `<embed>`-Tag nicht unterstützt.
+Die Nachricht im `<noembed>`-Tag wird nur angezeigt, wenn Ihr Browser das `<embed>`-Tag nicht unterstützt.
 
-### Alternativen Inhalt anzeigen
+### Alternative Inhalte anzeigen
 
 ```html
 <embed

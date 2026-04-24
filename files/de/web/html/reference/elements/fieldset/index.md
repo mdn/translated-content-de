@@ -1,11 +1,12 @@
 ---
-title: "<fieldset>: Das Field Set-Element"
+title: "`<fieldset>` HTML-Feldsatz-Element"
+short-title: <fieldset>
 slug: Web/HTML/Reference/Elements/fieldset
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<fieldset>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um mehrere Steuerelemente sowie Beschriftungen ({{HTMLElement("label")}}) innerhalb eines Webformulars zu gruppieren.
+Das **`<fieldset>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um mehrere Steuerungselemente sowie Labels ({{HTMLElement("label")}}) innerhalb eines Webformulars zu gruppieren.
 
 {{InteractiveExample("HTML Demo: &lt;fieldset&gt;", "tabbed-standard")}}
 
@@ -38,39 +39,39 @@ input {
 }
 ```
 
-Wie das obige Beispiel zeigt, bietet das `<fieldset>`-Element eine Gruppierung für einen Teil eines HTML-Formulars, mit einem verschachtelten {{htmlelement("legend")}}-Element, das eine Überschrift für das `<fieldset>` liefert. Es hat nur wenige Attribute, wobei die bemerkenswertesten `form` sind, das die `id` eines {{htmlelement("form")}} auf derselben Seite enthalten kann, was es ermöglicht, das `<fieldset>` Teil dieses `<form>` zu machen, auch wenn es nicht darin verschachtelt ist, und `disabled`, mit dem Sie das `<fieldset>` und seinen gesamten Inhalt auf einmal deaktivieren können.
+Wie das obige Beispiel zeigt, bietet das `<fieldset>`-Element eine Gruppierung für einen Teil eines HTML-Formulars, wobei ein verschachteltes {{htmlelement("legend")}}-Element eine Beschriftung für das `<fieldset>` angibt. Es verfügt über wenige Attribute, von denen die bemerkenswertesten `form` sind, das die `id` eines {{htmlelement("form")}} auf derselben Seite enthalten kann, sodass das `<fieldset>` Teil dieses `<form>` sein kann, auch wenn es nicht darin verschachtelt ist, und `disabled`, das es Ihnen ermöglicht, das `<fieldset>` und seinen gesamten Inhalt auf einmal zu deaktivieren.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Wenn dieses boolesche Attribut gesetzt ist, sind alle Formularsteuerungen, die Nachkommen des `<fieldset>` sind, deaktiviert, was bedeutet, dass sie nicht bearbeitbar sind und nicht zusammen mit dem {{htmlelement("form")}} übermittelt werden. Sie erhalten keine Browsing-Ereignisse, wie Mausklicks oder fokussbezogene Ereignisse. Standardmäßig zeigen Browser solche Steuerelemente ausgegraut an. Beachten Sie, dass Formularelemente innerhalb des {{HTMLElement("legend")}}-Elements nicht deaktiviert werden.
+  - : Wenn dieses boolesche Attribut gesetzt ist, sind alle Formularsteuerelemente, die Nachkommen des `<fieldset>` sind, deaktiviert, d.h. sie sind nicht bearbeitbar und werden nicht zusammen mit dem {{htmlelement("form")}} übermittelt. Sie erhalten keine Browsereignisse, wie Mausklicks oder fokusbezogene Ereignisse. Standardmäßig werden solche Steuerelemente von Browsern ausgegraut dargestellt. Beachten Sie, dass Formularelemente innerhalb des {{HTMLElement("legend")}}-Elements nicht deaktiviert werden.
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
-  - : Dieses Attribut nimmt den Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs eines {{HTMLElement("form")}}-Elements ein, dem Sie das `<fieldset>` zuordnen möchten, auch wenn es sich nicht innerhalb des Formulars befindet. Bitte beachten Sie, dass die Verwendung verwirrend ist — wenn Sie möchten, dass die {{HTMLElement("input")}}-Elemente innerhalb des `<fieldset>` dem Formular zugeordnet sind, müssen Sie das `form`-Attribut direkt auf diese Elemente anwenden. Sie können überprüfen, welche Elemente einem Formular zugeordnet sind, indem Sie JavaScript verwenden, mit [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements).
+  - : Dieses Attribut nimmt den Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs eines {{HTMLElement("form")}}-Elements an, dem Sie das `<fieldset>` zuordnen möchten, auch wenn es nicht innerhalb des Formulars ist. Beachten Sie bitte, dass die Verwendung verwirrend ist – wenn Sie möchten, dass die {{HTMLElement("input")}}-Elemente innerhalb des `<fieldset>` mit dem Formular verknüpft sind, müssen Sie das `form`-Attribut direkt an diesen Elementen verwenden. Sie können überprüfen, welche Elemente einem Formular zugeordnet sind, indem Sie JavaScript verwenden und [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements) nutzen.
 - `name`
-  - : Der mit der Gruppe verbundene Name.
+  - : Der Name, der der Gruppe zugeordnet ist.
 
     > [!NOTE]
     > Die Beschriftung für das Fieldset wird durch das erste verschachtelte {{HTMLElement("legend")}}-Element angegeben.
 
-## Stil mit CSS
+## Gestaltung mit CSS
 
-Es gibt einige spezielle Stilüberlegungen für `<fieldset>`.
+Für `<fieldset>` gibt es mehrere spezielle gestalterische Überlegungen.
 
-Sein {{cssxref("display")}}-Wert ist standardmäßig `block`, und es etabliert einen [block formatting context](/de/docs/Web/CSS/Guides/Display/Block_formatting_context). Wenn das `<fieldset>` mit einem inline-Level `display`-Wert gestylt ist, verhält es sich als `inline-block`, andernfalls verhält es sich als `block`. Standardmäßig gibt es einen `2px` `groove`-Rahmen, der den Inhalt umgibt, und eine geringe Menge an Standardabstand. Das Element hat standardmäßig {{cssxref("min-inline-size", "min-inline-size: min-content")}}.
+Sein {{cssxref("display")}}-Wert ist standardmäßig `block`, und es etabliert einen [block formatting context](/de/docs/Web/CSS/Guides/Display/Block_formatting_context). Wenn das `<fieldset>` mit einem inline-level `display`-Wert gestaltet wird, verhält es sich als `inline-block`, andernfalls verhält es sich als `block`. Standardmäßig gibt es eine `2px` `groove`-Rahmen, der den Inhalt umgibt, und eine geringe Menge an Standardabstand. Das Element besitzt standardmäßig {{cssxref("min-inline-size", "min-inline-size: min-content")}}.
 
-Wenn ein {{htmlelement("legend")}} vorhanden ist, wird es über dem `block-start`-Rahmen platziert. Das `<legend>` passt sich automatisch an seine Inhalte an und etabliert ebenfalls einen Formatierungskontext. Der `display`-Wert wird blockifiziert. (Zum Beispiel verhält sich `display: inline` als `block`.)
+Wenn ein {{htmlelement("legend")}} vorhanden ist, wird es über der `block-start`-Rahmen platziert. Das `<legend>` passt sich der Größe an und etabliert ebenfalls einen Formatierungskontext. Der `display`-Wert wird blockiert. (Zum Beispiel verhält sich `display: inline` als `block`.)
 
-Es wird einen anonymen Kasten geben, der den Inhalt des `<fieldset>` hält, der gewisse Eigenschaften vom `<fieldset>` erbt. Wenn das `<fieldset>` mit `display: grid` oder `display: inline-grid` gestylt ist, dann wird der anonyme Kasten ein Raster-Formatierungskontext sein. Wenn das `<fieldset>` mit `display: flex` oder `display: inline-flex` gestylt ist, dann wird der anonyme Kasten ein Flex-Formatierungskontext sein. Ansonsten etabliert es einen Block-Formatierungskontext.
+Es wird ein anonymes Box-Element geben, das den Inhalt des `<fieldset>` hält, welches bestimmte Eigenschaften vom `<fieldset>` erbt. Wenn das `<fieldset>` mit `display: grid` oder `display: inline-grid` gestaltet wird, ist das anonyme Box-Element ein Grid-Formatierungskontext. Wenn das `<fieldset>` mit `display: flex` oder `display: inline-flex` gestaltet wird, ist das anonyme Box-Element ein Flex-Formatierungskontext. Andernfalls etabliert es einen Block-Formatierungskontext.
 
-Sie können das `<fieldset>` und `<legend>` nach Belieben gestalten, um es an das Design Ihrer Seite anzupassen.
+Sie können das `<fieldset>` und `<legend>` nach Belieben gestalten, um Ihrem Seitendesign zu entsprechen.
 
 ## Beispiele
 
-### Basis-Feldset
+### Einfaches Fieldset
 
-Dieses Beispiel enthält ein `<fieldset>` mit einem `<legend>`, mit einem einzigen Steuerelement darin.
+Dieses Beispiel beinhaltet ein `<fieldset>` mit einem `<legend>`, mit einem einzelnen Steuerelement darin.
 
 ```html
 <form action="#">
@@ -86,9 +87,9 @@ Dieses Beispiel enthält ein `<fieldset>` mit einem `<legend>`, mit einem einzig
 
 {{ EmbedLiveSample('Basic_fieldset', '100%', '80') }}
 
-### Deaktiviertes Feldset
+### Deaktiviertes Fieldset
 
-Dieses Beispiel zeigt ein deaktiviertes `<fieldset>` mit zwei Steuerelementen darin. Beachten Sie, wie beide Steuerelemente deaktiviert sind, weil sie sich in einem deaktivierten `<fieldset>` befinden.
+Dieses Beispiel zeigt ein deaktiviertes `<fieldset>` mit zwei Steuerelementen darin. Beachten Sie, wie beide Steuerelemente deaktiviert sind, da sie sich in einem deaktivierten `<fieldset>` befinden.
 
 ```html
 <form action="#">
@@ -122,36 +123,35 @@ Dieses Beispiel zeigt ein deaktiviertes `<fieldset>` mit zwei Steuerelementen da
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flow-Inhalt</a
         >,
-        Abschnittswurzel,
+        Wurzel der Abschnittbildung,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#listed"
-          >aufgelistet</a
+          >gelistet</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content"
           >formularbezogenes</a
         >
-        Element, wahrnehmbarer Inhalt.
+        Element, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
-        Ein optionales {{HTMLElement("legend")}}-Element, gefolgt von
-        Fließinhalt.
+        Ein optionales {{HTMLElement("legend")}}-Element, gefolgt von Flow-Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flow-Inhalt</a
         >
         akzeptiert.
       </td>
@@ -161,7 +161,7 @@ Dieses Beispiel zeigt ein deaktiviertes `<fieldset>` mit zwei Steuerelementen da
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role"><code>radiogroup</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>

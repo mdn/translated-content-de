@@ -1,11 +1,12 @@
 ---
-title: "<figcaption>: Das Figure Caption-Element"
+title: "`<figcaption>` HTML-Element für Bildunterschriften"
+short-title: <figcaption>
 slug: Web/HTML/Reference/Elements/figcaption
 l10n:
-  sourceCommit: c403dd32f627cd972048db05db04ef76f3ab84fe
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML) Element stellt eine Beschriftung oder Legende dar, die den Rest der Inhalte seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` einen {{Glossary("accessible_name", "zugänglichen Namen")}} gibt.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Bildunterschrift oder Legende dar, die den restlichen Inhalt des übergeordneten {{HTMLElement("figure")}} Elements beschreibt. Es bietet dem `<figure>` einen {{Glossary("accessible_name", "zugänglichen Namen")}}.
 
 {{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
 
@@ -44,11 +45,11 @@ figcaption {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-Bitte sehen Sie sich die Seite zu {{HTMLElement("figure")}} für Beispiele zu `<figcaption>` an.
+Bitte sehen Sie die Seite des {{HTMLElement("figure")}}-Elements für Beispiele zu `<figcaption>`.
 
 ## Technische Zusammenfassung
 
@@ -66,23 +67,23 @@ Bitte sehen Sie sich die Seite zu {{HTMLElement("figure")}} für Beispiele zu `<
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Fließinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("figure")}}-Element; das
-        <code>&#x3C;figcaption></code>-Element muss das erste oder letzte Kind sein.
+        <code>&#x3C;figcaption></code> Element muss sein erstes oder letztes Kind sein.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a

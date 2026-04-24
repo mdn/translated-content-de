@@ -1,39 +1,40 @@
 ---
-title: "<fencedframe>: Das Fenced Frame-Element"
+title: "`<fencedframe>` HTML fenced frame-Element"
+short-title: <fencedframe>
 slug: Web/HTML/Reference/Elements/fencedframe
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{SeeCompatTable}}
 
-Das **`<fencedframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen geschachtelten {{Glossary("browsing_context", "Browsing-Kontext")}} und bettet eine andere HTML-Seite in die aktuelle ein. `<fencedframe>`s sind in Form und Funktion sehr ähnlich zu {{htmlelement("iframe")}}-Elementen, außer dass:
+Das **`<fencedframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen verschachtelten {{Glossary("browsing_context", "Browsing-Kontext")}} und bettet eine andere HTML-Seite in die aktuelle ein. `<fencedframe>`s sind sehr ähnlich zu {{htmlelement("iframe")}}-Elementen in Form und Funktion, außer dass:
 
 - Die Kommunikation zwischen dem `<fencedframe>`-Inhalt und seiner einbettenden Seite eingeschränkt ist.
-- Ein `<fencedframe>` auf plattformübergreifende Daten zugreifen kann, jedoch nur unter sehr spezifischen kontrollierten Umständen, die den Datenschutz der Nutzer gewährleisten.
-- Ein `<fencedframe>` kann nicht manipuliert oder seine Daten über reguläres Scripting (beispielsweise das Lesen oder Setzen der Quell-URL) abgerufen werden. `<fencedframe>`-Inhalte können nur über [spezifische APIs](/de/docs/Web/API/Fenced_frame_API#use_cases) eingebettet werden.
-- Ein `<fencedframe>` kann nicht auf das DOM des einbettenden Kontexts zugreifen, noch kann der einbettende Kontext auf das DOM des `<fencedframe>` zugreifen.
+- Ein `<fencedframe>` kann auf cross-site Daten zugreifen, jedoch nur unter sehr spezifischen kontrollierten Umständen, die die Privatsphäre der Benutzer wahren.
+- Ein `<fencedframe>` kann nicht durch reguläres Scripting manipuliert werden oder auf dessen Daten zugegriffen werden (zum Beispiel das Lesen oder Setzen der Quell-URL). `<fencedframe>`-Inhalte können nur über [spezifische APIs](/de/docs/Web/API/Fenced_frame_API#use_cases) eingebettet werden.
+- Ein `<fencedframe>` kann nicht auf den DOM des einbettenden Kontexts zugreifen, noch kann der einbettende Kontext auf das DOM des `<fencedframe>` zugreifen.
 
-Das `<fencedframe>`-Element ist eine Art `<iframe>` mit nativeren Datenschutzfunktionen. Es behebt Schwachstellen von `<iframe>`s wie die Abhängigkeit von Drittanbieter-Cookies und anderen Datenschutzrisiken. Siehe [Fenced frame API](/de/docs/Web/API/Fenced_frame_API) für weitere Details.
+Das `<fencedframe>`-Element ist eine Art von `<iframe>` mit stärker integrierten Datenschutzfunktionen. Es behebt die Mängel von `<iframe>`s, wie die Abhängigkeit von Drittanbieter-Cookies und andere Datenschutzrisiken. Siehe [Fenced frame API](/de/docs/Web/API/Fenced_frame_API) für weitere Details.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `allow` {{experimental_inline}}
-  - : Legt eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) für das `<fencedframe>` fest, die definiert, welche Funktionen dem `<fencedframe>` basierend auf dem Ursprung der Anfrage zur Verfügung stehen. Weitere Details zu den Funktionen, die über eine Richtlinie in einem Fenced Frame gesteuert werden können, finden Sie unter [Berechtigungsrichtlinien, die für Fenced Frames verfügbar sind](#berechtigungsrichtlinien,_die_für_fenced_frames_verfügbar_sind).
+  - : Gibt eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) für das `<fencedframe>` an, die definiert, welche Funktionen dem `<fencedframe>` basierend auf dem Ursprung der Anfrage verfügbar sind. Siehe [Verfügbare Berechtigungspolicies für fenced frames](#verfügbare_berechtigungspolicies_für_fenced_frames) für weitere Details, welche Funktionen durch eine auf einem fenced frame gesetzte Policy gesteuert werden können.
 
 - `height` {{experimental_inline}}
-  - : Eine einheitenlose Ganzzahl, die die Höhe des Fenced Frames in CSS-Pixeln darstellt. Standardwert ist `150`.
+  - : Ein ganzzahliger Wert ohne Einheit, der die Höhe des fenced frames in CSS-Pixel angibt. Der Standardwert ist `150`.
 
 - `width` {{experimental_inline}}
-  - : Eine einheitenlose Ganzzahl, die die Breite des Fenced Frames in CSS-Pixeln darstellt. Standardwert ist `300`.
+  - : Ein ganzzahliger Wert ohne Einheit, der die Breite des fenced frames in CSS-Pixel angibt. Der Standardwert ist `300`.
 
-## Berechtigungsrichtlinien, die für Fenced Frames verfügbar sind
+## Verfügbare Berechtigungspolicies für fenced frames
 
-Berechtigungen, die vom obersten Kontext zu einem Fenced Frame delegiert werden, um Funktionen zu erlauben oder zu verweigern, könnten als Kommunikationskanal genutzt werden und stellen daher eine Datenschutzbedrohung dar. Folglich sind Standard-Webfunktionen, deren Verfügbarkeit über [Berechtigungsrichtlinien](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy) kontrolliert werden kann (z.B. [`camera`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/camera) oder [`geolocation`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/geolocation)) **nicht verfügbar** innerhalb von Fenced Frames.
+Berechtigungen, die vom obersten Kontext an einen fenced frame delegiert werden, um Funktionen zu erlauben oder zu verweigern, könnten als Kommunikationskanal genutzt werden und stellen daher ein Datenschutzrisiko dar. Aus diesem Grund sind standardmäßige Web-Funktionen, deren Verfügbarkeit durch die [Permissions Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy) kontrolliert werden kann (zum Beispiel, [`camera`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/camera) oder [`geolocation`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/geolocation)), innerhalb von fenced frames **nicht verfügbar**.
 
-Die einzigen Funktionen, die durch eine Richtlinie in Fenced Frames aktiviert werden können, sind die speziell für die Verwendung in Fenced Frames entwickelten Funktionen:
+Die einzigen Funktionen, die durch eine Policy innerhalb von fenced frames aktiviert werden können, sind die spezifischen Funktionen, die zur Nutzung innerhalb von fenced frames entwickelt wurden:
 
 - [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience)
   - `attribution-reporting`
@@ -46,26 +47,26 @@ Die einzigen Funktionen, die durch eine Richtlinie in Fenced Frames aktiviert we
   - `shared-storage`
   - `shared-storage-select-url`
 
-Derzeit sind diese Funktionen immer in Fenced Frames aktiviert. In Zukunft wird es möglich sein, mittels des `allow`-Attributs des `<fencedframe>` zu steuern, welche aktiviert sind. Das Blockieren von Datenschutz-Funktionen auf diese Weise wird auch das Laden des Fenced Frames blockieren - es wird keinerlei Kommunikationskanal bestehen.
+Derzeit sind diese immer innerhalb von fenced frames aktiviert. In Zukunft wird es möglich sein, mithilfe des `<fencedframe>`-`allow`-Attributes zu kontrollieren, welche von ihnen aktiviert sind. Das Blockieren von Privacy Sandbox-Funktionen auf diese Weise wird auch das Laden des fenced frames blockieren — es wird keinen Kommunikationskanal geben.
 
-## Fokussieren über Fenced Frame-Grenzen hinweg
+## Fokussieren über die Grenzen von fenced frames hinweg
 
-Die Möglichkeit, den aktiven Fokus des Dokuments über Fenced Frame-Grenzen hinweg zu bewegen (d.h. von einem Element außerhalb des Fenced Frames zu einem Element innerhalb oder umgekehrt), ist begrenzt. Benutzerinitiierte Aktionen wie ein Klick oder ein Tab können dies tun, da dabei kein Risikomerkmal besteht.
+Die Fähigkeit des aktiven Fokus des Dokuments, über die Grenzen von fenced frames hinweg verschoben zu werden (d.h. von einem Element außerhalb des fenced frames zu einem innerhalb, oder umgekehrt), ist eingeschränkt. Benutzerinitiierte Aktionen wie ein Klick oder ein Tab können dies tun, da hierbei kein Fingerprinting-Risiko besteht.
 
-Jedoch ist der Versuch, die Grenze via eines API-Aufrufs wie [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) zu überqueren, untersagt — ein bösartiges Skript könnte eine Serie solcher Aufrufe verwenden, um abgeleitete Informationen über die Grenze zu leaken.
+Jedoch ist der Versuch, die Grenze über einen API-Aufruf wie [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) zu durchqueren, verboten — ein bösartiges Skript könnte eine Reihe solcher Aufrufe verwenden, um abgeleitete Informationen über die Grenze hinweg zu leaken.
 
 ## Positionierung und Skalierung
 
-Als ein {{Glossary("replaced_elements", "ausgetauschtes Element")}} erlaubt das `<fencedframe>`, die Position des eingebetteten Dokuments innerhalb seines Kastens mithilfe der {{cssxref("object-position")}}-Eigenschaft anzupassen.
+Als ein {{Glossary("replaced_elements", "ersetztes Element")}} erlaubt das `<fencedframe>`, die Position des eingebetteten Dokuments innerhalb seines Rahmens mithilfe der {{cssxref("object-position")}}-Eigenschaft anzupassen.
 
 > [!NOTE]
 > Die {{cssxref("object-fit")}}-Eigenschaft hat keine Wirkung auf `<fencedframe>`-Elemente.
 
-Die Größe des eingebetteten Inhalts kann durch die internen `contentWidth`- und `contentHeight`-Eigenschaften des `config`-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen wird das Ändern der `width` oder `height` des `<fencedframe>` die Größe des eingebetteten Containers auf der Seite ändern, aber das Dokument innerhalb des Containers wird visuell angepasst. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch interne `contentWidth` und `contentHeight` Eigenschaften des [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen ändert das Ändern der `width` oder `height` des `<fencedframe>` die Größe des eingebetteten Containers auf der Seite, aber das Dokument innerhalb des Containers wird visuell skaliert, um zu passen. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleibt unverändert.
 
 ## Barrierefreiheit
 
-Menschen, die mit unterstützender Technologie navigieren, wie z.B. ein Bildschirmleser, können das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) auf einem `<fencedframe>` verwenden, um dessen Inhalt zu beschreiben. Der Wert des Titels sollte den eingebetteten Inhalt prägnant beschreiben:
+Personen, die mit assistiver Technologie navigieren, wie einem Bildschirmleser, können das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) auf einem `<fencedframe>` verwenden, um dessen Inhalt zu kennzeichnen. Der Wert des Titels sollte den eingebetteten Inhalt prägnant beschreiben:
 
 ```html
 <fencedframe
@@ -74,13 +75,13 @@ Menschen, die mit unterstützender Technologie navigieren, wie z.B. ein Bildschi
   height="320"></fencedframe>
 ```
 
-Ohne diesen Titel müssen sie in das `<fencedframe>` navigieren, um herauszufinden, was der eingebettete Inhalt ist. Dieser Kontextwechsel kann verwirrend und zeitaufwändig sein, insbesondere für Seiten mit mehreren `<fencedframe>`s und/oder wenn die Einbettungen interaktive Inhalte wie Video oder Audio enthalten.
+Ohne diesen Titel müssen sie in das `<fencedframe>` hinein navigieren, um festzustellen, was sein eingebetteter Inhalt ist. Diese Kontextverschiebung kann verwirrend und zeitaufwendig sein, insbesondere bei Seiten mit mehreren `<fencedframe>`s und/oder wenn Embeds interaktive Inhalte wie Video oder Audio enthalten.
 
 ## Beispiele
 
-Um festzulegen, welche Inhalte in einem `<fencedframe>` angezeigt werden, erzeugt eine nutzende API (wie [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience) oder [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
+Um festzulegen, welcher Inhalt in einem `<fencedframe>` angezeigt wird, generiert eine nutzende API (wie [Protected Audience](https://privacysandbox.google.com/private-advertising/protected-audience) oder [Shared Storage](https://privacysandbox.google.com/private-advertising/shared-storage)) ein [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt, das dann als Wert der `config`-Eigenschaft des `<fencedframe>` gesetzt wird.
 
-Das folgende Beispiel erhält ein `FencedFrameConfig` von einer Werbeauktion der Protected Audience API, das dann verwendet wird, um die gewonnene Anzeige in einem `<fencedframe>` darzustellen:
+Das folgende Beispiel erhält eine `FencedFrameConfig` aus einer Werbeauktion der Protected Audience API, die dann verwendet wird, um die gewonnene Werbung in einem `<fencedframe>` anzuzeigen:
 
 ```html
 <fencedframe width="640" height="320"></fencedframe>
@@ -97,7 +98,7 @@ frame.config = frameConfig;
 ```
 
 > [!NOTE]
-> `resolveToConfig: true` muss beim `runAdAuction()`-Aufruf übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn es nicht gesetzt ist, wird das resultierende {{jsxref("Promise")}} in eine URN auflösen, die nur in einem {{htmlelement("iframe")}} verwendet werden kann.
+> `resolveToConfig: true` muss in den `runAdAuction()`-Aufruf übergeben werden, um ein `FencedFrameConfig`-Objekt zu erhalten. Wenn es nicht gesetzt ist, wird der resultierende {{jsxref("Promise")}} zu einer URN aufgelöst, die nur in einem {{htmlelement("iframe")}} verwendet werden kann.
 
 ## Technische Zusammenfassung
 
@@ -105,26 +106,19 @@ frame.config = frameConfig;
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
-        >,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasenformbarer Inhalt</a
-        >, eingebetteter Inhalt, interaktiver Inhalt, palpierbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>, <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasing-Inhalt</a>, eingebetteter Inhalt, interaktiver Inhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner.</td>
+      <th scope="row">Erlaubte Inhalte</th>
+      <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende wie auch das schließende Tag sind zwingend erforderlich.</td>
+      <th scope="row">Tag-Aussparung</th>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -133,9 +127,7 @@ frame.config = frameConfig;
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>

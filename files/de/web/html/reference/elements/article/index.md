@@ -1,11 +1,12 @@
 ---
-title: "<article>: Das Artikel-Inhaltselement"
+title: "`<article>` HTML-Artikelinhalts-Element"
+short-title: <article>
 slug: Web/HTML/Reference/Elements/article
 l10n:
-  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<article>`**-Element repräsentiert eine eigenständige Zusammenstellung in einem Dokument, einer Seite, Anwendung oder Website, die dazu bestimmt ist, eigenständig verteilbar oder wiederverwendbar zu sein (z. B. in der Syndizierung). Beispiele umfassen: einen Forenbeitrag, einen Magazin- oder Zeitungsartikel, einen Blogeintrag, eine Produktkarte, einen von Nutzern eingesendeten Kommentar, ein interaktives Widget oder Gadget oder jeden anderen unabhängigen Inhaltsgegenstand.
+Das **`<article>`**-Element ([HTML](/de/docs/Web/HTML)) repräsentiert eine eigenständige Komposition in einem Dokument, einer Seite, einer Anwendung oder einem Standort, die darauf ausgelegt ist, unabhängig vertrieben oder wiederverwendet zu werden (z. B. in der Syndikation). Beispiele hierfür sind: ein Forumspost, ein Magazin- oder Zeitungsartikel, ein Blogeintrag, eine Produktkarte, ein vom Benutzer eingereichter Kommentar, ein interaktives Widget oder Gadget oder ein beliebiger anderer unabhängiger Inhalt.
 
 {{InteractiveExample("HTML Demo: &lt;article&gt;", "tabbed-standard")}}
 
@@ -53,18 +54,18 @@ Das **`<article>`**-Element repräsentiert eine eigenständige Zusammenstellung 
 }
 ```
 
-Ein gegebenes Dokument kann mehrere Artikel enthalten; zum Beispiel auf einem Blog, der den Text jedes Artikels nacheinander zeigt, während der Leser scrollt, wäre jeder Beitrag in einem `<article>`-Element enthalten, möglicherweise mit einem oder mehreren `<section>`-Elementen darin.
+Ein bestimmtes Dokument kann mehrere Artikel enthalten. Beispielsweise bei einem Blog, der den Text jedes Artikels nacheinander anzeigt, während der Leser scrollt, würde jeder Beitrag in einem `<article>`-Element enthalten sein, möglicherweise mit einem oder mehreren `<section>`-Elementen darin.
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Jedes `<article>` sollte identifiziert werden, typischerweise durch das Einschließen einer Überschrift (ein [`<h1>` - `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)-Element) als Kind des `<article>`-Elements.
-- Wenn ein `<article>`-Element verschachtelt ist, repräsentiert das innere Element einen Artikel, der mit dem äußeren Element in Beziehung steht. Zum Beispiel können die Kommentare eines Blogbeitrags `<article>`-Elemente sein, die im `<article>` enthalten sind, das den Blogbeitrag repräsentiert.
-- Autoreninformationen eines `<article>`-Elements können durch das {{HTMLElement("address")}}-Element bereitgestellt werden, aber das gilt nicht für verschachtelte `<article>`-Elemente.
-- Das Veröffentlichungsdatum und die -zeit eines `<article>`-Elements können mit dem [`datetime`](/de/docs/Web/HTML/Reference/Elements/time#datetime)-Attribut eines {{HTMLElement("time")}}-Elements beschrieben werden.
+- Jedes `<article>` sollte identifiziert werden, typischerweise durch das Einschließen einer Überschrift ([`<h1>` - `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)) als Kind des `<article>`-Elements.
+- Wenn ein `<article>`-Element verschachtelt ist, repräsentiert das innere Element einen Artikel, der mit dem äußeren Element in Verbindung steht. Beispielsweise können die Kommentare zu einem Blog-Eintrag `<article>`-Elemente sein, die im `<article>` des Blog-Eintrags verschachtelt sind.
+- Autorinformationen eines `<article>`-Elements können durch das {{HTMLElement("address")}}-Element bereitgestellt werden, sie gelten jedoch nicht für verschachtelte `<article>`-Elemente.
+- Das Veröffentlichungsdatum und die Uhrzeit eines `<article>`-Elements können mit dem [`datetime`](/de/docs/Web/HTML/Reference/Elements/time#datetime)-Attribut eines {{HTMLElement("time")}}-Elements beschrieben werden.
 
 ## Beispiele
 
@@ -126,22 +127,22 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#sectioning_content"
-          >Sektionierender Inhalt</a
+          >Abschnittsinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >Greifbarer Inhalt</a
+          >wahrnehmbarer Inhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
@@ -150,12 +151,12 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließenden Inhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;article></code>-Element kein Nachfahre eines {{HTMLElement("address")}}-Elements sein darf.
+          >Flussinhalt</a
+        > akzeptiert. Beachten Sie, dass ein `<article>`-Element kein Nachfahre eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
@@ -169,7 +170,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role"><code>application</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role"><code>document</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/feed_role"><code>feed</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role"><code>main</code></a>,
@@ -194,5 +195,5 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 
 ## Siehe auch
 
-- Andere sektionsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}}
-- [Verwendung von HTML-Sektionen und Umrissen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
+- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}}
+- [Verwendung von HTML-Abschnitten und Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)

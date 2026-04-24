@@ -1,11 +1,12 @@
 ---
-title: "<nav>: Das Navigationselement"
+title: "`<nav>` HTML-Navigationsbereichselement"
+short-title: <nav>
 slug: Web/HTML/Reference/Elements/nav
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<nav>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einen Abschnitt einer Seite, dessen Zweck es ist, Navigationslinks entweder innerhalb des aktuellen Dokuments oder zu anderen Dokumenten bereitzustellen. Häufige Beispiele für Navigationsabschnitte sind Menüs, Inhaltsverzeichnisse und Indizes.
+Das **`<nav>`**-Element von [HTML](/de/docs/Web/HTML) repräsentiert einen Abschnitt einer Seite, dessen Zweck darin besteht, Navigationslinks bereitzustellen, entweder innerhalb des aktuellen Dokuments oder zu anderen Dokumenten. Häufige Beispiele für Navigationsabschnitte sind Menüs, Inhaltsverzeichnisse und Indizes.
 
 {{InteractiveExample("HTML Demo: &lt;nav&gt;", "tabbed-standard")}}
 
@@ -51,13 +52,13 @@ nav {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Es ist nicht notwendig, dass alle Links in einem `<nav>`-Element enthalten sind. `<nav>` ist nur für einen Hauptblock von Navigationslinks vorgesehen; typischerweise hat das {{HTMLElement("footer")}}-Element oft eine Liste mit Links, die nicht in einem `<nav>`-Element sein müssen.
-- Ein Dokument kann mehrere `<nav>`-Elemente enthalten, zum Beispiel eines für die Seitennavigation und eines für die innerseitige Navigation. In einem solchen Fall kann [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet werden, um die Zugänglichkeit zu verbessern, siehe [Beispiel](/de/docs/Web/HTML/Reference/Elements/Heading_Elements#labeling_section_content).
-- Benutzeragenten, wie Bildschirmleseprogramme für behinderte Benutzer, können dieses Element verwenden, um zu bestimmen, ob die anfängliche Darstellung von nur für die Navigation vorgesehenem Inhalt weggelassen werden soll.
+- Es ist nicht notwendig, dass alle Links in einem `<nav>`-Element enthalten sind. `<nav>` ist nur für einen größeren Block von Navigationslinks vorgesehen; typischerweise hat das {{HTMLElement("footer")}}-Element oft eine Liste von Links, die nicht in einem `<nav>`-Element enthalten sein müssen.
+- Ein Dokument kann mehrere `<nav>`-Elemente haben, zum Beispiel eines für die Seitennavigation und eines für die innerseitige Navigation. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) kann in solchen Fällen verwendet werden, um die Zugänglichkeit zu verbessern, siehe [Beispiel](/de/docs/Web/HTML/Reference/Elements/Heading_Elements#labeling_section_content).
+- Benutzeragenten, wie Bildschirmlesegeräte für behinderte Benutzer, können dieses Element verwenden, um zu bestimmen, ob die initiale Darstellung von nur aus Navigation bestehendem Inhalt weggelassen werden soll.
 
 ## Beispiele
 
@@ -75,7 +76,7 @@ In diesem Beispiel wird ein `<nav>`-Block verwendet, um eine ungeordnete Liste (
 
 {{EmbedLiveSample('unordered-list')}}
 
-Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-Element muss jedoch keine Liste enthalten, sondern kann auch andere Arten von Inhalten umfassen. In diesem Navigationsblock werden Links im Prosaformat bereitgestellt:
+Die Semantik des `nav`-Elements liegt darin, Links bereitzustellen. Allerdings muss ein `nav`-Element keine Liste enthalten, es kann auch andere Arten von Inhalten enthalten. In diesem Navigationsblock werden Links im Fließtext bereitgestellt:
 
 ```html live-sample___prose
 <nav>
@@ -118,12 +119,12 @@ Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#sectioning_content"
-          >Strukturierender Inhalt</a
+          >gliedernder Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Fließender Inhalt</a
@@ -131,11 +132,11 @@ Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen von Tags</th>
-      <td>Keines, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
@@ -175,5 +176,5 @@ Die Semantik des `nav`-Elements besteht darin, Links bereitzustellen. Ein `nav`-
 ## Siehe auch
 
 - Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Abschnitte und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).
+- [Abschnitte und Umrisse eines HTML-Dokuments](/de/docs/Web/HTML/Reference/Elements/Heading_Elements).
 - [ARIA: Navigationsrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role)

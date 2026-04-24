@@ -1,11 +1,12 @@
 ---
-title: "<summary>: Das Offene-Element-Zusammenfassung"
+title: "`<summary>` HTML-Disclosure-Übersichtselement"
+short-title: <summary>
 slug: Web/HTML/Reference/Elements/summary
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<summary>`** [HTML](/de/docs/Web/HTML)-Element gibt eine Zusammenfassung, eine Bildunterschrift oder eine Legende für ein {{HTMLElement("details")}}-Element mit einer Offenen-Box an. Ein Klick auf das `<summary>`-Element schaltet den Zustand des übergeordneten `<details>`-Elements zwischen geöffnet und geschlossen um.
+Das **`<summary>`**-Element [HTML](/de/docs/Web/HTML) definiert eine Zusammenfassung, Beschriftung oder Legende für eine {{HTMLElement("details")}}-Element-Box. Ein Klick auf das `<summary>`-Element schaltet den Zustand des übergeordneten `<details>`-Elements zwischen geöffnet und geschlossen um.
 
 {{InteractiveExample("HTML Demo: &lt;summary&gt;", "tabbed-shorter")}}
 
@@ -46,33 +47,33 @@ details[open] summary {
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Die Inhalte des `<summary>`-Elements können beliebige Überschrift-Inhalte, einfacher Text oder HTML sein, das innerhalb eines Absatzes verwendet werden kann.
+Der Inhalt des `<summary>`-Elements kann jede Überschrift, Fließtext oder HTML umfassen, das innerhalb eines Absatzes verwendet werden kann.
 
-Ein `<summary>`-Element darf _nur_ als das erste Kind eines `<details>`-Elements verwendet werden. Wenn der Benutzer auf die Zusammenfassung klickt, wird das übergeordnete `<details>`-Element geöffnet oder geschlossen, und es wird ein [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis an das `<details>`-Element gesendet, mit dem Sie informiert werden können, wann diese Zustandsänderung eintritt.
+Ein `<summary>`-Element darf _nur_ als erstes Kind eines `<details>`-Elements verwendet werden. Wenn der Benutzer auf die Zusammenfassung klickt, wird das übergeordnete `<details>`-Element geöffnet oder geschlossen, und dann wird ein [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis an das `<details>`-Element gesendet, das verwendet werden kann, um Sie darüber zu informieren, wann diese Zustandsänderung auftritt.
 
-Der Inhalt des `<details>`-Elements bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
+Der Inhalt des `<details>` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
 
-### Standard-Label-Text
+### Standard-Text der Bezeichnung
 
-Wenn das erste Kind eines `<details>`-Elements kein `<summary>`-Element ist, wird der {{Glossary("user_agent", "Benutzeragent")}} eine Standardzeichenfolge (typischerweise "Details") als Label für die Offenlegungsbox verwenden.
+Wenn das erste Kind eines `<details>`-Elements nicht ein `<summary>`-Element ist, wird der {{Glossary("user_agent", "User Agent")}} eine Standardzeichenkette (typischerweise "Details") als Bezeichnung für die Disclosure-Box verwenden.
 
 ### Standardstil
 
-Laut HTML-Spezifikation umfasst der Standardstil für `<summary>`-Elemente `display: list-item`. Dadurch ist es möglich, das Symbol, das als Offenlegungs-Widget neben dem Label angezeigt wird, zu ändern oder zu entfernen. Standardmäßig ist dies typischerweise ein Dreieck.
+Laut HTML-Spezifikation beinhaltet der Standardstil für `<summary>`-Elemente `display: list-item`. Dies macht es möglich, das Symbol, das als Disclosure-Widget neben der Bezeichnung angezeigt wird, vom Standard, der typischerweise ein Dreieck ist, zu ändern oder zu entfernen.
 
-Sie können den Stil auch in `display: block` ändern, um das Offenlegungsdreieck zu entfernen.
+Sie können den Stil auch zu `display: block` ändern, um das Disclosure-Dreieck zu entfernen.
 
-Weitere Informationen finden Sie im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität), da nicht alle Browser die volle Funktionalität dieses Elements unterstützen.
+Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Details, da nicht alle Browser die volle Funktionalität dieses Elements unterstützen.
 
-Für auf WebKit basierende Browser wie Safari ist es möglich, die Anzeige des Symbols über das nicht standardmäßige CSS-Pseudo-Element `::-webkit-details-marker` zu steuern. Um das Offenlegungsdreieck zu entfernen, verwenden Sie `summary::-webkit-details-marker { display: none }`.
+Für WebKit-basierte Browser, wie Safari, ist es möglich, die Anzeige des Symbols über das nicht standardmäßige CSS-Pseudo-Element `::-webkit-details-marker` zu steuern. Um das Disclosure-Dreieck zu entfernen, verwenden Sie `summary::-webkit-details-marker { display: none }`.
 
 ## Beispiele
 
-Nachfolgend sind einige Beispiele für die Verwendung von `<summary>` aufgeführt. Weitere Beispiele finden Sie in der Dokumentation zum {{HTMLElement("details")}}-Element.
+Unten finden Sie einige Beispiele, die die Verwendung von `<summary>` zeigen. Weitere Beispiele finden Sie in der Dokumentation für das {{HTMLElement("details")}}-Element.
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 Ein einfaches Beispiel, das die Verwendung von `<summary>` in einem {{HTMLElement("details")}}-Element zeigt:
 
@@ -93,7 +94,7 @@ Ein einfaches Beispiel, das die Verwendung von `<summary>` in einem {{HTMLElemen
 
 ### Zusammenfassungen als Überschriften
 
-Sie können Überschrift-Elemente in `<summary>` verwenden, so:
+Sie können Überschriftselemente in `<summary>` verwenden, wie folgt:
 
 ```html
 <details open>
@@ -110,14 +111,14 @@ Sie können Überschrift-Elemente in `<summary>` verwenden, so:
 
 {{EmbedLiveSample("Summaries_as_headings", 650, 200)}}
 
-Derzeit gibt es einige Abstandsprobleme, die mit CSS behoben werden könnten.
+Dies hat momentan einige Abstandsprobleme, die mit CSS behoben werden könnten.
 
 > [!WARNING]
-> Die dem `<summary>`-Element zugewiesene Rolle variiert je nach Browser. Einige weisen ihm immer noch die Standardrolle [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role) zu, was alle Rollen seiner Kinder entfernt. Diese Inkonsistenz kann Probleme für Benutzer von Hilfstechnologien wie Bildschirmlesegeräten verursachen (`<h4>` im vorherigen Beispiel wird seine Rolle entfernt haben und nicht als Überschrift für diese Benutzer betrachtet werden). Sie sollten Ihre `<summary>`-Implementierung auf mehreren Plattformen testen, um sicherzustellen, dass es eine konsistente Unterstützung für die Barrierefreiheit gibt.
+> Die dem `<summary>`-Element zugewiesene Rolle variiert zwischen den Browsern. Einige weisen ihm immer noch eine Standard-[`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role)-Rolle zu, die alle Rollen von dessen Kindern entfernt. Diese Inkonsistenz kann Probleme für Benutzer mit unterstützenden Technologien wie Bildschirmlesegeräten verursachen (`<h4>` im vorherigen Beispiel wird seine Rolle entfernt bekommen und nicht als Überschrift für diese Benutzer behandelt). Sie sollten Ihre `<summary>`-Implementierung auf mehreren Plattformen testen, um eine konsistente Unterstützung der Barrierefreiheit sicherzustellen.
 
 ### HTML in Zusammenfassungen
 
-In diesem Beispiel werden dem `<summary>`-Element einige Semantiken hinzugefügt, um das Label als wichtig zu kennzeichnen:
+Dieses Beispiel fügt dem `<summary>`-Element einige Semantiken hinzu, um die Bezeichnung als wichtig anzuzeigen:
 
 ```html
 <details open>
@@ -136,11 +137,54 @@ In diesem Beispiel werden dem `<summary>`-Element einige Semantiken hinzugefügt
 
 ### Ändern des Symbols der Zusammenfassung
 
-Das Marker-Symbol des `<summary>`-Elements, das Offenlegungsdreieck, kann mit CSS angepasst werden. Der Marker kann über das {{cssxref("::marker")}}-Pseudo-Element angesprochen werden, das die {{cssxref("list-style")}}-Kurzschreibweise und seine Langhandkomponenten-Eigenschaften wie {{cssxref("list-style-type")}} akzeptiert. Dies ermöglicht es, das Dreieck zu einem Bild (normalerweise mit {{cssxref("list-style-image")}}) oder einer Zeichenkette (einschließlich Emojis) zu ändern. In diesem Beispiel ersetzen wir den Inhalt eines Offenlegungs-Widgets und entfernen das Symbol von einem anderen, indem wir `list-style: none` vor dem Hinzufügen eines benutzerdefinierten Offenlegungssymbols über generierte Inhalte setzen.
+Das Markierungssymbol des `<summary>`-Elements, das Offenlegungsdreieck, kann mit CSS angepasst werden. Das Symbol kann mit dem {{cssxref("::marker")}}-Pseudo-Element angesprochen werden, das die {{cssxref("list-style")}}-Kurzschreibweise und dessen Langhandeigenschaft akzeptiert, wie {{cssxref("list-style-type")}}. Dies ermöglicht es, das Dreieck in ein Bild (normalerweise mit {{cssxref("list-style-image")}}) oder eine Zeichenkette (einschließlich Emojis) zu ändern. In diesem Beispiel ersetzen wir den Inhalt eines Disclosure-Widgets und entfernen das Symbol von einem anderen, indem wir `list-style: none` festlegen, bevor wir ein benutzerdefiniertes Disclosure-Symbol über generierten Inhalt hinzufügen.
 
 #### CSS
 
-Im ersten Offenlegungs-Widget stylen wir den `::marker`, indem wir den {{cssxref("content")}} basierend auf dem `[open]`-Attribut des `<details>`-Elements ändern. Für das zweite Widget entfernen wir den Marker mit `list-style`-Eigenschaften und fügen dann formatierte generierte Inhalte mit dem {{cssxref("::after")}}-Pseudo-Element hinzu. Wir fügen auch Stile für `::-webkit-details-marker` ein, um Safari anzusprechen. Der Selektor für das browserspezifische Pseudo-Element ist in einer {{cssxref(":is()")}}-Pseudo-Klasse enthalten, sodass der Selektorblock nicht ungültig wird, wenn das Pseudo-Element in einem Browser ungültig ist. Wir haben auch CSS [Verschachtelung](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector) verwendet. Sehen Sie das [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul.
+Im ersten Disclosure-Widget gestalten wir den `::marker`, indem wir den {{cssxref("content")}} basierend auf dem `[open]`-Attribut des `<details>`-Elements ändern. Für das zweite Widget entfernen wir das Markierungssymbol mit `list-style`-Eigenschaften und fügen dann stilisierten generierten Inhalt mit dem {{cssxref("::after")}}-Pseudo-Element hinzu. Wir fügen auch Stile für `::-webkit-details-marker` hinzu, um Safari abzuzielen. Der Selektor für das browserspezifische Pseudo-Element ist in einer {{cssxref(":is()")}}-Pseudo-Klasse enthalten, damit er die Selektorliste nicht ungültig macht.
+
+```css
+details {
+  font-size: 1rem;
+  font-family: "Open Sans", "Calibri", sans-serif;
+  border: solid;
+  padding: 2px 6px;
+  margin-bottom: 1em;
+}
+
+details:first-of-type summary::marker,
+:is(::-webkit-details-marker) {
+  content: "+ ";
+  font-family: monospace;
+  color: red;
+  font-weight: bold;
+}
+
+details[open]:first-of-type summary::marker {
+  content: "− ";
+}
+
+details:last-of-type summary {
+  list-style: none;
+  &::after {
+    content: "+";
+    color: white;
+    background-color: darkgreen;
+    border-radius: 1em;
+    font-weight: bold;
+    padding: 0 5px;
+    margin-inline-start: 5px;
+  }
+  [open] &::after {
+    content: "−";
+  }
+}
+details:last-of-type summary::-webkit-details-marker {
+  display: none;
+}
+```
+
+Das CSS enthält den `[open]` [Attribut-Selektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), der nur übereinstimmt, wenn das `open`-Attribut vorhanden ist (wenn die `<details>` geöffnet sind). Die {{cssxref(":first-of-type")}}- und {{cssxref(":last-of-type")}}-Pseudo-Klassen zielen auf das erste und die nachfolgenden Elemente desselben Typs ab. Wir haben das prefixed `-webkit-` Pseudo-Element innerhalb einer {{cssxref(":is()")}}-Pseudo-Klasse einbezogen, da diese eine [nachsichtige Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) annimmt. Falls das prefixed Pseudo-Element in einem Browser ungültig ist, wird der ganze Selektorblock nicht ungültig sein. Wir haben auch CSS [Verschachtelung](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector) verwendet. Siehe das [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul.
 
 #### HTML
 
@@ -173,46 +217,43 @@ Im ersten Offenlegungs-Widget stylen wir den `::marker`, indem wir den {{cssxref
 
 {{EmbedLiveSample("Changing the summary's icon", 650, 400)}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
      <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+          >Inhaltskategorien</a>
       </th>
       <td>
-        keine
+        none
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Wortlaut-Inhalte</a
-        >, optional vermischt mit
+          >Phrasierter Inhalt</a>, optional gemischt mit
         <a href="/de/docs/Web/HTML/Guides/Content_categories#heading_content"
-          >Überschrift-Inhalten</a
-        >
+          >Überschrift-Inhalt</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine; sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>Das {{HTMLElement("details")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td> <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a></td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene ARIA-Rollen</th>
-      <td>Keine <code>role</code> ist zulässig</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

@@ -1,15 +1,16 @@
 ---
-title: "<time>: Das (Datum-)Uhrzeit-Element"
+title: "`<time>` HTML Zeit (Datum) Element"
+short-title: <time>
 slug: Web/HTML/Reference/Elements/time
 l10n:
-  sourceCommit: eb9034ead504af00b27a7da3ff9d4f641ade5e59
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<time>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen bestimmten Zeitraum. Es kann das `datetime`-Attribut beinhalten, um Daten in ein maschinenlesbares Format zu übersetzen, was zu besseren Suchmaschinenergebnissen oder benutzerdefinierten Funktionen wie Erinnerungen führen kann.
+Das **`<time>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen bestimmten Zeitraum. Es kann das `datetime`-Attribut enthalten, um Daten in ein maschinenlesbares Format zu übersetzen, was zu besseren Suchmaschinenergebnissen oder benutzerdefinierten Funktionen wie Erinnerungen führen kann.
 
-Es kann einen der folgenden Fälle darstellen:
+Es kann eines der folgenden darstellen:
 
-- Eine Uhrzeit auf einer 24-Stunden-Uhr.
+- Eine Zeit auf einer 24-Stunden-Uhr.
 - Ein genaues Datum im [Gregorianischen Kalender](https://en.wikipedia.org/wiki/Gregorian_calendar) (mit optionalen Zeit- und Zeitzoneninformationen).
 - [Eine gültige Zeitdauer](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-duration-string).
 
@@ -38,17 +39,17 @@ time {
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `datetime`
-  - : Dieses Attribut gibt die Uhrzeit und/oder das Datum des Elements an und muss in einem der unten beschriebenen Formate vorliegen.
+  - : Dieses Attribut gibt die Zeit und/oder das Datum des Elements an und muss in einem der unten beschriebenen Formate vorliegen.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Dieses Element dient dazu, Daten und Zeiten in einem maschinenlesbaren Format darzustellen. Dies kann beispielsweise einem Nutzeragenten helfen, ein Ereignis dem Kalender eines Benutzers hinzuzufügen.
+Dieses Element dient dazu, Daten und Zeiten in einem maschinenlesbaren Format zu präsentieren. Zum Beispiel kann dies einem User-Agent helfen, ein Ereignis zum Kalender eines Benutzers hinzuzufügen.
 
-Dieses Element sollte nicht für Daten vor der Einführung des Gregorianischen Kalenders verwendet werden (aufgrund von Komplikationen bei der Berechnung dieser Daten).
+Dieses Element sollte nicht für Daten vor der Einführung des Gregorianischen Kalenders verwendet werden (wegen Komplikationen bei der Berechnung dieser Daten).
 
-Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `datetime`-Attributs des Elements, das im richtigen Format sein muss (siehe unten). Wenn das Element kein `datetime`-Attribut hat, **darf es keine Element-Nachkommen haben**, und der _datetime-Wert_ ist der Textinhalt des Elements.
+Der _datetime-Wert_ (der maschinenlesbare Wert des Datums und der Zeit) ist der Wert des `datetime`-Attributs des Elements, das im richtigen Format vorliegen muss (siehe unten). Wenn das Element kein `datetime`-Attribut hat, **darf es keine untergeordneten Elemente haben**, und der _datetime-Wert_ ist der Textinhalt des Kindelements.
 
-### Gültige datetime-Werte
+### Gültige `datetime`-Werte
 
 <table class="no-markdown">
   <thead>
@@ -70,7 +71,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
       <td><code>1887-12-01</code></td>
     </tr>
     <tr>
-      <td>Gültiger jahrunabhängiger Datumsstring</td>
+      <td>Gültiger datenloser Datumsstring</td>
       <td><code><em>MM</em>-<em>DD</em></code></td>
       <td><code>11-12</code></td>
     </tr>
@@ -126,7 +127,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
     <tr>
       <td>Gültiger globaler Datum- und Zeitstring</td>
       <td style="max-width:12em">
-        Jede Kombination aus einem gültigen lokalen Datum- und Zeitstring
+        Jede Kombination eines gültigen lokalen Datum- und Zeitstrings
         gefolgt von einem gültigen Zeitzonen-Offset-String
       </td>
       <td>
@@ -142,12 +143,12 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
       <td><code>2013-W46</code></td>
     </tr>
     <tr>
-      <td>Vier oder mehr ASCII-Ziffern</td>
+      <td>Vier oder mehr ASCII-Zahlen</td>
       <td><code><em>YYYY</em></code></td>
       <td><code>2013</code>, <code>0001</code></td>
     </tr>
     <tr>
-      <td>Gültiger Dauerstring</td>
+      <td>Gültiger Dauersuffix</td>
       <td>
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>S</code><br />
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>.<em>X</em>S</code><br />
@@ -214,31 +215,31 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
-        >, spürbar Inhalte.
+          >Phrasierung Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -253,7 +254,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -272,4 +273,4 @@ Der _datetime-Wert_ (der maschinenlesbare Wert von datetime) ist der Wert des `d
 
 ## Siehe auch
 
-- Das {{HTMLElement("data")}} Element, das die Signalisierung anderer Arten von Werten ermöglicht.
+- Das {{HTMLElement("data")}} Element, das es ermöglicht, andere Arten von Werten zu signalisieren.

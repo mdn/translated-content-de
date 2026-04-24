@@ -1,11 +1,12 @@
 ---
-title: "<figure>: Das Figure-Element mit optionaler Bildunterschrift"
+title: "`<figure>` HTML-Element für eigenständige Inhalte mit optionalem Beschriftungselement"
+short-title: <figure>
 slug: Web/HTML/Reference/Elements/figure
 l10n:
-  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständigen Inhalt, eventuell mit einer optionalen Bildunterschrift, die mithilfe des {{HTMLElement("figcaption")}}-Elements angegeben wird. Die Figur, ihre Bildunterschrift und ihr Inhalt werden als eine Einheit betrachtet.
+Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständige Inhalte, eventuell mit einer optionalen Beschriftung, die mit dem {{HTMLElement("figcaption")}}-Element angegeben wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine Einheit betrachtet.
 
 {{InteractiveExample("HTML Demo: &lt;figure&gt;", "tabbed-shorter")}}
 
@@ -48,9 +49,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Nutzungshinweise
 
-- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Codefragment usw., das im Hauptfluss eines Dokuments referenziert wird, aber an eine andere Stelle im Dokument oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinträchtigen.
-- Eine Bildunterschrift kann dem `<figure>`-Element zugeordnet werden, indem ein {{HTMLElement("figcaption")}} innerhalb des Elements hinzugefügt wird (als erstes oder letztes Kind). Das erste `<figcaption>`-Element, das in der Figur gefunden wird, wird als Bildunterschrift der Figur dargestellt.
-- Das `<figcaption>` liefert den {{Glossary("accessible_name", "zugänglichen Namen")}} für das übergeordnete `<figure>`.
+- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Schnipsel usw., das im Hauptfluss eines Dokuments referenziert wird, aber in einen anderen Teil des Dokuments oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinflussen.
+- Eine Beschriftung kann mit dem `<figure>`-Element verknüpft werden, indem ein {{HTMLElement("figcaption")}} darin eingefügt wird (als erstes oder letztes Kind). Das erste `<figcaption>`-Element, das in der Figur gefunden wird, wird als die Beschriftung der Figur dargestellt.
+- Das `<figcaption>` bietet den {{Glossary("accessible_name", "barrierefreien Namen")}} für das übergeordnete `<figure>`-Element.
 
 ## Beispiele
 
@@ -73,7 +74,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 {{EmbedLiveSample("Images", "100%", 375)}}
 
-### Codefragmente
+### Code-Schnipsel
 
 ```html
 <figure>
@@ -163,7 +164,7 @@ function NavigatorExample() {
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind verpflichtend.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -175,10 +176,10 @@ function NavigatorExample() {
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role"
-          >figure</a
+          >Abbildung</a
         >
       </td>
     </tr>
@@ -186,9 +187,9 @@ function NavigatorExample() {
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         Ohne
-        <a href="/de/docs/Web/HTML/Reference/Elements/figcaption">figcaption</a>-Nachfahre:
-        <a href="https://w3c.github.io/html-aria/#dfn-any-role">jede</a>,
-        andernfalls keine erlaubten Rollen
+        <a href="/de/docs/Web/HTML/Reference/Elements/figcaption">figcaption</a>-Nachkommen:
+        <a href="https://w3c.github.io/html-aria/#dfn-any-role">beliebig</a>,
+        ansonsten keine erlaubten Rollen
       </td>
     </tr>
     <tr>

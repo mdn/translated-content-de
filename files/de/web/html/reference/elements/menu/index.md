@@ -1,11 +1,12 @@
 ---
-title: "<menu>: Das Menü-Element"
+title: "`<menu>` HTML-Menu-Element"
+short-title: <menu>
 slug: Web/HTML/Reference/Elements/menu
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<menu>`** [HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, jedoch von Browsern (und im Accessibility-Baum) genauso behandelt wie {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
+Das **`<menu>`** [HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, wird jedoch von Browsern (und im Accessibility-Baum) genauso behandelt wie {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}}-Elemente dargestellt werden).
 
 {{InteractiveExample("HTML Demo: &lt;menu&gt;", "tabbed-shorter")}}
 
@@ -40,20 +41,20 @@ menu {
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `compact` {{Deprecated_inline}}
-  - : Dieses boolesche Attribut deutet an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+  - : Dieses Boolean-Attribut deutet darauf hin, dass die Liste in einem kompakten Stil angezeigt werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Symbolleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
+Die Elemente `<menu>` und {{HTMLElement("ul")}} repräsentieren beide eine ungeordnete Liste von Elementen. Der wesentliche Unterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` eine Werkzeugleiste darstellt, die Befehle enthält, die der Benutzer ausführen oder aktivieren kann.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element eine zusätzliche Verwendungsmöglichkeit als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht in der Spezifikation enthalten.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität wird als obsolet betrachtet und ist nicht in der Spezifikation enthalten.
 
 ## Beispiele
 
-### Symbolleiste
+### Werkzeugleiste
 
-In diesem Beispiel wird ein `<menu>` verwendet, um eine Symbolleiste für eine Bearbeitungsanwendung zu erstellen.
+In diesem Beispiel wird ein `<menu>` verwendet, um eine Werkzeugleiste für eine Bearbeitungsanwendung zu erstellen.
 
 #### HTML
 
@@ -65,7 +66,7 @@ In diesem Beispiel wird ein `<menu>` verwendet, um eine Symbolleiste für eine B
 </menu>
 ```
 
-Beachten Sie, dass dies funktional nicht anders ist als:
+Beachten Sie, dass dies funktionell nicht anders ist als:
 
 ```html
 <ul>
@@ -99,28 +100,31 @@ button {
 
 {{EmbedLiveSample("Toolbar", "100%", 100)}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a>
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
         <p>
           <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-            >Flussinhalt</a>. Wenn die Kinder des Elements mindestens ein
+            >Flussinhalt</a
+          >. Wenn die Kindelemente des Elements mindestens ein
           {{HTMLElement("li")}}-Element enthalten:
           <a
             href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-            >fühlbarer Inhalt</a>.
+            >Greifbarer Inhalt</a
+          >.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <p>
           Null oder mehr Vorkommen von {{HTMLElement("li")}},
@@ -134,12 +138,12 @@ button {
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a>
-        akzeptiert.
+          >Flussinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -153,7 +157,7 @@ button {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>,
         <code
@@ -183,4 +187,4 @@ button {
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}} und {{HTMLElement("li")}}.
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.

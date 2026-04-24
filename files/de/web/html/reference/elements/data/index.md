@@ -1,11 +1,12 @@
 ---
-title: "<data>: Das Data-Element"
+title: "`<data>` HTML-Datenelement"
+short-title: <data>
 slug: Web/HTML/Reference/Elements/data
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Stück Inhalt mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
+Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Inhaltselement mit einer maschinenlesbaren Übersetzung. Falls der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
 
 {{InteractiveExample("HTML Demo: &lt;data&gt;", "tabbed-shorter")}}
 
@@ -27,14 +28,14 @@ data:hover::after {
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `value`
   - : Dieses Attribut gibt die maschinenlesbare Übersetzung des Inhalts des Elements an.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit einer Produktnummer.
+Das folgende Beispiel zeigt Produktnamen, verbindet aber auch jeden Namen mit einer Produktnummer.
 
 ```html
 <p>New Products</p>
@@ -49,7 +50,7 @@ Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit
 
 {{EmbedLiveSample('Examples')}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -64,28 +65,28 @@ Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierungsmäßiger Inhalt</a
-        >, fühlbarer Inhalt.
+          >Textinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Formulierungsmäßiger Inhalt</a
+          >Textinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierungsmäßigen Inhalt</a
+          >Textinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -101,7 +102,7 @@ Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -120,4 +121,4 @@ Das folgende Beispiel zeigt Produktnamen, verknüpft jedoch auch jeden Namen mit
 
 ## Siehe auch
 
-- Das HTML-{{HTMLElement("time")}}-Element.
+- Das HTML {{HTMLElement("time")}}-Element.

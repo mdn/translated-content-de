@@ -1,11 +1,12 @@
 ---
-title: "<div>: Das Inhaltsdivisions-Element"
+title: "`<div>` HTML-Inhaltsaufteilungselement"
+short-title: <div>
 slug: Web/HTML/Reference/Elements/div
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<div>`** [HTML](/de/docs/Web/HTML) Element ist der generische Container für Fließinhalt. Es hat keine Auswirkung auf den Inhalt oder das Layout, bis es in irgendeiner Weise mit {{Glossary("CSS", "CSS")}} gestaltet wird (z. B. wird ein Stil direkt darauf angewendet, oder ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) wird auf sein übergeordnetes Element angewendet).
+Das **`<div>`**-Element von [HTML](/de/docs/Web/HTML) ist der generische Container für Flussinhalt. Es hat keine Wirkung auf den Inhalt oder das Layout, bis es auf irgendeine Weise mit {{Glossary("CSS", "CSS")}} gestylt wird (z.B. durch direkt angewandtes Styling oder ein Layoutmodell wie [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), das auf das Elternelement angewendet wird).
 
 {{InteractiveExample("HTML Demo: &lt;div&gt;", "tabbed-standard")}}
 
@@ -37,26 +38,26 @@ Das **`<div>`** [HTML](/de/docs/Web/HTML) Element ist der generische Container f
 }
 ```
 
-Als "reiner" Container repräsentiert das `<div>`-Element von sich aus nichts. Stattdessen wird es verwendet, um Inhalt zu gruppieren, damit es leicht mit den [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attributen gestaltet werden kann, Abschnitte eines Dokuments als in einer anderen Sprache geschrieben zu kennzeichnen (mithilfe des [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attributs), und so weiter.
+Als "reiner" Container stellt das `<div>`-Element an sich nichts dar. Stattdessen wird es verwendet, um Inhalte zu gruppieren, sodass sie durch die Verwendung der Attribute [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) leicht gestylt werden können, einen Abschnitt eines Dokuments als in einer anderen Sprache geschrieben zu kennzeichnen (mit dem Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)) usw.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!NOTE]
-> Das `align`-Attribut ist veraltet; bitte verwenden Sie es nicht mehr. Stattdessen sollten Sie CSS-Eigenschaften oder Techniken wie [CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout) oder [CSS Flexbox](/de/docs/Learn/web_development/Core/CSS_layout/Flexbox) verwenden, um `<div>`-Elemente auf der Seite auszurichten und zu positionieren.
+> Das `align`-Attribut ist veraltet; verwenden Sie es nicht mehr. Sie sollten stattdessen CSS-Eigenschaften oder Techniken wie [CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout) oder [CSS Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) verwenden, um `<div>`-Elemente auf der Seite auszurichten und zu positionieren.
 
 ## Verwendungshinweise
 
-- Das `<div>`-Element sollte nur dann verwendet werden, wenn kein anderes semantisches Element (wie {{HTMLElement("article")}} oder {{HTMLElement("nav")}}) geeignet ist.
+- Das `<div>`-Element sollte nur verwendet werden, wenn kein anderes semantisches Element (wie {{HTMLElement("article")}} oder {{HTMLElement("nav")}}) geeignet ist.
 
 ## Barrierefreiheit
 
-Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://w3c.github.io/aria/#generic), und nicht "none". Dies kann bestimmte ARIA-Kombinationserklärungen beeinflussen, die erwarten, dass ein direkter Nachfahre ein Element mit einer bestimmten Rolle ist, um ordnungsgemäß zu funktionieren.
+Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://w3c.github.io/aria/#generic), und nicht `none`. Dies kann bestimmte ARIA-Kombinationserklärungen beeinträchtigen, die erwarten, dass ein direktes Nachfahrelement mit einer bestimmten Rolle ordnungsgemäß funktioniert.
 
 ## Beispiele
 
-### Ein einfaches Beispiel
+### Ein grundlegendes Beispiel
 
 ```html
 <div>
@@ -70,9 +71,9 @@ Das `<div>`-Element hat [eine implizite Rolle von `generic`](https://w3c.github.
 
 {{EmbedLiveSample("A_basic_example", 650, 60)}}
 
-### Ein stilisiertes Beispiel
+### Ein gestyltes Beispiel
 
-Dieses Beispiel erstellt eine schattierte Box, indem ein Stil auf das `<div>` mit CSS angewendet wird. Beachten Sie die Verwendung des [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) Attributs auf dem `<div>`, um den Stil mit dem Namen `"shadowbox"` auf das Element anzuwenden.
+Dieses Beispiel erzeugt eine Schattenbox, indem ein Stil auf das `<div>` mithilfe von CSS angewendet wird. Beachten Sie die Verwendung des Attributs [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) auf dem `<div>`, um den Stil namens `"shadowbox"` auf das Element anzuwenden.
 
 #### HTML
 
@@ -110,35 +111,35 @@ Dieses Beispiel erstellt eine schattierte Box, indem ein Stil auf das `<div>` mi
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
-        >, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">spürbarer Inhalt</a>.
+          >Flussinhalt</a
+        >, <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">fühlbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
-        >.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das übergeordnete Element ein
-        {{HTMLElement("dl")}} Element ist: ein oder mehrere
-        {{HTMLElement("dt")}} Elemente gefolgt von ein oder mehreren
-        {{HTMLElement("dd")}} Elementen, optional vermischt mit
+          >Flussinhalt</a
+        >.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das Elternelement ein
+        {{HTMLElement("dl")}}-Element ist: ein oder mehrere
+        {{HTMLElement("dt")}}-Elemente, gefolgt von einem oder mehreren
+        {{HTMLElement("dd")}}-Elementen, optional vermischt mit
         {{HTMLElement("script")}} und
-        {{HTMLElement("template")}} Elementen.
+        {{HTMLElement("template")}}-Elementen.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Tags-Auslassung</th>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flussinhalt</a
         > akzeptiert.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML):
-        {{HTMLElement("dl")}} Element.
+        {{HTMLElement("dl")}}-Element.
       </td>
     </tr>
     <tr>
@@ -172,5 +173,5 @@ Dieses Beispiel erstellt eine schattierte Box, indem ein Stil auf das `<div>` mi
 
 ## Siehe auch
 
-- Semantische Segmentierungselemente: {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}
-- {{HTMLElement("span")}} Element für die Gestaltung von Phraseninhalten
+- Semantische Bereichselemente: {{HTMLElement("section")}}, {{HTMLElement("article")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}
+- {{HTMLElement("span")}}-Element zum Styling von Phraseninhalt

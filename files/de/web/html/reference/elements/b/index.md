@@ -1,11 +1,12 @@
 ---
-title: "<b>: Das Bring Attention To-Element"
+title: "`<b>` HTML-Element zur Hervorhebung"
+short-title: <b>
 slug: Web/HTML/Reference/Elements/b
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<b>`**-Element von [HTML](/de/docs/Web/HTML) wird verwendet, um die Aufmerksamkeit des Lesers auf die Inhalte des Elements zu lenken, denen ansonsten keine besondere Bedeutung beigemessen wird. Dies war früher als Fettschrift-Element bekannt, und die meisten Browser zeichnen den Text weiterhin fett. Sie sollten jedoch `<b>` nicht verwenden, um Text zu formatieren oder ihm Bedeutung zu verleihen. Wenn Sie fetten Text erstellen möchten, sollten Sie die CSS-Eigenschaft {{cssxref("font-weight")}} verwenden. Wenn Sie angeben möchten, dass ein Element von besonderer Bedeutung ist, sollten Sie das {{HTMLElement("strong")}}-Element verwenden.
+Das **`<b>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um die Aufmerksamkeit des Lesers auf den Inhalt des Elements zu lenken, dem ansonsten keine besondere Bedeutung zugeschrieben wird. Früher war es als Fettschrift-Element bekannt, und die meisten Browser zeigen den Text weiterhin in Fettschrift an. Allerdings sollten Sie `<b>` nicht für die Textgestaltung oder zur Vermittlung von Bedeutung verwenden. Wenn Sie fetten Text erstellen möchten, sollten Sie die CSS-Eigenschaft {{cssxref("font-weight")}} verwenden. Wenn Sie anzeigen möchten, dass ein Element von besonderer Bedeutung ist, sollten Sie das {{HTMLElement("strong")}}-Element verwenden.
 
 {{InteractiveExample("HTML Demo: &lt;b&gt;", "tabbed-shorter")}}
 
@@ -26,16 +27,16 @@ b {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-- Verwenden Sie `<b>` für Fälle wie Schlüsselwörter in einer Zusammenfassung, Produktnamen in einer Bewertung oder andere Textabschnitte, deren typische Darstellung fett wäre (aber keine besondere Bedeutung einschließt).
-- Verwechseln Sie das `<b>`-Element nicht mit den {{HTMLElement("strong")}}, {{HTMLElement("em")}} oder {{HTMLElement("mark")}}-Elementen. Das {{HTMLElement("strong")}}-Element steht für Text von bestimmter _Wichtigkeit_, {{HTMLElement("em")}} betont den Text, und das {{HTMLElement("mark")}}-Element zeigt Text von bestimmter _Relevanz_. Das `<b>`-Element vermittelt keine solche spezielle semantische Information; verwenden Sie es nur, wenn keine anderen passen.
-- Ebenso sollten Titel und Überschriften nicht mit dem `<b>`-Element markiert werden. Verwenden Sie dafür die Tags {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}}. Außerdem können Stylesheets den Standardstil dieser Elemente ändern, sodass sie nicht _notwendigerweise_ fett angezeigt werden.
-- Es ist eine gute Praxis, das [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut im `<b>`-Element zu verwenden, um bei Bedarf zusätzliche semantische Informationen zu vermitteln (zum Beispiel `<b class="lead">` für den ersten Satz in einem Absatz). Dies erleichtert die Verwaltung mehrerer Anwendungsfälle von `<b>`, wenn sich Ihre stilistischen Anforderungen ändern, ohne alle Verwendungen im HTML ändern zu müssen.
-- Historisch gesehen war das `<b>`-Element dazu gedacht, Text fett darzustellen. Seit HTML4 wurde Stil-Information als veraltet erklärt, daher wurde die Bedeutung des `<b>`-Elements geändert.
-- Wenn es keinen semantischen Zweck für die Verwendung des `<b>`-Elements gibt, sollten Sie stattdessen die CSS-Eigenschaft {{cssxref("font-weight")}} mit dem Wert `"bold"` verwenden, um Text fett zu machen.
+- Verwenden Sie das `<b>` für Fälle wie Schlüsselwörter in einer Zusammenfassung, Produktnamen in einer Rezension oder andere Textbereiche, deren typische Darstellung fettgedruckt wäre (aber keine besondere Bedeutung haben).
+- Verwechseln Sie das `<b>`-Element nicht mit den Elementen {{HTMLElement("strong")}}, {{HTMLElement("em")}} oder {{HTMLElement("mark")}}. Das {{HTMLElement("strong")}}-Element steht für Text von gewisser _Wichtigkeit_, {{HTMLElement("em")}} legt besonderen Nachdruck auf den Text und das {{HTMLElement("mark")}}-Element repräsentiert Text von gewisser _Relevanz_. Das `<b>`-Element übermittelt keine solche besondere semantische Information; verwenden Sie es nur, wenn keine anderen passen.
+- Ebenso markieren Sie keine Titel und Überschriften mit dem `<b>`-Element. Verwenden Sie dazu die Tags {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}}. Außerdem können Stylesheets den Standardstil dieser Elemente ändern, so dass sie nicht _notwendigerweise_ fett angezeigt werden.
+- Es ist eine gute Praxis, das [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut am `<b>`-Element zu verwenden, um bei Bedarf zusätzliche semantische Informationen zu vermitteln (zum Beispiel `<b class="lead">` für den ersten Satz in einem Absatz). Dies erleichtert das Verwalten mehrerer Verwendungsszenarien von `<b>`, falls sich Ihre stilistischen Anforderungen ändern, ohne dass alle Verwendungen im HTML geändert werden müssen.
+- Historisch gesehen war das `<b>`-Element dazu gedacht, Text fett darzustellen. Stilinformatio­nen wurden seit HTML4 als veraltet betrachtet, weshalb die Bedeutung des `<b>`-Elements geändert wurde.
+- Wenn es keinen semantischen Zweck für die Verwendung des `<b>`-Elements gibt, sollten Sie stattdessen die CSS-Eigenschaft {{cssxref("font-weight")}} mit dem Wert `"bold"` verwenden, um Text fett darzustellen.
 
 ## Beispiele
 
@@ -64,11 +65,11 @@ Keywords are displayed with the default style of the
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließtext</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        >, fühlbarer Inhalt.
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -81,10 +82,10 @@ Keywords are displayed with the default style of the
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
@@ -103,8 +104,8 @@ Keywords are displayed with the default style of the
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

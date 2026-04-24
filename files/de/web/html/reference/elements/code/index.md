@@ -1,11 +1,12 @@
 ---
-title: "<code>: Das Inline-Code-Element"
+title: "`<code>` HTML-Inline-Code-Element"
+short-title: <code>
 slug: Web/HTML/Reference/Elements/code
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<code>`** [HTML](/de/docs/Web/HTML) Element zeigt seinen Inhalt so an, dass angezeigt wird, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Textinhalt mit der Standard-Monospace-Schriftart des {{Glossary("user_agent", "Benutzeragenten")}} angezeigt.
+Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweisen soll, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Textinhalt mit der Standard-Monospace-Schriftart des {{Glossary("user_agent", "Benutzeragents")}} dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;code&gt;", "tabbed-shorter")}}
 
@@ -27,11 +28,11 @@ code {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-Ein Absatztext, der `<code>` enthält:
+Ein Textabsatz, der `<code>` enthält:
 
 ```html
 <p>
@@ -46,9 +47,9 @@ Ein Absatztext, der `<code>` enthält:
 
 ## Hinweise
 
-Um mehrere Zeilen von Code darzustellen, platzieren Sie das `<code>` Element innerhalb eines {{HTMLElement("pre")}} Elements. Das `<code>` Element allein stellt nur einen einzigen Codeausdruck oder eine einzige Codezeile dar.
+Um mehrere Codezeilen darzustellen, sollten Sie das `<code>`-Element innerhalb eines {{HTMLElement("pre")}}-Elements umschließen. Das `<code>`-Element alleine repräsentiert nur eine einzelne Codephrase oder eine Codezeile.
 
-Eine CSS-Regel kann für den `code` Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Von der Benutzerin oder dem Benutzer festgelegte Präferenzen könnten die angegebene CSS übergehen.
+Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Einstellungen, die vom Benutzer festgelegt wurden, können Vorrang vor dem angegebenen CSS haben.
 
 ## Technische Zusammenfassung
 
@@ -62,31 +63,31 @@ Eine CSS-Regel kann für den `code` Selektor definiert werden, um die Standardsc
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        >, fühlbarer Inhalt.
+          >inhaltliche Struktur</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Inhaltliche Struktur</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >inhaltliche Struktur</a
         > akzeptiert.
       </td>
     </tr>
@@ -107,7 +108,7 @@ Eine CSS-Regel kann für den `code` Selektor definiert werden, um die Standardsc
       <th scope="row">DOM-Schnittstelle</th>
       <td>
         [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
-        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement) Schnittstelle für dieses Element.
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

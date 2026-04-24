@@ -1,11 +1,12 @@
 ---
-title: "<map>: Das Image-Map-Element"
+title: "`<map>` HTML Bildkarten-Element"
+short-title: <map>
 slug: Web/HTML/Reference/Elements/map
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<map>`** [HTML](/de/docs/Web/HTML) Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image-Map (eine anklickbare Link-Fläche) zu definieren.
+Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Bildkarte (einen anklickbaren Linkbereich) zu definieren.
 
 {{InteractiveExample("HTML Demo: &lt;map&gt;", "tabbed-standard")}}
 
@@ -44,16 +45,16 @@ img {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `name`
-  - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen enthalten. Der Wert des `name`-Attributs darf nicht gleich dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument sein. Wenn das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut ebenfalls angegeben ist, müssen beide Attribute denselben Wert haben.
+  - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen haben. Der Wert des `name`-Attributs darf nicht dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument entsprechen. Wenn das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut ebenfalls angegeben ist, müssen beide Attribute denselben Wert haben.
 
 ## Beispiele
 
-### Image-Map mit zwei Bereichen
+### Bildkarte mit zwei Bereichen
 
-Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für CSS.
+Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei für CSS.
 
 #### HTML
 
@@ -98,7 +99,7 @@ Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für
           >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Formulierender Inhalt</a
+          >Satzinhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -122,7 +123,7 @@ Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >formulierenden Inhalt</a
+          >Satzinhalt</a
         >
         akzeptiert.
       </td>

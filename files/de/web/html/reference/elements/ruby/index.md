@@ -1,13 +1,14 @@
 ---
-title: "<ruby>: Das Ruby-Annotationselement"
+title: "`<ruby>` HTML ruby-Annotationselement"
+short-title: <ruby>
 slug: Web/HTML/Reference/Elements/ruby
 l10n:
-  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element steht für kleine Annotationen, die oberhalb, unterhalb oder neben dem Basistext dargestellt werden, meist verwendet, um die Aussprache von ostasiatischen Schriftzeichen zu zeigen. Es kann auch verwendet werden, um andere Arten von Text zu annotieren, aber diese Nutzung ist weniger verbreitet.
+Das **`<ruby>`** [HTML](/de/docs/Web/HTML)-Element stellt kleine Annotationen dar, die über, unter oder neben dem Basistext angezeigt werden. Es wird üblicherweise verwendet, um die Aussprache von ostasiatischen Zeichen anzuzeigen. Es kann auch zur Annotation anderer Textarten verwendet werden, was jedoch weniger häufig ist.
 
-Der Begriff _ruby_ entstand als [eine Maßeinheit, die von Schriftsetzern verwendet wird](<https://en.wikipedia.org/wiki/Agate_(typography)>) und die kleinste Größe repräsentiert, in der Text auf Zeitungspapier gedruckt werden kann, während er lesbar bleibt.
+Der Begriff _ruby_ stammt ursprünglich aus [einer Maßeinheit, die von Schriftsetzern verwendet wird](<https://en.wikipedia.org/wiki/Agate_(typography)>), und bezeichnet die kleinste Größe, in der Text auf Zeitungspapier gedruckt werden kann, während er noch lesbar bleibt.
 
 {{InteractiveExample("HTML Demo: &lt;ruby&gt;", "tabbed-shorter")}}
 
@@ -61,10 +62,10 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasen-Inhalt</a
+          >Phrasierungsinhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -75,14 +76,14 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
         <ol>
           <li>Der Basistext, der entweder ist:
             <ul>
-              <li><a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasen-Inhalt</a>, jedoch ohne <code>&lt;ruby&gt;</code>-Elemente und ohne <code>&lt;ruby&gt;</code>-Element-Nachkommen, oder</li>
-              <li>Ein einzelnes <code>&lt;ruby&gt;</code>-Element, das selbst keine <code>&lt;ruby&gt;</code>-Element-Nachkommen hat.</li>
+              <li><a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalt</a>, jedoch ohne <code>&lt;ruby&gt;</code>-Elemente und ohne Nachfahren eines <code>&lt;ruby&gt;</code>-Elements, oder</li>
+              <li>Ein einzelnes <code>&lt;ruby&gt;</code>-Element, das selbst keine Nachfahren eines <code>&lt;ruby&gt;</code>-Elements hat.</li>
             </ul>
           </li>
           <li>Die Annotationen für den Basistext, die entweder sind:
             <ul>
               <li>Ein oder mehrere {{HTMLElement("rt")}}-Elemente, oder</li>
-              <li>Ein {{HTMLElement("rp")}}-Element gefolgt von einem oder mehreren {{HTMLElement("rt")}}-Elementen, von denen jedes selbst von einem {{HTMLElement("rp")}}-Element gefolgt wird (also <code>rp, rt, rp, rt, ..., rp</code>).</li>
+              <li>Ein {{HTMLElement("rp")}}-Element, gefolgt von einem oder mehreren {{HTMLElement("rt")}}-Elementen, von denen jedes selbst von einem {{HTMLElement("rp")}}-Element gefolgt wird (d.h. <code>rp, rt, rp, rt, ..., rp</code>).</li>
             </ul>
           </li>
         </ol>
@@ -90,15 +91,16 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind Pflicht.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasen-Inhalt</a
-        > akzeptiert.
+          >Phrasierungsinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -111,7 +113,7 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -134,4 +136,4 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 - {{HTMLElement("rp")}}
 - {{cssxref("ruby-overhang")}}
 - {{CSSxRef("text-transform")}}: full-size-kana
-- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)-Modul
+- [CSS Ruby Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul

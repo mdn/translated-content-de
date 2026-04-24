@@ -1,24 +1,25 @@
 ---
-title: <acronym>
+title: "`<acronym>` HTML Akronym oder Abkürzungs-Element"
+short-title: <acronym>
 slug: Web/HTML/Reference/Elements/acronym
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{deprecated_header}}
 
-Das **`<acronym>`** [HTML](/de/docs/Web/HTML)-Element ermöglicht es Autoren, eine Zeichenfolge deutlich als Akronym oder Abkürzung für ein Wort zu kennzeichnen.
+Das **`<acronym>`** [HTML](/de/docs/Web/HTML) Element ermöglicht es Autoren, eine Zeichenfolge deutlich als Akronym oder Abkürzung für ein Wort anzugeben.
 
 > [!WARNING]
-> Verwenden Sie dieses Element nicht. Verwenden Sie stattdessen das {{HTMLElement("abbr")}}-Element.
+> Verwenden Sie dieses Element nicht. Verwenden Sie stattdessen das {{HTMLElement("abbr")}} Element.
 
 ## Attribute
 
-Dieses Element hat nur [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die allen Elementen gemeinsam sind.
+Dieses Element hat nur [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes), die bei allen Elementen üblich sind.
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
+Dieses Element implementiert das [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface.
 
 ## Beispiele
 
@@ -33,14 +34,14 @@ Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-S
 
 {{EmbedLiveSample('Examples')}}
 
-## Standardstil
+## Standard-Stil
 
-Obwohl der Zweck dieses Tags ausschließlich für die Bequemlichkeit des Autors ist, variiert sein Standardstil von einem Browser zum anderen:
+Obwohl der Zweck dieses Tags rein für die Bequemlichkeit des Autors ist, variiert sein Standard-Stil von einem Browser zum anderen:
 
 - Opera, Firefox, Chrome und einige andere fügen dem Inhalt des Elements eine gepunktete Unterstreichung hinzu.
-- Einige Browser fügen nicht nur eine gepunktete Unterstreichung hinzu, sondern setzen das Element auch in Kapitälchen; um dieses Styling zu vermeiden, kann etwas wie {{cssxref("font-variant", "font-variant: none")}} im CSS dieses Problem lösen.
+- Einige wenige Browser fügen nicht nur eine gepunktete Unterstreichung hinzu, sondern stellen es auch in Kapitälchen dar; um dieses Styling zu vermeiden, sorgt das Hinzufügen von etwas wie {{cssxref("font-variant", "font-variant: none")}} in der CSS für Abhilfe in diesem Fall.
 
-Es wird daher empfohlen, dass Web-Autoren entweder explizit dieses Element stylen oder einige Browser-übergreifende Variationen akzeptieren.
+Es wird daher empfohlen, dass Web-Autoren dieses Element entweder explizit stylen oder einige abweichende Darstellungen in verschiedenen Browsern akzeptieren.
 
 <!-- ## Technische Zusammenfassung -->
 

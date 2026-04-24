@@ -1,11 +1,12 @@
 ---
-title: "<progress>: Das Fortschrittsanzeige-Element"
+title: "`<progress>` HTML-Fortschrittsanzeige-Element"
+short-title: <progress>
 slug: Web/HTML/Reference/Elements/progress
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<progress>`** [HTML](/de/docs/Web/HTML)-Element zeigt einen Indikator, der den Fortschritt einer Aufgabe anzeigt, typischerweise als Fortschrittsbalken dargestellt.
+Das **`<progress>`** [HTML](/de/docs/Web/HTML)-Element zeigt einen Indikator an, der den Fortschritt einer Aufgabe darstellt. Üblicherweise wird dies als Fortschrittsbalken angezeigt.
 
 {{InteractiveExample("HTML Demo: &lt;progress&gt;", "tabbed-standard")}}
 
@@ -24,27 +25,27 @@ label {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`max`](/de/docs/Web/HTML/Reference/Attributes/max)
-  - : Dieses Attribut beschreibt, wie viel Arbeit die durch das `progress`-Element angezeigte Aufgabe erfordert. Das `max`-Attribut muss, falls vorhanden, einen Wert größer als `0` haben und eine gültige Gleitkommazahl sein. Der Standardwert ist `1`.
+  - : Dieses Attribut beschreibt, wie viel Arbeit die mit dem `progress`-Element angezeigte Aufgabe erfordert. Das `max`-Attribut muss, wenn vorhanden, einen Wert größer als `0` und eine gültige Fließkommazahl haben. Der Standardwert ist `1`.
 - `value`
-  - : Dieses Attribut gibt an, wie viel der Aufgabe bereits abgeschlossen wurde. Es muss eine gültige Gleitkommazahl zwischen `0` und `max` sein, oder zwischen `0` und `1`, wenn `max` weggelassen wird. Wenn kein `value`-Attribut vorhanden ist, ist der Fortschrittsbalken unbestimmt; dies zeigt an, dass eine Aktivität im Gange ist, ohne dass eine Angabe gemacht wird, wie lange sie voraussichtlich dauern wird.
+  - : Dieses Attribut gibt an, wie viel von der Aufgabe bereits abgeschlossen ist. Es muss eine gültige Fließkommazahl zwischen `0` und `max` sein oder zwischen `0` und `1`, wenn `max` weggelassen wird. Wenn kein `value`-Attribut vorhanden ist, ist der Fortschrittsbalken unbestimmt; dies zeigt an, dass eine Aktivität im Gange ist, ohne anzugeben, wie lange sie voraussichtlich dauern wird.
 
 > [!NOTE]
-> Im Gegensatz zum {{htmlelement("meter")}}-Element ist der Minimalwert immer 0, und das `min`-Attribut ist für das `<progress>`-Element nicht erlaubt.
+> Im Unterschied zum {{htmlelement("meter")}}-Element ist der Minimalwert immer 0, und das `min`-Attribut ist für das `<progress>`-Element nicht erlaubt.
 
 > [!NOTE]
-> Die {{cssxref(":indeterminate")}}-Pseudoklasse kann verwendet werden, um gegen unbestimmte Fortschrittsbalken zu prüfen. Um den Fortschrittsbalken auf unbestimmt zu ändern, nachdem ihm ein Wert zugewiesen wurde, müssen Sie das Wertattribut mit [`element.removeAttribute('value')`](/de/docs/Web/API/Element/removeAttribute) entfernen.
+> Die {{cssxref(":indeterminate")}} Pseudoklasse kann verwendet werden, um unbestimmte Fortschrittsbalken zu selektieren. Um den Fortschrittsbalken nach der Festlegung eines Wertes wieder auf unbestimmt zu setzen, müssen Sie das `value`-Attribut mit [`element.removeAttribute('value')`](/de/docs/Web/API/Element/removeAttribute) entfernen.
 
 ## Barrierefreiheit
 
 ### Beschriftung
 
-In den meisten Fällen sollten Sie eine zugängliche Beschriftung bereitstellen, wenn Sie `<progress>` verwenden. Während Sie die standardmäßigen ARIA-Beschriftungsattribute [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) wie bei jedem Element mit `role="progressbar"` verwenden können, können Sie beim Verwenden von `<progress>` alternativ das {{htmlelement("label")}}-Element verwenden.
+In den meisten Fällen sollten Sie eine zugängliche Beschriftung bereitstellen, wenn Sie `<progress>` verwenden. Während Sie die Standard-ARIA-Beschriftungsattribute [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) wie bei jedem Element mit `role="progressbar"` verwenden können, können Sie bei der Verwendung von `<progress>` alternativ das {{htmlelement("label")}}-Element nutzen.
 
 > [!NOTE]
-> Text, der zwischen den Tags des Elements platziert wird, ist keine zugängliche Beschriftung, er wird nur als Fallback für alte Browser empfohlen, die dieses Element nicht unterstützen.
+> Text, der zwischen den Tags des Elements platziert wird, ist keine zugängliche Beschriftung; er wird nur als Fallback für alte Browser empfohlen, die dieses Element nicht unterstützen.
 
 #### Beispiele
 
@@ -103,31 +104,30 @@ Wenn das `<progress>`-Element den Ladefortschritt eines Abschnitts einer Seite b
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>, labelbarer Inhalt,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungselemente</a>, beschriftbares Element,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content">fühlbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>, aber es darf kein <code>&#x3C;progress></code>-Element unter seinen
-        Nachkommen geben.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungselemente</a>, aber es darf kein <code>&#x3C;progress></code>-Element unter seinen Nachkommen geben.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungselemente</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role"><code>progressbar</code></a></td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@ Wenn das `<progress>`-Element den Ladefortschritt eines Abschnitts einer Seite b
 
 ## Siehe auch
 
-- [Erstellung vertikaler Formularelemente](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
+- [Vertikale Formkontrollen erstellen](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
 - {{htmlelement("meter")}}
 - {{ cssxref(":indeterminate") }}
 - {{ cssxref("-moz-orient") }}

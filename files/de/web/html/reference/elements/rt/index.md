@@ -1,11 +1,12 @@
 ---
-title: "<rt>: Das Ruby Text-Element"
+title: "`<rt>` HTML ruby text Element"
+short-title: <rt>
 slug: Web/HTML/Reference/Elements/rt
 l10n:
-  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<rt>`** [HTML](/de/docs/Web/HTML) Element gibt die Ruby-Textkomponente einer Ruby-Anmerkung an, die verwendet wird, um Informationen zur Aussprache, Übersetzung oder Transliteration für ostasiatische Typografie bereitzustellen. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
+Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert die Ruby-Text-Komponente einer Ruby-Annotation, die verwendet wird, um Aussprache-, Übersetzungs- oder Transliterationinformationen für ostasiatische Typografie bereitzustellen. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
 
 {{InteractiveExample("HTML Demo: &lt;rt&gt;", "tabbed-shorter")}}
 
@@ -21,15 +22,15 @@ ruby {
 }
 ```
 
-Sehen Sie sich den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele an.
+Lesen Sie den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-### Verwendung von Ruby-Anmerkungen
+### Verwendung von Ruby-Annotations
 
 Dieses Beispiel bietet eine Romaji-Transliteration für die Kanji-Zeichen innerhalb des {{HTMLElement("ruby")}}-Elements:
 
@@ -63,17 +64,17 @@ body {
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Der End-Tag kann ausgelassen werden, wenn das <code>&#x3C;rt></code>-Element
-        unmittelbar von einem <code>&#x3C;rt></code> oder
-        {{HTMLElement("rp")}}-Element gefolgt wird, oder wenn kein Inhalt
-        mehr im Elternelement vorhanden ist
+        Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
+        unmittelbar von einem <code>&#x3C;rt></code>- oder
+        {{HTMLElement("rp")}}-Element gefolgt wird oder wenn im
+        Elternelement kein Inhalt mehr vorhanden ist
       </td>
     </tr>
     <tr>
@@ -90,7 +91,7 @@ body {
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
