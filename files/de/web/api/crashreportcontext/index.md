@@ -2,42 +2,42 @@
 title: CrashReportContext
 slug: Web/API/CrashReportContext
 l10n:
-  sourceCommit: dd1e8282ab6621b62399d65cad46177d426d1d93
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Das `CrashReportContext`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) bietet Methoden, die es ermöglichen, beliebige Daten für den aktuellen obersten Browsing-Kontext zu erfassen. Diese werden einem [`CrashReport`](/de/docs/Web/API/CrashReport) hinzugefügt und an einen Reporting-Endpunkt gesendet, wenn ein Browser-Absturz auftritt.
+Das `CrashReportContext`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) bietet Methoden, die es ermöglichen, beliebige Daten für den aktuellen obersten Browsing-Kontext aufzuzeichnen. Diese werden dann einem [`CrashReport`](/de/docs/Web/API/CrashReport) hinzugefügt und an einen Reporting-Endpunkt gesendet, wenn ein Absturz des Browsers auftritt.
 
-Das `CrashReportContext`-Objekt für einen bestimmten Browsing-Kontext wird über die [`Window.crashReport`](/de/docs/Web/API/Window/crashReport)-Eigenschaft aufgerufen.
+Das `CrashReportContext`-Objekt für einen bestimmten Browsing-Kontext wird über die [`Window.crashReport`](/de/docs/Web/API/Window/crashReport) Eigenschaft abgerufen.
 
 ## Instanzmethoden
 
-- [`CrashReportContext.delete()`](/de/docs/Web/API/CrashReportContext/delete)
+- [`CrashReportContext.delete()`](/de/docs/Web/API/CrashReportContext/delete) {{experimental_inline}}
   - : Löscht ein zuvor gespeichertes Schlüssel-Wert-Paar.
-- [`CrashReportContext.initialize()`](/de/docs/Web/API/CrashReportContext/initialize)
-  - : Initialisiert einen Speicherbereich, der zum Speichern von Crash-Report-Daten verwendet wird, die durch [`set()`](/de/docs/Web/API/CrashReportContext/set) spezifiziert werden. Dies muss aufgerufen werden, bevor eine andere Methode auf dem Objekt verwendet wird.
-- [`CrashReportContext.set()`](/de/docs/Web/API/CrashReportContext/set)
+- [`CrashReportContext.initialize()`](/de/docs/Web/API/CrashReportContext/initialize) {{experimental_inline}}
+  - : Initialisiert einen Speicherbereich, der zur Speicherung von durch [`set()`](/de/docs/Web/API/CrashReportContext/set) spezifizierten Absturzberichtsdaten verwendet wird. Dies muss aufgerufen werden, bevor eine andere Methode für das Objekt aufgerufen wird.
+- [`CrashReportContext.set()`](/de/docs/Web/API/CrashReportContext/set) {{experimental_inline}}
   - : Speichert ein Schlüssel-Wert-Paar im durch [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) initialisierten Speicher.
 
 ## Beschreibung
 
-Crash-Berichte mit beliebigen Informationen können mithilfe der [Reporting API](/de/docs/Web/API/Reporting_API) an einen Server-Endpunkt gesendet werden. Dies ist nützlich, weil wir während der gesamten Lebensdauer einer Anwendung detaillierte Diagnoseinformationen speichern und die Berichte nutzen können, um Abstürze effektiver zu debuggen.
+Absturzberichte, die beliebige Informationen enthalten, können mithilfe der [Reporting API](/de/docs/Web/API/Reporting_API) an einen Server-Endpunkt gesendet werden. Dies ist nützlich, da wir detaillierte Diagnoseinformationen während der gesamten Lebensdauer einer Anwendung speichern und die Berichte verwenden können, um Abstürze effektiver zu debuggen.
 
-Die Informationen werden in einem speziellen Schlüssel-Wert-Speicher gespeichert, der dem [Web Storage](/de/docs/Web/API/Web_Storage_API) ähnelt, außer dass sein Geltungsbereich auf den aktuellen obersten Ursprung beschränkt ist und keine Getter-Methode verfügbar ist. Es erlaubt die Aufzeichnung und Löschung von dokumentenspezifischen Zustandsinformationen. Das oberste Dokument wird Diagnoseinformationen in Bezug auf sich selbst und eingebettete Dokumente aufzeichnen und alle zugehörigen Crash-Berichte senden.
+Die Informationen werden in einem speziellen Schlüssel-Wert-Speicher gespeichert, der ähnlich wie [Web Storage](/de/docs/Web/API/Web_Storage_API) ist, außer dass sein Geltungsbereich auf den aktuellen obersten Ursprung beschränkt ist und keine Getter-Methode verfügbar ist. Es erlaubt das Aufzeichnen und Löschen dokumentenspezifischer Statusinformationen. Das oberste Dokument zeichnet Diagnoseinformationen über sich selbst und alle eingebetteten Dokumente auf und sendet zugehörige Absturzberichte.
 
-Um diese API zu verwenden, muss ein Dokument zuerst [`window.crashReport.initialize()`](/de/docs/Web/API/CrashReportContext/initialize) aufrufen, mit einer Zahl als Argument, die die maximale Anzahl von Bytes angibt, die im Schlüssel-Wert-Speicher durch jeden einzelnen [`window.crashReport.set()`](/de/docs/Web/API/CrashReportContext/set) Aufruf gespeichert werden können. Werte werden dann mit `set()` aufgezeichnet und mit [`window.crashReport.delete()`](/de/docs/Web/API/CrashReportContext/delete) gelöscht.
+Um diese API zu verwenden, muss ein Dokument zuerst [`window.crashReport.initialize()`](/de/docs/Web/API/CrashReportContext/initialize) aufrufen, das als Argument eine Zahl übernimmt, die die maximale Anzahl von Bytes angibt, die in dem Schlüssel-Wert-Speicher durch jeden individuellen [`window.crashReport.set()`](/de/docs/Web/API/CrashReportContext/set) Aufruf gespeichert werden können. Werte werden dann mit `set()` aufgezeichnet und mit [`window.crashReport.delete()`](/de/docs/Web/API/CrashReportContext/delete) gelöscht.
 
-Wenn der Browser abstürzt, werden die im Schlüssel-Wert-Speicher gespeicherten Informationen zu einem [`CrashReport`](/de/docs/Web/API/CrashReport) hinzugefügt und an den [voreingestellten Reporting-Server-Endpunkt](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#default_reporting_endpoint) gesendet.
+Wenn der Browser abstürzt, werden die im Schlüssel-Wert-Speicher gespeicherten Informationen einem [`CrashReport`](/de/docs/Web/API/CrashReport) hinzugefügt und an den [Standard-Reporting-Server-Endpunkt](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#default_reporting_endpoint) gesendet.
 
 > [!NOTE]
 > Es ist nicht möglich, [`CrashReport`](/de/docs/Web/API/CrashReport)s mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) abzurufen.
 
 ## Beispiele
 
-### Daten in einem Crash-Bericht aufzeichnen
+### Daten in einem Absturzbericht aufzeichnen
 
-Um mit der Verwendung von Crash-Berichten zu beginnen, muss eine Webanwendung [`window.crashReport.initialize()`](/de/docs/Web/API/CrashReportContext/initialize) aufrufen und eine maximale Anzahl von Bytes angeben, die pro `set()`-Aufruf im Schlüssel-Wert-Speicher gespeichert werden können. Hier initialisieren wir den Speicher mit einem Kilobyte Speicherplatz:
+Um mit der Erfassung von Absturzberichten zu beginnen, muss eine Webanwendung [`window.crashReport.initialize()`](/de/docs/Web/API/CrashReportContext/initialize) aufrufen und eine maximale Anzahl von Bytes angeben, die im Schlüssel-Wert-Speicher pro `set()`-Aufruf gespeichert werden können. Hier initialisieren wir den Speicher mit einem Kilobyte Speicherplatz:
 
 ```js
 window.crashReport.initialize(1024).then(() => {
@@ -45,7 +45,7 @@ window.crashReport.initialize(1024).then(() => {
 });
 ```
 
-Sobald das Versprechen aufgelöst wird, gibt es einige allgemeine Strategien, die im anschließenden Code übernommen werden können. Zum Beispiel könnten wir ein Schlüssel-Wert-Paar festlegen, das Eingabedaten für eine komplexe Operation speichert, die einen Absturz verursachen könnte, und dann versuchen, die Operation mit diesen Eingaben auszuführen. Wenn der Browser abstürzt, wird der resultierende [`CrashReport`](/de/docs/Web/API/CrashReport) diese Daten enthalten. Wenn es nicht abstürzt, können wir das Schlüssel-Wert-Paar löschen, da es derzeit nicht relevant ist.
+Sobald das Versprechen aufgelöst ist, gibt es einige gängige Strategien, die im folgenden Code übernommen werden können. Beispielsweise könnten wir ein Schlüssel-Wert-Paar setzen, das Eingabedaten für eine komplexe Operation speichert, die möglicherweise einen Absturz verursacht, und dann versuchen, die Operation mit diesen Eingaben auszuführen. Wenn der Browser abstürzt, enthält der resultierende [`CrashReport`](/de/docs/Web/API/CrashReport) diese Daten. Wenn es nicht abstürzt, können wir das Schlüssel-Wert-Paar löschen, da es zu diesem Zeitpunkt nicht relevant ist.
 
 ```js
 const arg1 = "a";
@@ -55,9 +55,9 @@ complexOperationThatMightCrash(arg1, arg2);
 window.crashReport.delete("complex-operation-input");
 ```
 
-Da Crash-Speicherdaten zwischen allen gleichen Ursprungsdokumenten unter einer durchquerbaren Navigation zugänglich sind, möchten Sie möglicherweise Schlüssel für bestimmte gemeinsame Operationen vorab fixieren, die mehrere Dokumente gleichzeitig ausführen können. Zum Beispiel könnte eine allgemeine [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation in mehreren verschiedenen Dokumenten zu unterschiedlichen Zeiten aufgerufen werden, und bestimmte Bedingungen könnten dazu führen, dass die Operation einen Absturz verursacht.
+Da Crash-Speicherdaten zwischen allen gleich-originären Dokumenten in einem durchsuchbaren Navigable zugänglich sind, möchten Sie möglicherweise Schlüssel für bestimmte gängige Operationen, die mehrere Dokumente gleichzeitig ausführen können, mit einem Präfix versehen. Zum Beispiel kann eine gemeinsame [`fetch()`](/de/docs/Web/API/Window/fetch) Operation zu verschiedenen Zeiten in mehreren verschiedenen Dokumenten aufgerufen werden, und bestimmte Bedingungen können dazu führen, dass die Operation einen Absturz verursacht.
 
-Um zu helfen, zu identifizieren, wo das `fetch()` zum Zeitpunkt eines Absturzes aufgerufen wurde, können wir eine Präfix-Strategie anwenden:
+Um zu helfen, zu identifizieren, wo `fetch()` zum Zeitpunkt eines Absturzes aufgerufen wurde, können wir eine Präfix-Strategie übernehmen:
 
 ```js
 async function fetchURL(url) {
@@ -68,7 +68,7 @@ async function fetchURL(url) {
 }
 ```
 
-Dies verhindert auch, dass Schlüssel-Wert-Paare, die dasselbe Problem zu unterschiedlichen Zeiten oder an unterschiedlichen Orten identifizieren, einander überschreiben. In diesem Fall unterscheiden wir Crash-Report-Daten, die im obersten Dokument festgelegt sind, von Daten, die in eingebetteten Dokumenten festgelegt sind.
+Dies verhindert auch, dass Schlüssel-Wert-Paare, die dasselbe Problem zu unterschiedlichen Zeiten oder an verschiedenen Orten identifizieren, einander überschreiben. In diesem Fall differenzieren wir zwischen Absturzberichtsdatensätzen im obersten Dokument und in eingebetteten Dokumenten.
 
 ## Spezifikationen
 

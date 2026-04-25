@@ -3,12 +3,12 @@ title: "CrashReportContext: initialize() Methode"
 short-title: initialize()
 slug: Web/API/CrashReportContext/initialize
 l10n:
-  sourceCommit: 927ef5f1b2906bae06ff98ea5148a1808b01f07b
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Reporting API")}}{{AvailableInWorkers}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`initialize()`** Methode des [`CrashReportContext`](/de/docs/Web/API/CrashReportContext) Interfaces initialisiert einen Speicherbereich, der zum Speichern von durch [`set()`](/de/docs/Web/API/CrashReportContext/set) angegebenen Absturzberichtdaten verwendet wird. Diese Methode muss aufgerufen werden, bevor irgendwelche anderen Methoden an dem Objekt ausgeführt werden.
+Die **`initialize()`**-Methode der [`CrashReportContext`](/de/docs/Web/API/CrashReportContext)-Schnittstelle initialisiert einen Speicherbereich, der für das Speichern von Crashberichtdaten verwendet wird, die durch [`set()`](/de/docs/Web/API/CrashReportContext/set) angegeben werden. Diese Methode muss aufgerufen werden, bevor andere Methoden des Objekts genutzt werden.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ initialize(length)
 ### Parameter
 
 - `length`
-  - : Eine Zahl, die die maximale Anzahl von Bytes angibt, die im Schlüssel-Wert-Speicher durch jeden einzelnen `set()` Aufruf gespeichert werden können. Der maximal zulässige Wert ist `65536` (64KB), was auch die maximale Menge an Absturzberichtspeicher ist, die für einen Ursprung erlaubt ist.
+  - : Eine Zahl, die die maximale Anzahl von Bytes angibt, die durch jeden einzelnen `set()`-Aufruf im Schlüssel-Wert-Speicher gespeichert werden können. Der maximal zulässige Wert ist `65536` (64KB), was auch die maximale Menge an Crashberichtspeicher für einen Ursprung darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
+Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} erfüllt.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Das aufrufende Dokument nicht vollständig aktiv ist.
-    - Ein Schlüssel-Wert-Speicher für Absturzberichte bereits durch einen vorherigen `initialize()` Aufruf initialisiert wurde.
+    - Ein Crashbericht-Schlüssel-Wert-Speicher bereits durch einen früheren `initialize()`-Aufruf initialisiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : `length` ist mehr als `65536`.
+  - : `length` ist größer als `65536`.
 
 ## Beispiele
 

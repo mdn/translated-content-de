@@ -3,12 +3,12 @@ title: "CrashReportContext: set() Methode"
 short-title: set()
 slug: Web/API/CrashReportContext/set
 l10n:
-  sourceCommit: 927ef5f1b2906bae06ff98ea5148a1808b01f07b
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Reporting API")}}{{AvailableInWorkers}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`set()`** Methode des [`CrashReportContext`](/de/docs/Web/API/CrashReportContext) Interfaces speichert ein Schlüssel-Wert-Paar im Speicher, der durch [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) initialisiert wurde.
+Die **`set()`** Methode der [`CrashReportContext`](/de/docs/Web/API/CrashReportContext) Schnittstelle speichert ein Schlüssel-Wert-Paar im durch [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) initialisierten Speicher.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des zu speichernden Schlüssel-Wert-Paares repräsentiert.
+  - : Ein String, der den Schlüssel des zu speichernden Schlüssel-Wert-Paares darstellt.
 - `value`
-  - : Ein String, der den Wert des zu speichernden Schlüssel-Wert-Paares repräsentiert.
+  - : Ein String, der den Wert des zu speichernden Schlüssel-Wert-Paares darstellt.
 
 ### Rückgabewert
 
@@ -32,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Das aufrufende Dokument nicht vollständig aktiv ist.
-    - Der Lagerspeicher für den Crashreport-Schlüssel-Wert-Paar noch nicht über einen [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) Aufruf initialisiert wurde.
+    - Der Crash-Report-Schlüssel-Wert-Speicher noch nicht über einen [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) Aufruf initialisiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Größe des serialisierten Schlüssel-Wert-Paares ist größer als der [`length`](/de/docs/Web/API/CrashReportContext/initialize#length) Wert, der beim ersten Initialisieren des Speichers festgelegt wurde.
+  - : Die Größe des serialisierten Schlüssel-Wert-Paares ist größer als der [`length`](/de/docs/Web/API/CrashReportContext/initialize#length) Wert, der bei der ersten Initialisierung des Speichers festgelegt wurde.
 
 ## Beispiele
 

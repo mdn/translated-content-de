@@ -1,14 +1,14 @@
 ---
-title: "CrashReportContext: delete()-Methode"
+title: "CrashReportContext: Methode delete()"
 short-title: delete()
 slug: Web/API/CrashReportContext/delete
 l10n:
-  sourceCommit: 927ef5f1b2906bae06ff98ea5148a1808b01f07b
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Reporting API")}}{{AvailableInWorkers}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`delete()`**-Methode des [`CrashReportContext`](/de/docs/Web/API/CrashReportContext)-Interfaces löscht ein zuvor gespeichertes Schlüssel-Wert-Paar.
+Die **`delete()`**-Methode der [`CrashReportContext`](/de/docs/Web/API/CrashReportContext)-Schnittstelle löscht ein zuvor gespeichertes Schlüssel-Wert-Paar.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ delete(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des zu löschenden Schlüssel-Wert-Paares darstellt.
+  - : Eine Zeichenfolge, die den Schlüssel des zu löschenden Schlüssel-Wert-Paares darstellt.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Das aufrufende Dokument nicht vollständig aktiv ist.
-    - Der Schlüssel-Wert-Speicher für Crash-Berichte noch nicht über einen [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize)-Aufruf initialisiert wurde.
+    - Der Schlüssel-Wert-Speicher des Crash-Reports noch nicht über einen Aufruf von [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) initialisiert wurde.
 
 ## Beispiele
 

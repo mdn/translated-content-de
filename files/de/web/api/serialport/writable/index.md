@@ -3,12 +3,12 @@ title: "SerialPort: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/SerialPort/writable
 l10n:
-  sourceCommit: 2de8605cc697ca93b02f0b7109082b694f8950ec
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`writable`**-Eigenschaft der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück, um Daten an das mit dem Port verbundene Gerät zu senden. Chunks, die in diesen Stream geschrieben werden, müssen Instanzen von {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}} sein. Diese Eigenschaft ist nicht-null, solange der Port geöffnet ist und kein fataler Fehler aufgetreten ist.
+Die schreibgeschützte **`writable`**-Eigenschaft der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück, um Daten an das mit dem Port verbundene Gerät zu senden. Die in diesen Stream geschriebenen Datenmengen müssen Instanzen von {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}} sein. Diese Eigenschaft ist nicht null, solange der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
 
 ## Wert
 
