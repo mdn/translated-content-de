@@ -2,26 +2,26 @@
 title: TimeEvent
 slug: Web/API/TimeEvent
 l10n:
-  sourceCommit: 46b0ecd3b5280fbff659d138e3a7eaaf0fd12a24
+  sourceCommit: b57f79da1b90404fd0af82730cde8a0cdae51713
 ---
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`TimeEvent`**, ein Teil der [SVG SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL) Animation, stellt spezifische kontextbezogene Informationen bereit, die mit Time-Events verbunden sind.
+Das **`TimeEvent`**-Interface, ein Teil der [SVG SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL)-Animation, bietet spezifische kontextbezogene Informationen im Zusammenhang mit Zeitereignissen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
+  - : Ein `long`, das einige detaillierte Informationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, das das Fenster identifiziert, von dem das Ereignis erzeugt wurde.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Instanz-Methoden
 
 - [`TimeEvent.initTimeEvent()`](/de/docs/Web/API/TimeEvent/initTimeEvent)
-  - : Wird verwendet, um den Wert eines TimeEvent zu initialisieren, das über das DocumentEvent-Interface erstellt wurde. Diese Methode darf nur aufgerufen werden, bevor das TimeEvent über die dispatchEvent-Methode versendet wurde, obwohl sie bei Bedarf mehrfach während dieser Phase aufgerufen werden kann.
+  - : Initialisiert den Wert eines mit [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellten [`TimeEvent`](/de/docs/Web/API/TimeEvent).
 
 ## Spezifikationen
 

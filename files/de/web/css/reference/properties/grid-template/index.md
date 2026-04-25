@@ -1,11 +1,12 @@
 ---
-title: grid-template
+title: CSS-Eigenschaft `grid-template`
+short-title: grid-template
 slug: Web/CSS/Reference/Properties/grid-template
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Gitterspalten")}}, {{Glossary("grid_row", "Gitterreihen")}} und {{Glossary("grid_areas", "Gitterbereichen")}}.
+Die **`grid-template`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Gitterspalten")}}, {{Glossary("grid_row", "Gitterreihen")}} und {{Glossary("grid_areas", "Gitterbereichen")}}.
 
 {{InteractiveExample("CSS Demo: grid-template")}}
 
@@ -69,7 +70,7 @@ grid-template:
 }
 ```
 
-## Zugehörige Eigenschaften
+## Zusammengehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -112,17 +113,17 @@ grid-template: unset;
 ### Werte
 
 - `none`
-  - : Setzt alle drei Langform-Eigenschaften auf `none`, was bedeutet, dass es kein explizites Gitter gibt. Es gibt keine benannten Gitterbereiche. Reihen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt. Dies ist der Standardwert.
+  - : Setzt alle drei Langform-Eigenschaften auf `none`, was bedeutet, dass kein explizites Gitter vorhanden ist. Es gibt keine benannten Gitterbereiche. Reihen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt. Dies ist der Standardwert.
 - `<'grid-template-rows'> / <'grid-template-columns'>`
   - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und setzt {{cssxref("grid-template-areas")}} auf `none`.
 - `[ <line-names>? <string> <track-size>? <line-names>? ]+ [ / <explicit-track-list> ]?`
-  - : Setzt {{cssxref("grid-template-areas")}} auf die aufgelisteten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die folgenden Streckengrößen jeder Zeichenfolge (fügt `auto` für fehlende Größen ein) und integriert die benannten Linien, die vor/nach jeder Größe definiert sind, und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich angegebene Streckenliste (oder `none`, falls nicht angegeben).
+  - : Setzt {{cssxref("grid-template-areas")}} auf die aufgeführten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die nach jeder Zeichenfolge folgenden Spurgrößen (füllt fehlende Größen mit `auto` aus) und fügt die vor/nach jeder Größe definierten benannten Linien ein, und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich spezifizierte Spurliste (oder `none`, falls nicht angegeben).
 
     > [!NOTE]
-    > Die {{cssxref("repeat()")}} Funktion ist in diesen Streckenlisten nicht erlaubt, da die Strecken dazu vorgesehen sind, visuell eins-zu-eins mit den Reihen/Spalten im "ASCII-Art" übereinzustimmen.
+    > Die {{cssxref("repeat()")}}-Funktion ist in diesen Spurlisten nicht erlaubt, da die Spuren visuell eins-zu-eins mit den Reihen/Spalten in der "ASCII-Art" übereinstimmen sollen.
 
 > [!NOTE]
-> Die {{cssxref("grid")}} Kurzform akzeptiert die gleiche Syntax, setzt aber auch die impliziten Gittereigenschaften auf ihre Anfangswerte zurück. Verwenden Sie `grid` (im Gegensatz zu `grid-template`), um zu verhindern, dass diese Werte separat kaskadieren.
+> Die {{cssxref("grid")}}-Kurzform akzeptiert dieselbe Syntax, setzt aber auch die impliziten Gittereigenschaften auf ihre Anfangswerte zurück. Verwenden Sie `grid` (im Gegensatz zu `grid-template`), um zu verhindern, dass diese Werte separat vererbt werden.
 
 ## Formale Definition
 
@@ -134,7 +135,7 @@ grid-template: unset;
 
 ## Beispiele
 
-### Definieren einer Gittervorlage
+### Definition einer Gittervorlage
 
 #### CSS
 
@@ -199,6 +200,6 @@ footer {
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
-- [Zeilenbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
-- [Gittervorlagenbereiche: Gitter-Definitions-Kurzformen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Line-Based Placement mit CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Gittervorlagenbereiche: Kurzformen für Gitterdefinitionen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas#grid_definition_shorthands)
 - Video: [Grid template shorthand](https://gridbyexample.com/video/grid-template-shorthand/)

@@ -1,18 +1,19 @@
 ---
-title: :-moz-window-inactive
+title: "`:-moz-window-inactive` CSS-Pseudoklasse"
+short-title: :-moz-window-inactive
 slug: Web/CSS/Reference/Selectors/:-moz-window-inactive
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element anspricht, während es sich in einem inaktiven Fenster befindet.
+Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element erkennt, während es in einem inaktiven Fenster ist.
 
 `:-moz-window-inactive` funktioniert auch in HTML-Inhaltsdokumenten.
 
 > [!NOTE]
-> Vor der Einführung dieser Pseudoklasse wurde das Stylen von Hintergrundfenstern erreicht, indem ein Attribut (`active="true"`) auf dem XUL-Chromfenster der obersten Ebene gesetzt wurde. Dieses Attribut wird nicht mehr verwendet.
+> Vor der Einführung dieser Pseudoklasse wurde das Geben unterschiedlicher Stile für Hintergrundfenster durch Setzen eines Attributs (`active="true"`) im obersten XUL-Chromfenster erreicht. Dieses Attribut wird nicht mehr verwendet.
 
 ## Syntax
 
@@ -24,7 +25,7 @@ Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens, je nachdem, ob sein Fenster aktiv ist oder nicht.
+Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens je nachdem, ob sein Fenster aktiv oder nicht aktiv ist.
 
 ### HTML
 
@@ -50,13 +51,13 @@ Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens, je nachdem,
 
 ### Ergebnis
 
-Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} betrachten.
+Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} ansehen.
 
 {{EmbedLiveSample('Examples', 220, 220)}}
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 

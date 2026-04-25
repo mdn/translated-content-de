@@ -1,11 +1,12 @@
 ---
-title: :first-of-type
+title: "`:first-of-type` CSS Pseudo-Klasse"
+short-title: :first-of-type
 slug: Web/CSS/Reference/Selectors/:first-of-type
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das erste Element seines Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das erste Element seines Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
 
 {{InteractiveExample("CSS Demo: :first-of-type", "tabbed-shorter")}}
 
@@ -47,7 +48,7 @@ dd:first-of-type {
 
 ## Beispiele
 
-### Das erste Absatzstyling
+### Das erste Paragraph-Styling
 
 #### HTML
 
@@ -72,7 +73,7 @@ p:first-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) (`*`) impliziert ist, wenn kein Typselektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) (`*`) impliziert ist, wenn kein Typ-Selektor angegeben wird.
 
 #### HTML
 

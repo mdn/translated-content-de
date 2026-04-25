@@ -1,11 +1,12 @@
 ---
-title: mix-blend-mode
+title: "`mix-blend-mode` CSS property"
+short-title: mix-blend-mode
 slug: Web/CSS/Reference/Properties/mix-blend-mode
 l10n:
-  sourceCommit: fa647850ec257db6f807993c556f21a6c269cc4f
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -76,11 +77,11 @@ mix-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus.
+  - : Der Mischmodus, der angewendet werden soll.
 - `plus-darker`
-  - : Mischen unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_darker).
+  - : Vermischt mithilfe des [_plus-darker_ Zusammensetzungsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Mischen unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendeffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Opazität in entgegengesetzte Richtungen animieren).
+  - : Vermischt mithilfe des [_plus-lighter_ Zusammensetzungsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendeffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -92,7 +93,7 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Effekt verschiedener mix-blend-mode Werte
+### Effekt verschiedener mix-blend-mode-Werte
 
 ```html hidden
 <div class="grid">
@@ -811,7 +812,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-In diesem Beispiel wird `mix-blend-mode` verwendet, um die Textfarbe mit der Hintergrundfarbe seines übergeordneten Elements zu mischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe seines übergeordneten Elements zu vermischen.
 
 #### HTML
 

@@ -1,14 +1,15 @@
 ---
-title: white-space-collapse
+title: "`white-space-collapse` CSS property"
+short-title: white-space-collapse
 slug: Web/CSS/Reference/Properties/white-space-collapse
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements zusammengefasst wird.
+Die **`white-space-collapse`**-[CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements zusammengestrichen wird.
 
 > [!NOTE]
-> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können gemeinsam mit der Abkürzungs-Eigenschaft {{CSSxRef("white-space")}} deklariert werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können zusammen unter Verwendung der {{CSSxRef("white-space")}} Kurzschreibweise deklariert werden.
 
 ## Syntax
 
@@ -28,28 +29,29 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die Eigenschaft `white-space-collapse` wird als ein einzelnes Schlüsselwort aus der unten stehenden Werteliste angegeben.
+Die `white-space-collapse` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der untenstehenden Liste von Werten ausgewählt wird.
 
 ### Werte
 
 - `collapse`
-  - : Leerraumsequenzen werden [zusammengefasst](/de/docs/Web/CSS/Guides/Text/Whitespace#collapsing_and_transformation).
+  - : Leerraumsequenzen werden [zusammengestrichen](/de/docs/Web/CSS/Guides/Text/Whitespace#collapsing_and_transformation).
 - `preserve`
-  - : Leerraumsequenzen und Segmenttrennzeichen werden beibehalten.
+  - : Leerraumsequenzen und Segmentsumbruchzeichen bleiben erhalten.
 - `preserve-breaks`
-  - : Leerraumsequenzen werden zusammengefasst, während Segmenttrennzeichen beibehalten werden.
+  - : Leerraumsequenzen werden zusammengestrichen, während Segmentsumbruchzeichen erhalten bleiben.
 - `preserve-spaces`
-  - : Leerraumsequenzen werden beibehalten, während Tabs und Segmenttrennzeichen in Leerzeichen umgewandelt werden.
+  - : Leerraumsequenzen bleiben erhalten, während Tabs und Segmentsumbruchzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
-  - : Das Verhalten ist identisch mit `preserve`, außer dass:
-    - Jede beibehaltene Leerraumsequenz immer Platz einnimmt, auch am Ende der Zeile.
-    - Eine Möglichkeit zum Zeilenumbruch nach jedem beibehaltenen Leerzeichen besteht, auch zwischen Leerraumzeichen.
-    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, wodurch die intrinsischen Größen des Kastens ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe) beeinflusst werden.
-
-> [!NOTE] > _Segmenttrennzeichen_ sind Zeichen wie Zeilenumbrüche, die den Text auf neue Zeilen brechen lassen.
+  - : Das Verhalten entspricht `preserve`, mit den folgenden Ausnahmen:
+    - Jede Sequenz von erhaltenem Leerraum nimmt immer Platz ein, auch am Ende der Zeile.
+    - Eine Zeilenbruchmöglichkeit besteht nach jedem erhaltenen Leerzeichen, auch zwischen Leerzeichen.
+    - Erhaltene Leerzeichen nehmen Platz ein und hängen nicht, was sich auf die intrinsischen Größen der Box auswirkt ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe).
 
 > [!NOTE]
-> Das [CSS Text](/de/docs/Web/CSS/Guides/Text) Modul definiert einen `discard` Wert für die `white-space-collapse` Eigenschaft, um alle Leerzeichen im Element zu verwerfen, jedoch wird dies in keinem Browser unterstützt.
+> _Segmentsumbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die Text auf neue Zeilen umbrechen lassen.
+
+> [!NOTE]
+> Das [CSS-Text](/de/docs/Web/CSS/Guides/Text)-Modul definiert einen `discard`-Wert für die `white-space-collapse`-Eigenschaft, um allen Leerraum im Element zu verwerfen, wird jedoch in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -123,6 +125,6 @@ h2 {
 
 ## Siehe auch
 
-- Abkürzung für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die Eigenschaft {{CSSxRef("white-space")}}.
-- [CSS Text Modul](/de/docs/Web/CSS/Guides/Text)
+- Kurzform für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die {{CSSxRef("white-space")}}-Eigenschaft.
+- [CSS-Textmodul](/de/docs/Web/CSS/Guides/Text)
 - [Umgang mit Leerraum in CSS](/de/docs/Web/CSS/Guides/Text/Whitespace)

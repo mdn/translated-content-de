@@ -1,18 +1,19 @@
 ---
-title: any-hover
+title: "`any-hover` CSS-Media-Feature"
+short-title: any-hover
 slug: Web/CSS/Reference/At-rules/@media/any-hover
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Das **`any-hover`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob _irgendein_ verfügbares Eingabegerät über Elemente schweben kann.
+Das **`any-hover`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob _irgendein_ verfügbares Eingabegerät in der Lage ist, über Elemente zu schweben.
 
 ## Syntax
 
-Das `any-hover` Merkmal wird als ein Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Das `any-hover` Feature ist als Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Keines der verfügbaren Eingabegeräte kann bequem schweben, oder es gibt keinen Zeigeeingabemechanismus.
+  - : Keines der verfügbaren Eingabegeräte kann bequem schweben, oder es gibt kein zeigendes Eingabegerät.
 - `hover`
   - : Ein oder mehrere verfügbare Eingabegeräte können bequem über Elemente schweben.
 
@@ -50,4 +51,4 @@ Das `any-hover` Merkmal wird als ein Schlüsselwortwert angegeben, der aus der u
 
 ## Siehe auch
 
-- [das `hover` Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media/hover)
+- [das `hover` Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media/hover)

@@ -1,31 +1,32 @@
 ---
-title: <display-box>
+title: "`<display-box>` CSS-Typ"
+short-title: <display-box>
 slug: Web/CSS/Reference/Values/display-box
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Diese Schlüsselwörter definieren, ob ein Element überhaupt Anzeige-Boxen erzeugt.
+Diese Schlüsselwörter definieren, ob ein Element überhaupt Display-Boxen erzeugt.
 
 ## Syntax
 
-Gültige `<display-box>`-Werte:
+Gültige `<display-box>` Werte:
 
 - `contents`
-  - : Diese Elemente erzeugen selbst keine spezifische Box. Sie werden durch ihre Pseudobox und deren Kindboxen ersetzt. Beachten Sie bitte, dass die CSS Display Level 3-Spezifikation definiert, wie der Wert `contents` "ungewöhnliche Elemente" beeinflussen sollte — Elemente, die nicht rein durch CSS-Boxkonzepte gerendert werden, wie ersetzte Elemente. Siehe [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details.
+  - : Diese Elemente erzeugen selbst keine spezifische Box. Sie werden durch ihre Pseudo-Box und ihre Kinder-Boxen ersetzt. Bitte beachten Sie, dass die CSS Display Level 3 Spezifikation definiert, wie der Wert `contents` sich auf "ungewöhnliche Elemente" auswirken sollte — Elemente, die nicht ausschließlich durch CSS-Box-Konzepte wie ersetzbare Elemente gerendert werden. Siehe [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details.
 
-    _Aufgrund eines Fehlers in Browsern wird das Element derzeit aus dem Barrierefreiheitsbaum entfernt — Screenreader werden den Inhalt nicht erkennen. Siehe den Abschnitt [Barrierefreiheit](#accessibility) unten für weitere Details._
+    _Aufgrund eines Fehlers in den Browsern wird dies derzeit das Element aus dem Accessibility-Baum entfernen — Bildschirmlesegeräte werden den Inhalt nicht berücksichtigen. Weitere Details finden Sie im Abschnitt [Accessibility](#barrierefreiheit) unten._
 
 - `none`
-  - : Schaltet die Anzeige eines Elements aus, sodass es keinen Einfluss auf das Layout hat (das Dokument wird gerendert, als ob das Element nicht existiert). Alle Nachfahren-Elemente werden ebenfalls nicht angezeigt.
-    Um ein Element den Platz einnehmen zu lassen, den es normalerweise einnehmen würde, ohne tatsächlich etwas zu rendern, verwenden Sie stattdessen die {{CSSxRef("visibility")}}-Eigenschaft.
+  - : Schaltet die Anzeige eines Elements aus, sodass es keine Auswirkungen auf das Layout hat (das Dokument wird gerendert, als ob das Element nicht existieren würde). Alle Nachkommenelemente haben ebenfalls ihre Anzeige ausgeschaltet.
+    Um ein Element den Raum einnehmen zu lassen, den es normalerweise einnehmen würde, ohne jedoch tatsächlich etwas zu rendern, verwenden Sie stattdessen die {{CSSxRef("visibility")}} Eigenschaft.
 
-## Accessibility
+## Barrierefreiheit
 
-Derzeitige Implementierungen in den meisten Browsern werden aus dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) jedes Element mit einem `display`-Wert von `contents` entfernen. Dies führt dazu, dass das Element — und in einigen Browserversionen auch seine Nachfahr-Elemente — nicht mehr von Screenreader-Technologie angekündigt werden. Dies ist ein inkorrektes Verhalten gemäß der [CSSWG-Spezifikation](https://drafts.csswg.org/css-display/#the-display-properties).
+Aktuelle Implementierungen in den meisten Browsern werden jedes Element mit einem `display`-Wert von `contents` aus dem [Accessibility-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) entfernen. Dies führt dazu, dass das Element — und in einigen Browserversionen seine Nachkommenelemente — nicht mehr von Bildschirmlesetechnologie angekündigt werden. Dies ist ein fehlerhaftes Verhalten gemäß der [CSSWG Spezifikation](https://drafts.csswg.org/css-display/#the-display-properties).
 
-- [Barrierefreiere Markup mit display: contents | Hidde de Vries](https://hidde.blog/more-accessible-markup-with-display-contents/)
-- [Display: Contents Ist Kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
+- [Mehr zugängliches Markup mit display: contents | Hidde de Vries](https://hidde.blog/more-accessible-markup-with-display-contents/)
+- [Display: Contents ist kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
 
 ## Formale Syntax
 
@@ -33,7 +34,7 @@ Derzeitige Implementierungen in den meisten Browsern werden aus dem [Barrierefre
 
 ## Beispiele
 
-Im ersten Beispiel wird der Absatz mit der Klasse secret auf `display: none` gesetzt; die Box und jeder Inhalt wird nun nicht gerendert.
+Im ersten Beispiel wird der Absatz mit einer Klasse von secret auf `display: none` gesetzt; die Box und jeglicher Inhalt wird jetzt nicht gerendert.
 
 ### display: none
 
@@ -58,7 +59,7 @@ p.secret {
 
 ### display: contents
 
-In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten Rand und eine Breite von 300px. Da es jedoch auch `display: contents` angegeben hat, wird dieses `<div>` nicht gerendert, der Rand und die Breite gelten nicht mehr, und das Kindelement wird angezeigt, als ob das übergeordnete Element nie existiert hätte.
+In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten Rand und eine Breite von 300px. Es hat jedoch auch `display: contents` angegeben, daher wird dieses `<div>` nicht gerendert, der Rand und die Breite gelten nicht mehr, und das Kindelement wird angezeigt, als ob das Elternelement nie existiert hätte.
 
 #### HTML
 
@@ -103,5 +104,5 @@ In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten R
   - {{CSSxRef("&lt;display-internal&gt;")}}
   - {{CSSxRef("&lt;display-legacy&gt;")}}
 
-- [Display: Contents Ist Kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
-- [Barrierefreiere Markup mit display: contents](https://hidde.blog/more-accessible-markup-with-display-contents/) von Hidde de Vries (2018)
+- [Display: Contents ist kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
+- [Mehr zugängliches Markup mit display: contents](https://hidde.blog/more-accessible-markup-with-display-contents/) von Hidde de Vries (2018)

@@ -2,34 +2,34 @@
 title: SVG-Animation mit SMIL
 slug: Web/SVG/Guides/SVG_animation_with_SMIL
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
-[Synchronized Multimedia Integration Language](https://www.w3.org/TR/SMIL/) (SMIL) ist eine auf XML basierende Sprache zur Erstellung interaktiver Multimedia-Präsentationen. Autoren können SMIL-Syntax in anderen XML-basierten Sprachen verwenden, um das Timing und Layout von Elementen für Animationen zu definieren.
+[Synchronized Multimedia Integration Language](https://www.w3.org/TR/SMIL/) (SMIL) ist eine XML-basierte Sprache zur Erstellung interaktiver Multimedia-Präsentationen. Autoren können die SMIL-Syntax in anderen XML-basierten Sprachen verwenden, um das Timing und Layout von Elementen für Animationen zu definieren.
 
 SMIL ermöglicht Ihnen:
 
-- die numerischen Attribute eines Elements zu animieren ([x](/de/docs/Web/SVG/Reference/Attribute/x), [y](/de/docs/Web/SVG/Reference/Attribute/y), etc.)
-- [transform](/de/docs/Web/SVG/Reference/Attribute/transform) Attribute zu animieren ([translation](/de/docs/Web/SVG/Reference/Attribute/transform#translate), [rotate](/de/docs/Web/SVG/Reference/Attribute/transform#rotate), etc.)
-- [color](/de/docs/Web/SVG/Reference/Attribute/color) Attribute zu animieren
-- einem Bewegungs-[path](/de/docs/Web/SVG/Reference/Element/path) zu folgen
+- numerische Attribute eines Elements zu animieren ([x](/de/docs/Web/SVG/Reference/Attribute/x), [y](/de/docs/Web/SVG/Reference/Attribute/y) usw.)
+- [transform](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribute zu animieren ([translation](/de/docs/Web/SVG/Reference/Attribute/transform#translate), [rotate](/de/docs/Web/SVG/Reference/Attribute/transform#rotate) usw.)
+- [color](/de/docs/Web/SVG/Reference/Attribute/color)-Attribute zu animieren
+- einer Bewegungs-[path](/de/docs/Web/SVG/Reference/Element/path) zu folgen
 
-Die folgenden Abschnitte zeigen, wie Sie SMIL in [SVG](/de/docs/Web/SVG) für diese vier Anwendungsfälle verwenden können.
+Die folgenden Abschnitte zeigen, wie SMIL in [SVG](/de/docs/Web/SVG) für diese vier Anwendungsfälle verwendet wird.
 
 ## Attribute eines Elements animieren
 
 Das folgende Beispiel animiert das [`cx`-Attribut](/de/docs/Web/SVG/Reference/Attribute/cx) eines Kreises. Dazu fügen wir ein {{ SVGElement("animate") }}-Element innerhalb des {{ SVGElement("circle") }}-Elements hinzu. Die wichtigen Attribute für {{ SVGElement("animate") }} sind:
 
 - `attributeName`
-  - : Der Name des Attributs, das animiert werden soll.
+  - : Der Name des zu animierenden Attributs.
 - `from`
-  - : Der Anfangswert des Attributs.
+  - : Der anfängliche Wert des Attributs.
 - `to`
   - : Der Endwert.
 - `dur`
-  - : Die Dauer der Animation (zum Beispiel '5s' für 5 Sekunden).
+  - : Die Dauer der Animation (zum Beispiel, schreiben Sie '5s' für 5 Sekunden).
 
-Wenn Sie weitere Attribute innerhalb desselben Elements animieren möchten, können Sie weitere {{ SVGElement("animate") }}-Elemente hinzufügen.
+Wenn Sie mehr Attribute innerhalb desselben Elements animieren möchten, können Sie mehr {{ SVGElement("animate") }}-Elemente hinzufügen.
 
 ```html
 <svg width="300" height="100">
@@ -48,9 +48,9 @@ Wenn Sie weitere Attribute innerhalb desselben Elements animieren möchten, kön
 
 {{ EmbedLiveSample('Animating_attributes_of_an_element', '100%', 120) }}
 
-## Die Transform-Attribute animieren
+## Animation der Transformationsattribute
 
-Das {{ SVGElement("animateTransform") }}-Element ermöglicht es Ihnen, [transform](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribute zu animieren. Dieses Element ist notwendig, da wir nicht ein einzelnes Attribut wie [x](/de/docs/Web/SVG/Reference/Attribute/x) animieren, das eine Zahl ist. Rotationsattribute sehen folgendermaßen aus: `rotation(theta, x, y)`, wobei `theta` der Winkel in Grad ist und `x` und `y` absolute Positionen sind. Im unten stehenden Beispiel animieren wir das Zentrum der Rotation und den Winkel.
+Das {{ SVGElement("animateTransform") }}-Element ermöglicht die Animation von [transform](/de/docs/Web/SVG/Reference/Attribute/transform)-Attributen. Dieses Element ist notwendig, da wir kein einzelnes Attribut wie [x](/de/docs/Web/SVG/Reference/Attribute/x), das eine Zahl ist, animieren. Rotationsattribute sehen so aus: `rotation(theta, x, y)`, wobei `theta` der Winkel in Grad ist und `x` und `y` absolute Positionen sind. Im unten stehenden Beispiel animieren wir das Zentrum der Rotation und den Winkel.
 
 ```html
 <svg width="300" height="100">
@@ -80,11 +80,11 @@ Das {{ SVGElement("animateTransform") }}-Element ermöglicht es Ihnen, [transfor
 
 ## Animation entlang eines Pfades
 
-Das {{ SVGElement("animateMotion") }}-Element ermöglicht es Ihnen, die Position und Rotation eines Elements entsprechend einem Pfad zu animieren. Der Pfad wird genauso definiert wie in {{ SVGElement("path") }}. Sie können das Attribut setzen, um zu bestimmen, ob sich das Objekt entlang der Tangente des Pfades dreht.
+Das {{ SVGElement("animateMotion") }}-Element ermöglicht es Ihnen, die Position und Rotation eines Elements gemäß einem Pfad zu animieren. Der Pfad wird auf die gleiche Weise wie bei {{ SVGElement("path") }} definiert. Sie können das Attribut festlegen, um zu definieren, ob das Objekt sich dreht, indem es der Tangente des Pfads folgt.
 
 ### Beispiel 1: Lineare Bewegung
 
-In diesem Beispiel springt ein blauer Kreis ununterbrochen zwischen den linken und rechten Kanten eines schwarzen Kastens hin und her. Die Animation wird hier vom {{ SVGElement("animateMotion") }}-Element gesteuert. In diesem Fall legen wir einen Pfad fest, der aus einem **MoveTo** Befehl besteht, um den Startpunkt für die Animation zu definieren, dann den **Horizontal-line** Befehl, um den Kreis 300 Pixel nach rechts zu bewegen, gefolgt vom **Z Befehl**, der den Pfad schließt und eine Schleife zurück zum Anfang erstellt. Indem wir den Wert des **repeatCount**-Attributs auf `indefinite` setzen, geben wir an, dass die Animation endlos wiederholt werden soll, solange das SVG-Bild existiert.
+In diesem Beispiel prallt ein blauer Kreis immer wieder zwischen den linken und rechten Rändern eines schwarzen Kastens hin und her. Die Animation wird hier vom {{ SVGElement("animateMotion") }}-Element gesteuert. In diesem Fall definieren wir einen Pfad, der aus einem **MoveTo**-Befehl besteht, um den Startpunkt für die Animation festzulegen, gefolgt vom **Horizontal-line**-Befehl, um den Kreis 300 Pixel nach rechts zu bewegen, und dem **Z-Befehl**, der den Pfad schließt und somit eine Schleife erstellt, die zum Anfang zurückführt. Indem wir den Wert des **repeatCount**-Attributs auf `indefinite` setzen, zeigen wir an, dass die Animation für immer wiederholt werden soll, solange das SVG-Bild existiert.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
@@ -98,11 +98,11 @@ In diesem Beispiel springt ein blauer Kreis ununterbrochen zwischen den linken u
 
 {{ EmbedLiveSample('Example_1_Linear_motion', '100%', 120) }}
 
-[Live-Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/svganimdemo1.html)
+[Live-Beispiel anzeigen](https://mdn.dev/archives/media/samples/svg/svganimdemo1.html)
 
-### Beispiel 2: Gebogene Bewegung
+### Beispiel 2: Gekrümmte Bewegung
 
-Dasselbe Beispiel wie zuvor, jedoch mit einem gebogenen Pfad und folgender Richtung desselben.
+Dasselbe Beispiel wie zuvor mit einem gekrümmten Pfad und der Verfolgung der Richtung des Pfades.
 
 ```html
 <svg width="300" height="100">
@@ -130,5 +130,5 @@ Dasselbe Beispiel wie zuvor, jedoch mit einem gebogenen Pfad und folgender Richt
 ## Siehe auch
 
 - [SVG](/de/docs/Web/SVG)
-- [SVG Animation Specification](https://svgwg.org/svg2-draft/animate.html)
-- [SMIL Specification](https://www.w3.org/TR/SMIL/)
+- [SVG Animationsspezifikation](https://w3c.github.io/svgwg/svg2-draft/animate.html)
+- [SMIL Spezifikation](https://www.w3.org/TR/SMIL/)

@@ -1,15 +1,16 @@
 ---
-title: ::highlight()
+title: "`::highlight()` CSS pseudo-element"
+short-title: ::highlight()
 slug: Web/CSS/Reference/Selectors/::highlight
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 Das **`::highlight()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
 
-Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Ein benutzerdefiniertes Highlight ist eine Sammlung von [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
-Das `::highlight()`-Pseudoelement folgt einem speziellen Vererbungsmuster, das allen Highlight-Pseudoelementen gemeinsam ist. Für mehr Details, wie diese Vererbung funktioniert, siehe den Abschnitt [Highlight-Pseudoelemente-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::highlight()` Pseudoelement folgt einem speziellen Vererbungsmodell, das allen Highlight-Pseudoelementen gemeinsam ist. Weitere Details zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Highlight-Pseudoelement-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
 ## Erlaubte Eigenschaften
 
@@ -17,7 +18,7 @@ Nur bestimmte CSS-Eigenschaften können mit `::highlight()` verwendet werden:
 
 - {{CSSxRef("color")}}
 - {{CSSxRef("background-color")}}
-- {{CSSxRef("text-decoration")}} und die dazugehörigen Eigenschaften
+- {{CSSxRef("text-decoration")}} und seine zugehörigen Eigenschaften
 - {{CSSxRef("text-shadow")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}, {{CSSxRef("-webkit-text-fill-color")}} und {{CSSxRef("-webkit-text-stroke-width")}}
 
@@ -31,7 +32,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Zeichen hervorheben
+### Hervorhebung von Zeichen
 
 #### HTML
 
@@ -125,6 +126,6 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 
 ## Siehe auch
 
-- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
 - [CSS Custom Highlight](/de/docs/Web/API/CSS_Custom_Highlight_API) API
-- [CSS Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements)-Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul

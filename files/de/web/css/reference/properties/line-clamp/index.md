@@ -1,18 +1,19 @@
 ---
-title: line-clamp
+title: "`line-clamp` CSS property"
+short-title: line-clamp
 slug: Web/CSS/Reference/Properties/line-clamp
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht das Begrenzen der Inhalte eines {{Glossary("block", "Blocks")}} auf die angegebene Anzahl von Zeilen.
+Die **`line-clamp`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, den Inhalt eines {{Glossary("block", "Blocks")}} auf die angegebene Anzahl von Zeilen zu begrenzen.
 
 > [!NOTE]
-> Für Legacy-Unterstützung funktioniert die herstellerpräfixierte Eigenschaft `-webkit-line-clamp` nur in Kombination mit der {{cssxref("display")}}-Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}}-Eigenschaft, die auf `vertical` gesetzt ist. Obwohl diese präfixierten Eigenschaften veraltet sind, ist die Abhängigkeit dieser drei Eigenschaften ein vollständig spezifiziertes Verhalten und wird weiterhin unterstützt.
+> Für die Unterstützung älterer Browser funktioniert die vendor-präfixierte `-webkit-line-clamp`-Eigenschaft nur in Kombination mit der {{cssxref("display")}}-Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` eingestellt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}}-Eigenschaft, die auf `vertical` gesetzt ist. Obwohl diese präfixierten Eigenschaften veraltet sind, ist die Abhängigkeit dieser drei Eigenschaften ein vollständig spezifiziertes Verhalten und wird weiterhin unterstützt.
 
-In den meisten Fällen möchten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, andernfalls werden die Inhalte nicht abgeschnitten, aber ein Auslassungszeichen wird nach der angegebenen Anzahl von Zeilen weiterhin angezeigt.
+In den meisten Fällen möchten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, da ansonsten der Inhalt nicht abgeschnitten wird, aber dennoch ein Auslassungszeichen nach der angegebenen Anzahl von Zeilen angezeigt wird.
 
-Wenn die Eigenschaft auf Ankerelemente angewendet wird, kann die Kürzung in der Mitte des Textes erfolgen, nicht unbedingt am Ende.
+Wenn die Eigenschaft auf Ankerelemente angewendet wird, kann die Trunkierung in der Mitte des Textes und nicht unbedingt am Ende erfolgen.
 
 ## Syntax
 
@@ -35,9 +36,9 @@ line-clamp: unset;
 ### Werte
 
 - `none`
-  - : Dieser Wert gibt an, dass der Inhalt nicht geklammert wird.
+  - : Dieser Wert gibt an, dass der Inhalt nicht gekürzt wird.
 - {{cssxref("integer")}}
-  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt geklammert wird. Er muss größer als 0 sein.
+  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt abgeschnitten wird. Es muss größer als 0 sein.
 
 ## Formale Definition
 

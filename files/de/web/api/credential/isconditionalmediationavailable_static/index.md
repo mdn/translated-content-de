@@ -3,12 +3,12 @@ title: "Credential: isConditionalMediationAvailable() statische Methode"
 short-title: isConditionalMediationAvailable()
 slug: Web/API/Credential/isConditionalMediationAvailable_static
 l10n:
-  sourceCommit: 463cfc7f25a083241b06a5f5a9a927924f48ca6e
+  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
 ---
 
-{{APIRef("Web Authentication API")}}{{securecontext_header}}{{SeeCompatTable}}
+{{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`isConditionalMediationAvailable()`** statische Methode des [`Credential`](/de/docs/Web/API/Credential)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das zu `false` aufgelöst wird.
+Die statische Methode **`isConditionalMediationAvailable()`** der [`Credential`](/de/docs/Web/API/Credential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich zu `false` auflöst.
 
 Unterklassen von [`Credential`](/de/docs/Web/API/Credential) überschreiben diese Methode, wenn sie bedingte Vermittlung unterstützen. Siehe zum Beispiel [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static).
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu `false` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich zu `false` auflöst.
 
 ## Beispiele
 

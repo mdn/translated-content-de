@@ -1,13 +1,14 @@
 ---
-title: "<dt>: Das Description Term-Element"
+title: "`<dt>` HTML-Beschreibungselement"
+short-title: <dt>
 slug: Web/HTML/Reference/Elements/dt
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<dt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}}-Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}}-Element gefolgt; jedoch deuten mehrere `<dt>`-Elemente in Reihe auf mehrere Begriffe hin, die alle durch das unmittelbar folgende {{HTMLElement("dd")}}-Element definiert werden.
+Das **`<dt>`** [HTML](/de/docs/Web/HTML) Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}} Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}} Element gefolgt; jedoch weisen mehrere `<dt>` Elemente in einer Reihe darauf hin, dass mehrere Begriffe alle durch das unmittelbar folgende {{HTMLElement("dd")}} Element definiert werden.
 
-Das nachfolgende {{HTMLElement("dd")}}-Element (**Description Details**) liefert die Definition oder andere zugehörige Texte, die mit dem mittels `<dt>` spezifizierten Begriff verbunden sind.
+Das nachfolgende {{HTMLElement("dd")}} (**Beschreibung Details**) Element liefert die Definition oder einen anderen verwandten Text, der mit dem Begriff verbunden ist, der mit `<dt>` spezifiziert wurde.
 
 {{InteractiveExample("HTML Demo: &lt;dt&gt;", "tabbed-standard")}}
 
@@ -48,7 +49,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Beispiele
 
-Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/de/docs/Web/HTML/Reference/Elements/dl#examples).
+Für Beispiele siehe die [beim `<dl>` Element angegebenen Beispiele](/de/docs/Web/HTML/Reference/Elements/dl#examples).
 
 ## Technische Zusammenfassung
 
@@ -67,19 +68,29 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, jedoch ohne {{HTMLElement("header")}}, {{HTMLElement("footer")}}, sectioning content oder heading content Nachkommen.
+        >, aber ohne {{HTMLElement("header")}},
+        {{HTMLElement("footer")}}, Gliederungsinhalt oder Kopfzeileninhalt
+        als Nachkommen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist erforderlich. Das End-Tag kann ausgelassen werden, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;dt></code>-Element oder einem {{HTMLElement("dd")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist.
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element
+        unmittelbar von einem weiteren <code>&#x3C;dt></code> Element oder einem
+        {{HTMLElement("dd")}} Element gefolgt wird oder wenn
+        im Elternelement kein weiterer Inhalt mehr vorhanden ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) ein {{HTMLElement("div")}}, das ein Kind eines {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem {{HTMLElement("dd")}} oder einem anderen <code>&lt;dt&gt;</code>-Element verwendet werden.
+        Ein {{HTMLElement("dl")}} oder (in {{Glossary("WHATWG", "WHATWG")}} HTML,
+        {{Glossary("W3C", "W3C")}} HTML 5.2 und später) ein
+        {{HTMLElement("div")}}, das ein Kind eines
+        {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem
+        {{HTMLElement("dd")}} oder einem weiteren <code>&lt;dt&gt;</code>
+        Element verwendet werden.
       </td>
     </tr>
     <tr>
@@ -103,7 +114,9 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        verwendet Firefox die
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement) Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

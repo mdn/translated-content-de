@@ -1,29 +1,30 @@
 ---
-title: pointer
+title: "`pointer` CSS Medienfunktion"
+short-title: pointer
 slug: Web/CSS/Reference/At-rules/@media/pointer
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`pointer`**-[CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) prüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat, und wenn ja, wie genau das _primäre_ Zeigegerät ist.
+Die **`pointer`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) prüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat und, falls ja, wie genau das _primäre_ Zeigegerät ist.
 
 > [!NOTE]
-> Wenn Sie die Genauigkeit _irgendeines_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/Reference/At-rules/@media/any-pointer).
+> Wenn Sie die Genauigkeit _jedes_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/Reference/At-rules/@media/any-pointer).
 
 ## Syntax
 
-Die `pointer`-Funktion wird als ein Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Die `pointer`-Funktion wird als Schlüsselwortwert angegeben, der aus der untenstehenden Liste ausgewählt wird.
 
 - `none`
   - : Der primäre Eingabemechanismus umfasst kein Zeigegerät.
 - `coarse`
-  - : Der primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie z. B. einen Finger auf einem Touchscreen.
+  - : Der primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie ein Finger auf einem Touchscreen.
 - `fine`
-  - : Der primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie z. B. eine Maus.
+  - : Der primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie eine Maus.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit feinen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit groben primären Zeigegeräten.
+Dieses Beispiel erstellt ein kleines Kontrollkästchen für Benutzer mit präzisen primären Zeigegeräten und ein großes Kontrollkästchen für Benutzer mit grober primärer Zeigegerätgenauigkeit.
 
 ### HTML
 

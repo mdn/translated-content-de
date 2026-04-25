@@ -1,17 +1,18 @@
 ---
-title: "@starting-style"
+title: "`@starting-style` CSS at-rule"
+short-title: "@starting-style"
 slug: Web/CSS/Reference/At-rules/@starting-style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: e328268bb418551ab451881845881b5837c9da83
 ---
 
-Die **`@starting-style`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules) wird verwendet, um Anfangswerte für Eigenschaften festzulegen, die von einem Element bei seiner ersten Stilaktualisierung verwendet werden sollen, also wenn ein Element erstmals auf einer zuvor geladenen Seite angezeigt wird.
+Die **`@starting-style`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) wird verwendet, um Startwerte für Eigenschaften festzulegen, die auf ein Element angewendet werden sollen, von dem Sie aus übergangsweise Änderungen wünschen, wenn das Element seine erste Stilaktualisierung erhält, d.h. wenn ein Element auf einer zuvor geladenen Seite erstmalig angezeigt wird.
 
 ## Syntax
 
 Die `@starting-style` At-Regel kann auf zwei Arten verwendet werden:
 
-1. Als eigenständiger Block, in diesem Fall enthält er ein oder mehrere Regelsets, die Anfangsstil-Deklarationen definieren und die Elemente auswählen, auf die sie angewendet werden:
+1. Als eigenständiger Block, in dem Fall enthält sie eine oder mehrere Regelsets, die Startstil-Deklarationen definieren und die Elemente auswählen, auf die sie angewendet werden:
 
    ```css
    @starting-style {
@@ -19,7 +20,7 @@ Die `@starting-style` At-Regel kann auf zwei Arten verwendet werden:
    }
    ```
 
-2. Verschachtelt innerhalb eines bestehenden Regelsets, in diesem Fall enthält er ein oder mehrere Deklarationen, die Anfangswerte für die Eigenschaften der bereits durch dieses Regelset ausgewählten Elemente definieren:
+2. Eingerückt innerhalb eines vorhandenen Regelsets, in dem Fall enthält sie eine oder mehrere Deklarationen, die Startwerte für die bereits vom Regelset ausgewählten Elemente definieren:
 
    ```css
    selector {
@@ -34,15 +35,16 @@ Die `@starting-style` At-Regel kann auf zwei Arten verwendet werden:
 
 ## Beschreibung
 
-Um unerwartetes Verhalten zu vermeiden, werden [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) standardmäßig nicht bei der anfänglichen Stilaktualisierung eines Elements ausgelöst, oder wenn sich der {{CSSxRef("display")}}-Typ des Elements von `none` zu einem anderen Wert ändert. Um Übergänge beim ersten Stil zu ermöglichen, sind `@starting-style` Regeln erforderlich. Sie liefern Anfangsstile für Elemente, die keinen vorherigen Zustand haben, und definieren die Eigenschaftswerte, von denen aus der Übergang erfolgen soll.
+Um unerwartetes Verhalten zu vermeiden, werden [CSS-Transitionen](/de/docs/Web/CSS/Guides/Transitions) standardmäßig nicht bei der anfänglichen Stilaktualisierung eines Elements oder wenn sich der {{CSSxRef("display")}} Typ von `none` zu einem anderen Wert ändert, ausgelöst. Um Transitionen beim ersten Stilwechsel zu aktivieren, sind `@starting-style` Regeln erforderlich. Sie bieten Startstile für Elemente, die keinen vorherigen Zustand haben, und definieren die Eigenschaftswerte, von denen die Transition ausgeht.
 
-`@starting-style` ist besonders nützlich, um Eingangs- und Ausgangsübergänge für Elemente zu erstellen, die in einer {{Glossary("top_layer", "obersten Ebene")}} angezeigt werden (wie z.B. [Popovers](/de/docs/Web/API/Popover_API) und modale {{htmlelement("dialog")}}s) oder Elemente, die in den und aus dem `display: none`-Zustand wechseln, sowie für Elemente, wenn sie dem DOM hinzugefügt oder aus ihm entfernt werden.
+`@starting-style` ist besonders nützlich, wenn Eintritts- und Austritts-Transitionen für Elemente erstellt werden, die in der {{Glossary("top_layer", "Top-Ebene")}} angezeigt werden (wie [Popovers](/de/docs/Web/API/Popover_API) und modale {{htmlelement("dialog")}}s), Elemente, die von und zu `display: none` wechseln, und Elemente, die erstmals zum oder aus dem DOM hinzugefügt bzw. entfernt werden.
 
-> [!NOTE] > `@starting-style` ist nur für CSS-Übergänge relevant. Wenn Sie [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) verwenden, um solche Effekte zu implementieren, ist `@starting-style` nicht erforderlich. Siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für ein Beispiel.
+> [!NOTE]
+> `@starting-style` ist nur für CSS-Transitionen relevant. Bei der Verwendung von [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) zur Implementierung solcher Effekte ist `@starting-style` nicht erforderlich. Siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für ein Beispiel.
 
-Es gibt zwei Möglichkeiten, `@starting-style` zu verwenden: als eigenständige Regel oder verschachtelt innerhalb eines Regelsets.
+Es gibt zwei Möglichkeiten, `@starting-style` zu verwenden: als eigenständige Regel oder eingebettet in ein Regelset.
 
-Betrachten wir ein Szenario, in dem wir ein [Popover](/de/docs/Web/API/Popover_API) animieren möchten, wenn es angezeigt wird (d.h. wenn es zur obersten Ebene hinzugefügt wird). Die "Originalregel", die die Stile für das geöffnete Popover angibt, könnte folgendermaßen aussehen (siehe das [Popover-Beispiel](#animieren_eines_popovers) unten):
+Betrachten wir ein Szenario, in dem wir ein [Popover](/de/docs/Web/API/Popover_API) animieren möchten, wenn es angezeigt wird (also wenn es zur Top-Ebene hinzugefügt wird). Die "Originalregel", die die Stile für das geöffnete Popover festlegt, könnte in etwa wie folgt aussehen (siehe das untenstehende [Popover-Beispiel](#ein_popover_animieren)):
 
 ```css
 [popover]:popover-open {
@@ -51,7 +53,7 @@ Betrachten wir ein Szenario, in dem wir ein [Popover](/de/docs/Web/API/Popover_A
 }
 ```
 
-Um die Anfangswerte der Popover-Eigenschaften, die animiert werden sollen, mit der ersten Methode anzugeben, fügen Sie einen eigenständigen `@starting-style` Block in Ihr CSS ein:
+Um die Startwerte der Eigenschaften des Popovers, die animiert werden sollen, mit der ersten Methode festzulegen, fügen Sie einen eigenständigen `@starting-style` Block in Ihr CSS ein:
 
 ```css
 @starting-style {
@@ -63,9 +65,9 @@ Um die Anfangswerte der Popover-Eigenschaften, die animiert werden sollen, mit d
 ```
 
 > [!NOTE]
-> Die `@starting-style` At-Regel und die "Originalregel" haben die gleiche [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity). Um sicherzustellen, dass die Anfangsstile angewendet werden, platzieren Sie die `@starting-style` At-Regel _nach_ der "Originalregel". Wenn Sie die `@starting-style` At-Regel vor der "Originalregel" angeben, werden die ursprünglichen Stile die Anfangsstile überschreiben.
+> Die `@starting-style` At-Regel und die "Originalregel" haben die gleiche [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity). Um sicherzustellen, dass Startstile angewendet werden, platzieren Sie die `@starting-style` At-Regel _nach_ der "Originalregel". Wenn Sie die `@starting-style` At-Regel vor der "Originalregel" angeben, überschreiben die Originalstile die Startstile.
 
-Um den Anfangsstil für das Popover mit der verschachtelten Methode anzugeben, können Sie den `@starting-style` Block innerhalb der "Originalregel" verschachteln:
+Um den Startstil für das Popover mit der eingebetteten Methode festzulegen, können Sie den `@starting-style` Block innerhalb der "Originalregel" verschachteln:
 
 ```css
 [popover]:popover-open {
@@ -79,11 +81,11 @@ Um den Anfangsstil für das Popover mit der verschachtelten Methode anzugeben, k
 }
 ```
 
-### Wann genau werden Anfangsstile verwendet?
+### Wann genau werden Startstile verwendet?
 
-Es ist wichtig zu verstehen, dass ein Element von seinen `@starting-style` Stilen aus Übergang nimmt, wenn es erstmals im DOM gerendert wird oder wenn es von {{cssxref("display", "display: none")}} zu einem sichtbaren Wert wechselt. Wenn es aus seinem anfänglichen sichtbaren Zustand zurückwechselt, wird es die `@starting-style` Stile nicht mehr verwenden, da es nun im DOM sichtbar ist. Stattdessen wird es zu den Stilen zurückkehren, die für den Standardzustand dieses Elements existieren.
+Es ist wichtig zu verstehen, dass ein Element von seinen `@starting-style` Stilen übergeht, wenn es erstmals im DOM gerendert wird oder wenn es von {{cssxref("display", "display: none")}} zu einem sichtbaren Wert wechselt. Wenn es von seinem anfänglichen sichtbaren Zustand zurückwechselt, verwendet es die `@starting-style` Stile nicht mehr, da es jetzt im DOM sichtbar ist. Stattdessen wechselt es zurück zu welchen Stilen auch immer für den Standardzustand dieses Elements existieren.
 
-Tatsächlich gibt es in diesen Situationen drei Stilzustände, die verwaltet werden müssen: der Anfangsstil-Zustand, der übergangene Zustand und der Standardzustand. In solchen Fällen können die "Zu-" und "Von-" Übergänge unterschiedlich sein. Sie können ein Beispiel dafür in unserem [Beispiel, wann Anfangsstile verwendet werden](#beispiel,_wann_anfangsstile_verwendet_werden) unten sehen.
+Im Effekt gibt es drei Stilzustände, die in diesen Situationen verwaltet werden müssen — Startstilzustand, Übergangszustand und Standardzustand. Es ist möglich, dass die "zu" und "von" Transitionen in solchen Fällen unterschiedlich sind. Ein Beweis dafür ist in unserem [Beispiel, wann Startstile verwendet werden](#demonstration,_wann_startstile_verwendet_werden) weiter unten zu sehen.
 
 ## Formale Syntax
 
@@ -93,7 +95,7 @@ Tatsächlich gibt es in diesen Situationen drei Stilzustände, die verwaltet wer
 
 ### Grundlegende Verwendung von @starting-style
 
-Übergang der {{cssxref("background-color")}} eines Elements von transparent zu grün, wenn es zuerst gerendert wird:
+Transitionieren Sie die {{cssxref("background-color")}} eines Elements von transparent zu grün, wenn es erstmals gerendert wird:
 
 ```css
 #target {
@@ -108,7 +110,7 @@ Tatsächlich gibt es in diesen Situationen drei Stilzustände, die verwaltet wer
 }
 ```
 
-Übergang der {{cssxref("opacity")}} eines Elements, wenn es seinen {{cssxref("display")}}-Wert zu oder von `none` ändert:
+Transitionieren Sie die {{cssxref("opacity")}} eines Elements, wenn es seinen {{cssxref("display")}} Wert auf oder von `none` verändert:
 
 ```css
 #target {
@@ -127,15 +129,15 @@ Tatsächlich gibt es in diesen Situationen drei Stilzustände, die verwaltet wer
 }
 ```
 
-### Beispiel, wann Anfangsstile verwendet werden
+### Demonstration, wann Startstile verwendet werden
 
-In diesem Beispiel wird ein Button gedrückt, um ein {{htmlelement("div")}} Element zu erstellen, ihm eine `class` von `showing` zu geben und es dem DOM hinzuzufügen.
+In diesem Beispiel wird ein Button gedrückt, um ein {{htmlelement("div")}} Element zu erstellen, ihm eine `class` von `showing` zu geben und es zum DOM hinzuzufügen.
 
-`showing` hat einen `@starting-style` von `background-color: red` und einen Stil, der zu `background-color: blue` übergeht. Das Standard-`div`-Regelset enthält `background-color: yellow` und ist auch dort, wo der `transition` festgelegt ist.
+`showing` erhält ein `@starting-style` von `background-color: red` und einen Stil von `background-color: blue`, zu dem es übergeht. Das Standard-`div` Regelset enthält `background-color: yellow`, und hier wird auch die `transition` gesetzt.
 
-Wenn das `<div>` erstmals dem DOM hinzugefügt wird, sehen Sie, wie sich der Hintergrund von rot zu blau ändert. Nach einer Zeitüberschreitung entfernen wir die `showing`-Klasse vom `<div>` über JavaScript. An diesem Punkt wechselt es von blau zurück zu gelb, nicht zu rot. Dies beweist, dass die Anfangsstile nur beim ersten Rendering des Elements im DOM verwendet werden. Wenn es einmal erschienen ist, kehrt das Element zu dem auf ihm festgelegten Standardstil zurück.
+Wenn das `<div>` erstmals zum DOM hinzugefügt wird, wird der Hintergrund von rot zu blau übergehen. Nach einem Timeout entfernen wir die `showing` Klasse mittels JavaScript vom `<div>`. An diesem Punkt wechselt es von blau zurück zu gelb, nicht rot. Dies beweist, dass die Startstile nur verwendet werden, wenn das Element erstmals im DOM gerendert wird. Sobald es erschienen ist, wechselt das Element zurück zu dem Standardstil, der darauf gesetzt ist.
 
-Nachdem das `<div>` vollständig aus dem DOM entfernt wurde, wird der Anfangszustand des Beispiels zurückgesetzt, sodass es erneut ausgeführt werden kann.
+Nach einem weiteren Timeout entfernen wir das `<div>` vollständig aus dem DOM, was den Anfangszustand des Beispiels zurücksetzt, damit es erneut ausgeführt werden kann.
 
 #### HTML
 
@@ -202,17 +204,17 @@ btn.addEventListener("click", () => {
 
 #### Ergebnis
 
-Der Code wird wie folgt gerendert:
+Der Code rendert sich wie folgt:
 
 {{ EmbedLiveSample("Demonstration of when starting styles are used", "100%", "150") }}
 
-### Animieren eines Popovers
+### Ein Popover animieren
 
-In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) mithilfe von [CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions) animiert. Grundlegende Eingangs- und Ausgangsanimationen werden mit der {{CSSxRef("transition")}}-Eigenschaft bereitgestellt.
+In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) mithilfe von [CSS-Transitionen](/de/docs/Web/CSS/Guides/Transitions) animiert. Grundlegende Eintritts- und Austrittsanimationen werden unter Verwendung der {{CSSxRef("transition")}} Eigenschaft bereitgestellt.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}} Element, das als Popover mit dem [popover](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut deklariert ist, und ein {{htmlelement("button")}} Element, das als Anzeige-Steuerelement für das Popover mit seinem [popovertarget](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) Attribut festgelegt ist.
+Das HTML enthält ein {{htmlelement("div")}} Element, das als Popover deklariert ist, unter Verwendung des [Popover](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attributs und ein {{htmlelement("button")}} Element, das als Steuerung zur Anzeige des Popovers bestimmt ist, unter Verwendung seines [popovertarget](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) Attributs.
 
 ```html
 <button popovertarget="mypopover">Show the popover</button>
@@ -221,7 +223,7 @@ Das HTML enthält ein {{htmlelement("div")}} Element, das als Popover mit dem [p
 
 #### CSS
 
-In diesem Beispiel möchten wir zwei Eigenschaften animieren: {{cssxref("opacity")}} und {{cssxref("transform")}} (speziell ein horizontal skalierender Transform), um das Ein- und Ausblenden des Popovers sowie das horizontale Wachstum und Schrumpfen zu ermöglichen.
+In diesem Beispiel wollen wir zwei Eigenschaften animieren, {{cssxref("opacity")}} und {{cssxref("transform")}} (genauer gesagt, eine horizontal skalierende Transform), um das Popover ein- und ausblenden sowie horizontal wachsen und schrumpfen zu lassen.
 
 ```css
 html {
@@ -282,33 +284,33 @@ so specify a standalone starting-style block. */
 }
 ```
 
-Um dies zu erreichen, haben wir einen Anfangszustand für diese Eigenschaften im standardmäßig verborgenen Zustand des Popover-Elements festgelegt (ausgewählt über `[popover]`), und einen Endzustand im offenen Zustand des Popovers (ausgewählt über die {{cssxref(":popover-open")}}-Pseudoklasse).
+Um dies zu erreichen, haben wir einen Startzustand für diese Eigenschaften im standardmäßig ausgeblendeten Zustand des Popover-Elements (ausgewählt über `[popover]`) festgelegt und einen Endzustand im offenen Zustand des Popovers (ausgewählt über die {{cssxref(":popover-open")}} Pseudoklasse).
 
-Wir haben dann eine {{cssxref("transition")}}-Eigenschaft festgelegt, um zwischen den beiden Zuständen zu animieren. Ein Anfangszustand für die Animation ist in einer `@starting-style` At-Regel enthalten, um die Eingangsanimation zu ermöglichen.
+Wir setzen dann eine {{cssxref("transition")}} Eigenschaft, um zwischen den beiden Zuständen zu animieren. Ein Startzustand für die Animation ist innerhalb einer `@starting-style` At-Regel enthalten, um die Eintrittsanimation zu aktivieren.
 
-Da das animierte Element zur {{Glossary("top_layer", "obersten Ebene")}} gefördert wird, wenn es angezeigt wird, und aus der obersten Ebene entfernt wird, wenn es versteckt wird (mit {{cssxref("display", "display: none")}}), sind einige zusätzliche Schritte erforderlich, um sicherzustellen, dass die Animation in beide Richtungen funktioniert:
+Da das animierte Element auf die {{Glossary("top_layer", "Top-Ebene")}} befördert wird, wenn es angezeigt wird, und aus der Top-Ebene entfernt wird, wenn es ausgeblendet wird (mit {{cssxref("display", "display: none")}}), sind einige zusätzliche Schritte erforderlich, um sicherzustellen, dass die Animation in beide Richtungen funktioniert:
 
-- `display` wird zur Liste der animierten Elemente hinzugefügt, um sicherzustellen, dass das animierte Element während der Eingangs- und Ausgangsanimation sichtbar ist (auf `display: block` oder einen anderen sichtbaren `display`-Wert gesetzt). Ohne dies wäre die Ausgangsanimation nicht sichtbar; tatsächlich würde das Popover einfach verschwinden. Beachten Sie, dass der Wert {{cssxref("transition-behavior", "transition-behavior: allow-discrete")}} auch im Kurzbefehl festgelegt wird, um die Animation zu aktivieren.
-- {{cssxref("overlay")}} wird zur Liste der animierten Elemente hinzugefügt, um sicherzustellen, dass die Entfernung des Elements von der obersten Ebene verzögert wird, bis die Animation endet. Dies macht keinen großen Unterschied bei Animationen wie dieser, aber in komplexeren Fällen kann das Fehlen dieser Maßnahme dazu führen, dass das Element zu schnell aus dem Overlay entfernt wird, was bedeutet, dass die Animation nicht flüssig oder effektiv ist. Erneut ist `transition-behavior: allow-discrete` in diesem Fall erforderlich, damit die Animation stattfindet.
+- `display` wird zur Liste der elementübergreifenden Transitionen hinzugefügt, um sicherzustellen, dass das animierte Element während beider, Ein- und Austrittsanimationen sichtbar ist (auf `display: block` oder einen anderen sichtbaren `display` Wert gesetzt). Ohne dies wäre die Austrittsanimation nicht sichtbar; effektiverweise würde das Popover einfach verschwinden. Beachten Sie, dass der {{cssxref("transition-behavior", "transition-behavior: allow-discrete")}} Wert auch im Shorthand gesetzt ist, um die Animation zu aktivieren.
+- {{cssxref("overlay")}} wird zur Liste der elementübergreifenden Transitionen hinzugefügt, um sicherzustellen, dass das Entfernen des Elements von der Top-Ebene bis zum Ende der Animation verzögert wird. Dies macht keinen großen Unterschied bei Animationen wie dieser, aber in komplexeren Fällen kann das Nichttun dazu führen, dass das Element zu schnell aus dem Overlay entfernt wird, was bedeutet, dass die Animation nicht glatt oder effektiv ist. Auch hier ist `transition-behavior: allow-discrete` in diesem Fall erforderlich, damit die Animation erfolgt.
 
 > [!NOTE]
-> Wir haben auch einen Übergang auf dem {{cssxref("::backdrop")}} hinzugefügt, das hinter dem Popover erscheint, wenn es geöffnet wird, um eine schöne Verdunkelungsanimation zu bieten. `[popover]:popover-open::backdrop` wird verwendet, um das Backdrop auszuwählen, wenn das Popover geöffnet ist.
+> Wir haben auch eine Transition auf das {{cssxref("::backdrop")}} eingefügt, das hinter dem Popover erscheint, wenn es geöffnet wird, um eine schöne Verdunkelungsanimation zu bieten. `[popover]:popover-open::backdrop` wird verwendet, um das Backdrop auszuwählen, wenn das Popover geöffnet ist.
 
 #### Ergebnis
 
-Der Code wird wie folgt gerendert:
+Der Code rendert sich wie folgt:
 
 {{ EmbedLiveSample("Animating a popover", "100%", "200") }}
 
 > [!NOTE]
-> Da Popovers bei jeder Anzeige von `display: none` zu `display: block` wechseln, wechselt das Popover bei jedem Auftreten des Eingangsübergangs von seinen `@starting-style`-Stilen zu seinen `[popover]:popover-open`-Stilen. Wenn das Popover geschlossen wird, wechselt es von seinem `[popover]:popover-open`-Zustand zurück zum Standard-`[popover]`-Zustand.
+> Da Popovers jedes Mal von `display: none` zu `display: block` wechseln, wenn sie angezeigt werden, wechselt das Popover von seinen `@starting-style` Stilen zu seinen `[popover]:popover-open` Stilen jedes Mal, wenn die Eintrittstransition erfolgt. Wenn das Popover geschlossen wird, wechselt es von seinem `[popover]:popover-open` Zustand zurück zum Standard `[popover]` Zustand.
 
 > [!NOTE]
-> Sie finden ein Beispiel, das das Übergangs-Verhalten eines {{htmlelement("dialog")}}-Elements und seines Backdrops zeigt, während es ein- und ausgeblendet wird, auf der `<dialog>`-Referenzseite — siehe [Übergangseffekte bei Dialogelementen](/de/docs/Web/HTML/Reference/Elements/dialog#transitioning_dialog_elements).
+> Auf der `<dialog>` Referenzseite finden Sie ein Beispiel, das zeigt, wie man ein {{htmlelement("dialog")}} Element und dessen Hintergrund beim Ein- und Ausblenden animiert — siehe [Transitioning dialog elements](/de/docs/Web/HTML/Reference/Elements/dialog#transitioning_dialog_elements).
 
-### Übergang von Elementen bei DOM-Hinzufügung und -Entfernung
+### Übergänge von Elementen bei DOM-Hinzufügung und -Entfernung
 
-Dieses Beispiel enthält einen Button, der bei Drücken neue Elemente zu einem {{htmlelement("section")}} Container hinzufügt. Jedes Element enthält wiederum einen geschachtelten Button, der bei Drücken das Element entfernt. Dieses Beispiel zeigt, wie Übergänge verwendet werden, um Elemente zu animieren, wenn sie dem DOM hinzugefügt oder daraus entfernt werden.
+Dieses Beispiel enthält einen Button, der beim Drücken neue Elemente zu einem {{htmlelement("section")}} Container hinzufügt. Jedes Element enthält wiederum einen verschachtelten Button, der beim Drücken das Element entfernt. Dieses Beispiel zeigt, wie man Transitionen verwendet, um Elemente zu animieren, wenn sie zum oder aus dem DOM hinzugefügt bzw. entfernt werden.
 
 #### HTML
 
@@ -319,7 +321,7 @@ Dieses Beispiel enthält einen Button, der bei Drücken neue Elemente zu einem {
 
 #### JavaScript
 
-JavaScript ermöglicht die Hinzufügung und Entfernung von Elementen:
+JavaScript ermöglicht das Hinzufügen und Entfernen von Elementen:
 
 ```js
 const btn = document.querySelector("button");
@@ -356,16 +358,16 @@ function createColumn() {
 }
 ```
 
-Wenn der "Neue Spalte erstellen" Button geklickt wird, wird die Funktion `createColumn()` aufgerufen. Diese erstellt ein {{htmlelement("div")}} Element mit einer zufällig generierten Hintergrundfarbe und ein {{htmlelement("button")}} Element zum Schließen des `<div>`. Es fügt dann das `<button>` dem `<div>` und das `<div>` dem `<section>` Container hinzu.
+Wenn der "Create new column" Button geklickt wird, wird die `createColumn()` Funktion aufgerufen. Diese erstellt ein {{htmlelement("div")}} Element mit einer zufällig generierten Hintergrundfarbe und einem {{htmlelement("button")}} Element, um den `<div>` zu schließen. Es fügt dann den `<button>` zu dem `<div>` und dem `<div>` zum `<section>` Container hinzu.
 
-Wir fügen dem Schließen-Button dann einen Event-Listener über [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu. Das Klicken des Schließen-Buttons bewirkt zwei Dinge:
+Wir fügen dann einen Event-Listener zum Schließen-Button über [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu. Beim Klick auf den Schließen-Button werden zwei Dinge gemacht:
 
-- Fügt die `fade-out` Klasse zum `<div>` hinzu. Das Hinzufügen der Klasse löst die Ausgangsanimation aus, die auf dieser Klasse festgelegt ist.
-- Entfernt das `<div>` nach einer Verzögerung von 1000ms. Die [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) Funktion verzögert die Entfernung des `<div>` aus dem DOM (über [`Element.remove()`](/de/docs/Web/API/Element/remove)), bis die Animation endet.
+- Die `fade-out` Klasse wird dem `<div>` hinzugefügt. Das Hinzufügen der Klasse löst die Austrittsanimation aus, die auf dieser Klasse gesetzt ist.
+- Das `<div>` wird nach einer Verzögerung von 1000ms entfernt. Das [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) verzögert die Entfernung des `<div>` aus dem DOM (über [`Element.remove()`](/de/docs/Web/API/Element/remove)) bis nach dem Ende der Animation.
 
 #### CSS
 
-Wir fügen eine {{cssxref("transition")}} hinzu, die die {{cssxref("opacity")}} und {{cssxref("scale")}} jeder Spalte animiert, wenn sie hinzugefügt und entfernt werden:
+Wir fügen eine {{cssxref("transition")}} ein, die die {{cssxref("opacity")}} und {{cssxref("scale")}} jeder Spalte animiert, wenn sie hinzugefügt und entfernt werden:
 
 ```css hidden
 html * {
@@ -437,16 +439,16 @@ div > button {
 }
 ```
 
-Um die {{cssxref("opacity")}} und {{cssxref("scale")}} jedes `<div>` zu animieren, sobald es dem DOM hinzugefügt wird und dann die Animation umzukehren, wenn es aus dem DOM entfernt wird, führen wir Folgendes durch:
+Um die {{cssxref("opacity")}} und {{cssxref("scale")}} jedes `<div>` zu animieren, wenn es zum DOM hinzugefügt wird, und dann die Animation umzukehren, wenn es aus dem DOM entfernt wird, gehen wir folgendermaßen vor:
 
-- Wir geben den Endzustand der Eigenschaften, die wir übergehen wollen, in der Regel `div { ... }` an.
-- Wir geben den Anfangszustand, von dem aus die Eigenschaften übergehen sollen, in einem `@starting-style` Block an.
-- Wir geben die Ausgangsanimation in der `.fade-out` Regel an — dies ist die Klasse, die das JavaScript den `<div>` Elementen zuweist, wenn ihre Schaltflächen gedrückt werden. Neben der Festlegung der `opacity`- und `scale`-Endzustände setzen wir auch [`display: none`](/de/docs/Web/CSS/Reference/Properties/display) auf die `<div>`s — wir möchten, dass sie unmittelbar nach ihrer Entfernung aus der Benutzeroberfläche nicht mehr zur Verfügung stehen.
-- Wir geben die {{cssxref("transition")}} Liste in der Regel `div { ... }` an, um `opacity`, `scale` und `display` zu animieren. Beachten Sie, dass für `display` auch der Wert {{cssxref("transition-behavior", "transition-behavior: allow-discrete")}} im Kurzbefehl festgelegt ist, damit er animiert wird.
+- Wir geben den Endzustand der Eigenschaften an, die wir auf der `div { ... }` Regel übergehen möchten.
+- Wir geben den Startzustand an, von dem aus wir die Eigenschaften innerhalb eines `@starting-style` Blocks übergehen möchten.
+- Wir geben die Austrittsanimation innerhalb der `.fade-out` Regel an — dies ist die Klasse, die das JavaScript den `<div>` Elementen zuweist, wenn ihre Schaltflächen gedrückt werden. Neben dem Setzen der `opacity` und `scale` Endzustände setzen wir auch [`display: none`](/de/docs/Web/CSS/Reference/Properties/display) auf die `<div>`s — wir möchten, dass sie sofort nicht verfügbar werden, wenn sie aus der Benutzeroberfläche entfernt werden.
+- In der `div { ... }` Regel geben wir die {{cssxref("transition")}} Liste an, um `opacity`, `scale`, und `display` zu animieren. Beachten Sie, dass für `display` auch der {{cssxref("transition-behavior", "transition-behavior: allow-discrete")}} Wert im Shorthand gesetzt ist, damit es animiert wird.
 
 #### Ergebnis
 
-Das Endergebnis sieht folgendermaßen aus:
+Das Endergebnis sieht wie folgt aus:
 
 {{ EmbedLiveSample("Transitioning elements on DOM addition and removal", "100%", "400") }}
 
@@ -460,8 +462,8 @@ Das Endergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- [CSS Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul
+- [CSS-Transitionen](/de/docs/Web/CSS/Guides/Transitions) Modul
 - {{cssxref("overlay")}}
 - {{cssxref("transition-behavior")}}
 - [`CSSStartingStyleRule`](/de/docs/Web/API/CSSStartingStyleRule)
-- [Vier neue CSS-Funktionen für reibungslose Eingangs- und Ausgangsanimationen](https://developer.chrome.com/blog/entry-exit-animations/) auf developer.chrome.com (2023)
+- [Vier neue CSS-Funktionen für reibungslose Eintritts- und Austrittsanimationen](https://developer.chrome.com/blog/entry-exit-animations/) auf developer.chrome.com (2023)

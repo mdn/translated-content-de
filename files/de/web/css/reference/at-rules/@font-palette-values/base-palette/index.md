@@ -1,11 +1,12 @@
 ---
-title: base-palette
+title: "`base-palette` CSS-At-Rule-Deskriptor"
+short-title: base-palette
 slug: Web/CSS/Reference/At-rules/@font-palette-values/base-palette
 l10n:
-  sourceCommit: 0b926fc3e79782401461d389fc9f17d522b39ed3
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`base-palette`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Descriptor")}} wird benutzt, um den Namen oder Index einer vordefinierten Palette anzugeben, die für die Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die Palette verwendet, die an Index 0 definiert ist.
+Der **`base-palette`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette festzulegen, die zur Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die Palette mit dem Index 0 verwendet.
 
 ## Syntax
 
@@ -15,7 +16,7 @@ Der **`base-palette`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Des
 }
 ```
 
-Der `base-palette` {{Glossary("CSS_Descriptor", "Descriptor")}} wird über einen nullbasierten Index der vom Schriftmacher erstellten Paletten spezifiziert.
+Der `base-palette` {{Glossary("CSS_Descriptor", "Deskriptor")}} wird durch einen nullbasierten Index der vom Schriftgestalter erstellten Paletten spezifiziert.
 
 ### Werte
 
@@ -32,9 +33,9 @@ Der `base-palette` {{Glossary("CSS_Descriptor", "Descriptor")}} wird über einen
 
 ## Beispiele
 
-### Änderung der Standardpalette in einer Schriftart
+### Ändern der Standardpalette in einer Schriftart
 
-Unter Verwendung der [Rocher Color Schriftart](https://www.harbortype.com/fonts/rocher-color/) zeigt dieses Beispiel zwei Instanzen, in denen die Standardpalette in der Schriftart zu einer vom Schriftmacher erstellten alternativen Palette gewechselt wird.
+Das folgende Beispiel verwendet die [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) und zeigt zwei Instanzen, bei denen die Standardpalette der Schriftart auf eine alternative, vom Schriftgestalter erstellte Palette umgeschaltet wird.
 
 #### HTML
 
@@ -77,7 +78,7 @@ h2 {
 
 #### Ergebnis
 
-![Beispiel, das 3 verschiedene Basis-Paletten der Rocher-Farbschriftart zeigt](./rocher-color-font-alt-base-palettes.jpg)
+![Beispiel, das 3 verschiedene Basis-Paletten der Rocher-Farbenschriftart zeigt](./rocher-color-font-alt-base-palettes.jpg)
 
 ## Spezifikationen
 
@@ -90,7 +91,7 @@ h2 {
 ## Siehe auch
 
 - {{cssxref("@font-palette-values")}}
-- {{cssxref("@font-palette-values/font-family", "font-family")}} Descriptor
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Descriptor
+- {{cssxref("@font-palette-values/font-family", "font-family")}} Deskriptor
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
 - {{cssxref("font-palette")}} Eigenschaft
 - [`CSSFontPaletteValuesRule.basePalette`](/de/docs/Web/API/CSSFontPaletteValuesRule/basePalette)

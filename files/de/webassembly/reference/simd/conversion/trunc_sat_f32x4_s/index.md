@@ -1,14 +1,12 @@
 ---
-title: "trunc_sat_f32x4_s: Wasm SIMD Umwandlungsanweisung"
+title: "trunc_sat_f32x4_s: Wasm SIMD Konvertierungsanweisung"
 short-title: trunc_sat_f32x4_s
 slug: WebAssembly/Reference/SIMD/conversion/trunc_sat_f32x4_s
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
 ---
 
-Die **`trunc_sat_f32x4_s`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine speicherbegrenzende Umwandlung der Spuren einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `f32x4` Wertinterpretation in eine signierte `i32x4` Wertinterpretation durch.
-
-Wenn eine Eingabespur ein {{jsxref("NaN")}} ist, wird die resultierende Ausgabespur auf `0` gesetzt. Wenn der gerundete ganzzahlige Wert einer Spur außerhalb des Bereichs des Zieltyps liegt, wird das Ergebnis auf den nächst darstellbaren ganzzahligen Wert gesättigt.
+Die **`trunc_sat_f32x4_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine [saturierende](https://de.wikipedia.org/wiki/S%C3%A4ttigungsarithmetik) Umwandlung der Lanes (Spuren) einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `f32x4` Wertinterpretation in eine signierte `i32x4` Wertinterpretation durch, wobei die Ausgabe auf den Bereich beschränkt wird, der durch den Werttyp erlaubt ist.
 
 {{InteractiveExample("Wat Demo: trunc_sat_f32x4_s", "tabbed-taller")}}
 
@@ -30,6 +28,8 @@ Wenn eine Eingabespur ein {{jsxref("NaN")}} ist, wird die resultierende Ausgabes
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte beschränkt werden, die durch die Wertinterpretation erlaubt sind. Erlaubte Ausgabewerte reichen von `−2,147,483,648` bis `2,147,483,647` (der volle Bereich eines signierten 32-Bit-Integer). {{jsxref("NaN")}}-Werte werden in `0` umgewandelt.
+
 ## Syntax
 
 ```plain
@@ -37,10 +37,10 @@ value_type.trunc_sat_f32x4_s
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `trunc_sat_f32x4_s`:
+  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `trunc_sat_f32x4_s`:
     - `i32x4`
 - `trunc_sat_f32x4_s`
-  - : Die `trunc_sat_f32x4_s` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen sein.
+  - : Die `trunc_sat_f32x4_s` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -49,9 +49,9 @@ value_type.trunc_sat_f32x4_s
 ```
 
 - `input`
-  - : Die Eingabe-`v128` `f32x4` Wertinterpretation.
+  - : Die Eingabe `v128` `f32x4` Wertinterpretation.
 - `output`
-  - : Die Ausgabe-`v128` `i32x4` Wertinterpretation.
+  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
 
 ### Binäre Kodierung
 
@@ -69,4 +69,4 @@ value_type.trunc_sat_f32x4_s
 
 ## Siehe auch
 
-- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

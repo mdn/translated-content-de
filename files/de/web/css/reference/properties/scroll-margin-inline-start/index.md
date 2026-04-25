@@ -1,11 +1,12 @@
 ---
-title: scroll-margin-inline-start
+title: "`scroll-margin-inline-start` CSS property"
+short-title: scroll-margin-inline-start
 slug: Web/CSS/Reference/Properties/scroll-margin-inline-start
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die Eigenschaft `scroll-margin-inline-start` definiert den Rand des Scroll-Snap-Bereichs am Anfang der Inline-Dimension, die verwendet wird, um dieses Box-Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Border-Box genommen wird, ihre rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Auslagerungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-inline-start` definiert den Rand des Scroll-Snap-Bereichs am Anfang der Inline-Dimension, der verwendet wird, um dieses Feld an den {{Glossary("Scroll_snap#snapport", "snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird durch das Transformieren des Randrahmens ermittelt, indem seine rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scrollcontainers) gefunden wird und anschließend die angegebenen Ausstöße hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-inline-start")}}
 
@@ -90,7 +91,7 @@ scroll-margin-inline-start: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Rand von der Inline-Startkante des Scroll-Containers.
+  - : Ein Ausstoß von der Inline-Startkante des Scrollcontainers.
 
 ## Formale Definition
 
@@ -104,13 +105,13 @@ scroll-margin-inline-start: unset;
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas ganz Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, mit dem Unterschied, dass hier erklärt wird, wie es implementiert ist.
 
-Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte an einer Position einrasten, die nahe, aber nicht ganz links von jedem Block liegt.
+Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte einrasten, nahe, aber nicht ganz an der linken Seite jedes Blocks.
 
 #### HTML
 
-Das HTML enthält einen Scroller mit vier Kindern:
+Das HTML beinhaltet einen Scroller mit vier Kindern:
 
 ```html
 <div class="scroller">
@@ -123,7 +124,7 @@ Das HTML enthält einen Scroller mit vier Kindern:
 
 #### CSS
 
-Lassen Sie uns das CSS durchgehen. Der äußere Container ist wie folgt gestaltet:
+Schauen wir uns das CSS genauer an. Der äußere Container ist folgendermaßen gestylt:
 
 ```css
 .scroller {
@@ -138,9 +139,9 @@ Lassen Sie uns das CSS durchgehen. Der äußere Container ist wie folgt gestalte
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stillstand kommen wird.
+Die Hauptbestandteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scrollen entlang der horizontalen Achse einrasten muss und das Scrollen immer auf einem Snap-Punkt endet.
 
-Die Kindelemente sind wie folgt gestaltet:
+Die Kindelemente sind wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -161,9 +162,9 @@ Die Kindelemente sind wie folgt gestaltet:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: start`, der angibt, dass die linken Kanten (die "Starts" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: start`, was spezifiziert, dass die linken Kanten (die "Starts" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite und dritte Kindelement:
+Zum Schluss geben wir die Scrollrand-Werte an, einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -175,7 +176,7 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite
 }
 ```
 
-Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen bei `1rem` außerhalb der Inline-Startkante des zweiten `<div>` und `2rems` außerhalb der Inline-Startkante des dritten `<div>` einrasten wird.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen vorbei das Scrollen zu `1rem` außerhalb der Inline-Startkante des zweiten `<div>` und `2rem` außerhalb der Inline-Startkante des dritten `<div>` einrastet.
 
 #### Ergebnis
 
@@ -193,5 +194,5 @@ Probieren Sie es selbst aus:
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

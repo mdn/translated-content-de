@@ -1,11 +1,12 @@
 ---
-title: anchor-scope
+title: "`anchor-scope` CSS property"
+short-title: anchor-scope
 slug: Web/CSS/Reference/Properties/anchor-scope
 l10n:
-  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`anchor-scope`**-[CSS](/de/docs/Web/CSS)-Eigenschaft kann verwendet werden, um den Bereich zu begrenzen, in dem ein positioniertes Element mit Ankerelementen in einem bestimmten Teilbaum verknüpft werden kann.
+Die **`anchor-scope`** [CSS](/de/docs/Web/CSS)-Eigenschaft kann verwendet werden, um den Bereich einzuschränken, in dem ein positioniertes Element mit Ankerelementen zu einem bestimmten Unterbaum verknüpft werden kann.
 
 ## Syntax
 
@@ -29,37 +30,37 @@ anchor-scope: unset;
 ### Werte
 
 - `none`
-  - : Es findet keine Begrenzung des Ankerbereichs auf ein Element statt. Dies ist der Standardwert.
+  - : Auf einem Element erfolgt keine Einschränkung des Ankerbereichs. Dies ist der Standardwert.
 - `all`
-  - : Legt den Bereich fest, sodass _alle_ `anchor-name`-Werte, die im Teilbaum festgelegt sind, nur von positionierten Elementen im gleichen Teilbaum gebunden werden können.
+  - : Setzt den Bereich so, dass _beliebige_ `anchor-name`-Werte, die im Unterbaum festgelegt sind, nur von positionierten Elementen im gleichen Unterbaum gebunden werden können.
 - {{cssxref("dashed-ident", "&lt;dashed-ident&gt;#")}}
-  - : Ein oder mehrere durch Kommas getrennte {{cssxref("dashed-ident")}}, die Ankernamen darstellen. Legt den Bereich so fest, dass die angegebenen `anchor-name`-Werte, wenn sie im Teilbaum festgelegt sind, nur von positionierten Elementen im selben Teilbaum gebunden werden können.
+  - : Einer oder mehrere durch Kommas getrennte {{cssxref("dashed-ident")}}s, die Ankernamen darstellen. Setzt den Bereich so, dass die angegebenen `anchor-name`-Werte, wenn sie im Unterbaum festgelegt sind, nur von positionierten Elementen im gleichen Unterbaum gebunden werden können.
 
 ## Beschreibung
 
-Wenn mehrere [Ankerelemente](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#associating_anchor_and_positioned_elements) auf einer Seite denselben {{cssxref("anchor-name")}}-Wert erhalten und ein positioniertes Element mit diesem Ankernamen verknüpft ist (indem der Name als sein {{cssxref("position-anchor")}}-Eigenschaftswert angegeben wird), wird das positionierte Element mit dem _letzten_ Ankerelement in der Quellreihenfolge mit diesem Ankernamen verknüpft.
+Wenn mehrere [Ankerelemente](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#associating_anchor_and_positioned_elements) auf einer Seite denselben {{cssxref("anchor-name")}}-Wert erhalten und ein positioniertes Element mit diesem Ankernamen verknüpft wird (indem der Name als Wert der {{cssxref("position-anchor")}}-Eigenschaft angegeben wird), wird das positionierte Element mit dem _letzten_ Ankerelement in der Quellreihenfolge mit diesem Ankernamen verknüpft.
 
-Dies kann in bestimmten Situationen problematisch sein. Zum Beispiel, wenn ein Dokument mehrere wiederholte Komponenten enthält, jede mit einem positionierten Element, das an einem Anker befestigt ist, werden alle positionierten Elemente an den letzten Anker auf der Seite verankert, es sei denn, jede Komponente verwendet einen anderen Ankernamen. Dies ist wahrscheinlich nicht das gewünschte Verhalten.
+Dies kann in bestimmten Situationen ein Problem darstellen. Zum Beispiel, wenn ein Dokument mehrere wiederholte Komponenten enthält, von denen jede ein positioniertes Element hat, das an einen Anker gebunden ist, werden alle positionierten Elemente an den letzten Anker auf der Seite gebunden, es sei denn, jede Komponente verwendet einen anderen Ankernamen. Dies ist wahrscheinlich nicht das gewünschte Verhalten.
 
-Die `anchor-scope`-Eigenschaft kann dieses Problem beheben, indem sie die Sichtbarkeit oder den "Bereich" eines `anchor-name`-Wertes auf einen bestimmten Teilbaum beschränkt. Das Ergebnis ist, dass jedes positionierte Element nur an ein Element innerhalb desselben Teilbaums verankert werden kann, in dem das Element sitzt, das den Bereich gesetzt hat.
+Die `anchor-scope`-Eigenschaft kann dieses Problem beheben, indem sie die Sichtbarkeit oder den „Bereich“ eines `anchor-name`-Wertes auf einen bestimmten Unterbaum beschränkt. Das Ergebnis ist, dass jedes positionierte Element nur an ein Element innerhalb desselben Unterbaums des Elements verankert werden kann, auf dem der Bereich festgelegt ist.
 
-- `anchor-scope: all` legt den Bereich so fest, dass _alle_ `anchor-name`-Werte, die im Teilbaum festgelegt sind, nur von positionierten Elementen im selben Teilbaum gebunden werden können. Nehmen wir an, wir fügen mehrere Anker in ein Dokument ein, alle mit `anchor-name: --my-anchor` versehen, und platzieren sie in separaten Containern. Dann setzen wir `anchor-scope: all` auf jeden Container. Wenn wir dann ein positioniertes Element in einen dieser Container einfügen und es mit `--my-anchor` als den Wert seiner `position-anchor`-Eigenschaft versehen, wird es relativ zum Anker innerhalb desselben Containers positioniert.
+- `anchor-scope: all` setzt den Bereich so, dass _beliebige_ `anchor-name`-Werte, die im Unterbaum festgelegt sind, nur von positionierten Elementen im gleichen Unterbaum gebunden werden können. Angenommen, wir fügen mehrere Anker in ein Dokument ein, die alle mit `anchor-name: --my-anchor` festgelegt sind, und platzieren sie in separaten Containern. Dann setzen wir `anchor-scope: all` auf jeden Container. Wenn wir dann ein positioniertes Element innerhalb eines der Container einfügen und ihm `--my-anchor` als Wert der `position-anchor`-Eigenschaft geben, wird es relativ zu dem Anker innerhalb desselben Containers positioniert.
 
-  Darüber hinaus, wenn wir ein weiteres positioniertes Element außerhalb der Container erstellen und ihm denselben Ankernamen oder einen anderen Ankernamen geben, wird es nicht relativ zu einem der Anker positioniert, unabhängig davon, ob die Anker diese Ankernamen in ihren `anchor-name`-Werten enthalten. `anchor-scope: all` beschränkt den Ankerbereich für Container, auf denen es gesetzt ist, auf _alle_ Anker, unabhängig von `anchor-name`, nur auf positionierte Elemente innerhalb derselben Container.
+  Darüber hinaus, wenn wir ein weiteres positioniertes Element außerhalb der Container erstellen und ihm den gleichen Ankernamen oder einen anderen Ankernamen geben, wird es nicht relativ zu einem der Anker verankert, unabhängig davon, ob die Anker diese Ankernamen in ihren `anchor-name`-Werten enthalten. `anchor-scope: all` begrenzt den Ankerbereich für Container, auf denen es gesetzt ist, für _beliebige_ Anker, unabhängig von `anchor-name`, nur auf positionierte Elemente innerhalb der gleichen Container.
 
-- `anchor-scope: <dashed-ident>#` legt den Bereich so fest, dass die angegebenen `anchor-name`-Werte, wenn sie im Teilbaum festgelegt sind, nur von positionierten Elementen im selben Teilbaum gebunden werden können. Wenn wir zum selben Beispiel wie im vorherigen Punkt beschrieben zurückkehren, aber den Wert von `anchor-scope` auf den Containern zu `--my-anchor` ändern:
-  - Positionierte Elemente mit `position-anchor: --my-anchor` sind auf den Bereich beschränkt, der durch die `anchor-scope`-Einstellung auferlegt wird. Sie werden nur relativ zu den Ankern positioniert, wenn sie innerhalb der Container platziert sind.
-  - Positionierte Elemente mit verschiedenen `position-anchor`-Namen – zum Beispiel `--another-anchor` – _können_ relativ zu einem der Anker positioniert werden, unabhängig davon, ob sie innerhalb oder außerhalb der Container platziert sind, vorausgesetzt, Sie fügen den `--another-anchor` Ankernamen zur `anchor-name`-Eigenschaft des Ankers hinzu. Die `anchor-scope`-Eigenschaft begrenzt nur den Bereich für den `--my-anchor`-Ankernamen, sodass sie keine Wirkung auf andere Ankernamen hat.
+- `anchor-scope: <dashed-ident>#` setzt den Bereich so, dass die angegebenen `anchor-name`-Werte, wenn sie im Unterbaum festgelegt sind, nur von positionierten Elementen im gleichen Unterbaum gebunden werden können. Wenn wir zum gleichen Beispiel zurückkehren, das im vorherigen Punkt beschrieben wurde, aber den `anchor-scope`-Wert, der auf den Containern gesetzt ist, in `--my-anchor` ändern:
+  - Positionierte Elemente mit `position-anchor: --my-anchor`, die auf ihnen festgelegt sind, werden auf den durch die `anchor-scope`-Einstellung auferlegten Bereich beschränkt. Sie werden nur relativ zu den Ankern positioniert, wenn sie innerhalb der Container platziert sind.
+  - Positionierte Elemente mit anderen `position-anchor`-Namen — zum Beispiel `--another-anchor` — _können_ relativ zu einem der Anker positioniert werden, unabhängig davon, ob sie innerhalb oder außerhalb der Container platziert werden, vorausgesetzt, Sie fügen den Ankernamen `--another-anchor` zur `anchor-name`-Eigenschaft des Ankers hinzu. Die `anchor-scope`-Eigenschaft begrenzt den Bereich nur für den Ankernamen `--my-anchor`, sodass sie keine Auswirkungen auf andere Ankernamen hat.
 
-    Wenn mehreren Ankern der Ankername `--another-anchor` zugewiesen wird, werden die positionierten Elemente mit diesem `position-anchor`-Wert relativ zum letzten Anker in der Quellreihenfolge mit diesem Namen positioniert.
+    Wenn mehreren Ankern der Ankername `--another-anchor` gegeben wird, werden die positionierten Elemente mit diesem `position-anchor`-Wert relativ zum letzten Anker in der Quellreihenfolge mit diesem Namen positioniert.
 
-- `anchor-scope: none` ist der Standardwert und gibt an, dass kein Ankerbereich gesetzt ist. Wenn mehrere Anker in einem Dokument mit demselben `anchor-name` existieren und einem positionierten Element dieser Name als der Wert seiner `position-anchor`-Eigenschaft gegeben wird, wird es relativ zum letzten Ankerelement in der Quellreihenfolge positioniert, unabhängig davon, wo es sich in der DOM-Hierarchie befindet.
+- `anchor-scope: none` ist der Standardwert, der angibt, dass kein Ankerbereich gesetzt ist. Wenn mehrere Anker in einem Dokument mit demselben `anchor-name` vorhanden sind und ein positioniertes Element diesen Namen als Wert seiner `position-anchor`-Eigenschaft erhält, wird es relativ zum letzten Ankerelement in der Quellreihenfolge positioniert, unabhängig davon, wo es in der DOM-Hierarchie platziert ist.
 
-Wenn Sie beispielsweise drei `anchor-name`-Werte innerhalb eines Teilbaums festlegen (etwa `--anchor1`, `--anchor2` und `--anchor3`), entspricht das Setzen von `anchor-scope: --anchor1, --anchor2, --anchor3` auf dem obersten Element des Teilbaums dem Setzen von `anchor-scope: all`.
+Wenn Sie beispielsweise drei `anchor-name`-Werte innerhalb eines Unterbaums festgelegt haben (sagen wir, `--anchor1`, `--anchor2` und `--anchor3`), wäre das Setzen von `anchor-scope: --anchor1, --anchor2, --anchor3` auf dem obersten Element des Unterbaums gleichbedeutend mit `anchor-scope: all`.
 
-Ankerbereiche betreffen nur [explizite Ankerassoziationen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#explicit_css_anchor_association), das sind diejenigen, die zwischen einem Ankerelement mit einem gesetzten `anchor-name` und einem positionierten Element gemacht werden, das den Ankernamen des Ankerelements in seinem `position-anchor`-Wert referenziert. Ankerbereiche betreffen nicht [implizite Ankerassoziationen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#implicit_anchor_association).
+Ankerbereiche wirken sich nur auf [explizite Ankerassoziationen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#explicit_css_anchor_association) aus, d.h. solche, die zwischen einem Ankerelement mit festgelegtem `anchor-name` und einem positionierten Element, das den Ankernamen des Ankerelements in seinem `position-anchor`-Wert referenziert, hergestellt werden. Ankerbereiche wirken sich nicht auf [implizite Ankerassoziationen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#implicit_anchor_association) aus.
 
-Für weitere Informationen zu Ankerfunktionen und -verwendung siehe das [CSS-Ankerpositionierungs](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul und den [Leitfaden zur Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
+Weitere Informationen zu Ankerfunktionen und deren Verwendung finden Sie im [CSS-Anker-Positionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning) und im [Leitfaden zur Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
 
 ## Formale Definition
 
@@ -73,13 +74,13 @@ Für weitere Informationen zu Ankerfunktionen und -verwendung siehe das [CSS-Ank
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie Ankerbereich auf einem grundlegenden Niveau funktioniert. Es zeigt, wie ein Ankerelement innerhalb eines Bereichscontainers auf das Verknüpfen mit nur positionierten Elementen innerhalb desselben Bereichscontainers beschränkt werden kann.
+Dieses Beispiel zeigt, wie der Ankerbereich auf einem grundlegenden Niveau funktioniert. Es zeigt, wie ein Ankerelement innerhalb eines begrenzten Containers so eingeschränkt werden kann, dass nur positionierte Elemente innerhalb desselben begrenzten Containers daran gebunden sind.
 
 #### HTML
 
-Wir spezifizieren ein {{htmlelement("section")}}-Element, auf dem wir einen Ankerbereich setzen werden. Dieses enthält zwei {{htmlelement("div")}}-Elemente, eines, das in einen Anker umgewandelt werden soll, und eines, das ein ankerpositioniertes Element sein soll.
+Wir spezifizieren ein {{htmlelement("section")}}-Element, auf dem wir einen Ankerbereich festlegen werden. Dieses enthält zwei {{htmlelement("div")}}-Elemente, eines, das in einen Anker umgewandelt wird, und eines, das ein ankerpositioniertes Element sein soll.
 
-Wir fügen auch ein drittes `<div>` außerhalb der `<section>` hinzu, das wir ebenfalls in ein ankerpositioniertes Element umwandeln werden.
+Wir fügen auch ein drittes `<div>` außerhalb des `<section>` ein, das ebenfalls in ein ankerpositioniertes Element umgewandelt wird.
 
 ```html live-sample___basic-usage
 <section class="scoped">
@@ -92,9 +93,9 @@ Wir fügen auch ein drittes `<div>` außerhalb der `<section>` hinzu, das wir eb
 
 #### CSS
 
-Wir setzen zunächst `anchor-scope: --my-anchor` auf die `<section>`. Dies begrenzt ihren Bereich so, dass Ankerelementnachkommen der `<section>` mit dem Namen `--my-anchor` nur von positionierten Elementen gebunden werden können, die ebenfalls Nachkommen der `<section>` sind.
+Zuerst setzen wir `anchor-scope: --my-anchor` auf das `<section>`. Dies begrenzt seinen Bereich so, dass Ankerelementnachkommen des `<section>` mit einem Namen von `--my-anchor` nur von ebenfalls Nachkommen des `<section>` gebunden werden können.
 
-Um dies zu testen, deklarieren wir das `anchor`-`<div>` als Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} von `--my-anchor` zuweisen. Wir positionieren dann die `.positioned`-Elemente absolut, verbinden sie mit dem Anker, indem wir ihre {{cssxref("position-anchor")}}-Werte auf `--my-anchor` setzen, und positionieren sie rechts vom Anker, indem wir ihre {{cssxref("position-area")}}-Werte auf `right` setzen:
+Um dies zu testen, deklarieren wir das `anchor`-`<div>` als ein Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} von `--my-anchor` geben. Wir positionieren dann die `.positioned`-Elemente absolut, hängen sie an den Anker, indem wir ihren {{cssxref("position-anchor")}}-Werten `--my-anchor` zuweisen, und positionieren sie rechts vom Anker, indem wir ihren {{cssxref("position-area")}}-Werten `right` zuweisen:
 
 ```css hidden live-sample___basic-usage
 .scoped {
@@ -136,25 +137,25 @@ Um dies zu testen, deklarieren wir das `anchor`-`<div>` als Ankerelement, indem 
 
 #### Ergebnis
 
-Das Beispiel rendert wie folgt:
+Das Beispiel wird wie folgt dargestellt:
 
 {{ EmbedLiveSample("basic_usage", "100%", "225") }}
 
-Beachten Sie, wie das erste positionierte Element rechts vom Anker positioniert ist. Es liegt im Bereich für die Positionierung relativ zum `--my-anchor` Anker, da es sich innerhalb des `<section>`-Elements befindet, auf dem das `anchor-scope: --my-anchor` gesetzt ist.
+Beachten Sie, wie das erste positionierte Element rechts vom Anker positioniert ist. Es liegt im Bereich der Positionierung relativ zum `--my-anchor`-Anker, da es sich innerhalb des `<section>`-Elements befindet, in dem das `anchor-scope: --my-anchor` festgelegt ist.
 
-Andererseits wird das zweite positionierte Element nicht relativ zum Anker positioniert. Es ist kein Nachfolger des `<section>`-Elements, also liegt es außerhalb des Ankerbereichs.
+Das zweite positionierte Element wird jedoch nicht relativ zum Anker positioniert. Es ist kein Nachkomme des `<section>`-Elements und somit außerhalb des Ankerbereichs.
 
 ### Vergleich verschiedener `anchor-scope`-Werte
 
-Dieses Beispiel zeigt die Effekte der verschiedenen `anchor-scope`-Werte, indem es Ihnen ermöglicht, verschiedene `anchor-scope`-Werte auf mehrere Container anzuwenden, die alle Anker mit demselben `anchor-name`-Wert enthalten.
+Dieses Beispiel zeigt die Auswirkungen der verschiedenen `anchor-scope`-Werte, indem es Ihnen ermöglicht, verschiedene `anchor-scope`-Werte auf mehrere Container anzuwenden, die alle Anker mit demselben `anchor-name`-Wert enthalten.
 
 #### HTML
 
-Wir spezifizieren drei {{htmlelement("section")}}-Elemente, auf denen wir einen Ankerbereich setzen werden. Jedes `<section>` enthält zwei {{htmlelement("div")}}-Elemente, eines, das in einen Anker umgewandelt werden soll, und eines, das ein ankerpositioniertes Element sein soll.
+Wir spezifizieren drei {{htmlelement("section")}}-Elemente, auf denen wir einen Ankerbereich festlegen werden. Jedes `<section>` enthält zwei {{htmlelement("div")}}-Elemente, eines, das in einen Anker umgewandelt wird, und eines, das ein ankerpositioniertes Element sein soll.
 
-Wir fügen auch ein zusätzliches `<div>` außerhalb der `<section>`-Elemente hinzu, das wir ebenfalls in ein ankerpositioniertes Element umwandeln werden. Dies wird andere Ankerpositionierungseinstellungen als die anderen haben.
+Wir fügen auch ein zusätzliches `<div>` außerhalb der `<section>`-Elemente ein, das ebenfalls in ein ankerpositioniertes Element umgewandelt wird. Dieses wird andere Ankerpositionierungseinstellungen als die anderen haben.
 
-Schließlich fügen wir ein {{htmlelement("form")}} mit drei verschiedenen [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Elementen hinzu, um verschiedene `anchor-scope`-Werte auf die `<section>`-Elemente zu setzen.
+Schließlich fügen wir ein {{htmlelement("form")}} mit drei verschiedenen [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Elementen ein, um verschiedene `anchor-scope`-Werte auf den `<section>`-Elementen festzulegen.
 
 ```html live-sample___comparing-values
 <section class="scoped">
@@ -240,9 +241,9 @@ form {
 }
 ```
 
-Anschließend positionieren wir unsere `.positioned`-Elemente relativ zu einem Ankerelement. Wir positionieren sie absolut, geben ihnen einen {{cssxref("position-anchor")}}-Wert von `--my-anchor`, um sie mit einem Anker zu assoziieren, und positionieren sie relativ zum Anker mit einem {{cssxref("position-area")}}-Wert von `right`.
+Als nächstes positionieren wir unsere `.positioned`-Elemente relativ zu einem Ankerelement. Wir positionieren sie absolut, geben ihnen einen {{cssxref("position-anchor")}}-Wert von `--my-anchor`, um sie mit einem Anker zu verknüpfen, und positionieren sie relativ zum Anker mit einem {{cssxref("position-area")}}-Wert von `right`.
 
-Das `.positioned2`-Element wird auf ähnliche Weise positioniert, außer dass ihm der andere verfügbare Ankername als `position-anchor`-Wert – `--another-anchor` – zugewiesen wird und es stattdessen `unten` vom Anker positioniert wird. Wir geben ihm auch einen {{cssxref("bottom")}}-Wert von `5px`, sodass es, wenn die Ankerpositionierung nicht funktioniert, am unteren Rand des `<body>` positioniert wird. Dieses Element befindet sich in keinem Bereichselement, daher wird es nur dann Anker positioniert, wenn bestimmte `anchor-scope`-Werte auf die Bereichselemente gesetzt sind, wie später erklärt wird.
+Das `.positioned2`-Element wird ähnlich positioniert, mit dem Unterschied, dass es den anderen verfügbaren Ankernamen als `position-anchor`-Wert – `--another-anchor` – erhält und es stattdessen am `bottom` des Ankers positioniert wird. Wir geben ihm auch einen {{cssxref("bottom")}}-Wert von `5px`, sodass es, wenn die Ankerpositionierung nicht funktioniert, am unteren Rand des `<body>` positioniert wird. Dieses Element ist in keinem begrenzten Element enthalten, daher wird es nur Anker positioniert, wenn bestimmte `anchor-scope`-Werte auf die begrenzten Elemente gesetzt werden, wie später erläutert.
 
 ```css live-sample___comparing-values
 .positioned {
@@ -259,7 +260,7 @@ Das `.positioned2`-Element wird auf ähnliche Weise positioniert, außer dass ih
 }
 ```
 
-Wir steuern das Setzen von `anchor-scope` auf den `<section>`-Elementen, wenn verschiedene Radio-Buttons gedrückt werden, mit JavaScript, das aus Gründen der Kürze ausgeblendet wurde.
+Wir handhaben das Setzen von `anchor-scope` auf den `<section>`-Elementen, wenn verschiedene Radio-Buttons gedrückt werden, mithilfe von JavaScript, das zur Übersichtlichkeit ausgeblendet wurde.
 
 ```js hidden live-sample___comparing-values
 const sections = document.querySelectorAll("section");
@@ -278,15 +279,15 @@ updateScope("all");
 
 #### Ergebnis
 
-Das Beispiel rendert wie folgt:
+Das Beispiel wird wie folgt dargestellt:
 
 {{ EmbedLiveSample("comparing-values", "100%", "225") }}
 
-Überprüfen Sie den anfänglichen Positionierungseffekt, der auf die positionierten Elemente mit `anchor-scope: all` auf den `<section>`-Elementen angewendet wird, und versuchen Sie dann, die anderen verfügbaren `anchor-scope`-Werte auszuwählen, um zu sehen, was ihre Wirkung ist. Sie sollten folgendes beobachten:
+Überprüfen Sie den anfänglichen Positionierungseffekt, der auf die positionierten Elemente mit `anchor-scope: all`, die auf den `<section>`-Elementen gesetzt sind, angewendet wurde, und probieren Sie dann die anderen verfügbaren `anchor-scope`-Werte aus, um deren Effekt zu sehen. Sie sollten Folgendes beobachten:
 
-- `all`: Der Bereich für die Positionierung von Elementen relativ zu Ankerelementen, die Nachkommen der `<section>`-Elemente sind, ist auf positionierte Elemente beschränkt, die selbst Nachkommen der `<section>`-Elemente sind, unabhängig vom `anchor-name`-Wert, der zur Assoziation verwendet wird. Daher werden die positionierten Elemente innerhalb der `<section>`-Elemente ("Positioned 1–3") wie erwartet ankerpositioniert, aber das positionierte Element außerhalb der `<section>`-Elemente ("Positioned 4") wird nicht ankerpositioniert. Es liegt außerhalb des Bereiches.
-- `--my-anchor`: Der Bereich für die Positionierung von Elementen relativ zu Ankerelementen, die Nachkommen der `<section>`-Elemente sind, ist auf positionierte Elemente beschränkt, die selbst Nachkommen der `<section>`-Elemente sind, nur wenn der `--my-anchor`-`anchor-name` zur Assoziation verwendet wird. Daher werden die positionierten Elemente innerhalb der `<section>`-Elemente ("Positioned 1–3") wie erwartet ankerpositioniert, und das positionierte Element außerhalb der `<section>`-Elemente ("Positioned 4") wird ebenfalls wie erwartet ankerpositioniert. Im ersteren Fall befinden sich die positionierten Elemente innerhalb des festgelegten Bereichs, und im letzteren Fall wird das positionierte Element nicht vom festgelegten Bereich betroffen, da es einen Ankernamen außerhalb des Bereichs verwendet (`--another-anchor`). Das "Positioned 4"-Element wird relativ zum letzten Ankerelement in der Quelle positioniert, das den passenden Ankernamen hat.
-- `none`: Da kein Ankerbereich auf den `<section>`-Elementen gesetzt ist, werden alle positionierten Elemente relativ zum letzten Ankerelement in der Quellreihenfolge positioniert.
+- `all`: Der Bereich für die Positionierung von Elementen relativ zu Ankerelementen, die Nachkommen der `<section>`-Elemente sind, ist auf positionierte Elemente beschränkt, die selbst Nachkommen der `<section>`-Elemente sind, unabhängig vom `anchor-name`-Wert, der zur Verknüpfung verwendet wird. Infolgedessen sind die positionierten Elemente innerhalb der `<section>`-Elemente ("Positioned 1–3") wie erwartet ankerpositioniert, aber das positionierte Element außerhalb der `<section>`-Elemente ("Positioned 4") ist nicht ankerpositioniert. Es liegt außerhalb des Bereichs.
+- `--my-anchor`: Der Bereich für die Positionierung von Elementen relativ zu Ankerelementen, die Nachkommen der `<section>`-Elemente sind, ist auf positionierte Elemente beschränkt, die selbst Nachkommen der `<section>`-Elemente sind, nur wenn der `--my-anchor`-`anchor-name` zur Verknüpfung verwendet wird. Infolgedessen sind die positionierten Elemente innerhalb der `<section>`-Elemente ("Positioned 1–3") wie erwartet ankerpositioniert, und das positionierte Element außerhalb der `<section>`-Elemente ("Positioned 4") ist ebenfalls wie erwartet ankerpositioniert. Im ersten Fall befinden sich die positionierten Elemente innerhalb des festgelegten Bereichs, und im zweiten Fall wird das positionierte Element nicht durch den festgelegten Bereich beeinflusst, da es einen Ankernamen außerhalb des Bereichs verwendet (`--another-anchor`). Das "Positioned 4"-Element wird relativ zum letzten Ankerelement in der Quelle positioniert, das den passenden Ankernamen hat.
+- `none`: Da auf den `<section>`-Elementen kein Ankerbereich festgelegt ist, werden alle positionierten Elemente relativ zum letzten Ankerelement in der Quellreihenfolge positioniert.
 
 ## Spezifikationen
 
@@ -300,5 +301,5 @@ Das Beispiel rendert wie folgt:
 
 - {{cssxref("anchor-name")}}
 - {{cssxref("position-anchor")}}
-- [CSS-Ankerpositionierungs](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) Leitfaden
+- [CSS-Anker-Positionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning)
+- [Leitfaden zur Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)

@@ -1,19 +1,20 @@
 ---
-title: corner-inline-end-shape
+title: "`corner-inline-end-shape` CSS property"
+short-title: corner-inline-end-shape
 slug: Web/CSS/Reference/Properties/corner-inline-end-shape
 l10n:
-  sourceCommit: 133c1628ead5b32660a0096ea7b3881637dc355c
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-inline-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der Inline-Endkante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
+Die **`corner-inline-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der inline-end-Kante eines Kastens fest, innerhalb ihres {{cssxref("border-radius")}} Bereiches.
 
-Für eine vollständige Beschreibung des Eckverhaltens und mehrere Beispiele sehen Sie bitte die Seite der Kurzschrift-Eigenschaft {{cssxref("corner-shape")}}.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzform-Eigenschaft.
 
-## Zusammengesetzte Eigenschaften
+## Zu Grunde liegende Eigenschaften
 
-Die `corner-inline-end-shape` Eigenschaft ist eine Kurzschrift für die folgenden logischen Eigenschaften:
+Die `corner-inline-end-shape` Eigenschaft ist eine Kurzform für die folgenden logischen Eigenschaften:
 
 - {{cssxref("corner-start-end-shape")}}
 - {{cssxref("corner-end-end-shape")}}
@@ -43,10 +44,10 @@ corner-inline-end-shape: unset;
 
 ### Werte
 
-Die `corner-inline-end-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten spezifiziert:
+Die `corner-inline-end-shape` Eigenschaft wird mittels eines oder zweier {{cssxref("&lt;corner-shape-value>")}} Werte spezifiziert:
 
-- Wenn **ein Wert** verwendet wird, spezifiziert er die Form beider **inline-end** Ecken.
-- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **block-start/inline-end** Ecke an, und der zweite die Form der **block-end/inline-end** Ecke.
+- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider inline-end** Ecken.
+- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **block-start/inline-end** Ecke und der zweite die Form der **block-end/inline-end** Ecke.
 
 ## Formale Definition
 
@@ -58,7 +59,7 @@ Die `corner-inline-end-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&l
 
 ## Beispiele
 
-Sie können weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite finden.
+Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-inline-end-shape`
 
@@ -72,7 +73,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben der Box einige grundlegende Stile, die wir aus Platzgründen ausgeblendet haben. Wir verwenden außerdem einen {{cssxref("box-shadow")}}, einen `border-radius` von `15% 30%` und eine `corner-inline-end-shape` von `bevel squircle`.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `15% 30%` und eine `corner-inline-end-shape` von `bevel squircle` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -120,10 +121,10 @@ Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzschrift-Eigenschaft
-- {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}} und {{cssxref("corner-inline-start-shape")}}
-- {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}} und {{cssxref("corner-right-shape")}}
-- {{cssxref("border-radius")}} Kurzschrift-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, und {{cssxref("corner-inline-start-shape")}}
+- {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}}, und {{cssxref("corner-right-shape")}}
+- {{cssxref("border-radius")}} Kurzform-Eigenschaft
 - {{cssxref("border-start-end-radius")}} und {{cssxref("border-end-end-radius")}}
-- [CSS Rahmen und Boxdekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
 - [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

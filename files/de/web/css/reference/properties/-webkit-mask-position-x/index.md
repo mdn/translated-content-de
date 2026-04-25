@@ -1,13 +1,14 @@
 ---
-title: -webkit-mask-position-x
+title: "`-webkit-mask-position-x` CSS property"
+short-title: -webkit-mask-position-x
 slug: Web/CSS/Reference/Properties/-webkit-mask-position-x
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}
 
-Die CSS-Eigenschaft `-webkit-mask-position-x` legt die initiale horizontale Position eines Maskenbildes fest.
+Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale Position eines Maskenbildes fest.
 
 ## Syntax
 
@@ -42,7 +43,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die initiale horizontale Posi
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position des linken Rands des Bildes relativ zum linken Innenabstandrand des Kastens angibt. Prozentsätze werden in Bezug auf die horizontale Dimension des Innenabstandsbereichs des Kastens berechnet. Das bedeutet, dass ein Wert von `0%` den linken Rand des Bildes mit dem linken Innenabstandrand des Kastens ausrichtet und ein Wert von `100%` den rechten Rand des Bildes mit dem rechten Innenabstandrand des Kastens ausrichtet.
+  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Innenrand des Kastens angibt. Prozentwerte werden im Verhältnis zur horizontalen Dimension des Innenbereichs des Kastens berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Innenrand des Kastens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Innenrand des Kastens ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -76,7 +77,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die initiale horizontale Posi
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

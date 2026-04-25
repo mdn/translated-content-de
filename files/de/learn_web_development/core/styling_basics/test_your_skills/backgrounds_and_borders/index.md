@@ -1,27 +1,27 @@
 ---
-title: "Testen Sie Ihr Können: Hintergründe und Rahmen"
+title: "Testen Sie Ihre Fähigkeiten: Hintergründe und Rahmen"
 short-title: "Test: Hintergründe und Rahmen"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders
 l10n:
-  sourceCommit: a623d4459e2aa00d17dc0fd6b6bc44f56c589950
+  sourceCommit: 00d961466c7e388bad444f2bb1b34d5bed629686
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Tests ist es, Ihnen zu helfen zu beurteilen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
 
 > [!NOTE]
-> Wenn Sie Hilfe benötigen, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Hintergründe und Rahmen 1
 
-In dieser Aufgabe möchten wir, dass Sie ein Hintergrund, einen Rahmen und einige grundlegende Stile zu einem Seitenkopf hinzufügen.
+In dieser Aufgabe möchten wir, dass Sie einen Hintergrund, einen Rahmen und einige grundlegende Stile zu einem Seitenkopf hinzufügen.
 
 Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px schwarzen, festen Rahmen mit abgerundeten Ecken von 10px.
+1. Geben Sie der Box einen 5px schwarzen, soliden Rahmen mit abgerundeten Ecken von 10px.
 2. Geben Sie dem `<h2>` einen halbtransparenten schwarzen Hintergrund und machen Sie den Text weiß.
-3. Fügen Sie ein Hintergrundbild hinzu und passen Sie es so an, dass es die Box abdeckt. Sie können folgendes Bild verwenden:
+3. Fügen Sie ein Hintergrundbild hinzu und passen Sie es so an, dass es die Box vollständig abdeckt. Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/balloons.jpg
@@ -69,7 +69,7 @@ Das aktualisierte Styling sollte so aussehen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie Sie RGB-Farben verwenden, um eine Hintergrundfarbe teilweise transparent zu machen:
+Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie man RGB-Farben benutzt, um eine Hintergrundfarbe teilweise transparent zu machen:
 
 ```css live-sample___backgrounds1-finish
 .box {
@@ -93,15 +93,15 @@ In dieser Aufgabe möchten wir, dass Sie Hintergrundbilder, einen Rahmen und ein
 
 Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke 20px und die untere rechte Ecke 40px.
-2. Der Titel verwendet das `star.png` Bild als Hintergrundbild mit einem einzelnen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
-   Sie können folgendes Bild verwenden:
+1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke auf 20px und die untere rechte Ecke auf 40px.
+2. Die Überschrift verwendet das `star.png` Bild als Hintergrundbild, mit einem einzigen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
+   Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/star.png
    ```
 
-3. Stellen Sie sicher, dass der Titeltext nicht über dem Bild liegt und zentriert ist — Sie müssen Techniken anwenden, die Sie in früheren Lektionen gelernt haben, um dies zu erreichen.
+3. Stellen Sie sicher, dass der Überschriftentext nicht über dem Bild liegt und zentriert ist - Sie müssen Techniken anwenden, die Sie in früheren Lektionen gelernt haben, um dies zu erreichen.
 
 Der Ausgangspunkt der Aufgabe sieht so aus:
 
@@ -144,8 +144,8 @@ Das aktualisierte Styling sollte so aussehen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen dem Titel Padding hinzufügen, damit er nicht über dem Sternbild liegt - dies bezieht sich auf das Lernen aus der vorherigen [Box-Modell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
-Der Text sollte mit der `text-align` Eigenschaft ausgerichtet werden:
+Sie müssen der Überschrift Padding hinzufügen, damit sie nicht über das Sternbild legt - dies bezieht sich auf das Lernen aus der früheren [Boxmodell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
+Der Text sollte mit der `text-align`-Eigenschaft ausgerichtet werden:
 
 ```css live-sample___backgrounds2-finish
 .box {
@@ -167,4 +167,4 @@ h2 {
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Size_decorate_content_panel", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}

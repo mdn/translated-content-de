@@ -1,11 +1,12 @@
 ---
-title: hanging-punctuation
+title: "`hanging-punctuation` CSS property"
+short-title: hanging-punctuation
 slug: Web/CSS/Reference/Properties/hanging-punctuation
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb des Linienkastens platziert werden.
+Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb der Linienbox platziert werden.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ hanging-punctuation: revert-layer;
 hanging-punctuation: unset;
 ```
 
-Die Eigenschaft `hanging-punctuation` kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
+Die `hanging-punctuation`-Eigenschaft kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
 
 ### Werte
 
@@ -48,7 +49,7 @@ Die Eigenschaft `hanging-punctuation` kann mit einem, zwei oder drei durch Leerz
     - alle Zeichen in den Unicode-Kategorien [Pe](https://unicodeplus.com/category/Pe), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
     - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
 - `allow-end`
-  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es ansonsten nicht vor der Ausrichtung passt.
+  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es nicht anderweitig vor der Rechtfertigung passt.
 
 Punkte und Kommas, die hängen dürfen, umfassen:
 
@@ -58,27 +59,27 @@ Punkte und Kommas, die hängen dürfen, umfassen:
 - `U+06D4`, ARABISCHER PUNKT
 - `U+3001`, IDEOGRAPHISCHES KOMMA
 - `U+3002`, IDEOGRAPHISCHER PUNKT
-- `U+FF0C`, VOLLWEITES KOMMA
-- `U+FF0E`, VOLLWEITER PUNKT
+- `U+FF0C`, VOLLBREITES KOMMA
+- `U+FF0E`, VOLLBREITER PUNKT
 - `U+FE50`, KLEINES KOMMA
 - `U+FE51`, KLEINES IDEOGRAPHISCHES KOMMA
 - `U+FE52`, KLEINER PUNKT
-- `U+FF61`, HALBWEITES IDEOGRAPHISCHES KOMMA
-- `U+FF64`, HALBWEITES IDEOGRAPHISCHES KOMMA
+- `U+FF61`, HALBBREITER IDEOGRAPHISCHER PUNKT
+- `U+FF64`, HALBBREITES IDEOGRAPHISCHES KOMMA
 
-Benutzeragenten können zusätzliche Zeichen einschließen.
+Benutzeragenten können zusätzliche Zeichen einbeziehen.
 
-## Offizielle Definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Offizielle Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Setzen von öffnenden und schließenden Anführungszeichen zum Hängen
+### Öffnende und schließende Anführungszeichen hängen lassen
 
 #### HTML
 

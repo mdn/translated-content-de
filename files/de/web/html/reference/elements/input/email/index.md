@@ -1,11 +1,12 @@
 ---
-title: <input type="email">
+title: '`<input type="email">` HTML-Attributwert'
+short-title: <input type="email">
 slug: Web/HTML/Reference/Elements/input/email
 l10n:
-  sourceCommit: 5c7a1a6c3ccd8d2b22771f5d2bea050a207ec0f1
+  sourceCommit: bf5017c389132af39b50106cf1763fa7106e87b4
 ---
 
-{{HTMLElement("input")}}-Elemente des Typs **`email`** werden verwendet, um dem Benutzer das Eingeben und Bearbeiten einer E-Mail-Adresse oder, falls das [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut angegeben ist, einer Liste von E-Mail-Adressen zu ermöglichen.
+{{HTMLElement("input")}}-Elemente des Typs **`email`** werden verwendet, um dem Benutzer das Eingeben und Bearbeiten einer E-Mail-Adresse oder, wenn das [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut spezifiziert ist, einer Liste von E-Mail-Adressen zu ermöglichen.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;email&quot;&gt;", "tabbed-shorter")}}
 
@@ -29,93 +30,93 @@ label {
 }
 ```
 
-Der Eingabewert wird automatisch validiert, um sicherzustellen, dass er entweder leer oder eine richtig formatierte E-Mail-Adresse (oder Liste von Adressen) ist, bevor das Formular gesendet werden kann. Die {{cssxref(":valid")}} und {{cssxref(":invalid")}} CSS-Pseudoklassen werden automatisch angewendet, um visuell anzuzeigen, ob der aktuelle Wert des Feldes eine gültige E-Mail-Adresse ist oder nicht.
+Der Eingabewert wird automatisch validiert, um sicherzustellen, dass er entweder leer oder eine richtig formatierte E-Mail-Adresse (oder Liste von Adressen) ist, bevor das Formular abgeschickt werden kann. Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden automatisch angewendet, um visuell zu kennzeichnen, ob der aktuelle Wert des Feldes eine gültige E-Mail-Adresse ist oder nicht.
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält einen String, der automatisch als konform mit der E-Mail-Syntax validiert wird. Genauer gesagt gibt es drei mögliche Wertformate, die die Validierung bestehen:
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält einen String, der automatisch validiert wird, um der E-Mail-Syntax zu entsprechen. Genauer gesagt gibt es drei mögliche Wertformate, die die Validierung bestehen:
 
-1. Ein leerer String (""), der angibt, dass der Benutzer keinen Wert eingegeben hat oder dass der Wert entfernt wurde.
-2. Eine einzelne korrekt geformte E-Mail-Adresse. Das bedeutet nicht unbedingt, dass die E-Mail-Adresse existiert, aber sie ist zumindest richtig formatiert. Dies bedeutet `benutzername@domain` oder `benutzername@domain.tld`. Natürlich gibt es noch mehr dazu; siehe [Validierung](#validierung) für einen {{Glossary("regular_expression", "regulären Ausdruck")}}, der den Algorithmus zur E-Mail-Adressen-Validierung beschreibt.
-3. Nur wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut angegeben ist, kann der Wert eine Liste von korrekt geformten, durch Kommas getrennten E-Mail-Adressen sein. Jegliche führenden und nachfolgenden Leerzeichen werden aus jeder Adresse in der Liste entfernt.
+1. Ein leerer String ("") zeigt an, dass der Benutzer keinen Wert eingegeben hat oder dass der Wert entfernt wurde.
+2. Eine einzelne, richtig formatierte E-Mail-Adresse. Das bedeutet nicht unbedingt, dass die E-Mail-Adresse existiert, aber sie ist zumindest korrekt formatiert. Dies bedeutet `username@domain` oder `username@domain.tld`. Natürlich ist dies nicht alles; siehe [Validierung](#validierung) für einen {{Glossary("regular_expression", "regulären Ausdruck")}}, der den E-Mail-Adressvalidierungsalgorithmus entspricht.
+3. Nur wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut spezifiziert ist, kann der Wert eine Liste von richtig formatierten, kommagetrennten E-Mail-Adressen sein. Jegliche führenden und nachstehenden Leerzeichen werden bei jeder Adresse in der Liste entfernt.
 
-Siehe [Validierung](#validierung) für Details dazu, wie E-Mail-Adressen validiert werden, um sicherzustellen, dass sie richtig formatiert sind.
+Siehe [Validierung](#validierung) für Details zur Validierung von E-Mail-Adressen, um sicherzustellen, dass sie korrekt formatiert sind.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ wirken, unterstützen `email`-Eingaben die folgenden Attribute.
+Neben den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ angewendet werden, unterstützen `email`-Eingaben die folgenden Attribute.
 
 > [!NOTE]
-> Das globale [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect)-Attribut kann zu E-Mail-Eingaben hinzugefügt werden, aber der gespeicherte Zustand ist immer `off`.
+> Das [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect)-Globale Attribut kann zu E-Mail-Eingaben hinzugefügt werden, aber der gespeicherte Zustand ist immer `off`.
 
 ### list
 
-Der Wert des `list`-Attributs ist die [`ID`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Das {{HTMLElement("datalist")}} bietet eine Liste von vordefinierten Werten, die dem Benutzer als Vorschläge für diese Eingabe angezeigt werden. Jede im `list` enthaltene Option, die nicht mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) kompatibel ist, wird nicht in den vorgeschlagenen Optionen angezeigt. Die bereitgestellten Werte sind Vorschläge und keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des list-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das sich im selben Dokument befindet. Die {{HTMLElement("datalist")}} bietet eine Liste von vordefinierten Werten, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die mit dem [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) nicht kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die angegebenen Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste wählen oder einen anderen Wert eingeben.
 
 ### maxlength
 
-Die maximale Länge des Strings (gemessen in {{Glossary("UTF-16", "UTF-16-Code-Einheiten")}}), die der Benutzer in das `email`-Eingabefeld eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert festgelegt ist, hat die `email`-Eingabe keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
+Die maximale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codierungseinheiten")}}), die der Benutzer in die `email`-Eingabe eingeben kann. Dies muss ein ganzzahliger Wert von 0 oder höher sein. Wenn kein `maxlength`-Wert angegeben oder ein ungültiger Wert angegeben wird, hat die `email`-Eingabe keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert des `minlength`-Attributs sein.
 
-Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des Textwertes des Feldes größer ist als `maxlength` {{Glossary("UTF-16", "UTF-16-Code-Einheiten")}} lang. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des Textwerts des Feldes länger ist als `maxlength` {{Glossary("UTF-16", "UTF-16-Codierungseinheiten")}}. Einschränkungsvalidierung wird nur angewendet, wenn der Wert durch den Benutzer geändert wird.
 
 ### minlength
 
-Die minimale Länge des Strings (gemessen in {{Glossary("UTF-16", "UTF-16-Code-Einheiten")}}), die der Benutzer in das `email`-Eingabefeld eingeben kann. Dies muss ein nicht-negativer Ganzzahlwert kleiner oder gleich dem durch `maxlength` angegebenen Wert sein. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert festgelegt ist, hat die `email`-Eingabe keine Mindestlänge.
+Die minimale Zeichenlänge (gemessen in {{Glossary("UTF-16", "UTF-16-Codierungseinheiten")}}), die der Benutzer in die `email`-Eingabe eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem Wert ist, der durch `maxlength` spezifiziert wird. Wenn kein `minlength` angegeben oder ein ungültiger Wert angegeben wird, hat die `email`-Eingabe keine minimale Länge.
 
-Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` {{Glossary("UTF-16", "UTF-16-Code-Einheiten")}} lang ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) nicht bestehen, wenn die Länge des in das Feld eingegebenen Textes kürzer ist als `minlength` {{Glossary("UTF-16", "UTF-16-Codierungseinheiten")}}. Einschränkungsvalidierung wird nur angewendet, wenn der Wert durch den Benutzer geändert wird.
 
 ### multiple
 
-Ein boolesches Attribut, das bei Anwesenheit anzeigt, dass der Benutzer eine Liste mehrerer E-Mail-Adressen eingeben kann, die durch Kommas und optional durch Leerzeichen getrennt sind. Siehe [Mehrfache E-Mail-Adressen zulassen](#mehrfache_e-mail-adressen_zulassen) für ein Beispiel oder [HTML-Attribut: multiple](/de/docs/Web/HTML/Reference/Attributes/multiple) für weitere Details.
+Ein Boolesches Attribut, das, falls vorhanden, angibt, dass der Benutzer eine Liste mehrerer E-Mail-Adressen eingeben kann, die durch Kommas und optional Leerzeichen getrennt sind. Siehe [Erlauben mehrerer E-Mail-Adressen](#erlauben_mehrerer_e-mail-adressen) für ein Beispiel oder [HTML-Attribut: multiple](/de/docs/Web/HTML/Reference/Attributes/multiple) für weitere Details.
 
 > [!NOTE]
-> Normalerweise muss der Benutzer beim Angeben des [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attributs eine gültige E-Mail-Adresse eingeben, damit das Feld als gültig angesehen wird. Wenn jedoch das `multiple`-Attribut hinzugefügt wird, ist eine Liste von null E-Mail-Adressen (ein leerer String oder einer, der vollständig aus Leerzeichen besteht) ein gültiger Wert. Das bedeutet, dass der Benutzer nicht einmal eine E-Mail-Adresse eingeben muss, wenn `multiple` angegeben ist, unabhängig vom Wert von `required`.
+> Normalerweise muss der Benutzer, wenn Sie das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut angeben, eine gültige E-Mail-Adresse eingeben, damit das Feld als gültig angesehen wird. Wenn Sie jedoch das `multiple`-Attribut hinzufügen, ist eine Liste von null E-Mail-Adressen (ein leerer String oder einer, der vollständig aus Leerzeichen besteht) ein gültiger Wert. Mit anderen Worten, der Benutzer muss keine einzige E-Mail-Adresse eingeben, wenn `multiple` angegeben ist, unabhängig vom Wert von `required`.
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) der Eingabe erfüllen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) zu bestehen. Er muss ein gültiger JavaScript-regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Folge von Unicode-Codepunkten behandelt wird, anstelle von {{Glossary("ASCII", "ASCII")}}. Keine Schrägstriche sollten um den Mustertext angegeben werden.
+Das `pattern`-Attribut, wenn es spezifiziert ist, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) der Eingabe zum Bestehen der [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) erfüllen muss. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und wie in unserem [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Sequenz von Unicode-Codepunkten anstelle von {{Glossary("ASCII", "ASCII")}} behandelt wird. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
-Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut komplett ignoriert.
+Wenn das angegebene Muster nicht angegeben ist oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Reference/Elements/input#title)-Attribut, um Text anzugeben, den die meisten Browser als Tooltip anzeigen werden, um zu erklären, welche Anforderungen zur Übereinstimmung des Musters erforderlich sind. Sie sollten auch anderen erläuternden Text in der Nähe einfügen.
+> Verwenden Sie das [`title`](/de/docs/Web/HTML/Reference/Elements/input#title)-Attribut, um Text zu spezifizieren, den die meisten Browser als Tooltip anzeigen, um zu erklären, welche Anforderungen erfüllt sein müssen, um das Muster zu erfüllen. Sie sollten auch anderen erklärenden Text in der Nähe einschließen.
 
-Siehe den Abschnitt [Muster-Validierung](#muster-validierung) für Details und ein Beispiel.
+Siehe den Abschnitt [Mustervalidierung](#mustervalidierung) für Details und ein Beispiel.
 
 ### `placeholder`
 
-Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information im Feld erwartet wird. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstelle einer erläuternden Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text darf keine Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Kontrolle eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) aufweist, aber der Platzhalter in der entgegengesetzten Richtung dargestellt werden muss, können Sie Unicode-Bidi-Algorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerelemente für Bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für mehr Informationen.
+Wenn der Inhalt des Steuerelements eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in der entgegengesetzten Richtung dargestellt werden soll, können Sie Zeichen der Unicode-Bidirektionalitätsalgorithmus verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Wie man Unicode-Steuerelemente für bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Vermeiden Sie die Verwendung des `placeholder`-Attributs, wenn möglich. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Beschriftungen](/de/docs/Web/HTML/Reference/Elements/input#labels) für weitere Informationen.
+> Vermeiden Sie die Verwendung des `placeholder`-Attributs, wenn Sie können. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Weitere Informationen finden Sie unter [`<input>`-Labels](/de/docs/Web/HTML/Reference/Elements/input#labels).
 
 ### `readonly`
 
-Ein boolesches Attribut, das bei Anwesenheit bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin geändert werden, indem JavaScript direkt die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-`value`-Eigenschaft setzt.
+Ein Boolesches Attribut, das, falls vorhanden, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, indem die `value`-Eigenschaft von [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) direkt gesetzt wird.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkungen auf Eingaben mit ebenfalls angegebenem `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Wirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### `size`
 
-Das `size`-Attribut ist ein numerischer Wert, der angibt, wie breit das Eingabefeld in Zeichen sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies genau zutreffen oder auch nicht; darauf sollte nicht gesetzt werden. Das resultierende Eingabefeld kann je nach Zeichen und Schriftart ({{cssxref("font")}}-Einstellungen in Verwendung) schmaler oder breiter als die angegebene Anzahl von Zeichen sein.
+Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies möglicherweise nicht genau sein und sollte nicht darauf verlassen werden; die resultierende Eingabe kann schmaler oder breiter sein als die angegebene Anzahl von Zeichen, abhängig von den Zeichen und der Schriftart ({{cssxref("font")}}-Einstellungen in Verwendung).
 
-Dies setzt _kein_ Limit für die Anzahl der Zeichen, die der Benutzer in das Feld eingeben kann. Es gibt nur ungefähr an, wie viele Zeichen gleichzeitig sichtbar sein können. Um ein oberes Limit für die Länge der Eingabedaten zu setzen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dies setzt kein Limit für die Anzahl der Zeichen, die der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele Zeichen ungefähr gleichzeitig angezeigt werden können. Um ein oberes Limit für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
 
 ## Verwendung von `email`-Eingaben
 
-E-Mail-Adressen sind eine der am häufigsten eingegebenen Textdatenformen im Web; sie werden beim Anmelden auf Websites, bei Informationsanfragen, zur Auftragsbestätigung, für Webmail usw. verwendet. Daher kann der `email`-Eingabetyp Ihre Arbeit als Webentwickler erheblich erleichtern, da er helfen kann, Ihre Arbeit beim Erstellen der Benutzeroberfläche und -logik für E-Mail-Adressen zu vereinfachen. Wenn Sie eine Eingabe mit dem richtigen `type`-Wert `email` erstellen, erhalten Sie automatisch eine Validierung, dass der eingegebene Text zumindest in der richtigen Form ist, um möglicherweise eine legitime E-Mail-Adresse zu sein. Dies kann helfen, Fälle zu vermeiden, in denen der Benutzer seine Adresse falsch eingibt oder eine ungültige Adresse angibt.
+E-Mail-Adressen gehören zu den am häufigsten eingegebenen Textdaten im Web; sie werden beim Einloggen in Websites, bei Anfragen nach Informationen, zur Bestätigung von Bestellungen, für Webmail usw. verwendet. Daher kann der Eingabetyp `email` Ihre Arbeit als Webentwickler erheblich erleichtern, da er dazu beitragen kann, Ihre Arbeit bei der Erstellung der Benutzeroberfläche und Logik für E-Mail-Adressen zu vereinfachen. Wenn Sie eine `email`-Eingabe mit dem richtigen `type`-Wert erstellen, erhalten Sie eine automatische Validierung, dass der eingegebene Text mindestens die richtige Form hat, um möglicherweise eine legitime E-Mail-Adresse zu sein. Dies kann dazu beitragen, Fälle zu vermeiden, in denen der Benutzer seine Adresse falsch eingibt oder eine ungültige Adresse angibt.
 
-Es ist jedoch wichtig zu beachten, dass dies nicht ausreicht, um sicherzustellen, dass der angegebene Text eine E-Mail-Adresse ist, die tatsächlich existiert, dem Benutzer der Website entspricht oder in irgendeiner anderen Weise akzeptabel ist. Es stellt sicher, dass der Wert des Feldes korrekt formatiert ist, um eine E-Mail-Adresse zu sein.
+Es ist jedoch wichtig zu beachten, dass dies nicht ausreicht, um sicherzustellen, dass der angegebene Text eine tatsächlich existierende E-Mail-Adresse ist, die der Benutzer der Website entspricht oder in irgendeiner anderen Weise akzeptabel ist. Es wird sichergestellt, dass der Wert des Feldes korrekt formatiert ist, um eine E-Mail-Adresse zu sein.
 
 > [!NOTE]
-> Es ist auch wichtig zu beachten, dass ein Benutzer Ihr HTML im Hintergrund verändern kann, sodass Ihre Website _diese Validierung nicht_ für Sicherheitszwecke verwenden darf. Sie _müssen_ die E-Mail-Adresse auf der Serverseite jeder Transaktion überprüfen, bei der der bereitgestellte Text Sicherheitsimplikationen jeder Art haben könnte.
+> Es ist auch entscheidend, sich daran zu erinnern, dass ein Benutzer Ihr HTML im Hintergrund verändern kann, daher darf Ihre Website diese Validierung _nicht_ für Sicherheitszwecke verwenden. Sie _müssen_ die E-Mail-Adresse auf der Serverseite jeder Transaktion validieren, bei der der bereitgestellte Text sicherheitsrelevante Implikationen jeglicher Art haben könnte.
 
 ### Eine grundlegende `email`-Eingabe
 
-Derzeit implementieren alle Browser, die dieses Element unterstützen, es als ein Standardtext-Eingabefeld mit grundlegenden Validierungsmerkmalen. Die Spezifikation erlaubt den Browsern jedoch Flexibilität. Das Element könnte beispielsweise in das integrierte Adressbuch des Geräts des Benutzers integriert werden, um das Auswählen von E-Mail-Adressen aus dieser Liste zu ermöglichen. In seiner grundlegendsten Form könnte eine `email`-Eingabe wie folgt implementiert werden:
+Derzeit implementieren alle Browser, die dieses Element unterstützen, es als ein Standard-Text-Eingabefeld mit grundlegenden Validierungsfunktionen. Die Spezifikation erlaubt den Browsern jedoch Spielraum hierbei. Zum Beispiel könnte das Element in das integrierte Adressbuch des Geräts des Benutzers integriert werden, um das Auswählen von E-Mail-Adressen aus dieser Liste zu ermöglichen. In seiner einfachsten Form kann eine `email`-Eingabe wie folgt implementiert werden:
 
 ```html
 <input id="emailAddress" type="email" />
@@ -123,11 +124,11 @@ Derzeit implementieren alle Browser, die dieses Element unterstützen, es als ei
 
 {{ EmbedLiveSample('A_basic_email_input', 600, 40) }}
 
-Beachten Sie, dass es als gültig betrachtet wird, wenn es leer ist und wenn eine einzelne richtig formatierte E-Mail-Adresse eingegeben wird, aber ansonsten nicht als gültig angesehen wird. Durch Hinzufügen des [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attributs sind nur korrekt formatierte E-Mail-Adressen erlaubt; die Eingabe wird nicht mehr als gültig angesehen, wenn sie leer ist.
+Beachten Sie, dass es als gültig betrachtet wird, wenn es leer ist und wenn eine einzige, gültig formatierte E-Mail-Adresse eingegeben wird, aber ansonsten nicht als gültig betrachtet wird. Durch das Hinzufügen des [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attributs sind nur gültig formatierte E-Mail-Adressen erlaubt; die Eingabe wird nicht mehr als gültig betrachtet, wenn sie leer ist.
 
-### Mehrfache E-Mail-Adressen zulassen
+### Erlauben mehrerer E-Mail-Adressen
 
-Durch Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-booleschen Attributs kann die Eingabe so konfiguriert werden, dass mehrere E-Mail-Adressen akzeptiert werden.
+Durch das Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Booleschen Attributs kann die Eingabe so konfiguriert werden, dass mehrere E-Mail-Adressen akzeptiert werden.
 
 ```html
 <input id="emailAddress" type="email" multiple />
@@ -135,12 +136,12 @@ Durch Hinzufügen des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multip
 
 {{ EmbedLiveSample('Allowing multiple email addresses', 600, 40) }}
 
-Die Eingabe wird nun als gültig angesehen, wenn eine einzelne E-Mail-Adresse eingegeben wird oder wenn eine beliebige Anzahl von E-Mail-Adressen, die durch Kommas und optional durch Leerzeichen getrennt sind, vorhanden ist.
+Die Eingabe wird jetzt als gültig betrachtet, wenn eine einzelne E-Mail-Adresse eingegeben wird oder wenn eine beliebige Anzahl von E-Mail-Adressen, getrennt durch Kommas und optional eine oder mehrere Leerzeichen, vorhanden sind.
 
 > [!NOTE]
-> Bei Verwendung von `multiple` ist der Wert _darf_ leer sein.
+> Wenn `multiple` verwendet wird, darf der Wert leer sein.
 
-Einige Beispiele für gültige Strings, wenn `multiple` angegeben ist:
+Einige Beispiele für gültige Strings, wenn `multiple` spezifiziert ist:
 
 - `""`
 - `"me@example"`
@@ -157,9 +158,9 @@ Einige Beispiele für ungültige Strings:
 
 ### Platzhalter
 
-Manchmal ist es hilfreich, einen kontextbezogenen Hinweis darauf anzubieten, welche Form die Eingabedaten annehmen sollten. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Beschriftungen für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der die Form zeigt, die der `value` annehmen sollte, indem er ein Beispiel für einen gültigen Wert anzeigt, das in das Bearbeitungsfeld eingefügt wird, wenn der `value` des Elements leer ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter wieder.
+Manchmal ist es hilfreich, einen kontextbezogenen Hinweis zu geben, in welcher Form die Eingabedaten vorliegen sollen. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der die Form des `value` demonstriert, indem er ein Beispiel für einen gültigen Wert präsentiert, der angezeigt wird, wenn der `value` des Elements leer ist. Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter erneut.
 
-Hier haben wir eine `email`-Eingabe mit dem Platzhalter `sophie@example.com`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, während Sie den Inhalt des Bearbeitungsfeldes manipulieren.
+Hier haben wir eine `email`-Eingabe mit dem Platzhalter `sophie@example.com`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, wenn Sie den Inhalt des Bearbeitungsfelds manipulieren.
 
 ```html
 <input type="email" placeholder="sophie@example.com" />
@@ -169,11 +170,11 @@ Hier haben wir eine `email`-Eingabe mit dem Platzhalter `sophie@example.com`. Be
 
 ### Steuerung der Eingabegröße
 
-Sie können nicht nur die physische Länge des Eingabefelds steuern, sondern auch die minimal und maximal zulässigen Längen für den Eingabetext selbst.
+Sie können nicht nur die physische Länge des Eingabefeldes steuern, sondern auch die minimalen und maximalen Längen, die für den eingegebenen Text selbst erlaubt sind.
 
-#### Physische Größe des Eingabeelements
+#### Physische Größe des Eingabefeldes
 
-Die physische Größe des Eingabefelds kann mit dem [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die das Eingabefeld gleichzeitig anzeigen kann. In diesem Beispiel ist das `email`-Bearbeitungsfeld 15 Zeichen breit:
+Die physische Größe des Eingabefeldes kann mit dem [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)-Attribut gesteuert werden. Damit können Sie die Anzahl der Zeichen angeben, die das Eingabefeld gleichzeitig anzeigen kann. In diesem Beispiel ist das `email`-Bearbeitungsfeld 15 Zeichen breit:
 
 ```html
 <input type="email" size="15" />
@@ -183,9 +184,9 @@ Die physische Größe des Eingabefelds kann mit dem [`size`](/de/docs/Web/HTML/R
 
 #### Länge des Elementwerts
 
-Die `size` ist separat von der Längenbegrenzung für die tatsächlich eingegebene E-Mail-Adresse, sodass Sie Felder in einen kleinen Raum passen, während Sie dennoch längere E-Mail-Adress-Strings zulassen können. Sie können eine Mindestlänge in Zeichen für die eingegebene E-Mail-Adresse mit dem [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut angeben; verwenden Sie ähnlicherweise [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength), um die maximale Länge der eingegebenen E-Mail-Adresse festzulegen.
+Die festgelegte `size` ist von der Längenbeschränkung der tatsächlich eingegebenen E-Mail-Adresse getrennt, sodass Sie Felder in einem kleinen Raum haben können, während Sie dennoch längere E-Mail-Adressen zulassen. Sie können eine Mindestlänge in Zeichen für die eingegebene E-Mail-Adresse mit dem [`minlength`](/de/docs/Web/HTML/Reference/Elements/input#minlength)-Attribut angeben; ebenso verwenden Sie [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength), um die maximale Länge der eingegebenen E-Mail-Adresse festzulegen.
 
-Das nachfolgende Beispiel erstellt ein E-Mail-Adressen-Eingabefeld, das 32 Zeichen breit ist, wobei die Inhalte nicht kürzer als 3 Zeichen und nicht länger als 64 Zeichen sein dürfen.
+Das untenstehende Beispiel erstellt ein 32 Zeichen breites Eingabefeld für die E-Mail-Adresse, wobei die Inhalte nicht kürzer als 3 Zeichen und nicht länger als 64 Zeichen sein dürfen.
 
 ```html
 <input type="email" size="32" minlength="3" maxlength="64" />
@@ -193,11 +194,11 @@ Das nachfolgende Beispiel erstellt ein E-Mail-Adressen-Eingabefeld, das 32 Zeich
 
 {{EmbedLiveSample("Element_value_length", 600, 40) }}
 
-### Vorgaben bereitstellen
+### Bereitstellung standardmäßiger Optionen
 
-#### Eine einzelne Vorgabe mit dem `value`-Attribut bereitstellen
+#### Bereitstellung eines einzelnen Standardwerts mit dem value-Attribut
 
-Wie immer können Sie einen Standardwert für ein `email`-Eingabefeld angeben, indem Sie sein [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut setzen:
+Wie immer können Sie einen Standardwert für ein `email`-Eingabefeld durch Festlegen seines [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attributs bereitstellen:
 
 ```html
 <input type="email" value="default@example.com" />
@@ -205,9 +206,9 @@ Wie immer können Sie einen Standardwert für ein `email`-Eingabefeld angeben, i
 
 {{EmbedLiveSample("Providing_a_single_default_using_the_value_attribute", 600, 40)}}
 
-#### Vorgeschlagene Werte anbieten
+#### Anbieten vorgeschlagener Werte
 
-Noch einen Schritt weiter, können Sie eine Liste von Standardoptionen bereitstellen, aus denen der Benutzer auswählen kann, indem Sie das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut angeben. Dies beschränkt den Benutzer nicht auf diese Optionen, ermöglicht es ihm jedoch, häufig verwendete E-Mail-Adressen schneller auszuwählen. Dies bietet auch Hinweise für [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete). Das `list`-Attribut gibt die ID eines {{HTMLElement("datalist")}} an, das wiederum ein {{HTMLElement("option")}}-Element für jeden vorgeschlagenen Wert enthält; der `value` jedes `option` ist der entsprechende vorgeschlagene Wert für das E-Mail-Eingabefeld.
+Als weiteren Schritt können Sie eine Liste von Standardoptionen bereitstellen, aus denen der Benutzer wählen kann, indem Sie das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut spezifizieren. Dies beschränkt den Benutzer nicht auf diese Optionen, ermöglicht es ihm jedoch, häufig verwendete E-Mail-Adressen schneller auszuwählen. Dies bietet auch Hinweise zu [`autocomplete`](/de/docs/Web/HTML/Reference/Elements/input#autocomplete). Das `list`-Attribut spezifiziert die ID eines {{HTMLElement("datalist")}}, die wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält; der `value` jedes `option` ist der entsprechende vorgeschlagene Wert für das Eingabefeld der E-Mail-Adresse.
 
 ```html
 <input type="email" size="40" list="defaultEmails" />
@@ -223,35 +224,35 @@ Noch einen Schritt weiter, können Sie eine Liste von Standardoptionen bereitste
 
 {{EmbedLiveSample("Offering_suggested_values", 600, 40)}}
 
-Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s an Ort und Stelle, bietet der Browser die angegebenen Werte als potenzielle Werte für die E-Mail-Adresse an; dies wird normalerweise als Popup oder Dropdown-Menü mit den Vorschlägen angezeigt. Während die spezifische Benutzererfahrung von einem Browser zum anderen variieren kann, werden typischerweise durch Klicken in das Bearbeitungsfeld die vorgeschlagenen E-Mail-Adressen als Dropdown angezeigt. Dann, während der Benutzer tippt, wird die Liste gefiltert, um nur übereinstimmende Werte anzuzeigen. Jedes eingegebene Zeichen verengt die Liste, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
+Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s an Ort und Stelle wird der Browser die angegebenen Werte als Potenzialwerte für die E-Mail-Adresse anbieten; dies wird typischerweise als Popup oder Dropdown-Menü mit den Vorschlägen präsentiert. Während das spezifische Benutzererlebnis von einem Browser zum anderen variieren kann, führt das Klicken in das Bearbeitungsfeld typischerweise zu einer Dropdown-Liste der vorgeschlagenen E-Mail-Adressen. Dann wird die Liste gefiltert, um nur passende Werte anzuzeigen, während der Benutzer tippt. Jedes getippte Zeichen engt die Liste ein, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
 
 ## Validierung
 
-Es gibt zwei Stufen der Inhaltsvalidierung für `email`-Eingaben. Zuerst gibt es die Standard-Ebene der Validierung, die für alle {{HTMLElement("input")}}s bereitgestellt wird, welche automatisch sicherstellt, dass die Inhalte den Anforderungen entsprechen, um eine gültige E-Mail-Adresse zu sein. Aber es gibt auch die Möglichkeit, zusätzliche Filter hinzuzufügen, um sicherzustellen, dass Ihre eigenen speziellen Anforderungen erfüllt werden, wenn Sie welche haben.
+Es gibt zwei Ebenen der Inhaltsvalidierung für `email`-Eingaben. Zum einen gibt es die standardmäßige Validierungsebene, die allen {{HTMLElement("input")}}-Elementen angeboten wird, welche automatisch sicherstellt, dass die Inhalte den Anforderungen entsprechen, um eine gültige E-Mail-Adresse zu sein. Es gibt aber auch die Möglichkeit, zusätzliche Filterung hinzuzufügen, um sicherzustellen, dass Ihre eigenen speziellen Anforderungen erfüllt werden, falls Sie welche haben.
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach, das HTML anzupassen, um die Validierung zu umgehen, oder es komplett zu entfernen. Außerdem kann jemand Ihr HTML vollständig umgehen und die Daten direkt an Ihren Server senden. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zur Katastrophe kommen, wenn ungültig formatierte Daten (oder Daten, die zu groß sind, den falschen Typ haben usw.) in Ihre Datenbank eingegeben werden.
+> HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen oder völlig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zu Katastrophen kommen, wenn fälschlich formatierte Daten (oder Daten, die zu groß sind oder vom falschen Typ) in Ihre Datenbank eingegeben werden.
 
 ### Grundlegende Validierung
 
-Browser bieten automatisch eine Validierung, um sicherzustellen, dass nur Text eingegeben wird, der dem Standardformat für Internet-E-Mail-Adressen entspricht. Browser verwenden einen Algorithmus, der einem regulären Ausdruck wie dem folgenden entspricht:
+Browser bieten automatisch Validierung, um sicherzustellen, dass nur Text, der dem Standardformat für Internet-E-Mail-Adressen entspricht, in das Eingabefeld eingegeben wird. Browser verwenden einen Algorithmus, der einem regulären Ausdruck entspricht, der wie folgt ist:
 
 ```js
 /^[\w.!#$%&'*+/=?^`{|}~-]+@[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?(?:\.[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?)*$/i;
 ```
 
-Um mehr darüber zu erfahren, wie die Formularvalidierung funktioniert und wie Sie die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-CSS-Eigenschaften nutzen können, um die Eingabe basierend darauf zu gestalten, ob der aktuelle Wert gültig ist, sehen Sie [Formdatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
+Um mehr darüber zu erfahren, wie Formularvalidierung funktioniert und wie Sie die {{cssxref(":valid")}} und {{cssxref(":invalid")}} CSS-Eigenschaften verwenden können, um die Eingabe basierend darauf zu stylen, ob der aktuelle Wert gültig ist, siehe [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
 
 > [!NOTE]
-> Es gibt bekannte Spezifikationsprobleme im Zusammenhang mit internationalen Domainnamen und der Validierung von E-Mail-Adressen in HTML. Siehe [W3C Bug 15489](https://www.w3.org/Bugs/Public/show_bug.cgi?id=15489) und [whatwg/html#4562](https://github.com/whatwg/html/issues/4562) für Details.
+> Es gibt bekannte Spezifikationsprobleme im Zusammenhang mit internationalen Domänennamen und der Validierung von E-Mail-Adressen in HTML. Weitere Details finden Sie in [W3C Bug 15489](https://www.w3.org/Bugs/Public/show_bug.cgi?id=15489) und [whatwg/html#4562](https://github.com/whatwg/html/issues/4562).
 
-### Muster-Validierung
+### Mustervalidierung
 
-Wenn Sie möchten, dass die eingegebene E-Mail-Adresse weiter beschränkt wird als nur "jede Zeichenkette, die wie eine E-Mail-Adresse aussieht", können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut verwenden, um einen {{Glossary("regular_expression", "regulären Ausdruck")}} anzugeben, dem der Wert entsprechen muss, um gültig zu sein. Wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut angegeben ist, muss jedes einzelne Element in der durch Kommas getrennten Liste von Werten dem {{Glossary("regular_expression", "regulären Ausdruck")}} entsprechen.
+Wenn Sie benötigen, dass die eingegebene E-Mail-Adresse weiter eingeschränkt wird als nur "jeder String, der wie eine E-Mail-Adresse aussieht", können Sie das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern)-Attribut verwenden, um einen {{Glossary("regular_expression", "regulären Ausdruck")}} anzugeben, mit dem der Wert übereinstimmen muss, um gültig zu sein. Wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut spezifiziert ist, muss jedes einzelne Element in der mit Kommas abgegrenzten Liste von Werten mit dem {{Glossary("regular_expression", "regulären Ausdruck")}} übereinstimmen.
 
-Zum Beispiel sagen wir, dass Sie eine Seite für Mitarbeiter von Best Startup Ever, Inc. erstellen, auf der sie ihre IT-Abteilung um Hilfe bitten können. In unserem vereinfachten Formular muss der Nutzer seine E-Mail-Adresse und eine Nachricht zu dem Problem angeben, bei dem er Hilfe benötigt. Wir wollen sicherstellen, dass der Nutzer nicht nur eine gültige E-Mail-Adresse angibt, sondern aus Sicherheitsgründen auch eine interne Unternehmens-E-Mail-Adresse.
+Angenommen, Sie erstellen eine Seite für Mitarbeiter von Best Startup Ever, Inc., die es ihnen ermöglicht, die IT-Abteilung um Hilfe zu bitten. In unserem vereinfachten Formular muss der Benutzer seine E-Mail-Adresse eingeben und eine Nachricht beschreiben, die das Problem schildert, bei dem er Hilfe benötigt. Wir wollen sicherstellen, dass der Benutzer nicht nur eine gültige E-Mail-Adresse angibt, sondern aus Sicherheitsgründen verlangen wir, dass die Adresse eine interne Unternehmens-E-Mail-Adresse ist.
 
-Da Eingaben vom Typ `email` sowohl gegen die Standard-E-Mail-Adress-Validierung als auch gegen das angegebene [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) validieren, können Sie dies einfach umsetzen. So geht das:
+Da Eingaben des Typs `email` sowohl gegen die Standardvalidierung von E-Mail-Adressen als auch das angegebene [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) validieren, können Sie dies einfach implementieren. Schauen wir uns an, wie:
 
 ```css hidden
 body {
@@ -305,32 +306,32 @@ label::after {
 
 {{EmbedLiveSample("Pattern_validation", 700, 300)}}
 
-Unser {{HTMLElement("form")}} enthält ein {{HTMLElement("input")}} vom Typ `email` für die E-Mail-Adresse des Nutzers, ein {{HTMLElement("textarea")}}, um seine Nachricht an die IT einzugeben, und ein `<input>` vom Typ [`"submit"`](/de/docs/Web/HTML/Reference/Elements/input/submit), das eine Schaltfläche zum Abschicken des Formulars erstellt. Jedes Text-Eingabefeld hat ein {{HTMLElement("label")}}, das mit ihm verknüpft ist, um den Nutzer wissen zu lassen, was von ihm erwartet wird.
+Unser {{HTMLElement("form")}} enthält eine {{HTMLElement("input")}} des Typs `email` für die E-Mail-Adresse des Benutzers, ein {{HTMLElement("textarea")}}, um die Nachricht an die IT-Abteilung einzugeben, und ein `<input>`-Element vom Typ [`"submit"`](/de/docs/Web/HTML/Reference/Elements/input/submit), das einen Button zum Abschicken des Formulars erstellt. Jedes Texteingabefeld hat ein zugehöriges {{HTMLElement("label")}}, um dem Benutzer mitzuteilen, was von ihm erwartet wird.
 
-Schauen wir uns das E-Mail-Adress-Eingabefeld genauer an. Seine [`size`](/de/docs/Web/HTML/Reference/Elements/input#size)- und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength)-Attribute sind beide auf 64 gesetzt, um Platz für 64 Zeichen der E-Mail-Adresse anzuzeigen und um die Anzahl der tatsächlich eingegebenen Zeichen auf maximal 64 zu begrenzen. Das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut ist angegeben, wodurch es erforderlich ist, dass eine gültige E-Mail-Adresse angegeben wird.
+Schauen wir uns das Eingabefeld für die E-Mail-Adresse genauer an. Seine [`size`](/de/docs/Web/HTML/Reference/Elements/input#size) und [`maxlength`](/de/docs/Web/HTML/Reference/Elements/input#maxlength)-Attribute sind beide auf 64 gesetzt, um Platz für 64 Zeichen der E-Mail-Adresse zu schaffen und die Anzahl der tatsächlich eingegebenen Zeichen auf maximal 64 zu beschränken. Das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut ist spezifiziert, was es erforderlich macht, dass eine gültige E-Mail-Adresse angegeben wird.
 
-Ein geeignetes [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) wird angegeben – `username@beststartupever.com` – um zu zeigen, was als gültige Eingabe erwartet wird. Dieser String zeigt sowohl, dass eine E-Mail-Adresse eingegeben werden sollte, als auch dass es ein Unternehmens-Konto von beststartupever.com sein sollte. Dies ergänzt die Tatsache, dass die Verwendung von Typ `email` den Text validieren wird, um sicherzustellen, dass er im Format einer E-Mail-Adresse ist. Wenn der Text im Eingabefeld keine E-Mail-Adresse ist, erhalten Sie eine Fehlermeldung, die ungefähr so aussieht:
+Ein passender [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#])) ist angegeben—`username@beststartupever.com`—um zu demonstrieren, was eine gültige Eingabe ausmacht. Diese Zeichenkette demonstriert sowohl, dass eine E-Mail-Adresse eingegeben werden soll, als auch, dass es sich um ein unternehmensinternes beststartupever.com-Konto handeln sollte. Zusätzlich dazu validiert die Verwendung des Typs `email` den Text, um sicherzustellen, dass er wie eine E-Mail-Adresse formatiert ist. Wenn der Text im Eingabefeld keine E-Mail-Adresse ist, erhalten Sie eine Fehlermeldung, die in etwa so aussieht:
 
-![Ungültige E-Mail-Adresse im Fehlerzustand mit einem Ausklapptextfeld, in dem steht "Bitte geben Sie eine E-Mail-Adresse ein".](enter-valid-email-address.png)
+![Ungültige E-Mail-Adresse im Fehlerzustand mit einer Meldung, die aus dem Eingabefeld herausspringt, 'bitte geben Sie eine E-Mail-Adresse ein'.](enter-valid-email-address.png)
 
-Wenn wir es dabei belassen würden, würden wir zumindest auf legitime E-Mail-Adressen validieren. Aber wir wollen einen Schritt weiter gehen: Wir möchten sicherstellen, dass die E-Mail-Adresse tatsächlich in der Form `[benutzername]@beststartupever.com` ist. Hier werden wir das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern) verwenden. Wir setzen `pattern` auf `.+@beststartupever.com`. Dieser reguläre Ausdruck fordert eine Zeichenfolge an, die mindestens aus einem beliebigen Zeichen besteht, dann ein "@" gefolgt vom Domain-Namen "beststartupever.com".
+Wenn wir es dabei belassen würden, würden wir zumindest eine Validierung auf legitime E-Mail-Adressen haben. Aber wir wollen einen Schritt weiter gehen: Wir wollen sicherstellen, dass die E-Mail-Adresse tatsächlich in der Form `[username]@beststartupever.com` vorliegt. Hierfür verwenden wir das [`pattern`](/de/docs/Web/HTML/Reference/Elements/input#pattern). Wir setzen `pattern` auf `.+@beststartupever.com`. Dieser reguläre Ausdruck erfordert eine Zeichenkette, die aus mindestens einem Zeichen jeglicher Art besteht, gefolgt von einem "@", gefolgt vom Domainnamen "beststartupever.com".
 
-Beachten Sie, dass dies nicht einmal annähernd ein ausreichender Filter für gültige E-Mail-Adressen ist; es würde Dinge wie " @beststartupever.com" (BeachsmartyTokenist den führenden Leerraum) oder "@@beststartupever.com" zulassen, die beide nicht gültig sind. Jedoch führt der Browser sowohl den Standardfilter für E-Mail-Adressen als auch unser benutzerdefiniertes Muster gegen den angegebenen Text durch. Daher enden wir mit einer Validierung, die sagt: "Stellen Sie sicher, dass dies wie eine gültige E-Mail-Adresse aussieht, und wenn ja, stellen Sie sicher, dass es sich auch um eine beststartupever.com-Adresse handelt."
+Beachten Sie, dass dies nicht einmal annähernd ein ausreichender Filter für gültige E-Mail-Adressen ist; es würde Dinge wie " @beststartupever.com" (beachten Sie das führende Leerzeichen) oder "@@beststartupever.com" zulassen, von denen keines gültig ist. Der Browser führt jedoch sowohl den Standardfilter für E-Mail-Adressen als auch unser benutzerdefiniertes Muster gegen den angegebenen Text aus. Dadurch haben wir eine Validierung, die sagt: "stell sicher, dass dies wie eine gültige E-Mail-Adresse aussieht, und wenn es das ist, stelle sicher, dass es auch eine beststartupever.com-Adresse ist."
 
-Es ist ratsam, das [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)-Attribut zusammen mit `pattern` zu verwenden. Wenn Sie dies tun, muss der `title` das Muster beschreiben. Das heißt, es sollte erklären, welches Format die Daten haben sollten, anstatt jede andere Information. Das liegt daran, dass der `title` möglicherweise als Teil einer Validierungsfehlermeldung angezeigt oder gesprochen wird. Zum Beispiel könnte der Browser die Nachricht "Der eingegebene Text entspricht nicht dem erforderlichen Muster." gefolgt von Ihrem angegebenen `title` präsentieren. Wenn Ihr `title` etwas wie "E-Mail-Adresse" ist, wäre das Ergebnis die Nachricht "Der eingegebene Text entspricht nicht dem erforderlichen Muster. E-Mail-Adresse", was nicht sehr gut ist.
+Es ist ratsam, das [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)-Attribut zusammen mit `pattern` zu verwenden. Wenn Sie das tun, _muss_ der `title` das Muster beschreiben. Das heißt, er sollte erklären, welches Format die Daten annehmen sollen und keine anderen Informationen. Das liegt daran, dass der `title` als Teil einer Validierungsfehlermeldung angezeigt oder gesprochen werden könnte. Zum Beispiel könnte der Browser die Meldung "Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein." anzeigen, gefolgt von dem von Ihnen angegebenen `title`. Wenn Ihr `title` etwas wie "E-Mail-Adresse" ist, wäre das Ergebnis die Meldung "Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein. E-Mail-Adresse", was nicht sehr gut ist.
 
-Deshalb geben wir stattdessen den String "Bitte geben Sie nur eine Best Startup Ever Firmen-E-Mail-Adresse" an. Indem wir das tun, könnte die resultierende Fehlermeldung so aussehen: "Der eingegebene Text entspricht nicht dem erforderlichen Muster. Bitte geben Sie nur eine Best Startup Ever Firmen-E-Mail-Adresse."
+Aus diesem Grund spezifizieren wir stattdessen die Zeichenfolge "Bitte geben Sie nur eine Best Startup Ever Unternehmens-E-Mail-Adresse an". Dadurch wird die resultierende vollständige Fehlermeldung möglicherweise so ähnlich wie "Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein. Bitte geben Sie nur eine Best Startup Ever Unternehmens-E-Mail-Adresse an."
 
-![Eine gültige E-Mail-Adresse, aber die Eingabe ist im Fehlerzustand mit einem Ausklapptextfeld, in dem steht "Der eingegebene Text entspricht nicht dem erforderlichen Muster. Bitte geben Sie nur eine Best Startup Ever Firmen-E-Mail-Adresse an."](email-pattern-match-bad.png)
+![Eine gültige E-Mail-Adresse, jedoch befindet sich die Eingabe im Fehlerzustand mit einer Meldung, die aus der Eingabe herausspringt, die 'Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein. Bitte geben Sie nur eine Best Startup Ever Unternehmens-E-Mail-Adresse an.' liest](email-pattern-match-bad.png)
 
 > [!NOTE]
-> Wenn Sie Probleme bei der Erstellung Ihrer Validierungsregulär-Ausdrücke haben und diese nicht richtig funktionieren, überprüfen Sie die Konsole Ihres Browsers; möglicherweise gibt es dort hilfreiche Fehlermeldungen, die Ihnen helfen, das Problem zu lösen.
+> Wenn Sie auf Probleme stoßen, während Sie Ihre Validierungsregulären Ausdrücke schreiben und diese nicht richtig funktionieren, überprüfen Sie die Konsole Ihres Browsers; dort könnten hilfreiche Fehlermeldungen sein, die Ihnen bei der Lösung des Problems helfen.
 
 ## Beispiele
 
-Hier haben wir eine E-Mail-Eingabe mit der ID `emailAddress`, die bis zu einer maximalen Länge von 256 Zeichen erlaubt ist. Das Eingabefeld selbst ist physisch 64 Zeichen breit und zeigt den Text `user@example.gov` als Platzhalter an, wann immer das Feld leer ist. Darüber hinaus ist das Feld durch die Verwendung des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attributs so konfiguriert, dass der Benutzer null oder mehr E-Mail-Adressen eingeben kann, die durch Kommas getrennt sind, wie in [Mehrfache E-Mail-Adressen zulassen](#mehrfache_e-mail-adressen_zulassen) beschrieben. Als zusätzlichen Schliff enthält das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut die ID eines {{HTMLElement("datalist")}}, dessen {{HTMLElement("option")}}s eine Reihe von vorgeschlagenen Werten angeben, aus denen der Benutzer wählen kann.
+Hier haben wir eine E-Mail-Eingabe mit der ID `emailAddress`, die bis zu maximal 256 Zeichen lang sein darf. Das Eingabefeld selbst ist physisch 64 Zeichen breit und zeigt den Text `user@example.gov` als Platzhalter an, wann immer das Feld leer ist. Zusätzlich ist das Fenster durch die Verwendung des [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attributs so konfiguriert, dass es dem Benutzer erlaubt, null oder mehr E-Mail-Adressen einzugeben, die durch Kommas getrennt sind, wie beschrieben unter [Erlauben mehrerer E-Mail-Adressen](#erlauben_mehrerer_e-mail-adressen). Als zusätzlichen Touch enthält das [`list`](/de/docs/Web/HTML/Reference/Elements/input#list)-Attribut die ID eines {{HTMLElement("datalist")}}, deren {{HTMLElement("option")}}s eine Reihe von vorgeschlagenen Werten angeben, aus denen der Benutzer wählen kann.
 
-Als zusätzliches Detail wird das {{HTMLElement("label")}}-Element verwendet, um eine Beschriftung für das E-Mail-Eingabefeld zu erstellen, wobei sein [`for`](/de/docs/Web/HTML/Reference/Elements/label#for)-Attribut auf die ID `emailAddress` des {{HTMLElement("input")}}-Elements verweist. Durch die Verknüpfung der beiden Elemente auf diese Weise wird das Eingabefeld fokussiert, wenn auf die Beschriftung geklickt wird.
+Als zusätzlichen Touch wird das {{HTMLElement("label")}}-Element verwendet, um ein Label für das E-Mail-Eingabefeld zu erstellen, wobei sein [`for`](/de/docs/Web/HTML/Reference/Elements/label#for)-Attribut auf die `emailAddress` ID des {{HTMLElement("input")}}-Elements verweist. Durch das Verknüpfen der beiden Elemente auf diese Weise wird bei einem Klick auf das Label das Eingabefeld fokussiert.
 
 ```html
 <label for="emailAddress">Email</label><br />
@@ -361,7 +362,7 @@ Als zusätzliches Detail wird das {{HTMLElement("label")}}-Element verwendet, um
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der eine E-Mail-Adresse repräsentiert, oder
+        Ein String, der eine E-Mail-Adresse darstellt, oder
         leer
       </td>
     </tr>
@@ -373,7 +374,7 @@ Als zusätzliches Detail wird das {{HTMLElement("label")}}-Element verwendet, um
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#list"><code>list</code></a>,
@@ -385,12 +386,12 @@ Als zusätzliches Detail wird das {{HTMLElement("label")}}-Element verwendet, um
         <a href="/de/docs/Web/HTML/Reference/Elements/input#placeholder"><code>placeholder</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#readonly"><code>readonly</code></a>,
         <a href="/de/docs/Web/HTML/Reference/Elements/input#required"><code>required</code></a>,
-        <a href="/de/docs/Web/HTML/Reference/Elements/input#size"><code>size</code></a>, and
+        <a href="/de/docs/Web/HTML/Reference/Elements/input#size"><code>size</code></a>, und
         <a href="/de/docs/Web/HTML/Reference/Elements/input#type"><code>type</code></a>
       </td>
     </tr>
     <tr>
-      <td><strong>IDL Attribute</strong></td>
+      <td><strong>IDL-Attribute</strong></td>
       <td><code>list</code> und <code>value</code></td>
     </tr>
     <tr>
@@ -424,7 +425,7 @@ Als zusätzliches Detail wird das {{HTMLElement("label")}}-Element verwendet, um
 
 ## Siehe auch
 
-- [HTML-Formularleitfaden](/de/docs/Learn_web_development/Extensions/Forms)
+- [HTML-Formular-Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
 - {{HTMLElement("input")}}
 - [`<input type="tel">`](/de/docs/Web/HTML/Reference/Elements/input/tel)
 - [`<input type="url">`](/de/docs/Web/HTML/Reference/Elements/input/url)

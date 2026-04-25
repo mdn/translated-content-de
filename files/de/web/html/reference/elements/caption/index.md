@@ -1,11 +1,12 @@
 ---
-title: "<caption>: Das Tabellenunterschriftselement"
+title: "`<caption>` HTML-Tabellenüberschrift-Element"
+short-title: <caption>
 slug: Web/HTML/Reference/Elements/caption
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<caption>`** [HTML](/de/docs/Web/HTML)-Element legt die Beschriftung (oder den Titel) einer Tabelle fest und bietet der Tabelle einen {{Glossary("accessible_name", "zugänglichen Namen")}} oder {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
+Das **`<caption>`**-Element [HTML](/de/docs/Web/HTML) spezifiziert die Überschrift (oder den Titel) einer Tabelle und gibt der Tabelle einen {{Glossary("accessible_name", "zugänglichen Namen")}} oder eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
 
 {{InteractiveExample("HTML Demo: &lt;caption&gt;", "tabbed-taller")}}
 
@@ -102,30 +103,30 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten zur Referenz für die Aktualisierung bestehender Codes und aus historischem Interesse dokumentiert.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten dokumentiert, um beim Aktualisieren bestehender Codes als Referenz zu dienen und aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
-  - : Gibt an, auf welcher Seite der Tabelle die Beschriftung angezeigt werden soll. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("caption-side")}} und {{cssxref("text-align")}}, da dieses Attribut veraltet ist.
+  - : Gibt an, auf welcher Seite der Tabelle die Überschrift angezeigt werden soll. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("caption-side")}} und {{cssxref("text-align")}}, da dieses Attribut veraltet ist.
 
 ## Nutzungshinweise
 
-- Falls enthalten, muss das `<caption>`-Element das erste Kind seines übergeordneten {{htmlelement("table")}}-Elements sein.
-- Wenn eine `<table>` innerhalb eines {{HTMLElement("figure")}} als einziger Inhalt der Abbildung verschachtelt ist, sollte es über ein {{HTMLElement("figcaption")}} für das `<figure>` anstelle eines innerhalb der `<table>` verschachtelten `<caption>` beschriftet werden.
-- Jeder {{cssxref("background-color")}}, der auf eine Tabelle angewendet wird, wird nicht auf ihre Beschriftung angewendet. Fügen Sie dem `<caption>`-Element ebenfalls eine `background-color` hinzu, wenn Sie die gleiche Farbe hinter beiden haben möchten.
+- Wenn eingefügt, muss das `<caption>`-Element das erste Kind seines übergeordneten {{htmlelement("table")}}-Elements sein.
+- Wenn eine `<table>` in einem {{HTMLElement("figure")}} als einziger Inhalt des Figures geschachtelt ist, sollte sie über ein {{HTMLElement("figcaption")}} für das `<figure>` beschriftet werden, anstatt als `<caption>` innerhalb der `<table>`.
+- Jede auf eine Tabelle angewandte {{cssxref("background-color")}} wird nicht auf ihre Überschrift angewandt. Fügen Sie auch dem `<caption>`-Element eine `background-color` hinzu, wenn Sie dieselbe Farbe hinter beiden haben möchten.
 
 ## Beispiel
 
-Sehen Sie sich {{HTMLElement("table")}} für ein vollständiges Tabellbeispiel an, das gängige Standards und bewährte Praktiken einführt.
+Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Verfahren einführt.
 
-### Tabelle mit Beschriftung
+### Tabelle mit Überschrift
 
-Dieses Beispiel zeigt eine einfache Tabelle, die eine Beschriftung enthält, die die dargestellten Daten beschreibt.
+Dieses Beispiel zeigt eine einfache Tabelle, die eine Überschrift enthält, die die präsentierten Daten beschreibt.
 
-Ein solcher "Titel" ist hilfreich für Benutzer, die die Seite schnell durchblättern, und er ist besonders vorteilhaft für sehbehinderte Benutzer, da er ihnen ermöglicht, die Relevanz der Tabelle schnell zu bestimmen, ohne dass ein Bildschirmleser den Inhalt vieler Zellen lesen muss, nur um herauszufinden, worum es in der Tabelle geht.
+Ein solcher "Titel" ist hilfreich für Benutzer, die die Seite schnell überfliegen, und er ist besonders vorteilhaft für sehbehinderte Benutzer, da er ihnen ermöglicht, schnell die Relevanz der Tabelle zu bestimmen, ohne dass ein Screenreader den Inhalt vieler Zellen lesen muss, nur um herauszufinden, worum es in der Tabelle geht.
 
 #### HTML
 
-Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}} verwendet, mit Textinhalt, der einem Titel ähnlich ist, um die Tabellendaten zu beschreiben. Drei Zeilen, wobei die erste eine Kopfzeile ist, mit zwei Spalten werden unter Verwendung der {{HTMLElement("tr")}}, {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elemente nach dem `<caption>` erstellt.
+Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}} verwendet, mit einem Textinhalt ähnlich einem Titel, um die Tabellendaten zu beschreiben. Drei Zeilen, die erste eine Kopfzeile, mit zwei Spalten werden nach dem `<caption>` mit den Elementen {{HTMLElement("tr")}}, {{HTMLElement("th")}} und {{HTMLElement("td")}} erstellt.
 
 ```html
 <table>
@@ -153,7 +154,7 @@ Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}} verwen
 
 #### CSS
 
-Einige grundlegende CSS-Befehle werden verwendet, um das `<caption>` auszurichten und hervorzuheben.
+Ein einfaches CSS wird verwendet, um das `<caption>` auszurichten und hervorzuheben.
 
 ```css
 caption {
@@ -208,24 +209,24 @@ td {
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließtext</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element nicht direkt von ASCII-Leerzeichen oder einem Kommentar gefolgt wird.
+        Der Endtag kann weggelassen werden, wenn das Element nicht unmittelbar von ASCII-Leerraum oder einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("table")}}-Element, als erster Nachkomme.
+        Ein {{HTMLElement("table")}}-Element, als sein erstes Nachkommens-Element.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">caption</a
@@ -254,7 +255,7 @@ td {
 
 ## Siehe auch
 
-- [Lernen: Grundlagen der HTML-Tabelle](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
-- {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("caption-side")}}: CSS-Eigenschaft, um die `<caption>` relativ zu ihrem übergeordneten {{HTMLElement("table")}} zu positionieren
-- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Textinhalt der `<caption>` horizontal auszurichten
+- [Lernen: HTML-Tabellen-Grundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenverwandte Elemente
+- {{cssxref("caption-side")}}: CSS-Eigenschaft, um das `<caption>` relativ zu seinem übergeordneten {{HTMLElement("table")}} zu positionieren
+- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Textinhalt des `<caption>` horizontal auszurichten

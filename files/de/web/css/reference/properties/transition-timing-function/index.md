@@ -1,11 +1,12 @@
 ---
-title: transition-timing-function
+title: "`transition-timing-function` CSS property"
+short-title: transition-timing-function
 slug: Web/CSS/Reference/Properties/transition-timing-function
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`transition-timing-function`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Zwischenwerte für CSS-Eigenschaften berechnet werden, die von einem [Übergangseffekt](/de/docs/Web/CSS/Guides/Transitions/Using) betroffen sind.
+Die **`transition-timing-function`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie Zwischenwerte für CSS-Eigenschaften berechnet werden, die von einem [Übergangseffekt](/de/docs/Web/CSS/Guides/Transitions/Using) betroffen sind.
 
 {{InteractiveExample("CSS Demo: transition-timing-function")}}
 
@@ -51,9 +52,9 @@ transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
 
 Im Wesentlichen können Sie damit eine Beschleunigungskurve festlegen, sodass die Geschwindigkeit des Übergangs über seine Dauer variieren kann.
 
-Diese Beschleunigungskurve wird unter Verwendung einer {{cssxref("easing-function")}} für jede zu übertragende Eigenschaft definiert.
+Diese Beschleunigungskurve wird für jede zu übertragende Eigenschaft mithilfe einer {{cssxref("easing-function")}} definiert.
 
-Sie können mehrere `easing functions` festlegen; jede wird auf die entsprechende Eigenschaft angewendet, wie in der {{cssxref("transition-property")}} Eigenschaft angegeben, die als `transition-property`-Liste fungiert. Wenn weniger `easing functions` angegeben werden als in der `transition-property`-Liste, muss der Benutzeragent berechnen, welcher Wert verwendet wird, indem die Liste der Werte wiederholt wird, bis für jede Übergangseigenschaft ein Wert vorhanden ist. Wenn es mehr `easing functions` gibt, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
+Sie können mehrere Easing-Funktionen angeben; jede wird auf die entsprechende Eigenschaft angewendet, wie durch die {{ cssxref("transition-property") }}-Eigenschaft festgelegt, die als `transition-property`-Liste fungiert. Wenn weniger Easing-Funktionen angegeben sind als in der `transition-property`-Liste, muss der Benutzeragent berechnen, welcher Wert verwendet wird, indem die Liste der Werte so oft wiederholt wird, bis es einen für jede Übergangseigenschaft gibt. Wenn es mehr Easing-Funktionen gibt, wird die Liste auf die richtige Größe gekürzt. In beiden Fällen bleibt die CSS-Deklaration gültig.
 
 ## Syntax
 
@@ -93,35 +94,35 @@ transition-timing-function: unset;
 ### Werte
 
 - `<easing-function>`
-  - : Jede {{cssxref("easing-function")}} stellt die `easing function` dar, die mit der entsprechenden Eigenschaft zu verknüpfen ist, die übergangen werden soll, wie in {{cssxref("transition-property")}} definiert.
+  - : Jede {{cssxref("easing-function")}} stellt die Easing-Funktion dar, die der entsprechenden Eigenschaft zugeordnet werden soll, wie in {{ cssxref("transition-property") }} definiert.
 
-    Die Nicht-Schritt-Schlüsselwortwerte (ease, linear, ease-in-out usw.) stellen jeweils eine kubische Bézier-Kurve mit festen vier Punktwerten dar, wobei der `cubic-bezier()` Funktionswert einen nicht vordefinierten Wert zulässt. Die Schritt-`easing functions` teilen die Eingabezeit in eine angegebene Anzahl von Intervallen, die gleich lang sind. Es wird durch eine Anzahl von Schritten und eine Schrittposition definiert.
+    Die Nicht-Schritt-Stichwortwerte (ease, linear, ease-in-out usw.) repräsentieren jeweils eine kubisch-Bézier-Kurve mit festgelegten vier Punktwerten, wobei der Wert der Funktion cubic-bezier() eine nicht vordefinierte Angabe ermöglicht. Die Schritt-Easing-Funktionen unterteilen die Eingangszeit in eine angegebene Anzahl von Intervallen gleicher Länge. Sie wird durch eine Anzahl von Schritten und eine Schrittposition definiert.
     - `ease`
-      - : Entspricht `cubic-bezier(0.25, 0.1, 0.25, 1.0)`, dem Standardwert, der in der Mitte des Übergangs an Geschwindigkeit zunimmt und am Ende wieder langsamer wird.
+      - : Entspricht `cubic-bezier(0.25, 0.1, 0.25, 1.0)`, der Standardwert, erhöht die Geschwindigkeit in der Mitte des Übergangs, verlangsamt sich am Ende wieder.
     - `linear`
       - : Entspricht `cubic-bezier(0.0, 0.0, 1.0, 1.0)`, Übergänge mit gleichmäßiger Geschwindigkeit.
     - `ease-in`
-      - : Entspricht `cubic-bezier(0.42, 0, 1.0, 1.0)`, beginnt langsam und die Übergangsgeschwindigkeit nimmt zu, bis sie vollständig ist.
+      - : Entspricht `cubic-bezier(0.42, 0, 1.0, 1.0)`, beginnt langsam, die Übergangsgeschwindigkeit erhöht sich, bis sie abgeschlossen ist.
     - `ease-out`
-      - : Entspricht `cubic-bezier(0, 0, 0.58, 1.0)`, beginnt schnell zu übergehen und wird langsamer, während der Übergang fortschreitet.
+      - : Entspricht `cubic-bezier(0, 0, 0.58, 1.0)`, beginnt schnell und verlangsamt sich mit dem Fortschreiten des Übergangs.
     - `ease-in-out`
-      - : Entspricht `cubic-bezier(0.42, 0, 0.58, 1.0)`, beginnt langsam zu übergehen, beschleunigt und wird dann wieder langsamer.
+      - : Entspricht `cubic-bezier(0.42, 0, 0.58, 1.0)`, beginnt langsam, beschleunigt und verlangsamt sich dann wieder.
     - `cubic-bezier(p1, p2, p3, p4)`
-      - : Eine vom Autor definierte kubische Bézier-Kurve, bei der die Werte p1 und p3 im Bereich von 0 bis 1 liegen müssen.
+      - : Eine vom Autor definierte kubisch-Bézier-Kurve, wobei die p1- und p3-Werte im Bereich von 0 bis 1 liegen müssen.
     - `steps(n, <jump-term>)`
-      - : Zeigt den Übergang entlang von _n_ Haltestellen während des Übergangs an, wobei jede Haltestelle für* gleiche Zeitspannen angezeigt wird. Zum Beispiel, wenn \_n* 5 ist, gibt es 5 Schritte. Ob der Übergang vorübergehend bei 0%, 20%, 40%, 60% und 80%, bei 20%, 40%, 60%, 80% und 100% hält, 5 Haltestellen zwischen 0% und 100% entlang des Übergangs macht oder 5 Haltestellen einschließlich der 0% und 100% Marken (bei 0%, 25%, 50%, 75% und 100%) hängt davon ab, welcher der folgenden Sprungbegriffe verwendet wird:
+      - : Zeigt den Übergang mit _n Haltepunkten entlang des Übergangs an, wobei jeder Stopp für_ gleiche Zeitlängen angezeigt wird. Wenn z. B. _n_ 5 ist, gibt es 5 Schritte. Ob der Übergang vorübergehend bei 0 %, 20 %, 40 %, 60 % und 80 %, bei 20 %, 40 %, 60 %, 80 % und 100 % anhält oder fünf Stopps zwischen 0 % und 100 % macht oder fünf Stopps einschließlich der Marken 0 % und 100 % (bei 0 %, 25 %, 50 %, 75 % und 100 %) macht, hängt davon ab, welcher der folgenden Sprungbegriffe verwendet wird:
         - `jump-start`
-          - : Bezeichnet eine links-kontinuierliche Funktion, sodass der erste Sprung passiert, wenn der Übergang beginnt;
+          - : Bezeichnet eine links-stetige Funktion, sodass der erste Sprung passiert, wenn der Übergang beginnt;
         - `jump-end`
-          - : Bezeichnet eine rechts-kontinuierliche Funktion, sodass der letzte Sprung passiert, wenn die Animation endet;
+          - : Bezeichnet eine rechts-stetige Funktion, sodass der letzte Sprung passiert, wenn die Animation endet;
         - `jump-none`
-          - : Es gibt keinen Sprung an beiden Enden. Stattdessen wird sowohl bei der 0%-Marke als auch bei der 100%-Marke gehalten, jeweils für 1/n der Dauer.
+          - : Es gibt keinen Sprung an beiden Enden. Stattdessen hält es sowohl an der 0% als auch an der 100%-Marke, jeweils für 1/n der Dauer.
         - `jump-both`
-          - : Beinhaltet Pausen sowohl bei der 0% als auch bei der 100% Marke, fügt effektiv einen Schritt zur Übergangszeit hinzu.
+          - : Beinhaltet Pausen sowohl an den Marken 0 % als auch 100 %, was effektiv einen Schritt während der Übergangszeit hinzufügt.
         - `start`
-          - : Das Gleiche wie `jump-start`.
+          - : Entspricht `jump-start`.
         - `end`
-          - : Das Gleiche wie `jump-end`.
+          - : Entspricht `jump-end`.
 
     - `step-start`
       - : Entspricht `steps(1, jump-start)`
@@ -130,9 +131,9 @@ transition-timing-function: unset;
 
 ## Barrierefreiheit
 
-Einige Animationen können hilfreich sein, um Benutzern zu zeigen, welche Aktionen erwartet werden, Beziehungen innerhalb der Benutzeroberfläche anzuzeigen und Benutzern mitzuteilen, welche Aktionen durchgeführt wurden. Animationen können helfen, die kognitive Belastung zu verringern, Veränderungsblindheit zu verhindern und ein besseres räumliches Gedächtnis zu schaffen. Jedoch können einige Animationen für Menschen mit kognitiven Bedenken wie Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS) problematisch sein und bestimmte Arten von Bewegungen können ein Auslöser für vestibuläre Störungen, Epilepsie, Migräne und skotopische Empfindlichkeit sein.
+Einige Animationen können hilfreich sein, um Benutzer zu leiten, welche Aktionen erwartet werden, um Beziehungen innerhalb der Benutzeroberfläche zu zeigen und Nutzer darüber zu informieren, welche Aktionen stattgefunden haben. Animationen können helfen, die kognitive Belastung zu reduzieren, Veränderungsblindheit zu verhindern und ein besseres Erinnerungsvermögen bei räumlichen Beziehungen zu schaffen. Allerdings können einige Animationen problematisch für Menschen mit kognitiven Bedenken wie Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS) sein, und bestimmte Arten von Bewegungen können ein Auslöser für Vestibuläre Störungen, Epilepsie, Migräne und skotopische Empfindlichkeit sein.
 
-Ziehen Sie in Betracht, eine Möglichkeit zum Anhalten oder Deaktivieren von Animationen bereitzustellen, sowie die Verwendung der [Reduced Motion Media Query](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) (oder des gleichwertigen [User-Agent-Client-Hinweises](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}), um ein ergänzendes Erlebnis für Benutzer zu schaffen, die eine Vorliebe für weniger Animationen geäußert haben.
+Erwägen Sie, eine Möglichkeit zum Anhalten oder Deaktivieren von Animationen anzubieten, sowie die Verwendung der [Reduced Motion Media Query](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) (oder eines äquivalenten [User Agent client hint](/de/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}), um eine komplementäre Erfahrung für Benutzer zu schaffen, die eine Präferenz für weniger Animationen ausgedrückt haben.
 
 ## Formale Definition
 
@@ -144,7 +145,7 @@ Ziehen Sie in Betracht, eine Möglichkeit zum Anhalten oder Deaktivieren von Ani
 
 ## Beispiele
 
-### Cubic-Bezier Beispiele
+### Cubic-Bezier-Beispiele
 
 ```html hidden
 <div class="parent">
@@ -296,9 +297,9 @@ const intervalID = setInterval(updateTransition, 10000);
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
+- [CSS-Übergänge verwenden](/de/docs/Web/CSS/Guides/Transitions/Using)
 - {{cssxref("easing-function")}}
-- [CSS easing functions](/de/docs/Web/CSS/Guides/Easing_functions) Modul
+- [CSS Easing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions) Modul
 - {{cssxref('transition')}}
 - {{cssxref('transition-property')}}
 - {{cssxref('transition-duration')}}

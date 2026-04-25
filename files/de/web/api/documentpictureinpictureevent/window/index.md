@@ -1,18 +1,18 @@
 ---
-title: "DocumentPictureInPictureEvent: window Eigenschaft"
+title: "DocumentPictureInPictureEvent: window-Eigenschaft"
 short-title: window
 slug: Web/API/DocumentPictureInPictureEvent/window
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SecureContext_Header}}
 
-Die **`window`**-Eigenschaft der Schnittstelle [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent) ist schreibgeschützt und gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters repräsentiert, auf dem das Ereignis ausgelöst wurde.
+Die schreibgeschützte **`window`**-Eigenschaft der [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext im `DocumentPictureInPicture`-Fenster darstellt, auf dem das Ereignis ausgelöst wurde.
 
 ## Wert
 
-Eine [`Window`](/de/docs/Web/API/Window)-Objektinstanz.
+Eine [`Window`](/de/docs/Web/API/Window) Objektinstanz.
 
 ## Beispiele
 

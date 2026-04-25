@@ -1,26 +1,27 @@
 ---
-title: box-lines
+title: "`box-lines` CSS property"
+short-title: box-lines
 slug: Web/CSS/Reference/Properties/box-lines
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexible-Box-Layout-Modul-Entwurfs. Sie wurde in der Spezifikation ersetzt. Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Modulentwurfs. Sie wurde in der Spezifikation ersetzt. Weitere Informationen über den aktuellen Standard finden Sie im [Flexbox-Leitfaden](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
-Die **`box-lines`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob die Box eine einzelne oder mehrere Linien (Zeilen für horizontal ausgerichtete Boxen, Spalten für vertikal ausgerichtete Boxen) haben kann.
+Die **`box-lines`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt, ob die Box eine einzelne oder mehrere Linien haben kann (Zeilen für horizontal ausgerichtete Boxen, Spalten für vertikal ausgerichtete Boxen).
 
-Standardmäßig ordnet eine horizontale Box ihre Kinder in einer einzigen Zeile an und eine vertikale Box ihre Kinder in einer einzigen Spalte. Dieses Verhalten kann mit der `box-lines`-Eigenschaft geändert werden. Der Standardwert ist `single`, was bedeutet, dass alle Elemente in einer einzigen Zeile oder Spalte platziert werden, und alle nicht passenden Elemente als Überlauf betrachtet werden.
+Standardmäßig ordnet eine horizontale Box ihre Kinder in einer einzigen Zeile an, und eine vertikale Box ordnet ihre Kinder in einer einzigen Spalte an. Dieses Verhalten kann durch die Verwendung der `box-lines`-Eigenschaft geändert werden. Der Standardwert ist `single`, was bedeutet, dass alle Elemente in einer einzigen Zeile oder Spalte platziert werden und alle Elemente, die nicht passen, als Überlauf betrachtet werden.
 
-Wenn jedoch ein Wert von `multiple` angegeben wird, darf sich die Box erweitern, um mehrere Linien (d.h. mehrere Zeilen oder Spalten) aufzunehmen, um all ihre Kinder unterzubringen. Die Box muss versuchen, ihre Kinder auf so wenigen Linien wie möglich unterzubringen, indem sie alle Elemente bei Bedarf auf ihre minimalen Breiten oder Höhen reduziert.
+Wird jedoch ein Wert von `multiple` angegeben, darf sich die Box auf mehrere Linien (d.h. mehrere Zeilen oder Spalten) ausdehnen, um alle ihre Kinder aufzunehmen. Die Box muss versuchen, ihre Kinder auf so wenigen Linien wie möglich unterzubringen, indem alle Elemente bei Bedarf auf ihre minimalen Breiten oder Höhen reduziert werden.
 
-Wenn die Kinder in einer horizontalen Box auch nach Reduzierung auf ihre minimalen Breiten nicht in eine Zeile passen, werden die Kinder einzeln auf eine neue Zeile verschoben, bis die verbleibenden Elemente auf der vorherigen Zeile passen. Dieser Prozess kann sich auf eine beliebige Anzahl von Zeilen wiederholen. Wenn eine Zeile nur ein einziges Element enthält, das nicht passt, sollte das Element auf dieser Zeile bleiben und aus der Box herausragen. Die späteren Zeilen werden in normalen Richtungskästchen unter den früheren Zeilen platziert und in umgekehrten Richtungskästchen darüber. Die Höhe einer Zeile entspricht der Höhe des größten Kindes in dieser Zeile. Zwischen den Zeilen erscheint kein zusätzlicher Raum außer den Rändern auf den größten Elementen jeder Zeile. Bei der Berechnung der Höhe einer Zeile sollten Ränder mit einem berechneten Wert von auto als Wert von 0 behandelt werden.
+Wenn die Kinder in einer horizontalen Box nach der Reduzierung auf ihre minimalen Breiten immer noch nicht in eine Zeile passen, werden die Kinder nacheinander auf eine neue Zeile verschoben, bis die verbleibenden Elemente in die vorherige Zeile passen. Dieser Vorgang kann sich auf eine beliebige Anzahl von Zeilen wiederholen. Wenn eine Zeile nur ein einzelnes Element enthält, das nicht passt, sollte das Element in dieser Zeile verbleiben und aus der Box herausragen. Die späteren Zeilen werden in normalen Richtungsboxen unter den früheren Zeilen und in umgekehrten Richtungsboxen darüber platziert. Die Höhe einer Zeile ist die Höhe des größten Kindes in dieser Zeile. Es erscheint kein zusätzlicher Platz zwischen den Zeilen, abgesehen von den Rändern der größten Elemente in jeder Zeile. Bei der Berechnung der Höhe einer Zeile sollten Ränder mit einem berechneten Wert von auto als 0 behandelt werden.
 
-Ein ähnlicher Prozess findet für Kinder in einer vertikalen Box statt. Spätere Linien in normalen Richtungskästchen werden rechts von den früheren Linien platziert und links in umgekehrten Richtungskästchen.
+Ein ähnlicher Vorgang erfolgt für Kinder in einer vertikalen Box. Spätere Linien in normalen Richtungsboxen werden rechts von früheren Linien und in umgekehrten Richtungsboxen links platziert.
 
-Sobald die Anzahl der Linien bestimmt wurde, dehnen sich Elemente mit einem berechneten Wert für {{CSSxRef("box-flex")}} ungleich `0` nach Bedarf aus, um den verbleibenden Raum auf den Linien zu füllen. Jede Zeile berechnet Flexe unabhängig, daher werden nur Elemente auf dieser Linie berücksichtigt, wenn {{CSSxRef("box-flex")}} und {{CSSxRef("box-flex-group")}} ausgewertet werden. Die Anordnung der Elemente in einer Linie, wie sie durch die {{CSSxRef("box-pack")}} Eigenschaft spezifiziert ist, wird ebenfalls unabhängig für jede Linie berechnet.
+Sobald die Anzahl der Zeilen bestimmt wurde, dehnen sich Elemente mit einem berechneten Wert für {{CSSxRef("box-flex")}} ungleich `0` bei Bedarf aus, um den verbleibenden Platz auf den Zeilen zu füllen. Jede Zeile berechnet die Flex-Werte unabhängig, sodass nur die Elemente in dieser Zeile berücksichtigt werden, wenn {{CSSxRef("box-flex")}} und {{CSSxRef("box-flex-group")}} bewertet werden. Die Verpackung der Elemente in einer Zeile, wie sie durch die {{CSSxRef("box-pack")}}-Eigenschaft spezifiziert wird, wird ebenfalls unabhängig für jede Zeile berechnet.
 
 ## Syntax
 
@@ -54,9 +55,9 @@ Die `box-lines`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Grundlegendes Anwendungsbeispiel
+### Einfaches Anwendungsbeispiel
 
-In der ursprünglichen Version der Spezifikation erlaubte `box-lines`, dass die Kinder eines Flex-Containers auf mehrere Linien umbrochen werden. Dies wurde nur in WebKit-basierten Browsern mit einem Präfix unterstützt.
+In der ursprünglichen Version der Spezifikation erlaubte `box-lines` Ihnen, anzugeben, dass Sie möchten, dass die Kinder Ihres Flex-Containers auf mehrere Linien umgebrochen werden. Dies wurde nur in WebKit-basierten Browsern mit einem Präfix unterstützt.
 
 ```css
 div {
@@ -70,7 +71,7 @@ Das moderne Flexbox-Äquivalent ist {{cssxref("flex-wrap")}}.
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

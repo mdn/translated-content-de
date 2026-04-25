@@ -1,11 +1,12 @@
 ---
-title: "<aside>: Das Aside-Element"
+title: "`<aside>` HTML aside Element"
+short-title: <aside>
 slug: Web/HTML/Reference/Elements/aside
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments zusammenhängt. Asides werden häufig als Sidebars oder Call-out-Boxen dargestellt.
+Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Beziehung steht. Asides werden häufig als Seitenleisten oder Hervorhebungsboxen dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;aside&gt;", "tabbed-standard")}}
 
@@ -45,17 +46,17 @@ aside > p {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-- Verwenden Sie das `<aside>`-Element nicht, um in Klammern gesetzten Text zu kennzeichnen, da dieser Text als Teil des Hauptflusses betrachtet wird.
+- Verwenden Sie das `<aside>`-Element nicht, um in Klammern gesetzten Text zu kennzeichnen, da diese Art von Text als Teil des Hauptflusses angesehen wird.
 
 ## Beispiele
 
 ### Verwendung von \<aside>
 
-Dieses Beispiel verwendet `<aside>`, um einen Paragraphen in einem Artikel zu kennzeichnen. Der Paragraph steht nur indirekt mit dem Hauptinhalt des Artikels in Zusammenhang:
+Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz steht nur indirekt mit dem Hauptinhalt des Artikels in Verbindung:
 
 ```html
 <article>
@@ -86,14 +87,14 @@ Dieses Beispiel verwendet `<aside>`, um einen Paragraphen in einem Artikel zu ke
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow content</a
+          >Fließender Inhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#sectioning_content"
-          >sectioning content</a
+          >Strukturierender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >palpable content</a
+          >Sinnvoller Inhalt</a
         >.
       </td>
     </tr>
@@ -101,26 +102,25 @@ Dieses Beispiel verwendet `<aside>`, um einen Paragraphen in einem Artikel zu ke
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow content</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen von Tags</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >flow content</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element
-        kein Nachfolger eines {{HTMLElement("address")}}-Elements sein darf.
+          >fließenden Inhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role"
@@ -154,6 +154,6 @@ Dieses Beispiel verwendet `<aside>`, um einen Paragraphen in einem Artikel zu ke
 
 ## Siehe auch
 
-- Andere Abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- Andere section-related Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
 - [Verwendung von HTML-Abschnitten und Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
 - [ARIA: Complementary role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)

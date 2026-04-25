@@ -1,11 +1,12 @@
 ---
-title: table-layout
+title: "`table-layout` CSS property"
+short-title: table-layout
 slug: Web/CSS/Reference/Properties/table-layout
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`table-layout`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Algorithmus fest, der zum Anordnen von {{htmlelement("table")}} Zellen, Zeilen und Spalten verwendet wird.
+Die **`table-layout`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Algorithmus fest, der verwendet wird, um die Zellen, Zeilen und Spalten eines {{htmlelement("table")}} zu gestalten.
 
 {{InteractiveExample("CSS Demo: table-layout")}}
 
@@ -88,18 +89,18 @@ table-layout: unset;
 ### Werte
 
 - `auto`
-  - : Der automatische Tabellenlayout-Algorithmus wird verwendet. Die Breiten der Tabelle und ihrer Zellen werden an den Inhalt angepasst. Die meisten Browser verwenden diesen Algorithmus standardmäßig.
+  - : Der automatische Tabellenlayout-Algorithmus wird verwendet. Die Breiten der Tabelle und ihrer Zellen werden angepasst, um zum Inhalt zu passen. Die meisten Browser verwenden diesen Algorithmus standardmäßig.
 
 - `fixed`
-  - : Der feste Tabellenlayout-Algorithmus wird verwendet. Bei Verwendung dieses Schlüsselwortes _muss_ die Breite der Tabelle ausdrücklich mithilfe der {{cssxref("width")}} Eigenschaft festgelegt werden. Wenn der Wert der Eigenschaft `width` auf `auto` gesetzt ist oder nicht angegeben wird, verwendet der Browser den automatischen Tabellenlayout-Algorithmus, wobei der `fixed` Wert keine Auswirkungen hat.\
-    Der feste Tabellenlayout-Algorithmus ist schneller als der automatische Layout-Algorithmus, da das horizontale Layout der Tabelle nur von der Breite der Tabelle, der Breite der Spalten und den Rändern oder dem Zellenabstand abhängt. Das horizontale Layout hängt nicht vom Inhalt der Zellen ab, da es nur von ausdrücklich festgelegten Breiten abhängt.
+  - : Der feste Tabellenlayout-Algorithmus wird verwendet. Bei Verwendung dieses Schlüsselworts muss die Breite der Tabelle _explizit_ mithilfe der {{cssxref("width")}}-Eigenschaft festgelegt werden. Ist der Wert der `width`-Eigenschaft auf `auto` gesetzt oder nicht festgelegt, verwendet der Browser den automatischen Tabellenlayout-Algorithmus, wobei der `fixed`-Wert keine Wirkung hat.\
+    Der feste Tabellenlayout-Algorithmus ist schneller als der automatische Layout-Algorithmus, da das horizontale Layout der Tabelle nur von der Tabellenbreite, der Breite der Spalten und Rändern oder Zellabständen abhängt. Das horizontale Layout hängt nicht vom Inhalt der Zellen ab, da es nur von explizit festgelegten Breiten abhängt.
 
-    Im festen Tabellenlayout-Algorithmus wird die Breite jeder Spalte wie folgt bestimmt:
+    Beim festen Tabellenlayout-Algorithmus wird die Breite jeder Spalte wie folgt bestimmt:
     - Ein Spaltenelement mit expliziter Breite legt die Breite für diese Spalte fest.
     - Andernfalls bestimmt eine Zelle in der ersten Zeile mit expliziter Breite die Breite für diese Spalte.
-    - Andernfalls erhält die Spalte die Breite aus dem gemeinsam verbleibenden horizontalen Raum.
+    - Andernfalls erhält die Spalte die Breite aus dem geteilten verbleibenden horizontalen Raum.
 
-    Mit diesem Algorithmus kann die gesamte Tabelle gerendert werden, sobald die erste Tabellenzeile heruntergeladen und analysiert wurde. Dies kann die Renderzeit im Vergleich zur "automatischen" Layout-Methode beschleunigen, aber der nachfolgende Zellinhalt passt möglicherweise nicht in die bereitgestellten Spaltenbreiten. Zellen verwenden die {{Cssxref("overflow")}} Eigenschaft, um zu bestimmen, ob überfließender Inhalt abgeschnitten werden soll, jedoch nur, wenn die Tabelle eine festgelegte Breite hat; andernfalls wird der Inhalt nicht über die Zellen hinauslaufen.
+    Mit diesem Algorithmus kann die gesamte Tabelle gerendert werden, sobald die erste Tabellenzeile heruntergeladen und analysiert wurde. Dies kann die Renderzeit im Vergleich zur "automatischen" Layout-Methode beschleunigen, aber nachfolgender Zellinhalt könnte nicht in die bereitgestellten Spaltenbreiten passen. Zellen verwenden die {{cssxref("overflow")}}-Eigenschaft, um zu bestimmen, ob überlaufender Inhalt abgeschnitten werden soll, jedoch nur, wenn die Tabelle eine bekannte Breite hat; andernfalls läuft der Inhalt nicht aus den Zellen über.
 
 ## Formale Definition
 
@@ -111,9 +112,9 @@ table-layout: unset;
 
 ## Beispiele
 
-### Tabellen mit fester Breite und Textüberlauf
+### Festbreite-Tabellen mit Textüberlauf
 
-Dieses Beispiel verwendet ein festes Tabellenlayout, kombiniert mit der {{cssxref("width")}} Eigenschaft, um die Breite der Tabelle zu beschränken. Die {{cssxref("text-overflow")}} Eigenschaft wird verwendet, um eine Ellipse auf Wörter anzuwenden, die zu lang sind, um zu passen. Wenn das Tabellenlayout `auto` wäre, würde die Tabelle wachsen, um ihren Inhalt aufzunehmen, trotz der angegebenen `width`.
+Dieses Beispiel verwendet ein festes Tabellenlayout in Kombination mit der {{cssxref("width")}}-Eigenschaft, um die Breite der Tabelle zu begrenzen. Die {{cssxref("text-overflow")}}-Eigenschaft wird verwendet, um ein Auslassungszeichen für Wörter anzuwenden, die zu lang sind, um zu passen. Wenn das Tabellenlayout `auto` wäre, würde die Tabelle wachsen, um ihren Inhalt aufzunehmen, trotz der angegebenen `width`.
 
 #### HTML
 
@@ -172,4 +173,4 @@ td {
 ## Siehe auch
 
 - [`<table>`](/de/docs/Web/HTML/Reference/Elements/table)
-- [CSS Tabellen](/de/docs/Web/CSS/Guides/Table) Modul
+- [CSS-Tabelle](/de/docs/Web/CSS/Guides/Table) Modul

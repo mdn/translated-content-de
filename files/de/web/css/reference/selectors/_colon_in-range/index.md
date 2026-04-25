@@ -1,8 +1,9 @@
 ---
-title: :in-range
+title: "`:in-range` CSS-Pseudoklasse"
+short-title: :in-range
 slug: Web/CSS/Reference/Selectors/:in-range
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 Die **`:in-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert innerhalb der durch die [`min`](/de/docs/Web/HTML/Reference/Elements/input#min)- und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
@@ -39,10 +40,10 @@ input:in-range {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes innerhalb der erlaubten Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes innerhalb der zulässigen Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die über eine Bereichsbeschränkung verfügen (und diese auch annehmen können). Ohne eine solche Begrenzung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichseinschränkung haben (und annehmen können). In Abwesenheit einer solchen Einschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -111,7 +112,7 @@ input:out-of-range + label::after {
 {{EmbedLiveSample('Examples', 600, 140)}}
 
 > [!NOTE]
-> Ein leeres `<input>` zählt nicht als außerhalb des Bereichs und wird nicht mit dem `:out-of-range` Pseudoklassen-Selektor ausgewählt. Die {{cssxref(":blank")}}-Pseudoklasse existiert, um leere Eingaben auszuwählen, obwohl sie zum Zeitpunkt des Schreibens noch experimentell und nicht gut unterstützt ist. Sie könnten auch das `required` Attribut und die {{cssxref(":invalid")}} Pseudoklasse verwenden, um allgemeinere Logik und Gestaltung für verpflichtende Eingaben bereitzustellen (`:invalid` wird sowohl leere als auch außerhalb des Bereichs liegende Eingaben gestalten).
+> Ein leeres `<input>` zählt nicht als außerhalb des Bereichs liegend und wird nicht mit dem `:out-of-range`-Pseudoklassen-Selektor ausgewählt. Die {{cssxref(":blank")}}-Pseudoklasse existiert, um leere Eingaben auszuwählen, obwohl sie zum Zeitpunkt des Schreibens experimentell und nicht gut unterstützt ist. Sie könnten auch das `required`-Attribut und die {{cssxref(":invalid")}}-Pseudoklasse verwenden, um allgemeinere Logik und Styling für die Verpflichtung zur Eingabe zu bieten (`:invalid` wird sowohl leere als auch außerhalb des Bereichs liegende Eingaben stylen).
 
 ## Spezifikationen
 

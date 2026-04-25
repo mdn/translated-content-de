@@ -1,16 +1,17 @@
 ---
-title: ::-moz-range-thumb
+title: "`::-moz-range-thumb` CSS pseudo-element"
+short-title: ::-moz-range-thumb
 slug: Web/CSS/Reference/Selectors/::-moz-range-thumb
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Das **`::-moz-range-thumb`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den _Schieberegler_ (d.h. den virtuellen Knopf) eines {{HTMLElement("input")}} vom `type="range"` darstellt. Der Nutzer kann den Schieberegler entlang der Spur der Eingabe bewegen, um deren numerischen Wert zu verändern.
+Das **`::-moz-range-thumb`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den _Thumb_ (d.h. den virtuellen Knopf) eines {{HTMLElement("input")}} vom Typ `type="range"` darstellt. Der Benutzer kann den Thumb entlang der Spur des Eingabefelds bewegen, um dessen numerischen Wert zu ändern.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-range-thumb` mit etwas anderem als einem `<input type="range">` passt zu nichts und hat keine Wirkung.
+> Die Verwendung von `::-moz-range-thumb` mit etwas anderem als einem `<input type="range">` führt zu keiner Übereinstimmung und hat keine Auswirkung.
 
 ## Syntax
 
@@ -40,13 +41,13 @@ input[type="range"]::-moz-range-thumb {
 
 {{EmbedLiveSample("Examples", 300, 50)}}
 
-Eine Fortschrittsleiste, die diesen Stil verwendet, könnte so aussehen:
+Eine Fortschrittsanzeige mit diesem Stil könnte ungefähr so aussehen:
 
-![Der Schieberegler des 'input type=right' in Grün gestylt](screen_shot_2015-12-04_at_13.30.08.png)
+![Der Thumb des 'input type=range', in Grün gestaltet](screen_shot_2015-12-04_at_13.30.08.png)
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -54,12 +55,12 @@ Kein Teil eines Standards.
 
 ## Siehe auch
 
-- Die von Gecko verwendeten Pseudo-Elemente, um andere Teile einer Range-Eingabe zu stylen:
-  - {{cssxref("::-moz-range-track")}} repräsentiert die Rille, in der der Schieberegler gleitet.
+- Die von Gecko verwendeten Pseudo-Elemente, um andere Teile eines Range-Inputs zu gestalten:
+  - {{cssxref("::-moz-range-track")}} repräsentiert die Rille, in der der Thumb gleitet.
   - {{cssxref("::-moz-range-progress")}} repräsentiert den unteren Teil der Spur.
 
 - Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
-  - {{cssxref("::-webkit-slider-thumb")}}, Pseudo-Element unterstützt von WebKit und Blink (Safari, Chrome und Opera)
+  - {{cssxref("::-webkit-slider-thumb")}}, ein Pseudo-Element, das von WebKit und Blink (Safari, Chrome und Opera) unterstützt wird.
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)

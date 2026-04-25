@@ -1,11 +1,12 @@
 ---
-title: text-emphasis-color
+title: "`text-emphasis-color` CSS property"
+short-title: text-emphasis-color
 slug: Web/CSS/Reference/Properties/text-emphasis-color
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Betonungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzform gesetzt werden.
+Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit dem {{cssxref("text-emphasis")}} Shorthand festgelegt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-color")}}
 
@@ -64,19 +65,19 @@ text-emphasis-color: unset;
 ### Werte
 
 - `<color>`
-  - : Definiert die Farbe der Betonungszeichen. Wenn keine Farbe festgelegt ist, wird der Standardwert `currentColor` verwendet.
+  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird standardmäßig `currentColor` verwendet.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Betonung mit einer Farbe und einem benutzerdefinierten Zeichen
+### Hervorhebung mit einer Farbe und einem benutzerdefinierten Zeichen
 
 #### CSS
 
@@ -110,5 +111,5 @@ em {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Die anderen mit Betonungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}} und {{cssxref("text-emphasis-position")}}.
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}.
+- Die anderen mit Hervorhebungszeichen zusammenhängenden Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}}, und {{cssxref("text-emphasis-position")}}.
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}.

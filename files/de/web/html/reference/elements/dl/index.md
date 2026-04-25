@@ -1,11 +1,12 @@
 ---
-title: "<dl>: Das Beschreibungsliste-Element"
+title: "`<dl>` HTML-Element für Definitionslisten"
+short-title: <dl>
 slug: Web/HTML/Reference/Elements/dl
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschreibungsliste. Das Element umfasst eine Liste von Gruppen von Begriffen (festgelegt mit dem {{HTMLElement("dt")}}-Element) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Häufige Verwendungen dieses Elements sind die Implementierung eines Glossars oder die Anzeige von Metadaten (einer Liste von Schlüssel-Wert-Paaren).
+Das **`<dl>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Definitionsliste dar. Das Element umschließt eine Liste von Gruppen aus Begriffen (spezifiziert mit dem {{HTMLElement("dt")}}-Element) und Beschreibungen (bereitgestellt durch {{HTMLElement("dd")}}-Elemente). Häufige Verwendungen für dieses Element sind die Implementierung eines Glossars oder die Anzeige von Metadaten (eine Liste von Schlüssel-Wert-Paaren).
 
 {{InteractiveExample("HTML Demo: &lt;dl&gt;", "tabbed-standard")}}
 
@@ -45,14 +46,14 @@ dd {
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `compact` {{Deprecated_inline}}
-  - : Dieses boolesche Attribut deutet an, dass die Liste in einem kompakten Stil gerendert werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um eine ähnliche Wirkung wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+  - : Dieses Boolean-Attribut deutet darauf hin, dass die Liste in einem kompakten Stil gerendert werden sollte. Die Interpretation dieses Attributs ist browser-spezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 
 ## Barrierefreiheit
 
-Jeder Bildschirmleser gibt `<dl>`-Inhalte unterschiedlich wieder, einschließlich der Gesamtanzahl, der Begriffs-/Definitionskontexte und der Navigationsmethoden. Diese Unterschiede sind nicht unbedingt Fehler. Mit iOS 14 wird VoiceOver ankündigen, dass `<dl>`-Inhalte eine Liste sind, wenn mit dem virtuellen Cursor navigiert wird (nicht über den Alle-lesen-Befehl). VoiceOver unterstützt keine Listennavigationsbefehle mit `<dl>`. Seien Sie vorsichtig bei der Anwendung von ARIA 'term' und 'definition' Rollen auf `<dl>`-Konstrukte, da VoiceOver (macOS und iOS) anpasst, wie sie angekündigt werden.
+Jeder Screenreader stellt `<dl>`-Inhalte unterschiedlich dar, einschließlich Gesamtsumme, Kontext von Begriffen/Beschreibungen und Navigationsmethoden. Diese Unterschiede sind nicht notwendigerweise Fehler. Ab iOS 14 wird VoiceOver ankündigen, dass `<dl>`-Inhalte eine Liste sind, wenn mit dem virtuellen Cursor navigiert wird (nicht über den Kommando „Alles vorlesen“). VoiceOver unterstützt keine Listennavigationsbefehle mit `<dl>`. Seien Sie vorsichtig, wenn Sie ARIA `term` und `definition` Rollen auf `<dl>`-Konstrukte anwenden, da VoiceOver (macOS und iOS) die Art und Weise, wie sie angekündigt werden, anpasst.
 
-- [VoiceOver auf iOS 14 unterstützt Beschreibungslisten](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
-- [Kurze Anmerkung zur Unterstützung von Beschreibungslisten](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
+- [VoiceOver auf iOS 14 Unterstützung für Definitionslisten](https://adrianroselli.com/2020/09/voiceover-on-ios-14-supports-description-lists.html)
+- [Kurznotiz zur Unterstützung von Definitionslisten](https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html)
 
 ## Beispiele
 
@@ -74,7 +75,7 @@ Jeder Bildschirmleser gibt `<dl>`-Inhalte unterschiedlich wieder, einschließlic
 
 {{EmbedLiveSample("Single_term_and_description")}}
 
-### Mehrere Begriffe, einzelne Beschreibung
+### Mehrere Begriffe, eine Beschreibung
 
 ```html
 <dl>
@@ -122,7 +123,7 @@ Es ist auch möglich, mehrere Begriffe mit mehreren entsprechenden Beschreibunge
 
 ### Metadaten
 
-Beschreibungsliste sind nützlich zur Anzeige von Metadaten als Liste von Schlüssel-Wert-Paaren.
+Definitionslisten sind nützlich, um Metadaten als Liste von Schlüssel-Wert-Paaren darzustellen.
 
 ```html
 <dl>
@@ -149,9 +150,9 @@ dt::after {
 }
 ```
 
-### Einwickeln von Name-Wert-Gruppen in `div`-Elemente
+### Eingefasste Name-Wert-Gruppen in `div`-Elementen
 
-HTML erlaubt das Einwickeln jeder Name-Wert-Gruppe in einem `<dl>`-Element in ein {{HTMLElement("div")}}-Element. Dies kann nützlich sein, wenn [Microdata](/de/docs/Web/HTML/Guides/Microdata) verwendet wird oder wenn [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes) auf eine gesamte Gruppe angewendet werden, oder aus stilistischen Gründen.
+HTML erlaubt das Einfassen jeder Name-Wert-Gruppe in einem `<dl>`-Element in einem {{HTMLElement("div")}}-Element. Dies kann nützlich sein, wenn [Mikrodaten](/de/docs/Web/HTML/Guides/Microdata) verwendet werden oder wenn [globale Attribute](/de/docs/Web/HTML/Reference/Global_attributes) auf eine ganze Gruppe angewendet werden oder zu Styling-Zwecken.
 
 ```html
 <dl>
@@ -180,9 +181,9 @@ HTML erlaubt das Einwickeln jeder Name-Wert-Gruppe in einem `<dl>`-Element in ei
 
 ## Anmerkungen
 
-Verwenden Sie dieses Element (oder {{HTMLElement("ul")}}-Elemente) nicht, um lediglich Einrückungen auf einer Seite zu erzeugen. Obwohl es funktioniert, ist dies eine schlechte Praxis und verschleiert die Bedeutung von Beschreibungslisten.
+Verwenden Sie dieses Element (oder {{HTMLElement("ul")}}-Elemente) nicht nur, um Einzug auf einer Seite zu erstellen. Obwohl es funktioniert, ist dies eine schlechte Praxis und verdeckt die Bedeutung von Definitionslisten.
 
-Um die Einrückung eines Beschreibungstermins zu ändern, verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref("margin")}}-Eigenschaft.
+Um den Einzug eines Definitionsbegriffs zu ändern, verwenden Sie die [CSS](/de/docs/Web/CSS)-Eigenschaft {{cssxref("margin")}}.
 
 ## Technische Zusammenfassung
 
@@ -190,56 +191,41 @@ Um die Einrückung eines Beschreibungstermins zu ändern, verwenden Sie die [CSS
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, und wenn die Kinder des <code>&#x3C;dl></code>-Elementes eine
-        Name-Wert-Gruppe beinhalten, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a> und, wenn die Kinder des Elements <code>&#x3C;dl></code> eine Name-Wert-Gruppe enthalten, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <p>
-          Entweder: Null oder mehr Gruppen, die jeweils aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen bestehen, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
+          Entweder: Null oder mehr Gruppen, die jeweils aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen bestehen, optional vermischt mit {{HTMLElement("script")}} und {{HTMLElement("template")}}-Elementen.<br />Oder: (im {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) ein oder mehrere {{HTMLElement("div")}}-Elemente, optional vermischt mit {{HTMLElement("script")}} und {{HTMLElement("template")}}-Elementen.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Wechsel</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind zwingend erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >
-        akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+        <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>,
-        <code
-          ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role"
-            >list</a
-          ></code
-        >, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role">list</a></code>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>
       </td>
     </tr>
     <tr>

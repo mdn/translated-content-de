@@ -1,11 +1,12 @@
 ---
-title: translate()
+title: "`translate()` CSS-Funktion"
+short-title: translate()
 slug: Web/CSS/Reference/Values/transform-function/translate
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`translate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) verschiebt ein Element in den horizontalen und/oder vertikalen Richtungen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) repositioniert ein Element in horizontaler und/oder vertikaler Richtung. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translate()")}}
 
@@ -51,7 +52,7 @@ transform: translate(3ch, 3mm);
 }
 ```
 
-Diese Transformation wird durch einen zweidimensionalen Vektor [tx, ty] charakterisiert. Seine Koordinaten definieren, wie stark sich das Element in jede Richtung bewegt.
+Diese Transformation wird durch einen zweidimensionalen Vektor [tx, ty] charakterisiert. Seine Koordinaten definieren, wie weit sich das Element in jeder Richtung bewegt.
 
 ## Syntax
 
@@ -69,14 +70,10 @@ transform: translate(30%, 50%);
 
 ### Werte
 
-- Einzelne `<length-percentage>`-Werte
-  - : Dieser Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse
-    (horizontal, x-Komponente) des Verschiebungsvektors [tx, 0] darstellt. Die Ordinate (vertikal, y-Komponente) des Verschiebungsvektors wird auf `0` gesetzt. Zum Beispiel ist `translate(2px)` äquivalent zu
-    `translate(2px, 0)`. Ein Prozentwert bezieht sich auf die Breite der durch die
-    {{cssxref("transform-box")}} Eigenschaft definierten Referenzbox.
-- Doppelte `<length-percentage>`-Werte
-  - : Dieser Wert beschreibt zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die sowohl die Abszisse (horizontal, x-Komponente) als auch die Ordinate (vertikal, y-Komponente) des Verschiebungsvektors [tx, ty] darstellen. Ein Prozentwert als erster Wert bezieht sich auf die Breite, als zweiter Teil auf die Höhe der durch die
-    {{cssxref("transform-box")}} Eigenschaft definierten Referenzbox.
+- Einzelne `<length-percentage>` Werte
+  - : Dieser Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} und repräsentiert die Abszisse (horizontal, x-Komponente) des Translationsvektors [tx, 0]. Die Ordinate (vertikal, y-Komponente) des Translationsvektors wird auf `0` gesetzt. Zum Beispiel ist `translate(2px)` gleichbedeutend mit `translate(2px, 0)`. Ein Prozentwert bezieht sich auf die Breite des durch die {{cssxref("transform-box")}}-Eigenschaft definierten Referenzkastens.
+- Doppelte `<length-percentage>` Werte
+  - : Dieser Wert beschreibt zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die sowohl die Abszisse (horizontal, x-Komponente) als auch die Ordinate (vertikal, y-Komponente) des Translationsvektors [tx, ty] repräsentieren. Ein Prozentwert als erster Wert bezieht sich auf die Breite, als zweiter Teil auf die Höhe des durch die {{cssxref("transform-box")}}-Eigenschaft definierten Referenzkastens.
 
 <table class="standard-table">
   <thead>
@@ -91,7 +88,7 @@ transform: translate(30%, 50%);
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer Matrix in kartesischen Koordinaten dargestellt werden.
         </p>
       </td>
       <td>
@@ -152,7 +149,7 @@ div {
 
 {{EmbedLiveSample("Using_a_single-axis_translation", 250, 250)}}
 
-### Kombination von y-Achsen- und x-Achsen-Translation
+### Kombination aus y-Achsen- und x-Achsen-Translation
 
 #### HTML
 

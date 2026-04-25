@@ -1,11 +1,12 @@
 ---
-title: offset-anchor
+title: "`offset-anchor` CSS property"
+short-title: offset-anchor
 slug: Web/CSS/Reference/Properties/offset-anchor
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`offset-anchor`**-[CSS](/de/docs/Web/CSS)-Eigenschaft gibt den Punkt innerhalb der Box eines Elements an, der sich entlang eines {{cssxref("offset-path")}} bewegt und tatsächlich entlang des Pfads wandert.
+Die **`offset-anchor`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Punkt innerhalb des Rahmens eines Elements fest, das sich entlang eines {{cssxref("offset-path")}} bewegt, der tatsächlich entlang des Pfades verläuft.
 
 {{InteractiveExample("CSS Demo: offset-anchor")}}
 
@@ -127,9 +128,9 @@ offset-anchor: unset;
 ### Werte
 
 - `auto`
-  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn {{cssxref("offset-path")}} ist `none`. In diesem Fall übernimmt es seinen Wert von {{cssxref("offset-position")}}.
+  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn, {{cssxref("offset-path")}} ist `none`, in welchem Fall er seinen Wert von {{cssxref("offset-position")}} übernimmt.
 - `<position>`
-  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Rändern der Elementbox zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für genauere Informationen siehe die Referenzseiten von {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}}. Beachten Sie, dass die Syntax mit drei Werten für `<position>` nicht funktioniert, außer bei `background(-position)`.
+  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Rändern des Rahmens zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für genauere Informationen siehe die Referenzseiten zu {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}}. Beachten Sie, dass die 3-Wert-Positionssyntax für keine Verwendung von `<position>` funktioniert, außer in `background(-position)`.
 
 ## Formale Definition
 
@@ -141,13 +142,13 @@ offset-anchor: unset;
 
 ## Beispiele
 
-### Festlegen verschiedener offset-anchor-Werte
+### Verschiedene `offset-anchor`-Werte setzen
 
-Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elementen verschachtelt sind. Jedes `<div>` erhält denselben {{cssxref("offset-path")}} (eine waagerechte Linie, die 200 Pixel lang ist) und wird animiert, um sich entlang dieser zu bewegen. Die drei erhalten dann unterschiedliche {{cssxref("background-color")}}- und `offset-anchor`-Werte.
+Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elemente verschachtelt sind. Jedes `<div>` erhält denselben {{cssxref("offset-path")}} (eine horizontale Linie, 200 Pixel lang) und wird animiert, sich entlang dieser Linie zu bewegen. Die drei bekommen dann unterschiedliche {{cssxref("background-color")}}- und `offset-anchor`-Werte.
 
-Jedes `<section>` wurde mit einem linearen Verlauf gestaltet, der ihm eine waagerechte Linie durch seine Mitte gibt, um Ihnen eine visuelle Darstellung des Verlaufs der Offset-Pfade des `<div>`-Elements zu bieten.
+Jedes `<section>` wurde mit einem linearen Verlauf gestaltet, um ihm eine horizontale Linie durch sein Zentrum zu geben, um Ihnen eine visuelle Darstellung zu bieten, wo die Offset-Pfade der `<div>`s verlaufen.
 
-Dies erlaubt Ihnen zu sehen, welche Wirkung die unterschiedlichen `offset-anchor`-Werte haben — der erste, `auto`, bewirkt, dass der Mittelpunkt des `<div>` sich entlang des Pfads bewegt. Die anderen beiden bewirken, dass die oberen rechten und unteren linken Punkte des `<div>` sich entlang des Pfads bewegen.
+Dies ermöglicht es Ihnen zu sehen, welchen Effekt die unterschiedlichen `offset-anchor`-Werte haben – der erste, `auto`, bewirkt, dass sich der Mittelpunkt des `<div>`s entlang des Pfades bewegt. Die anderen beiden bewirken, dass sich die oberen rechten und unteren linken Punkte des `<div>`s entlang des Pfades bewegen.
 
 #### HTML
 

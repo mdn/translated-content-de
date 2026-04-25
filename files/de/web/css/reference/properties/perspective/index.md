@@ -1,11 +1,12 @@
 ---
-title: perspective
+title: "`perspective` CSS property"
+short-title: perspective
 slug: Web/CSS/Reference/Properties/perspective
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`perspective`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Entfernung zwischen der z=0 Ebene und dem Benutzer, um einem 3D-positionierten Element eine Perspektive zu verleihen.
+Die **`perspective`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt den Abstand zwischen der z=0-Ebene und dem Benutzer, um einem 3D-positionierten Element etwas Perspektive zu geben.
 
 {{InteractiveExample("CSS Demo: perspective")}}
 
@@ -116,19 +117,20 @@ perspective: unset;
 ### Werte
 
 - `none`
-  - : Gibt an, dass keine Perspektiventransformation angewendet wird.
+  - : Gibt an, dass keine Perspektiven-Transformation angewendet werden soll.
 - `<length>`
-  - : Ein {{cssxref("&lt;length&gt;")}}, das die Entfernung vom Benutzer zur z=0 Ebene angibt. Es wird verwendet, um eine Perspektiventransformation auf die Kinder des Elements anzuwenden. Negative Werte sind Syntaxfehler. Wenn der Wert kleiner als `1px` ist, wird er auf `1px` begrenzt.
+  - : Ein {{cssxref("&lt;length&gt;")}}, das den Abstand vom Benutzer zur z=0-Ebene angibt. Es wird verwendet, um eine Perspektiven-Transformation auf die Kindelemente des Elements anzuwenden. Negative Werte sind Syntaxfehler. Wenn der Wert kleiner als `1px` ist, wird er auf `1px` begrenzt.
 
 ## Beschreibung
 
-Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt. Große Werte von `perspective` verursachen eine kleine Transformation; kleine Werte von `perspective` verursachen eine große Transformation.
+Jedes 3D-Element mit z>0 wird größer; jedes 3D-Element mit z<0 wird kleiner. Die Stärke des Effekts wird durch den Wert dieser Eigenschaft bestimmt. Große Werte von `perspective` verursachen eine kleine Transformation;
+kleine Werte von `perspective` verursachen eine große Transformation.
 
-Die Teile der 3D-Elemente, die sich hinter dem Benutzer befinden — deren z-Achsen-Koordinaten also größer sind als der Wert der `perspective` CSS-Eigenschaft — werden nicht gezeichnet.
+Die Teile der 3D-Elemente, die sich hinter dem Benutzer befinden – d.h. deren z-Achsen-Koordinaten größer sind als der Wert der `perspective` CSS-Eigenschaft – werden nicht gezeichnet.
 
-Der _Fluchtpunkt_ wird standardmäßig in der Mitte des Elements platziert, aber seine Position kann mit der Eigenschaft {{cssxref("perspective-origin")}} geändert werden.
+Der _Fluchtpunkt_ befindet sich standardmäßig in der Mitte des Elements, aber seine Position kann mit der Eigenschaft {{cssxref("perspective-origin")}} geändert werden.
 
-Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erstellt einen neuen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context). In diesem Fall fungiert das Objekt auch als enthaltender Block für Elemente mit `position: fixed`, die es enthält.
+Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/Leitf%C3%A4den/Positioned_layout/Stacking_context). In diesem Fall fungiert das Objekt auch als begrenzender Block für `position: fixed` Elemente, die es enthält.
 
 ## Formale Definition
 
@@ -142,7 +144,7 @@ Die Verwendung dieser Eigenschaft mit einem anderen Wert als `none` erstellt ein
 
 ### Perspektive einstellen
 
-Ein Beispiel, das zeigt, wie sich ein Würfel verändert, wenn die `perspective` an verschiedenen Positionen eingestellt wird, finden Sie unter [Verwendung von CSS-Transformationen > Perspektive einstellen](/de/docs/Web/CSS/Guides/Transforms/Using#setting_perspective).
+Ein Beispiel, das zeigt, wie sich ein Würfel verändert, wenn die `perspective` an verschiedenen Positionen eingestellt wird, ist in [Verwendung von CSS-Transformationen > Perspektive einstellen](/de/docs/Web/CSS/Leitf%C3%A4den/Transforms/Using#setting_perspective) angegeben.
 
 ## Spezifikationen
 
@@ -154,4 +156,4 @@ Ein Beispiel, das zeigt, wie sich ein Würfel verändert, wenn die `perspective`
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Leitf%C3%A4den/Transforms/Using)

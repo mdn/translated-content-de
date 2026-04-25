@@ -1,15 +1,16 @@
 ---
-title: corner-bottom-left-shape
+title: "`corner-bottom-left-shape` CSS property"
+short-title: corner-bottom-left-shape
 slug: Web/CSS/Reference/Properties/corner-bottom-left-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-bottom-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form der unteren linken Ecke eines Rahmens innerhalb des {{cssxref("border-radius")}} Bereichs an.
+Die **`corner-bottom-left-shape`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert die Form der unteren linken Ecke eines Kastens innerhalb der {{cssxref("border-radius")}}-Fläche.
 
-Eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele finden Sie auf der Seite zur Kurzform-Eigenschaft {{cssxref("corner-shape")}}.
+Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele sehen Sie auf der Seite der {{cssxref("corner-shape")}}-Kurzschreibweise nach.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ corner-bottom-left-shape: unset;
 
 ### Werte
 
-Die `corner-bottom-left-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert angegeben.
+Die `corner-bottom-left-shape`-Eigenschaft wird mithilfe eines {{cssxref("&lt;corner-shape-value>")}}-Wertes angegeben.
 
 ## Formale Definition
 
@@ -44,13 +45,13 @@ Die `corner-bottom-left-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}}-Referenzseite.
 
-### Grundlegende Verwendung von `corner-bottom-left-shape`
+### Grundlegende Nutzung von `corner-bottom-left-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -58,7 +59,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `80px 40% 60px 20%` und eine `corner-bottom-left-shape` von `squircle` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `80px 40% 60px 20%`, und eine `corner-bottom-left-shape` von `squircle` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -92,7 +93,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht so aus:
+Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -106,10 +107,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweiseigenschaft
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-bottom-left-radius")}}
-- [CSS-Ränder und -Rahmenverzierungen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS-Hintergründe und -Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS-Grenzen und Kasten-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)-Modul
+- [CSS Hintergründe und Grenzen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)-Modul

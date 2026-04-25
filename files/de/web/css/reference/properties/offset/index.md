@@ -1,11 +1,12 @@
 ---
-title: offset
+title: "`offset` CSS-Eigenschaft"
+short-title: offset
 slug: Web/CSS/Reference/Properties/offset
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`offset`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt alle erforderlichen Eigenschaften, um ein Element entlang eines definierten Pfades zu animieren. Die Offset-Eigenschaften helfen zusammen, eine _offset transform_ zu definieren, eine [Transformation](/de/docs/Web/CSS/Guides/Transforms/Using), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/Reference/Properties/offset-anchor)) an eine _offset position_ ([offset-position](/de/docs/Web/CSS/Reference/Properties/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/Reference/Properties/offset-path)) an verschiedenen Punkten entlang des Pfades ([offset-distance](/de/docs/Web/CSS/Reference/Properties/offset-distance)) ausrichtet und optional das Element ([offset-rotate](/de/docs/Web/CSS/Reference/Properties/offset-rotate)) dreht, um der Richtung des Pfades zu folgen.
+Die **`offset`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt alle Eigenschaften, die erforderlich sind, um ein Element entlang eines definierten Pfads zu animieren. Die Offset-Eigenschaften helfen zusammen, eine _Offset-Transformation_ zu definieren, eine [Transformation](/de/docs/Web/CSS/Guides/Transforms/Using), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/Reference/Properties/offset-anchor)) an eine _Offset-Position_ ([offset-position](/de/docs/Web/CSS/Reference/Properties/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/Reference/Properties/offset-path)) an verschiedenen Punkten entlang des Pfads ([offset-distance](/de/docs/Web/CSS/Reference/Properties/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/Reference/Properties/offset-rotate)), um die Richtung des Pfads zu folgen.
 
 > [!NOTE]
 > Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion`.
@@ -85,7 +86,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zusammenfassende Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -137,7 +138,7 @@ offset: unset;
 
 ## Beispiele
 
-### Ein Element entlang eines Pfades animieren
+### Animation eines Elements entlang eines Pfads
 
 #### HTML
 

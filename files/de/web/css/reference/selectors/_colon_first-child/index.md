@@ -1,11 +1,12 @@
 ---
-title: :first-child
+title: "`:first-child` CSS-Pseudoklasse"
+short-title: :first-child
 slug: Web/CSS/Reference/Selectors/:first-child
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:first-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das erste Element innerhalb einer Gruppe von Geschwisterelementen.
+Die **`:first-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das erste Element in einer Gruppe von Geschwisterelementen.
 
 {{InteractiveExample("CSS Demo: :first-child", "tabbed-shorter")}}
 
@@ -83,7 +84,7 @@ p:first-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Eine Liste stylen
+### Styling einer Liste
 
 #### HTML
 

@@ -1,62 +1,65 @@
 ---
-title: "<geolocation>: Das Geolocation-Element"
+title: "`<geolocation>` HTML Geolocation-Element"
+short-title: <geolocation>
 slug: Web/HTML/Reference/Elements/geolocation
 l10n:
-  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{SeeCompatTable}}
 
-Das **`<geolocation>`** [HTML](/de/docs/Web/HTML) Element erstellt ein interaktives Steuerelement, mit dem der Benutzer seine Standortdaten mit der Seite teilen kann.
+Das **`<geolocation>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine interaktive Steuerung, mit der der Benutzer seine Standortdaten mit der Seite teilen kann.
 
 Es bietet:
 
-- Eine intuitive, vom Browser definierte Benutzeroberfläche.
-- Einen Prozess zur Verwaltung der erforderlichen Berechtigungen für die `geolocation`-Funktion.
-- API-Funktionen zum Zugriff auf Standortdaten und zur Reaktion auf empfangene Standortdaten und Änderungen der Berechtigungen.
+- Eine intuitive Benutzeroberfläche, die vom Browser definiert wird.
+- Ein Verfahren zur Verwaltung der erforderlichen Berechtigungen für die `geolocation`-Funktion.
+- API-Funktionen zum Zugriff auf Standortdaten und zur Reaktion auf empfangene Standortdaten und Berechtigungsänderungen.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `autolocate` {{experimental_inline}}
-  - : Ein boolesches Attribut, das, wenn es auf `true` gesetzt ist, angibt, dass der Browser Standortdaten sofort abrufen soll, wenn das `<geolocation>`-Element gerendert wird, vorausgesetzt, die Erlaubnis wurde zuvor erteilt. Wenn es auf `false` gesetzt ist, werden die Standortdaten erst abgerufen, wenn der Benutzer die Steuerung aktiviert. Standardmäßig auf `false` gesetzt.
+  - : Ein boolesches Attribut, das, wenn es auf `true` gesetzt ist, angibt, dass der Browser sofort Standortdaten abrufen soll, wenn das `<geolocation>`-Element gerendert wird, sofern die Berechtigung zuvor erteilt wurde. Wenn es auf `false` gesetzt ist, werden die Standortdaten erst abgerufen, wenn der Benutzer die Steuerung aktiviert. Der Standardwert ist `false`.
 
-    Wenn die Erlaubnis zuvor nicht erteilt wurde, hat dieses Attribut keine Wirkung.
+    Wenn die Berechtigung vorher nicht erteilt wurde, hat dieses Attribut keine Auswirkung.
 
 - `watch` {{experimental_inline}}
-  - : Ein boolesches Attribut, das, wenn es auf `true` gesetzt ist, angibt, dass der Browser Standortdaten abrufen soll, wann immer sich die Position des Geräts des Benutzers ändert. Wenn es auf `false` gesetzt ist, werden die Standortdaten nur einmal abgerufen. Standardmäßig auf `false` gesetzt.
+  - : Ein boolesches Attribut, das, wenn es auf `true` gesetzt ist, angibt, dass der Browser Standortdaten abrufen soll, wann immer sich die Position des Geräts des Benutzers ändert. Wenn es auf `false` gesetzt ist, werden die Standortdaten nur einmal abgerufen. Der Standardwert ist `false`.
 
 ## Beschreibung
 
-Das `<geolocation>`-Element bietet ein deklaratives, vom Browser definiertes Steuerelement zum Teilen von Standortdaten. In Chrome zum Beispiel verfügt die Schaltfläche über ein Symbol in Form eines "Kartenpins" und intuitiven Text ("Use location" in englischsprachigem Inhalt).
+Das `<geolocation>`-Element bietet eine deklarative, browserdefinierte Steuerung zur Freigabe von Standortdaten. In Chrome beispielsweise verfügt der Button über ein "Landkarten-Pin"-Symbol und intuitiven Text ("Standort verwenden" in englischen Inhalten).
 
-Es ermöglicht auch eine intuitive Verwaltung der Benutzerberechtigungen. Zum Beispiel in Chrome, wenn der Benutzer zuvor die Erlaubnis zum Zugriff auf Standortdaten verweigert hat oder den Berechtigungsdialog ohne Auswahlmöglichkeit abgelehnt hat, kann er die Schaltfläche erneut drücken, um seine Auswahl zu aktualisieren. In Fällen, in denen sie die Erlaubnis zuvor verweigert haben, informieren nachfolgende Dialoge darüber, dass sie zuvor nicht zugestimmt haben, Standortdaten zu teilen, und fragen sie, ob sie weiterhin nicht zustimmen oder zustimmen möchten.
+Es ermöglicht auch eine intuitive Verwaltung von Benutzerberechtigungen.
+Beispielsweise kann in Chrome der Benutzer, wenn er zuvor die Erlaubnis zur Nutzung der Standortdaten verweigert oder die Berechtigungsdialogbox ohne Entscheidung geschlossen hat, den Button erneut drücken, um seine Entscheidung zu aktualisieren.
+In Fällen, in denen die Erlaubnis zuvor verweigert wurde, informieren nachfolgende Dialoge den Benutzer darüber, dass er zuvor die Freigabe der Standortdaten nicht erlaubt hat, und fragen, ob er weiterhin keine Erlaubnis erteilen oder diese erlauben möchte.
 
-Ein wesentlicher Aspekt des `<geolocation>`-Elements ist, dass es die bewusste Wahl des Benutzers widerspiegelt und eine mögliche Nutzung blockiert, die den Benutzer dazu verleiten könnte, unwissentlich seine Standortdaten bereitzustellen (siehe [`<geolocation>`-Blockierung](#geolocation_blocking) für weitere Informationen).
+Ein wesentlicher Aspekt des `<geolocation>`-Elements ist, dass es die bewusste Entscheidung des Benutzers widerspiegelt und eine mögliche Nutzung blockiert, die den Benutzer dazu verleiten könnte, seine Standortdaten unwissentlich bereitzustellen (siehe [`<geolocation>`-Blockierung](#geolocation_blocking) für weitere Informationen).
 
-Die DOM-API-Schnittstelle des Elements, [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement), bietet Features zum Zugriff auf zurückgegebene Positionsdaten, aktuellen Berechtigungsstatus und Fehler, wenn der Datenabruf nicht erfolgreich war, wodurch die Menge an JavaScript-Logik reduziert wird, die geschrieben werden muss. Außerdem stehen Ereignisse zur Verfügung, um Code auszuführen, als Reaktion auf empfangene Standortdaten, Änderungen des Berechtigungsstatus und Benutzerinteraktionen mit dem Berechtigungsdialog.
+Die DOM-API-Schnittstelle des Elements, [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement), bietet Funktionen zum Zugriff auf zurückgegebene Positionsdaten, den aktuellen Berechtigungsstatus und Fehler, wenn das Abrufen der Daten nicht erfolgreich war, was die Menge des zu schreibenden JavaScript-Codes reduziert. Darüber hinaus stehen Ereignisse zur Verfügung, um Code als Reaktion auf empfangene Standortdaten, Änderungen des Berechtigungsstatus und Benutzerinteraktionen mit dem Berechtigungsdialog auszuführen.
 
 > [!NOTE]
-> Aus Leistungsgründen sind maximal drei `<geolocation>`-Elemente auf einer Seite erlaubt. Wenn dieses Kontingent überschritten wird, sind alle `<geolocation>`-Elemente deaktiviert.
+> Aus Leistungsgründen sind maximal drei `<geolocation>`-Elemente auf einer Seite zulässig. Wird dieses Kontingent überschritten, wird die Funktionalität aller `<geolocation>`-Elemente deaktiviert.
 
 ### Beziehung zur Geolocation-API
 
-Die [Geolocation API](/de/docs/Web/API/Geolocation_API) bietet eine ältere Alternative für den Umgang mit Standortdaten. Diese API hat einige Mängel, die das `<geolocation>`-Element lösen soll, insbesondere, dass die Benutzeroberfläche und die zugrunde liegende Logik zum Anfordern der Daten jedes Mal von Grund auf neu implementiert werden müssen und die Verwaltung der Berechtigungen unintuitiv sein kann.
+Die [Geolocation-API](/de/docs/Web/API/Geolocation_API) bietet eine ältere Alternative zur Verarbeitung von Standortdaten. Diese API hat einige Nachteile, die das `<geolocation>`-Element beheben soll, insbesondere dass die Benutzeroberfläche und die zugrunde liegende Logik zur Anforderung der Daten jedes Mal von Grund auf neu implementiert werden müssen und die Handhabung der Berechtigungen unintuitiv sein kann.
 
-Das `<geolocation>`-Element verwendet Funktionen der Geolocation API im Hintergrund. Standardmäßig fordert der Browser Standortdaten einmal an, als ob die Methode [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) aufgerufen wurde. Wenn jedoch das `watch`-Attribut auf `true` gesetzt ist, aktualisiert der Browser die Daten jedes Mal, wenn sich die Position des Geräts ändert, als ob [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) aufgerufen wurde.
+Das `<geolocation>`-Element verwendet Funktionen der Geolocation-API im Hintergrund. Standardmäßig fordert der Browser Standortdaten einmal an, als ob die Methode [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) aufgerufen worden wäre. Wenn das `watch`-Attribut jedoch auf `true` gesetzt ist, aktualisiert der Browser die Daten jedes Mal, wenn sich die Position des Geräts ändert, als ob [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) aufgerufen worden wäre.
 
-Wenn Daten erfolgreich abgerufen werden, sind sie in der [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft verfügbar, die ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt enthält. Wenn der Datenabruf nicht erfolgreich ist, sind Fehlermeldungen in der [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft verfügbar, die ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt enthält.
+Wenn die Daten erfolgreich abgerufen wurden, stehen sie in der [`HTMLGeolocationElement.position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft zur Verfügung, die ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt enthält. Wenn das Abrufen der Daten nicht erfolgreich war, stehen Fehlerinformationen in der [`HTMLGeolocationElement.error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft zur Verfügung, die ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt enthält.
 
-### Einstellung der Schaltflächensprache
+### Einstellung der Sprachoption des Buttons
 
-Das globale Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) wird vom `<geolocation>`-Element verwendet, um eine Sprache für den gerenderten Text auszuwählen. Dies bedeutet, dass Sie ein `lang`-Attribut direkt auf dem `<geolocation>`-Element oder einem seiner Vererber setzen können, um dem Browser mitzuteilen, welche Sprache für das Schaltflächenlabel verwendet werden soll.
+Das globale [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut wird vom `<geolocation>`-Element verwendet, um eine Sprache für den gerenderten Text auszuwählen. Das bedeutet, dass Sie ein `lang`-Attribut direkt auf das `<geolocation>`-Element oder auf einen seiner Vorfahren setzen können, um dem Browser mitzuteilen, welche Sprache für die Beschriftung des Buttons verwendet werden soll.
 
 Wenn kein geeignetes `lang`-Attribut gesetzt ist, wird die bevorzugte Spracheinstellung des Browsers verwendet.
 
 ### Einfügen von Fallback-Inhalten
 
-Sie können Fallback-Inhalte zwischen den öffnenden und schließenden Tags des `<geolocation>`-Elements einfügen, die angezeigt werden, wenn es nicht unterstützt wird. Zum Beispiel könnten Sie eine "Nicht unterstützt" Meldung einfügen:
+Sie können Fallback-Inhalte zwischen die öffnenden und schließenden Tags des `<geolocation>`-Elements einfügen, die angezeigt werden, wenn es nicht unterstützt wird. Beispielsweise könnten Sie eine "Nicht unterstützt"-Meldung einfügen:
 
 ```html
 <geolocation>
@@ -64,7 +67,7 @@ Sie können Fallback-Inhalte zwischen den öffnenden und schließenden Tags des 
 </geolocation>
 ```
 
-Eine bessere Lösung aus der realen Welt könnte jedoch darin bestehen, ein reguläres {{htmlelement("button")}}-Element einzufügen, das die Geolocation API verwendet, um Standortdaten abzurufen:
+Eine bessere Lösung in der Praxis könnte jedoch darin bestehen, ein reguläres {{htmlelement("button")}}-Element einzufügen, das die Geolocation-API verwendet, um Standortdaten abzurufen:
 
 ```html
 <geolocation>
@@ -74,26 +77,26 @@ Eine bessere Lösung aus der realen Welt könnte jedoch darin bestehen, ein regu
 
 ### `<geolocation>`-Blockierung
 
-Eine der wichtigsten Ideen hinter dem Design des `<geolocation>`-Elements ist, dass es die bewusste Wahl eines Benutzers widerspiegeln soll, Positionsinformationen offenzulegen, und verhindert, dass böswillige Akteure Benutzer dazu verleiten, es zu aktivieren, zum Beispiel durch [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking). Aus diesem Grund führt der Browser für jedes gerenderte Element eine Aufzeichnung der sogenannten **Blocker-Gründe**.
+Ein zentrales Konzept bei der Gestaltung des `<geolocation>`-Elements ist, dass es die bewusste Entscheidung eines Benutzers widerspiegeln sollte, Positionsinformationen freizugeben, und gleichzeitig schlechte Akteure daran hindern sollte, Benutzer dazu zu verleiten, es zu aktivieren, beispielsweise durch [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking). Aus diesem Grund führt der Browser für jedes gerenderte Element eine Liste der sogenannten **Blockierungsgründe**.
 
-Wenn ein Blocker auf ein `<geolocation>`-Element aktiv ist, wird es daran gehindert, zu funktionieren (blockiert), entweder vorübergehend oder dauerhaft, je nach Grund. Wenn ein `<geolocation>`-Element blockiert ist, sagt man, es sei ungültig. Sie können überprüfen, ob es ungültig ist, indem Sie die [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid)-Eigenschaft abfragen. Sie können auch den Grund abrufen, warum es ungültig ist, über die [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason)-Eigenschaft – sehen Sie sich diese Seite für eine vollständige Liste möglicher Gründe an.
+Wenn ein Blocker auf ein `<geolocation>`-Element aktiv ist, wird dessen Funktionalität entweder vorübergehend oder dauerhaft gesperrt (je nach Grund). Wenn ein `<geolocation>`-Element blockiert wird, gilt es als ungültig. Sie können überprüfen, ob es ungültig ist, indem Sie die [`HTMLGeolocationElement.isValid`](/de/docs/Web/API/HTMLGeolocationElement/isValid)-Eigenschaft abfragen. Sie können auch den Grund, warum es ungültig ist, über die [`HTMLGeolocationElement.invalidReason`](/de/docs/Web/API/HTMLGeolocationElement/invalidReason)-Eigenschaft zurückgeben — auf dieser Seite finden Sie eine vollständige Liste der möglichen Gründe.
 
-### Styling-Einschränkungen
+### Styling-Beschränkungen
 
-Das `<geolocation>`-Element hat mehrere Einschränkungen bezüglich der CSS-Stile, die darauf angewendet werden können. Einige dieser Einschränkungen dienen der Durchsetzung grundlegender Barrierefreiheit und führen dazu, dass die Schaltfläche deaktiviert wird, wenn sie nicht eingehalten werden. Einige erzwingen bestimmte Werte oder Wertbereiche für verschiedene Eigenschaften.
+Das `<geolocation>`-Element hat mehrere Einschränkungen hinsichtlich der CSS-Stile, die darauf angewendet werden können. Einige dieser Einschränkungen sind dazu gedacht, grundlegende Zugänglichkeit sicherzustellen und deaktivieren den Button, wenn sie nicht eingehalten werden. Einige erzwingen bestimmte Werte oder Wertebereiche für verschiedene Eigenschaften.
 
-Alle Eigenschaften, die in den folgenden Abschnitten nicht aufgeführt sind oder logisch einem physischen Attribut entsprechen, das in den folgenden Abschnitten aufgeführt ist, werden ignoriert, wenn sie auf das `<geolocation>`-Element gesetzt werden.
+Alle Eigenschaften, die nicht in den folgenden Unterabschnitten aufgeführt sind oder die logisch einem physischen in den folgenden Unterabschnitten aufgeführten Attribut entsprechen, werden ignoriert, wenn sie auf das `<geolocation>`-Element gesetzt werden.
 
-#### Zugriffsbeschränkungen
+#### Zugänglichkeitsbeschränkungen
 
-Die gerenderte `<geolocation>`-Schaltfläche wird deaktiviert (was bedeutet, dass das Drücken keine Wirkung hat), wenn die folgenden Einschränkungen nicht eingehalten werden:
+Der gerenderte `<geolocation>`-Button wird deaktiviert (bedeutet, dass das Drücken keine Wirkung hat), wenn die folgenden Einschränkungen nicht eingehalten werden:
 
-- Das [Kontrastverhältnis](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) zwischen {{cssxref("color")}} und {{cssxref("background-color")}} muss mindestens 3:1 betragen.
-- Die {{cssxref("font-size")}} darf nicht kleiner als der Wert `small` sein (im Falle von Schlüsselwortwerten) oder ihr berechneter Wert (im Falle anderer Werttypen).
+- Das [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)-Verhältnis zwischen {{cssxref("color")}} und {{cssxref("background-color")}} muss mindestens 3:1 betragen.
+- Die {{cssxref("font-size")}} darf nicht kleiner als der `small`-Wert sein (im Falle von Schlüsselwortwerten) oder dessen berechneter Wert (im Falle anderer Werttypen).
 
-#### Werteinschränkungen
+#### Wertebeschränkungen
 
-Die folgenden CSS-Eigenschaftswerteinschränkungen werden auf das `<geolocation>`-Element angewendet. Wenn versucht wird, diese Eigenschaften auf Werte zu setzen, die außerhalb der aufgelisteten Einschränkungen auf das `<geolocation>`-Element fallen, wird der Wert so angepasst, dass er der Einschränkung entspricht (im Fall einer genauen Wertbeschränkung) oder auf den nächstgelegenen berechneten Wert oberer oder unterer Grenze abgestimmt wird (im Fall einer Bereichsbeschränkung).
+Die folgenden CSS-Eigenschaftswertebeschränkungen werden auf das `<geolocation>`-Element angewendet. Wenn versucht wird, diese Eigenschaften auf dem `<geolocation>`-Element auf Werte außerhalb der aufgeführten Beschränkungen zu setzen, wird der Wert auf den jeweiligen Beschränkungswert angepasst (im Fall einer genauen Wertebeschränkung) oder auf den nächstgelegenen berechneten oberen oder unteren Grenzwert (im Fall einer Bereichsbeschränkung).
 
 - {{cssxref("opacity")}}
   - : `1.0`
@@ -118,28 +121,30 @@ Die folgenden CSS-Eigenschaftswerteinschränkungen werden auf das `<geolocation>
 - {{cssxref("font-weight")}}
   - : `200` oder größer.
 - {{cssxref("word-spacing")}}
-  - : Zwischen `0` und `0.5em`, einschließlich.
+  - : Zwischen `0` und `0.5em`, inklusive.
 - {{cssxref("letter-spacing")}}
-  - : Zwischen `-0.05em` und `0.2em`, einschließlich.
+  - : Zwischen `-0.05em` und `0.2em`, inklusive.
+- {{cssxref("letter-spacing")}}
+  - : Zwischen `-0.05em` und `0.2em`, inklusive.
 - {{cssxref("min-height")}}
   - : `1em` oder größer.
 - {{cssxref("max-height")}}
-  - : `3em` oder weniger. `none` ist ein akzeptierter Wert.
+  - : `3em` oder geringer. `none` ist ein akzeptierter Wert.
 - {{cssxref("min-width")}}
   - : Der berechnete Wert von `fit-content` oder weniger.
 - {{cssxref("border-width")}}
   - : `1em` oder weniger.
 
-#### Komplexe Einschränkungen
+#### Komplexe Beschränkungen
 
-Die folgenden Einschränkungen sind komplexer als einfache Wertbeschränkungen:
+Die folgenden Beschränkungen sind komplexer als einfache Wertebeschränkungen:
 
-- Blockrichtung-Padding
-  - : Wenn die {{cssxref("block-size")}} auf `auto` gesetzt ist, sind die {{cssxref("padding-block-start")}} und {{cssxref("padding-block-end")}} (und entsprechende physische Eigenschaften für den aktuellen [Schreibrichtung](/de/docs/Web/CSS/Reference/Properties/writing-mode)) auf ein Maximum von `1em` beschränkt und müssen gleich sein.
-- Inline-Richtung-Padding
-  - : Wenn die {{cssxref("inline-size")}} auf `auto` gesetzt ist, sind die {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}} (und entsprechende physische Eigenschaften für den aktuellen [Schreibrichtung](/de/docs/Web/CSS/Reference/Properties/writing-mode)) auf ein Maximum von `5em` beschränkt und müssen gleich sein.
+- Blockrichtungs-Polsterung
+  - : Wenn die {{cssxref("block-size")}} auf `auto` gesetzt ist, sind die {{cssxref("padding-block-start")}} und {{cssxref("padding-block-end")}} (und gleichwertige physische Eigenschaften für das aktuelle [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode)) auf maximal `1em` beschränkt und müssen gleich sein.
+- Inline-Richtungs-Polsterung
+  - : Wenn die {{cssxref("inline-size")}} auf `auto` gesetzt ist, sind die {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}} (und gleichwertige physische Eigenschaften für das aktuelle [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode)) auf maximal `5em` beschränkt und müssen gleich sein.
 
-#### Normal einstellbare Eigenschaften
+#### Eigenschaften, die normal gesetzt werden können
 
 Die folgenden CSS-Eigenschaften können normal verwendet werden:
 
@@ -194,21 +199,21 @@ Die folgenden CSS-Eigenschaften können normal verwendet werden:
 
 ## Barrierefreiheit
 
-Das `<geolocation>`-Element hat einen zugänglichen Namen, der in der [eingestellten Sprache](#einstellung_der_schaltflächensprache) geschrieben ist. Es hat auch eine [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) als [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role), damit es von Screenreadern als Schaltfläche erkannt wird.
+Das `<geolocation>`-Element hat einen zugänglichen Namen, der in der [festgelegten Sprache](#einstellung_der_sprachoption_des_buttons) geschrieben ist. Es hat ebenfalls eine [`Rolle`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) als [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role), damit es von Screenreadern als Button erkannt wird.
 
-Zusätzlich hat das `<geolocation>`-Element einen Standardwert für [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) von `0`, sodass es sich in Bezug auf die Tastaturfokussierung wie eine echte `<button>` verhält.
+Darüber hinaus hat das `<geolocation>`-Element einen Standardwert für [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) von `0`, sodass es sich in Bezug auf die Tastaturfokussierung wie ein echter `<button>` verhält.
 
-Zum Schluss verweisen Sie auf den Abschnitt [Zugriffsbeschränkungen](#zugriffsbeschränkungen) für Informationen zu den Stilbeschränkungen, die am `<geolocation>`-Element angewendet werden, um grundlegende Barrierefreiheitsanforderungen durchzusetzen.
+Verweisen Sie schließlich zurück auf den Abschnitt [Zugänglichkeitsbeschränkungen](#zugänglichkeitsbeschränkungen) für Informationen zu Styling-Beschränkungen, die auf das `<geolocation>`-Element angewendet werden, um grundlegende Anforderungen an die Barrierefreiheit durchzusetzen.
 
 ## Beispiele
 
-### Grundbeispiel
+### Beispiel für grundlegende Nutzung
 
-Dieses Beispiel verwendet das `<geolocation>`-Element, um Ihren aktuellen Standort abzurufen, der unterhalb der Schaltfläche in einem {{htmlelement("p")}}-Element ausgegeben wird. Das Beispiel nutzt auch eine reguläre `<button>`-Fallback-Version, um die Standortdaten in nicht unterstützenden Browsern abzurufen.
+Dieses Beispiel verwendet das `<geolocation>`-Element, um Ihre aktuelle Position abzurufen, die unter dem Button in einem {{htmlelement("p")}}-Element ausgegeben wird. Das Beispiel verwendet auch einen regulären `<button>`-Fallback, um die Standortdaten in nicht unterstützten Browsern abzurufen.
 
 #### HTML
 
-Wir fügen ein `<geolocation>`-Element mit einem darin geschachtelten `<button>` ein, das in Browsern gerendert wird, die `<geolocation>` nicht unterstützen. Wir fügen auch ein `<p>` hinzu, um Standortdaten und Fehler auszugeben.
+Wir fügen ein `<geolocation>`-Element mit einem `<button>`-Fallback darin ein, das in Browsern gerendert wird, die `<geolocation>` nicht unterstützen. Außerdem fügen wir ein `<p>`-Element ein, um Standortdaten und Fehler auszugeben.
 
 ```html
 <geolocation>
@@ -219,11 +224,11 @@ Wir fügen ein `<geolocation>`-Element mit einem darin geschachtelten `<button>`
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, eine Referenz zu dem Ausgabe-`<p>`-Element zu erhalten. Dann erkennen wir, ob das `<geolocation>`-Element unterstützt wird, indem wir `typeof HTMLGeolocationElement === "function"` testen:
+In unserem Skript starten wir, indem wir eine Referenz zum Ausgabeelement `<p>` erhalten. Wir erkennen dann, ob das `<geolocation>`-Element unterstützt wird, indem wir `typeof HTMLGeolocationElement === "function"` testen:
 
-- Wenn es unterstützt wird, greifen wir zuerst auf das `<geolocation>`-Element zu und fügen dann einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event) Ereignis-Listener hinzu.
-  Wenn die Schaltfläche gedrückt wird und die Daten abgerufen werden, druckt der Listener die (lat, long) Koordinaten in das Ausgabefeld `<p>` (abgerufen über die [`position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft) oder eine Fehlermeldung, falls der Datenabruf nicht erfolgreich war (abgerufen über die [`error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft).
-- Wenn es nicht unterstützt wird, greifen wir auf das Fallback-`<button>`-Element zu und rufen die gleichen Daten ab, außer dass wir dieses Mal einen `click`-Ereignis-Listener an der Schaltfläche nutzen und über einen Aufruf von [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) die Daten abrufen.
+- Wenn es unterstützt wird, holen wir zuerst eine Referenz auf das `<geolocation>`-Element und fügen dann einen [`location`](/de/docs/Web/API/HTMLGeolocationElement/location_event)-Event-Listener hinzu.
+  Wenn der Button gedrückt wird und die Daten abgerufen werden, gibt der Listener die (Breiten- und Längengrad-)Koordinaten in das Ausgabeelement `<p>` (abgerufen über die [`position`](/de/docs/Web/API/HTMLGeolocationElement/position)-Eigenschaft) oder eine Fehlermeldung, wenn das Abrufen der Daten nicht erfolgreich war (abgerufen über die [`error`](/de/docs/Web/API/HTMLGeolocationElement/error)-Eigenschaft) aus.
+- Wenn es nicht unterstützt wird, holen wir eine Referenz auf das Fallback-`<button>`-Element und rufen die gleichen Daten ab und geben sie aus, jedoch verwenden wir dieses Mal einen `click`-Event-Listener auf dem Button und einen Aufruf von [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition), um die Daten abzurufen.
 
 ```js
 const outputElem = document.querySelector("#output");
@@ -254,11 +259,11 @@ if (typeof HTMLGeolocationElement === "function") {
 
 #### Ergebnis
 
-Sehen Sie sich diesen Code [live an](https://mdn.github.io/dom-examples/geolocation-element/basic-example/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-example)). Sie finden auch eine Version dieses Beispiels, die das `watch`-Attribut auf dem `<geolocation>`-Element einschließt und daher Standortdaten jedes Mal abruft, wenn sich die Position des Geräts des Benutzers ändert (sehen Sie es [live an](https://mdn.github.io/dom-examples/geolocation-element/basic-watch-example/), und der [Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-watch-example)).
+Sehen Sie sich diesen Code [live an](https://mdn.github.io/dom-examples/geolocation-element/basic-example/) ([Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-example)). Sie können auch eine Version dieses Beispiels finden, die das `watch`-Attribut auf dem `<geolocation>`-Element enthält und daher Standortdaten jedes Mal abruft, wenn sich die Positionsangaben des Geräts des Benutzers ändern (sehen Sie es [live an](https://mdn.github.io/dom-examples/geolocation-element/basic-watch-example/) und den [Quellcode](https://github.com/mdn/dom-examples/tree/main/geolocation-element/basic-watch-example)).
 
-Versuchen Sie, die Demos in einem unterstützten Browser und einem nicht unterstützten Browser anzuzeigen, wenn möglich, und beachten Sie den Unterschied im Berechtigungsdialogablauf, wenn Sie die Erlaubnis zur Nutzung von `geolocation` erteilen oder verweigern.
+Versuchen Sie, die Demos in einem unterstützten und einem nicht unterstützten Browser anzuzeigen, wenn möglich, und beachten Sie den Unterschied im Ablauf der Berechtigungsdialoge, wenn Sie die Erlaubnis zur Nutzung der `geolocation` erteilen oder verweigern.
 
-Für eine Erläuterung eines vollständigeren Beispiels, das Standortdaten nutzt, um eine Karte Ihres lokalen Gebiets zu erstellen, siehe die [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)-Referenzseite.
+Für eine Erläuterung eines umfassenderen Beispiels, das Standortdaten verwendet, um eine Karte Ihrer Umgebung zu erstellen, siehe die Referenzseite [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement).
 
 ## Technische Zusammenfassung
 
@@ -272,11 +277,11 @@ Für eine Erläuterung eines vollständigeren Beispiels, das Standortdaten nutzt
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
-        >, interaktiver Inhalt, greifbarer Inhalt.
+          >Satzinhalt</a
+        >, interaktiver Inhalt, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -284,12 +289,12 @@ Für eine Erläuterung eines vollständigeren Beispiels, das Standortdaten nutzt
       <td>Jeder geeignete transparente Fallback-Inhalt.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind erforderlich.</td>
+      <th scope="row">Wegefall der Tags</th>
+      <td>Kein, sowohl die Start- als auch die Endmarkierung sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Zulässige Eltern</th>
-      <td>Jedes Element, das Phraseninhalt akzeptiert.</td>
+      <td>Jedes Element, das Satzinhalt akzeptiert.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -324,6 +329,6 @@ Für eine Erläuterung eines vollständigeren Beispiels, das Standortdaten nutzt
 
 - [`HTMLGeolocationElement`](/de/docs/Web/API/HTMLGeolocationElement)
 - Die {{httpheader("Permissions-Policy/geolocation", "geolocation")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
-- [Geolocation API](/de/docs/Web/API/Geolocation_API)
-- [Permissions API](/de/docs/Web/API/Permissions_API)
+- [Geolocation-API](/de/docs/Web/API/Geolocation_API)
+- [Berechtigungs-API](/de/docs/Web/API/Permissions_API)
 - [Einführung in das `<geolocation>` HTML-Element](https://developer.chrome.com/blog/geolocation-html-element) auf developer.chrome.com (2026)

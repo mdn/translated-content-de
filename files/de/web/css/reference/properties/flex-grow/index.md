@@ -1,16 +1,17 @@
 ---
-title: flex-grow
+title: "`flex-grow` CSS property"
+short-title: flex-grow
 slug: Web/CSS/Reference/Properties/flex-grow
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`flex-grow`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Flexwachstumsfaktor fest, der angibt, wie viel des [**positiven Freiraums**](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) im Flexcontainer, falls vorhanden, der [Hauptgröße](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) des Flexitems zugewiesen werden soll.
+Die **`flex-grow`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Flex-Wachstumsfaktor fest, der angibt, wie viel des [**positiven Freiraums**](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) des Flex-Containers, sofern vorhanden, der [Hauptgröße](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) des Flex-Items zugewiesen werden soll.
 
-Wenn die Hauptgröße des Flexcontainers größer ist als die kombinierten Hauptgrößen seiner Flexitems, kann dieser positive Freiraum auf die Flexitems verteilt werden, wobei das Wachstum jedes Items durch dessen Wachstumsfaktorwert im Verhältnis zur Gesamtsumme aller Flexwachstumsfaktoren der Flexitems bestimmt wird.
+Wenn die Hauptgröße des Flex-Containers größer ist als die kombinierten Hauptgrößen seiner Flex-Items, kann dieser positive Freiraum unter den Flex-Items verteilt werden. Das Wachstum jedes Items entspricht dem Wert seines Wachstumsfaktors als ein Anteil zur Summe aller Flex-Wachstumsfaktoren der Flex-Items.
 
 > [!NOTE]
-> Es wird empfohlen, die {{cssxref("flex")}}-Kurzform mit einem Schlüsselwortwert wie `auto` oder `initial` zu verwenden, anstatt `flex-grow` alleine zu setzen. Die [Schlüsselwortwerte](/de/docs/Web/CSS/Reference/Properties/flex#values) erweitern sich zu zuverlässigen Kombinationen von `flex-grow`, {{cssxref("flex-shrink")}} und {{cssxref("flex-basis")}}, die helfen, die häufig gewünschten Flexverhaltensweisen zu erreichen.
+> Es wird empfohlen, die {{cssxref("flex")}} Kurzschreibweise mit einem Schlüsselwortwert wie `auto` oder `initial` zu verwenden, anstatt `flex-grow` allein einzustellen. Die [Schlüsselwortwerte](/de/docs/Web/CSS/Reference/Properties/flex#values) erweitern sich zu zuverlässigen Kombinationen aus `flex-grow`, {{cssxref("flex-shrink")}} und {{cssxref("flex-basis")}}, die helfen, die üblicherweise gewünschten Flex-Verhaltensweisen zu erreichen.
 
 {{InteractiveExample("CSS Demo: flex-grow")}}
 
@@ -72,21 +73,21 @@ Die `flex-grow`-Eigenschaft wird als einzelne `<number>` angegeben.
 ### Werte
 
 - `<number>`
-  - : Siehe {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig. Standardmäßig 0, was verhindert, dass das Flexitem wächst.
+  - : Siehe {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig. Der Standardwert ist 0, was verhindert, dass das Flex-Item wächst.
 
 ## Beschreibung
 
-Diese Eigenschaft gibt an, wie viel des verbleibenden Platzes im Flexcontainer dem Item zugewiesen werden soll (der Flexwachstumsfaktor).
+Diese Eigenschaft legt fest, wie viel des verbleibenden Raums im Flex-Container dem Item zugewiesen werden soll (der Flex-Wachstumsfaktor).
 
-Die [Hauptgröße](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) ist entweder die Breite oder Höhe des Items, abhängig vom Wert der {{cssxref("flex-direction")}}.
+Die [Hauptgröße](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) ist entweder die Breite oder die Höhe des Items, abhängig vom {{cssxref("flex-direction")}}-Wert.
 
-Der verbleibende Platz, oder positive Freiraum, ist die Größe des Flexcontainers minus die Größe aller Flexitems zusammen. Wenn alle gleichrangigen Items den gleichen Flexwachstumsfaktor haben, erhalten alle Items den gleichen Anteil des verbleibenden Platzes. Üblicherweise wird `flex-grow: 1` gesetzt, aber das Setzen des Flexwachstumsfaktors für alle Flexitems auf `88`, `100`, `1.2` oder einen anderen Wert größer als `0` ergibt dasselbe Ergebnis: Der Wert ist ein Verhältnis.
+Der verbleibende Raum, oder positiver Freiraum, ist die Größe des Flex-Containers minus der Gesamtgröße aller Flex-Item-Größen zusammen. Wenn alle benachbarten Items denselben Flex-Wachstumsfaktor haben, erhalten alle Items denselben Anteil des verbleibenden Raums. Der gebräuchliche Ansatz ist, `flex-grow: 1` zu setzen, aber das Festlegen des Flex-Wachstumsfaktors für alle Flex-Items auf `88`, `100`, `1.2` oder jeden anderen Wert größer als `0` führt zum selben Ergebnis: Der Wert ist ein Verhältnis.
 
-Wenn die `flex-grow`-Werte unterschiedlich sind, wird der positive Freiraum entsprechend dem Verhältnis verteilt, das durch die unterschiedlichen Flexwachstumsfaktoren definiert ist. Die `flex-grow`-Faktorwerte aller gleichrangigen Flexitems werden zusammen addiert. Der positive Freiraum des Flexcontainers, falls vorhanden, wird dann durch diese Gesamtsumme geteilt. Die Hauptgröße jedes Flexitems mit einem `flex-grow`-Wert größer als `0` wächst um diesen Quotienten multipliziert mit seinem eigenen Wachstumsfaktor.
+Wenn die `flex-grow`-Werte unterschiedlich sind, wird der positive Freiraum gemäß dem durch die unterschiedlichen Flex-Wachstumsfaktoren definierten Verhältnis verteilt. Die `flex-grow`-Faktorwerte aller benachbarten Flex-Items werden zusammengezählt. Der positive Freiraum des Flex-Containers, falls vorhanden, wird dann durch diese Summe geteilt. Die Hauptgröße jedes Flex-Items mit einem `flex-grow`-Wert größer als `0` wächst um diesen Quotienten multipliziert mit seinem eigenen Wachstumsfaktor.
 
-Zum Beispiel: Wenn vier `100px`-Flexitems in einem `700px`-Container sind und die Flexitems haben `flex-grow`-Faktoren von `0`, `1`, `2` und `3`, beträgt die Gesamthauptgröße der vier Items `400px`, was bedeutet, dass `300px` positiver Freiraum verteilt werden müssen. Die Summe der vier Wachstumsfaktoren (`0 + 1 + 2 + 3 = 6`) beträgt sechs. Daher ist jeder Wachstumsfaktor gleich `50px` (`(300px / 6 )`). Jedes Flexitem erhält 50px Freiraum multipliziert mit seinem `flex-grow`-Faktor — also `0`, `50px`, `100px` und `150px` jeweils. Die gesamten Flexitemgrößen betragen dann `100px`, `150px`, `200px` und `250px` jeweils.
+Zum Beispiel, wenn vier `100px` Flex-Items in einem `700px` Container sind und die Flex-Items haben `flex-grow`-Faktoren von `0`, `1`, `2` und `3`, sind die Gesamthauptgrößen der vier Items `400px`, was bedeutet, dass `300px` an positivem Freiraum zu verteilen sind. Die Summe der vier Wachstumsfaktoren (`0 + 1 + 2 + 3 = 6`) entspricht sechs. Daher ist jeder Wachstumsfaktor gleich `50px` (`(300px / 6 )`). Jedes Flex-Item erhält 50px Freiraum multipliziert mit seinem `flex-grow`-Faktor — also `0`, `50px`, `100px` und `150px` entsprechend. Die Gesamtgrößen der Flex-Items werden zu `100px`, `150px`, `200px` und `250px`.
 
-`flex-grow` wird im Allgemeinen zusammen mit den anderen {{cssxref("flex")}} Kurzform-Eigenschaften, {{cssxref("flex-shrink")}} und {{cssxref("flex-basis")}}, verwendet. Es wird empfohlen, die `flex` Kurzform-Eigenschaft zu verwenden, um sicherzustellen, dass alle Werte gesetzt sind.
+`flex-grow` wird üblicherweise zusammen mit den anderen {{cssxref("flex")}} Kurzschreibweise-Eigenschaften, {{cssxref("flex-shrink")}} und {{cssxref("flex-basis")}}, verwendet. Es wird empfohlen, die `flex` Kurzschreibweise-Eigenschaft zu verwenden, um sicherzustellen, dass alle Werte gesetzt sind.
 
 ## Formale Definition
 
@@ -98,9 +99,9 @@ Zum Beispiel: Wenn vier `100px`-Flexitems in einem `700px`-Container sind und di
 
 ## Beispiele
 
-### Wachstumsfaktor des Flexitems setzen
+### Flex-Item Wachstumsfaktor einstellen
 
-In diesem Beispiel ist die Summe von sechs `flex-grow`-Faktoren gleich acht, was bedeutet, dass jeder Wachstumsfaktorwert `12.5%` des verbliebenen Platzes ist.
+In diesem Beispiel ist die Summe der sechs `flex-grow`-Faktoren gleich acht, was bedeutet, dass jeder Wachstumsfaktorwert `12,5%` des verbleibenden Raums entspricht.
 
 #### HTML
 
@@ -168,7 +169,7 @@ div > div {
 
 {{EmbedLiveSample('Setting flex item grow factor')}}
 
-Wenn die sechs Flexitems entlang der Hauptachse des Containers verteilt sind und die Summe des Hauptinhalts dieser Flexitems kleiner ist als die Größe der Hauptachse des Containers, wird der überschüssige Platz unter den Größe-Flexitems verteilt, wobei `A`, `B`, `C` und `F` jeweils `12.5%` des verbleibenden Platzes erhalten und `D` und `E` jeweils `25%` des zusätzlichen Platzes bekommen.
+Wenn die sechs Flex-Items entlang der Hauptachse des Containers verteilt werden, und die Summe des Hauptinhalts dieser Flex-Items kleiner ist als die Größe der Hauptachse des Containers, wird der zusätzliche Raum unter den Flex-Items verteilt. `A`, `B`, `C` und `F` erhalten jeweils `12,5%` des verbleibenden Raums, und `D` und `E` erhalten jeweils `25%` des zusätzlichen Raums.
 
 ## Spezifikationen
 
@@ -180,8 +181,8 @@ Wenn die sechs Flexitems entlang der Hauptachse des Containers verteilt sind und
 
 ## Siehe auch
 
-- {{cssxref("flex")}} Kurzform
+- {{cssxref("flex")}} Kurzschreibweise
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Steuerung der Verhältnisse von Flexitems entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
-- [`flex-grow` ist seltsam. Oder nicht?](https://css-tricks.com/flex-grow-is-weird/) über CSS-Tricks (2017)
+- [Steuern der Verhältnisse von Flex-Items entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
+- [CSS-Flexible Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [`flex-grow` is weird. Or is it?](https://css-tricks.com/flex-grow-is-weird/) über CSS-Tricks (2017)

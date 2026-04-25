@@ -3,26 +3,26 @@ title: "SerialPort: disconnect-Ereignis"
 short-title: disconnect
 slug: Web/API/SerialPort/disconnect_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`disconnect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn die Verbindung zum Gerät abbricht.
+Das **`disconnect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn die Verbindung des Ports zum Gerät getrennt wird.
 
 ## Beschreibung
 
-Genauer gesagt wird das `disconnect`-Ereignis ausgelöst, wenn ein Port, der zuvor [logisch verbunden](/de/docs/Web/API/SerialPort/connect_event#description) war, nachdem der Benutzer einer Website die Berechtigung erteilt hat, darauf zuzugreifen (nach einem Aufruf von [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)), nicht mehr verbunden ist.
+Genauer gesagt tritt das `disconnect`-Ereignis auf, wenn ein Port, der zuvor [logisch verbunden](/de/docs/Web/API/SerialPort/connect_event#description) war, nachdem einem Benutzer das Recht eingeräumt wurde, dass eine Website darauf zugreifen darf (nach einem Aufruf von [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)), nicht mehr verbunden ist.
 
-### Ereignis-Bubbling
+### Bubbling
 
-Dieses Ereignis steigt zur Instanz von [`Serial`](/de/docs/Web/API/Serial) auf, die diese Schnittstelle zurückgegeben hat. Die `event.target`-Eigenschaft bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das aufsteigt.
+Dieses Ereignis blubbert bis zur Instanz von [`Serial`](/de/docs/Web/API/Serial), die diese Schnittstelle zurückgegeben hat. Die Eigenschaft `event.target` verweist auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das nach oben blubbert.
 
 Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("disconnect", (event) => { })
@@ -36,9 +36,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Benachrichtigung, wenn ein bestimmter Port getrennt wird
+### Benachrichtigung, wenn ein bestimmter Port die Verbindung verliert
 
-Hier wird der Ereignislistener auf einem bestimmten [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt installiert.
+Hier wird der Event Listener auf einem bestimmten [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt installiert.
 
 ```js
 port.addEventListener("disconnect", (event) => {
@@ -46,9 +46,9 @@ port.addEventListener("disconnect", (event) => {
 });
 ```
 
-### Zuhören, wenn Ports nicht mehr verfügbar sind
+### Hören auf alle Ports, die nicht mehr verfügbar sind
 
-Das `disconnect`-Ereignis steigt zum [`Serial`](/de/docs/Web/API/Serial)-Objekt auf, wo Sie auf alle Ports hören können, die nicht mehr verfügbar sind.
+Das `disconnect`-Ereignis blubbert bis zum [`Serial`](/de/docs/Web/API/Serial)-Objekt, wo Sie auf alle nicht mehr verfügbaren Ports hören können.
 
 ```js
 navigator.serial.addEventListener("disconnect", (event) => {
@@ -67,4 +67,4 @@ navigator.serial.addEventListener("disconnect", (event) => {
 
 ## Siehe auch
 
-- [`connect`](/de/docs/Web/API/SerialPort/connect_event)-Ereignis
+- [`connect`](/de/docs/Web/API/SerialPort/connect_event) Ereignis

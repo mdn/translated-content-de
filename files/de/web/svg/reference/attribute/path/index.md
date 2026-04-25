@@ -2,10 +2,10 @@
 title: path
 slug: Web/SVG/Reference/Attribute/path
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
-Das **`path`**-Attribut hat zwei unterschiedliche Bedeutungen: Es kann entweder einen Textpfad definieren, entlang dessen die Zeichen eines Textes gerendert werden, oder einen Bewegungspfad, entlang dessen ein referenziertes Element animiert wird.
+Das **`path`**-Attribut hat zwei verschiedene Bedeutungen: Entweder definiert es einen Textpfad, entlang dem die Zeichen eines Textes gerendert werden, oder einen Bewegungsweg, entlang welchem ein referenziertes Element animiert wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -43,7 +43,7 @@ svg {
 
 ## animateMotion
 
-Für {{SVGElement("animateMotion")}} definiert `path` den Bewegungspfad, ausgedrückt im gleichen Format und interpretiert auf die gleiche Weise wie die geometrische Eigenschaft {{SVGAttr("d")}} für das {{SVGElement("path")}}-Element. Der Effekt einer Bewegungspfad-Animation ist eine Translation entlang der x- und y-Achsen des aktuellen Benutzerskoordinatensystems durch die im Laufe der Zeit berechneten x- und y-Werte.
+Für {{SVGElement("animateMotion")}} definiert `path` den Bewegungsweg, der im gleichen Format ausgedrückt und auf die gleiche Weise interpretiert wird wie die geometrische Eigenschaft {{SVGAttr("d")}} für das {{SVGElement("path")}}-Element. Die Wirkung einer Bewegungsweg-Animation ist eine Verschiebung entlang der x- und y-Achsen des aktuellen Benutzerkoordinatensystems durch die x- und y-Werte, die im Laufe der Zeit berechnet werden.
 
 <table class="properties">
   <tbody>
@@ -63,11 +63,11 @@ Für {{SVGElement("animateMotion")}} definiert `path` den Bewegungspfad, ausgedr
 </table>
 
 - `<path-data>`
-  - : Dieser Wert definiert den Bewegungspfad, entlang dessen das referenzierte Element animiert wird. Für detaillierte Informationen über die verwendbaren Befehle lesen Sie die [Erklärung zum `d`-Attribut](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
+  - : Dieser Wert definiert den Bewegungsweg, entlang welchem das referenzierte Element animiert wird. Für detaillierte Informationen zu den verwendbaren Befehlen siehe die [Erklärung zum `d`-Attribut](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
 
 ## textPath
 
-Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf den die {{Glossary("glyph", "Glyphen")}} eines {{SVGElement("text")}}-Elements gerendert werden. Ein leerer String zeigt an, dass keine Pfaddaten für das Element vorhanden sind. Das bedeutet, dass der Text innerhalb des `<textPath>`-Elements nicht gerendert wird oder zur Begrenzungsbox des `<text>`-Elements beiträgt. Wenn das Attribut nicht angegeben ist, wird stattdessen der Pfad aus {{SVGAttr("href")}} verwendet.
+Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf dem die {{Glossary("glyph", "Glyphen")}} eines {{SVGElement("text")}}-Elements gerendert werden. Ein leerer String gibt an, dass es keine Pfaddaten für das Element gibt. Das bedeutet, dass der Text innerhalb des `<textPath>`-Elements weder gerendert noch zur Begrenzungsbox des `<text>`-Elements beiträgt. Wird das Attribut nicht angegeben, wird stattdessen der im {{SVGAttr("href")}} angegebene Pfad verwendet.
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf den die {{Glossar
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Pfad, der in {{SVGAttr("href")}} angegeben ist</em></td>
+      <td><em>Pfad angegeben in {{SVGAttr("href")}}</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -87,7 +87,7 @@ Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf den die {{Glossar
 </table>
 
 - `<path-data>`
-  - : Dieser Wert definiert den Textpfad, entlang dessen die Glyphen des `<text>`-Elements ausgerichtet werden. Für detaillierte Informationen über die verwendbaren Befehle lesen Sie die [Erklärung zum `d`-Attribut](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
+  - : Dieser Wert definiert den Textpfad, entlang welchen die Glyphen des `<text>`-Elements ausgerichtet sind. Für detaillierte Informationen zu den verwendbaren Befehlen siehe die [Erklärung zum `d`-Attribut](/de/docs/Web/SVG/Reference/Attribute/d#path_commands).
 
 ## Spezifikationen
 

@@ -3,16 +3,17 @@ title: "Window: documentPictureInPicture-Eigenschaft"
 short-title: documentPictureInPicture
 slug: Web/API/Window/documentPictureInPicture
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`documentPictureInPicture`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt für den aktuellen Dokumentkontext zurück.
+Die **`documentPictureInPicture`**-Schreibgeschützte Eigenschaft der
+[`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt für den aktuellen Dokumentkontext zurück.
 
 ## Wert
 
-Eine Instanz eines [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekts.
+Eine Instanz des [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekts.
 
 ## Beispiele
 
@@ -41,4 +42,4 @@ await window.documentPictureInPicture.requestWindow({
 ## Siehe auch
 
 - [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
-- [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)
+- [Verwenden der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

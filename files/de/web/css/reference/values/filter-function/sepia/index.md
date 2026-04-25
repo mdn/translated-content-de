@@ -1,11 +1,12 @@
 ---
-title: sepia()
+title: "`sepia()` CSS-Funktion"
+short-title: sepia()
 slug: Web/CSS/Reference/Values/filter-function/sepia
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, gelblich/braunes Aussehen. Das Ergebnis ist eine {{cssxref("filter-function")}}.
+Die **`sepia()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) konvertiert das Eingabebild in Sepia und verleiht ihm ein wärmeres, mehr gelbliches/braunes Erscheinungsbild. Das Ergebnis ist eine {{cssxref("filter-function")}}.
 
 {{InteractiveExample("CSS Demo: sepia()")}}
 
@@ -44,7 +45,7 @@ sepia(amount)
 ### Parameter
 
 - `amount` {{Optional_Inline}}
-  - : Der Grad der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren für den Effekt. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Der Betrag der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig Sepia, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren für den Effekt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -72,7 +73,7 @@ sepia(100%)
 
 ## Siehe auch
 
-Die anderen {{cssxref("filter-function")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+Die anderen {{cssxref("filter-function")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

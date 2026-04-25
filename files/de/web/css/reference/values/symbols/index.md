@@ -1,13 +1,14 @@
 ---
-title: symbols()
+title: "`symbols()` CSS-Funktion"
+short-title: symbols()
 slug: Web/CSS/Reference/Values/symbols
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`symbols()`**-[CSS](/de/docs/Web/CSS)-Funktion ermöglicht es, Zählerstile inline direkt als Wert von Eigenschaften wie {{cssxref("list-style")}} zu definieren und bietet eine weniger leistungsstarke, aber einfachere Alternative zur Methode {{cssxref("@counter-style")}} zur Definition eines Zählerstils.
+Die **`symbols()`** [CSS](/de/docs/Web/CSS)-Funktion ermöglicht das definieren von Zählerstilen inline, direkt als Wert von Eigenschaften wie {{cssxref("list-style")}}. Sie bietet eine weniger leistungsfähige, aber einfachere Alternative zur {{cssxref("@counter-style")}}-Methode zur Definition eines Zählerstils.
 
-Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h. es kann nur einmal verwendet werden). Diese Funktion akzeptiert Zeichenfolgen und Bilder als Werte. Im Vergleich dazu akzeptiert der [`symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols)-Deskriptor von {{cssxref("@counter-style")}} auch Bezeichner.
+Im Gegensatz zu {{cssxref("@counter-style")}}, welche einen wiederverwendbaren Zählerstil definiert, ist `symbols()` _anonym_ (d.h. sie kann nur einmal verwendet werden). Diese Funktion akzeptiert Strings und Bilder als Werte. Im Vergleich dazu akzeptiert der [`symbols`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols) Deskriptor von {{cssxref("@counter-style")}} auch Bezeichner.
 
 ## Syntax
 
@@ -15,13 +16,13 @@ Im Gegensatz zu {{cssxref("@counter-style")}}, das einen wiederverwendbaren Zäh
 symbols() = symbols( <symbols-type>? [ <string> | <image> ]+ );
 ```
 
-`<symbols-type>` kann einer der folgenden sein:
+`<symbols-type>` kann einer der folgenden Werte sein:
 
-- `cyclic`: Das System durchläuft die definierten Werte in der Reihenfolge ihrer Definition und kehrt am Ende zu Beginn zurück.
-- `numeric`: Das System interpretiert die angegebenen Werte als aufeinanderfolgende Einheiten eines Stellenwert-Zahlensystems.
-- `alphabetic`: Das System interpretiert die angegebenen Werte als Ziffern eines alphabetischen Zahlensystems, ähnlich einem Stellenwert-Zahlensystem, jedoch ohne `0`.
-- `symbolic`: Das System durchläuft die Werte und gibt sie bei jedem Zyklus ein weiteres Mal aus (einmal im ersten Zyklus, zweimal im zweiten usw.).
-- `fixed`: Das System durchläuft die angegebenen Werte einmal und verfällt dann in Arabische Ziffern.
+- `cyclic`: Das System durchläuft die angegebenen Werte in der Reihenfolge ihrer Definition und kehrt zum Anfang zurück, wenn es das Ende erreicht.
+- `numeric`: Das System interpretiert die angegebenen Werte als aufeinanderfolgende Einheiten eines Positionswertnummerierungssystems.
+- `alphabetic`: Das System interpretiert die angegebenen Werte als Ziffern eines alphabetischen Nummerierungssystems, ähnlich einem Positionswertnummerierungssystem, jedoch ohne `0`.
+- `symbolic`: Das System durchläuft die Werte und gibt sie in jedem Zyklus ein weiteres Mal aus (einmal für den ersten Zyklus, zweimal für den zweiten, usw.).
+- `fixed`: Das System durchläuft die angegebenen Werte einmal und wechselt dann zu arabischen Ziffern.
 
 ## Formale Syntax
 
@@ -65,5 +66,5 @@ ol {
 
 - {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
 - Listeneigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-type")}}
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles)-Modul
-- [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists)-Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists) Modul

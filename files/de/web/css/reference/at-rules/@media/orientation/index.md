@@ -1,33 +1,34 @@
 ---
-title: orientation
+title: "`orientation` CSS-Media-Feature"
+short-title: orientation
 slug: Web/CSS/Reference/At-rules/@media/orientation
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
 ---
 
-Die **`orientation`** [CSS](/de/docs/Web/CSS) [Media-Abfrage](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Ausrichtung des {{Glossary("viewport", "Viewports")}} (oder des Seitenbereichs bei [gedruckten Medien](/de/docs/Web/CSS/Guides/Paged_media)) zu testen.
+Die **`orientation`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Ausrichtung des {{Glossary("viewport", "Viewports")}} (oder der Seitenbox bei [seitengesteuerten Medien](/de/docs/Web/CSS/Guides/Paged_media)) zu testen.
 
 > [!NOTE]
-> Diese Funktion entspricht nicht der Ausrichtung des _Geräts_. Das Öffnen der virtuellen Tastatur auf vielen Geräten im Hochformat führt dazu, dass der Viewport breiter als hoch wird, wodurch der Browser anstatt Hochformat-Stile die Querformat-Stile verwendet.
+> Diese Funktion entspricht nicht der _Geräte_-Ausrichtung. Das Öffnen der Soft-Tastatur auf vielen Geräten im Hochformat führt dazu, dass der Viewport breiter wird als hoch, wodurch der Browser Landschaftsstile anstelle von Hochformat verwendet.
 
 ## Syntax
 
-Das `orientation`-Feature wird als Schlüsselwort angegeben, das aus der untenstehenden Liste ausgewählt wird.
+Die `orientation`-Feature wird als ein Schlüsselwortwert angegeben, der aus der untenstehenden Liste ausgewählt wird.
 
-### Schlüsselwort-Werte
+### Schlüsselwortwerte
 
 - `portrait`
-  - : Der Viewport ist in Hochformat-Ausrichtung, d.h. die Höhe ist größer oder gleich der Breite.
+  - : Der Viewport ist im Hochformat, das heißt, die Höhe ist größer oder gleich der Breite.
 - `landscape`
-  - : Der Viewport ist in Querformat-Ausrichtung, d.h. die Breite ist größer als die Höhe.
+  - : Der Viewport ist im Querformat, das heißt, die Breite ist größer als die Höhe.
 
 ## Beispiele
 
-### Hochformat-Ausrichtung
+### Hochformat
 
-In diesem Beispiel haben wir drei Boxen im HTML und verwenden das `orientation`-Media-Feature, um zwischen einem Reihenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
+In diesem Beispiel haben wir drei Boxen im HTML und verwenden die `orientation`-Media-Feature, um zwischen einer Zeilenanordnung (im Querformat) und einer Spaltenanordnung (im Hochformat) zu wechseln.
 
-Der Beispielausgabe ist in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe größer als seine Breite ist, sodass die Boxen ein Spaltenlayout erhalten.
+Die Beispielausgabe ist in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe größer ist als seine Breite, sodass die Boxen eine Spaltenanordnung erhalten.
 
 #### HTML
 
@@ -69,11 +70,11 @@ div {
 
 {{EmbedLiveSample("Portrait orientation", "", "800")}}
 
-### Querformat-Ausrichtung
+### Querformat
 
-Dieses Beispiel hat genau denselben Code wie das vorherige Beispiel: Es hat drei Boxen im HTML und verwendet das `orientation`-Media-Feature, um zwischen einem Reihenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
+Dieses Beispiel hat exakt den gleichen Code wie das vorherige Beispiel: Es hat drei Boxen im HTML und verwendet die `orientation`-Media-Feature, um zwischen einer Zeilenanordnung (im Querformat) und einer Spaltenanordnung (im Hochformat) zu wechseln.
 
-In diesem Beispiel ist die Beispielausgabe jedoch in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe kleiner als seine Breite ist, sodass die Boxen ein Reihenlayout erhalten.
+In diesem Beispiel ist die Beispielausgabe jedoch in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe kleiner ist als seine Breite, sodass die Boxen eine Zeilenanordnung erhalten.
 
 #### HTML
 

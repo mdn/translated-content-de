@@ -2,30 +2,30 @@
 title: DocumentPictureInPictureEvent
 slug: Web/API/DocumentPictureInPictureEvent
 l10n:
-  sourceCommit: bac20b9ed34bf5b6427ba9274c99c1737dc309ff
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SecureContext_Header}}
 
-Das **`DocumentPictureInPictureEvent`**-Interface der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) ist das Ereignisobjekt für das [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignis, welches ausgelöst wird, wenn das Picture-in-Picture-Fenster geöffnet wird.
+Das **`DocumentPictureInPictureEvent`**-Interface der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) ist das Ereignisobjekt für das [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignis, das ausgelöst wird, wenn das Picture-in-Picture-Fenster geöffnet wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`DocumentPictureInPictureEvent()`](/de/docs/Web/API/DocumentPictureInPictureEvent/DocumentPictureInPictureEvent) {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz eines `DocumentPictureInPictureEvent`-Objekts.
+- [`DocumentPictureInPictureEvent()`](/de/docs/Web/API/DocumentPictureInPictureEvent/DocumentPictureInPictureEvent)
+  - : Erstellt eine neue Instanz des `DocumentPictureInPictureEvent`-Objekts.
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- [`window`](/de/docs/Web/API/DocumentPictureInPictureEvent/window) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters repräsentiert, auf dem das Ereignis ausgelöst wurde.
+- [`window`](/de/docs/Web/API/DocumentPictureInPictureEvent/window) {{ReadOnlyInline}}
+  - : Gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf dem das Ereignis ausgelöst wurde.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 

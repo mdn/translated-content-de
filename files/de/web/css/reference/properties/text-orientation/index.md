@@ -1,11 +1,12 @@
 ---
-title: text-orientation
+title: "`text-orientation` CSS property"
+short-title: text-orientation
 slug: Web/CSS/Reference/Properties/text-orientation
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie betrifft nur Text im vertikalen Modus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich für die Steuerung der Anzeige von Sprachen, die eine vertikale Schrift verwenden, und auch für die Erstellung von vertikalen Tabellenüberschriften.
+Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie betrifft nur Text im Vertikalmodus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich zur Steuerung der Darstellung von Sprachen, die vertikale Schrift verwenden, und auch für vertikale Tabellenüberschriften.
 
 {{InteractiveExample("CSS Demo: text-orientation")}}
 
@@ -48,20 +49,20 @@ text-orientation: revert-layer;
 text-orientation: unset;
 ```
 
-Die `text-orientation` Eigenschaft wird als ein einzelnes Schlüsselwort aus der folgenden Liste angegeben.
+Die `text-orientation` Eigenschaft wird als ein einzelnes Schlüsselwort aus der untenstehenden Liste angegeben.
 
 ### Werte
 
 - `mixed`
-  - : Dreht die Zeichen horizontaler Schriftsysteme um 90° im Uhrzeigersinn. Ordnet die Zeichen vertikaler Schriftsysteme natürlich an. Standardwert.
+  - : Dreht die Zeichen horizontaler Schriften um 90° im Uhrzeigersinn. Legt die Zeichen vertikaler Schriften natürlich aus. Standardwert.
 - `upright`
-  - : Ordnet die Zeichen horizontaler Schriftsysteme natürlich (aufrecht) an, ebenso wie die Glyphen für vertikale Schriftsysteme. Beachten Sie, dass dieses Schlüsselwort dazu führt, dass alle Zeichen als von links nach rechts betrachtet werden: Der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` erzwungen.
+  - : Legt die Zeichen horizontaler Schriften natürlich (aufrecht) aus, ebenso wie die Glyphen vertikaler Schriften. Beachten Sie, dass dieses Schlüsselwort dazu führt, dass alle Zeichen als von links nach rechts betrachtet werden: der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` gesetzt.
 - `sideways`
-  - : Verursacht, dass Zeichen so angeordnet werden, wie sie horizontal wären, jedoch mit der gesamten Zeile um 90° im Uhrzeigersinn gedreht.
+  - : Fügt Zeichen so an, wie sie horizontal wären, aber mit der gesamten Zeile um 90° im Uhrzeigersinn gedreht.
 - `sideways-right`
-  - : Ein Alias für `sideways`, der aus Kompatibilitätsgründen beibehalten wird.
+  - : Ein Alias zu `sideways`, der aus Kompatibilitätsgründen beibehalten wird.
 - `use-glyph-orientation`
-  - : Bei SVG-Elementen führt dieses Schlüsselwort dazu, dass der Wert der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal` verwendet wird.
+  - : Bei SVG-Elementen führt dieses Schlüsselwort zur Verwendung der Werte der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal`.
 
 ## Formale Definition
 
@@ -102,7 +103,7 @@ p {
 
 ## Siehe auch
 
-- Die anderen vertikalschriftenbezogenen CSS-Eigenschaften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
-- [CSS logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- [Formatierung vertikalen Textes (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/)
-- Umfangreiche Browsersupport-Test-Ergebnisse: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>
+- Die anderen vertikalschriftspezifischen CSS-Eigenschaften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
+- [Logische CSS-Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [Stilisierung vertikalen Textes (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/)
+- Umfangreiche Browser-Unterstützung Testergebnisse: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>

@@ -1,11 +1,12 @@
 ---
-title: "<var>: Das Variable-Element"
+title: "`<var>` HTML-Variablelement"
+short-title: <var>
 slug: Web/HTML/Reference/Elements/var
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<var>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert den Namen einer Variablen in einem mathematischen Ausdruck oder einem Programmierszenario. Es wird typischerweise in einer kursiven Version der aktuellen Schriftart dargestellt, obwohl dieses Verhalten vom Browser abhängig ist.
+Das **`<var>`** [HTML](/de/docs/Web/HTML) Element repräsentiert den Namen einer Variablen in einem mathematischen Ausdruck oder einem Programmierkontext. Es wird typischerweise in einer kursiven Version der aktuellen Schriftart dargestellt, obwohl dieses Verhalten vom Browser abhängt.
 
 {{InteractiveExample("HTML Demo: &lt;var&gt;", "tabbed-shorter")}}
 
@@ -25,19 +26,19 @@ var {
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Anwendungshinweise
 
 ### Verwandte Elemente
 
-Andere Elemente, die in Kontexten verwendet werden, in denen `<var>` häufig verwendet wird, umfassen:
+Andere Elemente, die in Kontexten verwendet werden, in denen `<var>` häufig verwendet wird, sind:
 
-- {{HTMLElement("code")}}: Das HTML Code-Element
-- {{HTMLElement("kbd")}}: Das HTML Tastatureingabe-Element
-- {{HTMLElement("samp")}}: Das HTML Beispielausgabe-Element
+- {{HTMLElement("code")}}: Das HTML-Codeelement
+- {{HTMLElement("kbd")}}: Das HTML-Tastatureingabeelement
+- {{HTMLElement("samp")}}: Das HTML-Beispielausgabeelement
 
-Wenn Sie auf Code stoßen, der `<var>` fälschlicherweise für stilistische Zwecke anstelle semantischer Zwecke verwendet, sollten Sie entweder ein {{HTMLElement("span")}} mit geeigneter CSS oder ein geeignetes semantisches Element aus den folgenden verwenden:
+Wenn Sie auf Code stoßen, der `<var>` fälschlicherweise für stilistische Zwecke anstelle semantischer Zwecke verwendet, sollten Sie entweder ein {{HTMLElement("span")}} mit entsprechendem CSS oder ein passendes semantisches Element aus den folgenden verwenden:
 
 - {{HTMLElement("em")}}
 - {{HTMLElement("i")}}
@@ -45,7 +46,7 @@ Wenn Sie auf Code stoßen, der `<var>` fälschlicherweise für stilistische Zwec
 
 ### Standardstil
 
-Die meisten Browser wenden {{cssxref("font-style")}} `"italic"` an, wenn `<var>` gerendert wird. Dies kann in CSS überschrieben werden, wie folgt:
+Die meisten Browser wenden {{cssxref("font-style")}} mit `"italic"` an, wenn sie `<var>` rendern. Dies kann in CSS wie folgt überschrieben werden:
 
 ```css
 var {
@@ -55,9 +56,9 @@ var {
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-Hier ist ein grundlegendes Beispiel, bei dem `<var>` verwendet wird, um Variablennamen in einer mathematischen Gleichung zu bezeichnen.
+Hier ist ein einfaches Beispiel, bei dem `<var>` verwendet wird, um Variablennamen in einer mathematischen Gleichung zu kennzeichnen.
 
 ```html
 <p>An algebraic equation: <var>x</var> = <var>y</var> + 2</p>
@@ -67,9 +68,9 @@ Hier ist ein grundlegendes Beispiel, bei dem `<var>` verwendet wird, um Variable
 
 {{EmbedLiveSample("Basic_example", 650,80)}}
 
-### Überschreiben des Standardstils
+### Den Standardstil überschreiben
 
-Mit CSS können Sie den Standardstil des `<var>`-Elements überschreiben. In diesem Beispiel werden Variablennamen fett dargestellt, unter Verwendung von Courier, falls verfügbar, andernfalls wird auf die standardmäßige Monospace-Schrift zurückgegriffen.
+Mit CSS können Sie den Standardstil für das `<var>`-Element überschreiben. In diesem Beispiel werden Variablennamen fett dargestellt, wobei Courier verwendet wird, falls verfügbar, andernfalls wird auf die Standard-Monospace-Schriftart zurückgegriffen.
 
 #### CSS
 
@@ -91,7 +92,7 @@ var {
 </p>
 ```
 
-Dieser HTML-Code verwendet `<var>`, um die Namen zweier Variablen einzuschließen.
+Dieses HTML verwendet `<var>`, um die Namen von zwei Variablen einzuschließen.
 
 #### Ergebnis
 
@@ -109,10 +110,10 @@ Dieser HTML-Code verwendet `<var>`, um die Namen zweier Variablen einzuschließe
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phraseninhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -120,7 +121,7 @@ Dieser HTML-Code verwendet `<var>`, um die Namen zweier Variablen einzuschließe
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
@@ -133,7 +134,7 @@ Dieser HTML-Code verwendet `<var>`, um die Namen zweier Variablen einzuschließe
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>

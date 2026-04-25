@@ -1,11 +1,12 @@
 ---
-title: perspective()
+title: "`perspective()` CSS-Funktion"
+short-title: perspective()
 slug: Web/CSS/Reference/Values/transform-function/perspective
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene festlegt, der Perspektive, aus der der Betrachter sehen würde, wenn die zweidimensionale Schnittstelle dreidimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die den Abstand zwischen dem Nutzer und der z=0-Ebene festlegt, die Perspektive, von der aus der Betrachter wäre, wenn die zweidimensionale Schnittstelle dreidimensional wäre. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: perspective()")}}
 
@@ -99,8 +100,8 @@ transform: perspective(6.5cm);
 }
 ```
 
-Die Transformationsfunktion `perspective()` ist Teil des {{cssxref('transform')}}-Wertes, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}},
-die am übergeordneten Element eines in dreidimensionalem Raum transformierten Kindes angebracht sind.
+Die `perspective()` Transformationsfunktion ist Teil des {{cssxref('transform')}} Wertes, der auf das zu transformierende Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}},
+die an das übergeordnete Element eines in dreidimensionalem Raum transformierten Kindes angehängt sind.
 
 ## Syntax
 
@@ -111,9 +112,9 @@ perspective(d)
 ### Werte
 
 - _d_
-  - : Ist ein {{cssxref("&lt;length&gt;")}}, das die Entfernung vom Benutzer zur z=0-Ebene darstellt. Die z=0-Ebene ist die Ebene, in der alles in einer zweidimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte führen zu Syntaxfehlern.
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, das den Abstand vom Nutzer zur z=0-Ebene darstellt. Die z=0-Ebene ist die Ebene, auf der alles in einer zweidimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
 
-    Andere Werte als `none` führen dazu, dass Elemente mit positiven z-Positionen größer erscheinen und Elemente mit negativen z-Positionen kleiner erscheinen. Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind, verschwinden, als ob sie hinter dem Benutzer wären. Große Werte der Perspektive repräsentieren eine kleine Transformation; kleine Werte der `perspective()` repräsentieren eine große Transformation; `perspective(none)` repräsentiert eine Perspektive aus unendlicher Entfernung und keine Transformation.
+    Werte ungleich `none` bewirken, dass Elemente mit positiven z-Positionen größer erscheinen, und Elemente mit negativen z-Positionen kleiner. Elemente mit z-Positionen gleich oder größer als der Perspektivenwert verschwinden, als ob sie hinter dem Nutzer wären. Große Werte der Perspektive repräsentieren eine kleine Transformation; kleine Werte von `perspective()` repräsentieren eine große Transformation; `perspective(none)` stellt eine Perspektive aus unendlicher Entfernung dar und keine Transformation.
 
 <table class="standard-table">
   <thead>
@@ -132,7 +133,7 @@ perspective(d)
         </p>
       </td>
       <td>
-        Diese Transformation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+        Diese Transformation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Matrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -236,7 +237,7 @@ p + div {
 
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
-- Individuelle Transformations-Eigenschaften:
+- Einzelne Transform-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

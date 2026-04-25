@@ -1,11 +1,12 @@
 ---
-title: line-gap-override
+title: "`line-gap-override` CSS At-Regel-Deskriptor"
+short-title: line-gap-override
 slug: Web/CSS/Reference/At-rules/@font-face/line-gap-override
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`line-gap-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert die Zeilenabstand-Metrik für die Schriftart. Die Zeilenabstand-Metrik ist der von der Schriftart empfohlene Zeilenabstand oder das externe Führen.
+Der **`line-gap-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert den line-gap Wert für die Schriftart. Der line-gap Wert ist der von der Schriftart empfohlene Zeilenabstand oder äußere Abstand.
 
 ## Syntax
 
@@ -17,7 +18,7 @@ line-gap-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Wenn verwendet, wird der Metrik-Wert aus der Schriftartdatei abgeleitet.
+  - : Der Standardwert. Wenn verwendet, wird der Wert aus der Schriftdatei übernommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -31,9 +32,9 @@ line-gap-override: 90%;
 
 ## Beispiele
 
-### Überschreiben von Metriken einer Ersatzschriftart
+### Überschreibung der Metriken einer Fallback-Schriftart
 
-Die `line-gap-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser zu einer primären Webschriftart zu passen.
+Die `line-gap-override`-Eigenschaft kann helfen, die Metriken einer Fallback-Schriftart zu überschreiben, um diese besser an die einer primären Webschriftart anzupassen.
 
 ```css
 @font-face {
@@ -68,4 +69,4 @@ Die `line-gap-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer
 - {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/size-adjust", "size-adjust")}}
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor

@@ -1,16 +1,17 @@
 ---
-title: ::-moz-color-swatch
+title: "`::-moz-color-swatch` CSS pseudo-element"
+short-title: ::-moz-color-swatch
 slug: Web/CSS/Reference/Selectors/::-moz-color-swatch
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Der **`::-moz-color-swatch`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die die im {{HTMLElement("input")}} von `type="color"` ausgewählte Farbe darstellt.
+Das **`::-moz-color-swatch`** [CSS](/de/docs/Web/CSS)-[Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die die in einem {{HTMLElement("input")}} vom `type="color"` ausgewählte Farbe darstellt.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-color-swatch` mit einem anderen Element als einem `<input type="color">` bewirkt nichts und hat keine Wirkung.
+> Die Verwendung von `::-moz-color-swatch` mit allem anderen als einem `<input type="color">` führt zu keiner Übereinstimmung und hat keine Wirkung.
 
 ## Syntax
 
@@ -43,7 +44,7 @@ input[type="color"]::-moz-color-swatch {
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

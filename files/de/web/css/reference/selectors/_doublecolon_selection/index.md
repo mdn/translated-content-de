@@ -1,13 +1,14 @@
 ---
-title: ::selection
+title: "`::selection` CSS pseudo-element"
+short-title: ::selection
 slug: Web/CSS/Reference/Selectors/::selection
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Der **`::selection`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stile auf den Teil eines Dokuments an, der vom Benutzer hervorgehoben wurde (wie z. B. das Klicken und Ziehen der Maus über Text).
+Das **`::selection`**-[CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stile auf den Teil eines Dokuments an, der vom Benutzer hervorgehoben wurde (z. B. durch Klicken und Ziehen der Maus über den Text).
 
-Das `::selection` Pseudo-Element folgt einem speziellen Vererbungsmodell, das allen Hervorhebungs-Pseudo-Elementen gemeinsam ist. Weitere Details zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Hervorhebungs-Pseudo-Elemente Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::selection`-Pseudoelement folgt einem speziellen Vererbungsmodell, das für alle Hervorhebungs-Pseudoelemente gilt. Für weitere Details, wie diese Vererbung funktioniert, siehe den Abschnitt zur [Hervorhebungs-Pseudoelement-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
 {{InteractiveExample("CSS Demo: ::selection", "tabbed-shorter")}}
 
@@ -24,17 +25,17 @@ p::selection {
 </p>
 ```
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::selection` verwendet werden:
 
 - {{CSSxRef("color")}}
 - {{CSSxRef("background-color")}}
-- {{CSSxRef("text-decoration")}} und die dazugehörigen Eigenschaften
+- {{CSSxRef("text-decoration")}} und die zugehörigen Eigenschaften
 - {{CSSxRef("text-shadow")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}, {{CSSxRef("-webkit-text-fill-color")}} und {{CSSxRef("-webkit-text-stroke-width")}}
 
-Insbesondere {{CSSxRef("background-image")}} wird ignoriert.
+Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Syntax
 
@@ -46,15 +47,15 @@ Insbesondere {{CSSxRef("background-image")}} wird ignoriert.
 
 ## Barrierefreiheit
 
-**Überschreiben Sie keine ausgewählten Textstile aus rein ästhetischen Gründen** — Benutzer können sie an ihre Bedürfnisse anpassen. Für Personen, die kognitive Bedenken oder weniger technologische Kenntnisse haben, können unerwartete Änderungen an Auswahlstilen ihr Verständnis der Funktionalität beeinträchtigen.
+**Überschreiben Sie nicht die Stile des ausgewählten Texts aus rein ästhetischen Gründen** — Benutzer können diese an ihre Bedürfnisse anpassen. Für Menschen mit kognitiven Schwierigkeiten oder weniger technologischem Verständnis können unerwartete Änderungen der Auswahlstile das Verständnis der Funktionalität beeinträchtigen.
 
-Wenn sie überschrieben werden, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen den Text- und Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehschwäche es lesen können.
+Wenn sie überschrieben werden, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen den Text- und Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehbehinderungen es lesen können.
 
-Das Farbkontrastverhältnis wird ermittelt, indem die Helligkeit des ausgewählten Textes und der ausgewählten Hintergrundfarben verglichen wird. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, muss Textinhalt ein Kontrastverhältnis von **4.5:1** aufweisen, oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder `24px` oder größer.)
+Das Farbkontrastverhältnis wird durch Vergleich der Leuchtkraft des ausgewählten Textes und der Hintergrundfarben des ausgewählten Textes ermittelt. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, muss textueller Inhalt ein Kontrastverhältnis von **4.5:1** aufweisen oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight), oder `24px` oder größer.)
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Understanding WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Beispiele
 
@@ -107,4 +108,4 @@ p::selection {
 
 ## Siehe auch
 
-- {{cssxref("pointer-events")}} - Steuerung, welche Ereignisse auf dem Element aktiv sind
+- {{cssxref("pointer-events")}} - steuern, welche Ereignisse auf dem Element aktiv sind

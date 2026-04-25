@@ -1,11 +1,12 @@
 ---
-title: text-decoration-thickness
+title: "`text-decoration-thickness` CSS property"
+short-title: text-decoration-thickness
 slug: Web/CSS/Reference/Properties/text-decoration-thickness
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strichdicke der Dekorationslinie fest, die auf den Text in einem Element angewendet wird, wie zum Beispiel Durchstreichungen, Unterstreichungen oder Überstreichungen.
+Die **`text-decoration-thickness`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Strichdicke der Dekorationslinie fest, die auf Text in einem Element verwendet wird, wie zum Beispiel bei Durchstreichungen, Unterstreichungen oder Überstreichungen.
 
 {{InteractiveExample("CSS Demo: text-decoration-thickness")}}
 
@@ -67,11 +68,11 @@ text-decoration-thickness: unset;
 - `auto`
   - : Der Browser wählt eine geeignete Breite für die Textdekoration aus.
 - `from-font`
-  - : Wenn die Schriftdatei Informationen über eine bevorzugte Dicke enthält, wird dieser Wert verwendet. Falls die Schriftdatei diese Informationen nicht enthält, verhält es sich so, als wäre `auto` gesetzt, wobei der Browser die geeignete Dicke wählt.
+  - : Wenn die Schriftdatei Informationen über eine bevorzugte Dicke enthält, verwenden Sie diesen Wert. Enthält die Schriftdatei diese Informationen nicht, verhalten Sie sich, als wäre `auto` gesetzt und der Browser wählt eine geeignete Dicke.
 - `<length>`
-  - : Gibt die Dicke der Textdekoration als {{cssxref('length')}} an, wodurch der Vorschlag der Schriftdatei oder die Standardeinstellung des Browsers überschrieben wird.
+  - : Gibt die Dicke der Textdekoration als {{cssxref('length')}} an und überschreibt den Vorschlag der Schriftdatei oder die Standardeinstellung des Browsers.
 - `<percentage>`
-  - : Gibt die Dicke der Textdekoration als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart an. Ein Prozentwert wird als relativer Wert vererbt und skaliert daher mit Schriftgrößenänderungen. Der Browser muss mindestens 1 Gerätepixel verwenden. Für eine bestimmte Anwendung dieser Eigenschaft ist die Dicke über die gesamte Box konstant, auf die es angewendet wird, auch wenn es untergeordnete Elemente mit unterschiedlicher Schriftgröße gibt.
+  - : Gibt die Dicke der Textdekoration als {{cssxref('percentage')}} von **1em** in der aktuellen Schriftart an. Ein Prozentsatz wird als relativer Wert geerbt und skaliert daher mit Änderungen in der Schriftart. Der Browser muss mindestens 1 Gerät-Pixel verwenden. Für eine bestimmte Anwendung dieser Eigenschaft ist die Dicke über das gesamte angewandte Element konstant, auch wenn es untergeordnete Elemente mit einer anderen Schriftgröße gibt.
 
 ## Formale Definition
 
@@ -83,7 +84,7 @@ text-decoration-thickness: unset;
 
 ## Beispiele
 
-### Variierende Dicke
+### Unterschiedliche Dicken
 
 #### HTML
 

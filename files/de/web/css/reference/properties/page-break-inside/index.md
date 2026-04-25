@@ -1,16 +1,17 @@
 ---
-title: page-break-inside
+title: "`page-break-inside` CSS property"
+short-title: page-break-inside
 slug: Web/CSS/Reference/Properties/page-break-inside
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{deprecated_header}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die {{cssxref("break-inside")}} Eigenschaft ersetzt.
+> Diese Eigenschaft wurde durch die {{cssxref("break-inside")}}-Eigenschaft ersetzt.
 
-Die **`page-break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft ändert Seitenumbrüche _innerhalb_ des aktuellen Elements.
+Die **`page-break-inside`** [CSS](/de/docs/Web/CSS)-Eigenschaft passt Seitenumbrüche _innerhalb_ des aktuellen Elements an.
 
 {{InteractiveExample("CSS Demo: page-break-inside")}}
 
@@ -84,15 +85,15 @@ page-break-inside: unset;
 ### Werte
 
 - `auto`
-  - : Initialer Wert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Initialwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `avoid`
-  - : Vermeidet Seitenumbrüche innerhalb des Elements.
+  - : Vermeiden von Seitenumbrüchen innerhalb des Elements.
 
-## Alias für Seitenumbrüche
+## Seitenumbruch-Aliase
 
-Die Eigenschaft `page-break-inside` ist jetzt ein veralteter Begriff, der durch {{cssxref("break-inside")}} ersetzt wurde.
+Die `page-break-inside`-Eigenschaft ist nun eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte folgendermaßen als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |
@@ -109,7 +110,7 @@ Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias f
 
 ## Beispiele
 
-### Vermeidung von Seitenumbrüchen innerhalb von Elementen
+### Vermeiden von Seitenumbrüchen innerhalb von Elementen
 
 #### HTML
 

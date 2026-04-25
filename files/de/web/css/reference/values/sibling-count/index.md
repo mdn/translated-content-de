@@ -1,14 +1,15 @@
 ---
-title: sibling-count()
+title: "`sibling-count()` CSS-Funktion"
+short-title: sibling-count()
 slug: Web/CSS/Reference/Values/sibling-count
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`sibling-count()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt eine Ganzzahl zurück, die die Gesamtanzahl der Geschwister-DOM-Elemente (direkte Kinder des übergeordneten Elements) des Elements darstellt, auf dem sie verwendet wird, einschließlich des Elements selbst.
+Die **`sibling-count()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt eine ganze Zahl zurück, die die Gesamtanzahl der Geschwister-DOM-Elemente (direkte Kinder des Elternteils) des Elements, auf das sie angewendet wird, einschließlich des Elements selbst, darstellt.
 
 > [!NOTE]
-> Die {{CSSxRef("counter()")}} Funktion liefert ein ähnliches Ergebnis, gibt jedoch eine `<string>` zurück (was besser für [generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content) geeignet ist), während `sibling-count()` ein `<integer>` zurückgibt (das für Berechnungen verwendet werden kann).
+> Die {{CSSxRef("counter()")}}-Funktion liefert ein ähnliches Ergebnis, aber sie gibt eine `<string>` zurück (was besser für [erzeugten Inhalt](/de/docs/Web/CSS/Guides/Generated_content) geeignet ist), während `sibling-count()` ein `<integer>` zurückgibt (das für Berechnungen verwendet werden kann).
 
 ## Syntax
 
@@ -18,21 +19,21 @@ sibling-count()
 
 ### Parameter
 
-Die `sibling-count()` Funktion akzeptiert keine Parameter.
+Die `sibling-count()`-Funktion akzeptiert keine Parameter.
 
 ### Rückgabewert
 
-Eine Ganzzahl; die Gesamtanzahl der Geschwister-DOM-Elemente einschließlich des Elements selbst.
+Eine ganze Zahl; die Gesamtanzahl der Geschwister-DOM-Elemente einschließlich des Elements selbst.
 
 ## Beispiele
 
 ### Dynamische Spaltenanzahl
 
-Dieses Beispiel zeigt, wie die Breite jedes Elements in einer Liste basierend auf der Anzahl der Elemente festgelegt wird, sodass jedes Kind in seiner eigenen Spalte platziert wird.
+Dieses Beispiel zeigt, wie die Breite jedes Elements in einer Liste basierend auf der Anzahl der Elemente gesetzt wird, wodurch jedes Kind in seine eigene Spalte platziert werden kann.
 
 #### HTML
 
-Wir fügen einen {{htmlelement("ul")}} Container und mehrere {{htmlelement("li")}} Elemente als Kinder hinzu.
+Wir fügen einen {{htmlelement("ul")}}-Container und mehrere {{htmlelement("li")}}-Elemente als Kinder hinzu.
 
 ```html
 <ul>
@@ -46,7 +47,7 @@ Wir fügen einen {{htmlelement("ul")}} Container und mehrere {{htmlelement("li")
 
 #### CSS
 
-Wir teilen die {{CSSxRef("width")}} jedes Listenelements durch die Anzahl der direkten Kinder, die die Liste enthält. Zudem setzen wir jedes ungerade Element auf eine andere {{CSSxRef("background-color")}}, um den Effekt besser zu verdeutlichen.
+Wir teilen die {{CSSxRef("width")}} jedes Listenelements durch die Anzahl der direkten Kinder, die die Liste enthält. Wir setzen auch jedes ungerade Element mit einer {{CSSxRef("background-color")}}, um den Effekt besser zu veranschaulichen.
 
 ```css
 ul {

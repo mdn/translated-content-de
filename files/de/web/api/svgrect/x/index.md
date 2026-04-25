@@ -3,12 +3,12 @@ title: "SVGRect: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGRect/x
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
 ---
 
 {{APIRef("SVG")}}
 
-Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty)-Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
+Die [x](https://w3c.github.io/svgwg/svg2-draft/geometry.html#XProperty)-Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
 
 ## Spezifikationen
 

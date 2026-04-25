@@ -1,13 +1,14 @@
 ---
-title: "<rtc>: Das Ruby Text Container-Element"
+title: "`<rtc>` HTML Ruby Text Container Element"
+short-title: <rtc>
 slug: Web/HTML/Reference/Elements/rtc
 l10n:
-  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einem Ruby von {{HTMLElement("rb")}}-Elementen innerhalb eines {{HTMLElement("ruby")}}-Elements dargestellt werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Annotationen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen innerhalb eines {{HTMLElement("ruby")}}-Elements dargestellt werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
 
 {{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
 
@@ -38,7 +39,7 @@ rtc {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -77,29 +78,29 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textinhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassen</th>
+      <th scope="row">Weglassen des Tags</th>
       <td>
-        Das Schluss-Tag kann weggelassen werden, wenn es unmittelbar von einem
+        Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
         {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
-        {{HTMLElement("rt")}}-Element-Öffnungstag oder durch das Schlusstag seines
-        Elternelements gefolgt wird.
+        {{HTMLElement("rt")}}-Element-Öffnungstag oder vom schließenden Tag
+        des übergeordneten Elements gefolgt wird.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -123,4 +124,4 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 - {{HTMLElement("rp")}}
 - {{HTMLElement("rb")}}
 - {{HTMLElement("rt")}}
-- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
+- [CSS Ruby Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul

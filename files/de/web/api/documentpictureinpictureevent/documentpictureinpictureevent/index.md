@@ -1,14 +1,14 @@
 ---
-title: "DocumentPictureInPictureEvent: DocumentPictureInPictureEvent()-Konstruktor"
+title: "DocumentPictureInPictureEvent: DocumentPictureInPictureEvent() Konstruktor"
 short-title: DocumentPictureInPictureEvent()
 slug: Web/API/DocumentPictureInPictureEvent/DocumentPictureInPictureEvent
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SecureContext_Header}}
 
-Der **`DocumentPictureInPictureEvent()`**-Konstruktor erstellt eine neue Instanz eines [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Objekts.
+Der **`DocumentPictureInPictureEvent()`** Konstruktor erstellt eine neue Instanz des [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Objekts.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new DocumentPictureInPictureEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Im Falle von `DocumentPictureInPictureEvent` ist dies immer `enter`.
+  - : Ein String, der den Typ des Ereignisses repräsentiert. Im Fall von `DocumentPictureInPictureEvent` ist dies immer `enter`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `window`
-      - : Eine [`Window`](/de/docs/Web/API/Window)-Instanz, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf dem das Ereignis ausgelöst wurde.
+      - : Eine [`Window`](/de/docs/Web/API/Window)-Instanz, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf das das Ereignis ausgelöst wurde.
 
 ## Beispiele
 

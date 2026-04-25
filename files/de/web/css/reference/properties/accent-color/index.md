@@ -1,11 +1,12 @@
 ---
-title: accent-color
+title: "`accent-color` CSS property"
+short-title: accent-color
 slug: Web/CSS/Reference/Properties/accent-color
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
+Die **`accent-color`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
 
 {{InteractiveExample("CSS Demo: accent-color")}}
 
@@ -74,7 +75,7 @@ accent-color: unset;
 ### Werte
 
 - `auto`
-  - : Repräsentiert eine vom Benutzeragenten gewählte Farbe, die, falls vorhanden, der Akzentfarbe der Plattform entsprechen sollte.
+  - : Repräsentiert eine vom Benutzeragenten gewählte Farbe, die, falls vorhanden, zur Akzentfarbe der Plattform passen sollte.
 - {{cssxref("&lt;color&gt;")}}
   - : Gibt die Farbe an, die als Akzentfarbe verwendet werden soll.
 
@@ -87,8 +88,7 @@ Browser, die `accent-color` unterstützen, wenden es derzeit auf die folgenden H
 - [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)
 - [`<progress>`](/de/docs/Web/HTML/Reference/Elements/progress)
 
-Jeder Benutzeragent hat eine Akzentfarbe mit Variationen, um Lesbarkeit und
-Kontrast sicherzustellen. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement und nicht in jedem Zustand des Steuerelements verwendet. Die `accent-color` Eigenschaft wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
+Jeder Benutzeragent hat eine Akzentfarbe mit Variationen zur Sicherstellung der Lesbarkeit und des Kontrasts. Diese Akzentfarbe wird nicht von jedem Benutzeroberflächen-Steuerelement oder in jedem Zustand des Steuerelements verwendet. Die `accent-color`-Eigenschaft wird nur auf Benutzeroberflächen-Steuerelemente angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
 
 ## Formale Definition
 
@@ -100,7 +100,7 @@ Kontrast sicherzustellen. Diese Akzentfarbe wird nicht von jedem Benutzeroberfl�
 
 ## Beispiele
 
-### Eine benutzerdefinierte Akzentfarbe festlegen
+### Eine benutzerdefinierte Akzentfarbe einstellen
 
 #### HTML
 

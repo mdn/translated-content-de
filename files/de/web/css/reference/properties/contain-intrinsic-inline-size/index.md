@@ -1,13 +1,14 @@
 ---
-title: contain-intrinsic-inline-size
+title: "`contain-intrinsic-inline-size` CSS property"
+short-title: contain-intrinsic-inline-size
 slug: Web/CSS/Reference/Properties/contain-intrinsic-inline-size
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`contain-intrinsic-inline-size`** [CSS](/de/docs/Web/CSS) [logische Eigenschaft](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert die Inline-Größe eines Elements, die ein Browser für das Layout verwenden kann, wenn das Element einer [Größenbegrenzung](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) unterliegt.
+Die **`contain-intrinsic-inline-size`** [CSS](/de/docs/Web/CSS) [logische Eigenschaft](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert die Inline-Größe eines Elements, die ein Browser für das Layout verwenden kann, wenn das Element einer [Größeneinschränkung](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) unterliegt.
 
-Die Inline-Größe ist die Größe des Elements in der Dimension, die parallel zum Fluss des Textes innerhalb einer Zeile verläuft. In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) wie im Standard-Englisch ist die Inline-Größe die horizontale Dimension (Breite); bei einem vertikalen Schreibmodus ist die Inline-Größe die vertikale Dimension.
+Die Inline-Größe ist die Größe des Elements in der Dimension, die parallel zum Textfluss innerhalb einer Zeile verläuft. In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) wie dem Standard-Englisch entspricht die Inline-Größe der horizontalen Dimension (Breite); für einen vertikalen Schreibmodus ist die Inline-Größe die vertikale Dimension.
 
 ## Syntax
 
@@ -39,16 +40,20 @@ Die folgenden Werte können für die intrinsische Inline-Größe eines Elements 
 - `<length>`
   - : Das Element hat die angegebene Inline-Größe ({{cssxref("&lt;length&gt;")}}).
 - `auto <length>`
-  - : Wenn das Element in der Größenbegrenzung ist und seine Inhalte überspringt (zum Beispiel, wenn es außerhalb des Bildschirms ist und `content-visibility: auto` gesetzt ist), wird die Inline-Größe aus der tatsächlichen Größe des Elements übernommen, als es zuletzt in der Lage war, seine Kindelemente zu rendern.
-    Wenn das Element seine Kindelemente nie gerendert hat und daher keinen gespeicherten Wert für die normal gerenderte Elementgröße hat, oder wenn es seine Inhalte nicht überspringt, ist die Inline-Größe die angegebene `<length>`.
+  - : Wenn das Element einer Größeneinschränkung unterliegt und seine Inhalte übersprungen werden (zum Beispiel, wenn es nicht sichtbar ist und `content-visibility: auto` gesetzt ist), wird die Inline-Größe aus der tatsächlichen Größe des Elements gespeichert, wenn es zuletzt in der Lage war, seine Kindelemente darzustellen.
+    Wenn das Element seine Kindelemente noch nie dargestellt hat und daher keinen gespeicherten Wert für die normalerweise dargestellte Elementgröße hat, oder wenn es seine Inhalte nicht überspringt, ist die Inline-Größe der angegebene `<length>`.
 
 ## Beschreibung
 
-Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die eine Größenbegrenzung auslösen können, wie zum Beispiel [`contain: size`](/de/docs/Web/CSS/Reference/Properties/contain) und {{cssxref("content-visibility")}}.
+Die Eigenschaft wird häufig zusammen mit Elementen angewendet, die eine Größeneinschränkung auslösen können, wie beispielsweise [`contain: size`](/de/docs/Web/CSS/Reference/Properties/contain) und {{cssxref("content-visibility")}}.
 
-Größenbegrenzung ermöglicht es einem Benutzeragenten, ein Element so zu layouten, als hätte es eine feste Größe, wodurch unnötige Neuanordnungen vermieden werden, indem das erneute Rendern von Kindelementen zur Bestimmung der tatsächlichen Größe vermieden wird (was die Benutzererfahrung verbessert). Standardmäßig behandelt die Größenbegrenzung Elemente, als hätten sie keine Inhalte, und kann das Layout auf dieselbe Weise zusammenbrechen lassen, als hätten die Inhalte keine Breite oder Höhe. Die `contain-intrinsic-inline-size` Eigenschaft ermöglicht es Autoren, einen geeigneten Wert anzugeben, der als Inline-Größe für das Layout verwendet wird.
+Größeneinschränkung erlaubt es einem User-Agent, ein Element so zu layouten, als hätte es eine feste Größe, wodurch unnötige Neuberechnungen vermieden werden, indem die erneute Darstellung von Kindelementen zur Bestimmung der tatsächlichen Größe verhindert wird (dadurch wird das Benutzererlebnis verbessert).
+Standardmäßig behandelt die Größeneinschränkung Elemente, als hätten sie keine Inhalte, und kann das Layout auf dieselbe Weise kollabieren, als hätten die Inhalte keine Breite oder Höhe.
+Die Eigenschaft `contain-intrinsic-inline-size` erlaubt es Autoren, einen geeigneten Wert festzulegen, der als Inline-Größe für das Layout verwendet werden soll.
 
-Der `auto <length>` Wert ermöglicht es, die Inline-Größe des Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kindelementen), und dann anstelle des angegebenen Wertes verwendet zu werden, wenn das Element seine Inhalte überspringt. Dies ermöglicht es Elementen außerhalb des Bildschirms mit [`content-visibility: auto`](/de/docs/Web/CSS/Reference/Properties/content-visibility), von der Größenbegrenzung zu profitieren, ohne dass Entwickler so präzise in ihren Schätzungen der Elementgröße sein müssen. Der gemerkte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden (wenn die Größenbegrenzung aktiviert ist, wird die `<length>` verwendet).
+Der Wert `auto <length>` ermöglicht es, die Inline-Größe des Elements zu speichern, falls das Element jemals "normal dargestellt" wird (mit seinen Kindelementen) und wird dann anstelle des angegebenen Wertes verwendet, wenn das Element seine Inhalte überspringt.
+Dies ermöglicht es, dass nicht sichtbare Elemente mit [`content-visibility: auto`](/de/docs/Web/CSS/Reference/Properties/content-visibility) von Größeneinschränkungen profitieren können, ohne dass Entwickler so präzise in ihren Schätzungen der Elementgröße sein müssen.
+Der gespeicherte Wert wird nicht verwendet, wenn die Kindelemente dargestellt werden (wenn die Größeneinschränkung aktiviert ist, wird die `<length>` verwendet).
 
 ## Formale Definition
 
@@ -60,9 +65,9 @@ Der `auto <length>` Wert ermöglicht es, die Inline-Größe des Elements zu spei
 
 ## Beispiele
 
-### Einstellen der intrinsischen Inline-Größe
+### Die intrinsische Inline-Größe festlegen
 
-Der HTML-Code unten definiert ein Element "contained_element", das einer Größenbeschränkung unterliegt und ein Kindelement enthält.
+Der untenstehende HTML-Code definiert ein Element "contained_element", das einer Größeneinschränkung unterliegt und welches ein Kindelement enthält.
 
 ```html
 <div id="contained_element">
@@ -70,8 +75,8 @@ Der HTML-Code unten definiert ein Element "contained_element", das einer Größe
 </div>
 ```
 
-Der folgende CSS-Code setzt die {{cssxref("content-visibility")}} von `contained_element` auf `auto`, sodass das Element, wenn es versteckt ist, eine Größenbeschränkung hat.
-Die intrinsische Blockgröße und die Inline-Größe, die verwendet werden, wenn es Größenbeschränkungen unterliegt, werden gleichzeitig mit `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
+Das untenstehende CSS setzt die {{cssxref("content-visibility")}} von `contained_element` auf `auto`, sodass es größenmäßig eingeschränkt ist, wenn das Element versteckt ist.
+Die intrinsische Blockgröße und die Inline-Größe, die verwendet werden, wenn es größenmäßig eingeschränkt ist, werden gleichzeitig mit `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
 
 ```css
 #contained_element {
@@ -99,7 +104,7 @@ Die intrinsische Blockgröße und die Inline-Größe, die verwendet werden, wenn
 
 ## Siehe auch
 
-- [content-visibility: the new CSS property that boosts your rendering performance](https://web.dev/articles/content-visibility) (web.dev)
+- [content-visibility: die neue CSS-Eigenschaft, die Ihre Rendering-Performance verbessert](https://web.dev/articles/content-visibility) (web.dev)
 - {{CSSxRef("contain-intrinsic-block-size")}}
 - {{CSSxRef("contain-intrinsic-size")}}
 - {{CSSxRef("contain-intrinsic-width")}}

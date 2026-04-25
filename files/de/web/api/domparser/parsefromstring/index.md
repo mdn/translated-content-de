@@ -3,22 +3,22 @@ title: "DOMParser: parseFromString() Methode"
 short-title: parseFromString()
 slug: Web/API/DOMParser/parseFromString
 l10n:
-  sourceCommit: e1d5e4480e823e863842fdb27b19f6b499ca00a0
+  sourceCommit: 4815929582d81825115987b2806087fd14662c50
 ---
 
 {{APIRef("DOMParser")}}
 
 > [!WARNING]
 > Diese Methode analysiert ihre Eingabe als HTML und schreibt das Ergebnis in das DOM.
-> Solche APIs werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können eine Angriffsfläche für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe darstellen, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> APIs wie diese sind bekannt als [injection sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
 > Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML`-Objekte anstelle von Strings übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`parseFromString()`** Methode des [`DOMParser`](/de/docs/Web/API/DOMParser) Interface analysiert eine Eingabe, die entweder HTML oder XML enthält, und gibt ein [`Document`](/de/docs/Web/API/Document) mit dem Typ zurück, der in der [`contentType`](/de/docs/Web/API/Document/contentType)-Eigenschaft angegeben ist.
+Die **`parseFromString()`** Methode der [`DOMParser`](/de/docs/Web/API/DOMParser) Schnittstelle analysiert eine Eingabe, die entweder HTML oder XML enthält, und gibt ein [`Document`](/de/docs/Web/API/Document) mit dem im [`contentType`](/de/docs/Web/API/Document/contentType) Attribut angegebenen Typ zurück.
 
 > [!NOTE]
-> Die statische Methode [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static) bietet eine ergonomische Alternative zum Parsen von HTML-Markup in ein [`Document`](/de/docs/Web/API/Document).
+> Die statische Methode [`Document.parseHTMLUnsafe()`](/de/docs/Web/API/Document/parseHTMLUnsafe_static) bietet eine ergonomische Alternative zur Analyse von HTML-Markup in ein [`Document`](/de/docs/Web/API/Document).
 
 ## Syntax
 
@@ -29,10 +29,10 @@ parseFromString(input, mimeType)
 ### Parameter
 
 - `input`
-  - : Eine Instanz von [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) oder ein String, der HTML definiert, das analysiert werden soll.
+  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanz oder ein String, der das zu analysierende HTML definiert.
     Das Markup muss ein {{Glossary("HTML", "HTML")}}, {{Glossary("XML", "XML")}}, {{Glossary("XHTML", "XHTML")}} oder {{Glossary("SVG", "SVG")}} Dokument enthalten.
 - `mimeType`
-  - : Ein String, der angibt, ob der XML-Parser oder der HTML-Parser zum Parsen der Zeichenfolge verwendet wird.
+  - : Ein String, der spezifiziert, ob der XML-Parser oder der HTML-Parser verwendet wird, um den String zu analysieren.
 
     Erlaubte Werte sind:
     - `text/html`
@@ -46,64 +46,64 @@ parseFromString(input, mimeType)
 Ein [`Document`](/de/docs/Web/API/Document) mit einem [`contentType`](/de/docs/Web/API/Document/contentType), das dem angegebenen `mimeType` entspricht.
 
 > [!NOTE]
-> Der Browser kann tatsächlich ein [`HTMLDocument`](/de/docs/Web/API/HTMLDocument) oder [`XMLDocument`](/de/docs/Web/API/XMLDocument) Objekt zurückgeben.
-> Diese leiten sich von [`Document`](/de/docs/Web/API/Document) ab und fügen keine Attribute hinzu: sie sind im Wesentlichen äquivalent.
+> Der Browser kann tatsächlich ein [`HTMLDocument`](/de/docs/Web/API/HTMLDocument) oder ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) Objekt zurückgeben.
+> Diese leiten sich aus [`Document`](/de/docs/Web/API/Document) ab und fügen keine Attribute hinzu: sie sind im Wesentlichen gleichwertig.
 
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
   - : Dies wird ausgelöst, wenn:
-    - `mimeType` einen Wert erhält, der nicht zu den [erlaubten Werten](#mimetype) gehört.
-    - `input` einen String-Wert erhält, wenn [vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+    - `mimeType` einen Wert erhält, der nicht einer der [erlaubten Werte](#mimetype) ist.
+    - `input` einen Stringwert erhält, wenn [vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Die **`parseFromString()`** Methode analysiert eine Eingabe, die entweder HTML oder XML enthält, und gibt ein [`Document`](/de/docs/Web/API/Document) mit dem [`contentType`](/de/docs/Web/API/Document/contentType) zurück, das dem `mimeType` entspricht.
+Die **`parseFromString()`** Methode analysiert eine Eingabe, die entweder HTML oder XML enthält, und gibt ein [`Document`](/de/docs/Web/API/Document) mit einem [`contentType`](/de/docs/Web/API/Document/contentType), das dem `mimeType` entspricht, zurück.
 Dieses `Document` enthält ein vollständiges In-Memory-DOM, das vom Hauptdokument auf der zugehörigen Seite getrennt ist.
 
-Wenn der `mimeType` `text/html` ist, wird die Eingabe als HTML analysiert und {{htmlelement("script")}} Elemente werden als nicht ausführbar markiert, Ereignisse werden nicht ausgelöst und Ereignishandler werden nicht aufgerufen, um Inline-Skripte auszuführen.
-Obwohl das Dokument Ressourcen herunterladen kann, die in {{htmlelement("iframe")}} und {{htmlelement("img")}} Elementen spezifiziert sind, ist es im Grunde inert.
-Dies ist nützlich, da Sie HTML-Eingaben parsen können, die {{Glossary("Shadow_tree", "declarative shadow roots")}} enthalten, und Operationen am Dokument durchführen können, ohne die sichtbare Seite zu beeinflussen.
-Zum Beispiel können Sie dies verwenden, um den Eingabebaum zu bereinigen und Teile der Eingabe in das sichtbare DOM zu injizieren, wenn dies benötigt wird.
+Wenn der `mimeType` `text/html` ist, wird die Eingabe als HTML analysiert und {{htmlelement("script")}} Elemente sind als nicht ausführbar markiert, Ereignisse werden nicht ausgelöst und Ereignishandler werden nicht aufgerufen, um Inline-Skripte auszuführen.
+Obwohl das Dokument Ressourcen herunterladen kann, die in {{htmlelement("iframe")}} und {{htmlelement("img")}} Elementen spezifiziert sind, ist es im Wesentlichen inert.
+Dies ist nützlich, weil Sie HTML-Eingaben analysieren können, die {{Glossary("Shadow_tree", "declarative shadow roots")}} enthalten, und Operationen am Dokument durchführen können, ohne die sichtbare Seite zu beeinflussen.
+Zum Beispiel können Sie dies verwenden, um den Eingabebaum zu bereinigen und Teile der Eingabe bei Bedarf in das sichtbare DOM zu injizieren.
 
 Für die anderen erlaubten Werte (`text/xml`, `application/xml`, `application/xhtml+xml` und `image/svg+xml`) wird die Eingabe als XML analysiert.
-Dies ist nützlich, wenn Sie XML-Dateien importieren, deren Struktur validieren und Daten extrahieren möchten.
-Wenn die Eingabe kein wohlgeformtes XML darstellt, enthält das zurückgegebene Dokument einen `<parsererror>` Knoten, der die Art des Parsing-Fehlers beschreibt.
+Dies ist nützlich, wenn Sie XML-Dateien importieren, ihre Struktur validieren und Daten extrahieren möchten.
+Wenn die Eingabe kein wohlgeformtes XML darstellt, enthält das zurückgegebene Dokument ein `<parsererror>` Element, das die Art des Analysefehlers beschreibt.
 
-Nicht erlaubte `mimeType` Werte führen dazu, dass ein [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError) ausgelöst wird.
+Nicht erlaubte `mimeType` Werte führen zu einem [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError).
 
 ### Sicherheitsüberlegungen
 
-Diese Methode analysiert ihre Eingabe in ein separates In-Memory-DOM, deaktiviert alle {{htmlelement("script")}} Elemente und verhindert die Ausführung von Ereignishandlern.
-Obwohl das zurückgegebene Dokument im Wesentlichen inert ist, können Skripte und Ereignishandler in seinem DOM ausgeführt werden, wenn sie in das sichtbare DOM eingefügt werden.
-Die Methode stellt daher eine potenzielle Angriffsfläche für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar, bei denen potenziell unsichere Eingaben zuerst in ein `Document` parsiert werden, ohne dass sie bereinigt werden, und dann in das sichtbare/aktive DOM injiziert werden, wo der Code ausgeführt werden kann.
+Diese Methode analysiert ihre Eingabe in ein separates In-Memory-DOM, wobei alle {{htmlelement("script")}} Elemente deaktiviert und Ereignishandler deaktiviert werden.
+Obwohl das zurückgegebene Dokument im Wesentlichen inert ist, können Ereignishandler und Skripte in seinem DOM ausgeführt werden, wenn sie in das sichtbare DOM eingefügt werden.
+Die Methode ist daher ein potenzieller Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, bei denen potenziell unsichere Eingaben zuerst ohne Bereinigung in ein `Document` analysiert und dann in das sichtbare/aktive DOM injiziert werden, wo der Code ausgeführt werden kann.
 
-Sie sollten dieses Risiko mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Strings übergeben und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup (wie {{htmlelement("script")}} Elemente und Event-Handler-Attribute) zu entfernen, bevor es injiziert wird.
+Sie sollten dieses Risiko mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Strings übergeben und [vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive durchsetzen.
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geht, die die Möglichkeit hat, die Eingabe zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup (wie {{htmlelement("script")}} Elemente und Ereignishandler-Attribute) zu entfernen, bevor es injiziert wird.
 
-Durch die Verwendung von `TrustedHTML` können Sie sicherstellen, dass der Bereinigungscode nur an wenigen Stellen effektiv überprüft wird, anstatt über alle Ihre Injection Sinks verstreut zu sein.
-Sie sollten keinen Bereinigungscode an die Methode übergeben müssen, wenn Sie `TrustedHTML` verwenden.
+Die Verwendung von `TrustedHTML` ermöglicht es, zu prüfen und zu überprüfen, dass der Bereinigungscode in nur wenigen Stellen wirksam ist, anstatt überall in Ihren Injektionen verstreut zu sein.
+Sie sollten keinen Bereiniger an die Methode übergeben müssen, wenn Sie `TrustedHTML` verwenden.
 
-Beachten Sie, dass selbst wenn Sie die Eingabe von Elementen und Attributen, die Code ausführen können, bereinigen, müssen Sie weiterhin vorsichtig sein, wenn Sie Benutzereingaben entgegennehmen.
-Zum Beispiel kann Ihre Seite Daten in einem XML-Dokument verwenden, um Dateien abzurufen, die sie dann ausführt.
+Beachten Sie, dass selbst wenn Sie die Eingabe von Elementen und Attributen bereinigen, die Code ausführen können, Sie dennoch vorsichtig sein müssen, wenn Sie Benutzereingaben verwenden.
+Zum Beispiel könnte Ihre Seite Daten in einem XML-Dokument verwenden, um Dateien abzurufen, die dann ausgeführt werden.
 
 ## Beispiele
 
-### Parsing einer Eingabe mit Trusted Types
+### Parsen einer Eingabe mit vertrauenswürdigen Typen
 
-In diesem Beispiel werden wir eine potenziell schädliche HTML-Eingabe sicher analysieren und dann in das DOM der sichtbaren Seite einfügen.
+In diesem Beispiel analysieren wir sicher eine potenziell schädliche HTML-Eingabe und injizieren sie dann in das DOM der sichtbaren Seite.
 
-Um das Risiko von XSS zu mindern, erstellen wir ein `TrustedHTML` Objekt aus dem String, der das HTML enthält.
-Vertrauenswürdige Typen werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies dient als transparenter Ersatz für die JavaScript-API für vertrauenswürdige Typen:
+Um das Risiko von XSS zu verringern, erstellen wir ein `TrustedHTML` Objekt aus dem String, der das HTML enthält.
+Vertrauenswürdige Typen werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst den [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dies fungiert als transparenter Ersatz für die trusted types JavaScript-API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine Methode [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) definiert, um eine Eingabe-Zeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanzen zu transformieren.
-Üblicherweise verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe zu bereinigen, wie unten dargestellt:
+Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) definiert, um einen Eingabestring in `TrustedHTML` Instanzen zu verwandeln.
+Häufig verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe zu bereinigen, wie unten gezeigt:
 
 ```js
 const policy = trustedTypes.createPolicy("my-policy", {
@@ -111,8 +111,8 @@ const policy = trustedTypes.createPolicy("my-policy", {
 });
 ```
 
-Dann verwenden wir dieses `policy` Objekt, um ein `TrustedHTML` Objekt aus dem potenziell unsicheren Eingabe-String zu erstellen und es in ein `Document` zu parsen.
-Beachten Sie, dass das resultierende `Document` ein vollständiges HTML-Dokument mit einer Wurzel `<html>`, `<head>` und `<body>` darstellt, auch wenn die Eingabe diese Elemente nicht enthält:
+Dann verwenden wir dieses `policy` Objekt, um ein `TrustedHTML` Objekt aus dem potenziell unsicheren Eingabestring zu erstellen und es in ein `Document` zu analysieren.
+Beachten Sie, dass das resultierende `Document` ein vollständiges HTML-Dokument mit einem Root-`<html>`, `<head>` und `<body>` darstellt, obwohl die Eingabe diese Elemente nicht enthält:
 
 ```js
 // The potentially malicious string
@@ -125,17 +125,17 @@ const trustedHTML = policy.createHTML(untrustedString);
 const safeDocument = parser.parseFromString(trustedHTML, "text/html");
 ```
 
-Das `safeDocument` enthält nun ein DOM, das entsprechend unserer Policy von schädlichen Elementen bereinigt wurde.
-Im Folgenden verwenden wir [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith), um den `body` des sichtbaren DOM mit dem Körper unseres Dokuments zu ersetzen: Skripte im neuen Körper werden ausgeführt, ebenso wie der Code, wenn Ereignishandler ausgelöst werden.
+Das `safeDocument` enthält nun ein DOM, das gemäß unserer Richtlinie von schädlichen Elementen bereinigt ist.
+Unten verwenden wir [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith), um den `body` des sichtbaren DOMs mit dem body unseres Dokuments zu ersetzen: Skripte im neuen body werden ausgeführt, ebenso wie der Code, wenn Ereignishandler ausgelöst werden.
 
 ```js
 document.body.replaceWith(safeDocument.body);
 ```
 
-### Parsing von XML, SVG und HTML
+### XML, SVG und HTML parsen
 
-Der untenstehende Code zeigt, wie Sie die Methode verwenden, um jede der Inhaltstypen zu parsen.
-Während Sie in echtem Code vertrauenswürdige Typen verwenden sollten, werden sie hier der Kürze halber weggelassen.
+Der untenstehende Code zeigt, wie Sie die Methode verwenden, um die jeweiligen Inhaltstypen zu parsen.
+Während Sie in echtem Code vertrauenswürdige Typen verwenden sollten, werden sie hier der Kürze halber ausgelassen.
 
 ```js
 const parser = new DOMParser();
@@ -162,11 +162,11 @@ console.log(doc3.body.firstChild.textContent);
 // "Beware of the leopard"
 ```
 
-Beachten Sie, dass die `application/xml` und `image/svg+xml` MIME-Typen oben funktionell identisch sind — der letztere enthält keine SVG-spezifischen Parsing-Regeln.
+Beachten Sie, dass die MIME-Typen `application/xml` und `image/svg+xml` oben funktional identisch sind — der letztere beinhaltet keine SVG-spezifischen Parsingregeln.
 
 ### Fehlerbehandlung
 
-Wenn Sie den XML-Parser mit einem String verwenden, der kein wohlgeformtes XML darstellt, enthält das von `parseFromString` zurückgegebene [`XMLDocument`](/de/docs/Web/API/XMLDocument) einen `<parsererror>` Knoten, der die Art des Parsing-Fehlers beschreibt.
+Wenn der XML-Parser mit einem String verwendet wird, der kein wohlgeformtes XML darstellt, enthält das von `parseFromString` zurückgegebene [`XMLDocument`](/de/docs/Web/API/XMLDocument) ein `<parsererror>` Element, das die Art des Parsing-Fehlers beschreibt.
 
 ```js
 const parser = new DOMParser();
@@ -181,7 +181,7 @@ if (errorNode) {
 }
 ```
 
-Darüber hinaus kann der Parsing-Fehler in der JavaScript-Konsole des Browsers gemeldet werden.
+Zusätzlich könnte der Parsing-Fehler in der JavaScript-Konsole des Browsers gemeldet werden.
 
 ## Spezifikationen
 

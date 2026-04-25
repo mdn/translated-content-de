@@ -1,13 +1,14 @@
 ---
-title: stroke-width
+title: "`stroke-width` CSS property"
+short-title: stroke-width
 slug: Web/CSS/Reference/Properties/stroke-width
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`stroke-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite eines auf eine [SVG](/de/docs/Web/SVG)-Form angewendeten Strichs. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-width")}}-Attribut des Elements.
+Die **`stroke-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite eines Strichs, der auf die [SVG](/de/docs/Web/SVG)-Form angewendet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-width")}}-Attribut des Elements.
 
-Diese Eigenschaft gilt für jede SVG-Form oder Textinhaltselement (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), kann jedoch als vererbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch die beabsichtigte Wirkung auf die Striche der Nachkommenelemente. Wenn der Wert auf Null gesetzt wird, wird der Strich nicht gezeichnet.
+Diese Eigenschaft gilt für jede SVG-Form oder Text-Inhalts-Element (sehen Sie {{SVGAttr("stroke-width")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche von Nachkommenelementen haben. Wenn der Wert auf null bewertet wird, wird der Strich nicht gezeichnet.
 
 ## Syntax
 
@@ -27,13 +28,13 @@ stroke-width: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Pixeleinheiten werden genauso behandelt wie SVG-Einheiten (siehe `<number>`, oben), und auf Schriften basierende Längen wie `em` werden in Bezug auf den SVG-Wert des Elements für die Textgröße berechnet; die Auswirkungen anderer Längeneinheiten können vom Browser abhängen.
+  - : Pixeleinheiten werden genauso behandelt wie SVG-Einheiten (siehe `<number>`, oben) und schriftbasierte Längen wie `em` werden in Bezug auf den SVG-Wert der Textgröße des Elements berechnet; die Auswirkungen anderer Längeneinheiten können vom Browser abhängen.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Prozentsätze beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Ansichtsfensters, welche wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+  - : Prozentsätze beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
 
 - {{cssxref("&lt;number&gt;")}} {{non-standard_inline}}
-  - : Eine Anzahl von SVG-Einheiten, deren Größe durch den aktuellen Einheitraum definiert ist.
+  - : Eine Anzahl von SVG-Einheiten, deren Größe durch den aktuellen Einheitenraum definiert ist.
 
 ## Formale Definition
 
@@ -47,11 +48,11 @@ stroke-width: unset;
 
 ### Verschiedene Strichbreiten
 
-Dieses Beispiel zeigt verschiedene Wertsyntaxe für die `stroke-width`-Eigenschaft.
+Dieses Beispiel demonstriert verschiedene Wert-Syntaxen für die `stroke-width`-Eigenschaft.
 
 #### HTML
 
-Zuerst richten wir fünf Pfade mit mehreren Segmenten ein, die alle einen schwarzen Strich mit einer Breite von eins und keine Füllung verwenden. Jeder Pfad erstellt eine Serie von Bergsymbolen, die von links (ein flacher Winkel) nach rechts (ein extremer Winkel) verlaufen.
+Zuerst richten wir fünf mehrteilige Pfade ein, die alle einen schwarzen Strich mit einer Breite von eins und keine Füllung verwenden. Jeder Pfad erzeugt eine Reihe von Bergsymbolen, die von links (ein flacher Eckwinkel) nach rechts (ein extrem scharfer Eckwinkel) verlaufen.
 
 ```html
 <svg viewBox="0 0 39 30" xmlns="http://www.w3.org/2000/svg">
@@ -76,9 +77,9 @@ Zuerst richten wir fünf Pfade mit mehreren Segmenten ein, die alle einen schwar
 
 #### CSS
 
-Bei den ersten vier Pfaden wenden wir Strichbreitenwerte als Paare an, um zu zeigen, wie nackte Zahlenwerte und Pixelwerte funktional gleichwertig sind. Für die ersten beiden Pfade sind die Werte `.25` und `.25px`. Für die zweiten beiden Pfade sind die Werte `1` und `1px`.
+Für die ersten vier Pfade wenden wir Strichbreitenwerte als Paare an, um zu zeigen, wie einfache Zahlenwerte und Pixelwerte funktional äquivalent sind. Für die ersten beiden Pfade sind die Werte `.25` und `.25px`. Für die zweiten beiden Pfade sind die Werte `1` und `1px`.
 
-Für den fünften und letzten Pfad wird ein Wert von `5%` angewendet, wodurch eine Strichbreite festgelegt wird, die fünf Prozent so breit ist, wie die Diagonale des SVG-Ansichtsfensters lang ist.
+Für den fünften und letzten Pfad wird ein Wert von `5%` angewendet, wodurch eine Strichbreite festgelegt wird, die fünf Prozent so breit ist wie die diagonale Messung des SVG-Viewports lang ist.
 
 ```css
 path:nth-child(1) {

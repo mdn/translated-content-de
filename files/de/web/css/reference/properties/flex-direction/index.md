@@ -1,11 +1,12 @@
 ---
-title: flex-direction
+title: "`flex-direction` CSS property"
+short-title: flex-direction
 slug: Web/CSS/Reference/Properties/flex-direction
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`flex-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Flex-Elemente im Flex-Container platziert werden und definiert dabei die Hauptachse sowie die Richtung (normal oder umgekehrt).
+Die **`flex-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Flex-Elemente im Flex-Container platziert werden, indem die Hauptachse und die Richtung (normal oder umgekehrt) definiert werden.
 
 {{InteractiveExample("CSS Demo: flex-direction")}}
 
@@ -50,7 +51,7 @@ flex-direction: column-reverse;
 }
 ```
 
-Beachten Sie, dass die Werte `row` und `row-reverse` von der Richtung des Flex-Containers beeinflusst werden. Wenn sein [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) Attribut auf `ltr` steht, repräsentiert `row` die horizontale Achse von links nach rechts, und `row-reverse` von rechts nach links; wenn das `dir` Attribut `rtl` ist, repräsentiert `row` die Achse von rechts nach links, und `row-reverse` von links nach rechts.
+Beachten Sie, dass die Werte `row` und `row-reverse` von der Richtungsangabe des Flex-Containers beeinflusst werden. Wenn sein [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) Attribut `ltr` ist, repräsentiert `row` die horizontale Achse, die von links nach rechts orientiert ist, und `row-reverse` von rechts nach links; wenn das `dir` Attribut `rtl` ist, repräsentiert `row` die Achse, die von rechts nach links orientiert ist, und `row-reverse` von links nach rechts.
 
 ## Syntax
 
@@ -77,25 +78,25 @@ flex-direction: unset;
 
 ### Werte
 
-Folgende Werte werden akzeptiert:
+Die folgenden Werte werden akzeptiert:
 
 - `row`
-  - : Die Hauptachse des Flex-Containers wird als dieselbe wie die Textrichtung definiert. Die **main-start** und **main-end** Punkte entsprechen der Inhaltsrichtung.
+  - : Die Hauptachse des Flex-Containers ist die gleiche wie die Textausrichtung. Die Punkte **main-start** und **main-end** sind dieselben wie die Inhaltsrichtung.
 - `row-reverse`
-  - : Verhält sich wie `row`, aber die **main-start** und **main-end** Punkte sind entgegengesetzt zur Inhaltsrichtung.
+  - : Verhält sich wie `row`, aber die Punkte **main-start** und **main-end** sind entgegengesetzt zur Inhaltsrichtung.
 - `column`
-  - : Die Hauptachse des Flex-Containers ist die gleiche wie die Block-Achse. Die **main-start** und **main-end** Punkte entsprechen den **before** und **after** Punkten des Schreibmodus.
+  - : Die Hauptachse des Flex-Containers ist die gleiche wie die Blockachse. Die Punkte **main-start** und **main-end** sind die gleichen wie die Punkte **before** und **after** des Schreibmodus.
 - `column-reverse`
-  - : Verhält sich wie `column`, aber die **main-start** und **main-end** sind entgegengesetzt zur Inhaltsrichtung.
+  - : Verhält sich wie `column`, aber die Punkte **main-start** und **main-end** sind entgegengesetzt zur Inhaltsrichtung.
 
 ## Barrierefreiheit
 
-Die Verwendung der `flex-direction` Eigenschaft mit den Werten `row-reverse` oder `column-reverse` wird eine Diskrepanz zwischen der visuellen Darstellung des Inhalts und der DOM-Reihenfolge erzeugen. Dies wird sich nachteilig auf Benutzer mit Seheinschränkungen auswirken, die mit Hilfstechnologien wie einem Screenreader navigieren. Wenn die visuelle (CSS) Reihenfolge wichtig ist, haben Screenreader-Benutzer keinen Zugriff auf die korrekte Leserichtung.
+Die Verwendung der `flex-direction` Eigenschaft mit Werten von `row-reverse` oder `column-reverse` verursacht eine Trennung zwischen der visuellen Darstellung des Inhalts und der DOM-Reihenfolge. Dies wirkt sich nachteilig auf Nutzer mit Sehbehinderung aus, die Navigationshilfen wie einen Bildschirmleser verwenden. Wenn die visuelle (CSS) Reihenfolge wichtig ist, haben Bildschirmleser-Nutzer keinen Zugriff auf die korrekte Lesereihenfolge.
 
-- [Flexbox & the keyboard navigation disconnect — Tink](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
-- [Source Order Matters | Adrian Roselli](https://adrianroselli.com/2015/09/source-order-matters.html)
-- [MDN Understanding WCAG, Guideline 1.3 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_%e2%80%94_create_content_that_can_be_presented_in_different_ways)
-- [Understanding Success Criterion 1.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html)
+- [Flexbox & die Trennung der Tastaturnavigation — Tink](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
+- [Die Reihenfolge des Quellcodes zählt | Adrian Roselli](https://adrianroselli.com/2015/09/source-order-matters.html)
+- [MDN Verständnis für WCAG, Leitfaden 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_%e2%80%94_create_content_that_can_be_presented_in_different_ways)
+- [Verstehen des Erfolgskriteriums 1.3.2 | W3C Verständnis für WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html)
 
 ## Formale Definition
 
@@ -107,7 +108,7 @@ Die Verwendung der `flex-direction` Eigenschaft mit den Werten `row-reverse` ode
 
 ## Beispiele
 
-### Umkehren von Flex-Container-Spalten und -Zeilen
+### Umkehren von Flex-Container-Spalten und -Reihen
 
 #### HTML
 
@@ -177,5 +178,5 @@ Die Verwendung der `flex-direction` Eigenschaft mit den Werten `row-reverse` ode
 ## Siehe auch
 
 - CSS {{CSSXRef("flex-flow")}} Kurzschreibweise für die CSS `flex-direction` und {{CSSXRef("flex-wrap")}} Eigenschaften.
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Grundlegende Konzepte des Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
 - [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)

@@ -3,7 +3,7 @@ title: "DecompressionStream: DecompressionStream() Konstruktor"
 short-title: DecompressionStream()
 slug: Web/API/DecompressionStream/DecompressionStream
 l10n:
-  sourceCommit: 58ea518e521a18a8930a67adc544cfd420d8f98f
+  sourceCommit: 238b0047b17c0d506060fc34619a16d237533dc7
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
@@ -21,16 +21,16 @@ new DecompressionStream(format)
 - `format`
   - : Eines der folgenden Komprimierungsformate:
     - `"brotli"`
-      - : Dekomprimiert den Stream mit dem [Brotli](https://www.rfc-editor.org/rfc/rfc1952)-Algorithmus.
+      - : Dekomprimieren Sie den Datenstrom mit dem [Brotli](https://www.rfc-editor.org/rfc/rfc7932)-Algorithmus.
     - `"gzip"`
-      - : Dekomprimiert den Stream mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Algorithmus.
+      - : Dekomprimieren Sie den Datenstrom mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Algorithmus.
     - `"deflate"`
-      - : Dekomprimiert den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-Komprimierte-Datenformat.
+      - : Dekomprimieren Sie den Datenstrom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-komprimierten Datenformat.
         Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Datenintegrität.
     - `"deflate-raw"`
-      - : Dekomprimiert den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und abschließende Prüfsumme.
+      - : Dekomprimieren Sie den Datenstrom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und abschließende Prüfsumme.
     - `"zstd"`
-      - : Dekomprimiert den Stream mit dem [ZSTD](https://datatracker.ietf.org/doc/html/rfc8478)-Algorithmus.
+      - : Dekomprimieren Sie den Datenstrom mit dem [ZSTD](https://datatracker.ietf.org/doc/html/rfc8478)-Algorithmus.
 
 ### Ausnahmen
 
@@ -39,7 +39,7 @@ new DecompressionStream(format)
 
 ## Beispiele
 
-In diesem Beispiel wird ein gzip-komprimiertes Blob dekomprimiert.
+In diesem Beispiel wird ein mit gzip komprimiertes Blob dekomprimiert.
 
 ```js
 const ds = new DecompressionStream("gzip");

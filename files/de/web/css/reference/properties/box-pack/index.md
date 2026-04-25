@@ -1,18 +1,19 @@
 ---
-title: box-pack
+title: "`box-pack` CSS property"
+short-title: box-pack
 slug: Web/CSS/Reference/Properties/box-pack
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Modulentwurfs und wurde durch einen neueren Standard ersetzt. Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexiblen Box Layout Moduls und wurde durch einen neueren Standard ersetzt. Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
 
-Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` ihre Inhalte in der Richtung ihres Layouts packt. Die Wirkung ist nur sichtbar, wenn im Kasten zusätzlicher Raum vorhanden ist.
+Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften legen fest, wie ein `-moz-box` oder `-webkit-box` seine Inhalte in der Richtung seines Layouts anordnet. Die Wirkung ist nur sichtbar, wenn zusätzlicher Platz in der Box vorhanden ist.
 
-Die Layout-Richtung hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
+Die Richtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -29,25 +30,25 @@ box-pack: initial;
 box-pack: unset;
 ```
 
-Die `box-pack`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-pack`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `start`
-  - : Die Box packt die Inhalte am Anfang und lässt jeden zusätzlichen Raum am Ende.
+  - : Die Box packt Inhalte am Anfang und lässt zusätzlichen Raum am Ende frei.
 - `center`
-  - : Die Box packt die Inhalte in der Mitte und teilt jeden zusätzlichen Raum gleichmäßig zwischen Anfang und Ende auf.
+  - : Die Box packt Inhalte in der Mitte und teilt den zusätzlichen Raum gleichmäßig zwischen Anfang und Ende.
 - `end`
-  - : Die Box packt die Inhalte am Ende und lässt jeden zusätzlichen Raum am Anfang.
+  - : Die Box packt Inhalte am Ende und lässt zusätzlichen Raum am Anfang frei.
 - `justify`
-  - : Der Raum wird gleichmäßig zwischen jedem Kind aufgeteilt, ohne dass zusätzlicher Raum vor dem ersten oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre es `start`.
+  - : Der Raum wird gleichmäßig zwischen den einzelnen Kindern aufgeteilt, ohne dass zusätzlicher Raum vor dem ersten Kind oder nach dem letzten Kind verbleibt. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre er `start`.
 
 ## Hinweise
 
-Der Rand der Box, der als _Anfang_ für Packzwecke bestimmt ist, hängt von der Ausrichtung und Richtung der Box ab:
+Der Rand der Box, der für Packzwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung und der Richtung der Box ab:
 
-- Für horizontale Elemente ist der _Anfang_ die obere Kante.
-- Für vertikale Elemente ist der _Anfang_ die linke Kante.
+- Für horizontale Elemente ist der _Anfang_ der obere Rand.
+- Für vertikale Elemente ist der _Anfang_ der linke Rand.
 
 <table class="standard-table">
   <tbody>
@@ -69,9 +70,9 @@ Der Rand der Box, der als _Anfang_ für Packzwecke bestimmt ist, hängt von der 
   </tbody>
 </table>
 
-Der dem Anfang entgegengesetzte Rand wird als _Ende_ bezeichnet.
+Der Rand gegenüber dem Anfang wird als _Ende_ bezeichnet.
 
-Wenn das Packen durch das `pack`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn die Packung mit dem `pack` Attribut des Elements gesetzt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 
@@ -130,7 +131,7 @@ div.example p {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

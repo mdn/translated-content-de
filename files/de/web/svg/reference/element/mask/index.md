@@ -2,10 +2,10 @@
 title: <mask>
 slug: Web/SVG/Reference/Element/mask
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: 450708eb6ad17ff17f6c3b393de91909260ecd26
 ---
 
-Das **`<mask>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Maske für die Zusammensetzung des aktuellen Objekts mit dem Hintergrund. Eine Maske wird mit der {{SVGAttr("mask")}}-Eigenschaft und der CSS {{cssxref("mask-image")}}-Eigenschaft verwendet/referenziert.
+Das **`<mask>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Maske für das Zusammensetzen des aktuellen Objekts in den Hintergrund. Eine Maske wird mithilfe der {{SVGAttr("mask")}}-Eigenschaft und der CSS-{{cssxref("mask-image")}}-Eigenschaft verwendet/referenziert.
 
 ## Verwendungskontext
 
@@ -26,10 +26,10 @@ Das **`<mask>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Maske für die Z
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} auf dem `<mask>`.
     _Wertetyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
-  - : Dieses Attribut definiert die x-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
+  - : Dieses Attribut definiert die x-Achsenkoordinate der oberen linken Ecke des Maskierungsbereichs.
     _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Dieses Attribut definiert die y-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
+  - : Dieses Attribut definiert die y-Achsenkoordinate der oberen linken Ecke des Maskierungsbereichs.
     _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Guides/Content_type#coordinate); _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Dieses Attribut definiert die Breite des Maskierungsbereichs.
@@ -81,6 +81,6 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("mask-type")}}-Eigenschaft
-- Andere SVG-Elemente für Ausschnitte und Maskierungen: {{SVGElement("clipPath")}}
-- CSS-Eigenschaften für Ausschnitte und Maskierungen: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}
+- CSS-{{cssxref("mask-type")}}-Eigenschaft
+- Andere SVG-Elemente für Clipping und Maskierung: {{SVGElement("clipPath")}}
+- CSS-Eigenschaften für Clipping und Maskierung: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}

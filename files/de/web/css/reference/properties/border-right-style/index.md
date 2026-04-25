@@ -1,14 +1,15 @@
 ---
-title: border-right-style
+title: "`border-right-style` CSS property"
+short-title: border-right-style
 slug: Web/CSS/Reference/Properties/border-right-style
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Rahmen mit unterschiedlichen Stilen in den Ecken verbinden.
 
 {{InteractiveExample("CSS Demo: border-right-style")}}
 
@@ -82,7 +83,7 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die `border-right-style` Eigenschaft wird als einzelner {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die `border-right-style` Eigenschaft wird als einzelnes {{cssxref("line-style")}} Schlüsselwort-Wert angegeben.
 
 ## Formale Definition
 
@@ -182,4 +183,4 @@ td {
 ## Siehe auch
 
 - Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen rechtsrahmenbezogenen Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.
+- Die anderen rechtsseitigen Rahmeneigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.

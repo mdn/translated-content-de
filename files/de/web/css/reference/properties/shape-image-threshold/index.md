@@ -1,11 +1,12 @@
 ---
-title: shape-image-threshold
+title: "`shape-image-threshold` CSS property"
+short-title: shape-image-threshold
 slug: Web/CSS/Reference/Properties/shape-image-threshold
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Alphakanal-Schwellenwert fest, der verwendet wird, um die Form mithilfe eines Bildes als Wert für {{cssxref("shape-outside")}} zu extrahieren.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Alpha-Kanal-Schwellenwert fest, der zur Extraktion der Form mittels eines Bildes als Wert für {{cssxref("shape-outside")}} verwendet wird.
 
 {{InteractiveExample("CSS Demo: shape-image-threshold")}}
 
@@ -75,7 +76,7 @@ shape-image-threshold: 0.6;
 }
 ```
 
-Alle Pixel, deren Alphakomponentenwert größer als der Schwellenwert ist, gelten als Teil der Form, um deren Grenzen zu bestimmen. Zum Beispiel bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50% opak sind.
+Alle Pixel, deren Alpha-Komponente den Schwellenwert überschreitet, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Ein Wert von `0.5` bedeutet beispielsweise, dass die Form alle Pixel umfasst, die mehr als 50 % undurchsichtig sind.
 
 ## Syntax
 
@@ -94,7 +95,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Legt den Schwellenwert fest, der zum Extrahieren einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alphawert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden auf diesen Bereich begrenzt.
+  - : Legt den Schwellenwert fest, der zur Extraktion einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alpha-Wert größer als der Schwellenwert ist. Werte außerhalb des Bereichs 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -108,7 +109,7 @@ shape-image-threshold: unset;
 
 ### Text an einem Verlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild aus einem Verlauf. Der Verlauf wird als CSS-Form mithilfe von `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20% opak sind (das heißt, Pixel mit einer Alphakomponente größer als 0.2), als Teil der Form gelten.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlauf als Hintergrundbild. Der Verlauf wird als CSS-Form mittels `shape-outside` etabliert, sodass Pixel innerhalb des Verlaufs, die mindestens 20 % undurchsichtig sind (d.h. Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
 
 #### HTML
 
@@ -142,9 +143,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrun
 }
 ```
 
-Die Form wird hier mithilfe von {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei festgelegt. Der gleiche Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Umflussbereichs abgeleitet wird, unter Verwendung der {{cssxref("shape-outside")}} Eigenschaft.
+Die Form wird hier durch {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei festgelegt. Der gleiche Verlauf wird auch als das Bild verwendet, aus dem die Form zur Festlegung des Umbruchbereichs abgeleitet wird, mittels der {{cssxref("shape-outside")}}-Eigenschaft.
 
-Der 20%ige Opazitätsschwellenwert für die Behandlung von Verlaufs-Pixeln als Teil der Form wird dann mithilfe von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
+Der 20 %-Opacity-Schwellenwert, um Verlaufs-Pixel als Teil der Form zu behandeln, wird dann durch `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 
@@ -161,7 +162,7 @@ Der 20%ige Opazitätsschwellenwert für die Behandlung von Verlaufs-Pixeln als T
 ## Siehe auch
 
 - [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes)
-- [Übersicht über CSS Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
+- [Überblick über CSS Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
 - {{cssxref("basic-shape")}}
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-margin")}}

@@ -1,24 +1,25 @@
 ---
-title: ::grammar-error
+title: "`::grammar-error` CSS pseudo-element"
+short-title: ::grammar-error
 slug: Web/CSS/Reference/Selectors/::grammar-error
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Das **`::grammar-error`** [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert ein Textsegment, das vom {{Glossary("user_agent", "User Agent")}} als grammatikalisch inkorrekt markiert wurde.
+Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Textabschnitt, den der {{Glossary("user_agent", "User-Agent")}} als grammatikalisch inkorrekt markiert hat.
 
-Das `::grammar-error`-Pseudoelement folgt einem speziellen Vererbungsmodell, das für alle Highlight-Pseudoelemente üblich ist. Weitere Details zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Vererbung von Highlight-Pseudoelementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::grammar-error` Pseudoelement folgt einem speziellen Vererbungsmuster, das für alle Hervorhebungs-Pseudoelemente gilt. Weitere Details zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Vererbung von Hervorhebungs-Pseudoelementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
-## Erlaubte Eigenschaften
+## Zulässige Eigenschaften
 
-Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
+Nur eine kleine Teilmenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
 
 - {{cssxref("color")}}
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und seine Langformen
-- {{cssxref("text-decoration")}} und seine zugehörigen Eigenschaften
+- {{cssxref("outline")}} und seine Einzelheiten
+- {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
 
@@ -32,9 +33,9 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 
 ## Beispiele
 
-### Grundlegende Dokumenten-Grammatikprüfung
+### Grundlegende Dokumentengrammatikprüfung
 
-In diesem Beispiel sollten unterstützende Browser alle als grammatikalisch falsch markierten Fehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser jegliche markierten grammatikalischen Fehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

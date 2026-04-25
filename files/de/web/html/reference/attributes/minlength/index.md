@@ -1,16 +1,16 @@
 ---
-title: "HTML-Attribut: minlength"
+title: "`minlength` HTML-Attribut"
 short-title: minlength
 slug: Web/HTML/Reference/Attributes/minlength
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
 ---
 
-Das **`minlength`**-Attribut definiert die minimale [Zeichenlänge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}} oder {{htmlelement('textarea')}} eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
+Das **`minlength`**-Attribut definiert die minimale [Zeichenfolgenlänge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}} oder {{htmlelement('textarea')}} eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
 
-Die Länge wird in {{Glossary("UTF-16", "UTF-16-Codeeinheiten")}} gemessen, die oft, aber nicht immer, der Anzahl der Zeichen entsprechen. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben wird, gibt es keine Mindestlänge für die Eingabe. Dieser Wert muss kleiner oder gleich dem Wert von [maxlength](/de/docs/Web/HTML/Reference/Attributes/maxlength) sein, andernfalls wird der Wert niemals gültig sein, da es unmöglich ist, beide Kriterien zu erfüllen.
+Die Länge wird in {{Glossary("UTF-16", "UTF-16 Codeeinheiten")}} gemessen, was oft, aber nicht immer der Anzahl der Zeichen entspricht. Wenn kein `minlength` festgelegt ist oder ein ungültiger Wert angegeben wird, hat die Eingabe keine Mindestlänge. Dieser Wert muss kleiner oder gleich dem Wert von [maxlength](/de/docs/Web/HTML/Reference/Attributes/maxlength) sein, da es sonst unmöglich ist, beide Kriterien zu erfüllen.
 
-Die Eingabe wird die Gültigkeitsprüfung nicht bestehen, wenn die Länge des Textwerts des Feldes kürzer als die `minlength`-UTF-16-Codeeinheiten ist, wobei [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) `true` zurückgibt. Die Gültigkeitsprüfung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Sobald das Absenden fehlschlägt, zeigen einige Browser eine Fehlermeldung an, die die erforderliche Mindestlänge und die aktuelle Länge angibt.
+Die Eingabe schlägt bei der Einschränkungsvalidierung fehl, wenn die Länge des Textwerts des Feldes kürzer als `minlength` in UTF-16 Codeeinheiten ist, wobei [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) `true` zurückgibt. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Wenn die Übermittlung fehlschlägt, zeigen einige Browser eine Fehlermeldung an, die die erforderliche Mindestlänge und die aktuelle Länge angibt.
 
 `minlength` impliziert nicht [`required`](/de/docs/Web/HTML/Reference/Attributes/required); eine Eingabe verletzt nur eine `minlength`-Einschränkung, wenn der Benutzer einen Wert eingegeben hat. Wenn eine Eingabe nicht `required` ist, kann ein leerer String übermittelt werden, auch wenn `minlength` gesetzt ist.
 
@@ -50,7 +50,7 @@ textarea:valid {
 
 ## Beispiele
 
-Durch Hinzufügen von `minlength="5"` muss der Wert entweder leer oder fünf Zeichen oder länger sein, um gültig zu sein.
+Durch Hinzufügen von `minlength="5"` muss der Wert entweder leer oder mindestens fünf Zeichen lang sein, um gültig zu sein.
 
 ```html
 <label for="fruit">Enter a fruit name that is at least 5 letters long</label>

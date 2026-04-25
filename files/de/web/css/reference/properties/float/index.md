@@ -1,11 +1,12 @@
 ---
-title: float
+title: "`float` CSS property"
+short-title: float
 slug: Web/CSS/Reference/Properties/float
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`float`**-Eigenschaft von [CSS](/de/docs/Web/CSS) platziert ein Element an der linken oder rechten Seite seines Containers, sodass Text und Inline-Elemente darum herumfließen können. Dabei wird das Element aus dem normalen Fluss der Seite entfernt, bleibt jedoch weiterhin Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/Reference/Properties/position#absolute_positioning)).
+Die **`float`** [CSS](/de/docs/Web/CSS)-Eigenschaft platziert ein Element auf der linken oder rechten Seite seines Containers und erlaubt es, dass Text und Inline-Elemente darum herumfließen. Das Element wird aus dem normalen Fluss der Seite entfernt, bleibt jedoch weiterhin Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/Reference/Properties/position#absolute_positioning)).
 
 {{InteractiveExample("CSS Demo: float")}}
 
@@ -60,7 +61,7 @@ float: inline-end;
 
 Ein _fließendes Element_ ist eines, bei dem der berechnete Wert von `float` nicht `none` ist.
 
-Da `float` die Verwendung des Block-Layouts impliziert, ändert es in einigen Fällen den berechneten Wert der {{cssxref("display")}}-Werte:
+Da `float` die Verwendung des Block-Layouts impliziert, ändert es den berechneten Wert der {{cssxref("display")}}-Werte in einigen Fällen:
 
 | Angegebener Wert     | Berechneter Wert |
 | -------------------- | ---------------- |
@@ -80,7 +81,7 @@ Da `float` die Verwendung des Block-Layouts impliziert, ändert es in einigen F�
 | _andere_             | _unverändert_    |
 
 > [!NOTE]
-> Beim Zugriff auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Objekt werden einwortige Eigenschaftsnamen unverändert verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-Eigenschaft `float` in modernen Browsern als `float` aufgerufen. In älteren Browsern müssen Sie `cssFloat` verwenden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ist ähnlich wie beim Zugriff auf das "class"-Attribut als "className" und das "for"-Attribut eines `<label>`-Elements als "htmlFor".)
+> Wenn auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Objekt zugegriffen wird, werden einwortige Eigenschaftsnamen wie sie sind verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-`float`-Eigenschaft in modernen Browsern als `float` angesprochen. In älteren Browsern müssen Sie `cssFloat` verwenden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ist ähnlich wie der Zugriff auf das "class"-Attribut als "className" und das "for"-Attribut eines `<label>`-Elements als "htmlFor".)
 
 ## Syntax
 
@@ -100,20 +101,20 @@ float: revert-layer;
 float: unset;
 ```
 
-Die `float`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der unten stehenden Werteliste ausgewählt wird.
+Die `float`-Eigenschaft wird als ein einziges Schlüsselwort angegeben, das aus der folgenden Liste von Werten ausgewählt wird.
 
 ### Werte
 
 - `left`
-  - : Das Element muss auf der linken Seite seines umgebenden Blocks fließen.
+  - : Das Element muss auf der linken Seite seines umschließenden Blocks fließen.
 - `right`
-  - : Das Element muss auf der rechten Seite seines umgebenden Blocks fließen.
+  - : Das Element muss auf der rechten Seite seines umschließenden Blocks fließen.
 - `none`
   - : Das Element darf nicht fließen.
 - `inline-start`
-  - : Das Element muss auf der Startseite seines umgebenden Blocks fließen. Das ist die linke Seite bei `ltr`-Skripten und die rechte Seite bei `rtl`-Skripten.
+  - : Das Element muss auf der Startseite seines umschließenden Blocks fließen. Das heißt, die linke Seite bei `ltr`-Schriften und die rechte Seite bei `rtl`-Schriften.
 - `inline-end`
-  - : Das Element muss auf der Endseite seines umgebenden Blocks fließen. Das ist die rechte Seite bei `ltr`-Skripten und die linke Seite bei `rtl`-Skripten.
+  - : Das Element muss auf der Endeseite seines umschließenden Blocks fließen. Das heißt, die rechte Seite bei `ltr`-Schriften und die linke Seite bei `rtl`-Schriften.
 
 ## Formale Definition
 
@@ -127,11 +128,11 @@ Die `float`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der
 
 ### Wie gefloatete Elemente positioniert werden
 
-Wie oben erwähnt, wenn ein Element gefloatet wird, wird es aus dem normalen Dokumentenfluss herausgenommen (bleibt jedoch weiterhin Teil davon). Es wird nach links oder rechts verschoben, bis es den Rand seines umgebenden Kastens oder _ein anderes gefloatetes Element_ berührt.
+Wie oben erwähnt, wird ein Element, wenn es gefloatet wird, aus dem normalen Fluss des Dokuments entfernt (bleibt jedoch weiterhin Teil davon). Es wird nach links oder rechts verschoben, bis es den Rand seines umschließenden Kastens oder ein anderes gefloatetes Element berührt.
 
-In diesem Beispiel gibt es drei farbige Quadrate. Zwei sind nach links gefloatet und eines nach rechts. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert wird. Zusätzliche Quadrate würden weiterhin nach rechts gestapelt, bis sie den umgebenden Kasten füllen, danach würden sie in die nächste Zeile umbrechen.
+In diesem Beispiel gibt es drei farbige Quadrate. Zwei sind links gefloatet, und eines ist rechts gefloatet. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert ist. Weitere Quadrate würden sich weiter rechts stapeln, bis sie den umschließenden Kasten füllen, danach würden sie auf die nächste Zeile umbrechen.
 
-Ein gefloatetes Element ist mindestens so hoch wie seine höchste verschachtelte gefloatete Kindelement. Wir haben dem Elternteil `width: 100%` gegeben und es gefloatet, um sicherzustellen, dass es hoch genug ist, um seine gefloateten Kinder einzuschließen, und um sicherzustellen, dass es die Breite des Elternteils einnimmt, damit wir sein benachbartes Geschwisterelement nicht freimachen müssen.
+Ein gefloatetes Element ist mindestens so hoch wie seine höchsten verschachtelten gefloateten Kinder. Wir haben dem übergeordneten Element `width: 100%` gegeben und es gefloatet, um sicherzustellen, dass es hoch genug ist, um seine gefloateten Kinder zu umfassen, und um sicherzustellen, dass es die Breite des übergeordneten Elements einnimmt, sodass wir sein angrenzendes Geschwisterelement nicht freigeben müssen.
 
 #### HTML
 
@@ -183,7 +184,7 @@ div {
 
 ### Floats freigeben
 
-Manchmal möchten Sie vielleicht ein Element zwingen, unterhalb aller gefloateten Elemente zu erscheinen. Zum Beispiel möchten Sie vielleicht, dass Absätze neben Floats verbleiben, aber Überschriften auf ihrer eigenen Linie erscheinen. Siehe {{cssxref("clear")}} für Beispiele.
+Manchmal möchten Sie vielleicht ein Element zwingen, unterhalb aller gefloateten Elemente zu liegen. Beispielsweise möchten Sie, dass Absätze an Floats angrenzen, aber Überschriften auf ihrer eigenen Zeile sind. Siehe {{cssxref("clear")}} für Beispiele.
 
 ## Spezifikationen
 
@@ -195,5 +196,5 @@ Manchmal möchten Sie vielleicht ein Element zwingen, unterhalb aller gefloatete
 
 ## Siehe auch
 
-- [Blockformatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
-- Verwenden Sie {{cssxref("clear")}}, um ein Element zu zwingen, unterhalb eines gefloateten Elements zu erscheinen.
+- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- Verwenden Sie {{cssxref("clear")}}, um ein Element zu zwingen, sich unterhalb eines gefloateten Elements zu bewegen.

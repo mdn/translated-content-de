@@ -1,11 +1,12 @@
 ---
-title: <axis>
+title: "`<axis>` CSS-Typ"
+short-title: <axis>
 slug: Web/CSS/Reference/Values/axis
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<axis>`** {{Glossary("enumerated", "enumerierte")}} Datentyp gibt die Scrollrichtung des {{Glossary("scroll_container", "Scroll-Containers")}} an, der eine [Scroll-Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) steuert.
+Der **`<axis>`** {{Glossary("enumerated", "enumerierte")}} Datentyp gibt die Scrollrichtung des {{Glossary("scroll_container", "Scrollcontainers")}} an, der eine [Scroll-Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) steuert.
 
 Die `<axis>` Schlüsselwortwerte werden in den folgenden [CSS-Funktionen](/de/docs/Web/CSS/Reference/Values/Functions) und Eigenschaften verwendet:
 
@@ -21,13 +22,13 @@ Die `<axis>` Schlüsselwortwerte werden in den folgenden [CSS-Funktionen](/de/do
 Gültige `<axis>` Werte:
 
 - `block`
-  - : Die Blockachse des Scroller-Elements, die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile. Für horizontale Schreibrichtungen, wie Standard-Englisch, entspricht dies `y`, während es für vertikale Schreibrichtungen `x` entspricht.
+  - : Die Blockachse des Scrollelements, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi, wie standardmäßig im Englischen, ist dies das gleiche wie `y`, während es bei vertikalen Schreibmodi `x` ist.
 - `inline`
-  - : Die Inline-Achse des Scroller-Elements, die Achse in der Richtung parallel zum Textfluss in einer Zeile. Für horizontale Schreibrichtungen entspricht dies `x`, während es für vertikale Schreibrichtungen `y` entspricht.
+  - : Die Inline-Achse des Scrollelements, welche die Achse in der Richtung parallel zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi ist dies das gleiche wie `x`, während es bei vertikalen Schreibmodi `y` ist.
 - `x`
-  - : Die horizontale Achse des Scroller-Elements.
+  - : Die horizontale Achse des Scrollelements.
 - `y`
-  - : Die vertikale Achse des Scroller-Elements.
+  - : Die vertikale Achse des Scrollelements.
 
 ## Formale Syntax
 
@@ -44,5 +45,5 @@ Gültige `<axis>` Werte:
 ## Siehe auch
 
 - {{cssxref("animation-timeline")}}
-- [Leitfaden für scrollgetriebene Animations-Zeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Scrollgesteuerte Animations-Zeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) Leitfaden
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul

@@ -1,19 +1,20 @@
 ---
-title: :-moz-locale-dir(rtl)
+title: "`:-moz-locale-dir(rtl)` CSS-Pseudoklasse"
+short-title: :-moz-locale-dir(rtl)
 slug: Web/CSS/Reference/Selectors/:-moz-locale-dir_rtl
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein Element dann abgleicht, wenn die Benutzeroberfläche in einer Rechts-nach-Links-Ausrichtung angezeigt wird. Dies wird durch die Einstellung `intl.uidirection.locale` (wobei `locale` die aktuelle Spracheinstellung ist) auf "rtl" bestimmt.
+Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein Element auswählt, wenn die Benutzeroberfläche von rechts nach links dargestellt wird. Dies wird durch die Präferenz `intl.uidirection.locale` bestimmt (wobei `locale` das aktuelle Gebietsschema ist), die auf "rtl" gesetzt ist.
 
 > [!NOTE]
-> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf der Spracheinstellung des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tab zu Tab variieren.) Er ermöglicht es auch Erweiterungen zu funktionieren, selbst wenn sie die Standardspracheinstellung des Benutzers nicht unterstützen, da sie sowohl Links-nach-Rechts- als auch Rechts-nach-Links-Layouts unabhängig von sprachspezifischen Details unterstützen können.
+> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf dem Gebietsschema des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tab zu Tab variieren.) Er ermöglicht es Erweiterungen auch dann zu funktionieren, wenn sie das Standardgebietsschema des Benutzers nicht unterstützen, da sie sowohl links-nach-rechts- als auch rechts-nach-links-Layouts unabhängig von spezifischen Gebietsschemas unterstützen können.
 
 > [!WARNING]
-> Dieser Selektor funktioniert nicht korrekt im HTML; er stimmt nie überein, egal ob die UI-Spracheinstellung Links-nach-Rechts oder Rechts-nach-Links ist.
+> Dieser Selektor funktioniert nicht ordnungsgemäß im HTML; er passt nie, unabhängig davon, ob das UI-Gebietsschema links-nach-rechts oder rechts-nach-links ist.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ Die **`:-moz-locale-dir(rtl)`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und könnte selbst in Firefox nicht richtig funktionieren aufgrund eines Problems mit der Verwendung dieses Selektors im HTML.
+Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und könnte selbst in Firefox aufgrund eines Problems mit der Verwendung dieses Selektors im HTML nicht ordnungsgemäß funktionieren.
 
 ### HTML
 

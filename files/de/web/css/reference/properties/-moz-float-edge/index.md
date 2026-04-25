@@ -1,13 +1,14 @@
 ---
-title: -moz-float-edge
+title: "`-moz-float-edge` CSS property"
+short-title: -moz-float-edge
 slug: Web/CSS/Reference/Properties/-moz-float-edge
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
-Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob die Höhe und Breite eines Elements die Dicke von Margin, Border oder Padding einschließen.
+Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die `height`- und `width`-Eigenschaften des Elements die Dicke von `margin`, `border` oder `padding` einschließen.
 
 ## Syntax
 
@@ -25,9 +26,9 @@ Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigensch
 ### Werte
 
 - `content-box`
-  - : Die Eigenschaften Höhe und Breite umfassen den Inhalt, aber nicht das Padding, die Border oder den Margin.
+  - : Die `height`- und `width`-Eigenschaften umfassen den Inhalt, aber nicht das `padding`, den `border` oder den `margin`.
 - `margin-box`
-  - : Die Eigenschaften Höhe und Breite umfassen den Inhalt, das Padding, die Border und den Margin.
+  - : Die `height`- und `width`-Eigenschaften umfassen den Inhalt, das `padding`, den `border` und den `margin`.
 
 ## Formale Definition
 
@@ -66,7 +67,7 @@ Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigensch
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

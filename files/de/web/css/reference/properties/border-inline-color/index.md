@@ -1,13 +1,14 @@
 ---
-title: border-inline-color
+title: "`border-inline-color` CSS property"
+short-title: border-inline-color
 slug: Web/CSS/Reference/Properties/border-inline-color
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-inline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der logischen Inline-Ränder eines Elements. Diese wird abhängig vom Schreibmodus, der Leserichtung und der Textausrichtung des Elements einer physikalischen Rahmenfarbe zugeordnet. Sie entspricht der {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}}, oder der {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-inline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der logischen Inline-Ränder eines Elements. Diese wird einer physikalischen Randfarbe zugeordnet, abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements. Sie entspricht der {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}}, oder {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Die Rahmenfarbe in der anderen Dimension kann mit {{cssxref("border-block-color")}} festgelegt werden, die {{cssxref("border-block-start-color")}} und {{cssxref("border-block-end-color")}} setzt.
+Die Randfarbe in der anderen Dimension kann mit {{cssxref("border-block-color")}} festgelegt werden, welches {{cssxref("border-block-start-color")}} und {{cssxref("border-block-end-color")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-inline-color")}}
 
@@ -64,7 +65,7 @@ border-inline-color: unset;
 ### Werte
 
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Rahmens.
+  - : Die Farbe des Randes.
 
 ## Formale Definition
 
@@ -76,7 +77,7 @@ border-inline-color: unset;
 
 ## Beispiele
 
-### Rahmenfarbe mit vertikalem Text
+### Randfarbe mit vertikalem Text
 
 #### HTML
 
@@ -116,6 +117,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird den physikalischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird den physikalischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

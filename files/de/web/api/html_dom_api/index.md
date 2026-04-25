@@ -1,84 +1,83 @@
 ---
-title: The HTML DOM API
+title: HTML DOM API
 slug: Web/API/HTML_DOM_API
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: b2f9c1e9e0f56bb2fd10262b0836603e10bcb4dc
 ---
 
 {{DefaultAPISidebar("HTML DOM")}}
 
-Die **HTML-DOM-API** besteht aus den Schnittstellen, die die Funktionalität jedes einzelnen {{Glossary("element", "Elemente")}} in {{Glossary("HTML", "HTML")}} definieren, sowie aus unterstützenden Typen und Schnittstellen, auf die sie angewiesen sind.
+Die **HTML-DOM-API** besteht aus den Schnittstellen, die die Funktionalität jedes einzelnen {{Glossary("element", "Elements")}} in {{Glossary("HTML", "HTML")}} definieren, sowie allen unterstützenden Typen und Schnittstellen, auf die sie angewiesen sind.
 
-Die funktionalen Bereiche, die in der HTML-DOM-API enthalten sind, umfassen:
+Zu den funktionalen Bereichen, die in der HTML-DOM-API enthalten sind, gehören:
 
-- Zugriff und Steuerung von HTML-Elementen über das {{Glossary("DOM", "DOM")}}.
-- Zugriff und Manipulation von Formulardaten.
-- Interaktion mit den Inhalten von 2D-Bildern und dem Kontext eines HTML-{{HTMLElement("canvas")}}, beispielsweise um darauf zu zeichnen.
-- Verwaltung von Medien, die mit den HTML-Medienelementen ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) verbunden sind.
+- Der Zugriff auf und die Steuerung von HTML-Elementen über das {{Glossary("DOM", "DOM")}}.
+- Der Zugriff auf und die Manipulation von Formular-Daten.
+- Die Interaktion mit den Inhalten von 2D-Bildern und dem Kontext eines HTML-{{HTMLElement("canvas")}}, um zum Beispiel auf ihnen zu zeichnen.
+- Die Verwaltung von Medien, die mit den HTML-Medienelementen ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) verbunden sind.
 - Ziehen und Ablegen von Inhalten auf Webseiten.
-- Zugriff auf die Browser-Navigation.
-- Unterstützende und verbindende Schnittstellen für andere APIs wie [Web Components](/de/docs/Web/API/Web_components), [Web Storage](/de/docs/Web/API/Web_Storage_API), [Web Workers](/de/docs/Web/API/Web_Workers_API), [WebSocket](/de/docs/Web/API/WebSockets_API) und [Server-sent events](/de/docs/Web/API/Server-sent_events).
+- Der Zugriff auf den Verlauf der Browser-Navigation.
+- Unterstützende und verbindende Schnittstellen für andere APIs, wie z. B. [Web Components](/de/docs/Web/API/Web_components), [Web Storage](/de/docs/Web/API/Web_Storage_API), [Web Workers](/de/docs/Web/API/Web_Workers_API), [WebSocket](/de/docs/Web/API/WebSockets_API) und [Server-sent events](/de/docs/Web/API/Server-sent_events).
 
-## HTML-DOM-Konzepte und Nutzung
+## HTML-DOM-Konzepte und -Verwendung
 
-In diesem Artikel konzentrieren wir uns auf die Teile des HTML-DOMs, die das Arbeiten mit HTML-Elementen beinhalten. Diskussionen über andere Bereiche, wie [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API), [WebSockets](/de/docs/Web/API/WebSockets_API), [Web Storage](/de/docs/Web/API/Web_Storage_API), etc. finden sich in der Dokumentation zu diesen APIs.
+In diesem Artikel konzentrieren wir uns auf die Teile des HTML-DOM, die das Interagieren mit HTML-Elementen betreffen. Diskussionen über andere Bereiche, wie [Ziehen und Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API), [WebSockets](/de/docs/Web/API/WebSockets_API), [Web Storage](/de/docs/Web/API/Web_Storage_API) usw. finden Sie in der Dokumentation für diese APIs.
 
 ### Struktur eines HTML-Dokuments
 
-Das Document Object Model ({{Glossary("DOM", "DOM")}}) ist eine Architektur, die die Struktur eines [`document`](/de/docs/Web/API/Document) beschreibt; jedes Dokument wird durch eine Instanz der [`Document`](/de/docs/Web/API/Document)-Schnittstelle repräsentiert. Ein Dokument besteht wiederum aus einem hierarchischen Baum von **Knoten** (nodes), wobei ein Knoten einen grundlegenden Datensatz darstellt, der ein einzelnes Objekt innerhalb des Dokuments (z. B. ein Element oder Textknoten) repräsentiert.
+Das Document Object Model ({{Glossary("DOM", "DOM")}}) ist eine Architektur, die die Struktur eines [`Dokuments`](/de/docs/Web/API/Document) beschreibt; jedes Dokument wird durch eine Instanz der Schnittstelle [`Document`](/de/docs/Web/API/Document) repräsentiert. Ein Dokument besteht wiederum aus einem hierarchischen Baum von **Knoten**, wobei ein Knoten einen fundamentalen Datensatz darstellt, der ein einzelnes Objekt im Dokument (wie ein Element oder Textknoten) repräsentiert.
 
-Knoten können rein organisatorisch sein und eine Möglichkeit bieten, andere Knoten zusammenzufassen oder einen Punkt zu bieten, an dem eine Hierarchie aufgebaut werden kann; andere Knoten können sichtbare Komponenten eines Dokuments repräsentieren. Jeder Knoten basiert auf der [`Node`](/de/docs/Web/API/Node)-Schnittstelle, die Eigenschaften zum Abrufen von Informationen über den Knoten sowie Methoden zum Erstellen, Löschen und Organisieren von Knoten innerhalb des DOM bietet.
+Knoten können rein organisatorisch sein und ein Mittel zur Gruppierung anderer Knoten oder zur Bereitstellung eines Punktes anbieten, an dem eine Hierarchie aufgebaut werden kann; andere Knoten können sichtbare Komponenten eines Dokuments darstellen. Jeder Knoten basiert auf der [`Node`](/de/docs/Web/API/Node)-Schnittstelle, die Eigenschaften zum Abrufen von Informationen über den Knoten sowie Methoden zum Erstellen, Löschen und Organisieren von Knoten innerhalb des DOM bereitstellt.
 
-Knoten haben kein Konzept des tatsächlichen Inhalts, der im Dokument angezeigt wird. Sie sind leere Gefäße. Der grundlegende Begriff eines Knotens, der visuelle Inhalte darstellen kann, wird durch die [`Element`](/de/docs/Web/API/Element)-Schnittstelle eingeführt. Eine `Element`-Objektinstanz repräsentiert ein einzelnes Element in einem Dokument, das entweder mit HTML oder einer {{Glossary("XML", "XML")}}-Vokabular wie {{Glossary("SVG", "SVG")}} erstellt wurde.
+Knoten haben kein Konzept, den tatsächlich angezeigten Inhalt im Dokument einzuschließen. Sie sind leere Gefäße. Die grundlegende Vorstellung eines Knotens, der visuellen Inhalt darstellen kann, wird durch die [`Element`](/de/docs/Web/API/Element)-Schnittstelle eingeführt. Eine `Element`-Objektinstanz repräsentiert ein einzelnes Element in einem Dokument, das entweder mit HTML oder einem {{Glossary("XML", "XML")}}-Vokabular wie {{Glossary("SVG", "SVG")}} erstellt wurde.
 
-Betrachten Sie zum Beispiel ein Dokument mit zwei Elementen, von denen eines zwei weitere Elemente enthält:
+Betrachten Sie zum Beispiel ein Dokument mit zwei Elementen, von denen eines zwei weitere Elemente in sich verschachtelt hat:
 
-![Struktur eines Dokuments mit Elementen innerhalb eines Dokuments in einem Fenster](dom-structure.svg)
+![Struktur eines Dokuments mit Elementen in einem Dokument in einem Fenster](dom-structure.svg)
 
-Während die [`Document`](/de/docs/Web/API/Document)-Schnittstelle als Teil der [DOM](/de/docs/Web/API/Document_Object_Model)-Spezifikation definiert ist, wird sie durch die HTML-Spezifikation erheblich verbessert, um Informationen hinzuzufügen, die spezifisch für die Verwendung des DOM im Kontext eines Webbrowsers und für die spezifische Repräsentation von HTML-Dokumenten sind.
+Während die [`Document`](/de/docs/Web/API/Document)-Schnittstelle als Teil der [DOM](/de/docs/Web/API/Document_Object_Model)-Spezifikation definiert ist, erweitert die HTML-Spezifikation sie erheblich, um spezifische Informationen für die Verwendung des DOM im Kontext eines Webbrowsers sowie für die Darstellung von HTML-Dokumenten hinzuzufügen.
 
-Zu den Dingen, die vom HTML-Standard zu `Document` hinzugefügt wurden, gehören:
+Zu den von der HTML-Standard hinzugefügten Informationen zu `Document` gehören:
 
-- Unterstützung für den Zugriff auf verschiedene Informationen, die von den {{Glossary("HTTP", "HTTP")}}-Headern beim Laden der Seite bereitgestellt werden, wie z. B. der [Ort](/de/docs/Web/API/Document/location), von dem das Dokument geladen wurde, [Cookies](/de/docs/Web/API/Document/cookie), [Änderungsdatum](/de/docs/Web/API/Document/lastModified), [Referenzseite](/de/docs/Web/API/Document/referrer) usw.
-- Zugriff auf Listen von Elementen im {{HTMLElement("head")}}-Block des Dokuments und [body](/de/docs/Web/API/Document/body), sowie auf Listen der im Dokument enthaltenen [Bilder](/de/docs/Web/API/Document/images), [Links](/de/docs/Web/API/Document/links), [Skripte](/de/docs/Web/API/Document/scripts), etc.
-- Unterstützung für die Interaktion mit dem Benutzer durch Prüfung des [Fokus](/de/docs/Web/API/Document/hasFocus) und durch Ausführen von Befehlen auf [bearbeitbare Inhalte](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable).
-- Ereignishandler für Dokumentereignisse, die durch den HTML-Standard definiert wurden, um den Zugriff auf [Maus](/de/docs/Web/API/MouseEvent)- und [Tastatur](/de/docs/Web/API/KeyboardEvent)-Ereignisse, [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API), [Mediensteuerung](/de/docs/Web/API/HTMLMediaElement) usw. zu ermöglichen.
-- Ereignishandler für Ereignisse, die sowohl an Elemente als auch an Dokumente geliefert werden können; diese umfassen derzeit nur [„copy“](/de/docs/Web/API/Element/copy_event), [„cut“](/de/docs/Web/API/Element/cut_event) und [„paste“](/de/docs/Web/API/Element/paste_event)-Aktionen.
+- Unterstützung für den Zugriff auf verschiedene Informationen, die von den {{Glossary("HTTP", "HTTP")}}-Headern beim Laden der Seite bereitgestellt werden, wie der [Ort](/de/docs/Web/API/Document/location), von dem das Dokument geladen wurde, [Cookies](/de/docs/Web/API/Document/cookie), [Änderungsdatum](/de/docs/Web/API/Document/lastModified), [verweisende Website](/de/docs/Web/API/Document/referrer) und so weiter.
+- Zugriff auf Listen von Elementen im {{HTMLElement("head")}}-Block und [body](/de/docs/Web/API/Document/body) des Dokuments sowie auf Listen der im Dokument enthaltenen [Bilder](/de/docs/Web/API/Document/images), [Links](/de/docs/Web/API/Document/links), [Skripte](/de/docs/Web/API/Document/scripts) usw.
+- Unterstützung für die Interaktion mit dem Benutzer durch Prüfung des [Fokus](/de/docs/Web/API/Document/hasFocus) und durch Ausführen von Befehlen auf [bearbeitbaren Inhalten](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable).
+- Ereignis-Handler für Dokumentereignisse, die vom HTML-Standard definiert werden, um Zugriff auf [Maus-](/de/docs/Web/API/MouseEvent) und [Tastaturereignisse](/de/docs/Web/API/KeyboardEvent), [Ziehen und Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API), [Mediensteuerung](/de/docs/Web/API/HTMLMediaElement) und mehr zu ermöglichen.
+- Ereignis-Handler für Ereignisse, die sowohl an Elemente als auch an Dokumente geliefert werden können; diese umfassen derzeit nur die Aktionen [`copy`](/de/docs/Web/API/Element/copy_event), [`cut`](/de/docs/Web/API/Element/cut_event) und [`paste`](/de/docs/Web/API/Element/paste_event).
 
 ### HTML-Element-Schnittstellen
 
-Die `Element`-Schnittstelle wurde speziell weiterentwickelt, um HTML-Elemente zu repräsentieren, indem die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle eingeführt wurde, von der alle spezifischeren HTML-Elementklassen erben. Dies erweitert die `Element`-Klasse, um HTML-spezifische allgemeine Funktionen zu den Elementknoten hinzuzufügen. Von `HTMLElement` hinzugefügte Eigenschaften umfassen beispielsweise [`hidden`](/de/docs/Web/API/HTMLElement/hidden) und [`innerText`](/de/docs/Web/API/HTMLElement/innerText).
+Die `Element`-Schnittstelle wurde speziell angepasst, um HTML-Elemente darzustellen, indem die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle eingeführt wurde, die alle spezifischeren HTML-Elementklassen von ihr erben. Dies erweitert die `Element`-Klasse, um HTML-spezifische allgemeine Funktionen zu den Elementknoten hinzuzufügen. Zu den von `HTMLElement` hinzugefügten Eigenschaften gehören beispielsweise [`hidden`](/de/docs/Web/API/HTMLElement/hidden) und [`innerText`](/de/docs/Web/API/HTMLElement/innerText).
 
-Ein {{Glossary("HTML", "HTML")}}-Dokument ist ein DOM-Baum, in dem jeder der Knoten ein HTML-Element ist, repräsentiert durch die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle. Die `HTMLElement`-Klasse implementiert wiederum `Node`, sodass jedes Element auch ein Knoten ist (aber nicht umgekehrt). Auf diese Weise sind die strukturellen Merkmale, die von der [`Node`](/de/docs/Web/API/Node)-Schnittstelle implementiert werden, auch für HTML-Elemente verfügbar, wodurch sie innerhalb voneinander verschachtelt, erstellt und gelöscht, verschoben usw. werden können.
+Ein {{Glossary("HTML", "HTML")}}-Dokument ist ein DOM-Baum, in dem jeder der Knoten ein HTML-Element ist, dargestellt durch die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle. Die `HTMLElement`-Klasse implementiert ihrerseits `Node`, sodass jedes Element auch ein Knoten ist (aber nicht umgekehrt). Auf diese Weise stehen die strukturellen Funktionen, die durch die [`Node`](/de/docs/Web/API/Node)-Schnittstelle implementiert werden, auch HTML-Elementen zur Verfügung, sodass diese ineinander verschachtelt, erstellt und gelöscht, verschoben und so weiter werden können.
 
-Die `HTMLElement`-Schnittstelle ist jedoch generisch und bietet nur die Funktionalität, die allen HTML-Elementen gemeinsam ist, wie die ID des Elements, seine Koordinaten, der HTML-Code, aus dem das Element besteht, Informationen über die Scroll-Position und so weiter.
+Die `HTMLElement`-Schnittstelle ist jedoch generisch und bietet nur die Funktionalität, die allen HTML-Elementen gemeinsam ist, wie die ID des Elements, seine Koordinaten, das HTML, das das Element bildet, Informationen über die Scroll-Position usw.
 
-Um die Funktionalität der Kern-`HTMLElement`-Schnittstelle zu erweitern und die Funktionen bereitzustellen, die ein spezifisches Element benötigt, wird die `HTMLElement`-Klasse unterklassifiziert, um die benötigten Eigenschaften und Methoden hinzuzufügen. Zum Beispiel wird das {{HTMLElement("canvas")}}-Element durch ein Objekt vom Typ [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) repräsentiert. `HTMLCanvasElement` ergänzt den `HTMLElement`-Typ, indem es Eigenschaften wie [`height`](/de/docs/Web/API/HTMLCanvasElement/height) und Methoden wie [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) hinzufügt, um canvas-spezifische Funktionen bereitzustellen.
+Um die Funktionalität der Kern-`HTMLElement`-Schnittstelle zu erweitern, um die für ein bestimmtes Element erforderlichen Funktionen bereitzustellen, wird die `HTMLElement`-Klasse unterklassifiziert, um die erforderlichen Eigenschaften und Methoden hinzuzufügen. Zum Beispiel wird das {{HTMLElement("canvas")}}-Element durch ein Objekt des Typs [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) repräsentiert. `HTMLCanvasElement` erweitert den `HTMLElement`-Typ, indem es Eigenschaften wie [`height`](/de/docs/Web/API/HTMLCanvasElement/height) und Methoden wie [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) hinzufügt, um canvas-spezifische Funktionen bereitzustellen.
 
-Die gesamte Vererbung für HTML-Elementklassen sieht folgendermaßen aus:
+Die allgemeine Vererbung für HTML-Elementklassen sieht so aus:
 
 ![Hierarchie der Schnittstellen für HTML-Elemente](html-dom-hierarchy.svg)
 
-Ein Element erbt somit die Eigenschaften und Methoden aller seiner Vorfahren. Zum Beispiel betrachten wir ein {{HTMLElement("a")}}-Element, das im DOM durch ein Objekt vom Typ [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) repräsentiert wird. Das Element umfasst dann die ankerspezifischen Eigenschaften und Methoden, die in der Dokumentation dieser Klasse beschrieben sind, aber auch die, die durch [`HTMLElement`](/de/docs/Web/API/HTMLElement) und [`Element`](/de/docs/Web/API/Element) sowie von [`Node`](/de/docs/Web/API/Node) und schließlich von [`EventTarget`](/de/docs/Web/API/EventTarget) definiert sind.
+Ein Element erbt somit die Eigenschaften und Methoden all seiner Vorfahren. Betrachten Sie zum Beispiel ein {{HTMLElement("a")}}-Element, das im DOM durch ein Objekt des Typs [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) repräsentiert wird. Das Element enthält dann die ankerspezifischen Eigenschaften und Methoden, die in der Dokumentation dieser Klasse beschrieben werden, sowie diejenigen, die durch [`HTMLElement`](/de/docs/Web/API/HTMLElement) und [`Element`](/de/docs/Web/API/Element) definiert sind, sowie von [`Node`](/de/docs/Web/API/Node) und schließlich [`EventTarget`](/de/docs/Web/API/EventTarget).
 
-Jede Ebene definiert einen Schlüsselaspekt der Nützlichkeit des Elements. Von `Node` erbt das Element Konzepte, die die Fähigkeit betreffen, das Element in ein anderes Element einzufügen, und selbst andere Elemente zu enthalten. Von besonderer Bedeutung ist, was durch das Erben von `EventTarget` gewonnen wird: die Fähigkeit, Ereignisse wie Mausklicks, Wiedergabe- und Pausen-Ereignisse usw. zu empfangen und zu verarbeiten.
+Jede Ebene definiert einen wesentlichen Aspekt des Nutzens des Elements. Von `Node` erbt das Element Konzepte rund um die Möglichkeit, dass das Element von einem anderen Element enthalten werden kann und selbst andere Elemente enthalten kann. Von besonderer Bedeutung ist, was durch das Erben von `EventTarget` gewonnen wird: die Fähigkeit, Ereignisse wie Mausklicks, Start- und Stop-Ereignisse und so weiter zu empfangen und zu behandeln.
 
-Es gibt Elemente, die Gemeinsamkeiten aufweisen und daher einen zusätzlichen Zwischen-Typ haben. Zum Beispiel präsentieren die {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente beide audiovisuelle Medien. Die entsprechenden Typen, [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) und [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), basieren beide auf dem gemeinsamen Typ [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), der wiederum auf [`HTMLElement`](/de/docs/Web/API/HTMLElement) basiert usw. `HTMLMediaElement` definiert die Methoden und Eigenschaften, die Audio- und Videoelemente gemeinsam haben.
+Es gibt Elemente, die Gemeinsamkeiten teilen und daher einen zusätzlichen Zwischentyp haben. Zum Beispiel präsentieren die {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente beide audiovisuelle Medien. Die entsprechenden Typen, [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) und [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), basieren beide auf dem gemeinsamen Typ [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), der wiederum auf [`HTMLElement`](/de/docs/Web/API/HTMLElement) und so weiter basiert. `HTMLMediaElement` definiert die Methoden und Eigenschaften, die zwischen Audio- und Videoelementen gemeinsam sind.
 
-Diese elementspezifischen Schnittstellen umfassen den Großteil der HTML-DOM-API und sind der Fokus dieses Artikels. Der [DOM](/de/docs/Web/API/Document_Object_Model)-Artikel bietet eine allgemeine Einführung in das DOM und seine Konzepte.
+Diese elementspezifischen Schnittstellen machen den Großteil der HTML-DOM-API aus und sind der Fokus dieses Artikels. Der [DOM](/de/docs/Web/API/Document_Object_Model)-Artikel bietet eine allgemeine Einführung in das DOM und seine Konzepte.
 
-## Zielgruppe der HTML-DOM
+## Zielpublikum der HTML-DOM
 
-Die von der HTML-DOM bereitgestellten Funktionen gehören zu den am häufigsten verwendeten APIs im Werkzeugkasten eines Webentwicklers.
-Alle außer den einfachsten Webanwendungen verwenden einige Funktionen der HTML-DOM.
+Die von der HTML-DOM bereitgestellten Funktionen gehören zu den am häufigsten genutzten APIs im Werkzeugkasten eines Webentwicklers. Alle bis auf die einfachsten Webanwendungen werden einige Funktionen der HTML-DOM nutzen.
 
-## Schnittstellen der HTML-DOM-API
+## HTML-DOM-API-Schnittstellen
 
-Die meisten der Schnittstellen, die die HTML-DOM-API bilden, korrelieren fast eins zu eins mit individuellen HTML-Elementen oder zu einer kleinen Gruppe von Elementen mit ähnlicher Funktionalität. Außerdem umfasst die HTML-DOM-API einige Schnittstellen und Typen zur Unterstützung der HTML-Element-Schnittstellen.
+Die Mehrheit der Schnittstellen, die die HTML-DOM-API bilden, entspricht nahezu eins zu eins einzelnen HTML-Elementen oder einer kleinen Gruppe von Elementen mit ähnlicher Funktionalität. Darüber hinaus umfasst die HTML-DOM-API einige Schnittstellen und Typen, um die HTML-Element-Schnittstellen zu unterstützen.
 
 ### HTML-Element-Schnittstellen
 
-Diese Schnittstellen repräsentieren spezifische HTML-Elemente (oder Gruppen verwandter Elemente, die die gleichen Eigenschaften und Methoden haben).
+Diese Schnittstellen repräsentieren spezifische HTML-Elemente (oder Sätze von verwandten Elementen, die die gleichen Eigenschaften und Methoden mit ihnen teilen).
 
 - [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)
 - [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)
@@ -147,36 +146,36 @@ Diese Schnittstellen repräsentieren spezifische HTML-Elemente (oder Gruppen ver
 - [`HTMLUnknownElement`](/de/docs/Web/API/HTMLUnknownElement)
 - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 
-#### Veraltete Schnittstellen für HTML-Elemente
+#### Veraltete HTML-Element-Schnittstellen
 
 - [`HTMLMarqueeElement`](/de/docs/Web/API/HTMLMarqueeElement) {{deprecated_inline}}
 
-#### Obsolete Schnittstellen für HTML-Elemente
+#### Überholte HTML-Element-Schnittstellen
 
 - [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement) {{deprecated_inline}}
 - [`HTMLFrameElement`](/de/docs/Web/API/HTMLFrameElement) {{deprecated_inline}}
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement) {{deprecated_inline}}
 
-### Schnittstellen zur Webanwendungs- und Browserintegration
+### Schnittstellen zur Integration von Web-Apps und Browsern
 
-Diese Schnittstellen bieten Zugriff auf das Browserfenster und das Dokument, das das HTML enthält, sowie auf den Zustand des Browsers und verfügbare Plugins (falls vorhanden) und verschiedene Konfigurationsoptionen.
+Diese Schnittstellen bieten Zugriff auf das Browserfenster und das Dokument, das das HTML enthält, sowie auf den Status des Browsers, verfügbare Plugins (falls vorhanden) und verschiedene Konfigurationsoptionen.
 
 - [`BarProp`](/de/docs/Web/API/BarProp)
 - [`Navigator`](/de/docs/Web/API/Navigator)
 - [`Window`](/de/docs/Web/API/Window)
 
-#### Veraltete Schnittstellen zur Webanwendungs- und Browserintegration
+#### Veraltete Schnittstellen zur Integration von Web-Apps und Browsern
 
 - [`External`](/de/docs/Web/API/External) {{deprecated_inline}}
 
-#### Obsolete Schnittstellen zur Webanwendungs- und Browserintegration
+#### Überholte Schnittstellen zur Integration von Web-Apps und Browsern
 
 - [`Plugin`](/de/docs/Web/API/Plugin) {{deprecated_inline}}
 - [`PluginArray`](/de/docs/Web/API/PluginArray) {{deprecated_inline}}
 
-### Formunterstützung-Schnittstellen
+### Formulare unterstützende Schnittstellen
 
-Diese Schnittstellen bieten Struktur und Funktionalität für die Elemente, die zur Erstellung und Verwaltung von Formularen verwendet werden, einschließlich der {{HTMLElement("form")}}- und {{HTMLElement("input")}}-Elemente.
+Diese Schnittstellen bieten die Struktur und Funktionalität, die von den Elementen benötigt wird, um Formulare zu erstellen und zu verwalten, einschließlich der {{HTMLElement("form")}}- und {{HTMLElement("input")}}-Elemente.
 
 - [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)
 - [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection)
@@ -184,9 +183,9 @@ Diese Schnittstellen bieten Struktur und Funktionalität für die Elemente, die 
 - [`RadioNodeList`](/de/docs/Web/API/RadioNodeList)
 - [`ValidityState`](/de/docs/Web/API/ValidityState)
 
-### Canvas- und Image-Schnittstellen
+### Canvas- und Bildschnittstellen
 
-Diese Schnittstellen repräsentieren Objekte, die durch die Canvas-API verwendet werden, sowie das {{HTMLElement("img")}}-Element und {{HTMLElement("picture")}}-Elemente.
+Diese Schnittstellen repräsentieren Objekte, die von der Canvas-API verwendet werden, sowie das {{HTMLElement("img")}}-Element und {{HTMLElement("picture")}}-Elemente.
 
 - [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)
 - [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)
@@ -199,7 +198,7 @@ Diese Schnittstellen repräsentieren Objekte, die durch die Canvas-API verwendet
 - [`Path2D`](/de/docs/Web/API/Path2D)
 - [`TextMetrics`](/de/docs/Web/API/TextMetrics)
 
-### Medien-Schnittstellen
+### Medienschnittstellen
 
 Die Medienschnittstellen bieten HTML-Zugriff auf die Inhalte der Medienelemente: {{HTMLElement("audio")}} und {{HTMLElement("video")}}.
 
@@ -215,18 +214,18 @@ Die Medienschnittstellen bieten HTML-Zugriff auf die Inhalte der Medienelemente:
 - [`VideoTrack`](/de/docs/Web/API/VideoTrack)
 - [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)
 
-### Drag- und Drop-Schnittstellen
+### Ziehen und Ablegen Schnittstellen
 
-Diese Schnittstellen werden von der [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) verwendet, um einzelne ziehbare (oder gezogene) Elemente, Gruppen von gezogenen oder ziehbaren Elementen zu repräsentieren und um den Zieh- und Ablegeverfahren zu handhaben.
+Diese Schnittstellen werden von der [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) verwendet, um einzelne ziehbare (oder gezogene) Elemente, Gruppen von gezogenen oder ziehbaren Elementen zu repräsentieren und den Zieh- und Ablegeprozess zu handhaben.
 
 - [`DataTransfer`](/de/docs/Web/API/DataTransfer)
 - [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)
 - [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)
 - [`DragEvent`](/de/docs/Web/API/DragEvent)
 
-### Seitenhistorie-Schnittstellen
+### Seitenverlauf-Schnittstellen
 
-Die Schnittestellen der History API bieten die Möglichkeit, Informationen über die Browserhistorie zuzugreifen und die aktuelle Registerkarte des Browsers vorwärts und rückwärts durch diese Historie zu bewegen.
+Die Schnittstellen der History API ermöglichen den Zugriff auf Informationen über den Verlauf des Browsers sowie das Vorwärts- und Rückwärtsverschieben des aktuellen Tabs im Browser durch diesen Verlauf.
 
 - [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)
 - [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)
@@ -237,15 +236,15 @@ Die Schnittestellen der History API bieten die Möglichkeit, Informationen über
 - [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent)
 - [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)
 
-### Web Components-Schnittstellen
+### Web Components Schnittstellen
 
-Diese Schnittstellen werden von der [Web Components API](/de/docs/Web/API/Web_components) verwendet, um verfügbare [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu erstellen und zu verwalten.
+Diese Schnittstellen werden von der [Web Components API](/de/docs/Web/API/Web_components) verwendet, um die verfügbaren [benutzerdefinierten Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu erstellen und zu verwalten.
 
 - [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)
 
 ### Verschiedene und unterstützende Schnittstellen
 
-Diese unterstützenden Objekttypen werden auf verschiedene Weise in der HTML-DOM-API verwendet. Zusätzlich repräsentiert [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) das Ereignis, das ausgeliefert wird, wenn ein {{Glossary("JavaScript", "JavaScript")}} {{jsxref("Promise")}} abgelehnt wird.
+Diese unterstützenden Objekttypen werden auf verschiedene Weise in der HTML-DOM-API verwendet. Darüber hinaus repräsentiert [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) das Ereignis, das geliefert wird, wenn ein {{Glossary("JavaScript", "JavaScript")}} {{jsxref("Promise")}} abgelehnt wird.
 
 - [`DOMStringList`](/de/docs/Web/API/DOMStringList)
 - [`DOMStringMap`](/de/docs/Web/API/DOMStringMap)
@@ -255,20 +254,20 @@ Diese unterstützenden Objekttypen werden auf verschiedene Weise in der HTML-DOM
 - [`MimeTypeArray`](/de/docs/Web/API/MimeTypeArray)
 - [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)
 
-### Schnittstellen, die anderen APIs angehören
+### Schnittstellen, die zu anderen APIs gehören
 
-Mehrere Schnittstellen werden technisch gesehen in der HTML-Spezifikation definiert, während sie tatsächlich Teil anderer APIs sind.
+Einige Schnittstellen sind technisch im HTML-Standard definiert, gehören aber tatsächlich zu anderen APIs.
 
-#### Web Storage-Schnittstellen
+#### Web Storage Schnittstellen
 
-Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) bietet die Möglichkeit für Websites, Daten entweder vorübergehend oder dauerhaft auf dem Gerät des Benutzers zu speichern, um sie später erneut zu verwenden.
+Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) bietet die Möglichkeit, dass Websites Daten entweder temporär oder dauerhaft auf dem Gerät des Benutzers für die spätere Wiederverwendung speichern können.
 
 - [`Storage`](/de/docs/Web/API/Storage)
 - [`StorageEvent`](/de/docs/Web/API/StorageEvent)
 
-#### Web Workers-Schnittstellen
+#### Web Worker Schnittstellen
 
-Diese Schnittstellen werden von der [Web Workers API](/de/docs/Web/API/Web_Workers_API) verwendet, um sowohl die Fähigkeit zu schaffen, dass Worker mit einer App und ihrem Inhalt interagieren können, als auch um Nachrichten zwischen Fenstern oder Apps zu unterstützen.
+Diese Schnittstellen werden von der [Web Workers API](/de/docs/Web/API/Web_Workers_API) sowohl verwendet, um die Möglichkeit zu schaffen, dass Arbeiter mit einer App und deren Inhalt interagieren können, als auch um die Nachrichtenübermittlung zwischen Fenstern oder Apps zu unterstützen.
 
 - [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
@@ -282,22 +281,22 @@ Diese Schnittstellen werden von der [Web Workers API](/de/docs/Web/API/Web_Worke
 - [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)
 - [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)
 
-#### WebSocket-Schnittstellen
+#### WebSocket Schnittstellen
 
-Diese Schnittstellen, die durch die HTML-Spezifikation definiert sind, werden von der [WebSockets API](/de/docs/Web/API/WebSockets_API) verwendet.
+Diese Schnittstellen, die im HTML-Standard definiert sind, werden von der [WebSockets API](/de/docs/Web/API/WebSockets_API) verwendet.
 
 - [`CloseEvent`](/de/docs/Web/API/CloseEvent)
 - [`WebSocket`](/de/docs/Web/API/WebSocket)
 
 #### Server-sent events Schnittstellen
 
-Die [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle stellt die Quelle dar, welche [server-gesendete Ereignisse](/de/docs/Web/API/Server-sent_events) gesendet hat oder sendet.
+Die [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle repräsentiert die Quelle, die [Server-sent events](/de/docs/Web/API/Server-sent_events) gesendet hat oder sendet.
 
 - [`EventSource`](/de/docs/Web/API/EventSource)
 
 ## Beispiele
 
-In diesem Beispiel wird das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis eines {{HTMLElement("input")}}-Elements überwacht, um den Status der "Submit"-Schaltfläche eines Formulars basierend darauf zu aktualisieren, ob ein bestimmtes Feld derzeit einen Wert hat oder nicht.
+In diesem Beispiel wird das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis eines {{HTMLElement("input")}}-Elements überwacht, um den Zustand der "Submit"-Schaltfläche eines Formulars basierend darauf zu aktualisieren, ob ein bestimmtes Feld derzeit einen Wert hat oder nicht.
 
 ### JavaScript
 
@@ -321,17 +320,17 @@ nameField.addEventListener("input", (event) => {
 });
 ```
 
-Dieser Code verwendet die [`getElementById()`](/de/docs/Web/API/Document/getElementById)-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle, um das DOM-Objekt zu erhalten, das die {{HTMLElement("input")}}-Elemente repräsentiert, deren IDs `userName` und `sendButton` sind. Damit können Sie auf die Eigenschaften und Methoden zugreifen, die Informationen bereitstellen und die Kontrolle über diese Elemente gewähren.
+Dieser Code verwendet die Methode [`getElementById()`](/de/docs/Web/API/Document/getElementById) der [`Document`](/de/docs/Web/API/Document)-Schnittstelle, um das DOM-Objekt zu erhalten, das die {{HTMLElement("input")}}-Elemente repräsentiert, deren IDs `userName` und `sendButton` sind. Mit diesen können wir auf die Eigenschaften und Methoden zugreifen, die Informationen über diese Elemente bereitstellen und die Kontrolle über sie ermöglichen.
 
-Das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt für die "Senden"-Schaltfläche hat die [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft auf `true` gesetzt, was die "Senden"-Schaltfläche deaktiviert, sodass sie nicht angeklickt werden kann. Außerdem wird das Benutzernamen-Eingabefeld durch Aufruf der [`focus()`](/de/docs/Web/API/HTMLElement/focus)-Methode, die sie von [`HTMLElement`](/de/docs/Web/API/HTMLElement) erbt, als aktiver Fokus gesetzt.
+Das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt für die [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft der "Senden"-Schaltfläche wird auf `true` gesetzt, was die "Senden"-Schaltfläche deaktiviert, sodass sie nicht angeklickt werden kann. Darüber hinaus wird das Benutzername-Eingabefeld durch Aufrufen der [`focus()`](/de/docs/Web/API/HTMLElement/focus)-Methode, die es von [`HTMLElement`](/de/docs/Web/API/HTMLElement) erbt, auf den aktiven Fokus gebracht.
 
-Dann wird [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen, um einen Handler für das `input`-Ereignis zum Benutzernamen-Eingabefeld hinzuzufügen. Dieser Code betrachtet die Länge des aktuellen Werts der Eingabe; wenn diese null ist, wird die "Senden"-Schaltfläche deaktiviert, falls sie nicht bereits deaktiviert ist. Andernfalls stellt der Code sicher, dass die Schaltfläche aktiviert ist.
+Dann wird [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen, um einen Handler für das `input`-Ereignis der Benutzernamen-Eingabe hinzuzufügen. Dieser Code prüft die Länge des aktuellen Wertes der Eingabe; wenn sie null ist, dann wird die "Senden"-Schaltfläche deaktiviert, es sei denn, sie ist bereits deaktiviert. Andernfalls stellt der Code sicher, dass die Schaltfläche aktiviert ist.
 
-Mit dieser Einrichtung ist die "Senden"-Schaltfläche immer aktiviert, wenn das Benutzernamen-Eingabefeld einen Wert hat, und deaktiviert, wenn es leer ist.
+Mit dieser Einrichtung ist die "Senden"-Schaltfläche immer aktiviert, wenn das Benutzername-Eingabefeld einen Wert hat, und deaktiviert, wenn es leer ist.
 
 ### HTML
 
-Der HTML-Code für das Formular sieht folgendermaßen aus:
+Das HTML für das Formular sieht folgendermaßen aus:
 
 ```html
 <p>Please provide the information below. Items marked with "*" are required.</p>
@@ -364,9 +363,9 @@ Der HTML-Code für das Formular sieht folgendermaßen aus:
 
 ### Referenzen
 
-- [HTML-Element-Referenz](/de/docs/Web/HTML/Reference/Elements)
+- [HTML-Elemente-Referenz](/de/docs/Web/HTML/Reference/Elements)
 - [HTML-Attribut-Referenz](/de/docs/Web/HTML/Reference/Attributes)
-- [Document Object Model (DOM)](/de/docs/Web/API/Document_Object_Model) Referenz
+- [Dokumentenobjektmodell (DOM)](/de/docs/Web/API/Document_Object_Model) Referenz
 
 ### Leitfäden
 

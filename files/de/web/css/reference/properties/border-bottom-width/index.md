@@ -1,11 +1,12 @@
 ---
-title: border-bottom-width
+title: "`border-bottom-width` CSS property"
+short-title: border-bottom-width
 slug: Web/CSS/Reference/Properties/border-bottom-width
 l10n:
-  sourceCommit: 893eb2dfe0ce3e837b3a7512a684b2f02e31d64e
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-bottom-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des unteren Rahmens eines Elements fest.
+Die **`border-bottom-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des unteren Rahmens eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-bottom-width")}}
 
@@ -72,7 +73,7 @@ border-bottom-width: unset;
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Rahmens entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als ein Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
     - `thin`
       - Entspricht `1px`.
     - `medium`
@@ -90,7 +91,7 @@ border-bottom-width: unset;
 
 ## Beispiele
 
-### Vergleich der Breiten des unteren Rahmens
+### Vergleich der unteren Rahmenbreiten
 
 #### HTML
 

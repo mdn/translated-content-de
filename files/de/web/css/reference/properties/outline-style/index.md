@@ -1,11 +1,12 @@
 ---
-title: outline-style
+title: "`outline-style` CSS property"
+short-title: outline-style
 slug: Web/CSS/Reference/Properties/outline-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element gezogen wird, außerhalb des {{cssxref("border")}}.
+Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
 {{InteractiveExample("CSS Demo: outline-style")}}
 
@@ -46,7 +47,7 @@ outline-style: inset;
 }
 ```
 
-Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Kontur definiert wird.
+Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Kontur definiert wird.
 
 ## Syntax
 
@@ -76,25 +77,25 @@ Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte ang
 ### Werte
 
 - `auto`
-  - : Ermöglicht es dem User-Agent, einen benutzerdefinierten Konturstil zu rendern.
+  - : Erlaubt dem Benutzeragenten, einen benutzerdefinierten Konturstil zu rendern.
 - `none`
   - : Es wird keine Kontur verwendet. Die {{cssxref("outline-width")}} ist `0`.
 - `dotted`
   - : Die Kontur ist eine Reihe von Punkten.
 - `dashed`
-  - : Die Kontur ist eine Reihe kurzer Liniensegmente.
+  - : Die Kontur ist eine Reihe von kurzen Liniensegmenten.
 - `solid`
-  - : Die Kontur ist eine durchgehende Linie.
+  - : Die Kontur ist eine einzelne Linie.
 - `double`
-  - : Die Kontur besteht aus zwei durchgehenden Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Raums dazwischen.
+  - : Die Kontur besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Zwischenraums.
 - `groove`
   - : Die Kontur sieht aus, als wäre sie in die Seite geschnitzt.
 - `ridge`
-  - : Das Gegenteil von `groove`: Die Kontur sieht aus, als wäre sie aus der Seite herausgedrückt.
+  - : Das Gegenteil von `groove`: Die Kontur sieht aus, als wäre sie aus der Seite herausgehoben.
 - `inset`
-  - : Die Kontur lässt die Box eingebettet in der Seite erscheinen.
+  - : Die Kontur lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
 - `outset`
-  - : Das Gegenteil von `inset`: Die Kontur lässt die Box aus der Seite herauskommen.
+  - : Das Gegenteil von `inset`: Die Kontur lässt die Box so aussehen, als käme sie aus der Seite heraus.
 
 ## Formale Definition
 
@@ -106,9 +107,9 @@ Die `outline-style` Eigenschaft wird als einer der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Konturstil auf auto setzen
+### Outline-Stil auf auto setzen
 
-Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, wie in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben "normalerweise ein Stil \[der] entweder ein Benutzeroberfläche-Standard für die Plattform ist oder vielleicht ein reicherer Stil, als er im Detail in CSS beschrieben werden kann, z.B. eine abgerundete Kantenkontur mit halbtransparenter äußerer Pixel, die zu leuchten scheint".
+Der `auto`-Wert zeigt einen benutzerdefinierten Konturstil an, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder eine Benutzeroberflächen-Voreinstellung für die Plattform ist oder vielleicht ein Stil, der reicher ist, als im Detail in CSS beschrieben werden kann, z. B. ein abgerundeter Kantenstil mit halbtransparenten äußeren Pixeln, die leuchten scheinen".
 
 #### HTML
 
@@ -136,7 +137,7 @@ Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, wie in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_auto') }}
 
-### Konturstil auf gestrichelt und gepunktet setzen
+### Outline-Stil auf gestrichelt und gepunktet setzen
 
 #### HTML
 
@@ -169,7 +170,7 @@ Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, wie in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_dashed_and_dotted') }}
 
-### Konturstil auf durchgehend und doppelt setzen
+### Outline-Stil auf durchgehend und doppelt setzen
 
 #### HTML
 
@@ -202,7 +203,7 @@ Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, wie in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_solid_and_double') }}
 
-### Konturstil auf Rille und Kamm setzen
+### Outline-Stil auf Rillen und Kante setzen
 
 #### HTML
 
@@ -235,7 +236,7 @@ Der Wert `auto` gibt einen benutzerdefinierten Konturstil an, wie in [der Spezif
 
 {{ EmbedLiveSample('Setting_outline_style_to_groove_and_ridge') }}
 
-### Konturstil auf eingelassen und herausgesetzt setzen
+### Outline-Stil auf eingesenkt und erhaben setzen
 
 #### HTML
 

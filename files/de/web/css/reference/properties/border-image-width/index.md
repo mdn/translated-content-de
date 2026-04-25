@@ -1,13 +1,14 @@
 ---
-title: border-image-width
+title: "`border-image-width` CSS property"
+short-title: border-image-width
 slug: Web/CSS/Reference/Properties/border-image-width
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-image-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite eines Elements [Border Image](/de/docs/Web/CSS/Reference/Properties/border-image) fest.
+Die **`border-image-width`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Breite des [Randbildes](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements fest.
 
-Wenn der Wert dieser Eigenschaft größer ist als die {{cssxref("border-width")}} des Elements, wird das Border Image über den Rand des Inhalts (und/oder Inhaltsbereichs) hinausgehen.
+Wenn der Wert dieser Eigenschaft größer als die {{cssxref("border-width")}} des Elements ist, wird das Randbild über den Rand des Paddings (und/oder Inhalts) hinausgehen.
 
 {{InteractiveExample("CSS Demo: border-image-width")}}
 
@@ -82,21 +83,21 @@ border-image-width: revert-layer;
 border-image-width: unset;
 ```
 
-Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten aus der unten stehenden Liste von Werten angegeben werden.
+Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten aus der unten stehenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt dieselbe Breite für **alle vier Seiten**.
+- Wenn **ein** Wert angegeben wird, gilt die gleiche Breite für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
 - Wenn **drei** Werte angegeben werden, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Breiten für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **vier** Werte angegeben werden, gelten die Breiten in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
 
 ### Werte
 
 - `<length-percentage>`
-  - : Die Breite des Rands, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich bei horizontalen Versätzen auf die _Breite_ des Border-Image-Bereichs und bei vertikalen Versätzen auf die _Höhe_ des Border-Image-Bereichs. Darf nicht negativ sein.
+  - : Die Breite des Randes, angegeben als {{cssxref("&lt;length&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Randbildbereichs für horizontale Abstände und auf die _Höhe_ des Randbildbereichs für vertikale Abstände. Darf nicht negativ sein.
 - `<number>`
-  - : Die Breite des Rands, angegeben als Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
+  - : Die Breite des Randes, angegeben als Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
 - `auto`
-  - : Die Breite des Rands wird der intrinsischen Breite oder Höhe (je nach Anwendbarkeit) des entsprechenden {{cssxref("border-image-slice")}} gleichgesetzt. Wenn das Bild die erforderliche intrinsische Abmessung nicht hat, wird stattdessen die entsprechende `border-width` verwendet.
+  - : Die Breite des Randes wird gleich der intrinsischen Breite oder Höhe (je nachdem, was anwendbar ist) der entsprechenden {{cssxref("border-image-slice")}} gemacht. Wenn das Bild nicht die erforderliche intrinsische Dimension hat, wird stattdessen die entsprechende `border-width` verwendet.
 
 ## Formale Definition
 
@@ -108,13 +109,13 @@ Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten
 
 ## Beispiele
 
-### Tiles für ein Border Image
+### Tiling eines Randbildes
 
-Dieses Beispiel erstellt ein Border Image mit der folgenden ".png"-Datei, die 90 mal 90 Pixel groß ist:
+Dieses Beispiel erstellt ein Randbild unter Verwendung der folgenden ".png"-Datei, die 90 mal 90 Pixel groß ist:
 
-![Quadratisches Bild mit acht Kreisen. Die Kreise in jeder Ecke sind hell-lila. Die vier Seitenkreise sind blau. Der Bereich in der Mitte, in dem ein neunter Kreis passen könnte, ist leer.](border.png)
+![Quadratbild, das acht Kreise enthält. Die Kreise in jeder Ecke sind hellviolett. Die vier Seitenkreise sind blau. Der Bereich in der Mitte, wo ein neunter Kreis passen könnte, ist leer.](border.png)
 
-Somit ist jeder Kreis im Quellbild 30 mal 30 Pixel groß.
+Daher ist jeder Kreis im Quellbild 30 mal 30 Pixel groß.
 
 #### HTML
 
@@ -152,6 +153,6 @@ p {
 
 ## Siehe auch
 
-- [Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Border Images in CSS: Ein Schwerpunkt für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Randbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

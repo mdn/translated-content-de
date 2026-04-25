@@ -1,13 +1,14 @@
 ---
-title: hyphenate-character
+title: "`hyphenate-character` CSS property"
+short-title: hyphenate-character
 slug: Web/CSS/Reference/Properties/hyphenate-character
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`hyphenate-character`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Zeichen (oder die Zeichenfolge) fest, das am Ende einer Zeile vor einem Trennstrich verwendet wird.
+Die **`hyphenate-character`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Zeichen (oder die Zeichenkette) fest, das am Ende einer Zeile vor einem Trennungsumbruch verwendet wird.
 
-Sowohl automatische als auch weiche Trennstriche werden entsprechend dem angegebenen `hyphenate-character` Wert angezeigt.
+Sowohl automatische als auch weiche Trennstriche werden entsprechend dem angegebenen Wert der hyphenate-character-Eigenschaft angezeigt.
 
 {{InteractiveExample("CSS Demo: hyphenate-character")}}
 
@@ -46,14 +47,16 @@ hyphenate-character: <string>;
 hyphenate-character: auto;
 ```
 
-Der Wert setzt entweder die Zeichenfolge, die anstelle eines Bindestrichs verwendet werden soll, oder gibt an, dass der User-Agent eine geeignete Zeichenfolge basierend auf den aktuellen typografischen Konventionen auswählen soll (Standard).
+Der Wert legt entweder die Zeichenkette fest, die anstelle eines Trennstrichs verwendet werden soll, oder gibt an, dass der Benutzeragent eine geeignete Zeichenkette basierend auf den aktuellen typografischen Konventionen auswählen soll (Standard).
 
 ### Werte
 
 - `<string>`
-  - : Die {{cssxref("&lt;string&gt;")}}, die am Ende der Zeile vor einem Trennstrich verwendet werden soll. Der User-Agent kann diesen Wert kürzen, wenn zu viele Zeichen verwendet werden.
+  - : Der {{cssxref("&lt;string&gt;")}}, der am Ende der Zeile vor einem Trennungsumbruch verwendet werden soll.
+    Der Benutzeragent kann diesen Wert kürzen, wenn zu viele Zeichen verwendet werden.
 - `auto`
-  - : Der User-Agent wählt eine geeignete Zeichenfolge basierend auf den typografischen Konventionen der Inhaltssprache. Dies ist der Standardwert der Eigenschaft und muss nur explizit gesetzt werden, um einen anderen geerbten Wert zu überschreiben.
+  - : Der Benutzeragent wählt eine geeignete Zeichenkette basierend auf den typografischen Konventionen der Inhaltssprache.
+    Dies ist der Standardwert der Eigenschaft und muss nur explizit gesetzt werden, um einen anderen geerbten Wert zu überschreiben.
 
 ## Formale Definition
 
@@ -65,7 +68,9 @@ Der Wert setzt entweder die Zeichenfolge, die anstelle eines Bindestrichs verwen
 
 ## Beispiele
 
-Dieses Beispiel zeigt zwei identische Textblöcke, bei denen {{cssxref("hyphens")}} gesetzt ist, um sicherzustellen, dass sie dort brechen, wo es nötig ist, und bei weichen Trennstrichen (erstellt mit `&shy;`). Der erste Block hat den Wert des Trennstrichs auf das Gleichheitszeichen (`=`) geändert. Der zweite Block hat kein gesetztes `hyphenate-character`, was für User-Agents, die diese Eigenschaft unterstützen, `hyphenate-character: auto` entspricht.
+Dieses Beispiel zeigt zwei identische Textblöcke, bei denen {{cssxref("hyphens")}} so eingestellt ist, dass sie überall dort aufbrechen, wo es nötig ist, und bei weichen Trennstrichen (erzeugt mit `&shy;`).
+Im ersten Block wird der Wert des Trennzeichens auf das Gleichheitszeichen (`=`) geändert.
+Der zweite Block hat kein hyphenate-character gesetzt, was für Benutzeragenten, die diese Eigenschaft unterstützen, gleichbedeutend mit `hyphenate-character: auto` ist.
 
 ### HTML
 

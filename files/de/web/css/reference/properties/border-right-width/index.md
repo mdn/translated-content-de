@@ -1,11 +1,12 @@
 ---
-title: border-right-width
+title: "`border-right-width` CSS property"
+short-title: border-right-width
 slug: Web/CSS/Reference/Properties/border-right-width
 l10n:
-  sourceCommit: 893eb2dfe0ce3e837b3a7512a684b2f02e31d64e
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rands eines Elements fest.
+Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Randes eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right-width")}}
 
@@ -72,7 +73,7 @@ border-right-width: unset;
 ### Werte
 
 - `<line-width>`
-  - : Definiert die Breite des Randes, entweder als explizite nichtnegative {{cssxref("&lt;length&gt;")}} oder als Keyword. Wenn es ein Keyword ist, muss es einen der folgenden Werte haben:
+  - : Definiert die Breite des Randes, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
     - `thin`
       - Entspricht `1px`.
     - `medium`
@@ -129,5 +130,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen Randbreiten-bezogenen CSS-Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen rechten Rand-bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.
+- Die anderen CSS-Eigenschaften im Zusammenhang mit Randbreiten: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften im Zusammenhang mit dem rechten Rand: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.

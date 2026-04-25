@@ -1,15 +1,16 @@
 ---
-title: corner-top-left-shape
+title: "`corner-top-left-shape` CSS property"
+short-title: corner-top-left-shape
 slug: Web/CSS/Reference/Properties/corner-top-left-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der oberen linken Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}}-Bereiches fest.
+Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der oberen linken Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
 
-Eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele finden Sie auf der Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ corner-top-left-shape: unset;
 
 ### Werte
 
-Die `corner-top-left-shape`-Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes spezifiziert.
+Die `corner-top-left-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes angegeben.
 
 ## Formale Definition
 
@@ -44,13 +45,13 @@ Die `corner-top-left-shape`-Eigenschaft wird unter Verwendung eines {{cssxref("&
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Andere verwandte Beispiele finden Sie auf der Referenzseite zur {{cssxref("corner-shape")}}.
 
 ### Grundlegende Verwendung von `corner-top-left-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
+Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -58,7 +59,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
+Wir geben dem Kasten einige grundlegende Stile, die aus Gründen der Kürze verborgen wurden. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -111,5 +112,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
 - {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-left-radius")}}
-- [CSS-Ränder und Kastendekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS-Ränder und Boxdekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

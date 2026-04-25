@@ -1,11 +1,12 @@
 ---
-title: "<option>: Das HTML-Optionselement"
+title: "`<option>` HTML-Optionselement"
+short-title: <option>
 slug: Web/HTML/Reference/Elements/option
 l10n:
-  sourceCommit: c10cfb6daba8fe6fc5366f2e1ca1bd32de8a537f
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<option>`**-Element [HTML](/de/docs/Web/HTML) wird verwendet, um ein Element zu definieren, das in einem {{HTMLElement("select")}}, einem {{HTMLElement("optgroup")}} oder einem {{HTMLElement("datalist")}}-Element enthalten ist. So kann `<option>` Menüelemente in Popups und anderen Listen von Elementen in einem HTML-Dokument darstellen.
+Das **`<option>`**-Element in [HTML](/de/docs/Web/HTML) wird verwendet, um ein Element in einem {{HTMLElement("select")}}, einem {{HTMLElement("optgroup")}} oder einem {{HTMLElement("datalist")}}-Element zu definieren. Somit kann `<option>` Menüelemente in Popups und andere Listen von Elementen in einem HTML-Dokument darstellen.
 
 {{InteractiveExample("HTML Demo: &lt;option&gt;", "tabbed-standard")}}
 
@@ -38,26 +39,26 @@ select {
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Wenn dieses Boolesche Attribut gesetzt ist, ist diese Option nicht auswählbar. Häufig werden solche Bedienelemente von Browsern ausgegraut und erhalten keine Browsing-Ereignisse, wie Mausklicks oder Fokus-bezogene Ereignisse. Wenn dieses Attribut nicht gesetzt ist, kann das Element dennoch deaktiviert werden, wenn einer seiner Vorfahren ein deaktiviertes {{HTMLElement("optgroup")}}-Element ist.
+  - : Wenn dieses boolesche Attribut gesetzt ist, ist diese Option nicht auswählbar. Oftmals werden solche Steuerelemente von Browsern grau dargestellt und erhalten keine Navigationsereignisse, wie Mausklicks oder Fokusereignisse. Ist dieses Attribut nicht gesetzt, kann das Element dennoch deaktiviert sein, wenn ein übergeordnetes {{HTMLElement("optgroup")}}-Element deaktiviert ist.
 - `label`
-  - : Dieses Attribut ist der Text für die Beschriftung, die die Bedeutung der Option angibt. Wenn das `label`-Attribut nicht definiert ist, ist sein Wert der Textinhalt des Elements.
+  - : Dieses Attribut ist ein Text für das Label, das die Bedeutung der Option angibt. Ist das `label` Attribut nicht definiert, entspricht sein Wert dem Textinhalt des Elements.
 - `selected`
-  - : Wenn vorhanden, weist dieses Boolesche Attribut darauf hin, dass die Option anfänglich ausgewählt ist. Wenn das `<option>`-Element ein Nachfahre eines {{HTMLElement("select")}}-Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple)-Attribut nicht gesetzt ist, darf nur ein einziges `<option>` dieses {{HTMLElement("select")}}-Elements das `selected`-Attribut haben.
+  - : Wenn vorhanden, zeigt dieses boolesche Attribut an, dass die Option initial ausgewählt ist. Wenn das `<option>`-Element ein Nachkomme eines {{HTMLElement("select")}}-Elements ist, dessen [`multiple`](/de/docs/Web/HTML/Reference/Elements/select#multiple) Attribut nicht gesetzt ist, darf nur ein einziges `<option>` dieses {{HTMLElement("select")}}-Elements das `selected` Attribut haben.
 - `value`
-  - : Der Inhalt dieses Attributs stellt den Wert dar, der mit dem Formular übermittelt werden soll, falls diese Option ausgewählt ist. Wenn dieses Attribut weggelassen wird, wird der Wert aus dem Textinhalt des Optionselements übernommen.
+  - : Der Inhalt dieses Attributs stellt den Wert dar, der mit dem Formular übermittelt werden soll, wenn diese Option ausgewählt wurde. Ist dieses Attribut weggelassen, wird der Wert aus dem Textinhalt des Optionselements genommen.
 
 ## Styling mit CSS
 
-Das Styling von `<option>`-Elementen war historisch gesehen sehr eingeschränkt. [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) erläutern neuere Funktionen, die ihre vollständige Anpassung ermöglichen, ähnlich wie bei jedem regulären DOM-Element.
+Das Styling von `<option>`-Elementen war historisch gesehen sehr eingeschränkt. [Customizable select elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) erklärt neuere Funktionen, die ihre vollständige Anpassung ermöglichen, genauso wie bei jedem regulären DOM-Element.
 
-### Legacy-Option-Styling
+### Legacy-Optionen-Styling
 
-In Browsern, die die modernen Anpassungsfunktionen nicht unterstützen (oder in Legacy-Codebasen, in denen sie nicht verwendet werden können), hängt das verfügbare Styling für `<option>`-Elemente vom Browser und Betriebssystem ab. Abhängig vom Betriebssystem wird in Firefox und Chromium die {{cssxref("font-size")}} des Besitzers `<select>` respektiert. Chromium kann zusätzlich {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("font-family")}}, {{cssxref("font-variant")}} und {{cssxref("text-align")}} gesetzt werden.
+In Browsern, die die modernen Anpassungsfunktionen nicht unterstützen (oder in älteren Codebasen, wo sie nicht verwendet werden können), hängt das verfügbare Styling von `<option>`-Elementen vom Browser und Betriebssystem ab. Abhängig vom Betriebssystem wird die {{cssxref("font-size")}} des besitzenden `<select>` in Firefox und Chromium respektiert. Chromium kann zusätzlich {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("font-family")}}, {{cssxref("font-variant")}} und {{cssxref("text-align")}} erlauben.
 
-Weitere Details zum Legacy-`<option>`-Styling finden Sie in [unserem Leitfaden zum erweiterten Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
+Mehr Details über Legacy-`<option>`-Styling finden Sie in [unserem Leitfaden zum erweiterten Formularstyling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling).
 
 ## Beispiele
 
@@ -78,21 +79,21 @@ Siehe {{HTMLElement("select")}} für Beispiele.
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        In traditionellen <code>&lt;select&gt;</code>-Elementen ist nur Textinhalt gestattet, möglicherweise mit maskierten Zeichen (wie
-        <code>&#x26;eacute;</code>). In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Select-Elementen</a> können <code>&lt;option&gt;</code>-Elemente beliebige Inhalte haben.
+        In traditionellen <code>&lt;select&gt;</code>-Elementen ist nur Textinhalt erlaubt, möglicherweise mit escape-Zeichen (wie
+        <code>&#x26;eacute;</code>). In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren Select-Elementen</a> können <code>&lt;option&gt;</code>-Elemente beliebigen Inhalt haben.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
         Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;option></code>-Element oder einer
-        {{HTMLElement("optgroup")}} gefolgt wird oder wenn das Elternelement keine
-        weiteren Inhalte hat.
+        unmittelbar von einem anderen <code>&#x3C;option></code>-Element oder einem
+        {{HTMLElement("optgroup")}} gefolgt wird, oder wenn das übergeordnete Element
+        keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternelemente</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("select")}}, ein
         {{HTMLElement("optgroup")}} oder ein
@@ -124,5 +125,5 @@ Siehe {{HTMLElement("select")}} für Beispiele.
 
 ## Siehe auch
 
-- Andere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("optgroup")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
-- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- Andere form-bezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("optgroup")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
+- [Customizable select elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

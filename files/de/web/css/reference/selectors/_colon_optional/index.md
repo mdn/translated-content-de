@@ -1,11 +1,12 @@
 ---
-title: :optional
+title: "`:optional` CSS-Pseudoklasse"
+short-title: :optional
 slug: Web/CSS/Reference/Selectors/:optional
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut gesetzt hat.
+Die **`:optional`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das nicht das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut gesetzt hat.
 
 {{InteractiveExample("CSS Demo: :optional", "tabbed-standard")}}
 
@@ -44,7 +45,7 @@ label {
 </form>
 ```
 
-Diese Pseudoklasse ist nützlich, um Felder zu gestalten, die nicht erforderlich sind, um ein Formular abzuschicken.
+Diese Pseudoklasse ist nützlich, um Felder zu stylen, die nicht zum Absenden eines Formulars erforderlich sind.
 
 > [!NOTE]
 > Die {{cssxref(":required")}} Pseudoklasse wählt _erforderliche_ Formularfelder aus.
@@ -59,16 +60,16 @@ Diese Pseudoklasse ist nützlich, um Felder zu gestalten, die nicht erforderlich
 
 ## Barrierefreiheit
 
-Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) optionale {{htmlelement("input")}}s enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut gekennzeichnet werden. Dies stellt sicher, dass Personen, die auf unterstützende Technologien wie Bildschirmlesegeräte angewiesen sind, verstehen können, welche Eingaben gültigen Inhalt benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
+Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) optionale {{htmlelement("input")}}-Felder enthält, sollten erforderliche Eingaben mit dem [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut angegeben werden. Dies stellt sicher, dass Personen, die mit Hilfe von unterstützenden Technologien wie einem Screenreader navigieren, verstehen, welche Eingaben gültigen Inhalt benötigen, um eine erfolgreiche Formularübermittlung zu gewährleisten.
 
-Erforderliche Eingaben sollten auch visuell gekennzeichnet werden, wobei eine Darstellung gewählt wird, die nicht ausschließlich auf Farben beruht, um die Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
+Erforderliche Eingaben sollten auch visuell verdeutlicht werden, wobei eine Darstellung verwendet wird, die sich nicht ausschließlich auf Farbe zur Bedeutungsübermittlung stützt. Typischerweise werden beschreibender Text und/oder ein Symbol benutzt.
 
-- [MDN Verständnis WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
+- [MDN Understanding WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
 - [Verständnis des Erfolgskriteriums 3.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
-### Das optionale Feld hat einen lila Rahmen
+### Das optionale Feld hat einen lilafarbenen Rahmen
 
 #### HTML
 
@@ -120,5 +121,5 @@ input:optional {
 
 ## Siehe auch
 
-- Andere Validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
-- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- Andere Validierungs-bezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
+- [Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

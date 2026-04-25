@@ -1,16 +1,17 @@
 ---
-title: text-box-edge
+title: "`text-box-edge` CSS property"
+short-title: text-box-edge
 slug: Web/CSS/Reference/Properties/text-box-edge
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-box-edge`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie viel Platz von einem Text-Element innerhalb eines Block-Containers abgeschnitten werden soll.
+Die **`text-box-edge`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt eine Menge Platz an, die von einem Blockcontainer eines Textelements abgeschnitten werden soll.
 
-Der vertikale Abstand unterscheidet sich zwischen den Schriftarten, was historisch gesehen konsistentes Schriftsatz im Web zu einer Herausforderung machte. Die `text-box-edge` Eigenschaft — zusammen mit ihrer Gegenstückeigenschaft {{cssxref("text-box-trim")}}, die angibt, von welcher Kante Platz abgeschnitten werden soll — erleichtert es, einen konsistenten Schriftsatz zu erreichen. Die `text-box-edge` Eigenschaft hat keine Wirkung, wenn `text-box-trim` nicht gesetzt ist oder auf `none` gesetzt ist.
+Vertikale Abstände unterscheiden sich zwischen Schriftarten, was die konsistente Typografie im Web historisch gesehen herausfordernd macht. Die `text-box-edge`-Eigenschaft — zusammen mit ihrer Gegenstückeigenschaft {{cssxref("text-box-trim")}}, die angibt, von welchen Kanten Raum abgeschnitten werden soll — erleichtert das Erreichen einer konsistenten Typografie. Die `text-box-edge`-Eigenschaft hat keine Wirkung, wenn `text-box-trim` nicht gesetzt ist oder auf `none` gesetzt ist.
 
 > [!NOTE]
-> Die {{cssxref("text-box")}} Kurzschreibweise kann verwendet werden, um die `text-box-edge` und `text-box-trim` Werte in einer einzelnen Deklaration anzugeben.
+> Die {{cssxref("text-box")}} Kurzschreibweise kann verwendet werden, um die Werte für `text-box-edge` und `text-box-trim` in einer einzigen Deklaration anzugeben.
 
 ## Syntax
 
@@ -35,26 +36,26 @@ text-box-edge: unset;
 
 ### Wert
 
-Der `text-box-edge` Eigenschaftswert wird als `auto` oder ein {{cssxref("&lt;text-edge&gt;")}} Wert angegeben:
+Der Wert der `text-box-edge`-Eigenschaft wird als `auto` oder ein {{cssxref("&lt;text-edge&gt;")}}-Wert angegeben:
 
 - `auto`
   - : Der Standardwert. Entspricht dem `text-edge` Wert `text`.
 - {{cssxref("&lt;text-edge&gt;")}}
-  - : Ein oder zwei separate Schlüsselwörter, die die Kantenpositionen über und unter dem Text-Element darstellen, die abgeschnitten werden sollen.
-    - Wenn zwei Werte angegeben sind, spezifiziert der erste Wert das Zuschneideverhalten der Block-Startkante (über) des Textes und der zweite Wert das Zuschneideverhalten der Block-Endkante (unter) des Textes.
-      - Gültige Zuschneidewerte für die obere Kante: `text`, `cap` und `ex`.
-      - Gültige Zuschneidewerte für die untere Kante: `text` und `alphabetic`.
-    - Wenn ein Wert angegeben ist, spezifiziert er sowohl das Zuschneideverhalten der oberen _als auch_ der unteren Kante. Zum Zeitpunkt des Schreibens ist der einzige gültige Einzelwert `text`.
+  - : Ein oder zwei separate Schlüsselwörter, die die über und unter Kantenpositionen darstellen, um den Blockcontainer des Textelements zu trimmen.
+    - Wenn zwei Werte angegeben sind, gibt der erste Wert das Trimmverhalten für die Blockanfangskante (über) des Texts an, und der zweite Wert gibt das Trimmverhalten für die Blockendkante (unter) des Texts an.
+      - Gültige Über-Kanten Trimmwerte: `text`, `cap` und `ex`.
+      - Gültige Unter-Kanten Trimmwerte: `text` und `alphabetic`.
+    - Wenn ein Wert angegeben ist, spezifiziert er sowohl das Über- als auch das Unterkanten-Trimmverhalten. Zum Zeitpunkt des Schreibens ist der einzige gültige einzelne Wert `text`.
 
 ## Beschreibung
 
-Die Höhe des ausschließlich aus Text bestehenden Inhalts ist relativ zur Höhe der Schriftart. In digitalen Schriftdateien umfasst die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Verschiedene Schriftarten haben unterschiedliche Grundlinienhöhen, was bedeutet, dass Textzeilen mit derselben `font-size` Höhen von Line-Boxen erzeugen, die sich auf die Erscheinung des Abstands zwischen den Zeilen auswirken.
+Die Höhe von nur Text-Inhalten ist relativ zur Höhe der Schriftart. In digitalen Fontdateien umfasst die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Unterschiedliche Schriftarten haben unterschiedliche Basis-Zeilenhöhen, was bedeutet, dass Textzeilen mit der gleichen `font-size` Zeilenboxen unterschiedlicher Höhe erzeugen werden, was das Erscheinungsbild des Abstands zwischen den Zeilen beeinflusst.
 
-Die `text-box-edge` Eigenschaft ermöglicht es Ihnen, Platz von der Start- und/oder Endkante des Textblockcontainers abzuschneiden. Dies kann den {{Glossary("leading", "Durchschuss")}} an der Block-Start- und Block-Endkante des Textes sowie den im Font definierten Abstand (wie oben beschrieben) umfassen. Dies erfolgt durch Angabe eines {{cssxref("&lt;text-edge&gt;")}} Wertes, der die obere und untere Kante angibt, um zu welchem Raum abgeschnitten werden soll.
+Die `text-box-edge`-Eigenschaft ermöglicht es Ihnen, den Raum vom Anfangs- und/oder Endrand des Blockcontainers des Textes abzuschneiden. Dies kann das {{Glossary("leading", "leading")}} am Blockanfang und Ende des Textes und den innerhalb der Schrift definierten Abstand (wie oben beschrieben) einschließen. Dies erfolgt durch Spezifikation eines {{cssxref("&lt;text-edge&gt;")}}-Wertes, der die Über- und Unterkante angibt, auf die der Raum getrimmt werden soll.
 
-Welche Kante(n) abgeschnitten werden sollen, wird mit der {{cssxref("text-box-trim")}} Eigenschaft angegeben. Sie können beispielsweise wählen, Platz von der oberen oder unteren Kante des Textblockcontainers oder beiden abzuschneiden.
+Von welchen Kanten Raum abgeschnitten werden soll, wird mit der {{cssxref("text-box-trim")}}-Eigenschaft angegeben. Zum Beispiel können Sie wählen, Raum vom Überrand oder vom Unterrand des Blockcontainers des Textes, oder von beiden abzuschneiden.
 
-Diese Eigenschaften erleichtern es erheblich, den Textabstand in Blockrichtung zu kontrollieren.
+Diese Eigenschaften erleichtern die Steuerung von Textabständen in Blockrichtung erheblich.
 
 ## Formale Definition
 
@@ -68,9 +69,9 @@ Diese Eigenschaften erleichtern es erheblich, den Textabstand in Blockrichtung z
 
 ### Grundlegende Verwendung von `text-box-edge`
 
-Die gängigsten `text-box-edge` Werte, die Sie für horizontale {{cssxref("writing-mode")}} Sprachen wie Englisch oder Arabisch verwenden, sind `cap alphabetic` und `ex alphabetic`. Der `cap` Wert trimmt die obere Kante des Textblockcontainers bis zur Oberkante der Großbuchstaben, während `ex` die obere Kante bis zur x-Höhe des Fonts (der Oberkante der kurzen Kleinbuchstaben) zuschneidet. In jedem Fall trimmt `alphabetic` die untere Kante bündig mit der Textbasislinie.
+Die gebräuchlichsten `text-box-edge`-Werte, die Sie für horizontale {{cssxref("writing-mode")}}-Sprachen wie Englisch oder Arabisch verwenden, sind `cap alphabetic` und `ex alphabetic`. Der `cap`-Wert kürzt die obere Kante des Blockcontainers des Textelements bis zur Oberseite der Großbuchstaben, während `ex` die obere Kante auf die x-Höhe der Schriftart (die Oberkante der kurzen Kleinbuchstaben) kürzt. In jedem Fall kürzt `alphabetic` die Unterkante bündig mit der Textbasislinie.
 
-In diesem Beispiel demonstrieren wir die Wirkung dieser beiden gängigen Werte auf zwei {{htmlelement("p")}} Elemente. Zusätzlich wurde auf beiden ein {{cssxref("text-box-trim")}} Wert von `trim-both` gesetzt, sodass ihre Start- _und_ Endkanten beschnitten werden.
+In diesem Beispiel demonstrieren wir die Wirkung beider dieser allgemeinen Werte an zwei {{htmlelement("p")}}-Elementen. Zudem wurde bei beiden ein {{cssxref("text-box-trim")}}-Wert von `trim-both` gesetzt, sodass deren Anfangs- _und_ Endkanten gekürzt sind.
 
 ```html hidden
 <p class="one">This is .one</p>
@@ -117,13 +118,13 @@ p {
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt. Beachten Sie, dass wir oben und unten einen Rand auf jeden Absatz gesetzt haben, damit Sie sehen können, wie der Platz in jedem Fall beschnitten wurde.
+Die Ausgabe ist wie folgt. Beachten Sie, dass wir eine obere und untere Umrandung auf jedem Absatz eingefügt haben, damit Sie sehen können, wie der Raum in jedem Fall gekürzt wurde.
 
 {{EmbedLiveSample("Basic `text-box-edge` usage","100%","360")}}
 
-### Interaktive `text-box-edge` Wertvergleich
+### Interaktive `text-box-edge`-Wertevergleiche
 
-Für ein vollständiges interaktives `text-box-edge` Beispiel sehen Sie die [`text-box-trim` Seite](/de/docs/Web/CSS/Reference/Properties/text-box-trim#interactive_text-box-trim_and_text-box-edge_value_comparison).
+Für ein vollständiges interaktives `text-box-edge`-Beispiel siehe die [`text-box-trim` Seite](/de/docs/Web/CSS/Reference/Properties/text-box-trim#interactive_text-box-trim_and_text-box-edge_value_comparison).
 
 ## Spezifikationen
 

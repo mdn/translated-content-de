@@ -1,11 +1,12 @@
 ---
-title: inset()
+title: "`inset()` CSS-Funktion"
+short-title: inset()
 slug: Web/CSS/Reference/Values/basic-shape/inset
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`inset()`** [CSS](/de/docs/Web/CSS) Funktion definiert ein Rechteck mit den angegebenen Einabstandsdistanzen von jeder Seite der Referenzbox. Es ist eine grundlegende Formfunktion, die verwendet wird, um einen der {{cssxref("basic-shape")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types) zu definieren.
+Die **`inset()`**-[CSS](/de/docs/Web/CSS)-Funktion definiert ein Rechteck mit den angegebenen Einsetzabständen von jeder Seite der Referenzbox. Es ist eine Basisform-Funktion, die verwendet wird, um einen der {{cssxref("basic-shape")}}-[Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types) zu definieren.
 
 {{InteractiveExample("CSS Demo: inset()")}}
 
@@ -52,12 +53,12 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 ### Werte
 
 - `<length-percentage>{1,4}`
-  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Abstände von oben, rechts, unten und links von der Referenzbox nach innen, die die Positionen der Kanten des Einstandsrechtecks definieren. Diese Argumente folgen der Syntax der Margin-Kurzform, die es Ihnen ermöglicht, alle vier Einabstände mit einem, zwei oder vier Werten festzulegen.
+  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Abstände von oben, rechts, unten und links, die von der Referenzbox nach innen verschoben werden, um die Positionen der Kanten des Einsetz-Rechtecks zu definieren. Diese Argumente folgen der Syntax der margin-Kurzform, die es Ihnen ermöglicht, alle vier Einsetzabstände mit einem, zwei oder vier Werten festzulegen.
 
-    Wenn ein Paar von Einabständen für eine Dimension mehr als 100 % dieser Dimension ergibt, werden beide Werte proportional reduziert, sodass ihre Summe 100 % beträgt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` einen oberen Einabstand von `90%` und einen unteren Einabstand von `60%`. Diese Werte werden proportional zu `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keinen Bereich einschließen und keinen {{cssxref("shape-margin")}} haben, beeinflussen das Umfließen nicht.
+    Wenn ein Paar von Einsetzabständen für eine Dimension mehr als 100% dieser Dimension ergibt, werden beide Werte proportional reduziert, so dass ihre Summe 100% beträgt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` einen oberen Einsetzabstand von `90%` und einen unteren von `60%`. Diese Werte werden proportional zu `inset(60% 10% 40% 10%)` reduziert. Formen wie diese, die keinen Bereich einschließen und keinen {{cssxref("shape-margin")}} haben, beeinflussen das Umfließen nicht.
 
 - `<border-radius>`
-  - : Die optionalen [`<border-radius>`](/de/docs/Web/CSS/Reference/Properties/border-radius) Argument(e) definieren abgerundete Ecken für das Einstandsrechteck unter Verwendung der border-radius-Kurzform-Syntax.
+  - : Das optionale [`<border-radius>`](/de/docs/Web/CSS/Reference/Properties/border-radius)-Argument(e) definiert abgerundete Ecken für das Einsetz-Rechteck mithilfe der border-radius-Kurzform-Syntax.
 
 ## Formale Syntax
 
@@ -65,9 +66,9 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 ## Beispiele
 
-### Einfaches Beispiel für inset
+### Einfaches Einsetz-Beispiel
 
-Im untenstehenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Abstands-Werte, um zu sehen, wie sich die Form verändert.
+Im folgenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über das schwebende Element zu ziehen. Ändern Sie die Einsetzwerte, um zu sehen, wie sich die Form verändert.
 
 ```html
 <div class="box">
@@ -105,7 +106,7 @@ Im untenstehenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über d
 }
 ```
 
-{{EmbedLiveSample("Einfaches Beispiel für inset", '100%', 280)}}
+{{EmbedLiveSample("Einfaches Einsetz-Beispiel", '100%', 280)}}
 
 ## Spezifikationen
 
@@ -118,5 +119,5 @@ Im untenstehenden Beispiel verwenden wir eine `inset()`-Form, um Inhalte über d
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
-- [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)
+- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes)-Modul
+- [Leitfaden zu Basisformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

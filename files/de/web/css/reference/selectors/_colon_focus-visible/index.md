@@ -1,11 +1,12 @@
 ---
-title: :focus-visible
+title: "`:focus-visible` CSS-Pseudoklasse"
+short-title: :focus-visible
 slug: Web/CSS/Reference/Selectors/:focus-visible
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:focus-visible`** Pseudo-Klasse gilt, während ein Element die {{CSSxRef(":focus")}} Pseudo-Klasse erfüllt und die UA ({{Glossary("User_Agent", "User Agent")}}) anhand von Heuristiken feststellt, dass der Fokus auf dem Element erkennbar gemacht werden sollte. (Viele Browser zeigen in diesem Fall standardmäßig einen "Fokus-Ring" an.)
+Die **`:focus-visible`** Pseudoklasse gilt, während ein Element der {{CSSxRef(":focus")}} Pseudoklasse entspricht und der UA ({{Glossary("User_Agent", "User Agent")}}) heuristisch bestimmt, dass der Fokus auf dem Element sichtbar gemacht werden sollte. (Viele Browser zeigen in diesem Fall standardmäßig einen "Fokusring" an.)
 
 {{InteractiveExample("CSS Demo: :focus-visible", "tabbed-shorter")}}
 
@@ -43,7 +44,7 @@ select:focus-visible {
 </form>
 ```
 
-Dieser Selektor ist nützlich, um einen unterschiedlichen Fokusindikator basierend auf der Eingabemodalität des Benutzers (Maus vs. Tastatur) bereitzustellen.
+Dieser Selektor ist nützlich, um anhand der Eingabemodalität des Benutzers (Maus vs. Tastatur) einen anderen Fokusindikator bereitzustellen.
 
 ## Syntax
 
@@ -55,35 +56,35 @@ Dieser Selektor ist nützlich, um einen unterschiedlichen Fokusindikator basiere
 
 ## :focus vs :focus-visible
 
-Ursprünglich wurde das Fokus-Styling in der Benutzer-Agent-CSS nur auf der Grundlage der `:focus` Pseudo-Klasse gesetzt, wobei die meisten fokussierten Elemente mit einem Fokus-Ring-Umriss gestaltet wurden. Das bedeutete, dass alle Elemente, einschließlich aller Links und Schaltflächen, einen Fokus-Ring erhielten, wenn sie fokussiert wurden, was vielen als unschön erschien. Wegen des Aussehens entfernten einige Autoren die Fokus-Styling des Benutzer-Agents. Eine Änderung des Fokus-Stils kann die Benutzerfreundlichkeit verringern, während das Entfernen von Fokus-Stilen die Tastaturnavigation für sehende Benutzer unzugänglich macht.
+Ursprünglich setzten User-Agent-CSS Fokus-Stile basierend nur auf der `:focus` Pseudoklasse und gestalteten die meisten fokussierten Elemente mit einem Umriss des Fokusrings. Dies bedeutete, dass alle Elemente, einschließlich aller Links und Schaltflächen, einen Fokusring hatten, wenn sie fokussiert wurden, was viele als unschön empfanden. Aufgrund des Erscheinungsbildes entfernten einige Autoren die Umrissfokus-Stile des User-Agents. Eine Änderung des Fokus-Stils kann die Benutzerfreundlichkeit verringern, während das Entfernen der Fokus-Stile die Tastaturnavigation für sehende Benutzer unzugänglich macht.
 
-Browser zeigen nicht mehr sichtbar den Fokus an (wie durch Zeichnen eines "Fokus-Rings") um jedes Element, wenn es den Fokus hat. Stattdessen verwenden sie eine Vielzahl von Heuristiken, um Fokusindikatoren nur dann bereitzustellen, wenn sie für den Benutzer am hilfreichsten sind. Beispielsweise, wenn eine Schaltfläche mit einem Zeigegerät angeklickt wird, wird der Fokus in der Regel nicht visuell angezeigt, aber wenn ein Textfeld, das Benutzereingaben benötigt, den Fokus hat, wird der Fokus angezeigt. Während Fokus-Stile immer erforderlich sind, wenn Benutzer die Seite mit der Tastatur navigieren oder wenn der Fokus über Skripte verwaltet wird, sind Fokus-Stile nicht erforderlich, wenn der Benutzer weiß, wo er den Fokus setzt, wie wenn er ein Zeigegerät wie eine Maus oder einen Finger verwendet, um den Fokus physisch auf ein Element zu setzen, es sei denn, dieses Element benötigt weiterhin die Aufmerksamkeit des Benutzers.
+Browser zeigen nicht mehr sichtbar den Fokus (wie z.B. durch Zeichnen eines "Fokusrings") um jedes Element an, wenn es im Fokus ist. Stattdessen verwenden sie eine Vielzahl von Heuristiken, um Fokusindikatoren nur dann bereitzustellen, wenn dies für den Benutzer am nützlichsten wäre. Zum Beispiel wird der Fokus normalerweise nicht visuell angezeigt, wenn eine Schaltfläche mit einem Zeigegerät geklickt wird, aber wenn ein Textfeld, das Benutzereingaben benötigt, im Fokus ist, wird der Fokus angezeigt. Während Fokus-Stile immer erforderlich sind, wenn Benutzer die Seite mit der Tastatur navigieren oder wenn der Fokus über Skripte verwaltet wird, sind Fokus-Stile nicht erforderlich, wenn der Benutzer weiß, wo er den Fokus setzt, wie z.B. wenn er ein Zeigegerät wie eine Maus oder einen Finger verwendet, um den Fokus physisch auf ein Element zu setzen, es sei denn, dieses Element erfordert weiterhin Benutzeraufmerksamkeit.
 
-Die `:focus` Pseudo-Klasse stimmt immer mit dem aktuell fokussierten Element überein. Die `:focus-visible` Pseudo-Klasse entspricht ebenfalls dem fokussierten Element, aber nur, wenn der Benutzer darüber informiert werden muss, wo sich der Fokus derzeit befindet. Da die `:focus-visible` Pseudo-Klasse das fokussierte Element bei Bedarf trifft, ermöglicht die Verwendung von `:focus-visible` (anstelle der `:focus` Pseudo-Klasse) den Autoren, das Erscheinungsbild des Fokusindikators zu ändern, ohne zu ändern, wann der Fokusindikator erscheint.
+Die `:focus` Pseudoklasse entspricht immer dem aktuell fokussierten Element. Die `:focus-visible` Pseudoklasse entspricht ebenfalls dem fokussierten Element, jedoch nur, wenn der Benutzer darüber informiert werden muss, wo der Fokus aktuell ist. Da die `:focus-visible` Pseudoklasse das fokussierte Element bei Bedarf erfasst, können Autoren durch die Verwendung von `:focus-visible` (anstatt der `:focus` Pseudoklasse) das Erscheinungsbild des Fokusindikators ändern, ohne zu ändern, wann der Fokusindikator erscheint.
 
-Wenn die {{cssxref(":focus")}} Pseudo-Klasse verwendet wird, zielt sie immer auf das aktuell fokussierte Element. Dies bedeutet, dass ein sichtbarer Fokus-Ring erscheint, wenn ein Benutzer ein Zeigegerät verwendet, um den Fokus zu setzen, was manche als störend empfinden. Die `:focus-visible` Pseudo-Klasse respektiert das selektive Fokus-Anzeigeverhalten der Benutzer-Agenten und ermöglicht dennoch eine Anpassung des Fokusindikators.
+Wenn die {{cssxref(":focus")}} Pseudoklasse verwendet wird, zielt sie immer auf das aktuell fokussierte Element ab. Das bedeutet, dass bei der Verwendung eines Zeigegeräts ein sichtbarer Fokusring um das fokussierte Element erscheint, was manche als aufdringlich empfinden. Die `:focus-visible` Pseudoklasse respektiert das selektive Verhaltensweise der Fokusanzeige der User Agents, während sie dennoch Anpassungen des Fokusindikators ermöglicht.
 
 ## Barrierefreiheit
 
 ### Eingeschränktes Sehvermögen
 
-Stellen Sie sicher, dass der visuelle Fokusindikator von Personen mit eingeschränktem Sehvermögen gesehen werden kann. Dies kommt auch allen zugute, die einen Bildschirm in einem hell beleuchteten Raum verwenden (wie draußen in der Sonne). [WCAG 2.1 SC 1.4.11 Nicht-Text-Kontrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) verlangt, dass der visuelle Fokusindikator ein Kontrastverhältnis von mindestens 3 zu 1 hat.
+Stellen Sie sicher, dass der visuelle Fokusindikator von Personen mit eingeschränktem Sehvermögen gesehen werden kann. Dies wird auch jedem zugutekommen, der einen Bildschirm in einem hell beleuchteten Raum (wie draußen in der Sonne) verwendet. Der [WCAG 2.1 SC 1.4.11 Non-Text Contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) verlangt, dass der visuelle Fokusindikator mindestens ein Kontrastverhältnis von 3 zu 1 hat.
 
-- Zugängliche visuelle Fokusindikatoren: [Geben Sie Ihrer Site etwas Fokus! Tipps für die Gestaltung nützlicher und benutzerfreundlicher Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- Zugängliche visuelle Fokusindikatoren: [Geben Sie Ihrer Website einen Fokus! Tipps zum Gestalten nützlicher und benutzerfreundlicher Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
 
 ### Kognition
 
-Es ist möglicherweise nicht offensichtlich, warum der Fokusindikator erscheint und verschwindet, wenn eine Person gemischte Eingabeformen verwendet. Für Benutzer mit kognitiven Bedenken oder die weniger technisch versiert sind, kann dieses fehlende konsistente Verhalten für interaktive Elemente verwirrend sein.
+Es mag nicht offensichtlich sein, warum der Fokusindikator erscheint und verschwindet, wenn eine Person gemischte Eingabeformen verwendet. Für Benutzer mit kognitiven Bedenken oder die weniger technologisch versiert sind, kann dieses mangelnde konsistente Verhalten für interaktive Elemente verwirrend sein.
 
 ## Beispiele
 
-### Vergleichen von :focus und :focus-visible
+### Vergleich von :focus und :focus-visible
 
-Dieses Beispiel präsentiert drei Paare von Bedienelementen. Jedes Paar besteht aus einer [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) Eingabe und einem Button.
+Dieses Beispiel präsentiert drei Paare von Steuerelementen. Jedes Paar besteht aus einem [`text`](/de/docs/Web/HTML/Reference/Elements/input/text) Eingabefeld und einer Schaltfläche.
 
 - Das erste Paar fügt keine benutzerdefinierten Stile für Fokuszustände hinzu und zeigt den Standardfall.
-- Das zweite Paar fügt Stile mit der `:focus` Pseudo-Klasse hinzu.
-- Das dritte Paar fügt Stile mit der `:focus-visible` Pseudo-Klasse hinzu.
+- Das zweite Paar fügt Stile mit der `:focus` Pseudoklasse hinzu.
+- Das dritte Paar fügt Stile mit der `:focus-visible` Pseudoklasse hinzu.
 
 ```html
 <input type="text" value="Default styles" /><br />
@@ -111,17 +112,17 @@ button {
 }
 ```
 
-Wenn Sie jedes Element der Reihe nach anklicken, werden Sie feststellen, dass, wenn `:focus` verwendet wird, um den Fokus-Ring zu stylen, der UA den Fokus-Ring zeichnet, wenn der Benutzer auf die Schaltfläche klickt. Wenn jedoch `:focus-visible` verwendet wird, um den Fokus-Ring zu stylen, zeichnet der UA den Fokus-Ring nicht, wenn der Benutzer auf die Schaltfläche klickt, genau wie im Standardfall.
+Wenn Sie jedes Element der Reihe nach anklicken, werden Sie feststellen, dass, wenn `:focus` zur Gestaltung des Fokusrings verwendet wird, der UA den Fokusring zieht, wenn der Benutzer die Schaltfläche anklickt. Wenn jedoch `:focus-visible` zur Gestaltung des Fokusrings verwendet wird, zieht der UA den Fokusring nicht, wenn der Benutzer die Schaltfläche anklickt, genau wie im Standardfall.
 
-Wenn Sie dann durch jedes Element tabben, werden Sie sehen, dass in allen drei Fällen — Standard, `:focus` und `:focus-visible` — der UA den Fokus-Ring um die Schaltfläche zeichnet, wenn der Benutzer mit der Tastatur zu ihr navigiert.
+Wenn Sie dann durch jedes Element tabben, werden Sie feststellen, dass der UA in allen drei Fällen — Standardfall, `:focus` und `:focus-visible` — den Fokusring um die Schaltfläche zeichnet, wenn der Benutzer mit der Tastatur zu ihr navigiert.
 
-Dies zeigt, wie `:focus-visible` einem Designer ermöglicht, der Logik des Browsers zu folgen, um zu bestimmen, wann ein Fokus-Ring gezeigt werden sollte.
+Dies zeigt, wie `:focus-visible` einem Designer ermöglicht, der Logik des Browsers zu folgen, um zu bestimmen, wann ein Fokusring angezeigt werden sollte.
 
-{{EmbedLiveSample("Comparing :focus and :focus-visible", "100%", 300)}}
+{{EmbedLiveSample("Vergleich von :focus und :focus-visible", "100%", 300)}}
 
 ### Bereitstellung eines :focus Fallbacks
 
-Wenn Ihr Code in alten Browserversionen funktionieren muss, die `:focus-visible` nicht unterstützen, überprüfen Sie die Unterstützung von `:focus-visible` mit {{cssxref("@supports")}} und wiederholen Sie dieselbe Fokus-Styling darin, jedoch innerhalb einer `:focus` Regel. Beachten Sie, dass selbst wenn Sie überhaupt nichts für `:focus` spezifizieren, alte Browser einfach das native Outline anzeigen, was ausreichen kann.
+Wenn Ihr Code in alten Browserversionen funktionieren muss, die `:focus-visible` nicht unterstützen, überprüfen Sie die Unterstützung von `:focus-visible` mit {{cssxref("@supports")}} und wiederholen Sie das gleiche Fokus-Styling darin, jedoch innerhalb einer `:focus` Regel. Beachten Sie, dass alte Browser, selbst wenn Sie überhaupt nichts für `:focus` angeben, einfach den nativen Umriss anzeigen, was ausreichend sein kann.
 
 ```html
 <button class="button with-fallback" type="button">Button with fallback</button>
@@ -152,7 +153,7 @@ Wenn Ihr Code in alten Browserversionen funktionieren muss, die `:focus-visible`
 }
 ```
 
-{{EmbedLiveSample("Selectively_showing_the_focus_indicator", "100%", 72)}}
+{{EmbedLiveSample("Fokusindikator selektiv anzeigen", "100%", 72)}}
 
 ## Spezifikationen
 

@@ -1,14 +1,15 @@
 ---
-title: text-wrap
+title: "`text-wrap` CSS-Eigenschaft"
+short-title: text-wrap
 slug: Web/CSS/Reference/Properties/text-wrap
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-wrap`** [CSS](/de/docs/Web/CSS) Kurzschrift-Eigenschaft kontrolliert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten:
+Die **`text-wrap`** [CSS](/de/docs/Web/CSS) Kurzschreibweise steuert, wie Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten:
 
-- Typografische Verbesserungen, wie zum Beispiel ausgewogenere Zeilenlängen über gebrochene Überschriften hinweg
-- Eine Möglichkeit, den Textumbruch vollständig abzuschalten.
+- Typografische Verbesserungen, zum Beispiel ausgewogenere Zeilenlängen bei gebrochenen Überschriften
+- Eine Möglichkeit, den Textumbruch vollständig zu deaktivieren.
 
 {{InteractiveExample("CSS Demo: text-wrap")}}
 
@@ -60,9 +61,9 @@ text-wrap: stable;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteilseigenschaften
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("text-wrap-mode")}}
 - {{cssxref("text-wrap-style")}}
@@ -85,32 +86,32 @@ text-wrap: revert-layer;
 text-wrap: unset;
 ```
 
-Die `text-wrap` Eigenschaft wird als Schlüsselwort aus der folgenden Liste von Werten spezifiziert.
+Die `text-wrap`-Eigenschaft wird als einzelnes Schlüsselwort aus der untenstehenden Liste von Werten angegeben.
 
 ### Werte
 
 - `wrap`
-  - : Text wird an geeigneten Zeichen (zum Beispiel Leerzeichen, in Sprachen wie Englisch, die Leerzeichen als Trennzeichen verwenden) umgebrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
+  - : Text wird an geeigneten Stellen (zum Beispiel Leerzeichen, in Sprachen wie Englisch, die Leerzeichentrennungen verwenden) umgebrochen, um Überläufe zu minimieren. Dies ist der Standardwert.
 - `nowrap`
-  - : Text wird nicht über Zeilen umbrochen. Er wird über sein enthaltendes Element hinausgehen, anstatt in eine neue Zeile zu brechen.
+  - : Text wird nicht über Zeilen umgebrochen. Er wird das enthaltende Element überlaufen, anstatt auf eine neue Zeile umgebrochen zu werden.
 - `balance`
-  - : Text wird so umbrochen, dass die Anzahl der Zeichen in jeder Zeile bestmöglich ausgeglichen wird, was die Layoutqualität und Lesbarkeit erhöht. Da das Zählen von Zeichen und deren Ausgleich über mehrere Zeilen hinweg rechnerisch aufwendig ist, wird dieser Wert nur für Textblöcke unterstützt, die eine begrenzte Anzahl von Zeilen umfassen (sechs oder weniger für Chromium und zehn oder weniger für Firefox).
+  - : Text wird so umbrochen, dass eine bestmögliche Balance der Anzahl von Zeichen auf jeder Zeile erreicht wird, was die Layoutqualität und Lesbarkeit verbessert. Da das Zählen von Zeichen und deren Balance über mehrere Zeilen hinweg rechenintensiv ist, wird dieser Wert nur für Textblöcke unterstützt, die sich über eine begrenzte Anzahl von Zeilen erstrecken (sechs oder weniger für Chromium und zehn oder weniger für Firefox).
 - `pretty`
-  - : Führt zu demselben Verhalten wie `wrap`, mit der Ausnahme, dass der Benutzeragent einen langsameren Algorithmus nutzt, der ein besseres Layout gegenüber der Geschwindigkeit bevorzugt. Dies ist für Fließtext gedacht, bei dem gute Typografie über der Leistung steht (zum Beispiel, wenn die Anzahl der [Waisen](/de/docs/Web/CSS/Reference/Properties/orphans) minimiert werden soll).
+  - : Führt zu demselben Verhalten wie `wrap`, mit dem Unterschied, dass der User-Agent einen langsameren Algorithmus verwendet, der besseren Layouts gegenüber Geschwindigkeit den Vorzug gibt. Dies ist für Fließtext vorgesehen, bei dem gute Typografie gegenüber Performance bevorzugt wird (zum Beispiel, wenn die Anzahl der [Waisenkinder](/de/docs/Web/CSS/Reference/Properties/orphans) minimiert werden soll).
 - `stable`
-  - : Führt zu demselben Verhalten wie `wrap`, außer wenn der Benutzer den Inhalt bearbeitet, bleiben die Zeilen, die den bearbeiteten Zeilen vorausgehen, unverändert, anstatt dass der gesamte Textblock neu umbrochen wird.
+  - : Führt zu demselben Verhalten wie `wrap`, außer dass beim Bearbeiten des Inhalts die Zeilen, die vor den bearbeiteten Zeilen liegen, statisch bleiben, anstatt dass der gesamte Textblock neu umbrochen wird.
 
 ## Beschreibung
 
-Es gibt zwei Arten, wie Text innerhalb eines Inhaltsblocks, wie etwa eines Absatzes ({{HTMLElement("p")}}) oder Überschriften ({{HTMLElement("heading_elements","&lt;h1&gt;–&lt;h6&gt;")}}), über Zeilen fließen kann. Diese sind _erzwungene Zeilenumbrüche_, die vom Benutzer gesteuert werden, und _weiche Zeilenumbrüche_, die vom Browser gesteuert werden. Die `text-wrap` Eigenschaft kann verwendet werden, um den Browser zu beeinflussen, wie er die _weichen Zeilenumbrüche_ steuert.
+Es gibt zwei Möglichkeiten, wie Text in einem Inhaltsblock, wie einem Absatz ({{HTMLElement("p")}}) oder Überschriften ({{HTMLElement("heading_elements","&lt;h1&gt;–&lt;h6&gt;")}}) über Zeilenfließen kann: _erzwungene Zeilenumbrüche_, die vom Benutzer kontrolliert werden, und _weiche Zeilenumbrüche_, die vom Browser kontrolliert werden. Die `text-wrap`-Eigenschaft kann verwendet werden, um den Browser zu veranlassen, wie die _weichen Zeilenumbrüche_ kontrolliert werden sollen.
 
-Der gewählte Wert für `text-wrap` hängt davon ab, wie viele Zeilen Text Sie gestalten möchten, ob der Text `contenteditable` ist und ob Aussehen oder Leistung priorisiert werden müssen.
+Der ausgewählte Wert für `text-wrap` hängt davon ab, wie viele Textzeilen Sie erwarten zu gestalten, ob der Text `contenteditable` ist und ob Sie das Aussehen oder die Leistung priorisieren müssen.
 
-Wenn der gestylte Inhalt auf eine kurze Anzahl von Zeilen beschränkt wird, wie Überschriften, Bildunterschriften und Blockzitate, kann `text-wrap: balance` hinzugefügt werden, um die Anzahl der Zeichen in jeder Zeile auszugleichen, was die Layoutqualität und Lesbarkeit verbessert. Da Browser die Anzahl der von dieser Eigenschaft betroffenen Zeilen begrenzen, ist der Einfluss dieses Wertes auf die Leistung vernachlässigbar.
+Wenn der gestaltete Inhalt auf eine geringe Anzahl von Zeilen beschränkt wird, wie Überschriften, Bildunterschriften und Blockzitate, kann `text-wrap: balance` hinzugefügt werden, um die Anzahl der Zeichen auf jeder Zeile auszugleichen, was die Layoutqualität und Lesbarkeit erhöht. Da Browser die Anzahl der von dieser Eigenschaft betroffenen Zeilen begrenzen, ist der Einfluss dieses Wertes auf die Leistung vernachlässigbar.
 
-Für längere Textabschnitte kann `text-wrap: pretty` verwendet werden. Beachten Sie, dass `pretty` negative Auswirkungen auf die Leistung hat, daher sollte es nur für längere Textblöcke verwendet werden, wenn das Layout wichtiger ist als die Geschwindigkeit.
+Für längere Textabschnitte kann `text-wrap: pretty` verwendet werden. Beachten Sie, dass `pretty` negative Auswirkungen auf die Leistung hat und daher nur für längere Textblöcke verwendet werden sollte, wenn das Layout wichtiger als die Geschwindigkeit ist.
 
-Der `stable` Wert verbessert das Benutzererlebnis, wenn er auf Inhalte angewendet wird, die [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) sind. Dieser Wert stellt sicher, dass, während der Benutzer Text bearbeitet, die vorherigen Zeilen im bearbeiteten Bereich unverändert bleiben.
+Der `stable`-Wert verbessert die Benutzererfahrung bei Verwendung auf Inhalten, die [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) sind. Dieser Wert stellt sicher, dass, während der Benutzer Text bearbeitet, die vorherigen Zeilen im bearbeiteten Bereich stabil bleiben.
 
 ## Formale Definition
 
@@ -122,7 +123,7 @@ Der `stable` Wert verbessert das Benutzererlebnis, wenn er auf Inhalte angewende
 
 ## Beispiele
 
-### Vergleich der grundlegenden Werte für den Textumbruch
+### Vergleich der grundlegenden Werte von text-wrap
 
 #### HTML
 
@@ -163,7 +164,7 @@ h2 {
 
 #### Ergebnis
 
-Der Text in dem Beispiel ist bearbeitbar. Ändern Sie den Text, indem Sie lange Wörter hinzufügen, um zu sehen, wie sich die unterschiedlichen Zeilen- und Wortlängen auf den Umbruch auswirken.
+Der Text im Beispiel ist bearbeitbar. Ändern Sie den Text, fügen Sie lange Wörter hinzu, um zu sehen, wie die verschiedenen Zeilen- und Wortlängen das Umbruchverhalten beeinflussen.
 
 {{EmbedLiveSample("Examples", "100%", 350)}}
 
@@ -179,7 +180,7 @@ Der Text in dem Beispiel ist bearbeitbar. Ändern Sie den Text, indem Sie lange 
 
 - {{CSSxRef("white-space")}}
 - {{CSSxRef("white-space-collapse")}}
-- [CSS Textmodul](/de/docs/Web/CSS/Guides/Text)
+- [CSS Text-Modul](/de/docs/Web/CSS/Guides/Text)
 - [CSS `text-wrap: balance`](https://developer.chrome.com/docs/css-ui/css-text-wrap-balance) auf developer.chrome.com (2023)
 - [CSS `text-wrap: pretty`](https://developer.chrome.com/blog/css-text-wrap-pretty/) auf developer.chrome.com (2023)
 - [Balancing Japanese and Korean typography](https://ryelle.codes/2025/04/typography-troubles-balancing-in-japanese-korean/) von Kelly Choyce-Dwan (2025)

@@ -1,11 +1,12 @@
 ---
-title: ::picker-icon
+title: "`::picker-icon` CSS pseudo-element"
+short-title: ::picker-icon
 slug: Web/CSS/Reference/Selectors/::picker-icon
 l10n:
-  sourceCommit: 9af64ef430ad722b9cc3f75ccabeb8989c23b988
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Das **`::picker-icon`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf das Auswahl-Symbol in Formularsteuerelementen ab, die ein dazugehöriges Symbol haben. Im Falle eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wählt es das Pfeilsymbol aus, das auf dem `<select>`-Element angezeigt wird und nach unten zeigt, wenn es geschlossen ist.
+Das **`::picker-icon`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf das Auswahl-Symbol innerhalb von Formularsteuerungen, die mit einem Symbol verbunden sind. Im Fall eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wählt es das Pfeilsymbol aus, das auf dem `<select>`-Element angezeigt wird und nach unten zeigt, wenn es geschlossen ist.
 
 ## Syntax
 
@@ -17,20 +18,20 @@ Das **`::picker-icon`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CS
 
 ## Beschreibung
 
-Das `::picker-icon` Pseudo-Element zielt auf das Auswahl-Symbol von Formularsteuerelementen ab, das heißt, das auf der Steuerschaltfläche angezeigte Symbol. Es kann nur angewendet werden, wenn das ursprüngliche Element ein Auswahl-Symbol hat und eine Grundeinstellung über die {{cssxref("appearance")}}-Eigenschaft mit dem Wert `base-select` gesetzt ist. Sein generierter Block erscheint nach allen durch das {{cssxref("::after")}} Pseudo-Element generierten Blöcken, mit dem im Standardbrowserstile spezifizierten Symbol; Sie können es mit der {{cssxref("content")}}-Eigenschaft anpassen.
+Das `::picker-icon` Pseudo-Element zielt auf das Auswahl-Symbol von Formularsteuerungen, also das Symbol, das auf dem Steuerelement-Button angezeigt wird. Es kann nur dann gezielt werden, wenn das ursprüngliche Element einen Picker hat und die Grundeinstellung des Erscheinungsbildes über den {{cssxref("appearance")}}-Eigenschaftswert `base-select` gesetzt ist. Seine generierte Box erscheint nach allen Boxen, die vom {{cssxref("::after")}} Pseudo-Element generiert wurden, mit dem im Standard-Browser-Stylesheet angegebenen Symbol; Sie können es mit der {{cssxref("content")}} Eigenschaft anpassen.
 
-Der `::picker-icon` Selektor kann verwendet werden, um den nach unten zeigenden Pfeil auf der Inline-Endseite eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) auszuwählen. Dies ist nützlich, wenn Sie z.B. die Farbe oder Größe des Symbols anpassen, ein anderes Symbol verwenden (unter Verwendung von {{cssxref("content")}} oder [SVG](/de/docs/Web/SVG)), oder es animieren möchten, wenn das Auswahlmenü geöffnet und geschlossen wird.
+Der `::picker-icon`-Selektor kann verwendet werden, um den nach unten zeigenden Pfeil auf der Inline-End-Seite eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) auszuwählen. Dies ist nützlich, wenn Sie beispielsweise die Farbe oder Größe des Symbols anpassen, ein anderes Symbol verwenden (mit {{cssxref("content")}} oder [SVG](/de/docs/Web/SVG)), oder es animieren möchten, wenn der Picker geöffnet und geschlossen wird.
 
-Das Auswählen von anpassbaren `<select>` Auswahl-Symbolen ist der einzige aktuelle Anwendungsfall für `::picker-icon`, aber in Zukunft könnten noch weitere hinzugefügt werden.
+Das Auswählen von anpassbaren `<select>` Picker-Symbolen ist der einzige derzeitige Anwendungsfall für `::picker-icon`, aber in Zukunft könnten weitere hinzugefügt werden.
 
 > [!NOTE]
-> Das `::picker-icon` Pseudo-Element ist nicht im Zugänglichkeitsbaum enthalten, daher wird jeder generierte {{cssxref("content")}} darauf nicht von unterstützenden Technologien angekündigt. Sie sollten trotzdem sicherstellen, dass das von Ihnen eingestellte neue Symbol visuell sinnvoll für seinen beabsichtigten Zweck ist.
+> Das `::picker-icon` Pseudo-Element ist nicht im Accessibility-Tree enthalten, daher wird kein generierter {{cssxref("content")}} von unterstützenden Technologien angekündigt. Sie sollten dennoch sicherstellen, dass jedes von Ihnen eingestellte neue Symbol visuell für den vorgesehenen Zweck sinnvoll ist.
 
 ## Beispiele
 
-### Animation des Auswahl-Symbols
+### Das Auswahl-Symbol animieren
 
-Um die anpassbare Select-Funktionalität zu nutzen, müssen das `<select>`-Element und sein Auswahl-Symbol beide einen {{cssxref("appearance")}}-Wert von `base-select` gesetzt haben:
+Um sich für die Funktionalität eines anpassbaren Auswahl-Elements zu entscheiden, müssen sowohl das `<select>`-Element als auch sein Picker beide einen {{cssxref("appearance")}}-Wert von `base-select` eingestellt haben:
 
 ```css
 select,
@@ -39,7 +40,7 @@ select,
 }
 ```
 
-Sie könnten dann beispielsweise das `::picker-icon` selektieren und ihm eine benutzerdefinierte {{cssxref("color")}} und eine {{cssxref("transition")}} geben, sodass Änderungen an seiner {{cssxref("rotate")}}-Eigenschaft sanft animiert werden:
+Sie könnten dann beispielsweise das `::picker-icon` anvisieren und ihm eine benutzerdefinierte {{cssxref("color")}} und eine {{cssxref("transition")}} verleihen, sodass Änderungen an seiner {{cssxref("rotate")}} Eigenschaft sanft animiert werden:
 
 ```css
 select::picker-icon {
@@ -48,7 +49,7 @@ select::picker-icon {
 }
 ```
 
-Im nächsten Regelwerk wird `::picker-icon` mit der {{cssxref(":open")}} Pseudo-Klasse kombiniert — die das Symbol nur dann anvisiert, wenn das Auswahlmenü geöffnet ist — und es wird in einen `rotate`-Wert von `180deg` überführt, wenn das `<select>` geöffnet ist.
+In der nächsten Regel wird `::picker-icon` mit der {{cssxref(":open")}} Pseudo-Klasse kombiniert, die das Symbol nur anvisiert, wenn der Picker geöffnet ist, und es wird in einen `rotate`-Wert von `180deg` überführt, wenn das `<select>` geöffnet wird.
 
 ```css
 select:open::picker-icon {
@@ -56,7 +57,7 @@ select:open::picker-icon {
 }
 ```
 
-Sehen Sie [Styling the picker icon](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_picker_icon) für ein vollständiges Beispiel, das diesen Code verwendet, zusammen mit einer Live-Beispiel-Darstellung.
+Siehe [Styling the picker icon](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_picker_icon) für ein vollständiges Beispiel, das diesen Code zusammen mit einer Live-Beispielanzeige verwendet.
 
 ## Spezifikationen
 
@@ -72,4 +73,4 @@ Sehen Sie [Styling the picker icon](/de/docs/Learn_web_development/Extensions/Fo
 - {{cssxref("appearance")}}
 - {{cssxref("::picker()", "::picker(select)")}}, {{cssxref("::checkmark")}}
 - {{cssxref(":open")}}, {{cssxref(":checked")}}
-- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

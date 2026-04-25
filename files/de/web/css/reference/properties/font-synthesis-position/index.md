@@ -1,17 +1,18 @@
 ---
-title: font-synthesis-position
+title: "`font-synthesis-position` CSS property"
+short-title: font-synthesis-position
 slug: Web/CSS/Reference/Properties/font-synthesis-position
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`font-synthesis-position`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob ein Browser die „position“-Schriftarten für Tief- und Hochstellungen synthetisieren darf, wenn diese in einer Schriftfamilie fehlen. Dabei wird {{cssxref("font-variant-position")}} verwendet, um die Positionen festzulegen.
+Die **`font-synthesis-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, festzulegen, ob ein Browser die hoch- und tiefgestellten "Position"-Schriftarten synthetisieren darf, wenn sie in einer Schriftfamilie fehlen, während Sie {{cssxref("font-variant-position")}} verwenden, um die Positionen festzulegen.
 
-Die **`font-synthesis-position`** Eigenschaft hat keine Auswirkung, wenn die {{htmlelement("sup")}} und {{htmlelement("sub")}} Elemente verwendet werden.
+Die **`font-synthesis-position`**-Eigenschaft hat keine Wirkung, wenn die Elemente {{htmlelement("sup")}} und {{htmlelement("sub")}} verwendet werden.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftart-Synthese zu steuern.
+Es ist oft bequem, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Wert der Schrifttypensynthese zu steuern.
 
 ## Syntax
 
@@ -31,9 +32,9 @@ font-synthesis-position: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass eine fehlende Positions-Schriftart bei Bedarf vom Browser synthetisiert werden kann.
+  - : Gibt an, dass eine fehlende Positionsschriftschnitte bei Bedarf vom Browser synthetisiert werden kann.
 - `none`
-  - : Gibt an, dass die Synthese einer fehlenden Positions-Schriftart durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese einer fehlenden Positionsschriftschnitte durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -45,9 +46,9 @@ font-synthesis-position: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese von Positions-Schriftarten
+### Deaktivieren der Synthese von Positionsschriftschnitten
 
-Dieses Beispiel zeigt, wie die Synthese der Hoch- und Tiefstellungs-Schriftarten in der `Montserrat` Schrift durch den Browser deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese der hoch- und tiefgestellten Schriftschnitte im Browser für die Schriftart `Montserrat` deaktiviert wird.
 
 #### HTML
 

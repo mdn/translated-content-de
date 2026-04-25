@@ -1,18 +1,19 @@
 ---
-title: counter-set
+title: "`counter-set` CSS property"
+short-title: counter-set
 slug: Web/CSS/Reference/Properties/counter-set
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die CSS-Eigenschaft **`counter-set`** setzt [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) auf dem Element auf die angegebenen Werte.
+Die **`counter-set`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) auf dem Element auf die angegebenen Werte.
 
-Wenn die Zähler nicht existieren, erstellt die `counter-set`-Eigenschaft einen neuen Zähler für jeden benannten Zähler in der Liste der durch Leerzeichen getrennten Zähler- und Wertepaaren. Es wird jedoch empfohlen, zur Erstellung eines neuen Zählers die CSS-Eigenschaft {{cssxref("counter-reset")}} zu verwenden.
+Wenn die Zähler nicht existieren, erstellt die Eigenschaft `counter-set` einen neuen Zähler für jeden benannten Zähler in der Liste der durch Leerzeichen getrennten Zähler- und Wertpaare. Es wird jedoch empfohlen, die CSS-Eigenschaft {{cssxref("counter-reset")}} zu verwenden, um einen neuen Zähler zu erstellen.
 
-Wenn einem benannten Zähler in der Liste ein Wert fehlt, wird der Wert des Zählers auf `0` gesetzt.
+Fehlt einem benannten Zähler in der Liste ein Wert, wird der Wert des Zählers auf `0` gesetzt.
 
 > [!NOTE]
-> Der Wert des Zählers kann mit der CSS-Eigenschaft {{cssxref("counter-increment")}} erhöht oder verringert werden.
+> Der Wert des Zählers kann mithilfe der CSS-Eigenschaft {{cssxref("counter-increment")}} inkrementiert oder dekrementiert werden.
 
 {{InteractiveExample("CSS Demo: counter-set")}}
 
@@ -92,19 +93,19 @@ counter-set: revert-layer;
 counter-set: unset;
 ```
 
-Die `counter-set`-Eigenschaft wird auf eine der folgenden Arten angegeben:
+Die `counter-set`-Eigenschaft wird wie folgt spezifiziert:
 
-- Ein `<custom-ident>`, der den Zähler benennt, optional gefolgt von einem `<integer>`. Sie können so viele Zähler zurücksetzen, wie Sie möchten, wobei jeder Name oder jedes Name-Zahl-Paar durch ein Leerzeichen getrennt ist.
+- Ein `<custom-ident>`, das den Zähler benennt, gefolgt von einem optionalen `<integer>`. Sie können so viele Zähler zurücksetzen wie gewünscht, wobei jeder Name oder jedes Namen-Zahl-Paar durch ein Leerzeichen getrennt wird.
 - Der Schlüsselwortwert `none`.
 
 ### Werte
 
 - {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}
-  - : Der Name des Zählers, der festgelegt werden soll.
+  - : Der Name des zu setzenden Zählers.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Der Wert, auf den der Zähler bei jedem Vorkommen des Elements gesetzt wird. Standardmäßig `0`, wenn nicht angegeben. Wenn derzeit kein Zähler mit dem angegebenen Namen auf dem Element vorhanden ist, erstellt das Element einen neuen Zähler mit dem angegebenen Namen und einem Startwert von `0` (obwohl dieser dann möglicherweise sofort auf einen anderen Wert gesetzt oder erhöht wird).
+  - : Der Wert, auf den der Zähler bei jedem Vorkommen des Elements gesetzt werden soll. Standardmäßig `0`, wenn nicht angegeben. Wenn es derzeit keinen Zähler mit dem angegebenen Namen auf dem Element gibt, erstellt das Element einen neuen Zähler mit dem angegebenen Namen und einem Startwert von `0` (dieser Wert kann jedoch sofort auf einen anderen Wert gesetzt oder inkrementiert werden).
 - `none`
-  - : Es soll kein Zähler-Set durchgeführt werden. Dies kann verwendet werden, um ein in einer weniger spezifischen Regel definiertes `counter-set` zu überschreiben.
+  - : Es soll kein Zähler gesetzt werden. Dies kann verwendet werden, um eine weniger spezifische `counter-set`-Regel zu überschreiben.
 
 ## Formale Definition
 
@@ -116,7 +117,7 @@ Die `counter-set`-Eigenschaft wird auf eine der folgenden Arten angegeben:
 
 ## Beispiele
 
-### Benannte Zähler einstellen
+### Benannte Zähler setzen
 
 ```css
 h1 {
@@ -142,5 +143,5 @@ h1 {
 - {{cssxref("@counter-style")}}
 - {{cssxref("counter()")}} und {{cssxref("counters()")}} Funktionen
 - {{cssxref("content")}} Eigenschaft
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
 - [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul

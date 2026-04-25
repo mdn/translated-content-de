@@ -1,11 +1,12 @@
 ---
-title: offset-rotate
+title: "`offset-rotate` CSS property"
+short-title: offset-rotate
 slug: Web/CSS/Reference/Properties/offset-rotate
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`offset-rotate`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Orientierung/Richtung des Elements, während es entlang des {{cssxref("offset-path")}} positioniert wird.
+Die CSS-Eigenschaft **`offset-rotate`** definiert die Orientierung/Richtung des Elements, während es entlang des {{cssxref("offset-path")}} positioniert wird.
 
 {{InteractiveExample("CSS Demo: offset-rotate")}}
 
@@ -113,13 +114,13 @@ offset-rotate: unset;
 ```
 
 - `auto`
-  - : Das Element wird um den Winkel der Richtung des {{cssxref("offset-path")}}, relativ zur positiven x-Achse, gedreht. Dies ist der Standardwert.
+  - : Das Element wird in dem Winkel gedreht, der durch die Richtung des {{cssxref("offset-path")}} definiert ist, relativ zur positiven x-Achse. Dies ist der Standardwert.
 - {{cssxref("angle")}}
-  - : Auf das Element wird eine konstante, im Uhrzeigersinn verlaufende Drehtransformation mit dem angegebenen Drehwinkel angewendet.
+  - : Auf das Element wird eine konstante, im Uhrzeigersinn verlaufende Drehtransformation, gemäß dem angegebenen Drehwinkel, angewendet.
 - `auto <angle>`
   - : Wenn `auto` von einem {{cssxref("angle")}} gefolgt wird, wird der berechnete Wert des Winkels zum berechneten Wert von `auto` hinzugefügt.
 - `reverse`
-  - : Das Element wird ähnlich wie `auto` gedreht, es sieht jedoch in die entgegengesetzte Richtung. Dies entspricht dem Angeben eines Wertes von `auto 180deg`.
+  - : Das Element wird ähnlich wie bei `auto` gedreht, außer dass es in die entgegengesetzte Richtung zeigt. Dies ist dasselbe, als würde man einen Wert von `auto 180deg` angeben.
 
 ## Formale Definition
 
@@ -131,7 +132,7 @@ offset-rotate: unset;
 
 ## Beispiele
 
-### Orientierung eines Elements entlang seines Offset-Pfads festlegen
+### Orientierung des Elements entlang seines offset-Pfades einstellen
 
 #### HTML
 

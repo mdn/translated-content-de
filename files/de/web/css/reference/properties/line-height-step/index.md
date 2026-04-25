@@ -1,13 +1,14 @@
 ---
-title: line-height-step
+title: "`line-height-step` CSS property"
+short-title: line-height-step
 slug: Web/CSS/Reference/Properties/line-height-step
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`line-height-step`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Schrittgröße für die Höhe der Zeilenboxen fest. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Zeilenboxen auf das nächste Vielfache der Einheit aufgerundet.
+Die **`line-height-step`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die Schrittgröße für die Höhen von Zeilenboxen fest. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Zeilenboxen auf das nächstgelegene Vielfache der Einheit aufgerundet.
 
 ## Syntax
 
@@ -23,14 +24,14 @@ line-height-step: revert-layer;
 line-height-step: unset;
 ```
 
-Die `line-height-step`-Eigenschaft wird als eines der folgenden angegeben:
+Die `line-height-step`-Eigenschaft wird als eines der folgenden Elemente angegeben:
 
-- Eine `<length>`.
+- ein `<length>`.
 
 ### Werte
 
 - `<length>`
-  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird bei der Berechnung der Schrittgröße der Zeilenboxhöhe verwendet.
+  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird in die Berechnung der Zeilenboxhöhe einbezogen.
 
 ## Formale Definition
 
@@ -42,9 +43,9 @@ Die `line-height-step`-Eigenschaft wird als eines der folgenden angegeben:
 
 ## Beispiele
 
-### Festlegen der Schrittgröße für die Höhe der Zeilenbox
+### Festlegen der Schrittgröße für die Zeilenboxhöhe
 
-Im folgenden Beispiel wird die Höhe der Zeilenbox in jedem Absatz auf die Schrittgröße aufgerundet. Die Zeilenbox im `<h1>` passt nicht in eine Schrittgröße und belegt daher zwei, ist aber immer noch innerhalb der zwei Schrittgrößen zentriert.
+Im folgenden Beispiel wird die Höhe der Zeilenbox in jedem Paragraphen auf die Schrittgröße aufgerundet. Die Zeilenbox in `<h1>` passt nicht in eine einzelne Schrittgröße und nimmt daher zwei ein, bleibt aber innerhalb der zwei Schrittgrößen zentriert.
 
 ```css
 :root {
@@ -60,11 +61,11 @@ h1 {
 
 Das Ergebnis dieser Regeln wird im folgenden Screenshot gezeigt:
 
-![Wie die line-height-step-Eigenschaft das Erscheinungsbild des Textes beeinflusst.](line-grid-center.png)
+![Wie die line-height-step-Eigenschaft das Erscheinungsbild von Text beeinflusst.](line-grid-center.png)
 
 ## Spezifikationen
 
-Derzeit unterstützen keine Browser diese Funktion.
+Derzeit unterstützt kein Browser dieses Feature.
 
 ## Browser-Kompatibilität
 

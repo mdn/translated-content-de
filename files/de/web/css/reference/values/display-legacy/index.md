@@ -1,35 +1,36 @@
 ---
-title: <display-legacy>
+title: "`<display-legacy>` CSS-Typ"
+short-title: <display-legacy>
 slug: Web/CSS/Reference/Values/display-legacy
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-CSS 2 verwendete eine Single-Keyword-Syntax für die `display`-Eigenschaft, die separate Schlüsselwörter für Block-Level- und Inline-Level-Varianten desselben Layout-Modus erforderte. Diese Seite erläutert diese Werte.
+CSS 2 verwendete eine Einfach-Keyword-Syntax für die `display`-Eigenschaft, die separate Schlüsselwörter für block- und inlinebasierte Varianten desselben Layout-Modus erforderte. Diese Seite beschreibt diese Werte.
 
 ## Syntax
 
-Gültige `<display-legacy>`-Werte:
+Gültige `<display-legacy>` Werte:
 
 - `inline-block`
-  - : Das Element erzeugt eine Blockelement-Box, die mit dem umgebenden Inhalt geflossen wird, als ob es sich um eine einzelne Inline-Box handeln würde (ähnlich wie ein ersetztes Element).
+  - : Das Element erzeugt eine Blockelement-Box, die mit dem umgebenden Inhalt geflossen wird, als ob es eine einzelne Inline-Box wäre (verhält sich ähnlich wie ein ersetztes Element).
 
-    Es entspricht `inline flow-root`.
+    Es ist äquivalent zu `inline flow-root`.
 
 - `inline-table`
-  - : Der `inline-table`-Wert hat keine direkte Entsprechung in HTML. Es verhält sich wie ein HTML-{{HTMLElement("table")}}-Element, jedoch als Inline-Box und nicht als Block-Level-Box. Innerhalb der Tabellenbox befindet sich ein Block-Level-Kontext.
+  - : Der Wert `inline-table` hat in HTML keine direkte Entsprechung. Es verhält sich wie ein HTML-{{HTMLElement("table")}}-Element, jedoch als Inline-Box anstelle einer Block-Level-Box. Im Inneren der Tabellen-Box befindet sich ein Block-Level-Kontext.
 
-    Es entspricht `inline table`.
+    Es ist äquivalent zu `inline table`.
 
 - `inline-flex`
   - : Das Element verhält sich wie ein Inline-Element und legt seinen Inhalt gemäß dem Flexbox-Modell aus.
 
-    Es entspricht `inline flex`.
+    Es ist äquivalent zu `inline flex`.
 
 - `inline-grid`
   - : Das Element verhält sich wie ein Inline-Element und legt seinen Inhalt gemäß dem Grid-Modell aus.
 
-    Es entspricht `inline grid`.
+    Es ist äquivalent zu `inline grid`.
 
 ## Formale Syntax
 
@@ -37,7 +38,7 @@ Gültige `<display-legacy>`-Werte:
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir einen Inline-Flex-Container mit dem Legacy-Schlüsselwort `inline-flex`.
+Im untenstehenden Beispiel erstellen wir einen Inline-Flex-Container mit dem Legacy-Schlüsselwort `inline-flex`.
 
 ### HTML
 
@@ -62,7 +63,7 @@ Not a flex item
 
 {{EmbedLiveSample("Examples", 300, 150)}}
 
-In der neuen Syntax würde der Inline-Flex-Container unter Verwendung von zwei Werten erstellt werden: `inline` für den äußeren Anzeigetyp und `flex` für den inneren Anzeigetyp.
+In der neuen Syntax würde der Inline-Flex-Container mit zwei Werten erstellt werden, `inline` für den äußeren Anzeigetyp und `flex` für den inneren Anzeigetyp.
 
 ```css
 .container {

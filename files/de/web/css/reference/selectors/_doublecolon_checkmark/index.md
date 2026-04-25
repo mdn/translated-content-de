@@ -1,13 +1,14 @@
 ---
-title: ::checkmark
+title: "`::checkmark` CSS pseudo-element"
+short-title: ::checkmark
 slug: Web/CSS/Reference/Selectors/::checkmark
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{SeeCompatTable}}
 
-Das **`::checkmark`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf das Häkchen ab, das innerhalb des derzeit ausgewählten {{htmlelement("option")}}-Elements eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert wird. Es kann verwendet werden, um visuell anzuzeigen, welcher Eintrag ausgewählt ist.
+Das **`::checkmark`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf das Häkchen ab, das in dem aktuell ausgewählten {{htmlelement("option")}}-Element eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert ist. Es kann verwendet werden, um einen visuellen Hinweis darauf zu geben, welche Option ausgewählt ist.
 
 {{InteractiveExample("CSS Demo: ::checkmark")}}
 
@@ -80,20 +81,20 @@ option:not(option:last-of-type) {
 
 ## Beschreibung
 
-Das `::checkmark` Pseudo-Element zielt auf das Häkchen ab, das innerhalb eines [anpassbaren Select-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) im derzeit ausgewählten `<option>` platziert wird.
+Das `::checkmark`-Pseudoelement zielt auf das Häkchen ab, das in dem aktuell ausgewählten `<option>` eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert ist.
 
-Es ist nur ansteuerbar, wenn das Ursprungs-Element einen Auswahlmechanismus hat und das basale Erscheinungsbild darauf über die {{cssxref("appearance")}}-Eigenschaft mit dem Wert `base-select` gesetzt ist. Die generierte Box erscheint vor allen Boxen, die vom {{cssxref("::before")}} Pseudo-Element generiert werden. Das Icon kann mit der {{cssxref("content")}}-Eigenschaft angepasst werden.
+Es kann nur dann angesprochen werden, wenn das ursprüngliche Element einen Picker hat und das Basis-Erscheinungsbild über den {{cssxref("appearance")}}-Eigenschaftswert `base-select` darauf gesetzt wurde. Sein generierter Kasten erscheint vor allen Kästen, die durch das {{cssxref("::before")}}-Pseudoelement generiert werden. Das Icon kann mit der {{cssxref("content")}}-Eigenschaft angepasst werden.
 
-Der `::checkmark`-Selektor ist zum Beispiel nützlich, wenn Sie das Häkchen ausblenden, ein benutzerdefiniertes Icon verwenden oder die Position des Häkchens im `<option>`-Element anpassen möchten.
+Der `::checkmark`-Selektor ist zum Beispiel nützlich, wenn Sie das Häkchen ausblenden, ein benutzerdefiniertes Icon verwenden oder die Positionierung des Häkchens in den `<option>`-Elementen anpassen möchten.
 
 > [!NOTE]
-> Das `::checkmark` Pseudo-Element ist nicht im Accessibility-Tree enthalten, daher wird jeder auf ihm gesetzte, generierte {{cssxref("content")}}-Inhalt von unterstützenden Technologien nicht angekündigt. Sie sollten dennoch sicherstellen, dass jedes von Ihnen gesetzte neue Icon visuell sinnvoll für seinen beabsichtigten Zweck ist.
+> Das `::checkmark`-Pseudoelement ist nicht in der Zugänglichkeitshierarchie enthalten, sodass generierter {{cssxref("content")}}, der darauf gesetzt wird, von unterstützenden Technologien nicht angekündigt wird. Sie sollten dennoch sicherstellen, dass das neu gesetzte Icon für seinen beabsichtigten Zweck visuell sinnvoll ist.
 
 ## Beispiele
 
 ### Anpassung des Häkchens
 
-Um die Funktionalität eines anpassbaren Select-Elements zu verwenden, müssen sowohl das `<select>`-Element als auch dessen Auswahlmechanismus einen {{cssxref("appearance")}}-Wert von `base-select` gesetzt haben:
+Um die Funktionalität eines anpassbaren Auswahl-Elements zu aktivieren, müssen sowohl das `<select>`-Element als auch sein Picker einen {{cssxref("appearance")}}-Wert von `base-select` darauf gesetzt haben:
 
 ```css
 select,
@@ -102,7 +103,7 @@ select,
 }
 ```
 
-Angenommen, [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) wird verwendet, um die `<option>`-Elemente anzuordnen (was in den **aktuellen Implementierungen** von anpassbaren Selects der Fall ist), können Sie dann das Häkchen vom Anfang der Zeile zum Ende verschieben, indem Sie einen {{cssxref("order")}}-Wert größer als `0` darauf setzen und es mit einem `auto`-Wert für {{cssxref("margin-left")}} am Ende der Zeile ausrichten (siehe [Ausrichtung und automatische Ränder](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox#alignment_and_auto_margins)).
+Angenommen, [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) wird verwendet, um die `<option>`-Elemente anzuordnen (was bei **aktuellen Implementierungen** anpassbarer Auswahl-Objekte der Fall ist), könnten Sie das Häkchen vom Anfang der Zeile an das Ende verschieben, indem Sie einen {{cssxref("order")}}-Wert größer als `0` darauf setzen und es mit einem `auto`-Wert für {{cssxref("margin-left")}} am Ende der Zeile ausrichten (siehe [Ausrichtung und automatische Ränder](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox#alignment_and_auto_margins)).
 
 Der Wert der {{cssxref("content")}}-Eigenschaft könnte auch auf ein anderes Emoji gesetzt werden, um das angezeigte Icon zu ändern.
 
@@ -114,7 +115,7 @@ option::checkmark {
 }
 ```
 
-Sehen Sie sich [Styling the current selection checkmark](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_current_selection_checkmark) für ein vollständiges Beispiel an, das diesen Code verwendet, zusammen mit einer Live-Beispieldarstellung.
+Siehe [Styling des aktuellen Auswahlsymbols](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_current_selection_checkmark) für ein vollständiges Beispiel, das diesen Code verwendet, zusammen mit einer Live-Demo.
 
 ## Spezifikationen
 
@@ -130,4 +131,4 @@ Sehen Sie sich [Styling the current selection checkmark](/de/docs/Learn_web_deve
 - {{cssxref("appearance")}}
 - {{cssxref("::picker()", "::picker(select)")}}, {{cssxref("::picker-icon")}}
 - {{cssxref(":open")}}, {{cssxref(":checked")}}
-- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

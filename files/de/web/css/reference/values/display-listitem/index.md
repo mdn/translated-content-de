@@ -1,20 +1,21 @@
 ---
-title: <display-listitem>
+title: "`<display-listitem>` CSS-Typ"
+short-title: <display-listitem>
 slug: Web/CSS/Reference/Values/display-listitem
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Das `list-item` Schlüsselwort bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem Inhalt generiert, der durch seine {{CSSxRef("list-style")}} Eigenschaften spezifiziert wird (zum Beispiel ein Aufzählungszeichen) zusammen mit einer Hauptbox des dafür angegebenen Typs für den eigenen Inhalt.
+Das `list-item` Schlüsselwort bewirkt, dass das Element ein `::marker` Pseudo-Element erzeugt, dessen Inhalt durch die {{CSSxRef("list-style")}} Eigenschaften festgelegt wird (zum Beispiel ein Aufzählungspunkt), zusammen mit einem Haupt-Box des angegebenen Typs für seine eigenen Inhalte.
 
 ## Syntax
 
-Ein einzelner Wert von `list-item` wird dazu führen, dass sich das Element wie ein Listeneintrag verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
+Ein einzelner Wert von `list-item` führt dazu, dass sich das Element wie ein Listenelement verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
 
-`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort sowie den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
+`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat die Hauptbox einen äußeren Anzeigetyp von `block`.
+> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, `flow` als Standard verwendet. Wenn kein äußerer Wert angegeben ist, hat die Haupt-Box einen äußeren Anzeigetyp von `block`.
 
 ## Formale Syntax
 

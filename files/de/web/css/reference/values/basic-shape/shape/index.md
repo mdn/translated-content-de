@@ -1,11 +1,12 @@
 ---
-title: shape()
+title: "`shape()` CSS-Funktion"
+short-title: shape()
 slug: Web/CSS/Reference/Values/basic-shape/shape
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
 ---
 
-Die **`shape()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird verwendet, um eine Form für die {{cssxref("clip-path")}}- und {{cssxref("offset-path")}}-Eigenschaften zu definieren. Sie kombiniert einen Anfangspunkt mit einer Reihe von Formbefehlen, die den Pfad der Form definieren. Die `shape()`-Funktion ist ein Mitglied des {{cssxref("basic-shape")}}-Datentyps.
+Die **`shape()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird verwendet, um eine Form für die {{cssxref("clip-path")}}- und {{cssxref("offset-path")}}-Eigenschaften zu definieren. Sie kombiniert einen anfänglichen Startpunkt mit einer Reihe von Formenbefehlen, die den Pfad der Form festlegen. Die `shape()`-Funktion ist Teil des {{cssxref("basic-shape")}} Datentyps.
 
 ## Syntax
 
@@ -57,47 +58,47 @@ clip-path: shape(
 ### Parameter
 
 - [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) {{optional_inline}}
-  - : Gibt an, wie überlappende Bereiche einer Form gefüllt werden sollen. Mögliche Werte sind:
-    - `nonzero`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein Strahl, der vom Punkt ausgeht, mehr von links nach rechts als von rechts nach links verlaufende Pfadsegmente kreuzt, was zu einer ungeraden Anzahl führt. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
+  - : Gibt an, wie sich überlappende Bereiche einer Form gefüllt werden sollen. Die möglichen Werte umfassen:
+    - `nonzero`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein Strahl, der vom Punkt ausgeht, mehr von links nach rechts als von rechts nach links verlaufende Pfadsegmente kreuzt, was zu einer nicht null Zählung führt. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
 
-    - `evenodd`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein Strahl, der vom Punkt ausgeht, eine ungerade Anzahl von Pfadsegmenten kreuzt. Das bedeutet, dass der Strahl zwar in die Form hinein, aber nicht gleich oft wieder hinausgeht und somit eine ungerade Anzahl von Eingängen ohne entsprechende Ausgänge vorliegt.
+    - `evenodd`: Ein Punkt wird als innerhalb der Form betrachtet, wenn ein Strahl, der vom Punkt ausgeht, eine ungerade Anzahl von Pfadsegmenten kreuzt. Dies bedeutet, dass der Strahl für jedes Mal, das er die Form betritt, nicht die gleiche Anzahl von Malen verlassen hat, was auf eine ungerade Anzahl von Eintritten ohne entsprechende Austritte hindeutet.
 
     > [!WARNING]
-    > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt und macht die Eigenschaft ungültig, wenn es verwendet wird.
+    > `<fill-rule>` wird nicht in {{cssxref("offset-path")}} unterstützt und seine Verwendung macht die Eigenschaft ungültig.
 
 - `from <coordinate-pair>`
-  - : Definiert den Startpunkt des ersten `<shape-command>` als ein Koordinatenpaar, das von der oberen linken Ecke des [Referenzkastens](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) gemessen wird. Die Koordinaten werden als durch Leerzeichen getrennte `<x> <y>` {{cssxref("&lt;length-percentage&gt;")}}-Werte angegeben, die den linken und oberen Versatz darstellen. Prozentwerte beziehen sich jeweils auf die Breite und Höhe des Referenzkastens des Elements. Fügen Sie nach diesem Parameter ein Komma hinzu.
+  - : Definiert den Startpunkt des ersten `<shape-command>` als ein Koordinatenpaar, das vom oberen linken Eckpunkt der [Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) gemessen wird. Die Koordinaten sind als Leerzeichentrennung `<x> <y>` {{cssxref("&lt;length-percentage&gt;")}} Werte angegeben, die den linken Versatz bzw. den oberen Versatz darstellen. Prozentwerte beziehen sich jeweils auf die Breite und Höhe der Referenzbox des Elements. Fügen Sie nach diesem Parameter ein Komma ein.
 
 - `<shape-command>`
-  - : Gibt eine Liste von einem oder mehreren kommagetrennten Befehlen an, die die Form definieren und eine Syntax ähnlich den [SVG-Pfadbefehlen](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) verwenden. Zu den Befehlen gehören `<move-command>`, `<line-command>`, `<hv-line-command>`, `<curve-command>`, `<smooth-command>`, `<arc-command>` und `close`. Der Startpunkt jedes Befehls ist der Endpunkt des vorherigen Befehls, wobei der erste Punkt der Form durch den [`from <coordinate-pair>`](#from_coordinate-pair) Parameter definiert wird.
+  - : Gibt eine Liste von einem oder mehreren durch Kommas getrennten Befehlen an, die die Form definieren, und verwendet eine ähnliche Syntax wie [SVG-Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands). Zu den Befehlen gehören `<move-command>`, `<line-command>`, `<hv-line-command>`, `<curve-command>`, `<smooth-command>`, `<arc-command>` und `close`. Der Startpunkt jedes Befehls ist der Endpunkt des vorherigen Befehls, wobei der erste Punkt der Form durch den Parameter [`from <coordinate-pair>`](#from_coordinate-pair) definiert wird.
 
-#### Formbefehle
+#### Formenbefehle
 
-Die Syntax der meisten Formbefehle ist ein Schlüsselwort, das eine Anweisung wie `move` oder `line` gibt, gefolgt vom Schlüsselwort `by` oder `to` und einem Satz von Koordinaten.
+Die Syntax der meisten Formenbefehle ist ein Schlüsselwort, das eine Anweisung gibt, wie `move` oder `line`, gefolgt vom `by` oder `to` Schlüsselwort und einem Satz von Koordinaten.
 
-- `by`: Gibt an, dass das `<coordinate-pair>` relativ zum Startpunkt des Befehls ist (ein "relativer" Wert).
-- `to`: Gibt an, dass das `<coordinate-pair>` relativ zur oberen linken Ecke des Referenzkastens ist (ein "absoluter" Wert).
+- `by`: Gibt an, dass das `<coordinate-pair>` relativ zum Startpunkt des Befehls (ein "relativer" Wert) ist.
+- `to`: Gibt an, dass das `<coordinate-pair>` relativ zur oberen linken Ecke der Referenzbox (ein "absoluter" Wert) ist.
 
 > [!NOTE]
-> Wenn eine Koordinate in einem `<coordinate-pair>` als Prozentsatz angegeben ist, wird der Wert relativ zur jeweiligen Breite oder Höhe des Referenzkastens berechnet.
+> Wenn eine Koordinate in einem `<coordinate-pair>` als Prozentwert angegeben wird, wird der Wert relativ zur jeweiligen Breite oder Höhe der Referenzbox berechnet.
 
 Die folgenden `<shape-command>`s können angegeben werden:
 
 - `<move-command>`
-  - : Angegeben als `move [by | to] <coordinate-pair>`. Dieser Befehl fügt der Liste der Formbefehle einen [MoveTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#moveto_path_commands) hinzu. Er zeichnet nichts, sondern gibt die Startposition für den nächsten Befehl an. Das `by`- oder `to`-Schlüsselwort gibt an, ob der `<coordinate-pair>`-Punkt relativ oder absolut ist. Wenn dem `<move-command>` der `close`-Befehl folgt, wird der Startpunkt der nächsten Form oder Teilstrecke identifiziert.
+  - : Angegeben als `move [by | to] <coordinate-pair>`. Dieser Befehl fügt der Liste der Formenbefehle einen [MoveTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#moveto_path_commands) hinzu. Es wird nichts gezeichnet; stattdessen wird die Startposition für den nächsten Befehl angegeben. Das `by` oder `to` Schlüsselwort gibt an, ob der `<coordinate-pair>` Punkt relativ oder absolut ist. Wenn dem `<move-command>` der `close` Befehl folgt, identifiziert es den Startpunkt der nächsten Form oder des nächsten Unterpfads.
 
 - `<line-command>`
-  - : Angegeben als `line [by | to] <coordinate-pair>`. Dieser Befehl fügt der Liste der Formbefehle einen [LineTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands) hinzu. Er zeichnet eine gerade Linie vom Startpunkt des Befehls bis zum Endpunkt. Das `by`- oder `to`-Schlüsselwort gibt an, ob der Endpunkt, der durch `<coordinate-pair>` spezifiziert wird, relativ oder absolut ist.
+  - : Angegeben als `line [by | to] <coordinate-pair>`. Dieser Befehl fügt der Liste der Formenbefehle einen [LineTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands) hinzu. Es wird eine gerade Linie vom Startpunkt des Befehls zu seinem Endpunkt gezeichnet. Das `by` oder `to` Schlüsselwort gibt an, ob der durch `<coordinate-pair>` angegebene Endpunkt relativ oder absolut ist.
 
 - `<hv-line-command>`
-  - : Angegeben als `[hline | vline] [by | to] <length-percentage>`. Dieser Befehl fügt der Liste der Formbefehle einen horizontalen (`hline`) oder vertikalen (`vline`) [LineTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands) hinzu. Mit `hline` wird eine horizontale Linie vom Startpunkt des Befehls `to` oder `by` zur `x`-Position gezeichnet, die durch `<length-percentage>` definiert ist. Mit `vline` wird eine vertikale Linie vom Startpunkt des Befehls `to` oder `by` zur `y`-Position gezeichnet, die durch `<length-percentage>` definiert ist. Das `by`- oder `to`-Schlüsselwort bestimmt den relativen oder absoluten Endpunkt, je nachdem. Dieser Befehl ist äquivalent zu `<line-command>`, wobei ein Koordinatenwert durch das einzelne `<length-percentage>` festgelegt wird und der andere Koordinatenwert unverändert vom Startbefehl bleibt.
+  - : Angegeben als `[hline | vline] [by | to] <length-percentage>`. Dieser Befehl fügt der Liste der Formenbefehle einen horizontalen (`hline`) oder vertikalen (`vline`) [LineTo-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands) hinzu. Mit `hline` wird eine horizontale Linie vom Startpunkt des Befehls `to` oder `by` der durch `<length-percentage>` definierten `x`-Position gezeichnet. Mit `vline` wird eine vertikale Linie vom Startpunkt des Befehls `to` oder `by` der durch `<length-percentage>` definierten `y`-Position gezeichnet. Das `by` oder `to` Schlüsselwort bestimmt den relativen oder absoluten Endpunkt, jeweils. Dieser Befehl ist gleichwertig mit `<line-command>`, wobei ein Koordinatenwert durch das einzelne `<length-percentage>` festgelegt wird und der andere Koordinatenwert vom Startbefehl unverändert bleibt.
 
 - `<curve-command>`
-  - : Angegeben als `curve [by | to] <end-point> with <control-point> [/ <control-point>]`. Dieser Befehl fügt der Liste der Formbefehle einen [Bézierkurvenbefehl](/de/docs/Web/SVG/Reference/Attribute/d#cubic_bézier_curve) hinzu. Das `by`- oder `to`-Schlüsselwort bestimmt, ob der Endpunkt der Kurve, der durch `<end-point>` angegeben wird, relativ oder absolut ist.
+  - : Angegeben als `curve [by | to] <end-point> with <control-point> [/ <control-point>]`. Dieser Befehl fügt der Liste der Formenbefehle einen [Bézierkurven-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#cubic_bézier_curve) hinzu. Das `by` oder `to` Schlüsselwort bestimmt, ob der Endpunkt der Kurve, angegeben durch den `<end-point>`, relativ oder absolut ist.
 
-    Das `with`-Schlüsselwort legt die Kontrollpunkte der Bézierkurve wie folgt fest:
-    - Wenn nur ein einziger `<control-point>` angegeben ist, zeichnet der Befehl eine [quadratische Bézierkurve](/de/docs/Web/SVG/Reference/Attribute/d#quadratic_bézier_curve), die durch drei Punkte (den Startpunkt, Kontrollpunkt und Endpunkt) definiert ist.
-    - Wenn zwei `<control-point>`-Werte angegeben sind, zeichnet der Befehl eine kubische Bézierkurve, die durch vier Punkte (den Startpunkt, zwei Kontrollpunkte und den Endpunkt) definiert ist.
+    Das `with` Schlüsselwort gibt die Kontrollpunkte der Bézierkurve wie folgt an.
+    - Wenn nur ein einzelner `<control-point>` angegeben wird, zeichnet der Befehl eine [quadratische Bézierkurve](/de/docs/Web/SVG/Reference/Attribute/d#quadratic_bézier_curve), die durch drei Punkte definiert wird (den Startpunkt, den Kontrollpunkt und den Endpunkt).
+    - Wenn zwei `<control-point>` Werte angegeben sind, zeichnet der Befehl eine kubische Bézierkurve, die durch vier Punkte definiert wird (den Startpunkt, zwei Kontrollpunkte und den Endpunkt).
 
     Gültige Werte für `<end-point>` umfassen:
     - {{cssxref("&lt;position>")}} Schlüsselwörter oder ein `<coordinate-value-pair>`
@@ -109,61 +110,61 @@ Die folgenden `<shape-command>`s können angegeben werden:
     - {{cssxref("&lt;position>")}}
       - : Gibt ein Positionsschlüsselwort an. Dieser Wert ist nur gültig, wenn der Kurvenendpunkt absolut ist (angegeben mit `to`).
     - `<coordinate-value-pair>`
-      - : Gibt ein Paar von {{cssxref("&lt;length-percentage>")}}-Werten an, die Koordinaten definieren.
+      - : Gibt ein Paar von {{cssxref("&lt;length-percentage>")}} Werten an, die Koordinaten definieren.
     - `<relative-control-point>`
-      - : Definiert ein `<coordinate-value-pair>` gefolgt vom `from`-Schlüsselwort und einem der folgenden Schlüsselwörter:
+      - : Definiert ein `<coordinate-value-pair>`, gefolgt vom `from` Schlüsselwort und einem der folgenden Schlüsselwörter:
         - `start`
-          - : Gibt an, dass der Kontrollpunkt relativ zum Startpunkt des aktuellen Befehls ist.
+          - : Zeigt an, dass der Kontrollpunkt relativ zum Startpunkt des aktuellen Befehls ist.
         - `end`
-          - : Gibt an, dass der Kontrollpunkt relativ zum Endpunkt des aktuellen Befehls ist.
+          - : Zeigt an, dass der Kontrollpunkt relativ zum Endpunkt des aktuellen Befehls ist.
         - `origin`
-          - : Gibt an, dass der Kontrollpunkt relativ zum oberen linken (Ursprungs-) Punkt des Containers ist, in dem die Form gezeichnet wird.
+          - : Zeigt an, dass der Kontrollpunkt relativ zum oberen linken (Ursprungs-) Punkt des Containers ist, in dem die Form gezeichnet wird.
             > [!NOTE]
-            > Wenn die `<relative-control-point>`-Schlüsselwörter nicht angegeben sind und der `<control-point>` ein normales `<coordinate-value-pair>` ist, sind die Koordinaten relativ zum Start der Kurve. Mit anderen Worten, `start` ist die Standardeinstellung.
+            > Wenn die `<relative-control-point>` Schlüsselwörter nicht angegeben sind und der `<control-point>` ein reguläres `<coordinate-value-pair>` ist, sind die Koordinaten relativ zum Anfang der Kurve. Mit anderen Worten, `start` ist die Standardeinstellung.
 
 - `<smooth-command>`
-  - : Angegeben als `smooth [by | to] <end-point> [with <control-point>]`. Dieser Befehl fügt der Liste der Formbefehle einen glatten [Bézierkurvenbefehl](/de/docs/Web/SVG/Reference/Attribute/d#cubic_bézier_curve) hinzu. Das `by`- oder `to`-Schlüsselwort bestimmt, ob der Endpunkt der Kurve, der durch `<end-point>` angegeben wird, relativ oder absolut ist.
+  - : Angegeben als `smooth [by | to] <end-point> [with <control-point>]`. Dieser Befehl fügt der Liste der Formenbefehle einen glatten [Bézierkurven-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#cubic_bézier_curve) hinzu. Das `by` oder `to` Schlüsselwort bestimmt, ob der Endpunkt der Kurve, angegeben durch den `<end-point>`, relativ oder absolut ist.
 
-    Das `with`-Schlüsselwort gibt einen optionalen Kontrollpunkt für die Bézierkurve an:
+    Das `with` Schlüsselwort gibt einen optionalen Kontrollpunkt für die Bézierkurve an:
     - Wenn `with <control-point>` weggelassen wird, zeichnet der Befehl eine glatte quadratische Bézierkurve, die den vorherigen Kontrollpunkt und den aktuellen Endpunkt verwendet, um die Kurve zu definieren.
-    - Wenn das optionale `with`-Schlüsselwort enthalten ist, spezifiziert es die Kontrollpunkte der Kurve durch `<control-point>`, wodurch eine glatte kubische Bézierkurve mit dem vorherigen Kontrollpunkt, dem aktuellen Kontrollpunkt und dem aktuellen Endpunkt gezeichnet wird.
+    - Wenn das optionale `with` Schlüsselwort enthalten ist, spezifiziert es einen Kontrollpunkt der Kurve durch `<control-point>`, zeichnet eine glatte kubische Bézierkurve, die durch den vorherigen Kontrollpunkt, den aktuellen Kontrollpunkt und den aktuellen Endpunkt definiert wird.
 
-    Glatte Kurven gewährleisten einen durchgehenden Übergang aus der Form, während quadratische Kurven dies nicht tun. Glatte quadratische Kurven halten einen nahtlosen Übergang mit einem einzigen Kontrollpunkt aufrecht, während glatte kubische Kurven einen verfeinerten Übergang mit zwei Kontrollpunkten bieten.
+    Glatte Kurven sorgen für einen kontinuierlichen Übergang aus der Form, während quadratische Kurven dies nicht tun. Glatte quadratische Kurven halten einen nahtlosen Übergang mit einem einzigen Kontrollpunkt aufrecht, während glatte kubische Kurven einen raffinierteren Übergang mit zwei Kontrollpunkten bieten.
 
-    Gültige Werte für die `<end-point>`- und `<control-point>`-Komponenten sind dieselben wie für [`<curve-command>`](#curve-command).
+    Gültige Werte für die Komponenten `<end-point>` und `<control-point>` sind dieselben wie für [`<curve-command>`](#curve-command).
 
 - `<arc-command>`
-  - : Angegeben als `arc [by | to] <coordinate-pair> of <length-percentage> [<length-percentage>] [<arc-sweep> | <arc-size> | rotate <angle>]`. Dieser Befehl fügt der Liste der Formbefehle einen [elliptischen Bogenkurvenbefehl](/de/docs/Web/SVG/Reference/Attribute/d#elliptical_arc_curve) hinzu. Er zeichnet einen elliptischen Bogen zwischen einem Startpunkt und einem Endpunkt. Das `by`- oder `to`-Schlüsselwort bestimmt, ob der Endpunkt der Kurve, der durch das erste `<coordinate-pair>` angegeben wird, relativ oder absolut ist, je nachdem.
+  - : Angegeben als `arc [by | to] <coordinate-pair> of <length-percentage> [<length-percentage>] [<arc-sweep> | <arc-size> | rotate <angle>]`. Dieser Befehl fügt der Liste der Formenbefehle einen [elliptischen Bogen-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#elliptical_arc_curve) hinzu. Er zeichnet einen elliptischen Bogen zwischen einem Startpunkt und einem Endpunkt. Das `by` oder `to` Schlüsselwort bestimmt, ob der Endpunkt der Kurve, angegeben durch das erste `<coordinate-pair>`, relativ oder absolut ist.
 
-    Der elliptische Bogenkurvenbefehl definiert zwei mögliche Ellipsen, die sowohl den Start- als auch den Endpunkt schneiden können und jeweils im Uhrzeigersinn oder gegen den Uhrzeigersinn nachgezogen werden können, was zu vier möglichen Bögen führt, je nach Bogengröße, Richtung und Winkel. Das `of`-Schlüsselwort gibt die Größe der Ellipse an, von der der Bogen genommen wird: Das erste `<length-percentage>` gibt den horizontalen Radius der Ellipse an, und das zweite `<length-percentage>` gibt den vertikalen Radius an.
+    Der elliptische Bogen-Befehl definiert zwei mögliche Ellipsen, die sowohl den Start- als auch den Endpunkt schneiden, und jede kann im Uhrzeigersinn oder gegen den Uhrzeigersinn zurückverfolgt werden, was zu vier möglichen Bögen führt, abhängig von der Bogengröße, Richtung und dem Winkel. Das `of` Schlüsselwort spezifiziert die Größe der Ellipse, aus der der Bogen entnommen wird: Das erste `<length-percentage>` gibt den horizontalen Radius der Ellipse an und das zweite `<length-percentage>` den vertikalen Radius.
 
-    Die folgenden Parameter können angegeben werden, um auszuwählen, welcher der vier Bögen verwendet werden soll:
-    - `<arc-sweep>`: Gibt an, ob der gewünschte Bogen derjenige ist, der im Uhrzeigersinn (`cw`) oder gegen den Uhrzeigersinn (`ccw`) um die Ellipse herum verläuft. Wenn weggelassen, ist der Standardwert `ccw`.
-    - `<arc-size>`: Gibt an, ob der gewünschte Bogen der größere (`large`) oder kleinere (`small`) der beiden Bögen ist. Wenn weggelassen, ist der Standardwert `small`.
-    - `<angle>`: Gibt den Winkel in Grad an, um den die Ellipse relativ zur x-Achse gedreht werden soll. Ein positiver Winkel dreht die Ellipse im Uhrzeigersinn, ein negativer Winkel gegen den Uhrzeigersinn. Wenn weggelassen, ist der Standardwert `0deg`.
+    Die folgenden Parameter können angegeben werden, um zu wählen, welcher der vier Bögen verwendet werden soll:
+    - `<arc-sweep>`: Gibt an, ob der gewünschte Bogen derjenige ist, der im Uhrzeigersinn (`cw`) oder gegen den Uhrzeigersinn (`ccw`) um die Ellipse gezogen wird. Wenn weggelassen, ist dies `ccw` als Standardwert.
+    - `<arc-size>`: Gibt an, ob der gewünschte Bogen der größere (`large`) oder kleinere (`small`) der beiden Bögen ist. Wenn weggelassen, ist dies `small` als Standardwert.
+    - `<angle>`: Gibt den Winkel in Grad an, um den die Ellipse relativ zur x-Achse gedreht werden soll. Ein positiver Winkel dreht die Ellipse im Uhrzeigersinn und ein negativer Winkel gegen den Uhrzeigersinn. Wenn weggelassen, ist dies `0deg` als Standardwert.
 
     Besondere Situationen werden wie folgt behandelt:
-    - Wenn nur ein `<length-percentage>` angegeben wird, wird derselbe Wert sowohl für den horizontalen als auch für den vertikalen Radius verwendet, was effektiv einen Kreis schafft. In diesem Fall haben `<arc-size>` und `<angle>` keine Auswirkung.
-    - Wenn entweder der horizontale oder vertikale Radius null ist, ist der Befehl äquivalent zu einem `<line-command>` zum Endpunkt.
-    - Wenn einer der Radien negativ ist, wird stattdessen sein absoluter Wert verwendet.
-    - Wenn die horizontalen und vertikalen Radien keine Ellipse beschreiben, die groß genug ist, um sowohl den Start- als auch den Endpunkt (nach Drehung um den angegebenen `<angle>`) zu schneiden, werden die Radien einheitlich skaliert, bis die Ellipse gerade groß genug ist, um beide Punkte zu schneiden.
-    - Wenn der Start- und Endpunkt des Bogens genau auf gegenüberliegenden Seiten der Ellipse liegen, gibt es nur eine mögliche Ellipse und zwei mögliche Bögen. In diesem Fall spezifiziert `<arc-sweep>` den zu wählenden Bogen und `<arc-size>` hat keine Auswirkung.
+    - Wenn nur ein `<length-percentage>` angegeben wird, wird derselbe Wert sowohl für den horizontalen als auch für den vertikalen Radius verwendet, was effektiv einen Kreis bildet. In diesem Fall haben `<arc-size>` und `<angle>` keine Auswirkungen.
+    - Wenn entweder der horizontale oder vertikale Radius null ist, ist der Befehl einem `<line-command>` zum Endpunkt gleichwertig.
+    - Wenn entweder der horizontale oder vertikale Radius negativ ist, wird sein absoluter Wert verwendet.
+    - Wenn die horizontalen und vertikalen Radien keine Ellipse beschreiben, die groß genug ist, um sowohl den Start- als auch den Endpunkt zu schneiden (nach Rotation um den angegebenen `<angle>`), werden die Radien gleichmäßig vergrößert, bis die Ellipse groß genug ist, um beide Punkte zu schneiden.
+    - Wenn die Start- und Endpunkte des Bogens exakt auf gegenüberliegenden Seiten der Ellipse liegen, gibt es nur eine mögliche Ellipse und zwei mögliche Bögen. In diesem Fall spezifiziert `<arc-sweep>` den Bogen, der gewählt werden soll, während `<arc-size>` keine Auswirkungen hat.
 
 - `close`
-  - : Fügt der Liste der Formbefehle einen [ClosePath-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#closepath) hinzu, der eine gerade Linie von der aktuellen Position (Ende des letzten Befehls) zum ersten Punkt im Pfad zeichnet, der im `from <coordinate-pair>`-Parameter definiert ist. Um die Form zu schließen, ohne eine Linie zu zeichnen, fügen Sie einen `<move-command>` mit den ursprünglichen Koordinaten vor dem close-Befehl hinzu. Wenn dem `close`-Befehl unmittelbar ein `<move-command>` folgt, definiert das den Startpunkt der nächsten Form oder Teilstrecke.
+  - : Fügt der Liste der Formenbefehle einen [ClosePath-Befehl](/de/docs/Web/SVG/Reference/Attribute/d#closepath) hinzu, der eine gerade Linie von der aktuellen Position (dem Ende des letzten Befehls) bis zum ersten Punkt im durch den Parameter `from <coordinate-pair>` definierten Pfad zeichnet. Um die Form zu schließen, ohne eine Linie zu zeichnen, fügen Sie einen `<move-command>` mit den Ursprungskoordinaten vor dem Schließbefehl ein. Wenn dem `close` Befehl sofort ein `<move-command>` folgt, definiert er den Startpunkt der nächsten Form oder Unterpfad.
 
 ## Beschreibung
 
-Die `shape()`-Funktion ermöglicht es Ihnen, komplexe Formen zu definieren. Sie ist in mehreren Aspekten der {{cssxref("basic-shape/path","path()")}}-Formfunktions ähnlich:
+Die `shape()` Funktion ermöglicht es Ihnen, komplexe Formen zu definieren. Sie ist in mehreren Aspekten der {{cssxref("basic-shape/path","path()")}} Formfunktion ähnlich:
 
-- Der `<fill-rule>`-Parameter in der `shape()`-Funktion funktioniert genau wie derselbe Parameter in der `path()`-Funktion.
-- Die `shape()`-Funktion erfordert die Angabe von einem oder mehreren `<shape-command>`s, wobei jeder Befehl einen zugrundeliegenden [Pfadbefehl](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) verwendet, wie [MoveTo](/de/docs/Web/SVG/Reference/Attribute/d#moveto_path_commands), [LineTo](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands) und [ClosePath](/de/docs/Web/SVG/Reference/Attribute/d#closepath).
+- Der `<fill-rule>` Parameter in der `shape()` Funktion funktioniert genau wie derselbe Parameter in der `path()` Funktion.
+- Die `shape()` Funktion erfordert die Angabe von einem oder mehreren `<shape-command>`s, wobei jeder Befehl einen zugrunde liegenden [Pfadbefehl](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), wie [MoveTo](/de/docs/Web/SVG/Reference/Attribute/d#moveto_path_commands), [LineTo](/de/docs/Web/SVG/Reference/Attribute/d#lineto_path_commands), und [ClosePath](/de/docs/Web/SVG/Reference/Attribute/d#closepath), verwendet.
 
-Jedoch bietet `shape()` mehrere Vorteile gegenüber der Verwendung von `path()`:
+Jedoch bietet `shape()` mehrere Vorteile im Vergleich zur Verwendung von `path()`:
 
-- `shape()` verwendet die standardmäßige CSS-Syntax, was es einfacher macht, Formen direkt in Ihrem Stylesheet zu erstellen und zu ändern. Im Vergleich dazu verwendet `path()` die [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path)-Syntax, die für diejenigen weniger intuitiv ist, die mit SVG nicht vertraut sind.
-- `shape()` unterstützt eine Vielzahl von CSS-Einheiten, einschließlich Prozentwerten, `rem` und `em`. `path()` hingegen definiert Formen als einen einzigen String und beschränkt Einheiten auf `px`.
-- `shape()` erlaubt auch die Verwendung von CSS-Mathematikfunktionen wie {{cssxref("calc")}}, {{cssxref("max")}} und {{cssxref("abs")}}, was mehr Vielseitigkeit bei der Definition von Formen bietet.
+- `shape()` verwendet standardmäßige CSS-Syntax, was es einfacher macht, Formen direkt im Stylesheet zu erstellen und zu ändern. Im Vergleich dazu verwendet `path()` die [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path) Syntax, die weniger intuitiv ist für diejenigen, die mit SVG nicht vertraut sind.
+- `shape()` unterstützt eine Vielzahl von CSS-Einheiten, einschließlich Prozentsätzen, `rem` und `em`. `path()` hingegen definiert Formen als eine einzige Zeichenkette und beschränkt Einheiten auf `px`.
+- `shape()` erlaubt auch die Verwendung von CSS-Mathematikfunktionen, wie {{cssxref("calc")}}, {{cssxref("max")}}, und {{cssxref("abs")}}, was mehr Vielseitigkeit bietet, wenn Formen definiert werden.
 
 ## Formale Syntax
 
@@ -171,15 +172,15 @@ Jedoch bietet `shape()` mehrere Vorteile gegenüber der Verwendung von `path()`:
 
 ## Beispiele
 
-### Verwendung von `shape()` zur Definition eines Pfads
+### Verwendung von `shape()` zur Definition eines Pfades
 
-Dieses Beispiel zeigt, wie die `shape()`-Funktion in der {{cssxref("offset-path")}}-Eigenschaft verwendet werden kann, um die Form des Pfads zu definieren, dem ein Element folgen kann.
+Dieses Beispiel demonstriert, wie die `shape()` Funktion in der {{cssxref("offset-path")}} Eigenschaft verwendet werden kann, um die Form des Pfades zu definieren, dem ein Element folgen kann.
 
-Die erste Form, `shape1`, folgt einem kubisch Bézierkurvenpfad, der durch den `curve to`-Befehl definiert ist. Danach zeichnet der `close`-Befehl eine gerade Linie vom Endpunkt der Kurve zurück zum Anfangspunkt, der im `from`-Befehl definiert ist. Schließlich bewegt sich `shape1` zu ihrer neuen Position bei `0px 150px` und fährt dann entlang einer horizontalen Linie fort.
+Die erste Form, `shape1`, folgt einem kubischen Bézierkurvenpfad, der durch den `curve to` Befehl definiert wird. Der `close` Befehl zeichnet eine gerade Linie vom Endpunkt der Kurve zum Anfangspunkt, der im `from` Befehl definiert ist. Schließlich bewegt sich `shape1` zu seiner neuen Position bei `0px 150px` und folgt dann einer horizontalen Linie.
 
-Die zweite Form, `shape2`, folgt zunächst einer horizontalen Linie, bewegt sich dann zurück zu ihrer Ausgangsposition bei `50px 90px`. Als nächstes folgt sie einer vertikalen Linie, bevor der Pfad zurück zum Anfangspunkt geschlossen wird.
+Die zweite Form, `shape2`, folgt zunächst einer horizontalen Linie und bewegt sich dann zurück zu ihrer Startposition bei `50px 90px`. Anschließend folgt sie einer vertikalen Linie, bevor sie den Pfad zurück zum Anfangspunkt schließt.
 
-Beide Formen beginnen mit ihren ursprünglichen Farben und wechseln allmählich zu `hotpink` am Ende der `move`-Animation, kehren jedoch zu ihrer ursprünglichen Farbe zurück, wenn die Animation neu startet. Diese zyklische Farbänderung bietet Ihnen einen visuellen Hinweis auf den Fortschritt und den Neustart der Animation.
+Beide Formen beginnen mit ihren ursprünglichen Farben und wechseln allmählich zu `hotpink` bis zum Ende der `move` Animation und kehren zu ihrer ursprünglichen Farbe zurück, wenn die Animation neu startet. Dieser zyklische Farbwechsel bietet Ihnen einen visuellen Hinweis auf den Fortschritt und Neustart der Animation.
 
 ```html hidden
 <div class="container">
@@ -211,11 +212,12 @@ body {
 }
 
 @supports not (offset-path: shape(from 0 0, move to 0 0)) {
-  .container {
-    display: none;
-  }
   body::after {
     content: "Your browser doesn't support the `shape()` function yet.";
+    background-color: wheat;
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
   }
 }
 ```
@@ -268,7 +270,7 @@ body {
 
 ### Verwendung von `shape()` zur Definition des sichtbaren Teils eines Elements
 
-Dieses Beispiel demonstriert, wie die `shape()`-Funktion in der {{cssxref("clip-path")}}-Eigenschaft verwendet werden kann, um unterschiedliche Formen für den Ausschnittbereich zu erstellen. Die erste Form (`shape1`) verwendet ein Dreieck, das durch gerade Linien definiert ist. Die zweite Form (`shape2`) beinhaltet Kurven und glatte Übergänge; sie veranschaulicht auch die Verwendung des `<move-command>` nach dem `close`-Befehl, der eine rechteckige Form zum Ausschnittbereich hinzufügt.
+Dieses Beispiel zeigt, wie die `shape()` Funktion in der {{cssxref("clip-path")}} Eigenschaft verwendet werden kann, um verschiedene Formen für den abschneidenden Bereich zu erstellen. Die erste Form (`shape1`) verwendet ein durch gerade Linien definiertes Dreieck. Die zweite Form (`shape2`) enthält Kurven und sanfte Übergänge; sie veranschaulicht auch die Verwendung des `<move-command>` nach dem `close` Befehl, der einen rechteckigen Bereich zum abschneidenden Bereich hinzufügt.
 
 ```html hidden
 <div class="container">
@@ -297,11 +299,12 @@ body {
 }
 
 @supports not (clip-path: shape(from 0 0, move to 0 0)) {
-  .container {
-    display: none;
-  }
   body::after {
     content: "Your browser doesn't support the `shape()` function yet.";
+    background-color: wheat;
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
   }
 }
 ```
@@ -346,12 +349,12 @@ body {
 
 ### Verwendung von `shape()` zum Zeichnen von Kurven mit relativen Kontrollpunkten
 
-Wie in vorherigen Beispielen wird auch in diesem Beispiel {{cssxref("clip-path")}} verwendet, um unterschiedliche Formen für die Ausschnittbereiche der Elemente zu erstellen. Die Formen werden durch eine Kombination von [`<curve-command>`](#curve-command) und [`<smooth-command>`](#smooth-command) spezifiziert, und die Kontrollpunkte werden durch [`<relative-control-point>`](#relative-control-point)-Werte angegeben.
+Wie die vorherigen Beispiele verwendet auch dieses Beispiel {{cssxref("clip-path")}}, um verschiedene Formen für die abschneidenden Bereiche der Elemente zu erstellen. Die Formen werden durch eine Kombination von [`<curve-command>`](#curve-command) und [`<smooth-command>`](#smooth-command) spezifiziert, und die Kontrollpunkte werden mit [`<relative-control-point>`](#relative-control-point) Werten angegeben.
 
 Die erste Form (`shape1`) zeichnet zwei kubische Bézierkurven.
 
-- Die erste Kurve beginnt von der Mitte der linken Kante des Kastens und wird zu einem Punkt `200px` entlang der x-Achse gezeichnet – die Mitte der rechten Kante des Kastens. Sie verwendet einen Kontrollpunkt relativ zum Beginn der Kurve und einen Kontrollpunkt relativ zum Ursprung (oben links des Kastens).
-- Die zweite Kurve beginnt von der Mitte des rechten Randes des Kastens und wird `-200px` entlang der x-Achse gezeichnet – die Mitte der linken Kante des Kastens. Sie verwendet einen Kontrollpunkt relativ zum Ursprung und einen Kontrollpunkt relativ zum Beginn der Kurve.
+- Die erste Kurve beginnt von der Mitte des linken Randes der Box und wird zu einem Punkt `200px` entlang der x-Achse gezeichnet — der Mitte des rechten Randes der Box. Sie verwendet einen Kontrollpunkt relativ zum Anfang der Kurve und einen Kontrollpunkt relativ zum Ursprung (oben links der Box).
+- Die zweite Kurve beginnt von der Mitte rechts der Box und wird `-200px` entlang der x-Achse gezeichnet — die Mitte des linken Randes der Box. Sie verwendet einen Kontrollpunkt relativ zum Ursprung und einen Kontrollpunkt relativ zum Anfang der Kurve.
 
 ```html hidden live-sample___relative-control-points
 <div class="container">
@@ -376,11 +379,12 @@ Die erste Form (`shape1`) zeichnet zwei kubische Bézierkurven.
       close
     )
 ) {
-  .container {
-    display: none;
-  }
   body::after {
     content: "Your browser doesn't support `shape()` relative control points.";
+    background-color: wheat;
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
   }
 }
 ```
@@ -401,8 +405,8 @@ Die erste Form (`shape1`) zeichnet zwei kubische Bézierkurven.
 
 Die zweite Form (`shape2`) zeichnet eine quadratische Bézierkurve und eine kubische Bézierkurve.
 
-- Die erste Kurve beginnt in der Mitte der linken Kante des Kastens und wird zu einem absoluten Punkt `200px` vom Ursprung entlang der x-Achse und `100px` vom Ursprung entlang der y-Achse gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Beginn der Kurve.
-- Die zweite Kurve beginnt am Endpunkt der vorhergehenden Kurve und wird zur Mitte der linken Kante des Kastens gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Beginn der Kurve und einen Kontrollpunkt relativ zum Ende.
+- Die erste Kurve beginnt von der Mitte des linken Randes der Box und wird zu einem absoluten Punkt `200px` vom Ursprung entlang der x-Achse und `100px` vom Ursprung entlang der y-Achse gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Anfang der Kurve.
+- Die zweite Kurve beginnt vom Endpunkt der vorherigen Kurve und wird zur Mitte links der Box gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Anfang der Kurve und einen Kontrollpunkt relativ zum Ende.
 
 ```css live-sample___relative-control-points
 #shape2 {
@@ -418,10 +422,10 @@ Die zweite Form (`shape2`) zeichnet eine quadratische Bézierkurve und eine kubi
 }
 ```
 
-Die dritte Form (`shape3`) zeichnet eine quadratische Bézierkurve und eine kubische Bézierkurve mithilfe eines `smooth`-Befehls.
+Die dritte Form (`shape3`) zeichnet eine quadratische Bézierkurve und eine kubische Bézierkurve mit einem `smooth` Befehl.
 
-- Die erste Kurve beginnt in der Mitte der linken Kante des Kastens und wird zu einem Punkt `200px` entlang der x-Achse gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Beginn der Kurve.
-- Die zweite Kurve beginnt am Endpunkt der vorhergehenden Kurve und wird zur Mitte des Kastens gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Beginn der Kurve (den letzten Kontrollpunkt der vorhergehenden Kurve) und einen Kontrollpunkt relativ zum Ursprung.
+- Die erste Kurve beginnt von der Mitte des linken Randes der Box und wird zu einem Punkt `200px` entlang der x-Achse gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Anfang der Kurve.
+- Die zweite Kurve beginnt vom Endpunkt der vorherigen Kurve und wird zur Mitte der Box gezeichnet. Sie verwendet einen Kontrollpunkt relativ zum Anfang der Kurve (der letzte Kontrollpunkt der vorherigen Kurve) und einen Kontrollpunkt relativ zum Ursprung.
 
 ```css live-sample___relative-control-points
 #shape3 {
@@ -453,6 +457,6 @@ Die dritte Form (`shape3`) zeichnet eine quadratische Bézierkurve und eine kubi
 
 - {{cssxref("clip-path")}}
 - {{cssxref("offset-path")}}
-- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
+- [CSS shapes](/de/docs/Web/CSS/Guides/Shapes) Modul
 - [Übersicht über Formen](/de/docs/Web/CSS/Guides/Shapes/Overview) Leitfaden
-- [Grundlegende Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) Leitfaden
+- [Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) Leitfaden

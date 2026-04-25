@@ -1,11 +1,12 @@
 ---
-title: :active-view-transition-type()
+title: "`:active-view-transition-type()` CSS-Pseudoklasse"
+short-title: :active-view-transition-type()
 slug: Web/CSS/Reference/Selectors/:active-view-transition-type
 l10n:
-  sourceCommit: 8f7fa9e7aef0399c7a7f8e5a20476a0c2f287640
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die funktionale **`:active-view-transition-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) trifft auf Elemente zu, wenn ein View-Übergang mit einem oder mehreren spezifischen Typen im Gange ist (ist _aktiv_) und hört auf zuzutreffen, sobald der View-Übergang abgeschlossen ist.
+Die funktionale **`:active-view-transition-type()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) gleicht Elemente ab, wenn ein View-Übergang mit einem oder mehreren spezifischen Typen im Gange ist (also _aktiv_ ist) und hört auf zu gelten, sobald der View-Übergang abgeschlossen ist.
 
 ```css
 html:active-view-transition-type(forwards, backwards) {
@@ -24,28 +25,28 @@ html:active-view-transition-type(forwards, backwards) {
 ### Parameter
 
 - `<custom-ident>#`
-  - : Ein oder mehrere durch Kommas getrennte {{cssxref("&lt;custom-ident>")}} Werte, die die Auswahl an Typen darstellen, die auf den aktiven View-Übergang angewendet werden können, damit dieser Selektor passt.
+  - : Ein oder mehrere durch Komma getrennte {{cssxref("&lt;custom-ident>")}} Werte, die die Auswahl der Typen darstellen, die auf den aktiven View-Übergang angewendet werden können, damit dieser Selektor passt.
 
 ## Beschreibung
 
-[View-Übergangstypen](/de/docs/Web/API/View_Transition_API/Using_types) bieten einen Mechanismus, mit dem verschiedene **Typen** für aktive View-Übergänge angegeben werden können. Typen können auf View-Übergänge auf verschiedene Weise angewendet werden:
+[View-Übergangstypen](/de/docs/Web/API/View_Transition_API/Using_types) bieten einen Mechanismus, durch den verschiedene **Typen** für aktive View-Übergänge angegeben werden können. Typen können in mehrfacher Hinsicht auf View-Übergänge gesetzt werden:
 
-- Für gleiche Dokument (SPA) View-Übergänge, geben Sie Typen in der [`types`](/de/docs/Web/API/Document/startViewTransition#types) Option der [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode an.
-- Für zwischen Dokumenten View-Übergänge geben Sie Typen in der [`types`](/de/docs/Web/CSS/Reference/At-rules/@view-transition#types) Beschreibung der {{cssxref("@view-transition")}} At-Regel an.
-- Sie können die Typen des aktiven View-Übergangs auch dynamisch über die [`types`](/de/docs/Web/API/ViewTransition/types) Eigenschaft des entsprechenden `ViewTransition` Objekts ändern:
-  - Für gleiche Dokument View-Übergänge ist dies das `ViewTransition` Objekt, das von der `startViewTransition()` Methode zurückgegeben wird.
-  - Für zwischen Dokumenten View-Übergänge ist das `ViewTransition` Objekt in der [`viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) Eigenschaft des [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignisobjekts für die ausgehende Seite verfügbar und in der [`viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) Eigenschaft des [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignisobjekts für die eingehende Seite.
-  - Sie können auch über die [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition) Eigenschaft auf den aktiven `ViewTransition` zugreifen. Dies bietet einen konsistenten Weg, um in jedem Kontext auf den aktiven View-Übergang zuzugreifen.
+- Für gleichseitige (SPA) View-Übergänge geben Sie die Typen in der [`types`](/de/docs/Web/API/Document/startViewTransition#types) Option der [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode an.
+- Für Dokument übergreifende View-Übergänge geben Sie die Typen im [`types`](/de/docs/Web/CSS/Reference/At-rules/@view-transition#types) Deskriptor der {{cssxref("@view-transition")}} @-Regel an.
+- Sie können auch die Typen des aktiven View-Übergangs in Echtzeit über die [`types`](/de/docs/Web/API/ViewTransition/types) Eigenschaft des entsprechenden `ViewTransition` Objekts ändern:
+  - Für gleichseitige View-Übergänge ist dies das `ViewTransition` Objekt, das von der `startViewTransition()` Methode zurückgegeben wird.
+  - Für Dokument übergreifende View-Übergänge ist das `ViewTransition` Objekt in der [`viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) Eigenschaft des [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignisobjekts im Fall der ausgehenden Seite und in der [`viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) Eigenschaft des [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignisobjekts im Fall der eingehenden Seite verfügbar.
+  - Sie können auch über die [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition) Eigenschaft auf den aktiven `ViewTransition` zugreifen. Dies bietet eine konsistente Möglichkeit, den aktiven View-Übergang in jedem Kontext zu erreichen.
 
-Sobald eine oder mehrere Typen auf den aktiven View-Übergang gesetzt sind, kann die Pseudoklasse `:active-view-transition-type()` auf das Dokumentstammelement angewendet werden, um benutzerdefinierte Stile für jeden Typ festzulegen. Die Pseudoklasse nimmt eine durch Kommas getrennte Liste von Typen als Argument, um die Typen anzugeben, die auf den aktiven View-Übergang gesetzt werden können, damit der Selektor übereinstimmt.
+Sobald der aktive View-Übergang einen oder mehrere Typen aufweist, kann die `:active-view-transition-type()` Pseudoklasse auf das Dokument-Wurzelelement angewendet werden, um benutzerdefinierte Stile für jeden Typ festzulegen. Die Pseudoklasse nimmt eine durch Komma getrennte Liste von Typen als Argument an, um die Typen zu spezifizieren, die auf den aktiven View-Übergang gesetzt werden können, damit der Selektor passt.
 
-Zum Beispiel könnten Sie in einer Bildergalerie-App unterschiedliche Übergangsanimationen auf ein {{htmlelement("img")}}-Element anwenden, während sich das angezeigte Bild ändert, je nachdem, ob Sie in der Sequenz vorwärts oder rückwärts gehen, ein Bild löschen oder ein Bild in die Sequenz hinzufügen.
+Zum Beispiel könnten Sie verschiedene Übergangsanimationen auf ein {{htmlelement("img")}} Element in einer Bildergalerie-App anwenden, wenn das angezeigte Bild wechselt, je nachdem, ob Sie vorwärts oder rückwärts in der Sequenz navigieren, ein Bild löschen oder ein Bild in die Sequenz einfügen.
 
-### ODER- versus UND-Verhalten
+### ODER versus UND Verhalten
 
-Es ist wichtig zu beachten, dass die durch Kommas getrennte Liste von Typen, die in der Pseudoklasse `:active-view-transition-type()` angegeben ist, ein ODER-Verhalten bietet — wenn einer oder mehrere dieser Typen auf den aktiven View-Übergang gesetzt sind, wird der Selektor übereinstimmen.
+Es ist wichtig zu beachten, dass die durch Komma getrennte Liste von Typen, die innerhalb der `:active-view-transition-type()` Pseudoklasse angegeben ist, ODER Verhalten bietet — wenn einer oder mehrere dieser Typen auf den aktiven View-Übergang gesetzt sind, wird der Selektor übereinstimmen.
 
-Zum Beispiel wird in diesem Fall der Selektor übereinstimmen, wenn der aktive View-Übergang den Typ `forwards`, `backwards` oder beide hat:
+Zum Beispiel wird in diesem Fall der Selektor passen, wenn der aktive View-Übergang einen Typ von `forwards`, `backwards` oder beides hat:
 
 ```css
 html:active-view-transition-type(forwards, backwards) {
@@ -53,7 +54,7 @@ html:active-view-transition-type(forwards, backwards) {
 }
 ```
 
-Wenn Sie ein UND-Verhalten angeben möchten — das heißt, alle Typen müssen gesetzt sein, damit der Selektor übereinstimmt — können Sie dies tun, indem Sie mehrere `:active-view-transition-type()` Pseudoklassen miteinander verketten. Im folgenden Fall wird der Selektor nur übereinstimmen, wenn der aktive View-Übergang die Typen `slide` _und_ `forwards` hat:
+Wenn Sie ein UND Verhalten angeben möchten — das heißt, alle Typen müssen gesetzt sein, damit der Selektor übereinstimmt — können Sie dies tun, indem Sie mehrere `:active-view-transition-type()` Pseudoklassen hintereinander verketten. Im folgenden Fall wird der Selektor nur dann übereinstimmen, wenn der aktive View-Übergang Typen von `slide` _und_ `forwards` hat:
 
 ```css
 html:active-view-transition-type(slide):active-view-transition-type(forwards) {
@@ -63,15 +64,15 @@ html:active-view-transition-type(slide):active-view-transition-type(forwards) {
 
 ## Beispiele
 
-Siehe auch [View-Übergangstypen verwenden](/de/docs/Web/API/View_Transition_API/Using_types) für mehrere vollständige Beispiele.
+Siehe auch [Verwendung von View-Übergangstypen](/de/docs/Web/API/View_Transition_API/Using_types) für mehrere vollständige Beispiele.
 
-### Grundlegende Verwendung von `:active-view-transition-type()`
+### Grundlegende Benutzung von `:active-view-transition-type()`
 
-Dieses Beispiel enthält ein einfaches Dokument, das zwischen zwei verschiedenen Inhaltsstücken über zwei verschiedene Schaltflächen, "Backwards" und "Forwards", übergeht. Wir demonstrieren, wie View-Übergangstypen verwendet werden können, um den Übergang unterschiedlich zu animieren, je nachdem, welche Schaltfläche gedrückt wurde.
+Dieses Beispiel enthält ein grundlegendes Dokument, das zwischen zwei verschiedenen Inhalten über zwei verschiedene Schaltflächen, "Vorwärts" und "Rückwärts", wechselt. Wir zeigen, wie View-Übergangstypen verwendet werden können, um den Übergang unterschiedlich zu animieren, abhängig davon, welche Schaltfläche gedrückt wurde.
 
 #### HTML
 
-Das Markup beinhaltet ein einzelnes {{htmlelement("p")}}-Element, um den Inhalt zu enthalten, und zwei {{htmlelement("button")}}-Elemente, um die View-Übergänge auszulösen.
+Das Markup enthält ein einziges {{htmlelement("p")}} Element, um den Inhalt zu enthalten, und zwei {{htmlelement("button")}} Elemente, um die View-Übergänge auszulösen.
 
 ```html live-sample___basic_usage
 <p>This is my first piece of content. I hope you like it!</p>
@@ -83,7 +84,7 @@ Das Markup beinhaltet ein einzelnes {{htmlelement("p")}}-Element, um den Inhalt 
 
 #### JavaScript
 
-In unserem Skript erstellen wir Referenzen zu beiden Schaltflächen und dem Inhaltsabsatz und speichern dann unsere zwei verschiedenen Inhaltsstücke in zwei Konstanten.
+In unserem Skript erstellen wir Referenzen zu beiden Schaltflächen und dem Inhaltsabsatz und speichern dann unsere beiden unterschiedlichen Inhaltsteile in zwei Konstanten.
 
 ```js live-sample___basic_usage
 const backBtn = document.getElementById("backwards");
@@ -95,17 +96,17 @@ const second =
   "This is my second piece of content. Is it better than the first?";
 ```
 
-Als nächstes fügen wir den Schaltflächen "Rückwärts" und "Vorwärts" `click`-Ereignislistener hinzu; wenn sie geklickt werden, wird die Funktion `changeContent()` ausgeführt.
+Als nächstes fügen wir den Rückwärts- und Vorwärts-Schaltflächen `click`-Ereignislistener hinzu; wenn sie geklickt werden, wird die `changeContent()` Funktion ausgeführt.
 
 ```js live-sample___basic_usage
 backBtn.addEventListener("click", changeContent);
 fwdBtn.addEventListener("click", changeContent);
 ```
 
-Schließlich definieren wir die Funktion `changeContent()`. Wir beginnen mit der Deklaration eines `type`-Werts, der unseren View-Übergangstyp-Wert halten wird. Wenn das Ereignisziel die Schaltfläche "Rückwärts" ist, setzen wir `type` auf `backwards`. Wenn nicht, setzen wir `type` auf `forwards`. Wir rufen dann die Methode [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) auf, um den Inhalt zu aktualisieren und den Übergang zu starten:
+Schließlich definieren wir die `changeContent()` Funktion. Wir beginnen mit der Deklaration eines `type` Wertes, der unseren View-Übergangstyp-Wert enthalten wird. Wenn das Ereignisziel die "Rückwärts"-Schaltfläche ist, setzen wir `type` auf `backwards`. Andernfalls setzen wir `type` auf `forwards`. Dann rufen wir die [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode auf, um den Inhalt zu aktualisieren und den Übergang zu starten:
 
-- Der `update`-Callback prüft, ob der `textContent` des Absatzes mit dem `first`-String übereinstimmt. Wenn ja, setzen wir ihn auf den `second`-String. Wenn nicht, setzen wir ihn auf den `first`-String.
-- Das `types`-Array erhält ein Element: den vorher deklarieren `type`-Wert.
+- Der `update` Rückruf überprüft, ob der `textContent` des Absatzes gleich dem `first` String ist. Falls ja, setzen wir ihn auf den `second` String. Andernfalls setzen wir ihn auf den `first` String.
+- Das `types` Array erhält ein Element: den zuvor erklärten `type` Wert.
 
 ```js live-sample___basic_usage
 function changeContent(e) {
@@ -123,7 +124,7 @@ function changeContent(e) {
 
 #### CSS
 
-In unseren Stilen beginnen wir damit, eine Reihe verschachtelter Regeln mit der `:active-view-transition` Pseudoklasse zu erstellen. Diese Stile werden angewendet, wann immer ein View-Übergang aktiv ist, unabhängig von deren Typen. Wir wenden einen {{cssxref("view-transition-name")}} von `none` auf das {{cssxref(":root")}} an, da wir nicht möchten, dass irgendwelche Elemente erfasst und bei Übergängen animiert werden, außer das `<p>`-Element, das einen `view-transition-name` von `slide` erhält.
+In unseren Styles beginnen wir mit dem Erstellen eines Satzes verschachtelter Regeln unter Verwendung der `:active-view-transition` Pseudoklasse. Diese Styles werden angewendet, wenn ein View-Übergang aktiv ist, unabhängig von seinen Typen. Wir wenden eine {{cssxref("view-transition-name")}} von `none` auf die {{cssxref(":root")}} an, da wir nicht möchten, dass irgendwelche Elemente auf Übergangen erfasst und animiert werden, außer dem `<p>` Element, das einen `view-transition-name` von `slide` erhält.
 
 ```css hidden live-sample___basic_usage
 html,
@@ -163,12 +164,12 @@ html:active-view-transition {
 }
 ```
 
-Als nächstes verwenden wir die Pseudoklasse `:active-view-transition-type()`, um zwei Blöcke verschachtelter Stile zu erstellen, von denen der erste nur angewendet wird, wenn der aktive View-Übergang den Typ `forwards` hat, und der zweite nur, wenn der aktive View-Übergang den Typ `backwards` hat. In jedem Block verwenden wir die {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Pseudoelemente, um benutzerdefinierte {{cssxref("animation-name")}} Werte auf die ausgehenden und eingehenden Ansichten der `slide`-Erfassungsgruppe anzuwenden.
+Als nächstes verwenden wir die `:active-view-transition-type()` Pseudoklasse, um zwei Blöcke verschachtelter Styles zu erstellen, von denen der erste nur angewendet wird, wenn der aktive View-Übergang einen Typ von `forwards` hat, und der zweite nur angewendet wird, wenn der aktive View-Übergang einen Typ von `backwards` hat. In jedem Block verwenden wir die {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Pseudoelemente, um benutzerdefinierte {{cssxref("animation-name")}} Werte auf die ausgehenden und eingehenden Ansichten der `slide` Capture-Gruppe anzuwenden.
 
 Das Ergebnis:
 
-- Wenn der Übergangstyp `forwards` ist, rutscht die alte Inhaltsansicht nach links heraus und die neue Inhaltsansicht rutscht von rechts herein.
-- Wenn der Übergangstyp `backwards` ist, rutscht die alte Inhaltsansicht nach rechts heraus und die neue Inhaltsansicht rutscht von links herein.
+- Wenn der Übergangstyp `forwards` ist, gleitet die alte Inhaltsansicht nach links aus und die neue Inhaltsansicht von rechts herein.
+- Wenn der Übergangstyp `backwards` ist, gleitet die alte Inhaltsansicht nach rechts aus und die neue Inhaltsansicht von links herein.
 
 ```css live-sample___basic_usage
 html:active-view-transition-type(forwards) {
@@ -190,7 +191,7 @@ html:active-view-transition-type(backwards) {
 }
 ```
 
-Schließlich verwenden wir {{cssxref("@keyframes")}} Animationsblöcke, um die zuvor referenzierten Animationen zu definieren.
+Schließlich verwenden wir {{cssxref("@keyframes")}} Animationsblöcke, um die zuvor erwähnten Animationen zu definieren.
 
 ```css live-sample___basic_usage
 @keyframes slide-in-from-left {
@@ -217,11 +218,11 @@ Schließlich verwenden wir {{cssxref("@keyframes")}} Animationsblöcke, um die z
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt dargestellt:
+Das Beispiel wird wie folgt gerendert:
 
 {{EmbedLiveSample("basic-usage", "100%", 200)}}
 
-Versuchen Sie, die Schaltflächen "Backwards" und "Forwards" zu klicken, und beachten Sie, wie jeweils eine andere Animation für den Übergang verwendet wird, obwohl derselbe Code verwendet wird, um die Inhaltsaktualisierung und den View-Übergang in jedem Fall auszulösen. Dies liegt daran, dass ein unterschiedlicher Übergangstyp gesetzt wird, je nachdem, welche Schaltfläche gedrückt wird.
+Versuchen Sie, auf die "Rückwärts"- und "Vorwärts"-Schaltflächen zu klicken, und beachten Sie, wie, obwohl derselbe Code verwendet wird, um die Inhaltsaktualisierung und den View-Übergang in jedem Fall zu initiieren, eine andere Animation für den Übergang verwendet wird. Das liegt daran, dass je nach gedrückter Schaltfläche ein anderer Übergangstyp gesetzt wird.
 
 ## Spezifikationen
 

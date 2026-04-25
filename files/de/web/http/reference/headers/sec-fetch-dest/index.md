@@ -3,12 +3,13 @@ title: Sec-Fetch-Dest header
 short-title: Sec-Fetch-Dest
 slug: Web/HTTP/Reference/Headers/Sec-Fetch-Dest
 l10n:
-  sourceCommit: 35cd6674593c03f5c9130a9d7d7dc5534dc47e36
+  sourceCommit: 81bf621759d3a52fdf737c2d75f186a0073d1406
 ---
 
-Der HTTP **`Sec-Fetch-Dest`** {{Glossary("fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt das _Ziel_ der Anfrage an. Dies ist der Initiator der ursprünglichen Fetch-Anfrage, das heißt, wo (und wie) die abgerufenen Daten verwendet werden.
+Der HTTP **`Sec-Fetch-Dest`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Web/HTTP/Guides/Fetch_metadata) gibt das _Ziel_ der Anfrage an.
+Das ist der Initiator der ursprünglichen Fetch-Anfrage, welcher bestimmt, wo (und wie) die angeforderten Daten verwendet werden.
 
-Dies ermöglicht es Servern zu bestimmen, ob eine Anfrage bedient werden soll, basierend darauf, ob sie für die erwartete Nutzung geeignet ist. Beispielsweise sollte eine Anfrage mit dem Ziel `audio` Audiodaten anfordern, nicht einen anderen Ressourcentyp (zum Beispiel ein Dokument, das sensible Benutzerinformationen enthält).
+Dies ermöglicht es Servern zu entscheiden, ob eine Anfrage bedient werden soll, basierend darauf, ob es für die _erwartete_ Verwendung geeignet ist. Zum Beispiel sollte eine Anfrage mit einer `audio`-Bestimmung Audiodaten anfordern und nicht irgendeinen anderen Ressourcentyp (zum Beispiel ein Dokument, das sensible Benutzerinformationen enthält).
 
 <table class="properties">
   <tbody>
@@ -22,7 +23,7 @@ Dies ermöglicht es Servern zu bestimmen, ob eine Anfrage bedient werden soll, b
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelisteter Anforderungsheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -58,7 +59,7 @@ Sec-Fetch-Dest: worker
 Sec-Fetch-Dest: xslt
 ```
 
-Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
+Server sollten diesen Header ignorieren, wenn er irgendeinen anderen Wert enthält.
 
 ## Direktiven
 
@@ -68,33 +69,33 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 - `audio`
   - : Das Ziel sind Audiodaten. Dies könnte von einem HTML {{HTMLElement("audio")}}-Tag stammen.
 - `audioworklet`
-  - : Das Ziel sind Daten, die für die Verwendung durch eine Audio-Worklet abgerufen werden. Dies könnte von einem Aufruf von [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
+  - : Das Ziel sind Daten, die zur Verwendung durch einen Audio Worklet abgerufen werden. Dies könnte von einem Aufruf von [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
 - `document`
-  - : Das Ziel ist ein Dokument (HTML oder XML), und die Anfrage ist das Ergebnis einer vom Benutzer initiierten Top-Level-Navigation (z.B. durch Klicken auf einen Link).
+  - : Das Ziel ist ein Dokument (HTML oder XML), und die Anfrage resultiert aus einer benutzerinitiierten, obersten Navigationsebene (z.B. durch Klicken auf einen Link).
 - `embed`
   - : Das Ziel ist eingebetteter Inhalt. Dies könnte von einem HTML {{HTMLElement("embed")}}-Tag stammen.
 - `empty`
-  - : Das Ziel ist der leere String. Dies wird für Ziele verwendet, die keinen eigenen Wert haben. Zum Beispiel: [`fetch()`](/de/docs/Web/API/Window/fetch), [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon), [`EventSource`](/de/docs/Web/API/EventSource), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), [`WebSocket`](/de/docs/Web/API/WebSocket), etc.
+  - : Das Ziel ist der leere String. Dies wird für Ziele verwendet, die keinen eigenen Wert haben. Zum Beispiel: [`fetch()`](/de/docs/Web/API/Window/fetch), [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon), [`EventSource`](/de/docs/Web/API/EventSource), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), [`WebSocket`](/de/docs/Web/API/WebSocket) usw.
 - `fencedframe` {{experimental_inline}}
   - : Das Ziel ist ein [fenced frame](/de/docs/Web/API/Fenced_frame_API).
 - `font`
-  - : Das Ziel ist eine Schriftart. Dies könnte aus einem CSS {{cssxref("@font-face")}} stammen.
+  - : Das Ziel ist eine Schriftart. Dies könnte von CSS {{cssxref("@font-face")}} stammen.
 - `frame`
   - : Das Ziel ist ein Frame. Dies könnte von einem HTML {{HTMLElement("frame")}}-Tag stammen.
 - `iframe`
-  - : Das Ziel ist ein Iframe. Dies könnte von einem HTML {{HTMLElement("iframe")}}-Tag stammen.
+  - : Das Ziel ist ein Inline-Frame. Dies könnte von einem HTML {{HTMLElement("iframe")}}-Tag stammen.
 - `image`
-  - : Das Ziel ist ein Bild. Dies könnte von einem HTML {{HTMLElement("img")}}, SVG {{SVGElement("image")}}, CSS {{cssxref("background-image")}}, CSS {{cssxref("cursor")}}, CSS {{cssxref("list-style-image")}}, etc. stammen.
+  - : Das Ziel ist ein Bild. Dies könnte von einem HTML {{HTMLElement("img")}}, SVG {{SVGElement("image")}}, CSS {{cssxref("background-image")}}, CSS {{cssxref("cursor")}}, CSS {{cssxref("list-style-image")}} usw. stammen.
 - `json`
-  - : Das Ziel ist JSON. Dies könnte von einem [Importieren eines Moduls aus JavaScript mit dem `type: "json"`-Attribut](/de/docs/Web/JavaScript/Reference/Statements/import/with#importing_json_modules_with_the_type_attribute) stammen.
+  - : Das Ziel ist JSON. Dies könnte vom [Importieren eines Moduls aus JavaScript mit dem `type: "json"`-Attribut](/de/docs/Web/JavaScript/Reference/Statements/import/with#importing_json_modules_with_the_type_attribute) stammen.
 - `manifest`
   - : Das Ziel ist ein Manifest. Dies könnte von einem HTML [\<link rel=manifest>](/de/docs/Web/HTML/Reference/Attributes/rel/manifest) stammen.
 - `object`
   - : Das Ziel ist ein Objekt. Dies könnte von einem HTML {{HTMLElement("object")}}-Tag stammen.
 - `paintworklet`
-  - : Das Ziel ist eine Paint-Worklet. Dies könnte von einem Aufruf von [`CSS.PaintWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
+  - : Das Ziel ist ein Paint Worklet. Dies könnte von einem Aufruf von [`CSS.PaintWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
 - `report`
-  - : Das Ziel ist ein Bericht (zum Beispiel ein Bericht zur Content Security Policy).
+  - : Das Ziel ist ein Bericht (zum Beispiel ein Bericht über Sicherheitsrichtlinieninhalte).
 - `script`
   - : Das Ziel ist ein Skript. Dies könnte von einem HTML {{HTMLElement("script")}}-Tag oder einem Aufruf von [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) stammen.
 - `serviceworker`
@@ -104,11 +105,11 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 - `style`
   - : Das Ziel ist ein Stil. Dies könnte von einem HTML {{HTMLElement("link","&lt;link rel=stylesheet&gt;")}} oder einem CSS {{cssxref("@import")}} stammen.
 - `track`
-  - : Das Ziel ist ein HTML-Text-Track. Dies könnte von einem HTML {{HTMLElement("track")}}-Tag stammen.
+  - : Das Ziel ist ein HTML-Textspur. Dies könnte von einem HTML {{HTMLElement("track")}}-Tag stammen.
 - `video`
   - : Das Ziel sind Videodaten. Dies könnte von einem HTML {{HTMLElement("video")}}-Tag stammen.
 - `webidentity`
-  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung der Benutzeridentität verbunden ist. Zum Beispiel wird es in der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identity Provider (IdP) Endpunkten zu überprüfen, und schützt vor {{Glossary("CSRF", "CSRF")}}-Angriffen.
+  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung der Benutzeridentität verbunden ist. Zum Beispiel wird es in der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identitätsanbieter-Endpunkten (IdP) zu überprüfen und gegen {{Glossary("CSRF", "CSRF")}}-Angriffe zu schützen.
 - `worker`
   - : Das Ziel ist ein [`Worker`](/de/docs/Web/API/Worker).
 - `xslt`
@@ -118,7 +119,7 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 
 ### Verwendung von Sec-Fetch-Dest
 
-Eine standortübergreifende Anfrage, die durch ein {{HTMLElement("img")}}-Element erzeugt wird, würde eine Anfrage mit den folgenden HTTP-Anforderungsheadern ergeben (beachten Sie, dass das Ziel `image` ist):
+Eine siteübergreifende Anfrage, die durch ein {{HTMLElement("img")}}-Element generiert wird, würde zu einer Anfrage mit den folgenden HTTP-Anforderungsheadern führen (beachten Sie, dass das Ziel `image` ist):
 
 ```http
 Sec-Fetch-Dest: image
@@ -137,5 +138,5 @@ Sec-Fetch-Site: cross-site
 ## Siehe auch
 
 - {{HTTPHeader("Sec-Fetch-Mode")}}, {{HTTPHeader("Sec-Fetch-Site")}}, {{HTTPHeader("Sec-Fetch-User")}} Fetch-Metadaten-Anforderungsheader
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch-Metadaten](https://web.dev/articles/fetch-metadata) (web.dev)
 - [Fetch Metadata Request Headers Spielwiese](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

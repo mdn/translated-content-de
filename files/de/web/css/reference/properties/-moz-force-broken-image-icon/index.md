@@ -1,13 +1,14 @@
 ---
-title: -moz-force-broken-image-icon
+title: "`-moz-force-broken-image-icon` CSS property"
+short-title: -moz-force-broken-image-icon
 slug: Web/CSS/Reference/Properties/-moz-force-broken-image-icon
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
-Die erweiterte CSS-Eigenschaft **`-moz-force-broken-image-icon`** kann verwendet werden, um das Symbol für ein defektes Bild anzuzeigen, selbst wenn ein defektes Bild ein `alt`-Attribut hat.
+Die **`-moz-force-broken-image-icon`** erweiterte CSS-Eigenschaft kann verwendet werden, um das Symbol für ein defektes Bild anzuzeigen, selbst wenn ein defektes Bild ein `alt`-Attribut hat.
 
 ## Syntax
 
@@ -26,10 +27,10 @@ Die erweiterte CSS-Eigenschaft **`-moz-force-broken-image-icon`** kann verwendet
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ein Wert von `1` bedeutet, dass das Symbol für ein defektes Bild angezeigt wird, auch wenn das Bild ein [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Attribut hat. Wenn der Wert `0` verwendet wird, verhält sich das Bild wie üblich und zeigt nur das `alt`-Attribut an.
+  - : Ein Wert von `1` bedeutet, dass das Symbol für ein defektes Bild angezeigt wird, auch wenn das Bild ein [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Attribut hat. Wenn der Wert `0` verwendet wird, verhält sich das Bild wie gewöhnlich und zeigt nur das `alt`-Attribut an.
 
 > [!NOTE]
-> Selbst wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin neben dem Symbol für ein defektes Bild angezeigt.
+> Auch wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin angezeigt, zusammen mit dem Symbol für ein defektes Bild.
 
 ## Formale Definition
 
@@ -62,16 +63,16 @@ img {
 {{EmbedLiveSample('Examples','125','125')}}
 
 > [!NOTE]
-> Der Alternativtext kann möglicherweise nicht sichtbar sein, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist und das Bild keine (oder zu geringe) `Höhe` oder `Breite` hat.
+> Der Alt-Text ist möglicherweise nicht sichtbar, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist und das Bild keine (oder zu kleine) `height` oder `width` hat.
 
 ## Hinweise
 
 - Diese Eigenschaft funktioniert nur in Gecko-basierten Browsern.
-- Die Verwendung dieser Eigenschaft wird nicht empfohlen. Stattdessen sollte ein korrektes `alt`-Attribut verwendet werden.
+- Die Verwendung dieser Eigenschaft wird nicht empfohlen. Ein korrektes `alt`-Attribut sollte stattdessen verwendet werden.
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -79,4 +80,4 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Firefox-Bug 58646](https://bugzil.la/58646)
+- [Firefox Bug 58646](https://bugzil.la/58646)

@@ -3,18 +3,18 @@ title: "SecurityPolicyViolationEvent: columnNumber-Eigenschaft"
 short-title: columnNumber
 slug: Web/API/SecurityPolicyViolationEvent/columnNumber
 l10n:
-  sourceCommit: 6720d579bd658f02c56363805e97e69f93dc79f1
+  sourceCommit: a0d3dd05ba50e0ff4a595bb0c06499bdfc736e9f
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`columnNumber`**-Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist die Zeichenposition in der Quellcodedatei des Dokuments oder Worker-Skripts, an der die Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) aufgetreten ist.
+Die schreibgeschützte **`columnNumber`**-Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist die Zeichenposition in der Quelldateizeile des Dokuments oder Worker-Skripts, an der der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) aufgetreten ist.
 
-Diese Eigenschaft wird zusammen mit den Eigenschaften [`SecurityPolicyViolationEvent.sourceFile`](/de/docs/Web/API/SecurityPolicyViolationEvent/sourceFile) und [`SecurityPolicyViolationEvent.lineNumber`](/de/docs/Web/API/SecurityPolicyViolationEvent/lineNumber) verwendet, die zusammen den exakten Ort im Quellcode angeben, der die Verletzung verursacht hat.
+Diese Eigenschaft wird zusammen mit den Eigenschaften [`SecurityPolicyViolationEvent.sourceFile`](/de/docs/Web/API/SecurityPolicyViolationEvent/sourceFile) und [`SecurityPolicyViolationEvent.lineNumber`](/de/docs/Web/API/SecurityPolicyViolationEvent/lineNumber) verwendet, die zusammen den genauen Ort im Quellcode angeben, der den Verstoß verursacht hat.
 
 ## Wert
 
-Eine Zahl, die die Zeichenpositionsnummer darstellt, an der die Verletzung aufgetreten ist.
+Eine Zahl, die die Zeichenpositionsnummer angibt, an der der Verstoß aufgetreten ist.
 
 ## Beispiele
 

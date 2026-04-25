@@ -1,11 +1,12 @@
 ---
-title: "<span>: Das Content-Span-Element"
+title: "`<span>` HTML-Inhalt-Span-Element"
+short-title: <span>
 slug: Web/HTML/Reference/Elements/span
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<span>`**-[HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Textinhalte, der an sich nichts repräsentiert. Es kann verwendet werden, um Elemente für Stilzwecke zu gruppieren (unter Verwendung der Attribute [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)), oder weil sie gemeinsame Attributwerte haben, wie z.B. [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang). Es sollte nur dann verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}}-Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
+Das **`<span>`** [HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Phrasencontent, der an sich nichts repräsentiert. Es kann verwendet werden, um Elemente zu gruppieren, die für Styling-Zwecke (mithilfe von Attributen wie [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)) oder weil sie gemeinsame Attributwerte haben, wie zum Beispiel [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang). Es sollte nur verwendet werden, wenn kein anderes semantisches Element angemessen ist. `<span>` ist sehr ähnlich wie ein {{HTMLElement("div")}}-Element, jedoch ist {{HTMLElement("div")}} ein {{Glossary("Block-level_content", "Block-Level-Element")}}, während ein `<span>` ein {{Glossary("Inline-level_content", "Inline-Level-Element")}} ist.
 
 {{InteractiveExample("HTML Demo: &lt;span&gt;", "tabbed-shorter")}}
 
@@ -30,7 +31,7 @@ span.ingredient {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiel
 
@@ -82,10 +83,10 @@ li span {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phrasencontent</a
         >.
       </td>
     </tr>
@@ -93,23 +94,23 @@ li span {
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phrasencontent</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Anfangs- als auch End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -123,7 +124,7 @@ li span {
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -144,4 +145,4 @@ li span {
 
 ## Siehe auch
 
-- HTML-{{HTMLElement("div")}}-Element
+- HTML {{HTMLElement("div")}}-Element

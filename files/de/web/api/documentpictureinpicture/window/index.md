@@ -1,18 +1,18 @@
 ---
-title: "DocumentPictureInPicture: window-Eigenschaft"
+title: "DocumentPictureInPicture: Fenster-Eigenschaft"
 short-title: window
 slug: Web/API/DocumentPictureInPicture/window
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
 ---
 
-{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`window`**-Eigenschaft der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext im Picture-in-Picture-Fenster darstellt.
+Die schreibgeschützte **`window`**-Eigenschaft des [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Interfaces gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters repräsentiert.
 
 ## Wert
 
-Ein [`Window`](/de/docs/Web/API/Window)-Objekt, wenn das Picture-in-Picture-Fenster bereits mithilfe von [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) geöffnet wurde, oder `null` andersfalls.
+Eine [`Window`](/de/docs/Web/API/Window)-Objektinstanz, wenn das Picture-in-Picture-Fenster bereits mit [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) geöffnet wurde, oder `null` andernfalls.
 
 ## Beispiele
 

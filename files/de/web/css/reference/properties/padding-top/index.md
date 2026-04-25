@@ -1,11 +1,12 @@
 ---
-title: padding-top
+title: "`padding-top` CSS property"
+short-title: padding-top
 slug: Web/CSS/Reference/Properties/padding-top
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`padding-top`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Höhe des [Innenabstandsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) oben in einem Element.
+Die **`padding-top`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Höhe des [Abstandsbereichs (Padding)](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) an der Oberseite eines Elements fest.
 
 {{InteractiveExample("CSS Demo: padding-top")}}
 
@@ -52,12 +53,12 @@ padding-top: 0;
 }
 ```
 
-Der Innenabstandsbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rand.
+Der Padding-Bereich eines Elements ist der Raum zwischen dessen Inhalt und dessen Rahmen.
 
-![Die Wirkung der CSS-Eigenschaft padding-top auf das Element-Boxmodell](padding-top.svg)
+![Die Wirkung der CSS-Eigenschaft padding-top auf das Elementfeld](padding-top.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um Abstände an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration Paddings auf allen vier Seiten eines Elements festzulegen.
 
 ## Syntax
 
@@ -78,14 +79,14 @@ padding-top: revert-layer;
 padding-top: unset;
 ```
 
-Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der nachstehenden Liste ausgewählt wird. Im Gegensatz zu Rändern sind negative Werte für Innenabstände nicht erlaubt.
+Die `padding-top`-Eigenschaft wird als einzelner Wert angegeben, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Rändern sind negative Werte für Padding nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Innenabstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Innenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Umgebungsblocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Paddings als Prozentwert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -97,7 +98,7 @@ Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der
 
 ## Beispiele
 
-### Festlegung des oberen Innenabstands mit Pixeln und Prozentsätzen
+### Festlegen von oberem Padding mit Pixeln und Prozentsätzen
 
 ```css
 .content {

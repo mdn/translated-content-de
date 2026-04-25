@@ -1,11 +1,12 @@
 ---
-title: scroll-padding-top
+title: "`scroll-padding-top` CSS property"
+short-title: scroll-padding-top
 slug: Web/CSS/Reference/Properties/scroll-padding-top
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`scroll-padding-top`**-Eigenschaft definiert die Versätze für den oberen Bereich der _optimalen Anzeigeregion_ des Scrollportals: die Region, die als Zielregion verwendet wird, um Elemente im Sichtbereich des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollportals auszuschließen, die durch andere Inhalte verdeckt sind (wie z.B. feste Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollportals zu schaffen.
+Die **`scroll-padding-top`**-Eigenschaft definiert Versätze für die Oberseite des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion dient, um Dinge in das Sichtfeld des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-top")}}
 
@@ -91,9 +92,9 @@ scroll-padding-top: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollportals, angegeben als eine gültige Länge oder ein Prozentsatz.
+  - : Ein innerer Versatz von der oberen Kante des Scrollports, als gültige Längeneinheit oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein anderer Wert als 0 angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Benutzeragent ist in der Lage, etwas anderes zu tun, wenn ein von null abweichender Wert angemessener ist.
 
 ## Formale Definition
 
@@ -113,5 +114,5 @@ scroll-padding-top: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

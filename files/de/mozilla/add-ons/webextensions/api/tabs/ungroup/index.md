@@ -2,15 +2,15 @@
 title: tabs.ungroup()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/ungroup
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: ead2ee795d41d4edf64c3183df253fe58e4a53fc
 ---
 
-Entfernt einen oder mehrere Tabs aus ihren jeweiligen Tab-Gruppen. Wenn eine der Gruppen leer wird, wird sie gelöscht.
+Entfernt einen oder mehrere Tabs aus ihren jeweiligen Tab-Gruppen. Eine [geteilte Ansicht](/de/docs/Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API#working_with_tab_split_views) wird aus der Gruppe entfernt, wenn einer ihrer Tabs angegeben wird. Wenn irgendwelche Gruppen leer werden, werden sie gelöscht.
 
-Alle Tabs in einer Tab-Gruppe müssen nebeneinander liegen. Falls erforderlich, wird ein nicht gruppierter Tab vor oder nach der Tab-Gruppe verschoben, um diese Anforderung zu erfüllen.
+Alle Tabs in einer Tab-Gruppe müssen zusammenhängend sein. Falls erforderlich, wird ein nicht gruppierter Tab vor oder nach der Tab-Gruppe verschoben, um diese Anforderung zu erfüllen.
 
 > [!NOTE]
-> Die Methode `tabs.ungroup()` ist nicht der einzige Weg, um Tabs zu entgruppieren. Ein Tab wird auch entgruppiert, wenn er durch Aufrufen von {{WebExtAPIRef("tabs.move")}} mit einem `index` verschoben wird, der außerhalb einer Tab-Gruppe liegt.
+> Die Methode `tabs.ungroup()` ist nicht der einzige Weg, um Tabs zu entgruppieren. Ein Tab wird auch entgruppiert, wenn er verschoben wird, indem {{WebExtAPIRef("tabs.move")}} mit einem `index` aufgerufen wird, der außerhalb einer Tab-Gruppe liegt.
 
 Weitere Informationen zu Tab-Gruppen finden Sie unter {{WebExtAPIRef("tabGroups")}}.
 
@@ -29,13 +29,13 @@ let ungrouping = browser.tabs.ungroup(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
 
-Wenn eine der `tabIds` ungültig ist, wird das Promise abgelehnt, ohne die Tabs zu ändern.
+Wenn eine der `tabIds` ungültig ist, wird das Promise abgelehnt, ohne die Tabs zu verändern.
 
 ## Beispiele
 
-Den aktuellen Tab aus seiner Tab-Gruppe, falls vorhanden, entfernen:
+Entfernen Sie den aktuellen Tab aus seiner Tab-Gruppe, falls vorhanden:
 
 ```js
 let tabs = await browser.tabs.query({

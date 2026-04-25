@@ -1,11 +1,12 @@
 ---
-title: margin-bottom
+title: "`margin-bottom` CSS property"
+short-title: margin-bottom
 slug: Web/CSS/Reference/Properties/margin-bottom
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`margin-bottom`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den [Randbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am unteren Rand eines Elements. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
+Die **`margin-bottom`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den [Außenabstand](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) am unteren Rand eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
 
 {{InteractiveExample("CSS Demo: margin-bottom")}}
 
@@ -59,9 +60,9 @@ margin-bottom: 0;
 }
 ```
 
-![Der Effekt der CSS margin-bottom Eigenschaft auf das Element-Box](margin-bottom.svg)
+![Der Effekt der CSS-Eigenschaft margin-bottom auf die Elementbox](margin-bottom.svg)
 
-Diese Eigenschaft hat keine Wirkung auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Diese Eigenschaft hat keinen Effekt auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie z. B. {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ## Syntax
 
@@ -84,16 +85,16 @@ margin-bottom: revert-layer;
 margin-bottom: unset;
 ```
 
-Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein `<length>`, oder ein `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
+Die `margin-bottom`-Eigenschaft wird als Schlüsselwort `auto`, oder als `<length>`, oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Randes als fester Wert.
-    - Bei _ankerpositionierten Elementen_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Element-Rand basierend auf Ankergröße setzen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+  - : Die Größe des Abstands als fester Wert.
+    - Für _anker-positionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen des Elementabstands basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
   - : Der Browser wählt einen geeigneten Wert aus. Siehe {{cssxref("margin")}}.
 
@@ -107,7 +108,7 @@ Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein
 
 ## Beispiele
 
-### Setzen von positiven und negativen unteren Rändern
+### Positive und negative untere Abstände festlegen
 
 #### HTML
 
@@ -121,7 +122,7 @@ Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein
 
 #### CSS
 
-CSS für Divs zum Setzen von margin-bottom und Höhe
+CSS für Divs zum Festlegen von margin-bottom und height
 
 ```css
 .box0 {
@@ -139,7 +140,7 @@ CSS für Divs zum Setzen von margin-bottom und Höhe
 }
 ```
 
-Einige Definitionen für Container und Divs, damit die Effekte der Ränder deutlicher zu sehen sind
+Einige Definitionen für Container und Divs, damit die Auswirkungen der Abstände klarer gesehen werden können
 
 ```css
 .container {

@@ -1,11 +1,12 @@
 ---
-title: border-inline-start-width
+title: "`border-inline-start-width` CSS property"
+short-title: border-inline-start-width
 slug: Web/CSS/Reference/Properties/border-inline-start-width
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-inline-start-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite des logischen inline-start Randes eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`border-inline-start-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite der logischen inline-start Grenze eines Elements, welche je nach Schreibmodus, Richtung und Textorientierung des Elements auf eine physische Randbreite abbildet. Sie entspricht der Eigenschaft {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}} in Abhängigkeit von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
 {{InteractiveExample("CSS Demo: border-inline-start-width")}}
 
@@ -60,7 +61,7 @@ border-inline-start-width: revert-layer;
 border-inline-start-width: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-block-end-width")}}, und {{cssxref("border-inline-end-width")}}, die die anderen Randbreiten des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-block-end-width")}}, und {{cssxref("border-inline-end-width")}}, welche die anderen Randbreiten des Elements festlegen.
 
 ### Werte
 
@@ -114,5 +115,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft ordnet sich einer der physischen Rand-Eigenschaften zu: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- Diese Eigenschaft mappt auf eine der physischen Randeigenschaften: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

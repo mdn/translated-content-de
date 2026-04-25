@@ -1,13 +1,14 @@
 ---
-title: text-decoration-color
+title: "`text-decoration-color` CSS property"
+short-title: text-decoration-color
 slug: Web/CSS/Reference/Properties/text-decoration-color
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-decoration-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Farbe der Dekorationen, die dem Text durch {{ cssxref("text-decoration-line") }} hinzugefügt werden.
+Die **`text-decoration-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Dekorationen fest, die durch {{ cssxref("text-decoration-line") }} dem Text hinzugefügt werden.
 
-Die Farbe gilt für Dekorationen wie Unterstreichungen, Überstreichungen, Durchstreichungen und wellenförmige Linien wie die zur Markierung von Rechtschreibfehlern im Rahmen des Werts der Eigenschaft.
+Die Farbe gilt für Dekorationen wie Unterstriche, Überstriche, Durchstreichungen und gewellte Linien, wie sie beispielsweise zur Markierung von Rechtschreibfehlern verwendet werden, im Rahmen des Werts der Eigenschaft.
 
 {{InteractiveExample("CSS Demo: text-decoration-color")}}
 
@@ -51,7 +52,7 @@ p {
 }
 ```
 
-CSS bietet keinen direkten Mechanismus zur Angabe einer einzigartigen Farbe für jeden Linientyp. Dieser Effekt kann dennoch durch das Verschachteln von Elementen erzielt werden, indem jedem Element ein anderer Linientyp (mit der Eigenschaft {{cssxref("text-decoration-line")}}) angewendet und die Linienfarbe (mit `text-decoration-color`) pro Element angegeben wird.
+CSS bietet keinen direkten Mechanismus, um eine eindeutige Farbe für jeden Linientyp festzulegen. Dieser Effekt kann dennoch erreicht werden, indem Elemente verschachtelt werden, jedem Element ein anderer Linientyp zugewiesen wird (mit der {{cssxref("text-decoration-line")}} Eigenschaft) und die Linienfarbe (mit `text-decoration-color`) auf Elementebene festgelegt wird.
 
 ## Syntax
 
@@ -74,16 +75,16 @@ text-decoration-color: unset;
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Linienelemente.
+  - : Die Farbe der Liniendekoration.
 
 ## Barrierefreiheit
 
-Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Textfarbe, dem Hintergrund, auf dem der Text platziert ist, und der Textdekoration hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können. Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtkraftwerte von Text- und Hintergrundfarben bestimmt.
+Es ist wichtig sicherzustellen, dass der Kontrast zwischen der Textfarbe, dem Hintergrund, auf dem der Text platziert ist, und der Liniendekoration hoch genug ist, damit Personen mit Sehbehinderungen den Seiteninhalt lesen können. Das Farbkontrastverhältnis wird durch Vergleich der Leuchtkraft von Text- und Hintergrundfarbwerten bestimmt.
 
-Farbe allein sollte nicht verwendet werden, um Bedeutung zu vermitteln. Zum Beispiel reicht die alleinige Änderung von Text- und Textdekorationsfarbe nicht aus, um anzuzeigen, dass ein Link im Fokus steht.
+Farbe alleine sollte nicht verwendet werden, um Bedeutung zu vermitteln. Zum Beispiel ist eine Änderung der Text- und Textdekorationsfarbe alleine nicht ausreichend, um anzuzeigen, dass ein Link den Fokus hat.
 
-- [WebAIM: Farbkontrastprüfer](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [WebAIM: Kontrast Prüfer](https://webaim.org/resources/contrastchecker/)
+- [MDN Verständnis von WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
@@ -130,6 +131,6 @@ s {
 
 ## Siehe auch
 
-- Wenn mehrere Linendekorationseigenschaften auf einmal gesetzt werden sollen, kann es praktischer sein, die Abkürzungseigenschaft {{cssxref("text-decoration")}} zu verwenden.
+- Beim gleichzeitigen Festlegen mehrerer Liniendekorationseigenschaften kann es praktischer sein, stattdessen die Kurzformeigenschaft {{cssxref("text-decoration")}} zu verwenden.
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
 - Andere farbbezogene Eigenschaften: {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}

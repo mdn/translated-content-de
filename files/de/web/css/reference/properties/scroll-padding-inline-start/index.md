@@ -1,11 +1,12 @@
 ---
-title: scroll-padding-inline-start
+title: "`scroll-padding-inline-start` CSS property"
+short-title: scroll-padding-inline-start
 slug: Web/CSS/Reference/Properties/scroll-padding-inline-start
 l10n:
-  sourceCommit: a14f56b06eabf3b182ae4bc0e02634a8ccc01f20
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die Eigenschaft `scroll-padding-inline-start` definiert Abstände für die Anfangskante in der Inline-Dimension des _optimalen Ansichtsbereichs_ des Scrollports: der Bereich, der als Zielregion dient, um Dinge in den Blick des Benutzers zu rücken. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie z.B. fest positionierte Symbolleisten oder Seitenleisten) oder einen größeren Abstand zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-start` legt die Abstände für den Anfangsrand in der Inline-Dimension des _optimalen Betrachtungsbereichs_ des Scrollports fest: Der Bereich, der als Zielregion verwendet wird, um Dinge im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch anderen Inhalt verdeckt sind (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten), oder um mehr Abstand zwischen einem gezielten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-start")}}
 
@@ -94,9 +95,9 @@ scroll-padding-inline-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Abstand von der Anfangskante des Scrollports in der Inline-Richtung, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom Inline-Anfangsrand des Scrollports, als gültige Länge oder Prozentwert.
 - `auto`
-  - : Der Abstand wird vom Benutzeragenten bestimmt. Dies ist in der Regel 0px, jedoch kann der Benutzeragent etwas anderes erkennen und tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein von Null abweichender Wert angemessener ist.
 
 ## Formale Definition
 
@@ -116,5 +117,5 @@ scroll-padding-inline-start: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut kontrolliertes Scrollen mit CSS-Scroll-Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

@@ -1,12 +1,12 @@
 ---
-title: "replace_lane: Wasm SIMD Umwandlungsanweisung"
+title: "replace_lane: Wasm SIMD Konvertierungsanweisung"
 short-title: replace_lane
 slug: WebAssembly/Reference/SIMD/conversion/replace_lane
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Die **`replace_lane`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) ersetzt die angegebene Lane einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretation mit einem neuen Wert und gibt die resultierende `v128` Wertinterpretation zurück.
+Die **`replace_lane`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) ersetzt die angegebene Spur einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretation mit einem neuen Wert und gibt die resultierende `v128`-Wertinterpretation zurück.
 
 {{InteractiveExample("Wat Demo: replace_lane", "tabbed-taller")}}
 
@@ -36,7 +36,7 @@ value_type.replace_lane index
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `replace_lane`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `replace_lane`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
@@ -44,9 +44,9 @@ value_type.replace_lane index
     - `f32x4`
     - `f64x2`
 - `replace_lane`
-  - : Die `replace_lane` Anweisung. Sie muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen werden.
+  - : Die `replace_lane` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) aufgeführt werden.
 - `index`
-  - : Der Index der Lane, die Sie ersetzen möchten.
+  - : Der Index der Spur, die Sie ersetzen möchten.
 
 ### Typ
 
@@ -55,22 +55,22 @@ value_type.replace_lane index
 ```
 
 - `input`
-  - : Die Eingabe `v128` Wertinterpretation.
+  - : Die Eingabe `v128`-Wertinterpretation.
 - `replace_value`
-  - : Der Wert, mit dem Sie die Lane ersetzen möchten.
+  - : Der Wert, mit dem Sie die Spur ersetzen möchten.
 - `output`
-  - : Die Ausgabe `v128` Wertinterpretation.
+  - : Die Ausgabe `v128`-Wertinterpretation.
 
-### Binäre Kodierung
+### Binäre Codierung
 
-| Anweisung            | Binärformat             | Beispieltext => binär                      |
-| -------------------- | ----------------------- | ------------------------------------------ |
-| `i8x16.replace_lane` | `0xfd 23:u32 l:laneidx` | `i8x16.replace_lane 3` => `0xfd 0x17 0x03` |
-| `i16x8.replace_lane` | `0xfd 26:u32 l:laneidx` | `i16x8.replace_lane 3` => `0xfd 0x1a 0x03` |
-| `i32x4.replace_lane` | `0xfd 28:u32 l:laneidx` | `i32x4.replace_lane 3` => `0xfd 0x1c 0x03` |
-| `i64x2.replace_lane` | `0xfd 30:u32 l:laneidx` | `i64x2.replace_lane 1` => `0xfd 0x1e 0x01` |
-| `f32x4.replace_lane` | `0xfd 32:u32 l:laneidx` | `f32x4.replace_lane 3` => `0xfd 0x20 0x03` |
-| `f64x2.replace_lane` | `0xfd 34:u32 l:laneidx` | `f64x2.replace_lane 1` => `0xfd 0x22 0x01` |
+| Anweisung            | Binärformat              | Beispieltext => Binär                      |
+| -------------------- | ------------------------ | ------------------------------------------ |
+| `i8x16.replace_lane` | `0xfd 23:u32 l:lane_idx` | `i8x16.replace_lane 3` => `0xfd 0x17 0x03` |
+| `i16x8.replace_lane` | `0xfd 26:u32 l:lane_idx` | `i16x8.replace_lane 3` => `0xfd 0x1a 0x03` |
+| `i32x4.replace_lane` | `0xfd 28:u32 l:lane_idx` | `i32x4.replace_lane 3` => `0xfd 0x1c 0x03` |
+| `i64x2.replace_lane` | `0xfd 30:u32 l:lane_idx` | `i64x2.replace_lane 1` => `0xfd 0x1e 0x01` |
+| `f32x4.replace_lane` | `0xfd 32:u32 l:lane_idx` | `f32x4.replace_lane 3` => `0xfd 0x20 0x03` |
+| `f64x2.replace_lane` | `0xfd 34:u32 l:lane_idx` | `f64x2.replace_lane 1` => `0xfd 0x22 0x01` |
 
 ## Spezifikationen
 

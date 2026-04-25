@@ -1,11 +1,12 @@
 ---
-title: suffix
+title: "`suffix` CSS At-Regel-Deskriptor"
+short-title: suffix
 slug: Web/CSS/Reference/At-rules/@counter-style/suffix
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`suffix`** Deskriptor der {{cssxref("@counter-style")}}-Regel spezifiziert den Inhalt, der am Ende der Markierungsdarstellung hinzugefügt wird.
+Der **`suffix`**-Deskriptor der {{cssxref("@counter-style")}}-Regel gibt an, welcher Inhalt am Ende der Markerdarstellung hinzugefügt wird.
 
 ## Syntax
 
@@ -18,10 +19,10 @@ suffix: url("bullet.png");
 
 ### Werte
 
-Der **`suffix`** Deskriptor nimmt als Wert ein einzelnes `<symbol>`:
+Der **`suffix`**-Deskriptor nimmt als Wert ein einzelnes `<symbol>` an:
 
 - `<symbol>`
-  - : Gibt ein `<symbol>` an, das der Markierungsdarstellung angehängt wird. Es kann ein {{cssxref("&lt;string&gt;")}}, {{cssxref("image")}} oder {{cssxref("&lt;custom-ident&gt;")}} sein.
+  - : Gibt ein `<symbol>` an, das an die Markerdarstellung angehängt wird. Es kann sich um einen {{cssxref("&lt;string&gt;")}}, ein {{cssxref("image")}}, oder ein {{cssxref("&lt;custom-ident&gt;")}} handeln.
 
 ## Formale Definition
 
@@ -77,5 +78,5 @@ Der **`suffix`** Deskriptor nimmt als Wert ein einzelnes `<symbol>`:
 - Andere {{cssxref("@counter-style")}}-Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, und {{cssxref("@counter-style/fallback", "fallback")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
 - {{cssxref("symbols()")}}: die funktionale Notation zur Erstellung anonymer Zählerstile
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS Counter Styles](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul

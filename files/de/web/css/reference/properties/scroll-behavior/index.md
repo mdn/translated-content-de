@@ -1,11 +1,12 @@
 ---
-title: scroll-behavior
+title: "`scroll-behavior` CSS property"
+short-title: scroll-behavior
 slug: Web/CSS/Reference/Properties/scroll-behavior
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten für einen scrollenden Bereich fest, wenn das Scrollen durch die Navigation oder CSSOM-Scrolling-APIs ausgelöst wird.
+Die **`scroll-behavior`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Verhalten für ein scrollendes Element fest, wenn das Scrollen durch die Navigation oder die CSSOM-Scrolling-APIs ausgelöst wird.
 
 {{InteractiveExample("CSS Demo: scroll-behavior")}}
 
@@ -61,7 +62,7 @@ scroll-page {
 }
 ```
 
-Beachten Sie, dass alle anderen Scrollaktionen, wie die vom Benutzer durchgeführten, von dieser Eigenschaft nicht beeinflusst werden. Wenn diese Eigenschaft für das Wurzelelement angegeben wird, gilt sie stattdessen für das Ansichtsfenster. Diese Eigenschaft, die auf das `body`-Element angewendet wird, wird _nicht_ auf das Ansichtsfenster übertragen.
+Beachten Sie, dass alle anderen Scrollvorgänge, wie die vom Benutzer vorgenommenen, von dieser Eigenschaft nicht beeinflusst werden. Wenn diese Eigenschaft auf dem Wurzelelement angegeben ist, gilt sie stattdessen für das Ansichtsfenster. Diese Eigenschaft, wenn sie auf dem `body`-Element angegeben ist, wird _nicht_ auf das Ansichtsfenster übertragen.
 
 Benutzeragenten dürfen diese Eigenschaft ignorieren.
 
@@ -80,14 +81,14 @@ scroll-behavior: revert-layer;
 scroll-behavior: unset;
 ```
 
-Die `scroll-behavior` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `scroll-behavior`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Der scrollende Bereich scrollt sofort.
+  - : Das scrollende Element bewegt sich sofort.
 - `smooth`
-  - : Der scrollende Bereich scrollt in sanfter Weise unter Verwendung einer vom Benutzeragenten definierten Easing-Funktion über einen vom Benutzeragenten definierten Zeitraum. Benutzeragenten sollten, falls vorhanden, Plattformkonventionen folgen.
+  - : Das scrollende Element bewegt sich in einer sanften Art unter Verwendung einer von Benutzeragenten definierten Easing-Funktion über einen von Benutzeragenten definierten Zeitraum. Benutzeragenten sollten, wenn vorhanden, Plattformkonventionen befolgen.
 
 ## Formale Definition
 
@@ -99,7 +100,7 @@ Die `scroll-behavior` Eigenschaft wird als einer der unten aufgeführten Schlüs
 
 ## Beispiele
 
-### Einstellung des sanften Scrollverhaltens
+### Glattes Scrollverhalten einstellen
 
 #### HTML
 

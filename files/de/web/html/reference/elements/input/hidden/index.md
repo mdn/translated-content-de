@@ -1,64 +1,65 @@
 ---
-title: <input type="hidden">
+title: '`<input type="hidden">` HTML-Attributwert'
+short-title: <input type="hidden">
 slug: Web/HTML/Reference/Elements/input/hidden
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: bf5017c389132af39b50106cf1763fa7106e87b4
 ---
 
-{{HTMLElement("input")}}-Elemente vom Typ **`hidden`** ermöglichen es Webentwicklern, Daten einzuschließen, die beim Absenden eines Formulars nicht von den Benutzern gesehen oder geändert werden können. Zum Beispiel die ID des Inhalts, der gerade bestellt oder bearbeitet wird, oder ein einzigartiges Sicherheitstoken. Versteckte Eingaben sind auf der gerenderten Seite völlig unsichtbar, und es gibt keine Möglichkeit, sie im Seiteninhalt sichtbar zu machen.
+{{HTMLElement("input")}}-Elemente vom Typ **`hidden`** ermöglichen es Webentwicklern, Daten einzuschließen, die beim Absenden eines Formulars von Benutzern nicht gesehen oder geändert werden können. Zum Beispiel die ID des Inhalts, der derzeit bestellt oder bearbeitet wird, oder ein einzigartiges Sicherheitstoken. Verdeckte Eingaben sind auf der gerenderten Seite vollständig unsichtbar, und es gibt keine Möglichkeit, sie im Seiteninhalt sichtbar zu machen.
 
 > [!NOTE]
-> Die Ereignisse [`input`](/de/docs/Web/API/Element/input_event) und [`change`](/de/docs/Web/API/HTMLElement/change_event) gelten nicht für diesen Eingabetyp. Versteckte Eingaben können nicht fokussiert werden, selbst nicht mit JavaScript (z.B. `hiddenInput.focus()`).
+> Die [`input`](/de/docs/Web/API/Element/input_event)- und [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignisse gelten nicht für diesen Eingabetyp. Verdeckte Eingaben können nicht einmal mit JavaScript fokussiert werden (z. B. `hiddenInput.focus()`).
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält einen String, der die versteckten Daten enthält, die Sie beim Absenden des Formulars zum Server einschließen möchten. Diese können über die Benutzeroberfläche weder bearbeitet noch gesehen werden, obwohl Sie den Wert über die Entwicklerwerkzeuge des Browsers bearbeiten könnten.
+Das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält eine Zeichenkette, die die versteckten Daten enthält, die beim Absenden des Formulars an den Server übermittelt werden sollen. Diese können über die Benutzeroberfläche nicht bearbeitet oder eingesehen werden, obwohl Sie den Wert über die Entwicklerwerkzeuge des Browsers ändern könnten.
 
 > [!WARNING]
-> Obwohl der Wert nicht für den Benutzer im Seiteninhalt angezeigt wird, ist er sichtbar und kann mit den Entwicklerwerkzeugen oder der „Seitenquelltext anzeigen“-Funktionalität eines jeden Browsers bearbeitet werden. Verlassen Sie sich nicht auf `hidden` Eingaben als eine Form der Sicherheit.
+> Auch wenn der Wert dem Benutzer im Seiteninhalt nicht angezeigt wird, ist er sichtbar und kann mit den Entwicklerwerkzeugen eines beliebigen Browsers oder der Funktion "Quellcode anzeigen" bearbeitet werden. Verlassen Sie sich nicht auf `hidden`-Eingaben als eine Form der Sicherheit.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den gemeinsamen Attributen aller {{HTMLElement("input")}}-Elemente bieten `hidden` Eingaben die folgenden Attribute.
+Zusätzlich zu den Attributen, die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, bieten `hidden`-Eingaben die folgenden Attribute.
 
 ### name
 
-Dies ist eigentlich eines der gemeinsamen Attribute, hat aber eine spezielle Bedeutung für versteckte Eingaben. Normalerweise funktioniert das [`name`](/de/docs/Web/HTML/Reference/Elements/input#name)-Attribut bei versteckten Eingaben genauso wie bei jeder anderen Eingabe. Wenn das Formular jedoch abgesendet wird, wird eine versteckte Eingabe, deren `name` auf `_charset_` gesetzt ist, automatisch mit dem für die Übermittlung des Formulars verwendeten Zeichensatz gemeldet.
+Dies ist eigentlich eines der allgemeinen Attribute, aber es hat eine besondere Bedeutung für versteckte Eingaben. Normalerweise funktioniert das [`name`](/de/docs/Web/HTML/Reference/Elements/input#name)-Attribut bei versteckten Eingaben genauso wie bei jeder anderen Eingabe. Wenn das Formular jedoch abgesendet wird, wird eine versteckte Eingabe, deren `name`-Attribut auf `_charset_` gesetzt ist, automatisch mit dem Wert gemeldet, der auf die Zeichenkodierung gesetzt ist, die zur Übermittlung des Formulars verwendet wird.
 
 ## Verwendung von versteckten Eingaben
 
-Wie oben erwähnt, können versteckte Eingaben überall dort verwendet werden, wo Sie Daten einfügen möchten, die der Benutzer nicht sehen oder bearbeiten kann, wenn das Formular zum Server gesendet wird. Schauen wir uns einige Beispiele an, die ihre Verwendung veranschaulichen.
+Wie oben erwähnt, können versteckte Eingaben überall dort verwendet werden, wo Sie Daten einschließen möchten, die der Benutzer nicht sehen oder bearbeiten kann, zusammen mit dem Formular, wenn es an den Server gesendet wird. Lassen Sie uns einige Beispiele betrachten, die die Verwendung verdeutlichen.
 
-### Verfolgung bearbeiteter Inhalte
+### Nachverfolgung bearbeiteter Inhalte
 
-Eine der häufigsten Anwendungen für versteckte Eingaben besteht darin, festzuhalten, welcher Datenbankeintrag aktualisiert werden muss, wenn ein Bearbeitungsformular gesendet wird. Ein typischer Workflow sieht so aus:
+Eine der häufigsten Anwendungen für versteckte Eingaben ist das Nachverfolgen, welcher Datensatz in der Datenbank aktualisiert werden muss, wenn ein Bearbeitungsformular abgesendet wird. Ein typischer Workflow sieht folgendermaßen aus:
 
-1. Der Benutzer beschließt, einige Inhalte zu bearbeiten, über die er die Kontrolle hat, wie z.B. einen Blogbeitrag oder einen Produkteintrag. Er beginnt, indem er auf die Schaltfläche "Bearbeiten" drückt.
+1. Der Benutzer entscheidet sich, einen Inhalt zu bearbeiten, über den er Kontrolle hat, zum Beispiel einen Blogbeitrag oder einen Produkteintrag. Er beginnt, indem er die Schaltfläche "Bearbeiten" drückt.
 2. Der zu bearbeitende Inhalt wird aus der Datenbank entnommen und in ein HTML-Formular geladen, damit der Benutzer Änderungen vornehmen kann.
-3. Nach der Bearbeitung sendet der Benutzer das Formular ab, und die aktualisierten Daten werden zurück an den Server gesendet, um in der Datenbank aktualisiert zu werden.
+3. Nach dem Bearbeiten übermittelt der Benutzer das Formular, und die aktualisierten Daten werden zurück an den Server gesendet, um in der Datenbank aktualisiert zu werden.
 
-Die Idee hierbei ist, dass während Schritt 2 die ID des aktualisierten Eintrags in einer versteckten Eingabe aufbewahrt wird. Wenn das Formular in Schritt 3 gesendet wird, wird die ID automatisch zusammen mit dem Inhalt des Eintrags an den Server gesendet. Die ID lässt die serverseitige Komponente der Website genau erkennen, welcher Eintrag mit den übermittelten Daten aktualisiert werden muss.
+Die Idee hierbei ist, dass während Schritt 2 die ID des aktualisierten Datensatzes in einem versteckten Eingabefeld aufbewahrt wird. Wenn das Formular in Schritt 3 abgesendet wird, wird die ID automatisch zusammen mit dem Datensatzinhalt zurück an den Server gesendet. Die ID ermöglicht es dem serverseitigen Teil der Site genau zu wissen, welcher Datensatz mit den eingesendeten Daten aktualisiert werden muss.
 
-Ein vollständiges Beispiel, wie dies aussehen könnte, finden Sie im Abschnitt [Beispiele](#beispiele) unten.
+Ein vollständiges Beispiel dafür, wie dies aussehen könnte, finden Sie im Abschnitt [Beispiele](#beispiele) unten.
 
 ### Verbesserung der Website-Sicherheit
 
-Versteckte Eingaben werden auch verwendet, um Sicherheitstoken oder _Geheimnisse_ zu speichern und zu übermitteln, um die Sicherheit einer Website zu verbessern. Die Grundidee ist, dass, wenn ein Benutzer ein sensibles Formular ausfüllt, wie ein Formular auf einer Bank-Website, um Geld auf ein anderes Konto zu überweisen, das Geheimnis, das ihm zur Verfügung gestellt wird, beweisen würde, dass er derjenige ist, für den er sich ausgibt, und dass er das richtige Formular verwendet, um die Überweisungsanforderung zu senden.
+Verdeckte Eingaben werden auch verwendet, um Sicherheits-Token oder -geheimnisse zu speichern und zu übermitteln, um die Sicherheit der Website zu erhöhen. Die Grundidee ist, dass, wenn ein Benutzer ein sensibles Formular ausfüllt, zum Beispiel ein Formular auf seiner Banking-Website, um Geld auf ein anderes Konto zu überweisen, ihm ein Geheimnis zur Verfügung gestellt würde, das beweist, dass er derjenige ist, für den er sich ausgibt, und dass er das richtige Formular verwendet, um den Überweisungsauftrag abzusenden.
 
-Dies würde einen böswilligen Benutzer daran hindern, ein gefälschtes Formular zu erstellen, das vorgibt, eine Bank zu sein, und das Formular an ahnungslose Benutzer zu senden, um sie dazu zu bringen, Geld an den falschen Ort zu überweisen. Diese Art von Angriff wird als [Cross Site Request Forgery (CSRF)](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security#cross-site_request_forgery_csrf) bezeichnet; praktisch jedes seriöse serverseitige Framework verwendet versteckte Geheimnisse, um solche Angriffe zu verhindern.
+Dies würde einen böswilligen Benutzer davon abhalten, ein gefälschtes Formular zu erstellen, das vortäuscht, eine Bank zu sein, und das Formular nichtsahnenden Benutzern zuzusenden, um sie dazu zu bringen, Geld an den falschen Ort zu überweisen. Diese Art von Angriff wird als [Cross Site Request Forgery (CSRF)](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security#cross-site_request_forgery_csrf) bezeichnet; praktisch jeder seriöse serverseitige Rahmen arbeitet mit versteckten Geheimnissen, um solche Angriffe zu verhindern.
 
 > [!NOTE]
-> Das Platzieren des Geheimnisses in einer versteckten Eingabe macht es nicht von Natur aus sicher. Die Zusammensetzung und Kodierung des Schlüssels würde das bewirken. Der Wert der versteckten Eingabe besteht darin, das Geheimnis mit den Daten zu verknüpfen und es automatisch einzuschließen, wenn das Formular an den Server gesendet wird. Sie müssen gut gestaltete Geheimnisse verwenden, um Ihre Website tatsächlich zu sichern.
+> Das Platzieren des Geheimnisses in einem versteckten Eingabefeld macht es nicht von Natur aus sicher. Die Zusammensetzung und Kodierung des Schlüssels würden dies bewirken. Der Wert der versteckten Eingabe besteht darin, dass sie das Geheimnis mit den Daten verknüpft und es automatisch einbindet, wenn das Formular an den Server gesendet wird. Sie müssen gut gestaltete Geheimnisse verwenden, um Ihre Website tatsächlich zu sichern.
 
 ## Validierung
 
-Versteckte Eingaben nehmen nicht an der Einschränkungsvalidierung teil; sie haben keinen echten Wert, der eingeschränkt werden könnte.
+Verdeckte Eingaben nehmen nicht an der Constraint-Validierung teil; sie haben keinen echten zu beschränkenden Wert.
 
 ## Beispiele
 
-Schauen wir uns an, wie wir eine Version des zuvor beschriebenen Bearbeitungsformulars implementieren könnten (siehe [Verfolgung bearbeiteter Inhalte](#verfolgung_bearbeiteter_inhalte)), indem wir eine versteckte Eingabe verwenden, um uns die ID des bearbeiteten Eintrags zu merken.
+Lassen Sie uns betrachten, wie wir eine Version des oben beschriebenen Bearbeitungsformulars implementieren könnten (siehe [Nachverfolgung bearbeiteter Inhalte](#nachverfolgung_bearbeiteter_inhalte)), indem wir eine versteckte Eingabe verwenden, um die ID des bearbeiteten Datensatzes zu speichern.
 
-Das HTML des Bearbeitungsformulars könnte so aussehen:
+Das HTML des Bearbeitungsformulars könnte etwa so aussehen:
 
 ```html
 <form>
@@ -115,20 +116,20 @@ textarea {
 }
 ```
 
-Der Server würde den Wert der versteckten Eingabe mit der ID `postID` auf die ID des Beitrags in seiner Datenbank setzen, bevor das Formular an den Browser des Benutzers gesendet wird, und würde diese Informationen verwenden, wenn das Formular zurückgesendet wird, um zu wissen, welchen Datenbankeintrag mit geänderten Informationen aktualisiert werden soll. Es ist kein Skripting zum Umgang mit diesem Inhalt erforderlich.
+Der Server würde den Wert der versteckten Eingabe mit der ID `postID` auf die ID des Beitrags in seiner Datenbank setzen, bevor er das Formular an den Browser des Benutzers sendet, und diese Information verwenden, wenn das Formular zurückgesendet wird, um zu wissen, welcher Datenbankeintrag mit den geänderten Informationen aktualisiert werden soll. Im Inhalt ist kein Skript erforderlich, um dies zu handhaben.
 
 Die Ausgabe sieht so aus:
 
-{{ EmbedLiveSample('Examples', '100%', 200) }}
+{{EmbedLiveSample('Examples', '100%', 200)}}
 
 > [!NOTE]
-> Sie können das Beispiel auch auf GitHub finden (sehen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/hidden-input-example/index.html) an und [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/hidden-input-example/index.html) in Aktion).
+> Sie können das Beispiel auch auf GitHub finden (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/hidden-input-example/index.html) und auch [sehen Sie es live](https://mdn.github.io/learning-area/html/forms/hidden-input-example/index.html)).
 
-Beim Absenden wird die Formulardaten wie folgt an den Server gesendet:
+Beim Absenden sieht die an den Server gesendete Formulardaten ungefähr so aus:
 
 `title=My+excellent+blog+post&content=This+is+the+content+of+my+excellent+blog+post.+I+hope+you+enjoy+it!&postId=34657`
 
-Auch wenn die versteckte Eingabe überhaupt nicht zu sehen ist, wird ihre Daten dennoch gesendet.
+Obwohl die versteckte Eingabe überhaupt nicht gesehen werden kann, werden ihre Daten dennoch übermittelt.
 
 ## Technische Zusammenfassung
 
@@ -137,16 +138,16 @@ Auch wenn die versteckte Eingabe überhaupt nicht zu sehen ist, wird ihre Daten 
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der den Wert der versteckten
-        Daten darstellt, die Sie an den Server senden möchten.
+        Eine Zeichenkette, die den Wert der versteckten
+        Daten darstellt, die Sie an den Server zurückübermitteln möchten.
       </td>
     </tr>
     <tr>
-      <td><strong>Events</strong></td>
+      <td><strong>Ereignisse</strong></td>
       <td>Keine.</td>
     </tr>
     <tr>
-      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
+      <td><strong>Unterstützte allgemeine Attribute</strong></td>
       <td><a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a></td>
     </tr>
     <tr>
@@ -162,7 +163,7 @@ Auch wenn die versteckte Eingabe überhaupt nicht zu sehen ist, wird ihre Daten 
       <td>Keine.</td>
     </tr>
     <tr>
-      <td><strong>Implizite ARIA-Rolle</strong></td>
+      <td><strong>Implizierte ARIA-Rolle</strong></td>
       <td><a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">keine entsprechende Rolle</a></td>
     </tr>
   </tbody>
@@ -178,5 +179,5 @@ Auch wenn die versteckte Eingabe überhaupt nicht zu sehen ist, wird ihre Daten 
 
 ## Siehe auch
 
-- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, auf der es basiert.
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms)
+- {{HTMLElement("input")}} und die darauf basierende [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle

@@ -1,11 +1,12 @@
 ---
-title: inherits
+title: "`inherits` CSS At-Regel-Deskriptor"
+short-title: inherits
 slug: Web/CSS/Reference/At-rules/@property/inherits
 l10n:
-  sourceCommit: 98bbdcd90e5487539cebe19b12fe3d731fb5a03e
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules) steuert, ob die registrierte [CSS-Custom-Property](/de/docs/Web/CSS/Reference/Properties/--*) standardmäßig geerbt wird oder nicht. Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) steuert, ob die registrierte [CSS benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) standardmäßig vererbt wird oder nicht. Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -34,7 +35,7 @@ inherits: true;
 
 ## Beispiele
 
-### Festlegen des Vererbungsverhaltens einer benutzerdefinierten Eigenschaft
+### Einstellen des Vererbungsverhaltens einer benutzerdefinierten Eigenschaft
 
 Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die ihren Wert nicht von ihren Elternelementen erbt:
 
@@ -68,8 +69,8 @@ window.CSS.registerProperty({
 ## Siehe auch
 
 - Andere {{cssxref("@property")}} Deskriptoren: {{cssxref("@property/initial-value", "initial-value")}} und {{cssxref("@property/syntax","syntax")}}
-- [CSS-Custom-Properties registrieren](/de/docs/Web/CSS/Guides/Properties_and_values_API/Registering_properties)
-- [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
-- [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
-- [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)
-- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
+- [Registrierung von benutzerdefinierten CSS-Eigenschaften](/de/docs/Web/CSS/Guides/Properties_and_values_API/Registering_properties)
+- [CSS-Eigenschaften- und Werte-API](/de/docs/Web/API/CSS_Properties_and_Values_API)
+- [CSS-Mal-API](/de/docs/Web/API/CSS_Painting_API)
+- [CSS-Typed-Object-Model](/de/docs/Web/API/CSS_Typed_OM_API)
+- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)

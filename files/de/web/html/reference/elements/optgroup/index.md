@@ -1,13 +1,14 @@
 ---
-title: "<optgroup>: Das Option-Group-Element"
+title: "`<optgroup>` HTML-Optionsgruppen-Element"
+short-title: <optgroup>
 slug: Web/HTML/Reference/Elements/optgroup
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<optgroup>`**-[HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
+Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
 
-In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das {{htmlelement("legend")}}-Element als Kindelement von `<optgroup>` erlaubt, um ein leicht anzuzielendes und zu stylendes Label bereitzustellen. Dies ersetzt jeden Text, der im `label`-Attribut des `<optgroup>`-Elements festgelegt ist, und hat die gleiche Semantik.
+In [anpassbaren `<select>`-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ist das {{htmlelement("legend")}}-Element als Kind von `<optgroup>` erlaubt, um ein leicht zu zielendes und zu stylendes Label bereitzustellen. Dies ersetzt jeden Text, der im `label`-Attribut des `<optgroup>`-Elements gesetzt wurde, und hat die gleiche Semantik.
 
 {{InteractiveExample("HTML Demo: &lt;optgroup&gt;", "tabbed-standard")}}
 
@@ -39,12 +40,12 @@ label {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Wenn dieses Boolean-Attribut gesetzt ist, kann keiner der Artikel in dieser Optionsgruppe ausgewählt werden. Häufig grauen Browser solche Steuerelemente aus, und sie erhalten keine Browsing-Ereignisse, wie Mausklicks oder Fokussierungsereignisse.
+  - : Wenn dieses Boolean-Attribut gesetzt ist, ist keines der Elemente in dieser Optionsgruppe auswählbar. Oft deaktivieren Browser solche Steuerelemente visuell, und sie erhalten keine Browsing-Ereignisse wie Mausklicks oder fokusbezogene Ereignisse.
 - `label`
-  - : Der Name der Optionsgruppe, der vom Browser verwendet werden kann, um die Optionen in der Benutzeroberfläche zu beschriften. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser bei der Kennzeichnung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -75,20 +76,22 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/G
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("option")}}-Elemente. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren select-Elementen</a> ist ein {{htmlelement("legend")}}-Element als Kindelement von <code>&lt;optgroup&gt;</code> erlaubt.</td>
+      <th scope="row">Erlaubte Inhalte</th>
+      <td>Null oder mehr {{HTMLElement("option")}}-Elemente. In <a href="/de/docs/Learn_web_development/Extensions/Forms/Customizable_select">anpassbaren select-Elementen</a> ist ein {{htmlelement("legend")}}-Element als Kind von <code>&lt;optgroup&gt;</code> erlaubt.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element
-        unmittelbar von einem anderen <code>&#x3C;optgroup></code>-Element oder
-        keinem weiteren Inhalt des Elternelements gefolgt wird.
+        Der Start-Tag ist obligatorisch. Der End-Tag ist optional, wenn dieses Element
+        unmittelbar von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder
+        wenn das übergeordnete Element keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
@@ -121,4 +124,4 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/G
 ## Siehe auch
 
 - Andere formularbezogene Elemente: {{HTMLElement("form")}}, {{HTMLElement("legend")}}, {{HTMLElement("label")}}, {{HTMLElement("button")}}, {{HTMLElement("select")}}, {{HTMLElement("datalist")}}, {{HTMLElement("option")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("textarea")}}, {{HTMLElement("input")}}, {{HTMLElement("output")}}, {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
-- [Anpassbare select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Select-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)

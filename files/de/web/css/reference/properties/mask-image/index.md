@@ -1,11 +1,12 @@
 ---
-title: mask-image
+title: "`mask-image` CSS property"
+short-title: mask-image
 slug: Web/CSS/Reference/Properties/mask-image
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`mask-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Bild fest, das als Maskenebene für ein Element verwendet wird. Dabei werden Abschnitte des Elements ausgeblendet, auf dem das Maskenbild basierend auf dem Alphakanal des Maskenbildes und, abhängig vom Wert der {{cssxref("mask-mode")}} Eigenschaft, der Luminanz der Farben des Maskenbildes gesetzt ist.
+Die **`mask-image`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Bild fest, das als Maskenschicht für ein Element verwendet wird. Abschnitte des Elements, auf dem das Maskierungsbild festgelegt ist, werden basierend auf dem Alphakanal des Maskenbildes und, abhängig vom Wert der {{cssxref("mask-mode")}}-Eigenschaft, der Leuchtdichte der Farben des Maskenbildes ausgeblendet.
 
 ## Syntax
 
@@ -34,39 +35,39 @@ mask-image: unset;
 ### Werte
 
 - `none`
-  - : Dieses Schlüsselwort wird als transparente schwarze Bildebene interpretiert.
+  - : Dieses Schlüsselwort wird als transparente schwarze Bildschicht interpretiert.
 
 - `<mask-source>`
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis auf eine {{SVGElement("mask")}} oder auf ein CSS-Bild.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}-Verweis auf ein {{SVGElement("mask")}} oder auf ein CSS-Bild.
 
 - {{cssxref("image")}}
   - : Ein Bildwert, der als Maskenbildschicht verwendet wird.
 
 ## Beschreibung
 
-Die `mask-image` Eigenschaft bietet eine Maske, die einen Teil des Elements verbirgt, auf das sie angewendet wird. Der Wert ist eine kommagetrennte Liste von Maskenverweisen. Jeder Maskenverweis ist ein `<image>`, ein `<mask-source>` oder das Schlüsselwort `none`.
+Die Eigenschaft `mask-image` bietet eine Maske, die Teile des Elements ausblendet, auf das sie angewendet wird. Der Wert ist eine kommagetrennte Liste von Maskenreferenzen. Jede Maskenreferenz ist ein `<image>`, ein `<mask-source>` oder das Schlüsselwort `none`.
 
 Ein `<image>` kann jeder Bildtyp sein, einschließlich generierter Bilder wie [CSS-Verläufe](/de/docs/Web/CSS/Reference/Values/gradient).
 
-Wenn nur ein Wert in der `mask-image` Eigenschaft angegeben ist und dieser Wert `none` ist, wird kein Maskeneffekt sichtbar sein. Wenn mehrere Werte angegeben sind, kann ein `none` Wert in der Liste keinen direkten Effekt haben, jedoch werden andere `mask-*` Werte in derselben Listenposition auf eine transparente schwarze Maskenebene angewendet und haben keinen visuellen Effekt.
+Wenn nur ein Wert in der Eigenschaft `mask-image` angegeben ist und dieser Wert `none` ist, wird kein Maskierungseffekt sichtbar. Wenn mehrere Werte angegeben sind, kann ein `none`-Wert in der Liste keinen direkten Effekt haben, jedoch werden andere `mask-*`-Werte in derselben Listenposition auf eine transparente schwarze Maskenschicht angewendet und haben keinen visuellen Effekt.
 
-Nur Bildquellen, die über HTTP- und HTTPS-Protokolle bereitgestellt werden, werden aufgrund der {{Glossary("CORS", "CORS")}} Richtlinie als `<image>` Werte akzeptiert. Lokal bereitgestellte, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert und als transparentes Schwarz gerendert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
+Nur Bildquellen, die über die HTTP- und HTTPS-Protokolle bereitgestellt werden, werden als `<image>`-Werte aufgrund der {{Glossary("CORS", "CORS")}}-Richtlinie akzeptiert. Lokal bereitgestellte Bilder, einschließlich relativer oder absoluter `file://`-Protokolle, werden nicht akzeptiert und als transparentes Schwarz gerendert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
 
-Eine Maske wird in den folgenden Fällen als transparente schwarze Bildebene betrachtet, die nichts enthüllt:
+Eine Maske wird in den folgenden Fällen als transparente schwarze Bildschicht gezählt, die nichts sichtbar macht:
 
 - Das Maskenbild ist leer (null Breite oder null Höhe).
 - Das Maskenbild kann nicht heruntergeladen werden.
-- Der Browser unterstützt das Maskenbildformat nicht.
+- Der Browser unterstützt das Format des Maskenbildes nicht.
 - Das Maskenbild existiert nicht.
 - Der Maskenwert zeigt nicht auf ein Maskenbild.
 
-Der Standardwert der {{cssxref("mask-mode")}} Eigenschaft ist `match-source`, was bedeutet, dass der Modus durch den Modus des Maskenbildes selbst definiert wird. Der Modus des Maskenbildes ist im Allgemeinen `alpha`, außer wenn die Maskenquelle ein SVG {{svgelement("mask")}} Element ist, in welchem Fall der Modus `luminance` ist, es sei denn, der Modus wird durch die CSS {{cssxref("mask-type")}} Eigenschaft oder das SVG {{svgattr("mask-type")}} Attribut auf `alpha` geändert.
+Der Standardwert der {{cssxref("mask-mode")}}-Eigenschaft ist `match-source`, was bedeutet, dass der Modus durch den Modus des Maskenbildes selbst definiert ist. Der Modus des Maskenbildes ist normalerweise `alpha`, es sei denn, die Maskenquelle ist ein SVG {{svgelement("mask")}}-Element, in diesem Fall ist der Modus `luminance`, es sei denn, der Modus wird über die CSS {{cssxref("mask-type")}}-Eigenschaft oder das SVG {{svgattr("mask-type")}}-Attribut auf `alpha` geändert.
 
-Der Wert `mask-mode` ist signifikant, da er bestimmt, ob der Maskeneffekt allein von den Alphakanalwerten der Bildquelle abhängt oder von einer Kombination dieser und der Luminanz der Maske (die Helligkeit/Dunkelheit der Farben, die das `mask-image` bilden):
+Der `mask-mode`-Wert ist signifikant, da er bestimmt, ob der Maskierungseffekt allein auf den Alphakanalwerten der Bildquelle oder einer Kombination dieser und der Leuchtdichte der Maske (die Helligkeit/Dunkelheit der Farben, die das `mask-image` ausmachen) beruht:
 
-- In allen Fällen zählt die Alphatransparenz der Maske; Bereiche des Elements, die von undurchsichtigen Abschnitten des `mask-image` maskiert werden, werden gerendert, während Bereiche, die von transparenten Bildabschnitten maskiert werden, verborgen bleiben.
-- Wenn der Wert `mask-mode` eingestellt oder auf `alpha` aufgelöst wird, zählen nur der Alphakanal der Farben; der Farbton, die Lichtstärke usw. spielen keine Rolle.
-- Wenn die `mask-mode` Eigenschaft auf `luminance` gesetzt oder standardmäßig `luminance` ist, ist der Maskierungswert der Luminanzwert jeder Farbe multipliziert mit ihrem Alphawert. Die `mask-mode` wird auf `luminance` aufgelöst, wenn sie explizit auf diesen Wert gesetzt ist oder wenn die Eigenschaft auf `match-source` gesetzt ist und die `mask-image` Quelle ein SVG {{svgelement("mask")}} ist, das nicht explizit seine {{cssxref("mask-type")}} Eigenschaft oder das {{svgattr("mask-type")}} Attribut auf `alpha` gesetzt hat.
+- In allen Fällen ist die Alphatransparenz der Maske wichtig; Bereiche des Elements, die von undurchsichtigen Abschnitten des `mask-image` maskiert werden, werden gerendert, während Bereiche, die von transparenten Bildabschnitten maskiert werden, ausgeblendet werden.
+- Wenn der `mask-mode`-Wert auf `alpha` gesetzt oder dorthin aufgelöst wird, zählt nur der Alphakanal der Farben; Farbton, Helligkeit usw. sind nicht von Bedeutung.
+- Wenn die `mask-mode`-Eigenschaft auf `luminance` gesetzt oder standardmäßig festgelegt ist, ist der Maskierungswert der Leuchtdichtewert jeder Farbe multipliziert mit ihrem Alphawert. Der `mask-mode` wird auf `luminance` aufgelöst, wenn er explizit auf diesen Wert gesetzt ist, oder wenn die Eigenschaft auf `match-source` gesetzt ist und die `mask-image`-Quelle ein SVG {{svgelement("mask")}} ist, das seine {{cssxref("mask-type")}}-Eigenschaft oder das {{svgattr("mask-type")}}-Attribut nicht explizit auf `alpha` gesetzt hat.
 
 ## Formale Definition
 
@@ -80,11 +81,11 @@ Der Wert `mask-mode` ist signifikant, da er bestimmt, ob der Maskeneffekt allein
 
 ### Verlauf als Maskenbild
 
-In diesem Beispiel verwenden wir einen `<image>` Wert als Maske, indem wir einen CSS [radialen Verlauf](/de/docs/Web/CSS/Reference/Values/gradient/radial-gradient) als unser Maskenbild definieren, um ein rundes Bild mit einem weichen Rand zu erstellen.
+In diesem Beispiel verwenden wir einen `<image>`-Wert als Maske und definieren einen CSS-[radialen Verlauf](/de/docs/Web/CSS/Reference/Values/gradient/radial-gradient) als unser Maskenbild, um ein rundes Bild mit weichem Rand zu erstellen.
 
 #### HTML
 
-Wir fügen ein HTML {{htmlelement("img")}} Element ein, das auch in allen anderen Beispielen verwendet wird.
+Wir fügen ein HTML-{{htmlelement("img")}}-Element ein, das auch in allen anderen Beispielen verwendet wird.
 
 ```html live-sample___example-image live-sample___first-example
 <img
@@ -96,7 +97,7 @@ Wir fügen ein HTML {{htmlelement("img")}} Element ein, das auch in allen andere
 
 #### CSS
 
-Wir verwenden die CSS {{CSSxRef("gradient/radial-gradient")}} Funktion, um eine Maske zu erstellen, die einen schwarzen Kreis mit einem Radius hat, der halb so breit ist wie die Maske, bevor sie über 10% transparent wird.
+Wir verwenden die CSS-{{CSSxRef("gradient/radial-gradient")}}-Funktion, um eine Maske zu erstellen, die einen schwarzen Kreis mit einem Radius hat, der die Hälfte der Breite der Maske beträgt, bevor sie über 10 % in Transparenz übergeht.
 
 ```css live-sample___first-example
 img {
@@ -108,15 +109,15 @@ img {
 
 {{EmbedLiveSample("first-example", "100%", 250)}}
 
-Der Teil des ursprünglichen Elements, der durch den schwarzen Kreis maskiert wird, ist vollständig undurchsichtig und wird transparent, während die Maske transparent wird.
+Der Teil des ursprünglichen Elements, der vom schwarzen Kreis maskiert wird, ist völlig undurchsichtig, der Übergang zur Transparenz erfolgt, während die Maske zur Transparenz übergeht.
 
 ### Bildressource als Maskenbild
 
-In diesem Beispiel ist die `<mask-source>`, die wir als unser Maskenbild verwenden, eine externe SVG.
+In diesem Beispiel wird `<mask-source>` als externes SVG verwendet.
 
 #### HTML
 
-Wir fügen dasselbe Bild wie im vorherigen Beispiel ein. Wir haben auch das Bild eingefügt, das wir als Maske verwenden werden; ein Stern, dessen {{cssxref("fill-opacity")}} `0.5` beträgt, also 50% undurchsichtig ist.
+Wir fügen dasselbe Bild wie im vorherigen Beispiel ein. Wir haben auch das Bild hinzugefügt, das wir als Maske verwenden werden; ein Stern, dessen {{cssxref("fill-opacity")}} `0.5`, also 50% undurchsichtig ist.
 
 ```html
 <img
@@ -142,11 +143,12 @@ img:first-of-type {
 
 {{EmbedLiveSample("Image resource as a mask image", "100%", 250)}}
 
-Die Maske ist halb undurchsichtig, weshalb die Farben nicht so lebendig sind wie im vorherigen Beispiel. Der sichtbare Teil des Bildes ist 50% undurchsichtig; die Opazität der angewendeten Maske. Die Maske ist kleiner als das Bild, daher wird sie standardmäßig wiederholt. Wir hätten {{cssxref("mask-repeat")}} verwenden können, um das Wiederholen zu steuern, oder {{cssxref("mask-size")}}, um die Größe der Maske zu ändern, was wir im nächsten Beispiel tun.
+Die Maske ist halbtransparent, weshalb die Farben nicht so lebendig sind wie im vorherigen Beispiel. Der sichtbare Teil des Bildes ist 50% undurchsichtig; die Deckkraft der angewendeten Maske.
+Die Maske ist kleiner als das Bild und wird daher standardmäßig wiederholt. Wir könnten {{cssxref("mask-repeat")}} verwenden, um die Wiederholung zu steuern, oder {{cssxref("mask-size")}}, um die Größe der Maske zu ändern, was wir im nächsten Beispiel tun.
 
 ### Mehrere Masken
 
-Dieses Beispiel demonstriert die Anwendung mehrerer Masken.
+Dieses Beispiel zeigt die Anwendung mehrerer Masken.
 
 ```html hidden
 <img
@@ -156,7 +158,7 @@ Dieses Beispiel demonstriert die Anwendung mehrerer Masken.
 
 #### CSS
 
-Wir wenden zwei Masken an — dieselbe halbtransparente SVG wie im vorherigen Beispiel und einen {{CSSxRef("gradient/repeating-radial-gradient")}}. Wir steuern die Größe der Masken mit der {{cssxref("mask-size")}} Eigenschaft. Da unsere erste Maske nicht in 100% Größe ist, stellen wir mit den Eigenschaften {{cssxref("mask-position")}} und {{cssxref("mask-repeat")}} sicher, dass unsere Masken zentriert sind und sich nicht wiederholen.
+Wir wenden zwei Masken an — dasselbe halbtransparente SVG wie im vorherigen Beispiel und einen {{CSSxRef("gradient/repeating-radial-gradient")}}. Wir kontrollieren die Größe der Masken mit der {{cssxref("mask-size")}}-Eigenschaft. Da unsere erste Maske nicht auf 100% skaliert ist, stellen wir sicher, dass unsere Masken zentriert sind und sich mit den Eigenschaften {{cssxref("mask-position")}} und {{cssxref("mask-repeat")}} nicht wiederholen.
 
 ```css
 img {
@@ -175,11 +177,11 @@ img {
 
 ### Maskierung mit SVG `<mask>`
 
-Dieses Beispiel demonstriert die Verwendung von SVG {{svgelement("mask")}} Elementen als Masken. In diesem Fall zählt die Farbe der Maske, da der {{cssxref("mask-type")}} Wert für SVG-Masken standardmäßig auf `luminance` gesetzt ist, was bedeutet, dass weiße undurchsichtige Bereiche (100% Luminanz) maskiert und sichtbar sind, transparente und schwarze Bereiche (0% Luminanz) abgeschnitten werden und alles dazwischen teilweise maskiert wird.
+Dieses Beispiel zeigt die Verwendung von SVG {{svgelement("mask")}}-Elementen als Masken. In diesem Fall ist die Farbe der Maske wichtig, da der {{cssxref("mask-type")}}-Wert für SVG-Masken standardmäßig `luminance` ist, was bedeutet, dass weiße undurchsichtige Bereiche (100% Leuchtdichte) maskiert und sichtbar sind, transparente und schwarze Bereiche (0% Leuchtdichte) ausgeschnitten werden und alles dazwischen teilweise maskiert wird.
 
 #### HTML
 
-Wir haben für jedes unserer vier Bilder eine `id` hinzugefügt und eine SVG, die eine gleich Anzahl von `<mask>` Elementen enthält.
+Wir haben eine `id` für jedes unserer vier Bilder eingefügt und ein SVG, das eine entsprechend gleiche Anzahl von `<mask>`-Elementen enthält.
 
 ```html
 <img
@@ -238,7 +240,7 @@ Wir haben für jedes unserer vier Bilder eine `id` hinzugefügt und eine SVG, di
 
 #### CSS
 
-Wir wenden eine andere `<mask>` auf jede `<img>` an. Keiner der Teile des letzten Bildes mit der `black` Füllung wird standardmäßig sichtbar sein. In diesem Fall sind alle in diesem Beispiel verwendeten Farben vollständig undurchsichtig, der `mask-mode` standardmäßig `match-type`, der in diesem Fall auf `luminance` aufgelöst wird.
+Wir wenden eine andere `<mask>` auf jedes `<img>` an. Kein Teil des letzten Bildes mit der `black`-Füllung wird standardmäßig sichtbar sein. In diesem Fall sind zwar alle in diesem Beispiel verwendeten Farben vollständig undurchsichtig, aber der `mask-mode`-Standard `match-type`, der in diesem Fall in `luminance` aufgelöst wird.
 
 ```css
 #green {
@@ -259,13 +261,13 @@ body:has(:checked) img {
 }
 ```
 
-Die Luminanzwerte von `black`, `white` und `green` sind `0`, `100` und [`46.228`](https://www.colorhexa.com/008000), jeweils. Das bedeutet, dass die Bereiche, in denen die Maske weiß ist, sichtbar sein werden, während Bereiche, in denen die Maske schwarz oder vollständig transparent ist, abgeschnitten werden (nicht sichtbar). Bereiche, in denen die Maske grün ist, sind sichtbar, aber heller, gleichbedeutend mit einer weißen Maske, die 46.228% undurchsichtig ist.
+Die Leuchtdichtewerte von `black`, `white` und `green` sind `0`, `100` und [`46.228`](https://www.colorhexa.com/008000) beziehungsweise. Das bedeutet: Bereiche, in denen die Maske weiß ist, werden sichtbar sein, während Bereiche, in denen die Maske schwarz oder vollständig transparent ist, ausgeschnitten werden (nicht sichtbar). Bereiche, in denen die Maske grün ist, werden sichtbar sein, aber heller, was einem weißen Maske entspricht, die 46.228% undurchsichtig ist.
 
 #### Ergebnisse
 
 {{EmbedLiveSample("SVG elements as masks", "100%", 540)}}
 
-Aktivieren Sie das Kontrollkästchen, um den Wert des `mask-mode` zwischen `alpha` (aktiviert) und dem Anfangswert umzuschalten, der sich auf `luminance` (deaktiviert) auflöst. Wenn `alpha` verwendet wird, spielt die Farbe der Maske keine Rolle; alles, was zählt, ist die Alphatransparenz. Wenn der Wert auf `luminance` aufgelöst wird, sind `white` Bereiche sichtbar, `black` Bereiche nicht, und `green` Bereiche sind sichtbar, aber mit einer Opazität, die der Luminanz der Farbe `green` entspricht. Wenn `mask-mode` auf `alpha` gesetzt ist, sind die Farben gleichwertig, da sie alle vollständig undurchsichtig sind.
+Schalten Sie die Checkbox um, um den Wert des `mask-mode` zwischen `alpha` (aktiviert) und dem Anfangswert, der sich in `luminance` auflöst (deaktiviert), umzuschalten. Wenn `alpha` verwendet wird, spielt die Farbe der Maske keine Rolle; alles, was zählt, ist die Alphatransparenz. Wenn der Wert sich in `luminance` auflöst, sind `white`-Bereiche sichtbar, `black`-Bereiche nicht und `green`-Bereiche sind sichtbar, aber mit einer Deckkraft, die der Leuchtdichte der Farbe `green` entspricht. Wenn `mask-mode` auf `alpha` gesetzt ist, sind die Farben gleichwertig, da sie alle vollständig undurchsichtig sind.
 
 ## Spezifikationen
 
@@ -277,7 +279,7 @@ Aktivieren Sie das Kontrollkästchen, um den Wert des `mask-mode` zwischen `alph
 
 ## Siehe auch
 
-- {{cssxref("mask")}} Kurzschreibweise
+- {{cssxref("mask")}} Kurzform
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-position")}}
 - {{cssxref("mask-repeat")}}
@@ -285,7 +287,7 @@ Aktivieren Sie das Kontrollkästchen, um den Wert des `mask-mode` zwischen `alph
 - {{cssxref("mask-border")}}
 - {{cssxref("clip-path")}}
 - {{cssxref("background-image")}}
-- [Einführung in CSS Maskierung](/de/docs/Web/CSS/Guides/Masking/Introduction)
-- [CSS `mask` Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
-- [CSS Maskierung](/de/docs/Web/CSS/Guides/Masking) Modul
+- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Deklaration mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking)-Modul

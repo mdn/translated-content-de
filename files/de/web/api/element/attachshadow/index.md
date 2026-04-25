@@ -3,20 +3,20 @@ title: "Element: attachShadow() Methode"
 short-title: attachShadow()
 slug: Web/API/Element/attachShadow
 l10n:
-  sourceCommit: 6991c03349b4916c90ab113cc464788fb72a1f84
+  sourceCommit: 26c6aca187b3718498886f9fba6c1cc4f4833b5d
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die **`Element.attachShadow()`** Methode fügt einem angegebenen Element einen Shadow-DOM-Baum hinzu und gibt eine Referenz auf dessen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zurück.
+Die Methode **`Element.attachShadow()`** fügt einem angegebenen Element einen Shadow-DOM-Baum hinzu und gibt eine Referenz zu seinem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zurück.
 
 ## Elemente, an die Sie einen Shadow anhängen können
 
-Beachten Sie, dass Sie nicht jedem Elementtyp einen Shadow-Root anhängen können. Einige Elemente können aus Sicherheitsgründen keinen Shadow-DOM haben (zum Beispiel {{htmlelement("a")}}).
+Beachten Sie, dass Sie nicht an jeden Elementtyp ein Shadow-Root anhängen können. Es gibt einige, die aus Sicherheitsgründen keinen Shadow-DOM haben dürfen (zum Beispiel {{htmlelement("a")}}).
 
-Die folgende Liste zeigt Elemente, an die Sie einen Shadow-Root anhängen _können_:
+Die folgende Liste zeigt Elemente, an die Sie _einen_ Shadow-Root anhängen können:
 
-- Jedes eigenständige benutzerdefinierte Element mit einem [gültigen Namen](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
+- Jedes autonome benutzerdefinierte Element mit einem [gültigen Namen](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
 - {{htmlelement("article")}}
 - {{htmlelement("aside")}}
 - {{htmlelement("blockquote")}}
@@ -36,11 +36,11 @@ Die folgende Liste zeigt Elemente, an die Sie einen Shadow-Root anhängen _könn
 - {{htmlelement("section")}}
 - {{htmlelement("span")}}
 
-## Aufruf dieser Methode bei einem Element, das bereits ein Shadow-Host ist
+## Aufrufen dieser Methode auf einem Element, das bereits ein Shadow-Host ist
 
-Die Methode kann bei einem Element aufgerufen werden, das bereits einen [deklarativen Shadow-Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) hat, vorausgesetzt, der angegebene `mode` stimmt mit dem vorhandenen Modus überein. In diesem Fall wird der bereits vorhandene [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gelöscht und zurückgegeben. Dies ermöglicht Szenarien, in denen beispielsweise serverseitiges Rendering bereits einen Schatten-Root deklarativ erstellt hat und dann clientseitiger Code versucht, den Root erneut anzuhängen.
+Die Methode kann auf einem Element aufgerufen werden, das bereits ein [declarative shadow root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) hat, vorausgesetzt, dass der angegebene Modus `mode` dem vorhandenen Modus entspricht. In diesem Fall wird das bereits vorhandene [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gelöscht und zurückgegeben. Dies ist nützlich, wenn beispielsweise serverseitiges Rendering bereits ein Shadow-Root deklariert erstellt hat und dann clientseitiger Code versucht, den Root erneut anzuhängen.
 
-Andernfalls wird das Aufrufen von `attachShadow()` bei einem Element, das bereits einen Shadow-Root hat, eine Ausnahme auslösen.
+Andernfalls führt ein Aufruf von `attachShadow()` auf einem Element, das bereits ein Shadow-Root hat, zu einer Ausnahme.
 
 ## Syntax
 
@@ -53,11 +53,9 @@ attachShadow(options)
 - `options`
   - : Ein Objekt, das die folgenden Felder enthält:
     - `mode`
-      - : Ein String, der den _Kapselungsmodus_ für den Shadow-DOM-Baum angibt.
-        Dies kann einer der folgenden sein:
+      - : Ein String, der den _Kapselungsmodus_ für den Shadow-DOM-Baum angibt. Dies kann einer der folgenden sein:
         - `open`
-          - : Elemente des Shadow-Root sind von außerhalb des Roots über JavaScript zugänglich,
-            z. B. mit [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot):
+          - : Elemente des Shadow-Root sind von JavaScript außerhalb des Root zugänglich, beispielsweise mit [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot):
 
             ```js
             element.attachShadow({ mode: "open" });
@@ -65,7 +63,7 @@ attachShadow(options)
             ```
 
         - `closed`
-          - : Verweigert den Zugriff auf die Knoten eines geschlossenen Shadows von außerhalb desselben:
+          - : Verweigert den Zugriff auf die Knoten eines geschlossenen Shadow-Root von JavaScript außerhalb davon:
 
             ```js
             element.attachShadow({ mode: "closed" });
@@ -73,24 +71,24 @@ attachShadow(options)
             ```
 
     - `clonable` {{Optional_Inline}}
-      - : Ein boolean, der angibt, ob der Shadow-Root klonbar ist: Wenn auf `true` gesetzt, wird der Shadow-Host, der mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) geklont wird, den Shadow-Root in der Kopie enthalten. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, ob das Shadow-Root klonbar ist: Wenn auf `true` gesetzt, wird der Shadow-Host, der mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) geklont wurde, das Shadow-Root in der Kopie enthalten. Der Standardwert ist `false`.
+
+    - `customElementRegistry` {{Optional_Inline}}
+      - : Ein [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry), der als [scoped custom element registry](/de/docs/Web/API/Web_components/Using_custom_elements#scoped_custom_element_registries) des angehängten Shadow-Root verwendet wird. Wenn `null` oder `undefined`, verwendet das Shadow-Root das globale Registry, das von [`Window.customElements`](/de/docs/Web/API/Window/customElements) referenziert wird.
 
     - `delegatesFocus` {{Optional_Inline}}
-      - : Ein boolean, der, wenn auf `true` gesetzt, ein Verhalten festlegt, das Probleme bei der Fokussierbarkeit benutzerdefinierter Elemente vermindert.
-        Wenn auf einen nicht fokussierbaren Teil des Shadow-DOM geklickt wird, erhält der erste fokussierbare Teil den Fokus, und der Shadow-Host erhält jede verfügbare `:focus`-Stilierung. Der Standardwert ist `false`.
+      - : Ein Boolean, der, wenn er auf `true` gesetzt ist, ein Verhalten spezifiziert, das Probleme mit der Fokusfähigkeit benutzerdefinierter Elemente mindert. Wenn ein nicht fokussierbarer Teil des Shadow-DOM angeklickt wird, erhält der erste fokussierbare Teil den Fokus und der Shadow-Host erhält alle verfügbaren `:focus`-Stile. Der Standardwert ist `false`.
 
     - `referenceTarget` {{Optional_Inline}} {{Experimental_Inline}}
-      - : Ein String-Wert, der das effektive Ziel eines Elementverweises angibt, der gegen den Shadow-Host von außerhalb des Host-Elements gemacht wird. Der Wert sollte die ID eines Elements innerhalb des Shadow-DOM sein. Wenn festgelegt, bewirken Zielverweise auf das Host-Element von außerhalb, dass das referenzierte Zielelement zum effektiven Ziel des Verweises auf das Host-Element wird.
+      - : Ein String-Wert, der das effektive Ziel eines jeden Element-Referenzes angibt, die gegen den Shadow-Host von außerhalb des Host-Elements gemacht wurde. Der Wert sollte die ID eines Elements innerhalb des Shadow-DOM sein. Wenn gesetzt, führt das Referenzieren des Host-Elements von außerhalb des Shadow-DOM dazu, dass das referenzierte Ziel-Element zum effektiven Ziel der Referenz zum Host-Element wird.
 
     - `serializable` {{Optional_Inline}}
-      - : Ein boolean, der angibt, dass der Shadow-Root serialisierbar ist, wenn er auf `true` gesetzt ist.
-        Wenn festgelegt, kann der Shadow-Root serialisiert werden, indem die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` aufgerufen werden.
-        Der Standardwert ist `false`.
+      - : Ein Boolean, der, wenn auf `true` gesetzt, angibt, dass das Shadow-Root serialisierbar ist. Falls gesetzt, kann das Shadow-Root durch Aufrufen der Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` serialisiert werden. Der Standardwert ist `false`.
 
-    - `slotAssignment` {{Optional_inline}}
+    - `slotAssignment` {{Optional_Inline}}
       - : Ein String, der den _Slot-Zuweisungsmodus_ für den Shadow-DOM-Baum angibt. Dies kann einer der folgenden sein:
         - `named`
-          - : Elemente werden innerhalb dieses Shadow-Roots automatisch {{HTMLElement("slot")}}-Elementen zugewiesen. Jeder Nachfahre des Hosts mit einem `slot`-Attribut, das mit dem `name`-Attribut eines `<slot>` innerhalb dieses Shadow-Roots übereinstimmt, wird diesem Slot zugewiesen. Alle obersten Kinder des Hosts ohne `slot`-Attribut werden einem `<slot>` ohne `name`-Attribut (dem "Standard-Slot") zugewiesen, falls vorhanden.
+          - : Elemente werden automatisch {{HTMLElement("slot")}}-Elementen innerhalb dieses Shadow-Root zugewiesen. Nachkommen des Hosts mit einem `slot`-Attribut, das mit dem `name`-Attribut eines `<slot>` innerhalb dieses Shadow-Root übereinstimmt, werden diesem Slot zugewiesen. Top-Level-Kinder des Hosts ohne `slot`-Attribut werden einem `<slot>` ohne `name`-Attribut (der „Standard-Slot“) zugewiesen, wenn einer vorhanden ist.
         - `manual`
           - : Elemente werden nicht automatisch {{HTMLElement("slot")}}-Elementen zugewiesen. Stattdessen müssen sie manuell mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) zugewiesen werden. Der Standardwert ist `named`.
 
@@ -101,18 +99,18 @@ Gibt ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt zurück.
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Dieser Fehler kann ausgelöst werden, wenn Sie versuchen, einen Shadow-Root an ein Element anzuhängen:
-    - außerhalb des HTML-Namespace oder das keinen Shadow haben kann.
-    - bei dem die statische Eigenschaft `disabledFeatures` der Elementdefinition den Wert `"shadow"` hat.
-    - das bereits einen Shadow-Root hat, der nicht deklarativ erstellt wurde.
-    - das einen [deklarativen Shadow-Root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) hat, aber der angegebene `mode` nicht mit dem vorhandenen Modus übereinstimmt.
+  - : Dieser Fehler kann ausgelöst werden, wenn Sie versuchen, ein Shadow-Root an ein Element anzuhängen:
+    - außerhalb des HTML-Namespace oder an ein Element, das keinen Shadow angehängt bekommen kann.
+    - bei dem die statische Eigenschaft `disabledFeatures` des Elementdefinitions vorliegt und auf `"shadow"` gesetzt ist.
+    - das bereits ein Shadow-Root hat, das nicht deklarativ erstellt wurde.
+    - das ein [declarative shadow root](/de/docs/Web/HTML/Reference/Elements/template#declarative_shadow_dom) hat, jedoch der angegebene `mode` nicht mit dem vorhandenen Modus übereinstimmt.
+    - während ein `customElementRegistry`-Wert übergeben wird, der nicht `null` oder ein lokalumgebener Registry (das mittels `new CustomElementRegistry()` erstellt wurde) ist. Der Fehler würde ausgelöst, wenn Sie das globale Registry übergeben.
 
 ## Beispiele
 
-### Word Count Custom Element
+### Wordcount benutzerdefiniertes Element
 
-Das folgende Beispiel stammt aus unserem [word-count-web-component](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component) Demo ([auch live sehen](https://mdn.github.io/web-components-examples/word-count-web-component/)).
-Sie können sehen, dass wir `attachShadow()` in der Mitte des Codes verwenden, um einen Shadow-Root zu erstellen, an den wir dann den Inhalt unseres benutzerdefinierten Elements anhängen.
+Das folgende Beispiel stammt aus unserem [word-count-web-component](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component)-Demo ([siehe es auch live](https://mdn.github.io/web-components-examples/word-count-web-component/)). Sie können sehen, dass wir `attachShadow()` in der Mitte des Codes verwenden, um ein Shadow-Root zu erstellen, das wir dann an den Inhalt unseres benutzerdefinierten Elements anhängen.
 
 ```js
 // Create a class for the element
@@ -155,9 +153,9 @@ class WordCount extends HTMLParagraphElement {
 customElements.define("word-count", WordCount, { extends: "p" });
 ```
 
-### Deaktivierung des Shadow-DOM
+### Shadow-DOM deaktivieren
 
-Wenn das Element eine statische Eigenschaft namens `disabledFeatures` hat, das ein Array enthält, das den String `"shadow"` enthält, wird der `attachShadow()`-Aufruf eine Ausnahme auslösen.
+Wenn das Element eine statische Eigenschaft namens `disabledFeatures` hat, die ein Array enthält, das den String `"shadow"` enthält, wird der `attachShadow()`-Aufruf eine Ausnahme auslösen.
 
 Zum Beispiel:
 
@@ -194,5 +192,5 @@ customElements.define("my-custom-element", MyCustomElement);
 - [`ShadowRoot.mode`](/de/docs/Web/API/ShadowRoot/mode)
 - [`ShadowRoot.delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus)
 - [`ShadowRoot.slotAssignment`](/de/docs/Web/API/ShadowRoot/slotAssignment)
-- Deklaratives Hinzufügen eines Shadow-Roots mit dem [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) Attribut des [`<template>` Elements](/de/docs/Web/HTML/Reference/Elements/template)
-- [Deklarativer Shadow-DOM](https://web.dev/articles/declarative-shadow-dom) auf web.dev (2023)
+- Deklarativ ein Shadow-Root anhängen mit dem [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) Attribut des [`<template>` Elements](/de/docs/Web/HTML/Reference/Elements/template)
+- [Deklarativer Shadow DOM](https://web.dev/articles/declarative-shadow-dom) auf web.dev (2023)

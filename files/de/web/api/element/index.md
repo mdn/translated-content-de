@@ -2,287 +2,278 @@
 title: Element
 slug: Web/API/Element
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 3d7c7d4e151ff1b578bef4eff10c201b761a9d7d
 ---
 
 {{APIRef("DOM")}}
 
-**`Element`** ist die allgemeinste Basisklasse, von der alle Elementobjekte (d.h. Objekte, die Elemente darstellen) in einem [`Dokument`](/de/docs/Web/API/Document) erben. Sie hat nur Methoden und Eigenschaften, die allen Arten von Elementen gemeinsam sind. Spezifischere Klassen erben von `Element`.
+**`Element`** ist die allgemeinste Basisklasse, von der alle Element-Objekte (also Objekte, die Elemente repräsentieren) in einem [`Document`](/de/docs/Web/API/Document) erben. Es verfügt nur über Methoden und Eigenschaften, die allen Arten von Elementen gemeinsam sind. Spezifischere Klassen erben von `Element`.
 
-Zum Beispiel ist die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle die Basisschnittstelle für HTML-Elemente. Ähnlich ist die [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle die Basis für alle SVG-Elemente, und die [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle ist die Basisschnittstelle für MathML-Elemente. Die meisten Funktionalitäten werden weiter unten in der Klassenhierarchie spezifiziert.
+Zum Beispiel ist die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle die Basisschnittstelle für HTML-Elemente. Ähnlich ist die [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle die Grundlage für alle SVG-Elemente und die [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle ist die Basisschnittstelle für MathML-Elemente. Der Großteil der Funktionalität wird weiter unten in der Klassenhierarchie spezifiziert.
 
-Sprachen außerhalb der Webplattform, wie XUL durch die `XULElement` Schnittstelle, implementieren ebenfalls `Element`.
+Sprachen außerhalb der Webplattform, wie XUL durch die `XULElement`-Schnittstelle, implementieren ebenfalls `Element`.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_`Element` erbt Eigenschaften von seiner Elternschnittstelle, [`Node`](/de/docs/Web/API/Node), und damit auch von der Elternschnittstelle dieser Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`Element` erbt Eigenschaften von seiner Elternschnittstelle, [`Node`](/de/docs/Web/API/Node), und von der Elternschnittstelle dieser Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Element.assignedSlot`](/de/docs/Web/API/Element/assignedSlot) {{ReadOnlyInline}}
-  - : Gibt ein [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) zurück, das das {{htmlelement("slot")}} repräsentiert, in das der Knoten eingefügt wurde.
+  - : Gibt ein [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) zurück, das den {{htmlelement("slot")}} darstellt, in den der Knoten eingefügt wird.
 - [`Element.attributes`](/de/docs/Web/API/Element/attributes) {{ReadOnlyInline}}
   - : Gibt ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Objekt zurück, das die zugewiesenen Attribute des entsprechenden HTML-Elements enthält.
 - [`Element.childElementCount`](/de/docs/Web/API/Element/childElementCount) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Kind-Elemente dieses Elements zurück.
+  - : Gibt die Anzahl der Kindelemente dieses Elements zurück.
 - [`Element.children`](/de/docs/Web/API/Element/children) {{ReadOnlyInline}}
-  - : Gibt die Kind-Elemente dieses Elements zurück.
+  - : Gibt die Kindelemente dieses Elements zurück.
 - [`Element.classList`](/de/docs/Web/API/Element/classList) {{ReadOnlyInline}}
   - : Gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die die Liste der Klassenattribute enthält.
 - [`Element.className`](/de/docs/Web/API/Element/className)
-  - : Ein String, der die Klasse des Elements repräsentiert.
+  - : Ein String, der die Klasse des Elements darstellt.
 - [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die innere Höhe des Elements darstellt.
+  - : Gibt eine Zahl zurück, die die innere Höhe des Elements repräsentiert.
 - [`Element.clientLeft`](/de/docs/Web/API/Element/clientLeft) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die Breite des linken Randes des Elements darstellt.
+  - : Gibt eine Zahl zurück, die die Breite des linken Rands des Elements repräsentiert.
 - [`Element.clientTop`](/de/docs/Web/API/Element/clientTop) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die Breite des oberen Randes des Elements darstellt.
+  - : Gibt eine Zahl zurück, die die Breite des oberen Rands des Elements repräsentiert.
 - [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die innere Breite des Elements darstellt.
+  - : Gibt eine Zahl zurück, die die innere Breite des Elements repräsentiert.
 - [`Element.currentCSSZoom`](/de/docs/Web/API/Element/currentCSSZoom) {{ReadOnlyInline}}
   - : Eine Zahl, die die effektive Zoomgröße des Elements angibt, oder 1.0, wenn das Element nicht gerendert wird.
 - [`Element.customElementRegistry`](/de/docs/Web/API/Element/customElementRegistry) {{ReadOnlyInline}}
-  - : Das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt, das mit diesem Element verbunden ist, oder `null`, wenn keines gesetzt wurde.
+  - : Das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt, das mit diesem Element verknüpft ist, oder `null`, wenn keines festgelegt wurde.
 - [`Element.elementTiming`](/de/docs/Web/API/Element/elementTiming) {{Experimental_Inline}}
-  - : Ein String, der das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut widerspiegelt, welches ein Element zur Beobachtung in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API markiert.
+  - : Ein String, der das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)-Attribut widerspiegelt, das ein Element für die Beobachtung in der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-API markiert.
 - [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) {{ReadOnlyInline}}
-  - : Gibt das erste Kind-Element dieses Elements zurück.
+  - : Gibt das erste Kindelement dieses Elements zurück.
 - [`Element.id`](/de/docs/Web/API/Element/id)
   - : Ein String, der die ID des Elements darstellt.
 - [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)
   - : Ein String, der das Markup des Inhalts des Elements darstellt.
 - [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) {{ReadOnlyInline}}
-  - : Gibt das letzte Kind-Element dieses Elements zurück.
+  - : Gibt das letzte Kindelement dieses Elements zurück.
 - [`Element.localName`](/de/docs/Web/API/Element/localName) {{ReadOnlyInline}}
   - : Ein String, der den lokalen Teil des qualifizierten Namens des Elements darstellt.
 - [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI) {{ReadOnlyInline}}
-  - : Der Namespace-URI des Elements, oder `null`, wenn es keinen Namespace gibt.
+  - : Die Namensraum-URI des Elements, oder `null`, wenn es keinen Namensraum gibt.
 - [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling) {{ReadOnlyInline}}
-  - : Ein `Element`, das Element direkt nach dem aktuellen im Baum, oder `null`, wenn es kein Geschwisterknoten gibt.
+  - : Ein `Element`, das Element, das unmittelbar auf das gegebene im Baum folgt, oder `null`, wenn es keinen Geschwisterknoten gibt.
 - [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
-  - : Ein String, der das Markup des Elements einschließlich seines Inhalts darstellt. Wird es als Setter verwendet, ersetzt es das Element durch Knoten, die aus dem gegebenen String geparst werden.
+  - : Ein String, der das Markup des Elements einschließlich seines Inhalts darstellt. Wenn als Setter verwendet, wird das Element durch Knoten ersetzt, die aus dem gegebenen String geparst wurden.
 - [`Element.part`](/de/docs/Web/API/Element/part)
-  - : Stellt die Teil-Identifier des Elements dar (d.h. gesetzt mit dem `part`-Attribut), zurückgegeben als eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+  - : Stellt die Teilkennungen des Elements dar (d.h. mit dem `part`-Attribut festgelegt), die als [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurückgegeben werden.
 - [`Element.prefix`](/de/docs/Web/API/Element/prefix) {{ReadOnlyInline}}
-  - : Ein String, der das Namespace-Präfix des Elements darstellt, oder `null` wenn kein Präfix angegeben ist.
+  - : Ein String, der das Namensraumprefix des Elements darstellt, oder `null`, wenn kein Präfix angegeben ist.
 - [`Element.previousElementSibling`](/de/docs/Web/API/Element/previousElementSibling) {{ReadOnlyInline}}
-  - : Ein `Element`, das Element direkt vor dem aktuellen im Baum, oder `null`, wenn es kein Geschwisterelement gibt.
+  - : Ein `Element`, das Element, das dem gegebenen im Baum unmittelbar vorausgeht, oder `null`, wenn es kein Geschwisterelement gibt.
 - [`Element.scrollHeight`](/de/docs/Web/API/Element/scrollHeight) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die dargestellte Höhe eines Elements repräsentiert.
+  - : Gibt eine Zahl zurück, die die Scrollansichtshöhe eines Elements darstellt.
 - [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
-  - : Eine Zahl, die den linken Scroll-Offset des Elements darstellt.
+  - : Eine Zahl, die den linken Scroll-Versatz des Elements darstellt.
 - [`Element.scrollLeftMax`](/de/docs/Web/API/Element/scrollLeftMax) {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die den maximal möglichen linken Scroll-Offset für das Element darstellt.
+  - : Gibt eine Zahl zurück, die den maximalen linken Scroll-Versatz darstellt, der für das Element möglich ist.
 - [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop)
-  - : Eine Zahl, die die Anzahl der Pixel beschreibt, die der obere Teil des Elements vertikal gescrollt ist.
+  - : Eine Zahl, die die Anzahl der Pixel darstellt, um die der obere Teil des Elements vertikal gescrollt wird.
 - [`Element.scrollTopMax`](/de/docs/Web/API/Element/scrollTopMax) {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die den maximal möglichen oberen Scroll-Offset für das Element darstellt.
+  - : Gibt eine Zahl zurück, die den maximalen oberen Scroll-Versatz darstellt, der für das Element möglich ist.
 - [`Element.scrollWidth`](/de/docs/Web/API/Element/scrollWidth) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die die dargestellte Breite eines Elements repräsentiert.
+  - : Gibt eine Zahl zurück, die die Scrollansichtsbreite des Elements darstellt.
 - [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot) {{ReadOnlyInline}}
-  - : Gibt die offene Shadow-Root zurück, die von dem Element gehostet wird, oder null, wenn keine offene Shadow-Root vorhanden ist.
+  - : Gibt die offene Schattenwurzel zurück, die vom Element gehostet wird, oder null, wenn keine offene Schattenwurzel vorhanden ist.
 - [`Element.slot`](/de/docs/Web/API/Element/slot)
-  - : Gibt den Namen des Shadow-DOM-Slots zurück, in den das Element eingefügt ist.
+  - : Gibt den Namen des Schatten-DOM-Slots zurück, in den das Element eingefügt wird.
 - [`Element.tagName`](/de/docs/Web/API/Element/tagName) {{ReadOnlyInline}}
   - : Gibt einen String mit dem Namen des Tags für das gegebene Element zurück.
 
-### Aus ARIA enthaltene Instanzeigenschaften
+### Instanzeigenschaften aus ARIA
 
-_Die `Element`-Schnittstelle enthält auch die folgenden Eigenschaften._
+_Die `Element`-Schnittstelle umfasst auch die folgenden Eigenschaften._
 
 - [`Element.ariaAtomic`](/de/docs/Web/API/Element/ariaAtomic)
-  - : Ein String, der das [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic)-Attribut widerspiegelt, welches angibt, ob unterstützende Technologien die gesamte oder nur Teile der geänderten Region basierend auf den vom [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant)-Attribut definierten Änderungsbenachrichtigungen präsentieren werden.
+  - : Ein String, der das [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic)-Attribut widerspiegelt, das angibt, ob unterstützende Technologien den gesamten oder nur Teile des geänderten Bereichs aufgrund der durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant)-Attribut definierten Änderungsbenachrichtigungen präsentieren werden.
 - [`Element.ariaAutoComplete`](/de/docs/Web/API/Element/ariaAutoComplete)
-  - : Ein String, der das [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)-Attribut widerspiegelt, welches angibt, ob die Eingabe von Text die Anzeige von Vorhersagen des vom Benutzer beabsichtigten Werts für ein Kombinationsfeld, Suchfeld oder Textfeld auslösen könnte und wie diese Vorhersagen präsentiert würden, wenn sie gemacht würden.
+  - : Ein String, der das [`aria-autocomplete`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-autocomplete)-Attribut widerspiegelt, das anzeigt, ob die Eingabe von Text die Anzeige einer oder mehrerer Vorhersagen des vom Nutzer beabsichtigten Wertes für ein Kombinationsfeld, Suchfeld oder Textfeld auslösen könnte, und wie diese Vorhersagen dargestellt würden, falls sie gemacht wurden.
 - [`Element.ariaBrailleLabel`](/de/docs/Web/API/Element/ariaBrailleLabel)
-  - : Ein String, der das [`aria-braillelabel`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-braillelabel)-Attribut widerspiegelt, welches die Braillebeschriftung des Elements definiert.
+  - : Ein String, der das [`aria-braillelabel`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-braillelabel)-Attribut widerspiegelt, das die Braille-Beschriftung des Elements definiert.
 - [`Element.ariaBrailleRoleDescription`](/de/docs/Web/API/Element/ariaBrailleRoleDescription)
-  - : Ein String, der das [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-brailleroledescription)-Attribut widerspiegelt, welches die ARIA-Braillerollenbeschreibung des Elements definiert.
+  - : Ein String, der das [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-brailleroledescription)-Attribut widerspiegelt, das die ARIA-Braille-Rollenbeschreibung des Elements definiert.
 - [`Element.ariaBusy`](/de/docs/Web/API/Element/ariaBusy)
-  - : Ein String, der das [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attribut widerspiegelt, welches anzeigt, ob ein Element modifiziert wird, da unterstützende Technologien möglicherweise warten möchten, bis die Modifikationen abgeschlossen sind, bevor sie dem Benutzer präsentiert werden.
+  - : Ein String, der das [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attribut widerspiegelt, das angibt, ob ein Element verändert wird, da unterstützende Technologien möglicherweise warten wollen, bis die Änderungen abgeschlossen sind, bevor sie sie dem Nutzer zugänglich machen.
 - [`Element.ariaChecked`](/de/docs/Web/API/Element/ariaChecked)
-  - : Ein String, der das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut widerspiegelt, das den aktuellen "geprüften" Zustand von Kontrollkästchen, Optionsschaltern und anderen Widgets, die einen geprüften Zustand haben, angibt.
+  - : Ein String, der das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut widerspiegelt, das den aktuellen "überprüften" Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets, die einen überprüften Zustand haben, angibt.
 - [`Element.ariaColCount`](/de/docs/Web/API/Element/ariaColCount)
   - : Ein String, der das [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colcount)-Attribut widerspiegelt, das die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
 - [`Element.ariaColIndex`](/de/docs/Web/API/Element/ariaColIndex)
-  - : Ein String, der das [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)-Attribut widerspiegelt, das den Spaltenindex oder -position eines Elements in Bezug auf die Gesamtanzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
+  - : Ein String, der das [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindex)-Attribut widerspiegelt, das den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer Tabelle, eines Rasters oder Baumrasters definiert.
 - [`Element.ariaColIndexText`](/de/docs/Web/API/Element/ariaColIndexText)
-  - : Ein String, der das [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindextext)-Attribut widerspiegelt, das eine menschenlesbare Textalternative für aria-colindex definiert.
+  - : Ein String, der das [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindextext)-Attribut widerspiegelt, das eine menschenlesbare Textalternative zu aria-colindex definiert.
 - [`Element.ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan)
-  - : Ein String, der das [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)-Attribut widerspiegelt, das die Anzahl der Spalten definiert, die von einer Zelle oder Grid-Zelle innerhalb einer Tabelle, einem Raster oder einem Baumraster überspannt werden.
+  - : Ein String, der das [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)-Attribut widerspiegelt, das die Anzahl der Spalten definiert, die von einer Zelle oder Rasterzelle innerhalb einer Tabelle, eines Rasters oder Baumrasters überspannt werden.
 - [`Element.ariaCurrent`](/de/docs/Web/API/Element/ariaCurrent)
-  - : Ein String, der das [`aria-current`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current)-Attribut widerspiegelt, das das Element angibt, das das aktuelle Element innerhalb eines Containers oder einer Gruppe verwandter Elemente darstellt.
+  - : Ein String, der das [`aria-current`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current)-Attribut widerspiegelt, das das Element angibt, das das aktuelle Element innerhalb eines Containers oder eines Satzes von verwandten Elementen repräsentiert.
 - [`Element.ariaDescription`](/de/docs/Web/API/Element/ariaDescription)
-  - : Ein String, der das [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)-Attribut widerspiegelt, welches einen Stringwert definiert, der das aktuelle Element beschreibt oder annotiert.
+  - : Ein String, der das [`aria-description`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-description)-Attribut widerspiegelt, das einen String-Wert definiert, der das aktuelle Element beschreibt oder kommentiert.
 - [`Element.ariaDisabled`](/de/docs/Web/API/Element/ariaDisabled)
-  - : Ein String, der das [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)-Attribut widerspiegelt, welches anzeigt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig betriebsbereit ist.
+  - : Ein String, der das [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled)-Attribut widerspiegelt, das angibt, dass das Element wahrnehmbar, aber deaktiviert ist, so dass es nicht bearbeitet oder anderweitig bedienbar ist.
 - [`Element.ariaExpanded`](/de/docs/Web/API/Element/ariaExpanded)
-  - : Ein String, der das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attribut widerspiegelt, welches angibt, ob ein Gruppierungselement, das von diesem Element besessen oder kontrolliert wird, erweitert oder eingeklappt ist.
+  - : Ein String, der das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attribut widerspiegelt, das angibt, ob ein Gruppenelement, das von diesem Element "besessen" oder kontrolliert wird, erweitert oder reduziert ist.
 - [`Element.ariaHasPopup`](/de/docs/Web/API/Element/ariaHasPopup)
-  - : Ein String, der das [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Attribut widerspiegelt, welches die Verfügbarkeit und den Typ des interaktiven Popup-Elements, wie z. B. Menü oder Dialog, angibt, das durch ein Element ausgelöst werden kann.
+  - : Ein String, der das [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Attribut widerspiegelt, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements, wie einem Menü oder Dialog, angibt, das durch ein Element ausgelöst werden kann.
 - [`Element.ariaHidden`](/de/docs/Web/API/Element/ariaHidden)
-  - : Ein String, der das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)-Attribut widerspiegelt, welches angibt, ob das Element einer Zugänglichkeits-API ausgesetzt ist.
+  - : Ein String, der das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)-Attribut widerspiegelt, das angibt, ob das Element einer Zugänglichkeits-API offengelegt wird.
 - [`Element.ariaInvalid`](/de/docs/Web/API/Element/ariaInvalid)
-  - : Ein String, der das [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid)-Attribut widerspiegelt, welches angibt, dass der eingegebene Wert nicht dem Format entspricht, das von der Anwendung erwartet wird.
+  - : Ein String, der das [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid)-Attribut widerspiegelt, das angibt, dass der eingegebene Wert nicht dem vom Anwendung erwarteten Format entspricht.
 - [`Element.ariaKeyShortcuts`](/de/docs/Web/API/Element/ariaKeyShortcuts)
-  - : Ein String, der das [`aria-keyshortcuts`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts)-Attribut widerspiegelt, welches Tastenkombinationen angibt, die ein Autor implementiert hat, um ein Element zu aktivieren oder den Fokus darauf zu setzen.
+  - : Ein String, der das [`aria-keyshortcuts`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts)-Attribut widerspiegelt, das die Tastenkombinationen angibt, die ein Autor implementiert hat, um ein Element zu aktivieren oder ihm den Fokus zu geben.
 - [`Element.ariaLabel`](/de/docs/Web/API/Element/ariaLabel)
-  - : Ein String, der das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut widerspiegelt, welches einen Stringwert definiert, der das aktuelle Element beschriftet.
+  - : Ein String, der das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attribut widerspiegelt, das einen String-Wert definiert, der das aktuelle Element beschriftet.
 - [`Element.ariaLevel`](/de/docs/Web/API/Element/ariaLevel)
-  - : Ein String, der das [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attribut widerspiegelt, welches die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
+  - : Ein String, der das [`aria-level`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level)-Attribut widerspiegelt, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 - [`Element.ariaLive`](/de/docs/Web/API/Element/ariaLive)
-  - : Ein String, der das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)-Attribut widerspiegelt, welches angibt, dass ein Element aktualisiert wird, und die Arten von Aktualisierungen beschreibt, die Benutzeragenten, unterstützende Technologien und der Benutzer von der Live-Region erwarten können.
+  - : Ein String, der das [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)-Attribut widerspiegelt, das angibt, dass ein Element aktualisiert wird, und beschreibt die Arten von Aktualisierungen, die die Benutzeragenten, unterstützende Technologien und Benutzer erwarten können.
 - [`Element.ariaModal`](/de/docs/Web/API/Element/ariaModal)
-  - : Ein String, der das [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)-Attribut widerspiegelt, welches angibt, ob ein Element modal angezeigt wird.
+  - : Ein String, der das [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)-Attribut widerspiegelt, das angibt, ob ein Element modal ist, wenn es angezeigt wird.
 - [`Element.ariaMultiline`](/de/docs/Web/API/Element/ariaMultiLine)
-  - : Ein String, der das [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline)-Attribut widerspiegelt, welches angibt, ob ein Textfeld mehrere Zeilen der Eingabe akzeptiert oder nur eine einzelne Zeile.
+  - : Ein String, der das [`aria-multiline`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiline)-Attribut widerspiegelt, das angibt, ob ein Textfeld mehrere Eingabezeilen oder nur eine einzige Zeile akzeptiert.
 - [`Element.ariaMultiSelectable`](/de/docs/Web/API/Element/ariaMultiSelectable)
-  - : Ein String, der das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)-Attribut widerspiegelt, welches angibt, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachkommen auswählen kann.
+  - : Ein String, der das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)-Attribut widerspiegelt, das angibt, dass der Benutzer mehr als ein Element von den aktuellen wählbaren Nachkommen auswählen kann.
 - [`Element.ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)
-  - : Ein String, der das [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Attribut widerspiegelt, welches angibt, ob die Orientierung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist.
+  - : Ein String, der das [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation)-Attribut widerspiegelt, das angibt, ob die Ausrichtung des Elements horizontal, vertikal oder unbekannt/mehrdeutig ist.
 - [`Element.ariaPlaceholder`](/de/docs/Web/API/Element/ariaPlaceholder)
-  - : Ein String, der das [`aria-placeholder`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-placeholder)-Attribut widerspiegelt, welches einen kurzen Hinweis definiert, der dem Benutzer bei der Dateneingabe hilft, wenn die Steuerung keinen Wert hat.
+  - : Ein String, der das [`aria-placeholder`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-placeholder)-Attribut widerspiegelt, das einen kurzen Hinweis definiert, der dem Benutzer bei der Dateneingabe helfen soll, wenn das Steuerungselement keinen Wert hat.
 - [`Element.ariaPosInSet`](/de/docs/Web/API/Element/ariaPosInSet)
-  - : Ein String, der das [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset)-Attribut widerspiegelt, welches die Nummer oder Position eines Elements in der aktuellen Menge von Listeneinträgen oder Baumeinträgen definiert.
+  - : Ein String, der das [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset)-Attribut widerspiegelt, das die Nummer oder Position eines Elements im aktuellen Satz von Listenelementen oder Baumelementen definiert.
 - [`Element.ariaPressed`](/de/docs/Web/API/Element/ariaPressed)
-  - : Ein String, der das [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)-Attribut widerspiegelt, das den aktuellen "gedrückten" Zustand von Umschaltknöpfen angibt.
+  - : Ein String, der das [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-pressed)-Attribut widerspiegelt, das den aktuellen "gedrückten" Zustand von Umschaltschaltern angibt.
 - [`Element.ariaReadOnly`](/de/docs/Web/API/Element/ariaReadOnly)
-  - : Ein String, der das [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)-Attribut widerspiegelt, welches angibt, dass das Element nicht bearbeitet werden kann, aber sonst funktionsfähig ist.
+  - : Ein String, der das [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)-Attribut widerspiegelt, das angibt, dass das Element nicht bearbeitet werden kann, aber anderweitig bedienbar ist.
 - [`Element.ariaRelevant`](/de/docs/Web/API/Element/ariaRelevant) {{Non-standard_Inline}}
-  - : Ein String, der das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant)-Attribut widerspiegelt, welches angibt, welche Benachrichtigungen der Benutzeragent auslöst, wenn der Barrierefreiheitsbaum innerhalb einer Live-Region modifiziert wird. Dies wird verwendet, um zu beschreiben, welche Änderungen in einer `aria-live`-Region relevant sind und angekündigt werden sollten.
+  - : Ein String, der das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant)-Attribut widerspiegelt, das angibt, welche Benachrichtigungen der Benutzeragent auslösen wird, wenn der Zugänglichkeitsbaum innerhalb eines Live-Bereichs geändert wird. Dies wird verwendet, um zu beschreiben, welche Änderungen in einem `aria-live`-Bereich relevant sind und angekündigt werden sollten.
 - [`Element.ariaRequired`](/de/docs/Web/API/Element/ariaRequired)
-  - : Ein String, der das [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)-Attribut widerspiegelt, welches angibt, dass Benutzereingaben auf dem Element erforderlich sind, bevor ein Formular abgesendet werden kann.
+  - : Ein String, der das [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)-Attribut widerspiegelt, das angibt, dass Benutzereingaben für das Element erforderlich sind, bevor ein Formular übermittelt werden kann.
 - [`Element.ariaRoleDescription`](/de/docs/Web/API/Element/ariaRoleDescription)
-  - : Ein String, der das [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)-Attribut widerspiegelt, welches eine menschenlesbare, vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
+  - : Ein String, der das [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)-Attribut widerspiegelt, das eine menschenlesbare, vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
 - [`Element.ariaRowCount`](/de/docs/Web/API/Element/ariaRowCount)
-  - : Ein String, der das [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)-Attribut widerspiegelt, welches die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster definiert.
+  - : Ein String, der das [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowcount)-Attribut widerspiegelt, das die Gesamtanzahl der Reihen in einer Tabelle, einem Raster oder Baumraster definiert.
 - [`Element.ariaRowIndex`](/de/docs/Web/API/Element/ariaRowIndex)
-  - : Ein String, der das [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex)-Attribut widerspiegelt, welches die Zeilenindex oder -position eines Elements in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baumrasters definiert.
+  - : Ein String, der das [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex)-Attribut widerspiegelt, das den Zeilenindex oder die Position eines Elements im Hinblick auf die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder Baumraster definiert.
 - [`Element.ariaRowIndexText`](/de/docs/Web/API/Element/ariaRowIndexText)
-  - : Ein String, der das [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)-Attribut widerspiegelt, welches eine menschenlesbare Textalternative für aria-rowindex definiert.
+  - : Ein String, der das [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindextext)-Attribut widerspiegelt, das eine menschenlesbare Textalternative zu aria-rowindex definiert.
 - [`Element.ariaRowSpan`](/de/docs/Web/API/Element/ariaRowSpan)
-  - : Ein String, der das [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)-Attribut widerspiegelt, welches die Anzahl der Zeilen definiert, die von einer Zelle oder Grid-Zelle innerhalb einer Tabelle, einem Raster oder einem Baumraster überspannt werden.
+  - : Ein String, der das [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowspan)-Attribut widerspiegelt, das die Anzahl der Reihen definiert, die von einer Zelle oder Rasterzelle innerhalb einer Tabelle, eines Rasters oder Baumrasters überspannt werden.
 - [`Element.ariaSelected`](/de/docs/Web/API/Element/ariaSelected)
-  - : Ein String, der das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Attribut widerspiegelt, welches den aktuellen "ausgewählten" Zustand von Elementen, die einen ausgewählten Zustand haben, angibt.
+  - : Ein String, der das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)-Attribut widerspiegelt, das den aktuellen "ausgewählten" Zustand von Elementen angibt, die einen ausgewählten Zustand haben.
 - [`Element.ariaSetSize`](/de/docs/Web/API/Element/ariaSetSize)
-  - : Ein String, der das [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)-Attribut widerspiegelt, welches die Anzahl der Elemente in der aktuellen Menge von Listeneinträgen oder Baumeinträgen definiert.
+  - : Ein String, der das [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)-Attribut widerspiegelt, das die Anzahl der Elemente im aktuellen Satz von Listenelementen oder Baumelementen definiert.
 - [`Element.ariaSort`](/de/docs/Web/API/Element/ariaSort)
-  - : Ein String, der das [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attribut widerspiegelt, welches angibt, ob Elemente in einer Tabelle oder einem Raster aufsteigend oder absteigend sortiert sind.
+  - : Ein String, der das [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attribut widerspiegelt, das angibt, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
 - [`Element.ariaValueMax`](/de/docs/Web/API/Element/ariaValueMax)
-  - : Ein String, der das [`aria-valueMax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attribut widerspiegelt, welches den maximal erlaubten Wert für ein Bereichs-Widget definiert.
+  - : Ein String, der das [`aria-valueMax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax)-Attribut widerspiegelt, das den maximal zugelassenen Wert für ein Bereichs-Widget definiert.
 - [`Element.ariaValueMin`](/de/docs/Web/API/Element/ariaValueMin)
-  - : Ein String, der das [`aria-valueMin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)-Attribut widerspiegelt, welches den minimal erlaubten Wert für ein Bereichs-Widget definiert.
+  - : Ein String, der das [`aria-valueMin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)-Attribut widerspiegelt, das den minimal zugelassenen Wert für ein Bereichs-Widget definiert.
 - [`Element.ariaValueNow`](/de/docs/Web/API/Element/ariaValueNow)
-  - : Ein String, der das [`aria-valueNow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attribut widerspiegelt, welches den aktuellen Wert für ein Bereichs-Widget definiert.
+  - : Ein String, der das [`aria-valueNow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Attribut widerspiegelt, das den aktuellen Wert für ein Bereichs-Widget definiert.
 - [`Element.ariaValueText`](/de/docs/Web/API/Element/ariaValueText)
-  - : Ein String, der das [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attribut widerspiegelt, welches die menschenlesbare Textalternative für `aria-valuenow` für ein Bereichs-Widget definiert.
+  - : Ein String, der das [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)-Attribut widerspiegelt, das die menschenlesbare Textalternative zu `aria-valuenow` für ein Bereichs-Widget definiert.
 - [`Element.role`](/de/docs/Web/API/Element/role)
-  - : Ein String, der das explizit gesetzte [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles)-Attribut widerspiegelt, welches die semantische Rolle des Elements liefert.
+  - : Ein String, der das explizit festgelegte [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles)-Attribut widerspiegelt, das die semantische Rolle des Elements bereitstellt.
 
-#### Instanzeigenschaften, die von ARIA-Elementreferenzen reflektiert werden
+#### Instanzeigenschaften, die von ARIA-Elementreferenzen widergespiegelt werden
 
-Die Eigenschaften reflektieren die Elemente, die durch die `id`-Referenz in den entsprechenden Attributen angegeben sind, jedoch mit einigen Besonderheiten. Siehe [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_ Leitfaden für weitere Informationen.
+Die Eigenschaften spiegeln die durch `id`-Referenzen in den entsprechenden Attributen angegebenen Elemente wider, jedoch mit einigen Vorbehalten. Siehe [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_ Leitfaden für weitere Informationen.
 
 - [`Element.ariaActiveDescendantElement`](/de/docs/Web/API/Element/ariaActiveDescendantElement)
-  - : Ein Element, das das aktuelle aktive Element darstellt, wenn der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)-Widget, [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) oder [`application`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) liegt.
-    Reflektiert das [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Attribut.
+  - : Ein Element, das das aktuelle aktive Element darstellt, wenn der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role)-Widget, [`combobox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role), oder [`application`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role) ist. Spiegelt das [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)-Attribut wider.
 - [`Element.ariaControlsElements`](/de/docs/Web/API/Element/ariaControlsElements)
-  - : Ein Array von Elementen, deren Inhalte oder deren Präsenz durch das Element kontrolliert werden.
-    Reflektiert das [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attribut.
+  - : Ein Array von Elementen, deren Inhalt oder Vorhandensein durch das Element gesteuert wird, auf das es angewendet wird. Spiegelt das [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Attribut wider.
 - [`Element.ariaDescribedByElements`](/de/docs/Web/API/Element/ariaDescribedByElements)
-  - : Ein Array von Elementen, die die barrierefreie Beschreibung für das Element enthalten, auf das es angewendet wird.
-    Reflektiert das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut.
+  - : Ein Array von Elementen, die die zugängliche Beschreibung für das angewendete Element enthalten. Spiegelt das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut wider.
 - [`Element.ariaDetailsElements`](/de/docs/Web/API/Element/ariaDetailsElements)
-  - : Ein Array von Elementen, die barrierefreie Details für das Element bieten, auf das es angewendet wird.
-    Reflektiert das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)-Attribut.
+  - : Ein Array von Elementen, die zugängliche Details für das angewendete Element bereitstellen. Spiegelt das [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details)-Attribut wider.
 - [`Element.ariaErrorMessageElements`](/de/docs/Web/API/Element/ariaErrorMessageElements)
-  - : Ein Array von Elementen, die eine Fehlermeldung für das Element bieten, auf das es angewendet wird.
-    Reflektiert das [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut.
+  - : Ein Array von Elementen, die für das angewendete Element eine Fehlermeldung bereitstellen. Spiegelt das [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)-Attribut wider.
 - [`Element.ariaFlowToElements`](/de/docs/Web/API/Element/ariaFlowToElements)
-  - : Ein Array von Elementen, die das nächste Element (oder Elemente) in einer alternativen Lesereihenfolge des Inhalts identifizieren und die allgemeine Standardlesereihenfolge nach Belieben des Benutzers überschreiben.
-    Reflektiert das [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attribut.
+  - : Ein Array von Elementen, die das nächste Element (oder Elemente) in einer alternativen Lesereihenfolge des Inhalts identifizieren und die allgemeine Standardlesereihenfolge nach Ermessen des Benutzers überschreiben. Spiegelt das [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attribut wider.
 - [`Element.ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements)
-  - : Ein Array von Elementen, die den zugänglichen Namen für das Element bereitstellen, auf das es angewendet wird.
-    Reflektiert das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut.
+  - : Ein Array von Elementen, die den zugänglichen Namen für das angewendete Element bereitstellen. Spiegelt das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)-Attribut wider.
 - [`Element.ariaOwnsElements`](/de/docs/Web/API/Element/ariaOwnsElements)
-  - : Ein Array von Elementen, die dem Element gehören, auf das dies angewendet wird.
-    Dies wird verwendet, um eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem Eltern- und seinen Kind-Elementen zu definieren, wenn die DOM-Hierarchie nicht verwendet werden kann, um die Beziehung darzustellen.
-    Reflektiert das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attribut.
+  - : Ein Array von Elementen, die von dem Element "besessen" werden, auf das es angewendet wird. Dies wird verwendet, um eine visuelle, funktionale oder kontextuelle Beziehung zwischen einem übergeordneten Element und seinen Kinderelementen zu definieren, wenn die DOM-Hierarchie nicht verwendet werden kann, um die Beziehung darzustellen. Spiegelt das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Attribut wider.
 
 ## Instanzmethoden
 
-_`Element` erbt Methoden von seinen Eltern, [`Node`](/de/docs/Web/API/Node), und seinem eigenen Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`Element` erbt Methoden von seinen Eltern [`Node`](/de/docs/Web/API/Node) und seiner eigenen Elternschnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`Element.after()`](/de/docs/Web/API/Element/after)
-  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kinderliste des Elternteils des `Element` ein, direkt nach dem `Element`.
+  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in der Kinderliste des Elternteils des `Element` hinzu, direkt nach dem `Element`.
 - [`Element.animate()`](/de/docs/Web/API/Element/animate)
-  - : Eine Abkürzungsmethode, um eine Animation auf einem Element zu erstellen und auszuführen. Gibt das erstellte Animationsobjekt zurück.
-- [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify) {{Experimental_Inline}}
-  - : Gibt an, dass ein gegebener Textstring von einem Bildschirmlesegerät angekündigt werden soll.
+  - : Eine Abkürzungsmethode, um eine Animation auf einem Element zu erstellen und auszuführen. Gibt das erstellte Animation-Objekt-Instanz zurück.
+- [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify)
+  - : Gibt an, dass ein gegebener Text von einem Bildschirmlesegerät angekündigt werden soll.
 - [`Element.append()`](/de/docs/Web/API/Element/append)
   - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings nach dem letzten Kind des Elements ein.
 - [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow)
-  - : Fügt einem angegebenen Element einen Shadow-DOM-Baum hinzu und gibt eine Referenz zu dessen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zurück.
+  - : Fügt einem angegebenen Element einen Schatten-DOM-Baum hinzu und gibt eine Referenz auf dessen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zurück.
 - [`Element.before()`](/de/docs/Web/API/Element/before)
-  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kinderliste des Elternteils des `Element` ein, direkt vor dem `Element`.
+  - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in der Kinderliste des Elternteils des `Element` ein, direkt vor dem `Element`.
 - [`Element.checkVisibility()`](/de/docs/Web/API/Element/checkVisibility)
-  - : Gibt zurück, ob ein Element voraussichtlich sichtbar sein soll oder nicht, basierend auf konfigurierbaren Prüfungen.
+  - : Gibt zurück, ob ein Element voraussichtlich sichtbar ist oder nicht, basierend auf konfigurierbaren Prüfungen.
 - [`Element.closest()`](/de/docs/Web/API/Element/closest)
-  - : Gibt das `Element` zurück, welches der nächste Vorfahre des aktuellen Elements (oder das aktuelle Element selbst) ist, das den in Parameter angegebenen Selektoren entspricht.
+  - : Gibt das `Element` zurück, das der nächste Vorfahre des aktuellen Elements (oder das aktuelle Element selbst) ist, das den im Parameter angegebenen Selektoren entspricht.
 - [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap)
-  - : Gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet, welche eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) ist.
+  - : Gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet, die eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) ist.
 - [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations)
-  - : Gibt ein Array von Animationsobjekten zurück, die derzeit auf dem Element aktiv sind.
+  - : Gibt ein Array von Animation-Objekten zurück, die derzeit auf dem Element aktiv sind.
 - [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute)
   - : Ruft den Wert des benannten Attributs vom aktuellen Knoten ab und gibt ihn als String zurück.
 - [`Element.getAttributeNames()`](/de/docs/Web/API/Element/getAttributeNames)
   - : Gibt ein Array von Attributnamen des aktuellen Elements zurück.
 - [`Element.getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)
-  - : Ruft die Knotenrepräsentation des benannten Attributs vom aktuellen Knoten ab und gibt ihn als [`Attr`](/de/docs/Web/API/Attr) zurück.
+  - : Ruft die Knotenrepräsentation des benannten Attributs vom aktuellen Knoten ab und gibt sie als [`Attr`](/de/docs/Web/API/Attr) zurück.
 - [`Element.getAttributeNodeNS()`](/de/docs/Web/API/Element/getAttributeNodeNS)
-  - : Ruft die Knotenrepräsentation des Attributs mit dem angegebenen Namen und Namespace vom aktuellen Knoten ab und gibt ihn als [`Attr`](/de/docs/Web/API/Attr) zurück.
+  - : Ruft die Knotenrepräsentation des Attributs mit dem angegebenen Namen und Namensraum vom aktuellen Knoten ab und gibt sie als [`Attr`](/de/docs/Web/API/Attr) zurück.
 - [`Element.getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS)
-  - : Ruft den Wert des Attributs mit dem angegebenen Namespace und Namen vom aktuellen Knoten ab und gibt ihn als String zurück.
+  - : Ruft den Wert des Attributs mit dem angegebenen Namensraum und Namen vom aktuellen Knoten ab und gibt ihn als String zurück.
 - [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)
-  - : Gibt die Größe eines Elements und seine Position relativ zur Viewport zurück.
+  - : Gibt die Größe eines Elements und dessen Position relativ zum Viewport zurück.
 - [`Element.getBoxQuads()`](/de/docs/Web/API/Element/getBoxQuads) {{Experimental_Inline}}
-  - : Gibt eine Liste von [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekten zurück, die die CSS-Fragmente des Knotens darstellen.
+  - : Gibt eine Liste von [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekten zurück, die die CSS-Fragmente des Knotens repräsentieren.
 - [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects)
-  - : Gibt eine Sammlung von Rechtecken zurück, die die Grenzrechtecke für jede Textzeile auf einem Client darstellen.
+  - : Gibt eine Sammlung von Rechtecken zurück, die die Begrenzungsrechtecke für jede Textzeile in einem Client angeben.
 - [`Element.getElementsByClassName()`](/de/docs/Web/API/Element/getElementsByClassName)
-  - : Gibt eine Live-`[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)` zurück, die alle Nachkommen des aktuellen Elements enthält, die die im Parameter angegebene Klassenliste besitzen.
+  - : Gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Nachkommen des aktuellen Elements enthält, die über die im Parameter angegebene Klassenliste verfügen.
 - [`Element.getElementsByTagName()`](/de/docs/Web/API/Element/getElementsByTagName)
-  - : Gibt eine Live-`[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)` zurück, die alle Nachkommenelemente eines bestimmten Tags des aktuellen Elements enthält.
+  - : Gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Nachfahrenelemente eines bestimmten Tag-Namens des aktuellen Elements enthält.
 - [`Element.getElementsByTagNameNS()`](/de/docs/Web/API/Element/getElementsByTagNameNS)
-  - : Gibt eine Live-`[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)` zurück, die alle Nachkommenelemente eines bestimmten Tag-Namens und Namespaces des aktuellen Elements enthält.
+  - : Gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Nachfahrenelemente eines bestimmten Tag-Namens und Namensraums des aktuellen Elements enthält.
 - [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML)
-  - : Gibt den DOM-Inhalt des Elements als HTML-String zurück, optional einschließlich jedes Shadow-DOMs.
+  - : Gibt den DOM-Inhalt des Elements als HTML-String zurück, wahlweise einschließlich eines Schatten-DOMs.
 - [`Element.hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)
   - : Gibt einen booleschen Wert zurück, der angibt, ob das Element das angegebene Attribut hat oder nicht.
 - [`Element.hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS)
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element das angegebene Attribut im angegebenen Namespace hat oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element das angegebene Attribut im angegebenen Namensraum hat oder nicht.
 - [`Element.hasAttributes()`](/de/docs/Web/API/Element/hasAttributes)
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element ein oder mehrere HTML-Attribute hat.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element eines oder mehrere HTML-Attribute aufweist.
 - [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
-  - : Zeigt an, ob das Element, auf dem es aufgerufen wird, Zeigererfassung für den durch die gegebene Zeiger-ID identifizierten Zeiger hat.
+  - : Gibt an, ob das Element, auf dem es aufgerufen wird, Zeigerfassung für den durch die gegebene Zeiger-ID identifizierten Zeiger hat.
 - [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
-  - : Fügt einen angegebenen Elementknoten an einer angegebenen Position relativ zum Element ein, auf das es aufgerufen wird.
+  - : Fügt ein gegebenes Elemente "Knoten" an einer angegebenen Position relativ zu dem Element ein, auf dem es aufgerufen wird.
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
-  - : Parst den Text als HTML oder XML und fügt die resultierenden Knoten in den Baum an der angegebenen Position ein.
+  - : Parst den Text als HTML oder XML und fügt die resultierenden Knoten an der in der Position gegebenen Stelle in den Baum ein.
 - [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
-  - : Fügt einen angegebenen Textknoten an einer angegebenen Position relativ zum Element ein, auf das es aufgerufen wird.
+  - : Fügt einen gegebenen Textknoten an einer angegebenen Position relativ zum aufgerufenen Element ein.
 - [`Element.matches()`](/de/docs/Web/API/Element/matches)
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element durch den angegebenen Selektor-String ausgewählt werden würde oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Element durch den angegebenen Selektor-String ausgewählt würde oder nicht.
 - [`Element.moveBefore()`](/de/docs/Web/API/Element/moveBefore)
-  - : Verschiebt einen gegebenen [`Node`](/de/docs/Web/API/Node) in das aufrufende Element als direktes Kind, vor einem angegebenen Referenzknoten, ohne den Knoten zu entfernen und dann einzufügen.
+  - : Bewegt einen gegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des aufrufenden Knotens als direktes Kind, vor einem gegebenen Referenzknoten, ohne den Knoten zu entfernen und dann wieder einzufügen.
 - [`Element.prepend()`](/de/docs/Web/API/Element/prepend)
   - : Fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings vor dem ersten Kind des Elements ein.
 - [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
-  - : Gibt den ersten [`Node`](/de/docs/Web/API/Node) zurück, der den angegebenen Selektor-String relativ zum Element erfüllt.
+  - : Gibt den ersten [`Node`](/de/docs/Web/API/Node) zurück, der dem relativ zum Element angegebenen Selektor-String entspricht.
 - [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
-  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten zurück, die den angegebenen Selektor-String relativ zum Element erfüllen.
+  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten zurück, die dem relativ zum Element angegebenen Selektor-String entsprechen.
 - [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
-  - : Gibt die (stoppt) Zeigererfassung frei, die zuvor für ein spezifisches [`PointerEvent`](/de/docs/Web/API/PointerEvent) gesetzt wurde.
+  - : Hebt die Zeigerfassung auf (stoppt sie), die zuvor für ein bestimmtes [`PointerEvent`](/de/docs/Web/API/PointerEvent) festgelegt wurde.
 - [`Element.remove()`](/de/docs/Web/API/Element/remove)
   - : Entfernt das Element aus der Kinderliste seines Elternteils.
 - [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)
@@ -290,41 +281,43 @@ _`Element` erbt Methoden von seinen Eltern, [`Node`](/de/docs/Web/API/Node), und
 - [`Element.removeAttributeNode()`](/de/docs/Web/API/Element/removeAttributeNode)
   - : Entfernt die Knotenrepräsentation des benannten Attributs vom aktuellen Knoten.
 - [`Element.removeAttributeNS()`](/de/docs/Web/API/Element/removeAttributeNS)
-  - : Entfernt das Attribut mit dem angegebenen Namen und Namespace vom aktuellen Knoten.
+  - : Entfernt das Attribut mit dem angegebenen Namen und Namensraum vom aktuellen Knoten.
 - [`Element.replaceChildren()`](/de/docs/Web/API/Element/replaceChildren)
-  - : Ersetzt die vorhandenen Kinder eines [`Node`](/de/docs/Web/API/Node) durch eine angegebene neue Menge von Kindern.
+  - : Ersetzt die vorhandenen Kinder eines [`Node`](/de/docs/Web/API/Node) durch einen bestimmten neuen Satz von Kindern.
 - [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith)
   - : Ersetzt das Element in der Kinderliste seines Elternteils durch eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings.
 - [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
-  - : Fordert asynchron den Browser auf, das Element im Vollbild darzustellen.
+  - : Fragt den Browser asynchron an, um das Element im Vollbildmodus anzuzeigen.
 - [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
-  - : Ermöglicht das asynchrone Beantragen, dass der Zeiger auf dem angegebenen Element gesperrt wird.
+  - : Ermöglicht es, asynchron zu fragen, ob der Zeiger auf dem angegebenen Element gesperrt werden soll.
 - [`Element.scroll()`](/de/docs/Web/API/Element/scroll)
-  - : Scrollt zu einer bestimmten Koordinatensetzung innerhalb eines gegebenen Elements.
+  - : Scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
 - [`Element.scrollBy()`](/de/docs/Web/API/Element/scrollBy)
   - : Scrollt ein Element um den angegebenen Betrag.
 - [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView)
-  - : Scrollt die Seite, bis das Element in den Sichtbereich kommt.
+  - : Scrollt die Seite, bis das Element in die Ansicht gelangt.
 - [`Element.scrollIntoViewIfNeeded()`](/de/docs/Web/API/Element/scrollIntoViewIfNeeded) {{Non-standard_Inline}}
-  - : Scrollt das aktuelle Element in den sichtbaren Bereich des Browserfensters, falls es nicht bereits im sichtbaren Bereich des Browserfensters ist. **Verwenden Sie stattdessen den Standard [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView).**
+  - : Scrollt das aktuelle Element in den sichtbaren Bereich des Browserfensters, wenn es sich noch nicht im sichtbaren Bereich des Browserfensters befindet. **Verwenden Sie stattdessen den Standard [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView).**
 - [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo)
-  - : Scrollt zu einer bestimmten Koordinatensetzung innerhalb eines gegebenen Elements.
+  - : Scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
 - [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)
   - : Setzt den Wert eines benannten Attributs des aktuellen Knotens.
 - [`Element.setAttributeNode()`](/de/docs/Web/API/Element/setAttributeNode)
-  - : Setzt die Knotenrepräsentation des benannten Attributs des aktuellen Knotens.
+  - : Setzt die Knotenrepräsentation des benannten Attributs vom aktuellen Knoten.
 - [`Element.setAttributeNodeNS()`](/de/docs/Web/API/Element/setAttributeNodeNS)
-  - : Setzt die Knotenrepräsentation des Attributs mit dem angegebenen Namen und Namespace des aktuellen Knotens.
+  - : Setzt die Knotenrepräsentation des Attributs mit dem angegebenen Namen und Namensraum vom aktuellen Knoten.
 - [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS)
-  - : Setzt den Wert des Attributs mit dem angegebenen Namen und Namespace des aktuellen Knotens.
+  - : Setzt den Wert des Attributs mit dem angegebenen Namen und Namensraum vom aktuellen Knoten.
 - [`Element.setCapture()`](/de/docs/Web/API/Element/setCapture) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Richtet die Erfassung von Mausereignissen ein und leitet alle Mausereignisse an dieses Element weiter.
+  - : Richtet die Mausereignis-Erfassung ein, indem alle Mausereignisse auf dieses Element umgeleitet werden.
 - [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) {{SecureContext_Inline}}
-  - : Parst und [desinfiziert](/de/docs/Web/API/HTML_Sanitizer_API) einen HTML-String in ein Dokumentfragment, das dann den ursprünglichen Teilbaum des Elements im DOM ersetzt.
+  - : Parst und [desinfiziert](/de/docs/Web/API/HTML_Sanitizer_API) einen String von HTML in ein Dokumentfragment, das dann den ursprünglichen Teilbaum des Elements im DOM ersetzt.
 - [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe)
-  - : Parst einen HTML-String in ein Dokumentfragment, ohne Desinfektion, welches dann den ursprünglichen Teilbaum des Elements im DOM ersetzt. Der HTML-String kann deklarative Shadow-Roots enthalten, die als Template-Elemente geparst würden, wenn das HTML mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) gesetzt würde.
+  - : Parst einen String von HTML in ein Dokumentfragment, ohne Desinfektion, das dann den ursprünglichen Teilbaum des Elements im DOM ersetzt. Der HTML-String kann deklarative Schattenwurzeln enthalten, die als Vorlage-Elemente geparst würden, wenn das HTML mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) gesetzt worden wäre.
 - [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
-  - : Bestimmt ein spezifisches Element als Ziel für die Erfassung zukünftiger [Zeigerereignisse](/de/docs/Web/API/Pointer_events).
+  - : Bestimmt ein bestimmtes Element als das Erfassungsziel zukünftiger [Zeigerereignisse](/de/docs/Web/API/Pointer_events).
+- [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute)
+  - : Wechselt ein boolesches Attribut, indem es entfernt wird, wenn es vorhanden ist, und hinzugefügt wird, wenn es nicht vorhanden ist, auf das angegebene Element.
 
 ## Ereignisse
 
@@ -333,34 +326,34 @@ Hören Sie auf diese Ereignisse mit `addEventListener()` oder indem Sie einen Er
 - [`afterscriptexecute`](/de/docs/Web/API/Element/afterscriptexecute_event) {{Non-standard_Inline}} {{deprecated_inline}}
   - : Wird ausgelöst, wenn ein Skript ausgeführt wurde.
 - [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)
-  - : Wird ausgelöst, wenn der Wert eines Eingabeelements kurz vor der Änderung steht.
+  - : Wird ausgelöst, wenn der Wert eines Eingabeelements kurz davor ist, geändert zu werden.
 - [`beforematch`](/de/docs/Web/API/Element/beforematch_event)
-  - : Wird auf einem Element ausgelöst, das sich im [_versteckt bis gefunden_](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Zustand befindet, wenn der Browser kurz davor steht, seinen Inhalt anzuzeigen, weil der Benutzer den Inhalt durch die "Auf Seite finden"-Funktion oder durch Fragmentnavigation gefunden hat.
+  - : Wird auf einem Element ausgelöst, das sich im Zustand [_hidden until found_](/de/docs/Web/HTML/Reference/Global_attributes/hidden) befindet, wenn der Browser kurz davor ist, seinen Inhalt freizulegen, weil der Benutzer den Inhalt über die Funktion "Suchen auf Seite" oder über Fragmentnavigation gefunden hat.
 - [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event) {{Non-standard_Inline}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn ein Skript kurz vor der Ausführung steht.
+  - : Wird ausgelöst, wenn ein Skript kurz davor ist, ausgeführt zu werden.
 - [`beforexrselect`](/de/docs/Web/API/Element/beforexrselect_event) {{Experimental_Inline}}
-  - : Wird vor den WebXR-Auswahlevents ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) ausg ausgelöst.
+  - : Wird ausgelöst, bevor WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) gesendet werden.
 - [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)
-  - : Wird auf einem beliebigen Element mit {{cssxref("content-visibility", "content-visibility: auto")}} ausgelöst, wenn es beginnt oder aufhört, [relevant für den Benutzer](/de/docs/Web/CSS/Guides/Containment/Using#relevant_to_the_user) zu sein und [seine Inhalte zu überspringen](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents).
+  - : Wird bei jedem Element ausgelöst, auf dem {{cssxref("content-visibility", "content-visibility: auto")}} gesetzt ist, wenn es anfängt oder aufhört, [für den Benutzer relevant zu sein](/de/docs/Web/CSS/Guides/Containment/Using#relevant_to_the_user) und [seine Inhalte zu überspringen](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents).
 - [`input`](/de/docs/Web/API/Element/input_event)
-  - : Wird ausgelöst, wenn sich der Wert eines Elements als direkte Folge einer Benutzeraktion ändert.
+  - : Wird ausgelöst, wenn der Wert eines Elements als direkte Folge einer Benutzeraktion geändert wird.
 - [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event)
   - : Wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verletzt wird.
 - [`wheel`](/de/docs/Web/API/Element/wheel_event)
-  - : Wird ausgelöst, wenn der Benutzer ein Rad auf einem Zeigegerät (typischerweise eine Maus) dreht.
+  - : Wird ausgelöst, wenn der Benutzer eine Rad-Taste auf einem Zeigegerät dreht (in der Regel eine Maus).
 
 ### Animationsevents
 
 - [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event)
-  - : Wird ausgelöst, wenn eine Animation unerwartet abgebrochen wird.
+  - : Wird ausgelöst, wenn eine Animation unerwartet abbricht.
 - [`animationend`](/de/docs/Web/API/Element/animationend_event)
-  - : Wird ausgelöst, wenn eine Animation normal beendet wurde.
+  - : Wird ausgelöst, wenn eine Animation normal abgeschlossen wurde.
 - [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event)
-  - : Wird ausgelöst, wenn eine Animation eine Iteration abgeschlossen hat.
+  - : Wird ausgelöst, wenn eine Animationsiteration abgeschlossen ist.
 - [`animationstart`](/de/docs/Web/API/Element/animationstart_event)
-  - : Wird ausgelöst, wenn eine Animation startet.
+  - : Wird ausgelöst, wenn eine Animation beginnt.
 
-### Zwischenablagenereignisse
+### Zwischenablage-Ereignisse
 
 - [`copy`](/de/docs/Web/API/Element/copy_event)
   - : Wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
@@ -369,87 +362,87 @@ Hören Sie auf diese Ereignisse mit `addEventListener()` oder indem Sie einen Er
 - [`paste`](/de/docs/Web/API/Element/paste_event)
   - : Wird ausgelöst, wenn der Benutzer eine Einfügeaktion über die Benutzeroberfläche des Browsers initiiert.
 
-### Kompositionsevents
+### Kompositionsereignisse
 
 - [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
   - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} die aktuelle Kompositionssitzung abschließt oder abbricht.
 - [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event)
   - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Kompositionssitzung startet.
 - [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
-  - : Wird ausgelöst, wenn ein neues Zeichen im Kontext einer von einem Textkompositionssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} gesteuerten Textkompositionssitzung empfangen wird.
+  - : Wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textkompositionssitzung empfangen wird, die von einem Textkompositionssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} gesteuert wird.
 
-### Fokusereignisse
+### Fokusevents
 
 - [`blur`](/de/docs/Web/API/Element/blur_event)
   - : Wird ausgelöst, wenn ein Element den Fokus verliert.
 - [`focus`](/de/docs/Web/API/Element/focus_event)
   - : Wird ausgelöst, wenn ein Element den Fokus erhält.
 - [`focusin`](/de/docs/Web/API/Element/focusin_event)
-  - : Wird ausgelöst, wenn ein Element den Fokus erhält, nach [`focus`](/de/docs/Web/API/Element/focus_event).
+  - : Wird ausgelöst, wenn ein Element den Fokus erhält, nach dem [`focus`](/de/docs/Web/API/Element/focus_event).
 - [`focusout`](/de/docs/Web/API/Element/focusout_event)
-  - : Wird ausgelöst, wenn ein Element den Fokus verliert, nach [`blur`](/de/docs/Web/API/Element/blur_event).
+  - : Wird ausgelöst, wenn ein Element den Fokus verliert, nach dem [`blur`](/de/docs/Web/API/Element/blur_event).
 
 ### Vollbildereignisse
 
 - [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)
-  - : Wird an ein `Element` gesendet, wenn es in den oder aus dem [Vollbild](/de/docs/Web/API/Fullscreen_API/Guide)-Modus wechselt.
+  - : Wird an ein `Element` gesendet, wenn es in den oder aus dem [Vollbildmodus](/de/docs/Web/API/Fullscreen_API/Guide) wechselt.
 - [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event)
-  - : Wird an ein `Element` gesendet, wenn ein Fehler auftritt, während versucht wird, es in den oder aus dem [Vollbild](/de/docs/Web/API/Fullscreen_API/Guide)-Modus zu wechseln.
+  - : Wird an ein `Element` gesendet, falls beim Versuch, es in den oder aus dem [Vollbildmodus](/de/docs/Web/API/Fullscreen_API/Guide) zu wechseln, ein Fehler auftritt.
 
-### Tastaturereignisse
+### Tastaturevents
 
 - [`keydown`](/de/docs/Web/API/Element/keydown_event)
   - : Wird ausgelöst, wenn eine Taste gedrückt wird.
 - [`keypress`](/de/docs/Web/API/Element/keypress_event) {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn eine Taste, die einen Zeichencode liefert, gedrückt wird.
+  - : Wird ausgelöst, wenn eine Taste gedrückt wird, die einen Zeichenwert erzeugt.
 - [`keyup`](/de/docs/Web/API/Element/keyup_event)
   - : Wird ausgelöst, wenn eine Taste losgelassen wird.
 
 ### Mausereignisse
 
 - [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
-  - : Wird ausgelöst, wenn ein nicht-primärer Zeigegeräteknopf (z. B. jede Maustaste außer der linken) auf einem Element gedrückt und losgelassen wurde.
+  - : Wird ausgelöst, wenn eine nicht-primäre Zeigegerätetaste (z.B. jede andere Maustaste als die linke Taste) auf einem Element gedrückt und losgelassen wird.
 - [`click`](/de/docs/Web/API/Element/click_event)
-  - : Wird ausgelöst, wenn ein Zeigegeräteknopf (z. B. die Primärtaste einer Maus) auf einem einzelnen Element gedrückt und losgelassen wird.
+  - : Wird ausgelöst, wenn eine Zeigegerätetaste (z.B. die primäre Taste einer Maus) auf einem einzelnen Element gedrückt und losgelassen wird.
 - [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
   - : Wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen.
 - [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
-  - : Wird ausgelöst, wenn ein Zeigegeräteknopf (z. B. die Primärtaste einer Maus) zweimal auf einem einzelnen Element gedrückt wird.
+  - : Wird ausgelöst, wenn eine Zeigegerätetaste (z.B. die primäre Taste einer Maus) zweimal auf einem einzelnen Element geklickt wird.
 - [`DOMActivate`](/de/docs/Web/API/Element/DOMActivate_event) {{Deprecated_Inline}}
-  - : Tritt auf, wenn ein Element aktiviert wird, beispielsweise durch einen Mausklick oder einen Tastendruck.
+  - : Tritt auf, wenn ein Element aktiviert wird, z.B. durch einen Mausklick oder einen Tastendruck.
 - [`DOMMouseScroll`](/de/docs/Web/API/Element/DOMMouseScroll_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Tritt auf, wenn das Mausrad oder ein ähnliches Gerät betrieben wird und der kumulierte Bildlauf über 1 Zeile oder 1 Seite seit dem letzten Ereignis hinausgeht.
+  - : Tritt auf, wenn ein Mausrad oder ein ähnliches Gerät bedient wird und die gesammelte Scrollmenge über 1 Zeile oder 1 Seite seit dem letzten Ereignis beträgt.
 - [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
-  - : Wird ausgelöst, wenn ein Zeigegeräteknopf auf einem Element gedrückt wird.
+  - : Wird ausgelöst, wenn eine Zeigegerätetaste auf einem Element gedrückt wird.
 - [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)
-  - : Wird ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) über das Element bewegt wird, an dem der Listener angebracht ist.
+  - : Wird ausgelöst, wenn ein Zeigegerät (in der Regel eine Maus) über das Element bewegt wird, an das der Listener angehängt ist.
 - [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)
-  - : Wird ausgelöst, wenn der Zeiger eines Zeigegeräts (normalerweise einer Maus) aus einem Element bewegt wird, an dem der Listener angebracht ist.
+  - : Wird ausgelöst, wenn der Zeiger eines Zeigegeräts (in der Regel eine Maus) aus einem Element heraus bewegt wird, an den der Listener angehängt ist.
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
-  - : Wird ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) bewegt wird, während es über einem Element ist.
+  - : Wird ausgelöst, wenn ein Zeigegerät (in der Regel eine Maus) über ein Element bewegt wird.
 - [`mouseout`](/de/docs/Web/API/Element/mouseout_event)
-  - : Wird ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) aus dem Element, an das der Listener angebracht ist, oder aus einem seiner Kinder bewegt wird.
+  - : Wird ausgelöst, wenn ein Zeigegerät (in der Regel eine Maus) aus dem Element heraus bewegt wird, an den der Listener angehängt ist oder aus einem seiner Kinder.
 - [`mouseover`](/de/docs/Web/API/Element/mouseover_event)
-  - : Wird ausgelöst, wenn ein Zeigegerät in das Element, an das der Listener angebracht ist, oder in eines seiner Kinder bewegt wird.
+  - : Wird ausgelöst, wenn ein Zeigegerät auf ein Element bewegt wird, an das der Listener angehängt ist oder auf eins seiner Kinder.
 - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
-  - : Wird ausgelöst, wenn ein Zeigegeräteknopf auf einem Element losgelassen wird.
+  - : Wird ausgelöst, wenn eine Zeigegerätetaste auf einem Element losgelassen wird.
 - [`mousewheel`](/de/docs/Web/API/Element/mousewheel_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn ein Mausrad oder ähnliches Gerät betrieben wird.
+  - : Wird ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät bedient wird.
 - [`MozMousePixelScroll`](/de/docs/Web/API/Element/MozMousePixelScroll_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn ein Mausrad oder ähnliches Gerät betrieben wird.
+  - : Wird ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät bedient wird.
 - [`webkitmouseforcechanged`](/de/docs/Web/API/Element/webkitmouseforcechanged_event) {{Non-standard_Inline}}
-  - : Wird jedes Mal ausgelöst, wenn der Druck auf dem Trackpad-Bildschirm sich ändert.
+  - : Wird jedes Mal ausgelöst, wenn sich der Druck auf dem Trackpad-Bildschirm ändert.
 - [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event) {{Non-standard_Inline}}
-  - : Wird nach dem `mousedown`-Ereignis ausgelöst, sobald genügend Druck ausgeübt wurde, um als "Force-Klick" zu qualifizieren.
+  - : Wird nach dem Mousedown-Ereignis ausgelöst, sobald ausreichender Druck ausgeübt wurde, um als "Force Click" zu gelten.
 - [`webkitmouseforcewillbegin`](/de/docs/Web/API/Element/webkitmouseforcewillbegin_event) {{Non-standard_Inline}}
   - : Wird vor dem [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis ausgelöst.
 - [`webkitmouseforceup`](/de/docs/Web/API/Element/webkitmouseforceup_event) {{Non-standard_Inline}}
-  - : Wird nach dem [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event)-Ereignis ausgelöst, sobald der Druck ausreichend reduziert wurde, um den "Force-Klick" zu beenden.
+  - : Wird ausgelöst, nachdem das [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event)-Ereignis ausgelöst wurde, sobald der Druck ausreichend reduziert wurde, um den "Force Click" zu beenden.
 
 ### Zeigerereignisse
 
 - [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event)
-  - : Wird ausgelöst, wenn ein Element einen Zeiger mit [`setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture) erfasst.
+  - : Wird ausgelöst, wenn ein Element einen Zeiger mithilfe von [`setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture) erfasst.
 - [`lostpointercapture`](/de/docs/Web/API/Element/lostpointercapture_event)
   - : Wird ausgelöst, wenn ein [erfasster Zeiger](/de/docs/Web/API/Pointer_events#pointer_capture) freigegeben wird.
 - [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)
@@ -457,58 +450,58 @@ Hören Sie auf diese Ereignisse mit `addEventListener()` oder indem Sie einen Er
 - [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)
   - : Wird ausgelöst, wenn ein Zeiger aktiv wird.
 - [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)
-  - : Wird ausgelöst, wenn ein Zeiger in die Trefferboxgrenzen eines Elements oder eines seiner Nachfahren bewegt wird.
+  - : Wird ausgelöst, wenn ein Zeiger in die Hit-Test-Grenzen eines Elements oder eines seiner Nachkommen bewegt wird.
 - [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event)
-  - : Wird ausgelöst, wenn ein Zeiger aus den Trefferboxgrenzen eines Elements bewegt wird.
+  - : Wird ausgelöst, wenn ein Zeiger aus den Hit-Test-Grenzen eines Elements heraus bewegt wird.
 - [`pointermove`](/de/docs/Web/API/Element/pointermove_event)
-  - : Wird ausgelöst, wenn ein Zeiger seine Koordinaten ändert.
+  - : Wird ausgelöst, wenn ein Zeiger die Koordinaten ändert.
 - [`pointerout`](/de/docs/Web/API/Element/pointerout_event)
-  - : Wird ausgelöst, wenn ein Zeiger aus den _Trefferbox_ Grenzen eines Elements bewegt wird (unter anderem Gründen).
+  - : Wird ausgelöst, wenn ein Zeiger aus den _Hit-Test_-Grenzen eines Elements (aus anderen Gründen) bewegt wird.
 - [`pointerover`](/de/docs/Web/API/Element/pointerover_event)
-  - : Wird ausgelöst, wenn ein Zeiger in die Trefferboxgrenzen eines Elements bewegt wird.
+  - : Wird ausgelöst, wenn ein Zeiger in die Hit-Test-Grenzen eines Elements bewegt wird.
 - [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event)
   - : Wird ausgelöst, wenn ein Zeiger Eigenschaften ändert, die keine [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)- oder [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisse auslösen.
 - [`pointerup`](/de/docs/Web/API/Element/pointerup_event)
   - : Wird ausgelöst, wenn ein Zeiger nicht mehr aktiv ist.
 
-### Blätternereignisse
+### Scrolling-Ereignisse
 
 - [`scroll`](/de/docs/Web/API/Element/scroll_event)
-  - : Wird ausgelöst, wenn die Dokumentansicht oder ein Element geblättert wurde.
+  - : Wird ausgelöst, wenn die Dokumentansicht oder ein Element gescrollt wurde.
 - [`scrollend`](/de/docs/Web/API/Element/scrollend_event)
-  - : Wird ausgelöst, wenn die Dokumentansicht das Blättern abgeschlossen hat.
+  - : Wird ausgelöst, wenn die Dokumentansicht das Scrollen abgeschlossen hat.
 - [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) {{experimental_inline}}
-  - : Wird am Scroll-Container am Ende eines Scroll-Vorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wurde.
+  - : Wird am Scrollcontainer am Ende eines Scrollvorgangs ausgelöst, wenn ein neues Snap-Ziel ausgewählt wurde.
 - [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) {{experimental_inline}}
-  - : Wird am Scroll-Container ausgelöst, wenn der Browser erkennt, dass ein neues Scroll-Snap-Ziel ansteht, d.h. es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
+  - : Wird am Scrollcontainer ausgelöst, wenn der Browser feststellt, dass ein neues Snap-Ziel ansteht, d.h. dass es ausgewählt wird, wenn die aktuelle Scrollgeste endet.
 
 ### Berührungsereignisse
 
 - [`gesturechange`](/de/docs/Web/API/Element/gesturechange_event) {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn Finger während einer Berührungsgeste bewegt werden.
+  - : Wird ausgelöst, wenn sich die Finger während einer Berührungsgeste bewegen.
 - [`gestureend`](/de/docs/Web/API/Element/gestureend_event) {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn keine Finger mehr die Berührungsoberfläche berühren und die Geste somit beendet wird.
+  - : Wird ausgelöst, wenn keine Finger mehr die Berührungsoberfläche berühren und dadurch die Geste endet.
 - [`gesturestart`](/de/docs/Web/API/Element/gesturestart_event) {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn mehrere Finger die Berührungsoberfläche berühren und somit eine neue Geste starten.
+  - : Wird ausgelöst, wenn mehrere Finger die Berührungsoberfläche berühren und dadurch eine neue Geste beginnt.
 - [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)
-  - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf eine implementationsspezifische Weise unterbrochen wurden (beispielsweise, wenn zu viele Berührungspunkte erstellt werden).
+  - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte in einer Implementierungsspezifischen Weise (zum Beispiel wenn zu viele Berührungspunkte erstellt werden) unterbrochen worden sind.
 - [`touchend`](/de/docs/Web/API/Element/touchend_event)
   - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte von der Berührungsoberfläche entfernt werden.
 - [`touchmove`](/de/docs/Web/API/Element/touchmove_event)
   - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte entlang der Berührungsoberfläche bewegt werden.
 - [`touchstart`](/de/docs/Web/API/Element/touchstart_event)
-  - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf der Berührungsoberfläche platziert werden.
+  - : Wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf die Berührungsoberfläche gelegt werden.
 
-### Übergangsereignisse
+### Transition-Ereignisse
 
 - [`transitioncancel`](/de/docs/Web/API/Element/transitioncancel_event)
-  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/Guides/Transitions) abgebrochen wurde.
+  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions) abgebrochen wird.
 - [`transitionend`](/de/docs/Web/API/Element/transitionend_event)
-  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/Guides/Transitions) seine Wiedergabe abgeschlossen hat.
+  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions) das Abspielen abgeschlossen hat.
 - [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event)
-  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/Guides/Transitions) erstellt wird (d.h. wenn es zu einer Menge laufender Übergänge hinzugefügt wird), jedoch nicht notwendigerweise gestartet ist.
+  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions) erstellt wird (d.h. wenn sie zu einem Satz laufender Übergänge hinzugefügt wird), jedoch nicht unbedingt gestartet wird.
 - [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event)
-  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn ein [CSS-Übergang](/de/docs/Web/CSS/Guides/Transitions) gestartet wurde.
+  - : Ein [`Event`](/de/docs/Web/API/Event), das ausgelöst wird, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions) das Überblenden beginnt.
 
 ## Spezifikationen
 

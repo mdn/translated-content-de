@@ -1,11 +1,12 @@
 ---
-title: skew()
+title: "`skew()` CSS-Funktion"
+short-title: skew()
 slug: Web/CSS/Reference/Values/transform-function/skew
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene kippt. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element in der 2D-Ebene schräg stellt. Sein Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: skew()")}}
 
@@ -35,9 +36,9 @@ transform: skew(0.312rad);
 </section>
 ```
 
-Diese Transformation ist eine Scherung ([Transvektierung](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in horizontaler und vertikaler Richtung verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und entlang eines bestimmten Winkels ziehen.
+Diese Transformation ist eine Scherspiegelung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in horizontaler und vertikaler Richtung verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und entlang eines bestimmten Winkels ziehen würden.
 
-Die Koordinaten jedes Punktes werden durch einen Wert geändert, der proportional zum angegebenen Winkel und zur Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
+Die Koordinaten jedes Punktes werden um einen Wert geändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der Wert, der ihm hinzugefügt wird.
 
 ## Syntax
 
@@ -50,9 +51,9 @@ skew(ax, ay)
 ### Werte
 
 - `ax`
-  - : Ist ein {{cssxref("angle")}}, der den Winkel repräsentiert, der verwendet wird, um das Element entlang der x-Achse zu verzerren.
+  - : Ist ein {{cssxref("angle")}}, der den Winkel repräsentiert, mit dem das Element entlang der x-Achse verzerrt wird.
 - `ay` {{optional_inline}}
-  - : Ist ein {{cssxref("angle")}}, der den Winkel repräsentiert, der verwendet wird, um das Element entlang der y-Achse zu verzerren. Wenn nicht definiert, ist der Standardwert `0`, was zu einer rein horizontalen Verzerrung führt.
+  - : Ist ein {{cssxref("angle")}}, der den Winkel repräsentiert, mit dem das Element entlang der y-Achse verzerrt wird. Wenn nicht definiert, beträgt der Standardwert `0`, was zu einer rein horizontalen Verzerrung führt.
 
 <table class="standard-table">
   <thead>
@@ -98,7 +99,7 @@ skew(ax, ay)
 
 ## Beispiele
 
-### Kippen nur auf der x-Achse
+### Schrägstellung nur auf der x-Achse
 
 #### HTML
 
@@ -130,7 +131,7 @@ div {
 
 {{EmbedLiveSample("Skewing_on_the_x-axis_only", 200, 200)}}
 
-### Kippen auf beiden Achsen
+### Schrägstellung auf beiden Achsen
 
 #### HTML
 
@@ -176,8 +177,8 @@ div {
 - {{cssxref("&lt;transform-function&gt;")}}
 - [skewX()](/de/docs/Web/CSS/Reference/Values/transform-function/skewX)
 - [skewY()](/de/docs/Web/CSS/Reference/Values/transform-function/skewY)
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew` Eigenschaft
+  - Hinweis: Es gibt keine `skew`-Eigenschaft

@@ -1,11 +1,12 @@
 ---
-title: justify-self
+title: "`justify-self` CSS property"
+short-title: justify-self
 slug: Web/CSS/Reference/Properties/justify-self
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die [CSS](/de/docs/Web/CSS) **`justify-self`**-Eigenschaft legt fest, wie ein Kästchen entlang der entsprechenden Achse innerhalb seines Ausrichtungscontainers gerechtfertigt wird.
+Die [CSS](/de/docs/Web/CSS) **`justify-self`**-Eigenschaft legt die Ausrichtung einer Box innerhalb ihres Ausrichtungscontainers entlang der entsprechenden Achse fest.
 
 {{InteractiveExample("CSS Demo: justify-self")}}
 
@@ -51,13 +52,13 @@ justify-self: end;
 }
 ```
 
-Die Wirkung dieser Eigenschaft hängt vom verwendeten Layoutmodus ab:
+Die Wirkung dieser Eigenschaft hängt vom verwendeten Layout-Modus ab:
 
-- In Block-Level-Layouts richtet sie ein Element innerhalb seines umgebenden Blocks auf der Inline-Achse aus.
-- Für absolut positionierte Elemente richtet sie ein Element innerhalb seines umgebenden Blocks auf der Inline-Achse aus, unter Berücksichtigung der Offset-Werte von oben, links, unten und rechts.
-- In Tabellenzellen-Layouts wird diese Eigenschaft _ignoriert_. Lesen Sie mehr über die [Ausrichtung in Block-, absolut positionierten und Tabellen-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables).
-- In Flexbox-Layouts wird diese Eigenschaft _ignoriert_. Lesen Sie mehr über die [Ausrichtung in Flexbox-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox).
-- In Grid-Layouts richtet sie ein Element innerhalb seines Gitterbereichs auf der Inline-Achse aus. Lesen Sie mehr über die [Ausrichtung in Grid-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout).
+- In block-level Layouts richtet sie ein Element innerhalb seines umgebenden Blocks auf der Inline-Achse aus.
+- Für absolut positionierte Elemente richtet sie ein Element innerhalb seines umgebenden Blocks auf der Inline-Achse aus und berücksichtigt dabei die Versatzwerte von top, left, bottom und right.
+- In Tabellenzell-Layouts wird diese Eigenschaft _ignoriert_. Lesen Sie mehr über [Ausrichtung in Block-, absolut positionierten und Tabellen-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables).
+- In Flexbox-Layouts wird diese Eigenschaft _ignoriert_. Lesen Sie mehr über [Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox).
+- In Grid-Layouts richtet sie ein Element innerhalb seines Grid-Bereichs auf der Inline-Achse aus. Lesen Sie mehr über [Ausrichtung in Grid-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout).
 
 ## Syntax
 
@@ -99,50 +100,50 @@ justify-self: unset;
 Diese Eigenschaft kann eine von drei verschiedenen Formen annehmen:
 
 - Grundlegende Schlüsselwörter: eines der Schlüsselwortwerte `normal`, `auto` oder `stretch`.
-- Baseline-Ausrichtung: das Schlüsselwort `baseline` plus optional eines von `first` oder `last`.
-- Positionale Ausrichtung:
-  - eines von: `center`, `start`, `end`, `flex-start`, `flex-end`, `self-start`, `self-end`, `left` oder `right`.
-  - Plus optional `safe` oder `unsafe`.
+- Grundlinienausrichtung: das `baseline` Schlüsselwort, optional mit `first` oder `last`.
+- Positionelle Ausrichtung:
+  - eines von: `center`, `start`, `end`, `flex-start`, `flex-end`, `self-start`, `self-end`, `left`, oder `right`.
+  - Optional `safe` oder `unsafe`.
 
 ### Werte
 
 - `auto`
-  - : Der verwendete Wert ist der Wert der `justify-items`-Eigenschaft des übergeordneten Elements, es sei denn, das Element hat kein übergeordnetes Element oder ist absolut positioniert; in diesen Fällen repräsentiert `auto` `normal`.
+  - : Der verwendete Wert ist der Wert der `justify-items`-Eigenschaft des übergeordneten Blocks, es sei denn, der Block hat keinen übergeordneten oder ist absolut positioniert. In diesen Fällen entspricht `auto` `normal`.
 - `normal`
-  - : Die Wirkung dieses Schlüsselworts hängt vom verwendeten Layoutmodus ab:
-    - In Block-Level-Layouts ist das Schlüsselwort ein Synonym für `start`.
+  - : Die Wirkung dieses Schlüsselwortes hängt vom verwendeten Layout-Modus ab:
+    - In block-level Layouts ist das Schlüsselwort ein Synonym für `start`.
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
-    - In Tabellenzellen-Layouts hat dieses Schlüsselwort keine Bedeutung, da diese Eigenschaft _ignoriert_ wird.
+    - In Tabellenzell-Layouts hat dieses Schlüsselwort keine Bedeutung, da diese Eigenschaft _ignoriert_ wird.
     - In Flexbox-Layouts hat dieses Schlüsselwort keine Bedeutung, da diese Eigenschaft _ignoriert_ wird.
-    - In Grid-Layouts führt dieses Schlüsselwort zu einem Verhalten ähnlich `stretch`, außer bei Boxen mit einem Seitenverhältnis oder einer intrinsischen Größe, wo es sich wie `start` verhält.
+    - In Grid-Layouts führt dieses Schlüsselwort zu einem ähnlichen Verhalten wie `stretch`, außer bei Boxen mit einem Seitenverhältnis oder einer intrinsischen Größe, wo es sich wie `start` verhält.
 
 - `start`
-  - : Das Element wird bündig aufeinander zu den Startkanten des Ausrichtungscontainers in der entsprechenden Achse gepackt.
+  - : Das Element wird bündig zum Startpunkt des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 - `end`
-  - : Das Element wird bündig aufeinander zu den Endkanten des Ausrichtungscontainers in der entsprechenden Achse gepackt.
+  - : Das Element wird bündig zum Endpunkt des Ausrichtungscontainers auf der entsprechenden Achse gepackt.
 - `flex-start`
-  - : Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
+  - : Für Elemente, die keine Kinder eines flex Containers sind, wird dieser Wert wie `start` behandelt.
 - `flex-end`
-  - : Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
+  - : Für Elemente, die keine Kinder eines flex Containers sind, wird dieser Wert wie `end` behandelt.
 - `self-start`
-  - : Das Element wird bündig zur Kante des Ausrichtungscontainers auf der Startseite des Elements gepackt, in der entsprechenden Achse.
+  - : Das Element wird bündig zur Kante des Ausrichtungscontainers der Startseite des Elements auf der entsprechenden Achse gepackt.
 - `self-end`
-  - : Das Element wird bündig zur Kante des Ausrichtungscontainers auf der Endseite des Elements gepackt, in der entsprechenden Achse.
+  - : Das Element wird bündig zur Kante des Ausrichtungscontainers der Endseite des Elements auf der entsprechenden Achse gepackt.
 - `center`
-  - : Die Elemente werden bündig aufeinander zur Mitte des Ausrichtungscontainers gepackt.
+  - : Die Elemente werden bündig zueinander in der Mitte des Ausrichtungscontainers gepackt.
 - `left`
-  - : Die Elemente werden bündig aufeinander zur linken Kante des Ausrichtungscontainers gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente werden bündig zueinander an der linken Kante des Ausrichtungscontainers gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
 - `right`
-  - : Die Elemente werden bündig aufeinander zur rechten Kante des Ausrichtungscontainers in der entsprechenden Achse gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente werden bündig zueinander an der rechten Kante des Ausrichtungscontainers auf der entsprechenden Achse gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
 - `baseline`, `first baseline`, `last baseline`
-  - : Gibt die Teilnahme an der Ausrichtung der ersten oder letzten Baseline an: richtet die Ausrichtungsbaseline der ersten oder letzten Baseline-Gruppe der Box mit der entsprechenden Baseline in der gemeinsamen ersten oder letzten Baseline-Gruppe aller Boxen in ihrer Baseline-Teilungsgruppe aus.
-    Die Fallback-Ausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
+  - : Gibt die Teilnahme an der ersten oder letzten Grundlinienausrichtung an: richtet die Ausrichtungsgrundlinie des ersten oder letzten Grundliniensets der Box mit der entsprechenden Grundlinie im gemeinsamen ersten oder letzten Grundlinienset aller Boxen in ihrer Grundlinien-Austauschgruppe aus.
+    Die Ersatzausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
 - `stretch`
-  - : Wenn die kombinierte Größe der Elemente kleiner ist als die Größe des Ausrichtungscontainers, werden alle `auto`-großen Elemente gleichermaßen vergrößert (nicht proportional), während weiterhin die durch {{CSSxRef("max-height")}}/{{CSSxRef("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe den Ausrichtungscontainer genau füllt.
+  - : Wenn die kombinierte Größe der Elemente kleiner ist als die Größe des Ausrichtungscontainers, wird die Größe aller `auto`-großen Elemente gleichmäßig (nicht proportional) erhöht, unter Beachtung der durch {{CSSxRef("max-height")}}/{{CSSxRef("max-width")}} (oder gleichwertige Funktionen) auferlegten Beschränkungen, sodass die kombinierte Größe den Ausrichtungscontainer genau ausfüllt.
 - `anchor-center`
-  - : Im Fall von [ankerpositionierten](/de/docs/Web/CSS/Guides/Anchor_positioning) Elementen richtet es das Element in der Inline-Richtung zum Zentrum des zugehörigen Ankerelements aus. Siehe [Zentrieren am Anker mit `anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
+  - : Im Fall von [anker-positionierten](/de/docs/Web/CSS/Guides/Anchor_positioning) Elementen richtet dieses Element das Element in der Inline-Richtung zum Zentrum des zugehörigen Ankerelements aus. Siehe [Zentrierung am Anker mit `anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 - `safe`
-  - : Wenn die Größe des Elements den Ausrichtungscontainer überläuft, wird das Element stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
+  - : Wenn die Größe des Elements den Ausrichtungscontainer überläuft, wird das Element stattdessen ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
 - `unsafe`
   - : Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers wird der gegebene Ausrichtungswert eingehalten.
 
@@ -158,9 +159,9 @@ Diese Eigenschaft kann eine von drei verschiedenen Formen annehmen:
 
 ### Grundlegende Demonstration
 
-Im folgenden Beispiel haben wir ein 2 x 2-Rasterlayout. Zunächst wird dem Rastercontainer der `justify-items`-Wert `stretch` — der Standardwert — zugewiesen, wodurch die Rasterelemente über die gesamte Breite ihrer Zellen gestreckt werden.
+Im folgenden Beispiel haben wir ein 2 x 2 Grid-Layout. Zunächst erhält der Grid-Container einen `justify-items` Wert von `stretch` — der Standard —, der bewirkt, dass sich die Grid-Elemente über die gesamte Breite ihrer Zellen strecken.
 
-Die zweiten, dritten und vierten Rasterelemente erhalten dann unterschiedliche Werte von `justify-self`, um zu zeigen, wie diese den `justify-items`-Wert überschreiben. Diese Werte bewirken, dass die Rasterelemente nur so breit wie ihre Inhaltsbreite spannen und sich in unterschiedlichen Positionen innerhalb ihrer Zellen ausrichten.
+Die zweiten, dritten und vierten Grid-Elemente erhalten dann unterschiedliche Werte von `justify-self`, um zu zeigen, wie diese den `justify-items` Wert überschreiben. Diese Werte führen dazu, dass die Grid-Elemente nur so breit wie ihre Inhaltsbreite sind und an verschiedenen Positionen in ihren Zellen ausgerichtet werden.
 
 #### HTML
 
@@ -232,7 +233,7 @@ span {
 
 ## Siehe auch
 
-- [Box-Ausrichtung in Grid-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
+- [Box-Ausrichtung in Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
 - [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
 - {{CSSxRef("justify-items")}}
 - {{cssxref("align-self")}}

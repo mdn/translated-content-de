@@ -1,16 +1,17 @@
 ---
-title: ::-moz-range-track
+title: "`::-moz-range-track` CSS pseudo-element"
+short-title: ::-moz-range-track
 slug: Web/CSS/Reference/Selectors/::-moz-range-track
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die die _Spur_ (d.h. die Rille) darstellt, in der der Indikator in einem {{HTMLElement("input")}} mit `type="range"` gleitet.
+Das **`::-moz-range-track`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die die _Spur_ (d.h. die Nut) repräsentiert, in der der Indikator in einem {{HTMLElement("input")}} vom `type="range"` gleitet.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-range-track` mit allem außer einem `<input type="range">` trifft nichts und hat keine Wirkung.
+> Die Verwendung von `::-moz-range-track` mit etwas anderem als einem `<input type="range">` passt auf nichts und hat keine Wirkung.
 
 ## Syntax
 
@@ -40,13 +41,13 @@ input[type="range"]::-moz-range-track {
 
 {{EmbedLiveSample("Examples", 300, 50)}}
 
-Ein Bereichsregler mit diesem Stil könnte etwa so aussehen:
+Ein Bereichsschieberegler mit diesem Stil könnte ungefähr so aussehen:
 
-![Ein Bereich mit einer grünen Spur](screen_shot_2015-12-04_at_10.14.34.png)
+![Ein Bereich mit einem grünen Track](screen_shot_2015-12-04_at_10.14.34.png)
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -54,12 +55,12 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von Gecko verwendet werden, um andere Teile eines Bereichseingabe-Elements zu stylen:
-  - {{cssxref("::-moz-range-thumb")}} stellt den Indikator dar, der in der Rille gleitet.
-  - {{cssxref("::-moz-range-progress")}} stellt den unteren Teil der Spur dar.
+- Die Pseudoelemente, die von Gecko verwendet werden, um andere Teile eines Bereichs-Inputs zu stylen:
+  - {{cssxref("::-moz-range-thumb")}} repräsentiert den Indikator, der in der Nut gleitet.
+  - {{cssxref("::-moz-range-progress")}} repräsentiert den unteren Teil des Tracks.
 
-- Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
-  - {{cssxref("::-webkit-slider-runnable-track")}}, Pseudo-Element unterstützt von WebKit und Blink (Safari, Chrome und Opera)
+- Ähnliche Pseudoelemente, die von anderen Browsern verwendet werden:
+  - {{cssxref("::-webkit-slider-runnable-track")}}, Pseudoelement, das von WebKit und Blink unterstützt wird (Safari, Chrome und Opera).
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)

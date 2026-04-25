@@ -1,14 +1,15 @@
 ---
-title: fit-content
+title: "`fit-content` CSS-Schlüsselwort"
+short-title: fit-content
 slug: Web/CSS/Reference/Values/fit-content
 l10n:
-  sourceCommit: 1951d1dbe59ac6cd79ae0ec90697f764ab9c7ffd
+  sourceCommit: aaedffba9f47d6dce7967a4191963378026d9406
 ---
 
-Das Schlüsselwort `fit-content` repräsentiert eine Elementgröße, die sich an ihren Inhalt anpasst, wobei sie innerhalb der Grenzen ihres Containers bleibt. Das Schlüsselwort stellt sicher, dass das Element nie kleiner als seine minimale intrinsische Größe ({{cssxref("min-content")}}) oder größer als seine maximale intrinsische Größe ({{cssxref("max-content")}}) ist.
+Das `fit-content` Größenschlüsselwort steht für eine Elementgröße, die sich an ihren Inhalt anpasst, während sie innerhalb der Grenzen ihres Containers bleibt. Das Schlüsselwort stellt sicher, dass das Element niemals kleiner als seine minimale intrinsische Größe ({{cssxref("min-content")}}) oder größer als seine maximale intrinsische Größe ({{cssxref("max-content")}}) ist.
 
 > [!NOTE]
-> Dieses Schlüsselwort unterscheidet sich von der Funktion {{cssxref("fit-content()")}}. Die Funktion wird für die Größenbestimmung von Gittern verwendet (zum Beispiel in {{cssxref("grid-template-columns")}} und {{cssxref("grid-auto-rows")}}) und für die Größenbestimmung von gestalteten Boxen für Eigenschaften wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}} und {{cssxref("max-height")}}.
+> Dieses Schlüsselwort unterscheidet sich von der {{cssxref("fit-content()")}} Funktion. Die Funktion wird für die Größenbestimmung von Rasterspuren verwendet (zum Beispiel in {{cssxref("grid-template-columns")}} und {{cssxref("grid-auto-rows")}}) und für die Berechnung der Boxgröße bei Eigenschaften wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}} und {{cssxref("max-height")}}.
 
 ## Syntax
 
@@ -22,23 +23,23 @@ block-size: fit-content;
 
 ## Beschreibung
 
-Dieses Schlüsselwort wird mit Größeneigenschaften wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("block-size")}}, {{cssxref("inline-size")}}, {{cssxref("min-width")}} und {{cssxref("max-width")}} verwendet. Wenn es auf diese Eigenschaften angewendet wird, bezieht sich die berechnete Größe auf den [Inhaltsbereich](/de/docs/Web/CSS/Reference/Values/box-edge#content-box) des Elements.
+Dieses Schlüsselwort wird mit Größeneigenschaften wie {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("block-size")}}, {{cssxref("inline-size")}}, {{cssxref("min-width")}} und {{cssxref("max-width")}} verwendet. Wenn es bei diesen Eigenschaften verwendet wird, bezieht sich die berechnete Größe auf die [Inhaltsbox](/de/docs/Web/CSS/Reference/Values/box-edge#content-box) des Elements.
 
-Wenn `fit-content` eingestellt ist, wächst oder schrumpft das Element, um seinem Inhalt zu entsprechen, hört jedoch auf zu expandieren, nachdem die relevante Dimension die Größenbegrenzung seines Containers erreicht hat.
+Wenn `fit-content` gesetzt ist, wächst oder schrumpft das Element, um seinem Inhalt zu entsprechen, hört jedoch auf sich zu vergrößern, nachdem die relevante Dimension die Größenbegrenzung seines Containers erreicht hat.
 
-Die `fit-content`-Größe wird mit der folgenden Formel berechnet:
+Die `fit-content` Größe wird mit der folgenden Formel berechnet:
 
 ```plain
 min(max-content, max(min-content, stretch))
 ```
 
-wobei [`stretch`](/de/docs/Web/CSS/Reference/Properties/width#stretch) den [Randbereich](/de/docs/Web/CSS/Reference/Values/box-edge#margin-box) des Elements an die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block) anpasst. Das Schlüsselwort ist im Wesentlichen gleichbedeutend mit `fit-content(stretch)`.
+wobei [`stretch`](/de/docs/Web/CSS/Reference/Properties/width#stretch) die [Randbox](/de/docs/Web/CSS/Reference/Values/box-edge#margin-box) des Elements mit der Breite seines [Enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block) abgleicht. Das Schlüsselwort ist im Wesentlichen gleichbedeutend mit `fit-content(stretch)`.
 
-Sie können Animationen zu und von `fit-content` mit der Eigenschaft {{cssxref("interpolate-size")}} und der Funktion {{cssxref("calc-size()")}} aktivieren.
+Sie können Animationen zu und von `fit-content` mit der {{cssxref("interpolate-size")}} Eigenschaft und der {{cssxref("calc-size()")}} Funktion aktivieren.
 
 ## Beispiele
 
-### Größenbestimmung von Boxen mit fit-content
+### Größe von Boxen mit fit-content
 
 #### HTML
 

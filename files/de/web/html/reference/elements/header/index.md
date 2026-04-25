@@ -1,11 +1,12 @@
 ---
-title: "<header>: Das Header-Element"
+title: "`<header>` HTML-Header-Element"
+short-title: <header>
 slug: Web/HTML/Reference/Elements/header
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<header>`**-Element in [HTML](/de/docs/Web/HTML) stellt einleitende Inhalte dar, typischerweise eine Gruppe von einleitenden oder Navigationshilfen. Es kann einige Überschriftselemente enthalten, aber auch ein Logo, ein Suchformular, den Namen des Autors und andere Elemente.
+Das **`<header>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einleitende Inhalte, typischerweise eine Gruppe von einleitenden oder navigativen Hilfsmitteln. Es kann einige Überschriftenelemente enthalten, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente.
 
 {{InteractiveExample("HTML Demo: &lt;header&gt;", "tabbed-standard")}}
 
@@ -50,15 +51,15 @@ header > time {
 }
 ```
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Wenn es nicht innerhalb von [sectionspezifischem Inhalt](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content), {{htmlelement("main")}} oder einem Element mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente geschachtelt ist, hat das `<header>`-Element dieselbe Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmarken-Rolle. Es definiert ein globales Seiten-Header, das normalerweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan enthält. Es befindet sich in der Regel am oberen Rand der Seite.
+Wenn es nicht in [sektionsbildenden Inhalten](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content), {{htmlelement("main")}} oder in einem Element mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente verschachtelt ist, dann hat das `<header>`-Element die gleiche Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)-Landmarkenrolle. Es definiert einen globalen Seitenkopf, der normalerweise ein Logo, den Firmennamen, die Suchfunktion und möglicherweise die globale Navigation oder einen Slogan enthält. Es befindet sich in der Regel am oberen Rand der Seite.
 
-Andernfalls, wenn es innerhalb der genannten Elemente geschachtelt ist, verliert es seinen Landmarken-Status und stellt eine Gruppe von einleitenden oder navigativen Hilfen für den umgebenden Abschnitt dar. Es enthält normalerweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, aber dies ist **nicht** erforderlich.
+Andernfalls, wenn es in den genannten Elementen verschachtelt ist, verliert es seinen Landmarkenstatus und stellt eine Gruppe von einleitenden oder navigativen Hilfselementen für den umgebenden Abschnitt dar. Es enthält normalerweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, aber dies ist **nicht** erforderlich.
 
 ### Historische Nutzung
 
-Das `<header>`-Element existierte ursprünglich ganz zu Beginn von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), wodurch `<header>` frei wurde, eine andere Rolle zu erfüllen.
+Das `<header>`-Element existierte ursprünglich ganz am Anfang von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), wodurch das `<header>`-Element frei war, eine andere Rolle zu übernehmen.
 
 ## Attribute
 
@@ -66,9 +67,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Barrierefreiheit
 
-Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmarke, wenn sein Kontext das {{HTMLElement('body')}} Element ist.
+Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)-Landmarke, wenn sein Kontext das {{HTMLElement('body')}}-Element ist.
 
-Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{HTMLElement('section')}}, {{HTMLElement('nav')}}, {{HTMLElement('aside')}} oder eines Elements mit derselben ARIA-Rolle als die implizite ARIA-Rolle dieser Elemente platziert wird, hat das `<header>`-Element stattdessen die [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role) Rolle und wird nicht mehr als Landmarke betrachtet. In diesem Fall kann es nicht mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) gekennzeichnet werden.
+Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{HTMLElement('section')}}, {{HTMLElement('nav')}}, {{HTMLElement('aside')}} oder eines Elements mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente platziert wird, hat das `<header>`-Element stattdessen die [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role)-Rolle und gilt nicht mehr als Landmarke. In diesem Fall kann es nicht mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) beschriftet werden.
 
 ## Beispiele
 
@@ -122,42 +123,42 @@ Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{H
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >wahrnehmbarer Inhalt</a
+          >fühlbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        >, jedoch ohne <code>&#x3C;header></code> oder
-        {{HTMLElement("footer")}} Nachkommen.
+        >, jedoch ohne <code>&#x3C;header></code>- oder
+        {{HTMLElement("footer")}}-Nachkommen.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind verpflichtend.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
           >Flussinhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>-Element nicht ein
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>-Element kein
         Nachkomme eines {{HTMLElement("address")}},
-        {{HTMLElement("footer")}} oder eines weiteren
+        {{HTMLElement("footer")}} oder eines anderen
         <code>&lt;header&gt;</code>-Elements sein darf.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role">banner</a
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role">Banner</a
         >, oder
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-          >generic</a
+          >generisch</a
         >
         wenn ein Nachkomme eines
         <code><a href="/de/docs/Web/HTML/Reference/Elements/article">article</a></code
@@ -165,7 +166,7 @@ Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{H
         >, <code><a href="/de/docs/Web/HTML/Reference/Elements/main">main</a></code
         >, <code><a href="/de/docs/Web/HTML/Reference/Elements/nav">nav</a></code> oder
         <code><a href="/de/docs/Web/HTML/Reference/Elements/section">section</a></code>
-        Elements oder eines Elements mit
+        -Elements, oder eines Elements mit
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role"
             >article</a
@@ -191,11 +192,11 @@ Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{H
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/region_role"
             >region</a
           ></code
-        > Rolle
+        >-Rolle
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>

@@ -1,8 +1,9 @@
 ---
-title: :last-child
+title: "`:last-child` CSS-Pseudoklasse"
+short-title: :last-child
 slug: Web/CSS/Reference/Selectors/:last-child
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das letzte Element innerhalb einer Gruppe von Geschwisterelementen.
@@ -83,7 +84,7 @@ p:last-child {
 
 {{EmbedLiveSample('Basic_example', 500, 200)}}
 
-### Eine Liste stylen
+### Stylen einer Liste
 
 #### HTML
 

@@ -1,13 +1,14 @@
 ---
-title: animation-iteration-count
+title: "`animation-iteration-count` CSS property"
+short-title: animation-iteration-count
 slug: Web/CSS/Reference/Properties/animation-iteration-count
 l10n:
-  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 Die **`animation-iteration-count`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie oft eine Animationssequenz abgespielt werden soll, bevor sie stoppt.
 
-Es ist oft praktisch, die Kurzschreibweise der Eigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
 {{InteractiveExample("CSS Demo: animation-iteration-count")}}
 
@@ -130,15 +131,15 @@ Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch 
 ### Werte
 
 - `infinite`
-  - : Die Animation wird endlos wiederholt.
+  - : Die Animation wird unendlich oft wiederholt.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Wiederholungen der Animation; standardmäßig ist dies `1`. Nicht-ganzzahlige Werte können angegeben werden, um einen Teil eines Animationszyklus abzuspielen: Zum Beispiel spielt `0.5` die Hälfte des Animationszyklus ab. Negative Werte sind ungültig.
+  - : Die Anzahl, wie oft die Animation wiederholt wird; standardmäßig ist dies `1`. Sie können nicht ganzzahlige Werte angeben, um Teile eines Animationszyklus abzuspielen: zum Beispiel wird `0.5` die Hälfte des Animationszyklus abspielen. Negative Werte sind ungültig.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden diese den Animationen in der Reihenfolge zugewiesen, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Mehrere Animationswerte festlegen](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s auftauchen. Für Fälle, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/Guide/Animations/Using#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Wenn Sie [scrollgesteuerte CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) erstellen, führt die Angabe einer `animation-iteration-count` dazu, dass die Animation so oft wiederholt wird, wie es im Verlauf der Zeitleiste angegeben ist. Wenn kein `animation-iteration-count` angegeben ist, wird die Animation nur einmal ausgeführt. `infinite` ist ein gültiger Wert für scrollgesteuerte Animationen, führt jedoch zu einer Animation, die nicht funktioniert.
+> Bei der Erstellung von [Scroll-gesteuerten CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) führt die Angabe einer `animation-iteration-count` dazu, dass die Animation so oft wiederholt wird, wie der Zeitverlauf es zulässt. Wenn keine `animation-iteration-count` angegeben ist, wird die Animation nur einmal ausgeführt. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, führt jedoch zu einer Animation, die nicht funktioniert.
 
 ## Formale Definition
 
@@ -150,9 +151,9 @@ Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch 
 
 ## Beispiele
 
-### Wiederholungsanzahl festlegen
+### Festlegen der Wiederholungsanzahl
 
-Diese Animation wird 10 Mal ausgeführt.
+Diese Animation wird 10 Mal ablaufen.
 
 #### HTML
 

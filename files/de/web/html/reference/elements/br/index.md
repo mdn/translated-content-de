@@ -1,11 +1,12 @@
 ---
-title: "<br>: Das Zeilenumbruch-Element"
+title: "`<br>` HTML-Zeilenumbruch-Element"
+short-title: <br>
 slug: Web/HTML/Reference/Elements/br
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<br>`**-[HTML](/de/docs/Web/HTML)-Element erzeugt einen Zeilenumbruch im Text (Zeilenrücklauf). Es ist nützlich zum Schreiben eines Gedichts oder einer Adresse, wo die Aufteilung der Zeilen von Bedeutung ist.
+Das **`<br>`** [HTML](/de/docs/Web/HTML)-Element erzeugt einen Zeilenumbruch im Text (Carriage-Return). Es ist nützlich zum Schreiben eines Gedichts oder einer Adresse, wo die Aufteilung der Zeilen wichtig ist.
 
 {{InteractiveExample("HTML Demo: &lt;br&gt;", "tabbed-standard")}}
 
@@ -30,10 +31,10 @@ p {
 }
 ```
 
-Wie Sie aus dem obigen Beispiel sehen können, wird ein `<br>`-Element an jeder Stelle eingefügt, an der wir den Text umbrechen möchten. Der Text nach dem `<br>` beginnt wieder am Anfang der nächsten Zeile des Textblocks.
+Wie Sie im obigen Beispiel sehen können, wird ein `<br>`-Element an jedem Punkt eingefügt, an dem wir möchten, dass der Text bricht. Der Text nach dem `<br>` beginnt erneut am Anfang der nächsten Zeile des Textblocks.
 
 > [!NOTE]
-> Verwenden Sie `<br>` nicht, um Abstände zwischen Absätzen zu erstellen; umschließen Sie diese mit {{htmlelement("p")}}-Elementen und verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref('margin')}}-Eigenschaft, um deren Größe zu steuern.
+> Verwenden Sie `<br>` nicht, um Abstände zwischen Absätzen zu erstellen; umschließen Sie sie in {{htmlelement("p")}}-Elementen und verwenden Sie die [CSS](/de/docs/Web/CSS) {{cssxref('margin')}}-Eigenschaft, um deren Größe zu kontrollieren.
 
 ## Attribute
 
@@ -46,21 +47,21 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
 
 ## Styling mit CSS
 
-Das `<br>`-Element hat einen einzigen, klar definierten Zweck — einen Zeilenumbruch in einem Textblock zu erzeugen. Daher hat es selbst keine Dimensionen oder visuelle Ausgabe und es gibt nur sehr wenig, was Sie daran stylen können.
+Das `<br>`-Element hat einen einzigen, klar definierten Zweck – es erzeugt einen Zeilenumbruch in einem Textblock. Es hat daher keine eigenen Dimensionen oder visuelle Ausgabe, und es gibt sehr wenig, das Sie stylen können.
 
-Sie können auf `<br>`-Elementen selbst ein {{cssxref("margin")}} festlegen, um den Abstand zwischen den Zeilen des Textblocks zu vergrößern, aber das ist eine schlechte Praxis — Sie sollten die {{cssxref("line-height")}}-Eigenschaft verwenden, die für diesen Zweck entworfen wurde.
+Sie können ein {{cssxref("margin")}} auf `<br>`-Elementen selbst setzen, um den Abstand zwischen den Zeilen des Textblocks zu vergrößern, aber dies ist eine schlechte Praxis – Sie sollten die {{cssxref("line-height")}}-Eigenschaft verwenden, die für diesen Zweck konzipiert wurde.
 
 ## Barrierefreiheit
 
-Das Erstellen von getrennten Textabsätzen mit `<br>` ist nicht nur schlechte Praxis, sondern auch problematisch für Menschen, die mit Hilfe von Screenreader-Technologie navigieren. Screenreader können die Anwesenheit des Elements ankündigen, aber keinen innerhalb von `<br>`s enthaltenen Inhalt. Dies kann eine verwirrende und frustrierende Erfahrung für die Person sein, die den Screenreader verwendet.
+Das Erstellen separater Textabsätze mit `<br>` ist nicht nur schlechte Praxis, es ist auch problematisch für Personen, die mit Hilfe von Bildschirmlese-Technologie navigieren. Bildschirmleser können das Vorhandensein des Elements ankündigen, aber keinen Inhalt innerhalb von `<br>`s. Dies kann eine verwirrende und frustrierende Erfahrung für die Person sein, die den Bildschirmleser verwendet.
 
-Verwenden Sie `<p>`-Elemente und verwenden Sie CSS-Eigenschaften wie {{cssxref("margin")}}, um deren Abstände zu steuern.
+Verwenden Sie `<p>`-Elemente und verwenden Sie CSS-Eigenschaften wie {{cssxref("margin")}} zur Steuerung des Abstands.
 
 ## Beispiele
 
-### Einfaches br
+### Grundlegendes br
 
-Im folgenden Beispiel verwenden wir `<br>`-Elemente, um Zeilenumbrüche zwischen den verschiedenen Zeilen einer Postadresse zu erstellen:
+Im folgenden Beispiel verwenden wir `<br>`-Elemente, um Zeilenumbrüche zwischen den verschiedenen Zeilen einer Postanschrift zu erstellen:
 
 ```html
 Mozilla<br />
@@ -72,7 +73,7 @@ USA<br />
 
 #### Ergebnis
 
-{{EmbedLiveSample('Basic_br', 640, 120)}}
+{{ EmbedLiveSample('Basic_br', 640, 120) }}
 
 ## Technische Zusammenfassung
 
@@ -95,13 +96,12 @@ USA<br />
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Muss ein Start-Tag haben und darf keinen End-Tag haben. In XHTML-Dokumenten
-        schreiben Sie dieses Element als <code>&#x3C;br /></code>.
+        Muss einen Start-Tag haben und darf keinen End-Tag haben. In XHTML-Dokumenten wird dieses Element als <code>&#x3C;br /></code> geschrieben.
       </td>
     </tr>
     <tr>
@@ -114,7 +114,7 @@ USA<br />
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a

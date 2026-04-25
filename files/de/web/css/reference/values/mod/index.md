@@ -1,13 +1,14 @@
 ---
-title: mod()
+title: "`mod()` CSS-Funktion"
+short-title: mod()
 slug: Web/CSS/Reference/Values/mod
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
 Die **`mod()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt den Modulus zurück, der übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript [Restoperator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Der Modulus ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Er nimmt immer das Vorzeichen des Divisors an.
 
-Die Berechnung ist `a - (Math.floor(a / b) * b)`. Zum Beispiel gibt die CSS-Funktion `mod(21, -4)` den Rest von `-3` zurück. Die vollständige Berechnung ist `21 - (Math.floor(21 / -4) * -4)`. Beim Teilen von `21` durch `-4` ergibt sich `-5.25`. Dies wird auf `-6` abgerundet. Das Multiplizieren von `-6` mit `-4` ergibt `24`. Diese `24` von den ursprünglichen `21` subtrahiert, ergibt den Rest von `-3`.
+Die Berechnung ist `a - (Math.floor(a / b) * b)`. Zum Beispiel gibt die CSS-Funktion `mod(21, -4)` den Rest von `-3` zurück. Die vollständige Berechnung ist `21 - (Math.floor(21 / -4) * -4)`. Bei der Division von `21` durch `-4` ergibt sich das Ergebnis von `-5.25`. Dies wird auf `-6` abgerundet. Das Multiplizieren von `-6` mit `-4` ergibt `24`. Die Subtraktion dieses `24` vom ursprünglichen `21` ergibt einen Rest von -3.
 
 ## Syntax
 
@@ -38,17 +39,17 @@ transition-duration: mod(20s / 2, 3000ms * 2); /* 4s */
 
 ### Parameter
 
-Die Funktion `mod(dividend, divisor)` akzeptiert zwei durch Kommas getrennte Werte als Parameter. Beide Parameter müssen denselben Typ haben, [number](/de/docs/Web/CSS/Reference/Values/number), [dimension](/de/docs/Web/CSS/Reference/Values/dimension), oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten der beiden Parameter nicht identisch sein müssen, müssen sie vom gleichen Dimensionstyp sein, wie zum Beispiel {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}} damit sie gültig sind.
+Die Funktion `mod(dividend, divisor)` nimmt zwei durch Kommas getrennte Werte als Parameter an. Beide Parameter müssen denselben Typ haben, [Zahl](/de/docs/Web/CSS/Reference/Values/number), [Dimension](/de/docs/Web/CSS/Reference/Values/dimension), oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten der beiden Parameter nicht identisch sein müssen, müssen sie denselben Typ von Dimensionen, wie {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}} haben, um gültig zu sein.
 
 - `dividend`
-  - : Eine Berechnung, die sich auf ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Dividend darstellt.
+  - : Eine Berechnung, die zu einer {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} führt, die den Dividend darstellt.
 
 - `divisor`
-  - : Eine Berechnung, die sich auf ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Divisor darstellt.
+  - : Eine Berechnung, die zu einer {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} führt, die den Divisor darstellt.
 
 ### Rückgabewert
 
-Gibt ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} zurück (entspricht dem Typ der Parameter), der den Modulus darstellt, also den übrig gebliebenen Wert der Operation.
+Gibt eine {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} zurück (entspricht dem Typ der Parameter), die den Modulus darstellt, also den übrigen Teil der Operation.
 
 - Wenn `divisor` `0` ist, ist das Ergebnis `NaN`.
 - Wenn `dividend` unendlich ist, ist das Ergebnis `NaN`.

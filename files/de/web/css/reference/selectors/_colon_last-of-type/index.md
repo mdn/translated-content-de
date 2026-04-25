@@ -1,8 +1,9 @@
 ---
-title: :last-of-type
+title: "`:last-of-type` CSS-Pseudoklasse"
+short-title: :last-of-type
 slug: Web/CSS/Reference/Selectors/:last-of-type
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert das letzte Element seines Typs (Tag-Name) innerhalb einer Gruppe von Geschwisterelementen.
@@ -47,7 +48,7 @@ dd:last-of-type {
 
 ## Beispiele
 
-### Das letzte Absatz-Element stylen
+### Stil des letzten Absatzes
 
 #### HTML
 
@@ -72,7 +73,7 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie verschachtelte Elemente ebenfalls angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) (`*`) impliziert ist, wenn kein einfacher Selektor angegeben wird.
 
 #### HTML
 
@@ -102,7 +103,7 @@ article :last-of-type {
 
 ### Elemente mit mehreren Selektoren
 
-Dieses HTML-Beispiel enthält verschachtelte Elemente verschiedener Typen. Der CSS-Code enthält sowohl Typ-Selektoren als auch Klassen-Selektoren.
+Dieses HTML-Beispiel enthält verschachtelte Elemente verschiedener Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
 
 #### HTML
 
@@ -156,4 +157,4 @@ Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-
 
 ## Siehe auch
 
-- {{cssxref(":last-child")}}, {{cssxref(":nth-last-of-type")}}
+- {{cssxref(":last-child")}}, {{Cssxref(":nth-last-of-type")}}

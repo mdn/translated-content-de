@@ -1,11 +1,12 @@
 ---
-title: font-display
+title: "`font-display` CSS at-rule Descriptor"
+short-title: font-display
 slug: Web/CSS/Reference/At-rules/@font-face/font-display
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
 ---
 
-Der **`font-display`** Deskriptor für die {{cssxref("@font-face")}} At-Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Descriptor für die {{cssxref("@font-face")}} At-Regel bestimmt, wie eine Schriftart angezeigt wird, abhängig davon, ob und wann sie heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
@@ -23,25 +24,25 @@ font-display: optional;
 - `auto`
   - : Die Schriftanzeigestrategie wird durch den Benutzeragenten definiert.
 - `block`
-  - : Gibt dem Schriftschnitt eine kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Gibt dem Schriftbild eine kurze Blockperiode und eine unendliche Swap-Periode.
 - `swap`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und eine unendliche Swap-Periode.
 - `fallback`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine kurze Swap-Periode.
+  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und eine kurze Swap-Periode.
 - `optional`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und keine Swap-Periode.
+  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und keine Swap-Periode.
 
 > [!NOTE]
 > In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay`
-> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" und "extrem kurzen" Perioden an.
+> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" bzw. "extrem kurzen" Perioden an.
 
 ## Beschreibung
 
-Der Schriftanzeige-Zeitstrahl basiert auf einem Timer, der in dem Moment beginnt, wenn der Benutzeragent versucht, einen bestimmten heruntergeladenen Schriftschnitt zu verwenden. Der Zeitstrahl ist in die drei unten genannten Perioden unterteilt, die das Renderverhalten von Elementen bestimmen, die den Schriftschnitt nutzen:
+Die Schriftanzeige-Zeitlinie basiert auf einem Timer, der beginnt, sobald der Benutzeragent versucht, eine gegebene heruntergeladene Schriftart zu verwenden. Die Zeitlinie ist in die drei unten aufgeführten Perioden unterteilt, die das Darstellungsverhalten aller Elemente bestimmen, die die Schriftart verwenden:
 
-- Schrift-Blockperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden will, eine _unsichtbare_ Ersatzschrift rendern. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schrift-Swap-Periode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden will, eine Ersatzschrift rendern. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schrift-Fehlerperiode: Wenn der Schriftschnitt nicht geladen ist, behandelt der Benutzeragent ihn als fehlgeschlagenen Ladevorgang, was zum normalen Schriftfallback führt.
+- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das sie verwenden möchte, eine _unsichtbare_ Fallback-Schrift verwenden. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schrift-Swap-Periode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das sie verwenden möchte, eine Fallback-Schrift verwenden. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schrift-Ausfallperiode: Wenn die Schriftart nicht geladen ist, behandelt der Benutzeragent sie als fehlgeschlagenen Ladevorgang, was zu einem normalen Schrift-Fallback führt.
 
 ## Formale Definition
 

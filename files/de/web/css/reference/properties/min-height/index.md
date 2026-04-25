@@ -1,11 +1,12 @@
 ---
-title: min-height
+title: "`min-height` CSS property"
+short-title: min-height
 slug: Web/CSS/Reference/Properties/min-height
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`min-height`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Mindesthöhe eines Elements. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der {{cssxref("height")}} Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
+Die **`min-height`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Mindesthöhe eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der {{cssxref("height")}}-Eigenschaft kleiner wird als der für `min-height` angegebene Wert.
 
 {{InteractiveExample("CSS Demo: min-height")}}
 
@@ -88,12 +89,12 @@ min-height: unset;
 - {{cssxref("fit-content")}}
   - : Nutzt den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
-  - : Verwendet die `fit-content`-Formel mit dem verfügbaren Platz, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content`-Formel, wobei der verfügbare Raum durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-  - : Begrenz die Mindesthöhe der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox so zu füllen, dass sie den verfügbaren Raum im umgebenden Block ausfüllt, was ähnlich wie `100%` funktioniert, aber die resultierende Größe auf die Randbox anwendet statt auf die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmte Box.
+  - : Begrenzt die Mindesthöhe der [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe seines [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die margin box zu füllen, die im umgebenden Block verfügbar ist, wobei es sich auf eine Weise ähnlich wie `100%` verhält, aber die resultierende Größe auf die margin box und nicht auf die Box anwendet, die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
 
     > [!NOTE]
-    > Um die von Browsern verwendeten Aliase für den `stretch`-Wert und dessen Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um Aliase, die von Browsern für den Wert `stretch` verwendet werden, und deren Implementierungsstatus zu überprüfen, siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Formale Definition
 
@@ -105,7 +106,7 @@ min-height: unset;
 
 ## Beispiele
 
-### min-height setzen
+### Festlegung von min-height
 
 ```css
 table {
@@ -132,5 +133,5 @@ form {
 - {{cssxref("min-inline-size")}}
 - {{cssxref("min-block-size")}}
 - {{cssxref("box-sizing")}}
-- [Einführung in das CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
-- [CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
+- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul

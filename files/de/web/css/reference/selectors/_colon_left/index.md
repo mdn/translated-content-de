@@ -1,8 +1,9 @@
 ---
-title: :left
+title: "`:left` CSS-Pseudoklasse"
+short-title: :left
 slug: Web/CSS/Reference/Selectors/:left
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules), repräsentiert alle linken Seiten eines gedruckten Dokuments.
@@ -14,10 +15,10 @@ Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Referenc
 }
 ```
 
-Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptschreibrichtung des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptschreibrichtung von links-nach-rechts hat, wird sie eine {{Cssxref(":right")}} Seite sein; wenn sie eine Hauptschreibrichtung von rechts-nach-links hat, wird es eine `:left` Seite sein.
+Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Haupt-Schreibrichtung des Dokuments bestimmt. Beispielsweise, wenn die erste Seite eine Haupt-Schreibrichtung von links nach rechts hat, dann wird es eine {{Cssxref(":right")}} Seite sein; wenn sie eine Haupt-Schreibrichtung von rechts nach links hat, dann wird es eine `:left` Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} des _Seitenrahmens_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur der Seitenrahmen, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
 
 ## Syntax
 
@@ -29,7 +30,7 @@ Ob eine bestimmte Seite "left" oder "right" ist, wird durch die Hauptschreibrich
 
 ## Beispiele
 
-### Festlegen eines Randes für linke Seiten
+### Einen Rand für linke Seiten festlegen
 
 ```css
 @page :left {

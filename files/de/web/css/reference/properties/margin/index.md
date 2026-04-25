@@ -1,11 +1,12 @@
 ---
-title: margin
+title: "`margin` CSS-Eigenschaft"
+short-title: margin
 slug: Web/CSS/Reference/Properties/margin
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`margin`**-Kurzform-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den [Randbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) auf allen vier Seiten eines Elements fest.
+Die **`margin`** [CSS](/de/docs/Web/CSS) Kurzschreibweise legt den [Randbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#margin_area) auf allen vier Seiten eines Elements fest.
 
 {{InteractiveExample("CSS Demo: margin")}}
 
@@ -63,9 +64,9 @@ margin: 0;
 }
 ```
 
-## Zuordnende Eigenschaften
+## Bestandteil-Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("margin-top")}}
 - {{cssxref("margin-right")}}
@@ -104,39 +105,39 @@ margin: revert-layer;
 margin: unset;
 ```
 
-Die `margin`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}} oder das Schlüsselwort `auto`. Negative Werte ziehen das Element näher an seine Nachbarn als standardmäßig.
+Die `margin`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}}, ein {{cssxref("&lt;percentage&gt;")}}, oder das Schlüsselwort `auto`. Negative Werte ziehen das Element näher zu seinen Nachbarn, als es standardmäßig der Fall wäre.
 
-- Wenn **ein** Wert angegeben wird, gilt derselbe Rand für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Rand für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt der erste Rand für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Ränder für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben ist, gilt dieser für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben sind, gilt der erste für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben sind, gilt der erste für **oben**, der zweite für **rechts und links**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben sind, gelten die Werte für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("length")}}
   - : Die Größe des Randes als fester Wert.
-    - Bei _ankerpositionierten Elementen_ wird die {{cssxref("anchor-size()")}}-Funktion auf einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen der Elementrand basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+    - Bei _ankerpositionierten Elementen_ löst die Funktion {{cssxref("anchor-size()")}} in einen {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ auf (siehe [Festlegen des Randes basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("percentage")}}
-  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
+  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
-  - : Der Browser wählt einen geeigneten Rand zur Verwendung. Zum Beispiel kann dieser Wert in bestimmten Fällen verwendet werden, um ein Element zu zentrieren.
+  - : Der Browser wählt einen geeigneten Rand aus. Beispielsweise kann dieser Wert in bestimmten Fällen verwendet werden, um ein Element zu zentrieren.
 
 ## Beschreibung
 
-Diese Eigenschaft kann verwendet werden, um einen Rand auf allen vier Seiten eines Elements festzulegen. Ränder schaffen zusätzlichen Raum _um_ ein Element herum, im Gegensatz zu {{cssxref("padding")}}, welches zusätzlichen Platz _innerhalb_ eines Elements schafft.
+Diese Eigenschaft kann verwendet werden, um einen Rand auf allen vier Seiten eines Elements einzustellen. Ränder schaffen zusätzlichen Platz _um_ ein Element herum, im Gegensatz zu {{cssxref("padding")}}, das zusätzlichen Platz _innerhalb_ eines Elements schafft.
 
-Die oberen und unteren Ränder haben keine Auswirkungen auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inlinenelemente, wie etwa {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Die oberen und unteren Ränder haben keine Auswirkung auf _nicht-{{Glossary("Replaced_elements", "ersetzte")}}_ Inline-Elemente, wie zum Beispiel {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ### Horizontale Zentrierung
 
-Sie können ein Element horizontal innerhalb seines Elternteils zentrieren, indem Sie `margin: 0 auto;` einstellen.
+Sie können ein Element horizontal innerhalb seines Elternteils zentrieren, indem Sie `margin: 0 auto;` festlegen.
 
-Eine häufigere Methode, ein Element horizontal zu zentrieren, besteht darin, `display: flex;` und [`justify-content: center;`](/de/docs/Web/CSS/Reference/Properties/justify-content) auf einem Container einzustellen, der [seine Flex-Elemente zentriert](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items).
+Eine gebräuchlichere Methode, ein Element horizontal zu zentrieren, ist es, `display: flex;` und [`justify-content: center;`](/de/docs/Web/CSS/Reference/Properties/justify-content) auf einem Container festzulegen, wodurch [seine Flex-Element-Kinder](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) zentriert werden.
 
 ### Rand-Kollaps
 
-Obere und untere Ränder von Elementen werden manchmal zu einem einzigen Rand zusammengefasst, der dem größeren der beiden Ränder entspricht. Siehe [Mastering margin collapsing](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) für weitere Informationen.
+Die oberen und unteren Ränder von Elementen werden manchmal zu einem einzigen Rand zusammengefasst, der dem größeren der beiden Ränder entspricht. Weitere Informationen finden Sie unter [Meisterung der Randzusammenführung](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing).
 
 ## Formale Definition
 
@@ -214,7 +215,7 @@ margin: auto; /* top and bottom: 0 margin     */
 
 - {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
-- Kurzformen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
-- [Mastering margin collapsing](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
+- Kurzschreibweisen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
+- [Meisterung der Randzusammenführung](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
 - [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
 - [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul

@@ -1,16 +1,17 @@
 ---
-title: object-fit
+title: "`object-fit` CSS property"
+short-title: object-fit
 slug: Web/CSS/Reference/Properties/object-fit
 l10n:
-  sourceCommit: 113e0681c10e794aaf242faf50a152a1c7cd5d12
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`object-fit`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines {{Glossary("replaced_elements", "ersetzten Elements")}}, wie z.B. ein {{HTMLElement("img")}} oder {{HTMLElement("video")}}, in seiner Containerbox angepasst werden soll.
+Die CSS-Eigenschaft **`object-fit`** legt fest, wie der Inhalt eines {{Glossary("replaced_elements", "ausgetauschten Elements")}}, wie beispielsweise eines {{HTMLElement("img")}} oder {{HTMLElement("video")}}, angepasst werden soll, um in seinen Container zu passen.
 
 > [!NOTE]
-> Die `object-fit`-Eigenschaft hat keinen Effekt auf {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("fencedframe")}} Elemente.
+> Die `object-fit`-Eigenschaft hat keine Wirkung auf {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("fencedframe")}}-Elemente.
 
-Sie können die Ausrichtung des Inhaltsobjekts des ersetzten Elements innerhalb der Elementbox mit der {{cssxref("object-position")}}-Eigenschaft verändern.
+Sie können die Ausrichtung des Inhaltsobjekts des ausgetauschten Elements innerhalb des Elementrahmens mit der Eigenschaft {{cssxref("object-position")}} ändern.
 
 {{InteractiveExample("CSS Demo: object-fit")}}
 
@@ -68,20 +69,20 @@ object-fit: revert-layer;
 object-fit: unset;
 ```
 
-Die `object-fit`-Eigenschaft wird als ein einzelnes Schlüsselwort spezifiziert, das aus der untenstehenden Liste von Werten ausgewählt wird.
+Die `object-fit`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der unten stehenden Liste von Werten festgelegt.
 
 ### Werte
 
 - `contain`
-  - : Der ersetzte Inhalt wird skaliert, um sein {{Glossary("aspect_ratio", "Seitenverhältnis")}} beizubehalten, während er in die Content-Box des Elements passt. Das gesamte Objekt wird so angepasst, dass es die Box ausfüllt und dabei sein Seitenverhältnis beibehält. Daher wird das Objekt ["letterboxed"](<https://en.wikipedia.org/wiki/Letterboxing_(filming)>) oder ["pillarboxed"](https://en.wikipedia.org/wiki/Pillarbox), wenn sein Seitenverhältnis nicht mit dem der Box übereinstimmt.
+  - : Der ausgetauschte Inhalt wird skaliert, um sein {{Glossary("aspect_ratio", "Seitenverhältnis")}} beizubehalten und gleichzeitig in den Inhaltsrahmen des Elements zu passen. Das gesamte Objekt wird so angepasst, dass es den Rahmen ausfüllt, während sein Seitenverhältnis erhalten bleibt. Das Objekt wird ["letterboxed"](<https://en.wikipedia.org/wiki/Letterboxing_(filming)>) oder ["pillarboxed"](https://en.wikipedia.org/wiki/Pillarbox), wenn sein Seitenverhältnis nicht dem des Rahmens entspricht.
 - `cover`
-  - : Der ersetzte Inhalt wird so dimensioniert, dass er sein Seitenverhältnis beibehält und dabei die gesamte Content-Box des Elements ausfüllt. Wenn das Seitenverhältnis des Objekts nicht mit dem der Box übereinstimmt, wird das Objekt zugeschnitten, um zu passen.
+  - : Der ausgetauschte Inhalt wird so dimensioniert, dass er sein Seitenverhältnis beibehält, während er den gesamten Inhaltsrahmen des Elements ausfüllt. Wenn das Seitenverhältnis des Objekts nicht dem des Rahmens entspricht, wird das Objekt beschnitten, um zu passen.
 - `fill`
-  - : Der ersetzte Inhalt wird dimensioniert, um die Content-Box des Elements auszufüllen. Dies ist der {{cssxref("initial")}}-Wert. Das gesamte Objekt füllt komplett die Box aus. Wenn das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Objekts nicht mit dem der Box übereinstimmt, dann wird das Objekt angepasst, um zu passen.
+  - : Der ausgetauschte Inhalt wird dimensioniert, um den Inhaltsrahmen des Elements auszufüllen. Dies ist der {{cssxref("initial")}}-Wert. Das gesamte Objekt wird den Rahmen vollständig ausfüllen. Wenn das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Objekts nicht dem des Rahmens entspricht, wird das Objekt zum Anpassen gestreckt.
 - `none`
-  - : Der ersetzte Inhalt wird nicht angepasst.
+  - : Der ausgetauschte Inhalt wird nicht skaliert.
 - `scale-down`
-  - : Der Inhalt wird so dimensioniert, als ob `none` oder `contain` angegeben wäre, je nachdem, was in einer kleineren konkreten Objektgröße resultiert.
+  - : Der Inhalt wird so dimensioniert, als ob `none` oder `contain` angegeben wären, wobei das kleinere Maß verwendet wird.
 
 ## Formale Definition
 
@@ -93,7 +94,7 @@ Die `object-fit`-Eigenschaft wird als ein einzelnes Schlüsselwort spezifiziert,
 
 ## Beispiele
 
-### Einstellen von object-fit für ein Bild
+### `object-fit` für ein Bild einstellen
 
 #### HTML
 

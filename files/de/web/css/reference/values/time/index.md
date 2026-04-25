@@ -1,18 +1,19 @@
 ---
-title: <time>
+title: "`<time>` CSS-Typ"
+short-title: <time>
 slug: Web/CSS/Reference/Values/time
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
 Der **`<time>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Zeitwert, der in Sekunden oder Millisekunden ausgedrückt wird. Er wird in {{cssxref("animation")}}, {{cssxref("transition")}} und verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<time>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Optional kann er von einem einzelnen `+` oder `-` Zeichen vorangestellt werden. Wie bei allen Dimensionen gibt es keinen Abstand zwischen dem Einheitssymbol und der Zahl.
+Der `<time>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}}, gefolgt von einer der unten aufgeführten Einheiten. Optional kann er durch ein einzelnes `+` oder `-` Zeichen eingeleitet werden. Wie bei allen Dimensionen gibt es keinen Abstand zwischen dem Einheitliteral und der Zahl.
 
 > [!NOTE]
-> Obwohl die Zahl `0` unabhängig von der Einheit immer gleich ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0s` oder `0ms`.
+> Obwohl die Zahl `0` immer gleich ist, unabhängig von der Einheit, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0s` oder `0ms`.
 
 ### Einheiten
 
@@ -22,7 +23,7 @@ Der `<time>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefolgt vo
   - : Repräsentiert eine Zeit in Millisekunden. Beispiele: `0ms`, `150.25ms`, `-60000ms`.
 
 > [!NOTE]
-> Die Umrechnung zwischen `s` und `ms` folgt der Logik `1s` = `1000ms`.
+> Die Umrechnung zwischen `s` und `ms` folgt der logischen Regel `1s` = `1000ms`.
 
 ## Beispiele
 

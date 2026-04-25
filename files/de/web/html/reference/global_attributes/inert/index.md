@@ -1,41 +1,41 @@
 ---
-title: Globale HTML-Attribut inert
+title: "`inert` HTML globales Attribut"
 short-title: inert
 slug: Web/HTML/Reference/Global_attributes/inert
 l10n:
-  sourceCommit: 7c28cd21b705e7b7664d53b4d7822469ea8e6e15
+  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
 ---
 
-Das **`inert`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein Boolean-Attribut, das anzeigt, dass das Element und alle seine flachen Baum-Nachfolger _inert_ werden. Das `inert`-Attribut kann zu Inhaltsbereichen hinzugefügt werden, die nicht interaktiv sein sollen. Wenn ein Element inert ist, werden es und alle Nachfolger des Elements, einschließlich normalerweise interaktiver Elemente wie Links, Buttons und Formularelemente, deaktiviert, da sie keinen Fokus erhalten oder angeklickt werden können. Das `inert`-Attribut kann auch zu Elementen hinzugefügt werden, die außerhalb des Bildschirms sein oder verborgen sein sollen. Ein inertes Element wird zusammen mit seinen Nachfolgern aus der Tabulatorreihenfolge und dem Zugänglichkeitsbaum entfernt.
+Das **`inert`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein Boolesches Attribut, das angibt, dass das Element und alle seine Nachkommen im flachen Baum _inert_ werden. Das `inert`-Attribut kann zu Inhaltsbereichen hinzugefügt werden, die nicht interaktiv sein sollen. Wenn ein Element inert ist, werden es und alle seine Nachkommen, einschließlich normalerweise interaktiver Elemente wie Links, Buttons und Formularelementen, deaktiviert, da sie keinen Fokus erhalten oder angeklickt werden können. Das `inert`-Attribut kann auch zu Elementen hinzugefügt werden, die außerhalb des Bildschirms oder versteckt sein sollen. Ein inertes Element und seine Nachkommen werden aus der Tab-Reihenfolge und dem Zugänglichkeitsbaum entfernt.
 
-Vom Modal {{htmlelement("dialog")}}s, die mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) erzeugt werden, entkommen der Inertheit, was bedeutet, dass sie die Inertheit von ihren Vorfahren nicht erben, aber inert gemacht werden können, indem das `inert`-Attribut ausdrücklich auf sie gesetzt wird. Kein anderes Element kann der Inertheit entkommen.
+Modal-{{htmlelement("dialog")}}s, die mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) erzeugt werden, entkommen der Inertheit. Das bedeutet, dass sie die Inertheit nicht von ihren Vorfahren erben, aber durch das explizite Setzen des `inert`-Attributs an ihnen selbst inert gemacht werden können. Kein anderes Element kann der Inertheit entkommen.
 
 > [!NOTE]
-> Obwohl `inert` ein globales Attribut ist und auf jedes Element angewendet werden kann, wird es in der Regel für Inhaltsabschnitte verwendet. Um einzelne Steuerelemente "inert" zu machen, ziehen Sie in Betracht, das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)-Attribut zu verwenden, zusammen mit CSS {{cssxref(":disabled")}}-Stilen.
+> Obwohl `inert` ein globales Attribut ist und auf jedes Element angewendet werden kann, wird es im Allgemeinen für Inhaltsabschnitte verwendet. Um einzelne Steuerungen "inert" zu machen, ziehen Sie in Betracht, das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)-Attribut zusammen mit CSS-{{cssxref(":disabled")}}-Stilen zu verwenden.
 
-Inerte HTML-Elemente und ihre flachen Baum-Nachfolger:
+Inerte HTML-Elemente und ihre Nachkommen im flachen Baum:
 
-- Es werden keine [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse ausgelöst, wenn darauf geklickt wird.
-- Können nicht fokussiert werden, und [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignisse können nicht darauf ausgelöst werden.
-- Sind nicht über die Suchfunktion des Browsers durchsuchbar (keiner ihrer Inhalte wird gefunden/übereinstimmt).
-- Verhindern, dass Benutzer den Text innerhalb ihres Inhalts auswählen — ähnlich wie die Verwendung der CSS-Eigenschaft {{cssxref("user-select")}} zur Deaktivierung der Textauswahl.
-- Inhalte, die ansonsten bearbeitbar wären, können nicht bearbeitet werden. Dazu gehören beispielsweise die Inhalte von textuellen {{htmlelement("input")}}-Felder und Textelemente mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf ihnen.
+- Lösen keine [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse aus, wenn sie angeklickt werden.
+- Können nicht fokussiert werden, und [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignisse können darauf nicht ausgelöst werden.
+- Sind über die Suchfunktion des Browsers (find-in-page) nicht durchsuchbar (keiner ihrer Inhalte wird gefunden/übereinstimmt).
+- Erlauben es den Benutzern nicht, Text innerhalb ihres Inhalts auszuwählen – ähnlich wie beim Verwenden der CSS-Eigenschaft {{cssxref("user-select")}}, um Textauswahl zu deaktivieren.
+- Können keinen sonst bearbeitbaren Inhalt bearbeiten. Dies schließt zum Beispiel die Inhalte von textuellen {{htmlelement("input")}}-Feldern und Textelementen ein, bei denen [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) gesetzt wurde.
 - Sind für unterstützende Technologien unsichtbar, da sie aus dem Zugänglichkeitsbaum ausgeschlossen sind.
 
-Die folgenden anderen Funktionen können verwendet werden, um ein Element und seine Nachfolger in einen inerten Zustand zu versetzen:
+Die folgenden anderen Funktionen können verwendet werden, um ein Element und seine Nachkommen in einen inerten Zustand zu versetzen:
 
 - Die CSS-Eigenschaft {{cssxref("interactivity")}}.
-- Die [`HTMLElement.inert`](/de/docs/Web/API/HTMLElement/inert) DOM-Eigenschaft.
+- Die [`HTMLElement.inert`](/de/docs/Web/API/HTMLElement/inert)-DOM-Eigenschaft.
 
-## Zugänglichkeitsbedenken
+## Barrierefreiheitsbedenken
 
-Verwenden Sie sorgfältige Überlegungen zur Zugänglichkeit, wenn Sie das `inert`-Attribut anwenden. Standardmäßig gibt es keine visuelle Möglichkeit festzustellen, ob ein Element oder sein Unterbaum inert ist oder nicht. Als Webentwickler liegt es in Ihrer Verantwortung, die aktiven und inerten Teile des Inhalts klar zu kennzeichnen.
+Verwenden Sie bei der Anwendung des `inert`-Attributs eine sorgfältige Abwägung der Barrierefreiheit. Standardmäßig gibt es keine sichtbare Möglichkeit zu erkennen, ob ein Element oder sein Teilbaum inert ist oder nicht. Als Webentwickler liegt es in Ihrer Verantwortung, klar anzugeben, welche Inhaltsteile aktiv und welche inert sind.
 
-Während Sie visuelle und nicht-visuelle Hinweise zur Inertheit von Inhalten bereitstellen, denken Sie auch daran, dass das visuelle Viewport möglicherweise nur Abschnitte von Inhalten enthält. Benutzer können in einen kleinen Abschnitt von Inhalten hineingezoomt sein, oder Benutzer können die Inhalte gar nicht sehen. Nicht offensichtliche Inertheit kann zu Frustration und einer schlechten Benutzererfahrung führen.
+Während Sie visuelle und nicht-visuelle Hinweise zur Inertheit von Inhalten bereitstellen, denken Sie auch daran, dass der visuelle Ansichtsbereich möglicherweise nur Inhaltsabschnitte enthält. Benutzer könnten in einen kleinen Abschnitt des Inhalts hineingezoomt sein oder den Inhalt möglicherweise überhaupt nicht sehen können. Inerte Abschnitte, die nicht offensichtlich inert sind, können zu Frustration und schlechter Benutzererfahrung führen.
 
 ## Beispiele
 
-In diesem Beispiel werden das zweite {{htmlelement("div")}} und alle seine Nachfolger über das `inert`-Attribut inert gemacht:
+In diesem Beispiel werden das zweite {{htmlelement("div")}} und alle seine Nachkommen durch das `inert`-Attribut inert gemacht:
 
 ```html
 <div>
@@ -60,6 +60,6 @@ In diesem Beispiel werden das zweite {{htmlelement("div")}} und alle seine Nachf
 
 ## Siehe auch
 
-- HTML-Element {{HTMLElement("dialog")}}
-- [`HTMLElement.inert`](/de/docs/Web/API/HTMLElement/inert) DOM-Eigenschaft
-- CSS-Eigenschaft {{cssxref("interactivity")}}
+- HTML-{{HTMLElement("dialog")}}-Element
+- [`HTMLElement.inert`](/de/docs/Web/API/HTMLElement/inert)-DOM-Eigenschaft
+- CSS-{{cssxref("interactivity")}}-Eigenschaft

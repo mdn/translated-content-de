@@ -1,11 +1,12 @@
 ---
-title: unicode-bidi
+title: "`unicode-bidi` CSS property"
+short-title: unicode-bidi
 slug: Web/CSS/Reference/Properties/unicode-bidi
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`unicode-bidi`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt zusammen mit der {{cssxref("direction")}} Eigenschaft, wie bidirektionaler Text in einem Dokument behandelt wird. Wenn z.B. ein Block von Inhalten sowohl von links nach rechts als auch von rechts nach links verlaufenden Text enthält, verwendet das Benutzeragent ein komplexes Unicode-Algorithmus, um zu entscheiden, wie der Text angezeigt wird. Die `unicode-bidi` Eigenschaft überschreibt diesen Algorithmus und ermöglicht es dem Entwickler, die Einbettung des Textes zu steuern.
+Die **`unicode-bidi`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt zusammen mit der {{cssxref("direction")}}-Eigenschaft, wie bidirektionaler Text in einem Dokument gehandhabt wird. Wenn ein Inhaltsblock beispielsweise sowohl Text von links nach rechts als auch von rechts nach links enthält, verwendet der User-Agent einen komplexen Unicode-Algorithmus, um zu entscheiden, wie der Text angezeigt wird. Die `unicode-bidi`-Eigenschaft überschreibt diesen Algorithmus und ermöglicht es dem Entwickler, die Texteinbettung zu steuern.
 
 {{InteractiveExample("CSS Demo: unicode-bidi")}}
 
@@ -33,10 +34,10 @@ unicode-bidi: isolate-override;
 </section>
 ```
 
-Die `unicode-bidi` und {{cssxref("direction")}} Eigenschaften sind die einzigen Eigenschaften, die nicht von der {{cssxref("all")}} Kurzform betroffen sind.
+Die `unicode-bidi`- und {{cssxref("direction")}}-Eigenschaften sind die einzigen Eigenschaften, die nicht von den {{cssxref("all")}} Shorthand betroffen sind.
 
 > [!WARNING]
-> Diese Eigenschaft ist für Designer von Document Type Definitionen (DTD) gedacht. Webdesigner und ähnliche Autoren **sollten** sie nicht überschreiben.
+> Diese Eigenschaft ist für Entwickler gedacht, die Dokumenttypdefinitionen (DTD) erstellen. Webdesigner und ähnliche Autoren **sollten sie nicht** überschreiben.
 
 ## Syntax
 
@@ -60,17 +61,17 @@ unicode-bidi: unset;
 ### Werte
 
 - `normal`
-  - : Das Element bietet keine zusätzliche Einbettungsebene in Bezug auf den bidirektionalen Algorithmus. Bei Inline-Elementen funktioniert die implizite Umordnung elementübergreifend.
+  - : Das Element bietet in Bezug auf den bidirektionalen Algorithmus keine zusätzliche Einbettungsebene. Bei Inline-Elementen funktioniert die implizite Umordnung über Elementgrenzen hinweg.
 - `embed`
-  - : Wenn das Element inline ist, öffnet dieser Wert eine zusätzliche Einbettungsebene in Bezug auf den bidirektionalen Algorithmus. Die Richtung dieser Einbettungsebene wird durch die {{cssxref("direction")}} Eigenschaft angegeben.
+  - : Wenn das Element inline ist, öffnet dieser Wert eine zusätzliche Einbettungsebene in Bezug auf den bidirektionalen Algorithmus. Die Richtung dieser Einbettungsebene wird durch die {{Cssxref("direction")}}-Eigenschaft angegeben.
 - `bidi-override`
-  - : Für Inline-Elemente erstellt dies eine Überschreibung. Für Block-Container-Elemente erstellt dies eine Überschreibung für Inline-Level-Nachfolger, die sich nicht in einem anderen Block-Container-Element befinden. Dies bedeutet, dass innerhalb des Elements die Umordnung streng nach der {{cssxref("direction")}} Eigenschaft in der Reihenfolge erfolgt; der implizite Teil des bidirektionalen Algorithmus wird ignoriert.
+  - : Für Inline-Elemente wird damit eine Überschreibung erzeugt. Für Blockcontainer-Elemente wird eine Überschreibung für Inline-Ebenen-Nachfahren erzeugt, die sich nicht innerhalb eines anderen Blockcontainer-Elements befinden. Das bedeutet, dass die Umordnung innerhalb des Elements streng sequenziell gemäß der {{Cssxref("direction")}}-Eigenschaft erfolgt; der implizite Teil des bidirektionalen Algorithmus wird ignoriert.
 - `isolate`
-  - : Dieses Schlüsselwort zeigt an, dass die Richtung des Container-Elements berechnet werden soll, ohne den Inhalt dieses Elements zu berücksichtigen. Das Element wird daher von seinen Geschwistern _isoliert_. Bei Anwendung seines bidirektionalen Auflösungsalgorithmus behandelt das Container-Element es als eines oder mehrere `U+FFFC Object Replacement Character`, also wie ein Bild.
+  - : Dieses Schlüsselwort gibt an, dass die Direktionalität des Element-Containers berechnet werden sollte, ohne den Inhalt dieses Elements zu berücksichtigen. Das Element ist daher von seinen Geschwistern _isoliert_. Bei der Anwendung seines Auflösungs-Algorithmus behandelt das Containerelement es wie ein oder mehrere `U+FFFC Object Replacement Character`, das heißt wie ein Bild.
 - `isolate-override`
-  - : Dieses Schlüsselwort wendet das Isolationsverhalten des `isolate` Schlüsselworts auf den umgebenden Inhalt und das Überschreibungsverhalten des `bidi-override` Schlüsselworts auf den inneren Inhalt an.
+  - : Dieses Schlüsselwort wendet das Isolationsverhalten des `isolate`-Schlüsselworts auf den umgebenden Inhalt und das Überschreibungsverhalten des `bidi-override`-Schlüsselworts auf den inneren Inhalt an.
 - `plaintext`
-  - : Dieses Schlüsselwort bewirkt, dass die Richtung des Elements berechnet wird, ohne den bidirektionalen Zustand des übergeordneten Elements oder den Wert der {{cssxref("direction")}} Eigenschaft zu berücksichtigen. Die Richtung wird unter Anwendung der P2- und P3-Regeln des Unicode-Bidirektionalen-Algorithmus berechnet. Dieser Wert ermöglicht die Anzeige von Daten, die bereits mit einem Tool formatiert wurden, das dem Unicode-Bidirektionalen-Algorithmus folgt.
+  - : Dieses Schlüsselwort berechnet die Direktionalität des Elements, ohne den bidirektionalen Status des übergeordneten Elements oder den Wert der {{cssxref("direction")}}-Eigenschaft zu berücksichtigen. Die Direktionalität wird unter Verwendung der P2- und P3-Regeln des Unicode-Bidirektional-Algorithmus berechnet. Dieser Wert ermöglicht die Anzeige von Daten, die bereits mit einem Tool formatiert wurden, das dem Unicode-Bidirektional-Algorithmus folgt.
 
 ## Formale Definition
 
@@ -114,4 +115,4 @@ unicode-bidi: unset;
 
 - {{Cssxref("direction")}}
 - SVG {{SVGAttr("unicode-bidi")}} Attribut
-- [Umgang mit verschiedenen Textausrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
+- [Umgang mit unterschiedlichen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)

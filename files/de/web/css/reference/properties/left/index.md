@@ -1,11 +1,12 @@
 ---
-title: left
+title: "`left` CSS property"
+short-title: left
 slug: Web/CSS/Reference/Properties/left
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`left`** [CSS](/de/docs/Web/CSS)-Eigenschaft beteiligt sich an der Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/Reference/Properties/position). Diese [Inset-Eigenschaft](/en-US/Glossary/inset_properties) hat keine Wirkung auf nicht-positionierte Elemente.
+Die **`left`**-Eigenschaft von [CSS](/de/docs/Web/CSS) trägt zur Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/Reference/Properties/position) bei. Diese {{Glossary("inset_properties", "Rand-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: left")}}
 
@@ -85,28 +86,28 @@ left: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}:
-    - Für _absolut positionierte Elemente_ stellt es die Entfernung zum linken Rand des umschließenden Blocks dar.
-    - Für _anker-positionierte Elemente_ löst die {{cssxref("anchor()")}}-Funktion sich zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position der linken oder rechten Kante des zugehörigen _Ankerelements_ auf (siehe [Verwendung von Inset-Eigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion löst sich zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements auf (siehe [Festlegen der Elementposition basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
-    - Für _relativ positionierte Elemente_ stellt es die Entfernung dar, die das Element von seiner normalen Position nach rechts verschoben wird.
+  - : Eine negative, null oder positive {{cssxref("&lt;length&gt;")}}:
+    - für _absolut positionierte Elemente_ stellt es die Entfernung zur linken Kante des umgebenden Blocks dar.
+    - für _anker-positionierte Elemente_ löst die {{cssxref("anchor()")}}-Funktion einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position der linken oder rechten Kante des zugehörigen _Anker-Elements_ aus (siehe [Verwendung von Rand-Eigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion löst einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Anker-Elements aus (siehe [Festlegen der Elementposition basierend auf Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
+    - für _relativ positionierte Elemente_ stellt es die Entfernung dar, um die das Element von seiner normalen Position nach rechts verschoben wird.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein {{cssxref("&lt;percentage&gt;")}} der Breite des umschließenden Blocks.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
 - `auto`
   - : Gibt an, dass:
-    - Für _absolut positionierte Elemente_ die Position des Elements auf der {{cssxref("right")}}-Eigenschaft basiert, während `width: auto` als eine Breite basierend auf dem Inhalt behandelt wird; oder wenn `right` ebenfalls `auto` ist, wird das Element dort positioniert, wo es horizontal positioniert sein sollte, wenn es ein statisches Element wäre.
-    - Für _relativ positionierte Elemente_ basiert die Entfernung des Elements von seiner normalen Position auf der {{cssxref("right")}}-Eigenschaft; oder wenn `right` ebenfalls `auto` ist, wird das Element überhaupt nicht horizontal bewegt.
+    - für _absolut positionierte Elemente_ die Position des Elements auf der Eigenschaft {{Cssxref("right")}} basiert, während `width: auto` als Breite basierend auf dem Inhalt behandelt wird; oder wenn `right` auch `auto` ist, wird das Element dort positioniert, wo es horizontal positioniert werden sollte, wenn es ein statisches Element wäre.
+    - für _relativ positionierte Elemente_ basiert die Entfernung des Elements von seiner normalen Position auf der Eigenschaft {{Cssxref("right")}}; oder wenn `right` auch `auto` ist, wird das Element horizontal überhaupt nicht verschoben.
 
 ## Beschreibung
 
-Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h. von dem Wert der {{cssxref("position")}}-Eigenschaft):
+Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h. vom Wert der Eigenschaft {{cssxref("position")}}):
 
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung zwischen der äußeren linken Kante des Elements und der inneren linken Kante des umschließenden Blocks an. (Der umschließende Block ist der Vorfahre, an dem das Element relativ positioniert ist.) Wenn das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) hat und der Eigenschaftswert eine {{cssxref("anchor()")}}-Funktion enthält, positioniert `left` die linke Kante des positionierten Elements relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/Reference/Values/anchor#anchor-side)-Kante. Die `left`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/Reference/Values/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
-- Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung an, die die linke Kante des Elements von ihrer normalen Position nach rechts verschoben wird.
-- Wenn `position` auf `sticky` gesetzt ist, wird die `left`-Eigenschaft verwendet, um das Sticky-Beschränkungsrechteck zu berechnen.
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung zwischen dem äußeren Rand der linken Kante des Elements und der inneren Grenze der linken Kante seines umgebenden Blocks an. (Der umgebende Block ist der Vorfahre, zu dem das Element relativ positioniert ist.) Hat das positionierte Element ein zugehöriges [_Anker-Element_](/de/docs/Web/CSS/Guides/Anchor_positioning/Using), und der Eigenschaftswert enthält eine {{cssxref("anchor()")}}-Funktion, positioniert `left` die linke Kante des positionierten Elements relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/Reference/Values/anchor#anchor-side)-Kante. Die `left`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/Reference/Values/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
+- Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung an, um die die linke Kante des Elements von seiner normalen Position nach rechts bewegt wird.
+- Wenn `position` auf `sticky` gesetzt ist, wird die `left`-Eigenschaft verwendet, um das Sticky-Einschränkungsrechteck zu berechnen.
 - Wenn `position` auf `static` gesetzt ist, hat die `left`-Eigenschaft _keine Wirkung_.
 
-Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbeschränkungen dies nicht verhindern, wird das Element gedehnt, um beiden zu genügen. Wenn das Element sich nicht zu beiden strecken kann, ist die Position des Elements _überbestimmt_. In diesem Fall hat der `left`-Wert Vorrang, wenn der Container von links nach rechts ist; der `right`-Wert hat Vorrang, wenn der Container von rechts nach links ist.
+Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbeschränkungen dies nicht verhindern, dehnt sich das Element aus, um beiden zu entsprechen. Wenn das Element sich nicht so weit dehnen kann, um beiden zu entsprechen, ist die Position des Elements _überbestimmt_. In diesem Fall hat der `left`-Wert Vorrang, wenn das Container-Element von links nach rechts gerichtet ist; der `right`-Wert hat Vorrang, wenn das Container-Element von rechts nach links gerichtet ist.
 
 ## Formale Definition
 
@@ -118,7 +119,7 @@ Wenn sowohl `left` als auch {{cssxref("right")}} definiert sind und Breitenbesch
 
 ## Beispiele
 
-### Positionierungselemente
+### Positionierung von Elementen
 
 #### HTML
 

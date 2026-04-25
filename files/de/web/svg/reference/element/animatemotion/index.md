@@ -2,28 +2,28 @@
 title: <animateMotion>
 slug: Web/SVG/Reference/Element/animateMotion
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: 603d83f1e1cdfd634e2f0b7b939466c7660822d3
 ---
 
-Das **`<animateMotion>`** [SVG](/de/docs/Web/SVG)-Element bietet eine Möglichkeit, zu definieren, wie sich ein Element entlang eines Bewegungspfads bewegt.
+Das **`<animateMotion>`** [SVG](/de/docs/Web/SVG)-Element bietet eine Möglichkeit, zu definieren, wie sich ein Element entlang eines Bewegungspfades bewegt.
 
 > [!NOTE]
-> Um einen vorhandenen Pfad wiederzuverwenden, muss ein {{SVGElement("mpath")}}-Element innerhalb des `<animateMotion>`-Elements verwendet werden, anstatt das {{SVGAttr("path")}}-Attribut.
+> Um einen vorhandenen Pfad wiederzuverwenden, ist es notwendig, ein {{SVGElement("mpath")}}-Element innerhalb des `<animateMotion>`-Elements zu verwenden, anstatt das {{SVGAttr("path")}}-Attribut.
 
-## Verwendungszweck
+## Verwendungskontext
 
 {{svginfo}}
 
 ## Attribute
 
 - {{SVGAttr("keyPoints")}}
-  - : Dieses Attribut gibt im Bereich \[0,1] an, wie weit das Objekt entlang des Pfads für jeden zugeordneten Wert von {{SVGAttr("keyTimes")}} fortgeschritten ist.
+  - : Dieses Attribut gibt im Bereich \[0,1] an, wie weit das Objekt für jeden zugehörigen Wert in {{SVGAttr("keyTimes")}} entlang des Pfades ist.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number)\*; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("path")}}
-  - : Dieses Attribut definiert den Pfad der Bewegung und verwendet dieselbe Syntax wie das {{SVGAttr('d')}}-Attribut.
+  - : Dieses Attribut definiert den Bewegungspfad und verwendet dieselbe Syntax wie das {{SVGAttr('d')}}-Attribut.
     _Werttyp_: **\<string>**; _Standardwert_: keiner; _Animierbar_: **nein**
 - {{SVGAttr("rotate")}}
-  - : Dieses Attribut definiert eine Rotation, die auf das entlang eines Pfads animierte Element angewendet wird, normalerweise um es in die Richtung der Animation zeigen zu lassen.
+  - : Dieses Attribut definiert eine Rotation, die auf das entlang eines Pfades animierte Element angewendet wird, meist um es in Richtung der Animation zu zeigen.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number) | `auto` | `auto-reverse`; _Standardwert_: `0`; _Animierbar_: **nein**
 
 > [!NOTE]
@@ -31,14 +31,14 @@ Das **`<animateMotion>`** [SVG](/de/docs/Web/SVG)-Element bietet eine Möglichke
 
 ### Animationsattribute
 
-- [Animationstiming-Attribute](/de/docs/Web/SVG/Reference/Attribute#animation_timing_attributes)
+- [Animation Timing-Attribute](/de/docs/Web/SVG/Reference/Attribute#animation_timing_attributes)
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
 - [Animationswert-Attribute](/de/docs/Web/SVG/Reference/Attribute#animation_value_attributes)
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}
 - [Weitere Animationsattribute](/de/docs/Web/SVG/Reference/Attribute#animation_attributes)
-  - : Besonders hervorzuheben: {{SVGAttr("attributeName")}}, {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
-- [Animationsereignis-Attribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
-  - : Besonders hervorzuheben: `onbegin`, `onend`, `onrepeat`
+  - : Besonders bemerkenswert: {{SVGAttr("attributeName")}}, {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
+- [Animation Ereignis-Attribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
+  - : Besonders bemerkenswert: `onbegin`, `onend`, `onrepeat`
 
 ## DOM-Schnittstelle
 

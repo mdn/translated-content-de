@@ -1,20 +1,21 @@
 ---
-title: "<tt>: Das Teletype-Text-Element"
+title: "`<tt>` HTML-Teletype-Text-Element"
+short-title: <tt>
 slug: Web/HTML/Reference/Elements/tt
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
 {{deprecated_header}}
 
-Das **`<tt>`** [HTML](/de/docs/Web/HTML)-Element erzeugt einen Inline-Text, der mit der standardmäßigen Monospace-Schriftart des {{Glossary("user_agent", "Benutzeragenten")}} dargestellt wird. Dieses Element wurde geschaffen, um Text so darzustellen, wie er auf einem Festbreitendisplay wie einem Fernschreiber, einem Nur-Text-Bildschirm oder einem Zeilendrucker angezeigt würde.
+Das **`<tt>`** [HTML](/de/docs/Web/HTML)-Element erstellt Inline-Text, der mit der Standard-Monospace-Schriftart des {{Glossary("user_agent", "User Agents")}} angezeigt wird. Dieses Element wurde mit dem Ziel erstellt, Text so darzustellen, wie er auf einem Display mit fester Breite wie einem Teletype, einem reinen Textbildschirm oder einem Zeilendrucker angezeigt werden würde.
 
-Die Begriffe **nicht-proportional**, **Monotype** und **Monospace** werden synonym verwendet und haben im Allgemeinen dieselbe Bedeutung: Sie beschreiben eine Schriftart, deren Zeichen alle die gleiche Pixelbreite haben.
+Die Begriffe **nicht-proportional**, **monotype** und **monospace** werden synonym verwendet und haben die gleiche allgemeine Bedeutung: Sie beschreiben einen Schriftartstyp, bei dem alle Zeichen die gleiche Anzahl von Pixeln breit sind.
 
-Dieses Element ist jedoch veraltet. Sie sollten die semantisch hilfreicheren {{HTMLElement("code")}}, {{HTMLElement("kbd")}}, {{HTMLElement("samp")}} oder {{HTMLElement("var")}} Elemente für Inline-Text verwenden, der in Monospace dargestellt werden muss, oder das {{HTMLElement("pre")}} Tag für Inhalte, die als separater Block präsentiert werden sollen.
+Dieses Element ist jedoch veraltet. Sie sollten die semantisch nützlicheren Elemente {{HTMLElement("code")}}, {{HTMLElement("kbd")}}, {{HTMLElement("samp")}} oder {{HTMLElement("var")}} verwenden, um Inline-Text darzustellen, der in Monospace-Schrift angezeigt werden muss, oder das {{HTMLElement("pre")}}-Tag für Inhalte, die als separater Block dargestellt werden sollen.
 
 > [!NOTE]
-> Wenn keines der semantischen Elemente für Ihren Anwendungsfall geeignet ist (zum Beispiel, wenn Sie Inhalte in einer nicht-proportionalen Schrift zeigen müssen), sollten Sie in Betracht ziehen, das {{HTMLElement("span")}} Element zu verwenden und es mit CSS nach Wunsch zu stylen. Die {{cssxref("font-family")}} Eigenschaft ist ein guter Ausgangspunkt.
+> Wenn keines der semantischen Elemente für Ihren Anwendungsfall geeignet ist (zum Beispiel, wenn Sie Inhalte in einer nicht-proportionalen Schriftart anzeigen müssen), sollten Sie erwägen, das {{ HTMLElement("span") }}-Element zu verwenden und es mit CSS nach Wunsch zu gestalten. Die {{cssxref("font-family")}}-Eigenschaft ist ein guter Ausgangspunkt.
 
 ## Attribute
 
@@ -24,7 +25,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ### Einfaches Beispiel
 
-Dieses Beispiel verwendet `<tt>`, um Text anzuzeigen, der in eine Terminalanwendung eingegeben und von dieser ausgegeben wird.
+Dieses Beispiel verwendet `<tt>`, um Text zu zeigen, der in eine Terminalanwendung eingegeben und von dieser ausgegeben wird.
 
 ```html
 <p>
@@ -39,9 +40,9 @@ Dieses Beispiel verwendet `<tt>`, um Text anzuzeigen, der in eine Terminalanwend
 
 {{EmbedLiveSample("Basic_example", 650, 80)}}
 
-### Überschreiben der Standardschriftart
+### Überschreiben der Standard-Schriftart
 
-Sie können die Standardschriftart des Browsers überschreiben – sofern es der Browser zulässt, was nicht erforderlich ist – indem Sie CSS verwenden:
+Sie können die Standardschriftart des Browsers überschreiben – wenn der Browser es zulässt, was er nicht muss –, indem Sie CSS verwenden:
 
 #### CSS
 
@@ -66,14 +67,14 @@ tt {
 
 {{EmbedLiveSample("Overriding_the_default_font", 650, 80)}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
-Das `<tt>`-Element wird standardmäßig mit der nicht proportionalen Standardschriftart des Browsers dargestellt. Sie können dies mit CSS überschreiben, indem Sie eine Regel für den `tt`-Selektor erstellen, wie im Beispiel [Überschreiben der Standardschriftart](#überschreiben_der_standardschriftart) oben gezeigt.
+Das `<tt>`-Element wird standardmäßig mit der nicht-proportionalen Standardschriftart des Browsers gerendert. Sie können dies mit CSS überschreiben, indem Sie eine Regel mit dem `tt`-Selektor erstellen, wie im obigen Beispiel [Überschreiben der Standard-Schriftart](#überschreiben_der_standard-schriftart) gezeigt.
 
 > [!NOTE]
-> Benutzerspezifische Änderungen an der Standardeinstellung für die Monospace-Schrift können Vorrang vor Ihrem CSS haben.
+> Vom Benutzer konfigurierte Änderungen an den Standard-Monospace-Schrifteinstellungen können Vorrang vor Ihrem CSS haben.
 
-Obwohl dieses Element in HTML 4.01 nicht offiziell als veraltet erklärt wurde, wurde seine Verwendung zugunsten der semantischen Elemente und/oder CSS nicht empfohlen. Das `<tt>`-Element ist in HTML 5 obsolet.
+Obwohl dieses Element in HTML 4.01 nicht offiziell als veraltet erklärt wurde, wurde die Verwendung zugunsten der semantischen Elemente und/oder CSS nicht empfohlen. Das `<tt>`-Element ist in HTML 5 obsolet.
 
 ## Technische Zusammenfassung
 
@@ -87,38 +88,37 @@ Obwohl dieses Element in HTML 4.01 nicht offiziell als veraltet erklärt wurde, 
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
-        >, fühlbarer Inhalt.
+          >Phraseninhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
-        >
-        akzeptiert.
+          >Phraseninhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -137,5 +137,5 @@ Obwohl dieses Element in HTML 4.01 nicht offiziell als veraltet erklärt wurde, 
 
 ## Siehe auch
 
-- Die semantischen {{HTMLElement("code")}}, {{HTMLElement("var")}}, {{HTMLElement("kbd")}}, und {{HTMLElement("samp")}} Elemente
-- Das {{HTMLElement("pre")}} Element zur Anzeige von vorformatierten Textblöcken
+- Die semantischen {{HTMLElement("code")}}, {{HTMLElement("var")}}, {{HTMLElement("kbd")}} und {{HTMLElement("samp")}} Elemente
+- Das {{HTMLElement("pre")}}-Element zur Darstellung von vorformatierten Textblöcken

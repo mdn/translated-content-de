@@ -1,11 +1,12 @@
 ---
-title: "@namespace"
+title: "`@namespace` CSS at-rule"
+short-title: "@namespace"
 slug: Web/CSS/Reference/At-rules/@namespace
 l10n:
-  sourceCommit: 1dcf976e9b654679c762568812562b1a2361c755
+  sourceCommit: e328268bb418551ab451881845881b5837c9da83
 ---
 
-**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), die XML-{{Glossary("Namespace", "Namespaces")}} definiert, die in einem {{Glossary("CSS", "CSS")}}-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden sollen.
+**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), die XML-{{Glossary("Namespace", "Namensräume")}} definiert, die in einem {{Glossary("CSS", "CSS")}}-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden sollen.
 
 {{InteractiveExample("CSS Demo: @namespace", "tabbed-shorter")}}
 
@@ -51,18 +52,18 @@ svg|a {
 
 ## Beschreibung
 
-Die definierten Namespaces können verwendet werden, um die [universellen](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors), [Typen-](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) auf Elemente innerhalb dieses Namespaces zu beschränken. Die `@namespace`-Regel ist im Allgemeinen nur dann nützlich, wenn es um Dokumente mit mehreren Namespaces geht – wie HTML mit integriertem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Die definierten Namensräume können verwendet werden, um die [universellen](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors), [Typ-](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und [Attribut-](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) zu beschränken, sodass nur Elemente innerhalb dieses Namensraums ausgewählt werden. Die `@namespace`-Regel ist im Allgemeinen nur nützlich, wenn mit Dokumenten gearbeitet wird, die mehrere Namensräume enthalten — wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabularien mischt.
 
-Alle `@namespace`-Regeln müssen allen {{cssxref("@charset")}} und {{cssxref("@import")}}-Regeln folgen und allen anderen At-Regeln und [Stildeklarationen](/de/docs/Web/API/CSSStyleDeclaration) in einem Stylesheet vorausgehen.
+Alle `@namespace`-Regeln müssen allen {{cssxref("@charset")}}- und {{cssxref("@import")}}-Regeln folgen und allen anderen At-Regeln und [Stildeklarationen](/de/docs/Web/API/CSSStyleDeclaration) in einem Stylesheet vorangehen.
 
-`@namespace` kann verwendet werden, um den **Standard-Namespace** für das Stylesheet zu definieren. Wenn ein Standard-Namespace definiert ist, gelten alle universellen und Typselektoren (aber nicht Attributselektoren, siehe Hinweis unten) nur für Elemente in diesem Namespace.
+Mit `@namespace` kann der **Standard-Namespace** für das Stylesheet definiert werden. Wenn ein Standard-Namespace definiert wird, gelten alle universellen und Typ-Selektoren (aber nicht Attribut-Selektoren, siehe Hinweis unten) nur für Elemente in diesem Namensraum.
 
-Die `@namespace`-Regel kann auch verwendet werden, um ein **Namespace-Präfix** zu definieren. Wenn ein universeller, Typen- oder Attributselektor mit einem Namespace-Präfix versehen ist, dann passt dieser Selektor nur, wenn der Namespace _und_ der Name des Elements oder Attributs übereinstimmen.
+Die `@namespace`-Regel kann auch verwendet werden, um ein **Namespace-Präfix** zu definieren. Wenn ein universeller-, Typ- oder Attribut-Selektor mit einem Namespace-Präfix versehen ist, dann passt dieser Selektor nur, wenn der Namensraum _und_ der Name des Elements oder Attributs übereinstimmen.
 
-In HTML werden bekannte [Fremdelemente](https://html.spec.whatwg.org/multipage/syntax.html#foreign-elements) automatisch Namespaces zugewiesen. Das bedeutet, dass HTML-Elemente so agieren, als wären sie im XHTML-Namespace (`http://www.w3.org/1999/xhtml`), selbst wenn es im Dokument kein `xmlns`-Attribut gibt, und die [`<svg>`](/de/docs/Web/SVG/Reference/Element/svg)- und [`<math>`](/de/docs/Web/MathML/Reference/Element/math)-Elemente ihre korrekten Namespaces zugewiesen bekommen (`http://www.w3.org/2000/svg` bzw. `http://www.w3.org/1998/Math/MathML`).
+In HTML werden bekannte [Fremdelemente](https://html.spec.whatwg.org/multipage/syntax.html#foreign-elements) automatisch mit Namensräumen versehen. Das bedeutet, dass HTML-Elemente so gehandhabt werden, als befänden sie sich im XHTML-Namensraum (`http://www.w3.org/1999/xhtml`), auch wenn kein `xmlns`-Attribut im gesamten Dokument vorhanden ist, und die [`<svg>`](/de/docs/Web/SVG/Reference/Element/svg)- und [`<math>`](/de/docs/Web/MathML/Reference/Element/math)-Elemente werden ihren jeweiligen Namensräumen zugewiesen (`http://www.w3.org/2000/svg` und `http://www.w3.org/1998/Math/MathML`).
 
 > [!NOTE]
-> In XML hat ein Attribut, sofern es kein Präfix direkt auf dem Attribut gibt (_z.B._, `xlink:href`), keinen Namespace. Mit anderen Worten, Attribute erben nicht den Namespace des Elements, auf dem sie sich befinden. Um dieses Verhalten zu imitieren, gilt der Standard-Namespace in CSS nicht für Attributselektoren.
+> In XML hat ein Attribut, sofern es nicht direkt mit einem Präfix versehen ist (_z.B._, `xlink:href`), keinen Namensraum. Mit anderen Worten, Attribute erben nicht den Namensraum des Elements, auf dem sie sich befinden. Um dieses Verhalten anzupassen, gilt der Standard-Namespace in CSS nicht für Attribut-Selektoren.
 
 ## Formale Syntax
 
@@ -70,7 +71,7 @@ In HTML werden bekannte [Fremdelemente](https://html.spec.whatwg.org/multipage/s
 
 ## Beispiele
 
-### Angabe von Standard- und Präfix-Namespaces
+### Spezifizieren von Standard- und präfixierten Namensräumen
 
 ```css
 @namespace url("http://www.w3.org/1999/xhtml");
@@ -99,5 +100,5 @@ svg|a {
 
 ## Siehe auch
 
-- [Namespaces Crash-Kurs](/de/docs/Web/SVG/Guides/Namespaces_crash_course)
-- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
+- [Namensräume-Kurs](/de/docs/Web/SVG/Guides/Namespaces_crash_course)
+- [CSS-At-Regel-Funktionen](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)

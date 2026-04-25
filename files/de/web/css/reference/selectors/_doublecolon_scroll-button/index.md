@@ -1,13 +1,14 @@
 ---
-title: ::scroll-button()
+title: "`::scroll-button()` CSS pseudo-element"
+short-title: ::scroll-button()
 slug: Web/CSS/Reference/Selectors/::scroll-button
 l10n:
-  sourceCommit: 5ebca2edd6095fb3f61d442ed3146fa37fffbf7d
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{SeeCompatTable}}
 
-Das **`::scroll-button()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Button zur Steuerung des Scrollens eines {{Glossary("scroll_container", "Scroll-Containers")}}. Diese werden auf Scroll-Containern erzeugt, wenn ihr {{cssxref("content")}}-Wert nicht `none` ist. Die Richtung des Scrollens wird durch den Parameterwert bestimmt.
+Das **`::scroll-button()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert einen Button zur Steuerung des Scrollens eines {{Glossary("scroll_container", "Scroll-Containers")}}. Diese Pseudoelemente werden für Scroll-Container generiert, wenn ihr {{cssxref("content")}}-Wert nicht `none` ist. Die Scroll-Richtung wird durch den Parameterwert bestimmt.
 
 ## Syntax
 
@@ -20,51 +21,51 @@ Das **`::scroll-button()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/We
 ### Parameter
 
 - `<scroll-button-direction>`
-  - : Ein Wert, der angibt, welche Richtung des Scroll-Buttons ausgewählt werden soll. Folgende Werte stehen zur Verfügung:
+  - : Ein Wert, der die Richtung des gescrollten Buttons angibt, den Sie auswählen möchten. Die folgenden Werte sind verfügbar:
     - `*`
-      - : Wählt alle Scroll-Buttons des ursprünglichen Elements aus und ermöglicht es, Stile für jeden von ihnen in einer einzigen Regel anzuwenden.
+      - : Wählt alle Scroll-Buttons des ursprünglichen Elements aus, wodurch Stile in einer einzigen Regel auf alle angewendet werden können.
     - `down`
-      - : Wählt den Button, der den Inhalt nach unten scrollen wird.
+      - : Wählt den Button aus, der den Inhalt nach unten scrollt.
     - `left`
-      - : Wählt den Button, der den Inhalt nach links scrollen wird.
+      - : Wählt den Button aus, der den Inhalt nach links scrollt.
     - `right`
-      - : Wählt den Button, der den Inhalt nach rechts scrollen wird.
+      - : Wählt den Button aus, der den Inhalt nach rechts scrollt.
     - `up`
-      - : Wählt den Button, der den Inhalt nach oben scrollen wird.
+      - : Wählt den Button aus, der den Inhalt nach oben scrollt.
     - `block-end`
-      - : Wählt den Button, der den Inhalt in der Blockende-Richtung scrollen wird.
+      - : Wählt den Button aus, der den Inhalt in die Block-End-Richtung scrollt.
     - `block-start`
-      - : Wählt den Button, der den Inhalt in der Blockstart-Richtung scrollen wird.
+      - : Wählt den Button aus, der den Inhalt in die Block-Start-Richtung scrollt.
     - `inline-end`
-      - : Wählt den Button, der den Inhalt in der Inlineende-Richtung scrollen wird.
+      - : Wählt den Button aus, der den Inhalt in die Inline-End-Richtung scrollt.
     - `inline-start`
-      - : Wählt den Button, der den Inhalt in der Inlinestart-Richtung scrollen wird.
+      - : Wählt den Button aus, der den Inhalt in die Inline-Start-Richtung scrollt.
 
-    Die Spezifikation definiert auch zwei weitere Werte — `next` und `prev` — aber diese werden derzeit in keinem Browser unterstützt.
+    Die Spezifikation definiert auch zwei weitere Werte — `next` und `prev` — die derzeit in keinem Browser unterstützt werden.
 
 ## Beschreibung
 
-Die `::scroll-button()` Pseudo-Elemente werden nur dann innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} erzeugt, wenn deren {{cssxref("content")}}-Eigenschaften auf einen Wert ungleich `none` gesetzt sind. Sie werden als Geschwister der Kind-DOM-Elemente des Scroll-Containers erzeugt, unmittelbar vor ihnen und allen auf dem Container erzeugten {{cssxref("::scroll-marker-group")}}.
+Die `::scroll-button()` Pseudoelemente werden in einem {{Glossary("scroll_container", "Scroll-Container")}} nur dann generiert, wenn ihre {{cssxref("content")}}-Eigenschaften auf einen anderen Wert als `none` gesetzt sind. Sie werden als Geschwister der Scroll-Container-Kind-DOM-Elemente generiert und erscheinen direkt vor diesen und jedem {{cssxref("::scroll-marker-group")}}, das auf dem Container generiert wird.
 
-Sie können bis zu vier Scroll-Buttons pro Scroll-Container erzeugen, die den Inhalt zu den Anfängen und Enden der Block- und Inline-Axen scrollen. Das Argument des Selektors gibt an, welche Scroll-Richtung ausgewählt ist. Sie können auch einen Wert von `*` angeben, um alle `::scroll-button()` Pseudo-Elemente zu adressieren und Stile für alle Buttons in einer einzigen Regel bereitzustellen.
+Sie können bis zu vier Scroll-Buttons pro Scroll-Container generieren, die den Inhalt in den Start- und Endpunkten der Block- und Inline-Achsen scrollen. Das Argument des Selektors gibt an, welche Scroll-Richtung ausgewählt ist. Sie können auch den Wert `*` angeben, um alle `::scroll-button()` Pseudoelemente zu adressieren, was es ermöglicht, Stile für alle Buttons in einer einzigen Regel bereitzustellen.
 
-Die erzeugten Buttons verhalten sich wie reguläre {{htmlelement("button")}}-Elemente, einschließlich der gemeinsamen Standardbrowserstile. Sie sind fokussierbar, zugänglich und können wie reguläre Buttons aktiviert werden. Wenn ein Scroll-Button gedrückt wird, wird der Inhalt des Scroll-Containers in die angegebene Richtung um eine "Seite" gescrollt oder ungefähr um die Dimension des Scroll-Containers, ähnlich wie beim Drücken der Tasten <kbd>PgUp</kbd> und <kbd>PgDn</kbd>.
+Die generierten Buttons verhalten sich wie reguläre {{htmlelement("button")}}-Elemente und teilen deren standardmäßige Browser-Stile. Sie sind fokussierbar, zugänglich und können wie reguläre Buttons aktiviert werden. Wenn ein Scroll-Button gedrückt wird, wird der Inhalt des Scroll-Containers in der angegebenen Richtung um eine "Seite" gescrollt, also ungefähr um die Dimension des Scroll-Containers, ähnlich wie beim Drücken der <kbd>BildAuf</kbd> und <kbd>BildAb</kbd>-Tasten.
 
-Es wird empfohlen, [CSS-Scroll-Snapping](/de/docs/Web/CSS/Guides/Scroll_snap) auf dem Scroll-Container einzurichten und jedes einzelne Inhaltsstück, das Sie scrollen möchten, als {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} zu setzen. In diesem Fall wird durch Aktivierung eines Scroll-Buttons der Inhalt zu dem Snap-Ziel gescrollt, das eine "Seite" entfernt ist. Während die Scroll-Buttons auch ohne Scroll-Snapping funktionieren, erzielen Sie möglicherweise nicht den gewünschten Effekt.
+Es wird empfohlen, [CSS-Scroll-Snapping](/de/docs/Web/CSS/Guides/Scroll_snap) auf dem Scroll-Container einzurichten und jedes separate Inhaltselement, das Sie scrollen möchten, als {{Glossary("Scroll_snap#snap_target", "Snap-Ziel")}} festzulegen. Wenn dies der Fall ist, wird durch Aktivieren eines Scroll-Buttons der Inhalt zu dem Snap-Ziel gescrollt, das eine "Seite" entfernt ist. Während die Scroll-Buttons auch ohne Scroll-Snapping funktionieren, könnte das gewünschte Ergebnis ausbleiben.
 
-Wenn es nicht mehr möglich ist, in der spezifischen Scroll-Richtung eines Scroll-Buttons weiter zu scrollen, wird der Button automatisch deaktiviert, andernfalls ist er aktiviert. Sie können die Scroll-Buttons in ihrem aktivierten und deaktivierten Zustand mithilfe der {{cssxref(":enabled")}} und {{cssxref(":disabled")}} Pseudo-Klassen stylen.
+Wenn es nicht möglich ist, in eine bestimmte Scrollrichtung eines Scroll-Buttons weiter zu scrollen, wird der Button automatisch deaktiviert, andernfalls ist er aktiviert. Sie können die Scroll-Buttons in ihren aktivierten und deaktivierten Zuständen mit den {{cssxref(":enabled")}} und {{cssxref(":disabled")}} Pseudoklassen stylen.
 
 ## Beispiele
 
-Weitere Karussell-Beispiele finden Sie unter [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels).
+Sehen Sie sich [Erstellen von CSS-Carousels](/de/docs/Web/CSS/Guides/Overflow/Carousels) für weitere Carousel-Beispiele an.
 
-### Scroll-Buttons erstellen
+### Erstellen von Scroll-Buttons
 
-In diesem Beispiel zeigen wir, wie man Scroll-Buttons auf einem CSS-Karussell erstellt.
+In diesem Beispiel demonstrieren wir, wie man Scroll-Buttons auf einem CSS-Carousel erstellt.
 
 #### HTML
 
-Wir haben eine grundlegende HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelement("li")}}-Listenelementen.
+Wir haben eine grundlegende HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelement("li")}}-Listenpunkten.
 
 ```html live-sample___creating-scroll-buttons live-sample___positioning-scroll-buttons
 <ul>
@@ -81,9 +82,9 @@ Wir haben eine grundlegende HTML-{{htmlelement("ul")}}-Liste mit mehreren {{html
 
 #### CSS
 
-##### Das Karussell stylen
+##### Styling des Carousels
 
-Wir konvertieren unser `<ul>` in ein Karussell, indem wir das {{cssxref("display")}} auf `flex` setzen und eine einzelne, nicht umgebrochene Reihe von `<li>`-Elementen erstellen. Die {{cssxref("overflow-x")}} Eigenschaft ist auf `auto` gesetzt, was bedeutet, dass, wenn die Elemente ihren Container auf der x-Achse überlaufen, der Inhalt horizontal scrollt. Wir konvertieren dann das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} und stellen sicher, dass die Elemente immer in Position einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}} Wert von `mandatory` gescrollt wird.
+Wir konvertieren unser `<ul>` in ein Carousel, indem wir das {{cssxref("display")}} auf `flex` setzen, wodurch eine einzelne, nicht umgebrochene Reihe von `<li>`-Elementen entsteht. Die Eigenschaft {{cssxref("overflow-x")}} wird auf `auto` gesetzt, was bedeutet, dass, wenn die Elemente ihren Container auf der x-Achse überfüllen, der Inhalt horizontal scrollt. Wir konvertieren dann das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}, um sicherzustellen, dass Elemente immer an ihren Platz schnappen, wenn der Container mit einem {{cssxref("scroll-snap-type")}}-Wert von `mandatory` gescrollt wird.
 
 ```css live-sample___creating-scroll-buttons live-sample___positioning-scroll-buttons
 ul {
@@ -96,7 +97,7 @@ ul {
 }
 ```
 
-Als nächstes stylen wir die `<li>`-Elemente, indem wir die {{cssxref("flex")}}-Eigenschaft verwenden, um sie 100 % der Breite des Containers einzunehmen. Der {{cssxref("scroll-snap-align")}}-Wert von `start` bewirkt, dass die linke Seite des am weitesten links sichtbaren Elements an den linken Rand des Containers schnellt, wenn der Inhalt gescrollt wird.
+Als nächstes stylen wir die `<li>`-Elemente, indem wir die {{cssxref("flex")}}-Eigenschaft verwenden, um sie auf 100 % der Containerbreite zu setzen. Der {{cssxref("scroll-snap-align")}} Wert `start` sorgt dafür, dass die linke Seite des am weitesten links sichtbaren Elements zur linken Kante des Containers schnappen, wenn der Inhalt gescrollt wird.
 
 ```css live-sample___creating-scroll-buttons live-sample___positioning-scroll-buttons
 li {
@@ -110,9 +111,9 @@ li {
 }
 ```
 
-##### Scroll-Buttons erstellen
+##### Erstellen der Scroll-Buttons
 
-Zuerst werden alle Scroll-Buttons mit einigen rudimentären Stilen und entsprechend unterschiedlichen Zuständen adressiert. Es ist wichtig, {{cssxref(":focus")}}-Stile für Tastaturnutzer einzurichten. Da Scroll-Buttons automatisch auf [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) gesetzt sind, wenn kein weiteres Scrollen in dieser Richtung möglich ist, verwenden wir die {{cssxref(":disabled")}} Pseudo-Klasse, um diesen Zustand anzusprechen.
+Zuerst werden alle Scroll-Buttons mit einigen einfachen Stilen adressiert, sowie Stile basierend auf verschiedenen Zuständen angewendet. Es ist wichtig, {{cssxref(":focus")}}-Stile für Tastaturbenutzer zu setzen. Da Scroll-Buttons automatisch auf [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) gesetzt werden, wenn in diese Richtung kein weiteres Scrollen möglich ist, verwenden wir die {{cssxref(":disabled")}}-Pseudoklasse, um diesen Zustand zu adressieren.
 
 ```css live-sample___creating-scroll-buttons live-sample___positioning-scroll-buttons
 ul::scroll-button(*) {
@@ -140,9 +141,9 @@ ul::scroll-button(*):disabled {
 ```
 
 > [!NOTE]
-> Wir setzen auch einen {{cssxref("cursor")}} Wert von `pointer` auf den Scroll-Buttons, um deutlicher zu machen, dass sie interagierbar sind (eine Verbesserung für sowohl die allgemeine {{Glossary("UX", "UX")}} als auch die [kognitive Zugänglichkeit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility)), und setzen ihn zurück, wenn die Scroll-Buttons `:disabled` sind.
+> Wir setzen auch einen {{cssxref("cursor")}}-Wert von `pointer` auf den Scroll-Buttons, um deutlicher zu machen, dass sie interaktiv sind (eine Verbesserung sowohl für die allgemeine {{Glossary("UX", "UX")}} als auch für die [kognitive Zugänglichkeit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility)), und heben ihn auf, wenn die Scroll-Buttons `:disabled` sind.
 
-Anschließend wird ein passendes Symbol auf den linken und rechten Scroll-Buttons über die `content`-Eigenschaft gesetzt, die auch dafür verantwortlich ist, dass die Scroll-Buttons erzeugt werden:
+Als nächstes wird ein entsprechendes Icon auf den linken und rechten Scroll-Buttons über die `content`-Eigenschaft gesetzt, was auch dazu führt, dass die Scroll-Buttons generiert werden:
 
 ```css live-sample___creating-scroll-buttons live-sample___positioning-scroll-buttons
 ul::scroll-button(left) {
@@ -154,21 +155,21 @@ ul::scroll-button(right) {
 }
 ```
 
-Wir müssen keinen [alternativen Text](/de/docs/Web/CSS/Reference/Properties/content#alternative_text_string_counter_attr) für die Symbole im `content` festlegen, da der Browser automatisch sorgt für passende {{Glossary("accessible_name", "barrierefreie Namen")}}.
+Es ist nicht nötig, [Alternativtext](/de/docs/Web/CSS/Reference/Properties/content#alternative_text_string_counter_attr) für die Icons im `content` zu setzen, da der Browser automatisch geeignete {{Glossary("accessible_name", "zugängliche Namen")}} bereitstellt.
 
 #### Ergebnis
 
 {{EmbedLiveSample("creating-scroll-buttons", '', '220')}}
 
-Beachten Sie, wie die Scroll-Buttons unten links auf dem Karussell erstellt werden. Versuchen Sie, diese zu drücken, um zu sehen, wie sie den Inhalt verschieben.
+Beachten Sie, wie die Scroll-Buttons unten links am Carousel erstellt werden. Versuchen Sie, diese zu drücken, um zu sehen, wie der Inhalt gescrollt wird.
 
-### Die Scroll-Buttons positionieren
+### Positionierung der Scroll-Buttons
 
-Das vorherige Beispiel funktioniert, aber die Buttons sind nicht optimal platziert. In diesem Abschnitt fügen wir einige CSS hinzu, um sie mit [Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) zu positionieren.
+Das vorherige Beispiel funktioniert, aber die Buttons sind nicht optimal platziert. In diesem Abschnitt werden wir etwas CSS hinzufügen, um sie mithilfe der [Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) zu positionieren.
 
 #### CSS
 
-Zuerst wird ein Referenz-{{cssxref("anchor-name")}} auf das `<ul>` gesetzt, um es als benannten Anker zu definieren. Als nächstes wird bei jedem Scroll-Button die {{cssxref("position")}} auf `absolute` gesetzt und die {{cssxref("position-anchor")}} Eigenschaft auf den `anchor-name` der Liste, um [die beiden zu verknüpfen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#associating_anchor_and_positioned_elements).
+Zunächst wird eine Referenz {{cssxref("anchor-name")}} auf das `<ul>` gesetzt, um es als benannten Anker zu definieren. Dann wird jedem Scroll-Button seine {{cssxref("position")}} auf `absolute` gesetzt und die {{cssxref("position-anchor")}}-Eigenschaft auf den `anchor-name` der Liste gesetzt, um [die beiden miteinander zu verknüpfen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#associating_anchor_and_positioned_elements).
 
 ```css live-sample___positioning-scroll-buttons
 ul {
@@ -181,7 +182,7 @@ ul::scroll-button(*) {
 }
 ```
 
-Um jeden Scroll-Button tatsächlich zu positionieren, setzen wir zuerst einen {{cssxref("align-self")}}-Wert von `anchor-center` auf beide, um sie vertikal im Karussell zu zentrieren:
+Um jeden Scroll-Button tatsächlich zu positionieren, setzen wir zunächst einen {{cssxref("align-self")}}-Wert von `anchor-center` auf beide, um sie vertikal auf dem Carousel zu zentrieren:
 
 ```css live-sample___positioning-scroll-buttons
 ul::scroll-button(*) {
@@ -189,7 +190,7 @@ ul::scroll-button(*) {
 }
 ```
 
-Wir setzen dann Werte auf ihren {{Glossary("inset_properties", "Einsetz-Eigenschaften")}}, um die horizontale Positionierung zu handhaben. Wir verwenden {{cssxref("anchor()")}}-Funktionen, um die angegebenen Seiten der Buttons relativ zu den Seiten des Karussells zu positionieren. In jedem Fall wird die {{cssxref("calc()")}}-Funktion verwendet, um etwas Abstand zwischen dem Rand des Buttons und dem Rand des Karussells hinzuzufügen. Zum Beispiel wird der rechte Rand des linken Scroll-Buttons 45 Pixel rechts vom linken Rand des Karussells positioniert.
+Dann setzen wir Werte auf ihre {{Glossary("inset_properties", "Inset-Eigenschaften")}} zur Handhabung der horizontalen Positionierung. Wir verwenden {{cssxref("anchor()")}}-Funktionen, um die angegebenen Seiten der Buttons relativ zu den Seiten des Carousels zu positionieren. In jedem Fall wird die {{cssxref("calc()")}}-Funktion verwendet, um etwas Platz zwischen dem Rand des Buttons und dem Rand des Carousels zu schaffen. Zum Beispiel wird der rechte Rand des linken Scroll-Buttons 45 Pixel rechts vom linken Rand des Carousels positioniert.
 
 ```css live-sample___positioning-scroll-buttons
 ul::scroll-button(left) {
@@ -220,7 +221,7 @@ ul::scroll-button(right) {
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::column")}}
 - {{cssxref(":target-current")}}
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels)
-- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)-Modul
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul
-- [CSS Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)
+- [Erstellen von CSS-Carousels](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)

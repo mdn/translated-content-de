@@ -1,14 +1,15 @@
 ---
-title: :host
+title: "`:host` CSS-Pseudoklasse"
+short-title: :host
 slug: Web/CSS/Reference/Selectors/:host
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
-Die **`:host`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, das innerhalb verwendet wird – mit anderen Worten, dies ermöglicht Ihnen, ein benutzerdefiniertes Element von innerhalb seines Shadow DOM auszuwählen.
+Die **`:host`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird – mit anderen Worten, dies ermöglicht Ihnen, ein benutzerdefiniertes Element von innerhalb seines Shadow DOMs auszuwählen.
 
 > [!NOTE]
-> Dies hat keine Auswirkung, wenn es außerhalb eines Shadow DOM verwendet wird.
+> Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOMs verwendet wird.
 
 {{InteractiveExample("CSS Demo: :host", "tabbed-shorter")}}
 
@@ -66,11 +67,11 @@ function init() {
 
 ## Beispiele
 
-### Styling des Shadow-Hosts
+### Den Shadow-Host stylen
 
-Die folgenden Codeausschnitte stammen aus unserem [host-selectors example](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Codeausschnitte stammen aus unserem [Beispiel für Host-Selektoren](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
 
-In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element – `<context-span>` – das Sie um Text herum verwenden können:
+In diesem Beispiel haben wir ein grundständiges benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum verwenden können:
 
 ```html
 <h1>
@@ -78,7 +79,7 @@ In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element – `<con
 </h1>
 ```
 
-Innerhalb des Konstruktors des Elements erstellen wir `style` und `span` Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style` Element mit einigen CSS-Regeln:
+Innerhalb des Konstruktors des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span`-Element mit dem Inhalt des benutzerdefinierten Elements und füllen das `style`-Element mit einigen CSS-Regeln:
 
 ```js
 const style = document.createElement("style");
@@ -98,7 +99,7 @@ style.textContent =
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` gestaltet alle Instanzen des `<context-span>` Elements (den Shadow-Host in diesem Fall) im Dokument.
+Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` stylt alle Instanzen des `<context-span>`-Elements (den Shadow-Host in diesem Fall) im Dokument.
 
 ## Spezifikationen
 
@@ -110,7 +111,7 @@ Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` gestaltet 
 
 ## Siehe auch
 
-- [Web-Komponenten](/de/docs/Web/API/Web_components)
+- [Webkomponenten](/de/docs/Web/API/Web_components)
 - {{cssxref(":host()")}}
 - {{cssxref(":host-context()")}}
 - {{CSSxref("::slotted")}}

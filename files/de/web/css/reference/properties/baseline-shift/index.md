@@ -1,14 +1,15 @@
 ---
-title: baseline-shift
+title: "`baseline-shift` CSS property"
+short-title: baseline-shift
 slug: Web/CSS/Reference/Properties/baseline-shift
 l10n:
-  sourceCommit: 483ce811e1ea52cb2d9d2a5af0c4d1c4d591ea4a
+  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
 ---
 
-Die **`baseline-shift`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert die Dominant-Baseline eines Textelements relativ zur Dominant-Baseline des übergeordneten Textelementinhalts neu. Das verschobene Element kann ein Sub- oder Superskript sein. Ist die Eigenschaft vorhanden, überschreibt der Wert das {{SVGAttr("baseline-shift")}} Attribut des Elements.
+Die **`baseline-shift`** [CSS](/de/docs/Web/CSS)-Eigenschaft verschiebt die dominante Basislinie eines Textelements relativ zur dominanten Basislinie seines übergeordneten Textinhalts-Elements. Das verschobene Element könnte ein Tief- oder Hochgestellt sein. Wenn die Eigenschaft vorhanden ist, überschreibt der Wert das {{SVGAttr("baseline-shift")}}-Attribut des Elements.
 
 > [!NOTE]
-> Die `baseline-shift` Eigenschaft gilt nur für {{SVGElement("textPath")}} und {{SVGElement("tspan")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `baseline-shift`-Eigenschaft gilt nur für {{SVGElement("textPath")}}- und {{SVGElement("tspan")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -32,11 +33,11 @@ baseline-shift: unset;
 ### Werte
 
 - `sub`
-  - : Die Dominant-Baseline wird auf die Standardposition für tiefgestellte Zeichen verschoben.
+  - : Die dominante Basislinie wird auf die Standardposition für Tiefgestellte verschoben.
 - `super`
-  - : Die Dominant-Baseline wird auf die Standardposition für hochgestellte Zeichen verschoben.
+  - : Die dominante Basislinie wird auf die Standardposition für Hochgestellte verschoben.
 - `<length-percentage>`
-  - : Hebt (wenn positiv) oder senkt (wenn negativ) die Dominant-Baseline des Textelementinhalts um die angegebene Länge oder den Prozentsatz, wobei der Prozentsatz relativ zur Dominant-Baseline des übergeordneten Textelementinhalts {{cssxref("line-height")}} ist.
+  - : Hebt (wenn positiv) oder senkt (wenn negativ) die dominante Basislinie des Textinhalts-Elements um die angegebene Länge oder den Prozentsatz an, wobei der Prozentsatz relativ zur dominanten Basislinie des übergeordneten Textinhalts-Elements {{cssxref("line-height")}} ist.
 
 ## Formale Definition
 
@@ -48,13 +49,13 @@ baseline-shift: unset;
 
 ## Beispiele
 
-### Nutzung von Schlüsselwortwerten
+### Verwendung von Schlüsselwortwerten
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Schlüsselwortwerte `sub` und `super` der `baseline-shift` Eigenschaft sowie wie die `baseline-shift` CSS-Eigenschaft die `baseline-shift` SVG-Attributwerte überschreibt.
+Dieses Beispiel demonstriert die grundlegende Verwendung der `sub`- und `super`-Schlüsselwortwerte der `baseline-shift`-Eigenschaft sowie, wie die `baseline-shift`-CSS-Eigenschaft den Vorrang vor dem `baseline-shift`-SVG-Attribut hat.
 
 #### HTML
 
-Wir definieren ein SVG mit zwei SVG {{SVGElement("text")}} Elementen, die jeweils ein {{SVGElement("tspan")}} Element enthalten, auf dem das SVG {{SVGAttr("baseline-shift")}} Attribut gesetzt ist.
+Wir definieren ein SVG mit zwei SVG-{{SVGElement("text")}}-Elementen, die jeweils ein {{SVGElement("tspan")}}-Element enthalten, bei dem das SVG-{{SVGAttr("baseline-shift")}}-Attribut gesetzt ist.
 
 ```html hidden
 <p>Original SVG</p>
@@ -104,13 +105,13 @@ Wir definieren ein SVG mit zwei SVG {{SVGElement("text")}} Elementen, die jeweil
 </svg>
 ```
 
-Das SVG wird dreimal wiederholt; aus Gründen der Übersichtlichkeit haben wir nur eine Kopie gezeigt.
+Das SVG wird dreimal wiederholt; wir haben nur eine Kopie der Kürze halber gezeigt.
 
 #### CSS
 
-Wir gestalten den Text in allen drei SVG-Bildern groß und kursiv und fügen etwas Farbe hinzu, um den Inhalt innerhalb der `<tspan>` Elemente zu unterscheiden.
+Wir machen den Text in allen drei SVG-Bildern groß und kursiv und fügen etwas Farbe hinzu, um den Inhalt innerhalb der `<tspan>`-Elemente zu unterscheiden.
 
-Wir setzen den `baseline-shift` Eigenschaftswert auf `sub` auf dem `<tspan>` Element des zweiten SVGs und `super` auf dem `<tspan>` Element des dritten SVGs. Auf das erste SVG wird kein zusätzliches CSS angewendet.
+Wir setzen den Wert der `baseline-shift`-Eigenschaft auf `sub` im zweiten SVG-`<tspan>`-Element und `super` im dritten SVG-`<tspan>`-Element. Auf das erste SVG wird kein zusätzliches CSS angewendet.
 
 ```css
 text {
@@ -143,9 +144,8 @@ svg {
     content: "Your browser doesn't support the `baseline-shift` property.";
     background-color: wheat;
     display: block;
-    width: 100%;
     text-align: center;
-    padding: 0.5em;
+    padding: 1rem 0;
   }
 }
 ```
@@ -154,7 +154,7 @@ svg {
 
 {{EmbedLiveSample("Using keyword values", "300", "370")}}
 
-Die SVG `baseline-shift` Attributwerte werden im ersten SVG verwendet. In den zweiten und dritten SVGs überschreiben die CSS `baseline-shift` Werte die Attributwerte.
+Die `baseline-shift`-SVG-Attributwerte werden im ersten SVG verwendet. Im zweiten und dritten SVG überschreiben die CSS-`baseline-shift`-Werte die Attributwerte.
 
 ## Spezifikationen
 
@@ -166,5 +166,5 @@ Die SVG `baseline-shift` Attributwerte werden im ersten SVG verwendet. In den zw
 
 ## Siehe auch
 
-- SVG {{SVGAttr("baseline-shift")}} Attribut
+- SVG-{{SVGAttr("baseline-shift")}}-Attribut
 - Präsentationseigenschaften: `baseline-shift`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("fill")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-color")}}, {{cssxref("stop-opacity")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}

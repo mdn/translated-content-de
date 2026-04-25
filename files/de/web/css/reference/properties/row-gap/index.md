@@ -1,13 +1,14 @@
 ---
-title: row-gap
+title: "`row-gap` CSS property"
+short-title: row-gap
 slug: Web/CSS/Reference/Properties/row-gap
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe der Lücke ({{Glossary("gutters", "gutter")}}) zwischen den Reihen eines Elements fest.
+Die **`row-gap`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe der Lücke ({{Glossary("gutters", "Spaltenränder")}}) zwischen den Zeilen eines Elements fest.
 
-Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-row-gap`, und um die Kompatibilität mit älteren Webseiten zu gewährleisten, akzeptieren Browser immer noch `grid-row-gap` als Alias für `row-gap`.
+Frühere Versionen der Spezifikation nannten diese Eigenschaft `grid-row-gap`, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
 
 {{InteractiveExample("CSS Demo: row-gap")}}
 
@@ -78,7 +79,7 @@ row-gap: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ist die Breite der Lücke, die die Reihen trennt. {{CSSxRef("&lt;percentage&gt;")}} Werte sind relativ zur Dimension des Elements.
+  - : Ist die Breite des Lückenraums, der die Zeilen trennt. {{CSSxRef("&lt;percentage&gt;")}}-Werte sind relativ zur Dimension des Elements.
 
 ## Formale Definition
 
@@ -176,4 +177,4 @@ row-gap: unset;
 
 - {{CSSxRef("column-gap")}}
 - {{CSSxRef("gap")}}
-- [Grundkonzepte des Grid-Layouts: gutters](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
+- [Grundkonzepte des Grid-Layouts: Spaltenränder](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)

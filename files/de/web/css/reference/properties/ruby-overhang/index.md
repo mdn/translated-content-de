@@ -1,11 +1,12 @@
 ---
-title: ruby-overhang
+title: "`ruby-overhang` CSS property"
+short-title: ruby-overhang
 slug: Web/CSS/Reference/Properties/ruby-overhang
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`ruby-overhang`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob eine {{htmlelement("ruby")}}-Annotation irgendeinen umgebenden Text überhängen soll oder nicht.
+Die **`ruby-overhang`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine {{htmlelement("ruby")}}-Annotation über jeglichen umgebenden Text hinausragt oder nicht.
 
 {{InteractiveExample("CSS Demo: ruby-overhang")}}
 
@@ -50,18 +51,19 @@ ruby-overhang: unset;
 ### Werte
 
 - `auto`
-  - : Wenn ein Ruby-Anmerkungscontainer länger ist als sein entsprechender Basiskontainer, kann die Anmerkung teilweise benachbarten Text überlappen.
-    Ob, und wie viel überhängt wird, wird durch das Benutzeragent bestimmt.
+  - : Wenn ein Ruby-Annotation-Container länger ist als sein entsprechender Basis-Container, kann die Annotation teilweise den angrenzenden Text überlappen.
+    Ob und wie viel überhangen wird, wird vom Benutzeragenten bestimmt.
 - `none`
-  - : Ein Schlüsselwort, das angibt, dass das Ruby niemals über angrenzende Container hinausgehen darf.
+  - : Ein Schlüsselwort, das angibt, dass das Ruby niemals über die angrenzenden Container hinausreichen darf.
 
 ## Beschreibung
 
-Die `ruby-overhang` Eigenschaft steuert, ob die Ruby-Annotationstextbox ({{htmlelement("rt")}}) angrenzenden Text außerhalb des `<ruby>`-Containerrahmens überlappen darf.
+Die `ruby-overhang`-Eigenschaft steuert, ob der Ruby-Annotationstextkasten ({{htmlelement("rt")}}) angrenzenden Text außerhalb des `<ruby>`-Containerkastens überlappen darf.
 
-Wenn Ruby-Annotationstext nicht überhängen darf &mdash; wenn `ruby-overhang: none` auf dem `<ruby>`-Element gesetzt ist &mdash; verhält sich dieses Element wie eine Inline-Box, als ob seine {{cssxref("display")}} Eigenschaft auf `inline` gesetzt wäre, wobei nur die eigenen Inhalte innerhalb seiner Grenzen gerendert werden und benachbarte Elemente nicht die Begrenzungsbox überschreiten.
+Wenn Ruby-Annotationstext nicht hinausragen darf &mdash; wenn `ruby-overhang: none` auf das `<ruby>`-Element gesetzt wird &mdash; verhält sich dieses Element wie eine Inline-Box, als ob seine {{cssxref("display")}}-Eigenschaft auf `inline` gesetzt wäre, wobei nur sein eigener Inhalt innerhalb seiner Grenzen gerendert wird und angrenzende Elemente die Begrenzungsbox nicht überschreiten.
 
-Standardmäßig darf der Inhalt eines `<rt>`-Elements überhängen, sodass der Inhalt den `<ruby>`-Containerrahmen überlappen kann, teilweise über oder unter dem umliegenden Inline-Inhaltslevel gerendert werden kann. Bei `auto`, dem Standard, darf der Inhalt überhängen, aber er wird nicht überhängen, wenn dies benachbarte `<rt>`-Elemente oder Elemente mit einem `display`-Wert, der zu `ruby-base` oder `ruby-text` aufgelöst wird, überlappen würde.
+Standardmäßig darf der Inhalt eines `<rt>`-Elements hinausragen, sodass der Inhalt den `<ruby>`-Containerkasten überlappen kann und teilweise über oder unter umgebendem Inhalt auf Inline-Ebene gerendert wird.
+Mit `auto`, dem Standardwert, darf der Inhalt hinausragen, aber es wird nicht hinausragen, wenn dadurch angrenzende `<rt>`-Elemente oder Elemente mit einem `display`-Wert, der zu `ruby-base` oder `ruby-text` aufgelöst wird, überlappt würden.
 
 ## Formale Definition
 
@@ -73,13 +75,13 @@ Standardmäßig darf der Inhalt eines `<rt>`-Elements überhängen, sodass der I
 
 ## Beispiele
 
-### Ruby überhängt Basistext
+### Ruby, das Basistext überragt
 
-Dieses Beispiel demonstriert beide Werte der `ruby-overhang` Eigenschaft.
+Dieses Beispiel zeigt beide Werte der `ruby-overhang`-Eigenschaft.
 
 #### HTML
 
-Wir fügen zwei Absätze mit identischem `<ruby>`-Inhalt und -Strukturen ein, die sich nur durch ihre Klassennamen unterscheiden.
+Wir schließen zwei Absätze mit identischem `<ruby>`-Inhalt und -Strukturen ein, abgesehen von ihren Klassennamen.
 
 ```html
 <p class="auto">
@@ -95,7 +97,8 @@ Wir fügen zwei Absätze mit identischem `<ruby>`-Inhalt und -Strukturen ein, di
 
 #### CSS
 
-Ein rotes `outline` von `1px` hilft, die Textannotation von {{htmlelement("rt")}}-Elementen hervorzuheben. Der erste Absatz hat `ruby-overhang: auto` und der zweite hat `ruby-overhang: none`.
+Ein roter `outline` von `1px` hebt die Textannotation der {{htmlelement("rt")}}-Elemente hervor.
+Der erste Absatz hat `ruby-overhang: auto` und der zweite hat `ruby-overhang: none`.
 
 ```css
 p {
@@ -119,7 +122,7 @@ rt {
 
 {{EmbedLiveSample("ruby_overhanging_base_text", , "350")}}
 
-Wenn `ruby-overhang` auf `none` gesetzt ist, darf der Annotationstext die angrenzenden Boxen des Basistextes von Ruby nicht überlappen. Wenn Sie genau hinsehen, können Sie bemerken, dass im ersten Absatz die rote Box, die den Ruby-Text umschließt, leicht Teile nicht assoziierter `<ruby>`-Inhalte überlappt, während es im `none`-Beispiel in unterstützenden Browsern keine Überlappung zwischen Ruby-Inhalt und nicht-assoziiertem Ruby-Text gibt.
+Wenn `ruby-overhang` auf `none` gesetzt ist, darf der Annotationstext die angrenzenden Boxen des Basis-Ruby-Textes nicht überlappen. Wenn Sie genau hinsehen, können Sie bemerken, dass im ersten Absatz die rote Box, die den Ruby-Text umgibt, leicht Teile des nicht-assoziierten `<ruby>`-Inhalts überlappt, während es im `none`-Beispiel in unterstützenden Browsern keine Überlappung zwischen Ruby-Inhalt und nicht-assoziiertem Ruby-Text gibt.
 
 ## Spezifikationen
 

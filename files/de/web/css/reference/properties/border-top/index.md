@@ -1,11 +1,12 @@
 ---
-title: border-top
+title: "`border-top` CSS-Eigenschaft"
+short-title: border-top
 slug: Web/CSS/Reference/Properties/border-top
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-top`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Randes](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-top`** [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-top")}}
 
@@ -47,9 +48,9 @@ border-top: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-top-color")}}
 - {{cssxref("border-top-style")}}
@@ -70,7 +71,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzformeigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -83,21 +84,21 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beschreibung
 
-Wie bei allen Kurzschreibweisen setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzformeigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Nicht angegebene Werte werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Er ist tatsächlich derselbe wie dieser:
+In Wirklichkeit ist er derselbe wie dieser:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nichtangeben des `border-style` Teils zu keinem Rand.
+Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Rahmen.
 
 ## Formale Definition
 
@@ -109,7 +110,7 @@ Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wir
 
 ## Beispiele
 
-### Einen oberen Rand anwenden
+### Anwenden eines oberen Rahmens
 
 #### HTML
 

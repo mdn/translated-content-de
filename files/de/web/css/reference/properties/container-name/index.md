@@ -1,11 +1,14 @@
 ---
-title: container-name
+title: "`container-name` CSS property"
+short-title: container-name
 slug: Web/CSS/Reference/Properties/container-name
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **container-name** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine Liste von Abfrage-Containernamen an, die von der [@container](/de/docs/Web/CSS/Reference/At-rules/@container) At-Regel in einer [Container-Abfrage](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwendet werden. Eine Container-Abfrage wird Stile auf Elemente basierend auf der [Größe](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_size_queries) oder dem [Scroll-Zustand](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) des nächsten Vorfahren mit einem Containment-Kontext anwenden. Wenn einem Containment-Kontext ein Name gegeben wird, kann er gezielt mit der {{Cssxref("@container")}} At-Regel angesprochen werden, anstatt den nächstgelegenen Vorfahren mit Containment zu verwenden.
+Die **container-name** [CSS](/de/docs/Web/CSS) Eigenschaft legt eine Liste von Abfragecontainer-Namen fest, die von der [@container](/de/docs/Web/CSS/Reference/At-rules/@container) At-Regel in einer [Containerabfrage](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwendet werden.
+Eine Containerabfrage wird Stile auf Elemente basierend auf der [Größe](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_size_queries) oder dem [Scrollzustand](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) des nächsten Vorfahren mit einem Containment-Kontext anwenden.
+Wenn ein Containment-Kontext einen Namen erhält, kann er gezielt mit der {{Cssxref("@container")}} At-Regel anstelle des nächsten Vorfahren mit Containment angesprochen werden.
 
 ## Syntax
 
@@ -32,12 +35,12 @@ container-name: unset;
   - : Standardwert. Der Abfragecontainer hat keinen Namen.
 
 - {{cssxref("custom-ident")}}
-  - : Eine Groß-/Kleinschreibung beachtende Zeichenkette, die zur Identifizierung des Containers verwendet wird.
-    Es gelten die folgenden Bedingungen:
-    - Der Name darf nicht gleich `or`, `and`, `not` oder `default` sein.
-    - Der Name darf nicht in Anführungszeichen sein.
-    - Das gestrichelte Ident, das dazu gedacht ist, benutzerdefinierte Bezeichner zu kennzeichnen (z. B. `--container-name`), ist erlaubt.
-    - Eine Liste mehrerer Namen, die durch ein Leerzeichen getrennt sind, ist erlaubt.
+  - : Ein groß-/kleinsensitiver String, der zur Identifizierung des Containers verwendet wird.
+    Die folgenden Bedingungen gelten:
+    - Der Name darf nicht `or`, `and`, `not` oder `default` lauten.
+    - Der Name darf nicht in Anführungszeichen stehen.
+    - Der Trefferbezeichner, der für benutzerdefinierte Identifizierungen (z.B. `--container-name`) gedacht ist, ist erlaubt.
+    - Eine Liste von mehreren durch ein Leerzeichen getrennten Namen ist zulässig.
 
 ## Formale Definition
 
@@ -49,9 +52,9 @@ container-name: unset;
 
 ## Beispiele
 
-### Verwendung eines Containernamens
+### Verwendung eines Container-Namens
 
-Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Titel und etwas Text darstellt:
+Das folgende HTML-Beispiel zeigt eine Kartenkomponente mit einem Titel und etwas Text:
 
 ```html
 <div class="card">
@@ -67,10 +70,11 @@ Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Tite
 </div>
 ```
 
-Um einen Containment-Kontext zu erstellen, fügen Sie die `container-type` Eigenschaft zu einem Element in CSS hinzu. Das folgende Beispiel erstellt zwei Containment-Kontexte, einen für die Metainformationen der Karte und einen für den Beitragstextauszug:
+Um einen Containment-Kontext zu erstellen, fügen Sie die `container-type` Eigenschaft zu einem Element in CSS hinzu.
+Das folgende Beispiel erstellt zwei Containment-Kontexte, einen für die Meta-Informationen der Karte und einen für den Post-Auszug:
 
 > [!NOTE]
-> Eine Kurzschreibweise für diese Deklarationen wird auf der Seite {{cssxref("container")}} beschrieben.
+> Eine Kurzschreibweise für diese Deklarationen wird auf der {{cssxref("container")}} Seite beschrieben.
 
 ```css
 .post-meta {
@@ -83,7 +87,8 @@ Um einen Containment-Kontext zu erstellen, fügen Sie die `container-type` Eigen
 }
 ```
 
-Das Schreiben einer Container-Abfrage über die {{Cssxref("@container")}} At-Regel wendet Stile auf die Elemente des Containers an, wenn die Abfrage als wahr evaluiert wird. Das folgende Beispiel enthält zwei Container-Abfragen, von denen eine nur auf die Inhalte des `.post-excerpt` Elements und eine auf die Inhalte sowohl von `.post-meta` als auch von `.post-excerpt` angewendet wird:
+Durch das Schreiben einer Containerabfrage über die {{Cssxref("@container")}} At-Regel werden Stile auf die Elemente des Containers angewendet, wenn die Abfrage wahr ist.
+Das folgende Beispiel hat zwei Containerabfragen, eine, die nur auf die Inhalte des `.post-excerpt` Elements angewendet wird und eine, die auf die Inhalte sowohl von `.post-meta` als auch `.post-excerpt` angewendet wird:
 
 ```css
 @container excerpt (width >= 400px) {
@@ -99,11 +104,11 @@ Das Schreiben einer Container-Abfrage über die {{Cssxref("@container")}} At-Reg
 }
 ```
 
-Für weitere Informationen zum Schreiben von Container-Abfragen siehe die [CSS Container Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries) Seite.
+Für mehr Informationen zum Schreiben von Containerabfragen siehe die [CSS Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) Seite.
 
-### Verwendung mehrerer Containernamen
+### Verwendung mehrerer Container-Namen
 
-Sie können einem Container-Kontext auch mehrere Namen geben, die durch ein Leerzeichen getrennt sind:
+Sie können auch mehrere Namen für einen Container-Kontext angeben, die durch ein Leerzeichen getrennt sind:
 
 ```css
 .post-meta {
@@ -112,7 +117,8 @@ Sie können einem Container-Kontext auch mehrere Namen geben, die durch ein Leer
 }
 ```
 
-Dies ermöglicht es Ihnen, den Container mit einem der Namen in der {{cssxref("@container")}} At-Regel anzusprechen. Dies ist nützlich, wenn Sie denselben Container mit mehreren Container-Abfragen ansprechen möchten, bei denen eine von beiden Bedingungen wahr sein könnte:
+Dies ermöglicht es Ihnen, den Container entweder mit dem einen oder dem anderen Namen in der {{cssxref("@container")}} At-Regel zu adressieren.
+Dies ist nützlich, wenn Sie denselben Container mit mehreren Containerabfragen ansprechen möchten, bei denen eine der Bedingungen zutreffen kann:
 
 ```css
 @container meta (width <= 500px) {
@@ -138,9 +144,9 @@ Dies ermöglicht es Ihnen, den Container mit einem der Namen in der {{cssxref("@
 
 ## Siehe auch
 
-- [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [CSS Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
 - [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
-- [Verwendung von Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
+- [Verwendung von Container-Scrollstatusabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
 - {{Cssxref("@container")}} At-Regel
 - CSS {{Cssxref("container")}} Kurzschreibweise
 - CSS {{Cssxref("container-type")}} Eigenschaft

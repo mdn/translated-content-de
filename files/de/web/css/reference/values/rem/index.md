@@ -1,16 +1,17 @@
 ---
-title: rem()
+title: "`rem()` CSS-Funktion"
+short-title: rem()
 slug: Web/CSS/Reference/Values/rem
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`rem()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) liefert einen Rest, der übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich wie der JavaScript-[Restoperator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Der Rest ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Er nimmt immer das Vorzeichen des Dividenden an.
+Die **`rem()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt einen Rest zurück, der übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript [Restoperator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Der Rest ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Er übernimmt immer das Vorzeichen des Dividenden.
 
 > [!NOTE]
-> Um mehr über die Einheit `rem` zu erfahren, besuchen Sie die {{CSSxRef("&lt;length&gt;")}} Seite.
+> Informationen zur Einheit `rem` finden Sie auf der Seite {{CSSxRef("&lt;length&gt;")}}.
 
-Zum Beispiel liefert die CSS-Funktion `rem(27, 5)` den Rest `2`. Bei der Division von 27 durch 5 ist das Ergebnis 5 mit einem Rest von 2. Die vollständige Berechnung ist `27 / 5 = 5 * 5 + 2`.
+Zum Beispiel gibt die CSS-Funktion `rem(27, 5)` den Rest von `2` zurück. Wenn 27 durch 5 geteilt wird, beträgt das Ergebnis 5 mit einem Rest von 2. Die vollständige Berechnung ist `27 / 5 = 5 * 5 + 2`.
 
 ## Syntax
 
@@ -41,21 +42,21 @@ transition-duration: rem(20s / 2, 3000ms * 2); /* 4s */
 
 ### Parameter
 
-Die Funktion `rem(dividend, divisor)` akzeptiert zwei durch Komma getrennte Werte als Parameter. Beide Parameter müssen vom gleichen Typ sein, [Zahl](/de/docs/Web/CSS/Reference/Values/number), [Dimension](/de/docs/Web/CSS/Reference/Values/dimension) oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten in den beiden Parametern nicht identisch sein müssen, müssen sie vom gleichen Dimensionstyp sein, wie {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}} oder {{cssxref("frequency")}}, um gültig zu sein.
+Die Funktion `rem(dividend, divisor)` akzeptiert zwei durch Komma getrennte Werte als ihre Parameter. Beide Parameter müssen vom gleichen Typ sein, [number](/de/docs/Web/CSS/Reference/Values/number), [dimension](/de/docs/Web/CSS/Reference/Values/dimension) oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten in den beiden Parametern nicht gleich sein müssen, müssen sie jedoch vom gleichen Dimensionstyp sein, wie etwa {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}} oder {{cssxref("frequency")}}, um gültig zu sein.
 
 - `dividend`
-  - : Eine Berechnung, die sich auf eine {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Dividend repräsentiert.
+  - : Eine Berechnung, die sich zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Dividend darstellt.
 
 - `divisor`
-  - : Eine Berechnung, die sich auf eine {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Divisor repräsentiert.
+  - : Eine Berechnung, die sich zu einem {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} auflöst und den Divisor darstellt.
 
 ### Rückgabewert
 
-Liefert eine {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} (entsprechend dem Typ der Parameter) und repräsentiert den Rest, also die übrig gebliebene Operation.
+Gibt einen {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} (entsprechend dem Typ der Parameter) zurück, der den Rest darstellt, also die Operation, die übrig bleibt.
 
 - Wenn `divisor` `0` ist, ist das Ergebnis `NaN`.
 - Wenn `dividend` unendlich ist, ist das Ergebnis `NaN`.
-- Wenn `dividend` positiv ist, ist das Ergebnis positiv (`0⁺`), und wenn `dividend` negativ ist, ist das Ergebnis negativ (`0⁻`).
+- Ist `dividend` positiv, ist das Ergebnis positiv (`0⁺`), und ist `dividend` negativ, ist das Ergebnis negativ (`0⁻`).
 
 ## Formale Syntax
 

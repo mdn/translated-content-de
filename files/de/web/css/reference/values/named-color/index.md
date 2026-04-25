@@ -1,11 +1,12 @@
 ---
-title: <named-color>
+title: "`<named-color>` CSS-Typ"
+short-title: <named-color>
 slug: Web/CSS/Reference/Values/named-color
 l10n:
-  sourceCommit: 865da9174c0ef94d65378a97e2e890f28613bdf1
+  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
 ---
 
-Der **`<named-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist der Name einer Farbe, wie `red`, `blue`, `black` oder `lightseagreen`. Syntaktisch ist ein `<named-color>` ein {{cssxref("ident")}}.
+Der **`<named-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist der Name einer Farbe, wie `red`, `blue`, `black` oder `lightseagreen`. Syntaktisch gesehen ist ein `<named-color>` ein {{cssxref("ident")}}.
 
 Ein `<named-color>`-Wert kann überall verwendet werden, wo ein {{cssxref("&lt;color&gt;")}} verwendet werden kann.
 
@@ -21,7 +22,7 @@ color: transparent;
 
 ### Wert
 
-Benannte Farben bestehen aus Standardfarben, den Schlüsselwörtern [`transparent`](#transparent) und [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword).
+Benannte Farben bestehen aus Standardfarben und den Stichworten [`transparent`](#transparent) und [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword).
 
 #### Standardfarben
 
@@ -30,8 +31,8 @@ Grundfarben haben standardisierte, einprägsame Namen:
 <table>
   <thead>
     <tr>
-      <th scope="col">Schlüsselwort</th>
-      <th scope="col">RGB-Hexwert</th>
+      <th scope="col">Stichwort</th>
+      <th scope="col">RGB-Hex-Wert</th>
       <th scope="col">Beispiel</th>
     </tr>
   </thead>
@@ -119,13 +120,13 @@ Grundfarben haben standardisierte, einprägsame Namen:
   </tbody>
 </table>
 
-Zusätzlich zu diesen 16 Farben haben etwa 150 weitere Farben ein zugeordnetes Schlüsselwort:
+Zusätzlich zu diesen 16 Farben sind etwa 150 weitere Farben mit einem Stichwort verbunden:
 
 <table>
   <thead>
     <tr>
-      <th scope="col">Schlüsselwort</th>
-      <th scope="col">RGB-Hexwert</th>
+      <th scope="col">Stichwort</th>
+      <th scope="col">RGB-Hex-Wert</th>
       <th scope="col">Beispiel</th>
     </tr>
   </thead>
@@ -234,7 +235,7 @@ Zusätzlich zu diesen 16 Farben haben etwa 150 weitere Farben ein zugeordnetes S
       <td>
         <code>cyan</code><br />
       </td>
-      <td><code>#00ffff</code> (Synonym für <code>aqua</code>)</td>
+      <td><code>#00ffff</code> (Synonym von <code>aqua</code>)</td>
       <td style="background: cyan"></td>
     </tr>
     <tr>
@@ -414,7 +415,7 @@ Zusätzlich zu diesen 16 Farben haben etwa 150 weitere Farben ein zugeordnetes S
     </tr>
     <tr>
       <td><code>grey</code></td>
-      <td><code>#808080</code> (Synonym für <code>gray</code>)</td>
+      <td><code>#808080</code> (Synonym von <code>gray</code>)</td>
       <td style="background: grey"></td>
     </tr>
     <tr>
@@ -561,7 +562,7 @@ Zusätzlich zu diesen 16 Farben haben etwa 150 weitere Farben ein zugeordnetes S
       <td>
         <code>magenta</code><br />
       </td>
-      <td><code>#ff00ff</code> (Synonym für <code>fuchsia</code>)</td>
+      <td><code>#ff00ff</code> (Synonym von <code>fuchsia</code>)</td>
       <td style="background: magenta"></td>
     </tr>
     <tr>
@@ -884,25 +885,25 @@ Zusätzlich zu diesen 16 Farben haben etwa 150 weitere Farben ein zugeordnetes S
   </tbody>
 </table>
 
-Zu Beginn, in [CSS Level 1](https://www.w3.org/TR/CSS1/#color-units), waren nur 16 Grundfarben definiert, mit `orange` hinzugefügt in [CSS Level 2](https://www.w3.org/TR/CSS2/syndata.html#value-def-color). Webdesigner fanden diese Liste zu kurz, und Browseranbieter fügten zahlreiche Namen für Farben basierend auf den X11-Farbnamen hinzu. In [SVG 1](https://www.w3.org/TR/SVG11/types.html#DataTypeColor), dann in [CSS Colors Level 3](https://drafts.csswg.org/css-color-3/#svg-color), wurden diese Namen standardisiert, formal definiert und vereinheitlicht (einige hatten unterschiedliche Schreibweisen, die jetzt Aliasse sind). Sie werden _erweiterte Farb-Schlüsselwörter_, _X11-Farben_ oder _SVG-Farben_ genannt.
+Ursprünglich wurden in [CSS Level 1](https://www.w3.org/TR/CSS1/#color-units) nur 16 Grundfarben definiert, wobei `orange` in [CSS Level 2](https://www.w3.org/TR/CSS2/syndata.html#value-def-color) hinzugefügt wurde. Webdesigner fanden diese Liste zu kurz, und Browser-Anbieter fügten zahlreiche Farbnamen hinzu, die auf den X11-Farbnamen basieren. In [SVG 1](https://www.w3.org/TR/SVG11/types.html#DataTypeColor) und später in [CSS Colors Level 3](https://drafts.csswg.org/css-color-3/#svg-color) wurden diese Namen standardisiert, formal definiert und vereinheitlicht (einige hatten unterschiedliche Schreibweisen, die jetzt Aliase sind). Sie werden _erweiterte Farbstichwörter_, _X11-Farben_ oder _SVG-Farben_ genannt.
 
-In [CSS Colors Level 4](https://drafts.csswg.org/css-color-4/#named-colors) wurde eine weitere Farbe, `rebeccapurple`, hinzugefügt, um den [Webpionier Eric Meyer](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/) zu ehren.
+In [CSS Colors Level 4](https://drafts.csswg.org/css-color-4/#named-colors) wurde eine zusätzliche Farbe, `rebeccapurple`, hinzugefügt, um den [Web-Pionier Eric Meyer](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/) zu ehren.
 
 ### transparent
 
-Das Schlüsselwort `transparent` repräsentiert eine vollständig transparente Farbe. Dies macht den Hintergrund hinter dem farbigen Element vollständig sichtbar. Technisch gesehen ist `transparent` eine Abkürzung für `rgb(0 0 0 / 0%)`.
+Das Stichwort `transparent` steht für eine vollständig transparente Farbe. Dadurch wird der Hintergrund hinter dem farbigen Element vollständig sichtbar. Technisch gesehen ist `transparent` eine Abkürzung für `rgb(0 0 0 / 0%)`.
 
-Um unerwartetes Verhalten zu verhindern, wie in einem {{cssxref("gradient")}}, gibt die aktuelle CSS-Spezifikation an, dass `transparent` im [alpha-vorpremultiplizierten Farbraum](https://drafts.csswg.org/css-color/#interpolation-alpha) berechnet werden sollte. Beachten Sie jedoch, dass ältere Browser es möglicherweise als schwarz mit einem Alpha-Wert von `0` behandeln.
+Um unerwartetes Verhalten zu verhindern, wie z. B. in einem {{cssxref("gradient")}}, gibt die aktuelle CSS-Spezifikation an, dass `transparent` im [alphakompromittierten Farbraum](https://drafts.csswg.org/css-color/#interpolation-alpha) berechnet werden soll. Beachten Sie jedoch, dass ältere Browser es möglicherweise als Schwarz mit einem Alpha-Wert von `0` behandeln.
 
-Das Schlüsselwort `transparent` war in CSS Level 2 (Revision 1) keine echte Farbe. Es war ein spezielles Schlüsselwort, das anstelle eines regulären `<color>`-Wertes auf zwei CSS-Eigenschaften verwendet werden konnte: {{Cssxref("background")}} und {{Cssxref("border")}}. Es wurde im Wesentlichen hinzugefügt, um Entwicklern zu ermöglichen, eine geerbte Volltonfarbe zu überschreiben. Mit dem Aufkommen von Alphakanälen in CSS Colors Level 3 wurde `transparent` als echte Farbe neu definiert. Es kann jetzt überall dort verwendet werden, wo ein `<color>`-Wert verwendet werden kann.
+Das Stichwort `transparent` war in CSS Level 2 (Revision 1) keine echte Farbe. Es war ein spezielles Stichwort, das anstelle eines regulären `<color>`-Werts in zwei CSS-Eigenschaften verwendet werden konnte: {{Cssxref("background")}} und {{Cssxref("border")}}. Es wurde im Wesentlichen hinzugefügt, um Entwicklern zu ermöglichen, eine vererbte Volltonfarbe zu überschreiben. Mit der Einführung von Alphakanälen in CSS Colors Level 3 wurde `transparent` als echte Farbe neu definiert. Es kann jetzt überall verwendet werden, wo ein `<color>`-Wert verwendet werden kann.
 
 ## Beschreibung
 
-Alle Namen geben eine Farbe im [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB) an. Obwohl die Namen ihre jeweiligen Farben mehr oder weniger beschreiben, sind sie im Wesentlichen künstlich, ohne eine strenge Begründung für die verwendeten Begriffe.
+Alle Namen spezifizieren eine Farbe im [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB). Obwohl die Namen mehr oder weniger ihre jeweiligen Farben beschreiben, sind sie im Wesentlichen künstlich, ohne strikten Grund für die verwendeten Begriffe.
 
-Die Farbschlüsselwörter repräsentieren alle einfache, einfarbige Farben ohne Transparenz.
+Die Farbstichwörter repräsentieren alle einfache, einfarbige Farben ohne Transparenz.
 
-Mehrere Schlüsselwörter sind Aliasse füreinander:
+Mehrere Stichwörter sind Aliase füreinander:
 
 - `aqua` / `cyan`
 - `fuchsia` / `magenta`
@@ -914,7 +915,7 @@ Mehrere Schlüsselwörter sind Aliasse füreinander:
 - `gray` / `grey`
 - `slategray` / `slategrey`
 
-Obwohl viele Schlüsselwörter von [X11](https://en.wikipedia.org/wiki/X_Window_System) übernommen wurden, können ihre RGB-Werte von der entsprechenden Farbe in X11-Systemen abweichen, da Hersteller manchmal X11-Farben an ihre spezifische Hardware anpassen.
+Obwohl viele Stichwörter aus [X11](https://en.wikipedia.org/wiki/X_Window_System) übernommen wurden, können sich ihre RGB-Werte von der entsprechenden Farbe auf X11-Systemen unterscheiden, da Hersteller manchmal X11-Farben an ihre spezifische Hardware anpassen.
 
 ## Beispiele
 

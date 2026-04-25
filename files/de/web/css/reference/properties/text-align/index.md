@@ -1,11 +1,12 @@
 ---
-title: text-align
+title: "`text-align` CSS property"
+short-title: text-align
 slug: Web/CSS/Reference/Properties/text-align
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`text-align`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die horizontale Ausrichtung des Inhalts auf Inline-Ebene innerhalb eines Blockelements oder einer Tabellenzelle fest. Dies bedeutet, dass sie ähnlich wie {{cssxref("vertical-align")}} funktioniert, jedoch in horizontaler Richtung.
+Die **`text-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die horizontale Ausrichtung des Inline-Inhalts innerhalb eines Blockelements oder einer Tabellzellen-Box fest. Das bedeutet, dass sie wie {{cssxref("vertical-align")}} funktioniert, aber in der horizontalen Richtung.
 
 {{InteractiveExample("CSS Demo: text-align")}}
 
@@ -75,31 +76,31 @@ text-align: revert-layer;
 text-align: unset;
 ```
 
-Die `text-align`-Eigenschaft wird als einzelnes Schlüsselwort aus der untenstehenden Liste angegeben.
+Die `text-align`-Eigenschaft wird als einzelnes Schlüsselwort aus der folgenden Liste angegeben.
 
 ### Werte
 
 - `start`
-  - : Entspricht `left`, wenn die Richtung von links nach rechts ist, und `right`, wenn die Richtung von rechts nach links ist.
+  - : Entspricht `left`, wenn die Richtung von links nach rechts ist, und `right`, wenn die Richtung von rechts nach links verläuft.
 - `end`
-  - : Entspricht `right`, wenn die Richtung von links nach rechts ist, und `left`, wenn die Richtung von rechts nach links ist.
+  - : Entspricht `right`, wenn die Richtung von links nach rechts ist, und `left`, wenn die Richtung von rechts nach links verläuft.
 - `left`
-  - : Der Inhalt auf Inline-Ebene wird an der linken Kante des Zeilenkastens ausgerichtet.
+  - : Der Inline-Inhalt wird am linken Rand der Linienbox ausgerichtet.
 - `right`
-  - : Der Inhalt auf Inline-Ebene wird an der rechten Kante des Zeilenkastens ausgerichtet.
+  - : Der Inline-Inhalt wird am rechten Rand der Linienbox ausgerichtet.
 - `center`
-  - : Der Inhalt auf Inline-Ebene wird innerhalb des Zeilenkastens zentriert.
+  - : Der Inline-Inhalt wird innerhalb der Linienbox zentriert.
 - `justify`
-  - : Der Inhalt auf Inline-Ebene wird im Blocksatz ausgerichtet. Der Inhalt wird so verteilt, dass seine linke und rechte Kante mit der linken und rechten Kante des Zeilenkastens übereinstimmt, außer bei der letzten Zeile.
+  - : Der Inline-Inhalt wird im Blocksatz ausgerichtet. Der Inhalt wird derart verteilt, dass die linken und rechten Ränder mit den linken und rechten Rändern der Linienbox übereinstimmen, mit Ausnahme der letzten Zeile.
 - `match-parent`
-  - : Ähnlich wie `inherit`, aber die Werte `start` und `end` werden gemäß der {{cssxref("direction")}} des übergeordneten Elements berechnet und durch den entsprechenden `left`- oder `right`-Wert ersetzt.
+  - : Ähnlich wie `inherit`, aber die Werte `start` und `end` werden gemäß der {{cssxref("direction")}} des übergeordneten Elements berechnet und durch den entsprechenden Wert `left` oder `right` ersetzt.
 
 ## Barrierefreiheit
 
-Der ungleichmäßige Abstand zwischen Wörtern, der durch Blocksatz entsteht, kann problematisch für Personen mit kognitiven Beeinträchtigungen wie Dyslexie sein.
+Der ungleichmäßige Abstand zwischen Wörtern, der durch Blocksatz entsteht, kann problematisch für Personen mit kognitiven Einschränkungen wie Legasthenie sein.
 
-- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
 
@@ -111,7 +112,7 @@ Der ungleichmäßige Abstand zwischen Wörtern, der durch Blocksatz entsteht, ka
 
 ## Beispiele
 
-### Start-Ausrichtung
+### Anfangsausrichtung
 
 #### HTML
 
@@ -190,10 +191,10 @@ Der ungleichmäßige Abstand zwischen Wörtern, der durch Blocksatz entsteht, ka
 
 Dieses Beispiel zeigt die Verwendung von `text-align` bei {{htmlelement("table")}}-Elementen:
 
-- Die {{htmlelement("caption")}} ist rechtsbündig ausgerichtet.
-- Die ersten beiden {{htmlelement("th")}}-Elemente erben die linke Ausrichtung von `text-align: left`, das auf den {{htmlelement("thead")}} gesetzt ist, während das dritte rechtsbündig ausgerichtet ist.
-- Innerhalb des {{htmlelement("tbody")}}-Elements ist die erste Zeile rechtsbündig, die zweite mittig ausgerichtet, und die dritte verwendet die Standardausrichtung (links).
-- Innerhalb jeder Zeile sind einige Zellen (c12, c31) so eingestellt, dass sie die Ausrichtung der Zeile überschreiben.
+- Der {{htmlelement("caption")}} ist rechtsbündig ausgerichtet.
+- Die ersten beiden {{htmlelement("th")}}-Elemente erben die linke Ausrichtung von der `text-align: left`-Einstellung im {{htmlelement("thead")}}, während das dritte rechtsbündig ausgerichtet ist.
+- Im {{htmlelement("tbody")}}-Element ist die erste Reihe rechtsbündig, die zweite zentriert, und die dritte verwendet die Standardausrichtung (links).
+- Innerhalb jeder Reihe sind einige Zellen (c12, c31) so eingestellt, dass sie die Ausrichtung der Reihe überschreiben.
 
 #### HTML
 

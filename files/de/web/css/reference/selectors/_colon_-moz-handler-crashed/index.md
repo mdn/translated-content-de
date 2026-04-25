@@ -1,16 +1,17 @@
 ---
-title: :-moz-handler-crashed
+title: "`:-moz-handler-crashed` CSS-Pseudoklasse"
+short-title: :-moz-handler-crashed
 slug: Web/CSS/Reference/Selectors/:-moz-handler-crashed
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-handler-crashed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente anspricht, die nicht angezeigt werden können, weil das für sie zuständige Plugin abgestürzt ist.
+Die **`:-moz-handler-crashed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente auswählt, die nicht angezeigt werden können, weil das für ihre Darstellung zuständige Plugin abgestürzt ist.
 
 > [!NOTE]
-> Dieser Selektor ist vor allem für Entwickler von Designs gedacht.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Die **`:-moz-handler-crashed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Siehe auch
 

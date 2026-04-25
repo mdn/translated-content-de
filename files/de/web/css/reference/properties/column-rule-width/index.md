@@ -1,11 +1,12 @@
 ---
-title: column-rule-width
+title: "`column-rule-width` CSS property"
+short-title: column-rule-width
 slug: Web/CSS/Reference/Properties/column-rule-width
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`column-rule-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezeichnet wird.
+Die **`column-rule-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite der Linie fest, die in einem Mehrspalten-Layout zwischen den Spalten gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-width")}}
 
@@ -65,12 +66,12 @@ column-rule-width: revert-layer;
 column-rule-width: unset;
 ```
 
-Die `column-rule-width`-Eigenschaft wird als einzelner `<'border-width'>`-Wert angegeben.
+Die Eigenschaft `column-rule-width` wird als einzelner `<'border-width'>`-Wert angegeben.
 
 ### Werte
 
 - `<'border-width'>`
-  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-width") }} definiert ist und die Breite der Linie beschreibt. Es kann entweder eine {{cssxref("&lt;length&gt;")}} oder eines der Schlüsselwörter `thin`, `medium` oder `thick` sein.
+  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-width") }} definiert ist und die Breite der Linie beschreibt. Es kann entweder ein {{cssxref("&lt;length&gt;")}} oder eines der Schlüsselwörter `thin`, `medium` oder `thick` sein.
 
 ## Formale Definition
 
@@ -82,7 +83,7 @@ Die `column-rule-width`-Eigenschaft wird als einzelner `<'border-width'>`-Wert a
 
 ## Beispiele
 
-### Festlegung einer dicken Spaltenregel
+### Festlegen einer dicken Spaltentrennlinie
 
 #### HTML
 
@@ -118,7 +119,7 @@ p {
 
 ## Siehe auch
 
-- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-color")}}
 - {{CSSXref("column-rule")}}

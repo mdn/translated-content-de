@@ -1,11 +1,12 @@
 ---
-title: caption-side
+title: "`caption-side` CSS property"
+short-title: caption-side
 slug: Web/CSS/Reference/Properties/caption-side
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines Tabellen-{{HTMLElement("caption")}} an der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS)-Eigenschaft platziert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{InteractiveExample("CSS Demo: caption-side")}}
 
@@ -90,17 +91,17 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüsselwerten angegeben.
+Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `top`
-  - : Der Beschriftungskasten sollte am Blockanfang der Tabelle positioniert werden.
+  - : Der Beschriftungskasten sollte auf der Blockanfangsseite der Tabelle positioniert werden.
 - `bottom`
-  - : Der Beschriftungskasten sollte am Blockende der Tabelle positioniert werden.
+  - : Der Beschriftungskasten sollte auf der Blockendseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul der [logischen CSS-Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um den Beschriftungskasten am Inline-Anfang und Inline-Ende der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um den Beschriftungskasten jeweils an der Inline-Anfangskante und der Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -180,4 +181,4 @@ td {
 
 - {{HTMLelement("caption")}}
 - [CSS-Tabellen](/de/docs/Web/CSS/Guides/Table) Modul
-- [Logische CSS-Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul

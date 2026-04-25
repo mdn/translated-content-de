@@ -1,13 +1,14 @@
 ---
-title: border-image-source
+title: "`border-image-source` CSS property"
+short-title: border-image-source
 slug: Web/CSS/Reference/Properties/border-image-source
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`border-image-source`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Randbild](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements zu erstellen.
+Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Border Image](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements zu erstellen.
 
-Die Eigenschaft {{cssxref("border-image-slice")}} wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf das endgültige Randbild angewendet werden.
+Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf das endgültige Border Image angewendet werden.
 
 {{InteractiveExample("CSS Demo: border-image-source")}}
 
@@ -75,9 +76,9 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Randbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Erscheinungsbild angezeigt.
+  - : Es wird kein Border Image verwendet. Stattdessen wird das Erscheinungsbild angezeigt, das durch {{cssxref("border-style")}} definiert ist.
 - {{cssxref("image")}}
-  - : Bildreferenz, die für den Rand verwendet werden soll.
+  - : Bildreferenz, die für den Rahmen verwendet werden soll.
 
 ## Formale Definition
 
@@ -89,7 +90,7 @@ border-image-source: unset;
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 ```css
 .box {
@@ -111,5 +112,5 @@ border-image-source: unset;
 - {{cssxref("outline")}}
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}-Typ
+- {{cssxref("url_value", "&lt;url&gt;")}} Typ
 - [Randbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

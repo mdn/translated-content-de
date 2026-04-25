@@ -1,11 +1,12 @@
 ---
-title: order
+title: "`order` CSS property"
+short-title: order
 slug: Web/CSS/Reference/Properties/order
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`order`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Reihenfolge fest, in der ein Element in einem Flex- oder Grid-Container angeordnet wird. Elemente in einem Container werden nach aufsteigendem `order`-Wert und dann nach ihrer Quellcode-Reihenfolge sortiert. Elementen, denen kein expliziter `order`-Wert zugewiesen wird, erhalten den Standardwert `0`.
+Die **`order`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Reihenfolge fest, in der ein Element in einem Flex- oder Grid-Container angeordnet wird. Elemente in einem Container werden nach aufsteigendem `order`-Wert und dann nach ihrer Quellcode-Reihenfolge sortiert. Elementen, denen kein expliziter `order`-Wert zugewiesen wird, erhalten den Standardwert von `0`.
 
 {{InteractiveExample("CSS Demo: order")}}
 
@@ -62,9 +63,9 @@ order: 2;
 }
 ```
 
-In der obigen Demo wählen Sie die Optionen auf der linken Seite, um den Wert der `order`-Eigenschaft des rosa Kastens zu ändern. Den hellblauen Kästchen wurden feste `order`-Werte zugewiesen.
+In der obigen Demo wählen Sie die Optionen auf der linken Seite aus, um den Wert der `order`-Eigenschaft des pinken Kastens zu ändern. Die hellblauen Kästen haben feste `order`-Werte.
 
-Beachten Sie die Wirkung der Quellreihenfolge. Zum Beispiel, wenn `order: 2;` ausgewählt ist, wird der rosa Kasten vor den beiden blauen Kästen mit `order: 2;` platziert. Das liegt daran, dass der rosa Kasten vor den blauen Kästen im Quellcode erscheint.
+Beachten Sie den Effekt der Quellreihenfolge. Zum Beispiel wird, wenn `order: 2;` ausgewählt ist, der pinke Kasten vor den beiden blauen Kästen mit `order: 2;` platziert. Dies liegt daran, dass der pinke Kasten im Quellcode vor den blauen Kästen erscheint.
 
 ## Syntax
 
@@ -81,18 +82,18 @@ order: revert-layer;
 order: unset;
 ```
 
-Da `order` nur die _visuelle Reihenfolge_ von Elementen und nicht deren logische oder Tab-Reihenfolge beeinflussen soll, darf sie nicht in nicht-visuellen Medien wie [Speech](https://drafts.csswg.org/css-speech/) verwendet werden.
+Da `order` nur die _visuelle Reihenfolge_ von Elementen und nicht ihre logische oder Tab-Reihenfolge beeinflussen soll, darf es nicht auf nicht-visuellen Medien wie [Sprache](https://drafts.csswg.org/css-speech/) verwendet werden.
 
-Definiert im [CSS display](/de/docs/Web/CSS/Guides/Display)-Modul, beeinflusst diese Eigenschaft nur Grid- und Flex-Elemente. Wenn `order` auf ein Element eingestellt wird, dessen übergeordnete {{cssxref("display")}}-Eigenschaft keinen Flex- oder Grid-Container erstellt, hat das keine Wirkung.
+Definiert im [CSS display](/de/docs/Web/CSS/Guides/Display)-Modul wirkt sich diese Eigenschaft nur auf Grid- und Flex-Elemente aus. Wenn `order` auf einem Element gesetzt wird, dessen Elternelement die {{cssxref("display")}}-Eigenschaft hat, die keinen Flex- oder Grid-Container erstellt, hat es keinen Effekt.
 
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Repräsentiert die Ordnungsgruppe, die vom Element verwendet werden soll.
+  - : Repräsentiert die ordinale Gruppe, die vom Element verwendet werden soll.
 
 ## Barrierefreiheit
 
-Durch die Verwendung der `order`-Eigenschaft entsteht ein Unterschied zwischen der visuellen Darstellung von Inhalten und der DOM-Reihenfolge. Dies wirkt sich nachteilig auf sehbehinderte Benutzer aus, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren. Wenn die visuelle Reihenfolge von der DOM-Reihenfolge abweicht, haben Ihre Benutzer unterschiedliche Erfahrungen, je nachdem, wie sie auf Ihre Inhalte zugreifen.
+Die Verwendung der `order`-Eigenschaft führt zu einer Trennung zwischen der visuellen Darstellung von Inhalt und der DOM-Reihenfolge. Dies wirkt sich nachteilig auf sehbehinderte Benutzer aus, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren. Wenn die visuelle Reihenfolge von der DOM-Reihenfolge abweicht, werden Ihre Benutzer unterschiedliche Erfahrungen machen, je nachdem, wie sie auf Ihre Inhalte zugreifen.
 
 - [Flexbox & the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/) via Tink (2016)
 - [Source Order Matters](https://adrianroselli.com/2015/09/source-order-matters.html) via Adrian Roselli (2015)
@@ -109,13 +110,13 @@ Durch die Verwendung der `order`-Eigenschaft entsteht ein Unterschied zwischen d
 
 ## Beispiele
 
-### Anordnen von Elementen in einem Flex-Container
+### Elemente in einem Flex-Container ordnen
 
-In diesem Beispiel erstellen wir ein klassisches Zwei-Sidebar-Layout.
+In diesem Beispiel erstellen wir ein klassisches Layout mit zwei Seitenbalken.
 
 #### HTML
 
-Wir fügen einen Header, einen Footer und einen Hauptinhaltbereich ein. Der Hauptinhalt enthält einen Artikel und zwei Sidebars. Beachten Sie deren Reihenfolge! Wir verwenden die CSS `order`-Eigenschaft, um deren visuelle Reihenfolge zu ändern.
+Wir fügen einen Kopfbereich, einen Fußbereich und einen Hauptinhaltsbereich hinzu. Der Hauptinhalt enthält einen Artikel und zwei Seitenbalken. Beachten Sie deren Reihenfolge! Wir verwenden die CSS-`order`-Eigenschaft, um deren visuelle Reihenfolge zu ändern.
 
 ```html
 <header>Header</header>
@@ -129,9 +130,9 @@ Wir fügen einen Header, einen Footer und einen Hauptinhaltbereich ein. Der Haup
 
 #### CSS
 
-Wir gestalten den Hauptbereich mit den Eigenschaften des [flexiblen Box-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout); indem wir {{cssxref("display")}} auf `flex` setzen, wird das {{htmlelement("main")}}-Element zu einem Flex-Container. Dies erzeugt standardmäßig Flex-Elemente von gleicher vertikaler Größe. Den Sidebars wird eine absolute {{cssxref("width")}} zugewiesen, während das {{htmlelement("article")}} allen [positiven freien Raum](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios#positive_and_negative_free_space) mit einem {{cssxref("flex-grow")}}-Faktor, der über die {{cssxref("flex")}}-Abkürzung gesetzt ist, einnimmt.
+Wir gestalten den Hauptbereich mit den Funktionen des [flexiblen Box-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout); indem wir {{cssxref("display")}} auf `flex` setzen, wird das {{htmlelement("main")}}-Element zu einem Flex-Container. Standardmäßig erstellt dies Flex-Elemente gleicher vertikaler Größe. Die Seitenbalken erhalten beide eine absolute {{cssxref("width")}}, während das {{htmlelement("article")}} den gesamten [positiven freien Raum](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios#positive_and_negative_free_space) mit einem über die {{cssxref("flex")}}-Kurzform gesetzten {{cssxref("flex-grow")}}-Faktor beansprucht.
 
-Wir setzen dann unterschiedliche `order`-Eigenschaftswerte auf jedes der drei Kinder des Flex-Containers; das bedeutet, dass das CSS die visuelle Reihenfolge dieser Komponenten definiert, anstatt sie in der im HTML angegebenen Reihenfolge erscheinen zu lassen.
+Dann setzen wir auf jedes der drei Kinder des Flex-Containers unterschiedliche `order`-Eigenschaftswerte; dies bedeutet, dass das CSS die visuelle Reihenfolge dieses Elements definiert, anstatt es in der im HTML deklarierten Reihenfolge erscheinen zu lassen.
 
 ```css
 main {
@@ -156,7 +157,7 @@ main > aside {
 
 {{ EmbedLiveSample('Ordering_items_in_a_flex_container') }}
 
-Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in der Mitte angezeigt.
+Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in der Mitte dargestellt.
 
 ## Spezifikationen
 
@@ -169,7 +170,7 @@ Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in
 ## Siehe auch
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
-- [CSS Grid Layout und Barrierefreiheit](/de/docs/Web/CSS/Guides/Grid_layout/Accessibility)
-- [CSS display](/de/docs/Web/CSS/Guides/Display)-Modul
+- [Flex-Elemente anordnen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+- [Barrierefreiheit im CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Accessibility)
+- [CSS display](/de/docs/Web/CSS/Guides/Display) Modul
 - {{Glossary("Reading_order", "Lesereihenfolge")}}

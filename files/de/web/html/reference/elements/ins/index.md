@@ -1,11 +1,12 @@
 ---
-title: "<ins>: Das eingefügte Textelement"
+title: "`<ins>` HTML eingefügtes Textelement"
+short-title: <ins>
 slug: Web/HTML/Reference/Elements/ins
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<ins>`**-[HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich darzustellen, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Bereich von Text, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um auf ähnliche Weise einen Bereich von Text zu markieren, der aus dem Dokument gelöscht wurde.
 
 {{InteractiveExample("HTML Demo: &lt;ins&gt;", "tabbed-standard")}}
 
@@ -59,16 +60,16 @@ p {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert den URI einer Ressource, die die Änderung erklärt, z. B. einen Link zu Sitzungsprotokollen oder einem Ticket in einem Problembehandlungssystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z. B. einen Link zu Protokollen einer Besprechung oder ein Ticket in einem Fehlerbehebungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit einem optionalen Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugehörigen Zeitstempel. Für das Format der Zeichenkette ohne Zeit siehe [Format einer gültigen Datumszeichenkette](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format der Zeichenkette, wenn es sowohl Datum als auch Zeit enthält, wird in [Format einer gültigen lokalen Datums- und Zeitzeichenkette](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionalem Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugehörigen Zeitstempel. Für das Format des Strings ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit enthält, wird im [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) beschrieben.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem die CSS-{{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudo-Elementen verwendet wird.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Bildschirmlesegeräten in ihrer Standardkonfiguration nicht angekündigt. Es kann durch Verwendung der CSS {{cssxref("content")}}-Eigenschaft zusammen mit den {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelementen zur Ankündigung gebracht werden.
 
 ```css
 ins::before,
@@ -91,10 +92,10 @@ ins::after {
 }
 ```
 
-Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Verbosität erzeugen. Daher ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über eingefügten Inhalt das Verständnis nachteilig beeinflussen würde.
+Einige Leute, die Bildschirmlesegeräte nutzen, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Geschwätzigkeit erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen um eingefügte Inhalte das Verständnis nachteilig beeinflussen würde.
 
-- [Short note on making your mark (more accessible) | Vispero](https://vispero.com/resources/short-note-on-making-your-mark-more-accessible/)
-- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Kurzer Hinweis zum barrierefreien Markieren | Vispero](https://vispero.com/resources/short-note-on-making-your-mark-more-accessible/)
+- [Anpassung von Textstilebenen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -118,15 +119,15 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasing-Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow content</a
+          >Flussinhalte</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
@@ -136,14 +137,14 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasing-Inhalte</a
         > akzeptiert.
       </td>
     </tr>
@@ -177,4 +178,4 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigu
 
 ## Siehe auch
 
-- {{HTMLElement("del")}}-Element zur Kennzeichnung von Löschungen in einem Dokument
+- {{HTMLElement("del")}}-Element, um Löschungen in ein Dokument zu markieren

@@ -3,10 +3,10 @@ title: "extract_lane: Wasm SIMD extract-Anweisung"
 short-title: extract_lane
 slug: WebAssembly/Reference/SIMD/extract/extract_lane
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
 ---
 
-Die **`extract_lane`** [SIMD extract-Anweisung](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der innerhalb der angegebenen Lane einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretation enthalten ist.
+Die **`extract_lane`** [SIMD extract-Anweisung](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der in der angegebenen Spur einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretation enthalten ist.
 
 {{InteractiveExample("Wat Demo: extract_lane", "tabbed-taller")}}
 
@@ -37,7 +37,7 @@ value_type.extract_lane
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `extract_lane`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `extract_lane`:
     - `i32x4`
     - `i64x2`
     - `f32x4`
@@ -52,20 +52,20 @@ value_type.extract_lane
 ```
 
 - `input`
-  - : Die `v128`-Wertinterpretation, aus der eine Lane extrahiert werden soll.
+  - : Die `v128`-Wertinterpretation, aus der Sie eine Spur extrahieren möchten.
 - `lane`
-  - : Der Index der Lane, deren Wert Sie extrahieren möchten, zum Beispiel `0`.
+  - : Der Index der Spur, deren Wert Sie extrahieren möchten, zum Beispiel `0`.
 - `output`
-  - : Der Wert, der aus der Lane extrahiert wird.
+  - : Der Wert, der aus der Spur extrahiert wird.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung            | Binäres Format          | Beispieltext => binär                      |
-| -------------------- | ----------------------- | ------------------------------------------ |
-| `i32x4.extract_lane` | `0xfd 27:u32 l:laneidx` | `i32x4.extract_lane 3` => `0xfd 0x1b 0x03` |
-| `i64x2.extract_lane` | `0xfd 29:u32 l:laneidx` | `i64x2.extract_lane 1` => `0xfd 0x1d 0x01` |
-| `f32x4.extract_lane` | `0xfd 31:u32 l:laneidx` | `f32x4.extract_lane 3` => `0xfd 0x1f 0x03` |
-| `f64x2.extract_lane` | `0xfd 33:u32 l:laneidx` | `f64x2.extract_lane 1` => `0xfd 0x21 0x01` |
+| Anweisung            | Binärformat              | Beispieltext => Binär                      |
+| -------------------- | ------------------------ | ------------------------------------------ |
+| `i32x4.extract_lane` | `0xfd 27:u32 l:lane_idx` | `i32x4.extract_lane 3` => `0xfd 0x1b 0x03` |
+| `i64x2.extract_lane` | `0xfd 29:u32 l:lane_idx` | `i64x2.extract_lane 1` => `0xfd 0x1d 0x01` |
+| `f32x4.extract_lane` | `0xfd 31:u32 l:lane_idx` | `f32x4.extract_lane 3` => `0xfd 0x1f 0x03` |
+| `f64x2.extract_lane` | `0xfd 33:u32 l:lane_idx` | `f64x2.extract_lane 1` => `0xfd 0x21 0x01` |
 
 ## Spezifikationen
 

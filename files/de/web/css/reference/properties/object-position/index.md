@@ -1,13 +1,14 @@
 ---
-title: object-position
+title: "`object-position` CSS property"
+short-title: object-position
 slug: Web/CSS/Reference/Properties/object-position
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten {{Glossary("replaced_elements", "ersetzten Elements")}} innerhalb des Box des Elements fest. Bereiche der Box, die nicht vom Objekt des ersetzten Elements abgedeckt sind, zeigen den Hintergrund des Elements an.
+Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Ausrichtung der Inhalte des ausgewählten {{Glossary("replaced_elements", "ersetzten Elements")}} innerhalb des Elementrahmens an. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
 
-Sie können anpassen, wie die inhärente Größe des Objekts des ersetzten Elements (also seine natürliche Größe) eingestellt wird, um in die Box des Elements zu passen, indem Sie die {{cssxref("object-fit")}} Eigenschaft verwenden.
+Sie können anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (das heißt seine natürliche Größe) angepasst wird, um innerhalb des Elementrahmens zu passen, indem Sie die {{cssxref("object-fit")}} Eigenschaft verwenden.
 
 {{InteractiveExample("CSS Demo: object-position")}}
 
@@ -79,10 +80,10 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Von einem bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
+  - : Ein bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
 
 > [!NOTE]
-> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Box gezeichnet wird.
+> Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
 
 ## Formale Definition
 
@@ -98,7 +99,7 @@ object-position: unset;
 
 #### HTML
 
-Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jeweils das MDN-Logo anzeigen.
+Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente umfasst, von denen jedes das MDN-Logo anzeigt.
 
 ```html
 <img id="object-position-1" src="mdn.svg" alt="MDN Logo" />
@@ -107,7 +108,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jewe
 
 #### CSS
 
-Das CSS enthält Standardstile für das `<img>` Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält Standard-Styling für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -128,7 +129,7 @@ img {
 }
 ```
 
-Das erste Bild ist mit seiner linken Kante 10 Pixel von der linken Kante des Box des Elements entfernt positioniert. Das zweite Bild ist mit seiner rechten Kante bündig an der rechten Kante des Box des Elements positioniert und befindet sich 10% von der Höhe des Box des Elements entfernt.
+Das erste Bild wird mit seinem linken Rand 10 Pixel vom linken Rand des Elementrahmens eingerückt positioniert. Das zweite Bild wird mit seinem rechten Rand bündig am rechten Rand des Elementrahmens positioniert und befindet sich 10 % der Höhe des Elementrahmens nach unten.
 
 #### Ergebnis
 

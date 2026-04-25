@@ -1,11 +1,12 @@
 ---
-title: translate3d()
+title: "`translate3d()` CSS-Funktion"
+short-title: translate3d()
 slug: Web/CSS/Reference/Values/transform-function/translate3d
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
-Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) versetzt ein Element im 3D-Raum. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translate3d()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) positioniert ein Element im 3D-Raum neu. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translate3d()")}}
 
@@ -95,7 +96,7 @@ transform: translate3d(5ch, 0.4in, 5em);
 }
 ```
 
-Diese Transformation wird durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Seine Koordinaten definieren, wie stark das Element in jede Richtung verschoben wird.
+Diese Transformation wird durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Die Koordinaten definieren, wie weit das Element in jede Richtung bewegt wird.
 
 ## Syntax
 
@@ -106,30 +107,30 @@ translate3d(tx, ty, tz)
 ### Werte
 
 - `tx`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontal, x-Komponente) des Verschiebungsvektors [tx, ty, tz] darstellt.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Abszisse (horizontal, x-Komponente) des Übersetzungvektors [tx, ty, tz] darstellt.
 - `ty`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikal, y-Komponente) des Verschiebungsvektors [tx, ty, tz] darstellt.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Ordinate (vertikal, y-Komponente) des Übersetzungvektors [tx, ty, tz] darstellt.
 - `tz`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} und stellt die z-Komponente des Verschiebungsvektors dar. Es kann kein {{cssxref("&lt;percentage&gt;")}}-Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
+  - : Ist eine {{cssxref("&lt;length&gt;")}}, die die z-Komponente des Übersetzungvektors darstellt. Sie kann keinen Wert von {{cssxref("&lt;percentage&gt;")}} haben; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig angesehen [tx, ty, tz].
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://de.wikipedia.org/wiki/Reeller_Koordinatenraum">ℝ^2</a></th>
-      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> in <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten in <a href="https://de.wikipedia.org/wiki/Reeller_Koordinatenraum">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten in <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td colspan="2">
         <p>
-          Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+          Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
         </p>
       </td>
       <td>
-        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht durch eine kartesische Koordinatenmatrix dargestellt werden.
+        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -176,7 +177,7 @@ div {
 
 {{EmbedLiveSample("Using_a_single_axis_translation", 250, 250)}}
 
-### Kombination aus z-Achsen- und x-Achsen-Translation
+### Kombination von z-Achsen- und x-Achsen-Translation
 
 #### HTML
 

@@ -1,13 +1,14 @@
 ---
-title: stroke-linecap
+title: "`stroke-linecap` CSS property"
+short-title: stroke-linecap
 slug: Web/CSS/Reference/Properties/stroke-linecap
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`stroke-linecap`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Form, die am Ende der offenen Pfade von [SVG](/de/docs/Web/SVG) Elementen verwendet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-linecap")}} Attribut des Elements.
+Die **`stroke-linecap`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Form, die am Ende von offenen Unterpfaden der [SVG](/de/docs/Web/SVG)-Elemente bei nicht geschlossenen Strichen verwendet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("stroke-linecap")}}-Attribut des Elements.
 
-Diese Eigenschaft gilt für jede SVG-Form, die offene Pfade und Textinhaltselemente haben kann (siehe {{SVGAttr("stroke-linecap")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem die gewünschte Wirkung auf die Striche der Kindelemente haben.
+Diese Eigenschaft gilt für jede SVG-Form, die nicht geschlossene Striche haben kann und Textinhalt-Elemente (siehe {{SVGAttr("stroke-linecap")}} für eine vollständige Liste), aber als vererbte Eigenschaft kann sie auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die beabsichtigte Wirkung auf die Striche von Nachfahrenelementen haben.
 
 ## Syntax
 
@@ -28,13 +29,13 @@ stroke-linecap: unset;
 ### Werte
 
 - `butt`
-  - : Gibt an, dass der Strich für jeden Pfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Pfad ohne Länge wird der Pfad überhaupt nicht gerendert. Dies ist der Standardwert.
+  - : Gibt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausreicht. Bei einem Unterpfad mit Null-Länge wird der Pfad überhaupt nicht gerendert. Dies ist der Standardwert.
 
 - `round`
-  - : Gibt an, dass am Ende jedes Pfades der Strich durch einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Pfad ohne Länge besteht der Strich aus einem vollständigen Kreis, der am Punkt des Pfads zentriert ist.
+  - : Gibt an, dass am Ende jedes Unterpfads der Strich um einen Halbkreis mit einem Durchmesser, der der Strichbreite entspricht, verlängert wird. Bei einem Unterpfad mit Null-Länge besteht der Strich aus einem Vollkreis, der im Mittelpunkt des Punktes des Unterpfads zentriert ist.
 
 - `square`
-  - : Gibt an, dass am Ende jedes Pfades der Strich durch ein Rechteck mit einer Breite, die der halben Breite des Strichs entspricht, und einer Höhe, die der Breite des Strichs entspricht, verlängert wird. Bei einem Pfad ohne Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das am Punkt des Pfads zentriert ist.
+  - : Gibt an, dass am Ende jedes Unterpfads der Strich um ein Rechteck verlängert wird, dessen Breite der Hälfte der Strichbreite und dessen Höhe der Strichbreite entspricht. Bei einem Unterpfad mit Null-Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichbreite entspricht und das im Punkt des Unterpfads zentriert ist.
 
 ## Formale Definition
 
@@ -46,13 +47,13 @@ stroke-linecap: unset;
 
 ## Beispiele
 
-### Linienenden
+### Linecaps
 
-Dieses Beispiel zeigt die drei Schlüsselwortwerte der Eigenschaft.
+Dieses Beispiel demonstriert die drei Schlüsselwortwerte der Eigenschaft.
 
 #### HTML
 
-Zuerst richten wir ein hellgraues Rechteck ein. Dann werden in einer Gruppe drei Pfade definiert, deren Länge genau der Breite des Rechtecks entspricht und die alle an der linken Kante des Rechtecks beginnen. Alle haben einen `dodgerblue` Strich mit einer Breite von sieben.
+Zuerst richten wir ein hellgraues Rechteck ein. Dann werden in einer Gruppe drei Pfade definiert, deren Länge genau der Breite des Rechtecks entspricht und die alle am linken Rand des Rechtecks beginnen. Alle sind auf einen `dodgerblue`-Strich mit einer Breite von sieben eingestellt.
 
 ```html
 <svg viewBox="0 0 100 50" width="500" height="250">
@@ -67,7 +68,7 @@ Zuerst richten wir ein hellgraues Rechteck ein. Dann werden in einer Gruppe drei
 
 #### CSS
 
-Wir wenden dann über CSS einen anderen Linienendstil auf jeden Pfad an.
+Dann wenden wir über CSS einen anderen Linecap-Stil auf jeden Pfad an.
 
 ```css
 path:nth-of-type(1) {
@@ -85,7 +86,7 @@ path:nth-of-type(3) {
 
 {{EmbedLiveSample("Linecaps", "500", "250")}}
 
-Der erste Pfad hat `butt` Linienenden, was im Wesentlichen bedeutet, dass der Strich genau bis zu den Endpunkten (sowohl Anfang als auch Ende) des Pfades verläuft und nicht weiter. Der zweite Pfad hat `square` Linienenden, daher erstreckt sich der sichtbare Pfad über die Endpunkte des Pfades hinaus, wodurch die Gesamtlänge des Pfades scheinbar 87 beträgt, da die Pfadlänge 80 beträgt und jede der beiden quadratischen Enden 3.5 breit ist. Der dritte Pfad hat `circle` Enden, daher scheint er ebenfalls 87 Einheiten lang zu sein, aber die beiden Enden sind halbrund anstatt quadratisch.
+Der erste Pfad hat `butt`-Linecaps, was im Wesentlichen bedeutet, dass der Strich genau bis zu den Endpunkten (sowohl Start als auch Ende) des Pfads läuft und nicht darüber hinausgeht. Der zweite Pfad hat `square`-Linecaps, sodass der sichtbare Pfad über die Endpunkte des Pfads hinausreicht, was die Gesamtlänge des Pfads scheinbar auf 87 verlängert, da die Pfadlänge 80 ist und jeder der beiden quadratischen Linecaps 3,5 breit ist. Der dritte Pfad hat `circle`-Linecaps, sodass er ebenfalls scheinbar 87 Einheiten lang ist, die beiden Endungen jedoch halbkreisförmig statt quadratisch sind.
 
 ## Spezifikationen
 

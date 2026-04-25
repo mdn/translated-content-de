@@ -1,11 +1,12 @@
 ---
-title: "<small>: Das Side-Kommentar-Element"
+title: "`<small>` HTML-Seitenkommentarelement"
+short-title: <small>
 slug: Web/HTML/Reference/Elements/small
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenbemerkungen und Kleindruck, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der Text darin eine Schriftgröße kleiner angezeigt, zum Beispiel von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitenkommentare und Kleingedrucktes, wie Copyright- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig rendert es Text innerhalb davon eine Schriftgröße kleiner, zum Beispiel von `small` zu `x-small`.
 
 {{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
 
@@ -33,7 +34,7 @@ small {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
@@ -69,9 +70,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 
 {{EmbedLiveSample("CSS_alternative")}}
 
-## Hinweise
+## Anmerkungen
 
-Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung von Struktur und Präsentation wahrgenommen werden könnte, sind alle drei in HTML gültig. Autoren sollten ihre beste Einschätzung verwenden, um zu entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, genau wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation wahrgenommen werden kann, sind alle drei in HTML gültig. Autoren sollten ihr bestes Urteilsvermögen anwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
 
 ## Technische Zusammenfassung
 
@@ -85,39 +86,39 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließ-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Ausdrucks-Inhalt</a
+          >phrasenbezogener Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Ausdrucks-Inhalt</a
+          >Phrasenbezogener Inhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Auslassung von Tags</th>
       <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Ausdrucks-Inhalt</a
+          >phrasenbezogenen Inhalt</a
         > akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließ-Inhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
@@ -127,8 +128,8 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Any</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>

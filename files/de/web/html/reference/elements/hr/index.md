@@ -1,11 +1,12 @@
 ---
-title: "<hr>: Das thematische Trennelement (Horizontale Linie)"
+title: "`<hr>` HTML thematischer Wechsel (horizontale Linie) Element"
+short-title: <hr>
 slug: Web/HTML/Reference/Elements/hr
 l10n:
-  sourceCommit: 479f72f9279246685bcf6eec93527ac3f470f93e
+  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
 ---
 
-Das **`<hr>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Elemente auf Absatzebene: zum Beispiel ein Szenenwechsel in einer Erzählung oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element stellt einen thematischen Wechsel zwischen Absatz-Ebene-Elementen dar: zum Beispiel eine Szenenänderung in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
 
 {{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
@@ -36,20 +37,20 @@ hr::after {
 }
 ```
 
-Historisch gesehen wurde das `<hr>`-Element immer als horizontale Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Linie angezeigt werden kann, wird dieses Element jetzt semantisch statt präsentationell definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies tun, indem Sie einem bestehenden Element über CSS einen Rahmen hinzufügen.
+Historisch gesehen wurde das `<hr>`-Element immer als horizontale Linie dargestellt. Obwohl es in visuellen Browsern noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen statt in präsentationellen Begriffen definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies tun, indem Sie mit CSS eine Grenze zu einem vorhandenen Element hinzufügen.
 
-Die Eigenschaften `border-*` (zum Beispiel {{cssxref("border-style")}} und {{cssxref("border-color")}}) ermöglichen es Ihnen, das Erscheinungsbild einer Linie erheblich anzupassen, unabhängig davon, ob Sie ein `<hr>`-Element oder einen auf einem anderen Element gezeichneten Rahmen anpassen.
+Die `border-*`-Eigenschaften (zum Beispiel {{cssxref("border-style")}} und {{cssxref("border-color")}}) erlauben es Ihnen, das Erscheinungsbild einer Linie deutlich anzupassen, egal ob Sie ein `<hr>`-Element oder eine auf einem anderen Element gezeichnete Grenze anpassen.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
+  - : Setzt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Farbe der Linie über Farbnamen oder hexadezimale Werte.
+  - : Setzt die Farbe der Linie durch den Farbnamen oder den hexadezimalen Wert.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt fest, dass die Linie keine Schattierung hat.
+  - : Setzt die Linie so, dass sie keine Schattierung hat.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Setzt die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
@@ -89,33 +90,33 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a> akzeptiert</li>
           <li><a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a>-Element</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role"><code>separator</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>
       </td>

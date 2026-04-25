@@ -1,11 +1,12 @@
 ---
-title: ruby-position
+title: "`ruby-position` CSS property"
+short-title: ruby-position
 slug: Web/CSS/Reference/Properties/ruby-position
 l10n:
-  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
-Die **`ruby-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unterhalb davon (`under`) oder zwischen den Zeichen auf ihrer rechten Seite (`inter-character`) platziert werden.
+Die **`ruby-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unter ihm (`under`) oder zwischen den Zeichen auf ihrer rechten Seite (`inter-character`) positioniert werden.
 
 {{InteractiveExample("CSS Demo: ruby-position")}}
 
@@ -57,9 +58,9 @@ ruby-position: unset;
   - : ![Under example](screen_shot_2015-03-04_at_13.02.07.png)
     Ist ein Schlüsselwort, das angibt, dass das Ruby unter dem Haupttext für horizontale Schriften und links davon für vertikale Schriften platziert werden muss.
 - `alternate`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby zwischen über und unter wechselt, wenn es mehrere Annotationsstufen gibt.
+  - : Ist ein Schlüsselwort, das angibt, dass das Ruby zwischen `over` und `under` wechselt, wenn mehrere Annotationsebenen vorhanden sind.
 - `inter-character`
-  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibmodi. Andernfalls gibt es an, dass das Ruby zwischen den verschiedenen Zeichen platziert werden muss und rechts von der Basis im horizontalen Text erscheint, wobei die Kinder des Ruby-Annotation-Containers gezwungen werden, einen `vertical-rl` Schreibmodus zu haben.
+  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibrichtungen. Andernfalls gibt es an, dass das Ruby zwischen den verschiedenen Zeichen platziert werden muss, auf der rechten Seite des Basistexts in horizontalem Text erscheint und die Kinder des Ruby-Annotation-Containers zwingt, einen Schreibmodus `vertical-rl` zu haben.
 
 ## Formale Definition
 
@@ -117,7 +118,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_positioned_under_the_text", 100, 40)}}
 
-### Ruby wechselnd
+### Ruby alternierend
 
 #### HTML
 

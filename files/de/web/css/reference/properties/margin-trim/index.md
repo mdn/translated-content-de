@@ -1,13 +1,14 @@
 ---
-title: margin-trim
+title: "`margin-trim` CSS property"
+short-title: margin-trim
 slug: Web/CSS/Reference/Properties/margin-trim
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die Eigenschaft `margin-trim` ermöglicht es dem Container, die Ränder seiner Kinder zu reduzieren, wo sie an die Kanten des Containers angrenzen.
+Die `margin-trim`-Eigenschaft ermöglicht es dem Container, die Ränder seiner Kinder zu kürzen, wo sie an die Kanten des Containers angrenzen.
 
 ## Syntax
 
@@ -31,25 +32,25 @@ margin-trim: unset;
 ### Werte
 
 - `none`
-  - : Ränder werden nicht durch den Container gekürzt.
+  - : Ränder werden vom Container nicht gekürzt.
 
 - `block`
-  - : Ränder der Blockkinder, wo sie an die Kanten des Containers angrenzen, werden auf null reduziert, ohne die Ränder des Containers zu beeinflussen.
+  - : Die Ränder der Blockkinder, die an die Kanten des Containers angrenzen, werden auf null gekürzt, ohne die Ränder des Containers zu beeinflussen.
 
 - `block-start`
-  - : Der Rand des ersten Blockkindes an der Kante des Containers wird auf null reduziert.
+  - : Der Rand des ersten Blockkindes, das an die Kante des Containers angrenzt, wird auf null gekürzt.
 
 - `block-end`
-  - : Der Rand des letzten Blockkindes an der Kante des Containers wird auf null reduziert.
+  - : Der Rand des letzten Blockkindes, das an die Kante des Containers angrenzt, wird auf null gekürzt.
 
 - `inline`
-  - : Ränder der Inline-Kinder, wo sie an die Kanten des Containers angrenzen, werden auf null reduziert, ohne den Abstand am Anfang und Ende der Zeile zu beeinflussen.
+  - : Die Ränder der Inline-Kinder, die an die Kanten des Containers angrenzen, werden auf null gekürzt, ohne den Abstand am Anfang und Ende der Zeile zu beeinflussen.
 
 - `inline-start`
-  - : Der Rand zwischen der Kante des Containers und dem ersten Inline-Kind wird auf null reduziert.
+  - : Der Rand zwischen der Kante des Containers und dem ersten Inline-Kind wird auf null gekürzt.
 
 - `inline-end`
-  - : Der Rand zwischen der Kante des Containers und dem letzten Inline-Kind wird auf null reduziert.
+  - : Der Rand zwischen der Kante des Containers und dem letzten Inline-Kind wird auf null gekürzt.
 
 ## Formale Definition
 
@@ -63,9 +64,9 @@ margin-trim: unset;
 
 ### Grundlegende Nutzung
 
-Sobald die Unterstützung für diese Eigenschaft implementiert ist, wird sie wahrscheinlich so funktionieren:
+Sobald die Unterstützung für diese Eigenschaft implementiert ist, wird sie wahrscheinlich folgendermaßen funktionieren:
 
-Wenn Sie einen Container mit einigen Inline-Kindern haben und einen Rand zwischen jedem Kind einfügen möchten, ohne dass dieser den Abstand am Ende der Zeile stört, könnten Sie so vorgehen:
+Wenn Sie einen Container mit einigen Inline-Kindern haben und einen Rand zwischen jedem Kind einfügen möchten, der den Abstand am Ende der Zeile nicht beeinträchtigt, könnten Sie so vorgehen:
 
 ```css
 article {
@@ -85,7 +86,7 @@ article > span {
 }
 ```
 
-Das Problem hier ist, dass Sie am rechten Ende der Zeile 20px zu viel Abstand haben würden, sodass Sie vielleicht Folgendes tun, um es zu beheben:
+Das Problem hier ist, dass Sie am Ende 20px zu viel Abstand rechts von der Zeile haben würden, daher könnten Sie dies tun, um es zu beheben:
 
 ```css
 span:last-child {
@@ -94,7 +95,7 @@ span:last-child {
 }
 ```
 
-Es ist mühsam, eine weitere Regel zu schreiben, um dies zu erreichen, und es ist auch nicht sehr flexibel. Stattdessen könnte `margin-trim` dies lösen:
+Es ist mühsam, eine zusätzliche Regel schreiben zu müssen, um dies zu erreichen, und es ist auch nicht sehr flexibel. Stattdessen könnte `margin-trim` dies beheben:
 
 ```css
 article {
@@ -103,7 +104,7 @@ article {
 }
 ```
 
-Ähnlich, um den linken Rand mit der Kante des Containers zu entfernen:
+Ähnlich, um den linken Rand an der Kante des Containers zu entfernen:
 
 ```css
 article {

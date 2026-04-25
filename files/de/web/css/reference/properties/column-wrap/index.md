@@ -1,13 +1,14 @@
 ---
-title: column-wrap
+title: "`column-wrap` CSS property"
+short-title: column-wrap
 slug: Web/CSS/Reference/Properties/column-wrap
 l10n:
-  sourceCommit: 04defe50e601cf53adde40c4bd652a7a4e6eae55
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`column-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert das Umbruchverhalten von Überlaufspalten in einem [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout).
+Die **`column-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Umbruchverhalten für überlaufende Spalten in einem [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) fest.
 
 ## Syntax
 
@@ -28,21 +29,21 @@ column-wrap: unset;
 ### Werte
 
 - `auto`
-  - : Der Anfangswert. Wenn der Inhaltselement {{cssxref("column-height")}} auf eine {{cssxref("&lt;length>")}} gesetzt ist, löst sich `auto` in `wrap` auf, andernfalls in `nowrap`.
+  - : Der Standardwert. Wenn die `column-height` des Inhaltscontainers auf eine {{cssxref("&lt;length>")}} gesetzt wird, wird `auto` zu `wrap`, andernfalls wird es zu `nowrap`.
 - `nowrap`
-  - : Spalten laufen in der Inline-Richtung über.
+  - : Spalten überlaufen in der Inline-Richtung.
 - `wrap`
-  - : Überlaufende Spalten werden in einer neuen Reihe in Blockrichtung platziert.
+  - : Überlaufende Spalten werden in einer neuen Zeile in Blockrichtung platziert.
 
 ## Beschreibung
 
-Die `column-wrap` Eigenschaft kann verwendet werden, um die Spalten eines [CSS-Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout) so einzurichten, dass sie in einer neuen Reihe umbrechen, wenn sie beginnen, die Spaltenbreite zu überlaufen. Dies ist nützlich, um bei Verwendung der Eigenschaften {{cssxref("column-count")}} oder {{cssxref("column-width")}} zur Einstellung mehrerer Spalten leserlichere Layouts zu erstellen.
+Die `column-wrap` Eigenschaft kann verwendet werden, um die Spalten eines [CSS-Mehrspalten-Layouts](/de/docs/Web/CSS/Guides/Multicol_layout) auf eine neue Zeile umzubrechen, wenn sie die Spaltenbreite zu überlaufen beginnen. Dies ist nützlich, um besser lesbare Layouts zu erstellen, wenn die {{cssxref("column-count")}} oder {{cssxref("column-width")}} Eigenschaft verwendet wird, um mehrere Spalten festzulegen.
 
-Ohne `column-wrap` laufen überzählige Spalten zur Seite über, und Leser müssen in der Inline-Richtung scrollen, um den gesamten Inhalt zu lesen. Die {{cssxref("column-height")}} Eigenschaft ermöglicht zusammen mit `column-wrap`, eine spezifische Höhe für die Spalten festzulegen und sie in eine neue Spaltenreihe umzubrechen, wenn der Rand des Containers erreicht ist.
+Ohne `column-wrap` werden überschüssige Spalten seitlich überlaufen und Leser müssen in der Inline-Richtung scrollen, um den gesamten Inhalt zu lesen. Die {{cssxref("column-height")}} Eigenschaft, zusammen mit `column-wrap`, ermöglicht es, eine spezifische Höhe für die Spalten festzulegen und sie auf eine neue Zeile von Spalten umzubrechen, wenn der Rand des Containers erreicht ist.
 
-Der Standardwert für `column-wrap` ist `auto`, das sich in `wrap` auflöst, wenn `column-height` auf einen `<length>`-Wert gesetzt ist; `wrap` ermöglicht es den Spalten mit fester Höhe, auf mehrere Reihen umzubrechen. Wenn `column-height` gleich `auto` ist, löst sich `column-wrap: auto` in `nowrap` auf, was es den Spalten erlaubt, horizontal überzulaufen, wenn eine feste Containerhöhe eingestellt ist.
+Der Standardwert von `column-wrap` ist `auto`, was zu `wrap` wird, wenn `column-height` auf einen `<length>`-Wert gesetzt ist; `wrap` ermöglicht, dass die fixierten Spaltenhöhen auf mehrere Zeilen verteilt werden. Wenn `column-height` gleich `auto` ist, wird `column-wrap: auto` zu `nowrap`, was es erlaubt, dass Spalten horizontal überlaufen, wenn eine feste Containerhöhe gesetzt ist.
 
-Aufgrund dieses Standardverhaltens ist es generell nicht notwendig, die `column-wrap` Eigenschaft explizit zu setzen.
+Aufgrund dieses Standardverhaltens müssen Sie die `column-wrap` Eigenschaft im Allgemeinen nicht explizit festlegen.
 
 ## Formale Definition
 
@@ -56,11 +57,11 @@ Aufgrund dieses Standardverhaltens ist es generell nicht notwendig, die `column-
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `column-wrap` Eigenschaft zur Erstellung eines umbrochenen Mehrspaltenlayouts durch Einstellen einer `column-height` Eigenschaft.
+Dieses Beispiel demonstriert die grundlegende Verwendung der `column-wrap` Eigenschaft, um ein umgebrochenes Mehrspalten-Layout durch Setzen einer `column-height` Eigenschaft zu erstellen.
 
 #### HTML
 
-Wir verwenden ein Gedicht von Dr. Seuss in einem {{htmlelement("ol")}}, das 28 {{htmlelement("li")}}s enthält, gefolgt vom Namen des Autors in einem {{htmlelement("p")}}.
+Wir fügen ein Gedicht von Dr. Seuss ein, indem wir ein {{htmlelement("ol")}} mit 28 {{htmlelement("li")}}s verwenden, gefolgt vom Namen des Autors in einem {{htmlelement("p")}}.
 
 ```html
 <ol>
@@ -109,7 +110,7 @@ Wir verwenden ein Gedicht von Dr. Seuss in einem {{htmlelement("ol")}}, das 28 {
 
 #### CSS
 
-Wir definieren das `<ol>` als Mehrspalten-Container, indem wir die {{cssxref("column-width")}} Eigenschaft auf `150px` setzen, was bedeutet, dass der Container so viele Spalten wie möglich enthalten wird, wobei jede Spalte mindestens `150px` breit ist. Die {{cssxref("gap")}} Eigenschaft setzt einen horizontalen Abstand zwischen Spalten und einen vertikalen Abstand zwischen Spaltenreihen. Wir setzen dann die `column-height` auf `3em`, wodurch der Standardwert `auto` der `column-wrap` Eigenschaft in `wrap` aufgelöst wird, um umbrochene Spaltenreihen zu erstellen.
+Wir definieren das `<ol>` als Mehrspalten-Container, indem wir die {{cssxref("column-width")}} Eigenschaft auf `150px` setzen, was bedeutet, dass der Container so viele Spalten wie möglich enthalten wird, wobei jede mindestens `150px` breit ist. Die {{cssxref("gap")}}-Eigenschaft setzt einen horizontalen Abstand zwischen den Spalten und einen vertikalen Abstand zwischen den Zeilen der Spalten. Wir setzen dann die `column-height` auf `3em`, was dazu führt, dass der Standardwert `auto` der `column-wrap` Eigenschaft zu `wrap` wird, um umgebrochene Zeilen von Spalten zu erstellen.
 
 ```css live-sample___basic-example
 ol {
@@ -123,13 +124,13 @@ ol {
 
 {{EmbedLiveSample("basic-example", "100%", "300")}}
 
-### Vergleich von `wrap` und `nowrap`
+### Vergleich `wrap` und `nowrap`
 
-Dieses Beispiel zeigt ein Mehrspaltenlayout, das den Unterschied zwischen den `wrap` und `nowrap` Werten demonstriert, indem es Ihnen ermöglicht, den `column-wrap` Wert des Spaltencontainers zwischen diesen beiden umzuschalten. Das Ergebnis ist ein Layout, das dynamisch zwischen horizontalem und vertikalem Scrollen wechselt.
+Dieses Beispiel zeigt ein Mehrspalten-Layout, das den Unterschied zwischen den Werten `wrap` und `nowrap` demonstriert, indem Sie den `column-wrap` Wert des Spaltencontainers zwischen den beiden umschalten können. Das Ergebnis ist ein Layout, das dynamisch zwischen horizontalem und vertikalem Scrollen wechselt.
 
 #### HTML und JavaScript
 
-Das Markup dieses Beispiels enthält mehrere Absätze des Inhalts, die von den MDN HTML-, CSS- und JavaScript-Startseiten entnommen wurden, und ein JavaScript-gestütztes [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) Element, um den `column-wrap` Eigenschaftswert des Containers zwischen `nowrap` und `wrap` umzuschalten. Der HTML- und JavaScript-Code wurde der Kürze halber ausgeblendet.
+Das Markup für dieses Beispiel enthält mehrere Absätze mit Inhalten, entnommen von den HTML-, CSS- und JavaScript-Startseiten von MDN, und ein JavaScript-gesteuertes [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) Element, um den `column-wrap` Eigenschaftswert des Containers zwischen `nowrap` und `wrap` umzuschalten. Das HTML und JavaScript wurde zur Übersichtlichkeit ausgeblendet.
 
 ```html hidden live-sample___wrap-nowrap
 <form>
@@ -405,11 +406,11 @@ checkbox.addEventListener("change", () => {
 
 #### CSS
 
-Wir machen das {{htmlelement("body")}} Element zu einem Mehrspalten-Container, indem wir die {{cssxref("column-count")}} auf `3` setzen. Wir setzen dann ein {{cssxref("gap")}} von `3em 2em`, was einen `3em` Abstand zwischen den Reihen und einen `2em` Abstand zwischen den Spalten ergibt.
+Wir machen das {{htmlelement("body")}}-Element zu einem Mehrspalten-Container, indem wir die {{cssxref("column-count")}} auf `3` setzen. Wir setzen dann einen {{cssxref("gap")}} von `3em 2em`, was zu einem Abstand von `3em` zwischen den Zeilen und einem Abstand von `2em` zwischen den Spalten führt.
 
-Wir setzen dann eine `column-height` von `90vh`, wodurch die Spalten fast so hoch wie das Ansichtsfenster werden. Wir setzen auch `column-wrap` auf `nowrap`, was dazu führt, dass überflüssige Inhaltsspalten horizontal überlaufen. Dies ist erforderlich, da der anfängliche `column-wrap` Wert `auto` ist, welcher sich in `wrap` auflöst, wenn `column-height` auf einen `<length>`-Wert gesetzt ist.
+Wir setzen dann eine `column-height` von `90vh`, wodurch die Spalten fast so hoch wie das Viewport werden. Wir setzen auch `column-wrap` auf `nowrap`, was dazu führt, dass überschüssige Inhaltsäulen horizontal überlaufen. Dies ist erforderlich, da der anfängliche `column-wrap` Wert `auto` ist, was zu `wrap` wird, wenn `column-height` auf einen `<length>`-Wert gesetzt ist.
 
-Das Kontrollkästchen schaltet die `column-wrap` Eigenschaft zwischen `nowrap` und `wrap` um. Wenn auf `wrap` gesetzt, laufen die überzähligen Inhaltsspalten vertikal in neue Reihen von Spalten über und schaffen so das vertikale Layout. Der `column-height` Wert führt dazu, dass jede Spaltenreihe das Ansichtsfenster ausfüllt.
+Das Kontrollkästchen schaltet die `column-wrap` Eigenschaft zwischen `nowrap` und `wrap` um. Wenn `wrap` gesetzt ist, überlaufen die überschüssigen Inhaltsäulen vertikal in neue Zeilen von Spalten, wodurch das vertikale Layout entsteht. Der `column-height` Wert sorgt dafür, dass jede Zeile von Spalten den Viewport füllt.
 
 ```css live-sample___wrap-nowrap
 body {
@@ -421,7 +422,7 @@ body {
 }
 ```
 
-Anschließend setzen wir die {{cssxref("column-span")}} Eigenschaft des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Elements auf `all`, damit die Überschrift alle Spalten überspannt, und setzen die {{cssxref("margin-top")}} Eigenschaft des ersten {{htmlelement("p")}} auf `0`, damit sie mit der Oberkante der Spalten übereinstimmt.
+Als Nächstes setzen wir die {{cssxref("column-span")}} Eigenschaft des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Elements auf `all`, um die Überschrift über alle Spalten zu spannen, und setzen die {{cssxref("margin-top")}} Eigenschaft des ersten {{htmlelement("p")}} auf `0`, sodass es mit dem oberen Rand der Spalten übereinstimmt.
 
 ```css live-sample___wrap-nowrap
 h1 {
@@ -439,7 +440,7 @@ p:first-of-type {
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 p {
@@ -472,7 +473,7 @@ form {
 
 {{EmbedLiveSample("wrap-nowrap", "100%", "400")}}
 
-Schalten Sie das Kontrollkästchen um, um den Wert der `column-wrap` Eigenschaft zu ändern und zwischen horizontalem und vertikalem Scrollen zu wechseln. Wenn `column-wrap` auf `nowrap` gesetzt ist, laufen die Spalten horizontal über; wenn `column-wrap` auf `wrap` gesetzt ist, werden neue Spaltenreihen vertikal hinzugefügt.
+Schalten Sie das Kontrollkästchen um, um den Wert der `column-wrap` Eigenschaft zu ändern und das Layout zwischen horizontalem und vertikalem Scrollen zu wechseln. Wenn `column-wrap` auf `nowrap` gesetzt ist, überlaufen die Spalten horizontal; wenn `column-wrap` auf `wrap` gesetzt ist, werden neue Zeilen von Spalten vertikal hinzugefügt.
 
 ## Spezifikationen
 
@@ -486,6 +487,6 @@ Schalten Sie das Kontrollkästchen um, um den Wert der `column-wrap` Eigenschaft
 
 - {{cssxref("column-count")}}
 - {{cssxref("column-width")}}
-- {{cssxref("columns")}} Kurzschrift
+- {{cssxref("columns")}} Kurzschreibweise
 - {{Cssxref("column-height")}}
-- [CSS Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+- [CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul

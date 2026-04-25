@@ -1,13 +1,14 @@
 ---
-title: ::-webkit-inner-spin-button
+title: "`::-webkit-inner-spin-button` CSS pseudo-element"
+short-title: ::-webkit-inner-spin-button
 slug: Web/CSS/Reference/Selectors/::-webkit-inner-spin-button
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
 {{Non-standard_header}}
 
-Das **`::-webkit-inner-spin-button`** [CSS](/de/docs/Web/CSS) Pseudoelement wird verwendet, um den inneren Teil des Spin-Buttons von Zahlen-Eingabeelementen zu gestalten.
+Das **`::-webkit-inner-spin-button`** [CSS](/de/docs/Web/CSS) Pseudoelement wird verwendet, um den inneren Teil der Spin-Schaltfläche von Nummerneingabeelementen zu gestalten.
 
 ## Syntax
 
@@ -23,7 +24,7 @@ Diese Beispiele funktionieren nur in Browsern, die auf WebKit und Blink basieren
 
 ### Ändern des Cursors in den Spin-Steuerelementen
 
-In diesem Beispiel wird der CSS {{cssxref("cursor")}} auf `pointer` geändert, wenn sich der Cursor über dem inneren Teil der Spin-Steuerelemente des Eingabefelds befindet.
+In diesem Beispiel wird der CSS {{cssxref("cursor")}} auf `pointer` gesetzt, wann immer sich der Cursor über dem inneren Teil der Spin-Steuerelemente des Eingabefeldes befindet.
 
 #### HTML
 
@@ -54,4 +55,3 @@ Nicht Teil eines Standards.
 ## Siehe auch
 
 - {{cssxref("::-webkit-textfield-decoration-container")}}
-- [Styling Form Controls – WebKit](https://trac.webkit.org/wiki/Styling%20Form%20Controls#inputelement)

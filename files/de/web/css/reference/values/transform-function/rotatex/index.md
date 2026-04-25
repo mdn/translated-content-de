@@ -1,8 +1,9 @@
 ---
-title: rotateX()
+title: "`rotateX()` CSS-Funktion"
+short-title: rotateX()
 slug: Web/CSS/Reference/Values/transform-function/rotateX
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
 ---
 
 Die **`rotateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um die x-Achse (horizontal) dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
@@ -35,13 +36,14 @@ transform: rotateX(3.142rad);
 </section>
 ```
 
-Die Rotationsachse verläuft durch einen Ursprung, definiert durch die CSS-Eigenschaft {{cssxref("transform-origin")}}.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
 > [!NOTE]
-> `rotateX(a)` ist äquivalent zu `rotate3d(1, 0, 0, a)`.
+> `rotateX(a)` ist äquivalent zu
+> `rotate3d(1, 0, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Drehungen in der 2D-Ebene ist die Zusammensetzung von 3D-Drehungen normalerweise nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Drehungen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Das bedeutet, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
@@ -52,15 +54,15 @@ rotateX(a)
 ### Werte
 
 - `a`
-  - : Stellt einen {{cssxref("&lt;angle&gt;")}} dar, der den Winkel der Drehung repräsentiert. Ein positiver Winkel steht für eine Drehung im Uhrzeigersinn, ein negativer für eine Drehung gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und gibt den Winkel der Rotation an. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Reeller_Koordinatenraum">ℝ^2</a></th>
-      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Reelle_projektive_Ebene">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Reeller_Koordinatenraum">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Reeller_projektiver_Raum">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>

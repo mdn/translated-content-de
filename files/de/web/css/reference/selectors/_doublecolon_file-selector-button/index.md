@@ -1,11 +1,12 @@
 ---
-title: ::file-selector-button
+title: "`::file-selector-button` CSS pseudo-element"
+short-title: ::file-selector-button
 slug: Web/CSS/Reference/Selectors/::file-selector-button
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
 ---
 
-Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
+Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }}-Elements vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
 
 {{InteractiveExample("CSS Demo: ::file-selector-button", "tabbed-shorter")}}
 
@@ -79,7 +80,7 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und daher den Regeln des UA-Stylesheets entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt von dem `input`-Element übernommen.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und daher den Regeln des UA-Stylesheets entspricht. Insbesondere werden Schriftarten und Farben nicht unbedingt vom `input`-Element übernommen.
 
 ### Fallback-Beispiel
 

@@ -1,15 +1,16 @@
 ---
-title: corner-top-right-shape
+title: "`corner-top-right-shape` CSS property"
+short-title: corner-top-right-shape
 slug: Web/CSS/Reference/Properties/corner-top-right-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-right-shape`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Form der oberen rechten Ecke eines Kastens innerhalb des {{cssxref("border-radius")}}-Bereichs fest.
+Die **`corner-top-right-shape`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Form der oberen rechten Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}}-Bereichs fest.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die Seite zur {{cssxref("corner-shape")}}-Kurzschreibweise.
+Eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele finden Sie auf der Seite zur {{cssxref("corner-shape")}}-Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ corner-top-right-shape: unset;
 
 ### Werte
 
-Die Eigenschaft `corner-top-right-shape` wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}}-Wertes angegeben.
+Die `corner-top-right-shape`-Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}}-Wert spezifiziert.
 
 ## Formale Definition
 
@@ -44,7 +45,7 @@ Die Eigenschaft `corner-top-right-shape` wird unter Verwendung eines {{cssxref("
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der Referenzseite von {{cssxref("corner-shape")}}.
+Sie finden weitere verwandte Beispiele auf der {{cssxref("corner-shape")}}-Referenzseite.
 
 ### Grundlegende Verwendung von `corner-top-right-shape`
 
@@ -58,7 +59,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}} an sowie einen `border-radius` von 60 Pixeln und eine `corner-top-right-shape` von `bevel`.
+Wir geben dem Kasten einige grundlegende Stile, die wir aus Gründen der Übersichtlichkeit weggelassen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-top-right-shape` von `bevel` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -106,10 +107,10 @@ Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}}-Kurzschreibweise
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
-- {{cssxref("border-radius")}}-Kurzschreibweise
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-right-radius")}}
-- [CSS-Rahmen und Kastenverzierungen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)-Modul
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)-Modul
+- [CSS-Kanten und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)-Modul
+- [CSS-Hintergründe und Kanten](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)-Modul

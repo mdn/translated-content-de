@@ -1,15 +1,16 @@
 ---
-title: interest-delay-end
+title: "`interest-delay-end` CSS-Eigenschaft"
+short-title: interest-delay-end
 slug: Web/CSS/Reference/Properties/interest-delay-end
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
 ---
 
 {{SeeCompatTable}}
 
-Die **`interest-delay-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verzögerung zwischen dem Verlust des Interesses eines Benutzers an einem [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element und dem Auslösen des [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event) Ereignisses fest.
+Die **`interest-delay-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verzögerung zwischen dem Verlust des Interesses des Nutzers an einem [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element und dem Auslösen des [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event) Events fest.
 
-Die Eigenschaften `interest-delay-end` und {{cssxref("interest-delay-start")}} können beide mit der Kurzform {{cssxref("interest-delay")}} festgelegt werden.
+Die `interest-delay-end` und {{cssxref("interest-delay-start")}} Eigenschaften können beide durch das Kurzwort {{cssxref("interest-delay")}} gesetzt werden.
 
 ## Syntax
 
@@ -44,13 +45,13 @@ interest-delay-end: unset;
 
 ## Beispiele
 
-### Erstellen eines grundlegenden `interest-delay-end` Effekts
+### Erstellung eines grundlegenden `interest-delay-end` Effekts
 
-In diesem Beispiel demonstrieren wir, wie `interest-delay-end` das Verhalten von Interest Invokern beeinflusst.
+In diesem Beispiel zeigen wir, wie `interest-delay-end` das Verhalten von Interest Invokern beeinflusst.
 
 #### HTML
 
-Die Markup enthält ein {{htmlelement("button")}}, ein {{htmlelement("p")}}, und ein {{htmlelement("input")}} vom Typ `checkbox`. Wir definieren das `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt. Dies macht den Absatz zum Zielelement. Der Absatz wird durch das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut in ein Popover umgewandelt, welches ihn zunächst verbirgt.
+Das Markup enthält einen {{htmlelement("button")}}, ein {{htmlelement("p")}} und ein {{htmlelement("input")}} vom Typ `checkbox`. Wir spezifizieren den `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt. Dies macht den Absatz zum Ziel-Element. Der Absatz wird durch das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut in einen Popover umgewandelt, der ihn zunächst verbirgt.
 
 ```html live-sample___interest-invoker-delay
 <button interestfor="mypopover">Button</button>
@@ -65,7 +66,7 @@ Die Markup enthält ein {{htmlelement("button")}}, ein {{htmlelement("p")}}, und
 
 #### CSS
 
-Im CSS geben wir eine Regel mit einem `.delay` Selektor an, die einen `interest-delay-end` Wert von `2s` auf jeden Interest Invoker anwendet, auf den die `delay` Klasse gesetzt wird. Wir werden dies mit JavaScript auf das `<button>` anwenden, wenn das Kontrollkästchen aktiviert wird.
+Im CSS spezifizieren wir eine Regel mit einem `.delay` Selektor, der einen `interest-delay-end` Wert von `2s` auf jeden Interest Invoker anwendet, auf dem die `delay` Klasse gesetzt ist. Wir werden dies auf den `<button>` setzen, wenn das Kontrollkästchen mittels JavaScript aktiviert wird.
 
 ```css live-sample___interest-invoker-delay
 .delay {
@@ -75,7 +76,7 @@ Im CSS geben wir eine Regel mit einem `.delay` Selektor an, die einen `interest-
 
 #### JavaScript
 
-In unserem Skript holen wir Referenzen zum `<button>` und zum Kontrollkästchen und erstellen dann einen Eventlistener, der die `delay` Klasse auf dem `<button>` umschaltet, wenn sich der Wert des Kontrollkästchens ändert (wenn es aktiviert oder deaktiviert wird).
+In unserem Skript holen wir Referenzen zum `<button>` und zum Kontrollkästchen, und erstellen dann einen Ereignis-Listener, der die `delay` Klasse auf dem `<button>` umschaltet, wann immer sich der Wert des Kontrollkästchens ändert (wenn es markiert oder entmarkiert wird).
 
 ```js live-sample___interest-invoker-delay
 const btn = document.querySelector("button");
@@ -87,13 +88,13 @@ checkbox.addEventListener("change", () => {
 
 #### Ergebnis
 
-Dies wird wie folgt gerendert:
+Dies wird wie folgt dargestellt:
 
 {{embedlivesample("interest-invoker-delay", "100%", "100")}}
 
-Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Überfahren mit der Maus oder Fokussieren) und dann das Interesse zu verlieren, um das Popover zu beobachten, das sich zeigt und versteckt. Standardmäßig zeigt und versteckt sich das Popover nach einer sehr kurzen Verzögerung.
+Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hovern oder Fokussieren) und dann das Interesse zu verlieren, um zu beobachten, wie der Popover erscheint und verschwindet. Standardmäßig erscheint und verschwindet der Popover nach einer sehr kurzen Verzögerung.
 
-Aktivieren Sie nun das Kontrollkästchen und probieren Sie dieselben Aktionen erneut aus. Diesmal sollte die Verzögerung zwischen dem Zeigen von Interesse und dem Erscheinen des Popovers nicht beeinflusst werden, aber die Verzögerung zwischen dem Verlust des Interesses und dem Verschwinden des Popovers sollte auf `2s` erhöht werden.
+Jetzt aktivieren Sie das Kontrollkästchen und versuchen Sie die gleichen Aktionen erneut. Dieses Mal bleibt die Verzögerung zwischen dem Zeigen von Interesse und dem Erscheinen des Popovers unverändert, aber die Verzögerung zwischen dem Verlieren des Interesses und dem Verschwinden des Popovers sollte auf `2s` erhöht sein.
 
 ## Spezifikationen
 
@@ -107,5 +108,5 @@ Aktivieren Sie nun das Kontrollkästchen und probieren Sie dieselben Aktionen er
 
 - {{cssxref("interest-delay-start")}}, {{cssxref("interest-delay")}}
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [CSS Grundlegendes Benutzeroberflächenmodul](/de/docs/Web/CSS/Guides/Basic_user_interface)
+- [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [CSS grundlegendes Benutzeroberflächenmodul](/de/docs/Web/CSS/Guides/Basic_user_interface)

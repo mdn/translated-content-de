@@ -1,14 +1,14 @@
 ---
-title: "Sanitizer: replaceElementWithChildren()-Methode"
+title: "Sanitizer: replaceElementWithChildren() Methode"
 short-title: replaceElementWithChildren()
 slug: Web/API/Sanitizer/replaceElementWithChildren
 l10n:
-  sourceCommit: cda9415220ba812ba2ee24e0af1c8e8001ab9924
+  sourceCommit: e80a76afae6b0bdb81f02fdf5e4d97d61f0eee25
 ---
 
 {{APIRef("HTML Sanitizer API")}}
 
-Die **`replaceElementWithChildren()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Element durch seine Kind-HTML-Elemente ersetzt werden soll, wenn der Sanitizer verwendet wird.
+Die **`replaceElementWithChildren()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Element durch seine untergeordneten HTML-Elemente ersetzt werden soll, wenn der Sanitizer verwendet wird.
 Dies wird hauptsächlich verwendet, um Stile aus Text zu entfernen.
 
 ## Syntax
@@ -29,13 +29,15 @@ replaceElementWithChildren(element)
 
 ### Rückgabewert
 
-`true`, wenn der Vorgang die Konfiguration geändert hat, um das Element durch seine Kinder zu ersetzen, und `false`, wenn der Sanitizer das Element bereits ersetzt hat.
+Ein boolescher Wert: `true`, wenn die Operation die `Sanitizer`-Konfiguration aktualisiert hat, um das Element durch seine Kinder zu ersetzen, und `false` andernfalls.
+
+Die Methode gibt `false` zurück, wenn der Sanitizer bereits so konfiguriert ist, dass er das angegebene Element ersetzt, oder wenn das zu ersetzende Element {{htmlelement("html")}} im HTML-Namespace ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Methode, indem ein `Sanitizer` konfiguriert wird, der das `<em>`-Element in Eingaben durch seinen Kind-Inhalt ersetzt.
+Dieses Beispiel zeigt die grundlegende Verwendung der Methode, die einen `Sanitizer` konfiguriert, der das `<em>`-Element in Eingaben durch seinen Inhalt ersetzt.
 
 ```js
 // Create sanitizer (in this case the default)
@@ -71,10 +73,10 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das zunächst die {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}} Elemente zulässt.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das zunächst {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}} Elemente erlaubt.
 Dann rufen wir `replaceElementWithChildren()` auf dem Sanitizer auf und geben an, dass `<strong>`-Elemente ersetzt werden sollen.
 
-Der Code definiert einen String, der `<strong>`-Elemente enthält, und verwendet [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String zu injizieren.
+Der Code definiert einen String, der `<strong>`-Elemente enthält, und verwendet [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String einzufügen.
 Der ursprüngliche String, das bereinigte HTML aus dem Element und der Sanitizer werden protokolliert.
 
 ```js hidden
@@ -112,11 +114,11 @@ log(`\n\nsanitizerConfig:\n ${JSON.stringify(sanitizerConfig, null, 2)}`);
 
 #### Ergebnisse
 
-Der ursprüngliche, nicht bereinigte HTML-String, der bereinigte String aus dem Element und der Sanitizer werden unten protokolliert.
-Beachten Sie, dass das `<strong>` Styling aus dem Text entfernt wurde, nicht jedoch das `<em>`-Element.
+Der ursprüngliche unbereinigte HTML-String, der bereinigte String aus dem Element und der Sanitizer werden unten protokolliert.
+Beachten Sie, dass das `<strong>`-Styling aus dem Text entfernt wird, das `<em>`-Element jedoch nicht.
 Beachten Sie auch, dass das `<strong>`-Element ursprünglich in der `elements`-Liste in der Konfiguration war, aber entfernt wurde, als es zur `replaceWithChildrenElements`-Liste hinzugefügt wurde.
 
-{{EmbedLiveSample("How to strip styles from text","100","520px")}}
+{{EmbedLiveSample("Anleitung zum Entfernen von Stilen aus Text","100","520px")}}
 
 ## Spezifikationen
 

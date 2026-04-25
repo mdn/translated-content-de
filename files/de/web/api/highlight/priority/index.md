@@ -3,22 +3,22 @@ title: "Highlight: priority-Eigenschaft"
 short-title: priority
 slug: Web/API/Highlight/priority
 l10n:
-  sourceCommit: b61ec8fa49b41470e65b303e7c09c7ba8bdf2d07
+  sourceCommit: a2d0346638937e9c92c500dcb568803778e8354e
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die `priority`-Eigenschaft des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces ist eine Zahl, die verwendet wird, um zu bestimmen, welche Stile eines Highlights bei Stilkonflikten in überlappenden Teilen verwendet werden sollen. Highlights mit einer höheren `priority`-Nummer haben Vorrang gegenüber solchen mit einer niedrigeren `priority`.
+Die `priority`-Eigenschaft des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces ist eine Zahl, die bestimmt, welche Highlight-Stile zur Lösung von Stilkonflikten in überlappenden Teilen verwendet werden sollen. Highlights mit einer höheren `priority`-Zahl haben Vorrang vor solchen mit einer niedrigeren `priority`.
 
-Es ist möglich, [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen, die in einem Dokument überlappen.
+Es ist möglich, [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Objekte zu erstellen, die sich in einem Dokument überschneiden.
 
-Wenn überlappende Bereiche von mehreren verschiedenen [`Highlight`](/de/docs/Web/API/Highlight)-Objekten verwendet werden und wenn diese Highlights mit {{cssxref("::highlight")}}-Pseudo-Elementen gestylt werden, kann dies zu widersprüchlichen Stilen führen.
+Wenn überlappende Bereiche von mehreren unterschiedlichen [`Highlight`](/de/docs/Web/API/Highlight)-Objekten verwendet werden und diese Highlights mit {{cssxref("::highlight")}} Pseudoelementen gestylt werden, kann dies zu Konflikten bei den Stilen führen.
 
-Wenn sich zwei Textbereiche überlappen und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) hervorgehoben werden und wenn sie beide mit der CSS-Eigenschaft `color` gestylt sind, muss der Browser entscheiden, welche Farbe für die Gestaltung des Textes im überlappenden Teil verwendet werden soll.
+Wenn sich zwei Textbereiche überschneiden und beide mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) hervorgehoben werden und wenn beide mit der CSS-Eigenschaft `color` gestylt werden, muss der Browser entscheiden, welche Farbe für die Gestaltung des Texts im überlappenden Teil verwendet werden soll.
 
-Wenn keine `priority` festgelegt ist, haben alle Highlights die gleiche Priorität, und der Browser wählt das am zuletzt registrierte Highlight, um die überlappenden Teile zu gestalten.
+Falls keine `priority` festgelegt ist, haben alle Highlights die gleiche Priorität, und der Browser wählt das zuletzt registrierte Highlight, um die überlappenden Teile zu stylen.
 
-Beachten Sie, dass alle Stile eines Highlights angewendet werden und der Browser nur Konflikte lösen muss, wenn dieselben CSS-Eigenschaften von mehreren überlappenden Highlights verwendet werden. Die Auflösung von Highlight-Stilkonflikten hängt auch nicht von der Reihenfolge ab, in der die {{cssxref("::highlight")}}-Pseudo-Elemente im Quellcode erscheinen, oder davon, ob CSS-Eigenschaften als `!important` markiert sind.
+Beachten Sie, dass alle Stile eines Highlights angewendet werden und der Browser nur Konflikte lösen muss, wenn dieselben CSS-Eigenschaften von mehreren überlappenden Highlights verwendet werden. Die Auflösung von Highlight-Stilkonflikten hängt auch nicht von der Reihenfolge ab, in der die {{cssxref("::highlight")}} Pseudoelement-Regeln im Quelltext erscheinen, oder davon, ob CSS-Eigenschaften als `!important` markiert sind.
 
 ## Wert
 
@@ -26,7 +26,7 @@ Eine Ganzzahl.
 
 ## Beispiele
 
-### Standardpriorität
+### Standard-Priorität
 
 #### HTML
 
@@ -70,7 +70,7 @@ CSS.highlights.set("highlight-2", highlight2);
 
 #### Ergebnis
 
-Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem sich die beiden registrierten Highlights überlappen, in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wird. Die von `highlight-1` definierte Hintergrundfarbe umfasst den gesamten `range1`-Bereich, da sie nicht mit einer anderen Hintergrundfarbe in Konflikt steht.
+Wie unten zu sehen ist, wird der Teil des Textknotens, in dem sich die beiden registrierten Highlights überlappen, standardmäßig in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wurde. Die Hintergrundfarbe, die von `highlight-1` definiert wird, umfasst den gesamten `range1`-Bereich, da sie nicht mit einer anderen Hintergrundfarbe im Konflikt steht.
 
 {{EmbedLiveSample("Default priority")}}
 
@@ -141,7 +141,7 @@ reset.addEventListener("click", () => {
 
 #### Ergebnis
 
-Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem sich die beiden registrierten Highlights überlappen, in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wird.
+Wie unten zu sehen ist, wird der Teil des Textknotens, in dem sich die beiden registrierten Highlights überlappen, standardmäßig in Blau angezeigt, da `highlight-2` nach `highlight-1` registriert wurde.
 
 {{EmbedLiveSample("Setting priority")}}
 
@@ -156,4 +156,4 @@ Wie unten zu sehen ist, wird standardmäßig der Teil des Textknotens, in dem si
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API: Die Zukunft der Hervorhebung von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
