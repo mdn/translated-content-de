@@ -3,7 +3,7 @@ title: "ReadableStreamBYOBRequest: view-Eigenschaft"
 short-title: view
 slug: Web/API/ReadableStreamBYOBRequest/view
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: ca056fde2ee61527c62d76766ece012226eee155
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
@@ -12,9 +12,9 @@ Die **`view`** Getter-Eigenschaft der [`ReadableStreamBYOBRequest`](/de/docs/Web
 
 ## Wert
 
-Ein [Typed Array](/de/docs/Web/JavaScript/Guide/Typed_arrays), das den Zielbereich darstellt, in den der Controller die generierten Daten schreiben kann.
+Ein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) vom Typ [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), das den Zielbereich darstellt, in den der Controller generierte Daten schreiben kann.
 
-`null`, wenn die Anfrage bereits beantwortet wurde, entweder durch Aufruf von [`ReadableStreamBYOBRequest.respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) oder [`ReadableStreamBYOBRequest.respondWithNewView()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView).
+`null`, wenn die Anfrage bereits beantwortet wurde, indem [`ReadableStreamBYOBRequest.respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) oder [`ReadableStreamBYOBRequest.respondWithNewView()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView) aufgerufen wurde.
 
 ## Beispiele
 

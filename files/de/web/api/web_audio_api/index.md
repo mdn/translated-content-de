@@ -2,187 +2,187 @@
 title: Web Audio API
 slug: Web/API/Web_Audio_API
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 09160497a769a44ef51cfb34e04b171587435370
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Die Web Audio API bietet ein leistungsstarkes und vielseitiges System zur Steuerung von Audio im Web und ermöglicht Entwicklern die Auswahl von Audioquellen, Hinzufügen von Effekten zu Audio, Erstellen von Audio-Visualisierungen, Anwenden räumlicher Effekte (wie Panning) und vieles mehr.
+Die Web Audio API bietet ein leistungsstarkes und vielseitiges System zur Steuerung von Audio im Web, das es Entwicklern ermöglicht, Audioquellen auszuwählen, Effekte hinzuzufügen, Audio-Visualisierungen zu erstellen, räumliche Effekte (wie Panning) anzuwenden und vieles mehr.
 
-## Web-Audio-Konzepte und Verwendung
+## Web Audio-Konzepte und Verwendung
 
-Die Web Audio API umfasst die Handhabung von Audiovorgängen innerhalb eines **Audio Context** und wurde entwickelt, um **modulares Routing** zu ermöglichen. Grundlegende Audiobearbeitungen werden mit **Audio Nodes** durchgeführt, die miteinander verbunden sind, um einen **Audio-Routing-Graphen** zu bilden. Mehrere Quellen - mit verschiedenen Kanal-Layouts - werden sogar innerhalb eines einzelnen Kontexts unterstützt. Diese modulare Gestaltung bietet die Flexibilität, komplexe Audiofunktionen mit dynamischen Effekten zu erstellen.
+Die Web Audio API umfasst die Handhabung von Audiooperationen innerhalb eines **Audio-Kontextes** und wurde entwickelt, um **modulares Routing** zu ermöglichen. Grundlegende Audiooperationen werden mit **Audio-Knoten** durchgeführt, die miteinander verbunden sind, um einen **Audio-Routing-Graph** zu bilden. Mehrere Quellen — mit verschiedenen Arten von Kanal-Layouts — werden sogar innerhalb eines einzelnen Kontextes unterstützt. Dieses modulare Design bietet die Flexibilität, komplexe Audiofunktionen mit dynamischen Effekten zu erstellen.
 
-Audio Nodes sind durch ihre Eingänge und Ausgänge in Ketten und einfachen Netzen verbunden. Sie beginnen in der Regel mit einer oder mehreren Quellen. Quellen liefern Arrays von Schallintensitäten (Samples) in sehr kleinen Zeitscheiben, oft Zehntausende pro Sekunde. Diese können entweder mathematisch berechnet werden (wie beim [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)), oder sie können Aufnahmen von Ton-/Videodateien sein (wie [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) und [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)) und Audiostreams ([`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)). Tatsächlich sind Tondateien nur Aufnahmen der Schallintensitäten selbst, die von Mikrofonen oder elektronischen Instrumenten aufgenommen und in eine einzige, komplizierte Welle gemischt werden.
+Audio-Knoten sind über ihre Eingänge und Ausgänge zu Ketten und einfachen Netzen verbunden. Sie beginnen typischerweise mit einer oder mehreren Quellen. Quellen liefern Arrays von Samples — Messungen der Amplitude des Audiosignals zu aufeinanderfolgenden Zeitpunkten — oft Zehntausende pro Sekunde. Diese könnten entweder mathematisch berechnet werden (wie zum Beispiel [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)) oder sie können Aufnahmen aus Sound-/Videodateien (wie [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) und [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)) und Audio-Streams ([`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)) sein. Tatsächlich sind Sounddateien nur Aufnahmen von Klangintensitäten selbst, die von Mikrofonen oder elektrischen Instrumenten kommen und zu einer einzigen komplizierten Welle zusammengeführt werden.
 
-Ausgänge dieser Nodes könnten mit Eingängen anderer verknüpft werden, die diese Streams von Schallsamples in verschiedene Streams mischen oder ändern. Eine häufige Modifikation besteht darin, die Samples mit einem Wert zu multiplizieren, um sie lauter oder leiser zu machen (wie es beim [`GainNode`](/de/docs/Web/API/GainNode) der Fall ist). Sobald der Ton für den beabsichtigten Effekt ausreichend verarbeitet wurde, kann er mit dem Eingang eines Ziels ([`BaseAudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination)) verbunden werden, das den Ton an die Lautsprecher oder Kopfhörer sendet. Diese letzte Verbindung ist nur notwendig, wenn der Benutzer das Audio hören soll.
+Ausgänge dieser Knoten könnten mit Eingängen anderer Knoten verbunden werden, die diese Klangstrom-Samples in unterschiedliche Ströme mischen oder modifizieren. Eine gängige Modifikation ist das Multiplizieren der Samples mit einem Wert, um sie lauter oder leiser zu machen (wie es beim [`GainNode`](/de/docs/Web/API/GainNode) der Fall ist). Sobald der Klang ausreichend für den beabsichtigten Effekt verarbeitet ist, kann er mit dem Eingang eines Ziels ([`BaseAudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination)) verbunden werden, das den Klang an Lautsprecher oder Kopfhörer sendet. Diese letzte Verbindung ist nur erforderlich, wenn der Benutzer das Audio hören soll.
 
-Ein einfacher, typischer Workflow für Web-Audio könnte folgendermaßen aussehen:
+Ein einfacher, typischer Workflow für Web-Audio könnte wie folgt aussehen:
 
-1. Erstellen des Audio Contexts
-2. Innerhalb des Contexts Quellen erstellen — wie `<audio>`, Oszillator, Stream
-3. Erstellen von Effekt-Nodes, wie Hall, Biquad-Filter, Panner, Kompressor
-4. Auswahl des finalen Audioziels, z.B. die Systemlautsprecher
-5. Verbinden der Quellen mit den Effekten und der Effekte mit dem Ziel.
+1. Audio-Kontext erstellen
+2. Innerhalb des Kontextes Quellen erstellen — wie `<audio>`, Oszillator, Stream
+3. Effektknoten erstellen, wie Hall, Biquad-Filter, Panner, Kompressor
+4. Endziel des Audios auswählen, beispielsweise Ihre Systemlautsprecher
+5. Die Quellen mit den Effekten verbinden und die Effekte mit dem Ziel.
 
-![Ein einfaches Box-Diagramm mit einer äußeren Box, die als Audio Context bezeichnet ist, und drei inneren Boxen, die als Quellen, Effekte und Ziel bezeichnet sind. Die drei inneren Boxen haben Pfeile zwischen ihnen, die von links nach rechts zeigen, was den Fluss der Audioinformationen anzeigt.](audio-context_.png)
+![Ein einfaches Blockdiagramm mit einem äußeren Kasten, der mit Audio-Kontext beschriftet ist, und drei inneren Kästen, die mit Quellen, Effekten und Ziel beschriftet sind. Die drei inneren Kästen haben Pfeile dazwischen, die von links nach rechts zeigen, um den Fluss der Audioinformationen anzuzeigen.](audio-context_.png)
 
-Das Timing wird mit hoher Präzision und niedriger Latenz gesteuert, was es den Entwicklern ermöglicht, Code zu schreiben, der präzise auf Ereignisse reagiert und in der Lage ist, spezifische Samples anzuzielen, selbst bei einer hohen Abtastrate. Anwendungen wie Drum Machines und Sequenzer sind somit in greifbarer Nähe.
+Die Zeitsteuerung wird mit hoher Präzision und niedriger Latenz kontrolliert, sodass Entwickler Code schreiben können, der genau auf Ereignisse reagiert und in der Lage ist, gezielt auf bestimmte Samples, sogar bei einer hohen Abtastrate, zuzugreifen. So sind Anwendungen wie Drumcomputer und Sequenzer in greifbarer Nähe.
 
-Die Web Audio API ermöglicht es uns auch, zu steuern, wie Audio _räumlich gegliedert_ wird. Durch ein System, das auf einem _Quellen-Hörer-Modell_ basiert, ermöglicht es die Kontrolle des _Panning-Modells_ und beschäftigt sich mit _entfernungsbedingter Dämpfung_, die durch eine sich bewegende Quelle (oder einen bewegenden Hörer) verursacht wird.
+Die Web Audio API ermöglicht es uns auch, zu kontrollieren, wie Audio _räumlich verteilt_ wird. Mit einem System basierend auf einem _Quell-Listener-Modell_ ermöglicht sie die Kontrolle des _Panning-Modells_ und befasst sich mit _abstandsbedingter Abschwächung_, die durch eine sich bewegende Quelle (oder einen sich bewegenden Hörer) verursacht wird.
 
 > [!NOTE]
-> Sie können in unserem Artikel [Grundlegende Konzepte hinter der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API) viel ausführlicher über die Theorie der Web Audio API lesen.
+> Sie können über die Theorie der Web Audio API in unserem Artikel [Grundlegende Konzepte der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API) ausführlicher lesen.
 
 ## Zielgruppe der Web Audio API
 
-Die Web Audio API kann für diejenigen, die nicht mit Audio- oder Musikbegriffen vertraut sind, einschüchternd wirken, und da sie viele Funktionen enthält, kann es sich als schwierig erweisen, als Entwickler den Einstieg zu finden.
+Die Web Audio API kann für diejenigen einschüchternd wirken, die nicht mit Audio- oder Musikbegriffen vertraut sind, und da sie eine Fülle an Funktionen beinhaltet, kann es schwierig sein, als Entwickler den Einstieg zu finden.
 
-Sie kann verwendet werden, um Audio in Ihre Website oder Anwendung zu integrieren, indem sie z.B. [Atmosphäre wie futurelibrary.no](https://www.futurelibrary.no/) bereitstellt oder [auditive Rückmeldungen in Formularen](https://css-tricks.com/form-validation-web-audio/). Sie kann jedoch auch verwendet werden, um _fortschrittliche_ interaktive Instrumente zu erstellen. In diesem Sinne ist sie sowohl für Entwickler als auch Musiker geeignet.
+Sie kann verwendet werden, um Audio in Ihre Website oder Anwendung zu integrieren, entweder indem [eine Atmosphäre wie futurelibrary.no bereitgestellt wird](https://www.futurelibrary.no/) oder [auditive Rückmeldungen zu Formularen geben](https://css-tricks.com/form-validation-web-audio/). Sie kann jedoch auch verwendet werden, um _fortgeschrittene_ interaktive Instrumente zu erstellen. Mit diesem Hintergrund ist sie sowohl für Entwickler als auch Musiker geeignet.
 
-Für diejenigen, die mit dem Programmieren vertraut sind, aber eine gute Einführung in einige der Begriffe und die Struktur der API benötigen, haben wir ein [einfaches Einführungstutorial](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
+Wir haben ein [einfaches Einführungstutorial](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API) für diejenigen, die mit dem Programmieren vertraut sind, aber eine gute Einführung in einige der Begriffe und die Struktur der API benötigen.
 
-Es gibt auch einen Artikel zu [Grundlegenden Konzepten hinter der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API), der Ihnen hilft zu verstehen, wie digitale Audio speziell im Bereich der API funktioniert. Dies beinhaltet auch eine gute Einführung in einige der Konzepte, auf denen die API basiert.
+Es gibt auch einen Artikel [Grundlegende Konzepte der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API), der Ihnen hilft, zu verstehen, wie digitale Audio im Bereich der API funktioniert. Dieser enthält auch eine gute Einführung in einige der Konzepte, auf denen die API basiert.
 
-Programmieren zu lernen ist wie Karten zu spielen — Sie lernen die Regeln, dann spielen Sie, dann gehen Sie zurück und lernen die Regeln wieder, dann spielen Sie erneut. Wenn also in den ersten Tutorials und dem Artikel einige Theorie nicht ganz passt, gibt es ein [fortgeschrittenes Tutorial](/de/docs/Web/API/Web_Audio_API/Advanced_techniques), das das erste erweitert, um Ihnen zu helfen, das Gelernte zu üben, und einige fortgeschrittenere Techniken, um einen Step-Sequenzer aufzubauen.
+Das Lernen von Programmierung ist wie Kartenspielen — Sie lernen die Regeln, dann spielen Sie, dann gehen Sie zurück und lernen die Regeln erneut, dann spielen Sie wieder. Wenn also einige der Theorien nach dem ersten Tutorial und Artikel nicht ganz passen, gibt es ein [fortgeschrittenes Tutorial](/de/docs/Web/API/Web_Audio_API/Advanced_techniques), das das erste erweitert, um Ihnen zu helfen, das Gelernte zu üben und einige fortgeschrittenere Techniken anzuwenden, um einen Schrittsequenzer aufzubauen.
 
-Wir haben auch andere Tutorials und umfassendes Referenzmaterial verfügbar, das alle Funktionen der API umfasst. Weitere Informationen finden Sie in der Seitenleiste dieser Seite.
+Wir haben auch andere Tutorials und umfassendes Referenzmaterial verfügbar, das alle Funktionen der API abdeckt. Siehe die Seitenleiste auf dieser Seite für mehr.
 
-Wenn Sie eher mit der musikalischen Seite vertraut sind, mit musikspezifischen Konzepten vertraut sind und Instrumente bauen möchten, können Sie direkt mit dem fortgeschrittenen Tutorial und anderen als Leitfaden beginnen (das oben verlinkte Tutorial behandelt das Planen von Noten, das Erstellen maßgeschneiderter Oszillatoren und Hüllkurven sowie ein LFO unter anderem).
+Wenn Sie mit der musikalischen Seite der Dinge vertrauter sind, mit Konzepten der Musiktheorie vertraut sind und Instrumente zu bauen beginnen möchten, können Sie direkt mit dem fortgeschrittenen Tutorial und anderen als Leitfaden anfangen (das oben verlinkte Tutorial behandelt das Planen von Notizen, Erstellen von maßgeschneiderten Oszillatoren und Hüllkurven, sowie ein LFO unter anderem).
 
-Wenn Ihnen die Grundlagen der Programmierung nicht vertraut sind, sollten Sie zunächst einige JavaScript-Einsteiger-Tutorials konsultieren und dann hierher zurückkehren — sehen Sie sich unser [JavaScript-Lernmodul für Anfänger](/de/docs/Learn_web_development/Core/Scripting) für einen großartigen Einstieg an.
+Wenn Sie nicht mit den Grundlagen der Programmierung vertraut sind, sollten Sie vielleicht zuerst einige JavaScript-Tutorials für Anfänger konsultieren und dann hierher zurückkehren — unser [JavaScript-Lernmodul für Anfänger](/de/docs/Learn_web_development/Core/Scripting) ist ein guter Anfangspunkt.
 
-## Web Audio API-Schnittstellen
+## Schnittstellen der Web Audio API
 
-Die Web Audio API verfügt über eine Reihe von Schnittstellen und zugehörigen Ereignissen, die wir in neun Funktionskategorien unterteilt haben.
+Die Web Audio API verfügt über eine Vielzahl von Schnittstellen und zugehörigen Ereignissen, die wir in neun Funktionskategorien unterteilt haben.
 
-### Allgemeine Definition des Audio-Graphen
+### Allgemeine Definition von Audio-Graphen
 
 Allgemeine Container und Definitionen, die Audio-Graphen in der Nutzung der Web Audio API formen.
 
 - [`AudioContext`](/de/docs/Web/API/AudioContext)
-  - : Die **`AudioContext`**-Schnittstelle stellt einen Audio-Verarbeitungsgraphen dar, der aus miteinander verknüpften Audiomodulen besteht, von denen jedes durch einen [`AudioNode`](/de/docs/Web/API/AudioNode) dargestellt wird. Ein Audio Context steuert die Erstellung der enthaltenen Nodes und die Ausführung der Audiobearbeitung oder -dekodierung. Sie müssen einen `AudioContext` erstellen, bevor Sie etwas anderes tun, da alles innerhalb eines Contexts geschieht.
+  - : Die **`AudioContext`**-Schnittstelle repräsentiert einen Audio-Verarbeitungsgraphen, der aus miteinander verknüpften Audio-Modulen besteht, die jeweils durch einen [`AudioNode`](/de/docs/Web/API/AudioNode) dargestellt werden. Ein Audio-Kontext steuert die Erstellung der darin enthaltenen Knoten und die Ausführung der Audiobearbeitung oder Dekodierung. Sie müssen ein `AudioContext` erstellen, bevor Sie etwas anderes tun, da alles innerhalb eines Kontextes passiert.
 - [`AudioNode`](/de/docs/Web/API/AudioNode)
-  - : Die **`AudioNode`**-Schnittstelle stellt ein Audiobearbeitungsmodul wie eine _Audioquelle_ (z.B. ein HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element), _Audioziel_, _Zwischenbearbeitungsmodul_ (z.B. einen Filter wie [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) oder _Lautstärkeregelung_ wie [`GainNode`](/de/docs/Web/API/GainNode)) dar.
+  - : Die **`AudioNode`**-Schnittstelle repräsentiert ein Audio-Verarbeitungsmodul wie eine _Audioquelle_ (z.B. ein HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element), _Audioziel_, _Zwischenverarbeitungsmodul_ (z.B. ein Filter wie [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)) oder _Lautstärkeregelung_ wie [`GainNode`](/de/docs/Web/API/GainNode)).
 - [`AudioParam`](/de/docs/Web/API/AudioParam)
-  - : Die **`AudioParam`**-Schnittstelle stellt einen audiobezogenen Parameter dar, wie einer eines [`AudioNode`](/de/docs/Web/API/AudioNode). Er kann auf einen bestimmten Wert oder eine Änderung des Werts gesetzt werden und kann so programmiert werden, dass er zu einem bestimmten Zeitpunkt und nach einem bestimmten Muster erfolgt.
+  - : Die **`AudioParam`**-Schnittstelle repräsentiert einen audio-bezogenen Parameter, wie einen von einem [`AudioNode`](/de/docs/Web/API/AudioNode). Sie kann auf einen bestimmten Wert oder eine Wertänderung gesetzt werden und kann programmiert werden, um zu einem bestimmten Zeitpunkt und einem bestimmten Muster zu erfolgen.
 - [`AudioParamMap`](/de/docs/Web/API/AudioParamMap)
-  - : Bietet eine map-ähnliche Schnittstelle zu einer Gruppe von [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstellen, was bedeutet, dass sie die Methoden `forEach()`, `get()`, `has()`, `keys()` und `values()` sowie eine `size`-Eigenschaft bereitstellt.
+  - : Bietet eine kartenähnliche Schnittstelle zu einer Gruppe von [`AudioParam`](/de/docs/Web/API/AudioParam) Schnittstellen, was bedeutet, dass sie die Methoden `forEach()`, `get()`, `has()`, `keys()`, und `values()` sowie eine `size`-Eigenschaft bereitstellt.
 - [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
-  - : Die **`BaseAudioContext`**-Schnittstelle fungiert als Grunddefinition für Online- und Offline-Audioverarbeitungsgraphen, dargestellt durch [`AudioContext`](/de/docs/Web/API/AudioContext) und [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) jeweils. Sie würden `BaseAudioContext` nicht direkt verwenden — Sie würden dessen Funktionen über eine dieser beiden vererbenden Schnittstellen nutzen.
+  - : Die **`BaseAudioContext`**-Schnittstelle fungiert als Basisdefinition für Online- und Offline-Audioverarbeitungsgraphen, die jeweils durch [`AudioContext`](/de/docs/Web/API/AudioContext) und [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) dargestellt werden. Sie würden `BaseAudioContext` nicht direkt verwenden — Sie würden seine Funktionen über eine dieser beiden vererbenden Schnittstellen verwenden.
 - Das [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event) Ereignis
-  - : Das `ended`-Ereignis wird ausgelöst, wenn die Wiedergabe gestoppt wurde, weil das Ende der Mediendaten erreicht wurde.
+  - : Das `ended` Ereignis wird ausgelöst, wenn die Wiedergabe gestoppt wurde, weil das Ende des Mediums erreicht wurde.
 
-### Audioquellen definieren
+### Definition von Audioquellen
 
-Schnittstellen, die Audioquellen zur Verwendung in der Web Audio API definieren.
+Schnittstellen, die Audioquellen für die Verwendung in der Web Audio API definieren.
 
 - [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)
-  - : Der **`AudioScheduledSourceNode`** ist eine übergeordnete Schnittstelle für mehrere Arten von Audiosource-Node-Schnittstellen. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode).
+  - : Der **`AudioScheduledSourceNode`** ist eine übergeordnete Schnittstelle für mehrere Arten von Audioquellenknotenschnittstellen. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode).
 - [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)
-  - : Die **`OscillatorNode`**-Schnittstelle stellt eine periodische Wellenform dar, wie eine Sinus- oder Dreieckswelle. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audioverarbeitungsmodul, das eine bestimmte _Frequenz_ einer Welle erzeugt.
+  - : Die **`OscillatorNode`**-Schnittstelle repräsentiert eine periodische Wellenform, wie eine Sinus- oder Dreieckswelle. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audio-Verarbeitungsmodul, das eine bestimmte _Frequenz_ der Welle erzeugt.
 - [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)
-  - : Die **`AudioBuffer`**-Schnittstelle repräsentiert ein kurzes Audio-Asset, das im Speicher residiert, erstellt aus einer Audiodatei mit der Methode [`BaseAudioContext.decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData), oder erstellt mit Rohdaten unter Verwendung von [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer). Sobald es in diese Form dekodiert ist, kann das Audio dann in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) gelegt werden.
+  - : Die **`AudioBuffer`**-Schnittstelle stellt ein kurzes Audio-Asset dar, das im Speicher residiert, erstellt aus einer Audiodatei mithilfe der Methode [`BaseAudioContext.decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) oder erstellt mit Rohdaten mithilfe von [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer). Sobald es in diese Form dekodiert wurde, kann das Audio dann in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) eingefügt werden.
 - [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)
-  - : Die **`AudioBufferSourceNode`**-Schnittstelle stellt eine Audioquelle dar, die aus im Speicher vorhandenem Audio besteht, gespeichert in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer). Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
+  - : Die **`AudioBufferSourceNode`**-Schnittstelle stellt eine Audioquelle dar, die aus im Speicher befindlichen Audiodaten besteht, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) gespeichert sind. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
 - [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)
-  - : Die **`MediaElementAudioSourceNode`**-Schnittstelle stellt eine Audioquelle dar, die aus einem HTML {{ htmlelement("audio") }} oder {{ htmlelement("video") }} Element besteht. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
+  - : Die **`MediaElementAudioSourceNode`**-Schnittstelle stellt eine Audioquelle dar, bestehend aus einem HTML {{ htmlelement("audio") }} oder {{ htmlelement("video") }} Element. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
 - [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)
-  - : Die **`MediaStreamAudioSourceNode`**-Schnittstelle stellt eine Audioquelle dar, die aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) besteht (wie eine Webcam, Mikrofon oder ein Stream, der von einem entfernten Computer gesendet wird). Wenn mehrere Audio-Tracks im Stream vorhanden sind, wird der Track verwendet, dessen [`id`](/de/docs/Web/API/MediaStreamTrack/id) lexikographisch (alphabetisch) zuerst kommt. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
+  - : Die **`MediaStreamAudioSourceNode`**-Schnittstelle stellt eine Audioquelle dar, die aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) besteht (wie eine Webcam, ein Mikrofon oder ein Stream, der von einem entfernten Computer gesendet wird). Wenn mehrfach Audiotracks im Stream vorhanden sind, wird der Track verwendet, dessen [`id`](/de/docs/Web/API/MediaStreamTrack/id) lexikographisch (alphabetisch) zuerst kommt. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
 - [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)
-  - : Ein Node vom Typ [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) stellt eine Audioquelle dar, deren Daten von einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen. Beim Erstellen des Nodes mit der Methode [`createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource), um den Node zu erstellen, geben Sie den zu verwendenden Track an. Dies bietet mehr Kontrolle als `MediaStreamAudioSourceNode`.
+  - : Ein Knoten vom Typ [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) stellt eine Audioquelle dar, deren Daten von einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen. Bei der Erstellung des Knotens mithilfe der [`createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource) Methode geben Sie an, welcher Track verwendet werden soll. Dies bietet mehr Kontrolle als `MediaStreamAudioSourceNode`.
 
-### Definition von Audio-Effekten
+### Definition von Audioeffektfiltern
 
-Schnittstellen zur Definition von Effekten, die Sie auf Ihre Audioquellen anwenden möchten.
+Schnittstellen für die Definition von Effekten, die Sie auf Ihre Audioquellen anwenden möchten.
 
 - [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)
-  - : Die **`BiquadFilterNode`**-Schnittstelle stellt einen einfachen Filter niedriger Ordnung dar. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das verschiedene Arten von Filtern, Klangregelgeräten oder grafischen Equalizern darstellen kann. Ein `BiquadFilterNode` hat immer genau einen Eingang und einen Ausgang.
+  - : Die **`BiquadFilterNode`**-Schnittstelle repräsentiert einen einfachen Tiefordnungsfilter. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das verschiedene Arten von Filtern, Klangregelgeräten oder grafischen Equalizern darstellen kann. Ein `BiquadFilterNode` hat immer genau einen Eingang und einen Ausgang.
 - [`ConvolverNode`](/de/docs/Web/API/ConvolverNode)
-  - : Die **`ConvolverNode`**-Schnittstelle ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine Lineare Faltung auf einen gegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) ausführt und häufig verwendet wird, um einen Hall-Effekt zu erzielen.
+  - : Die **`ConvolverNode`**-Schnittstelle ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine Lineare Faltung auf einem angegebenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) durchführt und häufig verwendet wird, um einen Hall-Effekt zu erzielen.
 - [`DelayNode`](/de/docs/Web/API/DelayNode)
-  - : Die **`DelayNode`**-Schnittstelle stellt eine [Verzögerungsleitung](https://de.wikipedia.org/wiki/Delay-Line); ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audioverarbeitungsmodul, das eine Verzögerung zwischen dem Eintreffen eines Eingabedatums und seiner Weiterleitung an den Ausgang verursacht.
+  - : Die **`DelayNode`**-Schnittstelle repräsentiert eine [Verzögerungsleitung](https://en.wikipedia.org/wiki/Digital_delay_line); ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audio-Verarbeitungsmodul, das eine Verzögerung zwischen dem Empfang von Eingangsdaten und deren Propagation zum Ausgang verursacht.
 - [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)
-  - : Die **`DynamicsCompressorNode`**-Schnittstelle bietet einen Kompressionseffekt, der die Lautstärke der lautesten Teile des Signals reduziert, um das Clipping und die Verzerrung zu verhindern, die auftreten können, wenn mehrere Sounds gleichzeitig abgespielt und multiplexiert werden.
+  - : Die **`DynamicsCompressorNode`**-Schnittstelle bietet einen Kompressionseffekt, der die Lautstärke der lautesten Teile des Signals senkt, um das Schneiden und Verzerrungen zu verhindern, die auftreten können, wenn mehrere Sounds gleichzeitig gespielt und multiplexiert werden.
 - [`GainNode`](/de/docs/Web/API/GainNode)
-  - : Die **`GainNode`**-Schnittstelle stellt eine Änderung der Lautstärke dar. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audioverarbeitungsmodul, das einen bestimmten _Gewinn_ auf die Eingabedaten anwendet, bevor es weitergeleitet wird.
+  - : Die **`GainNode`**-Schnittstelle stellt eine Lautstärkenänderung dar. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audio-Verarbeitungsmodul, das eine bestimmte _Verstärkung_ auf die Eingangsdaten anwendet, bevor sie an den Ausgang weitergeleitet werden.
 - [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode)
-  - : Die **`WaveShaperNode`**-Schnittstelle stellt einen nicht-linearen Verzerrer dar. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das mit einer Kurve eine Wellenformverzerrung auf das Signal anwendet. Neben offensichtlichen Verzerreffekten wird es oft genutzt, um dem Signal ein warmes Gefühl zu verleihen.
+  - : Die **`WaveShaperNode`**-Schnittstelle stellt einen nichtlinearen Verzerrer dar. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das eine Kurve verwendet, um eine Wellenshaping-Verzerrung auf das Signal anzuwenden. Neben offensichtlichen Verzerrungseffekten wird es häufig verwendet, um dem Signal ein warmes Gefühl zu verleihen.
 - [`PeriodicWave`](/de/docs/Web/API/PeriodicWave)
-  - : Beschreibt eine periodische Wellenform, die verwendet werden kann, um die Ausgabe eines [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu gestalten.
+  - : Beschreibt eine periodische Wellenform, die verwendet werden kann, um die Ausgabe eines [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu formen.
 - [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)
-  - : Implementiert einen allgemeinen [Infinite Impulse Response](https://de.wikipedia.org/wiki/Infiniter_Impulsantwort)-Filter; dieser Filtertyp kann verwendet werden, um Klangregelgeräte und grafische Equalizer zu implementieren.
+  - : Implementiert einen allgemeinen [Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response) (IIR) Filter; dieser Filtertyp kann verwendet werden, um Klangregelsysteme und grafische Equalizer zu implementieren.
 
-### Definition von Audio-Zielen
+### Definition von Audiozielen
 
-Sobald Sie Ihre Audioverarbeitung abgeschlossen haben, definieren diese Schnittstellen, wohin Sie sie ausgeben möchten.
+Sobald Sie mit der Verarbeitung Ihres Audios fertig sind, definieren diese Schnittstellen, wohin es ausgegeben wird.
 
 - [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)
-  - : Die **`AudioDestinationNode`**-Schnittstelle repräsentiert das Endziel einer Audioquelle innerhalb eines bestimmten Kontextes — normalerweise die Lautsprecher Ihres Geräts.
+  - : Die **`AudioDestinationNode`**-Schnittstelle repräsentiert das Endziel einer Audioquelle in einem gegebenen Kontext — normalerweise die Lautsprecher Ihres Geräts.
 - [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)
-  - : Die **`MediaStreamAudioDestinationNode`**-Schnittstelle stellt ein Audiosziel dar, das aus einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`MediaStream`](/de/docs/Web/API/MediaStream) mit einem einzigen `AudioMediaStreamTrack` besteht, das ähnlich verwendet werden kann wie ein [`MediaStream`](/de/docs/Web/API/MediaStream), der von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten wurde. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audiosziel fungiert.
+  - : Die **`MediaStreamAudioDestinationNode`**-Schnittstelle repräsentiert ein Audioziel, das aus einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`MediaStream`](/de/docs/Web/API/MediaStream) mit einem einzigen `AudioMediaStreamTrack` besteht, das auf ähnliche Weise wie ein [`MediaStream`](/de/docs/Web/API/MediaStream) verwendet werden kann, das von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten wird. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioziel fungiert.
 
 ### Datenanalyse und Visualisierung
 
-Wenn Sie Zeit-, Frequenz- und andere Daten aus Ihrem Audio extrahieren möchten, benötigen Sie das `AnalyserNode`.
+Wenn Sie Zeit-, Frequenz- und andere Daten aus Ihrem Audio extrahieren möchten, ist der `AnalyserNode` das, was Sie brauchen.
 
 - [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)
-  - : Die **`AnalyserNode`**-Schnittstelle stellt einen Node dar, der in der Lage ist, Echtzeit-Frequenz- und Zeitbereichsanalyseinformationen bereitzustellen, für die Zwecke der Datenanalyse und Visualisierung.
+  - : Die **`AnalyserNode`**-Schnittstelle repräsentiert einen Knoten, der in der Lage ist, Echtzeit-Frequenz- und Zeitbereichsanalyseinformationen bereitzustellen, zum Zweck der Datenanalyse und Visualisierung.
 
-### Aufteilen und Zusammenführen von Audiospuren
+### Aufteilen und Zusammenführen von Audiokanälen
 
-Zum Aufteilen und Zusammenführen von Audiospuren verwenden Sie diese Schnittstellen.
+Um Audiokanäle aufzuteilen und zusammenzuführen, verwenden Sie diese Schnittstellen.
 
 - [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode)
-  - : Die **`ChannelSplitterNode`**-Schnittstelle trennt die verschiedenen Kanäle einer Audioquelle in ein Set von _Mono_-Ausgängen.
+  - : Die **`ChannelSplitterNode`**-Schnittstelle trennt die verschiedenen Kanäle einer Audioquelle in eine Reihe von _Mono_-Ausgängen auf.
 - [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)
-  - : Die **`ChannelMergerNode`**-Schnittstelle führt verschiedene Mono-Eingänge zu einer einzigen Ausgabe zusammen. Jeder Eingang wird verwendet, um einen Kanal der Ausgabe zu füllen.
+  - : Die **`ChannelMergerNode`**-Schnittstelle vereint verschiedene Mono-Eingänge zu einem einzigen Ausgang. Jeder Eingang wird verwendet, um einen Kanal des Ausgangs zu füllen.
 
-### Audio-Spatialisation
+### Audio-Räumlichkeit
 
-Diese Schnittstellen erlauben Ihnen, Audio-Spatialisation-Panning-Effekte zu Ihren Audioquellen hinzuzufügen.
+Diese Schnittstellen ermöglichen es Ihnen, Audio-Raumklangeffekte zu Ihren Audioquellen hinzuzufügen.
 
 - [`AudioListener`](/de/docs/Web/API/AudioListener)
-  - : Die **`AudioListener`**-Schnittstelle repräsentiert die Position und Ausrichtung der einzigartigen Person, die dem Audio-Szenario zuhört, das in der Audio-Spatialisation verwendet wird.
+  - : Die **`AudioListener`**-Schnittstelle repräsentiert die Position und Orientierung der einzigartigen Person, die die Audioszene hört, die in der Audio-Räumlichkeit verwendet wird.
 - [`PannerNode`](/de/docs/Web/API/PannerNode)
-  - : Die **`PannerNode`**-Schnittstelle repräsentiert die Position und das Verhalten eines Audio-Source-Signals im 3D-Raum und ermöglicht Ihnen das Erstellen komplexer Panning-Effekte.
+  - : Die **`PannerNode`**-Schnittstelle repräsentiert die Position und das Verhalten eines Audiosignals im 3D-Raum, wodurch komplexe Panning-Effekte erstellt werden können.
 - [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode)
-  - : Die **`StereoPannerNode`**-Schnittstelle stellt einen einfachen Stereo-Panner-Node dar, der verwendet werden kann, um einen Audio-Stream nach links oder rechts zu pannen.
+  - : Die **`StereoPannerNode`**-Schnittstelle repräsentiert einen einfachen Stereo-Panner-Knoten, der verwendet werden kann, um einen Audiostream nach links oder rechts zu schwenken.
 
-### Verarbeitung von Audio in JavaScript
+### Audioverarbeitung in JavaScript
 
-Mit Audio Worklets können Sie benutzerdefinierte Audio Nodes erstellen, die in JavaScript oder [WebAssembly](/de/docs/WebAssembly) geschrieben sind. Audio Worklets implementieren die [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle, eine leichte Version der [`Worker`](/de/docs/Web/API/Worker)-Schnittstelle.
+Mithilfe von Audio-Worklets können Sie benutzerdefinierte Audionoten schreiben, die in JavaScript oder [WebAssembly](/de/docs/WebAssembly) ausgeführt werden. Audio-Worklets implementieren die [`Worklet`](/de/docs/Web/API/Worklet) Schnittstelle, eine leichte Version der [`Worker`](/de/docs/Web/API/Worker) Schnittstelle.
 
 - [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)
-  - : Die `AudioWorklet`-Schnittstelle ist über das [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt verfügbar, dessen [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet), und ermöglicht es Ihnen, Module zum Audio Worklet hinzuzufügen, die außerhalb des Haupt-Threads ausgeführt werden.
+  - : Die `AudioWorklet`-Schnittstelle ist über das [`AudioContext`](/de/docs/Web/API/AudioContext) Objekt [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) verfügbar und ermöglicht es Ihnen, Module zum Audio-Worklet hinzuzufügen, die außerhalb des Hauptthreads ausgeführt werden.
 - [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)
-  - : Die `AudioWorkletNode`-Schnittstelle stellt einen [`AudioNode`](/de/docs/Web/API/AudioNode) dar, der in einen Audio-Graphen eingebettet ist und Nachrichten an den entsprechenden `AudioWorkletProcessor` senden kann.
+  - : Die `AudioWorkletNode`-Schnittstelle repräsentiert einen [`AudioNode`](/de/docs/Web/API/AudioNode), der in einen Audiographen eingebettet ist und Nachrichten an den entsprechenden `AudioWorkletProcessor` senden kann.
 - [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)
-  - : Die `AudioWorkletProcessor`-Schnittstelle stellt die in einem `AudioWorkletGlobalScope` laufende Audiobearbeitungscode dar, die Audio direkt generiert, verarbeitet oder analysiert und Nachrichten an den entsprechenden `AudioWorkletNode` senden kann.
+  - : Die `AudioWorkletProcessor`-Schnittstelle repräsentiert Audiobearbeitungscode, der in einem `AudioWorkletGlobalScope` ausgeführt wird, der Audio direkt generiert, verarbeitet oder analysiert und Nachrichten an den entsprechenden `AudioWorkletNode` senden kann.
 - [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)
-  - : Die `AudioWorkletGlobalScope`-Schnittstelle ist ein `WorkletGlobalScope`-abgeleitetes Objekt, das einen Worker-Kontext darstellt, in dem ein Audiobearbeitungsskript ausgeführt wird; es ist dafür ausgelegt, die Generierung, Verarbeitung und Analyse von Audiodaten direkt unter Verwendung von JavaScript in einem Worklet-Thread statt im Haupt-Thread zu ermöglichen.
+  - : Die `AudioWorkletGlobalScope`-Schnittstelle ist ein vom `WorkletGlobalScope` abgeleitetes Objekt, das einen Worker-Kontext darstellt, in dem ein Audiobearbeitungsskript ausgeführt wird. Sie ist so konzipiert, dass die Generierung, Verarbeitung und Analyse von Audiodaten direkt mit JavaScript in einem Worklet-Thread und nicht im Haupt-Thread ermöglicht wird.
 
-#### Veraltet: Script-Processor-Nodes
+#### Veraltet: Skriptprozessor-Knoten
 
-Vor der Definition von Audio Worklets verwendete die Web Audio API den `ScriptProcessorNode` für die auf JavaScript basierende Audiobearbeitung. Da der Code im Haupt-Thread läuft, haben sie schlechte Leistung. Der `ScriptProcessorNode` wird aus historischen Gründen beibehalten, ist jedoch als veraltet markiert.
+Bevor Audio-Worklets definiert wurden, nutzte die Web Audio API den `ScriptProcessorNode` für JavaScript-basierte Audiobearbeitung. Da der Code im Haupt-Thread läuft, haben sie eine schlechte Leistung. Der `ScriptProcessorNode` wird aus historischen Gründen beibehalten, ist jedoch als veraltet markiert.
 
 - [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) {{deprecated_inline}}
-  - : Die **`ScriptProcessorNode`**-Schnittstelle ermöglicht die Generierung, Verarbeitung oder Analyse von Audio mit JavaScript. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audiobearbeitungsmodul, das mit zwei Buffern verbunden ist: ein Puffer, der den aktuellen Eingang enthält, und ein anderer, der die Ausgabe enthält. Ein Ereignis, das die [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle implementiert, wird an das Objekt gesendet, jedes Mal, wenn der Eingabepuffer neue Daten enthält, und der Ereignishandler endet, wenn er den Ausgabepuffer mit Daten gefüllt hat.
+  - : Die **`ScriptProcessorNode`**-Schnittstelle ermöglicht die Generierung, Verarbeitung oder Analyse von Audio mithilfe von JavaScript. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audio-Verarbeitungsmodul, das mit zwei Puffern verbunden ist, einer enthält den aktuellen Eingang, einer enthält den Ausgang. Ein Ereignis, das die [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) Schnittstelle implementiert, wird an das Objekt gesendet, wenn der Eingabepuffer neue Daten enthält, und der Ereignishandler beendet sich, wenn er den Ausgabepuffer mit Daten gefüllt hat.
 - [`audioprocess`](/de/docs/Web/API/ScriptProcessorNode/audioprocess_event) (Ereignis) {{deprecated_inline}}
-  - : Das `audioprocess`-Ereignis wird ausgelöst, wenn ein Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) der Web Audio API zur Verarbeitung bereit ist.
+  - : Das `audioprocess` Ereignis wird gefeuert, wenn ein Eingabepuffer eines Web Audio API [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) bereit zur Verarbeitung ist.
 - [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) {{deprecated_inline}}
-  - : Der `AudioProcessingEvent` repräsentiert Ereignisse, die auftreten, wenn ein Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) zur Verarbeitung bereit ist.
+  - : Das `AudioProcessingEvent` stellt Ereignisse dar, die auftreten, wenn ein [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) Eingabepuffer bereit zur Verarbeitung ist.
 
 ### Offline-/Hintergrund-Audiobearbeitung
 
-Es ist möglich, einen Audio-Graphen sehr schnell im Hintergrund zu verarbeiten/rendern - ihn in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu rendern anstelle der Lautsprecher des Geräts - mit dem Folgenden.
+Es ist möglich, einen Audio-Graphen sehr schnell im Hintergrund zu verarbeiten/rendern — ihn in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu rendern, anstatt auf die Lautsprecher des Geräts — mit folgendem.
 
 - [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)
-  - : Die **`OfflineAudioContext`**-Schnittstelle ist eine [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle, die einen Audiobearbeitungsgraphen darstellt, der aus miteinander verknüpften [`AudioNode`](/de/docs/Web/API/AudioNode)s besteht. Im Gegensatz zu einem Standard-`AudioContext` rendert ein `OfflineAudioContext` das Audio eigentlich nicht, sondern generiert es _so schnell wie möglich_ in einem Buffer.
+  - : Die **`OfflineAudioContext`**-Schnittstelle ist ein [`AudioContext`](/de/docs/Web/API/AudioContext) Schnittstelle, die einen Audiographen darstellt, der aus miteinander verbundenen [`AudioNode`](/de/docs/Web/API/AudioNode)s aufgebaut ist. Im Gegensatz zu einem standardmäßigen `AudioContext` rendert ein `OfflineAudioContext` das Audio nicht wirklich, sondern generiert es in einem Puffer _so schnell wie möglich_.
 - [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event) (Ereignis)
-  - : Das `complete`-Ereignis wird ausgelöst, wenn das Rendering eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet ist.
+  - : Das `complete` Ereignis wird ausgelöst, wenn die Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet ist.
 - [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent)
-  - : Der `OfflineAudioCompletionEvent` repräsentiert Ereignisse, die auftreten, wenn die Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet ist. Das [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)-Ereignis verwendet diese Schnittstelle.
+  - : Das `OfflineAudioCompletionEvent` repräsentiert Ereignisse, die auftreten, wenn die Verarbeitung eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) beendet ist. Das [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event) Ereignis verwendet diese Schnittstelle.
 
 ## Leitfäden und Anleitungen
 
@@ -190,7 +190,7 @@ Es ist möglich, einen Audio-Graphen sehr schnell im Hintergrund zu verarbeiten/
 
 ## Beispiele
 
-Sie finden eine Reihe von Beispielen in unserem [webaudio-examples Repo](https://github.com/mdn/webaudio-examples/) auf GitHub.
+Sie finden eine Reihe von Beispielen in unserem [webaudio-examples GitHub-Repository](https://github.com/mdn/webaudio-examples/).
 
 ## Spezifikationen
 
@@ -204,27 +204,27 @@ Sie finden eine Reihe von Beispielen in unserem [webaudio-examples Repo](https:/
 
 ### Tutorials/Leitfäden
 
-- [Grundlegende Konzepte hinter der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API)
+- [Grundlegende Konzepte der Web Audio API](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API)
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Fortgeschrittene Techniken: Sound-Erstellung, Sequenzierung, Timing, Zeitplanung](/de/docs/Web/API/Web_Audio_API/Advanced_techniques)
-- [Autoplay-Leitfaden für Medien- und Web-Audio-APIs](/de/docs/Web/Media/Guides/Autoplay)
+- [Fortgeschrittene Techniken: Sound erstellen, sequenzieren, timen, planen](/de/docs/Web/API/Web_Audio_API/Advanced_techniques)
+- [Autoplay-Leitfaden für Medien- und Web Audio APIs](/de/docs/Web/Media/Guides/Autoplay)
 - [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters)
-- [Visualisierungen mit Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
-- [Grundlagen der Web-Audio-Spatialisation](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
-- [Kontrolle mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
-- [Positional Audio und WebGL mischen (2012)](https://web.dev/articles/webaudio-positional-audio)
-- [Entwicklung von Spielaudio mit der Web Audio API (2012)](https://web.dev/articles/webaudio-games)
+- [Visualisierungen mit der Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
+- [Grundlagen der Web-Audio-Räumlichkeit](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Kontrolle mehrere Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
+- [Mischung von Positionsaudio und WebGL (2012)](https://web.dev/articles/webaudio-positional-audio)
+- [Entwicklung von Game-Audio mit der Web Audio API (2012)](https://web.dev/articles/webaudio-games)
 
 ### Bibliotheken
 
-- [Tone.js](https://tonejs.github.io/): Ein Framework zur Erstellung interaktiver Musik im Browser.
-- [howler.js](https://github.com/goldfire/howler.js/): Eine JS-Audiobibliothek, die standardmäßig die [Web Audio API](https://webaudio.github.io/web-audio-api/) verwendet und auf [HTML Audio](https://html.spec.whatwg.org/multipage/media.html#the-audio-element) zurückgreift sowie weitere nützliche Funktionen bietet.
-- [Mooog](https://github.com/mattlima/mooog): jQuery-ähnliches Verkettung von AudioNodes, Mixer-ähnliche Sends/Returns und mehr.
-- [XSound](https://xsound.jp/): Web Audio API Bibliothek für Synthesizer, Effekte, Visualisierung, Aufnahme usw.
-- [OpenLang](https://github.com/chrisjohndigital/OpenLang): HTML-Video-Sprachlabor-Webanwendung, die die Web Audio API verwendet, um Video und Audio von verschiedenen Quellen in einer einzigen Datei aufzuzeichnen und zu kombinieren ([Quelle auf GitHub](https://github.com/chrisjohndigital/OpenLang))
+- [Tone.js](https://tonejs.github.io/): Ein Framework für die Erstellung interaktiver Musik im Browser.
+- [howler.js](https://github.com/goldfire/howler.js/): Eine JS-Audiobibliothek, die standardmäßig die [Web Audio API](https://webaudio.github.io/web-audio-api/) verwendet und bei Bedarf auf [HTML Audio](https://html.spec.whatwg.org/multipage/media.html#the-audio-element) zurückfällt sowie weitere nützliche Funktionen bietet.
+- [Mooog](https://github.com/mattlima/mooog): jQuery-ähnliches Ketten von AudioNodes, Mischpult-ähnliche Sends/Returns und mehr.
+- [XSound](https://xsound.jp/): Web Audio API-Bibliothek für Synthesizer, Effekte, Visualisierung, Aufnahme usw.
+- [OpenLang](https://github.com/chrisjohndigital/OpenLang): HTML-Video-Sprachlabor-Webanwendung, die die Web Audio API verwendet, um Video und Audio von verschiedenen Quellen in einer Datei zusammenzuführen und aufzunehmen ([Quelle auf GitHub](https://github.com/chrisjohndigital/OpenLang))
 - [Pts.js](https://ptsjs.org/): Vereinfacht die Web-Audio-Visualisierung ([Leitfaden](https://ptsjs.org/guide/sound-0800))
 
 ### Verwandte Themen
 
-- [Webmedientechnologien](/de/docs/Web/Media)
+- [Web-Medientechnologien](/de/docs/Web/Media)
 - [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats)
