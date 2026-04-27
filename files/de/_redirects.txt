@@ -16923,6 +16923,7 @@
 /de/docs/WebAssembly/Reference/Variables/Local_get	/de/docs/WebAssembly/Reference/Variables/local.get
 /de/docs/WebAssembly/Reference/Variables/Local_set	/de/docs/WebAssembly/Reference/Variables/local.set
 /de/docs/WebAssembly/Reference/Variables/Local_tee	/de/docs/WebAssembly/Reference/Variables/local.tee
+/de/docs/WebAssembly/Reference/Variables/global	/de/docs/WebAssembly/Reference/Definitions/global
 /de/docs/WebAssembly/Rust_to_Wasm	/de/docs/WebAssembly/Guides/Rust_to_Wasm
 /de/docs/WebAssembly/Text_format_to_Wasm	/de/docs/WebAssembly/Guides/Text_format_to_Wasm
 /de/docs/WebAssembly/Understanding_the_text_format	/de/docs/WebAssembly/Guides/Understanding_the_text_format

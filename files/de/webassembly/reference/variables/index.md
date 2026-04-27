@@ -1,23 +1,26 @@
 ---
-title: WebAssembly-Variableninstruktionen
+title: WebAssembly-Variablenanweisungen
 slug: WebAssembly/Reference/Variables
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: a21bf857ac668ad72a36aad0d8ad7e87c6bdc4d8
 ---
 
-WebAssembly-Variableninstruktionen.
+WebAssembly-Getter- und Setter-Anweisungen für Variablen.
+
+## Global
+
+- [`global.get`](/de/docs/WebAssembly/Reference/Variables/global.get)
+  - : Lädt den Wert einer globalen Variablen auf den Stack.
+- [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set)
+  - : Setzt den Wert einer globalen Variablen.
+
+## Lokal
 
 - [`local`](/de/docs/WebAssembly/Reference/Variables/local)
-  - : Deklarieren Sie eine neue lokale Variable.
+  - : Deklariert eine neue lokale Variable.
 - [`local.get`](/de/docs/WebAssembly/Reference/Variables/local.get)
-  - : Laden Sie den Wert einer lokalen Variable auf den Stapel.
+  - : Lädt den Wert einer lokalen Variablen auf den Stack.
 - [`local.set`](/de/docs/WebAssembly/Reference/Variables/local.set)
-  - : Setzen Sie den Wert einer lokalen Variable.
+  - : Setzt den Wert einer lokalen Variablen.
 - [`local.tee`](/de/docs/WebAssembly/Reference/Variables/local.tee)
-  - : Setzen Sie den Wert einer lokalen Variable und behalten Sie den Wert auf dem Stapel.
-- [`global`](/de/docs/WebAssembly/Reference/Variables/global)
-  - : Deklarieren Sie eine neue globale Variable.
-- [`global.get`](/de/docs/WebAssembly/Reference/Variables/global.get)
-  - : Laden Sie den Wert einer globalen Variable auf den Stapel.
-- [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set)
-  - : Setzen Sie den Wert einer globalen Variable.
+  - : Setzt den Wert einer lokalen Variablen und behält den Wert auf dem Stack.

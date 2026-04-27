@@ -2,10 +2,10 @@
 title: WebAssembly.Global
 slug: WebAssembly/Reference/JavaScript_interface/Global
 l10n:
-  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
+  sourceCommit: a21bf857ac668ad72a36aad0d8ad7e87c6bdc4d8
 ---
 
-Ein **`WebAssembly.Global`** Objekt stellt eine Instanz einer globalen Variablen dar, die sowohl von JavaScript aus zugänglich ist als auch über eine oder mehrere [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Instanzen importiert oder exportiert werden kann. Dies ermöglicht das dynamische Verknüpfen mehrerer Module.
+Ein **`WebAssembly.Global`**-Objekt repräsentiert eine globale Variableninstanz, die sowohl von JavaScript aus zugänglich als auch über ein oder mehrere [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Instanzen importierbar/exportierbar ist. Dies ermöglicht die dynamische Verknüpfung mehrerer Module.
 
 ## Konstruktor
 
@@ -14,29 +14,29 @@ Ein **`WebAssembly.Global`** Objekt stellt eine Instanz einer globalen Variablen
 
 ## Globale Instanzen
 
-Alle `Global`-Instanzen erben von dem Prototyp-Objekt des `Global()`-Konstruktors — dies kann geändert werden, um alle `Global`-Instanzen zu beeinflussen.
+Alle `Global`-Instanzen erben vom Prototyp-Objekt des `Global()`-Konstruktors – dies kann modifiziert werden, um alle `Global`-Instanzen zu beeinflussen.
 
-### Instanzeigenschaften
+### Instanz-Eigenschaften
 
+- [`Global.prototype.value`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global/value)
+  - : Der Wert, der in der globalen Variablen enthalten ist. Dies kann verwendet werden, um den Wert des `Global` direkt zu setzen und abzurufen.
 - `Global.prototype.constructor`
-  - : Gibt die Funktion zurück, die die Instanz dieses Objekts erstellt hat. Standardmäßig ist dies der [`WebAssembly.Global()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global/Global) Konstruktor.
+  - : Gibt die Funktion zurück, die die Instanz dieses Objekts erstellt hat. Standardmäßig ist dies der [`WebAssembly.Global()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global/Global)-Konstruktor.
 - `Global.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String-Wert "WebAssembly.Global".
-- `Global.prototype.value`
-  - : Der Wert, der in der globalen Variable enthalten ist — dieser kann verwendet werden, um den Wert der globalen Variable direkt zu setzen und abzurufen.
+  - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String-Wert "WebAssembly.Global".
 
-### Instanzmethoden
+### Instanz-Methoden
 
-- `Global.prototype.valueOf()`
-  - : Althergebrachte Methode, die den in der globalen Variable enthaltenen Wert zurückgibt.
+- [`Global.prototype.valueOf()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global/valueOf)
+  - : Gibt den Wert zurück, der in der globalen Variablen enthalten ist.
 
 ## Beispiele
 
 ### Erstellen einer neuen Global-Instanz
 
-Das folgende Beispiel zeigt die Erstellung einer neuen globalen Instanz mit dem `WebAssembly.Global()` Konstruktor. Sie wird als mutable `i32`-Typ mit einem Wert von 0 definiert.
+Das folgende Beispiel zeigt eine neue globale Instanz, die mit dem `WebAssembly.Global()`-Konstruktor erstellt wird. Es wird als veränderlicher `i32`-Typ mit einem Wert von 0 definiert.
 
-Der Wert der globalen Variable wird dann zuerst mit der `Global.value`-Eigenschaft auf `42` geändert und anschließend auf 43 mit der `incGlobal()`-Funktion geändert, die aus dem `global.wasm` Modul exportiert wird (dies fügt 1 zu dem übergebenen Wert hinzu und gibt dann den neuen Wert zurück).
+Der Wert der globalen Variablen wird dann geändert, zuerst auf `42` mithilfe der `Global.value`-Eigenschaft und dann auf 43 mithilfe der `incGlobal()`-Funktion, die aus dem `global.wasm`-Modul exportiert wird (dies fügt 1 zu jedem gegebenen Wert hinzu und gibt dann den neuen Wert zurück).
 
 ```js
 const output = document.getElementById("output");
@@ -87,5 +87,5 @@ WebAssembly.instantiateStreaming(fetch("global.wasm"), { js: { global } }).then(
 
 - [WebAssembly](/de/docs/WebAssembly) Übersicht
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
-- [Vorschlag zu import/export mutabler globaler Variablen](https://github.com/WebAssembly/mutable-global/blob/master/proposals/mutable-global/Overview.md)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Vorschlag für importierbare/exportierbare veränderliche Globale](https://github.com/WebAssembly/mutable-global/blob/master/proposals/mutable-global/Overview.md)
