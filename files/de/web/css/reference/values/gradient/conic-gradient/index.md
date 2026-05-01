@@ -1,12 +1,12 @@
 ---
-title: "`conic-gradient()` CSS-Funktion"
+title: "`conic-gradient()` CSS Funktion"
 short-title: conic-gradient()
 slug: Web/CSS/Reference/Values/gradient/conic-gradient
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: a1da408d85bfa1fc180d15fdc29746ad5f9e9cff
 ---
 
-Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt ein Bild, das aus einem Verlauf besteht, bei dem sich die Farbverläufe um einen Mittelpunkt drehen (anstatt von dort auszustrahlen). Beispiele für konische Verläufe sind Tortendiagramme und {{Glossary("color_wheel", "Farbkreise")}}. Das Ergebnis der `conic-gradient()`-Funktion ist ein Objekt des Datentyps {{cssxref("gradient")}}, der eine spezielle Art von {{cssxref("image")}} ist.
+Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erstellt ein Bild, das aus einem Farbverlauf mit Farbübergängen besteht, die um einen Mittelpunkt rotieren (anstatt vom Mittelpunkt aus zu strahlen). Beispiele für konische Verläufe sind Kreisdiagramme und {{Glossary("color_wheel", "Farbkreise")}}. Das Ergebnis der `conic-gradient()` Funktion ist ein Objekt des {{cssxref("gradient")}} Datentyps, der eine spezielle Art von {{cssxref("image")}} ist.
 
 {{InteractiveExample("CSS Demo: conic-gradient()")}}
 
@@ -70,109 +70,96 @@ conic-gradient(from 90deg at 0 0, blue, red)
 /* Interpolation in polar color space
   with longer hue interpolation method */
 conic-gradient(in hsl longer hue, red, blue, green, red)
-
-/* Color wheel */
-conic-gradient(
-  hsl(360 100% 50%),
-  hsl(315 100% 50%),
-  hsl(270 100% 50%),
-  hsl(225 100% 50%),
-  hsl(180 100% 50%),
-  hsl(135 100% 50%),
-  hsl(90 100% 50%),
-  hsl(45 100% 50%),
-  hsl(0 100% 50%)
-)
 ```
 
 ### Werte
 
 - {{cssxref("angle")}}
-  - : Gefolgt vom Schlüsselwort `from` und mit einem Winkel als Wert, definiert die Rotation des Verlaufs im Uhrzeigersinn.
+  - : Gefolgt vom Schlüsselwort `from` und einem Winkelwert, definiert die Rotation des Gradienten im Uhrzeigersinn.
 - `<position>`
-  - : Mit den gleichen Längen-, Reihenfolge- und Schlüsselwortwerten wie die Eigenschaft {{cssxref("background-position")}}, definiert der `position`-Wert das Zentrum des Verlaufs. Wenn nicht angegeben, ist der standardmäßige Wert für `position` `center`, was bedeutet, dass der Verlauf zentriert wird.
+  - : Verwendet dieselbe Längen-, Reihenfolge- und Schlüsselwortwerte wie die Eigenschaft {{cssxref("background-position")}}, der `position` Wert definiert das Zentrum des Gradienten. Wird nichts angegeben, ist der Standardwert für `position` `center`, was bedeutet, dass der Gradient zentriert wird.
 - `<angular-color-stop>`
-  - : Ein Überblendpunkt mit einem {{CSSxRef("&lt;color&gt;")}}-Wert, gefolgt von ein oder zwei optionalen Stoppositionen (ein {{cssxref("angle")}} entlang der Umfangsachse des Verlaufs).
+  - : Der {{CSSxRef("&lt;color&gt;")}} Wert eines Farbstopps, gefolgt von einer oder zwei optionalen Stopp-Positionen (ein {{cssxref("angle")}} entlang der Umfangsachse des Gradienten).
 - `<color-hint>`
-  - : Ein {{Glossary("interpolation", "Interpolationshinweis")}}, der definiert, wie der Verlauf zwischen benachbarten Überblendpunkten fortschreitet. Die Länge definiert den Punkt zwischen zwei Überblendpunkten, an dem der Farbübergang seinen Mittelpunkt erreicht. Wenn weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Überblendpunkten.
+  - : Ein {{Glossary("interpolation", "Interpolationshinweis")}}, der definiert, wie der Gradient zwischen benachbarten Farbstopps verläuft. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps der Gradient die Mitte des Farbübergangs erreichen sollte. Wird er weggelassen, ist die Mitte des Farbübergangs die Mitte zwischen zwei Farbstopps.
 
 > [!NOTE]
-> Das Rendering von Überblendpunkten in konischen Verläufen folgt den gleichen Regeln wie [Überblendpunkte in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
+> Die Darstellung von Farbstopps in konischen Verläufen folgt denselben Regeln wie [Farbstopps in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
 
 ## Beschreibung
 
-Wie bei jedem Verlauf hat ein konischer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird, oder der Größe des `<image>`, wenn es auf etwas anderes als die Elementgröße eingestellt ist.
+Wie bei jedem Gradienten hat ein konischer Gradient [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); das heißt, es hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das es angewendet wird, oder der Größe des `<image>`, falls es auf etwas anderes als die Elementgröße gesetzt ist.
 
-Um einen konischen Verlauf zu erstellen, der sich so wiederholt, dass eine 360-Grad-Rotation ausgefüllt wird, verwenden Sie die Funktion {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}.
+Um einen konischen Verlauf zu erstellen, der sich wiederholt und so eine 360-Grad-Drehung ausfüllt, verwenden Sie stattdessen die Funktion {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}.
 
-Da `<gradient>` zur Datentypkategorie `<image>` gehört, können sie nur dort verwendet werden, wo `<image>`-Typen verwendet werden können. Aus diesem Grund funktioniert `conic-gradient()` nicht auf {{CSSxRef("background-color")}} und anderen Eigenschaften, die den Datentyp {{CSSxRef("&lt;color&gt;")}} verwenden.
+Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `conic-gradient()` nicht bei {{CSSxRef("background-color")}} und anderen Eigenschaften, die den {{CSSxRef("&lt;color&gt;")}} Datentyp verwenden.
 
 > [!NOTE]
-> Warum wird es als "konischer" Verlauf bezeichnet? Wenn die Überblendpunkte auf einer Seite viel heller sind als auf der anderen, kann es wie ein Kegel von oben aussehen.
+> Warum wird es "konischer" Verlauf genannt? Wenn die Farbstopps auf einer Seite viel heller sind als auf der anderen, kann es aussehen wie ein Kegel von oben.
 
-### Zusammensetzung eines konischen Verlaufs
+### Zusammensetzung eines konischen Gradienten
 
-Die Syntax von conic-gradient ist ähnlich der von radial-gradient, aber die Überblendpunkte sind um einen Verlaufsbogen, den Umfang eines Kreises, platziert, anstatt auf der Linie des Verlaufs, die vom Mittelpunkt des Verlaufs ausgeht. Bei konischen Verläufen wechseln die Farben, als ob sie um das Zentrum eines Kreises gedreht würden, beginnend oben und im Uhrzeigersinn. Bei einem radialen Verlauf wechseln die Farben vom Mittelpunkt einer Ellipse aus in alle Richtungen.
+Die Syntax eines konischen Verlaufs ähnelt der Syntax eines radialen Verlaufs, aber die Farbstopps werden um einen Gradientenbogen, den Umfang eines Kreises, platziert, anstatt auf der Gradientenlinie, die vom Zentrum des Gradienten ausgeht. Bei konischen Verläufen wechseln die Farben so, als ob sie um das Zentrum eines Kreises gedreht werden, beginnend oben und im Uhrzeigersinn verlaufend. In einem radialen Verlauf wechseln die Farben vom Zentrum einer Ellipse, nach außen, in alle Richtungen.
 
-![Überblendpunkte entlang des Umfangs eines konischen Verlaufs und der Achse eines radialen Verlaufs.](screenshot_2018-11-29_21.09.19.png)
+![farbstopps entlang des Umfangs eines konischen_gradienten und der Achse eines radialen_gradienten.](screenshot_2018-11-29_21.09.19.png)
 
-Ein konischer Verlauf wird spezifiziert, indem ein Rotationswinkel angegeben wird, das Zentrum des Verlaufs und dann eine Liste von Überblendpunkten spezifiziert werden. Im Gegensatz zu linearen und radialen Verläufen, deren Überblendpunkte durch die Angabe einer {{cssxref("length")}} positioniert sind, werden die Überblendpunkte eines konischen Verlaufs mit einem [Winkel](/de/docs/Web/CSS/Reference/Values/angle) angegeben. Einheiten umfassen `deg` für Grad, `grad` für Graden, `rad` für Radiant und `turn` für Umdrehungen. Ein Kreis hat 360 Grad, 400 Graden, 2π Radiant und 1 Umdrehung. Browser, die konische Verläufe unterstützen, akzeptieren auch Prozentwerte, wobei 100 % 360 Grad entsprechen, aber dies ist nicht in der Spezifikation enthalten.
+Ein konischer Verlauf wird angegeben, indem ein Drehwinkel, der Mittelpunkt des Gradienten und dann eine Liste von Farbstopps angegeben werden. Im Gegensatz zu linearen und radialen Verläufen, bei denen die Farbstopps durch Angabe einer {{cssxref("length")}} platziert werden, werden die Farbstopps eines konischen Verlaufs mit einem [Winkel](/de/docs/Web/CSS/Reference/Values/angle) angegeben. Einheiten umfassen `deg` für Grad, `grad` für Neugrad, `rad` für Radiant und `turn` für Umdrehungen. Ein Kreis umfasst 360 Grad, 400 Neugrad, 2π Radiant und 1 Umdrehung. Browser, die konische Verläufe unterstützen, akzeptieren auch Prozentwerte, wobei 100% 360 Grad entspricht, aber dies ist nicht in der Spezifikation.
 
-Ähnlich wie bei radialen Verläufen bietet die Konicsyntax die Möglichkeit, das Zentrum des Verlaufs irgendwo innerhalb oder sogar außerhalb des Bildes zu positionieren. Die Werte für die Position sind ähnlich der Syntax für 2-Wert-Hintergrund-Positionen.
+Ähnlich wie bei radialen Verläufen bietet die konische Gradienten-Syntax die Möglichkeit, den Mittelpunkt des Verlaufs überall innerhalb oder sogar außerhalb des Bildes zu positionieren. Die Werte für die Position ähneln der Syntax für eine 2-Werte-Background-Position.
 
-Der Verlaufsbogen ist der Umfang des Verlaufs. Der _Ausgangspunkt_ des Verlaufs oder Bogens ist Norden, oder 12:00 Uhr. Der Verlauf wird dann um den _from_-Winkel gedreht. Die Farben des Verlaufs werden durch die angewinkelten Überblendpunkte, ihre Ausgangspunkte, Endpunkte und dazwischen durch optionale angewinkelte Überblendpunkte bestimmt. Die Übergänge zwischen Farben können mit Farbhinweisen zwischen den Überblendpunkten benachbarter Farben verändert werden.
+Der Gradientenbogen ist der Umfang des Gradienten. Der _Startpunkt_ des Gradienten oder Bogens ist Norden oder 12:00 Uhr. Der Gradient wird dann durch den _from_ Winkel gedreht. Die Farben des Gradienten werden durch die geneigten Farbstopps, ihre Startpunkte, Endpunkte und, dazwischen, optionale geneigte Farbstopp-Punkte bestimmt. Die Übergänge zwischen den Farben können mit Farbehinweisen zwischen den Farbstopps benachbarter Farben verändert werden.
 
-#### Verläufe anpassen
+#### Anpassen von Verläufen
 
-Indem Sie mehr angewinkelte Überblendpunkte auf dem Verlaufsbogen hinzufügen, können Sie einen stark angepassten Übergang zwischen mehreren Farben erstellen. Die Position eines Überblendpunktes kann explizit durch die Verwendung eines {{cssxref("angle")}} definiert werden. Wenn Sie den Standort eines Überblendpunktes nicht angeben, wird er in die Mitte zwischen dem, der ihm vorausgeht, und dem, der ihm folgt, gesetzt. Wenn Sie keinen Winkel für den ersten oder letzten Überblendpunkt angeben, sind deren Werte 0deg und 360deg. Die folgenden zwei Verläufe sind gleichwertig:
+Indem Sie mehr geneigte Farbstopp-Punkte auf dem Gradientenbogen hinzufügen, können Sie einen stark angepassten Übergang zwischen mehreren Farben erstellen. Eine Position eines Farbstopps kann explizit durch einen {{cssxref("angle")}} definiert werden. Wenn Sie die Position eines Farbstopps nicht angeben, wird er auf halbem Weg zwischen dem einen, der ihm vorausgeht, und dem, der ihm folgt, platziert. Wenn Sie für den ersten oder letzten Farbstopp keinen Winkel angeben, betragen ihre Werte 0deg bzw. 360deg. Die folgenden zwei Verläufe sind gleichwertig:
 
 ```css
 conic-gradient(red, orange, yellow, green, blue);
 conic-gradient(red 0deg, orange 90deg, yellow 180deg, green 270deg, blue 360deg);
 ```
 
-Standardmäßig wechseln die Farben sanft von der Farbe an einem Überblendpunkt zur Farbe am darauffolgenden Überblendpunkt, wobei der Mittelpunkt zwischen den Farben der halbe Punkt zwischen dem Farbwechsel ist. Sie können diesen Farbwechselsmittelpunkt an jeden Punkt zwischen zwei Überblendpunkten verschieben, indem Sie einen Farbhint hinzufügen, der angibt, wo der Mittelpunkt des Farbwechsels sein soll. Der folgende ist durchgehend rot vom Start bis zur 10%-Marke, wechselt von Rot zu Blau über 80% der Umdrehung, wobei die letzten 10% durchgehend blau sind. Der Mittelpunkt des Rot-zu-Blau-Verlaufswechsels liegt jedoch bei der 20%-Marke und nicht bei der 50%-Marke, wie es ohne den 80grad- oder 20%-Farbhint geschehen wäre.
+Standardmäßig wechseln die Farben nahtlos von der Farbe an einem Farbstopp zu der Farbe am nächsten Farbstopp, wobei der Zwischenpunkt zwischen den Farben der Mittelpunkt des Farbwechsels ist. Sie können diesen Zwischenpunkt des Farbwechsels an jeden Punkt zwischen zwei Farbstopps verschieben, indem Sie einen Farbehinweis hinzufügen, der angibt, wo der mittlere Punkt des Farbwechsels sein soll. Folgendes ist festes Rot vom Start bis zur 10%-Marke, wechselt von Rot zu Blau über 80% der Drehung, wobei die letzten 10% festes Blau sind. Der Zwischenpunkt des Wechsels von Rot zu Blau liegt jedoch bei der 20% Marke statt bei der 50% Marke, wie es ohne den 80grad oder 20% Farbehinweis der Fall gewesen wäre.
 
 ```css
 conic-gradient(red 40grad, 80grad, blue 360grad);
 ```
 
-Wenn zwei oder mehr Überblendpunkte an der gleichen Stelle sind, wird der Übergang eine harte Linie zwischen der ersten und der letzten an dieser Stelle angegebenen Farben sein. Um konische Verläufe zu verwenden, um Tortendiagramme zu erstellen — was NICHT der richtige Weg ist, um Tortendiagramme als Hintergrundbilder zu erstellen, da sie nicht barrierefrei sind — verwenden Sie harte Überblendpunkte, bei denen die Winkel der Überblendpunkte zweier benachbarter Überblendpunkte gleich sind. Der einfachste Weg, dies zu tun, ist die Verwendung mehrerer Positionen von Überblendpunkten. Die folgenden zwei Deklarationen sind gleichwertig:
+Wenn zwei oder mehr Farbstopps an demselben Ort sind, wird der Übergang eine harte Linie zwischen der ersten und letzten Farbe, die an dieser Stelle deklariert wurde. Um mit konischen Verläufen Kreisdiagramme zu erstellen - was nicht der korrekte Weg ist, Kreisdiagramme als Hintergrundbilder zu erstellen, da diese nicht barrierefrei sind - verwenden Sie harte Farbstopps, bei denen die Winkel der Farbstopps für zwei benachbarte Farbstopps gleich sind. Der einfachste Weg dies zu tun ist, mehrere Positionsfarbenstopps zu verwenden. Die folgenden beiden Deklarationen sind gleichwertig:
 
 ```css
 conic-gradient(white 0.09turn, #bbbbbb 0.09turn, #bbbbbb 0.27turn, #666666 0.27turn, #666666 0.54turn, black 0.54turn);
 conic-gradient(white 0turn 0.09turn, #bbbbbb 0.09turn 0.27turn, #666666 0.27turn 0.54turn, black 0.54turn 1turn);
 ```
 
-Überblendpunkte sollten in aufsteigender Reihenfolge aufgelistet sein. Nachfolgende Überblendpunkte mit niedrigeren Werten überschreiben den Wert des vorherigen Überblendpunktes und erzeugen einen harten Übergang. Der folgende wechselt bei der 30%-Marke von Rot zu Gelb und dann zwischen Gelb und Blau über 35% des Verlaufs:
+Farbstopps sollten in aufsteigender Reihenfolge aufgelistet werden. Nachfolgende Farbstopps von geringeren Werten überschreiben den Wert des vorherigen Farbstopps und erzeugen einen harten Übergang. Folgendes ändert sich von Rot zu Gelb bei der 30%-Marke und dann von Gelb zu Blau über 35% des Gradienten:
 
 ```css
 conic-gradient(red .8rad, yellow .6rad, blue 1.3rad);
 ```
 
-Es gibt andere Effekte, die Sie mit konischen Verläufen erzeugen können. Seltsamerweise ist ein Schachbrett einer davon. Indem Sie Quadranten mit einem oberen linken und unteren rechten weißen Quadrat und einem unteren linken und oberen rechten schwarzen Quadrat erstellen und dann den Verlauf 16 Mal wiederholen (vier Mal quer und vier Mal runter), können Sie ein Schachbrett machen.
+Mit konischen Verläufen können Sie weitere Effekte erzielen. Merkwürdigerweise ist ein Schachbrettmuster einer davon. Indem Sie Quadranten mit einem weißen Quadranten oben links und unten rechts und einem schwarzen Quadranten unten links und oben rechts erstellen, und dann den Gradienten 16 Mal wiederholen (vier Mal quer und vier Mal nach unten), können Sie ein Schachbrettmuster erzeugen.
 
 ```css
 conic-gradient(white 90deg, black 0.25turn 0.5turn, white calc(pi * 1rad) calc(pi * 1.5rad), black 300grad);
 background-size: 25% 25%;
 ```
 
-Und ja, Sie können verschiedene Winkeleinheiten mischen und anpassen, aber tun Sie es nicht. Das obige ist schwer zu lesen.
+Und ja, Sie können verschiedene Winkelmaßeinheiten mischen und kombinieren, aber das sollten Sie nicht tun. Oben ist es schwer zu lesen.
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien. Dies ist hauptsächlich für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und daher seinen Benutzern nichts vermittelt. Auch wenn es möglich ist, Tortendiagramme, Schachbretter und andere Effekte mit konischen Verläufen zu erstellen, bieten CSS-Bilder keine native Möglichkeit, alternativen Text zuzuweisen, und daher wird das durch den konischen Verlauf dargestellte Bild für Screenreader-Benutzer nicht zugänglich sein. Wenn das Bild Informationen enthält, die zum Verständnis des Hauptzwecks der Seite notwendig sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien. Dies ist hauptsächlich für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigen wird und daher seinen Benutzern nichts vermittelt. Während es möglich ist, Kreisdiagramme, Schachbretter und andere Effekte mit konischen Verläufen zu erstellen, bieten CSS-Bilder keine native Möglichkeit, alternativen Text zuzuweisen, und daher ist das Bild, das durch den konischen Verlauf dargestellt wird, für Screenreader-Benutzer nicht zugänglich. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des gesamten Zwecks der Seite sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Understanding WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Erfolgs-Kriterium 1.1.1 verstehen | W3C Verstehen WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis von WCAG, Leitfaden 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Verlauf bei 40 Grad
+### Gradient bei 40 Grad
 
 ```css hidden
 div {
@@ -193,7 +180,7 @@ div {
 
 {{EmbedLiveSample("Gradient_at_40-degrees", 120, 120)}}
 
-### Nicht zentrierter Verlauf
+### Außerhalb des Zentrums gelegener Gradient
 
 ```css hidden
 div {
@@ -214,9 +201,9 @@ div {
 
 {{EmbedLiveSample("Off-centered_gradient", 120, 120)}}
 
-### Verlaufs-Tortendiagramm
+### Gradient-Kreisdiagramm
 
-Dieses Beispiel verwendet Farbunterbrechungen mit mehreren Positionen, wobei benachbarte Farben denselben Farbunterbrechungswert haben, was einen Streifeneffekt erzeugt.
+Dieses Beispiel verwendet Multi-Positions Farbstopps, bei denen benachbarte Farben denselben Farbstoppwert haben, wodurch ein gestreifter Effekt entsteht.
 
 ```css hidden
 div {
@@ -238,7 +225,7 @@ div {
 
 {{EmbedLiveSample("Gradient_pie-chart", 120, 120)}}
 
-### Schachbrett
+### Schachbrettmuster
 
 ```css hidden
 div {
@@ -266,7 +253,7 @@ div {
 
 {{EmbedLiveSample("Checkerboard", 120, 120)}}
 
-### Interpolierung mit Farbton
+### Interpolation mit Farbton
 
 ```html hidden
 <div class="shorter"></div>
@@ -294,7 +281,7 @@ div {
 }
 ```
 
-In diesem Beispiel wird für die Interpolation das [hsl]-Farbmodell](/de/docs/Web/CSS/Reference/Values/color_value/hsl) verwendet und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) interpoliert.
+In diesem Beispiel wird das Interpolationsverfahren des [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbsystems verwendet und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -306,13 +293,39 @@ In diesem Beispiel wird für die Interpolation das [hsl]-Farbmodell](/de/docs/We
 }
 ```
 
-Die Box auf der linken Seite verwendet eine [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} wechselt. Die Box auf der rechten Seite verwendet eine [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen wechselt, durch Grün-, Gelb- und Orangetöne hindurch.
+Die Box links verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau geht und dabei den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} nutzt. Die Box rechts verwendet die [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau geht und dabei den längeren Bogen durchläuft, indem sie durch Grüns, Gelbs und Oranges navigiert.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 
-### Weitere Beispiele für conic-gradient
+### Farbkreis
 
-Bitte sehen Sie [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_gradients) für weitere Beispiele.
+```html hidden
+<div></div>
+```
+
+```css hidden
+div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+```
+
+```css
+div {
+  background-image: conic-gradient(
+    in hsl longer hue,
+    hsl(360 100% 50%),
+    hsl(0 100% 50%)
+  );
+}
+```
+
+{{EmbedLiveSample("Color Wheel", 100, 100)}}
+
+### Weitere konische-Gradienten-Beispiele
+
+Sehen Sie bitte [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients) für weitere Beispiele.
 
 ## Spezifikationen
 
@@ -324,7 +337,7 @@ Bitte sehen Sie [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_g
 
 ## Siehe auch
 
-- [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
 - Andere Verlaufsfunktionen: {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
 - {{cssxref("hue-interpolation-method")}}
 - {{cssxref("color-interpolation-method")}}
