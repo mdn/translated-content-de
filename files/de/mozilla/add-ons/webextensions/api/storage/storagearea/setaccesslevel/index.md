@@ -2,16 +2,15 @@
 title: StorageArea.setAccessLevel()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/setAccessLevel
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 2857820893ce291eb2cf5e370551136065bc080c
 ---
 
-Legt die Zugriffsebene für den Speicherbereich fest.
+Legt das Zugriffslevel für den Speicherbereich fest.
 
-Diese Methode wird nur für den `storage.session` StorageArea unterstützt.
+Verwenden Sie diese Methode, um:
 
-Im Gegensatz zu anderen Speicherbereichen ist `storage.session` nur für privilegierte (vertrauenswürdige) Erweiterungskontexte verfügbar. Diese `setAccessLevel` Methode wird verwendet, um den Zugriff auf den Sitzungsspeicherbereich auch für Content-Skripte zu ermöglichen. Standardmäßig sind alle anderen Speicherbereiche für alle Erweiterungskontexte, einschließlich Content-Skripten, zugänglich.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+- Den `session` Speicherbereich für Inhalts-Skripte freizugeben. Im Gegensatz zu anderen Speicherbereichen ist `storage.session` standardmäßig nur für privilegierte (vertrauenswürdige) Erweiterungskontexte verfügbar.
+- Den Zugriff von Inhalts-Skripten auf `local`, `managed` und `sync` Speicherbereiche einzuschränken. Standardmäßig sind diese Speicherbereiche für alle Erweiterungskontexte, einschließlich Inhalts-Skripten, zugänglich.
 
 ## Syntax
 
@@ -21,16 +20,16 @@ await browser.storage.<storageType>.setAccessLevel(
 )
 ```
 
-Wo `<storageType>` der {{WebExtAPIRef("storage.session")}} Speichertyp ist.
+Wobei `<storageType>` einer der folgenden Speicherbereiche ist: {{WebExtAPIRef("storage.local")}}, {{WebExtAPIRef("storage.managed")}}, {{WebExtAPIRef("storage.session")}} oder {{WebExtAPIRef("storage.sync")}}.
 
 ### Parameter
 
 - `accessLevel`
-  - : `String`. Die Zugriffsebene des Speicherbereichs. Mögliche Werte sind `TRUSTED_CONTEXTS` oder `TRUSTED_AND_UNTRUSTED_CONTEXTS`.
+  - : `String`. Das Zugriffslevel des Speicherbereichs. Mögliche Werte sind `TRUSTED_CONTEXTS` oder `TRUSTED_AND_UNTRUSTED_CONTEXTS`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Wenn der Vorgang fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples}}
 
@@ -39,4 +38,4 @@ Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
