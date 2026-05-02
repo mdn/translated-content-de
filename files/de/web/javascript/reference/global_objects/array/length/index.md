@@ -3,10 +3,10 @@ title: "Array: length"
 short-title: length
 slug: Web/JavaScript/Reference/Global_Objects/Array/length
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 5a745d55a26933ffd9e71f3b2246deba3f9e6f82
 ---
 
-Die **`length`**-Dateneigenschaft einer {{jsxref("Array")}}-Instanz repräsentiert die Anzahl der Elemente in diesem Array. Der Wert ist eine vorzeichenlose 32-Bit-Ganzzahl, die immer numerisch größer als der höchste Index im Array ist.
+Die **`length`** Daten-Eigenschaft einer {{jsxref("Array")}} Instanz repräsentiert die Anzahl der Plätze in diesem Array. Der Wert ist eine vorzeichenlose 32-Bit-Ganzzahl, die immer numerisch größer ist als der höchste Index im Array. Er kann größer sein als die Anzahl der Elemente, wenn das Array [spärlich](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array_methods_and_empty_slots) ist.
 
 {{InteractiveExample("JavaScript Demo: Array: length", "shorter")}}
 
@@ -19,13 +19,13 @@ console.log(clothing.length);
 
 ## Wert
 
-Eine nicht negative ganze Zahl, die kleiner als 2<sup>32</sup> ist.
+Eine nichtnegative ganze Zahl kleiner als 2<sup>32</sup>.
 
 {{js_property_attributes(1, 0, 0)}}
 
 ## Beschreibung
 
-Der Wert der `length`-Eigenschaft ist eine nicht negative ganze Zahl mit einem Wert kleiner als 2<sup>32</sup>.
+Der Wert der `length`-Eigenschaft ist eine nichtnegative ganze Zahl mit einem Wert kleiner als 2<sup>32</sup>.
 
 ```js
 const listA = [1, 2, 3];
@@ -46,11 +46,11 @@ const listC = new Array(-100); // Negative numbers are not allowed
 
 Das Array-Objekt beobachtet die `length`-Eigenschaft und synchronisiert den `length`-Wert automatisch mit dem Inhalt des Arrays. Das bedeutet:
 
-- Wenn `length` auf einen Wert kleiner als die aktuelle Länge gesetzt wird, wird das Array verkürzt — Elemente, die über die neue `length` hinausgehen, werden gelöscht.
-- Wenn ein Array-Index (eine nicht negative ganze Zahl kleiner als 2<sup>32</sup>) über die aktuelle `length` hinaus gesetzt wird, wird das Array erweitert — die `length`-Eigenschaft wird erhöht, um den neuen höchsten Index widerzuspiegeln.
-- Wenn `length` auf einen ungültigen Wert (z. B. eine negative Zahl oder eine nicht ganzzahlige Zahl) gesetzt wird, wird eine `RangeError`-Ausnahme ausgelöst.
+- Wenn `length` auf einen Wert gesetzt wird, der kleiner ist als die aktuelle Länge, wird das Array gekürzt — Elemente, die über die neue `length` hinausgehen, werden gelöscht.
+- Wenn ein Array-Index (eine nichtnegative ganze Zahl, die kleiner als 2<sup>32</sup> ist) jenseits der aktuellen `length` gesetzt wird, wird das Array erweitert — die `length`-Eigenschaft wird erhöht, um den neuen höchsten Index widerzuspiegeln.
+- Wenn `length` auf einen ungültigen Wert (z. B. eine negative Zahl oder eine Nicht-Ganzzahl) gesetzt wird, wird eine `RangeError`-Ausnahme ausgelöst.
 
-Wenn `length` auf einen größeren Wert als die aktuelle Länge gesetzt wird, wird das Array durch das Hinzufügen von [leeren Slots](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) erweitert, nicht durch tatsächliche `undefined`-Werte. Leere Slots haben spezielle Interaktionen mit Array-Methoden; siehe [Array-Methoden und leere Slots](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array_methods_and_empty_slots).
+Wenn `length` auf einen größeren Wert als die aktuelle Länge gesetzt wird, wird das Array durch Hinzufügen von [leeren Plätzen](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) und nicht durch tatsächliche `undefined` Werte erweitert. Leere Plätze haben einige spezielle Interaktionen mit Array-Methoden; siehe [Array-Methoden und leere Slots](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array_methods_and_empty_slots).
 
 ```js
 const arr = [1, 2];
@@ -70,9 +70,9 @@ Siehe auch [Beziehung zwischen `length` und numerischen Eigenschaften](/de/docs/
 
 ## Beispiele
 
-### Iterieren über ein Array
+### Über ein Array iterieren
 
-Im folgenden Beispiel wird das Array `numbers` durch Ablesen der `length`-Eigenschaft durchlaufen. Der Wert in jedem Element wird dann verdoppelt.
+Im folgenden Beispiel wird das Array `numbers` durch Iteration über die `length`-Eigenschaft durchlaufen. Der Wert jedes Elements wird dann verdoppelt.
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
@@ -83,7 +83,7 @@ for (let i = 0; i < length; i++) {
 // numbers is now [2, 4, 6, 8, 10]
 ```
 
-### Verkürzung eines Arrays
+### Ein Array verkürzen
 
 Das folgende Beispiel verkürzt das Array `numbers` auf eine Länge von 3, wenn die aktuelle Länge größer als 3 ist.
 
@@ -101,7 +101,7 @@ console.log(numbers[3]); // undefined; the extra elements are deleted
 
 ### Leeres Array mit fester Länge erstellen
 
-Das Setzen von `length` auf einen Wert, der größer ist als die aktuelle Länge, erstellt ein [lückenhaftes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
+Das Setzen von `length` auf einen Wert, der größer ist als die aktuelle Länge, erzeugt ein [spärliches Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays).
 
 ```js
 const numbers = [];
@@ -109,9 +109,9 @@ numbers.length = 3;
 console.log(numbers); // [empty x 3]
 ```
 
-### Array mit nicht überschreibbarer Länge
+### Array mit nicht-schreibbarer Länge
 
-Die `length`-Eigenschaft wird vom Array automatisch aktualisiert, wenn Elemente über die aktuelle Länge hinaus hinzugefügt werden. Wenn die `length`-Eigenschaft nicht überschreibbar gemacht wird, kann das Array sie nicht aktualisieren. Dies verursacht einen Fehler im [Strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
+Die `length`-Eigenschaft wird vom Array automatisch aktualisiert, wenn Elemente über die aktuelle Länge hinaus hinzugefügt werden. Wenn die `length`-Eigenschaft schreibgeschützt gemacht wird, kann das Array sie nicht aktualisieren. Dies führt zu einem Fehler im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ```js
 "use strict";
@@ -132,8 +132,8 @@ numbers.push(5); // // TypeError: Cannot assign to read only property 'length' o
 
 ## Siehe auch
 
-- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)-Leitfaden
+- Leitfaden zu [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - [`TypedArray.prototype.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/length)
 - [`String`: `length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length)
-- [RangeError: Ungültige Array-Länge](/de/docs/Web/JavaScript/Reference/Errors/Invalid_array_length)
+- [RangeError: ungültige Array-Länge](/de/docs/Web/JavaScript/Reference/Errors/Invalid_array_length)
