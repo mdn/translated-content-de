@@ -3,43 +3,60 @@ title: "VideoFrame: VideoFrame() Konstruktor"
 short-title: VideoFrame()
 slug: Web/API/VideoFrame/VideoFrame
 l10n:
-  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
+  sourceCommit: e62132e5900aad53470eb84df3b61eacd35f727d
 ---
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoFrame()`**-Konstruktor erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt, das einen Frame eines Videos darstellt.
+Der **`VideoFrame()`** Konstruktor erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt, das einen Frame eines Videos darstellt.
 
 ## Syntax
 
 ```js-nolint
 new VideoFrame(image)
 new VideoFrame(image, options)
+
 new VideoFrame(data, options)
 ```
 
 ### Parameter
 
-Der erste Konstruktortyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem Bild. Seine Parameter sind:
+Der erste Typ des Konstruktors erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem Bild. Seine Parameter sind:
 
 - `image`
-  - : Ein Bild, das die Bilddaten für das neue `VideoFrame` enthält. Es kann eines der folgenden Objekte sein:
+  - : Ein Bild, das die Bilddaten für das neue `VideoFrame` enthält. Es kann sich um eines der folgenden Objekte handeln:
     ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement),
     ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
     ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
     ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap),
-    ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas),
+    ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
     oder ein anderes [`VideoFrame`](/de/docs/Web/API/VideoFrame).
 - `options` {{Optional_Inline}}
   - : Ein Objekt, das Folgendes enthält:
+    - `alpha` {{Optional_Inline}}
+      - : Ein String, der beschreibt, wie der User-Agent beim Umgang mit Alphakanälen vorgehen soll. Der Standardwert ist "keep".
+        - `"keep"`: Gibt an, dass der User-Agent die Alphakanaldaten beibehalten soll.
+        - `"discard"`: Gibt an, dass der User-Agent die Alphakanaldaten ignorieren oder entfernen soll.
+    - `displayHeight` {{Optional_Inline}}
+      - : Die Höhe des `VideoFrame`, wenn es angezeigt wird, nachdem Seitenverhältnis-Anpassungen vorgenommen wurden.
+    - `displayWidth` {{Optional_Inline}}
+      - : Die Breite des `VideoFrame`, wenn es angezeigt wird, nachdem Seitenverhältnis-Anpassungen vorgenommen wurden.
     - `duration` {{Optional_Inline}}
       - : Ein Integer, der die Dauer des Frames in Mikrosekunden darstellt.
+    - `flip` {{optional_inline}}
+      - : Ein Boolean. Wenn `true`, wird eine horizontale Spiegelung angewendet. Standardmäßig `false`.
+    - `metadata` {{optional_inline}}
+      - : Ein Objekt, das Metadaten beschreibt, die die Video-Frame-Daten beschreiben, spezifiziert durch das [WebCodecs VideoFrame Metadata Registry](https://w3c.github.io/webcodecs/video_frame_metadata_registry.html), das die folgenden Eigenschaften enthalten kann:
+        - `rtpTimestamp` {{optional_inline}}
+          - : Der RTP-Zeitstempel des entsprechenden kodierten Frames. Nur Video-Frames, die aus [WebRTC](/de/docs/Web/API/WebRTC_API)-Quellen stammen, sollten `rtpTimestamp`-Metadaten gesetzt haben.
+
+        > [!NOTE]
+        > Die `metadata` eines Video-Frames können mit der Methode [`VideoFrame.metadata()`](/de/docs/Web/API/VideoFrame/metadata) zurückgegeben werden.
+
+    - `rotation` {{optional_inline}}
+      - : Ein Integer, der die Rotation (0, 90, 180 oder 270) in Grad im Uhrzeigersinn darstellt. Standardmäßig `0`. Beliebige Zahlen (einschließlich negativer) werden auf die nächste Vierteldrehung gerundet.
     - `timestamp`
       - : Ein Integer, der den Zeitstempel des Frames in Mikrosekunden darstellt.
-    - `alpha` {{Optional_Inline}}
-      - : Ein String, der beschreibt, wie der Benutzeragent beim Umgang mit Alphakanälen vorgehen soll. Der Standardwert ist "keep".
-        - `"keep"`: Gibt an, dass der Benutzeragent die Alphakanaldaten beibehalten soll.
-        - `"discard"`: Gibt an, dass der Benutzeragent die Alphakanaldaten ignorieren oder entfernen soll.
     - `visibleRect` {{Optional_Inline}}
       - : Ein Objekt, das das sichtbare Rechteck des `VideoFrame` darstellt und Folgendes enthält:
         - `x`
@@ -50,23 +67,37 @@ Der erste Konstruktortyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs
           - : Die Breite des Frames.
         - `height`
           - : Die Höhe des Frames.
-    - `displayWidth` {{Optional_Inline}}
-      - : Die Breite des `VideoFrame`, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
-    - `displayHeight` {{Optional_Inline}}
-      - : Die Höhe des `VideoFrame`, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
-    - `flip` {{optional_inline}}
-      - : Ein Boolean. Wenn `true`, wird horizontales Spiegeln angewendet. Standardmäßig `false`.
-    - `rotation` {{optional_inline}}
-      - : Ein Integer, der die Drehung (0, 90, 180 oder 270) in Grad im Uhrzeigersinn darstellt. Standardmäßig `0`. Beliebige Zahlen (einschließlich negativer) werden zur nächsten Vierteldrehung gerundet.
 
-Der zweite Konstruktortyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem {{jsxref("ArrayBuffer")}}. Seine Parameter sind:
+Der zweite Typ des Konstruktors erstellt ein neues [`VideoFrame`](/de/docs/Web/API/VideoFrame) aus einem {{jsxref("ArrayBuffer")}}. Seine Parameter sind:
 
 - `data`
   - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die Daten für das neue `VideoFrame` enthält.
 - `options`
   - : Ein Objekt, das Folgendes enthält:
+    - `codedHeight`
+      - : Höhe des `VideoFrame` in Pixeln, möglicherweise einschließlich nicht sichtbarer Polsterung und bevor eventuelle Verhältnis-Anpassungen berücksichtigt werden.
+    - `codedWidth`
+      - : Breite des `VideoFrame` in Pixeln, möglicherweise einschließlich nicht sichtbarer Polsterung und bevor eventuelle Verhältnis-Anpassungen berücksichtigt werden.
+    - `colorSpace`
+      - : Ein Objekt, das den Farbraum des `VideoFrame` darstellt und Folgendes enthält:
+        - `primaries`
+          - : Ein String, der die Farbprimaries des Videos darstellt und auf der Seite für die Eigenschaft [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) beschrieben wird.
+        - `transfer`
+          - : Ein String, der die Transferfunktion des Video-Farbraums darstellt und auf der Seite für die Eigenschaft [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer) beschrieben wird.
+        - `matrix`
+          - : Ein String, der die Farbraummatrix des Videos darstellt und auf der Seite für die Eigenschaft [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix) beschrieben wird.
+        - `fullRange`
+          - : Ein Boolean. Wenn `true`, zeigt an, dass vollumfängliche Farbwerte verwendet werden.
+    - `displayHeight` {{Optional_Inline}}
+      - : Die Höhe des `VideoFrame`, wenn es angezeigt wird, nachdem Seitenverhältnis-Anpassungen vorgenommen wurden.
+    - `displayWidth` {{Optional_Inline}}
+      - : Die Breite des `VideoFrame`, wenn es angezeigt wird, nachdem Seitenverhältnis-Anpassungen vorgenommen wurden.
+    - `duration` {{Optional_Inline}}
+      - : Ein Integer, der die Dauer des Frames in Mikrosekunden darstellt.
+    - `flip` {{optional_inline}}
+      - : Ein Boolean. Wenn `true`, wird eine horizontale Spiegelung angewendet. Standardmäßig `false`.
     - `format`
-      - : Ein String, der das Video-Pixelformat darstellt. Einer der folgenden Strings, die auf der Seite der [`format`](/de/docs/Web/API/VideoFrame/format)-Eigenschaft ausführlich beschrieben werden:
+      - : Ein String, der das Pixel-Format des Videos darstellt. Einer der folgenden Strings, die auf der Seite für die Eigenschaft [`format`](/de/docs/Web/API/VideoFrame/format) vollständig beschrieben sind:
         - `"I420"`
         - `"I420A"`
         - `"I422"`
@@ -76,20 +107,23 @@ Der zweite Konstruktortyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/doc
         - `"RGBX"`
         - `"BGRA"`
         - `"BGRX"`
-    - `codedWidth`
-      - : Breite des `VideoFrame` in Pixel, potenziell einschließlich nicht sichtbarer Polsterung und bevor potenzielle Seitenverhältnis-Anpassungen in Betracht gezogen werden.
-    - `codedHeight`
-      - : Höhe des `VideoFrame` in Pixel, potenziell einschließlich nicht sichtbarer Polsterung und bevor potenzielle Seitenverhältnis-Anpassungen in Betracht gezogen werden.
-    - `timestamp`
-      - : Ein Integer, der den Zeitstempel des Frames in Mikrosekunden darstellt.
-    - `duration` {{Optional_Inline}}
-      - : Ein Integer, der die Dauer des Frames in Mikrosekunden darstellt.
     - `layout` {{Optional_Inline}}
       - : Eine Liste, die die folgenden Werte für jede Ebene im `VideoFrame` enthält:
         - `offset`
-          - : Ein Integer, der den Versatz in Bytes darstellt, an dem die angegebene Ebene beginnt.
+          - : Ein Integer, der den Versatz in Bytes darstellt, ab dem die jeweilige Ebene beginnt.
         - `stride`
-          - : Ein Integer, der die Anzahl der Bytes (einschließlich Polsterung) darstellt, die von jeder Zeile der Ebene genutzt werden. Ebenen dürfen sich nicht überlappen. Wenn kein `layout` angegeben ist, werden die Ebenen eng gepackt.
+          - : Ein Integer, der die Anzahl von Bytes darstellt, einschließlich der Polsterung, die von jeder Zeile der Ebene verwendet wird.
+            Ebenen dürfen sich nicht überlappen. Wenn kein `layout` angegeben ist, werden die Ebenen eng gepackt.
+    - `metadata` {{optional_inline}}
+      - : Ein Objekt, das Metadaten beschreibt, die die Video-Frame-Daten beschreiben, spezifiziert durch das [WebCodecs VideoFrame Metadata Registry](https://w3c.github.io/webcodecs/video_frame_metadata_registry.html), das die folgenden Eigenschaften enthalten kann:
+        - `rtpTimestamp` {{optional_inline}}
+          - : Der RTP-Zeitstempel des entsprechenden kodierten Frames.
+    - `rotation` {{optional_inline}}
+      - : Ein Integer, der die Rotation (0, 90, 180 oder 270) in Grad im Uhrzeigersinn darstellt. Standardmäßig `0`. Beliebige Zahlen (einschließlich negativer) werden auf die nächste Vierteldrehung gerundet.
+    - `timestamp`
+      - : Ein Integer, der den Zeitstempel des Frames in Mikrosekunden darstellt.
+    - `transfer`
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `VideoFrame` abtrennen und übernehmen wird. Wenn das Array den `ArrayBuffer` enthält, der `data` unterstützt, wird `VideoFrame` dieses Puffer direkt verwenden, anstatt davon zu kopieren.
     - `visibleRect` {{Optional_Inline}}
       - : Ein Objekt, das das sichtbare Rechteck des `VideoFrame` darstellt und Folgendes enthält:
         - `x`
@@ -100,30 +134,10 @@ Der zweite Konstruktortyp (siehe oben) erstellt ein neues [`VideoFrame`](/de/doc
           - : Die Breite des Frames.
         - `height`
           - : Die Höhe des Frames.
-    - `displayWidth` {{Optional_Inline}}
-      - : Die Breite des `VideoFrame`, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
-    - `displayHeight` {{Optional_Inline}}
-      - : Die Höhe des `VideoFrame`, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
-    - `colorSpace`
-      - : Ein Objekt, das den Farbraum des `VideoFrame` darstellt und Folgendes enthält:
-        - `primaries`
-          - : Ein String, der die Videofarbprimärfarben darstellt, beschrieben auf der Seite der [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries)-Eigenschaft.
-        - `transfer`
-          - : Ein String, der die Video-Farbübertragungsfunktion darstellt, beschrieben auf der Seite der [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)-Eigenschaft.
-        - `matrix`
-          - : Ein String, der die Video-Farbmatrix darstellt, beschrieben auf der Seite der [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)-Eigenschaft.
-        - `fullRange`
-          - : Ein Boolean. Wenn `true`, gibt an, dass vollwertige Farbwerte verwendet werden.
-    - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}, die `VideoFrame` trennen und übernehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `VideoFrame` diesen Puffer direkt verwenden, anstatt von ihm zu kopieren.
-    - `flip` {{optional_inline}}
-      - : Ein Boolean. Wenn `true`, wird horizontales Spiegeln angewendet. Standardmäßig `false`.
-    - `rotation` {{optional_inline}}
-      - : Ein Integer, der die Drehung (0, 90, 180 oder 270) in Grad im Uhrzeigersinn darstellt. Standardmäßig `0`. Beliebige Zahlen (einschließlich negativer) werden zur nächsten Vierteldrehung gerundet.
 
 ## Beispiele
 
-Die folgenden Beispiele stammen aus dem Artikel [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs). In diesem ersten Beispiel wird ein `VideoFrame` aus einem Canvas erstellt.
+Die folgenden Beispiele stammen aus dem Artikel [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs). In diesem ersten Beispiel wird ein `VideoFrame` aus einer Leinwand erstellt.
 
 ```js
 const cnv = document.createElement("canvas");

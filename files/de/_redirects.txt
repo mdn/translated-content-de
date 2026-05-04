@@ -3605,6 +3605,7 @@
 /de/docs/Glossary/Simple_response_header	/de/docs/Glossary/CORS-safelisted_response_header
 /de/docs/Glossary/Spartan	/de/docs/Glossary/Microsoft_Edge
 /de/docs/Glossary/Static_property	/de/docs/Glossary/Property/JavaScript
+/de/docs/Glossary/Stylesheet	/de/docs/Glossary/Style_sheet
 /de/docs/Glossary/Transferable_objects	/de/docs/Web/API/Web_Workers_API/Transferable_objects
 /de/docs/Glossary/Transmission_Control_Protocol_(TCP)	/de/docs/Glossary/TCP
 /de/docs/Glossary/URI/www_vs_non-www_URLs	/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs

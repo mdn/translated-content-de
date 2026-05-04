@@ -1,9 +1,9 @@
 ---
-title: "global.set: Wasm Text-Instruktion"
+title: "global.set: Wasm-Textinstruktion"
 short-title: global.set
 slug: WebAssembly/Reference/Variables/global.set
 l10n:
-  sourceCommit: a21bf857ac668ad72a36aad0d8ad7e87c6bdc4d8
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
 Die **`global.set`**-Instruktion setzt die Werte einer globalen Variablen.
@@ -37,13 +37,13 @@ global.set identifier
 ```
 
 - `global.set`
-  - : Der `global.set`-Instruktionstyp. Muss immer zuerst eingefügt werden.
+  - : Der `global.set` Instruktionstyp. Muss immer zuerst angegeben werden.
 - `identifier`
-  - : Ein Identifikator für die globale Variable, deren Wert Sie setzen möchten. Dies kann einer der folgenden sein:
+  - : Ein Bezeichner für das globale Element, dessen Wert Sie setzen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Der [identifizierende Name](/de/docs/WebAssembly/Reference/Definitions/global#identifier), der für die globale Variable festgelegt wurde, als sie zuerst initialisiert wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_global`.
+      - : Der [identifizierende Name](/de/docs/WebAssembly/Reference/Definitions/global#identifier), der für das globale Element festgelegt wurde, als es erstmals initialisiert wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_global`.
     - `index`
-      - : Die Indexnummer der globalen Variable, zum Beispiel `0` für die erste globale Variable im Wasm-Skript, `1` für die zweite usw.
+      - : Die Indexnummer des globalen Elements, zum Beispiel `0` für das erste globale Element im Wasm-Skript, `1` für das zweite usw.
 
 ### Typ
 
@@ -52,7 +52,7 @@ global.set identifier
 ```
 
 - `new_value`
-  - : Der neue Wert, der für die globale Variable gesetzt wird. Damit die `global.set`-Instruktion erfolgreich ist, muss die globale Variable veränderbar sein (das [`mut`](/de/docs/WebAssembly/Reference/Definitions/global#mut) Flag wurde gesetzt, als sie deklariert wurde), und der `new_value` muss dasselbe [`data_type`](/de/docs/WebAssembly/Reference/Definitions/global#data_type) wie die globale Variable haben.
+  - : Der neue Wert, der für das globale Element gesetzt wird. Damit die `global.set`-Instruktion erfolgreich ist, muss das globale Element veränderbar sein (das [`mut`](/de/docs/WebAssembly/Reference/Definitions/global#mut) Flag wurde beim Deklarieren gesetzt), und der `new_value` muss den gleichen [`data_type`](/de/docs/WebAssembly/Reference/Definitions/global#data_type) wie das globale Element haben.
 
 ### Opcodes
 

@@ -3,7 +3,7 @@ title: "CrashReportContext: set() Methode"
 short-title: set()
 slug: Web/API/CrashReportContext/set
 l10n:
-  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
@@ -19,9 +19,9 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des zu speichernden Schlüssel-Wert-Paares darstellt.
+  - : Ein String, der den Schlüssel des zu speichernden Schlüssel-Wert-Paars darstellt.
 - `value`
-  - : Ein String, der den Wert des zu speichernden Schlüssel-Wert-Paares darstellt.
+  - : Ein String, der den Wert des zu speichernden Schlüssel-Wert-Paars darstellt.
 
 ### Rückgabewert
 
@@ -32,20 +32,20 @@ Keiner ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Das aufrufende Dokument nicht vollständig aktiv ist.
-    - Der Crash-Report-Schlüssel-Wert-Speicher noch nicht über einen [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) Aufruf initialisiert wurde.
+    - Der Schlüssel-Wert-Speicher des Absturzberichts nicht über einen [`initialize()`](/de/docs/Web/API/CrashReportContext/initialize) Aufruf initialisiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Größe des serialisierten Schlüssel-Wert-Paares ist größer als der [`length`](/de/docs/Web/API/CrashReportContext/initialize#length) Wert, der bei der ersten Initialisierung des Speichers festgelegt wurde.
+  - : Die Größe des serialisierten Schlüssel-Wert-Paars ist größer als der [`length`](/de/docs/Web/API/CrashReportContext/initialize#length) Wert, der beim ersten Initialisieren des Speichers festgelegt wurde.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 window.crashReport.initialize(1024).then(() => {
   // Set a possible crash-causing value, and try
   // running an operation that may cause a crash
   window.crashReport.set("crash-arg", "00031");
-  operationThatMightCrash(00031);
+  operationThatMightCrash("00031");
   // Delete the key-value pair if it doesn't cause a crash
   window.crashReport.delete("crash-arg");
 });

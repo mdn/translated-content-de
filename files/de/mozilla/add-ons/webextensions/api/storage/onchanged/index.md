@@ -2,19 +2,19 @@
 title: storage.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/storage/onChanged
 l10n:
-  sourceCommit: 2857820893ce291eb2cf5e370551136065bc080c
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
-Wird ausgelöst, wenn sich ein oder mehrere Elemente in einem der {{WebExtAPIRef('storage.StorageArea', 'Speicherbereiche')}} ändern.
+Wird ausgelöst, wenn sich ein oder mehrere Elemente in einem der [Speicherbereiche](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea) ändern.
 Wenn Sie nur Änderungen in einem Speicherbereich überwachen müssen, verwenden Sie stattdessen {{WebExtAPIRef('storage.StorageArea.onChanged')}}.
 
-Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}}, oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} in einem der {{WebExtAPIRef('storage.StorageArea', 'Speicherbereiche')}} ausgeführt wird.
+Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}} oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} in einem der [Speicherbereiche](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea) ausgeführt wird.
 
 > [!NOTE]
-> In Firefox erhält der Listener alle Schlüssel aus einem Speicherbereich, in dem {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wird. Der Listener kann aufgerufen werden, wenn sich keine Daten ändern. Um Einzelheiten zu den geänderten Elementen zu finden, untersuchen Sie das {{WebExtAPIRef('storage.StorageChange')}}-Objekt jedes Schlüssels. Siehe [Firefox-Bug 1833153](https://bugzil.la/1833153).
+> In Firefox empfängt der Listener alle Schlüssel aus einem Speicherbereich, in dem {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wird. Der Listener kann aufgerufen werden, auch wenn keine Änderung der Daten vorliegt. Um Details zu den geänderten Elementen zu finden, prüfen Sie das {{WebExtAPIRef('storage.StorageChange')}}-Objekt jedes Schlüssels. Siehe [Firefox-Bug 1833153](https://bugzil.la/1833153).
 
 > [!NOTE]
-> Firefox löst dieses Ereignis nicht für Änderungen an `storage.managed` aus, da verwalteter Speicher nur beim Start des Browsers gelesen wird (aus der [JSON-Manifestdatei (natives Manifest)](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder der [`3rdparty` Unternehmensrichtlinie](https://mozilla.github.io/policy-templates/#3rdparty)).
+> Firefox löst dieses Ereignis nicht aus für Änderungen an `storage.managed`, da verwalteter Speicher nur beim Browserstart gelesen wird (aus der [JSON-Manifestsdatei (natürliches Manifest)](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder [`3rdparty` Unternehmensrichtlinie](https://mozilla.github.io/policy-templates/#3rdparty)).
 
 ## Syntax
 
@@ -29,16 +29,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Überwachen dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## `addListener`-Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
     - `changes`
       - : `object`. Objekt, das die Änderung beschreibt. Der Name jeder Eigenschaft ist der Name jedes Schlüssels. Der Wert jedes Schlüssels ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung an diesem Element beschreibt.
     - `areaName`
@@ -74,34 +74,4 @@ browser.storage.onChanged.addListener(logStorageChange);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

@@ -2,80 +2,80 @@
 title: HTTP-Caching
 slug: Web/HTTP/Guides/Caching
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
 Der HTTP-Cache speichert eine Antwort, die mit einer Anfrage verbunden ist, und verwendet die gespeicherte Antwort für nachfolgende Anfragen erneut.
 
-Die Wiederverwendbarkeit bietet mehrere Vorteile. Erstens, da die Anfrage nicht an den Ursprungsserver gesendet werden muss, ist die Antwort umso schneller, je näher der Client und der Cache beieinander liegen. Das typischste Beispiel ist, wenn der Browser selbst einen Cache für Browseranfragen speichert.
+Es gibt mehrere Vorteile der Wiederverwendbarkeit. Erstens muss die Anfrage nicht an den Ursprungsserver gesendet werden, sodass die Antwort umso schneller ist, je näher der Client und der Cache beieinander liegen. Das typischste Beispiel ist, wenn der Browser selbst einen Cache für Browseranfragen speichert.
 
-Außerdem muss der Ursprungsserver, wenn eine Antwort wiederverwendet werden kann, die Anfrage nicht bearbeiten — er muss die Anfrage also nicht parsen und weiterleiten, die Sitzung basierend auf dem Cookie wiederherstellen, die Datenbank nach Ergebnissen abfragen oder die Template-Engine rendern. Das reduziert die Last auf dem Server.
+Außerdem muss der Ursprungsserver eine Anfrage nicht verarbeiten, wenn eine Antwort wiederverwendbar ist - er muss also die Anfrage nicht parsen und routen, die Sitzung basierend auf dem Cookie wiederherstellen, die Datenbank nach Ergebnissen abfragen oder die Template-Engine rendern. Das verringert die Last auf dem Server.
 
 Der ordnungsgemäße Betrieb des Caches ist entscheidend für die Gesundheit des Systems.
 
 ## Arten von Caches
 
-In der [HTTP-Caching](https://httpwg.org/specs/rfc9111.html)-Spezifikation gibt es zwei Hauptarten von Caches: **Private Caches** und **Shared Caches**.
+In der [HTTP Caching](https://httpwg.org/specs/rfc9111.html) Spezifikation gibt es zwei Haupttypen von Caches: **private Caches** und **gemeinsame Caches**.
 
 ### Private Caches
 
 Ein privater Cache ist ein Cache, der an einen bestimmten Client gebunden ist — typischerweise ein Browser-Cache. Da die gespeicherte Antwort nicht mit anderen Clients geteilt wird, kann ein privater Cache eine personalisierte Antwort für diesen Benutzer speichern.
 
-Andererseits, wenn personalisierte Inhalte in einem anderen als einem privaten Cache gespeichert werden, können andere Benutzer möglicherweise auf diese Inhalte zugreifen, was zu unbeabsichtigtem Informationsleck führen kann.
+Andererseits, wenn personalisierte Inhalte in einem anderen Cache als einem privaten Cache gespeichert werden, können andere Benutzer in der Lage sein, diese Inhalte abzurufen — was zu unbeabsichtigtem Informationsverlust führen kann.
 
-Wenn eine Antwort personalisierte Inhalte enthält und Sie die Antwort nur im privaten Cache speichern möchten, müssen Sie eine `private`-Direktive angeben.
+Wenn eine Antwort personalisierte Inhalte enthält und Sie diese Antwort nur im privaten Cache speichern möchten, müssen Sie eine `private`-Direktive angeben.
 
 ```http
 Cache-Control: private
 ```
 
-Personalisierte Inhalte werden normalerweise durch Cookies gesteuert, aber das Vorhandensein eines Cookies zeigt nicht immer an, dass es privat ist, und daher macht ein Cookie allein die Antwort nicht privat.
+Personalisierte Inhalte werden normalerweise durch Cookies gesteuert, aber das Vorhandensein eines Cookies bedeutet nicht immer, dass er privat ist, und ein Cookie allein macht die Antwort somit nicht privat.
 
-### Shared Cache
+### Gemeinsamer Cache
 
-Der Shared Cache befindet sich zwischen dem Client und dem Server und kann Antworten speichern, die unter Benutzern geteilt werden können. Shared Caches können weiter in **Proxy-Caches** und **Managed Caches** unterteilt werden.
+Der gemeinsame Cache befindet sich zwischen dem Client und dem Server und kann Antworten speichern, die unter Benutzern geteilt werden können. Und gemeinsame Caches können weiter in **Proxy-Caches** und **verwaltete Caches** unterteilt werden.
 
-#### Proxy Caches
+#### Proxy-Caches
 
-Zusätzlich zur Zugriffssteuerung implementieren einige Proxies Caching, um den Datenverkehr aus dem Netzwerk zu reduzieren. Dies wird in der Regel nicht vom Dienstentwickler verwaltet, daher muss es durch geeignete HTTP-Header und so weiter gesteuert werden. In der Vergangenheit haben jedoch veraltete Proxy-Cache-Implementierungen — wie Implementierungen, die den HTTP-Caching-Standard nicht ordnungsgemäß verstehen — häufig Probleme für Entwickler verursacht.
+Zusätzlich zur Funktion der Zugangskontrolle implementieren einige Proxys das Caching zur Reduzierung des Netzwerkausgangsverkehrs. Dies wird normalerweise nicht vom Service-Entwickler verwaltet, es muss also durch entsprechende HTTP-Header usw. gesteuert werden. In der Vergangenheit verursachten jedoch veraltete Proxy-Cache-Implementierungen — wie Implementierungen, die die HTTP-Caching-Standards nicht richtig verstehen — häufig Probleme für Entwickler.
 
-**Kitchen-sink headers** wie die folgenden werden verwendet, um mit "alten und nicht aktualisierten Proxy-Cache"-Implementierungen zu arbeiten, die aktuelle HTTP-Caching-Spezifikationsrichtlinien wie `no-store` nicht verstehen.
+**Küchen-Spülen-Header** wie der folgende werden verwendet, um "alte und nicht aktualisierte Proxy-Cache"-Implementierungen zu umgehen, die aktuelle HTTP-Caching-Spezifikations-Direktiven wie `no-store` nicht verstehen.
 
 ```http
 Cache-Control: no-store, no-cache, max-age=0, must-revalidate, proxy-revalidate
 ```
 
-Da jedoch in den letzten Jahren HTTPS häufiger verwendet wird und die Kommunikation zwischen Computer und Server verschlüsselt ist, können Proxy-Caches auf dem Weg in vielen Fällen nur eine Antwort durchleiten und nicht als Cache fungieren. In diesem Szenario müssen Sie sich also keine Sorgen über veraltete Proxy-Cache-Implementierungen machen, die die Antwort nicht einmal sehen können.
+In den letzten Jahren, da HTTPS immer häufiger wird und die Kommunikation zwischen Client und Server verschlüsselt ist, können Proxy-Caches auf dem Weg nur noch eine Antwort tunneln und nicht als ein Cache arbeiten. In diesem Szenario besteht kein Grund zur Sorge über veraltete Proxy-Cache-Implementierungen, die die Antwort nicht einmal sehen können.
 
-Andererseits, wenn ein {{Glossary("TLS", "TLS")}}-Proxy alle Kommunikationen in einer Man-in-the-Middle-Weise entschlüsselt, indem er ein Zertifikat von einer {{Glossary("Certificate_authority", "CA (Zertifizierungsstelle)")}} verwaltet von der Organisation auf dem PC installiert und Zugriffssteuerung, etc. durchführt — ist es möglich, die Inhalte der Antwort zu sehen und sie zu cachen. Da jedoch [CT (Zertifikattransparenz)](/de/docs/Web/Security/Defenses/Certificate_Transparency) in den letzten Jahren weit verbreitet ist und einige Browser nur Zertifikate zulassen, die mit einem SCT (signierter Zertifikatstempel) ausgestellt wurden, erfordert diese Methode die Anwendung einer Unternehmensrichtlinie. In einer solchen kontrollierten Umgebung besteht keine Notwendigkeit, sich Gedanken darüber zu machen, dass der Proxy-Cache "veraltet und nicht aktualisiert" ist.
+Andererseits ist es möglich, dass ein {{Glossary("TLS", "TLS")}}-Bridge-Proxy alle Kommunikationen in einer Man-in-the-Middle-Weise durch Entschlüsselung mit einem von der Organisation auf dem PC installierten Zertifikat einer {{Glossary("Certificate_authority", "CA (Zertifizierungsstelle)")}} sieht und die Antwort cacht. Da jedoch [CT (Certificate Transparency)](/de/docs/Web/Security/Defenses/Certificate_Transparency) in den letzten Jahren weit verbreitet ist und einige Browser nur Zertifikate zulassen, die mit einem SCT (signed certificate timestamp) ausgestellt wurden, erfordert diese Methode die Anwendung einer Unternehmensrichtlinie. In einem solchen kontrollierten Umfeld besteht keine Notwendigkeit, sich Gedanken über einen "veralteten und nicht aktualisierten" Proxy-Cache zu machen.
 
-#### Managed Caches
+#### Verwaltete Caches
 
-Managed Caches werden ausdrücklich von Dienstentwicklern bereitgestellt, um den Ursprungsserver zu entlasten und Inhalte effizient zu liefern. Beispiele sind Reverse-Proxies, CDNs und Service Workers in Kombination mit der Cache-API.
+Verwaltete Caches werden explizit von Service-Entwicklern bereitgestellt, um den Ursprungsserver zu entlasten und Inhalte effizient zu liefern. Beispiele sind Reverse-Proxys, CDNs und Service-Worker in Kombination mit der Cache API.
 
-Die Eigenschaften von Managed Caches variieren je nach eingesetztem Produkt. In den meisten Fällen können Sie das Verhalten des Caches durch den `Cache-Control`-Header und Ihre eigenen Konfigurationsdateien oder Dashboards steuern.
+Die Merkmale verwalteter Caches variieren je nach eingesetztem Produkt. In den meisten Fällen können Sie das Verhalten des Caches über den `Cache-Control`-Header und Ihre eigenen Konfigurationsdateien oder Dashboards steuern.
 
-Zum Beispiel definiert die HTTP-Caching-Spezifikation im Wesentlichen keine Möglichkeit, einen Cache explizit zu löschen — aber mit einem verwalteten Cache kann die gespeicherte Antwort jederzeit durch Dashboard-Operationen, API-Aufrufe, Neustarts usw. gelöscht werden. Das ermöglicht eine proaktivere Caching-Strategie.
+Zum Beispiel definiert die HTTP-Caching-Spezifikation im Wesentlichen keine Möglichkeit, einen Cache explizit zu löschen — aber bei einem verwalteten Cache kann die gespeicherte Antwort jederzeit durch Dashboard-Operationen, API-Aufrufe, Neustarts usw. gelöscht werden. Das ermöglicht eine proaktivere Caching-Strategie.
 
-Es ist auch möglich, die Standardprotokolle der HTTP-Caching-Spezifikation zu ignorieren und stattdessen eine explizite Manipulation vorzunehmen. Zum Beispiel kann Folgendes angegeben werden, um sich von einem privaten Cache oder Proxy-Cache abzumelden, während Sie Ihre eigene Strategie anwenden, um nur in einem verwalteten Cache zu speichern.
+Es ist auch möglich, die standardmäßigen HTTP-Caching-Spezifikationsprotokolle zugunsten expliziter Manipulationen zu ignorieren. Zum Beispiel können Sie festlegen, dass eine private Cache- oder Proxy-Cache-Option beim Verwenden einer eigenen Strategie, die nur in einem verwalteten Cache cachen soll, übersprungen wird.
 
 ```http
 Cache-Control: no-store
 ```
 
-Zum Beispiel verwendet der Varnish Cache VCL (Varnish Configuration Language, eine Art von {{Glossary("DSL/Domain_specific_language", "DSL")}}) Logik, um die Cache-Speicherung zu verwalten, während Service Workers in Kombination mit der Cache-API es Ihnen ermöglichen, diese Logik in JavaScript zu erstellen.
+Zum Beispiel verwendet Varnish Cache die VCL (Varnish Configuration Language, eine Art {{Glossary("DSL/Domain_specific_language", "DSL")}}) Logik zur Handhabung der Cache-Speicherung, während Service-Worker in Kombination mit der Cache API es Ihnen erlauben, diese Logik in JavaScript zu erstellen.
 
-Das bedeutet, wenn ein verwalteter Cache eine `no-store`-Direktive absichtlich ignoriert, besteht keine Notwendigkeit, dies als "nicht konform" mit der Standardspezifikation zu betrachten. Was Sie tun sollten, ist, "kitchen-sink headers" zu vermeiden, aber die Dokumentation des verwendeten Managed-Cache-Mechanismus sorgfältig zu lesen und sicherzustellen, dass Sie den Cache auf die vom Mechanismus bereitgestellten möglichen Weisen richtig kontrollieren.
+Das bedeutet, dass, wenn ein verwalteter Cache eine `no-store`-Direktive absichtlich ignoriert, es nicht nötig ist, ihn als "nicht konform" mit dem Standard zu betrachten. Was Sie tun sollten, ist, zu vermeiden, Küchen-Spülen-Header zu verwenden, aber die Dokumentation des verwendeten verwalteten Cache-Mechanismus sorgfältig zu lesen und sicherzustellen, dass Sie den Cache auf die von Ihnen gewählte Art und Weise richtig kontrollieren.
 
-Beachten Sie, dass einige CDNs ihre eigenen Header bereitstellen, die nur für dieses CDN wirksam sind (zum Beispiel `Surrogate-Control`). Derzeit wird daran gearbeitet, einen [`CDN-Cache-Control`](https://httpwg.org/specs/rfc9213.html)-Header zu definieren, um diese zu standardisieren.
+Beachten Sie, dass einige CDNs ihre eigenen Header bereitstellen, die nur für dieses CDN effektiv sind (zum Beispiel `Surrogate-Control`). Derzeit wird daran gearbeitet, einen [`CDN-Cache-Control`](https://httpwg.org/specs/rfc9213.html)-Header zu definieren, um diese zu standardisieren.
 
-![Arten von Caches, einschließlich eines privaten Caches im Browser, eines Shared (Proxy)-Caches, eines Reverse-Proxy-Caches und eines Shared (Managed)-Caches in einem CDN, der zum Cache des Ursprungsservers führt](https://mdn.github.io/shared-assets/images/diagrams/http/cache/type-of-cache.svg)
+![Arten von Caches, einschließlich eines privaten Caches im Browser, eines gemeinsamen (Proxy)-Caches, eines Reverse-Proxy-Caches und eines gemeinsamen (verwalteten) Caches in einem CDN, der zum Cache des Ursprungsservers führt](https://mdn.github.io/shared-assets/images/diagrams/http/cache/type-of-cache.svg)
 
 ## Heuristisches Caching
 
-HTTP ist so konzipiert, dass es so viel wie möglich cached, sodass selbst wenn keine `Cache-Control`-Direktive angegeben ist, Antworten gespeichert und wiederverwendet werden, wenn bestimmte Bedingungen erfüllt sind. Dies wird als **heuristisches Caching** bezeichnet.
+HTTP ist so konzipiert, dass es so viel wie möglich cached, sodass selbst wenn kein `Cache-Control` angegeben ist, Antworten gespeichert und wiederverwendet werden, wenn bestimmte Bedingungen erfüllt sind. Dies wird als **heuristisches Caching** bezeichnet.
 
-Nehmen Sie zum Beispiel die folgende Antwort. Diese Antwort wurde zuletzt vor einem Jahr aktualisiert.
+Nehmen Sie zum Beispiel die folgende Antwort. Diese Antwort wurde vor einem Jahr zuletzt aktualisiert.
 
 ```http
 HTTP/1.1 200 OK
@@ -88,17 +88,17 @@ Last-Modified: Tue, 22 Feb 2021 22:22:22 GMT
 …
 ```
 
-Es wird heuristisch angenommen, dass Inhalt, der ein volles Jahr nicht aktualisiert wurde, für einige Zeit danach nicht aktualisiert wird. Daher speichert der Client diese Antwort (trotz fehlendem `max-age`) und verwendet sie eine Zeit lang. Wie lange sie wiederverwendet wird, hängt von der Implementierung ab, aber die Spezifikation empfiehlt etwa 10 % (in diesem Fall 0,1 Jahr) der Zeit nach der Speicherung.
+Es ist heuristisch bekannt, dass Inhalte, die ein ganzes Jahr lang nicht aktualisiert wurden, für einige Zeit danach nicht aktualisiert werden. Daher speichert der Client diese Antwort (trotz des Fehlens von `max-age`) und verwendet sie für eine Weile. Wie lange wiederverwendet wird, hängt von der Implementierung ab, aber die Spezifikation empfiehlt etwa 10% (in diesem Fall 0,1 Jahr) der Zeit nach dem Speichern.
 
-Heuristisches Caching ist ein Workaround, der vor der weit verbreiteten Unterstützung von `Cache-Control` angewendet wurde, und im Grunde sollten alle Antworten ausdrücklich einen `Cache-Control`-Header angeben.
+Heuristisches Caching ist ein Workaround, der entstand, bevor die Unterstützung für `Cache-Control` weit verbreitet war, und im Grunde sollten alle Antworten explizit einen `Cache-Control`-Header angeben.
 
-## Frisch und abgelaufen basierend auf dem Alter
+## Fresh und Stale basierend auf Alter
 
-Gespeicherte HTTP-Antworten haben zwei Zustände: **frisch** und **abgelaufen**. Der _frische_ Zustand zeigt normalerweise an, dass die Antwort noch gültig ist und wiederverwendet werden kann, während der _abgelaufene_ Zustand bedeutet, dass die zwischengespeicherte Antwort bereits abgelaufen ist.
+Gespeicherte HTTP-Antworten haben zwei Zustände: **fresh** und **stale**. Der _fresh_ Zustand zeigt normalerweise an, dass die Antwort noch gültig ist und wiederverwendet werden kann, während der _stale_ Zustand bedeutet, dass die gespeicherte Antwort bereits abgelaufen ist.
 
-Das Kriterium zur Bestimmung, wann eine Antwort frisch und wann sie abgelaufen ist, ist das **Alter**. Im HTTP entspricht das Alter der Zeit, die seit der Generierung der Antwort vergangen ist. Dies ähnelt dem {{Glossary("TTL", "TTL")}} in anderen Caching-Mechanismen.
+Das Kriterium, um zu bestimmen, wann eine Antwort fresh und wann sie stale ist, ist das **Alter**. In HTTP ist das Alter die seit der Erstellung der Antwort vergangene Zeit. Dies ist vergleichbar mit dem {{Glossary("TTL", "TTL")}} in anderen Caching-Mechanismen.
 
-Nehmen wir die folgende Beispielsantwort (604800 Sekunden sind eine Woche):
+Nehmen Sie das folgende Beispiel einer Antwort (604800 Sekunden sind eine Woche):
 
 ```http
 HTTP/1.1 200 OK
@@ -111,16 +111,16 @@ Cache-Control: max-age=604800
 …
 ```
 
-Der Cache, der die Beispielantwort gespeichert hat, berechnet die Zeit, die seit der Generierung der Antwort vergangen ist, und verwendet das Ergebnis als _Alter_ der Antwort.
+Der Cache, der die Beispielantwort gespeichert hat, berechnet die seit der Erstellung der Antwort verstrichene Zeit und verwendet das Ergebnis als _Alter_ der Antwort.
 
-Für die Beispielantwort bedeutet `max-age` Folgendes:
+Für die Beispielantwort bedeutet `max-age` folgendes:
 
-- Wenn das Alter der Antwort _weniger_ als eine Woche beträgt, ist die Antwort _frisch_.
-- Wenn das Alter der Antwort _mehr_ als eine Woche beträgt, ist die Antwort _abgelaufen_.
+- Wenn das Alter der Antwort _weniger_ als eine Woche beträgt, ist die Antwort _fresh_.
+- Wenn das Alter der Antwort _mehr_ als eine Woche beträgt, ist die Antwort _stale_.
 
-Solange die gespeicherte Antwort frisch bleibt, wird sie verwendet, um die Anfragen des Clients zu erfüllen.
+Solange die gespeicherte Antwort _fresh_ bleibt, wird sie verwendet, um Client-Anfragen zu erfüllen.
 
-Wenn eine Antwort in einem Shared Cache gespeichert wird, ist es möglich, dem Client das Alter der Antwort mitzuteilen. Im Fortgang des Beispiels, wenn der Shared Cache die Antwort für einen Tag gespeichert hat, würde der Shared Cache die folgende Antwort an nachfolgende Clientanfragen senden.
+Wenn eine Antwort in einem gemeinsamen Cache gespeichert ist, ist es möglich, dem Client das Alter der Antwort mitzuteilen. Beim Fortführen des Beispiels, wenn der geteilte Cache die Antwort für einen Tag speichert, würde der gemeinsame Cache die folgende Antwort an nachfolgende Client-Anfragen senden.
 
 ```http
 HTTP/1.1 200 OK
@@ -134,62 +134,62 @@ Age: 86400
 …
 ```
 
-Der Client, der diese Antwort erhält, wird feststellen, dass sie für die verbleibenden 518400 Sekunden frisch bleibt, was dem Unterschied zwischen `max-age` und `Age` der Antwort entspricht.
+Der Client, der diese Antwort erhält, wird feststellen, dass sie für die verbleibenden 518400 Sekunden fresh bleibt, der Unterschied zwischen `max-age` und `Age` der Antwort.
 
 ## Expires oder max-age
 
-In HTTP/1.0 wurde die Frische durch den `Expires`-Header angegeben.
+In HTTP/1.0 wurde die Frische durch den `Expires`-Header spezifiziert.
 
-Der `Expires`-Header spezifiziert die Lebensdauer des Caches unter Verwendung einer expliziten Zeit anstatt einer verstrichenen Zeit.
+Der `Expires`-Header gibt die Lebensdauer des Caches mit einer expliziten Zeit anstatt durch Angabe einer verstrichenen Zeit an.
 
 ```http
 Expires: Tue, 28 Feb 2022 22:22:22 GMT
 ```
 
-Da jedoch das Zeitformat schwer zu parsen ist, viele Implementierungsfehler gefunden wurden und es möglich ist, durch absichtliche Verschiebung der Systemuhr Probleme zu verursachen, wurde `max-age` — zum Angeben einer verstrichenen Zeit — für `Cache-Control` in HTTP/1.1 übernommen.
+Jedoch ist das Zeitformat schwer zu parsen, viele Implementierungsfehler wurden gefunden und es ist möglich, Probleme durch absichtliche Änderung der Systemuhr zu verursachen; daher wurde `max-age` — zur Angabe einer verstrichenen Zeit — für die `Cache-Control`-Spezifikation in HTTP/1.1 übernommen.
 
-Wenn sowohl `Expires` als auch `Cache-Control: max-age` verfügbar sind, wird `max-age` bevorzugt. Es ist also nicht notwendig, `Expires` bereitzustellen, nun da HTTP/1.1 weit verbreitet ist.
+Wenn sowohl `Expires` als auch `Cache-Control: max-age` verfügbar sind, wird `max-age` bevorzugt. Es ist daher nicht mehr notwendig, `Expires` jetzt bereitzustellen, da HTTP/1.1 weit verbreitet ist.
 
 ## Vary
 
 Die Art und Weise, wie Antworten voneinander unterschieden werden, basiert im Wesentlichen auf ihren URLs:
 
-| URL                              | Antwortkörper            |
+| URL                              | Antwortinhalt            |
 | -------------------------------- | ------------------------ |
 | `https://example.com/index.html` | `<!doctype html>...`     |
 | `https://example.com/style.css`  | `body { ...`             |
 | `https://example.com/script.js`  | `function main () { ...` |
 
-Aber der Inhalt der Antworten ist nicht immer derselbe, selbst wenn sie dieselbe URL haben. Besonders wenn Inhaltsverhandlungen durchgeführt werden, kann die Antwort vom Server von den Werten der `Accept`, `Accept-Language` und `Accept-Encoding`-Anfrage-Header abhängen.
+Aber die Inhalte von Antworten sind nicht immer gleich, selbst wenn sie die gleiche URL haben. Besonders wenn Inhaltsaushandlung durchgeführt wird, kann die Antwort des Servers von den Werten der `Accept`, `Accept-Language` und `Accept-Encoding` Request-Header abhängen.
 
-Zum Beispiel, wenn englische Inhalte mit einem `Accept-Language: en`-Header zurückgegeben und zwischen gespeichert wurden, ist es nicht wünschenswert, diese zwischengespeicherte Antwort dann für Anfragen mit einem `Accept-Language: ja`-Anfrage-Header wiederzuverwenden. In diesem Fall können Sie bewirken, dass die Antworten anhand der Sprache separat zwischengespeichert werden, indem Sie `Accept-Language` dem Wert des `Vary`-Headers hinzufügen.
+Zum Beispiel, wenn englische Inhalte mit einem `Accept-Language: en` Header zurückgesendet und gecacht werden, ist es unerwünscht, diese gecachte Antwort dann für Anfragen zu verwenden, die einen `Accept-Language: ja` Request-Header haben. In diesem Fall können Sie verursachen, dass die Antworten separat — basierend auf der Sprache — gecached werden, indem Sie `Accept-Language` zum Wert des `Vary` Headers hinzufügen.
 
 ```http
 Vary: Accept-Language
 ```
 
-Das bewirkt, dass der Cache basierend auf einer Kombination aus der URL der Antwort und des `Accept-Language`-Anfrage-Headers gekennzeichnet ist, anstatt nur auf der URL der Antwort.
+Das veranlasst den Cache, basierend auf einer Kombination aus der Antwort-URL und dem `Accept-Language`-Request-Header — anstatt nur der Antwort-URL — gekennzeichnet zu werden.
 
-| URL                              | `Accept-Language` | Antwortkörper            |
+| URL                              | `Accept-Language` | Antwortinhalt            |
 | -------------------------------- | ----------------- | ------------------------ |
 | `https://example.com/index.html` | `ja-JP`           | `<!doctype html>...`     |
 | `https://example.com/index.html` | `en-US`           | `<!doctype html>...`     |
 | `https://example.com/style.css`  | `ja-JP`           | `body { ...`             |
 | `https://example.com/script.js`  | `ja-JP`           | `function main () { ...` |
 
-Außerdem, wenn Sie Inhaltsoptimierungen (zum Beispiel für responsives Design) auf Basis des Benutzeragenten bereitstellen, könnten Sie versucht sein, den `User-Agent` im Wert des `Vary`-Headers einzuschließen. Allerdings hat der `User-Agent`-Anfrage-Header im Allgemeinen eine sehr große Anzahl von Variationen, wodurch die Wahrscheinlichkeit der Wiederverwendung des Caches drastisch reduziert wird. Wenn möglich, sollten Sie also stattdessen einen Weg finden, das Verhalten basierend auf der Funktionserkennung zu variieren, anstatt auf dem `User-Agent`-Anfrage-Header.
+Wenn Sie auch Inhalte basierend auf dem Nutzeragenten optimieren (zum Beispiel für ein responsives Design), könnten Sie versucht sein, `User-Agent` im Wert des `Vary`-Headers einzuschließen. Allerdings hat der `User-Agent`-Request-Header in der Regel eine sehr große Anzahl von Variationen, was die Chance drastisch reduziert, dass der Cache wiederverwendet wird. Also, wenn möglich, ziehen Sie stattdessen eine Möglichkeit in Betracht, das Verhalten basierend auf der Funktionserkennung anstatt auf dem `User-Agent`-Request-Header zu variieren.
 
-Für Anwendungen, die Cookies verwenden, um zu verhindern, dass andere zwischengespeicherte personalisierte Inhalte erneut verwenden, sollten Sie `Cache-Control: private` angeben, anstatt ein Cookie für `Vary` anzugeben.
+Für Anwendungen, die Cookies verwenden, um anderen die Wiederverwendung gecachter personalisierter Inhalte zu verhindern, sollten Sie `Cache-Control: private` angeben, anstatt ein Cookie für `Vary` zu spezifizieren.
 
 ## Validierung
 
-Abgelaufene Antworten werden nicht sofort verworfen. HTTP hat einen Mechanismus, um eine abgelaufene Antwort in eine frische zu transformieren, indem der Ursprungsserver gefragt wird. Dies wird als **Validierung** oder manchmal als **Revalidierung** bezeichnet.
+Stale-Antworten werden nicht sofort verworfen. HTTP hat einen Mechanismus, um durch Anfrage des Ursprungsservers aus einer stale-Antwort eine fresh-Antwort zu machen. Dies wird als **Validierung** oder manchmal auch **Revalidierung** bezeichnet.
 
-Die Validierung erfolgt durch eine **bedingte Anfrage**, die einen `If-Modified-Since`- oder `If-None-Match`-Anfrage-Header enthält.
+Die Validierung erfolgt durch eine **bedingte Anfrage**, die einen `If-Modified-Since` oder `If-None-Match` Request-Header enthält.
 
 ### If-Modified-Since
 
-Die folgende Antwort wurde um 22:22:22 generiert und hat ein `max-age` von 1 Stunde, sodass Sie wissen, dass sie bis 23:22:22 frisch ist.
+Die folgende Antwort wurde um 22:22:22 erzeugt und hat ein `max-age` von 1 Stunde, sodass Sie wissen, dass sie bis 23:22:22 fresh ist.
 
 ```http
 HTTP/1.1 200 OK
@@ -203,7 +203,7 @@ Cache-Control: max-age=3600
 …
 ```
 
-Um 23:22:22 wird die Antwort abgelaufen, und der Cache kann nicht erneut verwendet werden. Die folgende Anfrage zeigt einen Client, der eine Anfrage mit einem `If-Modified-Since`-Anfrage-Header sendet, um den Server zu fragen, ob es seit der angegebenen Zeit Änderungen gegeben hat.
+Um 23:22:22 wird die Antwort stale und der Cache kann nicht wiederverwendet werden. So zeigt die unten stehende Anfrage, dass ein Client eine Anfrage mit einem `If-Modified-Since` Request-Header sendet, um den Server zu fragen, ob seit der angegebenen Zeit Änderungen vorgenommen wurden.
 
 ```http
 GET /index.html HTTP/1.1
@@ -212,9 +212,9 @@ Accept: text/html
 If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
 ```
 
-Der Server antwortet mit `304 Not Modified`, wenn sich der Inhalt seit der angegebenen Zeit nicht geändert hat.
+Der Server wird mit `304 Not Modified` antworten, wenn sich der Inhalt seit der angegebenen Zeit nicht geändert hat.
 
-Da diese Antwort nur "keine Änderung" anzeigt, gibt es keinen Antwortkörper — es gibt nur einen Statuscode —, sodass die Übertragungsgröße extrem klein ist.
+Da diese Antwort nur "keine Änderung" anzeigt, gibt es keinen Antwortkörper — nur einen Statuscode — daher ist die Übertragungsgröße extrem klein.
 
 ```http
 HTTP/1.1 304 Not Modified
@@ -224,17 +224,17 @@ Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
 Cache-Control: max-age=3600
 ```
 
-Nach Empfang dieser Antwort stellt der Client die gespeicherte, abgelaufene Antwort wieder auf frisch um und kann sie während der verbleibenden 1 Stunde erneut verwenden.
+Beim Empfang dieser Antwort erneuert der Client die gespeicherte stale-Antwort in eine fresh-Antwort und kann sie während der verbleibenden 1 Stunde wiederverwenden.
 
-Der Server kann die Änderungszeit vom Dateisystem des Betriebssystems abrufen, was relativ einfach für den Fall der Bereitstellung statischer Dateien ist. Es gibt jedoch einige Probleme; zum Beispiel ist das Zeitformat komplex und schwer zu parsen, und verteilte Server haben Schwierigkeiten, Dateizeitpunkte zu synchronisieren.
+Der Server kann die Änderungszeit vom Betriebssystem-Dateisystem abfragen, was relativ einfach zu tun ist, wenn es darum geht, statische Dateien zu servieren. Allerdings gibt es einige Probleme; zum Beispiel ist das Zeitformat komplex und schwer zu parsen, und verteilte Server haben Schwierigkeiten, Datei-Update-Zeiten zu synchronisieren.
 
-Um solche Probleme zu lösen, wurde der `ETag`-Antwort-Header als Alternative standardisiert.
+Um solche Probleme zu lösen, wurde der `ETag`-Response-Header als Alternative standardisiert.
 
 ### ETag/If-None-Match
 
-Der Wert des `ETag`-Antwort-Headers ist ein beliebiger Wert, der vom Server generiert wird. Es gibt keine Einschränkungen, wie der Server den Wert erzeugen muss, sodass die Server den Wert basierend auf den von ihnen gewählten Mitteln setzen können — zum Beispiel als Hash des Inhalts oder als Versionsnummer.
+Der Wert des `ETag`-Response-Headers ist ein beliebiger Wert, der vom Server generiert wurde. Es gibt keine Einschränkungen, wie der Server den Wert generieren muss, daher sind die Server frei, den Wert basierend auf beliebigen Mitteln zu setzen — wie zum Beispiel einem Hash des Body-Inhalts oder einer Versionsnummer.
 
-Als Beispiel, wenn ein Hash-Wert für den `ETag`-Header verwendet wird und der Hash-Wert der `index.html`-Ressource `33a64df5` beträgt, wird die Antwort wie folgt aussehen:
+Als Beispiel, wenn ein Hash-Wert für den `ETag`-Header verwendet wird und der Hash-Wert der `index.html`-Ressource `33a64df5` ist, wird die Antwort wie folgt lauten:
 
 ```http
 HTTP/1.1 200 OK
@@ -248,7 +248,7 @@ Cache-Control: max-age=3600
 …
 ```
 
-Wenn diese Antwort abgelaufen ist, nimmt der Client den Wert des `ETag`-Antwort-Headers für die zwischengespeicherte Antwort und setzt ihn in den `If-None-Match`-Anfrage-Header, um den Server zu fragen, ob die Ressource geändert wurde:
+Wenn diese Antwort stale ist, nimmt der Client den Wert des `ETag`-Response-Headers für die gecachte Antwort und setzt ihn in den `If-None-Match` Request-Header, um den Server zu fragen, ob die Ressource modifiziert wurde:
 
 ```http
 GET /index.html HTTP/1.1
@@ -257,22 +257,22 @@ Accept: text/html
 If-None-Match: "33a64df5"
 ```
 
-Der Server wird `304 Not Modified` zurückgeben, wenn der Wert des `ETag`-Headers, den er für die angeforderte Ressource bestimmt, derselbe wie der `If-None-Match`-Wert in der Anfrage ist.
+Der Server wird `304 Not Modified` zurückgeben, wenn der Wert des `ETag`-Headers, den er für die angeforderte Ressource bestimmt, der gleiche ist wie der `If-None-Match`-Wert der Anfrage.
 
-Wenn der Server jedoch bestimmt, dass die angeforderte Ressource nun einen anderen `ETag`-Wert haben sollte, antwortet der Server stattdessen mit einem `200 OK` und der neuesten Version der Ressource.
+Aber wenn der Server bestimmt, dass die angeforderte Ressource nun einen anderen `ETag`-Wert haben sollte, wird der Server stattdessen mit `200 OK` und der neuesten Version der Ressource antworten.
 
 > [!NOTE]
-> RFC9110 bevorzugt, dass Server sowohl `ETag` als auch `Last-Modified` für eine `200`-Antwort senden, wenn möglich.
-> Während der Cache-Revalidierung, wenn sowohl `If-Modified-Since` als auch `If-None-Match` vorhanden sind, hat `If-None-Match` Vorrang für den Validator.
-> Wenn Sie nur über Caching nachdenken, könnten Sie denken, dass `Last-Modified` unnötig ist.
-> `Last-Modified` ist jedoch nicht nur nützlich für Caching; es ist ein Standard-HTTP-Header, der auch von Inhaltsverwaltungs- (CMS) Systemen verwendet wird, um die zuletzt geänderte Zeit anzuzeigen, von Crawlern, um die Crawl-Frequenz anzupassen, und für andere verschiedene Zwecke.
-> Daher ist es im Hinblick auf das gesamte HTTP-Ökosystem besser, sowohl `ETag` als auch `Last-Modified` bereitzustellen.
+> RFC9110 empfiehlt, dass Server sowohl `ETag` als auch `Last-Modified` für eine `200`-Antwort senden, wenn möglich.
+> Während der Cache-Revalidierung, wenn sowohl `If-Modified-Since` als auch `If-None-Match` vorhanden sind, dann hat `If-None-Match` Vorrang für den Validator.
+> Wenn Sie nur über das Caching nachdenken, könnten Sie denken, dass `Last-Modified` unnötig ist.
+> `Last-Modified` ist jedoch nicht nur für das Caching nützlich; es ist ein standardmäßiger HTTP-Header, der auch von Content-Management-Systemen (CMS) verwendet wird, um die letzte Änderungszeit anzuzeigen, von Crawlern, um die Crawl-Frequenz anzupassen, und für andere verschiedene Zwecke.
+> Daher ist es besser, sowohl `ETag` als auch `Last-Modified` bereitzustellen, wenn man das gesamte HTTP-Ökosystem betrachtet.
 
-### Revalidierung erzwingen
+### Zwangsrevalidierung
 
-Wenn Sie nicht möchten, dass eine Antwort erneut verwendet wird, sondern stattdessen immer den neuesten Inhalt vom Server abrufen möchten, können Sie die `no-cache`-Direktive verwenden, um die Validierung zu erzwingen.
+Wenn Sie nicht möchten, dass eine Antwort wiederverwendet wird, sondern immer die neueste Antwort vom Server abrufen möchten, können Sie die `no-cache`-Direktive verwenden, um die Validierung zu erzwingen.
 
-Indem Sie `Cache-Control: no-cache` zur Antwort hinzufügen, zusammen mit `Last-Modified` und `ETag` — wie unten gezeigt — erhält der Client eine `200 OK`-Antwort, wenn die angeforderte Ressource aktualisiert wurde, oder andernfalls eine `304 Not Modified`-Antwort, wenn die angeforderte Ressource nicht aktualisiert wurde.
+Indem Sie `Cache-Control: no-cache` zur Antwort zusammen mit `Last-Modified` und `ETag` hinzufügen — wie unten gezeigt — erhält der Client eine `200 OK`-Antwort, wenn die angeforderte Ressource aktualisiert wurde, oder eine `304 Not Modified`-Antwort, wenn die angeforderte Ressource nicht aktualisiert wurde.
 
 ```http
 HTTP/1.1 200 OK
@@ -287,75 +287,75 @@ Cache-Control: no-cache
 …
 ```
 
-Häufig wird gesagt, dass die Kombination von `max-age=0` und `must-revalidate` die gleiche Bedeutung wie `no-cache` hat.
+Oft wird gesagt, dass die Kombination von `max-age=0` und `must-revalidate` die gleiche Bedeutung wie `no-cache` hat.
 
 ```http
 Cache-Control: max-age=0, must-revalidate
 ```
 
-`max-age=0` bedeutet, dass die Antwort sofort abgelaufen ist, und `must-revalidate` bedeutet, dass sie ohne Revalidierung nicht wiederverwendet werden darf, sobald sie abgelaufen ist — sodass in Kombination die Semantik scheinbar dieselbe ist wie bei `no-cache`.
+`max-age=0` bedeutet, dass die Antwort sofort stale ist, und `must-revalidate` bedeutet, dass sie nicht wiederverwendet werden sollte, ohne dass sie bei stale neuvalidiert wird — also scheinen die Semantiken in Kombination die gleiche Bedeutung wie `no-cache` zu haben.
 
-Diese Verwendung von `max-age=0` ist jedoch ein Überbleibsel der Tatsache, dass viele Implementierungen vor HTTP/1.1 die `no-cache`-Direktive nicht verstehen konnten — und um mit dieser Einschränkung umzugehen, wurde `max-age=0` als Workaround verwendet.
+Diese Verwendung von `max-age=0` ist jedoch ein Überbleibsel der Tatsache, dass viele Implementierungen vor HTTP/1.1 nicht in der Lage waren, die `no-cache`-Direktive zu handhaben — und so wurde `max-age=0` als Workaround verwendet, um dieses Limit zu umgehen.
 
-Da jedoch inzwischen HTTP/1.1-konforme Server weit verbreitet sind, gibt es keinen Grund mehr, diese Kombination aus `max-age=0` und `must-revalidate` zu verwenden — Sie sollten stattdessen einfach `no-cache` verwenden.
+Aber jetzt, da HTTP/1.1-konforme Server weit verbreitet sind, gibt es keinen Grund, diese Kombination von `max-age=0` und `must-revalidate` zu verwenden — stattdessen sollte man einfach `no-cache` verwenden.
 
-## Nicht zwischenspeichern
+## Nicht cachen
 
-Die `no-cache`-Direktive verhindert nicht das Speichern von Antworten, sondern verhindert die Wiederverwendung von Antworten ohne Revalidierung.
+Die `no-cache`-Direktive verhindert nicht die Speicherung von Antworten, sondern verhindert stattdessen die Wiederverwendung von Antworten ohne Nevalidierung.
 
-Wenn Sie nicht möchten, dass eine Antwort in irgendeinem Cache gespeichert wird, verwenden Sie `no-store`.
+Wenn Sie nicht möchten, dass eine Antwort in einem Cache gespeichert wird, verwenden Sie `no-store`.
 
 ```http
 Cache-Control: no-store
 ```
 
-Im Allgemeinen bedeutet eine "nicht cachen"-Anforderung in der Praxis jedoch die folgende Menge von Umständen:
+Im Allgemeinen entspricht jedoch eine "Nicht-cachen"-Anforderung in der Praxis den folgenden Umständen:
 
-- Möchten Sie nicht, dass die Antwort von jemand anderem als dem speziellen Client gespeichert wird, aus Datenschutzgründen.
-- Möchten Sie immer aktuelle Informationen bereitstellen.
-- Wissen nicht, was in veralteten Implementierungen passieren könnte.
+- Die Antwort soll aus Datenschutzgründen von niemand anderem als dem spezifischen Client gespeichert werden.
+- Sie möchten jederzeit aktuelle Informationen bereitstellen.
+- Sie wissen nicht, was in veralteten Implementierungen passieren könnte.
 
-Unter diesen Umständen ist `no-store` nicht immer die am besten geeignete Direktive.
+Unter diesen Umständen ist `no-store` nicht immer die geeignetste Direktive.
 
-Die folgenden Abschnitte betrachten die Umstände im Detail.
+In den folgenden Abschnitten werden die Umstände genauer betrachtet.
 
 ### Nicht mit anderen teilen
 
 Es wäre problematisch, wenn eine Antwort mit personalisierten Inhalten unerwartet für andere Benutzer eines Caches sichtbar wäre.
 
-In einem solchen Fall wird die `private`-Direktive bewirken, dass die personalisierte Antwort nur beim speziellen Client gespeichert wird und nicht an einen anderen Benutzer des Caches weitergegeben wird.
+In einem solchen Fall führt die Verwendung der `private`-Direktive dazu, dass die personalisierte Antwort nur mit dem jeweiligen Client gespeichert wird und nicht an andere Benutzer des Caches weitergegeben wird.
 
 ```http
 Cache-Control: private
 ```
 
-In einem solchen Fall, selbst wenn `no-store` angegeben ist, muss auch `private` angegeben werden.
+In einem solchen Fall muss selbst wenn `no-store` gegeben ist, auch `private` gegeben werden.
 
 ### Jedes Mal aktuelle Inhalte bereitstellen
 
-Die `no-store`-Direktive verhindert das Speichern einer Antwort, löscht jedoch keine bereits gespeicherte Antwort für dieselbe URL.
+Die `no-store`-Direktive verhindert, dass eine Antwort gespeichert wird, löscht jedoch keine bereits gespeicherte Antwort für die gleiche URL.
 
-Mit anderen Worten, wenn bereits eine alte Antwort für eine bestimmte URL gespeichert ist, verhindert `no-store` nicht, dass die alte Antwort wiederverwendet wird.
+Mit anderen Worten, wenn bereits eine alte Antwort für eine bestimmte URL gespeichert ist, wird durch die Rückgabe von `no-store` nicht verhindert, dass die alte Antwort wiederverwendet wird.
 
-Eine `no-cache`-Direktive hingegen erzwingt, dass der Client eine Validierungsanfrage sendet, bevor eine gespeicherte Antwort wiederverwendet wird.
+Jedoch wird eine `no-cache`-Direktive den Client zwingen, eine Validierungsanfrage zu senden, bevor eine gespeicherte Antwort wiederverwendet wird.
 
 ```http
 Cache-Control: no-cache
 ```
 
-Wenn der Server bedingte Anfragen nicht unterstützt, können Sie den Client dazu zwingen, jedes Mal den Server zu kontaktieren und immer die neueste Antwort mit `200 OK` zu erhalten.
+Wenn der Server keine bedingten Anfragen unterstützt, können Sie den Client zwingen, jedes Mal auf den Server zuzugreifen und immer die neueste Antwort mit `200 OK` zu erhalten.
 
 ### Umgang mit veralteten Implementierungen
 
-Als Workaround für veraltete Implementierungen, die `no-store` ignorieren, können Sie "kitchen-sink headers" wie die folgenden verwenden.
+Als Workaround für veraltete Implementierungen, die `no-store` ignorieren, können Sie Küchen-Spülen-Header wie die folgenden sehen.
 
 ```http
 Cache-Control: no-store, no-cache, max-age=0, must-revalidate, proxy-revalidate
 ```
 
-Es wird [empfohlen](https://learn.microsoft.com/en-us/previous-versions/troubleshoot/browsers/connectivity-navigation/how-to-prevent-caching), `no-cache` als Alternative anzuwenden, um mit solchen veralteten Implementierungen umzugehen, und es ist kein Problem, wenn `no-cache` von Anfang an angegeben wird, da der Server die Anfrage immer erhalten wird.
+Es wird [empfohlen](https://learn.microsoft.com/en-us/previous-versions/troubleshoot/browsers/connectivity-navigation/how-to-prevent-caching), `no-cache` als Alternative zu verwenden, um mit solchen veralteten Implementierungen umzugehen, und es ist kein Problem, wenn `no-cache` von Anfang an gegeben ist, da der Server immer die Anfrage erhält.
 
-Wenn es der Shared Cache ist, der Ihnen Sorgen bereitet, können Sie sicherstellen, dass unbeabsichtigtes Caching verhindert wird, indem Sie auch `private` hinzufügen:
+Wenn es der gemeinsame Cache ist, über den Sie besorgt sind, können Sie sicherstellen, dass ungewolltes Caching verhindert wird, indem Sie auch `private` hinzufügen:
 
 ```http
 Cache-Control: no-cache, private
@@ -363,23 +363,23 @@ Cache-Control: no-cache, private
 
 ### Was durch `no-store` verloren geht
 
-Sie könnten denken, dass das Hinzufügen von `no-store` der richtige Weg wäre, sich vom Caching abzumelden.
+Sie könnten denken, durch das Hinzufügen von `no-store`, die richtige Methode zu wählen, um sich vom Caching abzumelden.
 
-Es wird jedoch nicht empfohlen, `no-store` großzügig zu gewähren, da Sie viele Vorteile verlieren, die HTTP und Browser bieten, einschließlich des Browser-Back/Forward-Caches.
+Es wird jedoch nicht empfohlen, `no-store` großzügig zu vergeben, da Sie viele Vorteile, die HTTP und Browser zu bieten haben, einschließlich des Vor- und Zurück-Caches des Browsers, verlieren.
 
-Um die Vorteile des vollständigen Funktionsumfangs der Web-Plattform zu nutzen, bevorzugen Sie daher die Verwendung von `no-cache` in Kombination mit `private`.
+Daher ist es vorteilhafter, `no-cache` in Kombination mit `private` zu verwenden, um alle Vorteile des vollen Funktionsumfangs der Webplattform zu nutzen.
 
-## Neu laden und erzwungenes Neuladen
+## Neuladen und Zwangsneuladen
 
-Die Validierung kann für Anfragen sowie für Antworten durchgeführt werden.
+Die Validierung kann sowohl für Anfragen als auch für Antworten durchgeführt werden.
 
-Die Aktionen **Neu laden** und **erzwungenes Neuladen** sind gängige Beispiele für Validierung, die von der Browserseite ausgeführt wird.
+Das **Neuladen** und **Zwangsneuladen** sind gängige Beispiele für Validierungen, die von der Browserseite aus durchgeführt werden.
 
-### Neu laden
+### Neuladen
 
-Um den Verlust der Fensterintegrität wiederherzustellen oder auf die neueste Version der Ressource zu aktualisieren, bieten Browser den Benutzern eine Neuladefunktion an.
+Zum Wiederherstellen nach Fensterbeschädigung oder Aktualisieren auf die neueste Version der Ressource bietet der Browser eine Neuladefunktion für Benutzer.
 
-Eine vereinfachte Ansicht der HTTP-Anfrage, die während eines Browserneuladens gesendet wird, sieht wie folgt aus:
+Eine vereinfachte Darstellung der HTTP-Anfrage, die während eines Browser-Neuladens gesendet wird, sieht wie folgt aus:
 
 ```http
 GET / HTTP/1.1
@@ -389,24 +389,24 @@ If-None-Match: "deadbeef"
 If-Modified-Since: Tue, 22 Feb 2022 20:20:20 GMT
 ```
 
-(Die Anfragen von Chrome, Edge und Firefox sehen dem obigen sehr ähnlich aus; die Anfragen von Safari sehen etwas anders aus.)
+(Die Anfragen von Chrome, Edge und Firefox sehen sehr ähnlich wie oben aus; die Anfragen von Safari sehen etwas anders aus.)
 
-Die `max-age=0`-Direktive in der Anfrage gibt an "Wiederverwendung von Antworten mit einem Alter von 0 oder weniger" — sodass zwischengespeicherte Antworten effektiv nicht wiederverwendet werden.
+Die `max-age=0`-Direktive in der Anfrage spezifiziert die "Wiederverwendung von Antworten mit einem Alter von 0 oder weniger" — sodass zwischengespeicherte Antworten nicht wiedergenutzt werden.
 
-Daher wird eine Anfrage durch `If-None-Match` und `If-Modified-Since` validiert.
+Das führt dazu, dass eine Anfrage durch `If-None-Match` und `If-Modified-Since` validiert wird.
 
-Dieses Verhalten ist auch im [Fetch](https://fetch.spec.whatwg.org/#http-network-or-cache-fetch)-Standard definiert und kann in JavaScript reproduziert werden, indem `fetch()` mit dem Cache-Modus `no-cache` aufgerufen wird (beachten Sie, dass `reload` in diesem Fall nicht der richtige Modus ist):
+Dieses Verhalten ist auch im [Fetch](https://fetch.spec.whatwg.org/#http-network-or-cache-fetch) Standard definiert und kann in JavaScript reproduziert werden, indem `fetch()` mit dem Cache-Modus auf `no-cache` gesetzt wird (beachten Sie, dass `reload` nicht der richtige Modus für diesen Fall ist):
 
 ```js
 // Note: "reload" is not the right mode for a normal reload; "no-cache" is
 fetch("/", { cache: "no-cache" });
 ```
 
-### Erzwungenes Neuladen
+### Zwangsneuladen
 
-Browser verwenden `max-age=0` während des Neuladens aus Gründen der Abwärtskompatibilität, weil viele veraltete Implementierungen vor HTTP/1.1 `no-cache` nicht verstanden. Aber `no-cache` ist jetzt in diesem Anwendungsfall in Ordnung, und ein **erzwungenes Neuladen** ist eine zusätzliche Möglichkeit, zwischengespeicherte Antworten zu umgehen.
+Browser verwenden `max-age=0` während des Neuladens aufgrund von Abwärtskompatibilitätsgründen — weil viele veraltete Implementierungen vor HTTP/1.1 `no-cache` nicht verstanden haben. Aber `no-cache` ist jetzt für diesen Anwendungsfall in Ordnung, und das **Zwangsneuladen** ist eine zusätzliche Möglichkeit, zwischengespeicherte Antworten zu umgehen.
 
-Die HTTP-Anfrage während eines Browser-**erzwungenen Neuladens** sieht wie folgt aus:
+Die HTTP-Anfrage während eines Browser-**Zwangsneuladens** sieht wie folgt aus:
 
 ```http
 GET / HTTP/1.1
@@ -415,38 +415,38 @@ Pragma: no-cache
 Cache-Control: no-cache
 ```
 
-(Die Anfragen von Chrome, Edge und Firefox sehen dem obigen sehr ähnlich aus; die Anfragen von Safari sehen etwas anders aus.)
+(Die Anfragen von Chrome, Edge und Firefox sehen sehr ähnlich wie oben aus; die Anfragen von Safari sehen etwas anders aus.)
 
-Da dies keine bedingte Anfrage mit `no-cache` ist, können Sie sicher sein, dass Sie ein `200 OK` vom Ursprungsserver erhalten.
+Da dies keine bedingte Anfrage mit `no-cache` ist, können Sie sicher sein, dass Sie vom Ursprungsserver ein `200 OK` erhalten.
 
-Dieses Verhalten ist auch im [Fetch](https://fetch.spec.whatwg.org/#http-network-or-cache-fetch)-Standard definiert und kann in JavaScript reproduziert werden, indem `fetch()` mit dem Cache-Modus `reload` aufgerufen wird (beachten Sie, dass es nicht `force-reload` ist):
+Dieses Verhalten ist auch im [Fetch](https://fetch.spec.whatwg.org/#http-network-or-cache-fetch) Standard definiert und kann in JavaScript reproduziert werden, indem `fetch()` mit dem Cache-Modus auf `reload` gesetzt wird (beachten Sie, dass es nicht `force-reload` ist):
 
 ```js
 // Note: "reload" — rather than "no-cache" — is the right mode for a "force reload"
 fetch("/", { cache: "reload" });
 ```
 
-### Vermeidung von Revalidierung
+### Vermeidung der Nevalidierung
 
-Inhalte, die sich nie ändern, sollten durch Cache Busting eine lange `max-age`-Dauer erhalten — das heißt, durch Einfügen einer Versionsnummer, eines Hash-Werts usw. in die Anfrage-URL.
+Inhalte, die sich nie ändern, sollten mit einer langen `max-age` versehen werden, indem Cache-Busting verwendet wird — das heißt, indem eine Versionsnummer, ein Hash-Wert usw. in die Anforderungs-URL eingefügt werden.
 
-Wenn der Benutzer jedoch eine Seite neu lädt, wird eine Revalidierungsanfrage gesendet, obwohl der Server weiß, dass der Inhalt unveränderlich ist.
+Wenn der Benutzer jedoch die Seite neu lädt, wird eine Nevalidierungsanfrage gesendet, obwohl der Server weiß, dass der Inhalt unveränderlich ist.
 
-Um dies zu verhindern, kann die `immutable`-Direktive verwendet werden, um ausdrücklich anzuzeigen, dass keine Revalidierung erforderlich ist, da sich der Inhalt nie ändert.
+Um dies zu verhindern, kann die `immutable`-Direktive verwendet werden, um explizit anzuzeigen, dass eine Nevalidierung nicht erforderlich ist, da der Inhalt sich nie ändert.
 
 ```http
 Cache-Control: max-age=31536000, immutable
 ```
 
-Das verhindert unnötige Revalidierung bei Neuladen.
+Das verhindert unnötige Nevalidierungen während Neuladungen.
 
-Beachten Sie, dass anstelle der Umsetzung dieser Direktive [Chrome seine Implementierung geändert](https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html) hat, sodass bei Neuladen keine Revalidierung für Subressourcen durchgeführt wird.
+Beachten Sie, dass anstelle der Implementierung dieser Direktive, [Chrome seine Implementierung geändert hat](https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html), sodass Nevalidierungen während Neuladungen für Unterressourcen nicht durchgeführt werden.
 
-## Löschen von gespeicherten Antworten
+## Gespeicherte Antworten löschen
 
-Es gibt keine Möglichkeit, Antworten auf einem Zwischenspeicher-Server zu löschen, die mit einer langen `max-age` gespeichert wurden.
+Es gibt keine Möglichkeit, Antworten auf einem zwischengeschalteten Server zu löschen, die mit einer langen `max-age` gespeichert wurden.
 
-Stellen Sie sich vor, dass die folgende Antwort von `https://example.com/` gespeichert wurde.
+Stellen Sie sich vor, die folgende Antwort von `https://example.com/` wurde gespeichert.
 
 ```http
 HTTP/1.1 200 OK
@@ -458,46 +458,45 @@ Cache-Control: max-age=31536000
 …
 ```
 
-Sie könnten diese Antwort überschreiben wollen, sobald sie auf dem Server abgelaufen ist, aber es gibt nichts, was der Server tun kann, einmal die Antwort gespeichert ist — da wegen des Cachings keine weiteren Anfragen den Server erreichen.
+Möglicherweise möchten Sie diese Antwort überschreiben, wenn sie auf dem Server abläuft, aber es gibt nichts, was der Server tun kann, sobald die Antwort gespeichert wurde — da durch das Caching keine weiteren Anfragen den Server erreichen.
 
-Eine der im Standard erwähnten Methoden ist das Senden einer Anfrage für dieselbe URL mit einer unsicheren Methode wie `POST`, aber für viele Clients ist das schwer zu tun.
+Eine der in der Spezifikation erwähnten Methoden ist, eine Anfrage für dieselbe URL mit einer unsicheren Methode wie `POST` zu senden, aber für viele Clients ist das schwer zu tun.
 
-Der [`Clear-Site-Data: cache`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache)-Header und der Direktivenwert können verwendet werden, um die Browser-Caches zu löschen — aber hat keinen Effekt auf Zwischencaches.
-Andernfalls bleiben die Antworten im Browser-Cache, bis `max-age` abläuft, es sei denn, der Benutzer führt manuell ein Neuladen, ein erzwungenes Neuladen oder eine Verlaufslöschung durch.
+Der [`Clear-Site-Data: cache`](/de/docs/Web/HTTP/Reference/Headers/Clear-Site-Data#cache) Header und der Direktivwert kann verwendet werden, um Browser-Caches zu löschen — aber hat keine Wirkung auf zwischengeschaltete Caches. Andernfalls bleiben Antworten im Browser-Cache, bis `max-age` abläuft, es sei denn, der Benutzer führt manuell eine Neulade-, Zwangsneulade- oder Verlaufslöschen-Aktion aus.
 
-Caching reduziert den Zugriff auf den Server, was bedeutet, dass der Server die Kontrolle über diese URL verliert. Wenn der Server keine Kontrolle über eine URL verlieren möchte — zum Beispiel im Fall, dass eine Ressource häufig aktualisiert wird — sollten Sie `no-cache` hinzufügen, sodass der Server immer Anfragen erhält und die vorgesehenen Antworten sendet.
+Caching reduziert den Zugriff auf den Server, wodurch der Server die Kontrolle über diese URL verliert. Wenn der Server keine Kontrolle über eine URL verlieren möchte — zum Beispiel im Fall, dass eine Ressource häufig aktualisiert wird — sollten Sie `no-cache` hinzufügen, sodass der Server immer Anfragen erhält und die beabsichtigten Antworten sendet.
 
-## Anfrage-Zusammenführung
+## Request Collapse
 
-Der Shared Cache befindet sich in der Regel vor dem Ursprungsserver und soll den Datenverkehr zum Ursprungsserver verringern.
+Der gemeinsam genutzte Cache befindet sich in erster Linie vor dem Ursprungsserver und soll den Verkehr zum Ursprungsserver reduzieren.
 
-Wenn also mehrere identische Anfragen gleichzeitig bei einem Shared Cache eingehen, sendet der Zwischenspeicher eine einzige Anfrage im Namen des Caches an den Ursprungsserver weiter, der das Ergebnis dann für alle Clients wiederverwenden kann. Dies wird als _**Anfrage-Zusammenführung**_ bezeichnet.
+Wenn daher mehrere identische Anfragen gleichzeitig an einem gemeinsamen Cache eintreffen, wird der Zwischen-Cache eine einzelne Anfrage im Namen seiner selbst an den Ursprung weiterleiten, die das Ergebnis dann für alle Client wiederverwenden kann. Dies wird als _Request Collapse_ bezeichnet.
 
-Die Anfrage-Zusammenführung erfolgt, wenn Anfragen gleichzeitig eingehen, sodass selbst wenn `max-age=0` oder `no-cache` in der Antwort angegeben ist, sie wiederverwendet wird.
+Ein Request Collapse tritt auf, wenn Anfragen gleichzeitig eintreffen, sodass selbst wenn `max-age=0` oder `no-cache` in der Antwort angegeben ist, sie wiederverwendet wird.
 
-Wenn die Antwort für einen bestimmten Benutzer personalisiert ist und Sie nicht möchten, dass sie in der Zusammenführung geteilt wird, sollten Sie die `private`-Direktive hinzufügen:
+Wenn die Antwort für einen bestimmten Benutzer personalisiert ist und Sie nicht möchten, dass sie in einem Collapse geteilt wird, sollten Sie die `private` Direktiv hinzufügen:
 
-![Anfrage-Zusammenführung, dargestellt durch mehrere Clients, die GET-Anfragen senden, und einen Cache, der sie in einer GET-Anfrage an den Ursprung zusammenführt. Der Ursprungsserver antwortet mit einem 200 OK, das der Cache an alle Clients zurückgibt.](https://mdn.github.io/shared-assets/images/diagrams/http/cache/request-collapse.svg)
+![Request Collapse dargestellt als mehrere Clients, die GET-Anfragen senden und ein Cache, das sie zu einem einzigen GET an den Ursprung konsolidiert. Der Ursprungsserver antwortet mit einem 200 OK, das das Cache an alle Clients weitergibt.](https://mdn.github.io/shared-assets/images/diagrams/http/cache/request-collapse.svg)
 
 ## Häufige Caching-Muster
 
-Es gibt viele Direktiven in der `Cache-Control`-Spezifikation, und es kann schwierig sein, alle zu verstehen. Aber die meisten Websites können durch eine Kombination von einer Handvoll Mustern abgedeckt werden.
+Es gibt viele Direktiven in der `Cache-Control` Spezifikation, und es kann schwierig sein, alle zu verstehen. Aber die meisten Websites können mit einer Kombination aus einigen wenigen Mustern abgedeckt werden.
 
-Dieser Abschnitt beschreibt die gängigen Muster beim Entwerfen von Caches.
+Dieser Abschnitt beschreibt die häufigen Muster beim Entwerfen von Caches.
 
 ### Standardeinstellungen
 
-Wie bereits erwähnt, ist das Standardverhalten für Caching (d.h. für eine Antwort ohne `Cache-Control`) nicht einfach "nicht cachen", sondern implizites Caching nach dem sogenannten "heuristischen Caching".
+Wie bereits erwähnt, ist das Standardverhalten für das Caching (das heißt für eine Antwort ohne `Cache-Control`) nicht einfach "nicht cachen", sondern implizites Caching nach dem sogenannten "heuristischen Caching".
 
-Um dieses heuristische Caching zu vermeiden, ist es vorzuziehen, allen Antworten explizit einen Standard-`Cache-Control`-Header zu geben.
+Um dieses heuristische Caching zu vermeiden, ist es vorzuziehen, allen Antworten einen standardmäßigen `Cache-Control` Header explizit zu geben.
 
-Um sicherzustellen, dass standardmäßig immer die neuesten Versionen von Ressourcen übertragen werden, ist es üblich, die `Cache-Control`-Standardwert mit `no-cache` zu versehen:
+Um sicherzustellen, dass standardmäßig immer die neuesten Versionen von Ressourcen übertragen werden, ist es eine bewährte Praxis, den Standard `Cache-Control`-Wert `no-cache` als Grundlage zu verwenden:
 
 ```http
 Cache-Control: no-cache
 ```
 
-Außerdem, falls der Dienst Cookies oder andere Anmeldemethoden implementiert und der Inhalt für jeden Benutzer personalisiert ist, muss auch `private` angegeben werden, um das Teilen mit anderen Benutzern zu verhindern:
+Darüber hinaus, wenn der Service Cookies oder andere Anmeldemethoden implementiert und der Inhalt für jeden Benutzer personalisiert ist, muss auch `private` angegeben werden, um das Teilen mit anderen Benutzern zu verhindern:
 
 ```http
 Cache-Control: no-cache, private
@@ -505,9 +504,9 @@ Cache-Control: no-cache, private
 
 ### Cache-Busting
 
-Die Ressourcen, die am besten für Caching geeignet sind, sind statische, unveränderliche Dateien, deren Inhalt sich nie ändert. Und für Ressourcen, die _sich_ ändern, ist es gängige Best Practice, die URL jedes Mal zu ändern, wenn sich der Inhalt ändert, damit die URL-Einheit für einen längeren Zeitraum zwischengespeichert werden kann.
+Die Ressourcen, die am besten mit Caching funktionieren, sind statische unveränderliche Dateien, deren Inhalte sich nie ändern. Und für Ressourcen, die sich _tatsächlich_ ändern, ist es eine bewährte Praxis, die URL jedes Mal zu ändern, wenn sich der Inhalt ändert, sodass das URL-Element für einen längeren Zeitraum gecached werden kann.
 
-Betrachten Sie zum Beispiel das folgende HTML:
+Als Beispiel betrachten Sie das folgende HTML:
 
 ```html
 <script src="bundle.js"></script>
@@ -517,11 +516,11 @@ Betrachten Sie zum Beispiel das folgende HTML:
 </body>
 ```
 
-In der modernen Webentwicklung werden JavaScript- und CSS-Ressourcen häufig aktualisiert, sobald die Entwicklung fortschreitet. Außerdem, wenn die Versionen der JavaScript- und CSS-Ressourcen, die ein Client verwendet, nicht synchron sind, wird die Anzeige brechen.
+In der modernen Webentwicklung werden JavaScript- und CSS-Ressourcen häufig aktualisiert, während die Entwicklung voranschreitet. Außerdem, wenn die Versionen der JavaScript- und CSS-Ressourcen, die ein Client verwendet, nicht synchronisiert sind, wird die Anzeige beeinflusst.
 
-Daher macht das obige HTML es schwierig, `bundle.js` und `build.css` mit `max-age` zu cachen.
+Das obige HTML macht es also schwierig, `bundle.js` und `build.css` mit `max-age` zu cachen.
 
-Daher können Sie die JavaScript- und CSS-Ressourcen mit URLs bereitstellen, die einen sich ändernden Teil basierend auf einer Versionsnummer oder einem Hash-Wert enthalten. Einige der Möglichkeiten, dies zu tun, sind unten gezeigt.
+Sie können daher das JavaScript und CSS mit URLs bereitstellen, die einen sich ändernden Teil basierend auf einer Versionsnummer oder einem Hash-Wert enthalten. Einige der Möglichkeiten, dies zu tun, sind unten aufgeführt.
 
 ```plain
 # version in filename
@@ -537,7 +536,7 @@ bundle.YsAIAAAA-QG4G6kCMAMBAAAAAAAoK.js
 bundle.js?v=YsAIAAAA-QG4G6kCMAMBAAAAAAAoK
 ```
 
-Da der Cache Ressourcen anhand ihrer URLs unterscheidet, wird der Cache nicht mehr wiederverwendet, wenn sich die URL bei einer Aktualisierung der Ressource ändert.
+Da der Cache Ressourcen basierend auf ihren URLs voneinander unterscheidet, wird der Cache nicht wiederverwendet, wenn sich die URL ändert, sobald eine Ressource aktualisiert wird.
 
 ```html
 <script src="bundle.v123.js"></script>
@@ -547,11 +546,11 @@ Da der Cache Ressourcen anhand ihrer URLs unterscheidet, wird der Cache nicht me
 </body>
 ```
 
-Mit diesem Design können sowohl JavaScript- als auch CSS-Ressourcen über einen längeren Zeitraum zwischengespeichert werden. Wie lange sollte `max-age` eingestellt werden? Die QPACK-Spezifikation liefert eine Antwort auf diese Frage.
+Mit diesem Design können sowohl JavaScript- als auch CSS-Ressourcen für einen langen Zeitraum gecached werden. Wie lange sollte also `max-age` eingestellt werden? Die QPACK-Spezifikation bietet eine Antwort auf diese Frage.
 
-[QPACK](https://datatracker.ietf.org/doc/html/rfc9204) ist ein Standard zur Komprimierung von HTTP-Header-Feldern, mit Tabellen der häufig verwendeten Feldwerte.
+[QPACK](https://datatracker.ietf.org/doc/html/rfc9204) ist ein Standard zur Komprimierung von HTTP-Headerfeldern, mit Tabellen von häufig verwendeten Feldwerten.
 
-Einige häufig verwendete Cache-Header-Werte sind unten gezeigt.
+Einige häufig verwendete Cache-Headerwerte sind unten gezeigt.
 
 ```plain
 36 cache-control max-age=0
@@ -564,19 +563,19 @@ Einige häufig verwendete Cache-Header-Werte sind unten gezeigt.
 
 Wenn Sie eine dieser nummerierten Optionen auswählen, können Sie Werte in 1 Byte komprimieren, wenn sie über HTTP3 übertragen werden.
 
-Nummern `37`, `38` und `41` stehen für Zeiträume von einer Woche, einem Monat und einem Jahr.
+Die Nummern `37`, `38` und `41` sind für Zeiträume von einer Woche, einem Monat und einem Jahr.
 
-Da der Cache alte Einträge entfernt, wenn neue Einträge gespeichert werden, ist die Wahrscheinlichkeit, dass eine gespeicherte Antwort nach einer Woche noch vorhanden ist, nicht so hoch — selbst wenn `max-age` auf 1 Woche eingestellt ist. Daher macht es in der Praxis keinen großen Unterschied, welche Sie wählen.
+Weil der Cache alte Einträge entfernt, wenn neue Einträge gespeichert werden, ist die Wahrscheinlichkeit, dass eine gespeicherte Antwort nach einer Woche noch vorhanden ist, nicht so hoch — selbst wenn `max-age` auf 1 Woche eingestellt ist. Daher macht es in der Praxis keinen großen Unterschied, welche dieser Optionen man wählt.
 
-Beachten Sie, dass die Nummer `41` die längste `max-age` (1 Jahr) hat, jedoch mit `public`.
+Beachten Sie, dass Nummer `41` die längste `max-age` (1 Jahr) hat, jedoch mit `public`.
 
-Der `public`-Wert hat den Effekt, dass die Antwort speicherbar ist, selbst wenn der `Authorization`-Header vorhanden ist.
+Der `public` Wert hat die Wirkung, die Antwort speicherbar zu machen, selbst wenn der `Authorization` Header gesetzt ist.
 
 > [!NOTE]
-> Die `public`-Direktive sollte nur verwendet werden, wenn es notwendig ist, die Antwort zu speichern, wenn der `Authorization`-Header gesetzt ist.
-> Ansonsten ist sie nicht erforderlich, da eine Antwort im Shared Cache gespeichert wird, solange `max-age` angegeben ist.
+> Die `public` Direktive sollte nur verwendet werden, wenn es erforderlich ist, die Antwort zu speichern, wenn der `Authorization` Header gesetzt ist.
+> Sie wird ansonsten nicht benötigt, da eine Antwort im gemeinsam genutzten Cache gespeichert wird, solange `max-age` gegeben ist.
 
-Wenn die Antwort jedoch mit Basisauthentifizierung personalisiert ist, kann das Vorhandensein von `public` Probleme verursachen. Wenn Sie sich darüber Sorgen machen, können Sie den zweitlängsten Wert `38` (1 Monat) wählen.
+Wenn die Antwort mit Basis-Authentifizierung personalisiert ist, kann das Vorhandensein von `public` möglicherweise Probleme verursachen. Wenn Sie darüber besorgt sind, können Sie stattdessen den zweitlängsten Wert, `38` (1 Monat), wählen.
 
 ```http
 # response for bundle.v123.js
@@ -590,9 +589,9 @@ Cache-Control: max-age=2592000
 
 ### Validierung
 
-Vergessen Sie nicht, die `Last-Modified`- und `ETag`-Header festzulegen, um eine Ressource nicht erneut übermitteln zu müssen, wenn die Seite neu geladen wird. Es ist einfach, diese Header für vorgefertigte statische Dateien zu generieren.
+Vergessen Sie nicht, die `Last-Modified` und `ETag` Header zu setzen, damit Sie eine Ressource beim Neuladen nicht erneut übertragen müssen. Es ist einfach, diese Header für vorgefertigte statische Dateien zu generieren.
 
-Der `ETag`-Wert hier kann ein Hash der Datei sein.
+Der `ETag` Wert hier kann ein Hash der Datei sein.
 
 ```http
 # response for bundle.v123.js
@@ -600,9 +599,9 @@ Last-Modified: Tue, 22 Feb 2022 20:20:20 GMT
 ETag: "YsAIAAAA-QG4G6kCMAMBAAAAAAAoK"
 ```
 
-Zusätzlich kann `immutable` hinzugefügt werden, um Validierung beim Neuladen zu verhindern.
+Darüber hinaus kann `immutable` hinzugefügt werden, um Validierungen beim Neuladen zu verhindern.
 
-Das kombinierte Ergebnis wird unten gezeigt.
+Das kombinierte Ergebnis ist unten gezeigt.
 
 ```http
 # bundle.v123.js
@@ -614,11 +613,12 @@ Last-Modified: Tue, 22 Feb 2022 20:20:20 GMT
 ETag: "YsAIAAAA-QG4G6kCMAMBAAAAAAAoK"
 ```
 
-**Cache-Busting** ist eine Technik, um eine Antwort durch die Änderung der URL, wenn sich der Inhalt ändert, über einen langen Zeitraum hinweg cachbar zu machen. Die Technik kann auf alle Subressourcen angewendet werden, wie Bilder.
+**Cache-Busting** ist eine Technik, um eine Antwort über einen langen Zeitraum cachebar zu machen, indem die URL geändert wird, sobald sich der Inhalt ändert. Die Technik kann auf alle Unterressourcen angewendet werden, wie zum Beispiel Bilder.
 
 > [!NOTE]
-> Bei der Auswertung der Verwendung von `immutable` und QPACK:
-> Wenn Sie befürchten, dass `immutable` den von QPACK bereitgestellten vordefinierten Wert ändert, bedenken Sie, dass in diesem Fall der `immutable`-Teil separat codiert werden kann, indem der Wert des `Cache-Control` in zwei Zeilen gesplittet wird — obwohl dies vom Codierungsalgorithmus einer bestimmten QPACK-Implementierung abhängt.
+> Beim Evaluieren der Verwendung von `immutable` und QPACK:
+> Wenn Sie besorgt sind, dass `immutable` den vorgegebenen Wert von QPACK ändert, bedenken Sie, dass
+> in diesem Fall der `immutable` Teil separat kodiert werden kann, indem der `Cache-Control` Wert in zwei Zeilen aufgeteilt wird — obwohl dies von dem, von einem bestimmten QPACK-Implementierung verwendeten Kodierungsalgorithmus abhängt.
 
 ```http
 Cache-Control: public, max-age=31536000
@@ -627,9 +627,9 @@ Cache-Control: immutable
 
 ### Hauptressourcen
 
-Im Gegensatz zu Subressourcen können Hauptressourcen nicht durch Cache-Busting beschädigt werden, da ihre URLs nicht auf die gleiche Weise dekoriert werden können wie die URLs von Subressourcen.
+Im Gegensatz zu Unterressourcen können Hauptressourcen nicht cache gebustet werden, da ihre URLs nicht auf die gleiche Weise dekoriert werden können wie die URLs von Unterressourcen.
 
-Wenn das folgende HTML selbst gespeichert wird, kann selbst bei einer Aktualisierung des Inhalts auf der Serverseite die neueste Version nicht angezeigt werden.
+Wenn das folgende HTML selbst gespeichert wird, kann die neueste Version nicht angezeigt werden, selbst wenn der Inhalt serverseitig aktualisiert wird.
 
 ```html
 <script src="bundle.v123.js"></script>
@@ -639,9 +639,9 @@ Wenn das folgende HTML selbst gespeichert wird, kann selbst bei einer Aktualisie
 </body>
 ```
 
-In diesem Fall wäre `no-cache` angemessen — anstatt `no-store` — da wir nicht möchten, dass HTML gespeichert wird, sondern einfach nur, dass es immer auf dem neuesten Stand ist.
+Für diesen Fall wäre `no-cache` angemessen — anstatt `no-store` — da wir das HTML nicht speichern wollen, sondern stattdessen möchten, dass es immer auf dem neuesten Stand ist.
 
-Durch das Hinzufügen von `Last-Modified` und `ETag` können Clients bedingte Anfragen senden, und `304 Not Modified` kann zurückgegeben werden, wenn keine Updates an dem HTML erfolgt sind:
+Durch das Hinzufügen von `Last-Modified` und `ETag` können Clients bedingte Anfragen senden, und es kann eine `304 Not Modified` zurückgegeben werden, wenn keine Updates am HTML vorgenommen wurden:
 
 ```http
 HTTP/1.1 200 OK
@@ -652,7 +652,7 @@ Last-Modified: Tue, 22 Feb 2022 20:20:20 GMT
 ETag: "AAPuIbAOdvAGEETbgAAAAAAABAAE"
 ```
 
-Diese Einstellung ist angemessen für nicht personalisiertes HTML, aber für eine Antwort, die nach der Anmeldung mit Cookies personalisiert wird — vergessen Sie nicht, auch `private` anzugeben:
+Diese Einstellung ist geeignet für nicht personalisierte HTML-Antworten, aber für eine Antwort, die unter Verwendung von Cookies personalisiert wird — zum Beispiel nach einem Login — vergessen Sie nicht, auch `private` anzugeben:
 
 ```http
 HTTP/1.1 200 OK
@@ -664,25 +664,25 @@ ETag: "AAPuIbAOdvAGEETbgAAAAAAABAAE"
 Set-Cookie: __Host-SID=AHNtAyt3fvJrUL5g5tnGwER; Secure; Path=/; HttpOnly
 ```
 
-Das Gleiche kann verwendet werden für `favicon.ico`, `manifest.json`, `.well-known` und API-Endpunkte, deren URLs nicht durch Cache-Busting geändert werden können.
+Das gleiche kann für `favicon.ico`, `manifest.json`, `.well-known` und API-Endpunkte verwendet werden, deren URLs nicht mit Cache-Busting geändert werden können.
 
-Die meisten Webinhalte können durch eine Kombination der beiden beschriebenen Muster abgedeckt werden.
+Die meisten Webinhalte können mit einer Kombination der beiden oben beschriebenen Muster abgedeckt werden.
 
 ### Mehr über verwaltete Caches
 
-Mit der in den vorherigen Abschnitten beschriebenen Methode können Subressourcen durch Cache-Busting über einen langen Zeitraum zwischengespeichert werden, aber Hauptressourcen (die in der Regel HTML-Dokumente sind) können es nicht.
+Mit der Methode, die in den vorherigen Abschnitten beschrieben wurde, können Unterressourcen durch Cache-Busting über einen langen Zeitraum gecached werden, aber Hauptressourcen (die normalerweise HTML-Dokumente sind) nicht.
 
-Das Caching von Hauptressourcen ist schwierig, denn anhand der Standarddirektiven der HTTP-Caching-Spezifikation gibt es keine Möglichkeit, den Cache-Inhalt aktiv zu löschen, wenn die Inhalte auf dem Server aktualisiert werden.
+Das Cachen von Hauptressourcen ist schwierig, da es unter Verwendung nur der standardmäßigen Direktiven aus der HTTP-Caching-Spezifikation keine Möglichkeit gibt, den Cache-Inhalt aktiv zu löschen, wenn der Inhalt auf dem Server aktualisiert wird.
 
-Es ist jedoch möglich, indem man einen verwalteten Cache wie ein CDN oder einen Service Worker bereitstellt.
+Es ist jedoch möglich, indem man einen verwalteten Cache wie ein CDN oder einen Service-Worker bereitstellt.
 
-Zum Beispiel würde ein CDN, das das Cache-Bereinigung über eine API oder Dashboard-Operation erlaubt, eine aggressivere Caching-Strategie ermöglichen, indem die Hauptressource gespeichert und explizit gelöscht wird, wenn ein Update am Server auftritt.
+Zum Beispiel würde ein CDN, das das Cache-Löschen über eine API oder Dashboard-Operation erlaubt, eine aggressivere Caching-Strategie ermöglichen, indem die Hauptressource gespeichert und der betreffende Cache nur dann explizit gelöscht wird, wenn ein Update auf dem Server erfolgt.
 
-Ein Service Worker könnte dasselbe tun, wenn er die Inhalte in der Cache-API löschen könnte, wenn ein Update am Server auftritt.
+Ein Service-Worker könnte dasselbe tun, wenn er die Inhalte in der Cache API löschen könnte, wenn ein Update auf dem Server erfolgt.
 
-Für weitere Informationen, sehen Sie sich die Dokumentation Ihres CDN an, und konsultieren Sie die [Service Worker Dokumentation](/de/docs/Web/API/Service_Worker_API).
+Für weitere Informationen, sehen Sie die Dokumentation Ihres CDN und konsultieren Sie die [Service-Worker-Dokumentation](/de/docs/Web/API/Service_Worker_API).
 
 ## Siehe auch
 
 - [RFC 9111: Hypertext Transfer Protocol (HTTP/1.1): Caching](https://datatracker.ietf.org/doc/html/RFC9111)
-- [Caching Leitfaden - Mark Nottingham](https://www.mnot.net/cache_docs/)
+- [Caching Tutorial - Mark Nottingham](https://mnot.net/cache_docs/)

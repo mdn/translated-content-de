@@ -3,40 +3,40 @@ title: Einführung in Schriftsystem-Modi
 short-title: Introduction
 slug: Web/CSS/Guides/Writing_modes/Writing_mode_systems
 l10n:
-  sourceCommit: c01d60b02d1cac975acb34e19317a4f75d9fc376
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
-CSS unterstützt verschiedene Inhaltsrichtungen oder **Schriftsystem-Modi**, einschließlich von rechts-nach-links, von links-nach-rechts und von oben-nach-unten. Der Leitfaden bietet einen kurzen Überblick über Schriftsystem-Modi und deren Ausrichtungen.
+CSS unterstützt verschiedene inhaltliche Richtungen oder **Schriftsystem-Modi**, einschließlich von rechts nach links, von links nach rechts und von oben nach unten. Der Leitfaden bietet einen kurzen Überblick über Schriftsystem-Modi und deren Ausrichtungen.
 
 ## Block und Inline
 
-Bevor man die Richtung verschiedener Schriftsysteme untersucht, ist es wichtig, die Begriffe "Block" und "Inline" zu verstehen. Der Begriff **Inline** bezieht sich darauf, wie Zeichen und Wörter innerhalb einer Zeile fließen. Der Begriff **Block** bezieht sich darauf, wie Zeilen oder Blöcke von Inhalten nebeneinander gestapelt werden. Der Schreibmodus des Dokuments bestimmt die Block- und Inline-Richtungen eines Dokuments. Sie basieren nicht auf physischen Richtungen wie links, rechts, oben und unten.
+Bevor man die Richtung von verschiedenen Schriftsystemen betrachtet, ist es wichtig, die Begriffe "Block" und "Inline" zu verstehen. Der Begriff **Inline** bezieht sich darauf, wie Zeichen und Wörter innerhalb einer Zeile fließen. Der Begriff **Block** bezieht sich darauf, wie Zeilen oder Inhaltsblöcke nebeneinander gestapelt werden. Der Schriftsystem-Modus eines Dokuments bestimmt die Block- und Inline-Richtungen eines Dokuments. Sie basieren nicht auf physischen Richtungen wie links, rechts, oben und unten.
 
 ### Dimensionen und Richtungen
 
-Alles auf einer Webseite ist entweder in der **Inline**- oder **Block**-Dimension angeordnet. Die _Inline-Dimension_ ist die Dimension, entlang der eine Textzeile in dem aktuellen Schreibmodus verläuft, während die _Block-Dimension_ die Dimension ist, in der Blöcke — wie Absätze — hintereinander angezeigt werden. Die Inline-Dimension steht senkrecht zur Block-Dimension.
+Alles auf einer Webseite wird entweder in der **Inline**- oder **Block**-Dimension angeordnet. Die _Inline-Dimension_ ist die Dimension, entlang der eine Textzeile im aktuellen Schriftsystem-Modus verläuft, während die _Block-Dimension_ die Dimension ist, in der Blöcke – wie Absätze – nacheinander angezeigt werden. Die Inline-Dimension steht senkrecht zur Block-Dimension.
 
-In einem englischen Dokument, bei dem der Text horizontal von links-nach-rechts verläuft, oder in einem arabischen Dokument mit dem Text horizontal von rechts-nach-links, ist die Inline-Dimension horizontal, während die _Inline-Richtung_ jeweils links-nach-rechts und rechts-nach-links ist. In beiden Fällen ist die Block-Dimension vertikal, mit der _Block-Richtung_ von oben-nach-unten. In einem vertikalen Schriftsystem-Modus wie Japanisch ist die Inline-Dimension vertikal, da Linien in diesem Schriftsystem vertikal verlaufen, während die Block-Dimension horizontal ist.
+In einem englischen Dokument, durch das der Text horizontal von links nach rechts verläuft, oder einem arabischen Dokument, durch das der Text horizontal von rechts nach links verläuft, ist die Inline-Dimension horizontal, während die _Inline-Richtung_ links-nach-rechts bzw. rechts-nach-links ist. In beiden Fällen ist die Block-Dimension vertikal, mit der _Block-Richtung_ von oben nach unten. In einem vertikalen Schriftsystem-Modus wie dem Japanischen ist die Inline-Dimension vertikal, da Zeilen in diesem Schreibmodus vertikal verlaufen, während die Block-Dimension horizontal ist.
 
-### Inline- und Blockboxen
+### Inline- und Block-Boxen
 
-Der _äußere Anzeige_-Typ von Boxen in einem [normalen Fließlayout](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model#normal_flow) bestimmt, wie sich die Box neben anderen Elementen auf der Seite verhält. _Inline-Boxen_ umschließen jede Textzeile und sind entlang der Inline-Dimension angeordnet.
+Der _äußere Anzeigetyp_ von Boxen in einem [normal fließenden Layout](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model#normal_flow) bestimmt, wie die Box sich neben anderen Elementen auf der Seite verhält. _Inline-Boxen_ umwinden jede Textzeile und werden entlang der Inline-Dimension angeordnet.
 
-_Blockboxen_ repräsentieren Container auf der Seite, die andere Block- und Inline-Elemente enthalten können. Sie sind entlang der Block-Dimension angeordnet und erstrecken sich in der Inline-Dimension, um den gesamten in ihrem Container verfügbaren Raum auszufüllen (vorausgesetzt, es ist keine spezifische Größe in der Inline-Dimension mit einer Eigenschaft wie {{cssxref("inline-size")}} festgelegt). Blockboxen werden nur von oben nach unten angezeigt, wenn Sie einen Schreibmodus verwenden, der den Text horizontal anzeigt, wie z.B. Englisch.
+_Block-Boxen_ repräsentieren Container auf der Seite, die andere Block- und Inline-Elemente enthalten können. Sie werden entlang der Block-Dimension angeordnet und erstrecken sich in der Inline-Dimension, um den gesamten verfügbaren Platz in ihrem Container zu füllen (sofern nicht eine spezifische Größe in der Inline-Dimension unter Verwendung einer Eigenschaft wie {{cssxref("inline-size")}} festgelegt wurde). Block-Boxen werden nur von oben nach unten auf der Seite angezeigt, wenn Sie einen Schriftsystem-Modus verwenden, der Text horizontal anzeigt, wie zum Beispiel Englisch.
 
-Das [Modul der logischen CSS-Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values#properties) definiert {{Glossary("flow_relative_values", "fluss-relative Zuordnungen")}} für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS, was hilfreich beim Verständnis der [Grundkonzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts) ist.
+Das [Modul für CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values#properties) definiert {{Glossary("flow_relative_values", "fluss-relative Zuordnungen")}} für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS, was hilfreich ist, um die [grundlegenden Konzepte von logischen Eigenschaften und Werten](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts) zu verstehen.
 
-### Inline-Grundrichtung und Blockflussrichtung
+### Richtungen der Inline-Basis- und Block-Flüsse
 
-Die _Inline-Grundrichtung_ ist die primäre Richtung, in der Inhalte in einer Zeile angeordnet sind, und definiert den "Anfang" und das "Ende" einer Zeile. Die {{cssxref("direction")}}-Eigenschaft spezifiziert die Inline-Grundrichtung einer Box und bestimmt zusammen mit der {{cssxref("unicode-bidi")}}-Eigenschaft und der inhärenten Richtungstendenz eines Textinhalts die Reihenfolge des Inline-Levels innerhalb einer Zeile.
+Die _Inline-Basis-Richtung_ ist die Hauptausrichtung, in der Inhalte in einer Zeile geordnet sind, und definiert den "Anfang" und das "Ende" einer Zeile. Die {{cssxref("direction")}}-Eigenschaft spezifiziert die Inline-Basis-Richtung einer Box und bestimmt zusammen mit der {{cssxref("unicode-bidi")}}-Eigenschaft und der inhärenten Richtung jeglicher Textinhalte die Reihenfolge der Inline-Level-Inhalte innerhalb einer Zeile.
 
-Die _Blockflussrichtung_ ist die Richtung, in der Blockebene- und Zeilenboxen innerhalb eines Blockcontainers gestapelt sind. Die {{cssxref("writing-mode")}}-Eigenschaft bestimmt die Blockflussrichtung.
+Die _Block-Fluss-Richtung_ ist die Richtung, in der Block-Level- und Linien-Boxen in einem Block-Container gestapelt werden. Die {{cssxref("writing-mode")}}-Eigenschaft bestimmt die Block-Fluss-Richtung.
 
 ## Schriftsystem-Modi
 
-Verschiedene Schriftsysteme haben unterschiedliche Schreibmodi. Ein horizontaler Schreibmodus ist einer mit horizontalen Textzeilen, d.h. ein abwärts- oder aufwärtsgerichteter Blockfluss. Ein vertikaler Schreibmodus ist einer mit vertikalen Textzeilen, d.h. ein nach links oder rechts gerichteter Blockfluss.
+Verschiedene Schriftsysteme haben unterschiedliche Schriftsystem-Modi. Ein horizontaler Schriftsystem-Modus ist einer mit horizontalen Textzeilen, d.h. ein Blockfluss nach unten oder oben. Ein vertikaler Schriftsystem-Modus ist einer mit vertikalen Textzeilen, d.h. ein Blockfluss nach links oder rechts.
 
-Auf Latein- und Slawisch-basierte Systeme wird typischerweise ein Inline-Richtung von links-nach-rechts mit einem Blockfluss von oben-nach-unten verwendet. Lateinbasierte Sprachen umfassen Englisch, Spanisch, Rumänisch und Portugiesisch. Slawisch-basierte Sprachen umfassen Ukrainisch, Polnisch und Tschechisch.
+Latein- und slawisch-basierte Systeme werden typischerweise mit einer Inline-Richtung von links nach rechts und einer Blockflussrichtung von oben nach unten geschrieben. Zu den lateinisch-basierten Sprachen gehören Englisch, Spanisch, Rumänisch und Portugiesisch. Slawisch-basierte Sprachen umfassen Ukrainisch, Polnisch und Tschechisch.
 
 ```html
 <p lang="en-US" dir="auto">This is written in English</p>
@@ -44,28 +44,28 @@ Auf Latein- und Slawisch-basierte Systeme wird typischerweise ein Inline-Richtun
 <p lang="el-GR" dir="auto">Αυτό είναι γραμμένο στα ελληνικά</p>
 ```
 
-Arabisch-basierte Systeme werden typischerweise mit einer Inline-Richtung von rechts-nach-links und einem Blockfluss von oben-nach-unten geschrieben. Es gibt mehrere horizontale rechts-nach-links Sprachen, einschließlich Arabisch, Aramäisch, Aseri, Divehi, Fula, Hebräisch, Kurdisch, N'ko, Persisch, Rohingya, Syrisch und Urdu.
+Arabisch-basierte Systeme werden typischerweise mit einer von rechts nach links verlaufenden Inline-Richtung und einer Blockflussrichtung von oben nach unten geschrieben. Es gibt mehrere horizontale von rechts nach links Sprachen, einschließlich Arabisch, Aramäisch, Aserbaidschanisch, Divehi, Fulani, Hebräisch, Kurdisch, N'ko, Persisch, Rohingya, Syrisch und Urdu.
 
 ```html
 <p lang="ur-PK" dir="auto">یہ اردو میں لکھا ہے۔</p>
 <p lang="ku-CRB" dir="auto">ئەمە بە کوردی نووسراوە</p>
 ```
 
-Han-basierte Systeme werden üblicherweise mit einer Inline-Richtung von links-nach-rechts und einem Blockfluss von oben-nach-unten oder einer Inline-Richtung von oben-nach-unten mit einem Blockfluss von rechts-nach-links geschrieben. Traditionell werden Chinesisch, Vietnamesisch, Koreanisch und Japanisch vertikal in Spalten von oben nach unten geschrieben, mit einer Blockrichtung von rechts-nach-links, werden jedoch oft horizontal online von links-nach-rechts dargestellt.
+Han-basierte Systeme werden häufig mit einer von links nach rechts verlaufenden Inline-Richtung und einer Blockflussrichtung von oben nach unten geschrieben, oder mit einer Inline-Richtung von oben nach unten und einer von rechts nach links verlaufenden Blockflussrichtung. Traditionell werden Chinesisch, Vietnamesisch, Koreanisch und Japanisch vertikal in Spalten geschrieben, die von oben nach unten verlaufen, mit einer von rechts nach links verlaufenden Blockrichtung, aber sie werden oft horizontal online dargestellt, die von links nach rechts verlaufen.
 
 ```html
 <p lang="ja-JP" dir="auto">これは日本語で書かれています</p>
 ```
 
-Mongolisch-basierte Systeme werden typischerweise vertikal geschrieben, von oben nach unten, in Spalten, die von links nach rechts fließen; eine Inline-Richtung von oben-nach-unten mit einem Blockfluss von links-nach-rechts. Dies unterscheidet sich von Chinesisch, Japanisch und Koreanisch, deren vertikale Textspalten von rechts nach links gelesen werden. Dies ist darauf zurückzuführen, dass das Mongolische Alphabet vom Alt-Uigurischen abstammt, das von links nach rechts geschrieben wurde.
+Mongolisch-basierte Systeme werden typischerweise vertikal von oben nach unten in Spalten geschrieben, die von links nach rechts verlaufen; eine Inline-Richtung von oben nach unten mit einer von links nach rechts verlaufenden Blockflussrichtung. Dies unterscheidet sich von Chinesisch, Japanisch und Koreanisch, deren vertikale Textspalten von rechts nach links gelesen werden. Es leitet sich von der Tatsache ab, dass die mongolische Schrift aus dem Altuigurischen abgeleitet wurde, das von links nach rechts geschrieben wurde.
 
 ```html
 <p lang="mn-Mong" dir="auto">ᠡᠭᠦᠨ ᠢ ᠮᠣᠩᠭᠤᠯ ᠬᠡᠯᠡ ᠪᠠᠷ ᠪᠢᠴᠢᠵᠡᠢ</p>
 ```
 
-Um die Schreibmodi korrekt darzustellen, verwenden wir das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir). Da Browser CSS-Styling ausschalten können, wird empfohlen, das `dir`-Attribut und das {{htmlelement("bdo")}}-Element zu verwenden, um eine korrekte bidirektionale Anordnung in Ermangelung eines Stylesheets sicherzustellen, anstatt der CSS-{{cssxref("direction")}}-Eigenschaft.
+Um die Schriftsystem-Modi korrekt darzustellen, verwenden wir das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir). Weil Browser CSS-Stilierung ausschalten können, wird empfohlen, das `dir`-Attribut und das {{htmlelement("bdo")}}-Element zu verwenden, um ein korrektes bidirektionales Layout in Abwesenheit eines Stylesheets zu gewährleisten, anstatt die CSS-{{cssxref("direction")}}-Eigenschaft.
 
-Für vertikale Sprachen verwenden wir die {{cssxref("writing-mode")}}- und {{cssxref("text-orientation")}}-Eigenschaften:
+Für vertikale Sprachen verwenden wir die Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("text-orientation")}}:
 
 ```css
 :lang(ja) {
@@ -78,10 +78,10 @@ Für vertikale Sprachen verwenden wir die {{cssxref("writing-mode")}}- und {{css
 }
 ```
 
-{{EmbedLiveSample("Schriftsystem-Modi", "100%", "500")}}
+{{EmbedLiveSample("Writing system modes", "100%", "500")}}
 
 ```css hidden
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&display=swap";
 
 :lang(ja),
 :lang(mn-Mong) {
@@ -93,14 +93,14 @@ Für vertikale Sprachen verwenden wir die {{cssxref("writing-mode")}}- und {{css
 }
 ```
 
-## Mischung von Schreibmodi
+## Schreibmodi mischen
 
-Während diese verschiedenen Sprachen unterschiedliche Schreibmodi haben, können Websites, die hauptsächlich einen Schreibmodus verwenden, Inhalte aus einer anderen Sprache oder einem anderen Schreibmodus enthalten. Zum Beispiel können Artikel auf einer arabischen, rechts-nach-links orientierten Nachrichtenwebsite lateinische Zahlen enthalten, die von links nach rechts geschrieben werden. Viele Zeitschriften und Zeitungen mischen verschiedene Schreibmodi auf derselben Seite. Auch dieser Leitfaden, der verschiedene Schreibmodi demonstriert, macht dies.
+Während diese verschiedenen Sprachen unterschiedliche Schreibmodi haben, können Websites, die hauptsächlich einen Typ von Schreibmodus verwenden, Inhalte aus einer anderen Sprache oder einem anderen Schreibmodus enthalten. Zum Beispiel können Artikel auf einer arabischen, von rechts nach links laufenden Sprachnachrichtenseite lateinische Zahlen enthalten, die von links nach rechts geschrieben werden. Viele Magazine und Zeitungen mischen auf derselben Seite verschiedene Schreibmodi. Auch dieser Leitfaden, der verschiedene Schreibmodi demonstriert, tut dies.
 
-Der typografische Modus bestimmt, ob typografische Konventionen verwendet werden, die spezifisch für vertikalen Fluss (vertikaler typografischer Modus) oder für die typografischen Konventionen horizontaler Schreibmodi (horizontaler typografischer Modus) sind. Dieses Konzept unterscheidet vertikales Setzen von gedrehtem horizontalem Setzen.
+Der typografische Modus bestimmt, ob typografische Konventionen spezifisch für vertikale Flüsse für vertikale Schriftzeichen (vertikaler typografischer Modus) verwendet werden oder ob die typografischen Konventionen horizontaler Schreibmodi (horizontaler typografischer Modus) verwendet werden. Dieses Konzept unterscheidet das vertikale Setzen von Schriftzeichen aus dem rotieren horizontalen Setzen von Schriftzeichen.
 
-Die `text-orientation`-Komponente des Schreibmodi steuert die Glyphenausrichtung in vertikalen typografischen Modi und bestimmt, ob eine bestimmte typografische Zeicheneinheit aufrecht oder seitlich gesetzt wird.
+Die `text-orientation`-Komponente des Schreibmodus steuert die Glyphen-Ausrichtung in vertikalen typografischen Modi und legt fest, ob eine bestimmte typografische Zeicheneinheit aufrecht oder seitlich gesetzt wird.
 
 ## Siehe auch
 
-- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
+- [CSS-Schriftsystem-Modi](/de/docs/Web/CSS/Guides/Writing_modes)-Modul

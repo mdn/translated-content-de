@@ -3,13 +3,13 @@ title: '`<meta name="robots">` HTML-Attributwert'
 short-title: robots
 slug: Web/HTML/Reference/Elements/meta/name/robots
 l10n:
-  sourceCommit: bf5017c389132af39b50106cf1763fa7106e87b4
+  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
 ---
 
-Der **`robots`** Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut des {{htmlelement("meta")}} Elements (oft als "robots tag" bezeichnet) definiert das Crawling- und Indexierungsverhalten, das Web-{{Glossary("Crawler", "Crawler")}} bei der Seite verwenden sollten.
-Wenn angegeben, definieren Sie Anweisungen für Crawler im [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content) Attribut des `<meta>` Elements als kommagetrennte Liste von einer oder mehreren Regeln.
+Der **`robots`**-Wert für das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut des {{htmlelement("meta")}} Elements (oft als "robots tag" bezeichnet) definiert das Crawl- und Indexierungsverhalten, das Web-{{Glossary("Crawler", "Crawler")}} auf der Seite verwenden sollten.
+Wenn angegeben, definieren Sie Anweisungen für Crawler im [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content) Attribut des `<meta>` Elements als eine durch Kommas getrennte Liste von einer oder mehreren Regeln.
 
-Zum Beispiel kann ein `noindex` Wert verwendet werden, um den Crawlern anzudeuten, dass eine Seite von deren Suchindizes ausgeschlossen werden soll:
+Zum Beispiel kann ein `noindex` Wert verwendet werden, um Crawler darauf hinzuweisen, dass eine Seite von ihren Suchindizes ausgeschlossen werden sollte:
 
 ```html
 <meta name="robots" content="noindex" />
@@ -17,53 +17,64 @@ Zum Beispiel kann ein `noindex` Wert verwendet werden, um den Crawlern anzudeute
 
 > [!NOTE]
 > Nur kooperative Roboter befolgen diese Regeln.
-> Ein Crawler muss dennoch auf die Ressource zugreifen, um Header und Metaelemente zu lesen (siehe [X-Robots-Tag: Interaction with robots.txt](/de/docs/Web/HTTP/Reference/Headers/X-Robots-Tag#interaction_with_robots.txt)).
-> Wenn Sie den Bandbreitenverbrauch von Crawlern verhindern möchten, ist eine restriktive {{Glossary("robots.txt", "robots.txt")}} Datei wirksamer als Indexierungsregeln, da sie Ressourcen vollständig vom Crawling ausschließt.
+> Ein Crawler muss trotzdem auf die Ressource zugreifen, um Header und Meta-Elemente zu lesen (siehe [X-Robots-Tag: Interaktion mit robots.txt](/de/docs/Web/HTTP/Reference/Headers/X-Robots-Tag#interaction_with_robots.txt)).
+> Wenn Sie den Bandbreitenverbrauch durch Crawler verhindern möchten, ist eine restriktive {{Glossary("robots.txt", "robots.txt")}} Datei effektiver als Indexierungsregeln, da sie den Zugriff auf Ressourcen vollständig blockiert.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 Ein `<meta name="robots">` Element kann die folgenden zusätzlichen Attribute haben:
 
 - [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)
-  - : Das `content` Attribut muss definiert sein und sein Wert setzt das Indexierungs- und Crawling-Verhalten für kooperative Suchmaschinenroboter fest. Akzeptiert einen oder mehrere der folgenden Schlüsselwörter als kommagetrennte Liste:
+  - : Das `content` Attribut muss definiert sein, und sein Wert legt das Indexierungs- und Crawl-Verhalten für kooperative Suchmaschinenroboter fest.
+    Es akzeptiert einen oder mehrere der folgenden Schlüsselwörter als durch Kommas getrennte Liste:
     - `index`
-      - : Erlaubt dem Roboter, die Seite zu indexieren. Dies ist das Standardverhalten. Wird von allen großen Crawlern verwendet.
+      - : Erlaubt dem Roboter, die Seite zu indexieren. Dies ist das Standardverhalten.
+        Wird von allen großen Crawlern verwendet.
     - `noindex`
-      - : Fordert den Roboter auf, die Seite nicht zu indexieren. Wird von allen großen Crawlern verwendet.
+      - : Fordert den Roboter auf, die Seite nicht zu indexieren.
+        Wird von allen großen Crawlern verwendet.
     - `follow`
-      - : Erlaubt dem Roboter, Links auf der Seite zu folgen. Dies ist das Standardverhalten. Wird von allen großen Crawlern verwendet.
+      - : Erlaubt dem Roboter, Links auf der Seite zu folgen. Dies ist das Standardverhalten.
+        Wird von allen großen Crawlern verwendet.
     - `nofollow`
-      - : Fordert den Roboter auf, den Links auf der Seite nicht zu folgen. Wird von allen großen Crawlern verwendet.
+      - : Fordert den Roboter auf, die Links auf der Seite nicht zu verfolgen.
+        Wird von allen großen Crawlern verwendet.
     - `all`
-      - : Entspricht `index, follow`. Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965067987211-415685194&rd=1).
+      - : Entspricht `index, follow`.
+        Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965067987211-415685194&rd=1).
     - `none`
-      - : Entspricht `noindex, nofollow`. Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965074074862-574753619&rd=1).
+      - : Entspricht `noindex, nofollow`.
+        Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/special-tags?visit_id=637855965074074862-574753619&rd=1).
     - `noarchive`
-      - : Fordert, dass die Suchmaschine den Seiteninhalt nicht cached. Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/SLN2213.html), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240).
+      - : Fordert, dass die Suchmaschine den Seiteninhalt nicht im Cache speichert.
+        Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Yahoo](https://help.yahoo.com/kb/search-for-desktop/SLN2213.html), [Bing](https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240).
     - `nosnippet`
-      - : Verhindert die Anzeige einer Beschreibung der Seite in den Suchmaschinenergebnissen. Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240).
+      - : Verhindert die Anzeige einer Beschreibung der Seite in Suchmaschinenergebnissen.
+        Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag), [Bing](https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240).
     - `noimageindex`
-      - : Fordert, dass diese Seite nicht als Verweisseite eines indizierten Bildes erscheint. Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
+      - : Fordert, dass diese Seite nicht als verweisende Seite eines indizierten Bildes erscheint.
+        Verwendet von: [Google](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
     - `nocache`
-      - : Synonym von `noarchive`. Verwendet von: [Bing](https://www.bing.com/webmasters/help/which-robots-metatags-does-bing-support-5198d240).
+      - : Synonym für `noarchive`.
+        Verwendet von: [Bing](https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240).
 
 ## Beschreibung
 
-Es gibt mehrere wichtige Überlegungen, die beim Setzen eines `robots` Meta-Wertes zu beachten sind:
+Es gibt mehrere wichtige Überlegungen, die beim Festlegen eines `robots` Meta-Wertes zu beachten sind:
 
-- Nur kooperative Roboter befolgen diese Regeln. Sie verhindern nicht, dass böswillige Akteure, wie E-Mail-Ernteprogramme, die Anweisungen ignorieren.
-- Wenn sie in einem `<meta>` Tag definiert sind, müssen Roboter dennoch auf die Seite zugreifen, um diese Regeln zu lesen. Um den Bandbreitenverbrauch zu reduzieren, sollten Sie stattdessen die Verwendung einer [robots.txt Datei](/de/docs/Web/Security/Practical_implementation_guides/Robots_txt) in Betracht ziehen.
-- Der `<meta name="robots">` Tag und `robots.txt` haben unterschiedliche Rollen: `robots.txt` steuert das Crawling, während das `robots` Meta-Tag die Indexierung und anderes Verhalten beeinflusst.
-- Eine Seite, die durch `robots.txt` blockiert ist, kann dennoch indiziert werden, wenn sie von anderen Quellen verlinkt wird.
-- Die `noindex` Anweisung wird erst wirksam, nachdem der Roboter die Seite erneut besucht hat, stellen Sie also sicher, dass `robots.txt` dies nicht verhindert.
+- Nur kooperative Roboter befolgen diese Regeln. Sie verhindern nicht, dass böswillige Akteure wie E-Mail-Sammler die Direktiven ignorieren.
+- Wenn sie in einem `<meta>` Tag definiert sind, müssen Roboter dennoch auf die Seite zugreifen, um diese Regeln zu lesen. Um Bandbreitenverbrauch zu reduzieren, sollten Sie überlegen, stattdessen eine [robots.txt Datei](/de/docs/Web/Security/Practical_implementation_guides/Robots_txt) zu verwenden.
+- Der `<meta name="robots">` Tag und die `robots.txt` dienen unterschiedlichen Zwecken: `robots.txt` steuert das Crawlen, während der `robots` Meta-Tag das Indexieren und andere Verhaltensweisen beeinflusst.
+- Eine durch `robots.txt` blockierte Seite kann immer noch indiziert werden, wenn sie von anderen Quellen verlinkt wird.
+- Die `noindex` Direktive wird erst wirksam, nachdem der Roboter die Seite erneut besucht hat, stellen Sie also sicher, dass `robots.txt` dies nicht verhindert.
 - Einige Werte, wie `index` vs. `noindex` oder `follow` vs. `nofollow`, schließen sich gegenseitig aus. Das Verhalten ist undefiniert, wenn widersprüchliche Werte verwendet werden.
-- Roboter wie Google, Yahoo und Bing unterstützen diese Anweisungen auch im HTTP-Header {{HTTPHeader("X-Robots-Tag")}}, was für nicht-HTML-Inhalte wie PDFs oder Bilder nützlich ist.
+- Roboter wie Google, Yahoo und Bing unterstützen diese Direktiven auch im HTTP-Header {{HTTPHeader("X-Robots-Tag")}}, was für nicht-HTML-Inhalte wie PDFs oder Bilder nützlich ist.
 
 ## Beispiele
 
-### Verwendung eines Robots-Schlüsselworts
+### Verwendung eines robots-Schlüsselwortes
 
-Das folgende Beispiel verwendet `nofollow`, um zu verlangen, dass ein Crawler keine Links auf einer Seite verfolgt, und `noindex`, um zu verlangen, dass die Seite von der Indexierung ausgeschlossen wird:
+Das folgende Beispiel verwendet `nofollow`, um einen Crawler aufzufordern, keine Links auf einer Seite zu verfolgen, und `noindex`, um zu verlangen, dass die Seite aus dem Index ausgeschlossen wird:
 
 ```html
 <meta name="robots" content="nofollow, noindex" />
@@ -71,15 +82,15 @@ Das folgende Beispiel verwendet `nofollow`, um zu verlangen, dass ein Crawler ke
 
 ## Spezifikationen
 
-Obwohl es nicht Teil irgendeiner Spezifikation ist, ist es eine De-facto-Standardmethode zur Kommunikation mit Such-Bots, Web-Crawlern und ähnlichen Benutzeragenten.
+Obwohl es nicht Teil einer Spezifikation ist, ist es eine de-facto Standardmethode, um mit Suchbots, Web-Crawlern und ähnlichen Benutzeragenten zu kommunizieren.
 
 ## Browser-Kompatibilität
 
-Dieses Feature ist für Crawler gedacht, daher ist "Browser-Kompatibilität" nicht anwendbar.
+Dieses Feature ist für Crawler gedacht, daher ist "Browser"-Kompatibilität nicht anwendbar.
 
 ## Siehe auch
 
-- HTTP-Header {{httpheader("X-Robots-Tag")}}
+- {{httpheader("X-Robots-Tag")}} HTTP-Header
 - [robots.txt Konfiguration](/de/docs/Web/Security/Practical_implementation_guides/Robots_txt) Leitfaden
 - {{Glossary("robots.txt", "robots.txt")}} Glossareintrag
 - {{Glossary("Search_engine", "Suchmaschine")}} Glossareintrag
