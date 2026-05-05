@@ -1,14 +1,14 @@
 ---
-title: "VideoFrame: metadata()-Methode"
+title: "VideoFrame: metadata() Methode"
 short-title: metadata()
 slug: Web/API/VideoFrame/metadata
 l10n:
-  sourceCommit: e62132e5900aad53470eb84df3b61eacd35f727d
+  sourceCommit: ef6215cdb0472ba6bff093e2dcfb0e1434483db5
 ---
 
-{{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Die **`metadata()`**-Methode des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die mit dem Frame verknüpfte Metadaten zurück.
+Die **`metadata()`** Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame) Schnittstelle gibt die Metadaten zurück, die mit dem Frame verknüpft sind.
 
 ## Syntax
 
@@ -22,13 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das Metadaten beschreibt, die für den Video-Frame spezifisch sind, wie im [WebCodecs VideoFrame Metadata Registry](https://w3c.github.io/webcodecs/video_frame_metadata_registry.html) angegeben.
-Dieses kann die folgenden Eigenschaften enthalten:
+Ein Objekt, das die Metadaten beschreibt, die durch das [WebCodecs VideoFrame Metadata Registry](https://w3c.github.io/webcodecs/video_frame_metadata_registry.html) spezifiziert werden. Es kann folgende Eigenschaften enthalten:
 
 - `rtpTimestamp` {{optional_inline}}
-  - : Der RTP-Zeitstempel des entsprechenden kodierten Frames. Video-Frames, die von [WebRTC](/de/docs/Web/API/WebRTC_API)-Quellen stammen, werden `rtpTimestamp`-Metadaten enthalten. Dies ermöglicht Anwendungen, die einen [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) verwenden (zum Beispiel, um dekodierte WebRTC-Frames auf einem `<canvas>` zu rendern), jeden dargestellten Frame mit seinem ursprünglichen RTP-Transport-Zeitstempel zu korrelieren. Dies ist nützlich, zum Beispiel, um Video und Audio-Segmente auszurichten oder Latenzprobleme zu debuggen.
+  - : Der RTP-Zeitstempel des entsprechenden codierten Frames. Videoframes, die von [WebRTC](/de/docs/Web/API/WebRTC_API) Quellen stammen, enthalten `rtpTimestamp` Metadaten. Dies ermöglicht Anwendungen, die einen [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) verwenden (z.B. um dekodierte WebRTC-Frames auf einem `<canvas>` darzustellen), jeden freigelegten Frame mit seinem ursprünglichen RTP-Transport-Zeitstempel zu korrelieren. Dies ist beispielsweise nützlich, um Video mit Audiosegmenten abzugleichen oder Latenzprobleme zu debuggen.
 
-Wenn der Video-Frame keine der aufgeführten Metadatenitems aufweist, gibt `metadata()` ein leeres Objekt zurück.
+Wenn der Videoframe keines der aufgelisteten Metadaten-Elemente aufweist, gibt `metadata()` ein leeres Objekt zurück.
 
 ## Beispiele
 
