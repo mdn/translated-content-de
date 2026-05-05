@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Unheimliche Krabbeltiere Splash-Seite"
-short-title: "Herausforderung: Splash-Seite"
+title: "Herausforderung: Gruselige Krabbeltiere Startseite"
+short-title: "Herausforderung: Startseite"
 slug: Learn_web_development/Core/Structuring_content/Splash_page
 l10n:
-  sourceCommit: 0ab262675372b83fc870accf3dc46d6a367c451c
+  sourceCommit: 3b8fdeeaa5b96796870166b989de523261e5fc05
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung testen wir Ihr Wissen zu einigen der in den letzten Lektionen besprochenen Techniken. Sie sollen einige Bilder und ein Video zu einer Splash-Seite hinzufügen, die sich ganz um Käfer und andere unheimliche Krabbeltiere dreht.
+In dieser Herausforderung testen wir Ihr Wissen über einige der Techniken, die in den letzten Lektionen besprochen wurden. Ziel ist es, Bilder und ein Video zu einer Startseite hinzuzufügen, die sich mit Insekten und anderen Krabbeltieren beschäftigt.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes ist bereits vorhanden.
+Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigen Codes ist bereits bereitgestellt.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer namens `splash-page-challenge` (oder öffnen Sie einen Online-Editor und ergreifen Sie die erforderlichen Schritte, um ein neues Projekt zu erstellen).
-2. Speichern Sie die folgende HTML-Liste in einer Datei in Ihrem Ordner namens `index.html` (oder kopieren Sie sie in das HTML-Feld Ihres Online-Editors).
+1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte durch, um ein neues Projekt zu erstellen).
+2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner namens `index.html` (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
 
    ```html
    <!doctype html>
@@ -248,7 +248,7 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfach
    </html>
    ```
 
-3. Speichern Sie die folgende CSS-Liste in einer Datei in Ihrem Ordner namens `style.css` (oder kopieren Sie sie in das CSS-Feld Ihres Online-Editors).
+3. Speichern Sie das folgende CSS-Verzeichnis in einer Datei in Ihrem Ordner namens `style.css` (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
 
    ```css
    /* type */
@@ -344,54 +344,54 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfach
    }
    ```
 
-Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
+Später müssen Sie die folgenden URLs in Ihre Seite aufnehmen.
 
-- `bee.jpg`: [Bild für den Abschnitt "Bienen, Wespen, Ameisen (Hymenoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/bee.jpg).
-- `beetle.png`: [Bild für den Abschnitt "Käfer (Coleoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/beetle.png).
-- `butterfly.jpg`: [Bild für den Abschnitt "Schmetterlinge & Motten (Lepidoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/butterfly.jpg).
-- `mosquito.jpg`: [Bild für den Abschnitt "Fliegen & Mücken (Diptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/mosquito.jpg).
-- `spider.jpg`: [Bild für den Abschnitt "Spinnen (Araneae)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/spider.jpg).
-- `true_bug.jpg`: [Bild für den Abschnitt "Wahre Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
+- `bee.jpg`: [Bild für die Sektion "Bienen, Wespen, Ameisen (Hymenoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/bee.jpg).
+- `beetle.png`: [Bild für die Sektion "Käfer (Coleoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/beetle.png).
+- `butterfly.jpg`: [Bild für die Sektion "Schmetterlinge & Motten (Lepidoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/butterfly.jpg).
+- `fly.jpg`: [Bild für die Sektion "Fliegen & Moskitos (Diptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/fly.jpg).
+- `spider.jpg`: [Bild für die Sektion "Spinnen (Araneae)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/spider.jpg).
+- `true_bug.jpg`: [Bild für die Sektion "Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
 - `bug_video_640.mp4`: [Header-Video](https://mdn.github.io/shared-assets/videos/learn/bug_video_640.mp4).
 
-## Projektbrief
+## Projektbeschreibung
 
-In dieser Bewertung präsentieren wir Ihnen eine fast fertige Splash-Seite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte beschreiben, was Sie tun müssen.
+In dieser Bewertung präsentieren wir Ihnen eine weitgehend fertige Startseite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte erläutern, was zu tun ist.
 
-### Ein Video im Header hinzufügen
+### Ein Video zum Header hinzufügen
 
 Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video auf der Seite einbettet. Wir möchten, dass es Folgendes tut:
 
-- Das Video soll automatisch beim Laden abgespielt werden (damit dies in mindestens einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
-- Endlos schleifen, statt nur einmal abzuspielen.
-- Das Video soll im Voraus geladen werden.
-- Es sollen keine Bedienelemente angezeigt werden.
+- Das Video bei Laden der Seite automatisch abspielen (damit dies in zumindest einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
+- Endlos im Loop abspielen, anstatt nur einmal abzuspielen.
+- Das Videoinhalt vorladen.
+- Keine Steuerelemente anzeigen.
 
 ### Abschnittsbilder hinzufügen
 
-In den erweiterten Informationsabschnitten zu jeder Art von Käfer möchten wir, dass Sie unterhalb jedes `<h2>` ein Bild-Element hinzufügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen geeigneten Alternativtext zum Nutzen von Screenreader-Nutzern (und falls das Bild nicht geladen wird) und beschränken Sie die Dimensionen jedes Bildes auf 250 x 180.
+In den erweiterten Informationsabschnitten zu jedem Insekt möchten wir, dass Sie unter jedem `<h2>` ein Bild einfügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen geeigneten Alternativtext für Bildschirmleser-Nutzer (und falls das Bild nicht geladen wird) und beschränken Sie jedes Bild auf die Abmessungen von 250 x 180.
 
-Darüber hinaus möchten wir, dass Sie eine Beschriftung für jedes Bild hinzufügen; denken Sie darüber nach, welches Container-Element benötigt wird, um die beiden semantisch zu verbinden. Die Beschriftung sollte nicht nur den Alternativtext wiederholen; sie sollte zusammen mit dem Alternativtext und dem Bild funktionieren.
+Außerdem möchten wir, dass Sie jedem Bild eine Beschriftung hinzufügen; überlegen Sie, welches Containerelement benötigt wird, um die beiden semantisch miteinander zu verknüpfen. Wiederholen Sie nicht einfach den Alternativtext in der Beschriftung; diese sollte den Alternativtext und das Bild sinnvoll ergänzen.
 
-### Fügen Sie Käfer-Emojis oder -Icons zum Navigationsmenü und zu den `<h2>`s hinzu
+### Fügen Sie Bug-Emojis oder -Icons zum Navigationsmenü und den `<h2>`s hinzu
 
-Aus Spaß möchten wir, dass Sie Icons am Anfang jedes Navigationslistenelements und dasselbe Icon am Anfang jedes entsprechenden `<h2>` hinzufügen. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, einfach geeignete Emojis zu finden und sie dem HTML-Text selbst hinzuzufügen.
+Zum Spaß möchten wir, dass Sie Icons zu jedem Navigationslistenelement hinzufügen und dasselbe Icon an den Anfang jedes entsprechenden `<h2>`. Sie könnten dies durch eingebettete Bilder tun, aber es ist einfacher, einfach geeignete Emojis zu finden und sie direkt in den HTML-Text einzufügen.
 
 ## Hinweise und Tipps
 
-- Sie können den [W3C HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
-- Sie müssen nichts über CSS wissen, um diese Bewertung durchzuführen; Sie müssen nur die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
+- Sie können den [W3C HTML Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
+- Sie müssen kein CSS kennen, um diese Bewertung durchzuführen; Sie müssen lediglich die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie die Splash-Seite aussehen soll. Wenn Sie Schwierigkeiten haben, wie Sie einige dieser Dinge erreichen können, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Der folgende Screenshot zeigt, wie die Startseite aussehen sollte. Wenn Sie Schwierigkeiten haben, einige Punkte zu erreichen, sehen Sie sich die Lösung unterhalb des Live-Beispiels an.
 
-![Unser Beispiel für eine Splash-Seite](finished-splash-example.png)
+![Unser Beispiel für die Startseite](finished-splash-example.png)
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ```html
 <!doctype html>
@@ -561,11 +561,11 @@ Ihr fertiges HTML sollte in etwa so aussehen:
 
         <figure>
           <img
-            src="https://mdn.github.io/shared-assets/images/examples/learn/crawlies/mosquito.jpg"
+            src="https://mdn.github.io/shared-assets/images/examples/learn/crawlies/fly.jpg"
             alt="A hairy flying insect with long legs"
             width="250"
             height="180" />
-          <figcaption>A mosquito.</figcaption>
+          <figcaption>A fly.</figcaption>
         </figure>
 
         <p>
