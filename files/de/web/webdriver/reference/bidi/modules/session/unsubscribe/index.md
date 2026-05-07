@@ -1,16 +1,16 @@
 ---
-title: session.unsubscribe Befehl
-short-title: session.unsubscribe
+title: "`session.unsubscribe`-Befehl"
+short-title: unsubscribe
 slug: Web/WebDriver/Reference/BiDi/Modules/session/unsubscribe
 l10n:
-  sourceCommit: f83c12ab41865e0e195dd36ad9cdcad511a36957
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der `session.unsubscribe` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls storniert zuvor registrierte Ereignisabonnements mit [`session.subscribe`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe), entweder durch Abonnement-ID oder durch Ereignisnamen.
+Der `session.unsubscribe` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls storniert zuvor mit [`session.subscribe`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe) registrierte Ereignisabonnements, entweder anhand der Abonnement-ID oder des Ereignisnamens.
 
 ## Syntax
 
-Zum Abbestellen mit Abonnement-ID:
+Um sich mit einer Abonnement-ID abzumelden:
 
 ```json-nolint
 {
@@ -21,7 +21,7 @@ Zum Abbestellen mit Abonnement-ID:
 }
 ```
 
-Zum Abbestellen mit Ereignisnamen:
+Um sich mit einem Ereignisnamen abzumelden:
 
 ```json-nolint
 {
@@ -34,30 +34,27 @@ Zum Abbestellen mit Ereignisnamen:
 
 ### Parameter
 
-Das `params` Feld enthält eines der folgenden Felder:
+Das `params`-Feld enthält eines der folgenden Felder:
 
 - `subscriptions`
-  - : Ein Array von einer oder mehreren Abonnement-IDs, das die zu stornierenden Abonnements spezifiziert, einschließlich beider globaler und kontextbezogener Abonnements.
+  - : Ein Array von einem oder mehreren Abonnement-IDs, das die zu stornierenden Abonnements spezifiziert, einschließlich sowohl globaler als auch kontextbezogener Abonnements.
 - `events`
-  - : Ein Array von einem oder mehreren Strings, das Ereignisnamen spezifiziert, um Abonnements zu beenden.
-    Jeder String kann entweder ein spezifischer Ereignisname sein (zum Beispiel `"log.entryAdded"`) oder ein Modulname (zum Beispiel `"log"`), der den Client von allen Ereignissen in diesem Modul abmeldet.
-    Nur globale Abonnements können mit Ereignisnamen entfernt werden; diejenigen, die mit [`contexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe#contexts) oder [`userContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe#usercontexts) erstellt wurden, können es nicht.
+  - : Ein Array von einem oder mehreren Strings, das Ereignisnamen für die Kündigung von Abonnements spezifiziert. Jeder String kann entweder ein spezifischer Ereignisname (zum Beispiel, `"log.entryAdded"`) oder ein Modulname (zum Beispiel, `"log"`) sein, der den Client von allen Ereignissen in diesem Modul abmeldet. Nur globale Abonnements können mit Ereignisnamen entfernt werden; diejenigen, die mit [`contexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe#contexts) oder [`userContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe#usercontexts) erstellt wurden, können nicht.
 
 ### Rückgabewert
 
-Das `result` Feld in der Antwort ist ein leeres Objekt (`{}`).
+Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 ### Fehler
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
-  - : Wenn beim Abbestellen mit IDs eine Abonnement-ID nicht gefunden wird.
-    Wenn beim Abbestellen mit Ereignisnamen das `events` Array leer oder ausgelassen ist oder ein Ereignisname keiner aktiven globalen Abonnement entspricht.
+  - : Wenn beim Abmelden mit IDs eine Abonnement-ID nicht gefunden wurde. Beim Abmelden mit Ereignisnamen ist das `events`-Array leer oder weggelassen, oder ein Ereignisname stimmt mit keinem aktiven globalen Abonnement überein.
 
 ## Beispiele
 
-### Abbestellen mit einer Abonnement-ID
+### Abmelden mit einer Abonnement-ID
 
-Mit einem aktiven Abonnement senden Sie die folgende Nachricht, um es nach ID zu kündigen:
+Bei einem aktiven Abonnement senden Sie die folgende Nachricht, um es per ID zu stornieren:
 
 ```json
 {
@@ -69,7 +66,7 @@ Mit einem aktiven Abonnement senden Sie die folgende Nachricht, um es nach ID zu
 }
 ```
 
-Nach erfolgreichem Abbestellen antwortet der Browser wie folgt:
+Nach erfolgreicher Abmeldung antwortet der Browser wie folgt:
 
 ```json
 {
@@ -79,9 +76,9 @@ Nach erfolgreichem Abbestellen antwortet der Browser wie folgt:
 }
 ```
 
-### Globales Abbestellen von einem Ereignis unter Verwendung eines Ereignisnamens
+### Abmelden von einem Ereignis global mit einem Ereignisnamen
 
-Mit einem globalen Abonnement für `log.entryAdded` aktiv, senden Sie die folgende Nachricht, um das Empfangen dieses Ereignisses zu beenden:
+Bei einem globalen Abonnement für `log.entryAdded` aktiv, senden Sie die folgende Nachricht, um das Empfangen dieses Ereignisses zu stoppen:
 
 ```json
 {
@@ -93,7 +90,7 @@ Mit einem globalen Abonnement für `log.entryAdded` aktiv, senden Sie die folgen
 }
 ```
 
-Nach erfolgreichem Abbestellen antwortet der Browser wie folgt:
+Nach erfolgreicher Abmeldung antwortet der Browser wie folgt:
 
 ```json
 {
@@ -103,9 +100,9 @@ Nach erfolgreichem Abbestellen antwortet der Browser wie folgt:
 }
 ```
 
-### Globales Abbestellen von mehreren Ereignissen unter Verwendung von Ereignisnamen
+### Abmelden von mehreren Ereignissen global mit Ereignisnamen
 
-Mit aktiven globalen Abonnements senden Sie die folgende Nachricht, um alle Ereignisse im `log` Modul und ein spezifisches Ereignis aus dem `network` Modul abzumelden:
+Bei aktiven globalen Abonnements senden Sie die folgende Nachricht, um sich von allen Ereignissen im `log`-Modul und einem spezifischen Ereignis aus dem `network`-Modul abzumelden:
 
 ```json
 {
@@ -117,7 +114,7 @@ Mit aktiven globalen Abonnements senden Sie die folgende Nachricht, um alle Erei
 }
 ```
 
-Nach erfolgreichem Abbestellen antwortet der Browser wie folgt:
+Nach erfolgreicher Abmeldung antwortet der Browser wie folgt:
 
 ```json
 {

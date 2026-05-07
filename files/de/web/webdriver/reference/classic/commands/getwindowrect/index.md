@@ -2,12 +2,12 @@
 title: Get Window Rect
 slug: Web/WebDriver/Reference/Classic/Commands/GetWindowRect
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Get Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Reference/Clients) bieten separate API-Methoden zum Abrufen des Standorts und der Dimensionen eines Elements an, nutzen jedoch zur Optimierung beide dieses Primitive.
+Der _Get Window Rect_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt die Größe und Position des angegebenen [`WebElement`](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Viele [WebDriver-Clients](/de/docs/Web/WebDriver/Reference/Clients) bieten separate API-Methoden zum Abrufen des Standorts und der Abmessungen eines Elements an, aber zur Optimierung verwenden beide dieses Primitive.
 
-Der Befehl arbeitet mit dem aktuell ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) kann als Eingabe für den Befehl [Set Window Rect](/de/docs/Web/WebDriver/Reference/SetWindowRect) verwendet werden, welcher zur Manipulation der Position und Dimensionen eines Fensters dient.
+Der Befehl arbeitet mit dem aktuell ausgewählten Fenster und gibt die Größe und Position des Betriebssystemfensters zurück. Das zurückgegebene [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) kann als Eingabe für den [Set Window Rect](/de/docs/Web/WebDriver/Reference/SetWindowRect) Befehl verwendet werden, um die Position und Abmessungen eines Fensters zu manipulieren.
 
 ## Syntax
 
@@ -18,27 +18,27 @@ Der Befehl arbeitet mit dem aktuell ausgewählten Fenster und gibt die Größe u
 ### URL-Parameter
 
 - `session id`
-  - : Bezeichner der Sitzung.
+  - : Identifikator der Sitzung.
 
 ### Antwort
 
-Die Antwortnutzlast ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WebWindow):
+Das Antwort-Payload ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WebWindow):
 
 - `x`
-  - : Horizontale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) verbunden ist, äquivalent zu [`Window.screenX`](/de/docs/Web/API/Window/screenX).
+  - : Horizontale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, entspricht [`Window.screenX`](/de/docs/Web/API/Window/screenX).
 - `y`
-  - : Vertikale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) verbunden ist, äquivalent zu [`Window.screenY`](/de/docs/Web/API/Window/screenY).
+  - : Vertikale Position des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, entspricht [`Window.screenY`](/de/docs/Web/API/Window/screenY).
 - `width`
-  - : Breite der äußeren Begrenzungen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) verbunden ist, äquivalent zu [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth).
+  - : Breite der äußeren Grenzen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, entspricht [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth).
 - `height`
-  - : Höhe der äußeren Begrenzungen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) verbunden ist, äquivalent zu [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight).
+  - : Höhe der äußeren Grenzen des Betriebssystemfensters, das mit [`window`](/de/docs/Web/API/Window) assoziiert ist, entspricht [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight).
 
 ### Fehler
 
-- [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
-  - : Sitzung existiert nicht.
-- [Unerwarteter Alert geöffnet](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [`invalid session id`](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
+  - : Die Sitzung existiert nicht.
+- [`unexpected alert open`](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Spezifikationen
 

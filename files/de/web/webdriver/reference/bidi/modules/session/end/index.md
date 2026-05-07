@@ -1,9 +1,9 @@
 ---
-title: session.end Befehl
-short-title: session.end
+title: "`session.end`-Befehl"
+short-title: end
 slug: Web/WebDriver/Reference/BiDi/Modules/session/end
 l10n:
-  sourceCommit: f83c12ab41865e0e195dd36ad9cdcad511a36957
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
 {{SeeCompatTable}}
@@ -21,7 +21,7 @@ Der `session.end` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#command
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einschließen und auf ein leeres Objekt (`{}`) setzen.
+Keine. Sie müssen jedoch das `params`-Feld hinzufügen und es auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 ### Beenden einer Automatisierungssitzung mit dem Browser
 
-Mit einer etablierten [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
+Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) hergestellt, senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
 
 ```json
 {

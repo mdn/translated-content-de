@@ -1,12 +1,12 @@
 ---
-title: browser.getUserContexts-Kommando
-short-title: browser.getUserContexts
+title: "`browser.getUserContexts`-Befehl"
+short-title: getUserContexts
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts
 l10n:
-  sourceCommit: c09036bf0ea2f0b6e322dfdeee64b26ab53e2797
+  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
 ---
 
-Das `browser.getUserContexts`-[Kommando](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls gibt eine Liste aller aktuellen [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser zurück.
+Der `browser.getUserContexts`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`]-Moduls(/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) gibt eine Liste aller aktuellen [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das `browser.getUserContexts`-[Kommando](/de/docs/Web/WebDriver/Reference/BiDi/M
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einfügen und es auf ein leeres Objekt (`{}`) setzen.
+Keine. Sie müssen jedoch das `params`-Feld einfügen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
@@ -27,16 +27,16 @@ Das folgende Feld im `result`-Objekt der Antwort beschreibt die Benutzerkontexte
 
 - `userContexts`
   - : Ein Array von einem oder mehreren Objekten, die jeweils einen Benutzerkontext darstellen.
-    Jedes Objekt enthält das folgende Feld:
+    Jedes Objekt hat das folgende Feld:
     - `userContext`
-      - : Ein String, der den Benutzerkontext eindeutig identifiziert.
+      - : Ein String, der die ID ({{Glossary("UUID", "UUID")}}) enthält, die den Benutzerkontext eindeutig identifiziert.
         Der Standard-Benutzerkontext hat den Wert `"default"`; er existiert immer und kann nicht entfernt werden, sodass das Array niemals leer ist.
 
 ## Beispiele
 
 ### Abrufen einer Liste von Benutzerkontexten
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), senden Sie die folgende Nachricht, um eine Liste aller Benutzerkontexte abzurufen:
+Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um eine Liste aller Benutzerkontexte zu erhalten:
 
 ```json
 {
@@ -62,7 +62,7 @@ Wenn nur der Standard-Benutzerkontext existiert, antwortet der Browser wie folgt
 }
 ```
 
-### Abrufen einer Liste von Benutzerkontexten nach Erstellung zusätzlicher Kontexte
+### Abrufen einer Liste von Benutzerkontexten nach dem Erstellen zusätzlicher Kontexte
 
 Nachdem Sie einige Benutzerkontexte mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) erstellt haben, senden Sie die folgende Nachricht, um alle aufzulisten:
 
@@ -74,7 +74,7 @@ Nachdem Sie einige Benutzerkontexte mit [`browser.createUserContext`](/de/docs/W
 }
 ```
 
-Der Browser antwortet mit allen Benutzerkontexten, einschließlich dem `default`, wie folgt:
+Der Browser antwortet mit allen Benutzerkontexten, einschließlich des `default`-Kontextes, wie folgt:
 
 ```json
 {
@@ -106,6 +106,6 @@ Der Browser antwortet mit allen Benutzerkontexten, einschließlich dem `default`
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Kommando
-- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext)-Kommando
-- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext)-Kommando
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
+- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext)-Befehl
+- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext)-Befehl

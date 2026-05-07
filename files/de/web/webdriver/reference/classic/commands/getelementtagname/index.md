@@ -1,11 +1,11 @@
 ---
-title: Abrufen des Tag-Namens eines Elements
+title: Ermitteln des Tag-Namens eines Elements
 slug: Web/WebDriver/Reference/Classic/Commands/GetElementTagName
 l10n:
-  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Abrufen des Tag-Namens eines Elements_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Tag-Namen des referenzierten [Webelements](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Wenn zum Beispiel das Element ein {{HTMLElement("img")}} ist, wird der zurückgegebene Tag-Name `"IMG"` sein, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Bei XML/XHTML-Dokumenten kann die Groß- und Kleinschreibung unterschiedlich sein.
+Der _Ermitteln des Tag-Namens eines Elements_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Tag-Namen des referenzierten [Web-Elements](/de/docs/Web/WebDriver/Reference/WebElement) zurück. Wenn das Element zum Beispiel ein {{HTMLElement("img")}} ist, wird der zurückgegebene Tag-Name `"IMG"` sein, was dem Aufruf von [`Element.tagName`](/de/docs/Web/API/Element/tagName) auf dem Element entspricht. Für XML/XHTML-Dokumente kann es unterschiedlich großgeschrieben sein.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ Der _Abrufen des Tag-Namens eines Elements_ [Befehl](/de/docs/Web/WebDriver/Refe
 - `session id`
   - : Kennung der Sitzung.
 - `element id`
-  - : Kennung des [Webelements](/de/docs/Web/WebDriver/Reference/WebElement), von dem der Tag-Name abgerufen werden soll.
+  - : Kennung des [Web-Elements](/de/docs/Web/WebDriver/Reference/WebElement), dessen Tag-Name ermittelt werden soll.
 
 ### Fehler
 
-- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
+- [`session not created`](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
   - : Sitzung existiert nicht.
-- [Kein solches Fenster](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass die Registerkarte oder das Fenster geschlossen wurde.
-- [Unerwartetes geöffnetes Alert](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
-  - : Eine Benutzereingabeaufforderung, wie zum Beispiel [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
+- [`no such window`](/de/docs/Web/WebDriver/Reference/Errors/NoSuchWindow)
+  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
+- [`unexpected alert open`](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 
 ## Beispiele
 

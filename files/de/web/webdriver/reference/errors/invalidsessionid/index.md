@@ -1,17 +1,18 @@
 ---
-title: Ungültige Sitzungs-ID
+title: "`invalid session id` Fehlercode"
+short-title: invalid session id
 slug: Web/WebDriver/Reference/Errors/InvalidSessionID
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der **ungültige Sitzungs-ID**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server die eindeutige Sitzungskennung nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
+Der **invalid session ID**-Fehler ist ein [WebDriver Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server den eindeutigen Sitzungsbezeichner nicht erkennt. Dies passiert, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
 
 ## Beispiel
 
-### Explizite Sitzungsbeendigung
+### Explizites Löschen der Sitzung
 
-Eine WebDriver-Sitzung wird explizit beendet, wenn Sie diese beenden:
+Eine WebDriver-Sitzung wird beim Beenden explizit gelöscht:
 
 ```python
 from selenium import webdriver
@@ -34,9 +35,9 @@ Current session is 46197c16-8373-469b-bc56-4c4d9e4132b4
 No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 ```
 
-### Implizite Sitzungsbeendigung
+### Implizites Löschen der Sitzung
 
-Die Sitzung kann auch _implizit beendet_ werden, wenn Sie das letzte Fenster oder den letzten Tab schließen:
+Die Sitzung kann auch _implizit gelöscht_ werden, wenn Sie das letzte Fenster oder Tab schließen:
 
 ```python
 from selenium import webdriver

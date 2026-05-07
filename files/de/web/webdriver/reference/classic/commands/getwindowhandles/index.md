@@ -1,11 +1,11 @@
 ---
-title: Abrufen von Fenster-Handles
+title: Fenster-Handles abrufen
 slug: Web/WebDriver/Reference/Classic/Commands/GetWindowHandles
 l10n:
-  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API liefert eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/Reference/WebWindow)s. Jedes Tab oder Fenster, je nachdem ob Sie einen Tab-basierten Browser verwenden, wird über ein _Fenster-Handle_ zugeordnet, das als Referenz beim [Wechseln zum Fenster](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow) verwendet wird.
+Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/Reference/WebWindow)s zurück. Jeder Tab oder jedes Fenster, je nachdem, ob Sie einen Browser mit Tabs verwenden, ist mit einem _Fenster-Handle_ verknüpft, das als Referenz verwendet wird, wenn Sie [zu einem Fenster wechseln](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow).
 
 Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenster-Handles vor der Interaktion abrufen und mit der Menge nach der Aktion vergleichen.
 
@@ -22,7 +22,7 @@ Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenste
 
 ### Fehler
 
-- Ungültige Sitzungs-ID
+- `invalid session id`
   - : Sitzung existiert nicht.
 
 ## Beispiel
@@ -59,6 +59,6 @@ namespace MDNWebDriverExamples
 
 ## Siehe auch
 
-- [Switch To Window](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow) Befehl
-- [Get Window Handle](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle) Befehl
-- [Close Window](/de/docs/Web/WebDriver/Reference/Classic/Commands/CloseWindow) Befehl
+- [Switch To Window](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow)-Befehl
+- [Get Window Handle](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle)-Befehl
+- [Close Window](/de/docs/Web/WebDriver/Reference/Classic/Commands/CloseWindow)-Befehl

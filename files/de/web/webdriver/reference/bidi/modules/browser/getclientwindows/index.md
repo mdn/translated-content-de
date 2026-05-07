@@ -1,12 +1,12 @@
 ---
-title: browser.getClientWindows-Befehl
-short-title: browser.getClientWindows
+title: "`browser.getClientWindows` Befehl"
+short-title: getClientWindows
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/getClientWindows
 l10n:
-  sourceCommit: c09036bf0ea2f0b6e322dfdeee64b26ab53e2797
+  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
 ---
 
-Der `browser.getClientWindows` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls gibt eine Liste von [Client-Fenstern](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows) zurück.
+Der `browser.getClientWindows` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls gibt eine Liste von [Client-Fenstern](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows) zurück.
 
 ## Syntax
 
@@ -19,45 +19,45 @@ Der `browser.getClientWindows` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Mo
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einfügen und auf ein leeres Objekt (`{}`) setzen.
+Keine. Allerdings müssen Sie das Feld `params` einschließen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
 Das folgende Feld im `result`-Objekt der Antwort beschreibt die Client-Fenster im Browser:
 
 - `clientWindows`
-  - : Ein Array von Objekten, die jeweils ein Client-Fenster darstellen.
-    Das Array kann leer sein, wenn der Browser keine offenen Fenster hat.
-    Jedes Objekt enthält die folgenden Felder:
+  - : Ein Array von Objekten, jedes repräsentiert ein Client-Fenster.
+    Das Array kann leer sein, wenn der Browser keine geöffneten Fenster hat.
+    Jedes Objekt hat die folgenden Felder:
     - `active`
       - : Ein boolescher Wert, der angibt, ob das Client-Fenster Tastatureingaben vom Betriebssystem empfangen kann.
-        Dies kann bedeuten, dass ein Tab innerhalb des Fensters den Systemfokus hat oder die Benutzeroberfläche des Browsers selbst fokussiert ist.
+        Dies kann bedeuten, dass ein Tab innerhalb des Fensters Fokus hat oder dass die Browser-Oberfläche selbst fokussiert ist.
     - `clientWindow`
       - : Ein String, der das Client-Fenster eindeutig identifiziert.
     - `height`
-      - : Eine Zahl, die die Höhe des Fensters in {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt.
+      - : Eine Zahl, die die Höhe des Fensters in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt.
     - `state`
-      - : Ein String, der den aktuellen Status des Fensters angibt.
+      - : Ein String, der den aktuellen Zustand des Fensters angibt.
         - `"fullscreen"`
           - : Gibt an, dass das Fenster im Vollbildmodus ist.
         - `"maximized"`
-          - : Gibt an, dass das Fenster maximiert ist, um den gesamten Bildschirmbereich auszufüllen.
+          - : Gibt an, dass das Fenster maximiert ist, um den Bildschirmbereich auszufüllen.
         - `"minimized"`
-          - : Gibt an, dass das Fenster minimiert ist (aus der Ansicht ausgeblendet).
+          - : Gibt an, dass das Fenster minimiert (aus dem Sichtfeld verborgen) ist.
         - `"normal"`
           - : Gibt an, dass das Fenster in seinem normalen (wiederhergestellten) Zustand ist.
     - `width`
-      - : Eine Zahl, die die Breite des Fensters in {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt.
+      - : Eine Zahl, die die Breite des Fensters in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt.
     - `x`
-      - : Eine Zahl, die die x-Koordinate des Fensters in {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt, gemessen vom linken Rand des Bildschirmbereichs.
+      - : Eine Zahl, die die x-Koordinate des Fensters in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt, gemessen vom linken Rand des Bildschirmbereichs.
     - `y`
-      - : Eine Zahl, die die y-Koordinate des Fensters in {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt, gemessen vom oberen Rand des Bildschirmbereichs.
+      - : Eine Zahl, die die y-Koordinate des Fensters in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt, gemessen vom oberen Rand des Bildschirmbereichs.
 
 ## Beispiele
 
 ### Abrufen aller Client-Fenster
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um alle Client-Fenster abzurufen:
+Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), senden Sie die folgende Nachricht, um alle Client-Fenster abzurufen:
 
 ```json
 {
@@ -132,5 +132,5 @@ Wenn mehrere Browserfenster geöffnet sind, antwortet der Browser mit einem Eint
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
-- [`browser.setClientWindowState`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/setClientWindowState)-Befehl
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
+- [`browser.setClientWindowState`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/setClientWindowState) Befehl

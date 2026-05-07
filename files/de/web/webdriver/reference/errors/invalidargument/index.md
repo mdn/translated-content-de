@@ -1,17 +1,18 @@
 ---
-title: Ungültiges Argument
+title: "`invalid argument` Fehlercode"
+short-title: "`invalid argument`"
 slug: Web/WebDriver/Reference/Errors/InvalidArgument
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der **ungültiges Argument**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn die an einen [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) übergebenen Argumente entweder ungültig oder falsch formatiert sind.
+Der **invalid argument** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn die an einen [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) übergebenen Argumente entweder ungültig oder fehlerhaft sind.
 
-Ungültige Argumentfehler können mit [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)s in [JavaScript](/de/docs/Web/JavaScript) verglichen werden, da sie bei vielen APIs auftreten können, wenn der Eingabewert nicht vom erwarteten Typ ist oder auf irgendeine Weise falsch formatiert ist. Siehe die Typ- und Begrenzungsbedingungen für jeden [WebDriver-Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands).
+Ungültige Argumentfehler können mit [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)s in [JavaScript](/de/docs/Web/JavaScript) verglichen werden, da sie bei sehr vielen APIs auftreten können, wenn der Eingabewert nicht den erwarteten Typ hat oder in irgendeiner Weise fehlerhaft ist. Siehe die Typ- und Begrenzungseinschränkungen für jeden [WebDriver-Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands).
 
 ## Beispiel
 
-Es ist zum Beispiel nicht möglich, eine Fenstergröße auf einen negativen Wert einzustellen:
+Es ist zum Beispiel nicht möglich, eine Fenstergröße auf einen negativen Wert zu setzen:
 
 ```python
 from selenium import webdriver

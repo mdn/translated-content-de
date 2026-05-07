@@ -2,10 +2,10 @@
 title: Fenster schließen
 slug: Web/WebDriver/Reference/Classic/Commands/CloseWindow
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Fenster schließen_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen obersten Browserkontext (Fenster oder Tab) und gibt die Liste der derzeit geöffneten [`WebWindow`](/de/docs/Web/WebDriver/Reference/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle nach Beendigung der Sitzung führen daher zu [ungültigen Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID) Fehlern.
+Der _Fenster schließen_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der [WebDriver](/de/docs/Web/WebDriver) API schließt den aktuellen obersten Browsing-Kontext (Fenster oder Tab) und gibt die Liste der derzeit offenen [`WebWindow`](/de/docs/Web/WebDriver/Reference/WebWindow)s zurück. Wenn es das letzte Fenster ist, das geschlossen wird, wird die WebDriver-Sitzung implizit gelöscht. Nachfolgende Befehle, nachdem die Sitzung beendet wurde, verursachen daher [`invalid session id`](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)-Fehler.
 
 ## Syntax
 
@@ -16,14 +16,14 @@ Der _Fenster schließen_ [Befehl](/de/docs/Web/WebDriver/Reference/Command) der 
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Fehler
 
-- [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
+- [`invalid session id`](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- [Unerwartetes geöffnetes Dialogfeld](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
-  - : Ein Benutzerdialog, wie z.B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis er bearbeitet wird.
+- [`unexpected alert open`](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
+  - : Eine Benutzeraufforderung, wie z. B. [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie bearbeitet wird.
 
 ## Beispiel
 
@@ -76,6 +76,6 @@ namespace MDNWebDriverExamples
 
 ## Siehe auch
 
-- Befehl [Zu Fenster wechseln](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow)
-- Befehl [Fenster-Handle abrufen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle)
-- Befehl [Fenster-Handles abrufen](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetWindowHandles)
+- [Zu Fenster wechseln](/de/docs/Web/WebDriver/Reference/Commands/SwitchToWindow) Befehl
+- [Fenster-Handle holen](/de/docs/Web/WebDriver/Reference/Commands/GetWindowHandle) Befehl
+- [Fenster-Handles holen](/de/docs/Web/WebDriver/Reference/Classic/Commands/GetWindowHandles) Befehl

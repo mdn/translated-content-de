@@ -1,19 +1,20 @@
 ---
-title: Unsicheres Zertifikat
+title: "`insecure certificate` Fehlercode"
+short-title: unsicheres Zertifikat
 slug: Web/WebDriver/Reference/Errors/InsecureCertificate
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der **unsichere Zertifikatfehler** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der ferngesteuerte Browser auf eine Zertifikatswarnung jeglicher Art stößt. Dies ist normalerweise das Ergebnis des [Navigierens](/de/docs/Web/WebDriver/Reference/Commands/NavigateTo) zu einer Website mit einem abgelaufenen oder ungültigen {{Glossary("TLS", "TLS-Zertifikat")}}. Beispiele für ungültige Zertifikate sind selbstsignierte, widerrufene und kryptographisch unsichere Zertifikate.
+Der **unsichere Zertifikat**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der ferngesteuerte Browser auf eine Zertifikatswarnung jeglicher Art stößt. Dies ist normalerweise das Ergebnis des [Navigierens](/de/docs/Web/WebDriver/Reference/Commands/NavigateTo) zu einer Website mit einem abgelaufenen oder ungültigen {{Glossary("TLS", "TLS-Zertifikat")}}. Beispiele für ungültige Zertifikate umfassen selbstsignierte, widerrufene und kryptographisch unsichere Zertifikate.
 
-Webbrowser verhindern und blockieren den Datenverkehr zu Domains mit fehlerhaften Zertifikaten, da die Kommunikation mit dem Server kompromittiert wäre. Es wird dringend empfohlen, die Zertifikatsituation zu beheben, anstatt die Zertifikatprüfungen zu deaktivieren, selbst in Testumgebungen.
+Webbrowser verhindern und blockieren den Datenverkehr zu Domains mit fehlerhaften Zertifikaten, da die Kommunikation mit dem Server kompromittiert wäre. Es wird dringend empfohlen, die Zertifikatssituation zu beheben, anstatt Zertifikatsprüfungen zu deaktivieren, selbst in Testumgebungen.
 
-WebDriver bietet zwar eine [`acceptInsecureCerts`-Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts) zur Deaktivierung von Zertifikatprüfungen für die Dauer der Sitzung an, es ist jedoch wichtig zu betonen, dass die Nutzung stark abgeraten wird und allgemein als Schwäche der Testumgebung angesehen wird.
+WebDriver bietet eine [`acceptInsecureCerts` Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts) zum Deaktivieren von Zertifikatsprüfungen für die Dauer der Sitzung, aber es ist wichtig zu betonen, dass die Nutzung stark abgeraten wird und weithin als Schwäche der Testumgebung angesehen wird.
 
 ## Beispiel
 
-Dies wird passieren, wenn zu einer Domain mit einem selbstsignierten TLS-Zertifikat unter Verwendung des Python-Clients navigiert wird:
+Folgendes passiert beim Navigieren zu einer Domain, die ein selbstsigniertes TLS-Zertifikat verwendet, mit dem Python-Client:
 
 ```python
 from selenium import webdriver
@@ -34,6 +35,6 @@ Hit an insecure cert on https://self-signed.badssl.com/
 
 ## Siehe auch
 
-- [Navigate To](/de/docs/Web/WebDriver/Reference/Commands/NavigateTo)-Befehl
-- [Capabilities](/de/docs/Web/WebDriver/Reference/Capabilities)
+- [Befehl "Navigate To"](/de/docs/Web/WebDriver/Reference/Commands/NavigateTo)
+- [Fähigkeiten](/de/docs/Web/WebDriver/Reference/Capabilities)
 - [badssl.com](https://badssl.com/)

@@ -1,17 +1,18 @@
 ---
-title: Unbekannte Methode
+title: "`unknown method` Fehlercode"
+short-title: unbekannte Methode
 slug: Web/WebDriver/Reference/Errors/UnknownMethod
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der Fehler **unbekannte Methode** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber die verwendete [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) für den Endpunkt nicht erkennt.
+Der **unbekannte Methode** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber die für den Endpunkt verwendete [HTTP-Anfragemethode](/de/docs/Web/HTTP/Reference/Methods) nicht erkennt.
 
-WebDriver bietet eine weitgehend REST-ähnliche API, und nicht alle Endpunkte in dieser API haben `GET`, `POST` und `DELETE`-Methoden. Dieser Fehler tritt auf, wenn Sie versuchen, einen Endpunkt mit einer HTTP-Anfragemethode aufzurufen, die er nicht unterstützt.
+WebDriver bietet eine weitgehend REST-ähnliche API, und nicht alle Endpunkte in dieser API haben `GET`-, `POST`- und `DELETE`-Methoden. Dieser Fehler tritt auf, wenn Sie versuchen, einen Endpunkt mit einer HTTP-Anfragemethode aufzurufen, die er nicht unterstützt.
 
 ## Beispiele
 
-Der New Session-Befehl bietet einen `POST`-Anfragenendpunkt, mit dem Sie neue WebDriver-Sitzungen erstellen können:
+Der New Session-Befehl bietet einen `POST`-Anfragen-Endpunkt, der es Ihnen ermöglicht, neue WebDriver-Sitzungen zu erstellen:
 
 ```bash
 % curl -d '{}' http://localhost:4444/session
@@ -25,7 +26,7 @@ Er implementiert auch die `DELETE`-Methode zum Beenden einer Sitzung:
 {}
 ```
 
-Aber er bietet zum Beispiel keine `GET`-Methode, und dies wird folglich einen Fehler "unbekannte Methode" zurückgeben:
+Er bietet jedoch beispielsweise keine `GET`-Methode an, und dies wird folglich einen unbekannten Methodenfehler zurückgeben:
 
 ```bash
 % curl http://localhost:4444/session/650f9df3-740e-314c-958d-307e41752fae

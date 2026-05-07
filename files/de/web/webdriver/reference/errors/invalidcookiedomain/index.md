@@ -1,15 +1,16 @@
 ---
-title: Ungültiger Cookie-Domain
+title: "`invalid cookie domain` Fehlercode"
+short-title: invalid cookie domain
 slug: Web/WebDriver/Reference/Errors/InvalidCookieDomain
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der **ungültige Cookie-Domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} zu setzen als die des aktuellen Dokuments.
+Der **invalid cookie domain** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn versucht wird, ein ungültiges {{Glossary("Cookie", "Cookie")}} für eine andere {{Glossary("Domain", "Domain")}} als die des aktuellen Dokuments zu setzen.
 
-Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontextes")}} des [Dokuments](/de/docs/Web/API/Document) zu setzen.
+In WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browsing-Kontexts")}}'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wurde.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
 
 ## Beispiel
 

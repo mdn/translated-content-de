@@ -1,12 +1,12 @@
 ---
 title: Get Title
-short-title: Get Title
+short-title: Titel abrufen
 slug: Web/WebDriver/Reference/Classic/Commands/GetTitle
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Get Title_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Titel des Dokuments im aktuellen Top-Level-Browsing-Kontext zurück. Dies entspricht dem Auslesen der [`Document.title`](/de/docs/Web/API/Document/title) Eigenschaft in JavaScript.
+Der _Get Title_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API gibt den Dokumenttitel des aktuellen Top-Level-Browsing-Kontexts zurück. Dies entspricht dem Lesen der [`Document.title`](/de/docs/Web/API/Document/title)-Eigenschaft in JavaScript.
 
 ## Syntax
 
@@ -17,30 +17,30 @@ Der _Get Title_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der 
 ### URL-Parameter
 
 - `session id`
-  - : Kennung der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Rückgabewert
 
-Ein String, der den Titel des aktuellen Dokuments enthält, was dem Wert von [`Document.title`](/de/docs/Web/API/Document/title) entspricht.
+Ein String, der den Titel des aktuellen Dokuments enthält, äquivalent zum Wert von [`Document.title`](/de/docs/Web/API/Document/title).
 
 ### Fehler
 
-- [Ungültige Sitzungs-ID](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
+- [`ungültige Sitzungs-ID`](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- Kein solches Fenster
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hindeutet, dass der Tab oder das Fenster geschlossen wurde.
+- `kein solches Fenster`
+  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
 
 ## Beispiele
 
 ### Abrufen des Seitentitels
 
-Mit einem auf `localhost:4444` laufenden WebDriver-Server, bei dem angenommen wird, dass eine aktive Sitzung auf `https://example.org` navigiert hat, können Sie den Dokumenttitel mit folgendem Befehl abrufen, wobei `ID` durch die `sessionId` aus der [New Session](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession) Antwort ersetzt wird:
+Bei einem WebDriver-Server, der auf `localhost:4444` läuft, nehmen wir an, dass eine aktive Sitzung zu `https://example.org` navigiert ist. Sie können den Dokumenttitel mit folgendem Befehl abrufen, wobei Sie `ID` durch die `sessionId` aus der [neue Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession)-Antwort ersetzen:
 
 ```bash
 curl -i http://localhost:4444/session/ID/title
 ```
 
-Der Server antwortet mit dem Dokumenttitel, wie hier gezeigt:
+Der Server antwortet mit dem Dokumenttitel wie hier gezeigt:
 
 ```http
 HTTP/1.1 200 OK

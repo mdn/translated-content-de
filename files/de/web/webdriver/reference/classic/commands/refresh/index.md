@@ -3,10 +3,10 @@ title: Aktualisieren
 short-title: Refresh
 slug: Web/WebDriver/Reference/Classic/Commands/Refresh
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der _Refresh_-[Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API lädt die aktuelle Seite im aktiven Browsing-Kontext neu. Dies entspricht dem Klicken auf die Aktualisierungsschaltfläche des Browsers oder dem Aufruf von [`Location.reload()`](/de/docs/Web/API/Location/reload) in JavaScript.
+Der _Aktualisieren_ [Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [WebDriver](/de/docs/Web/WebDriver) API lädt die aktuelle Seite im aktiven Browsing-Kontext neu. Dies entspricht dem Klicken auf den Aktualisieren-Button des Browsers oder dem Aufruf von [`Location.reload()`](/de/docs/Web/API/Location/reload) in JavaScript.
 
 ## Syntax
 
@@ -25,18 +25,18 @@ Der _Refresh_-[Befehl](/de/docs/Web/WebDriver/Reference/Classic/Commands) der [W
 
 ### Fehler
 
-- [Invalid session id](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
+- [`ungültige Sitzungs-ID`](/de/docs/Web/WebDriver/Reference/Errors/InvalidSessionID)
   - : Sitzung existiert nicht.
-- Kein solches Fenster
-  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass die Registerkarte oder das Fenster geschlossen wurde.
-- Unerwartetes offenes Dialogfeld
-  - : Ein modales Dialogfeld war geöffnet und blockiert diesen Vorgang.
+- `kein solches Fenster`
+  - : Das [`window`](/de/docs/Web/API/Window)-Objekt wurde verworfen, was darauf hinweist, dass der Tab oder das Fenster geschlossen wurde.
+- `unerwarteter Alarm geöffnet`
+  - : Ein modales Dialogfeld war geöffnet, das diesen Vorgang blockierte.
 
 ## Beispiele
 
-### Neuladen der aktuellen Seite
+### Die aktuelle Seite neu laden
 
-Bei einem WebDriver-Server, der auf `localhost:4444` läuft, nehme man an, eine aktive Sitzung hat zu einer Seite navigiert. Um die aktuelle Seite neu zu laden, verwenden Sie den `refresh`-Befehl, wobei `ID` durch die `sessionId` aus der [New Session](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession) Antwort ersetzt wird:
+Mit einem WebDriver-Server, der auf `localhost:4444` läuft, wird angenommen, dass eine aktive Sitzung zu einer Seite navigiert ist. Um die aktuelle Seite neu zu laden, verwenden Sie den `refresh`-Befehl, und ersetzen Sie `ID` durch die `sessionId` aus der [Neue Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession)-Antwort:
 
 ```bash
 curl -i -H "Content-Type: application/json" -d '{}' http://localhost:4444/session/ID/refresh

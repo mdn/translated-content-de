@@ -1,15 +1,16 @@
 ---
-title: Unbekannter Befehl
+title: "`unknown command` Fehlercode"
+short-title: unknown command
 slug: Web/WebDriver/Reference/Errors/UnknownCommand
 l10n:
-  sourceCommit: 676631fd27c8096c3ae3ceb2a6b4ffd6f687055f
+  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
 ---
 
-Der Fehler **unbekannter Befehl** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber den Befehl/HTTP-Endpunkt nicht erkennt.
+Der **unknown command** Fehler ist ein [WebDriver Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Treiber den Befehl/das HTTP-Endpunkt nicht erkennt.
 
 ## Beispiele
 
-Der Endpunkt `/session/{session id}/foo` existiert nicht und wird einen unbekannten Befehlsfehler mit einem [`404 Not Found`](/de/docs/Web/HTTP/Reference/Status/404) HTTP-Statuscode zurückgeben:
+Das `/session/{session id}/foo` Endpunkt existiert nicht und wird einen unknown command Fehler mit einem [`404 Not Found`](/de/docs/Web/HTTP/Reference/Status/404) HTTP-Statuscode zurückgeben:
 
 ```bash
 curl -i -d '{}' http://localhost:4444/session/foo

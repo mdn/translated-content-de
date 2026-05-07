@@ -1,12 +1,12 @@
 ---
-title: browser.close-Befehl
-short-title: browser.close
+title: "`browser.close`-Befehl"
+short-title: close
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/close
 l10n:
-  sourceCommit: c09036bf0ea2f0b6e322dfdeee64b26ab53e2797
+  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
 ---
 
-Der `browser.close` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls schließt den Browser und beendet alle aktiven WebDriver-Sitzungen. Tabs werden geschlossen, ohne dass [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Event-Handler-Funktionen ausgeführt werden. Die Antwort wird gesendet, bevor die WebSocket-Verbindung geschlossen wird.
+Der `browser.close`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls schließt den Browser und beendet alle aktiven WebDriver-Sitzungen. Tabs werden geschlossen, ohne dass Event-Handler-Funktionen des [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Events ausgeführt werden. Die Antwort wird gesendet, bevor die WebSocket-Verbindung geschlossen wird.
 
 ## Syntax
 
@@ -28,11 +28,12 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 ### Fehler
 
 - `unable to close browser`
-  - : Es gibt andere aktive WebDriver-Sitzungen, die zum Zeitpunkt des Befehls noch geöffnet sind. Browser können diesen Fehler zurückgeben, bevor sie mit dem Schließvorgang fortfahren.
+  - : Es sind noch andere aktive WebDriver-Sitzungen geöffnet, wenn der Befehl gesendet wird.
+    Browser können diesen Fehler zurückgeben, bevor sie mit dem Schließen fortfahren.
 
 ## Beispiele
 
-### Schließen des Browsers
+### Den Browser schließen
 
 Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um den Browser zu schließen:
 
@@ -66,8 +67,8 @@ Nach der Antwort schließt die WebSocket-Verbindung, da der Browser heruntergefa
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
-- [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end) Befehl
-- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) Befehl
-- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) Befehl
-- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext) Befehl
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
+- [`session.end`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/end)-Befehl
+- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext)-Befehl
+- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts)-Befehl
+- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext)-Befehl
