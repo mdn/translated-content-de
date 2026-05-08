@@ -3,12 +3,12 @@ title: "PreferenceObject: requestOverride() Methode"
 short-title: requestOverride()
 slug: Web/API/PreferenceObject/requestOverride
 l10n:
-  sourceCommit: ac0fef0566bfd672c44644a95240b8e1407277bd
+  sourceCommit: cef391e51005fcc0716545cc6629e5f6d6223225
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestOverride`**-Methode der [`PreferenceObject`](/de/docs/Web/API/PreferenceObject)-Schnittstelle setzt einen {{domxref("PreferenceObject.override" "override")}}-Wert für eine bestimmte Präferenz.
+Die **`requestOverride`**-Methode der [`PreferenceObject`](/de/docs/Web/API/PreferenceObject)-Schnittstelle setzt einen [`override`](/de/docs/Web/API/PreferenceObject/override)-Wert für eine bestimmte Präferenz.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ requestOverrides(value)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der bei Erfolg in {{jsxref("undefined")}} aufgelöst wird oder bei Misserfolg abgelehnt wird.
+Ein {{jsxref("Promise")}}, das bei Erfolg auf {{jsxref("undefined")}} aufgelöst wird oder bei Fehler abgelehnt wird.
 
 ### Ausnahmen
 
@@ -34,7 +34,7 @@ Ein {{jsxref("Promise")}}, der bei Erfolg in {{jsxref("undefined")}} aufgelöst 
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel fordert eine Überschreibung von {{domxref("PreferenceObject.colorScheme" "colorScheme")}} an.
+Das folgende Beispiel fordert eine Überschreibung des [`colorScheme`](/de/docs/Web/API/PreferenceObject/colorScheme) an.
 
 ```js
 await navigator.preferences.colorScheme.requestOverride("dark");

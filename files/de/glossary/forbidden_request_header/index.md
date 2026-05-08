@@ -1,13 +1,13 @@
 ---
-title: Verbotenes Anforderungs-Header
+title: Verbotener Anfrage-Header
 slug: Glossary/Forbidden_request_header
 l10n:
-  sourceCommit: a8a430360e652306ae0b2d97388da9501671d2fb
+  sourceCommit: cd98d634697c824a8295e979e27e20a7892d381b
 ---
 
-Ein **verbotenes Anforderungs-Header** ist ein [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers), bestehend aus einem Namen-Wert-Paar, das nicht programmatisch in einer Anfrage gesetzt oder modifiziert werden kann. Für Header, deren Änderungen in Antworten verboten sind, siehe {{Glossary("forbidden_response_header_name", "verbotener Antwort-Header-Name")}}.
+Ein **verbotener Anfrage-Header** ist ein [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)-Name-Wert-Paar, das in einer Anfrage nicht programmatisch gesetzt oder geändert werden kann. Für Header, die in Antworten nicht verändert werden dürfen, siehe {{Glossary("forbidden_response_header_name", "verbotener Antwort-Header-Name")}}.
 
-Die Modifikation solcher Header ist verboten, da der Benutzeragent die volle Kontrolle über diese behält. Zum Beispiel ist der {{HTTPHeader("Date")}}-Header ein verbotenes Anforderungs-Header, daher kann dieses Codebeispiel das Nachrichtenfeld `Date` nicht setzen:
+Die Änderung solcher Header ist verboten, weil der Benutzeragent die volle Kontrolle über sie behält. Zum Beispiel ist der {{HTTPHeader("Date")}}-Header ein verbotener Anfrage-Header, daher kann dieser Code das Nachrichtenfeld `Date` nicht setzen:
 
 ```js example-bad
 fetch("https://httpbin.org/get", {
@@ -17,7 +17,7 @@ fetch("https://httpbin.org/get", {
 });
 ```
 
-Mit `Sec-` beginnende Namen sind für die Erstellung neuer Header reserviert, die sicher vor {{Glossary("API", "APIs")}} sind, die Entwicklern Kontrolle über Header gewähren, wie zum Beispiel [`fetch()`](/de/docs/Web/API/Window/fetch). Verbotene Header sind eine der folgenden:
+Mit `Sec-` beginnende Namen sind für die Erstellung neuer Header reserviert, die vor {{Glossary("API", "APIs")}}, die Entwicklern die Kontrolle über Header gewähren, sicher sind, wie zum Beispiel [`fetch()`](/de/docs/Web/API/Window/fetch). Verbotene Header sind einer der folgenden:
 
 - `Accept-Charset`
 - {{HTTPHeader("Accept-Encoding")}}
@@ -41,18 +41,18 @@ Mit `Sec-` beginnende Namen sind für die Erstellung neuer Header reserviert, di
 - {{HTTPHeader("Transfer-Encoding")}}
 - {{HTTPHeader("Upgrade")}}
 - {{HTTPHeader("Via")}}
-- `X-HTTP-Method`, aber nur, wenn es einen verbotenen Methodennamen enthält ({{HTTPMethod("CONNECT")}}, {{HTTPMethod("TRACE")}}, {{HTTPMethod("TRACK")}})
+- `X-HTTP-Method`, aber nur, wenn es einen verbotenen Methodennamen enthält ({{HTTPMethod("CONNECT")}}, {{HTTPMethod("TRACE")}}, `TRACK`)
 - `X-HTTP-Method-Override`, aber nur, wenn es einen verbotenen Methodennamen enthält
 - `X-Method-Override`, aber nur, wenn es einen verbotenen Methodennamen enthält
 
 > [!NOTE]
-> Der {{HTTPHeader("User-Agent")}}-Header war früher verboten, ist es aber nicht mehr. Chrome entfernt jedoch den Header immer noch stillschweigend aus `Fetch`-Anfragen (siehe [Chromium-Bug 571722](https://crbug.com/571722)).
+> Der {{HTTPHeader("User-Agent")}}-Header war früher verboten, ist es jedoch nicht mehr. Chrome lässt den Header jedoch immer noch unausgesprochen aus `Fetch`-Anfragen weg (siehe [Chromium-Bug 571722](https://crbug.com/571722)).
 
 > [!NOTE]
-> Während der {{HTTPHeader("Referer")}}-Header [in der Spezifikation](https://fetch.spec.whatwg.org/#forbidden-request-header) als verbotener Header aufgeführt ist, behält der Benutzeragent nicht die volle Kontrolle darüber, und der Header kann programmatisch modifiziert werden. Zum Beispiel kann bei Verwendung von [`fetch()`](/de/docs/Web/API/Window/fetch) der {{HTTPHeader("Referer")}}-Header über die [`referrer`-Option](/de/docs/Web/API/RequestInit#referrer) programmatisch geändert werden.
+> Während der {{HTTPHeader("Referer")}}-Header [im Standard](https://fetch.spec.whatwg.org/#forbidden-request-header) als verbotener Header aufgeführt ist, behält der Benutzeragent nicht die volle Kontrolle darüber, und der Header kann programmatisch geändert werden. Zum Beispiel kann bei Verwendung von [`fetch()`](/de/docs/Web/API/Window/fetch) der {{HTTPHeader("Referer")}}-Header programmgesteuert über die [`referrer`-Option](/de/docs/Web/API/RequestInit#referrer) geändert werden.
 
 > [!NOTE]
-> Chrome verbietet auch `Access-Control-Request-Private-Network`.
+> Chrome verbietet auch `Access-Control-Request-Private-Network`
 
 ## Siehe auch
 

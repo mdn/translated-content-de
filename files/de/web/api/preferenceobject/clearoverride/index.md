@@ -3,12 +3,12 @@ title: "PreferenceObject: clearOverride() Methode"
 short-title: clearOverride()
 slug: Web/API/PreferenceObject/clearOverride
 l10n:
-  sourceCommit: ac0fef0566bfd672c44644a95240b8e1407277bd
+  sourceCommit: cef391e51005fcc0716545cc6629e5f6d6223225
 ---
 
 {{APIRef("User Preferences API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`clearOverride`** Methode der [`PreferenceObject`](/de/docs/Web/API/PreferenceObject) Schnittstelle setzt den Wert von {{domxref("PreferenceObject.override" "override")}} zurück.
+Die **`clearOverride`** Methode der [`PreferenceObject`](/de/docs/Web/API/PreferenceObject)-Schnittstelle setzt den Wert des [`override`](/de/docs/Web/API/PreferenceObject/override) zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel löscht die Überschreibung des {{domxref("PreferenceObject.colorScheme" "color scheme")}}.
+Das folgende Beispiel entfernt den Override des [`color scheme`](/de/docs/Web/API/PreferenceObject/colorScheme).
 
 ```js
 navigator.preferences.colorScheme.clearOverride();
