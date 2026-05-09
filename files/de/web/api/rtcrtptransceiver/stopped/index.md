@@ -3,25 +3,26 @@ title: "RTCRtpTransceiver: stopped-Eigenschaft"
 short-title: stopped
 slug: Web/API/RTCRtpTransceiver/stopped
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("WebRTC")}}{{deprecated_header}}
+{{APIRef("WebRTC")}}{{deprecated_header}}{{non-standard_header}}
 
 > [!NOTE]
-> Anstelle der Verwendung dieser veralteten Eigenschaft vergleichen Sie [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) mit `"stopped"`.
+> Anstatt diese veraltete Eigenschaft zu verwenden, vergleichen Sie [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) mit `"stopped"`.
 
-Die schreibgeschützte **`stopped`**-Eigenschaft des [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Interfaces gibt an, ob sowohl der zugehörige Sender als auch der Empfänger des Transceivers gestoppt wurden.
+Die schreibgeschützte **`stopped`**-Eigenschaft des [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Interfaces zeigt an, ob der zugehörige Sender und Empfänger des Transceivers beide gestoppt wurden.
 
-Der Transceiver ist gestoppt, wenn die [`stop()`](/de/docs/Web/API/RTCRtpTransceiver/stop)-Methode aufgerufen wurde oder wenn eine Änderung an der lokalen oder der entfernten Beschreibung aus irgendeinem Grund dazu geführt hat, dass der Transceiver gestoppt wurde.
+Der Transceiver ist gestoppt, wenn die Methode [`stop()`](/de/docs/Web/API/RTCRtpTransceiver/stop) aufgerufen wurde oder wenn eine Änderung entweder der lokalen oder der entfernten Beschreibung dazu geführt hat, dass der Transceiver aus irgendeinem Grund gestoppt wurde.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der [`sender`](/de/docs/Web/API/RTCRtpTransceiver/sender) des Transceivers keine Daten mehr senden wird und sein [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver) keine Daten mehr empfangen wird. Wenn einer oder beide noch in Betrieb sind, ist das Ergebnis `false`.
+Ein Boolean-Wert, der `true` ist, wenn der [`sender`](/de/docs/Web/API/RTCRtpTransceiver/sender) des Transceivers keine Daten mehr senden wird und sein
+[`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver) keine Daten mehr empfangen wird. Wenn einer oder beide noch aktiv sind, ist das Ergebnis `false`.
 
 ## Spezifikationen
 
-Dieses Feature ist kein Teil einer aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Merkmal ist Teil keiner aktuellen Spezifikation. Es wird nicht mehr als Standard weiterverfolgt.
 
 ## Browser-Kompatibilität
 

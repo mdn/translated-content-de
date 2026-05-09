@@ -3,12 +3,12 @@ title: "SharedStorage: delete()-Methode"
 short-title: delete()
 slug: Web/API/SharedStorage/delete
 l10n:
-  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`delete()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle löscht ein bestehendes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
+Die **`delete()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle löscht ein vorhandenes Schlüssel-Wert-Paar aus dem Shared Storage des aktuellen Ursprungs.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ delete(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paars darstellt, das Sie löschen möchten.
+  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paars repräsentiert, das Sie löschen möchten.
 
 ### Rückgabewert
 
@@ -28,17 +28,17 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 ### Ausnahmen
 
 - Das `Promise` wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Die Datenbank nicht erfolgreich gelöscht werden konnte, weil der gemeinsame Speicher nicht verfügbar ist (zum Beispiel, wenn er über eine Browsereinstellung deaktiviert ist).
+  - Die Datenbank nicht erfolgreich gelöscht wurde, weil der Shared Storage nicht verfügbar ist (zum Beispiel ist er über eine Browsereinstellung deaktiviert).
   - `key` die vom Browser definierte maximale Länge überschreitet.
-  - Die aufrufende Stelle nicht an einem erfolgreichen [Anmeldeprozess für die Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) für die Shared Storage API teilgenommen hat.
+  - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Enrollment-Prozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) aufgenommen hat.
 - Im Fall von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
   - Das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
 > [!NOTE]
-> Wenn das Schlüssel-Wert-Paar nicht im gemeinsamen Speicher existiert, wird kein Fehler ausgelöst — die Operation wird trotzdem mit `undefined` erfüllt.
+> Wenn das Schlüssel-Wert-Paar nicht im Shared Storage vorhanden ist, wird kein Fehler ausgelöst — der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 > [!NOTE]
-> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn der `delete()`-Vorgang nicht erfolgreich in die Datenbank schreibt, aus einem anderen Grund als der Nichtverfügbarkeit des gemeinsamen Speichers, wird kein Fehler ausgelöst — die Operation wird trotzdem mit `undefined` erfüllt.
+> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn der `delete()`-Vorgang nicht erfolgreich in die Datenbank schreibt, aus einem Grund, der nicht die Nichtverfügbarkeit des Shared Storage ist, wird kein Fehler ausgelöst — der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 ## Beispiele
 

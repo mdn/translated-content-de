@@ -3,14 +3,14 @@ title: "MerchantValidationEvent: complete() Methode"
 short-title: complete()
 slug: Web/API/MerchantValidationEvent/complete
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
+{{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}{{non-standard_header}}
 
-Die Methode **`complete()`** von [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) verwendet zuvor von der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) empfangene händlerspezifische Informationen, um den Händler zu validieren.
+Die Methode **`complete()`** des [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) verwendet zuvor vom [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) erhaltene händlerspezifische Informationen, um den Händler zu validieren.
 
-Alles, was Sie tun müssen, ist `complete()` aus Ihrem Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis aufzurufen, wobei die von der `validationURL` abgerufenen Daten übergeben werden.
+Sie müssen nur `complete()` aus Ihrem Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis aufrufen und die von der `validationURL` abgerufenen Daten übergeben.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ complete(merchantSessionPromise)
 ### Parameter
 
 - `validationData` oder `merchantSessionPromise`
-  - : Ein Objekt, das die Daten enthält, die benötigt werden, um den Händler-Validierungsprozess abzuschließen, oder ein {{jsxref("Promise")}}, welches sich auf die Validierungsdaten auflöst.
+  - : Ein Objekt, das die Daten enthält, die benötigt werden, um den Händler-Validierungsprozess abzuschließen, oder ein {{jsxref("Promise")}}, das sich zu den Validierungsdaten auflöst.
 
 ### Rückgabewert
 
@@ -30,14 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Ausnahme kann an den Ablehnungs-Handler für das Promise übergeben werden:
+Diese Ausnahme kann dem Ablehnungs-Handler des Versprechens übergeben werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom Benutzeragenten stammt, sondern stattdessen von anderem Code gesendet wurde. Eine andere Zahlungsanforderung wird derzeit verarbeitet, die aktuelle Zahlungsanforderung wird dem Benutzer momentan nicht angezeigt, oder Zahlungsinformationen werden derzeit aktualisiert.
+  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom User-Agent stammt, sondern stattdessen von anderem Code ausgelöst wurde. Eine andere Zahlungsanfrage wird derzeit verarbeitet, die aktuelle Zahlungsanfrage wird dem Benutzer nicht angezeigt, oder Zahlungsinformationen werden gerade aktualisiert.
 
 ## Beispiele
 
-In diesem Beispiel sehen wir den clientseitigen Code, der benötigt wird, um die Händler-Validierung für eine Zahlungsanforderung namens `payRequest` zu unterstützen:
+In diesem Beispiel sehen wir den clientseitigen Code, der benötigt wird, um die Händler-Validierung für eine Zahlungsanfrage namens `payRequest` zu unterstützen:
 
 ```js
 payRequest.onmerchantvalidation = (event) => {
@@ -51,7 +51,7 @@ function getValidationData(url) {
 }
 ```
 
-Dieser Code richtet einen Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis ein. Der Ereignishandler ruft eine Funktion `getValidationData()` auf, die die Daten von der Validierungs-URL abruft und diese Daten (oder ein Versprechen, die Daten zu liefern) an `complete()` übergibt.
+Dieser Code richtet einen Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis ein. Der Ereignis-Handler ruft eine Funktion `getValidationData()` auf, die die Daten von der Validierungs-URL abruft und dann diese Daten (oder ein Versprechen zur Lieferung der Daten) in `complete()` übergibt.
 
 ## Browser-Kompatibilität
 
@@ -61,4 +61,4 @@ Dieser Code richtet einen Handler für das [`merchantvalidation`](/de/docs/Web/A
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte zur Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

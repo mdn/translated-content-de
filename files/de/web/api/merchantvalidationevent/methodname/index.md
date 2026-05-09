@@ -1,18 +1,23 @@
 ---
-title: "MerchantValidationEvent: Eigenschaft methodName"
+title: "MerchantValidationEvent: methodName-Eigenschaft"
 short-title: methodName
 slug: Web/API/MerchantValidationEvent/methodName
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
+{{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}{{non-standard_header}}
 
-Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent)-Eigenschaft **`methodName`** ist ein schreibgeschützter Wert, der einen String zurückgibt, der den Zahlungsidentifikator angibt, der den Zahlungsanbieter darstellt, der eine Händlerüberprüfung benötigt.
+Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent)-Eigenschaft
+**`methodName`** ist ein schreibgeschützter Wert, der einen String zurückgibt,
+der den Zahlungsarten-Identifier angibt, der den Zahlungsdienstleister darstellt, der
+eine Händlerauthentifizierung erfordert.
 
 ## Wert
 
-Ein schreibgeschützter String, der den Zahlungsanbieter eindeutig identifiziert, der eine Händlerüberprüfung anfordert. Weitere Informationen zum Prozess finden Sie unter [Händlerüberprüfung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
+Ein schreibgeschützter String, der den Zahlungsdienstleister eindeutig identifiziert,
+der eine Händlerauthentifizierung anfordert. Weitere Informationen über den Prozess finden Sie unter
+[Händlerauthentifizierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
 
 ## Browser-Kompatibilität
 
@@ -22,4 +27,4 @@ Ein schreibgeschützter String, der den Zahlungsanbieter eindeutig identifiziert
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Zahlungsverarbeitungs-Konzepte](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

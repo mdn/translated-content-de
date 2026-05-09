@@ -3,25 +3,25 @@ title: "WebSocketStream: opened-Eigenschaft"
 short-title: opened
 slug: Web/API/WebSocketStream/opened
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Die **`opened`** schreibgeschützte Eigenschaft der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung erfolgreich geöffnet wurde. Dieses Objekt enthält unter anderem eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)- und eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz, um Daten über die Verbindung zu empfangen und zu senden.
+Die schreibgeschützte **`opened`**-Eigenschaft der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung erfolgreich geöffnet ist. Unter anderem enthält dieses Objekt eine Instanz von [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream) zum Empfangen und Senden von Daten über die Verbindung.
 
 ## Wert
 
 Ein Promise, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
 
 - `extensions`
-  - : Ein String, der alle auf den `WebSocketStream` angewendeten Erweiterungen darstellt. Solche Erweiterungen sind derzeit nicht definiert, könnten aber in Zukunft existieren. Aktuell wird ein leerer String zurückgegeben.
+  - : Ein String, der alle Erweiterungen repräsentiert, die auf den `WebSocketStream` angewendet werden. Solche Erweiterungen sind derzeit nicht definiert, könnten aber in Zukunft hinzugefügt werden. Derzeit wird ein leerer String zurückgegeben.
 - `protocol`
-  - : Ein String, der das Subprotokoll darstellt, das zum Öffnen der aktuellen WebSocket-Verbindung verwendet wird (aus den in der [`protocols`](/de/docs/Web/API/WebSocketStream/WebSocketStream#protocols)-Option des `WebSocketStream()`-Konstruktors angegebenen Optionen ausgewählt). Gibt einen leeren String zurück, wenn kein Subprotokoll verwendet wurde, um die Verbindung zu öffnen (d.h. keine Subprotokoll-Optionen im Konstruktoraufruf enthalten waren).
+  - : Ein String, der das Subprotokoll repräsentiert, das zur Öffnung der aktuellen WebSocket-Verbindung verwendet wird (ausgewählt aus den Optionen, die in der [`protocols`](/de/docs/Web/API/WebSocketStream/WebSocketStream#protocols)-Option des `WebSocketStream()`-Konstruktors angegeben sind). Gibt einen leeren String zurück, wenn kein Subprotokoll zur Öffnung der Verbindung verwendet wurde (d.h. wenn keine Subprotokoll-Optionen im Konstruktoraufruf enthalten waren).
 - `readable`
-  - : Eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz. Rufen Sie [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf, um eine [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Instanz zu erhalten, die verwendet werden kann, um eingehende WebSocket-Daten zu lesen.
+  - : Eine Instanz von [`ReadableStream`](/de/docs/Web/API/ReadableStream). Rufen Sie [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf, um eine Instanz von [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) zu erhalten, die verwendet werden kann, um eingehende WebSocket-Daten zu lesen.
 - `writable`
-  - : Eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz. Rufen Sie [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) auf, um eine [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Instanz zu erhalten, die verwendet werden kann, um Daten an die WebSocket-Verbindung zu schreiben.
+  - : Eine Instanz von [`WritableStream`](/de/docs/Web/API/WritableStream). Rufen Sie [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) auf, um eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zu erhalten, die verwendet werden kann, um Daten an die WebSocket-Verbindung zu schreiben.
 
 Das Promise wird abgelehnt, wenn die WebSocket-Verbindung fehlschlägt.
 
@@ -52,11 +52,11 @@ async function start() {
 }
 ```
 
-Siehe [Verwendung von WebSocketStream zum Erstellen eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit ausführlicher Erklärung.
+Siehe [Using WebSocketStream to write a client](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit ausführlicher Erklärung.
 
 ## Spezifikationen
 
-Derzeit kein Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Fortschritt der Standardisierung.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Fortschritt der Standardisierung.
 
 ## Browser-Kompatibilität
 
@@ -64,4 +64,4 @@ Derzeit kein Teil einer Spezifikation. Siehe https://github.com/whatwg/websocket
 
 ## Siehe auch
 
-- [WebSocketStream: Integration von Streams mit der WebSocket-API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: integration von Streams in die WebSocket-API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

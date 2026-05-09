@@ -3,17 +3,17 @@ title: "CSSValueList: item() Methode"
 short-title: item()
 slug: Web/API/CSSValueList/item
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("CSSOM")}}{{Deprecated_header}}
+{{APIRef("CSSOM")}}{{Deprecated_header}}{{non-standard_header}}
 
-Die **`item()`**-Methode der [`CSSValueList`](/de/docs/Web/API/CSSValueList)-Schnittstelle wird verwendet, um ein [`CSSValue`](/de/docs/Web/API/CSSValue) über einen Ordnungsindex abzurufen.
+Die **`item()`**-Methode der [`CSSValueList`](/de/docs/Web/API/CSSValueList)-Schnittstelle wird verwendet, um ein [`CSSValue`](/de/docs/Web/API/CSSValue) über einen ordinalen Index abzurufen.
 
-Die Reihenfolge in dieser Sammlung entspricht der Reihenfolge der Werte in der CSS-Stileigenschaft. Wenn der Index größer oder gleich der Anzahl der Werte in der Liste ist, gibt diese Methode `null` zurück.
+Die Reihenfolge in dieser Sammlung entspricht der Reihenfolge der Werte in der CSS-Stileigenschaft. Wenn der Index größer als oder gleich der Anzahl der Werte in der Liste ist, gibt diese Methode `null` zurück.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren ihn nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren ihn nicht.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
@@ -29,19 +29,17 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Ein `unsigned long`, das den Index des CSS-Wertes innerhalb der
-    Sammlung darstellt.
+  - : Ein `unsigned long`, der den Index des CSS-Werts innerhalb der Sammlung darstellt.
 
 ### Rückgabewert
 
-Ein [`CSSValue`](/de/docs/Web/API/CSSValue)-Objekt an der Position `index` in der
-`CSSValueList` oder `null`, wenn dies kein gültiger Index ist.
+Ein [`CSSValue`](/de/docs/Web/API/CSSValue)-Objekt an der `index`-Position in der `CSSValueList`, oder `null`, wenn dies kein gültiger Index ist.
 
 ## Spezifikationen
 
-Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seitdem aus allen Standardisierungsbemühungen gestrichen.
+Diese Funktion wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seitdem aus jedem Standardisierungsprozess herausgenommen.
 
-Es wurde durch das moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardisierungsweg befindet.
+Sie wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun im Standardisierungsprozess befindet.
 
 ## Browser-Kompatibilität
 

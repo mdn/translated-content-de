@@ -1,14 +1,14 @@
 ---
-title: "FeaturePolicy: Methode allowedFeatures()"
+title: "FeaturePolicy: allowedFeatures()-Methode"
 short-title: allowedFeatures()
 slug: Web/API/FeaturePolicy/allowedFeatures
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Feature Policy API")}}{{SeeCompatTable}}
+{{APIRef("Feature Policy API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`allowedFeatures()`**-Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle gibt eine Liste von Direktivenamen aller durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) erlaubten Funktionen zurück. Dies ermöglicht die Einsicht in einzelne Direktiven der Berechtigungsrichtlinie, auf der sie ausgeführt wird. Daher liefert die Methode `allowedFeatures()` eine Teilmenge der Direktiven zurück, die von [`features()`](/de/docs/Web/API/FeaturePolicy/features) zurückgegeben werden.
+Die **`allowedFeatures()`**-Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle gibt eine Liste von Direktivenamen aller vom [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) erlaubten Features zurück. Dies ermöglicht eine Prüfung der einzelnen Direktiven der Permissions Policy, auf der sie ausgeführt wird. Daher gibt die `allowedFeatures()`-Methode eine Untermenge der von [`features()`](/de/docs/Web/API/FeaturePolicy/features) zurückgegebenen Direktiven zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das die Namen der Berechtigungsrichtlinien-Direktiven darstellt, die von der Berechtigungsrichtlinie erlaubt sind, auf der diese Methode aufgerufen wird.
+Ein Array von Zeichenketten, das die Namen der Permissions Policy-Direktiven darstellt, die von der Permissions Policy erlaubt sind, auf der diese Methode aufgerufen wird.
 
 ## Beispiel
 
-Im folgenden Beispiel werden alle erlaubten Direktiven für das aktuelle Dokument protokolliert. Bitte beachten Sie, dass diese Funktionen durch die Permissions API eingeschränkt sein könnten, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
+Das folgende Beispiel protokolliert alle erlaubten Direktiven für das aktuelle Dokument. Bitte beachten Sie, dass diese Features durch die Permissions API eingeschränkt sein könnten, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
 
 ```js
 // First, get the Permissions Policy object

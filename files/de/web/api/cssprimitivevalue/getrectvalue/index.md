@@ -3,20 +3,23 @@ title: "CSSPrimitiveValue: getRectValue() Methode"
 short-title: getRectValue()
 slug: Web/API/CSSPrimitiveValue/getRectValue
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("CSSOM")}}{{deprecated_header}}
+{{APIRef("CSSOM")}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`getRectValue()`** Methode der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) Schnittstelle wird verwendet, um einen Rechteckwert zu erhalten. Wenn dieser CSS-Wert keinen Rechteckwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Änderungen an der entsprechenden Stil-Eigenschaft können über die [`Rect`](/de/docs/Web/API/Rect) Schnittstelle vorgenommen werden.
+Die **`getRectValue()`**-Methode der
+[`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle wird verwendet, um einen Rechteckwert abzurufen. Wenn dieser CSS-Wert keinen Rechteckwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+Änderungen an der entsprechenden Stil-Eigenschaft können über die
+[`Rect`](/de/docs/Web/API/Rect)-Schnittstelle vorgenommen werden.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren es nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren ihn nicht.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
-> - die moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), die weniger unterstützt wird und als experimentell gilt.
+> - das untypisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
+> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), das weniger unterstützt und als experimentell angesehen wird.
 
 ## Syntax
 
@@ -30,7 +33,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Rect`](/de/docs/Web/API/Rect) Objekt, das den Rechteckwert darstellt.
+Ein [`Rect`](/de/docs/Web/API/Rect)-Objekt, das den Rechteckwert darstellt.
 
 ### Ausnahmen
 
@@ -48,9 +51,9 @@ console.log(cssValue.getRectValue());
 
 ## Spezifikationen
 
-Dieses Merkmal wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/) Spezifikation definiert, wurde jedoch seitdem aus allen Standardisierungsbemühungen herausgenommen.
+Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, ist jedoch seitdem aus jedem Standardisierungsbestreben entfernt worden.
 
-Es wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich jetzt auf dem Standardpfad befindet.
+Es wurde durch die moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Standardpfad befindet.
 
 ## Browser-Kompatibilität
 

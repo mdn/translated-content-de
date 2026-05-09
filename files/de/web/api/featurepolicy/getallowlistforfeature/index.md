@@ -1,14 +1,15 @@
 ---
-title: "FeaturePolicy: getAllowlistForFeature()-Methode"
+title: "FeaturePolicy: getAllowlistForFeature() Methode"
 short-title: getAllowlistForFeature()
 slug: Web/API/FeaturePolicy/getAllowlistForFeature
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Feature Policy API")}}{{SeeCompatTable}}
+{{APIRef("Feature Policy API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`getAllowlistForFeature()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces ermöglicht das Abfragen der Zulassungsliste für ein bestimmtes Feature in der aktuellen Permissions Policy.
+Die **`getAllowlistForFeature()`**
+Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy) Schnittstelle ermöglicht das Abfragen der Allowlist für ein spezifisches Feature in der aktuellen Berechtigungsrichtlinie.
 
 ## Syntax
 
@@ -19,19 +20,19 @@ getAllowlistForFeature(feature)
 ### Parameter
 
 - `feature`
-  - : Der spezifische Feature-Name, um seine Zulassungsliste zu erhalten.
+  - : Der spezifische Feature-Name, für den die Allowlist abgerufen werden soll.
 
 ### Rückgabewert
 
-Ein Array von Zeichenfolgen, das die serialisierte Liste der erlaubten Ursprünge für das Feature enthält. Wenn ein Platzhalter (`*`) verwendet wird, enthält das Array `*`.
+Ein Array von Strings, das die serialisierte Liste der erlaubten Ursprünge für das Feature enthält. Wenn ein Platzhalter (`*`) verwendet wird, enthält das Array `*`.
 
 ### Ausnahmen
 
-Die Funktion wird eine Warnung ausgeben, wenn der angegebene Permissions Policy-Direktivenname unbekannt ist. Sie gibt jedoch auch ein leeres Array zurück, was darauf hinweist, dass kein Ursprung berechtigt ist, das Feature zu verwenden.
+Die Funktion gibt eine Warnung aus, wenn der angegebene Name der Berechtigungsrichtlinien-Direktive nicht bekannt ist. Sie gibt jedoch auch ein leeres Array zurück, was anzeigt, dass kein Ursprung berechtigt ist, das Feature zu verwenden.
 
 ## Beispiel
 
-Das folgende Beispiel gibt alle Ursprünge aus, die berechtigt sind, die Camera API gemäß der Permissions Policy zu verwenden. Bitte beachten Sie, dass die Camera API ebenfalls durch die [Permissions API](/de/docs/Web/API/Permissions_API) eingeschränkt sein kann, wenn der Benutzer die entsprechende Berechtigung nicht erteilt hat.
+Im folgenden Beispiel werden alle Ursprünge ausgegeben, die durch die Berechtigungsrichtlinie berechtigt sind, die Kamera-API zu verwenden. Bitte beachten Sie, dass die Kamera-API möglicherweise auch durch die [Permissions API](/de/docs/Web/API/Permissions_API) eingeschränkt wird, falls der Benutzer die entsprechende Berechtigung nicht gewährt hat.
 
 ```js
 // First, get the FeaturePolicy object

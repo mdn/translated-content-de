@@ -2,12 +2,12 @@
 title: SharedStorage
 slug: Web/API/SharedStorage
 l10n:
-  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}{{non-standard_header}}
 
-Das **`SharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden, um Daten in den gemeinsamen Speicher zu schreiben.
+Das **`SharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden zum Schreiben von Daten in den gemeinsamen Speicher.
 
 `SharedStorage` ist die Basisklasse für:
 
@@ -18,13 +18,13 @@ Das **`SharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shar
 
 ## Instanzmethoden
 
-- [`append()`](/de/docs/Web/API/SharedStorage/append) {{deprecated_inline}}
+- [`append()`](/de/docs/Web/API/SharedStorage/append) {{deprecated_inline}} {{non-standard_inline}}
   - : Fügt einen String zum Wert eines bestehenden Schlüssel-Wert-Paares im gemeinsamen Speicher des aktuellen Ursprungs hinzu.
-- [`clear()`](/de/docs/Web/API/SharedStorage/clear) {{deprecated_inline}}
+- [`clear()`](/de/docs/Web/API/SharedStorage/clear) {{deprecated_inline}} {{non-standard_inline}}
   - : Löscht den gemeinsamen Speicher des aktuellen Ursprungs und entfernt alle Daten daraus.
-- [`delete()`](/de/docs/Web/API/SharedStorage/delete) {{deprecated_inline}}
+- [`delete()`](/de/docs/Web/API/SharedStorage/delete) {{deprecated_inline}} {{non-standard_inline}}
   - : Löscht ein bestehendes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
-- [`set()`](/de/docs/Web/API/SharedStorage/set) {{deprecated_inline}}
+- [`set()`](/de/docs/Web/API/SharedStorage/set) {{deprecated_inline}} {{non-standard_inline}}
   - : Speichert ein neues Schlüssel-Wert-Paar im gemeinsamen Speicher des aktuellen Ursprungs oder aktualisiert ein bestehendes.
 
 ## Beispiele

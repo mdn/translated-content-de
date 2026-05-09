@@ -3,12 +3,12 @@ title: "WebSocketStream: close()-Methode"
 short-title: close()
 slug: Web/API/WebSocketStream/close
 l10n:
-  sourceCommit: 7a418e5d057adb45a0c7c4ec3b03baa8c3be18f4
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Die **`close()`**-Methode des [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Interfaces schließt die WebSocket-Verbindung. Die Methode akzeptiert optional ein Objekt, das einen benutzerdefinierten Code und/oder Grund enthält, warum die Verbindung geschlossen wurde.
+Die **`close()`**-Methode der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle beendet die WebSocket-Verbindung. Die Methode kann optional ein Objekt akzeptieren, das einen benutzerdefinierten Code und/oder einen Grund enthält, warum die Verbindung geschlossen wurde.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ close(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
+  - : Ein Optionen-Objekt, das die folgenden Eigenschaften enthält:
     - `closeCode` {{optional_inline}}
-      - : Eine Zahl, die den Schließungscode repräsentiert (siehe die vollständige Liste der [`CloseEvent`-Statuscodes](/de/docs/Web/API/CloseEvent/code#value)).
+      - : Eine Zahl, die den Schließcode darstellt (siehe die vollständige Liste der [`CloseEvent`-Statuscodes](/de/docs/Web/API/CloseEvent/code#value)).
     - `reason` {{optional_inline}}
       - : Ein String, der eine menschenlesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wird. Die maximal erlaubte Länge für einen `reason`-String beträgt 123 Bytes. Der String wird automatisch als UTF-8 kodiert, wenn die Funktion aufgerufen wird.
 
 > [!NOTE]
-> Abhängig von der Serverkonfiguration und dem verwendeten Statuscode kann es sein, dass der Server einen benutzerdefinierten Code ignoriert und stattdessen einen gültigen Code verwendet, der für den Schließungsgrund korrekt ist. Gültige Codes sind 1000 und jeder Code im Bereich von 3000 bis einschließlich 4999.
+> Abhängig von der Serverkonfiguration und dem verwendeten Statuscode kann der Server einen benutzerdefinierten Code ignorieren und stattdessen einen gültigen Code wählen, der für den Schließgrund korrekt ist. Gültige Codes sind 1000 und jeder Code im Bereich von 3000 bis 4999, inklusive.
 
 ### Rückgabewert
 
@@ -62,4 +62,4 @@ Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websocke
 
 ## Siehe auch
 
-- [WebSocketStream: Einbindung von Streams mit der WebSocket-API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: integration von Streams mit der WebSocket-API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

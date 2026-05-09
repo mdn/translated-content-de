@@ -1,9 +1,9 @@
 ---
-title: "`<param>` HTML-Objektparameters Element"
+title: "`<param>` HTML-Objektparameter-Element"
 short-title: <param>
 slug: Web/HTML/Reference/Elements/param
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
 {{Deprecated_Header}}
@@ -11,22 +11,22 @@ l10n:
 Das **`<param>`** [HTML](/de/docs/Web/HTML)-Element definiert Parameter für ein {{HTMLElement("object")}}-Element.
 
 > [!NOTE]
-> Verwenden Sie das {{HTMLElement("object")}}-Element mit einem [`data`](/de/docs/Web/HTML/Reference/Elements/object#data)-Attribut, um die URL einer externen Ressource festzulegen.
+> Verwenden Sie das {{HTMLElement("object")}}-Element mit einem [`data`](/de/docs/Web/HTML/Reference/Elements/object#data)-Attribut, um die URL einer externen Ressource zu setzen.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-- `name` {{deprecated_inline}}
+- `name` {{deprecated_inline}} {{non-standard_inline}}
   - : Name des Parameters.
-- `value` {{deprecated_inline}}
+- `value` {{deprecated_inline}} {{non-standard_inline}}
   - : Gibt den Wert des Parameters an.
-- `type` {{deprecated_inline}}
-  - : Wird nur verwendet, wenn der `valuetype` auf `ref` gesetzt ist. Gibt den MIME-Typ der Werte an, die unter der vom Wert angegebenen URI zu finden sind.
-- `valuetype` {{deprecated_inline}}
+- `type` {{deprecated_inline}} {{non-standard_inline}}
+  - : Wird nur verwendet, wenn `valuetype` auf `ref` gesetzt ist. Gibt den MIME-Typ der unter dem durch `value` angegebenen URI gefundenen Werte an.
+- `valuetype` {{deprecated_inline}} {{non-standard_inline}}
   - : Gibt den Typ des `value`-Attributs an. Mögliche Werte sind:
-    - `data`: Standardwert. Der Wert wird als Zeichenfolge an die Implementierung des Objekts übergeben.
-    - `ref`: Der Wert ist eine URI zu einer Ressource, in der Laufzeitwerte gespeichert sind.
+    - `data`: Standardwert. Der Wert wird der Implementierung des Objekts als Zeichenkette übergeben.
+    - `ref`: Der Wert ist ein URI zu einer Ressource, bei der Laufzeitwerte gespeichert sind.
     - `object`: Eine ID eines anderen {{HTMLElement("object")}} im selben Dokument.
 
 ## Technische Zusammenfassung
@@ -42,24 +42,24 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>Keine; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <td>Start-Tag erforderlich und kein End-Tag erlaubt.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
-        Ein {{HTMLElement("object")}} vor jedem
+        Ein {{HTMLElement("object")}} vor jeglichem
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >flow content</a
+          >Fließinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -67,7 +67,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>

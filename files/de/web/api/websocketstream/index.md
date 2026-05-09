@@ -2,32 +2,32 @@
 title: WebSocketStream
 slug: Web/API/WebSocketStream
 l10n:
-  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Das **`WebSocketStream`**-Interface der [WebSockets-API](/de/docs/Web/API/WebSockets_API) ist eine versprechenbasierte API zum Verbinden mit einem WebSocket-Server. Es verwendet [Streams](/de/docs/Web/API/Streams_API), um Daten über die Verbindung zu senden und zu empfangen, und kann daher automatisch von der Stream-[Gegenstromkontrolle](/de/docs/Web/API/Streams_API/Concepts#backpressure) profitieren, die die Geschwindigkeit des Lesens oder Schreibens reguliert, um Engpässe in der Anwendung zu vermeiden.
+Das **`WebSocketStream`**-Interface der [WebSockets-API](/de/docs/Web/API/WebSockets_API) ist eine auf Promises basierende API zum Verbinden mit einem WebSocket-Server. Sie verwendet [Streams](/de/docs/Web/API/Streams_API), um Daten über die Verbindung zu senden und zu empfangen, und kann daher automatisch den Stream-[Rückdruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) nutzen, um die Lese- oder Schreibgeschwindigkeit zu regulieren und Engpässe in der Anwendung zu vermeiden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`WebSocketStream()`](/de/docs/Web/API/WebSocketStream/WebSocketStream) {{experimental_inline}}
-  - : Erstellt eine neue Instanz des `WebSocketStream`-Objekts.
+- [`WebSocketStream()`](/de/docs/Web/API/WebSocketStream/WebSocketStream) {{experimental_inline}} {{non-standard_inline}}
+  - : Erstellt eine neue `WebSocketStream`-Objektinstanz.
 
 ## Instanz-Eigenschaften
 
-- [`url`](/de/docs/Web/API/WebSocketStream/url) {{ReadOnlyInline}} {{experimental_inline}}
+- [`url`](/de/docs/Web/API/WebSocketStream/url) {{ReadOnlyInline}} {{experimental_inline}} {{non-standard_inline}}
   - : Gibt die URL des WebSocket-Servers zurück, mit dem die `WebSocketStream`-Instanz erstellt wurde.
-- [`closed`](/de/docs/Web/API/WebSocketStream/closed) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung geschlossen ist. Das Objekt enthält den Schließscode und den Grund, wie er vom Server gesendet wurde.
-- [`opened`](/de/docs/Web/API/WebSocketStream/opened) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung erfolgreich geöffnet wurde. Unter anderem enthält dieses Objekt eine Instanz von [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream) zum Empfangen und Senden von Daten über die Verbindung.
+- [`closed`](/de/docs/Web/API/WebSocketStream/closed) {{ReadOnlyInline}} {{experimental_inline}} {{non-standard_inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn die Socket-Verbindung geschlossen wird. Das Objekt enthält den Schließcode und den Grund, wie vom Server gesendet.
+- [`opened`](/de/docs/Web/API/WebSocketStream/opened) {{ReadOnlyInline}} {{experimental_inline}} {{non-standard_inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Socket-Verbindung erfolgreich geöffnet ist. Unter anderem enthält dieses Objekt eine Instanz von [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream) zum Empfangen und Senden von Daten über die Verbindung.
 
 ## Instanz-Methoden
 
-- [`close()`](/de/docs/Web/API/WebSocketStream/close) {{experimental_inline}}
+- [`close()`](/de/docs/Web/API/WebSocketStream/close) {{experimental_inline}} {{non-standard_inline}}
   - : Schließt die WebSocket-Verbindung.
 
 ## Beispiele
@@ -77,11 +77,11 @@ if (!("WebSocketStream" in self)) {
 }
 ```
 
-Sehen Sie [Using WebSocketStream to write a client](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit umfassender Erklärung.
+Siehe [Verwendung von WebSocketStream zum Schreiben eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit vollständiger Erklärung.
 
 ## Spezifikationen
 
-Derzeit nicht Teil irgendeiner Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
 
 ## Browser-Kompatibilität
 
@@ -89,4 +89,4 @@ Derzeit nicht Teil irgendeiner Spezifikation. Siehe https://github.com/whatwg/we
 
 ## Siehe auch
 
-- [WebSocketStream: integrating streams with the WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: Integration von Streams mit der WebSocket-API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

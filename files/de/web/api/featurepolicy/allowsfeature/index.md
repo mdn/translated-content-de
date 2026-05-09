@@ -1,14 +1,14 @@
 ---
-title: "FeaturePolicy: allowsFeature() Methode"
+title: "FeaturePolicy: allowsFeature()-Methode"
 short-title: allowsFeature()
 slug: Web/API/FeaturePolicy/allowsFeature
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Feature Policy API")}}{{SeeCompatTable}}
+{{APIRef("Feature Policy API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`allowsFeature()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces ermöglicht die Prüfung einzelner Direktiven der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), auf der sie ausgeführt wird. Sie gibt einen {{JSxRef("Boolean")}} zurück, der `true` ist, wenn und nur wenn die angegebene Funktion im angegebenen Kontext (oder im Standardkontext, falls kein Kontext angegeben ist) zulässig ist.
+Die **`allowsFeature()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces ermöglicht die Überprüfung einzelner Direktiven der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), auf der sie ausgeführt wird. Sie gibt ein {{JSxRef("Boolean")}} zurück, das `true` ist, wenn und nur wenn das angegebene Feature im angegebenen Kontext (oder im Standardkontext, falls kein Kontext angegeben ist) erlaubt ist.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ allowsFeature(feature, origin)
 ### Parameter
 
 - `feature`
-  - : Der spezifische Funktionsname, dessen Verfügbarkeit geprüft werden soll.
+  - : Der spezifische Feature-Name, um seine Verfügbarkeit zu überprüfen.
 - `origin` {{Optional_inline}}
-  - : Der spezifische Ursprungsname, dessen Verfügbarkeit geprüft werden soll. Wenn nicht angegeben, wird der Standardursprung verwendet.
+  - : Der spezifische Ursprungsname, um seine Verfügbarkeit zu überprüfen. Wenn nicht angegeben, wird der Standardursprung verwendet.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Boolean")}}, der `true` ist, wenn und nur wenn die Funktion erlaubt ist.
+Ein {{JSxRef("Boolean")}}, das `true` ist, wenn und nur wenn das Feature erlaubt ist.
 
 ## Beispiel
 
-Das folgende Beispiel prüft, ob das Dokument die Kamera-API gemäß der Permissions Policy verwenden darf. Beachten Sie bitte, dass die Kamera-API durch die Permissions-API eingeschränkt sein kann, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
+Das folgende Beispiel überprüft, ob dem Dokument die Nutzung der Kamera-API durch die Permissions Policy erlaubt ist. Bitte beachten Sie, dass die Kamera-API durch die Permissions API eingeschränkt sein könnte, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
 
 ```js
 // First, get the Feature Policy object

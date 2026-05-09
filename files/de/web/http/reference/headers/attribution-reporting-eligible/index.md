@@ -3,21 +3,21 @@ title: Attribution-Reporting-Eligible header
 short-title: Attribution-Reporting-Eligible
 slug: Web/HTTP/Reference/Headers/Attribution-Reporting-Eligible
 l10n:
-  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{deprecated_header}}
+{{deprecated_header}}{{non-standard_header}}
 
 Der HTTP **`Attribution-Reporting-Eligible`** {{Glossary("request_header", "Request-Header")}} zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Auslöser zu registrieren.
 
-Dieser Header wird niemals manuell gesetzt, sondern wird vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Request-Einstellungen gesendet. Abhängig von den in dem `Attribution-Reporting-Eligible`-Wert angegebenen erlaubten Registrierungen wird vom Server erwartet, dass er entweder mit einem {{HTTPHeader("Attribution-Reporting-Register-Source")}}- oder einem {{HTTPHeader("Attribution-Reporting-Register-Trigger")}}-Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
+Dieser Header wird niemals manuell gesetzt, sondern wird vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Anfrageeinstellungen gesendet. Abhängig von den in dem `Attribution-Reporting-Eligible`-Wert angegebenen erlaubten Registrierungen, wird erwartet, dass der Server entweder mit einem {{HTTPHeader("Attribution-Reporting-Register-Source")}}- oder {{HTTPHeader("Attribution-Reporting-Register-Trigger")}}-Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
 
 Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>

@@ -2,100 +2,100 @@
 title: HTMLImageElement
 slug: Web/API/HTMLImageElement
 l10n:
-  sourceCommit: 8db892b3e7ca294621898441e7db2481e0e6d939
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLImageElement`**-Interface repräsentiert ein HTML-{{HTMLElement("img")}}-Element und bietet die Eigenschaften und Methoden zur Manipulation von Bildelementen.
+Das **`HTMLImageElement`** Interface repräsentiert ein HTML {{HTMLElement("img")}} Element und bietet die Eigenschaften und Methoden zur Manipulation von Bildelementen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`Image()`](/de/docs/Web/API/HTMLImageElement/Image)
-  - : Der `Image()`-Konstruktor erstellt und liefert ein neues `HTMLImageElement`-Objekt, das ein HTML-{{HTMLElement("img")}}-Element repräsentiert, das nicht an einen DOM-Baum angefügt ist. Er akzeptiert optionale Breiten- und Höhenparameter. Wird er ohne Parameter aufgerufen, ist `new Image()` gleichbedeutend mit dem Aufruf von [`document.createElement('img')`](/de/docs/Web/API/Document/createElement).
+  - : Der `Image()` Konstruktor erstellt und gibt ein neues `HTMLImageElement` Objekt zurück, das ein HTML {{HTMLElement("img")}} Element darstellt, welches nicht mit einem DOM-Baum verbunden ist. Es akzeptiert optionale Breiten- und Höhenparameter. Wird es ohne Parameter aufgerufen, ist `new Image()` gleichbedeutend mit dem Aufruf von [`document.createElement('img')`](/de/docs/Web/API/Document/createElement).
 
 ## Instanzeigenschaften
 
-_Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLImageElement.alt`](/de/docs/Web/API/HTMLImageElement/alt)
-  - : Ein String, der das [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-HTML-Attribut widerspiegelt und somit den alternativen Fallback-Inhalt angibt, der angezeigt werden soll, wenn das Bild nicht geladen wurde.
-- [`HTMLImageElement.attributionSrc`](/de/docs/Web/API/HTMLImageElement/attributionSrc) {{securecontext_inline}} {{deprecated_inline}}
-  - : Ruft das [`attributionsrc`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc)-Attribut für ein {{htmlelement("img")}}-Element ab und setzt es programmatisch, wobei der Wert dieses Attributs widergespiegelt wird. `attributionsrc` gibt an, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header mit der Bildanforderung senden soll. Auf der Serverseite wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine bildbasierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#html-based_event_sources) oder einen Attributionstrigger zu registrieren.
+  - : Ein Zeichenfolgenwert, der das HTML-Attribut [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt) widerspiegelt und somit den alternativen Fallback-Inhalt angibt, der angezeigt wird, wenn das Bild nicht geladen wurde.
+- [`HTMLImageElement.attributionSrc`](/de/docs/Web/API/HTMLImageElement/attributionSrc) {{securecontext_inline}} {{deprecated_inline}} {{non-standard_inline}}
+  - : Ruft das [`attributionsrc`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc) Attribut eines {{htmlelement("img")}} Elements programmatisch ab und setzt es, wobei der Wert dieses Attributs widergespiegelt wird. `attributionsrc` gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}} Header zusammen mit der Bildanfrage sendet. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}} Headers in der Antwort auszulösen, um eine bildbasierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#html-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#html-based_attribution_triggers) zu registrieren.
 - [`HTMLImageElement.complete`](/de/docs/Web/API/HTMLImageElement/complete) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn der Browser das Bild (erfolgreich oder nicht) vollständig geladen hat. Das bedeutet, dass dieser Wert auch `true` ist, wenn das Bild keinen [`src`](/de/docs/Web/API/HTMLImageElement/src)-Wert hat, der ein zu ladendes Bild angibt.
+  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn der Browser das Bild fertig geladen hat, unabhängig davon, ob es erfolgreich war oder nicht. Das bedeutet, dass dieser Wert auch `true` ist, wenn das Bild keinen [`src`](/de/docs/Web/API/HTMLImageElement/src) Wert hat, der ein zu ladendes Bild angibt.
 - [`HTMLImageElement.crossOrigin`](/de/docs/Web/API/HTMLImageElement/crossOrigin)
-  - : Ein String, der die CORS-Einstellung für dieses Bildelement angibt. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für weitere Details. Dies kann `null` sein, wenn CORS nicht verwendet wird.
+  - : Eine Zeichenfolge, die die CORS-Einstellung für dieses Bildelement spezifiziert. Siehe [CORS Einstellungsattribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für weitere Details. Dies kann `null` sein, wenn CORS nicht verwendet wird.
 - [`HTMLImageElement.currentSrc`](/de/docs/Web/API/HTMLImageElement/currentSrc) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der die URL repräsentiert, von der das aktuell angezeigte Bild geladen wurde. Dies kann sich ändern, wenn das Bild aufgrund sich ändernder Bedingungen angepasst wird, wie sie durch vorhandene [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) festgelegt sind.
+  - : Gibt eine Zeichenfolge zurück, die die URL darstellt, von der das derzeit angezeigte Bild geladen wurde. Dies kann sich ändern, wenn das Bild aufgrund sich ändernder Bedingungen, die durch [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) beeinflusst werden, angepasst wird.
 - [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding)
-  - : Ein optionaler String, der dem Browser einen Hinweis darauf gibt, wie er das Bild decodieren soll. Wenn dieser Wert bereitgestellt wird, muss er einer der zulässigen Werte sein: `sync`, um das Bild synchron zu decodieren, `async`, um es asynchron zu decodieren, oder `auto`, um keine Präferenz anzugeben (was der Standard ist). Lesen Sie die [`decoding`](/de/docs/Web/API/HTMLImageElement/decoding)-Seite für Details zu den Auswirkungen der Werte dieser Eigenschaft.
+  - : Eine optionale Zeichenfolge, die dem Browser einen Hinweis darauf gibt, wie er das Bild decodieren soll. Wenn dieser Wert angegeben wird, muss er eine der erlaubten Werte sein: `sync` für synchrones Decodieren, `async` für asynchrones Decodieren oder `auto` für keine Präferenz (was der Standard ist). Lesen Sie die [`decoding`](/de/docs/Web/API/HTMLImageElement/decoding) Seite für Details zu den Implikationen dieser Werte.
 - [`HTMLImageElement.fetchPriority`](/de/docs/Web/API/HTMLImageElement/fetchPriority)
-  - : Ein optionaler String, der dem Browser einen Hinweis darauf gibt, wie er das Abrufen des Bildes im Vergleich zu anderen Bildern priorisieren soll. Wenn dieser Wert bereitgestellt wird, muss er einer der möglichen zulässigen Werte sein: `high`, um mit hoher Priorität abzurufen, `low`, um mit niedriger Priorität abzurufen, oder `auto`, um keine Präferenz anzugeben (was der Standard ist).
+  - : Eine optionale Zeichenfolge, die dem Browser einen Hinweis darauf gibt, wie er das Abrufen des Bildes im Vergleich zu anderen Bildern priorisieren soll. Wenn dieser Wert angegeben wird, muss er einer der erlaubten Werte sein: `high` für hohe Priorität, `low` für niedrige Priorität oder `auto` für keine Präferenz (was der Standard ist).
 - [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
-  - : Ein ganzzahliger Wert, der das [`height`](/de/docs/Web/HTML/Reference/Elements/img#height)-HTML-Attribut widerspiegelt und die gerenderte Höhe des Bildes in CSS-Pixeln angibt.
+  - : Ein Integerwert, der das HTML-Attribut [`height`](/de/docs/Web/HTML/Reference/Elements/img#height) widerspiegelt und die gerenderte Höhe des Bildes in CSS-Pixeln angibt.
 - [`HTMLImageElement.isMap`](/de/docs/Web/API/HTMLImageElement/isMap)
-  - : Ein boolescher Wert, der das [`ismap`](/de/docs/Web/HTML/Reference/Elements/img#ismap)-HTML-Attribut widerspiegelt und angibt, dass das Bild Teil einer serverseitigen Bildkarte ist. Dies unterscheidet sich von einer clientseitigen Bildkarte, die mit einem `<img>`-Element und einem entsprechenden {{HTMLElement("map")}} spezifiziert wird, das {{HTMLElement("area")}}-Elemente enthält, die die klickbaren Bereiche im Bild angeben. Das Bild _muss_ innerhalb eines {{HTMLElement("a")}}-Elements enthalten sein; siehe die `ismap`-Seite für Details.
+  - : Ein boolescher Wert, der das HTML-Attribut [`ismap`](/de/docs/Web/HTML/Reference/Elements/img#ismap) widerspiegelt und angibt, dass das Bild Teil einer server-seitigen Imagemap ist. Dies unterscheidet sich von einer client-seitigen Imagemap, die mit einem `<img>` Element und einem entsprechenden {{HTMLElement("map")}} erzeugt wird, welches {{HTMLElement("area")}} Elemente enthält, die die klickbaren Bereiche im Bild angeben. Das Bild _muss_ innerhalb eines {{HTMLElement("a")}} Elements enthalten sein; lesen Sie die `ismap` Seite für Details.
 - [`HTMLImageElement.loading`](/de/docs/Web/API/HTMLImageElement/loading)
-  - : Ein String, der angibt, ob der Browser das Bild sofort (`eager`) oder bei Bedarf (`lazy`) laden soll.
+  - : Eine Zeichenfolge, die angibt, ob der Browser das Bild sofort (`eager`) oder erst bei Bedarf (`lazy`) laden soll.
 - [`HTMLImageElement.naturalHeight`](/de/docs/Web/API/HTMLImageElement/naturalHeight) {{ReadOnlyInline}}
-  - : Gibt einen ganzzahligen Wert zurück, der die intrinsische Höhe des Bildes in CSS-Pixeln repräsentiert, falls verfügbar; andernfalls zeigt es `0`. Dies ist die Höhe, die das Bild hätte, wenn es in seiner natürlichen vollen Größe dargestellt würde.
+  - : Gibt einen Integerwert zurück, der die intrinsische Höhe des Bildes in CSS-Pixeln darstellt, wenn verfügbar; andernfalls zeigt er `0` an. Dies ist die Höhe, die das Bild hätte, wenn es in seiner natürlichen vollen Größe gerendert würde.
 - [`HTMLImageElement.naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) {{ReadOnlyInline}}
-  - : Ein ganzzahliger Wert, der die intrinsische Breite des Bildes in CSS-Pixeln repräsentiert, falls verfügbar; andernfalls wird `0` angezeigt. Dies ist die Breite, die das Bild hätte, wenn es in seiner natürlichen vollen Größe dargestellt würde.
+  - : Ein Integerwert, der die intrinsische Breite des Bildes in CSS-Pixeln darstellt, wenn verfügbar; andernfalls zeigt es `0` an. Dies ist die Breite, die das Bild hätte, wenn es in seiner natürlichen vollen Größe gerendert würde.
 - [`HTMLImageElement.referrerPolicy`](/de/docs/Web/API/HTMLImageElement/referrerPolicy)
-  - : Ein String, der das [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy)-HTML-Attribut widerspiegelt, das dem {{Glossary("user_agent", "User-Agent")}} mitteilt, wie er entscheiden soll, welchen Referrer er verwenden soll, um das Bild abzurufen. Lesen Sie diesen Artikel für Details zu den möglichen Werten dieses Strings.
+  - : Eine Zeichenfolge, die das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy) widerspiegelt und dem {{Glossary("user_agent", "Benutzeragenten")}} mitteilt, wie entschieden werden soll, welcher Referrer zum Abrufen des Bildes verwendet werden soll. Lesen Sie diesen Artikel für Details zu den möglichen Werten dieser Zeichenfolge.
 - [`HTMLImageElement.sizes`](/de/docs/Web/API/HTMLImageElement/sizes)
-  - : Ein String, der das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-HTML-Attribut widerspiegelt. Dieser String gibt eine Liste von durch Kommas getrennten bedingten Größen für das Bild an; das heißt, für eine bestimmte Größe des Viewports soll eine bestimmte Bildgröße verwendet werden. Lesen Sie die Dokumentation auf der [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes)-Seite für Details zum Format dieses Strings.
+  - : Eine Zeichenfolge, die das HTML-Attribut [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) widerspiegelt. Diese Zeichenfolge gibt eine Liste aus kommagetrennten Bedingungsgrößen für das Bild an; das heißt, für eine gegebene Viewport-Größe soll eine bestimmte Bildgröße verwendet werden. Lesen Sie die Dokumentation auf der [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) Seite für Details zum Format dieser Zeichenfolge.
 - [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
-  - : Ein String, der das [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-HTML-Attribut widerspiegelt, welches die vollständige URL des Bildes einschließlich der Basis-URI enthält. Sie können ein anderes Bild in das Element laden, indem Sie die URL im `src`-Attribut ändern.
+  - : Eine Zeichenfolge, die das HTML-Attribut [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) widerspiegelt, welches die vollständige URL des Bildes einschließlich der Basis-URI enthält. Sie können ein anderes Bild in das Element laden, indem Sie die URL im `src` Attribut ändern.
 - [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset)
-  - : Ein String, der das [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-HTML-Attribut widerspiegelt. Dies gibt eine Liste von Kandidatenbildern an, die durch Kommas (`',', U+002C COMMA`) getrennt sind. Jedes Kandidatenbild ist eine URL, gefolgt von einem Leerzeichen, gefolgt von einem speziell formatierten String, der die Größe des Bildes angibt. Die Größe kann entweder als Breite oder als Vielfaches der Größe angegeben werden. Lesen Sie die [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset)-Seite für genaue Angaben zum Format des Größen-Substrings.
+  - : Eine Zeichenfolge, die das HTML-Attribut [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) widerspiegelt. Dies spezifiziert eine Liste von Kandidatenbildern, getrennt durch Kommata (`',', U+002C KOMMA`). Jedes Kandidatenbild ist eine URL, gefolgt von einem Leerzeichen, gefolgt von einer speziell formatierten Zeichenfolge, die die Größe des Bildes angibt. Die Größe kann entweder durch die Breite oder einen Größenfaktor angegeben werden. Lesen Sie die [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset) Seite für Einzelheiten zum Format der Größenzeichensequenz.
 - [`HTMLImageElement.useMap`](/de/docs/Web/API/HTMLImageElement/useMap)
-  - : Ein String, der das [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-HTML-Attribut widerspiegelt, welches die seitenlokale URL des {{HTMLElement("map")}}-Elements enthält, das die zu verwendende Bildkarte beschreibt. Die seitenlokale URL ist ein Rautensymbol (`#`), gefolgt vom `name` des `<map>`-Elements, wie `#my-map-element`. Das `<map>` enthält wiederum {{HTMLElement("area")}}-Elemente, die die klickbaren Bereiche im Bild angeben.
+  - : Eine Zeichenfolge, die das HTML-Attribut [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap) widerspiegelt, das die seitenlokale URL des {{HTMLElement("map")}} Elements enthält, das die zu verwendende Imagemap beschreibt. Die seitenlokale URL ist ein Pfund (Hash) Symbol (`#`), gefolgt vom `name` des `<map>` Elements, wie `#my-map-element`. Das `<map>` enthält wiederum {{HTMLElement("area")}} Elemente, die die klickbaren Bereiche im Bild angeben.
 - [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
-  - : Ein ganzzahliger Wert, der das [`width`](/de/docs/Web/HTML/Reference/Elements/img#width)-HTML-Attribut widerspiegelt und die gerenderte Breite des Bildes in CSS-Pixeln angibt.
+  - : Ein Integerwert, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Reference/Elements/img#width) widerspiegelt und die gerenderte Breite des Bildes in CSS-Pixeln angibt.
 - [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x) {{ReadOnlyInline}}
-  - : Ein ganzzahliger Wert, der den horizontalen Versatz der linken Rahmenkante des CSS-Layout-Box des Bildes relativ zum Ursprung des Container-Blocks des {{HTMLElement("html")}}-Elements angibt.
+  - : Ein Integerwert, der den horizontalen Versatz der linken Randkante des CSS-Layout-Box des Bildes relativ zum Ursprung des {{HTMLElement("html")}} Elements enthaltenden Blocks angibt.
 - [`HTMLImageElement.y`](/de/docs/Web/API/HTMLImageElement/y) {{ReadOnlyInline}}
-  - : Der ganzzahlige vertikale Versatz der oberen Rahmenkante des CSS-Layout-Box des Bildes relativ zum Ursprung des Container-Blocks des {{HTMLElement("html")}}-Elements.
+  - : Der vertikale Versatz der oberen Randkante des CSS-Layout-Box des Bildes relativ zum Ursprung des {{HTMLElement("html")}} Elements enthaltenden Blocks.
 
 ## Veraltete Eigenschaften
 
 - [`HTMLImageElement.align`](/de/docs/Web/API/HTMLImageElement/align) {{deprecated_inline}}
-  - : Ein String, der die Ausrichtung des Bildes in Bezug auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`. Dies ist veraltet; Sie sollten stattdessen CSS (wie {{cssxref("text-align")}}, das trotz seines Namens mit Bildern funktioniert) verwenden, um die Ausrichtung zu spezifizieren.
+  - : Eine Zeichenfolge, die die Ausrichtung des Bildes in Bezug auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`. Dies ist veraltet; Sie sollten stattdessen CSS (wie {{cssxref("text-align")}}, das trotz seines Namens mit Bildern funktioniert) verwenden, um die Ausrichtung festzulegen.
 - [`HTMLImageElement.border`](/de/docs/Web/API/HTMLImageElement/border) {{deprecated_inline}}
-  - : Ein String, der die Breite des Rahmens um das Bild herum definiert. Dies ist veraltet; verwenden Sie stattdessen die CSS-{{cssxref("border")}}-Eigenschaft.
+  - : Eine Zeichenfolge, die die Breite des Rahmens um das Bild definiert. Dies ist veraltet; verwenden Sie die CSS-Eigenschaft {{cssxref("border")}} stattdessen.
 - [`HTMLImageElement.hspace`](/de/docs/Web/API/HTMLImageElement/hspace) {{deprecated_inline}}
-  - : Ein ganzzahliger Wert, der die Menge an Raum (in Pixeln) angibt, die auf der linken und rechten Seite des Bildes leer bleiben soll.
+  - : Ein Integerwert, der die Menge an Platz (in Pixeln) angibt, die links und rechts des Bildes frei gelassen werden soll.
 - [`HTMLImageElement.longDesc`](/de/docs/Web/API/HTMLImageElement/longDesc) {{deprecated_inline}}
-  - : Ein String, der die URL angibt, unter der eine lange Beschreibung des Bildinhalts zu finden ist. Dies wird verwendet, um das Bild automatisch in einen Hyperlink zu verwandeln. Modernes HTML sollte stattdessen ein `<img>` innerhalb eines {{HTMLElement("a")}}-Elements platzieren, das den Hyperlink definiert.
+  - : Eine Zeichenfolge, die die URL angibt, unter der eine lange Beschreibung der Bildinhalte zu finden ist. Dies wird verwendet, um das Bild automatisch in einen Hyperlink zu verwandeln. Modernes HTML sollte stattdessen ein `<img>` innerhalb eines {{HTMLElement("a")}} Elements platzieren, das den Hyperlink definiert.
 - [`HTMLImageElement.name`](/de/docs/Web/API/HTMLImageElement/name) {{deprecated_inline}}
-  - : Ein String, der den Namen des Elements repräsentiert.
+  - : Eine Zeichenfolge, die den Namen des Elements darstellt.
 - [`HTMLImageElement.vspace`](/de/docs/Web/API/HTMLImageElement/vspace) {{deprecated_inline}}
-  - : Ein ganzzahliger Wert, der die Menge an Leerraum in Pixeln angibt, die oberhalb und unterhalb des Bildes verbleiben soll.
+  - : Ein Integerwert, der die Menge an leerem Raum, in Pixeln, angibt, die oberhalb und unterhalb des Bildes freigelassen werden soll.
 
 ## Instanzmethoden
 
-_Übernimmt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Methoden von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLImageElement.decode()`](/de/docs/Web/API/HTMLImageElement/decode)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Bild decodiert ist und sicher an den DOM angehängt werden kann. Dies verhindert, dass das Rendern des nächsten Frames pausiert, um das Bild zu decodieren, so wie es passieren würde, wenn ein undecodiertes Bild zum DOM hinzugefügt würde.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Bild decodiert ist und es sicher ist, das Bild dem DOM hinzuzufügen. Dies verhindert, dass das Rendern des nächsten Frames pausieren muss, um das Bild zu decodieren, wie es der Fall wäre, wenn ein undecodiertes Bild dem DOM hinzugefügt wird.
 
 ## Fehler
 
-Wenn ein Fehler beim Laden oder Rendern des Bildes auftritt und ein `onerror`-Ereignishandler konfiguriert wurde, um das [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis zu behandeln, wird dieser Ereignishandler aufgerufen. Dies kann in einer Reihe von Situationen geschehen, einschließlich:
+Wenn ein Fehler beim Laden oder Rendern des Bildes auftritt und ein `onerror` Ereignis-Handler eingerichtet ist, um das [`error`](/de/docs/Web/API/HTMLElement/error_event) Ereignis zu behandeln, wird dieser Ereignis-Handler aufgerufen. Dies kann in einer Reihe von Situationen geschehen, einschließlich:
 
-- Das [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attribut ist leer oder `null`.
-- Die angegebene `src`-URL ist identisch mit der URL der Seite, die der Benutzer gerade aufgerufen hat.
-- Das angegebene Bild ist in irgendeiner Weise beschädigt, dass es nicht geladen werden kann.
-- Die Metadaten des angegebenen Bildes sind so beschädigt, dass es unmöglich ist, seine Dimensionen abzurufen, und keine Dimensionen wurden in den Attributen des `<img>`-Elements angegeben.
-- Das angegebene Bild ist in einem Format, das vom {{Glossary("user_agent", "User-Agent")}} nicht unterstützt wird.
+- Das [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) Attribut ist leer oder `null`.
+- Die angegebene `src` URL ist dieselbe wie die URL der Seite, auf der sich der Benutzer derzeit befindet.
+- Das angegebene Bild ist in irgendeiner Weise beschädigt, die es verhindert, dass es geladen wird.
+- Die Metadaten des angegebenen Bildes sind so beschädigt, dass seine Dimensionen nicht abgerufen werden können, und es wurden keine Dimensionen in den Attributen des `<img>` Elements angegeben.
+- Das angegebene Bild ist in einem vom {{Glossary("user_agent", "Benutzeragenten")}} nicht unterstützten Format.
 
 ## Beispiele
 
-### Erstellen und Einfügen eines Bildelements
+### Ein Bildelement erstellen und einfügen
 
 ```js
 const img1 = new Image(); // Image constructor
@@ -112,9 +112,9 @@ document.body.appendChild(img2);
 alert(document.images[0].src);
 ```
 
-### Breite und Höhe erhalten
+### Breite und Höhe ermitteln
 
-Das folgende Beispiel zeigt die Verwendung der `height`- und `width`-Eigenschaften zusammen mit Bildern unterschiedlicher Dimensionen:
+Das folgende Beispiel zeigt die Verwendung der `height` und `width` Eigenschaften zusammen mit Bildern unterschiedlicher Größen:
 
 ```html
 <p>

@@ -1,17 +1,17 @@
 ---
-title: "Screen: unlockOrientation()-Methode"
+title: "Screen: unlockOrientation() Methode"
 short-title: unlockOrientation()
 slug: Web/API/Screen/unlockOrientation
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Screen Orientation API")}}{{Deprecated_Header}}
+{{APIRef("Screen Orientation API")}}{{Deprecated_Header}}{{non-standard_header}}
 
-Die Methode **`Screen.unlockOrientation()`** entfernt alle zuvor durch die Seite/App gesetzten Bildschirm-Sperren. Stattdessen sollte die Methode [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) verwendet werden.
+Die **`Screen.unlockOrientation()`**-Methode entfernt alle zuvor von der Seite/App gesetzten Bildschirmsperren. Stattdessen sollte die [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock)-Methode verwendet werden.
 
 > [!WARNING]
-> Dieses Feature ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die Methode [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock).
+> Diese Funktion ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock)-Methode.
 
 > [!NOTE]
 > Diese Methode funktioniert nur für installierte Web-Apps oder für Webseiten im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
@@ -28,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die Ausrichtung erfolgreich entsperrt wurde, oder `false`, wenn die Ausrichtung nicht entsperrt werden konnte.
+Gibt `true` zurück, wenn die Orientierung erfolgreich entsperrt wurde, oder `false`, wenn die Orientierung nicht entsperrt werden konnte.
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ if (unlockOrientation()) {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation. Es wird nicht mehr als Standard verfolgt.
+Diese Funktion ist nicht Teil einer Spezifikation. Sie wird nicht mehr als Standard verfolgt.
 
 Verwenden Sie stattdessen [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock).
 
@@ -61,4 +61,4 @@ Verwenden Sie stattdessen [`ScreenOrientation.unlock()`](/de/docs/Web/API/Screen
 - [`Screen.orientation`](/de/docs/Web/API/Screen/orientation)
 - [`Screen.lockOrientation()`](/de/docs/Web/API/Screen/lockOrientation)
 - [`orientationchange`](/de/docs/Web/API/Screen/orientationchange_event) Ereignis
-- [Verwalten der Bildschirm-Ausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Verwalten der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

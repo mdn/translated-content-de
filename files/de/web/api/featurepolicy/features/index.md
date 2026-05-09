@@ -3,12 +3,13 @@ title: "FeaturePolicy: features() Methode"
 short-title: features()
 slug: Web/API/FeaturePolicy/features
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Feature Policy API")}}{{SeeCompatTable}}
+{{APIRef("Feature Policy API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`features()`** Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces gibt eine Liste von Namen aller vom User Agent unterstützten Funktionen zurück. Eine Funktion, deren Name in der Liste erscheint, könnte durch die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) des aktuellen Ausführungskontextes möglicherweise nicht erlaubt sein und/oder aufgrund der Berechtigungen des Benutzers nicht zugänglich sein.
+Die **`features()`** Methode des
+[`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy) Interfaces gibt eine Liste von Namen aller vom User Agent unterstützten Features zurück. Ein Feature, dessen Name in der Liste erscheint, könnte durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) des aktuellen Ausführungskontexts nicht erlaubt sein und/oder aufgrund der Berechtigungen des Benutzers nicht zugänglich sein.
 
 ## Syntax
 
@@ -22,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von Zeichenfolgen, die die Namen aller von der Berechtigungsrichtlinie unterstützten Direktiven des User Agents darstellen.
+Eine Liste von Zeichenketten, die die Namen aller vom User Agent unterstützten Richtlinien der Permissions Policy repräsentieren.
 
 ## Beispiel
 
-Das folgende Beispiel protokolliert alle unterstützten Direktiven in der Konsole.
+Das folgende Beispiel protokolliert alle unterstützten Richtlinien im Konsole.
 
 ```js
 // Get the FeaturePolicy object

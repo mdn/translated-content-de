@@ -3,12 +3,12 @@ title: "Dokument: requestStorageAccessFor() Methode"
 short-title: requestStorageAccessFor()
 slug: Web/API/Document/requestStorageAccessFor
 l10n:
-  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("Storage Access API")}}{{deprecated_header}}
+{{APIRef("Storage Access API")}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`requestStorageAccessFor()`** Methode des [`Document`](/de/docs/Web/API/Document) Interfaces erlaubt es obersten Websites, den Zugriff auf Drittanbieter-Cookies im Auftrag von eingebetteten Inhalten anzufordern, die von einer anderen Website innerhalb desselben [zusammenhängenden Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen. Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
+Die **`requestStorageAccessFor()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle ermöglicht es obersten Webseiten, den Zugriff auf Drittanbieter-Cookies im Namen von eingebetteten Inhalten anzufordern, die von einer anderen Seite im gleichen [verwandten Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen. Sie gibt ein {{jsxref("Promise")}} zurück, das sich erfüllt, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
 
 ## Syntax
 
@@ -19,43 +19,43 @@ requestStorageAccessFor(requestedOrigin)
 ### Parameter
 
 - `requestedOrigin`
-  - : Ein String, der die URL des Ursprungs repräsentiert, für die Sie Zugriff auf Drittanbieter-Cookies anfordern.
+  - : Ein String, der die URL des Ursprungs darstellt, für den Sie den Zugriff auf Drittanbieter-Cookies anfordern.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
+Ein {{jsxref("Promise")}}, das sich mit `undefined` erfüllt, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
 
-`requestStorageAccessFor()` Anfragen werden automatisch abgelehnt, es sei denn, der oberste Inhalt verarbeitet gerade eine Benutzeraktion wie einen Tap oder Klick ({{Glossary("transient_activation", "transiente Aktivierung")}}), oder die Erlaubnis wurde bereits zuvor erteilt. Falls die Erlaubnis nicht zuvor erteilt wurde, müssen sie innerhalb eines benutzeraktionsbasierten Event-Handlers ausgeführt werden. Das Benutzeraktionsverhalten hängt vom Status des Versprechens ab:
+Anfragen an `requestStorageAccessFor()` werden automatisch abgelehnt, es sei denn, der oberste Inhalt verarbeitet derzeit eine Benutzeraktion wie einen Tippen oder Klick ({{Glossary("transient_activation", "transient activation")}}) oder die Erlaubnis wurde zuvor bereits erteilt. Wenn die Erlaubnis nicht zuvor erteilt wurde, müssen sie innerhalb eines ereignisbasierten Benutzeraktions-Handlers ausgeführt werden. Das Verhalten der Benutzeraktion hängt vom Status des Promises ab:
 
-- Wenn das Versprechen erfüllt wird (d.h. die Erlaubnis wurde erteilt), wurde die Benutzeraktion nicht verbraucht, und das Skript kann anschließend APIs aufrufen, die eine Benutzeraktion erfordern.
-- Wenn das Versprechen abgelehnt wird (d.h. die Erlaubnis wurde nicht erteilt), wurde die Benutzeraktion verbraucht, und das Skript kann nichts ausführen, was eine Aktion erfordert. Dies verhindert, dass Skripte `requestStorageAccessFor()` erneut aufrufen, wenn die Erlaubnis verweigert wird.
+- Wenn sich das Promise erfüllt (d.h. die Erlaubnis wurde erteilt), wurde die Benutzeraktion nicht verbraucht, sodass das Skript anschließend APIs aufrufen kann, die eine Benutzeraktion erfordern.
+- Wenn das Promise abgelehnt wird (d.h. die Erlaubnis wurde nicht erteilt), wurde die Benutzeraktion verbraucht, sodass das Skript nichts tun kann, was eine Aktion erfordert. Dadurch wird verhindert, dass Skripts `requestStorageAccessFor()` erneut aufrufen, wenn die Erlaubnis verweigert wurde.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
+  - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn:
-    - Das Fenster des Dokuments kein [sicherer Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) ist.
+  - : Wird ausgelöst, wenn:
+    - Das Fenster des Dokuments nicht ein [sicherer Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) ist.
     - Das Dokument nicht das oberste Dokument ist.
-    - Das Dokument einen `null` Ursprung hat.
-    - Der angegebene `requestedOrigin` [opak](https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-opaque) ist.
-    - Die oberste und eingebetteten Websites nicht im selben [zusammenhängenden Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sind.
-    - Das eingebettete {{htmlelement("iframe")}} gesandboxt ist, und das `allow-storage-access-by-user-activation` Token nicht gesetzt ist.
-    - Die Nutzung durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert ist.
-    - Die Nutzung durch die Berechtigungsanfrage des Benutzeragenten zur Nutzung der API abgelehnt wird.
+    - Das Dokument einen `null`-Ursprung hat.
+    - Der angegebene `requestedOrigin` [opake](https://html.spec.whatwg.org/multipage/browsers.html#concept-origin-opaque) ist.
+    - Die oberste und eingebetteten Seiten nicht im gleichen [verwandten Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sind.
+    - Das einbettende {{htmlelement("iframe")}} sandboxed ist und das `allow-storage-access-by-user-activation` Token nicht gesetzt ist.
+    - Die Verwendung durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
+    - Die Verwendung durch die Berechtigungsanfrage des Benutzeragentes zur Nutzung der API abgelehnt wird.
 - `TypeError`
-  - : Wird geworfen, wenn `requestedOrigin` keine gültige URL ist.
+  - : Wird ausgelöst, wenn `requestedOrigin` keine gültige URL ist.
 
 ## Beschreibung
 
-Die `requestStorageAccessFor()` Methode adressiert Herausforderungen bei der Einführung der Storage Access API auf obersten Websites, die plattformübergreifende Bilder oder Skripte verwenden, die Cookies benötigen. Sie ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf [Drittanbieter-](/de/docs/Web/Privacy/Guides/Third-party_cookies), [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern) und ist eine vorgeschlagene Erweiterung der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
+Die Methode `requestStorageAccessFor()` adressiert Herausforderungen bei der Einführung der Storage Access API auf obersten Websites, die cross-site Bilder oder Skripts verwenden, die Cookies benötigen. Sie ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf [Drittanbieter](/de/docs/Web/Privacy/Guides/Third-party_cookies), [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies blockieren, um die Privatsphäre zu verbessern (z.B. um Tracking zu verhindern), und ist eine vorgeschlagene Erweiterung der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 
-`requestStorageAccessFor()` kann den Zugriff auf Drittanbieter-Cookies für plattformübergreifende Ressourcen direkt ermöglichen, die in eine oberste Website eingebettet sind und selbst keinen Speicherzugriff anfordern können, beispielsweise {{htmlelement("img")}} Elemente. Plattformübergreifende Inhalte, die in `<iframe>`s eingebettet sind, ihre eigene Logik und Ressourcen haben und Zugriff auf Drittanbieter-Cookies benötigen, sollten den Speicherzugriff über [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) anfordern.
+`requestStorageAccessFor()` kann den Zugriff auf Drittanbieter-Cookies für cross-site Ressourcen ermöglichen, die direkt in eine oberste Website eingebettet sind und die nicht in der Lage sind, selbst Zugriff zu beantragen, z.B. {{htmlelement("img")}}-Elemente. Cross-site Inhalte, die in `<iframe>`s eingebettet sind, ihre eigene Logik und Ressourcen haben und Zugriff auf Drittanbieter-Cookies benötigen, sollten über [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) Zugriff anfordern.
 
-Um zu überprüfen, ob bereits die Erlaubnis zum Zugriff auf Drittanbieter-Cookies über `requestStorageAccessFor()` erteilt wurde, können Sie [`Permissions.query()`](/de/docs/Web/API/Permissions/query) aufrufen und den Funktionsnamen `"top-level-storage-access"` spezifizieren. Dies unterscheidet sich von dem Funktionsnamen, der für die reguläre [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) Methode verwendet wird, der `"storage-access"` ist.
+Um zu prüfen, ob die Erlaubnis zum Zugriff auf Drittanbieter-Cookies bereits über `requestStorageAccessFor()` gewährt wurde, kann [`Permissions.query()`](/de/docs/Web/API/Permissions/query) aufgerufen werden, wobei der Funktionsname `"top-level-storage-access"` angegeben wird. Dies unterscheidet sich vom Funktionsnamen der regulären [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) Methode, der `"storage-access"` ist.
 
-Der `Permissions.query()` Aufruf muss den eingebetteten Ursprung spezifizieren, zum Beispiel:
+Der Aufruf von `Permissions.query()` muss den eingebetteten Ursprung spezifizieren; zum Beispiel:
 
 ```js
 navigator.permissions.query({
@@ -65,7 +65,7 @@ navigator.permissions.query({
 ```
 
 > [!NOTE]
-> Die Nutzung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist (die gleiche, die den Rest der Storage Access API kontrolliert). Zusätzlich muss das Dokument weitere browser-spezifische Überprüfungen bestehen, wie Whitelists, Blacklists, On-Device-Klassifikation, Benutzereinstellungen oder Antiklickbetrug- (/de/docs/Web/Security/Attacks/Clickjacking) Heuristiken.
+> Die Verwendung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy), die auf Ihrem Server gesetzt ist (die gleiche, die den Rest der Storage Access API steuert), blockiert werden. Außerdem muss das Dokument zusätzliche browserspezifische Überprüfungen wie Allowlisten, Blocklisten, geräteinterne Klassifizierungen, Benutzereinstellungen oder Anti-[Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Heuristiken bestehen.
 
 ## Beispiele
 
@@ -85,7 +85,7 @@ function rSAFor() {
 }
 ```
 
-Nach einem erfolgreichen `requestStorageAccessFor()` Aufruf werden plattformübergreifende Anforderungen Cookies enthalten, wenn sie [CORS](/de/docs/Web/HTTP/Guides/CORS) / [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin) umfassen, sodass Websites eventuell warten möchten, bevor sie eine Anforderung auslösen. Solche Anfragen müssen die [`credentials: "include"`](/de/docs/Web/API/RequestInit#credentials) Option verwenden und Ressourcen müssen das `crossorigin="use-credentials"` Attribut enthalten.
+Nach einem erfolgreichen `requestStorageAccessFor()`-Aufruf werden cross-site Anfragen Cookies enthalten, wenn sie [CORS](/de/docs/Web/HTTP/Guides/CORS) / [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin) enthalten; daher möchten die Seiten möglicherweise warten, bevor sie eine Anfrage auslösen. Solche Anfragen müssen die Option [`credentials: "include"`](/de/docs/Web/API/RequestInit#credentials) verwenden und Ressourcen müssen das Attribut `crossorigin="use-credentials"` enthalten.
 
 Zum Beispiel:
 
@@ -103,7 +103,7 @@ function checkCookie() {
 ```
 
 > [!NOTE]
-> Sehen Sie sich [Die Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -116,5 +116,5 @@ function checkCookie() {
 ## Siehe auch
 
 - [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess), [`Document.hasUnpartitionedCookieAccess()`](/de/docs/Web/API/Document/hasUnpartitionedCookieAccess), [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Die Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
-- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit Blog)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)

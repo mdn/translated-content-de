@@ -1,24 +1,24 @@
 ---
-title: "HTMLAnchorElement: attributionSourceId-Eigenschaft"
+title: "HTMLAnchorElement: Eigenschaft attributionSourceId"
 short-title: attributionSourceId
 slug: Web/API/HTMLAnchorElement/attributionSourceId
 l10n:
-  sourceCommit: af9a8ff87cfa6563c9a082162ce4ed7ba0b204e1
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`attributionSourceId`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ruft das `attributionsourceid`-HTML-Attribut an einem {{htmlelement("a")}}-Element ab und setzt es.
+Die **`attributionSourceId`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle liest und setzt das `attributionsourceid` HTML-Attribut auf einem {{htmlelement("a")}}-Element.
 
-Das `attributionSourceId` wird als Teil der [Private Click Measurement](https://privacycg.github.io/private-click-measurement/)-Spezifikation verwendet, um den Inhalt zu identifizieren, der angeklickt wurde, wenn ein Link zu einer anderen Seite gefolgt wird.
+Die `attributionSourceId` wird im Rahmen der [Private Click Measurement](https://privacycg.github.io/private-click-measurement/)-Spezifikation verwendet, um den Inhalt zu identifizieren, der beim Klicken auf einen Link zu einer anderen Seite angeklickt wurde.
 
 ## Wert
 
-Eine Zahl. Gültige Werte für private Click-Messungen liegen zwischen `0` und `255`. Der Standardwert ist `0`. Werte außerhalb dieses Bereichs führen nicht zu einem Fehler beim Setzen der Eigenschaft, werden jedoch vom Browser für Zuordnungszwecke ignoriert.
+Eine Zahl. Gültige Werte für die private Klickmessung liegen zwischen `0` und `255`. Der Standardwert ist `0`. Werte außerhalb dieses Bereichs führen beim Setzen der Eigenschaft zwar nicht zu einem Fehler, werden vom Browser jedoch für Zuordnungszwecke ignoriert.
 
 ## Beispiele
 
-### Setzen einer Attribution-Source-ID auf einem Link
+### Festlegen einer Attribution-Source-ID für einen Link
 
 ```html
 <a

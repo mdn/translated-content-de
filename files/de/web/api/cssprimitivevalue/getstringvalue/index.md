@@ -3,20 +3,20 @@ title: "CSSPrimitiveValue: getStringValue()-Methode"
 short-title: getStringValue()
 slug: Web/API/CSSPrimitiveValue/getStringValue
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 44a5fa2aace490e0114349d9d683675b2f5cacce
 ---
 
-{{APIRef("CSSOM")}}{{deprecated_header}}
+{{APIRef("CSSOM")}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`getStringValue()`**-Methode der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle wird verwendet, um einen Zeichenkettenwert abzurufen. Falls dieser CSS-Wert keinen Zeichenkettenwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+Die **`getStringValue()`**-Methode der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle wird verwendet, um einen Zeichenfolgenwert zu erhalten. Falls dieser CSS-Wert keinen Zeichenfolgenwert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 > [!NOTE]
-> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren es nicht.
+> Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren ihn nicht.
 >
-> Um Ihr Ziel zu erreichen, können Sie verwenden:
+> Um Ihr Ziel zu erreichen, können Sie Folgendes verwenden:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
-> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), das weniger unterstützt wird und als experimentell gilt.
+> - das untypisierte [CSS Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
+> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), weniger unterstützt und als experimentell angesehen.
 
 ## Syntax
 
@@ -36,7 +36,7 @@ Ein `string`-Wert.
 
 | **Typ**        | **Beschreibung**                                                                             |
 | -------------- | -------------------------------------------------------------------------------------------- |
-| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Zeichenkettenwert enthält. |
+| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Zeichenfolgenwert enthält. |
 
 ## Beispiele
 
@@ -48,9 +48,9 @@ console.log(cssValue.getStringValue());
 
 ## Spezifikationen
 
-Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, ist jedoch seitdem aus jeglichen Standardisierungsbemühungen entfernt worden.
+Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, jedoch seitdem von jedem Standardisierungsversuch ausgeschlossen.
 
-Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardweg befindet.
+Es wurde durch eine moderne, aber inkompatible [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, die sich nun auf dem Standardisierungspfad befindet.
 
 ## Browser-Kompatibilität
 
