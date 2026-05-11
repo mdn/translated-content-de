@@ -1,13 +1,13 @@
 ---
-title: "TypeError: Iterator/AsyncIterator-Konstruktor kann nicht direkt verwendet werden"
+title: "TypeError: Iterator/AsyncIterator constructor can't be used directly"
 slug: Web/JavaScript/Reference/Errors/Constructor_cant_be_used_directly
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 00dc3734dd99fc76ef964f8ac96e49b0c95d6f8e
 ---
 
-Der JavaScript-Ausnahmefehler "Iterator-Konstruktor kann nicht direkt verwendet werden" oder "AsyncIterator-Konstruktor kann nicht direkt verwendet werden" tritt auf, wenn Sie versuchen, die {{jsxref("Iterator/Iterator", "Iterator()")}}- oder {{jsxref("AsyncIterator/AsyncIterator", "AsyncIterator()")}}-Konstruktoren direkt zur Erstellung von Instanzen zu verwenden. Diese Konstruktoren sind _abstrakte Klassen_ und sollten nur durch Vererbung genutzt werden.
+Der JavaScript-Fehler "Iterator-Konstruktor kann nicht direkt verwendet werden" oder "AsyncIterator-Konstruktor kann nicht direkt verwendet werden" tritt auf, wenn versucht wird, die {{jsxref("Iterator/Iterator", "Iterator()")}}- oder {{jsxref("AsyncIterator")}}-Konstruktoren direkt zu verwenden, um Instanzen zu erstellen. Diese Konstruktoren sind _abstrakte Klassen_ und sollten nur vererbt werden.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Abstract class Iterator not directly constructable (V8-based)
@@ -25,7 +25,7 @@ TypeError: AsyncIterator cannot be constructed directly (Safari)
 
 ## Was ist schiefgelaufen?
 
-Die {{jsxref("Iterator")}}- und {{jsxref("AsyncIterator")}}-Konstruktoren sind abstrakte Klassen und sollten nicht direkt verwendet werden. Sie überprüfen den Wert von [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) und werfen einen Fehler, wenn dieser mit dem Konstruktor selbst übereinstimmt. Die einzige Möglichkeit, diese Konstruktoren zu verwenden, besteht darin, von ihnen in einer Subklasse zu erben und `super()` im Konstruktor der Subklasse aufzurufen. Die Subklasse muss auch eine `next()`-Methode definieren, um nützlich zu sein.
+Die {{jsxref("Iterator")}}- und {{jsxref("AsyncIterator")}}-Konstruktoren sind abstrakte Klassen und sollten nicht direkt verwendet werden. Sie überprüfen den Wert von [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) und werfen einen Fehler, wenn dies derselbe ist wie der Konstruktor selbst. Die einzige Möglichkeit, diese Konstruktoren zu verwenden, besteht darin, von ihnen in einer Unterklasse zu erben und `super()` im Konstruktor der Unterklasse aufzurufen. Die Unterklasse muss auch eine `next()`-Methode definieren, um nützlich zu sein.
 
 ## Beispiele
 

@@ -1,18 +1,18 @@
 ---
-title: "SpeechRecognition: available() statische Methode"
+title: "SpeechRecognition: Statische Methode available()"
 short-title: available()
 slug: Web/API/SpeechRecognition/available_static
 l10n:
-  sourceCommit: fe2f6d4bc116bb285b4d697c5da988bcf7a7dee8
+  sourceCommit: d85bb94bd88736df60c9847ea5c815f6166f3bf5
 ---
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`available()`** statische Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) prüft, ob die angegebenen Sprachen für die Spracherkennung verfügbar sind.
+Die **`available()`** statische Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) überprüft, ob die angegebenen Sprachen für die Spracherkennung verfügbar sind.
 
-Um ein Sprachpaket für die Spracherkennung lokal zu installieren, verwenden Sie die [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static) Methode.
+Um ein Sprachpaket für die lokale Spracherkennung zu installieren, verwenden Sie die Methode [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static).
 
-Der Zugriff auf die `available()` Methode wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{httpheader("Permissions-Policy")}} gesteuert. Speziell, wenn eine definierte Richtlinie die Nutzung blockiert, werden alle Versuche, die Methode aufzurufen, fehlschlagen.
+Der Zugriff auf die `available()`-Methode wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{httpheader("Permissions-Policy")}} kontrolliert. Insbesondere dort, wo eine definierte Richtlinie die Nutzung blockiert, werden alle Versuche, die Methode aufzurufen, fehlschlagen.
 
 ## Syntax
 
@@ -23,68 +23,68 @@ available(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Optionen für die Verfügbarkeitsprüfung spezifiziert. Mögliche Eigenschaften umfassen:
+  - : Ein Objekt, das Optionen für die Verfügbarkeitsprüfung angibt. Mögliche Eigenschaften umfassen:
     - `langs`
-      - : Ein Array von einem oder mehreren Zeichenfolgen, die {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtags")}} enthalten, von denen jede eine Sprache darstellt, die auf Verfügbarkeit geprüft werden soll. Das Übergeben eines leeren `langs` Arrays löst keinen Fehler aus, aber der Rückgabewert wird immer auf `unavailable` aufgelöst.
+      - : Ein Array mit einem oder mehreren Strings, die {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtags")}} enthalten, wobei jeder Eintrag eine zu prüfende Sprache repräsentiert. Das Übergeben eines leeren `langs`-Arrays wird keinen Fehler verursachen, aber der Rückgabewert wird immer auf `unavailable` aufgelöst.
     - `processLocally` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die Verfügbarkeit der Sprachen nur für [on-device speech recognition](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition) (`true`) oder sowohl für on-device _als auch_ für remote Spracherkennung (`false`) geprüft werden soll. Der Standardwert ist `false`.
+      - : Ein Boolescher Wert, der angibt, ob nur die Verfügbarkeit der Sprachen für [lokale Spracherkennung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition) (`true`) oder sowohl für die lokale _als auch_ die Remote-Spracherkennung (`false`) geprüft werden soll. Der Standardwert ist `false`.
         > [!NOTE]
-        > Es ist nicht möglich, `available()` zu verwenden, um zu garantieren, dass ein Remote-Dienst die angegebenen Sprachen unterstützt. Ein Wert von `false` bedeutet, dass entweder ein on-device _oder_ ein Remote-Spracherkennungsdienst diese unterstützt.
+        > Es ist nicht möglich, `available()` zu verwenden, um zu garantieren, dass ein Remote-Dienst die angegebenen Sprachen unterstützt. Ein Wert von `false` bedeutet, dass entweder ein lokaler _oder_ ein Remote-Spracherkennungsdienst sie unterstützt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem enumerierten Wert aufgelöst wird, der die Verfügbarkeit der angegebenen Sprachen für die Spracherkennung angibt.
+Ein {{jsxref("Promise")}}, das sich mit einem enumerierten Wert auflöst, der die Verfügbarkeit der angegebenen Sprachen für die Spracherkennung angibt.
 
 Mögliche Werte umfassen:
 
 - `available`
-  - : Bedeutet, dass die Unterstützung für alle angegebenen Sprachen verfügbar ist.
-    - Wenn `processLocally` auf `true` gesetzt ist, bedeutet `available`, dass die Spracherkennung für diese Sprachen on-device verfügbar ist (die erforderlichen Sprachpakete wurden auf dem Computer des Nutzers heruntergeladen und installiert).
-    - Wenn `processLocally` auf `false` gesetzt ist, bedeutet `available`, dass die Spracherkennung für diese Sprachen entweder on-device oder remote verfügbar ist.
+  - : Zeigt an, dass der Support für alle angegebenen Sprachen verfügbar ist.
+    - Wenn `processLocally` auf `true` gesetzt ist, bedeutet `available`, dass die Spracherkennung für diese Sprachen auf dem Gerät verfügbar ist (die erforderlichen Sprachpakete wurden heruntergeladen und auf dem Computer des Benutzers installiert).
+    - Wenn `processLocally` auf `false` gesetzt ist, bedeutet `available`, dass die Spracherkennung entweder auf dem Gerät oder remote für diese Sprachen verfügbar ist.
 - `downloading`
-  - : Bedeutet, dass die Unterstützung für die angegebenen Sprachen on-device verfügbar ist und das relevante Sprachpaket für mindestens eine Sprache gerade heruntergeladen wird. Nur relevant, wenn `processLocally` `true` ist.
+  - : Zeigt an, dass der Support für die angegebenen Sprachen auf dem Gerät verfügbar ist und das relevante Sprachpaket für mindestens eine Sprache gerade heruntergeladen wird. Nur relevant, wenn `processLocally` `true` ist.
 - `downloadable`
-  - : Bedeutet, dass die Unterstützung für die angegebenen Sprachen on-device verfügbar ist, aber das relevante Sprachpaket für mindestens eine Sprache noch nicht heruntergeladen wurde. Nur relevant, wenn `processLocally` `true` ist.
+  - : Zeigt an, dass der Support für die angegebenen Sprachen auf dem Gerät verfügbar ist, aber das relevante Sprachpaket für mindestens eine Sprache noch nicht heruntergeladen wurde. Nur relevant, wenn `processLocally` `true` ist.
 - `unavailable`
-  - : Bedeutet, dass die Unterstützung für mindestens eine der angegebenen Sprachen nicht verfügbar ist.
-    - Wenn `processLocally` auf `true` gesetzt ist, bedeutet `unavailable`, dass die on-device Spracherkennung für mindestens eine der angegebenen Sprachen nicht verfügbar ist.
-    - Wenn `processLocally` auf `false` gesetzt ist, bedeutet `unavailable`, dass die Spracherkennung für mindestens eine der angegebenen Sprachen weder on-device noch remote verfügbar ist.
+  - : Zeigt an, dass der Support für mindestens eine der angegebenen Sprachen nicht verfügbar ist.
+    - Wenn `processLocally` auf `true` gesetzt ist, bedeutet `unavailable`, dass die lokale Spracherkennung für mindestens eine der angegebenen Sprachen nicht verfügbar ist.
+    - Wenn `processLocally` auf `false` gesetzt ist, bedeutet `unavailable`, dass die Spracherkennung für mindestens eine der angegebenen Sprachen entweder lokal oder remote nicht verfügbar ist.
 
 #### Endgültiger Rückgabewert für mehrere Sprachen mit unterschiedlichen Status
 
-Es wird nur ein Statuswert zurückgegeben, auch wenn mehrere Sprachen im `langs` Array angegeben sind. Wenn verschiedene angegebene Sprachen unterschiedliche Verfügbarkeitsstatus haben, ist der endgültige Rückgabewert der Status, der am weitesten von `available` entfernt ist, für eine der Sprachen, in der Reihenfolge, die in den folgenden Listen gezeigt wird:
+Es wird nur ein Statuswert zurückgegeben, auch wenn im `langs`-Array mehrere Sprachen angegeben sind. Wenn verschiedene angegebene Sprachen unterschiedliche Verfügbarkeitsstatus haben, ist der endgültige Rückgabewert der "am weitesten entfernte" Status von `available` für jede der Sprachen, in der Reihenfolge, die in den folgenden Listen gezeigt wird:
 
 Wenn `processLocally` `false` ist:
 
-- Wenn alle Sprachen `available` sind, dann `available` zurückgeben.
-- Andernfalls `unavailable` zurückgeben.
+- Wenn alle Sprachen `available` sind, dann geben Sie `available` zurück.
+- Andernfalls geben Sie `unavailable` zurück.
 
 Wenn `processLocally` `true` ist:
 
-- Wenn alle Sprachen `available` sind, `available` zurückgeben.
-- Wenn mindestens eine Sprache `downloading` ist, `downloading` zurückgeben.
-- Wenn mindestens eine Sprache `downloadable` ist, `downloadable` zurückgeben.
-- Wenn mindestens eine Sprache `unavailable` ist, `unavailable` zurückgeben.
+- Wenn alle Sprachen `available` sind, geben Sie `available` zurück.
+- Wenn mindestens eine Sprache `downloading` ist, geben Sie `downloading` zurück.
+- Wenn mindestens eine Sprache `downloadable` ist, geben Sie `downloadable` zurück.
+- Wenn mindestens eine Sprache `unavailable` ist, geben Sie `unavailable` zurück.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das aktuelle Dokument ist nicht vollständig aktiv.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Eine oder mehrere der in `langs` angegebenen Zeichenfolgen sind kein gültiges BCP 47-Sprachtag.
+  - : Einer oder mehrere der in `langs` angegebenen Strings sind kein gültiges BCP 47-Sprachtag.
 
 ## Beispiele
 
-### Überprüfung der Verfügbarkeit on-device und Installation von Sprachpaketen
+### Überprüfung der lokalen Verfügbarkeit und Installation von Sprachpaketen
 
-Damit die on-device Spracherkennung funktioniert, muss der Browser ein Sprachpaket für die Sprache installiert haben, die Sie erkennen möchten. Wenn Sie die `start()` Methode ausführen, nachdem Sie `processLocally = true` angegeben haben, aber das richtige Sprachpaket nicht installiert ist, schlägt der Funktionsaufruf mit einem [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported) Fehler fehl.
+Damit die lokale Spracherkennung funktioniert, muss im Browser ein Sprachpaket für die Sprache installiert sein, die Sie erkennen möchten. Wenn Sie die `start()`-Methode aufrufen, nachdem Sie `processLocally = true` angegeben haben, aber das richtige Sprachpaket nicht installiert ist, schlägt der Funktionsaufruf mit einem [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported) Fehler fehl.
 
-Um das richtige Sprachpaket zu installieren, stellen Sie sicher, dass Sie diese zwei Schritte befolgen:
+Um das richtige Sprachpaket zu installieren, stellen Sie sicher, dass Sie folgende zwei Schritte befolgen:
 
-1. Überprüfen Sie, ob das Sprachpaket auf dem Computer des Nutzers verfügbar ist, indem Sie die `available()` Methode verwenden.
-2. Installieren Sie das Sprachpaket, wenn es nicht verfügbar ist, indem Sie die [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static) Methode verwenden.
+1. Überprüfen Sie mit der `available()`-Methode, ob das Sprachpaket auf dem Computer des Benutzers verfügbar ist.
+2. Installieren Sie das Sprachpaket, wenn es nicht verfügbar ist, mithilfe der Methode [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static).
 
-Diese Schritte werden mit folgendem Codeausschnitt behandelt:
+Diese Schritte werden mit dem folgenden Code-Snippet abgewickelt:
 
 ```js
 startBtn.addEventListener("click", () => {
@@ -114,15 +114,15 @@ startBtn.addEventListener("click", () => {
 });
 ```
 
-Wir führen zuerst die `available()` Methode aus und geben eine Sprache an (`langs: ["en-US"]`), um deren Verfügbarkeit zu prüfen, und `processLocally: true`. Wir testen auf drei verschiedene Möglichkeiten des Rückgabewertes:
+Wir führen zuerst die `available()`-Methode aus und geben eine Sprache an (`langs: ["en-US"]`), um die Verfügbarkeit zu prüfen, und `processLocally: true`. Wir testen drei Möglichkeiten des Rückgabewerts:
 
-- Wenn der resultierende Wert `unavailable` ist, bedeutet das, dass kein geeignetes Sprachpaket zum Download verfügbar ist. Wir geben auch eine entsprechende Nachricht zur Ausgabe aus.
-- Wenn der resultierende Wert `available` ist, bedeutet das, dass das Sprachpaket lokal verfügbar ist, sodass die Erkennung beginnen kann. In diesem Fall führen wir `start()` aus und protokollieren eine Nachricht an die Konsole, wenn die App bereit ist, Sprache zu empfangen.
-- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), geben wir eine Diagnosemeldung aus, um den Nutzer zu informieren, dass ein Sprachpaket-Download startet, und führen dann die `install()` Methode aus, um den Download zu handhaben.
+- Wenn der resultierende Wert `unavailable` ist, bedeutet dies, dass kein geeignetes Sprachpaket zum Herunterladen verfügbar ist. Wir geben auch eine entsprechende Nachricht aus.
+- Wenn der resultierende Wert `available` ist, bedeutet dies, dass das Sprachpaket lokal verfügbar ist, sodass die Erkennung beginnen kann. In diesem Fall führen wir `start()` aus und geben eine Nachricht in die Konsole aus, wenn die App bereit ist, Sprache zu empfangen.
+- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), geben wir eine Diagnosemeldung aus, um den Benutzer darüber zu informieren, dass ein Sprachpaket-Download beginnt, und führen dann die Methode `install()` aus, um den Download zu bearbeiten.
 
-Die `install()` Methode funktioniert ähnlich wie die `available()` Methode, außer dass ihr Optionsobjekt nur das `langs` Array berücksichtigt. Beim Ausführen startet es den Download des `en-US` Sprachpakets und gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
+Die `install()`-Methode funktioniert ähnlich wie die `available()`-Methode, außer dass ihr Optionsobjekt nur das `langs`-Array verwendet. Bei der Ausführung wird das `en-US`-Sprachpaket heruntergeladen und ein {{jsxref("Promise")}} zurückgegeben, das sich mit einem Booleschen Wert auflöst, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
 
-Dieser Code stammt aus unserem [on-device speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([dem Live-Demo ausführen](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/)). Siehe [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung.
+Dieser Code ist ein Auszug aus unserem [on-device speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/)). Siehe [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung.
 
 ## Spezifikationen
 
@@ -135,6 +135,6 @@ Dieser Code stammt aus unserem [on-device speech color changer](https://github.c
 ## Siehe auch
 
 - [Web Speech API](/de/docs/Web/API/Web_Speech_API)
-- [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
+- [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
 - [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)
 - [`SpeechRecognition.install()`](/de/docs/Web/API/SpeechRecognition/install_static)

@@ -3,7 +3,7 @@ title: "global: Wasm-Definition"
 short-title: global
 slug: WebAssembly/Reference/Definitions/global
 l10n:
-  sourceCommit: a21bf857ac668ad72a36aad0d8ad7e87c6bdc4d8
+  sourceCommit: 00dc3734dd99fc76ef964f8ac96e49b0c95d6f8e
 ---
 
 Die **`global`** [Definition](/de/docs/WebAssembly/Reference/Definitions) deklariert eine neue globale Variable.
@@ -52,15 +52,15 @@ global identifier type initial_value
 ```
 
 - `global`
-  - : Der Typ der `global`-Definition. Muss immer zuerst angegeben werden.
+  - : Der `global` Definitionstyp. Muss immer zuerst angegeben werden.
 - `identifier` {{optional_inline}}
-  - : Ein eindeutiger Name für die globale Variable. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_global`.
+  - : Ein identifizierender Name für die globale Variable. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_global`.
 - `type`
-  - : Der Typ der zu erstellenden globalen Variable. Besteht aus einem `data_type`, optional vorangestellt durch das `mut`-Schlüsselwort:
+  - : Der Typ der zu erstellenden globalen Variable. Dieser besteht aus einem `data_type`, optional vorangestellt durch das `mut` Schlüsselwort:
     - `mut` {{optional_inline}}
-      - : Das `mut`-Flag. Wenn enthalten, ist die globale Variable veränderlich — sie kann nach der Initialisierung über die [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set)-Anweisung auf einen anderen Wert gesetzt werden.
+      - : Das `mut` Flag. Wenn es enthalten ist, ist die globale Variable veränderlich — sie kann nach der Initialisierung über die [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set)-Anweisung auf einen anderen Wert gesetzt werden.
     - `data_type`
-      - : Der Datentyp der globalen Variable. Dieser kann einer der folgenden sein:
+      - : Der Datentyp der globalen Variable. Dies kann einer der folgenden sein:
         - `i32`
         - `i64`
         - `f32`
@@ -68,22 +68,22 @@ global identifier type initial_value
         - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)
         - [`funcref`](/de/docs/WebAssembly/Reference/Types/funcref)
         - [`externref`](/de/docs/WebAssembly/Reference/Types/externref)
-        - Andere Referenztypen wie Strukturen (zum Beispiel `structref`), Ausnahmen (zum Beispiel `exnref`), `i31` (`i31ref`), usw.
+        - Andere Referenztypen wie Strukturen (zum Beispiel `structref`), Ausnahmen (zum Beispiel `exnref`), `i31` (`i31ref`), etc.
 - `initial_value`
   - : Der Initialisierer für die neue globale Variable. Sein Wert kann sein:
-    - Ein wörtlicher Wert, zum Beispiel `i32.const 0`.
+    - Ein Literalwert, zum Beispiel `i32.const 0`.
     - Ein [`global.get`](/de/docs/WebAssembly/Reference/Variables/global.get) einer anderen globalen Variable.
-    - Jeder andere [Konstantausdruck](https://webassembly.github.io/spec/core/valid/instructions.html#valid-constant).
+    - Jede andere [Konstantausdruck](https://webassembly.github.io/spec/core/valid/instructions.html#valid-constant).
 
-    Der `initial_value`-Typ muss mit dem deklarierten [`type`](#type) übereinstimmen.
+    Der Typ von `initial_value` muss derselbe sein wie der deklarierte [`type`](#type).
 
 ## Beschreibung
 
-Die WebAssembly-Definition `global` ermöglicht es, global-gültige Variablen innerhalb eines Wasm-Moduls zu definieren. Globale Variablen können:
+Die WebAssembly `global` Definition ermöglicht es, global-skopierte Variablen in einem Wasm-Modul zu definieren. Globale Variablen können:
 
-- Über [`global.get`](/de/docs/WebAssembly/Reference/Variables/global.get) abgerufen und innerhalb des Moduls verwendet werden.
-- Über [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set) verändert werden, vorausgesetzt, dass das [`mut`](#mut)-Flag bei der Deklaration der globalen Variable enthalten war. Der Versuch, eine nicht veränderliche Variable zu verändern, führt zu einem Validierungsfehler.
-- Exportiert werden, um sie in JavaScript zu verwenden. Zum Beispiel:
+- Über [`global.get`](/de/docs/WebAssembly/Reference/Variables/global.get) abgerufen und von überall innerhalb des Moduls verwendet werden.
+- Über [`global.set`](/de/docs/WebAssembly/Reference/Variables/global.set) mutiert werden, vorausgesetzt, dass das [`mut`](#mut) Flag eingeschlossen wurde, als die globale Variable deklariert wurde. Der Versuch, eine nicht-veränderbare Variable zu mutieren, führt zu einem Validierungsfehler.
+- Exportiert werden, um sie in JavaScript einzubringen. Zum Beispiel:
 
   ```wat
   (global $my_global (mut i32) (i32.const 0))
@@ -91,11 +91,11 @@ Die WebAssembly-Definition `global` ermöglicht es, global-gültige Variablen in
   ```
 
 > [!NOTE]
-> Wenn eine globale Variable einen [`v128`](/de/docs/WebAssembly/Reference/Types/v128) (SIMD) oder Ausnahme (`exnref`) Typ enthält, können Sie sie exportieren, aber der Versuch, den Wert der globalen Variable über JavaScript zu lesen, führt zu einem `TypeError`.
+> Wenn eine globale Variable einen [`v128`](/de/docs/WebAssembly/Reference/Types/v128) (SIMD) oder Ausnahmetyp (`exnref`) enthält, können Sie sie exportieren, aber der Versuch, den Wert der globalen Variable über JavaScript zu lesen, führt zu einem `TypeError`.
 
-### Erstellen von globalen Variablen aus JavaScript
+### Erstellung von globalen Variablen aus JavaScript
 
-Es ist auch möglich, eine Wasm-Globale Variablen innerhalb des JavaScript-Hosts mit dem {{jsxref("WebAssembly.Global.Global", "WebAssembly.Global()")}}-Konstruktor zu erstellen und dann in das Modul zu importieren.
+Es ist auch möglich, eine Wasm-Globale innerhalb des JavaScript-Hosts mithilfe des [`WebAssembly.Global()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global/Global) Konstruktors zu erstellen und sie dann in das Modul zu importieren.
 
 Zum Beispiel:
 
@@ -110,9 +110,9 @@ const { instance } = await WebAssembly.instantiateStreaming(
 );
 ```
 
-### Teilen von globalen Variablen zwischen Modulen
+### Gemeinsame Nutzung globaler Variablen zwischen Modulen
 
-Es ist möglich, globale Variablen, die innerhalb von Wasm-Modulen oder innerhalb des JavaScript-Hosts deklariert wurden, zwischen mehreren Modulen zu teilen.
+Es ist möglich, globale Variablen, die innerhalb von Wasm-Modulen oder im JavaScript-Host deklariert wurden, zwischen mehreren Modulen zu teilen.
 
 Zum Beispiel wird der Zustand der unten erstellten globalen Variable zwischen zwei verschiedenen Modulen geteilt:
 

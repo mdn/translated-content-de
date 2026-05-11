@@ -2,54 +2,54 @@
 title: Was wir schreiben
 slug: MDN/Writing_guidelines/What_we_write
 l10n:
-  sourceCommit: 427efbee9e0da53517f45420af87a66a2a6b6e19
+  sourceCommit: ca0b474bb2e153ce72718cb304306e540065a888
 ---
 
-MDN Web Docs enthält browserneutrale Dokumentation, die es Webentwicklern ermöglicht, browserunabhängigen Code zu schreiben. In diesem Artikel finden Sie Informationen darüber, ob ein bestimmtes Thema und/oder eine Art von Inhalt in MDN Web Docs aufgenommen werden sollte oder nicht.
+MDN Web Docs enthält _browserneutrale_ Dokumentation, die es Webentwicklern ermöglicht, _browserunabhängigen_ Code zu schreiben. In diesem Artikel finden Sie Informationen darüber, ob ein bestimmtes Thema und/oder ein bestimmter Inhalt auf MDN Web Docs enthalten sein sollte.
 
 ## Redaktionsrichtlinien
 
-Dieser Abschnitt beschreibt die von den Mozilla MDN-Mitarbeitern festgelegten Richtlinien zur Verwaltung der Inhalte auf MDN Web Docs. Alle Mitwirkenden an MDN Web Docs werden erwartet, sich an diese Richtlinien zu halten.
+Dieser Abschnitt beschreibt die von den Mozilla MDN-Mitarbeitern festgelegten Richtlinien zur Steuerung der Inhalte auf MDN Web Docs. Alle Beiträger zu MDN Web Docs müssen sich an diese Richtlinien halten.
 
 ### Relevanz
 
-Alle Inhalte auf MDN Web Docs müssen relevant für den Technologiebereich sein, in dem sie erscheinen. Spam (kommerzielles Werbematerial) und andere irrelevante Inhalte werden niemals auf der Seite akzeptiert. Mitwirkende, die wiederholt versuchen, Spam einzureichen, können nach Ermessen der Mozilla MDN-Mitarbeiter von MDN ausgeschlossen werden.
+Alle Inhalte auf MDN Web Docs müssen für den Technologiebereich relevant sein, in dem sie erscheinen. Spam (kommerzielles Werbematerial) und andere für die Seite irrelevante Inhalte werden niemals akzeptiert. Beitragende, die wiederholt versuchen, Spam einzureichen, können nach Ermessen der Mozilla MDN-Mitarbeiter von MDN ausgeschlossen werden.
 
-Ausgehende Links zu kommerziellen Websites, die für das Thema, von dem aus sie verlinkt sind, relevant sind, werden von Fall zu Fall beurteilt. Ihr Wert zur Unterstützung von Webentwicklern muss den kommerziellen Nutzen für die verlinkte Seite überwiegen.
+Ausgehende Links zu kommerziellen Seiten, die für das Thema, von dem aus sie verlinkt sind, relevant sind, werden fallweise beurteilt. Ihr Wert zur Unterstützung von Webentwicklern muss den kommerziellen Nutzen für die verlinkte Seite überwiegen.
 
 > [!NOTE]
-> Sie werden Links zu kommerziellen Websites im MDN-Bereich [Webentwicklung lernen](/de/docs/Learn_web_development) sehen, aber diese werden sparsam verwendet, und wir verlinken nur zu vertrauenswürdigen Bildungspartnern. Sie können mehr darüber lesen unter [Richtlinien für das Schreiben über Webentwicklung > Partnerlinks und Einbettungen](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds).
+> Sie werden Links zu kommerziellen Websites im MDN [Lernen Sie Webentwicklung](/de/docs/Learn_web_development) Abschnitt sehen, diese werden jedoch sparsam verwendet, und wir verlinken nur zu vertrauenswürdigen Bildungspartnern. Sie können mehr darüber im Abschnitt [Richtlinien zur Erstellung von Lerninhalten > Partnerlinks und Einbettungen](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds) lesen.
 
 ### Neutralität
 
-Artikel auf MDN Web Docs müssen einen [neutralen Standpunkt](https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view) beibehalten und über Unterschiede zwischen Browsern ohne redaktionelle Voreingenommenheit berichten. Abfällige Bemerkungen über einen Browser oder Benutzeragenten sind inakzeptabel.
+Artikel auf MDN Web Docs müssen einen [neutralen Standpunkt](https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view) beibehalten und über Browserunterschiede ohne redaktionelle Voreingenommenheit berichten. Abfällige Kommentare über Browser oder User Agents sind nicht akzeptabel.
 
 ### Standardisierung
 
-Webtechnologien, die auf MDN Web Docs dokumentiert werden sollen, sollten sich auf einem Standardisierungspfad befinden und müssen von mindestens einer Rendering-Engine implementiert sein. Unterschiede in der Browser-Unterstützung werden im Abschnitt [Browser-Kompatibilität](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) eines Artikels dokumentiert.
+Webtechnologien, die auf MDN Web Docs dokumentiert werden sollen, sollten auf einem Standardisierungspfad sein und müssen von mindestens einer Rendering-Engine implementiert sein. Unterschiede in der Browserunterstützung werden im Abschnitt [Browser-Kompatibilität](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) eines Artikels dokumentiert.
 
-## Inhalte vorschlagen
+## Vorschlagen von Inhalten
 
-Wenn Sie Inhalte für MDN Web Docs vorschlagen möchten, lesen Sie bitte diese Seite, bevor Sie Beiträge einreichen, um sicherzustellen, dass das, was Sie vorschlagen, angemessen ist.
+Wenn Sie Inhalte für MDN Web Docs vorschlagen möchten, stellen Sie bitte sicher, dass Sie diese Seite lesen, bevor Sie etwas einreichen, um sicherzustellen, dass das, was Sie vorschlagen, geeignet ist.
 
-Für neue Referenzseiten oder Leitfäden erstellen Sie bitte ein [neues Issue](https://github.com/mdn/mdn/issues/new/choose), in dem Sie die vorgeschlagenen Inhalte und deren Gründe darlegen (bitte so präzise wie möglich).
+Für neue Referenzseiten oder Leitfäden eröffnen Sie bitte ein [neues Problem](https://github.com/mdn/mdn/issues/new/choose) und skizzieren Sie, welche Inhalte Sie vorschlagen und warum (bitte so genau wie möglich).
 
-Für Vorschläge zu größeren Projekten, die neue Inhaltsabschnitte beinhalten, beachten Sie bitte die Seite [Kriterien für die Aufnahme](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion), die auch den Bewerbungsprozess beschreibt.
+Für die Vorschläge größerer Projekte, die neue Inhaltsbereiche beinhalten, beziehen Sie sich bitte auf die Seite [Kriterien für die Aufnahme](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion), die auch den Bewerbungsprozess beschreibt.
 
 ## Themen, die zu MDN Web Docs gehören
 
-Im Allgemeinen, wenn es eine offene Webtechnologie ist, dokumentieren wir sie auf MDN Web Docs. Dies umfasst alle Funktionen, die Webentwickler verwenden können, um Websites und Anwendungen jetzt und in naher Zukunft zu erstellen.
+Im Allgemeinen dokumentieren wir es auf MDN Web Docs, wenn es sich um eine offene Webtechnologie handelt. Dies schließt alle Funktionen ein, die von Webentwicklern zur Erstellung von Websites und Anwendungen jetzt und in naher Zukunft verwendet werden können.
 
-Wenn eine Funktion von mehreren Browsern implementiert wird und entweder als Standard akzeptiert oder auf dem Weg zur Standardisierung ist, dann dokumentieren wir sie definitiv hier. Wenn eine Funktion noch sehr experimentell ist und nicht in mehreren Browsern implementiert und/oder anfällig für Änderungen ist, dann ist sie immer noch geeignet, aufgenommen zu werden, könnte jedoch nicht als Priorität für das Schreibteam angesehen werden.
+Wenn eine Funktion von mehreren Browsern implementiert wurde und entweder als Standard akzeptiert oder auf dem Weg zur Standardisierung ist, dann dokumentieren wir sie hier definitiv. Wenn eine Funktion noch sehr experimentell ist und nicht in mehreren Browsern implementiert wird und/oder Änderungsanfälligkeit besteht, ist sie immer noch geeignet, aufgenommen zu werden, aber sie wird möglicherweise nicht als Priorität für das Schreibteam angesehen, um daran zu arbeiten.
 
-Anders ausgedrückt, Webtechnologien, die auf MDN Web Docs dokumentiert werden sollen, sollten alle folgenden Kriterien erfüllen:
+Mit anderen Worten, Webtechnologien, die auf MDN Web Docs dokumentiert werden sollen, sollten alle folgenden Kriterien erfüllen:
 
 - Auf einem Standardisierungspfad sein.
-- In einer Spezifikation festgelegt sein, die von einer zuverlässigen Standardisierungsorganisation veröffentlicht wurde.
+- In einer Spezifikation veröffentlicht sein, die von einem zuverlässigen Standardisierungsgremium herausgegeben wird.
 - Von mindestens einer Rendering-Engine implementiert sein.
 - In einer stabilen Browserversion veröffentlicht sein.
 
-Unser Hauptaugenmerk liegt auf den folgenden Frontend-Webtechnologien:
+Unser Hauptfokus liegt darauf, über folgende Webtechnologien für die Frontend-Entwicklung zu schreiben:
 
 - [HTML](/de/docs/Web/HTML)
 - [CSS](/de/docs/Web/CSS)
@@ -57,76 +57,77 @@ Unser Hauptaugenmerk liegt auf den folgenden Frontend-Webtechnologien:
 - [Web APIs](/de/docs/Web/API)
 - [HTTP](/de/docs/Web/HTTP)
 
-Wir dokumentieren auch einige breitere Themen wie [SVG](/de/docs/Web/SVG), [XML](/de/docs/Web/XML), [WebAssembly](/de/docs/WebAssembly) und [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility). Außerdem bieten wir umfangreiche [Lernleitfäden](/de/docs/Learn_web_development) für diese Technologien und ein [Glossar](/de/docs/Glossary).
+Wir dokumentieren auch einige breitere Themen, wie [SVG](/de/docs/Web/SVG), [XML](/de/docs/Web/XML), [WebAssembly](/de/docs/WebAssembly) und [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility). Zusätzlich bieten wir umfassende [Lernleitfäden](/de/docs/Learn_web_development) für diese Technologien und auch ein [Glossar](/de/docs/Glossary).
 
 > [!NOTE]
-> Back-End-Technologien haben in der Regel ihre eigene Dokumentation anderswo, die MDN Web Docs nicht zu übertreffen versucht, obwohl wir [einige Ausnahmen](/de/docs/Learn_web_development/Extensions/Server-side) haben.
+> Backend-Technologien haben normalerweise ihre eigene Dokumentation an anderer Stelle, die MDN Web Docs nicht zu übertreffen versucht, obwohl wir [einige Ausnahmen](/de/docs/Learn_web_development/Extensions/Server-side) haben.
 
-Alle Inhalte auf MDN Web Docs müssen relevant für den Technologiebereich sein, in dem sie erscheinen. Mitwirkende sollen diese [MDN-Schreibrichtlinien](/de/docs/MDN/Writing_guidelines) für Schreibstil, Codebeispiele und andere Themen befolgen.
+Alle Inhalte auf MDN Web Docs müssen für den Technologiebereich relevant sein, in dem sie erscheinen. Beitragende werden erwartet, diesen [MDN-Erstellungsrichtlinien](/de/docs/MDN/Writing_guidelines) für Schreibstil, Codebeispiele und andere Themen zu folgen.
 
-Weitere Details zu den Kriterien, ob eine Technologie auf MDN Web Docs dokumentiert werden kann oder nicht, finden Sie auf der Seite [Kriterien für die Aufnahme](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion).
+Weitere Details zu den Kriterien, ob eine Technologie auf MDN Web Docs dokumentiert werden kann, finden Sie auf der Seite [Kriterien für die Aufnahme](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion).
 
-### Wenn wir eine neue Technologie dokumentieren
+### Wann wir eine neue Technologie dokumentieren
 
-Bei MDN Web Docs sind wir ständig bemüht, neue Webstandard-Technologien zu dokumentieren, wenn dies angebracht ist. Wir versuchen, eine Balance zu finden zwischen dem frühzeitigen Veröffentlichen der Dokumentation, damit Entwickler neue Funktionen kennenlernen können, sobald sie diese benötigen, und der späten Veröffentlichung, damit die Technologie ausgereift und stabil ist und die Dokumentation nicht ständige Aktualisierungen oder rasche Entfernung benötigt.
+Auf MDN Web Docs suchen wir ständig nach Möglichkeiten, neue Webstandard-Technologien zu dokumentieren, wenn es angemessen ist.
+Wir bemühen uns, ein Gleichgewicht zwischen der Veröffentlichung der Dokumentation so früh wie möglich, damit Entwickler über neue Funktionen so bald wie nötig lernen können, und so spät wie möglich, damit die Technologie ausgereift und stabil ist, sodass die Dokumentation nicht ständig aktualisiert oder schnell entfernt werden muss.
 
-Im Allgemeinen definieren wir den frühesten Zeitpunkt, zu dem wir in Betracht ziehen, eine neue Technologie zu dokumentieren, so: _Wenn die Funktion sich auf einem Standardisierungspfad befindet und irgendwo implementiert ist._
+Im Allgemeinen definieren wir den frühesten Zeitpunkt, zu dem wir in Betracht ziehen, eine neue Technologie zu dokumentieren: _Wenn die Funktion auf einem Standardisierungspfad ist und irgendwo implementiert wird._
 
-Wir ziehen die Dokumentation einer neuen Technologie in Betracht, wenn sie:
+Wir ziehen in Betracht, eine neue Technologie zu dokumentieren, wenn sie:
 
-- In einem Spezifikationsdokument festgelegt ist, das unter einer zuverlässigen Normenorganisation (wie W3C, WHATWG, Khronos, IETF, etc.) veröffentlicht wurde und ein angemessenes Maß an Stabilität erreicht hat (z. B. ein W3C-Arbeitsentwurf oder eine Kandidatenempfehlung oder wenn die Spezifikation ziemlich stabil aussieht gemessen an der Flut der eingereichten Issues) und
-- Konsistent in mindestens einem Browser implementiert ist, wobei andere Browserentwickler Interesse zeigen (z. B. ein aktives Ticket oder ein "Absicht zur Implementierung"-Prozess in Kraft ist).
+- In einem Spezifikationsdokument unter einer zuverlässigen Standardisierungsorganisation (wie W3C, WHATWG, Khronos, IETF usw.) spezifiziert und ein gewisses Maß an Stabilität erreicht hat (z. B. ein W3C-Arbeitsentwurf oder Kandidatenempfehlung oder wenn die Spezifikation stabil aussieht, beurteilt anhand der eingereichten Flut von Problemen), und
+- Konsistent in mindestens einem Browser implementiert ist, wobei andere Browser-Entwickler Interesse zeigen (wie etwa ein aktives Ticket oder ein „Absicht zu implementieren“-Prozess in Kraft ist).
 
-Wir dokumentieren keine neue Technologie, wenn:
+Wir dokumentieren eine neue Technologie nicht, wenn:
 
-- Sie keine Spezifikation hat oder die Spezifikation eine grobe Notiz ist, die anfällig für Änderungen ist,
-- Ein oder kein Browser sie derzeit implementiert hat und nicht unterstützende Browser kein Interesse an der Implementierung zeigen. Sie können dies einschätzen, indem Sie Ingenieure befragen, die an diesen Browsern arbeiten, und die Fehlerverfolgungs- und Mailinglisten der Browser prüfen,
-- Sie keine weboffene Technologie ist und/oder völlig proprietär ist, oder
-- Sie bereits Anzeichen dafür zeigt, dass sie veraltet oder durch eine ähnliche Funktion ersetzt wird.
+- Es keine Spezifikation gibt oder die Spezifikation ein grober Entwurf ist, der änderungsanfällig aussieht,
+- Ein oder kein Browser sie derzeit implementiert hat und andere Browser kein Interesse daran zeigen, sie zu implementieren. Sie können dies beurteilen, indem Sie Ingenieure fragen, die an diesen Browsern arbeiten, und indem Sie Browser-Fehlerverfolgungen und Mailinglisten ansehen usw.,
+- Sie ist keine weboffene Technologie und/oder vollständig proprietär, oder
+- Sie bereits Anzeichen dafür zeigt, dass sie veraltet wird oder durch eine ähnliche Funktion ersetzt wird.
 
 ## Themen, die nicht zu MDN Web Docs gehören
 
-Im Allgemeinen gehört alles, was kein offener Webstandard ist, nicht zu MDN Web Docs. Spam (kommerzielles Werbematerial) und andere irrelevante Inhalte werden niemals auf der Seite akzeptiert. Mitwirkende, die wiederholt versuchen, Spam einzureichen, können nach Ermessen der Mozilla MDN-Mitarbeiter von MDN ausgeschlossen werden.
+Im Allgemeinen gehört alles, was kein offener Webstandard ist, nicht zu MDN Web Docs. Spam (kommerzielles Werbematerial) und andere irrelevante Inhalte werden niemals auf der Seite akzeptiert. Beitragende, die wiederholt versuchen, Spam einzureichen, können nach Ermessen der Mozilla MDN-Mitarbeiter von MDN ausgeschlossen werden.
 
-Beispiele für unangemessene Themen für MDN Web Docs sind:
+Beispiele für ungeeignete Themen für MDN Web Docs sind:
 
-- Technologien, die nicht dem Web ausgesetzt sind und spezifisch für einen Browser sind.
-- Technologien, die nicht mit dem Web zu tun haben.
-- Dokumentation für Endanwender. Für Mozilla-Produkte gehört eine solche Dokumentation zum Beispiel auf die [Mozilla-Support-Website](https://support.mozilla.org/).
-- Selbstverlinkende oder selbstwerbende externe Links. Überprüfen Sie diese Richtlinien in unserem [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) bevor Sie einen externen Link hinzufügen.
+- Technologie, die nicht dem Web zugänglich ist und browserspezifisch ist.
+- Technologie, die nicht mit dem Web zusammenhängt.
+- Dokumentation für Endbenutzer. Für Mozilla-Produkte beispielsweise gehört eine solche Dokumentation auf die [Mozilla Support-Site](https://support.mozilla.org/).
+- Selbstverlinkende oder selbstfördernde externe Links. Konsultieren Sie diese Richtlinien in unserem [Schreibstil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide#external_links) bevor Sie einen externen Link hinzufügen.
 
-### Wann wir Dokumentation entfernen
+### Wann wir Dokumentationen entfernen
 
-Seiten werden aus MDN Web Docs gelöscht, wenn sie keine nützlichen Informationen mehr enthalten, veraltet genug sind und/oder möglicherweise falsch sind, sodass das Beibehalten irreführend sein könnte.
+Seiten werden von MDN Web Docs entfernt, wenn sie keine in irgendeiner Weise nützlichen Informationen mehr enthalten, so veraltet sind und/oder so fehlerhaft sein können, dass ihr Verbleib irreführend sein könnte.
 
 Die folgenden Beispiele beschreiben Situationen, in denen Seiten/Inhalte möglicherweise gelöscht werden:
 
-- Artikel enthalten Informationen über Funktionen, die nicht in allen Browsern implementiert wurden und später zurückgezogen wurden (normalerweise experimentelle Funktionen wie präfixierte Funktionalität).
+- Artikel enthalten Informationen über Funktionen, die nicht in allen Browsern implementiert wurden und später zurückgezogen wurden (normalerweise experimentelle Funktionen wie vorgefixte Funktionalitäten).
 - Referenzseiten beschreiben Funktionen, die vor ihrer Implementierung in einem Browser aus der Spezifikation entfernt wurden.
-- Artikel behandeln Techniken, die später als schlechte Praktiken erwiesen und durch bessere Techniken ersetzt wurden.
+- Artikel decken Techniken ab, die sich später als schlechte Praktiken herausstellten und durch bessere Techniken ersetzt wurden.
 - Artikel enthalten Informationen, die später durch andere, qualitativ bessere Artikel ersetzt wurden.
-- Artikel enthalten Inhalte, die für MDN Web Docs unangemessen sind.
-- Bereiche von MDN Web Docs konzentrieren sich nicht auf offene Webtechnologien und sind eine Wartungsbelastung.
+- Artikel enthalten Inhalte, die für MDN Web Docs ungeeignet sind.
+- Abschnitte von MDN Web Docs sind nicht auf offene Webtechnologien fokussiert und stellen eine Wartungsbelastung dar.
 
-Weitere Informationen dazu, _wie_ Dokumente gelöscht werden, finden Sie im [Leitfaden zu Erstellen, Verschieben und Löschen von Seiten](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting).
+Weitere Informationen dazu, _wie_ Sie einzelne Dokumente löschen, finden Sie im [Erstellen, Verschieben und Löschen von Seiten](/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting) Leitfaden. Wenn Sie einen gesamten Inhaltsabschnitt löschen möchten, konsultieren Sie den [Inhalte einstellen](/de/docs/MDN/Writing_guidelines/Howto/Retiring_content) Leitfaden.
 
-## Dokumenttypen, die auf MDN Web Docs erlaubt sind
+## Arten von Dokumenten, die auf MDN Web Docs erlaubt sind
 
-Im Allgemeinen fallen unsere Dokumentationen in die folgenden Kategorien:
+Im Allgemeinen fällt unsere Dokumentation in folgende Kategorien:
 
 - Referenz
 - Leitfaden
 - Glossar
 - Lernen/Tutorials
 
-Im Allgemeinen ist MDN Web Docs für _Produkt_dokumentationen, nicht für \_Projekt_- oder \_Prozess_dokumentationen. Wenn das Dokument also davon handelt, "wie man eine Sache benutzt" oder "wie eine Sache funktioniert" (wobei die "Sache" in einer der oben genannten Themenkategorien ist), dann kann es auf MDN Web Docs.
+Im Allgemeinen ist MDN Web Docs für _Produkt_-Dokumentation, nicht für _Projekt_- oder _Prozess_-Dokumentation gedacht. Wenn das Dokument also darüber informiert, "wie man eine Sache benutzt" oder "wie eine Sache funktioniert" (wobei die "Sache" in einer der oben erwähnten Themenkategorien ist), dann kann es auf MDN Web Docs erscheinen.
 
-Wenn ein Dokument davon handelt, "wer an der Entwicklung einer Sache arbeitet" oder "Pläne zur Entwicklung einer Sache", dann sollte es nicht auf MDN Web Docs.
+Wenn ein Dokument darüber informiert, "wer an der Entwicklung einer Sache arbeitet" oder "Pläne für die Entwicklung einer Sache", dann sollte es nicht auf MDN Web Docs erscheinen.
 
-Hier sind einige Beispiele für Dokumenttypen, die _nicht_ auf MDN Web Docs platziert werden sollten:
+Hier sind einige Beispiele für Dokumententypen, die _nicht_ auf MDN Web Docs platziert werden sollten:
 
 - Planungsdokumente
-- Entwurfsdokumente
+- Designdokumente
 - Projektvorschläge
 - Spezifikationen oder Standards
-- Werbematerial, Werbung oder persönliche Informationen
+- Werbe-, kommerzielle oder persönliche Informationen

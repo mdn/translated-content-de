@@ -2,12 +2,12 @@
 title: pageAction.onClicked
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 12b40a940857526acdc13fec68e668f67c61c4cc
 ---
 
-Wird ausgelöst, wenn ein Page-Action-Symbol angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Seitenaktion ein Popup hat.
+Wird ausgelöst, wenn auf ein Seitenaktionssymbol geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Seitenaktion ein Popup hat.
 
-Um eine Rechtsklick-Aktion zu definieren, verwenden Sie die {{WebExtAPIRef('contextMenus')}} API mit dem "page_action" {{WebExtAPIRef('contextMenus/ContextType', 'context type', '', 'nocode')}}.
+Um eine Rechtsklick-Aktion zu definieren, verwenden Sie die {{WebExtAPIRef('menus')}} API mit dem "page_action" {{WebExtAPIRef('menus/ContextType', 'context type', '', 'nocode')}}.
 
 ## Syntax
 
@@ -22,28 +22,28 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beenden Sie die Überwachung dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, `false` andernfalls.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
     - `tab`
-      - : Ein {{WebExtAPIRef('tabs.Tab')}} Objekt, das den Tab repräsentiert, dessen Page-Action angeklickt wurde.
+      - : Ein {{WebExtAPIRef('tabs.Tab')}}-Objekt, das den Tab darstellt, dessen Seitenaktion angeklickt wurde.
     - `OnClickData`
       - : Ein Objekt, das Informationen über den Klick enthält.
         - `modifiers`
-          - : Ein `array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv sind, eine oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
+          - : Ein `Array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv waren, bestehend aus einem oder mehreren der folgenden: `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
         - `button`
-          - : Ein `integer`. Zeigt die Taste an, mit der das Page-Action-Symbol angeklickt wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie z. B. einer von der Tastatur, und `1` für einen mittleren Knopf oder Radklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick nutzt, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
+          - : Ein `Integer`. Gibt die Schaltfläche an, die zum Klicken auf das Seitenaktionssymbol verwendet wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie z.B. einer von der Tastatur, und `1` für einen Mittelklick oder einen Mausradklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Wenn der Benutzer auf die Seitenaktion klickt, blenden Sie sie aus und navigieren Sie den aktiven Tab zu "<https://giphy.com/explore/cat>":
+Wenn der Benutzer auf die Seitenaktion klickt, wird sie ausgeblendet und der aktive Tab wird auf "<https://giphy.com/explore/cat>" navigiert:
 
 ```js
 let catGifs = "https://giphy.com/explore/cat";
@@ -63,7 +63,7 @@ browser.pageAction.onClicked.addListener(() => {});
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked) API. Diese Dokumentation leitet sich von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
