@@ -3,28 +3,28 @@ title: Preference-Applied header
 short-title: Preference-Applied
 slug: Web/HTTP/Reference/Headers/Preference-Applied
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
 ---
 
-Der HTTP-Header **`Preference-Applied`** informiert den Client darüber, welche Präferenzen aus dem {{httpheader("Prefer")}}-Request-Header vom Server angewendet wurden.
+Der HTTP-Header **`Preference-Applied`** informiert den Client darüber, welche Präferenzen aus dem {{httpheader("Prefer")}} Anforderungsheader vom Server angewendet wurden.
 
-Der Server gibt an, ob eine Präferenz auf eine Antwort angewendet wurde, falls es sonst für den Client unklar wäre.
+Der Server gibt an, ob eine Vorliebe auf eine Antwort angewendet wird, wenn dies sonst für den Client mehrdeutig wäre.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Response-Header")}}
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-sicher gelisteter Antwort-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -39,7 +39,7 @@ Preference-Applied: <preference>
 
 ## Beispiele
 
-### Server wendet Zeitzonen-Präferenzen an
+### Server wendet Zeitpräferenz an
 
 Die folgende Anfrage zeigt an, dass der Client bevorzugt, dass Ereignisse in einer bestimmten Zeitzone dargestellt werden:
 
@@ -49,7 +49,7 @@ Host: example.com
 Prefer: timezone=America/Los_Angeles
 ```
 
-Der Server unterstützt die Präferenz und sendet den Inhalt mit einem `Preference-Applied`-Header zurück:
+Der Server unterstützt die Präferenz und sendet den Inhalt mit einem `Preference-Applied` Header zurück:
 
 ```http
 HTTP/1.1 200 OK

@@ -3,12 +3,12 @@ title: "`counter()` CSS-Funktion"
 short-title: counter()
 slug: Web/CSS/Reference/Values/counter
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: ddf85bfec1b6e43cdacb404de0c38a801c561640
 ---
 
-Die **`counter()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt einen String zurück, der den aktuellen Wert des benannten Zählers darstellt, sofern ein solcher existiert.
+Die **`counter()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt einen String zurück, der den aktuellen Wert des benannten Counters darstellt, falls vorhanden.
 
-Die `counter()`-Funktion wird allgemein zusammen mit [Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) durch die {{cssxref("content")}}-Eigenschaft verwendet, kann theoretisch jedoch überall dort eingesetzt werden, wo ein {{cssxref("string")}}-Wert unterstützt wird.
+Die `counter()`-Funktion wird in der Regel innerhalb von [Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) über die {{cssxref("content")}}-Eigenschaft verwendet, kann theoretisch aber überall dort eingesetzt werden, wo ein {{cssxref("string")}}-Wert unterstützt wird.
 
 {{InteractiveExample("CSS Demo: counter()", "tabbed-shorter")}}
 
@@ -47,19 +47,20 @@ counter(counter-name);
 counter(counter-name, upper-roman)
 ```
 
-[Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) haben für sich genommen keine sichtbare Wirkung. Die `counter()`- und {{cssxref("counters()")}}-Funktionen machen Zähler nützlich, indem sie vom Entwickler definierte Zeichenfolgen (oder Bilder) zurückgeben.
+[Counter](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) haben für sich genommen keine sichtbaren Effekte.
+Die `counter()`- und {{cssxref("counters()")}}-Funktionen machen Counter nützlich, indem sie Entwickler-definierte Strings (oder Bilder) zurückgeben.
 
 ### Werte
 
 Die `counter()`-Funktion akzeptiert bis zu zwei Parameter. Der erste Parameter ist der `<counter-name>`. Der optionale zweite Parameter ist der `<counter-style>`.
 
 - `<counter-name>`
-  - : Ein {{cssxref("&lt;custom-ident&gt;")}}, der den Zähler identifiziert, mit demselben von der Groß-/Kleinschreibung abhängigen Namen, der bei den {{cssxref("counter-reset")}}- und {{cssxref("counter-increment")}}-Eigenschaften verwendet wird. Der Zählername darf nicht mit zwei Bindestrichen beginnen und kann nicht `none`, `unset`, `initial` oder `inherit` sein.
+  - : Ein {{cssxref("&lt;custom-ident&gt;")}}, der den Counter identifiziert, derselbe groß-/kleinschreibungssensitive Name, der mit den Eigenschaften {{cssxref("counter-reset")}} und {{cssxref("counter-increment")}} verwendet wird. Der Counter-Name darf nicht mit zwei Bindestrichen beginnen und kann nicht `none`, `unset`, `initial` oder `inherit` sein.
 - `<counter-style>`
-  - : Ein {{cssxref("&lt;list-style-type&gt;")}}-Name, {{cssxref("&lt;@counter-style&gt;")}}-Name oder {{cssxref("symbols()")}}-Funktion, wobei ein Zählerstil ein festgelegter `numeric`, `alphabetic` oder `symbolic` Zählerstil, ein komplexer langjähriger ostasiatischer oder äthiopischer Zählerstil oder ein anderer [vordefinierter Zählerstil](/de/docs/Web/CSS/Guides/Counter_styles) ist. Wenn weggelassen, ist der standardmäßige Zählerstil `decimal`.
+  - : Ein {{cssxref("list-style-type")}}-Name, {{cssxref("@counter-style#counter-style-name", "counter-style-name")}} oder {{cssxref("symbols()")}}-Funktion, wobei ein Counter-Stil-Name ein `numeric`, `alphabetic` oder `symbolic` vordefinierter Counter-Stil, ein komplexer Langschrift Ostasiatischer oder Äthiopischer vordefinierter Counter-Stil, oder ein anderer [vordefinierter Counter-Stil](/de/docs/Web/CSS/Guides/Counter_styles) ist. Wenn weggelassen, ist der Standard-Counter-Stil `decimal`.
 
 > [!NOTE]
-> Um die Zählerwerte beim Verschachteln von Zählern zu verbinden, verwenden Sie die {{cssxref("counters()")}}-Funktion, die einen zusätzlichen {{cssxref("string")}}-Parameter bietet.
+> Um die Counter-Werte beim Verschachteln von Countern zu verknüpfen, verwenden Sie die {{cssxref("counters()")}}-Funktion, die einen zusätzlichen {{cssxref("string")}}-Parameter bietet.
 
 ## Formale Syntax
 
@@ -67,9 +68,9 @@ Die `counter()`-Funktion akzeptiert bis zu zwei Parameter. Der erste Parameter i
 
 ## Beispiele
 
-### lower-roman verglichen mit lower-alpha
+### lower-roman im Vergleich zu lower-alpha
 
-In diesem Beispiel zeigen wir einen Zähler mit den `lower-roman`- und `lower-alpha`-Listenstilen an.
+In diesem Beispiel zeigen wir einen Counter mit den Listentilen `lower-roman` und `lower-alpha`.
 
 #### HTML
 
@@ -101,7 +102,7 @@ li::after {
 
 {{EmbedLiveSample("lower-roman compared to lower-alpha", "100%", 150)}}
 
-### Anzeigen eines Zählers mit drei Stilen
+### Anzeige eines Counters mit drei Stilen
 
 In diesem Beispiel verwenden wir die `counter()`-Funktion dreimal.
 
@@ -117,7 +118,7 @@ In diesem Beispiel verwenden wir die `counter()`-Funktion dreimal.
 
 #### CSS
 
-Wir verwenden die `counter()`-Funktion mit drei verschiedenen Zählerstilen, einschließlich des standardmäßigen Dezimalwertes. Wir haben Padding zu der Liste hinzugefügt, um Platz für den langen `::marker`-String zu schaffen.
+Wir integrieren die `counter()`-Funktion mit drei verschiedenen Counter-Stilen, einschließlich des Standardwertes `decimal`. Wir haben der Liste Polsterung hinzugefügt, um Platz für den langen `::marker`-String zu schaffen.
 
 ```css-nolint
 ol {
@@ -152,12 +153,12 @@ li::after {
 
 ## Siehe auch
 
-- [Verwendung von CSS-Zählern](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters)
+- [Verwendung von CSS-Countern](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters)
 - {{cssxref("counter-reset")}}
 - {{cssxref("counter-set")}}
 - {{cssxref("counter-increment")}}
 - {{cssxref("@counter-style")}}
-- CSS [`counters()`](/de/docs/Web/CSS/Reference/Values/counters)-Funktion
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists)-Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles)-Modul
-- [CSS-generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content)-Modul
+- CSS-[`counters()`](/de/docs/Web/CSS/Reference/Values/counters)-Funktion
+- [CSS Listen und Counter](/de/docs/Web/CSS/Guides/Lists)-Modul
+- [CSS Counter-Stile](/de/docs/Web/CSS/Guides/Counter_styles)-Modul
+- [CSS generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content)-Modul

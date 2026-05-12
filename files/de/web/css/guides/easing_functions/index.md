@@ -3,14 +3,14 @@ title: CSS-Easing-Funktionen
 short-title: Easing functions
 slug: Web/CSS/Guides/Easing_functions
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
 ---
 
-Das Modul **CSS-Easing-Funktionen** definiert Easing-Funktionen, die eine Möglichkeit bieten, die Transformation von Werten zu steuern. Die definierten Funktionen umfassen lineare, kubische Bézier- und Schritt-Easing-Funktionen. Diese Easing-Funktionen können auf Animationen und Übergänge angewendet werden.
+Das **CSS-Easing-Funktionen**-Modul definiert Easing-Funktionen, die eine Möglichkeit bieten, die Transformation von Werten zu kontrollieren. Die definierten Funktionen umfassen lineare, kubische Bezier- und Schritt-Easing-Funktionen. Diese Easing-Funktionen können auf Animationen und Übergänge angewendet werden.
 
-Die Geschwindigkeit, mit der sich ein Element bewegt, allmählich zu erhöhen, kann dem Element ein Gefühl von Gewicht verleihen, da es scheint, Schwung zu bekommen. Easing-Funktionen ermöglichen es Ihnen, die Änderungsrate zu kontrollieren. Kubische Bézier-Easing-Funktionen können verwendet werden, um intuitive Benutzeroberflächelemente oder überzeugende Cartoon-Requisiten zu erzeugen, die sich wie ihre physikalischen Gegenstücke verhalten.
+Das allmähliche Erhöhen der Geschwindigkeit, mit der sich ein Element bewegt, kann dem Element ein Gefühl von Gewicht verleihen, da es scheinbar an Schwung gewinnt. Easing-Funktionen ermöglichen es Ihnen, die Änderungsrate zu steuern. Kubische Bezier-Easing-Funktionen können verwendet werden, um intuitive Benutzeroberflächenelemente oder überzeugende Cartoon-Requisiten zu erzeugen, die sich wie ihre physischen Gegenstücke verhalten.
 
-Alternativ möchten Sie möglicherweise, dass sich eine Animation in bestimmten Schritten vorwärts bewegt, um eine roboterartige Bewegung zu erzeugen oder den Effekt eines segmentierten Rades zu erzielen, das sich so dreht, dass die Segmente immer in derselben Position erscheinen. Für diesen Zweck können Schritt-Easing-Funktionen verwendet werden.
+Alternativ möchten Sie möglicherweise, dass eine Animation in bestimmten Schritten voranschreitet, um eine roboterartige Bewegung zu erzeugen oder den Effekt eines segmentierten Rads, das sich so dreht, dass die Segmente immer in derselben Position erscheinen. Dafür können Schritt-Easing-Funktionen verwendet werden.
 
 ## Referenz
 
@@ -29,23 +29,23 @@ Alternativ möchten Sie möglicherweise, dass sich eine Animation in bestimmten 
 
 ### Begriffe und Glossardefinitionen
 
-- {{Glossary("Bézier_curve", "Bézier-Kurve")}}
+- {{Glossary("Bezier_curve", "Bézier-Kurve")}}
 - {{Glossary("Interpolation", "Interpolation")}}
 
 ## Leitfäden
 
 - [CSS-Wertfunktionen: Easing-Funktionen](/de/docs/Web/CSS/Reference/Values/Functions#easing_functions)
-  - : Die CSS-Anweisungen, die eine spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen CSS-Wert für eine CSS-Eigenschaft zurückzugeben.
+  - : Die CSS-Anweisungen, die spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen CSS-Wert für eine CSS-Eigenschaft zurückzugeben.
 
 ## Verwandte Konzepte
 
-- CSS-Animationsmodul
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
   - {{cssxref("animation-timing-function")}}
-  - {{cssxref("animation")}} Kurzform
+  - {{cssxref("animation")}} shorthand
 
-- CSS-Übergangsmodul
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul
   - {{cssxref("transition-timing-function")}}
-  - {{cssxref("transition")}} Kurzform
+  - {{cssxref("transition")}} shorthand
 
 ## Spezifikationen
 

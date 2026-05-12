@@ -3,39 +3,39 @@ title: "CanvasRenderingContext2D: textBaseline-Eigenschaft"
 short-title: textBaseline
 slug: Web/API/CanvasRenderingContext2D/textBaseline
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.textBaseline`**-Eigenschaft der Canvas 2D API legt die aktuelle Text-Basislinie fest, die beim Zeichnen von Text verwendet wird.
+Die **`CanvasRenderingContext2D.textBaseline`**-Eigenschaft der Canvas 2D API legt die aktuelle Textbasislinie fest, die beim Zeichnen von Text verwendet wird.
 
 ## Wert
 
 Mögliche Werte:
 
 - `"top"`
-  - : Die Text-Basislinie ist die Oberseite des em-Quadrats.
+  - : Die Textbasislinie ist die Oberseite des em-Quadrats.
 - `"hanging"`
-  - : Die Text-Basislinie ist die Hängelinie. (Wird von tibetischen und anderen
-    indischen Schriften verwendet.)
+  - : Die Textbasislinie ist die hängende Basislinie. (Wird bei tibetischen und anderen indischen
+    Schriften verwendet.)
 - `"middle"`
-  - : Die Text-Basislinie ist die Mitte des em-Quadrats.
+  - : Die Textbasislinie ist die Mitte des em-Quadrats.
 - `"alphabetic"`
-  - : Die Text-Basislinie ist die normale {{Glossary("/Baseline/Typography", "alphabetische Basislinie")}}. Standardwert.
+  - : Die Textbasislinie ist die normale {{Glossary("Baseline/Typography", "alphabetische Basislinie")}}. Standardwert.
 - `"ideographic"`
-  - : Die Text-Basislinie ist die ideografische Basislinie; dies ist die Unterseite des
-    Zeichenkörpers, wenn der Hauptteil der Zeichen unter der alphabetischen Basislinie hervorsteht.
-    (Wird von chinesischen, japanischen und koreanischen Schriften verwendet.)
+  - : Die Textbasislinie ist die ideografische Basislinie; dies ist der untere Teil des Körpers der
+    Zeichen, wenn der Hauptteil der Zeichen unter der alphabetischen Basislinie hervorragt.
+    (Wird bei chinesischen, japanischen und koreanischen Schriften verwendet.)
 - `"bottom"`
-  - : Die Text-Basislinie ist die Unterseite des Begrenzungsrahmens. Dies unterscheidet sich von der
-    ideografischen Basislinie, da die ideografische Basislinie Abwärtsstriche nicht berücksichtigt.
+  - : Die Textbasislinie ist die Unterseite des Begrenzungsrahmens. Dies unterscheidet sich von der
+    ideografischen Basislinie, da die ideografische Basislinie keine Unterlängen berücksichtigt.
 
 Der Standardwert ist `"alphabetic"`.
 
 ## Beispiele
 
-### Vergleich der Eigenschaftswerte
+### Vergleich von Eigenschaftswerten
 
 Dieses Beispiel demonstriert die verschiedenen `textBaseline`-Eigenschaftswerte.
 
@@ -77,9 +77,9 @@ baselines.forEach((baseline, index) => {
 
 {{ EmbedLiveSample('Comparison_of_property_values', 700, 550) }}
 
-### Vergleich der Eigenschaftswerte auf derselben Linie
+### Vergleich von Eigenschaftswerten auf derselben Linie
 
-Wie im vorherigen Beispiel demonstriert dieses Beispiel die verschiedenen `textBaseline`-Eigenschaftswerte, aber in diesem Fall sind alle entlang derselben Linie horizontal ausgerichtet – um es einfacher zu machen, die Unterschiede zu erkennen.
+Wie im vorherigen Beispiel demonstriert auch dieses Beispiel die verschiedenen `textBaseline`-Eigenschaftswerte, jedoch in diesem Fall alle horizontal auf derselben Linie — um es einfacher zu machen, zu sehen, wie sie sich voneinander unterscheiden.
 
 #### HTML
 
@@ -134,4 +134,4 @@ baselines.forEach((baseline, index) => {
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

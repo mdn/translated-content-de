@@ -1,18 +1,18 @@
 ---
-title: CSS-Media-Feature `grid`
+title: "`grid` CSS-Media-Feature"
 short-title: grid
 slug: Web/CSS/Reference/At-rules/@media/grid
 l10n:
-  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
+  sourceCommit: ddf85bfec1b6e43cdacb404de0c38a801c561640
 ---
 
-Die **`grid`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen gitterbasierten Bildschirm verwendet.
+Die **`grid`** [CSS](/de/docs/Web/CSS) [Medienabfrage-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen gitterbasierten Bildschirm verwendet.
 
-Die meisten modernen Computer und Smartphones haben bitmap-basierte Bildschirme. Beispiele für gitterbasierte Geräte sind textbasierte Terminals und Basishandys mit nur einer festen Schriftart.
+Die meisten modernen Computer und Smartphones haben bitmapbasierte Bildschirme. Beispiele für gitterbasierte Geräte sind Textterminals und einfache Telefone mit nur einer festen Schriftart.
 
 ## Syntax
 
-Die `grid`-Feature wird als {{cssxref("CSS_media_queries/Using_media_queries", "&lt;mq-boolean&gt;")}} Wert (`0` oder `1`) angegeben, der darstellt, ob das Ausgabegerät gitterbasiert ist oder nicht.
+Das `grid`-Feature wird als Wert angegeben, der darstellt, ob das Ausgabegerät gitterbasiert ist — `1`, wenn es der Fall ist, und `0`, wenn nicht.
 
 ## Beispiele
 

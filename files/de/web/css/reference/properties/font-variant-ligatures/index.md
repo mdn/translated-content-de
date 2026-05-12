@@ -3,10 +3,10 @@ title: "`font-variant-ligatures` CSS property"
 short-title: font-variant-ligatures
 slug: Web/CSS/Reference/Properties/font-variant-ligatures
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
 ---
 
-Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche {{Glossary("ligature", "Ligaturen")}} und {{Glossary("contextual_forms", "kontextualen Formen")}} im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
+Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche {{Glossary("ligature", "Ligaturen")}} und kontextuellen Formen im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
 
 {{InteractiveExample("CSS Demo: font-variant-ligatures")}}
 
@@ -77,33 +77,33 @@ font-variant-ligatures: revert-layer;
 font-variant-ligatures: unset;
 ```
 
-Die `font-variant-ligatures` Eigenschaft wird als `normal`, `none` oder als eine oder mehrere der unten aufgeführten Wertetypen angegeben. Mehrere Werte werden durch Leerzeichen getrennt.
+Die `font-variant-ligatures` Eigenschaft wird als `normal`, `none` oder eine oder mehrere der unten aufgeführten Wertetypen angegeben. Mehrere Werte werden durch Leerzeichen getrennt.
 
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort aktiviert die üblichen Ligaturen und kontextuellen Formen, die für eine korrekte Darstellung notwendig sind. Die aktivierten Ligaturen und Formen hängen von der Schriftart, Sprache und Art der Schrift ab. Dies ist der Standardwert.
+  - : Dieses Schlüsselwort aktiviert die üblichen Ligaturen und kontextuellen Formen, die für die korrekte Darstellung benötigt werden. Die aktivierten Ligaturen und Formen hängen von der Schriftart, Sprache und Art des Skripts ab. Dies ist der Standardwert.
 - `none`
-  - : Dieses Schlüsselwort gibt an, dass alle Ligaturen und kontextuellen Formen deaktiviert sind, sogar die gebräuchlichen.
+  - : Dieses Schlüsselwort gibt an, dass alle Ligaturen und kontextuellen Formen deaktiviert sind, sogar die üblichen.
 - _`<common-lig-values>`_
-  - : Diese Werte steuern die gebräuchlichsten Ligaturen, wie `fi`, `ffi`, `th` oder ähnliche. Sie entsprechen den OpenType-Werten `liga` und `clig`. Zwei Werte sind möglich:
-    - `common-ligatures`, die diese Ligaturen aktivieren. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen aktiviert.
-    - `no-common-ligatures`, die diese Ligaturen deaktivieren.
+  - : Diese Werte steuern die häufigsten Ligaturen, wie für `fi`, `ffi`, `th` oder ähnliche. Sie entsprechen den OpenType-Werten `liga` und `clig`. Zwei Werte sind möglich:
+    - `common-ligatures` aktiviert diese Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen ebenfalls aktiviert.
+    - `no-common-ligatures` deaktiviert diese Ligaturen.
 
 - _`<discretionary-lig-values>`_
-  - : Diese Werte steuern spezifische Ligaturen, die von der Schrift und vom Schriftgestalter definiert sind. Sie entsprechen den OpenType-Werten `dlig`. Zwei Werte sind möglich:
-    - `discretionary-ligatures`, die diese Ligaturen aktivieren.
-    - `no-discretionary-ligatures`, die die Ligaturen deaktivieren. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
+  - : Diese Werte steuern spezifische Ligaturen, die spezifisch für die Schriftart und vom Schriftgestalter definiert sind. Sie entsprechen den OpenType-Werten `dlig`. Zwei Werte sind möglich:
+    - `discretionary-ligatures` aktiviert diese Ligaturen.
+    - `no-discretionary-ligatures` deaktiviert die Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
 
 - _`<historical-lig-values>`_
-  - : Diese Werte steuern die historisch verwendeten Ligaturen, in alten Büchern, wie das deutsche tz-Digraph, das als ꜩ dargestellt wird. Sie entsprechen den OpenType-Werten `hlig`. Zwei Werte sind möglich:
-    - `historical-ligatures`, die diese Ligaturen aktivieren.
-    - `no-historical-ligatures`, die die Ligaturen deaktivieren. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
+  - : Diese Werte steuern die historisch verwendeten Ligaturen in alten Büchern, wie das deutsche tz-Digraph, das als ꜩ angezeigt wird. Sie entsprechen den OpenType-Werten `hlig`. Zwei Werte sind möglich:
+    - `historical-ligatures` aktiviert diese Ligaturen.
+    - `no-historical-ligatures` deaktiviert die Ligaturen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen normalerweise deaktiviert.
 
 - _`<contextual-alt-values>`_
-  - : Diese Werte steuern, ob Buchstaben sich ihrem Kontext anpassen—das heißt, ob sie sich den umliegenden Buchstaben anpassen. Diese Werte entsprechen den OpenType-Werten `calt`. Zwei Werte sind möglich:
-    - `contextual` gibt an, dass die kontextuellen Alternativen verwendet werden sollen. Beachten Sie, dass das Schlüsselwort `normal` diese Ligaturen ebenfalls normalerweise aktiviert.
-    - `no-contextual` verhindert ihre Verwendung.
+  - : Diese Werte steuern, ob Buchstaben sich an ihren Kontext anpassen, das heißt, ob sie sich an die umgebenden Buchstaben anpassen. Diese Werte entsprechen den OpenType-Werten `calt`. Zwei Werte sind möglich:
+    - `contextual` gibt an, dass die kontextuellen Alternativen verwendet werden sollen. Beachten Sie, dass das Schlüsselwort `normal` normalerweise auch diese Ligaturen aktiviert.
+    - `no-contextual` verhindert deren Verwendung.
 
 ## Formale Definition
 
@@ -115,7 +115,7 @@ Die `font-variant-ligatures` Eigenschaft wird als `normal`, `none` oder als eine
 
 ## Beispiele
 
-### Festlegen von Schriftligaturen und kontextuellen Formen
+### Festlegen von Ligaturen und kontextuellen Formen der Schriftart
 
 #### HTML
 
@@ -230,4 +230,4 @@ p {
 - {{cssxref("font-variant-east-asian")}}
 - {{cssxref("font-variant-numeric")}}
 - {{cssxref("font-variant-position")}}
-- [CSS fonts module](/de/docs/Web/CSS/Guides/Fonts)
+- [CSS-Schriftartenmodul](/de/docs/Web/CSS/Guides/Fonts)
