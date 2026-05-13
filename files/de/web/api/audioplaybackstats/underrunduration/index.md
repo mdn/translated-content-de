@@ -3,16 +3,16 @@ title: "AudioPlaybackStats: underrunDuration-Eigenschaft"
 short-title: underrunDuration
 slug: Web/API/AudioPlaybackStats/underrunDuration
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: a1c2691b9ef6120e81ef3e08f51bfcacb6d4dc00
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die **`underrunDuration`**-Eigenschaft des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Gesamtdauer der underrun-Ereignisse angibt, seit der Audio-Kontext initialisiert wurde.
+Die schreibgeschützte Eigenschaft **`underrunDuration`** der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Schnittstelle ist eine Zahl, die die Gesamtdauer der [Underrun-Ereignisse](/de/docs/Web/API/AudioPlaybackStats#underrun_event) angibt, die seit der Initialisierung des Audio-Kontexts aufgetreten sind.
 
 ## Wert
 
-Eine Gleitkommazahl doppelter Genauigkeit, die die Dauer der underrun-Ereignisse in Sekunden angibt. Wird mit `0` initialisiert.
+Eine doppelt-präzise Gleitkommazahl, die die Dauer der Underrun-Ereignisse in Sekunden angibt. Sie ist initialisiert auf `0`.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ const stats = audioCtx.playbackStats;
 console.log(stats.underrunDuration);
 ```
 
-Sehen Sie sich auch die Hauptreferenzseite zu [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel an.
+Siehe auch die Hauptreferenzseite zu [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

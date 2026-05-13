@@ -3,12 +3,14 @@ title: "`caret-shape` CSS property"
 short-title: caret-shape
 slug: Web/CSS/Reference/Properties/caret-shape
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 00da2fc19d0c8c7cd2e91c78cf55e204cd94cf2b
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form des **Eingabecursors** fest, des sichtbaren Markers, der in editierbaren Elementen erscheint, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
+Die **`caret-shape`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Form des **Einfüge-Carets** fest, also des sichtbaren Markers, der in editierbaren Elementen erscheint, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
+
+Die `caret-shape`-Eigenschaft kann auch als Teil der {{cssxref("caret")}}-Kurzschrift-Eigenschaft festgelegt werden.
 
 {{InteractiveExample("CSS Demo: caret-shape")}}
 
@@ -69,41 +71,41 @@ caret-shape: unset;
 ### Werte
 
 - `auto`
-  - : Der Standardwert. Der Browser bestimmt die Form des Cursors. Dies folgt typischerweise den Plattformkonventionen und kann sich je nach Kontext ändern.
+  - : Der Standardwert. Der Browser bestimmt die Form des Carets. Dies folgt typischerweise den Plattform-Konventionen und kann je nach Kontext variieren.
 
 - `bar`
-  - : Der Cursor erscheint als dünne vertikale Linie an der Einfügestelle, zwischen den Zeichen positioniert anstatt über ihnen.
+  - : Das Caret erscheint als dünne vertikale Linie am Einfügepunkt, die zwischen den Zeichen und nicht über ihnen positioniert ist.
 
 - `block`
-  - : Der Cursor erscheint als Rechteck, das das nächste Zeichen nach der Einfügestelle überlappt. Wenn kein Zeichen folgt, erscheint er nach dem letzten Zeichen.
+  - : Das Caret erscheint als Rechteck, das das nächste Zeichen nach dem Einfügepunkt überlappt. Wenn kein Zeichen folgt, erscheint es nach dem letzten Zeichen.
 
 - `underscore`
-  - : Der Cursor erscheint als dünne horizontale Linie unter dem nächsten Zeichen nach der Einfügestelle. Wenn kein Zeichen folgt, erscheint er nach dem letzten Zeichen.
+  - : Das Caret erscheint als dünne horizontale Linie unter dem nächsten Zeichen nach dem Einfügepunkt. Wenn kein Zeichen folgt, erscheint es nach dem letzten Zeichen.
 
 ## Beschreibung
 
-Der Eingabecursor ist der blinkende Cursor, der anzeigt, wo Text bei der Eingabe eingefügt wird. Unterschiedliche Cursorformen können visuelles Feedback über den aktuellen Bearbeitungsmodus liefern oder bieten visuelle Anpassungen.
+Das Einfüge-Caret ist der blinkende Cursor, der anzeigt, wo Text beim Tippen eingefügt wird. Unterschiedliche Caret-Formen können visuelles Feedback über den aktuellen Bearbeitungsmodus geben oder eine visuelle Anpassung bieten.
 
-### Bearbeitungsmodi und Cursorformen
+### Bearbeitungsmodi und Caret-Formen
 
 Texteditoren arbeiten typischerweise in einem von zwei Modi:
 
-- **Einfügemodus**: Neue Zeichen werden an der Cursorposition eingefügt, wodurch der vorhandene Text ans Ende der Zeile verschoben wird. Dies ist das Standardverhalten in den meisten modernen Anwendungen.
-- **Überschreibmodus** (auch "Overwrite-Modus" genannt): Neue Zeichen ersetzen vorhandene Zeichen an der Cursorposition, anstatt zwischen ihnen eingefügt zu werden. Dieser Modus wird oft mit der <kbd>Einfg</kbd>-Taste umgeschaltet.
+- **Einfügemodus**: Neue Zeichen werden an der Caret-Position eingefügt und schieben vorhandenen Text zum Zeilenende. Dies ist das Standardverhalten in den meisten modernen Anwendungen.
+- **Überschreibmodus** (auch "overwrite mode" genannt): Neue Zeichen ersetzen vorhandene Zeichen an der Caret-Position, anstatt zwischen ihnen eingefügt zu werden. Dieser Modus wird häufig mit der <kbd>Einfügen</kbd>-Taste umgeschaltet.
 
-Verschiedene Cursorformen haben traditionelle Verwendungen, zum Beispiel:
+Unterschiedliche Caret-Formen haben traditionelle Anwendungen, zum Beispiel:
 
-- **Balkencursors** sind zwischen den Zeichen positioniert und sind am häufigsten in modernen Benutzeroberflächen.
-- **Blockcursors** überlagern das nächste Zeichen und werden oft in Terminalanwendungen oder zur Anzeige des Überschreibmodus verwendet.
-- **Unterstrichcursors** erscheinen unter den Zeichen und können für bestimmte Designästhetiken nützlich sein, wie das Nachahmen von Schreibmaschinen- oder Unterstrich-Textstileingaben.
+- **Bar-Carets** sind zwischen den Zeichen positioniert und sind in modernen Schnittstellen am häufigsten.
+- **Block-Carets** überlagern das nächste Zeichen und werden oft in Terminalanwendungen oder zur Anzeige des Überschreibmodus verwendet.
+- **Underscore-Carets** erscheinen unter den Zeichen und können für bestimmte Designästhetiken nützlich sein, wie das Nachahmen von Schreibmaschinen- oder Unterstrich-Text-Eingabestilen.
 
-### Cursorpositionierung und -verhalten
+### Caret-Positionierung und Verhalten
 
-Die `caret-shape` Eigenschaft wirkt sich darauf aus, wie der Cursor visuell gerendert wird, ändert jedoch nicht seine logische Position im Text. Der Cursor stellt immer die Einfügestelle zwischen den Zeichen dar, unabhängig von seiner visuellen Form.
+Die `caret-shape`-Eigenschaft beeinflusst, wie das Caret visuell gerendert wird, ändert jedoch nicht seine logische Position im Text. Das Caret stellt immer den Einfügepunkt zwischen Zeichen dar, unabhängig von seiner visuellen Form.
 
 ### Interaktion mit Schreibmodi
 
-Die Cursorform passt sich dem {{cssxref("writing-mode")}} des Textes an. In vertikalen Schreibmodi werden Balkencursors horizontal, und Unterstrichcursors positionieren sich entsprechend der Textausrichtung.
+Die Caret-Form passt sich dem {{cssxref("writing-mode")}} des Textes an. In vertikalen Schreibmodi werden Bar-Carets horizontal, und Underscore-Carets positionieren sich entsprechend der Textausrichtung.
 
 ## Formale Definition
 
@@ -115,11 +117,11 @@ Die Cursorform passt sich dem {{cssxref("writing-mode")}} des Textes an. In vert
 
 ## Beispiele
 
-### Retro-Terminal mit animiertem Cursor
+### Retro-Terminal mit animiertem Caret
 
-Dieses Beispiel zeigt, wie man eine Vintage-Terminaloberfläche unter Verwendung von `caret-shape: block` mit animierter Cursorfarbe erstellt und dabei die alte Technik des Einsatzes von Rahmen ersetzt.
+Dieses Beispiel zeigt, wie man eine Vintage-Terminaloberfläche mit `caret-shape: block` und animierter Caret-Farbe erstellt und damit die alte Technik der Verwendung von Rändern ersetzt.
 
-Der Kernpunkt ist die Verwendung moderner Cursoreigenschaften anstelle der alten rahmenbasierten Technik. Wir setzen den Cursor auf die Blockform, deaktivieren das standardmäßige Blinken und erstellen unsere eigene benutzerdefinierte Animation.
+Der Kernpunkt ist die Verwendung moderner Caret-Eigenschaften anstelle der alten randbasierten Technik. Wir stellen das Caret auf Blockform, deaktivieren das standardmäßige Blinken und erstellen unsere eigene benutzerdefinierte Animation.
 
 #### HTML
 
@@ -201,9 +203,9 @@ span {
 
 {{EmbedLiveSample('Retro_terminal_with_animated_caret', 550, 215)}}
 
-### Konsolenoberfläche mit Unterstrich-Cursor
+### Konsoleninterface mit Underscore-Caret
 
-Dieses Beispiel demonstriert die Verwendung von `caret-shape: underscore`, um eine konsolenartige Oberfläche zu erstellen, bei der der Unterstrich-Cursor das Terminal-Ästhetik ergänzt.
+Dieses Beispiel demonstriert die Verwendung von `caret-shape: underscore`, um eine Konsolen-ähnliche Schnittstelle zu erstellen, bei der das Underscore-Caret das Terminalästhetik ergänzt.
 
 #### HTML
 
@@ -290,5 +292,5 @@ label {
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-animation")}}
-- {{cssxref("caret")}} Kurzschreibweise
-- [CSS grundlegendes Benutzeroberflächen](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul
+- {{cssxref("caret")}} Kurzschrift
+- [Grundlegendes Benutzeroberflächenleitfaden (CSS)](/de/docs/Web/CSS/Guides/Basic_user_interface) Moduls
