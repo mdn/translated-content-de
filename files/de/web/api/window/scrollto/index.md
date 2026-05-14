@@ -1,14 +1,15 @@
 ---
-title: "Window: scrollTo() Methode"
+title: "Window: scrollTo()-Methode"
 short-title: scrollTo()
 slug: Web/API/Window/scrollTo
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 3f96229b10f32dcf39352345e84a1c32e831266d
 ---
 
 {{APIRef}}
 
-**`Window.scrollTo()`** scrollt zu einem bestimmten Koordinatensatz im Dokument.
+Die **`Window.scrollTo()`** Methode scrollt zu einem bestimmten Satz von
+Koordinaten im Dokument.
 
 ## Syntax
 
@@ -20,24 +21,24 @@ scrollTo(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des Dokuments, das Sie in der oberen linken Ecke anzeigen möchten.
+  - : Die x-Koordinate des Dokuments, zu der die linke Kante des Viewports scrollen soll.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Dokuments, das Sie in der oberen linken Ecke anzeigen möchten.
+  - : Die y-Koordinate des Dokuments, zu der die obere Kante des Viewports scrollen soll.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um das Fenster oder Element zu scrollen.
+      - : Die y-Koordinate des Dokuments, zu der die obere Kante des Viewports scrollen soll. Dies ist dasselbe wie der `yCoord`-Parameter.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um das Fenster oder Element zu scrollen.
+      - : Die x-Koordinate des Dokuments, zu der die linke Kante des Viewports scrollen soll. Dies ist dasselbe wie der `xCoord`-Parameter.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort erfolgt oder sanft animiert wird. Diese Option ist eine Zeichenkette, die einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen sollte sanft animiert werden
-        - `instant`: Das Scrollen sollte sofort und in einem einzigen Sprung erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Das Scrollen wird sanft animiert.
+        - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft im Dokument bestimmt.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -57,7 +58,9 @@ window.scrollTo({
 
 ## Hinweise
 
-[`Window.scroll()`](/de/docs/Web/API/Window/scroll) ist im Wesentlichen dasselbe wie diese Methode. Für relatives Scrollen siehe [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy), [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
+[`Window.scroll()`](/de/docs/Web/API/Window/scroll) ist im Wesentlichen dasselbe wie diese Methode. Für relatives
+Scrollen, siehe [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy), [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines),
+und [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 
 Für das Scrollen von Elementen siehe [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) und
 [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft).

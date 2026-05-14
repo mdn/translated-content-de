@@ -1,14 +1,15 @@
 ---
-title: "Window: scrollBy() Methode"
+title: "Window: scrollBy()-Methode"
 short-title: scrollBy()
 slug: Web/API/Window/scrollBy
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 3f96229b10f32dcf39352345e84a1c32e831266d
 ---
 
 {{APIRef}}
 
-Die **`Window.scrollBy()`** Methode scrollt das Dokument im Fenster um den angegebenen Betrag.
+Die **`Window.scrollBy()`**-Methode scrollt das Dokument im
+Fenster um den angegebenen Betrag.
 
 ## Syntax
 
@@ -20,17 +21,20 @@ scrollBy(options)
 ### Parameter
 
 - `xCoord`
-  - : Der horizontale Pixelwert, um den gescrollt werden soll.
+  - : Der horizontale Pixelwert, um den Sie scrollen möchten.
 - `yCoord`
-  - : Der vertikale Pixelwert, um den gescrollt werden soll.
+  - : Der vertikale Pixelwert, um den Sie scrollen möchten.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl von Pixeln entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left`
-      - : Gibt die Anzahl von Pixeln entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen sanft animiert werden soll (`smooth`), sofort in einem Sprung erfolgen soll (`instant`), oder vom Browser gewählt werden soll (`auto`, Standard).
+      - : Bestimmt, ob das Scrollen sofort oder weich animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Das Scrollen wird weich animiert.
+        - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
+        - `auto`: Das Scroll-Verhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft im Dokument bestimmt.
 
 ### Rückgabewert
 
@@ -62,7 +66,9 @@ window.scrollBy({
 
 ## Anmerkungen
 
-`window.scrollBy()` scrollt um einen bestimmten Betrag, während [`window.scroll()`](/de/docs/Web/API/Window/scroll) zu einer absoluten Position im Dokument scrollt. Siehe auch [`window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
+`window.scrollBy()` scrollt um einen bestimmten Betrag, während
+[`window.scroll()`](/de/docs/Web/API/Window/scroll) zu einer absoluten Position im Dokument scrollt. Siehe auch
+[`window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 
 ## Spezifikationen
 

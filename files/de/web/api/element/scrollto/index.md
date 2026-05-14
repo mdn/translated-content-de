@@ -3,12 +3,13 @@ title: "Element: scrollTo()-Methode"
 short-title: scrollTo()
 slug: Web/API/Element/scrollTo
 l10n:
-  sourceCommit: 45c08c0f5fe0fee0ca63e7a2b209ffdc0faa0b27
+  sourceCommit: 3f96229b10f32dcf39352345e84a1c32e831266d
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`scrollTo()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
+Die **`scrollTo()`**-Methode des [`Element`](/de/docs/Web/API/Element)
+Interfaces scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
 
 Diese Methode ist ein Alias für [`Element.scroll()`](/de/docs/Web/API/Element/scroll).
 
@@ -22,22 +23,20 @@ scrollTo(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des
-    Elements, das oben links angezeigt werden soll.
+  - : Die x-Koordinate des scrollbaren Inhalts des Elements, zu der die linke Kante des Scrollports des Elements scrollen soll.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Elements,
-    das oben links angezeigt werden soll.
+  - : Die y-Koordinate des scrollbaren Inhalts des Elements, zu der die obere Kante des Scrollports des Elements scrollen soll.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, die das Fenster oder das Element scrollen soll.
+      - : Die y-Koordinate des scrollbaren Inhalts des Elements, zu der die obere Kante des Scrollports des Elements scrollen soll. Dies ist das gleiche wie der `yCoord`-Parameter.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, die das Fenster oder das Element scrollen soll.
+      - : Die x-Koordinate des scrollbaren Inhalts des Elements, zu der die linke Kante des Scrollports des Elements scrollen soll. Dies ist das gleiche wie der `xCoord`-Parameter.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Scrollen soll sanft animiert werden
-        - `instant`: Scrollen soll sofort in einem einzigen Sprung erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort erfolgt oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Das Scrollen wird sanft animiert.
+        - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft auf dem Element bestimmt.
 
 ### Rückgabewert
 

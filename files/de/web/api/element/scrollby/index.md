@@ -3,12 +3,13 @@ title: "Element: scrollBy() Methode"
 short-title: scrollBy()
 slug: Web/API/Element/scrollBy
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 3f96229b10f32dcf39352345e84a1c32e831266d
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`scrollBy()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces scrollt ein Element um den angegebenen Betrag.
+Die **`scrollBy()`**-Methode des [`Element`](/de/docs/Web/API/Element)
+Interfaces scrollt ein Element um den angegebenen Wert.
 
 ## Syntax
 
@@ -30,7 +31,10 @@ scrollBy(options)
     - `left`
       - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen sanft animiert (`smooth`), sofort in einem einzigen Sprung (`instant`) erfolgen soll oder der Browser die Methode wählen sollte (`auto`, Standard).
+      - : Bestimmt, ob das Scrollen sofort erfolgt oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte haben muss:
+        - `smooth`: Das Scrollen wird sanft animiert.
+        - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft des Elements bestimmt.
 
 ### Rückgabewert
 
