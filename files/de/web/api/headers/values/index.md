@@ -3,13 +3,13 @@ title: "Headers: values() Methode"
 short-title: values()
 slug: Web/API/Headers/values
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
 Die **`Headers.values()`** Methode gibt einen
-{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind {{jsxref("String")}} Objekte.
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Werte in diesem Objekt durchzugehen. Die Werte sind {{jsxref("String")}} Objekte.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
@@ -45,6 +45,10 @@ Das Ergebnis ist:
 text/xml
 Accept-Language
 ```
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Browser-Kompatibilität
 

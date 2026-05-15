@@ -3,7 +3,7 @@ title: "Headers: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/Headers/forEach
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
@@ -20,13 +20,13 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente:
+  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente entgegen:
     - `value`
       - : Wert des aktuell besuchten Header-Eintrags.
     - `key`
       - : Name des aktuell besuchten Header-Eintrags.
     - `object`
-      - : Das Headers-Objekt, das iteriert wird.
+      - : Das zu iterierende Headers-Objekt.
 - `thisArg` {{Optional_Inline}}
   - : Wert, der als `this` verwendet wird, wenn `callback` ausgeführt wird.
 
@@ -36,13 +36,13 @@ forEach(callbackFn, thisArg)
 
 ## Beschreibung
 
-Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden Schlüssel der Headers aus, die tatsächlich existieren. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert undefined haben.
+Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden tatsächlich vorhandenen Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert undefined haben.
 
 ## Beispiele
 
-### Inhalt eines Headers-Objekts ausgeben
+### Inhalte des Headers-Objekts ausgeben
 
-Der folgende Code protokolliert eine Zeile für jeden Schlüssel/Wert im `myHeaders`-Objekt.
+Der folgende Code loggt eine Zeile für jedes Schlüssel/Wert-Paar im `myHeaders`-Objekt.
 
 ```js
 // Create a new test Headers object
@@ -64,6 +64,10 @@ compression ==> gzip
 content-type ==> application/json
 cookie ==> This is a demo cookie
 ```
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Browser-Kompatibilität
 

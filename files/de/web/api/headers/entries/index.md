@@ -1,17 +1,16 @@
 ---
-title: "Headers: entries() Methode"
+title: "Headers: Methode entries()"
 short-title: entries()
 slug: Web/API/Headers/entries
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.entries()`** Methode gibt einen
-{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare
-in diesem Objekt zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind
-{{jsxref("String")}} Objekte.
+Die Methode **`Headers.entries()`** gibt einen
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der erlaubt, alle Schlüssel/Wert-Paare, die in diesem Objekt enthalten sind, durchzugehen. Sowohl der Schlüssel als auch der Wert jedes Paares sind
+{{jsxref("String")}}-Objekte.
 
 ## Syntax
 
@@ -25,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
@@ -47,6 +46,10 @@ Das Ergebnis ist:
 content-type: text/xml
 vary: Accept-Language
 ```
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Browser-Kompatibilität
 

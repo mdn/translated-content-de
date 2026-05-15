@@ -3,12 +3,12 @@ title: "ViewTransition: waitUntil() Methode"
 short-title: waitUntil()
 slug: Web/API/ViewTransition/waitUntil
 l10n:
-  sourceCommit: 7313aa9ef71bdfcd7ddb2fa4247b0600ce0e6542
+  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
 ---
 
 {{APIRef("View Transition API")}}
 
-Die **`waitUntil()`**-Methode der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle verzögert das Beenden der Ansichtstransition und die Zerstörung des zugehörigen Pseudo-Elementbaums, bis ein in die Methode übergebenes {{jsxref("Promise")}} erfüllt ist.
+Die **`waitUntil()`** Methode des [`ViewTransition`](/de/docs/Web/API/ViewTransition) Interfaces verzögert das Beenden der Ansichtsübergangs und die Zerstörung des zugehörigen Pseudo-Elementbaums, bis ein in die Methode übergebener {{jsxref("Promise")}} aufgelöst wurde.
 
 ## Syntax
 
@@ -19,35 +19,35 @@ waitUntil(promise)
 ### Parameter
 
 - `promise`
-  - : Ein {{jsxref("Promise")}}, das, wenn es erfüllt ist, die Ansichtstransition beendet und den zugehörigen Pseudo-Elementbaum zerstört. Dies kann jedes beliebige Promise sein.
+  - : Ein {{jsxref("Promise")}}, der, wenn er aufgelöst wird, den Ansichtsübergang beendet und den zugehörigen Pseudo-Elementbaum zerstört. Dies kann jedes beliebige Promise sein.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Wenn eine Ansichtstransition im selben Dokument gestartet wird (typischerweise über [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)), erstellt der Browser automatisch einen [Pseudo-Elementbaum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree), um ausgehende und eingehende Änderungen am DOM darzustellen und zu animieren. Dieser Baum wird erstellt, wenn die Ansichtstransition zu animieren beginnt und wird zerstört, wenn die mit allen Pseudo-Elementen der Ansichtstransition verbundenen Animationen den abgeschlossenen Zustand erreichen ([`finished`](/de/docs/Web/API/ViewTransition/finished) ist erfüllt).
+Wenn ein Übergang innerhalb desselben Dokuments gestartet wird (typischerweise über [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition)), erstellt der Browser automatisch einen [Pseudo-Elementbaum](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree), um ausgehende und eingehende Änderungen am DOM anzuzeigen und zu animieren. Dieser Baum wird erstellt, wenn der Ansichtsübergang zu animieren beginnt, und wird zerstört, wenn die Animationen, die mit allen Ansichtsübergangs-Pseudo-Elementen verbunden sind, den abgeschlossenen Zustand erreichen ([`finished`](/de/docs/Web/API/ViewTransition/finished) ist aufgelöst).
 
-Dies funktioniert gut für die meisten Anwendungsfälle, aber es gibt einige, bei denen es vorteilhaft ist, wenn der Pseudo-Baum über den Zustand des Animationsendes hinaus bestehen bleibt. Dies kann erreicht werden, indem die `waitUntil()`-Methode verwendet wird, der ein {{jsxref("Promise")}} als Argument übergeben wird. Ein Aufruf von `waitUntil()` bewirkt, dass der Pseudo-Baum bestehen bleibt, bis das Promise erfüllt ist. Zu diesem Zeitpunkt wird auch das `finished` Promise erfüllt.
+Dies funktioniert in den meisten Anwendungsfällen gut, aber es gibt einige, bei denen es von Vorteil ist, dass der Pseudo-Baum über den Animationsendzustand hinaus bestehen bleibt. Dies kann mit der `waitUntil()` Methode erreicht werden, die ein {{jsxref("Promise")}} als Argument übergeben bekommt. Der Aufruf von `waitUntil()` bewirkt, dass der Pseudo-Baum bestehen bleibt, bis der Promise aufgelöst ist. Zu diesem Zeitpunkt wird auch der `finished`-Promise aufgelöst.
 
-Wiederholte Aufrufe von `waitUntil()` mit verschiedenen Promises verzögern den Endzustand, bis alle angegebenen Promises erfüllt sind.
+Wiederholte Aufrufe von `waitUntil()`, die mehrere verschiedene Promises angeben, verzögern den Endzustand, bis alle angegebenen Promises aufgelöst sind.
 
-Anwendungsfälle umfassen:
+Anwendungsfälle beinhalten:
 
-- Kombination einer Ansichtstransition mit [Scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations). Wenn die Übergangsanimation durch einen Scroll-Fortschritt oder eine Fortschrittstimeline gesteuert wird, sollte der Unterbaum bestehen bleiben, wenn die Animationen enden, da das Zurückscrollen die Pseudo-Elemente rückwärts animieren können sollte.
-- Kombination einer Ansichtstransition mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame). Wenn Sie den Status Ihrer Elemente in `requestAnimationFrame()`-Callbacks aktualisieren, weiß das Ansichtstransitionssystem nicht, wie lange der Pseudo-Elementbaum bestehen bleiben soll, und wird ihn sofort zerstören, sobald die CSS-Animationen beendet sind.
-- Jede Situation, in der Sie das Ende der Ansichtstransition verzögern möchten, bis ein Ereignis eingetreten ist. Sie möchten beispielsweise die Ansichtstransition bei `pointerdown` starten und erst bei `pointerup` beenden.
+- Die Kombination eines Ansichtsübergangs mit [scroll-getriebenen Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations). Wenn die Übergangsanimation von einer Scroll- oder Ansichts-Fortschritts-Zeitleiste gesteuert wird, sollte der Unterbaum bestehen bleiben, wenn die Animationen beendet sind, da beim Rückrollen die Pseudo-Elemente rückwärts animiert werden sollen.
+- Die Kombination eines Ansichtsübergangs mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame). Wenn Sie den Zustand Ihrer Elemente in `requestAnimationFrame()`-Callbacks aktualisieren, weiß das Ansichtsübergangssystem nicht, wie lange der Pseudo-Elementbaum bestehen bleiben soll, und wird ihn sofort zerstören, sobald die CSS-Animationen beendet sind.
+- Jede Situation, in der Sie das Beenden des Ansichtsübergangs verzögern möchten, bis ein Ereignis eintritt. Sie könnten beispielsweise den Ansichtsübergang bei `pointerdown` starten und ihn nicht beenden, bis `pointerup` erfolgt ist.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `waitUntil()`-Methode, um eine durch einen Button- oder Tastendruck gestartete Ansichtstransition zu verzögern, bis der Button- oder Tastendruck endet.
+Dieses Beispiel zeigt die grundlegende Verwendung der `waitUntil()` Methode, um das Beenden eines durch einen Tasten- oder Tastendruck gestarteten Ansichtsübergangs zu verzögern, bis der Tasten- oder Tastendruck endet.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("div")}}-Element ein, das Seiteninhalt enthält, einschließlich eines {{htmlelement("p")}}-Elements und eines {{htmlelement("button")}}-Elements, das beim Drücken den angezeigten Inhalt ändert. Der Absatz enthält ein [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Attribut, damit DOM-Aktualisierungen Benutzern von Bildschirmlesern angesagt werden.
+Wir fügen ein {{htmlelement("div")}} Element ein, das Seiteninhalt enthält, darunter ein {{htmlelement("p")}} Element und ein {{htmlelement("button")}} Element, das beim Drücken den angezeigten Inhalt ändert. Der Absatz enthält ein [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) Attribut, damit DOM-Updates den Benutzern von Bildschirmlesegeräten mitgeteilt werden.
 
 ```html live-sample___basic-waituntil
 <div class="page">
@@ -56,7 +56,7 @@ Wir fügen ein {{htmlelement("div")}}-Element ein, das Seiteninhalt enthält, ei
 </div>
 ```
 
-Wir fügen auch ein zweites `<p>`-Element ein, um Statusmeldungen zu protokollieren:
+Wir fügen auch ein zweites `<p>` Element hinzu, um Statusmeldungen zu protokollieren:
 
 ```html live-sample___basic-waituntil
 <p class="log"></p>
@@ -64,7 +64,7 @@ Wir fügen auch ein zweites `<p>`-Element ein, um Statusmeldungen zu protokollie
 
 #### CSS
 
-Zuerst wenden wir einen {{cssxref("view-transition-name")}} von `page` auf unser `<div>`-Element an, damit wir nur diesen Bereich mit den Ansichtstransitionsanimationen ansprechen können, anstatt die gesamte MDN-Seite.
+Zuerst wenden wir einen {{cssxref("view-transition-name")}} von `page` auf unser `<div>` Element an, damit wir nur diesen Bereich mit den Übergangsanimationen ansprechen können, anstatt die gesamte MDN-Seite.
 
 ```css live-sample___basic-waituntil
 .page {
@@ -72,7 +72,7 @@ Zuerst wenden wir einen {{cssxref("view-transition-name")}} von `page` auf unser
 }
 ```
 
-Als nächstes setzen wir eine {{cssxref("animation-delay")}} auf das {{cssxref("::view-transition-new()")}} Pseudo-Element (beachten Sie, dass wir den `page`-Baum angeben und nicht den Standard-`root`-Baum). Dies verzögert die Standard-Einblendtransition des neuen DOM-Inhalts um `0.25` Sekunden, sodass es leicht nach dem Ausblenden des alten DOM-Inhalts eingeblendet wird.
+Als nächstes setzen wir eine {{cssxref("animation-delay")}} auf das {{cssxref("::view-transition-new()")}} Pseudo-Element (beachten Sie, wie wir den `page` Baum statt des Standard-`root` Baums angeben). Dies verzögert die Standardeinblend-Animation des neuen DOM-Inhalts um `0.25` Sekunden, sodass er leicht nach dem Ausblenden des alten DOM-Inhalts angezeigt wird.
 
 ```css live-sample___basic-waituntil
 ::view-transition-new(page) {
@@ -80,7 +80,7 @@ Als nächstes setzen wir eine {{cssxref("animation-delay")}} auf das {{cssxref("
 }
 ```
 
-Nun setzen wir eine benutzerdefinierte {{cssxref("animation-duration")}} und {{cssxref("opacity")}} auf die {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Elemente. Dies hat den Effekt, dass die Standard-Aus- und Einblendanimationen `0.5` Sekunden dauern und die `opacity` des Inhalts auf `0.5` gesetzt wird, bis die Ansichtstransition abgeschlossen ist.
+Nun setzen wir eine benutzerdefinierte {{cssxref("animation-duration")}} und {{cssxref("opacity")}} auf das {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Element. Dies hat zur Folge, dass die Standard-Aus- und Einblendanimationen `0.5` Sekunden dauern und die `opacity` des Inhalts auf `0.5` gesetzt wird, bis der Ansichtsübergang beendet ist.
 
 ```css live-sample___basic-waituntil
 ::view-transition-old(page),
@@ -116,7 +116,7 @@ h1 {
 
 #### JavaScript
 
-Unser Skript beginnt damit, Referenzen zum Inhaltsabsatz, Button und Protokollabsatz zu erfassen.
+Unser Skript beginnt damit, Referenzen auf den Absatzinhalt, die Schaltfläche und den Protokollabsatz zu erhalten.
 
 ```js live-sample___basic-waituntil
 const content = document.querySelector(".content");
@@ -124,7 +124,7 @@ const btn = document.querySelector("button");
 const log = document.querySelector(".log");
 ```
 
-Als nächstes setzen wir Event-Listener auf den Button, sodass bei `pointerdown`/`keypress` die `btnHandler()`-Benutzerfunktion ausgeführt wird. Wir spezifizieren den `keypress`-Handler, um nur einmal auszulösen, da er andernfalls mehrfach ausgelöst wird, wenn eine Taste lange gedrückt wird, was ständig zwischen Ansichten wechselt und nicht das gewünschte Verhalten ist.
+Als nächstes setzen wir Ereignislistener auf die Schaltfläche, damit bei `pointerdown`/`keypress` die benutzerdefinierte Funktion `btnHandler()` ausgeführt wird. Wir geben an, dass der `keypress` Handler nur `einmal` ausgelöst werden soll, da er sonst mehrmals feuert, wenn eine Taste lange gedrückt wird, was das ständige Wechseln zwischen Ansichten zur Folge hat und nicht das gewünschte Verhalten ist.
 
 ```js live-sample___basic-waituntil
 btn.addEventListener("pointerdown", btnHandler);
@@ -133,9 +133,9 @@ btn.addEventListener("keypress", btnHandler, {
 });
 ```
 
-Die `btnHandler()`-Funktion ruft [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) auf, um die Ansichtstransition zu starten und zuerst eine benutzerdefinierte Funktion namens `updatePage()` auszuführen, die die zu animierenden DOM-Updates durchführt. Als nächstes erstellen wir eine Variable namens `resolveTransition` und ein neues {{jsxref("Promise")}} namens `p`. Wir setzen `resolveTransition` gleich der `resolve`-Funktion des Promise-Callbacks, sodass, wenn `resolveTransition()` aufgerufen wird, wie wir es in den nachfolgenden `pointerup`- und `keyup`-Event-Listenern tun, das Promise erfüllt wird. Beachten Sie, dass wir den `keypress`-Handler jedes Mal erneut anwenden müssen, wenn der `keyup`-Handler ausgelöst wird, da er jedes Mal nur einmal auslöst.
+Die `btnHandler()` Funktion ruft [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) auf, um den Ansichtsübergang zu starten, und führt zuerst eine benutzerdefinierte Funktion namens `updatePage()` aus, die die zu animierenden DOM-Updates durchführt. Anschließend erstellen wir eine Variable namens `resolveTransition` und ein neues {{jsxref("Promise")}} namens `p`. Wir setzen `resolveTransition` gleich der `resolve` Funktion des Promise-Callbacks, sodass, wenn `resolveTransition()` aufgerufen wird, wie wir es in den nachfolgenden `pointerup` und `keyup` Ereignislisten tun, das Promise aufgelöst wird. Beachten Sie, dass wir den `keypress` Handler jedes Mal erneut anwenden müssen, wenn der `keyup` Handler auslöst, da er jedes Mal nur einmal ausgelöst wird.
 
-Wir führen `waitUntil()` aus und übergeben ihm das Promise `p` als Argument. Das bedeutet, dass die Ansichtstransition bestehen bleibt, bis `p` bei `pointerup` erfüllt ist. Um dies zu beweisen, verwenden wir das [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) Promise, um eine `showLog()`-Funktion auszuführen, sobald die Transition abgeschlossen ist, die eine Nachricht in den Protokollabsatz druckt.
+Wir rufen `waitUntil()` auf und übergeben das Promise `p` als Argument. Dies bedeutet, dass der Ansichtsübergang bestehen bleibt, bis `p` bei `pointerup` aufgelöst wird. Um dies zu beweisen, verwenden wir das [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) Promise, um eine `showLog()` Funktion auszuführen, sobald der Übergang abgeschlossen ist. Diese Funktion wird eine Nachricht in den Protokollabsatz drucken.
 
 ```js live-sample___basic-waituntil
 function btnHandler() {
@@ -165,9 +165,14 @@ function btnHandler() {
 }
 ```
 
-Als nächstes definieren wir die `updatePage()`-Funktion, die das Seiten-DOM aktualisiert. Sie wechselt zwischen dem Setzen des Inhalts des Absatzes `textContent` gleich den ersten und zweiten `pageContent`-Array-Elementen.
+Als nächstes definieren wir die `updatePage()` Funktion, die das Seiten-DOM aktualisiert. Sie wechselt zwischen der Zuweisung des `textContent` des Absatzinhalts zu den ersten und zweiten `pageContent` Array-Elementen.
 
 ```js live-sample___basic-waituntil
+const pageContent = [
+  "Hello! This is the first page.",
+  "Well, this is the second page.",
+];
+
 function updatePage() {
   if (content.textContent === pageContent[0]) {
     content.textContent = pageContent[1];
@@ -175,14 +180,9 @@ function updatePage() {
     content.textContent = pageContent[0];
   }
 }
-
-const pageContent = [
-  "Hello! This is the first page.",
-  "Well, this is the second page.",
-];
 ```
 
-Schließlich definieren wir die `showLog()`-Funktion — diese setzt den `textContent` des Protokollabsatzes auf "View transition finished", wartet eine Sekunde und setzt ihn dann wieder auf einen leeren String.
+Schließlich definieren wir die `showLog()` Funktion — diese setzt den `textContent` des Protokollabsatzes auf "View transition finished", wartet eine Sekunde und setzt ihn dann wieder auf einen leeren String zurück.
 
 ```js live-sample___basic-waituntil
 function showLog() {
@@ -197,9 +197,9 @@ function showLog() {
 
 {{embedlivesample("basic-waituntil", "100%", 200)}}
 
-Versuchen Sie, die Taste mit Ihrer Tastatur, Maus oder einem anderen Zeigegerät lange zu drücken — Sie werden sehen, dass die Überblendungs-Transitionsanimation stattfindet, aber der Inhalt bleibt ausgegraut (aufgrund der auf die Pseudo-Elemente der Ansichtstransition gesetzten `opacity: 0.5`), bis Sie das lange Drücken beenden. Dies liegt daran, dass das in `waitUntil()` referenzierte `p` Promise nicht erfüllt ist und daher die Ansichtstransition nicht abgeschlossen ist, bis die `pointerup`/`keyup`-Ereignisse ausgelöst werden.
+Versuchen Sie, die Schaltfläche mit Ihrer Tastatur, Maus oder einem anderen Zeigegerät lange gedrückt zu halten — Sie werden sehen, dass die Überblendungsanimation auftritt, aber der Inhalt bleibt ausgegraut (aufgrund der `opacity: 0.5`, die auf die Ansichtsübergangs-Pseudo-Elemente gesetzt ist), bis Sie den langen Druck beenden. Dies liegt daran, dass das im `waitUntil()` Aufruf referenzierte `p` Promise nicht aufgelöst ist und daher der Ansichtsübergang nicht abgeschlossen ist, bis die `pointerup`/`keyup` Ereignisse ausgelöst werden.
 
-Die Meldung "View transition finished" im Protokoll erscheint ebenfalls erst, wenn die Ansichtstransition abgeschlossen ist, da die Funktion, die dies handhabt, an das `ViewTransition.finished`-Promise gebunden ist.
+Die Protokollnachricht "View transition finished" erscheint ebenfalls erst, wenn der Ansichtsübergang abgeschlossen ist, da die Funktion, die dies behandelt, an das `ViewTransition.finished` Promise gebunden ist.
 
 ## Spezifikationen
 
@@ -211,4 +211,4 @@ Die Meldung "View transition finished" im Protokoll erscheint ebenfalls erst, we
 
 ## Siehe auch
 
-- [Glattere Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

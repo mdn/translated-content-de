@@ -2,20 +2,20 @@
 title: Erweiterungsseiten
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 38199423810927262c9cb4dec7ea7de4cb0c5e0f
 ---
 
-Sie können HTML-Seiten in Ihre Erweiterung einbinden, um Formulare, Hilfe oder beliebige andere Inhalte bereitzustellen, die Ihre Erweiterung benötigt.
+Sie können HTML-Seiten in Ihre Erweiterung integrieren, um Formulare, Hilfsinhalte oder andere Inhalte bereitzustellen, die Ihre Erweiterung benötigt.
 
-![Beispiel für eine einfache gebündelte Seite, die als abgetrenntes Fenster angezeigt wird.](bundled_page_as_panel_small.png)
+![Beispiel einer einfachen gebündelten Seite, die als abgetrenntes Panel angezeigt wird.](bundled_page_as_panel_small.png)
 
-Diese Seiten haben ebenfalls Zugriff auf die gleichen privilegierten JavaScript-APIs, die Ihren Hintergrundskripten der Erweiterung zur Verfügung stehen. Sie befinden sich jedoch in ihren eigenen Tabs mit ihrer eigenen JavaScript-Ereigniswarteschlange, ihren eigenen globalen Variablen, etc.
+Diese Seiten haben ebenfalls Zugriff auf die gleichen privilegierten JavaScript-APIs, die für die Hintergrundskripte Ihrer Erweiterung verfügbar sind. Sie befinden sich jedoch in ihrem eigenen Tab, mit ihrer eigenen JavaScript-Ereigniswarteschlange, ihren eigenen globalen Variablen usw.
 
 Betrachten Sie die Hintergrundseite als eine "versteckte Erweiterungsseite".
 
 ## Festlegen von Erweiterungsseiten
 
-Sie können HTML-Dateien und zugehörige CSS- oder JavaScript-Dateien in Ihre Erweiterung einbinden. Die Dateien können im Root-Verzeichnis enthalten oder in sinnvollen Unterordnern organisiert werden.
+Sie können HTML-Dateien – und die zugehörigen CSS- oder JavaScript-Dateien – in Ihre Erweiterung einbinden. Die Dateien können im Root-Verzeichnis enthalten sein oder in sinnvollen Unterordnern organisiert werden.
 
 ```plain
 /my-extension
@@ -28,7 +28,7 @@ Sie können HTML-Dateien und zugehörige CSS- oder JavaScript-Dateien in Ihre Er
 
 Es gibt zwei Optionen zum Anzeigen von Erweiterungsseiten: {{WebExtAPIRef("windows.create()")}} und {{WebExtAPIRef("tabs.create()")}}.
 
-Mit `windows.create()` können Sie beispielsweise eine HTML-Seite in einem abgetrennten Fenster öffnen (einem Fenster ohne die normale Browser-Oberfläche mit Adressleiste, Lesezeichenleiste und ähnlichem), um eine dialogähnliche Benutzererfahrung zu schaffen:
+Mit `windows.create()`, können Sie zum Beispiel eine HTML-Seite in einem abgetrennten Fenster öffnen (ein Fenster ohne die normale Browser-Benutzeroberfläche wie Adressleiste, Lesezeichenleiste usw.), um eine dialogähnliche Benutzererfahrung zu schaffen:
 
 ```js
 let createData = {
@@ -42,7 +42,7 @@ let creating = browser.windows.create(createData);
 
 Wenn das Fenster nicht mehr benötigt wird, kann es programmgesteuert geschlossen werden.
 
-Beispielsweise können Sie, nachdem der Benutzer auf einen Button geklickt hat, die aktuelle Fenster-ID an {{WebExtAPIRef("windows.remove()")}} übergeben:
+Zum Beispiel, nachdem der Benutzer auf eine Schaltfläche geklickt hat, können Sie die ID des aktuellen Fensters an {{WebExtAPIRef("windows.remove()")}} übergeben:
 
 ```js
 document.getElementById("close-me").addEventListener("click", () => {
@@ -53,11 +53,11 @@ document.getElementById("close-me").addEventListener("click", () => {
 
 ## Erweiterungsseiten und Verlauf
 
-Standardmäßig werden die auf diese Weise geöffneten Seiten im Verlauf des Benutzers gespeichert, genau wie normale Webseiten. Wenn Sie dieses Verhalten nicht wünschen, verwenden Sie {{WebExtAPIRef("history.deleteUrl()")}}, um den Eintrag des Browsers zu entfernen:
+Standardmäßig werden Seiten, die Sie auf diese Weise öffnen, im Verlauf des Benutzers gespeichert, genau wie normale Webseiten. Wenn Sie dieses Verhalten nicht wünschen, verwenden Sie {{WebExtAPIRef("history.deleteUrl()")}}, um den Eintrag im Browserverlauf zu entfernen:
 
 ```js
 function onVisited(historyItem) {
-  if (historyItem.url === browser.extension.getURL(myPage)) {
+  if (historyItem.url === browser.runtime.getURL(myPage)) {
     browser.history.deleteUrl({ url: historyItem.url });
   }
 }
@@ -65,12 +65,12 @@ function onVisited(historyItem) {
 browser.history.onVisited.addListener(onVisited);
 ```
 
-Um die Verlauf-API zu nutzen, müssen Sie die Berechtigung `"history"` in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
+Um die History-API zu verwenden, müssen Sie die `"history"`- [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
 
 ## Webseitendesign
 
-Details dazu, wie Sie das Design Ihrer Webseite an den Stil von Firefox anpassen können, finden Sie im [Acorn Design System](https://acorn.firefox.com/latest).
+Für Details, wie Sie das Design Ihrer Webseite an den Stil von Firefox anpassen können, siehe das [Acorn Design System](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [window-manipulator](https://github.com/mdn/webextensions-examples/tree/main/window-manipulator) Beispiel, das mehrere der Optionen zur Erstellung von Fenstern implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [window-manipulator](https://github.com/mdn/webextensions-examples/tree/main/window-manipulator) Beispiel, das mehrere Optionen zur Erstellung von Fenstern implementiert.

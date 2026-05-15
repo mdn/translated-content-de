@@ -3,26 +3,26 @@ title: "RTCPeerConnectionIceErrorEvent: errorCode-Eigenschaft"
 short-title: errorCode
 slug: Web/API/RTCPeerConnectionIceErrorEvent/errorCode
 l10n:
-  sourceCommit: d0d8c5609668e502f63f49508abb483cead0753b
+  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`errorCode`**-Eigenschaft der Schnittstelle [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) repräsentiert den [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6), der vom {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server zurückgegeben wird, wenn es während der ICE-Aushandlung zu einem Fehler gekommen ist.
+Die **`errorCode`**-Eigenschaft des [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent)-Interfaces repräsentiert den [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6), der vom {{Glossary("STUN", "STUN")}} oder {{Glossary("TURN", "TURN")}}-Server zurückgegeben wird, wenn während der ICE-Verhandlung ein Fehler auftritt.
 
 ## Wert
 
-Ein positiver Ganzzahlenwert, der den numerischen [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6) angibt, der vom STUN- oder TURN-Server zurückgegeben wurde.
+Ein positiver ganzzahliger Wert, der den numerischen [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6) angibt, der vom STUN- oder TURN-Server zurückgegeben wird.
 
 Wenn kein Host-Kandidat den Server erreichen kann, wird diese Eigenschaft auf die Zahl 701 gesetzt, die außerhalb des Bereichs gültiger STUN-Fehlercodes liegt.
-Dieser Wert wird nur einmal pro Server-URL gemeldet und nur während der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) `gathering`.
+Dieser Wert wird nur einmal pro Server-URL gemeldet und nur, während der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) auf `gathering` steht.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel erstellt einen Handler für [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignisse, der menschenlesbare Meldungen beschreibt, die die lokale Netzwerkschnittstelle für die Verbindung und den ICE-Server, der versucht wurde, die Verbindung herzustellen.
-Anschließend wird eine Funktion aufgerufen, um diese Meldungen und den Wert der [`errorCode`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorCode)-Eigenschaft des Ereignisses anzuzeigen.
+Dieses Beispiel erstellt einen Handler für [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignisse, der lesbare Nachrichten erstellt, die die lokale Netzwerkschnittstelle für die Verbindung und den ICE-Server beschreiben, der für den Verbindungsversuch verwendet wird.
+Anschließend wird eine Funktion aufgerufen, um diese Nachrichten und den Wert der `errorCode`-Eigenschaft des Ereignisses anzuzeigen.
 
 ```js
 pc.addEventListener("icecandidateerror", (event) => {

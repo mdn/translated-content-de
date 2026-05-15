@@ -2,50 +2,50 @@
 title: Benachrichtigungen
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Notifications
 l10n:
-  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
+  sourceCommit: 38199423810927262c9cb4dec7ea7de4cb0c5e0f
 ---
 
 Benachrichtigungen ermöglichen es Ihnen, Informationen über Ihre Erweiterung oder deren Inhalt mithilfe des Benachrichtigungsdienstes des zugrunde liegenden Betriebssystems zu kommunizieren.
 
-![Beispielbenachrichtigung auf macOS, unterhalb der Systemuhr, mit einem fett gedruckten Titel "Click notification" und anschließendem normalen Text mit "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat das Firefox Nightly-Logo auf der linken Seite und ein Link-Symbol auf der rechten Seite.](notify-shadowed.png)
+![Beispielbenachrichtigung auf macOS, unterhalb der Systemuhr, mit einem fettgedruckten Titel "Click notification" und anschließendem regulären Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat links das Firefox Nightly-Logo und rechts ein Link-Symbol.](notify-shadowed.png)
 
-Benachrichtigungen können einen Handlungsaufruf für den Benutzer beinhalten, und Ihr Add-on kann darauf hören, wenn der Benutzer die Benachrichtigung anklickt oder die Benachrichtigung geschlossen wird.
+Benachrichtigungen können einen Handlungsaufruf für den Benutzer enthalten, und Ihr Add-on kann darauf hören, ob der Benutzer die Benachrichtigung anklickt oder sie schließt.
 
-## Spezifizieren von Benachrichtigungen
+## Benachrichtigungen spezifizieren
 
-Sie verwalten Benachrichtigungen programmatisch unter Verwendung der {{WebExtAPIRef("notifications")}} API. Um diese API zu verwenden, müssen Sie die Berechtigung `notifications` in Ihrer manifest.json anfordern:
+Sie verwalten Benachrichtigungen programmgesteuert mit der {{WebExtAPIRef("notifications")}} API. Um diese API zu nutzen, müssen Sie die Berechtigung `notifications` in Ihrem manifest.json anfordern:
 
 ```json
 "permissions": ["notifications"]
 ```
 
-Dann verwenden Sie {{WebExtAPIRef("notifications.create")}}, um Ihre Benachrichtigungen zu erstellen, wie in diesem Beispiel von [notify-link-clicks-i18n:](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n)
+Anschließend verwenden Sie {{WebExtAPIRef("notifications.create")}}, um Ihre Benachrichtigungen zu erstellen, wie in diesem Beispiel von [notify-link-clicks-i18n:](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n)
 
 ```js
 const title = browser.i18n.getMessage("notificationTitle");
 const content = browser.i18n.getMessage("notificationContent", message.url);
 browser.notifications.create({
   type: "basic",
-  iconUrl: browser.extension.getURL("icons/link-48.png"),
+  iconUrl: browser.runtime.getURL("icons/link-48.png"),
   title,
   message: content,
 });
 ```
 
-Dieser Code erstellt eine Benachrichtigung mit einem Symbol, einem Titel und einer Nachricht.
+Dieser Code erstellt eine Benachrichtigung mit einem Icon, einem Titel und einer Nachricht.
 
-Wenn die Benachrichtigung einen Handlungsaufruf enthält, können Sie darauf hören, dass der Benutzer die Benachrichtigung anklickt, um die Funktion zum Bearbeiten der Aktion aufzurufen:
+Wenn die Benachrichtigung einen Handlungsaufruf enthält, können Sie darauf hören, dass der Benutzer die Benachrichtigung anklickt, um die Funktion zum Ausführen der Aktion aufzurufen:
 
 ```js
 browser.notifications.onClicked.addListener(handleClick);
 ```
 
-Wenn Sie Handlungsaufrufe durch Benachrichtigungen ausgeben, sollten Sie auch die optionale Benachrichtigungs-`id` definieren, damit Sie herausfinden können, welchen Handlungsaufruf der Benutzer ausgewählt hat.
+Wenn Sie über Benachrichtigungen zu Handlungsaufrufen aufrufen, sollten Sie auch die optionale Benachrichtigungs-`id` definieren, um herauszufinden, welchen Handlungsaufruf der Benutzer ausgewählt hat.
 
-## Symbole
+## Icons
 
-Für Details zur Erstellung von Symbolen, die Sie mit Ihrer Benachrichtigung verwenden, siehe [Ikonografie](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Für Details, wie Sie Icons erstellen, die Sie mit Ihrer Benachrichtigung verwenden, siehe [Iconography](https://acorn.firefox.com/latest/foundations/styles/iconography-QEDMXQqj) in der Dokumentation des [Acorn Design Systems](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel, welches Benachrichtigungen implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel, das Benachrichtigungen implementiert.

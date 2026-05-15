@@ -2,7 +2,7 @@
 title: notifications.update()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/update
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 38199423810927262c9cb4dec7ea7de4cb0c5e0f
 ---
 
 Aktualisiert eine Benachrichtigung anhand ihrer ID.
@@ -21,7 +21,7 @@ let updating = browser.notifications.update(
 ### Parameter
 
 - `id`
-  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Diese ist dieselbe ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
+  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Diese ist identisch mit der ID, die an den Rückruf von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
 - `options`
   - : {{WebExtAPIRef('notifications.NotificationOptions')}}. Definiert den neuen Inhalt und das Verhalten der Benachrichtigung.
 
@@ -31,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Beim Klicken auf die Browseraktion wird die Benachrichtigung angezeigt und ein {{WebExtAPIRef("alarms", "alarm")}} gestartet, den wir nutzen, um den Fortschrittsindikator der Benachrichtigung zu aktualisieren.
+Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Durch Klicken auf die Browser-Aktion wird die Benachrichtigung angezeigt und ein {{WebExtAPIRef("alarms", "alarm")}} gestartet, den wir nutzen, um den Fortschrittsindikator der Benachrichtigung zu aktualisieren.
 
 Beachten Sie, dass Sie die "alarms"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um Alarme zu erstellen (sowie die "notifications"-Berechtigung, um Benachrichtigungen zu erstellen). Beachten Sie auch, dass Firefox das `progress`-Attribut nicht unterstützt.
 
@@ -70,7 +70,7 @@ browser.browserAction.onClicked.addListener(() => {
     progress = 0;
     browser.notifications.create(cakeNotification, {
       type: "progress",
-      iconUrl: browser.extension.getURL("icons/cake-48.png"),
+      iconUrl: browser.runtime.getURL("icons/cake-48.png"),
       title: "Your cake is being prepared…",
       message: "Something something cake",
       progress,
@@ -89,4 +89,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.
