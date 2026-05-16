@@ -3,16 +3,16 @@ title: "AudioPlaybackStats: maximumLatency-Eigenschaft"
 short-title: maximumLatency
 slug: Web/API/AudioPlaybackStats/maximumLatency
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`maximumLatency`** des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine Zahl, die die maximale Latenz seit der Initialisierung des Audiokontextes oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
+Die schreibgeschützte **`maximumLatency`**-Eigenschaft der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Schnittstelle ist eine Zahl, die die maximale Latenz seit der Initialisierung des Audio-Kontexts oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
 
 ## Wert
 
-Eine doppeltgenaue Fließkommazahl, die die maximale Latenz in Sekunden angibt. Wird zu `0` initialisiert.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die maximale Latenz in Sekunden angibt. Wird mit `0` initialisiert.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ const stats = audioCtx.playbackStats;
 console.log(stats.maximumLatency);
 ```
 
-Sehen Sie sich auch die Hauptreferenzseite zu [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel an.
+Siehe auch die Hauptreferenzseite von [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

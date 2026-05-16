@@ -3,12 +3,12 @@ title: "AudioContext: playbackStats-Eigenschaft"
 short-title: playbackStats
 slug: Web/API/AudioContext/playbackStats
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`playbackStats`**-Eigenschaft des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt ein [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekt zurück, das Zugriff auf Statistiken zu Dauer, Underrun und Latenz für den `AudioContext` bietet. Diese Statistiken ermöglichen es Ihnen, Audioverzögerungen und -störungen zu messen.
+Die **`playbackStats`** schreibgeschützte Eigenschaft des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt ein [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekt zurück, das Zugriff auf Dauer-, Unterbrechungs- und Latenzstatistiken für den `AudioContext` bietet. Diese Statistiken ermöglichen es Ihnen, Audioverzögerungen und -aussetzer zu messen.
 
 Es ist möglich, die unmittelbare Wiedergabelatenz des Kontextes über die [`AudioContext.outputLatency`](/de/docs/Web/API/AudioContext/outputLatency)-Eigenschaft abzurufen; `playbackStats` bietet jedoch Zugang zu detaillierteren Statistiken, die sich im Laufe der Zeit aktualisieren, einschließlich durchschnittlicher, minimaler und maximaler Latenz.
 
@@ -30,7 +30,7 @@ const stats = audioCtx.playbackStats;
 console.log(stats.averageLatency);
 ```
 
-Siehe auch die Hauptreferenzseite für [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
+Siehe auch die Hauptreferenzseite [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

@@ -3,20 +3,20 @@ title: "AudioPlaybackStats: averageLatency-Eigenschaft"
 short-title: averageLatency
 slug: Web/API/AudioPlaybackStats/averageLatency
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`averageLatency`** schreibgeschützte Eigenschaft des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine Zahl, die die durchschnittliche Latenz seit der Initialisierung des Audiokontextes oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
+Die schreibgeschützte Eigenschaft **`averageLatency`** des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine Zahl, die die durchschnittliche Latenzzeit angibt, seit der Audio-Kontext initialisiert wurde oder seit [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) zuletzt aufgerufen wurde.
 
 ## Wert
 
-Eine doppelt-genaue Fließkommazahl, die die durchschnittliche Latenz in Sekunden angibt.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die durchschnittliche Latenzzeit in Sekunden angibt.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 const audioCtx = new AudioContext();
@@ -28,7 +28,7 @@ const stats = audioCtx.playbackStats;
 console.log(stats.averageLatency);
 ```
 
-Siehe auch die Hauptseite [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
+Siehe auch die Hauptreferenzseite von [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

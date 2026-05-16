@@ -1,14 +1,14 @@
 ---
-title: "AudioPlaybackStats: resetLatency()-Methode"
+title: "AudioPlaybackStats: resetLatency() Methode"
 short-title: resetLatency()
 slug: Web/API/AudioPlaybackStats/resetLatency
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`resetLatency()`**-Methode des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces setzt den Beginn des Intervalls zurück, in dem die Latenzstatistiken gemessen werden, auf die [`BaseAudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime).
+Die **`resetLatency()`**-Methode des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces setzt den Beginn des Intervalls zurück, in dem Latenzstatistiken gemessen werden, auf die [`BaseAudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime).
 
 ## Syntax
 
@@ -38,7 +38,7 @@ const stats = audioCtx.playbackStats;
 stats.resetLatency();
 ```
 
-Siehe auch die Hauptreferenzseite [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein detaillierteres Beispiel.
+Siehe auch die Hauptreferenzseite [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

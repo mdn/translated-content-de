@@ -3,16 +3,16 @@ title: "AudioPlaybackStats: underrunEvents-Eigenschaft"
 short-title: underrunEvents
 slug: Web/API/AudioPlaybackStats/underrunEvents
 l10n:
-  sourceCommit: a1c2691b9ef6120e81ef3e08f51bfcacb6d4dc00
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`underrunEvents`** des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine Zahl, die angibt, wie viele [Underrun-Ereignisse](/de/docs/Web/API/AudioPlaybackStats#underrun_event) seit der Initialisierung des Audiokontexts aufgetreten sind.
+Die schreibgeschützte **`underrunEvents`**-Eigenschaft der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Schnittstelle ist eine Zahl, die angibt, wie viele [Underrun-Ereignisse](/de/docs/Web/API/AudioPlaybackStats#underrun_event) seit der Initialisierung des Audio-Kontexts aufgetreten sind.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Underrun-Ereignisse angibt. Auf `0` initialisiert.
+Ein ganzzahliger Wert, der die Anzahl der Underrun-Ereignisse angibt. Initialisiert mit `0`.
 
 ## Beispiele
 

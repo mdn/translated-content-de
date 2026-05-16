@@ -3,20 +3,20 @@ title: "AudioPlaybackStats: minimumLatency-Eigenschaft"
 short-title: minimumLatency
 slug: Web/API/AudioPlaybackStats/minimumLatency
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`minimumLatency`**-Eigenschaft der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Schnittstelle ist eine schreibgeschützte Zahl, die die minimale Latenz seit der Initialisierung des Audiokontexts oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
+Die schreibgeschützte **`minimumLatency`**-Eigenschaft des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist eine Zahl, die die minimale Latenz seit der Initialisierung des Audiokontextes oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
 
 ## Wert
 
-Eine doppelt genaues Gleitkommazahl, die die minimale Latenz in Sekunden angibt. Initialisiert auf `0`.
+Eine Gleitkommazahl mit doppelter Genauigkeit, die die minimale Latenz in Sekunden angibt. Initialisiert mit `0`.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 const audioCtx = new AudioContext();
@@ -28,7 +28,7 @@ const stats = audioCtx.playbackStats;
 console.log(stats.minimumLatency);
 ```
 
-Sehen Sie sich auch die Hauptseite der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Referenz für ein ausführlicheres Beispiel an.
+Siehe auch die Hauptreferenzseite zu [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

@@ -1,14 +1,14 @@
 ---
-title: "AudioPlaybackStats: toJSON() Methode"
+title: "AudioPlaybackStats: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/AudioPlaybackStats/toJSON
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
-{{APIRef("Web Audio API")}}
+{{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekts zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`AudioPlaybackStats`]
 
 ## Beispiele
 
-### Verwenden der toJSON-Methode
+### Verwendung der toJSON-Methode
 
 In diesem Beispiel gibt der Aufruf von `stats.toJSON()` eine JSON-Darstellung des `AudioPlaybackStats`-Objekts zurück.
 
@@ -53,7 +53,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(stats)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(stats)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

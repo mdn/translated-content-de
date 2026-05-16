@@ -2,14 +2,14 @@
 title: AudioContext
 slug: Web/API/AudioContext
 l10n:
-  sourceCommit: f93d96a97c1dfcf8fc77d660799f3680b67bec61
+  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das `AudioContext`-Interface repräsentiert einen Audiotverarbeitungsgraphen, der aus miteinander verbundenen Audiomodulen besteht, die jeweils durch ein [`AudioNode`](/de/docs/Web/API/AudioNode) dargestellt werden.
+Das `AudioContext`-Interface repräsentiert einen Audioverarbeitungsgrafen, der aus miteinander verknüpften Audiomodulen besteht, die jeweils durch einen [`AudioNode`](/de/docs/Web/API/AudioNode) dargestellt werden.
 
-Ein Audio-Kontext steuert sowohl die Erstellung der darin enthaltenen Knoten als auch die Ausführung der Audioverarbeitung oder -dekodierung. Sie müssen ein `AudioContext` erstellen, bevor Sie etwas anderes tun, da alles innerhalb eines Kontextes geschieht. Es wird empfohlen, ein AudioContext zu erstellen und es wiederzuverwenden, anstatt jedes Mal ein neues zu initialisieren. Es ist in Ordnung, ein einziges `AudioContext` für verschiedene Audioquellen und Pipelines gleichzeitig zu verwenden.
+Ein Audiokontext steuert sowohl die Erstellung der darin enthaltenen Nodes als auch die Durchführung der Audiobearbeitung oder -decodierung. Sie müssen ein `AudioContext` erstellen, bevor Sie etwas anderes tun, da alles innerhalb eines Kontexts geschieht. Es wird empfohlen, ein einziges AudioContext zu erstellen und wiederzuverwenden, anstatt jedes Mal ein neues zu initialisieren. Es ist in Ordnung, ein einziges `AudioContext` für mehrere verschiedene Audioquellen und Pipelines gleichzeitig zu verwenden.
 
 {{InheritanceDiagram}}
 
@@ -23,45 +23,45 @@ Ein Audio-Kontext steuert sowohl die Erstellung der darin enthaltenen Knoten als
 _Erbt auch Eigenschaften von seinem übergeordneten Interface, [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)._
 
 - [`AudioContext.baseLatency`](/de/docs/Web/API/AudioContext/baseLatency) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Sekunden der Verarbeitungsverzögerung zurück, die dem `AudioContext` entsteht, wenn es den Ton vom [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zum Audiosubsystem leitet.
+  - : Gibt die Anzahl der Sekunden an Verarbeitungsverzögerung zurück, die durch das `AudioContext` beim Übertragen des Audios vom [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zum Audiosubsystem entsteht.
 - [`AudioContext.outputLatency`](/de/docs/Web/API/AudioContext/outputLatency) {{ReadOnlyInline}}
-  - : Gibt eine Schätzung der Ausgabeverzögerung des aktuellen Audiokontextes zurück.
-- [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats) {{ReadOnlyInline}}
-  - : Gibt ein [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekt zurück, das Zugang zu Statistiken über Dauer, Unterbrechung und Latenz des `AudioContext` bietet.
+  - : Gibt eine Schätzung der Ausgabeverzögerung des aktuellen Audiokontexts zurück.
+- [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt ein [`AudioPlaybackStats`](/de/docs/Web/API/AudioPlaybackStats)-Objekt zurück, das Zugriff auf Dauer-, Unterlauf- und Latenzstatistiken für das `AudioContext` bietet.
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) {{ReadOnlyInline}} {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Gibt die Sink-ID des aktuellen Ausgabegeräts zurück.
+  - : Gibt die Sink-ID des aktuellen Audio-Ausgabegeräts zurück.
 
 ## Instanz-Methoden
 
 _Erbt auch Methoden von seinem übergeordneten Interface, [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)._
 
 - [`AudioContext.close()`](/de/docs/Web/API/AudioContext/close)
-  - : Schließt den Audio-Kontext und gibt alle genutzten System-Audioressourcen frei.
+  - : Schließt den Audiokontext und gibt alle Systemaudioressourcen frei, die er verwendet.
 - [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource)
-  - : Erstellt eine [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode), die mit einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) assoziiert ist. Dies kann verwendet werden, um Audio von {{HTMLElement("video")}} oder {{HTMLElement("audio")}}-Elementen abzuspielen und zu manipulieren.
+  - : Erstellt einen [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode), der mit einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) assoziiert ist. Dies kann verwendet werden, um Audio von {{HTMLElement("video")}}- oder {{HTMLElement("audio")}}-Elementen abzuspielen und zu manipulieren.
 - [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource)
-  - : Erstellt eine [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode), die mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, das einen Audiostream repräsentiert, der von einem Mikrofon des lokalen Computers oder anderen Quellen stammen kann.
+  - : Erstellt einen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode), der mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, der einen Audiostream darstellt, der möglicherweise von einem Mikrofon des lokalen Computers oder anderen Quellen stammt.
 - [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination)
-  - : Erstellt eine [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode), die mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, das einen Audiostream repräsentiert, der in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet werden kann.
+  - : Erstellt einen [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode), der mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, der möglicherweise in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet wird.
 - [`AudioContext.createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource)
-  - : Erstellt eine [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode), die mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, das eine Mediastream-Spur repräsentiert.
+  - : Erstellt einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode), der mit einem [`MediaStream`](/de/docs/Web/API/MediaStream) assoziiert ist, der einen Mediastream-Track darstellt.
 - [`AudioContext.getOutputTimestamp()`](/de/docs/Web/API/AudioContext/getOutputTimestamp)
-  - : Gibt ein neues `AudioTimestamp`-Objekt zurück, das zwei Audio-Zeitstempelwerte in Bezug auf den aktuellen Audiokontext enthält.
+  - : Gibt ein neues `AudioTimestamp`-Objekt zurück, das zwei Audio-Zeitstempelwerte im Zusammenhang mit dem aktuellen Audiokontext enthält.
 - [`AudioContext.resume()`](/de/docs/Web/API/AudioContext/resume)
-  - : Setzt die Fortschreitung der Zeit in einem Audiokontext fort, der zuvor angehalten oder pausiert wurde.
+  - : Setzt den Zeitverlauf in einem Audiokontext fort, der zuvor ausgesetzt/pausiert wurde.
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Legt das Ausgabegerät für den `AudioContext` fest.
+  - : Setzt das Ausgabegerät für das `AudioContext`.
 - [`AudioContext.suspend()`](/de/docs/Web/API/AudioContext/suspend)
-  - : Hält die Fortschreitung der Zeit im Audiokontext an, stoppt vorübergehend den Zugang zu Audio-Hardware und reduziert dabei den CPU-/Batterieverbrauch.
+  - : Setzt den Zeitverlauf im Audiokontext aus, was den Zugriff auf die Audio-Hardware vorübergehend stoppt und die CPU-/Akkunutzung verringert.
 
 ## Ereignisse
 
 - [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn das Ausgabe-Audiogerät (und somit die [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) geändert wurde.
+  - : Wird ausgelöst, wenn sich das Ausgabegerät des Audios (und damit die [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) geändert hat.
 
 ## Beispiele
 
-Grundlegende Deklaration eines Audiokontextes:
+Grundlegende Deklaration eines Audiokontexts:
 
 ```js
 const audioCtx = new AudioContext();
