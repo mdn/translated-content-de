@@ -3,17 +3,17 @@ title: "HTMLInputElement: selectionStart-Eigenschaft"
 short-title: selectionStart
 slug: Web/API/HTMLInputElement/selectionStart
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 178483fe17b808b5d8b23087796a937ce6fd2a1d
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionStart`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die den Beginn des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, wird die Position des Textcursor (Caret) innerhalb des `<input>`-Elements zurückgegeben.
+Die **`selectionStart`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt sie die Position des Texteingabe-Cursors (Karets) innerhalb des `<input>`-Elements zurück.
 
 > [!NOTE]
-> Gemäß der [WHATWG-Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Telefon und Passwort. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionStart`-Eigenschaft für andere Eingabetypen festgelegt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn auf die `selectionStart`-Eigenschaft bei nicht-texteingabetypen zugegriffen wird.
+> Gemäß der [WHATWG Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Tel und Passwort. Bei anderen Eingabetypen gibt das Lesen von `selectionStart` `null` zurück, und beim Setzen wird ein `InvalidStateError` ausgelöst.
 
-Wenn `selectionStart` größer ist als `selectionEnd`, werden beide als Wert von `selectionEnd` behandelt.
+Wenn `selectionStart` größer ist als `selectionEnd`, werden beide als der Wert von `selectionEnd` behandelt.
 
 ## Wert
 
