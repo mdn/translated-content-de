@@ -2,89 +2,89 @@
 title: PerformanceTimingConfidence
 slug: Web/API/PerformanceTimingConfidence
 l10n:
-  sourceCommit: 464ec9b1e43bf8a87ffe83abf2832e10739e2fb3
+  sourceCommit: 5cb7efb91e0bafe87cc5c907877e765d1643d0bc
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`PerformanceTimingConfidence`**-Schnittstelle bietet Zugriff auf Informationen, die darauf hinweisen, ob ein Leistungsbericht die typische Anwendungsleistung widerspiegelt oder wahrscheinlich durch externe Faktoren beeinflusst wird.
+Das **`PerformanceTimingConfidence`**-Interface bietet Zugriff auf Informationen, die anzeigen, ob ein Leistungsdatensatz die typische Anwendungsleistung widerspiegelt oder wahrscheinlich durch externe Faktoren beeinträchtigt wurde.
 
 Das `PerformanceTimingConfidence`-Objekt für jeden Navigationstiming-Eintrag wird über die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle und deren [`confidence`](/de/docs/Web/API/PerformanceNavigationTiming/confidence)-Eigenschaft abgerufen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`PerformanceTimingConfidence.randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate) {{ReadOnlyInline}}
   - : Eine Zahl, die angibt, wie oft Rauschen angewendet wird, wenn der `value` offengelegt wird.
 - [`PerformanceTimingConfidence.value`](/de/docs/Web/API/PerformanceTimingConfidence/value) {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der eine breite Vertrauensmaßnahme angibt, ob ein Leistungsbericht die typische Anwendungsleistung widerspiegelt oder wahrscheinlich durch externe Faktoren beeinflusst wird.
+  - : Ein enumerierter Wert, der ein breites Vertrauensmaß dafür angibt, ob ein Leistungsdatensatz die typische Anwendungsleistung widerspiegelt oder wahrscheinlich durch externe Faktoren beeinträchtigt wurde.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`PerformanceTimingConfidence.toJSON()`](/de/docs/Web/API/PerformanceTimingConfidence/toJSON)
   - : Gibt eine JSON-Darstellung des `PerformanceTimingConfidence`-Objekts zurück.
 
 ## Beschreibung
 
-Wenn eine Website nach einem "Cold Start" des Browsers oder einer Sitzungwiederherstellung geladen wurde, können ihre Seiten langsamer geladen werden.
-Dies kann zu einem erheblichen Unterschied zwischen realen Dashboard-Metriken und Leistungsbeobachtungen in Seitenprofilierungswerkzeugen führen und es einem Entwickler erschweren zu verstehen, ob ein Leistungsproblem eine legitime Sorge darstellt oder ein Ausreißer ist, der durch externe Faktoren verursacht wird.
+Wenn eine Website nach einem "Kaltstart" des Browsers oder einer Sitzungswiederherstellung geladen wurde, können die Seiten dadurch langsamer laden.
+Dies kann zu erheblichen Unterschieden zwischen den realen Dashboard-Metriken und den Leistungsbeobachtungen in Seitenprofilerstellungstools führen, was es für einen Entwickler schwierig macht zu verstehen, ob ein Leistungsproblem ein legitimes Anliegen oder eine durch externe Faktoren verursachte Ausnahme ist.
 
-Die `PerformanceTimingConfidence`-Schnittstelle ermöglicht es Entwicklern, dieses Problem auszugleichen, indem eine Schätzung des Browsers (in der [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value)-Eigenschaft) zurückgegeben wird, wie wahrscheinlich es ist, dass ein zurückgegebener Leistungsbericht die typische Anwendungsleistung darstellt.
-Dies ist ein Wert von entweder `"low"` oder `"high"`, der das Vertrauen des Browsers in die Messung anzeigt.
+Das `PerformanceTimingConfidence`-Interface ermöglicht es Entwicklern, dieses Problem zu kompensieren, indem es eine Schätzung des Browsers zurückgibt (in der [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value)-Eigenschaft), die die Wahrscheinlichkeit angibt, dass ein zurückgegebener Leistungsdatensatz die typische Anwendungsleistung darstellt.
+Dies ist entweder ein Wert von `"low"` oder `"high"`, der das Vertrauen des Browsers in die Messung anzeigt.
 
 > [!NOTE]
-> Gerätefaktoren wie die CPU tragen nicht zur Leistungsbewertung bei. Andere Faktoren als Browser-"Cold Start" und Sitzungwiederherstellung können in zukünftigen Updates berücksichtigt werden.
+> Gerätefaktoren wie die CPU tragen nicht zur Leistungsbewertung bei. Andere Faktoren als "Kaltstart" des Browsers und die Sitzungswiederherstellung könnten in zukünftigen Aktualisierungen berücksichtigt werden.
 
-Um die Möglichkeit der Nutzung des Wertes für die Fingerabdruckerstellung zu reduzieren, wird dem Schätzwert Rauschen hinzugefügt, was bedeutet, dass der `value` absichtlich für einen Teil der Ergebnisse falsch sein wird.
+Um die Möglichkeit zu reduzieren, den Wert für Fingerabdrücke zu verwenden, wird dem Schätzwert Rauschen hinzugefügt, was bedeutet, dass der `value` absichtlich für einen Teil der Ergebnisse falsch sein wird.
 Die Auslösungsrate für das Rauschen wird in der [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate)-Eigenschaft angegeben.
 
-Da dies je nach Aufzeichnung variieren kann, ist eine gewichtete Bewertung pro Aufzeichnung erforderlich, um unverzerrte Aggregate zu erhalten, die Konsistenz der Daten zu verbessern, die Anzahl der kombinierten Fehler zu reduzieren und im Allgemeinen eine Basislinie zu erzeugen, gegen die die gemessenen Ergebnisse bewertet werden können.
+Da dies über Datensätze hinweg variieren kann, ist eine Gewichtung pro Datensatz erforderlich, um unvoreingenommene Aggregate wiederherzustellen, die Datenkonsistenz zu verbessern, die Anzahl der zusammengesetzten Fehler zu reduzieren und im Allgemeinen eine Basislinie zu schaffen, gegen die die gemessenen Ergebnisse bewertet werden können.
 
 ### Verwendung der Daten
 
-Sie sollten die Daten wie folgt verwenden, um aussagekräftige Informationen aus den zufälligen Werten zu extrahieren:
+Sie sollten die Daten wie folgt verwenden, um sinnvolle Informationen aus den zufälligen Werten zu extrahieren:
 
-1. Beim Sammeln von [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Aufzeichnungen sollten Sie [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate) und [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value) für jede Aufzeichnung sammeln.
-2. Bei der Berechnung von Statistiken wie dem 75. Perzentil für den {{Glossary("Largest_contentful_paint", "Größter inhaltsvoller Farbauftrag (LCP)")}} oder der durchschnittlichen {{Glossary("page_load_time", "Seitenladezeit")}} sollten Sie die unten erklärten Gewichtungsformeln anwenden anstatt eines einfachen Durchschnitts — dies gibt Ihnen separate, korrigierte Metriken für "typische" Ladezeiten gegenüber "verschlechterten" Ladezeiten.
-3. Verwenden Sie den "hohen" Vertrauensmittelwert/-perzentil als Ihre "echte" Leistungsbasislinie und verwenden Sie den "niedrigen", um zu verstehen, wie typische Daten in "Cold Start"-Szenarien aussehen.
+1. Beim Sammeln von [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Datensätzen, erfassen Sie [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate) und [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value) für jeden Datensatz.
+2. Wenn Sie Statistiken wie das 75. Perzentil {{Glossary("Largest_contentful_paint", "Largest contentful paint (LCP)")}} oder die durchschnittliche {{Glossary("page_load_time", "Seitenladezeit")}} berechnen, wenden Sie die unten erklärten Gewichtungsformeln anstelle eines einfachen Durchschnitts an — dies gibt Ihnen separate, korrigierte Metriken für "normale" Ladevorgänge vs. "verschlechterte" Ladevorgänge.
+3. Verwenden Sie das "high" Vertrauen Durchschnitt/Perzentil als Ihre "reale" Leistungsbasislinie und das "low" Vertrauen, um zu verstehen, wie typische Daten in Kaltstart-Szenarien aussehen.
 
-Die folgenden Verfahren zeigen, wie die Gewichtung basierend auf `value` vor der Berechnung von Zusammenfassungsstatistiken auf der Grundlage der Vertrauensdaten angewendet werden kann.
+Die unten stehenden Verfahren veranschaulichen, wie die Gewichtung basierend auf `value` angewendet werden kann, bevor zusammenfassende Statistiken basierend auf den Vertrauensdaten berechnet werden.
 
-#### Berechnung unverzerrter Mittelwerte
+#### Berechnung unvoreingenommener Mittelwerte
 
-Um unverzerrte Mittelwerte für sowohl [`high` und `low` Werte](/de/docs/Web/API/PerformanceTimingConfidence/value#value) zu berechnen:
+Um unvoreingenommene Mittelwerte für beide [`high` und `low` Werte](/de/docs/Web/API/PerformanceTimingConfidence/value#value) zu berechnen:
 
-1. Für jede Aufzeichnung:
-   - Lassen Sie `p` die [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate) der Aufzeichnung sein.
-   - Lassen Sie `c` der [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value) der Aufzeichnung sein.
-   - Lassen Sie `R` `1` sein, wenn `c` `high` ist, ansonsten `0`.
-2. Berechnen Sie das Gewicht `w` basierend auf `c`:
-   - Zur Schätzung des `high` Mittelwerts: `w = (R - (p / 2)) / (1 - p)`.
-   - Zur Schätzung des `low` Mittelwerts: `w = ((1 - R) - (p / 2)) / (1 - p)`.
+1. Für jeden Datensatz:
+   - Lassen Sie `p` die [`randomizedTriggerRate`](/de/docs/Web/API/PerformanceTimingConfidence/randomizedTriggerRate) des Datensatzes sein.
+   - Lassen Sie `c` der [`value`](/de/docs/Web/API/PerformanceTimingConfidence/value) des Datensatzes sein.
+   - Lassen Sie `R` `1` sein, wenn `c` `high` ist, sonst `0`.
+2. Berechnen Sie das Gewicht `w` pro Datensatz basierend auf `c`:
+   - Zur Schätzung des `high` Durchschnitts: `w = (R - (p / 2)) / (1 - p)`.
+   - Zur Schätzung des `low` Durchschnitts: `w = ((1 - R) - (p / 2)) / (1 - p)`.
      > [!NOTE]
-     > `w` kann für einige Aufzeichnungen negativ sein; Sie sollten jede Aufzeichnung behalten.
+     > `w` kann für einige Datensätze negativ sein; Sie sollten jeden Datensatz behalten.
    - Lassen Sie `weighted_duration = duration * w` (siehe [`duration`](/de/docs/Web/API/PerformanceEntry/duration)).
-3. Lassen Sie `total_weighted_duration` die Summe der `weighted_duration` Werte über alle Aufzeichnungen sein.
-4. Lassen Sie `sum_weights` die Summe der `w` Werte über alle Aufzeichnungen sein.
-5. Lassen Sie `debiased_mean = total_weighted_duration / sum_weights`, vorausgesetzt `sum_weights` ist nicht in der Nähe von null.
+3. Lassen Sie `total_weighted_duration` die Summe der `weighted_duration`-Werte über alle Datensätze sein.
+4. Lassen Sie `sum_weights` die Summe der `w`-Werte über alle Datensätze sein.
+5. Lassen Sie `debiased_mean = total_weighted_duration / sum_weights`, vorausgesetzt `sum_weights` ist nicht nahe null.
 
-#### Berechnung unverzerrter Perzentile
+#### Berechnung unvoreingenommener Perzentile
 
-Um unverzerrte Perzentile für sowohl `high` als auch `low` zu berechnen:
+Um unvoreingenommene Perzentile für beide `high` und `low` zu berechnen:
 
-1. Folgen Sie den Schritten im Abschnitt [Berechnung unverzerrter Mittelwerte](#berechnung_unverzerrter_mittelwerte), um ein gewichtetes `w` pro Aufzeichnung zu berechnen.
-2. Lassen Sie `sum_weights` die Summe der `w` Werte über alle Aufzeichnungen sein.
-3. Lassen Sie `sorted_records` alle Aufzeichnungen sein, die nach Dauer aufsteigend sortiert sind.
+1. Folgen Sie den [Berechnung unvoreingenommener Mittelwerte](#berechnung_unvoreingenommener_mittelwerte)-Schritten, um ein Gewicht `w` pro Datensatz zu berechnen.
+2. Lassen Sie `sum_weights` die Summe der `w`-Werte über alle Datensätze sein.
+3. Lassen Sie `sorted_records` alle Datensätze sein, die nach Dauer in aufsteigender Reihenfolge sortiert sind.
 4. Für ein gewünschtes Perzentil (0-100), berechnen Sie `q = percentile / 100.0`.
-5. Durchlaufen Sie `sorted_records` und für jede Aufzeichnung:
-   - Berechnen Sie das kumulierte Gewicht `cw` pro Aufzeichnung: `cw = sum_{i: duration_i <= duration_j} w_i`.
-   - Berechnen Sie die unvoreingenommene kumulative Verteilungsfunktion pro Aufzeichnung: `cdf = cw / sum_weights`.
-6. Finden Sie den ersten Index `idx`, bei dem `cdf >= q`.
+5. Gehen Sie `sorted_records` durch und für jeden Datensatz:
+   - Berechnen Sie das kumulative Gewicht `cw` pro Datensatz: `cw = sum_{i: duration_i <= duration_j} w_i`.
+   - Berechnen Sie die unvoreingenommene kumulative Verteilungsfunktion pro Datensatz: `cdf = cw / sum_weights`.
+6. Finden Sie den ersten Index `idx`, wo `cdf >= q`.
    - Wenn `idx` `0` ist, geben Sie die `duration` für `sorted_records[0]` zurück.
    - Wenn kein solcher `idx` existiert, geben Sie die `duration` für `sorted_records[n]` zurück.
 7. Berechnen Sie den Interpolationsbruchteil:
-   - Lassen Sie `lower_cdf` `cdf` für `sorted_records[idx-1]` sein.
-   - Lassen Sie `upper_cdf` `cdf` für `sorted_records[idx]` sein.
-   - Wenn `lower_cdf = upper_cdf`, geben Sie die `duration` für `sorted_records[idx]` zurück.
+   - Lassen Sie `lower_cdf` das `cdf` für `sorted_records[idx-1]` sein.
+   - Lassen Sie `upper_cdf` das `cdf` für `sorted_records[idx]` sein.
+   - wenn `lower_cdf = upper_cdf`, geben Sie die `duration` für `sorted_records[idx]` zurück.
    - Andernfalls:
      - Lassen Sie `ifrac = (q - lower_cdf) / (upper_cdf - lower_cdf)`.
      - Lassen Sie `lower_duration` die `duration` für `sorted_records[idx-1]` sein.
