@@ -1,14 +1,14 @@
 ---
-title: "PerformanceNavigationTiming: toJSON()-Methode"
+title: "PerformanceNavigationTiming: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceNavigationTiming/toJSON
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 464ec9b1e43bf8a87ffe83abf2832e10739e2fb3
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serialisierer")}}; sie gibt eine JSON-Repräsentation des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekts zurück.
+Die **`toJSON()`** Methode des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceNavigatio
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### Verwendung der toJSON Methode
 
-In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Repräsentation des `PerformanceNavigationTiming`-Objekts.
+In diesem Beispiel liefert der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceNavigationTiming`-Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -88,11 +88,15 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
   "loadEventEnd": 227.60000002384186,
   "type": "navigate",
   "redirectCount": 1,
-  "activationStart": 0
+  "activationStart": 0,
+  "confidence": {
+    "randomizedTriggerRate": 0.4994798,
+    "value": "high"
+  }
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

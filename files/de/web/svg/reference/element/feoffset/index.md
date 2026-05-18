@@ -2,12 +2,12 @@
 title: <feOffset>
 slug: Web/SVG/Reference/Element/feOffset
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: 0cc1adcc7df8f3f7072ef5454036f449e0f923cd
 ---
 
 Das **`<feOffset>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Verschieben eines Eingabebildes relativ zu seiner aktuellen Position. Das gesamte Eingabebild wird um die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte verschoben.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -20,7 +20,7 @@ Das **`<feOffset>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Ve
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement) Schnittstelle.
+Dieses Element implementiert die Schnittstelle [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement).
 
 ## Beispiel
 
@@ -29,7 +29,7 @@ Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOf
 ```html
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="offset" width="180" height="180">
+    <filter id="offset" width="180" height="180" filterUnits="userSpaceOnUse">
       <feOffset in="SourceGraphic" dx="60" dy="60" />
     </filter>
   </defs>
@@ -78,4 +78,4 @@ Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOf
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

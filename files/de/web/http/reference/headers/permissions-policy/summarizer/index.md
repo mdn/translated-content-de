@@ -3,14 +3,14 @@ title: "Permissions-Policy: summarizer-Direktive"
 short-title: summarizer
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/summarizer
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 8cae6b8c772e3f9ce2fbd73cad17fcb0adda966f
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `summarizer`-Direktive steuert den Zugriff auf die [Summarizer API](/de/docs/Web/API/Summarizer_API).
+Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `summarizer`-Direktive steuert den Zugriff auf die [Summarizer API](/de/docs/Web/API/Summarizer_API).
 
-Konkret bedeutet dies, dass bei einer definierten Richtlinie, die die Verwendung der Summarizer API blockiert, jegliche Versuche, die Methoden der API aufzurufen, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehlschlagen werden.
+Speziell, wenn eine definierte Richtlinie die Nutzung der Summarizer API blockiert, wird die statische Methode [`Summarizer.availability()`](/de/docs/Web/API/Summarizer/availability_static) `unavailable` zurückgeben, und jegliche Versuche, andere Methoden der API aufzurufen, schlagen mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Permissions-Policy: summarizer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wurde, die Funktion zu nutzen. Weitere Details hierzu finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 

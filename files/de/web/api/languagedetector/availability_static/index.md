@@ -3,12 +3,12 @@ title: "LanguageDetector: availability() statische Methode"
 short-title: availability()
 slug: Web/API/LanguageDetector/availability_static
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: 8cae6b8c772e3f9ce2fbd73cad17fcb0adda966f
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die statische Methode **`availability()`** der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle gibt einen enumerierten Wert zurück, der anzeigt, ob das Browser-AI-Modell eine gegebene `LanguageDetector`-Konfiguration unterstützt.
+Die **`availability()`** statische Methode des [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Interfaces gibt einen enumerierten Wert zurück, der anzeigt, ob das Browser-AI-Modell eine gegebene `LanguageDetector`-Konfiguration unterstützt.
 
 ## Syntax
 
@@ -19,45 +19,43 @@ LanguageDetector.availability(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Konfigurationsoptionen für den `LanguageDetector` angibt. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für den `LanguageDetector` spezifiziert. Mögliche Werte sind:
     - `expectedInputLanguages`
-      - : Ein Array von Zeichenfolgen, das die erwarteten Sprachen des Eingabetextes angibt, dessen Sprache erkannt werden soll. Diese sollten gültige {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtags")}} sein. Voreinstellung ist `["en"]`
+      - : Ein Array von Strings, das die erwarteten Sprachen des Eingabetextes angibt, deren Sprache erkannt werden soll. Diese sollten gültige {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tags")}} sein. Standardmäßig auf `["en"]` gesetzt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem enumerierten Wert erfüllt wird, der anzeigt, ob Unterstützung für eine gegebene `LanguageDetector`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht ermittelt werden konnte.
+Ein {{jsxref("Promise")}}, das mit einem enumerierten Wert erfüllt wird, der anzeigt, ob Unterstützung für eine gegebene `LanguageDetector`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht festgestellt werden konnte.
 
 Mögliche Werte sind:
 
 - `available`
   - : Der Browser unterstützt die gegebene Konfiguration und sie kann sofort verwendet werden.
 - `downloadable`
-  - : Der Browser unterstützt die gegebene Konfiguration, aber es muss zuerst ein AI-Modell heruntergeladen werden oder einige Feinabstimmungen für das Modell benötigt werden.
+  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch zuerst ein AI-Modell oder einige Feinabstimmungsdaten für das Modell herunterladen.
 - `downloading`
-  - : Der Browser unterstützt die gegebene Konfiguration, aber es muss ein laufender Download abgeschlossen werden, bevor fortgefahren werden kann.
+  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch einen laufenden Download abschließen, bevor fortgefahren werden kann.
 - `unavailable`
-  - : Der Browser unterstützt die gegebene Konfiguration nicht.
+  - : Der Browser unterstützt die gegebene Konfiguration nicht, oder die Language Detector API wird durch eine {{httpheader('Permissions-Policy/language-detector','language-detector')}} {{httpheader("Permissions-Policy")}} blockiert.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das [`Document`](/de/docs/Web/API/Document) der Seite noch nicht aktiv ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Initialisierung des AI-Modells aus irgendeinem Grund fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn die Initialisierung des AI-Modells aus irgendeinem Grund fehlschlägt.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `availability()`-Aufruf aus einem anderen Grund fehlgeschlagen ist oder aus einem Grund, den der Benutzeragent nicht offenlegen wollte.
-
-Wenn die Nutzung der Methode durch eine {{httpheader('Permissions-Policy/language-detector','language-detector')}}-{{httpheader("Permissions-Policy")}} blockiert wird, wird das Versprechen mit einem Wert von `unavailable` abgelehnt.
+  - : Wird ausgelöst, wenn der `availability()`-Aufruf aus einem anderen Grund fehlschlägt, oder aus einem Grund, den der Benutzeragent nicht bekannt geben wollte.
 
 ## Beispiele
 
-### Grundlegende Nutzung von `availability()`
+### Grundlegende `availability()`-Nutzung
 
-Im folgenden Beispiel überprüfen wir zunächst die Verfügbarkeit des Modells zur Erkennung einiger Sprachen mit der `availability()`-Methode:
+Im folgenden Beispiel überprüfen wir zunächst die Verfügbarkeit des Modells für die Erkennung einiger Sprachen mit der `availability()`-Methode:
 
-- Wenn sie `unavailable` zurückgibt, geben wir eine entsprechende Fehlermeldung in die Konsole aus.
-- Wenn sie `available` zurückgibt, erstellen wir einen Sprachenerkenner mit der [`create()`](/de/docs/Web/API/LanguageDetector/create_static)-Methode unter Übergabe der `expectedInputLanguages`. Das benötigte AI-Modell ist verfügbar, daher können wir es sofort verwenden.
-- Wenn sie einen anderen Wert zurückgibt (das heißt, `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, aber dieses Mal fügen wir einen `monitor` hinzu, der den Prozentsatz des heruntergeladenen Modells jedes Mal protokolliert, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird.
+- Wenn es `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung in die Konsole.
+- Wenn es `available` zurückgibt, erstellen wir mit der Methode [`create()`](/de/docs/Web/API/LanguageDetector/create_static) einen Sprachdetektor und übergeben ihm die `expectedInputLanguages`. Das erforderliche AI-Modell ist verfügbar, daher können wir es sofort verwenden.
+- Wenn es einen anderen Wert zurückgibt (d.h. `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, aber diesmal fügen wir einen `monitor` hinzu, der den Prozentsatz des Modells protokolliert, der jedes Mal heruntergeladen wird, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird.
 
 ```js
 async function getDetector(languages) {
@@ -85,7 +83,7 @@ async function getDetector(languages) {
 const detector = await getDetector(["en-US", "zh"]);
 ```
 
-### Erkennung der Sprachunterstützung
+### Erkennung von Sprachunterstützung
 
 ```js
 async function langSupport(language) {

@@ -1,16 +1,16 @@
 ---
-title: "Permissions-Policy: translator-Direktive"
+title: "Permissions-Policy: translator-Richtlinie"
 short-title: translator
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/translator
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 8cae6b8c772e3f9ce2fbd73cad17fcb0adda966f
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der `translator`-Direktive steuert den Zugriff auf die Übersetzungsfunktionen der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der `translator`-Richtlinie steuert den Zugriff auf die Übersetzungsfunktionalität der [Translator- und Sprachdetektor-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs).
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, werden alle Versuche, die Übersetzungsmethoden der API aufzurufen, mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) fehlschlagen.
+Speziell, wenn eine definierte Richtlinie die Nutzung blockiert, wird die statische Methode [`Translator.availability()`](/de/docs/Web/API/Translator/availability_static) `unavailable` zurückgeben, und jegliche Versuche, andere Methoden der API aufzurufen, werden mit einem `NotAllowedError`-`[`DOMException`](/de/docs/Web/API/DOMException)` fehlschlagen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Permissions-Policy: translator=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
@@ -36,4 +36,4 @@ Die Standard-`allowlist` für `translator` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)

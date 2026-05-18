@@ -3,12 +3,12 @@ title: "Translator: availability() statische Methode"
 short-title: availability()
 slug: Web/API/Translator/availability_static
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: 8cae6b8c772e3f9ce2fbd73cad17fcb0adda966f
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die statische Methode **`availability()`** der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle gibt einen enumerierten Wert zurück, der die Verfügbarkeit des KI-Modells für die gegebene `Translator`-Konfiguration angibt.
+Die **`availability()`** statische Methode der [`Translator`](/de/docs/Web/API/Translator) Schnittstelle gibt einen enumerierten Wert zurück, der die Verfügbarkeit des KI-Modells für die gegebene `Translator`-Konfiguration angibt.
 
 ## Syntax
 
@@ -19,47 +19,45 @@ Translator.availability(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Konfigurationsoptionen für den `Translator` festlegt. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für den `Translator` spezifiziert. Mögliche Werte sind:
     - `sourceLanguage`
-      - : Ein String, der die Sprache des Eingabetextes spezifiziert, der übersetzt werden soll. Diese sollte ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} sein.
+      - : Ein String, der die Sprache des zu übersetzenden Eingabetextes angibt, und sollte ein gültiger {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} sein.
     - `targetLanguage`
-      - : Ein String, der die Sprache angibt, in die der Eingabetext übersetzt wird. Diese sollte ein gültiges BCP 47 Sprach-Tag sein.
+      - : Ein String, der die Sprache angibt, in die der Eingabetext übersetzt wird, und sollte ein gültiger BCP 47 Sprach-Tag sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einem enumerierten Wert erfüllt, der angibt, ob Unterstützung für eine gegebene `Translator`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht bestimmt werden konnte.
+Ein {{jsxref("Promise")}}, der mit einem enumerierten Wert erfüllt wird, der angibt, ob Unterstützung für eine gegebene `Translator`-Konfiguration verfügbar ist (oder verfügbar sein wird), oder `null`, wenn die Unterstützung nicht bestimmt werden konnte.
 
 Mögliche Werte sind:
 
 - `available`
-  - : Der Browser unterstützt die gegebene Konfiguration und sie kann sofort verwendet werden.
+  - : Der Browser unterstützt die gegebene Konfiguration und kann unmittelbar verwendet werden.
 - `downloadable`
-  - : Der Browser unterstützt die gegebene Konfiguration, es muss jedoch zunächst ein KI-Modell oder einige Feinabstimmungsdaten für das Modell heruntergeladen werden.
+  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch zuerst ein KI-Modell oder einige Feinabstimmungsdaten für das Modell herunterladen.
 - `downloading`
-  - : Der Browser unterstützt die gegebene Konfiguration, es muss jedoch ein laufender Download abgeschlossen werden, bevor fortgefahren werden kann.
+  - : Der Browser unterstützt die gegebene Konfiguration, muss jedoch einen laufenden Download abschließen, bevor es weitergehen kann.
 - `unavailable`
-  - : Der Browser unterstützt die gegebene Konfiguration nicht. Dieser Wert wird auch zurückgegeben, wenn die angegebenen `sourceLanguage` und `targetLanguage` gleich sind.
+  - : Der Browser unterstützt die gegebene Konfiguration nicht. Dieser Wert wird auch zurückgegeben, wenn die angegebenen `sourceLanguage` und `targetLanguage` identisch sind oder wenn die Translator API durch eine {{httpheader('Permissions-Policy/translator','translator')}} {{httpheader("Permissions-Policy")}} blockiert ist.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das [`Document`](/de/docs/Web/API/Document) der Seite noch nicht aktiv ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Initialisierung des KI-Modells aus irgendeinem Grund fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn die Initialisierung des KI-Modells aus irgendeinem Grund fehlschlägt.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `availability()`-Aufruf aus einem anderen Grund als fehlgeschlagen markiert wird oder wenn ein Grund nicht offengelegt werden sollte.
-
-Wenn die Nutzung der Methode durch eine {{httpheader('Permissions-Policy/translator','translator')}} {{httpheader("Permissions-Policy")}} blockiert ist, lehnt das Promise mit einem Wert von `unavailable` ab.
+  - : Wird ausgelöst, wenn der `availability()` Aufruf aus einem anderen Grund fehlschlug oder aus einem Grund, den der Benutzeragent nicht mitteilen wollte.
 
 ## Beispiele
 
-### Grundlegende Nutzung von `availability()`
+### Grundlegende `availability()` Verwendung
 
-Im folgenden Beispiel prüfen wir zunächst die Verfügbarkeit des Modells für die Übersetzung zwischen zwei Sprachen mit der `availability()`-Methode:
+Im folgenden Beispiel prüfen wir zunächst die Verfügbarkeit des Modells für die Übersetzung zwischen zwei Sprachen mit der `availability()` Methode:
 
 - Wenn es `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung in die Konsole.
-- Wenn es `available` zurückgibt, erstellen wir einen Übersetzer mit der [`create()`](/de/docs/Web/API/Translator/create_static)-Methode und übergeben die Quell- und Zielsprachen. Das erforderliche KI-Modell ist verfügbar, sodass wir es sofort verwenden können.
-- Wenn es einen anderen Wert zurückgibt (das heißt `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, aber dieses Mal fügen wir einen `monitor` hinzu, der den Prozentsatz des heruntergeladenen Modells jedes Mal protokolliert, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird.
+- Wenn es `available` zurückgibt, erstellen wir einen Translator mit der [`create()`](/de/docs/Web/API/Translator/create_static) Methode, indem wir die Quell- und Zielsprache übergeben. Das erforderliche KI-Modell ist verfügbar, sodass wir es sofort verwenden können.
+- Wenn es einen anderen Wert zurückgibt (das heißt, `downloadable` oder `downloading`), führen wir denselben `create()` Methodenaufruf durch, aber diesmal mit einem `monitor`, der den Prozentsatz des heruntergeladenen Modells bei jedem Auftreten des [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event) Ereignisses protokolliert.
 
 ```js
 async function getTranslator(languages) {
@@ -89,7 +87,7 @@ const translator = await getTranslator({
 });
 ```
 
-### Erkennung der Sprachunterstützung
+### Unterstützung von Sprachen erkennen
 
 ```js
 async function langSupport(source, target) {
@@ -115,4 +113,4 @@ await langSupport("en", "zh");
 
 ## Siehe auch
 
-- [Verwendung der Übersetzungs- und Spracherkennung-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Translator- und Language Detector-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
