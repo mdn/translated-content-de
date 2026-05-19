@@ -77,7 +77,7 @@ Ein `<color>`-Wert kann mit einer der folgenden Methoden angegeben werden:
 - Durch Angabe einer Farbe, für die Sie eine Kontrastfarbe zurückgegeben haben möchten: {{CSSXref("color_value/contrast-color", "contrast-color()")}}.
 - Durch Angabe von zwei Farben, wobei die erste für helle Farbschemata und die zweite für dunkle Farbschemata verwendet wird: {{CSSXref("color_value/light-dark", "light-dark()")}}.
 
-### `currentColor` Schlüsselwort
+### <a id="currentcolor_keyword">`currentColor` Schlüsselwort</a>
 
 Das `currentColor`-Schlüsselwort repräsentiert den Wert der {{Cssxref("color")}}-Eigenschaft eines Elements. Dies ermöglicht die Verwendung des `color`-Werts auf Eigenschaften, die ihn standardmäßig nicht erhalten.
 
