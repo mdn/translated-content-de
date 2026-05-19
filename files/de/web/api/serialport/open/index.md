@@ -1,14 +1,14 @@
 ---
-title: "SerialPort: open()-Methode"
+title: "SerialPort: Methode open()"
 short-title: open()
 slug: Web/API/SerialPort/open
 l10n:
-  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
+  sourceCommit: 6fe7a18b80e55d9d25dcc16dfb010eec09460bb8
 ---
 
-{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Web Serial API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`open()`**-Methode der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Port geöffnet ist. Standardmäßig wird der Port mit 8 Datenbits, 1 Stoppbit und ohne Paritätsprüfung geöffnet. Der `baudRate`-Parameter ist erforderlich.
+Die **`open()`**-Methode der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Port geöffnet wird. Standardmäßig wird der Port mit 8 Datenbits, 1 Stoppbit und ohne Paritätsprüfung geöffnet. Der `baudRate`-Parameter ist erforderlich.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ open(options)
 - `options`
   - : Ein Objekt mit einem der folgenden Werte:
     - `baudRate`
-      - : Ein positiver, nicht-nuller Wert, der die Baudrate angibt, mit der die serielle Kommunikation etabliert werden soll.
+      - : Ein positiver, nicht null Werte, der die Baudrate angibt, mit der die serielle Kommunikation hergestellt werden soll.
     - `bufferSize` {{Optional_Inline}}
-      - : Eine positive ganze Zahl, die die Größe der Lese- und Schreibpuffer angibt, die eingerichtet werden sollen. Wenn nicht angegeben, beträgt die Standardgröße 255.
+      - : Eine nicht-negative ganze Zahl, die die Größe der Lese- und Schreibpuffer angibt, die eingerichtet werden sollen. Wenn nicht angegeben, ist der Standardwert 255.
     - `dataBits` {{Optional_Inline}}
-      - : Ein Ganzzahlwert von 7 oder 8, der die Anzahl der Datenbits pro Frame angibt. Wenn nicht angegeben, beträgt der Standardwert 8.
+      - : Ein ganzzahliger Wert von 7 oder 8, der die Anzahl der Datenbits pro Frame angibt. Wenn nicht angegeben, ist der Standardwert 8.
     - `flowControl` {{Optional_Inline}}
-      - : Der Typ der Flusskontrolle, entweder `"none"` oder `"hardware"`. Der Standardwert ist `"none"`.
+      - : Der Flusskontrolltyp, entweder `"none"` oder `"hardware"`. Der Standardwert ist `"none"`.
     - `parity` {{Optional_Inline}}
       - : Der Paritätsmodus, entweder `"none"`, `"even"` oder `"odd"`. Der Standardwert ist `"none"`.
     - `stopBits` {{Optional_Inline}}
-      - : Ein Ganzzahlwert von 1 oder 2, der die Anzahl der Stoppbits am Ende des Frames angibt. Wenn nicht angegeben, beträgt der Standardwert 1.
+      - : Ein ganzzahliger Wert von 1 oder 2, der die Anzahl der Stoppbits am Ende des Frames angibt. Wenn nicht angegeben, ist der Standardwert 1.
 
 ### Rückgabewert
 
@@ -39,14 +39,16 @@ Ein {{jsxref("Promise")}}.
 
 ### Ausnahmen
 
+Das zurückgegebene `Promise` lehnt mit einer der folgenden Ausnahmen ab:
+
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der Port bereits geöffnet ist.
+  - : Wenn `open()` aufgerufen wird, während der Port bereits geöffnet ist.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn der Versuch, den Port zu öffnen, fehlgeschlagen ist.
+  - : Wenn der Versuch, den Port zu öffnen, fehlschlägt.
 
 ## Beispiele
 
-Bevor auf einem seriellen Port kommuniziert werden kann, muss dieser geöffnet werden. Das Öffnen des Ports ermöglicht es der Website, die notwendigen Parameter festzulegen, die steuern, wie Daten übertragen und empfangen werden. Entwickler sollten die Dokumentation des Geräts, mit dem sie sich verbinden, auf die entsprechenden Parameter überprüfen.
+Bevor auf einem seriellen Port kommuniziert wird, muss er geöffnet werden. Das Öffnen des Ports ermöglicht es der Website, die erforderlichen Parameter festzulegen, die steuern, wie Daten gesendet und empfangen werden. Entwickler sollten die Dokumentation des Geräts, mit dem sie sich verbinden, auf die entsprechenden Parameter überprüfen.
 
 ```js
 await port.open({ baudRate: 9600 /* pick your baud rate */ });

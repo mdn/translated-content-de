@@ -3,12 +3,12 @@ title: "SerialPort: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/SerialPort/readable
 l10n:
-  sourceCommit: c9773fc1268b974b6c009208b259c53954c839ef
+  sourceCommit: 6fe7a18b80e55d9d25dcc16dfb010eec09460bb8
 ---
 
-{{SecureContext_Header}}{{APIRef("Web Serial API")}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("Web Serial API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`readable`**-Eigenschaft des [`SerialPort`](/de/docs/Web/API/SerialPort)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, um Daten vom mit dem Port verbundenen Gerät zu empfangen. Die aus diesem Strom gelesenen Datenblöcke sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, solange der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
+Die **`readable`**-Eigenschaft der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückgibt, um Daten von dem Gerät zu empfangen, das mit dem Port verbunden ist. Die aus diesem Stream gelesenen Blöcke sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, sofern der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Daten von einem Port gelesen werden. Die äußere Schleife behandelt nicht-schwerwiegende Fehler und erstellt einen neuen Leser, bis ein schwerwiegender Fehler auftritt und `readable` `null` wird.
+Das folgende Beispiel zeigt, wie man Daten von einem Port liest. Die äußere Schleife behandelt nicht-schwerwiegende Fehler und erstellt einen neuen Leser, bis ein schwerwiegender Fehler auftritt und `readable` `null` wird.
 
 ```js
 while (port.readable) {
