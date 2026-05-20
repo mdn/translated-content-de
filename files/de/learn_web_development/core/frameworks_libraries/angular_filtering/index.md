@@ -1,39 +1,42 @@
 ---
-title: Filtern unserer To-Do-Elemente
+title: Filtern unserer To-do-Elemente
 slug: Learn_web_development/Core/Frameworks_libraries/Angular_filtering
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: f5be60d013af8bfa3ff9db9a12c3c72fc7eb3988
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_item_component","Learn_web_development/Core/Frameworks_libraries/Angular_building", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Kommen wir nun dazu, Funktionalität hinzuzufügen, damit Benutzer ihre To-Do-Elemente filtern können, sodass sie aktive, abgeschlossene oder alle Elemente anzeigen können.
+> [!NOTE]
+> Die MDN Angular-Artikel werden nicht mehr gepflegt und werden in 3 Monaten (bis zum 20. August 2026) von der Website entfernt. Der Inhalt wird im [MDN Museum](https://github.com/mdn/museum) archiviert. Weitere Informationen finden Sie in [dieser Diskussion](https://github.com/orgs/mdn/discussions/827).
+
+Nun gehen wir dazu über, Funktionalitäten hinzuzufügen, die es den Benutzern ermöglichen, ihre To-do-Elemente zu filtern, damit sie aktive, erledigte oder alle Elemente anzeigen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den grundlegenden Sprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>,
-        sowie Kenntnisse der
+        Kenntnisse der
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-          >Terminal-/Befehlszeile</a
+          >Terminal/Kommandokonsole</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Filterfunktionalität zu unserer App hinzufügen.</td>
+      <td>Zur Hinzufügung der Filterfunktionalität zu unserer App.</td>
     </tr>
   </tbody>
 </table>
 
 ## Unser Filtercode
 
-Das Filtern von Elementen basiert auf der `filter`-Eigenschaft, die Sie zuvor zu `app.component.ts` hinzugefügt haben:
+Das Filtern von Elementen baut auf der `filter`-Eigenschaft auf, die Sie zuvor zu `app.component.ts` hinzugefügt haben:
 
 ```ts
 export class AppComponent {
@@ -43,11 +46,11 @@ export class AppComponent {
 }
 ```
 
-Der Standardwert für den Filter ist `all`, er kann aber auch `active` oder `done` sein.
+Der Standardwert für `filter` ist `all`, er kann aber auch `active` oder `done` sein.
 
 ## Hinzufügen von Filtersteuerungen
 
-Fügen Sie in `app.component.html` den folgenden HTML-Code unterhalb der **Add**-Schaltfläche, aber oberhalb des Abschnitts, der die Elemente auflistet, hinzu. Im folgenden Ausschnitt sind die vorhandenen Abschnitte in Ihrem HTML auskommentiert, damit Sie genau sehen können, wo Sie die Schaltflächen platzieren müssen.
+Fügen Sie in `app.component.html` den folgenden HTML-Code unterhalb des **Add**-Buttons, aber oberhalb des Abschnitts, der die Elemente auflistet, hinzu. Im folgenden Ausschnitt sind die bestehenden Abschnitte in Ihrem HTML in Kommentaren, damit Sie genau sehen können, wo die Schaltflächen platziert werden sollen.
 
 ```html
 <!-- <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
@@ -81,16 +84,16 @@ Fügen Sie in `app.component.html` den folgenden HTML-Code unterhalb der **Add**
          <ul>... -->
 ```
 
-Das Klicken auf die Schaltflächen ändert die `filter`-Werte, die bestimmen, welche `items` angezeigt werden und welche Stile Angular auf die aktive Schaltfläche anwendet.
+Das Klicken der Schaltflächen ändert die `filter`-Werte, die bestimmen, welche `items` angezeigt werden und welche Stile Angular auf die aktive Schaltfläche anwendet.
 
-- Wenn der Benutzer die **All**-Schaltfläche klickt, werden alle Elemente angezeigt.
-- Wenn der Benutzer die **To do**-Schaltfläche klickt, werden nur die Elemente mit einem `done`-Wert von `false` angezeigt.
-- Wenn der Benutzer die **Done**-Schaltfläche klickt, werden nur die Elemente mit einem `done`-Wert von `true` angezeigt.
+- Wenn der Benutzer auf die **All**-Schaltfläche klickt, werden alle Elemente angezeigt.
+- Wenn der Benutzer auf die **To do**-Schaltfläche klickt, werden nur die Elemente mit einem `done`-Wert von `false` angezeigt.
+- Wenn der Benutzer auf die **Done**-Schaltfläche klickt, werden nur die Elemente mit einem `done`-Wert von `true` angezeigt.
 
-Eine Klassenattributbindung mit Hilfe von eckigen Klammern, `[]`, steuert die Textfarbe der Schaltflächen. Die Klassenbindung `[class.active]` wendet die `active`-Klasse an, wenn der Wert von `filter` dem Ausdruck entspricht. Zum Beispiel, wenn der Benutzer auf die **Done**-Schaltfläche klickt, die den `filter`-Wert auf `done` setzt, bewertet der Ausdruck der Klassenbindung `filter === 'done'` zu `true`. Wenn der `filter`-Wert `done` ist, wendet Angular die `active`-Klasse auf die **Done**-Schaltfläche an, um die Textfarbe grün zu machen. Sobald der Benutzer auf eine der anderen Schaltflächen klickt, ist der `filter`-Wert nicht länger `done`, sodass die grüne Textfarbe nicht mehr gilt.
+Eine Klassenzuordnung über Attributbindung, die eckige Klammern `[]` verwendet, steuert die Textfarbe der Schaltflächen. Die Klassenbindung `[class.active]` wendet die `active`-Klasse an, wenn der Wert von `filter` mit dem Ausdruck übereinstimmt. Zum Beispiel, wenn der Benutzer auf die **Done**-Schaltfläche klickt, die den `filter`-Wert auf `done` setzt, wird der Ausdruck der Klassenbindung `filter === 'done'` als `true` ausgewertet. Wenn der `filter`-Wert `done` ist, wendet Angular die `active`-Klasse auf die **Done**-Schaltfläche an, um die Textfarbe grün zu machen. Sobald der Benutzer auf eine der anderen Schaltflächen klickt, ist der `filter`-Wert nicht mehr `done`, sodass die grüne Textfarbe nicht mehr gilt.
 
 ## Zusammenfassung
 
-Das ging schnell! Da Sie den `filter`-Code bereits in `app.component.ts` hatten, mussten Sie nur die Vorlage bearbeiten, um Steuerungen zum Filtern der Elemente bereitzustellen. Unser nächster und letzter Artikel befasst sich damit, wie Sie Ihre Angular-App für die Produktion bereitstellen und bietet weitere Ressourcen, um Ihre Lernreise fortzusetzen.
+Das ging schnell! Da Sie bereits den `filter`-Code in `app.component.ts` hatten, mussten Sie nur die Vorlage bearbeiten, um Steuerungen zum Filtern der Elemente bereitzustellen. Unser nächster — und letzter — Artikel zeigt, wie Sie Ihre Angular-App für die Produktion bereitstellen und bietet weitere Ressourcen, um Ihre Lernreise fortzusetzen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_item_component","Learn_web_development/Core/Frameworks_libraries/Angular_building", "Learn_web_development/Core/Frameworks_libraries")}}
