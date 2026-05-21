@@ -3,10 +3,10 @@ title: "convert_i32x4_s: Wasm SIMD Konvertierungsanweisung"
 short-title: convert_i32x4_s
 slug: WebAssembly/Reference/SIMD/conversion/convert_i32x4_s
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`convert_i32x4_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Spuren einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretation in eine `f32x4` Wertinterpretation.
+Die **`convert_i32x4_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes einer signierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretation in eine `f32x4` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: convert_i32x4_s", "tabbed-taller")}}
 
@@ -35,10 +35,10 @@ value_type.convert_i32x4_s
 ```
 
 - `value_type`
-  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `convert_i32x4_s`:
+  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen unterstützen `convert_i32x4_s`:
     - `f32x4`
 - `convert_i32x4_s`
-  - : Die `convert_i32x4_s` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `convert_i32x4_s` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -51,9 +51,9 @@ value_type.convert_i32x4_s
 - `output`
   - : Die Ausgabe `v128` `f32x4` Wertinterpretation.
 
-### Binärkodierung
+### Binäre Kodierung
 
-| Anweisung               | Binärformat    | Beispieltext => Binär                       |
+| Anweisung               | Binäres Format | Beispieltext => binär                       |
 | ----------------------- | -------------- | ------------------------------------------- |
 | `f32x4.convert_i32x4_s` | `0xfd 250:u32` | `f32x4.convert_i32x4_s` => `0xfd 0xfa 0x01` |
 
@@ -67,4 +67,4 @@ value_type.convert_i32x4_s
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

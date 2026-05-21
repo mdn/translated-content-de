@@ -1,12 +1,12 @@
 ---
-title: "sub: Wasm-Textanweisung"
+title: "sub: Wasm-Textinstruktion"
 short-title: sub
 slug: WebAssembly/Reference/Numeric/sub
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`sub`**-Anweisung, abgeleitet von _subtraction_ (Subtraktion), wird verwendet, um eine Zahl von einer anderen Zahl abzuziehen, ähnlich dem **`-`** Operator in anderen Sprachen.
+Die **`sub`** Instruktion, kurz für _subtraction_, wird verwendet, um eine Zahl von einer anderen zu subtrahieren, ähnlich dem **`-`** Operator in anderen Programmiersprachen.
 
 {{InteractiveExample("Wat Demo: sub", "tabbed-taller")}}
 
@@ -37,12 +37,12 @@ value_type.sub
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, über den die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `sub`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `sub`:
     - `i32`
     - `i64`
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `18x16`
       - `i16x8`
       - `i32x4`
@@ -50,7 +50,7 @@ value_type.sub
       - `f32x4`
       - `f64x2`
 - `sub`
-  - : Die `sub`-Anweisung. Muss stets nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `sub` Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) inkludiert werden.
 
 ### Typ
 
@@ -65,13 +65,13 @@ value_type.sub
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `sub` sind dies einfache numerische Werte wie `14` oder `3.1`.
+Für eine nicht-SIMD `sub` sind dies einfache numerische Werte wie `14` oder `3.1`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `sub` sind dies [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen, zum Beispiel `f32x4 9 3.8 -16 101`. Jede Lane des zum Stapel hinzugefügten Ergebnisses entspricht der Lane des zweiten Eingangs, subtrahiert von der entsprechenden Lane des ersten Eingangs.
+Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `sub` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `f32x4 9 3.8 -16 101`. Jede Lane des Ergebnisses, das auf den Stapel geschoben wird, entspricht der Subtraktion der entsprechenden Lane des zweiten Eingabewerts von der entsprechenden Lane des ersten Eingabewerts.
 
-### Binärcodierung
+### Binäre Kodierung
 
-| Anweisung   | Binärformat    | Beispieltext => binär           |
+| Instruktion | Binärformat    | Beispieltext => Binär           |
 | ----------- | -------------- | ------------------------------- |
 | `i32.sub`   | `0x6b`         | `i32.sub` => `0x6b`             |
 | `i64.sub`   | `0x7d`         | `i64.sub` => `0x7d`             |
@@ -88,11 +88,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `sub` sind dies [`v128`](/d
 
 ### SIMD-Subtraktion
 
-In diesem Beispiel demonstrieren wir die Subtraktion eines SIMD-Wertes von einem anderen und das Ausgeben eines der Lane-Werte des Ergebnisses.
+In diesem Beispiel demonstrieren wir, wie ein SIMD-Wert von einem anderen subtrahiert wird und ein Wert einer der Ergebnis-Lanes ausgegeben wird.
 
 #### JavaScript
 
-In unserem Skript beziehen wir eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
+In unserem Skript erhalten wir eine Referenz zu einem {{htmlelement("p")}} Element, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_sub
 <p></p>
@@ -114,7 +114,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript `output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD `i16x8`-Werte und verwenden `i16x8.sub`, um den zweiten Wert vom ersten abzuziehen. Schließlich extrahieren wir den in Lane `7` des Ausgabewertes gespeicherten Wert mit der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn in das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()` Funktion und stellen sicher, dass sie einen `i32`-Parameter deklariert. Wir deklarieren dann zwei SIMD `i16x8` Werte und verwenden `i16x8.sub`, um den zweiten von dem ersten zu subtrahieren. Schließlich extrahieren wir den Wert, der in Lane `7` des Ausgabe-Werts gespeichert ist, mit der [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
 
 ```wat live-sample___simd_sub
 (module
@@ -137,8 +137,8 @@ In unserem Wasm-Modul importieren wir zunächst die JavaScript `output()`-Funkti
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Die Ausgabe erfolgt wie folgt:
 
 {{embedlivesample("simd_sub", "100%", 100)}}
 
-`-24` wird ausgegeben, da dies das Ergebnis der Subtraktion von Lane 7 des zweiten Wertes (`30`) von Lane 7 des ersten Wertes (`6`) ist.
+`-24` wird ausgegeben, da dies das Ergebnis der Subtraktion von Lane 7 des zweiten Werts (`30`) von Lane 7 des ersten Werts (`6`) ist.

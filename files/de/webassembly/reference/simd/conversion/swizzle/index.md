@@ -3,10 +3,10 @@ title: "swizzle: Wasm SIMD-Konvertierungsanweisung"
 short-title: swizzle
 slug: WebAssembly/Reference/SIMD/conversion/swizzle
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`swizzle`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wert zurück, dessen Lane-Werte aus einem Eingabe-`v128`-Wert gewählt werden. Die Auswahl erfolgt anhand der Indizes, die in einem zweiten Eingabe-`v128` angegeben sind.
+Die **`swizzle`**-Anweisung [SIMD-Konvertierung](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wert mit Lanes zurück, die aus einem Eingabe-`v128`-Wert ausgewählt werden, bestimmt durch Indizes, die in einem zweiten Eingabe-`v128` bereitgestellt werden.
 
 {{InteractiveExample("Wat Demo: swizzle", "tabbed-taller")}}
 
@@ -29,7 +29,7 @@ Die **`swizzle`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 6 des Ausgabewerts der `swizzle`-Anweisung. Dieser wird `4` sein, weil die swizzle-Anweisung den Wert an der Indexposition 9 des Eingabewerts gewählt hat, um ihn an der Indexposition 6 des Ausgabewerts zu platzieren.
+Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 6 des `swizzle`-Anweisungsausgangswerts. Dieser wird `4` sein, da die `swizzle`-Anweisung den Wert an der Indexposition 9 des Eingabewerts ausgewählt hat, um ihn an der Indexposition 6 des Ausgangswerts zu platzieren.
 
 ## Syntax
 
@@ -38,10 +38,10 @@ value_type.swizzle
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `swizzle`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgende [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretation unterstützt `swizzle`:
     - `i8x16`
 - `swizzle`
-  - : Die `swizzle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `swizzle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) hinzugefügt werden.
 
 ### Typ
 
@@ -52,16 +52,16 @@ value_type.swizzle
 - `input`
   - : Die Eingabe-`v128`-`i8x16`-Wertinterpretation.
 - `indices`
-  - : Der `v128`-Wert, der die Indizes enthält, die Sie verwenden möchten, um auszuwählen, welche Werte aus dem Eingabewert genommen und in die Ausgabe aufgenommen werden sollen. In jedem Fall repräsentiert die Indexnummer die zu entnehmende Position aus dem Eingabewert, und die Position des Index gibt an, wo sie im `output`-Wert erscheinen soll.
+  - : Der `v128`-Wert, der die Indizes enthält, die verwendet werden sollen, um zu bestimmen, welche Werte aus dem Eingabewert genommen und in den Ausgang eingefügt werden sollen. In jedem Fall repräsentiert die Indexnummer die Position im Eingabewert, die übernommen werden soll, und die Position des Index repräsentiert die Position, an der sie im `output`-Wert erscheinen soll.
 
-    Diese Werte müssen zwischen `0` und `15` liegen, einschließlich. Für Indizes außerhalb dieses Bereichs werden die resultierenden Lanes auf `0` initialisiert.
+    Diese Werte müssen zwischen `0` und `15` liegen, einschließlich. Für Indizes außerhalb dieses Bereichs werden die resultierenden Lanes auf `0` gesetzt.
 
 - `output`
-  - : Die Ausgabe-`v128`-Wertinterpretation.
+  - : Die Ausgangs-`v128`-Wertinterpretation.
 
 ### Binärcodierung
 
-| Anweisung       | Binärformat   | Beispieltext => binär          |
+| Anweisung       | Binärformat   | Beispieltext => Binär          |
 | --------------- | ------------- | ------------------------------ |
 | `i8x16.swizzle` | `0xfd 14:u32` | `i8x16.swizzle` => `0xfd 0x0e` |
 

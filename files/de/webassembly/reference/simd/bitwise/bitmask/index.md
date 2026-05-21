@@ -1,15 +1,15 @@
 ---
-title: "bitmask: Wasm SIMD bitwise Befehl"
+title: "bitmask: Wasm SIMD bitweise Anweisung"
 short-title: bitmask
 slug: WebAssembly/Reference/SIMD/bitwise/bitmask
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Der **`bitmask`** [SIMD bitwise Befehl](/de/docs/WebAssembly/Reference/SIMD/bitwise) untersucht das **höchstwertige Bit** (MSB) jeder Spur einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretation. Dies ist das Vorzeichenbit, wenn die Spur als signiert betrachtet wird. Der Ausgabe-Wert des Befehls entspricht all diesen Bits, die in einem einzigen `i32` gesammelt werden, wobei das MSB der Spur 0 im Bit 0 des Ergebnisses, das MSB der Spur 1 im Bit 1 des Ergebnisses usw. enthalten ist.
+Die **`bitmask`** [SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) untersucht das **höchstwertige Bit** (MSB) jeder Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretation. Dies ist das Vorzeichenbit, wenn die Lane als signiert betrachtet wird. Der Ausgabe-Wert der Anweisung entspricht dem Sammeln all dieser Bits in einem einzelnen `i32`, wobei das MSB von Lane 0 in Bit 0 des Ergebnisses liegt, das MSB von Lane 1 in Bit 1 und so weiter.
 
 > [!NOTE]
-> Für `i8x16.bitmask` bedeutet ein MSB von `1`, dass der Spurwert größer oder gleich 128 ist (negativ, wenn signiert), während ein MSB von `0` bedeutet, dass der Wert kleiner als 128 ist. Für breitbandigere Spurtypen ist die Schwelle entsprechend höher: 32768 für `i16x8`, 2147483648 für `i32x4`.
+> Für `i8x16.bitmask` bedeutet ein MSB von `1`, dass der Lane-Wert größer oder gleich 128 ist (negativ, wenn signiert), während ein MSB von `0` bedeutet, dass der Wert kleiner als 128 ist. Für breitere Lane-Typen ist die Schwelle entsprechend größer: 32768 für `i16x8`, 2147483648 für `i32x4`.
 
 {{InteractiveExample("Wat Demo: bitmask", "tabbed-taller")}}
 
@@ -30,15 +30,15 @@ Der **`bitmask`** [SIMD bitwise Befehl](/de/docs/WebAssembly/Reference/SIMD/bitw
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel hat nur die Spur `12` des `i8x16` Wertes einen Wert von größer oder gleich `128` (genauer gesagt `240`), daher ist ihr MSB `1`. Alle anderen Bytes haben das MSB auf `0` gesetzt.
+Im obigen Beispiel hat nur Lane `12` des `i8x16`-Werts einen Wert, der größer oder gleich `128` ist (`240`, um genau zu sein), daher ist sein MSB `1`. Alle anderen Byte-MSBs sind auf `0` gesetzt.
 
-Das Ausgabe-`i32` ist daher gleich:
+Der Ausgabe-`i32` ist daher gleich:
 
 `0000 0001 0000 0000 0000`
 
 (nur Bit `12` ist auf `1` gesetzt).
 
-Der Ausgabe-Wert des Beispiels ist `4096`, was dem dezimalen Äquivalent des obigen binären Musters entspricht.
+Der Ausgabe-Wert des Beispiels ist `4096`, was dem Dezimalwert des obigen Binärmusters entspricht.
 
 ## Syntax
 
@@ -47,13 +47,13 @@ value_type.bitmask
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den der Befehl ausgeführt wird. Die folgenden Typen unterstützen `bitmask`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `bitmask`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
     - `i64x2`
 - `bitmask`
-  - : Der `bitmask` Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `bitmask`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -62,13 +62,13 @@ value_type.bitmask
 ```
 
 - `input`
-  - : Die Eingabe-`v128` Wertinterpretation.
+  - : Die Eingabe-`v128`-Wertinterpretation.
 - `output`
-  - : Der Ausgabe-`i32` Wert.
+  - : Der Ausgabe-`i32`-Wert.
 
-### Binärcode
+### Binärkodierung
 
-| Befehl          | Binärformat    | Beispieltext => binär               |
+| Anweisung       | Binärformat    | Beispieltext => binär               |
 | --------------- | -------------- | ----------------------------------- |
 | `i8x16.bitmask` | `0xfd 100:u32` | `i8x16.bitmask` => `0xfd 0x64`      |
 | `i16x8.bitmask` | `0xfd 132:u32` | `i16x8.bitmask` => `0xfd 0x84 0x01` |
@@ -85,4 +85,4 @@ value_type.bitmask
 
 ## Siehe auch
 
-- [SIMD bitwise Befehle](/de/docs/WebAssembly/Reference/SIMD/bitwise)
+- [SIMD bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)

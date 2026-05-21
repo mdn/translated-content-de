@@ -1,14 +1,14 @@
 ---
-title: "gt: Wasm-Textanweisung"
+title: "gt: Wasm Textanweisung"
 short-title: gt
 slug: WebAssembly/Reference/Numeric/gt
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`gt`**-Anweisung, Abkürzung für _greater than_, prüft, ob eine Gleitkommazahl größer ist als eine andere Gleitkommazahl.
+Die **`gt`**-Anweisung, kurz für _greater than_ (größer als), prüft, ob eine Fließkommazahl größer ist als eine andere Fließkommazahl.
 
-Integer-Typen haben separate Anweisungen für größer als vorzeichenbehaftet ([**`gt_s`**](/de/docs/WebAssembly/Reference/Numeric/gt_s)) und vorzeichenlos ([**`gt_u`**](/de/docs/WebAssembly/Reference/Numeric/gt_u)).
+Ganzzahltypen haben separate Anweisungen für größer als vorzeichenbehaftet ([**`gt_s`**](/de/docs/WebAssembly/Reference/Numeric/gt_s)) und vorzeichenlos ([**`gt_u`**](/de/docs/WebAssembly/Reference/Numeric/gt_u)).
 
 {{InteractiveExample("Wat Demo: gt", "tabbed-taller")}}
 
@@ -50,11 +50,11 @@ value_type.gt
   - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `gt`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `f32x4`
       - `f64x2`
 - `gt`
-  - : Die `gt`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `gt`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -67,15 +67,15 @@ value_type.gt
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert, der ein ganzzahliger Typ sein wird.
+  - : Der Ausgabewert, welcher ein Ganzzahltyp sein wird.
 
-Bei einem Nicht-SIMD-`gt` sind die Eingaben einfache numerische Werte wie `3.0` oder `3.5`. Wenn der erste Eingang größer als der zweite Eingang ist, wird `1` als Ausgabe auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
+Für ein nicht-SIMD `gt` sind die Eingaben grundlegende numerische Werte wie `3.0` oder `3.5`. Wenn der erste Eingabewert größer ist als der zweite, wird `1` als Ausgabe auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`gt` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Werteinterpretationen, z. B. `f32x4 2.0 30 86.9 120`. Jede Spur der Ausgabe, die auf den Stapel gelegt wird, ist ein `1` oder `0`, das anzeigt, ob die entsprechende Spur des ersten Eingabewertes größer als die entsprechende Spur des zweiten Eingabewertes ist.
+Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `f32x4 2.0 30 86.9 120`. Jede Spur der Ausgabe, die auf den Stapel geschoben wird, ist entweder `1` oder `0`, was angibt, ob die entsprechende Spur des ersten Eingabewertes größer ist als die entsprechende Spur des zweiten Eingabewertes.
 
-### Binärcodierung
+### Binärkodierung
 
-| Anweisung  | Binärformat   | Beispieltext => binär     |
+| Anweisung  | Binärformat   | Beispiel Text => Binär    |
 | ---------- | ------------- | ------------------------- |
 | `f32.gt`   | `0x5e`        | `f32.gt` => `0x5e`        |
 | `f64.gt`   | `0x64`        | `f64.gt` => `0x64`        |
@@ -86,11 +86,11 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`gt` sind die Eingaben [`v
 
 ### SIMD `gt` Beispiel
 
-In diesem Beispiel demonstrieren wir, wie man `gt` verwendet, um zu testen, ob ein SIMD-Spurenwert größer ist als derselbe Spurenwert in einem anderen SIMD-Wert.
+In diesem Beispiel zeigen wir die Verwendung von `gt`, um zu testen, ob ein SIMD-Spurwert größer ist als derselbe Spurwert in einem anderen SIMD-Wert.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert an die Ausgabe `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript beziehen wir uns auf ein {{htmlelement("p")}}-Element, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Dann kompilieren und instanziieren wir unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_gt
 <p></p>
@@ -112,7 +112,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD-`f32x4`-Werte und prüfen anschließend, ob die Spurwerte des ersten größer sind als die des zweiten, indem wir `f32x4.gt` verwenden. Schließlich extrahieren wir den in Spur `3` gespeicherten Wert der Ausgabe mithilfe der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und achten darauf, dass sie einen `i32`-Parameter deklariert. Wir deklarieren dann zwei SIMD-`f32x4`-Werte und überprüfen, ob die Spurwerte des ersten größer sind als die des zweiten mit `f32x4.gt`. Schließlich extrahieren wir den Wert, der in Spur `3` des Ausgabewertes gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_gt
 (module
@@ -141,7 +141,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_gt", "100%", 100)}}
 
-Das Ergebnis ist `1`, da der Wert, der in Spur `3` des ersten Eingabewertes gespeichert ist, größer ist als der Wert, der in Spur `3` des zweiten Eingabewertes gespeichert ist.
+Das Ergebnis ist `1`, weil der in Spur `3` des ersten Eingabewertes gespeicherte Wert größer ist als der in Spur `3` des zweiten Eingabewertes gespeicherte Wert.
 
 ## Siehe auch
 

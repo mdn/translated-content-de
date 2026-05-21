@@ -1,12 +1,12 @@
 ---
-title: "pmin: Wasm SIMD arithmetische Anweisung"
+title: "pmin: Wasm SIMD Arithmetische Anweisung"
 short-title: pmin
 slug: WebAssembly/Reference/SIMD/arithmetic/pmin
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`pmin`**-Anweisung vergleicht zwei unterschiedlichen Interpretationen von gleitkommazahlen in [`v128`](/de/docs/WebAssembly/Reference/Types/v128) und liefert eine neue Interpretation zurück, bei der jede Ausgabespalte auf die kleinere der entsprechenden Eingabespalten gesetzt wird. Sie ist definiert als `b < a ? b : a`, was bedeutet, dass NaN im ersten Operanden an die Ausgabe weitergeleitet wird, während NaN im zweiten Operanden nicht weitergeleitet wird — im Gegensatz zu [`min`](/de/docs/WebAssembly/Reference/Numeric/min), das NaN von beiden Operanden weiterleitet.
+Die **`pmin`** Anweisung vergleicht zwei Gleitkomma-Wertinterpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jede Ausgabelane auf den kleineren der entsprechenden Eingabelanes gesetzt wird. Sie ist definiert als `b < a ? b : a`, was bedeutet, dass NaN im ersten Operand in die Ausgabe propagiert, aber NaN im zweiten Operand nicht — im Gegensatz zu [`min`](/de/docs/WebAssembly/Reference/Numeric/min), das NaN von beiden Operanden propagiert.
 
 {{InteractiveExample("Wat Demo: pmin", "tabbed-taller")}}
 
@@ -39,11 +39,11 @@ value_type.pmin
 ```
 
 - `value_type`
-  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `pmin`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `pmin`:
     - `f32x4`
     - `f64x2`
 - `pmin`
-  - : Die `pmin`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `pmin` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -58,7 +58,7 @@ value_type.pmin
 - `output`
   - : Der Ausgabewert.
 
-### Binärcodierung
+### Binärkodierung
 
 | Anweisung    | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |

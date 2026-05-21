@@ -1,12 +1,12 @@
 ---
-title: "min_s: Wasm SIMD Arithmetikanweisung"
+title: "min_s: Wasm SIMD arithmetic instruction"
 short-title: min_s
 slug: WebAssembly/Reference/SIMD/arithmetic/min_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`min_s`**-Anweisung vergleicht zwei interpretierte, vorzeichenbehaftete Ganzzahlwerte des Typs [`v128`](/de/docs/WebAssembly/Reference/Types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den niedrigeren Wert des Lane-Index bei den beiden Eingaben gesetzt wird.
+Die **`min_s`**-Anweisung vergleicht zwei Interpretionen von vorzeichenbehafteten Ganzzahlen des Typs [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jeder Lane auf den niedrigeren Wert des jeweiligen Index der beiden Eingaben gesetzt wird.
 
 {{InteractiveExample("Wat Demo: min_s", "tabbed-taller")}}
 
@@ -39,12 +39,12 @@ value_type.min_s
 ```
 
 - `value_type`
-  - : Der Datentyp, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `min_s`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `min_s`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
 - `min_s`
-  - : Die `min_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `min_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -57,11 +57,11 @@ value_type.min_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neuer `v128` des gleichen Typs wie die Eingaben, bei dem jede Lane auf den niedrigeren Wert des Lane-Index bei den beiden Eingaben gesetzt wird.
+  - : Der Ausgabewert. Ein neuer `v128` desselben Typs wie die Eingaben, wobei jeder Lane auf den niedrigeren Wert des jeweiligen Index der beiden Eingaben gesetzt wird.
 
-### Binärcodierung
+### Binäre Codierung
 
-| Anweisung     | Binärformat    | Beispieltext => Binär             |
+| Anweisung     | Binärformat    | Beispieltext => binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.min_s` | `0xfd 118:u32` | `i8x16.min_s` => `0xfd 0x76`      |
 | `i16x8.min_s` | `0xfd 150:u32` | `i16x8.min_s` => `0xfd 0x96 0x01` |

@@ -1,12 +1,12 @@
 ---
-title: "shuffle: Wasm SIMD Konvertierungsbefehl"
+title: "shuffle: Wasm SIMD-Konvertierungsanweisung"
 short-title: shuffle
 slug: WebAssembly/Reference/SIMD/conversion/shuffle
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Der **`shuffle`** [SIMD Konvertierungsbefehl](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wert zurück, dessen Lane-Werte aus zwei Eingabe-`v128`-Werten ausgewählt werden, bestimmt durch die bereitgestellten Indexwerte.
+Die **`shuffle`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) gibt einen neuen [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wert mit seinen Lanes zurück, die aus zwei Eingabe-`v128`-Werten anhand bereitgestellter Indexwerte ausgewählt wurden.
 
 {{InteractiveExample("Wat Demo: shuffle", "tabbed-taller")}}
 
@@ -29,7 +29,7 @@ Der **`shuffle`** [SIMD Konvertierungsbefehl](/de/docs/WebAssembly/Reference/SIM
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 14 des Ausgabewertes der `shuffle`-Anweisung. Dieser wird `5` sein, da die Shuffle-Anweisung den Wert an der Indexposition 3 des zweiten `v128`-Eingabewertes (dargestellt durch den Indexwert `18`) ausgewählt hat, um ihn an die Indexposition 14 des `output` zu setzen.
+Im obigen Beispiel extrahieren und protokollieren wir den Wert an der Indexposition 14 des Ausgabewerts der `shuffle`-Anweisung. Dies wird `5` sein, da die shuffle-Anweisung den Wert an Indexposition 3 des zweiten `v128`-Eingabewerts ausgewählt hat (dargestellt durch den Indexwert `18`), um an der Indexposition 14 des `output` gesetzt zu werden.
 
 ## Syntax
 
@@ -38,12 +38,12 @@ value_type.shuffle indices
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `shuffle`:
+  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen unterstützen `shuffle`:
     - `i8x16`
 - `shuffle`
-  - : Die `shuffle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `shuffle`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) hinzugefügt werden.
 - `indices`
-  - : 16 Ganzzahlen im Bereich `0` bis `31` inklusive, die die Indizes der Werte darstellen, die aus den beiden Eingabewerten genommen werden sollen. Werte von `0` bis `15` repräsentieren die 16 Indizes des ersten Eingabewertes, und Werte von `16` bis `31` repräsentieren die 16 Indizes des zweiten Eingabewertes.
+  - : 16 Ganzzahlen im Bereich von `0` bis einschließlich `31`, die die Indizes der zu entnehmenden Werte aus den beiden Eingabewerten darstellen. Werte von `0` bis `15` repräsentieren die 16 Indizes des ersten Eingabewerts, und Werte von `16` bis `31` repräsentieren die 16 Indizes des zweiten Eingabewerts.
 
 ### Typ
 
@@ -52,13 +52,13 @@ value_type.shuffle indices
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i8x16` Wertinterpretation.
+  - : Die erste Eingabe-`v128` `i8x16`-Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i8x16` Wertinterpretation.
+  - : Die zweite Eingabe-`v128` `i8x16`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` Wertinterpretation.
+  - : Die Ausgabe-`v128`-Wertinterpretation.
 
-### Binäre Kodierung
+### Binärcodierung
 
 | Anweisung       | Binärformat                | Beispieltext => binär                                                                                                                                     |
 | --------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -74,4 +74,4 @@ value_type.shuffle indices
 
 ## Siehe auch
 
-- [SIMD Konvertierungsbefehle](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

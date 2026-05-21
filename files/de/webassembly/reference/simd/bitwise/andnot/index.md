@@ -1,12 +1,12 @@
 ---
-title: "andnot: Wasm SIMD bitweiser Befehl"
+title: "andnot: Wasm SIMD bitweise Anweisung"
 short-title: andnot
 slug: WebAssembly/Reference/SIMD/bitwise/andnot
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`andnot`** [SIMD bitweiser Befehl](/de/docs/WebAssembly/Reference/SIMD/bitwise) nimmt zwei [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Eingabewerte. Er führt ein bitweises AND auf den ersten Wert und einen zweiten Wert aus, der dem Ergebnis eines bitweisen NOT auf jedem Byte des zweiten ursprünglichen Wertes entspricht. Er gibt einen neuen `v128`-Wert zurück, der das Ergebnis enthält.
+Die **`andnot`** [SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) nimmt zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Eingabewerte. Es führt ein bitweises UND auf dem ersten Wert und einem zweiten Wert aus, der dem Ergebnis eines bitweisen NOTs auf jedes Byte des zweiten Originalwertes entspricht. Es gibt einen neuen `v128` Wert zurück, der das Ergebnis enthält.
 
 {{InteractiveExample("Wat Demo: andnot", "tabbed-taller")}}
 
@@ -29,7 +29,7 @@ Die **`andnot`** [SIMD bitweiser Befehl](/de/docs/WebAssembly/Reference/SIMD/bit
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-In dem obigen Beispiel werden die Eingabewerte `i16x8 10 23 56 15 25 29 92 45` und `i16x8 12 42 58 25 55 91 192 4` als eine Serie von 16 Hex-Werten in den `v128`s gespeichert:
+Im obigen Beispiel werden die Eingabewerte `i16x8 10 23 56 15 25 29 92 45` und `i16x8 12 42 58 25 55 91 192 4` als eine Serie von 16 Hex-Werten in den `v128`s gespeichert:
 
 ```plain
 Byte index     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
@@ -41,7 +41,7 @@ Byte index     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
 Hex value      0C 00 2A 00 3A 00 19 00 37 00 5B 00 C0 00 04 00
 ```
 
-Beim Ausführen von `v128.andnot` auf dem Wert wird zunächst auf den zweiten Eingabewert ein bitweises NOT ausgeführt, was bedeutet, dass jedes Byte `b` zu `0xFF - b` wird:
+Wenn `v128.andnot` auf den Wert angewendet wird, passiert zuerst ein bitweises NOT auf dem zweiten Eingabewert, was bedeutet, dass jedes Byte `b` zu `0xFF - b` wird:
 
 ```plain
 Byte index     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
@@ -49,7 +49,7 @@ Hex value      0C 00 2A 00 3A 00 19 00 37 00 5B 00 C0 00 04 00
 Hex after NOT  F3 FF D5 FF C5 FF E6 FF C8 FF A4 FF 3F FF FB FF
 ```
 
-Ein bitweises AND wird dann auf Eingabe 1 und NOT Eingabe 2 ausgeführt:
+Ein bitweises UND wird dann auf Eingabe 1 und NOT Eingabe 2 durchgeführt:
 
 ```plain
 Byte index               0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
@@ -58,20 +58,20 @@ NOT input 2              F3 FF D5 FF C5 FF E6 FF C8 FF A4 FF 3F FF FB FF
 Input 1 AND NOT input 2  02 00 15 00 00 00 06 00 08 00 04 00 1C 00 29 00
 ```
 
-Der resultierende Ausgabe-`v128`-Wert ist ein `i8x16`, daher gibt `i8x16.extract_lane_u 6` den Wert auf Spur `6` aus. Dies entspricht `6` (`0x06`), welches das Ergebnis ist, wenn `15` (`0x0F`) mit `230` (`0xE6`) verknüpft ist. `230` ist das bitweise NOT von `25` (`0x19`).
+Der resultierende `v128`-Wert ist ein `i8x16`, daher gibt `i8x16.extract_lane_u 6` den Wert in Kanal `6` aus. Dieser entspricht `6` (`0x06`), was dem Äquivalent von `15` (`0x0F`) dargestellt als UND mit `230` (`0xE6`). `230` ist das bitweise NOT von `25` (`0x19`).
 
-Anders ausgedrückt:
+Mit anderen Worten:
 
 1. `15` (`0x0F`) in Binär ist `0 0 0 0 1 1 1 1`.
 2. `25` (`0x19`) in Binär ist `0 0 0 1 1 0 0 1`.
-3. Ein bitweises NOT auf den zweiten Wert sieht folgendermaßen aus:
+3. Ein bitweises NOT auf dem zweiten Wert sieht so aus:
 
    ```plain
         0 0 0 1 1 0 0 1
    NOT  1 1 1 0 0 1 1 0
    ```
 
-4. Ein bitweises AND auf den ersten Wert und das NOT des zweiten Wertes sieht folgendermaßen aus:
+4. Ein bitweises UND auf dem ersten Wert und dem NOT des zweiten Wertes sieht so aus:
 
    ```plain
         0 0 0 0 1 1 1 1
@@ -88,7 +88,7 @@ v128.andnot
 ```
 
 - `v128.andnot`
-  - : Der Befehl `v128.andnot`.
+  - : Die `v128.andnot` Anweisung.
 
 ### Typ
 
@@ -97,15 +97,15 @@ v128.andnot
 ```
 
 - `input1`
-  - : Die Interpretation des ersten Eingabe-`v128`-Wertes.
+  - : Die Interpretation des ersten Eingabewertes `v128`.
 - `input2`
-  - : Die Interpretation des zweiten Eingabe-`v128`-Wertes.
+  - : Die Interpretation des zweiten Eingabewertes `v128`.
 - `output`
-  - : Die Interpretation des Ausgabe-`v128`-Wertes.
+  - : Die Interpretation des Ausgabe-Wertes `v128`.
 
-### Binäre Codierung
+### Binäre Kodierung
 
-| Befehl        | Binärformat   | Textbeispiel => Binär        |
+| Anweisung     | Binärformat   | Beispieltext => binär        |
 | ------------- | ------------- | ---------------------------- |
 | `v128.andnot` | `0xfd 79:u32` | `v128.andnot` => `0xfd 0x4f` |
 
@@ -119,4 +119,4 @@ v128.andnot
 
 ## Siehe auch
 
-- [SIMD bitweise Befehle](/de/docs/WebAssembly/Reference/SIMD/bitwise)
+- [SIMD bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)

@@ -1,12 +1,12 @@
 ---
-title: "load64_lane: Wasm SIMD Lade-/Speicheranweisung"
+title: "load64_lane: Wasm SIMD Lade-/Speicher-Anweisung"
 short-title: load64_lane
 slug: WebAssembly/Reference/SIMD/load_store/load64_lane
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`load64_lane`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in die spezifizierte Lane eines [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typs `i64x2` Wertinterpretation.
+Die **`load64_lane`** [SIMD Lade-/Speicher-Anweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer gegebenen Speicheradresse in die angegebene Lane eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typs `i64x2` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load64_lane", "tabbed-taller")}}
 
@@ -43,13 +43,13 @@ v128.load64_lane mem_idx offset=int align=int lane_idx
 - `v128.load64_lane`
   - : Die `v128.load64_lane` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align` Wert muss eine Potenz von `2` sein.
+  - : Ein Ganzzahlwert, der ein Hinweis an die Wasm-Engine darüber darstellt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 - `lane_idx`
-  - : Ein ganzzahliger Wert, der den Index der Lane darstellt, in die ein Wert geladen werden soll.
+  - : Ein Ganzzahlwert, der den Index der Lane darstellt, in die ein Wert geladen werden soll.
 
 ### Typ
 
@@ -58,20 +58,20 @@ v128.load64_lane mem_idx offset=int align=int lane_idx
 ```
 
 - `memory_address`
-  - : Ein ganzzahliger Wert, der die Speicheradresse darstellt, von der geladen werden soll.
+  - : Ein Ganzzahlwert, der die Speicheradresse darstellt, von der geladen wird.
 - `input`
   - : Die Eingabe `v128` Typ `i64x2` Wertinterpretation.
 - `output`
   - : Die Ausgabe `v128` Typ `i64x2` Wertinterpretation.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung          | Binärformat                                             | Beispieltext => binär                                                 |
 | ------------------ | ------------------------------------------------------- | --------------------------------------------------------------------- |
 | `v128.load64_lane` | `0xFD 87:u32 memidx:u8 offset:u32 align:u32 laneidx:u8` | `v128.load64_lane 0 offset=0 align=8 0` => `0xfd 0x57 0x03 0x00 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den buchstäblichen `align` Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel entspricht `align=1` `0x00` (`2^0`), während `align=8` `0x03` (`2^3`) entspricht.
+> Während das Wasm-Textformat den literalischen `align`-Wert angibt, repräsentiert das Binäräquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Beispielsweise ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 

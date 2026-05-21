@@ -3,10 +3,10 @@ title: "ceil: Wasm-Textanweisung"
 short-title: ceil
 slug: WebAssembly/Reference/Numeric/ceil
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`ceil`**-Anweisung wird verwendet, um den Wert einer Zahl auf die nächsthöhere ganze Zahl aufzurunden.
+Die **`ceil`**-Anweisung wird verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl aufgerundet wird.
 
 {{InteractiveExample("Wat Demo: ceil", "tabbed-standard")}}
 
@@ -36,14 +36,14 @@ value_type.ceil
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `ceil`:
+  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `ceil`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `ceil`
-  - : Die `ceil`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `ceil`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -56,11 +56,11 @@ value_type.ceil
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `ceil` sind dies grundlegende numerische Werte wie `14.3` oder `3.0`.
+Für ein nicht-SIMD-`ceil` sind dies grundlegende numerische Werte wie `14.3` oder `3.0`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ceil` sind dies [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Werteinterpretationen, beispielsweise `f32x4 1.9 2.5 0.5 12.1`. Jeder Lane des ausgegebenen Wertes, der auf den Stack gedrückt wird, ist der aufgerundete Wert des entsprechenden Lanes in der Eingabe.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ceil` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `f32x4 1.9 2.5 0.5 12.1`. Jede Spur des Outputs, der in den Stapel geschoben wird, ist der aufgerundete Wert der entsprechenden Spur im Input.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung    | Binärformat    | Beispieltext => binär       |
 | ------------ | -------------- | --------------------------- |
@@ -71,13 +71,13 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ceil` sind dies [`v128`](/
 
 ## Beispiele
 
-### SIMD `ceil`-Beispiel
+### SIMD-`ceil`-Beispiel
 
-In diesem Beispiel demonstrieren wir die Ausführung von `ceil` auf einem SIMD-Wert und das Ausgeben eines der Lane-Werte des Ergebnisses.
+In diesem Beispiel demonstrieren wir die Ausführung von `ceil` auf einem SIMD-Wert und die Ausgabe eines der Spurwerte des Ergebnisses.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren dann ein Objekt für den Import in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben. Dann definieren wir ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert in das `<p>`-Element ausgibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_ceil
 <p></p>
@@ -99,7 +99,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `f64`-Parameter deklariert hat. Dann deklarieren wir einen SIMD-`f64x2`-Wert und verwenden `f64x2.ceil`, um jede Lane auf die nächste ganze Zahl aufzurunden. Schließlich extrahieren wir den Wert, der in Lane `1` des Ausgangswertes gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()` und stellen sicher, dass sie einen `f64`-Parameter deklariert. Dann deklarieren wir einen SIMD-`f64x2`-Wert und verwenden `f64x2.ceil`, um jede Spur auf die nächstliegende ganze Zahl aufzurunden. Schließlich extrahieren wir den in Spur `1` des Ausgabewerts gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn durch Aufrufen der importierten `output()`-Funktion in das DOM aus.
 
 ```wat live-sample___simd_ceil
 (module
@@ -121,8 +121,8 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion 
 
 #### Ergebnis
 
-Die Ausgabe sieht wie folgt aus:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_ceil", "100%", 100)}}
 
-`2001` wird ausgegeben, da dies das Ergebnis ist, wenn man Lane 1 des Eingabewertes (`2000.1`) auf die nächste ganze Zahl aufrundet.
+`2001` wird ausgegeben, da dies das Ergebnis des Aufrundens von Spur 1 des Eingabewerts (`2000.1`) auf die nächstliegende ganze Zahl ist.

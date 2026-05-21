@@ -1,12 +1,12 @@
 ---
-title: "add_sat_s: Wasm SIMD Arithmetikinstruktion"
+title: "add_sat_s: Wasm SIMD-Arithmetik-Instruktion"
 short-title: add_sat_s
 slug: WebAssembly/Reference/SIMD/arithmetic/add_sat_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`add_sat_s`** [SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [saturierende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Addition von zwei vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen durch – wobei das Ergebnis auf den Bereich begrenzt wird, der durch den Werttyp erlaubt ist. Jeder Kanal des Ausgabewerts ist das Ergebnis der Addition der entsprechenden Kanäle der Eingabewerte.
+Die **`add_sat_s`** [SIMD-Arithmetik-Instruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [Sättigung](https://de.wikipedia.org/wiki/Saturation_arithmetic) bei der Addition von zwei vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werten durch – dabei wird das Ergebnis auf den durch den Wertetyp erlaubten Bereich begrenzt. Jede Spur des Ergebniswertes ist das Resultat der Addition der entsprechenden Spuren der Eingabewerte.
 
 {{InteractiveExample("Wat Demo: add_sat_s", "tabbed-taller")}}
 
@@ -29,10 +29,10 @@ Die **`add_sat_s`** [SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/Reference/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Saturation bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte begrenzt werden, die durch die Wertinterpretation erlaubt sind, anstatt zu überschreiten. Erlaubte Ausgabewerte sind:
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte begrenzt werden, die durch die Werteinterpretation erlaubt sind, anstatt zu überschreiten. Erlaubte Ausgabewerte sind:
 
-- `i8x16.add_sat_s`: `−128` bis `127` (der vollständige Bereich eines vorzeichenbehafteten 8-Bit-Integer)
-- `i16x8.add_sat_s`: `−32,768` bis `32,767` (der vollständige Bereich eines vorzeichenbehafteten 16-Bit-Integer)
+- `i8x16.add_sat_s`: `−128` bis `127` (der vollständige Bereich eines 8-Bit-Vorzeichenintegers)
+- `i16x8.add_sat_s`: `−32,768` bis `32,767` (der vollständige Bereich eines 16-Bit-Vorzeichenintegers)
 
 ## Syntax
 
@@ -41,11 +41,11 @@ value_type.add_sat_s
 ```
 
 - `value_type`
-  - : Der Werttyp, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `add_sat_s`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `add_sat_s`:
     - `i8x16`
     - `i16x8`
 - `add_sat_s`
-  - : Die `add_sat_s` Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `add_sat_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) folgen.
 
 ### Typ
 
@@ -60,9 +60,9 @@ value_type.add_sat_s
 - `output`
   - : Der Ausgabewert.
 
-### Binärcodekodierung
+### Binärcode
 
-| Instruktion       | Binärformat    | Beispieltext => Binär                 |
+| Instruktion       | Binärformat    | Beispiel Text => Binär                |
 | ----------------- | -------------- | ------------------------------------- |
 | `i8x16.add_sat_s` | `0xfd 111:u32` | `i8x16.add_sat_s` => `0xfd 0x6f`      |
 | `i16x8.add_sat_s` | `0xfd 143:u32` | `i16x8.add_sat_s` => `0xfd 0x8f 0x01` |
@@ -78,4 +78,4 @@ value_type.add_sat_s
 ## Siehe auch
 
 - [`add`](/de/docs/WebAssembly/Reference/Numeric/add)
-- [SIMD-Arithmetikinstruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)
+- [SIMD Arithmetik-Instruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

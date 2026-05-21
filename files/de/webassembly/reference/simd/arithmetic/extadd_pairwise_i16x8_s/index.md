@@ -3,10 +3,10 @@ title: "extadd_pairwise_i16x8_s: Wasm SIMD Arithmetik-Instruktion"
 short-title: extadd_pairwise_i16x8_s
 slug: WebAssembly/Reference/SIMD/arithmetic/extadd_pairwise_i16x8_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extadd_pairwise_i16x8_s`** [SIMD Arithmetik-Instruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) addiert jedes benachbarte Paar von Lanes einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i16x8` Werteinterpretation und gibt die Ergebnisse in einer `i32x4` Werteinterpretation aus.
+Die **`extadd_pairwise_i16x8_s`** [SIMD Arithmetik-Instruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) addiert jedes benachbarte Paar von Spuren einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretation und gibt die Ergebnisse in einer `i32x4` Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extadd_pairwise_i16x8_s", "tabbed-taller")}}
 
@@ -28,7 +28,7 @@ Die **`extadd_pairwise_i16x8_s`** [SIMD Arithmetik-Instruktion](/de/docs/WebAsse
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel enthält jedes benachbarte Paar von Lanes die Werte `20` und `40`. Die `extadd_pairwise_i16x8_s`-Instruktion addiert jedes Paar, wodurch in allen 4 Lanes des Ausgabe-`i32x4`-Werts der Wert `60` enthalten ist.
+Im obigen Beispiel enthält jedes benachbarte Spur-Paar die Werte `20` und `40`. Die `extadd_pairwise_i16x8_s` Instruktion addiert jedes dieser Paare, sodass die 4 Spuren des Ausgabewertes `i32x4` alle den Wert `60` enthalten.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ i32x4.extadd_pairwise_i16x8_s
 ```
 
 - `i32x4.extadd_pairwise_i16x8_s`
-  - : Die `i32x4.extadd_pairwise_i16x8_s`-Instruktion.
+  - : Die `i32x4.extadd_pairwise_i16x8_s` Instruktion.
 
 ### Typ
 
@@ -46,13 +46,13 @@ i32x4.extadd_pairwise_i16x8_s
 ```
 
 - `input`
-  - : Die Eingabe-`v128`-`i16x8`-Werteinterpretation.
+  - : Die Eingabe `v128` `i16x8` Wertinterpretation.
 - `output`
-  - : Die Ausgabe-`v128`-`i32x4`-Werteinterpretation.
+  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Instruktion                     | Binärformat    | Beispieltext => binär                          |
+| Instruktion                     | Binärformat    | Textbeispiel => Binär                          |
 | ------------------------------- | -------------- | ---------------------------------------------- |
 | `i32x4.extadd_pairwise_i16x8_s` | `0xfd 126:u32` | `i32x4.extadd_pairwise_i16x8_s` => `0xfd 0x7e` |
 

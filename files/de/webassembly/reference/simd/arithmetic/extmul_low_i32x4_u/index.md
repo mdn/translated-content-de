@@ -3,10 +3,10 @@ title: "extmul_low_i32x4_u: Wasm SIMD arithmetische Anweisung"
 short-title: extmul_low_i32x4_u
 slug: WebAssembly/Reference/SIMD/arithmetic/extmul_low_i32x4_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extmul_low_i32x4_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Spuren 0–1 von zwei unsignierten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretationen, multipliziert die Werte in den entsprechenden Spuren und gibt das Ergebnis dieser Operationen in eine `i64x2` Wertinterpretation aus.
+Die **`extmul_low_i32x4_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Bahnen 0–1 von zwei vorzeichenlosen [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Bahnen und gibt das Ergebnis dieser Operationen in einer `i64x2`-Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extmul_low_i32x4_u", "tabbed-taller")}}
 
@@ -29,9 +29,9 @@ Die **`extmul_low_i32x4_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel werden die Spuren 0–1 der beiden `i32x4` Eingabewerte miteinander multipliziert, und die Produkte werden als `i64x2` ausgegeben. Spur `0` der ersten Eingabe wird mit Spur `0` der zweiten Eingabe multipliziert, und das Produkt wird zu Spur `0` der Ausgabe, und so weiter. Somit enthält jede Spur der Ausgabe den Wert `500` (`25 * 20`).
+Im obigen Beispiel werden die Bahnen 0–1 der beiden `i32x4` Eingabewerte miteinander multipliziert und die Produkte als `i64x2` ausgegeben. Bahn `0` des ersten Eingabewerts wird mit Bahn `0` des zweiten Eingabewerts multipliziert, und das Produkt wird zu Bahn `0` der Ausgabe, und so weiter. Infolgedessen enthält jede Bahn der Ausgabe den Wert `500` (`25 * 20`).
 
-Die `extmul_low_i32x4_u` Anweisung ist eine leistungsfähigere Entsprechung zum Übergeben der Ergebnisse von zwei [`extend_low_i32x4_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_low_i32x4_u) Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul) Anweisung.
+Die `extmul_low_i32x4_u` Anweisung ist eine leistungsfähigere Entsprechung zum Übergang der Ergebnisse von zwei [`extend_low_i32x4_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_low_i32x4_u) Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul) Anweisung.
 
 Anders ausgedrückt:
 
@@ -71,13 +71,13 @@ i64x2.extmul_low_i32x4_u
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i32x4` Wertinterpretation.
+  - : Die erste Eingabe `v128` `i32x4`-Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i32x4` Wertinterpretation.
+  - : Die zweite Eingabe `v128` `i32x4`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i64x2` Wertinterpretation.
+  - : Die Ausgabe `v128` `i64x2`-Wertinterpretation.
 
-### Binäre Kodierung
+### Binärcodierung
 
 | Anweisung                  | Binärformat    | Beispieltext => binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |

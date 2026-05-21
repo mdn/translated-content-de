@@ -1,12 +1,12 @@
 ---
-title: "extend_high_i32x4_u: Wasm SIMD Umwandlungsanweisung"
+title: "extend_high_i32x4_u: Wasm SIMD Konvertierungsanweisung"
 short-title: extend_high_i32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/extend_high_i32x4_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extend_high_i32x4_u`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) wandelt die Bahnen 2–3 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretation in eine `i64x2` Wertinterpretation um.
+Die **`extend_high_i32x4_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 2–3 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretation in eine `i64x2` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: extend_high_i32x4_u", "tabbed-taller")}}
 
@@ -50,7 +50,7 @@ i64x2.extend_high_i32x4_u
 
 ### Binäre Kodierung
 
-| Anweisung                   | Binärformat    | Beispiel Text => Binär                          |
+| Anweisung                   | Binärformat    | Beispieltext => binär                           |
 | --------------------------- | -------------- | ----------------------------------------------- |
 | `i64x2.extend_high_i32x4_u` | `0xfd 202:u32` | `i64x2.extend_high_i32x4_u` => `0xfd 0xca 0x01` |
 
@@ -64,4 +64,4 @@ i64x2.extend_high_i32x4_u
 
 ## Siehe auch
 
-- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

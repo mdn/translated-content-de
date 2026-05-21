@@ -1,14 +1,14 @@
 ---
-title: "ge_s: Wasm-Text-Instruktion"
+title: "ge_s: Wasm Textinstruktion"
 short-title: ge_s
 slug: WebAssembly/Reference/Numeric/ge_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`ge_s`** Instruktion, kurz für _greater or equal signed_ (größer oder gleich vorzeichenbehaftet), prüft, ob eine vorzeichenbehaftete Ganzzahl größer als oder gleich einer anderen vorzeichenbehafteten Ganzzahl ist.
+Die **`ge_s`**-Instruktion, kurz für _greater or equal signed_ (größer oder gleich, vorzeichenbehaftet), überprüft, ob eine vorzeichenbehaftete Ganzzahl größer oder gleich einer anderen vorzeichenbehafteten Ganzzahl ist.
 
-Es gibt weitere `ge` Instruktionen:
+Es gibt weitere `ge`-Instruktionen:
 
 - [**`ge_u`**](/de/docs/WebAssembly/Reference/Numeric/ge_u) zum Vergleichen von vorzeichenlosen Ganzzahlen.
 - [**`ge`**](/de/docs/WebAssembly/Reference/Numeric/ge) zum Vergleichen von Gleitkommazahlen.
@@ -50,16 +50,16 @@ value_type.ge_s
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `ge_s`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `ge_s`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `ge_s`
-  - : Die `ge_s` Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `ge_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -72,11 +72,11 @@ value_type.ge_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert, welcher ein Ganzzahltyp sein wird.
+  - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Für eine nicht-SIMD `ge_s`, werden die Eingaben grundlegende numerische Werte wie `3` oder `12` sein. Wenn die erste Eingabe größer oder gleich der zweiten Eingabe ist, wird `1` auf den Stapel als Ausgabe geschrieben, andernfalls wird `0` auf den Stapel geschrieben.
+Bei einem nicht-SIMD `ge_s` sind die Eingaben einfache numerische Werte wie `3` oder `12`. Wenn der erste Eingabewert größer oder gleich dem zweiten Eingabewert ist, wird `1` als Ausgabe auf den Stapel geschoben, andernfalls `0`.
 
-Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_s`, werden die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Werteinterpretationen sein, zum Beispiel `i32x4 2 30 86 120`. Jeder Lane der Ausgabe, die auf den Stapel geschrieben wird, ist eine `1` oder `0`, die anzeigt, ob der entsprechende Lane des ersten Eingabewerts größer oder gleich dem entsprechenden Lane des zweiten Eingabewerts ist.
+Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jedes Lane der Ausgabe, das auf den Stapel geschoben wird, ist eine `1` oder `0`, die anzeigt, ob das entsprechende Lane des ersten Eingabewertes größer oder gleich dem entsprechenden Lane des zweiten Eingabewertes ist.
 
 ### Binärcodierung
 
@@ -97,7 +97,7 @@ In diesem Beispiel demonstrieren wir die Verwendung von `ge_s`, um zu testen, ob
 
 #### JavaScript
 
-In unserem Skript greifen wir auf ein {{htmlelement("p")}} Element zu, auf das wir unser Ergebnis ausgeben wollen, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode, wobei wir das Objekt im Prozess importieren.
+In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}} Element, zu dem wir unser Ergebnis ausgeben werden, und definieren ein Objekt zum Importieren in Wasm mit einer einzigen Funktion, die einen Wert an das Ausgabe-`<p>` schreibt. Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_ge_s
 <p></p>
@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript `output()` Funktion, und stellen sicher, dass wir deklarieren, dass sie einen `i32` Parameter hat. Wir deklarieren dann zwei SIMD `i32x4` Werte und prüfen, ob die Lane-Werte des ersten größer oder gleich dem zweiten sind, indem wir `i32x4.ge_s` verwenden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabe-Werts gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie ein `i32`-Parameter besitzt. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und überprüfen, ob die Lane-Werte des ersten größer oder gleich denen des zweiten sind, indem wir `i32x4.ge_s` verwenden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_ge_s
 (module
@@ -148,7 +148,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_ge_s", "100%", 100)}}
 
-Das Ergebnis ist `1`, weil der Wert, der in Lane `3` des ersten Eingabewerts gespeichert ist, größer oder gleich dem Wert ist, der in Lane `3` des zweiten Eingabewerts gespeichert ist.
+Das Ergebnis ist `1`, da der in Lane `3` des ersten Eingabewertes gespeicherte Wert größer oder gleich dem in Lane `3` des zweiten Eingabewertes gespeicherten Wert ist.
 
 ## Siehe auch
 

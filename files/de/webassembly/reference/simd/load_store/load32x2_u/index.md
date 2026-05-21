@@ -1,12 +1,12 @@
 ---
-title: "load32x2_u: Wasm SIMD-Lade-/Speicheranweisung"
+title: "load32x2_u: Wasm SIMD Load/Store-Anweisung"
 short-title: load32x2_u
 slug: WebAssembly/Reference/SIMD/load_store/load32x2_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`load32x2_u`** [SIMD-Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt zwei 32-Bit-Ganzzahlen von einer gegebenen Speicheradresse und erweitert jede auf null auf eine 64-Bit-Lane, wobei eine [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Typ `i64x2`-Wertinterpretation ausgegeben wird.
+Die **`load32x2_u`** [SIMD Load/Store-Anweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt zwei 32-Bit Ganzzahlen von einer bestimmten Speicheradresse und erweitert jede auf null auf einen 64-Bit Kanal, wodurch eine [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ `i64x2` Wertinterpretation ausgegeben wird.
 
 {{InteractiveExample("Wat Demo: load32x2_u", "tabbed-taller")}}
 
@@ -40,13 +40,13 @@ v128.load32x2_u mem_idx offset=int align=int
 ```
 
 - `v128.load32x2_u`
-  - : Die `v128.load32x2_u`-Anweisung.
+  - : Die `v128.load32x2_u` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Integer, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein Integer, der dem Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load32x2_u mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein ganzzahliger Wert, der die Speicheradresse darstellt, von der geladen wird.
+  - : Ein Integer, der die Speicheradresse darstellt, von der geladen werden soll.
 - `output`
-  - : Die Ausgabe ist eine `v128`-Typ `i64x2`-Wertinterpretation.
+  - : Die Ausgabe `v128` Typ `i64x2` Wertinterpretation.
 
 ### Binärcodierung
 
-| Anweisung         | Binärformat                                  | Beispieltext => binär                                         |
+| Anweisung         | Binärformat                                  | Beispiel Text => binär                                        |
 | ----------------- | -------------------------------------------- | ------------------------------------------------------------- |
 | `v128.load32x2_u` | `0xFD 6:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load32x2_u 0 offset=0 align=8` => `0xfd 0x06 0x03 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, repräsentiert das Binäräquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
+> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist z.B. `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -78,4 +78,4 @@ v128.load32x2_u mem_idx offset=int align=int
 
 ## Siehe auch
 
-- [SIMD-Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)
+- [SIMD Load/Store-Anweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

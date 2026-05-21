@@ -3,10 +3,10 @@ title: "store: Wasm SIMD Lade-/Speicheranweisung"
 short-title: store
 slug: WebAssembly/Reference/SIMD/load_store/store
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`store`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert alle Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Werteinterpretation an einer gegebenen Speicheradresse.
+Die **`store`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert alle Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretation an einer angegebenen Speicheradresse.
 
 {{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
 
@@ -45,11 +45,11 @@ v128.store mem_idx offset=int align=int
 - `v128.store`
   - : Die `v128.store` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Eine ganze Zahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Eine ganze Zahl, die den Speicherindex darstellt, für Fälle, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Eine ganze Zahl, die eine konstante Anzahl von Bytes darstellt, die zum Wert hinzugefügt werden, bevor er gespeichert wird. Der Standardwert ist `0`.
+  - : Eine ganze Zahl, die eine konstante Anzahl von Bytes darstellt, die vor dem Speichern zum Wert hinzugefügt wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Eine ganze Zahl, die ein Hinweis an die Wasm-Engine darüber ist, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `16`. Ein `align` Wert muss eine Potenz von `2` sein.
+  - : Eine ganze Zahl als Hinweis an die Wasm-Engine über die erwartete Ausrichtung der endgültigen Adresse. Der Mindestwert ist `1` und der Standard- sowie Höchstwert ist `16`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -58,18 +58,18 @@ v128.store mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Eine ganze Zahl, die die Speicheradresse darstellt, an der das `input` gespeichert wird.
+  - : Eine ganze Zahl, die die Speicheradresse darstellt, bei der der `input` gespeichert wird.
 - `input`
-  - : Der Typ `v128`, der gespeichert werden soll.
+  - : Der `v128` Typ, der gespeichert werden soll.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung    | Binärformat                                   | Beispiel Text => Binär                                    |
+| Anweisung    | Binärformat                                   | Beispieltext => Binär                                     |
 | ------------ | --------------------------------------------- | --------------------------------------------------------- |
 | `v128.store` | `0xfd 11:u32 mem_idx:u8 offset:u32 align:u32` | `v128.store 0 offset=0 align=16` => `0xfd 0x0b 0x04 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align` Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist zum Beispiel `align=1` gleichbedeutend mit `0x00` (`2^0`), während `align=16` gleichbedeutend mit `0x04` (`2^4`) ist.
+> Während das Wasm-Textformat den wörtlichen `align`-Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=16` äquivalent zu `0x04` (`2^4`) ist.
 
 ## Spezifikationen
 

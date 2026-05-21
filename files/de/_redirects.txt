@@ -16869,6 +16869,7 @@
 /de/docs/WebAssembly/JavaScript_interface/validate	/de/docs/WebAssembly/Reference/JavaScript_interface/validate_static
 /de/docs/WebAssembly/JavaScript_interface/validate_static	/de/docs/WebAssembly/Reference/JavaScript_interface/validate_static
 /de/docs/WebAssembly/Loading_and_running	/de/docs/WebAssembly/Guides/Loading_and_running
+/de/docs/WebAssembly/Reference/Definitions/func	/de/docs/WebAssembly/Reference/Definitions/types/func
 /de/docs/WebAssembly/Reference/Numeric/Absolute	/de/docs/WebAssembly/Reference/Numeric/abs
 /de/docs/WebAssembly/Reference/Numeric/Addition	/de/docs/WebAssembly/Reference/Numeric/add
 /de/docs/WebAssembly/Reference/Numeric/Copy_sign	/de/docs/WebAssembly/Reference/Numeric/copysign
@@ -16921,6 +16922,15 @@
 /de/docs/WebAssembly/Reference/SIMD/load/load8_splat	/de/docs/WebAssembly/Reference/SIMD/load_store/load8_splat
 /de/docs/WebAssembly/Reference/SIMD/load/load8x8_s	/de/docs/WebAssembly/Reference/SIMD/load_store/load8x8_s
 /de/docs/WebAssembly/Reference/SIMD/load/load8x8_u	/de/docs/WebAssembly/Reference/SIMD/load_store/load8x8_u
+/de/docs/WebAssembly/Reference/Types	/de/docs/WebAssembly/Reference/Value_types
+/de/docs/WebAssembly/Reference/Types/externref	/de/docs/WebAssembly/Reference/Value_types/externref
+/de/docs/WebAssembly/Reference/Types/f32	/de/docs/WebAssembly/Reference/Value_types/f32
+/de/docs/WebAssembly/Reference/Types/f64	/de/docs/WebAssembly/Reference/Value_types/f64
+/de/docs/WebAssembly/Reference/Types/func	/de/docs/WebAssembly/Reference/Definitions/types/func
+/de/docs/WebAssembly/Reference/Types/funcref	/de/docs/WebAssembly/Reference/Value_types/funcref
+/de/docs/WebAssembly/Reference/Types/i32	/de/docs/WebAssembly/Reference/Value_types/i32
+/de/docs/WebAssembly/Reference/Types/i64	/de/docs/WebAssembly/Reference/Value_types/i64
+/de/docs/WebAssembly/Reference/Types/v128	/de/docs/WebAssembly/Reference/Value_types/v128
 /de/docs/WebAssembly/Reference/Variables/Local_get	/de/docs/WebAssembly/Reference/Variables/local.get
 /de/docs/WebAssembly/Reference/Variables/Local_set	/de/docs/WebAssembly/Reference/Variables/local.set
 /de/docs/WebAssembly/Reference/Variables/Local_tee	/de/docs/WebAssembly/Reference/Variables/local.tee

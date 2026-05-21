@@ -1,12 +1,12 @@
 ---
-title: "trunc_sat_f64x2_u_zero: Wasm SIMD Konvertierungsanweisung"
+title: "trunc_sat_f64x2_u_zero: Wasm SIMD Umwandlungsbefehl"
 short-title: trunc_sat_f64x2_u_zero
 slug: WebAssembly/Reference/SIMD/conversion/trunc_sat_f64x2_u_zero
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`trunc_sat_f64x2_u_zero`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine [saturierende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Umwandlung der Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `f64x2` Wertinterpretation in eine unsigned `i32x4` Wertinterpretation durch, wobei die Ausgabe auf den vom Werttyp erlaubten Bereich begrenzt wird. Die beiden höheren Lanes des Ergebnisses werden auf null gesetzt.
+Die **`trunc_sat_f64x2_u_zero`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) führt eine [saturierende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Umwandlung der Spuren einer `f64x2` Wertinterpretation eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) in eine unsignierte `i32x4` Wertinterpretation durch, wobei die Ausgabe auf den Bereich beschränkt wird, der durch den Werttyp erlaubt ist. Die beiden höheren Spuren des Ergebnisses werden auf Null initialisiert.
 
 {{InteractiveExample("Wat Demo: trunc_sat_f64x2_u_zero", "tabbed-taller")}}
 
@@ -28,7 +28,7 @@ Die **`trunc_sat_f64x2_u_zero`** [SIMD-Konvertierungsanweisung](/de/docs/WebAsse
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren vom Werttyp erlaubten Werte begrenzt werden. Erlaubte Ausgabewerte liegen zwischen `0` und `4.294.967.295` (dem vollständigen Bereich eines unsignierten 32-Bit Integer). {{jsxref("NaN")}}-Werte werden zu `0` konvertiert.
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte beschränkt werden, die durch die Wertinterpretation erlaubt sind. Erlaubte Ausgabewerte sind `0` bis `4,294,967,295` (der vollständige Bereich eines unsignierten 32-Bit-Integer). {{jsxref("NaN")}} Werte werden in `0` umgewandelt.
 
 ## Syntax
 
@@ -37,23 +37,23 @@ value_type.trunc_sat_f64x2_u_zero
 ```
 
 - `value_type`
-  - : Der Werttyp, auf den die Anweisung angewendet wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `trunc_sat_f64x2_u_zero`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen unterstützen `trunc_sat_f64x2_u_zero`:
     - `i32x4`
 - `trunc_sat_f64x2_u_zero`
-  - : Die `trunc_sat_f64x2_u_zero` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angefügt werden.
+  - : Die `trunc_sat_f64x2_u_zero` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
-### Type
+### Typ
 
 ```plain
 [input] -> [output]
 ```
 
 - `input`
-  - : Die Eingabeinterpretation des `v128` `f64x2` Wertes.
+  - : Die Eingabe `v128` `f64x2` Wertinterpretation.
 - `output`
-  - : Die Ausgabeinterpretation des `v128` `i32x4` Wertes.
+  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung                      | Binärformat    | Beispieltext => binär                              |
 | ------------------------------ | -------------- | -------------------------------------------------- |
@@ -69,4 +69,4 @@ value_type.trunc_sat_f64x2_u_zero
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

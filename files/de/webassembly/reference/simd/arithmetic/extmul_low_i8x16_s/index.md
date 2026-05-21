@@ -1,12 +1,12 @@
 ---
-title: "extmul_low_i8x16_s: Wasm SIMD Arithmetik-Anweisung"
+title: "extmul_low_i8x16_s: Wasm SIMD-Arithmetic-Anweisung"
 short-title: extmul_low_i8x16_s
 slug: WebAssembly/Reference/SIMD/arithmetic/extmul_low_i8x16_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extmul_low_i8x16_s`** [SIMD Arithmetik-Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 0–7 von zwei vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i8x16` Werteinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen als `i16x8` Werteinterpretation aus.
+Die **`extmul_low_i8x16_s`** [SIMD-Arithmetic-Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 0–7 aus zwei signierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen in einer `i16x8`-Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extmul_low_i8x16_s", "tabbed-taller")}}
 
@@ -29,9 +29,9 @@ Die **`extmul_low_i8x16_s`** [SIMD Arithmetik-Anweisung](/de/docs/WebAssembly/Re
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel werden die Lanes 0–7 der beiden `i8x16` Eingabewerte miteinander multipliziert und die Produkte als `i16x8` ausgegeben. Lane `0` des ersten Eingabewertes wird mit Lane `0` des zweiten Eingabewertes multipliziert, und das Produkt wird zu Lane `0` der Ausgabe, usw. Infolgedessen enthält jede Lane der Ausgabe den Wert `8` (`2 * 4`).
+Im obigen Beispiel werden die Lanes 0–7 der beiden `i8x16`-Eingabewerte miteinander multipliziert und die Produkte als `i16x8` ausgegeben. Lane `0` des ersten Eingangs wird mit Lane `0` des zweiten Eingangs multipliziert, und das Produkt wird zu Lane `0` des Ausgabewerts, und so weiter. Dadurch enthält jede Lane des Ausgabewerts den Wert `8` (`2 * 4`).
 
-Die `extmul_low_i8x16_s` Anweisung ist eine leistungsfähigere Entsprechung zum Übergeben der Ergebnisse von zwei [`extend_low_i8x16_s`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_low_i8x16_s) Anweisungen an eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul) Anweisung.
+Die `extmul_low_i8x16_s`-Anweisung ist eine leistungsfähigere Alternative zum Übergang der Ergebnisse von zwei [`extend_low_i8x16_s`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_low_i8x16_s)-Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Anweisung.
 
 Mit anderen Worten:
 
@@ -42,7 +42,7 @@ Mit anderen Worten:
 )
 ```
 
-ist gleichbedeutend mit
+ist äquivalent zu
 
 ```wat
 (i16x8.mul
@@ -62,7 +62,7 @@ i16x8.extmul_low_i8x16_s
 ```
 
 - `i16x8.extmul_low_i8x16_s`
-  - : Die `i16x8.extmul_low_i8x16_s` Anweisung.
+  - : Die `i16x8.extmul_low_i8x16_s`-Anweisung.
 
 ### Typ
 
@@ -71,15 +71,15 @@ i16x8.extmul_low_i8x16_s
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i8x16` Werteinterpretation.
+  - : Die erste `v128` `i8x16`-Wertinterpretation als Eingabe.
 - `input2`
-  - : Die zweite Eingabe `v128` `i8x16` Werteinterpretation.
+  - : Die zweite `v128` `i8x16`-Wertinterpretation als Eingabe.
 - `output`
-  - : Die Ausgabe `v128` `i16x8` Werteinterpretation.
+  - : Die Ausgabe-Wertinterpretation `v128` `i16x8`.
 
-### Binäre Kodierung
+### Binärkodierung
 
-| Anweisung                  | Binärformat    | Beispieltext => binär                          |
+| Anweisung                  | Binärformat    | Beispieltext => Binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |
 | `i16x8.extmul_low_i8x16_s` | `0xfd 156:u32` | `i16x8.extmul_low_i8x16_s` => `0xfd 0x9c 0x01` |
 
@@ -93,4 +93,4 @@ i16x8.extmul_low_i8x16_s
 
 ## Siehe auch
 
-- [SIMD Arithmetik-Anweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)
+- [SIMD-Arithmetic-Anweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

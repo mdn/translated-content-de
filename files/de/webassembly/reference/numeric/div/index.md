@@ -3,10 +3,10 @@ title: "div: Wasm-Textanweisung"
 short-title: div
 slug: WebAssembly/Reference/Numeric/div
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`div`**-Anweisung, kurz für _division_, wird verwendet, um eine Zahl durch eine andere zu teilen, ähnlich dem **`/`**-Operator in anderen Sprachen.
+Die **`div`**-Anweisung, kurz für _division_, wird verwendet, um eine Zahl durch eine andere zu teilen, ähnlich wie der **`/`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: div", "tabbed-taller")}}
 
@@ -37,10 +37,10 @@ value_type.div
 ```
 
 - `value_type`
-  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `div`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `div`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `f32x4`
       - `f64x2`
 - `div`
@@ -59,13 +59,13 @@ value_type.div
 - `output`
   - : Der Quotient der beiden Eingabewerte.
 
-Für einen nicht-SIMD-`div` sind dies grundlegende numerische Werte wie `3` oder `3.5`.
+Bei einer Nicht-SIMD-`div` sind dies grundlegende numerische Werte wie `3` oder `3.5`.
 
-Für einen [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`div` sind dies [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jede Spur des auf den Stapel geschobenen Ergebnisses ist das Ergebnis der Division der entsprechenden Spur des ersten Eingabewerts durch die entsprechende Spur des zweiten Eingabewerts.
+Bei einer [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`div` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, z.B. `f32x4 0x9 0xa 0xb 0xc`. Jede Lane des auf den Stack geschobenen Ergebnisses ist das Resultat der Division der entsprechenden Lane des ersten Eingabewertes durch die entsprechende Lane des zweiten Eingabewertes.
 
 ### Binäre Codierung
 
-| Anweisung   | Binärformat    | Beispiel-Text => binär          |
+| Anweisung   | Binärformat    | Beispieltext => binär           |
 | ----------- | -------------- | ------------------------------- |
 | `f32.div`   | `0x95`         | `f32.div` => `0x95`             |
 | `f64.div`   | `0xa3`         | `f64.div` => `0xa3`             |
@@ -76,11 +76,11 @@ Für einen [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`div` sind dies [`v128`](
 
 ### SIMD-Division
 
-In diesem Beispiel zeigen wir, wie ein SIMD-Wert durch einen anderen geteilt wird und wie einer der Spurwerte des resultierenden Quotienten ausgegeben wird.
+In diesem Beispiel demonstrieren wir, wie man einen SIMD-Wert durch einen anderen teilt und einen der Lanes-Werte des resultierenden Quotienten ausgibt.
 
 #### JavaScript
 
-In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabeelement `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zur Importierung in Wasm, das eine einzige Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_div
 <p></p>
@@ -102,7 +102,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()` und stellen sicher, dass sie einen `f32`-Parameter hat. Dann deklarieren wir zwei SIMD-`f32x4`-Werte und teilen den ersten durch den zweiten mithilfe von `f32x4.div`. Schließlich extrahieren wir den in Spur `3` gespeicherten Wert des Ausgabeergebnisses mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass diese eine `f32`-Parametererklärung enthält. Dann deklarieren wir zwei SIMD-`f32x4`-Werte und teilen den ersten durch den zweiten mit `f32x4.div`. Schließlich extrahieren wir den im Lane `3` gespeicherten Wert des Ausgabewertes mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn in das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_div
 (module
@@ -130,4 +130,4 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_div", "100%", 100)}}
 
-Das Ergebnis ist `33.3...`, da der in Spur `3` des Ausgabeergebnisses gespeicherte Wert das Ergebnis von `100 / 3` ist.
+Das Ergebnis ist `33.3...`, weil der im Lane `3` gespeicherte Wert des Ausgabewertes das Resultat von `100 / 3` ist.

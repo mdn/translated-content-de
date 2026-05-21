@@ -1,12 +1,12 @@
 ---
-title: "narrow_i32x4_u: Wasm SIMD-Konvertierungsanweisung"
+title: "narrow_i32x4_u: Wasm SIMD Konvertierungsanweisung"
 short-title: narrow_i32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i32x4_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`narrow_i32x4_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Werteinterpretationen in eine `i16x8` Werteinterpretation unter Verwendung einer unsignierten Sättigung (Begrenzung auf den Bereich zwischen `0` und `65.535`).
+Die **`narrow_i32x4_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretationen in eine `i16x8`-Wertinterpretation unter Verwendung von unsignierter Sättigung (Einschränkung auf den Bereich zwischen `0` und `65.535`).
 
 {{InteractiveExample("Wat Demo: narrow_i32x4_u", "tabbed-taller")}}
 
@@ -45,11 +45,11 @@ i16x8.narrow_i32x4_u
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i32x4` Werteinterpretation.
+  - : Die erste Eingabe `v128` `i32x4`-Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i32x4` Werteinterpretation.
+  - : Die zweite Eingabe `v128` `i32x4`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i16x8` Werteinterpretation.
+  - : Die Ausgabe `v128` `i16x8`-Wertinterpretation.
 
 ### Binäre Kodierung
 

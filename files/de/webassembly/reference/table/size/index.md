@@ -1,12 +1,12 @@
 ---
-title: "size: Wasm table instruction"
+title: "size: Wasm-Tabellenbefehl"
 short-title: size
 slug: WebAssembly/Reference/Table/size
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`table.size`** [Tabelle-Anweisung](/de/docs/WebAssembly/Reference/Table) gibt die aktuelle Größe der Tabelle zurück.
+Der **`table.size`** [Tabellenbefehl](/de/docs/WebAssembly/Reference/Table) gibt die aktuelle Größe der Tabelle zurück.
 
 {{InteractiveExample("Wat Demo: table.size", "tabbed-taller")}}
 
@@ -42,15 +42,15 @@ table.size identifier
 ```
 
 - `table.size`
-  - : Der Anweisungstyp `table.size`. Muss immer zuerst angegeben werden.
+  - : Der `table.size`-Befehlstyp. Muss immer zuerst angegeben werden.
 - `identifier` {{optional_inline}}
-  - : Der Bezeichner für die Tabelle, deren Größe Sie abrufen möchten. Dies kann einer der folgenden sein:
+  - : Der Identifikator der Tabelle, deren Größe Sie abrufen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Ein beim Erstellen der Tabelle gesetzter [Name](/de/docs/WebAssembly/Reference/Definitions/table#name). Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein Identifikationsname, [bei der Erstellung der Tabelle festgelegt](/de/docs/WebAssembly/Reference/Definitions/table#name). Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
     - `index`
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite, usw.
+      - : Die Indexnummer der Tabelle, beispielsweise `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
 
-    Wenn der `identifier` weggelassen wird, wird standardmäßig `0` angenommen.
+    Wenn der `identifier` ausgelassen wird, wird standardmäßig `0` verwendet.
 
 ### Typ
 
@@ -58,7 +58,7 @@ table.size identifier
 [] -> [length]
 ```
 
-- Länge
+- length
   - : Ein `i32`, der der aktuellen Anzahl von Elementen in der Tabelle entspricht.
 
 ### Opcodes
@@ -71,21 +71,21 @@ table.size identifier
 
 `table.size` wird verwendet, um die Größe einer Tabelle zurückzugeben.
 
-Die Größe einer Wasm-Tabelle kann über JavaScript mit der [`table.length`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/length) Eigenschaft abgerufen werden.
+Die Größe einer Wasm-Tabelle kann über JavaScript mit der [`table.length`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/length)-Eigenschaft abgerufen werden.
 
 ## Beispiele
 
-### Beobachtung von Zunahmen der Tabellengröße
+### Beobachten von Größenzunahmen bei der Tabelle
 
-Dieses Beispiel zeigt, wie man eine Tabelle erstellt und ihre Größe beobachtet, während die Tabelle mittels `table.size` wächst.
+Dieses Beispiel zeigt, wie man eine Tabelle erstellt und ihre Größe beobachtet, wenn die Tabelle mit `table.size` wächst.
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, eine Referenz auf ein {{htmlelement("p")}}-Element zu erhalten, an das wir die Ergebnisse ausgeben werden. Wir definieren dann ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
+In unserem Skript beginnen wir damit, eine Referenz auf ein {{htmlelement("p")}}-Element zu greifen, an das wir Ergebnisse ausgeben werden. Dann definieren wir ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen angegebenen Wert zur `textContent` eines angegebenen Elements hinzufügt.
 
-Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das `obj`-Objekt.
+Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das `obj`-Objekt.
 
-Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf dem WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt auf und übergeben das `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf, die auf dem WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist, und übergeben ihr das `outputElem`-Element als Parameter.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -109,15 +109,15 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie zwei Parameter hat: einen [`externref`](/de/docs/WebAssembly/Reference/Types/externref) und einen `i32`.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie zwei Parameter hat, ein [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref) und ein `i32`.
 
-Als nächstes definieren wir eine `table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und leer ist.
+Als Nächstes definieren wir eine `table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und leer ist.
 
-Schließlich exportieren wir die `run()`-Funktion, die einen `externref` namens `$elem` als Parameter übernimmt. Im Funktionskörper:
+Schließlich exportieren wir die `run()`-Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Innerhalb des Funktionskörpers:
 
-- Verwenden wir `table.grow`, um die Tabellengröße um `1` mit einem anfänglichen `ref.null`-Wert zu vergrößern.
-- Rufen wir die importierte `$output`-Funktion auf und übergeben ihr als Parameter den übergebenen `$elem` `externref` in die `output()`-Funktion und den Rückgabewert der `table.size`-Anweisung. Dies führt dazu, dass die Tabellengröße im DOM ausgegeben wird.
-- Wiederholen wir die letzten zwei Schritte, was dazu führt, dass die Tabelle um ein weiteres Element vergrößert wird und die Größe erneut im DOM ausgegeben wird.
+- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu erhöhen, mit einem anfänglichen `ref.null`-Wert.
+- Rufen wir die importierte `$output`-Funktion auf und übergeben ihr als Parameter das an die `output()`-Funktion übergebene `$elem`-`externref` und den Rückgabewert der `table.size`-Anweisung. Dies führt dazu, dass die Tabellengröße in das DOM ausgegeben wird.
+- Wiederholen wir die letzten beiden Schritte, wodurch die Tabelle um ein weiteres Element vergrößert wird und die Größe erneut in das DOM ausgegeben wird.
 
 ```wat live-sample___basic-usage
 (module
@@ -163,7 +163,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Dies ist sinnvoll, da jedes Mal, wenn die `output()`-Funktion aus dem Wasm-Modul aufgerufen wird, der in sie als zweiter Parameter eingehende Wert in unserem Ergebnis-`<p>` im DOM ausgegeben wird. Jeder Wert ist die Tabellengröße zu jedem Zeitpunkt — `1` bzw. `2`.
+Dies ist sinnvoll, da jedes Mal, wenn die `output()`-Funktion aus dem Wasm-Modul ausgeführt wird, der ihr als zweiter Parameter übergebene Wert in unser Ergebnis-`<p>` im DOM gedruckt wird. Jeder Wert stellt die Tabellengröße zu jedem Zeitpunkt dar — `1` und `2` jeweils.
 
 ## Spezifikationen
 

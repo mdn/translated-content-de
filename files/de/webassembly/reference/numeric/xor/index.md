@@ -1,12 +1,12 @@
 ---
-title: "xor: Wasm-Textbefehl"
+title: "xor: Wasm-Textanweisung"
 short-title: xor
 slug: WebAssembly/Reference/Numeric/xor
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Der **`xor`**-Befehl wird verwendet, um ein bitweises XOR auszuführen, ähnlich dem **`^`**-Operator in anderen Sprachen.
+Die **`xor`**-Anweisung wird verwendet, um eine bitweise XOR-Operation auszuführen, ähnlich wie der **`^`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: xor", "tabbed-taller")}}
 
@@ -49,12 +49,12 @@ value_type.xor
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem der Befehl ausgeführt wird. Die folgenden Typen unterstützen `xor`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `xor`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)
 - `xor`
-  - : Der `xor`-Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `xor`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -69,27 +69,27 @@ value_type.xor
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `xor` sind dies einfache numerische Werte wie `14` oder `3`.
+Bei einem Nicht-SIMD-`xor` handelt es sich um grundlegende numerische Werte wie `14` oder `3`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `xor` sind dies `v128` Werteinterpretationen, wie zum Beispiel `i32x4 9 4 -16 100`. Jedes "Lane" des ausgegebenen Werts, der auf den Stack gepusht wird, ist das bitweise XOR der entsprechenden "Lanes" in den Eingabewerten.
+Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`xor` handelt es sich um [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `i32x4 9 4 -16 100`. Jede Spur des Ergebnisses, das auf den Stapel geschoben wird, ist das bitweise XOR der entsprechenden Spuren in den Eingabewerten.
 
 ### Binärcodierung
 
-| Instruktion | Binärformat   | Beispieltext => binär     |
-| ----------- | ------------- | ------------------------- |
-| `i32.xor`   | `0x73`        | `i32.xor` => `0x73`       |
-| `i64.xor`   | `0x85`        | `i64.xor` => `0x85`       |
-| `v128.xor`  | `0xfd 81:u32` | `v128.xor` => `0xfd 0x51` |
+| Anweisung  | Binärformat   | Beispieltext => binär     |
+| ---------- | ------------- | ------------------------- |
+| `i32.xor`  | `0x73`        | `i32.xor` => `0x73`       |
+| `i64.xor`  | `0x85`        | `i64.xor` => `0x85`       |
+| `v128.xor` | `0xfd 81:u32` | `v128.xor` => `0xfd 0x51` |
 
 ## Beispiele
 
-### SIMD xor Beispiel
+### SIMD-xor-Beispiel
 
-In diesem Beispiel demonstrieren wir die Ausführung von `v128.xor` auf zwei SIMD-Werten und geben einen der Lanes des Ergebnisses aus.
+In diesem Beispiel demonstrieren wir, wie `v128.xor` auf zwei SIMD-Werte angewendet wird und einen der Spurwerte des Ergebnisses ausgibt.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, um dort unser Ergebnis auszugeben. Dann definieren wir ein Objekt, das als Import nach Wasm eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt, das in Wasm importiert wird und eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_xor
 <p></p>
@@ -111,7 +111,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD `i32x4`-Werte und verwenden `v128.xor`, um die Bits der binären Darstellung jedes Wertes zu "xoren". Schließlich extrahieren wir den in Lane `3` gespeicherten Wert des Ausgabewertes mit dem [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Befehl und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()` und stellen sicher, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD-`i32x4`-Werte und verwenden `v128.xor`, um die Bits der binären Darstellung jedes Wertes zu "xor"-en. Schließlich extrahieren wir den in Spur `3` gespeicherten Wert des Ausgabewertes mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn durch den Aufruf der importierten Funktion `output()` an das DOM aus.
 
 ```wat live-sample___simd_xor
 (module
@@ -134,11 +134,11 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion 
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Die Ausgabe lautet wie folgt:
 
 {{embedlivesample("simd_xor", "100%", 100)}}
 
-`670` wird ausgegeben, da dies das Ergebnis des “xores” von Lane 3 des ersten Werts (`782`) und des zweiten Werts (`400`) ist. Wenn Sie sich deren binäre Äquivalente anschauen, wird deutlich, wie dies funktioniert:
+`670` wird ausgegeben, da dies das Ergebnis der "xor"-Operation von Spur 3 des ersten Wertes (`782`) und des zweiten Wertes (`400`) ist. Wenn Sie ihre binären Äquivalente betrachten, wird klar, wie dies funktioniert:
 
 ```plain
 782 = 0000 0011 0000 1110

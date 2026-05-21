@@ -1,12 +1,12 @@
 ---
-title: "convert_low_i32x4_u: Wasm SIMD-Konvertierungsanweisung"
+title: "convert_low_i32x4_u: Wasm SIMD Umwandlungsanweisung"
 short-title: convert_low_i32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/convert_low_i32x4_u
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`convert_low_i32x4_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die ersten beiden Spuren einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretation in eine `f64x2` Wertinterpretation.
+Die **`convert_low_i32x4_u`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die ersten beiden Bahnen einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretation in eine `f64x2`-Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: convert_low_i32x4_u", "tabbed-taller")}}
 
@@ -35,10 +35,10 @@ value_type.convert_low_i32x4_u
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `convert_low_i32x4_u`:
+  - : Der Werttyp, mit dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen unterstützen `convert_low_i32x4_u`:
     - `f64x2`
 - `convert_low_i32x4_u`
-  - : Die `convert_low_i32x4_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `convert_low_i32x4_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -47,11 +47,11 @@ value_type.convert_low_i32x4_u
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i32x4` Wertinterpretation.
+  - : Die Eingabe-`v128`-`i32x4`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `f64x2` Wertinterpretation. Die ersten beiden Werte der Eingabe `i32x4` sind in der Ausgabe `f64x2` enthalten.
+  - : Die Ausgabe-`v128`-`f64x2`-Wertinterpretation. Die ersten beiden Werte der Eingabe-`i32x4` sind in der Ausgabe-`f64x2` enthalten.
 
-### Binäre Kodierung
+### Binärcode
 
 | Anweisung                   | Binärformat    | Beispieltext => binär                           |
 | --------------------------- | -------------- | ----------------------------------------------- |
@@ -67,4 +67,4 @@ value_type.convert_low_i32x4_u
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

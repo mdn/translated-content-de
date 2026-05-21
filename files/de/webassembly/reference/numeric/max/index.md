@@ -3,10 +3,10 @@ title: "max: Wasm Text-Instruktion"
 short-title: max
 slug: WebAssembly/Reference/Numeric/max
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`max`**-Instruktion wird verwendet, um den höheren Wert von zwei Gleitkommazahlen zu ermitteln.
+Die **`max`**-Instruktion wird verwendet, um die höhere von zwei Gleitkommazahlen zu ermitteln.
 
 {{InteractiveExample("Wat Demo: max", "tabbed-taller")}}
 
@@ -40,11 +40,11 @@ value_type.max
   - : Der Wertetyp, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `max`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `max`
-  - : Die `max`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) hinzugefügt werden.
+  - : Die `max`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -59,9 +59,9 @@ value_type.max
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `max` sind die Eingaben grundlegende numerische Werte wie `3.0` oder `3.5`, und das `output` wird der größere von `input1` und `input2` sein.
+Für ein nicht-SIMD `max` sind die Eingaben einfache numerische Werte wie `3.0` oder `3.5`, und der `output` ist der größere von `input1` und `input2`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `max` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen, beispielsweise `f32x4 2.0 30 86.9 120`. Jede Lane des Outputs, die auf den Stapel geschoben wird, ist die größere der entsprechenden Lanes in den Eingabewerten.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `max` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, z.B. `f32x4 2.0 30 86.9 120`. Jeder Lane des Outputs, der auf den Stack geschoben wird, ist der größere der entsprechenden Lanes in den Eingabewerten.
 
 ### Binäre Kodierung
 
@@ -76,11 +76,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `max` sind die Eingaben [`v
 
 ### SIMD `max` Beispiel
 
-In diesem Beispiel zeigen wir, wie `max` verwendet wird, um den größeren Wert des gleichen Lane-Index aus zwei SIMD-Werten zu ermitteln.
+In diesem Beispiel demonstrieren wir die Verwendung von `max`, um den größeren Wert des gleichen Lane-Index aus zwei SIMD-Werten zurückzugeben.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, das wir verwenden, um unser Ergebnis auszugeben. Anschließend definieren wir ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das Objekt.
+In unserem Script greifen wir auf ein {{htmlelement("p")}}-Element zu, an das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert an das `<p>`-Element ausgibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren das Objekt dabei.
 
 ```html hidden live-sample___simd_max
 <p></p>
@@ -102,7 +102,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f32`-Parameter hat. Wir deklarieren dann zwei SIMD `f32x4`-Werte und verwenden `f32x4.max`, um einen neuen `f32x4`-Wert zurückzugeben, der in jedem Fall den höheren Lane-Wert der beiden Eingaben enthält. Schließlich extrahieren wir den in Lane `3` des Ausgangswerts gespeicherten Wert mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `f32`-Parameter hat. Dann deklarieren wir zwei SIMD `f32x4`-Werte und verwenden `f32x4.max`, um einen neuen `f32x4`-Wert zurückzugeben, der in jedem Fall den höheren Lane-Wert aus den beiden Eingaben enthält. Schließlich extrahieren wir den in Lane `3` gespeicherten Wert des Ausgabewertes mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn durch Aufruf der importierten `output()`-Funktion an das DOM aus.
 
 ```wat live-sample___simd_max
 (module
@@ -127,11 +127,11 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`,
 
 #### Ergebnis
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_max", "100%", 100)}}
 
-Das Ergebnis ist `1000`. Dies liegt daran, dass der in Lane `3` des ersten Eingabewertes gespeicherte Wert `1000` ist und der in Lane `3` des zweiten Eingabewertes gespeicherte Wert `108`. Da `1000` größer als `108` ist, hat der neue durch die `f32x4.max`-Instruktion ausgegebene `f32x4`-Wert `1000` in Lane `3` gesetzt, den wir dann extrahieren und an das DOM ausgeben.
+Das Ergebnis ist `1000`. Dies liegt daran, dass der in Lane `3` des ersten Eingabewertes gespeicherte Wert `1000` ist und der in Lane `3` des zweiten Eingabewertes gespeicherte Wert `108`. Da `1000` größer ist als `108`, hat der neue `f32x4`-Wert, der von der `f32x4.max`-Instruktion ausgegeben wird, `1000` in Lane `3` gesetzt, den wir dann extrahieren und an das DOM ausgeben.
 
 ## Siehe auch
 

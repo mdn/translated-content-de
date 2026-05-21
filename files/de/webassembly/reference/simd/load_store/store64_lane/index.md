@@ -1,12 +1,12 @@
 ---
-title: "store64_lane: Wasm SIMD Lade-/Speicher-Anweisung"
+title: "store64_lane: Wasm SIMD Lade-/Speicheranweisung"
 short-title: store64_lane
 slug: WebAssembly/Reference/SIMD/load_store/store64_lane
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`store64_lane`** [SIMD Lade-/Speicher-Anweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert eine spezifizierte Lane einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i64x2` Wertinterpretation an einer angegebenen Speicheradresse.
+Die **`store64_lane`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert eine spezifizierte Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i64x2`-Wertinterpretation an einer bestimmten Speicheradresse.
 
 {{InteractiveExample("Wat Demo: store64_lane", "tabbed-taller")}}
 
@@ -45,11 +45,11 @@ v128.store64_lane mem_idx offset=int align=int lane_idx
 - `v128.store64_lane`
   - : Die `v128.store64_lane` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein Ganzzahlwert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Eine Ganzzahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
   - : Eine Ganzzahl, die eine konstante Anzahl von Bytes darstellt, die zur Adresse hinzugefügt werden, bevor gespeichert wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Eine Ganzzahl, die einen Hinweis an die Wasm-Engine gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- sowie Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Eine Ganzzahl, die der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- sowie Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 - `lane_idx`
   - : Der Index der Lane, deren Wert Sie speichern möchten.
 
@@ -60,18 +60,18 @@ v128.store64_lane mem_idx offset=int align=int lane_idx
 ```
 
 - `memory_address`
-  - : Eine Ganzzahl, die die Speicheradresse darstellt, an der der `input` gespeichert wird.
+  - : Eine Ganzzahl, die die Speicheradresse darstellt, unter der das `input` gespeichert werden soll.
 - `input`
-  - : Der `v128`-Typ, aus dem ein Lane-Wert zum Speichern extrahiert wird.
+  - : Der `v128`-Typ, aus dem ein Lane-Wert zum Speichern extrahiert werden soll.
 
-### Binärkodierung
+### Binäre Codierung
 
-| Anweisung           | Binärformat                                             | Beispieltext => binär                                                  |
+| Anweisung           | Binärformat                                             | Beispiel Text => Binär                                                 |
 | ------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `v128.store64_lane` | `0xfd 91:u32 mem_idx:u8 offset:u32 align:u32 l:laneidx` | `v128.store64_lane 0 offset=0 align=8 1` => `0xfd 0x5b 0x03 0x00 0x01` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den literalen `align`-Wert angibt, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` gleichwertig mit `0x00` (`2^0`), während `align=8` gleichwertig mit `0x03` (`2^3`) ist.
+> Während das Wasm-Textformat den literalen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist beispielsweise `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -83,4 +83,4 @@ v128.store64_lane mem_idx offset=int align=int lane_idx
 
 ## Siehe auch
 
-- [SIMD Lade-/Speicher-Anweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)
+- [SIMD Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

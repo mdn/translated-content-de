@@ -1,12 +1,12 @@
 ---
-title: "promote_low_f32x4: Wasm SIMD-Umwandlungsanweisung"
+title: "promote_low_f32x4: Wasm SIMD Konvertierungsanweisung"
 short-title: promote_low_f32x4
 slug: WebAssembly/Reference/SIMD/conversion/promote_low_f32x4
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`promote_low_f32x4`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die ersten beiden Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `f32x4`-Wertdarstellung in eine `f64x2`-Wertdarstellung.
+Die **`promote_low_f32x4`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die ersten zwei Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `f32x4` Wertinterpretation in eine `f64x2` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: promote_low_f32x4", "tabbed-taller")}}
 
@@ -35,10 +35,10 @@ value_type.promote_low_f32x4
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertdarstellungen unterstützen `promote_low_f32x4`:
+  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen unterstützen `promote_low_f32x4`:
     - `f64x2`
 - `promote_low_f32x4`
-  - : Die `promote_low_f32x4`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `promote_low_f32x4` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -47,9 +47,9 @@ value_type.promote_low_f32x4
 ```
 
 - `input`
-  - : Die Eingabe `v128` `f32x4`-Wertdarstellung.
+  - : Die Eingabe `v128` `f32x4` Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `f64x2`-Wertdarstellung.
+  - : Die Ausgabe `v128` `f64x2` Wertinterpretation.
 
 ### Binäre Kodierung
 
@@ -67,4 +67,4 @@ value_type.promote_low_f32x4
 
 ## Siehe auch
 
-- [SIMD-Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

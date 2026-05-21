@@ -1,12 +1,12 @@
 ---
-title: "max_u: Wasm SIMD Arithmetik-Instruktion"
+title: "max_u: Wasm SIMD arithmetische Anweisung"
 short-title: max_u
 slug: WebAssembly/Reference/SIMD/arithmetic/max_u
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`max_u`**-Instruktion vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Darstellungen von ganzzahligen Werten ohne Vorzeichen und gibt eine neue Darstellung zurück, bei der jeder Lane auf den größeren Wert an der entsprechenden Lane-Position der beiden Eingaben gesetzt ist.
+Die **`max_u`** Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen von Ganzzahlen ohne Vorzeichen und gibt eine neue Interpretation zurück, bei der jeder Kanal auf den größeren Wert des jeweiligen Kanalindex der beiden Eingaben gesetzt ist.
 
 {{InteractiveExample("Wat Demo: max_u", "tabbed-taller")}}
 
@@ -39,12 +39,12 @@ value_type.max_u
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Instruktion angewendet wird. Die folgenden Typen unterstützen `max_u`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `max_u`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
 - `max_u`
-  - : Die `max_u`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `max_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -57,11 +57,11 @@ value_type.max_u
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neues `v128` des gleichen Typs wie die Eingaben, bei dem jeder Lane auf den größeren Wert an der entsprechenden Lane-Position der beiden Eingaben gesetzt ist.
+  - : Der Ausgabewert. Ein neuer `v128` vom gleichen Typ wie die Eingaben, wobei jeder Kanal auf den größeren Wert des jeweiligen Kanalindex der beiden Eingaben gesetzt ist.
 
-### Binäre Kodierung
+### Binärcode Kodierung
 
-| Instruktion   | Binärformat    | Beispiel Text => Binär            |
+| Anweisung     | Binärformat    | Beispieltext => Binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.max_u` | `0xfd 121:u32` | `i8x16.max_u` => `0xfd 0x79`      |
 | `i16x8.max_u` | `0xfd 153:u32` | `i16x8.max_u` => `0xfd 0x99 0x01` |

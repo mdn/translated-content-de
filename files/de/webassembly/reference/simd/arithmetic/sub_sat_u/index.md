@@ -1,12 +1,12 @@
 ---
-title: "sub_sat_u: Wasm SIMD Arithmetic Instruction"
+title: "sub_sat_u: Wasm SIMD-Arithmetikinstruktion"
 short-title: sub_sat_u
 slug: WebAssembly/Reference/SIMD/arithmetic/sub_sat_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`sub_sat_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [saturierte](https://en.wikipedia.org/wiki/Saturation_arithmetic) Subtraktion von zwei unbedeuteten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen durch — indem der Ausgang auf den durch den Werttyp erlaubten Bereich geklemmt wird. Jede Lane des Ausgabe-Wertes ist das Ergebnis der Subtraktion der entsprechenden Lane der zweiten Eingabe von der entsprechenden Lane der ersten Eingabe.
+Die **`sub_sat_u`** [SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [sättigende](https://de.wikipedia.org/wiki/S%C3%A4ttigende_Arithmetik) Subtraktion zweier unsignierter [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen durch — und beschränkt die Ausgabe auf den vom Wertetyp erlaubten Bereich. Jede Spur des Ausgabewertes ist das Ergebnis der Subtraktion der entsprechenden Spur des zweiten Eingabewertes von der entsprechenden Spur des ersten Eingabewertes.
 
 {{InteractiveExample("Wat Demo: sub_sat_u", "tabbed-taller")}}
 
@@ -29,10 +29,10 @@ Die **`sub_sat_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Referenc
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren durch die Wertinterpretation erlaubten Werte geklemmt werden, anstatt zu überschreiten. Erlaubte Ausgabewerte sind:
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte beschränkt werden, die durch die Werteinterpretation erlaubt sind, anstatt sich zu überlaufen. Erlaubte Ausgabewerte sind:
 
-- `i8x16.sub_sat_u`: `0` bis `255` (der vollständige Bereich eines unbedeuteten 8-Bit-Integers)
-- `i16x8.sub_sat_u`: `0` bis `65,535` (der vollständige Bereich eines unbedeuteten 16-Bit-Integers)
+- `i8x16.sub_sat_u`: `0` bis `255` (der vollständige Bereich eines unsignierten 8-Bit-Ganzzahl)
+- `i16x8.sub_sat_u`: `0` bis `65,535` (der vollständige Bereich eines unsignierten 16-Bit-Ganzzahl)
 
 ## Syntax
 
@@ -41,11 +41,11 @@ value_type.sub_sat_u
 ```
 
 - `value_type`
-  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `sub_sat_u`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `sub_sat_u`:
     - `i8x16`
     - `i16x8`
 - `sub_sat_u`
-  - : Die `sub_sat_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `sub_sat_u`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -58,11 +58,11 @@ value_type.sub_sat_u
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabe-Wert.
+  - : Der Ausgabewert.
 
-### Binäre Codierung
+### Binärcode
 
-| Anweisung         | Binärformat    | Beispieltext => Binär                 |
+| Instruktion       | Binärformat    | Beispiel Text => Binär                |
 | ----------------- | -------------- | ------------------------------------- |
 | `i8x16.sub_sat_u` | `0xfd 115:u32` | `i8x16.sub_sat_u` => `0xfd 0x73`      |
 | `i16x8.sub_sat_u` | `0xfd 147:u32` | `i16x8.sub_sat_u` => `0xfd 0x93 0x01` |
@@ -78,4 +78,4 @@ value_type.sub_sat_u
 ## Siehe auch
 
 - [`sub`](/de/docs/WebAssembly/Reference/Numeric/sub)
-- [SIMD arithmetische Anweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)
+- [SIMD-Arithmetikinstruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

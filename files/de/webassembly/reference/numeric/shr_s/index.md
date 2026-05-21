@@ -1,12 +1,12 @@
 ---
-title: "shr_s: Wasm-Textanweisung"
+title: "shr_s: Wasm-Text-Anweisung"
 short-title: shr_s
 slug: WebAssembly/Reference/Numeric/shr_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`shr_s`**-Anweisungen, kurz für _shift-right signed_, werden verwendet, um einen bitweisen Rechtsshift auf vorzeichenbehafteten Ganzzahlen durchzuführen, ähnlich dem **`>>>`**-Operator in anderen Programmiersprachen.
+Die **`shr_s`**-Anweisungen, kurz für _shift-right signed_, werden verwendet, um eine bitweise Rechtsverschiebung auf vorzeichenbehafteten Ganzzahlen durchzuführen, ähnlich dem **`>>>`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: shr_s", "tabbed-taller")}}
 
@@ -56,13 +56,13 @@ value_type.shr_s
   - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `shr_s`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `shr_s`
-  - : Die `shr_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `shr_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -73,17 +73,17 @@ value_type.shr_s
 - `input`
   - : Der Eingabewert.
 - `shift_value`
-  - : Der Wert, um den Sie den Eingabewert verschieben möchten.
+  - : Der Wert, um den Sie den Wert verschieben möchten.
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `shr_s` sind `input` und `output` einfache numerische Werte wie `3` oder `12`.
+Für ein nicht SIMD `shr_s` sind der `input` und `output` einfache numerische Werte wie `3` oder `12`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shr_s` werden `input` und `output` als [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen behandelt, zum Beispiel `i32x4 2 30 86 120`. Jede Lane des auf den Stack geschobenen Outputs enthält die entsprechende Lane im Eingabewert, der um den angegebenen `shift_value` nach rechts verschoben wird.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shr_s` sind der `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wert-Interpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Lane des Ausgabes, die auf den Stack geschoben wird, enthält die entsprechende Lane des Eingabewertes, der um den angegebenen `shift_value` nach rechts verschoben wurde.
 
-### Binäre Kodierung
+### Binärkodierung
 
-| Anweisung     | Binärformat    | Beispieltext => binär             |
+| Anweisung     | Binärformat    | Beispiel-Text => binär            |
 | ------------- | -------------- | --------------------------------- |
 | `i32.shr_s`   | `0x75`         | `i32.shr_s` => `0x75`             |
 | `i64.shr_s`   | `0x87`         | `i64.shr_s` => `0x87`             |
@@ -92,13 +92,13 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shr_s` werden `input` und 
 | `i32x4.shr_s` | `0xfd 172:u32` | `i32x4.shr_s` => `0xfd 0xac 0x01` |
 | `i64x2.shr_s` | `0xfd 204:u32` | `i64x2.shr_s` => `0xfd 0xcc 0x01` |
 
-### SIMD-Rechtsshift
+### SIMD-Rechtsverschiebung
 
-In diesem Beispiel demonstrieren wir das Ausführen eines Rechtsshifts auf einem SIMD-Wert und das Ausgeben eines der Lane-Werte.
+In diesem Beispiel demonstrieren wir das Ausführen einer Rechtsverschiebung auf einem SIMD-Wert und die Ausgabe eines der Lane-Werte.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzige Funktion enthält, die einen Wert an das `<p>`-Element schreibt. Danach kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zur Importierung in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), während wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_shr_s
 <p></p>
@@ -120,7 +120,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, und stellen sicher, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD `i16x8`-Wert, den wir durch `i16x8.shr_s` um 2 nach rechts verschieben. Schließlich extrahieren wir den in Lane `6` gespeicherten Wert des ausgegebenen SIMD-Wertes mit der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, und stellen sicher, dass sie einen `i32` Parameter hat. Wir deklarieren dann einen SIMD `i16x8` Wert und verschieben ihn mit `i16x8.shr_s` um 2 nach rechts. Schließlich extrahieren wir den in der Lane `6` des Ausgabe-SIMD-Wertes gespeicherten Wert mithilfe der [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_shr_s
 (module
@@ -144,11 +144,11 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`,
 
 #### Ergebnis
 
-Die Ausgabe lautet wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_shr_s", "100%", 100)}}
 
-Das Ergebnis ist `22`, da der in Lane `6` des Eingabewertes gespeicherte Wert `91` ist. Nachdem er um zwei Positionen nach rechts verschoben wurde, enthält Lane `6` des Ausgabewertes den Wert `22`.
+Das Ergebnis ist `22`, weil der in Lane `6` des Eingabewertes gespeicherte Wert `91` ist. Einmal um zwei Positionen nach rechts verschoben, enthält die Lane `6` des Ausgabe-Wertes den Wert `22`.
 
 ## Siehe auch
 

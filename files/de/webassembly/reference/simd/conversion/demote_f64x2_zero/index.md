@@ -1,12 +1,12 @@
 ---
-title: "demote_f64x2_zero: Wasm SIMD Konvertierungsanweisung"
+title: "demote_f64x2_zero: Wasm SIMD Umwandlungsanweisung"
 short-title: demote_f64x2_zero
 slug: WebAssembly/Reference/SIMD/conversion/demote_f64x2_zero
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`demote_f64x2_zero`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes einer `f64x2`-Wertinterpretation eines [`v128`](/de/docs/WebAssembly/Reference/Types/v128) in eine `f32x4`-Wertinterpretation. Die beiden höheren Lanes des Ergebnisses werden auf Null gesetzt.
+Die **`demote_f64x2_zero`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `f64x2` Werteinterpretation in eine `f32x4` Werteinterpretation. Die zwei höheren Lanes des Ergebnisses werden auf null gesetzt.
 
 {{InteractiveExample("Wat Demo: demote_f64x2_zero", "tabbed-taller")}}
 
@@ -35,10 +35,10 @@ value_type.demote_f64x2_zero
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf den die Anweisung angewendet wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `demote_f64x2_zero`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werteinterpretationen unterstützen `demote_f64x2_zero`:
     - `f32x4`
 - `demote_f64x2_zero`
-  - : Die `demote_f64x2_zero`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `demote_f64x2_zero` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -47,13 +47,13 @@ value_type.demote_f64x2_zero
 ```
 
 - `input`
-  - : Die Eingabe `v128` `f64x2`-Wertinterpretation.
+  - : Die Eingabe `v128` `f64x2` Werteinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `f32x4`-Wertinterpretation.
+  - : Die Ausgabe `v128` `f32x4` Werteinterpretation.
 
 ### Binärcodierung
 
-| Anweisung                 | Binärformat   | Beispieltext => Binär                    |
+| Anweisung                 | Binärformat   | Beispieltext => binär                    |
 | ------------------------- | ------------- | ---------------------------------------- |
 | `f32x4.demote_f64x2_zero` | `0xfd 94:u32` | `f32x4.demote_f64x2_zero` => `0xfd 0x5e` |
 
@@ -67,4 +67,4 @@ value_type.demote_f64x2_zero
 
 ## Siehe auch
 
-- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD-Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

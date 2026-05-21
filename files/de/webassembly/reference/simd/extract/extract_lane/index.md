@@ -1,12 +1,12 @@
 ---
-title: "extract_lane: Wasm SIMD extract-Anweisung"
+title: "extract_lane: Wasm SIMD extrahieren-Anweisung"
 short-title: extract_lane
 slug: WebAssembly/Reference/SIMD/extract/extract_lane
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extract_lane`** [SIMD extract-Anweisung](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der in der angegebenen Spur einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretation enthalten ist.
+Die **`extract_lane`** [SIMD extrahieren-Anweisung](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der innerhalb der angegebenen Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretation enthalten ist.
 
 {{InteractiveExample("Wat Demo: extract_lane", "tabbed-taller")}}
 
@@ -37,13 +37,13 @@ value_type.extract_lane
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Wertinterpretationen unterstützen `extract_lane`:
+  - : Der Typ des Wertes, auf dem der Befehl ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen unterstützen `extract_lane`:
     - `i32x4`
     - `i64x2`
     - `f32x4`
     - `f64x2`
 - `extract_lane`
-  - : Die `extract_lane`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Der `extract_lane`-Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -52,15 +52,15 @@ value_type.extract_lane
 ```
 
 - `input`
-  - : Die `v128`-Wertinterpretation, aus der Sie eine Spur extrahieren möchten.
+  - : Die `v128`-Wertinterpretation, aus der Sie eine Lane extrahieren möchten.
 - `lane`
-  - : Der Index der Spur, deren Wert Sie extrahieren möchten, zum Beispiel `0`.
+  - : Der Index der Lane, deren Wert Sie extrahieren möchten, zum Beispiel `0`.
 - `output`
-  - : Der Wert, der aus der Spur extrahiert wird.
+  - : Der aus der Lane extrahierte Wert.
 
 ### Binärcodierung
 
-| Anweisung            | Binärformat              | Beispieltext => Binär                      |
+| Instruktion          | Binärformat              | Beispieltext => Binär                      |
 | -------------------- | ------------------------ | ------------------------------------------ |
 | `i32x4.extract_lane` | `0xfd 27:u32 l:lane_idx` | `i32x4.extract_lane 3` => `0xfd 0x1b 0x03` |
 | `i64x2.extract_lane` | `0xfd 29:u32 l:lane_idx` | `i64x2.extract_lane 1` => `0xfd 0x1d 0x01` |

@@ -1,17 +1,17 @@
 ---
-title: "lt_s: Wasm-Textinstruktion"
+title: "lt_s: Wasm-Textanweisung"
 short-title: lt_s
 slug: WebAssembly/Reference/Numeric/lt_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`lt_s`**-Instruktion, kurz für _less than signed_, überprüft, ob eine vorzeichenbehaftete Ganzzahl kleiner als eine andere vorzeichenbehaftete Ganzzahl ist.
+Die **`lt_s`**-Anweisung, kurz für _less than signed_, überprüft, ob eine vorzeichenbehaftete Ganzzahl kleiner ist als eine andere vorzeichenbehaftete Ganzzahl.
 
-Es gibt weitere `lt`-Instruktionen:
+Es gibt andere `lt`-Anweisungen:
 
-- [**`lt_u`**](/de/docs/WebAssembly/Reference/Numeric/lt_u) zum Vergleich von vorzeichenlosen Ganzzahlen.
-- [**`lt`**](/de/docs/WebAssembly/Reference/Numeric/lt) zum Vergleich von Gleitkommazahlen.
+- [**`lt_u`**](/de/docs/WebAssembly/Reference/Numeric/lt_u) für den Vergleich von vorzeichenlosen Ganzzahlen.
+- [**`lt`**](/de/docs/WebAssembly/Reference/Numeric/lt) für den Vergleich von Fließkommazahlen.
 
 {{InteractiveExample("Wat Demo: lt_s", "tabbed-taller")}}
 
@@ -50,16 +50,16 @@ value_type.lt_s
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, mit dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `lt_s`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `lt_s`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `lt_s`
-  - : Die `lt_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `lt_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -74,13 +74,13 @@ value_type.lt_s
 - `output`
   - : Der Ausgabewert, der ein ganzzahliger Typ sein wird.
 
-Für eine nicht-SIMD `lt_s` werden die Eingaben einfache numerische Werte wie `3` oder `12` sein. Ist der erste Eingabewert kleiner als der zweite, wird `1` als Ausgabe auf den Stack gelegt, andernfalls wird `0` auf den Stack gelegt.
+Für ein nicht-SIMD `lt_s` werden die Eingaben grundlegende numerische Werte wie `3` oder `12` sein. Wenn die erste Eingabe kleiner als die zweite Eingabe ist, wird `1` als Ausgabe auf den Stack gelegt, andernfalls wird `0` auf den Stack gelegt.
 
-Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt_s` werden die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Werteinterpretationen sein, zum Beispiel `i32x4 2 30 86 120`. Jede Spur der Ausgabe, die auf den Stack gelegt wird, ist eine `1` oder `0`, die angibt, ob die entsprechende Spur des ersten Eingabewertes kleiner als die entsprechende Spur des zweiten Eingabewertes ist.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Zeile der Ausgabe, die auf den Stack gelegt wird, ist eine `1` oder `0`, die angibt, ob die entsprechende Zeile des ersten Eingabewertes kleiner ist als die entsprechende Zeile des zweiten Eingabewertes.
 
 ### Binärcodierung
 
-| Instruktion  | Binärformat    | Beispiel-Text => Binär           |
+| Anweisung    | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |
 | `i32.lt_s`   | `0x48`         | `i32.lt_s` => `0x48`             |
 | `i64.lt_s`   | `0x53`         | `i64.lt_s` => `0x53`             |
@@ -91,13 +91,13 @@ Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt_s` werden die Eingaben
 
 ## Beispiele
 
-### SIMD `lt_s` Beispiel
+### SIMD-`lt_s`-Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `lt_s`, um zu testen, ob ein SIMD-Spurwert kleiner ist als derselbe Spurwert in einem anderen SIMD-Wert.
+In diesem Beispiel demonstrieren wir die Verwendung von `lt_s`, um zu testen, ob ein SIMD-Zeilenwert kleiner ist als derselbe Zeilenwert in einem anderen SIMD-Wert.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das `<p>`-Element schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul unter Verwendung der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_lt_s
 <p></p>
@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass wir deklarieren, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und überprüfen, ob die Spurwerte des ersten kleiner als die des zweiten sind, indem wir `i32x4.lt_s` verwenden. Schließlich extrahieren wir den in Spur `3` des Ausgabe-Wertes gespeicherten Wert mittels der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion, und geben ihn durch Aufrufen der importierten `output()`-Funktion an das DOM aus.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD `i32x4`-Werte und überprüfen, ob die Zeilenwerte des ersten kleiner sind als die des zweiten, indem wir `i32x4.lt_s` verwenden. Schließlich extrahieren wir den Wert, der in Zeile `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_lt_s
 (module
@@ -144,11 +144,11 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion 
 
 #### Ergebnis
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_lt_s", "100%", 100)}}
 
-Das Ergebnis ist `0`, da der in Spur `3` des ersten Eingabewertes gespeicherte Wert nicht kleiner ist als der in Spur `3` des zweiten Eingabewertes gespeicherte Wert.
+Das Ergebnis ist `0`, weil der Wert, der in Zeile `3` des ersten Eingabewertes gespeichert ist, nicht kleiner ist als der Wert, der in Zeile `3` des zweiten Eingabewertes gespeichert ist.
 
 ## Siehe auch
 

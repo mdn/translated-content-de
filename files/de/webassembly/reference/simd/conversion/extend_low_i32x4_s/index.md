@@ -1,12 +1,12 @@
 ---
-title: "extend_low_i32x4_s: Wasm SIMD-Konvertierungsanweisung"
+title: "extend_low_i32x4_s: Wasm SIMD Umwandlungsanweisung"
 short-title: extend_low_i32x4_s
 slug: WebAssembly/Reference/SIMD/conversion/extend_low_i32x4_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extend_low_i32x4_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 0–1 einer signierten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretation in eine `i64x2` Wertinterpretation.
+Die **`extend_low_i32x4_s`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) wandelt die Lanes 0–1 einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretation in eine `i64x2` Wertinterpretation um.
 
 {{InteractiveExample("Wat Demo: extend_low_i32x4_s", "tabbed-taller")}}
 
@@ -64,4 +64,4 @@ i64x2.extend_low_i32x4_s
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

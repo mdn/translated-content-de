@@ -1,12 +1,12 @@
 ---
-title: "max_s: Wasm SIMD-Arithmetikbefehl"
+title: "max_s: Wasm SIMD Arithmetik-Instruktion"
 short-title: max_s
 slug: WebAssembly/Reference/SIMD/arithmetic/max_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Der **`max_s`**-Befehl vergleicht zwei interpretierte, vorzeichenbehaftete Ganzzahlenwerte vom Typ [`v128`](/de/docs/WebAssembly/Reference/Types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den größeren der beiden Eingabewerte an diesem Lane-Index gesetzt ist.
+Die **`max_s`**-Instruktion vergleicht zwei signierte Ganzzahlwertinterpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den höheren Wert des Lane-Index der beiden Eingaben gesetzt ist.
 
 {{InteractiveExample("Wat Demo: max_s", "tabbed-taller")}}
 
@@ -39,12 +39,12 @@ value_type.max_s
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem der Befehl ausgeführt wird. Die folgenden Typen unterstützen `max_s`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `max_s`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
 - `max_s`
-  - : Der `max_s`-Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `max_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -57,11 +57,11 @@ value_type.max_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neuer `v128` des gleichen Typs wie die Eingaben, bei dem jede Lane auf den größeren der beiden Eingabewerte an diesem Lane-Index gesetzt ist.
+  - : Der Ausgabewert. Ein neues `v128` des gleichen Typs wie die Eingaben, wobei jede Lane auf den höheren Wert des Lane-Index der beiden Eingaben gesetzt ist.
 
-### Binärcodierung
+### Binäre Kodierung
 
-| Anweisung     | Binärformat    | Beispieltext => binär             |
+| Instruktion   | Binärformat    | Beispieltext => binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.max_s` | `0xfd 120:u32` | `i8x16.max_s` => `0xfd 0x78`      |
 | `i16x8.max_s` | `0xfd 152:u32` | `i16x8.max_s` => `0xfd 0x98 0x01` |

@@ -3,10 +3,10 @@ title: "extend_high_i8x16_s: Wasm SIMD-Konvertierungsanweisung"
 short-title: extend_high_i8x16_s
 slug: WebAssembly/Reference/SIMD/conversion/extend_high_i8x16_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extend_high_i8x16_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 8–15 einer vorzeichenbehafteten `i8x16`-Wertinterpretation des [`v128`](/de/docs/WebAssembly/Reference/Types/v128) in eine `i16x8`-Wertinterpretation.
+Die **`extend_high_i8x16_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Spuren 8–15 einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16`-Wertinterpretation in eine `i16x8`-Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: extend_high_i8x16_s", "tabbed-taller")}}
 
@@ -35,7 +35,7 @@ i16x8.extend_high_i8x16_s
 ```
 
 - `i16x8.extend_high_i8x16_s`
-  - : Die `i16x8.extend_high_i8x16_s`-Anweisung.
+  - : Die Anweisung `i16x8.extend_high_i8x16_s`.
 
 ### Typ
 
@@ -44,13 +44,13 @@ i16x8.extend_high_i8x16_s
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i8x16` Wertinterpretation.
+  - : Die Eingabe `v128` `i8x16`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i16x8` Wertinterpretation.
+  - : Die Ausgabe `v128` `i16x8`-Wertinterpretation.
 
-### Binärkodierung
+### Binäre Kodierung
 
-| Anweisung                   | Binärformat    | Beispieltext => binär                           |
+| Anweisung                   | Binärformat    | Beispiel-Text => binär                          |
 | --------------------------- | -------------- | ----------------------------------------------- |
 | `i16x8.extend_high_i8x16_s` | `0xfd 136:u32` | `i16x8.extend_high_i8x16_s` => `0xfd 0x88 0x01` |
 

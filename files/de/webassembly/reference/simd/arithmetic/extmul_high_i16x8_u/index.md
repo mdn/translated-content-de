@@ -1,12 +1,12 @@
 ---
-title: "extmul_high_i16x8_u: Wasm SIMD arithmetische Anweisung"
+title: "extmul_high_i16x8_u: Wasm SIMD-Arithmetikanweisung"
 short-title: extmul_high_i16x8_u
 slug: WebAssembly/Reference/SIMD/arithmetic/extmul_high_i16x8_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extmul_high_i16x8_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Bahnen 4–7 von zwei unsigned [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i16x8` Wertinterpretationen, multipliziert die Werte in den entsprechenden Bahnen und gibt das Ergebnis dieser Operationen als `i32x4` Wertinterpretation aus.
+Die **`extmul_high_i16x8_u`** [SIMD-Arithmetikanweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 4–7 von zwei unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen in einer `i32x4`-Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extmul_high_i16x8_u", "tabbed-taller")}}
 
@@ -29,11 +29,11 @@ Die **`extmul_high_i16x8_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembl
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel werden die Bahnen 4–7 der zwei `i16x8` Eingabewerte miteinander multipliziert und die Produkte als `i32x4` ausgegeben. Die Bahn `4` des ersten Eingabewerts wird mit der Bahn `4` des zweiten Eingabewerts multipliziert, und das Produkt wird zu Bahn `0` der Ausgabe, und so weiter. Als Ergebnis enthält jede Bahn der Ausgabe den Wert `24` (`6 * 4`).
+Im obigen Beispiel werden die Lanes 4–7 der beiden `i16x8`-Eingabewerte zusammen multipliziert und die Produkte als `i32x4` ausgegeben. Die Lane `4` des ersten Eingabewerts wird mit der Lane `4` des zweiten Eingabewerts multipliziert, und das Produkt wird zu Lane `0` der Ausgabe und so weiter. Als Ergebnis enthält jede Lane der Ausgabe den Wert `24` (`6 * 4`).
 
-Die Anweisung `extmul_high_i16x8_u` ist eine performantere Variante im Vergleich dazu, die Ergebnisse von zwei [`extend_high_i16x8_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i16x8_u) Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul) Anweisung zu übergeben.
+Die `extmul_high_i16x8_u`-Anweisung ist eine performantere Variante, bei der die Ergebnisse von zwei [`extend_high_i16x8_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i16x8_u)-Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Anweisung eingespeist werden.
 
-Anders ausgedrückt:
+Mit anderen Worten:
 
 ```wat
 (i32x4.extmul_high_i16x8_u
@@ -42,7 +42,7 @@ Anders ausgedrückt:
 )
 ```
 
-ist äquivalent zu
+entspricht
 
 ```wat
 (i32x4.mul
@@ -62,7 +62,7 @@ i32x4.extmul_high_i16x8_u
 ```
 
 - `i32x4.extmul_high_i16x8_u`
-  - : Die `i32x4.extmul_high_i16x8_u` Anweisung.
+  - : Die `i32x4.extmul_high_i16x8_u`-Anweisung.
 
 ### Typ
 
@@ -71,15 +71,15 @@ i32x4.extmul_high_i16x8_u
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i16x8` Wertinterpretation.
+  - : Die erste Eingabe `v128` `i16x8`-Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i16x8` Wertinterpretation.
+  - : Die zweite Eingabe `v128` `i16x8`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
+  - : Die Ausgabe `v128` `i32x4`-Wertinterpretation.
 
-### Binäre Kodierung
+### Binäre Codierung
 
-| Anweisung                   | Binärformat    | Beispieltext => binär                           |
+| Anweisung                   | Binärformat    | Beispieltext => Binär                           |
 | --------------------------- | -------------- | ----------------------------------------------- |
 | `i32x4.extmul_high_i16x8_u` | `0xfd 191:u32` | `i32x4.extmul_high_i16x8_u` => `0xfd 0xbf 0x01` |
 
@@ -93,4 +93,4 @@ i32x4.extmul_high_i16x8_u
 
 ## Siehe auch
 
-- [SIMD arithmetische Anweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)
+- [SIMD-Arithmetikanweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

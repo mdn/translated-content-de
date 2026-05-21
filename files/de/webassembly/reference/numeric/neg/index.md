@@ -1,12 +1,12 @@
 ---
-title: "neg: Wasm Text-Instruktion"
+title: "neg: Wasm-Text-Anweisung"
 short-title: neg
 slug: WebAssembly/Reference/Numeric/neg
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`neg`**-Instruktion, kurz für _negate_, wird verwendet, um eine Zahl zu negieren. Das bedeutet, dass sie eine positive Zahl in eine negative Zahl und eine negative Zahl in eine positive Zahl umwandelt.
+Die **`neg`**-Anweisung, kurz für _negieren_, wird verwendet, um eine Zahl zu negieren. Das heißt, sie verwandelt eine positive Zahl in eine negative Zahl und eine negative Zahl in eine positive Zahl.
 
 {{InteractiveExample("Wat Demo: neg", "tabbed-standard")}}
 
@@ -36,10 +36,10 @@ value_type.neg
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `neg`:
+  - : Der Typ des Wertes, auf dem die Anweisung angewendet wird. Die folgenden Typen unterstützen `neg`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
@@ -47,7 +47,7 @@ value_type.neg
       - `f32x4`
       - `f64x2`
 - `neg`
-  - : Die `neg`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `neg`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -60,13 +60,13 @@ value_type.neg
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `neg` sind die Werte einfache numerische Werte wie `3` oder `-3.5`.
+Für einen nicht-SIMD `neg` sind die Werte einfache numerische Werte wie `3` oder `-3.5`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `neg` sind die Werte [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen, zum Beispiel `f32x4 8 -27.3 30 -0.5`. Jede Lane des ausgegebenen Wertes, der auf den Stack geschoben wird, ist gleich der entsprechenden negierten Lane des Eingabewertes.
+Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `neg` sind die Werte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `f32x4 8 -27.3 30 -0.5`. Jede Lane des Outputs, die auf den Stack geschoben wird, entspricht der negierten jeweiligen Lane des Eingabewertes.
 
-### Binärcode
+### Binäre Codierung
 
-| Instruktion | Binärformat    | Beispiel-Text => Binär          |
+| Anweisung   | Binärformat    | Beispiel Text => binär          |
 | ----------- | -------------- | ------------------------------- |
 | `f32.neg`   | `0x8c`         | `f32.neg` => `0x8c`             |
 | `f64.neg`   | `0x9a`         | `f64.neg` => `0x9a`             |
@@ -85,7 +85,7 @@ In diesem Beispiel demonstrieren wir die Verwendung von `neg`, um einen SIMD-Wer
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Importieren in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabeelement `<p>` schreibt. Danach kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_neg
 <p></p>
@@ -107,7 +107,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD-`i8x16`-Wert und verwenden `i8x16.neg`, um alle Lanes-Werte zu negieren. Schließlich extrahieren wir den in Lane `15` gespeicherten Wert des Ausgangswertes mit der Instruktion [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()` und stellen sicher, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD-`i8x16`-Wert und verwenden `i8x16.neg`, um alle Lanes des Wertes zu negieren. Schließlich extrahieren wir den Wert, der in Lane `15` des Ausgabe-Werts gespeichert ist, mit der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn aus, indem wir die importierte Funktion `output()` aufrufen.
 
 ```wat live-sample___simd_neg
 (module
@@ -129,7 +129,7 @@ In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funkti
 
 #### Ergebnis
 
-Die Ausgabe sieht wie folgt aus:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_neg", "100%", 100)}}
 

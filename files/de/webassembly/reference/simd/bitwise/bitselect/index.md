@@ -1,12 +1,12 @@
 ---
-title: "bitselect: Wasm SIMD bitweise Anweisung"
+title: "bitselect: Wasm SIMD-Bitweise-Instruktion"
 short-title: bitselect
 slug: WebAssembly/Reference/SIMD/bitwise/bitselect
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`bitselect`**-[SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) nimmt drei [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Werte als Eingaben — zwei Eingabewerte und einen Maskenwert — und gibt einen neuen `v128`-Wert zurück, wobei jedes Byte mit der Formel `output = (input1 AND mask) OR (input2 AND NOT mask)` berechnet wird.
+Die **`bitselect`** [SIMD-Bitweise-Instruktion](/de/docs/WebAssembly/Reference/SIMD/bitwise) nimmt drei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werte als Eingaben — zwei Eingaben und einen Maskenwert — und gibt einen neuen `v128`-Wert zurück, bei dem jedes Byte mit der Formel `output = (input1 AND mask) OR (input2 AND NOT mask)` berechnet wird.
 
 {{InteractiveExample("Wat Demo: bitselect", "tabbed-taller")}}
 
@@ -30,11 +30,11 @@ Die **`bitselect`**-[SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIM
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel haben wir alle Eingabewertspuren für die Einfachheit auf den gleichen Wert gesetzt. Gehen wir durch, wie der Ausgangswert (`9`) berechnet wird, unter Verwendung der Formel `output = (input1 AND mask) OR (input2 AND NOT mask)`:
+Im obigen Beispiel haben wir alle Eingabewertspuren aus Vereinfachungsgründen auf denselben Wert gesetzt. Hier die Schritte, wie der Ausgabewert (`9`) mit der Formel `output = (input1 AND mask) OR (input2 AND NOT mask)` berechnet wird:
 
-1. Die erste Eingabe ist `1`, was in binär `0 0 0 0 0 0 0 1` ist.
-2. Die zweite Eingabe ist `15`, was in binär `0 0 0 0 1 1 1 1` ist.
-3. Die Maske ist `6`, was in binär `0 0 0 0 0 1 1 0` ist.
+1. Die erste Eingabe ist `1`, was in Binär `0 0 0 0 0 0 0 1` ist.
+2. Die zweite Eingabe ist `15`, was in Binär `0 0 0 0 1 1 1 1` ist.
+3. Die Maske ist `6`, was in Binär `0 0 0 0 0 1 1 0` ist.
 4. `input1 AND mask` wird wie folgt berechnet:
 
    ```plain
@@ -51,7 +51,7 @@ Im obigen Beispiel haben wir alle Eingabewertspuren für die Einfachheit auf den
    input2 AND NOT mask  0 0 0 0 1 0 0 1
    ```
 
-6. Dann führen wir ein OR der beiden Ergebnisse aus den Schritten 4. und 5. durch:
+6. Wir verknüpfen dann die beiden Ergebnisse aus den Schritten 4. und 5. mit einem logischen OR:
 
    ```plain
    result1  0 0 0 0 0 0 0 0
@@ -68,7 +68,7 @@ v128.bitselect
 ```
 
 - `v128.bitselect`
-  - : Die `v128.bitselect` Anweisung.
+  - : Die `v128.bitselect`-Instruktion.
 
 ### Typ
 
@@ -77,17 +77,17 @@ v128.bitselect
 ```
 
 - `input1`
-  - : Die erste `v128`-Eingabewertinterpretation.
+  - : Die Interpretation des ersten Eingabe-`v128`-Werts.
 - `input2`
-  - : Die zweite `v128`-Eingabewertinterpretation.
+  - : Die Interpretation des zweiten Eingabe-`v128`-Werts.
 - `mask`
-  - : Die `v128`-Maskenwertinterpretation.
+  - : Die Interpretation des Masken-`v128`-Werts.
 - `output`
-  - : Die `v128`-Ausgabewertinterpretation.
+  - : Die Interpretation des Ausgabe-`v128`-Werts.
 
-### Binäre Codierung
+### Binärcodierung
 
-| Anweisung        | Binärformat   | Beispieltext => binär           |
+| Instruktion      | Binärformat   | Beispieltext => binär           |
 | ---------------- | ------------- | ------------------------------- |
 | `v128.bitselect` | `0xfd 82:u32` | `v128.bitselect` => `0xfd 0x52` |
 
@@ -101,4 +101,4 @@ v128.bitselect
 
 ## Siehe auch
 
-- [SIMD bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)
+- [SIMD-Bitweise-Instruktionen](/de/docs/WebAssembly/Reference/SIMD/bitwise)

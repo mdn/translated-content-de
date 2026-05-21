@@ -1,12 +1,12 @@
 ---
-title: "pmax: Wasm SIMD Rechenanweisung"
+title: "pmax: Wasm SIMD Arithmetische Anweisung"
 short-title: pmax
 slug: WebAssembly/Reference/SIMD/arithmetic/pmax
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`pmax`**-Anweisung vergleicht zwei Gleitkommawertinterpretationen des Typs [`v128`](/de/docs/WebAssembly/Reference/Types/v128) und gibt eine neue Interpretation zurück, wobei jeder Ausgangskanal auf den größeren der entsprechenden Eingangskanäle gesetzt wird. Sie ist definiert als `a < b ? b : a`, was bedeutet, dass NaN im ersten Operanden in die Ausgabe propagiert wird, aber NaN im zweiten Operanden nicht — im Gegensatz zu [`max`](/de/docs/WebAssembly/Reference/Numeric/max), das NaN von beiden Operanden propagiert.
+Die **`pmax`**-Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Gleitkommawertinterpretationen und gibt eine neue Interpretation zurück, bei der jeder Ausgabelane auf den größeren der entsprechenden Eingabelanes gesetzt wird. Sie ist definiert als `a < b ? b : a`, was bedeutet, dass `NaN` im ersten Operand an die Ausgabe weitergegeben wird, jedoch nicht `NaN` im zweiten Operanden — im Gegensatz zu [`max`](/de/docs/WebAssembly/Reference/Numeric/max), das `NaN` von einem der beiden Operanden weitergibt.
 
 {{InteractiveExample("Wat Demo: pmax", "tabbed-taller")}}
 
@@ -39,11 +39,11 @@ value_type.pmax
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `pmax`:
+  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `pmax`:
     - `f32x4`
     - `f64x2`
 - `pmax`
-  - : Die `pmax`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `pmax`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -58,7 +58,7 @@ value_type.pmax
 - `output`
   - : Der Ausgabewert.
 
-### Binäre Kodierung
+### Binärcodierung
 
 | Anweisung    | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |

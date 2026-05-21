@@ -1,17 +1,17 @@
 ---
-title: "gt_s: Wasm-Textanweisung"
+title: "gt_s: Wasm-Text-Instruktion"
 short-title: gt_s
 slug: WebAssembly/Reference/Numeric/gt_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`gt_s`**-Anweisung, kurz für _greater than signed_, überprüft, ob eine vorzeichenbehaftete ganze Zahl größer ist als eine andere vorzeichenbehaftete ganze Zahl.
+Die **`gt_s`**-Instruktion, abgeleitet von _greater than signed_, überprüft, ob eine vorzeichenbehaftete Ganzzahl größer als eine andere vorzeichenbehaftete Ganzzahl ist.
 
-Es gibt weitere `gt`-Anweisungen:
+Es gibt weitere `gt`-Instruktionen:
 
-- [**`gt_u`**](/de/docs/WebAssembly/Reference/Numeric/gt_u) für den Vergleich von nicht vorzeichenbehafteten ganzen Zahlen.
-- [**`gt`**](/de/docs/WebAssembly/Reference/Numeric/gt) für den Vergleich von Gleitkommazahlen.
+- [**`gt_u`**](/de/docs/WebAssembly/Reference/Numeric/gt_u) zum Vergleichen von vorzeichenlosen Ganzzahlen.
+- [**`gt`**](/de/docs/WebAssembly/Reference/Numeric/gt) zum Vergleichen von Gleitkommazahlen.
 
 {{InteractiveExample("Wat Demo: gt_s", "tabbed-taller")}}
 
@@ -50,16 +50,16 @@ value_type.gt_s
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `gt_s`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `gt_s`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `gt_s`
-  - : Die `gt_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `gt_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -74,13 +74,13 @@ value_type.gt_s
 - `output`
   - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Bei einem nicht-SIMD `gt_s` sind die Eingaben einfache numerische Werte wie `3` oder `12`. Wenn die erste Eingabe größer ist als die zweite Eingabe, wird `1` als Ausgabe auf den Stapel gelegt, andernfalls `0`.
+Für ein Nicht-SIMD `gt_s` werden die Eingaben einfache numerische Werte wie `3` oder `12` sein. Wenn der erste Eingang größer als der zweite Eingang ist, wird `1` auf den Stack als Ausgabe geschoben, andernfalls wird `0` auf den Stack geschoben.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Werteinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Spur der Ausgabe, die auf den Stapel gelegt wird, ist eine `1` oder `0`, welche angibt, ob die entsprechende Spur des ersten Eingabewerts größer ist als die entsprechende Spur des zweiten Eingabewerts.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_s` werden die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen sein, zum Beispiel `i32x4 2 30 86 120`. Jede Spur der Ausgabe, die auf den Stack geschoben wird, ist eine `1` oder `0`, die anzeigt, ob die entsprechende Spur des ersten Eingabewertes größer ist als die entsprechende Spur des zweiten Eingabewertes.
 
-### Binärcodierung
+### Binäre Kodierung
 
-| Anweisung    | Binärformat    | Beispieltext => binär            |
+| Instruktion  | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |
 | `i32.gt_s`   | `0x4a`         | `i32.gt_s` => `0x4a`             |
 | `i64.gt_s`   | `0x55`         | `i64.gt_s` => `0x55`             |
@@ -91,13 +91,13 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_s` sind die Eingaben [
 
 ## Beispiele
 
-### SIMD-`gt_s`-Beispiel
+### SIMD `gt_s` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `gt_s`, um zu testen, ob ein SIMD-Spurwert größer ist als der gleiche Spurwert in einem anderen SIMD-Wert.
+In diesem Beispiel demonstrieren wir die Verwendung von `gt_s`, um zu testen, ob ein SIMD-Spurwert größer ist als derselbe Spurwert in einem anderen SIMD-Wert.
 
 #### JavaScript
 
-In unserem Skript erhalten wir eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabeelement `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben, und definieren ein Objekt, das in Wasm importiert wird und eine Funktion enthält, die einen Wert in das Ausgabeelement `<p>` schreibt. Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_gt_s
 <p></p>
@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD `i32x4`-Werte und überprüfen, ob die Spurwerte des ersten Wertes größer sind als die des zweiten durch die Verwendung von `i32x4.gt_s`. Schließlich extrahieren wir den Wert der Spur `3` des Ausgabewerts mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD `i32x4` Werte und prüfen, ob die Wertespuren des ersten größer sind als die des zweiten mit `i32x4.gt_s`. Schließlich extrahieren wir den Wert, der in Spur `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Instruktion und geben ihn in das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
 
 ```wat live-sample___simd_gt_s
 (module
@@ -144,11 +144,11 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`,
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Das Ergebnis ist wie folgt:
 
 {{embedlivesample("simd_gt_s", "100%", 100)}}
 
-Das Ergebnis ist `1`, weil der Wert, der in Spur `3` des ersten Eingabewerts gespeichert ist, größer ist als der Wert, der in Spur `3` des zweiten Eingabewerts gespeichert ist.
+Das Ergebnis ist `1`, weil der in Spur `3` des ersten Eingabewertes gespeicherte Wert größer ist als der in Spur `3` des zweiten Eingabewertes gespeicherte Wert.
 
 ## Siehe auch
 

@@ -1,12 +1,12 @@
 ---
-title: "ne: Wasm Textanweisung"
+title: "ne: Wasm-Textanweisung"
 short-title: ne
 slug: WebAssembly/Reference/Numeric/ne
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`ne`**-Anweisung, kurz für _nicht gleich_, prüft, ob zwei Zahlen ungleich sind.
+Die **`ne`**-Anweisung, kurz für _nicht gleich_, überprüft, ob zwei Zahlen ungleich sind.
 
 {{InteractiveExample("Wat Demo: ne", "tabbed-taller")}}
 
@@ -45,12 +45,12 @@ value_type.ne
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `ne`:
+  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `ne`:
     - `i32`
     - `i64`
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
@@ -58,7 +58,7 @@ value_type.ne
       - `f32x4`
       - `f64x2`
 - `ne`
-  - : Die `ne`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen werden.
+  - : Die `ne`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -73,11 +73,11 @@ value_type.ne
 - `output`
   - : Ein Wert, der anzeigt, ob die beiden Eingabewerte ungleich sind.
 
-Bei einer nicht-SIMD `ne`-Anweisung werden die Eingabewerte grundlegende numerische Werte wie `3` oder `3.5` sein. Wenn die beiden Eingabewerte nicht gleich sind, wird `1` als Ausgabe auf den Stapel geschoben, sonst `0`.
+Für ein nicht-SIMD `ne` sind die Eingabewerte einfache numerische Werte wie `3` oder `3.5`. Wenn die beiden Eingabewerte ungleich sind, wird `1` auf den Stapel als Ausgabe geschoben, ansonsten wird `0` auf den Stapel geschoben.
 
-Bei einer [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ne`-Anweisung werden die Eingabewerte [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen sein, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jede Lane der Ausgabe, die auf den Stapel geschoben wird, ist eine `1` oder `0`, was anzeigt, ob die entsprechenden Lanes der beiden Eingabewerte ungleich sind.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ne` sind die Eingabewerte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jede Lane der Ausgabe, die auf den Stapel geschoben wird, ist eine `1` oder `0`, die anzeigt, ob die entsprechenden Lanes der beiden Eingabewerte ungleich sind.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung  | Binärformat    | Beispiel Text => Binär         |
 | ---------- | -------------- | ------------------------------ |
@@ -96,11 +96,11 @@ Bei einer [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ne`-Anweisung werden die 
 
 ### SIMD-Ungleichheitsprüfung
 
-In diesem Beispiel zeigen wir, wie zwei SIMD-Werte auf Ungleichheit geprüft werden.
+In diesem Beispiel demonstrieren wir, wie man zwei SIMD-Werte auf Ungleichheit prüft.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zur Einfuhr in Wasm, das eine einzelne Funktion enthält, die einen Wert auf das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei das Objekt importiert wird.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_ne
 <p></p>
@@ -122,7 +122,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f64`-Parameter hat. Dann deklarieren wir zwei SIMD-`f64x2`-Werte und verwenden `f64x2.ne`, um zu prüfen, ob sie gleich sind. Schließlich extrahieren wir den Wert, der in Lane `1` des Ausgabe-Wertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f64`-Parameter hat. Wir deklarieren dann zwei SIMD-`f64x2`-Werte und verwenden `f64x2.ne`, um zu prüfen, ob sie gleich sind. Schließlich extrahieren wir den in Lane `1` des Ausgabewerts gespeicherten Wert mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn über die importierte `output()`-Funktion an das DOM aus.
 
 ```wat live-sample___simd_ne
 (module

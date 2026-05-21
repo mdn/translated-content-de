@@ -1,12 +1,12 @@
 ---
-title: "extend_low_i32x4_u: Wasm SIMD Konvertierungsinstruktion"
+title: "extend_low_i32x4_u: Wasm SIMD Umwandlungsinstruktion"
 short-title: extend_low_i32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/extend_low_i32x4_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`extend_low_i32x4_u`** [SIMD Konvertierungsinstruktion](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 0–1 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i32x4` Wertinterpretation in eine `i64x2` Wertinterpretation.
+Die **`extend_low_i32x4_u`** [SIMD Umwandlungsinstruktion](/de/docs/WebAssembly/Reference/SIMD/conversion) wandelt die Lanes 0–1 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretation in eine `i64x2`-Wertinterpretation um.
 
 {{InteractiveExample("Wat Demo: extend_low_i32x4_u", "tabbed-taller")}}
 
@@ -44,13 +44,13 @@ i64x2.extend_low_i32x4_u
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i32x4` Wertinterpretation.
+  - : Die `v128` `i32x4` Eingabewertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i64x2` Wertinterpretation.
+  - : Die `v128` `i64x2` Ausgabewertinterpretation.
 
-### Binärcodierung
+### Binäre Kodierung
 
-| Instruktion                | Binärformat    | Beispiel Text => Binär                         |
+| Instruktion                | Binärformat    | Beispieltext => binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |
 | `i64x2.extend_low_i32x4_u` | `0xfd 201:u32` | `i64x2.extend_low_i32x4_u` => `0xfd 0xc9 0x01` |
 
@@ -64,4 +64,4 @@ i64x2.extend_low_i32x4_u
 
 ## Siehe auch
 
-- [SIMD Konvertierungsinstruktionen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Umwandlungsinstruktionen](/de/docs/WebAssembly/Reference/SIMD/conversion)

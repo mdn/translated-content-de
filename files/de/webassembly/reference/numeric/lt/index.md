@@ -1,14 +1,14 @@
 ---
-title: "lt: Wasm Textanweisung"
+title: "lt: Wasm-Textanweisung"
 short-title: lt
 slug: WebAssembly/Reference/Numeric/lt
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`lt`**-Anweisung, kurz für _less than_, überprüft, ob eine Fließkommazahl kleiner ist als eine andere Fließkommazahl.
+Die **`lt`**-Anweisung, kurz für _less than_ (kleiner als), überprüft, ob eine Gleitkommazahl kleiner als eine andere Gleitkommazahl ist.
 
-Ganzzahltypen haben separate Anweisungen für kleiner als vorzeichenbehaftet ([**`lt_s`**](/de/docs/WebAssembly/Reference/Numeric/lt_s)) und vorzeichenlos ([**`lt_u`**](/de/docs/WebAssembly/Reference/Numeric/lt_u)).
+Ganzzahltypen haben separate Anweisungen für kleiner als: signierte ([**`lt_s`**](/de/docs/WebAssembly/Reference/Numeric/lt_s)) und unsignierte ([**`lt_u`**](/de/docs/WebAssembly/Reference/Numeric/lt_u)).
 
 {{InteractiveExample("Wat Demo: lt", "tabbed-taller")}}
 
@@ -50,11 +50,11 @@ value_type.lt
   - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `lt`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `f32x4`
       - `f64x2`
 - `lt`
-  - : Die `lt`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `lt`-Anweisung, die immer nach dem `value_type` und einem Punkt (`.`) enthalten sein muss.
 
 ### Typ
 
@@ -69,13 +69,13 @@ value_type.lt
 - `output`
   - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Bei einem Nicht-SIMD `lt` sind die Eingaben einfache numerische Werte wie `3.0` oder `3.5`. Wenn der erste Eingabewert kleiner als der zweite ist, wird `1` als Ausgabe auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
+Für ein nicht-SIMD `lt` sind die Eingaben grundlegende Zahlenwerte, wie `3.0` oder `3.5`. Wenn der erste Eingang kleiner als der zweite Eingang ist, wird `1` auf den Stapel als Ausgabe geschoben, ansonsten `0`.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen, zum Beispiel `f32x4 2.0 30 86.9 120`. Jede Lane der Ausgabe, die auf den Stapel gelegt wird, ist eine `1` oder `0`, je nachdem ob die entsprechende Lane des ersten Eingabewerts kleiner als die entsprechende Lane des zweiten Eingabewerts ist.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `f32x4 2.0 30 86.9 120`. Jede Bahn der Ausgabe, die auf den Stapel geschoben wird, ist eine `1` oder `0`, was anzeigt, ob die entsprechende Bahn des ersten Eingabewertes kleiner als die entsprechende Bahn des zweiten Eingabewertes ist.
 
-### Binärcode-Kodierung
+### Binärcodierung
 
-| Anweisung  | Binärformat   | Beispiel Text => binär    |
+| Anweisung  | Binärformat   | Beispieltext => binär     |
 | ---------- | ------------- | ------------------------- |
 | `f32.lt`   | `0x5d`        | `f32.lt` => `0x5d`        |
 | `f64.lt`   | `0x63`        | `f64.lt` => `0x63`        |
@@ -86,11 +86,11 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `lt` sind die Eingaben [`v
 
 ### SIMD `lt` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `lt`, um zu testen, ob ein SIMD-Lanewert kleiner ist als derselbe Lanewert in einem anderen SIMD-Wert.
+In diesem Beispiel demonstrieren wir die Verwendung von `lt`, um zu prüfen, ob ein SIMD-Bahnenwert kleiner als derselbe Bahnenwert in einem anderen SIMD-Wert ist.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das `<p>` ausgibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das Objekt.
+In unserem Skript holen wir einen Verweis auf ein {{htmlelement("p")}}-Element, zu dem wir unser Ergebnis ausgeben, und definieren dann ein Objekt zur Einfuhr in Wasm, das eine einzelne Funktion enthält, die einen Wert an den Ausgabe-`<p>`-Tag schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei das Objekt importiert wird.
 
 ```html hidden live-sample___simd_lt
 <p></p>
@@ -112,7 +112,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und achten darauf, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD-`f32x4`-Werte und prüfen, ob die Lane-Werte des ersten mit `f32x4.lt` kleiner als die des zweiten sind. Schließlich extrahieren wir den in Lane `3` des Ausgangswerts gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter enthält. Wir deklarieren dann zwei SIMD `f32x4`-Werte und prüfen, ob die Bahnwerte des ersten kleiner als die des zweiten sind, indem wir `f32x4.lt` verwenden. Schließlich extrahieren wir den Wert, der in Bahn `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_lt
 (module
@@ -141,7 +141,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_lt", "100%", 100)}}
 
-Das Ergebnis ist `0`, weil der in Lane `3` des ersten Eingabewerts gespeicherte Wert nicht kleiner als der in Lane `3` des zweiten Eingabewerts gespeicherte Wert ist.
+Das Ergebnis ist `0`, da der Wert, der in Bahn `3` des ersten Eingabewertes gespeichert ist, nicht kleiner als der Wert ist, der in Bahn `3` des zweiten Eingabewertes gespeichert ist.
 
 ## Siehe auch
 

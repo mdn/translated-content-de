@@ -1,9 +1,9 @@
 ---
-title: "const: Wasm-Text-Anweisung"
+title: "const: Wasm-Textanweisung"
 short-title: const
 slug: WebAssembly/Reference/Numeric/const
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
 Die **`const`** [WebAssembly numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um Zahlen zu deklarieren.
@@ -35,14 +35,14 @@ value_type.const
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `const`:
+  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `const`:
     - `i32`
     - `i64`
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128)
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)
 - `const`
-  - : Die `const`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `const`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) einbezogen werden.
 
 ### Typ
 
@@ -52,10 +52,10 @@ value_type.const
 
 - `output`
   - : Der Wert, der auf den Stack geschoben wird:
-    - Für einen nicht-SIMD `value_type` ist dies ein einfacher numerischer Wert wie `3` oder `3.5`.
-    - Für einen [SIMD](/de/docs/WebAssembly/Reference/SIMD) `value_type` ist dies ein [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typ, gefolgt von einer SIMD-Wertinterpretation, zum Beispiel `i32x4 0x9 0xa 0xb 0xc`.
+    - Für einen nicht-SIMD `value_type` wird dies ein grundlegender numerischer Wert wie `3` oder `3.5` sein.
+    - Für einen [SIMD](/de/docs/WebAssembly/Reference/SIMD) `value_type` wird dies ein [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ sein, gefolgt von einer SIMD-Wertinterpretation, zum Beispiel `i32x4 0x9 0xa 0xb 0xc`.
 
-### Binäre Kodierung
+### Binärcodierung
 
 | Anweisung    | Binärformat            | Beispieltext => binär                                                                                                             |
 | ------------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |

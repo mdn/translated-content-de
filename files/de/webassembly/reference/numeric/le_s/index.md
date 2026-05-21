@@ -1,17 +1,17 @@
 ---
-title: "le_s: Wasm-Textanweisung"
+title: "le_s: Wasm Textanweisung"
 short-title: le_s
 slug: WebAssembly/Reference/Numeric/le_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`le_s`**-Anweisung, kurz für _less or equal signed_, prüft, ob ein vorzeichenbehafteter Integer kleiner oder gleich einem anderen vorzeichenbehafteten Integer ist.
+Die **`le_s`**-Anweisung, kurz für _less or equal signed_ (kleiner oder gleich, vorzeichenbehaftet), prüft, ob ein vorzeichenbehafteter Integer kleiner oder gleich einem anderen vorzeichenbehafteten Integer ist.
 
-Es gibt weitere `le`-Anweisungen:
+Es gibt andere `le`-Anweisungen:
 
-- [**`le_u`**](/de/docs/WebAssembly/Reference/Numeric/le_u) zum Vergleichen vorzeichenloser Integer.
-- [**`le`**](/de/docs/WebAssembly/Reference/Numeric/le) zum Vergleichen von Fließkommazahlen.
+- [**`le_u`**](/de/docs/WebAssembly/Reference/Numeric/le_u) für den Vergleich von vorzeichenlosen Ganzzahlen.
+- [**`le`**](/de/docs/WebAssembly/Reference/Numeric/le) für den Vergleich von Gleitkommazahlen.
 
 {{InteractiveExample("Wat Demo: le_s", "tabbed-taller")}}
 
@@ -50,16 +50,16 @@ value_type.le_s
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `le_s`:
+  - : Der Typ des Werts, mit dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `le_s`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `le_s`
-  - : Die `le_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen werden.
+  - : Die `le_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -72,13 +72,13 @@ value_type.le_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert, der ein ganzzahliger Typ sein wird.
+  - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Bei einem nicht-SIMD `le_s` sind die Eingaben einfache numerische Werte wie `3` oder `12`. Wenn die erste Eingabe kleiner oder gleich der zweiten Eingabe ist, wird `1` auf den Stack geschoben als Ausgabe, andernfalls wird `0` auf den Stack geschoben.
+Für ein nicht-SIMD `le_s` sind die Eingaben einfache numerische Werte wie `3` oder `12`. Wenn der erste Eingang kleiner oder gleich dem zweiten ist, wird `1` auf den Stapel gepusht, ansonsten wird `0` gepusht.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `le_s` sind die Eingaben Interpretationen des [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertes, zum Beispiel `i32x4 2 30 86 120`. Jede Lane der Ausgabe, die auf den Stack geschoben wird, ist eine `1` oder `0`, die angibt, ob der entsprechende Lane-Wert der ersten Eingabe kleiner oder gleich dem entsprechenden Lane-Wert der zweiten Eingabe ist.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `le_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wert-Interpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Lane der Ausgabe, die auf den Stapel gepusht wird, ist `1` oder `0`, je nachdem, ob die entsprechende Lane des ersten Eingabewertes kleiner oder gleich der entsprechenden Lane des zweiten Eingabewertes ist.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung    | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |
@@ -93,11 +93,11 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `le_s` sind die Eingaben I
 
 ### SIMD `le_s` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `le_s`, um zu testen, ob ein SIMD-Lane-Wert kleiner oder gleich dem gleichen Lane-Wert in einem anderen SIMD-Wert ist.
+In diesem Beispiel zeigen wir, wie `le_s` verwendet wird, um zu testen, ob ein SIMD-Lane-Wert kleiner oder gleich demselben Lane-Wert in einem anderen SIMD-Wert ist.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren dann ein Objekt für den Import in das Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element ein, auf das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt importieren.
 
 ```html hidden live-sample___simd_le_s
 <p></p>
@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass deklariert wird, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und prüfen, ob die Lane-Werte des ersten kleiner oder gleich denen des zweiten sind, indem wir `i32x4.le_s` verwenden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn durch Aufruf der importierten `output()`-Funktion an das DOM aus.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD `i32x4` Werte und prüfen, ob die Lane-Werte des ersten kleiner oder gleich denjenigen des zweiten sind, indem wir `i32x4.le_s` verwenden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewerts gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_le_s
 (module
@@ -148,7 +148,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_le_s", "100%", 100)}}
 
-Das Ergebnis ist `0`, weil der Wert, der in Lane `3` des ersten Eingabewertes gespeichert ist, nicht kleiner oder gleich dem Wert in Lane `3` des zweiten Eingabewertes ist.
+Das Ergebnis ist `0`, da der in Lane `3` des ersten Eingabewerts gespeicherte Wert nicht kleiner oder gleich dem in Lane `3` des zweiten Eingabewerts gespeicherten Wert ist.
 
 ## Siehe auch
 

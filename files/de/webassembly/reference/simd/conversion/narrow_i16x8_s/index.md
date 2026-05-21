@@ -3,10 +3,10 @@ title: "narrow_i16x8_s: Wasm SIMD Konvertierungsanweisung"
 short-title: narrow_i16x8_s
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i16x8_s
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`narrow_i16x8_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Types/v128) `i16x8` Wertinterpretationen in eine `i8x16` Wertinterpretation.
+Die **`narrow_i16x8_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretationen in eine `i8x16` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: narrow_i16x8_s", "tabbed-taller")}}
 
@@ -51,9 +51,9 @@ i8x16.narrow_i16x8_s
 - `output`
   - : Die Ausgabe `v128` `i8x16` Wertinterpretation.
 
-### Binäre Codierung
+### Binäre Kodierung
 
-| Anweisung              | Binärformat    | Beispieltext => binär                 |
+| Anweisung              | Binärformat    | Beispieltext => Binär                 |
 | ---------------------- | -------------- | ------------------------------------- |
 | `i8x16.narrow_i16x8_s` | `0xfd 101:u32` | `i8x16.narrow_i16x8_s` => `0xfd 0x65` |
 
@@ -67,4 +67,4 @@ i8x16.narrow_i16x8_s
 
 ## Siehe auch
 
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

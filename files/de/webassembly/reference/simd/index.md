@@ -2,13 +2,13 @@
 title: WebAssembly SIMD-spezifische Anweisungen
 slug: WebAssembly/Reference/SIMD
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-WebAssembly SIMD (Single Instruction, Multiple Data) Anweisungen.
+WebAssembly SIMD (single instruction, multiple data) Anweisungen.
 
 > [!NOTE]
-> Die Anweisungen in diesem Abschnitt sind SIMD-spezifisch. Viele der allgemeinen (nicht SIMD-spezifischen) Referenzseiten enthalten Informationen zur Verwendung dieser Anweisungen mit SIMD- sowie mit nicht-SIMD-Typen.
+> Die Anweisungen in diesem Abschnitt sind SIMD-spezifisch. Viele der allgemeinen (nicht SIMD-spezifischen) Referenzseiten enthalten Informationen zur Verwendung dieser Anweisungen mit SIMD- sowie nicht-SIMD-Typen.
 
 - [Arithmetische Anweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)
   - : SIMD-spezifische arithmetische Anweisungen.
@@ -19,8 +19,8 @@ WebAssembly SIMD (Single Instruction, Multiple Data) Anweisungen.
 - [Extraktionsanweisungen](/de/docs/WebAssembly/Reference/SIMD/extract)
   - : SIMD-Extraktionsanweisungen.
 - [Lade- und Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)
-  - : SIMD-Lade- und Speicheranweisungen.
+  - : SIMD Lade- und Speicheranweisungen.
 
 ## Siehe auch
 
-- [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typ
+- [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ

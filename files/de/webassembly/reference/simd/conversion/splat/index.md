@@ -1,12 +1,12 @@
 ---
-title: "splat: Wasm SIMD-Umwandlungsanweisung"
+title: "splat: Wasm SIMD Umwandlungsanweisung"
 short-title: splat
 slug: WebAssembly/Reference/SIMD/conversion/splat
 l10n:
-  sourceCommit: 54f08abfc534ac02e9f56a65080cd839fd126b2d
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`splat`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) kopiert denselben Wert in alle Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretation.
+Die **`splat`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) kopiert denselben Wert in alle Lanes einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werteinterpretation.
 
 {{InteractiveExample("Wat Demo: splat", "tabbed-taller")}}
 
@@ -50,7 +50,7 @@ value_type.splat
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Types/v128)-Wertinterpretationen unterstützen `splat`:
+  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werteinterpretationen unterstützen `splat`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
@@ -67,15 +67,15 @@ value_type.splat
 ```
 
 - `input`
-  - : Die Eingabe `v128`-Wertinterpretation.
+  - : Die Eingabe `v128` Werteinterpretation.
 - `value`
-  - : Der Wert, den Sie in alle Lanes des `v128` kopieren möchten.
+  - : Der Wert, den Sie in alle Lanes der `v128` kopieren möchten.
 - `output`
-  - : Die resultierende `v128`-Wertinterpretation, nachdem alle Lanes des Eingabewerts auf den `value` gesetzt wurden.
+  - : Die resultierende `v128` Werteinterpretation, nachdem alle Lanes des Eingabewerts auf den `value` gesetzt wurden.
 
-### Binärkodierung
+### Binäre Kodierung
 
-| Anweisung     | Binärformat   | Beispieltext => binär        |
+| Anweisung     | Binärformat   | Textbeispiel => Binär        |
 | ------------- | ------------- | ---------------------------- |
 | `i8x16.splat` | `0xfd 15:u32` | `i8x16.splat` => `0xfd 0x0f` |
 | `i16x8.splat` | `0xfd 16:u32` | `i16x8.splat` => `0xfd 0x10` |
@@ -94,4 +94,4 @@ value_type.splat
 
 ## Siehe auch
 
-- [SIMD-Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)
+- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

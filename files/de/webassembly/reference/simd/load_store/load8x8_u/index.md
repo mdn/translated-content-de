@@ -1,12 +1,12 @@
 ---
-title: "load8x8_u: Wasm SIMD Lade-/Speicheranweisung"
+title: "load8x8_u: Wasm SIMD Load/Store-Befehl"
 short-title: load8x8_u
 slug: WebAssembly/Reference/SIMD/load_store/load8x8_u
 l10n:
-  sourceCommit: 76b3f4216320b4ecdbc8b95028dc46aa67e1468e
+  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
 ---
 
-Die **`load8x8_u`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt acht 8-Bit-Ganzzahlen von einer gegebenen Speicheradresse und erweitert jede auf null auf eine 16-Bit-Spur, und gibt eine [`v128`](/de/docs/WebAssembly/Reference/Types/v128) Typ `i16x8` Wertinterpretation aus.
+Der **`load8x8_u`** [SIMD-Load/Store-Befehl](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt acht 8-Bit Ganzzahlen von einer angegebenen Speicheradresse und erweitert jede auf ein 16-Bit-Register, indem sie mit Nullen ergänzt wird. Das Ergebnis ist eine [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ-Interpretation als `i16x8` Wert.
 
 {{InteractiveExample("Wat Demo: load8x8_u", "tabbed-taller")}}
 
@@ -40,13 +40,13 @@ v128.load8x8_u mem_idx offset=int align=int
 ```
 
 - `v128.load8x8_u`
-  - : Die `v128.load8x8_u` Anweisung.
+  - : Der `v128.load8x8_u` Befehl.
 - `mem_idx` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der den Speicherindex darstellt, wenn das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse zu erwarten ist. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein Ganzzahlwert, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load8x8_u mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein ganzzahliger Wert, der die Speicheradresse darstellt, von der geladen werden soll.
+  - : Ein Ganzzahlwert, der die Speicheradresse darstellt, von der geladen wird.
 - `output`
-  - : Die Ausgabe als `v128` Typ `i16x8` Wertinterpretation.
+  - : Die Ausgabe-`v128` Typ-Interpretation als `i16x8` Wert.
 
 ### Binärcodierung
 
-| Anweisung        | Binärformat                                  | Beispieltext => binär                                        |
+| Befehl           | Binärformat                                  | Beispieltext => binär                                        |
 | ---------------- | -------------------------------------------- | ------------------------------------------------------------ |
 | `v128.load8x8_u` | `0xFD 2:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load8x8_u 0 offset=0 align=2` => `0xfd 0x02 0x01 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den literalen `align`-Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Beispiel: `align=1` entspricht `0x00` (`2^0`), während `align=8` `0x03` (`2^3`) entspricht.
+> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So entspricht zum Beispiel `align=1` dem Wert `0x00` (`2^0`), während `align=8` dem Wert `0x03` (`2^3`) entspricht.
 
 ## Spezifikationen
 
@@ -78,4 +78,4 @@ v128.load8x8_u mem_idx offset=int align=int
 
 ## Siehe auch
 
-- [SIMD Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)
+- [SIMD Load/Store-Befehle](/de/docs/WebAssembly/Reference/SIMD/load_store)
