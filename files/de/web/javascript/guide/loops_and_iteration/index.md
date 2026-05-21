@@ -2,14 +2,14 @@
 title: Schleifen und Iteration
 slug: Web/JavaScript/Guide/Loops_and_iteration
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Control_flow_and_error_handling", "Web/JavaScript/Guide/Functions")}}
 
-Schleifen bieten eine schnelle und einfache Möglichkeit, etwas wiederholt auszuführen. Dieses Kapitel des [JavaScript-Leitfadens](/de/docs/Web/JavaScript/Guide) stellt die verschiedenen Iterationsanweisungen vor, die JavaScript zur Verfügung stehen.
+Schleifen bieten eine schnelle und einfache Möglichkeit, etwas wiederholt zu tun. Dieses Kapitel des [JavaScript-Leitfadens](/de/docs/Web/JavaScript/Guide) führt in die verschiedenen Iterationsanweisungen ein, die in JavaScript verfügbar sind.
 
-Sie können sich eine Schleife als eine computerisierte Version des Spiels vorstellen, bei dem Sie jemandem sagen, er solle _X_ Schritte in eine Richtung und dann _Y_ Schritte in eine andere Richtung gehen. Zum Beispiel könnte die Idee "Gehen Sie fünf Schritte nach Osten" auf diese Weise als Schleife ausgedrückt werden:
+Sie können sich eine Schleife als eine computerisierte Version des Spiels vorstellen, bei dem Sie jemandem sagen, er solle _X_ Schritte in eine Richtung machen und dann _Y_ Schritte in eine andere. Beispielsweise könnte die Idee "Gehen Sie fünf Schritte nach Osten" auf diese Weise als Schleife ausgedrückt werden:
 
 ```js
 for (let step = 0; step < 5; step++) {
@@ -18,11 +18,11 @@ for (let step = 0; step < 5; step++) {
 }
 ```
 
-Es gibt viele verschiedene Arten von Schleifen, aber sie tun im Wesentlichen alle dasselbe: Sie wiederholen eine Aktion eine bestimmte Anzahl von Malen. (Beachten Sie, dass diese Anzahl auch null sein kann!)
+Es gibt viele verschiedene Arten von Schleifen, aber im Wesentlichen tun sie alle dasselbe: Sie wiederholen eine Aktion eine bestimmte Anzahl von Malen. (Beachten Sie, dass diese Zahl auch null sein könnte!)
 
-Die verschiedenen Schleifenmechanismen bieten unterschiedliche Möglichkeiten, den Start- und Endpunkt der Schleife zu bestimmen. Es gibt verschiedene Situationen, die besser durch eine Schleifenart unterstützt werden als durch die anderen.
+Die verschiedenen Schleifenmechanismen bieten unterschiedliche Möglichkeiten, die Start- und Endpunkte der Schleife zu bestimmen. In verschiedenen Situationen ist eine bestimmte Art von Schleife möglicherweise besser geeignet als andere.
 
-Die in JavaScript bereitgestellten Anweisungen für Schleifen sind:
+Die in JavaScript bereitgestellten Schleifenanweisungen sind:
 
 - [for-Anweisung](#for-anweisung)
 - [do...while-Anweisung](#do...while-anweisung)
@@ -35,26 +35,26 @@ Die in JavaScript bereitgestellten Anweisungen für Schleifen sind:
 
 ## for-Anweisung
 
-Eine {{jsxref("Statements/for", "for")}}-Schleife wird so lange wiederholt, bis eine bestimmte Bedingung `false` ergibt. Die JavaScript-`for`-Schleife ist der `for`-Schleife in Java und C ähnlich.
+Eine {{jsxref("Statements/for", "for")}}-Schleife wird wiederholt, bis eine angegebene Bedingung als falsch ausgewertet wird. Die JavaScript-`for`-Schleife ähnelt der Java- und C-`for`-Schleife.
 
-Eine `for`-Anweisung sieht wie folgt aus:
+Eine `for`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 for (initialization; condition; afterthought)
   statement
 ```
 
-Wenn eine `for`-Schleife ausgeführt wird, passiert Folgendes:
+Wenn eine `for`-Schleife ausgeführt wird, geschieht Folgendes:
 
-1. Der initialisierende Ausdruck `initialization`, falls vorhanden, wird ausgeführt. Dieser Ausdruck initialisiert in der Regel einen oder mehrere Schleifenzähler, aber die Syntax erlaubt auch einen Ausdruck beliebiger Komplexität. Dieser Ausdruck kann auch Variablen deklarieren.
-2. Der Ausdruck `condition` wird ausgewertet. Wenn der Wert von `condition` wahr ist, werden die Schleifenanweisungen ausgeführt. Andernfalls wird die `for`-Schleife beendet. (Wenn der Ausdruck `condition` vollständig weggelassen wird, wird die Bedingung als wahr vorausgesetzt.)
-3. Die `statement` wird ausgeführt. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) (`{ }`), um diese Anweisungen zu gruppieren.
-4. Falls vorhanden, wird der Aktualisierungsausdruck `afterthought` ausgeführt.
-5. Die Steuerung kehrt zu Schritt 2 zurück.
+1. Der initialisierende Ausdruck `initialization`, sofern vorhanden, wird ausgeführt. Dieser Ausdruck initialisiert in der Regel einen oder mehrere Schleifenzähler, aber die Syntax erlaubt einen Ausdruck beliebiger Komplexität. Dieser Ausdruck kann auch Variablen deklarieren.
+2. Der Ausdruck `condition` wird ausgewertet. Wenn der Wert von `condition` wahr ist, werden die Schleifenanweisungen ausgeführt. Andernfalls endet die `for`-Schleife. (Wenn der `condition`-Ausdruck vollständig weggelassen wird, wird angenommen, dass die Bedingung wahr ist.)
+3. Die `statement` wird ausgeführt. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) (`{ }`), um diese Anweisungen zu gruppieren.
+4. Wenn vorhanden, wird der Aktualisierungsausdruck `afterthought` ausgeführt.
+5. Die Kontrolle kehrt zu Schritt 2 zurück.
 
 ### Beispiel
 
-Im folgenden Beispiel enthält die Funktion eine `for`-Anweisung, die die Anzahl der ausgewählten Optionen in einer Scroll-Liste zählt (ein [`<select>`](/de/docs/Web/HTML/Reference/Elements/select)-Element, das Mehrfachauswahl erlaubt).
+Im folgenden Beispiel enthält die Funktion eine `for`-Anweisung, die die Anzahl der ausgewählten Optionen in einer Auswahlliste zählt (ein [`<select>`](/de/docs/Web/HTML/Reference/Elements/select)-Element, das Mehrfachauswahlen erlaubt).
 
 #### HTML
 
@@ -77,7 +77,7 @@ Im folgenden Beispiel enthält die Funktion eine `for`-Anweisung, die die Anzahl
 
 #### JavaScript
 
-Hier deklariert die `for`-Anweisung die Variable `i` und initialisiert sie mit `0`. Sie überprüft, ob `i` kleiner ist als die Anzahl der Optionen im `<select>`-Element, führt die folgende `if`-Anweisung aus und erhöht `i` um 1 nach jedem Durchlauf durch die Schleife.
+Hier deklariert die `for`-Anweisung die Variable `i` und initialisiert sie mit `0`. Es wird überprüft, ob `i` kleiner als die Anzahl der Optionen im `<select>`-Element ist, die nachfolgende `if`-Anweisung wird ausgeführt, und `i` wird nach jedem Durchlauf der Schleife um 1 erhöht.
 
 ```js
 function countSelected(selectObject) {
@@ -100,9 +100,9 @@ btn.addEventListener("click", () => {
 
 ## do...while-Anweisung
 
-Die {{jsxref("statements/do...while", "do...while")}}-Anweisung wird so lange wiederholt, bis eine bestimmte Bedingung `false` ergibt.
+Die {{jsxref("Statements/do...while", "do...while")}}-Anweisung wird wiederholt, bis eine angegebene Bedingung als falsch ausgewertet wird.
 
-Eine `do...while`-Anweisung sieht wie folgt aus:
+Eine `do...while`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 do
@@ -110,13 +110,14 @@ do
 while (condition);
 ```
 
-`statement` wird immer mindestens einmal ausgeführt, bevor die Bedingung überprüft wird. (Um mehrere Anweisungen auszuführen, verwenden Sie eine Blockanweisung (`{ }`), um diese Anweisungen zu gruppieren.)
+`statement` wird immer einmal ausgeführt, bevor die Bedingung
+überprüft wird. (Um mehrere Anweisungen auszuführen, verwenden Sie eine Block-Anweisung (`{ }`), um diese Anweisungen zu gruppieren.)
 
-Wenn `condition` wahr ist, wird die Anweisung erneut ausgeführt. Am Ende jeder Ausführung wird die Bedingung überprüft. Wenn die Bedingung `false` ist, wird die Ausführung gestoppt und die Steuerung an die Anweisung nach `do...while` übergeben.
+Wenn `condition` wahr ist, wird die Anweisung erneut ausgeführt. Am Ende jeder Ausführung wird die Bedingung überprüft. Wenn die Bedingung falsch ist, stoppt die Ausführung und die Kontrolle wird an die Anweisung nach `do...while` übergeben.
 
 ### Beispiel
 
-Im folgenden Beispiel wird die `do`-Schleife mindestens einmal durchlaufen und erneut durchlaufen, bis `i` nicht mehr kleiner als `5` ist.
+Im folgenden Beispiel iteriert die `do`-Schleife mindestens einmal und wiederholt sich, bis `i` nicht mehr kleiner als `5` ist.
 
 ```js
 let i = 0;
@@ -128,18 +129,19 @@ do {
 
 ## while-Anweisung
 
-Eine {{jsxref("Statements/while", "while")}}-Anweisung führt ihre Anweisungen aus, solange eine bestimmte Bedingung `true` ist. Eine `while`-Anweisung sieht wie folgt aus:
+Eine {{jsxref("Statements/while", "while")}}-Anweisung führt ihre Anweisungen so lange aus, wie eine angegebene Bedingung als `true` ausgewertet wird. Eine `while`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 while (condition)
   statement
 ```
 
-Wenn die `condition` `false` wird, wird die `statement` innerhalb der Schleife nicht mehr ausgeführt und die Steuerung wird an die Anweisung nach der Schleife übergeben.
+Wenn die `condition` falsch wird, stoppt das `statement` innerhalb der Schleife und die Kontrolle wird an die Anweisung nach der Schleife übergeben.
 
-Der Bedingungstest erfolgt _vor_ der Ausführung der `statement` in der Schleife. Wenn die Bedingung `true` zurückgibt, wird `statement` ausgeführt und die `condition` erneut getestet. Wenn die Bedingung `false` zurückgibt, wird die Ausführung gestoppt und die Steuerung an die Anweisung nach `while` übergeben.
+Der Bedingungstest erfolgt _bevor_ `statement` in der Schleife
+ausgeführt wird. Wenn die Bedingung `true` zurückgibt, wird `statement` ausgeführt und die `condition` erneut geprüft. Wenn die Bedingung `false` zurückgibt, stoppt die Ausführung, und die Kontrolle wird an die Anweisung nach `while` übergeben.
 
-Um mehrere Anweisungen auszuführen, verwenden Sie eine Blockanweisung (`{ }`), um diese Anweisungen zu gruppieren.
+Um mehrere Anweisungen auszuführen, verwenden Sie eine Block-Anweisung (`{ }`), um diese Anweisungen zu gruppieren.
 
 ### Beispiel 1
 
@@ -154,7 +156,7 @@ while (n < 3) {
 }
 ```
 
-Mit jeder Iteration erhöht die Schleife `n` und addiert diesen Wert zu `x`. Daher nehmen `x` und `n` folgende Werte an:
+Bei jedem Durchlauf erhöht die Schleife `n` und fügt diesen Wert zu `x` hinzu. Daher nehmen `x` und `n` folgende Werte an:
 
 - Nach dem ersten Durchlauf: `n` = `1` und `x` = `1`
 - Nach dem zweiten Durchlauf: `n` = `2` und `x` = `3`
@@ -164,7 +166,7 @@ Nach Abschluss des dritten Durchlaufs ist die Bedingung `n < 3` nicht mehr `true
 
 ### Beispiel 2
 
-Vermeiden Sie Endlosschleifen. Stellen Sie sicher, dass die Bedingung in einer Schleife schließlich `false` wird—sonst wird die Schleife nie beendet! Die Anweisungen in der folgenden `while`-Schleife werden für immer ausgeführt, da die Bedingung niemals `false` wird:
+Vermeiden Sie Endlosschleifen. Stellen Sie sicher, dass die Bedingung in einer Schleife letztendlich `false` wird – andernfalls wird die Schleife niemals enden! Die Anweisungen in der folgenden `while`-Schleife werden für immer ausgeführt, weil die Bedingung niemals `false` wird:
 
 ```js example-bad
 // Infinite loops are bad!
@@ -175,37 +177,37 @@ while (true) {
 
 ## labeled-Anweisung
 
-Eine {{jsxref("Statements/label", "label")}} versieht eine Anweisung mit einer Kennung, die es Ihnen ermöglicht, später in Ihrem Programm darauf zu verweisen. Zum Beispiel können Sie ein Label verwenden, um eine Schleife zu kennzeichnen und dann die `break`- oder `continue`-Anweisungen verwenden, um anzugeben, ob ein Programm die Schleife unterbrechen oder ihre Ausführung fortsetzen soll.
+Eine {{jsxref("Statements/label", "label")}} bietet einer Anweisung eine Kennzeichnung, mit der Sie sich an anderer Stelle im Programm darauf beziehen können. Beispielsweise können Sie ein Label verwenden, um eine Schleife zu identifizieren, und dann die `break`- oder `continue`-Anweisungen verwenden, um anzugeben, ob ein Programm die Schleife unterbrechen oder fortsetzen soll.
 
-Die Syntax der labeled-Anweisung sieht wie folgt aus:
+Die Syntax der labeled-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 label:
   statement
 ```
 
-Der Wert des `label` kann eine beliebige JavaScript-Kennung sein, die kein reserviertes Wort ist. Die `statement`, die Sie mit einem Label kennzeichnen, kann jede Anweisung sein. Beispiele für die Verwendung von labeled-Anweisungen finden Sie in den folgenden Beispielen zu `break` und `continue`.
+Der Wert von `label` kann jeder JavaScript-Bezeichner sein, der kein reserviertes Wort ist. Die `statement`, die Sie mit einem Label identifizieren, kann eine beliebige Anweisung sein. Für Beispiele zur Verwendung von labeled-Anweisungen siehe die Beispiele von `break` und `continue` unten.
 
 ## break-Anweisung
 
 Verwenden Sie die {{jsxref("Statements/break", "break")}}-Anweisung, um eine Schleife, `switch` oder in Verbindung mit einer labeled-Anweisung zu beenden.
 
-- Wenn Sie `break` ohne Label verwenden, wird die innerste umschließende `while`, `do-while`, `for` oder `switch` sofort beendet und die Steuerung an die folgende Anweisung übergeben.
-- Wenn Sie `break` mit einem Label verwenden, wird die spezifizierte labeled-Anweisung beendet.
+- Wenn Sie `break` ohne Label verwenden, wird die unmittelbar umschlossene `while`, `do-while`, `for` oder `switch` sofort beendet und die Kontrolle geht zur folgenden Anweisung über.
+- Wenn Sie `break` mit einem Label verwenden, wird die angegebene labeled-Anweisung beendet.
 
-Die Syntax der `break`-Anweisung sieht wie folgt aus:
+Die Syntax der `break`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 break;
 break label;
 ```
 
-1. Die erste Form der Syntax beendet die innerste umschließende Schleife oder `switch`.
-2. Die zweite Form der Syntax beendet die spezifizierte umschließende labeled-Anweisung.
+1. Die erste Form der Syntax beendet die unmittelbar umschlossene Schleife oder `switch`.
+2. Die zweite Form der Syntax beendet die angegebene umschlossene labeled-Anweisung.
 
 ### Beispiel 1
 
-Das folgende Beispiel iteriert durch die Elemente eines Arrays, bis es den Index eines Elements findet, dessen Wert `theValue` ist:
+Das folgende Beispiel iteriert durch die Elemente eines Arrays, bis es den Index eines Elements mit dem Wert `theValue` findet:
 
 ```js
 for (let i = 0; i < a.length; i++) {
@@ -215,7 +217,7 @@ for (let i = 0; i < a.length; i++) {
 }
 ```
 
-### Beispiel 2: Abbrechen zu einem Label
+### Beispiel 2: Abbruch zu einem Label
 
 ```js
 let x = 0;
@@ -240,10 +242,10 @@ labelCancelLoops: while (true) {
 
 Die {{jsxref("Statements/continue", "continue")}}-Anweisung kann verwendet werden, um eine `while`, `do-while`, `for` oder `label`-Anweisung neu zu starten.
 
-- Wenn Sie `continue` ohne Label verwenden, wird die aktuelle Iteration der innersten umschließenden `while`, `do-while` oder `for`-Anweisung beendet, und die Ausführung der Schleife wird mit der nächsten Iteration fortgesetzt. Im Gegensatz zur `break`-Anweisung beendet `continue` nicht die Ausführung der Schleife vollständig. In einer `while`-Schleife springt sie zurück zur Bedingung. In einer `for`-Schleife springt sie zum `increment-expression`.
-- Wenn Sie `continue` mit einem Label verwenden, bezieht sie sich auf die Schleifenanweisung, die mit diesem Label gekennzeichnet ist.
+- Wenn Sie `continue` ohne Label verwenden, wird die aktuelle Iteration der unmittelbar umschlossenen `while`, `do-while` oder `for`-Anweisung beendet und die Ausführung der Schleife mit der nächsten Iteration fortgesetzt. Im Gegensatz zur `break`-Anweisung beendet `continue` nicht die Ausführung der Schleife vollständig. In einer `while`-Schleife springt es zurück zur Bedingung. In einer `for`-Schleife springt es zum `increment-expression`.
+- Wenn Sie `continue` mit einem Label verwenden, bezieht es sich auf die Schleifenanweisung mit diesem Label.
 
-Die Syntax der `continue`-Anweisung sieht wie folgt aus:
+Die Syntax der `continue`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 continue;
@@ -252,7 +254,7 @@ continue label;
 
 ### Beispiel 1
 
-Das folgende Beispiel zeigt eine `while`-Schleife mit einer `continue`-Anweisung, die ausgeführt wird, wenn der Wert von `i` `3` ist. Dadurch nimmt `n` die Werte `1`, `3`, `7` und `12` an.
+Das folgende Beispiel zeigt eine `while`-Schleife mit einer `continue`-Anweisung, die ausgeführt wird, wenn der Wert von `i` `3` ist. So nimmt `n` die Werte `1`, `3`, `7` und `12` an.
 
 ```js
 let i = 0;
@@ -269,13 +271,13 @@ while (i < 5) {
 // 1 3 7 12
 ```
 
-Wenn Sie die `continue;`-Anweisung auskommentieren, würde die Schleife bis zum Ende laufen und Sie würden `1,3,6,10,15` sehen.
+Wenn Sie `continue;` auskommentieren, würde die Schleife bis zum Ende laufen und Sie würden `1,3,6,10,15` sehen.
 
 ### Beispiel 2
 
-Eine Anweisung mit dem Label `checkIandJ` enthält eine Anweisung mit dem Label `checkJ`. Wenn `continue` auftritt, beendet das Programm die aktuelle Iteration von `checkJ` und beginnt die nächste Iteration. Jedes Mal, wenn `continue` auftritt, wird `checkJ` erneut durchlaufen, bis seine Bedingung `false` ergibt. Wenn `false` zurückgegeben wird, wird der Rest der `checkIandJ`-Anweisung ausgeführt, und `checkIandJ` wird erneut durchlaufen, bis seine Bedingung `false` ergibt. Wenn `false` zurückgegeben wird, setzt das Programm die Ausführung mit der Anweisung nach `checkIandJ` fort.
+Eine Anweisung mit dem Label `checkIandJ` enthält eine Anweisung mit dem Label `checkJ`. Wenn `continue` aufgerufen wird, beendet das Programm die aktuelle Iteration von `checkJ` und beginnt die nächste Iteration. Jedes Mal, wenn `continue` aufgerufen wird, wird `checkJ` erneut durchlaufen, bis seine Bedingung `false` zurückgibt. Wenn `false` zurückgegeben wird, wird der Rest der `checkIandJ`-Anweisung abgeschlossen, und `checkIandJ` wird erneut durchlaufen, bis seine Bedingung `false` zurückgibt. Wenn `false` zurückgegeben wird, wird das Programm bei der Anweisung nach `checkIandJ` fortgesetzt.
 
-Hätte `continue` ein Label `checkIandJ`, würde das Programm an den Anfang der `checkIandJ`-Anweisung fortsetzen.
+Wenn `continue` ein Label von `checkIandJ` hätte, würde das Programm am Anfang der `checkIandJ`-Anweisung fortfahren.
 
 ```js
 let i = 0;
@@ -298,7 +300,7 @@ checkIandJ: while (i < 4) {
 
 ## for...in-Anweisung
 
-Die {{jsxref("Statements/for...in", "for...in")}}-Anweisung iteriert eine spezifizierte Variable über alle aufzählbaren Eigenschaften eines Objekts. Für jede eindeutige Eigenschaft führt JavaScript die spezifizierten Anweisungen aus. Eine `for...in`-Anweisung sieht wie folgt aus:
+Die {{jsxref("Statements/for...in", "for...in")}}-Anweisung iteriert eine angegebene Variable über alle aufzählbaren Eigenschaften eines Objekts. Für jede eindeutige Eigenschaft führt JavaScript die angegebenen Anweisungen aus. Eine `for...in`-Anweisung sieht folgendermaßen aus:
 
 ```js-nolint
 for (variable in object)
@@ -307,7 +309,7 @@ for (variable in object)
 
 ### Beispiel
 
-Die folgende Funktion nimmt als Argument ein Objekt und den Namen des Objekts. Sie iteriert dann über alle Eigenschaften des Objekts und gibt einen String zurück, der die Eigenschaftsnamen und deren Werte auflistet.
+Die folgende Funktion nimmt als Argument ein Objekt und den Namen des Objekts. Sie iteriert dann über alle Eigenschaften des Objekts und gibt einen String zurück, der die Eigenschaftsnamen und ihre Werte auflistet.
 
 ```js
 function dumpProps(obj, objName) {
@@ -320,7 +322,7 @@ function dumpProps(obj, objName) {
 }
 ```
 
-Für ein Objekt `car` mit den Eigenschaften `make` und `model` würde `result` sein:
+Für ein Objekt `car` mit den Eigenschaften `make` und `model` wäre `result`:
 
 ```plain
 car.make = Ford
@@ -329,13 +331,13 @@ car.model = Mustang
 
 ### Arrays
 
-Obwohl es verlockend sein mag, dies als Möglichkeit zu nutzen, über {{jsxref("Array")}}-Elemente zu iterieren, wird die `for...in`-Anweisung neben den numerischen Indizes auch den Namen Ihrer benutzerdefinierten Eigenschaften zurückgeben.
+Obwohl es verlockend sein mag, dies als eine Möglichkeit zu verwenden, um über {{jsxref("Array")}}-Elemente zu iterieren, wird die `for...in`-Anweisung die Namen Ihrer benutzerdefinierten Eigenschaften zusätzlich zu den numerischen Indizes zurückgeben.
 
-Daher ist es besser, eine traditionelle {{jsxref("Statements/for", "for")}}-Schleife mit einem numerischen Index zu verwenden, wenn Sie über Arrays iterieren, da die `for...in`-Anweisung über benutzerdefinierte Eigenschaften zusätzlich zu den Array-Elementen iteriert, wenn Sie das Array-Objekt modifizieren (zum Beispiel, wenn Sie benutzerdefinierte Eigenschaften oder Methoden hinzufügen).
+Daher ist es besser, eine traditionelle {{jsxref("Statements/for", "for")}}-Schleife mit einem numerischen Index zu verwenden, wenn Sie über Arrays iterieren, da die `for...in`-Anweisung über benutzerdefinierte Eigenschaften zusätzlich zu den Array-Elementen iteriert, wenn Sie das Array-Objekt modifizieren (z.B. durch Hinzufügen von benutzerdefinierten Eigenschaften oder Methoden).
 
 ## for...of-Anweisung
 
-Die {{jsxref("Statements/for...of", "for...of")}}-Anweisung erstellt eine Schleife, die über [iterierbare Objekte](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (einschließlich {{jsxref("Array")}}, {{jsxref("Map")}}, {{jsxref("Set")}}, {{jsxref("Functions/arguments", "arguments")}}-Objekt und so weiter) iteriert und einen benutzerdefinierten Iterationshaken mit Anweisungen aufruft, die für den Wert jeder eindeutigen Eigenschaft ausgeführt werden.
+Die {{jsxref("Statements/for...of", "for...of")}}-Anweisung erstellt eine Schleife, die über [iterierbare Objekte](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (einschließlich {{jsxref("Array")}}, {{jsxref("Map")}}, {{jsxref("Set")}}, {{jsxref("Functions/arguments", "arguments")}}-Objekt und so weiter) iteriert, und einen benutzerdefinierten Iterations-Hook mit Anweisungen aufruft, die für den Wert jeder eindeutigen Eigenschaft ausgeführt werden sollen.
 
 ```js-nolint
 for (variable of iterable)
@@ -359,7 +361,7 @@ for (const i of arr) {
 // Logs: 3 5 7
 ```
 
-Die `for...of`- und `for...in`-Anweisungen können auch mit [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) verwendet werden. Zum Beispiel können Sie gleichzeitig über die Schlüssel und Werte eines Objekts mit {{jsxref("Object.entries()")}} iterieren.
+Die `for...of` und `for...in`-Anweisungen können auch mit [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) verwendet werden. Zum Beispiel können Sie gleichzeitig über die Schlüssel und Werte eines Objekts mit {{jsxref("Object.entries()")}} iterieren.
 
 ```js
 const obj = { foo: 1, bar: 2 };

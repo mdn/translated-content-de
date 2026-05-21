@@ -1,15 +1,14 @@
 ---
-title: "GPURenderPassEncoder: setViewport() Methode"
+title: "GPURenderPassEncoder: setViewport()-Methode"
 short-title: setViewport()
 slug: Web/API/GPURenderPassEncoder/setViewport
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setViewport()`**-Methode der
-[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt die Viewport, die während der Rasterisierungsphase verwendet wird, um von normalisierten Gerätekoordinaten linear zu Viewport-Koordinaten zu wechseln.
+Die **`setViewport()`**-Methode des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces legt den Viewport fest, der während der Rasterisierungsphase verwendet wird, um von normalisierten Gerätekoordinaten auf Viewport-Koordinaten linear abzubilden.
 
 ## Syntax
 
@@ -33,30 +32,30 @@ setViewport(x, y, width, height, minDepth, maxDepth)
   - : Eine Zahl, die den maximalen Tiefenwert des Viewports darstellt.
 
 > [!NOTE]
-> Wenn kein `setViewport()`-Aufruf erfolgt, sind die Standardwerte `(0, 0, attachment width, attachment height, 0, 1)` für jeden Render-Pass.
+> Wenn kein `setViewport()`-Aufruf erfolgt, sind die Standardwerte `(0, 0, attachment width, attachment height, 0, 1)` für jeden Renderpass.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setViewport()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`setViewport()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
 - `x`, `y`, `width` und `height` sind alle größer oder gleich 0.
-- `x` + `width` ist kleiner oder gleich der Breite der Render-Anhänge des Render-Passes (siehe Hinweis unten).
-- `y` + `height` ist kleiner oder gleich der Höhe der Render-Anhänge des Render-Passes (siehe Hinweis unten).
-- `minDepth` und `maxDepth` liegen beide im Bereich von 0,0 bis 1,0 einschließlich.
+- `x` + `width` ist kleiner oder gleich der Breite der Render-Anhänge des Renderpasses (siehe Hinweis unten).
+- `y` + `height` ist kleiner oder gleich der Höhe der Render-Anhänge des Renderpasses (siehe Hinweis unten).
+- `minDepth` und `maxDepth` liegen beide im Bereich zwischen 0.0 und 1.0 inklusive.
 - `minDepth` ist kleiner als `maxDepth`.
 
 > [!NOTE]
-> Siehe die im Deskriptor von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegebenen Farb- und Tiefen/Stencilanlagen; die Breite und Höhe basieren auf der des [`GPUTexture`](/de/docs/Web/API/GPUTexture), von der ihre `view`s stammen.
+> Siehe die Farb- und Tiefen-/Stencil-Anhänge, wie sie im Deskriptor von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben sind; die Breite und Höhe basieren auf dem [`GPUTexture`](/de/docs/Web/API/GPUTexture), aus dem ihre `view`s stammen.
 
 ## Beispiele
 
-### Einfaches Snippet
+### Grundlegender Ausschnitt
 
-In einem typischen Canvas-Render könnte folgendes verwendet werden, um die Breite und Höhe der gerenderten Grafiken zu halbieren:
+Bei einem typischen Canvas-Render könnte das Folgende verwendet werden, um die Breite und Höhe der gerenderten Grafiken zu halbieren:
 
 ```js
 passEncoder.setViewport(0, 0, canvas.width / 2, canvas.height / 2, 0, 1);
@@ -64,7 +63,7 @@ passEncoder.setViewport(0, 0, canvas.width / 2, canvas.height / 2, 0, 1);
 
 ### Im Kontext
 
-Im WebGPU-Beispiel [reversedZ example](https://webgpu.github.io/webgpu-samples/samples/reversedZ/) wird `setViewport` mehrmals verwendet, um den Viewport für die verschiedenen Render-Passes zu setzen. Studieren Sie die Beispiel-Codelisting für den vollständigen Kontext.
+Im WebGPU-Beispiel [reversedZ](https://webgpu.github.io/webgpu-samples/samples/reversedZ/) wird `setViewport` mehrmals verwendet, um den Viewport für die verschiedenen Renderpassagen festzulegen. Untersuchen Sie die Beispielcode-Auflistung für den vollständigen Kontext.
 
 Zum Beispiel:
 

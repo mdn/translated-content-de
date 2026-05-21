@@ -1,20 +1,20 @@
 ---
-title: "BackgroundFetchRegistration: downloaded Eigenschaft"
+title: "BackgroundFetchRegistration: downloaded-Eigenschaft"
 short-title: downloaded
 slug: Web/API/BackgroundFetchRegistration/downloaded
 l10n:
-  sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`downloaded`** der Schnittstelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) gibt die Größe in Bytes zurück, die heruntergeladen wurde, anfangs `0`.
+Die schreibgeschützte **`downloaded`**-Eigenschaft des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt die in Bytes heruntergeladene Größe zurück, anfangs `0`.
 
-Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event) Ereignis beim zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekt ausgelöst.
+Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event)-Ereignis auf dem zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt ausgelöst.
 
 ## Wert
 
-Eine {{jsxref("number")}}.
+Eine {{jsxref("Number")}}.
 
 ## Beispiele
 

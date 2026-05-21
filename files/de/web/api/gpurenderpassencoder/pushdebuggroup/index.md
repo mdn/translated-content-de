@@ -3,14 +3,15 @@ title: "GPURenderPassEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderPassEncoder/pushDebugGroup
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Renderpass-Debug-Gruppe, die mit einem bestimmten Label gekennzeichnet ist und alle folgenden kodierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode enthalten wird.
+Die **`pushDebugGroup()`** Methode der
+[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) Schnittstelle beginnt eine Render-Pass-Debug-Gruppe, die mit einem definierten Label markiert wird und alle nachfolgenden kodierten Befehle enthalten wird, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup) Methode aufgerufen wird.
 
-Dies könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten eingesetzt werden, um beim Debuggen zu helfen.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein Zeichenfolgenwert, der das Label für die Debug-Gruppe darstellt.
+  - : Ein String, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

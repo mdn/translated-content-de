@@ -3,12 +3,12 @@ title: "GPUCommandEncoder: resolveQuerySet() Methode"
 short-title: resolveQuerySet()
 slug: Web/API/GPUCommandEncoder/resolveQuerySet
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`resolveQuerySet()`**-Methode des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Interfaces kodiert einen Befehl, der ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) auflöst, indem die Ergebnisse in einen angegebenen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) kopiert werden.
+Die **`resolveQuerySet()`**-Methode des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Interfaces kodiert einen Befehl, der ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) auflöst und die Ergebnisse in einen angegebenen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) kopiert.
 
 ## Syntax
 
@@ -19,29 +19,29 @@ resolveQuerySet(querySet, firstQuery, queryCount, destination, destinationOffset
 ### Parameter
 
 - `querySet`
-  - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das das aufzulösende Abfrageset repräsentiert.
+  - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das das aufzulösende Abfrageset darstellt.
 - `firstQuery`
   - : Die Indexnummer des ersten Abfragewerts, der in den Puffer kopiert werden soll.
 - `queryCount`
-  - : Die Anzahl der Abfragen, die ab `firstQuery` in den Puffer kopiert werden sollen.
+  - : Die Anzahl der Abfragen, die beginnend mit `firstQuery` in den Puffer kopiert werden sollen.
 - `destination`
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer repräsentiert, in den die Abfragewerte kopiert werden sollen.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, in den die Abfragewerte kopiert werden.
 - `destinationOffset`
-  - : Eine Zahl, die den Versatz in Bytes vom Anfang des Puffers angibt, an dem mit dem Schreiben der Abfragewerte begonnen wird.
+  - : Eine Zahl, die den Versatz in Bytes vom Beginn des Puffers darstellt, an dem die Abfragewerte geschrieben werden sollen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`resolveQuerySet()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`resolveQuerySet()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Das `destination.buffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.QUERY_RESOLVE`-Flag.
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `destination.buffer` muss das `GPUBufferUsage.QUERY_RESOLVE`-Flag beinhalten.
 - `firstQuery` ist kleiner als die Anzahl der Abfragen in `querySet`.
-- `firstQuery` + `queryCount` ist kleiner als oder gleich der Anzahl der Abfragen in `querySet`.
+- `firstQuery` + `queryCount` ist kleiner oder gleich der Anzahl der Abfragen in `querySet`.
 - `destinationOffset` ist ein Vielfaches von 256.
-- `destinationOffset` + 8 × `queryCount` ist kleiner als oder gleich `destination.size`.
+- `destinationOffset` + 8 × `queryCount` ist kleiner oder gleich `destination.size`.
 
 ## Beispiele
 

@@ -2,13 +2,13 @@
 title: bookmarks.removeTree()
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/removeTree
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 Die Methode **`bookmarks.removeTree()`** entfernt rekursiv einen Lesezeichen-Ordner und dessen gesamten Inhalt.
 
 > [!WARNING]
-> Wenn Ihre Erweiterung versucht, einen Lesezeichen-Baum aus dem Stammknoten des Lesezeichenbaums zu entfernen, wird ein Fehler mit der Nachricht ausgelöst: "Der Lesezeichen-Stamm kann nicht geändert werden", und das Lesezeichen wird nicht entfernt.
+> Wenn Ihre Erweiterung versucht, einen Lesezeichen-Baumknoten vom Stammknoten des Lesezeichenbaums zu entfernen, wird ein Fehler mit der Nachricht: "Der Lesezeichen-Stamm kann nicht geändert werden" ausgelöst und das Lesezeichen wird nicht entfernt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +23,17 @@ let removingTree = browser.bookmarks.removeTree(
 ### Parameter
 
 - `id`
-  - : Eine {{jsxref("string")}}, die die ID des Ordnerknotens angibt, der zusammen mit seinen Nachkommen gelöscht werden soll.
+  - : Ein {{jsxref("String")}}, der die ID des Ordnerknotens angibt, der zusammen mit seinen Nachkommen gelöscht werden soll.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Baum entfernt wurde.
 
-Wenn der Knoten, der dem `id` Parameter entspricht, nicht gefunden werden kann, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Knoten, der dem `id`-Parameter entspricht, nicht gefunden werden kann, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel findet einen Lesezeichen-Ordner mit dem Namen "MDN" und löscht ihn zusammen mit seinem gesamten Inhalt.
+Dieses Beispiel sucht einen Lesezeichen-Ordner namens "MDN" und löscht ihn zusammen mit seinem gesamten Inhalt.
 
 ```js
 function onRemoved() {
@@ -62,7 +62,7 @@ searchingBookmarks.then(removeMDN, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-removeTree) API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-removeTree) API von Chromium. Diese Dokumentation wurde von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

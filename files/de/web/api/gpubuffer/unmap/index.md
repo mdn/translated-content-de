@@ -1,14 +1,14 @@
 ---
-title: "GPUBuffer: unmap()-Methode"
+title: "GPUBuffer: unmap() Methode"
 short-title: unmap()
 slug: Web/API/GPUBuffer/unmap
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`unmap()`**-Methode des [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Interfaces hebt die Zuordnung des zugeordneten Bereichs des `GPUBuffer` auf. Dadurch werden die Inhalte nach einer vorherigen Zuordnung mit [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) wieder für die Nutzung durch die GPU verfügbar (die GPU kann auf einen zugeordneten `GPUBuffer` nicht zugreifen).
+Die **`unmap()`** Methode der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) Schnittstelle hebt die Zuordnung des zugeordneten Bereichs des `GPUBuffer` auf, wodurch dessen Inhalte nach vorheriger Zuordnung mit [`GPUBuffer.mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) wieder für die Nutzung durch die GPU verfügbar gemacht werden (die GPU kann auf einen zugeordneten `GPUBuffer` nicht zugreifen).
 
 Wenn `unmap()` aufgerufen wird, werden alle {{jsxref("ArrayBuffer")}}s, die über [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) erstellt wurden, getrennt.
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe die [Hauptseite `GPUBuffer`](/de/docs/Web/API/GPUBuffer#examples) für ein Beispiel.
+Siehe die [Hauptseite von `GPUBuffer`](/de/docs/Web/API/GPUBuffer#examples) für ein Beispiel.
 
 ## Spezifikationen
 

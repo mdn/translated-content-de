@@ -3,25 +3,23 @@ title: "USBDevice: opened-Eigenschaft"
 short-title: opened
 slug: Web/API/USBDevice/opened
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`opened`** des
-[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces zeigt an, ob eine Sitzung mit einem
-gekoppelten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
+Die schreibgeschützte **`opened`**-Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt an, ob eine Sitzung mit einem gepaarten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}.
+Ein {{jsxref("Boolean")}}.
 
 ## Beispiele
 
-Dieses Beispiel bezieht sich auf ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie überprüft wird, ob ein Gerät geöffnet ist, bevor [`USBDevice.controlTransferOut`](/de/docs/Web/API/USBDevice/controlTransferOut) aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
+Dieses Beispiel bezieht sich auf ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie überprüft werden kann, ob ein Gerät geöffnet ist, bevor [`USBDevice.controlTransferOut`](/de/docs/Web/API/USBDevice/controlTransferOut) aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übergeben werden können und wie dies geschieht, ist für jedes Gerät besonders und einzigartig.
+> Welche Daten an ein USB-Gerät übermittelt werden können und wie dies geschieht, ist spezifisch und einzigartig für jedes Gerät.
 
 ```js
 async function setDeviceColor(usbDevice, r, g, b) {

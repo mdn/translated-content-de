@@ -1,14 +1,14 @@
 ---
-title: "ImageDecoder: decode() Methode"
+title: "ImageDecoder: decode()-Methode"
 short-title: decode()
 slug: Web/API/ImageDecoder/decode
 l10n:
-  sourceCommit: 21ece11228b2653049e1c9d7148fb17611738a3b
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um den Frame eines Bildes zu decodieren.
+Die **`decode()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle stellt eine Steuerungsnachricht für das Dekodieren des Bildrahmens in die Warteschlange.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ decode(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `frameIndex` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der den Index des zu decodierenden Frames darstellt. Standardmäßig `0` (der erste Frame).
+      - : Ein Integer, der den Index des zu dekodierenden Rahmens darstellt. Standardmäßig `0` (der erste Rahmen).
     - `completeFramesOnly` {{optional_inline}}
-      - : Ein {{jsxref("boolean")}}, der standardmäßig auf `true` gesetzt ist.
-        Wenn `true`, wird das von der Methode zurückgegebene `Promise` nur dann aufgelöst, wenn das Bild vollständig decodiert ist.
-        Wenn `false`, gibt die Methode ein neues `Promise` zurück, das möglicherweise mit einem teilweise decodierten Bild aufgelöst wird.
-        Die Methode kann wiederholt aufgerufen werden, bis `result.complete` wahr ist, wobei jeder Schritt ein Bild mit der nächsten verfügbaren Detailebene bereitstellt.
+      - : Ein {{jsxref("Boolean")}}, der standardmäßig auf `true` gesetzt ist.
+        Wenn `true`, wird das von der Methode zurückgegebene `Promise` nur aufgelöst, wenn das Bild vollständig dekodiert ist.
+        Wenn `false`, wird die Methode ein neues `Promise` zurückgeben, das möglicherweise mit einem teilweise dekodierten Bild aufgelöst wird.
+        Die Methode kann wiederholt aufgerufen werden, bis `result.complete` wahr ist. Jeder Schritt liefert ein Bild mit dem nächsten verfügbaren Detailgrad.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
+Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
 
 - `image`
-  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), das das decodierte Bild enthält.
+  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), das das dekodierte Bild enthält.
 - `complete`
-  - : Ein {{jsxref("boolean")}}, wenn `true`, zeigt an, dass `image` die finale, voll detaillierte Ausgabe enthält.
+  - : Ein {{jsxref("Boolean")}}, der angibt, ob `true` die endgültige Ausgabe in voller Detailtiefe enthält.
 
 ### Ausnahmen
 
@@ -45,22 +45,22 @@ Wenn ein Fehler auftritt, wird das Promise mit folgender Ausnahme aufgelöst:
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn eine der folgenden Bedingungen zutrifft:
     - `close` ist wahr, was bedeutet, dass [`close()`](/de/docs/Web/API/ImageDecoder/close) bereits aufgerufen wurde.
-    - Der angeforderte Frame existiert nicht.
+    - Der angeforderte Rahmen existiert nicht.
 
 ## Beispiele
 
-### Synchrone Dekodierung eines vollständigen Bildframes
+### Synchrones Dekodieren eines abgeschlossenen Bildrahmens
 
-Das folgende Beispiel dekodiert den zweiten Frame (bei Index `1`) und gibt das resultierende [`VideoFrame`](/de/docs/Web/API/VideoFrame) in der Konsole aus.
+Das folgende Beispiel dekodiert den zweiten Rahmen (bei Index `1`) und gibt den resultierenden [`VideoFrame`](/de/docs/Web/API/VideoFrame) in der Konsole aus.
 
 ```js
 let result = await imageDecoder.decode({ frameIndex: 1 });
 console.log(result.image);
 ```
 
-### Partielle Dekodierung eines progressiven Bildframes
+### Teilweises Dekodieren eines progressiven Bildrahmens
 
-Das folgende Beispiel dekodiert den ersten Frame wiederholt, bis er vollständig ist:
+Das folgende Beispiel dekodiert den ersten Rahmen wiederholt, bis er vollständig ist:
 
 ```js
 let complete = false;

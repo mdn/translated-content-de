@@ -3,10 +3,10 @@ title: "`::backdrop` CSS pseudo-element"
 short-title: ::backdrop
 slug: Web/CSS/Reference/Selectors/::backdrop
 l10n:
-  sourceCommit: 6cf697a8965ecdc4967258cc0282fe789b60318e
+  sourceCommit: 8fa3309a76fe8dc4cf5e8eed97ef596a91513fbd
 ---
 
-Das **`::backdrop`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine Box in der Größe des {{Glossary("viewport", "Ansichtsfensters")}}, die unmittelbar unterhalb jedes Elements dargestellt wird, das in der {{Glossary("top_layer", "Top-Ebene")}} präsentiert wird.
+Das **`::backdrop`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine Box in der Größe des {{Glossary("viewport", "Viewports")}}, die direkt unter jedem Element gerendert wird, das in der {{Glossary("top_layer", "obersten Ebene")}} präsentiert wird.
 
 {{InteractiveExample("CSS Demo: ::backdrop", "tabbed-shorter")}}
 
@@ -49,13 +49,13 @@ showDialogBtn.addEventListener("click", () => favDialog.showModal());
 
 ## Beschreibung
 
-Rückseiten erscheinen in den folgenden Fällen:
+Hintergründe erscheinen in den folgenden Fällen:
 
-- Elemente, die mit der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) Methode [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) im Vollbildmodus angezeigt werden.
-- {{HTMLElement("dialog")}}-Elemente, die über einen Aufruf von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) in der oberen Ebene im Top-Layer angezeigt werden.
-- [Popover](/de/docs/Web/API/Popover_API)-Elemente, die über einen Aufruf von [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) im Top-Layer angezeigt werden.
+- Elemente, die mit der Methode [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) in den Vollbildmodus versetzt wurden.
+- {{HTMLElement("dialog")}}-Elemente, die über einen Aufruf von [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) in der obersten Ebene angezeigt wurden.
+- [Popover](/de/docs/Web/API/Popover_API)-Elemente, die über einen Aufruf von [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) in der obersten Ebene angezeigt wurden.
 
-Wenn mehrere Elemente in die obere Ebene gesetzt werden, hat jedes ein eigenes `::backdrop`-Pseudo-Element.
+Wenn mehrere Elemente in die oberste Ebene gesetzt wurden, hat jedes ein eigenes `::backdrop`-Pseudoelement.
 
 ```css
 /* Backdrop is only displayed when dialog is opened with dialog.showModal() */
@@ -64,19 +64,19 @@ dialog::backdrop {
 }
 ```
 
-Elemente werden in einem Last-in/First-out (LIFO)-Stack in der oberen Ebene platziert. Das `::backdrop`-Pseudo-Element ermöglicht es, alles, was sich unter einem oberen Ebenenelement befindet, zu verbergen, zu stylen oder vollständig zu verstecken.
+Elemente werden in einer Last-in/first-out (LIFO) Stapel in die oberste Ebene gesetzt. Das `::backdrop`-Pseudoelement ermöglicht es, alles zu verdecken, zu stylen oder vollständig zu verbergen, was sich unter einem Element der obersten Ebene befindet.
 
-`::backdrop` wird weder von noch auf andere Elemente vererbt. Es gibt keine Einschränkungen bezüglich der Eigenschaften, die auf dieses Pseudo-Element angewendet werden können.
+`::backdrop` erbt weder von noch an andere Elemente. Es gibt keine Einschränkungen, welche Eigenschaften auf dieses Pseudoelement angewendet werden können.
 
 ## Beispiele
 
-### Das Hintergrundbild eines modalen Dialogs stylen
+### Stylen des Hintergrunds eines modalen Dialogs
 
-In diesem Beispiel verwenden wir das `::backdrop`-Pseudo-Element, um das Hintergrundbild zu stylen, das verwendet wird, wenn ein modales {{htmlelement("dialog")}} geöffnet ist.
+In diesem Beispiel verwenden wir das `::backdrop`-Pseudoelement, um den Hintergrund zu stylen, der verwendet wird, wenn ein modales {{htmlelement("dialog")}} geöffnet ist.
 
 #### HTML
 
-Wir fügen einen {{htmlelement("button")}} ein, der bei Klick das enthaltene `<dialog>` öffnet. Wenn das `<dialog>` geöffnet wird, geben wir dem Button, der das Dialogfeld schließt, den Fokus:
+Wir fügen einen {{htmlelement("button")}} ein, der, wenn er angeklickt wird, das enthaltene `<dialog>` öffnet. Wenn das `<dialog>` geöffnet wird, geben wir dem Button, der den Dialog schließt, den Fokus:
 
 ```html
 <dialog>
@@ -88,7 +88,7 @@ Wir fügen einen {{htmlelement("button")}} ein, der bei Klick das enthaltene `<d
 
 #### CSS
 
-Wir fügen dem Hintergrund einen Hintergrund hinzu und erstellen einen farbenfrohen Donut mit [CSS-Verläufen](/de/docs/Web/CSS/Reference/Values/gradient):
+Wir fügen dem Hintergrund eine Hintergrundfarbe hinzu und erstellen einen bunten Donut mit [CSS-Gradienten](/de/docs/Web/CSS/Reference/Values/gradient):
 
 ```css
 ::backdrop {
@@ -117,7 +117,7 @@ Wir fügen dem Hintergrund einen Hintergrund hinzu und erstellen einen farbenfro
 
 #### JavaScript
 
-Das Dialogfeld wird modal mit der Methode [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet und mit der Methode [`.close()`](/de/docs/Web/API/HTMLDialogElement/close) geschlossen.
+Der Dialog wird modal mit der Methode [`.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet und mit der Methode [`.close()`](/de/docs/Web/API/HTMLDialogElement/close) geschlossen.
 
 ```js
 const dialog = document.querySelector("dialog");
@@ -149,8 +149,11 @@ closeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{cssxref(":fullscreen")}} Pseudo-Klasse
-- {{HTMLElement("dialog")}} HTML-Element
-- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
+- {{cssxref(":fullscreen")}}
+- {{cssxref(":xr-overlay")}}
+- [CSS-Positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
+- {{HTMLElement("dialog")}}
 - [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) globales HTML-Attribut
+- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - [Popover API](/de/docs/Web/API/Popover_API)

@@ -1,18 +1,18 @@
 ---
-title: "ImageDecoder: complete-Eigenschaft"
+title: "ImageDecoder: vollständige Eigenschaft"
 short-title: complete
 slug: Web/API/ImageDecoder/complete
 l10n:
-  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`complete`**-Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt `true` zurück, wenn die kodierten Daten das Buffering abgeschlossen haben.
+Die schreibgeschützte Eigenschaft **`complete`** des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt `true` zurück, wenn die Pufferung der codierten Daten abgeschlossen ist.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}, `true`, wenn das Buffering abgeschlossen ist.
+Ein {{jsxref("Boolean")}}, `true`, wenn die Pufferung abgeschlossen ist.
 
 ## Beispiele
 

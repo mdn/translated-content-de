@@ -1,14 +1,14 @@
 ---
-title: "USBDevice: controlTransferIn()-Methode"
+title: "USBDevice: controlTransferIn() Methode"
 short-title: controlTransferIn()
 slug: Web/API/USBDevice/controlTransferIn
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`controlTransferIn()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird, wenn ein Befehl oder Statusanforderung an das USB-Gerät übertragen (empfangen) wurde.
+Die **`controlTransferIn()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird, wenn ein Befehl oder Statusanforderung an das USB-Gerät übertragen (empfangen) wurde.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ controlTransferIn(setup, length)
 - `setup`
   - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
     - `requestType`
-      - : Muss einer von drei Werten sein, der angibt, ob die Übertragung `"standard"` (allgemein für alle USB-Geräte), `"class"` (allgemein für eine branchenweit standardisierte Klasse von Geräten) oder `"vendor"` ist.
+      - : Muss einen der drei Werte haben, der festlegt, ob die Übertragung `"standard"` (gemeinsam für alle USB-Geräte), `"class"` (gemeinsam für eine industrienormierte Klasse von Geräten) oder `"vendor"` ist.
     - `recipient`
-      - : Gibt das Ziel der Übertragung auf dem Gerät an, eines von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
+      - : Gibt das Ziel der Übertragung auf dem Gerät an, einer von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
     - `request`
       - : Ein herstellerspezifischer Befehl.
     - `value`
@@ -36,7 +36,7 @@ controlTransferIn(setup, length)
 
 ### Rückgabewert
 
-{{jsxref("promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
+{{jsxref("Promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

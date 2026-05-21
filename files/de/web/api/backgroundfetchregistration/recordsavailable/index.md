@@ -3,20 +3,20 @@ title: "BackgroundFetchRegistration: recordsAvailable-Eigenschaft"
 short-title: recordsAvailable
 slug: Web/API/BackgroundFetchRegistration/recordsAvailable
 l10n:
-  sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`recordsAvailable`**-Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt `true` zurück, wenn Anfragen und Antworten zum Abrufen verfügbar sind. Wenn dies `false` zurückgibt, können [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) und [`matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) nicht verwendet werden.
+Die schreibgeschützte **`recordsAvailable`**-Eigenschaft des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces gibt `true` zurück, wenn Anfragen und Antworten zugänglich sind. Wenn dies `false` zurückgibt, können [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) und [`matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) nicht verwendet werden.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}.
+Ein {{jsxref("Boolean")}}.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole gibt `true` oder `false` zurück, um anzuzeigen, ob Datensätze verfügbar sind.
+Das Protokollieren dieser Eigenschaft in die Konsole gibt `true` oder `false` zurück, um anzuzeigen, ob Datensätze vorhanden sind.
 
 ```js
 console.log(bgFetch.recordsAvailable);

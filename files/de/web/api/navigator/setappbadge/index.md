@@ -1,14 +1,14 @@
 ---
-title: "Navigator: setAppBadge() Methode"
+title: "Navigator: setAppBadge()-Methode"
 short-title: setAppBadge()
 slug: Web/API/Navigator/setAppBadge
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`setAppBadge()`** Methode der [`Navigator`](/de/docs/Web/API/Navigator) Schnittstelle setzt ein Abzeichen auf das mit dieser App verbundene Symbol. Wenn ein Wert an die Methode übergeben wird, wird dieser als Wert des Abzeichens gesetzt. Andernfalls zeigt das Abzeichen einen Punkt oder einen anderen vom Plattformentwickler definierten Indikator an.
+Die **`setAppBadge()`**-Methode des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces setzt ein Abzeichen auf dem mit dieser App verknüpften Symbol. Wenn der Methode ein Wert übergeben wird, wird dieser als Wert des Abzeichens festgelegt. Andernfalls wird das Abzeichen als Punkt oder ein anderer Indikator angezeigt, wie es von der Plattform definiert ist.
 
 ## Syntax
 
@@ -20,24 +20,24 @@ setAppBadge(contents)
 ### Parameter
 
 - `contents` {{optional_inline}}
-  - : Eine {{jsxref("number")}}, die als Wert des Abzeichens verwendet wird. Wenn `contents` `0` ist, wird das Abzeichen auf `nichts` gesetzt, was auf ein gelöschtes Abzeichen hinweist.
+  - : Eine {{jsxref("Number")}}, die als Wert des Abzeichens verwendet wird. Wenn `contents` `0` ist, dann wird das Abzeichen auf `nichts` gesetzt, was ein gelöschtes Abzeichen anzeigt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, der sich mit {{jsxref("undefined")}} auflöst.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine ungelesene Anzahl an `setAppBadge()` übergeben. Das Abzeichen sollte dann `30` anzeigen.
+Im Beispiel unten wird `setAppBadge()` eine ungelesene Anzahl übergeben. Das Abzeichen sollte dann `30` anzeigen.
 
 ```js
 const unread = 30;
@@ -54,4 +54,4 @@ navigator.setAppBadge(unread);
 
 ## Siehe auch
 
-- [Abzeichen für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)
+- [Abzeichen für App-Icons](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)

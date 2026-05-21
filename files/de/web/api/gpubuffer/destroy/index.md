@@ -3,7 +3,7 @@ title: "GPUBuffer: destroy()-Methode"
 short-title: destroy()
 slug: Web/API/GPUBuffer/destroy
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

@@ -1,23 +1,23 @@
 ---
-title: "GPUQueue: onSubmittedWorkDone() Methode"
+title: "GPUQueue: Methode onSubmittedWorkDone()"
 short-title: onSubmittedWorkDone()
 slug: Web/API/GPUQueue/onSubmittedWorkDone
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`onSubmittedWorkDone()`** Methode des [`GPUQueue`](/de/docs/Web/API/GPUQueue) Interface gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle Arbeiten, die über diese `GPUQueue` an die GPU übergeben wurden, zu dem Zeitpunkt, an dem die Methode aufgerufen wird, verarbeitet wurden.
+Die **`onSubmittedWorkDone()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle Arbeiten, die der GPU über diese `GPUQueue` zum Zeitpunkt des Aufrufs der Methode zugewiesen wurden, verarbeitet sind.
 
-Dies schließt den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync) Aufrufe ein, die auf `GPUBuffer`s durchgeführt wurden, die in Befehlen verwendet wurden, die an die Queue übergeben wurden, bevor `onSubmittedWorkDone()` aufgerufen wird.
+Dies schließt den Abschluss aller [`mapAsync()`](/de/docs/Web/API/GPUBuffer/mapAsync)-Aufrufe ein, die an `GPUBuffer`-Objekten vorgenommen wurden, die in der Warteschlange vor dem Aufruf von `onSubmittedWorkDone()` verwendet werden.
 
 > [!NOTE]
-> In den meisten Fällen müssen Sie `onSubmittedWorkDone()` _nicht_ aufrufen. Sie müssen es **_nicht_** für das Mapping eines Buffers aufrufen. `mapAsync` garantiert, dass die Arbeit, die vor dem Aufruf von `mapAsync` an die Queue übergeben wurde, bevor `mapAsync` zurückkehrt, abgeschlossen ist (siehe [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/#buffer-mapping)).
+> In den meisten Fällen müssen Sie `onSubmittedWorkDone()` _nicht_ aufrufen. Sie müssen es **_nicht_** für das Mapping eines Puffers aufrufen. `mapAsync` garantiert, dass die Arbeit, die vor dem Aufruf von `mapAsync` in die Warteschlange eingereiht wird, vor der Rückgabe von `mapAsync` abgeschlossen wird (siehe [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/#buffer-mapping)).
 
 Die zwei Anwendungsfälle für `onSubmittedWorkDone`
 
-1. Warten auf mehrere Buffer-Mappings (langsam)
+1. Warten auf mehrere Puffer-Zuweisungen (langsam)
 
    ```js
    // good
@@ -42,11 +42,11 @@ Die zwei Anwendungsfälle für `onSubmittedWorkDone`
    data3 = buffer3.getMappedRange();
    ```
 
-   Der Grund, warum die zweite Methode langsam ist, liegt darin, dass die Implementierung möglicherweise in der Lage ist, die Buffer zu mappen, bevor alle eingereichten Arbeiten abgeschlossen sind. Zum Beispiel, wenn alle Buffer beendet sind, aber mehr Arbeit (nicht in Zusammenhang mit den Buffern) bereits eingereicht wurde, dann werden Sie mit der zweiten Methode länger warten als mit der ersten.
+   Der Grund, warum die zweite Methode langsam ist, liegt darin, dass die Implementierung möglicherweise die Puffer zuweisen kann, bevor alle eingereichten Arbeiten abgeschlossen sind. Beispielsweise, wenn alle Puffer fertig verwendet werden, aber mehr Arbeit (unabhängig von den Puffern) bereits eingereicht ist, dann werden Sie mit der zweiten Methode länger warten als mit der ersten.
 
-2. Drosselung der Arbeit
+2. Arbeit drosseln
 
-   Wenn Sie schwere Rechenarbeiten durchführen und zu viel Arbeit auf einmal einreichen, kann der Browser Ihre Arbeit beenden. Sie können die Arbeit drosseln, indem Sie nur dann mehr Arbeit einreichen, wenn die bereits eingereichte Arbeit abgeschlossen ist.
+   Wenn Sie schwere Berechnungen durchführen und zu viel Arbeit auf einmal einreichen, kann der Browser Ihre Arbeit beenden. Sie können die Arbeit drosseln, indem Sie erst dann mehr Arbeit einreichen, wenn die bereits eingereichte Arbeit abgeschlossen ist.
 
 ## Syntax
 
@@ -60,7 +60,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("Undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: Methode setScissorRect()"
 short-title: setScissorRect()
 slug: Web/API/GPURenderPassEncoder/setScissorRect
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setScissorRect()`** Methode der Schnittstelle [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) legt das Scherrechteck fest, das während der Rasterisierungsphase verwendet wird. Nach der Transformation in Viewport-Koordinaten werden alle Fragmente, die außerhalb des Scherrechtecks liegen, verworfen.
+Die **`setScissorRect()`** Methode der Schnittstelle [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) setzt das Scherrechteck, das während der Rasterisierungsphase verwendet wird. Nach der Transformation in die Viewport-Koordinaten werden alle Fragmente, die außerhalb des Scherrechtecks fallen, verworfen.
 
 ## Syntax
 
@@ -19,36 +19,36 @@ setScissorRect(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die den minimalen X-Wert des Scherrechtecks in Pixel angibt.
+  - : Eine Zahl, die den minimalen X-Wert des Scherrechtecks in Pixeln darstellt.
 - `y`
-  - : Eine Zahl, die den minimalen Y-Wert des Scherrechtecks in Pixel angibt.
+  - : Eine Zahl, die den minimalen Y-Wert des Scherrechtecks in Pixeln darstellt.
 - `width`
-  - : Eine Zahl, die die Breite des Scherrechtecks in Pixel angibt.
+  - : Eine Zahl, die die Breite des Scherrechtecks in Pixeln darstellt.
 - `height`
-  - : Eine Zahl, die die Höhe des Scherrechtecks in Pixel angibt.
+  - : Eine Zahl, die die Höhe des Scherrechtecks in Pixeln darstellt.
 
 > [!NOTE]
-> Wenn kein `setScissorRect()` Aufruf erfolgt, sind die Standardwerte `(0, 0, Anhangbreite, Anhanghöhe)` für jeden Renderpass.
+> Wenn kein `setScissorRect()` Aufruf erfolgt, sind die Standardwerte `(0, 0, attachment width, attachment height)` für jede Render-Pass-Schicht.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setViewport()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`setViewport()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- `x` + `width` ist kleiner oder gleich der Breite der Render-Pass-Render-Anhänge (siehe Hinweis unten).
-- `y` + `height` ist kleiner oder gleich der Höhe der Render-Pass-Render-Anhänge (siehe Hinweis unten).
+- `x` + `width` muss kleiner oder gleich der Breite der Render-Anhänge des Render-Passes sein (siehe Hinweis unten).
+- `y` + `height` muss kleiner oder gleich der Höhe der Render-Anhänge des Render-Passes sein (siehe Hinweis unten).
 
 > [!NOTE]
-> Beachten Sie die Farb- und Tiefen/Stencil-Anhänge, die im Deskriptor von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben sind; die Breite und Höhe basieren auf der des [`GPUTexture`](/de/docs/Web/API/GPUTexture), von der deren `view`s stammen.
+> Siehe die in der Deskriptor der [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) spezifizierten Farb- und Tiefen-/Stencil-Anhänge; die Breite und Höhe basieren auf jener der [`GPUTexture`](/de/docs/Web/API/GPUTexture), von denen ihre `view`s stammen.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Bei einem typischen Canvas-Render könnte das Folgende verwendet werden, um jede Darstellung außerhalb des oberen linken Viertels der Leinwand zu verwerfen:
+In einem typischen Canvas-Rendering könnte Folgendes verwendet werden, um jegliches Rendering außerhalb des oberen linken Viertels der Leinwand zu verwerfen:
 
 ```js
 passEncoder.setScissorRect(0, 0, canvas.width / 2, canvas.height / 2);

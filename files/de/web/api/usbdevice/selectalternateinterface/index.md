@@ -1,14 +1,14 @@
 ---
-title: "USBDevice: selectAlternateInterface() Methode"
+title: "USBDevice: selectAlternateInterface()-Methode"
 short-title: selectAlternateInterface()
 slug: Web/API/USBDevice/selectAlternateInterface
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`selectAlternateInterface()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn der angegebene alternative Endpunkt ausgewählt wurde.
+Die **`selectAlternateInterface()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der angegebene alternative Endpunkt ausgewählt wurde.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ selectAlternateInterface(interfaceNumber, alternateSetting)
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}.
+Ein {{jsxref("Promise")}}.
 
 ## Spezifikationen
 

@@ -3,7 +3,7 @@ title: "GPURenderPassEncoder: drawIndexed()-Methode"
 short-title: drawIndexed()
 slug: Web/API/GPURenderPassEncoder/drawIndexed
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
@@ -23,23 +23,23 @@ drawIndexed(indexCount, instanceCount, firstIndex, baseVertex, firstInstance)
 ### Parameter
 
 - `indexCount`
-  - : Eine Zahl, die die Anzahl der zu zeichnenden Indizes festlegt.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Indizes definiert.
 - `instanceCount` {{optional_inline}}
-  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen festlegt. Wenn weggelassen, ist `instanceCount` standardmäßig 1.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, ist `instanceCount` standardmäßig 1.
 - `firstIndex` {{optional_inline}}
-  - : Eine Zahl, die den Offset in den Indexpuffer in Indizes angibt, ab dem das Zeichnen beginnt. Wenn weggelassen, ist `firstIndex` standardmäßig 0.
+  - : Eine Zahl, die den Versatz innerhalb des Indexpuffers in Indizes definiert, von dem aus gezeichnet werden soll. Wenn weggelassen, ist `firstIndex` standardmäßig 0.
 - `baseVertex` {{optional_inline}}
   - : Eine Zahl, die zu jedem Indexwert hinzugefügt wird, bevor in die Vertexpuffer indiziert wird. Wenn weggelassen, ist `baseVertex` standardmäßig 0.
 - `firstInstance` {{optional_inline}}
-  - : Eine Zahl, die die erste zu zeichnende Instanz festlegt. Wenn weggelassen, ist `firstInstance` standardmäßig 0.
+  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist `firstInstance` standardmäßig 0.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im WebGPU-Samples-Beispiel [Shadow Mapping](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `drawIndexed()` in zwei separaten Renderdurchläufen in jedem Animationsframe verwendet, einer zum Befüllen des Schattenpuffers und einer zum Zeichnen der Hauptansicht der Szene. Untersuchen Sie die Beispielcode-Auflistung für den vollständigen Kontext.
+Im WebGPU-Beispiel [Shadow Mapping](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `drawIndexed()` in zwei separaten Render-Passes in jedem Animationsframe verwendet: Einmal, um den Schattenpuffer zu füllen, und einmal, um die primäre Ansicht der Szene zu zeichnen. Untersuchen Sie die Codeauflistung des Beispiels für den vollständigen Kontext.
 
 ```js
 // …
@@ -81,4 +81,4 @@ const commandEncoder = device.createCommandEncoder();
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

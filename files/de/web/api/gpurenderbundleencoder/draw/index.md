@@ -3,15 +3,15 @@ title: "GPURenderBundleEncoder: draw()-Methode"
 short-title: draw()
 slug: Web/API/GPURenderBundleEncoder/draw
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`draw()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle zeichnet Primitiven basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
+Die **`draw()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle zeichnet Primitive basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
 
 > [!NOTE]
-> Diese Methode ist funktionell identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw).
+> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw).
 
 ## Syntax
 
@@ -27,15 +27,15 @@ draw(vertexCount, instanceCount, firstVertex, firstInstance)
 - `vertexCount`
   - : Eine Zahl, die die Anzahl der zu zeichnenden Vertices definiert.
 - `instanceCount` {{optional_inline}}
-  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wird diese Zahl weggelassen, ist der Standardwert für `instanceCount` 1.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, ist der Standardwert für `instanceCount` 1.
 - `firstVertex` {{optional_inline}}
-  - : Eine Zahl, die den Versatz in den Vertex-Puffern in Vertices definiert, ab dem begonnen wird zu zeichnen. Wird diese Zahl weggelassen, ist der Standardwert für `firstVertex` 0.
+  - : Eine Zahl, die den Offset in den Vertex-Puffern in Vertices definiert, ab dem das Zeichnen beginnt. Wenn weggelassen, ist der Standardwert für `firstVertex` 0.
 - `firstInstance` {{optional_inline}}
-  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wird diese Zahl weggelassen, ist der Standardwert für `firstInstance` 0.
+  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist der Standardwert für `firstInstance` 0.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ function recordRenderPass(passEncoder) {
 }
 ```
 
-Der obige Ausschnitt stammt aus dem WebGPU Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
+Der obige Codeausschnitt stammt aus dem WebGPU Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
 
 ## Spezifikationen
 
@@ -73,4 +73,4 @@ Der obige Ausschnitt stammt aus dem WebGPU Samples [Animometer-Beispiel](https:/
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

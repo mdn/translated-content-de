@@ -3,18 +3,18 @@ title: "TextDecoderStream: fatal-Eigenschaft"
 short-title: fatal
 slug: Web/API/TextDecoderStream/fatal
 l10n:
-  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`fatal`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle ist ein {{jsxref("boolean")}}, der angibt, ob der Fehlermodus des `TextDecoderStream`-Objekts auf `fatal` eingestellt ist.
+Die **`fatal`** schreibgeschützte Eigenschaft der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle ist ein {{jsxref("Boolean")}}, der angibt, ob der Fehlermodus des `TextDecoderStream`-Objekts auf `fatal` gesetzt ist.
 
-Wenn die Eigenschaft `true` ist, wird ein Decoder einen {{jsxref("TypeError")}} auslösen, wenn er fehlerhafte Daten während des Dekodierens entdeckt. Ist sie `false`, ersetzt der Decoder die ungültigen Daten durch das Ersatzzeichen `U+FFFD` (�). Der Wert der Eigenschaft wird im [`TextDecoderStream()`-Konstruktor](/de/docs/Web/API/TextDecoderStream/TextDecoderStream) festgelegt.
+Wenn die Eigenschaft `true` ist, wird ein Decoder einen {{jsxref("TypeError")}} auslösen, wenn er auf fehlerhafte Daten beim Dekodieren stößt. Ist sie `false`, ersetzt der Decoder die ungültigen Daten durch das Ersatzzeichen `U+FFFD` (�). Der Wert der Eigenschaft wird im [`TextDecoderStream()`-Konstruktor](/de/docs/Web/API/TextDecoderStream/TextDecoderStream) festgelegt.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}, der `true` zurückgibt, wenn der Fehlermodus auf "fatal" gesetzt ist. Andernfalls gibt er `false` zurück, was darauf hinweist, dass der Fehlermodus "replacement" ist.
+Ein {{jsxref("Boolean")}}, der `true` zurückgibt, wenn der Fehlermodus auf "fatal" gesetzt ist. Andernfalls gibt er `false` zurück, was darauf hinweist, dass der Fehlermodus auf "replacement" gesetzt ist.
 
 ## Beispiele
 

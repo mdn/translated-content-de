@@ -1,18 +1,18 @@
 ---
-title: "ImageTrack: selected-Eigenschaft"
+title: "ImageTrack: Eigenschaft selected"
 short-title: selected
 slug: Web/API/ImageTrack/selected
 l10n:
-  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selected`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt `true` zurück, wenn die Spur für das Decoding ausgewählt ist.
+Die **`selected`** Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack) Interfaces gibt `true` zurück, wenn die Spur zur Dekodierung ausgewählt ist.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}, der, wenn `true`, anzeigt, dass die Spur für das Decoding ausgewählt ist.
+Ein {{jsxref("Boolean")}}, wenn `true`, ist die Spur zur Dekodierung ausgewählt.
 
 ## Beispiele
 

@@ -1,14 +1,14 @@
 ---
-title: "GPUComputePassEncoder: setPipeline() Methode"
+title: "GPUComputePassEncoder: setPipeline()-Methode"
 short-title: setPipeline()
 slug: Web/API/GPUComputePassEncoder/setPipeline
 l10n:
-  sourceCommit: 4b47c0aad363dcc69a6ccca5940055491fa03594
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setPipeline()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle legt die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) fest, die für diesen Berechnungsdurchgang verwendet werden soll.
+Die **`setPipeline()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle legt die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) fest, die für diesen Compute-Durchlauf verwendet werden soll.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ setPipeline(pipeline)
 ### Parameter
 
 - `pipeline`
-  - : Die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die für diesen Berechnungsdurchgang verwendet werden soll.
+  - : Die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die für diesen Compute-Durchlauf verwendet werden soll.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In unserem [grundlegenden Berechnungsbeispiel](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über `beginComputePass()` erstellt wird. Der `setPipeline()`-Aufruf wird verwendet, um die Pipeline festzulegen, die für diesen Durchgang genutzt werden soll.
+In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über `beginComputePass()` erstellt wurde. Der `setPipeline()`-Aufruf wird verwendet, um die Pipeline für diesen Durchlauf festzulegen.
 
 ```js
 const BUFFER_SIZE = 1000;

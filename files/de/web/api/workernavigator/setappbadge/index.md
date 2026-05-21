@@ -1,14 +1,14 @@
 ---
-title: "WorkerNavigator: setAppBadge()-Methode"
+title: "WorkerNavigator: setAppBadge() Methode"
 short-title: setAppBadge()
 slug: Web/API/WorkerNavigator/setAppBadge
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 0abb70602b0b3b11a2909c417a03e10eabd607a8
 ---
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`setAppBadge()`**-Methode der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle setzt ein Abzeichen auf das mit dieser App verbundene Symbol. Wenn ein Wert an die Methode übergeben wird, wird dieser als Wert des Abzeichens festgelegt. Andernfalls wird das Abzeichen als Punkt oder ein anderes, vom Plattformstandard definiertes, Symbol angezeigt.
+Die **`setAppBadge()`**-Methode des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces setzt ein Abzeichen auf das mit dieser App verknüpfte Icon. Wenn der Methode ein Wert übergeben wird, wird dieser als Wert des Abzeichens gesetzt. Andernfalls wird das Abzeichen als Punkt oder ein anderes, vom Plattform definiertes Symbol angezeigt.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ setAppBadge(contents)
 ### Parameter
 
 - `contents` {{optional_inline}}
-  - : Eine {{jsxref("number")}}, die als Wert des Abzeichens verwendet wird. Wenn `contents` `0` ist, wird das Abzeichen auf `nichts` gesetzt, was ein gelöschtes Abzeichen anzeigt.
+  - : Eine {{jsxref("Number")}}, die als Wert des Abzeichens verwendet wird. Wenn `contents` `0` ist, wird das Abzeichen auf `nichts` gesetzt, was ein gelöschtes Abzeichen anzeigt.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Im Beispiel unten wird ein Zähler für ungelesene Nachrichten an `setAppBadge()` übergeben. Das Abzeichen sollte dann `30` anzeigen.
+Im unten stehenden Beispiel wird ein ungelesener Zähler an `setAppBadge()` übergeben. Das Abzeichen sollte dann `30` anzeigen.
 
 ```js
 const unread = 30;
@@ -54,4 +54,4 @@ navigator.setAppBadge(unread);
 
 ## Siehe auch
 
-- [Abzeichen für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)
+- [Abzeichen für App-Icons](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)
