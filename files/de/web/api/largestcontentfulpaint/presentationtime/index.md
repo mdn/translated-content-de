@@ -1,24 +1,24 @@
 ---
-title: "LargestContentfulPaint: presentationTime-Eigenschaft"
+title: "LargestContentfulPaint: Eigenschaft presentationTime"
 short-title: presentationTime
 slug: Web/API/LargestContentfulPaint/presentationTime
 l10n:
-  sourceCommit: c46f0b3d68f5b4ed87a571bbdbce75244c5fe333
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`presentationTime`**-Eigenschaft des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die gerenderten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
+Die schreibgeschützte Eigenschaft **`presentationTime`** des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Interfaces gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die angezeigten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
 
-Die `presentationTime` ist optional — einige Browser können wählen, immer `0` zurückzugeben oder den Wert überhaupt nicht offenzulegen. Der Wert ist auch implementierungsabhängig — er kann in Browsern, die sich entscheiden, ihn offenzulegen, unterschiedlich sein.
+Die `presentationTime` ist optional — einige Browser könnten immer `0` zurückgeben oder den Wert überhaupt nicht offenlegen. Der Wert ist auch von der Implementierung abhängig — er kann sich zwischen Browsern unterscheiden, die sich entscheiden, ihn offenzulegen.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("Operators/null", "null")}}, wenn der Wert nicht offengelegt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("null")}}, wenn der Wert nicht offengelegt wird.
 
 ## Beispiele
 
-Siehe [Beobachtung separater Mal- und Darstellungstiming](/de/docs/Web/API/LargestContentfulPaint#observing_separate_paint_and_presentation_timings).
+Sehen Sie [Beobachtung separater Paint- und Präsentationstiming](/de/docs/Web/API/LargestContentfulPaint#observing_separate_paint_and_presentation_timings).
 
 ## Spezifikationen
 

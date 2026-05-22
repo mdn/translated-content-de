@@ -2,41 +2,43 @@
 title: WebAssembly.Exception.prototype.stack
 slug: WebAssembly/Reference/JavaScript_interface/Exception/stack
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
 ---
 
 {{non-standard_header}}
 
-Die schreibgeschützte **`stack`**-Eigenschaft einer Objektinstanz vom Typ [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) _kann_ einen Stack-Trace enthalten.
-
-Ausnahmen aus WebAssembly-Code enthalten standardmäßig keinen Stack-Trace.
-
-Wenn WebAssembly-Code einen Stack-Trace bereitstellen muss, muss er eine JavaScript-Funktion aufrufen, um die Ausnahme zu erstellen, und den Parameter `options.traceStack=true` im [Konstruktor](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/Exception) übergeben.
-Die virtuelle Maschine kann dann einen Stack-Trace an das von dem Konstruktor zurückgegebene Ausnahmeobjekt anhängen.
-
-> [!NOTE]
-> Stack-Traces werden normalerweise nicht vom WebAssembly-Code gesendet, um die Leistung zu verbessern.
-> Die Möglichkeit, Stack-Traces zu diesen Ausnahmen hinzuzufügen, wird für Entwickler-Tools bereitgestellt und wird im Allgemeinen nicht für den breiteren Gebrauch empfohlen.
+Die **`stack`**-Eigenschaft, die schreibgeschützt ist, des [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception)-Objekts _kann_ einen Stack-Trace enthalten.
 
 ## Wert
 
 Ein String, der den Stack-Trace enthält, oder {{jsxref("undefined")}}, wenn kein Trace zugewiesen wurde.
 
-Der Stack-Trace-String listet die Speicherorte jeder Operation auf dem Stack im WebAssembly-Format auf.
-Dies ist ein menschenlesbarer String, der die URL, den Namen des aufgerufenen Funktionstyps, den Funktionsindex und seinen Offset im Modul-Binärformat angibt.
-Er hat ungefähr folgendes Format (siehe [Stack-Trace-Konventionen](https://webassembly.github.io/spec/web-api/index.html#conventions) in der Spezifikation für weitere Informationen):
+Der Stack-Trace-String listet die Positionen jeder Operation auf dem Stack im WebAssembly-Format auf.
+Dies ist ein menschenlesbarer String, der die URL, den Namen des aufgerufenen Funktionstyps, den Funktionsindex und dessen Offset im Modul-Binärformat angibt.
+Er hat ungefähr folgendes Format (siehe [Konventionen für Stack-Traces](https://webassembly.github.io/spec/web-api/index.html#conventions) in der Spezifikation für weitere Informationen):
 
 ```plain
 ${url}:wasm-function[${funcIndex}]:${pcOffset}
 ```
 
+## Beschreibung
+
+Ausnahmen vom WebAssembly-Code enthalten standardmäßig keinen Stack-Trace.
+
+Wenn WebAssembly-Code einen Stack-Trace bereitstellen muss, muss eine JavaScript-Funktion aufgerufen werden, um die Ausnahme zu erstellen, und der Parameter `options.traceStack=true` muss im [Konstruktor](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/Exception) übergeben werden.
+Die virtuelle Maschine kann dann der vom Konstruktor zurückgegebenen Ausnahme ein Stack-Trace anhängen.
+
+> [!NOTE]
+> Stack-Traces werden normalerweise nicht vom WebAssembly-Code gesendet, um die Leistung zu verbessern.
+> Die Möglichkeit, diesen Ausnahmen Stack-Traces hinzuzufügen, ist für Entwickler-Tools gedacht und wird im Allgemeinen nicht zur breiten Verwendung empfohlen.
+
 ## Beispiele
 
-Dieses Beispiel demonstriert, wie man aus WebAssembly eine Ausnahme wirft, die einen Stack-Trace enthält.
+Dieses Beispiel zeigt, wie man eine Ausnahme von WebAssembly aus wirft, die einen Stack-Trace enthält.
 
-Betrachten Sie den folgenden WebAssembly-Code, von dem angenommen wird, dass er in eine Datei namens **example.wasm** kompiliert wurde.
-Er importiert ein Tag, das intern als `$tagname` bezeichnet wird, und importiert eine Funktion, die als `$throwExnWithStack` bezeichnet wird.
-Er exportiert die Methode `run`, die von externem Code aufgerufen werden kann, um `$throwExnWithStack` (und somit die JavaScript-Funktion) zu rufen.
+Betrachten Sie den folgenden WebAssembly-Code, der angenommen wird, dass er in eine Datei namens `example.wasm` kompiliert wird.
+Dieser importiert ein Tag, das intern als `$tagname` bezeichnet wird, und importiert eine Funktion, die intern als `$throwExnWithStack` bezeichnet wird.
+Er exportiert die Methode `run`, die von externem Code aufgerufen werden kann, um `$throwExnWithStack` aufzurufen.
 
 ```wat
 (module
@@ -54,11 +56,11 @@ Er exportiert die Methode `run`, die von externem Code aufgerufen werden kann, u
 )
 ```
 
-Der unten stehende JavaScript-Code definiert ein neues Tag `tag` und die Funktion `throwExceptionWithStack`.
+Der folgende JavaScript-Code definiert ein neues Tag `tag` und die Funktion `throwExceptionWithStack()`.
 Diese werden dem WebAssembly-Modul im `importObject` übergeben, wenn es instanziiert wird.
 
-Sobald die Datei instanziiert ist, ruft der Code die exportierte WebAssembly-Methode `run()` auf, die sofort eine Ausnahme wirft.
-Der Stack wird dann aus der `catch`-Anweisung protokolliert.
+Sobald das Modul instanziiert ist, ruft der Code die exportierte WebAssembly-Methode `run()` auf, die sofort eine Ausnahme auslöst.
+Der Stack wird dann aus dem `catch`-Statement geloggt.
 
 ```js
 const tag = new WebAssembly.Tag({ parameters: ["i32"] });
@@ -90,13 +92,13 @@ WebAssembly.instantiateStreaming(fetch("example.wasm"), importObject)
 // @http://<url>/main.js:82:38
 ```
 
-Der "relevanteste" Teil dieses Codes ist die Zeile, in der die Ausnahme erstellt wird:
+Der bedeutendste Teil dieses Codes ist die Zeile, in der die Ausnahme erstellt wird:
 
 ```js
 new WebAssembly.Exception(tag, [param], { traceStack: true });
 ```
 
-Das Übergeben von `{traceStack: true}` teilt der WebAssembly-virtuellen Maschine mit, dass sie einen Stack-Trace an die zurückgegebene `WebAssembly.Exception` anhängen soll.
+Das Übergeben von `{traceStack: true}` weist die WebAssembly-Virtual-Maschine an, dass sie einen Stack-Trace an die zurückgegebene `WebAssembly.Exception` anhängen soll.
 Ohne dies wäre der Stack `undefined`.
 
 ## Browser-Kompatibilität

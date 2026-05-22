@@ -1,11 +1,11 @@
 ---
-title: "TypeError: Das Aufrufen eines eingebauten X-Konstruktors ohne new ist verboten"
+title: "TypeError: calling a builtin X constructor without new is forbidden"
 slug: Web/JavaScript/Reference/Errors/Builtin_ctor_no_new
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
-Die JavaScript-Ausnahme "Das Aufrufen eines eingebauten X-Konstruktors ohne `new` ist verboten" tritt auf, wenn Sie versuchen, einen eingebauten Konstruktor aufzurufen, ohne das Schlüsselwort {{jsxref("Operators/new", "new")}} zu verwenden. Alle modernen Konstruktoren, wie {{jsxref("Promise")}} und {{jsxref("Map")}}, müssen mit `new` aufgerufen werden.
+Die JavaScript-Ausnahme "Der Aufruf eines eingebauten X-Konstruktors ohne new ist verboten" tritt auf, wenn Sie versuchen, einen eingebauten Konstruktor ohne das Schlüsselwort {{jsxref("new")}} aufzurufen. Alle modernen Konstruktoren, wie {{jsxref("Promise")}} und {{jsxref("Map")}}, müssen mit `new` aufgerufen werden.
 
 ## Meldung
 
@@ -22,9 +22,9 @@ TypeError: calling X constructor without new is invalid (Safari)
 
 ## Was ist schiefgelaufen?
 
-In JavaScript sind das _Aufrufen_ einer Funktion ohne `new` und das _Konstruktionieren_ einer Funktion mit `new` zwei unterschiedliche Operationen, und Funktionen können sich unterschiedlich verhalten, je nachdem, wie sie aufgerufen werden.
+In JavaScript sind _Funktionsaufruf_ ohne `new` und _Funktionskonstruktion_ mit `new` zwei unterschiedliche Operationen, und Funktionen können sich je nachdem, wie sie aufgerufen werden, anders verhalten.
 
-Abgesehen von den folgenden veralteten Konstruktoren müssen alle modernen Konstruktoren mit `new` aufgerufen werden:
+Mit Ausnahme der folgenden veralteten Konstruktoren müssen alle modernen Konstruktoren mit `new` aufgerufen werden:
 
 - {{jsxref("Object/Object", "Object()")}}
 - {{jsxref("Function/Function", "Function()")}} (und seine Unterklassen)
@@ -32,9 +32,9 @@ Abgesehen von den folgenden veralteten Konstruktoren müssen alle modernen Konst
 - {{jsxref("RegExp/RegExp", "RegExp()")}}
 - {{jsxref("Array/Array", "Array()")}}
 
-Einige andere Konstruktoren, wie {{jsxref("Date/Date", "Date()")}}, und primitive Wrapper, wie {{jsxref("String/String", "String()")}}, {{jsxref("Number/Number", "Number()")}}, und {{jsxref("Boolean/Boolean", "Boolean()")}}, können ebenfalls mit oder ohne `new` aufgerufen werden, aber die Rückgabetypen unterscheiden sich in den beiden Fällen.
+Einige andere Konstruktoren, wie {{jsxref("Date/Date", "Date()")}}, und primitive Wrapper, wie {{jsxref("String/String", "String()")}}, {{jsxref("Number/Number", "Number()")}}, und {{jsxref("Boolean/Boolean", "Boolean()")}}, können auch mit oder ohne `new` aufgerufen werden, aber die Rückgabewerte unterscheiden sich in den beiden Fällen.
 
-Auf jeder Konstruktorseite können Sie Informationen darüber finden, ob der Konstruktor mit `new` aufgerufen werden muss.
+Auf jeder Konstruktorseite finden Sie Informationen darüber, ob der Konstruktor mit `new` aufgerufen werden muss.
 
 ## Beispiele
 
@@ -52,4 +52,4 @@ const m = new Map();
 
 ## Siehe auch
 
-- {{jsxref("Operators/new", "new")}}
+- {{jsxref("new")}}

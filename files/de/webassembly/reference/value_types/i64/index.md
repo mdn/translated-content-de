@@ -1,12 +1,12 @@
 ---
-title: "i64: Wasm-Typ"
+title: "i64: Wasm-Werttyp"
 short-title: i64
 slug: WebAssembly/Reference/Value_types/i64
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
 ---
 
-Der **`i64`**-Wertetyp hält einen 64-Bit-Integer.
+Der **`i64`**-Werttyp hält einen 64-Bit-Integer.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ Der **`i64`**-Wertetyp hält einen 64-Bit-Integer.
 
 ## Beschreibung
 
-`i64`-Werte sind 64 Bit breit und sind nicht von Natur aus vorzeichenbehaftet oder vorzeichenlos. Jede Anweisung wählt ihre Interpretation: Vorzeichenbehaftete Varianten wie `i64.div_s` behandeln Operanden als Zweierkomplement, während vorzeichenlose Varianten wie `i64.div_u` dies nicht tun. Operationen, deren Ergebnis nicht von Vorzeichenhaftigkeit beeinflusst wird, wie Addition, Subtraktion, Multiplikation und bitweise Operationen, haben eine einzige Anweisung.
+`i64`-Werte sind 64 Bit breit und sind nicht von Natur aus vorzeichenbehaftet oder vorzeichenlos. Jede Anweisung wählt ihre Interpretation: Vorzeichenbehaftete Varianten wie `i64.div_s` behandeln Operanden als Zweierkomplement, während vorzeichenlose Varianten wie `i64.div_u` dies nicht tun. Operationen, deren Ergebnis nicht von der Vorzeichenbehaftung beeinflusst wird, wie Addition, Subtraktion, Multiplikation und bitweise Operationen, haben eine einzige Anweisung.
 
-`i64` ist _transparent_: sein Bitmuster ist sichtbar, und `i64`-Werte können im [linearen Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden.
+`i64` ist _transparent_: Sein Bitmuster ist erkennbar, und `i64`-Werte können im [linearen Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden.
 
 ### JavaScript-Grenze
 
-Der `Number`-Typ in JavaScript kann den gesamten `i64`-Bereich nicht verlustfrei darstellen, daher überschreiten `i64`-Werte die JavaScript-Grenze als [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Außerhalb des Bereichs liegende BigInts werden modulo 2⁶⁴ umgeschlagen. Das Übergeben einer einfachen `Number`, wo ein `i64` erwartet wird, führt zu einem `TypeError`.
+Der `Number`-Typ von JavaScript kann den vollständigen `i64`-Bereich nicht verlustfrei darstellen, daher überqueren `i64`-Werte die JavaScript-Grenze als [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Außerhalb des Bereichs liegende BigInts werden modulo 2⁶⁴ umbrochen. Das Übergeben einer einfachen `Number`, wenn ein `i64` erwartet wird, löst einen `TypeError` aus.
 
 ## Spezifikationen
 

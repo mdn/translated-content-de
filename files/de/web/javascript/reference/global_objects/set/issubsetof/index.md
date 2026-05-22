@@ -3,10 +3,10 @@ title: Set.prototype.isSubsetOf()
 short-title: isSubsetOf()
 slug: Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
-Die **`isSubsetOf()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt einen booleschen Wert zurück, der angibt, ob alle Elemente dieser Menge in der angegebenen Menge enthalten sind.
+Die **`isSubsetOf()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt einen Booleschen Wert zurück, der angibt, ob alle Elemente dieser Menge in der gegebenen Menge enthalten sind.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ isSubsetOf(other)
 
 ### Rückgabewert
 
-`true`, wenn alle Elemente in dieser Menge auch in der `other`-Menge sind, andernfalls `false`.
+`true`, wenn alle Elemente in dieser Menge auch in der `other`-Menge enthalten sind, andernfalls `false`.
 
 ## Beschreibung
 
-In mathematischer Notation ist _Teilmenge_ definiert als:
+In mathematischer Notation wird _subset_ wie folgt definiert:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -33,23 +33,23 @@ In mathematischer Notation ist _Teilmenge_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit Hilfe eines Venn-Diagramms:
+Und anhand eines Venn-Diagramms:
 
 ![Ein Venn-Diagramm mit zwei Kreisen. A ist eine Teilmenge von B, weil A vollständig in B enthalten ist.](diagram.svg)
 
 > [!NOTE]
-> Die _Teilmenge_-Beziehung ist keine _echte Teilmenge_, was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
+> Die _subset_-Beziehung ist keine _proper subset_ (echte Teilmenge), was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
 
-`isSubsetOf()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine echte {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten in `this` zugreift, ohne benutzerdefinierten Code aufzurufen. Dann hängt das Verhalten von den Größen von `this` und `other` ab:
+`isSubsetOf()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt die darunter liegenden Daten abruft, die in `this` gespeichert sind, ohne Benutzer-Code aufzurufen. Dann hängt sein Verhalten von der Anzahl der Elemente in `this` und `other` ab:
 
-- Wenn mehr Elemente in `this` sind als `other.size`, wird direkt `false` zurückgegeben.
-- Ansonsten wird über die Elemente in `this` iteriert, und `false` wird zurückgegeben, wenn ein Element `e` in `this` dazu führt, dass `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Andernfalls wird `true` zurückgegeben.
+- Wenn es mehr Elemente in `this` gibt als `other.size`, wird direkt `false` zurückgegeben.
+- Andernfalls wird über die Elemente in `this` iteriert und `false` wird zurückgegeben, wenn ein Element `e` in `this` dazu führt, dass `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Ansonsten wird `true` zurückgegeben.
 
 ## Beispiele
 
 ### Verwendung von isSubsetOf()
 
-Die Menge der Vielfachen von 4 (<20) ist eine Teilmenge der geraden Zahlen (<20):
+Die Menge der Vielfachen von 4 (<20) ist eine Teilmenge von geraden Zahlen (<20):
 
 ```js
 const fours = new Set([4, 8, 12, 16]);

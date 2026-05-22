@@ -3,10 +3,10 @@ title: Reflect.construct()
 short-title: construct()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/construct
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
-Die statische Methode **`Reflect.construct()`** ist wie der {{jsxref("Operators/new", "new")}} Operator, aber als Funktion. Sie ist gleichbedeutend mit dem Aufruf von `new target(...args)`. Zusätzlich ermöglicht es die Angabe eines anderen [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)-Werts.
+Die **`Reflect.construct()`** statische Methode funktioniert ähnlich wie der {{jsxref("new")}} Operator, jedoch als Funktion. Sie ist gleichbedeutend mit dem Aufruf von `new target(...args)`. Zusätzlich erlaubt sie es, einen anderen [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) Wert anzugeben.
 
 {{InteractiveExample("JavaScript Demo: Reflect.construct()", "taller")}}
 
@@ -36,30 +36,30 @@ Reflect.construct(target, argumentsList, newTarget)
 ### Parameter
 
 - `target`
-  - : Die Zielfunktion, die aufgerufen werden soll.
+  - : Die Ziel-Funktion, die aufgerufen werden soll.
 - `argumentsList`
-  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente angibt, mit denen `target` aufgerufen werden soll.
+  - : Ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects), das die Argumente enthält, mit denen `target` aufgerufen werden soll.
 - `newTarget` {{optional_inline}}
-  - : Der Wert des [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)-Ausdrucks innerhalb von `target`. Standardmäßig `target`. Im Allgemeinen ([siehe Beispiel](#ändern_von_new.target)) gibt `target` die _Logik_ zur Initialisierung des Objekts an, während `newTarget.prototype` das _Prototyp_ des konstruierten Objekts spezifiziert.
+  - : Der Wert des [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) Ausdrucks innerhalb von `target`. Standardmäßig `target`. Im Allgemeinen ([siehe Beispiel](#ändern_von_new.target)), spezifiziert `target` die _Logik_ zur Initialisierung des Objekts, während `newTarget.prototype` das _Prototype_ des konstruierten Objekts angibt.
 
 ### Rückgabewert
 
-Eine neue Instanz von `target` (oder `newTarget`, falls vorhanden), initialisiert durch `target` als Konstruktor mit der angegebenen `argumentsList`.
+Eine neue Instanz von `target` (oder `newTarget`, falls angegeben), initialisiert durch `target` als Konstruktor mit der gegebenen `argumentsList`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `target` oder `newTarget` kein Konstruktor ist, oder wenn `argumentsList` kein Objekt ist.
+  - : Wird ausgelöst, wenn `target` oder `newTarget` kein Konstruktor ist oder wenn `argumentsList` kein Objekt ist.
 
 ## Beschreibung
 
-`Reflect.construct()` bietet die reflektive Semantik eines Konstruktoraufrufs. Das heißt, `Reflect.construct(target, argumentsList, newTarget)` ist semantisch gleichbedeutend mit:
+`Reflect.construct()` bietet die reflektive Semantik eines Konstruktoraufrufs. Das heißt, `Reflect.construct(target, argumentsList, newTarget)` ist semantisch gleichwertig mit:
 
 ```js
 new target(...argumentsList);
 ```
 
-Beachten Sie, dass bei Verwendung des `new` Operators `target` und `newTarget` immer derselbe Konstruktor sind — aber `Reflect.construct()` ermöglicht es, einen anderen [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)-Wert zu übergeben. Konzeptionell ist `newTarget` die Funktion, bei der `new` aufgerufen wurde, und `newTarget.prototype` wird das Prototyp des konstruierten Objekts; während `target` der Konstruktor ist, der tatsächlich ausgeführt wird, um das Objekt zu initialisieren. Zum Beispiel kann `new.target` auch anders sein als der aktuell ausgeführte Konstruktor bei der Vererbung von Klassen.
+Beachten Sie, dass bei der Verwendung des `new` Operators `target` und `newTarget` immer derselbe Konstruktor sind — aber `Reflect.construct()` erlaubt es Ihnen, einen anderen [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) Wert zu übergeben. Konzeptionell ist `newTarget` die Funktion, auf die `new` angewendet wurde, und `newTarget.prototype` wird zum Prototyp des konstruierten Objekts, während `target` der eigentliche Konstruktor ist, der zur Initialisierung des Objekts ausgeführt wird. Zum Beispiel kann `new.target` auch von dem aktuell ausgeführten Konstruktor in der Klassenvererbung abweichen.
 
 ```js
 class A {
@@ -72,14 +72,14 @@ class B extends A {}
 new B(); // "B"
 ```
 
-`Reflect.construct()` ermöglicht es Ihnen, einen Konstruktor mit einer variablen Anzahl von Argumenten aufzurufen. (Dies ist auch mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) bei einem normalen Konstruktoraufruf möglich.)
+`Reflect.construct()` ermöglicht es Ihnen, einen Konstruktor mit einer variablen Anzahl von Argumenten aufzurufen. (Dies ist auch mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) in einem normalen Konstruktoraufruf möglich.)
 
 ```js
 const obj = new Foo(...args);
 const obj = Reflect.construct(Foo, args);
 ```
 
-`Reflect.construct()` ruft die `[[Construct]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.construct()` ruft die `[[Construct]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
@@ -93,7 +93,7 @@ d.getFullYear(); // 1776
 
 ### Ändern von new.target
 
-Wenn `newTarget` übergeben wird, ändert sich der Wert von `new.target` im Konstruktor. Das konstruierte Objekt wird eine Instanz von `newTarget` sein, nicht `target`.
+Wenn `newTarget` übergeben wird, ändert sich der Wert von `new.target` innerhalb des Konstruktors. Das konstruierte Objekt wird eine Instanz von `newTarget`, nicht von `target`.
 
 ```js
 function OneClass() {
@@ -120,7 +120,7 @@ console.log(obj2 instanceof OtherClass); // true
 console.log(obj2 instanceof OneClass); // false
 ```
 
-Natürlich gibt es keine starke Garantie über die Prototypkette des konstruierten Objekts, da dies von der Implementierung des Konstruktors abhängt. Zum Beispiel, wenn der `target` Konstruktor ein Objekt zurückgibt, dann wird dieses Objekt das konstruierte Objekt sein, unabhängig vom `newTarget` Wert. Wenn `target` ein Proxy mit einer `construct` Falle ist, dann kontrolliert die Falle vollständig den Konstruktionsprozess.
+Natürlich gibt es keine starke Garantie über die Prototypenkette des konstruierten Objekts, da dies von der Implementierung des Konstruktors abhängt. Zum Beispiel, wenn der `target` Konstruktor ein Objekt zurückgibt, dann wird dieses Objekt zum konstruierten Objekt, unabhängig vom `newTarget` Wert. Wenn `target` ein Proxy mit einer `construct`-Falle ist, dann kontrolliert die Falle vollständig den Konstruktionsvorgang.
 
 ```js
 function OneClass() {
@@ -137,7 +137,7 @@ console.log(obj1 instanceof OneClass); // false
 console.log(obj1 instanceof OtherClass); // false
 ```
 
-Ein gültiges `new.target` sollte eine Konstruktorfunktion mit einer [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft sein, aber letzteres wird nicht erzwungen. Wenn der Wert der `prototype` Eigenschaft kein Objekt ist, erbt das initialisierte Objekt von `Object.prototype`.
+Ein gültiges `new.target` sollte eine Konstruktorfunktion mit einer [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) Eigenschaft sein, aber Letzteres wird nicht erzwungen. Wenn der Wert der `prototype`-Eigenschaft kein Objekt ist, wird das initialisierte Objekt von `Object.prototype` erben.
 
 ```js
 function OneClass() {
@@ -187,9 +187,9 @@ console.log(obj1 instanceof OtherClass); // true
 console.log(obj2 instanceof OtherClass); // true
 ```
 
-Obwohl das Endergebnis dasselbe ist, gibt es einen wichtigen Unterschied im Prozess. Bei der Verwendung von `Object.create()` und {{jsxref("Function.prototype.apply()")}} zeigt der `new.target` Operator innerhalb der Funktion, die als Konstruktor verwendet wird, auf `undefined`, da das `new` Schlüsselwort nicht verwendet wird, um das Objekt zu erstellen. (Tatsächlich verwendet es die [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply)-Semantik, nicht `construct`, obwohl normale Funktionen fast gleich funktionieren.)
+Während das Endergebnis dasselbe ist, gibt es einen wichtigen Unterschied im Prozess. Wenn `Object.create()` und {{jsxref("Function.prototype.apply()")}} verwendet werden, zeigt der `new.target` Operator innerhalb der für den Konstruktor verwendeten Funktion auf `undefined`, da das `new` Schlüsselwort nicht zum Erstellen des Objekts verwendet wird. (Tatsächlich wird die [`apply`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply) Semantik, nicht `construct`, verwendet, obwohl normale Funktionen fast gleich funktionieren.)
 
-Beim Aufruf von `Reflect.construct()` hingegen zeigt der `new.target` Operator auf den `newTarget` Parameter, falls angegeben, oder auf `target`, wenn nicht.
+Auf der anderen Seite, wenn `Reflect.construct()` aufgerufen wird, zeigt der `new.target` Operator auf den `newTarget` Parameter, wenn angegeben, oder auf `target`, falls nicht.
 
 ```js
 function OneClass() {
@@ -230,6 +230,6 @@ OneClass.apply(obj3, args);
 
 - [Polyfill von `Reflect.construct` in `core-js`](https://github.com/zloirock/core-js#ecmascript-reflect)
 - {{jsxref("Reflect")}}
-- {{jsxref("Operators/new", "new")}}
+- {{jsxref("new")}}
 - [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target)
 - [`handler.construct()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/construct)

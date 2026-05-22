@@ -1,12 +1,12 @@
 ---
-title: "i32: Wasm-Typ"
+title: "i32: Wasm-Datentyp"
 short-title: i32
 slug: WebAssembly/Reference/Value_types/i32
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
 ---
 
-Der **`i32`** Werttyp hält einen 32-Bit-Integer.
+Der **`i32`**-Datentyp hält einen 32-Bit-Ganzzahlwert.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Der **`i32`** Werttyp hält einen 32-Bit-Integer.
 
 ## Beschreibung
 
-`i32`-Werte sind 32 Bits breit und sind nicht von Natur aus vorzeichenbehaftet oder vorzeichenlos. Die Interpretation wird von jeder Anweisung gewählt: [`i32.div_s`](/de/docs/WebAssembly/Reference/Numeric/div) behandelt beispielsweise seine Operanden als Zweierkomplement vorzeichenbehafteter Integer, während `i32.div_u` sie als vorzeichenlos behandelt. Wo die Unterscheidung das Ergebnis nicht beeinflusst, wie bei Addition, Subtraktion, Multiplikation und bitweisen Operationen, behandelt eine einzelne Anweisung beide Interpretationen.
+`i32`-Werte sind 32 Bit breit und sind nicht von Natur aus signiert oder unsigniert. Die Interpretation wird von jeder Anweisung bestimmt: [`i32.div_s`](/de/docs/WebAssembly/Reference/Numeric/div) beispielsweise behandelt seine Operanden als zweierkomplementäre Ganzzahlen, während `i32.div_u` sie als unsignierte Zahlen behandelt. Wo die Unterscheidung das Ergebnis nicht beeinflusst, wie bei der Addition, Subtraktion, Multiplikation und Bitoperationen, übernimmt eine einzige Anweisung beide Interpretationen.
 
 `i32` ist der Standardadressentyp für Speicher- und Tabellenvorgänge. Adressen, Offsets und Größen, die an Anweisungen wie [`i32.load`](/de/docs/WebAssembly/Reference/Memory/load) und [`table.get`](/de/docs/WebAssembly/Reference/Table/get) übergeben werden, sind `i32`, es sei denn, ein Modul entscheidet sich für einen breiteren Adressentyp für den Speicher.
 
@@ -35,7 +35,7 @@ Der **`i32`** Werttyp hält einen 32-Bit-Integer.
 
 ### JavaScript-Grenze
 
-An der JavaScript-Grenze werden `i32`-Werte als JavaScript-[`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Werte übergeben. JavaScript-Zahlen außerhalb des Bereichs wickeln sich modulo 2³².
+An der JavaScript-Grenze werden `i32`-Werte als JavaScript-[`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Werte übergeben. Zahlen, die außerhalb des Bereichs von JavaScript liegen, werden modulo 2³² umschlossen.
 
 ## Spezifikationen
 

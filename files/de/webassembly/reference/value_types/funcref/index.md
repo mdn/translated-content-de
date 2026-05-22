@@ -1,12 +1,12 @@
 ---
-title: "funcref: Wasm-Typ"
+title: "funcref: Wasm-Wertetyp"
 short-title: funcref
 slug: WebAssembly/Reference/Value_types/funcref
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
 ---
 
-Der **`funcref`**-Werttyp referenziert eine in Wasm definierte Funktion und ermöglicht es, höherwertige Funktionen über die Grenzen von Wasm und JavaScript hinweg zu verwenden.
+Der **`funcref`** Wertetyp referenziert eine in Wasm definierte Funktion und ermöglicht die Verwendung von höheren Funktionen über die Grenzen der Wasm- und JavaScript-Sprachen hinweg.
 
 {{InteractiveExample("Wat Demo: funcref", "tabbed-taller")}}
 
@@ -66,17 +66,17 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), importObj).then(
 
 ## Beschreibung
 
-Der `funcref`-Typ wird verwendet, um eine Referenz auf eine in Wasm erstellte Funktion zu erstellen, die dann in eine aus JavaScript importierte Funktion übergeben werden kann. Eine typische Verwendung hiervon ist es, Wasm-Funktionen als Callback in JavaScript-Funktionen zu übergeben.
+Der `funcref`-Typ wird verwendet, um eine Referenz auf eine in Wasm erstellte Funktion zu erstellen, die dann in eine von JavaScript importierte Funktion übergeben werden kann. Ein typischer Anwendungsfall ist, dass Wasm-Funktionen als Rückruffunktionen in JavaScript-Funktionen übergeben werden.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von `funcref`
 
-In diesem Beispiel importieren wir eine benutzerdefinierte JavaScript-`map()`-Funktion in ein Wasm-Modul, das ein Array und eine Callback-Funktion als Parameter akzeptiert. Der Callback-Funktionsparameter erhält einen `funcref`-Typ, was bedeutet, dass er innerhalb von Wasm definiert und in die JavaScript-Funktion übergeben werden kann.
+In diesem Beispiel importieren wir eine benutzerdefinierte JavaScript `map()` Funktion in ein Wasm-Modul, die ein Array und eine Rückruffunktion als Parameter akzeptiert. Der Rückruffunktionsparameter erhält einen funcref-Typ, was bedeutet, dass er in Wasm definiert und in die JavaScript-Funktion übergeben werden kann.
 
 #### JavaScript
 
-Zuerst holen wir uns Referenzen auf ein {{htmlelement("p")}}-Element, in das wir unsere Ergebnisse ausgeben werden, und auf ein Array, das wir später in einen exportierten WebAssembly-Funktionsaufruf übergeben werden.
+Zuerst greifen wir auf eine {{htmlelement("p")}}-Element-Referenz zu, in die wir unsere Ergebnisse ausgeben werden, und ein Array, das wir später in einen exportierten WebAssembly-Funktionsaufruf übergeben werden.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -87,7 +87,7 @@ const output = document.querySelector("p");
 const arr = [1, 4, 9, 16, 64];
 ```
 
-Als nächstes erstellen wir ein Import-Objekt und definieren eine Funktion namens `map()` darin, welche zwei Parameter benötigt: ein Array und eine Callback-Funktion. Im Inneren erstellen wir ein neues Array (`result`), indem wir jeden Wert im Array in die Callback-Funktion über die in JavaScript eingebaute [`Array.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)-Funktion übergeben. Schließlich setzen wir das Ergebnis als Wert des `textContent` des Ausgabe-Elements.
+Dann erstellen wir ein Importobjekt und definieren darin eine Funktion namens `map()`, die zwei Parameter akzeptiert: ein Array und eine Rückruffunktion. Im Inneren erstellen wir ein neues Array (`result`), indem wir jeden Wert im Array über die integrierte JavaScript-Funktion [`Array.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) in die Rückruffunktion übergeben. Schließlich legen wir das Ergebnis als Wert der `textContent` des Ausgabeelements fest.
 
 ```js live-sample___basic-usage
 const importObj = {
@@ -100,7 +100,7 @@ const importObj = {
 };
 ```
 
-Der letzte Schritt in unserem JavaScript ist das Kompilieren und Instanziieren des Wasm-Moduls mit [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir den `importObj`-Namespace importieren. Wenn das Ergebnis zurückgegeben wird, rufen wir die Wasm-`doubleArray()`-Funktion auf, die im WebAssembly-Objekt [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) verfügbar ist, und übergeben ihr das Array `arr` als Parameter.
+Der letzte Schritt in unserem JavaScript ist, das Wasm-Modul mit [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) zu kompilieren und zu instanziieren, während wir den `importObj`-Namespace importieren. Wenn das Ergebnis zurückgegeben wird, rufen wir die Wasm `doubleArray()` Funktion auf, die über das WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und übergeben ihr das `arr`-Array als Parameter.
 
 ```js live-sample___basic-usage
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), importObj).then(
@@ -112,11 +112,11 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), importObj).then(
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die `map()`-Funktion aus dem importierten `js`-Namespace und geben ihr den Referenznamen `$map`. Der erste `param` erhält einen `externref`-Typ (der das Array-Parameter darstellt), und der zweite einen `funcref`-Typ (der das Callback-Parameter darstellt).
+In unserem Wasm-Modul importieren wir zuerst die `map()` Funktion aus dem importierten `js` Namespace, die wir `$map` nennen. Der erste `param` erhält einen `externref`-Typ (der das Array-Parameter repräsentiert) und der zweite einen `funcref`-Typ (der den Rückrufparameter repräsentiert).
 
-Als nächstes definieren wir eine Funktion namens `double()`, die sowohl ein als auch ein zurückgegebenes Gleitkomma-Zahlenparameter hat. Der Funktionskörper multipliziert das Parameter mit 2, indem die [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Anweisung verwendet wird.
+Als nächstes definieren wir eine Funktion namens `double()`, die sowohl einen Gleitkommawert-Parameter annimmt als auch zurückgibt. Der Funktionskörper multipliziert den Parameter mit 2, indem die [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Anweisung verwendet wird.
 
-Schließlich definieren wir die exportierte `doubleArray()`-Funktion. Sie hat einen einzigen definierten `param` — `$arr` — mit einem `externref`-Typ, was sinnvoll ist, da wir sie aus JavaScript aufrufen und den Wert dort bereitstellen. Im Inneren rufen wir die importierte `map()`-Funktion auf, indem wir ihr das `$arr` `externref` und die `double()`-Funktion als Parameter übergeben.
+Schließlich definieren wir die exportierte `doubleArray()` Funktion. Sie hat einen einzigen definierten `param` — `$arr` — mit einem `externref`-Typ, was sinnvoll ist, da wir sie von JavaScript aus aufrufen und dort den Wert bereitstellen. Im Inneren rufen wir die importierte `map()` Funktion auf und übergeben ihr das `$arr` `externref` und die `double()` Funktion als Parameter.
 
 ```wat live-sample___basic-usage
 (module
@@ -136,11 +136,11 @@ Schließlich definieren wir die exportierte `doubleArray()`-Funktion. Sie hat ei
 
 #### Ergebnis
 
-Die gerenderte Ausgabe sieht so aus:
+Die gerenderte Ausgabe sieht folgendermaßen aus:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Das ursprüngliche Array hat alle seine Werte mit `2` multipliziert, und das resultierende neue Array wird in unserem `<p>`-Element ausgegeben. Das macht Sinn: Wir rufen die exportierte `doubleArray()`-Funktion aus JavaScript auf. Das Wasm-Modul kümmert sich dann um den Aufruf unserer JavaScript-`map()`-Funktion, indem es ihr das Array und die in Wasm definierte `double()`-Callback-Funktion übergibt, sodass `Array.map()` den Callback auf jeden Array-Wert anwenden kann.
+Das ursprüngliche Array hat alle seine Werte mit `2` multipliziert, und das resultierende neue Array wird in unserem `<p>`-Element ausgegeben. Das ist sinnvoll: Wir rufen die exportierte `doubleArray()` Funktion aus JavaScript auf. Das Wasm-Modul übernimmt dann den Aufruf unserer JavaScript `map()` Funktion und übergibt ihr das Array und die in Wasm definierte `double()` Rückruffunktion, damit sie den Rückruf auf jeden Array-Wert über `Array.map()` anwenden kann.
 
 ## Spezifikationen
 

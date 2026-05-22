@@ -2,7 +2,7 @@
 title: set
 slug: Web/JavaScript/Reference/Functions/set
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
 Die **`set`**-Syntax bindet eine Objekt-Eigenschaft an eine Funktion, die aufgerufen wird, wenn versucht wird, diese Eigenschaft zu setzen. Sie kann auch in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) verwendet werden.
@@ -31,24 +31,24 @@ console.log(language.log);
 { set [expression](val) { /* … */ } }
 ```
 
-Es gibt einige zusätzliche Syntaxeinschränkungen:
+Es gibt einige zusätzliche Syntaxbeschränkungen:
 
 - Ein Setter muss genau einen Parameter haben.
 
 ### Parameter
 
 - `prop`
-  - : Der Name der Eigenschaft, die an die gegebene Funktion gebunden werden soll. Wie bei anderen Eigenschaften in [Objektinitialisierungen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) kann es sich um ein String-Literal, ein Zahlenliteral oder einen Bezeichner handeln.
+  - : Der Name der Eigenschaft, die an die gegebene Funktion gebunden werden soll. Wie andere Eigenschaften in [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) kann es ein Stringliteral, ein Zahlenliteral oder ein Bezeichner sein.
 - `val`
-  - : Ein Alias für die Variable, die den Wert hält, der `prop` zugewiesen werden soll.
+  - : Ein Alias für die Variable, die den Wert hält, der versucht wird, `prop` zuzuweisen.
 - `expression`
-  - : Sie können auch Ausdrücke für einen berechneten Eigenschaftsnamen verwenden, um diesen an die gegebene Funktion zu binden.
+  - : Sie können auch Ausdrücke für einen berechneten Eigenschaftsnamen verwenden, um ihn an die gegebene Funktion zu binden.
 
 ## Beschreibung
 
-In JavaScript kann ein Setter verwendet werden, um eine Funktion auszuführen, wenn versucht wird, den Wert einer Eigenschaft zu ändern. Setter werden meistens in Verbindung mit Gettern verwendet.
+In JavaScript kann ein Setter verwendet werden, um eine Funktion auszuführen, wann immer versucht wird, den Wert einer Eigenschaft zu ändern. Setter werden am häufigsten in Verbindung mit Gettern verwendet.
 
-Eine Objekteigenschaft ist entweder eine Dateneigenschaft oder eine Zugriffseigenschaft, sie kann aber nicht gleichzeitig beides sein. Lesen Sie {{jsxref("Object.defineProperty()")}} für mehr Informationen. Die Setzer-Syntax erlaubt es Ihnen, die Setzerfunktion in einer Objektinitialisierung anzugeben.
+Eine Objekteigenschaft ist entweder eine Dateneigenschaft oder eine Accessor-Eigenschaft, aber sie kann nicht gleichzeitig beides sein. Lesen Sie {{jsxref("Object.defineProperty()")}} für weitere Informationen. Die Setter-Syntax ermöglicht es Ihnen, die Setter-Funktion in einem Objektinitialisierer anzugeben.
 
 ```js
 const obj = {
@@ -58,11 +58,11 @@ const obj = {
 }
 ```
 
-Eigenschaften, die mit dieser Syntax definiert sind, sind Eigenobjekteigenschaften des erstellten Objekts, und sie sind konfigurierbar und aufzählbar.
+Eigenschaften, die mit dieser Syntax definiert sind, sind eigene Eigenschaften des erstellten Objekts und sie sind konfigurierbar und aufzählbar.
 
 ## Beispiele
 
-### Definieren eines Setzers auf neuen Objekten in Objektinitialisierungen
+### Definieren eines Setters für neue Objekte in Objektinitialisierern
 
 Das folgende Beispiel definiert eine Pseudo-Eigenschaft `current` des Objekts `language`. Wenn `current` ein Wert zugewiesen wird, wird `log` mit diesem Wert aktualisiert:
 
@@ -81,11 +81,11 @@ language.current = "FA";
 console.log(language.log); // ['EN', 'FA']
 ```
 
-Beachten Sie, dass `current` nicht definiert ist und jeder Versuch, darauf zuzugreifen, zu `undefined` führt.
+Beachten Sie, dass `current` nicht definiert ist und alle Zugriffsversuche darauf zu `undefined` führen.
 
-### Verwendung von Setzern in Klassen
+### Verwenden von Settern in Klassen
 
-Sie können die exakt gleiche Syntax verwenden, um öffentliche Instanz-Setzer zu definieren, die auf Klasseninstanzen verfügbar sind. In Klassen ist kein Komma-Trenner zwischen Methoden erforderlich.
+Sie können die exakt gleiche Syntax verwenden, um öffentliche Instanz-Setter zu definieren, die auf Klasseninstanzen verfügbar sind. In Klassen benötigen Sie kein Kommatrennzeichen zwischen den Methoden.
 
 ```js
 class ClassWithGetSet {
@@ -107,20 +107,19 @@ console.log(instance.msg); // "hello cake"
 
 Setter-Eigenschaften sind auf der `prototype`-Eigenschaft der Klasse definiert und werden daher von allen Instanzen der Klasse geteilt. Im Gegensatz zu Setter-Eigenschaften in Objektliteralen sind Setter-Eigenschaften in Klassen nicht aufzählbar.
 
-Statische Setter und private Setter verwenden ähnliche Syntaxen, die auf den Seiten zu [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [privaten Elementen](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) beschrieben sind.
+Statische Setter und private Setter verwenden ähnliche Syntaxen, die auf den Seiten [`static`](/de/docs/Web/JavaScript/Reference/Classes/static) und [private elements](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) beschrieben werden.
 
-### Entfernen eines Setzers mit dem `delete`-Operator
+### Entfernen eines Setters mit dem `delete`-Operator
 
-Wenn Sie den Setter entfernen möchten, können Sie ihn einfach {{jsxref("Operators/delete", "löschen")}};
+Wenn Sie den Setter entfernen möchten, können Sie einfach {{jsxref("delete")}} verwenden:
 
 ```js
 delete language.current;
 ```
 
-### Definieren eines Setzers auf bestehenden Objekten mit `defineProperty`
+### Definieren eines Setters auf bestehenden Objekten mit `defineProperty`
 
-Um einen Setter zu einem _bestehenden_ Objekt hinzuzufügen, verwenden Sie
-{{jsxref("Object.defineProperty()")}}.
+Um einen Setter an ein _bestehendes_ Objekt anzuhängen, verwenden Sie {{jsxref("Object.defineProperty()")}}.
 
 ```js
 const o = { a: 0 };
@@ -137,7 +136,7 @@ o.b = 10;
 console.log(o.a); // 5
 ```
 
-### Verwenden eines berechneten Eigenschaftsnamen
+### Verwenden eines berechneten Eigenschaftsnamens
 
 ```js
 const expr = "foo";
@@ -167,12 +166,12 @@ console.log(obj.baz); // "baz"
 
 ## Siehe auch
 
-- [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects) Leitfaden
+- [Mit Objekten arbeiten](/de/docs/Web/JavaScript/Guide/Working_with_objects) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - [`get`](/de/docs/Web/JavaScript/Reference/Functions/get)
 - {{jsxref("Object.defineProperty()")}}
-- [Objektinitialisierung](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 - {{jsxref("Statements/class", "class")}}
-- [Zugriffseigenschaften](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
-- [Inkompatible ES5-Änderung: Literal-Getter- und Setter-Funktionen müssen jetzt genau null oder einen Parameter haben](https://whereswalden.com/2010/08/22/incompatible-es5-change-literal-getter-and-setter-functions-must-now-have-exactly-zero-or-one-arguments/) von Jeff Walden (2010)
-- [Weitere SpiderMonkey-Änderungen: Antike, esoterische und sehr selten verwendete Syntax zur Erstellung von Gettern und Settern wird entfernt](https://whereswalden.com/2010/04/16/more-spidermonkey-changes-ancient-esoteric-very-rarely-used-syntax-for-creating-getters-and-setters-is-being-removed/) von Jeff Walden (2010)
+- [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors)
+- [Inkompatible ES5-Änderung: Literal-Getter- und Setter-Funktionen müssen jetzt genau null oder ein Argument haben](https://whereswalden.com/2010/08/22/incompatible-es5-change-literal-getter-and-setter-functions-must-now-have-exactly-zero-or-one-arguments/) von Jeff Walden (2010)
+- [Weitere SpiderMonkey-Änderungen: Antike, esoterische, sehr selten verwendete Syntax zur Erstellung von Gettern und Settern wird entfernt](https://whereswalden.com/2010/04/16/more-spidermonkey-changes-ancient-esoteric-very-rarely-used-syntax-for-creating-getters-and-setters-is-being-removed/) von Jeff Walden (2010)

@@ -1,14 +1,14 @@
 ---
-title: "DOMTokenList: forEach() Methode"
+title: "DOMTokenList: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/DOMTokenList/forEach
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 1ddd95504b4507beeda0f08bd772eb167922b86a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle führt die im Parameter angegebene Rückruffunktion einmal für jedes Wertpaar in der Liste in der Einfügereihenfolge aus.
+Die **`forEach()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ruft die als Parameter übergebene Callback-Funktion für jedes Wertepaar in der Liste in der Einfügereihenfolge auf.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ forEach(callback, thisArg)
       - : Das Array, auf das `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der als {{jsxref("Operators/this", "this")}} verwendet wird, wenn `callback` ausgeführt wird.
+  - : Der Wert, der als {{jsxref("this")}} verwendet wird, wenn `callback` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner.
 
 ## Beispiel
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("pre")}}-Element mittels `DOMTokenList` gesetzt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList). Dann erhalten wir einen Iterator, der die Werte enthält, indem er `forEach()` verwendet, und schreiben jede in das `<pre>`s [`Node.textContent`](/de/docs/Web/API/Node/textContent) innerhalb der `forEach()`-inneren Funktion.
+Im folgenden Beispiel erhalten wir die Liste der Klassen, die auf einem {{htmlelement("pre")}}-Element als `DOMTokenList` festgelegt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList). Wir holen dann einen Iterator, der die Werte enthält, mithilfe von `forEach()` ab, wobei jeder Wert in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<pre>` während der Ausführung der inneren Funktion von `forEach()` geschrieben wird.
 
 ### HTML
 

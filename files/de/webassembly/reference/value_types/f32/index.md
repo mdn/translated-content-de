@@ -1,12 +1,12 @@
 ---
-title: "f32: Wasm-Typ"
+title: "f32: Wasm-Datentyp"
 short-title: f32
 slug: WebAssembly/Reference/Value_types/f32
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
 ---
 
-Der **`f32`**-Werttyp hält einen 32-Bit-Gleitkommawert mit einfacher Genauigkeit.
+Der **`f32`**-Datentyp hält einen 32-Bit Gleitkommawert mit einfacher Genauigkeit.
 
 ## Syntax
 
@@ -26,15 +26,15 @@ Der **`f32`**-Werttyp hält einen 32-Bit-Gleitkommawert mit einfacher Genauigkei
 
 ## Beschreibung
 
-`f32`-Werte folgen dem [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) binary32 (Einzelpräzision) Format: ein Vorzeichenbit, acht Exponentenbits und dreiundzwanzig Signifikantenbits. Sie umfassen ungefähr sieben Dezimalstellen der Genauigkeit über den Bereich ±3,4 × 10³⁸, plus die Sonderwerte ±0, ±∞ und NaN.
+`f32`-Werte folgen dem [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754) binary32 (Einzelpräzisions)-Format: ein Vorzeichenbit, acht Exponentenbits und dreiundzwanzig Mantissenbits. Sie decken ungefähr sieben Dezimalstellen Genauigkeit über den Bereich ±3,4 × 10³⁸ ab, plus die speziellen Werte ±0, ±∞ und NaN.
 
-Arithmetische Anweisungen ([`f32.add`](/de/docs/WebAssembly/Reference/Numeric/add), [`f32.mul`](/de/docs/WebAssembly/Reference/Numeric/mul) und so weiter) folgen dem Round-to-Nearest-Ties-to-Even-Semantik von IEEE 754. Das genaue Bitmuster eines durch Arithmetik erzeugten NaN ist nicht deterministisch, daher sollten Sie sich nicht darauf verlassen, dass spezifische NaN-Payloads zwischen Implementierungen oder Architekturen gleich sind.
+Arithmetische Anweisungen ([`f32.add`](/de/docs/WebAssembly/Reference/Numeric/add), [`f32.mul`](/de/docs/WebAssembly/Reference/Numeric/mul), und so weiter) folgen der IEEE 754 Rundung-zu-Nächstem-Werte-Tie-Break-semantik. Das genaue Bitmuster eines durch Arithmetik erzeugten NaN ist nicht deterministisch, daher sollten Sie sich nicht darauf verlassen, dass bestimmte NaN-Payloads zwischen Implementierungen oder Architekturen gleich sind.
 
-`f32` ist _transparent_: Sein Bitmuster ist beobachtbar, und `f32`-Werte können im [linearer Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden. `f32.reinterpret_i32` und seine Umkehrung ermöglichen es Ihnen, Bits zwischen `f32` und `i32` ohne Umwandlung zu verschieben.
+`f32` ist _transparent_: sein Bitmuster ist beobachtbar, und `f32`-Werte können im [linearen Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden. `f32.reinterpret_i32` und sein Inverses ermöglichen es, Bits zwischen `f32` und `i32` zu bewegen, ohne Konvertierung.
 
 ### JavaScript-Grenze
 
-`f32`-Werte überqueren die JavaScript-Grenze als JavaScript-[`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Werte. Werte aus JavaScript werden auf den nächsten darstellbaren `f32` gerundet.
+`f32`-Werte überschreiten die JavaScript-Grenze als JavaScript-[`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Werte. Werte aus JavaScript werden auf den nächsten darstellbaren `f32` gerundet.
 
 ## Spezifikationen
 
