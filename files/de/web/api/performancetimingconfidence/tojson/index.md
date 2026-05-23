@@ -3,12 +3,12 @@ title: "PerformanceTimingConfidence: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceTimingConfidence/toJSON
 l10n:
-  sourceCommit: 464ec9b1e43bf8a87ffe83abf2832e10739e2fb3
+  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}, der eine JSON-Darstellung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts zurückgibt.
+Die **`toJSON()`** Methode des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}, der eine JSON-Darstellung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts zurückgibt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts ist.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`PerformanceTimingConfidence`](/de/docs/Web/API/PerformanceTimingConfidence)-Objekts ist.
 
 ## Beispiele
 
-### Verwendung der toJSON Methode
+### Verwendung der toJSON-Methode
 
 Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um eine JSON-Serialisierung der Vertrauensdaten für beobachtete [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Einträge abzurufen.
 
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Dies würde ein JSON-Objekt wie folgt protokollieren:
+Dies würde ein JSON-Objekt folgendermaßen protokollieren:
 
 ```json
 {

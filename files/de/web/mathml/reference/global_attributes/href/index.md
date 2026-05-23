@@ -2,19 +2,19 @@
 title: href
 slug: Web/MathML/Reference/Global_attributes/href
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
 ---
 
-{{Non-standard_header}}
+{{Non-standard_header}}{{deprecated_header}}
 
-Das **`href`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL zeigt.
+Das **`href`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
 
 ## Beispiel
 
-Die erste Gleichung verlinkt auf den Wikipedia-Artikel über die [Äquivalenz von Masse und Energie](https://en.wikipedia.org/wiki/Mass-energy_equivalence). Der Quadratwurzelteil der zweiten Gleichung ist ein Link zu der [SageMath](https://sagecell.sagemath.org/?z=eJwrLiwq0TCOM9I2iTPSBAAeqgPO) Berechnung.
+Die erste Gleichung verlinkt auf den Wikipedia-Artikel über die [Äquivalenz von Masse und Energie](https://en.wikipedia.org/wiki/Mass-energy_equivalence). Der Wurzelteil der zweiten Gleichung ist ein Link zu einer [SageMath](https://sagecell.sagemath.org/?z=eJwrLiwq0TCOM9I2iTPSBAAeqgPO)-Berechnung.
 
 > [!NOTE]
-> Sie sollten vermeiden, MathML-Elemente mit dem `href`-Attribut zu verschachteln, genau wie {{htmlelement("a")}}-Elemente, da dies zu Verwirrung bei Benutzern und Barrierefreiheitsproblemen führen kann.
+> Sie sollten vermeiden, MathML-Elemente mit den `href`-Attributen zu verschachteln, genau wie {{htmlelement("a")}}-Elemente, da dies zu Benutzerverwirrung und Zugänglichkeitsproblemen führen wird.
 
 ```css hidden
 html,
@@ -78,7 +78,7 @@ body {
 
 ## Spezifikationen
 
-Das `href`-Attribut ist in keiner browserorientierten Spezifikation definiert, aber eine Beschreibung finden Sie in [MathML 4](https://w3c.github.io/mathml/#interf_link).
+Das `href`-Attribut ist in keiner an browserorientierten Spezifikation definiert, aber Sie können eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#interf_link) finden.
 
 ## Browser-Kompatibilität
 

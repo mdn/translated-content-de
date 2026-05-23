@@ -1,22 +1,24 @@
 ---
-title: "Benachrichtigung: maxActions statische Eigenschaft"
+title: "Notification: maxActions statische Eigenschaft"
 short-title: maxActions
 slug: Web/API/Notification/maxActions_static
 l10n:
-  sourceCommit: caa4012f6c46e355ad9840a3603ab69cb436d36f
+  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`maxActions`** schreibgeschützte statische Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem Benutzeragenten unterstützt werden. Praktisch gesehen ist dies die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom Benutzeragenten respektiert werden.
+Die **`maxActions`** schreibgeschützte statische Eigenschaft der
+[`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem User-Agent unterstützt werden. Dies ist effektiv die maximale Anzahl von Elementen im
+[`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom User-Agent berücksichtigt werden.
 
 ## Wert
 
-Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer vom Benutzeragenten und dem Gerät präsentiert werden können.
+Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer durch den User-Agent und das Gerät präsentiert werden können.
 
 ## Beispiele
 
-Der folgende Ausschnitt protokolliert die maximale Anzahl der unterstützten Aktionen.
+Das folgende Beispiel protokolliert die maximale Anzahl unterstützter Aktionen.
 
 ```js
 const maxActions = Notification.maxActions;

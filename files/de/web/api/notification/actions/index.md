@@ -1,30 +1,30 @@
 ---
-title: "Notification: actions-Eigenschaft"
+title: "Benachrichtigung: Eigenschaft actions"
 short-title: actions
 slug: Web/API/Notification/actions
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`actions`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces bietet die Aktionen, die Benutzern zur Auswahl für die Interaktion mit der Benachrichtigung zur Verfügung stehen.
+Die **`actions`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces bietet die Aktionen an, die Benutzern zur Auswahl stehen, um mit der Benachrichtigung zu interagieren.
 
 Die Aktionen werden mit der `actions`-Option des zweiten Arguments für die [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode und den [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor festgelegt.
 
 > [!NOTE]
-> Browser beschränken typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Überprüfen Sie die statische [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static)-Eigenschaft, um das Limit zu bestimmen.
+> Browser begrenzen typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Überprüfen Sie die statische Eigenschaft [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static), um das Limit zu bestimmen.
 
 ## Wert
 
 Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objekt mit den folgenden Mitgliedern:
 
 - `action`
-  - : Ein String, der eine Benutzeraktion identifiziert, die auf der Benachrichtigung angezeigt werden soll.
+  - : Ein Zeichenfolgenwert, der eine Benutzeraktion identifiziert, die auf der Benachrichtigung angezeigt werden soll.
 - `title`
-  - : Ein String, der den Aktionstext enthält, der dem Benutzer angezeigt werden soll.
+  - : Eine Zeichenfolge, die den Aktionstext enthält, der dem Benutzer angezeigt werden soll.
 - `icon`
-  - : Ein String, der die URL eines Symbols enthält, das mit der Aktion angezeigt werden soll.
+  - : Eine Zeichenfolge, die die URL eines Symbols enthält, das zusammen mit der Aktion angezeigt wird.
 
 ## Spezifikationen
 

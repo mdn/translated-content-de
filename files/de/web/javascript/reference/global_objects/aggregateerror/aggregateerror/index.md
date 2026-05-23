@@ -1,12 +1,12 @@
 ---
-title: AggregateError()-Konstruktor
+title: AggregateError() Konstruktor
 short-title: AggregateError()
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: f5ff65031db62ca1d855f2043525462b00455d1b
 ---
 
-Der **`AggregateError()`**-Konstruktor erzeugt {{jsxref("AggregateError")}}-Objekte.
+Der **`AggregateError()`** Konstruktor erstellt {{jsxref("AggregateError")}} Objekte.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ AggregateError(errors, message, options)
 ```
 
 > [!NOTE]
-> `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufarten erzeugen eine neue `AggregateError`-Instanz.
+> `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `AggregateError` Instanz.
 
 ### Parameter
 
 - `errors`
-  - : Ein Iterable von Fehlern, die möglicherweise keine {{jsxref("Error")}}-Instanzen sind.
+  - : Ein iterierbares Objekt von Fehlern, die möglicherweise keine {{jsxref("Error")}} Instanzen sind.
 - `message` {{optional_inline}}
-  - : Eine optionale, menschenlesbare Beschreibung des Aggregatfehlers.
+  - : Eine optionale, für Menschen lesbare Beschreibung des Sammelfehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler zu übergeben, wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer genaueren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übermitteln.
 
 ## Beispiele
 
@@ -60,6 +60,6 @@ try {
 
 ## Siehe auch
 
-- [Polyfill von `AggregateError` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
-- [Polyfill von `AggregateError` in es-shims](https://www.npmjs.com/package/es-aggregate-error)
+- [Polyfill von `AggregateError` in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)
+- [es-shims Polyfill von `AggregateError`](https://www.npmjs.com/package/es-aggregate-error)
 - {{jsxref("Promise.any")}}
