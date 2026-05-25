@@ -3,22 +3,28 @@ title: "Notification: maxActions statische Eigenschaft"
 short-title: maxActions
 slug: Web/API/Notification/maxActions_static
 l10n:
-  sourceCommit: 29e6ba9d844b835a1f00346ef1a78fa5d9e7c1a8
+  sourceCommit: 66be0a23be754791266009f1044e2238c27332b4
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`maxActions`** schreibgeschützte statische Eigenschaft der
-[`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem User-Agent unterstützt werden. Dies ist effektiv die maximale Anzahl von Elementen im
-[`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom User-Agent berücksichtigt werden.
+Die **`maxActions`** schreibgeschützte statische Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt die maximale Anzahl von Aktionen zurück, die in einer Benachrichtigung angezeigt werden können.
 
 ## Wert
 
-Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer durch den User-Agent und das Gerät präsentiert werden können.
+Eine Ganzzahl.
+
+## Beschreibung
+
+Benachrichtigungsaktionen sind Schaltflächen oder Steuerungen, die innerhalb von [persistent notifications](/de/docs/Web/API/Notifications_API#persistent_and_non-persistent_notifications) erscheinen. Aktionen werden mit der [`actions`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#actions)-Option des zweiten Arguments der [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode festgelegt.
+
+Browser begrenzen typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Die `maxActions`-Eigenschaft gibt dieses Limit zurück, welches die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array darstellt, die vom Benutzeragenten beachtet werden.
 
 ## Beispiele
 
-Das folgende Beispiel protokolliert die maximale Anzahl unterstützter Aktionen.
+### Protokollieren der maximal möglichen Anzahl von Aktionen
+
+Der folgende Codeausschnitt protokolliert die maximale Anzahl unterstützter Aktionen.
 
 ```js
 const maxActions = Notification.maxActions;

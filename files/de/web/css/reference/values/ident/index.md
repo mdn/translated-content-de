@@ -3,40 +3,40 @@ title: "`<ident>` CSS-Typ"
 short-title: <ident>
 slug: Web/CSS/Reference/Values/ident
 l10n:
-  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
+  sourceCommit: cad9096502d2a74b34a67377bbb0ac88fcfa58c2
 ---
 
-Der **`<ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine beliebige Zeichenkette, die als {{Glossary("identifier", "Identifier")}} verwendet wird.
+Der **`<ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) bezeichnet eine beliebige unverkleidete Zeichenkette, die als {{Glossary("identifier", "Bezeichner")}} verwendet wird.
 
 ## Syntax
 
-Ein CSS-Identifikator besteht aus einem oder mehreren Zeichen, die folgende sein können:
+Ein CSS-Bezeichner besteht aus einem oder mehreren Zeichen, die alle der folgenden sein können:
 
 - jedes {{Glossary("ASCII", "ASCII")}}-Zeichen im Bereich `A-Z` und `a-z`
 - jede Dezimalziffer (`0` bis `9`)
 - ein Bindestrich (`-`)
 - ein Unterstrich (`_`)
-- jedes andere {{Glossary("Unicode", "Unicode")}}-Zeichen `U+00A0` und höher (also jedes andere nicht-ASCII-Unicode-Zeichen)
+- jedes andere {{Glossary("Unicode", "Unicode")}}-Zeichen `U+00A0` und höher (das heißt, jedes andere nicht-ASCII-Unicode-Zeichen)
 - ein [escaped Zeichen](#zeichen_escapen)
 
-Zusätzlich darf ein Identifikator nicht mit einer nicht-escapten Ziffer beginnen und nicht mit einem nicht-escapten Bindestrich gefolgt von einer nicht-escapten Ziffer beginnen.
+Außerdem darf ein Bezeichner nicht mit einer unverkleideten Ziffer beginnen und nicht mit einem unverkleideten Bindestrich gefolgt von einer unverkleideten Ziffer beginnen.
 
-Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` verschiedene Identifikatoren sind, weil sie [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) sind. Andererseits, da es mehrere Möglichkeiten gibt, ein Zeichen zu escapen, sind `toto\?` und `toto\3F` die gleichen Identifikatoren.
+Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` alles verschiedene Bezeichner sind, da sie [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) sind. Da es jedoch mehrere Möglichkeiten gibt, ein Zeichen zu escapen, sind `toto\?` und `toto\3F` dieselben Bezeichner.
 
 ### Zeichen escapen
 
-{{Glossary("Escape_character", "Ein Zeichen escapen")}} bedeutet, es in einer Weise darzustellen, die verändert, wie es von einem Softwaresystem interpretiert wird. In CSS können Sie ein Zeichen escapen, indem Sie einen Backslash (`\`) vor das Zeichen setzen. Jedes Zeichen außer den hexadezimalen Ziffern `0-9`, `a-f` und `A-F` kann auf diese Weise escapt werden. Zum Beispiel kann `&` als `\&` escapt werden.
+{{Glossary("Escape_character", "Ein Zeichen escapen")}} bedeutet, es auf eine Weise darzustellen, die seine Interpretation durch ein Softwaresystem ändert. In CSS kann ein Zeichen durch Hinzufügen eines Backslashes (`\`) vor dem Zeichen escaped werden. Jedes Zeichen, außer den hexadezimalen Ziffern `0-9`, `a-f` und `A-F`, kann auf diese Weise escaped werden. Zum Beispiel kann `&` als `\&` escaped werden.
 
-Sie können auch jedes Zeichen mit einem Backslash gefolgt von dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepunkt")}} des Zeichens, dargestellt durch eine bis sechs hexadezimale Ziffern, escapen. Zum Beispiel kann `&` als `\26` escapt werden. Bei dieser Verwendung, wenn das escapte Zeichen von einer hexadezimalen Ziffer gefolgt wird, sollten Sie eines der folgenden tun:
+Sie können auch ein beliebiges Zeichen mit einem Backslash gefolgt von dem {{Glossary("Unicode", "Unicode")}}-{{Glossary("code_point", "Codepunkt")}} des Zeichens, dargestellt durch ein bis sechs hexadezimale Ziffern, escapen. Zum Beispiel kann `&` als `\26` escaped werden. In dieser Verwendung, wenn das escapte Zeichen von einer hexadezimalen Ziffer gefolgt wird, sollten Sie eines der folgenden tun:
 
-- Platzieren Sie ein Leerzeichen oder ein anderes Leerzeichen nach dem Unicode-Codepunkt.
-- Geben Sie den vollständigen sechsstelligen Unicode-Codepunkt des escapt werdenden Zeichens an.
+- Setzen Sie ein Leer- oder anderes Whitespace-Zeichen nach dem Unicode-Codepunkt.
+- Geben Sie den vollständigen sechsstelligen Unicode-Codepunkt des escapten Zeichens an.
 
-Zum Beispiel kann die Zeichenkette `&123` als `\26 123` (mit einem Leerzeichen) oder `\000026123` (mit dem sechsstelligen Unicode-Codepunkt für `&`) escapt werden, um sicherzustellen, dass `123` nicht als Teil des Escape-Musters betrachtet wird.
+Zum Beispiel kann die Zeichenkette `&123` als `\26 123` (mit einem Leerzeichen) oder `\000026123` (mit dem sechsstelligen Unicode-Codepunkt für `&`) escaped werden, um sicherzustellen, dass `123` nicht als Teil des Escape-Musters betrachtet wird.
 
 ## Beispiele
 
-### Gültige Identifikatoren
+### Gültige Bezeichner
 
 ```plain example-good
 nono79        /* A mix of alphanumeric characters and numbers */
@@ -50,7 +50,7 @@ scooby\.doo   /* A correctly escaped period */
 🔥123         /* A non-ASCII character followed by numbers */
 ```
 
-### Ungültige Identifikatoren
+### Ungültige Bezeichner
 
 ```plain example-bad
 34rem     /* Must not start with a decimal digit */
@@ -66,7 +66,7 @@ scooby.doo  /* ASCII characters apart from alphanumerics must be escaped */
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein echter Typ, sondern ein Bequemlichkeitstyp ist, der verwendet wird, um die Definition anderer CSS-Syntax zu vereinfachen, gibt es keine Informationen zur Browser-Kompatibilität als solche._
+_Da dieser Typ kein echter Typ ist, sondern ein Convenience-Typ, der zur Vereinfachung der Definition anderer CSS-Syntax verwendet wird, gibt es als solcher keine Browser-Kompatibilitätsinformationen._
 
 ## Siehe auch
 
