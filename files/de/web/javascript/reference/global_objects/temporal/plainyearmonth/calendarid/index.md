@@ -43,11 +43,11 @@ console.log(newYM2.year, newYM2.monthCode); // 2021 "M06"
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-{{Kompatibilität}}
+{{Compat}}
 
 ## Siehe auch
 

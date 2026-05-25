@@ -204,7 +204,7 @@ Das CSS-Selektoren-Modul führt auch die {{CSSXref(":blank")}}, {{CSSXref(":curr
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Siehe auch
 
