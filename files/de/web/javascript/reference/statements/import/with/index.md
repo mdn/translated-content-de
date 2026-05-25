@@ -185,11 +185,11 @@ Beachten Sie, dass, wie bei statischen Importen, dynamische Importe für die Leb
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-{{Kompatibilität}}
+{{Compat}}
 
 ## Siehe auch
 

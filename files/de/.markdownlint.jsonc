@@ -241,6 +241,27 @@
         "replace": "$1-$2",
         "searchScope": "text",
       },
+      {
+        "name": "macro-specifications",
+        "message": "Use `{{Specifications}}` instead of `{{Spezifikationen}}`",
+        "searchPattern": "/\\{\\{Spezifikationen(\\(.*?\\))?\\}\\}/gi",
+        "replace": "{{Specifications$1}}",
+        "searchScope": "text",
+      },
+      {
+        "name": "macro-compat",
+        "message": "Use `{{Compat}}` instead of `{{Kompatibilität}}`",
+        "searchPattern": "/\\{\\{Kompatibilität(\\(.*?\\))?\\}\\}/gi",
+        "replace": "{{Compat$1}}",
+        "searchScope": "text",
+      },
+      {
+        "name": "macro-deprecated-inline",
+        "message": "Use `{{deprecated_inline}}` instead of `{{veraltet_inline}}`",
+        "searchPattern": "/\\{\\{veraltet_inline(\\(.*?\\))?\\}\\}/gi",
+        "replace": "{{deprecated_inline$1}}",
+        "searchScope": "text",
+      },
     ],
   },
   // Disabled in de, because table formatting isn't that important here.
