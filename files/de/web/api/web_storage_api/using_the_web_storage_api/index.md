@@ -1,19 +1,19 @@
 ---
-title: Verwenden der Web Storage API
+title: Verwendung der Web Storage API
 slug: Web/API/Web_Storage_API/Using_the_Web_Storage_API
 l10n:
-  sourceCommit: 940b352725f7e803b194af619702071630f3d6a6
+  sourceCommit: cfee421b61f247bf45a048b2c80b1c195345c519
 ---
 
 {{DefaultAPISidebar("Web Storage API")}}
 
-Die Web Storage API bietet Mechanismen, mit denen Browser Schlüssel/Wert-Paare sicher speichern können.
+Die Web Storage API bietet Mechanismen, durch die Browser Schlüssel/Wert-Paare sicher speichern können.
 
 Dieser Artikel bietet eine Schritt-für-Schritt-Anleitung zur Nutzung dieser Technologie.
 
 ## Grundkonzepte
 
-Storage-Objekte sind einfache Schlüssel-Wert-Speicher, ähnlich wie Objekte, bleiben aber auch bei Seitenladevorgängen erhalten. Die Schlüssel und die Werte sind immer Strings (beachten Sie, dass wie bei Objekten ganze Zahlenschlüssel automatisch in Strings umgewandelt werden). Sie können auf diese Werte wie auf ein Objekt zugreifen oder mit den Methoden [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) und [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem). Diese drei Zeilen setzen alle den (gleichen) Eintrag `colorSetting`:
+Storage-Objekte sind einfache Key-Value-Stores, ähnlich wie Objekte, bleiben aber über Seitenladungen hinweg intakt. Die Schlüssel und die Werte sind immer Strings (beachten Sie, dass, wie bei Objekten, ganzzahlige Schlüssel automatisch in Strings umgewandelt werden). Sie können auf diese Werte wie auf ein Objekt zugreifen oder mit den Methoden [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) und [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem). Diese drei Zeilen setzen alle denselben Eintrag colorSetting:
 
 ```js
 localStorage.colorSetting = "#a4509b";
@@ -22,26 +22,27 @@ localStorage.setItem("colorSetting", "#a4509b");
 ```
 
 > [!NOTE]
-> Es wird empfohlen, die Web Storage API (`setItem`, `getItem`, `removeItem`, `key`, `length`) zu verwenden, um die [Fallstricke](https://2ality.com/2012/01/objects-as-maps.html) zu vermeiden, die mit der Verwendung von einfachen Objekten als Schlüssel-Wert-Speicher verbunden sind.
+> Sie sollten immer die Web Storage API (`setItem()`, `getItem()`, `removeItem()`, `key`, `length`) anstelle des direkten Zugriffs auf Objekteigenschaften wie `localStorage.key = value` oder `localStorage["key"] = value` verwenden.
+> Dies vermeidet die Fallstricke, ein Objekt zu übergeben, wie z. B. die Kollision mit nativ eingebauten Methoden (wie `.clear()` oder `.getItem()`), unerwartete Datenlecks durch Prototyp-Vererbung und Sicherheitslücken wie Prototypenverschmutzung beim Umgang mit unzuverlässigen Benutzereingaben.
 
-Die zwei Mechanismen innerhalb von Web Storage sind wie folgt:
+Die zwei Mechanismen innerhalb der Web Storage sind wie folgt:
 
-- `sessionStorage` behält einen separaten Speicherbereich für den jeweiligen Origin bei, der für die Dauer der Sitzung der Seite verfügbar ist (solange der Browser geöffnet ist, einschließlich Seiten-Reloads und -Wiederherstellungen).
-- `localStorage` tut dasselbe, bleibt jedoch erhalten, auch wenn der Browser geschlossen und wieder geöffnet wird.
+- `sessionStorage` hält einen separaten Speicherbereich für jeden gegebenen Ursprung, der für die Dauer der Seitensitzung verfügbar ist (solange der Browser geöffnet ist, einschließlich Seitenneuladungen und -wiederherstellungen).
+- `localStorage` tut dasselbe, bleibt jedoch bestehen, auch wenn der Browser geschlossen und wieder geöffnet wird.
 
-Diese Mechanismen sind über die Eigenschaften [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) verfügbar (genauer gesagt implementiert in unterstützenden Browsern das `Window`-Objekt die Objekte `WindowLocalStorage` und `WindowSessionStorage`, von denen `localStorage` und `sessionStorage` Mitglieder sind) — das Aufrufen eines dieser Objekte erstellt eine Instanz des [`Storage`](/de/docs/Web/API/Storage)-Objekts, über das Datenelemente gesetzt, abgerufen und entfernt werden können. Ein unterschiedliches Storage-Objekt wird für `sessionStorage` und `localStorage` für jeden Origin verwendet — sie funktionieren und werden separat gesteuert.
+Diese Mechanismen sind über die Eigenschaften [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) verfügbar (genauer gesagt, in unterstützenden Browsern implementiert das `Window`-Objekt die Objekte `WindowLocalStorage` und `WindowSessionStorage`, deren Mitglieder die Eigenschaften `localStorage` und `sessionStorage` sind) — das Aufrufen einer dieser Eigenschaften erstellt eine Instanz des [`Storage`](/de/docs/Web/API/Storage)-Objekts, über die Datenobjekte gesetzt, abgerufen und entfernt werden können. Ein anderes Storage-Objekt wird für das `sessionStorage` und `localStorage` für jeden Ursprung verwendet — sie funktionieren und werden separat gesteuert.
 
-Beispielsweise wird beim ersten Aufruf von `localStorage` bei einem Dokument ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurückgegeben; beim Aufruf von `sessionStorage` bei einem Dokument wird ein anderes [`Storage`](/de/docs/Web/API/Storage)-Objekt zurückgegeben. Beide können auf die gleiche Art und Weise, aber getrennt, manipuliert werden.
+Wenn Sie also zunächst `localStorage` in einem Dokument aufrufen, wird ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurückgegeben; das Aufrufen von `sessionStorage` in einem Dokument wird ein anderes [`Storage`](/de/docs/Web/API/Storage)-Objekt zurückgeben. Beide können auf dieselbe Weise manipuliert werden, jedoch getrennt.
 
-## Erkennen von localStorage-Funktionen
+## Lokale Speicherung auf Funktionsfähigkeit überprüfen
 
-Um `localStorage` verwenden zu können, sollten wir zunächst überprüfen, ob es in der aktuellen Browsersitzung unterstützt und verfügbar ist.
+Um `localStorage` nutzen zu können, sollten wir zuerst überprüfen, ob es in der aktuellen Browsersitzung unterstützt und verfügbar ist.
 
-### Testen der Verfügbarkeit
+### Verfügbarkeit testen
 
-Browser, die `localStorage` unterstützen, verfügen über eine Eigenschaft im `window`-Objekt namens `localStorage`. Das bloße Testen, ob die Eigenschaft existiert, wie bei der normalen Feature-Erkennung, kann jedoch unzureichend sein. Verschiedene Browser bieten Einstellungen, die die Storage-API deaktivieren, ohne das globale Objekt zu verstecken. Ein Browser kann also `localStorage` _unterstützen_, aber nicht _verfügbar_ für die Skripte auf der Seite machen.
+Browser, die `localStorage` unterstützen, haben eine Eigenschaft im Fensterobjekt namens `localStorage`. Das bloße Testen, ob die Eigenschaft existiert, wie bei der normalen Funktionsüberprüfung, kann jedoch unzureichend sein. Verschiedene Browser bieten Einstellungen, die die Storage-API deaktivieren, ohne das globale Objekt zu verbergen. Ein Browser kann `localStorage` also _unterstützen_, aber es den Skripten auf der Seite nicht _verfügbar_ machen.
 
-In einem Dokument, das im privaten Browsing-Modus eines Browsers angezeigt wird, könnten uns einige Browser zum Beispiel ein leeres `localStorage`-Objekt mit einem Kontingent von null geben, was es effektiv unbrauchbar macht. Umgekehrt könnten wir einen legitimen `QuotaExceededError` erhalten, was bedeutet, dass wir den gesamten verfügbaren Speicherplatz aufgebraucht haben, aber Speicher ist _tatsächlich_ _verfügbar_. Unsere Feature-Erkennung sollte diese Szenarien berücksichtigen.
+Beispielsweise können einige Browser uns in einem Dokument, das im privaten Modus eines Browsers angesehen wird, ein leeres `localStorage`-Objekt mit einem Kontingent von Null geben, was es effektiv unbrauchbar macht. Im Gegenzug könnten wir einen legitimierten `QuotaExceededError` erhalten, was bedeutet, dass wir den gesamten verfügbaren Speicherplatz aufgebraucht haben, der Speicher _ist_ jedoch tatsächlich _verfügbar_. Unsere Funktionsprüfung sollte diese Szenarien berücksichtigen.
 
 Hier ist eine Funktion, die erkennt, ob `localStorage` sowohl unterstützt als auch verfügbar ist:
 
@@ -76,26 +77,26 @@ if (storageAvailable("localStorage")) {
 }
 ```
 
-Sie können stattdessen für `sessionStorage` testen, indem Sie `storageAvailable("sessionStorage")` aufrufen.
+Sie können für `sessionStorage` testen, indem Sie `storageAvailable("sessionStorage")` aufrufen.
 
 ## Beispiel
 
-Um einige typische Web Storage-Nutzungen zu veranschaulichen, haben wir ein Beispiel erstellt, das fantasievoll **Web Storage Demo** genannt wird. Die [Startseite](https://mdn.github.io/dom-examples/web-storage/) bietet Steuerungen, mit denen die Farbe, Schriftart und dekorative Bild angepasst werden können:
+Um eine typische Verwendung von Web Storage zu veranschaulichen, haben wir ein Beispiel erstellt, das **Web Storage Demo** heißt. Die [Startseite](https://mdn.github.io/dom-examples/web-storage/) bietet Steuerungen, mit denen Sie die Farbe, die Schriftart und das dekorative Bild anpassen können:
 
-![Beispiel für Web Storage mit einem Textfeld zur Auswahl der Farbe durch Eingabe eines Hex-Wertes und zwei Dropdown-Menüs zur Auswahl des Schriftartstils und des dekorativen Bildes.](landing.png)
+![Beispiel für Web Storage mit einem Textfeld, um die Farbe durch Eingabe eines Hex-Werts auszuwählen, und zwei Dropdown-Menüs, um den Schriftstil und das dekorative Bild auszuwählen.](landing.png)
 
-Wenn Sie verschiedene Optionen wählen, wird die Seite sofort aktualisiert; zusätzlich werden Ihre Auswahloptionen in `localStorage` gespeichert, sodass sie beim Verlassen und erneuten Laden der Seite später beibehalten werden.
+Wenn Sie verschiedene Optionen auswählen, wird die Seite sofort aktualisiert; zusätzlich werden Ihre Auswahlmöglichkeiten in `localStorage` gespeichert, sodass Ihre Auswahl erinnert wird, wenn Sie die Seite verlassen und später erneut laden.
 
-Wir haben auch eine [Ereignisausgabeseite](https://mdn.github.io/dom-examples/web-storage/event.html) bereitgestellt — wenn Sie diese Seite in einem anderen Tab laden und dann Änderungen an Ihren Auswahloptionen auf der Startseite vornehmen, wird Ihnen die aktualisierte Speicherinformation als [`StorageEvent`](/de/docs/Web/API/StorageEvent) angezeigt, das ausgelöst wird.
+Wir haben auch eine [Ereignisausgabeseite](https://mdn.github.io/dom-examples/web-storage/event.html) bereitgestellt — wenn Sie diese Seite in einem anderen Tab laden und dann Ihre Auswahl auf der Startseite ändern, wird die aktualisierte Speicherdateninformation ausgegeben, sobald ein [`StorageEvent`](/de/docs/Web/API/StorageEvent) ausgelöst wird.
 
 ![Ereignisausgabeseite](event-output.png)
 
 > [!NOTE]
-> Zusätzlich zur Live-Ansicht der Beispielseiten über die obigen Links können Sie auch den [Quellcode einsehen](https://github.com/mdn/dom-examples/tree/main/web-storage).
+> Neben der Live-Ansicht der Beispielseiten mit den obigen Links können Sie auch [den Quellcode überprüfen](https://github.com/mdn/dom-examples/tree/main/web-storage).
 
-### Prüfen, ob Ihr Speicher gefüllt ist
+### Testen, ob Ihr Speicher befüllt wurde
 
-Zu Beginn testen wir in [main.js](https://github.com/mdn/dom-examples/blob/main/web-storage/main.js), ob das Storage-Objekt bereits gefüllt wurde (d.h. ob die Seite zuvor aufgerufen wurde):
+Zu Beginn testen wir in [main.js](https://github.com/mdn/dom-examples/blob/main/web-storage/main.js), ob das Speicherobjekt bereits befüllt wurde (d.h. die Seite wurde zuvor aufgerufen):
 
 ```js
 if (!localStorage.getItem("bgcolor")) {
@@ -105,15 +106,14 @@ if (!localStorage.getItem("bgcolor")) {
 }
 ```
 
-Die Methode [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) wird verwendet, um ein Datenelement aus dem Speicher zu holen; in diesem Fall testen wir, ob das Element `bgcolor` existiert; wenn nicht, führen wir `populateStorage()` aus, um die vorhandenen Anpassungswerte in den Speicher hinzuzufügen. Wenn bereits Werte vorhanden sind, führen wir `setStyles()` aus, um das Seitenstyling mit den gespeicherten Werten zu aktualisieren.
+Die Methode [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) wird verwendet, um ein Datenobjekt aus dem Speicher abzurufen; in diesem Fall testen wir, ob das `bgcolor`-Element existiert; falls nicht, führen wir `populateStorage()` aus, um die vorhandenen Anpassungswerte in den Speicher einzutragen. Wenn bereits Werte vorhanden sind, führen wir `setStyles()` aus, um das Seitenstyling mit den gespeicherten Werten zu aktualisieren.
 
 > [!NOTE]
-> Sie könnten auch [`Storage.length`](/de/docs/Web/API/Storage/length) verwenden, um zu überprüfen, ob das Storage-Objekt leer ist.
+> Sie könnten auch [`Storage.length`](/de/docs/Web/API/Storage/length) verwenden, um zu testen, ob das Speicherobjekt leer ist oder nicht.
 
-### Abrufen von Werten aus dem Speicher
+### Werte aus dem Speicher abrufen
 
-Wie oben erwähnt, können Werte mit [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) aus dem Speicher abgerufen werden.
-Dies erfordert den Schlüssel des Datenelements als Argument und gibt den Datenwert zurück.
+Wie oben erwähnt, können Werte aus dem Speicher mit [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) abgerufen werden. Dies erfordert den Schlüssel des Datenobjekts als Argument und gibt den Datenwert zurück.
 
 Zum Beispiel:
 
@@ -133,13 +133,11 @@ function setStyles() {
 }
 ```
 
-Hier greifen die ersten drei Zeilen die Werte aus dem lokalen Speicher ab.
-Anschließend setzen wir die in den Formularelementen angezeigten Werte auf diese Werte, damit sie beim Neuladen der Seite synchron bleiben.
-Schließlich aktualisieren wir die Stile/das dekorative Bild auf der Seite, sodass Ihre Anpassungsoptionen beim Neuladen erneut angezeigt werden.
+Hier holen sich die ersten drei Zeilen die Werte aus dem lokalen Speicher. Danach setzen wir die Werte, die in den Formularelementen angezeigt werden, auf diese Werte, sodass sie synchron bleiben, wenn Sie die Seite neu laden. Schließlich aktualisieren wir die Stile/dekorative Bilder auf der Seite, sodass Ihre Anpassungsoptionen beim erneuten Laden wieder angezeigt werden.
 
-### Festlegen von Werten im Speicher
+### Werte im Speicher setzen
 
-[`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) wird sowohl zum Erstellen neuer Datenelemente als auch (falls das Datenelement bereits vorhanden ist) zum Aktualisieren bestehender Werte verwendet. Es erfordert zwei Argumente — den Schlüssel des zu erstellenden/zu modifizierenden Datenelements und den Wert, der gespeichert werden soll.
+[`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) wird sowohl zum Erstellen neuer Datenobjekte als auch (wenn das Datenobjekt bereits existiert) zum Aktualisieren bestehender Werte verwendet. Dies erfordert zwei Argumente: den Schlüssel des zu erstellenden/zu ändernden Datenobjekts und den Wert, der darin gespeichert werden soll.
 
 ```js
 function populateStorage() {
@@ -151,9 +149,9 @@ function populateStorage() {
 }
 ```
 
-Die Funktion `populateStorage()` setzt drei Elemente im lokalen Speicher — die Hintergrundfarbe, die Schriftart und den Bildpfad. Danach wird die Funktion `setStyles()` ausgeführt, um die Seitenstile usw. zu aktualisieren.
+Die Funktion `populateStorage()` setzt drei Elemente im lokalen Speicher — die Hintergrundfarbe, Schriftart und den Bildpfad. Anschließend wird die Funktion `setStyles()` ausgeführt, um die Seitenstile usw. zu aktualisieren.
 
-Wir haben auch einen `onchange`-Handler an jedem Formularelement hinzugefügt, damit die Daten und das Styling jedes Mal, wenn ein Formularwert geändert wird, aktualisiert werden:
+Wir haben auch einen `onchange`-Handler an jedes Formularelement angehängt, sodass die Daten und das Styling aktualisiert werden, sobald ein Formularwert geändert wird:
 
 ```js
 bgcolorForm.onchange = populateStorage;
@@ -161,7 +159,7 @@ fontForm.onchange = populateStorage;
 imageForm.onchange = populateStorage;
 ```
 
-`Storage` unterstützt nur das Speichern und Abrufen von Strings. Wenn Sie andere Datentypen speichern möchten, müssen Sie sie in Strings umwandeln. Für einfache Objekte und Arrays können Sie {{jsxref("JSON.stringify()")}} verwenden.
+`Storage` unterstützt nur das Speichern und Abrufen von Strings. Wenn Sie andere Datentypen speichern möchten, müssen Sie diese in Strings umwandeln. Für einfache Objekte und Arrays können Sie {{jsxref("JSON.stringify()")}} verwenden.
 
 ```js
 const person = { name: "Alex" };
@@ -171,15 +169,15 @@ localStorage.setItem("user", JSON.stringify(person));
 console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
 ```
 
-Es gibt jedoch keine generische Methode zum Speichern beliebiger Datentypen. Darüber hinaus ist das abgerufene Objekt eine {{Glossary("Deep_copy", "tiefe Kopie")}} des ursprünglichen Objekts und Änderungen daran wirken sich nicht auf das ursprüngliche Objekt aus.
+Es gibt jedoch keine generische Möglichkeit, beliebige Datentypen zu speichern. Darüber hinaus ist das zurückgegebene Objekt eine {{Glossary("Deep_copy", "tiefe Kopie")}} des ursprünglichen Objekts und Änderungen daran wirken sich nicht auf das ursprüngliche Objekt aus.
 
-### Reagieren auf Speicheränderungen mit dem StorageEvent
+### Auf Speicheränderungen mit StorageEvent reagieren
 
-Das [`storage`](/de/docs/Web/API/Window/storage_event)-Ereignis wird ausgelöst, wenn eine Änderung am [`Storage`](/de/docs/Web/API/Storage)-Objekt von einem anderen Dokument vorgenommen wird, das denselben Speicherbereich teilt. Dies funktioniert nicht auf der gleichen Seite, die die Änderungen vornimmt — es ist wirklich eine Möglichkeit für andere Seiten im Origin, die den Speicher nutzen, eventuelle Änderungen zu synchronisieren, die vorgenommen werden. Seiten auf anderen Origins können nicht auf dieselben Speicherobjekte zugreifen.
+Das [`storage`](/de/docs/Web/API/Window/storage_event) Ereignis wird ausgelöst, wenn eine Änderung an dem [`Storage`](/de/docs/Web/API/Storage)-Objekt eines anderen Dokuments vorgenommen wird, das denselben Speicherbereich teilt. Dies funktioniert nicht auf derselben Seite, die die Änderungen vornimmt — es ist wirklich eine Möglichkeit, andere Seiten der Herkunft, die den Speicher verwenden, mit den vorgenommenen Änderungen zu synchronisieren. Seiten anderer Ursprünge können nicht auf dieselben Speicherobjekte zugreifen.
 
-Für `localStorage` wird der Speicherbereich zwischen allen Tabs mit demselben Ursprung geteilt. Für `sessionStorage` wird der Speicherbereich nur innerhalb des Tabs geteilt, unter allen iframes vom gleichen Ursprung.
+Für `localStorage` wird der Speicherbereich zwischen allen Tabs mit demselben Ursprung geteilt. Für `sessionStorage` wird der Speicherbereich nur innerhalb des Tabs geteilt, unter allen iframes des gleichen Ursprungs.
 
-Auf der Ereignisseite (siehe [events.js](https://github.com/mdn/dom-examples/blob/main/web-storage/event.js)) ist das einzige JavaScript wie folgt:
+Auf der Ereignisseite (siehe [events.js](https://github.com/mdn/dom-examples/blob/main/web-storage/event.js)) besteht das einzige JavaScript wie folgt:
 
 ```js
 window.addEventListener("storage", (e) => {
@@ -193,14 +191,14 @@ window.addEventListener("storage", (e) => {
 });
 ```
 
-Hier fügen wir dem `window`-Objekt einen Ereignislistener hinzu, der ausgelöst wird, wenn das `Storage`-Objekt, das mit dem aktuellen Ursprung verknüpft ist, geändert wird. Wie oben zu sehen, enthält das mit diesem Ereignis verknüpfte Event-Objekt eine Reihe von Eigenschaften mit nützlichen Informationen — den Schlüssel der Daten, die geändert wurden, den alten Wert vor der Änderung, den neuen Wert nach dieser Änderung, die URL des Dokuments, das den Speicher geändert hat, und das Storage-Objekt selbst (das wir serialisiert haben, damit Sie seinen Inhalt sehen können).
+Hier fügen wir dem `window`-Objekt einen Ereignislistener hinzu, der ausgelöst wird, wenn das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das mit dem aktuellen Ursprung verwandt ist, geändert wird. Wie Sie oben sehen können, verfügt das mit diesem Ereignis verknüpfte Ereignisobjekt über eine Reihe von Eigenschaften, die nützliche Informationen enthalten — den Schlüssel der veränderten Daten, den alten Wert vor der Änderung, den neuen Wert nach der Änderung, die URL des Dokuments, das den Speicher verändert hat, und das Speicherobjekt selbst (das wir stringifiziert haben, damit Sie seinen Inhalt sehen können).
 
-### Löschen von Datensätzen
+### Datenaufzeichnungen löschen
 
-Web Storage bietet auch ein paar einfache Methoden zum Entfernen von Daten. Wir verwenden diese in unserem Demo nicht, aber sie lassen sich sehr einfach zu Ihrem Projekt hinzufügen:
+Web Storage bietet auch einige einfache Methoden, um Daten zu entfernen. Wir verwenden diese in unserem Demo nicht, aber sie lassen sich sehr einfach in Ihr Projekt integrieren:
 
-- [`Storage.removeItem()`](/de/docs/Web/API/Storage/removeItem) erfordert ein einziges Argument — den Schlüssel des zu entfernenden Datenelements — und entfernt es aus dem Speicherobjekt für diesen Ursprung.
-- [`Storage.clear()`](/de/docs/Web/API/Storage/clear) erfordert keine Argumente und leert das gesamte Speicherobjekt für diesen Ursprung.
+- [`Storage.removeItem()`](/de/docs/Web/API/Storage/removeItem) nimmt ein einziges Argument an — den Schlüssel des Datenobjekts, das Sie entfernen möchten — und entfernt es aus dem Speicherobjekt für diesen Ursprung.
+- [`Storage.clear()`](/de/docs/Web/API/Storage/clear) nimmt keine Argumente an und leert das gesamte Speicherobjekt für diesen Ursprung.
 
 ## Spezifikationen
 

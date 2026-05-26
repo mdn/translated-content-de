@@ -1,16 +1,16 @@
 ---
-title: CSS Seitengesteuertes Medium
-short-title: Seitengesteuertes Medium
+title: CSS Paged Media
+short-title: Paged Media
 slug: Web/CSS/Guides/Paged_media
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 74d9a1227d110a152bf4d68f5d5f753e723ea01b
 ---
 
-Das **CSS Seitengesteuerte Medien** Modul definiert die Eigenschaften, die die Darstellung von Inhalten für Druck oder andere Medien, die Inhalte in separate Seiten unterteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu kontrollieren und linke und rechte Seiten unterschiedlich zu gestalten.
+Das **CSS Paged Media**-Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien, die Inhalte in einzelne Seiten unterteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche zu setzen, druckbare Bereiche zu kontrollieren und linke und rechte Seiten unterschiedlich zu gestalten.
 
-Das CSS Seitengesteuerte Medien Modul legt fest, wie Seiten generiert und layoutet werden, um fragmentierte Inhalte in einer Seitendarstellung zu halten, einschließlich Inhalten, die gedruckt oder als Druckvorschau angezeigt werden. Das Modul definiert Funktionen zur Steuerung von Seitenrändern, Größe, Ausrichtung sowie Kopf- und Fußzeilen. Es erweitert [generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content), um Funktionen für die Erzeugung von Seitennummern und durchlaufenden Kopf- und Fußzeilen bereitzustellen.
+Das CSS Paged Media-Modul spezifiziert, wie Seiten generiert und layoutet werden, um fragmentierte Inhalte in einer Seitendarstellung zu halten, einschließlich Inhalten, die gedruckt oder als Druckvorschau dargestellt werden. Das Modul definiert Funktionalitäten zur Steuerung von Seitenrändern, Größe, Ausrichtung sowie Kopf- und Fußzeilen. Es erweitert [generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content), um Funktionalitäten für das Generieren von Seitenzahlen und laufenden Kopf- und Fußzeilen bereitzustellen.
 
-Der Prozess der Paginierung von Inhalten in generierten Seiten und der Kontrolle von Umbrüchen innerhalb von Elementen wird im [CSS-Fragmentierungsmodul](/de/docs/Web/CSS/Guides/Fragmentation) behandelt.
+Der Prozess der Paginierung von Inhalten in generierten Seiten und der Steuerung von Umbrüchen innerhalb von Elementen wird im [CSS Fragmentierungsmodul](/de/docs/Web/CSS/Guides/Fragmentation) behandelt.
 
 ## Referenz
 
@@ -18,17 +18,17 @@ Der Prozess der Paginierung von Inhalten in generierten Seiten und der Kontrolle
 
 - {{cssxref("page")}}
 
-### At-Regeln und Deskriptoren
+### At-Rules und Deskriptoren
 
 - {{cssxref("@page")}}
   - {{cssxref("@page/page-orientation", "page-orientation")}} Deskriptor
   - {{cssxref("@page/size", "size")}} Deskriptor
   - [Rand-Deskriptoren](/de/docs/Web/CSS/Reference/Properties/margin)
-- [Rand-At-Regeln](/de/docs/Web/CSS/Reference/At-rules/@page#margin_at_rules)
+- [Rand-At-Rules](/de/docs/Web/CSS/Reference/At-rules/@page#margin_at-rules)
 
-Das CSS Seitengesteuertes Medien Modul führt auch die Deskriptoren `bleeds` und `marks` der `@page` At-Regel ein. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS Paged Media Modul führt auch die `bleeds` und `marks` Deskriptoren der `@page` At-Rule ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-### Pseudo-Klassen
+### Selektoren
 
 - {{cssxref(":blank")}}
 - {{cssxref(":first")}}
@@ -42,7 +42,7 @@ Das CSS Seitengesteuertes Medien Modul führt auch die Deskriptoren `bleeds` und
 
 ## Verwandte Konzepte
 
-- [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) Modul
+- [CSS Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) Modul
   - {{cssxref("break-after")}} Eigenschaft
   - {{cssxref("break-before")}} Eigenschaft
   - {{cssxref("break-inside")}} Eigenschaft
