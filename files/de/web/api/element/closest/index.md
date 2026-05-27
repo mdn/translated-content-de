@@ -3,12 +3,12 @@ title: "Element: closest() Methode"
 short-title: closest()
 slug: Web/API/Element/closest
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: a659a31a9dda9d90cf4df1ed5a7ef216d0ad56ba
 ---
 
 {{APIRef("DOM")}}
 
-Die **`closest()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle durchläuft das Element und seine Eltern (in Richtung des Dokumentenwurzel), bis sie einen Knoten findet, der dem angegebenen [CSS-Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) entspricht.
+Die **`closest()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle traversiert das Element und seine Eltern (in Richtung des Wurzelelements des Dokuments), bis sie einen Knoten findet, der mit dem angegebenen [CSS-Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) übereinstimmt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ closest(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String mit gültigen [CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors), um das [`Element`](/de/docs/Web/API/Element) und seine Vorfahren abzugleichen.
+  - : Ein String mit gültigen [CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors), um das [`Element`](/de/docs/Web/API/Element) und seine Vorfahren zu überprüfen.
 
 ### Rückgabewert
 
-Das nächste übergeordnete [`Element`](/de/docs/Web/API/Element) oder das Element selbst, das den `selectors` entspricht. Wenn es ein solches Element nicht gibt, `null`.
+Das nächste übergeordnete [`Element`](/de/docs/Web/API/Element) oder es selbst, das mit den `selectors` übereinstimmt. Wenn kein solches Element vorhanden ist, wird `null` zurückgegeben.
 
 ### Ausnahmen
 
@@ -72,11 +72,13 @@ console.log(el.closest(":not(div)")); // <article>
 
 {{Compat}}
 
-### Kompatibilitätsnotizen
+### Kompatibilitätshinweise
 
-- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)` `null` zurückgeben, wenn das Element nicht zuerst (direkt oder indirekt) mit dem Kontextobjekt verbunden ist, zum Beispiel dem [`Document`](/de/docs/Web/API/Document) Objekt im Fall des normalen DOM.
+- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)`
+  `null` zurückgeben, wenn das Element nicht zuerst (direkt oder
+  indirekt) mit dem Kontextobjekt verbunden ist, zum Beispiel dem [`Document`](/de/docs/Web/API/Document) Objekt im Fall des normalen DOMs.
 
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
-- Andere [`Element`](/de/docs/Web/API/Element) Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), und [`Element.matches()`](/de/docs/Web/API/Element/matches).
+- Andere Methoden der [`Element`](/de/docs/Web/API/Element) Schnittstelle, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), und [`Element.matches()`](/de/docs/Web/API/Element/matches).
