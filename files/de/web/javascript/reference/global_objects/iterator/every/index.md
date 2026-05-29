@@ -3,10 +3,10 @@ title: Iterator.prototype.every()
 short-title: every()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/every
 l10n:
-  sourceCommit: dd88a6eb2176fa31f5b744d8964efecf3f1f425b
+  sourceCommit: 76972cdb4d87dd72e0a2a3146af07d82c7ef7d67
 ---
 
-Die **`every()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.every()")}}: Sie gibt `false` zurück, wenn sie ein Element findet, das die bereitgestellte Testfunktion nicht erfüllt. Andernfalls, wenn der Iterator erschöpft ist, ohne ein solches Element zu finden, gibt sie `true` zurück.
+Die **`every()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.every()")}}: Sie gibt `false` zurück, wenn sie ein Element findet, das die bereitgestellte Testfunktion nicht erfüllt. Andernfalls, wenn der Iterator erschöpft wird, ohne ein solches Element zu finden, gibt sie `true` zurück.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ every(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element ausgeführt wird, das vom Iterator erzeugt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}}-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator produzierte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -25,13 +25,15 @@ every(callbackFn)
 
 ### Rückgabewert
 
-`true`, wenn `callbackFn` für jedes Element einen {{Glossary("truthy", "truthy")}}-Wert zurückgibt. Andernfalls `false`.
+`true`, wenn `callbackFn` für jedes Element einen {{Glossary("truthy", "truthy")}} Wert zurückgibt. Andernfalls `false`.
 
 ## Beschreibung
 
-`every()` durchläuft den Iterator und ruft die `callbackFn`-Funktion einmal für jedes Element auf. Es wird sofort `false` zurückgegeben, wenn die Callback-Funktion einen falsy Wert zurückgibt. Andernfalls wird bis zum Ende des Iterators durchlaufen und `true` zurückgegeben. Wenn `every()` `false` zurückgibt, wird der zugrunde liegende Iterator durch Aufruf seiner `return()`-Methode geschlossen.
+`every()` iteriert den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Sie gibt `false` sofort zurück, wenn die Callback-Funktion einen falsy Wert zurückgibt. Andernfalls iteriert sie bis zum Ende des Iterators und gibt `true` zurück. Wenn `every()` `false` zurückgibt, wird der zugrundeliegende Iterator durch den Aufruf seiner `return()` Methode geschlossen.
 
-Der Hauptvorteil von Iterator-Hilfsfunktionen gegenüber Array-Methoden besteht darin, dass sie lazy sind, was bedeutet, dass sie nur den nächsten Wert produzieren, wenn er angefordert wird. Dies vermeidet unnötige Berechnungen und ermöglicht es ihnen auch, mit unendlichen Iteratoren verwendet zu werden. Bei unendlichen Iteratoren gibt `every()` `false` zurück, sobald der erste falsy Wert gefunden wird. Wenn die `callbackFn` immer einen truthy Wert zurückgibt, wird die Methode nie zurückkehren.
+Der Hauptvorteil von Iterator-Helfern gegenüber Array-Methoden ist, dass sie faul sind, das bedeutet, sie erzeugen nur dann den nächsten Wert, wenn er angefordert wird. Dies vermeidet unnötige Berechnungen und erlaubt es ihnen auch, mit unendlichen Iteratoren verwendet zu werden. Bei unendlichen Iteratoren gibt `every()` `false` zurück, sobald der erste falsy Wert gefunden wird. Wenn die `callbackFn` immer einen truthy Wert zurückgibt, gibt die Methode niemals zurück.
+
+Ein Aufruf von `every()` schließt immer den zugrundeliegenden Iterator, auch wenn die Methode vorzeitig zurückkehrt. Der Iterator wird nie in einem halbwegs abgeschlossenen Zustand gelassen.
 
 ## Beispiele
 
@@ -55,7 +57,7 @@ console.log(fibonacci().take(10).every(isPositive)); // true
 console.log(fibonacci().every(isPositive)); // Never completes
 ```
 
-Der Aufruf von `every()` schließt immer den zugrunde liegenden Iterator, selbst wenn die Methode frühzeitig zurückkehrt. Der Iterator bleibt nie in einem Zwischenzustand.
+Die Methode schließt den Iterator nach der Rückgabe.
 
 ```js
 const seq = fibonacci();

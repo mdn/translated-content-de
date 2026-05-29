@@ -3,12 +3,14 @@ title: "Client: url-Eigenschaft"
 short-title: url
 slug: Web/API/Client/url
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: ff42d1f779857392d9c9c339c0b8916a9e08c030
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der [`Client`](/de/docs/Web/API/Client)-Schnittstelle gibt die URL des aktuellen Service-Worker-Clients zurück.
+Die schreibgeschützte Eigenschaft **`url`** des [`Client`](/de/docs/Web/API/Client)-Interfaces gibt die URL des aktuellen Service Worker-Clients zurück.
+
+Beachten Sie, dass die [`Client.url`](/de/docs/Web/API/Client/url)-Eigenschaft nicht aktualisiert wird, es sei denn, eine neue Seite wird tatsächlich geladen. Das bedeutet, dass sie nicht aktualisiert wird, wenn der Benutzer innerhalb derselben Seite mit einem URL-Fragment navigiert, oder wenn eine {{Glossary("SPA", "Single-Page-App (SPA)")}} ein Navigationsevent abfängt (zum Beispiel mit der [Navigation API](/de/docs/Web/API/Navigation_API)) und den Seiteninhalt mit clientseitigem Code aktualisiert.
 
 ## Wert
 
