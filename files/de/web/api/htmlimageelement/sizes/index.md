@@ -1,45 +1,44 @@
 ---
-title: "HTMLImageElement: sizes Eigenschaft"
+title: "HTMLImageElement: sizes-Eigenschaft"
 short-title: sizes
 slug: Web/API/HTMLImageElement/sizes
 l10n:
-  sourceCommit: c53bfa01f3bf436d486f4032c16f592855a2af2c
+  sourceCommit: fde38492f4490cb442affcf2a31e66defa9d76f6
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`sizes`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für eine Liste von [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) zu spezifizieren oder `auto` für lazy-geladene Bilder zu verwenden, um dem Browser zu erlauben, automatisch ein Bild auszuwählen, basierend auf der Layoutgröße des Elements.
-Dies ermöglicht es dem Browser, zwischen verschiedenen Bildern, die im Element [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset) angegeben sind, auszuwählen, um unterschiedlichen Medienbedingungen zu entsprechen — sogar Bilder mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen.
+Die **`sizes`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für jede der Liste von [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) oder `auto` für nach Bedarf geladene Bilder anzugeben. Dadurch kann der Browser ein Bild basierend auf der Layoutgröße des Elements automatisch auswählen und anzeigen. Dies ermöglicht es dem Browser, zwischen verschiedenen Bildern, die im [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset) des Elements angegeben sind, zu wählen, um unterschiedlichen Medienbedingungen gerecht zu werden — sogar Bilder mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen.
 
-Die `sizes` Eigenschaft spiegelt das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) Inhaltsattribut des `<img>` Elements wider.
-Es kann nur vorhanden sein, wenn `srcset` Breitenbeschreibungen verwendet.
+Die `sizes`-Eigenschaft spiegelt das `sizes`-Inhaltsattribut des `<img>`-Elements wider.
+Es kann nur vorhanden sein, wenn `srcset` Breitenangaben verwendet.
 
 ## Wert
 
-Ein String, der das `auto` Schlüsselwort sein kann (optional gefolgt von beliebig vielen _Quellengrößen_), oder eine oder mehrere _Quellengrößen_.
+Ein String, der das `auto`-Schlüsselwort (wahlweise gefolgt von einer beliebigen Anzahl von _Quellgrößen_) oder eine oder mehrere _Quellgrößen_ sein kann.
 
-Sehen Sie das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) Attribut in der HTML `<img>` Referenz für weitere Informationen.
+Weitere Informationen finden Sie im [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attribut in der HTML-Referenz für `<img>`.
 
 ## Beispiele
 
-### Auswahl eines Bildes, das zur Fensterbreite passt
+### Auswahl eines Bildes passend zur Fensterbreite
 
-Dieses Beispiel zeigt, wie der Browser das `sizes` Attribut verwendet, um ein Bild aus `srcset` basierend auf der gerenderten Breite des Bildes bei der aktuellen Ansichtsfensterbreite auszuwählen.
-Es ermöglicht Ihnen auch, den Effekt des Änderns der Fenstergröße darauf zu beobachten, welches Bild geladen wird.
+Dieses Beispiel demonstriert, wie der Browser das `sizes`-Attribut verwendet, um basierend auf der gerenderten Breite des Bildes in der aktuellen Sichtfensterbreite ein Bild aus `srcset` auszuwählen.
+Es erlaubt Ihnen auch, den Effekt des Änderns der Größe des Browserfensters zu sehen, welches Bild geladen wird.
 
 #### HTML
 
-Um den Effekt des Lazy Loading zu demonstrieren, müssen die Bilder zuerst vom {{Glossary("visual_viewport", "visuellen Ansichtsfenster")}} verborgen und dann in Sicht gescrollt werden.
-Dies wird erreicht, indem ein äußerer `scroll-container` {{htmlelement("div")}} verwendet wird, der `spacer` und `demo-wrap` Container verschachtelt.
-Das Bild ist innerhalb des `demo-wrap` Containers enthalten, der durch die Höhe, die auf den `spacer` Container gesetzt wird, aus dem visuellen Ansichtsfenster geschoben wird.
+Um den Effekt des Lazy Loadings zu demonstrieren, müssen die Bilder zunächst vor dem {{Glossary("visual_viewport", "visuellen Sichtfenster")}} verborgen sein und dann in den sichtbaren Bereich gescrollt werden.
+Dies wird erreicht, indem ein äußerer `scroll-container`-{{htmlelement("div")}} verwendet wird, der `spacer`- und `demo-wrap`-Container einbettet.
+Das Bild befindet sich im `demo-wrap`-Container, der durch die auf dem `spacer`-Container festgelegte Höhe aus dem visuellen Sichtfenster herausgeschoben wird.
 
-Das {{htmlelement("img")}} Element hat die folgenden Attribute:
+Das {{htmlelement("img")}}-Element hat die folgenden Attribute:
 
 - `srcset` definiert vier Bilder und gibt an, dass sie `600px`, `900px`, `1200px` und `1500px` breit sind.
-- `src` spezifiziert das Bild, das verwendet wird, wenn `srcset` nicht unterstützt wird oder es nicht analysiert werden kann.
+- `src` gibt das Bild an, das verwendet wird, wenn `srcset` nicht unterstützt wird oder nicht geparst werden kann.
   Wir verwenden das größte Bild im `srcset`, da dies fast immer besser herunterskaliert als das kleinste Bild hochskaliert.
 - `loading` ist `lazy`.
-- `sizes` spezifiziert die erwartete gerenderte Breite des Bildes bei einer Reihe von Ansichtsfenster-Breite-Breakpoints, wodurch der Browser das geeignetste Bild aus `srcset` auswählen kann.
+- `sizes` gibt die erwartete gerenderte Breite des Bildes an einer Reihe von Sichtfenster-Brechenpunkten an, was dem Browser ermöglicht, das passendste Bild aus `srcset` auszuwählen.
 
 ```html
 <div id="scroll-container">
@@ -168,38 +167,38 @@ const observer = new IntersectionObserver(
 images.forEach((img) => observer.observe(img));
 ```
 
-Der CSS und JavaScript werden nicht angezeigt (wenn Sie diese untersuchen möchten, wählen Sie "Play", um das gesamte Beispiel im interaktiven Playground anzuzeigen).
+Das CSS und JavaScript wird nicht angezeigt (wenn Sie diese untersuchen möchten, wählen Sie "Play", um das gesamte Beispiel im interaktiven Playground anzusehen).
 
 #### Ergebnis
 
-Das Beispiel wird am besten {{LiveSampleLink('Selecting an image to fit window width', 'in einem eigenen Fenster betrachtet')}}, damit Sie die Größen vollständig anpassen können und das Beispiel nicht durch seinen umgebenden Rahmen eingeschränkt ist.
+Das Beispiel wird am besten {{LiveSampleLink('Auswahl eines Bildes passend zur Fensterbreite', 'in einem eigenen Fenster betrachtet')}}, damit Sie die Größen voll anpassen können und das Beispiel nicht durch den umgebenden Rahmen eingeschränkt wird.
 
 1. Scrollen Sie den Rahmen, um das Bild anzuzeigen.
    Das Etikett am unteren Rand des Bildes zeigt die aktuelle Containerbreite an.
-2. Ändern Sie die Fenstergröße — Sie sollten sehen, dass das Bild sich an den `sizes` Attributs-Medienquery-Breakpoints ändert.
+2. Passen Sie die Größe des Fensters an — Sie sollten das Bild an den Medienabfrage-Brechenpunkten des `sizes`-Attributs wechseln sehen.
 
-   Beachten Sie, dass das ausgewählte Bild größer sein kann, als es die Containerbreite allein vermuten lässt.
-   Viele Anzeigen, wenn nicht die meisten, haben ein [device pixel ratio (DPR)](/de/docs/Web/API/Window/devicePixelRatio) größer als eins.
-   Um ein scharfes Bild bei der physikalischen Pixeldichte des Displays zu rendern, multipliziert ein Browser den übereinstimmenden `sizes` Hinweis mit dem DPR, bevor er aus `srcset` auswählt.
-   Zum Beispiel sucht der Browser auf einem 2× Display mit einem Ansichtsfenster von ~500px nach einem ~1200px Bild und wählt `1200.png` als die am nächsten verfügbare Größe aus und skaliert es, um es in den verfügbaren Raum zu passen.
+   Beachten Sie, dass das ausgewählte Bild größer sein kann, als die alleinige Containerbreite vermuten lässt.
+   Viele Displays, wenn nicht die meisten, haben ein [Device Pixel Ratio (DPR)](/de/docs/Web/API/Window/devicePixelRatio) größer als eins.
+   Um ein scharfes Bild bei der physischen Pixeldichte des Displays zu rendern, multipliziert ein Browser den passenden `sizes`-Hinweis mit dem DPR, bevor es aus `srcset` auswählt.
+   Beispielsweise schaut ein Browser bei einer 2×-Anzeige mit einem Sichtfenster von ~500px auf ein ~1200px-Bild und wählt `1200.png` als die am besten verfügbare Größe und skaliert es dann, um in den verfügbaren Raum zu passen.
 
    > [!NOTE]
-   > Infolgedessen sind einige der Bilder im `srcset` möglicherweise auf einem bestimmten Display bei einigen Breakpoints nicht erreichbar, und dies kann browserabhängig sein.
+   > Infolgedessen könnten einige der Bilder im `srcset` auf einem bestimmten Display bei einigen Brechenpunkten nicht erreichbar sein, und dies könnte browserabhängig sein.
 
-{{EmbedLiveSample("Selecting an image to fit window width", "", 600)}}
+{{EmbedLiveSample("Auswahl eines Bildes passend zur Fensterbreite", "", 600)}}
 
-Das Log stellt Informationen bereit, wann ein `load` Ereignis für das Bild ausgelöst wird und wann es das sichtbare Ansichtsfenster schneidet.
-Beachten Sie, dass das Bild lazy-geladen wird, sodass das `load` Ereignis genau bevor das Bild das Ansichtsfenster betritt ausgelöst werden sollte.
+Das Protokoll liefert Informationen, wenn ein `load`-Ereignis für das Bild ausgelöst wird und wann es den sichtbaren Sichtbereich schneidet.
+Beachten Sie, dass das Bild lazy-loaded ist, daher sollte das `load`-Ereignis gerade ausgelöst werden, bevor das Bild in das Sichtfenster eintritt.
 
 ### Automatische Bildauswahl für lazy-geladene Bilder
 
-Dieses Beispiel zeigt, wie sich das Setzen des `sizes` Wertes auf `auto` auf die Auswahl des Bildes zur Ladung aus dem [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) auswirkt, wenn {{htmlelement("img")}} Elemente lazy-geladen werden.
-Es ermöglicht Ihnen auch, den Effekt der Größenänderung eines Containers auf das geladene Bild zu sehen.
+Dieses Beispiel zeigt, wie die Einstellung des `sizes`-Wertes auf `auto` die Auswahl des Bildes aus dem [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) beeinflusst, wenn {{htmlelement("img")}}-Elemente lazy-geladen werden.
+Es ermöglicht Ihnen auch, den Effekt der Änderung der Größe eines Containers auf das geladene Bild zu sehen.
 
 #### HTML
 
-Das HTML ist ähnlich wie in dem vorherigen Beispiel, abgesehen davon, dass es drei nahezu identische {{htmlelement("img")}} Elemente definiert, jedes mit einem `srcset`, das 3 Bilder angibt, die `600px`, `400px` und `200px` breit sind, und mit einem `sizes` Wert von `auto`.
-Diese sind innerhalb von Containern eingeschränkt, die dazu ausgelegt sind, die verschiedenen Bilder auszuwählen.
+Das HTML ist ähnlich dem im vorherigen Beispiel, mit der Ausnahme, dass es drei nahezu identische {{htmlelement("img")}}-Elemente definiert, jedes mit einem `srcset`, das 3 Bilder anzeigt, die `600px`, `400px` und `200px` breit sind, und mit einem `sizes`-Wert von `auto`.
+Diese sind innerhalb von Containern eingeschränkt, die so dimensioniert sind, dass die verschiedenen Bilder ausgewählt werden.
 
 ```html
 <div id="scroll-container">
@@ -392,31 +391,31 @@ const observer = new IntersectionObserver(
 images.forEach((img) => observer.observe(img));
 ```
 
-Der restliche CSS und das JavaScript, das den Slider, Logging und so weiter antreibt, werden nicht angezeigt (wenn Sie daran interessiert sind, diese zu untersuchen, wählen Sie "Play", um das gesamte Beispiel im interaktiven Playground anzuzeigen).
+Das restliche CSS und das JavaScript, das den Slider, das Logging und so weiter steuert, wird nicht angezeigt (wenn Sie daran interessiert sind, diese zu untersuchen, wählen Sie "Play", um das gesamte Beispiel im interaktiven Playground anzusehen).
 
 #### Ergebnis
 
 Scrollen Sie den Rahmen, um die drei Bilder anzuzeigen.
-Der Browser sollte basierend auf den unterschiedlichen Breitenbeschränkungen ein anderes Bild für jedes ausgewählt haben.
-Sie können den Schieberegler verwenden, um die Größe des Containers für das erste Bild zu ändern.
-Beachten Sie, dass der Browser möglicherweise kein neues Bild zur Anzeige auswählt, während sich die Größe des Containers ändert, da Implementierungen nicht verpflichtet sind, auf dynamische Änderungen zu reagieren.
+Der Browser sollte für jedes eine andere Bildauswahl vorgenommen haben, basierend auf den unterschiedlichen Breitenbeschränkungen.
+Sie können den Slider verwenden, um die Größe des Containers für das erste Bild zu ändern.
+Beachten Sie, dass der Browser möglicherweise ein neues Bild auswählt oder auch nicht, um es anzuzeigen, wenn sich die Größe des Containers ändert, da Implementierungen nicht erforderlich sind, auf dynamische Änderungen zu reagieren.
 
 {{EmbedLiveSample("Automatische Bildauswahl für lazy-geladene Bilder", "", 600)}}
 
-Das Log bietet Informationen, wann ein `load` Ereignis für jedes Bild auslöst, und wann ein Bild das sichtbare Ansichtsfenster schneidet.
-Beachten Sie, dass die Bilder lazy-geladen werden, sodass das `load` Ereignis genau bevor das Bild das Ansichtsfenster betritt ausgelöst werden sollte.
-Beachten Sie auch, dass das `load` Ereignis auch dann auslöst, wenn Sie die Containergröße für das erste Bild ändern, was anzeigt, wann der Browser das Layout neu berechnet hat (nicht notwendigerweise, dass ein neues Bild geladen wurde).
+Das Protokoll liefert Informationen, wenn ein `load`-Ereignis für jedes Bild ausgelöst wird und wenn ein Bild den sichtbaren Sichtbereich schneidet.
+Beachten Sie, dass die Bilder lazy-loaded sind, daher sollte das `load`-Ereignis gerade ausgelöst werden, bevor das Bild in das Sichtfenster eintritt.
+Beachten Sie auch, dass das `load`-Ereignis ebenfalls ausgelöst wird, wenn Sie die Containergröße für das erste Bild ändern, was anzeigt, wann der Browser das Layout neu berechnet hat (nicht unbedingt, dass ein neues Bild geladen wurde).
 
 ### Blog-Beispiel
 
-Dieses Beispiel ist ein etwas realitätsnäheres Beispiel, das zeigt, wie ein Bild zur Fensterbreite mithilfe von Quellgrößen ausgewählt wird.
+Dieses Beispiel ist ein etwas realistischeres Szenario, das demonstriert, wie ein Bild passend zu einer Fensterbreite mithilfe von Quellgrößen ausgewählt wird.
 
-In diesem Beispiel wird ein blogähnliches Layout erstellt, das einige Texte und ein Bild anzeigt, für das je nach Breite des Fensters drei Größenpunkte angegeben sind.
-Drei Versionen des Bildes sind ebenfalls verfügbar, wobei ihre Breiten angegeben sind. Der Browser nimmt all diese Informationen und wählt ein Bild und eine Breite aus, die am besten zu den angegebenen Werten passt.
+In diesem Beispiel wird ein blogartiges Layout erstellt, das etwas Text und ein Bild anzeigt, für das drei Größenpunkte abhängig von der Fensterbreite angegeben sind.
+Ebenso sind drei Versionen des Bildes verfügbar, mit ihren Breiten spezifiziert. Der Browser nimmt all diese Informationen und wählt ein Bild und eine Größe aus, die am besten zu den angegebenen Werten passen.
 
-Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte der Anzeige des Benutzers abhängen.
+Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte des Displays des Benutzers abhängen.
 
-Buttons am unteren Rand des Beispiels lassen Sie tatsächlich die `sizes` Eigenschaft leicht modifizieren, indem die größte der drei Breiten für das Bild zwischen 40em und 50em umgeschaltet wird.
+Schaltflächen am unteren Rand des Beispiels erlauben es Ihnen, die `sizes`-Eigenschaft leicht zu ändern, indem die größte der drei Breiten für das Bild zwischen 40em und 50em gewechselt wird.
 
 #### HTML
 
@@ -478,7 +477,7 @@ article img {
 
 #### JavaScript
 
-Der JavaScript-Code bearbeitet die beiden Schaltflächen, die Sie die dritte Breitenoption zwischen 40em und 50em umschalten lassen; dies wird durch das Handling des [`click`](/de/docs/Web/API/Element/click_event) Ereignisses erreicht, wobei die JavaScript-String-Methode {{jsxref("String.replace", "replace()")}} verwendet wird, um den entsprechenden Teil des `sizes` Strings zu ersetzen.
+Der JavaScript-Code verarbeitet die zwei Schaltflächen, mit denen Sie die dritte Größenoption zwischen 40em und 50em umschalten können; dies geschieht durch das Handling des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses und Verwendung der JavaScript-String-{{jsxref("String.replace", "replace()")}}-Methode, um den relevanten Teil des `sizes`-Strings zu ersetzen.
 
 ```js
 const image = document.querySelector("article img");
@@ -498,13 +497,13 @@ break50.addEventListener(
 
 #### Ergebnis
 
-Die Seite wird am besten {{LiveSampleLink('Blog example', 'in einem eigenen Fenster betrachtet')}}, so dass Sie die Größen vollständig anpassen können und das Beispiel nicht durch seinen umgebenden Rahmen eingeschränkt ist.
+Die Seite wird am besten {{LiveSampleLink('Blog-Beispiel', 'in einem eigenen Fenster betrachtet')}}, damit Sie die Größen voll anpassen können und das Beispiel nicht durch den umgebenden Rahmen eingeschränkt wird.
 
-1. Aktivieren Sie die Entwicklertools und ändern Sie die Breite der Seite — Sie sollten sehen, dass das Bild sich (und in der Größe springt), an den Größen-Medienquery-Breakpoints ändert: `640px` (`40em`) und `800px` (`50em`).
-2. Setzen Sie die Breite zwischen `50em` `(800px)` und `60em` (`960px`), sodass die letzte Medienabfrage ausgewählt wird.
-   Drücken Sie dann abwechselnd jede der Schaltflächen und beachten Sie, wie sich die Layoutgröße des Bildes ändert.
+1. Aktivieren Sie die Entwicklertools und ändern Sie die Breite der Seite — Sie sollten das Bild an den Medienabfrage-Brechenpunkten des Sizes-Attributs wechseln (und in der Größe springen) sehen: `640px` (`40em`) und `800px` (`50em`).
+2. Stellen Sie die Breite zwischen `50em` `(800px)` und `60em` (`960px`) ein, damit die letzte Medienabfrage ausgewählt wird.
+   Drücken Sie dann abwechselnd jede der Schaltflächen und beobachten Sie, wie sich die Layoutgröße des Bildes ändert.
 
-{{EmbedLiveSample("Blog example", "", 1050)}}
+{{EmbedLiveSample("Blog-Beispiel", "", 1050)}}
 
 ## Spezifikationen
 
@@ -520,7 +519,7 @@ Die Seite wird am besten {{LiveSampleLink('Blog example', 'in einem eigenen Fens
 - [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images)
 - [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images)
-- [Verwendung der `srcset` und `sizes` Attribute](/de/docs/Web/HTML/Reference/Elements/img#using_the_srcset_and_sizes_attributes)
+- [Benutzung der `srcset` und `sizes` Attribute](/de/docs/Web/HTML/Reference/Elements/img#using_the_srcset_and_sizes_attributes)
 - [`HTMLImageElement.currentSrc`](/de/docs/Web/API/HTMLImageElement/currentSrc)
 - [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
 - [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset)
