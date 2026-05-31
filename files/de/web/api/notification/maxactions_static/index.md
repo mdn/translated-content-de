@@ -1,30 +1,32 @@
 ---
-title: "Notification: maxActions statische Eigenschaft"
+title: "Benachrichtigung: maxActions statische Eigenschaft"
 short-title: maxActions
 slug: Web/API/Notification/maxActions_static
 l10n:
-  sourceCommit: 66be0a23be754791266009f1044e2238c27332b4
+  sourceCommit: d8fc2b7782ba35a3f2708ffe5b5b4b9c44c8715f
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`maxActions`** schreibgeschützte statische Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt die maximale Anzahl von Aktionen zurück, die in einer Benachrichtigung angezeigt werden können.
+Die schreibgeschützte, statische Eigenschaft **`maxActions`** der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die maximale Anzahl von Aktionen zurück, die in einer Benachrichtigung angezeigt werden können.
 
 ## Wert
 
-Eine Ganzzahl.
+Ein Ganzzahlwert.
 
 ## Beschreibung
 
-Benachrichtigungsaktionen sind Schaltflächen oder Steuerungen, die innerhalb von [persistent notifications](/de/docs/Web/API/Notifications_API#persistent_and_non-persistent_notifications) erscheinen. Aktionen werden mit der [`actions`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#actions)-Option des zweiten Arguments der [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode festgelegt.
+Benachrichtigungsaktionen sind Schaltflächen oder Steuerungselemente, die innerhalb von [persistenten Benachrichtigungen](/de/docs/Web/API/Notifications_API#persistent_and_non-persistent_notifications) erscheinen.
+Aktionen werden mit der [`actions`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification#actions)-Option des zweiten Arguments der Methode [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) festgelegt.
 
-Browser begrenzen typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Die `maxActions`-Eigenschaft gibt dieses Limit zurück, welches die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array darstellt, die vom Benutzeragenten beachtet werden.
+Browser begrenzen typischerweise die maximale Anzahl an Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen werden.
+Die `maxActions`-Eigenschaft gibt dieses Limit zurück, welches die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array darstellt, die vom Benutzeragenten berücksichtigt werden.
 
 ## Beispiele
 
 ### Protokollieren der maximal möglichen Anzahl von Aktionen
 
-Der folgende Codeausschnitt protokolliert die maximale Anzahl unterstützter Aktionen.
+Das folgende Snippet protokolliert die maximale Anzahl unterstützter Aktionen.
 
 ```js
 const maxActions = Notification.maxActions;
