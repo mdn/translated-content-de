@@ -3,10 +3,10 @@ title: "`browser.getUserContexts`-Befehl"
 short-title: getUserContexts
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts
 l10n:
-  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
-Der `browser.getUserContexts`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`]-Moduls(/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) gibt eine Liste aller aktuellen [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser zurück.
+Der `browser.getUserContexts`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls gibt eine Liste aller aktuellen [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Der `browser.getUserContexts`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Mod
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einfügen und auf ein leeres Objekt (`{}`) setzen.
+Keine. Sie müssen jedoch das Feld `params` einfügen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
@@ -29,14 +29,14 @@ Das folgende Feld im `result`-Objekt der Antwort beschreibt die Benutzerkontexte
   - : Ein Array von einem oder mehreren Objekten, die jeweils einen Benutzerkontext darstellen.
     Jedes Objekt hat das folgende Feld:
     - `userContext`
-      - : Ein String, der die ID ({{Glossary("UUID", "UUID")}}) enthält, die den Benutzerkontext eindeutig identifiziert.
+      - : Ein String, der die ID enthält, die den Benutzerkontext eindeutig identifiziert.
         Der Standard-Benutzerkontext hat den Wert `"default"`; er existiert immer und kann nicht entfernt werden, sodass das Array niemals leer ist.
 
 ## Beispiele
 
 ### Abrufen einer Liste von Benutzerkontexten
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um eine Liste aller Benutzerkontexte zu erhalten:
+Mit einer [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um eine Liste aller Benutzerkontexte zu erhalten:
 
 ```json
 {
@@ -62,9 +62,9 @@ Wenn nur der Standard-Benutzerkontext existiert, antwortet der Browser wie folgt
 }
 ```
 
-### Abrufen einer Liste von Benutzerkontexten nach dem Erstellen zusätzlicher Kontexte
+### Abrufen einer Liste von Benutzerkontexten nach dem Erstellen weiterer Kontexte
 
-Nachdem Sie einige Benutzerkontexte mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) erstellt haben, senden Sie die folgende Nachricht, um alle aufzulisten:
+Nach dem Erstellen einiger Benutzerkontexte mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) senden Sie die folgende Nachricht, um alle aufzulisten:
 
 ```json
 {
@@ -74,7 +74,7 @@ Nachdem Sie einige Benutzerkontexte mit [`browser.createUserContext`](/de/docs/W
 }
 ```
 
-Der Browser antwortet mit allen Benutzerkontexten, einschließlich des `default`-Kontextes, wie folgt:
+Der Browser antwortet mit allen Benutzerkontexten, einschließlich der Standardkontext, wie folgt:
 
 ```json
 {

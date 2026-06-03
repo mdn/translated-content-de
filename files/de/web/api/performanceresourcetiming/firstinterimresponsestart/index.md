@@ -3,12 +3,12 @@ title: "PerformanceResourceTiming: firstInterimResponseStart-Eigenschaft"
 short-title: firstInterimResponseStart
 slug: Web/API/PerformanceResourceTiming/firstInterimResponseStart
 l10n:
-  sourceCommit: 581fd2ecfa9a6a5fb6d2b9d0085a089213e168fa
+  sourceCommit: a8249a8328d05a5b2f7fb3ec1d5df0f541bc8510
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`firstInterimResponseStart`** gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser das erste Byte der vorläufigen 1xx-Antwort (zum Beispiel 100 Continue oder 103 Early Hints) vom Server erhält, zurück.
+Die schreibgeschützte Eigenschaft **`firstInterimResponseStart`** gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, unmittelbar nachdem der Browser das erste Byte der vorläufigen 1xx-Antwort (zum Beispiel {{httpstatus(100, "100 Continue")}} oder {{httpstatus(103, "103 Early Hints")}}) vom Server erhält.
 
 Es gibt keine _end_-Eigenschaft für `firstInterimResponseStart`.
 
@@ -18,12 +18,12 @@ Die Eigenschaft `firstInterimResponseStart` kann die folgenden Werte haben:
 
 - Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser die ersten vorläufigen Bytes der Antwort vom Server erhält.
 - `0`, wenn die Ressource keine vorläufige Antwort gesendet hat.
-- `0`, wenn es sich bei der Ressource um eine Cross-Origin-Anfrage handelt und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
+- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header nicht verwendet wird.
 
 > [!NOTE]
-> Da Early Hints typischerweise nur bei der Hauptnavigationsanforderung unterstützt werden, die per Definition gleichherkunft ist, bedeutet ein Wert von `0` typischerweise, dass Early Hints **nicht** verwendet wurden.
+> Da Early Hints typischerweise nur bei der Hauptnavigationsanfrage unterstützt werden, die per Definition gleichen Ursprungs ist, zeigt ein `0` typischerweise an, dass Early Hints **nicht** verwendet wurden.
 
-Wenn `firstInterimResponseStart` ungleich null ist, weist dies darauf hin, dass es den gleichen Wert wie [`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart) für [unterstützende Browser](#browser-kompatibilität) haben sollte.
+Wenn `firstInterimResponseStart` ungleich null ist, bedeutet das, dass es denselben Wert wie [`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart) für [unterstützende Browser](#browser-kompatibilität) haben sollte.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Die Eigenschaften `firstInterimResponseStart` und `requestStart` können verwend
 const request = entry.firstInterimResponseStart - entry.requestStart;
 ```
 
-Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue Leistungseinträge von `resource` zu informieren, sobald sie in der Leistungstimeline des Browsers erfasst werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue `resource`-Performance-Einträge zu informieren, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -50,7 +50,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge anzeigt, die in der Leistungstimeline des Browsers zum Zeitpunkt des Aufrufs der Methode vorhanden sind.
+Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zur Zeit des Aufrufs der Methode in der Performance-Zeitleiste des Browsers vorhanden sind.
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -62,11 +62,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Informationen zum Timing bei Cross-Origin-Anfragen
+### Cross-Origin-Timing-Informationen
 
-Wenn der Wert der Eigenschaft `firstInterimResponseStart` `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um das Timing bei Cross-Origin-Anfragen sichtbar zu machen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der Eigenschaft `firstInterimResponseStart` `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um die Anzeige von Cross-Origin-Timing-Informationen zu ermöglichen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Um zum Beispiel `https://developer.mozilla.org` die Anzeige von Timing-Ressourcen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

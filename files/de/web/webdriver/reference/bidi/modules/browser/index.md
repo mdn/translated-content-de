@@ -3,32 +3,36 @@ title: "`browser` Modul"
 short-title: browser
 slug: Web/WebDriver/Reference/BiDi/Modules/browser
 l10n:
-  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
-Das **`browser`** Modul enthält Befehle zur Verwaltung des Browsers, einschließlich Client-Fenster, Benutzerkontexte und Download-Verhalten.
+Das **`browser`** Modul enthält Befehle zur Verwaltung des Browsers, einschließlich Clientfenster, Benutzerkontexte und Download-Verhalten.
 
-## Client-Fenster
+## Clientfenster
 
-Ein Client-Fenster ist ein Betriebssystem-basiertes Browserfenster, das den Viewport (den Bereich, in dem Webinhalte angezeigt werden) und UI-Elemente des Browsers wie die Adressleiste und Symbolleisten umfasst.
+Ein Clientfenster ist ein Betriebssystemebenen-Browserfenster, das den Viewport (den Bereich, in dem Webinhalte angezeigt werden) und Browser-UI-Elemente wie die Adressleiste und Symbolleisten umfasst.
 
-Jedes Client-Fenster hat die folgenden Eigenschaften:
+Jedes Clientfenster hat die folgenden Eigenschaften:
 
-- Einen eindeutigen Zeichenfolgen-Identifikator (`clientWindow`).
+- Eine eindeutige Zeichenkettenkennung (`clientWindow`).
 - Einen Zustand (`state`), der angibt, ob das Fenster normal, maximiert, minimiert oder im Vollbildmodus ist.
 - Einen aktiven Zustand (`active`), der angibt, ob das Fenster Tastatureingaben vom Betriebssystem empfangen kann.
-- Eine Position, ausgedrückt in `x` und `y` Koordinaten in {{Glossary("CSS_pixel", "CSS-Pixel")}} von den linken und oberen Rändern des Bildschirms.
-- Eine Größe, ausgedrückt in `width` und `height` in {{Glossary("CSS_pixel", "CSS-Pixel")}}.
+- Eine Position, ausgedrückt als `x`- und `y`-Koordinaten in {{Glossary("CSS_pixel", "CSS-Pixeln")}} von den linken und oberen Rändern des Bildschirms.
+- Eine Größe, ausgedrückt als `width` und `height` in {{Glossary("CSS_pixel", "CSS-Pixeln")}}.
 
-Eine Liste der Client-Fenster kann über [`browser.getClientWindows`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getClientWindows) abgerufen und deren Zustand über [`browser.setClientWindowState`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/setClientWindowState) geändert werden.
+Eine Liste von Clientfenstern kann mit [`browser.getClientWindows`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getClientWindows) erhalten werden, und ihr Zustand kann mit [`browser.setClientWindowState`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/setClientWindowState) geändert werden.
 
 ## Benutzerkontexte
 
-Ein Benutzerkontext ist eine Sammlung von null oder mehr Top-Level-Kontexten (Tabs) im Browser. Tabs im gleichen Benutzerkontext teilen denselben Browser-Speicher (wie Cookies und Sitzungsdaten), während Tabs in verschiedenen Benutzerkontexten vollständig voneinander isoliert sind und keine Browserdaten teilen. Ein Benutzerkontext ohne Tabs wird als leerer Benutzerkontext bezeichnet.
+Ein Benutzerkontext ist eine Sammlung von null oder mehr Top-Level-Kontexten (Tabs) innerhalb des Browsers. Tabs innerhalb desselben Benutzerkontexts teilen den gleichen Browserspeicher (wie Cookies und Sitzungsdaten), während Tabs in verschiedenen Benutzerkontexten vollständig voneinander isoliert sind und keine Browserdaten teilen. Ein Benutzerkontext ohne Tabs wird leerer Benutzerkontext genannt.
 
-Jeder Benutzerkontext hat einen eindeutigen Zeichenfolgen-Identifikator (Benutzerkontext-ID). Der Browser hat immer einen Standard-Benutzerkontext mit der ID `"default"`, der nicht entfernt werden kann.
+Jeder Benutzerkontext hat eine eindeutige Zeichenkettenkennung (Benutzerkontext-ID). Der Browser hat immer einen Standardbenutzerkontext mit der ID `"default"`, der nicht entfernt werden kann.
 
-Mehrere Tabs aus verschiedenen Benutzerkontexten können dasselbe [Client-Fenster](#client_fenster) teilen.
+Mehrere Tabs aus verschiedenen Benutzerkontexten können dasselbe [Clientfenster](#clientfenster) teilen.
+
+Zum Beispiel lebt ein regulärer Browser-Tab im `"default"` Benutzerkontext.
+Ein in einem separaten Container geöffneter Tab befindet sich in einem anderen Benutzerkontext.
+Beide Tabs können im selben Clientfenster erscheinen, aber ihre Cookies und Sitzungsdaten sind vollständig voneinander isoliert.
 
 Benutzerkontexte können mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) erstellt und mit [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext) entfernt werden.
 

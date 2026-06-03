@@ -3,31 +3,33 @@ title: "`input.fileDialogOpened` Ereignis"
 short-title: fileDialogOpened
 slug: Web/WebDriver/Reference/BiDi/Modules/input/fileDialogOpened
 l10n:
-  sourceCommit: 0e3eb297658e3fff3be9bbe2a09cb6721ed1979b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
-Das `input.fileDialogOpened` [Ereignis](/de/docs/Web/WebDriver/Reference/BiDi/Modules#events) des [`input`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/input) Moduls wird ausgelöst, wenn ein Dateiauswahldialog in einem Kontext geöffnet wird, zum Beispiel wenn [`click()`](/de/docs/Web/API/HTMLElement/click) oder [`showPicker()`](/de/docs/Web/API/HTMLInputElement/showPicker) auf einem [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element aufgerufen wird.
+Das `input.fileDialogOpened` [Ereignis](/de/docs/Web/WebDriver/Reference/BiDi/Modules#events) des [`input`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/input) Moduls wird ausgelöst, wenn ein Dateiauswahldialog in einem Kontext geöffnet wird, zum Beispiel, wenn [`click()`](/de/docs/Web/API/HTMLElement/click) oder [`showPicker()`](/de/docs/Web/API/HTMLInputElement/showPicker) auf einem [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element aufgerufen wird.
 
 ## Ereignisdaten
 
-Das `params` Feld in der Ereignisbenachrichtigung ist ein Objekt mit den folgenden Feldern:
+Das `params`-Feld in der Ereignisbenachrichtigung ist ein Objekt mit den folgenden Feldern:
 
 - `context`
-  - : Ein String, der die ID ({{Glossary("UUID", "UUID")}}) des Kontexts enthält, in dem der Dateiauswahldialog ausgelöst wurde. Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
+  - : Ein String, der die ID des Kontexts enthält, in dem der Dateiauswahldialog ausgelöst wurde.
+    Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 - `element` {{optional_inline}}
-  - : Ein Objekt, das die ID enthält, die das [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) DOM-Element eindeutig identifiziert, das den Dateiauswahldialog ausgelöst hat. Dieses Feld ist enthalten, wenn der Dateiauswahldialog von einem Datei `<input>` Element geöffnet wird.
+  - : Ein Objekt, das die ID enthält, die das DOM-Element [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) eindeutig identifiziert, das den Dateiauswahldialog ausgelöst hat.
+    Dieses Feld ist enthalten, wenn der Dateiauswahldialog durch ein Datei-`<input>`-Element geöffnet wurde.
 - `multiple`
   - : Ein boolean, der angibt, ob der Dateiauswahldialog mehrere Dateipfade zulässt.
-    - `true`: Der Dateiauswahldialog akzeptiert mehrere Dateien (das zugehörige `<input>` Element hat das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input/file#multiple) Attribut).
+    - `true`: Der Dateiauswahldialog akzeptiert mehrere Dateien (das zugehörige `<input>`-Element hat das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input/file#multiple) Attribut).
     - `false`: Der Dateiauswahldialog akzeptiert nur einen einzelnen Dateipfad.
 - `userContext` {{optional_inline}}
-  - : Ein String, der die ID des [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) enthält, in dem der Dateiauswahldialog ausgelöst wurde.
+  - : Ein String, der die ID des [Benutzerkontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) enthält, in dem der Dateiauswahldialog ausgelöst wurde.
 
 ## Beispiele
 
-### Empfang eines Ereignisses, wenn ein Dateiauswahldialog geöffnet wird
+### Ereignis empfangen, wenn ein Dateiauswahldialog geöffnet wird
 
-Betrachten Sie ein Szenario, in dem eine Seite ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element hat, das eine einzelne Datei akzeptiert, und Ihr Skript [`click()`](/de/docs/Web/API/HTMLElement/click) darauf aufruft. Mit einer [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einem [Abonnement](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe) für `input.fileDialogOpened` aktiv, sendet der Browser eine Benachrichtigung, wenn der Dateiauswahldialog geöffnet wird:
+Betrachten Sie ein Szenario, in dem eine Seite ein [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element hat, das eine einzelne Datei akzeptiert und Ihr Skript [`click()`](/de/docs/Web/API/HTMLElement/click) darauf aufruft. Mit einer [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einem [Abonnement](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/subscribe) für `input.fileDialogOpened` aktiv, sendet der Browser eine Benachrichtigung, wenn der Dateiauswahldialog geöffnet wird:
 
 ```json
 {
@@ -43,7 +45,7 @@ Betrachten Sie ein Szenario, in dem eine Seite ein [`<input type="file">`](/de/d
 }
 ```
 
-Sie können dann [`input.setFiles`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/input/setFiles) mit der `element.sharedId` aus der Benachrichtigung aufrufen, um einen Datei-Upload zu simulieren.
+Sie können dann [`input.setFiles`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/input/setFiles) mit dem `element.sharedId` aus der Benachrichtigung aufrufen, um den Datei-Upload zu simulieren.
 
 ## Spezifikationen
 

@@ -3,10 +3,10 @@ title: "`browser.setDownloadBehavior`-Befehl"
 short-title: setDownloadBehavior
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/setDownloadBehavior
 l10n:
-  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
-Der `browser.setDownloadBehavior`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls ermöglicht das Herunterladen von Dateien in einen angegebenen Ordner, das vollständige Blockieren von Downloads oder das Zurücksetzen des Verhaltens auf die Standardeinstellungen des Browsers. Das Verhalten kann für alle oder einige [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) konfiguriert werden.
+Der `browser.setDownloadBehavior` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls ermöglicht das Herunterladen von Dateien in einen festgelegten Ordner, blockiert das Herunterladen von Dateien vollständig oder setzt das Verhalten auf den Standard des Browsers zurück. Das Verhalten kann für alle oder bestimmte [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) konfiguriert werden.
 
 ## Syntax
 
@@ -24,19 +24,19 @@ Der `browser.setDownloadBehavior`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi
 Das `params`-Feld enthält:
 
 - `downloadBehavior`
-  - : Ein Objekt mit den folgenden Feldern oder `null`, um das Standard-Download-Verhalten des Browsers zurückzusetzen:
+  - : Ein Objekt mit den folgenden Feldern, oder `null`, um auf das Standard-Downloadverhalten des Browsers zurückzusetzen:
     - `type`
       - : Ein String, der angibt, ob Downloads erlaubt oder blockiert sind. Gültige Werte sind:
-        - `"allowed"`: Gibt an, dass Downloads erlaubt sind. Wenn dieser Wert gesetzt ist, wird das Feld `destinationFolder` benötigt.
+        - `"allowed"`: Gibt an, dass Downloads erlaubt sind. Wenn dieser Wert gesetzt ist, ist das `destinationFolder`-Feld erforderlich.
         - `"denied"`: Gibt an, dass Downloads blockiert sind.
     - `destinationFolder`
       - : Ein String, der den Pfad zu dem Ordner angibt, in dem heruntergeladene Dateien gespeichert werden.
         Dieses Feld ist erforderlich, wenn `type` auf `"allowed"` gesetzt ist.
 - `userContexts` {{optional_inline}}
-  - : Ein Array von Strings, wobei jeder String die ID ({{Glossary("UUID", "UUID")}}) eines [Benutzerkontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) ist, auf den das Download-Verhalten angewendet werden soll.
-    Benutzerkontext-IDs werden von Befehlen wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
-    - Wenn enthalten, wird das festgelegte Download-Verhalten auf jeden aufgeführten Benutzerkontext angewendet. Wenn `downloadBehavior` `null` ist, wird die pro Kontext festgelegte Überschreibung für jeden aufgelisteten Benutzerkontext zurückgesetzt.
-    - Wenn nicht enthalten, wird das festgelegte Download-Verhalten als globaler Standard auf alle Benutzerkontexte angewendet.
+  - : Ein Array von Strings, wobei jeder String die ID eines [Benutzerkontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) ist, auf den das Downloadverhalten angewendet werden soll.
+    Benutzerkontext-IDs werden durch Befehle wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
+    - Wenn enthalten, wird das angegebene Downloadverhalten auf jeden aufgeführten Benutzerkontext angewendet. Wenn `downloadBehavior` `null` ist, wird die spezifische Einstellung für jeden aufgeführten Benutzerkontext zurückgesetzt.
+    - Wenn nicht enthalten, wird das angegebene Downloadverhalten als globaler Standard auf alle Benutzerkontexte angewendet.
 
 ### Rückgabewert
 
@@ -47,15 +47,15 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
   - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
 - `unsupported operation`
-  - : Der Browser unterstützt das angegebene Download-Verhalten nicht.
+  - : Der Browser unterstützt das angegebene Downloadverhalten nicht.
 - `no such user context`
-  - : Kein Benutzerkontext mit der angegebenen Benutzerkontext-ID gefunden.
+  - : Es wird kein Benutzerkontext mit der angegebenen Benutzerkontext-ID gefunden.
 
 ## Beispiele
 
-### Downloads in einen bestimmten Ordner erlauben
+### Erlauben von Downloads in einen bestimmten Ordner
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um das globale Download-Verhalten festzulegen und Downloads in einen bestimmten Ordner zu leiten:
+Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um das globale Downloadverhalten festzulegen und Downloads in einen bestimmten Ordner zu leiten:
 
 ```json
 {
@@ -80,9 +80,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Downloads in mehreren Benutzerkontexten erlauben
+### Erlauben von Downloads in mehreren Benutzerkontexten
 
-Um Downloads in mehreren Benutzerkontexten zu erlauben, erhalten Sie die Benutzerkontext-IDs mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) und senden Sie dann die folgende Nachricht, um Downloads an einen angegebenen Ordner zu leiten:
+Um Downloads in mehreren Benutzerkontexten zu erlauben, holen Sie die Benutzerkontext-IDs mithilfe von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) und senden dann die folgende Nachricht, um Downloads in einen angegebenen Ordner zu leiten:
 
 ```json
 {
@@ -111,9 +111,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Downloads in einem bestimmten Benutzerkontext blockieren
+### Blockieren von Downloads in einem bestimmten Benutzerkontext
 
-Um Downloads in einem bestimmten Benutzerkontext zu blockieren, erhalten Sie zunächst die Benutzerkontext-ID mit [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts). Dann senden Sie die folgende Nachricht:
+Um Downloads in einem bestimmten Benutzerkontext zu blockieren, holen Sie zunächst die Benutzerkontext-ID mithilfe von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts). Senden Sie dann die folgende Nachricht:
 
 ```json
 {
@@ -138,9 +138,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Download-Verhalten auf die Standardeinstellungen des Browsers zurücksetzen
+### Zurücksetzen des Downloadverhaltens auf den Browserstandard
 
-Senden Sie die folgende Nachricht, um das globale Download-Verhalten auf die Standardeinstellungen des Browsers zurückzusetzen:
+Senden Sie die folgende Nachricht, um das globale Downloadverhalten auf den Standard des Browsers zurückzusetzen:
 
 ```json
 {

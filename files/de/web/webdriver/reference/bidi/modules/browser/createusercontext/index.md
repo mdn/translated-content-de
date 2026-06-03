@@ -3,7 +3,7 @@ title: "`browser.createUserContext`-Befehl"
 short-title: createUserContext
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext
 l10n:
-  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
 Der `browser.createUserContext`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls erstellt einen neuen [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser.
@@ -22,34 +22,34 @@ Der `browser.createUserContext`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/M
 Setzen Sie `params` auf ein leeres Objekt (`{}`) oder schließen Sie eines der folgenden optionalen Felder ein:
 
 - [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts) {{optional_inline}}
-  - : Ein boolescher Wert, der steuert, ob nicht vertrauenswürdige TLS-Zertifikate (zum Beispiel selbstsignierte oder abgelaufene) innerhalb dieses Benutzerkontextes akzeptiert werden. Wenn festgelegt, überschreibt er die [Session-Ebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#acceptinsecurecerts) `acceptInsecureCerts` Einstellung für diesen Benutzerkontext.
+  - : Ein boolescher Wert, der steuert, ob nicht vertrauenswürdige TLS-Zertifikate (z.B. selbstsignierte oder abgelaufene) innerhalb dieses Benutzerkontexts akzeptiert werden. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#acceptinsecurecerts) `acceptInsecureCerts`-Einstellung für diesen Benutzerkontext.
 - `proxy` {{optional_inline}}
-  - : Ein Objekt, das die Proxy-Konfiguration angibt, die der Browser für Netzwerk-Anfragen innerhalb dieses Benutzerkontextes verwenden soll. Wenn festgelegt, überschreibt es die [Session-Ebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#proxy) `proxy` Einstellung für diesen Benutzerkontext.
+  - : Ein Objekt, das die Proxy-Konfiguration spezifiziert, die der Browser für Netzwerk-Anfragen innerhalb dieses Benutzerkontexts verwenden soll. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#proxy) `proxy`-Einstellung für diesen Benutzerkontext.
 - `unhandledPromptBehavior` {{optional_inline}}
-  - : Ein Objekt, das das Standardverhalten angibt, wenn ein Benutzer-Dialogfeld (wie ein `alert`, `confirm` oder `prompt` Dialog) innerhalb dieses Benutzerkontextes aufgerufen wird. Wenn festgelegt, überschreibt es die [Session-Ebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#unhandledpromptbehavior) `unhandledPromptBehavior` Einstellung für diesen Benutzerkontext.
+  - : Ein Objekt, das das Standardverhalten angibt, wenn innerhalb dieses Benutzerkontexts eine Benutzeraufforderung (wie ein `alert`, `confirm` oder `prompt`-Dialog) auftritt. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#unhandledpromptbehavior) `unhandledPromptBehavior`-Einstellung für diesen Benutzerkontext.
 
 > [!NOTE]
-> Wenn ein Parameter festgelegt wird, gilt er für alle bestehenden und zukünftigen Tabs innerhalb dieses Benutzerkontextes.
+> Wenn ein Parameter gesetzt ist, gilt er für alle bestehenden und zukünftigen Tabs innerhalb dieses Benutzerkontexts.
 
 ### Rückgabewert
 
 Das folgende Feld im `result`-Objekt der Antwort beschreibt den erstellten Benutzerkontext:
 
 - `userContext`
-  - : Ein String, der die ID ({{Glossary("UUID", "UUID")}}) enthält, die den erstellten Benutzerkontext eindeutig identifiziert.
+  - : Ein String, der die ID enthält, die den erstellten Benutzerkontext eindeutig identifiziert.
 
 ### Fehler
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
-  - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
+  - : Ein benötigter Parameter fehlt oder hat einen ungültigen Typ.
 - `unsupported operation`
-  - : `acceptInsecureCerts` ist `true`, aber der Browser unterstützt keine unsicheren TLS-Verbindungen, oder `proxy` ist angegeben, aber der Browser kann keine Proxy-Einstellungen für diesen Benutzerkontext konfigurieren oder kann die angegebene Proxy-Konfiguration nicht anwenden.
+  - : `acceptInsecureCerts` ist `true`, aber der Browser unterstützt keine unsicheren TLS-Verbindungen, oder `proxy` ist spezifiziert, aber der Browser kann keine Proxy-Einstellungen für diesen Benutzerkontext konfigurieren oder die gegebene Proxy-Konfiguration nicht anwenden.
 
 ## Beispiele
 
-### Erstellen eines Benutzerkontextes mit Standardeinstellungen
+### Einen Benutzerkontext mit Standardeinstellungen erstellen
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen:
+Mit einer [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen:
 
 ```json
 {
@@ -59,7 +59,7 @@ Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_
 }
 ```
 
-Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontextes wie folgt:
+Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontexts wie folgt:
 
 ```json
 {
@@ -71,9 +71,9 @@ Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontextes w
 }
 ```
 
-### Erstellen eines Benutzerkontextes mit einem Proxy
+### Einen Benutzerkontext mit einem Proxy erstellen
 
-Senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen, der Netzwerk-Anfragen über einen Proxy leitet:
+Senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen, der Netzwerk-Anfragen über einen Proxy weiterleitet:
 
 ```json
 {
@@ -88,7 +88,7 @@ Senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen, der Ne
 }
 ```
 
-Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontextes wie folgt:
+Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontexts wie folgt:
 
 ```json
 {

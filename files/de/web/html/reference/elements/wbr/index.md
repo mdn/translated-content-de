@@ -1,12 +1,12 @@
 ---
-title: "`<wbr>` HTML Zeilenumbruch-Gelegenheitselement"
+title: "`<wbr>` HTML-Element für Zeilenumbruch-Gelegenheit"
 short-title: <wbr>
 slug: Web/HTML/Reference/Elements/wbr
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: b7de5fa065848c0d703b6763df7a15d1eb908c91
 ---
 
-Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Zeilenumbruch-Gelegenheit dar—eine Position innerhalb eines Textes, an der der Browser optional einen Zeilenumbruch vornehmen kann, obwohl seine Zeilenumbruchregeln an dieser Stelle normalerweise keinen Umbruch bewirken würden.
+Das **`<wbr>`**-[HTML](/de/docs/Web/HTML)-Element steht für eine Worttrennungsgelegenheit - eine Position im Text, an der der Browser optional eine Zeile brechen kann, auch wenn seine Zeilenumbruchregeln an dieser Stelle keinen Umbruch erzeugen würden.
 
 {{InteractiveExample("HTML Demo: &lt;wbr&gt;", "tabbed-shorter")}}
 
@@ -34,13 +34,13 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Hinweise
 
-Auf UTF-8 kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode-Bidi-BN-Codepunkt, was bedeutet, dass es keinen Effekt auf die {{Glossary("bidi", "Bidi")}}-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` wird, wenn es nicht auf zwei Zeilen umgebrochen wird, als `123,456` und nicht `456,123` angezeigt.
+`<wbr>` verhält sich wie der Codepunkt `U+200B ZERO-WIDTH SPACE`. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keine Auswirkungen auf die {{Glossary("bidi", "bidi")}}-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` zeigt an, wenn es nicht auf zwei Zeilen gebrochen wird, `123,456` und nicht `456,123`.
 
-Aus dem gleichen Grund führt das `<wbr>`-Element an der Zeilenumbruchstelle keinen Bindestrich ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das Soft-Hyphen-Zeichen (`&shy;`).
+Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen die weiche Bindestrich-Zeichenentität (`&shy;`).
 
 ## Beispiele
 
-_Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/)_ empfiehlt, [eine URL _vor_ einem Satzzeichen zu trennen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Ende der Zeile bleibt, das der Leser fälschlicherweise für das Ende der URL halten könnte.
+[Der Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://styleguide.yahoo.com/) empfiehlt, [eine URL _vor_ einem Satzzeichen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses) zu trennen, um ein Satzzeichen am Ende der Zeile zu vermeiden, das der Leser möglicherweise für das Ende der URL hält.
 
 ```html
 <p>
@@ -64,10 +64,10 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textinhalt</a
         >.
       </td>
     </tr>
@@ -76,20 +76,20 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
       <td>Leer</td>
     </tr>
     <tr>
-      <th scope="row">Auslassung des Tags</th>
-      <td>Muss einen Start-Tag haben und darf keinen End-Tag haben.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Textinhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -98,7 +98,7 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -120,4 +120,4 @@ _Der [Yahoo Style Guide](https://web.archive.org/web/20121014054923/http://style
 - {{cssxref("overflow-wrap")}}
 - {{cssxref("word-break")}}
 - {{cssxref("hyphens")}}
-- Das {{HTMLElement("br")}} Element
+- Das {{HTMLElement("br")}}-Element

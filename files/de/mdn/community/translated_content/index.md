@@ -1,21 +1,21 @@
 ---
-title: MDN Web Docs-Lokalisierung
+title: MDN Web Docs Lokalisierung
 short-title: Localization
 slug: MDN/Community/Translated_content
 l10n:
-  sourceCommit: 7b476c3bf3bce8ac1413bf35e15204320acbb1e4
+  sourceCommit: 0b2ddf6c871a55eebe31f4d8808b8c975bfa41a8
 ---
 
-MDN Web Docs enthält fast 14000 Seiten Dokumentation im `en-US`-Lokalisierungsbereich.
-Der Inhalt von MDN wird in acht Lokalisierungen von einer engagierten und vielfältigen Community von Mitwirkenden übersetzt.
+MDN Web Docs enthält fast 14.000 Seiten Dokumentation im `en-US`-Locale.
+MDN-Inhalte werden in acht Lokalisierungsversionen übersetzt, die von einer engagierten und vielfältigen Gemeinschaft von Mitwirkenden gepflegt werden.
 
-## Anleitung zur Mitarbeit
+## Anleitung zum Mitwirken
 
-Wenn Sie zu einer der bestehenden aktiven Lokalisierungen beitragen möchten, besuchen Sie das [mdn/translated-content GitHub-Repository](https://github.com/mdn/translated-content).
+Wenn Sie zu einem der bestehenden aktiven Lokalisierungen beitragen möchten, schauen Sie sich das [mdn/translated-content GitHub-Repository](https://github.com/mdn/translated-content) an.
 Dieses Repository enthält alle lokalisierten Dokumente für alle aktiven Lokalisierungen sowie Projekte zur Nachverfolgung von Problemen.
-Wir empfehlen, zuerst den [Übersetzungsleitfaden](https://github.com/mdn/translated-content/tree/main/docs) zu lesen.
+Wir empfehlen, zunächst den [Übersetzungsleitfaden](https://github.com/mdn/translated-content/tree/main/docs) zu lesen.
 
-Wenn Sie Hilfe benötigen oder Fragen haben, können Sie sich gern an eines der unten aufgeführten aktiven Mitglieder oder Communities wenden oder [uns kontaktieren](/de/docs/MDN/Community/Communication_channels).
+Wenn Sie Hilfe benötigen oder Fragen haben, zögern Sie nicht, sich mit einem der aktiven Mitglieder oder Gemeinschaften, die unten aufgeführt sind, in Verbindung zu setzen, oder [kontaktieren Sie uns](/de/docs/MDN/Community/Communication_channels).
 
 ## Aktive Lokalisierungen
 
@@ -32,7 +32,7 @@ Wenn Sie Hilfe benötigen oder Fragen haben, können Sie sich gern an eines der 
 ### Französisch (`fr`)
 
 - Diskussionen: [Matrix (`#l10n-fr`)](https://chat.mozilla.org/#/room/#l10n-fr:mozilla.org)
-- Aktuelle Betreuer: [cw118](https://github.com/cw118), [SphinxKnight](https://github.com/SphinxKnight), [tristantheb](https://github.com/tristantheb)
+- Aktuelle Betreuer: [cw118](https://github.com/cw118), [tristantheb](https://github.com/tristantheb)
 
 ### Japanisch (`ja`)
 
@@ -56,7 +56,7 @@ Wenn Sie Hilfe benötigen oder Fragen haben, können Sie sich gern an eines der 
 
 ## Maschinell übersetzte Lokalisierungen
 
-Die folgenden experimentellen Lokalisierungen werden maschinell aus dem Englischen übersetzt und werden in separaten Repositories von anderen Lokalisierungen verwaltet.
+Die folgenden experimentellen Lokalisierungen sind maschinell aus dem Englischen übersetzt und werden in separaten Repositories von anderen Lokalisierungen verwaltet.
 
 ### Deutsch (`de`)
 
@@ -72,16 +72,16 @@ Die folgenden experimentellen Lokalisierungen werden maschinell aus dem Englisch
 
 ## Eingestellte Lokalisierungen
 
-Seit dem 14. Dezember 2020 läuft MDN auf einer Plattform, die [auf GitHub gewartet wird](/de/docs/MDN/Community/Our_repositories).
-Dies hat viele Vorteile, aber wir mussten grundlegende Änderungen an der Art und Weise vornehmen, wie wir die Lokalisierung vor dieser Migration gehandhabt haben.
-Viel ungewarteter und veralteter Inhalt landete in nicht-englischen Lokalisierungen, und wir wollen dies zukünftig besser verwalten.
+Seit dem 14. Dezember 2020 läuft MDN auf einer Plattform, die [auf GitHub gepflegt](/de/docs/MDN/Community/Our_repositories) wird.
+Dies bietet viele Vorteile, aber es waren radikale Änderungen in der Art und Weise notwendig, wie wir die Lokalisierung vor dieser Migration gehandhabt haben.
+Viele ungewartete und veraltete Inhalte befanden sich in nicht-englischen Lokalisierungen, und wir möchten sie künftig besser verwalten.
 
-Aus diesem Grund haben wir alle Lokalisierungen archiviert, **außer** den auf dieser Seite aufgelisteten, was bedeutet, dass sie auf GitHub nur lesbar und auf developer.mozilla.org nicht einsehbar sind.
-Die aktiven Lokalisierungen haben engagierte Teams, die für deren Wartung verantwortlich sind.
+Aus diesem Grund haben wir alle Lokalisierungen archiviert, **außer** die auf dieser Seite aufgeführten, was bedeutet, dass sie auf GitHub nur lesbar sind und nicht auf developer.mozilla.org angezeigt werden können.
+Die aktiven Lokalisierungen haben dedizierte Teams, die die Verantwortung für deren Pflege übernehmen.
 
 ## Siehe auch
 
-- [MDN-Lokalisierungsupdate, Februar 2021](https://hacks.mozilla.org/2021/02/mdn-localization-update-february-2021/) — der aktuelle Stand der Lokalisierung auf MDN (2021)
-- [Ein Update zur Lokalisierungsstrategie der MDN Web Docs](https://hacks.mozilla.org/2020/12/an-update-on-mdn-web-docs-localization-strategy/) — aktualisierte Strategie basierend auf dem Feedback der Community (2020)
-- [MDN Web Docs entwickeln sich weiter! Einblick in die bevorstehende neue Plattform](https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform/) — mehr zu den Vorteilen der neuen Plattform und der Begründung hinter den Lokalisierungsänderungen (2020)
-- [MDN-Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels)
+- [MDN Lokalisierungsupdate, Februar 2021](https://hacks.mozilla.org/2021/02/mdn-localization-update-february-2021/) — der neueste Stand der Lokalisierung auf MDN (2021)
+- [Ein Update zur Lokalisierungsstrategie der MDN Web Docs](https://hacks.mozilla.org/2020/12/an-update-on-mdn-web-docs-localization-strategy/) — aktualisierte Strategie basierend auf dem Community-Feedback (2020)
+- [MDN Web Docs entwickelt sich weiter! Ein Überblick über die kommende neue Plattform](https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform/) — mehr zu den Vorteilen der neuen Plattform und die Gründe für die Lokalisierungänderungen (2020)
+- [MDN Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels)

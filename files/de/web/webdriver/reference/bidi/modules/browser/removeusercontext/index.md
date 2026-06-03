@@ -3,13 +3,13 @@ title: "`browser.removeUserContext` Befehl"
 short-title: removeUserContext
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext
 l10n:
-  sourceCommit: 8626312a42264212095783a26ec0fb1f8d80487b
+  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
 ---
 
-Der `browser.removeUserContext` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls entfernt den angegebenen [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und alle seine Tabs über alle Fenster hinweg. Tabs werden geschlossen, ohne die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis-Handler-Funktionen auszuführen.
+Der `browser.removeUserContext` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls entfernt den angegebenen [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) und alle zugehörigen Tabs in allen Fenstern. Tabs werden geschlossen, ohne dass die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignishandler-Funktionen ausgeführt werden.
 
 > [!WARNING]
-> Dieser Befehl ist irreversibel, und alle mit dem Benutzerkontext verbundenen Speicher werden dauerhaft gelöscht.
+> Dieser Befehl ist unwiderruflich, und alle mit dem Benutzerkontext verbundenen Speicherungen werden dauerhaft gelöscht.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Der `browser.removeUserContext` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/M
 Das `params` Feld enthält:
 
 - `userContext`
-  - : Ein String, der die ID ({{Glossary("UUID", "UUID")}}) des zu entfernenden Benutzerkontexts enthält.
+  - : Ein String, der die ID des zu entfernenden Benutzerkontexts enthält.
     Benutzerkontext-IDs werden von Befehlen wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
-    Der Standard-Benutzerkontext (`"default"`) kann nicht entfernt werden.
+    Der Standardbenutzerkontext (`"default"`) kann nicht entfernt werden.
 
 ### Rückgabewert
 
@@ -38,15 +38,15 @@ Das `result` Feld in der Antwort ist ein leeres Objekt (`{}`).
 ### Fehler
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
-  - : Das `userContext` Feld ist `"default"`. Der Standard-Benutzerkontext kann nicht entfernt werden.
+  - : Das `userContext` Feld ist `"default"`. Der Standardbenutzerkontext kann nicht entfernt werden.
 - `no such user context`
-  - : Es wird kein Benutzerkontext mit der angegebenen Benutzerkontext-ID gefunden.
+  - : Kein Benutzerkontext mit der angegebenen Benutzerkontext-ID gefunden.
 
 ## Beispiele
 
 ### Entfernen eines Benutzerkontexts
 
-Betrachten Sie ein Szenario, in dem Sie eine [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und eine [aktive Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) haben. Nachdem Sie einen [Benutzerkontext erstellt](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) haben mit `browser.createUserContext`, senden Sie die folgende Nachricht, wenn Sie ihn entfernen möchten:
+Betrachten Sie ein Szenario, in dem Sie eine [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und eine [aktive Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) haben. Nachdem Sie einen [Benutzerkontext erstellt haben](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) mit `browser.createUserContext`, senden Sie die folgende Nachricht, wenn Sie ihn entfernen möchten:
 
 ```json
 {
