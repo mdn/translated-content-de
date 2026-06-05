@@ -3,17 +3,17 @@ title: "Element: setHTML() Methode"
 short-title: setHTML()
 slug: Web/API/Element/setHTML
 l10n:
-  sourceCommit: cda9415220ba812ba2ee24e0af1c8e8001ab9924
+  sourceCommit: 3e471e05c2529b61634416e483ef415489d7d77a
 ---
 
 {{APIRef("HTML Sanitizer API")}}
 
-Die **`setHTML()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle bietet eine XSS-sichere Methode, um einen HTML-String zu parsen und zu bereinigen und ihn als Unterbaum des Elements in das DOM einzufügen.
+Die **`setHTML()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle bietet eine XSS-sichere Methode, um einen HTML-String zu parsen und zu bereinigen und ihn als Unterbaum des Elements in das DOM einzufügen.
 
-Die Methode entfernt alle Elemente und Attribute, die als XSS-gefährlich angesehen werden, selbst wenn ein übergebener Sanitizer dies erlaubt.
-Besonders folgende Elemente werden immer entfernt: {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}}, {{HTMLElement("object")}}, {{SVGElement("use")}} und Event-Handler-Attribute.
+Die Methode entfernt alle Elemente und Attribute, die als XSS-unsicher gelten, selbst wenn sie von einem übergebenen Sanitizer erlaubt werden.
+Insbesondere werden die folgenden Elemente immer entfernt: {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}}, {{HTMLElement("object")}}, {{SVGElement("use")}} und Event-Handler-Attribute.
 
-Es wird empfohlen, diese Methode (falls unterstützt) als Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) zu verwenden, wenn ein vom Benutzer bereitgestellter String von HTML gesetzt werden soll.
+Es wird empfohlen (falls unterstützt), es als direkter Ersatz für [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) zu verwenden, wenn Sie einen vom Benutzer bereitgestellten HTML-String setzen.
 
 ## Syntax
 
@@ -29,48 +29,74 @@ setHTML(input, options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
     - `sanitizer`
-      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Objekt, das definiert, welche Elemente des Inputs erlaubt oder entfernt werden, oder der String `"default"` für die Standardkonfiguration.
-        Die Methode entfernt alle XSS-gefährlichen Elemente und Attribute, selbst wenn dies durch den Sanitizer erlaubt ist.
+      - : Ein [`Sanitizer`](/de/docs/Web/API/Sanitizer) oder [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Objekt, das definiert, welche Elemente des Eingangs erlaubt oder entfernt werden, oder der String `"default"` für die Standardkonfiguration.
+        Die Methode entfernt alle XSS-unsicheren Elemente und Attribute, selbst wenn sie vom Sanitizer erlaubt sind.
         Wenn nicht angegeben, wird die [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwendet.
 
-        Beachten Sie, dass es effizienter sein kann, einen `Sanitizer` zu verwenden und diesen bei Bedarf zu ändern, wenn dieselbe Konfiguration mehrmals verwendet wird.
+        Beachten Sie, dass es effizienter ist, einen `Sanitizer` zu verwenden und ihn bei Bedarf zu modifizieren, wenn Sie dieselbe Konfiguration mehrfach verwenden.
 
 ### Rückgabewert
 
-Keinen (`undefined`).
+Keiner (`undefined`).
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Dies wird ausgelöst, wenn `options.sanitizer` übergeben wird:
+  - : Dieser wird ausgelöst, wenn `options.sanitizer` übergeben wird als:
     - [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die nicht [gültig](/de/docs/Web/API/SanitizerConfig#valid_configuration) ist.
       Zum Beispiel eine Konfiguration, die sowohl "erlaubte" als auch "entfernte" Konfigurationseinstellungen enthält.
-    - ein String, der nicht den Wert `"default"` hat.
-    - ein Wert, der weder ein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) noch ein String ist.
+    - String, der nicht den Wert `"default"` hat.
+    - Wert, der kein [`Sanitizer`](/de/docs/Web/API/Sanitizer), [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) oder String ist.
 
 ## Beschreibung
 
-Die **`setHTML()`**-Methode bietet eine XSS-sichere Methode, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen und zu bereinigen und ihn dann als Unterbaum des Elements ins DOM einzufügen.
+Die **`setHTML()`** Methode bietet eine XSS-sichere Methode, um einen HTML-String in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zu parsen und ihn dann als Unterbaum des Elements in das DOM einzufügen.
 
-`setHTML()` lässt alle Elemente im HTML-Input-String fallen, die im Kontext des aktuellen Elements ungültig sind, wie zum Beispiel ein {{htmlelement("col")}}-Element außerhalb einer {{htmlelement("table")}}.
-Anschließend entfernt es alle HTML-Entitäten, die durch die Sanitizer-Konfiguration nicht erlaubt sind, und entfernt weiter alle XSS-gefährlichen Elemente oder Attribute — unabhängig davon, ob diese durch den Sanitizer erlaubt sind oder nicht.
+`setHTML()` verwirft alle Elemente im HTML-Input-String, die im Kontext des aktuellen Elements ungültig sind, wie zum Beispiel ein {{htmlelement("col")}} Element außerhalb eines {{htmlelement("table")}}.
+Danach werden alle HTML-Entitäten entfernt, die von der Sanitizer-Konfiguration nicht zugelassen sind, und weitere XSS-unsichere Elemente oder Attribute werden entfernt — ob sie nun vom Sanitizer erlaubt sind oder nicht.
 
-Wird kein Sanitizer im `options.sanitizer`-Parameter angegeben, wird `setHTML()` mit der [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwendet.
-Diese Konfiguration ist für die Mehrheit der Anwendungsfälle geeignet, da sie XSS-Angriffe sowie andere Angriffe wie Clickjacking oder Spoofing verhindert.
+Wenn kein Sanitizer im `options.sanitizer` Parameter angegeben ist, wird `setHTML()` mit der [Standard-Sanitizer-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration) verwendet.
+Diese Konfiguration ist für die meisten Anwendungsfälle geeignet, da sie XSS-Angriffe und andere Angriffe wie Clickjacking oder Spoofing verhindert.
 
-Ein benutzerdefinierter `Sanitizer` oder `SanitizerConfig` kann angegeben werden, um auszuwählen, welche Elemente, Attribute und Kommentare erlaubt oder entfernt werden sollen.
-Beachten Sie, dass selbst wenn unsichere Optionen durch den Sanitizer erlaubt sind, sie bei Verwendung dieser Methode dennoch entfernt werden (sie entfernt die gleichen Elemente wie ein Sanitizer, bei dem [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde).
+Ein benutzerdefinierter `Sanitizer` oder `SanitizerConfig` kann angegeben werden, um auszuwählen, welche Elemente, Attribute und Kommentare erlaubt oder entfernt werden.
+Beachten Sie, dass selbst wenn unsichere Optionen vom Sanitizer erlaubt werden, sie bei Verwendung dieser Methode dennoch entfernt werden (sie entfernt dieselben Elemente wie ein Sanitizer, bei dem [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) aufgerufen wurde).
 
-`setHTML()` sollte anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um unzuverlässige Strings von HTML in ein Element einzufügen.
-Es sollte auch anstelle von [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) verwendet werden, es sei denn, es gibt einen spezifischen Bedarf, unsichere Elemente und Attribute zuzulassen.
+`setHTML()` sollte anstelle von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um unzuverlässige HTML-Strings in ein Element einzufügen.
+Es sollte auch anstelle von [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) verwendet werden, es sei denn, es besteht ein spezifischer Bedarf, unsichere Elemente und Attribute zuzulassen.
 
-Beachten Sie, dass diese Methode Eingabestrings von XSS-gefährlichen Entitäten immer bereinigt und daher nicht gesichert oder validiert wird unter Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API).
+Beachten Sie, dass diese Methode Eingabestrings von XSS-unsicheren Entitäten immer bereinigt und daher nicht durch die [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) gesichert oder validiert wird.
+
+### Neu-Parsing und mutiertes XSS (mXSS)
+
+Selbst nach der Bereinigung von HTML-Eingaben mit `setHTML()`, ist es immer noch unsicher, das HTML zu serialisieren und mit `innerHTML` neu zu parsen.
+Zum Beispiel ist der folgende Code unsicher.
+
+```js example-bad
+div.setHTML(unsafeString); // Safe
+const serializedHTML = div.innerHTML; // No longer sanitized!
+other_element.innerHTML = serializedHTML;
+```
+
+Der Grund dafür ist, dass die Bereinigung kontextbezogen ist.
+Wenn Sie `setHTML()` auf einem bestimmten Element aufrufen, werden die unsicheren Elemente und Attribute für diesen Kontext entfernt.
+Wenn Sie das HTML serialisieren und direkt in einem anderen Element verwenden, könnte es immer noch Elemente enthalten, die in diesem Element unsicher sind.
+
+Das wäre sicher (wenn auch sinnlos):
+
+```js example-good
+div.setHTML(unsafeString); // Safe
+const serializedHTML = div.innerHTML; // Serialized as a plain string
+other_div.setHTML(serializedHTML); // Safe — re-sanitized by setHTML()
+```
+
+Es gibt eine Klasse von Angriffen, die diesen Fehler ausnutzen, bekannt als [mutiertes XSS](https://wicg.github.io/sanitizer-api/#mutated-xss).
+Die einfache Regel, um dieses Problem zu vermeiden, ist, HTML-Strings immer nur mit sicheren Methoden wie `setHTML()` einzufügen.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt einige der Möglichkeiten, wie Sie `setHTML()` verwenden können, um einen HTML-String zu bereinigen und zu injizieren.
+Dieses Beispiel zeigt einige der Möglichkeiten, wie Sie `setHTML()` verwenden können, um einen HTML-String zu bereinigen und einzufügen.
 
 ```js
 // Define unsanitized string of HTML
@@ -97,13 +123,13 @@ target.setHTML(unsanitizedString, {
 
 ### `setHTML()` Live-Beispiel
 
-Dieses Beispiel bietet eine "Live"-Demonstration der Methode, wenn sie mit verschiedenen Sanitizern aufgerufen wird.
-Der Code definiert Schaltflächen, die Sie anklicken können, um einen HTML-String unter Verwendung eines Standard- und eines benutzerdefinierten Sanitizers zu bereinigen und zu injizieren.
-Der ursprüngliche String und das bereinigte HTML werden protokolliert, sodass Sie die Ergebnisse in jedem Fall inspizieren können.
+Dieses Beispiel bietet eine "Live"-Demonstration der Methode beim Aufruf mit verschiedenen Sanitizern.
+Der Code definiert Schaltflächen, die Sie anklicken können, um einen HTML-String mit einem Standard- und einem benutzerdefinierten Sanitizer zu bereinigen und einzufügen.
+Der ursprüngliche String und der bereinigte HTML-Code werden protokolliert, damit Sie die Ergebnisse in jedem Fall überprüfen können.
 
 #### HTML
 
-Das HTML definiert zwei {{htmlelement("button")}}-Elemente zum Anwenden verschiedener Sanitizer, eine weitere Schaltfläche, um das Beispiel zurückzusetzen, und ein {{htmlelement("div")}}-Element, um den String zu injizieren.
+Das HTML definiert zwei {{htmlelement("button")}} Elemente für die Anwendung unterschiedlicher Sanitizer, einen weiteren Button zum Zurücksetzen des Beispiels und ein {{htmlelement("div")}} Element, um den String einzufügen.
 
 ```html
 <button id="buttonDefault" type="button">Default</button>
@@ -140,8 +166,8 @@ function log(text) {
 if ("Sanitizer" in window) {
 ```
 
-Zuerst definieren wir den zu bereinigenden String, der für alle Fälle gleich sein wird.
-Dieser enthält das {{htmlelement("script")}}-Element und den `onclick`-Handler, die beide als XSS-gefährlich gelten.
+Zuerst definieren wir den String, der bereinigt werden soll, und der für alle Fälle gleich bleiben wird.
+Dieser enthält das {{htmlelement("script")}} Element und den `onclick` Handler, die beide als XSS-unsicher gelten.
 Wir definieren auch den Handler für die Reload-Schaltfläche.
 
 ```js
@@ -160,9 +186,9 @@ const reload = document.querySelector("#reload");
 reload.addEventListener("click", () => document.location.reload());
 ```
 
-Als nächstes definieren wir den Klick-Handler für die Schaltfläche, die das HTML mit dem Standardsanitizer setzt.
+Als nächstes definieren wir den Klick-Handler für die Schaltfläche, die das HTML mit dem Standard-Sanitizer setzt.
 Dies sollte alle unsicheren Entitäten entfernen, bevor der HTML-String eingefügt wird.
-Beachten Sie, dass Sie genau sehen können, welche Elemente in den [`Sanitizer()`-Konstruktorbeispielen](/de/docs/Web/API/Sanitizer/Sanitizer#creating_the_default_sanitizer) entfernt werden.
+Beachten Sie, dass Sie genau sehen können, welche Elemente im [`Sanitizer()` Konstruktor-Beispiele](/de/docs/Web/API/Sanitizer/Sanitizer#creating_the_default_sanitizer) entfernt werden.
 
 ```js
 const defaultSanitizerButton = document.querySelector("#buttonDefault");
@@ -178,8 +204,8 @@ defaultSanitizerButton.addEventListener("click", () => {
 });
 ```
 
-Der nächste Klick-Handler setzt das Ziel-HTML unter Verwendung eines benutzerdefinierten Sanitizers, der nur die {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}}-Elemente zulässt.
-Beachten Sie, dass `<script>` entfernt wird, weil wir die `setHTML`-Methode verwenden!
+Der nächste Klick-Handler setzt das Ziel-HTML mit einem benutzerdefinierten Sanitizer, der nur {{htmlelement("div")}}, {{htmlelement("p")}} und {{htmlelement("script")}} Elemente zulässt.
+Beachten Sie, dass, weil wir die `setHTML` Methode verwenden, `<script>` auch entfernt wird!
 
 ```js
 const allowScriptButton = document.querySelector("#buttonAllowScript");
@@ -207,10 +233,10 @@ allowScriptButton.addEventListener("click", () => {
 
 #### Ergebnisse
 
-Klicken Sie auf die Schaltflächen "Default" und "allowScript", um die Auswirkungen des Standard- und des benutzerdefinierten Sanitizers zu sehen.
+Klicken Sie auf die "Default" und "allowScript" Schaltflächen, um die Effekte des Standard- und benutzerdefinierten Sanitizers zu sehen.
 
-Beachten Sie, dass, weil wir eine sichere Bereinigungsmethode verwenden, in beiden Fällen das `<script>`-Element und der `onclick`-Handler entfernt werden, selbst wenn sie durch den Sanitizer ausdrücklich erlaubt sind.
-Während jedoch das `data-` Attribut beim Standardsanitizer entfernt wird, wird es zugelassen, wenn wir einen Sanitizer übergeben.
+Beachten Sie, dass wir, weil wir eine sichere Bereinigungsmethode verwenden, in beiden Fällen das `<script>` Element und der `onclick` Handler entfernt werden, selbst wenn sie vom Sanitizer ausdrücklich erlaubt sind.
+Allerdings wird das `data-` Attribut mit dem Standard-Sanitizer entfernt, es ist jedoch erlaubt, wenn wir einen Sanitizer übergeben.
 
 {{EmbedLiveSample("setHTML() live example","100","450px")}}
 
