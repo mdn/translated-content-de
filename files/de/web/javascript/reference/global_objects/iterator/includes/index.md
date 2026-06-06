@@ -3,10 +3,12 @@ title: Iterator.prototype.includes()
 short-title: includes()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/includes
 l10n:
-  sourceCommit: 76972cdb4d87dd72e0a2a3146af07d82c7ef7d67
+  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
 ---
 
-Die **`includes()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.includes()")}}: Sie gibt `true` zurück, wenn sie ein Element findet, das dem angegebenen Wert entspricht. Andernfalls, wenn der Iterator erschöpft ist, ohne ein solches Element zu finden, gibt sie `false` zurück.
+{{SeeCompatTable}}
+
+Die **`includes()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.includes()")}}: Sie gibt `true` zurück, wenn sie ein Element findet, das gleich dem angegebenen Wert ist. Andernfalls, wenn der Iterator ausgeschöpft wird, ohne ein solches Element zu finden, gibt er `false` zurück.
 
 ## Syntax
 
@@ -18,18 +20,18 @@ includes(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Der Wert, nach dem gesucht werden soll.
+  - : Der zu suchende Wert.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche beginnen soll. Muss eine nicht-negative ganze Zahl, `Infinity` oder `undefined` sein. Wenn `fromIndex` größer oder gleich der Anzahl der vom Iterator erzeugten Elemente ist (einschließlich wenn `fromIndex` `Infinity` ist), gibt die Methode nach Erschöpfung des Iterators immer `false` zurück. Wenn `fromIndex` `undefined` ist, wird er standardmäßig auf `0` gesetzt.
+  - : Der nullbasierte Index, ab dem die Suche beginnt. Muss eine nicht-negative ganze Zahl, `Infinity` oder `undefined` sein. Wenn `fromIndex` größer oder gleich der Anzahl der vom Iterator erzeugten Elemente ist (einschließlich wenn `fromIndex` `Infinity` ist), gibt die Methode immer `false` zurück, nachdem der Iterator ausgeschöpft ist. Wenn `fromIndex` `undefined` ist, wird es standardmäßig auf `0` gesetzt.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des Iterators gefunden wird (oder im Teil des Iterators, der bei `fromIndex` beginnt, falls angegeben).
+Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des Iterators gefunden wird (oder dem Teil des Iterators ab `fromIndex`, falls angegeben).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `fromIndex` nicht einer der folgenden ist: eine ganze Zahl, `Infinity`, `-Infinity` oder `undefined`.
+  - : Wird ausgelöst, wenn `fromIndex` nicht eine der folgenden ist: eine ganze Zahl, `Infinity`, `-Infinity` oder `undefined`.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `fromIndex` negativ ist.
 
@@ -37,11 +39,11 @@ Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des
 
 Die `includes()`-Methode vergleicht `searchElement` mit Elementen des Arrays unter Verwendung des [SameValueZero-Algorithmus](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality). Dieser Algorithmus funktioniert wie die strikte Gleichheit `===` (wobei `-0` und `+0` als gleich angesehen werden), mit der Ausnahme, dass {{jsxref("NaN")}} als gleich zu sich selbst betrachtet wird.
 
-Im Gegensatz zu `Array.prototype.includes()` darf der `fromIndex`-Parameter von `Iterator.prototype.includes()` nicht negativ sein, da der Iterator keine bekannte Länge hat. Die Typüberprüfung ist ebenfalls strenger: Nicht-ganze Werte werden nicht auf ganze Zahlen reduziert.
+Im Gegensatz zu `Array.prototype.includes()` darf der `fromIndex`-Parameter von `Iterator.prototype.includes()` nicht negativ sein, da der Iterator keine bekannte Länge hat. Die Typprüfung ist ebenfalls strenger: Nicht-Ganzzahlwerte werden nicht in ganze Zahlen umgewandelt.
 
-Der Hauptvorteil von Iterator-Hilfsmethoden gegenüber Array-Methoden ist, dass sie faul sind, was bedeutet, dass sie den nächsten Wert nur dann erzeugen, wenn er angefordert wird. Dies vermeidet unnötige Berechnungen und ermöglicht auch ihre Nutzung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `includes()` `true` zurück, sobald das erste Übereinstimmung gefunden wird. Wenn der Wert niemals auftritt, gibt die Methode nie zurück.
+Der Hauptvorteil von Iterator-Helfern gegenüber Array-Methoden besteht darin, dass sie faul sind, was bedeutet, dass sie den nächsten Wert nur bei Bedarf erzeugen. Dies vermeidet unnötige Berechnungen und ermöglicht auch die Verwendung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `includes()` `true` zurück, sobald das erste übereinstimmende Element gefunden wird. Wenn der Wert nie auftritt, gibt die Methode niemals zurück.
 
-Der Aufruf von `includes()` schließt immer den zugrunde liegenden Iterator, selbst wenn die Methode frühzeitig zurückkehrt. Der Iterator wird niemals in einem halbfertigen Zustand belassen.
+Der Aufruf von `includes()` schließt immer den zugrunde liegenden Iterator, selbst wenn die Methode frühzeitig zurückkehrt. Der Iterator bleibt niemals in einem halbwegs Zustand.
 
 ## Beispiele
 
@@ -62,7 +64,7 @@ console.log(fibonacci().take(10).includes(7)); // false
 console.log(fibonacci().includes(7)); // Never completes
 ```
 
-Die Methode schließt den Iterator nach der Rückgabe.
+Die Methode schließt den Iterator, nachdem sie zurückkehrt.
 
 ```js
 const seq = fibonacci();
@@ -72,7 +74,7 @@ console.log(seq.next()); // { value: undefined, done: true }
 
 ### Verwendung von fromIndex
 
-`fromIndex` gibt die Anzahl der vom Beginn an zu überspringenden Elemente an. Es ist äquivalent zum Aufruf von `drop(fromIndex).includes(searchElement)`.
+`fromIndex` gibt die Anzahl der Elemente an, die vom Anfang übersprungen werden. Es ist gleichbedeutend mit dem Aufruf von `drop(fromIndex).includes(searchElement)`.
 
 ```js
 function* fibonacci() {
@@ -104,7 +106,7 @@ Wenn `fromIndex` größer oder gleich den verfügbaren Elementen ist, wird `fals
 
 ## Siehe auch
 
-- [es-shims Polyfill von `Iterator.prototype.includes`](https://www.npmjs.com/package/es-iterator-helpers)
+- [es-shims polyfill von `Iterator.prototype.includes`](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.every()")}}
 - {{jsxref("Iterator.prototype.find()")}}

@@ -1,30 +1,30 @@
 ---
-title: "CSSContainerRule: conditions-Eigenschaft"
+title: "CSSContainerRule: Bedingungen-Eigenschaft"
 short-title: conditions
 slug: Web/API/CSSContainerRule/conditions
 l10n:
-  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
+  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`conditions`**-Eigenschaft der [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule)-Schnittstelle repräsentiert eine zugehörige CSS-{{cssxref("@container")}}-Regel als ein Array von Objekten, wobei jedes Objekt eine einzelne Containerbedingung darstellt.
+Die schreibgeschützte **`conditions`**-Eigenschaft der [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule)-Schnittstelle repräsentiert eine zugehörige CSS {{cssxref("@container")}}-at-Regel als ein Array von Objekten, wobei jedes Objekt eine einzelne Containerbedingung darstellt.
 
 ## Wert
 
-Ein Array von Objekten, wobei jedes Objekt die folgende Form hat:
+Ein Array von Objekten, bei dem jedes Objekt die folgende Form hat:
 
 ```js
 ({ name: "<container-name>", query: "<container-query>" });
 ```
 
-Entweder `name` oder `query` kann ein leerer String sein, aber nicht beides.
+Entweder `name` oder `query` kann der leere String sein, aber nicht beide.
 
 ## Beschreibung
 
-Die **`conditions`**-Eigenschaft repräsentiert eine zugehörige CSS-{{cssxref("@container")}}-Regel als ein Array von Objekten.
+Die **`conditions`**-Eigenschaft repräsentiert eine zugehörige CSS {{cssxref("@container")}}-at-Regel als ein Array von Objekten.
 
-Jedes Objekt repräsentiert eine Containerbedingung als eine Zeichenfolgen-Eigenschaft `name` und eine Zeichenfolgen-Eigenschaft `query`, wobei eine von beiden ein leerer String sein kann, wenn sie nicht definiert ist. `Name` repräsentiert den Namen eines Containers und der `query`-String repräsentiert die Menge an Funktionstests, die wahr sein müssen, damit die jeweilige Containerbedingung zutrifft.
+Jedes Objekt repräsentiert eine Containerbedingung als eine `name`-String-Eigenschaft und eine `query`-String-Eigenschaft, die jeweils der leere String sein kann, wenn nicht definiert. Der `name` repräsentiert den Namen eines Containers, und der `query`-String repräsentiert die Menge der Feature-Tests, die wahr sein müssen, damit die spezifische Containerbedingung übereinstimmt.
 
 Zum Beispiel, gegeben die folgende {{cssxref("@container")}}:
 
@@ -34,7 +34,7 @@ Zum Beispiel, gegeben die folgende {{cssxref("@container")}}:
 }
 ```
 
-Die `conditions` wären ein Array wie folgt:
+Die `conditions` wären ein Array wie dieses:
 
 ```js
 [
@@ -47,11 +47,11 @@ Die `conditions` wären ein Array wie folgt:
 
 Siehe auch [Beispiele](/de/docs/Web/API/CSSContainerRule#examples) in `CSSContainerRule`.
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 Das Beispiel zeigt, wie mehrere Containerbedingungen in der `conditions`-Eigenschaft dargestellt werden.
 
-Beachten Sie, dass wir den Protokollierungscode versteckt haben, da er nicht relevant ist.
+Beachten Sie, dass wir den Logging-Code ausgeblendet haben, da dieser nicht relevant ist.
 
 ```html hidden
 <pre id="log"></pre>
@@ -76,7 +76,7 @@ function log(text) {
 
 #### HTML
 
-Zunächst definieren wir das HTML für eine `card`, die in einem `post` enthalten ist. Diese werden durch zwei verschachtelte {{htmlelement("div")}}-Elemente dargestellt.
+Zuerst definieren wir das HTML für eine `card`, die innerhalb eines `post` enthalten ist. Diese werden durch zwei verschachtelte {{htmlelement("div")}}-Elemente dargestellt.
 
 ```html
 <div class="post">
@@ -89,7 +89,7 @@ Zunächst definieren wir das HTML für eine `card`, die in einem `post` enthalte
 
 #### CSS
 
-Das CSS für das Containerelement gibt den Typ des Containers an und kann auch einen Namen angeben. Die Karte hat eine Standard-Schriftgröße, die überschrieben wird, wenn sie sich in einem `sidebar`-`@container` befindet, dessen Breite größer oder gleich `700px` ist, oder wenn sie sich in einem Container namens `other-name` befindet. Beachten Sie, dass diese Bedingung konstruiert ist, um zu demonstrieren, wie mehrere Bedingungen dargestellt werden (`other-name` hat eigentlich keine Funktion).
+Das CSS für das Containerelement spezifiziert den Typ des Containers und kann auch einen Namen angeben. Die Karte hat eine Standard-Schriftgröße, die überschrieben wird, wenn sie sich innerhalb eines `sidebar`-`@container` befindet, dessen Breite größer oder gleich `700px` ist, oder wenn sie sich in einem Container mit dem Namen `other-name` befindet. Beachten Sie, dass diese Bedingung konstruiert ist, um zu demonstrieren, wie mehrere Bedingungen dargestellt werden (`other-name` tut eigentlich nichts).
 
 ```html
 <style id="example-styles">
@@ -113,7 +113,7 @@ Das CSS für das Containerelement gibt den Typ des Containers an und kann auch e
 
 #### JavaScript
 
-Der untenstehende Code ruft das [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) ab, das mit dem Beispiel über seine `id` verknüpft ist, und verwendet dann seine `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten. Aus dem `StyleSheet` entnehmen wir die Reihe der der Datei hinzugefügten `cssRules`. Da wir das `@container` als dritte Regel hinzugefügt haben, können wir auf die zugehörige `CSSContainerRule` über den dritten Eintrag (Index „2“) in den `cssRules` zugreifen.
+Der untenstehende Code erhält das [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement), das mit dem Beispiel durch seine `id` assoziiert ist, und verwendet dann dessen `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten. Aus dem `StyleSheet` bekommen wir die Menge der `cssRules`, die dem Blatt hinzugefügt wurden. Da wir die `@container` als dritte Regel oben hinzugefügt haben, können wir auf die zugehörige `CSSContainerRule` zugreifen, indem wir den dritten Eintrag (Index "2") in den `cssRules` verwenden.
 
 ```js
 const exampleStylesheet = document.getElementById("example-styles").sheet;
@@ -121,7 +121,7 @@ const exampleRules = exampleStylesheet.cssRules;
 const containerRule = exampleRules[2]; // a CSSContainerRule representing the container rule.
 ```
 
-Anschließend verwenden wir die `containerRule`, um den Wert der `conditions`-Eigenschaft zu protokollieren.
+Wir verwenden dann die `containerRule`, um den Wert der `conditions`-Eigenschaft zu protokollieren.
 
 ```js
 if ("conditions" in CSSContainerRule.prototype) {
@@ -136,11 +136,11 @@ if ("conditions" in CSSContainerRule.prototype) {
 ```
 
 > [!NOTE]
-> In Browsern, die `conditions` nicht unterstützen, können Sie möglicherweise [`CSSContainerRule.containerName`](/de/docs/Web/API/CSSContainerRule/containerName) und [`CSSContainerRule.containerQuery`](/de/docs/Web/API/CSSContainerRule/containerQuery) verwenden, vorausgesetzt, dass das `@container` nur eine Containerbedingung angibt. Für weitere Informationen siehe das [Feature testing](/de/docs/Web/API/CSSContainerRule#feature_testing) Beispiel in `CSSContainerRule`.
+> In Browsern, die `conditions` nicht unterstützen, können Sie möglicherweise [`CSSContainerRule.containerName`](/de/docs/Web/API/CSSContainerRule/containerName) und [`CSSContainerRule.containerQuery`](/de/docs/Web/API/CSSContainerRule/containerQuery) verwenden, sofern die `@container` nur eine Containerbedingung angibt. Für weitere Informationen siehe das Beispiel [Feature Testing](/de/docs/Web/API/CSSContainerRule#feature_testing) in `CSSContainerRule`.
 
 #### Ergebnisse
 
-Das Beispielergebnis wird unten gezeigt.
+Die Beispieldarstellung wird unten gezeigt.
 
 {{EmbedLiveSample("Basic usage","100%","300px")}}
 
@@ -154,7 +154,7 @@ Das Beispielergebnis wird unten gezeigt.
 
 ## Siehe auch
 
-- CSS-{{cssxref("container")}}-Kurzschreibweise
-- [CSS-Containment-Modul](/de/docs/Web/CSS/Guides/Containment)
-- [Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- CSS {{cssxref("container")}} Shorthand-Eigenschaft
+- [CSS Containment-Modul](/de/docs/Web/CSS/Guides/Containment)
+- [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)

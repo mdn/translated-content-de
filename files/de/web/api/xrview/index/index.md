@@ -3,12 +3,12 @@ title: "XRView: index-Eigenschaft"
 short-title: index
 slug: Web/API/XRView/index
 l10n:
-  sourceCommit: 15e12ff9faca3923ffb811d601ab589f4b2918e0
+  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
 ---
 
-{{APIRef("WebXR Device API")}}{{SecureContext_Header}}
+{{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`index`**-Eigenschaft der [`XRView`](/de/docs/Web/API/XRView)-Schnittstelle ist schreibgeschützt und zeigt den Index der aktuellen `XRView` im [`XRViewerPose.views`](/de/docs/Web/API/XRViewerPose/views)-Array an.
+Die **`index`** Schreibgeschützt-Eigenschaft der [`XRView`](/de/docs/Web/API/XRView)-Schnittstelle gibt den Index der aktuellen `XRView` im [`XRViewerPose.views`](/de/docs/Web/API/XRViewerPose/views)-Array an.
 
 ## Wert
 
