@@ -2,54 +2,54 @@
 title: Fetch API
 slug: Web/API/Fetch_API
 l10n:
-  sourceCommit: 8c1bc8d99fc8301fbbe874f6dcf8d41a9f4fe5fb
+  sourceCommit: 75016e5d37ecff3b11de4c2ef6665178f654797e
 ---
 
 {{DefaultAPISidebar("Fetch API")}}
 
-Die Fetch API bietet eine Schnittstelle zum Abrufen von Ressourcen (einschließlich über das Netzwerk). Sie ist ein leistungsstärkerer und flexiblerer Ersatz für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
+Die Fetch API bietet eine Schnittstelle zum Abrufen von Ressourcen (auch über das Netzwerk). Sie ist ein mächtigerer und flexiblerer Ersatz für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die Fetch API verwendet [`Request`](/de/docs/Web/API/Request)- und [`Response`](/de/docs/Web/API/Response)-Objekte (sowie andere Dinge, die mit Netzwerk-Anfragen zu tun haben) und verwandte Konzepte wie CORS und die HTTP Origin-Header-Semantik.
+Die Fetch API verwendet [`Request`](/de/docs/Web/API/Request) und [`Response`](/de/docs/Web/API/Response) Objekte (und andere Dinge im Zusammenhang mit Netzwerk-Anfragen), sowie verwandte Konzepte wie CORS und die Semantik des HTTP Origin-Headers.
 
-Zum Ausführen einer Anfrage und Abrufen einer Ressource verwenden Sie die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode. Sie ist eine globale Methode im Kontext von sowohl [`Window`](/de/docs/Web/API/Window) als auch [`Worker`](/de/docs/Web/API/WorkerGlobalScope). Das macht sie in praktisch jedem Kontext verfügbar, in dem Sie Ressourcen abrufen möchten.
+Um eine Anfrage zu stellen und eine Ressource abzurufen, nutzen Sie die [`fetch()`](/de/docs/Web/API/Window/fetch) Methode. Diese ist eine globale Methode sowohl im [`Window`](/de/docs/Web/API/Window) als auch im [`Worker`](/de/docs/Web/API/WorkerGlobalScope) Kontext. Dadurch ist sie in fast jedem Kontext verfügbar, in dem Sie Ressourcen abrufen möchten.
 
-Die `fetch()`-Methode erfordert ein obligatorisches Argument: den Pfad zur Ressource, die Sie abrufen möchten. Sie gibt ein {{JSxRef("Promise")}} zurück, das zur [`Response`](/de/docs/Web/API/Response) dieser Anfrage aufgelöst wird – sobald der Server mit den Headern antwortet – **selbst wenn die Serverantwort einen HTTP-Fehlerstatus hat**. Optional können Sie auch ein `init`-Optionsobjekt als zweites Argument übergeben (siehe [`Request`](/de/docs/Web/API/Request)).
+Die `fetch()` Methode benötigt ein obligatorisches Argument, den Pfad zu der Ressource, die Sie abrufen möchten. Sie gibt ein {{JSxRef("Promise")}} zurück, das auf die [`Response`](/de/docs/Web/API/Response) dieser Anfrage auflöst — sobald der Server mit Headers antwortet — **selbst wenn der Server mit einem HTTP-Fehlerstatus antwortet**. Sie können optional auch ein `init`-Optionsobjekt als zweites Argument übergeben (siehe [`Request`](/de/docs/Web/API/Request)).
 
-Sobald eine [`Response`](/de/docs/Web/API/Response) abgerufen wird, stehen mehrere Methoden zur Verfügung, um zu definieren, was der Inhaltskörper ist und wie er behandelt werden sollte.
+Sobald eine [`Response`](/de/docs/Web/API/Response) abgerufen ist, stehen zahlreiche Methoden zur Verfügung, um zu definieren, was der Body-Inhalt ist und wie er behandelt werden sollte.
 
-Sie können eine Anfrage und Antwort direkt mit den Konstruktoren [`Request()`](/de/docs/Web/API/Request/Request) und [`Response()`](/de/docs/Web/API/Response/Response) erstellen, aber es ist unüblich, dies direkt zu tun. Stattdessen werden diese eher als Ergebnisse anderer API-Aktionen erstellt (zum Beispiel [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) aus Service-Worker-Aktionen).
+Sie können eine Anfrage und Antwort direkt über die Konstruktoren [`Request()`](/de/docs/Web/API/Request/Request) und [`Response()`](/de/docs/Web/API/Response/Response) erstellen, aber es ist ungewöhnlich, dies direkt zu tun. Stattdessen werden diese eher als Ergebnis anderer API-Aktionen erstellt (zum Beispiel, [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) von Service Workern).
 
-Erfahren Sie mehr über die Verwendung der Fetch API-Funktionen in [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch).
+Erfahren Sie mehr über die Verwendung der Fetch API-Funktionen in [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch).
 
 ### Deferred Fetch
 
-Die [`fetchLater()`](/de/docs/Web/API/Window/fetchLater)-API ermöglicht es einem Entwickler, einen _aufgeschobenen Abruf_ anzufordern, der nach einer bestimmten Zeit oder wenn die Seite geschlossen oder weg navigiert wird, gesendet werden kann. Siehe [Verwendung von Deferred Fetch](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch).
+Die [`fetchLater()`](/de/docs/Web/API/Window/fetchLater) API ermöglicht es einem Entwickler, einen _deferred fetch_ anzufordern, der nach einem bestimmten Zeitraum oder wenn die Seite geschlossen oder navigiert wird, gesendet werden kann. Siehe [Using Deferred Fetch](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch).
 
 ## Schnittstellen
 
 - [`Window.fetch()`](/de/docs/Web/API/Window/fetch) und [`WorkerGlobalScope.fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
-  - : Die `fetch()`-Methode, die zum Abrufen einer Ressource verwendet wird.
+  - : Die `fetch()` Methode, die verwendet wird, um eine Ressource abzurufen.
 - [`Window.fetchLater()`](/de/docs/Web/API/Window/fetchLater)
-  - : Wird verwendet, um eine aufgeschobene Abrufanforderung zu stellen.
+  - : Wird verwendet, um eine Anfrage für einen verzögerten Abruf zu stellen.
 - [`DeferredRequestInit`](/de/docs/Web/API/DeferredRequestInit)
-  - : Repräsentiert die Menge an Optionen, die verwendet werden können, um eine aufgeschobene Abrufanforderung zu konfigurieren.
+  - : Repräsentiert die Menge der Optionen, die verwendet werden können, um eine verzögerte Abrufanfrage zu konfigurieren.
 - [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult)
-  - : Repräsentiert das Ergebnis der Anforderung eines aufgeschobenen Abrufs.
+  - : Stellt das Ergebnis einer Anfrage für einen verzögerten Abruf dar.
 - [`Headers`](/de/docs/Web/API/Headers)
-  - : Repräsentiert Antwort-/Anfrageheader, die Sie abfragen und abhängig von den Ergebnissen unterschiedliche Aktionen ausführen können.
+  - : Repräsentiert Antwort-/Anfrage-Header, die es Ihnen ermöglichen, diese abzufragen und je nach Ergebnis unterschiedliche Aktionen durchzuführen.
 - [`Request`](/de/docs/Web/API/Request)
-  - : Repräsentiert eine Ressourcengebrauchsanfrage.
+  - : Repräsentiert eine Ressourcenanfrage.
 - [`Response`](/de/docs/Web/API/Response)
   - : Repräsentiert die Antwort auf eine Anfrage.
 
 ## HTTP-Header
 
 - {{HTTPHeader("Permissions-Policy/deferred-fetch", "deferred-fetch")}}
-  - : Kontrolliert das [Quota auf höchster Ebene](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) für die `fetchLater()`-API.
+  - : Kontrolliert das [Top-Level-Kontingent](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) für die `fetchLater()` API.
 - {{HTTPHeader("Permissions-Policy/deferred-fetch-minimal", "deferred-fetch-minimal")}}
-  - : Kontrolliert das [gemeinsame Quota für Cross-Origin-Untersubframes](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) für die `fetchLater()`-API.
+  - : Kontrolliert das [geteilte Cross-Origin-Subframe-Kontingent](/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch#quotas) für die `fetchLater()` API.
 
 ## Spezifikationen
 
@@ -61,7 +61,8 @@ Die [`fetchLater()`](/de/docs/Web/API/Window/fetchLater)-API ermöglicht es eine
 
 ## Siehe auch
 
-- [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)
+- [Zugriff auf lokale Netzwerke](/de/docs/Web/Security/Defenses/Local_network_access)

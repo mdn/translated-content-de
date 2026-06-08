@@ -1,24 +1,26 @@
 ---
-title: "CSSPseudoElement: element Eigenschaft"
+title: "CSSPseudoElement: element-Eigenschaft"
 short-title: element
 slug: Web/API/CSSPseudoElement/element
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: 55fa0e2b797b1358464b42ceb32167675a03ca8d
 ---
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`element`** des
-[`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt eine Referenz auf das ursprungliche Element des Pseudo-Elements zurück, mit anderen Worten, auf sein Eltern-Element.
+Die schreibgeschützte **`element`**-Eigenschaft des [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt eine Referenz auf das letztendliche Ursprungselement des Pseudo-Elements zurück.
+
+Dies unterscheidet sich von der [`CSSPseudoElement.parent`](/de/docs/Web/API/CSSPseudoElement/parent)-Eigenschaft, welche eine Referenz auf das _unmittelbare_ Ursprungselement des Pseudo-Elements zurückgibt: Dies kann entweder ein [`Element`](/de/docs/Web/API/Element) oder ein `CSSPseudoElement` im Fall eines [verschachtelten Pseudo-Elements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#nesting_pseudo-elements) sein.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element), das das ursprungliche Element des Pseudo-Elements darstellt.
+Ein [`Element`](/de/docs/Web/API/Element), das das letztendliche Ursprungselternelement des Pseudo-Elements darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Beziehung zwischen
-`CSSPseudoElement.element` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
+### Grundlegende Verwendung
+
+Das folgende Beispiel zeigt die Beziehung zwischen `CSSPseudoElement.element` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");
@@ -43,4 +45,6 @@ console.log(myElement.nextSibling === cssPseudoElement); // Outputs false
 
 ## Siehe auch
 
+- [`CSSPseudoElement.parent`](/de/docs/Web/API/CSSPseudoElement/parent)
+- [`CSSPseudoElement.pseudo()`](/de/docs/Web/API/CSSPseudoElement/pseudo)
 - [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)

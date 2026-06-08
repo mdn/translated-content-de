@@ -3,14 +3,14 @@ title: "`container` CSS-Eigenschaft"
 short-title: container
 slug: Web/CSS/Reference/Properties/container
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 2ce88199869b63f8da3bbeafd899400f7579cce9
 ---
 
-Die **container**-[Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Element als Abfragecontainer fest und spezifiziert den Namen und Typ des verwendeten [Einschließungskontexts](/de/docs/Web/CSS/Guides/Containment/Container_queries#naming_containment_contexts) in einer [Container-Abfrage](/de/docs/Web/CSS/Guides/Containment/Container_queries).
+Die **container**-Eigenschaft [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) legt das Element als Abfragecontainer fest und spezifiziert den Namen und Typ des [Eingrenzungskontextes](/de/docs/Web/CSS/Guides/Containment/Container_queries#naming_containment_contexts), der in einer [Containerabfrage](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwendet wird.
 
-## Bestandeigenschaften
+## Zusätzliche Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("container-name")}}
 - {{Cssxref("container-type")}}
@@ -35,11 +35,11 @@ container: unset;
 ### Werte
 
 - `<container-name>`
-  - : Ein fallunempfindlicher Name für den Einschließungskontext.
-    Weitere Details zur Syntax werden auf der Seite der Eigenschaft {{cssxref("container-name")}} behandelt.
+  - : Ein Groß-/Kleinschreibung beachtender Name für den Eingrenzungskontext.
+    Weitere Details zur Syntax sind auf der Seite zur {{cssxref("container-name")}}-Eigenschaft verfügbar.
 - `<container-type>`
-  - : Der Typ des Einschließungskontexts.
-    Weitere Details zur Syntax werden auf der Seite der Eigenschaft {{cssxref("container-type")}} behandelt.
+  - : Der Typ des Eingrenzungskontextes.
+    Weitere Details zur Syntax sind auf der Seite zur {{cssxref("container-type")}}-Eigenschaft verfügbar.
 
 ## Formale Definition
 
@@ -51,9 +51,9 @@ container: unset;
 
 ## Beispiele
 
-### Inline-Größeneinschließung etablieren
+### Etablierung der Inline-Größeneingrenzung
 
-Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild, einem Titel und etwas Text darstellt:
+Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild, einem Titel und etwas Text:
 
 ```html
 <div class="post">
@@ -64,7 +64,7 @@ Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild
 </div>
 ```
 
-Der explizite Weg, einen Containerkontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
+Der explizite Weg, um einen Containerkontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
 
 ```css
 .post {
@@ -73,7 +73,7 @@ Der explizite Weg, einen Containerkontext zu erstellen, besteht darin, einen `co
 }
 ```
 
-Die `container`-Shorthand soll dies einfacher machen, indem es in einer einzigen Deklaration definiert wird:
+Die `container`-Abkürzung ist dazu gedacht, dies in einer einzigen Deklaration definierbar zu machen:
 
 ```css
 .post {
@@ -81,7 +81,7 @@ Die `container`-Shorthand soll dies einfacher machen, indem es in einer einzigen
 }
 ```
 
-Sie können dann diesen Container mit dem Namen unter Verwendung der {{cssxref("@container")}}-At-Regel ansprechen:
+Sie können dann diesen Container nach Name mit der {{cssxref("@container")}}-At-Regel anvisieren:
 
 ```css
 @container sidebar (width >= 400px) {
@@ -100,9 +100,9 @@ Sie können dann diesen Container mit dem Namen unter Verwendung der {{cssxref("
 ## Siehe auch
 
 - [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
-- [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
-- {{Cssxref("@container")}}-At-Regel
-- CSS {{Cssxref("contain")}}-Eigenschaft
-- CSS {{Cssxref("container-type")}}-Eigenschaft
-- CSS {{Cssxref("container-name")}}-Eigenschaft
-- CSS {{cssxref("content-visibility")}}-Eigenschaft
+- [Verwendung von Containergröße und -stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- {{Cssxref("@container")}}-Regel
+- CSS-{{Cssxref("contain")}}-Eigenschaft
+- CSS-{{Cssxref("container-type")}}-Eigenschaft
+- CSS-{{Cssxref("container-name")}}-Eigenschaft
+- CSS-{{cssxref("content-visibility")}}-Eigenschaft

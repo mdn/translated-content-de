@@ -3,10 +3,14 @@ title: "`mix-blend-mode` CSS property"
 short-title: mix-blend-mode
 slug: Web/CSS/Reference/Properties/mix-blend-mode
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3a1539b859a7e1b1daedd1880c610b71debde782
 ---
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit seinem _Hintergrund_ — dem hinter dem Element innerhalb desselben [Stapelkontexts](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) gerenderten Inhalt — vermischt werden soll.
+
+> [!NOTE]
+> Diese Eigenschaft vermischt das Element mit dem Inhalt _hinter_ ihm im Stapelkontext.
+> Um die eigenen Hintergrundebenen eines Elements miteinander zu vermischen, verwenden Sie stattdessen {{cssxref("background-blend-mode")}}.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -77,11 +81,11 @@ mix-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der Mischmodus, der angewendet werden soll.
+  - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Vermischt mithilfe des [_plus-darker_ Zusammensetzungsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_darker).
+  - : Mischung unter Verwendung des [_plus-darker_ Kompositing-Operators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Vermischt mithilfe des [_plus-lighter_ Zusammensetzungsoperators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendeffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischung unter Verwendung des [_plus-lighter_ Kompositing-Operators](https://drafts.csswg.org/compositing-2/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -812,7 +816,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe seines übergeordneten Elements zu vermischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu vermischen.
 
 #### HTML
 
