@@ -1,12 +1,12 @@
 ---
-title: "catch_ref: try_table-Klausel"
+title: "catch_ref: try_table Klausel"
 short-title: catch_ref
 slug: WebAssembly/Reference/Exception_handling/try_table/catch_ref
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: 184a2adcf533de244f520829045c2ad85c6af1a8
 ---
 
-Die **`catch_ref`**-Klausel fängt Ausnahmen auf, die einem bestimmten Fehler-[`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) entsprechen, und schiebt die Ausnahme-Nutzlast sowie einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die Ausnahme darstellt, auf den Stack.
+Die **`catch_ref`** Klausel fängt Ausnahmen, die einem bestimmten Fehler-[`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) entsprechen, und schiebt die Ausnahme-Nutzlast und einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Wert, der die Ausnahme repräsentiert, auf den Stapel.
 
 {{InteractiveExample("Wat Demo: catch_ref", "tabbed-taller")}}
 
@@ -87,15 +87,15 @@ catch_ref tag_identifier block_identifier
 ```
 
 - `catch_ref`
-  - : Die `catch_ref`-Klausel.
+  - : Die `catch_ref` Klausel.
 - `tag_identifier`
-  - : Der Bezeichner für den Ausnahmetyp, der aufgefangen werden soll. Dies kann sein:
-    - Ein Bezeichnername, wie er durch den [`identifier`](/de/docs/WebAssembly/Reference/Definitions/tag#identifier) des entsprechenden Tag-Typs definiert ist.
-    - Eine Tag-Indexnummer — `0` um das erste spezifizierte Tag zu identifizieren, `1` für das zweite, usw.
+  - : Der Bezeichner für den Ausnahmetyp, der abgefangen werden soll. Dies kann sein:
+    - Ein identifizierender Name, wie er durch den [`identifier`](/de/docs/WebAssembly/Reference/Definitions/tag#identifier) des entsprechenden Tagtyps definiert ist.
+    - Eine Tag-Indexnummer — `0`, um das erste spezifizierte Tag zu identifizieren, `1` für das zweite usw.
 - `block_identifier`
-  - : Der Bezeichner für den [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), zu dem verzweigt wird, wenn die Ausnahme aufgefangen wird. Dies kann sein:
-    - Ein Bezeichnername, wie er durch den Bezeichner des entsprechenden Blocks definiert ist.
-    - Eine Block-Indexnummer — `0` um den innersten Block zu identifizieren, `1` für den nächsten inneren, usw.
+  - : Der Bezeichner für den [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), zu dem verzweigt wird, wenn die Ausnahme abgefangen wird. Dies kann sein:
+    - Ein identifizierender Name, wie er durch den Bezeichner des entsprechenden Blocks definiert ist.
+    - Eine Block-Indexnummer — `0`, um den innersten Block zu identifizieren, `1` für den nächsten innersten Block usw.
 
 ### Typ
 
@@ -104,19 +104,19 @@ catch_ref tag_identifier block_identifier
 ```
 
 - `payload*`
-  - : Null oder mehr Nutzlastwerte, die durch die geworfene Ausnahme erstellt wurden und typischerweise identifizierende Fehlercodes darstellen.
+  - : Null oder mehr Nutzlastwerte, die durch die geworfene Ausnahme erstellt wurden, die typischerweise identifizierende Fehlercodes darstellen.
 - `exception_ref`
-  - : Ein [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die geworfene Ausnahme darstellt.
+  - : Ein [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Wert, der die geworfene Ausnahme repräsentiert.
 
-Diese Werte werden nicht direkt am Ort der `catch_ref`-Klausel auf den Stack geschoben, sondern am Ort des Blocks, zu dem verzweigt wird, wenn die Ausnahme geworfen wird.
+Diese Werte werden nicht direkt an der Stelle der `catch_ref` Klausel auf den Stapel geschoben, sondern sie werden an der Stelle auf den Stapel geschoben, zu der verzweigt wird, wenn die Ausnahme geworfen wird.
 
-### Binärcodierung
+### Binäre Codierung
 
 | Klausel     | catch_ref Typ-Byte |
 | ----------- | ------------------ |
 | `catch_ref` | `0x01`             |
 
-`catch_ref` ist keine eigenständige Anweisung — stattdessen wird sie als Klausel innerhalb einer `try_table`-Anweisung mit einem Byte von `0x01` kodiert. Eine `try_table` mit einer einzigen `catch_ref`-Klausel:
+`catch_ref` ist keine eigenständige Anweisung – stattdessen wird sie als Klausel innerhalb einer `try_table` Anweisung mit einem Byte von `0x01` kodiert. Eine `try_table` mit einer einzelnen `catch_ref` Klausel:
 
 ```wat
 (try_table (catch_ref $my_error $handler) ... )
@@ -130,19 +130,19 @@ würde so kodiert werden:
 
 ## Beschreibung
 
-Die `catch_ref`-Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Blocks eingefügt werden, um Ausnahmen mit einem spezifischen Fehler-[`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) aufzufangen. Wenn eine solche Ausnahme geworfen wird, verzweigt der Code zu dem angegebenen `block`, an welchem Punkt die Nutzlastwerte der Ausnahme und ein [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die geworfene Ausnahme darstellt, auf den Stack geschoben werden.
+Die `catch_ref` Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table) Blocks enthalten sein, um Ausnahmen mit einem bestimmten Fehler-[`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) abzufangen. Wenn eine solche Ausnahme geworfen wird, verzweigt der Code zu dem spezifizierten `block`, wobei die Nutzlastwerte der Ausnahme und ein [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Wert, der die geworfene Ausnahme repräsentiert, auf den Stapel geschoben werden.
 
-Die Ausnahme kann dann erneut mit einer [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref)-Anweisung geworfen werden.
+Die Ausnahme kann dann mit einer [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref) Anweisung erneut geworfen werden.
 
-`catch_ref` ist nützlich, wenn Sie melden möchten, dass ein bestimmter Ausnahmetyp geworfen wurde, Sie die Ausnahme jedoch auch erneut werfen möchten. Sie könnten beispielsweise eine Aktion wie Aufräumarbeiten oder Protokollierung durchführen, aber dennoch den Benutzern mitteilen, dass ein spezifischer Fehler aufgetreten ist.
+`catch_ref` ist nützlich, wenn Sie berichten möchten, dass ein bestimmter Ausnahmetyp geworfen wurde, aber die Ausnahme auch erneut werfen möchten. Sie könnten zum Beispiel eine Aktion wie Bereinigung oder Protokollierung durchführen, aber dennoch den Nutzern mitteilen, dass ein spezifischer Fehler aufgetreten ist.
 
-Der referenzierte Block muss einen Ergebnistyp deklarieren, der der Nutzlast der Ausnahme und dem `exnref` entspricht. Im zuvor gezeigten Beispiel wird der Ausnahmetyp mit einem einzelnen `i32`-Parameter in seiner `tag`-Definition definiert:
+Der referenzierte Block muss einen Ergebnistyp deklarieren, der zur Nutzlast der Ausnahme und zum `exnref` passt. Im vorher gezeigten Beispiel ist der Ausnahmetyp mit einem einzelnen `i32` Parameter in seiner `tag` Definition definiert:
 
 ```wat
 (tag $my_error (import "env" "my_error") (param i32))
 ```
 
-Wenn die Ausnahme aufgefangen wird, spezifiziert der angezweigte Block den gleichen Datentyp für die Nutzlast plus einen `exnref`-Typ in seinem `result`:
+Wenn die Ausnahme abgefangen wird, gibt der Block, zu dem verzweigt wird, denselben Datentyp für die Nutzlast plus einen `exnref` Typ in seinem `result` an:
 
 ```wat
 (block $handler (result i32 exnref)
@@ -152,11 +152,11 @@ Wenn die Ausnahme aufgefangen wird, spezifiziert der angezweigte Block den gleic
 
 ## Siehe auch
 
-- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Anweisung
-- [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref)-Anweisung
-- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Anweisung
-  - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch)-Klausel
-  - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all)-Klausel
-  - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)-Klausel
-- [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Typ
-- [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag)-Definition
+- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw) Anweisung
+- [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref) Anweisung
+- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table) Anweisung
+  - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch) Klausel
+  - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all) Klausel
+  - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) Klausel
+- [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Typ
+- [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) Definition

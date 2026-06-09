@@ -1,12 +1,12 @@
 ---
-title: "throw_ref: Wasm-Ausnahmebehandlungsanweisung"
+title: "throw_ref: Wasm-Ausnahmebehandlungsinstruktion"
 short-title: throw_ref
 slug: WebAssembly/Reference/Exception_handling/throw_ref
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: 184a2adcf533de244f520829045c2ad85c6af1a8
 ---
 
-Die **`throw_ref`** [Ausnahmebehandlungs](/de/docs/WebAssembly/Reference/Exception_handling)anweisung wirft eine zuvor geworfene Ausnahme erneut, die durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird.
+Die **`throw_ref`** [Ausnahmebehandlungsinstruktion](/de/docs/WebAssembly/Reference/Exception_handling) wirft eine zuvor geworfene Ausnahme, die durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird, erneut.
 
 {{InteractiveExample("Wat Demo: throw_ref", "tabbed-taller")}}
 
@@ -87,7 +87,7 @@ throw_ref
 ```
 
 - `throw_ref`
-  - : Die `throw_ref`-Anweisung.
+  - : Die `throw_ref`-Instruktion.
 
 ### Typ
 
@@ -98,22 +98,22 @@ throw_ref
 - `exception`
   - : Die Ausnahme, die erneut geworfen werden soll, muss ein `exnref`-Wert sein.
 
-### Binärkodierung
+### Binärcodierung
 
-| Anweisung   | Binärformat | Beispieltext => binär |
+| Instruktion | Binärformat | Beispieltext => binär |
 | ----------- | ----------- | --------------------- |
 | `throw_ref` | `0x0a`      | `throw_ref` => `0x0a` |
 
 ## Beschreibung
 
-Eine `throw_ref`-Anweisung kann verwendet werden, um eine zuvor geworfene Ausnahme erneut zu werfen, wie sie durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird. Werte des Typs `exnref` werden durch [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)- und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)-Klauseln auf den Stapel geschoben.
+Eine `throw_ref`-Instruktion kann verwendet werden, um eine zuvor geworfene Ausnahme, wie sie durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird, erneut zu werfen. Werte des Typs `exnref` werden von [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)-Klauseln auf den Stapel gelegt.
 
-Im Allgemeinen ist das erneute Werfen von Ausnahmen nützlich, weil Sie möglicherweise eine Aktion wie Bereinigung oder Protokollierung durchführen möchten, aber dennoch den Nutzern mitteilen möchten, dass ein Fehler aufgetreten ist.
+Im Allgemeinen ist das erneute Werfen von Ausnahmen nützlich, da Sie möglicherweise eine Aktion wie Aufräumen oder Protokollieren durchführen möchten, aber dann immer noch die Benutzer darüber informieren möchten, dass ein Fehler aufgetreten ist.
 
 ## Siehe auch
 
-- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Anweisung
-- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Anweisung
+- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Instruktion
+- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Instruktion
   - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch)-Klausel
   - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all)-Klausel
   - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)-Klausel
