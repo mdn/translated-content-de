@@ -51,7 +51,7 @@ _Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`SVGGraphicsEl
   - : Ein String, der den Abfrage-String der URL darstellt, sofern vorhanden, einschließlich des führenden Fragezeichens (`?`).
 - [`SVGAElement.target`](/de/docs/Web/API/SVGAElement/target) {{ReadOnlyInline}}
   - : Entspricht dem {{SVGAttr("target")}} Attribut des gegebenen Elements.
-- [`SVGAElement.text`](/de/docs/Web/API/SVGAElement/text) {{deprecated_inline}}
+- [`SVGAElement.text`](/de/docs/Web/API/Node/textContent) {{deprecated_inline}}
   - : Ein String, der ein Synonym für die [`Node.textContent`](/de/docs/Web/API/Node/textContent) Eigenschaft ist.
 - [`SVGAElement.type`](/de/docs/Web/API/SVGAElement/type)
   - : Ein String, der das `type` Attribut widerspiegelt und den MIME-Typ der verlinkten Ressource angibt.

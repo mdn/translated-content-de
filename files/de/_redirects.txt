@@ -10199,6 +10199,7 @@
 /de/docs/Web/API/RotationRate.beta	/de/docs/Web/API/DeviceMotionEvent/rotationRate
 /de/docs/Web/API/RotationRate.gamma	/de/docs/Web/API/DeviceMotionEvent/rotationRate
 /de/docs/Web/API/SVGAElement/SVGAlement.target	/de/docs/Web/API/SVGAElement/target
+/de/docs/Web/API/SVGAElement/text	/de/docs/Web/API/Node/textContent
 /de/docs/Web/API/SVGAnimatedPoints	/de/docs/Web/API/SVGPolygonElement
 /de/docs/Web/API/SVGAnimationElement/onbegin	/de/docs/Web/API/SVGAnimationElement/beginEvent_event
 /de/docs/Web/API/SVGAnimationElement/onend	/de/docs/Web/API/SVGAnimationElement/endEvent_event
@@ -10244,6 +10245,7 @@
 /de/docs/Web/API/SVGMatrix	/de/docs/Web/API/DOMMatrix
 /de/docs/Web/API/SVGMissingGlyphElement	/de/docs/Web/API/SVGElement
 /de/docs/Web/API/SVGRect/The__X__property	/de/docs/Web/API/SVGRect/x
+/de/docs/Web/API/SVGRenderingIntent	/de/docs/Web/SVG
 /de/docs/Web/API/SVGStylable	/de/docs/Web/API/SVGElement
 /de/docs/Web/API/SVGTRefElement	/de/docs/Web/API/SVGElement
 /de/docs/Web/API/SVGURIReference	/de/docs/Web/SVG/Reference/Attribute/href
