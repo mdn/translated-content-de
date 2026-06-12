@@ -1,14 +1,15 @@
 ---
-title: "BarcodeDetector: getSupportedFormats() statische Methode"
+title: "BarcodeDetector: statische Methode getSupportedFormats()"
 short-title: getSupportedFormats()
 slug: Web/API/BarcodeDetector/getSupportedFormats_static
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: e4669cf973422d9badcc54ae3d09f97286d720a3
 ---
 
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`getSupportedFormats()`** statische Methode der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von unterstützten Barcode-Formattypen erfüllt wird.
+Die **`getSupportedFormats()`**-statische Methode
+der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} der unterstützten Barcode-Formattypen erfüllt wird.
 
 ## Syntax
 
@@ -22,7 +23,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von [unterstützten Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
+Ein {{jsxref('Promise')}} das mit einem {{jsxref('Array')}} von
+[unterstützten Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
 
 ### Ausnahmen
 
@@ -30,7 +32,7 @@ Es werden keine Ausnahmen ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel ruft die `getSupportFormat()` statische Methode auf und protokolliert die Ergebnisse in der Konsole.
+Das folgende Beispiel ruft die statische Methode `getSupportedFormats()` auf und protokolliert die Ergebnisse in der Konsole.
 
 ```js
 // check supported types

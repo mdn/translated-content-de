@@ -3,14 +3,14 @@ title: "WebTransport: datagrams-Eigenschaft"
 short-title: datagrams
 slug: Web/API/WebTransport/datagrams
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 50e0237a64ecc8107c0a608b37aae241448a5d80
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`datagrams`** des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt eine [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Instanz zurück, die verwendet werden kann, um Datagramme zu senden und zu empfangen — unzuverlässige Datenübertragung.
+Die schreibgeschützte Eigenschaft **`datagrams`** der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt eine [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Instanz zurück, die zum Senden und Empfangen von Datagrammen verwendet werden kann – unverlässliche Datenübertragung.
 
-"Unzuverlässig" bedeutet, dass die Übertragung von Daten nicht garantiert ist und auch die Reihenfolge des Eintreffens nicht festgelegt ist. Dies ist in einigen Situationen unproblematisch und ermöglicht eine sehr schnelle Lieferung. Beispielsweise möchten Sie möglicherweise regelmäßige Spielzustandsaktualisierungen übermitteln, bei denen jede Nachricht die letzte ersetzt, die angekommen ist, und bei denen die Reihenfolge unwichtig ist.
+"Unverlässlich" bedeutet, dass die Übertragung von Daten nicht garantiert ist, noch das Eintreffen in einer bestimmten Reihenfolge. Dies ist in einigen Situationen akzeptabel und ermöglicht eine sehr schnelle Übermittlung. Zum Beispiel könnten Sie regelmäßige Spielstatus-Updates übertragen wollen, bei denen jede Nachricht die zuvor angekommene überschreibt und die Reihenfolge nicht wichtig ist.
 
 ## Wert
 
@@ -18,21 +18,29 @@ Ein [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDu
 
 ## Beispiele
 
-### Ein ausgehendes Datagramm schreiben
+### Schreiben eines ausgehenden Datagramms
 
-Die [`WebTransportDatagramDuplexStream.writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable)-Eigenschaft gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurück, in das Sie mithilfe eines Writers Daten schreiben können, um sie an den Server zu übertragen:
+Dieser Code verwendet die Methode [`createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable), falls diese unterstützt wird, um eine [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Instanz zu erhalten, die zum Schreiben von Daten in den Transport verwendet werden kann.
+Andernfalls wird auf die Eigenschaft [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) {{deprecated_inline}} {{non-standard_inline}} zurückgegriffen, die ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurückgibt, in das Sie Daten zur Übertragung an den Server mit einem Writer schreiben können:
 
 ```js
-const writer = transport.datagrams.writable.getWriter();
+const writableStream =
+  typeof transport.datagrams.createWritable === "function"
+    ? transport.datagrams.createWritable()
+    : transport.datagrams.writable; // Deprecated and non-standard.
+
+const writer = writableStream.getWriter();
 const data1 = new Uint8Array([65, 66, 67]);
 const data2 = new Uint8Array([68, 69, 70]);
+await writer.ready;
 writer.write(data1);
+await writer.ready;
 writer.write(data2);
 ```
 
-### Ein eingehendes Datagramm lesen
+### Lesen eines eingehenden Datagramms
 
-Die [`WebTransportDatagramDuplexStream.readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable)-Eigenschaft gibt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt zurück, das Sie verwenden können, um Daten vom Server zu empfangen:
+Die [`WebTransportDatagramDuplexStream.readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable)-Eigenschaft gibt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt zurück, mit dem Sie Daten vom Server empfangen können:
 
 ```js
 async function readData() {
@@ -58,7 +66,7 @@ async function readData() {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

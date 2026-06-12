@@ -72,4 +72,4 @@ Es ist wichtig, den Lesern den aktuellen Standardisierungsstatus solcher Funktio
 - Hinzufügen eines Abschnitts "Standards-Positionen" zur selben Seite wie das obige Banner, als Unterabschnitt des standardmäßigen "Spezifikationen"-Abschnitts.
 
 > [!NOTE]
-> Siehe [Verwandte Websitesets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) für ein Beispiel für den Abschnitt "Standards-Positionen" und was er enthalten sollte, sowie das Startseiten-Banner.
+> Siehe [Verwandte Websitesets](/de/docs/Web/API/Storage_Access_API) für ein Beispiel für den Abschnitt "Standards-Positionen" und was er enthalten sollte, sowie das Startseiten-Banner.

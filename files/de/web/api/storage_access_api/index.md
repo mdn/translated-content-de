@@ -51,7 +51,7 @@ In einem {{htmlelement("iframe")}} eingebettete Drittanbieter-Inhalte, die auf C
    - Safari zeigt Eingabeaufforderungen für alle eingebetteten Inhalte an, die zuvor keinen Speicherzugriff erhalten haben.
    - Firefox fordert Benutzer nur auf, nachdem ein Ursprung auf mehr als einer Schwellenanzahl von Websites Speicherzugriff angefordert hat.
    - Chrome zeigt Eingabeaufforderungen für alle eingebetteten Inhalte an, die zuvor keinen Speicherzugriff erhalten haben.
-     Es wird jedoch automatisch Zugriff gewähren und Eingabeaufforderungen überspringen, wenn die eingebetteten Inhalte und die einbettende Website Teil desselben [verwandten Website-Sets](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sind.
+     Es wird jedoch automatisch Zugriff gewähren und Eingabeaufforderungen überspringen, wenn die eingebetteten Inhalte und die einbettende Website Teil desselben [verwandten Website-Sets](/de/docs/Web/API/Storage_Access_API) sind.
 
 3. Die Berechtigung wird erteilt oder abgelehnt, basierend darauf, ob die Inhalte alle Sicherheitsanforderungen erfüllen — siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für allgemeine Anforderungen und [Browser-spezifische Variationen](#browser-spezifische_variationen) für einige browser-spezifische Sicherheitsanforderungen.
    Die {{jsxref("Promise")}}-basierte Natur von `requestStorageAccess()` ermöglicht es Ihnen, Code zur Handhabung von Erfolgs- und Fehlerszenarien auszuführen.
@@ -229,7 +229,7 @@ Dokumentation zur neuen Speicherzugriffspolitik von Firefox zur Blockierung von 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
   - : Ermöglicht es Inhalten, die im Drittanbieter-Kontext geladen werden (d.h. eingebettet in einem {{htmlelement("iframe")}}), Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand anzufordern; gibt ein {{jsxref("Promise")}} zurück, das sich erfüllt, wenn der Zugriff gewährt wurde, und sich ablehnt, wenn der Zugriff verweigert wurde.
 - [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{experimental_inline}}
-  - : Ein vorgeschlagener Vorschlag zur Erweiterung der Storage Access API, der es Top-Level-Websites ermöglicht, Drittanbieter-Cookie-Zugriff im Namen eingebetteter Inhalte anzufordern, die von einer anderen Website im selben [verwandten Website-Set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) stammen. Gibt ein {{jsxref("Promise")}} zurück, das sich erfüllt, wenn der Zugriff gewährt wurde, und sich ablehnt, wenn der Zugriff verweigert wurde.
+  - : Ein vorgeschlagener Vorschlag zur Erweiterung der Storage Access API, der es Top-Level-Websites ermöglicht, Drittanbieter-Cookie-Zugriff im Namen eingebetteter Inhalte anzufordern, die von einer anderen Website im selben [verwandten Website-Set](/de/docs/Web/API/Storage_Access_API) stammen. Gibt ein {{jsxref("Promise")}} zurück, das sich erfüllt, wenn der Zugriff gewährt wurde, und sich ablehnt, wenn der Zugriff verweigert wurde.
 
 > [!NOTE]
 > Benutzerinteraktionen propagieren sich zu dem von diesen Methoden zurückgegebenen Versprechen, sodass die Aufrufer Aktionen ausführen können, die eine Benutzerinteraktion erfordern, ohne einen zweiten Klick zu benötigen. Ein Anrufer könnte beispielsweise ein Pop-up-Fenster aus dem gelösten Versprechen öffnen, ohne den Pop-up-Blocker von Firefox auszulösen.
