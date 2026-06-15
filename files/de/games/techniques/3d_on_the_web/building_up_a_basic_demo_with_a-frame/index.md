@@ -2,35 +2,40 @@
 title: Aufbau einer einfachen Demo mit A-Frame
 slug: Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_A-Frame
 l10n:
-  sourceCommit: 1a0be468b9e7c88a09ea3438a81341c4f6a619a6
+  sourceCommit: 6faeaea5ffed7626d279267d2451ed9fb085d746
 ---
 
-Die [WebXR](/de/docs/Games/Techniques/3D_on_the_web/WebXR) und [WebGL](/de/docs/Web/API/WebGL_API) APIs ermöglichen es uns bereits, virtuelle Realität (VR) und erweiterte Realität (AR) Erlebnisse in Webbrowsern zu erstellen. Um dies zu erleichtern, bietet Mozillas [A-Frame](https://aframe.io/) Framework eine Auszeichnungssprache, die es Webentwicklern ermöglicht, 3D VR-Landschaften auf eine vertraute Weise zu erstellen und dabei Prinzipien der Spieleentwicklung zu folgen. Dies ist nützlich, um schnell und erfolgreich Prototypen und Demos zu erstellen, ohne viel JavaScript oder GLSL schreiben zu müssen. Dieser Artikel erklärt, wie man mit A-Frame loslegt und es nutzt, um eine einfache Demo zu erstellen.
+Die [WebXR](/de/docs/Games/Techniques/3D_on_the_web/WebXR)- und [WebGL](/de/docs/Web/API/WebGL_API)-APIs ermöglichen es uns bereits, virtuelle Realitäten (VR) und erweiterte Realitäten (AR) in Webbrowsern zu erschaffen.
+Um dies zu erleichtern, stellt Mozillas [A-Frame](https://aframe.io/) Framework eine Markup-Sprache bereit, die Webentwicklern ermöglicht, 3D-VR-Landschaften mit einem vertrauten Ansatz zu erstellen, und die Prinzipien der Spieleentwicklungscodierung folgt.
+Dies ist nützlich, um schnell und erfolgreich Prototypen und Demos zu erstellen, ohne viel JavaScript oder GLSL schreiben zu müssen.
+Dieser Artikel erklärt, wie man mit A-Frame loslegt und es verwendet, um eine einfache Demo zu erstellen.
 
 > [!NOTE]
 > Dieser Leitfaden wurde zuletzt im November 2024 aktualisiert und ist mit A-Frame Version `1.6.0` kompatibel.
 
-## Überblick auf hoher Ebene
+## Übersicht auf hoher Ebene
 
-A-Frame läuft auf den meisten Umgebungen, wie Desktop, Mobil (iOS und Android) und Geräten wie Oculus Rift, Gear VR und HTC Vive.
+A-Frame läuft in den meisten Umgebungen, wie z.B. Desktop, Mobil (iOS und Android), und Geräten wie Oculus Rift, Gear VR und HTC Vive.
 
-A-Frame baut auf [WebGL](/de/docs/Web/API/WebGL_API) auf und bietet vorgefertigte Komponenten für Anwendungen — Modelle, Videoplayer, Skyboxen, Geometrien, Steuerungen, Animationen, Cursor etc. Es basiert auf dem [Entity-Component-System](https://en.wikipedia.org/wiki/Entity_component_system), das in der Spieleentwicklung bekannt ist, richtet sich jedoch an Webentwickler mit einer vertrauten Markup-Struktur, die mit JavaScript manipuliert werden kann. Das Endergebnis sind 3D-Web-Erlebnisse, die von vornherein VR-fähig sind.
+A-Frame basiert auf [WebGL](/de/docs/Web/API/WebGL_API) und bietet vorgefertigte Komponenten zur Verwendung in Anwendungen — Modelle, Videoplayer, Skyboxen, Geometrien, Steuerungen, Animationen, Cursor, etc. Es basiert auf dem [Entity-Component-System](https://en.wikipedia.org/wiki/Entity_component_system), das in der Spieleentwicklung bekannt ist, richtet sich jedoch an Webentwickler mit einer vertrauten Markup-Struktur, die mit JavaScript manipuliert werden kann. Das Endergebnis sind 3D-Web-Erfahrungen, die standardmäßig VR-fähig sind.
 
-## Entwicklungsumgebung einrichten
+## Entwicklungsumgebung
 
-Um mit der Entwicklung mit A-Frame zu beginnen, sollten Sie sicherstellen, dass Sie einen modernen Browser mit guter [WebGL](/de/docs/Web/API/WebGL_API) Unterstützung verwenden. Eine Möglichkeit ist, ein VR-Gerät wie Oculus Rift oder Google Cardboard für die Experimente einzurichten.
+Um mit der Entwicklung mit A-Frame zu beginnen, sollten Sie sicherstellen, dass Sie einen modernen Browser mit guter [WebGL](/de/docs/Web/API/WebGL_API)-Unterstützung verwenden.
+Eine Möglichkeit ist es, ein VR-Gerät wie Oculus Rift oder Google Cardboard für die Experimente einzurichten.
 
-Wenn Sie lokal in einer IDE entwickeln, erstellen Sie ein Verzeichnis, um Ihre Experimente zu speichern, und speichern Sie eine Kopie der [neuesten A-Frame Engine](https://aframe.io/docs/1.6.0/introduction/installation.html) in diesem Verzeichnis. Alternativ können Sie A-Frame von einem CDN laden:
+Wenn Sie lokal in einer IDE entwickeln, erstellen Sie ein Verzeichnis, um Ihre Experimente zu speichern, und speichern Sie eine Kopie der [neuesten A-Frame-Engine](https://aframe.io/docs/1.6.0/introduction/installation.html) in diesem Verzeichnis.
+Alternativ können Sie A-Frame von einem CDN laden:
 
 ```html
 <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 ```
 
-Welche Methode Sie auch wählen, stellen Sie sicher, dass Sie die [A-Frame Dokumentation](https://aframe.io/docs/) geöffnet haben, während Sie arbeiten, um sie als Referenz zu nutzen.
+Egal auf welche Weise Sie beginnen, stellen Sie sicher, dass Sie die [A-Frame Dokumentation](https://aframe.io/docs/) geöffnet haben, während Sie arbeiten, um auf sie zu verweisen.
 
 ### HTML-Starter für A-Frame
 
-Wenn Sie Ihr Projekt lokal in einer IDE bauen, hier die HTML-Struktur, um loszulegen:
+Wenn Sie Ihr Projekt lokal in einer IDE erstellen, hier ist die HTML-Struktur, um zu beginnen:
 
 ```html
 <!doctype html>
@@ -46,39 +51,42 @@ Wenn Sie Ihr Projekt lokal in einer IDE bauen, hier die HTML-Struktur, um loszul
 </html>
 ```
 
-Dies enthält einige grundlegende Informationen wie das Dokument `charset` und {{htmlelement("title")}}. Das {{htmlelement("script")}}-Element bindet das A-Frame-Framework in die Seite ein; wir werden unseren Beispielcode im {{htmlelement("body")}}-Element schreiben.
+Dies enthält einige grundlegende Informationen wie das Dokument-`charset` und {{htmlelement("title")}}. Das {{htmlelement("script")}} Element inkludiert das A-Frame-Framework in die Seite; wir werden unseren Beispielcode innerhalb des {{htmlelement("body")}} Elements schreiben.
 
-### Eine Szene in A-Frame initialisieren
+### Initialisieren einer Szene in A-Frame
 
-Eine Szene ist der Ort, an dem alles geschieht. Wenn wir neue Objekte in die Demo einfügen, fügen wir sie alle der Szene hinzu, um sie auf dem Bildschirm sichtbar zu machen. In A-Frame wird die Szene durch eine [Scene Entity](https://aframe.io/docs/core/scene.html) dargestellt. Eine Entity ist jedes Element — es kann ein Objekt wie eine Box, ein Zylinder oder ein Kegel sein, aber es kann auch eine Kamera, Licht- oder Schallquelle sein.
+Eine Szene ist der Ort, an dem alles passiert. Wenn wir neue Objekte in der Demo erstellen, fügen wir sie alle zur Szene hinzu, um sie auf dem Bildschirm sichtbar zu machen. In A-Frame wird die Szene durch eine [Scene entity](https://aframe.io/docs/core/scene.html) dargestellt.
+Eine Entity ist jedes Element — es kann ein Objekt wie eine Box, ein Zylinder oder ein Kegel sein, aber es kann auch eine Kamera, Licht oder eine Schallquelle sein.
 
-Lassen Sie uns die Szene erstellen, indem wir ein `<a-scene>`-Element innerhalb des `<body>`-Elements hinzufügen:
+Lassen Sie uns die Szene erstellen, indem wir ein `<a-scene>` Element innerhalb des `<body>` Elements hinzufügen:
 
 ```html
 <a-scene></a-scene>
 ```
 
-### Einen Würfel hinzufügen
+### Hinzufügen eines Würfels
 
-Das Hinzufügen des Würfels zur Szene erfolgt durch einfaches Hinzufügen eines [`<a-box>`](https://aframe.io/docs/primitives/a-box.html) Elements innerhalb des `<a-scene>`-Elements. Fügen Sie es jetzt hinzu:
+Das Hinzufügen des Würfels zur Szene erfolgt durch das Hinzufügen eines einfachen [`<a-box>`](https://aframe.io/docs/primitives/a-box.html) Elements innerhalb des `<a-scene>` Elements. Fügen Sie es jetzt hinzu:
 
 ```html
 <a-box position="0.5 0.5 -3" rotation="0 10 0" color="#4CC3D9"></a-box>
 ```
 
-Es enthält bereits einige definierte Parameter: `color`, `position` und `rotation` — diese sind ziemlich offensichtlich und definieren die Basisfarbe des Würfels, die Position innerhalb der 3D-Szene und die Rotation des Würfels. Die Distanzwerte (z. B. für die y-Position des Würfels) sind einheitslos und können im Grunde alles sein, was Sie für Ihre Szene als geeignet erachten — Millimeter, Meter, Fuß oder Meilen — das liegt bei Ihnen.
+Es enthält einige bereits definierte Parameter: `color`, `position` und `rotation` — diese sind ziemlich offensichtlich und definieren die Grundfarbe des Würfels, die Position innerhalb der 3D-Szene und die Rotation des Würfels.
+Die Entfernungswerte (z.B. für die y-Position des Würfels) sind einheitslos und können im Grunde alles sein, was Sie für Ihre Szene geeignet halten — Millimeter, Meter, Fuß oder Meilen — das liegt ganz bei Ihnen.
 
-### Einen Hintergrund hinzufügen: Skybox
+### Hinzufügen eines Hintergrunds: Skybox
 
-Eine Skybox ist ein Hintergrund für die 3D-Welt, dargestellt durch ein [`<a-sky>`](https://aframe.io/docs/primitives/a-sky.html) Element. In unserem Fall verwenden wir eine einfache Farbe, aber es könnte auch ein Bild sein, etc. Herumzuschauen würde den Eindruck geben, sich im freien Himmel, in einer Holzhütte — wo immer Sie möchten — zu befinden! Fügen Sie den folgenden HTML-Code vor dem `<a-cube>` Element hinzu:
+Eine Skybox ist ein Hintergrund für die 3D-Welt, dargestellt durch ein [`<a-sky>`](https://aframe.io/docs/primitives/a-sky.html) Element. In unserem Fall verwenden wir eine einfache Farbe, aber es könnte auch ein Bild sein, usw. Wenn Sie sich umsehen, würde es den Eindruck vermitteln, in einem offenen Himmel, einer Holzhütte - wo auch immer Sie möchten!
+Fügen Sie den folgenden HTML-Code vor dem `<a-cube>` Element hinzu:
 
 ```html
 <a-sky color="#DDDDDD"></a-sky>
 ```
 
-## A-Frame-Formbeispiel
+## A-Frame Form-Beispiel
 
-An diesem Punkt, wenn Sie den Code speichern und Ihren Browser aktualisieren, können Sie den Würfel bereits auf dem Bildschirm mit unserem benutzerdefinierten Hintergrund sehen:
+An diesem Punkt können Sie, wenn Sie den Code speichern und Ihren Browser aktualisieren, den Würfel auf dem Bildschirm mit unserem benutzerdefinierten Hintergrund bereits sehen:
 
 ```html live-sample___a-frame-intro
 <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
@@ -100,15 +108,15 @@ body {
 
 {{embedlivesample("a-frame-intro", "", "400px")}}
 
-A-Frame kümmert sich um alles, was Sie benötigen:
+A-Frame kümmert sich um die Einrichtung von allem, was Sie brauchen:
 
-- Eine Standardlichtquelle und Kamera sind enthalten, sodass der Würfel sichtbar ist.
-- Die Steuerungen funktionieren bereits: Sie können die Maus zum Umschauen und die Tastatur zur Bewegung verwenden. Probieren Sie die <kbd>W</kbd>-, <kbd>A</kbd>-, <kbd>S</kbd>- und <kbd>D</kbd>-Tasten aus).
-- Es gibt einen „Enter VR mode“-Button in der unteren rechten Ecke des Bildschirms, um in den Vollbildmodus mit stereoskopischer Bildansicht zu wechseln, wenn Sie die notwendige VR-Hardware eingerichtet und bereit haben.
+- Eine Standard-Lichtquelle und Kamera sind inkludiert, sodass der Würfel sichtbar ist.
+- Die Steuerungen funktionieren bereits: Sie können die Maus benutzen, um sich umzusehen, und die Tastatur für die Bewegung. Versuchen Sie die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd>.
+- Es gibt einen "Enter VR mode" Button in der unteren rechten Ecke des Bildschirms, um Ihnen zu ermöglichen, in den Vollbild-3D-Modus zu wechseln, falls Sie die notwendige VR-Hardware eingerichtet und bereit haben.
 
-### Eine Kamera spezifizieren
+### Spezifizieren einer Kamera
 
-Eine Kameraentität kann erstellt werden, indem ein [`<a-camera>`](https://aframe.io/docs/primitives/a-camera.html) Element zur Szene hinzugefügt wird. Wir können die Position der Kamera explizit festlegen und ein wenig vom Zentrum der Szene nach hinten verschieben, damit wir die Formen sehen können. Fügen Sie dies kurz vor dem schließenden `</a-scene>`-Tag hinzu:
+Eine Kamera-Entity kann erstellt werden, indem ein [`<a-camera>`](https://aframe.io/docs/primitives/a-camera.html) Element zur Szene hinzugefügt wird. Wir können die Position der Kamera explizit einstellen und sie ein wenig vom Mittelpunkt der Szene wegbewegen, sodass wir die Formen sehen können. Fügen Sie dies direkt vor dem schließenden `</a-scene>` Tag hinzu:
 
 ```html
 <a-camera
@@ -120,11 +128,11 @@ Eine Kameraentität kann erstellt werden, indem ein [`<a-camera>`](https://afram
 </a-camera>
 ```
 
-Wir haben auch einen Cursor für die gegebene Kamera definiert, unter Verwendung der `cursor-*` Attribute (standardmäßig ist er unsichtbar) — wir haben seine Skalierung so eingestellt, dass er leichter sichtbar ist, seine Farbe und eine gewisse Opazität, damit er die Objekte dahinter nicht vollständig bedeckt.
+Wir haben auch einen Cursor für die gegebene Kamera definiert, indem wir die `cursor-*` Attribute verwenden (standardmäßig ist er unsichtbar.) — wir haben seine Skalierung so eingestellt, dass er besser sichtbar ist, seine Farbe und etwas Opazität, sodass er die Objekte dahinter nicht vollständig verdeckt.
 
-### Lichter hinzufügen
+### Hinzufügen von Lichtern
 
-Die grundlegenden Lichttypen in A-Frame sind gerichtet und ambient. Der erste Typ ist ein gerichtetes Licht, das irgendwo in der Szene platziert ist, während das zweite das Licht des ersten Typs reflektiert, sodass es natürlicher aussieht; dies kann global festgelegt werden. Fügen Sie den neuen Code unter Ihren vorherigen Ergänzungen hinzu — dies verwendet das Standard `<a-light>` Element:
+Die grundlegenden Lichtarten in A-Frame sind Richtungslicht und Umgebungslicht. Der erste Typ ist ein Richtungslicht, das irgendwo in der Szene platziert wird, während der zweite Typ das Licht der ersten Art reflektiert, sodass es natürlicher aussieht; dies kann global eingestellt werden. Fügen Sie den neuen Code unter Ihren vorherigen Ergänzungen hinzu — dies verwendet das Standard-`<a-light>` Element:
 
 ```html
 <a-light type="directional" color="white" intensity="0.5" position="-1 1 2">
@@ -132,11 +140,11 @@ Die grundlegenden Lichttypen in A-Frame sind gerichtet und ambient. Der erste Ty
 <a-light type="ambient" color="white"></a-light>
 ```
 
-Das gerichtete Licht hat eine weiße Farbe, seine Intensität ist auf `0.5` gesetzt und es befindet sich an der Position `-1 1 2`. Das Umgebungslicht benötigt nur eine Farbe, die ebenfalls weiß ist.
+Das Richtungslicht hat eine weiße Farbe, seine Intensität ist auf `0.5` gesetzt, und es ist an der Position `-1 1 2` platziert. Das Umgebungslicht benötigt nur eine Farbe, die ebenfalls weiß ist.
 
-### Einige fortgeschrittene Geometrie hinzufügen
+### Hinzufügen einiger fortgeschrittener Geometrien
 
-Wir haben bereits einen Würfel in der Szene; nun lassen Sie uns versuchen, mehr Formen hinzuzufügen. Wir sind nicht auf die Standard-Entities wie `<a-cube>` beschränkt — unter Verwendung von `<a-entity>` können wir benutzerdefinierte fortgeschrittene Formen erstellen. Lassen Sie uns versuchen, einen Torus hinzuzufügen — fügen Sie dieses Element unter dem vorherigen Code hinzu:
+Wir haben bereits einen Würfel in der Szene; jetzt versuchen wir, mehr Formen hinzuzufügen. Wir sind nicht auf die Standard-Entitäten wie `<a-cube>` beschränkt — mit `<a-entity>` können wir benutzerdefinierte, fortgeschrittene Formen erstellen. Lassen Sie uns versuchen, einen Torus hinzuzufügen — fügen Sie dieses Element unter dem vorherigen Code hinzu:
 
 ```html
 <a-entity
@@ -150,11 +158,11 @@ Wir haben bereits einen Würfel in der Szene; nun lassen Sie uns versuchen, mehr
 </a-entity>
 ```
 
-Unsere Entität hat eine [torus primitive](https://aframe.io/docs/components/geometry.html#Torus), die ihre Form darstellt. Wir übergeben einige Anfangsvariablen an diese Form: den Radius des Außenrandes des Torus, den Radius des Rohrs und die Anzahl der Segmente entlang des Umfangs der Rohrfläche. Rotation und Position werden auf die gleiche Weise festgelegt, wie wir es zuvor gesehen haben.
+Unsere Entity hat eine [torus primitive](https://aframe.io/docs/components/geometry.html#Torus), die ihre Form darstellt. Wir übergeben einige anfängliche Variablen an diese Form: den Radius des äußeren Randes des Torus, den Radius des Rohrs und die Anzahl der Segmente entlang des Umfangs der Rohrfläche respektive. Rotation und Position werden genauso eingestellt, wie wir es zuvor gesehen haben.
 
-### Ein Material definieren
+### Definieren eines Materials
 
-Der Torus ist jetzt in der Szene sichtbar, aber seine Farbe sieht nicht sehr gut aus — das liegt daran, dass wir ein [Material](https://aframe.io/docs/components/material.html) erstellen müssen, um das Erscheinungsbild der Entität zu definieren. Bearbeiten Sie das `<a-entity>`, das den Torus definiert, um wie folgt auszusehen:
+Der Torus ist jetzt in der Szene sichtbar, aber seine Farbe sieht nicht sehr gut aus — das liegt daran, dass wir ein [material](https://aframe.io/docs/components/material.html) erstellen müssen, um das Erscheinungsbild der Entity zu definieren. Bearbeiten Sie das `<a-entity>`, das den Torus definiert, um wie folgt auszusehen:
 
 ```html
 <a-entity
@@ -172,11 +180,11 @@ Der Torus ist jetzt in der Szene sichtbar, aber seine Farbe sieht nicht sehr gut
 </a-entity>
 ```
 
-Im neuen `material` Attribut stellen wir die `color` des Materials ein, dann dessen `roughness` (ein rauheres Material streut reflektiertes Licht in mehr Richtungen als ein glattes Material) und `metalness` (wie metallisch das Material ist).
+In dem neuen `material` Attribut legen wir die `color` des Materials fest, dann seine `roughness` (ein raueres Material wird reflektiertes Licht in mehr Richtungen streuen als ein glattes Material) und `metalness` (wie metallisch das Material ist).
 
-## Einige JavaScript hinzufügen
+## Hinzufügen von etwas JavaScript zum Mix
 
-Es ist möglich, die Szene auch mit JavaScript zu bevölkern, daher lassen Sie uns es benutzen, um eine dritte Form, einen Zylinder, hinzuzufügen. Fügen Sie ein neues {{htmlelement("script")}} Element am Ende des `<body>` Elements hinzu, direkt nach dem `<a-scene>` Element, und fügen Sie dann den folgenden JavaScript-Code darin ein:
+Es ist auch möglich, die Szene mit Entitäten zu füllen, die mit JavaScript erstellt wurden, also lasst uns es verwenden, um eine dritte Form, einen Zylinder, hinzuzufügen. Fügen Sie ein neues {{htmlelement("script")}} Element am Ende des `<body>` Elements hinzu, direkt nach dem `<a-scene>` Element, und fügen Sie dann den folgenden JavaScript Code darin hinzu:
 
 ```js
 const scene = document.querySelector("a-scene");
@@ -188,7 +196,8 @@ cylinder.setAttribute("position", "3 1 0");
 scene.appendChild(cylinder);
 ```
 
-Wir holen uns zunächst eine Referenz zur Scene-Handler, dann erstellen wir das Zylinder-Element als A-Frame-Entity. Danach geht es darum, die richtigen Attribute zu setzen: `color`, `height`, `radius` und `position`. Die letzte Zeile fügt den neu erstellten Zylinder zur Szene hinzu. Das war's — Sie haben drei verschiedene Formen mit A-Frame erstellt! Es ist beeindruckend, eine solche Szene mit nur wenigen Zeilen HTML und JavaScript erstellen zu können.
+Zuerst holen wir uns einen Verweis auf den Szenen-Handler, dann erstellen wir das Zylinder-Element als A-Frame-Entity. Danach geht es darum, die richtigen Attribute einzustellen: `color`, `height`, `radius` und `position`. Die letzte Zeile fügt den neu erstellten Zylinder zur Szene hinzu. Das war's — Sie haben drei verschiedene Formen mit A-Frame erstellt!
+Es ist beeindruckend, eine solche Szene mit nur wenigen Zeilen HTML und JavaScript erstellen zu können.
 
 ## Animation
 
@@ -196,7 +205,7 @@ Wir haben bereits `rotation` und `position` verwendet, um die Formen in der Szen
 
 ### Rotation
 
-Es gibt eine spezielle [`animation`](https://aframe.io/docs/1.6.0/components/animation.html) Komponente, die uns helfen kann, Elemente zu animieren. Fügen Sie die unten gezeigte `animation` Komponente als Eigenschaft zum `<a-box>` Element hinzu:
+Es gibt eine spezielle [`animation`](https://aframe.io/docs/1.6.0/components/animation.html) Komponente, die uns helfen kann, Elemente zu animieren. Fügen Sie die `animation` Komponente, die unten zu sehen ist, dem `<a-box>` Element als Eigenschaft hinzu, wie gezeigt:
 
 ```html
 <a-box
@@ -207,11 +216,11 @@ Es gibt eine spezielle [`animation`](https://aframe.io/docs/1.6.0/components/ani
 </a-box>
 ```
 
-Wie bei anderen Entitäten können Sie Schlüsselattribute für die Animation definieren. Wir animieren das `rotation` Attribut von `20 0 0` bis `20 360 0`, sodass es sich komplett dreht. Die Animationsrichtung ist auf alternieren eingestellt, sodass die Animation vorwärts und dann rückwärts abgespielt wird. Die Dauer ist auf 4 Sekunden eingestellt und die Animation wird unendlich wiederholt. Die Animation verwendet `easing` für die Beschleunigung, wobei [tween.js](https://github.com/tweenjs/tween.js/) intern implementiert ist.
+Wie bei jedem anderen Element können Sie Schlüsseleigenschaften für die Animation definieren. Wir werden das `rotation` Attribut von `20 0 0` zu `20 360 0` animieren, sodass es eine vollständige Drehung macht. Die Animationsrichtung ist auf alternieren gesetzt, sodass die Animation vorwärts und dann rückwärts abgespielt wird. Die Dauer ist auf 4 Sekunden gesetzt, und sie wird unendlich oft wiederholt. Die Animation verwendet `easing` für das Abrunden, wobei [tween.js](https://github.com/tweenjs/tween.js/) intern implementiert wird.
 
 ### Skalierung
 
-Wir können auch Animationen zu Entitäten mit benutzerdefinierter Geometrie wie dem Torus hinzufügen, auf ähnliche Weise. Fügen Sie die folgende `animation` Komponente zu Ihrem Torus hinzu:
+Wir können auch Animationen zu Entitäten mit benutzerdefinierter Geometrie wie dem Torus hinzufügen, auf die gleiche Weise. Fügen Sie die folgende `animation` Komponente zu Ihrem Torus hinzu:
 
 ```html
 <a-entity
@@ -223,11 +232,11 @@ Wir können auch Animationen zu Entitäten mit benutzerdefinierter Geometrie wie
 </a-entity>
 ```
 
-Das Attribut, das wir für den Torus animieren möchten, ist `scale`. Der anfängliche, standardmäßige Maßstab ist `1 1 1`, und wir werden ihn auf `1 0.5 1` animieren, sodass die `y`-Achse von `1` auf `0.5` skaliert wird. Das von uns verwendete `easing` ist `linear`. Durch Einstellen der Richtung auf `alternate` wird der Maßstab auf `0.5` und dann zurück auf `1` während 2 Sekunden animiert. Auch hier wird die Animation unendlich oft wiederholt.
+Das Attribut, das wir für den Torus animieren möchten, ist `scale`. Die anfängliche, Standardgröße ist `1 1 1`, und wir werden sie zu `1 0.5 1` animieren, sodass die `y`-Achse von `1` zu `0.5` skaliert wird. Wir werden `linear` als Easing verwenden. Indem wir die Richtung auf `alternate` setzen, wird die Skalierung zur `0.5` animiert, und dann in 2 Sekunden zurück zu `1` animiert. Wiederum wird die Animation unendlich oft wiederholt.
 
 ### Bewegung
 
-Wir könnten die `animation` verwenden, um die Position der dritten Form zu ändern, oder wir könnten stattdessen JavaScript verwenden. Fügen Sie diesen Code am Ende des `<script>` Tags hinzu:
+Wir könnten das `animation` verwenden, um die Position der dritten Form zu ändern, oder wir könnten stattdessen JavaScript verwenden. Fügen Sie diesen Code am Ende des `<script>` Tags hinzu:
 
 ```js
 let t = 0;
@@ -239,11 +248,11 @@ function render() {
 render();
 ```
 
-Wir verwenden die `render()` Funktion, um die Position des Zylinders bei jedem Frame zu aktualisieren. Versuchen Sie, die angegebenen Werte auf der `y`-Achse zu ändern und sehen Sie, wie sich das auf die Bewegung auswirkt.
+Wir verwenden die `render()` Funktion, um die Position des Zylinders in jedem Frame zu aktualisieren. Versuchen Sie, die angegebenen Werte auf der `y`-Achse zu ändern und sehen Sie, wie es sich auf die Bewegung auswirkt.
 
 ## A-Frame Beispiel mit Animation
 
-Alles wird korrekt gerendert und animiert — Glückwunsch zum Aufbau Ihrer ersten A-Frame-Szene! So sieht die endgültige Version aus und funktioniert:
+Alles wird richtig gerendert und animiert — Glückwunsch zum Bau Ihrer ersten A-Frame-Szene! So sieht die endgültige Version aus und funktioniert:
 
 ```html live-sample___a-frame-animation
 <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
@@ -311,11 +320,11 @@ render();
 
 ## Zusammenfassung
 
-A-Frame richtet sich an Webentwickler, indem es Web-Markup mit Vorteilen wie der JavaScript-Manipulation bietet. Es bietet eine leistungsstarke API für fortgeschrittene Konzepte und behandelt auch die Unterschiede zwischen verschiedenen Browsern. Es ist eine großartige Zeit, um mit solchen Frameworks zu experimentieren.
+A-Frame richtet sich an Webentwickler, indem es Web-Markup mit Vorteilen wie der Manipulation durch JavaScript bietet. Es stellt eine mächtige API für fortgeschrittene Konzepte bereit und befasst sich auch mit Unterschieden zwischen Browsern. Es ist eine großartige Gelegenheit, mit solchen Frameworks zu experimentieren.
 
 ## Siehe auch
 
-- [A-Frame Website](https://aframe.io/)
-- [Einführung von A-Frame 0.1.0 Artikel](https://aframe.io/blog/2015/12/16/introducing-aframe/)
+- [A-Frame Webseite](https://aframe.io/)
+- [Einführung in A-Frame 0.1.0 Artikel](https://aframe.io/blog/2015/12/16/introducing-aframe/)
 - [A-Frame Physik-Plugin](https://github.com/ngokevin/aframe-physics-components)
-- [A-Frame Gamepad-Steuerungs-Plugin](https://github.com/donmccurdy/aframe-gamepad-controls)
+- [A-Frame Gamepad-Steuerungen Plugin](https://github.com/donmccurdy/aframe-gamepad-controls)
