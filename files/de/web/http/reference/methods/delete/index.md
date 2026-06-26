@@ -3,25 +3,25 @@ title: DELETE request method
 short-title: DELETE
 slug: Web/HTTP/Reference/Methods/DELETE
 l10n:
-  sourceCommit: 531ab7d0f0572957de89f715de2adb981628d64e
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
 Die **`DELETE`** HTTP-Methode fordert den Server auf, eine angegebene Ressource zu löschen.
 
-Anfragen mit `DELETE` sollten nur zum Löschen von Daten verwendet werden und dürfen keinen Körper enthalten.
+Anfragen, die `DELETE` verwenden, sollten nur zum Löschen von Daten genutzt werden und dürfen keinen Body enthalten.
 
 > [!NOTE]
-> Die Semantik des Sendens eines Nachrichtentextes in `DELETE`-Anfragen ist nicht definiert.
-> Einige Server können die Anfrage mit einer [4XX-Client-Fehler](/de/docs/Web/HTTP/Reference/Status#client_error_responses)-Antwort ablehnen.
+> Die Semantik des Sendens eines Nachrichtenkörpers in `DELETE`-Anfragen ist undefiniert.
+> Manche Server können die Anfrage mit einer [4XX-Client-Fehlermeldung](/de/docs/Web/HTTP/Reference/Status#client_error_responses) ablehnen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat einen Körper</th>
+      <th scope="row">Anfrage hat Body</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <th scope="row">Erfolgreiche Antwort hat Body</th>
       <td>Kann</td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@ Anfragen mit `DELETE` sollten nur zum Löschen von Daten verwendet werden und d�
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cache-fähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -52,11 +52,11 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert das Ziel der Anfrage, wenn es mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den Informationen im {{HTTPHeader("Host")}}-Header kombiniert wird.
+    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Origin-Server und eine absolute URL in Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die einem Fragezeichen `?` folgt.
-    Oft verwendet, um Identifizierungsinformationen in Form von `key=value` Paaren zu tragen.
+  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird.
+    Häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
@@ -70,14 +70,14 @@ Host: example.com
 ```
 
 Wenn die Anfrage erfolgreich ist, gibt es mehrere mögliche [erfolgreiche Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status#successful_responses).
-Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client zurückgesendet werden müssen:
+Eine {{HTTPStatus("204", "204 No Content")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und keine zusätzlichen Informationen an den Client gesendet werden müssen:
 
 ```http
 HTTP/1.1 204 No Content
 Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung des Ergebnisses beinhaltet:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung enthält, die das Ergebnis beschreibt:
 
 ```http
 HTTP/1.1 200 OK
@@ -92,7 +92,7 @@ Content-Length: 1234
 </html>
 ```
 
-Eine {{HTTPStatus("202", "202 Accepted")}}-Antwort bedeutet, dass die Anfrage akzeptiert wurde und wahrscheinlich erfolgreich sein wird, die Ressource jedoch noch nicht vom Server gelöscht wurde.
+Eine {{HTTPStatus("202", "202 Accepted")}}-Antwort bedeutet, dass die Anfrage angenommen wurde und wahrscheinlich erfolgreich sein wird, aber die Ressource vom Server noch nicht gelöscht wurde.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -115,11 +115,11 @@ Content-Length: 1234
 ## Browser-Kompatibilität
 
 Der Browser verwendet die `DELETE`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
+Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) einstellen.
 
 ## Siehe auch
 
-- HTTP-Status: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
+- HTTP-Statuscodes: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)

@@ -1,31 +1,31 @@
 ---
-title: Verwenden von WebRTC-Datenkanälen
+title: Verwendung von WebRTC-Datenkanälen
 slug: Web/API/WebRTC_API/Using_data_channels
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
-In diesem Leitfaden untersuchen wir, wie man einem Peer-Connection eine Datenkanal hinzufügt, der dann verwendet werden kann, um beliebige Daten sicher auszutauschen; das heißt, jede Art von Daten, die wir möchten, in jedem gewünschten Format.
+In diesem Leitfaden untersuchen wir, wie man einem Peer-Verbindungskanal einen Datenkanal hinzufügen kann, der dann verwendet werden kann, um beliebige Daten sicher auszutauschen; das heißt, jede Art von Daten in jedem gewünschten Format.
 
 > [!NOTE]
-> Da alle WebRTC-Komponenten Verschlüsselung verwenden müssen, werden alle auf einem `RTCDataChannel` übertragenen Daten automatisch mithilfe von Datagram Transport Layer Security (**DTLS**) gesichert. Siehe [Sicherheit](#sicherheit) unten für weitere Informationen.
+> Da alle WebRTC-Komponenten Verschlüsselung erfordern, werden alle auf einem `RTCDataChannel` übertragenen Daten automatisch durch Datagram Transport Layer Security (**DTLS**) gesichert. Siehe [Sicherheit](#sicherheit) unten für weitere Informationen.
 
 ## Erstellen eines Datenkanals
 
-Der zugrunde liegende Datentransport, der vom [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendet wird, kann auf zwei Arten erstellt werden:
+Der zugrunde liegende Datentransport, der von [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwendet wird, kann auf zwei Arten erstellt werden:
 
-- Lassen Sie WebRTC den Transport erstellen und dem Remote-Peer für Sie ankündigen (indem es ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis auslöst). Dies ist der einfache Weg und funktioniert für eine Vielzahl von Anwendungsfällen, entspricht jedoch möglicherweise nicht Ihren Flexibilitätsanforderungen.
-- Schreiben Sie Ihren eigenen Code, um den Datentransport zu verhandeln, und signalisieren Sie dem anderen Peer, dass er sich mit dem neuen Kanal verbinden muss.
+- Lassen Sie WebRTC den Transport erstellen und dem Remote-Peer ankündigen (indem er ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis empfängt). Dies ist der einfache Weg und funktioniert für eine Vielzahl von Anwendungsfällen, kann jedoch möglicherweise nicht flexibel genug für Ihre Bedürfnisse sein.
+- Schreiben Sie Ihren eigenen Code, um den Datentransport zu verhandeln und signalisieren Sie dem anderen Peer, dass er sich mit dem neuen Kanal verbinden muss.
 
-Schauen wir uns jede dieser Methoden an, beginnend mit der ersten, die die häufigste ist.
+Schauen wir uns jeden dieser Fälle an, beginnend mit dem ersten, der am häufigsten vorkommt.
 
 ### Automatische Verhandlung
 
-Oftmals können Sie die Verhandlung der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Verbindung von der Peer-Connection ausführen lassen. Hierzu rufen Sie [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf, ohne einen Wert für die Eigenschaft `negotiated` anzugeben oder indem Sie die Eigenschaft mit einem Wert von `false` angeben. Dies wird automatisch das `RTCPeerConnection` auslösen, um die Verhandlungen für Sie durchzuführen, wobei der Remote-Peer einen Datenkanal erstellt und die beiden über das Netzwerk verbindet.
+Oft können Sie der Peer-Verbindung ermöglichen, die [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Verbindung selbst zu verhandeln. Dazu rufen Sie [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf, ohne einen Wert für die `negotiated`-Eigenschaft anzugeben oder mit einem Wert von `false`. Dies löst automatisch aus, dass die `RTCPeerConnection` die Verhandlungen für Sie führt, wodurch der Remote-Peer einen Datenkanal erstellt und beide über das Netzwerk miteinander verbunden werden.
 
-Das `RTCDataChannel`-Objekt wird unmittelbar von `createDataChannel()` zurückgegeben; Sie können erkennen, wann die Verbindung erfolgreich hergestellt wurde, indem Sie auf das [`open`](/de/docs/Web/API/RTCDataChannel/open_event)-Ereignis achten, das an das `RTCDataChannel` gesendet wird.
+Das `RTCDataChannel`-Objekt wird sofort von `createDataChannel()` zurückgegeben; Sie können erkennen, wann die Verbindung erfolgreich hergestellt wurde, indem Sie das [`open`](/de/docs/Web/API/RTCDataChannel/open_event) Ereignis beobachten, das an das `RTCDataChannel` gesendet wird.
 
 ```js
 let dataChannel = pc.createDataChannel("MyApp Channel");
@@ -37,9 +37,9 @@ dataChannel.addEventListener("open", (event) => {
 
 ### Manuelle Verhandlung
 
-Um die Datenkanalverbindung manuell zu verhandeln, müssen Sie zuerst ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt mit der Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf dem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellen, indem Sie in den Optionen die Eigenschaft `negotiated` auf `true` setzen. Dies signalisiert der Peer-Connection, den Kanal nicht in Ihrem Namen zu verhandeln.
+Um die Datenkanalverbindung manuell zu verhandeln, müssen Sie zuerst ein neues [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt erstellen, indem Sie die Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwenden und in den Optionen eine `negotiated`-Eigenschaft festlegen, die auf `true` gesetzt ist. Dies signalisiert der Peer-Verbindung, nicht zu versuchen, den Kanal in Ihrem Namen zu verhandeln.
 
-Verhandeln Sie die Verbindung dann außerhalb des normalen Weges, indem Sie einen Webserver oder andere Mittel verwenden. Dieser Prozess sollte dem Remote-Peer signalisieren, dass er ein eigenes `RTCDataChannel` mit ebenfalls auf `true` gesetzter `negotiated`-Eigenschaft und derselben [`id`](/de/docs/Web/API/RTCDataChannel/id) erstellen sollte. Dadurch werden die beiden Objekte über das `RTCPeerConnection` verbunden.
+Verhandeln Sie dann die Verbindung außerhalb dieser, mit einem Webserver oder anderen Mitteln. Dieser Prozess sollte dem Remote-Peer signalisieren, dass er seinen eigenen `RTCDataChannel` mit der ebenfalls auf `true` gesetzten `negotiated`-Eigenschaft und demselben [`id`](/de/docs/Web/API/RTCDataChannel/id) erstellen soll. Dies wird die beiden Objekte über die `RTCPeerConnection` verknüpfen.
 
 ```js
 let dataChannel = pc.createDataChannel("MyApp Channel", {
@@ -53,22 +53,22 @@ dataChannel.addEventListener("open", (event) => {
 requestRemoteChannel(dataChannel.id);
 ```
 
-In diesem Codebeispiel wird der Kanal mit `negotiated` auf `true` erstellt, dann wird eine Funktion namens `requestRemoteChannel()` verwendet, um die Verhandlung auszulösen, um einen Remote-Kanal mit derselben ID wie der lokale Kanal zu erstellen.
+In diesem Code-Snippet wird der Kanal mit `negotiated` auf `true` gesetzt erstellt, und eine Funktion namens `requestRemoteChannel()` wird verwendet, um die Verhandlung auszulösen, um einen Remote-Kanal mit derselben ID wie der lokale Kanal zu erstellen.
 
-Dies ermöglicht es, Datenkanäle mit unterschiedlichen Eigenschaften für jeden Peer zu erstellen und Kanäle deklarativ zu erstellen, indem derselbe Wert für `id` verwendet wird.
+Durch diese Vorgehensweise können Sie Datenkanäle erstellen, bei denen jeder Peer unterschiedliche Eigenschaften verwendet, und Kanäle deklarativ durch die Verwendung des gleichen `id`-Werts erstellen.
 
 ## Pufferung
 
-WebRTC-Datenkanäle unterstützen die Pufferung von ausgehenden Daten. Dies wird automatisch gehandhabt. Obwohl es keine Möglichkeit gibt, die Größe des Puffers zu steuern, können Sie erfahren, wie viel Daten derzeit gepuffert sind, und Sie können sich für ein Ereignis benachrichtigen lassen, wenn der Puffer beginnt, an Warteschlangendaten abzunehmen. Dies macht es einfach, effiziente Routinen zu schreiben, die sicherstellen, dass immer Daten bereit sind, ohne übermäßig viel Speicher zu verwenden oder den Kanal komplett zu überfluten.
+WebRTC-Datenkanäle unterstützen die Pufferung ausgehender Daten. Dies wird automatisch gehandhabt. Während es keine Möglichkeit gibt, die Größe des Puffers zu steuern, können Sie erfahren, wie viele Daten aktuell gepuffert sind, und Sie können wählen, ob Sie durch ein Ereignis benachrichtigt werden möchten, wenn der Puffer beginnt, mit wartenden Daten zurückzugehen. Dies erleichtert das Schreiben effizienter Routinen, die sicherstellen, dass immer Daten zum Senden bereit sind, ohne den Speicher übermäßig zu beanspruchen oder den Kanal komplett zu überlasten.
 
-## Verstehen von Nachrichtengrößenbeschränkungen
+## Verständnis der Nachrichtenbegrenzung
 
-Sie sollten die Nachrichtengrößen mäßig klein halten. Während die meisten modernen Browser das Senden von Nachrichten von mindestens 256 Kilobytes unterstützen, gibt es Nachteile beim Senden großer Nachrichten, insbesondere wenn kein Nachrichtenzwischenschichten verfügbar ist. Ohne Nachrichtenzwischenschichten (wie in {{rfc("8260")}} definiert) kann das Senden einer großen Nachricht auf einem Datenkanal zu {{Glossary("Head_of_line_blocking", "Head-of-Line-Blocking")}} führen, was wiederum die Latenz von Nachrichten auf anderen Datenkanälen negativ beeinflussen kann.
+Sie sollten die Nachrichtengrößen moderat klein halten. Während die meisten modernen Browser das Senden von Nachrichten von mindestens 256 Kilobyte unterstützen, gibt es Nachteile beim Senden großer Nachrichten, insbesondere wenn keine Nachrichtenverschachtelung verfügbar ist. Ohne Nachrichtenverschachtelung (wie in {{rfc("8260")}} definiert), kann das Senden einer großen Nachricht über einen Datenkanal {{Glossary("Head_of_line_blocking", "Head-of-Line-Blocking")}} verursachen, was wiederum die Latenz von Nachrichten auf anderen Datenkanälen negativ beeinflussen kann.
 
-Die maximale Nachrichtengröße kann mithilfe des `max-message-size` SDP-Attributs verhandelt werden, wie in [RFC 8841](https://www.rfc-editor.org/rfc/rfc8841.html) definiert. Dieses Attribut ermöglicht es jedem Peer, die maximale Größe einer SCTP-Benutzernachricht zu deklarieren, die er bereit ist zu empfangen. Indem dieser Wert verhandelt wird, können Endpunkte vermeiden, Nachrichten zu senden, die größer sind, als der andere Peer handhaben kann. Wenn das Attribut `max-message-size` nicht im SDP vorhanden ist, wird ein Standardwert von 64 Kilobytes angenommen. Ein Wert von 0 zeigt an, dass der Endpunkt Nachrichten jeder Größe handhaben kann, nur durch den verfügbaren Speicher begrenzt.
+Die maximale Nachrichtengröße kann mit dem `max-message-size` SDP-Attribut verhandelt werden, wie in [RFC 8841](https://www.rfc-editor.org/info/rfc8841) definiert. Dieses Attribut ermöglicht es jedem Peer, die maximale Größe einer SCTP-Benutzernachricht zu deklarieren, die er zu empfangen bereit ist. Durch die Aushandlung dieses Wertes können Endpunkte vermeiden, Nachrichten zu senden, die größer sind, als der andere Peer verarbeiten kann. Wenn das `max-message-size`-Attribut nicht im SDP vorhanden ist, wird ein Standardwert von 64 Kilobyte angenommen. Ein Wert von 0 gibt an, dass der Endpunkt Nachrichten jeder Größe verarbeiten kann, nur durch den verfügbaren Speicher begrenzt.
 
 ## Sicherheit
 
-Alle mit WebRTC übertragenen Daten sind verschlüsselt. Im Fall von `RTCDataChannel` wird die Verschlüsselung mithilfe von Datagram Transport Layer Security (DTLS), basierend auf [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security) (TLS), durchgeführt. Da TLS zur Sicherung jeder HTTPS-Verbindung verwendet wird, sind alle Daten, die Sie über einen Datenkanal senden, genauso sicher wie alle anderen Daten, die vom Browser des Benutzers gesendet oder empfangen werden.
+Alle mit WebRTC übertragenen Daten sind verschlüsselt. Im Fall von `RTCDataChannel` wird die Verschlüsselung durch Datagram Transport Layer Security (DTLS) durchgeführt, das auf [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security) (TLS) basiert. Da TLS verwendet wird, um jede HTTPS-Verbindung zu sichern, sind alle Daten, die Sie über einen Datenkanal senden, genauso sicher wie alle anderen Daten, die vom Browser des Benutzers gesendet oder empfangen werden.
 
-Grundsätzlich, da WebRTC eine Peer-to-Peer-Verbindung zwischen zwei Benutzeragenten ist, passieren die Daten nie den Web- oder Anwendungsserver. Das reduziert die Möglichkeit, dass die Daten abgefangen werden.
+Grundsätzlich, da WebRTC eine Peer-to-Peer-Verbindung zwischen zwei User Agents ist, wird die Datenübertragung nie durch den Web- oder Anwendungsserver geleitet. Dadurch werden Möglichkeiten reduziert, die Daten abzufangen.

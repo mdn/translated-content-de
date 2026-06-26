@@ -3,18 +3,30 @@ title: "SVGAnimatedEnumeration: animVal-Eigenschaft"
 short-title: animVal
 slug: Web/API/SVGAnimatedEnumeration/animVal
 l10n:
-  sourceCommit: b7c9a25bc747b8a4a3dfd91a37ac1b2193414c3a
+  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
 ---
 
 {{APIRef("SVG")}}
 
-Die **`animVal`**-Eigenschaft des [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Interfaces enthält den aktuellen Wert einer SVG-Enumeration. Wenn keine Animation vorliegt, ist es derselbe Wert wie der [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
+Die **`animVal`** Leseeigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle repräsentiert den Wert einer SVG-Enumeration.
+
+In SVG 2 spiegelt `animVal` den nicht animierten Wert des Attributs wider: Es ist dasselbe wie [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
 
 ## Wert
 
-Ein Ganzzahlwert, der den aktuellen Wert der Enumeration enthält
+Ein ganzzahliger Wert, der den Wert der Enumeration repräsentiert.
+
+Die erlaubten Werte hängen von dem Attribut ab, das widergespiegelt wird.
+Diese Eigenschaft kann nicht beschrieben werden.
+
+## Ausnahmen
+
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Eigenschaft irgendein Wert zugewiesen wird.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```css hidden
 html,
@@ -44,6 +56,8 @@ svg {
 <pre id="log"></pre>
 ```
 
+Das folgende JavaScript holt das Element und protokolliert den `animValue` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
+
 ```js
 const clipPath1 = document.getElementById("clip1");
 const log = document.getElementById("log");
@@ -52,7 +66,6 @@ function displayLog() {
   const animValue = clipPath1.clipPathUnits.animVal;
   const baseValue = clipPath1.clipPathUnits.baseVal;
   log.textContent = `The 'clipPathUnits.animVal' is ${animValue}.\n`;
-  log.textContent += `The 'clipPathUnits.baseVal' is ${baseValue}.`;
   requestAnimationFrame(displayLog);
 }
 

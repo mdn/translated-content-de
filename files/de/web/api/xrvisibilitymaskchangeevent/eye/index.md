@@ -3,30 +3,30 @@ title: "XRVisibilityMaskChangeEvent: eye-Eigenschaft"
 short-title: eye
 slug: Web/API/XRVisibilityMaskChangeEvent/eye
 l10n:
-  sourceCommit: 8330e7c1afd31d53ae12c3271e96d681bba9e223
+  sourceCommit: 058e546d8a4ed2529efc5cc6ad9d06162bb59def
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`eye`**-Eigenschaft des [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent)-Interfaces gibt an, auf welches Auge die Maske angewendet wird.
+Die **`eye`** schreibgeschützte Eigenschaft der Schnittstelle [`XRVisibilityMaskChangeEvent`](/de/docs/Web/API/XRVisibilityMaskChangeEvent) gibt an, auf welches Auge die Maske angewendet wird.
 
 ## Wert
 
 Ein enumerierter Wert, der angibt, auf welches Auge die Maske aus der Perspektive des Betrachters angewendet wird.
-Dies kann eines der folgenden sein:
+Dies kann einer der folgenden Werte sein:
 
 - `left`
   - : Das linke Auge des Betrachters.
 - `right`
   - : Das rechte Auge des Betrachters.
 - `none`
-  - : Eine monokulare Ansicht oder die Ansicht stellt anderweitig keine spezifische Perspektive eines Auges dar.
+  - : Eine monokulare Ansicht, oder die Ansicht stellt nicht den Sichtpunkt eines bestimmten Auges dar.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man den `eye`-Wert überprüfen kann, wenn das `visibilitymaskchange`-Ereignis ausgelöst wird, und dann je nach Ergebnis eine geeignete Anzeigeaktualisierung rendern kann.
+Dieses Beispiel zeigt, wie Sie den `eye`-Wert überprüfen können, wenn das `visibilitymaskchange`-Ereignis ausgelöst wird, und dann je nach Ergebnis eine entsprechende Anzeigeaktualisierung rendern.
 
 ```js
 xrSession.addEventListener("visibilitymaskchange", (e) => {

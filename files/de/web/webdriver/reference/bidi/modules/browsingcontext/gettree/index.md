@@ -3,10 +3,10 @@ title: "`browsingContext.getTree`-Befehl"
 short-title: getTree
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree
 l10n:
-  sourceCommit: 52a247932646cc4cb4b3a9bb50d7bd66d1fdc713
+  sourceCommit: ef8c3806c33f2b1d9d381f4fe3b643b5af5e3d22
 ---
 
-Der `browsingContext.getTree`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls gibt den Baum aller [obersten Kontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) oder den Teilbaum ab dem angegebenen Kontext zurück.
+Der `browsingContext.getTree`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls gibt den Baum aller [Top-Level-Kontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) oder den Teilbaum, beginnend mit dem angegebenen Kontext, zurück.
 
 ## Syntax
 
@@ -32,43 +32,43 @@ Der `browsingContext.getTree`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Mod
 Das `params`-Feld kann enthalten:
 
 - `maxDepth` {{optional_inline}}
-  - : Eine nicht-negative Ganzzahl, die die maximale Tiefe des Baumes angibt, der zurückgegeben werden soll.
-    Wenn nicht enthalten, was dem Wert `null` entspricht, wird der vollständige Baum zurückgegeben.
+  - : Eine nicht negative ganze Zahl, die die maximale Tiefe des zurückzugebenden Baums angibt.
+    Wenn nicht einschlossen, was dem Wert `null` entspricht, wird der vollständige Baum zurückgegeben.
     Ein Wert von `0` gibt nur den Wurzelkontext selbst zurück.
-    Wenn beispielsweise ein oberster Kontext ein `<iframe>` enthält, welches selbst ein weiteres `<iframe>` enthält, gibt ein `maxDepth` von `0` nur den obersten Kontext zurück; ein `maxDepth` von `1` gibt den obersten Kontext und das erste `<iframe>` zurück, jedoch nicht das verschachtelte.
+    Zum Beispiel, wenn ein Top-Level-Kontext ein `<iframe>` enthält, das selbst ein weiteres `<iframe>` enthält, dann gibt ein `maxDepth` von `0` nur den Top-Level-Kontext zurück; ein `maxDepth` von `1` gibt den Top-Level-Kontext und das erste `<iframe>` zurück, aber nicht das geschachtelte.
 - `root` {{optional_inline}}
-  - : Ein String, der die ID des Kontexts enthält, der als Wurzel des zurückgegebenen Baumes verwendet werden soll.
-    Kontext-IDs werden durch Befehle wie [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) oder Ereignisse wie [`browsingContext.contextCreated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextCreated) zurückgegeben.
-    Wenn nicht enthalten, werden alle [obersten Kontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) zurückgegeben.
+  - : Ein String, der die ID des Kontexts enthält, der als Wurzel des zurückgegebenen Baums verwendet werden soll.
+    Kontext-IDs werden von Befehlen wie [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) oder Ereignissen wie [`browsingContext.contextCreated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/contextCreated) zurückgegeben.
+    Wenn nicht eingeschlossen, werden alle [Top-Level-Kontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) zurückgegeben.
 
 ### Rückgabewert
 
-Das `result`-Objekt in der Antwort enthält die folgenden Felder:
+Das `result`-Objekt in der Antwort enthält folgende Felder:
 
 - `contexts`
-  - : Ein Array von Kontextobjekten, die jeweils die Eigenschaften eines Kontextes darstellen. Jedes Objekt hat die folgenden Felder:
+  - : Ein Array von Kontextobjekten, wobei jedes Objekt die Eigenschaften eines Kontexts darstellt. Jedes Objekt hat folgende Felder:
     - `children`
-      - : Ein Array von Kontextobjekten, das die untergeordneten Kontexte dieses Kontexts darstellt. Jedes untergeordnete Objekt hat die gleiche Struktur mit seinem eigenen `children`-Array, was dies zu einer rekursiven Darstellung des Kontextbaums macht.
-        Ein leeres Array zeigt an, dass der Kontext keine untergeordneten Elemente hat, während ein `null`-Wert anzeigt, dass untergeordnete Elemente von der Antwort ausgeschlossen sind, beispielsweise wenn das `maxDepth`-Limit erreicht ist.
+      - : Ein Array von Kontextobjekten, das die Kindkontexte dieses Kontexts darstellt. Jedes Kindobjekt hat dieselbe Struktur mit seinem eigenen `children`-Array, was dies zu einer rekursiven Darstellung des Kontextbaums macht.
+        Ein leeres Array zeigt an, dass der Kontext keine Kinder hat, während ein `null`-Wert darauf hinweist, dass Kinder aus der Antwort ausgeschlossen sind, etwa wenn das `maxDepth`-Limit erreicht ist.
     - `clientWindow`
-      - : Ein String, der die ID des [Client-Fensters](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows) enthält, das diesen Kontext enthält.
+      - : Ein String, der die ID des [Client-Fensters](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#client_windows) enthält, das diesen Kontext beinhaltet.
     - `context`
       - : Ein String, der die ID des Kontexts enthält.
     - `originalOpener`
       - : Ein String, der die ID des Kontexts enthält, der diesen Kontext ursprünglich geöffnet hat.
-        Der Wert ist `null`, wenn der Kontext direkt (nicht von einem anderen Kontext) geöffnet wurde.
+        Der Wert ist `null`, wenn der Kontext direkt geöffnet wurde (nicht von einem anderen Kontext).
 
         > [!NOTE]
-        > `originalOpener` wird einmal festgelegt, wenn der Kontext erstellt wird. Es ändert sich nie und behält immer die Kontext-ID des Öffners bei. Dies unterscheidet sich von der JavaScript-Eigenschaft [`window.opener`](/de/docs/Web/API/Window/opener), die das Fenster referenziert, das das aktuelle Fenster geöffnet hat — es wird `null`, wenn das [`rel=noopener`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener)-Attribut auf dem Link verwendet wird oder wenn das [`noopener`](/de/docs/Web/API/Window/open#noopener)-Fenstermerkmal in [`window.open()`](/de/docs/Web/API/Window/open) angegeben ist.
+        > `originalOpener` wird einmal gesetzt, wenn der Kontext erstellt wird. Es ändert sich nie und behält immer die ID des eröffnenden Kontexts bei. Dies unterscheidet sich von der JavaScript- [`window.opener`](/de/docs/Web/API/Window/opener)-Eigenschaft, die auf das Fenster verweist, das das aktuelle Fenster geöffnet hat — es wird `null`, wenn das [`rel=noopener`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener)-Attribut auf dem Link verwendet wird oder wenn das [`noopener`](/de/docs/Web/API/Window/open#noopener)-Fenstermerkmal in [`window.open()`](/de/docs/Web/API/Window/open) angegeben ist.
 
     - `parent` {{optional_inline}}
       - : Ein String, der die ID des übergeordneten Kontexts enthält.
-        Der Wert ist `null`, wenn der Kontext kein übergeordnetes Element hat.
-        Dieses Feld ist nur für die Wurzelelemente im zurückgegebenen Array vorhanden.
+        Der Wert ist `null`, wenn der Kontext kein übergeordneter ist.
+        Dieses Feld ist nur für die Wurzelebenelemente im zurückgegebenen Array vorhanden.
     - `url`
       - : Ein String, der die URL des Kontexts einschließlich des Fragments enthält.
     - `userContext`
-      - : Ein String, der die ID des [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) enthält, der mit diesem Kontext verknüpft ist.
+      - : Ein String, der die ID des mit diesem Kontext verknüpften [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) enthält.
 
 ### Fehler
 
@@ -79,9 +79,11 @@ Das `result`-Objekt in der Antwort enthält die folgenden Felder:
 
 ## Beispiele
 
-### Abrufen aller obersten Kontexte
+### Abrufen aller Top-Level-Kontexte
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), betrachten Sie ein Szenario, in dem zwei Tabs im Browser geöffnet sind: der erste Tab unter `https://example.com/page1.html` hat ein `<iframe>`, das `https://example.com/frame.html` lädt, und der zweite Tab zeigt `https://example.com/page2.html`:
+Angenommen, Sie haben eine [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und eine [aktive Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new).
+
+Angenommen, im Browser sind zwei Registerkarten geöffnet: Die erste Registerkarte unter `https://example.com/page1.html` hat ein `<iframe>`, das `https://example.com/frame.html` lädt, und die zweite Registerkarte zeigt `https://example.com/page2.html`:
 
 ```plain
 Browser
@@ -100,9 +102,9 @@ Senden Sie die folgende Nachricht, um den vollständigen Kontextbaum zu erhalten
 }
 ```
 
-Das `contexts`-Array listet die beiden obersten Kontexte auf. Das `<iframe>` innerhalb von Tab 1 erscheint unter seinen `children` verschachtelt. Der Browser antwortet wie folgt:
+Das `contexts`-Array listet die beiden Top-Level-Kontexte auf. Das `<iframe>` in Tab 1 erscheint verschachtelt unter seinen `children`. Der Browser antwortet wie folgt:
 
-```json
+```json-nolint
 {
   "id": 1,
   "type": "success",
@@ -141,9 +143,9 @@ Das `contexts`-Array listet die beiden obersten Kontexte auf. Das `<iframe>` inn
 }
 ```
 
-### Abrufen eines Teilbaums ab einem bestimmten Kontext
+### Abrufen eines Teilbaums von einem bestimmten Kontext
 
-Verwenden Sie dasselbe Setup wie im vorherigen Beispiel, um nur Tab 1 und seinen unmittelbar untergeordneten Kontext zu erhalten, senden Sie die folgende Nachricht mit der Kontext-ID von Tab 1 als `root` und `maxDepth` auf `1` gesetzt:
+Bei demselben Setup wie im vorherigen Beispiel senden Sie die folgende Nachricht, um nur Tab 1 und seinen unmittelbaren Kindkontext zu erhalten, wobei Tab 1s Kontext-ID als `root` und `maxDepth` auf `1` gesetzt ist:
 
 ```json
 {
@@ -156,7 +158,7 @@ Verwenden Sie dasselbe Setup wie im vorherigen Beispiel, um nur Tab 1 und seinen
 }
 ```
 
-Der Browser antwortet mit Tab 1 und seinen unmittelbaren untergeordneten Elementen. Das `children`-Feld für das iframe ist `null`; die Einstellung `maxDepth` von `1` beschränkt die Antwort auf eine Ebene unterhalb der Wurzel, sodass die eigenen Kinder des `<iframe>` nicht enthalten sind:
+Der Browser antwortet mit Tab 1 und seinem unmittelbaren Kind. Das `children`-Feld für das iframe ist `null`; die `maxDepth`-Einstellung von `1` begrenzt die Antwort auf eine Ebene unterhalb der Wurzel, sodass die eigenen Kinder des `<iframe>` nicht eingeschlossen sind:
 
 ```json
 {
@@ -187,9 +189,9 @@ Der Browser antwortet mit Tab 1 und seinen unmittelbaren untergeordneten Element
 }
 ```
 
-In diesem Beispiel, wenn der `root`-Parameter der `browsingContext.getTree`-Nachricht auf die Kontext-ID des iframe (`"6442450945"`) gesetzt wäre, würde das `parent`-Feld des `<iframe>` in der Antwort `"93ee5bd6-d256-4608-a002-9a8995cc0e5f"` (Kontext-ID von Tab 1) anstelle von `null` sein.
+In diesem Beispiel, wenn der `root`-Parameter der `browsingContext.getTree`-Nachricht auf die Kontext-ID des iframes (`"6442450945"`) gesetzt würde, wäre das `parent`-Feld des `<iframe>` in der Antwort `"93ee5bd6-d256-4608-a002-9a8995cc0e5f"` (die Kontext-ID von Tab 1) statt `null`.
 
-Um die Suche nur auf den Wurzelkontext ohne untergeordnete Elemente zu beschränken, setzen Sie `maxDepth` auf `0`:
+Um die Suche nur auf den Wurzelkontext ohne Kinder zu beschränken, setzen Sie `maxDepth` auf `0`:
 
 ```json
 {
@@ -224,9 +226,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Identifizierung des Öffners eines Kontexts
+### Identifizieren des Öffners eines Kontexts
 
-Basierend auf demselben Setup, betrachten Sie, dass Tab 2 (`https://example.com/page2.html`) von Tab 1 (`https://example.com/page1.html`) mittels `window.open()` geöffnet wurde. Senden Sie die folgende Nachricht, um zu sehen, wie diese Beziehung in der Antwort dargestellt wird:
+Erweiternd zum gleichen Setup, betrachten Sie, dass Tab 2 (`https://example.com/page2.html`) von Tab 1 (`https://example.com/page1.html`) mit `window.open()` geöffnet wurde. Senden Sie die folgende Nachricht, um zu sehen, wie diese Beziehung in der Antwort vermittelt wird:
 
 ```json
 {
@@ -238,7 +240,7 @@ Basierend auf demselben Setup, betrachten Sie, dass Tab 2 (`https://example.com/
 
 Der Browser antwortet mit dem vollständigen Kontextbaum. Das `originalOpener`-Feld identifiziert den Kontext, der Tab 2 geöffnet hat:
 
-```json
+```json-nolint
 {
   "id": 4,
   "type": "success",

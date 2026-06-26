@@ -3,16 +3,18 @@ title: "SVGScriptElement: async-Eigenschaft"
 short-title: async
 slug: Web/API/SVGScriptElement/async
 l10n:
-  sourceCommit: 0c001c739dd59b282af60a6d0a55c161798c0084
+  sourceCommit: a9e07b75358077e93e2515a13a7413275116ee48
 ---
 
 {{APIRef("SVG")}}
 
-Die **`async`**-Eigenschaft des [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)-Interfaces ist ein Boolean-Wert, der steuert, wie das Skript ausgeführt werden soll. Sie entspricht dem {{SVGAttr("async")}}-Attribut des angegebenen {{SVGElement("script")}}-Elements. Wenn sie auf `true` gesetzt ist, wird das externe Skript parallel zum Parsen des SVG-Dokuments abgerufen und das Skript wird ausgewertet, sobald es verfügbar ist.
+Die **`async`**-Eigenschaft des [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)-Interfaces ist ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten, wenn die `async`-Eigenschaft auf `true` gesetzt ist, wird das externe Skript parallel zum Parsen abgerufen und so bald wie möglich ausgewertet. Bei [Modulskripten](/de/docs/Web/JavaScript/Guide/Modules), wenn die `async`-Eigenschaft auf `true` gesetzt ist, werden das Skript und alle seine Abhängigkeiten parallel zum Parsen abgerufen und ausgewertet, sobald sie verfügbar sind.
+
+Sie spiegelt das [`async`](/de/docs/Web/SVG/Reference/Element/script#async)-Attribut des {{SVGElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -26,8 +28,6 @@ Ein Boolean.
 
 ```js
 const scriptElement = document.getElementById("myScript");
-
-// Access the async property
 console.log(scriptElement.async); // Output: true
 ```
 
@@ -41,4 +41,5 @@ console.log(scriptElement.async); // Output: true
 
 ## Siehe auch
 
+- [`SVGScriptElement.defer`](/de/docs/Web/API/SVGScriptElement/defer)
 - [`HTMLScriptElement.async`](/de/docs/Web/API/HTMLScriptElement/async)

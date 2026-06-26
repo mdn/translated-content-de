@@ -2,7 +2,7 @@
 title: webNavigation.onErrorOccurred
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred
 l10n:
-  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
+  sourceCommit: 9791add3508e087982097f25fbd367c21bcb8305
 ---
 
 Wird ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist oder der Benutzer die Navigation abgebrochen hat.
@@ -23,11 +23,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`, `addListener(listener, filter)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hören Sie auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
@@ -38,45 +38,45 @@ Ereignisse haben drei Funktionen:
     - `details`
       - : [`object`](#details). Details über das Navigationsevent. **`details`** hat die folgenden Eigenschaften:
         - `tabId`
-          - : `integer`. Die ID des Tabs, in dem sich die Navigation befand.
+          - : `integer`. Die ID des Tabs, in dem die Navigation stattfand.
         - `url`
           - : `string`. Die URL, zu der der gegebene Frame navigierte.
         - `frameId`
-          - : `integer`. Frame, in dem sich die Navigation befand.
+          - : `integer`. Frame, in dem die Navigation stattfand.
 
-            `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs und nicht in einem verschachtelten {{HTMLElement("iframe")}} stattfand.
+            `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs stattfand, nicht in einem verschachtelten {{HTMLElement("iframe")}}.
 
             Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattfand.
 
-            Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
+            Frame-IDs sind für einen gegebenen Tab und Prozess einzigartig.
 
         - `frameType`
-          - : `string`. Der Typ des Frames, in dem die Navigation erfolgte. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
+          - : `string`. Der Typ des Frames, in dem die Navigation stattfand. Liefert die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"`.
         - `parentFrameId`
-          - : `integer`. ID des übergeordneten Frames dieses Frames. Setzt auf `-1`, wenn dies ein oberster Frame ist.
+          - : `integer`. ID des übergeordneten Frames dieses Frames. Auf `-1` gesetzt, wenn dies ein oberster Frame ist.
         - `documentId`
-          - : `string`. Eine UUID des geladenen Dokuments.
+          - : `string`. Eine UUID des geladenen Dokuments. Weitere Informationen finden Sie im Artikel [Mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
         - `parentDocumentId`
-          - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Nicht gesetzt, wenn es keine übergeordnete gibt.
+          - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Nicht gesetzt, wenn es kein übergeordnetes Element gibt. Weitere Informationen finden Sie im Artikel [Mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
         - `documentLifecycle`
-          - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` und `"pending_deletion"` zurück.
+          - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Liefert die Werte `"prerender"`, `"active"`, `"cached"` und `"pending_deletion"`.
         - `timeStamp`
-          - : `number`. Die Zeit, zu der der Fehler aufgetreten ist, in [Millisekunden seit der Unix-Epoche](https://en.wikipedia.org/wiki/Unix_time).
+          - : `number`. Der Zeitpunkt, zu dem der Fehler aufgetreten ist, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
         - `processId` {{optional_inline}} {{deprecated_inline}}
-          - : `integer`. Dieser Wert wird in modernen Browsern nie gesetzt. Er repräsentierte früher die ID des Prozesses, der den Renderer für diesen Tab ausführt.
+          - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Er repräsentierte früher die ID des Prozesses, der den Renderer für diesen Tab ausführte.
         - `error`
-          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und wird nicht garantiert gleich zu bleiben oder zwischen verschiedenen Browsern konsistent zu sein.
+          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und es wird nicht garantiert, dass er gleich bleibt oder in verschiedenen Browsern konsistent ist.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist.
+  - : `object`. Ein Objekt, das eine einzige Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}}-Objekten ist.
 
-    Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen.
+    Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen.
 
     Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs für `onErrorOccurred`, wenn der Ziel-URL-`hostname` `"example.com"` enthält oder mit `"developer"` beginnt.
+Protokolliert die Ziel-URLs für `onErrorOccurred`, wenn der `hostname` der Ziel-URL `"example.com"` enthält oder mit `"developer"` beginnt.
 
 ```js
 const filter = {

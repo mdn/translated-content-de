@@ -2,12 +2,12 @@
 title: publicSuffix.getKnownSuffix()
 slug: Mozilla/Add-ons/WebExtensions/API/publicSuffix/getKnownSuffix
 l10n:
-  sourceCommit: 5054fb75bce0f095ed9ca9ad11dabde32eea5cb4
+  sourceCommit: 79dc4b2dfc4d0564581cc4e417e5a2cfdd64bbd6
 ---
 
-Gibt den bekannten öffentlichen Suffix (eTLD) des Hostnamens gemäß der [Public Suffix List](https://publicsuffix.org/) zurück oder `null`, wenn der Hostname keinen bekannten öffentlichen Suffix hat.
+Gibt das bekannte öffentliche Suffix (eTLD) des Hostnamens gemäß der [Public Suffix List](https://publicsuffix.org/) zurück oder `null`, wenn der Hostname kein bekanntes öffentliches Suffix hat.
 
-Wenn ein Hostname mehrere mögliche öffentliche Suffixe hat, wird der längste passende Eintrag zurückgegeben.
+Wenn ein Hostname mehrere mögliche öffentliche Suffixe hat, wird der längste übereinstimmende Eintrag zurückgegeben.
 
 ## Syntax
 
@@ -18,24 +18,24 @@ let suffix = browser.publicSuffix.getKnownSuffix(hostname)
 ### Parameter
 
 - `hostname`
-  - : `string`. Der Hostname, dessen öffentlicher Suffix zurückgegeben werden soll.
+  - : `string`. Der Hostname, dessen öffentliches Suffix zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein `string` mit dem öffentlichen Suffix von `hostname` oder `null`, wenn kein bekannter öffentlicher Suffix für `hostname` existiert.
+Ein `string`, der das öffentliche Suffix von `hostname` enthält, oder `null`, wenn kein bekanntes öffentliches Suffix für `hostname` existiert.
 
-Wirft einen Fehler, wenn `hostname` kein gültiger Hostname ist.
+Es wird ein Fehler ausgelöst, wenn `hostname` kein gültiger Hostname ist.
 
 ## Beispiele
 
-Den öffentlichen Suffix eines Hostnamens abrufen:
+Erhalten Sie das öffentliche Suffix eines Hostnamens:
 
 ```js
-console.log(browser.publicSuffix.getKnownSuffix("example.com")); // "com"
-console.log(browser.publicSuffix.getKnownSuffix("example.co.uk")); // "co.uk"
-console.log(browser.publicSuffix.getKnownSuffix("user.github.io")); // "github.io"
-console.log(browser.publicSuffix.getKnownSuffix("com")); // "com"
-console.log(browser.publicSuffix.getKnownSuffix("localhost")); // null
+browser.publicSuffix.getKnownSuffix("example.com"); // "com"
+browser.publicSuffix.getKnownSuffix("example.co.uk"); // "co.uk"
+browser.publicSuffix.getKnownSuffix("user.github.io"); // "github.io"
+browser.publicSuffix.getKnownSuffix("com"); // "com"
+browser.publicSuffix.getKnownSuffix("localhost"); // null
 ```
 
 {{WebExtExamples}}

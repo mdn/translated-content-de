@@ -2,16 +2,21 @@
 title: rotate
 slug: Web/SVG/Reference/Attribute/rotate
 l10n:
-  sourceCommit: db01d0c8b4cbf8a4467b1db65e17f6724d0ce710
+  sourceCommit: 78b4b9da712e8189c735f4c0ca4ef443dd626be6
 ---
 
-Das `rotate`-Attribut legt fest, wie das animierte Element rotiert, während es einem Pfad folgt, der in einem {{SVGElement("animateMotion")}}-Element angegeben ist.
+Das `rotate`-Attribut hat zwei verschiedene Verwendungen, abhängig vom Element, auf das es angewendet wird:
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+- Bei {{SVGElement("animateMotion")}}-Elementen bestimmt es, wie sich das animierte Element dreht, während es sich entlang eines Bewegungspfads bewegt.
+- Bei {{SVGElement("text")}}- und {{SVGElement("tspan")}}-Elementen gibt es die Rotation für jedes Glyph im Textelement an.
+
+Das SVG-Attribut `rotate` kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animateMotion")}}
+- {{SVGElement("text")}}
+- {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## animateMotion
 
 <table class="properties">
   <tbody>
@@ -33,13 +38,49 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
   </tbody>
 </table>
 
-Die Werte `auto` und `auto-reverse` ermöglichen, dass sich die Rotation des animierten Elements dynamisch ändert, während es dem Pfad folgt. Wenn der Wert von `rotate` `auto` ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung zeigt. Wenn der Wert `auto-reverse` ist, dreht sich seine linke Seite in die aktuelle Bewegungsrichtung.
+Die Werte `auto` und `auto-reverse` erlauben, dass sich die Drehung des animierten Elements dynamisch ändert, während es sich entlang des Pfads bewegt.
+Wenn der Wert von `rotate` `auto` ist, dreht sich das Element, um seine rechte Seite in die aktuelle Bewegungsrichtung auszurichten.
+Wenn der Wert `auto-reverse` ist, dreht es seine linke Seite in die aktuelle Bewegungsrichtung.
 
-Wenn der Wert von `rotate` auf eine Zahl gesetzt wird, wird eine konstante Rotation in Grad festgelegt, die sich während der Animation nicht ändert. Der Standardwert von `0` behält die ursprüngliche Ausrichtung des animierten Elements bei.
+Eine Zahl als Wert von `rotate` festzulegen, gibt eine konstante Drehung in Grad an, die sich mit der Animation nicht ändert.
+Der Standardwert von `0` hält das animierte Element in seiner ursprünglichen Ausrichtung.
+
+## text und tspan
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Wert</th>
+      <td>
+        <a href="/de/docs/Web/SVG/Guides/Content_type#list-of-ts"
+          >&#x3C;list-of-number></a
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Standardwert</th>
+      <td>Keiner</td>
+    </tr>
+    <tr>
+      <th scope="row">Animierbar</th>
+      <td>Ja</td>
+    </tr>
+  </tbody>
+</table>
+
+Eine Liste von Zahlen (durch Leerzeichen oder Kommas getrennt), die jeweils die Drehung in Grad angeben, die auf das entsprechende Glyph angewendet werden soll.
+Wenn es weniger Zahlen als Glyphen gibt, wird die letzte Zahl auf alle verbleibenden Glyphen angewendet.
+Wenn es mehr Zahlen als Glyphen gibt, werden die zusätzlichen Zahlen ignoriert.
+
+Rotationswerte gelten für einzelne gerenderte visuelle Zeichen und entsprechen daher nicht immer eins-zu-eins den Eingabezeichen oder gerenderten Glyphen.
+Wenn ein einzelnes visuelles Zeichen aus mehreren Glyphen besteht (wie ein Grundbuchstabe mit einem separaten Akzent-Glyph) oder wenn mehrere Eingabezeichen zu einem einzigen Glyph zusammengefasst werden (wie eine Ligatur), werden die zusammengehörenden Teile als Gruppe gedreht.
+Dies ist notwendig, da eine unabhängige Drehung das Erscheinungsbild oder die Bedeutung des Zeichens verzerren würde.
 
 ## Beispiele
 
-### SVG
+### Drehung entlang eines Bewegungspfads (animateMotion)
+
+#### SVG
 
 ```html
 <svg
@@ -98,9 +139,23 @@ Wenn der Wert von `rotate` auf eine Zahl gesetzt wird, wird eine konstante Rotat
 </svg>
 ```
 
-### Ergebnis
+#### Ergebnis
 
-{{EmbedLiveSample('Examples')}}
+{{EmbedLiveSample('Rotation_along_a_motion_path_animateMotion', '100%', 120)}}
+
+### Rotation pro Glyph (text)
+
+#### SVG
+
+```html
+<svg width="200" height="80" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="50" font-size="28" rotate="0 15 30 45 60 75">Hello!</text>
+</svg>
+```
+
+#### Ergebnis
+
+{{EmbedLiveSample('Per-glyph_rotation_text', '100%', 80)}}
 
 ## Spezifikationen
 

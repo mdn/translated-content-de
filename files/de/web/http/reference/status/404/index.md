@@ -2,14 +2,18 @@
 title: 404 Not Found
 slug: Web/HTTP/Reference/Status/404
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Der HTTP-Statuscode **`404 Not Found`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die angeforderte Ressource nicht finden kann. Links, die zu einer 404-Seite führen, werden oft als defekte oder tote Links bezeichnet und können dem [Linkverfall](https://en.wikipedia.org/wiki/Link_rot) unterliegen.
+Der HTTP-Statuscode **`404 Not Found`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die angeforderte Ressource nicht finden kann.
+Links, die zu einer 404-Seite führen, werden oft als fehlerhafte oder tote Links bezeichnet und können von [Link-Verfall](https://en.wikipedia.org/wiki/Link_rot) betroffen sein.
 
-Ein 404-Statuscode zeigt nur an, dass die Ressource fehlt, ohne darauf hinzuweisen, ob dies vorübergehend oder dauerhaft ist. Wenn eine Ressource dauerhaft entfernt wird, sollten Server stattdessen den {{HTTPStatus("410", "410 Gone")}}-Status senden.
+Ein 404-Statuscode gibt nur an, dass die Ressource fehlt, ohne anzugeben, ob dies vorübergehend oder dauerhaft ist.
+Wenn eine Ressource dauerhaft entfernt wurde, sollten Server stattdessen den Status {{HTTPStatus("410", "410 Gone")}} senden.
 
-404-Fehler auf einer Website können zu einer schlechten Benutzererfahrung für Ihre Besucher führen, daher sollte die Anzahl der defekten Links (intern und extern) minimiert werden, um Frustration bei den Lesern zu vermeiden. Häufige Ursachen für 404-Antworten sind falsch geschriebene URLs oder Seiten, die verschoben oder gelöscht wurden, ohne eine Umleitung einzurichten. Weitere Informationen finden Sie im [Umleitungen in HTTP](/de/docs/Web/HTTP/Guides/Redirections) Leitfaden.
+404-Fehler auf einer Website können zu einer schlechten Benutzererfahrung für Ihre Besucher führen, sodass die Anzahl der fehlerhaften Links (intern und extern) minimiert werden sollte, um Frustration bei den Lesern zu verhindern.
+Häufige Ursachen für 404-Antworten sind falsch eingetippte URLs oder Seiten, die verschoben oder gelöscht wurden, ohne eine Umleitung einzurichten.
+Weitere Informationen finden Sie im [Leitfaden zu Weiterleitungen in HTTP](/de/docs/Web/HTTP/Guides/Redirections).
 
 ## Status
 
@@ -21,14 +25,14 @@ Ein 404-Statuscode zeigt nur an, dass die Ressource fehlt, ohne darauf hinzuweis
 
 ### Seite nicht gefunden
 
-Das Abrufen einer nicht vorhandenen Seite kann folgendermaßen aussehen:
+Das Abrufen einer nicht existierenden Seite könnte wie folgt aussehen:
 
 ```http
 GET /my-deleted-blog-post HTTP/1.1
 Host: example.com
 ```
 
-Der Server gibt eine Antwort ähnlich dieser zurück:
+Der Server gibt eine ähnliche Antwort zurück:
 
 ```http
 HTTP/1.1 404 Not Found
@@ -51,14 +55,16 @@ Content-Length: 1256
 
 ### Benutzerdefinierte Fehlerseite in Apache
 
-Für den Apache-Server können Sie in einer `.htaccess`-Datei einen Pfad zu einer benutzerdefinierten 404-Seite angeben. Das untenstehende Beispiel verwendet `notfound.html` als Seite, um Besuchern bei 404-Fehlern zu zeigen, obwohl es üblich ist, die Datei `404.html` oder `404.php` (abhängig von der serverseitigen Technologie) im obersten Verzeichnis des Servers zu benennen:
+Für den Apache-Server können Sie einen Pfad zu einer benutzerdefinierten 404-Seite in einer `.htaccess`-Datei angeben.
+Das folgende Beispiel verwendet `notfound.html` als Seite, um Besuchern bei einem 404-Fehler anzuzeigen, obwohl ein gängiger Ansatz darin besteht, die Datei `404.html` oder `404.php` zu nennen (abhängig von der serverseitigen Technologie) auf oberster Serverebene:
 
 ```apacheconf
 ErrorDocument 404 /notfound.html
 ```
 
 > [!NOTE]
-> Das Design einer benutzerdefinierten 404-Seite ist durchaus positiv in Maßen. Gestalten Sie Ihre 404-Seite ruhig humorvoll und menschlich, aber verwirren Sie Ihre Besucher nicht darüber, warum sie etwas Unerwartetes sehen.
+> Das Design benutzerdefinierter 404-Seiten ist in Maßen eine gute Sache.
+> Fühlen Sie sich frei, Ihre 404-Seite humorvoll und menschlich zu gestalten, aber verwirren Sie Ihre Besucher nicht darüber, warum sie etwas Unerwartetes sehen.
 >
 > Ein Beispiel für eine benutzerdefinierte 404-Seite finden Sie auf der [KonMari 404-Seite](https://konmari.com/404).
 

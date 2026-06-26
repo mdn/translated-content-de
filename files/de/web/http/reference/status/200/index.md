@@ -2,22 +2,22 @@
 title: 200 OK
 slug: Web/HTTP/Reference/Status/200
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Der HTTP-Statuscode **`200 OK`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass eine Anfrage erfolgreich war.
+Der HTTP-Statuscode **`200 OK`** für eine [erfolgreiche Antwort](/de/docs/Web/HTTP/Reference/Status#successful_responses) zeigt an, dass eine Anfrage erfolgreich war.
 Eine `200 OK`-Antwort ist standardmäßig zwischenspeicherbar.
 
-Eine `200 OK`-Antwort hat je nach HTTP-Anfragemethode eine unterschiedliche Bedeutung und Formatierung.
-Hier ist, wie sie sich für verschiedene Methoden unterscheiden:
+Eine `200 OK`-Antwort hat je nach HTTP-Anfragemethode eine unterschiedliche Bedeutung und Format.
+Hier sind die Unterschiede für verschiedene Methoden:
 
-- {{HTTPMethod("GET")}}: Eine Ressource wurde vom Server abgerufen und im Antworttext bereitgestellt.
-- {{HTTPMethod("POST")}}: Eine Aktion war erfolgreich; die Antwort enthält eine Nachricht, die das Ergebnis beschreibt.
-- {{HTTPMethod("HEAD")}}: Identisch zu `GET`, außer dass es keinen Nachrichtentext gibt.
-- {{HTTPMethod("TRACE")}}: Die Antwort enthält einen Nachrichtentext, der die Anfrage so enthält, wie sie vom Server empfangen wurde.
+- {{HTTPMethod("GET")}}: Eine Ressource wurde vom Server abgerufen und im Antworttext enthalten.
+- {{HTTPMethod("POST")}}: Eine Aktion war erfolgreich; die Antwort enthält einen Nachrichtentext, der das Ergebnis beschreibt.
+- {{HTTPMethod("HEAD")}}: Identisch mit `GET`, außer dass kein Nachrichtentext vorhanden ist.
+- {{HTTPMethod("TRACE")}}: Die Antwort enthält einen Nachrichtentext mit der Anfrage, wie sie vom Server empfangen wurde.
 
 Obwohl möglich, führen erfolgreiche {{HTTPMethod("PUT")}}- oder {{HTTPMethod("DELETE")}}-Anfragen oft nicht zu einer `200 OK`-Antwort.
-Es ist üblicher, {{HTTPStatus("201", "201 Created")}} zu sehen, wenn die Ressource zum ersten Mal hochgeladen oder erstellt wird, oder {{HTTPStatus("204", "204 No Content")}} bei erfolgreicher Löschung einer Ressource.
+Es ist häufiger, {{HTTPStatus("201", "201 Created")}} zu sehen, wenn die Ressource erstmals hochgeladen oder erstellt wird, oder {{HTTPStatus("204", "204 No Content")}} nach erfolgreichem Löschen einer Ressource.
 
 ## Status
 
@@ -27,10 +27,10 @@ Es ist üblicher, {{HTTPStatus("201", "201 Created")}} zu sehen, wenn die Ressou
 
 ## Beispiele
 
-### Empfangen eines `200 OK` für eine `GET`-Anfrage
+### Erhalt einer `200 OK`-Antwort für eine `GET`-Anfrage
 
 In diesem Beispiel führt eine erfolgreiche `GET`-Anfrage an `https://example.com` zu einer `200 OK`-Antwort.
-Die Antwort enthält Präsentations-Header und einen Nachrichtentext mit den HTML-Inhalten:
+Die Antwort enthält Repräsentations-Header und einen Nachrichtentext mit dem HTML-Inhalt:
 
 ```http
 HTTP/1.1 200 OK
@@ -50,9 +50,9 @@ Content-Length: 1256
 <!-- HTML content follows here -->
 ```
 
-### Empfangen eines `200 OK` für eine `POST`-Anfrage bei der Formularübermittlung
+### Erhalt einer `200 OK`-Antwort für eine `POST`-Anfrage bei der Formularübermittlung
 
-Angenommen, es gibt ein Formular, um Daten an einen Endpoint zur Verwaltung von Abonnements unter `http://example.com/subscribe` zu senden.
+Angenommen, es gibt ein Formular, um Daten an einen Endpunkt zur Verwaltung von Abonnements an `http://example.com/subscribe` zu senden.
 Eine `POST`-Anfrage, um einen Benutzer zu abonnieren, könnte wie folgt aussehen:
 
 ```http
@@ -64,7 +64,7 @@ Content-Length: 50
 name=Brian%20Smith&email=brian.smith%40example.com
 ```
 
-In diesem Beispiel könnte eine Antwort mit dem Status `200 OK` folgendermaßen aussehen:
+In diesem Beispiel könnte eine Antwort mit dem Status `200 OK` so aussehen:
 
 ```http
 HTTP/1.1 200 OK
@@ -88,5 +88,5 @@ Content-Type: application/json
 ## Siehe auch
 
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Statuscodes](/de/docs/Web/HTTP/Reference/Status)
 - Glossar: {{Glossary("Idempotent", "Idempotent")}}

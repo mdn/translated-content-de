@@ -3,10 +3,10 @@ title: "`browsingContext.activate`-Befehl"
 short-title: activate
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext/activate
 l10n:
-  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
+  sourceCommit: ef8c3806c33f2b1d9d381f4fe3b643b5af5e3d22
 ---
 
-Der `browsingContext.activate` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls bringt einen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) in den Vordergrund und gibt ihm den Fokus.
+Der `browsingContext.activate`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls bringt einen [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) in den Vordergrund und fokussiert ihn.
 
 ## Syntax
 
@@ -14,7 +14,7 @@ Der `browsingContext.activate` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Mo
 {
   "method": "browsingContext.activate",
   "params": {
-    "context": "<contextId>"
+    "context": "93ee5bd6-d256-4608-a002-9a8995cc0e5f"
   }
 }
 ```
@@ -24,7 +24,7 @@ Der `browsingContext.activate` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Mo
 Das `params`-Feld enthält:
 
 - `context`
-  - : Ein String, der die ID des [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) enthält, den Sie in den Vordergrund bringen und fokussieren möchten.
+  - : Ein String, der die ID des [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) enthält, der in den Vordergrund gebracht und fokussiert werden soll.
     Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 
 ### Rückgabewert
@@ -35,19 +35,19 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
   - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
-    Dieser Fehler wird ebenfalls zurückgegeben, wenn der durch `context` angegebene Kontext kein Top-Level-Kontext ist.
+    Dieser Fehler wird auch zurückgegeben, wenn der durch `context` angegebene Kontext kein Top-Level-Kontext ist.
 - `no such frame`
-  - : Kein Kontext mit der angegebenen Kontext-ID wurde gefunden.
+  - : Kein Kontext mit der angegebenen Kontext-ID wird gefunden.
 - `unsupported operation`
   - : Der Browser kann den Kontext nicht in den Vordergrund bringen.
 
 ## Beispiele
 
-### Aktivieren eines Hintergrund-Tabs
+### Aktivierung eines Hintergrund-Tabs
 
 Das folgende Beispiel zeigt, wie ein Hintergrund-Tab aktiviert wird.
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), nehmen wir an, Sie erstellen einen Tab im Hintergrund mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) mit `background: true`, welches die Kontext-ID des Tabs zurückgibt. Senden Sie die folgende Nachricht, um ihn zu aktivieren:
+Bei einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) nehmen wir an, dass Sie einen Tab im Hintergrund mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) und `background: true` erstellen, was die Kontext-ID des Tabs zurückgibt. Senden Sie die folgende Nachricht, um ihn zu aktivieren:
 
 ```json
 {

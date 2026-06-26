@@ -3,12 +3,12 @@ title: "`session.status`-Befehl"
 short-title: status
 slug: Web/WebDriver/Reference/BiDi/Modules/session/status
 l10n:
-  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
+  sourceCommit: 9703f3f0a1ae56e4e40af5505451f96c78495cb9
 ---
 
-Der `session.status` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls gibt Informationen darüber zurück, ob der Browser in der Lage ist, neue BiDi-Sitzungen zu erstellen, und kann zusätzlich beliebige Metainformationen enthalten.
+Der `session.status` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls liefert Informationen darüber, ob der Browser in der Lage ist, neue BiDi-Sitzungen zu erstellen. Zudem kann er beliebige Metainformationen enthalten.
 
-Da dieser Befehl verwendet wird, um den Status des Browsers vor dem Erstellen einer neuen Sitzung zu überprüfen, wird er ohne eine bereits aktive Sitzung ausgeführt. (In BiDi wird ein solcher Befehl als statischer Befehl bezeichnet.)
+Da dieser Befehl verwendet wird, um den Status des Browsers vor der Erstellung einer neuen Sitzung zu überprüfen, wird er ohne eine bereits aktive Sitzung ausgeführt. (In BiDi wird ein solcher Befehl als statischer Befehl bezeichnet.)
 
 ## Syntax
 
@@ -21,26 +21,24 @@ Da dieser Befehl verwendet wird, um den Status des Browsers vor dem Erstellen ei
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld einschließen und auf ein leeres Objekt (`{}`) setzen.
+Keine. Es muss jedoch das `params`-Feld enthalten und auf ein leeres Objekt (`{}`) gesetzt werden.
 
 ### Rückgabewert
 
 Die folgenden Felder im `result`-Objekt der Antwort beschreiben den aktuellen Status des Browsers:
 
-- `ready`
-  - : Ein Boolean, der anzeigt, ob der Browser bereit ist, neue Sitzungen zu erstellen.
-    - `true`
-      - : Der Browser ist bereit, eine neue Sitzung zu erstellen.
-    - `false`
-      - : Der Browser kann keine neuen Sitzungen akzeptieren, weil er bereits eine aktive Sitzung hat oder sich in einem Zustand befindet, in dem das Erstellen einer Sitzung fehlschlagen würde.
 - `message`
   - : Ein String mit Informationen über den aktuellen Status des Browsers.
+- `ready`
+  - : Ein Boolean, der angibt, ob der Browser bereit ist, neue Sitzungen zu erstellen.
+    - `true`: Der Browser ist bereit, eine neue Sitzung zu erstellen.
+    - `false`: Der Browser kann keine neuen Sitzungen akzeptieren, da bereits eine aktive Sitzung vorliegt oder der Browser sich in einem Zustand befindet, in dem die Erstellung einer Sitzung fehlschlagen würde.
 
 ## Beispiele
 
-### Überprüfung des Browserstatus vor dem Erstellen einer Sitzung
+### Überprüfen des Browser-Status vor der Erstellung einer Sitzung
 
-Mit einer [WebDriver BiDi Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) hergestellt, senden Sie die folgende Nachricht, um zu überprüfen, ob der Browser bereit ist, eine neue Sitzung zu erstellen:
+Mit einer hergestellten [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) senden Sie die folgende Nachricht, um zu prüfen, ob der Browser bereit ist, eine neue Sitzung zu erstellen:
 
 ```json
 {
@@ -63,7 +61,7 @@ Wenn der Browser verfügbar ist, antwortet er mit:
 }
 ```
 
-Falls der Browser bereits eine aktive Sitzung hat, könnte die Antwort wie folgt aussehen:
+Wenn der Browser bereits eine aktive Sitzung hat, könnte die Antwort wie folgt aussehen:
 
 ```json
 {

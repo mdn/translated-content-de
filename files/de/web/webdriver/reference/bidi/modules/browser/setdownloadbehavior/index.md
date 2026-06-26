@@ -3,18 +3,34 @@ title: "`browser.setDownloadBehavior`-Befehl"
 short-title: setDownloadBehavior
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/setDownloadBehavior
 l10n:
-  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
+  sourceCommit: ef8c3806c33f2b1d9d381f4fe3b643b5af5e3d22
 ---
 
-Der `browser.setDownloadBehavior` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls ermöglicht das Herunterladen von Dateien in einen festgelegten Ordner, blockiert das Herunterladen von Dateien vollständig oder setzt das Verhalten auf den Standard des Browsers zurück. Das Verhalten kann für alle oder bestimmte [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) konfiguriert werden.
+Der `browser.setDownloadBehavior` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls ermöglicht Dateidownloads in ein bestimmtes Verzeichnis, blockiert Dateidownloads vollständig oder setzt das Verhalten auf den Standard des Browsers zurück. Das Verhalten kann für alle oder einige [Benutzerkontexte](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) konfiguriert werden.
 
 ## Syntax
 
 ```json-nolint
+/* With required parameters */
 {
   "method": "browser.setDownloadBehavior",
   "params": {
-    "downloadBehavior": {}
+    "downloadBehavior": {
+      "type": "allowed",
+      "destinationFolder": "/tmp/downloads"
+    }
+  }
+}
+
+/* With required and optional parameters */
+{
+  "method": "browser.setDownloadBehavior",
+  "params": {
+    "downloadBehavior": {
+      "type": "allowed",
+      "destinationFolder": "/tmp/downloads"
+    },
+    "userContexts": ["4e4b1f6d-3f1a-4b2e-9f8c-1a2b3c4d5e6f"]
   }
 }
 ```
@@ -24,18 +40,18 @@ Der `browser.setDownloadBehavior` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi
 Das `params`-Feld enthält:
 
 - `downloadBehavior`
-  - : Ein Objekt mit den folgenden Feldern, oder `null`, um auf das Standard-Downloadverhalten des Browsers zurückzusetzen:
+  - : Ein Objekt mit den folgenden Feldern oder `null`, um das Standard-Downloadverhalten des Browsers wiederherzustellen:
     - `type`
       - : Ein String, der angibt, ob Downloads erlaubt oder blockiert sind. Gültige Werte sind:
-        - `"allowed"`: Gibt an, dass Downloads erlaubt sind. Wenn dieser Wert gesetzt ist, ist das `destinationFolder`-Feld erforderlich.
-        - `"denied"`: Gibt an, dass Downloads blockiert sind.
+        - `"allowed"`: Zeigt an, dass Downloads erlaubt sind. Wenn dieser Wert gesetzt ist, ist das `destinationFolder`-Feld erforderlich.
+        - `"denied"`: Zeigt an, dass Downloads blockiert sind.
     - `destinationFolder`
       - : Ein String, der den Pfad zu dem Ordner angibt, in dem heruntergeladene Dateien gespeichert werden.
         Dieses Feld ist erforderlich, wenn `type` auf `"allowed"` gesetzt ist.
 - `userContexts` {{optional_inline}}
-  - : Ein Array von Strings, wobei jeder String die ID eines [Benutzerkontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) ist, auf den das Downloadverhalten angewendet werden soll.
-    Benutzerkontext-IDs werden durch Befehle wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
-    - Wenn enthalten, wird das angegebene Downloadverhalten auf jeden aufgeführten Benutzerkontext angewendet. Wenn `downloadBehavior` `null` ist, wird die spezifische Einstellung für jeden aufgeführten Benutzerkontext zurückgesetzt.
+  - : Ein Array von Strings, wobei jeder String die ID eines [Benutzerkontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) ist, auf den das Downloadverhalten angewendet werden soll.
+    Benutzerkontext-IDs werden von Befehlen wie [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) zurückgegeben.
+    - Wenn enthalten, wird das angegebene Downloadverhalten auf jeden aufgeführten Benutzerkontext angewendet. Wenn `downloadBehavior` `null` ist, wird die pro-Kontext-Überschreibung für jeden aufgelisteten Benutzerkontext zurückgesetzt.
     - Wenn nicht enthalten, wird das angegebene Downloadverhalten als globaler Standard auf alle Benutzerkontexte angewendet.
 
 ### Rückgabewert
@@ -49,11 +65,11 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 - `unsupported operation`
   - : Der Browser unterstützt das angegebene Downloadverhalten nicht.
 - `no such user context`
-  - : Es wird kein Benutzerkontext mit der angegebenen Benutzerkontext-ID gefunden.
+  - : Kein Benutzerkontext mit der angegebenen Benutzerkontext-ID wird gefunden.
 
 ## Beispiele
 
-### Erlauben von Downloads in einen bestimmten Ordner
+### Downloads in einen bestimmten Ordner zulassen
 
 Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um das globale Downloadverhalten festzulegen und Downloads in einen bestimmten Ordner zu leiten:
 
@@ -80,9 +96,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Erlauben von Downloads in mehreren Benutzerkontexten
+### Downloads in mehreren Benutzerkontexten zulassen
 
-Um Downloads in mehreren Benutzerkontexten zu erlauben, holen Sie die Benutzerkontext-IDs mithilfe von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) und senden dann die folgende Nachricht, um Downloads in einen angegebenen Ordner zu leiten:
+Um Downloads in mehreren Benutzerkontexten zu erlauben, erhalten Sie die Benutzerkontext-IDs unter Verwendung von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts), und senden Sie dann die folgende Nachricht, um Downloads in einen angegebenen Ordner zu leiten:
 
 ```json
 {
@@ -111,9 +127,9 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Blockieren von Downloads in einem bestimmten Benutzerkontext
+### Downloads in einem bestimmten Benutzerkontext blockieren
 
-Um Downloads in einem bestimmten Benutzerkontext zu blockieren, holen Sie zunächst die Benutzerkontext-ID mithilfe von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts). Senden Sie dann die folgende Nachricht:
+Um Downloads in einem bestimmten Benutzerkontext zu blockieren, erhalten Sie zunächst die Benutzerkontext-ID mithilfe von [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) oder [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts). Senden Sie dann die folgende Nachricht:
 
 ```json
 {
@@ -138,7 +154,7 @@ Der Browser antwortet wie folgt:
 }
 ```
 
-### Zurücksetzen des Downloadverhaltens auf den Browserstandard
+### Downloadverhalten auf den Standard des Browsers zurücksetzen
 
 Senden Sie die folgende Nachricht, um das globale Downloadverhalten auf den Standard des Browsers zurückzusetzen:
 
@@ -172,5 +188,5 @@ Der Browser antwortet wie folgt:
 
 ## Siehe auch
 
-- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext)-Befehl
-- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts)-Befehl
+- [`browser.createUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext) Befehl
+- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) Befehl

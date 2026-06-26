@@ -2,29 +2,31 @@
 title: SVGScriptElement
 slug: Web/API/SVGScriptElement
 l10n:
-  sourceCommit: 0c001c739dd59b282af60a6d0a55c161798c0084
+  sourceCommit: a9e07b75358077e93e2515a13a7413275116ee48
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGScriptElement`**-Interface entspricht dem SVG-{{SVGElement("script")}}-Element.
+Die **`SVGScriptElement`**-Schnittstelle entspricht dem SVG-{{SVGElement("script")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href)
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des gegebenen {{SVGElement("script")}}-Elements entspricht.
-- [`SVGScriptElement.type`](/de/docs/Web/API/SVGScriptElement/type) {{ReadOnlyInline}}
-  - : Ein String, der dem {{SVGAttr("type")}}-Attribut des gegebenen {{SVGElement("script")}}-Elements entspricht. Ein [`DOMException`](/de/docs/Web/API/DOMException) wird mit dem Code `NO_MODIFICATION_ALLOWED_ERR` ausgelöst, wenn versucht wird, den Wert eines schreibgeschützten Attributs zu ändern.
 - [`SVGScriptElement.async`](/de/docs/Web/API/SVGScriptElement/async)
-  - : Ein Boolean, der dem {{SVGAttr("async")}}-Attribut des gegebenen {{SVGElement("script")}}-Elements entspricht.
+  - : Ein boolescher Wert, der das `async`-Attribut des entsprechenden {{SVGElement("script")}}-Elements widerspiegelt. Es gibt an, ob das Skript asynchron ausgeführt werden soll.
 - [`SVGScriptElement.crossOrigin`](/de/docs/Web/API/SVGScriptElement/crossOrigin)
-  - : Ein String, der dem {{SVGAttr("crossorigin")}}-Attribut des gegebenen {{SVGElement("script")}}-Elements entspricht.
+  - : Ein String, der das {{SVGAttr("crossorigin")}}-Attribut des entsprechenden {{SVGElement("script")}}-Elements widerspiegelt. Es ist ein {{Glossary("CORS", "CORS")}}-Einstellungsattribut.
+- [`SVGScriptElement.defer`](/de/docs/Web/API/SVGScriptElement/defer) {{Experimental_Inline}}
+  - : Ein boolescher Wert, der das `defer`-Attribut des entsprechenden {{SVGElement("script")}}-Elements widerspiegelt. Es gibt an, ob das Skript ausgeführt werden soll, nachdem das Dokument geparst wurde.
+- [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}}- oder {{SVGAttr("xlink:href")}} {{deprecated_inline}}-Attribut des entsprechenden {{SVGElement("script")}}-Elements entspricht.
+- [`SVGScriptElement.type`](/de/docs/Web/API/SVGScriptElement/type) {{ReadOnlyInline}}
+  - : Ein String, der dem {{SVGAttr("type")}}-Attribut des entsprechenden {{SVGElement("script")}}-Elements entspricht. Ein [`DOMException`](/de/docs/Web/API/DOMException) wird mit dem Code `NO_MODIFICATION_ALLOWED_ERR` ausgelöst, wenn versucht wird, den Wert eines schreibgeschützten Attributs zu ändern.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

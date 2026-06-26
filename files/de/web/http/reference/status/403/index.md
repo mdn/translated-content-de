@@ -2,15 +2,15 @@
 title: 403 Forbidden
 slug: Web/HTTP/Reference/Status/403
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Der HTTP-Statuscode **`403 Forbidden`** [Clientfehler-Antwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfrage verstanden hat, aber sich weigert, sie zu verarbeiten.
-Dieser Status ist dem {{HTTPStatus("401")}} ähnlich, außer dass bei **`403 Forbidden`**-Antworten eine Authentifizierung oder erneute Authentifizierung keinen Unterschied macht.
-Das Scheitern der Anfrage ist mit der Anwendungslogik verknüpft, wie beispielsweise unzureichende Berechtigungen für eine Ressource oder Aktion.
+Der HTTP-Statuscode **`403 Forbidden`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfrage verstanden hat, aber ablehnt, sie zu bearbeiten.
+Dieser Status ähnelt {{HTTPStatus("401")}}, außer dass bei **`403 Forbidden`**-Antworten eine Authentifizierung oder erneute Authentifizierung keinen Unterschied macht.
+Der Fehler bei der Anfrage ist an die Anwendungslogik gebunden, wie z.B. unzureichende Berechtigungen für eine Ressource oder Aktion.
 
-Clients, die eine `403`-Antwort erhalten, sollten erwarten, dass das Wiederholen der Anfrage ohne Änderungen mit dem gleichen Fehler scheitern wird.
-Serverbetreiber können entscheiden, eine {{HTTPStatus("404")}}-Antwort anstelle einer 403 zu senden, wenn sie das Vorhandensein einer Ressource gegenüber Clients mit unzureichenden Berechtigungen nicht bestätigen möchten.
+Clients, die eine `403`-Antwort erhalten, sollten damit rechnen, dass das Wiederholen der Anfrage ohne Änderungen mit demselben Fehler scheitern wird.
+Serverbesitzer können sich entscheiden, eine {{HTTPStatus("404")}}-Antwort statt einer 403 zu senden, wenn das Anerkennen der Existenz einer Ressource gegenüber Clients mit unzureichenden Rechten nicht gewünscht ist.
 
 ## Status
 
@@ -20,9 +20,9 @@ Serverbetreiber können entscheiden, eine {{HTTPStatus("404")}}-Antwort anstelle
 
 ## Beispiele
 
-### Anfrage aufgrund unzureichender Berechtigungen fehlgeschlagen
+### Anfrage scheiterte aufgrund unzureichender Berechtigungen
 
-Das folgende Beispiel einer Anfrage wird an eine API zur Benutzerverwaltung gesendet.
+Die folgende Beispielanfrage wird an eine API für das Benutzermanagement gestellt.
 Die Anfrage enthält einen {{HTTPHeader("Authorization")}}-Header, der das `Bearer`-[Authentifizierungsschema](/de/docs/Web/HTTP/Guides/Authentication#authentication_schemes) mit einem Zugriffstoken verwendet:
 
 ```http
@@ -31,7 +31,7 @@ Host: example.com
 Authorization: Bearer abcd123
 ```
 
-Der Server hat die Anfrage authentifiziert, aber die Aktion scheitert aufgrund unzureichender Rechte und der Antwortkörper enthält einen Grund für das Scheitern:
+Der Server hat die Anfrage authentifiziert, aber die Aktion scheitert aufgrund unzureichender Rechte, und der Antworttext enthält einen Grund für das Scheitern:
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -53,4 +53,4 @@ Content-Length: 88
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPStatus("401")}}
-- [HTTP-Statuscode-Definitionen](https://httpwg.org/specs/rfc9110.html#status.403)
+- [Definitionen der HTTP-Statuscodes](https://httpwg.org/specs/rfc9110.html#status.403)

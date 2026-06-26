@@ -3,12 +3,12 @@ title: "`<iframe>` HTML-Einbettungselement"
 short-title: <iframe>
 slug: Web/HTML/Reference/Elements/iframe
 l10n:
-  sourceCommit: 75016e5d37ecff3b11de4c2ef6665178f654797e
+  sourceCommit: c807b72777506cd8aaa8d888b7a187dbc6079ca1
 ---
 
-Das **`<iframe>`**-Element ([HTML](/de/docs/Web/HTML)) repräsentiert einen eingebetteten {{Glossary("browsing_context", "Browsing-Kontext")}}, der eine andere HTML-Seite in die aktuelle einbettet.
+Das **`<iframe>`**-Element in [HTML](/de/docs/Web/HTML) repräsentiert einen verschachtelten {{Glossary("browsing_context", "Browsing-Kontext")}}, der eine weitere HTML-Seite in die aktuelle Seite einbettet.
 
-{{InteractiveExample("HTML Demo: &lt;iframe&gt;", "tabbed-standard")}}
+{{InteractiveExample("HTML-Demo: &lt;iframe&gt;", "tabbed-standard")}}
 
 ```html interactive-example
 <iframe
@@ -27,199 +27,198 @@ iframe {
 }
 ```
 
-Jeder eingebettete Browsing-Kontext hat sein eigenes [Dokument](/de/docs/Web/API/Document) und ermöglicht URL-Navigationen. Die Navigationen jedes eingebetteten Browsing-Kontextes werden in die [Sitzungshistorie](/de/docs/Web/API/History) des _obersten_ Browsing-Kontextes linearisiert. Der Browsing-Kontext, der die anderen einbettet, wird als _übergeordneter Browsing-Kontext_ bezeichnet. Der _oberste_ Browsing-Kontext — der ohne Eltern — ist in der Regel das Browserfenster, das durch das [`Window`](/de/docs/Web/API/Window)-Objekt repräsentiert wird.
+Jeder eingebettete Browsing-Kontext hat sein eigenes [Dokument](/de/docs/Web/API/Document) und erlaubt URL-Navigationen. Die Navigationen jedes eingebetteten Browsing-Kontexts werden in die [Sitzungshistorie](/de/docs/Web/API/History) des _obersten_ Browsing-Kontexts linearisiert. Der Browsing-Kontext, der die anderen einbettet, wird als _Eltern-Browsing-Kontext_ bezeichnet. Der _oberste_ Browsing-Kontext — der ohne Elternkontext — ist normalerweise das Browserfenster, dargestellt durch das [`Window`](/de/docs/Web/API/Window)-Objekt.
 
 > [!WARNING]
-> Da jeder Browsing-Kontext eine vollständige Dokumentenumgebung ist, erfordert jedes `<iframe>` auf einer Seite erhöhten Speicher- und andere Rechenressourcen. Theoretisch können Sie so viele `<iframe>` verwenden, wie Sie möchten, achten Sie jedoch auf Leistungsprobleme.
+> Da jeder Browsing-Kontext eine vollständige Dokumentenumgebung darstellt, erfordert jedes `<iframe>` auf einer Seite mehr Speicher und andere Computerressourcen. Obwohl Sie theoretisch so viele `<iframe>`s verwenden können, wie Sie möchten, sollten Sie auf Leistungsprobleme achten.
 
 ## Attribute
 
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `allow`
-  - : Gibt eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) für das `<iframe>` an. Die Richtlinie definiert, welche Funktionen dem `<iframe>` basierend auf der Herkunft der Anfrage zur Verfügung stehen (zum Beispiel Zugriff auf Mikrofon, Kamera, Batterie, Web-Share usw.).
+  - : Gibt eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) für das `<iframe>` an. Die Richtlinie definiert, welche Features dem `<iframe>` zur Verfügung stehen (z. B. Zugriff auf Mikrofon, Kamera, Batterie, Web-Sharing usw.) basierend auf dem Ursprung der Anfrage.
 
     Siehe [iframes](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#iframes) im Thema `Permissions-Policy` für Beispiele.
 
     > [!NOTE]
-    > Eine durch das `allow`-Attribut spezifizierte Permissions Policy implementiert eine weitere Einschränkung zusätzlich zur Richtlinie, die im {{httpheader("Permissions-Policy")}}-Header spezifiziert wird. Sie ersetzt diese nicht.
+    > Eine durch das `allow`-Attribut angegebene Berechtigungsrichtlinie stellt eine zusätzliche Einschränkung über die im {{httpheader("Permissions-Policy")}}-Header angegebene Richtlinie dar. Es ersetzt sie nicht.
 
 - `allowfullscreen`
-  - : Wird auf `true` gesetzt, wenn das `<iframe>` den Vollbildmodus aktivieren kann, indem die [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)-Methode aufgerufen wird.
+  - : Auf `true` gesetzt, wenn das `<iframe>` den Vollbildmodus durch Aufrufen der [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)-Methode aktivieren kann.
 
     > [!NOTE]
-    > Dieses Attribut wird als veraltetes Attribut betrachtet und als `allow="fullscreen *"` neu definiert.
+    > Dieses Attribut wird als veraltetes Attribut betrachtet und mit `allow="fullscreen *"` neu definiert.
 
 - `allowpaymentrequest` {{deprecated_inline}} {{non-standard_inline}}
-  - : Wird auf `true` gesetzt, wenn ein cross-origin `<iframe>` die [Payment Request API](/de/docs/Web/API/Payment_Request_API) aufrufen darf.
+  - : Auf `true` gesetzt, wenn ein Cross-Origin-`<iframe>` die [Payment Request API](/de/docs/Web/API/Payment_Request_API) aufrufen darf.
 
     > [!NOTE]
-    > Dieses Attribut wird als veraltetes Attribut betrachtet und als `allow="payment *"` neu definiert.
+    > Dieses Attribut wird als veraltetes Attribut betrachtet und mit `allow="payment *"` neu definiert.
 
 - `browsingtopics` {{non-standard_inline}} {{deprecated_inline}}
-  - : Ein boolesches Attribut, das, falls vorhanden, angibt, dass die ausgewählten Themen für den aktuellen Benutzer mit der Anfrage der Quelle des `<iframe>` gesendet werden sollen. Siehe [Using the Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
+  - : Ein boolesches Attribut, das, falls vorhanden, angibt, dass die ausgewählten Themen für den aktuellen Benutzer mit der Anforderung für die Quelle des `<iframe>` gesendet werden sollen.
 
 - `credentialless` {{Experimental_Inline}}
-  - : Wird auf `true` gesetzt, um das `<iframe>` ohne Anmeldeinformationen zu verwenden, was bedeutet, dass dessen Inhalt in einem neuen, flüchtigen Kontext geladen wird. Es hat keinen Zugriff auf das Netzwerk, Cookies und gespeicherte Daten, die mit seiner Herkunft verbunden sind. Es verwendet einen neuen Kontext, der lokal zum Lebenszyklus des obersten Dokuments ist. Im Gegenzug können die Einbettregeln des {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) aufgehoben werden, sodass Dokumente mit gesetztem COEP Drittanbieterdokumente einbetten können, die dies nicht tun. Weitere Details finden Sie unter [IFrame credentialless](/de/docs/Web/HTTP/Guides/IFrame_credentialless).
+  - : Auf `true` gesetzt, um das `<iframe>` ohne Anmeldeinformationen zu machen, was bedeutet, dass sein Inhalt in einem neuen, flüchtigen Kontext geladen wird. Es hat keinen Zugriff auf das Netzwerk, Cookies und Speicher-Daten, die mit seinem Ursprung verbunden sind. Es verwendet einen neuen Kontext, der lokal zur Lebensdauer des obersten Dokuments ist. Im Gegenzug können die Einbettungsregeln des {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) gelockert werden, sodass Dokumente mit festgelegtem COEP Drittanbieterdokumente einbetten können, die dies nicht tun. Siehe [IFrame credentialless](/de/docs/Web/HTTP/Guides/IFrame_credentialless) für weitere Details.
 
 - `csp` {{experimental_inline}}
-  - : Eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP), die für die eingebettete Ressource durchgesetzt wird. Details finden Sie unter [`HTMLIFrameElement.csp`](/de/docs/Web/API/HTMLIFrameElement/csp).
+  - : Eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP), die für die eingebettete Ressource durchgesetzt wird. Siehe [`HTMLIFrameElement.csp`](/de/docs/Web/API/HTMLIFrameElement/csp) für Details.
 
 - `height`
   - : Die Höhe des Rahmens in CSS-Pixeln. Standard ist `150`.
 - `loading`
   - : Gibt an, wann der Browser das iframe laden soll:
     - `eager`
-      - : Lädt das iframe sofort beim Seitenaufruf (dies ist der Standardwert).
+      - : Lädt das iframe sofort beim Laden der Seite (dies ist der Standardwert).
     - `lazy`
-      - : Verzögert das Laden des iframe, bis es eine berechnete Entfernung vom {{Glossary("visual_viewport", "visuellen Viewport")}} erreicht, wie vom Browser definiert. Die Absicht ist, die Nutzung von Netzwerk- und Speicherkapazität zu vermeiden, die erforderlich ist, um den Rahmen zu laden, bis der Browser mit angemessener Sicherheit annehmen kann, dass er benötigt wird.
-        Dies verbessert die Leistung und Kosten in den meisten typischen Anwendungsfällen, insbesondere durch Reduzierung der anfänglichen Ladezeiten der Seite.
+      - : Verzögert das Laden des iframes, bis es eine berechnete Entfernung vom {{Glossary("visual_viewport", "visuellen Viewport")}} erreicht, wie vom Browser definiert. Das Ziel ist, zu vermeiden, die Netzwerk- und Speicherbandbreite zu nutzen, die zum Abrufen des Rahmens erforderlich ist, bis der Browser vernünftigerweise sicher ist, dass er benötigt wird. Dies verbessert die Leistung und Kosten in den meisten typischen Anwendungsfällen, insbesondere durch Reduzierung der anfänglichen Seitenladezeiten.
 
-        Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Anti-Tracking-Maßnahme, da, wenn ein Benutzeragent Lazy Loading bei deaktiviertem Scripting unterstützte, es immer noch möglich wäre, dass eine Seite die ungefähre Scrollposition eines Benutzers während einer Sitzung verfolgt, indem strategisch iframes in einem Seitenmarkup platziert werden, sodass ein Server verfolgen kann, wie viele iframes angefordert werden und wann.
+        Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Anti-Tracking-Maßnahme, da, wenn ein Benutzeragent Lazy Loading unterstützt, während das Scripting deaktiviert ist, es immer noch möglich wäre, die ungefähre Scrollposition eines Benutzers während einer Sitzung zu verfolgen, indem gezielt iframes in das Markup einer Seite platziert werden, so dass ein Server nachverfolgen kann, wie viele iframes angefordert werden und wann.
 
 - `name`
-  - : Ein anvisierbarer Name für den eingebetteten Browsing-Kontext. Dieser kann im Attribut `target` der {{HTMLElement("a")}}, {{HTMLElement("form")}} oder {{HTMLElement("base")}} Elemente verwendet werden; das `formtarget`-Attribut der {{HTMLElement("input")}} oder {{HTMLElement("button")}} Elemente; oder der `windowName`-Parameter in der [`window.open()`](/de/docs/Web/API/Window/open) Methode. Darüber hinaus wird der Name zu einer Eigenschaft der [`Window`](/de/docs/Web/API/Window) und [`Document`](/de/docs/Web/API/Document) Objekte, die einen Verweis auf das eingebettete Fenster oder das Element selbst enthalten.
+  - : Ein anvisierbarer Name für den eingebetteten Browsing-Kontext. Dieser kann im `target`-Attribut der {{HTMLElement("a")}}, {{HTMLElement("form")}} oder {{HTMLElement("base")}}-Elemente verwendet werden; das `formtarget`-Attribut der {{HTMLElement("input")}} oder {{HTMLElement("button")}}-Elemente; oder der `windowName`-Parameter in der [`window.open()`](/de/docs/Web/API/Window/open)-Methode. Außerdem wird der Name zu einer Eigenschaft der [`Window`](/de/docs/Web/API/Window) und [`Document`](/de/docs/Web/API/Document)-Objekte, die eine Referenz auf das eingebettete Fenster oder das Element selbst enthalten.
 
 - `privateToken` {{experimental_inline}}
-  - : Enthält eine String-Darstellung eines Optionsobjekts, das eine Operation mit einem [Private State Token](/de/docs/Web/API/Private_State_Token_API/Using) darstellt; dieses Objekt hat dieselbe Struktur wie die Eigenschaft [`privateToken`](/de/docs/Web/API/RequestInit#privatetoken) des `RequestInit` Dictionarys. IFrames, die dieses Attribut enthalten, können Operationen wie das Ausgeben oder Einlösen von Token initiieren, wenn deren eingebetteter Inhalt geladen wird.
+  - : Beinhaltet eine String-Darstellung eines Optionsobjekts, das eine [private state token](/de/docs/Web/API/Private_State_Token_API/Using)-Operation repräsentiert; dieses Objekt hat dieselbe Struktur wie die `RequestInit`-Diktator-Eigenschaft [`privateToken`](/de/docs/Web/API/RequestInit#privatetoken). IFrames mit diesem Attribut können Operationen wie das Ausgeben oder Einlösen von Token initiieren, wenn ihr eingebetteter Inhalt geladen wird.
 
 - `referrerpolicy`
-  - : Gibt an, welcher [Referrer](/de/docs/Web/API/Document/referrer) gesendet werden soll, wenn die Ressource des Frames abgerufen wird:
+  - : Gibt an, welcher [referrer](/de/docs/Web/API/Document/referrer) gesendet wird, wenn die Ressource des Rahmens abgerufen wird:
     - `no-referrer`
       - : Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
     - `no-referrer-when-downgrade`
       - : Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
     - `origin`
-      - : Der gesendete Referrer wird auf den Ursprung der verweisenden Seite begrenzt: ihr [Schema](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
+      - : Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
     - `origin-when-cross-origin`
-      - : Der Referrer, der an andere Ursprünge gesendet wird, wird auf das Schema, den Host und den Port begrenzt. Navigationen am gleichen Ursprung beinhalten weiterhin den Pfad.
+      - : Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigieren auf demselben Ursprung wird weiterhin den Pfad beinhalten.
     - `same-origin`
-      - : Ein Referrer wird für {{Glossary("Same-origin_policy", "gleichartigen Ursprung")}} gesendet, aber Anfragen über unterschiedliche Ursprünge enthalten keine Referrer-Informationen.
+      - : Ein Referrer wird für {{Glossary("Same-origin_policy", "denselben Ursprung")}} gesendet, aber Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten.
     - `strict-origin`
-      - : Nur den Ursprung des Dokuments als Referrer senden, wenn das Protokoll-Sicherheitsniveau gleich bleibt (HTTPS→HTTPS), ihn jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP) senden.
+      - : Nur den Ursprung des Dokuments als Referrer senden, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel senden (HTTPS→HTTP).
     - `strict-origin-when-cross-origin` (Standard)
-      - : Eine vollständige URL senden, wenn eine Anfrage am gleichen Ursprung durchgeführt wird, nur den Ursprung senden, wenn das Protokoll-Sicherheitsniveau gleich bleibt (HTTPS→HTTPS), und keinen Header an ein weniger sicheres Ziel senden (HTTPS→HTTP).
+      - : Eine vollständige URL senden, wenn eine Anfrage mit demselben Ursprung durchgeführt wird, nur den Ursprung senden, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und keinen Header an ein weniger sicheres Ziel senden (HTTPS→HTTP).
     - `unsafe-url`
-      - : Der Referrer wird den Ursprung _und_ den Pfad enthalten (aber nicht den [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge preisgibt.
+      - : Der Referrer enthält den Ursprung _und_ den Pfad (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), das [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge leakt.
 
 - `sandbox`
-  - : Kontrolliert die Einschränkungen, die auf den eingebetteten Inhalt im `<iframe>` angewendet werden. Der Wert des Attributs kann entweder leer sein, um alle Einschränkungen anzuwenden, oder durch Leerzeichen getrennte Tokens, um bestimmte Einschränkungen aufzuheben:
+  - : Kontrolliert die Einschränkungen, die auf den in das `<iframe>` eingebetteten Inhalt angewendet werden. Der Wert des Attributs kann entweder leer sein, um alle Einschränkungen anzuwenden, oder durch Leerzeichen getrennte Tokens, um bestimmte Einschränkungen aufzuheben:
     - `allow-downloads`
-      - : Ermöglicht das Herunterladen von Dateien über ein {{HTMLElement("a")}}- oder {{HTMLElement("area")}}-Element mit dem [download](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut sowie durch die Navigation, die zum Herunterladen einer Datei führt. Dies funktioniert unabhängig davon, ob der Benutzer auf den Link geklickt hat oder JS-Code dies ohne Benutzerinteraktion initiiert hat.
+      - : Erlaubt das Herunterladen von Dateien durch ein {{HTMLElement("a")}} oder {{HTMLElement("area")}}-Element mit dem [download](/de/docs/Web/HTML/Reference/Elements/a#download)-Attribut sowie durch die Navigation, die zum Herunterladen einer Datei führt. Dies funktioniert unabhängig davon, ob der Benutzer auf den Link geklickt hat oder JS-Code es ohne Benutzerinteraktion initiiert hat.
     - `allow-forms`
-      - : Ermöglicht der Seite, Formulare zu senden. Wenn dieses Schlüsselwort nicht verwendet wird, wird ein Formular normal angezeigt, aber das Senden wird keine Eingabevalidierung auslösen, Daten an einen Webserver senden oder einen Dialog schließen.
+      - : Erlaubt der Seite, Formulare einzureichen. Wenn dieses Schlüsselwort nicht verwendet wird, wird ein Formular normal angezeigt, aber das Einreichen löst keine Eingabevalidierung aus, sendet keine Daten an einen Webserver und schließt keinen Dialog.
     - `allow-modals`
-      - : Ermöglicht der Seite, Modalfenster zu öffnen, z. B. durch [`Window.alert()`](/de/docs/Web/API/Window/alert), [`Window.confirm()`](/de/docs/Web/API/Window/confirm), [`Window.print()`](/de/docs/Web/API/Window/print) und [`Window.prompt()`](/de/docs/Web/API/Window/prompt), während das Öffnen eines {{HTMLElement("dialog")}} unabhängig von diesem Schlüsselwort erlaubt ist. Es erlaubt auch der Seite, das [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Ereignis zu empfangen.
+      - : Erlaubt der Seite, modale Fenster durch [`Window.alert()`](/de/docs/Web/API/Window/alert), [`Window.confirm()`](/de/docs/Web/API/Window/confirm), [`Window.print()`](/de/docs/Web/API/Window/print) und [`Window.prompt()`](/de/docs/Web/API/Window/prompt) zu öffnen, während das Öffnen eines {{HTMLElement("dialog")}} unabhängig von diesem Schlüsselwort erlaubt ist. Es erlaubt der Seite auch, das [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Ereignis zu empfangen.
     - `allow-orientation-lock`
-      - : Ermöglicht es der Ressource, die [Bildschirmorientierung zu sperren](/de/docs/Web/API/Screen/lockOrientation).
+      - : Ermöglicht der Ressource, [die Bildschirmausrichtung zu sperren](/de/docs/Web/API/Screen/lockOrientation).
     - `allow-pointer-lock`
-      - : Ermöglicht es der Seite, die [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API) zu verwenden.
+      - : Ermöglicht der Seite die Verwendung der [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API).
     - `allow-popups`
-      - : Ermöglicht Popups (erstellt z. B. durch [`Window.open()`](/de/docs/Web/API/Window/open) oder `target="_blank"`). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
+      - : Erlaubt Popups (die zum Beispiel durch [`Window.open()`](/de/docs/Web/API/Window/open) oder `target="_blank"` erstellt wurden). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt eine solche Funktionalität schweigend fehl.
     - `allow-popups-to-escape-sandbox`
-      - : Erlaubt einem dokumentierten Dokument, einen neuen Browsing-Kontext zu öffnen, ohne die Sandboxing-Flags darauf anzuwenden. Dies ermöglicht beispielsweise, dass eine Drittanbieter-Anzeige sicher im Sandkasten ausgeführt wird, ohne dass dieselben Einschränkungen auf die Seite angewendet werden, auf die die Anzeige verlinkt. Wenn dieser Flag nicht enthalten ist, unterliegt eine umgeleitete Seite, ein Popup-Fenster oder ein neuer Tab denselben Sandbox-Einschränkungen wie das ursprüngliche `<iframe>`.
+      - : Ermöglicht es einem sandboxed-Dokument, einen neuen Browsing-Kontext zu öffnen, ohne die Sandboxing-Flags darauf zu erzwingen. Dies ermöglicht beispielsweise, dass eine Drittanbieter-Werbung sicher in Sandbox eingebettet wird, ohne dieselben Einschränkungen auf die Seite zu erzwingen, auf die die Anzeige verweist. Wenn diese Flagge nicht enthalten ist, unterliegt eine umgeleitete Seite, ein Popup-Fenster oder ein neuer Tab denselben Sandbox-Beschränkungen wie das ursprüngliche `<iframe>`.
     - `allow-presentation`
-      - : Ermöglicht es Embedders, Kontrolle darüber zu haben, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
+      - : Erlaubt Einbettungen, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
     - `allow-same-origin`
-      - : Wird dieses Token nicht verwendet, wird die Ressource als von einem speziellen Ursprung betrachtet, der immer die {{Glossary("same-origin_policy", "Same-origin-Policy")}} verweigert (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
+      - : Wenn dieses Token nicht verwendet wird, wird die Ressource als aus einem speziellen Ursprung kommend behandelt, der immer die {{Glossary("same-origin_policy", "Same-Origin-Richtlinie")}} nicht erfüllt (was potenziell den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
         > [!NOTE]
-        > Wenn `allow-same-origin` vorhanden ist, kann ein gleichartiges übergeordnetes Dokument immer noch auf das DOM des iframes zugreifen und mit ihm interagieren, selbst wenn `allow-scripts` nicht gesetzt ist. Das `allow-scripts`-Token steuert nur die Skriptausführung im eingebetteten Browsing-Kontext und beeinflusst nicht den DOM-Zugriff vom übergeordneten Element.
+        > Wenn `allow-same-origin` vorhanden ist, kann ein Dokument mit dem gleichen Ursprung das DOM des iframes trotzdem zugreifen und mit ihm interagieren, auch wenn `allow-scripts` nicht gesetzt ist. Das Token `allow-scripts` kontrolliert nur die Skriptausführung im eingebetteten Browsing-Kontext und beeinflusst nicht den DOM-Zugriff vom Elternteil.
     - `allow-scripts`
-      - : Ermöglicht der Seite das Ausführen von Skripten (aber nicht das Erstellen von Popup-Fenstern). Wenn dieses Schlüsselwort nicht verwendet wird, ist dieser Vorgang nicht zulässig.
+      - : Erlaubt der Seite, Skripte auszuführen (aber keine Popup-Fenster zu erstellen). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.
     - `allow-storage-access-by-user-activation` {{experimental_inline}}
-      - : Ermöglicht einem in das `<iframe>` geladenen Dokument, die [Storage Access API](/de/docs/Web/API/Storage_Access_API) zu verwenden, um Zugriff auf nicht partitionierte Cookies anzufordern.
+      - : Ermöglicht einem Dokument, das im `<iframe>` geladen wird, die [Storage Access API](/de/docs/Web/API/Storage_Access_API) zu verwenden, um Zugriff auf nicht partitionierte Cookies zu beantragen.
     - `allow-top-navigation`
-      - : Erlaubt der Ressource, den obersten Browsing-Kontext (den mit dem Namen `_top`) zu navigieren.
+      - : Ermöglicht der Ressource die Navigation des obersten Browsing-Kontexts (denjenigen, der `_top` genannt wird).
     - `allow-top-navigation-by-user-activation`
-      - : Erlaubt der Ressource, den obersten Browsing-Kontext zu navigieren, aber nur, wenn dies durch eine Benutzergeste initiiert wurde.
+      - : Ermöglicht der Ressource die Navigation des obersten Browsing-Kontexts, aber nur, wenn sie durch eine Benutzerinteraktion initiiert wird.
     - `allow-top-navigation-to-custom-protocols`
-      - : Erlaubt Navigationen zu nicht-`http`-Protokollen, die im Browser eingebaut oder [von einer Website registriert](/de/docs/Web/API/Navigator/registerProtocolHandler) sind. Diese Funktion wird auch durch die Schlüsselwörter `allow-popups` oder `allow-top-navigation` aktiviert.
+      - : Erlaubt Navigierungen zu nicht-`http`-Protokollen, die in einem Browser integriert oder [von einer Website registriert](/de/docs/Web/API/Navigator/registerProtocolHandler) sind. Diese Funktion wird auch durch das Schlüsselwort `allow-popups` oder `allow-top-navigation` aktiviert.
 
     > [!NOTE]
     >
-    > - Wenn das eingebettete Dokument denselben Ursprung wie die einbettende Seite hat, wird es **stark abgeraten**, sowohl `allow-scripts` als auch `allow-same-origin` zu verwenden, da dies dem eingebetteten Dokument erlaubt, das `sandbox`-Attribut zu entfernen — was keinen sichereren Schutz als das Nichtverwenden des `sandbox`-Attributs bietet.
-    > - Sandboxing ist nutzlos, wenn der Angreifer Inhalte außerhalb eines sandboxed `iframe` anzeigen kann — so wie, wenn der Betrachter den Rahmen in einem neuen Tab öffnet. Solche Inhalte sollten auch von einem _anderen Ursprung_ bereitgestellt werden, um möglichen Schaden zu begrenzen.
+    > - Wenn das eingebettete Dokument den gleichen Ursprung wie die einbettende Seite hat, wird dringend davon abgeraten, sowohl `allow-scripts` als auch `allow-same-origin` zu verwenden, da dies es dem eingebetteten Dokument ermöglicht, das `sandbox`-Attribut zu entfernen — es wäre dann nicht sicherer als ein `<iframe>` ohne Verwendung des `sandbox`-Attributs.
+    > - Sandboxing ist nutzlos, wenn der Angreifer Inhalte außerhalb eines sandboxed `iframe` anzeigen kann — so wie wenn der Betrachter den Rahmen in einem neuen Tab öffnet. Solche Inhalte sollten auch von einem _separaten Ursprung_ bereitgestellt werden, um potenzielle Schäden zu begrenzen.
 
     > [!NOTE]
-    > Beim Weiterleiten des Benutzers, Öffnen eines Popup-Fensters oder Öffnen eines neuen Tabs von einer eingebetteten Seite innerhalb eines `<iframe>` mit dem `sandbox`-Attribut wird der neue Browsing-Kontext den gleichen `sandbox`-Einschränkungen unterzogen. Dies kann Probleme verursachen — zum Beispiel, wenn eine Seite innerhalb eines `<iframe>` ohne ein `sandbox="allow-forms"` oder `sandbox="allow-popups-to-escape-sandbox"`-Attribut darauf eine neue Seite in einem separaten Tab öffnet, wird das Absenden eines Formulars in diesem neuen Browsing-Kontext stillschweigend fehlschlagen.
+    > Bei der Umleitung des Benutzers, dem Öffnen eines Popup-Fensters oder dem Öffnen eines neuen Tabs aus einer eingebetteten Seite innerhalb eines `<iframe>`s mit dem `sandbox`-Attribut unterliegt der neue Browsing-Kontext denselben `sandbox`-Einschränkungen. Dies können Probleme verursachen — zum Beispiel, wenn eine Seite innerhalb eines `<iframe>`s ohne ein `sandbox="allow-forms"`- oder `sandbox="allow-popups-to-escape-sandbox"`-Attribut darauf eine neue Seite in einem separaten Tab öffnet, wird das Einreichen eines Formulars in diesem neuen Browsing-Kontext stillschweigend fehlschlagen.
 
 - `src`
-  - : Die URL der einzubettenden Seite. Verwenden Sie einen Wert von `about:blank`, um eine leere Seite einzubetten, die den [same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy#inherited_origins) entspricht. Beachten Sie auch, dass das programmgesteuerte Entfernen eines `src`-Attributs eines `<iframe>` (z. B. durch [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Rahmen in Firefox (ab Version 65), auf Chromium-basierten Browsern und in Safari/iOS geladen wird.
+  - : Die URL der Seite, die eingebettet werden soll. Verwenden Sie einen Wert von `about:blank`, um eine leere Seite einzubetten, die mit der [Same-Origin-Richtlinie](/de/docs/Web/Security/Defenses/Same-origin_policy#inherited_origins) übereinstimmt. Beachten Sie auch, dass das programmatische Entfernen eines `src`-Attributs eines `<iframe>`s (z. B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) in Firefox (ab Version 65), Chromium-basierten Browsern und Safari/iOS dazu führt, dass `about:blank` im Rahmen geladen wird.
 
     > [!NOTE]
-    > Die `about:blank`-Seite verwendet die URL des einbettenden Dokuments als Basis-URL beim Auflösen von relativen URLs, wie Verankerung-links.
+    > Die `about:blank`-Seite verwendet die URL des einbettenden Dokuments als Basis-URL, wenn relativ URLs, wie ankergelinkte Links aufgelöst werden.
 
 - `srcdoc`
-  - : Inline-HTML zum Einbetten, das das `src`-Attribut überschreibt. Sein Inhalt sollte die Syntax eines vollständigen HTML-Dokuments befolgen, das die Doctype-Direktive, `<html>`, `<body>`-Tags usw. umfasst, obwohl die meisten davon weggelassen werden können, woraufhin nur der Body-Inhalt übrig bleibt. Dieses Dokument hat `about:srcdoc` als Standort. Wenn ein Browser das `srcdoc`-Attribut nicht unterstützt, fällt er auf die URL im `src`-Attribut zurück.
+  - : Inline-HTML, das eingebettet werden soll, überschreibt das `src`-Attribut. Sein Inhalt sollte der Syntax eines vollständigen HTML-Dokuments folgen, das die Doctype-Direktive, `<html>`-, `<body>`-Tags usw. umfasst, obwohl die meisten weggelassen werden können, sodass nur der Hauptinhalt übrig bleibt. Dieses Dokument hat `about:srcdoc` als seinen Standort. Wenn ein Browser das `srcdoc`-Attribut nicht unterstützt, wird auf die URL im `src`-Attribut zurückgefallen.
 
     > [!NOTE]
-    > Die `about:srcdoc`-Seite verwendet die URL des einbettenden Dokuments als Basis-URL beim Auflösen von relativen URLs, wie Verankerung-links.
+    > Die `about:srcdoc`-Seite verwendet die URL des einbettenden Dokuments als Basis-URL, wenn relativ URLs, wie ankergelinkte Links aufgelöst werden.
 
 - `width`
-  - : Die Breite des Rahmens in CSS-Pixeln. Der Standardwert ist `300`.
+  - : Die Breite des Rahmens in CSS-Pixeln. Standard ist `300`.
 
 ### Veraltete Attribute
 
-Diese Attribute sind veraltet und werden möglicherweise nicht mehr von allen Benutzeragenten unterstützt. Sie sollten sie in neuen Inhalten nicht verwenden und versuchen, sie aus vorhandenen Inhalten zu entfernen.
+Diese Attribute sind veraltet und werden möglicherweise nicht mehr von allen Benutzeragenten unterstützt. Sie sollten sie in neuen Inhalten nicht verwenden und versuchen, sie aus bestehenden Inhalten zu entfernen.
 
 - `align` {{deprecated_inline}}
   - : Die Ausrichtung dieses Elements in Bezug auf den umgebenden Kontext.
 - `frameborder` {{deprecated_inline}}
-  - : Der Wert `1` (der Standard) zeichnet einen Rahmen um diesen Rahmen. Der Wert `0` entfernt den Rahmen um diesen Rahmen, aber Sie sollten stattdessen die CSS-Eigenschaft {{cssxref("border")}} verwenden, um `<iframe>`-Rahmen zu steuern.
+  - : Der Wert `1` (der Standardwert) zeichnet einen Rahmen um diesen Rahmen. Der Wert `0` entfernt den Rahmen um diesen Rahmen, Sie sollten jedoch stattdessen die CSS-Eigenschaft {{cssxref("border")}} verwenden, um `<iframe>`-Rahmen zu steuern.
 - `longdesc` {{deprecated_inline}}
-  - : Eine URL einer langen Beschreibung des Inhalts des Rahmens. Aufgrund weit verbreiteten Missbrauchs ist dies für nicht-visuelle Browser nicht hilfreich.
+  - : Eine URL einer langen Beschreibung des Inhalts des Rahmens. Aufgrund eines weit verbreiteten Missbrauchs ist dies für nonvisuelle Browser nicht hilfreich.
 - `marginheight` {{deprecated_inline}}
-  - : Der Abstand in Pixeln zwischen dem Inhalt des Rahmens und dessen oberen und unteren Rändern.
+  - : Der Abstand in Pixeln zwischen dem Inhalt des Rahmens und seinen oberen und unteren Rändern.
 - `marginwidth` {{deprecated_inline}}
-  - : Der Abstand in Pixeln zwischen dem Inhalt des Rahmens und dessen linken und rechten Rändern.
+  - : Der Abstand in Pixeln zwischen dem Inhalt des Rahmens und seinen linken und rechten Rändern.
 - `scrolling` {{deprecated_inline}}
-  - : Gibt an, wann der Browser eine Scrollleiste für den Rahmen bereitstellen sollte:
+  - : Gibt an, wann der Browser eine Scrollleiste für den Rahmen bereitstellen soll:
     - `auto`
-      - : Nur wenn der Inhalt des Rahmens größer ist als seine Abmessungen.
+      - : Nur wenn der Inhalt des Rahmens größer als seine Abmessungen ist.
     - `yes`
-      - : Zeigt immer eine Scrollleiste an.
+      - : Immer eine Scrollleiste anzeigen.
     - `no`
-      - : Zeigt nie eine Scrollleiste an.
+      - : Niemals eine Scrollleiste anzeigen.
 
 ## Scripting
 
-Inline-Frames, wie {{HTMLElement("frame")}}-Elemente, sind im [`window.frames`](/de/docs/Web/API/Window/frames)-Pseudofeld enthalten.
+Inline-Frames, wie {{HTMLElement("frame")}}-Elemente, sind im pseudo-Array [`window.frames`](/de/docs/Web/API/Window/frames) enthalten.
 
-Mit dem DOM-Objekt [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) können Skripte auf das [`window`](/de/docs/Web/API/Window)-Objekt der gerahmten Ressource über die [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow)-Eigenschaft zugreifen. Die [`contentDocument`](/de/docs/Web/API/HTMLIFrameElement/contentDocument)-Eigenschaft bezieht sich auf das `document` innerhalb des `<iframe>`, gleich `contentWindow.document`.
+Mit dem DOM-Objekt [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) können Skripte auf das [`window`](/de/docs/Web/API/Window)-Objekt der eingerahmten Ressource über die [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow)-Eigenschaft zugreifen. Die [`contentDocument`](/de/docs/Web/API/HTMLIFrameElement/contentDocument)-Eigenschaft bezieht sich auf das `document` innerhalb des `<iframe>`, ebenso wie `contentWindow.document`.
 
-Von innerhalb eines Rahmens kann ein Skript einen Verweis auf sein übergeordnetes Fenster mit [`window.parent`](/de/docs/Web/API/Window/parent) erhalten.
+Von innerhalb eines Rahmens kann ein Skript eine Referenz zu seinem Elternfenster mit [`window.parent`](/de/docs/Web/API/Window/parent) erhalten.
 
-Der Skriptzugriff auf den Inhalt eines Rahmens unterliegt der [same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
-Skripte können nicht auf die meisten Eigenschaften in anderen `window`-Objekten zugreifen, wenn das Skript von einem anderen Ursprung geladen wurde, einschließlich Skripte innerhalb eines Rahmens, die auf das übergeordnete Fenster des Rahmens zugreifen.
-Cross-Origin-Kommunikation kann durch die Verwendung von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) erreicht werden.
+Der Skriptzugriff auf den Inhalt eines Rahmens unterliegt der [Same-Origin-Richtlinie](/de/docs/Web/Security/Defenses/Same-origin_policy).
+Skripte können die meisten Eigenschaften in anderen `window`-Objekten nicht zugreifen, wenn das Skript von einem anderen Ursprung geladen wurde, einschließlich Skripten innerhalb eines Rahmens, die auf das Elternteil des Rahmens zugreifen.
+Cross-Origin-Kommunikation kann mit [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) erreicht werden.
 
-### Top-Navigation in cross-origin-Frames
+### Top-Navigation in Cross-Origin-Frames
 
-Skripte, die in einem gleichartigen Rahmen ausgeführt werden, können auf die [`Window.top`](/de/docs/Web/API/Window/top)-Eigenschaft zugreifen und [`window.top.location`](/de/docs/Web/API/Window/location) setzen, um die oberste Seite auf einen neuen Ort umzuleiten.
+Skripte, die in einem Frame gleichen Ursprungs laufen, können auf die [`Window.top`](/de/docs/Web/API/Window/top)-Eigenschaft zugreifen und [`window.top.location`](/de/docs/Web/API/Window/location) festlegen, um die oberste Seite auf einen neuen Standort zu umleiten.
 Dieses Verhalten wird als "Top-Navigation" bezeichnet.
 
-Ein cross-origin-Rahmen darf die oberste Seite nur umleiten, wenn der Rahmen {{Glossary("sticky_activation", "sticky activation")}} hat.
-Wenn die Top-Navigation blockiert ist, können Browser entweder um Benutzererlaubnis bitten, um umzuleiten, oder den Fehler in der Entwicklerkonsole melden (oder beides).
-Diese Einschränkung durch Browser wird als _framebusting intervention_ bezeichnet.
-Das bedeutet, dass ein Cross-Origin-Rahmen die oberste Seite nicht sofort umleiten kann — der Benutzer muss zuvor mit dem Rahmen interagiert oder die Erlaubnis gegeben haben, umzuleiten.
+Ein Cross-Origin-Frame darf die oberste Seite nur dann über `top` umleiten, wenn der Frame eine {{Glossary("sticky_activation", "Sticky-Aktivierung")}} hat.
+Wenn die Top-Navigation blockiert ist, können Browser entweder um Benutzererlaubnis zur Umleitung bitten oder den Fehler in der Entwicklerkonsole melden (oder beides).
+Diese Einschränkung durch Browser wird _Framebusting-Intervention_ genannt.
+Dies bedeutet, dass ein Cross-Origin-Frame die oberste Seite nicht sofort umleiten kann — der Benutzer muss zuvor mit dem Frame interagiert oder die Erlaubnis zur Umleitung erteilt haben.
 
-Ein gesandboxter Rahmen blockiert jede Top-Navigation, es sei denn, die Werte des `sandbox`-Attributs sind auf [`allow-top-navigation`](#allow-top-navigation) oder [`allow-top-navigation-by-user-activation`](#allow-top-navigation-by-user-activation) gesetzt.
-Beachten Sie, dass Top-Navigationsberechtigungen vererbt werden, sodass ein verschachtelter Rahmen nur dann eine Top-Navigation durchführen kann, wenn seine übergeordneten Rahmen dies auch dürfen.
+Ein sandboxed Frame blockiert jegliche Top-Navigation, es sei denn, die Werte des `sandbox`-Attributs sind auf [`allow-top-navigation`](#allow-top-navigation) oder [`allow-top-navigation-by-user-activation`](#allow-top-navigation-by-user-activation) gesetzt.
+Beachten Sie, dass Top-Navigationsberechtigungen vererbt werden, sodass ein verschachtelter Frame nur dann eine Top-Navigation durchführen kann, wenn auch seine übergeordneten Frames dies dürfen.
 
 ## Positionierung und Skalierung
 
-Als {{Glossary("replaced_elements", "ersetztes Element")}} erlaubt das `<iframe>`, die Position des eingebetteten Dokuments innerhalb seines Rahmens mit der CSS-Eigenschaft {{cssxref("object-position")}} einzustellen.
+Als ein {{Glossary("replaced_elements", "ersetzbares Element")}} kann das `<iframe>` die Position des eingebetteten Dokuments innerhalb seines Rahmens mit der {{cssxref("object-position")}}-Eigenschaft einstellen.
 
 > [!NOTE]
-> Die CSS-Eigenschaft {{cssxref("object-fit")}} hat keine Auswirkungen auf `<iframe>`-Elemente.
+> Die {{cssxref("object-fit")}}-Eigenschaft hat keine Wirkung auf `<iframe>`-Elemente.
 
-## `error` und `load` Ereignisverhalten
+## Verhalten von `error`- und `load`-Ereignissen
 
-Die Ereignisse `error` und `load`, die auf `<iframe>`s ausgelöst werden, könnten verwendet werden, um den URL-Raum der HTTP-Server des lokalen Netzwerks zu sondieren. Daher feuern Benutzeragenten als Vorsichtsmaßnahme das [error](/de/docs/Web/API/HTMLElement/error_event)-Ereignis nicht auf `<iframe>`s, und das [load](/de/docs/Web/API/HTMLElement/load_event)-Ereignis wird immer ausgelöst, selbst wenn der `<iframe>`-Inhalt fehlschlägt zu laden.
+Die `error`- und `load`-Ereignisse, die auf `<iframe>`s ausgelöst werden, könnten verwendet werden, um den URL-Raum der HTTP-Server des lokalen Netzwerks auszukundschaften. Daher wird aus Sicherheitsgründen das [error](/de/docs/Web/API/HTMLElement/error_event)-Ereignis in `<iframe>`s von Benutzeragenten nicht ausgelöst, und das [load](/de/docs/Web/API/HTMLElement/load_event)-Ereignis wird immer ausgelöst, selbst wenn der `<iframe>`-Inhalt nicht geladen werden kann.
 
 ## Barrierefreiheit
 
-Personen, die mit assistiver Technologie wie einem Bildschirmleser navigieren, können das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) auf einem `<iframe>` verwenden, um dessen Inhalt zu beschriften. Der Wert des Titels sollte den eingebetteten Inhalt kurz beschreiben:
+Personen, die mit unterstützender Technologie wie einem Screenreader navigieren, können das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) auf einem `<iframe>` verwenden, um dessen Inhalt zu beschriften. Der Wert des Titels sollte den eingebetteten Inhalt kurz beschreiben:
 
 ```html
 <iframe
@@ -227,13 +226,13 @@ Personen, die mit assistiver Technologie wie einem Bildschirmleser navigieren, k
   src="https://en.wikipedia.org/wiki/Avocado"></iframe>
 ```
 
-Ohne diesen Titel müssen sie in das `<iframe>` navigieren, um zu bestimmen, was dessen eingebetteter Inhalt ist. Dieser Kontextwechsel kann verwirrend und zeitaufwendig sein, besonders für Seiten mit mehreren `<iframe>` und/oder wenn Einbettungen interaktive Inhalte wie Videos oder Audios enthalten.
+Ohne diesen Titel müssen sie in das `<iframe>` navigieren, um zu bestimmen, was dessen eingebetteter Inhalt ist. Dieser Kontextwechsel kann verwirrend und zeitraubend sein, insbesondere für Seiten mit mehreren `<iframe>`s und/oder wenn die Embeds interaktiven Inhalt wie Video oder Audio enthalten.
 
 ## Beispiele
 
 ### Ein einfaches \<iframe>
 
-Dieses Beispiel bettet die Seite unter <https://example.org> in ein iframe ein. Dies ist ein häufiger Anwendungsfall von iframes: um Inhalte von einer anderen Seite einzubetten. Zum Beispiel sind das Live-Beispiel selbst und das [probiere es aus](#try_it) Beispiel am Anfang beide `<iframe>`-Einbettungen von Inhalten von einer anderen MDN-Seite.
+Dieses Beispiel bettet die Seite auf <https://example.org> in einem iframe ein. Dies ist ein häufiger Anwendungsfall für iframes: Inhalte von einer anderen Website einbetten. Zum Beispiel sind das Live-Beispiel selbst und das [try it](#try_it)-Beispiel oben beide `<iframe>`-Einbettungen von Inhalten von einer anderen MDN-Seite.
 
 #### HTML
 
@@ -252,9 +251,9 @@ Dieses Beispiel bettet die Seite unter <https://example.org> in ein iframe ein. 
 
 ### Einbetten von Quellcode in ein \<iframe>
 
-Dieses Beispiel rendert Quellcode direkt in einem iframe. Dies kann als Technik verwendet werden, um Skriptinjection zu verhindern, wenn Benutzergenerierte Inhalte angezeigt werden, in Kombination mit dem `sandbox`-Attribut.
+Dieses Beispiel rendert Quellcode direkt in einem iframe. Dies kann als Technik verwendet werden, um Skriptinjektionen zu verhindern, wenn Benutzergenerierter Inhalt angezeigt wird, insbesondere in Kombination mit dem `sandbox`-Attribut.
 
-Beachten Sie, dass bei Verwendung von `srcdoc` alle relativen URLs im eingebetteten Inhalt relativ zur URL der einbettenden Seite aufgelöst werden. Wenn Sie Anker-Links verwenden möchten, die auf Stellen im eingebetteten Inhalt verweisen, müssen Sie `about:srcdoc` ausdrücklich als Basis-URL angeben.
+Beachten Sie, dass bei Verwendung von `srcdoc` alle relativen URLs im eingebetteten Inhalt relativ zur URL der eingebetteten Seite aufgelöst werden. Wenn Sie Ankerlinks verwenden möchten, die auf Stellen im eingebetteten Inhalt verweisen, müssen Sie explizit `about:srcdoc` als Basis-URL angeben.
 
 #### HTML
 
@@ -280,11 +279,11 @@ Beachten Sie, dass bei Verwendung von `srcdoc` alle relativen URLs im eingebette
 </article>
 ```
 
-So schreiben Sie Escape-Sequenzen bei der Verwendung von `srcdoc`:
+Hier ist, wie man Escape-Sequenzen beim Gebrauch von `srcdoc` schreibt:
 
-- Schreiben Sie zuerst das HTML aus und entschärfen Sie alles, was Sie in einem normalen HTML-Dokument entschärfen würden (wie `<`, `>`, `&` usw.).
-- `&lt;` und `<` repräsentieren das gleiche Zeichen im `srcdoc`-Attribut. Ersetzen Sie daher alle kaufmännischen Und-Zeichen (`&`) mit `&amp;`, um dies in eine tatsächliche Escape-Sequenz im HTML-Dokument zu verwandeln. Zum Beispiel wird `&lt;` zu `&amp;lt;`, und `&amp;` wird zu `&amp;amp;`.
-- Ersetzen Sie alle doppelten Anführungszeichen (`"`) mit `&quot;`, um zu verhindern, dass das `srcdoc`-Attribut vorzeitig beendet wird (wenn Sie `'` stattdessen verwenden, sollten Sie `'` durch `&apos;` ersetzen). Dieser Schritt erfolgt nach dem vorherigen, sodass `&quot;`, das in diesem Schritt erzeugt wird, nicht zu `&amp;quot;` wird.
+- Schreiben Sie zunächst das HTML aus, indem Sie alles, was Sie in einem normalen HTML-Dokument escapen würden, escapen (wie `<`, `>`, `&` usw.).
+- `&lt;` und `<` repräsentieren dasselbe Zeichen im `srcdoc`-Attribut. Daher ersetzen Sie, um daraus eine tatsächliche Escape-Sequenz im HTML-Dokument zu machen, alle Ampersands (`&`) mit `&amp;`. Zum Beispiel wird `&lt;` zu `&amp;lt;`, und `&amp;` wird zu `&amp;amp;`.
+- Ersetzen Sie doppelte Anführungszeichen (`"`) mit `&quot;`, um zu verhindern, dass das `srcdoc`-Attribut vorzeitig beendet wird (wenn Sie stattdessen `'` verwenden, sollten Sie `'` mit `&apos;` ersetzen). Dieser Schritt erfolgt nach dem vorherigen, damit `&quot;`, das in diesem Schritt erstellt wird, nicht zu `&amp;quot;` wird.
 
 #### Ergebnis
 
@@ -302,27 +301,27 @@ So schreiben Sie Escape-Sequenzen bei der Verwendung von `srcdoc`:
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Fluss-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasing content</a
-        >, eingebetteter Inhalt, interaktiver Inhalt, fühlbarer Inhalt.
+          >Syntax-Inhalt</a
+        >, eingebetteter Inhalt, interaktiver Inhalt, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
-      <td>Keine.</td>
+      <th scope="row">Erlaubter Inhalt</th>
+      <td>Keiner.</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Omission</th>
-      <td>Keine, sowohl die Start- als auch End-Tags sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl die Start- als auch die Schluss-Tags sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Jedes Element, das eingebetteten Inhalt akzeptiert.</td>
+      <td>Jedes Element, das eingebetteten inhalt akzeptiert.</td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -355,5 +354,5 @@ So schreiben Sie Escape-Sequenzen bei der Verwendung von `srcdoc`:
 ## Siehe auch
 
 - [CSP: frame-ancestors](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors)
-- [Privacy, permissions, and information security](/de/docs/Web/Privacy)
-- [Local network access](/de/docs/Web/Security/Defenses/Local_network_access)
+- [Privatsphäre, Berechtigungen und Informationssicherheit](/de/docs/Web/Privacy)
+- [Lokaler Netzwerkzugriff](/de/docs/Web/Security/Defenses/Local_network_access)

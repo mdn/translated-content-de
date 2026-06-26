@@ -2,27 +2,32 @@
 title: SVGAnimatedEnumeration
 slug: Web/API/SVGAnimatedEnumeration
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimatedEnumeration`**-Schnittstelle beschreibt Attributwerte, die Konstanten aus einer bestimmten Enumeration sind und animiert werden können.
+Das **`SVGAnimatedEnumeration`** Interface beschreibt Attributwerte, die Konstanten aus einer bestimmten Aufzählung sind und animiert werden können.
 
-## Instanzeigenschaften
+Seit SVG 2 spiegeln sowohl `baseVal` als auch `animVal` den nicht animierten Wert des Attributs wider.
+Die erlaubten Werte seiner Eigenschaften hängen vom zugehörigen Attribut ab.
+
+## Instanz-Eigenschaften
 
 - [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal)
   - : Ein Ganzzahlwert, der den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
-- [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal)
-  - : Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es den gleichen Wert wie `baseVal`.
+- [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal) {{ReadOnlyInline}}
+  - : Dies entspricht in SVG 2 dem [`baseVal`](#baseval).
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Die `SVGAnimatedEnumeration`-Schnittstelle bietet keine spezifischen Methoden.
+Das `SVGAnimatedEnumeration`-Interface stellt keine spezifischen Methoden zur Verfügung.
 
 ## Beispiele
 
-Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}} Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
+## Grundlegende Verwendung
+
+Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein Attribut {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -35,7 +40,8 @@ Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}} Element: S
 </svg>
 ```
 
-Dieser Ausschnitt ruft das Element ab und protokolliert den `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft. Da keine Animation stattfindet, haben sie den gleichen Wert.
+Der folgende JavaScript-Code erhält das Element und protokolliert die `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
+Diese Werte sollten identisch sein.
 
 ```js
 const clipPathElt = document.getElementById("clip1");

@@ -3,10 +3,10 @@ title: URI-Schemata
 short-title: Scheme
 slug: Web/URI/Reference/Schemes
 l10n:
-  sourceCommit: 44373c3805ba65db7542af75b664dc6fdce2aec0
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Das **Schema** eines URI ist der erste Teil des URI, vor dem `:`-Zeichen. Es gibt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der Rest des URI strukturiert und interpretiert wird.
+Das **Schema** einer URI ist der erste Teil der URI, vor dem `:`-Zeichen. Es gibt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der Rest der URI strukturiert und interpretiert wird.
 
 ## Syntax
 
@@ -15,23 +15,23 @@ protocol:
 ```
 
 - `protocol`
-  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Sie sollte nur aus alphanumerischen Zeichen sowie den Zeichen `+`, `-` und `.` bestehen. Häufige Schemata sind:
+  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Es sollte nur aus alphanumerischen Zeichen sowie den Zeichen `+`, `-` und `.` bestehen. Häufige Schemata sind:
     - [`blob`](/de/docs/Web/URI/Reference/Schemes/blob)
-      - : Binary Large Object; ein Zeiger auf ein großes im Speicher befindliches Objekt
+      - : Binary Large Object; ein Zeiger auf ein großes Objekt im Arbeitsspeicher
     - [`data`](/de/docs/Web/URI/Reference/Schemes/data)
-      - : Direkt in die URL eingebettete Daten
+      - : Direkt in der URL eingebettete Daten
     - `file`
-      - : Host-spezifische Dateinamen
+      - : Hostspezifische Dateinamen
     - `ftp`
       - : {{Glossary("FTP", "File Transfer Protocol")}}
     - `http` / `https`
       - : [Hypertext Transfer Protocol](/de/docs/Web/HTTP) (und sichere Verbindungen)
     - [`javascript`](/de/docs/Web/URI/Reference/Schemes/javascript)
-      - : In die URL eingebetteter JavaScript-Code
+      - : In der URL eingebetteter JavaScript-Code
     - `mailto`
       - : E-Mail-Adresse
     - [`resource`](/de/docs/Web/URI/Reference/Schemes/resource) {{Non-standard_inline}}
-      - : Für Firefox und Firefox-Browsererweiterungen zum Laden interner Ressourcen
+      - : Für Firefox und Firefox-Browser-Erweiterungen zum Laden interner Ressourcen
     - `ssh`
       - : Secure Shell
     - `tel`
@@ -51,11 +51,11 @@ Betrachten Sie die folgende URL:
 http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument
 ```
 
-`http` ist das _Schema_ der URL und gibt an, welches Protokoll der Browser verwenden muss. In der Regel ist es das HTTP-Protokoll oder seine gesicherte Version, HTTPS. Das Web erfordert `http` oder `https`, aber Browser können URIs mit anderen Schemata öffnen, wie diejenigen, die mit `mailto:` beginnen (um ein E-Mail-Programm zu öffnen) oder `ftp:` (Dateiübertragungen).
+`http` ist das _Schema_ der URL und gibt an, welches Protokoll der Browser verwenden muss. In der Regel ist es das HTTP-Protokoll oder dessen sichere Version, HTTPS. Das Web erfordert `http` oder `https`, aber Browser können URIs mit anderen Schemas öffnen, wie z.B. solche, die mit `mailto:` beginnen (um ein E-Mail-Programm zu öffnen) oder `ftp:` (Dateiübertragungen).
 
-Bei der Verwendung von URLs in {{Glossary("HTML", "HTML")}}-Inhalten verwenden Sie im Allgemeinen nur einige dieser URL-Schemata. Beim Verweisen auf Subressourcen – das heißt Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata verwenden. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Subressourcen aus Sicherheitsgründen.
+Beim Verwenden von URLs in {{Glossary("HTML", "HTML")}}-Inhalten werden in der Regel nur wenige dieser URL-Schemata verwendet. Beim Verweisen auf Unterressourcen – also Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata verwenden. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Unterressourcen aus Sicherheitsgründen.
 
-FTP ist auf der obersten Ebene weiterhin akzeptabel (z.B. direkt in die URL-Leiste des Browsers eingegeben oder als Ziel eines Links), obwohl einige Browser das Laden von FTP-Inhalten an eine andere Anwendung delegieren könnten.
+FTP ist auf der obersten Ebene (wie z.B. direkt in die URL-Leiste des Browsers eingegeben oder als Ziel eines Links) immer noch akzeptabel, obwohl einige Browser das Laden von FTP-Inhalten an eine andere Anwendung delegieren können.
 
 ## Beispiele
 
@@ -78,6 +78,6 @@ mailto:help@supercyberhelpdesk.info
 ## Siehe auch
 
 - [URIs](/de/docs/Web/URI)
-- [Data URLs](/de/docs/Web/URI/Reference/Schemes/data)
-- [Resource URLs](/de/docs/Web/URI/Reference/Schemes/resource)
+- [Data-URLs](/de/docs/Web/URI/Reference/Schemes/data)
+- [Resource-URLs](/de/docs/Web/URI/Reference/Schemes/resource)
 - [IANA-Liste der URI-Schemata](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml)

@@ -2,10 +2,28 @@
 title: contextualIdentities.getSupportedIcons()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/getSupportedIcons
 l10n:
-  sourceCommit: 6203b96117ae35099df06d08f6a037bf2dff1d80
+  sourceCommit: 8ede916a8af8537114db737b914cef1d721fda84
 ---
 
 Gibt die vom Browser unterstützten Symbole für kontextuelle Identitäten zurück.
+
+Für Firefox 153 und später sollten Sie diese Methode verwenden, anstatt Symbolnamen in Ihrer Erweiterung fest zu codieren. Auch wenn sich die unterstützten Symbole seit der Einführung von kontextuellen Identitäten nicht geändert haben, stellt die Verwendung dieser Methode sicher, dass Ihre Erweiterung mit jeglichen Änderungen kompatibel bleibt.
+
+Diese Symbolnamen werden unterstützt:
+
+- `"briefcase"`
+- `"cart"`
+- `"chill"`
+- `"circle"`
+- `"dollar"`
+- `"fence"`
+- `"fingerprint"`
+- `"food"`
+- `"fruit"`
+- `"gift"`
+- `"pet"`
+- `"tree"`
+- `"vacation"`
 
 ## Syntax
 
@@ -19,14 +37,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein mit einem Array von Objekten erfülltes [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), eines für jedes unterstützte Symbol. Jedes Objekt hat die folgenden Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jedes unterstützte Symbol. Jedes Objekt hat folgende Eigenschaften:
 
 - `icon`
   - : `string`. Der Name des Symbols (zum Beispiel, `"fingerprint"`). Dies ist der Wert, der in der `icon`-Eigenschaft von {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} verwendet wird.
 - `iconUrl`
-  - : `string`. Eine `resource://` URL, die auf die SVG-Datei des Symbols verweist (zum Beispiel, `"resource://usercontext-content/fingerprint.svg"`).
+  - : `string`. Eine `resource://`-URL, die auf die SVG-Datei des Symbols verweist (zum Beispiel, `"resource://usercontext-content/fingerprint.svg"`).
 
-Wenn das Feature für kontextuelle Identitäten nicht aktiviert ist, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Wenn das Feature für kontextuelle Identitäten nicht aktiviert ist, wird das Versprechen mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 

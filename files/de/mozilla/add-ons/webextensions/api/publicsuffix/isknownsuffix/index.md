@@ -2,7 +2,7 @@
 title: publicSuffix.isKnownSuffix()
 slug: Mozilla/Add-ons/WebExtensions/API/publicSuffix/isKnownSuffix
 l10n:
-  sourceCommit: 5054fb75bce0f095ed9ca9ad11dabde32eea5cb4
+  sourceCommit: 79dc4b2dfc4d0564581cc4e417e5a2cfdd64bbd6
 ---
 
 Gibt `true` zurück, wenn der Hostname ein bekannter öffentlicher Suffix (eTLD) in der [Public Suffix List](https://publicsuffix.org/) ist.
@@ -16,24 +16,24 @@ let result = browser.publicSuffix.isKnownSuffix(hostname)
 ### Parameter
 
 - `hostname`
-  - : `string`. Der zu überprüfende Hostname.
+  - : `string`. Der Hostname, der überprüft werden soll.
 
 ### Rückgabewert
 
-`true`, wenn `hostname` ein bekannter öffentlicher Suffix ist, `false` andernfalls.
+`true`, wenn `hostname` ein bekannter öffentlicher Suffix ist, andernfalls `false`.
 
-Löst einen Fehler aus, wenn `hostname` kein gültiger Hostname ist.
+Wirft einen Fehler, wenn `hostname` kein gültiger Hostname ist.
 
 ## Beispiele
 
-Überprüfen, ob eine Zeichenkette ein bekannter öffentlicher Suffix ist:
+Überprüfen, ob ein String ein bekannter öffentlicher Suffix ist:
 
 ```js
-console.log(browser.publicSuffix.isKnownSuffix("com")); // true
-console.log(browser.publicSuffix.isKnownSuffix("co.uk")); // true
-console.log(browser.publicSuffix.isKnownSuffix("github.io")); // true
-console.log(browser.publicSuffix.isKnownSuffix("example.com")); // false
-console.log(browser.publicSuffix.isKnownSuffix("localhost")); // false
+browser.publicSuffix.isKnownSuffix("com"); // true
+browser.publicSuffix.isKnownSuffix("co.uk"); // true
+browser.publicSuffix.isKnownSuffix("github.io"); // true
+browser.publicSuffix.isKnownSuffix("example.com"); // false
+browser.publicSuffix.isKnownSuffix("localhost"); // false
 ```
 
 {{WebExtExamples}}

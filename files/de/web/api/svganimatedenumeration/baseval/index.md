@@ -3,18 +3,28 @@ title: "SVGAnimatedEnumeration: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedEnumeration/baseVal
 l10n:
-  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
+  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft des [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Interfaces enthält den Anfangswert einer SVG-Enumeration.
+Die **`baseVal`**-Eigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle repräsentiert den Wert einer SVG-Enumeration.
 
 ## Wert
 
-Ein Integer, der den Anfangswert der Enumeration enthält
+Ein Integer, der den Basiswert der Enumeration darstellt.
+Dies ist der nicht-animierte Inhaltswert des entsprechenden Attributs.
+
+Die zulässigen Werte hängen vom Attribut ab, das reflektiert wird.
+
+## Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn die Eigenschaft auf eine Konstante gesetzt wird, die nicht in der Menge der definierten Enumerationen enthalten ist, oder auf `0`, was den Wert "unbekanntes Attribut" darstellt.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 Betrachten Sie dieses Snippet mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt verknüpft.
 
@@ -29,7 +39,7 @@ Betrachten Sie dieses Snippet mit einem {{SVGElement("clipPath")}}-Element: Sein
 </svg>
 ```
 
-Dieses Snippet holt das Element und protokolliert den `baseVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
+Das folgende JavaScript holt das Element und gibt den `baseVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft aus.
 
 ```js
 const clipPathElt = document.getElementById("clip1");

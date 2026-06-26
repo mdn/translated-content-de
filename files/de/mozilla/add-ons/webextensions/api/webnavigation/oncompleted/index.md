@@ -2,10 +2,10 @@
 title: webNavigation.onCompleted
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onCompleted
 l10n:
-  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
+  sourceCommit: 9791add3508e087982097f25fbd367c21bcb8305
 ---
 
-Wird ausgelöst, wenn ein Dokument, einschließlich der von ihm referenzierten Ressourcen, vollständig geladen und initialisiert ist. Dies entspricht dem [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters.
+Wird ausgelöst, wenn ein Dokument, einschließlich der zugehörigen Ressourcen, vollständig geladen und initialisiert ist. Dies entspricht dem Fensterereignis [`load`](/de/docs/Web/API/Window/load_event).
 
 ## Syntax
 
@@ -23,46 +23,46 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `details`
-      - : `object`. Details über das Navigationsevent. Siehe den Abschnitt [Details](#details) für weitere Informationen.
+      - : `object`. Details über das Navigationsevent. Siehe den [Abschnitt Details](#details) für mehr Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einen `UrlFilter` im Array erfüllen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt mit einer einzigen Eigenschaft `url`, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter angeben, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, in dem die Navigation stattgefunden hat.
+  - : `integer`. Die ID des Tabs, in dem die Navigation erfolgt ist.
 - `url`
-  - : `string`. Die URL, zu der der gegebene Frame navigiert hat.
+  - : `string`. Die URL, zu der das angegebene Frame navigiert hat.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattgefunden hat. `0` gibt an, dass die Navigation im obersten Browsing-Kontext des Tabs stattfand, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert gibt an, dass die Navigation in einem verschachtelten iframe stattfand. Frame-IDs sind eindeutig für einen bestimmten Tab und Prozess.
+  - : `integer`. Frame, in dem die Navigation stattgefunden hat. `0` zeigt an, dass die Navigation im obersten Browserkontext des Tabs und nicht in einem geschachtelten {{HTMLElement("iframe")}} erfolgt ist. Ein positiver Wert zeigt an, dass die Navigation in einem geschachtelten iframe erfolgt ist. Frame-IDs sind einzigartig für einen bestimmten Tab und Prozess.
 - `frameType`
-  - : `string`. Der Typ des Frames, in dem die Navigation stattfand. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
+  - : `string`. Der Typ des Frames, in dem die Navigation erfolgt ist. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames dieses Frames. Wird auf `-1` gesetzt, wenn es sich um ein oberstes Frame handelt.
+  - : `integer`. ID des Eltern-Frames. Auf `-1` gesetzt, wenn dies ein oberstes Frame ist.
 - `documentId`
-  - : `string`. Eine UUID des geladenen Dokuments.
+  - : `string`. Eine UUID des geladenen Dokuments. Siehe den Artikel [Arbeiten mit documentId](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId) für weitere Informationen.
 - `parentDocumentId`
-  - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Nicht gesetzt, wenn kein übergeordnetes Dokument vorhanden ist.
+  - : `string`. Eine UUID des übergeordneten Dokuments, das das Frame besitzt. Nicht gesetzt, wenn es kein übergeordnetes gibt. Siehe den Artikel [Arbeiten mit documentId](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId) für weitere Informationen.
 - `documentLifecycle`
   - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` und `"pending_deletion"` zurück.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der die Seite fertig geladen hat, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Der Zeitpunkt, zu dem die Seite das Laden abgeschlossen hat, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführt.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
 
 ## Beispiele
 

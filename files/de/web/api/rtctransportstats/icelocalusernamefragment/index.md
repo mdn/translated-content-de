@@ -1,23 +1,23 @@
 ---
-title: "RTCTransportStats: iceLocalUsernameFragment-Eigenschaft"
+title: "RTCTransportStats: Eigenschaft iceLocalUsernameFragment"
 short-title: iceLocalUsernameFragment
 slug: Web/API/RTCTransportStats/iceLocalUsernameFragment
 l10n:
-  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
+  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
 ---
 
-{{APIRef("WebRTC")}}{{SeeCompatTable}}
+{{APIRef("WebRTC")}}
 
-Die **`iceLocalUsernameFragment`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs ist ein String, der das lokale Benutzername-Fragment ("ufrag" oder "ice-ufrag") angibt, das die ICE-Interaktionssitzung, die von diesem Transport verwaltet wird, eindeutig identifiziert.
+Die **`iceLocalUsernameFragment`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs ist ein String, der das lokale Benutzernamen-Fragment ("ufrag" oder "ice-ufrag") angibt, das die von diesem Transport verwaltete ICE-Interaktionssitzung eindeutig identifiziert.
 
-Dasselbe Benutzername-Fragment wird verwendet, um die Sitzung für jede Kommunikation mit dem STUN-Server zu identifizieren.
+Das gleiche Benutzernamen-Fragment wird verwendet, um die Sitzung für jede Kommunikation mit dem STUN-Server zu identifizieren.
 
-Dies hat dieselben Werte wie die entsprechende lokale [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment)-Eigenschaft.
-Es wird sich ändern, wenn die Verbindung neu verhandelt wird, beispielsweise bei einem ICE-Neustart oder wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
+Diese Eigenschaft hat die gleichen Werte wie die entsprechende lokale [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment)-Eigenschaft.
+Sie wird sich ändern, wenn die Verbindung neu verhandelt wird, zum Beispiel bei einem ICE-Neustart oder wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
 
 ## Wert
 
-Ein String, der das Benutzername-Fragment enthält, das die laufende ICE-Sitzung auf dem Transport eindeutig identifiziert.
+Ein String, der das Benutzernamen-Fragment enthält, das die laufende ICE-Sitzung auf dem Transport eindeutig identifiziert.
 
 Der String kann bis zu 256 Zeichen lang sein und hat keinen Standardwert.
 

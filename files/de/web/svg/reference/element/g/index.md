@@ -2,12 +2,12 @@
 title: <g>
 slug: Web/SVG/Reference/Element/g
 l10n:
-  sourceCommit: 156a28c0e9cac5adf880520f5fb43d7b3d5186e7
+  sourceCommit: 6220f771788093b57a7fd05340f6dfd7824efc63
 ---
 
-Das **`<g>`**-Element [SVG](/de/docs/Web/SVG) ist ein Container, der verwendet wird, um andere SVG-Elemente zu gruppieren.
+Das **`<g>`** [SVG](/de/docs/Web/SVG)-Element ist ein Container, der verwendet wird, um andere SVG-Elemente zu gruppieren.
 
-Transformationen, die auf das `<g>`-Element angewendet werden, werden an seinen Kindelementen durchgeführt, und die meisten seiner Präsentationsattribute werden von seinen Kindern geerbt. Es kann auch mehrere Elemente gruppieren, um später mit dem {{SVGElement("use")}}-Element darauf zu verweisen.
+Transformationen, die auf das `<g>`-Element angewendet werden, werden an seinen Kindelementen durchgeführt, und die meisten seiner Präsentationsattribute werden von seinen Kindern geerbt. Es kann auch mehrere Elemente gruppieren, die später mit dem {{SVGElement("use")}}-Element referenziert werden können.
 
 ## Verwendungskontext
 
@@ -17,10 +17,9 @@ Transformationen, die auf das `<g>`-Element angewendet werden, werden an seinen 
 
 Dieses Element enthält nur globale Attribute.
 
-Die meisten der [Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes), die auf das Element angewendet werden, werden von seinen Kindern geerbt.
-Jedoch sind geometrische Attribute nur als Präsentationsattribute für ihre vorgesehenen Elemente gültig — sie haben keine Wirkung auf ein `<g>`-Element und werden nicht an seine Kinder weitergegeben.
+Die meisten der [Präsentationsattribute](/de/docs/Web/SVG/Reference/Attribute#presentation_attributes), die auf das Element angewendet werden, werden von seinen Kindern geerbt. Jedoch sind [Geometrie-Eigenschaften](/de/docs/Web/SVG/Reference/Attribute#geometry_properties) nur als Präsentationsattribute auf ihren vorgesehenen Elementen gültig — sie haben keine Wirkung auf ein `<g>`-Element und werden nicht an seine Kinder weitergegeben.
 
-Zu diesen nicht vererbten Attributen gehören:
+Diese nicht vererbten Attribute umfassen:
 
 - {{SVGAttr("cx")}}, {{SVGAttr("cy")}}, {{SVGAttr("r")}}: {{SVGElement("circle")}}, {{SVGElement("ellipse")}}
 - {{SVGAttr("rx")}}, {{SVGAttr("ry")}}: {{SVGElement("ellipse")}}, {{SVGElement("rect")}}
@@ -31,7 +30,7 @@ Nicht-Präsentationsattribute, selbst diejenigen, die auf `<g>` gültig sind (wi
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGGElement`](/de/docs/Web/API/SVGGElement) Schnittstelle.
+Dieses Element implementiert die [`SVGGElement`](/de/docs/Web/API/SVGGElement)-Schnittstelle.
 
 ## Beispiel
 

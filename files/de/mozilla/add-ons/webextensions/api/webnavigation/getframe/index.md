@@ -2,7 +2,7 @@
 title: webNavigation.getFrame()
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/getFrame
 l10n:
-  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
+  sourceCommit: 9791add3508e087982097f25fbd367c21bcb8305
 ---
 
 Ruft Informationen über einen bestimmten Frame ab. Ein Frame kann der oberste Frame in einem Tab oder ein verschachteltes [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe) sein und wird eindeutig durch eine Tab-ID und eine Frame-ID identifiziert.
@@ -20,38 +20,36 @@ let gettingFrame = browser.webNavigation.getFrame(
 ### Parameter
 
 - `details`
-  - : `object`. Informationen über den Frame, über den Informationen abgerufen werden sollen. Muss eine der Eigenschaften `tabId`, `frameId` oder `documentId` enthalten.
+  - : `object`. Informationen über den abzurufenden Frame. Muss entweder `documentId` oder `tabId` und `frameId` enthalten.
     - `tabId` {{optional_inline}}
-      - : `integer`. Die ID des Tabs, in dem sich der Frame befindet.
+      - : `integer`. Die ID des Tabs, in dem sich der Frame befindet. Erforderlich, wenn `documentId` nicht angegeben ist.
     - `processId` {{optional_inline}} {{deprecated_inline}}
-      - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der das Renderer für diesen Tab ausführte.
+      - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
     - `frameId` {{optional_inline}}
-      - : `integer`. Die ID des Frames im angegebenen Tab.
+      - : `integer`. Die ID des Frames im angegebenen Tab. Erforderlich, wenn `documentId` nicht angegeben ist.
     - `documentId` {{optional_inline}}
-      - : `string`. Die UUID des Dokuments des Frames.
-
-Muss eine der folgenden Eigenschaften enthalten
+      - : `string`. Die UUID des Dokuments des Frames. Wenn `tabId` und `frameId` ebenfalls angegeben sind, wird der Frame nur zurückgegeben, wenn alle Eigenschaften übereinstimmen. Siehe den Artikel [mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId) für weitere Informationen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das diese Eigenschaften enthält:
 
 - `errorOccurred`
-  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das Ereignis {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} wurde ausgelöst.
+  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} Ereignis ausgelöst wurde.
 - `url`
-  - : `string`. Die URL, die mit diesem Frame verbunden ist, falls der durch `frameId` identifizierte Frame zu einem Zeitpunkt im durch `tabId` identifizierten Tab existiert hat. Die Tatsache, dass eine URL mit einer bestimmten `frameId` verknüpft ist, impliziert nicht, dass der entsprechende Frame noch existiert.
+  - : `string`. Die URL, die mit diesem Frame verbunden ist, wenn der durch `frameId` identifizierte Frame zu einem Zeitpunkt im durch `tabId` identifizierten Tab existierte. Die Tatsache, dass eine URL mit einer bestimmten `frameId` verknüpft ist, impliziert nicht, dass der entsprechende Frame noch existiert.
 - `frameType`
   - : `string`. Der Typ des Frames. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` oder `"sub_frame"` zurück.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn kein übergeordneter Frame existiert: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn es keinen übergeordneten Frame gibt, d.h. wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
 - `documentId`
-  - : `string`. Eine UUID des Dokuments des Frames.
+  - : `string`. Eine UUID des Dokuments des Frames. Siehe den Artikel [mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId) für weitere Informationen.
 - `parentDocumentId`
-  - : `string`. Eine UUID des übergeordneten Dokuments, dem der Frame gehört. Nicht gesetzt, wenn kein übergeordnetes Dokument existiert.
+  - : `string`. Eine UUID des übergeordneten Dokuments, dem der Frame gehört. Nicht gesetzt, wenn es keinen übergeordneten gibt. Siehe den Artikel [mit documentId arbeiten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId) für weitere Informationen.
 - `documentLifecycle`
-  - : `string`. Der Lebenszyklus des Dokuments. Gibt die Werte `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"` zurück.
+  - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"` zurück.
 
-Wenn der Tab verworfen wird, wird das Promise stattdessen mit dem Wert `null` aufgelöst. Wenn die angegebene Tab- oder Frame-ID nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Tab verworfen wird, wird das Promise stattdessen mit einem `null`-Wert aufgelöst. Wenn die angegebene Tab- oder Frame-ID nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

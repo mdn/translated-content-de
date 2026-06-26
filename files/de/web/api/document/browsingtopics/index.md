@@ -3,23 +3,21 @@ title: "Dokument: browsingTopics() Methode"
 short-title: browsingTopics()
 slug: Web/API/Document/browsingTopics
 l10n:
-  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
+  sourceCommit: c807b72777506cd8aaa8d888b7a187dbc6079ca1
 ---
 
 {{APIRef("Topics API")}}{{non-standard_header}}{{deprecated_header}}
 
 > [!WARNING]
-> Diese Funktion wird derzeit von zwei Browseranbietern abgelehnt. Details zur Ablehnung finden Sie im Abschnitt [Standards Positionen](/de/docs/Web/API/Topics_API#standards_positions) unten.
+> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Details zur Ablehnung finden Sie im Abschnitt [Standards positionen](/de/docs/Web/API/Topics_API#standards_positions) unten.
 
 > [!NOTE]
-> Ein [Anmeldeverfahren](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu nutzen.
+> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu verwenden.
 
-Die `browsingTopics()` Methode des [`Document`](/de/docs/Web/API/Document) Interfaces gibt ein Promise zurück, das mit einem Array von Objekten erfüllt wird, die die Top-Themen des Nutzers darstellen, eines aus jeder der letzten drei Epochen. Diese Themen könnten dann in einer nachfolgenden Abrageanfrage an die Ad-Tech-Plattform zurückgegeben werden. Standardmäßig führt die Methode dazu, dass der Browser den aktuellen Seitenbesuch als vom Aufrufer beobachtet aufzeichnet, damit der Hostname der Seite später in der Themenberechnung verwendet werden kann.
-
-Siehe [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
+Die `browsingTopics()`-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein Promise zurück, das mit einem Array von Objekten erfüllt wird, die die Top-Themen des Benutzers repräsentieren, eines aus jedem der letzten drei Zeitabschnitte. Diese Themen könnten dann bei einer nachfolgenden Fetch-Anfrage an die Werbetechnologie-Plattform zurückgegeben werden. Standardmäßig führt die Methode auch dazu, dass der Browser den aktuellen Seitenbesuch als vom Aufrufer beobachtet aufzeichnet, sodass der Hostname der Seite später in die Themenberechnung einbezogen werden kann.
 
 > [!NOTE]
-> `browsingTopics()` verlässt sich nicht auf HTTP-Header, um Themen zu senden und als beobachtet zu markieren, im Gegensatz zu den anderen [Topics API aktivierenden Funktionen](/de/docs/Web/API/Topics_API/Using#what_api_features_enable_the_topics_api), ist jedoch etwas weniger performant. Es wird empfohlen, eine der HTTP-Header-verwendenden Funktionen zu verwenden und auf `browsingTopics()` nur in Situationen zurückzugreifen, in denen die Header nicht geändert werden können.
+> `browsingTopics()` verlässt sich nicht auf HTTP-Header, um Themen zu senden und als beobachtet zu markieren, wie die anderen Funktionen, die die Topics API ermöglichen, ist jedoch etwas weniger leistungsfähig. Es wird empfohlen, eine der HTTP-Header-verwendenden Funktionen zu nutzen und nur dann auf `browsingTopics()` zurückzugreifen, wenn die Header nicht geändert werden können.
 
 ## Syntax
 
@@ -37,18 +35,18 @@ browsingTopics(options)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von bis zu drei Objekten erfüllt wird, die die ausgewählten Themen des aktuellen Nutzers für die letzten drei Epochen darstellen. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem Array von bis zu drei Objekten erfüllt wird, die die ausgewählten Themen des aktuellen Benutzers für die letzten drei Zeitabschnitte repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `configVersion`
-  - : Ein String, der den Algorithmus identifiziert (außer dem Modellteil), der zur Berechnung des Themas verwendet wird.
+  - : Ein String, der den Algorithmus (außer dem Modellteil) identifiziert, der verwendet wird, um das Thema zu berechnen.
 - `modelVersion`
-  - : Ein String, der das Modell darstellt, das verwendet wird, um einen String (wie den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
+  - : Ein String, der das Modell repräsentiert, das verwendet wird, um einen String (wie den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
 - `taxonomyVersion`
-  - : Ein String, der die verwendete Taxonomie-Version darstellt.
+  - : Ein String, der die verwendete Taxonomieversion repräsentiert.
 - `topic`
-  - : Eine Nummer, die die ID des Themas darstellt, die vom Browser genutzt werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel [Taxonomie der Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
+  - : Eine Zahl, die die ID des Themas repräsentiert, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel für eine [Taxonomie von Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
 - `version`
-  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, mit Doppelpunkten (`:`) zwischen jeder verkettet.
+  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, konkateniert mit Doppelpunkten (`:`) zwischen jeder.
 
 Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren. Ein Beispielobjekt aus Chrome könnte wie folgt aussehen:
 
@@ -66,8 +64,8 @@ Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die Nutzung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) untersagt ist.
-    - Die aufrufende Seite die Topics API nicht in einem erfolgreichen [Privacy Sandbox Anmeldeprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
+    - Die Verwendung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) untersagt ist.
+    - Die aufrufende Seite die Topics API nicht in einen erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) einbezogen hat.
 
 ## Beispiele
 
@@ -92,7 +90,7 @@ const creative = await response.json();
 
 ## Spezifikationen
 
-Diese Funktion ist kein Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

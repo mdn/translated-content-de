@@ -10464,6 +10464,7 @@
 /de/docs/Web/API/TimeRanges.end	/de/docs/Web/API/TimeRanges/end
 /de/docs/Web/API/TimeRanges.length	/de/docs/Web/API/TimeRanges/length
 /de/docs/Web/API/TimeRanges.start	/de/docs/Web/API/TimeRanges/start
+/de/docs/Web/API/Topics_API/Using	/de/docs/Web/API/Topics_API
 /de/docs/Web/API/Touch.clientX	/de/docs/Web/API/Touch/clientX
 /de/docs/Web/API/Touch.clientY	/de/docs/Web/API/Touch/clientY
 /de/docs/Web/API/Touch.force	/de/docs/Web/API/Touch/force
@@ -15725,10 +15726,12 @@
 /de/docs/Web/Performance/dns-prefetch	/de/docs/Web/Performance/Guides/dns-prefetch
 /de/docs/Web/Performance/learn	/de/docs/Web/Performance/Guides/How_browsers_work
 /de/docs/Web/Privacy/Firefox_tracking_protection	/de/docs/Web/Privacy/Guides/Firefox_tracking_protection
-/de/docs/Web/Privacy/Partitioned_cookies	/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies
+/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment	/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment
+/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies	/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies
+/de/docs/Web/Privacy/Partitioned_cookies	/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies
 /de/docs/Web/Privacy/Privacy_sandbox	/de/docs/Web/Privacy/Guides/Privacy_sandbox
-/de/docs/Web/Privacy/Privacy_sandbox/Enrollment	/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment
-/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies	/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies
+/de/docs/Web/Privacy/Privacy_sandbox/Enrollment	/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment
+/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies	/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies
 /de/docs/Web/Privacy/Redirect_tracking_protection	/de/docs/Web/Privacy/Guides/Redirect_tracking_protection
 /de/docs/Web/Privacy/State_Partitioning	/de/docs/Web/Privacy/Guides/State_Partitioning
 /de/docs/Web/Privacy/Storage_Access_Policy	/de/docs/Web/Privacy/Guides/Storage_Access_Policy

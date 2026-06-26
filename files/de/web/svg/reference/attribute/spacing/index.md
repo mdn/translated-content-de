@@ -2,12 +2,12 @@
 title: spacing
 slug: Web/SVG/Reference/Attribute/spacing
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
 ---
 
-Das **`spacing`**-Attribut gibt an, wie der Benutzeragent den Abstand zwischen typografischen Zeichen bestimmen soll, die entlang eines Pfads gerendert werden sollen.
+Das **`spacing`**-Attribut gibt an, wie das Benutzerprogramm den Abstand zwischen typografischen Zeichen bestimmen soll, die entlang eines Pfades gerendert werden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 
@@ -31,9 +31,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto`
-  - : Dieser Wert gibt an, dass der Benutzeragent Text-auf-einem-Pfad-Layout-Algorithmen verwenden sollte, um den Abstand zwischen typografischen Zeichen anzupassen, um visuell ansprechende Ergebnisse zu erzielen.
+  - : Dieser Wert gibt an, dass das Benutzerprogramm Text-auf-einem-Pfad-Layout-Algorithmen verwenden soll, um den Abstand zwischen typografischen Zeichen anzupassen, um visuell ansprechende Ergebnisse zu erzielen.
 - `exact`
-  - : Dieser Wert gibt an, dass die typografischen Zeichen genau gemäß den Abstandsregeln gerendert werden sollen, wie sie durch die Layoutregeln für Text-auf-einem-Pfad festgelegt sind.
+  - : Dieser Wert gibt an, dass die typografischen Zeichen genau nach den Abstandsregeln gerendert werden sollen, wie sie von den Layoutregeln für Text-auf-einem-Pfad angegeben sind.
 
 ## Spezifikationen
 
@@ -42,3 +42,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`SVGTextPathElement.spacing`](/de/docs/Web/API/SVGTextPathElement/spacing)

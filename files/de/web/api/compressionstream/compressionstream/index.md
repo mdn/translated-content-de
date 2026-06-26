@@ -3,7 +3,7 @@ title: "CompressionStream: CompressionStream() Konstruktor"
 short-title: CompressionStream()
 slug: Web/API/CompressionStream/CompressionStream
 l10n:
-  sourceCommit: 238b0047b17c0d506060fc34619a16d237533dc7
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
@@ -19,18 +19,18 @@ new CompressionStream(format)
 ### Parameter
 
 - `format`
-  - : Eines der folgenden zulässigen Komprimierungsformate:
+  - : Einer der folgenden erlaubten Komprimierungsformate:
     - `"brotli"`
-      - : Komprimiert den Datenstrom mithilfe des [Brotli](https://www.rfc-editor.org/rfc/rfc7932)-Algorithmus.
+      - : Komprimiert den Strom mit dem [Brotli](https://www.rfc-editor.org/info/rfc7932/)-Algorithmus.
     - `"gzip"`
-      - : Komprimiert den Datenstrom im [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Format.
+      - : Komprimiert den Strom im [GZIP](https://www.rfc-editor.org/info/rfc1952/)-Format.
     - `"deflate"`
-      - : Komprimiert den Datenstrom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB Compressed Data Format.
-        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine Prüfsumme am Ende zur Überprüfung der Datenintegrität.
+      - : Komprimiert den Strom mit dem [DEFLATE](https://www.rfc-editor.org/info/rfc1950/)-Algorithmus im ZLIB-komprimierten Datenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Datenintegrität.
     - `"deflate-raw"`
-      - : Komprimiert den Datenstrom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und Prüfsumme am Ende.
+      - : Komprimiert den Strom mit dem [DEFLATE](https://www.rfc-editor.org/info/rfc1951/)-Algorithmus ohne Header und abschließende Prüfsumme.
     - `"zstd"`
-      - : Komprimiert den Datenstrom mithilfe des [ZSTD](https://datatracker.ietf.org/doc/html/rfc8478)-Algorithmus.
+      - : Komprimiert den Strom mit dem [ZSTD](https://datatracker.ietf.org/doc/html/rfc8478)-Algorithmus.
 
 ### Ausnahmen
 
@@ -39,7 +39,7 @@ new CompressionStream(format)
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream mit gzip-Komprimierung komprimiert.
+In diesem Beispiel wird ein Datenstrom mit GZIP-Komprimierung komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

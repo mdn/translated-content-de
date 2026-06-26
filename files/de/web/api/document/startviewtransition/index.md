@@ -3,14 +3,14 @@ title: "Dokument: startViewTransition()-Methode"
 short-title: startViewTransition()
 slug: Web/API/Document/startViewTransition
 l10n:
-  sourceCommit: baf0cb6bfe8bf2418122300d3f93e3aa94f72dca
+  sourceCommit: 3114d1b72a4d46d314caa7f73f775a1f6f7407dc
 ---
 
 {{APIRef("View Transition API")}}
 
-Die **`startViewTransition()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle startet eine neue gleiche-Dokument (SPA) [Ansichtstransition](/de/docs/Web/API/View_Transition_API) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, um sie darzustellen.
+Die **`startViewTransition()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle startet eine neue, dokumentlokale ({{Glossary("SPA", "SPA")}}) [View Transition](/de/docs/Web/API/View_Transition_API) und gibt ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das diese repräsentiert.
 
-Wenn `startViewTransition()` aufgerufen wird, wird eine Abfolge von Schritten durchgeführt, wie im Abschnitt [Der Ansichtstransitionsprozess](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt.
+Die Abfolge der Schritte, die ausgeführt werden, wenn `startViewTransition()` aufgerufen wird, wird im Abschnitt [der View Transition-Prozess](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ startViewTransition(options)
 ### Parameter
 
 - `updateCallback` {{optional_inline}}
-  - : Eine optionale Rückruffunktion, die typischerweise verwendet wird, um das DOM während des SPA-Ansichtstransitionsprozesses zu aktualisieren, und die ein {{jsxref("Promise")}} zurückgibt. Der Rückruf wird aufgerufen, sobald die API einen Snapshot der aktuellen Seite erstellt hat. Wenn das von dem Rückruf zurückgegebene Promise erfüllt wird, beginnt die Ansichtstransition im nächsten Frame. Wenn das Promise von dem Rückruf abgelehnt wird, wird die Transition abgebrochen.
+  - : Eine Callback-Funktion, die aufgerufen wird, um den DOM während des SPA View Transition-Prozesses zu aktualisieren. Sie gibt ein {{jsxref("Promise")}} zurück. Der Callback wird aufgerufen, sobald die API einen Snapshot der aktuellen Seite gemacht hat. Wenn das von dem Callback zurückgegebene Promise erfüllt wird, beginnt die View Transition im nächsten Frame. Wenn das von dem Callback zurückgegebene Promise abgelehnt wird, wird die Transition abgebrochen.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit Optionen zur Konfiguration der Ansichtstransition. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, das Optionen zur Konfiguration der View Transition enthält. Es kann die folgenden Eigenschaften enthalten:
     - `update` {{optional_inline}}
-      - : Die gleiche oben beschriebene `updateCallback`-Funktion. Standardmäßig `null`.
+      - : Die gleiche `updateCallback`-Funktion wie oben beschrieben. Standardwert ist `null`.
     - `types` {{optional_inline}}
-      - : Ein Array von Zeichenfolgen, das die Arten darstellt, die auf die Ansichtstransition angewendet werden. [Ansichtstransitionstypen](/de/docs/Web/API/View_Transition_API/Using_types) ermöglichen die selektive Anwendung von CSS-Stilen oder JavaScript-Logik basierend auf dem Übergangstyp. Standardmäßig eine leere Sequenz.
+      - : Ein Array von Zeichenketten, das die auf die View Transition angewendeten Typen repräsentiert. [Die Typen der View Transition](/de/docs/Web/API/View_Transition_API/Using_types) ermöglichen die selektive Anwendung von CSS-Stilen oder JavaScript-Logik basierend auf dem Übergangstyp, der auftritt. Standardwert ist ein leeres Array.
 
 ### Rückgabewert
 
-Eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objektinstanz.
+Eine Instanz des [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekts.
 
 ## Beispiele
 
@@ -41,8 +41,8 @@ Siehe [View Transition API > Beispiele](/de/docs/Web/API/View_Transition_API#exa
 
 ### Grundlegende Verwendung
 
-In dieser gleichen-Dokument-Ansichtstransition überprüfen wir, ob der Browser Ansichtsübergänge unterstützt.
-Falls keine Unterstützung vorhanden ist, setzen wir die Hintergrundfarbe mit einer Fallback-Methode, die sofort angewandt wird.
+In dieser dokumentinternen View Transition prüfen wir, ob der Browser View Transitions unterstützt.
+Wenn es keine Unterstützung gibt, setzen wir die Hintergrundfarbe mit einer Fallback-Methode, die sofort angewendet wird.
 Andernfalls können wir sicher `document.startViewTransition()` mit Animationsregeln aufrufen, die wir in CSS definieren.
 
 ```html
@@ -52,7 +52,7 @@ Andernfalls können wir sicher `document.startViewTransition()` mit Animationsre
 </main>
 ```
 
-Wir setzen die `animation-duration` auf 2 Sekunden mithilfe des {{CSSXRef("::view-transition-group")}}-Pseudoelements.
+Wir setzen die `animation-duration` auf 2 Sekunden unter Verwendung des {{CSSXRef("::view-transition-group")}}-Pseudoelements.
 
 ```css
 html {
@@ -98,7 +98,7 @@ changeColorButton.addEventListener("click", changeColor);
 changeColorButton.addEventListener("keypress", changeColor);
 ```
 
-Wenn Ansichtstransitionen unterstützt werden, wird beim Klicken auf die Schaltfläche die Farbe in 2 Sekunden von einer zur anderen übergehen.
+Wenn View Transitions unterstützt werden, wird durch Klicken auf den Button die Farbe innerhalb von 2 Sekunden von einer in die andere übergehen.
 Andernfalls wird die Hintergrundfarbe ohne Animation mit einer Fallback-Methode gesetzt.
 
 {{EmbedLiveSample('color_change', '100%', '120')}}
@@ -114,9 +114,10 @@ Andernfalls wird die Hintergrundfarbe ohne Animation mit einer Fallback-Methode 
 ## Siehe auch
 
 - [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition)
-- {{CSSXRef(":active-view-transition")}} Pseudo-Klasse
-- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}} Pseudo-Klasse
+- [`Element.startViewTransition()`](/de/docs/Web/API/Element/startViewTransition)
+- {{CSSXRef(":active-view-transition")}} Pseudoklasse
+- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}} Pseudoklasse
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [Verwendung von Ansichtstransitionstypen](/de/docs/Web/API/View_Transition_API/Using_types)
+- [Verwendung von View Transition Typen](/de/docs/Web/API/View_Transition_API/Using_types)
 - [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

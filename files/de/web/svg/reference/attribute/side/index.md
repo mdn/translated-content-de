@@ -2,18 +2,24 @@
 title: side
 slug: Web/SVG/Reference/Attribute/side
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
 ---
 
 {{SeeCompatTable}}
 
-Das **`side`** Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Richtung des Pfades).
+Das **`side`** Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Pfadrichtung).
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
 ## Beispiel
+
+### Grundlegende Verwendung
+
+Das folgende Beispiel zeichnet zwei kreisförmige Textpfade und zeigt den Text auf der linken und der rechten Seite an.
+
+#### HTML
 
 ```css hidden
 html,
@@ -33,10 +39,10 @@ text {
 ```html
 <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
   <text>
-    <textPath href="#circle1" side="left">Text left from the path</textPath>
+    <textPath href="#circle1" side="left">Text on left of path</textPath>
   </text>
   <text>
-    <textPath href="#circle2" side="right">Text right from the path</textPath>
+    <textPath href="#circle2" side="right">Text on right of path</textPath>
   </text>
 
   <circle
@@ -56,7 +62,11 @@ text {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "220")}}
+#### Ergebnis
+
+Browser, die die Einstellung des `side` Attributs unterstützen, werden den Text links (außen) und rechts (innen) des kreisförmigen Textpfades unten anzeigen.
+
+{{EmbedLiveSample("Basic usage", "420", "220")}}
 
 ## Verwendungshinweise
 
@@ -78,9 +88,9 @@ text {
 </table>
 
 - `left`
-  - : Dieser Wert platziert den Text auf der linken Seite des Pfades (relativ zur Richtung des Pfades).
+  - : Dieser Wert platziert den Text auf der linken Seite des Pfades (relativ zur Pfadrichtung).
 - `right`
-  - : Dieser Wert platziert den Text auf der rechten Seite des Pfades (relativ zur Richtung des Pfades). Dies kehrt die Pfadrichtung effektiv um.
+  - : Dieser Wert platziert den Text auf der rechten Seite des Pfades (relativ zur Pfadrichtung). Dies kehrt effektiv die Pfadrichtung um.
 
 ## Spezifikationen
 
@@ -89,3 +99,7 @@ text {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`SVGTextPathElement.side`](/de/docs/Web/API/SVGTextPathElement/side)

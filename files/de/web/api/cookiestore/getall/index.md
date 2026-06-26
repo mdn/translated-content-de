@@ -1,14 +1,15 @@
 ---
-title: "CookieStore: getAll() Methode"
+title: "CookieStore: Methode getAll()"
 short-title: getAll()
 slug: Web/API/CookieStore/getAll
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 5ef5a171a41dbcb48c953cc3c98c1237566796e9
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`getAll()`** Methode der [`CookieStore`](/de/docs/Web/API/CookieStore) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Array von Cookies auflöst, die mit dem übergebenen `name` oder den `options` übereinstimmen. Werden keine Parameter übergeben, werden alle Cookies für den aktuellen Kontext zurückgegeben.
+Die **`getAll()`** Methode der [`CookieStore`](/de/docs/Web/API/CookieStore) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von Cookies aufgelöst wird, die dem übergebenen `name` oder `options` entsprechen.
+Werden keine Parameter übergeben, werden alle Cookies für den aktuellen Kontext zurückgegeben.
 
 ## Syntax
 
@@ -21,49 +22,49 @@ getAll(options)
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Ein Zeichenfolgenwert mit dem Namen eines Cookies.
+  - : Ein String, der den Namen eines Cookies enthält.
 
 Oder
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgendes enthält:
+  - : Ein Objekt, das Folgendes enthält:
     - `name`
-      - : Eine Zeichenfolge mit dem Namen eines Cookies.
+      - : Ein String, der den Namen eines Cookies enthält.
     - `url`
-      - : Eine Zeichenfolge mit der URL eines Cookies.
+      - : Ein String, der die URL eines Cookies enthält.
 
 > [!NOTE]
-> Die `url` Option ermöglicht die Modifikation eines Cookies, das für eine bestimmte URL vorgesehen ist. Service Workers können Cookies erhalten, die an jede URL innerhalb ihres Bereichs gesendet werden würden. Von einem Dokument aus können Sie nur die Cookies der aktuellen URL abrufen, daher ist die einzige gültige URL im Dokumentkontext die URL des Dokuments.
+> Die `url`-Option ermöglicht die Modifikation eines Cookies, das unter einer bestimmten URL eingetragen ist. Service Worker können Cookies erhalten, die an eine beliebige URL in ihrem Gültigkeitsbereich gesendet würden. Von einem Dokument aus können Sie nur die Cookies der aktuellen URL erhalten, also ist die einzig gültige URL im Dokumentkontext die URL des Dokuments.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ein Array von Objekten zurückgibt, die Cookies repräsentieren, die mit dem gegebenen `name` oder `options` übereinstimmen.
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die Cookies repräsentieren, die dem angegebenen `name` oder `options` entsprechen.
 
 Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `domain`
-  - : Eine Zeichenfolge, die die Domain des Cookies enthält.
+  - : Ein String, der die Domäne des Cookies enthält.
 
 - `expires`
-  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel in {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
-  - : Eine Zeichenfolge, die den Namen des Cookies enthält.
+  - : Ein String, der den Namen des Cookies enthält.
 
 - `partitioned`
-  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
+  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies).
 
 - `path`
-  - : Eine Zeichenfolge, die den Pfad des Cookies enthält.
+  - : Ein String, der den Pfad des Cookies enthält.
 
 - `sameSite`
-  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
+  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
 
 - `secure`
   - : Ein boolescher Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
 
 - `value`
-  - : Eine Zeichenfolge, die den Wert des Cookies enthält.
+  - : Ein String, der den Wert des Cookies enthält.
 
 ### Ausnahmen
 
@@ -71,19 +72,19 @@ Jedes Objekt enthält die folgenden Eigenschaften:
   - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Die Methode im Hauptthread aufgerufen wird und die `url` Option angegeben ist, aber nicht mit der URL des aktuellen Fensters übereinstimmt.
-    - Die Methode in einem Worker aufgerufen wird und die `url` Option angegeben ist, aber nicht mit dem Ursprung des Workers übereinstimmt.
-    - Das Abfragen von Cookies, die durch den gegebenen `name` oder `options` repräsentiert werden, fehlschlägt.
+    - Die Methode im Haupt-Thread aufgerufen wird und die `url`-Option angegeben wird, die jedoch nicht mit der URL des aktuellen Fensters übereinstimmt.
+    - Die Methode in einem Worker aufgerufen wird und die `url`-Option angegeben wird, die jedoch nicht mit dem Ursprung des Workers übereinstimmt.
+    - Die Abfrage von Cookies, die durch den gegebenen `name` oder `options` dargestellt werden, fehlschlägt.
 
 ## Beispiele
 
-<!-- Die Beispiele funktionieren in der MDN-Umgebung nicht als Live-Beispiele (aufgrund unbekannter Fehler) -->
+<!-- Die Beispiele funktionieren aufgrund unbekannter Fehler nicht als Live-Beispiele in der MDN-Umgebung. -->
 
 ### Alle Cookies für diesen Kontext abrufen
 
-Dieses Beispiel zeigt, wie man alle Cookies im aktuellen Kontext abrufen kann.
+Dieses Beispiel zeigt, wie alle Cookies im aktuellen Kontext abgerufen werden.
 
-Zuerst definieren wir `setTestCookies()`, das die Test-Cookies "cookie1" und "cookie2" erstellt und dabei eventuelle Fehler protokolliert.
+Zuerst definieren wir `setTestCookies()`, das die Test-Cookies "cookie1" und "cookie2" erstellt und dabei Fehler protokolliert.
 
 ```js
 async function setTestCookies() {
@@ -103,8 +104,8 @@ async function setTestCookies() {
 ```
 
 Die `cookieTest()` Methode ruft `setTestCookies()` auf und wartet dann auf `getAll()`.
-Dies gibt ein {{jsxref("Promise")}} zurück, das sich zu allen Cookies für diesen Kontext als Array von Objekten auflöst oder ein leeres Array, wenn keine Cookies vorhanden sind.
-Wenn das zurückgegebene Promise mit einem Array aufgelöst wird, das Cookie-Informationen enthält, durchlaufen wir das Array und protokollieren jedes Cookie ("cookie1" und "cookie2").
+Das gibt ein {{jsxref("Promise")}} zurück, das mit allen Cookies für diesen Kontext als Array von Objekten oder einem leeren Array, falls keine Cookies vorhanden sind, aufgelöst wird.
+Wenn das zurückgegebene Promise mit einem Array von Cookie-Informationen aufgelöst wird, iterieren wir über das Array und protokollieren jedes Cookie ("cookie1" und "cookie2").
 
 ```js
 async function cookieTest() {

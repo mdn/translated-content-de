@@ -1,12 +1,12 @@
 ---
-title: "`column-rule` CSS-Eigenschaft"
+title: "`column-rule` CSS Eigenschaft"
 short-title: column-rule
 slug: Web/CSS/Reference/Properties/column-rule
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 53745a2089268ce62bf79695d7d347bcbd0abe57
 ---
 
-Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite, den Stil und die Farbe der Linie, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Breite, den Stil und die Farbe der Linie, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -46,9 +46,9 @@ column-rule: thick inset blue;
 }
 ```
 
-## Bestandeigenschaften
+## Bestandteilende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -72,14 +72,14 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule`-Eigenschaft wird als eine, zwei oder drei der unten aufgelisteten Werte in beliebiger Reihenfolge angegeben.
+Die `column-rule` Eigenschaft wird als eines, zwei oder drei der unten aufgeführten Werte, in beliebiger Reihenfolge, angegeben.
 
 - `<'column-rule-width'>`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
-  - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
+  - : Ist ein {{cssxref("&lt;color&gt;")}} Wert.
 
 ## Formale Definition
 
@@ -151,7 +151,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}
+- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul

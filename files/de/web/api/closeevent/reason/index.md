@@ -3,12 +3,12 @@ title: "CloseEvent: reason-Eigenschaft"
 short-title: reason
 slug: Web/API/CloseEvent/reason
 l10n:
-  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
 {{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Die **`reason`** schreibgeschützte Eigenschaft des [`CloseEvent`](/de/docs/Web/API/CloseEvent) Interfaces gibt den vom Server angegebenen [Beendigungsgrund der WebSocket-Verbindung](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) zurück; das heißt, eine prägnante, für Menschen verständliche Erklärung für die Schließung.
+Die **`reason`** Schreibgeschützte Eigenschaft des [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Interfaces gibt den vom Server angegebenen [Grund für das Schließen der WebSocket-Verbindung](https://www.rfc-editor.org/info/rfc6455/#section-7.1.6) zurück; das heißt, eine prägnante, menschenlesbare Erklärung für die Schließung.
 
 ## Wert
 
@@ -34,4 +34,4 @@ WebSocket.onclose = (event) => {
 
 ## Siehe auch
 
-- [RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html) (die WebSocket-Protokollspezifikation)
+- [RFC 6455](https://www.rfc-editor.org/info/rfc6455/) (die WebSocket-Protokollspezifikation)

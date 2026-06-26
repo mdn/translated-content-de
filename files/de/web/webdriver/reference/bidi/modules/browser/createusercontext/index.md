@@ -1,39 +1,55 @@
 ---
-title: "`browser.createUserContext`-Befehl"
+title: "`browser.createUserContext` Befehl"
 short-title: createUserContext
 slug: Web/WebDriver/Reference/BiDi/Modules/browser/createUserContext
 l10n:
-  sourceCommit: 1db2c61210860e17e452e21122280b76a7dcffb6
+  sourceCommit: ef8c3806c33f2b1d9d381f4fe3b643b5af5e3d22
 ---
 
-Der `browser.createUserContext`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser)-Moduls erstellt einen neuen [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser.
+Der `browser.createUserContext` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browser`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser) Moduls erstellt einen neuen [Benutzerkontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser#user_contexts) im Browser.
 
 ## Syntax
 
 ```json-nolint
+/* Without optional parameters */
 {
   "method": "browser.createUserContext",
   "params": {}
+}
+
+/* With optional parameters */
+{
+  "method": "browser.createUserContext",
+  "params": {
+    "acceptInsecureCerts": true,
+    "proxy": {
+      "proxyType": "manual",
+      "httpProxy": "127.0.0.1:80"
+    },
+    "unhandledPromptBehavior": {
+      "default": "accept"
+    }
+  }
 }
 ```
 
 ### Parameter
 
-Setzen Sie `params` auf ein leeres Objekt (`{}`) oder schließen Sie eines der folgenden optionalen Felder ein:
+Setzen Sie `params` auf ein leeres Objekt (`{}`) oder fügen Sie eines der folgenden optionalen Felder hinzu:
 
 - [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Reference/Capabilities/acceptInsecureCerts) {{optional_inline}}
-  - : Ein boolescher Wert, der steuert, ob nicht vertrauenswürdige TLS-Zertifikate (z.B. selbstsignierte oder abgelaufene) innerhalb dieses Benutzerkontexts akzeptiert werden. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#acceptinsecurecerts) `acceptInsecureCerts`-Einstellung für diesen Benutzerkontext.
+  - : Ein Boolean, der steuert, ob unzuverlässige TLS-Zertifikate (z.B. selbstsignierte oder abgelaufene) innerhalb dieses Benutzerkontexts akzeptiert werden. Wenn gesetzt, überschreibt es die [Sitzungsebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#acceptinsecurecerts) `acceptInsecureCerts` Einstellung für diesen Benutzerkontext.
 - `proxy` {{optional_inline}}
-  - : Ein Objekt, das die Proxy-Konfiguration spezifiziert, die der Browser für Netzwerk-Anfragen innerhalb dieses Benutzerkontexts verwenden soll. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#proxy) `proxy`-Einstellung für diesen Benutzerkontext.
+  - : Ein Objekt, das die Proxy-Konfiguration spezifiziert, die der Browser für Netzwerk-Anfragen innerhalb dieses Benutzerkontexts verwenden soll. Wenn gesetzt, überschreibt es die [Sitzungsebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#proxy) `proxy` Einstellung für diesen Benutzerkontext.
 - `unhandledPromptBehavior` {{optional_inline}}
-  - : Ein Objekt, das das Standardverhalten angibt, wenn innerhalb dieses Benutzerkontexts eine Benutzeraufforderung (wie ein `alert`, `confirm` oder `prompt`-Dialog) auftritt. Wenn gesetzt, überschreibt es die [sitzungsspezifische](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#unhandledpromptbehavior) `unhandledPromptBehavior`-Einstellung für diesen Benutzerkontext.
+  - : Ein Objekt, das das Standardverhalten angibt, wenn ein Benutzerhinweis (wie ein `alert`, `confirm` oder `prompt` Dialog) innerhalb dieses Benutzerkontexts auftritt. Wenn gesetzt, überschreibt es die [Sitzungsebene](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new#unhandledpromptbehavior) `unhandledPromptBehavior` Einstellung für diesen Benutzerkontext.
 
 > [!NOTE]
 > Wenn ein Parameter gesetzt ist, gilt er für alle bestehenden und zukünftigen Tabs innerhalb dieses Benutzerkontexts.
 
 ### Rückgabewert
 
-Das folgende Feld im `result`-Objekt der Antwort beschreibt den erstellten Benutzerkontext:
+Folgendes Feld im `result` Objekt der Antwort beschreibt den erstellten Benutzerkontext:
 
 - `userContext`
   - : Ein String, der die ID enthält, die den erstellten Benutzerkontext eindeutig identifiziert.
@@ -41,15 +57,15 @@ Das folgende Feld im `result`-Objekt der Antwort beschreibt den erstellten Benut
 ### Fehler
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
-  - : Ein benötigter Parameter fehlt oder hat einen ungültigen Typ.
+  - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
 - `unsupported operation`
-  - : `acceptInsecureCerts` ist `true`, aber der Browser unterstützt keine unsicheren TLS-Verbindungen, oder `proxy` ist spezifiziert, aber der Browser kann keine Proxy-Einstellungen für diesen Benutzerkontext konfigurieren oder die gegebene Proxy-Konfiguration nicht anwenden.
+  - : `acceptInsecureCerts` ist `true`, aber der Browser unterstützt keine unsicheren TLS-Verbindungen, oder `proxy` ist angegeben, aber der Browser kann die Proxy-Einstellungen für diesen Benutzerkontext nicht konfigurieren oder die angegebene Proxy-Konfiguration nicht anwenden.
 
 ## Beispiele
 
-### Einen Benutzerkontext mit Standardeinstellungen erstellen
+### Erstellen eines Benutzerkontexts mit Standardeinstellungen
 
-Mit einer [WebDriver-BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen:
+Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und einer [aktiven Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new), senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen:
 
 ```json
 {
@@ -71,9 +87,9 @@ Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontexts wi
 }
 ```
 
-### Einen Benutzerkontext mit einem Proxy erstellen
+### Erstellen eines Benutzerkontexts mit einem Proxy
 
-Senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen, der Netzwerk-Anfragen über einen Proxy weiterleitet:
+Senden Sie die folgende Nachricht, um einen Benutzerkontext zu erstellen, der Netzwerk-Anfragen über einen Proxy leitet:
 
 ```json
 {
@@ -110,6 +126,6 @@ Der Browser antwortet mit einer erfolgreichen Erstellung des Benutzerkontexts wi
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
-- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts)-Befehl
-- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext)-Befehl
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
+- [`browser.getUserContexts`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/getUserContexts) Befehl
+- [`browser.removeUserContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browser/removeUserContext) Befehl

@@ -2,38 +2,38 @@
 title: URIs
 slug: Web/URI
 l10n:
-  sourceCommit: 9aa03132f4c0aebc474995a234f4e52c64fcc6b4
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-**Uniform Resource Identifiers (URI)** werden verwendet, um "Ressourcen" im Web zu identifizieren. URIs werden häufig als Ziele von [HTTP](/de/docs/Web/HTTP)-Anfragen verwendet, wobei der URI in diesem Fall eine Position für eine Ressource darstellt, wie etwa ein Dokument, ein Foto oder Binärdaten. Der häufigste Typ eines URI ist ein Uniform Resource Locator ({{Glossary("URL", "URL")}}), der als _Webadresse_ bekannt ist.
+**Uniform Resource Identifiers (URI)** werden verwendet, um "Ressourcen" im Web zu identifizieren. URIs werden häufig als Ziele von [HTTP](/de/docs/Web/HTTP)-Anfragen verwendet, wobei der URI einen Standort für eine Ressource darstellt, wie z. B. ein Dokument, ein Foto oder Binärdaten. Der gebräuchlichste Typ eines URI ist ein Uniform Resource Locator ({{Glossary("URL", "URL")}}), bekannt als die _Webadresse_.
 
-URIs können verwendet werden, um andere Verhaltensweisen als das Abrufen einer Ressource auszulösen, einschließlich des Öffnens eines E-Mail-Clients, des Sendens von Textnachrichten oder der Ausführung von JavaScript, wenn sie an anderen Stellen wie im [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) eines HTML-`<a>`-Links verwendet werden.
+URIs können verwendet werden, um Verhaltensweisen auszulösen, die über das Abrufen einer Ressource hinausgehen, einschließlich des Öffnens eines E-Mail-Clients, des Versendens von Textnachrichten oder des Ausführens von JavaScript, wenn sie an anderen Stellen wie im [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) eines HTML-`<a>`-Links verwendet werden.
 
 ## Referenz
 
-Die [URI-Referenz](/de/docs/Web/URI/Reference) bietet Details über die Komponenten, aus denen ein URI besteht.
+Die [URI-Referenz](/de/docs/Web/URI/Reference) bietet Details zu den Komponenten, aus denen ein URI besteht.
 
-- [Schemata](/de/docs/Web/URI/Reference/Schemes)
-  - : Der erste Teil des URI, vor dem `:`-Zeichen, das das Protokoll angibt, das der Browser verwenden muss, um die Ressource abzurufen.
-- [Autorität](/de/docs/Web/URI/Reference/Authority)
+- [Schemes](/de/docs/Web/URI/Reference/Schemes)
+  - : Der erste Teil des URI, vor dem `:` Zeichen, das das Protokoll angibt, das der Browser verwenden muss, um die Ressource abzurufen.
+- [Authority](/de/docs/Web/URI/Reference/Authority)
   - : Der Abschnitt, der nach dem Schema und vor dem Pfad kommt.
     Er kann bis zu drei Teile haben: `user`-Informationen, `host` und `port`.
-- [Pfad](/de/docs/Web/URI/Reference/Path)
+- [Path](/de/docs/Web/URI/Reference/Path)
   - : Der Abschnitt nach der Autorität.
-    Enthält Daten, normalerweise in hierarchischer Form organisiert, zur Identifizierung einer Ressource innerhalb des Geltungsbereichs des Schemas und der Autorität des URI.
-- [Abfrage](/de/docs/Web/URI/Reference/Query)
+    Enthält Daten, die normalerweise in hierarchischer Form organisiert sind, um eine Ressource im Rahmen des Scheme und der Autorität des URI zu identifizieren.
+- [Query](/de/docs/Web/URI/Reference/Query)
   - : Der Abschnitt nach dem Pfad.
-    Enthält nicht-hierarchische Daten zur Identifizierung einer Ressource innerhalb des Geltungsbereichs des Schemas und der benannten Autorität des URI zusammen mit Daten im Pfadkomponenten.
+    Enthält nicht-hierarchische Daten zur Identifizierung einer Ressource im Rahmen des Scheme des URI und der Benennungsautorität zusammen mit den Daten im Pfadkomponenten.
 - [Fragment](/de/docs/Web/URI/Reference/Fragment)
-  - : Ein optionaler Teil am Ende eines URI, der mit einem `#`-Zeichen beginnt.
-    Es wird verwendet, um einen spezifischen Teil der Ressource zu identifizieren, wie etwa einen Abschnitt eines Dokuments oder eine Position in einem Video.
+  - : Ein optionaler Teil am Ende eines URI, der mit einem `#` Zeichen beginnt.
+    Er wird verwendet, um einen spezifischen Teil der Ressource zu identifizieren, wie einen Abschnitt eines Dokuments oder eine Position in einem Video.
 
 ## Leitfäden
 
-Die [URI-Leitfäden](/de/docs/Web/URI/Guides) helfen Ihnen dabei, mit URIs im Web zu arbeiten.
+Die [URI-Leitfäden](/de/docs/Web/URI/Guides) helfen Ihnen beim Umgang mit URIs im Web.
 
-- [Auswahl zwischen www und nicht-www-URLs](/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs)
-  - : Anleitung dazu, wann Websites ein `www.`-Präfix in URLs verwenden sollten (`www.example.com` vs `example.com`).
+- [Die Wahl zwischen www und nicht-www URLs](/de/docs/Web/URI/Guides/Choosing_between_www_and_non-www_URLs)
+  - : Anleitung, wann Webseiten ein `www.` Präfix in URLs verwenden sollten (`www.example.com` vs `example.com`).
 
 ## Spezifikationen
 

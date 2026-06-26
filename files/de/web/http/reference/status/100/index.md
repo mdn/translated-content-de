@@ -2,14 +2,14 @@
 title: 100 Continue
 slug: Web/HTTP/Reference/Status/100
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Der HTTP-Statuscode **`100 Continue`** für [informational response](/de/docs/Web/HTTP/Reference/Status#informational_responses) zeigt an, dass der erste Teil einer Anfrage empfangen wurde und noch nicht vom Server abgelehnt wurde.
-Der Client sollte mit der Anfrage fortfahren oder die 100-Antwort verwerfen, wenn die Anfrage bereits abgeschlossen ist.
+Der HTTP **`100 Continue`** [Informational response](/de/docs/Web/HTTP/Reference/Status#informational_responses) Statuscode zeigt an, dass der erste Teil einer Anfrage empfangen wurde und vom Server noch nicht abgelehnt wurde.
+Der Client sollte die Anfrage fortsetzen oder die 100-Antwort verwerfen, wenn die Anfrage bereits abgeschlossen ist.
 
-Wenn eine Anfrage einen {{HTTPHeader("Expect", "Expect: 100-continue")}}-Header hat, zeigt die 100 Continue-Antwort an, dass der Server bereit ist oder in der Lage ist, den Anforderungsinhalt zu empfangen.
-Das Warten auf eine 100 Continue-Antwort kann hilfreich sein, wenn ein Client davon ausgeht, dass ein Fehler wahrscheinlich ist, zum Beispiel beim Senden von statusverändernden Operationen ohne zuvor verifizierte Authentifizierungsdaten.
+Wenn eine Anfrage einen {{HTTPHeader("Expect", "Expect: 100-continue")}} Header enthält, zeigt die 100 Continue-Antwort an, dass der Server bereit oder in der Lage ist, den Anfrageninhalt zu empfangen.
+Das Warten auf eine 100 Continue-Antwort kann hilfreich sein, wenn ein Client ein mögliches Fehlerauftreten antizipiert, z. B. beim Senden von zustandsverändernden Operationen ohne vorher verifizierte Authentifizierungsinformationen.
 
 ## Status
 
@@ -21,9 +21,9 @@ Das Warten auf eine 100 Continue-Antwort kann hilfreich sein, wenn ein Client da
 
 ### PUT-Anfrage mit 100 Continue
 
-Die folgende {{HTTPMethod("PUT")}}-Anfrage sendet Informationen an einen Server über einen Datei-Upload.
-Der Client gibt an, dass er mit dem Inhalt fortfahren wird, falls er eine 100-Antwort erhält, um zu vermeiden, dass Daten über das Netzwerk gesendet werden, die zu einem Fehler wie {{HTTPStatus("405")}}, {{HTTPStatus("401")}} oder {{HTTPStatus("403")}} führen könnten.
-Zuerst sendet der Client nur Header, einschließlich eines {{HTTPHeader("Expect", "Expect: 100-continue")}}-Headers:
+Die folgende {{HTTPMethod("PUT")}}-Anfrage sendet Informationen an einen Server über einen Dateiupload.
+Der Client gibt an, dass er mit dem Inhalt fortfährt, wenn er eine 100-Antwort erhält, um zu vermeiden, Daten über das Netzwerk zu senden, die zu einem Fehler führen könnten, wie {{HTTPStatus("405")}}, {{HTTPStatus("401")}} oder {{HTTPStatus("403")}}.
+Zunächst sendet der Client nur Header, darunter einen {{HTTPHeader("Expect", "Expect: 100-continue")}} Header:
 
 ```http
 PUT /videos HTTP/1.1
@@ -39,7 +39,7 @@ Der Server zeigt an, dass die Anfrage fortgesetzt werden kann:
 HTTP/1.1 100 Continue
 ```
 
-Der Client schließt die Anfrage ab, indem er die tatsächlichen Daten sendet:
+Der Client vervollständigt die Anfrage, indem er die tatsächlichen Daten sendet:
 
 ```http
 [Video data as content for PUT request]

@@ -1,14 +1,14 @@
 ---
-title: "WorkletSharedStorage: Methode entries()"
+title: "WorkletSharedStorage: entries() Methode"
 short-title: entries()
 slug: Web/API/WorkletSharedStorage/entries
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: 0c906f7f464d8ff632baf8d25fa63eed3f03b632
 ---
 
 {{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`entries()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt einen [async iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ist ähnlich wie bei einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypen-Kette aufzählt.
+Die **`entries()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ist ähnlich wie in einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypenkette aufzählt.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array der aufzählbaren Schlüssel-Wert-Paare der `WorkletSharedStorage`.
+Ein Array der aufzählbaren Schlüssel-Wert-Paare von `WorkletSharedStorage`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) eingeschlossen hat.
+  - : Wird ausgelöst, wenn die aufrufende Stelle die Shared Storage API nicht im Rahmen eines erfolgreichen [Privacy Sandbox Enrollment-Prozesses](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) einbezogen hat.
 
 ## Beispiele
 

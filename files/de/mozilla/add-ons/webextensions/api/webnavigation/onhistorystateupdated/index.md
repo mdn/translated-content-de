@@ -2,10 +2,10 @@
 title: webNavigation.onHistoryStateUpdated
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onHistoryStateUpdated
 l10n:
-  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
+  sourceCommit: 9791add3508e087982097f25fbd367c21bcb8305
 ---
 
-Wird ausgelöst, wenn die Seite die [History API](/de/docs/Web/API/History_API/Working_with_the_History_API) verwendet, um die im Adressfeld des Browsers angezeigte URL zu aktualisieren. Alle zukünftigen Ereignisse für diesen Frame verwenden die aktualisierte URL.
+Wird ausgelöst, wenn die Seite die [History-API](/de/docs/Web/API/History_API/Working_with_the_History_API) verwendet hat, um die in der Adressleiste des Browsers angezeigte URL zu aktualisieren. Alle zukünftigen Ereignisse für dieses Frame verwenden die aktualisierte URL.
 
 ## Syntax
 
@@ -21,42 +21,42 @@ browser.webNavigation.onHistoryStateUpdated.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
     - `details`
-      - : `object`. Details über das Navigationsevent. Weitere Informationen finden Sie im Abschnitt [details](#details).
+      - : `object`. Details über das Navigationsevent. Siehe den Abschnitt [details](#details) für weitere Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, welche ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt, das eine einzige Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, in dem die Navigation stattfinden wird.
+  - : `integer`. Die ID des Tabs, in dem die Navigation stattfinden soll.
 - `url`
-  - : `string`. Die URL, zu der der gegebene Frame navigieren wird.
+  - : `string`. Die URL, zu der das angegebene Frame navigieren wird.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` bedeutet, dass die Navigation im obersten Browsing-Kontext des Tabs erfolgt und nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe erfolgt. Frame-IDs sind eindeutig für einen bestimmten Tab und Prozess.
+  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` gibt an, dass die Navigation im obersten Browsing-Kontext des Tabs erfolgt, nicht in einem eingebetteten {{HTMLElement("iframe")}}. Ein positiver Wert gibt an, dass die Navigation in einem eingebetteten iframe erfolgt. Frame-IDs sind einzigartig für einen bestimmten Tab und Prozess.
 - `frameType`
-  - : `string`. Der Typ des Frames, in dem die Navigation erfolgte. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
+  - : `string`. Der Typ des Rahmens, in dem die Navigation stattfand. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Auf `-1` gesetzt, falls dies ein oberster Frame ist.
+  - : `integer`. ID des Eltern-Frames. Wird auf `-1` gesetzt, wenn es sich um einen obersten Frame handelt.
 - `documentId`
-  - : `string`. Eine UUID des geladenen Dokuments.
+  - : `string`. Eine UUID des geladenen Dokuments. Weitere Informationen finden Sie im Artikel [Arbeiten mit documentId](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
 - `parentDocumentId`
-  - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Nicht gesetzt, wenn es kein Elternteil gibt.
+  - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Wird nicht gesetzt, wenn kein Elternteil vorhanden ist. Weitere Informationen finden Sie im Artikel [Arbeiten mit documentId](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_documentId).
 - `documentLifecycle`
   - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` und `"pending_deletion"` zurück.
 - `transitionType`
@@ -64,13 +64,13 @@ Ereignisse haben drei Funktionen:
 - `transitionQualifiers`
   - : `Array` von {{WebExtAPIRef("webNavigation.transitionQualifier", "transitionQualifier")}}. Zusätzliche Informationen über die Navigation: zum Beispiel, ob es eine Server- oder Client-Weiterleitung gab.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der die URL von der History API geändert wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : `number`. Die Zeit, zu der die URL durch die History-API geändert wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführte.
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs und zusätzliche Übergangsinformationen für `onHistoryStateUpdated`, falls der Hostname der Ziel-URL "example.com" enthält oder mit "developer" beginnt.
+Protokolliert die Ziel-URLs und zusätzliche Übergangsinformationen für `onHistoryStateUpdated`, wenn der Hostname der Ziel-URL "example.com" enthält oder mit "developer" beginnt.
 
 ```js
 const filter = {
@@ -96,36 +96,4 @@ browser.webNavigation.onHistoryStateUpdated.addListener(
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
-//
-// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen erlaubt:
-//
-//    * Weiterverteilungen von Quellcode müssen den obigen Copyright-
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// enthalten.
-//    * Weiterverteilungen in binärer Form müssen den obigen Copyright-
-// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung geliefert werden, enthalten.
-//    * Weder der Name Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser
-// Software abgeleitet wurden, zu bewerben oder zu verkaufen, ohne vorherige
-// schriftliche Genehmigung.
-//
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" ZUR VERFÜGUNG GESTELLT. ALLE AUSDRÜCKLICHEN ODER
-// STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN, EINSCHLIESSLICH DER
-// MARKTGÄNGIGKEIT ODER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, SIND
-// AUSGESCHLOSSEN. IN KEINEM FALL KANN DER EIGENTÜMER ODER DIE
-// MITWIRKENDEN FÜR JEDEN DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
-// BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHADEN (INKLUSIVE, ABER
-// NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER
-// DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATENVERLUST ODER
-// GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG), ABER
-// IN WELCHEM RECHTSGRUND AUCH IMMER VERANTWORTLICH GEMACHT WERDEN,
-// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
--->
+> Diese API basiert auf Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.

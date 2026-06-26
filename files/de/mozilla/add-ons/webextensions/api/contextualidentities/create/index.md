@@ -2,12 +2,10 @@
 title: contextualIdentities.create()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/create
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 8ede916a8af8537114db737b914cef1d721fda84
 ---
 
-Erstellt eine neue kontextuelle Identität. Nachdem sie erstellt wurde, kann der Benutzer neue Tabs erstellen, die zu dieser kontextuellen Identität gehören, genau wie bei den eingebauten Identitäten.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Erstellt eine kontextbezogene Identität. Sobald erstellt, kann der Benutzer Tabs erstellen, die zu dieser kontextbezogenen Identität gehören, ebenso wie bei den eingebauten Identitäten.
 
 ## Syntax
 
@@ -20,44 +18,21 @@ let createContext = browser.contextualIdentities.create(
 ### Parameter
 
 - `details`
-  - : `object`. Ein Objekt, das Eigenschaften für die neue kontextuelle Identität enthält. Dieses Objekt enthält die folgenden Eigenschaften:
+  - : `object`. Ein Objekt, das Eigenschaften für die neue kontextbezogene Identität enthält. Dieses Objekt enthält die folgenden Eigenschaften:
     - `name`
-      - : `string`. Der Name der neuen Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt, sodass der Benutzer einen neuen Tab öffnen kann, der zu der Identität gehört. Er wird auch in der Adressleiste für Tabs angezeigt, die zu dieser Identität gehören.
+      - : `string`. Der Name der neuen Identität. Dieser Name wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es den Benutzern, einen neuen Tab zu öffnen, der zu der Identität gehört. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
     - `color`
-      - : `string`. Die Farbe, die mit der neuen Identität verbunden ist. Diese wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Sie können hier einen der folgenden Werte angeben:
-        - "blue"
-        - "turquoise"
-        - "green"
-        - "yellow"
-        - "orange"
-        - "red"
-        - "pink"
-        - "purple"
-        - "toolbar"
-
+      - : `string`. Die Farbe, die mit der neuen Identität verknüpft ist. Diese Farbe wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Siehe {{WebExtAPIRef("contextualIdentities.getSupportedColors()")}} für Details zu den unterstützten Farbwerten.
     - `icon`
-      - : `string`. Der Name eines Symbols, das in der Adressleiste für Tabs angezeigt wird, die zu dieser Identität gehören. Sie können hier einen der folgenden Werte angeben:
-        - "fingerprint"
-        - "briefcase"
-        - "dollar"
-        - "cart"
-        - "circle"
-        - "gift"
-        - "vacation"
-        - "food"
-        - "fruit"
-        - "pet"
-        - "tree"
-        - "chill"
-        - "fence"
+      - : `string`. Der Name eines Symbols, das in der URL-Leiste für Tabs angezeigt wird, die zu dieser Identität gehören. Siehe {{WebExtAPIRef("contextualIdentities.getSupportedIcons()")}} für Details zu den unterstützten Symbolwerten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} aufgelöst wird, der die neue Identität beschreibt. Wenn das Feature für kontextuelle Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die neue Identität beschreibt. Wenn das Feature für kontextbezogene Identitäten nicht aktiviert ist, wird das Versprechen abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine neue kontextuelle Identität und protokolliert deren Cookie Store ID:
+Dieses Beispiel erstellt eine kontextbezogene Identität und protokolliert ihre Cookie-Store-ID:
 
 ```js
 function onCreated(context) {

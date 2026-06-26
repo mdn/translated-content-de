@@ -2,38 +2,52 @@
 title: Privacy Sandbox
 slug: Web/Privacy/Guides/Privacy_sandbox
 l10n:
-  sourceCommit: 793bcbe2dd88fc553d2c4c918c4dec4899704022
+  sourceCommit: 0c906f7f464d8ff632baf8d25fa63eed3f03b632
 ---
 
-Googles **Privacy Sandbox**-Projekt ist eine Reihe von Vorschlägen, um plattformübergreifende Anforderungen ohne den Einsatz von Drittanbieter-Cookies oder anderen Tracking-Mechanismen zu erfüllen. Es bereitet das Web auf eine Zukunft vor, in der Drittanbieter-Cookies entfernt wurden. Zu den Themen gehören Identität und Schutz vor Verfolgung, datenschutzfreundlichere Werbelösungen, Verhinderung verdeckten Trackings und sicheres Teilen von Daten über verschiedene Browsing-Kontexte hinweg.
+Googles **Privacy Sandbox**-Projekt ist eine Reihe von Vorschlägen, die ermöglichen sollen, standortübergreifende Anwendungsfälle zu erfüllen, ohne dass Drittanbieter-Cookies oder andere Tracking-Mechanismen erforderlich sind, und gleichzeitig das Web auf eine Zukunft vorzubereiten, in der Drittanbieter-Cookies entfernt wurden. Themen sind Identitäts- und Tracking-Schutz, datenschutzfreundliche Werbelösungen, Verhinderung verdeckten Trackings und sicheres Teilen von Daten über verschiedene Browsing-Kontexte hinweg.
 
 > [!WARNING]
-> Einige dieser Funktionen werden derzeit von einem oder mehreren Browseranbietern abgelehnt.
-> Siehe die spezifischen API-Einstiegspunkte für weitere Details.
+> Einige dieser Funktionen werden derzeit von einem oder mehreren Browser-Anbietern abgelehnt.
+> Weitere Details finden Sie bei den spezifischen API-Einstiegspunkten.
 
-## Features der Privacy Sandbox
+> [!NOTE]
+> Google Chrome hat einige Privacy Sandbox-Funktionen eingestellt und die Aufnahme neuer Organisationen in die Privacy Sandbox-Konsole ausgesetzt. Einige Funktionen der Privacy Sandbox erfordern eine Registrierung. Siehe den Abschnitt [Registrierung](#registrierung) für Details.
+
+## Funktionen der Privacy Sandbox
 
 - [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) {{deprecated_inline}}
-  - : Ermöglicht Entwicklern, Konversionen zu messen — zum Beispiel, wenn ein Benutzer auf eine in eine Website eingebettete Anzeige klickt und dann den Artikel auf der Webseite des Anbieters kauft — und anschließend Berichte über diese Konversionen zu erstellen. Dies geschieht ohne die Verwendung von Drittanbieter-Cookies.
-- [Bounce-Tracking-Abmilderungen](/de/docs/Web/Privacy/Guides/Bounce_tracking_mitigations)
-  - : Bounce-Tracking-Abmilderungen schützen Benutzer vor Bounce-Tracking, indem sie Tracker-Seiten mithilfe einer Heuristik identifizieren und periodisch Cookies und andere zugehörige Zustandsdaten löschen.
-- [Cookies with Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies)
-  - : Auch bekannt als **partitionierte Cookies**, ermöglicht CHIPS Entwicklern, einen Cookie in partitionierten Speicher zu übernehmen, mit einem separaten Cookie-Container pro Top-Level-Website.
+  - : Ermöglicht Entwicklern das Messen von Konversionen – beispielsweise wenn ein Nutzer auf eine Anzeige auf einer Seite klickt und dann das Produkt auf der Seite des Händlers kauft – und anschließend Zugriff auf Berichte zu diesen Konversionen. Dies geschieht ohne auf das Tracking mit Drittanbieter-Cookies zu verzichten.
+- [Bounce Tracking Mitigations](/de/docs/Web/Privacy/Guides/Bounce_tracking_mitigations)
+  - : Bounce Tracking Mitigations schützen Nutzer vor Bounce Tracking, indem sie Tracker-Websites über eine Heuristik identifizieren und periodisch Cookies und andere Zustandsdaten, die mit ihnen verknüpft sind, löschen.
+- [Cookies mit unabhängiger partitionierter Speicherung (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies)
+  - : Auch bekannt als **partitionierte Cookies**, ermöglicht es CHIPS Entwicklern, ein Cookie zur partitionierten Speicherung zu optieren, mit einem separaten Cookie-Jar pro Top-Level-Site.
 - [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API)
-  - : Bietet Funktionalität zur Steuerung von Inhalten, die in {{htmlelement("fencedframe")}}-Elementen eingebettet sind, die es ermöglichen, Inhalte einzubetten und gleichzeitig die Datenschutzprobleme von {{htmlelement("iframe")}}s zu lösen.
+  - : Bietet Funktionalität zur Steuerung von Inhalten, die in {{htmlelement("fencedframe")}}-Elementen eingebettet sind, wodurch es ermöglicht wird, Inhalte einzubetten, während die Datenschutzprobleme von {{htmlelement("iframe")}}s gelöst werden.
 - [Private State Token API](/de/docs/Web/API/Private_State_Token_API)
-  - : Bietet einen Mechanismus zur Übermittlung von Vertrauen in die Authentizität eines Benutzers von einem Browsing-Kontext zu einem anderen, ohne die Identität des Benutzers weiterzugeben oder deren Aktivität über Websites hinweg zu verfolgen.
-- [Related Website Sets](https://privacysandbox.google.com/cookies/related-website-sets-integration) {{deprecated_inline}}
-  - : Ein Mechanismus für ein Unternehmen, um Beziehungen zwischen verschiedenen Websites zu deklarieren. Unterstützende Browser erlauben dann begrenzten Zugriff auf Drittanbieter-Cookies über diese Websites für bestimmte Zwecke, über die [Storage Access API](/de/docs/Web/API/Storage_Access_API).
+  - : Bietet einen Mechanismus, um das Vertrauen in die Authentizität eines Nutzers von einem Browsing-Kontext zu einem anderen zu übertragen, ohne die Identität des Nutzers zu teilen oder seine Aktivitäten über Websites hinweg zu verfolgen.
+- [Verknüpfte Website-Sets](https://privacysandbox.google.com/cookies/related-website-sets-integration) {{deprecated_inline}}
+  - : Ein Mechanismus, mit dem ein Unternehmen Beziehungen zwischen verschiedenen Seiten deklarieren kann. Unterstützende Browser erlauben dann begrenzten Zugang zu Drittanbieter-Cookies über diese Seiten hinweg für spezifische Zwecke über die [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) {{deprecated_inline}}
-  - : Ein client-seitiger Speichermechanismus, der partitionierten und plattformübergreifenden Datenzugriff ermöglicht, während die Privatsphäre gewahrt bleibt (d.h. ohne auf Tracking-Cookies zu setzen).
+  - : Ein clientseitiger Speichermechanismus, der nicht-partitionierten, standortübergreifenden Datenzugang ermöglicht, indem die Privatsphäre gewahrt bleibt (d.h. ohne sich auf Tracking-Cookies zu verlassen).
 - [Topics API](/de/docs/Web/API/Topics_API) {{deprecated_inline}}
-  - : Bietet einen Mechanismus für Entwickler zur Implementierung von Anwendungsfällen wie **interessenbasierte Werbung (IBA)** auf Basis von Themen, die vom Browser gesammelt werden, während der Benutzer unterschiedliche Seiten besucht, anstatt dass der Entwickler den Weg des Benutzers über verschiedene Websites mit Drittanbieter-Cookies verfolgt.
+  - : Bietet einen Mechanismus für Entwickler zur Implementierung von Anwendungsfällen wie **interessenbasierter Werbung (IBA)**, basierend auf Themen, die vom Browser gesammelt werden, während der Nutzer verschiedene Seiten besucht, anstatt dass der Entwickler die Reise des Nutzers über verschiedene Seiten mit Drittanbieter-Cookies verfolgt.
 
-## Weitere Themen
+## Registrierung
 
-- [Anmeldung für die Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment)
-  - : Um auf bestimmte Funktionen der Privacy Sandbox zugreifen zu können, müssen Entwickler einen **Anmeldeprozess** durchlaufen.
+Google stellte einige Funktionen der Privacy Sandbox ein und setzte die Registrierung neuer Websites und Organisationen in die Privacy Sandbox Console aus.
+
+### Funktionen, die eine Registrierung erfordern
+
+Die folgenden Funktionen erfordern eine Registrierung, um verwendet werden zu können:
+
+- [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) {{deprecated_inline}}
+- Protected Audience API {{deprecated_inline}}
+- Private Aggregation API {{deprecated_inline}}
+- [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) {{deprecated_inline}}
+- [Topics API](/de/docs/Web/API/Topics_API) {{deprecated_inline}}
+
+Die Dokumentation jeder Funktion enthält mehr Details darüber, welche Unterfunktionen fehlschlagen, wenn die Registrierung nicht abgeschlossen ist und wie.
 
 ## Siehe auch
 

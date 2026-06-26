@@ -3,14 +3,14 @@ title: "RTCEncodedAudioFrame: getMetadata() Methode"
 short-title: getMetadata()
 slug: Web/API/RTCEncodedAudioFrame/getMetadata
 l10n:
-  sourceCommit: 23398d025295ad1eaf1663a26fbe738a8fe12883
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`getMetadata()`**-Methode des [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Interfaces gibt ein Objekt zurück, das die mit dem Frame verknüpften Metadaten enthält.
+Die **`getMetadata()`** Methode des [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame) Interface gibt ein Objekt zurück, das die mit dem Frame assoziierten Metadaten enthält.
 
-Dies schließt Informationen über den Frame ein, wie z.B. die verwendete Audio-Codierung, die Synchronisationsquelle und beitragende Quellen sowie die Sequenznummer (für eingehende Frames).
+Dazu gehören Informationen über den Frame, wie das verwendete Audio-Encoding, die Synchronisationsquelle und beitragende Quellen sowie die Sequenznummer (für eingehende Frames).
 
 ## Syntax
 
@@ -27,29 +27,29 @@ Keine.
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `audioLevel`
-  - : Eine Zahl, die den Audiopegel dieses Frames darstellt. Der Wert liegt zwischen 0 und 1 inklusive (linear), wobei 1,0 0 dBov ([Dezibel relativ zur Vollskala (DBFS)](https://en.wikipedia.org/wiki/DBFS)) darstellt, 0 Stille repräsentiert und 0,5 ungefähr eine Änderung um 6 dB SPL im [Schalldruckpegel](https://en.wikipedia.org/wiki/Sound_pressure#Sound_pressure_level) von 0 dBov darstellt. Der Wert wird von dem in [RFC6464](https://www.rfc-editor.org/rfc/rfc6464) angegebenen Bereich von -127 bis 0 durch die Gleichung `10^(-rfc_level/20)` umgerechnet. Wenn die RFC6464-Header-Erweiterung in den empfangenen Paketen des Frames nicht vorhanden ist, wird `audioLevel` `undefined` sein.
+  - : Eine Zahl, die den Audiopegel dieses Frames darstellt. Der Wert liegt zwischen 0 und 1 inklusive (linear), wobei 1,0 0 dBov ([Dezibel relativ zur Vollskala (DBFS)](https://en.wikipedia.org/wiki/DBFS)) repräsentiert, 0 Stille und 0,5 etwa eine Änderung von 6 dB SPL im [Schalldruckpegel](https://en.wikipedia.org/wiki/Sound_pressure#Sound_pressure_level) von 0 dBov. Der Wert wird über die Gleichung `10^(-rfc_level/20)` aus dem in [RFC6464](https://www.rfc-editor.org/info/rfc6464/) spezifizierten Bereich -127 bis 0 konvertiert. Wenn die RFC6464-Header-Erweiterung in den empfangenen Paketen des Frames nicht vorhanden ist, wird `audioLevel` `undefined` sein.
 - `captureTime`
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die Erfassungszeit des Frames relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) anzeigt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Erfassungszeit des Frames relativ zur [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) angibt.
 - `contributingSources`
-  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zum Frame beigetragen haben. Ziehen Sie den Fall einer Konferenzanwendung in Betracht, die Audio von mehreren Benutzern kombiniert. Die `synchronizationSource` würde die ssrc der Anwendung enthalten, während `contributingSources` die ssrc-Werte aller einzelnen Audioquellen enthalten würde.
+  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zum Frame beigetragen haben. Betrachten Sie den Fall einer Konferenzanwendung, die Audio von mehreren Benutzern kombiniert. Die `synchronizationSource` würde die ssrc der Anwendung enthalten, während `contributingSources` die ssrc-Werte aller Einzelquellen enthalten würde.
 - `mimeType`
-  - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des verwendeten Codecs wie "audio/opus" enthält.
+  - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des verwendeten Codecs enthält, wie "audio/opus".
 - `payloadType`
-  - : Ein positiver Ganzzahlenwert im Bereich von 0 bis 127, der das Format der RTP-Nutzlast beschreibt. Die Zuordnungen von Werten zu Formaten sind in {{rfc("3550")}} definiert, und insbesondere [Abschnitt 6: Nutzlasttyp-Definitionen](https://www.rfc-editor.org/rfc/rfc3551#section-6) von {{rfc("3551")}}.
+  - : Ein positiver Ganzzahlwert im Bereich von 0 bis 127, der das Format des RTP-Payloads beschreibt. Die Zuordnungen von Werten zu Formaten sind in {{rfc("3550")}} definiert und genauer in [Abschnitt 6: Payload-Type-Definitionen](https://www.rfc-editor.org/info/rfc3551/#section-6) von {{rfc("3551")}}.
 - `receiveTime`
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des zuletzt empfangenen Pakets eines eingehenden Frames (von einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)) anzeigt, das verwendet wurde, um diesen Medienframe zu erzeugen, relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin).
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des letzten empfangenen Pakets eines eingehenden Frames (von einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)), der verwendet wurde, um diesen Medienframe zu produzieren, relativ zur [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) angibt.
 - `rtpTimestamp`
-  - : Eine positive ganze Zahl, die den Abtastzeitpunkt des ersten Oktetts im RTP-Datenpaket widerspiegelt (siehe {{rfc("3550")}}).
+  - : Eine positive Ganzzahl, die den Abtastzeitpunkt des ersten Oktetts im RTP-Datenpaket widerspiegelt (siehe {{rfc("3550")}}).
 - `sequenceNumber`
-  - : Die Sequenznummer eines eingehenden Audio-Frames (nicht verwendet für ausgehende Frames), die zur Rekonstruktion der ursprünglichen Sende-Reihenfolge von Frames verwendet werden kann. Dies ist eine Zahl zwischen 0 und 32767. Beachten Sie, dass während Zahlen beim Senden sequentiell zugewiesen werden, sie bei 32767 überlaufen und wieder von 0 beginnen. Daher müssen Sie zur Vergleichung von zwei Frame-Sequenznummern, um zu bestimmen, ob eines nach dem anderen vermutet wird, [Seriennummer-Arithmetik](https://en.wikipedia.org/wiki/Serial_number_arithmetic) verwenden. <!-- [RFC1982] -->
+  - : Die Sequenznummer eines eingehenden Audioframes (nicht für ausgehende Frames verwendet), die zum Rekonstruieren der ursprünglichen Sendereihenfolge von Frames verwendet werden kann. Dies ist eine Zahl zwischen 0 und 32767. Beachten Sie, dass Zahlen, während sie beim Senden nacheinander zugewiesen werden, bei 32767 überlaufen und wieder bei 0 anfangen. Daher müssen Sie zur Vergleichung zweier Frame-Sequenznummern, um festzustellen, ob eine nach einer anderen angenommen wird, [Seriennummernarithmetik](https://en.wikipedia.org/wiki/Serial_number_arithmetic) verwenden.
 - `synchronizationSource`
-  - : Ein positiver Ganzzahlenwert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen Frame beschrieben werden. Eine Quelle könnte so etwas wie ein Mikrofon oder eine Mischanwendung sein, die mehrere Quellen kombiniert. Alle Pakete von derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können so relativ zueinander geordnet werden. Beachten Sie, dass zwei Frames mit demselben Wert auf dieselbe Quelle verweisen.
+  - : Ein positiver Ganzzahlwert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die von diesem Frame beschrieben werden. Eine Quelle könnte etwas wie ein Mikrofon oder eine Mixeranwendung sein, die mehrere Quellen kombiniert. Alle Pakete derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können somit relativ zueinander geordnet werden. Beachten Sie, dass zwei Frames mit demselben Wert sich auf dieselbe Quelle beziehen.
 
 ## Beispiele
 
-### Abrufen von Frame-Metadaten
+### Metadaten eines Frames abrufen
 
-Diese Beispiel-Implementierung eines [WebRTC-Codierungs-Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Frame-Metadaten in einer `transform()`-Funktion abrufen und protokollieren können.
+Dieses Beispiel einer [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)-Implementierung zeigt, wie Sie die Metadaten eines Frames in einer `transform()` Funktion abrufen und protokollieren könnten.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -69,7 +69,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Das resultierende Objekt von einem lokalen Mikrofon könnte wie das unten gezeigte aussehen. Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gibt und keine `sequenceNumber`, da dies ein ausgehender Frame ist.
+Das resultierende Objekt von einem lokalen Mikrofon könnte wie das unten gezeigte aussehen. Beachten Sie, dass es keine beitragenden Quellen gibt, weil es nur eine Quelle gibt, und keine `sequenceNumber`, weil dies ein ausgehender Frame ist.
 
 ```json
 {
@@ -93,4 +93,4 @@ Das resultierende Objekt von einem lokalen Mikrofon könnte wie das unten gezeig
 
 ## Siehe auch
 
-- [Verwendung von WebRTC-Codierungs-Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

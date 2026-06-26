@@ -3,12 +3,12 @@ title: "CookieStore: set()-Methode"
 short-title: set()
 slug: Web/API/CookieStore/set
 l10n:
-  sourceCommit: f26af77e5448a44bb2e53f86db99a33e7379f9d5
+  sourceCommit: 5ef5a171a41dbcb48c953cc3c98c1237566796e9
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`set()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces setzt einen Cookie mit dem gegebenen `name` und `value` oder einem `options`-Objekt.
+Die **`set()`**-Methode des [`CookieStore`](/de/docs/Web/API/CookieStore)-Interfaces setzt ein Cookie mit dem gegebenen `name` und `value` oder `options` Objekt.
 
 ## Syntax
 
@@ -31,24 +31,24 @@ Oder
 - `options` {{optional_inline}}
   - : Ein Objekt, das Folgendes enthält:
     - `domain` {{Optional_Inline}}
-      - : Ein String, der die Domäne des Cookies enthält. Standardwert ist `null`.
+      - : Ein String, der die Domäne des Cookies enthält. Standardmäßig `null`.
     - `expires` {{Optional_Inline}}
-      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardwert ist `null`.
+      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
     - `maxAge` {{Optional_Inline}}
-      - : Eine Zahl, die die Anzahl der Sekunden bis zum Ablauf des Cookies darstellt. Eine Null oder eine negative Zahl lassen den Cookie sofort ablaufen. Wenn sowohl `expires` als auch `maxAge` gesetzt sind, schlägt der `set()`-Aufruf mit einem `TypeError` fehl. Standardwert ist `null`.
+      - : Eine Zahl, die die Anzahl der Sekunden bis zum Ablaufen des Cookies darstellt. Eine Null oder eine negative Zahl wird das Cookie sofort ablaufen lassen. Wenn sowohl `expires` als auch `maxAge` gesetzt sind, schlägt der `set()`-Aufruf mit einem `TypeError` fehl. Standardmäßig `null`.
     - `name`
-      - : Ein String mit dem Namen eines Cookies.
+      - : Ein String mit dem Namen des Cookies.
     - `partitioned` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird der gesetzte Cookie ein partitionierter Cookie sein. Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
+      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Weitere Informationen finden Sie unter [Cookies mit unabhängigem partioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies).
     - `path` {{Optional_Inline}}
-      - : Ein String, der den Pfad des Cookies enthält. Standardwert ist `/`.
+      - : Ein String, der den Pfad des Cookies enthält. Standardmäßig `/`.
     - `sameSite` {{Optional_Inline}}
       - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
     - `value`
       - : Ein String mit dem Wert des Cookies.
 
 > [!NOTE]
-> Während die Werte hier gesetzt werden können und intern verwendet werden, geben einige Browser nur `name` und `value`-Optionen von [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get) und [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) zurück.
+> Während die Werte hier gesetzt werden und intern verwendet werden, werden einige Browser nur `name` und `value` Optionen von [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get) und [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll) zurückgeben.
 
 ### Rückgabewert
 
@@ -57,22 +57,23 @@ Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, wenn d
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL {{Glossary("Serialization", "serialisiert")}} werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Sowohl die Eigenschaften `expires` als auch `maxAge` gesetzt sind.
+    - Sowohl die `expires` als auch die `maxAge` Eigenschaften gesetzt sind.
     - Das Setzen des Cookies mit dem gegebenen `name` und `value` oder `options` auf andere Weise fehlschlägt.
 
 ## Beispiele
 
-<!-- Die Beispiele funktionieren in der MDN-Umgebung nicht als Live-Beispiele (aufgrund unbekannter Fehler) -->
+<!-- Die Beispiele funktionieren nicht als Live-Beispiele in der MDN-Umgebung (aufgrund von unbekannten Fehlern) -->
 
-### Setzen eines Cookies mit Namen und Wert
+### Setzen eines Cookies mit Name und Wert
 
-In diesem Beispiel wird ein Cookie gesetzt, indem ein `name` und `value` von "cookie1" und "cookie1-value" übergeben wird.
-Die anderen Eigenschaften des Cookies werden mit den Standardwerten gesetzt, wie sie im [`options`](#options)-Parameter definiert sind.
+Dieses Beispiel setzt ein Cookie, indem es einen `name` und `value` von "cookie1" und "cookie1-value" übergibt.
+Die anderen Eigenschaften des Cookies werden mit Standardwerten gesetzt, wie im [`options`](#options)-Parameter definiert.
 
-Der Code wartet zunächst darauf, dass der Cookie gesetzt wird: Da diese Operation fehlschlagen kann, wird die Operation in einem `try...catch`-Block durchgeführt und alle Fehler werden in der Konsole protokolliert. Anschließend wird der gerade gesetzte Cookie abgerufen und protokolliert.
+Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: Da dieser Vorgang fehlschlagen kann, wird die Operation in einem `try...catch` Block ausgeführt und alle Fehler werden in der Konsole protokolliert.
+Anschließend wird das gerade gesetzte Cookie abgerufen und protokolliert.
 
 ```js
 async function cookieTest() {
@@ -91,9 +92,10 @@ async function cookieTest() {
 
 ### Setzen eines Cookies mit Optionen
 
-In diesem Beispiel wird ein Cookie gesetzt, indem ein `options`-Objekt mit `name`, `value`, `expires` und `partitioned` übergeben wird.
+Dieses Beispiel setzt ein Cookie, indem es ein `options`-Objekt mit `name`, `value`, `expires` und `partitioned` übergibt.
 
-Der Code wartet zunächst darauf, dass der Cookie gesetzt wird: Da diese Operation fehlschlagen kann, wird die Operation in einem `try...catch`-Block durchgeführt und alle Fehler werden in der Konsole protokolliert. Anschließend wird der gerade gesetzte Cookie abgerufen und protokolliert.
+Der Code wartet zuerst darauf, dass das Cookie gesetzt wird: Da dieser Vorgang fehlschlagen kann, wird die Operation in einem `try...catch` Block durchgeführt und alle Fehler werden in der Konsole protokolliert.
+Anschließend wird das gerade gesetzte Cookie abgerufen und protokolliert.
 
 ```js
 async function cookieTest() {

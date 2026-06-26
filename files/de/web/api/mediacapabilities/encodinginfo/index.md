@@ -3,12 +3,13 @@ title: "MediaCapabilities: encodingInfo() Methode"
 short-title: encodingInfo()
 slug: Web/API/MediaCapabilities/encodingInfo
 l10n:
-  sourceCommit: 0c41b69b7a8dba26e5abd374043150195df335a0
+  sourceCommit: 69aa9c51ebd26b390f444f5ea88f882630042451
 ---
 
 {{APIRef("Media Capabilities API")}}{{AvailableInWorkers}}
 
-Die **`encodingInfo()`** Methode des [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Interfaces gibt ein Promise zurück, das mit den getesteten Medienkonfigurationsmöglichkeiten für das Kodieren von Medien erfüllt wird. Dies enthält die drei booleschen Eigenschaften `supported`, `smooth` und `powerefficient`, die beschreiben, wie kompatibel das Gerät mit der Art der Medien ist.
+Die **`encodingInfo()`** Methode des [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Interfaces gibt ein Promise zurück, das mit den getesteten Medienkonfigurationsfähigkeiten zum Encodieren von Medien erfüllt wird.
+Dies umfasst die drei booleschen Eigenschaften `supported`, `smooth` und `powerefficient`, welche beschreiben, wie kompatibel das Gerät mit der Art der Medien ist.
 
 ## Syntax
 
@@ -19,66 +20,67 @@ encodingInfo(configuration)
 ### Parameter
 
 - `configuration`
-  - : Ein Objekt mit einer Eigenschaft `type` und _entweder_ einer `video` oder `audio` Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält: <!-- MediaEncodingConfiguration in the spec -->
+  - : Ein Objekt mit einer Eigenschaft `type` und _entweder_ einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält: <!-- MediaEncodingConfiguration in the spec -->
     - `type`
-      - : Der Typ der zu testenden Medien. Dies nimmt einen von zwei Werten an:
+      - : Der Typ der getesteten Medien. Dies nimmt einen von zwei Werten an:
         - `record`
-          - : Stellt eine Konfiguration für die Aufnahme von Medien dar, z. B. unter Verwendung von [`MediaRecorder`](/de/docs/Web/API/MediaRecorder).
+          - : Repräsentiert eine Konfiguration zum Aufzeichnen von Medien, z.B. mit [`MediaRecorder`](/de/docs/Web/API/MediaRecorder).
         - `webrtc`
-          - : Stellt eine Konfiguration dar, die elektronisch übertragen werden soll (z. B. mit [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)). **Hinweis:** Firefox verwendet `transmission` für diesen Typ und `webrtc` funktioniert nicht.
+          - : Stellt eine Konfiguration dar, die über elektronische Mittel übertragen werden soll (z.B. mit [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)).
         - `transmission` {{non-standard_inline}}
-          - : Ein Synonym für `webrtc` (verwendet in Firefox).
+          - : Ein Synonym für `webrtc`.
 
     - `video`
       - : Konfigurationsobjekt für eine Video-Medienquelle.
         Dies hat die folgenden Eigenschaften: <!-- VideoConfiguration in the spec -->
         - `contentType`
-          - : String, der einen gültigen Video-MIME-Typ und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter) enthält.
+          - : String mit einem gültigen Video-MIME-Typ und (optional) einem [`codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter).
         - `width`
           - : Die Breite des Videos.
         - `height`
           - : Die Höhe des Videos.
         - `bitrate`
-          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Videodatei zu kodieren.
+          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Videodatei zu codieren.
         - `framerate`
-          - : Die Anzahl der Frames, die eine Sekunde der Video-Wiedergabe ausmachen.
+          - : Die Anzahl der Frames, die eine Sekunde der Video-Wiedergabe bilden.
 
     - `audio`
       - : Konfigurationsobjekt für eine Audio-Medienquelle.
         Dies hat die folgenden Eigenschaften: <!-- AudioConfiguration in the spec -->
         - `contentType`
-          - : String, der einen gültigen Audio-MIME-Typ und (optional) einen [`codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter) enthält.
+          - : String mit einem gültigen Audio-MIME-Typ und (optional) einem [`codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter).
         - `channels`
-          - : Die Anzahl der Kanäle, die von der Audiospur verwendet werden.
+          - : Die Anzahl der Kanäle, die vom Audiospur verwendet werden.
         - `bitrate`
-          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Audiodatei zu kodieren.
+          - : Die Anzahl der Bits, die verwendet werden, um eine Sekunde der Audiodatei zu codieren.
         - `samplerate`
-          - : Die Anzahl der Audio-Samples, die eine Sekunde der Audiodatei ausmachen.
+          - : Die Anzahl der Audiosamples, die eine Sekunde der Audiodatei bilden.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem Objekt erfüllt wird, das drei boolesche Attribute enthält:
+Ein {{jsxref('Promise')}} wird erfüllt mit einem Objekt, das drei boolesche Attribute enthält:
 
 - `supported`
-  - : `true`, wenn der Medieninhalt überhaupt kodiert werden kann. Andernfalls ist es `false`.
+  - : `true`, wenn der Medieninhalt überhaupt encodiert werden kann. Andernfalls ist es `false`.
 - `smooth`
-  - : `true`, wenn die Wiedergabe des Mediums reibungslos (von hoher Qualität) ist. Andernfalls ist es `false`.
+  - : `true`, wenn die Wiedergabe der Medien reibungslos (von hoher Qualität) ist. Andernfalls ist es `false`.
 - `powerEfficient`
-  - : `true`, wenn die Wiedergabe des Mediums energieeffizient ist. Andernfalls ist es `false`.
+  - : `true`, wenn die Wiedergabe der Medien energieeffizient ist. Andernfalls ist es `false`.
 
-Browser melden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient`, bis Statistiken zu diesem Gerät aufgezeichnet wurden. Alle unterstützten Audio-Codecs werden als energieeffizient gemeldet.
+Browser melden eine unterstützte Medienkonfiguration als `smooth` und `powerEfficient`, bis Statistiken zu diesem Gerät aufgezeichnet wurden.
+Alle unterstützten Audiocodecs werden als energieeffizient gemeldet.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die an die `encodingInfo()` Methode übergebene `configuration` ungültig ist, was aus einem der folgenden Gründe der Fall sein kann:
-    - der Typ ist nicht Video oder Audio,
+  - : Wird ausgelöst, wenn die `configuration`, die an die `encodingInfo()` Methode übergeben wird, ungültig ist, was aus einem der folgenden Gründe sein kann:
+    - der Typ ist nicht video oder audio,
     - der `contentType` ist kein gültiger Codec-MIME-Typ,
-    - es gibt einen anderen Fehler in der an die Methode übergebenen Medienkonfiguration, einschließlich dem Auslassen eines der `configuration`-Elemente.
+    - es liegt ein anderer Fehler in der an die Methode übergebenen Medienkonfiguration vor, einschließlich der Auslassung eines der `configuration`-Elemente.
 
 ## Beispiele
 
-### Festlegen einer Medienkonfiguration
+### Festlegung einer Medienkonfiguration
 
 ```js
 // Create media configuration to be tested

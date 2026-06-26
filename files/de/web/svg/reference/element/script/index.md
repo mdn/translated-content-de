@@ -2,13 +2,13 @@
 title: <script>
 slug: Web/SVG/Reference/Element/script
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: a9e07b75358077e93e2515a13a7413275116ee48
 ---
 
-Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
+Das **`<script>`**-Element [SVG](/de/docs/Web/SVG) ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
 
 > [!NOTE]
-> Obwohl das `script`-Element in SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie z.B. die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und die fehlende Unterstützung für ECMAScript-Module bisher (siehe unten für Details zur Browser-Kompatibilität).
+> Während das `script`-Element von SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie zum Beispiel die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und es unterstützt bislang keine ECMAScript-Module (siehe unten für Browser-Kompatibilität).
 
 ## Verwendungskontext
 
@@ -16,20 +16,26 @@ Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das Hinzufügen v
 
 ## Attribute
 
+- `async` {{non-standard_inline}}
+  - : Wenn das `async`-Attribut vorhanden ist, wird das externe Skript parallel zum Parsen abgerufen und ausgewertet, sobald es verfügbar ist. Dies entspricht dem [`async`](/de/docs/Web/HTML/Reference/Elements/script#async)-Attribut im HTML-{{HTMLElement('script')}}-Element.
+    _Werttyp_: **boolean**; _Standardwert_: _none_; _Animierbar_: **nein**
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Elements/script#crossorigin)
-  - : Dieses Attribut definiert [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin), wie sie für das HTML-{{HTMLElement('script')}}-Element festgelegt sind.
+  - : Dieses Attribut definiert [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin) wie im HTML-{{HTMLElement('script')}}-Element.
     _Werttyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/Reference/Values/string); _Standardwert_: `?`; _Animierbar_: **ja**
+- `defer` {{experimental_inline}}
+  - : Wenn das `defer`-Attribut vorhanden ist, wird das externe Skript nach dem Parsen des Dokuments, aber vor dem Auslösen von [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) ausgeführt. Dies entspricht dem [`defer`](/de/docs/Web/HTML/Reference/Elements/script#defer)-Attribut im HTML-{{HTMLElement('script')}}-Element.
+    _Werttyp_: **boolean**; _Standardwert_: _none_; _Animierbar_: **nein**
 - {{SVGAttr("fetchpriority")}} {{experimental_inline}} {{non-standard_inline}}
-  - : Bietet einen Hinweis auf die relative Priorität beim Laden eines externen Skripts.
+  - : Gibt einen Hinweis auf die relative Priorität an, die beim Abrufen eines externen Skripts verwendet werden soll.
     Erlaubte Werte:
     - `high`
-      - : Lädt das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten.
+      - : Ruft das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten ab.
     - `low`
-      - : Lädt das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten.
+      - : Ruft das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten ab.
     - `auto`
-      - : Legt keine Präferenz für die Ladepriorität fest.
-        Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
-        Dies ist der Standardwert.
+      - : Setzt keine Präferenz für die Abrufpriorität.
+        Wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
+        Dies ist der Standard.
 - {{SVGAttr("href")}}
   - : Die {{Glossary("URL", "URL")}} zu dem zu ladenden Skript.
     _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
@@ -93,5 +99,5 @@ Click the circle to change colors.
 
 ## Siehe auch
 
-- {{SVGAttr("fetchpriority")}} Attribut
+- {{SVGAttr("fetchpriority")}}-Attribut
 - [`script`-Element in HTML](/de/docs/Web/HTML/Reference/Elements/script)

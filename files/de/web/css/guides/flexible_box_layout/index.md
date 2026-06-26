@@ -1,16 +1,16 @@
 ---
-title: CSS flexibles Box-Layout
-short-title: Flexibles Box-Layout
+title: CSS Flexible Box Layout
+short-title: Flexibles Box Layout
 slug: Web/CSS/Guides/Flexible_box_layout
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 53745a2089268ce62bf79695d7d347bcbd0abe57
 ---
 
-Das **CSS flexibles Box-Layout** Modul definiert ein CSS-Boxmodell, das für Benutzeroberflächen-Design und das Layout von Elementen in einer Dimension optimiert ist. Im Flex-Layout-Modell können die Kinder eines Flex-Containers in jeder Richtung angeordnet werden und ihre Größen "flexibilisieren", entweder durch Wachsen, um ungenutzten Raum zu füllen, oder Schrumpfen, um ein Überlaufen des übergeordneten Elements zu vermeiden. Sowohl die horizontale als auch die vertikale Ausrichtung der Kinder kann leicht manipuliert werden.
+Das **CSS Flexible Box Layout** Modul definiert ein CSS-Box-Modell, das für die Gestaltung von Benutzeroberflächen optimiert ist und das Layout von Elementen in einer Dimension ermöglicht. Im Flex-Layout-Modell können die Kinder eines Flex-Containers in jede Richtung angeordnet werden und ihre Größen können sich "flexibel" anpassen, indem sie entweder wachsen, um ungenutzten Raum zu füllen, oder schrumpfen, um ein Überlaufen des Elternteils zu vermeiden. Sowohl die horizontale als auch die vertikale Ausrichtung der Kinder können einfach manipuliert werden.
 
-## Flexibles Box-Layout in Aktion
+## Flexibles Box Layout in Aktion
 
-Im folgenden Beispiel wurde ein Container auf `display: flex` gesetzt, was bedeutet, dass die drei Kinderelemente Flex-Elemente werden. Der Wert von `justify-content` wurde auf `space-between` gesetzt, um die Elemente auf der Hauptachse gleichmäßig zu verteilen. Ein gleicher Abstand wird zwischen jedem Element platziert, wobei die linken und rechten Elemente bündig mit den Rändern des Flex-Containers abschließen. Sie können auch sehen, dass die Elemente auf der Querachse gestreckt werden, aufgrund des Standardwerts von `align-items`, der `stretch` ist. Die Elemente strecken sich auf die Höhe des Flex-Containers und erscheinen dadurch jeweils so hoch wie das höchste Element.
+Im folgenden Beispiel wurde ein Container auf `display: flex` gesetzt, was bedeutet, dass die drei Kindelemente zu Flex-Elementen werden. Der Wert von `justify-content` wurde auf `space-between` gesetzt, um die Elemente gleichmäßig auf der Hauptachse zu verteilen. Ein gleicher Abstand wird zwischen jedem Element platziert, wobei das linke und das rechte Element bündig mit den Rändern des Flex-Containers sind. Sie können auch sehen, dass die Elemente auf der Querachse gestreckt werden, aufgrund des Standardwerts von `align-items`, der `stretch` ist. Die Elemente strecken sich auf die Höhe des Flex-Containers, sodass sie jeweils so hoch wie das höchste Element erscheinen.
 
 ```html live-sample___simple-example
 <div class="box">
@@ -60,8 +60,8 @@ body {
 ### Glossarbegriffe
 
 - {{Glossary("Flexbox", "Flexbox")}}
-- {{Glossary("Flex_container", "Flex-Container")}}
-- {{Glossary("Flex_item", "Flex-Element")}}
+- {{Glossary("Flex_container", "Flex container")}}
+- {{Glossary("Flex_item", "Flex item")}}
 - {{Glossary("Main_axis", "Hauptachse")}}
 - {{Glossary("Cross_axis", "Querachse")}}
 - {{Glossary("Flex", "Flex")}}
@@ -70,49 +70,52 @@ body {
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
   - : Ein Überblick über die Funktionen von Flexbox.
-- [Verhältnis von Flexbox zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods)
-  - : Wie sich Flexbox zu anderen Layout-Methoden und CSS-Spezifikationen verhält.
-- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
-  - : Wie die Box-Ausrichtungs-Eigenschaften mit Flexbox funktionieren.
-- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
-  - : Erläuterung der verschiedenen Möglichkeiten, die Reihenfolge und Richtung der Elemente zu ändern, und die möglichen Probleme dabei.
-- [Kontrolle der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
-  - : Erklärung der Eigenschaften flex-grow, flex-shrink und flex-basis.
-- [Beherrschung der Umbrüche von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
-  - : Wie man Flex-Container mit mehreren Zeilen erstellt und die Darstellung der Elemente in diesen Zeilen steuert.
+- [Beziehung von Flexbox zu anderen Layoutmethoden](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods)
+  - : Wie sich Flexbox zu anderen Layoutmethoden und CSS-Spezifikationen verhält.
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+  - : Wie die Box-Ausrichtungseigenschaften mit Flexbox funktionieren.
+- [Reihenfolge der Flex-Elemente ändern](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+  - : Erklärung der verschiedenen Möglichkeiten zur Änderung der Reihenfolge und Richtung von Elementen sowie potenziellen Problemen dabei.
+- [Kontrollieren der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
+  - : Erläutert die Eigenschaften `flex-grow`, `flex-shrink` und `flex-basis`.
+- [Meistern des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
+  - : Wie Sie Flex-Container mit mehreren Zeilen erstellen und die Anzeige der Elemente in diesen Zeilen steuern.
 - [Typische Anwendungsfälle von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Use_cases)
-  - : Häufige Designmuster, die typische Flexbox-Anwendungsfälle sind.
+  - : Häufige Designmuster, die typische Verwendungszwecke von Flexbox sind.
 - [CSS-Layout: Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox)
-  - : Erlernen, wie man das Flexbox-Layout zur Erstellung von Web-Layouts verwendet.
+  - : Erlernen Sie die Verwendung des Flexbox-Layouts zur Erstellung von Web-Layouts.
 - [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
-  - : Detaillierte Merkmale der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment), die spezifisch für Flexbox sind.
+  - : Details zu den Eigenschaften der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment), die spezifisch für Flexbox sind.
 
 ## Verwandte Konzepte
 
-[CSS Display Modul](/de/docs/Web/CSS/Guides/Display)
+[CSS-Display-Modul](/de/docs/Web/CSS/Guides/Display)
 
 - {{cssxref("display")}}
 - {{cssxref("order")}}
 
-[CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
+[CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
 
 - {{cssxref("align-content")}}
 - {{cssxref("align-items")}}
 - {{cssxref("align-self")}}
-- {{cssxref("column-gap")}}
-- {{cssxref("gap")}}
 - {{cssxref("justify-items")}}
 - {{cssxref("place-content")}}
 - {{cssxref("place-items")}}
+
+[CSS-Gaps](/de/docs/Web/CSS/Guides/Gaps) Modul
+
+- {{cssxref("column-gap")}}
+- {{cssxref("gap")}}
 - {{cssxref("row-gap")}}
 
-[CSS Box-Größe](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+[CSS-Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 
 - {{cssxref("aspect-ratio")}}
 - {{cssxref("max-content")}} Wert
 - {{cssxref("min-content")}} Wert
 - {{cssxref("fit-content")}} Wert
-- {{Glossary("intrinsic_size", "intrinsische Größe")}} Glossarbegriff
+- {{Glossary("intrinsic_size", "Intrinsic Size")}} Glossarbegriff
 
 ## Spezifikationen
 
@@ -120,6 +123,6 @@ body {
 
 ## Siehe auch
 
-- [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
-- [CSS Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
-- [Verwendung der Mehr-Schlüsselwort-Syntax mit CSS Display](/de/docs/Web/CSS/Guides/Display/Multi-keyword_syntax)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
+- [Verwendung der Multi-Keyword-Syntax mit CSS-Display](/de/docs/Web/CSS/Guides/Display/Multi-keyword_syntax)

@@ -3,25 +3,27 @@ title: "Node: isConnected-Eigenschaft"
 short-title: isConnected
 slug: Web/API/Node/isConnected
 l10n:
-  sourceCommit: 940b352725f7e803b194af619702071630f3d6a6
+  sourceCommit: cb10ea9c059e54e6b3fc61866e8db0f73fcdbce7
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`isConnected`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
-gibt einen booleschen Wert zurück, der anzeigt, ob der Node
-(direkt oder indirekt) mit einem [`Document`](/de/docs/Web/API/Document)-Objekt verbunden ist.
+Die schreibgeschützte **`isConnected`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der Knoten (direkt oder indirekt) mit einem [`Document`](/de/docs/Web/API/Document)-Objekt verbunden ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Node mit seinem relevanten Kontextobjekt verbunden ist,
-und `false`, wenn nicht.
+Ein boolescher Wert, der `true` ist, wenn der Knoten mit seinem relevanten Kontextobjekt verbunden ist, und `false` wenn nicht.
+
+> [!NOTE]
+> Ein [`Attr`](/de/docs/Web/API/Attr)-Knoten gibt für `isConnected` immer `false` zurück, selbst wenn sein [`ownerElement`](/de/docs/Web/API/Attr/ownerElement) verbunden ist.
+> Dies liegt daran, dass ein Attribut zwar über `ownerElement` mit einem Element verknüpft ist, jedoch nicht Teil des Knotendbaums ist — es hat keinen übergeordneten Knoten und ist sein eigener Wurzelknoten.
+> Da `isConnected` nur dann `true` ist, wenn die Wurzel eines Knotens ein Dokument ist, wird ein `Attr`-Knoten niemals als verbunden angesehen.
 
 ## Beispiele
 
 ### Standard DOM
 
-Ein Beispiel aus dem Standard-DOM:
+Ein Beispiel für Standard DOM:
 
 ```js
 let test = document.createElement("p");
@@ -32,7 +34,7 @@ console.log(test.isConnected); // Returns true
 
 ### Shadow DOM
 
-Ein Beispiel aus dem Shadow-DOM:
+Ein Beispiel für Shadow DOM:
 
 ```js
 // Create a shadow root

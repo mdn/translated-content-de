@@ -2,13 +2,15 @@
 title: 423 Locked
 slug: Web/HTTP/Reference/Status/423
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
 ---
 
-Der HTTP-Statuscode **`423 Locked`** für [Client-Fehlerantworten](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass eine Ressource _gesperrt_ ist, was bedeutet, dass sie nicht zugänglich ist. Der Antwortkörper sollte Informationen im XML-Format von {{Glossary("WebDAV", "WebDAV")}} enthalten.
+Der HTTP-Statuscode **`423 Locked`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass eine Ressource _gesperrt_ ist, was bedeutet, dass sie nicht zugänglich ist.
+Der Antwortinhalt sollte Informationen im XML-Format von {{Glossary("WebDAV", "WebDAV")}} enthalten.
 
 > [!NOTE]
-> Die Möglichkeit, eine Ressource zu _sperren_, um Konflikte zu vermeiden, ist spezifisch für einige {{Glossary("WebDAV", "WebDAV")}}-Server. Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals sehen; in fehlerhaften Fällen behandeln sie ihn als generischen {{HTTPStatus(400)}}-Statuscode.
+> Die Fähigkeit, eine Ressource zu _sperren_, um Konflikte zu verhindern, ist spezifisch für einige {{Glossary("WebDAV", "WebDAV")}}-Server.
+> Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals antreffen; in den fehlerhaften Fällen, in denen es passiert, werden sie ihn als generischen {{HTTPStatus(400)}} Statuscode behandeln.
 
 ## Status
 
