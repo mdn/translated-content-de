@@ -82,7 +82,7 @@ jobs:
           git diff HEAD --color=always --word-diff --word-diff-regex='[[:alnum:]_]+'
 
       - name: Autocorrect
-        run: ls -d 2>/dev/null "files/${{ matrix.lang }}" "docs/${{ matrix.lang }}" | xargs npx autocorrect --fix
+        run: ls -d 2>/dev/null "files/${{ matrix.lang }}" "docs/${{ matrix.lang }}" | xargs npx autocorrect-node --fix
 
       - name: Diff
         run: |
