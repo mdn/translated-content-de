@@ -104,9 +104,7 @@ Hier holen wir eine existierende Anmeldeinformation von einem Authentifikator ab
 ```js
 const requestCredentialOptions = {
   publicKey: {
-    challenge: new Uint8Array([
-      /* bytes sent from the server */
-    ]),
+    challenge: new Uint8Array([/* bytes sent from the server */]),
   },
 };
 

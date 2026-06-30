@@ -354,6 +354,7 @@ Wenn die Spaltenregel größer ist als die Spaltenlücke, erscheint die dekorati
 - {{cssxref("column-rule-width")}}
 - {{cssxref("gap")}}
 - {{cssxref("row-gap")}}
+
 <!-- Wird aktiviert, wenn das Problem https://github.com/mdn/content/issues/44435 gelöst ist.
 - {{cssxref("column-rule-break")}}
 - {{cssxref("column-rule-inset")}}

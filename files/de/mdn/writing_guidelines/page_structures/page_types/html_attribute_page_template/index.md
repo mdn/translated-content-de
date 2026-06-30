@@ -59,7 +59,6 @@ Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenständi
 >     Die Toolchain verwendet automatisch den Schlüssel, um die Kompatibilitäts- und Spezifikationsabschnitte auszufüllen (Ersetzung der `\{{Compat}}` und `\{{Specifications}}` Makros).
 >     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Attribut in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten.
 >     Siehe unseren [Leitfaden, wie man dies macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
->
 > - **sidebar**
 >   - : Behalten Sie es als `htmlsidebar` (alle Seiten unter `/web/html/` verwenden diese Seitenleiste).
 >     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.

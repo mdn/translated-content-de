@@ -1014,8 +1014,7 @@ Das vollständige Beispiel sieht wie folgt aus (drücken Sie den **Abspielen**-K
 Viscous,
 Bright Ridge,
 CA
-</textarea
-      >
+</textarea>
     </div>
     <div>
       <label for="zip-code">Zip/postal code: </label>

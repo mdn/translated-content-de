@@ -81,9 +81,7 @@ Die folgenden Verbindungen werden blockiert und nicht geladen:
 
   const es = new EventSource("https://not-example.com/");
 
-  navigator.sendBeacon("https://not-example.com/", {
-    /* … */
-  });
+  navigator.sendBeacon("https://not-example.com/", {/* … */});
 </script>
 ```
 

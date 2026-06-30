@@ -98,8 +98,7 @@ Dieses Beispiel zeigt, wie formularassoziierte Elemente mit einem `<form>`-Eleme
 <label
   >Description:
   <textarea form="loginForm" rows="4" name="description">
-Hello, World!</textarea
-  >
+Hello, World!</textarea>
 </label>
 <button form="loginForm" type="submit" name="submitLogin" value="Login">
   Submit

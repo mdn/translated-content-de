@@ -49,9 +49,9 @@ ICE-Kandidaten beschreibt, der vom entfernten Peer während des Signalisierungsp
 function handleNewIceCandidate(candidateSDP) {
   const candidateObj = new RTCIceCandidate(candidateSDP);
 
-  myPeerConnection.addIceCandidate(candidateObj).catch({
-    /* handle the error thrown by addIceCandidate() */
-  });
+  myPeerConnection
+    .addIceCandidate(candidateObj)
+    .catch({/* handle the error thrown by addIceCandidate() */});
 }
 ```
 

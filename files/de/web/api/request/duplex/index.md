@@ -26,9 +26,7 @@ Obwohl `duplex` als Option beim Erstellen eines `Request` übergeben werden kann
 ### Überprüfen des Duplex-Modus einer Anfrage
 
 ```js
-const stream = new ReadableStream({
-  /* ... */
-});
+const stream = new ReadableStream({/* ... */});
 const request = new Request("/upload", {
   method: "POST",
   body: stream,

@@ -136,9 +136,7 @@ async function signIn() {
         {
           configURL: "https://accounts.idp.example/config.json",
           clientId: "********",
-          params: {
-            /* IdP-specific parameters */
-          },
+          params: {/* IdP-specific parameters */},
         },
       ],
     },
@@ -159,9 +157,7 @@ async function signIn() {
         {
           configURL: "https://accounts.idp.example/config.json",
           clientId: "********",
-          params: {
-            /* IdP-specific parameters */
-          },
+          params: {/* IdP-specific parameters */},
           loginHint: "user1@example.com",
         },
       ],
@@ -181,9 +177,7 @@ async function signIn() {
           {
             configURL: "https://accounts.idp.example/config.json",
             clientId: "********",
-            params: {
-              /* IdP-specific parameters */
-            },
+            params: {/* IdP-specific parameters */},
           },
         ],
       },

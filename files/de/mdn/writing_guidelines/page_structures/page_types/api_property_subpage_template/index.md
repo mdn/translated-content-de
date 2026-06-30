@@ -40,7 +40,6 @@ l10n:
 >     Dieser wird formatiert als `Web/API/NameOfTheParentInterface/NameOfTheProperty`.
 >
 >     Wenn die Eigenschaft statisch ist, muss der Slug ein `_static`-Suffix haben, z.B.: `Web/API/NameOfTheParentInterface/NameOfTheProperty_static`. Dies ermöglicht es uns, Instanz- und statische Eigenschaften, die denselben Namen haben, zu unterstützen.
->
 > - **page-type**
 >   - : Der `page-type`-Schlüssel für Web/API-Eigenschaften ist entweder `web-api-instance-property` (für Instanzeigenschaften) oder `web-api-static-property` (für statische Eigenschaften).
 > - **status**

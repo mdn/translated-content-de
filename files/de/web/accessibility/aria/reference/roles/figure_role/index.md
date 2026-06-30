@@ -77,8 +77,7 @@ Wir könnten das anfängliche Beispiel auf der Seite erweitern, um auch einen Ab
   <pre>
 `
         let awesome = ['music', 'cats', 'nature', 'ice cream'];
-      `</pre
-  >
+      `</pre>
   <p id="figure-1">Figure 1: The four layers of awesome.</p>
 </div>
 ```
@@ -98,8 +97,7 @@ Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwend
   <pre>
 `
     let awesome = ['music', 'cats', 'nature', 'ice cream'];
-  `</pre
-  >
+  `</pre>
   <figcaption>Figure 1: The four layers of awesome.</figcaption>
 </figure>
 ```

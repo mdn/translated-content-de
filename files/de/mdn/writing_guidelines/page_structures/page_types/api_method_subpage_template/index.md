@@ -39,7 +39,6 @@ l10n:
 >     Wenn die Methode statisch ist, muss der Slug ein `_static` Suffix haben, z.B.: `Web/API/NameOfTheParentInterface/NameOfTheMethod_static`. So können wir Instanzmethoden und statische Methoden mit demselben Namen unterstützen.
 >
 >     Beachten Sie, dass der Name der Methode im Slug die Klammern weglässt (er endet mit `NameOfTheMethod` nicht `NameOfTheMethod()`).
->
 > - **page-type**
 >   - : Der `page-type`-Schlüssel für Web/API-Methoden ist entweder `web-api-instance-method` (für Instanzmethoden) oder `web-api-static-method` (für statische Methoden).
 > - **status**
