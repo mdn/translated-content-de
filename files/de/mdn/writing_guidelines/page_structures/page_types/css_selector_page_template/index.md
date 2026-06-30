@@ -45,7 +45,6 @@ l10n:
 >
 >     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den Selektor und seine Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-compat-Daten-Repo</a> erstellen/aktualisieren müssen.
 >     Siehe unseren [Leitfaden, wie Sie dies tun können](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
->
 > - **sidebar**
 >   - : Dies ist `cssref` für alle CSS-Leitfaden- und Referenzseiten.
 >     Siehe [Seitenstrukturen: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.

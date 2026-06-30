@@ -195,7 +195,7 @@ for (let i = 0, getI = () => i; i < 3; i++, getI = () => i) {
 Die `i`-Variable innerhalb der `initialization` ist von der `i`-Variable innerhalb jeder Iteration, einschließlich der ersten, getrennt. In diesem Beispiel gibt `getI` 0 zurück, obwohl der Wert von `i` innerhalb der Iteration vorher erhöht wird:
 
 ```js
-for (let i = 0, getI = () => i; i < 3; ) {
+for (let i = 0, getI = () => i; i < 3;) {
   i++;
   console.log(getI());
 }

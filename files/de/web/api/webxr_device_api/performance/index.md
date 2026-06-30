@@ -39,9 +39,7 @@ Betrachten Sie das Folgende:
 function drawScene(gl, view, programInfo, buffers, texture, deltaTime) {
   // …
   for (const object in scene) {
-    const vertexList = [
-      /* … */
-    ];
+    const vertexList = [/* … */];
     const normalMatrix = mat4.create();
     const modelViewMatrix = mat4.create();
     const objectMatrix = mat4.create();
@@ -58,9 +56,7 @@ Dies rendert eine Szene. Aber es ist ineffizient, da es als lokale Variablen ein
 Eine einfache Änderung kann dies erheblich optimieren:
 
 ```js
-const vertexList = [
-  /* … */
-];
+const vertexList = [/* … */];
 const normalMatrix = mat4.create();
 const modelViewMatrix = mat4.create();
 

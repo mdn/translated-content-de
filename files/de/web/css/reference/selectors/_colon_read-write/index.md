@@ -119,8 +119,7 @@ textarea:read-write {
       <textarea id="address" name="address" readonly>
 123 Choco Mountain,
 Awesome Ridge,
-CA</textarea
-      >
+CA</textarea>
     </div>
     <div>
       <label for="instructions">Delivery instructions</label>

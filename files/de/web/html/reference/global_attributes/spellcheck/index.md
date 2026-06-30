@@ -17,12 +17,10 @@ Das **`spellcheck`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attri
 
 ```html interactive-example
 <textarea spellcheck="true">
-This exampull will be checkd fur spellung when you try to edit it.</textarea
->
+This exampull will be checkd fur spellung when you try to edit it.</textarea>
 
 <textarea spellcheck="false">
-This exampull will nut be checkd fur spellung when you try to edit it.</textarea
->
+This exampull will nut be checkd fur spellung when you try to edit it.</textarea>
 ```
 
 Es kann folgende Werte haben:

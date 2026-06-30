@@ -24,8 +24,7 @@ Dieses Beispiel definiert zuerst eine {{cssxref("@import")}}- und eine {{cssxref
 
 ```html
 <pre id="log">
-The @font-palette-values at-rule's applies to the font families:</pre
->
+The @font-palette-values at-rule's applies to the font families:</pre>
 ```
 
 #### CSS

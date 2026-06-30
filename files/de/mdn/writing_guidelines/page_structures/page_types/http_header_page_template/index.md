@@ -49,7 +49,6 @@ l10n:
 >
 >     Browser-Kompatibilität gilt nicht für HTTP-Header, bei denen keine spezifische Implementierung bereitgestellt wird (wie das automatische Hinzufügen eines Anforderungsheaders zu einigen Anfragen oder das Ändern des Verhaltens basierend auf Daten in einem Antwortheader).
 >     In diesen Fällen entfernen Sie den browser-compat Schlüssel und Wert.
->
 > - **sidebar**
 >   - : Dies ist immer `http`.
 >     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
