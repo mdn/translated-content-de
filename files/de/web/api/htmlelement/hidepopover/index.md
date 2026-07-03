@@ -1,16 +1,16 @@
 ---
-title: "HTMLElement: Methode hidePopover()"
+title: "HTMLElement: hidePopover() Methode"
 short-title: hidePopover()
 slug: Web/API/HTMLElement/hidePopover
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 58290795d9f78c91933e092053bb6439bde56651
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`hidePopover()`**-Methode des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces verbirgt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut hat), indem es aus der {{Glossary("top_layer", "Top-Ebene")}} entfernt und mit `display: none` gestylt wird.
+Die **`hidePopover()`** Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle verbirgt ein [Popover](/de/docs/Web/API/Popover_API) Element (d.h. eines mit einem gültigen [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut), indem es aus der {{Glossary("top_layer", "obersten Schicht")}} entfernt und mit `display: none` gestyled wird.
 
-Wenn `hidePopover()` bei einem sichtbaren Element mit dem [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt davon, dass das Popover verborgen wird, und dann das [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis ausgelöst. Wenn das Element bereits verborgen ist, wird ein Fehler ausgelöst.
+Wenn `hidePopover()` bei einem angezeigten Element mit dem [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut aufgerufen wird, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) Ereignis ausgelöst, gefolgt von der Ausblendung des Popovers und dann dem [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignis. Wenn das Element bereits ausgeblendet ist, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Popover bereits verborgen ist.
+  - : Wird ausgelöst, wenn das Popover bereits ausgeblendet ist oder wenn diese Methode aufgerufen wird, während bereits ein anderes Popover im Prozess des Ein- oder Ausblendens ist (z. B. innerhalb eines `beforetoggle` Ereignis-Listeners).
 
 ## Beispiele
 
-### Ein Popover verbergen
+### Ein Popover ausblenden
 
-Das folgende Beispiel bietet eine Funktionalität, um ein Popover durch das Drücken einer bestimmten Taste auf der Tastatur zu verbergen.
+Das folgende Beispiel bietet die Funktionalität, ein Popover durch Drücken einer bestimmten Taste auf der Tastatur auszublenden.
 
 #### HTML
 

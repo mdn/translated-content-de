@@ -1,16 +1,16 @@
 ---
-title: CSS-Scrollleisten-Styling
+title: CSS-Scrollbars-Styling
 short-title: Scrollbars styling
 slug: Web/CSS/Guides/Scrollbars_styling
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
-Das **CSS-Scrollleisten-Styling**-Modul definiert Eigenschaften, die Sie für das visuelle Styling von Scrollleisten verwenden können. Sie können die Breite der Scrollleiste nach Bedarf anpassen. Sie können auch die Farbe der Scrollleisten-_Schiene_ anpassen, die der Hintergrund der Scrollleiste ist, sowie die Farbe der Scrollleisten-_Daumen_, der der ziehbare Griff der Scrollleiste ist.
+Das Modul **CSS-Scrollbars-Styling** definiert Eigenschaften, die Sie zur visuellen Gestaltung von Scrollbars verwenden können. Sie können die Breite der Scrollbar nach Bedarf anpassen. Sie können auch die Farbe des Scrollbar-_Tracks_, also des Hintergrunds der Scrollbar, und die Farbe des Scrollbar-_Thumbs_, also des verschiebbaren Griffs der Scrollbar, anpassen.
 
-## Scrollleisten-Styling in Aktion
+## Styling von Scrollbars in Aktion
 
-Dieses Beispiel definiert eine dünne Scrollleiste mit einem roten Daumen und einer orangefarbenen Schiene. Um den Daumen zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollleiste sichtbar ist, fahren Sie mit der Maus darüber, um die Schiene zu sehen.
+Dieses Beispiel definiert eine dünne Scrollbar mit einem roten Thumb und einem orangefarbenen Track. Um den Thumb zu sehen, müssen Sie den Text scrollen. Nachdem die Scrollbar sichtbar ist, bewegen Sie den Mauszeiger darüber, um den Track zu sehen.
 
 ```css hidden
 .poem {
@@ -57,7 +57,7 @@ for us to breathe.
 {{EmbedLiveSample("Scrollbar_styling_in_action")}}
 
 > [!NOTE]
-> Wenn Sie Scrollleisten anpassen, stellen Sie sicher, dass der Daumen und die Schiene genügend Kontrast zum umgebenden Hintergrund haben. Stellen Sie auch sicher, dass der Bereich, in dem die Scrollleiste aktiv ist, groß genug für Personen ist, die Touch-Eingaben verwenden.
+> Beim Anpassen von Scrollbars stellen Sie sicher, dass Thumb und Track genügend Kontrast zum umgebenden Hintergrund haben. Achten Sie auch darauf, dass der Berührungsbereich der Scrollbar groß genug für Benutzer ist, die Touch-Eingaben verwenden.
 
 ## Referenz
 
@@ -72,12 +72,12 @@ for us to breathe.
 - {{CSSxRef("overflow-inline")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-x")}} CSS-Eigenschaft
 - {{CSSxRef("overflow-y")}} CSS-Eigenschaft
-- {{CSSxRef("overflow")}} CSS-Kurzschrift-Eigenschaft
+- {{CSSxRef("overflow")}} CSS-Kurzschreibweise
 - {{CSSxRef("overflow-clip-margin")}} CSS-Eigenschaft
 - {{CSSxRef("scrollbar-gutter")}} CSS-Eigenschaft
 - {{CSSxRef("scroll-behavior")}} CSS-Eigenschaft
-- {{cssxref("scroll-margin")}} CSS-Kurzschrift-Eigenschaft
-- {{cssxref("scroll-padding")}} CSS-Kurzschrift-Eigenschaft
+- {{cssxref("scroll-margin")}} CSS-Kurzschreibweise
+- {{cssxref("scroll-padding")}} CSS-Kurzschreibweise
 - {{cssxref("scroll-snap-align")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft

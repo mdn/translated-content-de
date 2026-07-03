@@ -2,23 +2,25 @@
 title: TransformStream
 slug: Web/API/TransformStream
 l10n:
-  sourceCommit: 7d37e07f04c40ecbfd424d6fce0766ef3d2f7db4
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`TransformStream`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) stellt eine konkrete Implementierung des _Transform-Stream_-Konzepts der [Pipeline-Kette](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) dar.
+Die **`TransformStream`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert eine konkrete Implementierung des _transform stream_-Konzepts innerhalb der [pipe chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains).
 
-Es kann der Methode [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren. Zum Beispiel könnte es zum Dekodieren (oder Kodieren) von Videoframes, zum Dekomprimieren von Daten oder zum Konvertieren eines Streams von XML in JSON verwendet werden.
+Sie kann an die Methode [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren.
+Beispielsweise könnte sie verwendet werden, um Videoframes zu dekodieren (oder zu kodieren), Daten zu dekomprimieren oder den Stream von XML in JSON zu konvertieren.
 
-Ein Transformationsalgorithmus kann als optionales Argument an den Objektkonstruktor übergeben werden. Wenn er nicht bereitgestellt wird, werden die Daten beim Durchlaufen des Streams nicht verändert.
+Ein Transformationsalgorithmus kann als optionales Argument an den Objektkonstruktor übergeben werden.
+Wird dieser nicht bereitgestellt, werden die Daten nicht verändert, wenn sie durch den Stream geleitet werden.
 
 `TransformStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Konstruktor
 
 - [`TransformStream()`](/de/docs/Web/API/TransformStream/TransformStream)
-  - : Erstellt und gibt ein Transform-Stream-Objekt zurück, wobei optional ein Transformationsobjekt und Warteschlangenstrategien für die Streams angegeben werden können.
+  - : Erstellt und gibt ein Transform-Stream-Objekt zurück, wobei optional ein Transformationsobjekt und Warteschlangenstrategien für die Streams spezifiziert werden können.
 
 ## Instanz-Eigenschaften
 
@@ -33,9 +35,9 @@ Keine
 
 ## Beispiele
 
-### Anything-to-uint8array Stream
+### Anything-to-uint8array stream
 
-Im folgenden Beispiel gibt ein Transform-Stream alle empfangenen Chunks als {{jsxref("Uint8Array")}}-Werte weiter.
+Im folgenden Beispiel leitet ein Transform-Stream alle Chunks, die er als {{jsxref("Uint8Array")}}-Werte empfängt, direkt weiter.
 
 ```js
 const transformContent = {
@@ -88,9 +90,9 @@ class AnyToU8Stream extends TransformStream {
 }
 ```
 
-### Verkettung mehrerer ReadableStreams
+### Mehrere ReadableStreams zusammenketten
 
-Dies ist ein nützliches Beispiel, bei dem mehrere Streams zusammengeführt werden können. Beispiele hierfür sind der Aufbau einer PWA mit progressivem Laden und progressivem Streaming.
+Dies ist ein nützliches Beispiel, bei dem mehrere Streams verknüpft werden können. Beispiele dafür sind der Bau einer PWA mit progressivem Laden und progressivem Streaming.
 
 ```js
 let responses = [/* conjoined response tree */];
@@ -103,7 +105,7 @@ responses.reduce(
 );
 ```
 
-Beachten Sie, dass dies nicht gegen andere Einflüsse resistent ist.
+Beachten Sie, dass dies nicht gegen andere Einflüsse widerstandsfähig ist.
 
 ## Spezifikationen
 
@@ -115,4 +117,4 @@ Beachten Sie, dass dies nicht gegen andere Einflüsse resistent ist.
 
 ## Siehe auch
 
-- [Streams — Der definitive Leitfaden](https://web.dev/articles/streams)
+- [Streams—Der definitive Leitfaden](https://web.dev/articles/streams)

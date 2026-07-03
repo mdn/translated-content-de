@@ -3,18 +3,18 @@ title: "Document: hidden-Eigenschaft"
 short-title: hidden
 slug: Web/API/Document/hidden
 l10n:
-  sourceCommit: 9b89bf6c59aa5f4dfe7e68b7e4fee42507d67cc4
+  sourceCommit: 54c533a1750f2804d5bec13e1afeed1113fde5d9
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.hidden`** schreibgeschützte Eigenschaft gibt einen booleschen Wert zurück, der anzeigt, ob die Seite als ausgeblendet gilt oder nicht.
+Die **`Document.hidden`**-Eigenschaft, die schreibgeschützt ist, gibt einen Boolean-Wert zurück, der angibt, ob die Seite als verborgen betrachtet wird oder nicht. Dies kann verwendet werden, um zu überprüfen, ob das Dokument im Hintergrund, in einem minimierten Fenster oder auf andere Weise für den Benutzer nicht sichtbar ist.
 
-Die [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)-Eigenschaft bietet eine alternative Möglichkeit, um festzustellen, ob die Seite ausgeblendet ist.
+Die [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)-Eigenschaft bietet eine alternative Möglichkeit, um festzustellen, ob die Seite verborgen ist.
 
 ## Wert
 
-Ein boolescher Wert, `true`, wenn die Seite ausgeblendet ist, und `false` andernfalls.
+Ein Boolean-Wert, `true`, wenn die Seite verborgen ist, und `false` andernfalls.
 
 ## Beispiele
 

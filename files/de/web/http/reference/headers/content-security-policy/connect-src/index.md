@@ -1,12 +1,12 @@
 ---
-title: "Content-Security-Policy: connect-src Richtlinie"
+title: "Content-Security-Policy: connect-src-Direktive"
 short-title: connect-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Richtlinie beschränkt die URLs, die über Skriptschnittstellen geladen werden können. Die folgenden APIs werden durch diese Richtlinie kontrolliert:
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`** beschränkt die URLs, die über Skriptschnittstellen geladen werden können. Die folgenden APIs werden durch diese Direktive kontrolliert:
 
 - Das [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)-Attribut in {{htmlelement("a")}}-Elementen
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
@@ -17,7 +17,7 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Richt
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
 
 > [!NOTE]
-> `connect-src 'self'` wird in allen Browsern nicht in Websocket-Schemata aufgelöst, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
+> `connect-src 'self'` löst nicht in allen Browsern zu WebSocket-Schemata auf, weitere Informationen finden Sie in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -26,14 +26,14 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Richt
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
+      <th scope="row">Direktiventyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Richtlinie fehlt, wird der User-Agent die
-        <code>default-src</code>-Richtlinie suchen.
+        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
+        <code>default-src</code>-Direktive.
       </td>
     </tr>
   </tbody>
@@ -46,19 +46,19 @@ Content-Security-Policy: connect-src 'none';
 Content-Security-Policy: connect-src <source-expression-list>;
 ```
 
-Diese Richtlinie kann einen der folgenden Werte haben:
+Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind verbindlich.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Richtlinie sind die folgenden Quell-Ausdruck-Werte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Source-Expression-Werte übereinstimmen. Für diese Direktive sind die folgenden Source-Expression-Werte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
 Angenommen, dieser CSP-Header:
 

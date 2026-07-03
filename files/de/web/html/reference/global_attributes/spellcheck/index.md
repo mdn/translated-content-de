@@ -1,15 +1,15 @@
 ---
-title: "`spellcheck` HTML globales Attribut"
+title: "`spellcheck` HTML-Globalattribut"
 short-title: spellcheck
 slug: Web/HTML/Reference/Global_attributes/spellcheck
 l10n:
-  sourceCommit: 9c70c6ff09189cad43d40e241fbd2fe67349c3c2
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
-Das **`spellcheck`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden kann.
+Das **`spellcheck`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden darf.
 
 > [!NOTE]
-> Dieses Attribut ist lediglich ein Hinweis für den Browser: Browser sind nicht verpflichtet, auf Rechtschreibfehler zu überprüfen. Typischerweise werden nicht editierbare Elemente nicht auf Rechtschreibfehler überprüft, selbst wenn das `spellcheck`-Attribut auf `true` gesetzt ist und der Browser die Rechtschreibprüfung unterstützt.
+> Dieses Attribut ist lediglich ein Hinweis für den Browser: Browser sind nicht verpflichtet, auf Rechtschreibfehler zu prüfen. Typischerweise werden nicht editierbare Elemente nicht auf Rechtschreibfehler überprüft, selbst wenn das `spellcheck`-Attribut auf `true` gesetzt ist und der Browser die Rechtschreibprüfung unterstützt.
 
 {{InteractiveExample("HTML Demo: spellcheck", "tabbed-shorter")}}
 
@@ -23,18 +23,19 @@ This exampull will be checkd fur spellung when you try to edit it.</textarea>
 This exampull will nut be checkd fur spellung when you try to edit it.</textarea>
 ```
 
-Es kann folgende Werte haben:
+Es kann die folgenden Werte haben:
 
-- ein leerer String oder `true`, was anzeigt, dass das Element, wenn möglich, auf Rechtschreibfehler überprüft werden sollte;
-- `false`, was anzeigt, dass das Element nicht auf Rechtschreibfehler überprüft werden sollte.
+- ein leerer String oder `true`, was darauf hinweist, dass das Element, wenn möglich, auf Rechtschreibfehler überprüft werden sollte;
+- `false`, was darauf hinweist, dass das Element nicht auf Rechtschreibfehler überprüft werden sollte.
 
-Wenn dieses Attribut nicht gesetzt ist, ist sein Standardwert vom Elementtyp und dem Browser definiert. Dieser Standardwert kann auch _geerbt_ werden, was bedeutet, dass der Inhalt des Elements nur auf Rechtschreibfehler überprüft wird, wenn der nächste Vorfahre einen _spellcheck_-Zustand von `true` hat.
+Wenn dieses Attribut nicht gesetzt ist, ist der Standardwert element- und browserdefiniert. Dieser Standardwert kann auch _vererbt_ werden, was bedeutet, dass der Inhalt des Elements nur dann auf Rechtschreibfehler überprüft wird, wenn sein nächster Vorgänger einen _spellcheck_-Zustand von `true` hat.
 
 ## Sicherheits- und Datenschutzbedenken
 
-Die Verwendung der Rechtschreibprüfung kann Konsequenzen für die Sicherheit und den Datenschutz der Nutzer haben. Die Spezifikation reguliert nicht, _wie_ die Rechtschreibprüfung durchgeführt wird, und der Inhalt des Elements kann zur Rechtschreibprüfungsergebnissen an Dritte gesendet werden (siehe [erweiterte Rechtschreibprüfung und "spell-jacking"](https://www.comparitech.com/blog/information-security/what-is-spell-jacking/)).
+Die Verwendung der Rechtschreibprüfung kann Konsequenzen für die Sicherheit und den Datenschutz der Nutzer haben.
+Die Spezifikation regelt nicht, _wie_ die Rechtschreibprüfung durchgeführt wird, und der Inhalt des Elements könnte an Dritte zur Rechtschreibprüfung gesendet werden (siehe [erweiterte Rechtschreibprüfung und "spell-jacking"](https://www.comparitech.com/blog/information-security/what-is-spell-jacking/)).
 
-Sie sollten erwägen, `spellcheck` auf `false` zu setzen für Elemente, die sensible Informationen enthalten können.
+Sie sollten in Betracht ziehen, `spellcheck` auf `false` zu setzen, für Elemente, die sensible Informationen enthalten können.
 
 ## Spezifikationen
 

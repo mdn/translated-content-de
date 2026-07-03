@@ -1,25 +1,25 @@
 ---
-title: "Anforderung: duplex-Eigenschaft"
+title: "Anforderung: Duplex-Eigenschaft"
 short-title: duplex
 slug: Web/API/Request/duplex
 l10n:
-  sourceCommit: 3a9a6f9dd92859dca2f928c59b34d9177adb9ae5
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("Fetch API")}}{{SeeCompatTable}}
 
-Die **`duplex`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces gibt den Duplex-Modus der Anfrage zurück, welcher bestimmt, ob der Browser die gesamte Anfrage senden muss, bevor die Antwort verarbeitet wird.
+Die schreibgeschützte **`duplex`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request) Interface gibt den Duplex-Modus der Anforderung zurück, der bestimmt, ob der Browser die gesamte Anforderung senden muss, bevor er die Antwort verarbeitet.
 
 ## Wert
 
 Ein String mit dem folgenden möglichen Wert:
 
 - `"half"`
-  - : Der Browser muss die gesamte Anfrage senden, bevor die Antwort verarbeitet wird.
+  - : Der Browser muss die gesamte Anforderung senden, bevor er die Antwort verarbeitet.
 
 ## Hinweise
 
-Obwohl `duplex` als Option beim Erstellen eines `Request` übergeben werden kann, wird es derzeit nicht in allen Browsern als lesbare Eigenschaft am resultierenden `Request`-Objekt bereitgestellt.
+Obwohl `duplex` beim Erstellen einer `Request` als Option übergeben werden kann, wird es derzeit nicht in allen Browsern als lesbare Eigenschaft des resultierenden `Request`-Objekts angezeigt.
 
 ## Beispiele
 
@@ -49,4 +49,4 @@ console.log(request.duplex); // "half"
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor
 - [`RequestInit.duplex`](/de/docs/Web/API/RequestInit#duplex) in Anfrageoptionen
-- [Verwendung eines Fetch als Stream](/de/docs/Web/API/Streams_API/Using_readable_streams#consuming_a_fetch_as_a_stream)
+- [Verwenden eines Fetch als Stream](/de/docs/Web/API/Streams_API/Using_readable_streams#consuming_a_fetch_as_a_stream)

@@ -1,18 +1,18 @@
 ---
-title: CSS gaps
+title: CSS-Abstände
 short-title: Gaps
 slug: Web/CSS/Guides/Gaps
 l10n:
-  sourceCommit: 53745a2089268ce62bf79695d7d347bcbd0abe57
+  sourceCommit: 34838ae7d32e78bfe01dbf2c266257ef0f8305c4
 ---
 
-Das **CSS gaps**-Modul ermöglicht es Ihnen, Abstände oder "Lücken" zwischen Elementen in [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Layouts zu spezifizieren. Das [CSS-mehrspaltige-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul definierte ursprünglich Abstände und Regeln zur Steuerung des Abstands zwischen Spalten in mehrspaltigen Containern. Dieses Modul erweitert diese sichtbaren Trennlinien, genannt _Lückenverzierungen_, auf das Grid-Layout.
+Das **CSS-Abstände**-Modul ermöglicht es Ihnen, Abstände oder "Lücken" zwischen Elementen in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Layouts zu spezifizieren. Das [CSS-Mehrspalten-Layout-](/de/docs/Web/CSS/Guides/Multicol_layout) Modul definierte ursprünglich Abstände und Regeln für die Steuerung des Abstands zwischen Spalten in Mehrspalten-Containern. Dieses Modul erweitert diese sichtbaren Trennzeichen, genannt _Gap-Dekorationen_, und erweitert sie auf Grids.
 
-Während {{cssxref("margin")}} und {{cssxref("padding")}} den visuellen Abstand um einzelne Boxen festlegen, ermöglichen es die Eigenschaften in diesem Modul, den Abstand zwischen benachbarten Boxen innerhalb eines gegebenen Layout-Kontexts für Layouts zu spezifizieren, die {{Glossary("gutters", "Rinnen")}} und Lücken haben. Dies ist besonders dann der Fall, wenn der Abstand zwischen benachbarten Boxen anders ist als zwischen der ersten Box, der letzten Box und der Kante des Containers. Sie können Regeln in jeder Lücke oder in einer Teilmenge von Lücken anzeigen und vollständig animierbare Regelbreiten, Farben und Abstände definieren.
+Während `margin` und `padding` visuellen Abstand um einzelne Boxen spezifizieren, ermöglichen die Eigenschaften in diesem Modul die Spezifizierung des Abstands zwischen angrenzenden Boxen innerhalb eines bestimmten Layoutkontexts für Layouts, die {{Glossary("gutters", "Rinnen")}} und Lücken haben, wenn der Abstand zwischen Geschwisterboxen unterschiedlich ist im Vergleich zu zwischen der ersten Box, der letzten Box und dem Rand des Containers. Sie können Regeln in jeder Lücke oder in einem Teil der Lücken anzeigen, voll animierbare Regelbreiten, Farben und Einrückungen definieren.
 
 ## Lücken in Aktion
 
-In diesem Beispiel wird das Gedicht von der Amtseinführung in den USA 2021, _The Hill We Climb_ von Amanda Gorman, über mehrere Spalten verteilt dargestellt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn Sie JavaScript aktiviert haben, ermöglichen es Ihnen Steuerungen, die Eigenschaften {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} sowie die bevorzugte Anzahl von Spalten und ob der Titel und ein Zitat über alle Spalten erstreckt werden sollen, zu ändern.
+In diesem Beispiel wird das Gedicht von der USA-Inauguration 2021, _The Hill We Climb_ von Amanda Gorman, über mehrere Spalten angezeigt, ähnlich der Art und Weise, wie Artikel in gedruckten Zeitungen angezeigt werden. Wenn Sie JavaScript aktiviert haben, ermöglichen Steuerungen das Ändern der Eigenschaften `column-gap`, `column-rule-color`, `column-rule-style` und `column-rule-width`, sowie die bevorzugte Anzahl der Spalten und ob der Titel und ein Zitat alle Spalten überspannen sollen.
 
 ```html hidden live-sample___multicol
 <article>
@@ -341,124 +341,123 @@ blockquote p::after {
 
 {{EmbedLiveSample("multicol", "", "800px")}}
 
-Wenn die Spaltenregel größer ist als die Spaltenlücke, erscheint die dekorative Linie hinter dem Text; sie ändert nicht die Größe der Lücke.
+Wenn die Spaltenregel größer ist als der Spaltenabstand, erscheint die dekorative Linie hinter dem Text; sie verändert nicht die Größe der Lücke.
 
 ## Referenz
 
 ### Eigenschaften
 
-- {{cssxref("column-gap")}}
-- {{cssxref("column-rule")}}
-- {{cssxref("column-rule-color")}}
-- {{cssxref("column-rule-style")}}
-- {{cssxref("column-rule-width")}}
-- {{cssxref("gap")}}
-- {{cssxref("row-gap")}}
+- `column-gap`
+- `column-rule`
+- `column-rule-break`
+- `column-rule-color`
+- `column-rule-inset`
+- `column-rule-inset-cap`
+- `column-rule-inset-cap-end`
+- `column-rule-inset-cap-start`
+- `column-rule-inset-end`
+- `column-rule-inset-junction`
+- `column-rule-inset-junction-end`
+- `column-rule-inset-junction-start`
+- `column-rule-inset-start`
+- `column-rule-style`
+- `column-rule-visibility-items`
+- `column-rule-width`
+- `gap`
+- `row-gap`
+- `row-rule`
+- `row-rule-break`
+- `row-rule-color`
+- `row-rule-inset`
+- `row-rule-inset-cap`
+- `row-rule-inset-cap-end`
+- `row-rule-inset-cap-start`
+- `row-rule-inset-end`
+- `row-rule-inset-junction`
+- `row-rule-inset-junction-end`
+- `row-rule-inset-junction-start`
+- `row-rule-inset-start`
+- `row-rule-style`
+- `row-rule-visibility-items`
+- `row-rule-width`
+- `rule`
+- `rule-break`
+- `rule-color`
+- `rule-inset`
+- `rule-inset-cap`
+- `rule-inset-end`
+- `rule-inset-junction`
+- `rule-inset-start`
+- `rule-overlap`
+- `rule-style`
+- `rule-visibility-items`
+- `rule-width`
 
-<!-- Wird aktiviert, wenn das Problem https://github.com/mdn/content/issues/44435 gelöst ist.
-- {{cssxref("column-rule-break")}}
-- {{cssxref("column-rule-inset")}}
-- {{cssxref("column-rule-inset-cap")}}
-- {{cssxref("column-rule-inset-cap-end")}}
-- {{cssxref("column-rule-inset-cap-start")}}
-- {{cssxref("column-rule-inset-end")}}
-- {{cssxref("column-rule-inset-junction")}}
-- {{cssxref("column-rule-inset-junction-end")}}
-- {{cssxref("column-rule-inset-junction-start")}}
-- {{cssxref("column-rule-inset-start")}}
-- {{cssxref("column-rule-visibility-items")}}
-- {{cssxref("row-rule")}}
-- {{cssxref("row-rule-break")}}
-- {{cssxref("row-rule-color")}}
-- {{cssxref("row-rule-inset")}}
-- {{cssxref("row-rule-inset-cap")}}
-- {{cssxref("row-rule-inset-cap-end")}}
-- {{cssxref("row-rule-inset-cap-start")}}
-- {{cssxref("row-rule-inset-end")}}
-- {{cssxref("row-rule-inset-junction")}}
-- {{cssxref("row-rule-inset-junction-end")}}
-- {{cssxref("row-rule-inset-junction-start")}}
-- {{cssxref("row-rule-inset-start")}}
-- {{cssxref("row-rule-style")}}
-- {{cssxref("row-rule-visibility-items")}}
-- {{cssxref("row-rule-width")}}
-- {{cssxref("rule")}}
-- {{cssxref("rule-break")}}
-- {{cssxref("rule-color")}}
-- {{cssxref("rule-inset")}}
-- {{cssxref("rule-inset-cap")}}
-- {{cssxref("rule-inset-end")}}
-- {{cssxref("rule-inset-junction")}}
-- {{cssxref("rule-inset-start")}}
-- {{cssxref("rule-overlap")}}
-- {{cssxref("rule-style")}}
-- {{cssxref("rule-visibility-items")}}
-- {{cssxref("rule-width")}} -->
-
-### Begriffe und Glossardefinitionen
+### Begriffe und Glossar Definitionen
 
 - {{Glossary("Grid", "Grid")}}
-- {{Glossary("Grid_cell", "Rasterzelle")}}
-- {{Glossary("Grid_column", "Rasterspalte")}}
-- {{Glossary("Grid_lines", "Rasterlinien")}}
-- {{Glossary("Grid_row", "Rasterreihe")}}
+- {{Glossary("Grid_cell", "Gridzelle")}}
+- {{Glossary("Grid_column", "Gridspalte")}}
+- {{Glossary("Grid_lines", "Gridlinien")}}
+- {{Glossary("Grid_row", "Gridreihe")}}
 - {{Glossary("Gutters", "Rinnen")}}
 
 ## Leitfäden
 
-- [Styling von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
-  - : Leitfaden zum Styling von Spalten und zur Verwaltung des Abstands zwischen Spalten.
-- [Umgang mit Inhaltsumbrüchen in mehrspaltigen Layouts](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
-  - : Einführung in die Fragmentierungsspezifikation und wie man kontrolliert, wo Spalteninhalte umbrochen werden.
-- [Box-Ausrichtungsleitfäden](/de/docs/Web/CSS/Guides/Box_alignment#guides)
-  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und für [Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
+- [Spalten stylen](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
+  - : Leitfaden zum Stylen von Spalten und Verwalten des Abstands zwischen Spalten.
+- [Inhaltsunterbrechungen im Mehrspaltenlayout handhaben](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
+  - : Einführung in die Fragmentierungsspezifikation und wie man steuert, wo Spalteninhalt unterbrochen wird.
+- [Leitfäden zur Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment#guides)
+  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout), und für [Block-, absolut positionierte und Tabellen-Layouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
 
 ## Verwandte Konzepte
 
-[CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+[CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
 
-- {{cssxref("flex")}}
-- {{cssxref("flex-basis")}}
-- {{cssxref("flex-direction")}}
-- {{cssxref("flex-flow")}}
-- {{cssxref("flex-grow")}}
-- {{cssxref("flex-shrink")}}
-- {{cssxref("flex-wrap")}}
+- `flex`
+- `flex-basis`
+- `flex-direction`
+- `flex-flow`
+- `flex-grow`
+- `flex-shrink`
+- `flex-wrap`
 
-[CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
 
-- {{CSSxRef("grid")}}
-- {{CSSxRef("grid-column")}}
-- {{CSSxRef("grid-row")}}
+- `grid`
+- `grid-column`
+- `grid-row`
+- `repeat()`
 
-[CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+[CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
 
-- {{cssxref("column-fill")}}
-- {{cssxref("column-span")}}
-- {{cssxref("columns")}} Abkürzung
-  - {{cssxref("column-count")}}
-  - {{cssxref("column-height")}}
-  - {{cssxref("column-width")}}
-- {{cssxref("column-wrap")}}
-- {{cssxref("::column")}}
+- `column-fill`
+- `column-span`
+- `columns` Kurzschrift
+  - `column-count`
+  - `column-height`
+  - `column-width`
+- `column-wrap`
+- `::column`
 
-[CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
+[CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
 
-- {{cssxref("align-content")}}
-- {{cssxref("justify-content")}}
+- `align-content`
+- `justify-content`
 
-[CSS Box Sizing](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+[CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 
-- {{cssxref("height")}}
-- {{cssxref("max-height")}}
-- {{cssxref("block-size")}}
-- {{cssxref("width")}}
-- {{cssxref("max-width")}}
+- `height`
+- `max-height`
+- `block-size`
+- `width`
+- `max-width`
 
-[CSS Display](/de/docs/Web/CSS/Guides/Display) Modul
+[CSS-Anzeige](/de/docs/Web/CSS/Guides/Display) Modul
 
-- {{cssxref("display")}}
-- [Block Formatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
+- `display`
+- [Leitfaden zum Blockformatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
 
 ## Spezifikationen
 
@@ -467,5 +466,5 @@ Wenn die Spaltenregel größer ist als die Spaltenlücke, erscheint die dekorati
 ## Siehe auch
 
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
-- [Box-Ausrichtung in Rasterlayouts](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
+- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)

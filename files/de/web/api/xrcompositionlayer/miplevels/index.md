@@ -3,26 +3,26 @@ title: "XRCompositionLayer: mipLevels-Eigenschaft"
 short-title: mipLevels
 slug: Web/API/XRCompositionLayer/mipLevels
 l10n:
-  sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`mipLevels`**-Eigenschaft des [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Interfaces gibt die Anzahl der Mip-Level in den Farb- und Texturdaten einer Ebene an. Siehe auch [Mipmap](https://en.wikipedia.org/wiki/Mipmap) auf Wikipedia.
+Die schreibgeschützte **`mipLevels`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist die Anzahl der Mip-Levels in den Farb- und Texturdaten einer Ebene. Siehe auch [Mipmap](https://en.wikipedia.org/wiki/Mipmap) auf Wikipedia.
 
-Die gewünschte Anzahl der Mip-Level kann beim Erstellen von Ebenen angegeben werden. Wenn der User Agent jedoch nicht die angeforderte Anzahl erstellen kann, kann er weniger erstellen. Verwenden Sie `mipLevels`, um die tatsächliche Anzahl der Mip-Level einer Ebene zu bestimmen.
+Die gewünschte Anzahl von Mip-Levels kann beim Erstellen von Ebenen angegeben werden. Wenn der Benutzeragent jedoch die angegebene Anzahl nicht erstellen kann, kann er weniger erstellen. Verwenden Sie `mipLevels`, um die tatsächliche Anzahl der Mip-Levels für eine Ebene zu bestimmen.
 
-Die `viewPixelWidth` und `viewPixelHeight` müssen Potenzen von zwei sein, da sie bei jedem Mip-Level nacheinander halbiert werden.
+Die `viewPixelWidth` und `viewPixelHeight` müssen Potenzen von zwei sein, da sie bei jedem Mip-Level sukzessive halbiert werden.
 
 ## Wert
 
-Eine Zahl, die gleich oder kleiner ist als die angeforderten Mip-Level, wenn eine Ebene erstellt wurde.
+Eine Zahl, die kleiner oder gleich der angeforderten Mip-Levels ist, wenn eine Ebene erstellt wurde.
 
 ## Beispiele
 
-### Abfragen der Mip-Level einer Ebene
+### Abrufen der Mip-Levels einer Ebene
 
-Die `mipLevels`-Eigenschaft gibt die tatsächliche Anzahl der erstellten Mip-Level an. In diesem Beispiel konnte die gewünschte Anzahl von 5 Mip-Leveln, die für eine [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) angefordert wurden, erfüllt werden.
+Die `mipLevels`-Eigenschaft gibt die tatsächliche Anzahl der Mip-Levels an, die erstellt wurden. In diesem Beispiel konnte die gewünschte Anzahl von 5 Mip-Levels, die für eine [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) angefordert wurde, erfüllt werden.
 
 ```js
 let xrGLBinding = new XRWebGLBinding(session, gl);

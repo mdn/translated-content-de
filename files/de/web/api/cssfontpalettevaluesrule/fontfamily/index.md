@@ -1,24 +1,24 @@
 ---
-title: "CSSFontPaletteValuesRule: Eigenschaft fontFamily"
+title: "CSSFontPaletteValuesRule: fontFamily-Eigenschaft"
 short-title: fontFamily
 slug: Web/API/CSSFontPaletteValuesRule/fontFamily
 l10n:
-  sourceCommit: 56bbf59f4ea2566d64ad2e5c669a7a597626b7f3
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`fontFamily`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle listet die Schriftarten auf, auf die die Regel angewendet werden kann. Die Schriftarten müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
+Die schreibgeschützte **`fontFamily`**-Eigenschaft des [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Interfaces listet die Schriftfamilien auf, auf die die Regel angewendet werden kann. Die Schriftfamilien müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
 
 ## Wert
 
-Ein String, der eine durch Leerzeichen getrennte Liste der Schriftarten enthält, auf die die Regel angewendet werden kann.
+Ein String, der eine durch Leerzeichen getrennte Liste der Schriftfamilien enthält, auf die die Regel angewendet werden kann.
 
 ## Beispiele
 
-### Zugehörige Schriftfamilie auslesen
+### Die zugehörige Schriftfamilie lesen
 
-Dieses Beispiel definiert zuerst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-At-Regel. Dann liest es die {{cssxref("@font-palette-values")}}-Regel und zeigt ihren Namen an. Die MDN-[Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Infrastruktur kombiniert alle CSS-Blöcke im Beispiel zu einem einzigen Inline-Style mit der ID `css-output`, daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Blatt zu finden. Die Palette wird die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) in diesem Stylesheet sein. Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule`-Objekt zurück, von dem wir auf `fontFamily` zugreifen können.
+Dieses Beispiel definiert zuerst eine {{cssxref("@import")}}-Regel und eine {{cssxref("@font-palette-values")}}-Regel mit dem At-Zeichen. Dann liest es die {{cssxref("@font-palette-values")}}-Regel und zeigt ihren Namen an. Die MDN-[Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Infrastruktur kombiniert alle CSS-Blöcke im Beispiel zu einem einzelnen Inline-Stil mit der ID `css-output`, daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden. Die Palette wird die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) in diesem Stylesheet sein. Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule`-Objekt zurück, aus dem wir `fontFamily` abrufen können.
 
 #### HTML
 
@@ -56,7 +56,7 @@ log.textContent += ` ${fontPaletteValuesRule.fontFamily}`;
 
 #### Ergebnis
 
-{{EmbedLiveSample("Zugehörige Schriftfamilie auslesen", "100", "40")}}
+{{EmbedLiveSample("Read the associated font family", "100", "40")}}
 
 ## Spezifikationen
 
@@ -68,5 +68,5 @@ log.textContent += ` ${fontPaletteValuesRule.fontFamily}`;
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}} At-Regel
+- {{cssxref("@font-palette-values")}} Regel mit dem At-Zeichen
 - {{cssxref("@font-palette-values/font-family", "font-family")}} Deskriptor

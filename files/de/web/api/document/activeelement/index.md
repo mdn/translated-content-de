@@ -1,29 +1,29 @@
 ---
-title: "Dokument: activeElement-Eigenschaft"
+title: "Dokument: activeElement Eigenschaft"
 short-title: activeElement
 slug: Web/API/Document/activeElement
 l10n:
-  sourceCommit: dc9d517589ac7b74bc205f49492b0450dfdb78de
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("DOM")}}
 
-Die **`activeElement`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOM zurück, das momentan Tastatureingaben wie [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`keyup`](/de/docs/Web/API/Element/keyup_event) empfängt. Dies entspricht normalerweise dem fokussierten Element.
+Die schreibgeschützte **`activeElement`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOMs zurück, das Tastaturereignisse wie [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`keyup`](/de/docs/Web/API/Element/keyup_event) empfängt. Dies ist in der Regel das fokussierte Element.
 
-Welche Elemente fokussierbar sind, variiert je nach Plattform und der aktuellen Konfiguration des Browsers. Zum Beispiel sind auf Safari, entsprechend dem Verhalten von macOS, Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar, es sei denn, die Einstellung "Volle Tastatursteuerung" ist in den Systemeinstellungen aktiviert.
+Welche Elemente fokussierbar sind, variiert je nach Plattform und aktueller Konfiguration des Browsers. Zum Beispiel sind in Safari, entsprechend dem Verhalten von macOS, Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar, es sei denn, die Einstellung "Voller Tastaturzugriff" ist in den Systemeinstellungen aktiviert.
 
-Typischerweise kann ein Benutzer die <kbd>Tab</kbd>-Taste drücken, um den Fokus zwischen fokussierbaren Elementen auf der Seite zu bewegen, und Tastaturgesten wie <kbd>Leertaste</kbd> oder <kbd>Eingabetaste</kbd> verwenden, um Klicks auf das fokussierte Element zu simulieren.
+Normalerweise kann ein Benutzer die <kbd>Tab</kbd>-Taste drücken, um den Fokus zwischen den fokussierbaren Elementen auf der Seite zu verschieben, und Tastaturgesten wie <kbd>Leertaste</kbd> oder <kbd>Eingabetaste</kbd> verwenden, um Klicks auf das fokussierte Element zu simulieren.
 
 > [!NOTE]
-> Fokus (welches Element Benutzereingaben empfängt) ist nicht dasselbe wie Auswahl (der aktuell markierte Teil des Dokuments). Sie können die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) abrufen.
+> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) abrufen.
 
 ## Wert
 
-Das tiefste [`Element`](/de/docs/Web/API/Element), das aktuell den Fokus hat.
+Das tiefste [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat.
 
-- Wenn das fokussierte Element innerhalb eines Shadow Trees im aktuellen Dokument ist (zum Beispiel, das fokussierte Element befindet sich innerhalb eines `iframe`, und das aufrufende `document` enthält dieses `iframe`), dann ist dies das Wurzelelement dieses Trees (in diesem Beispiel dieses `iframe`).
-- Wenn das fokussierte Element innerhalb eines Dokumentbaums, der nicht vom aktuellen Dokument abstammt, ist (zum Beispiel, das fokussierte Element ist im Hauptdokument, und das aufrufende `document` ist ein eingebettetes `iframe`), dann ist dies `null`.
-- Wenn kein Element fokussiert ist, ist dies das [`Document.body`](/de/docs/Web/API/Document/body) oder [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
+- Wenn das fokussierte Element sich in einem Schattenbaum innerhalb des aktuellen Dokuments befindet (zum Beispiel, das fokussierte Element ist innerhalb eines `iframe`, und das aufrufende `Dokument` enthält dieses iframe), dann wird dies das Wurzelelement dieses Baumes sein (in diesem Beispiel, dieses `iframe`).
+- Wenn das fokussierte Element sich in einem Dokumentbaum befindet, der nicht vom aktuellen Dokument abstammt (zum Beispiel, das fokussierte Element ist im Hauptdokument, und das aufrufende `Dokument` ist ein eingebettetes iframe), dann wird dies `null` sein.
+- Wenn es kein fokussiertes Element gibt, ist dies das [`Document.body`](/de/docs/Web/API/Document/body) oder [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
 
 ## Beispiele
 

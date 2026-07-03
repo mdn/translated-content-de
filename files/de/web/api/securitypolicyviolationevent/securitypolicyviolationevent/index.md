@@ -3,7 +3,7 @@ title: "SecurityPolicyViolationEvent: SecurityPolicyViolationEvent() Konstruktor
 short-title: SecurityPolicyViolationEvent()
 slug: Web/API/SecurityPolicyViolationEvent/SecurityPolicyViolationEvent
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
@@ -20,9 +20,10 @@ new SecurityPolicyViolationEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Events. Er ist case-sensitiv und Browser setzen ihn immer auf `securitypolicyviolation`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es immer auf `securitypolicyviolation`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `blockedURI` {{optional_inline}}
       - : Die [`blockedURI`](/de/docs/Web/API/SecurityPolicyViolationEvent/blockedURI) des `SecurityPolicyViolationEvent`.
         Wenn nicht enthalten, ist der Standardwert `""`.
@@ -41,10 +42,10 @@ new SecurityPolicyViolationEvent(type, options)
     - `originalPolicy`
       - : Die [`originalPolicy`](/de/docs/Web/API/SecurityPolicyViolationEvent/originalPolicy) des `SecurityPolicyViolationEvent`.
     - `referrer` {{optional_inline}}
-      - : Die [`referrer`](/de/docs/Web/API/SecurityPolicyViolationEvent/referrer) des `SecurityPolicyViolationEvent`.
+      - : Der [`referrer`](/de/docs/Web/API/SecurityPolicyViolationEvent/referrer) des `SecurityPolicyViolationEvent`.
         Wenn nicht enthalten, ist der Standardwert `""`.
     - `sample` {{optional_inline}}
-      - : Die [`sample`](/de/docs/Web/API/SecurityPolicyViolationEvent/sample) des `SecurityPolicyViolationEvent`.
+      - : Das [`sample`](/de/docs/Web/API/SecurityPolicyViolationEvent/sample) des `SecurityPolicyViolationEvent`.
         Wenn nicht enthalten, ist der Standardwert `""`.
     - `sourceFile` {{optional_inline}}
       - : Die [`sourceFile`](/de/docs/Web/API/SecurityPolicyViolationEvent/sourceFile) des `SecurityPolicyViolationEvent`.

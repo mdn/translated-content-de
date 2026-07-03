@@ -3,10 +3,10 @@ title: "`:read-write` CSS-Pseudoklasse"
 short-title: :read-write
 slug: Web/CSS/Reference/Selectors/:read-write
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
 ---
 
-Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
+Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitbar ist.
 
 {{InteractiveExample("CSS Demo: :read-write", "tabbed-shorter")}}
 
@@ -51,9 +51,9 @@ input[type="submit"] {
 
 ## Beispiele
 
-### Formularinformationen mit schreibgeschützten Steuerelementen bestätigen
+### Bestätigung von Formulardetails mit schreibgeschützten Steuerelementen
 
-Sie können [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) Formularelemente verwenden, wenn Sie möchten, dass ein Benutzer Informationen überprüft, die er zuvor eingegeben hat, und die Sie zusammen mit neuen Daten in schreibbaren Steuerelementen übermitteln möchten. Im folgenden Beispiel wird die {{cssxref(":read-only")}}-Pseudoklasse verwendet, um das {{htmlelement("textarea")}} (die Adresse eines Benutzers) wie einen normalen Absatz aussehen zu lassen. Die `:read-write`-Pseudoklasse bietet eine Möglichkeit, das bearbeitbare `<textarea>` (die Lieferhinweise) hervorzuheben:
+Sie können [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly)-Formularelemente verwenden, wenn Sie möchten, dass ein Benutzer Informationen überprüft, die er zuvor eingegeben hat und die Sie zusammen mit neuen Daten in beschreibbaren Steuerelementen übermitteln möchten. Im folgenden Beispiel wird die {{cssxref(":read-only")}}-Pseudoklasse verwendet, um das {{htmlelement("textarea")}} (eine Adresse des Benutzers) wie einen normalen Absatz aussehen zu lassen. Die `:read-write`-Pseudoklasse bietet eine Möglichkeit, das bearbeitbare `<textarea>` (die Lieferanweisungen) hervorzuheben:
 
 ```css hidden
 body {
@@ -132,9 +132,9 @@ CA</textarea>
 
 {{embedlivesample("confirming_form_details_using_read-only_controls", , "300")}}
 
-### Stil von nicht-Formular-Steuerelementen im Leseschreibmodus
+### Styling von beschreibbaren Nicht-Formular-Steuerelementen
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus – er wird _jedes_ Element auswählen, das vom Benutzer bearbeitet werden kann, z.B. ein {{htmlelement("p")}}-Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus – er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie zum Beispiel ein {{htmlelement("p")}}-Element, das die [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Eigenschaft gesetzt hat.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -176,4 +176,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-only")}}
-- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)
+- HTML [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut
