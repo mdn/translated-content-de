@@ -3,12 +3,12 @@ title: "TransitionEvent: animation-Eigenschaft"
 short-title: animation
 slug: Web/API/TransitionEvent/animation
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-{{APIRef("CSSOM")}}{{SeeCompatTable}}
+{{APIRef("CSSOM")}}
 
-Die **`animation`**-Eigenschaft, die schreibgeschützt ist, der [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Schnittstelle stellt die Animation dar, die mit dem Ereignis verknüpft ist.
+Die schreibgeschützte **`animation`**-Eigenschaft des [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Interfaces repräsentiert die mit dem Ereignis verbundene Animation.
 
 ## Wert
 
@@ -29,4 +29,4 @@ Ein [`CSSTransition`](/de/docs/Web/API/CSSTransition) oder `null`.
   {{cssxref("transition-duration")}}, {{cssxref("transition-property")}},
   {{cssxref("transition-timing-function")}}
 - CSS-Regeln: {{cssxref("@starting-style")}}
-- Die [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Schnittstelle, zu der es gehört.
+- Das [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Interface, zu dem es gehört.

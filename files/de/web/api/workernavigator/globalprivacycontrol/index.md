@@ -3,20 +3,19 @@ title: "WorkerNavigator: globalPrivacyControl-Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/WorkerNavigator/globalPrivacyControl
 l10n:
-  sourceCommit: f89740247002fb71eb339af142482900f3c32349
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-{{APIRef("DOM")}}{{SeeCompatTable}}{{AvailableInWorkers("worker")}}
+{{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`WorkerNavigator.globalPrivacyControl`** schreibgeschützte Eigenschaft gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück.
-Diese Einstellung gibt an, ob der Benutzer der Website oder dem Dienst zustimmt, seine persönlichen Informationen an Dritte zu verkaufen oder zu teilen.
+Die **`WorkerNavigator.globalPrivacyControl`** schreibgeschützte Eigenschaft gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung gibt an, ob der Benutzer der Website oder dem Dienst die Erlaubnis erteilt, seine persönlichen Informationen an Dritte zu verkaufen oder weiterzugeben.
 
 Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _kein_ Einverständnis erteilt, seine Daten zu verkaufen oder zu teilen.
-`false`, wenn der Benutzer entweder zustimmt oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer _nicht_ explizit die Zustimmung erteilt, seine Daten zu verkaufen oder zu teilen.
+`false`, wenn der Benutzer entweder die Zustimmung erteilt hat oder keine Präferenz angegeben hat.
 
 ## Beispiel
 

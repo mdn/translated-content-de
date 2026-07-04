@@ -3,12 +3,12 @@ title: "InstallEvent: InstallEvent() Konstruktor"
 short-title: InstallEvent()
 slug: Web/API/InstallEvent/InstallEvent
 l10n:
-  sourceCommit: 47962c4ebad5a138673422ec63a282ab9a63d454
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-{{APIRef("Service Workers API")}}{{SeeCompatTable}}
+{{APIRef("Service Workers API")}}
 
-Der **`InstallEvent()`** Konstruktor erstellt ein neues [`InstallEvent`](/de/docs/Web/API/InstallEvent) Objekt.
+Der **`InstallEvent()`** Konstruktor erzeugt ein neues [`InstallEvent`](/de/docs/Web/API/InstallEvent) Objekt.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ new InstallEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn immer auf `install`.
+    Er ist case-sensitiv und Browser setzen ihn immer auf `install`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ beliebige benutzerdefinierte Einstellungen enthalten kann, die Sie auf das Ereignisobjekt anwenden möchten. Derzeit sind keine Optionen zwingend erforderlich, aber dies wurde für zukünftige Kompatibilität definiert.
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ beliebige benutzerdefinierte Einstellungen enthalten kann, die Sie auf das Ereignisobjekt anwenden möchten. Derzeit sind keine möglichen Optionen verpflichtend, aber dies wurde für die Zukunftskompatibilität definiert.
 
 ### Rückgabewert
 

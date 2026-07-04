@@ -3,12 +3,10 @@ title: "`session.end`-Befehl"
 short-title: end
 slug: Web/WebDriver/Reference/BiDi/Modules/session/end
 l10n:
-  sourceCommit: 421a9c26127cf11e33e72184b14656c9d406294d
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-{{SeeCompatTable}}
-
-Der `session.end` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session) Moduls beendet die aktuelle BiDi-Sitzung des Clients mit dem Browser.
+Der `session.end`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`session`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session)-Moduls beendet die aktuelle BiDi-Sitzung des Clients mit dem Browser.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ Der `session.end` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#command
 
 ### Parameter
 
-Keine. Sie müssen jedoch das `params`-Feld hinzufügen und es auf ein leeres Objekt (`{}`) setzen.
+Keine. Sie müssen jedoch das `params`-Feld einschließen und auf ein leeres Objekt (`{}`) setzen.
 
 ### Rückgabewert
 
@@ -31,7 +29,7 @@ Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
 
 ### Beenden einer Automatisierungssitzung mit dem Browser
 
-Mit einer [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) hergestellt, senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
+Nachdem eine [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) hergestellt wurde, senden Sie die folgende Nachricht, um die aktuelle Sitzung zu beenden:
 
 ```json
 {
@@ -63,5 +61,5 @@ Die Erfolgsantwort wird empfangen, bevor die WebSocket-Verbindung geschlossen wi
 
 ## Siehe auch
 
-- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new) Befehl
-- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status) Befehl
+- [`session.new`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new)-Befehl
+- [`session.status`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/status)-Befehl

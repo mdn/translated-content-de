@@ -3,12 +3,14 @@ title: "`rule-visibility-items` CSS property"
 short-title: rule-visibility-items
 slug: Web/CSS/Reference/Properties/rule-visibility-items
 l10n:
-  sourceCommit: 34838ae7d32e78bfe01dbf2c266257ef0f8305c4
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-Die **`rule-visibility-items`** [CSS](/de/docs/Web/CSS) Kurzschreibweise definiert, ob Segmentregeln in sowohl Zeilen- als auch Spaltenlücken, die an leere Bereiche angrenzen, dargestellt werden.
+{{SeeCompatTable}}
 
-## Bestandteileigenschaften
+Die **`rule-visibility-items`** [CSS](/de/docs/Web/CSS) Kurzschreibweise definiert, ob Regelabschnitte sowohl in Zeilen- als auch Spaltenabständen neben leeren Bereichen gezeichnet werden.
+
+## Bestandteile der Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -79,22 +81,22 @@ rule-visibility-items: unset;
 ### Werte
 
 - `all`
-  - : Regeln sollten in allen Lückensegmenten dargestellt werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
+  - : Regeln sollten in allen Lückenabschnitten gezeichnet werden, unabhängig davon, ob angrenzende Bereiche ein Element enthalten.
 
 - `around`
-  - : Eine Regel sollte in einem Lückensegment gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element besetzt ist.
+  - : Eine Regel sollte in einem Lückenabschnitt gezeichnet werden, wenn mindestens einer der beiden angrenzenden Bereiche von einem Element belegt ist.
 
 - `between`
-  - : Eine Regel sollte nur dann in einem Lückensegment gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen besetzt sind.
+  - : Eine Regel sollte in einem Lückenabschnitt nur gezeichnet werden, wenn beide angrenzenden Bereiche von Elementen belegt sind.
 
 - `normal`
-  - : Bei Grid-Containern verhält sich dies wie `all`. Im Mehrspalten-Layout verhält es sich wie `between`. Dies ist der Standardwert.
+  - : Bei Raster-Containern verhält sich dies wie `all`. Im Mehrspalten-Layout verhält es sich wie `between`. Dies ist der Standardwert.
 
 ## Beschreibung
 
-Die Eigenschaft `rule-visibility-items` definiert, ob Segmentregeln in Lücken angrenzend an leere Bereiche in den Lücken zwischen Zeilen und Spalten in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Grid](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Zeile oder Spalte dargestellt werden.
+Die `rule-visibility-items`-Eigenschaft definiert, ob Regelabschnitte in Lücken neben leeren Bereichen in den Lücken zwischen Zeilen und Spalten in [mehrzeiligen](/de/docs/Web/CSS/Guides/Multicol_layout) und [Raster-](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Zeile oder Spalte gezeichnet werden.
 
-Der Wert ist ein einzelnes Schlüsselwort, das denselben Wert für sowohl die Eigenschaften {{cssxref("column-rule-visibility-items")}} als auch {{cssxref("row-rule-visibility-items")}} festlegt.
+Der Wert ist ein einzelnes Schlüsselwort, das denselben Wert für sowohl die {{cssxref("column-rule-visibility-items")}} als auch die {{cssxref("row-rule-visibility-items")}} Eigenschaften setzt.
 
 ## Formale Definition
 
@@ -106,13 +108,13 @@ Der Wert ist ein einzelnes Schlüsselwort, das denselben Wert für sowohl die Ei
 
 ## Beispiele
 
-### Basisbeispiel
+### Einfaches Beispiel
 
-In diesem Beispiel definieren wir eine Regel, die zwischen zwei Grid-Bereichen gezeichnet wird, wenn mindestens ein angrenzender Grid-Bereich ein Gitter-Element enthält.
+In diesem Beispiel definieren wir eine Regel, die zwischen zwei Rasterbereichen gezeichnet wird, wenn mindestens ein angrenzender Rasterbereich ein Rasterelement enthält.
 
 #### HTML
 
-Wir fügen eine Liste dynamischer Sport-Duos hinzu:
+Wir fügen eine Liste von dynamischen Sportduos ein:
 
 ```html
 <ol>
@@ -127,9 +129,9 @@ Wir fügen eine Liste dynamischer Sport-Duos hinzu:
 
 #### CSS
 
-Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als einen Grid-Container und erstellen 4 Spalten und 4 Zeilen, indem wir sowohl die Eigenschaften {{cssxref("grid-template-columns")}} als auch {{cssxref("grid-template-rows")}} auf `repeat(4, 1fr)` setzen und das letzte Element mit den Eigenschaften {{cssxref("grid-column")}} und {{cssxref("grid-row")}} in den unteren rechten Grid-Bereich verschieben. Wir fügen einen {{cssxref("gap")}} von `20px` hinzu, um ausreichend Platz zwischen den Spalten für unsere `5px` Regeln zu schaffen. Wir setzen die Spaltenregeln auf `gestrichelt` und die Zeilenregeln auf `durchgezogen`.
+Wir definieren die geordnete Liste ({{htmlelement("ol")}}) als Raster-Container, der 4 Spalten und 4 Zeilen erstellt, indem sowohl die {{cssxref("grid-template-columns")}} als auch die {{cssxref("grid-template-rows")}} Eigenschaften auf `repeat(4, 1fr)` gesetzt werden, und verschieben das letzte Element in den unten rechts liegenden Rasterbereich mit den {{cssxref("grid-column")}} und {{cssxref("grid-row")}} Eigenschaften. Wir fügen einen {{cssxref("gap")}} von `20px` hinzu, um genügend Raum zwischen den Spalten zu schaffen, um unsere `5px` Regeln einzupassen. Wir setzen die Spaltenregeln auf `dashed` und die Zeilenregeln auf `solid`.
 
-Schließlich setzen wir `rule-visibility-items` auf `between`, sodass Zeilen- und Spaltenregeln nur dann dargestellt werden, wenn beide angrenzenden Grid-Bereiche ein Gitter-Element enthalten.
+Schließlich setzen wir `rule-visibility-items` auf `between`, sodass Zeilen- und Spaltenregeln nur dann gezeichnet werden, wenn beide angrenzenden Rasterbereiche ein Rasterelement enthalten.
 
 ```css
 ol {
@@ -183,4 +185,4 @@ li {
 - {{cssxref("column-rule-visibility-items")}} Kurzschreibweise
 - {{cssxref("row-rule-visibility-items")}}
 - {{cssxref("rule")}} Kurzschreibweise
-- [CSS gaps](/de/docs/Web/CSS/Guides/Gaps) Modul
+- [CSS-Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul

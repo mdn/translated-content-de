@@ -2,12 +2,12 @@
 title: InstallEvent
 slug: Web/API/InstallEvent
 l10n:
-  sourceCommit: 4a0413ef319179b7d0d833c42a156629544c8248
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
 {{APIRef("Service Workers API")}}
 
-Der Parameter, der in eine [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignis-Handler-Funktion übergeben wird, die `InstallEvent`-Schnittstelle repräsentiert eine Installationsaktion, die auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) ausgelöst wird. Als Kind von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) stellt es sicher, dass funktionale Ereignisse wie [`FetchEvent`](/de/docs/Web/API/FetchEvent) während der Installation nicht ausgelöst werden.
+Der Parameter, der an eine [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)-Ereignishandler-Funktion übergeben wird, die `InstallEvent`-Schnittstelle, repräsentiert eine Installationsaktion, die im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet wird. Als Kind von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) stellt sie sicher, dass funktionale Ereignisse wie [`FetchEvent`](/de/docs/Web/API/FetchEvent) während der Installation nicht gesendet werden.
 
 Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)-Schnittstelle.
 
@@ -15,28 +15,28 @@ Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/Extendable
 
 ## Konstruktor
 
-- [`InstallEvent()`](/de/docs/Web/API/InstallEvent/InstallEvent) {{experimental_inline}}
+- [`InstallEvent()`](/de/docs/Web/API/InstallEvent/InstallEvent)
   - : Erstellt ein neues `InstallEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternobjekt, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
+_Erbt Eigenschaften von ihrem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternobjekt, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
+_Erbt Methoden von ihrem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
-- [`addRoutes()`](/de/docs/Web/API/InstallEvent/addRoutes) {{experimental_inline}}
-  - : Gibt eine oder mehrere statische Routen an, die Regeln für das Abrufen festgelegter Ressourcen definieren, die bereits vor dem Start des Service Workers verwendet werden.
+- [`addRoutes()`](/de/docs/Web/API/InstallEvent/addRoutes)
+  - : Gibt eine oder mehrere statische Routen an, die Regeln für das Abrufen bestimmter Ressourcen definieren, die sogar vor dem Start des Service Workers verwendet werden.
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt aus dem [Service Worker Prefetch-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [prefetch live in Aktion](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`ServiceWorkerGlobalScope.oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Workers als installiert, bis das übergebene Promise erfolgreich aufgelöst wird. Das Promise wird aufgelöst, wenn alle Ressourcen abgerufen und zwischengespeichert wurden oder wenn eine Ausnahme auftritt.
+Dieses Codebeispiel stammt aus dem [Service Worker Prefetch-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch live ausführen](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der Code ruft [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) in [`ServiceWorkerGlobalScope.oninstall`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) auf und verzögert die Behandlung des [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Workers als installiert, bis das übergebene Versprechen erfolgreich aufgelöst wird. Das Versprechen wird aufgelöst, wenn alle Ressourcen abgerufen und zwischengespeichert wurden oder wenn eine Ausnahme auftritt.
 
-Der Codeausschnitt zeigt auch eine bewährte Vorgehensweise für die Versionierung von Caches, die vom Service Worker verwendet werden. Obwohl dieses Beispiel nur einen Cache hat, können Sie diesen Ansatz für mehrere Caches verwenden. Der Code ordnet einem Cache einen verkürzten Bezeichner zu einem spezifischen, versionierten Cache-Namen zu.
+Der Codeausschnitt zeigt auch eine bewährte Methode zur Versionierung von Caches, die vom Service Worker verwendet werden. Obwohl dieses Beispiel nur einen Cache hat, können Sie diesen Ansatz für mehrere Caches verwenden. Der Code ordnet einem Cache einen kürzeren Bezeichner einem bestimmten, versionierten Cachename zu.
 
 > [!NOTE]
-> Protokollierungsanweisungen sind in Google Chrome über die "Inspect"-Schnittstelle für den entsprechenden Service Worker sichtbar, der über chrome://serviceworker-internals aufgerufen wird.
+> Protokollaussagen sind in Google Chrome über die "Inspect"-Schnittstelle für den relevanten Service Worker sichtbar, auf den über chrome://serviceworker-internals zugegriffen wird.
 
 ```js
 const CACHE_VERSION = 1;
@@ -86,7 +86,7 @@ self.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [`install` Ereignis](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)
+- [`install`-Ereignis](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)
 - [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)
 - {{jsxref("Promise")}}
 - [Fetch API](/de/docs/Web/API/Fetch_API)

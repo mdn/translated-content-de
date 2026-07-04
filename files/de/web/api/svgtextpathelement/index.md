@@ -2,56 +2,56 @@
 title: SVGTextPathElement
 slug: Web/API/SVGTextPathElement
 l10n:
-  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGTextPathElement`**-Interface entspricht dem {{SVGElement("textPath")}}-Element.
+Die **`SVGTextPathElement`**-Schnittstelle entspricht dem {{SVGElement("textPath")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
 - [`SVGTextPathElement.href`](/de/docs/Web/API/SVGTextPathElement/href) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}}-Attribut des angegebenen Elements entspricht.
-- [`SVGTextPathElement.side`](/de/docs/Web/API/SVGTextPathElement/side) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("side")}}-Attribut des angegebenen Elements entspricht.
-    Zulässige Werte sind durch die auf diesem Interface definierten Konstanten [`TEXTPATH_SIDETYPE_*`](#textpath_sidetype_unknown) festgelegt.
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem Attribut {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} des angegebenen Elements entspricht.
+- [`SVGTextPathElement.side`](/de/docs/Web/API/SVGTextPathElement/side) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem Attribut {{SVGAttr("side")}} des angegebenen Elements entspricht.
+    Erlaubte Werte werden durch die auf dieser Schnittstelle definierten Konstanten [`TEXTPATH_SIDETYPE_*`](#textpath_sidetype_unknown) spezifiziert.
 - [`SVGTextPathElement.startOffset`](/de/docs/Web/API/SVGTextPathElement/startOffset) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das der X-Komponente des {{SVGAttr("startOffset")}}-Attributs des angegebenen Elements entspricht.
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das der X-Komponente des Attributs {{SVGAttr("startOffset")}} des angegebenen Elements entspricht.
 - [`SVGTextPathElement.method`](/de/docs/Web/API/SVGTextPathElement/method) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("method")}}-Attribut des angegebenen Elements entspricht.
-    Zulässige Werte sind durch die auf diesem Interface definierten Konstanten [`TEXTPATH_METHODTYPE_*`](#textpath_methodtype_unknown) festgelegt.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem Attribut {{SVGAttr("method")}} des angegebenen Elements entspricht.
+    Erlaubte Werte werden durch die auf dieser Schnittstelle definierten Konstanten [`TEXTPATH_METHODTYPE_*`](#textpath_methodtype_unknown) spezifiziert.
 - [`SVGTextPathElement.spacing`](/de/docs/Web/API/SVGTextPathElement/spacing) {{ReadOnlyInline}}
-  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("spacing")}}-Attribut des angegebenen Elements entspricht.
-    Zulässige Werte sind durch die auf diesem Interface definierten Konstanten [`TEXTPATH_SPACINGTYPE_*`](#textpath_spacingtype_unknown) festgelegt.
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem Attribut {{SVGAttr("spacing")}} des angegebenen Elements entspricht.
+    Erlaubte Werte werden durch die auf dieser Schnittstelle definierten Konstanten [`TEXTPATH_SPACINGTYPE_*`](#textpath_spacingtype_unknown) spezifiziert.
 
 ## Instanz-Methoden
 
-_Dieses Interface bietet keine spezifischen Methoden, sondern implementiert die seines übergeordneten Interfaces, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer übergeordneten Schnittstelle, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
 ## Statische Eigenschaften
 
 - `TEXTPATH_METHODTYPE_UNKNOWN` (0)
-  - : Der Typ gehört nicht zu den vordefinierten Typen.
-    Es ist ungültig, den Versuch zu unternehmen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+  - : Der Typ ist nicht einer der vordefinierten Typen.
+    Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
 - `TEXTPATH_METHODTYPE_ALIGN` (1)
   - : Entspricht dem Wert `align`.
 - `TEXTPATH_METHODTYPE_STRETCH` (2)
   - : Entspricht dem Wert `stretch`.
 - `TEXTPATH_SPACINGTYPE_UNKNOWN` (0)
-  - : Der Typ gehört nicht zu den vordefinierten Typen.
-    Es ist ungültig, den Versuch zu unternehmen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+  - : Der Typ ist nicht einer der vordefinierten Typen.
+    Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
 - `TEXTPATH_SPACINGTYPE_AUTO` (1)
   - : Entspricht dem Wert `auto`.
 - `TEXTPATH_SPACINGTYPE_EXACT` (2)
   - : Entspricht dem Wert `exact`.
 - `TEXTPATH_SIDETYPE_UNKNOWN` (0)
-  - : Der Typ gehört nicht zu den vordefinierten Typen.
-    Es ist ungültig, den Versuch zu unternehmen, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ umzustellen.
+  - : Der Typ ist nicht einer der vordefinierten Typen.
+    Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
 - `TEXTPATH_SIDETYPE_LEFT` (1)
   - : Entspricht dem Wert `left`.
 - `TEXTPATH_SIDETYPE_RIGHT` (2)
@@ -65,7 +65,7 @@ Dieses Beispiel zeigt, wie Sie die Eigenschaften eines `SVGTextPathElement` fest
 
 #### HTML
 
-Zuerst definieren wir das SVG und die zugehörigen CSS, um einen Pfad mit darauf gezeichnetem Text zu zeichnen (dies ist eine nahezu exakte Kopie des SVG im [Thema `path`](/de/docs/Web/SVG/Reference/Attribute/path#path-data) des Attributs).
+Zuerst definieren wir das SVG und die zugehörige CSS, um einen Pfad mit Text zu zeichnen, der entlang des Pfads gezeichnet wird (dies ist eine fast exakte Kopie des SVG im Thema [`path`](/de/docs/Web/SVG/Reference/Attribute/path#path-data)-Attribut).
 
 ```css hidden
 html,
@@ -92,8 +92,7 @@ svg {
 </svg>
 ```
 
-Wir fügen auch einen Button hinzu, um die `side`-Eigenschaft umzuschalten, um zu ändern, auf welcher Seite des Pfads der Text gezeichnet wird.
-Beachten Sie, dass auch verborgener Logging-Code vorhanden ist, der für das Beispiel nicht relevant ist.
+Wir fügen auch einen Button hinzu, um die `side`-Eigenschaft zu wechseln, um zu ändern, auf welcher Seite des Pfads der Text gezeichnet wird. Beachten Sie, dass es auch versteckten Logcode gibt, der für das Beispiel nicht relevant ist.
 
 ```html
 <button id="toggleBtn">Toggle side</button>
@@ -122,11 +121,9 @@ function log(text) {
 
 #### JavaScript
 
-Der folgende Code schaltet die `side.baseVal`-Eigenschaft des `textPath` um und lässt den Text die Seite wechseln.
+Der untenstehende Code wechselt die `side.baseVal`-Eigenschaft auf dem `textPath`, wodurch der Text die Seiten wechselt.
 
-Zuerst definieren wir eine Funktion, um jede der Eigenschaften des Pfadelements zu protokollieren, und rufen sie auf, um den Anfangszustand beim Laden zu protokollieren.
-Die `side.baseVale`-Eigenschaft wird zuerst protokolliert und zeigt, wie die aufgezählten Konstanten gelesen und interpretiert werden können (dies geschieht in einem `try...catch`-Block, da `side` nicht in allen Browsern unterstützt wird).
-Die anderen Eigenschaften des Textpfads werden ebenfalls protokolliert, jedoch als rohe Werte ihrer zugeordneten `baseVal`-Eigenschaft.
+Zuerst definieren wir eine Funktion, um jede der Eigenschaften des Pfadelements zu protokollieren, und rufen diese auf, um den Anfangszustand beim Laden zu protokollieren. Die `side.baseVale`-Eigenschaft wird zuerst protokolliert und zeigt, wie die aufgezählten Konstanten gelesen und interpretiert werden können (dies geschieht in einem `try...catch`-Block, da `side` nicht in allen Browsern unterstützt wird). Die anderen Eigenschaften des Textpfads werden ebenfalls protokolliert, jedoch als Rohwerte ihrer zugehörigen `baseVal`-Eigenschaften.
 
 ```js
 const textPath = document.querySelector("textPath");
@@ -166,8 +163,7 @@ function logPathBaseVal() {
 logPathBaseVal();
 ```
 
-Der folgende Code des Event-Handlers für den Umschaltknopf liest den aktuellen Wert der `side.baseVal`-Eigenschaft und schaltet den Wert um, um der anderen Seite zu entsprechen.
-Anschließend wird der aktuelle Zustand protokolliert.
+Der Event-Handler-Code des Toggle-Buttons wird unten gezeigt. Dieser liest den aktuellen Wert der `side.baseVal`-Eigenschaft und wechselt ihn, um der anderen Seite zu entsprechen. Anschließend wird der aktuelle Zustand protokolliert.
 
 ```js
 // Toggle the side when the button is clicked
@@ -191,7 +187,7 @@ toggleBtn.addEventListener("click", () => {
 
 #### Ergebnis
 
-Drücken Sie den Button, um die Zustände umzuschalten.
+Drücken Sie den Button, um die Zustände zu wechseln.
 
 {{EmbedLiveSample('Basic usage', 200, 600)}}
 

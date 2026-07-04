@@ -1,14 +1,14 @@
 ---
-title: "WebTransportDatagramDuplexStream: IncomingHighWaterMark-Eigenschaft"
+title: "WebTransportDatagramDuplexStream: incomingHighWaterMark-Eigenschaft"
 short-title: incomingHighWaterMark
 slug: Web/API/WebTransportDatagramDuplexStream/incomingHighWaterMark
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`incomingHighWaterMark`**-Eigenschaft der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Schnittstelle gibt die Höchstgrenze für eingehende Datenblöcke an oder legt sie fest – dies ist die maximale Größe in Blöcken, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll angesehen wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
+Die **`incomingHighWaterMark`**-Eigenschaft des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt die Obergrenze für eingehende Datenblöcke an oder setzt diese — dies ist die maximale Größe in Blöcken, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll angesehen wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
 
 ## Wert
 
@@ -46,7 +46,7 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- [WebSockets API](/de/docs/Web/API/WebSockets_API)
-- [Streams API](/de/docs/Web/API/Streams_API)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets-API](/de/docs/Web/API/WebSockets_API)
+- [Streams-API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
