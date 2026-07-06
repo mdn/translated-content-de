@@ -3,25 +3,30 @@ title: "IDBRequest: result-Eigenschaft"
 short-title: result
 slug: Web/API/IDBRequest/result
 l10n:
-  sourceCommit: 733c40043bfb7a55fb01644d52000149b2dab13c
+  sourceCommit: 8623f4af1cb6a9f904d6c18f5f772675bdce3411
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`result`** des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt das Ergebnis der Anfrage zurück.
+Die schreibgeschützte **`result`**-Eigenschaft des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt das Ergebnis der Anfrage zurück.
+
+Der Wert hängt von der gestellten Anfrage ab. Zum Beispiel füllen die Methoden [`IDBObjectStore.getAllRecords()`](/de/docs/Web/API/IDBObjectStore/getAllRecords) und [`IDBIndex.getAllRecords()`](/de/docs/Web/API/IDBIndex/getAllRecords) diese Eigenschaft bei erfolgreicher Ausführung der Anfrage mit einem Array von [`IDBRecord`](/de/docs/Web/API/IDBRecord)-Instanzen.
 
 ## Wert
 
-any
+any.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, auf die Eigenschaft zuzugreifen, obwohl die Anfrage noch nicht abgeschlossen ist und daher das Ergebnis nicht verfügbar ist.
+  - : Wird ausgelöst, wenn versucht wird, auf die Eigenschaft zuzugreifen, während die Anfrage nicht abgeschlossen ist und daher das Ergebnis nicht verfügbar ist.
 
 ## Beispiele
 
-Das folgende Beispiel fragt einen bestimmten Titel an. Bei `onsuccess` wird der zugehörige Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) abgerufen (verfügbar als `objectStoreTitleRequest.result`), eine Eigenschaft des Datensatzes wird aktualisiert und der aktualisierte Datensatz wird dann zurück in den Objektstore gelegt. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+### Grundlegende Verwendung
+
+Im folgenden Beispiel wird ein bestimmter Datensatztitel angefordert. Bei Erfolg wird der zugehörige Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) abgerufen (verfügbar als `objectStoreTitleRequest.result`), eine Eigenschaft des Datensatzes wird aktualisiert und dann wird der aktualisierte Datensatz zurück in den Objekt-Store gelegt.
+Ein vollständig arbeitendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -34,7 +39,7 @@ const objectStore = db
 // Get the to-do list object that has this title as its title
 const objectStoreTitleRequest = objectStore.get(title);
 
-objectStoreTitleRequest.onsuccess = () => {
+objectStoreTitleRequest.addEventListener("success", () => {
   // Grab the data object returned as the result
   const data = objectStoreTitleRequest.result;
 
@@ -47,10 +52,10 @@ objectStoreTitleRequest.onsuccess = () => {
 
   // When this new request succeeds, run the displayData()
   // function again to update the display
-  updateTitleRequest.onsuccess = () => {
+  updateTitleRequest.addEventListener("success", () => {
     displayData();
-  };
-};
+  });
+});
 ```
 
 ## Spezifikationen
@@ -64,9 +69,9 @@ objectStoreTitleRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Nutzung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
