@@ -3,189 +3,193 @@ title: "`<length>` CSS-Typ"
 short-title: <length>
 slug: Web/CSS/Reference/Values/length
 l10n:
-  sourceCommit: c88e03530319b73272fd4f9a9f6ebe878f026004
+  sourceCommit: b25b4a98b757fbd05ce1fb74b1b78f3fcf917729
 ---
 
-Der **`<length>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Distanzwert. Längen können in zahlreichen CSS-Eigenschaften verwendet werden, wie {{Cssxref("width")}}, {{Cssxref("height")}}, {{Cssxref("margin")}}, {{Cssxref("padding")}}, {{Cssxref("border-width")}}, {{Cssxref("font-size")}} und {{Cssxref("text-shadow")}}.
+Der **`<length>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Distanzwert. Längen können in zahlreichen CSS-Eigenschaften verwendet werden, wie zum Beispiel {{Cssxref("width")}}, {{Cssxref("height")}}, {{Cssxref("margin")}}, {{Cssxref("padding")}}, {{Cssxref("border-width")}}, {{Cssxref("font-size")}} und {{Cssxref("text-shadow")}}.
 
 > [!NOTE]
-> Obwohl {{cssxref("&lt;percentage&gt;")}} Werte in einigen der gleichen Eigenschaften verwendbar sind, die `<length>` Werte akzeptieren, sind sie nicht selbst `<length>` Werte. Siehe {{cssxref("&lt;length-percentage&gt;")}}.
+> Auch wenn {{cssxref("&lt;percentage&gt;")}}-Werte in einigen der gleichen Eigenschaften verwendet werden können, die `<length>`-Werte akzeptieren, sind sie selbst keine `<length>`-Werte. Siehe {{cssxref("&lt;length-percentage&gt;")}}.
 
 ## Syntax
 
-Der `<length>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Zahl und dem Einheitenliteral. Die Angabe der Längeneinheit ist optional, wenn die Zahl `0` ist.
+Der `<length>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}}, gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Leerraum zwischen der Zahl und dem Einheitenliteral. Die Angabe der Längeneinheit ist optional, wenn die Zahl `0` ist.
 
 > [!NOTE]
-> Einige Eigenschaften erlauben negative `<length>` Werte, während andere dies nicht tun.
+> Einige Eigenschaften erlauben negative `<length>`-Werte, während andere dies nicht tun.
 
-Der [angegebene Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#specified_value) einer Länge (_specified length_) wird durch ihre Menge und Einheit repräsentiert. Der [berechnete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) einer Länge (_computed length_) ist die angegebene Länge, die zu einer absoluten Länge aufgelöst wird, und ihre Einheit ist nicht unterschieden.
+### Angegebene vs. berechnete Werte
 
-Die `<length>` Einheiten können relativ oder absolut sein. Relative Längen stellen eine Messung in Bezug auf eine andere Distanz dar. Abhängig von der Einheit kann diese Distanz die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/Reference/Properties/line-height) oder die Größe des {{Glossary("viewport", "Ansichtsfensters")}} sein. Stylesheets, die relative Längeneinheiten verwenden, können leichter von einer Ausgabenumgebung zur anderen skaliert werden.
+Der [angegebene Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#specified_value) einer Länge (_specified length_) wird durch seine Menge und Einheit repräsentiert. Der [berechnete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) einer Länge (_computed length_) ist die angegebene Länge, die in eine absolute Länge umgerechnet wird, und ihre Einheit wird nicht unterschieden.
+
+Für einige Eigenschaften, wie `border-width`, `outline-width`, `column-rule-width` und `outline-offset`, werden die berechneten `<length>`-Werte auf eine ganzzahlige Anzahl von {{Glossary("device_pixel", "Gerätepixeln")}} gerundet, um eine angemessene visuelle Anzeige zu gewährleisten:
+
+- Ein ungleich nuller Wert, der kleiner als ein Gerätepixel ist, wird aufgerundet.
+- Ein Wert, der größer als ein Gerätepixel ist, wird abgerundet auf das nächstgelegene ganze Gerätepixel.
+
+Zum Beispiel berechnet sich auf einem Bildschirm mit einem [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) von 3 `border-width: 1.5px` auf ungefähr `1.33px` (abgerundet von 4,5 auf 4 Gerätepixel), und `outline-width: 0.2px` auf ungefähr `0.33px` (aufgerundet von 0,6 auf 1 Gerätepixel).
+
+### Relative vs. absolute Längen
+
+Die `<length>`-Einheiten können relativ oder absolut sein. Relative Längen stellen eine Messung in Bezug auf eine andere Distanz dar. Abhängig von der Einheit kann diese Distanz die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/Reference/Properties/line-height) oder die Größe des {{Glossary("viewport", "Viewports")}} sein. Stylesheets, die relative Längeneinheiten verwenden, können leichter von einer Ausführungsumgebung auf eine andere skaliert werden.
 
 > [!NOTE]
-> Kindelemente erben nicht die relativen Werte, wie sie für ihr Elternteil angegeben sind; sie erben die berechneten Werte.
+> Kindelemente erben nicht die relativen Werte, wie sie für das übergeordnete Element angegeben sind; sie erben die berechneten Werte.
 
 ## Relative Längeneinheiten
 
-CSS-relative Längeneinheiten basieren auf Schriftart, Container oder Ansichtsfenstergrößen.
+CSS-Relative-Längeneinheiten basieren auf Schriftarten, Container- oder Viewport-Größen.
 
-### Relative Längeneinheiten, basierend auf der Schriftart
+### Relative Längeneinheiten basierend auf Schriftarten
 
-Schriftlängen definieren den `<length>` Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftattributs in der aktuell in einem Element oder dessen Elternteil verwendeten Schriftart.
+Schriftartenlängen definieren den `<length>`-Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftelements in der Schriftart, die aktuell in einem Element oder dessen Elternteil gilt.
 
 > [!NOTE]
-> Diese Einheiten, insbesondere `em` und die root relative `rem`, werden oft verwendet, um skalierbare Layouts zu erstellen, die den vertikalen Rhythmus der Seite beibehalten, auch wenn der Benutzer die Schriftgröße ändert.
+> Diese Einheiten, insbesondere `em` und das wurzelbasierte `rem`, werden häufig verwendet, um skalierbare Layouts zu erstellen, die den vertikalen Rhythmus der Seite beibehalten, selbst wenn der Benutzer die Schriftgröße ändert.
 
 - `cap`
-  - : Entspricht der "Kap-Höhe" (nominale Höhe der Großbuchstaben) der Schrift eines Elements.
+  - : Entspricht der "Kapitalhöhe" (nominale Höhe der Großbuchstaben) der Schriftart des Elements, das {{Cssxref("font")}} verwendet.
 - `ch`
-  - : Repräsentiert die Breite oder, genauer gesagt, das {{Glossary("advance_measure", "Advance Measure")}} des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der Schrift eines Elements.
-    In Fällen, in denen die Bestimmung der Maße des `0` Glyphen unmöglich oder unpraktisch ist, muss es als `0,5em` breit und `1em` hoch angenommen werden.
+  - : Repräsentiert die Breite oder, genauer gesagt, das {{Glossary("advance_measure", "Vorrückenmaß")}} des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der Schriftart des Elements, das {{Cssxref("font")}} verwendet.
+    In Fällen, in denen das Bestimmen des Maßes des `0`-Glyphen unmöglich oder unpraktisch ist, muss angenommen werden, dass es `0.5em` breit und `1em` hoch ist.
 - `em`
-  - : Repräsentiert die berechnete {{Cssxref("font-size")}} des Elements. Wenn es auf der {{Cssxref("font-size")}} Eigenschaft selbst verwendet wird, repräsentiert es die _geerbte_ Schriftgröße des Elements.
+  - : Repräsentiert die berechnete {{Cssxref("font-size")}} des Elements. Wenn es für die {{Cssxref("font-size")}}-Eigenschaft selbst verwendet wird, repräsentiert es die _geerbte_ Schriftgröße des Elements.
 - `ex`
-  - : Entspricht der [x-Höhe](https://de.wikipedia.org/wiki/X-Höhe) der Schrift eines Elements. In Schriften mit dem Buchstaben `x` ist dies im Allgemeinen die Höhe der Kleinbuchstaben in der Schrift; `1ex ≈ 0,5em` in vielen Schriften.
+  - : Entspricht der [x-Höhe](https://en.wikipedia.org/wiki/X-height) der Schriftart des Elements, das {{Cssxref("font")}} verwendet. In Schriftarten mit dem Buchstaben `x` ist dies in der Regel die Höhe der Kleinbuchstaben in der Schrift; `1ex ≈ 0.5em` in vielen Schriften.
 - `ic`
-  - : Repräsentiert die verwendete {{Glossary("advance_measure", "Advance Measure")}} des "水" Glyphen (CJK Wasser-Ideogramm, U+6C34), die in der Schrift verwendet wird, um es darzustellen.
+  - : Repräsentiert das verwendete {{Glossary("advance_measure", "Vorrückenmaß")}} des Glyphen "水" (CJK-Wasser-Ideogramm, U+6C34) in der Schriftart, die verwendet wird, um es darzustellen.
 - `lh`
-  - : Entspricht dem berechneten Wert der {{Cssxref("line-height")}} Eigenschaft des Elements, auf dem es verwendet wird, konvertiert zu einer absoluten Länge. Diese Einheit ermöglicht Längenberechnungen basierend auf der theoretischen Größe einer idealen leeren Zeile. Die Größe der tatsächlichen Zeilenboxen kann jedoch je nach Inhalt variieren.
+  - : Entspricht dem berechneten Wert der {{Cssxref("line-height")}}-Eigenschaft des Elements, auf dem es verwendet wird, umgerechnet in eine absolute Länge. Diese Einheit ermöglicht Längenberechnungen basierend auf der theoretischen Größe einer idealen leeren Zeile. Die Größe tatsächlicher Zeilenboxen kann jedoch je nach Inhalt abweichen.
 
-### Relative Längeneinheiten, basierend auf der Schrift des Root-Elements
+### Relative Längeneinheiten basierend auf der Schrift des Wurzelelements
 
-Root-Element-Schrift-relatie Längeneinheiten definieren den `<length>` Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftattributs des [Root](/de/docs/Web/CSS/Reference/Selectors/:root) Elements:
+Schrifteinheiten, die relativ zum Wurzelelement sind, definieren den `<length>`-Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftelements des [Wurzelelements](/de/docs/Web/CSS/Reference/Selectors/:root):
 
 - `rcap`
-  - : Entspricht der "Kap-Höhe" (nominale Höhe der Großbuchstaben) der Schrift des Root-Elements.
+  - : Entspricht der "Kapitalhöhe" (nominale Höhe der Großbuchstaben) der Schriftart des Wurzelelements, das {{Cssxref("font")}} verwendet.
 - `rch`
-  - : Entspricht der Breite oder dem {{Glossary("advance_measure", "Advance Measure")}} des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der Schrift des Root-Elements.
+  - : Entspricht der Breite oder dem {{Glossary("advance_measure", "Vorrückenmaß")}} des Glyphens `0` (Null, das Unicode-Zeichen U+0030) in der Schriftart des Wurzelelements, das {{Cssxref("font")}} verwendet.
 - `rem`
-  - : Repräsentiert die {{Cssxref("font-size")}} des Root-Elements (typischerweise {{HTMLElement("html")}}). Wenn innerhalb der root-Element {{Cssxref("font-size")}} verwendet, repräsentiert es den Initialwert. Ein üblicher Standardwert im Browser ist `16px`, Benutzerdefinierte Präferenzen können dies jedoch ändern.
+  - : Repräsentiert die {{Cssxref("font-size")}} des Wurzelelements (typischerweise {{HTMLElement("html")}}). Wenn innerhalb der {{Cssxref("font-size")}} des Wurzelelements verwendet, repräsentiert es dessen Anfangswert. Ein üblicher Standardwert im Browser ist `16px`, Benutzervoreinstellungen können diesen jedoch ändern.
 - `rex`
-  - : Entspricht der x-Höhe der Schrift des Root-Elements.
+  - : Entspricht der x-Höhe der Schriftart des Wurzelelements, das {{Cssxref("font")}} verwendet.
 - `ric`
-  - : Entspricht dem Wert der [`ic`](#ic) Einheit auf der Schrift des Root-Elements.
+  - : Entspricht dem Wert der [`ic`](#ic)-Einheit bei der Schrift des Wurzelelements.
 - `rlh`
-  - : Entspricht dem Wert der [`lh`](#lh) Einheit auf der Schrift des Root-Elements. Diese Einheit ermöglicht Längenberechnungen basierend auf der theoretischen Größe einer idealen leeren Zeile. Die tatsächliche Größe der Zeilenboxen kann jedoch je nach Inhalt variieren.
+  - : Entspricht dem Wert der [`lh`](#lh)-Einheit bei der Schrift des Wurzelelements. Diese Einheit ermöglicht Längenberechnungen basierend auf der theoretischen Größe einer idealen leeren Zeile. Die Größe tatsächlicher Zeilenboxen kann jedoch je nach Inhalt abweichen.
 
-### Relative Längeneinheiten, basierend auf dem Ansichtsfenster
+### Relative Längeneinheiten basierend auf dem Viewport
 
-Die **Viewport-Prozent-Längeneinheiten** basieren auf vier verschiedenen Ansichtsfenstergrößen: klein, groß, dynamisch und Standard. Die Bereitstellung für die unterschiedlichen Ansichtsfenstergrößen erfolgt als Reaktion darauf, dass Browser-Schnittstellen dynamisch expandieren und sich zurückziehen sowie Inhalte darunter verbergen und zeigen.
+Die **Viewport-Prozentsatz-Längeneinheiten** basieren auf vier unterschiedlichen Viewport-Größen: klein, groß, dynamisch und standard. Die Berücksichtigung der unterschiedlichen Viewport-Größen erfolgt als Reaktion auf dynamische Expansion und Rückzug von Browser-Oberflächen und die Einblendung und Ausblendung des darunterliegenden Inhaltes.
 
-- **Kleine Ansichtsfenster-Einheiten**
-  - : Wenn Sie das kleinstmögliche Ansichtsfenster wünschen, als Reaktion auf dynamisch expandierende Browser-Oberflächen, sollten Sie die kleine Ansichtsfenstergröße verwenden. Die kleine Ansichtsfenstergröße ermöglicht es den von Ihnen gestalteten Inhalten, das gesamte Ansichtsfenster zu füllen, wenn Browser-Oberflächen expandieren. Die Wahl dieser Größe könnte auch möglicherweise leere Räume hinterlassen, wenn sich die Browser-Oberflächen zurückziehen.
+- **Kleine Viewport-Einheiten**
+  - : Wenn Sie die kleinstmögliche Viewport-Größe in Reaktion auf dynamische Expansion von Browser-Oberflächen verwenden möchten, sollten Sie die kleine Viewport-Größe verwenden. Die kleine Viewport-Größe ermöglicht, dass der von Ihnen entworfene Inhalt den gesamten Viewport ausfüllt, wenn die Browser-Oberflächen erweitert sind. Wenn Sie diese Größe wählen, können auch leere Räume verbleiben, wenn die Browser-Oberflächen sich zurückziehen.
 
-    Zum Beispiel, wenn ein Element über Ansichtsfenster-Prozent-Einheiten basierend auf der kleinen Ansichtsfenstergröße dimensioniert ist, wird das Element den Bildschirm perfekt ausfüllen, ohne dass sein Inhalt verdeckt wird, wenn alle dynamischen Browser-Oberflächen angezeigt werden. Wenn diese Browser-Oberflächen jedoch verborgen sind, könnte zusätzlicher Platz um das Element sichtbar werden. Daher sind die kleinen Ansichtsfenster-Prozent-Einheiten im Allgemeinen "sicherer" zu verwenden, möglicherweise führen sie jedoch nicht zum attraktivsten Layout, nachdem ein Benutzer beginnt, mit der Seite zu interagieren.
+    Beispielsweise wird ein Element, das mit Viewport-Prozentsatz-Einheiten basierend auf der kleinen Viewport-Größe bemessen wird, beim Einblenden aller dynamischen Browser-Oberflächen den Bildschirm perfekt ausfüllen, ohne dass Inhalte verdeckt werden. Wenn diese Browser-Oberflächen jedoch ausgeblendet werden, kann zusätzlicher Raum um das Element sichtbar werden. Daher sind die kleinen Viewport-Prozentsatz-Einheiten im Allgemeinen "sicherer" zu verwenden, produzieren jedoch möglicherweise nicht das attraktivste Layout, nachdem der Benutzer begonnen hat, mit der Seite zu interagieren.
 
-    Die kleine Ansichtsfenstergröße wird durch das `sv`-Präfix dargestellt und ergibt die `sv*`-Ansichtsfenster-Prozent-Längeneinheiten. Die Größen der kleinen Ansichtsfenster-Prozent-Einheiten sind fest und daher stabil, es sei denn, das Ansichtsfenster wird selbst geändert.
+    Die kleine Viewport-Größe wird durch das Präfix `sv` repräsentiert und resultiert in den `sv*` Viewport-Prozentsatz-Längeneinheiten. Die Größen der kleinen Viewport-Prozentsatz-Einheiten sind fest und daher stabil, es sei denn, der Viewport selbst wird verändert.
 
-- **Große Ansichtsfenster-Einheiten**
-  - : Wenn Sie das größtmögliche Ansichtsfenster wünschen, als Reaktion auf Browser-Oberflächen, die sich dynamisch zurückziehen, sollten Sie die große Ansichtsfenstergröße verwenden. Die große Ansichtsfenstergröße ermöglicht es den von Ihnen gestalteten Inhalten, das gesamte Ansichtsfenster zu füllen, wenn Browser-Oberflächen sich zurückziehen. Sie müssen beachten, dass der Inhalt möglicherweise verborgen wird, wenn Browser-Oberflächen expandieren.
+- **Große Viewport-Einheiten**
+  - : Wenn Sie die größtmögliche Viewport-Größe in Reaktion auf dynamischen Rückzug von Browser-Oberflächen verwenden möchten, sollten Sie die große Viewport-Größe verwenden. Die große Viewport-Größe ermöglicht, dass der von Ihnen entworfene Inhalt den gesamten Viewport ausfüllt, wenn die Browser-Oberflächen sich zurückziehen. Sie sollten sich bewusst sein, dass der Inhalt möglicherweise verdeckt wird, wenn die Browser-Oberflächen erweitert werden.
 
-    Zum Beispiel verbergen Browser auf Mobiltelefonen, bei denen der Bildschirmplatz kostbar ist, oft einen Teil oder die gesamte Titel- und Adressleiste, nachdem ein Benutzer mit dem Scrollen der Seite begonnen hat. Wenn ein Element mit einer Ansichtsfenster-Prozent-Einheit basierend auf der großen Ansichtsfenstergröße dimensioniert ist, füllt der Inhalt des Elements die gesamte sichtbare Seite, wenn diese Browser-Oberflächen verborgen sind. Wenn diese zurückziehbaren Browser-Oberflächen jedoch angezeigt werden, können sie den Inhalt verdecken, der für die _große_ Ansichtsfenster-Prozent-Einheiten dimensioniert oder positioniert ist.
+    Beispielsweise verstecken Browser auf Mobiltelefonen, bei denen der Bildschirmplatz besonders wertvoll ist, oft einen Teil oder die gesamte Titel- und Adressleiste, nachdem der Benutzer begonnen hat, die Seite zu scrollen. Wenn ein Element mit einer Viewport-Prozentsatz-Einheit basierend auf der großen Viewport-Größe bemessen wird, füllt der Inhalt des Elements die gesamte sichtbare Seite aus, wenn diese Browser-Oberflächen ausgeblendet sind. Werden diese einziehbaren Browser-Oberflächen jedoch angezeigt, können sie den Inhalt verdecken, der mit den _großen_ Viewport-Prozentsatz-Einheiten bemessen oder positioniert wurde.
 
-    Die große Ansichtsfenster-Einheit wird durch das `lv`-Präfix dargestellt und ergibt die `lv*` Ansichtsfenster-Prozent-Einheiten. Die Größen der großen Ansichtsfenster-Prozent-Einheiten sind fest und daher stabil, es sei denn, das Ansichtsfenster wird selbst geändert.
+    Die große Viewport-Einheit wird durch das Präfix `lv` repräsentiert und resultiert in den `lv*` Viewport-Prozentsatz-Einheiten. Die Größen der großen Viewport-Prozentsatz-Einheiten sind fest und daher stabil, es sei denn, der Viewport selbst wird verändert.
 
-- **Dynamische Ansichtsfenster-Einheiten**
-  - : Wenn Sie möchten, dass das Ansichtsfenster automatisch dimensioniert wird als Reaktion auf Browser-Schnittstellen, die dynamisch expandieren oder sich zurückziehen, können Sie die dynamische Ansichtsfenstergröße verwenden. Die dynamische Ansichtsfenstergröße ermöglicht es den von Ihnen gestalteten Inhalten, genau in das Ansichtsfenster zu passen, unabhängig von der Anwesenheit dynamischer Browser-Oberflächen.
+- **Dynamische Viewport-Einheiten**
+  - : Wenn Sie möchten, dass der Viewport automatisch in Antwort auf dynamische Expansion oder Rückzug von Browser-Oberflächen bemessen wird, können Sie die dynamische Viewport-Größe verwenden. Die dynamische Viewport-Größe ermöglicht, dass der von Ihnen entworfene Inhalt genau in den Viewport passt, unabhängig von der Präsenz dynamischer Browser-Oberflächen.
 
-    Die dynamische Ansichtsfenster-Einheit wird durch das `dv`-Präfix dargestellt und ergibt die `dv*` Ansichtsfenster-Prozent-Einheiten. Die Größen der dynamischen Ansichtsfenster-Prozent-Einheiten sind nicht stabil, selbst wenn das Ansichtsfenster selbst unverändert bleibt.
-
-    > [!NOTE]
-    > Während die dynamische Ansichtsfenstergröße Ihnen mehr Kontrolle und Flexibilität geben kann, kann die Verwendung von Ansichtsfenster-Prozent-Einheiten, die auf der dynamischen Ansichtsfenstergröße basieren, dazu führen, dass der Inhalt beim Scrollen einer Seite durch einen Benutzer seine Größe ändert. Dies kann zu einer Verschlechterung der Benutzeroberfläche und zu Leistungseinbußen führen.
-
-- **Standard Ansichtsfenster-Einheiten**
-  - : Die Standard-Ansichtsfenstergröße wird vom Browser definiert. Das Verhalten der resultierenden Ansichtsfenster-Prozent-Einheit könnte dem der Ansichtsfenster-Prozent-Einheit basierend auf der kleinen Ansichtsfenstergröße, der großen Ansichtsfenstergröße, einer Zwischen-Größe zwischen den beiden oder der dynamischen Ansichtsfenstergröße entsprechen.
+    Die dynamische Viewport-Einheit wird durch das Präfix `dv` repräsentiert und resultiert in den `dv*` Viewport-Prozentsatz-Einheiten. Die Größen der dynamischen Viewport-Prozentsatz-Einheiten sind nicht stabil, selbst wenn der Viewport selbst unverändert bleibt.
 
     > [!NOTE]
-    > Zum Beispiel könnte ein Browser die Standard-Ansichtsfenster-Prozent-Einheit für die Höhe (`vh`) implementieren, die der großen Ansichtsfenster-Prozent-Höhen-Einheit (`lvh`) entspricht. Ist dies der Fall, könnte dies den Inhalt auf einer Vollbildanzeige verdecken, während die Browser-Oberfläche expandiert ist. Derzeit sind alle Standard-Ansichtsfenster-Einheiten (`vh`, `vw`, etc.) ihren großen Ansichtsfenster-Gegenstücken (`lvh`, `lvw`, etc.) gleichwertig.
+    > Obwohl die dynamische Viewport-Größe Ihnen mehr Kontrolle und Flexibilität geben kann, kann die Verwendung von Viewport-Prozentsatz-Einheiten basierend auf der dynamischen Viewport-Größe dazu führen, dass sich der Inhalt während des Scrollens einer Seite durch den Benutzer verändert. Dies kann zu einer Beeinträchtigung der Benutzeroberfläche führen und einen Performance-Einbruch verursachen.
 
-Viewport-Prozent-Längen definieren `<length>` Werte in Prozent relativ zur Größe des initialen [enthältlichen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block), der wiederum auf der Größe des {{Glossary("viewport", "Ansichtsfensters")}} oder des Seitenbereichs basiert, d.h. dem sichtbaren Abschnitt des Dokuments. Wenn die Höhe oder Breite des initialen enthältlichen Blocks geändert wird, werden die Elemente, die darauf basieren, entsprechend skaliert. Es gibt eine Ansichtsfenster-Prozent-Längeneinheit-Variante, die jeder der Ansichtsfenstergrößen entspricht, wie unten beschrieben.
+- **Standard-Viewport-Einheiten**
+  - : Die Standard-Viewport-Größe wird vom Browser definiert. Das Verhalten der resultierenden Viewport-Prozentsatz-Einheit könnte gleichbedeutend mit der Viewport-Prozentsatz-Einheit basierend auf der kleinen Viewport-Größe, der großen Viewport-Größe, einer Zwischengröße zwischen den beiden oder der dynamischen Viewport-Größe sein.
+
+    > [!NOTE]
+    > Beispielsweise kann ein Browser die Standard-Viewport-Prozentsatz-Einheit für Höhe (`vh`) implementieren, welche äquivalent zur großen Viewport-Prozentsatz-Höheneinheit (`lvh`) ist. Wenn dies der Fall ist, könnte dies den Inhalt auf einer Vollbildanzeige verdecken, während die Browser-Oberfläche erweitert ist. Derzeit sind alle Standard-Viewport-Einheiten (`vh`, `vw` usw.) äquivalent zu ihren großen Viewport-Gegenstücken (`lvh`, `lvw` usw.).
+
+Viewport-Prozentsatz-Längen definieren `<length>`-Werte in Prozent relativ zur Größe des initialen [beinhaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block), der wiederum auf der Größe des {{Glossary("viewport", "Viewports")}} oder der Seitenfläche basiert, d.h. dem sichtbaren Teil des Dokuments. Wenn sich die Höhe oder Breite des initialen beinhaltenden Blocks ändert, werden die darauf basierenden Elemente entsprechend skaliert. Es gibt eine Viewport-Prozentsatz-Längeneinheit für jede der Viewport-Größen, wie unten beschrieben.
 
 > [!NOTE]
-> Ansichtsfenster-Längen sind in {{cssxref("@page")}} Deklarationsblöcken ungültig.
+> Viewport-Längen sind in {{cssxref("@page")}} Deklarationsblöcken ungültig.
 
 - `vh`
-  - : Repräsentiert einen Prozentanteil der Höhe des initialen enthältlichen Blocks des Ansichtsfensters. `1vh` ist 1% der Höhe des Ansichtsfensters. Wenn die Höhe des Ansichtsfensters zum Beispiel `300px` beträgt, dann ist ein Wert von `70vh` auf einer Eigenschaft `210px`.
+  - : Repräsentiert einen Prozentsatz der Höhe des initialen beinhaltenden Blocks des Viewports. `1vh` entspricht 1% der Höhe des Viewports. Wenn beispielsweise die Höhe des Viewports `300px` beträgt, ist ein Wert von `70vh` für eine Eigenschaft `210px`.
 
-    Die jeweiligen Ansichtsfenster-Prozent-Einheiten für kleine, große und dynamische Ansichtsfenstergrößen sind `svh`, `lvh` und `dvh`. `vh` ist `lvh` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Die jeweiligen Viewport-Prozentsatz-Einheiten für kleine, große und dynamische Viewport-Größen sind `svh`, `lvh` und `dvh`. `vh` ist gleichbedeutend mit `lvh` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
 - `vw`
-  - : Repräsentiert einen Prozentanteil der Breite des initialen enthältlichen Blocks des Ansichtsfensters. `1vw` ist 1% der Breite des Ansichtsfensters. Wenn die Breite des Ansichtsfensters zum Beispiel `800px` beträgt, dann ist ein Wert von `50vw` auf einer Eigenschaft `400px`.
+  - : Repräsentiert einen Prozentsatz der Breite des initialen beinhaltenden Blocks des Viewports. `1vw` entspricht 1% der Breite des Viewports. Wenn beispielsweise die Breite des Viewports `800px` beträgt, ist ein Wert von `50vw` für eine Eigenschaft `400px`.
 
-    Für kleine, große und dynamische Ansichtsfenstergrößen sind die jeweiligen Ansichtsfenster-Prozent-Einheiten `svw`, `lvw` und `dvw`.
-    `vw` ist `lvw` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozentsatz-Einheiten `svw`, `lvw` und `dvw`. `vw` ist gleichbedeutend mit `lvw` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
 - `vmax`
-  - : Gibt in Prozent den größten der `vw` und `vh` Werte an.
+  - : Repräsentiert in Prozent den größeren Wert von `vw` und `vh`.
 
-    Für kleine, große und dynamische Ansichtsfenstergrößen sind die jeweiligen Ansichtsfenster-Prozent-Einheiten `svmax`, `lvmax` und `dvmax`.
-    `vmax` ist `lvmax` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozentsatz-Einheiten `svmax`, `lvmax` und `dvmax`. `vmax` ist gleichbedeutend mit `lvmax` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
 - `vmin`
-  - : Gibt in Prozent den kleinsten der `vw` und `vh` Werte an.
+  - : Repräsentiert in Prozent den kleineren Wert von `vw` und `vh`.
 
-    Für kleine, große und dynamische Ansichtsfenstergrößen sind die jeweiligen Ansichtsfenster-Prozent-Einheiten `svmin`, `lvmin` und `dvmin`.
-    `vmin` ist `lvmin` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozentsatz-Einheiten `svmin`, `lvmin` und `dvmin`. `vmin` ist gleichbedeutend mit `lvmin` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
 - `vb`
-  - : Repräsentiert den Prozentsatz der Größe des initialen [enthältlichen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block), in Richtung der [Block-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Root-Elements.
+  - : Repräsentiert den Prozentsatz der Größe des initialen [beinhaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block) in der Richtung der [Block-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Wurzelelements.
 
-    Für kleine, große und dynamische Ansichtsfenstergrößen sind die jeweiligen Ansichtsfenster-Prozent-Einheiten `svb`, `lvb` und `dvb` entsprechend.
-    `vb` ist `lvb` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozentsatz-Einheiten `svb`, `lvb` und `dvb`. `vb` ist gleichbedeutend mit `lvb` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
 - `vi`
-  - : Repräsentiert einen Prozentsatz der Größe des initialen [enthältlichen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block), in Richtung der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Root-Elements.
+  - : Repräsentiert einen Prozentsatz der Größe des initialen [beinhaltenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block) in der Richtung der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Wurzelelements.
 
-    Für kleine, große und dynamische Ansichtsfenstergrößen sind die jeweiligen Ansichtsfenster-Prozent-Einheiten `svi`, `lvi` und `dvi`.
-    `vi` ist `lvi` gleichwertig und repräsentiert die Ansichtsfenster-Prozent-Längeneinheit, basierend auf der großen Ansichtsfenstergröße.
+    Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozentsatz-Einheiten `svi`, `lvi` und `dvi`. `vi` ist gleichbedeutend mit `lvi` und repräsentiert die Viewport-Prozentsatz-Längeneinheit basierend auf der großen Viewport-Größe.
 
-### Container-Abfragen Längeneinheiten
+### Längeneinheiten für Container-Abfragen
 
-Bei der Anwendung von Styles auf einen Container mit Containerabfragen können Sie Containerabfrage-Längeneinheiten verwenden.
-Diese Einheiten spezifizieren eine Länge relativ zu den Abmessungen eines Abfragecontainers.
-Komponenten, die Einheiten der Länge relativ zu ihrem Container verwenden, sind flexibler in verschiedenen Containern einsetzbar, ohne die konkreten Längenwerte neu berechnen zu müssen.
+Beim Anwenden von Stilen auf einen Container mit Containerabfragen können Sie Längeneinheiten für Containerabfragen verwenden. Diese Einheiten geben eine Länge relativ zu den Abmessungen eines Abfragecontainers an. Komponenten, die Einheiten relativ zu ihrem Container verwenden, sind flexibler in verschiedenen Containern einsetzbar, ohne dass konkrete Längenwerte neu berechnet werden müssen.
 
-Wenn kein geeigneter Container für die Abfrage verfügbar ist, wird die Containerabfrage-Längeneinheit auf die [kleine Ansichtsfenster-Einheit](#small_viewport_units) für diese Achse (`sv*`) zurückgesetzt.
+Wenn kein geeigneter Container für die Abfrage verfügbar ist, fällt die Containerabfrage-Längeneinheit auf die [kleine Viewport-Einheit](#small_viewport_units) für diese Achse zurück (`sv*`).
 
-Weitere Informationen finden Sie unter [Container Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries).
+Für weitere Informationen siehe [Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries).
 
 - `cqw`
-  - : Repräsentiert einen Prozentsatz der Breite des Abfragecontainers. `1cqw` ist 1% der Breite des Abfragecontainers. Wenn die Breite des Abfragecontainers zum Beispiel `800px` beträgt, wird ein Wert von `50cqw` auf einer Eigenschaft `400px` sein.
+  - : Repräsentiert einen Prozentsatz der Breite des Abfragecontainers. `1cqw` entspricht 1 % der Breite des Abfragecontainers. Wenn beispielsweise die Breite des Abfragecontainers `800px` beträgt, ist ein Wert von `50cqw` für eine Eigenschaft `400px`.
 
 - `cqh`
-  - : Repräsentiert einen Prozentsatz der Höhe des Abfragecontainers. `1cqh` ist 1% der Höhe des Abfragecontainers. Wenn die Höhe des Abfragecontainers zum Beispiel `300px` beträgt, wird ein Wert von `10cqh` auf einer Eigenschaft `30px` sein.
+  - : Repräsentiert einen Prozentsatz der Höhe des Abfragecontainers. `1cqh` entspricht 1 % der Höhe des Abfragecontainers. Wenn beispielsweise der Abfragecontainer eine Höhe von `300px` hat, ist ein Wert von `10cqh` für eine Eigenschaft `30px`.
 
 - `cqi`
-  - : Repräsentiert einen Prozentsatz der Inline-Größe des Abfragecontainers. `1cqi` ist 1% der Inline-Größe des Abfragecontainers. Wenn die Inline-Größe des Abfragecontainers zum Beispiel `800px` beträgt, wird ein Wert von `50cqi` auf einer Eigenschaft `400px` sein.
+  - : Repräsentiert einen Prozentsatz der Inline-Größe des Abfragecontainers. `1cqi` entspricht 1 % der Inline-Größe des Abfragecontainers. Wenn beispielsweise der Abfragecontainer eine Inline-Größe von `800px` hat, ist ein Wert von `50cqi` für eine Eigenschaft `400px`.
 
 - `cqb`
-  - : Repräsentiert einen Prozentsatz der Blockgröße des Abfragecontainers. `1cqb` ist 1% der Blockgröße des Abfragecontainers. Wenn die Blockgröße des Abfragecontainers zum Beispiel `300px` beträgt, wird ein Wert von `10cqb` auf einer Eigenschaft `30px` sein.
+  - : Repräsentiert einen Prozentsatz der Blockgröße des Abfragecontainers. `1cqb` entspricht 1 % der Blockgröße des Abfragecontainers. Wenn beispielsweise der Abfragecontainer eine Blockgröße von `300px` hat, ist ein Wert von `10cqb` für eine Eigenschaft `30px`.
 
 - `cqmin`
-  - : Repräsentiert einen Prozentsatz des kleineren Werts entweder der Inline-Größe oder Blockgröße des Abfragecontainers. `1cqmin` ist 1% des kleineren Werts entweder der Inline-Größe oder Blockgröße des Abfragecontainers. Wenn die Inline-Größe des Abfragecontainers `800px` und die Blockgröße `300px` beträgt, dann wird ein Wert von `50cqmin` auf einer Eigenschaft `150px` sein.
+  - : Repräsentiert einen Prozentsatz des kleineren Werts der Inline- oder Blockgröße des Abfragecontainers. `1cqmin` entspricht 1 % des kleineren Werts der Inline- oder Blockgröße des Abfragecontainers. Wenn beispielsweise die Inline-Größe des Abfragecontainers `800px` beträgt und seine Blockgröße `300px` ist, ist ein Wert von `50cqmin` für eine Eigenschaft `150px`.
 
 - `cqmax`
-  - : Repräsentiert einen Prozentsatz des größeren Werts entweder der Inline-Größe oder Blockgröße des Abfragecontainers. `1cqmax` ist 1% des größeren Werts entweder der Inline-Größe oder Blockgröße des Abfragecontainers. Wenn die Inline-Größe des Abfragecontainers `800px` und die Blockgröße `300px` beträgt, dann wird ein Wert von `50cqmax` auf einer Eigenschaft `400px` sein.
+  - : Repräsentiert einen Prozentsatz des größeren Werts der Inline- oder Blockgröße des Abfragecontainers. `1cqmax` entspricht 1 % des größeren Werts der Inline- oder Blockgröße des Abfragecontainers. Wenn beispielsweise die Inline-Größe des Abfragecontainers `800px` beträgt und seine Blockgröße `300px` ist, ist ein Wert von `50cqmax` für eine Eigenschaft `400px`.
 
 ## Absolute Längeneinheiten
 
-**Absolute Längeneinheiten** repräsentieren eine physische Messung, wenn die physikalischen Eigenschaften des Ausgabemediums bekannt sind, wie zum Beispiel bei Print-Layouts. Dies erfolgt durch Verankerung einer der Einheiten an eine **physikalische Einheit** oder der **visuellen Winkeleinheit** und dann der Definition der anderen relativ zu dieser. Physikalische Einheiten beinhalten `cm`, `in`, `mm`, `pc`, `pt`, `px` und `Q`. Die Verankerung erfolgt bei Geräten mit niedriger Auflösung, wie Bildschirmen, anders als bei Geräten mit hoher Auflösung, wie Druckern.
+**Absolute Längeneinheiten** repräsentieren eine physische Messung, wenn die physikalischen Eigenschaften des Ausgabemediums bekannt sind, wie z. B. für Drucklayouts. Dies geschieht, indem eine dieser Einheiten an eine **physische Einheit** oder die **visuelle Winkel-Einheit** gekoppelt wird und dann die anderen relativ zu ihr definiert werden. Physikalische Einheiten umfassen `cm`, `in`, `mm`, `pc`, `pt`, `px` und `Q`. Die Verankerung erfolgt unterschiedlich für Geräte mit niedriger Auflösung, wie Bildschirme, verglichen mit Geräten mit hoher Auflösung, wie Drucker.
 
-Bei Geräten mit niedriger DPI repräsentiert die Einheit `px` das physische _Referenzpixel_; andere Einheiten werden relativ dazu definiert. Somit wird `1in` als `96px` definiert, was `72pt` entspricht. Die Konsequenz dieser Definition ist, dass auf solchen Geräten Dimensionen, die in Zoll (`in`), Zentimetern (`cm`) oder Millimetern (`mm`) beschrieben sind, nicht unbedingt mit der Größe der physischen Einheit mit dem gleichen Namen übereinstimmen.
+Bei Geräten mit niedriger Auflösung stellt die Einheit `px` das physikalische _Referenzpixel_ dar; andere Einheiten werden relativ dazu definiert. So wird `1in` als `96px` definiert, was `72pt` entspricht. Die Folge dieser Definition ist, dass bei solchen Geräten Abmessungen, die in Zoll (`in`), Zentimetern (`cm`) oder Millimetern (`mm`) beschrieben werden, nicht unbedingt der Größe der physikalischen Einheit mit demselben Namen entsprechen.
 
-Bei Geräten mit hoher DPI entsprechen Zoll (`in`), Zentimeter (`cm`) und Millimeter (`mm`) ihren physischen Gegenstücken. Daher wird die Einheit `px` relativ zu ihnen definiert (1/96 von `1in`).
+Bei Geräten mit hoher Auflösung entsprechen Zoll (`in`), Zentimeter (`cm`) und Millimeter (`mm`) den physischen Entsprechungen. Daher wird die `px`-Einheit relativ dazu definiert (1/96 von `1in`).
 
 > [!NOTE]
-> Viele Benutzer erhöhen die Standard-Schriftgröße ihrer {{Glossary("user_agent", "User-Agenten")}}, um den Text besser lesbar zu machen. Absolute Längen können zu Zugänglichkeitsproblemen führen, da sie fest sind und sich nicht gemäß Benutzereinstellungen skalieren. Aus diesem Grund sind relative Längen (wie `em` oder `rem`) vorzuziehen, wenn `font-size` eingestellt wird.
+> Viele Benutzer erhöhen die Standard-Schriftgröße ihres {{Glossary("user_agent", "Benutzeragenten")}}, um Text besser lesbar zu machen. Absolute Längen können Barrierefreiheitsprobleme verursachen, da sie fest sind und sich nicht entsprechend den Benutzereinstellungen skalieren. Aus diesem Grund sollte für die Festlegung der `font-size` relative Längen (wie `em` oder `rem`) bevorzugt werden.
 
 - `px`
-  - : Ein Pixel. Für Bildschirmanzeigen repräsentiert es traditionell ein {{Glossary("device_pixel", "Gerätepixel")}} (Punkt). Bei _Druckern_ und _Bildschirmen mit hoher Auflösung_ impliziert ein CSS-Pixel jedoch mehrere Gerätepixel. `1px` = `1in / 96`.
+  - : Ein Pixel. Bei Bildschirmdarstellungen repräsentiert es traditionell ein {{Glossary("device_pixel", "Gerätepixel")}} (Punkt). Bei _Druckern_ und _Bildschirmen mit hoher Auflösung_ impliziert ein CSS-Pixel jedoch mehrere Gerätepixel. `1px` = `1in / 96`.
 - `cm`
   - : Ein Zentimeter. `1cm` = `96px / 2.54`.
 - `mm`
   - : Ein Millimeter. `1mm` = `1cm / 10`.
 - `Q`
-  - : Ein Viertel eines Millimeters. `1Q` = `1cm / 40`.
+  - : Ein Viertel Millimeter. `1Q` = `1cm / 40`.
 - `in`
   - : Ein Zoll. `1in` = `2.54cm` = `96px`.
 - `pc`
@@ -195,15 +199,15 @@ Bei Geräten mit hoher DPI entsprechen Zoll (`in`), Zentimeter (`cm`) und Millim
 
 ## Interpolation
 
-Werden `<length>` Werte animiert, erfolgt die Interpolation als reale Fließkommazahlen. Die {{Glossary("interpolation", "Interpolation")}} erfolgt auf dem berechneten Wert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) bestimmt.
+Bei Animationen werden die Werte des `<length>`-Datentyps als reelle Gleitkommazahlen interpoliert. Die {{Glossary("interpolation", "Interpolation")}} erfolgt beim berechneten Wert. Die Geschwindigkeit der Interpolation wird durch die der Animation zugeordnete [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) bestimmt.
 
 ## Beispiele
 
-### Vergleich verschiedener Längeneinheiten
+### Vergleich unterschiedlicher Längeneinheiten
 
-Das folgende Beispiel bietet Ihnen ein Eingabefeld, in das Sie einen `<length>` Wert (z. B. `300px`, `50%`, `30vw`) eingeben können, um die Breite einer Ergebnisleiste festzulegen, die unten angezeigt wird, sobald Sie die <kbd>Enter</kbd> oder <kbd>Return</kbd> Taste gedrückt haben.
+Das folgende Beispiel bietet Ihnen ein Eingabefeld, in welches Sie einen `<length>`-Wert (z. B. `300px`, `50%`, `30vw`) eingeben können, um die Breite einer Ergebnisleiste einzustellen, die darunter erscheint, sobald Sie die Taste <kbd>Enter</kbd> oder <kbd>Return</kbd> gedrückt haben.
 
-Dies ermöglicht es Ihnen, die Auswirkungen verschiedener Längeneinheiten zu vergleichen und gegenüberzustellen.
+Dies ermöglicht Ihnen den Vergleich und die Gegenüberstellung der Effekte verschiedener Längeneinheiten.
 
 #### HTML
 
@@ -312,6 +316,6 @@ inputElem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
-- Modul [CSS-Werte & Einheiten](/de/docs/Web/CSS/Guides/Values_and_units)
+- [Learn: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
+- [CSS-Werte & Einheit](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [Boxmodell](/de/docs/Web/CSS/Guides/Box_model)

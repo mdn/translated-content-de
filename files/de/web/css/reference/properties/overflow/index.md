@@ -3,10 +3,10 @@ title: "`overflow` CSS-Eigenschaft"
 short-title: overflow
 slug: Web/CSS/Reference/Properties/overflow
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: ef6043b9d32b240262f6a29b719c02a7f61a5066
 ---
 
-Die **`overflow`** [CSS](/de/docs/Web/CSS) [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt das gewünschte Verhalten fest, wenn der Inhalt im horizontalen und/oder vertikalen Bereich nicht in den Padding-Bereich des Elements passt (überläuft).
+Die **`overflow`**-[CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt das gewünschte Verhalten fest, wenn Inhalte nicht in den Innenabstand eines Elements passen (überlaufen) in horizontaler und/oder vertikaler Richtung.
 
 {{InteractiveExample("CSS Demo: overflow")}}
 
@@ -50,9 +50,9 @@ overflow: auto;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("overflow-x")}}
 - {{cssxref("overflow-y")}}
@@ -66,6 +66,8 @@ overflow: hidden;
 overflow: clip;
 overflow: scroll;
 overflow: auto;
+
+/* Two-value syntax: horizontal | vertical */
 overflow: hidden visible;
 
 /* Global values */
@@ -76,37 +78,306 @@ overflow: revert-layer;
 overflow: unset;
 ```
 
-Die `overflow`-Eigenschaft wird als ein oder zwei {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwerte angegeben. Wenn nur ein Schlüsselwort angegeben ist, werden sowohl `overflow-x` als auch `overflow-y` auf denselben Wert gesetzt. Wenn zwei Schlüsselwörter angegeben sind, gilt der erste Wert für `overflow-x` in der horizontalen Richtung und der zweite gilt für `overflow-y` in der vertikalen Richtung.
+Die `overflow`-Eigenschaft wird als ein oder zwei {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `visible`
-  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Bereichs des Elements sichtbar sein. Der Elementkasten ist kein {{Glossary("scroll_container", "scroll container")}}. Dies ist der Standardwert der `overflow`-Eigenschaft.
+  - : Überlappende Inhalte werden nicht abgeschnitten und können außerhalb des Innenabstands des Elements sichtbar sein. Das Element ist kein {{Glossary("scroll_container", "Scroll-Container")}}. Dies ist der Standardwert.
 - `hidden`
-  - : Überlaufender Inhalt wird am Rand des Padding-Bereichs des Elements abgeschnitten. Es gibt keine Scrollleisten, und der abgeschnittene Inhalt ist nicht sichtbar (d.h. abgeschnittener Inhalt wird ausgeblendet), aber der Inhalt existiert weiterhin. Benutzeragenten fügen keine Scrollleisten hinzu und ermöglichen den Benutzern auch nicht, den Inhalt außerhalb des abgeschnittenen Bereichs durch Aktionen wie Dragging auf einem Touchscreen oder Verwenden des Scrollrads einer Maus zu sehen. Der Inhalt kann jedoch programmatisch gescrollt werden (zum Beispiel durch Verlinken auf Ankertext, durch Tabben zu einem versteckten, aber fokussierbaren Element oder durch Setzen des Wertes der [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft)-Eigenschaft oder der [`scrollTo()`](/de/docs/Web/API/Element/scrollTo)-Methode), in diesem Fall ist der Elementkasten ein Scrollcontainer.
+  - : Überlappende Inhalte werden am Innenabstand des Elements abgeschnitten und der abgeschnittene Inhalt bleibt verborgen. Wenn Inhalte überlaufen, ist das Element ein {{Glossary("scroll_container", "Scroll-Container")}} ohne Scrollleisten; das Scrollen ist dennoch über andere Methoden wie das Tabben zu versteckten fokussierbaren Elementen, Eigenschaften wie der [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft)-Eigenschaft und Methoden wie [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) möglich.
 - `clip`
-  - : Überlaufender Inhalt wird am _overflow clip edge_ des Elements abgeschnitten, der mit der {{cssxref("overflow-clip-margin")}} Eigenschaft definiert wird. Infolgedessen überläuft der Inhalt den Padding-Bereich des Elements um den {{cssxref("&lt;length&gt;")}} Wert von `overflow-clip-margin` oder um `0px`, wenn nicht festgelegt. Überlaufender Inhalt außerhalb des abgeschnittenen Bereichs ist nicht sichtbar, Benutzeragenten fügen keine Scrollleiste hinzu, und programmatisches Scrollen wird ebenfalls nicht unterstützt. Es wird kein neuer [formatting context](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt. Um einen Formatierungskontext zu erstellen, verwenden Sie `overflow: clip` zusammen mit {{cssxref("display", "display: flow-root", "#flow-root")}}. Der Elementkasten ist kein Scrollcontainer.
+  - : Überlappende Inhalte werden an der _overflow-clip edge_ des Elements abgeschnitten, die durch die {{cssxref("overflow-clip-margin")}}-Eigenschaft definiert ist. Das Element ist kein Scroll-Container, abgeschnittener Inhalt ist nicht sichtbar und programmatisches Scrollen wird nicht unterstützt.
 - `scroll`
-  - : Überlaufender Inhalt wird am Rand des Padding-Bereichs des Elements abgeschnitten, und überlaufender Inhalt kann mit Scrollleisten in den Sichtbereich gescrollt werden. Benutzeragenten zeigen Scrollleisten an, unabhängig davon, ob Inhalt überläuft oder nicht, also in der horizontalen und vertikalen Richtung, wenn der Wert für beide Richtungen gilt. Die Verwendung dieses Schlüsselworts kann daher verhindern, dass Scrollleisten erscheinen und verschwinden, wenn sich der Inhalt ändert. Drucker können dennoch überlaufenden Inhalt drucken. Der Elementkasten ist ein Scrollcontainer.
+  - : Überlappende Inhalte werden am Innenabstand des Elements abgeschnitten. Unabhängig davon, ob Inhalte überlaufen oder nicht, ist das Element immer ein Scroll-Container, der Scrollleisten anzeigt.
 - `auto`
-  - : Überlaufender Inhalt wird am Rand des Padding-Bereichs des Elements abgeschnitten, und überlaufender Inhalt kann mit Scrollleisten in den Sichtbereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur dann_ an, wenn der Inhalt überläuft. Wenn der Inhalt in den Padding-Bereich des Elements passt, sieht es genauso aus wie bei `visible`, erstellt jedoch immer noch einen neuen Formatierungskontext. Der Elementkasten ist ein Scrollcontainer.
+  - : Überlappende Inhalte werden am Innenabstand des Elements abgeschnitten. Wenn Inhalte überlaufen, ist das Element ein Scroll-Container, der Scrollleisten anzeigt.
 
-> [!NOTE]
-> Der Schlüsselwortwert `overlay` ist ein altes Alias für `auto`. Mit `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz zu beanspruchen.
+#### Nicht standardmäßige Werte
+
+Einige nicht standardmäßige Werte werden in einigen Browsern ebenfalls unterstützt:
+
+- `overlay`
+  - : Ein veraltetes Alias für `auto`, das in der Spezifikation für die Webkompatibilität definiert ist. Ursprünglich als nicht standardmäßiger Wert implementiert, um Scrollleisten über den Inhalten anzuzeigen, anstatt Platz einzunehmen. Die Verwendung in neuem Code wird nicht empfohlen.
 
 ## Beschreibung
 
-Die Überlaufoptionen umfassen das Ausblenden von Überlaufinhalten, das Aktivieren von Scrollleisten, um Überlaufinhalte anzuzeigen, oder das Anzeigen des Inhaltes, der über einen Elementkasten hinaus in die umliegende Fläche fließt, sowie Kombinationen davon.
+Standardmäßig wachsen block-level Elemente, um ihrem Inhalt zu entsprechen. Wenn die Größe eines Containers begrenzt ist, wird der Inhalt überlaufen. Die `overflow`-Eigenschaft bestimmt, wie ein Container mit Inhalten umgeht, die seine Grenzen überschreiten.
 
-Die folgenden Nuancen sollten beim Verwenden der verschiedenen Schlüsselwörter für `overflow` beachtet werden:
+Die `overflow`-Eigenschaft ist eine Kurzschreibweise für die horizontalen {{cssxref("overflow-x")}} und vertikalen {{cssxref("overflow-y")}} Eigenschaften. Wenn nur ein Schlüsselwort angegeben ist, werden sowohl `overflow-x` als auch `overflow-y` auf denselben Wert gesetzt. Wenn zwei Schlüsselwörter angegeben sind, gilt der erste Wert für `overflow-x` in horizontaler Richtung und der zweite für `overflow-y` in vertikaler Richtung.
 
-- Das Festlegen eines anderen Wertes als `visible` (dem Standard) oder `clip` für `overflow` erstellt einen neuen [Block Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context). Dies ist aus technischen Gründen notwendig; wenn ein Float mit einem scrollenden Element kollidiert, würde es den Inhalt nach jedem Scroll-Schritt zwangsweise neu umwickeln, was zu einem langsamen Scrollerlebnis führt.
-- Damit eine `overflow`-Einstellung die gewünschte Wirkung hat, muss das Block-Level-Element entweder eine festgelegte Höhe ({{cssxref("height")}} oder {{cssxref("max-height")}}) haben, wenn der Überlauf in der vertikalen Richtung ist, eine festgelegte Breite ({{cssxref("width")}} oder {{cssxref("max-width")}}) haben, wenn der Überlauf in der horizontalen Richtung ist, eine festgelegte Blockgröße (({{cssxref("block-size")}} oder {{cssxref("max-block-size")}}), wenn der Überlauf in der Block-Richtung ist, oder eine festgelegte Inline-Größe (({{cssxref("inline-size")}} oder {{cssxref("max-inline-size")}}) oder {{cssxref("white-space")}} auf `nowrap` gesetzt haben, wenn der Überlauf in der Inline-Richtung ist.
-- Das Festlegen von `overflow` auf `visible` in einer Richtung (d.h. `overflow-x` oder `overflow-y`), wenn es in der anderen Richtung nicht auf `visible` oder `clip` eingestellt ist, führt dazu, dass sich der `visible`-Wert wie `auto` verhält.
-- Das Festlegen von `overflow` auf `clip` in einer Richtung führt dazu, dass sich der `clip`-Wert wie `hidden` verhält, wenn er in der anderen Richtung nicht auf `visible` oder `clip` eingestellt ist.
-- Die JavaScript-Eigenschaft [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop) kann verwendet werden, um durch den Inhalt in einem Scrollcontainer zu scrollen, außer wenn `overflow` auf `clip` gesetzt ist.
-- Das Setzen von `overflow` auf Bilder und andere {{Glossary("replaced_elements", "ersetzte Elemente")}} funktioniert wie erwartet in Browsern, die das CSS Overflow Module Level 4 unterstützen; in früheren Versionen der Spezifikation wurden ersetzte Elemente immer an den Rand des Containers abgeschnitten.
-  Siehe [Browser-Kompatibilität](#browser-kompatibilität) für unterstützende Browser.
+Überlaufoptionen umfassen das Verbergen überlaufender Inhalte, das Aktivieren von Scrollleisten zur Anzeige überlaufender Inhalte oder das Anzeigen von Inhalten, die aus einem Elementbox in den umgebenden Bereich hineinragen, sowie Kombinationen davon.
+
+Alle Werte, außer `visible` und `clip`, erstellen einen neuen [Blockformatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context). Der neue Blockformatierungs-Kontext ist für Scroll-Container notwendig, da ein Float, der mit einem Scrolling-Element verknüpft ist, den Inhalt nach jedem Scroll-Schritt zwangsweise neu umhüllen würde, was zu einem langsamen Scroll-Erlebnis führen würde.
+
+### Was verursacht Überlauf
+
+Überlauf tritt auf, wenn ein Block-Element Inhalte hat, die seinen beschränkten Raum überlaufen. Der zugewiesene Raum kann durch eine Höhe ({{cssxref("height")}} oder {{cssxref("max-height")}}) für vertikalen Überlauf, eine Breite ({{cssxref("width")}} oder {{cssxref("max-width")}}) für horizontalen Überlauf, eine Block-Größe ({{cssxref("block-size")}} oder {{cssxref("max-block-size")}}) für Überlauf in Blockrichtung oder eine Inline-Größe ({{cssxref("inline-size")}}, {{cssxref("max-inline-size")}} oder {{cssxref("white-space")}} auf `nowrap` gesetzt) für Überlauf in Inlinerichtung beschränkt werden.
+
+Der folgende CSS begrenzt die Größe des Containers, indem Werte von [Boxmodell](/de/docs/Web/CSS/Guides/Box_model)-Eigenschaften definiert werden, die die Größe des Containers einschränken.
+Eine Hintergrundfarbe, beschnitten auf den `content-box`, wird ebenfalls hinzugefügt, um zu verdeutlichen, wie überlaufende Inhalte die content box in den folgenden Erklärungen überlaufen.
+
+```css
+div {
+  height: 10em;
+  width: 15em;
+  border: 3px solid;
+  padding: 10px;
+
+  background-color: #ededed;
+  background-clip: content-box;
+}
+```
+
+### Verständnis der Überlaufwerte
+
+Die verschiedenen `overflow`-Werte definieren, ob ein Element Scrollleisten hat, ob es vom Benutzer und programmatisch scrollbar ist und ob es ein Scroll-Container (der einen neuen [Blockformatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt) ist, wenn die Inhalte dieses Elements überlaufen und, im Falle von `scroll`, sogar wenn sie es nicht tun.
+
+#### Der `visible` Wert
+
+Der Standardwert ist `visible`. Standardmäßig, wenn der Inhalt die Einschränkungen eines Containers überläuft, wird der Inhalt nicht auf den Container beschränkt. Ein Element, das standardmäßig oder ausdrücklich auf `visible` gesetzt ist, hat keine Scrollleisten, ist nicht vom Benutzer programmatisch scrollbar und ist kein {{Glossary("scroll_container", "Scroll-Container")}}. Dieser Wert erstellt keinen neuen Blockformatierungs-Kontext.
+
+```css live-sample___visible
+div {
+  overflow: visible;
+}
+```
+
+{{EmbedLiveSample("visible", "", "300px")}}
+
+```html hidden live-sample___visible
+<div>
+  <h2>overflow: visible;</h2>
+</div>
+<div>
+  <p>
+    The <code>overflow</code> property in this example is set to
+    <code>visible</code>. No scroll container is created; the content just
+    overflows the container.
+  </p>
+</div>
+```
+
+Mit `visible` erfolgt kein Clipping, sodass der überlaufende Inhalt außerhalb des Innenabstandes des Elements sichtbar ist und möglicherweise angrenzende Inhalte überlappt.
+
+#### Der `scroll` Wert
+
+Mit `scroll` wird der Inhalt am Innenabstand des Elements abgeschnitten und kann in den Sichtbereich gescrollt werden. Benutzeragenten zeigen Scrollleisten in beide Richtungen an, unabhängig davon, ob Inhalte überlaufen oder nicht, was verhindert, dass Scrollleisten erscheinen und verschwinden, während sich der Inhalt ändert. Drucker können dennoch überlaufende Inhalte drucken.
+
+Das Element ist immer ein {{Glossary("scroll_container", "Scroll-Container")}} — auch wenn kein überlaufender Inhalt vorhanden ist — und ist sowohl vom Benutzer scrollbar als auch programmatisch scrollbar.
+
+```css live-sample___scroll
+div {
+  overflow: scroll;
+}
+```
+
+{{EmbedLiveSample("scroll", "", "300px")}}
+
+```html hidden live-sample___scroll
+<div>
+  <h2>overflow: scroll;</h2>
+</div>
+<div>
+  <p>
+    The <code>overflow</code> property in this example is set to
+    <code>scroll</code>. A scroll container is created; a scrollbar is always
+    visible, even if not needed.
+  </p>
+</div>
+```
+
+Im ersten Beispiel, obwohl der Inhalt nicht überläuft, wird dennoch ein Scroll-Container erstellt. Im zweiten Beispiel wird der Inhalt auf den Innenabstand abgeschnitten, wobei eine Scrollleiste das Scrollen zum überlaufenden Inhalt ermöglicht.
+
+#### Der `auto` Wert
+
+Mit `auto` hängt es davon ab, ob das Element überlaufenden Inhalt hat, um festzulegen, ob das Element Scrollleisten hat und ein Scroll-Container ist. Wenn das Element überlaufenden Inhalt enthält, verhält es sich wie `scroll`: der überlaufende Inhalt wird am Innenabstand des Elements abgeschnitten und überlaufender Inhalt kann mit Scrollleisten in den Sichtbereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur an_, wenn der Inhalt überläuft. Wenn der Inhalt in den Innenabstand des Elements passt, sieht es genauso aus wie bei `visible`, erstellt jedoch dennoch einen neuen Formatierungskontext. Die Elemente-Box ist nur dann ein Scroll-Container, wenn es überlaufenden Inhalt gibt.
+
+```css live-sample___auto
+div {
+  overflow: auto;
+}
+```
+
+{{EmbedLiveSample("auto", "", "300px")}}
+
+```html hidden live-sample___auto
+<div>
+  <h2>overflow: auto;</h2>
+</div>
+<div>
+  <p>
+    The <code>overflow</code> property in this example is set to
+    <code>auto</code>. Because there is overflowing content, a scroll container
+    is created. The content is clipped to the padding box and a scroll bar
+    enables scrolling to the overflowing content.
+  </p>
+</div>
+```
+
+Bei Verwendung der Zwei-Wert-Syntax, wenn ein Wert auf `visible` eingestellt ist, verhält sich diese `visible` Überlaufrichtung als `auto`, wenn der andere Wert nicht `visible` oder `clip` ist.
+
+#### Der `hidden` Wert
+
+Mit `hidden` wird überlaufender Inhalt am Innenabstand des Elements abgeschnitten. Es gibt keine Scrollleisten und der abgeschnittene Inhalt ist nicht sichtbar (d.h. er ist "verborgen").
+
+Wenn es überlaufenden Inhalt gibt, ist das Element ein Scroll-Container. Während es keine Scrollleisten gibt und der Benutzer den Inhalt außerhalb des abgeschnittenen Bereichs nicht durch Aktionen wie das Ziehen auf einem Touchscreen oder die Verwendung des Scrollrads einer Maus anzeigen kann, kann der verborgene Überlaufinhalt programmiert gescrollt werden.
+
+Wenn der Inhalt fokussierbare Elemente enthält, bringt das Tabben das momentan fokussierte Element in den Sichtbereich. Inhalt kann auch programmiert gescrollt werden. Das Einstellen eines Wertes für die [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) oder [`scrollTop`](/de/docs/Web/API/Element/scrollTop) Eigenschaft scrollt diese Entfernung vom linken oder oberen Rand. Sie können auch die [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode verwenden.
+
+```css live-sample___hidden
+div {
+  overflow: hidden;
+}
+```
+
+{{EmbedLiveSample("hidden", "", "300px")}}
+
+```html hidden live-sample___hidden
+<div>
+  <h2>overflow: hidden;</h2>
+</div>
+<div>
+  <p>
+    The <code>overflow</code> property in this example is set to
+    <code>hidden</code>. While hidden,
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#interactive_content"
+      >interactive content</a
+    >
+    can be scrolled into view when focused. Because content overflows, the
+    element is a scroll container, even though no scroll bars are present.
+    Tabbing will give this
+    <input aria-label="input" placeholder="input" /> focus and scroll it into
+    view. This content is also programmatically scrollable.
+  </p>
+</div>
+```
+
+Das erste Beispiel hat keinen überlaufenden Inhalt und ist kein Scroll-Container. Das zweite Beispiel hat überlaufenden Inhalt, der auf den Innenabstand abgeschnitten ist. Obwohl es keine Scrollleiste gibt, die das Scrollen zum überlaufenden Inhalt ermöglicht, kann der Inhalt in den Sichtbereich gescrollt werden, z.B. durch Tabben zum {{htmlelement("input")}} im verborgenen Inhalt. Das zweite Beispiel ist ein Scroll-Container.
+
+#### Der `clip` Wert
+
+Mit `clip` ist überlaufender Inhalt standardmäßig verborgen, es gibt keine Scrollleisten und programmatisches Scrollen ist nicht möglich. Das Element ist kein Scroll-Container und es wird kein neuer [Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt. Wenn der abgeschnittene Inhalt interaktive Inhalte enthält, erhält der verborgene fokussierbare Inhalt dennoch den Tastaturfokus, wird jedoch nicht in den Sichtbereich gescrollt, wodurch er für Tastaturbenutzer unzugänglich wird.
+
+Mit `clip` wird der Überlaufinhalt an der _overflow-clip edge_ des Elements abgeschnitten, die mit der {{cssxref("overflow-clip-margin")}}-Eigenschaft definiert wird. Der abgeschnittene Inhalt überläuft den Innenabstand des Elements um den {{cssxref("&lt;length&gt;")}} Wert von `overflow-clip-margin`, der standardmäßig auf `0px` gesetzt ist.
+
+```css live-sample___clip
+div {
+  overflow: clip;
+}
+```
+
+{{EmbedLiveSample("clip", "", "350")}}
+
+```html hidden live-sample___clip
+<div>
+  <h2>overflow: clip;</h2>
+</div>
+<div>
+  <p>
+    The <code>overflow</code> property in this example is set to
+    <code>clip</code>. When hidden,
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#interactive_content"
+      >interactive content</a
+    >
+    can NOT be scrolled into view when focused. Overflowing content is clipped
+    to the container. No scroll container is created. Tabbing will give this
+    <input aria-label="input" placeholder="input" /> focus but will not scroll
+    it into view. Keyboard users will not be able to reach this content. This
+    content is also not programmatically scrollable.
+  </p>
+</div>
+<fieldset>
+  <legend>Select a <code>overflow-clip-margin</code> value</legend>
+  <ul>
+    <li>
+      <label
+        ><input type="radio" name="overflow" value="0" /> overflow-clip-margin:
+        0;</label
+      >
+    </li>
+    <li>
+      <label
+        ><input type="radio" name="overflow" value="3em" />
+        overflow-clip-margin: 3em;</label
+      >
+    </li>
+  </ul>
+</fieldset>
+```
+
+Das überlaufende Inhalt des zweiten Beispiels ist abgeschnitten. Das Tabben zum {{htmlelement("input")}} im verborgenen Inhalt gibt dem Element den Fokus, scrollt es jedoch nicht in den Sichtbereich, wodurch dieser Inhalt für Tastaturbenutzer unzugänglich ist.
+
+Bei Verwendung der Zwei-Wert-Syntax, wenn ein Wert auf `clip` gesetzt ist, verhält sich diese `clip`-Überlaufrichtung als `hidden`, wenn der andere Wert nicht `visible` oder `clip` ist.
+
+```css hidden live-sample___clip
+ul {
+  list-style-type: none;
+}
+label {
+  font-family: monospace;
+}
+:has([value="0"]:checked) div {
+  overflow-clip-margin: 0;
+}
+:has([value="3em"]:checked) div {
+  overflow-clip-margin: 3em;
+}
+
+@supports not (overflow-clip-margin: 0) {
+  body::before {
+    content: "Your browser doesn't support overflow-clip-margin yet.";
+    background-color: wheat;
+    display: block;
+    text-align: center;
+    padding: 1rem 0;
+
+    width: 100%;
+  }
+}
+```
+
+#### Mit scrollgesteuerten Animationen
+
+Beim Erstellen von [scrollgesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) mit der {{cssxref("animation-timeline/scroll", "scroll()")}} Funktion, ziehen Sie `clip` vor `hidden` in Betracht, wenn es keinen interaktiven Inhalt im abgeschnittenen Bereich gibt, es sei denn, Sie möchten ausdrücklich einen Scroll-Container erstellen.
+
+Mit sowohl `hidden` als auch `clip` wird der Überlauf abgeschnitten, aber `overflow: clip` erzeugt keinen Scroll-Container, sodass abgeschnittene Elemente übersprungen werden, wenn der Benutzeragent im DOM-Baum nach dem nächstgelegenen Vorfahren-Scroll-Container sucht.
+
+Da `overflow: hidden` einen Scroll-Container erstellt, wenn es überlaufenden Inhalt gibt, könnten Sie versehentlich einen Scroll-Vorfahren erstellen, der nicht scrollt. Verwenden Sie `clip` jedoch nur, wenn Sie sicher sind, dass Sie keinen interaktiven Inhalt abschneiden.
+
+```css hidden live-sample___visible live-sample___scroll live-sample___auto live-sample___clip live-sample___hidden
+div {
+  height: 10em;
+  width: 15em;
+  border: 3px solid;
+  padding: 10px;
+  background-color: #ededed;
+  background-clip: content-box;
+}
+p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-family: sans-serif;
+}
+h2 {
+  font-family: monospace;
+}
+body {
+  height: 98vh;
+  overflow: clip;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 3em;
+}
+```
+
+### Überlaufende ersetzte Elemente
+
+Das Setzen von `overflow` auf Bilder und andere {{Glossary("replaced_elements", "ersetzte Elemente")}} funktioniert wie erwartet in Browsern, die das CSS Overflow Module Level 4 unterstützen; in vorherigen Versionen der Spezifikation wurden ersetzte Elemente immer auf den begrenzenden Container abgeschnitten.
+
+Sehen Sie sich das [Browser-Kompatibilitätsdiagramm](#browser-kompatibilität) für aktuelle Informationen zur Unterstützung durch Browser an.
 
 ## Formale Definition
 
@@ -118,13 +389,11 @@ Die folgenden Nuancen sollten beim Verwenden der verschiedenen Schlüsselwörter
 
 ## Barrierefreiheit
 
-Ein scrollender Inhaltsbereich ist nicht über die Tastatur fokussierbar, sodass er von einem reinen Tastaturbenutzer nicht gescrollt werden kann. Firefox und Chrome 132 und höher sind Ausnahmen; sie machen Scrollcontainer standardmäßig fokussierbar.
-
-Für andere Browser müssen Sie, um reinen Tastaturbenutzern das Scrollen im Container zu ermöglichen, dem Container einen [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) mit `tabindex="0"` zuweisen. Leider hat ein Screenreader möglicherweise keinen Kontext über den Container, wenn er auf dieser Tabulatortaste stoppt, und könnte möglicherweise den gesamten Inhalt des Containers ankündigen. Um dies zu mildern, geben Sie dem Container eine geeignete [WAI-ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) (`role="region"`, zum Beispiel) und einen zugänglichen Namen (über [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)).
+In einigen Browsern sind Scroll-Inhaltsbereiche nicht über die Tastatur fokusierbar, daher können sie nicht von einem Benutzer bedient werden, der nur die Tastatur verwendet. Um sicherzustellen, dass alle Benutzer, die nur die Tastatur verwenden, den Container scrollen können, aktivieren Sie die Fokussierung des Elements, indem Sie [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) auf dem Container setzen. Um den Nutzern von Bildschirmleseprogrammen Kontext zu geben, wenn der Container den Fokus erhält, setzen Sie eine passende [WAI-ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) auf den Container, wie `role="region"`, und einen zugänglichen Namen, indem Sie das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) Attribut verwenden.
 
 ## Beispiele
 
-### Demonstration der Ergebnisse der verschiedenen `overflow`-Schlüsselwörter
+### Demonstration der Ergebnisse verschiedener Überlauf-Schlüsselwörter
 
 #### HTML
 
@@ -256,5 +525,7 @@ p.overlay {
 - {{Cssxref("overflow-block")}}, {{Cssxref("overflow-clip-margin")}}, {{Cssxref("overflow-inline")}}
 - {{Cssxref("clip")}}, {{Cssxref("display")}}, {{cssxref("text-overflow")}}, {{cssxref("white-space")}}
 - SVG {{SVGAttr("overflow")}} Attribut
-- [CSS overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [Tastaturbasierte Scrollbereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
+- [Scroll-Fortschritt Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines)
+- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Tastatur-only Scroll-Bereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)

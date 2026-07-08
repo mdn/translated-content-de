@@ -3,12 +3,12 @@ title: Temporal.ZonedDateTime.prototype.offsetNanoseconds
 short-title: offsetNanoseconds
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/offsetNanoseconds
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 6dd46d38ac550f9eeb3b0224b1b46857c9b0f580
 ---
 
-Die **`offsetNanoseconds`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen liefert eine Ganzzahl, die den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, welcher zur Interpretation des internen Moments verwendet wird, als Anzahl von Nanosekunden (positiv oder negativ). Der Wert ist eine sichere Ganzzahl, da er kleiner als ein Tag ist, welcher 8.64e15 Nanosekunden beträgt.
+Die **`offsetNanoseconds`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die den [Offset](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der verwendet wird, um den internen Moment als Anzahl von Nanosekunden (positiv oder negativ) zu interpretieren. Der Wert ist eine sichere ganze Zahl, da er kleiner als ein Tag ist, das sind 8.64e15 Nanosekunden.
 
-Der Setzugriff von `offsetNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Ändern Sie {{jsxref("Temporal/ZonedDateTime/offset", "offset")}}, um auch diese Eigenschaft zu ändern.
+Der Set-Accessor von `offsetNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen {{jsxref("Temporal/ZonedDateTime/offset", "offset")}} Wert zu erstellen (was diese Eigenschaft ebenfalls ändern wird), oder verwenden Sie die {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt in einer anderen Zeitzone zu erstellen.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ const dt3 = Temporal.ZonedDateTime.from(
 console.log(dt3.offsetNanoseconds); // 561000000000
 ```
 
-Hier ist eine Möglichkeit, ein `ZonedDateTime` zu erhalten, das die gleiche Wanduhrzeit in UTC darstellt:
+Hier ist eine Möglichkeit, ein `ZonedDateTime` zu erhalten, das dieselbe Uhrzeit in UTC repräsentiert:
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -41,7 +41,7 @@ const dtInUTC = dt.add({ nanoseconds: dt.offsetNanoseconds });
 console.log(dtInUTC.withTimeZone("UTC").toString()); // "2021-07-01T12:00:00+00:00[UTC]"
 ```
 
-Hier ist eine bessere Möglichkeit, das gleiche Ergebnis zu erzielen:
+Hier ist eine bessere Möglichkeit, dasselbe Ergebnis zu erzielen:
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
