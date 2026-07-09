@@ -3,40 +3,40 @@ title: CSS-Container-Abfragen
 short-title: Container queries
 slug: Web/CSS/Guides/Containment/Container_queries
 l10n:
-  sourceCommit: 2ce88199869b63f8da3bbeafd899400f7579cce9
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Container-Abfragen ermöglichen es Ihnen, einem Element basierend auf bestimmten Attributen seines Containers Stile zuzuweisen:
+Container-Abfragen ermöglichen es Ihnen, Stile auf ein Element basierend auf bestimmten Attributen seines Containers anzuwenden:
 
-- Dem {{cssxref("container-name")}}.
-- Der Größe des Containers.
-- Auf den Container angewendeten Stilen.
-- Der Scroll-Position des Containers oder dessen scrollendem Vorfahren.
-- Ob der Container [ankerpositioniert](/de/docs/Web/CSS/Guides/Anchor_positioning) ist und eine [Fallback-Option für die Positionsprüfung](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding) darauf angewendet wurde.
+- Der {{cssxref("container-name")}}.
+- Die Größe des Containers.
+- Auf den Container angewendete Stile.
+- Der Scrollzustand des Containers oder der eines seiner scrollenden Vorfahren.
+- Ob der Container [anker-positioniert](/de/docs/Web/CSS/Guides/Anchor_positioning) ist und eine [Fallback-Option für Position-Try](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding) angewendet wurde.
 
-Container-Abfragen sind eine Alternative zu [Media Queries](/de/docs/Web/CSS/Guides/Media_queries), die Stile auf Elemente basierend auf der Größe des Viewports oder anderen Gerätemerkmalen anwenden.
+Container-Abfragen sind eine Alternative zu [Media Queries](/de/docs/Web/CSS/Guides/Media_queries), die auf Elemente basierend auf der Größe des Viewports oder anderen Gerätemerkmalen angewendet werden.
 
-Dieser Artikel bietet eine Einführung in die Verwendung von Container-Abfragen, mit einem besonderen Fokus auf Größen-Container-Abfragen. Andere Leitfäden behandeln [Stil-](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), [Scroll-Zustand-](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) und [ankerbezogene](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries) Container-Abfragen im Detail.
+Dieser Artikel bietet eine Einführung in die Verwendung von Container-Abfragen, wobei der Schwerpunkt speziell auf Größen-Container-Abfragen liegt. Andere Leitfäden behandeln [Stil](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), [Scroll-Zustand](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) und [verankerte](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries) Container-Abfragen im Detail.
 
-![Zwei verschiedene Abfragetypen. Erstens, eine Media Query basierend auf der Breite des Viewports, die die volle Breite des Browsers ist. Zweitens, eine Container-Abfrage basierend auf der Breite eines Containerelements.](container-query.svg)
+![Zwei verschiedene Abfragetypen: Erstens, eine Media Query, die auf der Breite des Viewports basiert, der die volle Breite des Browsers ist. Zweitens, eine Container-Abfrage, die auf der Breite eines Containerelements basiert.](container-query.svg)
 
-## Verwendung von Container-Größen-Abfragen
+## Verwendung von Größen-Container-Abfragen
 
-Während Container-Abfragen Stile basierend auf dem Containernamen oder -typ anwenden, beziehen sich Container-Größen-Abfragen speziell auf die Abmessungen des Containers. Um Container-Größen-Abfragen zu verwenden, müssen Sie einen [Containment-Kontext](/de/docs/Web/CSS/Guides/Containment/Container_queries#naming_containment_contexts) auf einem Element deklarieren, damit der Browser weiß, dass Sie möglicherweise später die Abmessungen dieses Containers abfragen möchten.
-Verwenden Sie dazu die {{cssxref("container-type")}} Eigenschaft mit einem Wert von `size`, `inline-size` oder `normal`.
+Während Container-Abfragen Stile basierend auf dem Container-Namen oder Typ anwenden, beziehen sich Größen-Container-Abfragen speziell auf die Abmessungen eines Containers. Um Größen-Container-Abfragen zu verwenden, müssen Sie einen [Containment-Kontext](#benennen_von_containment-kontexten) auf einem Element deklarieren, damit der Browser weiß, dass Sie später die Abmessungen dieses Containers abfragen möchten.
+Verwenden Sie dazu die Eigenschaft {{cssxref("container-type")}} mit einem Wert von `size`, `inline-size` oder `normal`.
 
-Diese Werte haben die folgenden Effekte:
+Diese Werte haben folgende Auswirkungen:
 
 - `size`
-  - : Die Abfrage basiert auf den [Inline- und Block-](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) Abmessungen des Containers.
-    Wendet Layout-, Stil- und Größen-[Einschränkung](/de/docs/Web/CSS/Guides/Containment/Using) auf den Container an.
+  - : Die Abfrage basiert auf den [Inline- und Block-Abmessungen](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) des Containers.
+    Wendet Layout-, Stil- und Größen- [Containment](/de/docs/Web/CSS/Guides/Containment/Using) auf den Container an.
 - `inline-size`
-  - : Die Abfrage basiert auf den [Inline-](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) Abmessungen des Containers.
-    Wendet Layout-, Stil- und Inline-Größeneinschränkung auf das Element an.
+  - : Die Abfrage wird basierend auf den [Inline-Abmessungen](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) des Containers durchgeführt.
+    Wendet Layout-, Stil- und Inline-Größencontainment auf das Element an.
 - `normal`
-  - : Der Standardwert. Das Element ist kein Abfragecontainer für Container-Größen-Abfragen, kann aber dennoch als Abfragecontainer für [nur-namens-Container-Abfragen](#nur-namens-container-abfragen) oder Container-Stil-Abfragen verwendet werden.
+  - : Der Standardwert. Das Element ist kein Abfragecontainer für Größen-Container-Abfragen, kann aber dennoch als Abfragecontainer für [nur namensbasierte Container-Abfragen](#nur_namensbasierte_container-abfragen) oder Container-Stil-Abfragen verwendet werden.
 
-Betrachten Sie das folgende Beispiel eines Kartenbausteins für einen Blogbeitrag mit einem Titel und etwas Text:
+Betrachten Sie das folgende Beispiel eines Kartenkomponenten für einen Blogbeitrag mit einem Titel und etwas Text:
 
 ```html
 <div class="post">
@@ -47,7 +47,7 @@ Betrachten Sie das folgende Beispiel eines Kartenbausteins für einen Blogbeitra
 </div>
 ```
 
-Sie können einen Containment-Kontext mit der `container-type` Eigenschaft erstellen:
+Sie können einen Containment-Kontext mit der `container-type` Eigenschaft erzeugen:
 
 ```css
 .post {
@@ -55,8 +55,8 @@ Sie können einen Containment-Kontext mit der `container-type` Eigenschaft erste
 }
 ```
 
-Verwenden Sie anschließend die {{cssxref("@container")}} At-Regel, um eine Container-Abfrage zu definieren.
-Die Abfrage im folgenden Beispiel wird Stile auf Elemente basierend auf der Größe des nächsten Vorfahren mit einem Containment-Kontext anwenden.
+Verwenden Sie anschließend die @container-Regel von {{cssxref("@container")}} um eine Container-Abfrage zu definieren.
+Die Abfrage im folgenden Beispiel wird Stile auf Elemente basierend auf der Größe des nächstgelegenen Vorfahren mit einem Containment-Kontext anwenden.
 Insbesondere wird diese Abfrage eine größere Schriftgröße für den Kartentitel anwenden, wenn der Container breiter als `700px` ist:
 
 ```css
@@ -73,15 +73,15 @@ Insbesondere wird diese Abfrage eine größere Schriftgröße für den Kartentit
 }
 ```
 
-Mit Container-Abfragen kann die Karte in mehreren Bereichen einer Seite wiederverwendet werden, ohne dass es erforderlich ist, zu wissen, wo genau sie jedes Mal platziert wird.
+Mit Container-Abfragen kann die Karte in mehreren Bereichen einer Seite wiederverwendet werden, ohne jedes Mal genau zu wissen, wo sie platziert wird.
 Wenn der Container mit der Karte schmaler als `700px` ist, wird die Schrift des Kartentitels klein sein, und wenn die Karte in einem Container ist, der breiter als `700px` ist, wird die Schrift des Kartentitels größer sein.
 
-Für weitere Informationen zur Syntax von Container-Abfragen, siehe die {{cssxref("@container")}} Seite.
+Weitere Informationen zur Syntax von Container-Abfragen finden Sie auf der Seite {{cssxref("@container")}}.
 
-## Benennung von Containment-Kontexten
+## Benennen von Containment-Kontexten
 
-Im vorherigen Abschnitt wurden Stile basierend auf dem nächsten Vorfahren mit einem Containment-Kontext angewendet.
-Es ist möglich, einem Containment-Kontext einen Namen zu geben, indem die {{Cssxref("container-name")}} Eigenschaft verwendet wird. Einmal benannt, kann der Name in einer `@container` Abfrage verwendet werden, um einen bestimmten Container zu adressieren.
+Im vorherigen Abschnitt wurden Stile basierend auf dem nächstgelegenen Vorfahren mit einem Containment-Kontext angewendet.
+Es ist möglich, einem Containment-Kontext mit der Eigenschaft {{cssxref("container-name")}} einen Namen zu geben. Einmal benannt, kann der Name in einer `@container`-Abfrage verwendet werden, um einen bestimmten Container anzusprechen.
 Das folgende Beispiel erstellt einen Containment-Kontext mit dem Namen `sidebar`:
 
 ```css
@@ -91,7 +91,7 @@ Das folgende Beispiel erstellt einen Containment-Kontext mit dem Namen `sidebar`
 }
 ```
 
-Sie können dann diesen Containment-Kontext mit der `@container` At-Regel ansprechen:
+Sie können dann diesen Containment-Kontext mit der `@container`-Regel ansprechen:
 
 ```css
 @container sidebar (width > 700px) {
@@ -101,11 +101,11 @@ Sie können dann diesen Containment-Kontext mit der `@container` At-Regel anspre
 }
 ```
 
-Weitere Informationen zum Benennen von Containment-Kontexten finden Sie auf der {{cssxref("container-name")}} Seite.
+Weitere Informationen zum Benennen von Containment-Kontexten finden Sie auf der Seite {{cssxref("container-name")}}.
 
-## Nur-namens-Container-Abfragen
+## Nur namensbasierte Container-Abfragen
 
-Neben der Verwendung eines {{cssxref("container-name")}} zusammen mit einem [`<container-query>`](/de/docs/Web/CSS/Reference/At-rules/@container#container-query), können Sie einen Container nur mit seinem Namen abfragen. Diese sogenannten **nur-namens-Container-Abfragen** ermöglichen es, Stile selektiv auf Elemente anzuwenden, basierend darauf, ob sie einen Vorfahren mit einem bestimmten `container-name` haben.
+Neben der Verwendung eines {{cssxref("container-name")}} zusammen mit einem [`<container-query>`](/de/docs/Web/CSS/Reference/At-rules/@container#container-query), können Sie einen Container nur anhand seines Namens abfragen. Diese sogenannten **nur namensbasierten Container-Abfragen** ermöglichen die selektive Anwendung von Stilen auf Elemente basierend darauf, ob sie einen Vorfahren mit einem bestimmten `container-name` haben oder nicht.
 
 Betrachten Sie zum Beispiel das folgende HTML:
 
@@ -125,7 +125,7 @@ Wenn wir dem Container einen Namen zuweisen:
 }
 ```
 
-Können wir dann Stile nur selektiv auf Elemente innerhalb dieses Containers anwenden:
+Können wir selektiv nur auf die Elemente in diesem Container Stile anwenden:
 
 ```css
 @container my-container {
@@ -139,11 +139,11 @@ Können wir dann Stile nur selektiv auf Elemente innerhalb dieses Containers anw
 }
 ```
 
-In diesem Beispiel würden die angegebenen Stile nur auf die ersten und zweiten {{htmlelement("p")}} Elemente angewendet, nicht jedoch auf das dritte.
+In diesem Beispiel würden die angegebenen Stile nur auf die ersten zwei {{htmlelement("p")}}-Elemente angewendet werden, nicht jedoch auf das dritte.
 
-## Kurzschreibweise bei Container-Syntax
+## Kurzschrift für Container-Syntax
 
-Die Kurzschreibweise zur Deklarierung eines Containment-Kontextes ist die Verwendung der `container` Eigenschaft:
+Die Kurzschrift-Methode zum Deklarieren eines Containment-Kontexts besteht darin, die `container`-Eigenschaft zu verwenden:
 
 ```css
 .post {
@@ -151,26 +151,26 @@ Die Kurzschreibweise zur Deklarierung eines Containment-Kontextes ist die Verwen
 }
 ```
 
-Für weitere Informationen zu dieser Eigenschaft, siehe die {{Cssxref("container")}} Referenz.
+Weitere Informationen zu dieser Eigenschaft finden Sie in der {{cssxref("container")}}-Referenz.
 
-## Längeneinheiten für Container-Abfragen
+## Container-Abfragelängen-Einheiten
 
-Bei der Anwendung von Stilen auf die Nachkommen eines Containers unter Verwendung von Größen-Container-Abfragen (d.h. die {{cssxref("container-type")}} ist auf `size` oder `inline-size` gesetzt), können Sie Container-Abfrage-Längeneinheiten verwenden.
+Beim Anwenden von Stilen auf die Nachkommen eines Containers mithilfe von Größen-Container-Abfragen (das heißt, dessen {{cssxref("container-type")}} auf `size` oder `inline-size` gesetzt ist), können Sie Container-Abfragelängen-Einheiten verwenden.
 Diese Einheiten geben eine Länge relativ zu den Abmessungen eines Abfragecontainers an.
-Komponenten, die Längeneinheiten relativ zu ihrem Container verwenden, sind flexibler in verschiedenen Containern zu verwenden, ohne dass die konkreten Längenwerte neu berechnet werden müssen.
+Komponenten, die Längeneinheiten relativ zu ihrem Container verwenden, sind flexibler, in verschiedenen Containern verwendet zu werden, ohne konkrete Längenwerte neu berechnen zu müssen.
 
-Wenn kein geeigneter Container für die Abfrage verfügbar ist, ist die Container-Abfrage-Längeneinheit standardmäßig die [kleine Viewport-Einheit](/de/docs/Web/CSS/Reference/Values/length#small_viewport_units) für diese Achse (`sv*`).
+Wenn kein geeigneter Container für die Abfrage verfügbar ist, entsprechen die Container-Abfragelängen-Einheiten der [Small Viewport Unit](/de/docs/Web/CSS/Reference/Values/length#small_viewport_units) für diese Achse (`sv*`).
 
-Die Container-Abfrage-Längeneinheiten sind:
+Die Container-Abfragelängen-Einheiten sind:
 
 - `cqw`: 1% der Breite eines Abfragecontainers
 - `cqh`: 1% der Höhe eines Abfragecontainers
 - `cqi`: 1% der Inline-Größe eines Abfragecontainers
-- `cqb`: 1% der Block-Größe eines Abfragecontainers
-- `cqmin`: Der kleinere Wert von entweder `cqi` oder `cqb`
-- `cqmax`: Der größere Wert von entweder `cqi` oder `cqb`
+- `cqb`: 1% der Blockgröße eines Abfragecontainers
+- `cqmin`: Der kleinere Wert von `cqi` oder `cqb`
+- `cqmax`: Der größere Wert von `cqi` oder `cqb`
 
-Das folgende Beispiel verwendet die `cqi` Einheit, um die Schriftgröße einer Überschrift basierend auf der Inline-Größe des Containers zu setzen:
+Das folgende Beispiel verwendet die `cqi`-Einheit, um die Schriftgröße einer Überschrift basierend auf der Inline-Größe des Containers festzulegen:
 
 ```css
 @container (width > 700px) {
@@ -180,12 +180,12 @@ Das folgende Beispiel verwendet die `cqi` Einheit, um die Schriftgröße einer �
 }
 ```
 
-Für weitere Informationen zu diesen Einheiten siehe die [Container-Abfrage Längeneinheiten](/de/docs/Web/CSS/Reference/Values/length#container_query_length_units) Referenz.
+Weitere Informationen zu diesen Einheiten finden Sie in der [Container-Abfragelängen-Einheiten](/de/docs/Web/CSS/Reference/Values/length#container_query_length_units) Referenz.
 
-## Fallback-Lösungen für Container-Abfragen
+## Fallbacks für Container-Abfragen
 
-Für Browser, die Container-Abfragen noch nicht unterstützen, können {{cssxref("grid")}} und {{cssxref("flex")}} verwendet werden, um einen ähnlichen Effekt für den auf dieser Seite verwendeten Kartenkomponenten zu erzielen.
-Das folgende Beispiel verwendet eine {{cssxref("grid-template-columns")}} Deklaration, um ein zweispaltiges Layout für die Kartenkomponente zu erstellen.
+Für Browser, die Container-Abfragen noch nicht unterstützen, können {{cssxref("grid")}} und {{cssxref("flex")}} verwendet werden, um einen ähnlichen Effekt für die auf dieser Seite verwendete Kartenkomponente zu erzeugen.
+Das folgende Beispiel verwendet eine {{cssxref("grid-template-columns")}}-Deklaration, um ein Zwei-Spalten-Layout für die Kartenkomponente zu erstellen.
 
 ```css
 .card {
@@ -194,7 +194,7 @@ Das folgende Beispiel verwendet eine {{cssxref("grid-template-columns")}} Deklar
 }
 ```
 
-Wenn Sie ein einspaltiges Layout für Geräte mit kleinerem Viewport verwenden möchten, können Sie eine Media Query verwenden, um die Rastervorlage zu ändern:
+Wenn Sie ein Einzelspalten-Layout für Geräte mit einem kleineren Viewport verwenden möchten, können Sie eine Media Query verwenden, um das Rastertemplate zu ändern:
 
 ```css
 @media (width <= 700px) {
@@ -207,14 +207,14 @@ Wenn Sie ein einspaltiges Layout für Geräte mit kleinerem Viewport verwenden m
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
-- CSS {{Cssxref("@container")}} At-Regel
-- CSS {{Cssxref("contain")}} Eigenschaft
-- CSS {{Cssxref("container")}} Kurzschreibweise
-- CSS {{Cssxref("container-name")}} Eigenschaft
-- CSS {{cssxref("content-visibility")}} Eigenschaft
-- [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- CSS-{{Cssxref("@container")}}-Regel
+- CSS-{{Cssxref("contain")}}-Eigenschaft
+- CSS-{{Cssxref("container")}}-Kurzschrift-Eigenschaft
+- CSS-{{Cssxref("container-name")}}-Eigenschaft
+- CSS-{{cssxref("content-visibility")}}-Eigenschaft
+- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
 - [Verwendung von Container-Scroll-Zustandsabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
-- [Verwendung von ankerbezogenen Container-Abfragen](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
+- [Verwendung von verankerten Container-Abfragen](/de/docs/Web/CSS/Guides/Anchor_positioning/Anchored_container_queries)
 - [Say Hello to CSS Container Queries](https://ishadeed.com/article/say-hello-to-css-container-queries/) von Ahmad Shadeed
-- [Container Queries: a Quick Start Guide](https://www.oddbird.net/2021/04/05/containerqueries/)
+- [Container Queries: ein schneller Startleitfaden](https://www.oddbird.net/2021/04/05/containerqueries/)
 - [Sammlung von Artikeln zu Container-Abfragen](https://github.com/sturobson/Awesome-Container-Queries)

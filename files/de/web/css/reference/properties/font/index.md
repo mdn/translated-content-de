@@ -3,10 +3,10 @@ title: "`font` CSS-Eigenschaft"
 short-title: font
 slug: Web/CSS/Reference/Properties/font
 l10n:
-  sourceCommit: efad19be74655f7a9c78f78d81cd4fb18d551033
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Die **`font`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schriftart eines Elements. Alternativ stellt sie die Schriftart eines Elements auf eine Systemschriftart ein.
+Die **`font`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften einer Schriftart eines Elements fest. Alternativ setzt sie die Schriftart eines Elements auf eine Systemschriftart.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -38,7 +38,7 @@ font: caption;
 <section id="default-example">
   <q id="example-element">
     Prejudices, it is well known, are most difficult to eradicate from the heart
-    whose soil has never been loosened or fertilised by education: they grow
+    whose soil has never been loosened or fertilized by education: they grow
     there, firm as weeds among stones.
   </q>
 </section>
@@ -69,9 +69,9 @@ section {
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zusammenhängende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -102,76 +102,76 @@ font: caption;
 
 ### Werte
 
-Der Wert ist entweder eine Kurzschreibweise, die die verschiedenen schriftartbezogenen Eigenschaften spezifiziert, oder ein einzelnes `<system-font-family-name>` Schlüsselwort:
+Der Wert ist entweder eine Kurzschreibweise, die die verschiedenen schriftbezogenen Eigenschaften spezifiziert, oder ein einzelnes `<system-font-family-name>` Schlüsselwort:
 
 - `<'font-style'>` {{optional_inline}}
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-style")}}. Standardwert ist `normal`.
+  - : Siehe die {{cssxref("font-style")}} CSS-Eigenschaft. Standardwert ist `normal`.
 - `<font-variant-css2>` {{optional_inline}}
-  - : Entweder der Wert `normal` oder `small-caps` der Eigenschaft {{cssxref("font-variant")}}. Standardwert ist `normal`.
+  - : Entweder der `normal` oder `small-caps` Wert der {{cssxref("font-variant")}} Eigenschaft. Standardwert ist `normal`.
 - `<'font-weight'>` {{optional_inline}}
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-weight")}}. Standardwert ist `normal`.
+  - : Siehe die {{cssxref("font-weight")}} CSS-Eigenschaft. Standardwert ist `normal`.
 - `<font-width-css3>` {{optional_inline}}
-  - : Die von der CSS-Eigenschaft {{cssxref("font-width")}} unterstützten Schlüsselwörter. Standardwert ist `normal`.
+  - : Die von der {{cssxref("font-width")}} CSS-Eigenschaft unterstützten Schlüsselwörter. Standardwert ist `normal`.
 - `<'font-size'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-size")}}.
+  - : Siehe die {{cssxref("font-size")}} CSS-Eigenschaft.
 - `<'line-height'>` {{optional_inline}}
-  - : Siehe die CSS-Eigenschaft {{cssxref("line-height")}}. Standardwert ist `normal`.
+  - : Siehe die {{cssxref("line-height")}} CSS-Eigenschaft. Standardwert ist `normal`.
 - `<'font-family'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-family")}}. Muss der letzte Wert sein.
+  - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft. Muss der letzte Wert sein.
 
 - `<system-font-family-name>`
-  - : Ein einzelnes Schlüsselwort, das eine Systemschriftart repräsentiert, einschließlich:
+  - : Ein einzelnes Schlüsselwort, das eine Systemschriftart darstellt, einschließlich:
     - `caption`
-      - : Die Systemschriftart, die für beschriftete Steuerelemente (Buttons, Dropdowns etc.) verwendet wird.
+      - : Die Systemschriftart, die für beschriftete Steuerelemente (Buttons, Dropdowns, etc.) verwendet wird.
     - `icon`
       - : Die Systemschriftart, die zur Beschriftung von Symbolen verwendet wird.
     - `menu`
-      - : Die Systemschriftart, die in Menüs (z.B. Dropdown-Menüs oder Menüliste) verwendet wird.
+      - : Die Systemschriftart, die in Menüs (z. B. Dropdown-Menüs und Menüliste) verwendet wird.
     - `message-box`
       - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
     - `small-caption`
       - : Die Systemschriftart, die zur Beschriftung kleiner Steuerelemente verwendet wird.
     - `status-bar`
-      - : Die Systemschriftart, die in den Statusleisten von Fenstern verwendet wird.
+      - : Die Systemschriftart, die in Fensterstatusleisten verwendet wird.
 
-    Es gibt mehrere nicht standardmäßige Werte, die mit Präfixen implementiert sind.
+    Es gibt mehrere nicht-standardisierte Werte, die mit Präfixen implementiert sind.
 
 ## Beschreibung
 
-Der Wert der `font`-Eigenschaft ist entweder ein einzelnes Schlüsselwort, das einen `system-font-family-name` repräsentiert, oder mehrere ausgeschriebene Eigenschaftswerte, die verwendet werden, um alle unterschiedlichen Eigenschaften der Schriftart eines Elements zu setzen.
+Der `font`-Eigenschaftswert ist entweder ein einzelnes Schlüsselwort, das einen system-font-family-name darstellt, oder mehrere Longhand-Eigenschaftenwerte, die verwendet werden, um alle verschiedenen Eigenschaften der Schriftart eines Elements festzulegen.
 
-### Systemschriftart-Deklarationen
+### Systemschrift-Erklärungen
 
-Wenn `font` als ein `<system-font-family-name>` Schlüsselwort angegeben wird, muss der vollständige Eigenschaftswert auf dieses einzelne, nicht case-sensitive Schlüsselwort gesetzt werden. Gültige Werte sind `caption`, `icon`, `menu`, `message-box`, `small-caption` oder `status-bar`.
+Wird `font` als ein `<system-font-family-name>` Schlüsselwort spezifiziert, muss der volle Eigenschaftswert auf dieses einzelne, nicht auf Groß- und Kleinschreibung achtende Schlüsselwort festgelegt werden. Gültige Werte schließen `caption`, `icon`, `menu`, `message-box`, `small-caption` oder `status-bar` ein.
 
-Browser unterstützen auch nicht standardmäßige, vorangestellte Werte:
+Browser unterstützen auch nicht-standardisierte Präfix-Werte:
 
 - Chromium implementiert `-webkit-control`, `-webkit-small-control` und `-webkit-mini-control`.
-- Webkit umfasst die Chromium-Werte und fügt `-webkit-body`, `-webkit-pictograph` und `-webkit-ruby-text`, zusammen mit mehreren `-apple-system-*` vorangestellten Systemschriftart-Namen hinzu.
+- Webkit umfasst die Chromium-Werte und fügt `-webkit-body`, `-webkit-pictograph` und `-webkit-ruby-text` sowie mehrere `-apple-system-*` Präfix-Systemschriftartnamen hinzu.
 - Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
-Die Systemschriftart oder `<system-font-family-name>` kann nur mit der `font`-Eigenschaft gesetzt werden. Durch das Definieren eines einzelnen Schlüsselwortwertes, wie `font: icon`, werden die Schriftfamilie, Größe, Gewicht, Stil usw. auf die Werte gesetzt, die der Browser für die benannte Systemschriftart definiert. Diese Werte können alle mit ausgeschriebenen Deklarationen, die _nach_ der `font`-Deklaration platziert werden, geändert werden.
+Die Systemschrift oder `<system-font-family-name>` kann nur mit der `font`-Eigenschaft gesetzt werden. Das Definieren eines einzigen Schlüsselwortwerts, wie `font: icon`, setzt die Schriftfamilie, Größe, Gewicht, Stil usw. auf die Werte, die der Browser für die benannte Systemschriftart definiert. Diese Werte können alle mit Langform-Deklarationen geändert werden, die _nach_ der `font`-Deklaration platziert werden.
 
-Das Einbeziehen von `font`-Komponenten nach dem `<system-font-family-name>` Schlüsselwort innerhalb eines `font`-Eigenschaftswertes macht die Deklaration ungültig. Zum Beispiel ist `font: icon small` ungültig.
+Das Einschließen von `font` Langform-Komponenten nach dem `<system-font-family-name>` Schlüsselwort innerhalb eines `font` Eigenschaftswerts macht die Deklaration ungültig. Zum Beispiel ist `font: icon small` ungültig.
 
-Wenn ein `<system-font-family-name>` Schlüsselwort irgendwo im Wert erscheint, außer als erstes Element, wird das Schlüsselwort als ein {{cssxref("ident")}} behandelt, das einen Standard-`font-family`-Namen repräsentiert. Zum Beispiel setzt die Deklaration `font: small icon` die `font-family` auf eine Schriftart namens `icon`, eine Nicht-Systemschriftart, die möglicherweise existiert oder nicht. Diese Deklaration setzt auch die `font-size` auf `small` und setzt alle anderen Bestandteile der Kurzschreibweise auf ihre Anfangswerte zurück.
+Erscheint ein `<system-font-family-name>` Schlüsselwort irgendwo im Wert, außer als erste Komponente, wird das Schlüsselwort als ein {{cssxref("ident")}} behandelt, das einen Standard-`font-family`-Namen repräsentiert. Zum Beispiel setzt die Deklaration `font: small icon` die `font-family` auf eine Schriftart namens `icon`, eine Nicht-Systemschriftart, die möglicherweise existiert oder nicht. Diese Deklaration setzt auch die `font-size` auf `small` und setzt alle anderen Kurzschreib-Komponenteneigenschaften auf ihre Anfangswerte zurück.
 
-### Kurzhand-Schriftdeklariationen
+### Kurzschrift Schrift-Erklärungen
 
-Wenn `font` als Kurzschrift für mehrere schriftartbezogene Eigenschaften angegeben ist, dann:
+Wird `font` als eine Kurzschreibweise für mehrere schriftbezogene Eigenschaften spezifiziert, dann:
 
-- muss es Werte für folgende Eigenschaften beinhalten:
+- muss sie Werte für:
   - {{cssxref("font-size")}}
   - {{cssxref("font-family")}}
 
-- kann es optional Werte für folgende Eigenschaften beinhalten:
+- sie kann optional Werte für:
   - {{cssxref("font-style")}}
   - {{cssxref("font-variant")}}
   - {{cssxref("font-weight")}}
   - {{cssxref("font-width")}}
-  - {{cssxref("line-height")}}
+  - {{cssxref("line-height")}} enthalten.
 
-Wie bei jeder Kurzschreibweise, werden alle der nicht spezifizierten ausgeschriebenen Komponenteneigenschaften auf ihren Anfangswert gesetzt, möglicherweise überschreibend Werte, die zuvor mit Nicht-Kurzschreibweiseigenschaften gesetzt wurden. Außerdem setzt die Kurzschreibweise die folgenden Eigenschaften auf ihre Anfangswerte zurück. Die Kurzschreibweise kann sie nicht explizit setzen:
+Wie bei jeder Kurzschreibweise werden alle der nicht spezifizierten Langform-Komponenteneigenschaften auf ihre Anfangswerte gesetzt, wodurch möglicherweise zuvor mit Nicht-Kurzschreib-Werten gesetzte Werte überschrieben werden. Zudem setzt die Kurzschreibweise die folgenden Eigenschaften auf ihre Anfangswerte zurück. Die Kurzschreibweise kann sie nicht explizit setzen:
 
 - {{cssxref("font-feature-settings")}}
 - {{cssxref("font-kerning")}}
@@ -187,22 +187,22 @@ Wie bei jeder Kurzschreibweise, werden alle der nicht spezifizierten ausgeschrie
 - {{cssxref("font-variant-position")}}
 - {{cssxref("font-variation-settings")}}
 
-### Reihenfolge der Kurzschreibweiseigenschaften
+### Reihenfolge der Kurzschreib-Eigenschaft
 
-Die Reihenfolge einiger der ausgeschriebenen Werte innerhalb der `font`-Kurzschreibweisendeklaration muss einigen Regeln folgen:
+Die Reihenfolge einiger Langform-Werte innerhalb der Kurzschreib-`font`-Deklaration muss ein paar Regeln folgen:
 
-- Sowohl die `font-size`- als auch die `font-family`-Komponenten sind erforderlich (außer für [Systemschriftart-Deklarationen](#systemschriftart-deklarationen)).
-- Die `font-style`, `font-variant` und `font-weight` Komponenten müssen dem `font-size` Wert vorangehen.
-- Ein `line-height` kann nur enthalten sein, wenn `font-size` enthalten ist. Falls vorhanden, muss `line-height` unmittelbar auf `font-size` folgen, wobei die beiden Werte durch einen Schrägstrich (`/`) getrennt sind, z.B.: `16px / 3`.
-- Die `font-family` muss der letzte spezifizierte Wert sein.
+- Sowohl die `font-size` als auch die `font-family` Komponenten sind erforderlich (außer bei [Systemschrift-Erklärungen](#systemschrift-erklärungen)).
+- Die `font-style`, `font-variant` und `font-weight` Komponenten müssen dem `font-size` Wert vorausgehen.
+- Eine `line-height` kann nur enthalten sein, wenn `font-size` enthalten ist. Ist vorhanden, muss die `line-height` unmittelbar nach der `font-size` folgen, wobei die beiden Werte durch einen Schrägstrich (`/`) getrennt sind, zum Beispiel: `16px / 3`.
+- Die `font-family` muss der zuletzt angegebene Wert sein.
 
-### Komponenten mit eingeschränkten Werten
+### Komponenten mit begrenzten Werten
 
-Für die Rückwärtskompatibilität umfassen die gültigen Werte der `font-variant` und `font-width` Komponenten nicht alle gültigen Werte oder die ausgeschriebenen Entsprechungen.
+Aus Gründen der Abwärtskompatibilität beinhalten die gültigen Werte der `font-variant` und `font-width` Komponenten nicht alle gültigen Werte oder ihre Langform-Äquivalente.
 
-Die gültigen Werte für die `font-variant` Komponente sind auf `normal` oder `small-caps` beschränkt. Obwohl keine anderen Werte unterstützt werden, setzt die `font`-Kurzschreibung alle ausgeschriebenen `font-variant-*` Eigenschaften auf `normal` zurück, einschließlich {{cssxref("font-variation-settings")}}, {{cssxref("font-variant-position")}}, {{cssxref("font-variant-emoji")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-east-asian")}}, und {{cssxref("font-variant-alternates")}}.
+Die gültigen Werte für die `font-variant` Komponente sind auf `normal` oder `small-caps` begrenzt. Obwohl keine anderen Werte unterstützt werden, setzt die Kurzschreib-`font`-Erklärung alle `font-variant-*` Langform-Eigenschaften auf `normal` zurück, einschließlich {{cssxref("font-variation-settings")}}, {{cssxref("font-variant-position")}}, {{cssxref("font-variant-emoji")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-east-asian")}}, und {{cssxref("font-variant-alternates")}}.
 
-Die gültigen Werte für die `font-width` Komponente sind auf Schlüsselwortwerte beschränkt: `normal`, `ultra-condensed`, `extra-condensed`, `condensed`, `semi-condensed`, `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`. Die ausgeschriebene Eigenschaft {{cssxref("font-width")}} unterstützt auch {{cssxref("percentage")}}-Werte, aber diese sind in der Kurzschreibweise nicht zulässig.
+Die gültigen Werte für die `font-width` Komponente sind auf Schlüsselwortwerte beschränkt: `normal`, `ultra-condensed`, `extra-condensed`, `condensed`, `semi-condensed`, `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`. Die {{cssxref("font-width")}} Langform-Eigenschaft unterstützt auch {{cssxref("percentage")}} Werte, aber sie sind innerhalb der Kurzschreibweise nicht gültig.
 
 ## Formale Definition
 
@@ -214,9 +214,9 @@ Die gültigen Werte für die `font-width` Komponente sind auf Schlüsselwortwert
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Beispiel definiert die `font` für alle {{htmlelement("p")}}-Elemente. Wir setzen die `font-size` auf `12px` und die `line-height` auf `14px`, wobei wir diese mit einem Schrägstrich (`/`) trennen. Die Deklaration setzt auch die `font-family` auf `sans-serif`.
+Dieses Beispiel definiert die `font` für alle {{htmlelement("p")}} Elemente. Wir setzen die `font-size` auf `12px` und die `line-height` auf `14px`, getrennt durch einen Schrägstrich (`/`). Die Deklaration setzt auch die `font-family` auf `sans-serif`.
 
 ```css
 p {
@@ -253,13 +253,13 @@ p {
 
 {{EmbedLiveSample('Multiple properties','100%', '100')}}
 
-### Systemschriftart
+### Systemschrift
 
-Dieses Beispiel demonstriert die Verwendung der `font`-Eigenschaft, um eine Systemschriftart festzulegen.
+Dieses Beispiel zeigt die Verwendung der `font`-Eigenschaft zum Setzen einer Systemschrift.
 
 #### CSS
 
-Wir setzen die Schriftart des Absatzes so, dass sie dieselbe `font-family`, `line-height`, `font-size` usw. hat wie die Statusleiste des Fensters, dann setzen wir die `line-height` auf `1.6`.
+Wir setzen die Schrift des Absatzes so, dass dieselbe `font-family`, `line-height`, `font-size` etc. wie die Statusleiste des Fensters verwendet wird, und setzen dann die `line-height` auf `1.6`.
 
 ```css
 p {
@@ -270,7 +270,7 @@ p {
 
 #### HTML
 
-Unser HTML beinhaltet einen Absatz ({{htmlelement("p")}}) mit einem Link ({{htmlelement("a")}}), der einen komplizierten [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attributwert enthält. Wenn Sie den gerenderten Link überfahren oder fokussieren, sollte die Statusleiste Ihres Browsers den Wert des `href`-Attributs anzeigen.
+Unser HTML enthält einen Absatz ({{htmlelement("p")}}), der einen Link ({{htmlelement("a")}}) mit einem komplizierten [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) Attributwert enthält. Wenn Sie den gerenderten Link schweben oder fokussieren, sollte die Statusleiste Ihres Browsers den Wert des `href`-Attributs anzeigen.
 
 ```html
 <p>
@@ -285,11 +285,11 @@ family%20and%20size%20and%20the%20text%20in%20the%20example."
 
 #### JavaScript
 
-Da die URL in unserem HTML-Link keine gute Praxis ist, fügen wir ein Skript hinzu, das das Dokument daran hindert, beim Klicken auf den Link zu einer nicht existierenden Seite weiterzuleiten.
+Da die URL in unserem HTML-Link keine gute Praxis ist, fügen wir ein Skript hinzu, das verhindert, dass das Dokument zu einer nicht vorhandenen Seite weitergeleitet wird, wenn der Link angeklickt wird.
 
 ```js
 const aElem = document.querySelector("a");
-aElem.addEventListener("click", function (e) {
+aElem.addEventListener("click", (e) => {
   e.preventDefault();
   return false;
 });
@@ -299,11 +299,11 @@ aElem.addEventListener("click", function (e) {
 
 {{EmbedLiveSample('System font','100%', '100')}}
 
-Überfahren oder fokussieren Sie den Link. Die Schriftart sollte dieselbe Familie und Größe haben wie der Text in Ihrer Statusleiste unten im Browserfenster.
+Schweben oder fokussieren Sie den Link. Die Schrift sollte dieselbe Familie und Größe wie der Text in Ihrer Statusleiste am unteren Rand Ihres Browserfensters haben.
 
-### Kurzschreibweisedeklarations-Ersteller
+### Kurzschrift-Deklarationserzeuger
 
-In dieser Live-Vorführung können Sie verschiedene Optionsfelder auswählen, um unterschiedliche Kurzschreibwerte zu erzeugen und gleichzeitig die Auswirkungen der von Ihnen erstellten Kurzschreibungsdeklarationen zu visualisieren.
+In dieser Live-Demonstration können Sie verschiedene Optionsfelder auswählen, um unterschiedliche Kurzschreibwerte zu erzeugen, während Sie die Auswirkungen der von Ihnen erstellten Kurzschreib-Erklärungen visualisieren.
 
 ```html hidden
 <p>
@@ -630,4 +630,4 @@ document.querySelectorAll("input[type='radio']").forEach((el) => {
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Systemschriftenstapel](https://css-tricks.com/snippets/css/system-font-stack/) auf CSS-Tricks (2017)
+- [System font stack](https://css-tricks.com/snippets/css/system-font-stack/) auf CSS-Tricks (2017)

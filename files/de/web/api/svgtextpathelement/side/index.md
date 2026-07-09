@@ -1,16 +1,17 @@
 ---
-title: "SVGTextPathElement: side-Eigenschaft"
+title: "SVGTextPathElement: side Eigenschaft"
 short-title: side
 slug: Web/API/SVGTextPathElement/side
 l10n:
-  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
 {{APIRef("SVG")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`side`**-Eigenschaft der [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Seite des Pfads darstellt, auf der der Text (relativ zur Pfadrichtung) platziert wird.
+Die **`side`** schreibgeschützte Eigenschaft der [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)-Schnittstelle gibt die Seite des Pfads an, auf der der Text platziert ist (relativ zur Pfadrichtung).
 
-Die `side.baseVal`-Eigenschaft spiegelt das {{SVGAttr("side")}} Inhaltsattribut des angegebenen {{SVGElement("textPath")}}-Elements als einen Aufzählungswert wider. Obwohl `side` schreibgeschützt ist, können Sie `side.baseVal` verwenden, um den Wert des entsprechenden Attributs zu ändern.
+Die `side.baseVal`-Eigenschaft spiegelt das {{SVGAttr("side")}} Inhaltsattribut des angegebenen {{SVGElement("textPath")}}-Elements als einen aufgezählten Wert wider.
+Während `side` schreibgeschützt ist, können Sie `side.baseVal` verwenden, um den Wert des entsprechenden Attributs zu ändern.
 
 In SVG 2 spiegelt `side.animVal` auch den nicht animierten Wert des Attributs wider.
 
@@ -21,7 +22,7 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
 Die folgenden statischen Eigenschaften geben die Werte an, die von `side.baseVal` (und `side.animVal`) zurückgegeben werden können:
 
 - [`SVGTextPathElement.TEXTPATH_SIDETYPE_LEFT`](/de/docs/Web/API/SVGTextPathElement#textpath_sidetype_unknown) (1)
-  - : Der Text wird auf der linken Seite des Pfads gerendert (standardmäßig).
+  - : Der Text wird auf der linken Seite des Pfads gerendert (der Standardwert).
     Dies entspricht einem Wert von `"left"` im SVG `side`-Attribut.
 - [`SVGTextPathElement.TEXTPATH_SIDETYPE_RIGHT`](/de/docs/Web/API/SVGTextPathElement#textpath_sidetype_right) (2)
   - : Der Text wird auf der rechten Seite des Pfads gerendert.
@@ -31,19 +32,19 @@ Die folgenden statischen Eigenschaften geben die Werte an, die von `side.baseVal
     Dieser Wert kann nicht gesetzt werden.
 
 Beachten Sie, dass `baseVal` nicht auf `0` (`TEXTPATH_SIDETYPE_UNKNOWN`) oder einen anderen als die oben aufgeführten Werte gesetzt werden kann.
-Die Eigenschaft `animVal` ist schreibgeschützt und löst einen Fehler aus, wenn Sie versuchen, ihr einen Wert zuzuweisen.
+`animVal` ist schreibgeschützt und wirft einen Fehler, wenn Sie versuchen, darauf zu schreiben.
 
 ## Beispiele
 
-Siehe auch das [Beispiel](/de/docs/Web/API/SVGTextPathElement#basic_usage) in `SVGTextPathElement`, das es Ihnen ermöglicht, das `side`-Attribut zu toggeln.
+Siehe auch das [Beispiel](/de/docs/Web/API/SVGTextPathElement#basic_usage) in `SVGTextPathElement`, das es Ihnen ermöglicht, das `side`-Attribut umzuschalten.
 
 ### Zugriff auf die `side`-Eigenschaft
 
-Dieses Beispiel demonstriert, wie Sie die `side`-Eigenschaft und insbesondere ihren `baseVal` setzen und abrufen können.
+Dieses Beispiel zeigt, wie Sie die `side`-Eigenschaft, insbesondere `baseVal`, setzen und abrufen können.
 
 #### HTML
 
-Zuerst definieren wir HTML und CSS für einen SVG-Pfad, der Text auf der rechten Seite in unterstützenden Browsern unter Verwendung des SVG `side`-Attributs zeichnet.
+Zuerst definieren wir HTML und CSS für einen SVG-Pfad, der Text auf der rechten Seite in unterstützenden Browsern mit dem SVG `side`-Attribut zeichnet.
 
 ```css hidden
 html,
@@ -70,8 +71,8 @@ svg {
 </svg>
 ```
 
-Wir fügen auch eine Schaltfläche hinzu, um den Wert der `side.baseVal`-Eigenschaft zu toggeln.
-Beachten Sie, dass es auch Protokollierungscode gibt, der versteckt ist, da er nicht relevant ist.
+Wir fügen auch einen Button hinzu, um den Wert der `side.baseVal`-Eigenschaft umzuschalten.
+Beachten Sie, dass es auch Protokollierungscode gibt, der ausgeblendet ist, da er nicht relevant ist.
 
 ```html
 <button id="toggle-side">Toggle Side</button>
@@ -100,8 +101,8 @@ function log(text) {
 
 #### JavaScript
 
-Der folgende Code ruft zuerst die `side.baseVal`-Eigenschaft ab und vergleicht sie mit den aufgezählten statischen Eigenschaftswerten, um zu bestimmen (und zu protokollieren), auf welcher Seite des Pfads der Text gezeichnet wird.
-Wenn die `side`-Eigenschaft nicht definiert ist, wird der Code fehlschlagen, und wir vermerken, dass die `side`-Eigenschaft nicht unterstützt wird.
+Der folgende Code holt zunächst die `side.baseVal`-Eigenschaft und vergleicht sie mit den aufgezählten statischen Eigenschaftswerten, um zu bestimmen (und zu protokollieren), auf welcher Seite des Pfads der Text gezeichnet wird.
+Wenn die `side`-Eigenschaft nicht definiert ist, wird der Code einen Fehler auslösen, und wir stellen fest, dass die `side`-Eigenschaft nicht unterstützt wird.
 
 ```js
 const textPath = document.querySelector("textPath");
@@ -136,7 +137,7 @@ logCurrentSide();
 ```
 
 Der folgende Code zeigt, wie Sie `side.baseVal` mit den aufgezählten statischen Werten setzen können.
-Der Ereignishandler überprüft zuerst den aktuellen Wert von `side.baseVal` und toggelt dann den Wert auf die statische Eigenschaft, die auf die andere Seite passt.
+Der Ereignishandler überprüft zunächst den aktuellen Wert von `side.baseVal` und schaltet dann den Wert auf die statische Eigenschaft um, die der anderen Seite entspricht.
 
 ```js
 // Toggle the side when the button is clicked
@@ -160,9 +161,9 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Togglen Sie die Schaltfläche, um den Text von einer Seite auf die andere zu verschieben.
+Klicken Sie auf den Button, um den Text von einer Seite zur anderen zu bewegen.
 
-{{EmbedLiveSample('Zugriff auf die `side`-Eigenschaft', 200, 500)}}
+{{EmbedLiveSample('Accessing the `side` property', 200, 500)}}
 
 ## Spezifikationen
 
@@ -174,5 +175,4 @@ Togglen Sie die Schaltfläche, um den Text von einer Seite auf die andere zu ver
 
 ## Siehe auch
 
-- [`SVGTextPathElement.side`](/de/docs/Web/API/SVGTextPathElement/side)
-- [`SVGTextPathElement` Methodentypen](/de/docs/Web/API/SVGTextPathElement#static_properties)
+- [`SVGTextPathElement` method types](/de/docs/Web/API/SVGTextPathElement#static_properties)

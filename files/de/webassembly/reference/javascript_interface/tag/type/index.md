@@ -2,10 +2,10 @@
 title: WebAssembly.Tag.prototype.type()
 slug: WebAssembly/Reference/JavaScript_interface/Tag/type
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Die **`type()`**-Methode des [`Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag)-Objekts kann verwendet werden, um die Sequenz von Datentypen abzurufen, die mit dem Tag verknüpft sind.
+Die **`type()`**-Methode des [`Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag)-Objekts kann verwendet werden, um die Abfolge von Datentypen zu erhalten, die mit dem Tag verknüpft sind.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ Keine
 
 ### Rückgabewert
 
-Ein Objekt mit einer Eigenschaft namens `parameters`, die das Array von Datentypen referenziert, das mit diesem [`Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) verknüpft ist.
+Ein Objekt mit einer Eigenschaft namens `parameters`, die das Array der mit diesem [`Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) verknüpften Datentypen referenziert.
 
-Dies ist eine Kopie des ursprünglich im [`Tag()`-Konstruktor](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag) übergebenen `type`-Objekts.
+Dies ist eine Kopie des `type`-Objekts, das ursprünglich in den [`Tag()`-Konstruktor](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag) übergeben wurde.
 
 ## Beispiele
 
-Dieses Codebeispiel erstellt ein Tag, das zwei Datentypen definiert, und ruft sie dann mit `type()` ab:
+Dieses Code-Snippet erstellt ein Tag, das zwei Datentypen definiert und ruft sie dann mit `type()` ab:
 
 ```js
 const tag = new WebAssembly.Tag({ parameters: ["i32", "i64"] });
 console.log(tag.type());
 ```
 
-Das Objekt, das in die Konsole geschrieben wird, sieht folgendermaßen aus:
+Das im Konsolenprotokoll angezeigte Objekt sieht folgendermaßen aus:
 
-```js
+```json
 {
-  parameters: ["i32", "i64"];
+  "parameters": ["i32", "i64"]
 }
 ```
 

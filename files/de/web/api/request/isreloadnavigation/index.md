@@ -1,48 +1,44 @@
 ---
-title: "Anforderung: isReloadNavigation-Eigenschaft"
+title: "Anfrage: isReloadNavigation-Eigenschaft"
 short-title: isReloadNavigation
 slug: Web/API/Request/isReloadNavigation
 l10n:
-  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`isReloadNavigation`** der [`Request`](/de/docs/Web/API/Request) Schnittstelle ist ein Boolean, der angibt, ob die Anforderung durch eine vom Benutzer ausgelöste Neuanschaffung ausgelöst wurde.
+Die schreibgeschützte Eigenschaft **`isReloadNavigation`** des [`Request`](/de/docs/Web/API/Request)-Interfaces ist ein boolescher Wert, der angibt, ob es sich bei der Anfrage um eine vom Benutzer ausgelöste Neuladung handelt.
 
-Eine vom Benutzer ausgelöste Neuanschaffung kann über ein Browser-Steuerelement ausgelöst werden, wie das Drücken von <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd> oder durch Klicken auf die Neuanschaffungsschaltfläche des Browsers, oder programmatisch (zum Beispiel durch den Aufruf von [`Location.reload()`](/de/docs/Web/API/Location/reload), [`History.go(0)`](/de/docs/Web/API/History/go) oder [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload)).
+Eine vom Benutzer ausgelöste Neuladung kann über eine Browsersteuerung ausgelöst werden, beispielsweise durch Drücken von <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>R</kbd> oder durch Klicken auf die Neuladen-Schaltfläche des Browsers, oder programmatisch (zum Beispiel durch Aufrufen von [`Location.reload()`](/de/docs/Web/API/Location/reload), [`History.go(0)`](/de/docs/Web/API/History/go) oder [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload)).
 
-Diese Eigenschaft wird hauptsächlich innerhalb von `fetch`-Ereignis-Handlern von Service Workern verwendet, um angemessen auf Neuanschaffungsanforderungen im Vergleich zu Nicht-Neuanschaffungsanforderungen zu reagieren. Ein Neuanschaffungsanforderung zeigt beispielsweise an, dass der Benutzer aktuelle Daten erwartet, daher sollte der Inhalt vom Server gegenüber dem aus einem Cache bevorzugt werden.
+Diese Eigenschaft wird hauptsächlich in `fetch`-Ereignis-Handlern innerhalb eines Service Workers verwendet, um angemessen auf Neuladeanfragen im Vergleich zu Nicht-Neuladeanfragen zu reagieren. Zum Beispiel zeigt eine Neuladeanfrage an, dass der Benutzer aktuelle Daten erwartet, daher sollten Inhalte vom Server dem aus einem Cache vorgezogen werden.
 
 ## Wert
 
-Ein Boolean-Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Das folgende Beispiel kann in einem Service Worker-Skript verwendet werden, um Neuanschaffungen zu überprüfen und entsprechend zu reagieren.
+Das folgende Beispiel kann innerhalb eines Service Worker-Skripts verwendet werden, um Neuladungen zu überprüfen und entsprechend zu reagieren.
 
-Innerhalb eines `fetch`-Ereignis-Handlers prüfen wir zunächst, ob der `Request.mode` des Ereignisses `navigate` ist und die `isReloadNavigation`-Eigenschaften `true` sind. Wenn ja, handelt es sich um eine Neuanschaffungsnavigation; daher holen wir die Seite aus dem Netzwerk, um eine aktualisierte Version bereitzustellen. Falls das fehlschlägt, versuchen wir, die Seite als Rückfalllösung aus dem [`Cache`](/de/docs/Web/API/Cache) abzurufen.
+Innerhalb eines `fetch`-Ereignis-Handlers prüfen wir zunächst, ob die [`Request.mode`](/de/docs/Web/API/Request/mode)-Eigenschaft des Ereignisses `navigate` und die `isReloadNavigation`-Eigenschaften `true` sind. Wenn dies der Fall ist, handelt es sich um eine Neuladungsnavigation; wir holen daher die Seite aus dem Netzwerk, um eine aktualisierte Version bereitzustellen. Scheitert dies, versuchen wir, die Seite aus dem [`Cache`](/de/docs/Web/API/Cache) als Fallback abzurufen.
 
-Wenn die Navigation keine Neuanschaffungsnavigation ist, versuchen wir zunächst, die Seite aus dem `Cache` abzurufen und holen nur dann aus dem Netzwerk, wenn keine zwischengespeicherte Version der Seite gefunden wird.
+Wenn es sich bei der Navigation nicht um eine Neuladungsnavigation handelt, versuchen wir zuerst, die Seite aus dem `Cache` abzurufen, und holen sie nur aus dem Netzwerk, wenn keine zwischengespeicherte Version der Seite gefunden wird.
 
 ```js
 self.addEventListener("fetch", (event) => {
   if (event.request.mode === "navigate" && event.request.isReloadNavigation) {
     event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          return response;
-        })
-        .catch(() => caches.match(event.request)),
+      fetch(event.request).catch(() => caches.match(event.request)),
     );
   } else {
     event.respondWith(
-      caches.match(event.request).then((cached) => {
-        return cached || fetch(event.request);
-      }),
+      caches
+        .match(event.request)
+        .then((cached) => cached || fetch(event.request)),
     );
   }
 });

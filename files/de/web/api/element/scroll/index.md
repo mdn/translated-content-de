@@ -3,12 +3,12 @@ title: "Element: scroll() Methode"
 short-title: scroll()
 slug: Web/API/Element/scroll
 l10n:
-  sourceCommit: 96c4b1173c97edf49089240ff992fa6aa96c1751
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`scroll()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
+Die **`scroll()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces scrollt zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
 
 ## Syntax
 
@@ -20,20 +20,20 @@ scroll(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des Elements, das Sie in der oberen linken Ecke angezeigt haben möchten.
+  - : Das Pixel entlang der horizontalen Achse des Elements, das oben links angezeigt werden soll.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Elements, das Sie in der oberen linken Ecke angezeigt haben möchten.
+  - : Das Pixel entlang der vertikalen Achse des Elements, das oben links angezeigt werden soll.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top` {{optional_inline}}
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl an Pixeln entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left` {{optional_inline}}
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl an Pixeln entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte haben muss:
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
         - `smooth`: Das Scrollen wird sanft animiert.
         - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft des Elements bestimmt.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft auf dem Element bestimmt.
 
         Wenn weggelassen, ist der Standardwert von `behavior` `auto`.
 
@@ -42,18 +42,18 @@ scroll(options)
 Ein {{jsxref("Promise")}}, das mit einem Objekt erfüllt wird, das die folgende Eigenschaft enthält:
 
 - `interrupted`
-  - : Ein boolescher Wert, der anzeigt, ob die Scroll-Operation unterbrochen wurde (`true`) oder nicht (`false`). Eine solche Unterbrechung tritt typischerweise auf, wenn ein programmatisches Scrollen im Gange ist und ein weiteres programmatisches Scrollen auf demselben Element initiiert wird, bevor das erste abgeschlossen ist.
+  - : Ein Boolean-Wert, der anzeigt, ob der Scroll-Vorgang unterbrochen (`true`) wurde oder nicht (`false`). Eine solche Unterbrechung tritt normalerweise auf, wenn ein programmatischer Scroll-Vorgang im Gange ist und ein weiterer programmatischer Scroll-Vorgang auf demselben Element begonnen wird, bevor der erste abgeschlossen ist.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 // Put the 1000th vertical pixel at the top of the element
 element.scroll(0, 1000);
 ```
 
-Verwendung von `options`:
+Verwenden von `options`:
 
 ```js
 element.scroll({
@@ -63,20 +63,20 @@ element.scroll({
 });
 ```
 
-### Reagieren auf das Ende des Scrollen
+### Reagieren auf das Ende des Scrollens
 
-Unser [Demo zu Elementmethoden](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) ([siehe Quellcode](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods)) zeigt, wie der Promise-Rückgabewert von `scroll()` verwendet werden kann, um auf das Ende einer Scroll-Operation zu reagieren. Diese Technik ist vor allem in Fällen nützlich, in denen das Scrollen sanft über die Zeit erfolgt (erreicht durch Festlegen der [`behavior`](#behavior) Option auf `smooth` oder durch Setzen der {{cssxref("scroll-behavior")}} Eigenschaft des scrollenden Elements auf `smooth`).
+Unser [Elementmethoden-Demo](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) ([Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods)) zeigt, wie der Promise-Rückgabewert von `scroll()` verwendet werden kann, um auf das Ende eines Scroll-Vorgangs zu reagieren. Diese Technik ist vor allem in Fällen nützlich, in denen das Scrollen sanft über die Zeit erfolgt (erreicht durch Setzen der [`behavior`](#behavior) Option auf `smooth` oder durch Setzen der {{cssxref("scroll-behavior")}} Eigenschaft des scrollenden Elements auf `smooth`).
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("section")}} Element, das mehrere Absatzinhalte und ein {{htmlelement("div")}} Element Werkzeugleiste mit {{htmlelement("button")}} Elementen enthält, die verschiedene Scroll-Operationen im `<section>` auslösen.
+Unser HTML enthält ein {{htmlelement("section")}} Element mit mehreren Absätzen von Inhalten und ein {{htmlelement("div")}} Element-Werkzeugleiste mit {{htmlelement("button")}} Elementen, die verschiedene Scroll-Vorgänge auf der `<section>` auslösen.
 
 ```html
 <div>
   <button class="scroll">scroll() to 1000</button>
-  <button class="scrollto">scrollTo() top</button>
-  <button class="scrollby">scrollBy() 200</button>
-  <button class="scrollintoview">Scroll last &lt;p&gt; into view</button>
+  <button class="scroll-to">scrollTo() top</button>
+  <button class="scroll-by">scrollBy() 200</button>
+  <button class="scroll-into-view">Scroll last &lt;p&gt; into view</button>
 </div>
 
 <section>...</section>
@@ -84,7 +84,7 @@ Unser HTML enthält ein {{htmlelement("section")}} Element, das mehrere Absatzin
 
 #### CSS
 
-Wir geben dem `<section>` Element eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}} Wert von `scroll`, damit es vertikal scrollt, und setzen seine {{cssxref("scroll-behavior")}} Eigenschaft auf `smooth`, so dass alle Scroll-Operationen sanft über die Zeit anstatt sofort animiert werden.
+Wir geben dem `<section>` Element eine feste {{cssxref("height")}} und einen {{cssxref("overflow-y")}} Wert von `scroll`, sodass es vertikal scrollt, und setzen seine {{cssxref("scroll-behavior")}} Eigenschaft auf `smooth`, damit alle Scroll-Vorgänge sanft über die Zeit animiert werden, anstatt sofort zu erfolgen.
 
 ```css
 section {
@@ -97,7 +97,7 @@ section {
 }
 ```
 
-Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, so dass es sanft ausblendet oder einblendet. Darüber hinaus definieren wir {{cssxref("@keyframes")}} Blöcke, um die erforderlichen {{cssxref("opacity")}} Änderungen für diese Animationen zu definieren.
+Wir erstellen außerdem zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, sodass das Element sanft ausblendet oder einblendet. Außerdem definieren wir {{cssxref("@keyframes")}} Blöcke, um die notwendigen Änderungen der {{cssxref("opacity")}} für diese Animationen zu definieren.
 
 ```css
 .fade-out {
@@ -129,11 +129,11 @@ Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` K
 }
 ```
 
-Der Rest des CSS wird der Kürze halber nicht angezeigt.
+Der Rest des CSS wird aus Gründen der Kürze nicht gezeigt.
 
 #### JavaScript
 
-Wir beginnen damit, Referenzen auf das `<button>`, das die `scroll()` Operation ausführt, die Werkzeugleiste `<div>`, und das scrollende `<section>` zu holen:
+Wir beginnen, indem wir Referenzen zu dem `<button>`, das den `scroll()`-Vorgang auslöst, der Werkzeugleiste `<div>` und der scrollenden `<section>` abrufen:
 
 ```js
 const scrollBtn = document.querySelector(".scroll");
@@ -141,7 +141,7 @@ const toolbar = document.querySelector("div");
 const section = document.querySelector("section");
 ```
 
-Als Nächstes definieren wir eine Funktion namens `isInterrupted()`, die aufgerufen wird, wenn eine Scroll-Operation beendet ist und einen booleschen `interrupted` Wert als Parameter nimmt. Sie protokolliert eine Nachricht in der Konsole, die besagt, dass das Scrollen abgeschlossen ist, und gibt an, ob die Operation unterbrochen wurde (`interrupted` ist `true`) oder nicht. Zusätzlich, wenn `interrupted` `true` ist, wird ein `alert()` aufgerufen, um die Unterbrechung deutlich anzuzeigen.
+Als nächstes definieren wir eine Funktion namens `isInterrupted()`, die so gestaltet ist, dass sie als Reaktion auf das Ende eines Scroll-Vorgangs ausgeführt wird, wobei ein boolescher `interrupted` Wert als Parameter übergeben wird. Sie protokolliert eine Meldung in die Konsole, um zu sagen, dass das Scrollen abgeschlossen ist, und zeigt an, ob der Vorgang unterbrochen wurde (`interrupted` ist `true`) oder nicht. Darüber hinaus, wenn `interrupted` wahr ist, wird ein `alert()` aufgerufen, um die Unterbrechung deutlich anzuzeigen.
 
 ```js
 function isInterrupted(interrupted) {
@@ -152,7 +152,7 @@ function isInterrupted(interrupted) {
 }
 ```
 
-Wenn der Button geklickt wird, wenden wir sofort die `fade-out` Klasse auf die Werkzeugleiste an, wodurch sie ausblendet. Dann führen wir `scroll(0, 1000)` auf dem `<section>` durch, um seinen Inhalt um 1000 Pixel herunterzuscrollen, und `await`en die Auflösung ihres Promises, während wir dies tun, und speichern das `result` in einer Konstante. Wenn das Promise aufgelöst wurde, rufen wir `isInterrupted()` auf, um zu melden, dass die Scroll-Operation beendet ist und ob sie unterbrochen wurde. Schließlich wenden wir die `fade-in` Klasse auf die Werkzeugleiste an, wodurch sie wieder einblendet.
+Wenn der Button angeklickt wird, wird sofort die Klasse `fade-out` auf die Werkzeugleiste angewendet, wodurch sie ausgeblendet wird. Wir führen dann `scroll(0, 1000)` auf der `<section>` aus, um deren Inhalt um 1000 Pixel nach unten zu scrollen, und warten auf die Auflösung ihres Promise und speichern das `result` in einer Konstante. Wenn das Promise aufgelöst ist, rufen wir `isInterrupted()` auf, um zu melden, dass der Scroll-Vorgang beendet ist und ob er unterbrochen wurde. Schließlich wenden wir die Klasse `fade-in` auf die Werkzeugleiste an, wodurch sie wieder eingeblendet wird.
 
 ```js
 scrollBtn.addEventListener("click", async () => {
@@ -163,19 +163,19 @@ scrollBtn.addEventListener("click", async () => {
 });
 ```
 
-Der für `scroll()` nicht relevante Code wird der Kürze halber nicht gezeigt.
+Der nicht relevante Code für `scroll()` wird aus Gründen der Kürze nicht gezeigt.
 
 #### Ergebnis
 
-Klicken Sie die Buttons, um das Scroll-Verhalten zu sehen. Beachten Sie, wie die Werkzeugleiste ausblendet wenn ein Button gedrückt wird, und wieder einblendet, sobald das sanfte Scrollen abgeschlossen ist. Versuchen Sie auch, einen Button zu drücken und dann schnell einen weiteren, bevor die erste Scroll-Operation abgeschlossen ist. Beachten Sie, wie in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
+Klicken Sie auf die Buttons, um das Scroll-Verhalten zu sehen. Beachten Sie, wie die Werkzeugleiste beim Drücken eines Buttons ausblendet und nachdem das sanfte Scrollen beendet ist, wieder einblendet. Versuchen Sie auch, einen Button zu drücken und dann schnell einen anderen Button zu drücken, bevor der erste Scroll-Vorgang abgeschlossen ist. Beachten Sie, dass in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
 
 {{EmbedGHLiveSample("dom-examples/scroll-promises/element-methods/", "100%", 620)}}
 
-Sie können auch [das Demo in einem separaten Tab laden](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) und den [Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods).
+Sie können das [Demo auch in einem separaten Tab laden](https://mdn.github.io/dom-examples/scroll-promises/element-methods/) und den [Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/element-methods).
 
-#### Hinweis zur Funktionsprüfung
+#### Anmerkung zur Feature-Erkennung
 
-Wenn Sie dieses Beispiel in einem Browser ausführen, der keine Promise zurückgebenden Scroll-Operationen unterstützt, sind die Scroll-Operationen weiterhin sanft, aber die Werkzeugleiste blendet nicht aus und dann wieder ein, wenn die Operation beendet ist. Die Funktionsprüfung wird von einer Funktion namens `supportsScrollPromises()` durchgeführt, die eine Scroll-Operation ausführt und prüft, ob ihr Rückgabewert ein Promise ist:
+Wenn Sie dieses Beispiel in einem Browser ausführen, der scrollende Operationen ohne Rückgabe von Promises nicht unterstützt, sind die Scroll-Operationen zwar trotzdem sanft, aber die Werkzeugleiste blendet nicht aus und wieder ein, sobald der Vorgang beendet ist. Die Feature-Erkennung wird von einer Funktion namens `supportsScrollPromises()` behandelt, die einen Scroll-Vorgang ausführt und testet, ob der Rückgabewert ein Promise ist:
 
 ```js
 function supportsScrollPromises() {
@@ -184,7 +184,7 @@ function supportsScrollPromises() {
 }
 ```
 
-Schauen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/element-methods/index.js) an, um zu sehen, wie die Funktionsprüfung verwendet wird.
+Sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/element-methods/index.js) an, um zu sehen, wie die Feature-Erkennung verwendet wird.
 
 ## Spezifikationen
 

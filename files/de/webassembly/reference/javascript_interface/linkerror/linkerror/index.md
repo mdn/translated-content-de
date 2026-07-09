@@ -1,14 +1,11 @@
 ---
-title: WebAssembly.LinkError()-Konstruktor
+title: WebAssembly.LinkError() Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/LinkError/LinkError
 l10n:
-  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
+  sourceCommit: 3934778cdfee0d5d2ae4c93b9f5568701008a628
 ---
 
-Der **`WebAssembly.LinkError()`**-Konstruktor erstellt ein neues
-WebAssembly-`LinkError`-Objekt, das auf einen Fehler während der Modul-
-Instanziierung hinweist (außer [traps](https://webassembly.github.io/simd/core/intro/overview.html#trap)
-der Startfunktion).
+Der **`WebAssembly.LinkError()`** Konstruktor erstellt ein neues WebAssembly `LinkError` Objekt, das auf einen Fehler während der Modulinstanziierung hinweist (außer [Traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) von der Startfunktion).
 
 ## Syntax
 
@@ -27,25 +24,23 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut geworfen wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
+  - : Der Name der Datei, die den Ausnahme verursachenden Code enthält.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
+  - : Die Zeilennummer des Codes, die die Ausnahme verursacht hat.
 
 ## Beispiele
 
-### Erstellen einer neuen LinkError-Instanz
+### Erstellen einer neuen LinkError Instanz
 
-Das folgende Code-Snippet erstellt eine neue `LinkError`-Instanz und protokolliert ihre
-Details in der Konsole:
+Das folgende Snippet erstellt eine neue `LinkError` Instanz und protokolliert deren Details in die Konsole:
 
 ```js
 try {
   throw new WebAssembly.LinkError("Hello", "someFile", 10);
 } catch (e) {
-  console.log(e instanceof LinkError); // true
+  console.log(e instanceof WebAssembly.LinkError); // true
   console.log(e.message); // "Hello"
   console.log(e.name); // "LinkError"
   console.log(e.fileName); // "someFile"
@@ -65,6 +60,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly)-Übersicht
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [WebAssembly](/de/docs/WebAssembly) Übersicht
+- [WebAssembly Konzepte](/de/docs/WebAssembly/Guides/Concepts)
+- [Verwenden der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

@@ -3,12 +3,12 @@ title: SVG-Attribut-Referenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: 6220f771788093b57a7fd05340f6dfd7824efc63
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-SVG-Elemente können mit Hilfe von Attributen modifiziert werden, die beeinflussen, wie das Element behandelt oder gerendert wird.
+SVG-Elemente können mit Hilfe von Attributen verändert werden, die beeinflussen, wie das Element gehandhabt oder gerendert wird.
 
-Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Links zur Referenzdokumentation. Diese helfen Ihnen zu erfahren, welche Elemente sie unterstützen und wie sie funktionieren.
+Unten finden Sie eine Liste aller in SVG verfügbaren Attribute, zusammen mit Links zur Referenzdokumentation, die Ihnen dabei helfen, zu lernen, welche Elemente sie unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
@@ -309,7 +309,7 @@ Die Kernattribute sind globale Attribute.
 
 ### Bedingte Verarbeitungsattribute
 
-Die bedingten Verarbeitungsattribute steuern, ob die Elemente, auf denen sie festgelegt sind, verarbeitet werden.
+Die bedingten Verarbeitungsattribute steuern, ob die Elemente, auf denen sie gesetzt sind, verarbeitet werden.
 
 - {{SVGAttr("requiredExtensions")}}
 - {{SVGAttr("requiredFeatures")}}
@@ -317,7 +317,7 @@ Die bedingten Verarbeitungsattribute steuern, ob die Elemente, auf denen sie fes
 
 ### XLink-Attribute
 
-Die XLink-Attribute können auf Ressourcen verweisen.
+Die XLink-Attribute können Ressourcen referenzieren.
 
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 - {{SVGAttr("xlink:type")}} {{deprecated_inline}}
@@ -329,9 +329,9 @@ Die XLink-Attribute können auf Ressourcen verweisen.
 
 ### Präsentationsattribute
 
-SVG-Präsentationsattribute sind SVG-Attribute, die auch als CSS-Eigenschaften auf SVG-Elementen verwendet werden können. Sie setzen CSS-Eigenschaftswerte auf einem Element mit einer Spezifität von `0`, sodass andere Autorenstile in einem Stylesheet oder {{SVGAttr("style")}}-Attribut sie überschreiben können. Präsentationsattributwerte werden als CSS-Werte und nicht als Deklarationen geparst, sodass sie nicht `!important` enthalten können.
+SVG-Präsentationsattribute sind SVG-Attribute, die auch als CSS-Eigenschaften auf SVG-Elementen verwendet werden können. Sie setzen CSS-Eigenschaften für ein Element mit einer Spezifität von `0`, sodass andere Autorenstile in einem Stylesheet oder {{SVGAttr("style")}}-Attribut sie überschreiben können. Präsentationsattributwerte werden als CSS-Werte und nicht als Deklarationen geparst, daher können sie nicht `!important` enthalten.
 
-Die meisten Präsentationsattribute werden vererbt, wenn sie als CSS-Eigenschaften verwendet werden (zum Beispiel {{cssxref("fill")}} und {{cssxref("stroke")}}). [Geometrieeigenschaften](#geometrieeigenschaften) sind die Hauptausnahme: Ihre CSS-Gegenstücke werden nicht vererbt.
+Die meisten Präsentationsattribute erben, wenn sie als CSS-Eigenschaften verwendet werden (z. B. {{cssxref("fill")}} und {{cssxref("stroke")}}). [Geometrie-Eigenschaften](#geometrie-eigenschaften) sind die Hauptausnahme: Ihre CSS-Gegenstücke erben nicht.
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
@@ -406,13 +406,13 @@ Die meisten Präsentationsattribute werden vererbt, wenn sie als CSS-Eigenschaft
 - {{SVGAttr("x")}}
 - {{SVGAttr("y")}}
 
-#### Geometrieeigenschaften
+#### Geometrie-Eigenschaften
 
-Geometrieeigenschaften beschreiben die Position und Dimensionen von SVG-Formen. In [SVG 2](https://www.w3.org/TR/SVG2/#GeometryProperties) sind sie eine definierte Untergruppe von Präsentationsattributen, deren CSS-Gegenstücke nicht vererben.
+Geometrie-Eigenschaften beschreiben die Position und Dimensionen von SVG-Formen. In [SVG 2](https://svgwg.org/svg2-draft/geometry.html) sind sie eine definierte Untermenge von Präsentationsattributen, deren CSS-Gegenstücke nicht erben.
 
-Jede Geometrieeigenschaft gilt als Präsentationsattribut nur auf bestimmten Elementen. Zum Beispiel definiert {{SVGAttr("r")}} den Radius eines {{SVGElement("circle")}}, hat jedoch keine Wirkung auf Elemente wie {{SVGElement("rect")}}.
+Jede Geometrie-Eigenschaft gilt als Präsentationsattribut nur auf bestimmten Elementen. Zum Beispiel definiert {{SVGAttr("r")}} den Radius eines {{SVGElement("circle")}}, hat aber keinen Effekt auf Elemente wie {{SVGElement("rect")}}.
 
-Die SVG-Geometrieeigenschaften sind:
+Die SVG-Geometrie-Eigenschaften sind:
 
 - {{cssxref("cx")}}
 - {{cssxref("cy")}}
@@ -425,35 +425,35 @@ Die SVG-Geometrieeigenschaften sind:
 - {{cssxref("width")}}
 - {{cssxref("height")}}
 
-Für die Anwendbarkeit pro Element siehe die Attributseite jeder Eigenschaft und die Liste auf der Seite des {{SVGElement("g")}}-Elements.
+Für anwendungsspezifische Informationen finden Sie auf den Attributseiten der jeweiligen Eigenschaften und auf der Liste auf der Seite des {{SVGElement("g")}}-Elements.
 
 ### Filter-Attribute
 
-- Filter-Primitive-Attribute (Präsentationsattribute)
+- Filter-Primitiv-Attribute (Präsentationsattribute)
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Transferfunktion-Attribute
+- Transferfunktions-Attribute
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Animationszielelementattribute
+- Attribute des Animationselements
   - : {{SVGAttr("href")}}
-- Animationsattributzielattribute
+- Animationsattribut-Zielattribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
-- Animationstimingattribute
+- Animationstiming-Attribute
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
-- Animationswertattribute
+- Animationswert-Attribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}
-- Animationsadditionsattribute
+- Animationszusatzattribute
   - : {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
 
 ### Ereignisattribute
 
-Alle HTML- und SVG-Elemente unterstützen Ereignishandler-Attribute, die im [`GlobalEventHandlers`](/de/docs/Web/HTML/Reference/Global_attributes#list_of_global_event_handler_attributes) Mixin definiert sind.
+Alle HTML- und SVG-Elemente unterstützen Ereignis-Handler-Attribute, die im [`GlobalEventHandlers`](/de/docs/Web/HTML/Reference/Global_attributes#list_of_global_event_handler_attributes) Mixin definiert sind.
 
-Während Ereignishandler-Attribute, wie [`onblur`](/de/docs/Web/API/Element/blur_event) und [`onauxclick`](/de/docs/Web/API/Element/auxclick_event), auf alle Elemente anwendbar sind, haben sie möglicherweise keine Wirkung. Zum Beispiel kann das [`oncuechange`](/de/docs/Web/API/HTMLTrackElement/cuechange_event) Attribut auf jedes Element angewendet werden, ist aber nur für das {{htmlelement("track")}}-Element relevant.
+Während Ereignis-Handler-Attribute, wie [`onblur`](/de/docs/Web/API/Element/blur_event) und [`onauxclick`](/de/docs/Web/API/Element/auxclick_event), auf alle Elemente angewendet werden können, haben sie möglicherweise keinen Effekt. Zum Beispiel kann das [`oncuechange`](/de/docs/Web/API/HTMLTrackElement/cuechange_event) Attribut auf jedes Element angewendet werden, ist aber nur für das {{htmlelement("track")}} Element relevant.
 
-Ereignishandler-Attribute werden nicht empfohlen, gelten als unsicher und können durch [Content-Security-Policies (CSP)](/de/docs/Web/Security/Practical_implementation_guides/CSP) blockiert werden. Verwenden Sie stattdessen den Ereignisnamen innerhalb einer Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+Ereignis-Handler-Attribute werden nicht empfohlen, da sie als unsicher gelten und durch [Content Security Policies (CSP)](/de/docs/Web/Security/Practical_implementation_guides/CSP) blockiert werden können. Verwenden Sie stattdessen den Ereignisnamen innerhalb einer [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) Methode.
 
 ## Siehe auch
 

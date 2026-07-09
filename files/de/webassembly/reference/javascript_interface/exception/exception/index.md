@@ -2,10 +2,10 @@
 title: WebAssembly.Exception-Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/Exception/Exception
 l10n:
-  sourceCommit: 184a2adcf533de244f520829045c2ad85c6af1a8
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Der **`WebAssembly.Exception()`**-Konstruktor wird verwendet, um eine neue [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception)-Objektinstanz zu erstellen.
+Der **`WebAssembly.Exception()`**-Konstruktor wird verwendet, um eine neue Instanz eines [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception)-Objekts zu erstellen.
 
 ## Syntax
 
@@ -19,31 +19,31 @@ new Exception(tag, payload, options)
 - `tag`
   - : Eine Instanz von [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), die die erwarteten Datentypen für jeden der Werte im `payload` definiert.
 - `payload`
-  - : Ein Array von einem oder mehreren Datenfeldern, die die Nutzdaten der Ausnahme bilden.
-    Die Elemente müssen den Datentypen der entsprechenden Elemente im `tag` entsprechen.
-    Wenn die Anzahl der Datenfelder in den Nutzdaten und deren Typen nicht übereinstimmen, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+  - : Ein Array von einem oder mehreren Datenfeldern, die die Nutzlast der Ausnahme bilden.
+    Die Elemente müssen mit den Datentypen der entsprechenden Elemente im `tag` übereinstimmen.
+    Wenn die Anzahl der Datenfelder in der Nutzlast und deren Typen nicht übereinstimmen, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 - `options` {{optional_inline}} {{non-standard_inline}}
   - : Ein Objekt mit den folgenden optionalen Feldern:
     - `traceStack` {{optional_inline}} {{non-standard_inline}}
-      - : `true`, wenn die `Exception` möglicherweise einen Stack-Trace an ihrer [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack)-Eigenschaft angehängt haben kann, andernfalls `false`.
+      - : `true`, wenn die `Exception` möglicherweise einen Stack-Trace an deren [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack)-Eigenschaft angehängt hat, ansonsten `false`.
         Standardmäßig `false`.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Die `payload`- und `tag`-Sequenzen haben nicht die gleiche Anzahl von Elementen und/oder die Elemente sind nicht von übereinstimmenden Typen.
+  - : Die `payload`- und `tag`-Sequenzen haben nicht die gleiche Anzahl an Elementen und/oder die Elemente sind nicht von übereinstimmenden Typen.
 
 ## Beschreibung
 
-Der [`Exception()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/Exception)-Konstruktor akzeptiert ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), ein Array von Werten und ein `options`-Objekt als Argumente.
+Der `Exception()`-Konstruktor akzeptiert ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), ein Array von Werten und ein `options`-Objekt als Argumente.
 Der Tag definiert eindeutig den _Typ_ einer Ausnahme, einschließlich der Reihenfolge ihrer Argumente und deren Datentypen.
-Der gleiche Tag, der zum Erstellen der `Exception` verwendet wurde, ist erforderlich, um auf die Argumente einer ausgelösten Ausnahme zuzugreifen (mithilfe von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg)).
+Der gleiche Tag, der zur Erstellung der `Exception` verwendet wurde, ist erforderlich, um die Argumente einer ausgelösten Ausnahme zuzugreifen (mithilfe von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg)).
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Normalerweise würde dieser Konstruktor nicht manuell verwendet werden, um eine Wasm-Ausnahme zu erstellen. Stattdessen wird ein `WebAssembly.Exception`-Objekt normalerweise beim Umgang mit Wasm-Ausnahmen erstellt, zum Beispiel:
+Normalerweise würde man diesen Konstruktor nicht verwenden, um manuell eine Wasm-Ausnahme zu erstellen. Stattdessen wird ein `WebAssembly.Exception`-Objekt normalerweise beim Umgang mit Wasm-Ausnahmen erstellt, zum Beispiel:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
@@ -63,9 +63,9 @@ WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
 );
 ```
 
-Ein funktionierendes Beispiel finden Sie auf der Referenzseite für die [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Anweisung.
+Für ein funktionierendes Beispiel siehe die [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Instruktionsreferenzseite.
 
-### Manuelle Nutzung
+### Manuelle Verwendung
 
 Dieses Beispiel zeigt die manuelle Erstellung einer `WebAssembly.Exception`-Instanz.
 
@@ -88,6 +88,6 @@ const exception = new WebAssembly.Exception(tag, [42, 42.3]);
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersicht
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
+- [WebAssembly](/de/docs/WebAssembly)-Übersicht
+- [WebAssembly-Grundlagen](/de/docs/WebAssembly/Guides/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

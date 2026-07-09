@@ -1,12 +1,12 @@
 ---
-title: "catch_all: try_table Klausel"
+title: "catch_all: try_table-Klausel"
 short-title: catch_all
 slug: WebAssembly/Reference/Exception_handling/try_table/catch_all
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Die **`catch_all`**-Klausel fängt jede Ausnahme ab und legt nichts auf den Stapel.
+Die **`catch_all`**-Klausel fängt jede Ausnahme ab und schiebt nichts auf den Stapel.
 
 {{InteractiveExample("Wat Demo: catch_all", "tabbed-taller")}}
 
@@ -53,7 +53,7 @@ const myErrorTag = new WebAssembly.Tag({ parameters: ["i32"] });
 // Import the tag and the log function into the module
 const env = {
   my_error: myErrorTag,
-  log: () => {
+  log() {
     console.log("An error was caught!");
   },
 };
@@ -75,7 +75,7 @@ catch_all block_identifier
 - `block_identifier`
   - : Der Bezeichner für den [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), zu dem verzweigt wird, wenn die Ausnahme abgefangen wird. Dies kann sein:
     - Ein identifizierender Name, wie durch den Bezeichner des entsprechenden Blocks definiert.
-    - Eine Block-Indexnummer — `0`, um den innersten Block zu identifizieren, `1` für den nächst-inneren, usw.
+    - Eine Block-Indexnummer — `0`, um den innersten Block zu identifizieren, `1` für den nächst inneren usw.
 
 ### Typ
 
@@ -89,13 +89,13 @@ catch_all block_identifier
 | ----------- | ------------------ |
 | `catch_all` | `0x02`             |
 
-`catch_all` ist keine eigenständige Klausel — stattdessen wird sie als Klausel innerhalb einer `try_table`-Anweisung mit einem Byte von `0x02` kodiert. Eine `try_table` mit einer einzelnen `catch_all`-Klausel:
+`catch_all` ist keine eigenständige Klausel – stattdessen wird sie als Klausel innerhalb einer `try_table`-Anweisung mit einem Byte von `0x02` kodiert. Eine `try_table` mit einer einzelnen `catch_all`-Klausel:
 
 ```wat
 (try_table (catch_all $handler) ... )
 ```
 
-wird so kodiert:
+würde so kodiert werden:
 
 ```plain
 ... 0x01 0x02 0x00 ...
@@ -103,11 +103,11 @@ wird so kodiert:
 
 ## Beschreibung
 
-Die `catch_all`-Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Blocks eingefügt werden, um jede geworfene Ausnahme abzufangen. Wenn eine Ausnahme geworfen wird, verzweigt der Code zum angegebenen `block`.
+Die `catch_all`-Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Blocks enthalten sein, um jede geworfene Ausnahme abzufangen. Wenn eine Ausnahme ausgelöst wird, verzweigt der Code zu dem angegebenen `block`.
 
-`catch_all` ist nützlich, wenn Sie keine Ausnahme erneut werfen müssen und keine spezifische Ausnahme abfangen möchten, aber dennoch melden möchten, dass irgendeine Art von Ausnahme geworfen wurde.
+`catch_all` ist nützlich, wenn Sie eine Ausnahme nicht erneut werfen müssen und Sie keine spezifische Ausnahme abfangen möchten, aber dennoch berichten möchten, dass eine Ausnahme irgendeiner Art aufgetreten ist.
 
-Im Fall von `catch_all` muss der referenzierte Block keinen Ergebnistyp deklarieren, der mit der Nutzlast der Ausnahme übereinstimmt, da kein Ergebnis auf den Stapel gelegt wird. Im früher gezeigten Beispiel hat der `block` keinen deklarierten Ergebnistyp:
+Im Falle von `catch_all` muss der referenzierte Block keinen Ergebnistyp deklarieren, der zur Nutzlast der Ausnahme passt, da kein Ergebnis auf den Stapel geschoben wird. Im vorher gezeigten Beispiel hat der `block` keinen deklarierten Ergebnistyp:
 
 ```wat
 (block $handler

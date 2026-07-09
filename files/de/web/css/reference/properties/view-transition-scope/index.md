@@ -3,12 +3,12 @@ title: "`view-transition-scope` CSS property"
 short-title: view-transition-scope
 slug: Web/CSS/Reference/Properties/view-transition-scope
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
 {{SeeCompatTable}}
 
-Die **`view-transition-scope`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht die Isolierung der Auffindbarkeit von Elementen mit festgelegten {{cssxref("view-transition-name")}}-Werten (und daher die Erstellung von [Schnappschüssen](/de/docs/Web/API/View_Transition_API/Using#an_aside_on_snapshots) für die View-Transition) auf einen bestimmten Element-Unterbaum.
+Die **`view-transition-scope`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht die Begrenzung der Auffindbarkeit von Elementen mit auf ihnen gesetzten {{cssxref("view-transition-name")}}-Werten (und damit die Erstellung von Ansichtstransition-[Schnappschüssen](/de/docs/Web/API/View_Transition_API/Using#an_aside_on_snapshots)) auf einen bestimmten Element-Unterbaum.
 
 ## Syntax
 
@@ -28,21 +28,21 @@ view-transition-scope: unset;
 ### Werte
 
 - `none`
-  - : Der Initialwert. Die Auffindbarkeit von Elementen zur Erstellung von Schnappschüssen während einer View-Transition ist nicht auf einen bestimmten Unterbaum begrenzt.
+  - : Der initiale Wert. Die Auffindbarkeit von Elementen für Schnappschüsse während einer Ansichtstransition ist nicht auf einen spezifischen Unterbaum beschränkt.
 - `all`
-  - : Begrenzen Sie die Auffindbarkeit von Elementen zur Erstellung von Schnappschüssen während einer View-Transition auf den Unterbaum des Elements, auf dem diese Eigenschaft gesetzt ist. Nur Elemente mit einem nicht-`none` {{cssxref("view-transition-name")}} werden berücksichtigt.
+  - : Beschränkt die Auffindbarkeit von Elementen für Schnappschüsse während einer Ansichtstransition auf den Unterbaum des Elements, auf dem diese Eigenschaft gesetzt ist. Nur Elemente mit einem nicht-`none` {{cssxref("view-transition-name")}} werden berücksichtigt.
 
 ## Beschreibung
 
-Während [des View-Transition-Prozesses](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erfasst der Browser Schnappschüsse von Elementen, die ein nicht-`none` {{cssxref("view-transition-name")}} gesetzt haben. Diese Schnappschüsse werden dann über CSS-Animationen animiert.
+Während des [Ansichtstransitions-Prozesses](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erstellt der Browser Schnappschüsse von Elementen, auf denen ein nicht-`none` {{cssxref("view-transition-name")}} gesetzt ist. Diese Schnappschüsse werden dann mittels CSS-Animationen animiert.
 
-Ein Problem, das während dieses Prozesses auftreten kann, sind Namenskonflikte zwischen Elementen, die an einer View-Transition beteiligt sind. Sie können nicht dasselbe {{cssxref("view-transition-name")}} auf mehreren Elementen haben — falls doch, wirft der Browser einen `InvalidStateError`, wenn die Methode [`Element.startViewTransition()`](/de/docs/Web/API/Element/startViewTransition) aufgerufen wird, um die Transition zu starten.
+Ein Problem, das während dieses Prozesses auftreten kann, sind Namenskollisionen zwischen in einer Ansichtstransition beteiligten Elementen. Es ist nicht möglich, denselben {{cssxref("view-transition-name")}} auf mehreren Elementen zu setzen — tut man es dennoch, wirft der Browser einen `InvalidStateError`, wenn die Methode [`Element.startViewTransition()`](/de/docs/Web/API/Element/startViewTransition) aufgerufen wird, um die Transition zu starten.
 
-Sie könnten dieses Problem lösen, indem Sie ein `view-transition-name` von [`match-element`](/de/docs/Web/CSS/Reference/Properties/view-transition-name#match-element) auf den Elementen setzen, um dem Browser die automatische Vergabe interner eindeutiger Namen zu ermöglichen. Allerdings funktioniert dies nicht, wenn Sie mehrere Komponenten aus verschiedenen Quellen einbinden, die Sie nicht kontrollieren. Ein Namenskonflikt könnte trotzdem auftreten.
+Man könnte dieses Problem lösen, indem man `view-transition-name` auf [`match-element`](/de/docs/Web/CSS/Reference/Properties/view-transition-name#match-element) setzt, um dem Browser zu ermöglichen, intern eindeutige Namen automatisch zuzuweisen. Dies funktioniert jedoch nicht, wenn man mehrere Komponenten aus unterschiedlichen Quellen einbindet, die man nicht kontrolliert, da eine Namenskollision dennoch auftreten könnte.
 
-Die Eigenschaft `view-transition-scope` ermöglicht es, View-Transitions eigenständig zu machen. Wenn `view-transition-scope: all` auf einem Element gesetzt wird, wird der Übergangsbereich auf dieses Element und seine Nachkommen begrenzt, was zur Lösung des oben genannten Problems verwendet werden kann.
+Die `view-transition-scope`-Eigenschaft ermöglicht es Ansichtstransitionen, eigenständig zu sein. Wenn `view-transition-scope: all` auf einem Element gesetzt ist, beschränkt es den Transitionsumfang auf dieses Element und seine Nachfahren, was zur Lösung des oben genannten Problems beitragen kann.
 
-Wann immer eine [element-gebundene View-Transition](/de/docs/Web/API/View_Transition_API/Using_element-scoped) ausgelöst wird, setzt der Browser automatisch `view-transition-scope: all` auf das Übergangselement, um sicherzustellen, dass nur Elemente innerhalb des Übergangsbereichs als Schnappschuss erfasst und animiert werden.
+Sobald eine [element-begrenzte Ansichtstransition](/de/docs/Web/API/View_Transition_API/Using_element-scoped) ausgelöst wird, setzt der Browser automatisch `view-transition-scope: all` auf dem Transitionswurzelelement, wodurch sichergestellt wird, dass nur Elemente innerhalb des Transition-Scopes gesnapshots und animiert werden.
 
 ## Formale Definition
 
@@ -54,13 +54,13 @@ Wann immer eine [element-gebundene View-Transition](/de/docs/Web/API/View_Transi
 
 ## Beispiele
 
-### Verwendung von `view-transition-scope` zur Isolierung von Schnappschüssen
+### Verwendung von `view-transition-scope`, um Schnappschüsse zu isolieren
 
-Dieses Beispiel zeigt, wie Sie `view-transition-scope` verwenden, um den Bereich von dokumenten-gebundenen View-Transitions zu isolieren, sodass derselbe `view-transition-name` auf mehreren Elementen verwendet werden kann.
+Dieses Beispiel demonstriert, wie `view-transition-scope` verwendet wird, um den Scope von dokumentenweiten Ansichtstransitionen zu isolieren und die gleiche `view-transition-name` auf mehreren Elementen zu verwenden.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("button")}}-Element zur Steuerung der DOM-Aktualisierung sowie mehrere Komponenten mit der Klasse `change-me`, von denen einige verschachtelt sind, alle umschlossen von einem {{htmlelement("section")}}-Element.
+Das HTML enthält ein {{htmlelement("button")}}-Element zur Steuerung der Aktualisierung des DOMs, sowie mehrere Komponenten mit der Klasse `change-me`, einige davon sind verschachtelt, alle in einem {{htmlelement("section")}}-Element verpackt.
 
 ```html live-sample___vt-scope
 <button>Update DOM</button>
@@ -76,7 +76,7 @@ Das HTML enthält ein {{htmlelement("button")}}-Element zur Steuerung der DOM-Ak
 
 #### CSS
 
-Wir beginnen damit, denselben `view-transition-name` auf allen Komponenten zu setzen. Dann setzen wir `view-transition-scope: all` auf alle, um den View-Transition-Prozess für jede einzelne zu isolieren. Danach setzen wir eine längere {{cssxref("animation-duration")}} auf alle View-Transitions mit diesem `view-transition-name` über das {{cssxref("::view-transition-group()")}} Pseudoelement.
+Wir beginnen damit, dieselbe `view-transition-name` auf allen Komponenten zu setzen. Dann setzen wir `view-transition-scope: all` auf all diese, um den Ansichtstransitionsprozess für jede einzelne zu isolieren. Anschließend setzen wir eine längere {{cssxref("animation-duration")}} für alle Ansichtstransitionen mit dieser `view-transition-name` über das {{cssxref("::view-transition-group()")}}-Pseudoelement.
 
 ```css hidden live-sample___vt-scope
 body {
@@ -111,14 +111,14 @@ section {
 
 #### JavaScript
 
-Das Skript beginnt mit dem Erfassen von Referenzen auf das Button- und die `<div>`-Elemente (unsere Komponenten).
+Das Skript beginnt damit, Referenzen auf die Schaltfläche und die `<div>`-Elemente (unsere Komponenten) zu erfassen.
 
 ```js live-sample___vt-scope
 const btn = document.querySelector("button");
 const divs = document.querySelectorAll("div");
 ```
 
-Als nächstes definieren wir eine Funktion namens `updateDivs()`, die den Textinhalt des verschachtelten {{htmlelement("span")}}-Elements jeder Komponente zwischen zwei Werten umschaltet und auch die Vorder- und Hintergrundfarben der Komponente zwischen zwei Werten wechselt.
+Als nächstes definieren wir eine Funktion namens `updateDivs()`, die den Textinhalt des verschachtelten {{htmlelement("span")}}-Elements jeder Komponente zwischen zwei Werten umschaltet und auch die Vordergrund- und Hintergrundfarben der Komponente zwischen zwei Werten wechselt.
 
 ```js live-sample___vt-scope
 function updateDivs() {
@@ -136,7 +136,7 @@ function updateDivs() {
 }
 ```
 
-Zum Schluss fügen wir dem `<button>`-Element einen `click`-Ereignislistener hinzu. Wenn der Button geklickt wird, prüfen wir zunächst, ob `startViewTransition()` im `document`-Objekt existiert – wenn nicht, führen wir `updateDivs()` aus und kehren dann aus der Funktion zurück. Dieser erste Teil ermöglicht es, dass Browser, die keine View-Transitions unterstützen, das DOM trotzdem fehlerfrei aktualisieren. Anschließend führen wir `updateDivs()` in einem `startViewTransition()`-Callback aus, um die View-Transition beim Aktualisieren des DOMs auszulösen.
+Schließlich fügen wir dem `<button>`-Element einen `click`-Ereignislistener hinzu. Wenn die Schaltfläche geklickt wird, prüfen wir zuerst, ob `startViewTransition()` im `document`-Objekt existiert — wenn nicht, führen wir `updateDivs()` aus und verlassen die Funktion mit `return`. Dieser erste Teil ermöglicht es, dass Browser, die Ansichtstransitionen nicht unterstützen, dennoch das DOM aktualisieren können, ohne Fehler zu erzeugen. Anschließend führen wir `updateDivs()` in einem `startViewTransition()`-Callback aus, um die Ansichtstransition auszulösen, während das DOM aktualisiert wird.
 
 ```js live-sample___vt-scope
 btn.addEventListener("click", handleClick);
@@ -156,14 +156,14 @@ function handleClick(e) {
 
 {{embedlivesample("vt-scope", "100%", 280)}}
 
-Klicken Sie auf den Button "Update DOM", um die View-Transition zu sehen. Probieren Sie nun Folgendes aus:
+Klicken Sie auf die Schaltfläche "Update DOM", um die Ansichtstransition zu sehen. Versuchen Sie nun Folgendes:
 
 1. Untersuchen Sie eines der `<div>`-Elemente.
-2. Deaktivieren Sie im Stile-Panel der Entwickler-Tools Ihres Browsers die Deklaration `view-transition-scope: all;`.
-3. Wechseln Sie nun zur JavaScript-Konsole.
-4. Klicken Sie erneut auf den "Update DOM"-Button.
+2. Deaktivieren Sie im Styles-Panel der Entwicklertools Ihres Browsers die `view-transition-scope: all;`-Deklaration.
+3. Wechseln Sie jetzt zur JavaScript-Konsole.
+4. Klicken Sie erneut auf die Schaltfläche "Update DOM".
 
-Sie sollten sehen, dass die View-Transition-Animation nicht angewendet wird, wenn das DOM geändert wird, und ein `InvalidStateError` in der Konsole gemeldet wird.
+Sie sollten sehen, dass die Animation der Ansichtstransition nicht angewendet wird, wenn sich das DOM ändert, und ein `InvalidStateError` in der Konsole gemeldet wird.
 
 ## Spezifikationen
 
@@ -178,4 +178,4 @@ Sie sollten sehen, dass die View-Transition-Animation nicht angewendet wird, wen
 - {{cssxref("view-transition-name")}}
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using) Leitfaden
-- [Verwendung von element-gebundenen View-Transitions](/de/docs/Web/API/View_Transition_API/Using_element-scoped)
+- [Verwendung von element-begrenzten Ansichtstransitionen](/de/docs/Web/API/View_Transition_API/Using_element-scoped)

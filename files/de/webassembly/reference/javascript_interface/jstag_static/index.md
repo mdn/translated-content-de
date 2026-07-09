@@ -2,10 +2,10 @@
 title: WebAssembly.JSTag
 slug: WebAssembly/Reference/JavaScript_interface/JSTag_static
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Die **`JSTag`** schreibgeschützte statische Eigenschaft der [`WebAssembly`](/de/docs/WebAssembly/Reference/JavaScript_interface) Schnittstelle ist ein eingebautes [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) und repräsentiert Ausnahmen, die im JavaScript-Host ausgelöst werden — sie ermöglicht, dass Ausnahmen, die in JavaScript ausgelöst werden, von innerhalb eines Wasm-Moduls behandelt werden können.
+Die **`JSTag`**-Eigenschaft im Nur-Lese-Modus des [`WebAssembly`](/de/docs/WebAssembly/Reference/JavaScript_interface) Interfaces ist ein eingebautes [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), das Ausnahmen repräsentiert, die im JavaScript-Host geworfen werden — es ermöglicht, dass Ausnahmen, die in JavaScript geworfen werden, innerhalb eines Wasm-Moduls behandelt werden.
 
 {{InteractiveExample("WebAssembly.JSTag demo", "tabbed-taller")}}
 
@@ -40,10 +40,10 @@ async function run() {
       env: {
         js_tag: WebAssembly.JSTag,
         // This JS function throws, which Wasm will catch via JSTag
-        do_work: () => {
+        do_work() {
           throw new Error("An exception was thrown in JS");
         },
-        log: (error) => {
+        log(error) {
           // errRef is the JS Error object passed back as an externref
           console.log(error.message);
         },
@@ -71,6 +71,6 @@ Ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag)
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Überblick
+- Übersicht über [WebAssembly](/de/docs/WebAssembly)
 - [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag)
 - [tag](/de/docs/WebAssembly/Reference/Definitions/tag) Wasm-Definition

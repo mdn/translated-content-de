@@ -2,12 +2,12 @@
 title: WebAssembly.CompileError() Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/CompileError/CompileError
 l10n:
-  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
+  sourceCommit: 3934778cdfee0d5d2ae4c93b9f5568701008a628
 ---
 
 Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues
-WebAssembly `CompileError` Objekt, das auf einen Fehler während
-der WebAssembly-Dekodierung oder -Validierung hinweist.
+WebAssembly `CompileError` Objekt, das einen Fehler während des
+WebAssembly Dekodierens oder der Validierung anzeigt.
 
 ## Syntax
 
@@ -24,10 +24,10 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler weiterzugeben, wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -37,14 +37,13 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen CompileError-Instanz
 
-Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert deren
-Details in der Konsole:
+Das folgende Snippet erstellt eine neue `CompileError` Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {
   throw new WebAssembly.CompileError("Hello", "someFile", 10);
 } catch (e) {
-  console.log(e instanceof CompileError); // true
+  console.log(e instanceof WebAssembly.CompileError); // true
   console.log(e.message); // "Hello"
   console.log(e.name); // "CompileError"
   console.log(e.fileName); // "someFile"
@@ -66,4 +65,4 @@ try {
 
 - [WebAssembly](/de/docs/WebAssembly) Übersicht
 - [WebAssembly Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

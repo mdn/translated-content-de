@@ -3,22 +3,22 @@ title: "Apache-Konfiguration: .htaccess"
 short-title: Apache .htaccess
 slug: Learn_web_development/Extensions/Server-side/Apache_Configuration_htaccess
 l10n:
-  sourceCommit: aae9b839c637d0860c1cedeb15f1325e02e9d5ae
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
-Apache .htaccess-Dateien ermöglichen es Benutzern, Verzeichnisse des Webservers, den sie kontrollieren, zu konfigurieren, ohne die Hauptkonfigurationsdatei zu ändern.
+Apache .htaccess-Dateien ermöglichen es Benutzern, Verzeichnisse des von ihnen kontrollierten Webservers zu konfigurieren, ohne die Hauptkonfigurationsdatei zu ändern.
 
-Obwohl dies nützlich ist, ist es wichtig zu beachten, dass die Verwendung von .htaccess-Dateien Apache verlangsamt. Wenn Sie Zugriff auf die Hauptserverkonfigurationsdatei (die normalerweise `httpd.conf` genannt wird) haben, sollten Sie diese Logik dort in einem `Directory`-Block hinzufügen.
+Obwohl dies nützlich ist, ist es wichtig zu beachten, dass die Verwendung von `.htaccess`-Dateien Apache verlangsamt. Wenn Sie Zugriff auf die Hauptserverkonfigurationsdatei haben (die normalerweise `httpd.conf` genannt wird), sollten Sie diese Logik dort unter einem `Directory`-Block hinzufügen.
 
-Weitere Details darüber, was .htaccess-Dateien tun können, finden Sie in der [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) Dokumentation auf der Apache HTTPD-Website.
+Sehen Sie [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) auf der Apache HTTPD-Dokumentationsseite für weitere Details darüber, was .htaccess-Dateien tun können.
 
-Der Rest dieses Dokuments wird verschiedene Konfigurationsoptionen erörtern, die Sie zur `.htaccess` hinzufügen können und was sie bewirken.
+Der Rest dieses Dokuments wird verschiedene Konfigurationsoptionen besprechen, die Sie zu `.htaccess` hinzufügen können und was sie bewirken.
 
-Die meisten der folgenden Blöcke verwenden die [IfModule](https://httpd.apache.org/docs/2.4/mod/core.html#ifmodule)-Direktive, um die Anweisungen innerhalb des Blocks nur auszuführen, wenn das entsprechende Modul ordnungsgemäß konfiguriert wurde und der Server es geladen hat. Auf diese Weise verhindern wir, dass unser Server abstürzt, wenn das Modul nicht geladen wurde.
+Die meisten der folgenden Blöcke verwenden die [IfModule](https://httpd.apache.org/docs/2.4/mod/core.html#ifmodule) Direktive, um die Anweisungen innerhalb des Blocks nur auszuführen, wenn das entsprechende Modul korrekt konfiguriert und vom Server geladen wurde. Auf diese Weise bewahren wir unseren Server vor Abstürzen, falls das Modul nicht geladen wurde.
 
 ## Umleitungen
 
-Es gibt Zeiten, in denen wir den Benutzern mitteilen müssen, dass eine Ressource entweder temporär oder dauerhaft verschoben wurde. Dafür verwenden wir `Redirect` und `RedirectMatch`.
+Manchmal müssen wir den Benutzern mitteilen, dass eine Ressource entweder vorübergehend oder dauerhaft verschoben wurde. Dafür verwenden wir `Redirect` und `RedirectMatch`.
 
 ```apacheconf
 <IfModule mod_alias.c>
@@ -40,22 +40,22 @@ Es gibt Zeiten, in denen wir den Benutzern mitteilen müssen, dass eine Ressourc
 </IfModule>
 ```
 
-Die möglichen Werte für den ersten Parameter sind unten aufgeführt. Wenn der erste Parameter nicht enthalten ist, wird er standardmäßig auf `temp` gesetzt.
+Die möglichen Werte für den ersten Parameter sind unten aufgelistet. Wenn der erste Parameter nicht angegeben ist, wird er standardmäßig auf `temp` gesetzt.
 
 - permanent
-  - : Gibt einen permanenten Redirect-Status (301) zurück, der anzeigt, dass die Ressource dauerhaft verschoben wurde.
+  - : Gibt einen permanenten Umleitungsstatus (301) zurück, der anzeigt, dass die Ressource dauerhaft verschoben wurde.
 - temp
-  - : Gibt einen temporären Redirect-Status (302) zurück. **Dies ist der Standard**.
+  - : Gibt einen temporären Umleitungsstatus (302) zurück. **Dies ist der Standard**.
 - seeother
-  - : Gibt einen "See Other"-Status (303) zurück, der angibt, dass die Ressource ersetzt wurde.
+  - : Gibt einen "See Other"-Status (303) zurück, der darauf hinweist, dass die Ressource ersetzt wurde.
 - gone
-  - : Gibt einen "Gone"-Status (410) zurück, der angibt, dass die Ressource dauerhaft entfernt wurde. Wenn dieser Status verwendet wird, sollte das _URL_-Argument weggelassen werden.
+  - : Gibt einen "Gone"-Status (410) zurück, der anzeigt, dass die Ressource dauerhaft entfernt wurde. Wenn dieser Status verwendet wird, sollte das _URL_-Argument weggelassen werden.
 
 ## Cross-Origin-Ressourcen
 
-Der erste Satz von Direktiven steuert den [CORS](https://fetch.spec.whatwg.org/) (Cross-Origin Resource Sharing)-Zugriff auf Ressourcen vom Server. CORS ist ein auf HTTP-Headern basierender Mechanismus, der einem Server erlaubt, die externen Ursprünge (Domain, Protokoll oder Port) anzugeben, welche ein Browser beim Laden von Ressourcen zulassen soll.
+Der erste Satz von Direktiven steuert den Zugriff von [CORS](https://fetch.spec.whatwg.org/)-Ressourcen (Cross-Origin Resource Sharing) vom Server aus. CORS ist ein HTTP-Header-basiertes Mechanismus, der es einem Server ermöglicht, die externen Ursprünge (Domain, Protokoll oder Port) anzugeben, die ein Browser beim Laden von Ressourcen zulassen soll.
 
-Aus Sicherheitsgründen beschränken Browser Cross-Origin-HTTP-Anfragen, die von Skripten initiiert werden. Beispielsweise folgen `XMLHttpRequest` und die `Fetch API` der selben Origin-Policy. Eine Webanwendung, die diese APIs verwendet, kann nur Ressourcen von der gleichen Origin anfordern, von der die Anwendung geladen wurde, es sei denn, die Antwort von anderen Ursprüngen enthält die entsprechenden CORS-Header.
+Aus Sicherheitsgründen beschränken Browser Cross-Origin-HTTP-Anfragen, die von Skripten initiiert werden. Zum Beispiel, befolgen XMLHttpRequest und die Fetch API die gleiche Herkunftspolitik. Eine Webanwendung, die diese APIs verwendet, kann nur Ressourcen von derselben Herkunft anfordern, von der die Anwendung geladen wurde, es sei denn, die Antwort von anderen Ursprüngen enthält die entsprechenden CORS-Header.
 
 ### Allgemeiner CORS-Zugriff
 
@@ -67,9 +67,9 @@ Diese Direktive fügt den CORS-Header für alle Ressourcen im Verzeichnis von je
 </IfModule>
 ```
 
-Sofern Sie die Direktive nicht später in der Konfiguration oder in der Konfiguration eines untergeordneten Verzeichnisses überschreiben, wird jede Anfrage von externen Servern gewährt, was wahrscheinlich nicht das ist, was Sie wollen.
+Sofern Sie die Direktive nicht später in der Konfiguration oder in der Konfiguration eines Verzeichnisses unterhalb desjenigen, in dem Sie diese gesetzt haben, überschreiben, wird jede Anfrage von externen Servern akzeptiert, was wahrscheinlich nicht das ist, was Sie wollen.
 
-Eine Alternative besteht darin, explizit anzugeben, welche Domains Zugriff auf den Inhalt Ihrer Website haben. Im folgenden Beispiel beschränken wir den Zugriff auf ein Subdomain unserer Hauptseite (example.com). Dies ist sicherer und wahrscheinlich das, was Sie beabsichtigen, zu tun.
+Eine Alternative ist es, explizit festzulegen, welche Domains Zugriff auf die Inhalte Ihrer Website haben. Im folgenden Beispiel beschränken wir den Zugriff auf eine Subdomain unserer Hauptseite (example.com). Dies ist sicherer und vermutlich das, was Sie beabsichtigten.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -79,9 +79,9 @@ Eine Alternative besteht darin, explizit anzugeben, welche Domains Zugriff auf d
 
 ### Cross-Origin-Bilder
 
-Wie im [Chromium Blog](https://blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html) berichtet und in [Erlauben der Verwendung von CORS-fähigen Bildern und Canvas](/de/docs/Web/HTML/How_to/CORS_enabled_image) dokumentiert, kann dies zu {{Glossary("Fingerprinting", "Fingerprinting")}}-Angriffen führen.
+Wie im [Chromium Blog](https://blog.chromium.org/2011/07/using-cross-domain-images-in-webgl-and.html) berichtet und in [Use cross-origin images and canvas](/de/docs/Web/HTML/How_to/CORS_enabled_image) dokumentiert, kann dies zu {{Glossary("Fingerprinting", "Fingerprinting")}}-Angriffen führen.
 
-Um die Möglichkeit dieser Angriffe zu verringern, sollten Sie das `crossorigin`-Attribut bei den Bildern verwenden, die Sie anfordern, und den folgenden Codeausschnitt in Ihrer `.htaccess`, um den CORS-Header vom Server festzulegen.
+Um die Möglichkeit solcher Angriffe zu mildern, sollten Sie das `crossorigin`-Attribut bei den Bildern, die Sie anfordern, und den untenstehenden Codeausschnitt in Ihrer `.htaccess` verwenden, um den CORS-Header vom Server zu setzen.
 
 ```apacheconf
 <IfModule mod_setenvif.c>
@@ -94,7 +94,7 @@ Um die Möglichkeit dieser Angriffe zu verringern, sollten Sie das `crossorigin`
 </IfModule>
 ```
 
-Der [Google Fonts-Troubleshooting-Leitfaden](https://developers.google.com/fonts/docs/troubleshooting) von Google Chrome sagt uns, dass, obwohl Google Fonts den CORS-Header mit jeder Antwort senden kann, einige Proxy-Server ihn entfernen können, bevor der Browser ihn verwenden kann, um die Schriftart zu rendern.
+Der [Google Fonts-Troubleshooting-Leitfaden](https://fonts.google.com/faq#troubleshooting) von Google Chrome teilt mit, dass, obwohl Google Fonts den CORS-Header mit jeder Antwort sendet, einige Proxy-Server diesen möglicherweise entfernen, bevor der Browser ihn verwenden kann, um die Schriftart zu rendern.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -104,13 +104,13 @@ Der [Google Fonts-Troubleshooting-Leitfaden](https://developers.google.com/fonts
 </IfModule>
 ```
 
-### Cross-Origin-Ressourcentiming
+### Cross-Origin-Ressourcen-Timing
 
-Die [Resource Timing](https://w3c.github.io/resource-timing/)-Spezifikation definiert eine Schnittstelle für Webanwendungen, um auf die vollständige Timing-Information für Ressourcen in einem Dokument zuzugreifen.
+Die [Resource Timing](https://w3c.github.io/resource-timing/) Spezifikation definiert eine Schnittstelle für Webanwendungen, um vollständige Timing-Informationen für Ressourcen in einem Dokument zu erhalten.
 
-Der [`Timing-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Timing-Allow-Origin)-Antwortheader gibt Ursprünge an, die berechtigt sind, Werte von Attributen abzurufen, die über Funktionen der Resource Timing API ermittelt werden, die andernfalls aufgrund von Cross-Origin-Beschränkungen als null gemeldet werden würden.
+Der [`Timing-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Timing-Allow-Origin) Antwort-Header gibt Ursprünge an, denen das Anzeigen von Werten von Attributen, die über Funktionen der Resource Timing API abgerufen wurden, erlaubt ist, die ansonsten aufgrund von Cross-Origin-Beschränkungen auf Null gesetzt würden.
 
-Wenn eine Ressource nicht mit einem `Timing-Allow-Origin` geliefert wird oder wenn der Header nach der Anfrage nicht den Ursprung enthält, werden einige Attribute des `PerformanceResourceTiming`-Objekts auf null gesetzt.
+Wenn eine Ressource nicht mit einem `Timing-Allow-Origin` serviert wird oder wenn der Header den Ursprung nach Stellen der Anfrage nicht enthält, werden einige Attribute des `PerformanceResourceTiming`-Objekts auf Null gesetzt.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -118,13 +118,13 @@ Wenn eine Ressource nicht mit einem `Timing-Allow-Origin` geliefert wird oder we
 </IfModule>
 ```
 
-## Benutzerdefinierte Fehlerseiten/-meldungen
+## Benutzerdefinierte Fehlerseiten/Nachrichten
 
-Apache ermöglicht es Ihnen, benutzerdefinierte Fehlerseiten für Benutzer bereitzustellen, abhängig von der Art des Fehlers, den sie erhalten.
+Apache ermöglicht Ihnen, benutzerdefinierte Fehlerseiten für Benutzer bereitzustellen, je nachdem, welche Art von Fehler sie erhalten.
 
-Die Fehlerseiten werden als URLs präsentiert. Diese URLs können mit einem Schrägstrich (/) für lokale Webpfade (relativ zum DocumentRoot) beginnen oder eine vollständige URL sein, die der Client auflösen kann.
+Die Fehlerseiten werden als URLs dargestellt. Diese URLs können mit einem Schrägstrich (/) für lokale Webpfade beginnen (relativ zum DocumentRoot) oder eine vollständige URL sein, die der Client auflösen kann.
 
-Siehe die [ErrorDocument Direktiv](https://httpd.apache.org/docs/current/mod/core.html#errordocument) Dokumentation auf der HTTPD-Dokumentationsseite für weitere Informationen.
+Sehen Sie die Dokumentation zur [ErrorDocument-Direktive](https://httpd.apache.org/docs/current/mod/core.html#errordocument) auf der HTTPD-Dokumentationsseite für mehr Informationen.
 
 ```apacheconf
 ErrorDocument 500 /errors/500.html
@@ -133,31 +133,31 @@ ErrorDocument 401 https://example.com/subscription_info.html
 ErrorDocument 403 "Sorry, can't allow you access today."
 ```
 
-## Fehlerprävention
+## Fehlervermeidung
 
-Diese Einstellung beeinflusst, wie `MultiViews` für das Verzeichnis funktionieren, auf das die Konfiguration angewendet wird.
+Diese Einstellung beeinflusst, wie MultiViews für das Verzeichnis funktioniert, auf das die Konfiguration angewendet wird.
 
-Die Wirkung von `MultiViews` ist wie folgt: Wenn der Server eine Anfrage für /some/dir/foo erhält, wenn /some/dir `MultiViews` aktiviert hat, und /some/dir/foo nicht existiert, dann liest der Server das Verzeichnis und sucht nach Dateien namens foo.\*, und stellt effektiv eine Typkarte zusammen, die alle diese Dateien benennt und ihnen die gleichen Medientypen und Inhaltscodierungen zuweist, die sie hätten, wenn der Client eine von ihnen namentlich angefordert hätte. Anschließend wählt er die beste Übereinstimmung mit den Anforderungen des Clients.
+Die Wirkung von `MultiViews` ist wie folgt: Wenn der Server eine Anfrage für /some/dir/foo erhält, wenn /some/dir `MultiViews` aktiviert hat und /some/dir/foo nicht existiert, liest der Server das Verzeichnis und sucht nach Dateien namens foo.\*, und fälscht effektiv eine Typkarte, die all diese Dateien benennt und ihnen die gleichen Medientypen und Inhaltscodierungen zuweist, als hätte der Client eine von ihnen namentlich angefordert. Er wählt dann das am besten passende zu den Anforderungen des Clients.
 
-Die Einstellung deaktiviert `MultiViews` für das Verzeichnis, auf das diese Konfiguration angewendet wird, und verhindert, dass Apache als Ergebnis eines Rewrites einen 404-Fehler zurückgibt, wenn das Verzeichnis mit demselben Namen nicht existiert
+Die Einstellung deaktiviert `MultiViews` für das Verzeichnis, auf das diese Konfiguration angewendet wird, und verhindert, dass Apache als Ergebnis einer Umleitung einen 404-Fehler zurückgibt, wenn das Verzeichnis mit demselben Namen nicht existiert.
 
 ```apacheconf
 Options -MultiViews
 ```
 
-## Medien-Typen und Zeichencodierungen
+## Medientypen und Zeichencodierungen
 
-Apache verwendet [mod_mime](https://httpd.apache.org/docs/current/mod/mod_mime.html#addtype), um Content-Metadaten dem Inhalt zuzuordnen, der für eine HTTP-Antwort ausgewählt wird, indem Muster im URI oder Dateinamen den Metadatenwerten zugeordnet werden.
+Apache verwendet [mod_mime](https://httpd.apache.org/docs/current/mod/mod_mime.html#addtype), um Inhaltsmetadaten den für eine HTTP-Antwort ausgewählten Inhalten zuzuordnen, indem Muster in der URI oder Dateinamen auf die Metadatenwerte abgebildet werden.
 
-Beispielsweise definieren die Dateinamenerweiterungen der Inhaltsdateien häufig den Internetmedientyp, die Sprache, den Zeichensatz und die Inhaltscodierung des Inhalts. Diese Informationen werden in HTTP-Nachrichten, die diesen Inhalt enthalten, gesendet und bei der Inhaltsaushandlung beim Auswählen von Alternativen verwendet, sodass die Vorlieben des Benutzers respektiert werden, wenn eine von mehreren möglichen Inhalten bereitgestellt wird.
+Zum Beispiel definieren die Dateinamensverlängerungen von Inhaltsdateien oft den Internet-Medientyp, die Sprache, den Zeichensatz und die Inhaltscodierung des Inhalts. Diese Informationen werden in HTTP-Nachrichten gesendet, die diesen Inhalt enthalten, und werden bei der Inhaltsverhandlung verwendet, wenn Alternativen gewählt werden, sodass die Vorlieben des Benutzers berücksichtigt werden, wenn eine von mehreren möglichen Inhalten gewählt werden soll.
 
-**Das Ändern der Metadaten für eine Datei ändert nicht den Wert des Last-Modified-Headers. Daher können zuvor zwischengespeicherte Kopien immer noch von einem Client oder Proxy verwendet werden, mit den vorherigen Headern. Wenn Sie die Metadaten ändern (Sprache, Inhaltstyp, Zeichensatz oder Codierung), müssen Sie möglicherweise die betroffenen Dateien 'berühren' (ihren letzten Änderungsdatum aktualisieren), um sicherzustellen, dass alle Besucher die korrigierten Inhaltsheader erhalten.**
+**Die Änderung der Metadaten für eine Datei ändert nicht den Wert des Last-Modified-Headers. Daher können zuvor zwischengespeicherte Kopien noch von einem Client oder Proxy verwendet werden, mit den vorherigen Headern. Wenn Sie die Metadaten (Sprache, Inhaltstyp, Zeichensatz oder Codierung) ändern, müssen Sie möglicherweise die betroffenen Dateien 'berühren' (das Datum der letzten Änderung aktualisieren), um sicherzustellen, dass alle Besucher die korrigierten Inhaltsheader erhalten.**
 
-### Ressourcen mit den richtigen Medientypen (auch bekannt als MIME-Typen) bereitstellen
+### Bereitstellung von Ressourcen mit den richtigen Medientypen (alias MIME-Typen)
 
-Verknüpft Medientypen mit einer oder mehreren Erweiterungen, um sicherzustellen, dass die Ressourcen ordnungsgemäß bereitgestellt werden.
+Ordnet Medientypen einer oder mehreren Erweiterungen zu, um sicherzustellen, dass die Ressourcen entsprechend bereitgestellt werden.
 
-Server sollten `text/javascript` für JavaScript-Ressourcen verwenden, wie in der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages) angegeben
+Server sollten `text/javascript` für JavaScript-Ressourcen verwenden, wie in der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages) angegeben.
 
 ```apacheconf
 <IfModule mod_mime.c>
@@ -218,11 +218,11 @@ Server sollten `text/javascript` für JavaScript-Ressourcen verwenden, wie in de
 </IfModule>
 ```
 
-## Standard-Charset-Attribut setzen
+## Standard-Zeichenattribut festlegen
 
-Jedes Stück Inhalt im Web hat einen Zeichensatz. Die meisten, wenn nicht alle Inhalte, sind in UTF-8 Unicode.
+Jedes Stück Inhalt im Web hat einen Zeichensatz. Die meisten, wenn nicht alle, Inhalte sind UTF-8 Unicode.
 
-Verwenden Sie [AddDefaultCharset](https://httpd.apache.org/docs/current/mod/core.html#adddefaultcharset), um alle Ressourcen, die als `text/html` oder `text/plain` gekennzeichnet sind, mit dem Zeichensatz `UTF-8` zu bedienen.
+Verwenden Sie [AddDefaultCharset](https://httpd.apache.org/docs/current/mod/core.html#adddefaultcharset), um alle als `text/html` oder `text/plain` gekennzeichneten Ressourcen mit dem `UTF-8`-Charset bereitzustellen.
 
 ```apacheconf
 <IfModule mod_mime.c>
@@ -232,7 +232,7 @@ Verwenden Sie [AddDefaultCharset](https://httpd.apache.org/docs/current/mod/core
 
 ## Zeichensatz für spezifische Medientypen festlegen
 
-Verwenden Sie die folgende Direktive [AddCharset](https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset), die in `mod_mime` verfügbar ist, um die folgenden Dateitypen mit dem Parameter `charset` auf `UTF-8` zu bedienen.
+Stellen Sie die folgenden Dateitypen mit dem `charset`-Parameter bereit, der auf `UTF-8` gesetzt ist, indem Sie die [AddCharset](https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset)-Direktive verwenden, die in `mod_mime` verfügbar ist.
 
 ```apacheconf
 <IfModule mod_mime.c>
@@ -259,22 +259,22 @@ Verwenden Sie die folgende Direktive [AddCharset](https://httpd.apache.org/docs/
 
 ## `Mod_rewrite` und die `RewriteEngine`-Direktiven
 
-[mod_rewrite](https://httpd.apache.org/docs/current/mod/mod_rewrite.html) bietet eine Möglichkeit, eingehende URL-Anfragen dynamisch basierend auf regulären Ausdrucksregeln zu ändern. Dies ermöglicht es Ihnen, beliebige URLs auf Ihre interne URL-Struktur in beliebiger Weise abzubilden.
+[mod_rewrite](https://httpd.apache.org/docs/current/mod/mod_rewrite.html) bietet eine Möglichkeit, eingehende URL-Anfragen basierend auf regulären Ausdrücken dynamisch zu modifizieren. Dies erlaubt Ihnen, beliebige URLs auf Ihre interne URL-Struktur in beliebiger Weise abzubilden.
 
-Es unterstützt eine unbegrenzte Anzahl von Regeln und eine unbegrenzte Anzahl an angehängten Regelbedingungen für jede Regel, um einen wirklich flexiblen und leistungsstarken URL-Manipulationsmechanismus bereitzustellen. Die URL-Manipulationen können von verschiedenen Tests abhängen: Servervariablen, Umgebungsvariablen, HTTP-Header, Zeitstempel, externe Datenbankabfragen und verschiedene andere externe Programme oder Handler können verwendet werden, um granulare URL-Übereinstimmungen zu erzielen.
+Es unterstützt eine unbegrenzte Anzahl von Regeln und eine unbegrenzte Anzahl von angehängten Regelbedingungen für jede Regel, um einen wirklich flexiblen und leistungsstarken URL-Manipulationsmechanismus bereitzustellen. Die URL-Manipulationen können von verschiedenen Tests abhängen: Servervariablen, Umgebungsvariablen, HTTP-Header, Zeitstempel, externe Datenbankabfragen und verschiedene andere externe Programme oder Handler können verwendet werden, um eine granulare URL-Übereinstimmung zu erreichen.
 
 ### `mod_rewrite` aktivieren
 
-Das grundlegende Muster, um `mod_rewrite` zu aktivieren, ist eine Voraussetzung für alle anderen Aufgaben, die es nutzen.
+Das grundlegende Muster, um `mod_rewrite` zu aktivieren, ist eine Voraussetzung für alle anderen Aufgaben, die es verwenden.
 
 Die erforderlichen Schritte sind:
 
-1. Aktivieren Sie die Rewrite-Engine (dies ist notwendig, damit die `RewriteRule`-Direktiven funktionieren), wie in der [RewriteEngine](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#RewriteEngine) Dokumentation dokumentiert
-2. Aktivieren Sie die `FollowSymLinks`-Option, falls sie noch nicht aktiviert ist. Siehe [Core Options](https://httpd.apache.org/docs/current/mod/core.html#options) Dokumentation
-3. Wenn Ihr Webhoster die `FollowSymlinks`-Option nicht zulässt, müssen Sie sie auskommentieren oder entfernen und dann die Zeile `Options +SymLinksIfOwnerMatch` auskommentieren, aber seien Sie sich der [Leistungsauswirkungen](https://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks) bewusst
-   - Einige Cloud-Hosting-Dienste erfordern, dass Sie `RewriteBase` festlegen
-   - Siehe [Rackspace FAQ](https://web.archive.org/web/20151223141222/http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-modrewrite-not-working-on-my-site) und die [HTTPD-Dokumentation](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase)
-   - Abhängig davon, wie Ihr Server eingerichtet ist, müssen Sie möglicherweise die [`RewriteOptions`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions) Direktive verwenden, um einige Optionen für die Rewrite-Engine zu aktivieren
+1. Aktivieren Sie die Rewrite-Engine (dies ist notwendig, damit die `RewriteRule`-Direktiven funktionieren) wie in der [RewriteEngine](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#RewriteEngine)-Dokumentation beschrieben
+2. Aktivieren Sie die `FollowSymLinks`-Option, falls sie noch nicht aktiviert ist. Siehe [Core Options](https://httpd.apache.org/docs/current/mod/core.html#options)-Dokumentation
+3. Falls Ihr Webhost die `FollowSymlinks`-Option nicht zulässt, müssen Sie sie auskommentieren oder entfernen und dann die Zeile `Options +SymLinksIfOwnerMatch` einkommentieren, aber beachten Sie den [Performance-Einfluss](https://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks)
+   - Einige Cloud-Hosting-Services erfordern, dass Sie `RewriteBase` setzen
+   - Sehen Sie [Rackspace FAQ](https://web.archive.org/web/20151223141222/http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-rewrite-not-working-on-my-site) und die [HTTPD-Dokumentation](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase)
+   - Abhängig von der Konfiguration Ihres Servers müssen Sie möglicherweise die [`RewriteOptions`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriteoptions)-Direktive verwenden, um einige Optionen für die Rewrite-Engine zu aktivieren
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -286,9 +286,9 @@ Die erforderlichen Schritte sind:
 </IfModule>
 ```
 
-### Forcing HTTPS
+### HTTPS erzwingen
 
-Diese Rewrite-Regeln leiten von der unsicheren Version `http://` zur sicheren Version `https://` der URL um, wie im [Apache HTTPD Wiki](https://cwiki.apache.org/confluence/display/httpd/RewriteHTTPToHTTPS) beschrieben.
+Diese Rewrite-Regeln leiten von der unsicheren Version `http://` zur sicheren Version `https://` der URL um, wie im [Apache HTTPD-Wiki](https://cwiki.apache.org/confluence/spaces/HTTPD/pages/115522478/RewriteHTTPToHTTPS) beschrieben.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -298,7 +298,7 @@ Diese Rewrite-Regeln leiten von der unsicheren Version `http://` zur sicheren Ve
 </IfModule>
 ```
 
-Wenn Sie cPanel AutoSSL oder die Let's Encrypt Webroot-Methode zum Erstellen Ihrer TLS-Zertifikate verwenden, wird die Zertifikatsvalidierung fehlschlagen, wenn Validierungsanfragen zu HTTPS umgeleitet werden. Aktivieren Sie die Bedingung(en), die Sie benötigen.
+Wenn Sie das cPanel AutoSSL oder die Let's Encrypt Webroot-Methode verwenden, um Ihre TLS-Zertifikate zu erstellen, schlägt die Zertifikatsvalidierung fehl, wenn Validierungsanfragen zu HTTPS umgeleitet werden. Aktivieren Sie die erforderlichen Bedingung(en).
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -313,13 +313,13 @@ Wenn Sie cPanel AutoSSL oder die Let's Encrypt Webroot-Methode zum Erstellen Ihr
 
 ### Umleitung von `www.`-URLs
 
-Diese Direktiven leiten `www.example.com` auf `example.com` um.
+Diese Direktiven werden `www.example.com` zu `example.com` umschreiben.
 
-Sie sollten keinen Inhalt an mehreren Ursprüngen (mit und ohne www) duplizieren. Dies kann zu SEO-Problemen (doppelter Inhalt) führen. Daher sollten Sie eine der Alternativen auswählen und die andere umleiten. Sie sollten auch [kanonische URLs](https://www.semrush.com/blog/canonical-url-guide/) verwenden, um anzugeben, welche URL von Suchmaschinen gecrawlt werden soll (falls sie die Funktion unterstützen).
+Sie sollten keine Inhalte an mehreren Ursprüngen (mit und ohne www) duplizieren. Dies kann zu SEO-Problemen (doppelter Inhalt) führen, und daher sollten Sie eine der Alternativen wählen und die andere umleiten. Sie sollten auch [Canonical URLs](https://www.semrush.com/blog/canonical-url-guide/) verwenden, um anzugeben, welche URL Suchmaschinen crawlen sollten (sofern sie die Funktion unterstützen).
 
-Setzen Sie die `%{ENV:PROTO}`-Variable, um es Umschreibungen zu ermöglichen, automatisch mit dem passenden Schema (`http` oder `https`) umzuleiten.
+Setzen Sie die `%{ENV:PROTO}`-Variable, um Umschreibungen zu ermöglichen, die automatisch mit dem entsprechenden Schema (`http` oder `https`) umleiten.
 
-Der Regel geht standardmäßig davon aus, dass sowohl HTTP- als auch HTTPS-Umgebungen für die Umleitung verfügbar sind.
+Die Regel geht standardmäßig davon aus, dass sowohl HTTP- als auch HTTPS-Umgebungen für Umleitungen verfügbar sind.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -338,13 +338,13 @@ Der Regel geht standardmäßig davon aus, dass sowohl HTTP- als auch HTTPS-Umgeb
 
 Diese Regeln fügen `www.` am Anfang einer URL ein. Es ist wichtig zu beachten, dass Sie niemals denselben Inhalt unter zwei verschiedenen URLs verfügbar machen sollten.
 
-Dies kann zu SEO-Problemen (doppelter Inhalt) führen, und daher sollten Sie eine der Alternativen auswählen und die andere umleiten. Für Suchmaschinen, die sie unterstützen, sollten Sie [kanonische URLs](https://www.semrush.com/blog/canonical-url-guide/) verwenden, um anzuzeigen, welche URL von Suchmaschinen gecrawlt werden soll.
+Dies kann zu SEO-Problemen (doppelter Inhalt) führen, und daher sollten Sie eine der Alternativen wählen und die andere umleiten. Für Suchmaschinen, die sie unterstützen, sollten Sie [Canonical URLs](https://www.semrush.com/blog/canonical-url-guide/) verwenden, um anzugeben, welche URL Suchmaschinen crawlen sollten.
 
-Setzen Sie die `%{ENV:PROTO}`-Variable, um es Umschreibungen zu ermöglichen, automatisch mit dem passenden Schema (`http` oder `https`) umzuleiten.
+Setzen Sie die `%{ENV:PROTO}`-Variable, um Umschreibungen zu ermöglichen, die automatisch mit dem entsprechenden Schema (`http` oder `https`) umleiten.
 
-Der Regel geht standardmäßig davon aus, dass sowohl HTTP- als auch HTTPS-Umgebungen für die Umleitung verfügbar sind. Wenn Ihr TLS-Zertifikat keinen der während der Umleitung verwendeten Domains verarbeiten kann, sollten Sie die Bedingung aktivieren.
+Die Regel geht davon aus, dass sowohl HTTP- als auch HTTPS-Umgebungen für Umleitungen verfügbar sind. Wenn Ihr TLS-Zertifikat eine der während der Umleitung verwendeten Domains nicht verarbeiten kann, sollten Sie die Bedingung aktivieren.
 
-Das Folgende ist möglicherweise keine gute Idee, wenn Sie "echte" Subdomains für bestimmte Teile Ihrer Website verwenden.
+Das Folgende könnte keine gute Idee sein, wenn Sie "echte" Subdomains für bestimmte Teile Ihrer Website verwenden.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -365,13 +365,13 @@ Das Folgende ist möglicherweise keine gute Idee, wenn Sie "echte" Subdomains f�
 
 ## Frame-Optionen
 
-Das folgende Beispiel sendet den `X-Frame-Options`-Antwortheader mit dem Wert DENY und informiert Browser darüber, den Inhalt der Webseite in keinem Frame anzuzeigen, um die Website gegen [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) zu schützen.
+Das folgende Beispiel sendet den `X-Frame-Options` Antwort-Header mit dem Wert DENY, um dem Browser mitzuteilen, den Inhalt der Webseite nicht in einem beliebigen Frame anzuzeigen, um die Website vor [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) zu schützen.
 
-Dies ist möglicherweise nicht die beste Einstellung für jeden. Sie sollten über [die anderen zwei möglichen Werte für den `X-Frame-Options`-Header](https://datatracker.ietf.org/doc/html/rfc7034#section-2.1) lesen: `SAMEORIGIN` und `ALLOW-FROM`.
+Dies ist möglicherweise nicht die beste Einstellung für jeden. Sie sollten über [die beiden anderen möglichen Werte für den `X-Frame-Options`-Header](https://datatracker.ietf.org/doc/html/rfc7034#section-2.1) lesen: `SAMEORIGIN` und `ALLOW-FROM`.
 
-Während Sie den `X-Frame-Options`-Header für alle Seiten Ihrer Website senden könnten, hat dies den potenziellen Nachteil, dass es auch jegliches Einrahmen Ihres Inhalts verbietet (z.B.: wenn Benutzer Ihre Website mit einer Google Images-Suchergebnisseite besuchen).
+Obwohl Sie den `X-Frame-Options`-Header für alle Seiten Ihrer Website senden könnten, hat dies den potenziellen Nachteil, dass dies selbst bei jeglicher Einbettung Ihres Inhalts (z.B.: wenn Benutzer Ihre Website über eine Google-Bildsuche-Ergebnisseite besuchen) verbietet.
 
-Nichtsdestotrotz sollten Sie sicherstellen, dass Sie den `X-Frame-Options`-Header für alle Seiten senden, die es einem Benutzer ermöglichen, eine statusändernde Operation durchzuführen (z.B.: Seiten, die Ein-Klick-Kauf-Links, Checkout oder Banküberweisungsbestätigungsseiten enthalten, Seiten, die dauerhafte Konfigurationsänderungen durchführen, usw.).
+Nichtsdestotrotz sollten Sie sicherstellen, dass Sie den `X-Frame-Options`-Header für alle Seiten senden, die es einem Benutzer ermöglichen, eine zustandsverändernde Aktion durchzuführen (z.B. Seiten, die Ein-Klick-Kauf-Links, den Kassen- oder Überweisungsbestätigungsseiten enthalten, Seiten, die dauerhafte Konfigurationsänderungen vornehmen usw.).
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -381,11 +381,11 @@ Nichtsdestotrotz sollten Sie sicherstellen, dass Sie den `X-Frame-Options`-Heade
 
 ## Content Security Policy (CSP)
 
-[CSP (Content Security Policy)](https://content-security-policy.com/) verringert das Risiko von Cross-Site-Scripting und anderen Content-Injection-Angriffen, indem eine `Content Security Policy` festgelegt wird, die vertrauenswürdige Quellen für Ihre Website-Inhalte erlaubt.
+[CSP (Content Security Policy)](https://content-security-policy.com/) mindert das Risiko von Cross-Site-Scripting- und anderen Inhaltsinjektionsangriffen, indem eine `Content Security Policy` festgelegt wird, die vertrauenswürdige Inhaltequellen für Ihre Website zulässt.
 
-Es gibt keine Richtlinie, die für alle Websites geeignet ist. Das folgende Beispiel dient als Leitfaden, den Sie für Ihre Website anpassen sollten.
+Es gibt keine Politik, die für alle Websites passt, das untenstehende Beispiel ist als Richtlinie gedacht, die Sie für Ihre Website anpassen sollten.
 
-Um Ihre CSP-Implementierung zu erleichtern, können Sie einen Online-[CSP-Header-Generator](https://report-uri.com/home/generate/) verwenden. Sie sollten auch einen [Validator](https://csp-evaluator.withgoogle.com/) verwenden, um sicherzustellen, dass Ihr Header das tut, was Sie beabsichtigen.
+Um Ihre CSP-Implementierung zu erleichtern, können Sie einen Online-[CSP-Header-Generator](https://report-uri.com/home/generate/) verwenden. Sie sollten auch einen [Validator](https://csp-evaluator.withgoogle.com/) verwenden, um sicherzustellen, dass Ihr Header das tut, was Sie möchten.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -395,26 +395,26 @@ Um Ihre CSP-Implementierung zu erleichtern, können Sie einen Online-[CSP-Header
 
 Diese CSP:
 
-1. Beschränkt alle Abrufe standardmäßig auf den Ursprung der aktuellen Website, indem die `default-src`-Direktive auf `'self'` gesetzt wird - dies fungiert als Fallback für alle {{Glossary("Fetch_directive", "Fetch-Direktiven")}}.
-   - Dies ist praktisch, da Sie nicht alle Fetch-Direktiven, die für Ihre Website gelten, angeben müssen, z.B.: `connect-src 'self'; font-src 'self'; script-src 'self'; style-src 'self'`, usw.
-   - Diese Einschränkung bedeutet auch, dass Sie explizit definieren müssen, von welcher(n) Website(n) Ihre Website Ressourcen laden kann. Andernfalls wird sie auf denselben Ursprung wie die Seite, die die Anfrage stellt, beschränkt
+1. Beschränkt alle Abrufe standardmäßig auf den Ursprung der aktuellen Website, indem die `default-src`-Direktive auf `'self'` gesetzt wird - die als Fallback für alle {{Glossary("Fetch_directive", "Fetch-Direktiven")}} fungiert.
+   - Dies ist bequem, da Sie nicht alle auf Ihre Website zutreffenden Fetch-Direktiven angeben müssen, zum Beispiel: `connect-src 'self'; font-src 'self'; script-src 'self'; style-src 'self'`, usw.
+   - Diese Beschränkung bedeutet auch, dass Sie explizit definieren müssen, von welcher(n) Website(s) Ihre Website erlauben soll, Ressourcen zu laden. Andernfalls wird es auf dieselbe Herkunft wie die Seite, die die Anfrage stellt, beschränkt
 
-2. Verbietet das `<base>`-Element auf der Website. Dies soll verhindern, dass Angreifer die Standorte von Ressourcen ändern, die von relativen URLs geladen werden
+2. Verbietet das `<base>`-Element auf der Website. Dies ist, um zu verhindern, dass Angreifer die Ladeorte von relativ URL-ressourcen ändern.
    - Wenn Sie das `<base>`-Element verwenden möchten, verwenden Sie stattdessen `base-uri 'self'`
 
-3. Erlaubt nur, dass Formularübermittlungen vom aktuellen Ursprung aus erfolgen: `form-action 'self'`
-4. Verhindert, dass alle Websites (einschließlich Ihrer eigenen) Ihre Webseiten innerhalb von z.B. dem `<iframe>` oder `<object>`-Element einbetten, indem: `frame-ancestors 'none'` gesetzt wird.
-   - Die `frame-ancestors`-Direktive hilft, [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriffe zu vermeiden und ist ähnlich wie der `X-Frame-Options`-Header
+3. Erlaubt nur Formularübertragungen vom aktuellen Ursprung mit: `form-action 'self'`
+4. Verhindert, dass alle Websites (einschließlich Ihrer eigenen) Ihre Webseiten innerhalb eines z.B. `<iframe>` oder `<object>`-Elements einbetten, indem: `frame-ancestors 'none'` gesetzt wird.
+   - Die `frame-ancestors`-Direktive hilft, [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriffe zu vermeiden und ist ähnlich dem `X-Frame-Options`-Header
    - Browser, die den CSP-Header unterstützen, ignorieren `X-Frame-Options`, wenn `frame-ancestors` ebenfalls angegeben ist
 
-5. Erzwingt es, dass der Browser alle über HTTP bereitgestellten Ressourcen behandelt, als wären sie sicher über HTTPS geladen, indem die `upgrade-insecure-requests`-Direktive gesetzt wird
-   - **`upgrade-insecure-requests` garantiert nicht HTTPS für die Top-Level-Navigation. Wenn Sie erzwingen möchten, dass die Website selbst über HTTPS geladen wird, müssen Sie den `Strict-Transport-Security`-Header einfügen**
+5. Erzwingt den Browser, alle Ressourcen, die über HTTP bereitgestellt werden, so zu behandeln, als ob sie sicher über HTTPS geladen wurden, indem die `upgrade-insecure-requests`-Direktive gesetzt wird
+   - **`upgrade-insecure-requests` stellt kein HTTPS für die Top-Level-Navigation sicher. Wenn Sie möchten, dass die Website selbst über HTTPS geladen wird, müssen Sie den `Strict-Transport-Security`-Header hinzufügen**
 
-6. Einschließt den `Content-Security-Policy`-Header in alle Antworten, die in der Lage sind, Skripte auszuführen. Dazu gehören die häufig verwendeten Dateitypen: HTML, XML und PDF-Dokumente. Obwohl JavaScript-Dateien in einem "Browsing-Kontext" keine Skripte ausführen können, werden sie eingeschlossen, um auf [Web-Worker](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#csp_in_workers) abzuzielen
+6. Enthält den `Content-Security-Policy`-Header in allen Antworten, die in der Lage sind, Skripte auszuführen. Dies umfasst die häufig verwendeten Dateitypen: HTML-, XML- und PDF-Dokumente. Obwohl JavaScript-Dateien keine Skripte in einem "Browsing-Kontext" ausführen können, sind sie enthalten, um [Web-Arbeiter](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#csp_in_workers) anzusprechen
 
 ## Verzeichniszugriff
 
-Diese Direktive verhindert den Zugriff auf Verzeichnisse, die keine Indexdatei im Format haben, das der Server verwendet, wie z.B. `index.html` oder `index.php`.
+Diese Direktive verhindert den Zugriff auf Verzeichnisse, die keine Indexdatei im konfigurierten Format des Servers haben, wie `index.html` oder `index.php`.
 
 ```apacheconf
 <IfModule mod_autoindex.c>
@@ -422,11 +422,11 @@ Diese Direktive verhindert den Zugriff auf Verzeichnisse, die keine Indexdatei i
 </IfModule>
 ```
 
-## Zugriff auf versteckte Dateien und Verzeichnisse blockieren
+## Blockieren des Zugriffs auf versteckte Dateien und Verzeichnisse
 
-Auf Macintosh- und Linux-Systemen sind Dateien, die mit einem Punkt beginnen, vor der Ansicht verborgen, jedoch nicht vor Zugriff, wenn man ihren Namen und Standort kennt. Diese Arten von Dateien enthalten in der Regel Benutzerpräferenzen oder den gespeicherten Zustand eines Dienstprogramms und können ziemlich private Orte wie beispielsweise das `.git` oder `.svn`-Verzeichnis umfassen.
+In Macintosh- und Linux-Systemen werden Dateien, die mit einem Punkt beginnen, vor Ansicht versteckt, aber nicht vor Zugriff, wenn Sie deren Namen und Standort kennen. Diese Arten von Dateien enthalten normalerweise Benutzerpräferenzen oder den gespeicherten Zustand eines Dienstprogramms und können ziemlich private Bereiche wie z.B. die `.git` oder `.svn`-Verzeichnisse umfassen.
 
-Das `.well-known/`-Verzeichnis repräsentiert [den Standard (RFC 5785)](https://datatracker.ietf.org/doc/html/rfc5785) des Pfadpräfixes für "bekannte Orte" (z.B.: `/.well-known/manifest.json`, `/.well-known/keybase.txt`), und daher sollte der Zugriff auf seinen sichtbaren Inhalt nicht blockiert werden.
+Das `.well-known/`-Verzeichnis stellt [den Standard (RFC 5785)](https://datatracker.ietf.org/doc/html/rfc5785) für "bekannte Orte" dar (z.B.: `/.well-known/manifest.json`, `/.well-known/keybase.txt`), und daher sollte der Zugriff auf dessen sichtbare Inhalte nicht blockiert werden.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -438,11 +438,11 @@ Das `.well-known/`-Verzeichnis repräsentiert [den Standard (RFC 5785)](https://
 </IfModule>
 ```
 
-## Zugriff auf Dateien mit sensiblen Informationen blockieren
+## Blockieren des Zugriffs auf Dateien mit sensiblen Informationen
 
-Blockieren Sie den Zugriff auf Backup- und Quelldateien, die von einigen Texteditoren hinterlassen werden und ein Sicherheitsrisiko darstellen können, wenn jeder Zugriff darauf hat.
+Blockieren Sie den Zugriff auf Backup- und Quelldateien, die von einigen Texteditoren hinterlassen werden und ein Sicherheitsrisiko darstellen, wenn jemand Zugriff auf sie hat.
 
-Aktualisieren Sie den `<FilesMatch>`-Regulären Ausdruck im folgenden Beispiel, um alle Dateien einzuschließen, die möglicherweise auf Ihrem Produktionsserver landen und sensible Informationen über Ihre Website preisgeben können. Diese Dateien können Konfigurationsdateien oder Dateien, die Metadaten über das Projekt enthalten, einschließen, unter anderen.
+Aktualisieren Sie den `<FilesMatch>`-Regulären Ausdruck im folgenden Beispiel, um alle Dateien zu enthalten, die möglicherweise auf Ihrem Produktionsserver enden und sensible Informationen über Ihre Website preisgeben können. Diese Dateien können Konfigurationsdateien oder Dateien sein, die Metadaten über das Projekt enthalten, unter anderem.
 
 ```apacheconf
 <IfModule mod_authz_core.c>
@@ -454,11 +454,11 @@ Aktualisieren Sie den `<FilesMatch>`-Regulären Ausdruck im folgenden Beispiel, 
 
 ## HTTP Strict Transport Security (HSTS)
 
-Wenn ein Benutzer `example.com` in seinen Browser eingibt, lässt ein Server ihn, selbst wenn er ihn zur sicheren Version der Website umleitet, immer noch mit einem Zeitfenster der Möglichkeit (die anfänglichen HTTP-Verbindung) für einen Angreifer zurück, um die Anfrage herabzustufen oder umzuleiten.
+Wenn ein Benutzer `example.com` in seinen Browser eingibt, selbst wenn der Server ihn zur sicheren Version der Website umleitet, bleibt dennoch eine Gelegenheit (die initiale HTTP-Verbindung) für einen Angreifer, die Anfrage herabzustufen oder umzuleiten.
 
-Der folgende Header stellt sicher, dass ein Browser nur über HTTPS eine Verbindung zu Ihrem Server herstellt, unabhängig davon, was die Benutzer in die Adressleiste des Browsers eingeben.
+Der folgende Header stellt sicher, dass ein Browser nur über HTTPS mit Ihrem Server verbindet, unabhängig davon, was die Benutzer in die Adressleiste des Browsers eingeben.
 
-Seien Sie sich bewusst, dass Strict Transport Security nicht wiederrufbar ist und Sie sicherstellen müssen, dass Sie in der Lage sind, die Website für die Dauer, die Sie in der `max-age`-Direktive angegeben haben, über HTTPS bereitzustellen. Wenn Sie keine gültige TLS-Verbindung mehr haben (z.B. aufgrund eines abgelaufenen TLS-Zertifikats), werden Ihre Besucher sogar beim Versuch, über HTTP eine Verbindung herzustellen, eine Fehlermeldung sehen.
+Seien Sie sich bewusst, dass Strict Transport Security nicht widerrufbar ist, und Sie müssen sicherstellen, dass Sie in der Lage sind, die Site so lange über HTTPS zu bedienen, wie Sie es im `max-age`-Direktive angegeben haben. Wenn Sie keine gültige TLS-Verbindung mehr haben (z.B. aufgrund eines abgelaufenen TLS-Zertifikats), sehen Ihre Besucher eine Fehlermeldung, selbst wenn sie versuchen, über HTTP zu verbinden.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -470,9 +470,9 @@ Seien Sie sich bewusst, dass Strict Transport Security nicht wiederrufbar ist un
 </IfModule>
 ```
 
-## Verhindern, dass einige Browser den Antwortinhalt wirken
+## Verhindern, dass einige Browser den Inhaltstyp der Antwort schnüffeln
 
-Einige ältere Browser würden versuchen, den Inhaltstyp einer Ressource zu erraten, auch wenn er nicht ordnungsgemäß in der Serverkonfiguration festgelegt ist. Dies verringert das Risiko von Drive-By-Download-Angriffen und Cross-Origin-Datenlecks.
+Einige ältere Browser versuchen den Inhaltstyp einer Ressource zu erraten, selbst wenn er nicht korrekt in der Serverkonfiguration eingerichtet ist. Dies verringert die Anfälligkeit für Drive-by-Download-Angriffe und Cross-Origin-Datenlecks.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -482,13 +482,13 @@ Einige ältere Browser würden versuchen, den Inhaltstyp einer Ressource zu erra
 
 ## Referrer-Richtlinie
 
-Wir fügen den `Referrer-Policy`-Header in die Antworten für Ressourcen ein, die in der Lage sind, andere Ressourcen anzufordern (oder zu navigieren).
+Wir fügen den `Referrer-Policy`-Header in Antworten für Ressourcen ein, die in der Lage sind, andere Ressourcen anzufordern (oder zu navigieren).
 
-Dies umfasst die häufig verwendeten Dateitypen: HTML, CSS, XML/SVG, PDF-Dokumente, Skripte und Worker.
+Dies schließt die häufig verwendeten Ressourcentypen ein: HTML, CSS, XML/SVG, PDF-Dokumente, Skripte und Arbeiter.
 
-Um den Referrer-Leak vollständig zu verhindern, geben Sie den Wert `no-referrer` an. Beachten Sie, dass sich dies negativ auf Analysetools auswirken könnte.
+Um einen vollständigen Referrer-Leck zu verhindern, geben Sie stattdessen den Wert `no-referrer` an. Beachten Sie, dass sich dies negativ auf Analysewerkzeuge auswirken könnte.
 
-Verwenden Sie Dienste wie die untenstehenden, um Ihre `Referrer-Policy` zu überprüfen:
+Verwenden Sie Dienste wie die unten aufgeführten, um Ihre `Referrer-Policy` zu überprüfen:
 
 - [HTTP Observatory](/en-US/observatory)
 - [securityheaders.com](https://securityheaders.com/)
@@ -501,11 +501,11 @@ Verwenden Sie Dienste wie die untenstehenden, um Ihre `Referrer-Policy` zu über
 
 ## Deaktivieren der `TRACE`-HTTP-Methode
 
-Die [TRACE](/de/docs/Web/HTTP/Reference/Methods/TRACE)-Methode, obwohl anscheinend harmlos, kann in einigen Szenarien erfolgreich verwendet werden, um die Anmeldedaten legitimer Benutzer zu stehlen. Siehe [Ein Cross-Site Tracing (XST) Angriff](https://owasp.org/www-community/attacks/Cross_Site_Tracing) und [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods#test-xst-potential)
+Die [TRACE](/de/docs/Web/HTTP/Reference/Methods/TRACE)-Methode kann, obwohl sie auf den ersten Blick harmlos erscheint, in einigen Szenarien erfolgreich genutzt werden, um die Anmeldeinformationen legitimer Benutzer zu stehlen. Siehe [Ein Cross-Site Tracing (XST) Angriff](https://owasp.org/www-community/attacks/Cross_Site_Tracing) und [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods#test-xst-potential).
 
-Moderne Browser verhindern nun `TRACE`-Anfragen über JavaScript, allerdings wurden andere Wege entdeckt, um `TRACE`-Anfragen mit Browsern zu senden, wie z.B. der Einsatz von Java.
+Moderne Browser verhindern mittlerweile TRACE-Anfragen, die über JavaScript gestellt werden, jedoch wurden andere Möglichkeiten entdeckt, TRACE-Anfragen mit Browsern zu senden, z.B. mit Java.
 
-Wenn Sie Zugriff auf die Hauptserverkonfigurationsdatei haben, verwenden Sie stattdessen die [`TraceEnable`](https://httpd.apache.org/docs/current/mod/core.html#traceenable)-Direktive.
+Wenn Sie Zugang zur Hauptserverkonfigurationsdatei haben, verwenden Sie stattdessen die [`TraceEnable`](https://httpd.apache.org/docs/current/mod/core.html#traceenable)-Direktive.
 
 ```apacheconf
 <IfModule mod_rewrite.c>
@@ -517,9 +517,9 @@ Wenn Sie Zugriff auf die Hauptserverkonfigurationsdatei haben, verwenden Sie sta
 
 ## Entfernen des `X-Powered-By`-Antwort-Headers
 
-Einige Frameworks wie PHP und ASP.NET setzen einen `X-Powered-By`-Header, der Informationen über sie enthält (z.B. deren Name, Versionsnummer)
+Einige Frameworks wie PHP und ASP.NET setzen einen `X-Powered-By`-Header, der Informationen über sie enthält (z.B. ihren Namen, Versionsnummer).
 
-Dieser Header bietet keinen Mehrwert, und in einigen Fällen können die bereitgestellten Informationen Schwachstellen offenlegen
+Dieser Header bietet keinerlei Nutzen und in manchen Fällen kann die von ihm bereitgestellte Information Schwachstellen offenlegen.
 
 ```apacheconf
 <IfModule mod_headers.c>
@@ -528,23 +528,23 @@ Dieser Header bietet keinen Mehrwert, und in einigen Fällen können die bereitg
 </IfModule>
 ```
 
-Wenn Sie können, sollten Sie den `X-Powered-By`-Header auf Sprach-/Framework-Ebene (z.B. für PHP, können Sie das tun, indem Sie folgendes in `php.ini` festlegen) deaktivieren.
+Wenn möglich, sollten Sie den `X-Powered-By`-Header von der Sprache/Framework-Ebene aus deaktivieren (z.B.: für PHP können Sie dies tun, indem Sie Folgendes in `php.ini` einstellen.
 
 ```ini
 expose_php = off;
 ```
 
-## Entfernen der von Apache generierten Serverinformationen im Footer
+## Entfernen des von Apache generierten Serverinformations-Fußzeilen
 
-Verhindern Sie, dass Apache eine Schlussfußzeile mit Informationen über den Server in von Server generierte Dokumente (z.B. Fehlermeldungen, Verzeichnislisten, usw.) einfügt. Siehe die [ServerSignature-Direktive](https://httpd.apache.org/docs/current/mod/core.html#serversignature) Dokumentation für weitere Informationen darüber, was die Serversignatur bietet und die [`ServerTokens`-Direktive](https://httpd.apache.org/docs/current/mod/core.html#servertokens) für Informationen über die Konfiguration der in der Signatur bereitgestellten Informationen.
+Verhindern Sie, dass Apache eine abschließende Fußzeile, die Informationen über den Server enthält, zu servergenerierten Dokumenten (z.B., Fehlermeldungen, Verzeichnislisten usw.) hinzufügt. Siehe die [`ServerSignature`-Direktive](https://httpd.apache.org/docs/current/mod/core.html#serversignature)-Dokumentation für weitere Informationen darüber, was die Server-Signatur bereitstellt und die [`ServerTokens`-Direktive](https://httpd.apache.org/docs/current/mod/core.html#servertokens) für Informationen zur Konfiguration der in der Signatur bereitgestellten Informationen.
 
 ```apacheconf
 ServerSignature Off
 ```
 
-## Korrigieren von beschädigten `AcceptEncoding`-Headers
+## Behebung von fehlerhaften `AcceptEncoding`-Headern
 
-Einige Proxys und Sicherheitssoftware zerstören oder entfernen den `Accept-Encoding`-HTTP-Header. Siehe [Pushing Beyond Gzipping](https://calendar.perfplanet.com/2010/pushing-beyond-gzipping/) für eine detaillierte Erklärung.
+Einige Proxys und Sicherheitssoftware verunstalten oder entfernen den `Accept-Encoding` HTTP-Header. Siehe [Pushing Beyond Gzipping](https://calendar.perfplanet.com/2010/pushing-beyond-gzipping/) für eine detailliertere Erklärung.
 
 ```apacheconf
 <IfModule mod_deflate.c>
@@ -559,7 +559,7 @@ Einige Proxys und Sicherheitssoftware zerstören oder entfernen den `Accept-Enco
 
 ## Medien-Typen komprimieren
 
-Komprimieren Sie alle Ausgaben, die mit einem der folgenden Medientypen gekennzeichnet sind, mit der [AddOutputFilterByType-Direktive](https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype).
+Komprimieren Sie alle Ausgaben, die mit einem der folgenden Medientypen gekennzeichnet sind, mit der [AddOutputFilterByType Direktive](https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype).
 
 ```apacheconf
 <IfModule mod_deflate.c>
@@ -604,9 +604,9 @@ Komprimieren Sie alle Ausgaben, die mit einem der folgenden Medientypen gekennze
 </IfModule>
 ```
 
-## Zuordnen von Erweiterungen zu Medientypen
+## Erweiterungen zu Medientypen abbilden
 
-Ordnen Sie die folgenden Dateiendungen dem angegebenen Kodierungstyp mit [AddEncoding](https://httpd.apache.org/docs/current/mod/mod_mime.html#addencoding) zu, damit Apache die Dateitypen mit dem entsprechenden `Content-Encoding`-Antwortheader bereitstellen kann (dies wird NICHT dazu führen, dass Apache sie komprimiert!). Wenn diese Dateitypen ohne einen entsprechenden `Content-Encoding`-Antwortheader bereitgestellt würden, wüssten Clientanwendungen (z.B. Browser) nicht, dass sie die Antwort zuerst dekomprimieren müssen und könnten daher den Inhalt nicht verstehen.
+Ordnen Sie die folgenden Dateinamenerweiterungen der angegebenen Kodierungsart zu, indem Sie [AddEncoding](https://httpd.apache.org/docs/current/mod/mod_mime.html#addencoding) verwenden, damit Apache die Dateitypen mit dem entsprechenden `Content-Encoding` Antwort-Header bereitstellen kann (dies wird NICHT Apache dazu bringen, sie zu komprimieren!). Wenn diese Dateitypen ohne einen geeigneten `Content-Encoding` Antwort-Header bereitgestellt würden, wüssten Client-Anwendungen (z.B. Browser) nicht, dass sie die Antwort zuerst dekomprimieren müssen, und könnten den Inhalt somit nicht verstehen.
 
 ```apacheconf
 <IfModule mod_deflate.c>
@@ -616,9 +616,9 @@ Ordnen Sie die folgenden Dateiendungen dem angegebenen Kodierungstyp mit [AddEnc
 </IfModule>
 ```
 
-## Cache-Ablaufdatum
+## Cache-Ablauf
 
-Bereitstellen von Ressourcen mit einem sehr weit in der Zukunft liegenden Ablaufdatum mithilfe des [mod_expires](https://httpd.apache.org/docs/current/mod/mod_expires.html)-Moduls, und der [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)- sowie der [Expires](/de/docs/Web/HTTP/Reference/Headers/Expires)-Header.
+Stellen Sie Ressourcen mit einem langem Ablaufdatum in der Zukunft bereit, indem Sie das [mod_expires](https://httpd.apache.org/docs/current/mod/mod_expires.html)-Modul und die [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control) und [Expires](/de/docs/Web/HTTP/Reference/Headers/Expires)-Header verwenden.
 
 ```apacheconf
 <IfModule mod_expires.c>

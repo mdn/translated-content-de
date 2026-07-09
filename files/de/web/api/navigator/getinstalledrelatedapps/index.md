@@ -3,37 +3,37 @@ title: "Navigator: getInstalledRelatedApps() Methode"
 short-title: getInstalledRelatedApps()
 slug: Web/API/Navigator/getInstalledRelatedApps
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
 ---
 
 {{APIRef}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getInstalledRelatedApps()`** Methode gibt ein Promise zurück, das mit einem Array von Objekten aufgelöst wird, die alle plattformspezifischen verwandten Apps oder [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) darstellen, die der Benutzer installiert hat. Dies könnte für die Personalisierung von Inhalten genutzt werden, wie zum Beispiel das Entfernen von "Installieren Sie unsere App"-Bannern aus der Web-App, wenn die plattformspezifische App und/oder PWA bereits installiert ist.
+Die **`getInstalledRelatedApps()`** Methode gibt ein Versprechen zurück, das mit einem Array von Objekten aufgelöst wird, die jede installierte plattformbezogene App oder [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) darstellen, die der Benutzer installiert hat. Diese Methode kann zur Personalisierung von Inhalten verwendet werden, wie zum Beispiel das Entfernen von "Installieren Sie unsere App"-Bannern aus der Web-App, wenn die plattformbezogene App und/oder PWA bereits installiert ist.
 
 > [!NOTE]
-> Diese Methode muss in einem Top-Level [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden, das heißt, nicht eingebettet in ein {{htmlelement("iframe")}}.
+> Diese Methode muss in einem obersten [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden, das heißt, sie darf nicht in einem {{htmlelement("iframe")}} eingebettet sein.
 
 ## Beschreibung
 
-`getInstalledRelatedApps()` kann verwendet werden, um die Installation von Universal Windows Platform (UWP) Apps, Android-Apps und PWAs zu überprüfen, die mit der Web-App verwandt sind, die diese Methode aufruft.
+`getInstalledRelatedApps()` kann verwendet werden, um die Installation von Universal Windows Platform (UWP) Apps, Android Apps und PWAs zu überprüfen, die mit der Web-App, die diese Methode aufruft, in Zusammenhang stehen.
 
 Um die aufrufende Web-App mit einer plattformspezifischen App oder PWA zu verknüpfen, müssen zwei Dinge getan werden:
 
-1. Die aufrufende Web-App muss im [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) Mitglied ihrer [Manifest-Datei](/de/docs/Web/Progressive_web_apps/Manifest) angegeben werden.
+1. Die aufrufende Web-App muss im Mitglied [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) ihrer [Manifestdatei](/de/docs/Web/Progressive_web_apps/Manifest) angegeben sein.
 2. Die plattformspezifische App oder PWA muss ihre Beziehung zur aufrufenden App definiert haben.
 
-Die Definition der Beziehung erfolgt unterschiedlich, je nach Art der App:
+Die Definition der Beziehung erfolgt je nach App-Typ auf unterschiedliche Weise:
 
-- Eine Android-App macht dies über das [Digital Asset Links System](https://developers.google.com/digital-asset-links/v1/getting-started).
-- Eine Windows UWP App macht dies über [URI-Handler](https://learn.microsoft.com/en-us/windows/apps/develop/launch/web-to-app-linking).
-- Eine PWA macht dies über:
-  - Einen selbsterklärenden Eintrag innerhalb ihres eigenen `related_applications`-Manifest-Mitglieds, wobei die Eigenschaften `platform` und `id` spezifiziert werden, im Fall einer PWA, die im gleichen Bereich prüft, ob sie auf der zugrunde liegenden Plattform installiert ist.
-  - Eine `assetlinks.json`-Datei in ihrem [`/.well-known/`](https://datatracker.ietf.org/doc/html/rfc5785) Verzeichnis im Fall einer App außerhalb des Bereichs der PWA, die prüft, ob sie auf Android installiert ist.
+- Eine Android-App tut dies über das [Digital Asset Links System](https://developers.google.com/digital-asset-links/v1/getting-started).
+- Eine Windows UWP-App tut dies über [URI-Handler](https://learn.microsoft.com/en-us/windows/apps/develop/launch/web-to-app-linking).
+- Eine PWA tut dies über:
+  - Einen selbsterklärenden Eintrag in ihrem eigenen `related_applications` Manifestmitglied, der die Eigenschaften `platform` und `id` spezifiziert, im Fall einer PWA, die im gleichen Umfang überprüft, ob sie auf der zugrunde liegenden Plattform installiert ist.
+  - Eine `assetlinks.json` Datei in ihrem [`/.well-known/`](https://datatracker.ietf.org/doc/html/rfc5785) Verzeichnis, im Fall einer App außerhalb des PWA-Scopes, um zu überprüfen, ob sie auf Android installiert ist.
 
-Siehe [Ist Ihre App installiert? getInstalledRelatedApps() sagt es Ihnen!](https://developer.chrome.com/docs/capabilities/get-installed-related-apps) für weitere Details, wie man jeden dieser Fälle handhaben kann.
+Weitere Details zur Handhabung dieser Fälle finden Sie unter [Ist Ihre App installiert? getInstalledRelatedApps() wird es Ihnen sagen!](https://developer.chrome.com/docs/capabilities/get-installed-related-apps).
 
 > [!NOTE]
-> Die meisten unterstützenden Browser bieten ihre eigene Installationsoberfläche, wenn eine installierbare PWA erkannt wird, die nicht angezeigt wird, wenn sie bereits installiert ist — siehe [PWAs installierbar machen > Installation aus dem Web](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#installation_from_the_web). Dies kann unterdrückt werden, indem das [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Ereignis verwendet wird, das auch mit `getInstalledRelatedApps()` kombiniert werden könnte, um es basierend auf der Verfügbarkeit einer plattformspezifischen App zu unterdrücken. Siehe [Installation von Ihrer PWA auslösen](/de/docs/Web/Progressive_web_apps/How_to/Trigger_install_prompt#responding_to_platform-specific_apps_being_installed) für weitere nützliche Informationen.
+> Die meisten unterstützenden Browser bieten ihre eigene Installationsbenutzeroberfläche an, wenn eine installierbare PWA erkannt wird, die nicht angezeigt wird, wenn sie bereits installiert ist — siehe [PWAs installierbar machen > Installation aus dem Web](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#installation_from_the_web). Dies kann mit dem [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event) Ereignis unterdrückt werden, das auch mit `getInstalledRelatedApps()` kombiniert werden könnte, um es zu unterdrücken, basierend darauf, dass eine plattformspezifische App verfügbar ist. Weitere nützliche Informationen finden Sie unter [Installation von Ihrer PWA auslösen](/de/docs/Web/Progressive_web_apps/How_to/Trigger_install_prompt#responding_to_platform-specific_apps_being_installed).
 
 ## Syntax
 
@@ -47,30 +47,30 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die alle installierten verwandten Apps darstellen. Jedes Objekt kann die folgenden Eigenschaften enthalten:
+Ein {{JSxRef("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die jede installierte verwandte App darstellen. Jedes Objekt kann die folgenden Eigenschaften enthalten:
 
 - `id` {{optional_inline}}
-  - : Ein String, der die ID darstellt, die verwendet wird, um die Anwendung auf der angegebenen Plattform darzustellen. Die genaue Form des Strings variiert je nach Plattform.
+  - : Ein String, der die ID darstellt, die zur Repräsentation der Anwendung auf der angegebenen Plattform verwendet wird. Die genaue Form des String variiert je nach Plattform.
 - `platform`
   - : Ein String, der die [Plattform](https://github.com/w3c/manifest/wiki/Platforms) (Ökosystem oder Betriebssystem) darstellt, mit der die verwandte App verbunden ist. Dies kann sein:
     - `"chrome_web_store"`: Eine [Google Chrome Web Store](https://chromewebstore.google.com/) App.
     - `"play"`: Eine [Google Play Store](https://play.google.com/store/games) App.
     - `"chromeos_play"`: Eine [ChromeOS Play](https://support.google.com/googleplay/answer/7021273) App.
     - `"webapp"`: Eine [Progressive Web App](/de/docs/Web/Progressive_web_apps).
-    - `"windows"`: Eine [Windows Store](https://apps.microsoft.com/?rtc=1&hl=en-us&gl=us) App.
+    - `"windows"`: Eine [Windows Store](https://apps.microsoft.com/?rtc=1&hl=en-US&gl=US) App.
     - `"f-droid"`: Eine [F-Droid](https://f-droid.org/) App.
     - `"amazon"`: Eine [Amazon App Store](https://www.amazon.com/gp/browse.html?node=2350149011) App.
 - `url` {{optional_inline}}
-  - : Ein String, der die URL darstellt, die mit der App verbunden ist. Dies ist in der Regel der Ort, an dem Sie Informationen darüber lesen und sie installieren können.
+  - : Ein String, der die URL repräsentiert, die mit der App verknüpft ist. Dies ist in der Regel der Ort, an dem Sie Informationen darüber lesen und sie installieren können.
 - `version` {{optional_inline}}
-  - : Ein String, der die Version der verwandten App darstellt.
+  - : Ein String, der die Version der verwandten App repräsentiert.
 
-Die Informationen zur verwandten App müssen zuvor im [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) Mitglied der aufrufenden Web-App [Manifest-Datei](/de/docs/Web/Progressive_web_apps/Manifest) angegeben worden sein.
+Die Informationen zur verwandten App müssen zuvor im [`related_applications`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/related_applications) Mitglied der Manifest-Datei der aufrufenden Web-App spezifiziert worden sein.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Methode wurde nicht in einem Top-Level-Browsing-Kontext aufgerufen.
+  - : Die Methode wurde nicht in einem obersten Browsing-Kontext aufgerufen.
 
 ## Beispiele
 
@@ -91,7 +91,7 @@ if (psApp && doesVersionSendPushMessages(psApp.version)) {
 ```
 
 > [!NOTE]
-> In diesem Beispiel ist `doesVersionSendPushMessages()` eine theoretische, vom Entwickler definierte Funktion; sie wird nicht vom Browser bereitgestellt.
+> In diesem Beispiel ist `doesVersionSendPushMessages()` eine theoretisch vom Entwickler definierte Funktion; sie wird nicht vom Browser bereitgestellt.
 
 ## Spezifikationen
 
@@ -103,4 +103,4 @@ if (psApp && doesVersionSendPushMessages(psApp.version)) {
 
 ## Siehe auch
 
-- [Ist Ihre App installiert? getInstalledRelatedApps() sagt es Ihnen!](https://developer.chrome.com/docs/capabilities/get-installed-related-apps)
+- [Ist Ihre App installiert? getInstalledRelatedApps() wird es Ihnen sagen!](https://developer.chrome.com/docs/capabilities/get-installed-related-apps)
