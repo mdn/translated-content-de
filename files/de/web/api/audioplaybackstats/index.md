@@ -2,81 +2,81 @@
 title: AudioPlaybackStats
 slug: Web/API/AudioPlaybackStats
 l10n:
-  sourceCommit: b884c869c8bdc8f6bd0ea8290934757d27d6845c
+  sourceCommit: 7f138099644a02640a903b2abc39e685ca8ca7cd
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Das **`AudioPlaybackStats`** Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) bietet Zugriff auf Dauer-, Underrun- und Latenzstatistiken für den zugehörigen [`AudioContext`](/de/docs/Web/API/AudioContext). Diese Statistiken ermöglichen es, Audioverschiebungen und Aussetzer zu messen.
+Die **`AudioPlaybackStats`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) bietet Zugriff auf Statistiken zu Dauer, Unterbrechungen und Latenz für den zugehörigen [`AudioContext`](/de/docs/Web/API/AudioContext). Diese Statistiken ermöglichen es, Audioverzögerungen und Aussetzer zu messen.
 
-Das `AudioPlaybackStats`-Objekt eines Audio-Kontexts kann über die [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats)-Eigenschaft zugegriffen werden. Das zurückgegebene `AudioPlaybackStats`-Objekt ist live — die enthaltenen Eigenschaftswerte werden einmal pro Sekunde aktualisiert.
+Auf das `AudioPlaybackStats`-Objekt eines Audio-Kontexts kann über die Eigenschaft [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats) zugegriffen werden. Das zurückgegebene `AudioPlaybackStats`-Objekt ist live – die enthaltenen Eigenschaftswerte werden einmal pro Sekunde aktualisiert.
 
 ## Beschreibung
 
-In Anwendungen, die Audio abspielen, ist es vorteilhaft, Audio-{{Glossary("latency", "Latenz")}} und Underrun zu messen, da beides zu einer schlechten Audioerfahrung beitragen kann:
+In Anwendungen, die Audio abspielen, ist es vorteilhaft, die Audio-{{Glossary("latency", "Latenz")}} und Unterbrechungen zu messen, da beide zu einer schlechten Audioerfahrung beitragen können:
 
 - **Audio-Latenz**
-  - : Ein Maß für die Verzögerung zwischen der Aktivierung einer Steuerung durch den Benutzer (z. B. einer Wiedergabetaste) und der erwarteten Wiedergabe des Audios. Eine signifikante Latenz kann eine Anwendung unresponsiv wirken lassen.
-- **Underrun**
-  - : Eine Unterbrechung bei der Wiedergabe, wenn die Audioanwendung keine gepufferten Audiodaten mehr zur Wiedergabe hat, bevor neue Daten ankommen, um sie zu ersetzen — mit anderen Worten, sie kann nicht schnell genug Audioframes an das Ausgabegerät liefern. Dies kann aufgrund der Komplexität des Audiografen, Überlastung der CPU oder Fehlfunktionen in anderen Audioanwendungen passieren. Das Ergebnis ist ein hörbares "Glitch" — ein Klicken, ein Knacken oder ein Audioausfall — weil die Anwendung nichts abzuspielen hat und die Lücke mit Stille oder Rauschen füllt.
+  - : Ein Maß für die Verzögerung zwischen dem Aktivieren einer Steuerung (wie einer Wiedergabetaste) durch den Benutzer und der erwarteten Wiedergabe des Audios. Erhebliche Latenz kann eine Anwendung träge wirken lassen.
+- **Unterbrechung**
+  - : Ein Unterbrechung in der Wiedergabe, wenn die Audio-Anwendung keine gepufferten Audiodaten mehr hat, bevor neue Daten eintreffen, um sie zu ersetzen – mit anderen Worten, sie kann keine Audio-Frames schnell genug an das Ausgabegerät liefern. Dies kann aufgrund der Komplexität des Audionetzwerks, CPU-Überlastung oder Fehlfunktionen in anderen Audioprogrammen auftreten. Das Ergebnis ist ein hörbarer "Fehler" – ein Klick, ein Knacken oder ein Audioausfall – da die Anwendung nichts abzuspielen hat und die Lücke mit Stille oder Rauschen füllt.
 
-Wenn Sie Underruns feststellen, ergreifen Sie Maßnahmen, um zukünftige zu vermeiden – zum Beispiel durch Bereitstellung eines größeren Puffers oder durch Freigabe von Systemressourcen. Verwenden Sie einen größeren Puffer jedoch vorsichtig, da er die Latenz erhöhen kann; es ist wichtig, ein Gleichgewicht zu erreichen. Sie können die Latenz reduzieren, indem Sie die erforderliche Verarbeitung vereinfachen oder die Größe des Wiedergabepuffers verringern.
+Wenn Sie Unterbrechungen feststellen, ergreifen Sie Maßnahmen, um zukünftige zu vermeiden – zum Beispiel durch Bereitstellung eines größeren Puffers oder durch Freigabe von Systemressourcen. Verwenden Sie einen größeren Puffer vorsichtig, da er die Latenz erhöhen kann; es ist wichtig, ein Gleichgewicht zu finden. Sie können die Latenz reduzieren, indem Sie die erforderliche Verarbeitung vereinfachen oder die Größe des Wiedergabepuffers verringern.
 
-Die Leistung von Web-Audio variiert stark zwischen Geräten, von modernen Desktop-Computern bis hin zu günstigen Mobiltelefonen. Das `AudioPlaybackStats`-Objekt ermöglicht es Ihnen, Telemetriedaten von Ihren Benutzern zu sammeln, um zu verstehen, wie Ihre Anwendung in der "realen Welt" performt. Nutzen Sie diese Daten, um Latenz- und Underrun-Probleme zu identifizieren und darauf zu reagieren.
+Die Leistung von Web-Audio variiert stark zwischen Geräten, von modernen High-End-Desktops bis hin zu günstigen Low-End-Mobiltelefonen. Das `AudioPlaybackStats`-Objekt ermöglicht es Ihnen, Telemetriedaten von Ihren Benutzern zu sammeln, um zu verstehen, wie Ihre App in der "realen Welt" performt. Verwenden Sie diese Daten, um Latenz- und Unterbrechungsprobleme zu erkennen und darauf zu reagieren.
 
-Zum Beispiel könnten Sie ein "adaptives" Audiosystem schaffen, das erkennt, wenn Underrun oder Latenz einen bestimmten Schwellenwert überschreitet (wenn Audio zu "glitchen" beginnt), und folgende Maßnahmen ergreift:
+Zum Beispiel könnten Sie ein "adaptives" Audiosystem erstellen, das erkennt, wenn Unterbrechungen oder Latenz einen bestimmten Schwellenwert überschreiten (wenn das Audio zu stottern beginnt) und die folgenden Maßnahmen ergreift:
 
-- Reduzieren Sie die Rechenlast, indem Sie die maximale Anzahl der gleichzeitig gespielten Stimmen verringern oder komplexe Filter entfernen.
-- Fordern Sie den Benutzer auf, andere Tabs oder Apps zu schließen oder das Audioausgabegerät zu wechseln.
+- Reduzieren Sie die Berechnungslast, indem Sie die maximale Anzahl gleichzeitiger Stimmen verringern oder komplexe Filter entfernen.
+- Fordern Sie den Benutzer auf, andere Tabs oder Apps zu schließen oder das Audiowiedergabegerät zu wechseln.
 
-### Underrun-Statistiken, die von der Schnittstelle bereitgestellt werden
+### Durch die Schnittstelle bereitgestellte Unterbrechungsstatistiken
 
-Underruns werden in Bezug auf **Underrun-Frames** und **Underrun-Ereignisse** definiert:
+Unterbrechungen werden in Bezug auf **Unterbrechungs-Frames** und **Unterbrechungs-Ereignisse** definiert:
 
-- Underrun-Frame
-  - : Ein Audioframe, typischerweise Stille im Fall einer Webanwendung, der vom Ausgabegerät abgespielt wird, wenn es keine tatsächlichen Audiodaten vom Audiokontext gibt.
-- Underrun-Ereignis
-  - : Die Wiedergabe einer kontinuierlichen Abfolge von Underrun-Frames. Die Dauer des Underrun-Ereignisses ist die Gesamtdauer der Abfolge von Underrun-Frames.
+- Unterbrechungs-Frame
+  - : Ein Audio-Frame, in der Regel Stille im Fall einer Webanwendung, der vom Ausgabegerät abgespielt wird, wenn keine tatsächlichen Audiodaten vom Audiokontext vorhanden sind.
+- Unterbrechungs-Ereignis
+  - : Die Wiedergabe einer kontinuierlichen Sequenz von Unterbrechungs-Frames. Die Dauer des Unterbrechungs-Ereignisses ist die Gesamtdauer der Sequenz von Unterbrechungs-Frames.
 
-Die Anzahl der Underrun-Ereignisse seit der Initialisierung des Audiokontexts wird durch die [`AudioPlaybackStats.underrunEvents`](/de/docs/Web/API/AudioPlaybackStats/underrunEvents)-Eigenschaft gemeldet, und die Dauer dieser Underrun-Ereignisse wird durch die [`AudioPlaybackStats.underrunDuration`](/de/docs/Web/API/AudioPlaybackStats/underrunDuration)-Eigenschaft gemeldet. Dadurch können Sie herausfinden, wie oft und wie lange das Audio aufgrund von Underrun ausfällt.
+Die Anzahl der Unterbrechungs-Ereignisse seit der Initialisierung des Audiokontexts wird von der Eigenschaft [`AudioPlaybackStats.underrunEvents`](/de/docs/Web/API/AudioPlaybackStats/underrunEvents) gemeldet, und die Dauer dieser Unterbrechungs-Ereignisse wird von der Eigenschaft [`AudioPlaybackStats.underrunDuration`](/de/docs/Web/API/AudioPlaybackStats/underrunDuration) gemeldet. Dies ermöglicht es Ihnen herauszufinden, wie oft und wie lange das Audio aufgrund von Unterbrechungen unterbrochen wird.
 
-### Latenzstatistiken, die von der Schnittstelle bereitgestellt werden
+### Durch die Schnittstelle bereitgestellte Latenzstatistiken
 
 Die Latenz des Audiokontexts kann mit den Eigenschaften [`AudioPlaybackStats.averageLatency`](/de/docs/Web/API/AudioPlaybackStats/averageLatency), [`AudioPlaybackStats.minimumLatency`](/de/docs/Web/API/AudioPlaybackStats/minimumLatency) und [`AudioPlaybackStats.maximumLatency`](/de/docs/Web/API/AudioPlaybackStats/maximumLatency) gemessen werden.
 
-Es ist möglich, die unmittelbare Wiedergabelatenz des Audiokontexts über die [`AudioContext.outputLatency`](/de/docs/Web/API/AudioContext/outputLatency)-Eigenschaft abzurufen; dies ist jedoch ein sofortiger Wert, der schnell schwankt. `AudioPlaybackStats` bietet die durchschnittliche, minimale und maximale Latenz über die Zeit, was nützlicher ist, um anhaltende Leistungsprobleme zu identifizieren.
+Es ist möglich, die unmittelbare Wiedergabelatenz des Audiokontexts über die Eigenschaft [`AudioContext.outputLatency`](/de/docs/Web/API/AudioContext/outputLatency) abzurufen; dies ist jedoch ein sofortiger Wert, der sich schnell ändert. `AudioPlaybackStats` bietet die durchschnittliche, minimale und maximale Latenz über die Zeit hinweg, was nützlicher ist, um anhaltende Leistungsprobleme zu identifizieren.
 
 ## Instanz-Eigenschaften
 
 - [`AudioPlaybackStats.averageLatency`](/de/docs/Web/API/AudioPlaybackStats/averageLatency) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die die durchschnittliche Latenz angibt, seit der Audiokontext initialisiert wurde oder seit [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) zuletzt aufgerufen wurde.
+  - : Eine Zahl, die die durchschnittliche Latenz seit der Initialisierung des Audiokontexts oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
 - [`AudioPlaybackStats.minimumLatency`](/de/docs/Web/API/AudioPlaybackStats/minimumLatency) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die die minimale Latenz angibt, seit der Audiokontext initialisiert wurde oder seit [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) zuletzt aufgerufen wurde.
+  - : Eine Zahl, die die minimale Latenz seit der Initialisierung des Audiokontexts oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
 - [`AudioPlaybackStats.maximumLatency`](/de/docs/Web/API/AudioPlaybackStats/maximumLatency) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die die maximale Latenz angibt, seit der Audiokontext initialisiert wurde oder seit [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) zuletzt aufgerufen wurde.
+  - : Eine Zahl, die die maximale Latenz seit der Initialisierung des Audiokontexts oder seit dem letzten Aufruf von [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) angibt.
 - [`AudioPlaybackStats.totalDuration`](/de/docs/Web/API/AudioPlaybackStats/totalDuration) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die die Gesamtdauer aller Audioframes angibt, seit der Audiokontext initialisiert wurde.
+  - : Eine Zahl, die die Gesamtdauer aller Audio-Frames seit der Initialisierung des Audiokontexts angibt.
 - [`AudioPlaybackStats.underrunDuration`](/de/docs/Web/API/AudioPlaybackStats/underrunDuration) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die die Gesamtdauer der aufgetretenen Underrun-Ereignisse angibt, seit der Audiokontext initialisiert wurde.
+  - : Eine Zahl, die die Gesamtdauer der Unterbrechungs-Ereignisse angibt, die seit der Initialisierung des Audiokontexts aufgetreten sind.
 - [`AudioPlaybackStats.underrunEvents`](/de/docs/Web/API/AudioPlaybackStats/underrunEvents) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine Zahl, die angibt, wie viele Underrun-Ereignisse seit der Initialisierung des Audiokontexts aufgetreten sind.
+  - : Eine Zahl, die angibt, wie viele Unterbrechungs-Ereignisse seit der Initialisierung des Audiokontexts aufgetreten sind.
 
 ## Instanz-Methoden
 
 - [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) {{experimental_inline}}
-  - : Setzt den Beginn des Intervalls zurück, während dessen die Latenzstatistiken gemessen werden, auf die aktuelle Zeit.
+  - : Setzt den Beginn des Intervalls zurück, in dem Latenzstatistiken gemessen werden, auf die aktuelle Zeit.
 - [`AudioPlaybackStats.toJSON()`](/de/docs/Web/API/AudioPlaybackStats/toJSON) {{experimental_inline}}
   - : Ein {{Glossary("Serialization", "Serializer")}}, der eine JSON-Darstellung des `AudioPlaybackStats`-Objekts zurückgibt.
 
 ## Beispiele
 
-### Melden von Audiowiedergabestatistiken
+### Berichterstellung von Audio-Wiedergabestatistiken
 
-Dieses Beispiel zeigt, wie Audiostatistiken gemeldet werden, die über das `AudioPlaybackStats`-Objekt abgerufen werden.
+Dieses Beispiel zeigt, wie man Audiostatistiken meldet, die über das `AudioPlaybackStats`-Objekt abgerufen werden.
 
 #### HTML
 
-Wir inkludieren drei {{htmlelement("button")}}-Elemente — eines, um die Audiowiedergabe zu starten, eines, um einen Satz Statistiken abzurufen und anzuzeigen, und eines, um die [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency)-Methode auszuführen. Wir inkludieren auch ein {{htmlelement("ul")}}-Element, innerhalb dessen die Statistiken angezeigt werden.
+Wir fügen drei {{htmlelement("button")}}-Elemente ein – eines, um das Audio abzuspielen, eines, um eine Reihe von Statistiken abzurufen und anzuzeigen, und eines, um die Methode [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) auszuführen. Außerdem fügen wir ein {{htmlelement("ul")}}-Element ein, in dem die Statistiken angezeigt werden.
 
 ```html live-sample___playback-stats
 <p>
@@ -100,7 +100,7 @@ li {
 
 #### JavaScript
 
-In unserem JavaScript beginnen wir damit, Referenzen zu den Buttons und der Ausgabeliste abzurufen. Wir deaktivieren auch unsere Stats- und Reset-Buttons, da sie anfangs nichts tun werden. Wir aktivieren sie erneut, sobald sie Event-Listener haben.
+In unserem JavaScript beginnen wir, indem wir Referenzen zu den Schaltflächen und der Ausgabeliste erhalten. Wir deaktivieren auch unsere Statistik- und Zurücksetzen-Schaltflächen, da sie anfänglich nichts tun werden. Wir werden sie wieder aktivieren, sobald sie Event-Listener haben.
 
 ```js live-sample___playback-stats
 const playBtn = document.querySelector(".play");
@@ -112,13 +112,13 @@ statsBtn.disabled = true;
 resetBtn.disabled = true;
 ```
 
-Als nächstes fügen wir dem Wiedergabebutton einen `click`-Event-Listener hinzu, sodass, wenn er geklickt wird, wir:
+Als nächstes fügen wir der Wiedergabetaste einen `click`-Event-Listener hinzu, damit wir beim Klicken:
 
-- Einen neuen [`AudioContext`](/de/docs/Web/API/AudioContext) erstellen und den Play-Button deaktivieren, damit er nicht erneut gedrückt werden kann.
-- Einige Feature-Erkennungscode ausführen, der überprüft, ob die [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats)-Eigenschaft existiert. Wenn nicht, zeigen wir eine Nachricht "Ihr Browser unterstützt `AudioPlaybackStats` nicht." in einem Listenelement in der Ausgabeliste an und verlassen die Funktion mit `return`.
-- Einen grundlegenden Audiografen erstellen, der aus einem [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) und einem [`GainNode`](/de/docs/Web/API/GainNode) besteht, und den Oszillator spielen lassen.
-- Den Stats-Button aktivieren und ihm einen `click`-Event-Listener geben, sodass, wenn er geklickt wird, wir die verschiedenen verfügbaren Stats aus dem `AudioPlaybackStats`-Objekt des Audiokontexts in einen Textstring schreiben und diesen in einem Listenelement in der Ausgabeliste anzeigen.
-- Den Reset-Button aktivieren und ihm einen `click`-Event-Listener geben, sodass, wenn er geklickt wird, wir die [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency)-Methode ausführen.
+- einen neuen [`AudioContext`](/de/docs/Web/API/AudioContext) erstellen und die Wiedergabetaste deaktivieren, damit sie nicht erneut gedrückt werden kann.
+- etwas Feature-Detection-Code ausführen, der prüft, ob die Eigenschaft [`AudioContext.playbackStats`](/de/docs/Web/API/AudioContext/playbackStats) existiert. Wenn nicht, zeigen wir eine Nachricht "Ihr Browser unterstützt `AudioPlaybackStats` nicht." in einem Listenelement in der Ausgabeliste an und verlassen die Funktion mit `return`.
+- einen grundlegenden Audio-Graphen erstellen, bestehend aus einem [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) und einem [`GainNode`](/de/docs/Web/API/GainNode), und den Oszillator starten.
+- die Statistikschaltfläche aktivieren und ihr einen `click`-Event-Listener geben, so dass wir beim Klicken die verschiedenen Statistiken, die im `AudioPlaybackStats`-Objekt des Audiokontexts verfügbar sind, in eine Textzeichenkette schreiben und in einem Listenelement in der Ausgabeliste anzeigen.
+- die Zurücksetzen-Schaltfläche aktivieren und ihr einen `click`-Event-Listener geben, so dass wir beim Klicken die Methode [`AudioPlaybackStats.resetLatency()`](/de/docs/Web/API/AudioPlaybackStats/resetLatency) ausführen.
 
 ```js live-sample___playback-stats
 playBtn.addEventListener("click", () => {
@@ -170,9 +170,9 @@ Die gerenderte Ausgabe sieht folgendermaßen aus:
 
 {{embedlivesample("playback-stats", "100%", "400")}}
 
-Klicken Sie auf die Schaltfläche "Audio abspielen", um den Oszillator-Ton zu starten. Jetzt, wenn Sie auf die Schaltfläche "Statistiken anzeigen" klicken, sehen Sie die verschiedenen verfügbaren Statistiken im `AudioPlaybackStats`-Objekt, die in einem Listenpunkt angezeigt werden.
+Klicken Sie auf die Schaltfläche "Audio abspielen", um den Oszillator-Ton zu starten. Wenn Sie jetzt auf die Schaltfläche "Statistiken anzeigen" klicken, sehen Sie die verschiedenen im `AudioPlaybackStats`-Objekt verfügbaren Statistiken in einem Listenelement angezeigt.
 
-Wenn Sie auf die Schaltfläche "Latenz zurücksetzen" klicken und dann auf die Schaltfläche "Statistiken anzeigen" klicken, werden neue Statistiken angezeigt, aber die minimale Latenz wird nicht mehr null sein. Dies liegt daran, dass die Latenz jetzt von dem Zeitpunkt gemessen wird, an dem Sie auf die Schaltfläche "Latenz zurücksetzen" geklickt haben, nicht von der Initialisierung des Audiokontexts.
+Wenn Sie auf die Schaltfläche "Latenz zurücksetzen" klicken und dann die Schaltfläche "Statistiken anzeigen" erneut drücken, erscheinen neue Statistiken, aber die minimale Latenz wird nicht mehr Null sein. Dies liegt daran, dass die Latenz jetzt ab dem Zeitpunkt gemessen wird, an dem Sie die Schaltfläche "Latenz zurücksetzen" gedrückt haben und nicht ab der Initialisierung des Audiokontexts.
 
 ## Spezifikationen
 

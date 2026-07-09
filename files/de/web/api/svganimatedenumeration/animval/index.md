@@ -3,26 +3,26 @@ title: "SVGAnimatedEnumeration: animVal-Eigenschaft"
 short-title: animVal
 slug: Web/API/SVGAnimatedEnumeration/animVal
 l10n:
-  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
+  sourceCommit: 7f138099644a02640a903b2abc39e685ca8ca7cd
 ---
 
 {{APIRef("SVG")}}
 
-Die **`animVal`** Leseeigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle repräsentiert den Wert einer SVG-Enumeration.
+Die schreibgeschützte Eigenschaft **`animVal`** der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle repräsentiert den Wert einer SVG-Aufzählung.
 
-In SVG 2 spiegelt `animVal` den nicht animierten Wert des Attributs wider: Es ist dasselbe wie [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
+In SVG 2 spiegelt `animVal` den nicht animierten Wert des Attributs wider: Es ist derselbe wie [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal).
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Wert der Enumeration repräsentiert.
+Ein ganzzahliger Wert, der den Wert der Aufzählung darstellt.
 
-Die erlaubten Werte hängen von dem Attribut ab, das widergespiegelt wird.
-Diese Eigenschaft kann nicht beschrieben werden.
+Die zulässigen Werte hängen von dem Attribut ab, das widergespiegelt wird.
+Diese Eigenschaft kann nicht geschrieben werden.
 
 ## Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Eigenschaft irgendein Wert zugewiesen wird.
+  - : Wird ausgelöst, wenn der Eigenschaft ein Wert zugewiesen wird.
 
 ## Beispiele
 

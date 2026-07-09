@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Erstellung einer Hausdaten-UI"
+title: "Herausforderung: Erstellung einer Benutzeroberfläche für Hausdaten"
 short-title: "Herausforderung: Hausdaten-UI"
 slug: Learn_web_development/Core/Scripting/House_data_UI
 l10n:
-  sourceCommit: 50a1895c9c499b1b9207f7af945a0fe45de58cca
+  sourceCommit: 7f138099644a02640a903b2abc39e685ca8ca7cd
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/JSON", "Learn_web_development/Core/Scripting/Debugging_JavaScript", "Learn_web_development/Core/Scripting")}}
 
-In dieser Herausforderung werden Sie JavaScript für eine Haussuch-/Filterseite auf einer Immobilien-Website schreiben. Dazu gehört das Abrufen von JSON-Daten, das Filtern dieser Daten basierend auf den in bereitgestellten Formularsteuerungen eingegebenen Werten und das Rendern dieser Daten in der Benutzeroberfläche. Unterwegs testen wir Ihr Wissen über Bedingungen, Schleifen, Arrays und Array-Methoden und mehr.
+In dieser Herausforderung sollen Sie etwas JavaScript für eine Such-/Filterseite einer Immobilien-Website schreiben. Dies beinhaltet das Abrufen von JSON-Daten, das Filtern dieser Daten basierend auf den in bereitgestellten Formular-Steuerelementen eingegebenen Werten und das Rendern dieser Daten in der Benutzeroberfläche. Dabei testen wir auch Ihr Wissen über Bedingungsanweisungen, Schleifen, Arrays und Array-Methoden und mehr.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie in einem der untenstehenden Code-Panels auf die Schaltfläche **Spielen**, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die JavaScript-Funktionalität abzuschließen.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der unten stehenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die JavaScript-Funktionalität abzuschließen.
 
 ```html live-sample___house-ui-start live-sample___house-ui-finish
 <h1>House search</h1>
@@ -129,64 +129,64 @@ fetchHouseData();
 
 ## Projektbeschreibung
 
-Sie haben eine HTML-Indexseite erhalten, die ein Formular enthält, das es dem Benutzer ermöglicht, nach Häusern nach Straße, Anzahl der Schlafzimmer und Anzahl der Badezimmer zu suchen, plus ein paar Elemente, um Suchergebnisse anzuzeigen. Außerdem haben Sie eine JavaScript-Datei mit einigen Definitionen von Konstanten und Variablen sowie ein paar Skelettfunktionendefinitionen erhalten. Ihre Aufgabe ist es, das fehlende JavaScript zu ergänzen, um die Haussuch-Schnittstelle zum Laufen zu bringen.
+Ihnen wurde eine HTML-Startseite bereitgestellt, die ein Formular enthält, in dem der Benutzer nach Häusern nach Straße, Anzahl der Schlafzimmer und Anzahl der Badezimmer suchen kann, sowie ein paar Elemente, um Suchergebnisse anzuzeigen. Ihnen wurde auch eine JavaScript-Datei bereitgestellt, die einige Konstanten- und Variablendefinitionen enthält, sowie ein paar Skelettfunktion-Definitionen. Ihre Aufgabe ist es, das fehlende JavaScript auszufüllen, damit die Haussuchschnittstelle funktioniert.
 
 Die bereitgestellten Konstanten- und Variablendefinitionen enthalten die folgenden Referenzen:
 
-- `streetSelect`: Das "choose-street" `<select>` Element.
-- `bedroomSelect`: Das "choose-bedrooms" `<select>` Element.
-- `bathroomSelect`: Das "choose-bathrooms" `<select>` Element.
-- `form`: Das gesamte `<form>` Element, das die `<select>` Elemente enthält.
-- `resultCount`: Das "result-count" `<p>` Element, welches aktualisiert wird, um die Anzahl der nach jeder Suche zurückgegebenen Ergebnisse anzuzeigen.
-- `output`: Das "output" `<section>` Element, welches die Suchergebnisse anzeigt.
-- `houses`: Anfangs leer, aber dies wird das Hausdatenobjekt enthalten, das durch das Parsen der abgerufenen JSON-Daten erstellt wird.
+- `streetSelect`: Das "choose-street" `<select>`-Element.
+- `bedroomSelect`: Das "choose-bedrooms" `<select>`-Element.
+- `bathroomSelect`: Das "choose-bathrooms" `<select>`-Element.
+- `form`: Das gesamte `<form>`-Element, das die `<select>`-Elemente enthält.
+- `resultCount`: Das "result-count" `<p>`-Element, das aktualisiert wird, um die Anzahl der Ergebnisse anzuzeigen, die nach jeder Suche zurückgegeben werden.
+- `output`: Das "output" `<section>`-Element, das die Suchergebnisse anzeigt.
+- `houses`: Zunächst leer, aber dies wird das Hausdatenobjekt enthalten, das durch das Parsen der abgerufenen JSON-Daten erstellt wird.
 
 Die Skelettfunktionen sind:
 
-- `initializeForm()`: Diese wird die Daten abfragen und die `<select>` Elemente mit den möglichen Werten füllen, nach denen gesucht werden kann.
-- `renderHouses()`: Diese wird die Daten basierend auf den `<select>` Elementwerten filtern und die Ergebnisse rendern.
+- `initializeForm()`: Diese wird die Daten abfragen und die `<select>`-Elemente mit den möglichen Werten füllen, nach denen gesucht werden könnte.
+- `renderHouses()`: Diese wird die Daten basierend auf den `<select>`-Elementwerten filtern und die Ergebnisse rendern.
 
 ### Abrufen der Daten
 
-Das Erste, was Sie tun müssen, ist, eine neue Funktion zu erstellen, um die Hausdaten abzurufen und in der Variable `houses` zu speichern.
+Das Erste, was Sie tun müssen, ist eine neue Funktion zu erstellen, um die Hausdaten abzurufen und sie in der `houses`-Variable zu speichern.
 
-Dafür:
+So gehen Sie vor:
 
-1. Erstellen Sie eine neue Funktion direkt unter den Variablen- und Konstantendefinitionen namens `fetchHouseData()`.
-2. Verwenden Sie den `fetch()`-Befehl innerhalb des Funktionskörpers, um das JSON von [https://mdn.github.io/shared-assets/misc/houses.json](https://mdn.github.io/shared-assets/misc/houses.json) abzurufen. Sie sollten sich die Struktur dieser Daten ansehen, um sich auf einige der späteren Schritte vorzubereiten.
+1. Erstellen Sie eine neue Funktion direkt unter den Variablen- und Konstantensedefinitionen mit dem Namen `fetchHouseData()`.
+2. Verwenden Sie im Funktionskörper die `fetch()`-Methode, um das JSON von [https://mdn.github.io/shared-assets/misc/houses.json](https://mdn.github.io/shared-assets/misc/houses.json) abzurufen. Sie sollten die Struktur dieser Daten studieren, um sich auf einige der späteren Schritte vorzubereiten.
 3. Wenn das resultierende Versprechen aufgelöst wird, prüfen Sie die `ok`-Eigenschaft der Antwort. Wenn sie `false` ist, werfen Sie einen benutzerdefinierten Fehler, der den `status` der Antwort meldet.
-4. Vorausgesetzt, die Antwort ist ok, geben Sie die Antwort als JSON mit der Methode `json()` zurück.
-5. Wenn das resultierende Versprechen aufgelöst wird, setzen Sie die Variable `houses` gleich dem Ergebnis der Methode `json()` (dies sollte ein Array von Objekten mit Hausdaten sein) und rufen Sie die Funktion `initializeForm()` auf.
+4. Vorausgesetzt die Antwort ist in Ordnung, geben Sie die Antwort als JSON mithilfe der `json()`-Methode zurück.
+5. Wenn das resultierende Versprechen aufgelöst wird, setzen Sie die `houses`-Variable gleich dem Ergebnis der `json()`-Methode (dies sollte ein Array von Objekten mit Hausdaten sein) und rufen Sie die `initializeForm()`-Funktion auf.
 
-### Vervollständigung der `initializeForm()`-Funktion
+### Fertigstellung der `initializeForm()`-Funktion
 
-Nun müssen Sie den Inhalt der `initializeForm()`-Funktion schreiben. Diese wird die Daten abfragen, die in `houses` gespeichert sind, und sie verwenden, um die `<select>` Elemente mit `<option>` Elementen zu füllen, die alle verschiedenen Werte darstellen, nach denen gefiltert werden könnte. Im Moment enthalten die `<select>` Elemente nur ein einzelnes `<option>` Element mit einem Wert von `""` (einem leeren String), welches alle Werte repräsentiert. Der Benutzer kann diese Option wählen, wenn er nicht möchte, dass die Ergebnisse nach diesem Feld gefiltert werden.
+Jetzt müssen Sie den Inhalt der `initializeForm()`-Funktion schreiben. Diese wird die in `houses` gespeicherten Daten abfragen und sie verwenden, um die `<select>`-Elemente mit `<option>`-Elementen zu füllen, die alle unterschiedlichen Werte darstellen, nach denen gefiltert werden könnte. Momentan enthalten die `<select>`-Elemente nur ein einziges `<option>`-Element mit einem Wert von `""` (einer leeren Zeichenkette), das alle Werte repräsentiert. Der Benutzer kann diese Option wählen, wenn er nicht möchte, dass die Ergebnisse nach diesem Feld gefiltert werden.
 
-Innerhalb des Funktionskörpers schreiben Sie Code, der Folgendes macht:
+Im Funktionskörper schreiben Sie Code, der Folgendes tut:
 
-1. Erstellen Sie `<option>` Elemente für alle verschiedenen Straßennamen innerhalb des "choose-street" `<select>`. Es gibt einige Möglichkeiten, dies zu tun, aber wir empfehlen, ein temporäres Array zu erstellen und dann alle Objekte innerhalb von `houses` zu durchlaufen. Innerhalb der Schleife überprüfen Sie, ob Ihr temporäres Array die `street` Eigenschaft des aktuellen Hauses enthält. Falls nicht, fügen Sie es dem temporären Array hinzu und fügen Sie eine `<option>` zu dem "choose-street" `<select>` hinzu, welches die `street` Eigenschaft als seinen Wert enthält.
-2. Erstellen Sie Optionen für alle möglichen Schlafzimmerzahlwerte innerhalb des "choose-bedrooms" `<select>`. Dazu können Sie das `houses` Array durchlaufen und den größten `bedrooms` Wert bestimmen und dann eine zweite Schleife schreiben, die eine `<option>` zu dem "choose-bedrooms" `<select>` für jede Zahl von `1` bis zu diesem höchsten Wert hinzufügt.
-3. Erstellen Sie Optionen für alle möglichen Badezimmerzahlwerte innerhalb des "choose-bathrooms" `<select>`. Dies kann mit der gleichen Technik wie im vorherigen Schritt gelöst werden.
-
-> [!NOTE]
-> Sie könnten die `<option>` Elemente einfach im HTML festcodieren, aber das würde nur für genau diesen Datensatz funktionieren. Wir möchten, dass Sie JavaScript schreiben, das das Formular korrekt füllt, unabhängig von den bereitgestellten Datenwerten (jedes Hausobjekt müsste die gleiche Struktur haben).
+1. Erstellen Sie `<option>`-Elemente für alle verschiedenen Straßennamen im "choose-street" `<select>`. Es gibt ein paar Möglichkeiten, dies zu tun, aber wir würden empfehlen, ein temporäres Array zu erstellen und dann alle Objekte innerhalb von `houses` zu durchlaufen. Innerhalb der Schleife prüfen Sie, ob Ihr temporäres Array die `street`-Eigenschaft des aktuellen Hauses enthält. Wenn nicht, fügen Sie es dem temporären Array hinzu und fügen Sie ein `<option>` zum "choose-street" `<select>` hinzu, das die `street`-Eigenschaft als Wert enthält.
+2. Erstellen Sie Optionen für alle möglichen Schlafzimmeranzahlwerte im "choose-bedrooms" `<select>`. Um dies zu tun, könnten Sie durch das `houses`-Array laufen und bestimmen, was der größte `bedrooms`-Wert ist, dann eine zweite Schleife schreiben, die ein `<option>` zum "choose-bedrooms" `<select>` für jede Zahl von `1` bis zu diesem größten Wert hinzufügt.
+3. Erstellen Sie Optionen für alle möglichen Badezimmeranzahlwerte im "choose-bathrooms" `<select>`. Dies kann mit derselben Technik wie im vorherigen Schritt gelöst werden.
 
 > [!NOTE]
-> Sie könnten die `innerHTML`-Eigenschaft verwenden, um Inhalt innerhalb von HTML-Elementen hinzuzufügen, aber wir empfehlen dies nicht. Sie können den Daten, die Sie Ihrer Seite hinzufügen, nicht immer vertrauen: Wenn sie nicht ordnungsgemäß auf dem Server bereinigt werden, könnten böswillige Akteure `innerHTML` als Weg verwenden, um [Cross-site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe auf Ihrer Seite durchzuführen. Ein sicherer Weg ist die Verwendung von DOM-Skript-Features wie `createElement()`, `appendChild()` und `textContent`. Die Verwendung von `innerHTML`, um Kindinhalte zu entfernen, ist nicht so ein Problem.
+> Sie _könnten_ einfach die `<option>`-Elemente im HTML hartkodieren, aber das würde nur für genau diesen Datensatz funktionieren. Wir möchten, dass Sie JavaScript schreiben, das das Formular korrekt für die bereitgestellten Datenwerte ausfüllen wird (jedes Hausobjekt müsste dieselbe Struktur haben).
 
-### Vervollständigung der `renderHouses()`-Funktion
+> [!NOTE]
+> Sie könnten die `innerHTML`-Eigenschaft verwenden, um untergeordnete Inhalte innerhalb von HTML-Elementen hinzuzufügen, aber wir empfehlen, dies nicht zu tun. Sie können nicht immer den Daten trauen, die Sie auf Ihrer Seite hinzufügen: Wenn sie nicht richtig auf dem Server sanitisiert werden, könnten böswillige Akteure `innerHTML` als Weg nutzen, um [Cross-site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe auf Ihrer Seite durchzuführen. Ein sichererer Weg ist es, DOM-Scripting-Funktionen wie `createElement()`, `appendChild()` und `textContent` zu verwenden. Die `innerHTML`-Verwendung zum Entfernen untergeordneter Inhalte ist nicht so problematisch.
 
-Als nächstes müssen Sie den Funktionskörper der `renderHouses()`-Funktion fertigstellen. Diese wird die Daten basierend auf den `<select>` Elementwerten filtern und die Ergebnisse in der Benutzeroberfläche rendern.
+### Fertigstellung der `renderHouses()`-Funktion
 
-1. Zuerst müssen Sie die Daten filtern. Dies wird wahrscheinlich am besten mit der Array-Methode `filter()` erreicht, die ein neues Array zurückgibt, das nur die Array-Elemente enthält, die den Filterkriterien entsprechen.
-   1. Dies ist eine ziemlich komplexe `filter()`-Funktion, die Sie schreiben müssen. Sie müssen testen, ob die `street` Eigenschaft des Hauses dem ausgewählten Wert des "choose-street" `<select>` entspricht, und ob die `bedrooms` Eigenschaft des Hauses dem ausgewählten Wert des "choose-bedrooms" `<select>` entspricht, und ob die `bathrooms` Eigenschaft des Hauses dem ausgewählten Wert des "choose-bathrooms" `<select>` entspricht.
-   2. Jede Komponente des Tests muss immer `true` zurückgeben, wenn der zugeordnete `<select>` Wert `""` ist (der leere String, der alle Werte repräsentiert). Dies können Sie erreichen, indem Sie jede Überprüfung "kurzschließen".
-   3. Sie müssen auch sicherstellen, dass die Datentypen bei jeder Überprüfung übereinstimmen. Der Wert eines Formularelements ist immer ein String. Dies ist nicht unbedingt der Fall für Ihre Objektwerteigenschaften. Wie können Sie die Datentypen für die Zwecke des Tests anpassen?
-2. Geben Sie die Anzahl der gefilterten Suchergebnisse in das "result-count" `<p>` Element aus, unter Verwendung der Zeichenfolge "Results returned: number".
-3. Leeren Sie das "output" `<section>` Element, sodass es keine Kind-HTML-Elemente enthält. Wenn Sie dies nicht tun, werden die Ergebnisse jedes Mal, wenn eine Suche durchgeführt wird, an das Ende der vorherigen Ergebnisse hinzugefügt, anstatt sie zu ersetzen.
+Als Nächstes müssen Sie den Körper der `renderHouses()`-Funktion abschließen. Diese wird die Daten basierend auf den `<select>`-Elementwerten filtern und die Ergebnisse in der Benutzeroberfläche rendern.
+
+1. Zuerst müssen Sie die Daten filtern. Dies ist wahrscheinlich am besten mit der Array-`filter()`-Methode zu erreichen, die ein neues Array zurückgibt, das nur die Array-Elemente enthält, die die Filterkriterien erfüllen.
+   1. Dies ist eine ziemlich komplexe `filter()`-Funktion zum Schreiben. Sie müssen prüfen, ob die `street`-Eigenschaft des Hauses mit dem ausgewählten Wert des "choose-street" `<select>` übereinstimmt, ob die `bedrooms`-Eigenschaft des Hauses mit dem ausgewählten Wert des "choose-bedrooms" `<select>` übereinstimmt, und ob die `bathrooms`-Eigenschaft des Hauses mit dem ausgewählten Wert des "choose-bathrooms" `<select>` übereinstimmt.
+   2. Jeder Teil des Tests muss immer `true` zurückgeben, wenn der zugehörige `<select>`-Wert `""` ist (die leere Zeichenkette, die alle Werte repräsentiert). Dies können Sie erreichen, indem Sie jeden Check "kurzschließen".
+   3. Sie müssen auch sicherstellen, dass die Datentypen in jedem Check zusammenpassen. Der Wert eines Formularelements ist immer eine Zeichenkette. Dies ist nicht unbedingt der Fall für Ihre Objektproperty-Werte. Wie können Sie sicherstellen, dass die Datentypen für den Test übereinstimmen?
+2. Geben Sie die Anzahl der gefilterten Suchergebnisse in das "result-count" `<p>`-Element aus, mit der String-Struktur "Results returned: number".
+3. Leeren Sie das "output" `<section>`-Element, sodass es keine untergeordneten HTML-Elemente mehr hat. Wenn Sie dies nicht tun, werden bei jeder Suchanfrage die Ergebnisse an das Ende der vorherigen Ergebnisse angehängt, anstatt sie zu ersetzen.
 4. Erstellen Sie eine neue Funktion innerhalb von `renderHouses()` namens `renderHouse()`. Diese Funktion muss ein Hausobjekt als Argument nehmen und zwei Dinge tun:
-   1. Berechnen Sie die Gesamtfläche der Räume, die im `room_sizes` Objekt des Hauses enthalten sind. Dies ist nicht so einfach, wie ein Array von Zahlen zu durchlaufen und sie zu summieren, aber es ist nicht allzu schwierig.
-   2. Fügen Sie ein `<article>` Element innerhalb des "output" `<section>` Elements hinzu, das die Hausnummer, Straßennamen, Schlafzimmer- und Badezimmeranzahl, Gesamtfläche der Räume und Preis enthält. Sie können die Struktur variieren, wir hätten es gerne ähnlich diesem HTML-Snippet:
+   1. Berechnen Sie die gesamte Fläche der Räume, die sich innerhalb des `room_sizes`-Objekts des Hauses befinden. Dies ist nicht so einfach wie das Durchlaufen eines Arrays von Zahlen und das Addieren, aber es ist nicht allzu schwierig.
+   2. Fügen Sie ein `<article>`-Element im "output" `<section>`-Element hinzu, das die Hausnummer, den Straßennamen, die Anzahl der Schlafzimmer und Badezimmer, die Gesamtfläche der Räume und den Preis des Hauses enthält. Sie können die Struktur variieren, wir würden es gern ähnlich wie dieses HTML-Snippet haben:
 
    ```html
    <article>
@@ -200,12 +200,12 @@ Als nächstes müssen Sie den Funktionskörper der `renderHouses()`-Funktion fer
    </article>
    ```
 
-5. Durchlaufen Sie alle Häuser im gefilterten Array und übergeben Sie jedes an einen `renderHouse()`-Aufruf.
+5. Durchlaufen Sie alle Häuser innerhalb des gefilterten Arrays und übergeben Sie jedes an einen `renderHouse()`-Aufruf.
 
 ## Hinweise und Tipps
 
 - Sie müssen das HTML oder CSS in keiner Weise ändern.
-- Für Dinge wie das Finden des größten Wertes in einem Array von Werten ist die `reduce()` Array-Funktion wirklich praktisch. Wir haben sie in diesem Kurs nicht gelehrt, da sie ziemlich komplex ist, aber sie ist wirklich mächtig, wenn Sie sich mit ihr vertraut machen. Als Stretch-Ziel versuchen Sie, sie zu recherchieren und in Ihrer Antwort zu verwenden.
+- Um Dinge wie den größten Wert in einem Wertarray zu finden, ist die `reduce()` Array-Funktion sehr hilfreich. Wir haben sie in diesem Kurs nicht gelehrt, da sie ziemlich komplex ist, aber sie ist wirklich mächtig, wenn man sich mit ihr vertraut gemacht hat. Als Stretch-Ziel versuchen Sie, sie zu recherchieren und in Ihrer Antwort zu verwenden.
 
 ## Beispiel
 

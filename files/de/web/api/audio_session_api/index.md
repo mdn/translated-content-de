@@ -2,53 +2,53 @@
 title: Audio Session API
 slug: Web/API/Audio_Session_API
 l10n:
-  sourceCommit: 7afb60028792bba6b9c809867bc6c5304f9868a6
+  sourceCommit: 7f138099644a02640a903b2abc39e685ca8ca7cd
 ---
 
 {{DefaultAPISidebar("Audio Session API")}}{{SeeCompatTable}}
 
-Die **Audio Session API** bietet eine Möglichkeit für Webanwendungen, zu kontrollieren, wie ihr Audio mit anderem Audio auf einem Gerät interagiert.
+Die **Audio Session API** bietet eine Möglichkeit für Webanwendungen, zu steuern, wie ihr Audio mit anderem Audio, das auf einem Gerät abgespielt wird, interagiert.
 
 ## Konzepte und Nutzung
 
-Menschen konsumieren zunehmend Medien über das Web: Es ist mittlerweile ein primärer Kanal für den Zugriff auf Audio- und Videoinhalte. Medien im Web fehlen jedoch oft nahtlose Integrationen mit den zugrunde liegenden Plattformen. Die Audio Session API schließt diese Lücke, indem sie Entwicklern erlaubt zu bestimmen, wie das Audio ihrer Webanwendungen mit Audio von anderen Anwendungen auf dem Gerät interagiert — zum Beispiel gleichzeitig mit anderem Audio zu spielen, es zu reduzieren (sogenanntes "Ducking") oder es zu pausieren, damit ihr Audio allein abgespielt werden kann.
+Menschen konsumieren zunehmend Medien über das Internet: Es ist mittlerweile ein primärer Kanal für den Zugriff auf Audio- und Videoinhalte. Allerdings fehlt es Medien im Web oft an nahtloser Integration mit den zugrunde liegenden Plattformen. Die Audio Session API schließt diese Lücke, indem sie Entwicklern ermöglicht, festzulegen, wie das von ihren Webanwendungen erzeugte Audio mit dem Audio anderer Anwendungen auf dem Gerät interagiert — beispielsweise indem es parallel abgespielt wird, es abgedämpft wird (Reduktion der Lautstärke) oder es pausiert, damit das eigene Audio alleine abgespielt werden kann.
 
-Eine Webseite kann Audiobearbeitung auf verschiedene Weise über APIs wie [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und die [Web Audio API](/de/docs/Web/API/Web_Audio_API) durchführen. Eine **Audio-Sitzung** repräsentiert das aggregierte Audio, das von einer Webseite produziert wird, und ermöglicht es, die allgemeine Natur des Audioausgangs auszudrücken.
+Eine Webseite kann Audioverarbeitung in verschiedener Weise durchführen, unter Verwendung von APIs wie [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und der [Web Audio API](/de/docs/Web/API/Web_Audio_API). Eine **Audio-Session** repräsentiert das aggregierte Audio, das von einer Webseite erzeugt wird, und ermöglicht es, die allgemeine Natur ihrer Audioausgabe auszudrücken.
 
-### Audio-Sitzungstypen
+### Audio-Session-Typen
 
-Die API unterstützt mehrere Audio-Sitzungstypen, die den Typ des Audios angeben, das eine Anwendung produziert:
+Die API unterstützt mehrere Audio-Session-Typen, die den Typ des Audios angeben, das eine Anwendung erzeugt:
 
-- `"auto"` — Der Standard. Der Benutzeragent wählt automatisch den besten Typ basierend auf den verwendeten Audio-APIs aus.
-- `"playback"` — Für die Wiedergabe von Medien wie Musik oder Video. Dieser Typ sollte nicht mit anderer Audiowiedergabe gemischt werden.
-- `"transient"` — Für kurze Sounds wie Benachrichtigungen. Dieser Typ spielt normalerweise über anderem Audio.
-- `"transient-solo"` — Für Audio, das exklusiv abgespielt werden soll und alle anderen Audios pausiert (zum Beispiel Sprachansagen).
-- `"ambient"` — Für Audio, das mit anderen Audioquellen gemischt werden kann.
-- `"play-and-record"` — Für Anwendungen, die sowohl Audio abspielen als auch aufnehmen, wie Videokonferenzen.
+- `"auto"` — Der Standard. Der Benutzeragent wählt automatisch den besten Typ basierend auf den verwendeten Audio-APIs.
+- `"playback"` — Für die Medienwiedergabe wie Musik oder Video. Dieser Typ sollte sich nicht mit anderen Audiowiedergaben mischen.
+- `"transient"` — Für kurze Geräusche wie Benachrichtigungen. Dieser Typ wird normalerweise zusätzlich zu anderem Audio abgespielt.
+- `"transient-solo"` — Für Audio, das ausschließlich abgespielt werden sollte und alle anderen Audios pausiert (wie Sprachansagen).
+- `"ambient"` — Für Audio, das sich mit anderen Audioquellen mischen kann.
+- `"play-and-record"` — Für Anwendungen, die sowohl Audio abspielen als auch aufzeichnen, wie Videokonferenzen.
 
 ## Schnittstellen
 
 - [`AudioSession`](/de/docs/Web/API/AudioSession) {{Experimental_Inline}}
-  - : Die Hauptschnittstelle zur Steuerung des Audio-Sitzungsverhaltens, einschließlich der Einstellung des Audio-Sitzungstyps.
+  - : Die Hauptschnittstelle zur Steuerung des Verhaltens der Audiosession, einschließlich der Einstellung des Audiosession-Typs.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
 - [`Navigator.audioSession`](/de/docs/Web/API/Navigator/audioSession) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das [`AudioSession`](/de/docs/Web/API/AudioSession)-Objekt für das aktuelle Dokument zurück.
 
 ## Beispiele
 
-### Einrichtung einer Videokonferenz-Audio-Sitzung
+### Einrichten einer Audiokonferenz-Session
 
-In einer Videokonferenzanwendung sind sowohl Wiedergabe als auch Aufnahme erforderlich; dies ist etwas, bei dem die Audio Session API helfen kann.
+In einer Anwendung für Videokonferenzen werden sowohl Wiedergabe als auch Aufnahme gleichzeitig benötigt; hier kann die Audio Session API helfen.
 
-Zuerst setzen wir den Audio-Sitzungstyp auf `"play-and-record"`, um der Plattform mitzuteilen, dass diese Seite Mikrofonzugriff zusammen mit Audioausgabe benötigt. Auf unterstützenden Plattformen kann dies die Lautstärkenführung des Systems anpassen (zum Beispiel die Nutzung des Ohrhörers statt des Lautsprechers auf mobilen Geräten) und verhindern, dass Audio anderer Anwendungen den Anruf unterbricht.
+Erstens setzen wir den Typ der Audiosession auf `"play-and-record"`, um der Plattform mitzuteilen, dass diese Seite Mikrofonzugriff neben der Audioausgabe erfordert. Auf unterstützenden Plattformen kann dies die Lautstärkensteuerung im System anpassen (zum Beispiel Verwendung des Ohrhörers anstelle des Lautsprechers auf mobilen Geräten) und verhindern, dass Audio von anderen Anwendungen den Anruf unterbricht.
 
 ```js
 navigator.audioSession.type = "play-and-record";
 ```
 
-Als Nächstes richten wir die Medienströme für den Videocall wie gewohnt ein. Die Plattform wird nun das von diesen Strömen produzierte Audio gemäß dem `"play-and-record"` Sitzungstyp behandeln.
+Als nächstes richten wir die Mediastreams für das Videogespräch wie gewohnt ein. Die Plattform wird nun das von diesen Streams produzierte Audio entsprechend dem `"play-and-record"` Session-Typ handhaben.
 
 ```js
 // Start playing remote media
