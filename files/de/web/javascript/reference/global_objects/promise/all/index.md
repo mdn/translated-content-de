@@ -3,10 +3,10 @@ title: Promise.all()
 short-title: all()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/all
 l10n:
-  sourceCommit: 3fad0447b4901e28fe88769976787d8d8b87d66d
+  sourceCommit: b4239bf3b36fea3f76e8d64bf362ef18bfa652b0
 ---
 
-Die statische Methode **`Promise.all()`** nimmt ein Iterable von Promises als Eingabe und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise erfüllt sich, wenn alle Promises der Eingabe erfüllt sind (einschließlich wenn ein leeres Iterable übergeben wird), und gibt ein Array der Erfüllungswerte zurück. Es wird abgelehnt, wenn eines der Promises der Eingabe abgelehnt wird, mit dem Grund der ersten Ablehnung.
+Die **`Promise.all()`** statische Methode nimmt ein iterable von Promises als Eingabe und gibt ein einziges {{jsxref("Promise")}} zurück. Dieses zurückgegebene Versprechen erfüllt sich, wenn alle Promises der Eingabe erfüllt werden (einschließlich wenn ein leeres Iterable übergeben wird), mit einem Array der Erfüllungswerte. Es wird abgelehnt, wenn eines der Promises der Eingabe abgelehnt wird, mit dem ersten Ablehnungsgrund.
 
 {{InteractiveExample("JavaScript Demo: Promise.all()")}}
 
@@ -39,14 +39,16 @@ Promise.all(iterable)
 Ein {{jsxref("Promise")}}, das:
 
 - **Bereits erfüllt** ist, wenn das übergebene `iterable` leer ist.
-- **Asynchron erfüllt** wird, wenn alle Promises im gegebenen `iterable` erfüllt sind. Der Erfüllungswert ist ein Array von Erfüllungswerten in der Reihenfolge der übergebenen Promises, unabhängig von der Reihenfolge der Fertigstellung. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (anstatt synchron) erfüllt.
-- **Asynchron abgelehnt** wird, wenn eines der Promises im gegebenen `iterable` abgelehnt wird. Der Ablehnungsgrund ist der Ablehnungsgrund des ersten abgelehnte Promises.
+- **Asynchron erfüllt**, wenn alle Promises im gegebenen `iterable` erfüllt werden. Der Erfüllungswert ist ein Array von Erfüllungswerten, in der Reihenfolge der übergebenen Promises, unabhängig von der Abschlussreihenfolge. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (statt synchron) erfüllt.
+- **Asynchron abgelehnt**, wenn eines der Promises im gegebenen `iterable` abgelehnt wird. Der Ablehnungsgrund ist der Ablehnungsgrund des ersten abgelehnten Promises.
 
 ## Beschreibung
 
-Die Methode `Promise.all()` ist eine der Methoden der [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie kann nützlich sein, um die Ergebnisse mehrerer Promises zusammenzufassen. Sie wird typischerweise verwendet, wenn es mehrere verwandte asynchrone Aufgaben gibt, auf die sich der gesamte Code verlassen muss, um erfolgreich zu arbeiten — alle müssen erfüllt sein, bevor die Codeausführung fortfährt.
+Die Methode `Promise.all()` ist eine der [promise concurrency](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency) Methoden. Sie kann nützlich sein, um die Ergebnisse mehrerer Promises zusammenzufassen. Sie wird typischerweise verwendet, wenn es mehrere verwandte asynchrone Aufgaben gibt, auf die der gesamte Code angewiesen ist, um erfolgreich zu funktionieren - alle von ihnen sollen erfüllt werden, bevor die Code-Ausführung fortgesetzt wird.
 
-`Promise.all()` wird sofort abgelehnt, wenn **irgendeines** der Promises der Eingabe abgelehnt wird. Im Vergleich dazu wird das Promise, das von {{jsxref("Promise.allSettled()")}} zurückgegeben wird, auf die Fertigstellung aller Eingabepromises warten, unabhängig davon, ob eines abgelehnt wird oder nicht. Verwenden Sie `allSettled()`, wenn Sie das Endergebnis jedes Promises im Eingabeiterable benötigen.
+`Promise.all()` wird sofort abgelehnt, wenn **irgendeines** der Eingabepromises abgelehnt wird. Im Vergleich dazu wird das von {{jsxref("Promise.allSettled()")}} zurückgegebene Promise auf alle Eingabepromises warten, egal ob eines abgelehnt wird oder nicht. Verwenden Sie `allSettled()`, wenn Sie das Endergebnis jedes Promises im Eingabe-Iterable benötigen.
+
+Wie andere Promise-Kombinatoren markiert `Promise.all()` sofort alle Promises als "behandelt", wenn es aufgerufen wird (indem es ihre `.then()`-Methoden aufruft). Nachfolgende Ablehnungen nach der ersten Ablehnung werden ignoriert und lösen keine `unhandledrejection` Ereignisse aus.
 
 ## Beispiele
 
@@ -68,7 +70,7 @@ Promise.all([p1, p2, p3]).then((values) => {
 });
 ```
 
-Wenn das `iterable` Nicht-Promise-Werte enthält, werden diese ignoriert, aber dennoch im zurückgegebenen Promise-Array-Wert gezählt (wenn das Promise erfüllt wird):
+Wenn das `iterable` Nicht-Promise-Werte enthält, werden diese ignoriert, aber dennoch im zurückgegebenen Promise-Array-Wert gezählt (wenn das Promise erfüllt ist):
 
 ```js
 // All values are non-promises, so the returned promise gets fulfilled
@@ -93,9 +95,9 @@ setTimeout(() => {
 // Promise { <state>: "rejected", <reason>: Error: bad }
 ```
 
-### Destrukturieren des Ergebnisses
+### Destrukturierung des Ergebnisses
 
-Sie werden das [Destrukturieren](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sehr nützlich finden, wenn Sie eine bekannte Anzahl von Aufgaben zusammenfassen.
+Sie werden [destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) sehr nützlich finden, wenn Sie eine bekannte Anzahl von Aufgaben zusammenfügen.
 
 ```js
 // With then()
@@ -111,7 +113,7 @@ Seien Sie vorsichtig: Wenn die Reihenfolge der ursprünglichen Promises und der 
 
 ### Asynchronität oder Synchronität von Promise.all
 
-Dieses folgende Beispiel demonstriert die Asynchronität von `Promise.all`, wenn ein nicht-leeres `iterable` übergeben wird:
+Das folgende Beispiel demonstriert die Asynchronität von `Promise.all`, wenn ein nicht leeres `iterable` übergeben wird:
 
 ```js
 // Passing an array of promises that are already resolved,
@@ -134,7 +136,7 @@ setTimeout(() => {
 // Promise { <state>: "fulfilled", <value>: Array[2] }
 ```
 
-Dasselbe passiert, wenn `Promise.all` abgelehnt wird:
+Das gleiche passiert, wenn `Promise.all` abgelehnt wird:
 
 ```js
 const mixedPromisesArray = [
@@ -154,7 +156,7 @@ setTimeout(() => {
 // Promise { <state>: "rejected", <reason>: Error: bad }
 ```
 
-`Promise.all` wird synchron aufgelöst, wenn und nur wenn das übergebene `iterable` leer ist:
+`Promise.all` löst sich synchron auf, wenn und nur wenn das übergebene `iterable` leer ist:
 
 ```js
 const p = Promise.all([]); // Will be immediately resolved
@@ -173,9 +175,9 @@ setTimeout(() => {
 // Promise { <state>: "fulfilled", <value>: Array[2] }
 ```
 
-### Verwendung von Promise.all() mit asynchronen Funktionen
+### Verwendung von Promise.all() mit async Funktionen
 
-Innerhalb von [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) ist es sehr verbreitet, Ihren Code "übermäßig zu warten". Zum Beispiel, gegeben die folgenden Funktionen:
+Innerhalb von [async Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) ist es sehr üblich, Ihren Code "übermäßig zu erwarten". Zum Beispiel, wenn die folgenden Funktionen gegeben sind:
 
 ```js
 function promptForDishChoice() {
@@ -213,7 +215,7 @@ async function fetchPrices() {
 }
 ```
 
-Sie könnten eine Funktion so schreiben:
+Könnten Sie eine Funktion wie diese schreiben:
 
 ```js example-bad
 async function getPrice() {
@@ -223,7 +225,7 @@ async function getPrice() {
 }
 ```
 
-Beachten Sie jedoch, dass die Ausführung von `promptForDishChoice` und `fetchPrices` nicht voneinander abhängt. Während der Benutzer sein Gericht auswählt, ist es in Ordnung, die Preise im Hintergrund abzurufen, aber im obigen Code sorgt der [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Operator dafür, dass die asynchrone Funktion pausiert, bis die Auswahl getroffen wurde, und dann erneut, bis die Preise abgerufen sind. Wir können `Promise.all` verwenden, um sie gleichzeitig auszuführen, damit der Benutzer nicht darauf warten muss, dass die Preise abgerufen werden, bevor das Ergebnis gegeben ist:
+Beachten Sie jedoch, dass die Ausführung von `promptForDishChoice` und `fetchPrices` nicht voneinander abhängig ist. Während der Benutzer sein Gericht auswählt, können die Preise im Hintergrund abgerufen werden, aber im obigen Code verursacht der [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) Operator, dass die asynchrone Funktion pausiert, bis die Auswahl getroffen und dann erneut pausiert wird, bis die Preise abgerufen sind. Wir können `Promise.all` verwenden, um sie gleichzeitig auszuführen, damit der Benutzer nicht warten muss, bis die Preise abrufbar sind, bevor das Ergebnis gegeben wird:
 
 ```js example-good
 async function getPrice() {
@@ -235,9 +237,9 @@ async function getPrice() {
 }
 ```
 
-`Promise.all` ist hier die beste Wahl der [Konkurrenzmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency), da die Fehlerbehandlung intuitiv ist — wenn eines der Promises abgelehnt wird, ist das Ergebnis nicht mehr verfügbar, sodass der gesamte `await`-Ausdruck eine Ausnahme auslöst.
+`Promise.all` ist hier die beste Wahl der [Konkurrenzmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency), weil die Fehlerbehandlung intuitiv ist — wenn eines der Promises abgelehnt wird, ist das Ergebnis nicht mehr verfügbar, sodass der ganze `await` Ausdruck eine Ausnahme auslöst.
 
-`Promise.all` akzeptiert ein Iterable von Promises, also müssen Sie, wenn Sie es verwenden, um mehrere asynchrone Funktionen gleichzeitig auszuführen, die asynchronen Funktionen aufrufen und die zurückgegebenen Promises verwenden. Das direkte Übergeben der Funktionen an `Promise.all` funktioniert nicht, da sie keine Promises sind.
+`Promise.all` akzeptiert ein iterable von Promises, daher müssen Sie, wenn Sie es verwenden, um mehrere async Funktionen gleichzeitig auszuführen, die async Funktionen aufrufen und die zurückgegebenen Promises verwenden. Das direkte Übergeben der Funktionen an `Promise.all` funktioniert nicht, da sie keine Promises sind.
 
 ```js example-bad
 async function getPrice() {
@@ -250,9 +252,9 @@ async function getPrice() {
 }
 ```
 
-### Schnell-Ablehnungs-Verhalten von Promise.all
+### Promise.all schnelles Fehlverhalten
 
-`Promise.all` wird abgelehnt, wenn eines der Elemente abgelehnt wird. Wenn Sie zum Beispiel vier Promises übergeben, die sich nach einer Zeitüberschreitung auflösen, und ein Promise, das sofort abgelehnt wird, wird `Promise.all` sofort abgelehnt.
+`Promise.all` wird abgelehnt, wenn eines der Elemente abgelehnt wird. Zum Beispiel, wenn Sie vier Promises übergeben, die nach einem Timeout auflösen und ein Promise, das sofort abgelehnt wird, dann wird `Promise.all` sofort abgelehnt.
 
 ```js
 const p1 = new Promise((resolve, reject) => {
@@ -284,7 +286,7 @@ Promise.all([p1, p2, p3, p4, p5])
 // "reject"
 ```
 
-Es ist möglich, dieses Verhalten zu ändern, indem mögliche Ablehnungen behandelt werden:
+Es ist möglich, dieses Verhalten zu ändern, indem Sie mögliche Ablehnungen behandeln:
 
 ```js
 const p1 = new Promise((resolve, reject) => {
