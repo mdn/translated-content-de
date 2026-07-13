@@ -1,18 +1,18 @@
 ---
-title: Umgang mit Overflow im Mehrspalten-Layout
-short-title: Umgang mit Overflow
+title: Umgang mit Überlauf im Mehrspalten-Layout
+short-title: Umgang mit Überlauf
 slug: Web/CSS/Guides/Multicol_layout/Handling_overflow
 l10n:
-  sourceCommit: 04defe50e601cf53adde40c4bd652a7a4e6eae55
+  sourceCommit: fe28ff18c21cdea9ab159bafb972cc3f1e17cae7
 ---
 
-In diesem Leitfaden betrachten wir, wie man mit Overflow in einem Mehrspaltenlayout (multicol) umgeht, sowohl innerhalb der Spaltenboxen als auch in Situationen, in denen mehr Inhalt vorhanden ist, als in den Container passt.
+In diesem Leitfaden betrachten wir den Umgang mit Überlauf in einem Mehrspalten- (_multicol_) Layout, sowohl innerhalb der Spaltenboxen als auch in Situationen, in denen mehr Inhalt vorhanden ist, als in den Container passt.
 
-## Overflow in Spaltenboxen
+## Überlauf innerhalb von Spaltenboxen
 
-Eine Overflow-Situation tritt auf, wenn die Größe eines Elements größer ist als die Spaltenbox. Zum Beispiel könnte die Situation eintreten, wenn ein Bild in einer Spalte breiter ist als der Wert von {{cssxref("column-width")}} oder die Breite der Spalte basierend auf der Anzahl der mit {{cssxref("column-count")}} deklarierten Spalten.
+Eine Überlaufsituation tritt auf, wenn die Größe eines Elements größer als die Spaltenbox ist. Zum Beispiel kann diese Situation auftreten, wenn ein Bild in einer Spalte breiter ist als der {{cssxref("column-width")}}-Wert oder die Breite der Spalte basierend auf der Anzahl der mit {{cssxref("column-count")}} deklarierten Spalten.
 
-In diesem Fall sollte der Inhalt sichtbar in die nächste Spalte überlaufen, anstatt von der Spaltenbox abgeschnitten zu werden.
+In dieser Situation sollte der Inhalt sichtbar in die nächste Spalte überfließen, anstatt von der Spaltenbox abgeschnitten zu werden.
 
 ```html live-sample___image
 <div class="container">
@@ -47,13 +47,13 @@ body {
 }
 ```
 
-Dieses Beispiel wird wie folgt dargestellt:
+Dieses Beispiel rendert wie folgt:
 
 {{EmbedLiveSample("image", "", "440px")}}
 
-Es gibt zwei Spalten Text. In der linken Spalte befindet sich ein Foto, das breiter ist als die Spalte. Das Bild erweitert sich in diese zweite Spalte und erscheint hinter dem Text der rechten Spalte. Der Textfluss in der rechten Spalte wird durch das herausragende Foto nicht beeinflusst, jedoch das Erscheinungsbild.
+Es gibt zwei Textspalten. In der linken Spalte befindet sich ein Foto, das breiter als die Spalte ist. Das Bild dehnt sich in die zweite Spalte aus und erscheint hinter dem Text der rechten Spalte. Der Textfluss in der rechten Spalte wird durch das hervorstehende Foto nicht beeinflusst, aber das Erscheinungsbild wird es.
 
-Möchten Sie, dass ein Bild in die Spaltenbox passt, verhindert das Setzen von `max-width: 100%`, dass das Bild über seinen Container, in diesem Fall die Spaltenbox, hinauswächst.
+Wenn Sie möchten, dass ein Bild in die Spaltenbox passt, verhindert `max-width: 100%`, dass das Bild über seinen Container hinaus wächst, in diesem Fall die Spaltenbox.
 
 ```html hidden live-sample___image-max-width
 <div class="container">
@@ -91,18 +91,18 @@ img {
 }
 ```
 
-Die aktualisierte Darstellung sieht folgendermaßen aus:
+Die aktualisierte Darstellung sieht so aus:
 
 {{EmbedLiveSample("image-max-width", "", "440px")}}
 
 ## Mehr Spalten als passen
 
-Wie überlaufende Spalten gehandhabt werden, hängt davon ab, ob der Medienkontext fragmentiert ist, wie etwa Druck, oder kontinuierlich ist, wie etwa eine Webseite.
+Wie überlaufende Spalten gehandhabt werden, hängt davon ab, ob der Medienkontext fragmentiert ist, wie im Druck, oder kontinuierlich, wie auf einer Webseite.
 
-- In fragmentierten Medien, nachdem ein Fragment (zum Beispiel eine Seite) mit Spalten gefüllt ist, werden die Spalten auf eine neue Seite verschoben und füllen diese mit Spalten auf.
-- In kontinuierlichen Medien, wenn eine Höhe auf einem Mehrspalten-Container festgelegt ist, laufen die Spalten standardmäßig in der Inline-Richtung über. Im Web bedeutet das, dass ein horizontaler Scrollbalken erscheint. Dieses Verhalten kann durch die Verwendung von {{cssxref("column-height")}} und {{cssxref("column-wrap")}} zur Durchsetzung des [Spaltenumbruch](#verwendung_von_spaltenumbruch_für_mehrspaltenlayout) überschrieben werden.
+- In fragmentierten Medien, nachdem ein Fragment (zum Beispiel eine Seite) mit Spalten gefüllt ist, werden die Spalten auf eine neue Seite verschoben und dort mit Spalten gefüllt.
+- In kontinuierlichen Medien, wenn eine Höhe für einen Mehrspalten-Container festgelegt ist, fließen Spalten standardmäßig in Inline-Richtung über. Im Web bedeutet das, dass Sie einen horizontalen Scrollbalken erhalten. Dieses Verhalten kann durch die Verwendung von {{cssxref("column-height")}} und {{cssxref("column-wrap")}} überschrieben werden, um [Spaltenumbruch](#verwendung_von_spaltenumbruch_für_multicol) zu erzwingen.
 
-Dieses Beispiel zeigt das Standard-Verhalten für Überlauf in kontinuierlichen Medien. Der Multicol-Container hat eine festgelegte {{CSSXref("height")}}, und es gibt mehr Text als Platz für die Erstellung von Spalten; daher werden Spalten außerhalb des Containers erstellt.
+Dieses Beispiel zeigt das Standard-Überlaufverhalten in kontinuierlichen Medien. Der Multicol-Container hat eine festgelegte {{CSSXref("height")}} und es gibt mehr Text als Platz für die Erstellung von Spalten; daher werden Spalten außerhalb des Containers erstellt.
 
 ```html hidden live-sample___overflow-inline
 <div class="container">
@@ -136,17 +136,17 @@ body {
 }
 ```
 
-Dieses Beispiel wird wie folgt dargestellt:
+Dieses Beispiel rendert wie folgt:
 
 {{EmbedLiveSample("overflow-inline", "", "240px")}}
 
 Scrollen Sie horizontal, um die überlaufenden Spalten zu sehen.
 
-## Verwendung von vertikalen Media Queries
+## Verwendung von vertikalen Medienabfragen
 
-Ein Problem mit dem Mehrspaltenlayout im Web ist, dass der Leser, wenn die Spalten höher als der Viewport sind, die Seite nach oben und unten scrollen muss, um zu lesen, was keine gute Benutzererfahrung darstellt. Eine Möglichkeit, dies zu vermeiden, besteht darin, die Spalteneigenschaften nur dann anzuwenden, wenn Sie wissen, dass genügend vertikaler Platz vorhanden ist.
+Ein Problem mit Multicol im Web ist, dass, wenn die Spalten höher als der Viewport sind, der Leser die Seite nach oben und unten scrollen muss, um zu lesen, was keine gute Benutzererfahrung ist. Eine Möglichkeit, dies zu vermeiden, besteht darin, die Spalteneigenschaften nur anzuwenden, wenn Sie wissen, dass genügend vertikaler Raum vorhanden ist.
 
-Im folgenden Beispiel haben wir eine `height` [@media query](/de/docs/Web/CSS/Guides/Media_queries/Using) verwendet, um sicherzustellen, dass genügend vertikaler Platz vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
+Im untenstehenden Beispiel haben wir eine `height` [@media query](/de/docs/Web/CSS/Guides/Media_queries/Using) verwendet, um sicherzustellen, dass ausreichend vertikaler Raum vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
 
 ```html hidden live-sample___min-height
 <div class="container">
@@ -180,15 +180,15 @@ body {
 }
 ```
 
-Dieses Beispiel wird wie folgt dargestellt:
+Dieses Beispiel rendert wie folgt:
 
 {{EmbedLiveSample("min-height", "", "340px")}}
 
-## Verwendung von Spaltenumbruch für Mehrspaltenlayout
+## Verwendung von Spaltenumbruch für Multicol
 
-Die Eigenschaften {{cssxref("column-height")}} und {{cssxref("column-wrap")}} können verwendet werden, um eine feste Höhe für generierte Spalten festzulegen und überschüssige Spalten in zusätzlichen Reihen in der Blockrichtung überlaufen zu lassen. In Inhalten mit horizontalem Schreibrichtungsergebnis resultiert dies in vertikal scrollenden Reihen von Spalten, anstatt in einer horizontal scrollenden einzigen Reihe. Lassen Sie uns ein Beispiel betrachten.
+Die Eigenschaften {{cssxref("column-height")}} und {{cssxref("column-wrap")}} können verwendet werden, um eine feste Höhe für generierte Spalten festzulegen und überschüssige Spalten dazu zu zwingen, in zusätzlichen Zeilen in Blockrichtung überzulaufen. In horizontalem Schreibmodus-Inhalt resultiert dies in vertikal scrollbaren Zeilen von Spalten, anstatt einer horizontal scrollbaren Einzelzeile. Schauen wir uns ein Beispiel an.
 
-Das HTML enthält grundlegende Textinhalte, die der Kürze halber ausgeblendet wurden.
+Das HTML enthält grundlegende Textinhalte, die wir der Kürze halber ausgeblendet haben.
 
 ```html hidden
 <p>
@@ -211,7 +211,7 @@ Das HTML enthält grundlegende Textinhalte, die der Kürze halber ausgeblendet w
 </p>
 ```
 
-Wir geben unserem Inhalt einige Stile. Am bemerkenswertesten ist, dass wir das {{cssxref("column-count")}} des `<body>` Elements auf `2` und seine `column-height` auf `95vh` setzen, sodass jede Reihe von Spalten den Viewport füllt. Wir müssen `column-wrap` nicht explizit auf `wrap` setzen: Wenn `column-height` auf einen {{cssxref("&lt;length>")}} Wert gesetzt ist, löst sich der anfängliche Wert von `column-wrap` (`auto`) zu `wrap` auf, was normalerweise das gewünschte Verhalten ist.
+Wir geben unserem Inhalt einige Stile. Besonders erwähnenswert ist, dass wir das {{cssxref("column-count")}}-Attribut des `<body>`-Elements auf `3` setzen und seine `column-height` auf `95vh`, so dass jede Zeile von Spalten den Viewport füllt. Wir müssen `column-wrap` nicht explizit auf `wrap` setzen: Wenn `column-height` auf einen {{cssxref("&lt;length>")}}-Wert gesetzt ist, löst sich der Anfangswert von `column-wrap` (`auto`) zu `wrap` auf, was normalerweise das Verhalten ist, das Sie möchten.
 
 ```css
 body {
@@ -251,10 +251,10 @@ p:first-of-type {
 }
 ```
 
-Dieses Beispiel wird wie folgt dargestellt:
+Dieses Beispiel rendert folgendermaßen:
 
 {{EmbedLiveSample('Using column wrapping for multicol', 'auto', 240)}}
 
 ## Nächste Schritte
 
-Im letzten Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung bei Mehrspaltenlayouts funktioniert](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks), um uns Kontrolle darüber zu geben, wie Inhalte zwischen Spalten getrennt werden.
+Im letzten Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung mit Multicol-Layouts funktioniert](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks), um uns Kontrolle darüber zu geben, wie Inhalte zwischen Spalten gebrochen werden.

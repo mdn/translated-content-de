@@ -2,32 +2,34 @@
 title: Standardkonfiguration des Sanitizers
 slug: Web/API/HTML_Sanitizer_API/Default_sanitizer_configuration
 l10n:
-  sourceCommit: cda9415220ba812ba2ee24e0af1c8e8001ab9924
+  sourceCommit: cb84bb5393fe4ce7bf078210692e132e607766b3
 ---
 
 {{DefaultAPISidebar("HTML Sanitizer API")}}
 
-Die Standardkonfiguration des Sanitizers definiert die Konfiguration, die vom [`Sanitizer()` Konstruktor](/de/docs/Web/API/Sanitizer/Sanitizer) zurückgegeben wird, wenn kein `configuration` als Argument übergeben wird. Dieselbe Konfiguration wird implizit verwendet, wenn Sie die [Methoden zur sicheren Bereinigung](/de/docs/Web/API/HTML_Sanitizer_API#sanitization_methods) aufrufen, wie zum Beispiel [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML), und [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static), ohne einen benutzerdefinierten Sanitizer anzugeben.
+Die Standardkonfiguration des Sanitizers definiert die Konfiguration, die vom [`Sanitizer()`-Konstruktor](/de/docs/Web/API/Sanitizer/Sanitizer) zurückgegeben wird, wenn kein `configuration`-Parameter als Argument übergeben wird.
+Diese gleiche Konfiguration wird implizit verwendet, wenn Sie die [sicheren Sanitizer-Methoden](/de/docs/Web/API/HTML_Sanitizer_API#sanitization_methods), wie zum Beispiel [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML), [`ShadowRoot.setHTML()`](/de/docs/Web/API/ShadowRoot/setHTML), und [`Document.parseHTML()`](/de/docs/Web/API/Document/parseHTML_static) aufrufen, ohne einen benutzerdefinierten Sanitizer anzugeben.
 
 Diese Konfiguration entfernt folgende Arten von Elementen:
 
-1. Diejenigen, die bekanntlich XSS-unsicher sind:
-   - {{htmlelement("embed")}}, {{htmlelement("frame")}}, {{htmlelement("iframe")}}, {{htmlelement("object")}}, {{htmlelement("script")}}, und {{SVGElement("use")}}.
-   - Alle Event-Handler-Inhaltsattribute, wie `onafterprint`, `onbeforeinput` und so weiter.
-2. Zusätzliche Elemente, die in Clickjacking, Spoofing oder anderen Angriffen verwendet werden könnten.
-3. Kommentare und `data-*` Attribute.
+1. Solche, die als XSS-gefährlich bekannt sind:
+   - {{htmlelement("base")}}, {{htmlelement("embed")}}, {{htmlelement("frame")}}, {{htmlelement("iframe")}}, {{htmlelement("object")}}, {{htmlelement("script")}} und {{SVGElement("use")}}.
+   - Alle Ereignishandler-Attributinhalte, wie `onafterprint`, `onbeforeinput` und so weiter.
+2. Elemente, die für Clickjacking, Spoofing oder andere Angriffe verwendet werden könnten.
+3. Veraltete Elemente.
+4. Kommentare und `data-*`-Attribute.
 
-Daher bietet es einen Sanitizer mit minimaler Angriffsfläche, der dennoch für die meisten Bereinigungsanwendungsfälle geeignet ist.
+Es bietet daher einen Sanitizer mit einer minimalen Angriffsfläche, die dennoch für die Mehrheit der Anwendungsfälle der Sanitization geeignet ist.
 
 > [!NOTE]
-> Der Aufruf von [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) oder das Übergeben eines benutzerdefinierten Sanitizers an die Methode zur sicheren Bereinigung entfernt nur die XSS-unsicheren Elemente.
-> Es entfernt nicht die zusätzlichen Elemente, Kommentare und `data-*` Attribute.
+> Der Aufruf von [`Sanitizer.removeUnsafe()`](/de/docs/Web/API/Sanitizer/removeUnsafe) oder das Übergeben eines benutzerdefinierten Sanitizers an die sichere Sanitizer-Methode entfernt nur die XSS-gefährlichen Elemente.
+> Es entfernt nicht die zusätzlichen Elemente, Kommentare und `data-*`-Attribute.
 
-Die folgenden Abschnitte listen alle Elemente auf, wobei ein &check; Zeichen jene anzeigt, die durch die Standardkonfiguration _erlaubt_ sind (das ❌ zeigt daher jene an, die entfernt werden).
-Die Spalte "Zusätzliche erlaubte Attribute" listet die Attribute auf, die für die entsprechenden Elemente erlaubt sind; alle anderen Attribute auf dem Element würden entfernt werden (es sei denn, sie sind durch die globalen Attribute erlaubt).
-Der Abschnitt [Globale Attribute](#globale_attribute) listet die Attribute auf, die bei allen Elementen erlaubt sind (die Attribute, die nicht entfernt werden, wenn die Konfiguration verwendet wird).
+Die folgenden Abschnitte listen alle Elemente auf, mit einem &check;-Symbol zur Kennzeichnung derjenigen, die von der Standardkonfiguration _erlaubt_ sind (das ❌-Symbol kennzeichnet somit diejenigen, die entfernt werden).
+Die Spalte "Zusätzliche erlaubte Attribute" listet die Attribute auf, die für die jeweiligen Elemente erlaubt sind; alle anderen Attribute des Elements werden entfernt (es sei denn, sie sind durch die globalen Attribute erlaubt).
+Der Abschnitt [Globale Attribute](#globale_attribute) listet die Attribute auf, die auf allen Elementen erlaubt sind (die Attribute, die bei der Verwendung der Konfiguration nicht entfernt werden).
 
-## HTML Elemente
+## HTML-Elemente
 
 | Element                                                        | Erlaubt | Zusätzliche erlaubte Attribute                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -159,7 +161,7 @@ Der Abschnitt [Globale Attribute](#globale_attribute) listet die Attribute auf, 
 | {{HTMLElement("wbr")}}                                         | &check; |                                                                                                                                                                                                                                                                                                            |
 | {{HTMLElement("xmp")}}                                         | ❌      |                                                                                                                                                                                                                                                                                                            |
 
-## SVG Elemente
+## SVG-Elemente
 
 | Element                               | Erlaubt | Zusätzliche erlaubte Attribute                                                                                                                                                                                   |
 | ------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -227,7 +229,7 @@ Der Abschnitt [Globale Attribute](#globale_attribute) listet die Attribute auf, 
 | {{SVGElement("use")}}                 | ❌      |                                                                                                                                                                                                                  |
 | {{SVGElement("view")}}                | ❌      |                                                                                                                                                                                                                  |
 
-## MathML Elemente
+## MathML-Elemente
 
 | Element                             | Erlaubt | Zusätzliche erlaubte Attribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ----------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -266,15 +268,15 @@ Der Abschnitt [Globale Attribute](#globale_attribute) listet die Attribute auf, 
 
 ## Globale Attribute
 
-Die Standardkonfiguration erlaubt die folgenden Attribute bei **allen** Elementen.
+Die Standardkonfiguration erlaubt die folgenden Attribute auf **allen** Elementen.
 
-### HTML globale Attribute
+### Globale HTML-Attribute
 
 - [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)
 - [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)
 - [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)
 
-### MathML globale Attribute
+### Globale MathML-Attribute
 
 - `displaystyle`
 - [`mathbackground`](/de/docs/Web/MathML/Reference/Global_attributes/mathbackground)
@@ -282,7 +284,7 @@ Die Standardkonfiguration erlaubt die folgenden Attribute bei **allen** Elemente
 - [`mathsize`](/de/docs/Web/MathML/Reference/Global_attributes/mathsize)
 - [`scriptlevel`](/de/docs/Web/MathML/Reference/Global_attributes/scriptlevel)
 
-### SVG Attribute
+### SVG-Attribute
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
