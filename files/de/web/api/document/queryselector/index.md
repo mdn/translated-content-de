@@ -3,18 +3,18 @@ title: "Dokument: querySelector() Methode"
 short-title: querySelector()
 slug: Web/API/Document/querySelector
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 489f2f5115967ae01b6094a42d23c3bee5aba5fc
 ---
 
 {{ApiRef("DOM")}}
 
-Die [`Document`](/de/docs/Web/API/Document) Methode **`querySelector()`** gibt das erste [`Element`](/de/docs/Web/API/Element) im Dokument zurück, das dem angegebenen [CSS-Selektor](/de/docs/Web/CSS/Guides/Selectors) oder einer Gruppe von CSS-Selektoren entspricht. Wenn keine Übereinstimmungen gefunden werden, wird `null` zurückgegeben.
+Die [`Document`](/de/docs/Web/API/Document)-Methode **`querySelector()`** gibt das erste [`Element`](/de/docs/Web/API/Element) im Dokument zurück, das mit dem angegebenen [CSS-Selektor](/de/docs/Web/CSS/Guides/Selectors) oder einer Gruppe von CSS-Selektoren übereinstimmt. Wenn keine Übereinstimmungen gefunden werden, wird `null` zurückgegeben.
 
-Die Übereinstimmung erfolgt mittels eines tiefen Prioritätsdurchgangs in Vorordnung durch die Knoten des Dokuments, beginnend mit dem ersten Element im Markup des Dokuments und iterierend durch fortlaufende Knoten in der Reihenfolge der Anzahl der Kindknoten.
+Die Übereinstimmung erfolgt durch eine tiefenorientierte Vorab-Durchlauf der Knoten des Dokuments, beginnend mit dem ersten Element im Markup des Dokuments und iterierend durch sequenzielle Knoten in der Reihenfolge der Anzahl der Kindelemente.
 
 Wenn der angegebene Selektor einer ID entspricht, die fälschlicherweise mehr als einmal im Dokument verwendet wird, wird das erste Element mit dieser ID zurückgegeben.
 
-[CSS-Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) werden niemals Elemente zurückgeben.
+[CSS-Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) werden niemals irgendwelche Elemente zurückgeben.
 
 ## Syntax
 
@@ -25,15 +25,15 @@ querySelector(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; falls nicht, wird eine `SyntaxError`-Ausnahme ausgelöst.
+  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; andernfalls wird eine `SyntaxError`-Ausnahme ausgelöst.
 
-    Beachten Sie, dass die HTML-Spezifikation nicht erfordert, dass Attributwerte gültige CSS-Bezeichner sind. Falls ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attributwert kein gültiger CSS-Bezeichner ist, müssen Sie ihn vor der Verwendung in einem Selektor escapen, entweder indem Sie [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert aufrufen oder eine der in [Zeichen escapen](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) beschriebenen Techniken anwenden. Siehe [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.
+    Beachten Sie, dass die HTML-Spezifikation nicht verlangt, dass Attributwerte gültige CSS-Bezeichner sind. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Bezeichner ist, müssen Sie ihn vor der Verwendung in einem Selektor escapen, entweder indem Sie [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert anwenden oder indem Sie eine der in [Escaping characters](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) beschriebenen Techniken verwenden. Siehe [Escaping attribute values](#escaping_von_attributwerten) für ein Beispiel.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element) Objekt, das das erste Element im Dokument darstellt, das dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) entspricht, oder `null` wird zurückgegeben, wenn keine Übereinstimmungen vorliegen.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument darstellt, das mit dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) übereinstimmt, oder `null`, wenn keine Übereinstimmungen vorliegen.
 
-Falls Sie eine Liste aller Elemente benötigen, die den angegebenen Selektoren entsprechen, sollten Sie stattdessen [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) verwenden.
+Wenn Sie eine Liste aller mit den angegebenen Selektoren übereinstimmenden Elemente benötigen, sollten Sie stattdessen [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) verwenden.
 
 ### Ausnahmen
 
@@ -42,7 +42,7 @@ Falls Sie eine Liste aller Elemente benötigen, die den angegebenen Selektoren e
 
 ## Beispiele
 
-### Das erste Element mit einer Klasse finden
+### Finden des ersten Elements, das mit einer Klasse übereinstimmt
 
 In diesem Beispiel wird das erste Element im Dokument mit der Klasse `myclass` zurückgegeben:
 
@@ -52,7 +52,7 @@ const el = document.querySelector(".myclass");
 
 ### Komplexe Selektoren
 
-Selektoren können auch sehr leistungsfähig sein, wie im folgenden Beispiel demonstriert. Hier wird das erste {{HTMLElement("input")}} Element mit dem Namen "login" (`<input name="login"/>`) innerhalb eines {{HTMLElement("div")}}, dessen Klasse "user-panel main" (`<div class="user-panel main">`) im Dokument ist, zurückgegeben:
+Selektoren können auch sehr leistungsfähig sein, wie im folgenden Beispiel gezeigt wird. Hier wird das erste {{HTMLElement("input")}}-Element mit dem Namen "login" (`<input name="login"/>`) gefunden, das sich innerhalb eines {{HTMLElement("div")}} befindet, dessen Klasse "user-panel main" ist (`<div class="user-panel main">`) im Dokument:
 
 ```js
 const el = document.querySelector("div.user-panel.main input[name='login']");
@@ -68,17 +68,17 @@ const el = document.querySelector(
 );
 ```
 
-Dies wird ein Input mit einem übergeordneten div mit der `user-panel` Klasse, aber nicht der `main` Klasse auswählen.
+Dies wählt ein Eingabeelement mit einem übergeordneten `div` mit der Klasse `user-panel`, aber nicht der Klasse `main`.
 
-### Attributwerte escapen
+### Escaping von Attributwerten
 
-Dieses Beispiel zeigt, dass falls ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/Reference/Values/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelector()` verwenden.
+Dieses Beispiel zeigt, dass, wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/Reference/Values/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelector()` verwenden.
 
 #### HTML
 
-Im folgenden Code hat ein {{htmlelement("div")}} Element eine `id` von `"this?element"`, was kein gültiger CSS-Bezeichner ist, da das Zeichen `"?"` in CSS-Bezeichnern nicht erlaubt ist.
+Im folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Bezeichner ist, weil das Zeichen `"?"` in CSS-Bezeichnern nicht erlaubt ist.
 
-Wir haben auch drei Buttons und ein {{htmlelement("pre")}} Element zur Ausgabe von Fehlern.
+Es gibt auch drei Schaltflächen und ein {{htmlelement("pre")}}-Element zur Protokollierung von Fehlern.
 
 ```html
 <div id="this?element"></div>
@@ -103,11 +103,11 @@ div {
 
 #### JavaScript
 
-Alle drei Buttons versuchen, wenn sie geklickt werden, das `<div>` auszuwählen und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
+Alle drei Schaltflächen versuchen beim Klicken, das `<div>` auszuwählen und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
 
-- Der erste Button verwendet den Wert `"this?element"` direkt.
-- Der zweite Button escapet den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
-- Der dritte Button escapet das `"?"` Zeichen explizit durch einen Backslash. Beachten Sie, dass wir auch den Backslash selbst escapen müssen, indem wir einen weiteren Backslash verwenden, wie: `"\\?"`.
+- Die erste Schaltfläche verwendet den Wert `"this?element"` direkt.
+- Die zweite Schaltfläche escaped den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
+- Die dritte Schaltfläche escaped das Zeichen `"?"` explizit mit einem Backslash. Beachten Sie, dass wir auch den Backslash selbst escapen müssen, mit einem weiteren Backslash, wie: `"\\?"`.
 
 ```js
 const log = document.querySelector("#log");
@@ -143,7 +143,7 @@ document.querySelector("#manual-escape").addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Klicken des ersten Buttons führt zu einem Fehler, während die zweiten und dritten Buttons ordnungsgemäß funktionieren.
+Das Klicken auf die erste Schaltfläche gibt einen Fehler, während die zweite und dritte Schaltfläche ordnungsgemäß funktionieren.
 
 {{embedlivesample("escaping_attribute_values", "", 200)}}
 
@@ -157,7 +157,7 @@ Das Klicken des ersten Buttons führt zu einem Fehler, während die zweiten und 
 
 ## Siehe auch
 
-- [Auswahl und Traversierung auf dem DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
+- [Selection and traversal on the DOM tree](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
 - [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
 - [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
 - [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
