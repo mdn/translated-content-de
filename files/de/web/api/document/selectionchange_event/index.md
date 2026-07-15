@@ -1,37 +1,52 @@
 ---
-title: "Dokument: selectionchange Ereignis"
+title: "Dokument: selectionchange-Ereignis"
 short-title: selectionchange
 slug: Web/API/Document/selectionchange_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 453f1e19963409710b3466630538467db38a3f6f
 ---
 
 {{APIRef("Selection API")}}
 
-Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Documents`](/de/docs/Web/API/Document) geändert wird.
+Der Browser löst das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) aus, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Document`](/de/docs/Web/API/Document) geändert wird. Eine Dokumentauswahl stellt entweder einen Bereich ausgewählten Inhalts über DOM-Knoten hinweg oder eine eingeklappte Cursorposition dar.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht propagiert.
-
-Das Ereignis kann durch Hinzufügen eines Ereignis-Listeners für `selectionchange` oder durch Verwendung des `onselectionchange` Ereignis-Handlers behandelt werden.
-
-> [!NOTE]
-> Dieses Ereignis ist nicht ganz dasselbe wie die `selectionchange` Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element geändert wird. Siehe das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis von `HTMLInputElement` für weitere Details.
+Dieses Ereignis ist nicht abbrechbar und wird nicht nach oben weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
-addEventListener("selectionchange", (event) => { })
+addEventListener("selectionchange", (event) => {})
 
-onselectionchange = (event) => { }
+onselectionchange = (event) => {}
 ```
 
 ## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
+## Beschreibung
+
+Das `selectionchange`-Ereignis des `Document`-Objekts wird ausgelöst, wenn:
+
+- Ein Benutzer oder Skript eine Auswahl erstellt oder löscht.
+- Der Start- oder Endpunkt eines ausgewählten Bereichs verschoben wird.
+- Ein ausgewählter Bereich vollständig geändert wird.
+- Eine Auswahl auf eine einzelne Cursorposition reduziert wird.
+
+Das Ereignisobjekt selbst enthält keine aktualisierten Auswahldetails. Sie können die aktuelle Auswahl abrufen, indem Sie [`document.getSelection()`](/de/docs/Web/API/Document/getSelection) innerhalb Ihres Ereignis-Listeners aufrufen.
+
+Dieses Ereignis unterscheidet sich maßgeblich vom `selectionchange`-Ereignis, das bei {{HTMLElement("input")}} und {{HTMLElement("textarea")}}-Textelementen ausgelöst wird:
+
+- Dokumentauswahlen verwenden DOM-Knotenpositionen und erfordern [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zur Inspektion. Texteingaben haben unabhängige Auswahlen innerhalb ihrer internen Textwerte, die über Zeichenoffsets inspiziert werden, die über `selectionStart`, `selectionEnd` und `selectionDirection` zugänglich sind.
+- Das dokumentenbezogene `selectionchange`-Ereignis wird direkt auf dem [`Document`](/de/docs/Web/API/Document) ausgelöst und wird nicht nach oben weitergegeben. Das Texteingabefeld `selectionchange`-Ereignis wird auf dem Input/Textarea-Element ausgelöst und wird im DOM-Baum nach oben weitergereicht.
+
+Sehen Sie sich das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event)-Ereignis von `HTMLInputElement` und das [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignis von `HTMLTextAreaElement` an, um weitere Details zu den Texteingabe-Ereignissen zu erhalten.
+
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 // addEventListener version
