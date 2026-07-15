@@ -173,7 +173,7 @@ Bei diesen `mediation`-Optionen tritt eine automatische erneute Authentifizierun
 - Der Benutzer ist mit diesem Konto beim IdP angemeldet.
 - Die automatische erneute Authentifizierung trat in den letzten 10 Minuten nicht auf. Diese Einschränkung ist eingeführt, um zu verhindern, dass Benutzer sofort nach dem Abmelden automatisch erneut authentifiziert werden, was eine verwirrende Benutzererfahrung wäre.
 - Die RP hat [`preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess) nach der vorherigen Anmeldung nicht aufgerufen. Dies kann von einer RP verwendet werden, um die automatische erneute Authentifizierung explizit zu deaktivieren, falls gewünscht.
-- Der UI-Modus ist [passive]().
+- Der UI-Modus ist [passive](<>).
 
 Wenn diese Bedingungen erfüllt sind, beginnt ein Versuch, den Benutzer automatisch erneut zu authentifizieren, sobald das `get()` aufgerufen wird. Wenn die automatische erneute Authentifizierung erfolgreich ist, wird der Benutzer erneut auf der RP-Site angemeldet, ohne dass ihm eine Bestätigungsaufforderung angezeigt wird, und zwar mit demselben IdP-Konto und validierten Token wie zuvor.
 
