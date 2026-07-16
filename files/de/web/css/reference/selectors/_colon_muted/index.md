@@ -3,14 +3,14 @@ title: "`:muted` CSS-Pseudoklasse"
 short-title: :muted
 slug: Web/CSS/Reference/Selectors/:muted
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: d1aa0dbd7441564e6ce8f6706c2022a2e1912d8c
 ---
 
-Der **`:muted`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch stummgeschaltet (erzwungen stumm) ist.
+Der **`:muted`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)-Selektor repräsentiert ein Element, das in der Lage ist, Ton zu erzeugen, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber stummgeschaltet ist (erzwungene Stummschaltung).
 
-`Muted` unterscheidet sich von {{cssxref(":volume-locked")}} dadurch, dass der Seitenautor die Kontrolle darüber hat, ob ein Medienelement stummgeschaltet oder die Stummschaltung aufgehoben werden kann.
-Benutzeragenten können den `muted`-Wert von Medien entsprechend der Nutzerpräferenzen festlegen (z.B. indem der zuletzt eingestellte Wert über Sitzungen hinweg, für jede Website einzeln oder auf andere Weise gemerkt wird).
-Ein Element, das `:volume-locked` ist, kann aufgrund einer Präferenz des Betriebssystems oder des Benutzeragenten nicht stummgeschaltet, die Stummschaltung aufgehoben oder seine Lautstärke über JavaScript geändert werden.
+Stummgeschaltet unterscheidet sich von {{cssxref(":volume-locked")}} darin, dass der Seitenautor die Kontrolle darüber hat, ob ein Medien-Element stummgeschaltet oder die Stummschaltung aufgehoben werden kann.
+Benutzeragenten können den `muted`-Wert von Medien gemäß den Benutzereinstellungen setzen (z. B. indem sie den zuletzt gesetzten Wert über Sitzungen hinweg, pro Seite oder auf andere Weise merken).
+Ein Element, das `:volume-locked` ist, kann aufgrund von Präferenzen des Betriebssystems oder des Benutzeragenten nicht stummgeschaltet, die Stummschaltung aufgehoben oder seine Lautstärke über JavaScript geändert werden.
 
 ## Syntax
 
@@ -22,17 +22,46 @@ Ein Element, das `:volume-locked` ist, kann aufgrund einer Präferenz des Betrie
 
 ## Beispiele
 
+### HTML
+
+Das Attribut `muted` wird dem {{htmlelement("video")}}-Element hinzugefügt, sodass der Ton stummgeschaltet ist; dies funktioniert ebenso für {{htmlelement("audio")}}-Elemente.
+
+```html
+<!-- 'Big Buck Bunny' licensed under CC 3.0 by the Blender foundation. Hosted by archive.org -->
+<!-- Poster from peach.blender.org -->
+<video
+  controls
+  muted
+  src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+  poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+  width="620">
+  Sorry, your browser doesn't support embedded videos, but don't worry, you can
+  <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
+  and watch it with your favorite video player!
+</video>
+```
+
 ### CSS
 
+Wenn das `<video>`-Element `muted` ist, wird ein roter Umriss darum gezeichnet. Ist es nicht stummgeschaltet, hat es einen grünen Umriss. Versuchen Sie, das Stummschaltsymbol in den Steuerelementen umzuschalten, um den Statuswechsel zu sehen.
+
+```css hidden
+video {
+  margin: 5px;
+}
+```
+
 ```css
-:muted {
+video:muted {
   outline: 5px solid red;
 }
 
-video:muted {
-  outline: 5px solid blue;
+video:not(:muted) {
+  outline: 5px solid green;
 }
 ```
+
+{{EmbedLiveSample('examples', '', '400')}}
 
 ## Spezifikationen
 
