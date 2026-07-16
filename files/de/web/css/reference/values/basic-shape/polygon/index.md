@@ -3,10 +3,10 @@ title: "`polygon()` CSS-Funktion"
 short-title: polygon()
 slug: Web/CSS/Reference/Values/basic-shape/polygon
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: cd0970bc03cf30a9a8089954cc542a17dbe9eba3
 ---
 
-Die **`polygon()`**-Funktion im [CSS](/de/docs/Web/CSS) ist einer der {{cssxref("basic-shape")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types). Sie wird verwendet, um ein [Polygon](https://en.wikipedia.org/wiki/Polygon) zu zeichnen, indem ein oder mehrere Koordinatenpaare angegeben werden, von denen jedes einen Eckpunkt der Form darstellt.
+Die **`polygon()`**-Funktion in [CSS](/de/docs/Web/CSS) ist eines der {{cssxref("basic-shape")}}-[Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types). Sie wird verwendet, um ein [Polygon](https://de.wikipedia.org/wiki/Polygon) zu zeichnen, indem ein oder mehrere Koordinatenpaare angegeben werden, von denen jedes einen Scheitelpunkt der Form darstellt.
 
 {{InteractiveExample("CSS Demo: polygon()")}}
 
@@ -60,44 +60,43 @@ polygon(nonzero, 0% 0%, 50% 50%, 0% 100%)
 polygon(evenodd, 0% 0%, 50% 50%, 0% 100%)
 ```
 
-Die Parameter von `polygon()` werden durch ein Komma und optionalen Leerraum getrennt. Der erste Parameter ist ein optionaler [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule)-Wert. Weitere Parameter sind Punkte, die das Polygon definieren. Jeder Punkt ist ein Paar von x/y-Koordinatenwerten als {{cssxref("length-percentage")}}, getrennt durch ein Leerzeichen, z.B. "0 0" und "100% 100%" für die linken/oberen und unteren rechten Ecken.
+Die `polygon()`-Parameter sind durch ein Komma und optionalen Leerraum getrennt. Der erste Parameter ist ein optionaler [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule)-Wert. Zusätzliche Parameter sind Punkte, die das Polygon definieren. Jeder Punkt ist ein Paar von x/y-Koordinaten-{{cssxref("length-percentage")}}-Werten, getrennt durch ein Leerzeichen, z. B. "0 0" und "100% 100%" für die linken/oberen und unteren rechten Ecken.
 
-> [!NOTE]
-> Das SVG-Element [`<polygon>`](/de/docs/Web/SVG/Reference/Element/polygon) hat separate Attribute für [`fill-rule`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) und [`points`](/de/docs/Web/SVG/Reference/Attribute/points), und `points` ist flexibel bezüglich der Nutzung von Leerraum und Komma als Trenner. Die CSS-`polygon()`-Regeln für Trenner werden strikt durchgesetzt.
+Note: Das SVG-Element [`<polygon>`](/de/docs/Web/SVG/Reference/Element/polygon) hat separate Attribute für [`fill-rule`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) und [`points`](/de/docs/Web/SVG/Reference/Attribute/points), und `points` ist flexibel in Bezug auf die Verwendung von Leerzeichen und Komma-Trennzeichen. Die CSS-`polygon()`-Regeln für Trennzeichen werden streng durchgesetzt.
 
 ### Parameter
 
 - [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) {{optional_inline}}
-  - : Ein optionaler Wert von `nonzero` (der Standardwert, wenn nicht angegeben) oder `evenodd`, der die Füllregel angibt.
+  - : Ein optionaler Wert von `nonzero` (Standard, wenn nicht angegeben) oder `evenodd`, der die Füllregel spezifiziert.
 - {{cssxref("length-percentage")}}
-  - : Jeder Eckpunkt des Polygons wird durch ein Paar von `<length-percentage>`-Werten dargestellt, die die x/y-Koordinaten des Eckpunkts relativ zur [Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) der Form angeben.
+  - : Jeder Scheitelpunkt des Polygons wird durch ein Paar von `<length-percentage>`-Werten repräsentiert, die die x/y-Koordinaten des Scheitelpunkts relativ zur [Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) der Form angeben.
 
 ### Rückgabewert
 
-Gibt einen Wert des Typs {{cssxref("basic-shape")}} zurück.
+Gibt einen {{cssxref("basic-shape")}}-Wert zurück.
 
 ## Beschreibung
 
-Mit der `polygon()`-Funktion kann nahezu jede Form erstellt werden, indem die Koordinaten ihrer Punkte spezifiziert werden. Die Reihenfolge, in der Sie die Punkte definieren, ist wichtig und kann zu unterschiedlichen Formen führen. Die `polygon()`-Funktion erfordert mindestens 3 Punkte, was ein Dreieck bildet, es gibt jedoch keine Obergrenze.
+Sie können nahezu jede Form mit der `polygon()`-Funktion erstellen, indem Sie die Koordinaten ihrer Punkte angeben. Die Reihenfolge, in der Sie die Punkte definieren, ist wichtig und kann zu unterschiedlichen Formen führen. Die `polygon()`-Funktion erfordert mindestens 3 Punkte, die ein Dreieck bilden, es gibt jedoch keine obere Grenze.
 
-Die `polygon()`-Funktion akzeptiert durch Kommas getrennte Koordinaten oder Punkte. Jeder Punkt wird durch ein Paar von Leerzeichen getrennten `x`- und `y`-Werten dargestellt, die die Koordinaten der Punkte innerhalb des Polygons angeben.
+Die `polygon()`-Funktion akzeptiert kommagetrennte Koordinaten oder Punkte als ihre Werte. Jeder Punkt wird durch ein Paar von leerzeichengetrennten `x`- und `y`-Werten repräsentiert, die die Koordinaten der Punkte innerhalb des Polygons angeben.
 
 <code>polygon(x<sub>1</sub> y<sub>1</sub>, x<sub>2</sub> y<sub>2</sub>, x<sub>3</sub> y<sub>3</sub>, x<sub>4</sub> y<sub>4</sub>, x<sub>n</sub> y<sub>n</sub>)</code>
 
-Ausgehend von oben, lässt sich die Abbildung der Koordinaten des Containers wie folgt visualisieren:
+Unter Berücksichtigung dessen kann die Abbildung der Koordinaten des Containers visualisiert werden als:
 
 | Achse | Punkt 1 | Punkt 2 | Punkt 3 | Punkt 4 | Punkt n       |
 | ----- | ------- | ------- | ------- | ------- | ------------- |
 | x     | 0%      | 100%    | 100%    | 0%      | x<sub>n</sub> |
 | y     | 0%      | 0%      | 100%    | 100%    | y<sub>n</sub> |
 
-Anwendung dieser Koordinaten auf die CSS-Eigenschaft {{cssxref("clip-path")}} mit der `polygon()`-Funktion:
+Anwendung dieser Koordinaten auf die CSS-{{cssxref("clip-path")}}-Eigenschaft unter Verwendung der `polygon()`-Funktion:
 
 ```css
 clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 ```
 
-Dies würde eine rechteckige Form in der Größe des Elterninhalts erzeugen, indem die Koordinaten ihrer vier Ecken: oben links (`0% 0%`), oben rechts (`100% 0%`), unten rechts (`100% 100%`) und unten links (`0% 100%`) angegeben werden.
+Dies würde eine rechteckige Form in der Größe ihres übergeordneten Inhalts erstellen, indem die Koordinaten ihrer vier Ecken angegeben werden: oben links (`0% 0%`), oben rechts (`100% 0%`), unten rechts (`100% 100%`) und unten links (`0% 100%`).
 
 ## Formale Syntax
 
@@ -105,7 +104,7 @@ Dies würde eine rechteckige Form in der Größe des Elterninhalts erzeugen, ind
 
 ## Beispiele
 
-### Ein Dreieck erstellen
+### Erstellen eines Dreiecks
 
 In diesem Beispiel wird ein Dreieck gebildet, indem die Koordinaten seiner drei Punkte definiert werden.
 
@@ -128,13 +127,13 @@ In diesem Beispiel wird ein Dreieck gebildet, indem die Koordinaten seiner drei 
 
 #### Ergebnis
 
-{{EmbedLiveSample("Ein Dreieck erstellen", '100%', 400)}}
+{{EmbedLiveSample("Create a triangle", '100%', 400)}}
 
 Die Koordinaten für das Dreieck sind die obere rechte Ecke (`100% 0%`), der Mittelpunkt (`50% 50%`) und die untere rechte Ecke (`100% 100%`) des Containers.
 
 ### Ein Polygon für shape-outside festlegen
 
-In diesem Beispiel wird eine Form erstellt, der Text mit der Eigenschaft {{cssxref("shape-outside")}} folgt.
+In diesem Beispiel wird eine Form erstellt, der Text mit der {{cssxref("shape-outside")}}-Eigenschaft folgen soll.
 
 ```html
 <div class="box">
@@ -182,7 +181,7 @@ p {
 }
 ```
 
-{{EmbedLiveSample("Ein Polygon für shape-outside festlegen", '100%', 400)}}
+{{EmbedLiveSample("Setting a polygon for shape-outside", '100%', 400)}}
 
 ## Spezifikationen
 
@@ -194,5 +193,5 @@ p {
 
 ## Siehe auch
 
-- Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [Leitfaden zu Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)
+- Eigenschaften, die diesen Datentyp verwenden: {{cssxref("border-shape")}}, {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
+- [Leitfaden zu Basisformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

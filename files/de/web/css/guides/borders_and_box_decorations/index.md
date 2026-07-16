@@ -3,14 +3,14 @@ title: CSS-Rahmen und Box-Dekorationen
 short-title: Rahmen und Box-Dekorationen
 slug: Web/CSS/Guides/Borders_and_box_decorations
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: cd0970bc03cf30a9a8089954cc542a17dbe9eba3
 ---
 
-Das **CSS-Rahmen- und Box-Dekorationen** Modul stellt Eigenschaften zur Verfügung, um Rahmen, geformte Ecken und Box-Schatten zu Elementen hinzuzufügen. Dieses Modul erweitert die Rahmen und Box-Dekorationen, die im [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul eingeführt wurden, um die Eigenschaften {{cssxref("corner-shape")}} und `border-shape`, logische {{cssxref("border-radius")}} Eigenschaften, Langform-Eigenschaften für die {{cssxref("box-shadow")}} Eigenschaft sowie Eigenschaften zur Erstellung von Teilrahmen.
+Das **CSS-Rahmen und Box-Dekorationen**-Modul bietet Eigenschaften zum Hinzufügen von Rahmen, geformten Ecken und Box-Schatten zu Elementen. Dieses Modul erweitert die im Modul [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) eingeführten Rahmen und Box-Dekorationen, indem es die Eigenschaften {{cssxref("corner-shape")}} und `border-shape`, logische {{cssxref("border-radius")}}-Eigenschaften, Langform-Eigenschaften für die {{cssxref("box-shadow")}}-Eigenschaft und Eigenschaften zur Erstellung von Teilrahmen hinzufügt.
 
 ## Rahmen und Box-Dekorationen in Aktion
 
-Wählen Sie einen `superellipse()` Wert aus dem Dropdown-Menü, um die Rahmenform zu ändern. Verwenden Sie den Schieberegler, um die Größe der Rahmenabrundung zu ändern. Aktivieren Sie das Kontrollkästchen, um den Box-Schatten ein- und auszublenden.
+Wählen Sie einen `superellipse()`-Wert aus dem Dropdown-Menü, um die Rahmenform zu ändern. Verwenden Sie den Schieberegler, um die Rahmengröße zu ändern. Aktivieren Sie das Kontrollkästchen, um den Box-Schatten ein- und auszublenden.
 
 ```html hidden
 <p>
@@ -171,6 +171,7 @@ setCornerShape();
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
 - {{cssxref("border-right-width")}}
+- {{cssxref("border-shape")}}
 - {{cssxref("border-start-end-radius")}}
 - {{cssxref("border-start-start-radius")}}
 - {{cssxref("border-top")}}
@@ -198,7 +199,7 @@ setCornerShape();
 - {{cssxref("corner-top-right-shape")}}
 - {{cssxref("corner-top-shape")}}
 
-Das CSS-Rahmen- und Box-Dekorationen Modul Level 4 führt auch die `border-shape`, `border-limit` und `border-clip` Eigenschaften ein, zusammen mit den `border-clip-bottom`, `border-clip-left`, `border-clip-right`, `border-clip-top` Langform-Eigenschaften. Derzeit unterstützen keine Browser diese Funktionen. Das Modul führt auch Komponenteneigenschaften für die gut unterstützten {{cssxref("border-radius")}} und {{cssxref("box-shadow")}} Eigenschaften ein, einschließlich `border-block-end-radius`, `border-block-start-radius`, `border-bottom-radius`, `border-inline-end-radius`, `border-inline-start-radius`, `border-right-radius`, `border-top-radius`, `box-shadow-blur`, `box-shadow-color`, `box-shadow-offset`, `box-shadow-position`, und `box-shadow-spread`. Diese Komponenteneigenschaften werden ebenfalls noch nicht unterstützt.
+Das CSS-Rahmen und Box-Dekorationen-Modul Level 4 führt außerdem die Eigenschaften `border-limit` und `border-clip` ein, zusammen mit den Langform-Eigenschaften `border-clip-bottom`, `border-clip-left`, `border-clip-right`, `border-clip-top`. Derzeit werden diese Funktionen von keinem Browser unterstützt. Das Modul führt auch Komponenteneigenschaften für die gut unterstützten {{cssxref("border-radius")}} und {{cssxref("box-shadow")}}-Eigenschaften ein, einschließlich `border-block-end-radius`, `border-block-start-radius`, `border-bottom-radius`, `border-inline-end-radius`, `border-inline-start-radius`, `border-right-radius`, `border-top-radius`, `box-shadow-blur`, `box-shadow-color`, `box-shadow-offset`, `box-shadow-position`, und `box-shadow-spread`. Auch diese Komponenteneigenschaften werden derzeit nicht unterstützt.
 
 ### Datentypen
 
@@ -208,10 +209,12 @@ Das CSS-Rahmen- und Box-Dekorationen Modul Level 4 führt auch die `border-shape
 
 - {{cssxref("superellipse()")}}
 
-## Leitfaden
+## Leitfäden
 
-- [Lernen Sie CSS: das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
+- [Learn CSS: the box model](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
   - : Lernen Sie, wie Rahmen und andere Eigenschaften des Box-Modells das CSS-Box-Modell beeinflussen.
+- [Creating an irregular nav menu with border-shape](/de/docs/Web/CSS/Guides/Borders_and_box_decorations/Border_shape_nav_menu)
+  - : Anleitung zur Verwendung der {{cssxref("border-shape")}}-Eigenschaft, um ein unregelmäßiges animiertes Navigationsmenü zu erstellen.
 
 ## Verwandte Konzepte
 
@@ -253,7 +256,7 @@ Das CSS-Rahmen- und Box-Dekorationen Modul Level 4 führt auch die `border-shape
 - {{cssxref("filter")}}
 - {{cssxref("backdrop-filter")}}
 - [`drop-shadow()`](/de/docs/Web/CSS/Reference/Values/filter-function/drop-shadow) Filterfunktion
-- [Farben auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/Guides/Colors/Applying_color)
-- Werkzeuge:
-  - [Border-Image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
-  - [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
+- [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- Tools:
+  - [Rahmen-Bild-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
+  - [Rahmen-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
