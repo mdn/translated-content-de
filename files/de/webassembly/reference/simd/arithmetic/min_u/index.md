@@ -1,12 +1,12 @@
 ---
-title: "min_u: Wasm SIMD Arithmetikanweisung"
+title: "min_u: Wasm SIMD arithmetische Anweisung"
 short-title: min_u
 slug: WebAssembly/Reference/SIMD/arithmetic/min_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 05a935ece59e972b328235c64ecd628b59780f17
 ---
 
-Die **`min_u`**-Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen von Ganzzahlen ohne Vorzeichen und gibt eine neue Interpretation zurück, wobei jeder Lane auf den niedrigeren Wert des Lane-Index auf den beiden Eingaben gesetzt wird.
+Die **`min_u`** Anweisung vergleicht zwei Interpretationen von unsignierten Ganzzahlen mit dem Werttyp [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und liefert eine neue Interpretation zurück, bei der jedes Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt wird.
 
 {{InteractiveExample("Wat Demo: min_u", "tabbed-taller")}}
 
@@ -39,12 +39,12 @@ value_type.min_u
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `min_u`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `min_u`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
 - `min_u`
-  - : Die `min_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `min_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -57,11 +57,11 @@ value_type.min_u
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neues `v128` des gleichen Typs wie die Eingaben, wobei jeder Lane auf den größeren Wert des Lane-Index auf den zwei Eingaben gesetzt wird.
+  - : Der Ausgabewert. Ein neuer `v128` vom gleichen Typ wie die Eingaben, wobei jedes Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt wird.
 
-### Binärkodierung
+### Binärcode-Kodierung
 
-| Anweisung     | Binärformat    | Beispiel Text => Binär            |
+| Anweisung     | Binärformat    | Beispieltext => binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.min_u` | `0xfd 119:u32` | `i8x16.min_u` => `0xfd 0x77`      |
 | `i16x8.min_u` | `0xfd 151:u32` | `i16x8.min_u` => `0xfd 0x97 0x01` |
