@@ -3,10 +3,10 @@ title: "`padding-block-end` CSS property"
 short-title: padding-block-end
 slug: Web/CSS/Reference/Properties/padding-block-end
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
 ---
 
-Die **`padding-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logische Blockend-Auspolsterung eines Elements, die abhängig vom Schreibmodus, der Ausrichtung und der Textorientierung des Elements in eine physische Auspolsterung umgewandelt wird.
+Die **`padding-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert das logische Blockend-Polster eines Elements, das je nach Schreibmodus, Richtung und Textorientierung des Elements einer physischen Polsterung zugeordnet wird.
 
 {{InteractiveExample("CSS Demo: padding-block-end")}}
 
@@ -75,15 +75,15 @@ padding-block-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe der Auspolsterung als fester Wert. Muss nicht-negativ sein.
+  - : Die Größe der Polsterung als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe der Auspolsterung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Enthaltenen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht-negativ sein.
+  - : Die Größe der Polsterung als Prozentsatz, bezogen auf die Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die Eigenschaft `padding-block-end` nimmt die gleichen Werte wie physische Auspolsterungseigenschaften wie {{cssxref("padding-top")}} an. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten gleichwertig zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
+Die `padding-block-end`-Eigenschaft nimmt die gleichen Werte an wie physische Polstereigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch gleichwertig mit {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten.
 
-Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen Auspolsterungswerte des Elements definieren.
+Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen Polsterungswerte des Elements definieren.
 
 ## Formale Definition
 
@@ -95,7 +95,7 @@ Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding
 
 ## Beispiele
 
-### Blockend-Auspolsterung für vertikalen Text festlegen
+### Blockend-Polsterung für vertikalen Text festlegen
 
 #### HTML
 
@@ -135,6 +135,6 @@ div {
 
 ## Siehe auch
 
-- [CSS-Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

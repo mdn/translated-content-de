@@ -3,10 +3,10 @@ title: "`padding-top` CSS property"
 short-title: padding-top
 slug: Web/CSS/Reference/Properties/padding-top
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
 ---
 
-Die **`padding-top`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Höhe des [Abstandsbereichs (Padding)](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) an der Oberseite eines Elements fest.
+Die **`padding-top`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Höhe des [Polsterbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) oben an einem Element fest.
 
 {{InteractiveExample("CSS Demo: padding-top")}}
 
@@ -53,12 +53,12 @@ padding-top: 0;
 }
 ```
 
-Der Padding-Bereich eines Elements ist der Raum zwischen dessen Inhalt und dessen Rahmen.
+Der Polsterbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
 
-![Die Wirkung der CSS-Eigenschaft padding-top auf das Elementfeld](padding-top.svg)
+![Die Auswirkung der CSS-Eigenschaft padding-top auf das Element-Box](padding-top.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um mit einer einzigen Deklaration Paddings auf allen vier Seiten eines Elements festzulegen.
+> Die {{cssxref("padding")}}-Eigenschaft kann verwendet werden, um die Abstände auf allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -79,14 +79,14 @@ padding-top: revert-layer;
 padding-top: unset;
 ```
 
-Die `padding-top`-Eigenschaft wird als einzelner Wert angegeben, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Rändern sind negative Werte für Padding nicht erlaubt.
+Die `padding-top`-Eigenschaft wird als ein einzelner Wert aus der unten stehenden Liste angegeben. Im Gegensatz zu Rändern sind negative Werte für das Polstern nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Polsterns als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentwert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Polsterns als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältlichen Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -98,7 +98,7 @@ Die `padding-top`-Eigenschaft wird als einzelner Wert angegeben, der aus der unt
 
 ## Beispiele
 
-### Festlegen von oberem Padding mit Pixeln und Prozentsätzen
+### Obere Polsterung mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {
@@ -120,8 +120,8 @@ Die `padding-top`-Eigenschaft wird als einzelner Wert angegeben, der aus der unt
 ## Siehe auch
 
 - {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}}
-- {{cssxref("padding")}} Kurzschreibweise
+- {{cssxref("padding")}} Kurzform
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
-- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
-- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
+- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul

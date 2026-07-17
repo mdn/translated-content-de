@@ -3,10 +3,10 @@ title: "`padding-left` CSS property"
 short-title: padding-left
 slug: Web/CSS/Reference/Properties/padding-left
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
 ---
 
-Die **`padding-left`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des [Abstandsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) links von einem Element fest.
+Die **`padding-left`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des [Innenabstandsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) links von einem Element fest.
 
 {{InteractiveExample("CSS Demo: padding-left")}}
 
@@ -53,10 +53,10 @@ padding-left: 0;
 }
 ```
 
-Der Abstandbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Innenabstandsbereich eines Elements ist der Raum zwischen seinem Inhalt und seiner Grenze.
 
 > [!NOTE]
-> Die Eigenschaft {{cssxref("padding")}} kann verwendet werden, um die Abstände an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die Eigenschaft {{cssxref("padding")}} kann verwendet werden, um die Innenabstände an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -77,14 +77,14 @@ padding-left: revert-layer;
 padding-left: unset;
 ```
 
-Die `padding-left` Eigenschaft wird als Einzelwert festgelegt, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Rändern sind negative Werte für Abstände nicht erlaubt.
+Die `padding-left`-Eigenschaft wird als ein einzelner Wert angegeben, der aus der unten stehenden Liste gewählt wird. Im Gegensatz zu Rändern sind negative Werte für Innenabstände nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Innenabstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Innenabstands als Prozentwert, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -96,7 +96,7 @@ Die `padding-left` Eigenschaft wird als Einzelwert festgelegt, der aus der unten
 
 ## Beispiele
 
-### Linken Abstand mit Pixeln und Prozentsätzen festlegen
+### Linken Innenabstand mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {
@@ -118,8 +118,8 @@ Die `padding-left` Eigenschaft wird als Einzelwert festgelegt, der aus der unten
 ## Siehe auch
 
 - {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, und {{cssxref("padding-bottom")}}
-- {{cssxref("padding")}} Kurzschrift
+- {{cssxref("padding")}} Kurzform
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschriften
-- [Einführung in das CSS Grundlegende Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
+- [Einführung in das CSS-Grundboxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
 - [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul

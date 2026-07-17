@@ -3,10 +3,10 @@ title: "`padding-inline-end` CSS property"
 short-title: padding-inline-end
 slug: Web/CSS/Reference/Properties/padding-inline-end
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
 ---
 
-Die **`padding-inline-end`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert den logischen Endeinzug (padding) eines Elements in Inline-Richtung. Sie wird je nach Schreibrichtung, Leserichtung und Textausrichtung des Elements auf einen physischen Einzug abgebildet.
+Die **`padding-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-End-Abstand eines Elements, der in Abhängigkeit vom Schreibmodus, der Leserichtung und der Textausrichtung des Elements auf einen physischen Abstand abgebildet wird.
 
 {{InteractiveExample("CSS Demo: padding-inline-end")}}
 
@@ -71,15 +71,15 @@ padding-inline-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Einzugs als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Einzugs als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) (_Breite_ in einer horizontalen Sprache) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) (_Breite_ in einer horizontalen Sprache) des [enthältenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die `padding-inline-end`-Eigenschaft nimmt die gleichen Werte wie physische Einzugseigenschaften, wie zum Beispiel {{cssxref("padding-top")}}, an. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten äquivalent zu {{cssxref("padding-right")}}, {{cssxref("padding-left")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein.
+Die `padding-inline-end` Eigenschaft nimmt die gleichen Werte an wie physische Padding-Eigenschaften, wie z.B. {{cssxref("padding-top")}}. Sie kann jedoch äquivalent zu {{cssxref("padding-right")}}, {{cssxref("padding-left")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} gesetzt sind.
 
-Sie steht in Bezug zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-start")}}, die die anderen Einzugswerte des Elements definieren.
+Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, und {{cssxref("padding-inline-start")}}, die die anderen Abstände des Elements definieren.
 
 ## Formale Definition
 
@@ -91,7 +91,7 @@ Sie steht in Bezug zu {{cssxref("padding-block-start")}}, {{cssxref("padding-blo
 
 ## Beispiele
 
-### Setzen des Inline-Einzugs am Ende für vertikalen Text
+### Inline-End-Abstand für vertikalen Text setzen
 
 #### HTML
 
