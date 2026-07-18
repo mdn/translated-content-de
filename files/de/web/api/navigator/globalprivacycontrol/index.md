@@ -3,19 +3,19 @@ title: "Navigator: globalPrivacyControl-Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/Navigator/globalPrivacyControl
 l10n:
-  sourceCommit: f89740247002fb71eb339af142482900f3c32349
+  sourceCommit: ba61b242bb7da20302af919bb7f496be67e89e32
 ---
 
 {{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer zustimmt, dass die Website oder der Dienst seine persönlichen Informationen an Dritte verkauft oder teilt.
+Die schreibgeschützte **`Navigator.globalPrivacyControl`**-Eigenschaft gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Nutzers für die aktuelle Website zurück. Diese Einstellung gibt an, ob der Nutzer dem Verkauf oder der Weitergabe seiner persönlichen Daten an Dritte durch die Website oder den Dienst zustimmt.
 
-Der Wert der Eigenschaft spiegelt den des {{httpheader("Sec-GPC")}} HTTP-Headers wider.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _nicht_ zustimmt, seine Daten zu verkaufen oder zu teilen.
-`false`, wenn der Benutzer entweder Zustimmung erteilt hat oder keine Präferenz angegeben hat.
+`true`, wenn der Nutzer ausdrücklich _nicht_ der Zustimmung zum Verkauf oder zur Weitergabe seiner Daten erteilt.
+`false`, wenn der Nutzer entweder die Zustimmung erteilt oder keine Präferenz angegeben hat.
 
 ## Beispiel
 
@@ -35,5 +35,5 @@ console.log(navigator.globalPrivacyControl);
 ## Siehe auch
 
 - {{HTTPHeader("Sec-GPC")}}-Header
-- [globalprivacycontrol.org](https://globalprivacycontrol.org/)
-- [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)
+- [GlobalPrivacyControl.org](https://globalprivacycontrol.org/)
+- [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track) auf Wikipedia

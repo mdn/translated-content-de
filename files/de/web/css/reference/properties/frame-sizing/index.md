@@ -3,10 +3,12 @@ title: "`frame-sizing` CSS property"
 short-title: frame-sizing
 slug: Web/CSS/Reference/Properties/frame-sizing
 l10n:
-  sourceCommit: 04c41175b160dc00b1a1b8e4e13b2183d89fdf1a
+  sourceCommit: 9cf3002bd29376c15d49df6fab2e6a264285abf6
 ---
 
-Die **`frame-sizing`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) kann verwendet werden, um die horizontale oder vertikale Größe eines {{htmlelement("iframe")}}-Elements auf die Layoutgröße seines eingebetteten Dokuments in derselben Dimension einzustellen, jedoch nur, wenn das eingebettete Dokument die Weitergabe seiner Größeninformationen aktiviert hat.
+{{SeeCompatTable}}
+
+Die **`frame-sizing`** [CSS](/de/docs/Web/CSS)-Eigenschaft kann verwendet werden, um die horizontale oder vertikale Größe eines {{htmlelement("iframe")}}-Elements so festzulegen, dass sie der Layoutgröße seines eingebetteten Dokuments in derselben Dimension entspricht. Dies ist jedoch nur möglich, wenn das eingebettete Dokument zugestimmt hat, seine Größeninformationen zu teilen.
 
 ## Syntax
 
@@ -31,7 +33,7 @@ frame-sizing: unset;
 Der Wert der `frame-sizing`-Eigenschaft entspricht einem der folgenden Schlüsselwörter:
 
 - `auto`
-  - : Der Standardwert. Die Größe des `<iframe>`-Elements wird nicht durch die Layoutgröße seines eingebetteten Dokuments beeinflusst.
+  - : Der Anfangswert. Die Größe des `<iframe>`-Elements wird nicht durch die Layoutgröße seines eingebetteten Dokuments beeinflusst.
 - `content-width`
   - : Die {{cssxref("width")}} des `<iframe>`-Elements wird auf die Layoutbreite seines eingebetteten Dokuments gesetzt.
 - `content-height`
@@ -39,19 +41,19 @@ Der Wert der `frame-sizing`-Eigenschaft entspricht einem der folgenden Schlüsse
 - `content-inline-size`
   - : Die {{cssxref("inline-size")}} des `<iframe>`-Elements wird auf die Layoutgröße seines eingebetteten Dokuments in der Inline-Richtung gesetzt.
 - `content-block-size`
-  - : Die {{cssxref("block-size")}} des `<iframe>`-Elements wird auf die Layoutgröße seines eingebetteten Dokuments in der Block-Richtung gesetzt.
+  - : Die {{cssxref("block-size")}} des `<iframe>`-Elements wird auf die Layoutgröße seines eingebetteten Dokuments in der Blockrichtung gesetzt.
 
 ## Beschreibung
 
-Aus Sicherheits- und Datenschutzgründen geben {{htmlelement("iframe")}}-Elemente standardmäßig keine Informationen an das übergeordnete Dokument über die Größe des Inhalts in dem eingebetteten Dokument weiter.
+Aus Sicherheits- und Datenschutzgründen geben {{htmlelement("iframe")}}-Elemente standardmäßig keine Informationen über die Größe des Inhalts im eingebetteten Dokument an das übergeordnete Dokument weiter.
 
-Um eine reaktionsfähige Größenanpassung von {{htmlelement("iframe")}}-Elementen basierend auf ihrem Inhalt zu ermöglichen, kann das Tag [`<meta name="responsive-embedded-sizing">`](/de/docs/Web/HTML/Reference/Elements/meta/name/responsive-embedded-sizing) in ein eingebettetes Dokument aufgenommen werden, um die Weitergabe seiner Größeninformationen an das übergeordnete Dokument zu aktivieren. Die `frame-sizing`-Eigenschaft kann dann auf dem `<iframe>` gesetzt werden, um es dazu zu bringen, dieselbe horizontale oder vertikale Größe wie die tatsächliche Inhaltsgröße des eingebetteten Dokuments (im Spezifikationskontext als **interne Layout-intrinsische Größe** bezeichnet, aber hier als "Layoutgröße" abgekürzt) anzunehmen. Der Dokumentinhalt passt sich dann nahtlos in das einbettende `<iframe>` ein und vermeidet unnötige Bildlaufleisten.
+Um eine anpassungsfähige Größenanpassung von {{htmlelement("iframe")}}-Elementen basierend auf ihrem Inhalt zu ermöglichen, kann das Tag [`<meta name="responsive-embedded-sizing">`](/de/docs/Web/HTML/Reference/Elements/meta/name/responsive-embedded-sizing) in ein eingebettetes Dokument eingefügt werden, um es zu ermöglichen, seine Größeninformationen mit dem übergeordneten Dokument zu teilen. Die `frame-sizing`-Eigenschaft kann dann auf dem `<iframe>` festgelegt werden, sodass es die gleiche horizontale oder vertikale Größe wie die tatsächliche Inhaltsgröße des eingebetteten Dokuments annimmt (im Spezifikationsdokument als **interne Layout-Intrinsic-Größe** bezeichnet, aber in unserer Dokumentation auf "Layoutgröße" abgekürzt). Der Dokumenteninhalt passt sich dann nahtlos in das einbettende `<iframe>` ein, wobei unnötige Scrollleisten vermieden werden.
 
-Die `frame-sizing`-Eigenschaft kann Werte von `content-width` oder `content-height` annehmen, um die `width` oder `height` des `<iframe>`-Elements auf die Layoutbreite oder Layouthöhe des eingebetteten Dokuments einzustellen.
+Die `frame-sizing`-Eigenschaft kann die Werte `content-width` oder `content-height` annehmen, um die Breite oder Höhe des `<iframe>`-Elements an die Layoutbreite oder Layouthöhe des eingebetteten Dokuments anzupassen.
 
-Es gibt auch logische Entsprechungen — `frame-sizing` kann Werte von `content-inline-size` oder `content-block-size` annehmen, um die `inline-size` oder `block-size` des `<iframe>`-Elements auf die Inline-Größe oder Block-Größe des eingebetteten Dokuments einzustellen. Die Block- oder Inline-Richtung wird durch den {{cssxref("writing-mode")}} des `<iframe>`-Elements bestimmt, nicht durch den Inhalt des eingebetteten Dokuments.
+Es gibt auch logische Äquivalente — `frame-sizing` kann die Werte `content-inline-size` oder `content-block-size` annehmen, um die `inline-size` oder `block-size` des `<iframe>`-Elements an die Inline- oder Blockgröße des eingebetteten Dokuments anzupassen, jeweils bestimmt durch den {{cssxref("writing-mode")}} des `<iframe>`-Elements und nicht durch den Inhalt des eingebetteten Dokuments.
 
-Um das `<iframe>` dynamisch zu skalieren, während das eingebettete Dokument die Layoutgröße ändert, können Sie die Methode [`Window.requestResize()`](/de/docs/Web/API/Window/requestResize) aus dem eingebetteten Dokument aufrufen, um eine aktualisierte Größe zu melden.
+Um die Größe des `<iframe>` dynamisch anzupassen, wenn sich die Layoutgröße des eingebetteten Dokuments ändert, können Sie die Methode [`Window.requestResize()`](/de/docs/Web/API/Window/requestResize) aus dem eingebetteten Dokument aufrufen, um eine aktualisierte Größe zu melden.
 
 ## Formale Definition
 
@@ -79,7 +81,7 @@ Das HTML des `index.html`-Dokuments enthält eine Überschrift und ein `<iframe>
 <iframe src="frame.html"></iframe>
 ```
 
-Im CSS von `index.html` geben wir dem `<iframe>` einen `frame-sizing`-Wert von `content-block-size`. Da das `<iframe>` einen horizontalen `writing-mode` hat, wird seine `height` auf die Layouthöhe des eingebetteten Dokuments eingestellt.
+In der CSS von `index.html` geben wir dem `<iframe>` einen `frame-sizing`-Wert von `content-block-size`. Da das `<iframe>` einen horizontalen `writing-mode` hat, wird seine `height` auf die Layouthöhe des eingebetteten Dokuments gesetzt.
 
 ```css
 iframe {
@@ -88,9 +90,9 @@ iframe {
 }
 ```
 
-#### Das eingebettete `frame.html`
+#### Das eingebettete Dokument `frame.html`
 
-Das `frame.html`-Dokument enthält eine Überschrift und einige Absätze. Noch wichtiger ist jedoch, dass es das `<meta name="responsive-embedded-sizing" />`-Tag enthält, das es dazu berechtigt, seine Inhaltslayoutgröße mit dem übergeordneten Dokument zu teilen.
+Das `frame.html`-Dokument enthält eine Überschrift und einige Absätze. Wesentlicher jedoch ist das enthaltene `<meta name="responsive-embedded-sizing" />`-Tag, das es ermöglicht, die Layoutgröße seines Inhalts mit dem übergeordneten Dokument zu teilen.
 
 ```html
 <head>
@@ -109,9 +111,9 @@ Das `frame.html`-Dokument enthält eine Überschrift und einige Absätze. Noch w
 
 #### Ergebnis
 
-Öffnen Sie unser [Basic Responsive `<iframe>` Sizing Demo](https://mdn.github.io/dom-examples/responsive-iframe-sizing/basic/) in einem separaten Tab, um es in Aktion zu sehen ([siehe den Quellcode](https://github.com/mdn/dom-examples/tree/main/responsive-iframe-sizing/basic)).
+Öffnen Sie unser [grundlegendes responsives `<iframe>`-Sizing-Demo](https://mdn.github.io/dom-examples/responsive-iframe-sizing/basic/) in einem separaten Tab, um es in Aktion zu sehen ([sehen Sie den Quellcode](https://github.com/mdn/dom-examples/tree/main/responsive-iframe-sizing/basic)).
 
-Auch wenn keine explizite `height` auf dem `<iframe>` gesetzt wurde, wird es auf die richtige Höhe skaliert, um genau sein eingebettetes Dokument zu enthalten, ohne Bildlaufleisten.
+Auch wenn keine explizite `height` auf dem `<iframe>` festgelegt wurde, wird es auf die richtige Höhe gesetzt, um sein eingebettetes Dokument genau zu enthalten, ohne Scrollleisten.
 
 ## Spezifikationen
 
@@ -123,6 +125,6 @@ Auch wenn keine explizite `height` auf dem `<iframe>` gesetzt wurde, wird es auf
 
 ## Siehe auch
 
-- [CSS Box-Größenanpassung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+- [CSS-Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 - [`<meta name="responsive-embedded-sizing">`](/de/docs/Web/HTML/Reference/Elements/meta/name/responsive-embedded-sizing)
 - [`Window.requestResize()`](/de/docs/Web/API/Window/requestResize)
