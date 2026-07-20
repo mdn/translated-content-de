@@ -3,10 +3,10 @@ title: "i64: Wasm-Werttyp"
 short-title: i64
 slug: WebAssembly/Reference/Value_types/i64
 l10n:
-  sourceCommit: b9ea307536ef3c128102bdd5d090b57bfca93143
+  sourceCommit: 187220197832f482878607080ae9e7c1edabe108
 ---
 
-Der **`i64`**-Werttyp enthält einen 64-Bit-Integer.
+Der **`i64`**-Werttyp speichert einen 64-Bit-Integer.
 
 ## Syntax
 
@@ -27,15 +27,15 @@ Der **`i64`**-Werttyp enthält einen 64-Bit-Integer.
 
 ## Beschreibung
 
-`i64`-Werte sind 64 Bit breit und weder von Natur aus signiert noch unsigniert. Jede Anweisung bestimmt ihre Interpretation: Signierte Varianten wie `i64.div_s` behandeln Operanden als Zweierkomplement, während unsignierte Varianten wie `i64.div_u` dies nicht tun. Operationen, deren Ergebnis von der Signierung unbeeinflusst ist, wie Addition, Subtraktion, Multiplikation und bitweise Operationen, haben eine einzige Anweisung.
+`i64`-Werte sind 64 Bit breit und weder von Natur aus signiert noch unsigniert. Jede Anweisung wählt ihre Interpretation: Signierte Varianten wie `i64.div_s` behandeln Operanden als Zweierkomplement, während unsignierte Varianten wie `i64.div_u` dies nicht tun. Operationen, deren Ergebnis unabhängig von der Signierung ist, wie etwa Addition, Subtraktion, Multiplikation und bitweise Operationen, haben eine einzige Anweisung.
 
-`i64` ist _transparent_: Das Bitmuster ist beobachtbar, und `i64`-Werte können im [linearen Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden.
+`i64` ist _transparent_: sein Bitmuster ist sichtbar, und `i64`-Werte können im [linearen Speicher](/de/docs/WebAssembly/Reference/Memory) gespeichert werden.
 
 ### `i64`-Integration mit JavaScript BigInt
 
-Der JavaScript-`Number`-Typ kann den gesamten `i64`-Bereich nicht verlustfrei darstellen, daher werden `i64`-Werte in [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte umgewandelt (und umgekehrt), wenn sie die JavaScript-Grenze überschreiten; zum Beispiel beim Export oder Import von Funktionen mit `i64`-Parametern oder Rückgabewerten.
+Der `Number`-Typ von JavaScript kann den vollständigen `i64`-Bereich nicht verlustfrei darstellen, daher werden `i64`-Werte in [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte (und umgekehrt) konvertiert, wenn sie die JavaScript-Grenze überschreiten; zum Beispiel beim Exportieren oder Importieren von Funktionen mit `i64`-Parametern oder Rückgabewerten.
 
-Beim Export einer Wasm-Funktion mit der Signatur: `[i64] -> [i64]` muss der Parameter als `BigInt`-Wert ausgedrückt werden:
+Beim Exportieren einer Wasm-Funktion mit der Signatur: `[i64] -> [i64]`, muss der Parameter als `BigInt`-Wert ausgedrückt werden:
 
 ```js
 const result = wasmInstance.exports.myFunc(42n);
@@ -44,11 +44,15 @@ console.log(result); // also a BigInt
 
 Ein `i64`-Rückgabewert wird in JavaScript automatisch zu einem `BigInt`.
 
-Wenn von JavaScript zu Wasm gewechselt wird, wird ein als `i64`-Argument übergebener `BigInt` auf 64 Bit gekürzt und modulo 2⁶⁴ gewickelt. Das Übergeben einer einfachen `Number`, wo ein `i64` erwartet wird, führt zu einem `TypeError`.
+Beim Wechsel von JavaScript zu Wasm wird ein als `i64`-Argument übergebener `BigInt` auf 64 Bit gekürzt, modulo 2⁶⁴ umbrochen. Das Übergeben einer einfachen `Number`, wo ein `i64` erwartet wird, führt zu einem `TypeError`.
 
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

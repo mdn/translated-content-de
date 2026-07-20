@@ -1,16 +1,16 @@
 ---
-title: "call: Wasm-Textbefehl"
+title: "call: Wasm-Text-Instruktion"
 short-title: call
 slug: WebAssembly/Reference/Control_flow/call
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, wobei es auch die `return_call_indirect` Tail-Call-Version gibt.
+**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, ebenfalls mit `return_call_indirect` als Tail-Call-Version.
 
 ## Beispiele
 
-Aufruf der `greet`-Funktion, die aus JavaScript importiert wurde, mit `call`:
+Aufrufen der Funktion `greet`, die aus JavaScript mit `call` importiert wurde:
 
 {{InteractiveExample("Wat Demo: call", "tabbed-standard")}}
 
@@ -41,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 });
 ```
 
-Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mithilfe der exportierten `fac`-Funktion:
+Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mit der exportierten Funktion `fac`:
 
 {{InteractiveExample("Wat Demo: return_call", "tabbed-standard")}}
 
@@ -85,14 +85,22 @@ console.log(result);
 call $greet
 ```
 
-| Anweisung              | Binärer Opcode |
+| Instruktion            | Binärer Opcode |
 | ---------------------- | -------------- |
 | `call`                 | `0x10`         |
 | `call_indirect`        | `0x11`         |
 | `return_call`          | `0x12`         |
 | `return_call_indirect` | `0x13`         |
 
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
 ## Siehe auch
 
-- [Überblick über den Tail Call Extension Vorschlag](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+- [Übersicht über den Tail Call Extension Proposal](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
 - [V8 über die Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)

@@ -1,9 +1,9 @@
 ---
-title: "drop: Wasm Textanweisung"
+title: "drop: Wasm-Textanweisung"
 short-title: drop
 slug: WebAssembly/Reference/Control_flow/drop
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
 Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
@@ -49,3 +49,11 @@ drop
 | Anweisung | Binärer Opcode |
 | --------- | -------------- |
 | `drop`    | `0x1a`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

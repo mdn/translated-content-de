@@ -1,16 +1,16 @@
 ---
-title: "return: Wasm-Textanweisung"
+title: "return: Wasm-Textinstruktion"
 short-title: return
 slug: WebAssembly/Reference/Control_flow/return
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-**`return`** kehrt von einer Funktion zurück.
+**`return`** kehrt aus einer Funktion zurück.
 
-- Wenn sich keine Werte mehr auf dem Stack befinden, wird nichts/void zurückgegeben.
-- Wenn sich die gleiche Anzahl von Werten auf dem Stack befindet, wie in der Typsignatur der Funktion angegeben, werden diese Werte zurückgegeben.
-- Wenn mehr Werte vorhanden sind, als der Rückgabetyp der Funktion angibt, werden die obersten N Werte zurückgegeben und die verbleibenden Werte auf dem Stack verworfen.
+- Wenn keine Werte auf dem Stapel verbleiben, wird nichts/void zurückgegeben.
+- Wenn die gleiche Anzahl von Werten auf dem Stapel verbleibt, wie in der Typensignatur der Funktion angegeben, werden diese Werte zurückgegeben.
+- Wenn mehr Werte als vom Rückgabewert der Funktion angegeben vorhanden sind, werden die obersten N Werte zurückgegeben und die verbleibenden Werte auf dem Stapel verworfen.
 
 {{InteractiveExample("Wat Demo: return", "tabbed-taller")}}
 
@@ -52,3 +52,11 @@ return
 | Anweisung | Binärer Opcode |
 | --------- | -------------- |
 | `return`  | `0x0f`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

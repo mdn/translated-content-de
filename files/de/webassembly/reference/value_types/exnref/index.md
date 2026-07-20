@@ -1,12 +1,12 @@
 ---
-title: "exnref: Wasm-Wertetyp"
+title: "exnref: Wasm-Werttyp"
 short-title: exnref
 slug: WebAssembly/Reference/Value_types/exnref
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: 187220197832f482878607080ae9e7c1edabe108
 ---
 
-Der **`exnref`**-Wertetyp repräsentiert eine geworfene Ausnahme in einem Wasm-Modul, sodass sie erneut geworfen werden kann.
+Der **`exnref`** Werttyp repräsentiert eine ausgelöste Ausnahme in einem Wasm-Modul und ermöglicht es, diese erneut auszulösen.
 
 {{InteractiveExample("Wat Demo: exnref", "tabbed-taller")}}
 
@@ -89,18 +89,26 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { env }).then(
 
 ## Beschreibung
 
-Der `exnref`-Typ repräsentiert eine geworfene Ausnahme in einem Wasm-Modul. Dieser Werttyp wird von den [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) Klauseln zurückgegeben, wodurch eine Referenz auf die gerade geworfene Ausnahme bereitgestellt wird. Diese kann bei Bedarf mit dem Befehl [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref) erneut geworfen werden.
+Der `exnref` Typ stellt eine ausgelöste Ausnahme in einem Wasm-Modul dar. Dieser Werttyp wird von den Klauseln [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) zurückgegeben und bietet eine Referenz auf die soeben ausgelöste Ausnahme. Dies ermöglicht es, die Ausnahme bei Bedarf mit der Anweisung [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref) erneut auszulösen.
 
-Die [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) JavaScript-Schnittstelle repräsentiert eine Wasm-Ausnahme im JavaScript-Host.
+Die JavaScript-Schnittstelle [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) stellt eine Wasm-Ausnahme im JavaScript-Host dar.
 
 > [!NOTE]
-> Sie können keine Wasm-Funktion von JavaScript aus aufrufen, die einen `exnref`-Wert als Parameter oder Ergebnis hat. Ein solcher Versuch führt zu einem Fehler.
+> Sie können keine Wasm-Funktion aus JavaScript aufrufen, die einen `exnref` Wert als Parameter oder Ergebnis hat. Der Versuch, dies zu tun, führt zu einem Fehler.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 
-- Befehl [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref)
-- Befehl [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)
-  - Klausel [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)
-  - Klausel [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)
-- Definition [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag)
+- [`throw_ref`](/de/docs/WebAssembly/Reference/Exception_handling/throw_ref) Anweisung
+- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table) Anweisung
+  - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) Klausel
+  - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) Klausel
+- [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) Definition
 - [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) JavaScript-Schnittstelle

@@ -1,12 +1,12 @@
 ---
-title: "end: Wasm text Instruction"
+title: "end: Wasm Textanweisung"
 short-title: end
 slug: WebAssembly/Reference/Control_flow/end
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-**`end`** wird verwendet, um einen `block`, `loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die S-Expression-Syntax verwendet, die kein `end` benötigt, daher werden Sie es in den anderen Beispielen hier nicht finden. Es ist jedoch dennoch nützlich zu wissen, da dies das ist, was die Browser in den Entwicklungstools anzeigen.
+**`end`** wird verwendet, um einen `block`, eine `loop`, ein `if` oder ein `else` zu beenden. In den anderen Beispielen haben wir die S-Expressions-Syntax verwendet, die das `end` nicht erfordert, daher werden Sie es in den anderen Beispielen hier nicht finden. Es ist jedoch dennoch nützlich zu wissen, da es das ist, was die Browser in den Entwicklertools anzeigen.
 
 {{InteractiveExample("Wat Demo: end", "tabbed-taller")}}
 
@@ -41,6 +41,14 @@ if
 end
 ```
 
-| Anleitung | Binärer Opcode |
+| Anweisung | Binärer Opcode |
 | --------- | -------------- |
 | `end`     | `0x0b`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

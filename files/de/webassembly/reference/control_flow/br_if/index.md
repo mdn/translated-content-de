@@ -1,12 +1,12 @@
 ---
-title: "br_if: Wasm Text-Instruktion"
+title: "br_if: Wasm-Textinstruktion"
 short-title: br_if
 slug: WebAssembly/Reference/Control_flow/br_if
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-Die **`br_if`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung, basierend auf einer booleschen (`0` oder `1`) Bedingung.
+Die **`br_if`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else) Anweisung, basierend auf einer booleschen Bedingung (`0` oder `1`).
 
 {{InteractiveExample("Wat Demo: br_if", "tabbed-taller")}}
 
@@ -64,6 +64,14 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `br_if`   | `0x0d`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `br_if`     | `0x0d`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

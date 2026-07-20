@@ -1,14 +1,14 @@
 ---
-title: "br: Wasm Text-Instruktion"
+title: "br: Wasm-Textanweisung"
 short-title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
 Die **`br`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung.
 
-Andere Varianten von `br` sind [`br_if`](/de/docs/WebAssembly/Reference/Control_flow/br_if) und [`br_table`](/de/docs/WebAssembly/Reference/Control_flow/br_table).
+Weitere Varianten von `br` umfassen [`br_if`](/de/docs/WebAssembly/Reference/Control_flow/br_if) und [`br_table`](/de/docs/WebAssembly/Reference/Control_flow/br_table).
 
 {{InteractiveExample("Wat Demo: br", "tabbed-taller")}}
 
@@ -53,6 +53,14 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `br`        | `0x0c`         |
+| Anweisung | Binäropcode |
+| --------- | ----------- |
+| `br`      | `0x0c`      |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -1,14 +1,14 @@
 ---
-title: "loop: Wasm-Textinstruktion"
+title: "loop: Wasm Text-Instruktion"
 short-title: loop
 slug: WebAssembly/Reference/Control_flow/loop
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die Loop-Instruktion führt nicht von selbst eine Schleife aus; es ist notwendig, zu ihr zu verzweigen, um tatsächlich eine Schleife zu erstellen.
+Die **`loop`**-Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die Loop-Instruktion selbst führt keine Schleife aus; Sie müssen zu ihr verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass ein Verzweigen zu einer `loop` zum Anfang der Schleife springt, während ein Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern als das Verzweigen zu einer `loop` zum Anfang der Schleife springt, während das Verzweigen zu einem `block` zum Ende des Blocks, also aus dem Block heraus, springt.
 
 {{InteractiveExample("Wat Demo: loop", "tabbed-taller")}}
 
@@ -65,6 +65,14 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `loop`      | `0x03`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `loop`    | `0x03`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

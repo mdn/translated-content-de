@@ -3,41 +3,41 @@ title: "CanvasRenderingContext2D: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/CanvasRenderingContext2D/lang
 l10n:
-  sourceCommit: f993d9f6d574bd8b519014c6ad46bc66f28fae7e
+  sourceCommit: 613cb65038a6b572f78ce5f83c711ec2611599fb
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.lang`**-Eigenschaft der Canvas 2D API gibt die Sprache des Canvas-Zeichenkontexts zurück oder setzt diese.
+Die **`CanvasRenderingContext2D.lang`**-Eigenschaft der Canvas 2D API ruft die Sprache des Canvas-Zeichenkontextes ab oder setzt sie.
 
 ## Wert
 
 Die `lang`-Eigenschaft kann einen der folgenden String-Werte annehmen:
 
-- Ein {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}}, der die Sprache des Canvas-Kontexts darstellt.
-- Der String `inherit`, in welchem Fall die Sprache vom [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut des Ausgangs-{{HTMLElement("canvas")}}-Elements oder vom nächstgelegenen verfügbaren Vorfahren mit einem explizit gesetzten `lang`-Attribut geerbt wird.
+- Ein {{Glossary("BCP_47_language_tag", "BCP 47 language tag")}}, das die Sprache des Canvas-Kontextes darstellt.
+- Der String `inherit`, in diesem Fall wird die Sprache vom [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut des ursprünglichen {{HTMLElement("canvas")}}-Elements oder dem nächsten verfügbaren Vorfahren mit explizit gesetztem `lang` geerbt.
 - Ein leerer String (`""`), der gesetzt werden kann, um anzugeben, dass der Canvas-Kontext keine Sprache hat.
 
 Der Standardwert ist `inherit`.
 
 ## Beschreibung
 
-Manchmal muss eine Sprache für einen Canvas-Zeichenkontext festgelegt werden, damit er weiß, wie sprachabhängige Merkmale zu rendern sind: Zum Beispiel haben einige Schriftarten bestimmte Zeichen, die in verschiedenen Sprachen unterschiedlich gerendert werden. Ein Bildschirm-Canvas-Kontxt (`CanvasRenderingContext2D`) ist immer mit einem bestimmten `<canvas>`-Element verknüpft und kann daher beim Rendern von Inhalten die Sprache aus dem Wert des `lang`-Attributs des `<canvas>`-Elements ableiten.
+Manchmal ist es notwendig, eine Sprache für einen Canvas-Rendering-Kontext festzulegen, sodass er weiß, wie sprachabhängige Merkmale dargestellt werden sollen: Beispielsweise werden einige Schriftarten in verschiedenen Sprachen unterschiedlich gerendert. Ein Bildschirm-Canvas-Kontext (`CanvasRenderingContext2D`) ist immer mit einem bestimmten `<canvas>`-Element verbunden, sodass er, wann immer Sie Inhalte damit rendern, die Sprache aus dem Wert des `lang`-Attributs des `<canvas>`-Elements ableiten kann.
 
-Ein Offscreen-Canvas-Kontext ([`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)) hingegen rendert seinen Inhalt, bevor er mit einem `<canvas>`-Element verknüpft wird, sodass er die Rendersprache nicht aus dem `lang`-Attribut des `<canvas>`-Elements ableiten kann. Die `lang`-Eigenschaft adressiert dieses Problem, indem Sie eine Sprache direkt auf einem Canvas-Zeichenkontext setzen können, unabhängig davon, ob Sie einen Bildschirm- oder Offscreen-Canvas verwenden.
+Ein Offscreen-Canvas-Kontext ([`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)) rendert jedoch seine Inhalte, bevor er einem `<canvas>`-Element zugeordnet wird, sodass er keine Render-Sprache aus dem `lang`-Attribut des `<canvas>`-Elements ableiten kann. Die `lang`-Eigenschaft löst dieses Problem, indem Sie eine Sprache direkt auf einem Canvas-Rendering-Kontext festlegen können, egal ob Sie einen Onscreen- oder Offscreen-Canvas verwenden.
 
 ### Der `inherit`-Wert
 
-Wenn der `inherit`-Wert verwendet wird, wird die Sprache des Canvas-Kontexts vom [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut der nächstverfügbaren HTML-Quelle geerbt:
+Wenn der Wert `inherit` verwendet wird, wird die Sprache des Canvas-Kontextes vom [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut der nächstverfügbaren HTML-Quelle geerbt:
 
-- Im Fall eines Bildschirmkontextes oder eines Offscreen-Kontextes, der von einem Bildschirmkontext übertragen wurde, ist dies das Ausgangs-{{HTMLElement("canvas")}}-Element, sofern es ein gültiges `lang`-Attribut gesetzt hat.
-- Wenn ein `lang`-Attribut auf einem zugehörigen `<canvas>`-Element nicht verfügbar ist, was sowohl für Bildschirm- als auch Offscreen-Kontexte der Fall sein könnte, wird dies der nächstgelegene verfügbare Vorfahre mit einem explizit gesetzten `lang` sein, was üblicherweise die Dokumentwurzel ist.
+- Im Fall eines Onscreen-Kontextes oder eines Offscreen-Kontextes, der von einem Onscreen-Kontext transferiert wurde, wird dies das ursprüngliche {{HTMLElement("canvas")}}-Element sein, vorausgesetzt, es hat ein gültiges `lang`-Attribut.
+- Wenn ein `lang`-Attribut auf einem zugeordneten `<canvas>`-Element nicht verfügbar ist, was für einen Onscreen- oder Offscreen-Kontext der Fall sein könnte, wird dies der nächste verfügbare Vorfahre mit einem explizit gesetzten `lang` sein, was üblicherweise die Dokumentenwurzel ist.
 
-Aufgrund technischer Einschränkungen verhält sich der `inherit`-Wert unterschiedlich für Bildschirm- und Offscreen-Canvas:
+Aufgrund technischer Einschränkungen verhält sich der `inherit`-Wert für Onscreen- und Offscreen-Canvases unterschiedlich:
 
-- Für Bildschirm-Canvas wird der `lang`-Wert des Kontexts geerbt, wenn das zugehörige `CanvasRenderingContext2D`-Objekt erstmals erstellt wird, und dynamisch aktualisiert, wenn das `lang`-Attribut des zugehörigen Canvas aktualisiert wird (entweder direkt oder durch Vererbung).
-- Für Offscreen-Canvas wird der `lang`-Wert geerbt, wenn das zugehörige `OffscreenCanvasRenderingContext2D`-Objekt erstmals "als Schnappschuss" erstellt wird; nachfolgende Aktualisierungen des `lang`-Attributs, von dem der Offscreen-Kontext seinen Wert geerbt hat, ändern nicht dessen `lang`-Attribut.
-  Aus diesem Grund kann die Sprache eines Offscreen-Canvas nur durch explizites Setzen seines `lang`-Wertes geändert werden.
+- Für Onscreen-Canvases wird der `lang`-Wert des Kontextes beim ersten Erstellen des zugehörigen `CanvasRenderingContext2D`-Objekts geerbt und dynamisch aktualisiert, wenn das `lang`-Attribut des zugehörigen Canvas (entweder direkt oder durch Vererbung) aktualisiert wird.
+- Für Offscreen-Canvases wird der `lang`-Wert geerbt, wenn das zugehörige `OffscreenCanvasRenderingContext2D`-Objekt erstmals erstellt wird, als eine "Momentaufnahme"; nachfolgende Aktualisierungen des `lang`-Attributs, von dem der Offscreen-Kontext seinen Wert geerbt hat, ändern dessen `lang`-Attribut nicht mehr.
+  Aus diesem Grund kann die Sprache eines Offscreen-Canvas nur geändert werden, indem sein `lang`-Wert explizit gesetzt wird.
 
 ## Beispiele
 
@@ -56,13 +56,13 @@ ctx.lang = "en";
 console.log(ctx.lang);
 ```
 
-### Demonstration der Lokalisierungsunterstützung für Canvas-Kontexte
+### Demonstration der Canvas-Kontext-Lokalisierungsunterstützung
 
-In diesem Beispiel rendern wir einen Textstring in einem bestimmten Font in einen 2D-Canvas-Kontext, der sprachabhängige Ligaturen hat. Wir erlauben die Anpassung der Sprache des Canvas-Kontexts, damit Sie den Unterschied im Rendering sehen können.
+In diesem Beispiel rendern wir einen Textstring zu einem 2D-Canvas-Kontext in einer besonderen Schriftart, die sprachabhängige Ligaturen hat. Wir ermöglichen es, die Sprache des Canvas-Kontextes anzupassen, damit Sie den Unterschied im Rendering sehen können.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("select")}}-Element, das Ihnen ermöglicht, eine Sprache auszuwählen — `en` (Englisch) oder `tr` (Türkisch) — und ein {{htmlelement("canvas")}}-Element zum Rendern.
+Das HTML enthält ein {{htmlelement("select")}}-Element, das es Ihnen ermöglicht, eine Sprache auszuwählen — `en` (Englisch) oder `tr` (Türkisch) — und ein {{htmlelement("canvas")}}-Element zum Rendern.
 
 ```html live-example___canvas-l10n
 <p>
@@ -77,7 +77,7 @@ Das HTML enthält ein {{htmlelement("select")}}-Element, das Ihnen ermöglicht, 
 
 #### JavaScript
 
-Im JavaScript erfassen wir zuerst Verweise auf das `<canvas>`-Element, seinen `CanvasRenderingContext2D` und das `<select>`-Element, dann laden wir den sprachabhängigen Font mit der [CSS-Font-Lade-API](/de/docs/Web/API/CSS_Font_Loading_API). Sobald der Font geladen ist, führen wir eine `init()`-Funktion aus. Diese Funktion definiert eine weitere Funktion — `drawText()`, die einige Texte in den Canvas-Kontext zeichnet, der den geladenen Font verwendet. Danach fügen wir einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-[Ereignislistener](/de/docs/Web/API/EventTarget/addEventListener) zum `<select>`-Element hinzu und rufen `drawText()` auf, damit der Text sofort in den Canvas gezeichnet wird, wenn die Seite das erste Mal geladen wird.
+Im JavaScript holen wir zunächst Referenzen zum `<canvas>`-Element, dessen `CanvasRenderingContext2D` und zum `<select>`-Element, laden dann die sprachabhängige Schriftart mithilfe der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API). Sobald die Schriftart geladen ist, führen wir eine `init()`-Funktion aus. Diese Funktion definiert eine weitere Funktion — `drawText()`, welche den Text auf den Canvas-Kontext zeichnet, der die geladene Schrift nutzt, fügt einen [`change`](/de/docs/Web/API/HTMLElement/change_event) [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) für das `<select>`-Element hinzu und ruft `drawText()` auf, damit der Text sofort auf den Canvas gezeichnet wird, wenn die Seite zum ersten Mal geladen wird.
 
 ```js live-example___canvas-l10n
 const canvasElem = document.querySelector("canvas");
@@ -113,24 +113,24 @@ function init() {
 }
 ```
 
-Wenn der Wert des `<select>` geändert wird, wird die `change`-Ereignishandlerfunktion ausgelöst, die:
+Wenn der `<select>`-Wert geändert wird, wird die `change`-Event-Handler-Funktion ausgelöst, die:
 
-- Den Wert des [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attributs des `<html>`-Elements auf den Wert des `<select>`-Elements setzt und dadurch die Sprache des Dokuments effektiv ändert.
+- Den Wert des `<html>`-Elements `lang`-Attributs auf den `<select>`-Element-Wert setzt, was effektiv die Sprache des Dokuments ändert.
 - Die `drawText()`-Funktion ausführt. Die `CanvasRenderingContext2D.lang`-Eigenschaft ist standardmäßig auf `inherit` gesetzt, daher erbt der Canvas-Kontext die Sprache des Dokuments.
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt gerendert:
+Das Beispiel wird wie folgt dargestellt:
 
 {{ EmbedLiveSample('canvas-l10n', "100%", 220) }}
 
-Versuchen Sie, die Dokumentensprache mit dem `<select>`-Element zu ändern. Wenn die Sprache auf Englisch gesetzt ist, wird die Schriftart mit der "fi" Ligatur gerendert. Wenn sie auf Türkisch gesetzt ist, wird die Schriftart ohne die "fi" Ligatur gerendert, da diese Lokalisierung sie nicht beinhaltet.
+Versuchen Sie, die Dokumentensprache mithilfe des `<select>`-Elements zu ändern. Wenn die Sprache auf Englisch gesetzt ist, wird die Schrift mit der "fi"-Ligatur gerendert. Ist sie jedoch auf Türkisch gesetzt, wird die Schrift ohne die "fi"-Ligatur gerendert, da diese im türkischen Gebietsschema nicht enthalten ist.
 
-### Sprachunterstützung für Offscreen-Canvas
+### Sprachunterstützung für Offscreen-Canvases
 
-Dieses Beispiel ähnelt dem vorherigen, mit der Ausnahme, dass die Schriftart in einem [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) gerendert wird, und das resultierende Bitmap auf das Bildschirm-`<canvas>` übertragen wird, um es anzuzeigen.
+Dieses Beispiel ist ähnlich wie das vorherige, außer dass die Schrift in einen [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) gerendert wird und dann das resultierende Bitmap an das Onscreen-`<canvas>` zur Anzeige übertragen wird.
 
-Außerdem, weil eine geerbte Offscreen-Canvas-Sprache nur einmal gesetzt wird und nicht dynamisch aktualisiert wird, wenn der geerbte `lang`-Attributswert geändert wird, setzen wir die `lang`-Eigenschaft explizit auf dem `OffscreenCanvasRenderingContext2D`.
+Da eine vererbte Offscreen-Canvas-Sprache nur einmal gesetzt wird und nicht dynamisch aktualisiert wird, wenn der vererbte `lang`-Attributwert geändert wird, setzen wir die `lang`-Eigenschaft explizit auf dem `OffscreenCanvasRenderingContext2D`.
 
 #### HTML
 
@@ -147,11 +147,11 @@ Außerdem, weil eine geerbte Offscreen-Canvas-Sprache nur einmal gesetzt wird un
 
 #### JavaScript
 
-Das JavaScript funktioniert genauso wie im vorherigen Beispiel, mit der Ausnahme, dass:
+Das JavaScript funktioniert auf die gleiche Weise wie das vorherige Beispiel, außer dass:
 
-- Der Bildschirm-Canvas-Kontext als [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext) definiert ist.
-- Wir einen neuen `OffscreenCanvasRenderingContext2D` definieren, um den Text darauf zu zeichnen, das Ergebnis mit [`transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap) in ein Bitmap konvertieren und dann mit [`transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap) auf den `<canvas>` rendern.
-- Wenn der Wert des `<select>` geändert wird, aktualisieren wir direkt die `lang`-Eigenschaft auf dem `OffscreenCanvasRenderingContext2D` anstelle des `lang`-Attributswertes im `<html>` zu ändern.
+- Der Onscreen-Canvas-Kontext wird als [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext) definiert.
+- Wir definieren einen neuen `OffscreenCanvasRenderingContext2D`, um den Text darauf zu zeichnen, übertragen das Ergebnis in ein Bitmap mittels [`transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap) und rendern es dann auf dem `<canvas>` mit [`transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap).
+- Wenn der `<select>`-Wert geändert wird, aktualisieren wir die `lang`-Eigenschaft direkt auf dem `OffscreenCanvasRenderingContext2D` anstatt den `<html>`-`lang`-Attributwert zu ändern.
 
 ```js live-example___offscreen-l10n
 const canvasElem = document.querySelector("canvas");
@@ -195,7 +195,7 @@ function init() {
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt gerendert:
+Das Beispiel wird wie folgt dargestellt:
 
 {{ EmbedLiveSample('offscreen-l10n', "100%", 220) }}
 

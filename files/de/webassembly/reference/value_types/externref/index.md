@@ -1,12 +1,12 @@
 ---
-title: "externref: Wasm Wertetyp"
+title: "externref: Wasm-Werttyp"
 short-title: externref
 slug: WebAssembly/Reference/Value_types/externref
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: 187220197832f482878607080ae9e7c1edabe108
 ---
 
-Der **`externref`** Wertetyp referenziert einen JavaScript-Wert, sodass er an ein Wasm-Modul übergeben werden kann, ohne dass eine Kopie oder Serialisierung erforderlich ist.
+Der **`externref`**-Werttyp verweist auf einen JavaScript-Wert und ermöglicht es, diesen einem Wasm-Modul zu übergeben, ohne dass eine Kopie oder Serialisierung erforderlich ist.
 
 {{InteractiveExample("Wat Demo: externref", "tabbed-taller")}}
 
@@ -58,23 +58,23 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 ## Beschreibung
 
-Der `externref` Typ wird verwendet, um Werte, die in JavaScript definiert sind, aus einem Wasm-Modul heraus zu referenzieren. Jeder Wertetyp kann referenziert werden, was sehr nützlich ist, wenn Funktionen in WebAssembly importiert werden, die DOM-Knoten manipulieren, zu Canvas-Kontexten schreiben oder Bilddaten bearbeiten. Es ist nicht mehr erforderlich, Daten in geeigneten Formaten darzustellen (zum Beispiel Objekte zu serialisieren), bevor sie an Wasm übergeben werden.
+Der `externref`-Typ wird verwendet, um Werte, die in JavaScript definiert sind, innerhalb von Wasm-Modulen zu referenzieren. Jeder Werttyp kann referenziert werden, was besonders nützlich ist, wenn Funktionen in WebAssembly importiert werden, die DOM-Knoten manipulieren, Canvas-Kontexte beschreiben oder Bilddaten manipulieren. Es ist nicht mehr notwendig, Daten in entsprechenden Formaten darzustellen (zum Beispiel Objekte zu serialisieren), bevor sie an Wasm übergeben werden.
 
 WebAssembly-Code kann nicht direkt auf den JavaScript-Wert zugreifen und muss ihn entweder in einem `global`/[`table`](/de/docs/WebAssembly/Reference/Definitions/table) speichern oder an eine importierte JavaScript-Funktion übergeben.
 
-### Speicherbereinigung
+### Garbage Collection
 
-Wenn ein Wasm-Modul eine Referenz auf ein in JavaScript definiertes Objekt hält, kann dieses Objekt nicht vom Garbage Collector bereinigt werden, bis Wasm die Referenz fallen lässt. Zu lange gehaltene Referenzen können Speicherlecks erzeugen — zum Beispiel wenn Sie eine `externref` in einer [Table](/de/docs/WebAssembly/Reference/JavaScript_interface/Table) speichern. Es ist gute Praxis, die Referenzen zu entfernen, wenn sie nicht mehr benötigt werden.
+Wenn ein Wasm-Modul eine Referenz auf ein Objekt hält, das in JavaScript definiert ist, kann dieses Objekt nicht garbage-collected werden, bis Wasm die Referenz freigibt. Das Halten von Referenzen über längere Zeit kann zu Speicherlecks führen — zum Beispiel, wenn Sie eine `externref` in einer [Tabelle](/de/docs/WebAssembly/Reference/JavaScript_interface/Table) speichern. Es ist eine gute Praxis, die Referenzen zu löschen, wenn sie nicht mehr benötigt werden.
 
 ## Beispiele
 
 ### Grundlegende Verwendung von `externref`
 
-In diesem Beispiel importieren wir zwei benutzerdefinierte JavaScript-Funktionen in ein Wasm-Modul und verwenden sie innerhalb einer Wasm-Funktion, die dann exportiert wird. Die Funktionsparameter werden alle in JavaScript definiert und direkt mit `externref` referenziert.
+In diesem Beispiel importieren wir zwei benutzerdefinierte JavaScript-Funktionen in ein Wasm-Modul und verwenden sie innerhalb einer Wasm-Funktion, die dann exportiert wird. Die Funktionsparameter sind alle in JavaScript definiert und werden direkt mit `externref` referenziert.
 
 #### JavaScript
 
-Zunächst definieren wir unsere zwei Funktionen — `double()` und `output()` — innerhalb eines JavaScript-Objekts namens `obj`. Die erste Funktion nimmt eine Zahl als Argument und gibt eine Zahl zurück, die das Doppelte des Eingabewerts ist. Die zweite Funktion nimmt eine Elementreferenz und einen Wert und weist den Wert der `textContent` des Elements zu. Wir greifen auch auf eine HTML {{htmlelement("p")}} Elementreferenz zu, in die ein Wert ausgegeben wird.
+Zunächst definieren wir unsere beiden Funktionen — `double()` und `output()` — innerhalb eines JavaScript-Objekts namens `obj`. Die erste nimmt eine Zahl als Argument und gibt eine Zahl zurück, die das Doppelte des Eingabewerts ist. Die zweite nimmt eine Elementreferenz und einen Wert und weist den Wert dem `textContent` des Elements zu. Wir holen auch eine Referenz zu einem HTML-{{htmlelement("p")}}-Element, in das ein Wert ausgegeben wird.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -93,7 +93,7 @@ const obj = {
 const output = document.querySelector("p");
 ```
 
-Als Nächstes kompilieren und instanziieren wir das Wasm-Modul mit [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir den `obj` Namensraum importieren. Wenn das Ergebnis zurückgegeben wird, rufen wir die Wasm `outputDouble()` Funktion auf, die auf dem WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist.
+Als Nächstes kompilieren und instanziieren wir das Wasm-Modul mit [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir den `obj`-Namensraum importieren. Wenn das Ergebnis zurückgegeben wird, rufen wir die Wasm-`outputDouble()`-Funktion auf, die im WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist.
 
 ```js live-sample___basic-usage
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { obj }).then(
@@ -105,9 +105,9 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { obj }).then(
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die `double()` und `output()` Funktionen aus dem importierten `obj` Namensraum, wobei wir ihnen die Referenznamen `$double` und `$output` geben. Beachten Sie, wie das erste `param` in jedem Fall einen `externref` Typ hat. Das liegt daran, dass diese Parameter von JavaScript bereitgestellt werden, wenn die exportierte `outputDouble()` Funktion aufgerufen wird. Der zweite `param` der `output()` Funktion ist kein `externref`; es ist ein `i32`, der als Ergebnis der `double()` Funktion bereitgestellt wird, wenn sie innerhalb des Wasm-Moduls aufgerufen wird.
+In unserem Wasm-Modul importieren wir zuerst die `double()`- und `output()`-Funktionen aus dem importierten `obj`-Namensraum und geben ihnen die Referenznamen `$double` und `$output`. Beachten Sie, dass der erste `param` in jedem Fall einen `externref`-Typ hat. Dies liegt daran, dass diese Parameter von JavaScript bereitgestellt werden, wenn die exportierte `outputDouble()`-Funktion aufgerufen wird. Der zweite `param` der `output()`-Funktion ist kein `externref`; es ist ein `i32`, bereitgestellt als das Ergebnis der `double()`-Funktion, wenn sie innerhalb des Wasm-Moduls aufgerufen wird.
 
-Anschließend definieren wir die exportierte `outputDouble()` Funktion. Ihre beiden `params` — `$num` und `$elem` — sind `externref` Typen, was sinnvoll ist, da wir sie von JavaScript aus aufrufen und die Werte dort bereitstellen. Im Inneren definieren wir eine lokale Variable namens `$double_num`, rufen die importierte `double()` Funktion auf, übergeben ihr das `$num` `externref` als Parameter und weisen den Rückgabewert `$double_num` zu. Schließlich vervollständigen wir die `outputDouble()` Funktion, indem wir die importierte `output()` Funktion aufrufen, ihr das `$elem` `externref` als ersten Parameter und den `$double_num` Wert als zweiten Parameter übergeben.
+Als Nächstes definieren wir die exportierte `outputDouble()`-Funktion. Ihre beiden `params` — `$num` und `$elem` — sind `externref`-Typen, was Sinn macht, da wir sie von JavaScript aus aufrufen und die Werte dort bereitstellen. Darin definieren wir eine lokale Variable namens `$double_num`, rufen die importierte `double()`-Funktion auf, übergeben ihr das `$num`-`externref` als Parameter und weisen den Rückgabewert `$double_num` zu. Schließlich vervollständigen wir die `outputDouble()`-Funktion, indem wir die importierte `output()`-Funktion aufrufen, ihr das `$elem`-`externref` als ersten Parameter und den `$double_num`-Wert als zweiten Parameter übergeben.
 
 ```wat live-sample___basic-usage
 (module
@@ -129,11 +129,11 @@ Anschließend definieren wir die exportierte `outputDouble()` Funktion. Ihre bei
 
 #### Ergebnis
 
-Die gerenderte Ausgabe sieht folgendermaßen aus:
+Die gerenderte Ausgabe sieht wie folgt aus:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Der Wert `16` wird innerhalb des Ausgabe-`<p>` Elements angezeigt. Das ist sinnvoll, da wir die exportierte `outputDouble()` Wasm-Funktion von JavaScript aus aufrufen und ihr die Zahl `8` und eine Referenz auf das `<p>` als Argumente übergeben. Innerhalb des Wasm-Moduls verwendet die `outputDouble()` Funktion die importierten `double()` und `output()` Funktionen, um den Wert der Zahl zu verdoppeln und ihn als `textContent` des angegebenen Elements zu setzen.
+Der Wert `16` wird im Ausgabe-`<p>`-Element angezeigt. Dies ist sinnvoll, da wir die exportierte `outputDouble()`-Wasm-Funktion von JavaScript aus aufrufen und ihr die Zahl `8` und eine Referenz auf das `<p>` als Argumente übergeben. Im Wasm-Modul verwendet die `outputDouble()`-Funktion die importierten `double()`- und `output()`-Funktionen, um den Wert der Zahl zu verdoppeln und ihn als `textContent` des angegebenen Elements zu setzen.
 
 ## Spezifikationen
 
@@ -146,4 +146,4 @@ Der Wert `16` wird innerhalb des Ausgabe-`<p>` Elements angezeigt. Das ist sinnv
 ## Siehe auch
 
 - [`funcref`](/de/docs/WebAssembly/Reference/Value_types/funcref)
-- [`table`](/de/docs/WebAssembly/Reference/Definitions/table) Definition
+- [`table`](/de/docs/WebAssembly/Reference/Definitions/table)-Definition

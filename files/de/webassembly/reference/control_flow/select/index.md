@@ -1,12 +1,12 @@
 ---
-title: "select: Wasm-Textinstruktion"
+title: "select: Wasm Text-Instruktion"
 short-title: select
 slug: WebAssembly/Reference/Control_flow/select
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-Die **`select`**-Instruktion wählt einen ihrer ersten beiden Operanden basierend darauf aus, ob ihr dritter Operand Null ist oder nicht. Sie teilt einige Gemeinsamkeiten mit dem ternären Operator in anderen Sprachen (z.B. `false ? 10 : 20`), führt jedoch keine [Kurzschlussauswertung](https://en.wikipedia.org/wiki/Short-circuit_evaluation) durch. Die Instruktion kann von einem sofortigen Werttyp gefolgt werden: `select (result T)`. `select (result T)` verwendet einen anderen binären Opcode und erlaubt andere Typen als die, die durch das WebAssembly-MVP eingeführt wurden (`i32`, `i64`, `f32`, `f64`). Zum Beispiel erlaubt es die Auswahl zwischen zwei `externref`-Werten.
+Die **`select`**-Instruktion wählt eine ihrer ersten beiden Operanden basierend darauf aus, ob ihr dritter Operand null ist oder nicht. Sie weist einige Ähnlichkeiten mit dem ternären Operator in anderen Sprachen auf (z. B. `false ? 10 : 20`), führt jedoch kein [Kurzschluss-Evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation) durch. Der Instruktion kann ein sofortiger Werttyp folgen: `select (result T)`. `select (result T)` verwendet einen anderen binären Opcode und erlaubt Typen, die jenseits der von der WebAssembly MVP eingeführten (`i32`, `i64`, `f32`, `f64`) sind, beispielsweise ermöglicht sie die Auswahl zwischen zwei `externref`-Werten.
 
 {{InteractiveExample("Wat Demo: select", "tabbed-taller")}}
 
@@ -73,3 +73,11 @@ select (result f32)
 | ----------- | -------------- |
 | `select`    | `0x1b`         |
 | `select t`  | `0x1c`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

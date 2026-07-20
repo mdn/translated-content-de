@@ -3,12 +3,12 @@ title: "br_table: Wasm-Textanweisung"
 short-title: br_table
 slug: WebAssembly/Reference/Control_flow/br_table
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-Die **`br_table`**-Anweisung verzweigt zu verschiedenen [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisungen, basierend auf einem Argument.
+Die **`br_table`**-Anweisung verzweigt zu verschiedenen [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisungen basierend auf einem Argument.
 
-In gewisser Weise ähnelt `br_table` der [`switch`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Anweisung, indem es je nach Argument zu unterschiedlichen Codeblöcken verzweigt.
+In gewisser Weise ist `br_table` ähnlich der [`switch`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Anweisung, da es je nach Argument in unterschiedliche Codeblöcke verzweigt.
 
 {{InteractiveExample("Wat Demo: br_table", "tabbed-taller")}}
 
@@ -83,3 +83,11 @@ i32.const 1
 | Anweisung  | Binärer Opcode |
 | ---------- | -------------- |
 | `br_table` | `0x0e`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

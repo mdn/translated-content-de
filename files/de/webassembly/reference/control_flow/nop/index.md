@@ -1,12 +1,12 @@
 ---
-title: "nop: Wasm-Textanweisung"
+title: "nop: Wasm-Textinstruktion"
 short-title: nop
 slug: WebAssembly/Reference/Control_flow/nop
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 25dddb3e99e238788a27b33a7965076b3df57d44
 ---
 
-**`nop`** steht für keine Operation. Es tut buchstäblich nichts.
+**`nop`** steht für No-Operation. Es tut buchstäblich nichts.
 
 {{InteractiveExample("Wat Demo: nop", "tabbed-shorter")}}
 
@@ -31,6 +31,14 @@ await WebAssembly.instantiateStreaming(fetch(url)).then((result) => {
 nop
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `nop`     | `0x01`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `nop`       | `0x01`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
