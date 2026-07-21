@@ -3,10 +3,10 @@ title: "`text-orientation` CSS property"
 short-title: text-orientation
 slug: Web/CSS/Reference/Properties/text-orientation
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie betrifft nur Text im Vertikalmodus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich zur Steuerung der Darstellung von Sprachen, die vertikale Schrift verwenden, und auch für vertikale Tabellenüberschriften.
+Die **`text-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Textzeichen in einer Zeile fest. Sie beeinflusst nur Text im vertikalen Modus (wenn {{cssxref("writing-mode")}} nicht `horizontal-tb` ist). Sie ist nützlich zur Steuerung der Anzeige von Sprachen, die vertikale Schrift verwenden, und auch zum Erstellen vertikaler Tabellenüberschriften.
 
 {{InteractiveExample("CSS Demo: text-orientation")}}
 
@@ -49,20 +49,20 @@ text-orientation: revert-layer;
 text-orientation: unset;
 ```
 
-Die `text-orientation` Eigenschaft wird als ein einzelnes Schlüsselwort aus der untenstehenden Liste angegeben.
-
 ### Werte
+
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwortwerte angegeben:
 
 - `mixed`
   - : Dreht die Zeichen horizontaler Schriften um 90° im Uhrzeigersinn. Legt die Zeichen vertikaler Schriften natürlich aus. Standardwert.
 - `upright`
-  - : Legt die Zeichen horizontaler Schriften natürlich (aufrecht) aus, ebenso wie die Glyphen vertikaler Schriften. Beachten Sie, dass dieses Schlüsselwort dazu führt, dass alle Zeichen als von links nach rechts betrachtet werden: der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` gesetzt.
+  - : Legt die Zeichen horizontaler Schriften natürlich (aufrecht) aus, ebenso die Glyphen für vertikale Schriften. Beachten Sie, dass dieses Schlüsselwort dazu führt, dass alle Zeichen als links-nach-rechts betrachtet werden: Der verwendete Wert von {{cssxref("direction")}} wird auf `ltr` erzwungen.
 - `sideways`
-  - : Fügt Zeichen so an, wie sie horizontal wären, aber mit der gesamten Zeile um 90° im Uhrzeigersinn gedreht.
+  - : Verursacht, dass Zeichen so ausgelegt werden, wie sie horizontal wären, jedoch mit der gesamten Zeile um 90° im Uhrzeigersinn gedreht.
 - `sideways-right`
-  - : Ein Alias zu `sideways`, der aus Kompatibilitätsgründen beibehalten wird.
+  - : Ein Alias für `sideways`, der aus Kompatibilitätsgründen beibehalten wird.
 - `use-glyph-orientation`
-  - : Bei SVG-Elementen führt dieses Schlüsselwort zur Verwendung der Werte der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal`.
+  - : Bei SVG-Elementen führt dieses Schlüsselwort dazu, dass der Wert der veralteten SVG-Eigenschaften `glyph-orientation-vertical` und `glyph-orientation-horizontal` verwendet wird.
 
 ## Formale Definition
 
@@ -103,7 +103,7 @@ p {
 
 ## Siehe auch
 
-- Die anderen vertikalschriftspezifischen CSS-Eigenschaften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
-- [Logische CSS-Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- [Stilisierung vertikalen Textes (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/)
-- Umfangreiche Browser-Unterstützung Testergebnisse: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>
+- Die anderen mit vertikaler Schrift zusammenhängenden CSS-Eigenschaften: {{cssxref("writing-mode")}}, {{cssxref("text-combine-upright")}}, und {{cssxref("unicode-bidi")}}.
+- [CSS Logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [Styling vertikalen Text (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/)
+- Umfangreiche Browser-Unterstützungstests: <https://w3c.github.io/i18n-tests/results/horizontal-in-vertical.html#text_orientation>

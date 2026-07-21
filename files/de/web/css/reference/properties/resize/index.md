@@ -3,10 +3,10 @@ title: "`resize` CSS property"
 short-title: resize
 slug: Web/CSS/Reference/Properties/resize
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`resize`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element größenveränderbar ist und, wenn ja, in welche Richtungen.
+Die **`resize`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element veränderbar ist und, falls ja, in welchen Richtungen.
 
 {{InteractiveExample("CSS Demo: resize")}}
 
@@ -48,7 +48,7 @@ resize: none;
 }
 ```
 
-`resize` wirkt nicht auf die folgenden:
+`resize` gilt nicht für die folgenden:
 
 - Inline-Elemente
 - Block-Elemente, für die die {{cssxref("overflow")}}-Eigenschaft auf `visible` oder `clip` gesetzt ist
@@ -72,22 +72,22 @@ resize: revert-layer;
 resize: unset;
 ```
 
-Die `resize`-Eigenschaft wird als ein Schlüsselwortwert aus der unten stehenden Liste angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `none`
-  - : Das Element bietet keine benutzerkontrollierte Methode, um es zu vergrößern.
+  - : Das Element bietet keine benutzerkontrollierbare Methode zu seiner Größenänderung.
 - `both`
-  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu vergrößern.
+  - : Das Element zeigt einen Mechanismus an, der es dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu ändern.
 - `horizontal`
-  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in horizontaler Richtung zu vergrößern.
+  - : Das Element zeigt einen Mechanismus an, der es dem Benutzer erlaubt, es in der _horizontalen_ Richtung zu ändern.
 - `vertical`
-  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in vertikaler Richtung zu vergrößern.
+  - : Das Element zeigt einen Mechanismus an, der es dem Benutzer erlaubt, es in der _vertikalen_ Richtung zu ändern.
 - `block`
-  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in der Block-Richtung zu vergrößern (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus an, der es dem Benutzer erlaubt, es in der _Block_-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und dem {{cssxref("direction")}}-Wert) zu ändern.
 - `inline`
-  - : Das Element zeigt einen Mechanismus, der es dem Benutzer erlaubt, es in der Inline-Richtung zu vergrößern (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und {{cssxref("direction")}} Wert).
+  - : Das Element zeigt einen Mechanismus an, der es dem Benutzer erlaubt, es in der _Inline_-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}} und dem {{cssxref("direction")}}-Wert) zu ändern.
 
 ## Formale Definition
 
@@ -99,9 +99,9 @@ Die `resize`-Eigenschaft wird als ein Schlüsselwortwert aus der unten stehenden
 
 ## Beispiele
 
-### Deaktivieren der Größenzuveränderbarkeit von Textbereichen
+### Deaktivieren der Änderbarkeit von Textbereichen
 
-In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig größenveränderbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
+In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig veränderbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
 
 #### HTML
 
@@ -121,9 +121,9 @@ textarea {
 
 {{EmbedLiveSample("Disabling_resizability_of_text_areas","200","100")}}
 
-### Verwendung von resize mit beliebigen Elementen
+### Verwenden von `resize` mit beliebigen Elementen
 
-Sie können die `resize`-Eigenschaft verwenden, um jedes Element größenveränderbar zu machen. Im unten stehenden Beispiel enthält ein größenveränderbares {{HTMLElement("div")}} ein größenveränderbares Absatz-Element ({{HTMLElement("p")}}).
+Sie können die `resize`-Eigenschaft verwenden, um jedes Element veränderbar zu machen. Im unten stehenden Beispiel enthält ein veränderbares {{HTMLElement("div")}} einen veränderbaren Absatz ({{HTMLElement("p")}}-Element).
 
 #### HTML
 

@@ -3,12 +3,12 @@ title: "`background-position-x` CSS property"
 short-title: background-position-x
 slug: Web/CSS/Reference/Properties/background-position-x
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`background-position-x`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die initiale horizontale Position für jedes Hintergrundbild fest. Die Position ist relativ zur durch {{cssxref("background-origin")}} festgelegten Positionsebene.
+Die **`background-position-x`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die anfängliche horizontale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsebene, die durch {{cssxref("background-origin")}} festgelegt wird.
 
-Der Wert dieser Eigenschaft wird durch jede Deklaration der Kurzform-Eigenschaften {{cssxref("background")}} oder {{cssxref("background-position")}}, die später auf das Element angewendet werden, überschrieben.
+Der Wert dieser Eigenschaft wird durch jede Deklaration der Kurzformeigenschaften {{cssxref("background")}} oder {{cssxref("background-position")}} überschrieben, die nachfolgend auf das Element angewandt werden.
 
 {{InteractiveExample("CSS Demo: background-position-x")}}
 
@@ -78,20 +78,20 @@ background-position-x: revert-layer;
 background-position-x: unset;
 ```
 
-Die Eigenschaft `background-position-x` wird mit einem oder mehreren Werten angegeben, die durch Kommas getrennt sind.
-
 ### Werte
 
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
 - `left`
-  - : Richtet den linken Rand des Hintergrundbildes am linken Rand der Hintergrundpositionsebene aus.
+  - : Richtet den linken Rand des Hintergrundbildes mit dem linken Rand der Hintergrundpositionsebene aus.
 - `center`
-  - : Richtet die Mitte des Hintergrundbildes an der Mitte der Hintergrundpositionsebene aus.
+  - : Richtet das Zentrum des Hintergrundbildes mit dem Zentrum der Hintergrundpositionsebene aus.
 - `right`
-  - : Richtet den rechten Rand des Hintergrundbildes am rechten Rand der Hintergrundpositionsebene aus.
+  - : Richtet den rechten Rand des Hintergrundbildes mit dem rechten Rand der Hintergrundpositionsebene aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Der Versatz des linken vertikalen Randes des angegebenen Hintergrundbildes vom linken vertikalen Rand der Hintergrundpositionsebene. (Einige Browser erlauben das Zuweisen des rechten Randes für den Versatz).
+  - : Der Versatz der linken vertikalen Kante des angegebenen Hintergrundbildes von der linken vertikalen Kante der Hintergrundpositionsebene. (Einige Browser erlauben die Zuweisung des rechten Randes für den Versatz.)
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Der Versatz der horizontalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass der linke Rand des Hintergrundbildes mit dem linken Rand des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass der _rechte_ Rand des Hintergrundbildes mit dem _rechten_ Rand des Containers ausgerichtet ist, daher zentriert ein Wert von 50% das Hintergrundbild horizontal.
+  - : Der Versatz der horizontalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass der linke Rand des Hintergrundbildes mit dem linken Rand des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass der _rechte_ Rand des Hintergrundbildes mit dem _rechten_ Rand des Containers ausgerichtet ist, sodass ein Wert von 50% das Hintergrundbild horizontal zentriert.
 
 ## Formale Definition
 
@@ -105,7 +105,7 @@ Die Eigenschaft `background-position-x` wird mit einem oder mehreren Werten ange
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt eine Implementierung eines Hintergrundbildes, wobei `background-position-x` und `background-position-y` verwendet werden, um die horizontale und vertikale Position des Bildes separat festzulegen.
+Das folgende Beispiel zeigt eine Implementierung eines Hintergrundbildes, wobei `background-position-x` und `background-position-y` verwendet werden, um die horizontale und vertikale Position des Bildes separat zu definieren.
 
 #### HTML
 
@@ -133,7 +133,7 @@ div {
 
 ### Seitenbezogene Werte
 
-Das folgende Beispiel zeigt die Unterstützung für die seitenbezogene Versatzsyntax, die es dem Entwickler ermöglicht, den Hintergrund von einem beliebigen Rand aus zu versetzen.
+Das folgende Beispiel zeigt die Unterstützung für syntaktisch seitenbezogene Versätze, die es dem Entwickler erlauben, den Hintergrund von jedem Rand aus zu versetzen.
 
 #### HTML
 

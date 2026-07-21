@@ -3,19 +3,19 @@ title: "`box-align` CSS property"
 short-title: box-align
 slug: Web/CSS/Reference/Properties/box-align
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Module-Entwurfs und wurde durch eine neuere Norm ersetzt.
+> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Moduls im Entwurf, und wurde durch einen neueren Standard ersetzt.
 
-Die **`box-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie ein Element seine Inhalte quer zur Anordnung in einer senkrechten Richtung ausrichtet. Die Wirkung der Eigenschaft ist nur sichtbar, wenn im Box-Modell zusätzlicher Platz vorhanden ist.
+Die **`box-align`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie ein Element seine Inhalte über sein Layout in einer senkrechten Richtung ausrichtet. Die Wirkung der Eigenschaft wird nur sichtbar, wenn im Kasten zusätzlicher Platz vorhanden ist.
 
-Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+Für Informationen über den aktuellen Standard siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
-Die Ausrichtungsrichtung hängt von der Orientierung des Elements ab: horizontal oder vertikal.
+Die Richtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -33,31 +33,31 @@ box-lines: initial;
 box-lines: unset;
 ```
 
-Die `box-align` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwortwerte angegeben:
+
 - `start`
-  - : Die Box richtet die Inhalte am Anfang aus und lässt zusätzlichen Platz am Ende.
+  - : Der Kasten richtet Inhalte am Anfang aus und lässt jeglichen zusätzlichen Platz am Ende.
 - `center`
-  - : Die Box richtet die Inhalte in der Mitte aus und verteilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende.
+  - : Der Kasten richtet Inhalte in der Mitte aus und teilt jeden zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
 - `end`
-  - : Die Box richtet die Inhalte am Ende aus und lässt zusätzlichen Platz am Anfang.
+  - : Der Kasten richtet Inhalte am Ende aus und lässt jeglichen zusätzlichen Platz am Anfang.
 - `baseline`
-  - : Die Box richtet die Baselines der Inhalte aus (Ausrichtung des Textes). Dies gilt nur, wenn die Orientierung der Box horizontal ist.
+  - : Der Kasten richtet die Grundlinien der Inhalte (Textausrichtung) aus. Dies gilt nur, wenn die Orientierung des Kastens horizontal ist.
 - `stretch`
-  - : Die Box dehnt die Inhalte so, dass kein zusätzlicher Platz in der Box vorhanden ist.
+  - : Der Kasten streckt die Inhalte so, dass kein zusätzlicher Platz im Kasten vorhanden ist.
 
-## Hinweise
+## Anmerkungen
 
-Die Kante der Box, die als _Anfang_ für Ausrichtungszwecke bezeichnet wird, hängt von der Orientierung der Box ab:
+Der Rand des Kastens, der für Ausrichtungszwecke als _Start_ bezeichnet wird, hängt von der Orientierung des Kastens ab:
 
-- Für horizontale Elemente ist der _Anfang_ die obere Kante.
-- Für vertikale Elemente ist der _Anfang_ die linke Kante.
+- Bei horizontalen Elementen ist der _Start_ die obere Kante.
+- Bei vertikalen Elementen ist der _Start_ die linke Kante.
 
-Die Kante gegenüber dem Anfang wird als _Ende_ bezeichnet.
+Der Rand gegenüber dem Start wird als _Ende_ bezeichnet.
 
-Wenn die Ausrichtung über das `align` Attribut des Elements gesetzt wird, wird der Stil ignoriert.
+Wenn die Ausrichtung durch das `align`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 
@@ -69,7 +69,7 @@ Wenn die Ausrichtung über das `align` Attribut des Elements gesetzt wird, wird 
 
 ## Beispiele
 
-### Einstellung der Box-Ausrichtung
+### Festlegen der Kastausrichtung
 
 ```html
 <div class="example">
@@ -117,7 +117,7 @@ div.example > p {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 

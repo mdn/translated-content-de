@@ -3,10 +3,10 @@ title: "`caption-side` CSS property"
 short-title: caption-side
 slug: Web/CSS/Reference/Properties/caption-side
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`caption-side`** [CSS](/de/docs/Web/CSS)-Eigenschaft platziert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{InteractiveExample("CSS Demo: caption-side")}}
 
@@ -91,9 +91,9 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
-
 ### Werte
+
+Diese Eigenschaft wird als eines der folgenden Schlüsselwörter angegeben:
 
 - `top`
   - : Der Beschriftungskasten sollte auf der Blockanfangsseite der Tabelle positioniert werden.
@@ -101,7 +101,7 @@ Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüssel
   - : Der Beschriftungskasten sollte auf der Blockendseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um den Beschriftungskasten jeweils an der Inline-Anfangskante und der Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um den Beschriftungskasten am Inline-Start- und Inline-Endrand der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -113,7 +113,7 @@ Die `caption-side`-Eigenschaft wird als einer der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Beschriftungen oben und unten setzen
+### Beschriftungen oben und unten einstellen
 
 #### HTML
 
@@ -180,5 +180,5 @@ td {
 ## Siehe auch
 
 - {{HTMLelement("caption")}}
-- [CSS-Tabellen](/de/docs/Web/CSS/Guides/Table) Modul
+- [CSS Tabellen](/de/docs/Web/CSS/Guides/Table) Modul
 - [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul

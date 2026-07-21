@@ -3,13 +3,13 @@ title: "`overflow-inline` CSS property"
 short-title: overflow-inline
 slug: Web/CSS/Reference/Properties/overflow-inline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`overflow-inline`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, was angezeigt wird, wenn Inhalt die gelegten Start- und Endränder einer Box im Inline-Bereich überläuft. Dies kann nichts sein, eine Scrollleiste oder der überlaufende Inhalt.
+Die **`overflow-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, was angezeigt wird, wenn der Inhalt die Inline-Anfangs- und Endkanten eines Kastens überläuft. Dies kann nichts, eine Scrollleiste oder der überlaufende Inhalt sein.
 
 > [!NOTE]
-> Die `overflow-inline`-Eigenschaft verweist auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}}, abhängig vom Schreibmodus des Dokuments.
+> Die `overflow-inline`-Eigenschaft wird, abhängig vom Schreibmodus des Dokuments, auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet.
 
 ## Syntax
 
@@ -29,20 +29,20 @@ overflow-inline: revert-layer;
 overflow-inline: unset;
 ```
 
-Die `overflow-inline`-Eigenschaft wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwort-Wert angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird als eines der folgenden {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwerte angegeben:
+
 - `visible`
-  - : Der Inhalt wird nicht abgeschnitten und kann außerhalb der Start- und Endkanten des inneren Rahmens im Inline-Bereich gerendert werden.
+  - : Der Inhalt wird nicht abgeschnitten und kann außerhalb der Inline-Anfangs- und Endkanten des Padding-Kastens dargestellt werden.
 - `hidden`
-  - : Der Inhalt wird, falls erforderlich, abgeschnitten, um in die Inline-Dimension des inneren Rahmens zu passen. Es werden keine Scrollbars bereitgestellt.
+  - : Der Inhalt wird bei Bedarf abgeschnitten, um in die Inline-Dimension des Padding-Kastens zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird an der Überlauf-Clipping-Kante des Elements abgeschnitten, die mit der {{CSSXref("overflow-clip-margin")}} Eigenschaft definiert wird.
+  - : Überlaufender Inhalt wird an der Überlaufabschnittskante des Elements abgeschnitten, die mit der {{CSSXref("overflow-clip-margin")}}-Eigenschaft definiert wird.
 - `scroll`
-  - : Der Inhalt wird, falls erforderlich, abgeschnitten, um in die Inline-Dimension des inneren Rahmens zu passen. Browser zeigen Scrollbars an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten ist. (Dies verhindert, dass Scrollbars erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können weiterhin überlaufenden Inhalt drucken.
+  - : Der Inhalt wird bei Bedarf abgeschnitten, um innerhalb der Inline-Dimension des Padding-Kastens zu passen. Browser zeigen Scrollleisten an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können überlaufenden Inhalt dennoch drucken.
 - `auto`
-  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in das innere Feld passt, sieht es aus wie `visible`, stellt jedoch dennoch einen neuen Block-Formatierungskontext her. Desktop-Browser bieten Scrollbars, wenn der Inhalt überläuft.
+  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in den Padding-Kasten passt, sieht er genauso aus wie `visible`, stellt jedoch immer noch einen neuen Block-Formatierungskontext her. Desktop-Browser stellen Scrollleisten bereit, wenn der Inhalt überläuft.
 
 ## Formale Definition
 
@@ -54,7 +54,7 @@ Die `overflow-inline`-Eigenschaft wird als einzelnes {{CSSXref("overflow_value",
 
 ## Beispiele
 
-### Festlegen des Überlaufverhaltens im Inline-Bereich
+### Einstellung des Inline-Überlaufverhaltens
 
 #### HTML
 
@@ -133,7 +133,7 @@ div {
 ## Siehe auch
 
 - {{cssxref("clip")}}, {{cssxref("display")}}, {{cssxref("overflow")}}, {{cssxref("overflow-block")}}, {{cssxref("overflow-clip-margin")}}, {{cssxref("overflow-x")}}, {{cssxref("overflow-y")}}, {{cssxref("text-overflow")}}, {{cssxref("white-space")}}
-- [CSS overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS-logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
 - [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes)
 - [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)

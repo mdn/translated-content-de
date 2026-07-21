@@ -3,10 +3,10 @@ title: "`outline-style` CSS property"
 short-title: outline-style
 slug: Web/CSS/Reference/Properties/outline-style
 l10n:
-  sourceCommit: a06cf3dca37bb7da1d5e5ad98c5d15a10dde3e8c
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`outline-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element außerhalb des {{cssxref("border")}} gezeichnet wird.
+Die **`outline-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Stil des Umrisses eines Elements fest. Ein Umriss ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
 {{InteractiveExample("CSS Demo: outline-style")}}
 
@@ -47,7 +47,7 @@ outline-style: inset;
 }
 ```
 
-Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, um das Aussehen einer Umrandung zu definieren.
+Es ist oft bequemer, die Kurzschreibweise {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild eines Umrisses definiert wird.
 
 ## Syntax
 
@@ -72,30 +72,30 @@ outline-style: revert-layer;
 outline-style: unset;
 ```
 
-Die `outline-style` Eigenschaft wird mit einem der unten aufgeführten Werte angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Werte angegeben:
+
 - `auto`
-  - : Ermöglicht dem Benutzeragenten, einen benutzerdefinierten Umrandungsstil zu rendern.
+  - : Erlaubt dem User-Agent, einen benutzerdefinierten Umrissstil darzustellen.
 - `none`
-  - : Es wird keine Umrandung verwendet.
+  - : Es wird kein Umriss verwendet.
 - `dotted`
-  - : Die Umrandung besteht aus einer Reihe von Punkten.
+  - : Der Umriss ist eine Reihe von Punkten.
 - `dashed`
-  - : Die Umrandung besteht aus einer Reihe von kurzen Liniensegmenten.
+  - : Der Umriss besteht aus einer Reihe von kurzen Liniensegmenten.
 - `solid`
-  - : Die Umrandung ist eine durchgehende Linie.
+  - : Der Umriss ist eine einzelne Linie.
 - `double`
-  - : Die Umrandung besteht aus zwei parallelen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Abstands dazwischen.
+  - : Der Umriss besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und dem Raum dazwischen.
 - `groove`
-  - : Die Umrandung sieht aus, als wäre sie in die Seite geschnitzt.
+  - : Der Umriss sieht aus, als wäre er in die Seite eingeschnitten.
 - `ridge`
-  - : Das Gegenteil von `groove`: Die Umrandung sieht aus, als wäre sie aus der Seite herausgeprägt.
+  - : Das Gegenteil von `groove`: Der Umriss sieht aus, als wäre er aus der Seite herausgehoben.
 - `inset`
-  - : Die Umrandung lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
+  - : Der Umriss lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
 - `outset`
-  - : Das Gegenteil von `inset`: Die Umrandung lässt die Box so aussehen, als würde sie aus der Seite herausragen.
+  - : Das Gegenteil von `inset`: Der Umriss lässt die Box so aussehen, als würde sie aus der Seite herauskommen.
 
 ## Formale Definition
 
@@ -107,9 +107,9 @@ Die `outline-style` Eigenschaft wird mit einem der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Umrandungsstil auf auto setzen
+### Umrissstil auf auto setzen
 
-Der `auto` Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben wird als "typischerweise ein Stil, \[der] entweder ein Benutzeroberflächestandard für die Plattform ist, oder vielleicht ein Stil, der reicher ist, als er im Detail in CSS beschrieben werden kann, z.B. eine abgerundete Umrandung mit halbtransparenten äußeren Pixeln, die zu leuchten scheinen".
+Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder ein Benutzeroberflächendefault für die Plattform ist oder vielleicht ein Stil, der reicher ist, als im Detail in CSS beschrieben werden kann, z. B. ein Umriss mit abgerundeten Kanten und halbtransluzenten äußeren Pixeln, der zu leuchten scheint".
 
 #### HTML
 
@@ -137,7 +137,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_auto') }}
 
-### Umrandungsstil auf gestrichelt und gepunktet setzen
+### Umrissstil auf gestrichelt und gepunktet setzen
 
 #### HTML
 
@@ -170,7 +170,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_dashed_and_dotted') }}
 
-### Umrandungsstil auf durchgehend und doppelt setzen
+### Umrissstil auf durchgezogen und doppelt setzen
 
 #### HTML
 
@@ -203,7 +203,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_solid_and_double') }}
 
-### Umrandungsstil auf vertieft und erhöht setzen
+### Umrissstil auf Einkerbung und Erhebung setzen
 
 #### HTML
 
@@ -236,7 +236,7 @@ Der `auto` Wert gibt einen benutzerdefinierten Umrandungsstil an, der in [der Sp
 
 {{ EmbedLiveSample('Setting_outline_style_to_groove_and_ridge') }}
 
-### Umrandungsstil auf eingebettet und vorstehend setzen
+### Umrissstil auf vertieft und hervorstehend setzen
 
 #### HTML
 

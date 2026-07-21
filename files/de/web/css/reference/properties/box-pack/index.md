@@ -3,17 +3,17 @@ title: "`box-pack` CSS property"
 short-title: box-pack
 slug: Web/CSS/Reference/Properties/box-pack
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
 {{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexiblen Box Layout Moduls und wurde durch einen neueren Standard ersetzt. Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexible-Box-Layout-Modul-Entwurfs und wurde durch einen neueren Standard ersetzt. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
-Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften legen fest, wie ein `-moz-box` oder `-webkit-box` seine Inhalte in der Richtung seines Layouts anordnet. Die Wirkung ist nur sichtbar, wenn zusätzlicher Platz in der Box vorhanden ist.
+Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften bestimmen, wie ein `-moz-box` oder `-webkit-box` seine Inhalte in der Richtung seines Layouts packt. Der Effekt ist nur sichtbar, wenn im Kasten zusätzlicher Platz vorhanden ist.
 
-Die Richtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
+Die Richtung des Layouts hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
@@ -30,25 +30,25 @@ box-pack: initial;
 box-pack: unset;
 ```
 
-Die `box-pack`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `start`
-  - : Die Box packt Inhalte am Anfang und lässt zusätzlichen Raum am Ende frei.
+  - : Der Kasten packt Inhalte am Anfang und lässt jeden zusätzlichen Platz am Ende.
 - `center`
-  - : Die Box packt Inhalte in der Mitte und teilt den zusätzlichen Raum gleichmäßig zwischen Anfang und Ende.
+  - : Der Kasten packt Inhalte in der Mitte und teilt jeden zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
 - `end`
-  - : Die Box packt Inhalte am Ende und lässt zusätzlichen Raum am Anfang frei.
+  - : Der Kasten packt Inhalte am Ende und lässt jeden zusätzlichen Platz am Anfang.
 - `justify`
-  - : Der Raum wird gleichmäßig zwischen den einzelnen Kindern aufgeteilt, ohne dass zusätzlicher Raum vor dem ersten Kind oder nach dem letzten Kind verbleibt. Wenn es nur ein Kind gibt, wird der Wert behandelt, als wäre er `start`.
+  - : Der Platz wird gleichmäßig zwischen jedem Kind aufgeteilt, ohne dass zusätzlicher Platz vor dem ersten Kind oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert wie `start` behandelt.
 
-## Hinweise
+## Anmerkungen
 
-Der Rand der Box, der für Packzwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung und der Richtung der Box ab:
+Der Rand des Kastens, der für Verpackungszwecke als _Anfang_ bezeichnet wird, hängt von der Ausrichtung und Richtung des Kastens ab:
 
-- Für horizontale Elemente ist der _Anfang_ der obere Rand.
-- Für vertikale Elemente ist der _Anfang_ der linke Rand.
+- Für horizontale Elemente ist der _Anfang_ die obere Kante.
+- Für vertikale Elemente ist der _Anfang_ die linke Kante.
 
 <table class="standard-table">
   <tbody>
@@ -70,9 +70,9 @@ Der Rand der Box, der für Packzwecke als _Anfang_ bezeichnet wird, hängt von d
   </tbody>
 </table>
 
-Der Rand gegenüber dem Anfang wird als _Ende_ bezeichnet.
+Die dem Anfang gegenüberliegende Kante wird als das _Ende_ bezeichnet.
 
-Wenn die Packung mit dem `pack` Attribut des Elements gesetzt wird, wird der Stil ignoriert.
+Wenn das Verpacken mit dem `pack`-Attribut des Elements eingestellt ist, wird der Stil ignoriert.
 
 ## Formale Definition
 
@@ -131,7 +131,7 @@ div.example p {
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -3,14 +3,14 @@ title: "`column-width` CSS property"
 short-title: column-width
 slug: Web/CSS/Reference/Properties/column-width
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`column-width`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die ideale Spaltenbreite in einem mehrspaltigen Layout fest. Der Container wird so viele Spalten enthalten, wie hineinpassen, ohne dass eine davon eine Breite kleiner als der `column-width`-Wert hat. Ist die Breite des Containers schmaler als der angegebene Wert, wird die Breite der einzelnen Spalte kleiner als die deklarierte Spaltenbreite sein.
+Die **`column-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die ideale Spaltenbreite in einem mehrspaltigen Layout fest. Der Container hat so viele Spalten, wie hineinpassen, ohne dass eine von ihnen eine Breite kleiner als der `column-width`-Wert hat. Wenn die Breite des Containers schmaler als der angegebene Wert ist, wird die Breite der einzelnen Spalte kleiner als die deklarierte Spaltenbreite sein.
 
-Diese Eigenschaft kann Ihnen helfen, responsive Designs zu erstellen, die sich an verschiedene Bildschirmgrößen anpassen. Besonders in Verbindung mit der {{cssxref("column-count")}}-Eigenschaft (die Vorrang hat), müssen Sie alle zugehörigen Längenwerte angeben, um eine genaue Spaltenbreite zu erreichen. Bei horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}} und {{cssxref('column-rule-width')}}.
+Diese Eigenschaft kann Ihnen helfen, responsive Designs zu erstellen, die auf verschiedene Bildschirmgrößen passen. Besonders im Zusammenhang mit der {{cssxref("column-count")}} Eigenschaft (die Vorrang hat), müssen Sie alle zugehörigen Längenwerte angeben, um eine exakte Spaltenbreite zu erreichen. In horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}} und {{cssxref('column-rule-width')}}.
 
-Die Kurzschreibweise {{cssxref("columns")}} kann verwendet werden, um die Werte der Eigenschaften `column-width`, {{cssxref("column-count")}} und {{cssxref("column-height")}} in einer einzigen Deklaration festzulegen.
+Die Kürzelschreibweise {{cssxref("columns")}} kann verwendet werden, um die Werte für die Eigenschaften `column-width`, {{cssxref("column-count")}} und {{cssxref("column-height")}} in einer einzigen Deklaration festzulegen.
 
 {{InteractiveExample("CSS Demo: column-width")}}
 
@@ -69,14 +69,14 @@ column-width: revert-layer;
 column-width: unset;
 ```
 
-Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
-
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Werte angegeben:
+
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann vom angegebenen Wert abweichen: Sie kann breiter sein, wenn es notwendig ist, den verfügbaren Platz zu füllen, und schmaler, wenn der verfügbare Platz zu klein ist. Der Wert muss streng positiv sein oder die Deklaration ist ungültig. Prozentwerte sind ebenfalls ungültig.
+  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann vom angegebenen Wert abweichen: Sie kann breiter sein, wenn nötig, um den verfügbaren Platz auszufüllen, und schmaler, wenn der verfügbare Platz zu klein ist. Der Wert muss strikt positiv sein, andernfalls ist die Deklaration ungültig. Prozentwerte sind ebenfalls ungültig.
 - `auto`
-  - : Die Breite der Spalte wird durch andere CSS-Eigenschaften bestimmt, wie zum Beispiel {{cssxref("column-count")}}.
+  - : Die Breite der Spalte wird durch andere CSS-Eigenschaften bestimmt, wie z. B. {{cssxref("column-count")}}.
 
 ## Formale Definition
 
@@ -88,7 +88,7 @@ Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte ange
 
 ## Beispiele
 
-### Spaltenbreite in Pixeln festlegen
+### Spaltenbreite in Pixel festlegen
 
 #### HTML
 
@@ -125,6 +125,6 @@ Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte ange
 
 - {{cssxref("column-count")}}
 - {{cssxref("column-height")}}
-- {{cssxref("columns")}}-Kurzschreibweise
-- [Lernen: Mehrspaltige Layouts](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Lernen Layout)
-- [Grundkonzepte von Multicol](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
+- {{cssxref("columns")}} Kurzschreibweise
+- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
+- [Grundlagen des Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)

@@ -3,10 +3,10 @@ title: "`border-left-color` CSS property"
 short-title: border-left-color
 slug: Web/CSS/Reference/Properties/border-left-color
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`border-left-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Farbe des linken [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements. Sie kann auch mit den kurzgefassten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-left")}} festgelegt werden.
+Die **`border-left-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des linken [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie kann auch mit den Kurzschreibungs-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-left")}} gesetzt werden.
 
 {{InteractiveExample("CSS Demo: border-left-color")}}
 
@@ -68,14 +68,14 @@ border-left-color: revert-layer;
 border-left-color: unset;
 ```
 
-Die `border-left-color` Eigenschaft wird als einzelner Wert angegeben.
-
 ### Werte
+
+Diese Eigenschaft wird mit einem Wert spezifiziert:
 
 - {{cssxref("&lt;color&gt;")}}
   - : Die Farbe des linken Rahmens.
 
-## Formale Definition
+## Formal definition
 
 {{CSSInfo}}
 
@@ -126,7 +126,7 @@ Die `border-left-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweisen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, und {{Cssxref("border-color")}}.
-- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{Cssxref("border-right-color")}}, {{Cssxref("border-bottom-color")}}, und {{Cssxref("border-top-color")}}.
+- Die rahmenbezogenen CSS-Kurzschreibungs-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-left")}} und {{Cssxref("border-color")}}.
+- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{Cssxref("border-right-color")}}, {{Cssxref("border-bottom-color")}} und {{Cssxref("border-top-color")}}.
 - Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-left-style")}} und {{cssxref("border-left-width")}}.
-- Der Standardwert [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword).
+- Der Standard-`[`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword)`-Farbwert.

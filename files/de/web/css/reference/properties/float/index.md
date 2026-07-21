@@ -3,10 +3,10 @@ title: "`float` CSS property"
 short-title: float
 slug: Web/CSS/Reference/Properties/float
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`float`** [CSS](/de/docs/Web/CSS)-Eigenschaft platziert ein Element auf der linken oder rechten Seite seines Containers und erlaubt es, dass Text und Inline-Elemente darum herumfließen. Das Element wird aus dem normalen Fluss der Seite entfernt, bleibt jedoch weiterhin Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/Reference/Properties/position#absolute_positioning)).
+Die **`float`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert ein Element auf der linken oder rechten Seite seines Containers, sodass Text und Inline-Elemente darum herumfließen können. Das Element wird aus dem normalen Fluss der Seite entfernt, bleibt jedoch weiterhin Teil des Flusses (im Gegensatz zur [absoluten Positionierung](/de/docs/Web/CSS/Reference/Properties/position#absolute_positioning)).
 
 {{InteractiveExample("CSS Demo: float")}}
 
@@ -78,10 +78,10 @@ Da `float` die Verwendung des Block-Layouts impliziert, ändert es den berechnet
 | `table-footer-group` | `block`          |
 | `inline-flex`        | `flex`           |
 | `inline-grid`        | `grid`           |
-| _andere_             | _unverändert_    |
+| _other_              | _unverändert_    |
 
 > [!NOTE]
-> Wenn auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Objekt zugegriffen wird, werden einwortige Eigenschaftsnamen wie sie sind verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-`float`-Eigenschaft in modernen Browsern als `float` angesprochen. In älteren Browsern müssen Sie `cssFloat` verwenden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ist ähnlich wie der Zugriff auf das "class"-Attribut als "className" und das "for"-Attribut eines `<label>`-Elements als "htmlFor".)
+> Wenn Sie auf eine CSS-Eigenschaft in JavaScript über das [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Objekt zugreifen, werden einwortige Eigenschaftsnamen unverändert verwendet. Obwohl `float` ein reserviertes Schlüsselwort in JavaScript ist, wird die CSS-`float`-Eigenschaft in modernen Browsern als `float` zugegriffen. In älteren Browsern müssen Sie `cssFloat` verwenden, um auf die `float`-Eigenschaft zuzugreifen. (Dies ist ähnlich wie beim Zugriff auf das Attribut "class" als "className" und das "for" Attribut eines `<label>`-Elements als "htmlFor".)
 
 ## Syntax
 
@@ -101,20 +101,20 @@ float: revert-layer;
 float: unset;
 ```
 
-Die `float`-Eigenschaft wird als ein einziges Schlüsselwort angegeben, das aus der folgenden Liste von Werten ausgewählt wird.
-
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `left`
-  - : Das Element muss auf der linken Seite seines umschließenden Blocks fließen.
+  - : Das Element muss auf der linken Seite seines umgebenden Blocks schweben.
 - `right`
-  - : Das Element muss auf der rechten Seite seines umschließenden Blocks fließen.
+  - : Das Element muss auf der rechten Seite seines umgebenden Blocks schweben.
 - `none`
-  - : Das Element darf nicht fließen.
+  - : Das Element darf nicht schweben.
 - `inline-start`
-  - : Das Element muss auf der Startseite seines umschließenden Blocks fließen. Das heißt, die linke Seite bei `ltr`-Schriften und die rechte Seite bei `rtl`-Schriften.
+  - : Das Element muss auf der Anfangsseite seines umgebenden Blocks schweben. Das ist die linke Seite bei `ltr`-Skripten und die rechte Seite bei `rtl`-Skripten.
 - `inline-end`
-  - : Das Element muss auf der Endeseite seines umschließenden Blocks fließen. Das heißt, die rechte Seite bei `ltr`-Schriften und die linke Seite bei `rtl`-Schriften.
+  - : Das Element muss auf der Endseite seines umgebenden Blocks schweben. Das ist die rechte Seite bei `ltr`-Skripten und die linke Seite bei `rtl`-Skripten.
 
 ## Formale Definition
 
@@ -126,13 +126,13 @@ Die `float`-Eigenschaft wird als ein einziges Schlüsselwort angegeben, das aus 
 
 ## Beispiele
 
-### Wie gefloatete Elemente positioniert werden
+### Wie schwebende Elemente positioniert werden
 
-Wie oben erwähnt, wird ein Element, wenn es gefloatet wird, aus dem normalen Fluss des Dokuments entfernt (bleibt jedoch weiterhin Teil davon). Es wird nach links oder rechts verschoben, bis es den Rand seines umschließenden Kastens oder ein anderes gefloatetes Element berührt.
+Wie oben erwähnt, wird ein Element, wenn es schwebt, aus dem normalen Dokumentfluss herausgenommen (bleibt aber weiterhin Teil davon). Es wird nach links oder rechts verschoben, bis es an den Rand seines umgebenden Rahmens _oder eines anderen schwebenden Elements_ stößt.
 
-In diesem Beispiel gibt es drei farbige Quadrate. Zwei sind links gefloatet, und eines ist rechts gefloatet. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert ist. Weitere Quadrate würden sich weiter rechts stapeln, bis sie den umschließenden Kasten füllen, danach würden sie auf die nächste Zeile umbrechen.
+In diesem Beispiel gibt es drei farbige Quadrate. Zwei schweben nach links, und eines schwebt nach rechts. Beachten Sie, dass das zweite "linke" Quadrat rechts vom ersten platziert ist. Zusätzliche Quadrate würden sich weiter nach rechts stapeln, bis sie den umgebenden Rahmen füllen, danach würden sie in die nächste Zeile umschlagen.
 
-Ein gefloatetes Element ist mindestens so hoch wie seine höchsten verschachtelten gefloateten Kinder. Wir haben dem übergeordneten Element `width: 100%` gegeben und es gefloatet, um sicherzustellen, dass es hoch genug ist, um seine gefloateten Kinder zu umfassen, und um sicherzustellen, dass es die Breite des übergeordneten Elements einnimmt, sodass wir sein angrenzendes Geschwisterelement nicht freigeben müssen.
+Ein schwebendes Element ist mindestens so hoch wie seine höchsten verschachtelten schwebenden Kinder. Wir haben dem Elternteil `width: 100%` gegeben und es schweben lassen, um sicherzustellen, dass es hoch genug ist, um seine schwebenden Kinder zu umfassen, und um sicherzustellen, dass es die Breite des Elternteils einnimmt, sodass wir seinen benachbarten Geschwister nicht löschen müssen.
 
 #### HTML
 
@@ -182,9 +182,9 @@ div {
 
 {{EmbedLiveSample('How_floated_elements_are_positioned','400','190')}}
 
-### Floats freigeben
+### Löschen von Floats
 
-Manchmal möchten Sie vielleicht ein Element zwingen, unterhalb aller gefloateten Elemente zu liegen. Beispielsweise möchten Sie, dass Absätze an Floats angrenzen, aber Überschriften auf ihrer eigenen Zeile sind. Siehe {{cssxref("clear")}} für Beispiele.
+Manchmal möchten Sie möglicherweise ein Element zwingen, sich unterhalb der schwebenden Elemente zu bewegen. Beispielsweise möchten Sie möglicherweise, dass Absätze neben den Floats bleiben, aber Überschriften auf ihrer eigenen Linie gezwungen werden. Siehe {{cssxref("clear")}} für Beispiele.
 
 ## Spezifikationen
 
@@ -196,5 +196,5 @@ Manchmal möchten Sie vielleicht ein Element zwingen, unterhalb aller gefloatete
 
 ## Siehe auch
 
-- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
-- Verwenden Sie {{cssxref("clear")}}, um ein Element zu zwingen, sich unterhalb eines gefloateten Elements zu bewegen.
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- Verwenden Sie {{cssxref("clear")}}, um ein Element zu zwingen, sich unterhalb eines schwebenden Elements zu bewegen.

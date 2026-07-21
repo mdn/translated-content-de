@@ -3,10 +3,10 @@ title: "`border-top-color` CSS property"
 short-title: border-top-color
 slug: Web/CSS/Reference/Properties/border-top-color
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
 ---
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} festgelegt werden.
+Die **`border-top-color`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie kann auch mit den CSS-Kurzschreibweisen {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
 
 {{InteractiveExample("CSS Demo: border-top-color")}}
 
@@ -68,9 +68,9 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
-
 ### Werte
+
+Diese Eigenschaft wird als ein `<color>`-Wert angegeben:
 
 - {{cssxref("&lt;color&gt;")}}
   - : Die Farbe des oberen Rahmens.
@@ -85,7 +85,7 @@ Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein div mit einem Rahmen
+### Ein Div-Element mit einem Rahmen
 
 #### HTML
 
@@ -126,7 +126,7 @@ Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweise-Eigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
+- Die rahmenbezogenen CSS-Kurzschreibweisen: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
 - Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
 - Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
-- Der Standardwert [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) für die Farbe.
+- Der Standardfarbwert [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword).
