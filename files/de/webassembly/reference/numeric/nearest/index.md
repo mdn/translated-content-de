@@ -1,12 +1,12 @@
 ---
-title: "nearest: Wasm-Textinstruktion"
+title: "nearest: Wasm numerische Anweisung"
 short-title: nearest
 slug: WebAssembly/Reference/Numeric/nearest
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`nearest`**-Instruktion wird verwendet, um den Wert einer Gleitkommazahl auf die nächste ganze Zahl zu runden.
+Die **`nearest`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um den Wert einer Gleitkommazahl auf die nächste ganze Zahl zu runden.
 
 {{InteractiveExample("Wat Demo: nearest", "tabbed-standard")}}
 
@@ -36,14 +36,14 @@ value_type.nearest
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `nearest`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `nearest`:
     - `f32`
     - `f64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `nearest`
-  - : Die `nearest`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `nearest`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -56,13 +56,13 @@ value_type.nearest
 - `output`
   - : Der Ausgabewert, der eine Gleitkommazahl sein wird.
 
-Für ein nicht-SIMD `nearest` werden dies grundlegende numerische Werte wie `3.5` oder `3` sein.
+Für eine nicht-SIMD `nearest` sind dies grundlegende numerische Werte wie `3.5` oder `3`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `nearest` werden dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen sein, zum Beispiel `f32x4 3.5 6.0 10.1 40.9`. Jeder Lane des auf den Stapel geschobenen Ausgabewerts entspricht der entsprechenden Lane des Eingabewertes, gerundet auf die nächste ganze Zahl.
+Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `nearest` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werteinterpretationen, zum Beispiel `f32x4 3.5 6.0 10.1 40.9`. Jede Lane des Outputs, der auf den Stack geschoben wird, entspricht der entsprechenden Lane des Eingabewertes, gerundet auf die nächste ganze Zahl.
 
 ### Binärkodierung
 
-| Instruktion     | Binärformat    | Beispieltext => Binär               |
+| Anweisung       | Binäre Format  | Beispieltext => binär               |
 | --------------- | -------------- | ----------------------------------- |
 | `f32.nearest`   | `0x90`         | `f32.nearest` => `0x90`             |
 | `f64.nearest`   | `0x9e`         | `f64.nearest` => `0x9e`             |
@@ -73,11 +73,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `nearest` werden dies [`v12
 
 ### SIMD nearest Rundung
 
-In diesem Beispiel demonstrieren wir die Verwendung von `nearest`, um einen SIMD-Wert zu runden.
+In diesem Beispiel zeigen wir die Verwendung von `nearest`, um einen SIMD-Wert zu runden.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Dann kompilieren und instanziieren wir unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das Objekt.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}} Element, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt, das eine einzelne Funktion enthält und in Wasm importiert wird, um einen Wert an das Ausgabe-`<p>` auszugeben. Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_nearest
 <p></p>
@@ -99,7 +99,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und achten darauf, dass sie einen `f32`-Parameter deklariert. Dann deklarieren wir einen SIMD-`f32x4`-Wert und verwenden `f32x4.nearest`, um alle seine Lanes auf den nächsten ganzzahligen Wert zu runden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewerts gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f32` Parameter hat. Dann deklarieren wir einen SIMD `f32x4` Wert und verwenden `f32x4.nearest`, um alle Lanes auf die nächste ganze Zahl zu runden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewerts gespeichert ist, mit der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) und geben ihn an das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
 
 ```wat live-sample___simd_nearest
 (module
@@ -125,4 +125,12 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_nearest", "100%", 100)}}
 
-`80` wird ausgegeben, weil es der nächstgelegene ganzzahlige Wert zum Wert in Lane `3` des Eingabewertes (`80.1`) ist.
+`80` wird ausgegeben, da es die nächste ganze Zahl zu dem Wert in Lane `3` des Eingabewertes (`80.1`) ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

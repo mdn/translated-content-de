@@ -1,12 +1,12 @@
 ---
-title: "shl: Wasm-Textanweisung"
+title: "shl: Wasm numerische Anweisung"
 short-title: shl
 slug: WebAssembly/Reference/Numeric/shl
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`shl`**-Anweisung, kurz für _shift-left_, wird für die Durchführung einer bitweisen Linksverschiebung verwendet, ähnlich dem **`<<`**-Operator in anderen Sprachen.
+Die **`shl`**-[numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _shift-left_, wird verwendet, um eine bitweise Linksverschiebung durchzuführen, ähnlich dem **`<<`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: shl", "tabbed-taller")}}
 
@@ -62,7 +62,7 @@ value_type.shl
       - `i32x4`
       - `i64x2`
 - `shl`
-  - : Die `shl`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `shl`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -73,17 +73,17 @@ value_type.shl
 - `input`
   - : Der Eingabewert.
 - `shift_value`
-  - : Der Wert, um den Sie den Wert verschieben möchten.
+  - : Der Wert, um den Sie den Eingabewert verschieben möchten.
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `shl` sind `input` und `output` einfache numerische Werte wie `3` oder `10`.
+Für eine Nicht-SIMD-`shl` sind `input` und `output` einfache numerische Werte wie `3` oder `10`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shl` sind `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 4 8 12 16`. Jede Lane des in den Stapel gepushten Ausgabes enthält die entsprechende Lane im Eingabewert, die um den angegebenen `shift_value` nach links verschoben wurde.
+Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shl` sind `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `i32x4 4 8 12 16`. Jeder Lane des Outputs, der auf den Stapel verschoben wird, enthält die entsprechende Lane im Eingabewert, die um den angegebenen `shift_value` nach links verschoben wurde.
 
-### Binärkodierung
+### Binärcodierung
 
-| Anweisung   | Binärformat    | Beispieltext => binär           |
+| Anweisung   | Binärformat    | Beispieltext => Binär           |
 | ----------- | -------------- | ------------------------------- |
 | `i32.shl`   | `0x74`         | `i32.shl` => `0x74`             |
 | `i64.shl`   | `0x86`         | `i64.shl` => `0x86`             |
@@ -94,7 +94,7 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shl` sind `input` und `out
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```wat
 ;; load two numbers onto the stack
@@ -107,13 +107,13 @@ i32.shl
 ;; the top item on the stack will now be 14 (00001110)
 ```
 
-### SIMD-Linksverschiebung
+### SIMD-Linksschiebung
 
-In diesem Beispiel demonstrieren wir die Durchführung einer Linksverschiebung auf einem SIMD-Wert und geben einen der Lane-Werte aus.
+In diesem Beispiel demonstrieren wir eine Linksverschiebung auf einem SIMD-Wert und die Ausgabe eines der Lane-Werte.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Danach kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt während des Prozesses importieren.
+In unserem Skript holen wir einen Verweis auf ein {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Import in Wasm, das eine einzige Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_shl
 <p></p>
@@ -135,7 +135,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()` und deklarieren dabei, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD `i32x4`-Wert und verschieben ihn nach links um 2 mit `i32x4.shl`. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabes-SIMD-Wertes gespeichert ist, mit der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, achten darauf, dass wir angeben, dass sie einen `i32`-Parameter hat. Wir deklarieren dann einen SIMD-`i32x4`-Wert, verschieben ihn dann mit `i32x4.shl` um 2 nach links. Schließlich extrahieren wir den in Lane `3` des Ausgabe-SIMD-Werts gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
 
 ```wat live-sample___simd_shl
 (module
@@ -163,7 +163,15 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_shl", "100%", 100)}}
 
-Das Ergebnis ist `48`, weil der in Lane `3` des Eingabewertes gespeicherte Wert `12` ist. Einmal um zwei Positionen nach links verschoben, enthält Lane `3` des Ausgabewertes den Wert `48`.
+Das Ergebnis ist `48`, da der in Lane `3` des Eingabewertes gespeicherte Wert `12` ist. Nach einer Linksverschiebung um zwei Positionen enthält Lane `3` des Ausgabe-Wertes den Wert `48`.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

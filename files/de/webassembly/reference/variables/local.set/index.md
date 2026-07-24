@@ -1,12 +1,12 @@
 ---
-title: "local.set: Wasm-Text-Instruktion"
+title: "local.set: Wasm-Variablenanweisung"
 short-title: local.set
 slug: WebAssembly/Reference/Variables/local.set
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
 ---
 
-Die **`local.set`**-Instruktion setzt die Werte einer lokalen Variablen.
+Die **`local.set`** [Variablenanweisung](/de/docs/WebAssembly/Reference/Variables) setzt den Wert einer lokalen Variablen.
 
 {{InteractiveExample("Wat Demo: local", "tabbed-taller")}}
 
@@ -40,6 +40,14 @@ i32.const 2
 local.set $val
 ```
 
-| Instruktion | Binary-Opcode |
-| ----------- | ------------- |
-| `local.set` | `0x21`        |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `local.set` | `0x21`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

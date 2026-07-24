@@ -1,12 +1,12 @@
 ---
-title: "and: Wasm-Textanweisung"
+title: "and: Wasm numerische Anweisung"
 short-title: and
 slug: WebAssembly/Reference/Numeric/and
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`and`**-Anweisung wird verwendet, um ein bitweises UND durchzuführen, ähnlich dem **`&`**-Operator in anderen Sprachen.
+Die **`and`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um ein bitweises UND durchzuführen, ähnlich dem **`&`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: and", "tabbed-taller")}}
 
@@ -49,12 +49,12 @@ value_type.and
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `and`:
+  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `and`:
     - `i32`
     - `i64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)
 - `and`
-  - : Die `and`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `and`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -71,11 +71,11 @@ value_type.and
 
 Für ein nicht-SIMD `and` sind dies grundlegende numerische Werte wie `14` oder `3`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `and` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `i32x4 9 4 -16 100`. Jede Lane der zum Stapel gepushten Ausgabe ist das bitweise UND der entsprechenden Lanes in den Eingabewerten.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `and` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `i32x4 9 4 -16 100`. Jede Spur des Ergebnisses, das auf den Stapel gelegt wird, ist das bitweise UND der entsprechenden Spuren in den Eingabewerten.
 
-### Binäre Kodierung
+### Binärcodekodierung
 
-| Anweisung  | Binärformat   | Beispieltext => binär     |
+| Anweisung  | Binärformat   | Beispieltext => Binär     |
 | ---------- | ------------- | ------------------------- |
 | `i32.and`  | `0x71`        | `i32.and` => `0x71`       |
 | `i64.and`  | `0x83`        | `i64.and` => `0x83`       |
@@ -83,13 +83,13 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `and` sind dies [`v128`](/d
 
 ## Beispiele
 
-### Beispiel für SIMD and
+### SIMD und Beispiel
 
-In diesem Beispiel demonstrieren wir das Ausführen von `v128.and` auf zwei SIMD-Werten und das Ausgeben eines der Lane-Werte des Ergebnisses.
+In diesem Beispiel demonstrieren wir die Ausführung von `v128.and` auf zwei SIMD-Werten und das Ausgeben eines der Spurwerte des Ergebnisses.
 
 #### JavaScript
 
-In unserem Skript greifen wir auf eine Referenz zu einem {{htmlelement("p")}}-Element zu, an das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), indem wir das Objekt im Prozess importieren.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_and
 <p></p>
@@ -111,7 +111,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass diese einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD `i32x4`-Werte und verwenden `v128.and`, um die Bits jeder Wertdarstellung zu "und"-en. Schließlich extrahieren wir den in Lane `3` gespeicherten Wert der Ausgabe mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn in das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, indem wir sicherstellen, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und verwenden `v128.and`, um die Bits jeder binären Darstellung der Werte zu ver-UNDen. Schließlich extrahieren wir den in Spur `3` gespeicherten Wert des Ausgabewerts mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn in das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_and
 (module
@@ -138,7 +138,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_and", "100%", 100)}}
 
-`256` wird ausgegeben, weil dies das Ergebnis des "and"-ens von Lane 3 des ersten Wertes (`782`) und des zweiten Wertes (`400`) ist. Wenn Sie sich deren binäre Äquivalente ansehen, wird klar, wie dies funktioniert:
+`256` wird ausgegeben, da dies das Ergebnis des "ver-UNDens" von Spur 3 des ersten Wertes (`782`) und des zweiten Wertes (`400`) ist. Wenn Sie sich ihre binären Äquivalente ansehen, wird klar, wie dies funktioniert:
 
 ```plain
 782 = 0000 0011 0000 1110
@@ -146,3 +146,11 @@ Die Ausgabe ist wie folgt:
       -------------------
 AND = 0000 0001 0000 0000 = 256
 ```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

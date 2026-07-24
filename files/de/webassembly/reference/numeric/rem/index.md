@@ -1,12 +1,12 @@
 ---
-title: "rem: Wasm Text-Instruktion"
+title: "rem: Wasm numerische Anweisung"
 short-title: rem
 slug: WebAssembly/Reference/Numeric/rem
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`rem`**-Instruktionen, kurz für _remainder_, werden verwendet, um den Rest zu berechnen, der übrig bleibt, wenn eine ganze Zahl durch eine andere ganze Zahl geteilt wird, ähnlich dem **`%`**-Operator in anderen Sprachen. Die **`rem`**-Instruktionen sind nur für die Ganzzahltypen verfügbar und nicht für die Gleitkommatypen.
+Die **`rem`** [numerischen Anweisungen](/de/docs/WebAssembly/Reference/Numeric), kurz für _remainder_, werden verwendet, um den Rest zu berechnen, der übrig bleibt, wenn ein ganzzahliger Wert durch einen anderen ganzzahligen Wert geteilt wird, ähnlich dem **`%`**-Operator in anderen Sprachen. Die **`rem`**-Anweisungen sind nur für die Ganzzahltypen verfügbar und nicht für die Gleitkommatypen.
 
 {{InteractiveExample("Wat Demo: rem", "tabbed-taller")}}
 
@@ -43,9 +43,17 @@ i32.rem
 ;; the top item on the stack will now be 1 (10 % 3 = 1)
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.rem_s` | `0x6f`         |
-| `i32.rem_u` | `0x70`         |
-| `i64.rem_s` | `0x81`         |
-| `i64.rem_u` | `0x82`         |
+| Anweisung   | Binäroperationscode |
+| ----------- | ------------------- |
+| `i32.rem_s` | `0x6f`              |
+| `i32.rem_u` | `0x70`              |
+| `i64.rem_s` | `0x81`              |
+| `i64.rem_u` | `0x82`              |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

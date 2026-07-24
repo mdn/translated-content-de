@@ -1,16 +1,16 @@
 ---
-title: "trunc: Wasm-Anweisung für Text"
+title: "trunc: Wasm numerische Anweisung"
 short-title: trunc
 slug: WebAssembly/Reference/Numeric/trunc
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`trunc`**-Anweisung, kurz für _truncation_ (Abschneiden), wird verwendet, um den Wert einer Fließkommazahl ohne ihren Bruchteil zu erhalten.
+Die **`trunc`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _truncate_, wird verwendet, um den Wert einer Gleitkommazahl ohne ihren Bruchteil zu erhalten.
 
-`trunc` unterscheidet sich von [**`floor`**](/de/docs/WebAssembly/Reference/Numeric/floor) bei der Verwendung mit negativen Zahlen – `floor` wird in diesen Fällen abrunden, während `trunc` aufrundet.
+`trunc` unterscheidet sich von [**`floor`**](/de/docs/WebAssembly/Reference/Numeric/floor), wenn es auf negative Zahlen angewendet wird — `floor` wird in diesen Fällen abrunden, während `trunc` aufrunden wird.
 
-Es gibt separate Anweisungen zum Trunkieren, die den Bruchteil einer Fließkommazahl abschneiden und sie in eine ganze Zahl umwandeln:
+Es gibt separate Truncate-Anweisungen, die den Bruchteil einer Gleitkommazahl abschneiden und in eine Ganzzahl umwandeln:
 
 - [`trunc_f32_s`](/de/docs/WebAssembly/Reference/Numeric/trunc_f32_s)
 - [`trunc_f32_u`](/de/docs/WebAssembly/Reference/Numeric/trunc_f32_u)
@@ -45,10 +45,10 @@ value_type.trunc
 ```
 
 - `value_type`
-  - : Der Typ des Werts, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `trunc`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `trunc`:
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `trunc`
@@ -63,15 +63,15 @@ value_type.trunc
 - `input`
   - : Der Eingabewert.
 - `output`
-  - : Der Ausgabewert, der ein Fließkomma-Typ sein wird.
+  - : Der Ausgabewert, der ein Gleitkommatyp ist.
 
-Für ein nicht-SIMD-`trunc` sind dies grundlegende numerische Werte wie `14.3` oder `3.0`.
+Für ein nicht-SIMD `trunc` werden dies grundlegende numerische Werte wie `14.3` oder `3.0` sein.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`trunc` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 100.5 6.0 7.8 83.1`. Jede Lane des Outputs, das auf den Stack geschoben wird, ist gleich der entsprechenden Lane des Eingabewerts mit entferntem Bruchteil.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `trunc` werden dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen sein, zum Beispiel `i32x4 100.5 6.0 7.8 83.1`. Jede Spur des Ausgabewerts, der auf den Stack geschoben wird, entspricht der entsprechenden Spur des Eingabewerts ohne den Bruchteil.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung     | Binärformat    | Beispiel Text => Binär       |
+| Anweisung     | Binärformat    | Beispieltext => binär        |
 | ------------- | -------------- | ---------------------------- |
 | `f32.trunc`   | `0x8f`         | `f32.trunc` => `0x8f`        |
 | `f64.trunc`   | `0x9d`         | `f64.trunc` => `0x9d`        |
@@ -82,11 +82,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`trunc` sind dies [`v128`](
 
 ### SIMD `trunc` Beispiel
 
-In diesem Beispiel demonstrieren wir die Ausführung von `trunc` auf einem SIMD-Wert und die Ausgabe eines der Lane-Werte des Ergebnisses.
+In diesem Beispiel demonstrieren wir das Ausführen von `trunc` auf einem SIMD-Wert und das Ausgeben eines der Spurwerte des Ergebnisses.
 
 #### JavaScript
 
-In unserem Skript greifen wir auf eine {{htmlelement("p")}}-Elementreferenz zu, an die wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzige Funktion enthält, die einen Wert an das `<p>`-Element schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren dabei das Objekt.
+In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt, das in Wasm importiert wird und eine einzelne Funktion enthält, die einen Wert in das Ausgabefeld `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_trunc
 <p></p>
@@ -108,7 +108,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f64`-Parameter hat. Anschließend deklarieren wir einen SIMD-`f64x2`-Wert und verwenden `f64x2.trunc`, um den Bruchteil jeder Lane zu entfernen. Schließlich extrahieren wir den Wert, der in Lane `1` des Ausgangswerts gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn über den Aufruf der importierten Funktion `output()` an das DOM aus.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript `output()`-Funktion und stellen sicher, dass sie einen `f64`-Parameter deklariert. Dann deklarieren wir einen SIMD `f64x2`-Wert und verwenden `f64x2.trunc`, um den Bruchteil jeder Spur zu entfernen. Schließlich extrahieren wir den in Spur `1` des Ausgabewertes gespeicherten Wert mit der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_trunc
 (module
@@ -130,11 +130,19 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`,
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Die Ausgabe sieht wie folgt aus:
 
 {{embedlivesample("simd_trunc", "100%", 100)}}
 
-`2000` wird ausgegeben, da dies das Ergebnis des Entfernens des Bruchteils aus Lane 1 des Eingabewertes (`2000.1`) ist.
+`2000` wird ausgegeben, weil dies das Ergebnis des Entfernens des Bruchteils aus Spur 1 des Eingabewertes (`2000.1`) ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

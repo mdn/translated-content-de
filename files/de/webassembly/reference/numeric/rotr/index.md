@@ -1,12 +1,12 @@
 ---
-title: "rotr: Wasm-Textanweisung"
+title: "rotr: Wasm numerische Anweisung"
 short-title: rotr
 slug: WebAssembly/Reference/Numeric/rotr
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`rotr`**-Anweisungen, eine Abkürzung für _rotate-right_, werden verwendet, um eine bitweise Rechtsrotation durchzuführen.
+Die **`rotr`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _rotate-right_, wird verwendet, um eine bitweise Rechtsrotation durchzuführen.
 
 {{InteractiveExample("Wat Demo: rotr", "tabbed-taller")}}
 
@@ -64,3 +64,11 @@ i32.rotr
 | ---------- | -------------- |
 | `i32.rotr` | `0x78`         |
 | `i64.rotr` | `0x8a`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

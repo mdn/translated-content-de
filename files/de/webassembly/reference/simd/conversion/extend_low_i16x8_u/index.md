@@ -3,7 +3,7 @@ title: "extend_low_i16x8_u: Wasm SIMD Konvertierungsanweisung"
 short-title: extend_low_i16x8_u
 slug: WebAssembly/Reference/SIMD/conversion/extend_low_i16x8_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
 Die **`extend_low_i16x8_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 0–3 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretation in eine `i32x4` Wertinterpretation.
@@ -48,9 +48,9 @@ i32x4.extend_low_i16x8_u
 - `output`
   - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
 
-### Binärcode
+### Binäre Kodierung
 
-| Anweisung                  | Binärformat    | Beispieltext => Binär                          |
+| Anweisung                  | Binärformat    | Beispieltext => binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |
 | `i32x4.extend_low_i16x8_u` | `0xfd 169:u32` | `i32x4.extend_low_i16x8_u` => `0xfd 0xa9 0x01` |
 
@@ -61,7 +61,3 @@ i32x4.extend_low_i16x8_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

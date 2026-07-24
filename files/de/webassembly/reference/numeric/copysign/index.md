@@ -1,12 +1,12 @@
 ---
-title: "copysign: Wasm Text-Instruktion"
+title: "copysign: Wasm numerische Anweisung"
 short-title: copysign
 slug: WebAssembly/Reference/Numeric/copysign
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`copysign`**-Instruktionen werden verwendet, um lediglich das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
+Die **`copysign`**-[numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
 
 {{InteractiveExample("Wat Demo: copysign", "tabbed-taller")}}
 
@@ -43,7 +43,15 @@ f32.copysign
 ;; the top item on the stack will now be -10
 ```
 
-| Instruktion    | Binärer Opcode |
+| Anweisung      | Binärer Opcode |
 | -------------- | -------------- |
 | `f32.copysign` | `0x98`         |
 | `f64.copysign` | `0xa6`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

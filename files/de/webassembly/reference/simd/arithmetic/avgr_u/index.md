@@ -1,12 +1,12 @@
 ---
-title: "avgr_u: Wasm SIMD-Arithmetik-Instruktion"
+title: "avgr_u: Wasm SIMD-Arithmetikbefehl"
 short-title: avgr_u
 slug: WebAssembly/Reference/SIMD/arithmetic/avgr_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`avgr_u`** [SIMD-Arithmetik-Instruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt einen aufgerundeten Durchschnitt von zwei unsigned [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen aus. Jede Lane des Ausgabewertes ist `(a + b + 1) / 2`, d.h. der Durchschnitt der entsprechenden Lanes der Eingabewerte, aufgerundet auf die nächste ganze Zahl.
+Der **`avgr_u`** [SIMD-Arithmetikbefehl](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt einen gerundeten Durchschnitt von zwei unsigned [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen aus. Jede Spur des Ausgabewertes ist `(a + b + 1) / 2`, d.h. der Mittelwert der entsprechenden Spuren der Eingabewerte, aufgerundet auf die nächste ganze Zahl.
 
 {{InteractiveExample("Wat Demo: avgr_u", "tabbed-taller")}}
 
@@ -36,11 +36,11 @@ value_type.avgr_u
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `avgr_u`:
+  - : Der Typ des Wertes, auf dem der Befehl ausgeführt wird. Die folgenden Typen unterstützen `avgr_u`:
     - `i8x16`
     - `i16x8`
 - `avgr_u`
-  - : Die `avgr_u`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Der `avgr_u` Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -55,9 +55,9 @@ value_type.avgr_u
 - `output`
   - : Der Ausgabewert.
 
-### Binärkodierung
+### Binäre Kodierung
 
-| Instruktion    | Binärformat    | Beispieltext => binär              |
+| Befehl         | Binäres Format | Beispieltext => Binär              |
 | -------------- | -------------- | ---------------------------------- |
 | `i8x16.avgr_u` | `0xfd 123:u32` | `i8x16.avgr_u` => `0xfd 0x7b`      |
 | `i16x8.avgr_u` | `0xfd 155:u32` | `i16x8.avgr_u` => `0xfd 0x9b 0x01` |
@@ -69,7 +69,3 @@ value_type.avgr_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Arithmetik-Instruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

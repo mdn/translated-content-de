@@ -1,12 +1,12 @@
 ---
-title: "abs: Wasm-Text-Instruktion"
+title: "abs: Wasm-Zahlenanweisung"
 short-title: abs
 slug: WebAssembly/Reference/Numeric/abs
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`abs`**-Instruktion, abgekürzt von _absolute_, wird verwendet, um den Absolutwert einer Zahl zu erhalten. Das heißt, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
+Die **`abs`** [Zahlenanweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _absolut_, wird verwendet, um den Absolutwert einer Zahl zu ermitteln. Das heißt, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
 
 {{InteractiveExample("Wat Demo: abs", "tabbed-standard")}}
 
@@ -36,7 +36,7 @@ value_type.abs
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Instruktion angewendet wird. Die folgenden Typen unterstützen `abs`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `abs`:
     - `f32`
     - `f64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
@@ -47,7 +47,7 @@ value_type.abs
       - `f32x4`
       - `f64x2`
 - `abs`
-  - : Die `abs` Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) hinzugefügt werden.
+  - : Die `abs`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -60,13 +60,13 @@ value_type.abs
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `abs` sind der `input` und `output` einfache numerische Werte wie `3.5` oder `10`.
+Für ein nicht-SIMD-`abs` werden `input` und `output` einfache numerische Werte wie `3.5` oder `10` sein.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `abs` sind der `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `i32x4 4 8 12 16`. Jedes Element des zum Stack geschobenen Outputs ist der Absolutwert des entsprechenden Elements im Input.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`abs` werden `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen sein, zum Beispiel `i32x4 4 8 12 16`. Jedes Lane des Ausgabewertes, der auf den Stack geschoben wird, ist der Absolutwert des entsprechenden Lanes im Eingabewert.
 
 ### Binärcodierung
 
-| Instruktion | Binärformat    | Beispieltext => Binär           |
+| Anweisung   | Binärformat    | Beispieltext => binär           |
 | ----------- | -------------- | ------------------------------- |
 | `f32.abs`   | `0x8b`         | `f32.abs` => `0x8b`             |
 | `f64.abs`   | `0x99`         | `f64.abs` => `0x99`             |
@@ -81,11 +81,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `abs` sind der `input` und 
 
 ### SIMD abs
 
-In diesem Beispiel demonstrieren wir die Ausführung der `abs`-Instruktion auf einem SIMD-Wert und zeigen einen der resultierenden Werte an.
+In diesem Beispiel demonstrieren wir die Ausführung der `abs`-Anweisung auf einem SIMD-Wert und die Ausgabe eines der resultierenden Lane-Werte.
 
 #### JavaScript
 
-In unserem Skript beziehen wir eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben. Dann definieren wir ein Objekt, das in Wasm importiert wird und eine einzelne Funktion enthält, die einen Wert in das `<p>`-Element schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript greifen wir auf eine Referenz zu einem {{htmlelement("p")}}-Element zu, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_abs
 <p></p>
@@ -107,7 +107,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD `i32x4`-Wert, führen dann `i32x4.abs` aus. Schließlich extrahieren wir den in Element `3` des Output-SIMD-Werts gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Instruktion und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()` Funktion, wobei wir sicherstellen, dass wir deklarieren, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD-`i32x4`-Wert und führen `i32x4.abs` aus. Schließlich extrahieren wir den Wert, der im Lane `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_abs
 (module
@@ -130,8 +130,16 @@ In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output(
 
 #### Ergebnis
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_abs", "100%", 100)}}
 
-Das Ergebnis ist `12`, weil der Wert, der in Element `3` des Input-Werts gespeichert ist, `-12` ist, da wir den absoluten Äquivalent ausgeben.
+Das Ergebnis ist `12`, da der Wert, der im Lane `3` des Eingabewertes gespeichert ist, `-12` ist und wir das absolute Äquivalent ausgeben.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

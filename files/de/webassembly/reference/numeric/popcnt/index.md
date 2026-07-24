@@ -1,12 +1,12 @@
 ---
-title: "popcnt: Wasm-Textanweisung"
+title: "popcnt: Wasm numerische Anweisung"
 short-title: popcnt
 slug: WebAssembly/Reference/Numeric/popcnt
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`popcnt`**-Anweisung, kurz für _population count_ (Bit-Population), wird verwendet, um die Anzahl der `1`en in der binären Darstellung einer Zahl zu zählen.
+Die **`popcnt`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _Population Count_, wird verwendet, um die Anzahl der `1`-Bits in der binären Darstellung einer Zahl zu zählen.
 
 {{InteractiveExample("Wat Demo: popcnt", "tabbed-taller")}}
 
@@ -43,12 +43,12 @@ value_type.popcnt
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `popcnt`:
+  - : Der Typ des Werts, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `popcnt`:
     - `i32`
     - `i64`
     - `i8x16` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretation
 - `popcnt`
-  - : Die `popcnt`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `popcnt`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -61,13 +61,13 @@ value_type.popcnt
 - `output`
   - : Der Ausgabewert.
 
-Bei einem nicht-SIMD `popcnt` sind dies einfache numerische Werte wie `3`.
+Für ein nicht-SIMD-`popcnt` sind dies grundlegende numerische Werte wie `3`.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `popcnt` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `i8x16 0 1 34 12 2 2 2 8 19 20 3 -1 -45 0 0 30`. Jede Lane des ausgegebenen Werts, der auf den Stapel geschoben wird, enthält die Anzahl der `1`en im Binäräquivalent der entsprechenden Lane im Eingabewert.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `popcnt` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werte-Interpretationen, z. B. `i8x16 0 1 34 12 2 2 2 8 19 20 3 -1 -45 0 0 30`. Jede Lane des auf den Stapel geschobenen Ausgabewertes enthält die Anzahl der `1`-Bits im binären Äquivalent der entsprechenden Lane im Eingabewert.
 
-### Binärcodierung
+### Binäre Codierung
 
-| Anweisung      | Binärformat   | Beispiel Text => binär        |
+| Anweisung      | Binärformat   | Beispieltext => binär         |
 | -------------- | ------------- | ----------------------------- |
 | `i32.popcnt`   | `0x69`        | `i32.popcnt` => `0x69`        |
 | `i64.popcnt`   | `0x7b`        | `i64.popcnt` => `0x7b`        |
@@ -75,13 +75,13 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `popcnt` sind dies [`v128`
 
 ## Beispiele
 
-### Nutzung von SIMD popcnt
+### Verwendung von SIMD popcnt
 
-In diesem Beispiel demonstrieren wir die Verwendung von `popcnt`, um die Anzahl der `1`en in der binären Darstellung des Inhalts einer SIMD-Wertelane zu zählen.
+In diesem Beispiel demonstrieren wir die Verwendung von `popcnt`, um die Anzahl der `1`-Bits in der binären Darstellung des Inhalts einer Lane eines SIMD-Wertes zu zählen.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}}-Element, auf das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt, das in WebAssembly importiert wird und eine einzige Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_popcnt
 <p></p>
@@ -103,7 +103,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir darauf achten, dass sie einen `i32`-Parameter hat. Wir deklarieren dann einen SIMD `i8x16`-Wert und verwenden `i8x16.popcnt`, um die binären `1`en in allen dessen Lanes zu zählen. Schließlich extrahieren wir den in Lane `15` des Ausgabe-Wertes gespeicherten Wert mit der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD-`i8x16`-Wert und verwenden `i8x16.popcnt`, um die `1`-Bits in allen seinen Lanes zu zählen. Schließlich extrahieren wir den Wert, der in Lane `15` des Ausgabewertes gespeichert ist, mit Hilfe der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_popcnt
 (module
@@ -129,4 +129,12 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_popcnt", "100%", 100)}}
 
-`4` wird ausgegeben, weil der Wert in Lane 15 des Eingabewerts `30` ist. `30` in binär ist `00011110`, welches 4 `1`en enthält.
+`4` wird ausgegeben, da der Wert in Lane 15 des Eingabewertes `30` ist. `30` in binär ist `00011110`, was 4 `1`-Bits hat.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

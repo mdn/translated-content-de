@@ -1,12 +1,12 @@
 ---
-title: "convert: Wasm-Textanweisung"
+title: "convert: Wasm numerische Anweisung"
 short-title: convert
 slug: WebAssembly/Reference/Numeric/convert
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`convert`**-Anweisungen werden verwendet, um ganze Zahlen in Gleitkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
+Die **`convert`** [numerische Anweisungen](/de/docs/WebAssembly/Reference/Numeric) werden verwendet, um Ganzzahlen in Fließkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{InteractiveExample("Wat Demo: convert", "tabbed-taller")}}
 
@@ -53,3 +53,11 @@ f32.convert_i32_s
 | `f64.convert_i32_u` | `0xb8`         |
 | `f64.convert_i64_s` | `0xb9`         |
 | `f64.convert_i64_u` | `0xba`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

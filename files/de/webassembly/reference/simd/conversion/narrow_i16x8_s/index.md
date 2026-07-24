@@ -3,10 +3,10 @@ title: "narrow_i16x8_s: Wasm SIMD Konvertierungsanweisung"
 short-title: narrow_i16x8_s
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i16x8_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`narrow_i16x8_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretationen in eine `i8x16` Wertinterpretation.
+Die **`narrow_i16x8_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Werteinterpretationen in eine `i8x16` Werteinterpretation.
 
 {{InteractiveExample("Wat Demo: narrow_i16x8_s", "tabbed-taller")}}
 
@@ -36,7 +36,7 @@ i8x16.narrow_i16x8_s
 ```
 
 - `i8x16.narrow_i16x8_s`
-  - : Die `i8x16.narrow_i16x8_s` Anweisung.
+  - : Die Anweisung `i8x16.narrow_i16x8_s`.
 
 ### Typ
 
@@ -45,15 +45,15 @@ i8x16.narrow_i16x8_s
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i16x8` Wertinterpretation.
+  - : Die erste Eingabe `v128` `i16x8` Werteinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i16x8` Wertinterpretation.
+  - : Die zweite Eingabe `v128` `i16x8` Werteinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i8x16` Wertinterpretation.
+  - : Die Ausgabe `v128` `i8x16` Werteinterpretation.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung              | Binärformat    | Beispieltext => Binär                 |
+| Anweisung              | Binärformat    | Beispieltext => binär                 |
 | ---------------------- | -------------- | ------------------------------------- |
 | `i8x16.narrow_i16x8_s` | `0xfd 101:u32` | `i8x16.narrow_i16x8_s` => `0xfd 0x65` |
 
@@ -64,7 +64,3 @@ i8x16.narrow_i16x8_s
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

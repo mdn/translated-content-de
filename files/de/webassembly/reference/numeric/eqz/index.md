@@ -1,12 +1,12 @@
 ---
-title: "eqz: Wasm-Text-Instruktion"
+title: "eqz: Wasm numerische Anweisung"
 short-title: eqz
 slug: WebAssembly/Reference/Numeric/eqz
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`eqz`**-Instruktion prüft, ob eine Zahl gleich null ist.
+Die **`eqz`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) überprüft, ob eine Zahl gleich null ist.
 
 {{InteractiveExample("Wat Demo: eqz", "tabbed-taller")}}
 
@@ -44,11 +44,11 @@ value_type.eqz
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `eqz`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `eqz`:
     - `i32`
     - `i64`
 - `eqz`
-  - : Die `eqz`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen werden.
+  - : Die `eqz`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -59,14 +59,22 @@ value_type.eqz
 - `input`
   - : Der Eingabewert.
 - `output`
-  - : Der Ausgabewert. Wenn `input` gleich `0` ist, wird `1` auf den Stapel geschoben, ansonsten wird `0` auf den Stapel geschoben. Die Ausgabewerte sind Ganzzahlen.
+  - : Der Ausgabewert. Wenn `input` gleich `0` ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben. Die Ausgabewerte sind Ganzzahlen.
 
 ### Binäre Kodierung
 
-| Instruktion | Binärformat | Beispieltext => binär |
-| ----------- | ----------- | --------------------- |
-| `i32.eqz`   | `0x45`      | `i32.eqz` => `0x45`   |
-| `i64.eqz`   | `0x50`      | `i64.eqz` => `0x50`   |
+| Anweisung | Binäres Format | Beispieltext => binär |
+| --------- | -------------- | --------------------- |
+| `i32.eqz` | `0x45`         | `i32.eqz` => `0x45`   |
+| `i64.eqz` | `0x50`         | `i64.eqz` => `0x50`   |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

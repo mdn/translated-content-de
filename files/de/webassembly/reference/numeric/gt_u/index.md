@@ -1,17 +1,17 @@
 ---
-title: "gt_u: Wasm Text-Instruktion"
+title: "gt_u: Wasm numerische Anweisung"
 short-title: gt_u
 slug: WebAssembly/Reference/Numeric/gt_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`gt_u`**-Instruktion, kurz für _greater than unsigned_ (größer als ohne Vorzeichen), überprüft, ob eine Ganzzahl ohne Vorzeichen größer ist als eine andere Ganzzahl ohne Vorzeichen.
+Die **`gt_u`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), Abkürzung für _greater than unsigned_ (größer als ohne Vorzeichen), überprüft, ob eine Ganzzahl ohne Vorzeichen größer ist als eine andere Ganzzahl ohne Vorzeichen.
 
-Es gibt weitere `gt`-Instruktionen:
+Es gibt andere `gt`-Anweisungen:
 
-- [**`gt_s`**](/de/docs/WebAssembly/Reference/Numeric/gt_s) zum Vergleichen von Ganzzahlen mit Vorzeichen.
-- [**`gt`**](/de/docs/WebAssembly/Reference/Numeric/gt) zum Vergleichen von Fließkommazahlen.
+- [**`gt_s`**](/de/docs/WebAssembly/Reference/Numeric/gt_s) für den Vergleich von Ganzzahlen mit Vorzeichen.
+- [**`gt`**](/de/docs/WebAssembly/Reference/Numeric/gt) für den Vergleich von Fließkommazahlen.
 
 {{InteractiveExample("Wat Demo: gt_u", "tabbed-taller")}}
 
@@ -50,15 +50,15 @@ value_type.gt_u
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `gt_u`:
+  - : Der Wertetyp, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `gt_u`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
 - `gt_u`
-  - : Die `gt_u`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `gt_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -73,13 +73,13 @@ value_type.gt_u
 - `output`
   - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Für eine nicht-SIMD `gt_u`-Instruktion sind die Eingaben grundlegende numerische Werte wie `3` oder `12`. Wenn der erste Eingang größer ist als der zweite Eingang, wird `1` auf den Stapel gelegt; ansonsten wird `0` auf den Stapel gelegt.
+Für eine nicht-SIMD `gt_u`-Anweisung sind die Eingaben einfache Zahlenwerte wie `3` oder `12`. Wenn der erste Eingabewert größer als der zweite ist, wird `1` als Ausgabe auf den Stapel gesetzt, andernfalls `0`.
 
-Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_u`-Instruktion sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werteinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Lane der Ausgabe auf dem Stapel ist `1` oder `0`, je nachdem, ob die entsprechende Lane des ersten Eingabewertes größer ist als die entsprechende Lane des zweiten Eingabewertes.
+Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_u`-Anweisung sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Spur der Ausgabe, die auf den Stapel gesetzt wird, ist `1` oder `0`, was anzeigt, ob die entsprechende Spur des ersten Eingabewerts größer ist als die entsprechende Spur des zweiten Eingabewerts.
 
-### Binäre Codierung
+### Binär-Codierung
 
-| Instruktion  | Binärformat   | Beispiel Text => Binär      |
+| Anweisung    | Binärformat   | Beispieltext => binär       |
 | ------------ | ------------- | --------------------------- |
 | `i32.gt_u`   | `0x4b`        | `i32.gt_u` => `0x4b`        |
 | `i64.gt_u`   | `0x56`        | `i64.gt_u` => `0x56`        |
@@ -91,11 +91,11 @@ Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `gt_u`-Instruktion sind di
 
 ### SIMD `gt_u` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `gt_u`, um zu testen, ob ein SIMD Lane-Wert größer ist als derselbe Lane-Wert in einem anderen SIMD-Wert.
+In diesem Beispiel demonstrieren wir die Verwendung von `gt_u`, um zu testen, ob ein SIMD-Spurwert größer ist als derselbe Spurwert in einem anderen SIMD-Wert.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, auf das wir unser Ergebnis ausgeben, dann definieren wir ein Objekt zum Import in Wasm, das eine einzige Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_gt_u
 <p></p>
@@ -117,7 +117,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter deklariert. Dann deklarieren wir zwei SIMD `i32x4` Werte und überprüfen, ob die Lanes des ersten größer sind als die des zweiten mit `i32x4.gt_u`. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter deklariert. Wir deklarieren dann zwei SIMD `i32x4`-Werte und prüfen, ob die Spurwerte des ersten größer sind als die des zweiten mit `i32x4.gt_u`. Schließlich extrahieren wir den Wert, der in Spur `3` des Ausgabe-Wertes gespeichert ist, mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung, und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_gt_u
 (module
@@ -146,7 +146,15 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_gt_u", "100%", 100)}}
 
-Das Ergebnis ist `1`, weil der Wert, der in Lane `3` des ersten Eingabewertes gespeichert ist, größer ist als der Wert, der in Lane `3` des zweiten Eingabewertes gespeichert ist.
+Das Ergebnis ist `1`, weil der Wert, der in Spur `3` des ersten Eingabewertes gespeichert ist, größer ist als der Wert, der in Spur `3` des zweiten Eingabewertes gespeichert ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

@@ -1,12 +1,12 @@
 ---
-title: "shr_u: Wasm-Textanweisung"
+title: "shr_u: Wasm Zahlenoperation"
 short-title: shr_u
 slug: WebAssembly/Reference/Numeric/shr_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`shr_u`**-Anweisungen, kurz für _shift-right unsigned_, werden verwendet, um einen bitweisen Rechts-Shift auf vorzeichenlose Ganzzahlen durchzuführen, ähnlich dem **`>>>`**-Operator in anderen Sprachen.
+Die **`shr_u`** [Zahlenoperation](/de/docs/WebAssembly/Reference/Numeric), kurz für _shift-right unsigned_, wird verwendet, um eine bitweise Rechtsverschiebung auf vorzeichenlose Ganzzahlen durchzuführen, ähnlich wie der **`>>>`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: shr_u", "tabbed-taller")}}
 
@@ -56,13 +56,13 @@ value_type.shr_u
   - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `shr_u`:
     - `i32`
     - `i64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `i8x16`
       - `i16x8`
       - `i32x4`
       - `i64x2`
 - `shr_u`
-  - : Die `shr_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) inkludiert werden.
+  - : Die `shr_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
 
 ### Typ
 
@@ -77,13 +77,13 @@ value_type.shr_u
 - `output`
   - : Der Ausgabewert.
 
-Bei einem Nicht-SIMD-`shr_u` sind `input` und `output` einfache numerische Werte wie `3` oder `12`.
+Für ein nicht-SIMD `shr_u` sind `input` und `output` einfache Zahlenwerte wie `3` oder `12`.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`shr_u` sind `input` und `output` [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Spur des auf den Stapel geschobenen Outputs enthält die entsprechende Spur im Eingabewert, um den spezifizierten `shift_value` nach rechts verschoben.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `shr_u` sind `input` und `output` Interpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werten, zum Beispiel `i32x4 2 30 86 120`. Jede Spur des an den Stapel geschobenen Ausgabe enthält die entsprechende Spur des Eingabewerts, die um den angegebenen `shift_value` nach rechts verschoben wurde.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung     | Binärformat    | Beispieltext => binär             |
+| Anweisung     | Binärformat    | Beispieltext => Binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i32.shr_u`   | `0x76`         | `i32.shr_u` => `0x76`             |
 | `i64.shr_u`   | `0x88`         | `i64.shr_u` => `0x88`             |
@@ -92,13 +92,13 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`shr_u` sind `input` und `
 | `i32x4.shr_u` | `0xfd 173:u32` | `i32x4.shr_u` => `0xfd 0xad 0x01` |
 | `i64x2.shr_u` | `0xfd 205:u32` | `i64x2.shr_u` => `0xfd 0xcd 0x01` |
 
-### SIMD-Rechts-Shift
+### SIMD-Rechtsverschiebung
 
-In diesem Beispiel demonstrieren wir, wie ein Rechts-Shift auf einem SIMD-Wert durchgeführt wird und wie einer der Spurwerte ausgegeben wird.
+In diesem Beispiel demonstrieren wir die Durchführung einer Rechtsverschiebung auf einen SIMD-Wert und das Ausgeben eines der Spurwerte.
 
 #### JavaScript
 
-In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, das wir für die Ausgabe unseres Ergebnisses verwenden, und definieren dann ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an die Ausgabe `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}} Element zu, auf das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabefeld `<p>` schreibt. Danach kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_shr_u
 <p></p>
@@ -120,7 +120,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir einen SIMD-`i16x8`-Wert und verschieben ihn dann mit `i16x8.shr_u` um 2 nach rechts. Schließlich extrahieren wir den in der Spur `6` des Ausgabe-SIMD-Werts gespeicherten Wert mit der Anweisung [`extract_lane_u`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_u) und geben ihn an das DOM aus, indem wir die importierte Funktion `output()` aufrufen.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass diese eine `i32` Parameter hat. Dann deklarieren wir einen SIMD `i16x8` Wert, verschieben ihn dann um 2 mit `i16x8.shr_u`. Schließlich extrahieren wir den in Spur `6` des Ausgabe-SIMD-Werts gespeicherten Wert mit der [`extract_lane_u`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_u) Anweisung und geben ihn in das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
 
 ```wat live-sample___simd_shr_u
 (module
@@ -148,7 +148,15 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_shr_u", "100%", 100)}}
 
-Das Ergebnis ist `22`, weil der in Spur `6` des Eingabewertes gespeicherte Wert `91` ist. Nach einer Rechtsverschiebung um zwei Positionen enthält die Spur `6` des Ausgabewerts den Wert `22`.
+Das Ergebnis ist `22`, da der in Spur `6` des Eingabewertes gespeicherte Wert `91` ist. Einmal um zwei Positionen nach rechts verschoben, enthält Spur `6` des Ausgabe-Werts den Wert `22`.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

@@ -1,12 +1,12 @@
 ---
-title: "narrow_i32x4_s: Wasm SIMD-Umwandlungsanweisung"
+title: "narrow_i32x4_s: Wasm SIMD Konvertierungsanweisung"
 short-title: narrow_i32x4_s
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i32x4_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`narrow_i32x4_s`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretationen in eine `i16x8` Wertinterpretation.
+Die **`narrow_i32x4_s`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretationen in eine `i16x8` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: narrow_i32x4_s", "tabbed-taller")}}
 
@@ -51,7 +51,7 @@ i16x8.narrow_i32x4_s
 - `output`
   - : Die Ausgabe `v128` `i16x8` Wertinterpretation.
 
-### Binäre Kodierung
+### Binärkodierung
 
 | Anweisung              | Binärformat    | Beispieltext => binär                      |
 | ---------------------- | -------------- | ------------------------------------------ |
@@ -64,7 +64,3 @@ i16x8.narrow_i32x4_s
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

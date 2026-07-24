@@ -1,12 +1,12 @@
 ---
-title: "mul: Wasm-Textanweisung"
+title: "mul: Wasm numerische Anweisung"
 short-title: mul
 slug: WebAssembly/Reference/Numeric/mul
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`mul`**-Anweisung, Kurzform für _Multiplikation_, wird verwendet, um eine Zahl mit einer anderen zu multiplizieren, ähnlich dem **`*`**-Operator in anderen Sprachen.
+Die **`mul`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _Multiplikation_, wird verwendet, um eine Zahl mit einer anderen zu multiplizieren, ähnlich dem **`*`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: mul", "tabbed-taller")}}
 
@@ -37,19 +37,19 @@ value_type.mul
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `mul`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `mul`:
     - `i32`
     - `i64`
     - `f32`
     - `f64`
-    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
+    - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `i16x8`
       - `i32x4`
       - `i64x2`
       - `f32x4`
       - `f64x2`
 - `mul`
-  - : Die `mul`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `mul`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -64,13 +64,13 @@ value_type.mul
 - `output`
   - : Das Produkt der beiden Eingabewerte.
 
-Bei einem non-SIMD `mul` sind dies einfache numerische Werte wie `3` oder `3.5`.
+Für ein nicht-SIMD-`mul` sind dies grundlegende numerische Werte wie `3` oder `3.5`.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `mul` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jede Bahn des aus dem Stapel geschobenen Outputs ist das Produkt der zwei Eingabewerte, deren entsprechende Bahnwahrte multipliziert wurden.
+Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `mul` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, z.B. `f32x4 0x9 0xa 0xb 0xc`. Jede Lane des Ergebnisses, die auf den Stack geschoben wird, ist das Produkt der entsprechenden Lane-Werte der zwei Eingaben, die miteinander multipliziert werden.
 
-### Binäre Codierung
+### Binärkodierung
 
-| Anweisung   | Binärformat    | Beispiel Text => Binär          |
+| Anweisung   | Binärformat    | Beispieltext => binär           |
 | ----------- | -------------- | ------------------------------- |
 | `i32.mul`   | `0x6c`         | `i32.mul` => `0x6c`             |
 | `i64.mul`   | `0x7e`         | `i64.mul` => `0x7e`             |
@@ -86,11 +86,11 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `mul` sind dies [`v128`](/
 
 ### SIMD-Multiplikation
 
-In diesem Beispiel zeigen wir, wie ein SIMD-Wert mit einem anderen multipliziert wird und wie einer der Bahnwerte des resultierenden Produkts ausgegeben wird.
+In diesem Beispiel demonstrieren wir die Multiplikation eines SIMD-Wertes mit einem anderen und geben einen der Lane-Werte des resultierenden Produktes aus.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zur Importierung in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und installieren anschließend unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, dann definieren wir ein Objekt für den Import in Wasm, das eine einzige Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_mul
 <p></p>
@@ -112,7 +112,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD-`i16x8`-Werte, multiplizieren den ersten mit dem zweiten mittels `i16x8.mul` und extrahieren schließlich den in Bahn `7` gespeicherten Wert des Ausgabe-Wertes mit der Anweisung [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s) und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD `i16x8` Werte, multiplizieren den ersten mit dem zweiten mittels `i16x8.mul`. Schließlich extrahieren wir den Wert, der in Lane `7` des Ausgabewertes gespeichert ist, mit der [`extract_lane_s`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane_s)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_mul
 (module
@@ -136,8 +136,16 @@ In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`,
 
 #### Ergebnis
 
-Das Ergebnis sieht wie folgt aus:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_mul", "100%", 100)}}
 
-Das Ergebnis ist `108`, weil der in Bahn `3` des Ausgabewertes gespeicherte Wert das Ergebnis von `12 * 9` ist.
+Das Ergebnis ist `108`, da der in Lane `3` gespeicherte Wert des Ausgabewertes das Resultat von `12 * 9` ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

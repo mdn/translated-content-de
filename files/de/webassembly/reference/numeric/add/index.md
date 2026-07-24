@@ -1,12 +1,12 @@
 ---
-title: "add: Wasm-Textanweisung"
+title: "add: Wasm-Zahlenoperation"
 short-title: add
 slug: WebAssembly/Reference/Numeric/add
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`add`** Anweisung wird verwendet, um zwei Zahlen zu addieren, ähnlich wie der **`+`** Operator in anderen Sprachen.
+Die **`add`** [Numerische Instruktion](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um zwei Zahlen zu addieren, ähnlich wie der **`+`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: add", "tabbed-taller")}}
 
@@ -37,7 +37,7 @@ value_type.add
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `add`:
+  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `add`:
     - `i32`
     - `i64`
     - `f32`
@@ -50,7 +50,7 @@ value_type.add
       - `f32x4`
       - `f64x2`
 - `add`
-  - : Die `add` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `add`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -59,19 +59,19 @@ value_type.add
 ```
 
 - `input1`
-  - : Der erste zu addierende Wert.
+  - : Der erste Wert, der addiert werden soll.
 - `input2`
-  - : Der zweite zu addierende Wert.
+  - : Der zweite Wert, der addiert werden soll.
 - `output`
   - : Die Summe der beiden Eingabewerte.
 
-Für eine nicht-SIMD `add` sind dies grundlegende numerische Werte wie `3` oder `3.5`.
+Bei einem nicht-SIMD `add` sind dies einfache numerische Werte wie `3` oder `3.5`.
 
-Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `add` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jeder Lane der Ausgabe, die auf den Stack gelegt wird, ist die Addition der entsprechenden Lanes in den Eingabewerten.
+Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `add` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `f32x4 0x9 0xa 0xb 0xc`. Jede Lane des Ergebnisses, das auf den Stack geschoben wird, ist die Summe der entsprechenden Lanes in den Eingabewerten.
 
 ### Binärcode
 
-| Anweisung   | Binärformat    | Beispieltext => binär           |
+| Instruktion | Binärformat    | Beispieltext => Binär           |
 | ----------- | -------------- | ------------------------------- |
 | `i32.add`   | `0x6a`         | `i32.add` => `0x6a`             |
 | `i64.add`   | `0x7c`         | `i64.add` => `0x7c`             |
@@ -86,13 +86,13 @@ Für eine [SIMD](/de/docs/WebAssembly/Reference/SIMD) `add` sind dies [`v128`](/
 
 ## Beispiele
 
-### SIMD Addition
+### SIMD-Addition
 
-In diesem Beispiel demonstrieren wir das Addieren zweier SIMD-Werte und das Ausgeben eines der Lane-Werte.
+In diesem Beispiel zeigen wir die Addition von zwei SIMD-Werten und die Ausgabe eines der Lane-Werte.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}} Element, in das wir unser Ergebnis ausgeben werden, dann definieren wir ein Objekt zum Importieren in Wasm, das eine einzige Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt importieren.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_add
 <p></p>
@@ -114,7 +114,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD-`i32x4`-Werte und addieren sie mit `i32x4.add`. Schließlich extrahieren wir den in Lane `3` der Summe gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32`-Parameter hat. Dann deklarieren wir zwei SIMD-`i32x4`-Werte und addieren sie mit `i32x4.add`. Schließlich extrahieren wir den in Lane `3` gespeicherten Wert der Summe der Addition mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
 
 ```wat live-sample___simd_add
 (module
@@ -142,4 +142,12 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_add", "100%", 100)}}
 
-Das Ergebnis ist `24`, da der Wert, der in Lane `3` jedes der Eingabewerte gespeichert ist, `12` ist. Einmal addiert, enthält Lane `3` des Ausgabewertes den Wert `24`.
+Das Ergebnis ist `24`, weil der in Lane `3` gespeicherte Wert jedes der Eingabewerte `12` ist. Nach der Addition enthält Lane `3` des Ausgabewerts den Wert `24`.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

@@ -1,12 +1,12 @@
 ---
-title: "min_u: Wasm SIMD arithmetische Anweisung"
+title: "min_u: Wasm SIMD Arithmetic Instruction"
 short-title: min_u
 slug: WebAssembly/Reference/SIMD/arithmetic/min_u
 l10n:
-  sourceCommit: 05a935ece59e972b328235c64ecd628b59780f17
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`min_u`** Anweisung vergleicht zwei Interpretationen von unsignierten Ganzzahlen mit dem Werttyp [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und liefert eine neue Interpretation zurück, bei der jedes Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt wird.
+Die **`min_u`** Anweisung vergleicht zwei unsigned integer Wertinterpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt ist.
 
 {{InteractiveExample("Wat Demo: min_u", "tabbed-taller")}}
 
@@ -39,7 +39,7 @@ value_type.min_u
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `min_u`:
+  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `min_u`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
@@ -57,15 +57,23 @@ value_type.min_u
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neuer `v128` vom gleichen Typ wie die Eingaben, wobei jedes Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt wird.
+  - : Der Ausgabewert. Ein neuer `v128` desselben Typs wie die Eingaben, bei dem jede Lane auf den niedrigeren Wert des Lane-Index der beiden Eingaben gesetzt ist.
 
-### Binärcode-Kodierung
+### Binäre Codierung
 
-| Anweisung     | Binärformat    | Beispieltext => binär             |
+| Anweisung     | Binärformat    | Beispieltext => Binärformat       |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.min_u` | `0xfd 119:u32` | `i8x16.min_u` => `0xfd 0x77`      |
 | `i16x8.min_u` | `0xfd 151:u32` | `i16x8.min_u` => `0xfd 0x97 0x01` |
 | `i32x4.min_u` | `0xfd 183:u32` | `i32x4.min_u` => `0xfd 0xb7 0x01` |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

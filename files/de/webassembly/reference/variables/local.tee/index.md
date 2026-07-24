@@ -1,12 +1,12 @@
 ---
-title: "local.tee: Wasm-Textanweisung"
+title: "local.tee: Wasm-Variablenanweisung"
 short-title: local.tee
 slug: WebAssembly/Reference/Variables/local.tee
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
 ---
 
-Die **`local.tee`**-Anweisung setzt den Wert einer lokalen Variablen und lädt den Wert auf den Stack.
+Die **`local.tee`** [Variablenanweisung](/de/docs/WebAssembly/Reference/Variables) setzt den Wert einer lokalen Variable und lädt den Wert auf den Stapel.
 
 Die Anweisung ist nach dem T-Stück benannt, das in der Klempnerei verwendet wird.
 
@@ -45,3 +45,11 @@ local.tee $val
 | Anweisung   | Binärer Opcode |
 | ----------- | -------------- |
 | `local.tee` | `0x22`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

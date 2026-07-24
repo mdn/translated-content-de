@@ -3,7 +3,7 @@ title: "replace_lane: Wasm SIMD Umwandlungsanweisung"
 short-title: replace_lane
 slug: WebAssembly/Reference/SIMD/conversion/replace_lane
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
 Die **`replace_lane`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) ersetzt die angegebene Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretation mit einem neuen Wert und gibt die resultierende `v128`-Wertinterpretation zurück.

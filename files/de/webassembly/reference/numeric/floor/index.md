@@ -1,14 +1,14 @@
 ---
-title: "floor: Wasm Text-Instruktion"
+title: "floor: Wasm Anweisungen für numerische Operationen"
 short-title: floor
 slug: WebAssembly/Reference/Numeric/floor
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`floor`**-Instruktion wird verwendet, um den Wert einer Zahl auf die nächste ganze Zahl nach unten abzurunden.
+Die **`floor`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um den Wert einer Zahl abzurufen, der auf die nächste ganze Zahl abgerundet wurde.
 
-`floor` unterscheidet sich von [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/trunc) bei der Verwendung mit negativen Zahlen — `floor` rundet in diesen Fällen nach unten, während `trunc` nach oben rundet.
+`floor` unterscheidet sich von [**`trunc`**](/de/docs/WebAssembly/Reference/Numeric/trunc), wenn es bei negativen Zahlen verwendet wird — `floor` wird in diesen Fällen abrunden, während `trunc` aufrundet.
 
 {{InteractiveExample("Wat Demo: floor", "tabbed-standard")}}
 
@@ -38,14 +38,14 @@ value_type.floor
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion angewendet wird. Die folgenden Typen unterstützen `floor`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `floor`:
     - `f32`
     - `f64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `floor`
-  - : Die `floor`-Instruktion. Sie muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `floor` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -54,17 +54,17 @@ value_type.floor
 ```
 
 - `input`
-  - : Die Eingabe-`v128`-Wertinterpretation.
+  - : Die Eingabe-Interpretation des `v128` Wertes.
 - `output`
-  - : Die Ausgabe-`v128`-Wertinterpretation.
+  - : Die Ausgabe-Interpretation des `v128` Wertes.
 
-Bei einem nicht-SIMD-`floor` sind dies grundlegende numerische Werte wie `14.3` oder `3.0`.
+Für ein nicht-SIMD `floor` sind dies grundlegende numerische Werte wie `14.3` oder `3.0`.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`floor` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `f32x4 1.9 2.5 0.5 12.1`. Jede Lane des in den Stack geschobenen Outputs ist der abgerundete Wert der entsprechenden Lane im Eingabewert.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `floor` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, zum Beispiel `f32x4 1.9 2.5 0.5 12.1`. Jeder Lane der Ausgabe, die in den Stack geschoben wird, ist der abgerundete Wert des entsprechenden Lanes im Eingabewert.
 
-### Binärkodierung
+### Binärcodierung
 
-| Instruktion   | Binärformat    | Beispieltext => Binär        |
+| Anweisung     | Binärformat    | Beispieltext => binär        |
 | ------------- | -------------- | ---------------------------- |
 | `f32.floor`   | `0x8e`         | `f32.floor` => `0x8e`        |
 | `f64.floor`   | `0x9c`         | `f64.floor` => `0x9c`        |
@@ -73,13 +73,13 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD)-`floor` sind dies [`v128`]
 
 ## Beispiele
 
-### SIMD `floor`-Beispiel
+### SIMD `floor` Beispiel
 
-In diesem Beispiel demonstrieren wir das Ausführen von `floor` auf einem SIMD-Wert und geben einen der Lane-Werte des Ergebnisses aus.
+In diesem Beispiel demonstrieren wir, wie `floor` auf einen SIMD-Wert angewendet wird und geben einen der Lane-Werte des Ergebnisses aus.
 
 #### JavaScript
 
-In unserem Skript greifen wir auf ein {{htmlelement("p")}}-Element zu, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabefeld `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir gleichzeitig das Objekt importieren.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) Methode, wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_floor
 <p></p>
@@ -101,7 +101,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f64`-Parameter hat. Dann deklarieren wir einen SIMD-`f64x2`-Wert und verwenden `f64x2.floor`, um jede Lane nach unten auf die nächste ganze Zahl zu runden. Schließlich extrahieren wir den Wert, der in Lane `0` des Ausgabewertes gespeichert ist, mithilfe der Instruktion [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane), und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript `output()` Funktion und stellen sicher, dass sie einen `f64` Parameter hat. Dann deklarieren wir einen SIMD `f64x2` Wert und verwenden `f64x2.floor`, um jeden Lane auf die nächste ganze Zahl abzurunden. Schließlich extrahieren wir den im Lane `0` des Ausgabewertes gespeicherten Wert mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung und geben ihn über den Aufruf der importierten `output()` Funktion an das DOM aus.
 
 ```wat live-sample___simd_floor
 (module
@@ -128,3 +128,11 @@ Die Ausgabe ist wie folgt:
 {{embedlivesample("simd_floor", "100%", 100)}}
 
 `3` wird ausgegeben, weil dies das Ergebnis des Abrundens von Lane 0 des Eingabewertes (`3.9`) auf die nächste ganze Zahl ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

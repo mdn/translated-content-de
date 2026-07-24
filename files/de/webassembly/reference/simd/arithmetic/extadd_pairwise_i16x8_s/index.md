@@ -1,12 +1,12 @@
 ---
-title: "extadd_pairwise_i16x8_s: Wasm SIMD Arithmetik-Instruktion"
+title: "extadd_pairwise_i16x8_s: Wasm SIMD Recheninstruktion"
 short-title: extadd_pairwise_i16x8_s
 slug: WebAssembly/Reference/SIMD/arithmetic/extadd_pairwise_i16x8_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`extadd_pairwise_i16x8_s`** [SIMD Arithmetik-Instruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) addiert jedes benachbarte Paar von Spuren einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretation und gibt die Ergebnisse in einer `i32x4` Wertinterpretation aus.
+Die **`extadd_pairwise_i16x8_s`** [SIMD Recheninstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) summiert jedes benachbarte Paar von Lanes einer als signiert interpretierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8`, wobei die Ergebnisse in eine `i32x4`-Wertinterpretation ausgegeben werden.
 
 {{InteractiveExample("Wat Demo: extadd_pairwise_i16x8_s", "tabbed-taller")}}
 
@@ -28,7 +28,7 @@ Die **`extadd_pairwise_i16x8_s`** [SIMD Arithmetik-Instruktion](/de/docs/WebAsse
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel enthält jedes benachbarte Spur-Paar die Werte `20` und `40`. Die `extadd_pairwise_i16x8_s` Instruktion addiert jedes dieser Paare, sodass die 4 Spuren des Ausgabewertes `i32x4` alle den Wert `60` enthalten.
+Im obigen Beispiel enthält jedes benachbarte Paar von Lanes die Werte `20` und `40`. Die `extadd_pairwise_i16x8_s`-Instruktion addiert jedes Paar, was dazu führt, dass alle 4 Lanes des Ausgabe-`i32x4`-Wertes den Wert `60` enthalten.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ i32x4.extadd_pairwise_i16x8_s
 ```
 
 - `i32x4.extadd_pairwise_i16x8_s`
-  - : Die `i32x4.extadd_pairwise_i16x8_s` Instruktion.
+  - : Die `i32x4.extadd_pairwise_i16x8_s`-Instruktion.
 
 ### Typ
 
@@ -46,13 +46,13 @@ i32x4.extadd_pairwise_i16x8_s
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i16x8` Wertinterpretation.
+  - : Die Eingabe-`v128`-`i16x8`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
+  - : Die Ausgabe-`v128`-`i32x4`-Wertinterpretation.
 
-### Binärcodierung
+### Binärkodierung
 
-| Instruktion                     | Binärformat    | Textbeispiel => Binär                          |
+| Instruktion                     | Binärformat    | Beispiels-Text => binär                        |
 | ------------------------------- | -------------- | ---------------------------------------------- |
 | `i32x4.extadd_pairwise_i16x8_s` | `0xfd 126:u32` | `i32x4.extadd_pairwise_i16x8_s` => `0xfd 0x7e` |
 
@@ -63,7 +63,3 @@ i32x4.extadd_pairwise_i16x8_s
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Arithmetik-Instruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

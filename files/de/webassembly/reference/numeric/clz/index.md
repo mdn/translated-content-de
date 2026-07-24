@@ -1,12 +1,12 @@
 ---
-title: "clz: Wasm-Textanweisung"
+title: "clz: Wasm numerische Anweisung"
 short-title: clz
 slug: WebAssembly/Reference/Numeric/clz
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`clz`**-Anweisungen, kurz für _count leading zeros_ (zähle führende Nullen), werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung einer Zahl zu zählen.
+Die **`clz`** [numerische Anweisungen](/de/docs/WebAssembly/Reference/Numeric), kurz für _count leading zeros_, werden verwendet, um die Anzahl der Nullen am Anfang der binären Darstellung einer Zahl zu zählen.
 
 {{InteractiveExample("Wat Demo: clz", "tabbed-taller")}}
 
@@ -54,3 +54,11 @@ i32.clz
 | --------- | -------------- |
 | `i32.clz` | `0x67`         |
 | `i64.clz` | `0x79`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

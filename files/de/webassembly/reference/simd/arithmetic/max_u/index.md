@@ -1,12 +1,12 @@
 ---
-title: "max_u: Wasm SIMD arithmetische Anweisung"
+title: "max_u: Wasm SIMD Arithmetic-Anweisung"
 short-title: max_u
 slug: WebAssembly/Reference/SIMD/arithmetic/max_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`max_u`** Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen von Ganzzahlen ohne Vorzeichen und gibt eine neue Interpretation zurück, bei der jeder Kanal auf den größeren Wert des jeweiligen Kanalindex der beiden Eingaben gesetzt ist.
+Die **`max_u`**-Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen von unsignierten Ganzzahlen und gibt eine neue Interpretation zurück, bei der jede Lane auf den größeren Wert des jeweiligen Lane-Index der beiden Eingaben gesetzt wird.
 
 {{InteractiveExample("Wat Demo: max_u", "tabbed-taller")}}
 
@@ -44,7 +44,7 @@ value_type.max_u
     - `i16x8`
     - `i32x4`
 - `max_u`
-  - : Die `max_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `max_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -57,15 +57,23 @@ value_type.max_u
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neuer `v128` vom gleichen Typ wie die Eingaben, wobei jeder Kanal auf den größeren Wert des jeweiligen Kanalindex der beiden Eingaben gesetzt ist.
+  - : Der Ausgabewert. Ein neuer `v128` des gleichen Typs wie die Eingaben, bei dem jede Lane auf den größeren Wert des jeweiligen Lane-Index der beiden Eingaben gesetzt wird.
 
-### Binärcode Kodierung
+### Binärcodierung
 
-| Anweisung     | Binärformat    | Beispieltext => Binär             |
+| Anweisung     | Binärformat    | Beispieltext => binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.max_u` | `0xfd 121:u32` | `i8x16.max_u` => `0xfd 0x79`      |
 | `i16x8.max_u` | `0xfd 153:u32` | `i16x8.max_u` => `0xfd 0x99 0x01` |
 | `i32x4.max_u` | `0xfd 185:u32` | `i32x4.max_u` => `0xfd 0xb9 0x01` |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

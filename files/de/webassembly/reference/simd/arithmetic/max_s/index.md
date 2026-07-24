@@ -1,12 +1,12 @@
 ---
-title: "max_s: Wasm SIMD Arithmetik-Instruktion"
+title: "max_s: Wasm SIMD Arithmetik-Befehl"
 short-title: max_s
 slug: WebAssembly/Reference/SIMD/arithmetic/max_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`max_s`**-Instruktion vergleicht zwei signierte Ganzzahlwertinterpretationen von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den höheren Wert des Lane-Index der beiden Eingaben gesetzt ist.
+Der **`max_s`** Befehl vergleicht zwei interpretierte, vorzeichenbehaftete Ganzzahlwerte von [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) und gibt eine neue Interpretation zurück, bei der jede Lane auf den größeren Wert des jeweiligen Lane-Index der beiden Eingaben gesetzt wird.
 
 {{InteractiveExample("Wat Demo: max_s", "tabbed-taller")}}
 
@@ -39,12 +39,12 @@ value_type.max_s
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `max_s`:
+  - : Der Typ des Wertes, auf dem der Befehl ausgeführt wird. Die folgenden Typen unterstützen `max_s`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
 - `max_s`
-  - : Die `max_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Der `max_s` Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -57,15 +57,23 @@ value_type.max_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert. Ein neues `v128` des gleichen Typs wie die Eingaben, wobei jede Lane auf den höheren Wert des Lane-Index der beiden Eingaben gesetzt ist.
+  - : Der Ausgabewert. Ein neues `v128` vom gleichen Typ wie die Eingaben, wobei jede Lane auf den größeren Wert des jeweiligen Lane-Index der beiden Eingaben gesetzt wird.
 
 ### Binäre Kodierung
 
-| Instruktion   | Binärformat    | Beispieltext => binär             |
+| Befehl        | Binärformat    | Beispieltext => Binär             |
 | ------------- | -------------- | --------------------------------- |
 | `i8x16.max_s` | `0xfd 120:u32` | `i8x16.max_s` => `0xfd 0x78`      |
 | `i16x8.max_s` | `0xfd 152:u32` | `i16x8.max_s` => `0xfd 0x98 0x01` |
 | `i32x4.max_s` | `0xfd 184:u32` | `i32x4.max_s` => `0xfd 0xb8 0x01` |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

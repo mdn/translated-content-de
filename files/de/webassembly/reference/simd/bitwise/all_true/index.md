@@ -1,12 +1,12 @@
 ---
-title: "all_true: Wasm SIMD bitweise Anweisung"
+title: "all_true: Wasm SIMD Bitweise Anweisung"
 short-title: all_true
 slug: WebAssembly/Reference/SIMD/bitwise/all_true
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: 7d6773a8ee41048b915cd566b0c67f97be6ea249
 ---
 
-Die **`all_true`** [SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) prüft, ob alle Lanes eines `v128` Eingabewertes ungleich null sind.
+Die **`all_true`**-[SIMD-Bitweise-Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) prüft, ob alle Spuren eines `v128`-Eingabewertes ungleich null sind.
 
 {{InteractiveExample("Wat Demo: all_true", "tabbed-taller")}}
 
@@ -34,13 +34,13 @@ value_type.all_true
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `all_true`:
+  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `all_true`:
     - `i8x16`
     - `i16x8`
     - `i32x4`
     - `i64x2`
 - `all_true`
-  - : Die `all_true` Anweisung. Sie muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `all_true`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -49,13 +49,13 @@ value_type.all_true
 ```
 
 - `input`
-  - : Die Interpretation des Eingabe-`v128`-Werts.
+  - : Die Interpretation des Eingabe-`v128`-Wertes.
 - `output`
-  - : Der Ausgabewert. Dieser ist vom Typ `i32` und ist gleich `1`, wenn der `v128`-Eingangswert alle ungleich null Bits enthält, oder `0`, wenn eines der Bits `0` ist.
+  - : Der Ausgabewert. Dies ist ein `i32`-Typ, der `1` ist, wenn der `v128`-Eingabewert alle ungleich null Bits enthält, oder `0`, wenn eines der Bits `0` ist.
 
-### Binäre Codierung
+### Binäre Kodierung
 
-| Anweisung        | Binärformat    | Beispieltext => Binär                |
+| Anweisung        | Binärformat    | Beispieltext => binär                |
 | ---------------- | -------------- | ------------------------------------ |
 | `i8x16.all_true` | `0xfd 99:u32`  | `i8x16.all_true` => `0xfd 0x63`      |
 | `i16x8.all_true` | `0xfd 131:u32` | `i16x8.all_true` => `0xfd 0x83 0x01` |
@@ -69,7 +69,3 @@ value_type.all_true
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)

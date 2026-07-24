@@ -1,19 +1,19 @@
 ---
-title: "fill: Wasm-Textanweisung"
+title: "fill: Wasm Speicheranweisung"
 short-title: fill
 slug: WebAssembly/Reference/Memory/fill
 l10n:
-  sourceCommit: fb9290c58b1575b6869bd0a69ab7edb3e2184892
+  sourceCommit: 6e99dbce48ff569afb34ad36a5aa4129a945af31
 ---
 
-Die **`memory.fill`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
+Die **`memory.fill`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein angegebenes Byte.
 
 Die Anweisung gibt keinen Wert zurück.
-Es wird eine Ausnahme ausgelöst, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
+Es tritt eine Exception auf, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
 
 ## Syntax
 
-Füllen innerhalb des Standard-Speichers
+Füllen im Standardspeicher
 
 ```wat
 ;; Fill region at offset/range in default memory with 255
@@ -26,7 +26,7 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen eines angegebenen Speichers (wenn Multi-Speicher unterstützt wird)
+Füllen in angegebenem Speicher (wenn Mehrfach-Speicher unterstützt wird)
 
 ```wat
 ;; Fill specific memory referenced by its index
@@ -58,6 +58,3 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-> [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.

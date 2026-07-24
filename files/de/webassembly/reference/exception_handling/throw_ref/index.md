@@ -1,12 +1,12 @@
 ---
-title: "throw_ref: Wasm-Ausnahmebehandlungsinstruktion"
+title: "throw_ref: Wasm-Anweisungen zur Ausnahmebehandlung"
 short-title: throw_ref
 slug: WebAssembly/Reference/Exception_handling/throw_ref
 l10n:
-  sourceCommit: 184a2adcf533de244f520829045c2ad85c6af1a8
+  sourceCommit: b8f9d7c0ac5bb5fb6f658da557e510ef9f4f3394
 ---
 
-Die **`throw_ref`** [Ausnahmebehandlungsinstruktion](/de/docs/WebAssembly/Reference/Exception_handling) wirft eine zuvor geworfene Ausnahme, die durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird, erneut.
+Die **`throw_ref`** [Ausnahmebehandlungsanweisung](/de/docs/WebAssembly/Reference/Exception_handling) wirft eine zuvor geworfene Ausnahme erneut, die durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Wert repräsentiert wird.
 
 {{InteractiveExample("Wat Demo: throw_ref", "tabbed-taller")}}
 
@@ -87,7 +87,7 @@ throw_ref
 ```
 
 - `throw_ref`
-  - : Die `throw_ref`-Instruktion.
+  - : Die `throw_ref` Anweisung.
 
 ### Typ
 
@@ -96,27 +96,35 @@ throw_ref
 ```
 
 - `exception`
-  - : Die Ausnahme, die erneut geworfen werden soll, muss ein `exnref`-Wert sein.
+  - : Die Ausnahme, die erneut geworfen werden soll, muss ein `exnref` Wert sein.
 
-### Binärcodierung
+### Binäre Codierung
 
-| Instruktion | Binärformat | Beispieltext => binär |
+| Anweisung   | Binärformat | Beispieltext => Binär |
 | ----------- | ----------- | --------------------- |
 | `throw_ref` | `0x0a`      | `throw_ref` => `0x0a` |
 
 ## Beschreibung
 
-Eine `throw_ref`-Instruktion kann verwendet werden, um eine zuvor geworfene Ausnahme, wie sie durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert dargestellt wird, erneut zu werfen. Werte des Typs `exnref` werden von [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)-Klauseln auf den Stapel gelegt.
+Eine `throw_ref` Anweisung kann verwendet werden, um eine zuvor geworfene Ausnahme erneut zu werfen, die durch einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Wert repräsentiert wird. Werte des Typs `exnref` werden durch [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) und [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) Klauseln auf den Stapel geschoben.
 
-Im Allgemeinen ist das erneute Werfen von Ausnahmen nützlich, da Sie möglicherweise eine Aktion wie Aufräumen oder Protokollieren durchführen möchten, aber dann immer noch die Benutzer darüber informieren möchten, dass ein Fehler aufgetreten ist.
+Im Allgemeinen ist das erneute Werfen von Ausnahmen nützlich, weil Sie möglicherweise eine Aktion wie Bereinigung oder Protokollierung durchführen möchten, aber dennoch den Nutzern mitteilen, dass ein Fehler aufgetreten ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 
-- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Instruktion
-- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Instruktion
-  - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch)-Klausel
-  - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all)-Klausel
-  - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)-Klausel
-  - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)-Klausel
-- [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Typ
-- [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag)-Definition
+- [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw) Anweisung
+- [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table) Anweisung
+  - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch) Klausel
+  - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all) Klausel
+  - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref) Klausel
+  - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref) Klausel
+- [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref) Typ
+- [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag) Definition

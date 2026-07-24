@@ -3,7 +3,7 @@ title: "func: Wasm-Typdefinition"
 short-title: func
 slug: WebAssembly/Reference/Definitions/types/func
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: a2c0927ed7c35b9f110c19eea4a369162e8e1bf5
 ---
 
 Die **`func`**-Typdefinition deklariert eine Funktionssignatur: eine Liste von Parametertypen und eine Liste von Ergebnistypen.
@@ -26,21 +26,21 @@ Die **`func`**-Typdefinition deklariert eine Funktionssignatur: eine Liste von P
 
 ## Beschreibung
 
-Ein Funktionstyp ordnet eine Sequenz von Parameter-[Wertetypen](/de/docs/WebAssembly/Reference/Value_types) einer Sequenz von Ergebniswertetypen zu. Beide Listen können leer sein.
+Ein Funktionstyp ordnet eine Sequenz von Parameter-[Wertetypen](/de/docs/WebAssembly/Reference/Value_types) einer Sequenz von Ergebnis-Wertetypen zu. Beide Listen können leer sein.
 
 Funktionstypen erscheinen an drei Stellen:
 
-- **Funktionsdeklarationen**: Jede [`func`](/de/docs/WebAssembly/Guides/Understanding_the_text_format) hat einen Typ. Sie können entweder `param`- und `result`-Klauseln einbinden oder einen benannten Typ mit `(type $name)` referenzieren. Wenn beides vorhanden ist, müssen sie übereinstimmen. Das Einbinden eines Funktionstyps in einer Deklaration ist gleichbedeutend mit dem Schreiben eines separaten Funktionstyps und dessen Referenzierung.
-- **Indirekte Aufrufe**: [`call_indirect`](/de/docs/WebAssembly/Reference/Control_flow) nimmt einen Funktionstyp und leitet durch eine [`table`](/de/docs/WebAssembly/Reference/Definitions/table) aus [`funcref`](/de/docs/WebAssembly/Reference/Value_types/funcref)-Werten weiter. Die Engine überprüft zur Laufzeit, ob der Typ der indizierten Funktion mit dem deklarierten Typ übereinstimmt, andernfalls wird abgefangen.
+- **Funktionsdeklarationen**: Jede [`func`](/de/docs/WebAssembly/Guides/Understanding_the_text_format) hat einen Typ. Sie können entweder `param`- und `result`-Klauseln einfügen oder auf einen benannten Typ mit `(type $name)` verweisen. Wenn beide vorhanden sind, müssen sie übereinstimmen. Das Inlinieren eines Funktionstyps in einer Deklaration ist gleichbedeutend mit dem Schreiben eines separaten Funktionstyps und dem Referenzieren desselben.
+- **Indirekte Aufrufe**: [`call_indirect`](/de/docs/WebAssembly/Reference/Control_flow) nimmt einen Funktionstyp und leitet durch eine [`table`](/de/docs/WebAssembly/Reference/Definitions/table) von [`funcref`](/de/docs/WebAssembly/Reference/Value_types/funcref)-Werten um. Die Engine prüft zur Laufzeit, ob der typisierte Index des aufgerufenen Funktions entspricht, und löst andernfalls eine Ausnahme aus.
 - **Importe**: Funktionsimporte deklarieren einen Typ, der für eine Funktion bereitgestellt werden muss.
 
-Funktionstypen verwenden [strukturelle Gleichheit](https://de.wikipedia.org/wiki/Strukturierter_Typ): Zwei Funktionstypen sind identisch, wenn und nur wenn ihre Parameter- und Ergebnistypsequenzen elementweise übereinstimmen. Die Identität des Typindex oder des Moduls, aus dem es stammt, spielt keine Rolle. Ein `call_indirect` wird daher erfolgreich sein bei einem Callee, dessen Typ unabhängig in einem anderen Modul deklariert wurde, solange die Parameter- und Ergebnissequenzen dieselben sind.
+Funktionstypen verwenden [strukturelle Gleichheit](https://de.wikipedia.org/wiki/Struktureller_Typ): Zwei Funktionstypen sind identisch, wenn und nur wenn ihre Parameter- und Ergebnis-Typsequenzen elementweise übereinstimmen. Die Identität des Typindexes oder des Moduls, aus dem er stammt, spielt keine Rolle. Ein `call_indirect` wird daher bei einem Aufruf erfolgreich sein, wenn der Typ des Aufgerufenen unabhängig in einem anderen Modul deklariert wurde, solange die Parameter- und Ergebnissequenzen dieselben sind.
 
 ## Beispiele
 
 ### Teilen eines Funktionstyps zwischen zwei Funktionen und einem Dispatcher
 
-Das folgende Modul deklariert einen einzigen `$bin_op` Typ und verwendet ihn für zwei Funktionen und eine `call_indirect`-Stelle:
+Das folgende Modul deklariert einen einzelnen `$bin_op`-Typ und verwendet ihn für zwei Funktionen und eine `call_indirect`-Stelle:
 
 ```wat
 (module
@@ -66,11 +66,15 @@ Das folgende Modul deklariert einen einzigen `$bin_op` Typ und verwendet ihn fü
     call_indirect (type $bin_op)))
 ```
 
-Das Aufrufen von `dispatch(0, 3, 4)` ruft `$add` auf und gibt `7` zurück; das Aufrufen von `dispatch(1, 3, 4)` ruft `$mul` auf und gibt `12` zurück. Das Übergeben eines Indexes, der auf eine Funktion mit einer anderen Signatur verweist, wird abgefangen.
+Der Aufruf von `dispatch(0, 3, 4)` ruft `$add` auf und gibt `7` zurück; der Aufruf von `dispatch(1, 3, 4)` ruft `$mul` auf und gibt `12` zurück. Das Übergeben eines Indexes, der auf eine Funktion mit einer anderen Signatur zeigt, löst eine Ausnahme aus.
 
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

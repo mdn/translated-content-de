@@ -1,14 +1,14 @@
 ---
-title: "wrap_i64: Wasm Textanweisung"
+title: "wrap_i64: Wasm numerische Anweisung"
 short-title: wrap_i64
 slug: WebAssembly/Reference/Numeric/wrap_i64
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`wrap_i64`**-Anweisung wird verwendet, um Zahlen vom Typ `i64` in den Typ `i32` zu konvertieren. Wenn die Zahl größer ist, als ein `i32` aufnehmen kann, wird diese Operation die Zahl umwickeln, was zu einem anderen Wert führt.
+Die **`wrap_i64`**-[numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um Zahlen des Typs `i64` in den Typ `i32` zu konvertieren. Wenn die Zahl größer ist, als was ein `i32` speichern kann, wird diese Operation eine Überlauf erzeugen, was zu einer anderen Zahl führt.
 
-Man kann sich das Umwickeln entweder als Reduzierung des Wertes [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> vorstellen, oder als das Verwerfen der oberen 32 Bits, um einen Wert zu erhalten, der nur die unteren 32 Bits enthält.
+Man kann sich `wrap` entweder als eine Reduktion des Wertes [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> oder als das Verwerfen der oberen 32 Bits vorstellen, um einen Wert zu erzeugen, der nur die unteren 32 Bits enthält.
 
 {{InteractiveExample("Wat Demo: wrap_i64", "tabbed-taller")}}
 
@@ -47,3 +47,11 @@ i32.wrap_i64
 | Anweisung      | Binärer Opcode |
 | -------------- | -------------- |
 | `i32.wrap_i64` | `0xa7`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

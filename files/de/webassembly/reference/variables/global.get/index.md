@@ -1,12 +1,12 @@
 ---
-title: "global.get: Wasm Textanweisung"
+title: "global.get: Wasm-Variable-Anweisung"
 short-title: global.get
 slug: WebAssembly/Reference/Variables/global.get
 l10n:
-  sourceCommit: a21bf857ac668ad72a36aad0d8ad7e87c6bdc4d8
+  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
 ---
 
-Die **`global.get`**-Anweisung lädt den Wert einer globalen Variablen auf den Stapel.
+Die **`global.get`** [Variable-Anweisung](/de/docs/WebAssembly/Reference/Variables) lädt den Wert einer globalen Variablen auf den Stapel.
 
 {{InteractiveExample("Wat Demo: global_get", "tabbed-standard")}}
 
@@ -36,13 +36,13 @@ global.get identifier
 ```
 
 - `global.get`
-  - : Der Anweisungstyp `global.get`. Muss immer zuerst angegeben werden.
+  - : Der Typ der `global.get`-Anweisung. Muss immer zuerst angegeben werden.
 - `identifier`
-  - : Ein Bezeichner für die globale Variable, deren Wert Sie abrufen möchten. Dies kann einer der folgenden sein:
+  - : Ein Bezeichner für die globale Variable, deren Wert Sie abrufen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Der [identifizierende Name](/de/docs/WebAssembly/Reference/Definitions/global#identifier), der für die globale Variable bei der Deklaration festgelegt wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_global`.
+      - : Der [identifizierende Name](/de/docs/WebAssembly/Reference/Definitions/global#identifier), der für die globale Variable beim Deklarieren festgelegt wurde. Dieser muss mit einem `$`-Symbol beginnen, z.B. `$my_global`.
     - `index`
-      - : Die Indexnummer der globalen Variable, zum Beispiel `0` für die erste globale Variable im Wasm-Skript, `1` für die zweite, usw.
+      - : Die Indexnummer der globalen Variable, z.B. `0` für die erste globale Variable im Wasm-Skript, `1` für die zweite usw.
 
 ### Typ
 
@@ -51,11 +51,11 @@ global.get identifier
 ```
 
 - `output`
-  - : Der von der `global.get`-Anweisung abgerufene globale Wert.
+  - : Der von der `global.get`-Anweisung zurückgegebene globale Wert.
 
 ### Opcodes
 
-| Anweisung    | Binärformat | Beispiel Text => Binär        |
+| Anweisung    | Binärformat | Beispieltext => binär         |
 | ------------ | ----------- | ----------------------------- |
 | `global.get` | `0x23`      | `global.get 0` => `0x23 0x00` |
 

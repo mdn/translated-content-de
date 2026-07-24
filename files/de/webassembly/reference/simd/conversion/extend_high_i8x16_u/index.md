@@ -3,10 +3,10 @@ title: "extend_high_i8x16_u: Wasm SIMD Konvertierungsanweisung"
 short-title: extend_high_i8x16_u
 slug: WebAssembly/Reference/SIMD/conversion/extend_high_i8x16_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`extend_high_i8x16_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 8–15 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16` Wertinterpretation in eine `i16x8` Wertinterpretation.
+Die **`extend_high_i8x16_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) wandelt die Lanes 8–15 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16` Wertinterpretation in eine `i16x8` Wertinterpretation um.
 
 {{InteractiveExample("Wat Demo: extend_high_i8x16_u", "tabbed-taller")}}
 
@@ -44,13 +44,13 @@ i16x8.extend_high_i8x16_u
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i8x16` Wertinterpretation.
+  - : Die Input-`v128`-`i8x16`-Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i16x8` Wertinterpretation.
+  - : Die Output-`v128`-`i16x8`-Wertinterpretation.
 
-### Binärcodierung
+### Binärcode
 
-| Anweisung                   | Binärformat    | Beispieltext => binär                           |
+| Anweisung                   | Binärformat    | Beispiel-Text => Binär                          |
 | --------------------------- | -------------- | ----------------------------------------------- |
 | `i16x8.extend_high_i8x16_u` | `0xfd 138:u32` | `i16x8.extend_high_i8x16_u` => `0xfd 0x8a 0x01` |
 
@@ -61,7 +61,3 @@ i16x8.extend_high_i8x16_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

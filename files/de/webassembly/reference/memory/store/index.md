@@ -1,14 +1,14 @@
 ---
-title: "store: Wasm-Text-Instruktion"
+title: "store: Wasm Speicherinstruktion"
 short-title: store
 slug: WebAssembly/Reference/Memory/store
 l10n:
-  sourceCommit: fb9290c58b1575b6869bd0a69ab7edb3e2184892
+  sourceCommit: 6e99dbce48ff569afb34ad36a5aa4129a945af31
 ---
 
-Die **`store`**-Instruktionen der [Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stapel in einem Speicher abzulegen.
+Die **`store`** [Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stapel in einem Speicher zu speichern.
 
-Es gibt `store`-Instruktionen, um ein `i32`, `i64`, `f32` und `f64` im Speicher abzulegen. Für die Ganzzahlen gibt es separate Instruktionsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher abzulegen. Zum Beispiel können Sie eine 32-Bit-Zahl in einen 8-Bit-Slot im Speicher mit `i32.store8` ablegen. Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgeschlagen. Alle Varianten sind [unten aufgeführt](#instruktionen_und_opcodes).
+Es gibt `store`-Instruktionen zum Speichern von `i32`, `i64`, `f32` und `f64` im Speicher. Für die ganzen Zahlen gibt es separate Instruktionsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher zu speichern. Zum Beispiel können Sie eine 32-Bit-Zahl in einen 8-Bit-Platz im Speicher mit `i32.store8` speichern. Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgebrochen. Alle Varianten sind [unten aufgelistet](#instruktionen_und_opcodes).
 
 {{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
 
@@ -47,7 +47,7 @@ console.log(first_number_in_mem);
 
 ## Syntax
 
-Standardmäßig in einen Speicher ablegen
+Speichern im Standardspeicher
 
 ```wat
 ;; Store value in default memory at particular offset
@@ -59,7 +59,7 @@ i32.store ;; store in default memory
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-In angegebene Speicher ablegen (wenn Multi-Memory unterstützt wird)
+Speichern in einem spezifizierten Speicher (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Store in memory referenced by its index
@@ -97,6 +97,3 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-> [!NOTE]
-> Die Tabelle zur `multiMemory`-Kompatibilität zeigt die Versionen an, in denen `store` mit einem spezifizierten Speicher verwendet werden kann.

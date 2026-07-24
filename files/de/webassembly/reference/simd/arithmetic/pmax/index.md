@@ -1,12 +1,12 @@
 ---
-title: "pmax: Wasm SIMD Arithmetische Anweisung"
+title: "pmax: Wasm SIMD Arithmetikinstruktion"
 short-title: pmax
 slug: WebAssembly/Reference/SIMD/arithmetic/pmax
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`pmax`**-Anweisung vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Gleitkommawertinterpretationen und gibt eine neue Interpretation zurück, bei der jeder Ausgabelane auf den größeren der entsprechenden Eingabelanes gesetzt wird. Sie ist definiert als `a < b ? b : a`, was bedeutet, dass `NaN` im ersten Operand an die Ausgabe weitergegeben wird, jedoch nicht `NaN` im zweiten Operanden — im Gegensatz zu [`max`](/de/docs/WebAssembly/Reference/Numeric/max), das `NaN` von einem der beiden Operanden weitergibt.
+Die **`pmax`**-Instruktion vergleicht zwei [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Gleitkommawert-Interpretationen und liefert eine neue Interpretation zurück, bei der jeder Ausgabekanal auf den größeren der entsprechenden Eingabekanäle gesetzt ist. Sie ist definiert als `a < b ? b : a`, was bedeutet, dass NaN im ersten Operanden an die Ausgabe weitergegeben wird, aber NaN im zweiten Operanden nicht — im Gegensatz zu [`max`](/de/docs/WebAssembly/Reference/Numeric/max), das NaN aus beiden Operanden weitergibt.
 
 {{InteractiveExample("Wat Demo: pmax", "tabbed-taller")}}
 
@@ -39,11 +39,11 @@ value_type.pmax
 ```
 
 - `value_type`
-  - : Der Wertetyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `pmax`:
+  - : Der Werttyp, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `pmax`:
     - `f32x4`
     - `f64x2`
 - `pmax`
-  - : Die `pmax`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `pmax`-Instruktion. Muss stets nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -58,12 +58,20 @@ value_type.pmax
 - `output`
   - : Der Ausgabewert.
 
-### Binärcodierung
+### Binärkodierung
 
-| Anweisung    | Binärformat    | Beispieltext => binär            |
+| Instruktion  | Binärformat    | Beispieltext => binär            |
 | ------------ | -------------- | -------------------------------- |
 | `f32x4.pmax` | `0xfd 235:u32` | `f32x4.pmax` => `0xfd 0xeb 0x01` |
 | `f64x2.pmax` | `0xfd 247:u32` | `f64x2.pmax` => `0xfd 0xf7 0x01` |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

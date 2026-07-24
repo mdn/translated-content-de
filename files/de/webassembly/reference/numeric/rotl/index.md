@@ -1,12 +1,12 @@
 ---
-title: "rotl: Wasm Text-Instruktion"
+title: "rotl: Wasm numerische Anweisung"
 short-title: rotl
 slug: WebAssembly/Reference/Numeric/rotl
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`rotl`** Anweisungen, kurz für _rotate-left_, werden verwendet, um eine bitweise Linksrotation durchzuführen.
+Die **`rotl`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _rotate-left_, wird verwendet, um eine bitweise Linksrotation durchzuführen.
 
 {{InteractiveExample("Wat Demo: rotl", "tabbed-taller")}}
 
@@ -60,7 +60,15 @@ i32.rotl
 ;; (11000000_00000000_00000000_00000001)
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.rotl`  | `0x77`         |
-| `i64.rotl`  | `0x89`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `i32.rotl` | `0x77`         |
+| `i64.rotl` | `0x89`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

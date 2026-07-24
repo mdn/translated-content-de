@@ -1,12 +1,12 @@
 ---
-title: "local.get: Wasm-Textinstruktion"
+title: "local.get: Wasm-Variablenanweisung"
 short-title: local.get
 slug: WebAssembly/Reference/Variables/local.get
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
 ---
 
-Die **`local.get`** Instruktion lädt den Wert einer lokalen Variable auf den Stack.
+Die **`local.get`** [Variablenanweisung](/de/docs/WebAssembly/Reference/Variables) lädt den Wert einer lokalen Variable auf den Stack.
 
 {{InteractiveExample("Wat Demo: local", "tabbed-taller")}}
 
@@ -37,6 +37,14 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 local.get $val
 ```
 
-| Instruktion | Binärer Opcode |
+| Anweisung   | Binärer Opcode |
 | ----------- | -------------- |
 | `local.get` | `0x20`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

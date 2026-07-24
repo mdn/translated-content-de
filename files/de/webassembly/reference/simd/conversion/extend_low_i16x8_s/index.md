@@ -1,12 +1,12 @@
 ---
-title: "extend_low_i16x8_s: Wasm SIMD-Konvertierungsanweisung"
+title: "extend_low_i16x8_s: Wasm SIMD Konvertierungsanweisung"
 short-title: extend_low_i16x8_s
 slug: WebAssembly/Reference/SIMD/conversion/extend_low_i16x8_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`extend_low_i16x8_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 0–3 einer signierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8`-Wert-Interpretation in eine `i32x4`-Wert-Interpretation.
+Die **`extend_low_i16x8_s`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Bahnen 0–3 einer vorzeichenbehafteten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretation in eine `i32x4` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: extend_low_i16x8_s", "tabbed-taller")}}
 
@@ -35,7 +35,7 @@ i32x4.extend_low_i16x8_s
 ```
 
 - `i32x4.extend_low_i16x8_s`
-  - : Die `i32x4.extend_low_i16x8_s`-Anweisung.
+  - : Die `i32x4.extend_low_i16x8_s` Anweisung.
 
 ### Typ
 
@@ -44,11 +44,11 @@ i32x4.extend_low_i16x8_s
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i16x8`-Wert-Interpretation.
+  - : Die Eingabe `v128` `i16x8` Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i32x4`-Wert-Interpretation.
+  - : Die Ausgabe `v128` `i32x4` Wertinterpretation.
 
-### Binäre Codierung
+### Binäre Kodierung
 
 | Anweisung                  | Binärformat    | Beispieltext => binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |
@@ -61,7 +61,3 @@ i32x4.extend_low_i16x8_s
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

@@ -1,19 +1,18 @@
 ---
-title: "copy: Wasm-Textanweisung"
+title: "copy: Wasm memory-Anweisung"
 short-title: copy
 slug: WebAssembly/Reference/Memory/copy
 l10n:
-  sourceCommit: fb9290c58b1575b6869bd0a69ab7edb3e2184892
+  sourceCommit: 6e99dbce48ff569afb34ad36a5aa4129a945af31
 ---
 
-Die **`memory.copy`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers in einen anderen.
+Die **`memory.copy`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers zu einem anderen.
 
-Die Anweisung gibt keinen Wert zurück.
-Wenn entweder der Quell- oder der Zielbereich außerhalb der Grenzen liegt, löst die Anweisung eine Ausnahme (trap) aus.
+Die Anweisung gibt keinen Wert zurück. Wenn entweder der Quell- oder Zielbereich außerhalb des gültigen Bereichs liegt, führt die Anweisung zu einem Fehler (trap).
 
 ## Syntax
 
-Kopieren innerhalb des Standard-Speichers
+Kopieren innerhalb des Standardspeichers
 
 ```wat
 ;; Copy data in default memory from [100, 125] to [50, 75]
@@ -26,7 +25,7 @@ memory.copy  ;; Copy memory
 (memory.copy (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-Kopieren eines angegebenen Speichers (falls Multi-Memory unterstützt wird)
+Kopieren des angegebenen Speichers (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Copy data within specific memory from [100, 125] to [50, 75]
@@ -58,6 +57,3 @@ memory.copy (memory $destMem) (memory $sourceMem) ;; Copy memory from "$sourceMe
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-> [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `copy` mit einem angegebenen Speicher verwendet werden kann.

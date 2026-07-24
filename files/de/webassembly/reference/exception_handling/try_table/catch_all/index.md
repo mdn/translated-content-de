@@ -3,7 +3,7 @@ title: "catch_all: try_table-Klausel"
 short-title: catch_all
 slug: WebAssembly/Reference/Exception_handling/try_table/catch_all
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: b8f9d7c0ac5bb5fb6f658da557e510ef9f4f3394
 ---
 
 Die **`catch_all`**-Klausel fängt jede Ausnahme ab und schiebt nichts auf den Stapel.
@@ -74,8 +74,8 @@ catch_all block_identifier
   - : Die `catch_all`-Klausel.
 - `block_identifier`
   - : Der Bezeichner für den [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), zu dem verzweigt wird, wenn die Ausnahme abgefangen wird. Dies kann sein:
-    - Ein identifizierender Name, wie durch den Bezeichner des entsprechenden Blocks definiert.
-    - Eine Block-Indexnummer — `0`, um den innersten Block zu identifizieren, `1` für den nächst inneren usw.
+    - Ein Bezeichnername, wie er durch den Bezeichner des entsprechenden Blocks definiert ist.
+    - Eine Blockindexnummer — `0`, um den innersten Block zu identifizieren, `1` für den nächstinneren Block, usw.
 
 ### Typ
 
@@ -103,17 +103,25 @@ würde so kodiert werden:
 
 ## Beschreibung
 
-Die `catch_all`-Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Blocks enthalten sein, um jede geworfene Ausnahme abzufangen. Wenn eine Ausnahme ausgelöst wird, verzweigt der Code zu dem angegebenen `block`.
+Die `catch_all`-Klausel kann innerhalb eines [`try_table`](/de/docs/WebAssembly/Reference/Exception_handling/try_table)-Blocks enthalten sein, um alle ausgelösten Ausnahmen abzufangen. Wenn eine Ausnahme ausgelöst wird, verzweigt der Code zum angegebenen `block`.
 
-`catch_all` ist nützlich, wenn Sie eine Ausnahme nicht erneut werfen müssen und Sie keine spezifische Ausnahme abfangen möchten, aber dennoch berichten möchten, dass eine Ausnahme irgendeiner Art aufgetreten ist.
+`catch_all` ist nützlich, wenn Sie keine Ausnahme erneut auslösen müssen und keine bestimmte Ausnahme abfangen wollen, aber dennoch berichten möchten, dass eine Art von Ausnahme ausgelöst wurde.
 
-Im Falle von `catch_all` muss der referenzierte Block keinen Ergebnistyp deklarieren, der zur Nutzlast der Ausnahme passt, da kein Ergebnis auf den Stapel geschoben wird. Im vorher gezeigten Beispiel hat der `block` keinen deklarierten Ergebnistyp:
+Im Fall von `catch_all` muss der referenzierte Block keinen Ergebnistyp deklarieren, der zur Nutzlast der Ausnahme passt, da kein Ergebnis auf den Stapel geschoben wird. Im zuvor gezeigten Beispiel hat der `block` keinen deklarierten Ergebnistyp:
 
 ```wat
 (block $handler
   ...
 )
 ```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

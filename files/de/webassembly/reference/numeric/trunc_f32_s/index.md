@@ -1,16 +1,16 @@
 ---
-title: "trunc_f32_s: Wasm Textbefehl"
+title: "trunc_f32_s: Wasm numerische Anweisung"
 short-title: trunc_f32_s
 slug: WebAssembly/Reference/Numeric/trunc_f32_s
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Der **`trunc_f32_s`** Befehl entfernt den Bruchteil eines `f32`-Wertes und gibt ihn als vorzeichenbehaftete Ganzzahl aus.
+Die **`trunc_f32_s`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) entfernt den Bruchteil eines `f32`-Wertes und gibt diesen als vorzeichenbehaftete Ganzzahl aus.
 
-Dies ist ein separater Befehl, [`trunc`](/de/docs/WebAssembly/Reference/Numeric/trunc), der den Bruchteil eines Fließkommawerts entfernt und ein Fließkommawert ausgibt.
+Dies ist eine separate Anweisung, [`trunc`](/de/docs/WebAssembly/Reference/Numeric/trunc), die den Bruchteil einer Fließkommazahl entfernt und eine Fließkommazahl ausgibt.
 
-Es gibt auch andere Integer-Konvertierungsbefehle zum Abschneiden:
+Es gibt auch andere Anweisungen für die Ganzzahltrunkierungskonvertierung:
 
 - [`trunc_f32_u`](/de/docs/WebAssembly/Reference/Numeric/trunc_f32_u)
 - [`trunc_f64_s`](/de/docs/WebAssembly/Reference/Numeric/trunc_f64_s)
@@ -44,11 +44,11 @@ value_type.trunc_f32_s
 ```
 
 - `value_type`
-  - : Der Werttyp, auf dem der Befehl ausgeführt wird. Die folgenden Typen unterstützen `trunc_f32_s`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `trunc_f32_s`:
     - `i32`
     - `i64`
 - `trunc_f32_s`
-  - : Der `trunc_f32_s` Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) hinzugefügt werden.
+  - : Die `trunc_f32_s`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -57,16 +57,24 @@ value_type.trunc_f32_s
 ```
 
 - `input`
-  - : Die Eingabe-Floating-Point-Nummer.
+  - : Die Eingabe-Fließkommazahl.
 - `output`
   - : Die Ausgabe-Ganzzahl.
 
 ### Binärcodierung
 
-| Befehl            | Binärformat | Beispieltext => binär       |
+| Anweisung         | Binärformat | Beispieltext => binär       |
 | ----------------- | ----------- | --------------------------- |
 | `i32.trunc_f32_s` | `0xa8`      | `i32.trunc_f32_s` => `0xa8` |
 | `i64.trunc_f32_s` | `0xae`      | `i64.trunc_f32_s` => `0xae` |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

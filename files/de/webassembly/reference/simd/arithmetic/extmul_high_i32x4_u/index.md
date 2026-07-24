@@ -1,12 +1,12 @@
 ---
-title: "extmul_high_i32x4_u: Wasm SIMD-Arithmetikinstruktion"
+title: "extmul_high_i32x4_u: Wasm SIMD Arithmetikinstruktion"
 short-title: extmul_high_i32x4_u
 slug: WebAssembly/Reference/SIMD/arithmetic/extmul_high_i32x4_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`extmul_high_i32x4_u`** [SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Spuren 2–3 von zwei unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretationen, multipliziert die Werte in den entsprechenden Spuren und gibt das Ergebnis dieser Operationen als `i64x2` Wertinterpretation aus.
+Die **`extmul_high_i32x4_u`** [SIMD Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 2–3 von zwei unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen in einer `i64x2`-Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extmul_high_i32x4_u", "tabbed-taller")}}
 
@@ -29,11 +29,11 @@ Die **`extmul_high_i32x4_u`** [SIMD-Arithmetikinstruktion](/de/docs/WebAssembly/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel werden die Spuren 2–3 der beiden `i32x4` Eingabewerte miteinander multipliziert und die Produkte als `i64x2` ausgegeben. Spur `2` des ersten Eingabewerts wird mit Spur `2` des zweiten Eingabewerts multipliziert, und das Produkt wird Spur `0` der Ausgabe. Und so weiter. Als Ergebnis enthält jede Spur der Ausgabe den Wert `2000` (`50 * 40`).
+Im obigen Beispiel werden die Lanes 2–3 der beiden `i32x4`-Eingabewerte zusammen multipliziert, und die Produkte werden als eine `i64x2` ausgegeben. Lane `2` des ersten Eingangs wird mit Lane `2` des zweiten Eingangs multipliziert, und das Produkt wird zu Lane `0` des Ausgabewerts, und so weiter. Daher enthält jede Lane des Ausgabewerts den Wert `2000` (`50 * 40`).
 
-Die `extmul_high_i32x4_u`-Instruktion ist eine leistungsfähigere Entsprechung zum Übergeben der Ergebnisse von zwei [`extend_high_i32x4_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i32x4_u) Instruktionen an eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul) Instruktion.
+Die `extmul_high_i32x4_u`-Instruktion ist eine leistungsfähigere Entsprechung dazu, die Ergebnisse von zwei [`extend_high_i32x4_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i32x4_u)-Instruktionen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Instruktion zu übergeben.
 
-Mit anderen Worten:
+Anders ausgedrückt:
 
 ```wat
 (i64x2.extmul_high_i32x4_u
@@ -42,7 +42,7 @@ Mit anderen Worten:
 )
 ```
 
-ist äquivalent zu
+ist equivalent zu
 
 ```wat
 (i64x2.mul
@@ -90,7 +90,3 @@ i64x2.extmul_high_i32x4_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Arithmetikinstruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

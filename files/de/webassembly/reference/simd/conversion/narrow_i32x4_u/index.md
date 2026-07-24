@@ -1,12 +1,12 @@
 ---
-title: "narrow_i32x4_u: Wasm SIMD Konvertierungsanweisung"
+title: "narrow_i32x4_u: Wasm SIMD-Konvertierungsanweisung"
 short-title: narrow_i32x4_u
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i32x4_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`narrow_i32x4_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4`-Wertinterpretationen in eine `i16x8`-Wertinterpretation unter Verwendung von unsignierter Sättigung (Einschränkung auf den Bereich zwischen `0` und `65.535`).
+Die **`narrow_i32x4_u`** [SIMD-Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Wertinterpretationen in eine `i16x8` Wertinterpretation mithilfe unsaturierter Sättigung (Clamping im Bereich von `0` bis `65.535`).
 
 {{InteractiveExample("Wat Demo: narrow_i32x4_u", "tabbed-taller")}}
 
@@ -36,7 +36,7 @@ i16x8.narrow_i32x4_u
 ```
 
 - `i16x8.narrow_i32x4_u`
-  - : Die `i16x8.narrow_i32x4_u`-Anweisung.
+  - : Die Anweisung `i16x8.narrow_i32x4_u`.
 
 ### Typ
 
@@ -45,15 +45,15 @@ i16x8.narrow_i32x4_u
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i32x4`-Wertinterpretation.
+  - : Die erste Eingabe `v128` `i32x4` Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i32x4`-Wertinterpretation.
+  - : Die zweite Eingabe `v128` `i32x4` Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i16x8`-Wertinterpretation.
+  - : Die Ausgabe `v128` `i16x8` Wertinterpretation.
 
 ### Binäre Kodierung
 
-| Anweisung              | Binärformat    | Beispieltext => Binär                      |
+| Anweisung              | Binärformat    | Beispieltext => binär                      |
 | ---------------------- | -------------- | ------------------------------------------ |
 | `i16x8.narrow_i32x4_u` | `0xfd 134:u32` | `i16x8.narrow_i32x4_u` => `0xfd 0x86 0x01` |
 
@@ -64,7 +64,3 @@ i16x8.narrow_i32x4_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

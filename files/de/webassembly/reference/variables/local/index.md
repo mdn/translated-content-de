@@ -1,12 +1,12 @@
 ---
-title: "local: Wasm Textanweisung"
+title: "local: Wasm-Variablenanweisung"
 short-title: local
 slug: WebAssembly/Reference/Variables/local
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
 ---
 
-Die **`local`**-Anweisung deklariert eine neue lokale Variable.
+Die **`local`** [Variablenanweisung](/de/docs/WebAssembly/Reference/Variables) deklariert eine neue lokale Variable.
 
 {{InteractiveExample("Wat Demo: local", "tabbed-taller")}}
 
@@ -36,3 +36,11 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 ;; declare new variable named $val of type i32
 (local $val i32)
 ```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

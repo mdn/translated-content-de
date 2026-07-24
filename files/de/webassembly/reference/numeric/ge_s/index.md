@@ -1,16 +1,16 @@
 ---
-title: "ge_s: Wasm Textinstruktion"
+title: "ge_s: Wasm-Zahlenanweisung"
 short-title: ge_s
 slug: WebAssembly/Reference/Numeric/ge_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`ge_s`**-Instruktion, kurz für _greater or equal signed_ (größer oder gleich, vorzeichenbehaftet), überprüft, ob eine vorzeichenbehaftete Ganzzahl größer oder gleich einer anderen vorzeichenbehafteten Ganzzahl ist.
+Die **`ge_s`** [Zahlenanweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _greater or equal signed_, überprüft, ob eine vorzeichenbehaftete ganze Zahl größer oder gleich einer anderen vorzeichenbehafteten ganzen Zahl ist.
 
-Es gibt weitere `ge`-Instruktionen:
+Es gibt weitere `ge` Anweisungen:
 
-- [**`ge_u`**](/de/docs/WebAssembly/Reference/Numeric/ge_u) zum Vergleichen von vorzeichenlosen Ganzzahlen.
+- [**`ge_u`**](/de/docs/WebAssembly/Reference/Numeric/ge_u) zum Vergleichen von vorzeichenlosen ganzen Zahlen.
 - [**`ge`**](/de/docs/WebAssembly/Reference/Numeric/ge) zum Vergleichen von Gleitkommazahlen.
 
 {{InteractiveExample("Wat Demo: ge_s", "tabbed-taller")}}
@@ -50,7 +50,7 @@ value_type.ge_s
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `ge_s`:
+  - : Der Werttyp, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `ge_s`:
     - `i32`
     - `i64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
@@ -59,7 +59,7 @@ value_type.ge_s
       - `i32x4`
       - `i64x2`
 - `ge_s`
-  - : Die `ge_s`-Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `ge_s` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -72,15 +72,15 @@ value_type.ge_s
 - `input2`
   - : Der zweite Eingabewert.
 - `output`
-  - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
+  - : Der Ausgabewert, der ein ganzzahliger Typ sein wird.
 
-Bei einem nicht-SIMD `ge_s` sind die Eingaben einfache numerische Werte wie `3` oder `12`. Wenn der erste Eingabewert größer oder gleich dem zweiten Eingabewert ist, wird `1` als Ausgabe auf den Stapel geschoben, andernfalls `0`.
+Für ein nicht-SIMD `ge_s` sind die Eingaben grundlegende Zahlenwerte wie `3` oder `12`. Wenn die erste Eingabe größer oder gleich der zweiten Eingabe ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jedes Lane der Ausgabe, das auf den Stapel geschoben wird, ist eine `1` oder `0`, die anzeigt, ob das entsprechende Lane des ersten Eingabewertes größer oder gleich dem entsprechenden Lane des zweiten Eingabewertes ist.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_s` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Spur des auf den Stapel geschobenen Ausgabewerts ist eine `1` oder `0`, was anzeigt, ob die entsprechende Spur des ersten Eingabewerts größer oder gleich der entsprechenden Spur des zweiten Eingabewerts ist.
 
-### Binärcodierung
+### Binärkodierung
 
-| Instruktion  | Binärformat    | Beispieltext => binär            |
+| Anweisung    | Binärformat    | Beispieltext => Binär            |
 | ------------ | -------------- | -------------------------------- |
 | `i32.ge_s`   | `0x4e`         | `i32.ge_s` => `0x4e`             |
 | `i64.ge_s`   | `0x59`         | `i64.ge_s` => `0x59`             |
@@ -93,11 +93,11 @@ Bei einem [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_s` sind die Eingaben [
 
 ### SIMD `ge_s` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `ge_s`, um zu testen, ob ein SIMD-Lane-Wert größer oder gleich dem gleichen Lane-Wert in einem anderen SIMD-Wert ist.
+In diesem Beispiel demonstrieren wir die Verwendung von `ge_s`, um zu testen, ob ein SIMD-Spurwert größer oder gleich dem gleichen Spurwert in einem anderen SIMD-Wert ist.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz zu einem {{htmlelement("p")}} Element, zu dem wir unser Ergebnis ausgeben werden, und definieren ein Objekt zum Importieren in Wasm mit einer einzigen Funktion, die einen Wert an das Ausgabe-`<p>` schreibt. Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript greifen wir auf ein {{htmlelement("p")}} Element zu, an das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), während wir das Objekt importieren.
 
 ```html hidden live-sample___simd_ge_s
 <p></p>
@@ -119,7 +119,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie ein `i32`-Parameter besitzt. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und überprüfen, ob die Lane-Werte des ersten größer oder gleich denen des zweiten sind, indem wir `i32x4.ge_s` verwenden. Schließlich extrahieren wir den Wert, der in Lane `3` des Ausgabewertes gespeichert ist, mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Instruktion und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `i32` Parameter hat. Dann deklarieren wir zwei SIMD `i32x4` Werte und überprüfen, ob die Spurwerte des ersten Wertes größer oder gleich denen des zweiten sind, indem wir `i32x4.ge_s` verwenden. Schließlich extrahieren wir den in Spur `3` gespeicherten Wert des Ausgabewerts mit der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) und geben ihn an das DOM aus, indem wir die importierte `output()` Funktion aufrufen.
 
 ```wat live-sample___simd_ge_s
 (module
@@ -148,7 +148,15 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_ge_s", "100%", 100)}}
 
-Das Ergebnis ist `1`, da der in Lane `3` des ersten Eingabewertes gespeicherte Wert größer oder gleich dem in Lane `3` des zweiten Eingabewertes gespeicherten Wert ist.
+Das Ergebnis ist `1`, da der Wert, der in Spur `3` des ersten Eingabewertes gespeichert ist, größer oder gleich dem Wert ist, der in Spur `3` des zweiten Eingabewertes gespeichert ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

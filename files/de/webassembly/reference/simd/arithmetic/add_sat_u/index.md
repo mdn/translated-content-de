@@ -1,12 +1,12 @@
 ---
-title: "add_sat_u: Wasm SIMD Arithmetikinstruktion"
+title: "add_sat_u: Wasm SIMD arithmetische Anweisung"
 short-title: add_sat_u
 slug: WebAssembly/Reference/SIMD/arithmetic/add_sat_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`add_sat_u`** [SIMD Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [saturierende](https://en.wikipedia.org/wiki/Saturation_arithmetic) Addition von zwei unsigned [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen durch — wobei das Ausgabeergebnis auf den Bereich begrenzt wird, der durch den Werttyp erlaubt ist. Jede Spur des Ausgabeergebnisses ist das Resultat der Addition der entsprechenden Spuren des Eingabewerts.
+Die **`add_sat_u`** [SIMD arithmetische Anweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) führt eine [saturierende](https://de.wikipedia.org/wiki/Sättigungsarithmetik) Addition zweier unsignierter [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werteinterpretationen durch – dabei wird die Ausgabe auf den Bereich begrenzt, der durch den Werttyp erlaubt ist. Jede Spur des Ausgabewertes ist das Ergebnis der Addition der entsprechenden Spuren des Eingabewertes.
 
 {{InteractiveExample("Wat Demo: add_sat_u", "tabbed-taller")}}
 
@@ -29,10 +29,10 @@ Die **`add_sat_u`** [SIMD Arithmetikinstruktion](/de/docs/WebAssembly/Reference/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Sättigung bedeutet, dass die Ausgabewerte an die oberen und unteren Werte angepasst werden, die durch die Wertinterpretation erlaubt sind, anstatt zu überlaufen. Erlaubte Ausgabewerte sind:
+Sättigung bedeutet, dass die Ausgabewerte auf die oberen und unteren Werte begrenzt werden, die durch die Werteinterpretation erlaubt sind, anstatt zu überlaufen. Erlaubte Ausgabewerte sind:
 
-- `i8x16.add_sat_u`: `0` bis `255` (der volle Bereich eines unsigned 8-Bit-Integers)
-- `i16x8.add_sat_u`: `0` bis `65,535` (der volle Bereich eines unsigned 16-Bit-Integers)
+- `i8x16.add_sat_u`: `0` bis `255` (der volle Bereich eines unsignierten 8-Bit-Ganzzahlwerts)
+- `i16x8.add_sat_u`: `0` bis `65,535` (der volle Bereich eines unsignierten 16-Bit-Ganzzahlwerts)
 
 ## Syntax
 
@@ -41,11 +41,11 @@ value_type.add_sat_u
 ```
 
 - `value_type`
-  - : Der Werttyp, auf dem die Instruktion ausgeführt wird. Die folgenden Typen unterstützen `add_sat_u`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `add_sat_u`:
     - `i8x16`
     - `i16x8`
 - `add_sat_u`
-  - : Die `add_sat_u` Instruktion. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
+  - : Die `add_sat_u` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -60,9 +60,9 @@ value_type.add_sat_u
 - `output`
   - : Der Ausgabewert.
 
-### Binärcodekodierung
+### Binäre Kodierung
 
-| Instruktion       | Binärformat    | Beispieltext => Binär                 |
+| Anweisung         | Binärformat    | Beispieltext => binär                 |
 | ----------------- | -------------- | ------------------------------------- |
 | `i8x16.add_sat_u` | `0xfd 112:u32` | `i8x16.add_sat_u` => `0xfd 0x70`      |
 | `i16x8.add_sat_u` | `0xfd 144:u32` | `i16x8.add_sat_u` => `0xfd 0x90 0x01` |
@@ -78,4 +78,3 @@ value_type.add_sat_u
 ## Siehe auch
 
 - [`add`](/de/docs/WebAssembly/Reference/Numeric/add)
-- [SIMD Arithmetikinstruktionen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

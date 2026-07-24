@@ -1,12 +1,12 @@
 ---
-title: "min: Wasm Textanweisung"
+title: "min: Wasm numerische Anweisung"
 short-title: min
 slug: WebAssembly/Reference/Numeric/min
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`min`** Anweisung wird verwendet, um den kleineren von zwei Zahlen zu ermitteln.
+Die **`min`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um die kleinere von zwei Zahlen zu erhalten.
 
 {{InteractiveExample("Wat Demo: min", "tabbed-taller")}}
 
@@ -37,14 +37,14 @@ value_type.min
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `min`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `min`:
     - `f32`
     - `f64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Interpretationen:
       - `f32x4`
       - `f64x2`
 - `min`
-  - : Die `min` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `min` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingeschlossen sein.
 
 ### Typ
 
@@ -61,11 +61,11 @@ value_type.min
 
 Für ein nicht-SIMD `min` sind die Eingaben grundlegende numerische Werte wie `3.0` oder `3.5`, und der `output` ist der kleinere von `input1` und `input2`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `min` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, z.B. `f32x4 2.0 30 86.9 120`. Jede Spur der Ausgabe, die in den Stapel gepusht wird, ist die kleinere der entsprechenden Spuren in den Eingabewerten.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `min` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, beispielsweise `f32x4 2.0 30 86.9 120`. Jede Lane des zur Stack gepushten Outputs ist der kleinere der entsprechenden Lanes in den Eingabewerten.
 
 ### Binäre Kodierung
 
-| Anweisung   | Binärformat    | Beispieltext => Binär           |
+| Anweisung   | Binärformat    | Beispieltext => binär           |
 | ----------- | -------------- | ------------------------------- |
 | `f32.min`   | `0x96`         | `f32.min` => `0x96`             |
 | `f64.min`   | `0xa4`         | `f64.min` => `0xa4`             |
@@ -76,11 +76,11 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `min` sind die Eingaben [`v
 
 ### SIMD `min` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `min`, um den kleineren Wert des gleichen Spurindex aus zwei SIMD-Werten zurückzugeben.
+In diesem Beispiel demonstrieren wir die Verwendung von `min`, um den kleineren Wert des gleichen Lane-Index aus zwei SIMD-Werten zurückzugeben.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, auf das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt zum Importieren in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabefeld `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
+In unserem Skript erhalten wir eine Referenz zu einem {{htmlelement("p")}}-Element, zu dem wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert in das Ausgabeelement `<p>` schreibt. Danach kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das Objekt im Prozess importieren.
 
 ```html hidden live-sample___simd_min
 <p></p>
@@ -102,7 +102,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie einen `f32`-Parameter hat. Dann deklarieren wir zwei SIMD `f32x4`-Werte und verwenden `f32x4.min`, um einen neuen `f32x4`-Wert zurückzugeben, der in jedem Fall den niedrigeren Spurwert der beiden Eingaben enthält. Schließlich extrahieren wir den in Spur `3` des Ausgabewerts gespeicherten Wert mithilfe der Anweisung [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane), und geben ihn durch Aufrufen der importierten Funktion `output()` in den DOM aus.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()` und stellen sicher, dass sie einen `f32`-Parameter hat. Dann deklarieren wir zwei SIMD `f32x4` Werte und verwenden `f32x4.min`, um einen neuen `f32x4` Wert zurückzugeben, der den kleineren Lanes-Wert aus den beiden Eingaben in jedem Fall enthält. Schließlich extrahieren wir den in Lane `3` des Ausgabe-Wertes gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung und geben ihn durch Aufrufen der importierten `output()`-Funktion an das DOM aus.
 
 ```wat live-sample___simd_min
 (module
@@ -131,7 +131,15 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_min", "100%", 100)}}
 
-Das Ergebnis ist `108`. Dies liegt daran, dass der in Spur `3` des ersten Eingabewerts gespeicherte Wert `1000` ist und der in Spur `3` des zweiten Eingabewerts gespeicherte Wert `108` ist. Da `108` kleiner ist als `1000`, hat der neue `f32x4`-Wert, der durch die `f32x4.min`-Anweisung ausgegeben wird, `108` in Spur `3`, den wir dann extrahieren und in den DOM ausgeben.
+Das Ergebnis ist `108`. Dies liegt daran, dass der in Lane `3` des ersten Eingabewertes gespeicherte Wert `1000` ist und der in Lane `3` des zweiten Eingabewertes gespeicherte Wert `108` ist. Da `108` kleiner als `1000` ist, hat der neue `f32x4` Wert, der von der `f32x4.min` Anweisung ausgegeben wird, `108` in Lane `3` gesetzt, den wir dann extrahieren und an das DOM ausgeben.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

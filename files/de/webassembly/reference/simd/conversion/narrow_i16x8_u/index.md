@@ -1,12 +1,12 @@
 ---
-title: "narrow_i16x8_u: Wasm SIMD Umwandlungsanweisung"
+title: "narrow_i16x8_u: Wasm SIMD Konvertierungsanweisung"
 short-title: narrow_i16x8_u
 slug: WebAssembly/Reference/SIMD/conversion/narrow_i16x8_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`narrow_i16x8_u`** [SIMD Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) wandelt zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertdarstellungen in eine `i8x16` Wertdarstellung unter Verwendung von unsignierter Sättigung (Eingrenzung auf den Bereich zwischen `0` bis `255`) um.
+Die **`narrow_i16x8_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert zwei signierte [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i16x8` Wertinterpretationen in eine `i8x16` Wertinterpretation unter Verwendung von unsignierter Sättigung (Begrenzung auf den Bereich zwischen `0` und `255`).
 
 {{InteractiveExample("Wat Demo: narrow_i16x8_u", "tabbed-taller")}}
 
@@ -45,13 +45,13 @@ i8x16.narrow_i16x8_u
 ```
 
 - `input1`
-  - : Die erste Eingabe `v128` `i16x8` Wertdarstellung.
+  - : Die erste Eingabe `v128` `i16x8` Wertinterpretation.
 - `input2`
-  - : Die zweite Eingabe `v128` `i16x8` Wertdarstellung.
+  - : Die zweite Eingabe `v128` `i16x8` Wertinterpretation.
 - `output`
-  - : Die Ausgabe `v128` `i8x16` Wertdarstellung.
+  - : Die Ausgabe `v128` `i8x16` Wertinterpretation.
 
-### Binärcodekodierung
+### Binärcodierung
 
 | Anweisung              | Binärformat    | Beispieltext => Binär                 |
 | ---------------------- | -------------- | ------------------------------------- |
@@ -64,7 +64,3 @@ i8x16.narrow_i16x8_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Umwandlungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

@@ -1,12 +1,12 @@
 ---
-title: "extend_low_i8x16_u: Wasm SIMD Konvertierungsanweisung"
+title: "extend_low_i8x16_u: Wasm SIMD Umwandlungsanweisung"
 short-title: extend_low_i8x16_u
 slug: WebAssembly/Reference/SIMD/conversion/extend_low_i8x16_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 139b03cac9d143948f9073edb507edec7b45d3d6
 ---
 
-Die **`extend_low_i8x16_u`** [SIMD Konvertierungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Bahnen 0–7 einer unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16` Wertinterpretation in eine `i16x8` Wertinterpretation.
+Die **`extend_low_i8x16_u`** [SIMD-Umwandlungsanweisung](/de/docs/WebAssembly/Reference/SIMD/conversion) konvertiert die Lanes 0–7 einer als `i8x16` interpretierten `v128`-Wert zu einer als `i16x8` interpretierten Wertdarstellung.
 
 {{InteractiveExample("Wat Demo: extend_low_i8x16_u", "tabbed-taller")}}
 
@@ -35,7 +35,7 @@ i16x8.extend_low_i8x16_u
 ```
 
 - `i16x8.extend_low_i8x16_u`
-  - : Die `i16x8.extend_low_i8x16_u` Anweisung.
+  - : Die `i16x8.extend_low_i8x16_u`-Anweisung.
 
 ### Typ
 
@@ -44,13 +44,13 @@ i16x8.extend_low_i8x16_u
 ```
 
 - `input`
-  - : Die Eingabe `v128` `i8x16` Wertinterpretation.
+  - : Die als `i8x16` interpretierte Eingabe-Wertdarstellung von `v128`.
 - `output`
-  - : Die Ausgabe `v128` `i16x8` Wertinterpretation.
+  - : Die als `i16x8` interpretierte Ausgabe-Wertdarstellung von `v128`.
 
-### Binärcodierung
+### Binäre Kodierung
 
-| Anweisung                  | Binärformat    | Beispieltext => binär                          |
+| Anweisung                  | Binärformat    | Beispieltext => Binär                          |
 | -------------------------- | -------------- | ---------------------------------------------- |
 | `i16x8.extend_low_i8x16_u` | `0xfd 137:u32` | `i16x8.extend_low_i8x16_u` => `0xfd 0x89 0x01` |
 
@@ -61,7 +61,3 @@ i16x8.extend_low_i8x16_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Konvertierungsanweisungen](/de/docs/WebAssembly/Reference/SIMD/conversion)

@@ -1,12 +1,12 @@
 ---
-title: "extmul_high_i8x16_u: Wasm SIMD-Arithmetikanweisung"
+title: "extmul_high_i8x16_u: Wasm SIMD Arithmetikinstruktion"
 short-title: extmul_high_i8x16_u
 slug: WebAssembly/Reference/SIMD/arithmetic/extmul_high_i8x16_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: b1f6f8008099d8c8fb7d253ec17e3cfaa726a75f
 ---
 
-Die **`extmul_high_i8x16_u`** [SIMD-Arithmetikanweisung](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 8–15 von zwei unsignierten [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen in eine `i16x8`-Wertinterpretation aus.
+Die **`extmul_high_i8x16_u`** [SIMD Arithmetikinstruktion](/de/docs/WebAssembly/Reference/SIMD/arithmetic) nimmt die Lanes 8–15 von zwei unsigned [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16`-Wertinterpretationen, multipliziert die Werte in den entsprechenden Lanes und gibt das Ergebnis dieser Operationen als `i16x8`-Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: extmul_high_i8x16_u", "tabbed-taller")}}
 
@@ -29,9 +29,9 @@ Die **`extmul_high_i8x16_u`** [SIMD-Arithmetikanweisung](/de/docs/WebAssembly/Re
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel werden die Lanes 8–15 der beiden `i8x16`-Eingabewerte miteinander multipliziert und die Produkte als `i16x8` ausgegeben. Lane `8` des ersten Eingabewertes wird mit Lane `8` des zweiten Eingabewertes multipliziert, und das Produkt wird zu Lane `0` der Ausgabe, und so weiter. Als Ergebnis enthält jede Lane der Ausgabe den Wert `15` (`3 * 5`).
+Im obigen Beispiel werden die Lanes 8–15 der beiden `i8x16`-Eingabewerte miteinander multipliziert und die Produkte als `i16x8` ausgegeben. Lane `8` des ersten Eingangs wird mit Lane `8` des zweiten Eingangs multipliziert, und das Produkt wird zu Lane `0` des Ausgangs und so weiter. Dadurch enthält jede Lane des Ausgangs den Wert `15` (`3 * 5`).
 
-Die `extmul_high_i8x16_u`-Anweisung ist ein leistungsstärkeres Äquivalent zum Durchreichen der Ergebnisse von zwei [`extend_high_i8x16_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i8x16_u)-Anweisungen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Anweisung.
+Die `extmul_high_i8x16_u`-Instruktion ist eine performantere Entsprechung zur Übergabe der Ergebnisse von zwei [`extend_high_i8x16_u`](/de/docs/WebAssembly/Reference/SIMD/conversion/extend_high_i8x16_u)-Instruktionen in eine [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)-Instruktion.
 
 Mit anderen Worten:
 
@@ -42,7 +42,7 @@ Mit anderen Worten:
 )
 ```
 
-ist gleichbedeutend mit
+entspricht
 
 ```wat
 (i16x8.mul
@@ -62,7 +62,7 @@ i16x8.extmul_high_i8x16_u
 ```
 
 - `i16x8.extmul_high_i8x16_u`
-  - : Die `i16x8.extmul_high_i8x16_u`-Anweisung.
+  - : Die `i16x8.extmul_high_i8x16_u`-Instruktion.
 
 ### Typ
 
@@ -77,9 +77,9 @@ i16x8.extmul_high_i8x16_u
 - `output`
   - : Die Ausgabe `v128` `i16x8`-Wertinterpretation.
 
-### Binärcode-Kodierung
+### Binärcodierung
 
-| Anweisung                   | Binärformat    | Beispieltext => Binär                           |
+| Instruktion                 | Binärformat    | Beispiels-Text => Binär                         |
 | --------------------------- | -------------- | ----------------------------------------------- |
 | `i16x8.extmul_high_i8x16_u` | `0xfd 159:u32` | `i16x8.extmul_high_i8x16_u` => `0xfd 0x9f 0x01` |
 
@@ -90,7 +90,3 @@ i16x8.extmul_high_i8x16_u
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD-Arithmetikanweisungen](/de/docs/WebAssembly/Reference/SIMD/arithmetic)

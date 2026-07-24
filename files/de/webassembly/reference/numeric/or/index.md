@@ -1,12 +1,12 @@
 ---
-title: "or: Wasm-Textanweisung"
+title: "or: Wasm numerische Anweisung"
 short-title: or
 slug: WebAssembly/Reference/Numeric/or
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`or`** Anweisung wird für die Durchführung einer bitweisen Oder-Operation verwendet, ähnlich dem **`|`** Operator in anderen Sprachen.
+Die **`or`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) wird verwendet, um eine bitweise ODER-Operation durchzuführen, ähnlich dem **`|`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: or", "tabbed-taller")}}
 
@@ -49,12 +49,12 @@ value_type.or
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf dem die Anweisung ausgeführt wird. Die folgenden Typen unterstützen `or`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `or`:
     - `i32`
     - `i64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)
 - `or`
-  - : Die `or` Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Die `or`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -69,13 +69,13 @@ value_type.or
 - `output`
   - : Der Ausgabewert.
 
-Für ein nicht-SIMD `or` sind dies grundlegende numerische Werte wie `14` oder `3`.
+Bei einer nicht-SIMD `or` sind dies grundlegende numerische Werte wie `14` oder `3`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `or` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen, z.B. `i32x4 9 4 -16 100`. Jedes Lane des zur Stapel hinzugefügten Ausgabewertes ist das bitweise OR der entsprechenden Lanes in den Eingabewerten.
+Bei einer [SIMD](/de/docs/WebAssembly/Reference/SIMD) `or` sind dies [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 9 4 -16 100`. Jedes Lane des auf den Stack geschobenen Ausgabes ist das bitweise ODER der entsprechenden Lanes in den Eingabewerten.
 
-### Binäre Kodierung
+### Binärkodierung
 
-| Anweisung | Binäre Format | Beispieltext => Binär    |
+| Anweisung | Binärformat   | Beispieltext => binär    |
 | --------- | ------------- | ------------------------ |
 | `i32.or`  | `0x72`        | `i32.or` => `0x72`       |
 | `i64.or`  | `0x84`        | `i64.or` => `0x84`       |
@@ -83,13 +83,13 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `or` sind dies [`v128`](/de
 
 ## Beispiele
 
-### SIMD or Beispiel
+### SIMD-or-Beispiel
 
 In diesem Beispiel demonstrieren wir die Ausführung von `v128.or` auf zwei SIMD-Werten und die Ausgabe eines der Lane-Werte des Ergebnisses.
 
 #### JavaScript
 
-In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, auf das wir unser Ergebnis ausgeben werden. Dann definieren wir ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Anschließend kompilieren und instanziieren wir unser Wasm-Modul mithilfe der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei das Objekt importiert wird.
+In unserem Skript erhalten wir eine Referenz zu einem {{htmlelement("p")}}-Element, an das wir unser Ergebnis ausgeben werden, dann definieren wir ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mithilfe der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode und importieren das Objekt im Prozess.
 
 ```html hidden live-sample___simd_or
 <p></p>
@@ -111,7 +111,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD `i32x4` Werte und verwenden `v128.or`, um die Bits der binären Darstellung jedes Wertes zu "odern". Schließlich extrahieren wir den im Lane `3` gespeicherten Wert des Ausgabewertes mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung und geben ihn durch Aufrufen der importierten `output()` Funktion an das DOM aus.
+In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter hat. Wir deklarieren dann zwei SIMD-`i32x4`-Werte und verwenden `v128.or`, um die Bits der binären Darstellung jedes Wertes zu "odern". Schließlich extrahieren wir den in Lane `3` des Ausgabewertes gespeicherten Wert mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn durch Aufruf der importierten `output()`-Funktion an das DOM aus.
 
 ```wat live-sample___simd_or
 (module
@@ -134,11 +134,11 @@ In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funkti
 
 #### Ergebnis
 
-Die Ausgabe lautet wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("simd_or", "100%", 100)}}
 
-`926` wird ausgegeben, da dies das Ergebnis des "Or"-Vorgangs für Lane 3 des ersten Wertes (`782`) und des zweiten Wertes (`400`) ist. Wenn Sie sich deren binäre Äquivalente ansehen, wird klar, wie das funktioniert:
+`926` wird ausgegeben, weil dies das Ergebnis des "Or" von Lane 3 des ersten Wertes (`782`) und dem zweiten Wert (`400`) ist. Wenn Sie sich deren binäre Entsprechungen ansehen, wird klar, wie dies funktioniert:
 
 ```plain
 782 = 0000 0011 0000 1110
@@ -146,3 +146,11 @@ Die Ausgabe lautet wie folgt:
       -------------------
  OR = 0000 0011 1001 1110 = 926
 ```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

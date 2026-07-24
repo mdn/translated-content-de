@@ -1,12 +1,12 @@
 ---
-title: "ctz: Wasm-Textanweisung"
+title: "ctz: Wasm numerische Anweisung"
 short-title: ctz
 slug: WebAssembly/Reference/Numeric/ctz
 l10n:
-  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`ctz`**-Anweisungen, kurz für _count trailing zeros_, werden verwendet, um die Anzahl der Nullen am Ende der binären Darstellung von Zahlen zu zählen.
+Die **`ctz`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _count trailing zeros_, wird verwendet, um die Anzahl der Nullen am Ende der binären Darstellung einer Zahl zu zählen.
 
 {{InteractiveExample("Wat Demo: ctz", "tabbed-taller")}}
 
@@ -54,3 +54,11 @@ i32.ctz
 | --------- | -------------- |
 | `i32.ctz` | `0x68`         |
 | `i64.ctz` | `0x7a`         |
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

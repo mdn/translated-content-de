@@ -1,17 +1,17 @@
 ---
-title: "ge_u: Wasm-Textanweisung"
+title: "ge_u: Wasm nummerische Anweisung"
 short-title: ge_u
 slug: WebAssembly/Reference/Numeric/ge_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 4d8fcaa723acfff9b9d1fc5cceb9685e06b5fb0f
 ---
 
-Die **`ge_u`**-Anweisung, kurz für _greater or equal unsigned_, überprüft, ob eine vorzeichenlose Ganzzahl größer oder gleich einer anderen vorzeichenlosen Ganzzahl ist.
+Die **`ge_u`**-[numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric), kurz für _greater or equal unsigned_, überprüft, ob eine vorzeichenlose Ganzzahl größer oder gleich einer anderen vorzeichenlosen Ganzzahl ist.
 
-Es sind andere `ge`-Anweisungen verfügbar:
+Es gibt weitere `ge`-Anweisungen:
 
-- [**`ge_s`**](/de/docs/WebAssembly/Reference/Numeric/ge_s) für den Vergleich vorzeichenbehafteter Ganzzahlen.
-- [**`ge`**](/de/docs/WebAssembly/Reference/Numeric/ge) für den Vergleich von Gleitkommazahlen.
+- [**`ge_s`**](/de/docs/WebAssembly/Reference/Numeric/ge_s) zum Vergleichen von Ganzzahlen mit Vorzeichen.
+- [**`ge`**](/de/docs/WebAssembly/Reference/Numeric/ge) zum Vergleichen von Fließkommazahlen.
 
 {{InteractiveExample("Wat Demo: ge_u", "tabbed-taller")}}
 
@@ -50,7 +50,7 @@ value_type.ge_u
 ```
 
 - `value_type`
-  - : Der Typ des Werts, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `ge_u`:
+  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden Typen unterstützen `ge_u`:
     - `i32`
     - `i64`
     - [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Interpretationen:
@@ -58,7 +58,7 @@ value_type.ge_u
       - `i16x8`
       - `i32x4`
 - `ge_u`
-  - : Die `ge_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) stehen.
+  - : Die `ge_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
 
 ### Typ
 
@@ -73,11 +73,11 @@ value_type.ge_u
 - `output`
   - : Der Ausgabewert, der ein Ganzzahltyp sein wird.
 
-Für ein nicht-SIMD `ge_u` sind die Eingaben grundlegende numerische Werte wie `3` oder `12`.
+Für ein nicht-SIMD `ge_u` sind die Eingaben grundlegende nummerische Werte wie `3` oder `12`.
 
-Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_u` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Lane des auf den Stack geschobenen Outputs ist eine `1` oder `0`, die angibt, ob die entsprechende Lane des ersten Eingabewerts größer oder gleich der entsprechenden Lane des zweiten Eingabewerts ist.
+Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_u` sind die Eingaben [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen, zum Beispiel `i32x4 2 30 86 120`. Jede Lane des zur Stapel geschobenen Outputs ist eine `1` oder `0`, die angibt, ob die entsprechende Lane des ersten Eingabewertes größer oder gleich der entsprechenden Lane des zweiten Eingabewertes ist.
 
-### Binärkodierung
+### Binärcodierung
 
 | Anweisung    | Binärformat   | Beispieltext => binär       |
 | ------------ | ------------- | --------------------------- |
@@ -89,13 +89,13 @@ Für ein [SIMD](/de/docs/WebAssembly/Reference/SIMD) `ge_u` sind die Eingaben [`
 
 ## Beispiele
 
-### SIMD `ge_u`-Beispiel
+### SIMD `ge_u` Beispiel
 
-In diesem Beispiel demonstrieren wir die Verwendung von `ge_u`, um zu testen, ob ein SIMD-Lane-Wert größer oder gleich demselben Lane-Wert in einem anderen SIMD-Wert ist.
+In diesem Beispiel demonstrieren wir die Verwendung von `ge_u`, um zu testen, ob ein SIMD-Lane-Wert größer oder gleich dem gleichen Lane-Wert in einem anderen SIMD-Wert ist.
 
 #### JavaScript
 
-In unserem Skript holen wir uns eine Referenz auf ein {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben, und definieren ein Objekt zum Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabeelement `<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren das Objekt dabei.
+In unserem Skript holen wir eine Referenz zu einem {{htmlelement("p")}}-Element, in das wir unser Ergebnis ausgeben werden, und definieren dann ein Objekt für den Import in Wasm, das eine einzelne Funktion enthält, die einen Wert an das Ausgabe-`<p>` schreibt. Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) und importieren dabei das Objekt.
 
 ```html hidden live-sample___simd_ge_u
 <p></p>
@@ -117,7 +117,7 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funktion und stellen sicher, dass sie einen `i32`-Parameter enthält. Dann deklarieren wir zwei SIMD-`i32x4`-Werte und überprüfen, ob die Lane-Werte des ersten größer oder gleich denen des zweiten sind, indem wir `i32x4.ge_u` verwenden. Schließlich extrahieren wir den in Lane `3` des Ausgabewerts gespeicherten Wert mithilfe der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane)-Anweisung und geben ihn an das DOM aus, indem wir die importierte `output()`-Funktion aufrufen.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie über einen `i32`-Parameter verfügt. Dann deklarieren wir zwei SIMD-`i32x4`-Werte und prüfen, ob die Lane-Werte des ersten größer oder gleich denjenigen des zweiten sind, indem wir `i32x4.ge_u` verwenden. Schließlich extrahieren wir den im Lane `3` des Ausgabewertes gespeicherten Wert mit der [`extract_lane`](/de/docs/WebAssembly/Reference/SIMD/extract/extract_lane) Anweisung und geben ihn durch Aufruf der importierten `output()`-Funktion an das DOM aus.
 
 ```wat live-sample___simd_ge_u
 (module
@@ -142,11 +142,19 @@ In unserem Wasm-Modul importieren wir zunächst die JavaScript-`output()`-Funkti
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Die Ausgabe lautet wie folgt:
 
 {{embedlivesample("simd_ge_u", "100%", 100)}}
 
-Das Ergebnis ist `1`, weil der in Lane `3` des ersten Eingabewertes gespeicherte Wert größer oder gleich dem in Lane `3` des zweiten Eingabewertes gespeicherten Wert ist.
+Das Ergebnis ist `1`, da der Wert im Lane `3` des ersten Eingabewertes größer oder gleich dem Wert im Lane `3` des zweiten Eingabewertes ist.
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 ## Siehe auch
 

@@ -1,15 +1,15 @@
 ---
-title: "bitmask: Wasm SIMD bitweise Anweisung"
+title: "bitmask: Wasm SIMD Bitweisen-Anweisung"
 short-title: bitmask
 slug: WebAssembly/Reference/SIMD/bitwise/bitmask
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: 7d6773a8ee41048b915cd566b0c67f97be6ea249
 ---
 
-Die **`bitmask`** [SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) untersucht das **höchstwertige Bit** (MSB) jeder Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretation. Dies ist das Vorzeichenbit, wenn die Lane als signiert betrachtet wird. Der Ausgabe-Wert der Anweisung entspricht dem Sammeln all dieser Bits in einem einzelnen `i32`, wobei das MSB von Lane 0 in Bit 0 des Ergebnisses liegt, das MSB von Lane 1 in Bit 1 und so weiter.
+Die **`bitmask`** [SIMD Bitweisen-Anweisung](/de/docs/WebAssembly/Reference/SIMD/bitwise) betrachtet das **höchstwertige Bit** (MSB) jeder Lane einer Interpretation des [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertes. Dies ist das Vorzeichenbit, wenn die Lane als vorzeichenbehaftet betrachtet wird. Der Ausgabewert der Anweisung entspricht all diesen Bits, die in einem einzelnen `i32` gesammelt wurden, wobei das höchstwertige Bit von Lane 0 im Bit 0 des Ergebnisses, das höchstwertige Bit von Lane 1 im Bit 1 usw. ist.
 
 > [!NOTE]
-> Für `i8x16.bitmask` bedeutet ein MSB von `1`, dass der Lane-Wert größer oder gleich 128 ist (negativ, wenn signiert), während ein MSB von `0` bedeutet, dass der Wert kleiner als 128 ist. Für breitere Lane-Typen ist die Schwelle entsprechend größer: 32768 für `i16x8`, 2147483648 für `i32x4`.
+> Für `i8x16.bitmask` bedeutet ein höchstwertiges Bit von `1`, dass der Lane-Wert größer oder gleich `128` ist (negativ, wenn vorzeichenbehaftet), während ein höchstwertiges Bit von `0` bedeutet, dass der Wert kleiner als `128` ist. Für breitere Lane-Typen ist der Schwellenwert entsprechend größer: `32768` für `i16x8`, `2147483648` für `i32x4`.
 
 {{InteractiveExample("Wat Demo: bitmask", "tabbed-taller")}}
 
@@ -30,7 +30,7 @@ Die **`bitmask`** [SIMD bitweise Anweisung](/de/docs/WebAssembly/Reference/SIMD/
 WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), { console });
 ```
 
-Im obigen Beispiel hat nur Lane `12` des `i8x16`-Werts einen Wert, der größer oder gleich `128` ist (`240`, um genau zu sein), daher ist sein MSB `1`. Alle anderen Byte-MSBs sind auf `0` gesetzt.
+Im obigen Beispiel hat nur die Lane `12` des `i8x16` Wertes einen Wert von größer oder gleich `128` (`240`, um genau zu sein), daher ist ihr höchstwertiges Bit `1`. Alle anderen Bytes haben das höchstwertige Bit auf `0` gesetzt.
 
 Der Ausgabe-`i32` ist daher gleich:
 
@@ -53,7 +53,7 @@ value_type.bitmask
     - `i32x4`
     - `i64x2`
 - `bitmask`
-  - : Die `bitmask`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) enthalten sein.
+  - : Die `bitmask`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
 
 ### Typ
 
@@ -62,11 +62,11 @@ value_type.bitmask
 ```
 
 - `input`
-  - : Die Eingabe-`v128`-Wertinterpretation.
+  - : Die Eingabe `v128` Wertinterpretation.
 - `output`
-  - : Der Ausgabe-`i32`-Wert.
+  - : Der Ausgabe-`i32` Wert.
 
-### Binärkodierung
+### Binärcodierung
 
 | Anweisung       | Binärformat    | Beispieltext => binär               |
 | --------------- | -------------- | ----------------------------------- |
@@ -82,7 +82,3 @@ value_type.bitmask
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD bitweise Anweisungen](/de/docs/WebAssembly/Reference/SIMD/bitwise)
