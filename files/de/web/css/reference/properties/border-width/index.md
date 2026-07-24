@@ -3,10 +3,10 @@ title: "`border-width` CSS-Eigenschaft"
 short-title: border-width
 slug: Web/CSS/Reference/Properties/border-width
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-width`**- [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des Rahmens eines Elements fest.
+Die **`border-width`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des Rahmens eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-width")}}
 
@@ -49,7 +49,7 @@ border-width: 0 4px 8px 12px;
 }
 ```
 
-## Bestandteil-Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -87,23 +87,17 @@ border-width: revert-layer;
 border-width: unset;
 ```
 
-Die `border-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden.
+Die Eigenschaft `border-width` kann mit einem, zwei, drei oder vier Werten angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt diese Breite für **alle vier Seiten**.
+- Wenn **ein** Wert angegeben wird, gilt die gleiche Breite für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
 - Wenn **drei** Werte angegeben werden, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Breiten in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
+- Wenn **vier** Werte angegeben werden, gelten die Breiten für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
-- `<line-width>`
-  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es sich um ein Schlüsselwort handelt, muss es einer der folgenden Werte sein:
-    - `thin`
-      - Entspricht `1px`.
-    - `medium`
-      - Entspricht `3px`.
-    - `thick`
-      - Entspricht `5px`.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -174,5 +168,5 @@ p {
 
 ## Siehe auch
 
-- Die rahmenbezogenen Kurzform-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-style")}}, {{Cssxref("border-color")}}
-- Die eigenschaftenbezogen auf die Rahmenbreite: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}}
+- Die rahmenbezogenen Shorthand-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-style")}}, {{Cssxref("border-color")}}
+- Die rahmenbreitenbezogenen Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}}

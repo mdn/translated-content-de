@@ -3,10 +3,10 @@ title: "`border-inline-end-style` CSS property"
 short-title: border-inline-end-style
 slug: Web/CSS/Reference/Properties/border-inline-end-style
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-inline-end-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Stil des logischen inline-End-Randes eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements zu einem physischen Randstil wird. Sie entspricht der {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}-Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
+Die **`border-inline-end-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Inline-End-Rands eines Elements, der in Abhängigkeit vom Schreibmodus, der Richtung und der Textorientierung des Elements einem physischen Randstil zugeordnet wird. Sie entspricht der {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: border-inline-end-style")}}
 
@@ -49,7 +49,7 @@ direction: rtl;
 ## Syntax
 
 ```css
-/* <'border-style'> values */
+/* Keyword values */
 border-inline-end-style: dashed;
 border-inline-end-style: dotted;
 border-inline-end-style: groove;
@@ -62,12 +62,12 @@ border-inline-end-style: revert-layer;
 border-inline-end-style: unset;
 ```
 
-Zu den verwandten Eigenschaften gehören {{cssxref("border-block-start-style")}}, {{cssxref("border-block-end-style")}}, und {{cssxref("border-inline-start-style")}}, die die anderen Randstile des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-style")}}, {{cssxref("border-block-end-style")}} und {{cssxref("border-inline-start-style")}}, die die anderen Randstile des Elements definieren.
 
 ### Werte
 
-- `<'border-style'>`
-  - : Der Linienstil des Randes. Siehe {{ cssxref("border-style") }}.
+- {{cssxref("&lt;line-style&gt;")}}
+  - : Der Linienstil des Rands. Siehe {{ cssxref("border-style") }}.
 
 ## Formale Definition
 
@@ -79,7 +79,7 @@ Zu den verwandten Eigenschaften gehören {{cssxref("border-block-start-style")}}
 
 ## Beispiele
 
-### Festlegung des inline-end-style
+### Einstellen des inline-end-style
 
 #### HTML
 
@@ -119,6 +119,6 @@ div {
 
 ## Siehe auch
 
-- [Logische Eigenschaften und Werte in CSS](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft entspricht einer der physischen Randeigenschaften: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird einem der physischen Randeigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -3,12 +3,12 @@ title: "`border-block-style` CSS property"
 short-title: border-block-style
 slug: Web/CSS/Reference/Properties/border-block-style
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-block-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Stil der logischen Blockränder eines Elements, was je nach Schreibmodus, Richtung und Textorientierung des Elements auf einen physischen Randstil abgebildet wird. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
+Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockränder eines Elements, was je nach Schreibmodus des Elements, dessen Richtung und Textorientierung einem physischen Randstil entspricht. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}} abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Der Randstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} eingestellt werden, das {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
+Der Randstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} festgelegt werden, welche {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-block-style")}}
 
@@ -51,7 +51,7 @@ direction: rtl;
 ## Syntax
 
 ```css
-/* <'border-style'> values */
+/* Keyword values */
 border-block-style: dashed;
 border-block-style: dotted;
 border-block-style: groove;
@@ -66,7 +66,7 @@ border-block-style: unset;
 
 ### Werte
 
-- `<'border-style'>`
+- {{cssxref("&lt;line-style&gt;")}}
   - : Der Linienstil des Randes. Siehe {{ cssxref("border-style") }}.
 
 ## Formale Definition
@@ -79,7 +79,7 @@ border-block-style: unset;
 
 ## Beispiele
 
-### Gepunkteter Rand mit vertikalem Text
+### Gestrichelter Rand mit vertikalem Text
 
 #### HTML
 
@@ -120,5 +120,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- Diese Eigenschaft entspricht einer der physischen Randeigenschaften: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

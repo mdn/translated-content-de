@@ -3,10 +3,10 @@ title: "`border-top-width` CSS property"
 short-title: border-top-width
 slug: Web/CSS/Reference/Properties/border-top-width
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-top-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des oberen Rands eines Elements fest.
+Die **`border-top-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des oberen Rands eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-top-width")}}
 
@@ -72,14 +72,8 @@ border-top-width: unset;
 
 ### Werte
 
-- `<line-width>`
-  - : Definiert die Breite des Rahmens entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
-    - `thin`
-      - Entspricht `1px`.
-    - `medium`
-      - Entspricht `3px`.
-    - `thick`
-      - Entspricht `5px`.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Rands, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -128,5 +122,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen border-width-bezogenen CSS-Eigenschaften: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}} und {{Cssxref("border-width")}}.
-- Die anderen border-top-bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}} und {{Cssxref("border-top-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Breite von Rändern beziehen: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den oberen Rand beziehen: {{Cssxref("border")}}, {{Cssxref("border-top")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-top-color")}}.

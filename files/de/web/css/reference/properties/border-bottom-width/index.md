@@ -3,10 +3,10 @@ title: "`border-bottom-width` CSS property"
 short-title: border-bottom-width
 slug: Web/CSS/Reference/Properties/border-bottom-width
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-bottom-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des unteren Rands eines Elements fest.
+Die **`border-bottom-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des unteren Rahmens eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-bottom-width")}}
 
@@ -72,14 +72,8 @@ border-bottom-width: unset;
 
 ### Werte
 
-- `<line-width>`
-  - : Definiert die Breite des Rands entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es sich um ein Schlüsselwort handelt, muss es einen der folgenden Werte haben:
-    - `thin`
-      - Entspricht `1px`.
-    - `medium`
-      - Entspricht `3px`.
-    - `thick`
-      - Entspricht `5px`.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder durch die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -91,7 +85,7 @@ border-bottom-width: unset;
 
 ## Beispiele
 
-### Vergleich verschiedener Breiten von unteren Rändern
+### Vergleich der Breiten des unteren Rahmens
 
 #### HTML
 
@@ -130,5 +124,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen auf Randbreiten bezogenen CSS-Eigenschaften: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen auf den unteren Rand bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, {{Cssxref("border-bottom-style")}}, und {{Cssxref("border-bottom-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Rahmenbreite beziehen: {{Cssxref("border-left-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-top-width")}} und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den unteren Rahmen beziehen: {{Cssxref("border")}}, {{Cssxref("border-bottom")}}, {{Cssxref("border-bottom-style")}} und {{Cssxref("border-bottom-color")}}.

@@ -3,10 +3,10 @@ title: "`border-right-width` CSS property"
 short-title: border-right-width
 slug: Web/CSS/Reference/Properties/border-right-width
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-right-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des rechten Rahmens eines Elements fest.
+Die **`border-right-width`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rands eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right-width")}}
 
@@ -72,14 +72,8 @@ border-right-width: unset;
 
 ### Werte
 
-- `<line-width>`
-  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
-    - `thin`
-      - Entspricht `1px`.
-    - `medium`
-      - Entspricht `3px`.
-    - `thick`
-      - Entspricht `5px`.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Rands entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -91,7 +85,7 @@ border-right-width: unset;
 
 ## Beispiele
 
-### Vergleich von Rahmenbreiten
+### Vergleich der Randbreiten
 
 #### HTML
 
@@ -130,5 +124,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen Rahmenbreiten-bezogenen CSS-Eigenschaften: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen rechtsseitigen Rahmen-bezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.
+- Die anderen CSS-Eigenschaften, die mit der Randbreite zusammenhängen: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}} und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die mit dem rechten Rand zusammenhängen: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}} und {{Cssxref("border-right-color")}}.

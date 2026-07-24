@@ -3,10 +3,10 @@ title: "`column-rule-style` CSS property"
 short-title: column-rule-style
 slug: Web/CSS/Reference/Properties/column-rule-style
 l10n:
-  sourceCommit: 5cf8432d980cbe9b7e5611d647d8566b5c4ff3ed
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`column-rule-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Linienstil der Linien, die zwischen den Spalten in Mehrspalten-, Flexbox- und Grid-Layouts gezogen werden.
+Die **`column-rule-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den Linienstil der Linien, die zwischen Spalten in einem Multi-Column-, Flex- oder Grid-Layout gezeichnet werden.
 
 {{InteractiveExample("CSS Demo: column-rule-style")}}
 
@@ -53,7 +53,7 @@ column-rule-style: hidden;
 ## Syntax
 
 ```css
-/* One value */
+/* Keyword values */
 column-rule-style: none;
 column-rule-style: hidden;
 column-rule-style: dotted;
@@ -80,32 +80,32 @@ column-rule-style: unset;
 
 ### Werte
 
-Die `column-rule-style`-Eigenschaft akzeptiert eine durch Kommas getrennte Liste von Werten, einschließlich:
+Die `column-rule-style`-Eigenschaft akzeptiert eine durch Kommata getrennte Liste von Werten, inklusive:
 
 - `<line-style>`
   - : Ein {{cssxref("&lt;line-style&gt;")}}: einer von `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset` oder `outset`. Der Standardwert ist `none`.
 
 - `<repeat-line-style>`
-  - : Eine {{cssxref("repeat()")}}-Funktion, bei der das erste Argument ein {{cssxref("&lt;integer&gt;")}} von `1` oder mehr ist und die nachfolgenden Argumente {{cssxref("&lt;line-style&gt;")}}-Werte sind. Die Ganzzahl gibt an, wie oft die `<line-style>`-Werte wiederholt werden sollen.
+  - : Eine {{cssxref("repeat()")}}-Funktion, wobei das erste Argument ein {{cssxref("&lt;integer&gt;")}} von `1` oder mehr ist und die nachfolgenden Argumente {{cssxref("&lt;line-style&gt;")}}-Werte sind. Der Integer gibt an, wie oft die `<line-style>`-Werte wiederholt werden sollen.
 
 - `<auto-repeat-line-style>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<line-style>`-Werten als nachfolgende Argumente. Die angegebenen `<line-style>`-Werte werden so oft wiederholt, wie nötig, um Werte für alle Spaltenregeln zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts festgelegt sind.
+  - : Eine {{cssxref("repeat()")}}-Funktion, mit `auto` als erstem Argument und einem oder mehreren `<line-style>`-Werten als nachfolgende Argumente. Die bereitgestellten `<line-style>`-Werte werden so oft wiederholt, wie nötig, um Werte für jeden Spaltenregel festzulegen, die nicht explizit von anderen Komponenten des Eigenschaftswerts angegeben werden.
 
 ## Beschreibung
 
-Die `column-rule-style`-Eigenschaft definiert den Linienstil von jeglichen Spaltenregel-Linien, die in den Lücken zwischen den Spalten in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte gezeichnet werden.
+Die `column-rule-style`-Eigenschaft definiert den Linienstil jeder Spaltenregel-Linie, die in den Lücken zwischen Spalten in [multi-column](/de/docs/Web/CSS/Guides/Multicol_layout)-, [flex](/de/docs/Web/CSS/Guides/Flexible_box_layout)- und [grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Spalte gezeichnet werden.
 
-Der Wert ist eine durch Kommas getrennte Liste von Komponenten, die `<line-style>`, `<repeat-line-style>` und `<auto-repeat-line-style>`-Typen enthalten kann.
+Der Wert ist eine durch Kommata getrennte Liste von Komponenten, die `<line-style>`, `<repeat-line-style>` und `<auto-repeat-line-style>`-Typen umfassen kann.
 
-Die `column-rule-style`-Eigenschaft, zusammen mit den Eigenschaften {{cssxref("column-rule-color")}} und {{cssxref("column-rule-width")}}, kann mit dem Kurzschreibwert {{cssxref("column-rule")}} gesetzt werden. Die `column-rule-style` kann zusammen mit der Eigenschaft {{cssxref("row-rule-style")}} auch mit dem Kurzschreibwert {{cssxref("rule-style")}} gesetzt werden.
+Die `column-rule-style`, zusammen mit den Eigenschaften {{cssxref("column-rule-color")}} und {{cssxref("column-rule-width")}}, kann mit der Kurzform {{cssxref("column-rule")}} gesetzt werden. Die `column-rule-style`, zusammen mit der Eigenschaft {{cssxref("row-rule-style")}}, kann auch mit der Kurzform {{cssxref("rule-style")}} gesetzt werden.
 
-Hat der Eigenschaftswert nur einen `<line-style>`, werden alle Spaltenregeln diesen Stil haben. Wenn wir folgendes deklarieren, werden alle Spaltenregeln `double`:
+Wenn der Eigenschaftswert nur einen `<line-style>` hat, werden alle Spaltenregeln diesen Stil haben. Wenn wir folgendes erklären, werden alle Spaltenregeln `double` sein:
 
 ```css
 column-rule-style: double;
 ```
 
-Wenn mehr als ein `<line-style>` deklariert ist, werden sie in der angegebenen Reihenfolge auf die Spaltenregeln angewendet. Gibt es mehr Spaltenregeln als `<line-style>`-Werte, wird die Liste der Linienstile wiederholt, bis jede Spalte einen Stil hat. Wenn wir folgendes deklarieren, wird jede ungerade Regel `double` und jede gerade Regel `groove`.
+Wenn mehr als ein `<line-style>` angegeben ist, werden sie in der angegebenen Reihenfolge auf die Spaltenregeln angewendet. Wenn es mehr Spaltenregeln als `<line-style>`-Werte gibt, wird die Liste der Linienstile wiederholt, bis jede Spaltenregel einen Stil hat. Wenn wir folgendes deklarieren, wird zum Beispiel jede ungerade Regel `double` und jede gerade Regel `groove` sein.
 
 ```css
 column-rule-style: double, groove;
@@ -113,28 +113,28 @@ column-rule-style: double, groove;
 
 ### Wiederholte Linienstile
 
-Die `repeat()`-Funktion, bei der eine Ganzzahl von `1` oder größer als erstes Argument verwendet wird, kann verwendet werden, um eine gültige Liste von CSS-{{cssxref("&lt;line-style&gt;")}}-Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht das Wiederholen desselben Stils eine festgelegte Anzahl von Malen, ohne denselben Wert zu wiederholen. Sie können `<line-style>`-Schlüsselwortwerte oder benutzerdefinierte Eigenschaften einschließen, die auf einen gültigen `<line-style>` aufgelöst werden. Die Verwendung von `repeat()` kann es erleichtern, Werte zu schreiben, da wiederkehrende Muster mit einer einzigen Funktion geschrieben werden können, unabhängig von der Anzahl der Spalten. Die folgenden Deklarationen sind äquivalent:
+Die `repeat()`-Funktion, mit einem Integer von `1` oder größer als erstes Argument, kann verwendet werden, um eine gültige Liste von CSS-{{cssxref("&lt;line-style&gt;")}}-Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Auf diese Weise kann derselbe Stil eine bestimmte Anzahl von Malen wiederholt werden, ohne denselben Wert zu wiederholen. Sie können `<line-style>`-Schlüsselwortwerte oder benutzerdefinierte Eigenschaften, die zu einem gültigen `<line-style>` aufgelöst werden, einschließen. Die Verwendung von `repeat()` kann die Werte einfacher gestalten und wiederkehrende Muster ermöglichen, die mit einer einzigen Funktion geschrieben werden, unabhängig von der Anzahl der Spalten. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 column-rule-style: solid, outset, inset, outset, inset;
 column-rule-style: solid, repeat(2, outset, inset);
 ```
 
-Dies erstellt eine Liste von fünf Stilen. Wenn die Anzahl der Stile in der Stilliste des `column-rule-style`-Werts die Anzahl der Spaltenlücken übersteigt, werden die überflüssigen Stilwerte ignoriert. Wenn der Container drei Spalten hat, wird die Regel in der ersten Lücke `solid` und die zweite `outset`.
+Dies erstellt eine Liste von fünf Stilen. Wenn die Anzahl der Stile in der `column-rule-style`-Wertliste die Anzahl der Lücken zwischen den Spalten übersteigt, werden die überzähligen Stilwerte ignoriert. Wenn das Container drei Spalten hat, wird die Regel in der ersten Lücke `solid` und die zweite `outset` sein.
 
-Gibt es mehr Lücken als Stile, wird die Stilenliste wiederholt. Wenn der Container 6, 11, 16 oder 21 Spalten hat, wird diese Sequenz von Stilen ein-, zwei-, drei- oder viermal wiederholt, wobei die letzte Regel `inset` ist.
+Wenn es mehr Lücken als Stile gibt, wird die Liste der Stile wiederholt. Wenn das Container 6, 11, 16 oder 21 Spalten hat, wird diese Stilsequenz ein-, zwei-, drei- oder viermal wiederholt, wobei die letzte Regel `inset` sein wird.
 
-### Automatisch wiederholte Linienstile
+### Auto-wiederholende Linienstile
 
-Die `repeat()`-Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstes Argument werden die `<line-style>`-Werte, die als nachfolgende Parameter übergeben werden, so oft wiederholt, wie nötig, um die Werte für alle Spaltenregeln zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts festgelegt sind.
+Die `repeat()`-Funktion akzeptiert auch `auto` als erstes Argument anstelle eines positiven Integers. Mit `auto` als erstem Argument werden die als nachfolgende Parameter übergebenen `<line-style>`-Werte so oft wie nötig wiederholt, um Werte für Spaltenregeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts festgelegt werden.
 
 ```css
 column-rule-style: solid, repeat(auto, dotted), solid;
 ```
 
-In diesem Fall spielt es keine Rolle, ob der Container 3, 6, 11, 16 oder 21 Spalten hat; die erste und letzte Spaltenregel wird immer `solid` sein, und alle anderen Spaltenregeln werden `dotted` sein. Gibt es nur 2 oder 3 Spalten, gibt es keine gepunkteten Spaltenregeln.
+In diesem Fall ist es egal, ob der Container 3, 6, 11, 16 oder 21 Spalten hat; die erste und letzte Spaltenregel wird immer `solid` sein, und alle anderen Spalten werden `dotted` sein. Wenn es nur 2 oder 3 Spalten gibt, wird es keine `dotted`-Spaltenregeln geben.
 
-Das `auto`-Schlüsselwort innerhalb der `repeat()`-Funktion erstellt einen automatischen Wiederholer, der Werte für Spaltenregeln auffüllt, die sonst keine Werte von anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste durchlaufen wird. Es ist nur ein `repeat(auto, <line-style>)` innerhalb eines `column-rule-style`-Werts erlaubt.
+Das `auto`-Schlüsselwort innerhalb der `repeat()`-Funktion erzeugt einen automatischen Wiederholer, der Werte für Spaltenregeln füllt, die ansonsten keine Werte von anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste durchlaufen wird. Nur ein `repeat(auto, <line-style>)` ist innerhalb eines `column-rule-style`-Wertes erlaubt.
 
 ## Formale Definition
 
@@ -175,7 +175,7 @@ p {
 
 #### HTML
 
-Wir fügen eine Liste von Autoren hinzu:
+Wir schließen eine Liste von Autoren ein:
 
 ```html live-sample___multiple live-sample___repeat live-sample___func live-sample___auto
 <ul>
@@ -193,7 +193,7 @@ Wir fügen eine Liste von Autoren hinzu:
 
 #### CSS
 
-Wir definieren die Liste als Flex-Container, indem wir Spalten erstellen, indem wir die {{cssxref("flex-direction")}} auf `row` mit der Kurzschreibweise {{cssxref("flex-flow")}} setzen. Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Spalten zu schaffen, um unsere `3px` doppelte Teal-Regel zu integrieren:
+Wir definieren die Liste als Flex-Container und erstellen Spalten, indem wir die {{cssxref("flex-direction")}} auf `row` mit der {{cssxref("flex-flow")}}-Kurzform setzen. Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genug Platz zwischen den Spalten zu schaffen, damit unsere `3px` doppelte türkisfarbene Grenze passt:
 
 ```css live-sample___multiple live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -214,11 +214,11 @@ ul {
 
 Da es mehr Werte (10) als Lücken (8) gibt, werden die `none` und `hidden` Werte nicht verwendet.
 
-### Wiederholende Werte
+### Wiederholte Werte
 
-Dieses Beispiel zeigt, wie bei weniger Werten in der Stilenliste als Spaltenregeln die Werte wiederholt werden.
+Dieses Beispiel zeigt, wie Werte wiederholt werden, wenn es weniger Werte in der Liste der Stile als Spaltenregeln gibt.
 
-Mit demselben HTML und CSS wie im vorherigen Beispiel fügen wir drei durch Kommas getrennte Stile als `column-rule-style`-Wert hinzu:
+Verwenden Sie das gleiche HTML und CSS wie im vorherigen Beispiel. Wir schließen drei durch Komma getrennte Stile als `column-rule-style`-Wert ein:
 
 ```css live-sample___repeat
 ul {
@@ -230,7 +230,7 @@ ul {
 
 ### Verwendung der `repeat()`-Funktion
 
-Dieses Beispiel zeigt die Verwendung der `repeat()`-Funktion innerhalb des `column-rule-style`-Eigenschaftswerts. Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Wir fügen eine `repeat()`-Funktion hinzu und legen fest, dass die Liste von zwei `<line-style>`-Werten dreimal wiederholt werden soll.
+Dieses Beispiel demonstriert die Verwendung der `repeat()`-Funktion innerhalb des `column-rule-style`-Eigenschaftswerts. Wir verwenden das gleiche HTML und CSS wie in den vorherigen Beispielen. Wir schließen eine `repeat()`-Funktion ein und setzen die Liste von zwei `<line-style>`-Werten so, dass sie 3 Mal wiederholt wird.
 
 ```css live-sample___func live-sample___auto
 ul {
@@ -240,13 +240,13 @@ ul {
 
 {{EmbedLiveSample("func", "", "180")}}
 
-Der Flex-Container hat sechs Spalten, also fünf Lücken. Die `repeat()`-Funktion wiederholt zwei Stilwerte dreimal und erstellt eine Liste von acht Stilwerten, daher werden die letzten drei Werte in der Liste verworfen.
+Der Flex-Container hat sechs Spalten, also fünf Lücken. Die `repeat()`-Funktion wiederholt zwei Stilwerte dreimal, wodurch eine Liste von acht Stilwerten entsteht, sodass die letzten drei Werte in der Liste verworfen werden.
 
 ### Verwendung von `auto` innerhalb von `repeat()`
 
-Dieses Beispiel zeigt die Verwendung von `auto` anstelle einer Ganzzahl innerhalb der `repeat()`-Funktion.
+Dieses Beispiel zeigt die Verwendung von `auto` anstelle eines Integers innerhalb der `repeat()`-Funktion.
 
-Indem wir `repeat(auto, <line-style>)` verwenden, setzen wir alle Spaltenregeln auf `groove`, außer der ersten und der letzten, die wir auf `solid` setzen.
+Verwenden Sie `repeat(auto, <line-style>)`, um alle Spaltenregeln auf `groove` zu setzen, außer der ersten und letzten, die wir auf `solid` setzen.
 
 ```css live-sample___auto
 ul {
@@ -283,7 +283,7 @@ ul {
 - {{cssxref("column-rule-color")}}
 - {{cssxref("column-rule-width")}}
 - {{cssxref("row-rule-style")}}
-- {{cssxref("column-rule")}} Kurzschreibweise
-- {{cssxref("rule-style")}} Kurzschreibweise
-- {{cssxref("rule")}} Kurzschreibweise
-- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul
+- {{cssxref("column-rule")}} Kurzform
+- {{cssxref("rule-style")}} Kurzform
+- {{cssxref("rule")}} Kurzform
+- [CSS-Gaps](/de/docs/Web/CSS/Guides/Gaps) Modul

@@ -2,12 +2,12 @@
 title: pathLength
 slug: Web/SVG/Reference/Attribute/pathLength
 l10n:
-  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
+  sourceCommit: 28f2781de2dbb8e81be94c87ff81fd0442cb4736
 ---
 
-Das **`pathLength`**-Attribut ermöglicht es Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten festzulegen. Dieser Wert wird dann verwendet, um die Abstandberechnungen des Browsers mit denen des Autors abzustimmen, indem alle Entfernungsberechnungen anhand des Verhältnisses `pathLength` / (_berechneter Wert der Pfadlänge_) skaliert werden.
+Das **`pathLength`** Attribut ermöglicht es den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben. Dieser Wert wird dann verwendet, um die Entfernungsberechnungen des Browsers mit denen des Autors zu kalibrieren, indem alle Entfernungsberechnungen mit dem Verhältnis `pathLength` / (_berechneter Wert der Pfadlänge_) skaliert werden.
 
-Dies kann die tatsächlich gerenderten Längen von Pfaden beeinflussen; einschließlich Textpfade, Animationspfade und verschiedene Strichoperationen. Grundsätzlich alle Berechnungen, die die Länge des Pfades erfordern. Zum Beispiel nimmt {{SVGAttr('stroke-dasharray')}} an, dass der Start des Pfades 0 und der Endpunkt den im `pathLength`-Attribut definierten Wert hat.
+Dies kann die tatsächlich gerenderten Längen von Pfaden beeinflussen, einschließlich Textpfade, Animationspfade und verschiedene Stroke-Operationen. Grundsätzlich alle Berechnungen, die die Länge des Pfades erfordern. Zum Beispiel wird {{SVGAttr('stroke-dasharray')}} davon ausgehen, dass der Anfang des Pfades 0 ist und der Endpunkt der im `pathLength` Attribut definierte Wert ist.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -18,6 +18,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement('polygon')}}
 - {{SVGElement('polyline')}}
 - {{SVGElement('rect')}}
+
+> [!NOTE]
+> Das `pathLength` Attribut hat auch ein entsprechendes CSS-Eigenschaft: [`path-length`](/de/docs/Web/CSS/Reference/Properties/path-length). Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Beispiel
 
@@ -61,7 +64,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für den Kreis in Benutzereinheiten festzulegen.
+Für {{SVGElement('circle')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für den Kreis in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -79,14 +82,14 @@ Für {{SVGElement('circle')}} ermöglicht `pathLength` den Autoren, eine Gesamtl
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Ellipse in Benutzereinheiten festzulegen.
+Für {{SVGElement('ellipse')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Ellipse in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -104,14 +107,14 @@ Für {{SVGElement('ellipse')}} ermöglicht `pathLength` den Autoren, eine Gesamt
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## line
 
-Für {{SVGElement('line')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Linie in Benutzereinheiten festzulegen.
+Für {{SVGElement('line')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Linie in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -129,14 +132,14 @@ Für {{SVGElement('line')}} ermöglicht `pathLength` den Autoren, eine Gesamtlä
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## path
 
-Für {{SVGElement('path')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten festzulegen.
+Für {{SVGElement('path')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -154,14 +157,14 @@ Für {{SVGElement('path')}} ermöglicht `pathLength` den Autoren, eine Gesamtlä
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## polygon
 
-Für {{SVGElement('polygon')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten festzulegen.
+Für {{SVGElement('polygon')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -179,14 +182,14 @@ Für {{SVGElement('polygon')}} ermöglicht `pathLength` den Autoren, eine Gesamt
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## polyline
 
-Für {{SVGElement('polyline')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten festzulegen.
+Für {{SVGElement('polyline')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -204,14 +207,14 @@ Für {{SVGElement('polyline')}} ermöglicht `pathLength` den Autoren, eine Gesam
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## rect
 
-Für {{SVGElement('rect')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für das Rechteck in Benutzereinheiten festzulegen.
+Für {{SVGElement('rect')}} ermöglicht `pathLength` es den Autoren, eine Gesamtlänge für das Rechteck in Benutzereinheiten anzugeben.
 
 <table class="properties">
   <tbody>
@@ -229,7 +232,7 @@ Für {{SVGElement('rect')}} ermöglicht `pathLength` den Autoren, eine Gesamtlä
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -237,3 +240,7 @@ Für {{SVGElement('rect')}} ermöglicht `pathLength` den Autoren, eine Gesamtlä
 ## Spezifikationen
 
 {{Specifications}}
+
+## Siehe auch
+
+- CSS-Eigenschaft {{cssxref("path-length")}}

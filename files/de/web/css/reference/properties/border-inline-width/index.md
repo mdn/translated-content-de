@@ -3,12 +3,12 @@ title: "`border-inline-width` CSS property"
 short-title: border-inline-width
 slug: Web/CSS/Reference/Properties/border-inline-width
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-inline-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite der logischen Inline-Ränder eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder der {{cssxref("border-left-width")}} und {{cssxref("border-right-width")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`border-inline-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite der logischen inline Ränder eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Randbreite zugeordnet werden. Sie entspricht den Eigenschaften {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}} und {{cssxref("border-right-width")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Die Randbreite in der anderen Dimension kann mit {{cssxref("border-block-width")}} festgelegt werden, die {{cssxref("border-block-start-width")}} und {{cssxref("border-block-end-width")}} setzt.
+Die Randbreite in der anderen Dimension kann mit {{cssxref("border-block-width")}} eingestellt werden, die {{cssxref("border-block-start-width")}} und {{cssxref("border-block-end-width")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-inline-width")}}
 
@@ -51,7 +51,7 @@ direction: rtl;
 ## Syntax
 
 ```css
-/* <'border-width'> values */
+/* <'line-width'> values */
 border-inline-width: 5px 10px;
 border-inline-width: 5px;
 border-inline-width: thick;
@@ -66,8 +66,8 @@ border-inline-width: unset;
 
 ### Werte
 
-- `<'border-width'>`
-  - : Die Breite des Randes. Siehe {{ cssxref("border-width") }}.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Randes, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -115,6 +115,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}} und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

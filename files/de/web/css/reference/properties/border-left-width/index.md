@@ -3,7 +3,7 @@ title: "`border-left-width` CSS property"
 short-title: border-left-width
 slug: Web/CSS/Reference/Properties/border-left-width
 l10n:
-  sourceCommit: 0c62b082755017d0773ecaaee7e74efd5e066d0b
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
 Die **`border-left-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des linken Rahmens eines Elements fest.
@@ -72,14 +72,8 @@ border-left-width: unset;
 
 ### Werte
 
-- `<line-width>`
-  - : Definiert die Breite des Rahmens, entweder als explizite, nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
-    - `thin`
-      - Entspricht `1px`.
-    - `medium`
-      - Entspricht `3px`.
-    - `thick`
-      - Entspricht `5px`.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite des Rahmens entweder als explizites, nicht-negatives {{cssxref("&lt;length&gt;")}} oder durch die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -91,7 +85,7 @@ border-left-width: unset;
 
 ## Beispiele
 
-### Vergleich der Rahmenbreiten
+### Vergleich von Rahmenbreiten
 
 #### HTML
 
@@ -130,5 +124,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Andere CSS-Eigenschaften im Zusammenhang mit Rahmenbreiten: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Andere CSS-Eigenschaften im Zusammenhang mit dem linken Rahmen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Rahmenbreite beziehen: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den linken Rahmen beziehen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.

@@ -3,10 +3,10 @@ title: "`border-inline` CSS-Eigenschaft"
 short-title: border-inline
 slug: Web/CSS/Reference/Properties/border-inline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`border-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Festlegen der individuellen logischen Inline-Rand-Eigenschaften an einer einzigen Stelle im Stylesheet.
+Die **`border-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties), um die individuellen logischen Inline-Rand-Eigenschaftswerte an einer einzigen Stelle im Stylesheet festzulegen.
 
 {{InteractiveExample("CSS Demo: border-inline")}}
 
@@ -47,7 +47,7 @@ direction: rtl;
 
 ## Bestandteileigenschaften
 
-Diese Eigenschaft ist ein Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-inline-color")}}
 - {{cssxref("border-inline-style")}}
@@ -70,20 +70,20 @@ border-inline: unset;
 
 ### Werte
 
-Das `border-inline` wird mit einem oder mehreren der folgenden in beliebiger Reihenfolge angegeben:
+`border-inline` wird mit einem oder mehreren der folgenden in beliebiger Reihenfolge angegeben:
 
-- `<'border-width'>`
+- {{cssxref("&lt;line-width&gt;")}}
   - : Die Breite des Randes. Siehe {{cssxref("border-width")}}.
-- `<'border-style'>`
+- {{cssxref("&lt;line-style&gt;")}}
   - : Der Linienstil des Randes. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
   - : Die Farbe des Randes.
 
 ## Beschreibung
 
-Die physischen Ränder, auf die `border-inline` abgebildet wird, hängen vom Schreibmodus, der Richtung und der Textorientierung des Elements ab. Es entspricht je nach definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}.
+Die physischen Ränder, auf die `border-inline` abbildet, hängen vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Sie entsprechen den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}}, und {{cssxref("border-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Die Ränder in der anderen Dimension können mit {{cssxref("border-block")}} festgelegt werden, die {{cssxref("border-block-start")}} und {{cssxref("border-block-end")}} setzen.
+Die Ränder in der anderen Dimension können mit {{cssxref("border-block")}} festgelegt werden, welcher {{cssxref("border-block-start")}} und {{cssxref("border-block-end")}} setzt.
 
 ## Formale Definition
 
@@ -135,5 +135,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird zu einer der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
+- Diese Eigenschaft bildet auf eine der physischen Randeigenschaften ab: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

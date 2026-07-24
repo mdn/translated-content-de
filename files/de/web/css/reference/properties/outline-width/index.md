@@ -3,10 +3,10 @@ title: "`outline-width` CSS property"
 short-title: outline-width
 slug: Web/CSS/Reference/Properties/outline-width
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die [CSS](/de/docs/Web/CSS) **`outline-width`**-Eigenschaft legt die Dicke der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die [CSS](/de/docs/Web/CSS) **`outline-width`**-Eigenschaft legt die Dicke der Kontur eines Elements fest. Eine Kontur ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
 {{InteractiveExample("CSS Demo: outline-width")}}
 
@@ -43,7 +43,7 @@ outline-width: thick;
 }
 ```
 
-Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, um das Aussehen einer Umrandung zu definieren.
+Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Kontur definiert wird.
 
 ## Syntax
 
@@ -67,16 +67,10 @@ outline-width: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Werte angegeben:
+Diese Eigenschaft wird als ein einzelner `<line-width>`-Wert angegeben.
 
-- {{cssxref("&lt;length&gt;")}}
-  - : Die Breite der Umrandung, angegeben als `<length>`.
-- `thin`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `1px` in Desktop-Browsern (einschließlich Firefox).
-- `medium`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `3px` in Desktop-Browsern (einschließlich Firefox).
-- `thick`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `5px` in Desktop-Browsern (einschließlich Firefox).
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Definiert die Breite der Kontur, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder die Schlüsselwörter: `thin`, `medium` oder `thick`. Der Standardwert ist `medium`.
 
 ## Formale Definition
 
@@ -88,7 +82,7 @@ Diese Eigenschaft wird als einer der folgenden Werte angegeben:
 
 ## Beispiele
 
-### Die Umrandungsbreite eines Elements festlegen
+### Festlegen der Konturbreite eines Elements
 
 #### HTML
 

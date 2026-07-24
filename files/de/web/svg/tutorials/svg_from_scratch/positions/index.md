@@ -2,53 +2,57 @@
 title: Positionen
 slug: Web/SVG/Tutorials/SVG_from_scratch/Positions
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 787e8f0d2e6796a5973ba1ec431e288d66860063
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Getting_started", "Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes") }}
 
-In diesem Artikel untersuchen wir, wie Scalable Vector Graphics (SVG) die Positionen und Größen von Objekten innerhalb eines Zeichnungsbereichs darstellt, einschließlich des Koordinatensystems und was eine "Pixel"-Messung in einem skalierbaren Kontext bedeutet.
+In diesem Artikel untersuchen wir, wie Scalable Vector Graphics (SVG) die Positionen und Größen von Objekten innerhalb eines Zeichnungskontexts darstellt, einschließlich des SVG-Koordinatensystems und was eine "Pixel"-Messung im skalierbaren Kontext bedeutet.
 
-## Das Gitter
+## Das Raster
 
-Für alle Elemente verwendet SVG ein Koordinatensystem oder **Gittersystem**, das dem ähnlich ist, das von [canvas](/de/docs/Web/API/Canvas_API) (und vielen anderen Computerzeichnungsroutinen) verwendet wird. Das bedeutet: Die obere linke Ecke des Dokuments gilt als Punkt (0,0) oder Ursprung. Positionen werden dann in Pixeln von der oberen linken Ecke aus gemessen, wobei die positive x-Richtung nach rechts und die positive y-Richtung nach unten zeigt.
+Für alle Elemente verwendet SVG ein Koordinatensystem oder **Raster**-System, ähnlich dem, das von [canvas](/de/docs/Web/API/Canvas_API) (und vielen anderen Computerzeichnungsroutinen) verwendet wird. Das bedeutet, die obere linke Ecke des Dokuments wird als Punkt (0,0) betrachtet, der Ursprungspunkt. Positionen werden dann in Pixeln von der oberen linken Ecke gemessen, wobei die positive x-Richtung von links nach rechts und die positive y-Richtung von oben nach unten verläuft.
 
-![X, Y Koordinatengitter mit einem blauen Kasten in der Mitte.](canvas_default_grid.png)
+![X, Y Koordinatenraster mit einem blauen Kasten in der Mitte.](canvas_default_grid.png)
 
-Beachten Sie, dass dies leicht von der Art und Weise abweicht, wie Sie das Zeichnen von Diagrammen als Kind gelernt haben (y-Achse ist umgekehrt). Dies ist jedoch die gleiche Art und Weise, wie Elemente in HTML positioniert sind (Standardmäßig, LTR-Dokumente werden berücksichtigt, nicht die RTL-Dokumente, die das X von rechts nach links positionieren).
+Beachten Sie, dass dies etwas anders ist, als Sie es als Kind beim Graphen gelernt haben (die y-Achse ist umgedreht). Dies ist jedoch dieselbe Methode, wie Elemente in HTML positioniert werden.
 
-### Beispiel
+## Pixel, Benutzereinheiten und das SVG-Benutzerkoordinatensystem
 
-Das Element
+SVG-Grafiken werden mit einem **Benutzerkoordinatensystem** gezeichnet, in dem Positionen und Längen in **Benutzereinheiten** ausgedrückt werden. Benutzereinheiten sind die einheitenlosen Koordinatenwerte, die Sie in SVG-Attributen wie `x`, `y`, `width` und `height` angeben.
 
-```html
-<rect x="0" y="0" width="100" height="100" />
-```
+Wenn ein SVG-Ansichtsfenster erstmals erstellt wird, entspricht eine Benutzereinheit einem CSS-Pixel. Dies ist jedoch nur die anfängliche Zuordnung. Funktionen wie das `viewBox`-Attribut können das Benutzerkoordinatensystem so transformieren, dass eine Benutzereinheit mehr oder weniger CSS-Pixeln entspricht.
 
-definiert ein Rechteck von der oberen linken Ecke, das sich 100px nach rechts und 100px nach unten erstreckt.
+SVG unterstützt auch absolute Einheiten wie `cm`, `mm` und `pt`. Diese werden vor dem Rendern in das Benutzerkoordinatensystem umgerechnet.
 
-### Was sind "Pixel"?
-
-Im einfachsten Fall wird ein Pixel in einem SVG-Dokument einem Pixel auf dem Ausgabegerät (z. B. dem Bildschirm) zugeordnet. Aber SVG hätte nicht das "Scalable" in seinem Namen, wenn es nicht mehrere Möglichkeiten gäbe, dieses Verhalten zu ändern. Ähnlich wie bei absoluten und relativen Schriftgrößen in CSS definiert SVG absolute Einheiten (solche mit einem dimensionalen Kennzeichner wie "pt" oder "cm") und sogenannte Benutzereinheiten, die diesen Kennzeichner nicht haben und einfache Zahlen sind.
-
-Ohne weitere Spezifikation entspricht eine Benutzereinheit einer Bildschirmeinheit. Um dieses Verhalten ausdrücklich zu ändern, gibt es mehrere Möglichkeiten in SVG. Wir beginnen mit dem `svg`-Wurzelelement:
+Wir beginnen mit einem `<svg>`-Root-Element:
 
 ```html
-<svg width="100" height="100">…</svg>
+<svg width="200" height="200">…</svg>
 ```
 
-Das obige Element definiert eine SVG-Leinwand mit 100x100px. Eine Benutzereinheit entspricht einer Bildschirmeinheit.
+Das obige Element definiert ein SVG-Ansichtsfenster von 200 mal 200 CSS-Pixeln. Da kein `viewBox` angegeben ist, wird die anfängliche Zuordnung verwendet, sodass eine Benutzereinheit einem CSS-Pixel entspricht.
 
-```html
-<svg width="200" height="200" viewBox="0 0 100 100">…</svg>
+Fügen wir ein `viewBox`-Attribut hinzu und rendern ein Quadrat im SVG-Ansichtsfenster mit einem `<rect>`-Element:
+
+```html live-sample___svg-user-units
+<svg width="200" height="200" viewBox="0 0 100 100">
+  <rect x="10" y="10" width="40" height="40" fill="royalblue" />
+</svg>
 ```
 
-Die gesamte SVG-Leinwand ist hier 200px mal 200px groß. Das `viewBox`-Attribut definiert jedoch den Teil dieser Leinwand, der angezeigt werden soll. Diese 200x200 Pixel zeigen einen Bereich an, der bei Benutzereinheit (0,0) beginnt und 100x100 Benutzereinheiten nach rechts und unten abdeckt. Dies vergrößert effektiv den 100x100-Einheitenbereich und vergrößert das Bild auf die doppelte Größe.
+```css hidden live-sample___svg-user-units
+svg {
+  border: 1px solid gray;
+}
+```
 
-Das aktuelle Mapping (für ein einzelnes Element oder das gesamte Bild) von Benutzereinheiten zu Bildschirmeinheiten wird als **Benutzerkoordinatensystem** bezeichnet. Neben dem Skalieren kann das Koordinatensystem auch gedreht, verzerrt und gespiegelt werden. Das standardmäßige Benutzerkoordinatensystem ordnet ein Benutzerpixel einem Gerätepixel zu. (Das Gerät kann jedoch entscheiden, was es als ein Pixel versteht.) Längen in der SVG-Datei mit spezifischen Dimensionen, wie "in" oder "cm", werden dann so berechnet, dass sie im resultierenden Bild 1:1 erscheinen.
+Das SVG-Ansichtsfenster ist immer noch 200 mal 200 CSS-Pixel groß, aber das `viewBox` definiert ein Koordinatensystem, das von `(0,0)` bis `(100,100)` in Benutzereinheiten reicht. Der Browser ordnet dieses 100 × 100 Benutzereinheits-Koordinatensystem dem 200 × 200 CSS-Pixel-Ansichtsfenster zu, sodass jede Benutzereinheit mit 2 × 2 CSS-Pixeln gerendert wird.
 
-Ein Zitat aus der SVG 1.1-Spezifikation veranschaulicht dies:
+Das Beispiel wird wie folgt gerendert:
 
-> \[...] Angenommen, der Benutzeragent kann aus seiner Umgebung bestimmen, dass "1px" "0.2822222mm" entspricht (d.h. 90dpi). Dann für alle Verarbeitungen von SVG-Inhalten: \[...] "1cm" entspricht "35.43307px" (und damit 35.43307 Benutzereinheiten)
+{{EmbedLiveSample("svg-user-units", "100%", "250")}}
+
+Das Rechteck ist bei `(10,10)` positioniert und hat innerhalb des `viewBox` eine Größe von `40 × 40` Benutzereinheiten. Da jedoch jede Benutzereinheit mit 2 × 2 CSS-Pixeln gerendert wird, erscheint das Rechteck als 80 × 80 CSS-Pixel-Quadrat auf dem Bildschirm, 20 Pixel vom linken und oberen Rand des SVG entfernt.
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Getting_started", "Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes") }}

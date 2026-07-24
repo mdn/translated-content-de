@@ -3,20 +3,20 @@ title: Firefox 154 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 154 (Beta)
 slug: Mozilla/Firefox/Releases/154
 l10n:
-  sourceCommit: cb5a9829f49b8ef7a28311ca419538194fd6525e
+  sourceCommit: 8e0f027a72e39f1e75f707623b48ece23ab656bc
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 154, die Entwickler betreffen.
 Firefox 154 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [18. August 2026](https://whattrainisitnow.com/release/?version=154) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwickler-Tools -->
+<!-- ### Entwicklertools -->
 
 <!-- ### HTML -->
 
@@ -50,11 +50,14 @@ Firefox 154 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Entfernungen -->
 
-<!-- ### APIs -->
+### APIs
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+#### Medien, WebRTC und Web Audio
+
+- Das [`error`](/de/docs/Web/API/RTCDtlsTransport/error_event) Ereignis wird jetzt auf [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) ausgelöst, um DTLS- und Fingerprinting-Fehler zu melden.
+  ([Firefox-Bug 1805447](https://bugzil.la/1805447)).
 
 <!-- #### Entfernungen -->
 
@@ -74,10 +77,10 @@ Firefox 154 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### Entfernungen -->
 
-<!-- ### Sonstiges -->
+<!-- ### Andere -->
 
-## Experimentelle Web-Funktionen
+## Experimentelle Webfunktionen
 
 Diese Funktionen sind in Firefox 154 enthalten, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Sie finden weitere solche Funktionen auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Um mit ihnen zu experimentieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config` Seite und setzen Sie diese auf `true`.
+Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

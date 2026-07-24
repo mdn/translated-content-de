@@ -3,10 +3,10 @@ title: "`outline` CSS-Eigenschaft"
 short-title: outline
 slug: Web/CSS/Reference/Properties/outline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
 ---
 
-Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die meisten Kontur-Eigenschaften in einer einzigen Deklaration.
+Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die meisten der Outline-Eigenschaften in einer einzigen Deklaration fest.
 
 {{InteractiveExample("CSS Demo: outline")}}
 
@@ -47,7 +47,7 @@ border-radius: 2rem;
 }
 ```
 
-## Bestandteile der Eigenschaften
+## Bestandteile der Eigenschaft
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -78,34 +78,34 @@ outline: revert-layer;
 outline: unset;
 ```
 
-Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweise-Eigenschaften werden ausgelassene Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) gesetzt.
+Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweisen werden ausgelassene Teilwerte auf ihren [Anfangswert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) gesetzt.
 
 > [!NOTE]
-> Die Kontur wird für viele Elemente unsichtbar sein, wenn der Stil nicht definiert ist. Dies liegt daran, dass der Standardstil `none` ist. Eine bemerkenswerte Ausnahme bilden `input`-Elemente, die von Browsern mit einer Standardstil versehen werden.
+> Die Umrandung wird für viele Elemente unsichtbar sein, wenn ihr Stil nicht definiert ist, da der Standardstil `none` ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, die von Browsern eine Standardstil erhalten.
 
 ### Werte
 
 - `<'outline-width'>`
-  - : Legt die Dicke der Kontur fest. Falls nicht vorhanden, ist der Standard `medium`. Siehe {{cssxref("outline-width")}}.
+  - : Ein {{cssxref("line-width")}}-Wert, der die Dicke der Umrandung festlegt. Wird auf `medium` gesetzt, falls nicht vorhanden. Siehe {{cssxref("outline-width")}}.
 - `<'outline-style'>`
-  - : Legt den Stil der Kontur fest. Falls nicht vorhanden, ist der Standard `none`. Siehe {{cssxref("outline-style")}}.
+  - : Legt den Stil der Umrandung fest. Wird auf `none` gesetzt, falls nicht vorhanden. Siehe {{cssxref("outline-style")}}.
 - `<'outline-color'>`
-  - : Legt die Farbe der Kontur fest. Standard ist `invert` für unterstützende Browser, `currentColor` für die anderen. Siehe {{cssxref("outline-color")}}.
+  - : Legt die Farbe der Umrandung fest. Standardmäßig `invert` für unterstützende Browser, `currentColor` für andere. Siehe {{cssxref("outline-color")}}.
 
 ## Beschreibung
 
-Die Kontur ist eine Linie außerhalb des [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) des Elements. Im Gegensatz zu anderen Bereichen der Box nimmt sie keinen Platz ein, sodass sie das Layout des Dokuments in keiner Weise beeinflusst.
+Ein Outline ist eine Linie außerhalb des [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements. Im Gegensatz zu anderen Bereichen der Box nehmen Outlines keinen Platz ein, sodass sie das Layout des Dokuments in keiner Weise beeinflussen.
 
-Es gibt einige Eigenschaften, die das Erscheinungsbild einer Kontur beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mit der `outline`-Eigenschaft zu ändern, den Abstand vom Rahmen mit der {{cssxref("outline-offset")}}-Eigenschaft und die Ecken mit der {{cssxref("border-radius")}}-Eigenschaft.
+Es gibt einige Eigenschaften, die das Erscheinungsbild einer Umrandung beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mithilfe der `outline`-Eigenschaft zu ändern, den Abstand vom Rahmen mithilfe der {{cssxref("outline-offset")}}-Eigenschaft und Eckwinkel mithilfe der {{cssxref("border-radius")}}-Eigenschaft.
 
-Eine Kontur muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser für jede Zeilenbox eine separate Kontur, während andere den gesamten Text mit einer einzigen Kontur umrahmen.
+Eine Umrandung muss nicht rechteckig sein: Bei mehrzeiligem Text wird von einigen Browsern für jede Zeilenbox eine Umrandung gezeichnet, während andere den gesamten Text mit einer einzigen Umrandung umschließen.
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Das Zuweisen des Werts `0` oder `none` zur `outline`-Eigenschaft entfernt den Standardfokus-Stil des Browsers. Wenn ein Element interaktiv ist, muss es über einen sichtbaren Fokusindikator verfügen. Stellen Sie einen deutlichen Fokus-Stil bereit, wenn der Standardfokus-Stil entfernt wird.
+Das Zuweisen eines Werts von `0` oder `none` an `outline` entfernt den Standardfokusstil des Browsers. Wenn mit einem Element interagiert werden kann, muss es einen sichtbaren Fokusindikator haben. Sorgen Sie für eine offensichtliche Fokusgestaltung, wenn der Standardfokusstil entfernt wird.
 
-- [Nützliche und benutzbare Fokusindikatoren entwerfen (Englisch)](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
-- WCAG 2.1: [Erfolgskriterium 2.4.7: Fokus sichtbar verstehen (Englisch)](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [Anleitung zur Gestaltung nützlicher und benutzbarer Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- WCAG 2.1: [Erklärung des Erfolgskriteriums 2.4.7: Fokus sichtbar](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
 
 ## Formale Definition
 
@@ -117,7 +117,7 @@ Das Zuweisen des Werts `0` oder `none` zur `outline`-Eigenschaft entfernt den St
 
 ## Beispiele
 
-### Verwendung der Outline zur Festlegung eines Fokus-Stils
+### Verwenden von outline, um einen Fokusstil zu setzen
 
 #### HTML
 
