@@ -2,10 +2,12 @@
 title: "*_localized"
 slug: Web/Progressive_web_apps/Manifest/Reference/*_localized
 l10n:
-  sourceCommit: 429a5b3c0a9363f7f9c700d56380af6226d2348f
+  sourceCommit: a9dc3374034d357cbfea717fd5d641605359e3c7
 ---
 
-Das Suffix `_localized` wird zu Manifestmitgliedern hinzugefügt, um lokalisierte Varianten dieser Mitglieder zu erstellen. Der Browser verwendet die Variante, die am besten zu den Spracheinstellungen des Benutzers passt.
+{{SeeCompatTable}}
+
+Das Suffix `_localized` wird zu Manifest-Mitgliedern hinzugefügt, um lokalisierte Varianten dieser Mitglieder zu erstellen. Der Browser verwendet die Variante, die am besten zu den Spracheinstellungen des Benutzers im Browser passt.
 
 ## Syntax
 
@@ -27,58 +29,58 @@ Das Suffix `_localized` wird zu Manifestmitgliedern hinzugefügt, um lokalisiert
 
 ### Werte
 
-- `member_localized`
-  - : Ein Objekt, das lokalisierte Mitgliedervarianten spezifiziert. Zum Beispiel würde `name_localized` lokalisierte Varianten für das [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name)-Feld angeben.
+- `member_localized`:
+  - : Ein Objekt, das lokalisierte Mitgliedervarianten angibt. Zum Beispiel würde `name_localized` lokalisierte Varianten für das [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name)-Feld angeben.
     - `lang1` ... `lang2` ... `langN`
-      - : Jedes Objekt enthält eine oder mehrere Eigenschaften mit Schlüsseln, die einem {{Glossary("BCP_47_language_tag", "BCP 47 language tag")}} entsprechen und eine Sprache repräsentieren, für die eine Variante bereitgestellt werden soll. Die Eigenschaftswerte können zwei Typen haben:
+      - : Jedes Objekt enthält ein oder mehrere Eigenschaften mit Schlüsseln, die einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} entsprechen und eine Sprache zur Bereitstellung einer Variante repräsentieren. Die Eigenschaftswerte können zwei Typen annehmen:
         - `text_l10n`
-          - : Ein Objekt oder ein String, das/die eine Textlokalisierung enthält; siehe [Textlokalisierung](#textlokalisierung).
+          - : Ein Objekt oder ein String, der eine Textlokalisierung enthält; siehe [Textlokalisierung](#textlokalisierung).
         - `icon_l10n`
-          - : Ein Array von Objekten, das/die Verweise auf lokalisierte Icon-Ressourcen enthält; siehe [Icon-Lokalisierung](#icon-lokalisierung).
+          - : Ein Array von Objekten, das Referenzen zu lokalisierten Icons-Ressourcen enthält; siehe [Icon-Lokalisierung](#icon-lokalisierung).
 
 #### Textlokalisierung
 
-Wenn die lokalisierte Variante eine Lokalisierung eines Textwertes bietet, können die Eigenschaftswerte Objekte oder Zeichenfolgen sein.
+Wenn die lokalisierte Variante eine Lokalisierung eines Textwertes bietet, können die Eigenschaftswerte Objekte oder Strings sein.
 
-Die Objekt-Darstellung kann die folgenden Eigenschaften haben:
+Die Objektrepräsentation kann die folgenden Eigenschaften haben:
 
 - `value`
-  - : Eine Zeichenfolge, die den lokalisierten Text enthält.
+  - : Ein String, der den lokalisierten Text enthält.
 - `dir` {{optional_inline}}
-  - : Eine Zeichenfolge, die die Schreibrichtung des lokalisierten Textes darstellt. Gültige Werte für `dir` sind:
+  - : Ein String, der die Leserichtung des lokalisierten Textes repräsentiert. Gültige Werte für `dir` sind:
     - `auto`
-      - : Der Standardwert. Gibt an, dass die Schreibrichtung unbekannt ist. Die Richtung wird aus den Spracheinstellungen des Browsers abgeleitet.
+      - : Der Standardwert. Gibt an, dass die Leserichtung unbekannt ist. Die Richtung wird aus den Spracheinstellungen des Browsers abgeleitet.
     - `ltr`
-      - : Gibt eine Schreibrichtung von links nach rechts an.
+      - : Gibt eine Leserichtung von links nach rechts an.
     - `rtl`
-      - : Gibt eine Schreibrichtung von rechts nach links an.
+      - : Gibt eine Leserichtung von rechts nach links an.
 - `lang` {{optional_inline}}
-  - : Eine Zeichenfolge, die einen BCP 47-Sprachcode enthält und eine Sprachregion für den lokalisierten Text darstellt.
+  - : Ein String, der einen BCP 47-Sprachtag enthält und eine Locale für den lokalisierten Text repräsentiert.
 
-In den meisten Fällen kann die verkürzte Zeichenfolgen-Darstellung verwendet werden, die den lokalisierten Text `value` enthält. Die Objektform ist nur dann erforderlich, wenn Sie eine abweichende Schreibrichtung zur Standardsprache des Browsers angeben möchten oder wenn der lokalisierte Text in einer anderen Sprache als der des Benutzers präsentiert werden soll.
+In den meisten Fällen kann die abgekürzte String-Repräsentation verwendet werden, die den lokalen Text `value` enthält. Die Objektform wird nur benötigt, wenn Sie eine andere Leserichtung als die Standardsprache des Browsers angeben möchten oder der lokalisierte Text in einer anderen Sprache als der Locale des Benutzers dargestellt werden muss.
 
 #### Icon-Lokalisierung
 
-Die `icons_localized`-Eigenschaftswerte sind Arrays, die ein oder mehrere Objekte enthalten, die lokalisierte Icon-Optionen darstellen.
+Die Eigenschaftswerte des `icons_localized`-Mitgliedobjekts sind Arrays, die ein oder mehrere Objekte enthalten, die lokalisierte Icon-Optionen darstellen.
 
-Jedes Objekt enthält die gleichen Eigenschaften wie das nicht-lokalisierte [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)-Mitglied: `src`, `sizes`, `type` und `purpose`.
+Jedes Objekt enthält die gleichen Eigenschaften wie das nicht lokalisierte [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)-Mitglied: `src`, `sizes`, `type`, und `purpose`.
 
 #### Shortcut-Lokalisierung
 
-Das [`shortcuts`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts)-Mitglied kann lokalisiert werden, jedoch wird dies nicht durch Angabe eines `shortcuts_localized`-Mitgliedes erreicht. Stattdessen stellen Sie `*_localized`-Versionen der Mitglieder `name`, `short_name`, `description` und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) bereit, die im `shortcut`-Mitglied verschachtelt sind.
+Das [`shortcuts`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts)-Mitglied kann lokalisiert werden, jedoch nicht durch Angabe eines `shortcuts_localized`-Mitglieds. Stattdessen geben Sie `*_localized`-Versionen der Mitglieder `name`, `short_name`, `description` und [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) an, die innerhalb des `shortcut`-Mitglieds verschachtelt sind.
 
 ## Beschreibung
 
 Das Suffix `_localized` wird verwendet, um lokalisierte Manifeste zu erstellen.
 
-Sie können das Suffix `_localized` zu einem unterstützenden Manifestmitglied hinzufügen, um lokalisierte Varianten dieses Mitglieds zu erstellen. Der Browser verwendet die Variante, die am besten zu den Spracheinstellungen des Benutzers passt. Jede Eigenschaft einer lokalisierten Variante hat einen Schlüssel, der einem BCP47-Sprachcode entspricht und die Sprache der Region repräsentiert, sowie einen Wert, der die lokalisierte Variante darstellt.
+Sie können das `_localized`-Suffix zu einem unterstützenden Manifestmitglied hinzufügen, um lokalisierte Varianten dieses Mitglieds zu erstellen. Der Browser verwendet die Variante, die am besten zu den Spracheinstellungen des Benutzers im Browser passt. Jede Eigenschaft einer lokalisierten Variante hat einen Schlüssel, der einem BCP47-Sprachtag entspricht und die Sprache der Locale repräsentiert, sowie einen Wert, der die lokalisierte Variante darstellt.
 
-Wenn einer der Schlüssel mit den Spracheinstellungen des Browsers des Benutzers übereinstimmt, wird diese Variante verwendet. Andernfalls wird der nicht-vorfixierte Manifestmitgliedwert verwendet.
+Wenn einer der Schlüssel den Spracheinstellungen des Browsers des Benutzers entspricht, wird diese Variante verwendet. Wenn nicht, wird der nicht vorgestellte Manifestmitgliedwert verwendet.
 
 > [!NOTE]
-> In Fällen, in denen mehrere verwandte Sprachvarianten angegeben sind, vergleicht der Browser zuerst detailliertere Sprachcodes, bevor er auf allgemeinere Tags zurückgreift. Wenn die Browsersprache des Benutzers beispielsweise auf `fr-CA` eingestellt ist, sucht sie zunächst nach einer Variante mit dem Sprachcode `fr-CA` und fällt dann auf eine `fr`-Variante zurück, falls `fr-CA` nicht verfügbar ist. Falls beide nicht verfügbar sind, wird auf den nicht lokalisierten Wert zurückgegriffen. Siehe [Lokalisieren eines App-Manifests](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest) für ein Beispiel.
+> In Fällen, in denen mehrere verwandte Sprachvarianten angegeben sind, gleicht der Browser zuerst die granulareren Sprach-Tags ab, bevor er zu allgemeineren Tags zurückfällt. Zum Beispiel, wenn die Browsersprache des Benutzers auf `fr-CA` eingestellt ist, sucht er zuerst nach einer Variante mit dem Sprach-Tag `fr-CA` und fällt dann auf eine `fr`-Variante zurück, wenn `fr-CA` nicht verfügbar ist. Wenn keine von beiden verfügbar ist, fällt er auf den nicht lokalisierten Wert zurück. Siehe [Eine App manifestieren lokalisieren](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest) für ein Beispiel.
 
-Mitglieder, für die lokalisierte Varianten unterstützt werden (sowohl auf der obersten Manifestebene als auch im [`shortcuts`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts)-Mitglied):
+Mitglieder, für die lokalisierte Varianten unterstützt werden (sowohl auf oberster Manifestebene als auch innerhalb des [`shortcuts`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts)-Mitglieds):
 
 - [`name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/name)
 - [`short_name`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/short_name)
@@ -87,9 +89,9 @@ Mitglieder, für die lokalisierte Varianten unterstützt werden (sowohl auf der 
 
 ### Lokalisierter Text
 
-Lokalisierte Textfeldeigenschaften haben Werte, die Objekten oder Zeichenfolgen entsprechen; die Zeichenfolgenform ist bei weitem am häufigsten.
+Lokalisierte Textfeldeigenschaften haben Werte, die gleich Objekten oder Strings sind; die Stringform ist bei weitem die häufigste.
 
-Beispiel:
+Zum Beispiel:
 
 ```json
 {
@@ -105,9 +107,9 @@ Beispiel:
 }
 ```
 
-Wenn der Benutzer seine Browsersprache auf `fr`, `de`, `ur` oder `ja` eingestellt hat, verwendet der Browser den entsprechenden Namen, der im `name_localized`-Mitglied für diese Sprache gefunden wurde, als den `name` der App. Wenn nicht, verwendet der Browser den Namen, der im `name`-Mitglied gefunden wird.
+Wenn der Benutzer die Browsersprache auf `fr`, `de`, `ur` oder `ja` eingestellt hat, verwendet der Browser den entsprechenden, im `name_localized`-Mitglied für diese Sprache gefundenen Namen als `name` der App. Wenn nicht, wird der im `name`-Mitglied gefundene Name verwendet.
 
-Manchmal möchten Sie einen anderen `lang`-Wert innerhalb einer lokalisierten Variante angeben als die tatsächliche Sprache dieser Variante. Beispiel:
+Manchmal möchten Sie einen anderen `lang`-Wert innerhalb einer lokalisierten Variante angeben als die tatsächliche Sprache dieser Variante. Zum Beispiel:
 
 ```json
 }
@@ -126,11 +128,11 @@ Manchmal möchten Sie einen anderen `lang`-Wert innerhalb einer lokalisierten Va
 }
 ```
 
-In diesem Fall kennt unser französisches Publikum unsere App unter einer Variante des englischen Markennamens — "Sausage Super" — und wir möchten angeben, dass dies als Englisch und nicht als Französisch gehandhabt werden sollte (zum Beispiel für Aussprachezwecke). Dies geschieht durch die Angabe eines `lang`-Werts von `en-US` innerhalb der Variante.
+In diesem Fall kennt unser französisches Publikum unsere App unter einem abgewandelten englischen Markennamen – "Sausage Super" – und wir möchten angeben, dass dies als Englisch statt Französisch behandelt werden soll (zum Beispiel für Aussprachezwecke). Dies geschieht, indem ein `lang`-Wert von `en-US` innerhalb der Variante angegeben wird.
 
 ### Lokalisierte Icons
 
-Ein lokalisiertes `icons`-Set besteht aus einem Objekt, das mehrere Arrays enthält, von denen jedes Objekte mit den Icon-Optionen für eine andere Sprachregion enthält:
+Ein lokalisierter `icons`-Satz besteht aus einem Objekt, das mehrere Arrays enthält, von denen jedes Objekte enthält, die die Icon-Optionen für eine andere Locale darstellen:
 
 ```json
 {
@@ -167,13 +169,13 @@ Ein lokalisiertes `icons`-Set besteht aus einem Objekt, das mehrere Arrays enth�
 }
 ```
 
-Wenn der Benutzer seine Browsersprache auf `de`, `ar` oder `fr` eingestellt hat, wird ein entsprechender Eintrag vom `icons_localized`-Mitglied verwendet. Andernfalls wird das Icon verwendet, das im `icons`-Mitglied referenziert wird.
+Wenn der Benutzer die Browsersprache auf `de`, `ar` oder `fr` eingestellt hat, wird ein entsprechender Eintrag aus dem `icons_localized`-Mitglied verwendet. Wenn nicht, wird das im `icons`-Mitglied referenzierte Icon verwendet.
 
-Jedes lokalisierte Icon-Array wird als völlig unabhängig von allen anderen behandelt. Wenn ein Icons-Verzeichnis mit den Browserspracheinstellungen des Benutzers übereinstimmt, werden nur Icons aus diesem Verzeichnis für den Benutzer ausgewählt. Wenn Sie beispielsweise 20 Icons innerhalb `icons` spezifiziert haben und nur ein Icon innerhalb `icons_localized.fr` angeben, sieht der Benutzer mit `fr` als Browsersprache überall nur dieses eine Icon. Der Browser durchsucht nicht das `icons`-Array nach besser geeigneten Größen.
+Jedes lokalisierte Icons-Array wird als vollständig unabhängig von allen anderen behandelt. Wenn eine Icons-Variante mit den Spracheinstellungen des Browsers des Benutzers übereinstimmt, werden nur Icons aus dieser Variante für diesen Benutzer ausgewählt. Zum Beispiel, wenn Sie 20 Icons innerhalb von `icons` angegeben haben und nur ein Icon innerhalb von `icons_localized.fr`, sehen Benutzer mit `fr` als Browsersprache stets nur ein überall verwendetes Icon. Der Browser wird nicht im `icons`-Array nach passenderen Größen suchen.
 
 ### Lokalisierte Shortcuts
 
-Lokalisierte Shortcut-Teilmitglieder werden innerhalb des `shortcuts`-Mitglieds bereitgestellt.
+Lokalisierte Shortcut-Sub-Mitglieder werden innerhalb des `shortcuts`-Mitglieds bereitgestellt.
 
 Zum Beispiel:
 
@@ -219,10 +221,10 @@ Zum Beispiel:
 
 ## Beispiele
 
-Für Beispiele, schauen Sie sich folgende an:
+Für Beispiele, schauen Sie sich Folgendes an:
 
-- Die [PWA-Manifest-Lokalisierungsdemo](https://microsoftedge.github.io/Demos/pwa-manifest-localization/) App ([siehe Quellcode](https://github.com/MicrosoftEdge/Demos/tree/main/pwa-manifest-localization/)).
-- Unseren [App-Manifest lokalisieren](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest) Anleitung.
+- Die [PWA-Manifest-Lokalisierungsdemo](https://microsoftedge.github.io/Demos/pwa-manifest-localization/) App ([Quellcode ansehen](https://github.com/MicrosoftEdge/Demos/tree/main/pwa-manifest-localization/)).
+- Unseren [Eine App manifestieren lokalisieren](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest) Anleitung.
 
 ## Spezifikationen
 
@@ -234,5 +236,5 @@ Für Beispiele, schauen Sie sich folgende an:
 
 ## Siehe auch
 
-- [App-Manifest lokalisieren](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest)
-- [Localization support for web app manifests](https://developer.chrome.com/blog/manifest-localization) auf developer.chrome.com (2026)
+- [Eine App manifestieren lokalisieren](/de/docs/Web/Progressive_web_apps/How_to/Localize_an_app_manifest)
+- [Lokalisierungsunterstützung für Web-App-Manifeste](https://developer.chrome.com/blog/manifest-localization) auf developer.chrome.com (2026)

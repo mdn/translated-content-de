@@ -1,12 +1,12 @@
 ---
-title: "`<line-width>` CSS Typ"
+title: "`<line-width>` CSS-Typ"
 short-title: <line-width>
 slug: Web/CSS/Reference/Values/line-width
 l10n:
-  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
+  sourceCommit: a9dc3374034d357cbfea717fd5d641605359e3c7
 ---
 
-Der **`<line-width>`** {{Glossary("enumerated", "enumerierte")}} Werttyp repräsentiert die Länge oder den Schlüsselwortwert, der die Breite einer Linie oder das Fehlen einer Linie definiert. Die `<line-width>` Schlüsselwortwerte werden in den folgenden Lang- und Kurzschrift-Eigenschaften verwendet:
+Der **`<line-width>`**-Werttyp, der {{Glossary("enumerated", "aufgezählt")}} wird, repräsentiert die Länge oder den Schlüsselwortwert, der die Breite einer Linie oder das Fehlen einer Linie definiert. Die `<line-width>`-Schlüsselwortwerte werden in den folgenden Lang- und Kurzschrift-Eigenschaften verwendet:
 
 - {{cssxref("border")}}, {{cssxref("border-width")}}
 - {{cssxref("border-block")}}, {{cssxref("border-block-width")}}
@@ -28,11 +28,11 @@ Der **`<line-width>`** {{Glossary("enumerated", "enumerierte")}} Werttyp repräs
 
 ### Werte
 
-Der `<line-width>` Typ wird entweder mit `<length>` oder einem Schlüsselwort angegeben:
+Der `<line-width>`-Typ wird entweder mit `<length>` oder einem Schlüsselwort angegeben:
 
 - `<length>`
   - : Eine nicht-negative {{cssxref("&lt;length&gt;")}}.
-- `hairline` {{Experimental_Inline}}
+- `hairline`
   - : Repräsentiert eine "gerade sichtbare" Linie, die kleiner oder gleich `1px` ist.
 - `thin`
   - : Entspricht `1px`.
@@ -47,13 +47,13 @@ Der `<line-width>` Typ wird entweder mit `<length>` oder einem Schlüsselwort an
 
 ## Beispiele
 
-### Definition einer Linienbreite
+### Definieren einer Linienbreite
 
-Dieses Beispiel demonstriert alle `<line-width>` Schlüsselwortwerte zusammen mit einem `<length>` Wert.
+Dieses Beispiel demonstriert alle `<line-width>`-Schlüsselwortwerte zusammen mit einem `<length>`-Wert.
 
 #### HTML
 
-Wir fügen fünf Boxen in ein {{htmlelement("section")}} Element ein.
+Wir fügen fünf Boxen innerhalb eines {{htmlelement("section")}}-Elements ein.
 
 ```html
 <section>
@@ -67,7 +67,7 @@ Wir fügen fünf Boxen in ein {{htmlelement("section")}} Element ein.
 
 #### CSS
 
-Wir gestalten alle Elemente identisch und setzen dann die {{cssxref("border-width")}} basierend auf dem `data-width` Attribut des Elements.
+Wir stylen alle Elemente identisch und setzen dann die {{cssxref("border-width")}} basierend auf dem `data-width`-Attribut des Elements.
 
 ```css
 section {
@@ -129,6 +129,6 @@ div {
 ## Siehe auch
 
 - {{cssxref("line-style")}} Datentyp
-- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
-- [CSS grundlegende Benutzeroberfläche](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul
-- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul
+- [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS-Basis-Benutzeroberfläche](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul
+- [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps) Modul

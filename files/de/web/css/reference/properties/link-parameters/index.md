@@ -3,10 +3,12 @@ title: "`link-parameters` CSS property"
 short-title: link-parameters
 slug: Web/CSS/Reference/Properties/link-parameters
 l10n:
-  sourceCommit: 35cd8b781219157e42b289364754cff862c2dd1a
+  sourceCommit: a9dc3374034d357cbfea717fd5d641605359e3c7
 ---
 
-Die **`link-parameters`** [CSS](/de/docs/Web/CSS) Eigenschaft legt Werte für externe Ressourcen fest, wie etwa SVGs, deren Attribute mit der {{cssxref("env")}} CSS-Funktion gesetzt wurden.
+{{SeeCompatTable}}
+
+Die **`link-parameters`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt Werte für externe Ressourcen, wie z.B. SVGs, deren Attribute mit der {{cssxref("env")}} CSS-Funktion festgelegt wurden.
 
 ## Syntax
 
@@ -37,7 +39,7 @@ link-parameters:
 
 ### Aktualisieren der Farben einer externen SVG-Datei
 
-In diesem Beispiel ist das ursprüngliche SVG, links, ein Quadrat mit einem `stroke`-Attribut, das mit `env(--color1, chartreuse)` gesetzt wurde, und einem `fill`-Attribut, das mit `env(--color2, darkgreen)` gesetzt wurde. Die `link-parameters`-Eigenschaft wird verwendet, um beide dieser Attribute auf dem aktualisierten Quadrat, rechts, mit mehreren {{cssxref("param")}} CSS-Funktionen zu aktualisieren.
+In diesem Beispiel ist die ursprüngliche SVG links ein Quadrat mit dem `stroke`-Attribut, das mit `env(--color1, chartreuse)` gesetzt ist, und dem `fill`-Attribut, das mit `env(--color2, darkgreen)` gesetzt ist. Die Eigenschaft `link-parameters` wird verwendet, um beide dieser Attribute im aktualisierten Quadrat rechts mit mehreren {{cssxref("param")}}-CSS-Funktionen zu aktualisieren.
 
 ```html
 <div class="squares">
