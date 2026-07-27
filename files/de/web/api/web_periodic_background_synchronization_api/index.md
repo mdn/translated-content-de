@@ -2,46 +2,46 @@
 title: Web Periodic Background Synchronization API
 slug: Web/API/Web_Periodic_Background_Synchronization_API
 l10n:
-  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
+  sourceCommit: de5b264fa7bf6bb49811bf79f8f28f10835bfb79
 ---
 
 {{DefaultAPISidebar("Periodic Background Sync")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **Periodic Background Synchronization API** bietet eine Möglichkeit, Aufgaben zu registrieren, die in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) in regelmäßigen Abständen mit Netzwerkverbindung ausgeführt werden sollen. Diese Aufgaben werden als Anfragen für periodische Hintergrundsynchronisierung bezeichnet.
+Die **Web Periodic Background Synchronization API** bietet eine Möglichkeit, Aufgaben zu registrieren, die in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) in regelmäßigen Abständen mit Netzwerkverbindung ausgeführt werden. Diese Aufgaben werden als periodische Hintergrundsynchronisationsanfragen bezeichnet.
 
-## Konzepte und Verwendung
+## Konzepte und Anwendung
 
-Die Periodic Background Sync API ermöglicht es Webanwendungen, ihren Service Worker dazu zu veranlassen, in regelmäßigen Abständen Aktualisierungen vorzunehmen. Dies kann beinhalten, die neuesten Inhalte herunterzuladen, während ein Gerät mit Wi-Fi verbunden ist, oder Hintergrundaktualisierungen einer Anwendung zuzulassen.
+Die Periodic Background Sync API ermöglicht es Webanwendungen, ihrem Service Worker mitzuteilen, in regelmäßigen Zeitabständen Aktualisierungen vorzunehmen. Dies kann verwendet werden, um die neuesten Inhalte abzurufen, während ein Gerät mit einem WLAN verbunden ist, oder um Hintergrundaktualisierungen für eine Anwendung zu ermöglichen.
 
-Das minimale Zeitintervall wird festgelegt, wenn die API aufgerufen wird; der Benutzeragent kann jedoch auch andere Faktoren berücksichtigen, die beeinflussen, wann der Service Worker das Ereignis empfängt. Zum Beispiel das vorherige Engagement mit der Website oder die Verbindung zu einem bekannten Netzwerk.
+Das minimale Zeitintervall wird bei der Nutzung der API festgelegt; jedoch könnte der Benutzeragent auch andere Faktoren berücksichtigen, die beeinflussen, wann der Service Worker das Ereignis erhält. Zum Beispiel vorheriges Engagement der Website oder die Verbindung zu einem bekannten Netzwerk.
 
-Die Schnittstelle [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) ist über [`ServiceWorkerRegistration.periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) verfügbar. Ein eindeutiges Tag wird festgelegt, um das Synchronisierungsereignis zu "benennen", das dann im Skript des [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) abgehört werden kann. Sobald das Ereignis eingetroffen ist, können Sie jede verfügbare Funktionalität ausführen, wie das Aktualisieren von Caches oder das Abrufen neuer Ressourcen.
+Die [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Schnittstelle ist über [`ServiceWorkerRegistration.periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) verfügbar. Ein einzigartiger Kennzeichner wird festgelegt, um das Synchronisationsereignis zu "benennen", das dann im [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Skript abgehört werden kann. Sobald das Ereignis empfangen wird, können beliebige verfügbare Funktionen ausgeführt werden, wie zum Beispiel das Aktualisieren von Caches oder das Abrufen neuer Ressourcen.
 
-Da diese API auf Service Worker angewiesen ist, ist die durch diese API bereitgestellte Funktionalität nur in einem sicheren Kontext verfügbar.
+Da diese API auf Service Worker basiert, ist die Funktionalität, die diese API bietet, nur in einem sicheren Kontext verfügbar.
 
 ## Schnittstellen
 
 - [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) {{Experimental_Inline}}
-  - : Registriert Aufgaben, die in einem Service Worker in regelmäßigen Abständen mit Netzwerkverbindung ausgeführt werden sollen. Diese Aufgaben werden als Anfragen für periodische Hintergrundsynchronisierung bezeichnet.
+  - : Registriert Aufgaben, die in einem Service Worker in regelmäßigen Abständen mit Netzwerkverbindung ausgeführt werden. Diese Aufgaben werden als periodische Hintergrundsynchronisationsanfragen bezeichnet.
 - [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) {{Experimental_Inline}}
-  - : Repräsentiert ein Synchronisierungsereignis, das an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [ServiceWorkers](/de/docs/Web/API/Service_Worker_API) gesendet wird. Es bietet eine Möglichkeit, Aufgaben im Service Worker mit Netzwerkverbindung auszuführen.
+  - : Stellt ein Synchronisationsereignis dar, das an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [ServiceWorkers](/de/docs/Web/API/Service_Worker_API) gesendet wird. Es bietet eine Möglichkeit, Aufgaben im Service Worker mit Netzwerkverbindung auszuführen.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-Die folgenden Ergänzungen zur [Service Worker API](/de/docs/Web/API/Service_Worker_API) sind in der Spezifikation der Periodic Background Sync definiert, um einen Einstiegspunkt für die Nutzung der Periodic Background Sync bereitzustellen.
+Die folgenden Ergänzungen zur [Service Worker API](/de/docs/Web/API/Service_Worker_API) sind in der Periodic Background Sync-Spezifikation angegeben, um einen Einstiegspunkt für die Verwendung von Periodic Background Sync bereitzustellen.
 
 - [`ServiceWorkerRegistration.periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf die Schnittstelle [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) zurück, um Aufgaben zu registrieren, die zu bestimmten Intervallen ausgeführt werden.
+  - : Gibt einen Verweis auf die [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Schnittstelle zurück, um Aufgaben zu registrieren, die in bestimmten Intervallen ausgeführt werden sollen.
 - [`periodicsync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event) Ereignis {{Experimental_Inline}}
-  - : Tritt in regelmäßigen Abständen auf, die bei der Registrierung eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) festgelegt wurden.
+  - : Tritt in den angegebenen regelmäßigen Abständen auf, die beim Registrieren eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) festgelegt wurden.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie man die Schnittstelle verwendet.
+Die folgenden Beispiele zeigen, wie die Schnittstelle verwendet wird.
 
-### Anfordern einer Periodischen Hintergrundsynchronisation
+### Anfordern einer periodischen Hintergrundsynchronisation
 
-Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisation in einem Mindestintervall von einem Tag aus einem Browsing-Kontext:
+Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisation in einem Mindestintervall von einem Tag aus einem Browser-Kontext heraus:
 
 ```js
 async function registerPeriodicNewsCheck() {
@@ -56,9 +56,9 @@ async function registerPeriodicNewsCheck() {
 }
 ```
 
-### Überprüfen einer Hintergrundsynchronisation nach Tag
+### Überprüfung einer periodischen Hintergrundsynchronisation nach Tag
 
-Dieser Code überprüft, ob eine Aufgabe für die Periodische Hintergrundsynchronisation mit einem gegebenen Tag registriert ist.
+Dieser Code überprüft, ob eine Periodic Background Sync-Aufgabe mit einem bestimmten Tag registriert ist.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -68,9 +68,9 @@ navigator.serviceWorker.ready.then((registration) => {
 });
 ```
 
-### Entfernen einer Aufgabe für Periodische Hintergrundsynchronisation
+### Entfernen einer periodischen Hintergrundsynchronisationsaufgabe
 
-Der folgende Code entfernt eine Aufgabe für die Periodische Hintergrundsynchronisation, um das synchronisieren von Artikeln im Hintergrund zu stoppen.
+Der folgende Code entfernt eine Periodic Background Sync-Aufgabe, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -78,9 +78,9 @@ navigator.serviceWorker.ready.then((registration) => {
 });
 ```
 
-### Abhören einer Periodischen Hintergrundsynchronisation innerhalb eines Service Workers
+### Abhören einer periodischen Hintergrundsynchronisation innerhalb eines Service Workers
 
-Das folgende Beispiel zeigt, wie man auf ein periodisches Synchronisierungsereignis im Service Worker reagiert.
+Das folgende Beispiel zeigt, wie auf ein periodisches Synchronisationsereignis im Service Worker reagiert wird.
 
 ```js
 self.addEventListener("periodicsync", (event) => {
@@ -100,4 +100,4 @@ self.addEventListener("periodicsync", (event) => {
 
 ## Siehe auch
 
-- [Ein Artikel über die Nutzung der Periodischen Hintergrundsynchronisation](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Ein Artikel über die Verwendung von Periodic Background Sync](https://developer.chrome.com/docs/capabilities/periodic-background-sync)

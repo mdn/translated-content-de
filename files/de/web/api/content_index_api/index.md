@@ -2,47 +2,47 @@
 title: Content Index API
 slug: Web/API/Content_Index_API
 l10n:
-  sourceCommit: 6c3bed9bcd275fd4ad714c4df0ed874e9bf87681
+  sourceCommit: de5b264fa7bf6bb49811bf79f8f28f10835bfb79
 ---
 
 {{DefaultAPISidebar("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **Content Index API** ermöglicht es Entwicklern, ihre offline verfügbaren Inhalte im Browser zu registrieren.
+Die **Content Index API** ermöglicht Entwicklern, ihre offline verfügbaren Inhalte beim Browser zu registrieren.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Derzeit sind Offline-Webinhalte für Benutzer schwer auffindbar. Die Inhaltsindizierung ermöglicht es Entwicklern, dem Browser ihre spezifischen Offline-Inhalte mitzuteilen. Dies ermöglicht es Benutzern, verfügbare Inhalte zu entdecken und anzuzeigen, während Entwicklern die Möglichkeit gegeben wird, diese Inhalte hinzuzufügen und zu verwalten. Beispiele könnten eine Nachrichtenwebsite sein, die die neuesten Artikel im Hintergrund vorab lädt, oder eine Content-Streaming-App, die heruntergeladene Inhalte registriert.
+Derzeit ist offline Web-Inhalt für Benutzer nicht leicht auffindbar. Durch die Inhaltsindexierung können Entwickler dem Browser ihre spezifischen Offline-Inhalte mitteilen. Dies ermöglicht es Benutzern, verfügbare Inhalte zu entdecken und anzuzeigen, während Entwickler die Möglichkeit erhalten, diese Inhalte hinzuzufügen und zu verwalten. Beispiele könnten eine Nachrichten-Website sein, die die neuesten Artikel im Hintergrund vorlädt, oder eine Content-Streaming-App, die heruntergeladene Inhalte registriert.
 
-Die Content Index API ist eine Erweiterung der [Service Worker API](/de/docs/Web/API/Service_Worker_API), die es Entwicklern erlaubt, URLs und Metadaten bereits gecachter Seiten im Rahmen des aktuellen Service Workers hinzuzufügen. Der Browser kann diese Einträge dann nutzen, um dem Benutzer das Lesen im Offline-Modus zu ermöglichen. Als Entwickler können Sie diese Einträge auch innerhalb Ihrer Anwendung anzeigen.
+Die Content Index API ist eine Erweiterung der [Service Worker](/de/docs/Web/API/Service_Worker_API), die es Entwicklern ermöglicht, URLs und Metadaten von bereits zwischengespeicherten Seiten im Rahmen des aktuellen Service Workers hinzuzufügen. Der Browser kann diese Einträge dann verwenden, um einem Benutzer das Offline-Lesen anzuzeigen. Als Entwickler können Sie diese Einträge auch innerhalb Ihrer Anwendung anzeigen.
 
-Indizierte Einträge laufen nicht automatisch ab. Es ist ratsam, eine Schnittstelle zum Löschen von Einträgen bereitzustellen oder regelmäßig ältere Einträge zu entfernen.
+Indizierte Einträge laufen nicht automatisch ab. Es ist eine gute Praxis, eine Oberfläche zum Entfernen von Einträgen bereitzustellen oder ältere Einträge regelmäßig zu entfernen.
 
 > [!NOTE]
-> Die API unterstützt das Indizieren von URLs, die HTML-Dokumenten entsprechen. Eine URL für eine gecachte Mediendatei kann zum Beispiel nicht direkt indiziert werden. Stattdessen müssen Sie eine URL für eine Seite bereitstellen, die Medien anzeigt und die offline funktioniert.
+> Die API unterstützt die Indizierung von URLs, die HTML-Dokumenten entsprechen. Eine URL für eine zwischengespeicherte Mediendatei kann beispielsweise nicht direkt indiziert werden. Stattdessen müssen Sie eine URL für eine Seite bereitstellen, die Medien anzeigt und offline funktioniert.
 
 ## Schnittstellen
 
 - [`ContentIndex`](/de/docs/Web/API/ContentIndex) {{Experimental_Inline}}
-  - : Bietet Funktionen zum Registrieren von offline verfügbaren Inhalten.
+  - : Bietet Funktionalität, um offline verfügbare Inhalte zu registrieren.
 - [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) {{Experimental_Inline}}
-  - : Definiert das Objekt, das das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis darstellt.
+  - : Definiert das Objekt, das das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis repräsentiert.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-Die folgenden Ergänzungen zur [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) sind in der Content Index API-Spezifikation definiert, um einen Einstiegspunkt für die Inhaltsindizierung zu bieten.
+Die folgenden Ergänzungen zur [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) wurden im Content Index API-Spezifikationsentwurf spezifiziert, um einen Einstiegspunkt für die Inhaltsindexierung bereitzustellen.
 
 - [`ServiceWorkerRegistration.index`](/de/docs/Web/API/ServiceWorkerRegistration/index) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf die [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Schnittstelle zum Indizieren gecachter Seiten zurück.
+  - : Gibt eine Referenz auf die [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Schnittstelle zur Indizierung zwischengespeicherter Seiten zurück.
 - [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn Inhalte vom User Agent entfernt werden.
+  - : Wird ausgelöst, wenn Inhalte vom Benutzeragenten entfernt werden.
 
 ## Beispiele
 
 Alle folgenden Beispiele setzen voraus, dass ein Service Worker registriert wurde. Weitere Informationen finden Sie in der [Service Worker API](/de/docs/Web/API/Service_Worker_API).
 
-### Funktionsprüfung und Schnittstellensuche
+### Feature-Erkennung und Schnittstellenzugriff
 
-Hier erhalten wir eine Referenz zur [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) und prüfen die `index`-Eigenschaft, die uns Zugriff auf die Content-Index-Schnittstelle gibt.
+Hier erhalten wir eine Referenz auf die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) und prüfen dann, ob die `index`-Eigenschaft vorhanden ist, die uns Zugang zur Content-Index-Schnittstelle gewährt.
 
 ```js
 // reference registration
@@ -57,7 +57,7 @@ if ("index" in registration) {
 
 ### Hinzufügen zum Inhaltsindex
 
-Hier deklarieren wir ein Element im korrekten Format und erstellen eine asynchrone Funktion, die die [`add()`](/de/docs/Web/API/ContentIndex/add)-Methode verwendet, um es im Inhaltsindex zu registrieren.
+Hier deklarieren wir ein Element im richtigen Format und erstellen eine asynchrone Funktion, die die [`add()`](/de/docs/Web/API/ContentIndex/add)-Methode verwendet, um es dem Inhaltsindex hinzuzufügen.
 
 ```js
 // our content
@@ -97,7 +97,7 @@ async function registerContent(data) {
 
 ### Abrufen von Elementen im aktuellen Index
 
-Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente innerhalb des Inhaltsindex abruft und über jeden Eintrag iteriert, um eine Liste für die Schnittstelle zu erstellen.
+Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente im Inhaltsindex abruft und über jeden Eintrag iteriert, um eine Liste für die Schnittstelle zu erstellen.
 
 ```js
 async function createReadingList() {
@@ -137,9 +137,9 @@ async function createReadingList() {
 }
 ```
 
-### Abmelden von indizierten Inhalten
+### Löschen von indizierten Inhalten
 
-Unten steht eine asynchrone Funktion, die ein Element aus dem Inhaltsindex entfernt.
+Unten ist eine asynchrone Funktion, die ein Element aus dem Inhaltsindex entfernt.
 
 ```js
 async function unregisterContent(article) {
@@ -154,7 +154,7 @@ async function unregisterContent(article) {
 }
 ```
 
-Alle oben genannten Methoden sind im Rahmen des [Service Workers](/de/docs/Web/API/ServiceWorker) verfügbar. Sie sind von der [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)-Eigenschaft aus zugänglich:
+Alle oben genannten Methoden sind im Geltungsbereich des [Service Workers](/de/docs/Web/API/ServiceWorker) verfügbar. Sie sind über die [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)-Eigenschaft zugänglich:
 
 ```js
 // service worker script
@@ -166,9 +166,9 @@ self.registration.index.delete(item.id);
 const contentIndexItems = self.registration.index.getAll();
 ```
 
-### Das contentdelete-Ereignis
+### Das `contentdelete`-Ereignis
 
-Wenn ein Element aus der Benutzeroberfläche des User Agents entfernt wird, empfängt der Service Worker ein `contentdelete`-Ereignis.
+Wenn ein Element aus der Benutzeragenten-Schnittstelle entfernt wird, empfängt der Service Worker ein `contentdelete`-Ereignis.
 
 ```js
 self.addEventListener("contentdelete", (event) => {
@@ -178,7 +178,7 @@ self.addEventListener("contentdelete", (event) => {
 });
 ```
 
-Das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis wird nur ausgelöst, wenn die Löschung durch Interaktion mit der integrierten Benutzeroberfläche des Browsers erfolgt. Es wird nicht ausgelöst, wenn die [`ContentIndex.delete()`](/de/docs/Web/API/ContentIndex/delete)-Methode aufgerufen wird.
+Das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event)-Ereignis wird nur ausgelöst, wenn die Löschung aufgrund der Interaktion mit der integrierten Benutzeroberfläche des Browsers erfolgt. Es wird nicht ausgelöst, wenn die [`ContentIndex.delete()`](/de/docs/Web/API/ContentIndex/delete)-Methode aufgerufen wird.
 
 ## Spezifikationen
 
@@ -191,4 +191,4 @@ Das [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_ev
 ## Siehe auch
 
 - [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
-- [Service Worker API, zusammen mit Informationen über Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)
+- [Service Worker API, zusammen mit Informationen zu Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)
