@@ -3,10 +3,10 @@ title: "`text-emphasis-color` CSS property"
 short-title: text-emphasis-color
 slug: Web/CSS/Reference/Properties/text-emphasis-color
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit dem {{cssxref("text-emphasis")}} Shorthand festgelegt werden.
+Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzschreibweise gesetzt werden.
 
 {{InteractiveExample("CSS Demo: text-emphasis-color")}}
 
@@ -64,14 +64,16 @@ text-emphasis-color: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein `<color>`-Wert angegeben:
+
 - `<color>`
-  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird standardmäßig `currentColor` verwendet.
+  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird `currentColor` als Standard verwendet.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -111,5 +113,5 @@ em {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Die anderen mit Hervorhebungszeichen zusammenhängenden Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}}, und {{cssxref("text-emphasis-position")}}.
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}.
+- Die anderen mit Hervorhebungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}} und {{cssxref("text-emphasis-position")}}.
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}.

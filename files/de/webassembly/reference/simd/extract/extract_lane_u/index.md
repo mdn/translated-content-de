@@ -1,12 +1,12 @@
 ---
-title: "extract_lane_u: Wasm SIMD-Extraktionsanweisung"
+title: "extract_lane_u: Wasm SIMD extract Befehl"
 short-title: extract_lane_u
 slug: WebAssembly/Reference/SIMD/extract/extract_lane_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`extract_lane_u`** [SIMD-Extraktionsanweisung](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der im angegebenen Kanal eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Werts als eine vorzeichenlose Ganzzahl interpretiert wird.
+Der **`extract_lane_u`** [SIMD extract Befehl](/de/docs/WebAssembly/Reference/SIMD/extract) extrahiert den Wert, der in der angegebenen Lane eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Werts vorhanden ist, bei der Interpretation als unsigned integer.
 
 {{InteractiveExample("Wat Demo: extract_lane_u", "tabbed-taller")}}
 
@@ -35,11 +35,11 @@ value_type.extract_lane_u
 ```
 
 - `value_type`
-  - : Der Typ des Wertes, auf den die Anweisung angewendet wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Wertinterpretationen unterstützen `extract_lane_u`:
+  - : Der Typ des Werts, auf dem der Befehl ausgeführt wird. Die folgenden [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128)-Wertinterpretationen unterstützen `extract_lane_u`:
     - `i8x16`
     - `i16x8`
 - `extract_lane_u`
-  - : Die `extract_lane_u`-Anweisung. Muss immer nach dem `value_type` und einem Punkt (`.`) eingefügt werden.
+  - : Der `extract_lane_u` Befehl. Muss immer nach dem `value_type` und einem Punkt (`.`) angegeben werden.
 
 ### Typ
 
@@ -48,15 +48,15 @@ value_type.extract_lane_u
 ```
 
 - `input`
-  - : Die `v128`-Wertinterpretation, aus der ein Kanal extrahiert werden soll.
+  - : Die `v128`-Wertinterpretation, aus der Sie eine Lane extrahieren möchten.
 - `lane`
-  - : Der Index des Kanals, dessen Wert Sie extrahieren möchten, zum Beispiel `0`.
+  - : Der Index der Lane, deren Wert Sie extrahieren möchten, zum Beispiel `0`.
 - `output`
-  - : Der aus dem Kanal extrahierte Wert.
+  - : Der Wert, der aus der Lane extrahiert wird.
 
-### Binärcodekodierung
+### Binärcodierung
 
-| Anweisung              | Binärformat              | Beispieltext => Binär                         |
+| Befehl                 | Binärformat              | Beispieltext => Binär                         |
 | ---------------------- | ------------------------ | --------------------------------------------- |
 | `i8x16.extract_lane_u` | `0xfd 22:u32 l:lane_idx` | `i8x16.extract_lane_u 11` => `0xfd 0x16 0x0b` |
 | `i16x8.extract_lane_u` | `0xfd 25:u32 l:lane_idx` | `i16x8.extract_lane_u 7` => `0xfd 0x19 0x07`  |

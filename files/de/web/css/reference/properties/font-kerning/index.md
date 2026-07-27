@@ -3,10 +3,10 @@ title: "`font-kerning` CSS property"
 short-title: font-kerning
 slug: Web/CSS/Reference/Properties/font-kerning
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`font-kerning`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verwendung der in einer Schriftart gespeicherten Kerning-Informationen fest.
+Die **`font-kerning`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Verwendung der in einer Schriftart gespeicherten Kerning-Informationen fest.
 
 {{InteractiveExample("CSS Demo: font-kerning")}}
 
@@ -36,9 +36,9 @@ section {
 }
 ```
 
-_Kerning_ beeinflusst, wie Buchstabenabstände gesetzt werden. In _gut gekernten_ Schriftarten macht diese Funktion die Zeichenabstände gleichmäßiger und angenehmer zu lesen, indem der Weißraum zwischen bestimmten Zeichenkombinationen reduziert wird.
+_Kerning_ beeinflusst, wie Buchstabenabstände gesetzt werden. In _gut gekernten_ Schriftarten sorgt diese Funktion dafür, dass die Zeichenabstände gleichmäßiger und angenehmer zu lesen sind, indem der Leerraum zwischen bestimmten Zeichenkombinationen reduziert wird.
 
-Im folgenden Bild zum Beispiel verwenden die Beispiele auf der linken Seite kein Kerning, während es bei denen auf der rechten Seite verwendet wird:
+Im Bild unten verwenden die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite Kerning verwenden:
 
 ![Beispiel für font-kerning](font-kerning.png)
 
@@ -59,24 +59,26 @@ font-kerning: unset;
 
 ### Werte
 
-- `auto`
-  - : Der Browser bestimmt, ob Schriftkerning verwendet werden soll oder nicht. Einige Browser deaktivieren zum Beispiel Kerning bei kleinen Schriftgrößen, da dessen Anwendung die Lesbarkeit des Textes beeinträchtigen könnte.
-- `normal`
-  - : Die im Font gespeicherten Kerning-Informationen müssen angewendet werden.
-- `none`
-  - : Die im Font gespeicherten Kerning-Informationen sind deaktiviert.
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
-## Formelle Definition
+- `auto`
+  - : Der Browser bestimmt, ob Kerning verwendet werden soll oder nicht. Beispielsweise deaktivieren einige Browser Kerning bei kleinen Schriftgrößen, da die Anwendung die Lesbarkeit des Textes beeinträchtigen könnte.
+- `normal`
+  - : Kerning-Informationen, die in der Schriftart gespeichert sind, müssen angewendet werden.
+- `none`
+  - : Kerning-Informationen, die in der Schriftart gespeichert sind, werden deaktiviert.
+
+## Formale Definition
 
 {{cssinfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Aktivieren und Deaktivieren von Kerning
+### Kerning aktivieren und deaktivieren
 
 #### HTML
 

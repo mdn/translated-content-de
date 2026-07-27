@@ -1,12 +1,12 @@
 ---
-title: "load16_lane: Wasm SIMD Lade-/Speicherinstruktion"
+title: "load16_lane: Wasm SIMD Load/Store Anweisung"
 short-title: load16_lane
 slug: WebAssembly/Reference/SIMD/load_store/load16_lane
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`load16_lane`** [SIMD Lade-/Speicherinstruktion](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer gegebenen Speicheradresse in die spezifizierte Lane eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typs `i16x8` Wertinterpretation.
+Die **`load16_lane`** [SIMD Load/Store-Anweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in die spezifizierte Lane eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typen `i16x8` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load16_lane", "tabbed-taller")}}
 
@@ -42,13 +42,13 @@ v128.load16_lane mem_idx offset=int align=int lane_value
 ```
 
 - `v128.load16_lane`
-  - : Die `v128.load16_lane` Instruktion.
+  - : Die `v128.load16_lane` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein Ganzzahlwert, der den Speicherindex darstellt, falls das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Ganzzahlwert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Ganzzahlwert, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Eine Ganzzahl, die eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugerechnet wird, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Ganzzahlwert, der dem Wasm-Engine einen Hinweis gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1`, und der Standard- sowie Maximalwert ist `2`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Eine Ganzzahl, die dem Wasm-Engine einen Hinweis darüber gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Maximalwert ist `2`. Ein `align`-Wert muss eine Potenz von `2` sein.
 - `lane_value`
   - : Die Lane, in die ein Wert geladen werden soll.
 
@@ -59,20 +59,20 @@ v128.load16_lane mem_idx offset=int align=int lane_value
 ```
 
 - `memory_address`
-  - : Ein Ganzzahlwert, der die Speicheradresse darstellt, von der geladen wird.
+  - : Eine Ganzzahl, die die Speicheradresse darstellt, von der geladen werden soll.
 - `input`
-  - : Die Eingabewertinterpretation des `v128` Typs `i16x8`.
+  - : Die Eingabe `v128` Typ `i16x8` Wertinterpretation.
 - `output`
-  - : Die Ausgabewertinterpretation des `v128` Typs `i16x8`.
+  - : Die Ausgabe `v128` Typ `i16x8` Wertinterpretation.
 
 ### Binäre Kodierung
 
-| Instruktion        | Binärformat                                               | Beispiel-Text => Binär                                                |
+| Anweisung          | Binärformat                                               | Beispieltext => binär                                                 |
 | ------------------ | --------------------------------------------------------- | --------------------------------------------------------------------- |
 | `v128.load16_lane` | `0xFD 85:u32 mem_idx:u8 offset:u32 align:u32 lane_idx:u8` | `v128.load16_lane 0 offset=0 align=2 6` => `0xfd 0x55 0x01 0x00 0x06` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel entspricht `align=1` `0x00` (`2^0`), während `align=2` `0x01` (`2^1`) entspricht.
+> Während das Wasm-Textformat den literal `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=2` äquivalent zu `0x01` (`2^1`) ist.
 
 ## Spezifikationen
 
@@ -81,7 +81,3 @@ v128.load16_lane mem_idx offset=int align=int lane_value
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade-/Speicherinstruktionen](/de/docs/WebAssembly/Reference/SIMD/load_store)

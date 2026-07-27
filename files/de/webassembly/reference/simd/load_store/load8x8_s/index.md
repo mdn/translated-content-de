@@ -1,12 +1,12 @@
 ---
-title: "load8x8_s: Wasm SIMD Lade- und Speicheranweisung"
+title: "load8x8_s: Wasm SIMD Lade-/Speicheranweisung"
 short-title: load8x8_s
 slug: WebAssembly/Reference/SIMD/load_store/load8x8_s
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`load8x8_s`** [SIMD Lade- und Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt acht 8-Bit Ganzzahlen von einer gegebenen Speicheradresse und erweitert jede zu einem 16-Bit Kanal, wobei eine [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ `i16x8` Wertinterpretation ausgegeben wird.
+Die **`load8x8_s`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt acht 8-Bit-Ganzzahlen von einer gegebenen Speicheradresse und erweitert jede davon zu einer 16-Bit-Lane mit Vorzeichen, und gibt eine [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ `i16x8` Wertinterpretation aus.
 
 {{InteractiveExample("Wat Demo: load8x8_s", "tabbed-taller")}}
 
@@ -40,13 +40,13 @@ v128.load8x8_s mem_idx offset=int align=int
 ```
 
 - `v128.load8x8_s`
-  - : Die `v128.load8x8_s` Anweisung.
+  - : Die Anweisung `v128.load8x8_s`.
 - `mem_idx` {{optional_inline}}
-  - : Ein Integer, der den Speicherindex darstellt, falls das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Ganzzahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
+  - : Eine Ganzzahl, die die Anzahl konstanter Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Integer, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse zu erwarten ist. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align` Wert muss eine Potenz von `2` sein.
+  - : Eine Ganzzahl, die einen Hinweis an die Wasm-Engine gibt, welche Ausrichtung für die endgültige Adresse zu erwarten ist. Der Mindestwert ist `1`, und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load8x8_s mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein Integer, der die Speicheradresse darstellt, von der geladen wird.
+  - : Eine Ganzzahl, die die Speicheradresse darstellt, von der geladen werden soll.
 - `output`
   - : Die Ausgabe `v128` Typ `i16x8` Wertinterpretation.
 
-### Binäre Codierung
+### Binärcodierung
 
-| Anweisung        | Binärformat                                  | Beispieltext => Binär                                        |
+| Anweisung        | Binärformat                                  | Beispiels-Text => Binär                                      |
 | ---------------- | -------------------------------------------- | ------------------------------------------------------------ |
 | `v128.load8x8_s` | `0xFD 1:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load8x8_s 0 offset=0 align=2` => `0xfd 0x01 0x01 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` gleichbedeutend mit `0x00` (`2^0`), während `align=8` gleichbedeutend mit `0x03` (`2^3`) ist.
+> Während das Wasm-Textformat den literalen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=8` äquivalent zu `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -75,7 +75,3 @@ v128.load8x8_s mem_idx offset=int align=int
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade- und Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

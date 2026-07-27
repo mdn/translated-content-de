@@ -3,17 +3,17 @@ title: "`interpolate-size` CSS property"
 short-title: interpolate-size
 slug: Web/CSS/Reference/Properties/interpolate-size
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
 {{seecompattable}}
 
-Die **`interpolate-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, [Animationen](/de/docs/Web/CSS/Guides/Animations) und [Übergänge](/de/docs/Web/CSS/Guides/Transitions) zwischen einem {{cssxref("&lt;length-percentage&gt;")}}-Wert und einer {{Glossary("intrinsic_size", "intrinsischen Größe")}}, {{cssxref("fit-content")}} oder {{cssxref("max-content")}} zu aktivieren.
+Die **`interpolate-size`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, [Animationen](/de/docs/Web/CSS/Guides/Animations) und [Übergänge](/de/docs/Web/CSS/Guides/Transitions) zwischen einem {{cssxref("&lt;length-percentage&gt;")}}-Wert und einer {{Glossary("intrinsic_size", "intrinsischen Größe")}}, {{cssxref("fit-content")}} oder {{cssxref("max-content")}} zu aktivieren.
 
-Diese Eigenschaft wird typischerweise verwendet, um die {{cssxref("width")}} und/oder {{cssxref("height")}} eines Containers zwischen einem `<length-percentage>` und der vollen Größe seines Inhalts zu animieren (d.h. zwischen den Zuständen "geschlossen" und "offen" oder "verbergen" und "enthüllen"), wenn die Animation einer Nicht-Box-Modell-CSS-Eigenschaft, wie z. B. {{cssxref("transform")}}, keine geeignete Lösung ist.
+Diese Eigenschaft wird in der Regel verwendet, um die {{cssxref("width")}} und/oder {{cssxref("height")}} eines Containers zwischen einer `<length-percentage>` und der vollen Größe des Inhalts zu animieren (d.h. zwischen "geschlossen" und "offen" oder "versteckt" und "geöffnet"), wenn das Animieren einer nicht zur Boxmodell-CSS-Eigenschaft, wie z.B. {{cssxref("transform")}}, keine brauchbare Lösung darstellt.
 
 > [!NOTE]
-> Das Verhalten, das durch `interpolate-size` aktiviert wird, kann nicht standardmäßig im gesamten Web aktiviert werden, da viele existierende Websites Stylesheets verwenden, die annehmen, dass intrinsische Größenwerte nicht animiert werden können. Eine Aktivierung als Standard würde mehrere Kompatibilitätsprobleme verursachen (siehe relevante [CSS WG Diskussion](https://github.com/w3c/csswg-drafts/issues/626#issuecomment-2071016522)).
+> Das Verhalten, in das mit `interpolate-size` eingestiegen wird, kann nicht standardmäßig im gesamten Web aktiviert werden, da viele Websites in der Wildnis Stylesheets verwenden, die davon ausgehen, dass intrinsische Größenwerte nicht animiert werden können. Eine standardmäßige Aktivierung würde mehrere Probleme bei der Rückwärtskompatibilität verursachen (siehe relevante [CSS WG Diskussion](https://github.com/w3c/csswg-drafts/issues/626#issuecomment-2071016522)).
 
 ## Syntax
 
@@ -32,8 +32,10 @@ interpolate-size: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `allow-keywords`
-  - : Ermöglicht die {{Glossary("Interpolation", "Interpolation")}} zwischen einem {{cssxref("length-percentage")}}-Wert und einem intrinsischen Größenwert, um eine Animation zwischen beiden zu ermöglichen.
+  - : Ermöglicht die {{Glossary("Interpolation", "Interpolierung")}} zwischen einem {{cssxref("length-percentage")}}-Wert und einem intrinsischen Größenwert, um Animation zwischen den beiden zu ermöglichen.
 - `numeric-only`
   - : Das Standardverhalten — intrinsische Größenwerte können nicht interpoliert werden.
 
@@ -41,7 +43,7 @@ interpolate-size: unset;
 
 Das Setzen von `interpolate-size: allow-keywords` ermöglicht die Interpolation zwischen einem {{cssxref("length-percentage")}}-Wert und einem intrinsischen Größenwert. Beachten Sie, dass es nicht das Animieren zwischen zwei intrinsischen Größenwerten ermöglicht. Ein Ende der Animation muss ein `<length-percentage>` sein.
 
-Der `interpolate-size`-Wert wird vererbt, sodass das Animieren zu (oder von) einem intrinsischen Größenwert für ein gesamtes Dokument aktiviert werden kann, indem es auf dem Dokumentenstamm gesetzt wird:
+Der `interpolate-size` Wert wird vererbt, sodass das Animieren zu (oder von) einem intrinsischen Größenwert für ein ganzes Dokument aktiviert werden kann, indem es am Dokumentenstamm eingestellt wird:
 
 ```css
 :root {
@@ -49,7 +51,7 @@ Der `interpolate-size`-Wert wird vererbt, sodass das Animieren zu (oder von) ein
 }
 ```
 
-Wenn Sie den Umfang begrenzen möchten, können Sie ihn auf das relevante Containerelement setzen. Das Folgende ermöglicht die Interpolation intrinsischer Größen nur für {{htmlelement("main")}} und dessen Nachfahren:
+Wenn Sie den Umfang begrenzen möchten, können Sie es auf dem relevanten Containerelement einstellen. Das Folgende ermöglicht die Interpolation von intrinsischen Größen nur für {{htmlelement("main")}} und seine Nachkommen:
 
 ```css
 main {
@@ -58,7 +60,7 @@ main {
 ```
 
 > [!NOTE]
-> Die Rückgabewerte der {{cssxref("calc-size()")}}-Funktion können ebenfalls interpoliert werden. Tatsächlich wird durch das Einfügen von `calc-size()` in einen Eigenschaftswert automatisch `interpolate-size: allow-keywords` auf die Auswahl angewendet. Da `interpolate-size` jedoch, wie oben erläutert, vererbt wird, ist dies die bevorzugte Lösung, um intrinsische Größenanimationen in den meisten Fällen zu aktivieren. Sie sollten `calc-size()` nur verwenden, um intrinsische Größenanimationen zu aktivieren, wenn sie auch Berechnungen erfordern.
+> Die Rückgabewerte der {{cssxref("calc-size()")}} Funktion können ebenfalls interpoliert werden. In der Praxis bedeutet das Einbeziehen von `calc-size()` in einen Eigenschaftswert, dass automatisch `interpolate-size: allow-keywords` auf die Auswahl angewendet wird. Da `interpolate-size`, wie oben erklärt, vererbt wird, ist es die bevorzugte Lösung, um Animationen mit intrinsischen Größen in den meisten Fällen zu ermöglichen. Sie sollten `calc-size()` nur verwenden, um Animationen mit intrinsischen Größen zu ermöglichen, wenn diese auch Berechnungen erfordern.
 
 ### Werte, die interpoliert werden können
 
@@ -82,11 +84,11 @@ Die folgenden intrinsischen Werte können derzeit für Animationen aktiviert wer
 
 ### Grundlegende Verwendung von `interpolate-size`
 
-Dieses Beispiel zeigt, wie `interpolate-size: allow-keywords` auf einem Dokument gesetzt wird, um Animationen zu ermöglichen, die eine intrinsische Größe umfassen. Die Demo zeigt ein Charakterabzeichen/"Namensschild", das durch Hover oder Fokus Informationen über den Charakter preisgibt. Das Enthüllen wird durch einen {{cssxref("height")}}-Übergang zwischen einer festgelegten Länge und `max-content` gehandhabt.
+Dieses Beispiel zeigt, wie `interpolate-size: allow-keywords` auf ein Dokument gesetzt wird, um Animationen mit einer intrinsischen Größe zu ermöglichen. Das Demo zeigt ein Charakterabzeichen/"Namensschild", das beim Überfahren oder Fokussieren Informationen über den Charakter preisgibt. Die Enthüllung erfolgt durch eine {{cssxref("height")}}-Übergang zwischen einer festgelegten Länge und `max-content`.
 
 #### HTML
 
-Das HTML enthält ein einzelnes {{htmlelement("section")}}-Element mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), damit es Tastaturfokus erhalten kann. Das `<section>` enthält {{htmlelement("header")}}- und {{htmlelement("main")}}-Elemente, jeweils mit eigenen untergeordneten Inhalten.
+Das HTML enthält ein einzelnes {{htmlelement("section")}}-Element mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex), damit es Tastaturfokus erhalten kann. Das `<section>` enthält {{htmlelement("header")}} und {{htmlelement("main")}} Elemente, jeweils mit ihren eigenen Kindinhalten.
 
 ```html
 <section tabindex="0">
@@ -150,7 +152,7 @@ p {
 }
 ```
 
-Im CSS setzen wir zuerst `interpolate-size: allow-keywords` auf dem {{cssxref(":root")}}, um es für das ganze Dokument zu aktivieren.
+Im CSS setzen wir zunächst `interpolate-size: allow-keywords` auf das {{cssxref(":root")}}, um es für das gesamte Dokument zu aktivieren.
 
 ```css
 :root {
@@ -158,7 +160,7 @@ Im CSS setzen wir zuerst `interpolate-size: allow-keywords` auf dem {{cssxref(":
 }
 ```
 
-Dann setzen wir die {{cssxref("height")}} des `<section>` auf `2.5rem` und {{cssxref("overflow")}} auf `hidden`, sodass standardmäßig nur das `<header>` angezeigt wird, und spezifizieren einen `transition`, der die `<section>`-`height` über 1 Sekunde während des Zustandswechsels animiert. Schließlich setzen wir die `<section>`-`height` auf {{cssxref(":hover")}} und {{cssxref(":focus")}} auf `max-content`.
+Als nächstes setzen wir die `<section>` {{cssxref("height")}} auf `2.5rem` und {{cssxref("overflow")}} auf `hidden`, sodass nur der `<header>` standardmäßig angezeigt wird, und dann spezifizieren wir einen `transition`, der die `<section>` `height` über 1 Sekunde während des Statuswechsels animiert. Schließlich setzen wir die `<section>` `height` bei {{cssxref(":hover")}} und {{cssxref(":focus")}} auf `max-content`.
 
 ```css
 section {
@@ -173,11 +175,11 @@ section:focus {
 }
 ```
 
-Der Rest des CSS wurde der Kürze halber ausgeblendet.
+Der Rest des CSS wurde der Kürze halber versteckt.
 
 #### Ergebnis
 
-Versuchen Sie, über das `<section>` zu schweben oder es per Tastaturfokus anzusteuern — es wird auf seine volle Höhe animiert und zeigt den gesamten Inhalt an.
+Versuchen Sie, über das `<section>` zu schweben oder es über die Tastatur zu fokussieren — es wird zu seiner vollen Höhe animiert und enthüllt den gesamten Inhalt.
 
 {{ EmbedLiveSample('Basic `interpolate-size` usage', '100%', '225') }}
 

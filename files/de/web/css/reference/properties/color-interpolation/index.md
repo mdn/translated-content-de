@@ -3,10 +3,10 @@ title: "`color-interpolation` CSS property"
 short-title: color-interpolation
 slug: Web/CSS/Reference/Properties/color-interpolation
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die `color-interpolation` CSS-Eigenschaft wird in SVG dazu verwendet, den Farbraum festzulegen, der für die {{SVGElement("linearGradient")}} und {{SVGElement("radialGradient")}} SVG-Elemente verwendet werden soll.
+Die `color-interpolation` CSS-Eigenschaft wird in SVG verwendet, um anzugeben, welcher Farbraum für die {{SVGElement("linearGradient")}} und {{SVGElement("radialGradient")}} SVG-Elemente verwendet werden soll.
 
 ## Syntax
 
@@ -19,12 +19,14 @@ color-interpolation: linearRGB;
 
 ### Werte
 
+Diese Eigenschaft wird als eines der folgenden Schlüsselwörter angegeben:
+
 - `auto`
-  - : Gibt an, dass der Benutzeragent entweder den `sRGB`- oder den `linearRGB`-Farbraum für die Farbsinterpolation wählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbsinterpolation in einem bestimmten Farbraum erfolgt.
+  - : Gibt an, dass der Benutzeragent entweder den `sRGB`- oder `linearRGB`-Raum für die Farbinterpolation wählen kann. Diese Option zeigt an, dass der Autor nicht verlangt, dass die Farbinterpolation in einem bestimmten Farbraum erfolgt.
 - `sRGB`
-  - : Gibt an, dass die Farbsinterpolation im sRGB-Farbraum erfolgen sollte. Dies ist der Standardwert, wenn keine `color-interpolation`-Eigenschaft festgelegt ist.
+  - : Gibt an, dass die Farbinterpolation im sRGB-Farbraum erfolgen soll. Dies ist der Standardwert, wenn keine `color-interpolation`-Eigenschaft gesetzt ist.
 - `linearRGB`
-  - : Gibt an, dass die Farbsinterpolation im linearisierten RGB-Farbraum erfolgen soll, wie in [der sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
+  - : Gibt an, dass die Farbinterpolation im linearen RGB-Farbraum erfolgen soll, wie in der [sRGB-Spezifikation](https://webstore.iec.ch/en/publication/6169) beschrieben.
 
 ## Formale Definition
 
@@ -35,7 +37,7 @@ color-interpolation: linearRGB;
       <td><code>auto</code> | <code>sRGB</code> | <code>linearRGB</code></td>
     </tr>
     <tr>
-      <th scope="row">Anwendbar auf</th>
+      <th scope="row">Gilt für</th>
       <td>{{SVGElement("linearGradient")}} und {{SVGElement("radialGradient")}}</td>
     </tr>
     <tr>
@@ -55,7 +57,7 @@ color-interpolation: linearRGB;
 
 ## Beispiel
 
-Im ersten SVG ist die `color-interpolation`-Eigenschaft nicht auf dem `<linearGradient>`-Element enthalten und die Farbsinterpolation erfolgt standardmäßig im `sRGB`. Das zweite Beispiel zeigt die Farbsinterpolation mit dem `linearRGB`-Wert.
+Im ersten SVG ist die `color-interpolation`-Eigenschaft nicht im `<linearGradient>`-Element enthalten und die Farbinterpolation erfolgt standardmäßig im `sRGB`-Raum. Das zweite Beispiel zeigt die Farbinterpolation mit dem Wert `linearRGB`.
 
 ```html
 <svg width="450" height="70">
@@ -111,7 +113,7 @@ svg {
 }
 ```
 
-{{EmbedLiveSample("Example", "100%", "140")}}
+{{EmbedLiveSample("Beispiel", "100%", "140")}}
 
 ## Spezifikationen
 
@@ -125,4 +127,4 @@ svg {
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
-- SVG {{SVGAttr("color-interpolation")}} Attribut
+- SVG-{{SVGAttr("color-interpolation")}}-Attribut

@@ -3,10 +3,10 @@ title: "`font-synthesis-weight` CSS property"
 short-title: font-synthesis-weight
 slug: Web/CSS/Reference/Properties/font-synthesis-weight
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`font-synthesis-weight`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen zu bestimmen, ob der Browser den Fettdruck in einer Schriftfamilie synthetisieren darf, wenn er fehlt.
+Die **`font-synthesis-weight`**-Eigenschaft [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen festzulegen, ob der Browser die fette Schriftart synthetisieren darf, wenn sie in einer Schriftfamilie fehlt.
 
 Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schrifttypensynthese zu steuern.
 
@@ -27,10 +27,12 @@ font-synthesis-weight: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Gibt an, dass der fehlende Fettauszeichnungsschnitt bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende fette Schriftart vom Browser bei Bedarf synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden Fettauszeichnungsschnittes durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese der fehlenden fetten Schriftart durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -42,9 +44,9 @@ font-synthesis-weight: unset;
 
 ## Beispiele
 
-### Deaktivierung der Synthese des Fettauszeichnungsschnittes
+### Deaktivieren der Synthese der fetten Schriftart
 
-Dieses Beispiel zeigt, wie die Synthese des Fettauszeichnungsschnittes durch den Browser in der Schriftart `Montserrat` deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese der fetten Schriftart durch den Browser in der `Montserrat`-Schriftart deaktiviert wird.
 
 #### HTML
 

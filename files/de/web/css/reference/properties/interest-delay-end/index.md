@@ -3,14 +3,14 @@ title: "`interest-delay-end` CSS-Eigenschaft"
 short-title: interest-delay-end
 slug: Web/CSS/Reference/Properties/interest-delay-end
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
 {{SeeCompatTable}}
 
-Die **`interest-delay-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verzögerung zwischen dem Verlust des Interesses des Nutzers an einem [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element und dem Auslösen des [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event) Events fest.
+Die **`interest-delay-end`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Verzögerung zwischen dem Zeitpunkt, an dem der Benutzer das Interesse an einem [Interest Invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element verliert und dem Auslösen des [`loseinterest`](/de/docs/Web/API/HTMLElement/loseinterest_event) Ereignisses.
 
-Die `interest-delay-end` und {{cssxref("interest-delay-start")}} Eigenschaften können beide durch das Kurzwort {{cssxref("interest-delay")}} gesetzt werden.
+Die Eigenschaften `interest-delay-end` und {{cssxref("interest-delay-start")}} können beide mit dem {{cssxref("interest-delay")}} kürzlichkeitsShorthand eingestellt werden.
 
 ## Syntax
 
@@ -30,10 +30,12 @@ interest-delay-end: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein `<time>` Wert oder das Schlüsselwort `normal` angegeben:
+
 - `normal`
-  - : Setzt die Verzögerung auf die Standardverzögerung des Browsers. Dies ist der Anfangswert.
+  - : Setzt die Verzögerung auf die standardmäßige Verzögerung des Browsers. Dies ist der Anfangswert.
 - {{cssxref("&lt;time>")}}
-  - : Setzt die Verzögerung auf eine bestimmte Dauer. Der Wert muss positiv sein, andernfalls wird die Eigenschaft ungültig.
+  - : Legt die Verzögerung auf eine spezifische Dauer fest. Der Wert muss positiv sein, andernfalls wird die Eigenschaft ungültig.
 
 ## Formale Definition
 
@@ -45,13 +47,13 @@ interest-delay-end: unset;
 
 ## Beispiele
 
-### Erstellung eines grundlegenden `interest-delay-end` Effekts
+### Erstellen eines grundlegenden `interest-delay-end` Effekts
 
-In diesem Beispiel zeigen wir, wie `interest-delay-end` das Verhalten von Interest Invokern beeinflusst.
+In diesem Beispiel zeigen wir, wie sich `interest-delay-end` auf das Verhalten eines Interest Invoker auswirkt.
 
 #### HTML
 
-Das Markup enthält einen {{htmlelement("button")}}, ein {{htmlelement("p")}} und ein {{htmlelement("input")}} vom Typ `checkbox`. Wir spezifizieren den `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt. Dies macht den Absatz zum Ziel-Element. Der Absatz wird durch das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut in einen Popover umgewandelt, der ihn zunächst verbirgt.
+Das Markup enthält einen {{htmlelement("button")}}, einen {{htmlelement("p")}}, und ein {{htmlelement("input")}} vom Typ `checkbox`. Wir spezifizieren den `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt. Dies macht den Paragraphen zum Zielelement. Der Paragraph wird zu einem Popover, indem er das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut erhält, das ihn zunächst verbirgt.
 
 ```html live-sample___interest-invoker-delay
 <button interestfor="mypopover">Button</button>
@@ -66,7 +68,7 @@ Das Markup enthält einen {{htmlelement("button")}}, ein {{htmlelement("p")}} un
 
 #### CSS
 
-Im CSS spezifizieren wir eine Regel mit einem `.delay` Selektor, der einen `interest-delay-end` Wert von `2s` auf jeden Interest Invoker anwendet, auf dem die `delay` Klasse gesetzt ist. Wir werden dies auf den `<button>` setzen, wenn das Kontrollkästchen mittels JavaScript aktiviert wird.
+Im CSS spezifizieren wir eine Regel mit einem `.delay` Selektor, der einen `interest-delay-end` Wert von `2s` auf jeden Interest Invoker anwendet, bei dem die `delay` Klasse gesetzt ist. Wir werden dies auf den `<button>` anwenden, wenn das Kontrollkästchen mit JavaScript ausgewählt wird.
 
 ```css live-sample___interest-invoker-delay
 .delay {
@@ -76,7 +78,7 @@ Im CSS spezifizieren wir eine Regel mit einem `.delay` Selektor, der einen `inte
 
 #### JavaScript
 
-In unserem Skript holen wir Referenzen zum `<button>` und zum Kontrollkästchen, und erstellen dann einen Ereignis-Listener, der die `delay` Klasse auf dem `<button>` umschaltet, wann immer sich der Wert des Kontrollkästchens ändert (wenn es markiert oder entmarkiert wird).
+In unserem Skript erhalten wir Referenzen zum `<button>` und dem Kontrollkästchen, dann erstellen wir einen Event-Listener, der die `delay` Klasse auf dem `<button>` umschaltet, wann immer sich der Wert des Kontrollkästchens ändert (wenn es ausgewählt oder abgewählt wird).
 
 ```js live-sample___interest-invoker-delay
 const btn = document.querySelector("button");
@@ -92,9 +94,9 @@ Dies wird wie folgt dargestellt:
 
 {{embedlivesample("interest-invoker-delay", "100%", "100")}}
 
-Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hovern oder Fokussieren) und dann das Interesse zu verlieren, um zu beobachten, wie der Popover erscheint und verschwindet. Standardmäßig erscheint und verschwindet der Popover nach einer sehr kurzen Verzögerung.
+Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Überfahren mit der Maus oder Fokussieren) und verlieren Sie dann das Interesse, um das Popover zu sehen, das angezeigt und versteckt wird. Standardmäßig wird das Popover nach einer sehr kurzen Verzögerung angezeigt und verborgen.
 
-Jetzt aktivieren Sie das Kontrollkästchen und versuchen Sie die gleichen Aktionen erneut. Dieses Mal bleibt die Verzögerung zwischen dem Zeigen von Interesse und dem Erscheinen des Popovers unverändert, aber die Verzögerung zwischen dem Verlieren des Interesses und dem Verschwinden des Popovers sollte auf `2s` erhöht sein.
+Aktivieren Sie nun das Kontrollkästchen und versuchen Sie die gleichen Aktionen erneut. Dieses Mal sollte die Verzögerung zwischen dem Zeigen von Interesse und dem Erscheinen des Popovers unverändert sein, aber die Verzögerung zwischen dem Verlieren von Interesse und dem Verschwinden des Popovers sollte auf `2s` erhöht sein.
 
 ## Spezifikationen
 
@@ -108,5 +110,5 @@ Jetzt aktivieren Sie das Kontrollkästchen und versuchen Sie die gleichen Aktion
 
 - {{cssxref("interest-delay-start")}}, {{cssxref("interest-delay")}}
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [CSS grundlegendes Benutzeroberflächenmodul](/de/docs/Web/CSS/Guides/Basic_user_interface)
+- [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [CSS Basic User Interface](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul

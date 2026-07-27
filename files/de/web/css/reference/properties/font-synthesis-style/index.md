@@ -3,12 +3,12 @@ title: "`font-synthesis-style` CSS property"
 short-title: font-synthesis-style
 slug: Web/CSS/Reference/Properties/font-synthesis-style
 l10n:
-  sourceCommit: a8b7faffbd3fdeae5c0be97793d963d8a31cd1cf
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen, zu spezifizieren, ob der Browser den kursiven Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
+Die **`font-synthesis-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen festzulegen, ob der Browser einen oblique Schriftschnitt synthetisieren darf, wenn er in einer Schriftfamilie fehlt.
 
-Es ist oft nützlich, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftsynthese zu steuern.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftschnittsynthese zu steuern.
 
 ## Syntax
 
@@ -28,12 +28,14 @@ font-synthesis-style: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Gibt an, dass der fehlende kursive Schriftschnitt bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass der fehlende oblique Schriftschnitt bei Bedarf vom Browser synthetisiert werden kann.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden kursiven Schriftschnitts durch den Browser _nicht_ erlaubt ist.
+  - : Gibt an, dass die Synthese des fehlenden oblique Schriftschnitts durch den Browser _nicht_ erlaubt ist.
 - `oblique-only`
-  - : Dasselbe wie `auto`, aber es erfolgt keine Schriftsynthese, wenn `font-style: italic` gesetzt ist.
+  - : Entspricht `auto`, aber es erfolgt keine Schriftsynthese, wenn `font-style: italic` gesetzt ist.
 
 ## Formale Definition
 
@@ -45,9 +47,9 @@ font-synthesis-style: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese des kursiven Schriftschnittes
+### Deaktivierung der Synthese des oblique Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthese des kursiven Schriftschnitts durch den Browser in der `Montserrat` Schrift deaktiviert wird.
+Dieses Beispiel zeigt das Ausschalten der Synthese des oblique Schriftschnitts im `Montserrat`-Font durch den Browser.
 
 #### HTML
 
@@ -81,9 +83,9 @@ Dieses Beispiel zeigt, wie die Synthese des kursiven Schriftschnitts durch den B
 
 {{EmbedLiveSample('Disabling synthesis of bold typeface', '', '100')}}
 
-### Vergleich der Werte von font-synthesis-style
+### Vergleich der `font-synthesis-style`-Werte
 
-Dieses Beispiel vergleicht alle `font-synthesis-style` Werte unter Verwendung von kursiv und schräg gestylten Texten.
+Dieses Beispiel vergleicht alle `font-synthesis-style`-Werte mit kursiv und oblique gestalteten Texten.
 
 #### HTML
 
@@ -179,5 +181,5 @@ p {
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/Reference/Properties/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/Reference/Properties/font-synthesis-small-caps), [font-synthesis-weight](/de/docs/Web/CSS/Reference/Properties/font-synthesis-weight)
+- [font-synthesis](/de/docs/Web/CSS/Reference/Properties/font-synthesis) Kurzform, [font-synthesis-small-caps](/de/docs/Web/CSS/Reference/Properties/font-synthesis-small-caps), [font-synthesis-weight](/de/docs/Web/CSS/Reference/Properties/font-synthesis-weight)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

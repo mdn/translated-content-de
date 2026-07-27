@@ -3,10 +3,10 @@ title: "`transform-style` CSS property"
 short-title: transform-style
 slug: Web/CSS/Reference/Properties/transform-style
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`transform-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Kinder eines Elements im 3D-Raum positioniert sind oder in der Ebene des Elements abgeflacht werden.
+Die **`transform-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Kinder eines Elements im 3D-Raum positioniert sind oder in die Ebene des Elements abgeflacht werden.
 
 {{InteractiveExample("CSS Demo: transform-style")}}
 
@@ -45,9 +45,9 @@ transform-style: preserve-3d;
 }
 ```
 
-Wenn abgeflacht, existieren die Kinder des Elements nicht eigenständig im 3D-Raum.
+Wenn abgeflacht, existieren die Kinderelemente nicht eigenständig im 3D-Raum.
 
-Da diese Eigenschaft nicht vererbt wird, muss sie für alle nicht-Blatt-Nachkommen des Elements gesetzt werden.
+Da diese Eigenschaft nicht vererbt wird, muss sie für alle nicht-blattförmigen Nachkommen des Elements gesetzt werden.
 
 ## Syntax
 
@@ -66,14 +66,16 @@ transform-style: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `flat`
   - : Gibt an, dass die Kinder des Elements in der Ebene des Elements selbst liegen.
 - `preserve-3d`
-  - : Gibt an, dass die Kinder des Elements im 3D-Raum positioniert werden sollen.
+  - : Gibt an, dass die Kinder des Elements im 3D-Raum positioniert sein sollten.
 
 ## Beschreibung
 
-Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die den User Agent zwingen, eine abgeflachte Darstellung der Nachkommenelemente zu erstellen, bevor sie angewandt werden können, und daher das Element zwingen, einen [benutzten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) von `transform-style: flat` zu haben, selbst wenn `preserve-3d` angegeben ist. Diese Eigenschaftswerte umfassen:
+Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.csswg.org/css-transforms-2/#grouping-property-values) auf, die dazu führen, dass der Benutzeragent eine abgeflachte Darstellung der Nachkommenelemente erstellen muss, bevor sie angewendet werden können, und daher das Element einen [verwendeten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) von `transform-style: flat` haben muss, selbst wenn `preserve-3d` angegeben ist. Diese Eigenschaftswerte umfassen:
 
 - {{cssxref("overflow")}}: jeder Wert außer `visible` oder `clip`.
 - {{cssxref("opacity")}}: jeder Wert kleiner als `1`.
@@ -84,7 +86,7 @@ Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.c
 - {{cssxref("mask-image")}}: jeder Wert außer `none`.
 - {{cssxref("mask-border-source")}}: jeder Wert außer `none`.
 - {{cssxref("mix-blend-mode")}}: jeder Wert außer `normal`.
-- {{cssxref("contain")}}: `paint` und jede andere Eigenschafts-/Wertkombination, die Malbegrenzung verursacht. Dazu gehören alle Eigenschaften, die den verwendeten Wert der `contain`-Eigenschaft beeinflussen, wie `content-visibility: hidden`.
+- {{cssxref("contain")}}: `paint` und jede andere Eigenschaft/Wert-Kombination, die Malrestriktionen verursacht. Dies schließt jede Eigenschaft ein, die den verwendeten Wert der `contain` Eigenschaft beeinflusst, wie `content-visibility: hidden`.
 
 ## Formale Definition
 
@@ -96,11 +98,11 @@ Die Spezifikation listet einige [Gruppierungseigenschaftswerte](https://drafts.c
 
 ## Beispiele
 
-### Demonstration des `transform-style`
+### Demonstration der Transformationsart
 
-In diesem Beispiel haben wir einen 3D-Würfel, der mit Transformationen erstellt wurde. Der Elternelement-Container der Würfelflächen hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im 3D-Raum transformiert wird und Sie ihn wie beabsichtigt sehen können.
+In diesem Beispiel haben wir einen 3D-Würfel erstellt, der mithilfe von Transformationen geformt wird. Der übergeordnete Container der Würfelseiten hat standardmäßig `transform-style: preserve-3d` gesetzt, sodass er im 3D-Raum transformiert wird und Sie ihn wie beabsichtigt sehen können.
 
-Wir stellen auch ein Kontrollkästchen bereit, um zwischen diesem und `transform-style: flat` zu wechseln. In diesem alternativen Zustand sind die Würfelflächen alle auf die Ebene ihres Elternteils abgeflacht, und Sie können sie möglicherweise überhaupt nicht sehen, je nach verwendetem Browser.
+Wir bieten auch ein Kontrollkästchen an, mit dem Sie zwischen diesem Zustand und `transform-style: flat` umschalten können. In diesem alternativen Zustand werden die Würfelseiten alle in die Ebene ihres Elternteils abgeflacht, und Sie können sie möglicherweise überhaupt nicht sehen, je nach verwendetem Browser.
 
 #### HTML
 
@@ -199,4 +201,4 @@ checkbox.addEventListener("change", () => {
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
+- [CSS-Transformationen verwenden](/de/docs/Web/CSS/Guides/Transforms/Using)

@@ -3,12 +3,12 @@ title: "`border-block-color` CSS property"
 short-title: border-block-color
 slug: Web/CSS/Reference/Properties/border-block-color
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`border-block-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der logischen Blockränder eines Elements, was je nach Schreibmodus, Richtung und Textausrichtung des Elements auf eine physische Randfarbe abgebildet wird. Sie entspricht den Eigenschaften {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}} oder {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Farbe der logischen Block-Ränder eines Elements, die je nach Schreibmodus, Leserichtung und Textausrichtung des Elements einer physischen Randfarbe zugeordnet wird. Sie entspricht der {{cssxref("border-top-color")}} und {{cssxref("border-bottom-color")}}, oder der {{cssxref("border-right-color")}} und {{cssxref("border-left-color")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
-Die Randfarbe in der anderen Dimension kann mit {{cssxref("border-inline-color")}} eingestellt werden, das {{cssxref("border-inline-start-color")}} und {{cssxref("border-inline-end-color")}} festlegt.
+Die Randfarbe in der anderen Dimension kann mit {{cssxref("border-inline-color")}} festgelegt werden, das {{cssxref("border-inline-start-color")}} und {{cssxref("border-inline-end-color")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-block-color")}}
 
@@ -64,8 +64,10 @@ border-block-color: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein `<color>` Wert angegeben:
+
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Rahmens.
+  - : Die Farbe des Randes.
 
 ## Formale Definition
 
@@ -77,7 +79,7 @@ border-block-color: unset;
 
 ## Beispiele
 
-### Rahmen mit vertikalem Text
+### Rand mit vertikalem Text
 
 #### HTML
 
@@ -117,6 +119,6 @@ div {
 
 ## Siehe auch
 
-- [CSS-Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft wird auf die physikalischen Rahmen-Eigenschaften abgebildet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird den physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

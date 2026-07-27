@@ -3,10 +3,10 @@ title: "`ruby-position` CSS property"
 short-title: ruby-position
 slug: Web/CSS/Reference/Properties/ruby-position
 l10n:
-  sourceCommit: a52a9cd2b661e6e51e4b600c848207140265d362
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`ruby-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), darunter (`under`) oder rechts davon (`inter-character`) positioniert werden.
+Die **`ruby-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unter ihm (`under`) oder rechts davon (`inter-character`) positioniert werden.
 
 {{InteractiveExample("CSS Demo: ruby-position")}}
 
@@ -51,16 +51,18 @@ ruby-position: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `over`
   - : ![Over example](screen_shot_2015-03-04_at_13.02.20.png)
-    Ist ein Schlüsselwort, das angibt, dass das Ruby-Element über dem Haupttext für horizontale Schreibsysteme und rechts daneben für vertikale Schreibsysteme platziert werden muss.
+    Ist ein Schlüsselwort, das angibt, dass Ruby über dem Haupttext für horizontale Schriften und rechts davon für vertikale Schriften platziert werden muss.
 - `under`
   - : ![Under example](screen_shot_2015-03-04_at_13.02.07.png)
-    Ist ein Schlüsselwort, das angibt, dass das Ruby-Element unter dem Haupttext für horizontale Schreibsysteme und links daneben für vertikale Schreibsysteme platziert werden muss.
+    Ist ein Schlüsselwort, das angibt, dass Ruby unter dem Haupttext für horizontale Schriften und links davon für vertikale Schriften platziert werden muss.
 - `alternate`
-  - : Ist ein Schlüsselwort, das angibt, dass das Ruby-Element zwischen oben und unten wechselt, wenn es mehrere Ebenen der Annotation gibt.
+  - : Ist ein Schlüsselwort, das angibt, dass Ruby zwischen über und unter wechselt, wenn es mehrere Ebenen der Annotation gibt.
 - `inter-character`
-  - : Ist ein Schlüsselwort, das angibt, dass die Ruby-Annotation rechts von den Basistextzeichen platziert ist. Dieser Wert ist für Bopomofo (Zhuyin-Fuhao)-Ruby vorgesehen.
+  - : Ist ein Schlüsselwort, das angibt, dass die Ruby-Annotation rechts von den Basistextzeichen platziert wird. Dieser Wert ist für Bopomofo-Ruby (Zhuyin Fuhao) gedacht.
 
 ## Formale Definition
 
@@ -118,7 +120,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_positioned_under_the_text", 100, 40)}}
 
-### Ruby alternate
+### Ruby alternierend
 
 #### HTML
 

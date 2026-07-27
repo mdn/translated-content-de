@@ -3,10 +3,10 @@ title: "`anchor-name` CSS property"
 short-title: anchor-name
 slug: Web/CSS/Reference/Properties/anchor-name
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`anchor-name`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es, ein Element als **Anker-Element** zu definieren, indem ihm ein oder mehrere identifizierende **Ankernamen** zugewiesen werden. Jeder Name kann dann als Wert der {{cssxref("position-anchor")}}-Eigenschaft eines positionierten Elements gesetzt werden, um es mit dem Anker zu verknüpfen.
+Die **`anchor-name`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es, ein Element als **Ankerelement** zu definieren, indem ihm ein oder mehrere identifizierende **Ankernamen** zugewiesen werden. Jeder Name kann dann als Wert der {{cssxref("position-anchor")}}-Eigenschaft eines positionierten Elements gesetzt werden, um es mit dem Anker zu verknüpfen.
 
 ## Syntax
 
@@ -28,29 +28,31 @@ anchor-name: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als `<dashed-ident>` oder das Schlüsselwort `none` spezifiziert:
+
 - `none`
-  - : Der Standardwert. Wenn `anchor-name: none` auf ein Element gesetzt wird, bedeutet das, dass es nicht als Anker-Element definiert ist. Wenn das Element zuvor als Anker definiert wurde und mit einem positionierten Element verknüpft war, trennt `anchor-name: none` die beiden.
+  - : Der Standardwert. Das Setzen von `anchor-name: none` auf einem Element bedeutet, dass es nicht als Ankerelement definiert ist. Wenn das Element zuvor als Anker definiert und mit einem positionierten Element verknüpft war, hebt das Setzen von `anchor-name: none` die Verknüpfung auf.
 
 - {{cssxref("dashed-ident")}}
-  - : Ein oder mehrere durch Kommas getrennte beliebige benutzerdefinierte Bezeichner, die den Namen oder die Namen des Ankers definieren, die dann in einer {{cssxref("position-anchor")}}-Eigenschaft referenziert werden können.
+  - : Ein oder mehrere durch Kommas getrennte beliebige benutzerdefinierte Kennungen, die den Namen oder die Namen des Ankers definieren, die dann in einer {{cssxref("position-anchor")}}-Eigenschaft referenziert werden können.
 
 ## Beschreibung
 
-Um ein Element relativ zu einem Anker-Element zu positionieren, benötigt das positionierte Element drei Merkmale: eine Assoziation, eine Position und einen Standort. Die `anchor-name`- und {{cssxref("position-anchor")}}-Eigenschaften bieten eine explizite Verbindung.
+Um ein Element relativ zu einem Ankerelement zu positionieren, benötigt das positionierte Element drei Merkmale: eine Verknüpfung, eine Position und einen Ort. Die Eigenschaften `anchor-name` und {{cssxref("position-anchor")}} bieten eine explizite Verknüpfung.
 
-Das Anker-Element akzeptiert einen oder mehrere `<dashed-ident>`-Ankernamen, die über die `anchor-name`-Eigenschaft gesetzt werden. Wenn einer dieser Namen dann als Wert der `position-anchor`-Eigenschaft eines Elements gesetzt wird, dessen {{cssxref("position")}} auf `absolute` oder `fixed` eingestellt ist, werden die beiden Elemente verknüpft. Die beiden Elemente werden durch das Setzen eines Standorts am assoziierten Element relativ zum Anker gebunden, wodurch es zu einem "ankerpositionierten" Element wird.
+Das Ankerelement akzeptiert einen oder mehrere `<dashed-ident>` Ankernamen, die über die Eigenschaft `anchor-name` darauf gesetzt werden. Wenn einer dieser Namen dann als Wert der Eigenschaft `position-anchor` eines Elements gesetzt wird, dessen {{cssxref("position")}} auf `absolute` oder `fixed` gesetzt ist, sind die beiden Elemente verknüpft. Die beiden Elemente werden durch das Setzen eines Ortes auf das verknüpfte Element relativ zum Anker miteinander verbunden, wodurch es zu einem "anker-positionierten" Element wird.
 
-Wenn mehrere Anker-Elemente denselben Ankernamen aufweisen und dieser Name als Wert der `position-anchor`-Eigenschaft eines positionierten Elements referenziert wird, wird dieses positionierte Element mit dem letzten Anker-Element in der Quellreihenfolge mit diesem Ankernamen verknüpft.
+Wenn mehrere Ankerelemente denselben Ankernamen auf sich gesetzt haben und dieser Name durch den Wert der `position-anchor`-Eigenschaft eines positionierten Elements referenziert wird, wird das positionierte Element mit dem letzten Ankerelement mit diesem Ankernamen in der Quellreihenfolge verknüpft.
 
-Ankerpositionierung ändert den [Enthaltenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) der ankerpositionierten Elemente, wodurch seine `position` relativ zu seinem Anker statt zum nächsten positionierten Vorfahrelement wird.
+Die Ankerpositionierung ändert den [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) von anker-positionierten Elementen, sodass seine `position` relativ zu seinem Anker anstatt zum nächstgelegenen positionierten Vorfahr-Element wird.
 
-Um ein positioniertes Element an einer bestimmten Stelle relativ zu einem Anker-Element zu binden und zu platzieren, wird eine Ankerpositionierungsfunktion benötigt, wie die {{cssxref("anchor()")}}-Funktion (gesetzt innerhalb eines {{Glossary("inset_properties", "inset property's")}} Wertes) oder die {{cssxref("position-area")}}-Eigenschaft.
+Um ein positioniertes Element relativ zu einem Ankerelement an einem bestimmten Ort zu verbinden und zu platzieren, ist eine Ankerpositionierungsfunktion erforderlich, wie die {{cssxref("anchor()")}}-Funktion (innerhalb eines {{Glossary("inset_properties", "Inset-Eigenschaftswerts")}} gesetzt) oder die {{cssxref("position-area")}}-Eigenschaft.
 
-Sie können ein positioniertes Element nicht mit einem Anker-Element verknüpfen, wenn der Anker versteckt ist, zum Beispiel mit {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn der Anker Teil der [übersprungenen Inhalte](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents) eines anderen Elements ist, weil es {{cssxref("content-visibility", "content-visibility: hidden")}} darauf gesetzt hat.
+Sie können ein positioniertes Element nicht mit einem Ankerelement verknüpfen, wenn der Anker ausgeblendet ist, wie mit {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn der Anker Teil der [übersprungenen Inhalte](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents) eines anderen Elements ist, weil darauf {{cssxref("content-visibility", "content-visibility: hidden")}} gesetzt ist.
 
-Die `anchor-name`-Eigenschaft wird auf allen Elementen unterstützt, die eine Hauptbox erzeugen. Dies bedeutet, dass [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements), einschließlich von mit {{cssxref("::before")}} und {{cssxref("::after")}} erzeugtem Inhalt, und UI-Funktionen wie der [`range` input](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler ({{cssxref("::-webkit-slider-thumb")}}) Anker-Elemente sein können. Pseudo-Elemente sind implizit mit demselben Element verankert wie das Ursprungselement des Pseudo-Elements, es sei denn, es wird anders angegeben.
+Die Eigenschaft `anchor-name` wird bei allen Elementen unterstützt, die eine Hauptbox erzeugen. Das bedeutet, dass [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements), einschließlich generierter Inhalte, die mit {{cssxref("::before")}} und {{cssxref("::after")}} erstellt wurden, und Benutzeroberflächenfunktionen wie der [`range` input](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler ({{cssxref("::-webkit-slider-thumb")}}) Ankerelemente sein können. Pseudoelemente sind implizit an dasselbe Element verankert wie das Pseudoelement des Ursprungelements, sofern nicht anders angegeben.
 
-Für weitere Informationen zu Ankerfunktionen und ihrer Verwendung, siehe das [CSS-Ankerpositionierungs](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul und den [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)-Leitfaden.
+Für mehr Informationen zu Ankerfunktionen und deren Verwendung, siehe das Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und den [Leitfaden zur Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
 
 ## Formale Definition
 
@@ -62,15 +64,15 @@ Für weitere Informationen zu Ankerfunktionen und ihrer Verwendung, siehe das [C
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 Dieses Beispiel verbindet ein positioniertes Element mit einem Anker und positioniert das Element rechts vom Anker.
 
 #### HTML
 
-Wir spezifizieren zwei {{htmlelement("div")}}-Elemente; ein Anker-Element mit einer Klasse von `anchor` und ein positioniertes Element mit einer Klasse von `infobox`.
+Wir spezifizieren zwei {{htmlelement("div")}}-Elemente; ein Ankerelement mit der Klasse `anchor` und ein positioniertes Element mit der Klasse `infobox`.
 
-Wir fügen auch etwas Textfüller um die beiden `<div>`-Elemente hinzu, um den {{htmlelement("body")}} höher zu machen, sodass er rollt.
+Wir fügen auch etwas Fülltext um die beiden `<div>`-Elemente hinzu, um den {{htmlelement("body")}} höher zu machen, damit er scrollt.
 
 ```html
 <p>
@@ -103,7 +105,7 @@ Wir fügen auch etwas Textfüller um die beiden `<div>`-Elemente hinzu, um den {
 
 #### CSS
 
-Zuerst deklarieren wir das `anchor` `<div>` als Anker-Element, indem wir einen Ankernamen darauf setzen über die `anchor-name`-Eigenschaft:
+Zuerst deklarieren wir das `anchor` `<div>` als Ankerelement, indem wir einen Ankernamen über die Eigenschaft `anchor-name` darauf setzen:
 
 ```css hidden
 body {
@@ -129,11 +131,11 @@ body {
 }
 ```
 
-Wir assoziieren das zweite `<div>` mit dem Anker-Element, indem wir seinen Ankernamen als den Wert der {{cssxref("position-anchor")}}-Eigenschaft des positionierten Elements festlegen. Wir setzen dann das positionierte Element's:
+Wir verknüpfen das zweite `<div>` mit dem Ankerelement, indem wir seinen Ankernamen als Wert der {{cssxref("position-anchor")}}-Eigenschaft des positionierten Elements setzen. Anschließend setzen wir das positionierte Element:
 
-- {{cssxref("position")}}-Eigenschaft auf `fixed`, um es in ein _ankerpositioniertes Element_ zu konvertieren, so dass es relativ zur Position des Ankers auf der Seite positioniert werden kann.
-- {{cssxref("left")}} und {{cssxref("top")}}-Eigenschaften auf {{cssxref("anchor()")}}-Funktionen mit Werten von `right` und `top` respektive. Dies positioniert die linke Kante der Infobox bündig zur rechten Kante ihres Ankers und die obere Kante relativ zur oberen Kante ihres Ankers.
-- {{cssxref("margin-left")}} auf `10px`, um Platz zwischen dem ankerpositionierten Element und seinem Anker zu schaffen.
+- Die Eigenschaft {{cssxref("position")}} auf `fixed`, wodurch es zu einem _anker-positionierten Element_ wird, das relativ zur Position des Ankers auf der Seite positioniert werden kann.
+- Die Eigenschaften {{cssxref("left")}} und {{cssxref("top")}} zu {{cssxref("anchor()")}}-Funktionen mit den Werten `right` und `top` jeweils. Dies positioniert die linke Kante der Infobox bündig zur rechten Kante ihres Ankers und ihre obere Kante relativ zur oberen Kante ihres Ankers.
+- {{cssxref("margin-left")}} auf `10px`, wodurch ein Abstand zwischen dem anker-positionierten Element und seinem Anker entsteht.
 
 ```css hidden
 .infobox {
@@ -158,17 +160,17 @@ Wir assoziieren das zweite `<div>` mit dem Anker-Element, indem wir seinen Anker
 
 #### Ergebnis
 
-Scrollen Sie die Seite, um zu sehen, wie die Infobox relativ zum Anker positioniert ist. Wenn der Anker nach oben scrollt, bewegt sich das positionierte Element mit.
+Scrollen Sie die Seite, um zu sehen, wie die Infobox relativ zum Anker positioniert ist. Während der Anker nach oben scrollt, bewegt sich das positionierte Element mit.
 
 {{ EmbedLiveSample("Basic usage", "100%", "225") }}
 
 ### Mehrere positionierte Elemente
 
-Dieses Beispiel zeigt, wie Sie mehrere positionierte Elemente mit einem Anker verbinden können.
+Dieses Beispiel zeigt, wie Sie mehrere positionierte Elemente mit einem Anker verknüpfen können.
 
 #### HTML
 
-Das HTML ist das gleiche wie im vorherigen Beispiel, außer dass wir dieses Mal mehrere positionierte `<div>`-Elemente mit verschiedenen [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)s haben, um sie zu identifizieren.
+Das HTML ist dasselbe wie beim vorherigen Beispiel, außer dass wir nun mehrere positionierte `<div>`-Elemente mit verschiedenen [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)s haben, um sie zu identifizieren.
 
 ```html
 <p>
@@ -205,7 +207,7 @@ Das HTML ist das gleiche wie im vorherigen Beispiel, außer dass wir dieses Mal 
 
 #### CSS
 
-Wir deklarieren das `anchor` `<div>` als Anker-Element mit Hilfe der `anchor-name`-Eigenschaft und geben ihm einen Ankernamen wie zuvor.
+Wir deklarieren das `anchor` `<div>` als Ankerelement mit der Eigenschaft `anchor-name` und geben ihm wie zuvor einen Ankernamen.
 
 ```css hidden
 body {
@@ -231,7 +233,7 @@ body {
 }
 ```
 
-Jedes der beiden positionierten Elemente wird mit dem Anker-Element assoziiert, indem sein Ankername als Wert der {{cssxref("position-anchor")}}-Eigenschaft des positionierten Elements gesetzt wird. Beide erhalten auch eine `fixed`-Positionierung, was sie zu **ankerpositionierten Elementen** macht. Die positionierten Elemente werden dann an verschiedenen Stellen relativ zum Anker positioniert, unter Verwendung einer Kombination von inset-Eigenschaften wie oben gezeigt und {{cssxref("align-self")}} / {{cssxref("justify-self")}}-Eigenschaften mit einem Wert von `anchor-center`, wodurch die Infobox im Inline/Block-Richtung mittig am Anker ausgerichtet wird.
+Jedes der beiden positionierten Elemente wird mit dem Ankerelement durch Setzen seines Ankernamens als Wert der {{cssxref("position-anchor")}}-Eigenschaft des positionierten Elements verknüpft. Beide erhalten außerdem eine `fixed` Positionierung, womit sie **anker-positionierte Elemente** werden. Die positionierten Elemente werden dann an verschiedenen Positionen relativ zum Anker mit einer Kombination aus Inset-Eigenschaften, wie oben zu sehen, und {{cssxref("align-self")}} / {{cssxref("justify-self")}}-Eigenschaften mit einem Wert von `anchor-center` positioniert, wodurch die Infobox zentral in der Inline-/Blockrichtung zum Anker ausgerichtet wird.
 
 ```css hidden
 .infobox {
@@ -271,11 +273,11 @@ Scrollen Sie die Seite, um zu sehen, wie beide Infoboxen an den Anker gebunden s
 
 ### Mehrere Ankernamen
 
-Dieses Beispiel zeigt, wie ein Anker-Element mehr als einen Ankernamen haben kann.
+Dieses Beispiel zeigt, wie ein Ankerelement mehr als einen Ankermannamen haben kann.
 
 #### HTML
 
-Das HTML ist das gleiche wie im vorherigen Beispiel.
+Das HTML ist dasselbe wie beim vorherigen Beispiel.
 
 ```html hidden
 <p>
@@ -312,7 +314,7 @@ Das HTML ist das gleiche wie im vorherigen Beispiel.
 
 #### CSS
 
-Das CSS ist ebenfalls das gleiche wie im vorherigen Beispiel, außer dass wir zwei durch Kommas getrennte Namen im Wert der `anchor-name`-Eigenschaft des Ziels einschließen und jedes positionierte Element einen anderen Wert für `position-anchor` hat.
+Das CSS ist ebenfalls identisch mit dem vorherigen Beispiel, außer dass wir zwei durch Komma getrennte Namen im Wert der `anchor-name`-Eigenschaft des Zielobjekts einschließen und jedes positionierte Element einen anderen Wert für `position-anchor` hat.
 
 ```css hidden
 body {
@@ -384,5 +386,5 @@ Scrollen Sie die Seite, um zu sehen, wie beide Infoboxen an den Anker gebunden s
 - {{cssxref("position-anchor")}}
 - {{cssxref("anchor-scope")}}
 - HTML [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) Attribut
-- [CSS-Ankerpositionierungs](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) Leitfaden
+- [CSS-Ankerpositionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning)
+- [Leitfaden zur Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)

@@ -1,12 +1,12 @@
 ---
-title: "load16x4_u: Wasm SIMD Lade-/Speicherinstruktion"
+title: "load16x4_u: Wasm SIMD Lade-/Speicheranweisung"
 short-title: load16x4_u
 slug: WebAssembly/Reference/SIMD/load_store/load16x4_u
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`load16x4_u`** [SIMD Lade-/Speicherinstruktion](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt vier 16-Bit-Ganzzahlen von einer bestimmten Speicheradresse und erweitert jede auf 32-Bit-Lanes, wobei eine [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typ `i32x4` Wertinterpretation ausgegeben wird.
+Die **`load16x4_u`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt vier 16-Bit-Ganzzahlen von einer angegebenen Speicheradresse und erweitert jede auf eine 32-Bit-Spur, indem sie null erweitert wird, und gibt eine Interpretation des Typs [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) mit `i32x4` aus.
 
 {{InteractiveExample("Wat Demo: load16x4_u", "tabbed-taller")}}
 
@@ -40,13 +40,13 @@ v128.load16x4_u mem_idx offset=int align=int
 ```
 
 - `v128.load16x4_u`
-  - : Die `v128.load16x4_u` Instruktion.
+  - : Die `v128.load16x4_u` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Integer, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der eine konstante Anzahl von Bytes darstellt, die der Speicheradresse vor dem Laden hinzugefügt werden. Der Standardwert ist `0`.
+  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein ganzzahliger Wert, der der Wasm-Engine einen Hinweis gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- sowie Maximalwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein Integer, der einen Hinweis für die Wasm-Engine darüber darstellt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `8`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load16x4_u mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein ganzzahliger Wert, der die Speicheradresse darstellt, von der geladen wird.
+  - : Ein Integer, der die Speicheradresse darstellt, von der geladen werden soll.
 - `output`
-  - : Die Ausgabe `v128` Typ `i32x4` Wertinterpretation.
+  - : Die Ausgabeinterpretation des `v128` Typs `i32x4`.
 
-### Binärcodierung
+### Binäre Codierung
 
-| Instruktion       | Binärformat                                  | Beispieltext => binär                                         |
+| Anweisung         | Binärformat                                  | Beispieltext => binär                                         |
 | ----------------- | -------------------------------------------- | ------------------------------------------------------------- |
 | `v128.load16x4_u` | `0xFD 4:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load16x4_u 0 offset=0 align=4` => `0xfd 0x04 0x00 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` gleichwertig mit `0x00` (`2^0`), während `align=8` gleichwertig mit `0x03` (`2^3`) ist.
+> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` gleichbedeutend mit `0x00` (`2^0`), während `align=8` gleichbedeutend mit `0x03` (`2^3`) ist.
 
 ## Spezifikationen
 
@@ -75,7 +75,3 @@ v128.load16x4_u mem_idx offset=int align=int
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade-/Speicherinstruktionen](/de/docs/WebAssembly/Reference/SIMD/load_store)

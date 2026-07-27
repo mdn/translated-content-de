@@ -3,12 +3,12 @@ title: "`widows` CSS property"
 short-title: widows
 slug: Web/CSS/Reference/Properties/widows
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`widows`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Mindestanzahl von Zeilen in einem Block-Container fest, die am _Anfang_ einer [Seite](/de/docs/Web/CSS/Guides/Paged_media), Region oder [Spalte](/de/docs/Web/CSS/Guides/Multicol_layout) angezeigt werden müssen.
+Die **`widows`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die minimale Anzahl von Zeilen in einem Block-Container fest, die am _Anfang_ einer [Seite](/de/docs/Web/CSS/Guides/Paged_media), eines Bereichs oder einer [Spalte](/de/docs/Web/CSS/Guides/Multicol_layout) angezeigt werden müssen.
 
-In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die alleine am Anfang einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
+In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die allein am Anfang einer Seite erscheint. (Der Absatz wird von einer vorhergehenden Seite fortgesetzt.)
 
 ## Syntax
 
@@ -27,8 +27,10 @@ widows: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein `<integer>` angegeben:
+
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die Mindestanzahl von Zeilen, die nach einem Fragmentierungswechsel alleine am Anfang eines neuen Fragments bleiben können. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die nach einem Fragmentierungsumbruch allein am Anfang eines neuen Fragments stehen dürfen. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -91,4 +93,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("orphans")}}
-- [Seitenmedien (Paged Media)](/de/docs/Web/CSS/Guides/Paged_media)
+- [Paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media)

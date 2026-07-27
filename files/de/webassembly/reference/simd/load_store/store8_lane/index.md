@@ -3,10 +3,10 @@ title: "store8_lane: Wasm SIMD Lade-/Speicheranweisung"
 short-title: store8_lane
 slug: WebAssembly/Reference/SIMD/load_store/store8_lane
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`store8_lane`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert eine angegebene Lane einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16` Wertinterpretation an einer gegebenen Speicheradresse.
+Die **`store8_lane`**-Anweisung [SIMD load/store instruction](/de/docs/WebAssembly/Reference/SIMD/load_store) speichert eine bestimmte Spur einer [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i8x16` Wertinterpretation an einer angegebenen Speicheradresse.
 
 {{InteractiveExample("Wat Demo: store8_lane", "tabbed-taller")}}
 
@@ -43,15 +43,15 @@ v128.store8_lane mem_idx offset=int align=int lane_idx
 ```
 
 - `v128.store8_lane`
-  - : Die `v128.store8_lane` Anweisung.
+  - : Die `v128.store8_lane`-Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein Integer, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein Integer, der den Speicherindex darstellt, falls das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
   - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die zur Adresse hinzugefügt werden, bevor gespeichert wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Integer, der einen Hinweis an die Wasm-Engine über die zu erwartende Ausrichtung der endgültigen Adresse gibt. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `1`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein Integer, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und sowohl der Standard- als auch der Höchstwert ist `1`. Ein `align`-Wert muss eine Zweierpotenz sein.
 - `lane_idx`
-  - : Der Index der Lane, deren Wert Sie speichern möchten.
+  - : Der Index der Spur, deren Wert Sie speichern möchten.
 
 ### Typ
 
@@ -60,18 +60,18 @@ v128.store8_lane mem_idx offset=int align=int lane_idx
 ```
 
 - `memory_address`
-  - : Ein Integer, der die Speicheradresse darstellt, an der die `input` gespeichert wird.
+  - : Ein Integer, der die Speicheradresse darstellt, an der der `input` gespeichert werden soll.
 - `input`
-  - : Der `v128` Typ, aus dem ein Lane-Wert zum Speichern extrahiert wird.
+  - : Der `v128`-Typ, aus dem ein Spurwert extrahiert und gespeichert werden soll.
 
-### Binärcodierung
+### Binäre Kodierung
 
 | Anweisung          | Binärformat                                             | Beispieltext => binär                                                  |
 | ------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `v128.store8_lane` | `0xfd 88:u32 mem_idx:u8 offset:u32 align:u32 l:laneidx` | `v128.store8_lane 0 offset=0 align=1 15` => `0xfd 0x58 0x00 0x00 0x0f` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den literalen `align`-Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist zum Beispiel `align=1` äquivalent zu `0x00` (`2^0`).
+> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So entspricht beispielsweise `align=1` `0x00` (`2^0`).
 
 ## Spezifikationen
 
@@ -80,7 +80,3 @@ v128.store8_lane mem_idx offset=int align=int lane_idx
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

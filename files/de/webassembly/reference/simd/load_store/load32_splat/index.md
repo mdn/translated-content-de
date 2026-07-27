@@ -3,10 +3,10 @@ title: "load32_splat: Wasm SIMD Lade-/Speicheranweisung"
 short-title: load32_splat
 slug: WebAssembly/Reference/SIMD/load_store/load32_splat
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die **`load32_splat`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in alle Bahnen eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Typ-Wertinterpretation.
+Die **`load32_splat`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer gegebenen Speicheradresse in alle Lanes eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) `i32x4` Typ-Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load32_splat", "tabbed-taller")}}
 
@@ -42,11 +42,11 @@ v128.load32_splat mem_idx offset=int align=int
 - `v128.load32_splat`
   - : Die `v128.load32_splat` Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein Ganzzahlwert, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Eine Ganzzahl, die den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Ganzzahlwert, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden sollen. Der Standardwert ist `0`.
+  - : Eine Ganzzahl, die eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt werden. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Ganzzahlwert, der eine Hinweise an die Wasm-Engine darstellt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1`, und der Standard- sowie Höchstwert ist `4`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Eine Ganzzahl, die einen Hinweis an die Wasm-Engine über die erwartete Ausrichtung der endgültigen Adresse gibt. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `4`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load32_splat mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein Ganzzahlwert, der die Speicheradresse darstellt, von der geladen werden soll.
+  - : Eine Ganzzahl, die die zu ladende Speicheradresse darstellt.
 - `output`
   - : Die Ausgabe `v128` Typ `i32x4` Wertinterpretation.
 
-### Binäre Codierung
+### Binäre Kodierung
 
-| Anweisung           | Binärformat                                  | Beispieltext => binär                                           |
+| Anweisung           | Binärformat                                  | Beispiel Text => Binär                                          |
 | ------------------- | -------------------------------------------- | --------------------------------------------------------------- |
 | `v128.load32_splat` | `0xFD 9:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load32_splat 0 offset=0 align=4` => `0xfd 0x09 0x02 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den literalen `align` Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So entspricht beispielsweise `align=1` `0x00` (`2^0`), während `align=4` `0x02` (`2^2`) entspricht.
+> Während das Wasm-Textformat den wörtlichen `align`-Wert angibt, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` äquivalent zu `0x00` (`2^0`), während `align=4` äquivalent zu `0x02` (`2^2`) ist.
 
 ## Spezifikationen
 
@@ -75,7 +75,3 @@ v128.load32_splat mem_idx offset=int align=int
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

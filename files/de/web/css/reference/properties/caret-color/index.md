@@ -3,12 +3,12 @@ title: "`caret-color` CSS property"
 short-title: caret-color
 slug: Web/CSS/Reference/Properties/caret-color
 l10n:
-  sourceCommit: 00da2fc19d0c8c7cd2e91c78cf55e204cd94cf2b
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`caret-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe des **Einfüge-Carets** fest, das manchmal auch als **Text-Eingabe-Cursor** bezeichnet wird. Dies ist der sichtbare Marker, der an der Einfügestelle erscheint, an der das nächste getippte Zeichen hinzugefügt oder das nächste zu löschende Zeichen entfernt wird.
+Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Einfüge-Carets** fest, manchmal auch als **Text-Eingabecursor** bezeichnet. Dies ist der sichtbare Marker, der an der Einfügestelle erscheint, wo das nächste eingegebene Zeichen hinzugefügt oder das nächste gelöschte Zeichen entfernt wird.
 
-Die `caret-color`-Eigenschaft kann auch als Teil der {{cssxref("caret")}} Shorthand-Eigenschaft gesetzt werden.
+Die `caret-color`-Eigenschaft kann auch als Teil der {{cssxref("caret")}} Kurzschreibweise festgelegt werden.
 
 {{InteractiveExample("CSS Demo: caret-color")}}
 
@@ -63,37 +63,39 @@ caret-color: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein `<color>`-Wert oder das Schlüsselwort `auto` angegeben.
+
 - `auto`
-  - : Löst sich im Allgemeinen zu [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) auf, der {{cssxref("color")}} des Textes, der geändert wird.
+  - : Löst sich im Allgemeinen zu [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) auf, also der {{cssxref("color")}} des Textes, der verändert wird.
 
 - {{cssxref("&lt;color&gt;")}}
   - : Die Farbe des Carets.
 
 ## Beschreibung
 
-Ein Einfüge-Caret ist ein sichtbarer Indikator der Stelle innerhalb von bearbeitbarem Text — oder innerhalb eines Elements, das Texteingabe akzeptiert — an der Inhalte vom Benutzer eingefügt (oder gelöscht) werden. Das Caret ist typischerweise eine dünne vertikale Linie, die anzeigt, wo das Hinzufügen oder Löschen von Zeichen geschehen wird. Es blinkt normalerweise (flackert ein und aus), damit es besser auffällt. Das Caret erscheint nur, wenn das bearbeitbare Element den Fokus hat. Standardmäßig hat dieses Caret die Farbe des Textes. Die `caret-color`-Eigenschaft kann verwendet werden, um die Farbe dieses Carets auf etwas anderes als `currentColor` zu setzen oder ein gefärbtes Caret auf seinen Standard zurückzusetzen.
+Ein Einfüge-Caret ist ein sichtbarer Indikator der Stelle im bearbeitbaren Text — oder innerhalb eines Elements, das Texteingaben akzeptiert — an der der Benutzer Inhalt einfügen (oder löschen) wird. Der Caret ist typischerweise eine dünne vertikale Linie, die anzeigt, wo das Hinzufügen oder Löschen von Zeichen erfolgen wird. Er blinkt allgemein (blitzt auf und ab), damit er besser sichtbar ist. Der Caret erscheint nur, wenn das bearbeitbare Element den Fokus hat. Standardmäßig hat dieser Caret die Farbe des Textes. Die `caret-color`-Eigenschaft kann verwendet werden, um die Farbe dieses Carets auf eine andere Farbe als die `currentColor` einzustellen oder um einen farbigen Caret auf seine Standardeinstellung zurückzusetzen.
 
-Der `auto`-Wert setzt das Einfüge-Caret auf `currentColor`, was der {{cssxref("color")}} des Textes ist, der hinzugefügt oder gelöscht wird. Benutzeragenten können eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast zum umgebenden Inhalt sicherzustellen, wobei {{cssxref("color")}}, {{cssxref("background-color")}}, Schatten und andere Faktoren berücksichtigt werden. In der Praxis verwenden jedoch alle Browser die aktuelle Farbe standardmäßig, und wenn `caret-color` auf `auto` gesetzt ist. Sie können jeden gültigen `<color>` als Wert setzen.
+Der `auto`-Wert setzt das Einfüge-Caret auf `currentColor`, was der {{cssxref("color")}} des Textes ist, der hinzugefügt oder gelöscht wird. Benutzeragenten können eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast zum umgebenden Inhalt sicherzustellen, indem sie die {{cssxref("color")}}, {{cssxref("background-color")}}, Schatten und andere Faktoren berücksichtigen. In der Praxis verwenden jedoch alle Browser standardmäßig die aktuelle Farbe, und wenn `caret-color` auf `auto` gesetzt ist. Sie können jeden gültigen `<color>` als Wert festlegen.
 
-### Verständnis von Einfüge-Carets
+### Einfüge-Carets verstehen
 
-Das Einfüge-Caret, und damit diese Eigenschaft, gilt nur für Text oder Elemente, die Texteingabe akzeptieren können. Das Caret erscheint in fokussierten Benutzeroberflächenelementen, in denen Benutzer Inhalte aktualisieren können, wie z.B. {{HTMLElement("input")}}-Elemente, die Freitexte akzeptieren, das {{HTMLElement("textarea")}}-Element und Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut.
+Das Einfüge-Caret und damit diese Eigenschaft gilt nur für Text oder Elemente, die Texteingaben akzeptieren können. Der Caret erscheint in fokussierten Benutzerschnittstellenelementen, in denen Benutzer Inhalte aktualisieren können, wie z.B. {{HTMLElement("input")}}-Elemente, die Freiform-Text akzeptieren, das {{HTMLElement("textarea")}}-Element und Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut.
 
-Das Caret kann in `<input>`-Elementen des Typs `password`, `text`, `search`, `tel` und `email` erscheinen. Kein Caret existiert bei Datum-, `color`-, `hidden`-, `radio`- oder `checkbox`-Eingabetypen. Einige Browser zeigen ein Caret beim `number`-Eingabetyp an. Es ist in einigen Browsern möglich, ein Caret in Elementen erscheinen zu lassen, die normalerweise keinen Textinhalt haben — zum Beispiel durch das Setzen von [`appearance: none`](/de/docs/Web/CSS/Reference/Properties/appearance) und hinzufügen des `contenteditable`-Attributs. Dies wird jedoch nicht empfohlen.
+Das Caret kann in `<input>`-Elementen der Typen `password`, `text`, `search`, `tel` und `email` erscheinen. Es gibt kein Caret in den Eingabetypen Datum, `color`, `hidden`, `radio` oder `checkbox`. Einige Browser zeigen ein Caret mit dem Eingabetyp `number` an. In einigen Browsern ist es möglich, ein Caret in Elementen erscheinen zu lassen, die nie Textinhalt haben — zum Beispiel, indem man [`appearance: none`](/de/docs/Web/CSS/Reference/Properties/appearance) setzt und das `contenteditable`-Attribut hinzufügt. Dies wird jedoch nicht empfohlen.
 
-Ein Caret kann in einem bearbeitbaren Element oder seinen Nachfahren angezeigt werden, vorausgesetzt, die Bearbeitbarkeit ist nicht deaktiviert, zum Beispiel durch das Setzen des `contentEditable`-Attributs eines Nachfahrelements auf `false`. Wenn ein Element nicht bearbeitbar oder auswählbar ist, z.B. wenn {{cssxref("user-select")}} auf `none` gesetzt ist, sollte das Caret nicht erscheinen.
+Ein Caret kann in einem bearbeitbaren Element oder seinen Nachkommen angezeigt werden, vorausgesetzt, die Bearbeitbarkeit ist nicht deaktiviert, zum Beispiel indem das `contentEditable`-Attribut eines nachrangigen Elements auf `false` gesetzt wird. Wenn ein Element nicht bearbeitbar oder auswählbar ist, zum Beispiel wenn {{cssxref("user-select")}} auf `none` gesetzt ist, sollte der Caret nicht erscheinen.
 
 ### Caret versus Cursor
 
-Es gibt mehrere Typen von Carets. Das Einfüge-Caret ist der einzige Typ, der von der `caret-color`-Eigenschaft beeinflusst wird.
+Es gibt mehrere Arten von Carets. Das Einfüge-Caret ist der einzige Typ, der von der `caret-color`-Eigenschaft beeinflusst wird.
 
-Viele Browser haben ein **Navigations-Caret**, das ähnlich wie ein Einfüge-Caret funktioniert, sich aber in nicht bearbeitbarem Text bewegen lässt.
+Viele Browser verfügen über ein **Navigations-Caret**, das ähnlich wie ein Einfüge-Caret funktioniert, sich jedoch in nicht bearbeitbarem Text bewegen lässt.
 
-Das Mauszeigerbild, das für bestimmte Werte der {{cssxref("cursor")}}-Eigenschaft angezeigt wird (z.B. `auto` oder `text`), kann einem Caret ähneln, ist aber keines. Es ist ein Cursor.
+Das Mauszeigerbild, das bei bestimmten {{cssxref("cursor")}} Eigenschaftswerten angezeigt wird (zum Beispiel `auto` oder `text`), kann einem Caret ähneln, ist aber keines. Es handelt sich um einen Cursor.
 
-### Animation von `auto`
+### Animationen von `auto`
 
-Im Allgemeinen verwenden Benutzeragenten, wenn die `caret-color` auf `auto` gesetzt ist oder sich dazu standardmäßig verhält, `currentColor`, das animiert werden kann. `auto` ist jedoch standardmäßig kein animierbarer Wert: Beim Animieren oder Überblenden der `caret-color` von `auto` zu einem beliebigen Farbwert erfolgt keine Interpolation. Die Animation ist [diskret](/de/docs/Web/CSS/Guides/Animations/Animatable_properties#discrete); die Farbe wechselt zu oder von der `currentColor`-Farbe in der Mitte der {{cssxref("animation-duration")}} oder {{cssxref("transition-duration")}}.
+Im Allgemeinen, wenn die `caret-color` auf `auto` gesetzt ist oder standardmäßig `auto` ist, verwenden Benutzeragenten `currentColor`, das animierbar ist. `Auto` ist jedoch standardmäßig kein animierbarer Wert: Beim Animieren oder Überblenden der `caret-color` von `auto` auf einen beliebigen Farbwert erfolgt keine Interpolation. Die Animation ist [diskret](/de/docs/Web/CSS/Guides/Animations/Animatable_properties#discrete); die Farbe wechselt vom oder zum `currentColor` in der Mitte der {{cssxref("animation-duration")}} oder {{cssxref("transition-duration")}}.
 
 ## Formale Definition
 
@@ -105,7 +107,7 @@ Im Allgemeinen verwenden Benutzeragenten, wenn die `caret-color` auf `auto` gese
 
 ## Beispiele
 
-### Setzen einer benutzerdefinierten Caret-Farbe
+### Einstellung einer benutzerdefinierten Caret-Farbe
 
 #### HTML
 
@@ -150,7 +152,7 @@ p.custom {
 ## Siehe auch
 
 - {{cssxref("caret-animation")}}, {{cssxref("caret-shape")}}
-- {{cssxref("caret")}} Shorthand
+- {{cssxref("caret")}} Kurzschreibweise
 - {{cssxref("color")}}
 - {{cssxref("text-emphasis")}}
 - {{cssxref("cursor")}}

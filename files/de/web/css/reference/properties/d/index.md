@@ -3,13 +3,13 @@ title: "`d` CSS property"
 short-title: d
 slug: Web/CSS/Reference/Properties/d
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`d`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen Pfad, der durch das SVG-{{SVGElement("path")}}-Element gezeichnet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("d")}}-Attribut des Elements.
+Die **`d`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert einen Pfad, der durch das SVG {{SVGElement("path")}}-Element gezeichnet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("d")}}-Attribut des Elements.
 
 > [!NOTE]
-> Die `d`-Eigenschaft gilt nur für {{SVGElement("path")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-Elemente noch für HTML-Elemente oder Pseudo-Elemente.
+> Die `d`-Eigenschaft gilt nur für {{SVGElement("path")}}-Elemente, die in einer {{SVGElement("svg")}} eingebettet sind. Sie gilt nicht für andere SVG-Elemente oder für HTML-Elemente oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -32,12 +32,12 @@ d: unset;
 
 ### Werte
 
-Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}}-Funktion mit einem einzigen {{cssxref("&lt;string&gt;")}}-Parameter oder das Schlüsselwort `none`.
+Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}}-Funktion mit einem einzigen {{cssxref("&lt;string&gt;")}}-Parameter oder das Schlüsselwort `none`:
 
 - `none`
   - : Es wird kein Pfad gezeichnet.
 - `path(<string>)`
-  - : Eine `path()`-Funktion mit einem in Anführungszeichen gesetzten [Datenstring](/de/docs/Web/SVG/Reference/Attribute/d)-Parameter. Der Datenstring definiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path). Der SVG-Pfad-Datenstring enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad wird als ungültig betrachtet.
+  - : Eine `path()`-Funktion mit einem zitierten [Datenstring](/de/docs/Web/SVG/Reference/Attribute/d)-Parameter. Der Datenstring definiert einen [SVG-Pfad](/de/docs/Web/SVG/Reference/Element/path). Der SVG-Pfad-Datenstring enthält [Pfadbefehle](/de/docs/Web/SVG/Reference/Attribute/d#path_commands), die implizit Pixeleinheiten verwenden. Ein leerer Pfad wird als ungültig betrachtet.
 
 ## Formale Definition
 
@@ -51,11 +51,11 @@ Der Wert ist entweder eine {{cssxref("basic-shape/path", "path()")}}-Funktion mi
 
 ### Pfaddaten angeben
 
-Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `d` und wie die CSS-`d`-Eigenschaft Vorrang vor dem `d`-Attribut hat.
+Dieses Beispiel zeigt den grundlegenden Anwendungsfall von `d` und wie die CSS `d`-Eigenschaft den Vorrang vor dem `d`-Attribut hat.
 
 #### HTML
 
-Wir fügen zwei identische `<path>`-Elemente in einem SVG ein; deren `d`-Attributwerte sind `"m 5,5 h 90 v 90 h -90 v -90 z"`, was ein `90px`-Quadrat erzeugt.
+Wir fügen zwei identische `<path>`-Elemente in ein SVG ein; ihre `d`-Attributwerte sind `"m 5,5 h 90 v 90 h -90 v -90 z"`, was ein `90px` großes Quadrat erstellt.
 
 ```html
 <svg>
@@ -66,7 +66,7 @@ Wir fügen zwei identische `<path>`-Elemente in einem SVG ein; deren `d`-Attribu
 
 #### CSS
 
-Mit CSS stylen wir beide Pfade, indem wir einen schwarzen {{cssxref("stroke")}} und eine halbtransparente rote {{cssxref("fill")}} bereitstellen. Dann verwenden wir die `d`-Eigenschaft, um den Wert des SVG-{{SVGAttr("d")}}-Attributs nur für den letzten Pfad zu überschreiben. Der Browser rendert SVG-Bilder standardmäßig `300px` breit und `150px` hoch.
+Mit CSS stylen wir beide Pfade, indem wir einen schwarzen {{cssxref("stroke")}} und eine halbtransparente rote {{cssxref("fill")}} bereitstellen. Wir verwenden dann die `d`-Eigenschaft, um den Wert des SVG {{SVGAttr("d")}}-Attributs nur für den letzten Pfad zu überschreiben. Der Browser rendert SVG-Bilder standardmäßig `300px` breit und `150px` hoch.
 
 ```css
 svg {
@@ -89,11 +89,11 @@ path:last-of-type {
 
 {{EmbedLiveSample("Specifying path data", "300", "180")}}
 
-Der zweite `<path>` ist ein Herz, wie in dem `path()`-Funktionswert der CSS-`d`-Eigenschaft definiert. Der ungestylte `<path>` blieb ein Quadrat, wie in seinem SVG-`d`-Attributwert definiert.
+Das zweite `<path>` ist ein Herz, wie im `path()`-Funktionswert der CSS `d`-Eigenschaft definiert. Der ungestylte `<path>`-Pfad blieb ein Quadrat, wie im SVG `d`-Attributwert definiert.
 
-### Datenpfade animieren
+### Animieren von Datenpfaden
 
-Dieses Beispiel zeigt, wie der `d`-Attributwert animiert werden kann.
+Dieses Beispiel zeigt das Animieren des `d`-Attributwerts.
 
 #### HTML
 
@@ -107,7 +107,7 @@ Wir erstellen ein `<svg>`, das ein einzelnes `<path>`-Element enthält.
 
 #### CSS
 
-Wir verwenden das `d`-Attribut, um ein Herz mit einem durchgehenden Strich zu definieren. Mit CSS definieren wir die {{cssxref("fill")}}, {{cssxref("stroke")}} und {{cssxref("stroke-width")}} dieses Pfades und fügen einen zweisekündigen {{cssxref("transition")}} hinzu. Wir fügen einen {{cssxref(":hover")}}-Stil hinzu, der eine leicht abweichende {{cssxref("basic-shape/path", "path()")}}-Funktion enthält; der Pfad hat die gleiche Anzahl von Datenpunkten wie der Standardzustand, wodurch der Pfad animierbar wird.
+Wir verwenden das `d`-Attribut, um ein Herz mit einem durchlaufenden Strich zu definieren. Wir nutzen CSS, um die {{cssxref("fill")}}, {{cssxref("stroke")}} und {{cssxref("stroke-width")}} dieses Pfades zu definieren und fügen einen zweisekündigen {{cssxref("transition")}} hinzu. Wir fügen einen {{cssxref(":hover")}}-Stil hinzu, der eine leicht unterschiedliche {{cssxref("basic-shape/path", "path()")}}-Funktion enthält; der Pfad hat die gleiche Anzahl an Datenpunkten wie der Standardzustand, was den Pfad animierbar macht.
 
 ```css
 svg {
@@ -153,5 +153,5 @@ Um die Animation zu sehen, bewegen Sie den Mauszeiger über das SVG.
 - {{cssxref("stroke")}}
 - {{cssxref("basic-shape/path", "path()")}}-Funktion
 - {{cssxref("basic-shape")}}-Datentyp
-- [Überblick über CSS-Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
-- [CSS-Shapes](/de/docs/Web/CSS/Guides/Shapes) Modul
+- [Überblick über CSS-Formen](/de/docs/Web/CSS/Guides/Shapes/Overview)
+- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes)-Modul

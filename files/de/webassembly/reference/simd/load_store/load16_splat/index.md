@@ -3,10 +3,10 @@ title: "load16_splat: Wasm SIMD Lade-/Speicheranweisung"
 short-title: load16_splat
 slug: WebAssembly/Reference/SIMD/load_store/load16_splat
 l10n:
-  sourceCommit: ca1301872404bbc0305fa945cf3e3fb2351863bf
+  sourceCommit: d8d43055ac49fc512539fe02d873be4ffee29bc0
 ---
 
-Die Anweisung **`load16_splat`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer angegebenen Speicheradresse in alle Lanes eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typs mit der Wertinterpretation `i16x8`.
+Die **`load16_splat`** [SIMD Lade-/Speicheranweisung](/de/docs/WebAssembly/Reference/SIMD/load_store) lädt einen einzelnen Wert von einer gegebenen Speicheradresse in alle Lanes eines [`v128`](/de/docs/WebAssembly/Reference/Value_types/v128) Typs mit der `i16x8` Wertinterpretation.
 
 {{InteractiveExample("Wat Demo: load16_splat", "tabbed-taller")}}
 
@@ -40,13 +40,13 @@ v128.load16_splat mem_idx offset=int align=int
 ```
 
 - `v128.load16_splat`
-  - : Die Anweisung `v128.load16_splat`.
+  - : Die `v128.load16_splat`-Anweisung.
 - `mem_idx` {{optional_inline}}
-  - : Ein Integer, der den Speicherindex darstellt, in Fällen, in denen das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
+  - : Ein ganzzahliger Wert, der den Speicherindex darstellt, falls das Modul mehrere Speicher verwendet. Der Standardwert ist `0`.
 - `offset=int` {{optional_inline}}
-  - : Ein Integer, der eine konstante Anzahl von Bytes darstellt, die vor dem Laden zur Speicheradresse hinzugefügt wird. Der Standardwert ist `0`.
+  - : Ein ganzzahliger Wert, der eine konstante Anzahl von Bytes repräsentiert, die zur Speicheradresse hinzugefügt werden, bevor geladen wird. Der Standardwert ist `0`.
 - `align=int` {{optional_inline}}
-  - : Ein Integer, der der Wasm-Engine einen Hinweis darauf gibt, welche Ausrichtung für die endgültige Adresse erwartet wird. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `2`. Ein `align`-Wert muss eine Potenz von `2` sein.
+  - : Ein ganzzahliger Wert, der der Wasm-Engine einen Hinweis auf die erwartete Ausrichtung der endgültigen Adresse gibt. Der Mindestwert ist `1` und der Standard- und Höchstwert ist `2`. Ein `align`-Wert muss eine Potenz von `2` sein.
 
 ### Typ
 
@@ -55,18 +55,18 @@ v128.load16_splat mem_idx offset=int align=int
 ```
 
 - `memory_address`
-  - : Ein Integer, der die Speicheradresse darstellt, von der geladen werden soll.
+  - : Eine Ganzzahl, die die zu ladende Speicheradresse darstellt.
 - `output`
-  - : Die Ausgabe mit `v128` Typ `i16x8` Wertinterpretation.
+  - : Die Ausgabe `v128` Typ `i16x8` Wertinterpretation.
 
 ### Binäre Kodierung
 
-| Anweisung           | Binäres Format                               | Beispieltext => binär                                           |
+| Anweisung           | Binärformat                                  | Beispieltext => Binär                                           |
 | ------------------- | -------------------------------------------- | --------------------------------------------------------------- |
 | `v128.load16_splat` | `0xFD 8:u32 mem_idx:u8 offset:u32 align:u32` | `v128.load16_splat 0 offset=0 align=2` => `0xfd 0x08 0x01 0x00` |
 
 > [!NOTE]
-> Während das Wasm-Textformat den wörtlichen `align`-Wert spezifiziert, stellt das binäre Äquivalent den Exponenten der Formel `2^x` dar, die zur Berechnung der Ausrichtung verwendet wird. So ist z.B. `align=1` äquivalent zu `0x00` (`2^0`), während `align=2` äquivalent zu `0x01` (`2^1`) ist.
+> Während im Wasm-Textformat der wörtliche `align`-Wert festgelegt ist, repräsentiert das binäre Äquivalent den Exponenten der Formel `2^x`, der zur Berechnung der Ausrichtung verwendet wird. Zum Beispiel ist `align=1` gleichwertig zu `0x00` (`2^0`), während `align=2` gleichwertig zu `0x01` (`2^1`) ist.
 
 ## Spezifikationen
 
@@ -75,7 +75,3 @@ v128.load16_splat mem_idx offset=int align=int
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [SIMD Lade-/Speicheranweisungen](/de/docs/WebAssembly/Reference/SIMD/load_store)

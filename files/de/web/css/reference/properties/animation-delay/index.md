@@ -3,10 +3,10 @@ title: "`animation-delay` CSS property"
 short-title: animation-delay
 slug: Web/CSS/Reference/Properties/animation-delay
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`animation-delay`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Zeitspanne fest, die abgewartet werden soll, bevor mit der Animation eines Elements begonnen wird. Die Animation kann später, sofort von Anfang an oder sofort und teilweise durch die Animation hindurch beginnen.
+Die **`animation-delay`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Wartezeit an, die vom Anwenden der Animation auf ein Element bis zum Beginn der Animation vergeht. Die Animation kann später starten, sofort von Beginn an oder sofort in der Mitte der Animation.
 
 Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
@@ -128,18 +128,20 @@ animation-delay: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als durch Kommas getrennte Liste von `<time>`-Werten angegeben:
+
 - {{cssxref("&lt;time&gt;")}}
-  - : Der Zeitversatz, ab dem Moment, an dem die Animation auf das Element angewendet wird, bei dem die Animation beginnen soll. Dies kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Die Einheit ist erforderlich.
+  - : Der Zeitversatz ab dem Moment, in dem die Animation auf das Element angewendet wird, zu dem die Animation beginnen soll. Dies kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Die Einheit ist erforderlich.
 
-    Ein positiver Wert zeigt an, dass die Animation nach Ablauf der angegebenen Zeitspanne beginnen soll. Ein Wert von `0s`, was der Standardwert ist, gibt an, dass die Animation sofort beginnen soll, sobald sie angewendet wird.
+    Ein positiver Wert gibt an, dass die Animation nach Ablauf der angegebenen Zeit beginnen soll. Ein Wert von `0s`, welcher der Standardwert ist, gibt an, dass die Animation sofort beginnen soll, sobald sie angewendet wird.
 
-    Ein negativer Wert bewirkt, dass die Animation sofort beginnt, aber teilweise durch ihren Zyklus hindurch. Zum Beispiel, wenn Sie `-1s` als Animationsverzögerung angeben, beginnt die Animation sofort, aber startet 1 Sekunde in der Animationssequenz. Wenn Sie einen negativen Wert für die Animationsverzögerung angeben, aber der Startwert implizit ist, wird der Startwert von dem Moment an genommen, in dem die Animation auf das Element angewendet wird.
-
-> [!NOTE]
-> Wenn Sie mehrere, durch Kommas getrennte Werte für eine `animation-*`-Eigenschaft angeben, werden sie in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und der Werte der `animation-*`-Eigenschaft nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+    Ein negativer Wert führt dazu, dass die Animation sofort, aber mitten in ihrem Zyklus beginnt. Zum Beispiel, wenn Sie `-1s` als Animationsverzögerungszeit angeben, beginnt die Animation sofort, wird jedoch 1 Sekunde in die Animationssequenz hinein starten. Wenn Sie einen negativen Wert für die Animationsverzögerung angeben, aber der Startwert implizit ist, wird der Startwert vom Moment genommen, in dem die Animation auf das Element angewendet wird.
 
 > [!NOTE]
-> `animation-delay` hat keine Wirkung auf [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*`-Eigenschaft angeben, werden sie in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und `animation-*`-Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen von mehreren Animations-Eigenschaftswerten](/de/docs/Web/CSS/Guides/Animations/Using#setting_multiple_animation_property_values).
+
+> [!NOTE]
+> `animation-delay` hat keine Auswirkung auf [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations).
 
 ## Formale Definition
 
@@ -193,7 +195,7 @@ Fahren Sie mit der Maus über das Rechteck, um die Animation zu starten.
 
 {{EmbedLiveSample("Setting an animation delay","100%","250")}}
 
-Sehen Sie sich [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für Beispiele an.
+Siehe [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) für Beispiele.
 
 ## Spezifikationen
 

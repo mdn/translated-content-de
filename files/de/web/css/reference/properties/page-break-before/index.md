@@ -3,7 +3,7 @@ title: "`page-break-before` CSS property"
 short-title: page-break-before
 slug: Web/CSS/Reference/Properties/page-break-before
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
 {{deprecated_header}}
@@ -11,9 +11,9 @@ l10n:
 > [!WARNING]
 > Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-before")}} ersetzt.
 
-Die **`page-break-before`**-[CSS](/de/docs/Web/CSS)-Eigenschaft passt Seitenumbrüche _vor_ dem aktuellen Element an.
+Die **`page-break-before`** [CSS](/de/docs/Web/CSS)-Eigenschaft passt Seitenumbrüche _vor_ dem aktuellen Element an.
 
-Diese Eigenschaft gilt für Blockelemente, die eine Box erzeugen. Sie wird nicht auf ein leeres {{ HTMLElement("div") }} angewendet, das keine Box erzeugen wird.
+Diese Eigenschaft findet Anwendung auf Blockelemente, die eine Box erzeugen. Sie gilt nicht für ein leeres {{ HTMLElement("div") }}, das keine Box erzeugt.
 
 {{InteractiveExample("CSS Demo: page-break-before")}}
 
@@ -85,26 +85,28 @@ page-break-before: unset;
 
 ### Werte
 
+Diese Eigenschaft wird durch einen der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verhindert).
+  - : Initialwert. Automatische Seitenumbrüche (weder erzwungen noch verhindert).
 - `always`
-  - : Erzwingt immer Seitenumbrüche vor dem Element.
+  - : Erzeugt immer einen Seitenumbruch vor dem Element.
 - `avoid`
   - : Vermeidet Seitenumbrüche vor dem Element.
 - `left`
-  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als linke Seite formatiert wird. Es ist die Seite, die auf der linken Seite des Buchrückens oder auf der Rückseite der Seite im Duplexdruck platziert ist.
+  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als linke Seite formatiert wird. Es ist die Seite, die auf der linken Seite des Buchrückens oder der Rückseite der Seite im Duplexdruck platziert wird.
 - `right`
-  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Es ist die Seite, die auf der rechten Seite des Buchrückens oder auf der Vorderseite der Seite im Duplexdruck platziert ist.
+  - : Erzwingt Seitenumbrüche vor dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Es ist die Seite, die auf der rechten Seite des Buchrückens oder der Vorderseite der Seite im Duplexdruck platziert wird.
 - `recto`
-  - : Wenn Seiten von links nach rechts fortschreiten, verhält sich dies wie `right`. Wenn Seiten von rechts nach links fortschreiten, verhält sich dies wie `left`.
+  - : Wenn Seiten von links nach rechts fortschreiten, wirkt dies wie `right`. Wenn Seiten von rechts nach links fortschreiten, wirkt dies wie `left`.
 - `verso`
-  - : Wenn Seiten von links nach rechts fortschreiten, verhält sich dies wie `left`. Wenn Seiten von rechts nach links fortschreiten, verhält sich dies wie `right`.
+  - : Wenn Seiten von links nach rechts fortschreiten, wirkt dies wie `left`. Wenn Seiten von rechts nach links fortschreiten, wirkt dies wie `right`.
 
-## Seitenumbruch-Aliasse
+## Seitenumbruch-Aliase
 
-Die Eigenschaft `page-break-before` ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-before")}} ersetzt wurde.
+Die `page-break-before`-Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-before")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-before` von Browsern als Alias von `break-before` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-before` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte `page-break-before` von Browsern als Alias von `break-before` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-before` verwenden, weiterhin wie geplant funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
 
 | page-break-before | break-before |
 | ----------------- | ------------ |

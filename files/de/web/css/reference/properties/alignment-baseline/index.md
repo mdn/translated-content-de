@@ -3,15 +3,15 @@ title: "`alignment-baseline` CSS property"
 short-title: alignment-baseline
 slug: Web/CSS/Reference/Properties/alignment-baseline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
 ---
 
-Die **`alignment-baseline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die spezifische {{Glossary("Baseline/Typography", "Baseline")}} fest, die verwendet wird, um den Text und die Inhalte auf Inline-Ebene der Box auszurichten. **Baseline-Ausrichtung** beschreibt die Beziehung zwischen den Baselines mehrerer Ausrichtungsobjekte innerhalb eines Ausrichtungskontexts. Bei der Durchführung der Baseline-Ausrichtung gibt der Wert der `alignment-baseline`-Eigenschaft an, welche Baseline der Box an die entsprechende Baseline ihres Ausrichtungskontexts ausgerichtet wird.
+Die **`alignment-baseline`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert die spezifische {{Glossary("Baseline/Typography", "Baseline")}}, die verwendet wird, um den Text und die Inhalte auf Inline-Ebene der Box auszurichten. Die **Baseline-Ausrichtung** ist die Beziehung zwischen den Baselines mehrerer Ausrichtungsobjekte innerhalb eines Ausrichtungskontexts. Bei der Durchführung einer Baseline-Ausrichtung gibt der Wert der `alignment-baseline`-Eigenschaft an, welche Baseline der Box an die entsprechende Baseline ihres Ausrichtungskontexts ausgerichtet ist.
 
 > [!NOTE]
-> Die `alignment-baseline`-Eigenschaft hat nur Auswirkungen auf Boxen auf Inline-Ebene, Flex-Elemente, Grid-Elemente, Tabellenzellen und die {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} SVG-Elemente. Wenn vorhanden, überschreibt sie das {{SVGAttr("alignment-baseline")}} Attribut der Form.
+> Die `alignment-baseline`-Eigenschaft hat nur eine Wirkung auf Inline-Level-Boxen, Flex-Items, Grid-Items, Tabellenzellen sowie die SVG-Elemente {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}}. Wenn vorhanden, überschreibt sie das Attribut {{SVGAttr("alignment-baseline")}} der Form.
 
-In einem Inline-Formatierungskontext teilen sich Inline-Level-Boxfragmente und Glyphen einen Ausrichtungskontext, der von ihren übergeordneten Inline-Boxfragmenten entlang ihrer Inline-Achse festgelegt wird. Im SVG-Textlayout geben diese Werte stattdessen die Baseline an, die an die aktuelle SVG-Textposition ausgerichtet wird.
+In einem Inline-Formatierungskontext teilen Inline-Level-Boxfragmente und Glyphen einen durch ihr übergeordnetes Inline-Boxfragment entlang ihrer Inline-Achse etablierten Ausrichtungskontext. Im SVG-Textlayout geben diese Werte stattdessen die Baseline an, die mit der aktuellen SVG-Textposition ausgerichtet ist.
 
 ## Syntax
 
@@ -48,32 +48,34 @@ alignment-baseline: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `baseline`
-  - : Verwenden Sie den {{cssxref("dominant-baseline")}} Wert des Elternteils.
+  - : Verwenden Sie den Wert {{cssxref("dominant-baseline")}} des übergeordneten Elements.
 
 - `alphabetic`
-  - : Wird beim Schreiben in Latein, Kyrillisch, Griechisch und vielen anderen Schriftsystemen verwendet; stimmt die alphabetische Baseline der Box mit der ihres Elternteils ab, entsprechend der Unterkante der meisten, aber nicht aller Zeichen.
+  - : Wird beim Schreiben in lateinischen, kyrillischen, griechischen und vielen anderen Schriften verwendet; gleicht die alphabetische Baseline der Box an die des übergeordneten Elements an, entsprechend dem unteren Rand der meisten, aber nicht aller Zeichen.
 
 - `central`
-  - : Stimmt die zentrale Baseline der Box mit der zentralen Baseline ihres Elternteils ab, entsprechend der ideographischen zentralen Baseline, auf halbem Weg zwischen den ideographischen Unter- und Über-Baselines.
+  - : Gleicht die zentrale Baseline der Box an die zentrale Baseline des übergeordneten Elements an, entsprechend der ideografischen zentralen Baseline, auf halbem Weg zwischen der ideografischen-unteren und ideografischen-oberen Baseline.
 
 - `ideographic`
-  - : Stimmt die untere Baseline der ideographischen Zeichenflächen der Box mit der ihres Elternteils ab, wobei die abgeleitete Baseline-Tabelle unter Verwendung der ideographischen Baseline-Tabelle in der Schriftart erstellt wird.
+  - : Gleicht die ideografische Zeichenfläche Unterseite der Box an die des übergeordneten Elements an, wobei die abgeleitete Baseline-Tabelle unter Verwendung der ideografischen Baseline-Tabelle in der Schriftart konstruiert wird.
 
 - `mathematical`
-  - : Stimmt die mathematische Baseline der Box mit der ihres Elternteils ab, entsprechend der zentralen Baseline, um die herum mathematische Zeichen gestaltet sind.
+  - : Gleicht die mathematische Baseline der Box an die des übergeordneten Elements an, entsprechend der mittleren Baseline, um die mathematische Zeichen herum gestaltet sind.
 
 - `middle`
-  - : Richtet den vertikalen Mittelpunkt der Box mit der Baseline der Elternbox plus die Hälfte der x-Höhe des Elternteils aus. Verwendet die x-mittleren Baselines; außer bei [`text-orientation: upright;`](/de/docs/Web/CSS/Reference/Properties/text-orientation) (wo die alphabetische und x-Höhen-Baseline im Wesentlichen bedeutungslos sind), in diesem Fall wird stattdessen die `central` Baseline verwendet.
+  - : Richtet den vertikalen Mittelpunkt der Box mit der Baseline der übergeordneten Box plus der halben x-Höhe der übergeordneten Box aus. Nutzt die x-mittel-Baselines; außer unter [`text-orientation: upright;`](/de/docs/Web/CSS/Reference/Properties/text-orientation) (wo die alphabetische und x-Höhe Baselines im Wesentlichen bedeutungslos sind), in diesem Fall wird stattdessen die `central` Baseline verwendet.
 
 - `text-bottom`
-  - : Stimmt die Unterkante der Box mit der Oberseite des Inhaltsbereichs der Eltern ab, indem die Unterkante der Zeile eines Inline-Inhaltsbox verwendet wird.
+  - : Gleicht die Unterseite der Box an die Oberseite des Inhaltsbereichs des übergeordneten Elements an, indem die Linie-unter Kante der Inline-Inhaltsbox verwendet wird.
 
 - `text-top`
-  - : Stimmt die Oberkante der Box mit der Oberkante des Inhaltsbereichs der Eltern ab; die obere Kante der Zeile eines Inline-Inhaltsbox.
+  - : Gleicht die Oberseite der Box an die Oberseite des Inhaltsbereichs des übergeordneten Elements an; die Linie-über Kante einer Inline-Inhaltsbox.
 
 > [!NOTE]
-> In SVG2 wurden `auto`, `before-edge` und `after-edge` veraltet, und `text-before-edge` ist ein Alias für `text-top`, und `text-after-edge` ist ein Alias für `text-bottom`. Diese Schlüsselwörter sollten nicht als Teil der {{cssxref("vertical-align")}} Kurzschreibweise verwendet werden. Browser unterstützen `auto` als Synonym für `baseline` und `hanging`, wobei der Ausrichtungspunkt des auszurichtenden Objekts mit der "hängenden" Baseline des übergeordneten Textelements ausgerichtet wird, aber keiner ist Teil der Spezifikation.
+> In SVG2 wurden `auto`, `before-edge` und `after-edge` veraltet und `text-before-edge` ist ein Alias für `text-top`, und `text-after-edge` ist ein Alias für `text-bottom`. Diese Schlüsselwörter sollten nicht als Teil der Kurzform-Eigenschaft {{cssxref("vertical-align")}} verwendet werden. Browser unterstützen `auto` als Synonym für `baseline` und `hanging`, wobei der Ausrichtungspunkt des ausgerichteten Objekts mit der "hängenden" Baseline des übergeordneten Textinhalts-Elements ausgerichtet ist, aber keines davon ist Teil der Spezifikation.
 
 ## Formale Definition
 
