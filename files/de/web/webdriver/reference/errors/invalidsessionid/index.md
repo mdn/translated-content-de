@@ -1,18 +1,18 @@
 ---
 title: "`invalid session id` Fehlercode"
-short-title: ungültige Sitzungs-ID
+short-title: invalid session id
 slug: Web/WebDriver/Reference/Errors/InvalidSessionID
 l10n:
-  sourceCommit: fb6aa6056407ba69d96da0fe140a1ae2320f0fb2
+  sourceCommit: d4ed0cee8e7185c5180743e5141096e117b5fa76
 ---
 
-Der **ungültige Sitzungs-ID**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server den eindeutigen Sitzungsbezeichner nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
+Der **invalid session ID** Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Reference/Errors), der auftritt, wenn der Server den eindeutigen Sitzungsbezeichner nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
 
 ## Beispiel
 
 ### Explizite Sitzungsbeendigung
 
-Eine WebDriver-Sitzung wird explizit beendet, wenn sie beendet wird:
+Eine WebDriver-Sitzung wird explizit beendet, wenn sie geschlossen wird:
 
 ```python
 from selenium import webdriver
@@ -68,4 +68,4 @@ No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 - [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Reference/Errors/SessionNotCreated)
 - Verwandte WebDriver-Befehle:
   - [Neue Sitzung](/de/docs/Web/WebDriver/Reference/Classic/Commands/NewSession)
-  - [Sitzung löschen](/de/docs/Web/WebDriver/Reference/Commands/DeleteSession)
+  - [Sitzung löschen](/de/docs/Web/WebDriver/Reference/Classic/Commands/DeleteSession)
