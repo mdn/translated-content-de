@@ -1,18 +1,18 @@
 ---
-title: "USB: disconnect-Ereignis"
+title: "USB: disconnect-Event"
 short-title: disconnect
 slug: Web/API/USB/disconnect_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`disconnect`**-Ereignis des [`USB`](/de/docs/Web/API/USB)-Interfaces wird ausgelöst, wenn ein verbundenes Gerät getrennt wird.
+Das **`disconnect`**-Ereignis der [`USB`](/de/docs/Web/API/USB)-Schnittstelle wird ausgelöst, wenn ein verbundenes Gerät getrennt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("disconnect", (event) => { })
@@ -26,13 +26,6 @@ Ein [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent). Erbt von [`Even
 
 {{InheritanceDiagram("USBConnectionEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
-
-- [`device`](/de/docs/Web/API/USBConnectionEvent/device) {{ReadOnlyInline}}
-  - : Das [`USBDevice`](/de/docs/Web/API/USBDevice), für das das Ereignis ausgelöst wird.
-
 ## Beispiele
 
 Sobald ein USB-Gerät getrennt wird, möchten Sie möglicherweise die Benutzeroberfläche aktualisieren.
@@ -43,7 +36,7 @@ navigator.usb.addEventListener("disconnect", (event) => {
 });
 ```
 
-Alternativ können Sie die Eigenschaft `USB.ondiscconnect` des Ereignis-Handlers verwenden, um einen Handler für das `disconnect`-Ereignis zu erstellen:
+Alternativ können Sie die `USB.ondiscconnect` Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `disconnect`-Ereignis festzulegen:
 
 ```js
 navigator.usb.ondisconnect = (event) => {

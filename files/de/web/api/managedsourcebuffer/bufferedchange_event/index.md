@@ -1,16 +1,16 @@
 ---
-title: "ManagedSourceBuffer: bufferedchange Event"
+title: "ManagedSourceBuffer: bufferedchange-Ereignis"
 short-title: bufferedchange
 slug: Web/API/ManagedSourceBuffer/bufferedchange_event
 l10n:
-  sourceCommit: aea2d29336c910940abb1f8e71e02158ac51e7c4
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Das **`bufferedchange`**-Ereignis der [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer)-Schnittstelle wird ausgelöst, wenn sich der gepufferte Bereich des `ManagedSourceBuffer` ändert. Dies kann nach einem Aufruf von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove), [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) oder infolge des Speicherbereinigungsalgorithmus des Benutzeragents geschehen.
+Das **`bufferedchange`**-Ereignis der [`ManagedSourceBuffer`](/de/docs/Web/API/ManagedSourceBuffer)-Schnittstelle wird ausgelöst, wenn sich der gepufferte Bereich des `ManagedSourceBuffer` ändert. Dies kann nach einem Aufruf von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer), [`remove()`](/de/docs/Web/API/SourceBuffer/remove), [`endOfStream()`](/de/docs/Web/API/MediaSource/endOfStream) oder infolge der Ausführung des Speicherbereinigungsalgorithmus durch den User-Agent geschehen.
 
-Dieses Ereignis ist wichtig für Anwendungen, die eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) verwenden, da der Benutzeragent jederzeit gepufferte Inhalte auslagern kann. Indem auf dieses Ereignis gehört wird, können Anwendungen erkennen, wann gepufferte Daten entfernt wurden, und darauf reagieren, indem Ersatzsegmente abgerufen werden, um Wiedergabeunterbrechungen zu vermeiden.
+Dieses Ereignis ist wichtig für Anwendungen, die eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) verwenden, da der User-Agent jederzeit gepufferten Inhalt auswerfen kann. Durch das Hören auf dieses Ereignis können Anwendungen erkennen, wenn gepufferte Daten entfernt wurden, und darauf reagieren, indem sie Ersatzsegmente abrufen, um Wiedergabeverzögerungen zu vermeiden.
 
 ## Syntax
 
@@ -28,20 +28,11 @@ Ein [`BufferedChangeEvent`](/de/docs/Web/API/BufferedChangeEvent). Erbt von [`Ev
 
 {{InheritanceDiagram("BufferedChangeEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften stehen die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
-
-- [`addedRanges`](/de/docs/Web/API/BufferedChangeEvent/addedRanges) {{ReadOnlyInline}}
-  - : Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das die Zeitbereiche repräsentiert, die dem Puffer hinzugefügt wurden.
-- [`removedRanges`](/de/docs/Web/API/BufferedChangeEvent/removedRanges) {{ReadOnlyInline}}
-  - : Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt, das die Zeitbereiche repräsentiert, die aus dem Puffer entfernt wurden.
-
 ## Beispiele
 
-### Verfolgung von Änderungen der gepufferten Bereiche
+### Änderungen im gepufferten Bereich verfolgen
 
-Dieses Beispiel richtet eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) ein, fügt einen Quellpuffer hinzu, ruft eine fragmentierte MP4-Datei ab und hört auf das `bufferedchange`-Ereignis, um alle Änderungen an den gepufferten Bereichen zu protokollieren.
+Dieses Beispiel richtet eine [`ManagedMediaSource`](/de/docs/Web/API/ManagedMediaSource) ein, fügt einen Quellpuffer hinzu, ruft eine fragmentierte MP4-Datei ab und hört auf das `bufferedchange`-Ereignis, um Änderungen in den gepufferten Bereichen zu protokollieren.
 
 ```js
 const videoUrl =

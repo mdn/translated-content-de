@@ -3,18 +3,18 @@ title: "Worker: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/Worker/messageerror_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `messageerror`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
+Das `messageerror`-Ereignis wird bei einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
@@ -28,24 +28,9 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("MessageEvent")}}
 
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
-
-- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die von dem Nachrichtenemitter gesendeten Daten.
-- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemitters repräsentiert.
-- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Ein String, der eine einzigartige ID für das Ereignis darstellt.
-- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (kann ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenemitter repräsentiert.
-- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports repräsentieren, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z.B. bei der Kanalnachrichtübermittlung oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
-
 ## Beispiele
 
-Erstellen Sie einen Worker und lauschen Sie auf `message`- und `messageerror`-Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Erstellen Sie einen Worker und lauschen Sie auf `message`- und `messageerror`-Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 // main.js
@@ -61,7 +46,7 @@ worker.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das gleiche, aber unter Verwendung der `onmessageerror`-Ereignis-Handler-Eigenschaft:
+Das Gleiche, aber unter Verwendung der `onmessageerror`-Ereignishandler-Eigenschaft:
 
 ```js
 // main.js

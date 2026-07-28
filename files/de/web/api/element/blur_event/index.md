@@ -1,28 +1,28 @@
 ---
-title: "Element: blur-Ereignis"
+title: "Element: blur event"
 short-title: blur
 slug: Web/API/Element/blur_event
 l10n:
-  sourceCommit: 8ee7b342ad04d3414a678080987f806bb1ea5afa
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`blur`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verliert. Das Ereignis wird nicht weitergereicht, jedoch das darauf folgende verwandte [`focusout`](/de/docs/Web/API/Element/focusout_event)-Ereignis wird weitergereicht.
+Das **`blur`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verliert. Das Ereignis ist nicht auf Empfehlungen weiterleitbar, jedoch das zugehörige [`focusout`](/de/docs/Web/API/Element/focusout_event)-Ereignis, das darauf folgt.
 
 Ein Element verliert den Fokus, wenn ein anderes Element ausgewählt wird.
-Ein Element verliert auch den Fokus, wenn ein Stil angewendet wird, der keinen Fokus erlaubt, wie z.B. `hidden`, oder wenn das Element aus dem Dokument entfernt wird — in beiden Fällen wird der Fokus auf das `body`-Element (Viewport) verschoben.
-Beachten Sie, dass das Verhalten des Browsers unterschiedlich ist, wenn ein fokussiertes Element aus dem Dokument entfernt wird. In Chromium-basierten Browsern löst das Entfernen eines fokussierten Elements ein `blur`-Ereignis aus, während es in Firefox nicht der Fall ist.
+Ein Element verliert auch den Fokus, wenn ein Stil angewendet wird, der keinen Fokus erlaubt, wie `hidden`, oder wenn das Element aus dem Dokument entfernt wird — in beiden Fällen bewegt sich der Fokus auf das `body`-Element (Ansichtsfenster).
+Beachten Sie, dass das Verhalten des Browsers unterschiedlich ist, wenn ein fokussiertes Element aus dem Dokument entfernt wird. In auf Chromium basierten Browsern löst das Entfernen eines fokussierten Elements ein `blur`-Ereignis aus, während es in Firefox nicht der Fall ist.
 
-<!-- Vor FF110 verloren Elemente den Fokus nicht, wenn sich der Stil zu hidden (zum Beispiel) änderte -->
+<!-- Vor FF110 verloren Elemente den Fokus nicht, wenn der Stil beispielsweise auf hidden geändert wurde -->
 
-Das Gegenteil von `blur` ist das [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis, das ausgelöst wird, wenn ein Element den Fokus _erhält_.
+Das Gegenteil von `blur` ist das [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis, welches ausgelöst wird, wenn das Element den Fokus _erhält_.
 
-Das `blur`-Ereignis ist nicht abgebrochen werden kann.
+Das `blur`-Ereignis ist nicht abbrechbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js-nolint
 addEventListener("blur", (event) => { })
@@ -35,13 +35,6 @@ onblur = (event) => { }
 Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FocusEvent")}}
-
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
-
-- [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
-  - : Das Element, das den Fokus erhält, falls vorhanden.
 
 ## Beispiele
 
@@ -80,9 +73,9 @@ password.addEventListener("blur", (event) => {
 
 {{EmbedLiveSample("Simple_example", '100%', '50px')}}
 
-### Ereignisdelegierung
+### Ereignisdelegation
 
-Es gibt zwei Möglichkeiten, die Ereignisdelegierung für dieses Ereignis zu implementieren: durch Verwendung des [`focusout`](/de/docs/Web/API/Element/focusout_event)-Ereignisses oder durch Setzen des `useCapture`-Parameters von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `true`.
+Es gibt zwei Möglichkeiten, die Ereignisdelegation für dieses Ereignis zu implementieren: durch Verwendung des [`focusout`](/de/docs/Web/API/Element/focusout_event)-Ereignisses oder durch Setzen des `useCapture`-Parameters von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `true`.
 
 #### HTML
 
@@ -133,11 +126,11 @@ form.addEventListener(
 
 {{Compat}}
 
-Der Wert von [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) variiert zwischen den Browsern, während dieses Ereignis behandelt wird ([Firefox-Bug 452307](https://bugzil.la/452307)): IE10 setzt ihn auf das Element, zu dem der Fokus wechseln wird, während Firefox und Chrome ihn oft auf das `body` des Dokuments setzen.
+Der Wert von [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) variiert zwischen den Browsern, während dieses Ereignis behandelt wird ([Firefox-Fehler 452307](https://bugzil.la/452307)): IE10 setzt es auf das Element, zu dem der Fokus wechseln wird, während Firefox und Chrome es oft auf den `body` des Dokuments setzen.
 
 ## Siehe auch
 
 - Die Methode [`HTMLElement.blur()`](/de/docs/Web/API/HTMLElement/blur)
 - Verwandte Ereignisse: [`focus`](/de/docs/Web/API/Element/focus_event), [`focusin`](/de/docs/Web/API/Element/focusin_event), [`focusout`](/de/docs/Web/API/Element/focusout_event)
-- Dieses Ereignis mit `Window`-Zielen: [`blur`](/de/docs/Web/API/Window/blur_event)-Ereignis
+- Dieses Ereignis auf `Window`-Zielen: [`blur`](/de/docs/Web/API/Window/blur_event)-Ereignis
 - [Fokussierung: focus/blur](https://javascript.info/focus-blur)

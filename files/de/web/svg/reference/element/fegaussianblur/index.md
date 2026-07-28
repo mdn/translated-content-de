@@ -2,12 +2,19 @@
 title: <feGaussianBlur>
 slug: Web/SVG/Reference/Element/feGaussianBlur
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: b5d9771ca01f4758b40e87347b78f26fa84ca155
 ---
 
-Das **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Glockenkurve definiert.
+Das **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Glockenkurve definiert.
 
-Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbbestandteile im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitiven behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+
+Ein Gaußscher Weichzeichner kann über die Grenzen des Eingabebildes hinausgehen. Die {{SVGElement("filter")}}-Element-Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} definieren die Filterregion, in der die verschwommene Ausgabe gerendert wird; Pixel außerhalb dieser Region werden abgeschnitten. Standardmäßig sind `x` und `y` `-10%` und `width` und `height` sind `120%`, was einen Rand für die Verbreitung des Unschärfeeffekts bietet. Für größere {{SVGAttr("stdDeviation")}}-Werte erweitern Sie die Filterregion weiter.
+Zum Beispiel:
+
+```svg
+<filter x="-30%" y="-30%" width="160%" height="160%">
+```
 
 ## Verwendungskontext
 
@@ -18,11 +25,11 @@ Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbbestandteile im 
 - {{SVGAttr("in")}}
 - {{SVGAttr("stdDeviation")}}
 - {{SVGAttr("edgeMode")}}
-- [Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
+- [Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement) Schnittstelle.
 
 ## Beispiel
 
@@ -50,7 +57,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 {{EmbedLiveSample("Basic_example", "", "130")}}
 
-### Drop-Shadow-Beispiel
+### Beispiel für einen Schlagschatten
 
 #### SVG
 
@@ -87,7 +94,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 ## Siehe auch
 
-- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -104,4 +111,4 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

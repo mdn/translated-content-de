@@ -3,14 +3,14 @@ title: "PictureInPictureWindow: resize-Ereignis"
 short-title: resize
 slug: Web/API/PictureInPictureWindow/resize_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das **`resize`**-Ereignis wird ausgelöst, wenn das schwebende Video-Fenster in der Größe verändert wurde.
+Das **`resize`**-Ereignis wird ausgelöst, wenn das schwebende Videofenster in der Größe verändert wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben weitergereicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -28,16 +28,9 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
-## Eigenschaften des Ereignisses
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
-  - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, das in der Größe verändert wurde.
-
 ## Beispiele
 
-### Fenstergrößen-Logger
+### Fenstergrößen-Protokollierer
 
 ```html
 <p>Resize the floating video window to fire the <code>resize</code> event.</p>

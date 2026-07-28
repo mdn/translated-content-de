@@ -1,16 +1,16 @@
 ---
-title: "FileReader: progress event"
+title: "FileReader: progress Event"
 short-title: progress
 slug: Web/API/FileReader/progress_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`progress`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird periodisch ausgelöst, während der `FileReader` Daten liest.
+Das **`progress`**-Event der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird regelmäßig ausgelöst, während der `FileReader` Daten liest.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
 
 ## Syntax
 
@@ -27,17 +27,6 @@ onprogress = (event) => { }
 Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
-
-## Ereigniseigenschaften
-
-_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
-
-- [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Ganzzahlwert ohne Vorzeichen, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP wird nur der Hauptteil der HTTP-Nachricht gezählt, und die Header und andere Overheads werden nicht einbezogen.
-- [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Eine 64-Bit-Ganzzahl ohne Vorzeichen, die die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess zu leisten versucht. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und beinhaltet nicht die Header und andere Overheads.
 
 ## Beispiele
 

@@ -1,18 +1,18 @@
 ---
-title: "VideoTrackList: addtrack Ereignis"
+title: "VideoTrackList: addtrack-Ereignis"
 short-title: addtrack
 slug: Web/API/VideoTrackList/addtrack_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `addtrack` Ereignis wird ausgelöst, wenn eine Videospur zu einer [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) hinzugefügt wird.
+Das `addtrack`-Ereignis wird ausgelöst, wenn ein Videospur zu einer [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) hinzugefügt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js-nolint
 addEventListener("addtrack", (event) => { })
@@ -26,13 +26,6 @@ Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web
 
 {{InheritanceDiagram("TrackEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
-  - : Die neu hinzugefügte [`VideoTrack`](/de/docs/Web/API/VideoTrack), auf die sich das Ereignis bezieht.
-
 ## Beispiele
 
 Verwendung von `addEventListener()`:
@@ -45,7 +38,7 @@ videoElement.videoTracks.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack` Ereignishandler-Eigenschaft:
+Verwendung der `onaddtrack`-Ereignishandlereigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");

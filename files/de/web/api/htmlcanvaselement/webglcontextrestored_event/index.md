@@ -1,22 +1,22 @@
 ---
-title: "HTMLCanvasElement: webglcontextrestored Ereignis"
+title: "HTMLCanvasElement: webglcontextrestored-Ereignis"
 short-title: webglcontextrestored
 slug: Web/API/HTMLCanvasElement/webglcontextrestored_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("WebGL API")}}
 
-Das **`webglcontextrestored`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent den Zeichenpuffer für ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt wiederherstellt.
+Das **`webglcontextrestored`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User Agent den Zeichenpuffer für ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekt wiederherstellt.
 
-Sobald der Kontext wiederhergestellt ist, sind WebGL-Ressourcen wie Texturen und Puffer, die vor dem Verlust des Kontexts erstellt wurden, nicht mehr gültig. Sie müssen den Zustand Ihrer WebGL-Anwendung neu initialisieren und Ressourcen neu erstellen.
+Sobald der Kontext wiederhergestellt ist, sind WebGL-Ressourcen wie Texturen und Puffer, die vor dem Verlust des Kontexts erstellt wurden, nicht mehr gültig. Sie müssen den Zustand Ihrer WebGL-Anwendung neu initialisieren und die Ressourcen neu erstellen.
 
-Dieses Ereignis blubbert nicht.
+Dieses Ereignis führt nicht zur Ereignisübertragung.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungsfunktion fest.
 
 ```js-nolint
 addEventListener("webglcontextrestored", (event) => { })
@@ -30,16 +30,9 @@ Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
-
-- [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
-  - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
-
 ## Beispiel
 
-Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) Erweiterung können Sie das `webglcontextrestored` Ereignis simulieren:
+Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweiterung können Sie das `webglcontextrestored`-Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");

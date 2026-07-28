@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: Drag-Ereignis"
+title: "HTMLElement: drag-Event"
 short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Benutzer gezogen wird.
+Das `drag`-Event wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Benutzer gezogen wird.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten nach oben blubbern.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten hochblubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("drag", (event) => { })
@@ -27,13 +27,6 @@ ondrag = (event) => { }
 Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
-
-## Ereigniseigenschaften
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
-  - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 

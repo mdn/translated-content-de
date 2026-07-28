@@ -1,18 +1,18 @@
 ---
-title: "WebSocket: close Ereignis"
+title: "WebSocket: close-Ereignis"
 short-title: close
 slug: Web/API/WebSocket/close_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `close` Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geschlossen wird.
+Das `close`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("close", (event) => { })
@@ -26,20 +26,9 @@ Ein [`CloseEvent`](/de/docs/Web/API/CloseEvent). Erbt von [`Event`](/de/docs/Web
 
 {{InheritanceDiagram("CloseEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften stehen Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), zur Verfügung._
-
-- [`code`](/de/docs/Web/API/CloseEvent/code) {{ReadOnlyInline}}
-  - : Gibt ein `unsigned short` zurück, das den vom Server gesendeten Schließungscode enthält.
-- [`reason`](/de/docs/Web/API/CloseEvent/reason) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Grund angibt, warum der Server die Verbindung geschlossen hat. Dies ist spezifisch für den jeweiligen Server und das Sub-Protokoll.
-- [`wasClean`](/de/docs/Web/API/CloseEvent/wasClean) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob die Verbindung sauber geschlossen wurde oder nicht.
-
 ## Beispiele
 
-Es könnte nützlich sein zu wissen, wann die Verbindung geschlossen wurde, damit Sie die Benutzeroberfläche aktualisieren oder eventuell Daten über die geschlossene Verbindung speichern können. Wenn Sie eine Variable namens `exampleSocket` haben, die sich auf einen geöffneten `WebSocket` bezieht, würde dieser Handler die Situation behandeln, in der der Socket geschlossen wurde.
+Es könnte sinnvoll sein, zu wissen, wann die Verbindung geschlossen wurde, damit die Benutzeroberfläche aktualisiert oder möglicherweise Daten über die geschlossene Verbindung gespeichert werden können. Angenommen, Sie haben eine Variable namens `exampleSocket`, die auf einen geöffneten `WebSocket` verweist, würde dieser Handler die Situation behandeln, in der der Socket geschlossen wurde.
 
 ```js
 exampleSocket.addEventListener("close", (event) => {
@@ -47,7 +36,7 @@ exampleSocket.addEventListener("close", (event) => {
 });
 ```
 
-Sie können die gleichen Aktionen mit der Ereignishandler-Eigenschaft ausführen, wie folgt:
+Sie können dieselben Aktionen mit der Ereignis-Handler-Eigenschaft durchführen, wie folgt:
 
 ```js
 exampleSocket.onclose = (event) => {
@@ -65,7 +54,7 @@ exampleSocket.onclose = (event) => {
 
 ## Siehe auch
 
-- [WebSocket: error Ereignis](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: message Ereignis](/de/docs/Web/API/WebSocket/message_event)
-- [WebSocket: open Ereignis](/de/docs/Web/API/WebSocket/open_event)
+- [WebSocket: error event](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: message event](/de/docs/Web/API/WebSocket/message_event)
+- [WebSocket: open event](/de/docs/Web/API/WebSocket/open_event)
 - [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

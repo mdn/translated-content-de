@@ -1,18 +1,18 @@
 ---
-title: "AudioTrackList: addtrack event"
+title: "AudioTrackList: addtrack-Ereignis"
 short-title: addtrack
 slug: Web/API/AudioTrackList/addtrack_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `addtrack`-Ereignis wird ausgelöst, wenn ein Track zu einer [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) hinzugefügt wird.
+Das `addtrack`-Ereignis wird ausgelöst, wenn eine Spur zu einer [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) hinzugefügt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("addtrack", (event) => { })
@@ -26,24 +26,17 @@ Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web
 
 {{InheritanceDiagram("TrackEvent")}}
 
-## Ereigniseigenschaften
-
-_`TrackEvent` basiert auf [`Event`](/de/docs/Web/API/Event), daher sind die Eigenschaften von `Event` auch auf `TrackEvent`-Objekten verfügbar._
-
-- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
-  - : Das DOM-Track-Objekt, auf das sich das Ereignis bezieht. Wenn nicht `null`, ist dies immer ein Objekt eines der Medientrack-Typen: [`AudioTrack`](/de/docs/Web/API/AudioTrack), [`VideoTrack`](/de/docs/Web/API/VideoTrack) oder [`TextTrack`](/de/docs/Web/API/TextTrack).
-
 ## Beschreibung
 
 ### Auslöser
 
-Das `addtrack`-Ereignis wird aufgerufen, wenn ein neuer Track zu dem Medienelement hinzugefügt wird, dessen Audiotracks durch das `AudioTrackList`-Objekt dargestellt werden. Dies geschieht, wenn Tracks zu dem Element hinzugefügt werden, wenn die Medien erstmals an das Element angehängt werden; ein `addtrack`-Ereignis tritt für jeden Audiotrack in der Medienressource auf.
+Das `addtrack`-Ereignis wird jedes Mal aufgerufen, wenn eine neue Spur zu dem Medienelement hinzugefügt wird, dessen Audiospuren durch das `AudioTrackList`-Objekt dargestellt werden. Dies geschieht, wenn Spuren zum Element hinzugefügt werden, wenn die Medien zum ersten Mal an das Element angehängt werden; für jede Audiospur in der Medienressource tritt ein `addtrack`-Ereignis auf.
 
-Dieses Ereignis kann nicht abgebrochen werden und breitet sich nicht aus.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
 
 ### Anwendungsfälle
 
-Sie können dieses Ereignis verwenden, um auf einen neuen, verfügbaren Audiotrack zu reagieren. Sie möchten möglicherweise Ihre UI-Elemente aktualisieren, um die Auswahl des neuen Audiotracks durch den Benutzer zu ermöglichen.
+Sie können dieses Ereignis verwenden, um auf das Verfügbarwerden einer neuen Audiospur zu reagieren. Sie möchten möglicherweise Ihre UI-Elemente aktualisieren, um beispielsweise die Benutzerwahl der neuen Audiospur zu ermöglichen.
 
 ## Beispiele
 
@@ -57,7 +50,7 @@ videoElement.audioTracks.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack`-Ereignishandler-Eigenschaft:
+Verwendung der `onaddtrack`-Event-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");

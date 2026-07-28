@@ -1,20 +1,20 @@
 ---
-title: "FileReader: loadstart-Ereignis"
+title: "FileReader: loadstart Ereignis"
 short-title: loadstart
 slug: Web/API/FileReader/loadstart_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`loadstart`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird ausgelöst, wenn eine Datei-Leseoperation begonnen hat.
+Das **`loadstart`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader) Interfaces wird ausgelöst, wenn eine Datei-Leseoperation begonnen hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und es bubblet nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("loadstart", (event) => { })
@@ -27,17 +27,6 @@ onloadstart = (event) => { }
 Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
-
-## Ereigniseigenschaften
-
-_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
-
-- [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es gibt an, ob der Fortschritt messbar ist oder nicht.
-- [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge an Arbeit anzeigt, die bereits vom zugrunde liegenden Prozess ausgeführt wurde. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und enthält keine Header und andere Overheads.
-- [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge an Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtenkörpers) und schließt die Header und andere Overheads nicht ein.
 
 ## Beispiele
 

@@ -1,20 +1,20 @@
 ---
-title: "IDBOpenDBRequest: blocked Ereignis"
+title: "IDBOpenDBRequest: blocked-Ereignis"
 short-title: blocked
 slug: Web/API/IDBOpenDBRequest/blocked_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("IndexedDB")}}
 
 Der `blocked`-Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("blocked", (event) => { })
@@ -27,15 +27,6 @@ onblocked = (event) => { }
 Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("IDBVersionChangeEvent")}}
-
-## Ereigniseigenschaften
-
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
-
-- [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
-  - : Gibt die alte Version der Datenbank zurück.
-- [`IDBVersionChangeEvent.newVersion`](/de/docs/Web/API/IDBVersionChangeEvent/newVersion) {{ReadOnlyInline}}
-  - : Gibt die neue Version der Datenbank zurück.
 
 ## Beispiele
 

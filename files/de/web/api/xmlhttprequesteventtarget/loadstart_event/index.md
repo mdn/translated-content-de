@@ -1,14 +1,14 @@
 ---
-title: "XMLHttpRequestEventTarget: loadstart-Ereignis"
+title: "XMLHttpRequestEventTarget: loadstart Ereignis"
 short-title: loadstart
 slug: Web/API/XMLHttpRequestEventTarget/loadstart_event
 l10n:
-  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`loadstart`**-Ereignis wird ausgelöst, wenn eine Anfrage begonnen hat, Daten zu laden.
+Das **`loadstart`**-Ereignis wird ausgelöst, wenn eine Anforderung begonnen hat, Daten zu laden.
 
 ## Syntax
 
@@ -25,17 +25,6 @@ onloadstart = (event) => { }
 Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
-
-## Ereigniseigenschaften
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die insgesamt zu erledigende Arbeit und der bereits geleistete Umfang durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ganzzahliger Wert, der angibt, wie viel Arbeit bereits vom zugrunde liegenden Prozess geleistet wurde. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Nachrichtentext (body) und schließt Header und andere Überlastungen nicht ein.
-- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ganzzahliger Wert, der die gesamte Menge der Arbeit darstellt, die der zugrunde liegende Prozess derzeit leistet. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt die Header und andere Überlastungen nicht ein.
 
 ## Beispiele
 
@@ -130,7 +119,7 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ### Verwendung mit XMLHttpRequestUpload
 
-Sie können das `loadstart`-Ereignis verwenden, um den Beginn eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, siehe die Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `loadstart`-Ereignis nutzen, um den Beginn eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige darstellt, sehen Sie sich die Hauptseite zu [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) an.
 
 ```js
 // When the upload starts, we display the progress bar
@@ -154,4 +143,4 @@ xhr.upload.addEventListener("loadstart", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`loadend`](/de/docs/Web/API/XMLHttpRequestEventTarget/loadend_event), [`load`](/de/docs/Web/API/XMLHttpRequestEventTarget/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequestEventTarget/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestEventTarget/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequestEventTarget/abort_event)
-- [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)
+- [Überwachung des Fortschritts](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)

@@ -3,27 +3,27 @@ title: "Attr: namespaceURI-Eigenschaft"
 short-title: namespaceURI
 slug: Web/API/Attr/namespaceURI
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: 7ed7b730bf88307cc6cf34b82bb1d735b9a1aa1f
 ---
 
 {{APIRef("DOM")}}
 
 Die schreibgeschützte **`namespaceURI`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces gibt den Namespace-URI des Attributs zurück oder `null`, wenn das Element nicht in einem Namespace ist.
 
-Der Namespace-URI wird bei der Erstellung des [`Attr`](/de/docs/Web/API/Attr) festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann mit [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS) erstellt werden.
+Der Namespace-URI wird bei der Erstellung von [`Attr`](/de/docs/Web/API/Attr) festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann unter Verwendung von [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS) erstellt werden.
 
 > [!NOTE]
-> Ein Attribut erbt seinen Namespace nicht von dem Element, an das es angehängt ist. Wenn ein Attribut nicht explizit einen Namespace erhält, hat es keinen Namespace.
+> Ein Attribut übernimmt nicht den Namespace des Elements, an das es gebunden ist. Wenn einem Attribut kein Namespace explizit zugewiesen wird, hat es keinen Namespace.
 
-Der Browser behandelt oder erzwingt die Namespace-Validierung nicht von sich aus. Es liegt in der Verantwortung der JavaScript-Anwendung, die erforderliche Validierung durchzuführen. Beachten Sie auch, dass das Namespace-Präfix, sobald es einem bestimmten Attributknoten zugeordnet ist, nicht geändert werden kann.
+Der Browser handhabt oder erzwingt die Namespace-Validierung nicht von sich aus. Es liegt in der Verantwortung der JavaScript-Anwendung, die erforderliche Validierung durchzuführen. Beachten Sie auch, dass das Namespace-Prefix, sobald es einem bestimmten Attributknoten zugeordnet ist, nicht geändert werden kann.
 
 ## Wert
 
-Ein String, der den URI des Namensraums enthält, oder `null`, wenn das Attribut nicht in einem Namespace ist.
+Ein String, der den URI des Namespaces enthält, oder `null`, wenn das Attribut nicht in einem Namespace ist.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Ergebnisse für ein präfixiertes Attribut im Fall eines HTML-Elements und eines SVG-Elements. Da HTML keine Namensräume behandelt, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird der URI des XML-Namensraums, `http://www.w3.org/XML/1998/namespace`, zurückgegeben.
+Das folgende Beispiel zeigt das Ergebnis für ein Attribut mit Präfix auf einem HTML-Element und auf einem SVG-Element. Da HTML keine Namespaces handhabt, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird der URI des XML-Namespaces `http://www.w3.org/XML/1998/namespace` zurückgegeben.
 
 ### HTML
 
@@ -72,6 +72,6 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgeben, [`Attr.localName`](/de/docs/Web/API/Attr/localName), den lokalen Teil des Namens, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Präfix.
-- Die [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft, die diesem entspricht, aber für ein [`Element`](/de/docs/Web/API/Element).
-- Die Methode [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS), die ein Attribut mit einem gegebenen Namespace erstellt.
+- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgibt, [`Attr.localName`](/de/docs/Web/API/Attr/localName), den lokalen Teil des Namens, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Prefix.
+- Die [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft, die dieser hier entspricht, jedoch für ein [`Element`](/de/docs/Web/API/Element).
+- Die Methode [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS), die ein Attribut mit einem angegebenen Namespace erstellt.

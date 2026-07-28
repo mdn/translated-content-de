@@ -1,18 +1,18 @@
 ---
-title: "XMLHttpRequestEventTarget: error Event"
+title: "XMLHttpRequestEventTarget: error Ereignis"
 short-title: error
 slug: Web/API/XMLHttpRequestEventTarget/error_event
 l10n:
-  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `error` Ereignis wird ausgelöst, wenn die Anfrage auf einen Fehler gestoßen ist.
+Das `error` Ereignis wird ausgelöst, wenn bei der Anfrage ein Fehler auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -25,17 +25,6 @@ onerror = (event) => { }
 Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
-
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit unsigned Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource mit HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und andere Overheads nicht mit ein.
-- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit unsigned Integer, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess gerade leistet. Beim Herunterladen einer Ressource mit HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und andere Overheads nicht mit ein.
 
 ## Beispiele
 
@@ -130,7 +119,7 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ### Verwendung mit XMLHttpRequestUpload
 
-Sie können das `error` Ereignis verwenden, um ein Problem beim Upload zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und einen Fortschrittsbalken anzeigt, siehe die Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+Sie können das `error` Ereignis verwenden, um ein Problem mit dem Upload zu erkennen. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, finden Sie auf der Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
 // In case of an error we hide the progress bar

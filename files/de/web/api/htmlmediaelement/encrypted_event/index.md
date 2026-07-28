@@ -1,16 +1,16 @@
 ---
-title: "HTMLMediaElement: encrypted-Event"
+title: "HTMLMediaElement: encrypted-Ereignis"
 short-title: encrypted
 slug: Web/API/HTMLMediaElement/encrypted_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Das `encrypted`-Event wird ausgelöst, wenn Initialisierungsdaten im Medium gefunden werden, die darauf hinweisen, dass es verschlüsselt ist.
+Das `encrypted`-Ereignis wird ausgelöst, wenn Initialisierungsdaten in den Medien gefunden werden, die anzeigen, dass sie verschlüsselt sind.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbles.
 
 ## Syntax
 
@@ -27,13 +27,6 @@ onencrypted = (event) => { }
 Ein [`MediaEncryptedEvent`](/de/docs/Web/API/MediaEncryptedEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MediaEncryptedEvent")}}
-
-## Ereigniseigenschaften
-
-- [`MediaEncryptedEvent.initDataType`](/de/docs/Web/API/MediaEncryptedEvent/initDataType) {{ReadOnlyInline}}
-  - : Gibt eine groß- und kleinschreibungssensitive Zeichenkette mit dem _Typ_ des Formats der gefundenen Initialisierungsdaten zurück.
-- [`MediaEncryptedEvent.initData`](/de/docs/Web/API/MediaEncryptedEvent/initData) {{ReadOnlyInline}}
-  - : Gibt einen {{jsxref("ArrayBuffer")}} zurück, der die gefundenen Initialisierungsdaten enthält. Wenn es keine Initialisierungsdaten gibt, die mit dem Format verbunden sind, gibt es `null` zurück.
 
 ## Spezifikationen
 

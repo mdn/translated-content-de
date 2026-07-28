@@ -1,25 +1,25 @@
 ---
-title: "Element: beforeinput Ereignis"
+title: "Element: beforeinput-Ereignis"
 short-title: beforeinput
 slug: Web/API/Element/beforeinput_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("UI Events")}}
 
-Das DOM-**`beforeinput`**-Ereignis wird ausgelöst, wenn der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Elements geändert werden soll. Im Gegensatz zum [`input`](/de/docs/Web/API/Element/input_event)-Ereignis wird es jedoch nicht beim {{HTMLElement("select")}}-Element ausgelöst. Das Ereignis gilt auch für Elemente mit aktivierter [`contenteditable`](/de/docs/Web/API/HTMLElement/contentEditable)-Eigenschaft und für beliebige Elemente, wenn [`designMode`](/de/docs/Web/API/Document/designMode) aktiviert ist.
+Das DOM **`beforeinput`**-Ereignis wird ausgelöst, wenn der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Elements kurz davor steht, geändert zu werden. Im Gegensatz zum [`input`](/de/docs/Web/API/Element/input_event)-Ereignis wird es jedoch nicht auf dem {{HTMLElement("select")}}-Element ausgelöst. Das Ereignis gilt auch für Elemente mit aktiviertem [`contenteditable`](/de/docs/Web/API/HTMLElement/contentEditable) und für jedes Element, wenn [`designMode`](/de/docs/Web/API/Document/designMode) aktiviert ist.
 
-Dadurch können Web-Apps das Verhalten bei Texteinträgen überschreiben, bevor der Browser den DOM-Baum ändert, und sie bieten mehr Kontrolle über Eingabeereignisse zur Verbesserung der Leistung.
+Dies ermöglicht Web-Apps, das Verhalten der Texteingabe zu überschreiben, bevor der Browser den DOM-Baum verändert, und bietet mehr Kontrolle über Eingabeereignisse zur Leistungsverbesserung.
 
-Im Fall von `contenteditable` und `designMode` ist das Ereignisziel der **Editing Host**. Wenn diese Eigenschaften auf mehrere Elemente zutreffen, ist der Editing Host das nächstgelegene Vorelement, dessen Elternteil nicht bearbeitbar ist.
+Im Fall von `contenteditable` und `designMode` ist das Ereignisziel der **Editing Host**. Wenn diese Eigenschaften auf mehrere Elemente angewendet werden, ist der Editing Host das nächstgelegene Vorfahren-Element, dessen übergeordnetes Element nicht bearbeitbar ist.
 
 > [!NOTE]
-> Nicht jede Benutzermodifikation führt zur Auslösung von `beforeinput`. Außerdem kann es vorkommen, dass das Ereignis ausgelöst wird, aber nicht abgebrochen werden kann. Dies kann passieren, wenn die Änderung durch Autovervollständigung, durch Annahme einer Korrektur von einem Rechtschreibprüfer, durch automatisches Ausfüllen durch den Passwort-Manager, durch {{Glossary("Input_method_editor", "IME")}} oder auf andere Weise vorgenommen wird. Die Details variieren je nach Browser und Betriebssystem. Um das Bearbeitungsverhalten in allen Situationen zu überschreiben, muss der Code das `input`-Ereignis behandeln und möglicherweise Änderungen rückgängig machen, die nicht vom `beforeinput`-Handler behandelt wurden. Siehe Bugs [1673558](https://bugzil.la/1673558) und [1763669](https://bugzil.la/1763669).
+> Nicht jede Benutzeränderung führt dazu, dass `beforeinput` ausgelöst wird. Außerdem kann das Ereignis ausgelöst werden, aber nicht abgebrochen werden können. Dies kann geschehen, wenn die Änderung durch Autovervollständigung erfolgt, durch das Akzeptieren einer Korrektur aus einer Rechtschreibprüfung, durch automatisches Ausfüllen durch einen Passwort-Manager, durch {{Glossary("Input_method_editor", "IME")}} oder auf andere Weise. Die Details variieren je nach Browser und Betriebssystem. Um das Bearbeitungsverhalten in allen Situationen zu überschreiben, muss der Code das `input`-Ereignis behandeln und möglicherweise Änderungen rückgängig machen, die nicht durch den `beforeinput`-Handler behandelt wurden. Siehe die Fehler [1673558](https://bugzil.la/1673558) und [1763669](https://bugzil.la/1763669).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("beforeinput", (event) => { })
@@ -33,24 +33,11 @@ Ein [`InputEvent`](/de/docs/Web/API/InputEvent). Erbt von [`UIEvent`](/de/docs/W
 
 {{InheritanceDiagram("InputEvent")}}
 
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt Eigenschaften von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
-
-- [`InputEvent.data`](/de/docs/Web/API/InputEvent/data) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenfolge mit den eingefügten Zeichen zurück. Dies kann eine leere Zeichenfolge sein, wenn die Änderung keinen Text einfügt (z. B. beim Löschen von Zeichen).
-- [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer) {{ReadOnlyInline}}
-  - : Gibt ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt zurück, das Informationen über richtext- oder plaintext-Daten enthält, die zu bearbeitbaren Inhalten hinzugefügt oder daraus entfernt werden.
-- [`InputEvent.inputType`](/de/docs/Web/API/InputEvent/inputType) {{ReadOnlyInline}}
-  - : Gibt den Typ der Änderung für bearbeitbare Inhalte zurück, wie z. B. Einfügen, Löschen oder Formatieren von Text.
-- [`InputEvent.isComposing`](/de/docs/Web/API/InputEvent/isComposing) {{ReadOnlyInline}}
-  - : Gibt einen {{JSxRef("Boolean")}}-Wert zurück, der angibt, ob das Ereignis nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event) ausgelöst wird.
-
 ## Beispiele
 
-### Funktionserkennung
+### Feature-Erkennung
 
-Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und somit `getTargetRanges` unterstützt wird.
+Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und damit `getTargetRanges` unterstützt wird.
 
 ```js
 function isBeforeInputEventAvailable() {
@@ -63,7 +50,7 @@ function isBeforeInputEventAvailable() {
 
 ### Einfacher Logger
 
-Dieses Beispiel protokolliert den aktuellen Wert des Elements, unmittelbar bevor dieser Wert durch den neuen Wert ersetzt wird, der auf das {{HtmlElement("input")}}-Element angewendet wird.
+Dieses Beispiel protokolliert den aktuellen Wert des Elements unmittelbar bevor dieser Wert durch den neuen, auf das {{HtmlElement("input")}}-Element angewendeten, ersetzt wird.
 
 #### HTML
 

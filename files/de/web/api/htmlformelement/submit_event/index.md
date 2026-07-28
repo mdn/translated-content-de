@@ -1,31 +1,31 @@
 ---
-title: "HTMLFormElement: submit Event"
+title: "HTMLFormElement: submit-Ereignis"
 short-title: submit
 slug: Web/API/HTMLFormElement/submit_event
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`submit`**-Ereignis tritt auf, wenn ein {{HtmlElement("form")}}-Element übermittelt wird.
+Das **`submit`**-Ereignis wird ausgelöst, wenn ein {{HtmlElement("form")}} übermittelt wird.
 
-Beachten Sie, dass das `submit`-Ereignis auf dem `<form>`-Element selbst ausgelöst wird und nicht auf einem {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` innerhalb des Formulars. Jedoch enthält das [`SubmitEvent`](/de/docs/Web/API/SubmitEvent), das gesendet wird, um die Aktivierung der Formularübermittlung anzuzeigen, eine [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, die den Button beschreibt, der ausgelöst wurde, um die Übermittlungsanforderung zu starten.
+Beachten Sie, dass das `submit`-Ereignis auf dem `<form>`-Element selbst ausgelöst wird und nicht auf einem {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` innerhalb des Formulars. Allerdings enthält das [`SubmitEvent`](/de/docs/Web/API/SubmitEvent), das gesendet wird, um die Aktion der Formularübermittlung anzuzeigen, eine [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, die der Button ist, der aufgerufen wurde, um die Übermittlungsanfrage auszulösen.
 
-Das `submit`-Ereignis tritt auf, wenn:
+Das `submit`-Ereignis wird ausgelöst, wenn:
 
-- der Benutzer auf einen {{Glossary("submit_button", "Submit-Button")}} klickt,
-- der Benutzer die <kbd>Enter</kbd>-Taste drückt, während ein Feld bearbeitet wird (z.B. {{HtmlElement('input/text', '&lt;input type="text"&gt;')}}) in einem Formular,
+- der Benutzer einen {{Glossary("submit_button", "Submit-Button")}} klickt,
+- der Benutzer <kbd>Enter</kbd> drückt, während er ein Feld (z.B. {{HtmlElement('input/text', '&lt;input type="text"&gt;')}}) in einem Formular bearbeitet,
 - ein Skript die Methode [`form.requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit) aufruft
 
-Jedoch wird das Ereignis _nicht_ an das Formular gesendet, wenn ein Skript die Methode [`form.submit()`](/de/docs/Web/API/HTMLFormElement/submit) direkt aufruft.
+Das Ereignis wird jedoch _nicht_ an das Formular gesendet, wenn ein Skript die Methode [`form.submit()`](/de/docs/Web/API/HTMLFormElement/submit) direkt aufruft.
 
 > [!NOTE]
-> Der Versuch, ein Formular zu übermitteln, das die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) nicht besteht, löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis aus. In diesem Fall verhindert die Validierung die Formularübermittlung, und es gibt somit kein `submit`-Ereignis.
+> Der Versuch, ein Formular zu übermitteln, das die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) nicht besteht, löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis aus. In diesem Fall verhindert die Validierung die Formularübermittlung, und daher gibt es kein `submit`-Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("submit", (event) => { })
@@ -39,16 +39,9 @@ Ein [`SubmitEvent`](/de/docs/Web/API/SubmitEvent). Erbt von [`Event`](/de/docs/W
 
 {{InheritanceDiagram("SubmitEvent")}}
 
-## Ereigniseigenschaften
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
-
-- [`submitter`](/de/docs/Web/API/SubmitEvent/submitter) {{ReadOnlyInline}}
-  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt, das den Button oder ein anderes Element identifiziert, welches ausgelöst wurde, um die Formularübermittlung zu starten.
-
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Formularübermittlung zu reagieren, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies geschieht. Danach wird die Standardaktion der Formularübermittlung verhindert.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Formularübermittlung zu hören, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wenn dies geschieht, und verhindert dann die Standardaktion der Formularübermittlung.
 
 ### HTML
 

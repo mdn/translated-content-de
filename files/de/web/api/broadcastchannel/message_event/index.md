@@ -3,16 +3,16 @@ title: "BroadcastChannel: message event"
 short-title: message
 slug: Web/API/BroadcastChannel/message_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`message`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht auf diesem Kanal eingeht.
+Das **`message`**-Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht auf diesem Kanal eintrifft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("message", (event) => { })
@@ -26,24 +26,9 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("MessageEvent")}}
 
-## Ereigniseigenschaften
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
-
-- [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtensender gesendeten Daten.
-- [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine _message event source_, die entweder ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ist, das den Nachrichtensender darstellt.
-- [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die mit dem Kanal verbundenen Ports darstellt, durch den die Nachricht gesendet wird (sofern zutreffend, z. B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
-
 ## Beispiele
 
-In diesem Beispiel gibt es einen "Sender" {{HTMLElement("iframe")}}, der den Inhalt eines {{HTMLElement("textarea")}} sendet, wenn der Benutzer auf einen Knopf klickt. Es gibt zwei "Empfänger"-Iframes, die auf die Broadcast-Nachricht hören und das Ergebnis in ein {{HTMLElement("div")}}-Element schreiben.
+In diesem Beispiel gibt es einen "Sender" {{HTMLElement("iframe")}}, der die Inhalte eines {{HTMLElement("textarea")}} sendet, wenn der Benutzer auf eine Schaltfläche klickt. Es gibt zwei "Empfänger"-Iframes, die auf die Broadcast-Nachricht hören und das Ergebnis in ein {{HTMLElement("div")}}-Element schreiben.
 
 ### Sender
 

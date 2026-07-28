@@ -2,21 +2,21 @@
 title: Markup
 slug: Glossary/Markup
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 7ed7b730bf88307cc6cf34b82bb1d735b9a1aa1f
 ---
 
-Eine Markup-Sprache ist eine Sprache, die für das Definieren und Darstellen von Text entwickelt wurde. {{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
+Eine Auszeichnungssprache ist eine Sprache, die zum Definieren und Darstellen von Text entworfen wurde. {{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist ein Beispiel für eine Auszeichnungssprache.
 
 Innerhalb einer Textdatei, wie zum Beispiel einer HTML-Datei, werden Elemente mit {{Glossary("Tag", "Tags")}} _ausgezeichnet_, die den Zweck dieses Teils des Inhalts erklären.
 
-## Arten von Markup-Sprachen
+## Typen von Auszeichnungssprachen
 
-- **Darstellungs-Markup:**
-  - : Wird von traditionellen Textverarbeitungssystemen mit WYSIWYG (what you see is what you get) verwendet; dies ist für menschliche Autoren, Benutzer und Redakteure verborgen.
-- **Prozedurales Markup:**
-  - : Wird mit Text kombiniert, um Programmen Anweisungen zur Textverarbeitung zu geben. Dieser Text wird sichtbar vom Autor manipuliert.
-- **Deskriptives Markup:**
-  - : Markiert Abschnitte von Dokumenten, um anzugeben, wie das Programm sie behandeln soll. Zum Beispiel definiert das HTML-{{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
+- **Präsentations-Makros:**
+  - : Werden von traditionellen Textverarbeitungssystemen mit WYSIWYG (what you see is what you get) verwendet; diese sind für menschliche Autoren, Benutzer und Redakteure verborgen.
+- **Prozedurale Makros:**
+  - : In Kombination mit Texten, um Anweisungen zur Textverarbeitung für Programme bereitzustellen. Dieser Text wird vom Autor sichtbar bearbeitet.
+- **Deskriptive Makros:**
+  - : Kennzeichnen Abschnitte von Dokumenten hinsichtlich der Art und Weise, wie das Programm sie behandeln soll. Beispielsweise definiert das HTML {{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
 
 ## Siehe auch
 

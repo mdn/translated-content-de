@@ -1,18 +1,18 @@
 ---
-title: "Animation: remove Event"
+title: "Animation: remove Ereignis"
 short-title: remove
 slug: Web/API/Animation/remove_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{ APIRef("Web Animations") }}
 
-Das **`remove`**-Ereignis des [`Animation`](/de/docs/Web/API/Animation)-Interfaces wird ausgelöst, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
+Das **`remove`** Ereignis des [`Animation`](/de/docs/Web/API/Animation) Interfaces tritt auf, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("remove", (event) => { })
@@ -26,22 +26,13 @@ Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent). Erbt vo
 
 {{InheritanceDiagram("AnimationPlaybackEvent")}}
 
-## Ereigniseigenschaften
-
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus dem übergeordneten Interface [`Event`](/de/docs/Web/API/Event) verfügbar._
-
-- [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis generiert hat.
-- [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
-  - : Der Zeitwert der Timeline der Animation, die das Ereignis generiert hat.
-
 ## Beispiele
 
 ### Entfernen von ersetzten Animationen
 
-In diesem Beispiel haben wir ein `<button id="start">`-Element und einen Ereignis-Listener, der immer dann ausgeführt wird, wenn sich die Maus bewegt. Der [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignishandler richtet eine Animation ein, die den `<button>` zur Position des Mauszeigers animiert. Dies könnte zu einer großen Animationsliste führen, was ein Speicherleck verursachen könnte. Aus diesem Grund entfernen moderne Browser automatisch vorwärtsfüllende Animationen, die von anderen Animationen überschrieben werden.
+In diesem Beispiel haben wir ein `<button id="start">` Element und einen Ereignislistener, der ausgeführt wird, wann immer sich die Maus bewegt. Der [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis-Handler richtet eine Animation ein, die das `<button>` an die Position des Mauszeigers animiert. Dies könnte zu einer großen Liste von Animationen führen, die ein Speicherleck verursachen könnte. Aus diesem Grund entfernen moderne Browser automatisch vorwärts-füllende Animationen, die von anderen Animationen überschrieben werden.
 
-Die Anzahl der erstellten Animationen wird angezeigt. Ein `remove`-Ereignis-Listener wird verwendet, um die Anzahl der entfernten Animationen zu zählen und anzuzeigen.
+Die Anzahl der erstellten Animationen wird angezeigt. Ein `remove` Ereignislistener wird verwendet, um die Anzahl der entfernten Animationen zu zählen und anzuzeigen.
 
 Alle bis auf eine der Animationen sollten schließlich entfernt werden.
 
@@ -129,5 +120,5 @@ reset.addEventListener("click", () => {
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [`Animation`](/de/docs/Web/API/Animation), [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)
-- [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState), um zu überprüfen, ob eine Animation entfernt wurde
+- [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState), um zu prüfen, ob eine Animation entfernt wurde
 - [`Animation.persist()`](/de/docs/Web/API/Animation/persist), um die Entfernung einer Animation zu verhindern

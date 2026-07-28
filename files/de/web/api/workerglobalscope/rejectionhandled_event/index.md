@@ -3,18 +3,18 @@ title: "WorkerGlobalScope: rejectionhandled Ereignis"
 short-title: rejectionhandled
 slug: Web/API/WorkerGlobalScope/rejectionhandled_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
 
-Das **`rejectionhandled`** Ereignis wird an den globalen Bereich des Skripts gesendet (typischerweise [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)), immer wenn ein abgelehntes {{jsxref("Promise")}} verspätet behandelt wird, d.h. wenn ein Handler an das Promise angehängt wird, nachdem seine Ablehnung ein [`unhandledrejection`](/de/docs/Web/API/WorkerGlobalScope/unhandledrejection_event) Ereignis verursacht hat.
+Das **`rejectionhandled`** Ereignis wird an den globalen Skriptbereich gesendet (typischerweise [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)), sobald ein abgelehntes {{jsxref("Promise")}} später behandelt wird, d.h. wenn ein Handler an das Promise angehängt wird, nachdem seine Ablehnung ein [`unhandledrejection`](/de/docs/Web/API/WorkerGlobalScope/unhandledrejection_event) Ereignis verursacht hat.
 
-Dies kann beim Debuggen und für die allgemeine Anwendungsresilienz in Verbindung mit dem `unhandledrejection` Ereignis verwendet werden, welches gesendet wird, wenn ein Promise abgelehnt wird, es jedoch zum Zeitpunkt der Ablehnung keinen Handler gibt.
+Dies kann beim Debuggen und zur allgemeinen Anpassungsfähigkeit von Anwendungen verwendet werden, in Verbindung mit dem `unhandledrejection` Ereignis, das gesendet wird, wenn ein Promise abgelehnt wird, aber zum Zeitpunkt der Ablehnung kein Handler vorhanden ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("rejectionhandled", (event) => { })
@@ -28,16 +28,9 @@ Ein [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent). Erbt von 
 
 {{InheritanceDiagram("PromiseRejectionEvent")}}
 
-## Ereigniseigenschaften
-
-- [`PromiseRejectionEvent.promise`](/de/docs/Web/API/PromiseRejectionEvent/promise) {{ReadOnlyInline}}
-  - : Das abgelehnte {{jsxref("Promise")}}.
-- [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) {{ReadOnlyInline}}
-  - : Ein Wert oder ein {{jsxref("Object")}}, der angibt, warum das Promise abgelehnt wurde, wie an {{jsxref("Promise.reject()")}} übergeben.
-
 ## Beispiel
 
-Sie können das `rejectionhandled` Ereignis verwenden, um abgelehnte Promises zusammen mit den Gründen für die Ablehnung im Konsolenprotokoll aufzuzeichnen:
+Sie können das `rejectionhandled` Ereignis verwenden, um Promises, die abgelehnt werden, zusammen mit den Gründen für ihre Ablehnung im Konsolenprotokoll aufzuzeichnen:
 
 ```js
 self.addEventListener("rejectionhandled", (event) => {
@@ -55,7 +48,7 @@ self.addEventListener("rejectionhandled", (event) => {
 
 ## Siehe auch
 
-- [Promise rejection events](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events)
+- [Promise-Ablehnungsereignisse](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events)
 - [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)
 - {{jsxref("Promise")}}
 - [`unhandledrejection`](/de/docs/Web/API/WorkerGlobalScope/unhandledrejection_event)

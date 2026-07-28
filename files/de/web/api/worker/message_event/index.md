@@ -1,20 +1,20 @@
 ---
-title: "Worker: message Event"
+title: "Worker: message event"
 short-title: message
 slug: Web/API/Worker/message_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn die übergeordnete Instanz des Workers eine Nachricht von ihrem Worker erhält (d.h. wenn der Worker eine Nachricht mithilfe von [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
+Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn der übergeordnete Prozess des Workers eine Nachricht von seinem Worker erhält (d.h. wenn der Worker eine Nachricht mittels [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchsicher und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("message", (event) => { })
@@ -28,24 +28,9 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("MessageEvent")}}
 
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
-
-- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenemittenten gesendeten Daten.
-- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemittenten darstellt.
-- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtenemittenten darstellt.
-- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal verbundenen Ports darstellen, über die die Nachricht gesendet wird (wo zutreffend, z. B. beim Kanal-Messaging oder beim Senden einer Nachricht an einen gemeinsamen Worker).
-
 ## Beispiele
 
-Dieser Code erstellt einen neuen Worker und hört Nachrichten von ihm mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ab:
+Dieser Code erstellt einen neuen Worker und lauscht Nachrichten von diesem Worker mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 const worker = new Worker("static/scripts/worker.js");
@@ -55,7 +40,7 @@ worker.addEventListener("message", (event) => {
 });
 ```
 
-Alternativ könnte er mit der `onmessage`-Ereignis-Handler-Eigenschaft abgehört werden:
+Alternativ könnte es das `onmessage` Ereignis-Handler-Property verwenden:
 
 ```js
 const worker = new Worker("static/scripts/worker.js");

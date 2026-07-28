@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: dragend Ereignis"
+title: "HTMLElement: dragend-Ereignis"
 short-title: dragend
 slug: Web/API/HTMLElement/dragend_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `dragend` Ereignis wird ausgelöst, wenn ein Ziehvorgang endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
+Das `dragend`-Ereignis wird ausgelöst, wenn eine Ziehoperation endet (durch Loslassen einer Maustaste oder Drücken der Escape-Taste).
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblasen.
+Dieses Ereignis ist stornierbar und kann bis zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten nach oben blubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("dragend", (event) => { })
@@ -28,22 +28,15 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 {{InheritanceDiagram("DragEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
-  - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
-
 ## Beispiele
 
-### Zurücksetzen der Deckkraft bei dragend
+### Zurücksetzen der Transparenz bei dragend
 
-In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, es zu ziehen und dann loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es zu ziehen und dann loszulassen.
 
-Wir machen das Element halbtransparent, während es gezogen wird, und hören auf das `dragend` Ereignis, um die Deckkraft des Elements beim Loslassen zurückzusetzen.
+Wir machen das Element halbtransparent, während es gezogen wird, und hören auf das `dragend`-Ereignis, um die Transparenz des Elements zurückzusetzen, wenn es losgelassen wird.
 
-Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
+Für ein vollständiges Beispiel zum Ziehen und Ablegen siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 

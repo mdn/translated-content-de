@@ -1,16 +1,16 @@
 ---
-title: "HTMLVideoElement: enterpictureinpicture Ereignis"
+title: "HTMLVideoElement: enterpictureinpicture-Ereignis"
 short-title: enterpictureinpicture
 slug: Web/API/HTMLVideoElement/enterpictureinpicture_event
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `enterpictureinpicture` Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Bild-in-Bild-Modus wechselt.
+Das `enterpictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Bild-im-Bild-Modus wechselt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
@@ -28,13 +28,9 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
-## Ereigniseigenschaften
-
-Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event).
-
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `enterpictureinpicture` Ereignis des HTMLVideoElement hinzu und senden dann eine Nachricht, wenn der Ereignis-Handler auf das Ereignis reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `enterpictureinpicture`-Ereignis des HTMLVideoElement hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -53,7 +49,7 @@ button.onclick = () => {
 };
 ```
 
-Verwendung der `onenterpictureinpicture` Ereignis-Handler-Eigenschaft:
+Verwendung der `onenterpictureinpicture`-Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("#video");

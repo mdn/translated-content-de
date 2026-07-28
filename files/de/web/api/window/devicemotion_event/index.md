@@ -1,20 +1,20 @@
 ---
-title: "Fenster: devicemotion Ereignis"
+title: "Window: devicemotion-Ereignis"
 short-title: devicemotion
 slug: Web/API/Window/devicemotion_event
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`devicemotion`** Ereignis wird in regelmäßigen Abständen ausgelöst und gibt die Beschleunigungsrate des Geräts mit oder ohne Berücksichtigung der Schwerkraft zu diesem Zeitpunkt an. Es liefert auch Informationen über die Rotationsrate, falls verfügbar.
+Das **`devicemotion`**-Ereignis wird in regelmäßigen Abständen ausgelöst und zeigt die Beschleunigungsrate des Geräts mit/ohne den Einfluss der Gravitationskraft zu diesem Zeitpunkt an. Es liefert auch Informationen über die Rotationsrate, sofern verfügbar.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und hat kein Bubbling.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("devicemotion", (event) => { })
@@ -27,17 +27,6 @@ ondevicemotion = (event) => { }
 Ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DeviceMotionEvent")}}
-
-## Ereigniseigenschaften
-
-- [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) angegeben.
-- [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z unter Einwirkung der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) angegeben.
-- [`DeviceMotionEvent.rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde angegeben.
-- [`DeviceMotionEvent.interval`](/de/docs/Web/API/DeviceMotionEvent/interval) {{ReadOnlyInline}}
-  - : Eine Zahl, die das Zeitintervall in Millisekunden angibt, in dem Daten vom Gerät erfasst werden.
 
 ## Beispiele
 

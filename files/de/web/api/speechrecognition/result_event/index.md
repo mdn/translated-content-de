@@ -1,14 +1,14 @@
 ---
-title: "SpeechRecognition: result Ereignis"
+title: "SpeechRecognition: result-Ereignis"
 short-title: result
 slug: Web/API/SpeechRecognition/result_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`result`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis liefert – ein Wort oder Satz wurde positiv erkannt und dies wurde an die App zurückgemeldet.
+Das **`result`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückliefert – ein Wort oder eine Phrase wurde positiv erkannt und dies wurde der Anwendung mitgeteilt.
 
 ## Syntax
 
@@ -26,22 +26,9 @@ Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt vo
 
 {{InheritanceDiagram("SpeechRecognitionEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften stehen die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
-
-- [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent) {{ReadOnlyInline}}
-  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
-- [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent) {{ReadOnlyInline}}
-  - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
-- [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
-  - : Gibt den niedrigsten Indexwert des Ergebnisses im „Array“ [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) zurück, das tatsächlich geändert wurde.
-- [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results) {{ReadOnlyInline}}
-  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
-
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist aus unserem [Sprach-Farbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 Sie können das `result`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
@@ -55,7 +42,7 @@ recognition.addEventListener("result", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onresult`-Ereignishandler-Eigenschaft:
+Oder die `onresult`-Ereignishandler-Eigenschaft verwenden:
 
 ```js
 recognition.onresult = (event) => {

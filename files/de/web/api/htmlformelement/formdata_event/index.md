@@ -1,16 +1,16 @@
 ---
-title: "HTMLFormElement: formdata Ereignis"
+title: "HTMLFormElement: formdata-Ereignis"
 short-title: formdata
 slug: Web/API/HTMLFormElement/formdata_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`formdata`** Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
+Das **`formdata`**-Ereignis wird ausgelöst, nachdem die Einträge, die die Formulardaten repräsentieren, erstellt wurden. Dies geschieht, wenn das Formular gesendet wird, kann jedoch auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData)-Konstruktors ausgelöst werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und breitet sich nicht aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
@@ -27,13 +27,6 @@ onformdata = (event) => { }
 Ein [`FormDataEvent`](/de/docs/Web/API/FormDataEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FormDataEvent")}}
-
-## Ereigniseigenschaften
-
-_Erbt Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
-
-- [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)
-  - : Enthält das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die im Formular enthaltenen Daten repräsentiert, als das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -71,7 +64,7 @@ formElem.addEventListener("formdata", (e) => {
 });
 ```
 
-Die `onformdata` Version würde folgendermaßen aussehen:
+Die `onformdata`-Version würde so aussehen:
 
 ```js
 formElem.onformdata = (e) => {
@@ -94,5 +87,5 @@ formElem.onformdata = (e) => {
 
 ## Siehe auch
 
-- HTML {{htmlElement("form")}} Element
+- HTML {{htmlElement("form")}}-Element
 - [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)

@@ -2,12 +2,12 @@
 title: XHTML
 slug: Glossary/XHTML
 l10n:
-  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
+  sourceCommit: 7ed7b730bf88307cc6cf34b82bb1d735b9a1aa1f
 ---
 
-**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die so geschrieben sind, dass sie den Syntaxregeln von {{Glossary("XML", "XML")}} entsprechen.
+**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die geschrieben wurden, um den Syntaxregeln von {{Glossary("XML", "XML")}} zu entsprechen.
 
-Das folgende Beispiel zeigt ein HTML-Dokument und das entsprechende "XHTML"-Dokument sowie die zugehörigen {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Content-Type")}}-Header, mit denen sie ausgeliefert werden sollten.
+Das folgende Beispiel zeigt ein HTML-Dokument und das entsprechende "XHTML"-Dokument sowie die dazugehörigen {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Content-Type")}}-Header, mit denen sie bereitgestellt werden sollten.
 
 ```html
 <!-- Content-Type: text/html -->
@@ -19,7 +19,7 @@ Das folgende Beispiel zeigt ein HTML-Dokument und das entsprechende "XHTML"-Doku
     <title>HTML</title>
   </head>
   <body>
-    <p>I am a HTML document</p>
+    <p>I am an HTML document</p>
   </body>
 </html>
 ```
@@ -38,11 +38,11 @@ Das folgende Beispiel zeigt ein HTML-Dokument und das entsprechende "XHTML"-Doku
 </html>
 ```
 
-In der Praxis werden sehr wenige "XHTML"-Dokumente im Web mit einem `Content-Type: application/xhtml+xml`-Header ausgeliefert. Stattdessen werden sie, obwohl sie so geschrieben sind, dass sie den XML-Syntaxregeln entsprechen, mit einem `Content-Type: text/html`-Header ausgeliefert – sodass Browser diese Dokumente mit HTML-Parsern anstelle von XML-Parsern analysieren.
+In der Praxis werden sehr wenige "XHTML"-Dokumente über das Web mit einem `Content-Type: application/xhtml+xml`-Header bereitgestellt. Stattdessen werden sie, obwohl die Dokumente so geschrieben sind, dass sie den Syntaxregeln von XML entsprechen, mit einem `Content-Type: text/html`-Header bereitgestellt — sodass Browser diese Dokumente mit HTML-Parsern statt mit XML-Parsern parsen.
 
 ## Siehe auch
 
-- Verwandte Glossareinträge:
+- Verwandte Glossarbegriffe:
   - {{Glossary("HTML", "HTML")}}
   - {{Glossary("HTML5", "HTML5")}}
   - {{Glossary("SVG", "SVG")}}

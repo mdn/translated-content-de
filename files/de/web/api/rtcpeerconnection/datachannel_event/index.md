@@ -3,21 +3,21 @@ title: "RTCPeerConnection: datachannel Ereignis"
 short-title: datachannel
 slug: Web/API/RTCPeerConnection/datachannel_event
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`datachannel`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz gesendet, wenn ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zur Verbindung hinzugefügt wurde, als Ergebnis des Aufrufs von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) durch den entfernten Peer.
+Ein **`datachannel`** Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz gesendet, wenn ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zur Verbindung hinzugefügt wurde, weil der entfernte Peer [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen hat.
 
 > [!NOTE]
 > Dieses Ereignis wird _nicht_ ausgelöst, wenn das lokale Ende der Verbindung den Kanal erstellt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js-nolint
 addEventListener("datachannel", (event) => { })
@@ -31,16 +31,9 @@ Ein [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent). Erbt von [`Ev
 
 {{InheritanceDiagram("RTCDataChannelEvent")}}
 
-## Ereigniseigenschaften
-
-_Erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
-
-- [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel) {{ReadOnlyInline}}
-  - : Liefert den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), der mit dem Ereignis verknüpft ist.
-
 ## Beispiele
 
-Dieses Beispiel richtet eine Funktion ein, die `datachannel`-Ereignisse verarbeitet, indem sie die Informationen sammelt, die zur Kommunikation mit dem neu hinzugefügten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) erforderlich sind, und Ereignis-Handler für die auf diesem Kanal auftretenden Ereignisse hinzufügt.
+Dieses Beispiel richtet eine Funktion ein, die `datachannel` Ereignisse verarbeitet, indem sie die Informationen sammelt, die zur Kommunikation mit dem neu hinzugefügten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) erforderlich sind, und Ereignisbehandler für die Ereignisse hinzufügt, die auf diesem Kanal auftreten.
 
 ```js
 pc.addEventListener("datachannel", (ev) => {
@@ -51,9 +44,9 @@ pc.addEventListener("datachannel", (ev) => {
 });
 ```
 
-`receiveChannel` wird auf den Wert der [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft des Ereignisses gesetzt, die das `RTCDataChannel`-Objekt spezifiziert, das den Datenkanal darstellt, der den entfernten Peer mit dem lokalen verbindet.
+`receiveChannel` wird auf den Wert der [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel) Eigenschaft des Ereignisses gesetzt, die das `RTCDataChannel` Objekt spezifiziert, das den Datenkanal darstellt, der den entfernten Peer mit dem lokalen verbindet.
 
-Der gleiche Code kann auch alternativ die `ondatachannel`-Ereignis-Handler-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle verwenden, so wie hier:
+Dieser gleiche Code kann auch stattdessen die `ondatachannel` Ereignisbehandlungs-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle verwenden, so:
 
 ```js
 pc.ondatachannel = (ev) => {

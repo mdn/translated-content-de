@@ -3,20 +3,20 @@ title: "Window: deviceorientation event"
 short-title: deviceorientation
 slug: Web/API/Window/deviceorientation_event
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`deviceorientation`**-Ereignis wird ausgelöst, wenn frische Daten von einem Orientierungssensor zur aktuellen Ausrichtung des Geräts im Vergleich zum Erdkoordinatenrahmen verfügbar sind. Diese Daten werden von einem Magnetometer im Gerät erfasst.
+Das **`deviceorientation`**-Ereignis wird ausgelöst, wenn neue Daten von einem Orientierungssensor verfügbar sind, die die aktuelle Orientierung des Geräts im Vergleich zum Erdkoordinatensystem betreffen. Diese Daten werden von einem Magnetometer im Gerät erfasst.
 
-Details finden Sie unter [Erläuterung zu Orientierung und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
+Siehe [Erläuterung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details.
 
-Dieses Ereignis ist nicht abbruchsicher und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht übertragen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("deviceorientation", (event) => { })
@@ -29,21 +29,6 @@ ondeviceorientation = (event) => { }
 Ein [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DeviceOrientationEvent")}}
-
-## Ereigniseigenschaften
-
-- [`DeviceOrientationEvent.absolute`](/de/docs/Web/API/DeviceOrientationEvent/absolute) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der anzeigt, ob das Gerät die Orientierung absolut bereitstellt.
-- [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die z-Achse repräsentiert, ausgedrückt in Grad mit Werten im Bereich von 0 (inklusive) bis 360 (exklusiv).
-- [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die x-Achse repräsentiert, ausgedrückt in Grad mit Werten im Bereich von -180 (inklusive) bis 180 (exklusiv). Dies repräsentiert die Vorwärts- und Rückwärtsbewegung des Geräts.
-- [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die y-Achse repräsentiert, ausgedrückt in Grad mit Werten im Bereich von -90 (inklusive) bis 90 (exklusiv). Dies repräsentiert die Links-Rechts-Bewegung des Geräts.
-- `DeviceOrientationEvent.webkitCompassHeading` {{Non-Standard_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die den Unterschied zwischen der Bewegung des Geräts um die z-Achse des Weltsystems und der Nordrichtung darstellt, ausgedrückt in Grad mit Werten im Bereich von 0 bis 360.
-- `DeviceOrientationEvent.webkitCompassAccuracy` {{Non-Standard_Inline}} {{ReadOnlyInline}}
-  - : Die Genauigkeit des Kompasses, angegeben als positive oder negative Abweichung. Sie beträgt normalerweise 10.
 
 ## Beispiele
 
@@ -78,5 +63,5 @@ function handleOrientationEvent(frontToBack, leftToRight, rotateDegrees) {
 ## Siehe auch
 
 - [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)
-- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
-- [Erläuterung zu Orientierung und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [Erkennung der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erläuterung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)

@@ -1,19 +1,19 @@
 ---
-title: "Element: keypress event"
+title: "Element: keypress-Ereignis"
 short-title: keypress
 slug: Web/API/Element/keypress_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Das **`keypress`**-Ereignis wird ausgelöst, wenn eine [Buchstaben-, Zahlen-, Satzzeichen- oder Symbol](https://w3c.github.io/uievents/#unicode-character-categories)-Taste gedrückt wird, oder wenn die <kbd>Enter</kbd>-Taste gedrückt wird — einschließlich, wenn die <kbd>Enter</kbd>-Taste in Kombination mit der <kbd>Shift</kbd>-Taste oder der <kbd>Ctrl</kbd>-Taste gedrückt wird. Ansonsten, wenn eine Modifikatortaste wie die <kbd>Alt</kbd>-, <kbd>Shift</kbd>-, <kbd>Ctrl</kbd>-, <kbd>Meta</kbd>-, <kbd>Esc</kbd>- oder <kbd>Option</kbd>-Taste alleine gedrückt wird, wird das `keypress`-Ereignis _nicht_ ausgelöst.
+Das **`keypress`**-Ereignis wird ausgelöst, wenn eine [Buchstabe, Zahl, Interpunktionszeichen oder Symbol](https://w3c.github.io/uievents/#unicode-character-categories)-Taste gedrückt wird, oder wenn die <kbd>Enter</kbd>-Taste gedrückt wird – einschließlich wenn die <kbd>Enter</kbd>-Taste in Kombination mit der <kbd>Shift</kbd>- oder <kbd>Ctrl</kbd>-Taste gedrückt wird. Ansonsten wird das `keypress`-Ereignis _nicht_ ausgelöst, wenn eine Modifikatortaste wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd> oder <kbd>Option</kbd> isoliert gedrückt wird.
 
 > [!WARNING]
-> Da dieses Ereignis veraltet ist, sollten Sie stattdessen [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event) oder [`keydown`](/de/docs/Web/API/Element/keydown_event) verwenden.
+> Da dieses Ereignis als veraltet gilt, sollten Sie stattdessen [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event) oder [`keydown`](/de/docs/Web/API/Element/keydown_event) verwenden.
 
-Das Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling). Es kann [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) erreichen.
+Das Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Events#event_bubbling). Es kann [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) erreichen.
 
 ## Syntax
 
@@ -31,47 +31,20 @@ Ein [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent). Erbt von [`UIEvent`](/de/
 
 {{InheritanceDiagram("KeyboardEvent")}}
 
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
-
-- [`KeyboardEvent.altKey`](/de/docs/Web/API/KeyboardEvent/altKey) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Alt</kbd>-Taste (<kbd>Option</kbd> oder <kbd>⌥</kbd> auf macOS) aktiv war, als das Tastenereignis generiert wurde.
-
-- [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) {{ReadOnlyInline}}
-  - : Gibt einen String mit dem Codewert der physischen Taste zurück, die durch das Ereignis repräsentiert wird.
-
-- [`KeyboardEvent.ctrlKey`](/de/docs/Web/API/KeyboardEvent/ctrlKey) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Ctrl</kbd>-Taste aktiv war, als das Tastenereignis generiert wurde.
-
-- [`KeyboardEvent.isComposing`](/de/docs/Web/API/KeyboardEvent/isComposing) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn das Ereignis zwischen `compositionstart` und `compositionend` ausgelöst wird.
-- [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Tastwert der durch das Ereignis repräsentierten Taste angibt.
-- [`KeyboardEvent.location`](/de/docs/Web/API/KeyboardEvent/location) {{ReadOnlyInline}}
-  - : Gibt eine Zahl zurück, die den Speicherort der Taste auf der Tastatur oder einem anderen Eingabegerät angibt. Eine Liste der Konstanten, die die Speicherorte identifizieren, ist unter [Tastatur-Speicherorte](/de/docs/Web/API/KeyboardEvent#keyboard_locations) zu sehen.
-- [`KeyboardEvent.metaKey`](/de/docs/Web/API/KeyboardEvent/metaKey) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Meta</kbd>-Taste (auf Mac-Tastaturen die <kbd>⌘ Command</kbd>-Taste; auf Windows-Tastaturen die Windows-Taste (<kbd>⊞</kbd>)) aktiv war, als das Tastenereignis generiert wurde.
-
-- [`KeyboardEvent.repeat`](/de/docs/Web/API/KeyboardEvent/repeat) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die Taste so gedrückt gehalten wird, dass sie automatisch wiederholt wird.
-- [`KeyboardEvent.shiftKey`](/de/docs/Web/API/KeyboardEvent/shiftKey) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der `true` ist, wenn die <kbd>Shift</kbd>-Taste aktiv war, als das Tastenereignis generiert wurde.
-
 ## Beispiele
 
-### addEventListener keypress Beispiel
+### addEventListener keypress-Beispiel
 
-Dieses Beispiel protokolliert den [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code)-Wert, wenn immer Sie eine Taste nach dem Fokussieren des {{htmlelement("input")}}-Elements drücken.
+Dieses Beispiel protokolliert den Wert von [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code), wenn Sie nach dem Fokussieren des {{htmlelement("input")}}-Elements eine Taste drücken.
 
 Um zu sehen, welche Tasten ein `keypress`-Ereignis auslösen und welche nicht, versuchen Sie, die folgenden Tasten zu drücken:
 
-- Buchstabentasten, Zahlentasten und Satzzeichentasten
-- Symboltasten wie die <kbd>$</kbd>-, <kbd>+</kbd>-, <kbd>=</kbd>-, <kbd>%</kbd>- und <kbd>+</kbd>-Tasten
-- Modifikatortasten wie die <kbd>Alt</kbd>-, <kbd>Shift</kbd>-, <kbd>Ctrl</kbd>-, <kbd>Meta</kbd>-, <kbd>Esc</kbd>-, <kbd>Option</kbd>- oder <kbd>⌘</kbd>-Tasten
+- Buchstabentasten, Zahlentasten und Interpunktionstasten
+- Symboltasten wie <kbd>$</kbd>, <kbd>+</kbd>, <kbd>=</kbd>, <kbd>%</kbd> und <kbd>+</kbd>
+- Modifikatortasten wie <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, <kbd>Meta</kbd>, <kbd>Esc</kbd>, <kbd>Option</kbd> oder <kbd>⌘</kbd>
 - die <kbd>Enter</kbd>-Taste
-- die <kbd>Enter</kbd>-Taste in Kombination mit der <kbd>Shift</kbd>- oder <kbd>Ctrl</kbd>-Taste
-- die <kbd>Enter</kbd>-Taste in Kombination mit anderen Modifikatortasten außer der <kbd>Shift</kbd>- oder <kbd>Ctrl</kbd>-Taste
+- die <kbd>Enter</kbd>-Taste in Kombination mit den <kbd>Shift</kbd>- oder <kbd>Ctrl</kbd>-Tasten
+- die <kbd>Enter</kbd>-Taste in Kombination mit anderen Modifikatortasten als <kbd>Shift</kbd> oder <kbd>Ctrl</kbd>
 
 ```html
 <div>
@@ -94,7 +67,7 @@ function logKey(e) {
 
 {{EmbedLiveSample("addEventListener_keypress_example")}}
 
-### Gleichwertiges onkeypress
+### onkeypress-Äquivalent
 
 ```js
 input.onkeypress = logKey;
@@ -110,7 +83,7 @@ input.onkeypress = logKey;
 
 ## Siehe auch
 
-- Die [`Document`](/de/docs/Web/API/Document)-Schnittstelle, die das Ereignis ebenfalls anvisiert.
+- Das [`Document`](/de/docs/Web/API/Document)-Interface, das ebenfalls Ziel des Ereignisses ist.
 - Verwandte Ereignisse:
   - [`input`](/de/docs/Web/API/Element/input_event)
   - [`keydown`](/de/docs/Web/API/Element/keydown_event)

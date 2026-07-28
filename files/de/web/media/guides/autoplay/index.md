@@ -1,19 +1,19 @@
 ---
-title: Anleitung zur automatischen Wiedergabe für Medien und Web Audio APIs
+title: Leitfaden für Autoplay bei Medien und Web Audio APIs
 slug: Web/Media/Guides/Autoplay
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 7ed7b730bf88307cc6cf34b82bb1d735b9a1aa1f
 ---
 
-Das automatische Starten der Wiedergabe von Audio (oder Videos mit Audiospuren) unmittelbar nach dem Laden einer Seite kann für Nutzer eine unwillkommene Überraschung darstellen. Während die automatische Wiedergabe von Medien einen nützlichen Zweck erfüllt, sollte sie sorgfältig und nur bei Bedarf eingesetzt werden. Um den Nutzern Kontrolle darüber zu geben, bieten Browser häufig verschiedene Formen der Blockierung der automatischen Wiedergabe an. In diesem Leitfaden werden wir die Funktionalität der automatischen Wiedergabe in den verschiedenen Medien- und Web Audio APIs behandeln, einschließlich einer kurzen Übersicht darüber, wie man die Funktion der automatischen Wiedergabe nutzt und wie man mit Browsern arbeitet, um der Blockierung der automatischen Wiedergabe gerecht zu werden.
+Das automatische Starten der Wiedergabe von Audio (oder Videos mit Audiotracks) direkt beim Laden der Seite kann für Nutzer eine unerwünschte Überraschung sein. Während Autoplay von Medien einen nützlichen Zweck erfüllt, sollte es mit Bedacht und nur bei Bedarf eingesetzt werden. Um den Nutzern Kontrolle zu geben, bieten Browser oft verschiedene Formen der Autoplay-Blockierung an. In diesem Leitfaden behandeln wir die Autoplay-Funktionalität in den verschiedenen Medien- und Web-Audio-APIs, einschließlich eines kurzen Überblicks darüber, wie man Autoplay nutzt und wie man mit Browsern arbeitet, um Autoplay-Blockierung elegant zu handhaben.
 
-Die Blockierung der automatischen Wiedergabe wird **nicht** auf {{HTMLElement("video")}}-Elemente angewendet, wenn das Medienquellmaterial keine Audiospur hat oder wenn die Audiospur stummgeschaltet ist. Medien mit einer aktiven Audiospur werden als **hörbar** angesehen, und die Blockierung der automatischen Wiedergabe gilt für sie. **Unhörbare** Medien sind nicht von der Blockierung der automatischen Wiedergabe betroffen.
+Autoplay-Blockierung wird _nicht_ auf {{HTMLElement("video")}}-Elemente angewendet, wenn das zugrunde liegende Medium keinen Audiotrack hat oder wenn der Audiotrack stummgeschaltet ist. Medien mit einem aktiven Audiotrack gelten als **hörbar**, und die Autoplay-Blockierung wirkt auf sie. **Unhörbare** Medien sind von der Autoplay-Blockierung nicht betroffen.
 
-## Automatische Wiedergabe und deren Blockierung
+## Autoplay und Autoplay-Blockierung
 
-Der Begriff **automatische Wiedergabe** bezieht sich auf jede Funktion, die dazu führt, dass Medien ohne eine spezifische Wiedergabeanforderung eines Nutzers abzuspielen beginnen. Dies schließt sowohl die Verwendung von HTML-Attributen zur automatischen Wiedergabe von Medien als auch die Nutzung von JavaScript-Code ein, um die Wiedergabe außerhalb des Kontexts der Behandlung von Nutzereingaben zu starten.
+Der Begriff **Autoplay** bezieht sich auf jede Funktion, die bewirkt, dass Medien abgespielt werden, ohne dass der Nutzer speziell anfordert, dass die Wiedergabe beginnt. Dies umfasst sowohl die Verwendung von HTML-Attributen, um Medien automatisch abzuspielen, als auch den Einsatz von JavaScript-Code, um die Wiedergabe außerhalb des Kontexts einer Nutzerinteraktion zu starten.
 
-Das bedeutet, dass sowohl die folgende als auch die nachfolgende Methode als Verhaltensweisen zur automatischen Wiedergabe gelten und somit den Richtlinien zur Blockierung der automatischen Wiedergabe des Browsers unterliegen:
+Das bedeutet, dass sowohl das Folgende als auch das Weitere als Autoplay-Verhalten gelten und daher der Autoplay-Blockierungsrichtlinie des Browsers unterliegen:
 
 ```html
 <audio src="/music.mp3" autoplay></audio>
@@ -25,45 +25,46 @@ und
 audioElement.play();
 ```
 
-Die folgenden Web-Funktionen und APIs können von der Blockierung der automatischen Wiedergabe betroffen sein:
+Die folgenden Web-Features und APIs können von Autoplay-Blockierung betroffen sein:
 
-- Die {{Glossary("HTML", "HTML")}} {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente
-- Die [Web-Audio-API](/de/docs/Web/API/Web_Audio_API)
+- Die {{Glossary("HTML", "HTML")}} {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente
+- Die [Web Audio API](/de/docs/Web/API/Web_Audio_API)
 
-Aus der Perspektive des Nutzers kann eine Seite oder App, die plötzlich ohne Vorwarnung Geräusche macht, erschrecken, unpraktisch oder abschreckend wirken. Aus diesem Grund erlauben Browser die automatische Wiedergabe im Allgemeinen nur unter bestimmten Umständen.
+Aus der Perspektive des Nutzers kann eine Webseite oder App, die ohne Vorwarnung Geräusche macht, irritierend, unbequem oder abschreckend sein. Deshalb erlauben Browser in der Regel nur unter bestimmten Umständen erfolgreiches Autoplay.
 
-### Verfügbarkeit von automatischer Wiedergabe
+### Verfügbarkeit von Autoplay
 
-Im Allgemeinen können Sie davon ausgehen, dass Medien nur dann automatisch abgespielt werden dürfen, wenn mindestens eine der folgenden Bedingungen zutrifft:
+Grundsätzlich können Sie davon ausgehen, dass Medien nur dann automatisch abgespielt werden dürfen, wenn _mindestens eines_ der folgenden Kriterien erfüllt ist:
 
-- Der Ton ist stummgeschaltet oder die Lautstärke ist auf 0 gesetzt
-- Der Nutzer hat mit der Seite interagiert (durch Klicken, Tippen, Tasten drücken usw.)
-- Wenn die Seite in die Whitelist aufgenommen wurde; dies kann entweder automatisch geschehen, wenn der Browser feststellt, dass der Nutzer häufig mit Medien interagiert, oder manuell über Einstellungen oder andere Benutzeroberflächenmerkmale
-- Wenn die Berechtigungspolitik für automatische Wiedergabe [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) verwendet wird, um automatischen Wiedergabesupport für ein {{HTMLElement("iframe")}} und sein Dokument zu gewähren.
+- Der Ton ist stummgeschaltet oder die Lautstärke ist auf 0 eingestellt
+- Der Nutzer hat mit der Seite interagiert (durch Klicken, Tippen, Drücken von Tasten usw.)
+- Die Seite wurde auf eine Whitelist gesetzt; dies kann entweder automatisch geschehen, wenn der Browser feststellt, dass der Nutzer häufig mit Medien interagiert, oder manuell durch Präferenzen oder andere Benutzeroberflächenfunktionen
+- Wenn die Autoplay-[Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) verwendet wird, um einem {{HTMLElement("iframe")}} und seinem Dokument Autoplay-Unterstützung zu gewähren.
 
-Andernfalls wird die Wiedergabe wahrscheinlich blockiert. Die genauen Situationen, die zu einer Blockierung führen, und die Details, wie Seiten in die Whitelist aufgenommen werden, unterscheiden sich je nach Browser, aber die oben genannten Bedingungen sind eine gute Orientierung.
+Andernfalls wird die Wiedergabe wahrscheinlich blockiert.
+Die genauen Situationen, die zur Blockierung führen, und die Einzelheiten, wie Seiten auf die Whitelist gelangen, variieren von Browser zu Browser, aber die oben genannten sind gute Richtlinien.
 
-Für Details siehe die Richtlinien zur automatischen Wiedergabe für [Google Chrome](https://developer.chrome.com/blog/autoplay/) und [WebKit](https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/).
+Für Details siehe die Autoplay-Richtlinien für [Google Chrome](https://developer.chrome.com/blog/autoplay/) und [WebKit](https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/).
 
 > [!NOTE]
-> Anders ausgedrückt wird die Wiedergabe von Medien, die Audio beinhalten, im Allgemeinen blockiert, wenn die Wiedergabe programmgesteuert in einem Tab initiiert wird, der noch keine Benutzerinteraktion hatte. Browser können zusätzlich unter anderen Umständen blockieren.
+> Anders ausgedrückt wird die Wiedergabe aller Medien, die Ton enthalten, im Allgemeinen blockiert, wenn die Wiedergabe programmatisch in einem Tab gestartet wird, mit dem der Nutzer noch nicht interagiert hat. Browser können zusätzlich unter anderen Umständen blockieren.
 
-## Automatische Wiedergabe von Medienelementen
+## Autoplay von Medienelementen
 
-Nun, da wir besprochen haben, was automatische Wiedergabe ist und was sie verhindern kann, werden wir uns damit befassen, wie Ihre Website oder App Medien beim Laden der Seite automatisch abspielen kann, wie Sie erkennen, wann die automatische Wiedergabe nicht stattfindet, und Tipps zum Umgang, wenn die automatische Wiedergabe vom Browser verweigert wird.
+Jetzt, da wir besprochen haben, was Autoplay ist und was verhindern kann, dass Autoplay zugelassen wird, schauen wir uns an, wie Ihre Website oder App Medien beim Laden der Seite automatisch abspielen kann, wie man erkennt, wann Autoplay nicht auftritt, und Tipps, wie man damit umgeht, wenn Autoplay vom Browser verweigert wird.
 
-### Das Attribut 'autoplay'
+### Das Autoplay-Attribut
 
-Der einfachste Weg, Inhalte automatisch abzuspielen, besteht darin, das [`autoplay`](/de/docs/Web/HTML/Reference/Elements/audio#autoplay) Attribut zu Ihrem {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Element hinzuzufügen, das die [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Eigenschaft des Elements auf `true` setzt.
-Wenn `autoplay` auf `true` gesetzt ist, beginnt das Medium automatisch zu spielen, sobald wie möglich, nachdem Folgendes eingetreten ist:
+Der einfachste Weg, automatisiert Inhalte abzuspielen, ist das Hinzufügen des [`autoplay`](/de/docs/Web/HTML/Reference/Elements/audio#autoplay) Attributs zu Ihrem {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element, wodurch die [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Eigenschaft des Elements auf `true` gesetzt wird.
+Wenn `autoplay` auf `true` steht, beginnt die Medienwiedergabe automatisch sobald wie möglich, nachdem Folgendes eingetreten ist:
 
-- Die Seite ist für die Nutzung der Funktion der automatischen Wiedergabe zugelassen
-- Das Element wurde während des Seitenladens erstellt
-- Genügend Medien wurden empfangen, um die Wiedergabe zu beginnen und ohne Unterbrechung bis zum Ende der Medien fortzufahren, vorausgesetzt, es gibt keine dramatischen Änderungen in der Netzwerkperformance oder Bandbreite.
+- Die Seite darf Autoplay-Funktionalität nutzen
+- Das Element wurde während des Ladevorgangs der Seite erstellt
+- Genug Medien wurden empfangen, um die Wiedergabe zu starten und bis zum Ende der Medien ohne Unterbrechung fortzusetzen, vorausgesetzt, es gibt keine dramatischen Änderungen in der Netzwerkleistung oder Bandbreite.
 
-#### Beispiel: Das Attribut 'autoplay'
+#### Beispiel: Das Autoplay-Attribut
 
-Ein {{HTMLElement("audio")}}-Element, das das `autoplay`-Attribut verwendet, könnte so aussehen:
+Ein {{HTMLElement("audio")}} Element, das das `autoplay` Attribut verwendet, könnte so aussehen:
 
 ```html
 <audio id="musicplayer" autoplay>
@@ -71,17 +72,17 @@ Ein {{HTMLElement("audio")}}-Element, das das `autoplay`-Attribut verwendet, kö
 </audio>
 ```
 
-#### Beispiel 2: Erkennen, ob die automatische Wiedergabe erlaubt ist
+#### Beispiel 2: Erkennung, ob Autoplay zulässig ist
 
-Wenn die automatische Wiedergabe für Ihre Anwendung wichtig ist, müssen Sie möglicherweise das Verhalten anpassen, je nachdem, ob die automatische Wiedergabe erlaubt, nicht erlaubt oder nur für unhörbare Inhalte unterstützt wird.
-Zum Beispiel, wenn Ihre Anwendung ein Video automatisch abspielen muss und Sie wissen, dass die Seite nur die automatische Wiedergabe unhörbarer Inhalte zulässt, können Sie es entweder stummschalten oder ein Video ohne Audiospur bereitstellen.
-Wenn Sie wissen, dass die automatische Wiedergabe nicht erlaubt ist, könnten Sie ein Standardbild für das Video bereitstellen (mithilfe des [`poster`](/de/docs/Web/HTML/Reference/Elements/video#poster)-Attributs) oder das Laden des Videos aufschieben, bis es angefordert wird.
+Wenn Autoplay für Ihre Anwendung wichtig ist, müssen Sie möglicherweise das Verhalten anpassen, je nachdem, ob Autoplay erlaubt, nicht erlaubt oder nur für unhörbare Inhalte unterstützt wird.
+Wenn Ihre Anwendung zum Beispiel ein Video automatisch abspielen muss und Sie wissen, dass die Seite nur das Autoplay von unhörbaren Inhalten erlaubt, können Sie es entweder stummschalten oder ein Video ohne Audiotrack bereitstellen.
+Ebenso, wenn Sie wissen, dass Autoplay überhaupt nicht erlaubt ist, könnten Sie ein Standardbild für das Video bereitstellen (unter Verwendung des [`poster`](/de/docs/Web/HTML/Reference/Elements/video#poster) Attributs) oder wählen, das Laden des Videos zu verschieben, bis es angefordert wird.
 
-Die Methode [`Navigator.getAutoplayPolicy()`](/de/docs/Web/API/Navigator/getAutoplayPolicy) kann verwendet werden, um die Richtlinie zur automatischen Wiedergabe für eine Art von Medienfunktion (d.h. alle Medienelemente oder alle Audiokontexte) in einem Dokument zu überprüfen oder zu überprüfen, ob ein bestimmtes Medienelement oder ein Audiokontext automatisch abgespielt werden kann.
+Die [`Navigator.getAutoplayPolicy()`](/de/docs/Web/API/Navigator/getAutoplayPolicy) Methode kann verwendet werden, um die Autoplay-Richtlinie für einen Medienelement-Typ (z.B. alle Medienelemente oder alle Audiokontexte) in einem Dokument zu überprüfen, oder um festzustellen, ob ein spezifisches Medienelement oder Audiokontext automatisch abgespielt werden kann.
 
-Das folgende Beispiel zeigt, wie Sie den `mediaelement`-String übergeben, um die automatische Wiedergaberichtlinie für alle Medienelemente im Dokument zu erhalten (übergeben Sie `audiocontext`, um die Richtlinie für Audiokontexte zu erhalten).
-Der Code geht davon aus, dass `video` ein `HTMLVideoElement` Medienelement ist, das das [`<video>`](/de/docs/Web/HTML/Reference/Elements/video#autoplay)-Tag oder [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) verwendet, und dass es standardmäßig zum Abspielen mit Audio konfiguriert ist.
-Wenn die automatische Wiedergabe nur für unhörbare Inhalte erlaubt ist, stummschalten wir das Audio; wenn die automatische Wiedergabe nicht erlaubt ist, stellen wir sicher, dass ein Platzhalterbild für das Video angezeigt wird.
+Das folgende Beispiel zeigt, wie man den String `mediaelement` übergibt, um die Autoplay-Richtlinie für alle Medienelemente im Dokument zu erhalten (übergeben Sie `audiocontext`, um die Richtlinie für Audiokontexte zu erhalten).
+Der Code geht davon aus, dass `video` ein `HTMLVideoElement` Medienelement ist, das das [`<video>`](/de/docs/Web/HTML/Reference/Elements/video#autoplay) Tag oder [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) verwendet, und standardmäßig so konfiguriert ist, dass es mit Audio automatisch abgespielt wird.
+Wenn Autoplay nur für unhörbare Inhalte erlaubt ist, stummschalten wir das Audio; wenn Autoplay nicht erlaubt ist, stellen wir sicher, dass ein Platzhalterbild für das Video angezeigt wird.
 
 ```js
 if (navigator.getAutoplayPolicy("mediaelement") === "allowed") {
@@ -91,12 +92,12 @@ if (navigator.getAutoplayPolicy("mediaelement") === "allowed") {
   video.muted = true;
 } else if (navigator.getAutoplayPolicy("mediaelement") === "disallowed") {
   // Set a default placeholder image.
-  video.poster = "http://example.com/poster_image_url";
+  video.poster = "https://example.com/poster_image_url";
 }
 ```
 
-Der Code zum Testen eines bestimmten Elements oder Audiokontextes ist derselbe, außer dass Sie das zu testende Element oder den Kontext anstelle des Typs übergeben.
-Hier übergeben wir das zu testende `video`-Objekt.
+Der Code, um ein spezifisches Element oder eine Audioumgebung zu testen, ist der gleiche, außer dass Sie das zu testende Element oder die Umgebung anstelle des Typ-Strings übergeben.
+Hier übergeben wir das `video` Objekt, das wir testen wollen.
 
 ```js
 if (navigator.getAutoplayPolicy(video) === "allowed") {
@@ -106,21 +107,21 @@ if (navigator.getAutoplayPolicy(video) === "allowed") {
   video.muted = true;
 } else if (navigator.getAutoplayPolicy(video) === "disallowed") {
   // Set a default placeholder image.
-  video.poster = "http://example.com/poster_image_url";
+  video.poster = "https://example.com/poster_image_url";
 }
 ```
 
-Die Richtlinie zur automatischen Wiedergabe für einen Typ kann sich aufgrund von Benutzerinteraktionen mit der Seite, dem Dokument oder einem bestimmten Element ändern.
-Ebenso kann sich auf einigen Browsern die Richtlinie für ein bestimmtes Element ändern, obwohl die Richtlinie für den Typ unverändert bleibt (zum Beispiel auf Browsern, bei denen das Berühren eines bestimmten Elements nur dieses Element in die Lage versetzen kann, automatisch abzuspielen).
+Die Autoplay-Richtlinie für einen Typ kann sich aufgrund der Interaktion des Nutzers mit der Seite, der Seite oder einem bestimmten Element ändern.
+Ebenso kann auf einigen Browsern die Richtlinie für ein spezifisches Element sogar ändern, obwohl die Richtlinie für den Typ nicht geändert hat (zum Beispiel auf Browsern, bei denen das Berühren eines spezifischen Elements nur diesem Element erlaubt, automatisch abzuspielen).
 
-Da es keine Möglichkeit gibt, benachrichtigt zu werden, wenn sich die Richtlinie zur automatischen Wiedergabe geändert hat (entweder für einen Typ oder ein Element), empfehlen wir generell die Überprüfung der Richtlinie beim Laden der Seite mit dem Typ.
+Da es keinen Weg gibt, benachrichtigt zu werden, wenn sich die Autoplay-Richtlinie geändert hat (entweder für einen Typ oder ein Element), empfehlen wir im Allgemeinen, dass die Richtlinie überprüft wird, wenn die Seite geladen wird, unter Verwendung des Typs.
 
-#### Beispiel 3: Erkennen eines Fehlers bei der automatischen Wiedergabe als Fallback
+#### Beispiel 3: Erkennung des Versagens von Autoplay als Fallback
 
-Kein spezifisches Ereignis (oder andere Benachrichtigung) wird durch Erfolg oder Misserfolg der automatischen Wiedergabe ausgelöst, sodass Browser, die [`Navigator.getAutoplayPolicy()`](/de/docs/Web/API/Navigator/getAutoplayPolicy) nicht unterstützen, keine einfache Möglichkeit haben, festzustellen, ob die automatische Wiedergabe unterstützt wird, oder zu reagieren, wenn sie ausgelöst oder nicht ausgelöst wird.
+Kein spezifisches Ereignis (oder andere Benachrichtigung) wird durch erfolgreichen oder erfolglosen Autoplay ausgelöst, daher haben Browser, die [`Navigator.getAutoplayPolicy()`](/de/docs/Web/API/Navigator/getAutoplayPolicy) nicht unterstützen, keine einfache Möglichkeit, festzustellen, ob Autoplay unterstützt wird oder wie darauf zu reagieren ist, wenn es ausgelöst oder nicht ausgelöst wird.
 
-Ein Ansatz ist, auf das erste Auftreten des [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignisses zu hören, welches auf dem Medienelement ausgelöst wird, wenn es nach einer Pause _und_ wenn die automatische Wiedergabe erfolgt fortgesetzt wird.
-Das bedeutet, dass beim ersten Mal, wenn das `play`-Ereignis ausgelöst wird, Sie wissen, dass Ihr Medium zum ersten Mal, nachdem die Seite geöffnet wurde, gestartet wird.
+Ein Ansatz ist das Hören auf das erste Auftreten des [`play`](/de/docs/Web/API/HTMLMediaElement/play_event) Ereignisses, das auf dem Medienelement ausgelöst wird, wenn es nach einer Pause fortgesetzt _und_ wenn Autoplay auftritt.
+Das bedeutet, dass beim ersten Mal, dass das `play` Ereignis ausgelöst wird, Sie wissen, dass Ihr Medium zum ersten Mal nach dem Öffnen der Seite gestartet wird.
 
 Betrachten Sie dieses HTML für ein Medienelement:
 
@@ -128,9 +129,9 @@ Betrachten Sie dieses HTML für ein Medienelement:
 <video src="my-video.mp4" id="video" autoplay></video>
 ```
 
-Hier haben wir ein {{HTMLElement("video")}}-Element, dessen [`autoplay`](/de/docs/Web/HTML/Reference/Elements/video#autoplay)-Attribut gesetzt ist und mit einem [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignishandler ausgestattet ist; das Ereignis wird von einer Funktion namens `handleFirstPlay()` gehandhabt, die als Eingabe das `play`-Ereignis erhält.
+Hier haben wir ein {{HTMLElement("video")}} Element, dessen [`autoplay`](/de/docs/Web/HTML/Reference/Elements/video#autoplay) Attribut gesetzt ist und mit einem [`play`](/de/docs/Web/API/HTMLMediaElement/play_event) Ereignishandler; das Ereignis wird von einer Funktion namens `handleFirstPlay()` behandelt, die als Eingabe das `play` Ereignis empfängt.
 
-`handleFirstPlay()` sieht so aus:
+`handleFirstPlay()` sieht folgendermaßen aus:
 
 ```js
 const video = document.getElementById("video");
@@ -150,31 +151,31 @@ function handleFirstPlay(event) {
 }
 ```
 
-Nachdem wir eine Referenz auf das Videoelement vom [`Event`](/de/docs/Web/API/Event)-Objekt mit dem [`target`](/de/docs/Web/API/Event/target) erhalten haben, verwenden wir es, um den Ereignislistener zu entfernen.
-Damit wird verhindert, dass zukünftige `play`-Ereignisse an den Handler übergeben werden. Das könnte passieren, wenn das Video vom Nutzer pausiert und wieder aufgenommen wird oder automatisch vom Browser, wenn das Dokument in einem Hintergrund-Tab ist.
+Nachdem eine Referenz auf das Video-Element über das [`Event`](/de/docs/Web/API/Event) Objekt's [`target`](/de/docs/Web/API/Event/target) geholt wurde, verwenden wir es, um den Ereignis-Listener zu entfernen.
+Dies verhindert, dass zukünftige `play` Ereignisse an den Handler geliefert werden. Dies könnte passieren, wenn das Video pausiert und vom Nutzer oder automatisch vom Browser wieder aufgenommen wird, wenn das Dokument in einem Hintergrund-Tab ist.
 
-An diesem Punkt kann Ihre Website oder App beginnen, was immer erforderlich ist, um auf das angelaufene Video zu reagieren.
+Zu diesem Zeitpunkt kann Ihre Site oder App mit dem beginnen, was immer erforderlich ist, dass das Video gestartet wurde.
 
-### Die play()-Methode
+### Die play() Methode
 
-Der Begriff "automatische Wiedergabe" bezieht sich auch auf Szenarien, in denen ein Skript versucht, die Wiedergabe von Medien, die Audio beinhalten, außerhalb des Kontexts der Behandlung eines Benutzerereignisses zu starten. Dies erfolgt durch Aufruf der [`play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode des Medienelements.
+Der Begriff "Autoplay" bezieht sich auch auf Szenarien, in denen ein Skript versucht, die Wiedergabe von Medien, die Audio beinhalten, außerhalb des Kontexts eines Benutzer-Eingabeereignisses auszulösen. Dies geschieht durch Aufrufen der [`play()`](/de/docs/Web/API/HTMLMediaElement/play) Methode des Medienelements.
 
 > [!NOTE]
-> Es wird dringend empfohlen, wann immer möglich das `autoplay`-Attribut zu verwenden, da die Unterstützung für automatische Wiedergabepräferenzen für das `autoplay`-Attribut weiter verbreitet ist als für andere Mittel, um Medien automatisch abzuspielen. Es ermöglicht dem Browser auch, die Verantwortung für den Start der Wiedergabe zu übernehmen und die Zeitoptimierung zu verwalten.
+> Es wird dringend empfohlen, das `autoplay` Attribut wann immer möglich zu verwenden, da die Unterstützung für Autoplay-Präferenzen für das `autoplay` Attribut weiter verbreitet ist als für andere Mittel des automatischen Abspielens von Medien. Es lässt den Browser auch die Verantwortung für den Start der Wiedergabe übernehmen, was es ihm ermöglicht, den Zeitpunkt dessen zu optimieren.
 
-#### Beispiel: Video abspielen
+#### Beispiel: Abspielen von Videos
 
-Dieses Beispiel spielt das erste {{HTMLElement("video")}}-Element im Dokument ab. `play()` lässt die Wiedergabe nur dann beginnen, wenn das Dokument die Erlaubnis hat, automatisch Medien abzuspielen.
+Dieses Beispiel spielt das erste {{HTMLElement("video")}} Element im Dokument ab. `play()` lässt die Wiedergabe erst beginnen, wenn das Dokument die Berechtigung hat, Medien automatisch abzuspielen.
 
 ```js
 document.querySelector("video").play();
 ```
 
-#### Beispiel: Behandlung von play()-Fehlschlägen
+#### Beispiel: Umgang mit play() Fehlern
 
-Es ist viel einfacher, einen Fehler bei der automatischen Wiedergabe von Medien mit der [`play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode zu erkennen. `play()` gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Medium erfolgreich beginnt zu spielen, und abgelehnt wird, wenn die Wiedergabe nicht beginnt (z.B. wenn die automatische Wiedergabe verweigert wird). Wenn die automatische Wiedergabe fehlschlägt, möchten Sie wahrscheinlich eine Möglichkeit bieten, mit der der Nutzer dem Browser manuell die Erlaubnis zum Abspielen von Medien erteilen kann.
+Es ist viel einfacher, ein Versagen des Autoplays zu erkennen, wenn Sie die [`play()`](/de/docs/Web/API/HTMLMediaElement/play) Methode verwenden, um es zu starten. `play()` gibt ein {{jsxref("Promise")}} zurück, welches aufgelöst wird, sobald die Medien erfolgreich zu spielen beginnen, und wird abgelehnt, wenn die Wiedergabe nicht beginnt (wie zum Beispiel, wenn Autoplay verweigert wird). Wenn Autoplay fehlschlägt, möchten Sie wahrscheinlich eine Möglichkeit bieten, dass der Benutzer dem Browser manuell mitteilt, die Berechtigung zur Wiedergabe von Medien zu erteilen.
 
-Sie könnten zum Beispiel folgenden Code verwenden, um das zu erreichen:
+Sie könnten einen Code wie diesen verwenden, um die Aufgabe zu erledigen:
 
 ```js
 let startPlayPromise = videoElem.play();
@@ -195,15 +196,15 @@ if (startPlayPromise !== undefined) {
 }
 ```
 
-Das erste, was wir mit dem Ergebnis von `play()` machen, ist sicherzustellen, dass es nicht `undefined` ist. Wir prüfen dies, weil in früheren Versionen der HTML-Spezifikation `play()` keinen Wert zurückgegeben hat. Die Rückgabe eines Versprechens (Promise), um den Erfolg oder Misserfolg der Operation zu bestimmen, wurde später hinzugefügt. Das Prüfen auf `undefined` verhindert, dass dieser Code bei älteren Versionen von Webbrowsern mit einem Fehler fehlschlägt.
+Das Erste, was wir mit dem Ergebnis von `play()` tun, ist sicherzustellen, dass es nicht `undefined` ist. Wir überprüfen dies, weil in früheren Versionen der HTML-Spezifikation `play()` keinen Wert zurückgab. Die Rückgabe eines Versprechens, um den Erfolg oder das Scheitern der Operation zu bestimmen, wurde kürzlich hinzugefügt. Die Überprüfung auf `undefined` verhindert, dass dieser Code auf älteren Versionen von Webbrowsern mit einem Fehler fehlschlägt.
 
-Wird das von `play()` zurückgegebene Promise ohne Fehler aufgelöst, wird die `then()`-Klausel ausgeführt und kann beginnen, was auch immer benötigt wird, wenn die automatische Wiedergabe begonnen hat.
+Wenn das Versprechen, das von `play()` zurückgegeben wird, ohne Fehler aufgelöst wird, wird die `then()`-Klausel ausgeführt und kann mit dem beginnen, was immer erforderlich ist, wenn Autoplay begonnen hat.
 
-Wir fügen dann dem Promise einen {{jsxref("Promise.catch", "catch()")}}-Handler hinzu. Dieser prüft den `name` des Fehlers, um festzustellen, ob es sich um einen `NotAllowedError` handelt. Dies signalisiert, dass die Wiedergabe aufgrund eines Berechtigungsproblems, wie z.B. einer verweigerten automatischen Wiedergabe, fehlgeschlagen ist. In diesem Fall sollten wir eine Benutzeroberfläche anbieten, um dem Nutzer die manuelle Wiedergabesteuerung zu ermöglichen; das wird hier über eine Funktion `showPlayButton()` gelöst.
+Wir fügen dann einen {{jsxref("Promise.catch", "catch()")}} Handler zu dem Versprechen hinzu. Dies prüft den [`name`](/de/docs/Web/API/DOMException/name) des Fehlers, um festzustellen, ob es sich um `NotAllowedError` handelt. Dies zeigt an, dass die Wiedergabe aufgrund eines Berechtigungsproblems, wie dem Verweigern von Autoplay, fehlgeschlagen ist. Wenn dies der Fall ist, sollten wir eine Benutzeroberfläche präsentieren, die es dem Benutzer ermöglicht, die Wiedergabe manuell zu starten; das wird hier durch eine Funktion `showPlayButton()` behandelt.
 
-Andere Fehler werden entsprechend behandelt.
+Alle anderen Fehler werden wie angemessen behandelt.
 
-Möchten Sie das Video nach der ersten Interaktion mit der Seite abspielen, könnte [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwendet werden, um dies zu erreichen:
+Wenn Sie das Video nach der ersten Interaktion mit der Seite abspielen möchten, könnte [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwendet werden, um dies zu erreichen:
 
 ```js
 let playAttempt = setInterval(() => {
@@ -218,24 +219,24 @@ let playAttempt = setInterval(() => {
 }, 3000);
 ```
 
-## Automatische Wiedergabe mit der Web-Audio-API
+## Autoplay mittels der Web Audio API
 
-In der [Web-Audio-API](/de/docs/Web/API/Web_Audio_API) kann eine Website oder App Audio abspielen, indem die `start()`-Methode auf einem Quellenknoten aufgerufen wird, der mit dem [`AudioContext`](/de/docs/Web/API/AudioContext) verknüpft ist. Geschieht dies außerhalb des Kontexts der Behandlung eines Benutzerereignisses, unterliegt es den Regeln zur automatischen Wiedergabe.
+In der [Web Audio API](/de/docs/Web/API/Web_Audio_API) kann eine Website oder App durch die `start()` Methode auf einem Quellknoten, der mit dem [`AudioContext`](/de/docs/Web/API/AudioContext) verbunden ist, Audio abspielen. Dies unterliegt den Autoplay-Regeln, wenn es außerhalb des Kontexts eines Benutzer-Eingabeereignisses geschieht.
 
-## Die automatische Wiedergabe Permissions Policy
+## Die Autoplay-Berechtigungsrichtlinie
 
-Neben der browserseitigen Steuerung und Verwaltung der automatischen Wiedergabefunktionalität, die oben beschrieben wurde, kann ein Webserver auch seine Bereitschaft äußern, die automatische Wiedergabe zuzulassen. Der {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Permissions-Policy")}}-Header mit der {{httpheader("Permissions-Policy/autoplay", "autoplay")}}-Direktive wird verwendet, um zu steuern, welche Domains, wenn überhaupt, für die automatische Wiedergabe von Medien verwendet werden können. Standardmäßig ist die `autoplay`-Permissions Policy auf `self` gesetzt, was bedeutet, dass die automatische Wiedergabe erlaubt ist, solange sie auf derselben Domain wie das Dokument gehostet werden.
+Zusätzlich zur browserseitigen Verwaltung und Kontrolle über die Autoplay-Funktionalität, wie oben beschrieben, kann ein Webserver auch seine Bereitschaft zum Ausdruck bringen, Autoplay zuzulassen. Der {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Permissions-Policy")}} Header-Direktive {{httpheader("Permissions-Policy/autoplay", "autoplay")}} wird verwendet, um zu kontrollieren, welche Domains, wenn überhaupt, zum automatischen Abspielen von Medien verwendet werden können. Standardmäßig ist die `autoplay` Berechtigungsrichtlinie auf `self` gesetzt, was bedeutet, dass Autoplay erlaubt ist, solange sie auf der gleichen Domain wie das Dokument gehostet werden.
 
-Sie können auch eine leere Whitelist (`()`) angeben, um die automatische Wiedergabe vollständig zu deaktivieren, `*`, um die automatische Wiedergabe von allen Domains zuzulassen, oder eine oder mehrere spezifische Ursprünge, von denen Medien automatisch abgespielt werden können. Diese Ursprünge werden durch Leerzeichen getrennt.
+Sie können auch eine leere Whitelist (`()`) angeben, um Autoplay ganz zu deaktivieren, `*` um Autoplay von allen Domains zuzulassen, oder eine oder mehrere spezifische Ursprünge, von denen Medien automatisch abgespielt werden können. Diese Ursprünge sind durch Leerzeichen getrennt.
 
 > [!NOTE]
-> Die angegebene Permissions Policy gilt für das Dokument und jedes darin verschachtelte {{HTMLElement("iframe")}}, es sei denn, diese Rahmen enthalten ein [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow), das eine neue Permissions Policy für diesen Frame und alle darin verschachtelten Frames definiert.
+> Die angegebene Berechtigungsrichtlinie gilt für das Dokument und jedes darin verschachtelte {{HTMLElement("iframe")}}, es sei denn, diese Frames enthalten ein [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow), das eine neue Berechtigungsrichtlinie für diesen Frame und alle darin verschachtelten Frames festlegt.
 
-Wenn das [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)-Attribut auf einem `<iframe>` verwendet wird, um eine Permissions Policy für diesen Frame und seine verschachtelten Frames festzulegen, können Sie auch den Wert `'src'` angeben, um die automatische Wiedergabe von Medien nur von derselben Domain zu erlauben, die im [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src)-Attribut des Frames angegeben ist.
+Wenn Sie das [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow) Attribut auf einem `<iframe>` verwenden, um eine Berechtigungsrichtlinie für diesen Frame und seine verschachtelten Frames festzulegen, können Sie auch den Wert `'src'` angeben, um das automatische Abspielen von Medien nur von derselben Domain zuzulassen, die im [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src) Attribut des Frames angegeben ist.
 
-### Beispiel: Automatische Wiedergabe nur von der Domain des Dokuments zulassen
+### Beispiel: Autoplay nur von der Domain des Dokuments zulassen
 
-Um den {{HTTPHeader("Permissions-Policy")}}-Header zu verwenden, um Medien nur von der Herkunft des Dokuments {{Glossary("origin", "origin")}} automatisch abspielen zu lassen:
+Um den {{HTTPHeader("Permissions-Policy")}} Header zu verwenden, um nur Medien vom Ursprungsdokument des Dokuments {{Glossary("origin", "origin")}} automatisch abzuspielen:
 
 ```http
 Permissions-Policy: autoplay=(self)
@@ -247,29 +248,29 @@ Um dasselbe für ein {{HTMLElement("iframe")}} zu tun:
 <iframe src="mediaplayer.html" allow="autoplay"> </iframe>
 ```
 
-### Beispiel: Automatische Wiedergabe und Vollbildmodus zulassen
+### Beispiel: Autoplay und Vollbildmodus erlauben
 
-Wenn die Berechtigung für die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) zum vorherigen Beispiel hinzugefügt wird, ergibt sich ein `Permissions-Policy`-Header, wie er unten gezeigt wird, wenn der Vollbildzugriff unabhängig von der Domain erlaubt ist; eine Domänenbeschränkung kann nach Bedarf hinzugefügt werden.
+Wenn Sie der Berechtigung für das vorherige Beispiel die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) Erlaubnis hinzufügen, erhalten Sie einen `Permissions-Policy` Header wie den folgenden, falls der Vollbildzugriff unabhängig von der Domain erlaubt ist; eine Domänenbeschränkung kann bei Bedarf ebenfalls hinzugefügt werden.
 
 ```http
 Permissions-Policy: autoplay=(self), fullscreen=(self)
 ```
 
-Die gleichen Berechtigungen, mit dem `allow`-Attribut des `<iframe>`-Elements gewährt, sehen so aus:
+Die gleichen Berechtigungen, gewährt mit dem `<iframe>` Element's `allow` Attribut, sehen so aus:
 
 ```html
 <iframe src="mediaplayer.html" allow="autoplay; fullscreen"> </iframe>
 ```
 
-### Beispiel: Automatische Wiedergabe von bestimmten Quellen zulassen
+### Beispiel: Erlauben des Autoplays von spezifischen Quellen
 
-Der `Permissions-Policy`-Header, um Medien sowohl vom Dokument (oder `<iframe>`) aus von der eigenen Domain als auch von `https://example.media` abspielen zu lassen, sieht so aus:
+Der `Permissions-Policy` Header, um Medien von sowohl der eigenen Domain des Dokuments (oder `<iframe>`) als auch von `https://example.media` abzuspielen, sieht folgendermaßen aus:
 
 ```http
 Permissions-Policy: autoplay=(self "https://example.media")
 ```
 
-Ein {{HTMLElement("iframe")}} kann geschrieben werden, um anzugeben, dass diese Richtlinie zur automatischen Wiedergabe auf sich selbst und alle darin enthaltenen Frames angewendet wird, wie folgt:
+Ein {{HTMLElement("iframe")}} kann geschrieben werden, um anzugeben, dass diese Autoplay-Richtlinie auf sich und alle Kinderframes angewendet werden sollte:
 
 ```html
 <iframe
@@ -280,27 +281,27 @@ Ein {{HTMLElement("iframe")}} kann geschrieben werden, um anzugeben, dass diese 
 </iframe>
 ```
 
-### Beispiel: Automatische Wiedergabe deaktivieren
+### Beispiel: Deaktivieren von Autoplay
 
-Das Setzen der `autoplay`-Permissions Policy auf `()`/`none` deaktiviert die automatische Wiedergabe vollständig für das Dokument oder `<iframe>` und alle darin verschachtelten Frames. Der HTTP-Header lautet:
+Wenn die `autoplay` Berechtigungsrichtlinie auf `()`/`none` gesetzt ist, wird Autoplay für das Dokument oder `<iframe>` und alle darin verschachtelten Frames vollständig deaktiviert. Der HTTP-Header ist:
 
 ```http
 Permissions-Policy: autoplay=()
 ```
 
-Verwendung des `allow`-Attributs des `<iframe>`:
+Verwenden des `<iframe>``allow` Attributs:
 
 ```html
 <iframe src="mediaplayer.html" allow="autoplay 'none'"> </iframe>
 ```
 
-## Beste Praktiken
+## Bewährte Praktiken
 
-Hier werden Tipps und empfohlene bewährte Vorgehensweisen angeboten, um das Beste aus der Arbeit mit automatischer Wiedergabe herauszuholen.
+Hier werden Tipps und empfohlene bewährte Praktiken angeboten, um Ihnen zu helfen, das Beste aus der Arbeit mit Autoplay zu machen.
 
-### Umgang mit Fehlern bei der automatischen Wiedergabe mit Mediensteuerungen
+### Umgang mit Autoplay-Ausfall mit Mediensteuerungen
 
-Ein häufiger Anwendungsfall für die automatische Wiedergabe ist das automatische Abspielen eines Videoclips, der zu einem Artikel, einer Anzeige oder einem Vorschauelement der Hauptfunktionalität der Seite gehört. Um solche Videos zu autoplayen, haben Sie zwei Optionen: keine Audiospur zu haben oder eine Audiospur zu haben, jedoch das {{HTMLElement("video")}}-Element so zu konfigurieren, dass Audio standardmäßig stummgeschaltet ist, wie folgt:
+Ein häufiger Anwendungsfall für Autoplay ist es, automatisch einen Videoclip zu starten, der zu einem Artikel, einer Werbung oder einer Vorschau auf die Hauptfunktionalität der Seite gehört. Um solche Videos automatisch abzuspielen, haben Sie zwei Möglichkeiten: keinen Audiotrack haben oder einen Audiotrack haben, aber das {{HTMLElement("video")}} Element so konfigurieren, dass das Audio standardmäßig stummgeschaltet ist, wie dies:
 
 ```html
 <video
@@ -311,35 +312,35 @@ Ein häufiger Anwendungsfall für die automatische Wiedergabe ist das automatisc
   muted></video>
 ```
 
-Dieses Videoelement ist so konfiguriert, dass es die Benutzersteuerungen beinhaltet (normalerweise Abspielen/Pause, Verschieben in der Zeitleiste des Videos, Lautstärkeregelung und Stummschaltung); und da das [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted)-Attribut enthalten ist, und das [`playsinline`](/de/docs/Web/HTML/Reference/Elements/video#playsinline)-Attribut benötigt wird, damit die automatische Wiedergabe in Safari funktioniert, wird das Video automatisch abgespielt, jedoch mit stummgeschaltetem Ton. Der Nutzer hat jedoch die Möglichkeit, den Ton wieder zu aktivieren, indem er auf die Entstummungstaste in den Steuerungen klickt.
+Dieses Videoelement ist so konfiguriert, dass es die Benutzersteuerungen enthält (typischerweise Play/Pause, Durchsuchen der Videotimeline, Lautstärkeregelung und Stummschaltung); zudem wird, da das [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted) Attribut enthalten ist und das [`playsinline`](/de/docs/Web/HTML/Reference/Elements/video#playsinline) Attribut, das für Autoplay in Safari erforderlich ist, das Video automatisch abgespielt, aber mit stummgeschaltetem Audio. Der Nutzer hat jedoch die Möglichkeit, das Audio wieder zu aktivieren, indem er auf den Unmute-Button in den Steuerungen klickt.
 
 ## Browser-Konfigurationsoptionen
 
-Browser können Voreinstellungen haben, die beeinflussen, wie die automatische Wiedergabe funktioniert oder wie die Blockierung der automatischen Wiedergabe gehandhabt wird. Hier werden alle derartigen Voreinstellungen aufgelistet, die für Sie als Webentwickler von besonderer Bedeutung oder Wichtigkeit sein können. Dazu gehören auch solche, die beim Testen oder Debuggen helfen können sowie Voreinstellungen die in einer Art festgelegt werden könnten, die es zu beachten gilt.
+Browser können Voreinstellungen haben, die steuern, wie Autoplay funktioniert oder wie Autoplay-Blockierung gehandhabt wird. Hier werden alle diese Präferenzen aufgeführt, die für Sie als Webentwickler von besonderer Bedeutung oder Wichtigkeit sein könnten. Dazu gehören alle, die beim Testen oder Debuggen hilfreich sein können, sowie alle, die möglicherweise so eingestellt werden könnten, dass Sie darauf vorbereitet sein müssen.
 
 ### Firefox
 
 - `media.allowed-to-play.enabled`
-  - : Eine boolesche Voreinstellung, die angibt, ob die nicht standardmäßige `HTMLMediaElement.allowedToPlay`-Eigenschaft im Web verfügbar ist. Der Standardwert ist derzeit `false` (außer in Nightly-Builds, wo der Standardwert `true` ist). Wenn diese Einstellung `false` ist, fehlt die `allowedToPlay`-Eigenschaft in der `HTMLMediaElement`-Schnittstelle und ist somit weder in {{HTMLElement("audio")}} noch in {{HTMLElement("video")}}-Elementen vorhanden.
+  - : Eine Boolesche Präferenz, die angibt, ob die nicht standardisierte `HTMLMediaElement.allowedToPlay` Eigenschaft im Web sichtbar ist. Derzeit ist dies standardmäßig `false` (außer in Nightly-Builds, wo es standardmäßig `true` ist). Wenn dies `false` ist, fehlt die `allowedToPlay` Eigenschaft in der `HTMLMediaElement` Schnittstelle und ist daher bei {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elementen nicht vorhanden.
 - `media.autoplay.allow-extension-background-pages`
-  - : Diese boolesche Voreinstellung erlaubt es, wenn auf `true` gesetzt, Hintergrundskripten von Browser-Erweiterungen, automatisch Audiomedien abzuspielen. Wenn dieser Wert auf `false` gesetzt ist, wird diese Funktion deaktiviert. Der Standardwert ist `true`.
+  - : Diese Boolesche Präferenz, wenn `true`, erlaubt Hintergrundskripten von Browsererweiterungen, Audiomedien automatisch abzuspielen. Die Einstellung dieses Wertes auf `false` deaktiviert diese Fähigkeit. Der Standardwert ist `true`.
 - `media.autoplay.allow-muted`
-  - : Eine boolesche Voreinstellung, die, wenn `true` (der Standard), es erlaubt, dass Audio-Medien, die derzeit stummgeschaltet sind, automatisch abgespielt werden. Wenn diese auf `false` geändert wurde, wird Medien mit Audiospur nicht erlaubt, zu spielen, auch wenn sie stummgeschaltet sind.
+  - : Eine Boolesche Präferenz, die, falls `true` (Standard), erlaubt automatisch abgespielte Audiomedien, die derzeit stummgeschaltet sind. Wenn dies auf `false` geändert wurde, wird Medien mit einem Audiotrack auch dann nicht erlaubt, abgespielt zu werden, wenn stummgeschaltet.
 - `media.autoplay.block-webaudio`
-  - : Eine boolesche Voreinstellung, die angibt, ob die Blockierung der automatischen Wiedergabe auf die [Web-Audio-API](/de/docs/Web/API/Web_Audio_API) angewendet werden soll.
-    Wenn `false`, ist Web-Audio immer zur automatischen Wiedergabe zugelassen.
-    Wenn `true`, können Audio-Kontexte nur nach {{Glossary("Sticky_activation", "Sticky activation")}} auf Seiten abgespielt werden.
+  - : Eine Boolesche Präferenz, die angibt, ob die Autoplay-Blockierung auf die [Web Audio API](/de/docs/Web/API/Web_Audio_API) angewendet wird.
+    Wenn `false`, ist Web-Audio immer erlaubt, automatisch abzuspielen.
+    Wenn `true`, können Audiokontexte nur auf Seiten abgespielt werden, nachdem eine {{Glossary("Sticky_activation", "Sticky Aktivierung")}} aufgetreten ist.
     Der Standardwert ist `true`.
 - `media.autoplay.default`
-  - : Eine ganze Zahl, die angibt, ob die Konfiguration der automatischen Wiedergabe pro Domain standardmäßig erlaubt (`0`), blockiert (`1`), oder bei Nutzung zur Abfrage verleitet (`2`) wird. Der Standardwert ist `0`.
-- `media.autoplay.enabled.user-gestures-needed` (nur Nightly-Builds)
-  - : Eine boolesche Voreinstellung, die kontrolliert, ob die Erkennung von Benutzeraktionen erlaubt ist, die Einstellung von `media.autoplay.default` zu überschreiben. Wenn `media.autoplay.default` _nicht_ auf `0` gesetzt ist (automatische Wiedergabe standardmäßig erlaubt), lässt diese Voreinstellung, wenn sie `true` ist, die automatische Wiedergabe von Medien mit Audiospuren zu, wenn die Seite durch Benutzeraktionen aktiviert wurde, und nicht hörbare Medien werden überhaupt nicht eingeschränkt.
+  - : Eine Ganzzahlpräferenz, die angibt, ob die Domain-spezifische Konfiguration für Autoplay-Unterstützung standardmäßig erlaubt (`0`), blockiert (`1`) oder beim Einsatz eine Aufforderung (`2`) ist. Der Standardwert ist `0`.
+- `media.autoplay.enabled.user-gestures-needed` (nur Nightly Builds)
+  - : Eine Boolesche Präferenz, die steuert, ob die Erkennung von Benutzeraktionen erlaubt ist, um die Einstellung von `media.autoplay.default` außer Kraft zu setzen. Ist `media.autoplay.default` _nicht_ auf `0` gesetzt (Autoplay standardmäßig erlaubt), ermöglicht diese Präferenz, dass Medien mit Audiotracks dennoch automatisch abgespielt werden können, wenn die Seite durch Benutzeraktionen aktiviert wurde, und Medien, die unhörbar sind, sind überhaupt nicht eingeschränkt.
 - `media.block-autoplay-until-in-foreground`
-  - : Eine boolesche Voreinstellung, die angibt, ob die Wiedergabe von Medien blockiert wird, wenn sie in einem Hintergrund-Tab gestartet wird. Der Standardwert `true` bedeutet, dass auch wenn ansonsten verfügbar, die automatische Wiedergabe erst dann erfolgt, nachdem ein Tab in den Vordergrund gebracht wurde. Dies verhindert die ablenkende Situation, in der ein Tab beginnt, Töne abzuspielen und der Benutzer den Tab unter all seinen Tabs und Fenstern nicht findet.
+  - : Eine Boolesche Präferenz, die anzeigt, ob Medienwiedergabe blockiert wird, wenn sie in einem Hintergrund-Tab gestartet wird. Der Standardwert `true` bedeutet, dass selbst wenn ansonsten verfügbar, Autoplay nicht stattfindet, bis ein Tab in den Vordergrund gebracht wird. Dies verhindert die störende Situation, in der ein Tab beginnt, Geräusche zu machen, und der Benutzer den Tab unter all seinen Tabs und Fenstern nicht finden kann.
 
 ## Siehe auch
 
-- [Webmedien-Technologien](/de/docs/Web/Media)
-- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) (Lernleitfaden)
-- [Verwendung des Web-Audio-API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Cross-browser Audio-Grundlagen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics)
+- [Web-Medien-Technologien](/de/docs/Web/Media)
+- [HTML Video und Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) (Lern-Leitfaden)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Cross-Browser Audio Grundlagen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics)

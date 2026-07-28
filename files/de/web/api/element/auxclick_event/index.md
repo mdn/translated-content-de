@@ -1,20 +1,20 @@
 ---
-title: "Element: auxclick Ereignis"
+title: "Element: auxclick Event"
 short-title: auxclick
 slug: Web/API/Element/auxclick_event
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`auxclick`** Ereignis wird auf einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts, die nicht die primäre Taste ist (also jede Maustaste außer der primären—normalerweise am weitesten links gelegenen—Taste), gedrückt und losgelassen wird, und zwar innerhalb desselben Elements.
+Das **`auxclick`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine nicht primäre Taste eines Zeigegeräts (jede Maustaste außer der primären – normalerweise die linke Taste) gedrückt und losgelassen wurde, und zwar innerhalb desselben Elements.
 
 `auxclick` wird ausgelöst, nachdem die Ereignisse [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) in dieser Reihenfolge ausgelöst wurden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("auxclick", (event) => { })
@@ -31,46 +31,17 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de
 > [!NOTE]
 > In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
 
-## Ereigniseigenschaften
+## Verhindern von Standardaktionen
 
-_Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
+Bei der großen Mehrheit der Browser, die den Mittelklick zum Öffnen eines Links in einem neuen Tab abbilden, einschließlich Firefox, ist es möglich, dieses Verhalten zu unterbinden, indem [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) innerhalb eines `auxclick`-Ereignishandlers aufgerufen wird.
 
-- [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen einer Transducer-Achse (ein Zeiger oder Stift) und der X-Y-Ebene eines Geräteschirms.
-- [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Transducer-Achse (ein Zeiger oder Stift) als auch die Y-Achse enthält.
-- [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
-  - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
-- [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Größe auf der X-Achse) in CSS-Pixeln der Kontaktgeometrie des Zeigers.
-- [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : Die Höhe (Größe auf der Y-Achse) in CSS-Pixeln der Kontaktgeometrie des Zeigers.
-- [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
-- [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Fassdruck oder [Zylinderstress](https://de.wikipedia.org/wiki/Zylinderstress)) im Bereich von `-1` bis `1`, wobei `0` die Neutralstellung der Kontrolle ist.
-- [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. ein Stift) als auch die Y-Achse enthält.
-- [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. ein Stift) als auch die X-Achse enthält.
-- [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers im Uhrzeigersinn (z.B. ein Stift) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
-- [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung, etc.).
-- [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
-  - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
+Wenn Sie `auxclick`-Ereignisse überwachen, die von Elementen stammen, die keine Eingabe oder Navigation unterstützen, möchten Sie oft explizit andere Standardaktionen verhindern, die der Runter-Aktion der mittleren Maustaste zugeordnet sind. Unter Windows ist dies normalerweise das Autoscrolling, unter macOS und Linux ist dies häufig das Einfügen der Zwischenablage. Dies kann erreicht werden, indem das Standardverhalten des [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignisses verhindert wird.
 
-## Standardaktionen verhindern
-
-Für die überwiegende Mehrheit der Browser, die einen Mittelklick darauf abbilden, einen Link in einem neuen Tab zu öffnen, einschließlich Firefox, ist es möglich, dieses Verhalten zu verhindern, indem [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) innerhalb eines `auxclick`-Ereignis-Handlers aufgerufen wird.
-
-Wenn Sie `auxclick`-Ereignisse überwachen, die auf Elemente zurückzuführen sind, die keine Eingabe oder Navigation unterstützen, sollten Sie oft ausdrücklich andere Standardaktionen verhindern, die dem Drücken der mittleren Maustaste zugewiesen sind. Unter Windows ist dies normalerweise der automatische Bildlauf, und unter macOS und Linux handelt es sich normalerweise um das Einfügen der Zwischenablage. Dies kann erreicht werden, indem das Standardverhalten des [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignisses verhindert wird.
-
-Darüber hinaus müssen Sie möglicherweise verhindern, dass nach einem Rechtsklick ein Systemkontextmenü geöffnet wird. Aufgrund von zeitlichen Unterschieden zwischen Betriebssystemen ist dies ebenfalls kein verhinderbares Standardverhalten von `auxclick`. Stattdessen kann dies durch Verhinderung des Standardverhaltens des [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignisses erreicht werden.
+Zusätzlich sollten Sie das Öffnen eines Systemkontextmenüs nach einem Rechtsklick vermeiden. Aufgrund von Zeitunterschieden zwischen Betriebssystemen ist auch dies kein standardmäßiges, durch `auxclick` verhinderbares Verhalten. Stattdessen kann dies durch das Verhindern des Standardverhaltens des [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignisses erreicht werden.
 
 ## Beispiele
 
-In diesem Beispiel definieren wir Funktionen für zwei Ereignis-Handler — [`onclick`](/de/docs/Web/API/Element/click_event) und `onauxclick`. Der erste ändert die Farbe des Schaltflächenhintergrunds, während der zweite die Textfarbe der Schaltfläche ändert. Sie können die beiden Funktionen auch in Aktion sehen, indem Sie das Demo mit einer Mehrtasten-Maus ausprobieren ([siehe es live auf GitHub](https://mdn.github.io/dom-examples/auxclick/); auch [den Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/auxclick/index.html)).
+In diesem Beispiel definieren wir Funktionen für zwei Ereignishandler — [`onclick`](/de/docs/Web/API/Element/click_event) und `onauxclick`. Der erste ändert die Hintergrundfarbe des Buttons, während der zweite die Vordergrund- (Text-) Farbe des Buttons ändert. Sie können die beiden Funktionen auch in Aktion sehen, indem Sie das Demo mit einer Mehrtastenmaus ausprobieren ([sehen Sie es live auf GitHub](https://mdn.github.io/dom-examples/auxclick/); sehen Sie auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/auxclick/index.html)).
 
 ### JavaScript
 
@@ -100,7 +71,7 @@ button.oncontextmenu = (e) => {
 };
 ```
 
-Beachten Sie, dass zusätzlich zum Erfassen des `auxclick`-Ereignisses mit `onauxclick` auch das [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignis erfasst wird und [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dieses Ereignis angewendet wird, um zu verhindern, dass das Kontextmenü nach der Farbänderung angezeigt wird.
+Beachten Sie, dass zusätzlich zum Erfassen des `auxclick`-Ereignisses mit `onauxclick` auch das [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignis erfasst wird, und [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) bei diesem Ereignis aufgerufen wird, um zu verhindern, dass das Kontextmenü nach dem Farbwechsel auftaucht.
 
 ### HTML
 
@@ -136,7 +107,7 @@ button {
 {{EmbedLiveSample("Examples", 640, 300)}}
 
 > [!NOTE]
-> Wenn Sie eine Drei-Tasten-Maus verwenden, werden Sie feststellen, dass der `onauxclick`-Handler ausgeführt wird, wenn eine der nicht linken Maustasten geklickt wird (einschließlich aller "Spezial"-Tasten auf Gaming-Mäusen).
+> Wenn Sie eine Dreitastenmaus verwenden, werden Sie feststellen, dass der `onauxclick`-Handler ausgelöst wird, wenn eine der nicht-linken Maustasten geklickt wird (in der Regel einschließlich aller "Sonder"-Tasten auf Gaming-Mäusen).
 
 ## Spezifikationen
 
@@ -148,7 +119,7 @@ button {
 
 ## Siehe auch
 
-- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Erlernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`click`](/de/docs/Web/API/Element/click_event)
 - [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
 - [`dblclick`](/de/docs/Web/API/Element/dblclick_event)

@@ -3,20 +3,20 @@ title: "HTMLCanvasElement: webglcontextcreationerror Ereignis"
 short-title: webglcontextcreationerror
 slug: Web/API/HTMLCanvasElement/webglcontextcreationerror_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("WebGL API")}}
 
-Das **`webglcontextcreationerror`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontext zu erstellen.
+Das **`webglcontextcreationerror`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontext zu erstellen.
 
-Dieses Ereignis besitzt eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)-Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über den Fehler enthalten kann.
+Dieses Ereignis verfügt über eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage) Eigenschaft, die einen plattformabhängigen String enthalten kann, der weitere Informationen über das Scheitern bietet.
 
-Dieses Ereignis wird nicht propagiert.
+Dieses Ereignis wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("webglcontextcreationerror", (event) => { })
@@ -29,13 +29,6 @@ onwebglcontextcreationerror = (event) => { }
 Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WebGLContextEvent")}}
-
-## Ereigniseigenschaften
-
-_Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
-
-- [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
-  - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
 
 ## Beispiel
 

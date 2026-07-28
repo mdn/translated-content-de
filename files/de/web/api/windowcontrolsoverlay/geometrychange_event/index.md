@@ -1,14 +1,14 @@
 ---
-title: "WindowControlsOverlay: geometrychange-Ereignis"
+title: "WindowControlsOverlay: geometrychange Ereignis"
 short-title: geometrychange
 slug: Web/API/WindowControlsOverlay/geometrychange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Das `geometrychange`-Ereignis wird ausgelöst, wenn sich die Position, Größe oder Sichtbarkeit des Titelbereichs einer Progressive Web App ändert.
+Das `geometrychange` Ereignis wird ausgelöst, wenn sich die Position, Größe oder Sichtbarkeit des Titelbereichs einer Progressive Web App ändert.
 
 Dies gilt nur für Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind und die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
 
@@ -28,15 +28,6 @@ Ein [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControls
 
 {{InheritanceDiagram("WindowControlsOverlayGeometryChangeEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften stehen Ihnen auch die Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
-
-- `titlebarAreaRect`
-  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelbereichs innerhalb des Inhalts der App darstellt.
-- `visible`
-  - : Ein {{Glossary("Boolean", "Boolean")}}, der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
-
 ## Beispiele
 
 Verwendung von `addEventListener()`:
@@ -50,7 +41,7 @@ navigator.windowControlsOverlay.addEventListener("geometrychange", (event) => {
 });
 ```
 
-Verwendung der `ongeometrychange`-Ereignishandler-Eigenschaft:
+Verwendung der `ongeometrychange` Ereignishandler-Eigenschaft:
 
 ```js
 navigator.windowControlsOverlay.ongeometrychange = (event) => {

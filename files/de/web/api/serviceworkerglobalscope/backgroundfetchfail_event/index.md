@@ -3,18 +3,18 @@ title: "ServiceWorkerGlobalScope: backgroundfetchfail Ereignis"
 short-title: backgroundfetchfail
 slug: Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`backgroundfetchfail`** Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Schnittstelle wird ausgelöst, wenn eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API) Operation fehlgeschlagen ist: das heißt, wenn mindestens eine Netzwerk-Anfrage im Fetch nicht erfolgreich abgeschlossen wurde.
+Das **`backgroundfetchfail`** Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Schnittstelle wird ausgelöst, wenn ein [Hintergrund-Abruf](/de/docs/Web/API/Background_Fetch_API) fehlgeschlagen ist: Das bedeutet, dass mindestens eine Netzwerkanforderung im Abruf nicht erfolgreich abgeschlossen wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbruchfähig und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("backgroundfetchfail", (event) => { })
@@ -28,26 +28,19 @@ Ein [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEve
 
 {{InheritanceDiagram("BackgroundFetchUpdateUIEvent")}}
 
-## Ereigniseigenschaften
-
-_Erbt Eigenschaften von seinem übergeordneten [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent)._
-
-- [`BackgroundFetchUpdateUIEvent.updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI)
-  - : Aktualisiert die Benutzeroberfläche des Elements, das der Browser anzeigt, um den Fortschritt der Fetch-Operation darzustellen.
-
 ## Beschreibung
 
-Wenn eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API) Operation fehlschlägt (bedeutet, dass mindestens eine der einzelnen Netzwerk-Anfragen nicht erfolgreich abgeschlossen wurde), startet der Browser den Service Worker gegebenenfalls und löst das `backgroundfetchfail` Ereignis im globalen Bereich des Service Workers aus.
+Wenn ein [Hintergrund-Abruf](/de/docs/Web/API/Background_Fetch_API) fehlschlägt (was bedeutet, dass mindestens eine der einzelnen Netzwerkanfragen nicht erfolgreich abgeschlossen wurde), startet der Browser den Service Worker, falls nötig, und löst das `backgroundfetchfail` Ereignis im globalen Bereich des Service Workers aus.
 
-In der Background Fetch API zeigt der Browser der Benutzeroberfläche ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Im `backgroundfetchfail` Handler kann der Service Worker diese Benutzeroberfläche aktualisieren, um anzuzeigen, dass die Operation fehlgeschlagen ist. Um dies zu tun, ruft der Handler die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) Methode des Ereignisses auf und übergibt einen neuen Titel und/oder Symbole.
+In der Hintergrund-Abruf-API zeigt der Browser dem Benutzer ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Im `backgroundfetchfail`-Handler kann der Service Worker dieses UI-Element aktualisieren, um zu zeigen, dass die Operation fehlgeschlagen ist. Dazu ruft der Handler die [`updateUI()`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent/updateUI) Methode des Ereignisses auf und übergibt einen neuen Titel und/oder Symbole.
 
-Im Handler für dieses `backgroundfetchfail` kann der Service Worker auch alle zugehörigen Daten der Operation bereinigen. Er kann auch erfolgreich empfangene Antworten abrufen und speichern (zum Beispiel mit der [`Cache`](/de/docs/Web/API/Cache) API). Um auf die Antwortdaten zuzugreifen, verwendet der Service Worker die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration) Eigenschaft des Ereignisses.
+Im Handler für dieses `backgroundfetchfail` kann der Service Worker auch alle zugehörigen Daten für die Operation bereinigen. Er kann auch erfolgreiche Antworten abrufen und speichern (zum Beispiel durch Verwendung der [`Cache`](/de/docs/Web/API/Cache) API). Um auf die Antwortdaten zuzugreifen, verwendet der Service Worker die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration) Eigenschaft des Ereignisses.
 
 ## Beispiele
 
 ### Aktualisierung der Benutzeroberfläche
 
-Dieser Ereignishandler aktualisiert die Benutzeroberfläche, um dem Benutzer mitzuteilen, dass die Operation fehlgeschlagen ist.
+Dieser Ereignis-Handler aktualisiert die Benutzeroberfläche, um dem Benutzer mitzuteilen, dass die Operation fehlgeschlagen ist.
 
 ```js
 addEventListener("backgroundfetchfail", (event) => {

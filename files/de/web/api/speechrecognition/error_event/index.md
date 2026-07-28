@@ -1,18 +1,18 @@
 ---
-title: "SpeechRecognition: error-Ereignis"
+title: "SpeechRecognition: Fehlerereignis"
 short-title: error
 slug: Web/API/SpeechRecognition/error_event
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`error`**-Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Fehler bei der Spracherkennung auftritt.
+Das **`error`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API)-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts wird ausgelöst, wenn ein Fehler bei der Spracherkennung auftritt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -26,15 +26,6 @@ Ein [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent
 
 {{InheritanceDiagram("SpeechRecognitionErrorEvent")}}
 
-## Ereigniseigenschaften
-
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
-
-- [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error) {{ReadOnlyInline}}
-  - : Gibt den Typ des aufgetretenen Fehlers zurück.
-- [`SpeechRecognitionErrorEvent.message`](/de/docs/Web/API/SpeechRecognitionErrorEvent/message) {{ReadOnlyInline}}
-  - : Gibt eine Nachricht zurück, die den Fehler detaillierter beschreibt.
-
 ## Beispiele
 
 Sie können das `error`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
@@ -47,7 +38,7 @@ recognition.addEventListener("error", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onerror`-Ereignisbehandlungs-Eigenschaft:
+Oder verwenden Sie die `onerror`-Ereignis-Handler-Eigenschaft:
 
 ```js
 recognition.onerror = (event) => {

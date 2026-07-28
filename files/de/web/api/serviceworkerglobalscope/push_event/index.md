@@ -1,20 +1,20 @@
 ---
-title: "ServiceWorkerGlobalScope: push-Ereignis"
+title: "ServiceWorkerGlobalScope: push-Event"
 short-title: push
 slug: Web/API/ServiceWorkerGlobalScope/push_event
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`push`**-Ereignis wird an den globalen Scope eines Service Workers gesendet (vertreten durch die [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle), wenn der Service Worker eine Push-Nachricht erhalten hat.
+Das **`push`**-Event wird an den globalen Bereich eines Service Workers gesendet (dargestellt durch das [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interface), wenn der Service Worker eine Push-Nachricht erhalten hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis ist nicht abbruchbar und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("push", (event) => { })
@@ -28,16 +28,9 @@ Ein [`PushEvent`](/de/docs/Web/API/PushEvent). Erbt von [`Event`](/de/docs/Web/A
 
 {{InheritanceDiagram("PushEvent")}}
 
-## Ereigenschaften
-
-_Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Zusätzliche Eigenschaften:_
-
-- [`PushEvent.data`](/de/docs/Web/API/PushEvent/data) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu einem [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Objekt zurück, das Daten enthält, die an das [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet wurden.
-
 ## Beispiel
 
-Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der {{Glossary("JSON", "JSON")}}-Daten entnimmt, sie analysiert und die Nachricht basierend auf den im Nachrichteninhalt enthaltenen Informationen zur Verarbeitung weiterleitet.
+Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der {{Glossary("JSON", "JSON")}}-Daten entgegennimmt, sie parst und die Nachricht basierend auf den im Nachrichtentext enthaltenen Informationen weiterverarbeitet.
 
 ```js
 self.addEventListener("push", (event) => {
@@ -64,5 +57,5 @@ self.addEventListener("push", (event) => {
 
 ## Siehe auch
 
-- [Verwendung der Push API](/de/docs/Web/API/Push_API)
+- [Verwendung der Push-API](/de/docs/Web/API/Push_API)
 - [`pushsubscriptionchange`](/de/docs/Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event)-Ereignis

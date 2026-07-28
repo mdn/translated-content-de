@@ -3,21 +3,21 @@ title: "ScriptProcessorNode: audioprocess-Ereignis"
 short-title: audioprocess
 slug: Web/API/ScriptProcessorNode/audioprocess_event
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
-Das **`audioprocess`**-Ereignis des [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Interfaces wird ausgelöst, wenn ein Eingabepuffer eines Script-Prozessors bereit zur Verarbeitung ist.
+Das **`audioprocess`**-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Skriptprozessors zur Verarbeitung bereit ist.
 
 > [!NOTE]
-> Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und das [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Interface ersetzt.
+> Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis ist nicht stornierbar und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js-nolint
 addEventListener("audioprocess", (event) => { })
@@ -30,22 +30,6 @@ onaudioprocess = (event) => { }
 Ein [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("AudioProcessingEvent")}}
-
-## Ereigniseigenschaften
-
-_Implementiert auch die von seinem Elternteil [`Event`](/de/docs/Web/API/Event) geerbten Eigenschaften._
-
-- `playbackTime` {{ReadOnlyInline}}
-  - : Ein Double, das die Zeit darstellt, zu der das Audio abgespielt wird,
-    definiert durch die Zeit von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime).
-- `inputBuffer` {{ReadOnlyInline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der den Puffer darstellt, der die zu verarbeitenden Eingabedaten enthält.
-    Die Anzahl der Kanäle wird als Parameter `numberOfInputChannels` der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Gültigkeitsbereich des Ereignis-Handlers gültig ist.
-- `outputBuffer` {{ReadOnlyInline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der der Puffer ist, in den die Ausgabedaten geschrieben werden sollen.
-    Die Anzahl der Kanäle wird als Parameter <code>numberOfOutputChannels</code> der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Gültigkeitsbereich des Ereignis-Handlers gültig ist.
 
 ## Beispiele
 
@@ -74,7 +58,7 @@ scriptNode.addEventListener("audioprocess", (audioProcessingEvent) => {
 });
 ```
 
-Sie könnten den Ereignis-Handler auch mit der `onaudioprocess`-Eigenschaft einrichten:
+Sie könnten den Ereignishandler auch über die `onaudioprocess`-Eigenschaft einrichten:
 
 ```js
 scriptNode.onaudioprocess = (audioProcessingEvent) => {

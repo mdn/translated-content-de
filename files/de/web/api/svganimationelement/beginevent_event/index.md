@@ -1,18 +1,18 @@
 ---
-title: "SVGAnimationElement: beginEvent-Ereignis"
+title: "SVGAnimationElement: beginEvent Ereignis"
 short-title: beginEvent
 slug: Web/API/SVGAnimationElement/beginEvent_event
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("SVG")}}
 
-Das **`beginEvent`**-Ereignis des [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Interfaces wird ausgelöst, wenn die lokale Zeitachse des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht, wenn es sich wiederholt).
+Das **`beginEvent`** Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle wird ausgelöst, wenn die lokale Zeitachse des Elements zu spielen beginnt. Es wird jedes Mal ausgelöst, wenn das Element die aktive Dauer beginnt (d.h. wenn es neu startet, aber nicht, wenn es sich wiederholt).
 
-Es kann sowohl während der normalen (d.h. geplanten oder interaktiven) Zeitachsenwiedergabe als auch im Fall ausgelöst werden, dass das Element mithilfe einer DOM-Methode gestartet wurde.
+Es kann sowohl im Verlauf normaler (d.h. geplanter oder interaktiver) Zeitachsenwiedergabe als auch im Fall, dass das Element mit einer DOM-Methode gestartet wurde, ausgelöst werden.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst sich nicht aufwärts aus.
 
 ## Syntax
 
@@ -29,13 +29,6 @@ onbegin = (event) => { }
 Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TimeEvent")}}
-
-## Ereigniseigenschaften
-
-- [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
-  - : Ein `long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt es die Wiederholungsnummer der Animation an.
-- [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -89,7 +82,7 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 ### Äquivalent zur Ereignishandler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignislistener für das `begin`-Ereignis mithilfe der `onbegin` Ereignishandler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `begin` Ereignis unter Verwendung der `onbegin` Ereignishandler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onbegin = () => {

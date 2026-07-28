@@ -1,23 +1,22 @@
 ---
-title: "ServiceWorkerGlobalScope: notificationclick Ereignis"
+title: "ServiceWorkerGlobalScope: notificationclick-Ereignis"
 short-title: notificationclick
 slug: Web/API/ServiceWorkerGlobalScope/notificationclick_event
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`notificationclick`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interfaces wird ausgelöst, um anzuzeigen, dass eine durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugte Systembenachrichtigung angeklickt wurde.
+Das **`notificationclick`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, um anzuzeigen, dass eine vom [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugte Systembenachrichtigung angeklickt wurde.
 
-Benachrichtigungen, die im Hauptthread oder in Workern, die keine Service Worker sind, mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktor erstellt werden,
-erhalten stattdessen ein [`click`](/de/docs/Web/API/Notification/click_event) Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification) Objekt selbst.
+Benachrichtigungen, die im Haupt-Thread oder in Workern, die keine Service Worker sind, unter Verwendung des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors erstellt werden, empfangen stattdessen ein [`click`](/de/docs/Web/API/Notification/click_event)-Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt selbst.
 
-Dieses Ereignis ist nicht abfangbar und wird nicht fortgepflanzt.
+Dieses Ereignis ist nicht abbruchfähig und hat keine Bubbling-Eigenschaften.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("notificationclick", (event) => { })
@@ -31,18 +30,9 @@ Ein [`NotificationEvent`](/de/docs/Web/API/NotificationEvent). Erbt von [`Extend
 
 {{InheritanceDiagram("NotificationEvent")}}
 
-## Ereigniseigenschaften
-
-_Erbt Eigenschaften von seinen Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
-
-- [`NotificationEvent.notification`](/de/docs/Web/API/NotificationEvent/notification) {{ReadOnlyInline}}
-  - : Gibt ein [`Notification`](/de/docs/Web/API/Notification) Objekt zurück, das die Benachrichtigung darstellt, die angeklickt wurde, um das Ereignis auszulösen.
-- [`NotificationEvent.action`](/de/docs/Web/API/NotificationEvent/action) {{ReadOnlyInline}}
-  - : Gibt die Zeichenfolgen-ID des Benachrichtigungsbuttons zurück, den der Benutzer angeklickt hat. Dieser Wert gibt eine leere Zeichenfolge zurück, wenn der Benutzer die Benachrichtigung irgendwo anders als auf einem Aktionsbutton angeklickt hat oder die Benachrichtigung keinen Button hat.
-
 ## Beispiele
 
-Sie können das `notificationclick` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `notificationclick`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 self.addEventListener("notificationclick", (event) => {
@@ -66,7 +56,7 @@ self.addEventListener("notificationclick", (event) => {
 });
 ```
 
-Oder die `onnotificationclick` Ereignishandler-Eigenschaft verwenden:
+Oder verwenden Sie die `onnotificationclick`-Ereignis-Handler-Eigenschaft:
 
 ```js
 self.onnotificationclick = (event) => {
@@ -90,7 +80,7 @@ self.onnotificationclick = (event) => {
 };
 ```
 
-Sie können Ereignisaktionen mithilfe von `event.action` innerhalb eines `notificationclick` Ereignishandlers behandeln:
+Sie können Ereignisaktionen innerhalb eines `notificationclick`-Ereignis-Handlers mit `event.action` verarbeiten:
 
 ```js
 navigator.serviceWorker.register("sw.js");
@@ -133,4 +123,4 @@ self.addEventListener("notificationclick", (event) => {
 ## Siehe auch
 
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
-- [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API)
+- [Notifications API](/de/docs/Web/API/Notifications_API)
