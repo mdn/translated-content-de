@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: CSSUnparsedValue() Konstruktor"
 short-title: CSSUnparsedValue()
 slug: Web/API/CSSUnparsedValue/CSSUnparsedValue
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Objekt, das Eigenschaftswerte darstellt, die auf benutzerdefinierte Eigenschaften verweisen.
+Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Objekt, das Eigenschaftswerte darstellt, die auf benutzerdefinierte Eigenschaften verweisen.
 
 ## Syntax
 
@@ -19,10 +19,11 @@ new CSSUnparsedValue(members)
 ### Parameter
 
 - `members`
-  - : Ein Array, dessen Werte entweder ein String oder ein
-    [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) sein müssen.
+  - : Ein Array, dessen Werte entweder ein String oder ein [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) sein müssen.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 const value = new CSSUnparsedValue(["4deg"]);

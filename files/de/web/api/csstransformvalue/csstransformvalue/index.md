@@ -3,12 +3,12 @@ title: "CSSTransformValue: CSSTransformValue() Konstruktor"
 short-title: CSSTransformValue()
 slug: Web/API/CSSTransformValue/CSSTransformValue
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSTransformValue()`** Konstruktor erstellt ein neues [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue) Objekt, das eine Liste von einzelnen Transformationsobjekten repräsentiert.
+Der **`CSSTransformValue()`** Konstruktor erstellt ein neues [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Objekt, das eine Liste einzelner Transformationsobjekte repräsentiert.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new CSSTransformValue(transforms)
 ### Parameter
 
 - `transforms`
-  - : Eine Liste von [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Objekten zum Iterieren.
+  - : Eine Liste von [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)-Objekten, über die iteriert wird.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Ein neues [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn transforms leer ist.
+  - : Wird ausgelöst, wenn `transforms` leer ist.
 
 ## Beispiele
 

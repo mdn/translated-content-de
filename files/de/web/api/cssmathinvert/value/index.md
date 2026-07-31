@@ -3,7 +3,7 @@ title: "CSSMathInvert: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSMathInvert/value
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-To do
+Noch zu erledigen
 
 ## Spezifikationen
 

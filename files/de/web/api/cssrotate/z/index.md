@@ -3,13 +3,12 @@ title: "CSSRotate: z-Eigenschaft"
 short-title: z
 slug: Web/API/CSSRotate/z
 l10n:
-  sourceCommit: e1f6592bf96c5614a81ccb5dbd65e301b734b0e7
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`z`**-Eigenschaft der
-[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element zum Betrachter hin, und ein negativer Wert entfernt es weiter.
+Die **`z`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element in Richtung des Betrachters, ein negativer Wert weiter weg.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl ge
 
 ## Beispiele
 
-Noch zu erledigen
+To Do
 
 ## Spezifikationen
 

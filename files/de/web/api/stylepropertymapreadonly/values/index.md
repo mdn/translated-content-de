@@ -3,7 +3,7 @@ title: "StylePropertyMapReadOnly: values()-Methode"
 short-title: values()
 slug: Web/API/StylePropertyMapReadOnly/values
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
@@ -26,7 +26,9 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir die `values()`-Methode, um auf die Werte im [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugreifen zu können.
+### Grundlegende Verwendung
+
+In diesem Beispiel verwenden wir die `values()`-Methode, um auf die Werte innerhalb des [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zuzugreifen.
 
 ```js
 // get a button element

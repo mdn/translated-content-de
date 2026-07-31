@@ -1,14 +1,14 @@
 ---
-title: "CSSNumericValue: mul()-Methode"
+title: "CSSNumericValue: mul() Methode"
 short-title: mul()
 slug: Web/API/CSSNumericValue/mul
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`mul()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle multipliziert das `CSSNumericValue` mit dem angegebenen Wert.
+Die **`mul()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle multipliziert den `CSSNumericValue` mit dem übergebenen Wert.
 
 ## Syntax
 
@@ -28,9 +28,11 @@ Ein [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 let mathSum = CSS.px("23")

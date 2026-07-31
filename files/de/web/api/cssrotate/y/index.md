@@ -3,12 +3,12 @@ title: "CSSRotate: y-Eigenschaft"
 short-title: y
 slug: Web/API/CSSRotate/y
 l10n:
-  sourceCommit: e1f6592bf96c5614a81ccb5dbd65e301b734b0e7
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`y`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle liest und setzt die Ordinate oder y-Achse des Translationsvektors.
+Die **`y`**-Eigenschaft des [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces liest und setzt die Ordinate oder die y-Achse des Übersetzungsvektors.
 
 ## Wert
 

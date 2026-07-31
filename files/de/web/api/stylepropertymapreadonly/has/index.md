@@ -3,12 +3,12 @@ title: "StylePropertyMapReadOnly: has()-Methode"
 short-title: has()
 slug: Web/API/StylePropertyMapReadOnly/has
 l10n:
-  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`has()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) Schnittstelle gibt an, ob die angegebene Eigenschaft im `StylePropertyMapReadOnly`-Objekt vorhanden ist.
+Die **`has()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt an, ob die angegebene Eigenschaft im `StylePropertyMapReadOnly`-Objekt vorhanden ist.
 
 ## Syntax
 
@@ -23,11 +23,13 @@ has(property)
 
 ### Rückgabewert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Beispiele
 
-Hier verwenden wir die `has()`-Methode, um zu prüfen, ob die `padding-top`-Eigenschaft im `style`-Attribut der Button-Elemente vorhanden ist.
+### Grundlegende Verwendung
+
+Hier verwenden wir die `has()`-Methode, um zu überprüfen, ob die `padding-top`-Eigenschaft innerhalb des style-Attributs der Schaltflächen-Elemente vorhanden ist.
 
 ```js
 // get the button element

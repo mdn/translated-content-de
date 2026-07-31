@@ -1,14 +1,14 @@
 ---
-title: "CSSMathClamp: Eigenschaft lower"
+title: "CSSMathClamp: lower-Eigenschaft"
 short-title: lower
 slug: Web/API/CSSMathClamp/lower
 l10n:
-  sourceCommit: 8446f51f9a446af6a9ed878ff8f9515d60d28ed5
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`lower`**-Schreibeigenschaft der [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Minimalwert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
+Die **`lower`** schreibgeschützte Eigenschaft des [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Interface gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Mindestwert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Noch zu erledigen
+To do
 
 ## Spezifikationen
 

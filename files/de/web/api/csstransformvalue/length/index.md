@@ -3,22 +3,20 @@ title: "CSSTransformValue: length Eigenschaft"
 short-title: length
 slug: Web/API/CSSTransformValue/length
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des
-[`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue) Interfaces gibt die Anzahl der Transformationskomponenten in
-der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle gibt die Anzahl der Transformationselemente in der Liste zurück.
 
 ## Wert
 
-Ein Integer, der die Anzahl der Transformationskomponenten in der Liste darstellt.
+Ein ganzzahliger Wert, der die Anzahl der Transformationselemente in der Liste darstellt.
 
 ## Beispiele
 
-In Bearbeitung
+Noch zu erledigen
 
 ## Spezifikationen
 

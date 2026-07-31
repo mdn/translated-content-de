@@ -3,12 +3,13 @@ title: "CSSUnitValue: CSSUnitValue() Konstruktor"
 short-title: CSSUnitValue()
 slug: Web/API/CSSUnitValue/CSSUnitValue
 l10n:
-  sourceCommit: d2d75f6b07bc4900fb0778eb37c3823c7f64eb7b
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSUnitValue()`** Konstruktor erstellt ein neues [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt, das einen neuen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) darstellt. Dieses Objekt repräsentiert Werte, die einen einzelnen Einheitentyp enthalten. Zum Beispiel würde "42px" durch einen `CSSNumericValue` repräsentiert werden.
+Der **`CSSUnitValue()`** Konstruktor erstellt ein neues [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt, das ein neues [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt zurückgibt, das Werte darstellt, die einen einzelnen Einheitstyp enthalten.
+Zum Beispiel würde "42px" durch einen `CSSNumericValue` dargestellt.
 
 ## Syntax
 
@@ -19,13 +20,15 @@ new CSSUnitValue(value, unit)
 ### Parameter
 
 - `value`
-  - : Eine Zahl, die die Anzahl der Einheiten angibt.
+  - : Eine doppelte Zahl, die die Anzahl der Einheiten angibt.
 - `unit`
   - : Ein String, der den Einheitstyp angibt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus individuellen `CSSUnitValue` Konstruktoren.
+### Grundlegende Verwendung
+
+Das folgende Beispiel zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue` Konstruktoren.
 
 ```js
 let pos = new CSSPositionValue(

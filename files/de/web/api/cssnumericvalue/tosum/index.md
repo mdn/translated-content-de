@@ -1,14 +1,14 @@
 ---
-title: "CSSNumericValue: Methode toSum()"
+title: "CSSNumericValue: toSum()-Methode"
 short-title: toSum()
 slug: Web/API/CSSNumericValue/toSum
 l10n:
-  sourceCommit: f2915027e3c05ac40297581d6d06ef8599a811bb
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, um Werte in die angegebenen Einheiten zu ändern.
+Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle wandelt den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt um, um Werte der angegebenen Einheit darzustellen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ toSum(units)
 ### Parameter
 
 - `units`
-  - : Die Einheiten, in die konvertiert werden soll.
+  - : Die Einheiten, in die umgewandelt werden soll.
 
 ### Rückgabewert
 
@@ -28,9 +28,11 @@ Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wird.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 let v = CSS.px("23").add(CSS.percent("4")).add(CSS.cm("3")).add(CSS.in("9"));

@@ -3,12 +3,13 @@ title: "CSSTransformValue: entries() Methode"
 short-title: entries()
 slug: Web/API/CSSTransformValue/entries
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSTransformValue.entries()`** Methode gibt ein Array mit `[key, value]` Paaren der eigenen aufzählbaren Eigenschaften eines gegebenen Objekts zurück, in der gleichen Reihenfolge wie sie von einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife bereitgestellt wird (der Unterschied ist, dass eine for-in Schleife auch Eigenschaften in der Prototypkette aufzählt).
+Die **`CSSTransformValue.entries()`** Methode
+gibt ein Array der eigenen aufzählbaren Eigenschaften `[key, value]` Paare eines gegebenen Objekts in derselben Reihenfolge zurück, wie sie von einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in Schleife auch Eigenschaften in der Prototypen-Kette aufzählt).
 
 ## Syntax
 
@@ -19,15 +20,15 @@ entries(obj)
 ### Parameter
 
 - `obj`
-  - : Die [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue), deren eigene aufzählbare Eigenschaften `[key, value]` Paare zurückgegeben werden sollen.
+  - : Der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue), dessen aufzählbare eigene Eigenschafts`[key, value]` Paare zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren Eigenschaften `[key, value]` Paare des gegebenen `CSSTransformValue` Objekts.
+Ein Array der eigenen aufzählbaren Eigenschaften`[key, value]` Paare des gegebenen `CSSTransformValue` Objekts.
 
 ## Beispiele
 
-In Arbeit
+Noch zu tun
 
 ## Spezifikationen
 

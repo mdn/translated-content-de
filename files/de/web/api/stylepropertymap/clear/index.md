@@ -1,9 +1,9 @@
 ---
-title: "StylePropertyMap: clear() Methode"
+title: "StylePropertyMap: clear()-Methode"
 short-title: clear()
 slug: Web/API/StylePropertyMap/clear
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
@@ -26,7 +26,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel entfernt alle Stile innerhalb der Elemente [style-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/style).
+### Grundlegende Verwendung
+
+Das folgende Beispiel entfernt alle Stile innerhalb des [style-Attributs](/de/docs/Web/HTML/Reference/Global_attributes/style) der Elemente.
 
 ```js
 // get the button element

@@ -1,17 +1,14 @@
 ---
-title: "CSSSkewY: CSSSkewY() Konstruktor"
+title: "CSSSkewY: CSSSkewY()-Konstruktor"
 short-title: CSSSkewY()
 slug: Web/API/CSSSkewY/CSSSkewY
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}{{AvailableInWorkers}}
+{{APIRef("CSS Typed Object Model API")}}{{AvailableInWorkers}}
 
-Der **`CSSSkewY()`**-Konstruktor erstellt ein neues
-[`CSSSkewY`](/de/docs/Web/API/CSSSkewY) Objekt, das den
-{{cssxref("transform-function/skewY", "skewY()")}} Wert
-der individuellen {{CSSXRef('transform')}} Eigenschaft in CSS darstellt.
+Der **`CSSSkewY()`**-Konstruktor erstellt ein neues [`CSSSkewY`](/de/docs/Web/API/CSSSkewY)-Objekt, das den {{cssxref("transform-function/skewY", "skewY()")}}-Wert der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -22,11 +19,12 @@ new CSSSkewY(ay)
 ### Parameter
 
 - [`ay`](/de/docs/Web/API/CSSSkewY/ay)
-  - : Ein Wert für den `ay`-Winkel des zu konstruierenden [`CSSSkewY`](/de/docs/Web/API/CSSSkewY) Objekts. Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+  - : Ein Wert für den `ay`-Winkel des zu konstruierenden [`CSSSkewY`](/de/docs/Web/API/CSSSkewY)-Objekts.
+    Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 
 ## Beispiele
 
-To do
+Noch zu erledigen
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "CSSStyleValue: parse() statische Methode"
 short-title: parse()
 slug: Web/API/CSSStyleValue/parse_static
 l10n:
-  sourceCommit: 5a195171d06aee3d9c1c78d71c7f0c3a060f5263
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die statische Methode **`parse()`** der [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Schnittstelle setzt eine bestimmte CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten Wert als [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt zurück.
+Die **`parse()`** statische Methode der [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) Schnittstelle setzt eine spezifische CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten Wert als ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) Objekt zurück.
 
 ## Syntax
 
@@ -19,17 +19,20 @@ CSSStyleValue.parse(property, cssText)
 ### Parameter
 
 - `property`
-  - : Eine zu setzende CSS-Eigenschaft.
+  - : Eine CSS-Eigenschaft, die gesetzt werden soll.
 - `cssText`
-  - : Ein durch Kommas getrennter String, der einen oder mehrere Werte enthält, die auf die angegebene Eigenschaft angewendet werden sollen.
+  - : Ein durch Kommata getrenntes String, das einen oder mehrere Werte enthält, die auf die angegebene Eigenschaft angewendet werden sollen.
 
 ### Rückgabewert
 
-Ein `CSSStyleValue`-Objekt, das den ersten angegebenen Wert enthält.
+Ein `CSSStyleValue` Objekt, das den ersten bereitgestellten Wert enthält.
 
 ## Beispiele
 
-Der folgende Code analysiert eine Gruppe von Deklarationen für die `transform`-Eigenschaft. Der zweite Codeblock zeigt die Struktur des zurückgegebenen Objekts, wie es in der Entwicklertools-Konsole dargestellt würde.
+### Grundlegende Nutzung
+
+Der unten stehende Code analysiert eine Menge von Deklarationen für die `transform` Eigenschaft.
+Der zweite Codeblock zeigt die Struktur des zurückgegebenen Objekts, wie sie in einer Entwicklerwerkzeug-Konsole dargestellt würde.
 
 ```js
 const css = CSSStyleValue.parse(

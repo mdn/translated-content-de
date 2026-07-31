@@ -1,16 +1,14 @@
 ---
-title: "CSSNumericValue: add()-Methode"
+title: "CSSNumericValue: add() Methode"
 short-title: add()
 slug: Web/API/CSSNumericValue/add
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`add()`**-Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle fügt eine angegebene Zahl zum
-`CSSNumericValue` hinzu.
+Die **`add()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle fügt einen übergebenen Wert zu dem `CSSNumericValue` hinzu.
 
 ## Syntax
 
@@ -33,6 +31,8 @@ Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)
   - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 
 ## Beispiele
+
+### Grundlegende Verwendung
 
 ```js
 let mathSum = CSS.px("23")

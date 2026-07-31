@@ -1,12 +1,12 @@
 ---
-title: "`rotate()` CSS Funktion"
+title: "`rotate()` CSS-Funktion"
 short-title: rotate()
 slug: Web/CSS/Reference/Values/transform-function/rotate
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: 80ab11f9d757b49325122071a8a6210440ec6551
 ---
 
-Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element um einen festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene um einen festen Punkt dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: rotate()")}}
 
@@ -36,7 +36,11 @@ transform: rotate(3.142rad);
 </section>
 ```
 
-Der feste Punkt, um den sich das Element dreht – oben erwähnt – ist auch als **Transformationsursprung** bekannt. Dieser ist standardmäßig das Zentrum des Elements, aber Sie können Ihren eigenen benutzerdefinierten Transformationsursprung mit der {{ cssxref("transform-origin") }} Eigenschaft festlegen.
+Der feste Punkt, um den sich das Element dreht — wie oben erwähnt — wird auch als **transform
+origin** bezeichnet. Dieser ist standardmäßig das Zentrum des Elements, aber Sie können Ihren eigenen benutzerdefinierten Ursprung mit der {{ cssxref("transform-origin") }} Eigenschaft festlegen.
+
+> [!NOTE]
+> Das SVG-Attribut [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) hat seine eigene Grammatik, in der `rotate()` zwei zusätzliche optionale Werte akzeptiert, die das Rotationszentrum angeben, wie in `rotate(45, 50, 50)`. Diese Form ist nur im Attribut gültig, nicht in CSS: Die CSS `rotate()`-Funktion nimmt nur einen Winkel an und das Zentrum wird mit {{cssxref("transform-origin")}} festgelegt.
 
 ## Syntax
 
@@ -47,15 +51,17 @@ rotate(a)
 ### Werte
 
 - _a_
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und stellt den Winkel der Drehung dar. Die Drehrichtung hängt von der Schreibrichtung ab. In einem Links-nach-Rechts-Kontext bezeichnet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem Rechts-nach-Links-Kontext bezeichnet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn. Eine Drehung um 180° wird als _Punktspiegelung_ bezeichnet.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} der den Winkel der Drehung darstellt. Die Drehrichtung hängt von der Schreibrichtung ab.
+    In einem von links nach rechts gerichteten Kontext bedeutet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem von rechts nach links gerichteten Kontext
+    bedeutet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn. Eine Drehung um 180° wird als _Punktspiegelung_ bezeichnet.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
+      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -121,9 +127,10 @@ div {
 
 {{EmbedLiveSample("Basic_example", "auto", 180)}}
 
-### Kombination der Drehung mit einer anderen Transformation
+### Kombination von Drehung mit einer anderen Transformation
 
-Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, seien Sie vorsichtig mit der Reihenfolge, in der Sie Ihre Transformationen angeben. Wenn Sie beispielsweise vor der Translation rotieren, erfolgt die Translation entlang der neuen Drehachse!
+Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, sollten Sie auf die Reihenfolge achten, in der Sie Ihre
+Transformationen anwenden. Zum Beispiel, wenn Sie vor dem Übersetzen drehen, wird die Übersetzung entlang der neuen Drehachse erfolgen!
 
 #### HTML
 

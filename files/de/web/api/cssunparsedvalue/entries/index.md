@@ -3,13 +3,12 @@ title: "CSSUnparsedValue: entries() Methode"
 short-title: entries()
 slug: Web/API/CSSUnparsedValue/entries
 l10n:
-  sourceCommit: 0a881eea07f0cec6ca4ed85a24af43b367a9f80d
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSUnparsedValue.entries()`**-Methode
-gibt ein Array der eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts in derselben Reihenfolge zurück, wie sie von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird (mit dem Unterschied, dass eine for-in Schleife auch Eigenschaften in der Prototyp-Kette aufzählt).
+Die **`CSSUnparsedValue.entries()`** Methode gibt ein Array von `[key, value]` Paaren eines gegebenen Objekts zurück, das seine eigenen aufzählbaren Eigenschaften in derselben Reihenfolge enthält, wie sie von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (mit dem Unterschied, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
 
 ## Syntax
 
@@ -20,12 +19,11 @@ entries(obj)
 ### Parameter
 
 - `obj`
-  - : Der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), dessen eigene aufzählbare
-    `[key, value]`-Paare zurückgegeben werden sollen.
+  - : Der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), dessen aufzählbare eigene Eigenschaftspaare `[key, value]` zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren `[key, value]`-Paare des gegebenen `CSSUnparsedValue`-Objekts.
+Ein Array der eigenen aufzählbaren Eigenschaftspaare `[key, value]` des gegebenen `CSSUnparsedValue` Objekts.
 
 ## Spezifikationen
 
@@ -42,5 +40,5 @@ Ein Array der eigenen aufzählbaren `[key, value]`-Paare des gegebenen `CSSUnpar
 - [`CSSUnparsedValue.keys`](/de/docs/Web/API/CSSUnparsedValue/keys)
 - [`CSSUnparsedValue.length`](/de/docs/Web/API/CSSUnparsedValue/length)
 - [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
-- [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Verwendung der CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

@@ -1,16 +1,14 @@
 ---
-title: "StylePropertyMapReadOnly: getAll()-Methode"
+title: "StylePropertyMapReadOnly: Methode getAll()"
 short-title: getAll()
 slug: Web/API/StylePropertyMapReadOnly/getAll
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`getAll()`**-Methode der
-[`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt ein Array von
-[`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, die die Werte für die angegebene Eigenschaft enthalten.
+Die **`getAll()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, das die Werte für die angegebene Eigenschaft enthält.
 
 ## Syntax
 
@@ -29,8 +27,9 @@ Ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet `getAll()` mit der
-{{cssxref('background-image')}}-Eigenschaft. Ein {{jsxref('Array')}} wird zurückgegeben, das ein Element für jedes deklarierte Hintergrundbild enthält.
+### Grundlegende Verwendung
+
+Im folgenden Beispiel wird `getAll()` mit der {{cssxref('background-image')}}-Eigenschaft verwendet. Es wird ein {{jsxref('Array')}} zurückgegeben, das ein Element für jedes deklarierte Hintergrundbild enthält.
 
 ```js
 // get a button element

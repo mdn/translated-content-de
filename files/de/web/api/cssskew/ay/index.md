@@ -3,13 +3,12 @@ title: "CSSSkew: ay-Eigenschaft"
 short-title: ay
 slug: Web/API/CSSSkew/ay
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSS Typed OM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die **`ay`**-Eigenschaft des
-[`CSSSkew`](/de/docs/Web/API/CSSSkew)-Interfaces liest und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
+Die **`ay`**-Eigenschaft der [`CSSSkew`](/de/docs/Web/API/CSSSkew)-Schnittstelle erhält und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
 
 ## Wert
 

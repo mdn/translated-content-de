@@ -3,12 +3,12 @@ title: "CSSVariableReferenceValue: fallback-Eigenschaft"
 short-title: fallback
 slug: Web/API/CSSVariableReferenceValue/fallback
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte **`fallback`**-Eigenschaft der [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue)-Schnittstelle gibt den [Ersatzwert der benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties#custom_property_fallback_values) der [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) zurück.
+Die **`fallback`** schreibgeschützte Eigenschaft der [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue)-Schnittstelle gibt den [Fallback-Wert der benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties#custom_property_fallback_values) des [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) zurück.
 
 ## Wert
 

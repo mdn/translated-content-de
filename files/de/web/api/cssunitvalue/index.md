@@ -2,40 +2,43 @@
 title: CSSUnitValue
 slug: Web/API/CSSUnitValue
 l10n:
-  sourceCommit: efab12f729b549406b2e0789a87590572f5af6af
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSUnitValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte, die einen einzelnen [Einheitstyp](/de/docs/Web/CSS/Guides/Values_and_units#units) enthalten.
+Die **`CSSUnitValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte, die einen einzelnen [Einheitentyp](/de/docs/Web/CSS/Guides/Values_and_units#units) enthalten.
 
-Zum Beispiel würde der Wert `42px` (eine {{cssxref("&lt;dimension&gt;")}}) durch einen `CSSNumericValue` dargestellt werden.
+Zum Beispiel würde der Wert `42px` (ein {{cssxref("&lt;dimension&gt;")}}) durch einen `CSSNumericValue` dargestellt werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSUnitValue()`](/de/docs/Web/API/CSSUnitValue/CSSUnitValue)
-  - : Erstellt ein neues `CSSUnitValue` Objekt.
+  - : Erstellt ein neues `CSSUnitValue`-Objekt.
 
 ## Instanz-Eigenschaften
 
 - [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
-  - : Gibt eine double-Zahl zurück, die die Anzahl der Einheiten angibt. Für einen `CSSNumericValue`, der `42px` repräsentiert, wäre dies `42`.
+  - : Gibt ein Double zurück, das die Anzahl der Einheiten angibt.
+    Für einen `CSSNumericValue`, der `42px` darstellt, wäre dies `42`.
 - [`CSSUnitValue.unit`](/de/docs/Web/API/CSSUnitValue/unit)
-  - : Gibt einen String zurück, der den Einheitstyp angibt. Für einen `CSSNumericValue`, der `42px` repräsentiert, wäre dies `"px"`.
+  - : Gibt einen String zurück, der den Einheitentyp angibt. Für einen `CSSNumericValue`, der `42px` darstellt, wäre dies `"px"`.
 
 ## Statische Methoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
+_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
 
 ## Instanz-Methoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
+_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle, [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), erben._
 
 ## Beispiele
 
-Das folgende zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus individuellen `CSSUnitValue` Konstruktoren.
+### Grundlegende Verwendung
+
+Das Folgende zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus individuellen `CSSUnitValue`-Konstruktoren.
 
 ```js
 let pos = new CSSPositionValue(

@@ -1,16 +1,14 @@
 ---
-title: "CSSKeywordValue: value-Eigenschaft"
+title: "CSSKeywordValue: Value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSKeywordValue/value
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`value`**-Eigenschaft der
-[`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Schnittstelle gibt den Wert des
-`CSSKeywordValue` zurück oder setzt ihn.
+Die **`value`**-Eigenschaft der [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Schnittstelle gibt den Wert des `CSSKeywordValue` zurück oder setzt ihn.
 
 ## Wert
 
@@ -23,7 +21,9 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS {{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück.
+### Grundlegende Verwendung
+
+Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück.
 
 ```js
 let indicator = document.getElementById("indicator");

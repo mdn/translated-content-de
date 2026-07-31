@@ -3,12 +3,12 @@ title: "CSSMathNegate: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSMathNegate/value
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft `CSSMathNegate.value` der [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
+Die schreibgeschützte **`CSSMathNegate.value`**-Eigenschaft der [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-In Bearbeitung
+Noch zu erledigen
 
 ## Spezifikationen
 
