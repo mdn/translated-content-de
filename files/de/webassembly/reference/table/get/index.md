@@ -1,12 +1,12 @@
 ---
-title: "get: Wasm-Tabelle-Anweisung"
+title: "get: Wasm table Anweisung"
 short-title: get
 slug: WebAssembly/Reference/Table/get
 l10n:
-  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
+  sourceCommit: f35f247e16286c4e0b1c88fba3d8ce01683c189b
 ---
 
-Die **`table.get`** [Tabelle-Anweisung](/de/docs/WebAssembly/Reference/Table) ruft die Referenz ab, die an einem bestimmten Tabellenindex gespeichert ist.
+Die **`table.get`** [Tabellenanweisung](/de/docs/WebAssembly/Reference/Table) ruft die Referenz ab, die an einem bestimmten Tabellenindex gespeichert ist.
 
 {{InteractiveExample("Wat Demo: table.get", "tabbed-taller")}}
 
@@ -56,13 +56,13 @@ table.get identifier
 ```
 
 - `table.get`
-  - : Der Anweisungstyp `table.get`. Muss immer zuerst enthalten sein.
+  - : Der Anweisungstyp `table.get`. Muss immer zuerst angegeben werden.
 - `identifier` {{optional_inline}}
-  - : Ein Bezeichner für die Tabelle, aus der Sie eine Referenz abrufen möchten. Dies kann eines der folgenden sein:
+  - : Ein Identifikator für die Tabelle, aus der Sie eine Referenz abrufen möchten. Dies kann eines der folgenden sein:
     - `name`
-      - : Ein bei der ersten Erstellung festgelegter [Identifizierungsname für die Tabelle](/de/docs/WebAssembly/Reference/Definitions/table#name). Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein bei der Erstellung [festgelegter Name](/de/docs/WebAssembly/Reference/Definitions/table#name) für die Tabelle. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
     - `index`
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite usw.
+      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Modul, `1` für die zweite, usw.
 
     Wenn der `identifier` weggelassen wird, wird er standardmäßig auf `0` gesetzt.
 
@@ -73,15 +73,15 @@ table.get identifier
 ```
 
 - `index`
-  - : Der Index in der Tabelle, um den Wert abzurufen. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 1)`.
+  - : Der Index in der Tabelle, von dem der Wert abgerufen werden soll. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 1)`.
 - `value`
-  - : Der Wert, der an dem Index in der Tabelle gespeichert ist. Dies wird der Elementtyp der Tabelle sein.
+  - : Der Wert, der im Tabellenindex gespeichert ist. Dies wird der Elementtyp der Tabelle sein.
 
-### Fallen
+### Traps
 
-`table.get` löst eine Ausnahme aus, wenn:
+`table.get` führt zum Trapping, wenn:
 
-- `index` größer als [`table.size`](/de/docs/WebAssembly/Reference/Table/size) ist.
+- `index` größer ist als [`table.size`](/de/docs/WebAssembly/Reference/Table/size).
 
 ### Opcodes
 
@@ -93,21 +93,21 @@ table.get identifier
 
 Die `table.get`-Anweisung ruft einen Wert ab, der an einem bestimmten Index einer vorhandenen Tabelle gespeichert ist.
 
-Wenn die Tabelle zum Speichern von [`funcref`](/de/docs/WebAssembly/Reference/Value_types/funcref)s initialisiert wurde, werden die abgerufenen Werte Referenzen auf innerhalb von Wasm definierte Funktionen sein. Wenn die Tabelle zum Speichern von [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref)s initialisiert wurde, können die abgerufenen Werte nahezu jeder in JavaScript definierte Werttyp sein.
+Wenn die Tabelle zum Speichern von [`funcref`](/de/docs/WebAssembly/Reference/Value_types/funcref)s initialisiert wurde, werden die abgerufenen Werte Referenzen auf in Wasm definierte Funktionen sein. Wenn die Tabelle zum Speichern von [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref)s initialisiert wurde, können die abgerufenen Werte fast beliebige in JavaScript definierte Wertetypen sein.
 
-Wasm-Tabellenwerte können aus JavaScript mit der [`table.get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get)-Methode abgerufen werden.
+Wasm-Tabellenwerte können von JavaScript aus mit der Methode [`table.get()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/get) abgerufen werden.
 
 ## Beispiele
 
 ### Abrufen von Zeichenfolgen aus einer Tabelle
 
-Dieses Beispiel zeigt, wie man eine Wasm-Tabelle in JavaScript erstellt und Zeichenfolgen darin speichert, dann diese Zeichenfolgen innerhalb von Wasm mittels `table.get` abruft und sie mit einer importierten Funktion ausgibt.
+Dieses Beispiel zeigt, wie man eine Wasm-Tabelle in JavaScript erstellt und Zeichenfolgen darin speichert. Anschließend werden diese Zeichenfolgen aus dem Inneren von Wasm mit `table.get` abgerufen und mit einer importierten Funktion ausgegeben.
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, eine Referenz zu einem {{htmlelement("p")}}-Element zu erhalten, in das wir die Ergebnisse ausgeben. Wir erstellen dann eine Wasm-Tabelle aus JavaScript mithilfe des [`WebAssembly.Table`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/Table)-Konstruktors, indem wir ihr eine Anfangsgröße von `0` geben und sie so einstellen, dass sie `externref`-Werte enthält.
+In unserem Skript beginnen wir, indem wir eine Referenz auf ein {{htmlelement("p")}}-Element erhalten, in das wir Ergebnisse ausgeben werden. Dann erstellen wir eine Wasm-Tabelle in JavaScript mit dem [`WebAssembly.Table`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/Table)-Konstruktor, geben ihr eine anfängliche Größe von `0` und setzen sie auf `externref`-Werte.
 
-Anschließend erhöhen wir die Größe der Tabelle auf zwei Elemente mit der [`table.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow)-Methode und verwenden die [`table.set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set)-Methode, um in jedem Tabellenelement eine andere Zeichenfolge zu speichern.
+Als Nächstes erhöhen wir die Größe der Tabelle auf zwei Elemente mit der Methode [`table.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow) und verwenden die Methode [`table.set()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/set), um in jedem Tabellenelement eine andere Zeichenfolge zu speichern.
 
 ```js live-sample___basic-usage
 const outputElem = document.querySelector("p");
@@ -119,14 +119,14 @@ table.set(0, "hello");
 table.set(1, "world");
 ```
 
-An diesem Punkt definieren wir ein `imports`-Objekt, das zwei zu importierende Elemente in Wasm enthält:
+An diesem Punkt definieren wir ein `imports`-Objekt, das zwei Items enthält, die in Wasm importiert werden sollen:
 
-- Eine Funktion namens `output()`, die einen gegebenen Wert zum `textContent` eines bestimmten Elements hinzufügt.
-- Die zuvor erstellte Tabelle.
+- Eine Funktion namens `output()`, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
+- Die Tabelle, die wir zuvor erstellt haben.
 
-Wir kompilieren und instanziieren dann unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode, indem wir das `imports`-Objekt importieren.
+Dann kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das `imports`-Objekt während des Prozesses importieren.
 
-Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-Funktion `run()` auf, die im `exports`-Objekt der WebAssembly-Instanz verfügbar ist, und übergeben den `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf, die im WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist, indem wir das `outputElem`-Element als Parameter übergeben.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -153,12 +153,12 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), imports).then(
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die beiden importierten Elemente:
+In unserem Wasm-Modul importieren wir zuerst unsere zwei importierten Elemente:
 
-- Die JavaScript-Funktion `output()`, die wir mit zwei [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref)-Parametern deklarieren.
-- Die Zeichenfolgentabelle, die wir `$string_table` nennen.
+- Die JavaScript-Funktion `output()`, die wir sicherstellen, dass sie mit zwei [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref)-Parametern deklariert wird.
+- Die Tabelle von Zeichenfolgen, die wir `$string_table` nennen.
 
-Dann exportieren wir die `run()`-Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Im Funktionskörper führen wir unsere importierte `output()`-Funktion zweimal aus. Wir geben in beiden Fällen dieselbe `$elem`-Referenz für den ersten Parameter an und verwenden dann `table.get`, um eine andere Zeichenfolge aus der importierten Tabelle als zweiten Parameter in jedem Fall abzurufen.
+Dann exportieren wir die `run()`-Funktion, die einen `externref` namens `$elem` als Parameter annimmt. Im Funktionskörper führen wir unsere importierte `output()`-Funktion zweimal aus. Wir geben in beiden Fällen dieselbe `$elem`-Referenz als ersten Parameter an und verwenden dann `table.get`, um aus der importierten Tabelle eine andere Zeichenfolge abzurufen, die als zweiter Parameter in jedem Fall verwendet wird.
 
 ```wat live-sample___basic-usage
 (module
@@ -185,7 +185,7 @@ Die Ausgabe ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Dies ist sinnvoll, da jedes Mal, wenn die `output()`-Funktion innerhalb des Wasm-Moduls ausgeführt wird, der Wert, der als zweiter Parameter übergeben wird, in unser Ergebnis-`<p>` im DOM ausgegeben wird. Jeder Wert ist eine der in der Tabelle gespeicherten Zeichenfolgen — `hello` und `world` jeweils.
+Dies ergibt Sinn, da jedes Mal, wenn die `output()`-Funktion aus dem Inneren des Wasm-Moduls ausgeführt wird, der Wert, der als zweiter Parameter an sie übergeben wird, in unserem Ergebnis-`<p>` im DOM ausgegeben wird. Jeder Wert ist eine der in der Tabelle gespeicherten Zeichenfolgen — `hello` und `world` beziehungsweise.
 
 ## Spezifikationen
 

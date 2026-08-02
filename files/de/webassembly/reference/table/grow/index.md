@@ -1,12 +1,12 @@
 ---
-title: "grow: Wasm-Tabelle-Anweisung"
+title: "grow: Wasm table instruction"
 short-title: grow
 slug: WebAssembly/Reference/Table/grow
 l10n:
-  sourceCommit: 581f82a63c000aa702c51f17f610fcd8e4f97ca8
+  sourceCommit: f35f247e16286c4e0b1c88fba3d8ce01683c189b
 ---
 
-Die **`table.grow`** [Tabellenanweisung](/de/docs/WebAssembly/Reference/Table) erhöht die Größe einer Tabelle um eine bestimmte Anzahl von Elementen.
+Die **`table.grow`** [Tabellenanweisung](/de/docs/WebAssembly/Reference/Table) erhöht die Größe einer Tabelle um eine angegebene Anzahl von Elementen.
 
 {{InteractiveExample("Wat Demo: table.grow", "tabbed-taller")}}
 
@@ -58,34 +58,34 @@ table.grow identifier
 ```
 
 - `table.grow`
-  - : Der `table.grow` Anweisungstyp. Muss immer zuerst enthalten sein.
+  - : Der `table.grow` Anweisungstyp. Muss immer zuerst angegeben werden.
 - `identifier` {{optional_inline}}
-  - : Ein Bezeichner für die Tabelle, die Sie vergrößern möchten. Dies kann eines der folgenden sein:
+  - : Ein Bezeichner für die Tabelle, die Sie vergrößern möchten. Dies kann einer der folgenden sein:
     - `name`
-      - : Ein identifizierender Name [der für die Tabelle festgelegt wurde](/de/docs/WebAssembly/Reference/Definitions/table#name), als sie zuerst erstellt wurde. Dieser muss mit einem `$` Symbol beginnen, zum Beispiel `$my_table`.
+      - : Ein Bezeichnername [für die Tabelle festgelegt](/de/docs/WebAssembly/Reference/Definitions/table#name), als sie zuerst erstellt wurde. Dieser muss mit einem `$`-Symbol beginnen, zum Beispiel `$my_table`.
     - `index`
-      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im Wasm-Skript, `1` für die zweite, usw.
+      - : Die Indexnummer der Tabelle, zum Beispiel `0` für die erste Tabelle im wasm-Modul, `1` für die zweite, usw.
 
-    Wenn der `identifier` weggelassen wird, wird er standardmäßig auf `0` gesetzt.
+    Wenn der `identifier` weggelassen wird, wird der Wert `0` standardmäßig verwendet.
 
-### Typ
+### Type
 
 ```plain
 [initial_value, grow_amount] -> [previous_length]
 ```
 
 - `initial_value`
-  - : Der Anfangswert, der für die neuen Tabellenelemente festgelegt wird. Sein Typ muss derselbe sein wie der [anfänglich festgelegte Typ](/de/docs/WebAssembly/Reference/Definitions/table#type), als die Tabelle erstellt wurde.
+  - : Der Anfangswert, der für die neuen Tabellenelemente festgelegt wird. Sein Typ muss mit dem [`type`](/de/docs/WebAssembly/Reference/Definitions/table#type) übereinstimmen, der beim Erstellen der Tabelle initial festgelegt wurde.
 - `grow_amount`
-  - : Die Anzahl von Elementen, um die die Tabelle vergrößert werden soll. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 1)`.
+  - : Die Anzahl der Elemente, um die die Tabelle vergrößert werden soll. Dies muss ein `i32`-Wert sein, zum Beispiel `(i32.const 1)`.
 - `previous_length`
-  - : Ein `i32`, der der Größe der Tabelle entspricht, bevor die `grow`-Anweisung darauf angewendet wird, oder `-1`, wenn die Tabelle nicht vergrößert werden konnte, zum Beispiel aufgrund eines Speichermangels (OOM-Fehler) oder die neue Größe größer ist als die [maximale Größe der Tabelle](/de/docs/WebAssembly/Reference/Definitions/table#max_size).
+  - : Ein `i32`, der der Größe der Tabelle entspricht, bevor die `grow`-Anweisung auf sie angewendet wird, oder `-1`, wenn die Tabelle nicht vergrößert werden konnte, zum Beispiel aufgrund eines Out-of-Memory (OOM) Fehlers oder wenn die neue Größe größer als die [maximale Größe der Tabelle](/de/docs/WebAssembly/Reference/Definitions/table#max_size) ist.
 
-Um die neue Tabellengröße zu erhalten, nachdem die `grow`-Anweisung darauf angewendet wurde, verwenden Sie die [`table.size`](/de/docs/WebAssembly/Reference/Table/size) Anweisung.
+Um die neue Tabellengröße nach dem Anwenden der `grow`-Anweisung zu ermitteln, verwenden Sie die [`table.size`](/de/docs/WebAssembly/Reference/Table/size) Anweisung.
 
 ### Opcodes
 
-| Anweisung    | Binärformat               | Beispieltext => binär                                                                |
+| Anweisung    | Binärformat               | Beispieltext => Binär                                                                |
 | ------------ | ------------------------- | ------------------------------------------------------------------------------------ |
 | `table.grow` | `0xfc 15:u32 𝑥:table_idx` | `(table.grow (i32.const 1) (ref.null func))` => `0xfc 0x0f 0x00 0x41 0x01 0xd0 0x70` |
 
@@ -93,21 +93,21 @@ Um die neue Tabellengröße zu erhalten, nachdem die `grow`-Anweisung darauf ang
 
 `table.grow` wird verwendet, um die Größe einer Tabelle um eine bestimmte Anzahl von Elementen zu erhöhen.
 
-Eine Wasm-Tabelle kann von JavaScript aus mit der [`table.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow) Methode vergrößert werden.
+Eine wasm-Tabelle kann aus JavaScript heraus mithilfe der [`table.grow()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Table/grow) Methode vergrößert werden.
 
 ## Beispiele
 
 ### Erstellen, Vergrößern und Setzen einer Tabelle
 
-Dieses Beispiel zeigt, wie man eine Tabelle erstellt, ihre Größe vergrößert, die darin gespeicherten Funktionen dynamisch ändert und dann die Funktion aufruft, die zu jedem Zeitpunkt in der Tabelle gespeichert ist.
+Dieses Beispiel zeigt, wie eine Tabelle erstellt, ihre Größe vergrößert, die darin gespeicherten Funktionen dynamisch geändert und dann die in der Tabelle gespeicherte Funktion bei jedem Punkt aufgerufen werden kann.
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, eine Referenz auf ein {{htmlelement("p")}} Element zu erhalten, in das wir Ergebnisse ausgeben werden. Wir definieren dann ein `obj`-Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
+In unserem Skript beginnen wir, indem wir einen Verweis auf ein {{htmlelement("p")}} Element erhalten, in das wir die Ergebnisse ausgeben werden. Wir definieren dann ein `obj` Objekt, das eine Funktion namens `output()` enthält, die einen gegebenen Wert zum `textContent` eines gegebenen Elements hinzufügt.
 
-Dann kompilieren und instanziieren wir unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) Methode, wobei wir das `obj`-Objekt im Prozess importieren.
+Wir kompilieren und instanziieren dann unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), wobei wir das `obj` Objekt importieren.
 
-Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-`run()`-Funktion auf, die auf dem WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist und übergeben das `outputElem`-Element als Parameter.
+Wenn das Ergebnis zurückgegeben wird, rufen wir die exportierte Wasm-Funktion `run()` auf, die im WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports) Objekt verfügbar ist, und übergeben ihr das `outputElem` Element als Parameter.
 
 ```html hidden live-sample___basic-usage
 <p></p>
@@ -131,15 +131,15 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst die JavaScript-Funktion `output()`, und stellen sicher, dass wir deklarieren, dass sie zwei Parameter hat, ein [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref) und ein `i32`.
+In unserem Wasm-Modul importieren wir zuerst die JavaScript-Funktion `output()`, wobei wir sicherstellen, dass sie zwei Parameter hat, einen [`externref`](/de/docs/WebAssembly/Reference/Value_types/externref) und einen `i32`.
 
-Dann definieren wir einen Funktionstyp namens `$ret_i32`, der einen `i32`-Wert zurückgibt. Anschließend definieren wir zwei Funktionen basierend auf diesem Typ namens `$f1` und `$f2`, die die darin definierten Werte zurückgeben und deklarieren sie voraus mit `(elem declare func $f1 $f2)`, sodass sie später referenziert werden können. Danach definieren wir eine `table` namens `$func_table`, die Funktionsreferenzen speichert (daher `funcref` angegeben) und anfänglich leer ist.
+Als nächstes definieren wir einen Funktionstyp namens `$ret_i32`, der einen `i32` Wert zurückgibt. Wir definieren dann zwei Funktionen basierend auf diesem Typ, genannt `$f1` und `$f2`, die die darin definierten Werte zurückgeben und diese mit `(elem declare func $f1 $f2)` vorab deklarieren, damit sie später referenziert werden können. Als nächstes definieren wir eine `table` namens `$func_table`, die Funktionsreferenzen speichert (daher wird `funcref` angegeben) und anfangs leer ist.
 
-Schließlich exportieren wir die `run()`-Funktion, die ein `externref` namens `$elem` als Parameter nimmt. Innerhalb des Funktionskörpers:
+Schließlich exportieren wir die `run()`-Funktion, die einen `externref` namens `$elem` als Parameter erhält. Im Funktionskörper:
 
-- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu erhöhen, mit einem initialen `ref.null`-Wert, und überprüfen, ob das Operationsergebnis `-1` ist, was auf ein Scheitern hindeuten würde.
-- Setzen unser Tabellenelement, um die Funktion `$f1` zu enthalten, mittels [`table.set`](/de/docs/WebAssembly/Reference/Table/set), und rufen dann die importierte `$output`-Funktion auf und übergeben ihr die als Parameter übergebenen `$elem`-`externref` an die `output()`-Funktion, und den Wert, der von der `$f1`-Funktion zurückgegeben wird, die aus der Tabelle mithilfe `(call_indirect (type $ret_i32) (i32.const 0))` referenziert wird.
-- Setzen unser Tabellenelement, um die Funktion `$f2` zu enthalten, und rufen dann die `output()`-Funktion erneut auf.
+- Verwenden wir `table.grow`, um die Tabellengröße um `1` zu vergrößern, mit einem anfänglichen `ref.null` Wert, und prüfen, ob das Ergebnis der Operation `-1` ist, was auf einen Fehler hinweisen würde.
+- Setzen wir unser Tabellenelement, um die `$f1` Funktion mithilfe von [`table.set`](/de/docs/WebAssembly/Reference/Table/set) zu enthalten, und rufen dann die importierte `$output` Funktion auf, wobei wir als Parameter den an die `output()` Funktion übergebenen `$elem` `externref` und den von der `$f1` Funktion zurückgegebenen Wert übergeben, der aus der Tabelle mithilfe von `(call_indirect (type $ret_i32) (i32.const 0))` referenziert wird.
+- Setzen wir unser Tabellenelement, um die `$f2` Funktion mit `table.set` zu enthalten, und rufen dann erneut die `output()` Funktion auf.
 
 ```wat live-sample___basic-usage
 (module
@@ -209,11 +209,11 @@ Schließlich exportieren wir die `run()`-Funktion, die ein `externref` namens `$
 
 #### Ergebnis
 
-Die Ausgabe erfolgt wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{embedlivesample("basic-usage", "100%", 100)}}
 
-Dies macht Sinn, da jedes Mal, wenn die `output()`-Funktion vom Inneren des Wasm-Moduls aus aufgerufen wird, der Wert, der als zweiter Parameter an sie übergeben wird, in unser Ergebnis-`<p>` im DOM ausgegeben wird. Jeder Wert ist der von den `$f1`- und `$f2`-Funktionen zurückgegebene Wert — `42` bzw. `100`.
+Das ist sinnvoll, da jedes Mal, wenn die `output()` Funktion aus dem Inneren des Wasm-Moduls ausgeführt wird, der Wert, der als zweiter Parameter in sie übergeben wird, in unserem Ergebnis `<p>` im DOM ausgegeben wird. Jeder Wert ist der Wert, der von den `$f1` und `$f2` Funktionen zurückgegeben wird — `42` und `100` jeweils.
 
 ## Spezifikationen
 

@@ -2,20 +2,27 @@
 title: WebAssembly Speicheranweisungen
 slug: WebAssembly/Reference/Memory
 l10n:
-  sourceCommit: 6e99dbce48ff569afb34ad36a5aa4129a945af31
+  sourceCommit: f35f247e16286c4e0b1c88fba3d8ce01683c189b
 ---
 
 WebAssembly Speicheranweisungen.
 
 - [`copy`](/de/docs/WebAssembly/Reference/Memory/copy)
-  - : Kopieren von Daten von einem Bereich im Speicher in einen anderen.
+  - : Kopiert Daten von einem [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory)-Bereich in einen anderen.
 - [`fill`](/de/docs/WebAssembly/Reference/Memory/fill)
-  - : Setzen aller Werte in einem Bereich auf ein bestimmtes Byte.
+  - : Setzt alle Werte in einem Bereich auf ein spezifisches Byte.
 - [`grow`](/de/docs/WebAssembly/Reference/Memory/grow)
-  - : Erhöhen der Größe der Speicherinstanz.
+  - : Erhöht die Größe der Speicherinstanz.
+- [`init`](/de/docs/WebAssembly/Reference/Memory/init)
+  - : Kopiert die Bytes aus einer passiven [`data`](/de/docs/WebAssembly/Reference/Definitions/data)-Definition in einen [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory).
 - [`load`](/de/docs/WebAssembly/Reference/Memory/load)
-  - : Laden einer Zahl aus dem Speicher.
+  - : Lädt eine Zahl aus dem Speicher.
 - [`size`](/de/docs/WebAssembly/Reference/Memory/size)
-  - : Abrufen der Größe der Speicherinstanz.
+  - : Bestimmt die Größe der Speicherinstanz.
 - [`store`](/de/docs/WebAssembly/Reference/Memory/store)
-  - : Speichern einer Zahl im Speicher.
+  - : Speichert eine Zahl im Speicher.
+
+## Siehe auch
+
+- [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory) Definition
+- [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript API
