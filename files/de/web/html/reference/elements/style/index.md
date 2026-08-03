@@ -1,14 +1,14 @@
 ---
-title: "`<style>` HTML-Stilelement"
+title: "`<style>` HTML style information element"
 short-title: <style>
 slug: Web/HTML/Reference/Elements/style
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: ae75e612d34b87b46332beb1bddc879f56358495
 ---
 
-Das **`<style>`** [HTML](/de/docs/Web/HTML)-Element enthält Stilinformationen für ein Dokument oder einen Teil eines Dokuments. Es enthält CSS, das auf die Inhalte des Dokuments angewendet wird, das das `<style>`-Element enthält.
+Das **`<style>`** [HTML](/de/docs/Web/HTML) Element enthält Stilinformationen für ein Dokument oder einen Teil eines Dokuments. Es enthält CSS, das auf die Inhalte des Dokuments angewendet wird, die das `<style>` Element enthalten.
 
-{{InteractiveExample("HTML Demo: &lt;style&gt;", "tabbed-standard")}}
+{{InteractiveExample("HTML Demo: \<style>", "tabbed-standard")}}
 
 ```html interactive-example
 <style>
@@ -36,34 +36,34 @@ p {
 }
 ```
 
-Das `<style>`-Element muss im {{htmlelement("head")}} des Dokuments enthalten sein. Im Allgemeinen ist es besser, Ihre Stile in externen Stylesheets abzulegen und sie mit {{htmlelement("link")}}-Elementen anzuwenden.
+Das `<style>`-Element wird typischerweise innerhalb des {{htmlelement("head")}} des Dokuments eingebunden. Es kann auch überall dort verwendet werden, wo Metadateninhalte zulässig sind, etwa innerhalb eines {{htmlelement("template")}} Elements.
 
-Wenn Sie mehrere `<style>`- und `<link>`-Elemente in Ihr Dokument einfügen, werden sie in der Reihenfolge, in der sie im Dokument enthalten sind, auf das DOM angewendet — achten Sie darauf, sie in der richtigen Reihenfolge einzufügen, um unerwartete Kaskadenprobleme zu vermeiden.
+Wenn Sie mehrere `<style>` und `<link>` Elemente in Ihrem Dokument einfügen, werden diese in der Reihenfolge angewendet, in der sie im Dokument enthalten sind – stellen Sie sicher, dass sie in der richtigen Reihenfolge enthalten sind, um unerwartete Kaskadenprobleme zu vermeiden.
 
-Ähnlich wie `<link>`-Elemente können `<style>`-Elemente `media`-Attribute enthalten, die [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) enthalten, sodass Sie interne Stylesheets selektiv auf Ihr Dokument anwenden können, je nach Medieneigenschaften wie der Breite des Viewports.
+Ähnlich wie `<link>`-Elemente können `<style>`-Elemente `media`-Attribute enthalten, die [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) enthalten. Dadurch können Sie interne Stile je nach Medienmerkmalen wie z.B. der Ansichtsfensterbreite selektiv auf Ihr Dokument anwenden.
 
 ## Attribute
 
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `blocking`
-  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen beim Abrufen kritischer Subressourcen und der Anwendung des Stylesheets auf das Dokument blockiert werden sollen. {{cssxref("@import")}}-ierte Stylesheets werden im Allgemeinen als kritische Subressourcen betrachtet, während {{cssxref("background-image")}} und Schriftarten dies nicht sind. Die zu blockierenden Operationen müssen als durch Leerzeichen getrennte Liste von Blockierungstokens angegeben werden, die unten aufgeführt sind. Derzeit gibt es nur ein Token:
-    - `render`: Die Darstellung von Inhalten auf dem Bildschirm wird blockiert.
+  - : Dieses Attribut gibt ausdrücklich an, dass bestimmte Operationen beim Abrufen kritischer Subressourcen und der Anwendung des Stylesheets auf das Dokument blockiert werden sollen. {{cssxref("@import")}}-ierte Stylesheets werden im Allgemeinen als kritische Subressourcen angesehen, während {{cssxref("background-image")}} und Schriftarten es nicht sind. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste von unten aufgeführten Blockierungstokens sein. Derzeit gibt es nur ein Token:
+    - `render`: Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
 
     > [!NOTE]
-    > Nur `style`-Elemente im `<head>` des Dokuments können möglicherweise die Darstellung blockieren. Standardmäßig blockiert ein `style`-Element im `<head>` die Darstellung, wenn der Browser es während des Parsens entdeckt. Wenn ein solches `style`-Element dynamisch über ein Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` setzen, damit es die Darstellung blockiert.
+    > Nur `style` Elemente im `<head>` des Dokuments können eventuell das Rendering blockieren. Standardmäßig blockiert ein `style`-Element im `<head>` das Rendering, wenn der Browser es während des Parsens entdeckt. Wenn solch ein `style` Element dynamisch über ein Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` setzen, damit es das Rendering blockiert.
 
 - `media`
-  - : Dieses Attribut definiert, auf welche Medien der Stil angewendet werden soll. Sein Wert ist eine [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using), die auf `all` standardmäßig gesetzt ist, wenn das Attribut fehlt.
+  - : Dieses Attribut definiert, auf welche Medien der Stil angewendet werden soll. Sein Wert ist eine [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using), die standardmäßig `all` ist, wenn das Attribut fehlt.
 - `nonce`
-  - : Ein kryptografischer {{Glossary("Nonce", "Nonce")}} (eine einmal verwendete Zahl), der verwendet wird, um Inline-Stile in einer [style-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) zuzulassen. Der Server muss bei jeder Übertragung einer Richtlinie einen eindeutigen Nonce-Wert generieren. Es ist entscheidend, einen Nonce bereitzustellen, der nicht erraten werden kann, da das Umgehen der Richtlinie einer Ressource sonst trivial ist.
+  - : Eine kryptografische {{Glossary("Nonce", "Nonce")}} (nur einmal verwendete Zahl), die verwendet wird, um Inline-Stile in einer [style-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/style-src) zuzulassen. Der Server muss bei jeder Übertragung einer Richtlinie einen eindeutigen Nonce-Wert generieren. Es ist entscheidend, eine Nonce bereitzustellen, die nicht erraten werden kann, da ansonsten das Umgehen der Richtlinie trivial ist.
 - `title`
-  - : Dieses Attribut gibt [alternative Style Sheet](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet)-Sets an.
+  - : Dieses Attribut gibt [alternative Stylesheet](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) Sätze an.
 
 ### Veraltete Attribute
 
 - `type` {{deprecated_inline}}
-  - : Dieses Attribut sollte nicht bereitgestellt werden: Wenn es bereitgestellt wird, sind nur der leere String oder eine nicht case-sensible Übereinstimmung für `text/css` erlaubt.
+  - : Dieses Attribut sollte nicht bereitgestellt werden: Falls doch, sind die einzigen zulässigen Werte der leere String oder eine Groß- und Kleinschreibung ignorierende Entsprechung von `text/css`.
 
 ## Beispiele
 
@@ -93,9 +93,27 @@ Im folgenden Beispiel wenden wir ein kurzes Stylesheet auf ein Dokument an:
 
 {{EmbedLiveSample('A_basic_stylesheet', '100%', '100')}}
 
-### Mehrere Stilelemente
+### Verwendung von `<style>` innerhalb `<template>`
 
-In diesem Beispiel haben wir zwei `<style>`-Elemente eingefügt — beachten Sie, wie die widersprüchlichen Deklarationen im späteren `<style>`-Element die im vorherigen überschreiben, wenn sie gleiche [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) haben.
+Ein `<style>` Element kann auch innerhalb eines {{HTMLElement("template")}} Elements platziert werden. Die Stile bleiben inaktiv, bis der Templateinhalt instanziiert und in das Dokument eingefügt wird.
+
+```html
+<template id="card-template">
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+
+  <div class="card">Template content</div>
+</template>
+```
+
+### Mehrere Style-Elemente
+
+In diesem Beispiel haben wir zwei `<style>` Elemente eingefügt – beachten Sie, wie die widersprüchlichen Deklarationen im späteren `<style>` Element die im früheren überschreiben, wenn sie die gleiche [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) haben.
 
 ```html
 <!doctype html>
@@ -130,7 +148,7 @@ In diesem Beispiel haben wir zwei `<style>`-Elemente eingefügt — beachten Sie
 
 ### Einfügen einer Media Query
 
-In diesem Beispiel bauen wir auf dem vorherigen auf, indem wir ein `media`-Attribut auf das zweite `<style>`-Element anwenden, sodass es nur angewendet wird, wenn der Viewport weniger als 500px breit ist.
+In diesem Beispiel bauen wir auf dem vorherigen auf und fügen ein `media` Attribut im zweiten `<style>` Element hinzu, sodass es nur angewendet wird, wenn das Ansichtsfenster weniger als 500px breit ist.
 
 ```html
 <!doctype html>
@@ -182,13 +200,13 @@ In diesem Beispiel bauen wir auf dem vorherigen auf, indem wir ein `media`-Attri
     <tr>
       <th>Erlaubter Inhalt</th>
       <td>
-        Textinhalt, der dem <code>type</code>-Attribut entspricht, das heißt
+        Textinhalt entsprechend dem <code>type</code> Attribut, das ist
         <code>text/css</code>.
       </td>
     </tr>
     <tr>
       <th>Tag-Auslassung</th>
-      <td>Kein Tag kann weggelassen werden.</td>
+      <td>Kein Tag ist auslassbar.</td>
     </tr>
     <tr>
       <th>Erlaubte Eltern</th>
@@ -228,5 +246,5 @@ In diesem Beispiel bauen wir auf dem vorherigen auf, indem wir ein `media`-Attri
 
 ## Siehe auch
 
-- Das {{HTMLElement("link")}}-Element, das uns ermöglicht, externe Stylesheets auf ein Dokument anzuwenden.
-- [Alternative Style Sheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet)
+- Das {{HTMLElement("link")}} Element, das uns ermöglicht, externe Stylesheets auf ein Dokument anzuwenden.
+- [Alternative Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet)
