@@ -2,29 +2,34 @@
 title: CSSSkewX
 slug: Web/API/CSSSkewX
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}}{{AvailableInWorkers}}
 
-Das **`CSSSkewX`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den {{cssxref("transform-function/skewX", "skewX()")}}-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
-Es erbt Eigenschaften und Methoden von seinem Eltern-Interface [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSSkewX`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den {{cssxref("transform-function/skewX", "skewX()")}}-Wert der einzelnen {{CSSXRef('transform')}} Eigenschaft in CSS.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSSkewX()`](/de/docs/Web/API/CSSSkewX/CSSSkewX)
-  - : Erstellt ein neues `CSSSkewX`-Objekt.
+  - : Erzeugt ein neues `CSSSkewX` Objekt.
 
 ## Instanz-Eigenschaften
 
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
+
 - [`ax`](/de/docs/Web/API/CSSSkewX/ax)
-  - : Gibt den Wert der x-Achse zurück oder legt ihn fest.
+  - : Gibt den Wert der x-Achse zurück oder setzt ihn.
+
+## Instanz-Methoden
+
+_Erbt auch Methoden von seinem Eltern-Interface, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
 
 ## Beispiele
 
-Noch zu erledigen
+To Do
 
 ## Spezifikationen
 

@@ -2,21 +2,21 @@
 title: CSSKeywordValue
 slug: Web/API/CSSKeywordValue
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
-{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
+{{APIRef("CSS Typed Objektmodell API")}} {{AvailableInWorkers}}
 
-Das **`CSSKeywordValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) repräsentiert den Wert eines CSS-Schlüsselworts oder eines anderen Identifikators.
+Das **`CSSKeywordValue`**-Interface der [CSS Typed Objektmodell API](/de/docs/Web/API/CSS_Typed_OM_API) repräsentiert den Wert eines CSS-Schlüsselworts oder eines anderen Bezeichners.
 
-Der Instanzname des Interfaces ist ein {{Glossary("stringifier", "Stringifier")}}, das heißt, wenn es an einer Stelle verwendet wird, an der ein String erwartet wird, wird der Wert von `CSSKeyword.value` zurückgegeben.
+Der Instanzname des Interfaces ist ein {{Glossary("stringifier", "stringifier")}}, daher wird es, wenn es an einer Stelle verwendet wird, an der ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgeben.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSKeywordValue()`](/de/docs/Web/API/CSSKeywordValue/CSSKeywordValue)
-  - : Erstellt ein neues `CSSKeywordValue` Objekt.
+  - : Erstellt ein neues `CSSKeywordValue`-Objekt.
 
 ## Instanz-Eigenschaften
 
@@ -25,17 +25,17 @@ Der Instanzname des Interfaces ist ein {{Glossary("stringifier", "Stringifier")}
 
 ## Instanz-Methoden
 
-_Erbt Methoden von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
+_Erbt auch Methoden von seinem Eltern-Interface [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf `initial`, indem `CSSKeywordValue` verwendet wird, um den Wert zu definieren.
+Dieses Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf `initial`, wobei `CSSKeywordValue` verwendet wird, um den Wert zu definieren.
 
 #### HTML
 
-Das HTML definiert ein Element, auf dem wir den Wert des `display`-Schlüsselworts setzen, ein {{htmlelement("hr")}}-Element, einen Button, der verwendet wird, um den Wert des `display`-Schlüsselworts zu setzen, und einen "Reset"-Button, um das Beispiel zurückzusetzen.
+Das HTML definiert ein Element, bei dem wir den Wert des `display`-Schlüsselworts setzen werden, ein {{htmlelement("hr")}}-Element, ein Button, der verwendet wird, um den Wert des `display`-Schlüsselworts zu setzen, und einen "Reset"-Button, um das Beispiel zurückzusetzen.
 
 ```html
 <div id="myElement">
@@ -49,7 +49,7 @@ Das HTML definiert ein Element, auf dem wir den Wert des `display`-Schlüsselwor
 
 #### CSS
 
-Das CSS setzt das Element initial auf `flex`, was es zwingt, in voller Breite angezeigt zu werden, und gibt ihm eine solide Umrandung mit Padding und Rändern.
+Das CSS setzt das Element zunächst auf `flex`, wodurch es in voller Breite angezeigt wird, und gibt ihm einen soliden Rahmen mit Polsterung und Rändern.
 
 ```css
 #myElement {
@@ -62,10 +62,10 @@ Das CSS setzt das Element initial auf `flex`, was es zwingt, in voller Breite an
 
 #### JavaScript
 
-Der Code erhält zunächst einen Bezug auf den "Set initial"-Button und fügt einen Listener hinzu, um das Klickereignis zu behandeln, wenn dieser gedrückt wird.
+Der Code holt zunächst einen Verweis auf den Button "Set initial" und fügt einen Listener hinzu, um das Klick-Event zu behandeln, wenn es gedrückt wird.
 
-Der Listener holt dann die Inline-Stile des Elements mit {{domxref(Element.attributeStyleMap)}}, und setzt das `display`-Attribut mit einem neu konstruierten `CSSKeywordValue`.
-Anschließend wird der Wert dieses Schlüsselworts in die Konsole geloggt.
+Der Listener erhält dann die Inline-Stile des Elements mithilfe von {{domxref(Element.attributeStyleMap)}}, und setzt das `display`-Attribut mit einem neu konstruierten `CSSKeywordValue`.
+Anschließend wird der Wert dieses Schlüsselworts in der Konsole protokolliert.
 
 ```js
 const setInitialButton = document.querySelector("#set-initial");
@@ -78,7 +78,7 @@ setInitialButton.addEventListener("click", () => {
 });
 ```
 
-Beachten Sie, dass wir den Wert der Inline-Stile nicht loggen können, bevor der Button gedrückt wird, da keine vorhanden sind.
+Beachten Sie, dass wir den Wert der Inline-Stile nicht protokollieren können, bevor der Button gedrückt wird, da keine vorhanden sind.
 
 ```js hidden
 const resetButton = document.querySelector("#reset");
@@ -89,10 +89,10 @@ resetButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Klicken Sie mit der rechten Maustaste auf das Element und öffnen Sie den [Entwickler-Tools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html), um dessen Stile zu inspizieren.
+Klicken Sie mit der rechten Maustaste auf das Element und öffnen Sie den [Entwicklertools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html), um seine Stile zu inspizieren.
 Sie sollten sehen, dass `display: flex` auf `#myElement` gesetzt ist.
 Drücken Sie "Set initial", um den Inline-Stil von `display` auf `"initial"` zu setzen.
-Sie sollten sehen, wie sich die Stile im Inspektor ändern, und das Element wird sich auch leicht verkleinern, da das `flex` deaktiviert wird.
+Sie sollten sehen, dass sich die Stile im Inspektor ändern, und das Element wird auch leicht schrumpfen, da das `flex` deaktiviert ist.
 
 {{EmbedLiveSample("Basic usage", 120, 150)}}
 

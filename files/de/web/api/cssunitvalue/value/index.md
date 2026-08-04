@@ -3,16 +3,16 @@ title: "CSSUnitValue: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSUnitValue/value
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSUnitValue.value`**-Eigenschaft der [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Schnittstelle gibt ein Double zurück, das die Anzahl der Einheiten angibt.
+Die **`value`**-Eigenschaft der [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Schnittstelle repräsentiert die Anzahl der Einheiten.
 
 ## Wert
 
-Ein Double.
+Eine Zahl.
 
 ## Beispiele
 

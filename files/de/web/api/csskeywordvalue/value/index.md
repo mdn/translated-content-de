@@ -3,16 +3,16 @@ title: "CSSKeywordValue: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSKeywordValue/value
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`value`**-Eigenschaft der [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Schnittstelle repräsentiert den Wert der `CSSKeywordValue`.
+Die **`value`**-Eigenschaft des [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) Interfaces repräsentiert das Schlüsselwort als Zeichenkette.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ### Ausnahmen
 

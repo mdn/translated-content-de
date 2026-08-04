@@ -2,22 +2,23 @@
 title: CSSTranslate
 slug: Web/API/CSSTranslate
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSTranslate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Wert {{cssxref("transform-function/translate", "translate()")}} der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
-Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSTranslate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Wert {{cssxref("transform-function/translate", "translate()")}} der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`CSSTranslate()`](/de/docs/Web/API/CSSTranslate/CSSTranslate)
-  - : Erzeugt ein neues `CSSTranslate`-Objekt.
+  - : Erstellt ein neues `CSSTranslate`-Objekt.
 
 ## Instanz-Eigenschaften
+
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
 
 - [`x`](/de/docs/Web/API/CSSTranslate/x)
   - : Gibt den Wert der x-Achse zurück oder setzt ihn.
@@ -25,6 +26,10 @@ Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValu
   - : Gibt den Wert der y-Achse zurück oder setzt ihn.
 - [`z`](/de/docs/Web/API/CSSTranslate/z)
   - : Gibt den Wert der z-Achse zurück oder setzt ihn.
+
+## Instanz-Methoden
+
+_Erbt auch Methoden von seinem Eltern-Interface, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
 
 ## Beispiele
 

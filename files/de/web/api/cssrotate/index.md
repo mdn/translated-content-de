@@ -2,13 +2,12 @@
 title: CSSRotate
 slug: Web/API/CSSRotate
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSRotate`**-Interface des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Drehwert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
-Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Die **`CSSRotate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Rotationswert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
 
 {{InheritanceDiagram}}
 
@@ -17,20 +16,26 @@ Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValu
 - [`CSSRotate()`](/de/docs/Web/API/CSSRotate/CSSRotate)
   - : Erstellt ein neues `CSSRotate`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
+
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
 
 - [`x`](/de/docs/Web/API/CSSRotate/x)
-  - : Gibt den Wert der x-Achse zurück oder setzt ihn.
+  - : Gibt den Wert der x-Achse zurück oder legt ihn fest.
 - [`y`](/de/docs/Web/API/CSSRotate/y)
-  - : Gibt den Wert der y-Achse zurück oder setzt ihn.
+  - : Gibt den Wert der y-Achse zurück oder legt ihn fest.
 - [`z`](/de/docs/Web/API/CSSRotate/z)
-  - : Gibt den Wert der z-Achse zurück oder setzt ihn.
+  - : Gibt den Wert der z-Achse zurück oder legt ihn fest.
 - [`angle`](/de/docs/Web/API/CSSRotate/angle)
-  - : Gibt den Winkelwert zurück oder setzt ihn.
+  - : Gibt den Winkelwert zurück oder legt ihn fest.
+
+## Instanz-Methoden
+
+_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)._
 
 ## Beispiele
 
-Zu erledigen.
+To do.
 
 ## Spezifikationen
 

@@ -2,55 +2,57 @@
 title: Summarizer API
 slug: Web/API/Summarizer_API
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Summarizer API")}}
 
-Die **Summarizer API** fasst einen gegebenen Textkörper mithilfe eines internen KI-Modells des Browsers zusammen (was zwischen den Browsern variieren kann).
+Die **Summarizer-API** fasst einen gegebenen Textkörper durch das interne KI-Modell eines Browsers zusammen (das je nach Browser unterschiedlich sein kann).
 
 ## Konzepte und Verwendung
 
-Das Schreiben einer Zusammenfassung eines größeren Textkörpers ist eine häufige Schreibaufgabe, für die KI gut geeignet ist. Typische Anwendungsfälle sind:
+Das Verfassen einer Zusammenfassung eines größeren Textkörpers ist eine häufige Schreibaufgabe, die von KI gut bewältigt werden kann. Typische Anwendungsfälle umfassen:
 
-- Bereitstellung einer Zusammenfassung eines vollständigen Artikels, damit der Leser entscheiden kann, ob er das ganze lesen möchte.
-- Zusammenfassung eines Besprechungsprotokolls, damit spät hinzukommende Teilnehmer den verpassten Inhalt schnell nachholen können.
+- Bereitstellung einer Zusammenfassung eines vollständigen Artikels, damit der Leser entscheiden kann, ob er den gesamten Artikel lesen möchte.
+- Zusammenfassung eines Sitzungsprotokolls, damit verspätet hinzukommende Teilnehmer schnell nachvollziehen können, was sie verpasst haben.
 - Zusammenfassung einer Reihe von Produktbewertungen, um schnell die allgemeine Stimmung zu kommunizieren.
 
-Die Summarizer API bietet einen asynchronen ({{jsxref("Promise")}}-basierten) Mechanismus, mit dem eine Website einen Textkörper in das interne KI-Modell des Browsers einspeisen und eine Zusammenfassung des Textes basierend auf angegebenen Optionen anfordern kann.
+Die Summarizer-API bietet einen asynchronen ({{jsxref("Promise")}}-basierten) Mechanismus für eine Website, um einen Textkörper in das interne KI-Modell des Browsers einzuspeisen und eine Zusammenfassung des Textes basierend auf den angegebenen Optionen anzufordern.
 
-Dies wird mithilfe der Funktionalität der [`Summarizer`](/de/docs/Web/API/Summarizer)-Schnittstelle in einem zweistufigen Prozess durchgeführt:
+Dies geschieht mit der Funktionalität, die durch das [`Summarizer`](/de/docs/Web/API/Summarizer)-Interface in einem zweistufigen Prozess bereitgestellt wird:
 
-1. Erstellen Sie eine `Summarizer`-Objektinstanz mit der statischen Methode [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static), indem Sie Optionen angeben, welche Art von Zusammenfassung Sie möchten. Optionen umfassen Länge, Typ (zum Beispiel "tldr" oder Schlüsselpunkte), Format (nur Text oder Markdown) sowie Eingabe- und Ausgabesprachen.
+1. Erstellen Sie eine Instanz des `Summarizer`-Objekts mit der statischen Methode [`Summarizer.create()`](/de/docs/Web/API/Summarizer/create_static), unter Angabe von Optionen für die Art der gewünschten Zusammenfassung. Optionen umfassen Länge, Typ (zum Beispiel "tldr" oder Schlüsselpunkte), Format (Klartext oder Markdown) sowie Eingabe- und Ausgabesprachen.
    > [!NOTE]
-   > Wenn Sie überprüfen möchten, ob das KI-Modell des Browsers Ihre Präferenzen unterstützen kann, können Sie dies mit der statischen Methode [`Summarizer.availability()`](/de/docs/Web/API/Summarizer/availability_static) tun.
+   > Wenn Sie überprüfen möchten, ob das AI-Modell des Browsers Ihre Präferenzen unterstützen kann, können Sie dies mit der statischen Methode [`Summarizer.availability()`](/de/docs/Web/API/Summarizer/availability_static) tun.
 2. Führen Sie die Instanzmethode [`Summarizer.summarize()`](/de/docs/Web/API/Summarizer/summarize) aus, um die Zusammenfassung anzufordern.
 
-Sie können einen ausstehenden `create()`- oder `summarize()`-Vorgang mit einem [`AbortController`](/de/docs/Web/API/AbortController) abbrechen.
+Sie können ein ausstehendes `create()`- oder `summarize()`-Vorgang mit einem [`AbortController`](/de/docs/Web/API/AbortController) abbrechen.
 
-Nachdem eine `Summarizer`-Instanz erstellt wurde, können Sie ihre zugewiesenen Ressourcen freigeben und jede weitere Aktivität stoppen, indem Sie ihre Methode [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy) aufrufen. Es wird empfohlen, dies zu tun, nachdem Sie das `Summarizer`-Objekt verwendet haben, da es viele Ressourcen verbrauchen kann.
+Nachdem eine Instanz des `Summarizer` erstellt wurde, können Sie ihre zugewiesenen Ressourcen freigeben und jegliche weitere Aktivität stoppen, indem Sie die Methode [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy) aufrufen. Es wird Ihnen geraten, dies zu tun, nachdem Sie das `Summarizer`-Objekt verwendet haben, da es viele Ressourcen verbrauchen kann.
 
-Siehe [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using) für eine detaillierte Anleitung, wie die API funktioniert.
+Siehe [Verwendung der Summarizer-API](/de/docs/Web/API/Summarizer_API/Using) für eine Anleitung, wie die API funktioniert.
 
 ## Schnittstellen
 
+- [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) {{Experimental_Inline}}
+  - : Bietet Informationen über den Fortschritt eines Downloads des KI-Modells, beispielsweise eines Sprachpakets oder einiger Feinabstimmungsdaten.
 - [`Summarizer`](/de/docs/Web/API/Summarizer) {{Experimental_Inline}}
-  - : Beinhaltet die gesamte Funktionalität der Summarizer API, einschließlich der Überprüfung der Verfügbarkeit des KI-Modells, der Erstellung einer neuen `Summarizer`-Instanz, der Verwendung zur Generierung einer neuen Zusammenfassung und mehr.
+  - : Enthält alle Funktionen der Summarizer-API, einschließlich der Überprüfung der Verfügbarkeit des KI-Modells, der Erstellung einer neuen `Summarizer`-Instanz, der Verwendung zur Generierung einer neuen Zusammenfassung und mehr.
 
 ## HTTP-Header
 
-- {{httpheader("Permissions-Policy")}}; die {{httpheader('Permissions-Policy/summarizer','summarizer')}} Direktive
-  - : Steuert den Zugriff auf die Summarizer API. Wo eine Richtlinie die Nutzung der Summarizer API ausdrücklich untersagt, schlagen alle Versuche, die Methoden der API aufzurufen, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
+- {{httpheader("Permissions-Policy")}}; die {{httpheader('Permissions-Policy/summarizer','summarizer')}}-Direktive
+  - : Kontrolliert den Zugriff auf die Summarizer-API. Wo eine Richtlinie die Verwendung der Summarizer-API spezifisch verbietet, schlagen alle Versuche, die Methoden der API aufzurufen, mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 ## Sicherheitsüberlegungen
 
-Die Spezifikation erfordert, dass ein Benutzer kürzlich mit der Seite interagiert hat, wenn `Summarizer`-Objekte erstellt werden ([vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich).
+Die Spezifikation erfordert, dass ein Benutzer kürzlich mit der Seite interagiert hat, wenn `Summarizer`-Objekte erstellt werden ([transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich).
 
-Zusätzlich steuert die Spezifikation den Zugriff auf die API über {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}}-Direktiven.
+Zusätzlich regelt die Spezifikation den Zugriff auf die API über {{httpheader('Permissions-Policy/summarizer','summarizer')}}-{{httpheader("Permissions-Policy")}}-Direktiven.
 
 ## Beispiele
 
-Ein vollständiges Beispiel finden Sie unter [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using).
+Für ein vollständiges Beispiel siehe [Verwendung der Summarizer-API](/de/docs/Web/API/Summarizer_API/Using).
 
 ## Spezifikationen
 
@@ -62,5 +64,5 @@ Ein vollständiges Beispiel finden Sie unter [Verwendung der Summarizer API](/de
 
 ## Siehe auch
 
-- [Zusammenfassung mit eingebauter KI](https://developer.chrome.com/docs/ai/summarizer-api) auf developer.chrome.com (2025)
+- [Zusammenfassen mit eingebauter KI](https://developer.chrome.com/docs/ai/summarizer-api) auf developer.chrome.com (2025)
 - [Web-AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

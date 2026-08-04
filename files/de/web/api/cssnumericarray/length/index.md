@@ -3,7 +3,7 @@ title: "CSSNumericArray: length-Eigenschaft"
 short-title: length
 slug: Web/API/CSSNumericArray/length
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
@@ -12,11 +12,11 @@ Die schreibgeschützte **`length`**-Eigenschaft der [`CSSNumericArray`](/de/docs
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste darstellt.
+Eine ganze Zahl, die die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste darstellt.
 
 ## Beispiele
 
-To Do
+Zu erledigen
 
 ## Spezifikationen
 

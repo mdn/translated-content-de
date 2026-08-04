@@ -3,14 +3,15 @@ title: "CSSPerspective: length-Eigenschaft"
 short-title: length
 slug: Web/API/CSSPerspective/length
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`length`**-Eigenschaft der [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)-Schnittstelle legt den Abstand von z=0 fest.
+Die **`length`**-Eigenschaft der [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)-Schnittstelle repräsentiert die Entfernung von z=0.
 
-Sie wird verwendet, um eine Perspektiventransformation auf das Element und seinen Inhalt anzuwenden. Wenn der Wert 0 oder eine negative Zahl ist, wird keine Perspektiventransformation angewendet.
+Sie wird verwendet, um ein Perspektiv-Transform auf das Element und seinen Inhalt anzuwenden.
+Wenn der Wert 0 oder eine negative Zahl ist, wird kein Perspektiv-Transform angewendet.
 
 ## Wert
 
@@ -18,7 +19,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-In Bearbeitung
+Zu erledigen
 
 ## Spezifikationen
 

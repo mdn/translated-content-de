@@ -2,12 +2,12 @@
 title: CSSMathNegate
 slug: Web/API/CSSMathNegate
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSMathNegate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) negiert den übergebenen Wert. Es erbt Eigenschaften und Methoden von seinem Eltern-Interface [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Die **`CSSMathNegate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) negiert den Wert, der an sie übergeben wird.
 
 {{InheritanceDiagram}}
 
@@ -18,16 +18,18 @@ Das **`CSSMathNegate`**-Interface der [CSS Typed Object Model API](/de/docs/Web/
 
 ## Instanz-Eigenschaften
 
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+
 - [`CSSMathNegate.value`](/de/docs/Web/API/CSSMathNegate/value) {{ReadOnlyInline}}
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Statische Methoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Instanz-Methoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Beispiele
 
