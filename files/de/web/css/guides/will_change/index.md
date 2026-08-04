@@ -3,10 +3,10 @@ title: CSS will-change
 short-title: Will change
 slug: Web/CSS/Guides/Will_change
 l10n:
-  sourceCommit: 5362c0545d8dc2a859fd2f64de41d576931d6a2e
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Das **CSS will-change** Modul bietet dem Browser einen Hinweis, um Optimierungen zu aktivieren, die die Renderleistung verbessern können, indem potenziell aufwendige Arbeiten ausgeführt werden, bevor sie über die {{cssxref("will-change")}} Eigenschaft erforderlich sind.
+Das **CSS will-change** Modul bietet dem Browser einen Hinweis, um Optimierungen zu aktivieren, die die Rendering-Performance verbessern können, indem potenziell aufwendige Arbeiten vorab durch die {{cssxref("will-change")}} Eigenschaft durchgeführt werden.
 
 ## Referenz
 
@@ -25,10 +25,10 @@ Das **CSS will-change** Modul bietet dem Browser einen Hinweis, um Optimierungen
 - [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)
   - {{cssxref("backdrop-filter")}}
   - {{cssxref("filter")}}
-  - {{cssxref("filter-function", "Die CSS-Filterfunktionen")}}
+  - [Die CSS-Filterfunktionen](/de/docs/Web/CSS/Reference/Values/filter-function)
 
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
-  - {{cssxref("animation")}} Kurzform
+  - {{cssxref("animation")}} Kurzschreibweise
   - {{cssxref("@keyframes")}}
 
 - [CSS-Farben](/de/docs/Web/CSS/Guides/Colors)
@@ -40,7 +40,7 @@ Das **CSS will-change** Modul bietet dem Browser einen Hinweis, um Optimierungen
 
 ## Siehe auch
 
-- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [Animation Interface](/de/docs/Web/API/Animation/Animation)
-- [Web-Performance](/de/docs/Web/Performance)
+- [Animationsschnittstelle](/de/docs/Web/API/Animation/Animation)
+- [Webleistung](/de/docs/Web/Performance)

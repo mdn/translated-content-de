@@ -1,24 +1,24 @@
 ---
-title: "Element: mouseleave Ereignis"
+title: "Element: mouseleave event"
 short-title: mouseleave
 slug: Web/API/Element/mouseleave_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`mouseleave`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor eines Zeigegeräts (normalerweise eine Maus) es verlässt.
+Das **`mouseleave`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn der Cursor eines Zeigegeräts (normalerweise eine Maus) daraus herausbewegt wird.
 
-`mouseleave` und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) sind ähnlich, unterscheiden sich jedoch darin, dass `mouseleave` nicht aufsteigt (bubbled) und `mouseout` schon. Das bedeutet, dass `mouseleave` ausgelöst wird, wenn der Zeiger das Element _und_ alle seine Nachkommen verlassen hat, während `mouseout` ausgelöst wird, wenn der Zeiger das Element _oder_ einen seiner Nachkommen verlässt, aufgrund des Bubblings (selbst wenn der Zeiger sich noch innerhalb des Elements befindet). Abgesehen davon werden Leave- und Out-Ereignisse für die gleiche Situation gleichzeitig ausgelöst, wenn angebracht.
+`mouseleave` und [`mouseout`](/de/docs/Web/API/Element/mouseout_event) sind ähnlich, unterscheiden sich jedoch darin, dass `mouseleave` nicht blubbert und `mouseout` dies tut. Das bedeutet, dass `mouseleave` ausgelöst wird, wenn der Zeiger das Element _und_ alle seine Nachkommen verlassen hat, während `mouseout` ausgelöst wird, wenn der Zeiger das Element _oder_ eines der Nachkommen des Elements verlässt, aufgrund des Bubblings (selbst wenn der Zeiger sich noch innerhalb des Elements befindet). Abgesehen davon werden Leave- und Out-Ereignisse für dieselbe Situation zur gleichen Zeit versendet, wenn zutreffend.
 
-Die `mouseleave` und `mouseout` Ereignisse werden nicht ausgelöst, wenn das Element ersetzt oder aus dem DOM entfernt wird.
+Die `mouseleave`- und `mouseout`-Ereignisse werden nicht ausgelöst, wenn das Element ersetzt oder aus dem DOM entfernt wird.
 
-Beachten Sie, dass „das Verlassen eines Elements“ sich auf die Position des Elements im DOM-Baum und nicht auf seine visuelle Position bezieht. Wenn beispielsweise zwei Geschwisterelemente so positioniert sind, dass eines innerhalb des anderen platziert ist, wird beim Wechseln vom äußeren Element in das innere `mouseleave` auf dem äußeren Element ausgelöst, obwohl sich der Zeiger noch innerhalb der Grenzen des äußeren Elements befindet.
+Beachten Sie, dass "das Verlassen eines Elements" sich auf die Position des Elements im DOM-Baum und nicht auf seine visuelle Position bezieht. Wenn beispielsweise zwei Geschwisterelemente so positioniert sind, dass das eine innerhalb des anderen platziert ist, wird beim Bewegen vom äußeren zum inneren Element `mouseleave` auf dem äußeren Element ausgelöst, obwohl sich der Zeiger noch innerhalb der Grenzen des äußeren Elements befindet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("mouseleave", (event) => { })
@@ -32,13 +32,27 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 
 {{InheritanceDiagram("MouseEvent")}}
 
+## Beschreibung
+
+### Verhalten von `mouseleave`-Ereignissen
+
+![mouseleave Verhaltensdiagramm](mouseleave.png)
+
+Ein `mouseleave`-Ereignis wird an jedes Element der Hierarchie gesendet, wenn es verlassen wird. Hier werden vier Ereignisse an die vier Elemente der Hierarchie gesendet, wenn der Zeiger sich von dem Text zu einem Bereich außerhalb des äußersten hier dargestellten `div` bewegt.
+
+### Verhalten von `mouseout`-Ereignissen
+
+![mouseout Verhaltensdiagramm](mouseout.png)
+
+Ein einziges `mouseout`-Ereignis wird an das tiefste Element des DOM-Baums gesendet, dann blubbert es die Hierarchie hinauf, bis es von einem Handler abgebrochen oder die Wurzel erreicht wird.
+
 ## Beispiele
 
-Die [`mouseout`](/de/docs/Web/API/Element/mouseout_event#examples) Dokumentation enthält ein Beispiel, das den Unterschied zwischen `mouseout` und `mouseleave` veranschaulicht.
+Die [`mouseout`](/de/docs/Web/API/Element/mouseout_event#examples)-Dokumentation enthält ein Beispiel, das den Unterschied zwischen `mouseout` und `mouseleave` veranschaulicht.
 
 ### mouseleave
 
-Das folgende triviale Beispiel verwendet das `mouseenter` Ereignis, um den Rahmen des `<div>` zu ändern, wenn die Maus in den dafür vorgesehenen Bereich eintritt. Es fügt dann einen Punkt zur Liste hinzu mit der Nummer des `mouseenter` oder `mouseleave` Ereignisses.
+Das folgende triviale Beispiel verwendet das `mouseenter`-Ereignis, um den Rand des `<div>` zu ändern, wenn die Maus den dafür vorgesehenen Raum betritt. Es fügt dann einen Eintrag zur Liste mit der Anzahl des `mouseenter`- oder `mouseleave`-Ereignisses hinzu.
 
 #### HTML
 
@@ -52,7 +66,7 @@ Das folgende triviale Beispiel verwendet das `mouseenter` Ereignis, um den Rahme
 
 #### CSS
 
-Stilisiert das `<div>`, um es besser sichtbar zu machen.
+Stilen des `<div>`, um es besser sichtbar zu machen.
 
 ```css
 #mouseTarget {
@@ -111,7 +125,7 @@ function addListItem(text) {
 
 ## Siehe auch
 
-- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Lernen: Einführung zu Ereignissen](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
 - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)

@@ -1,44 +1,44 @@
 ---
-title: Verwendung von element-gebundenen View-Übergängen
-short-title: Element-gebundene View-Übergänge
+title: Verwendung von elementbasierten View-Transitions
+short-title: Elementbasierte View-Transitions
 slug: Web/API/View_Transition_API/Using_element-scoped
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{DefaultAPISidebar("View Transition API")}}
 
-Element-gebundene View-Übergänge sind auf den DOM-Teilbaum eines bestimmten Elements begrenzt. Sie haben viele Vorteile gegenüber dokumentbezogenen View-Übergängen: Sie können Übergänge auf Unterabschnitten des Dokuments ausführen, während der Rest interaktiv bleibt, mehrere Übergänge gleichzeitig ausführen – einschließlich verschachtelter Übergänge – und mehrere andere Probleme lösen.
+Elementbasierte View-Transitions sind auf den DOM-Teilbaum eines bestimmten Elements beschränkt. Sie haben viele Vorteile gegenüber dokumentbasierten View-Transitions: Sie können Transitions auf Unterabschnitten des Dokuments ausführen, während der Rest des Dokuments interaktiv bleibt, mehrere Transitions gleichzeitig ausführen — einschließlich verschachtelter Transitions — und mehrere andere Probleme lösen.
 
-Dieser Artikel behandelt, wie element-gebundene View-Übergänge funktionieren und wie man sie verwendet.
+Dieser Artikel behandelt, wie elementbasierte View-Transitions funktionieren und wie man sie verwendet.
 
 > [!NOTE]
-> "Dokument-gebundene View-Übergänge" beziehen sich auf Übergänge im selben Dokument, d.h. Übergänge, die über die Methode [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) initiiert werden.
+> "Dokumentbasierte View-Transitions" beziehen sich auf transitions innerhalb desselben Dokuments, d.h. transitions, die über die Methode [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) initiiert werden.
 >
-> Element-gebundene View-Übergänge werden über dieselbe Methode initiiert, die auf einem individuellen Element aufgerufen wird (siehe [`Element.startViewTransition()`](/de/docs/Web/API/Element/startViewTransition)). Element-gebundene View-Übergänge stehen für dokumentübergreifende Übergänge nicht zur Verfügung.
+> Elementbasierte View-Transitions werden über dieselbe Methode initiiert, die auf ein einzelnes Element aufgerufen wird (siehe [`Element.startViewTransition()`](/de/docs/Web/API/Element/startViewTransition)). Elementbasierte View-Transitions sind für transitions über mehrere Dokumente hinweg nicht verfügbar.
 
-## Probleme mit dokumentbezogenen View-Übergängen
+## Probleme mit dokumentbasierten View-Transitions
 
-Dokument-gebundene View-Übergänge sind nützlich, um DOM-Inhaltsaktualisierungen über ein ganzes Dokument hinweg zu animieren. Sie können [verschiedene Animationen auf verschiedene Teile der Seite anwenden](/de/docs/Web/API/View_Transition_API/Using#different_animations_for_different_elements), eine einzige Übergangsanimation auf die gesamte Seite oder gar keine Animationen.
+Dokumentbasierte View-Transitions sind nützlich, um DOM-Inhaltsaktualisierungen über ein ganzes Dokument hinweg zu animieren. Sie können [verschiedene Animationen auf verschiedene Teile der Seite anwenden](/de/docs/Web/API/View_Transition_API/Using#different_animations_for_different_elements), eine einzelne Übergangsanimation auf die gesamte Seite oder gar keine Animationen.
 
-Sie können auch verschiedene [View-Übergangstypen](/de/docs/Web/API/View_Transition_API/Using_types) verwenden, um je nach Umstand – zum Beispiel, ob es sich um das nächste oder vorherige Element in einer Sequenz handelt – verschiedene Animationen auf dasselbe Element anzuwenden.
+Sie können auch verschiedene [View-Transition-Typen](/de/docs/Web/API/View_Transition_API/Using_types) verwenden, um unterschiedliche Animationen auf dasselbe Element je nach Situation anzuwenden - zum Beispiel, ob es das nächste oder vorherige Element in einer Sequenz ist.
 
-Dokument-gebundene View-Übergänge haben jedoch mehrere Nachteile:
+Dokumentbasierte View-Transitions haben jedoch mehrere Nachteile:
 
-- Sie können nicht mehr als einen View-Übergang gleichzeitig ausführen.
-- Wenn ein View-Übergang stattfindet, ist die Seite bis zum Ende des Übergangs nicht interaktiv.
-- Der mit einem dokument-gebundenen View-Übergang assoziierte [Pseudoelement-Baum](/de/docs/Web/API/View_Transition_API/Using#different_animations_for_different_elements) sitzt über allem anderen auf der Seite. Wenn ein anderes Element beim Start der Übergangsanimation über dem aktualisierenden Teil der Seite positioniert ist (zum Beispiel durch Verwendung von {{cssxref("z-index")}}), verschwindet das positionierte Element während der Dauer der Animation unter dem Übergang, was wahrscheinlich nicht der gewünschte Effekt ist.
-- Im Zusammenhang mit dem vorherigen Problem: Wenn der aktualisierende Teil der Seite durch einen übergeordneten Wrapper mithilfe von {{cssxref("overflow")}} abgeschnitten wird, ragt er beim Start der Animation aus dem Container heraus.
+- Sie können nicht mehr als eine View-Transition gleichzeitig ausführen.
+- Wenn eine View-Transition ausgeführt wird, ist die Seite nicht interaktiv, bis die Transition abgeschlossen ist.
+- Der [Pseudoelement-Baum](/de/docs/Web/API/View_Transition_API/Using#different_animations_for_different_elements), der mit einer dokumentbasierten View-Transition verbunden ist, liegt über allem anderen auf der Seite. Wenn ein anderes Element über dem aktualisierten Teil der Seite positioniert ist, wenn die Übergangsanimation beginnt (beispielsweise unter Verwendung von {{cssxref("z-index")}}), wird das positionierte Element während der Dauer der Animation darunter verschwinden, was wahrscheinlich nicht der gewünschte Effekt ist.
+- Im Zusammenhang mit dem vorherigen Problem, wenn der aktualisierte Teil der Seite von einem übergeordneten Wrapper unter Verwendung von {{cssxref("overflow")}} abgeschnitten wird, wird er aus dem Container herausragen, wenn die Animation beginnt.
 
-Element-gebundene View-Übergänge können diese Probleme lösen. Werfen wir einen Blick auf einige Beispiele, um zu sehen, wie das funktioniert.
+Elementbasierte View-Transitions können diese Probleme lösen. Lassen Sie uns einige Beispiele betrachten, um zu sehen, wie.
 
-## Einfaches element-gebundenes Beispiel
+## Einfaches elementbasiertes Beispiel
 
-Dieses Beispiel enthält eine Liste von Links. Wenn ein Link angeklickt wird, ändert sich sein Inhalt, und diese Änderung wird über einen element-gebundenen View-Übergang animiert. Das Beispiel enthält auch ein Element, das das übergehende Element leicht überlappt; wir verwenden dies, um zu zeigen, wie `z-index`-Probleme vermieden werden können.
+Dieses Beispiel enthält eine Liste von Links. Wenn ein Link angeklickt wird, ändert sich dessen Inhalt und diese Änderung wird über eine elementbasierte View-Transition animiert. Das Beispiel enthält auch ein Element, das leicht überlappt mit dem sich ändernden Element; wir verwenden dieses, um zu zeigen, wie `z-index`-Probleme vermieden werden können.
 
 ### HTML
 
-Das Markup enthält eine {{htmlelement("ul")}}-Liste von Links zwischen zwei {{htmlelement("p")}}-Elementen mit Textinhalt.
+Das Markup enthält eine {{htmlelement("ul")}}-Liste von Links zwischen zwei {{htmlelement("p")}}-Elementen, die Textinhalt enthalten.
 
 ```html live-sample___basic-element-scoped
 <p>
@@ -61,7 +61,7 @@ Das Markup enthält eine {{htmlelement("ul")}}-Liste von Links zwischen zwei {{h
 
 ### CSS
 
-Wir beginnen damit, dem `<ul>` einen Hintergrund und {{cssxref("border")}}-Stile zu geben. Außerdem erhält es eine {{cssxref("position")}} von `relative`, damit wir Nachfahren relativ zum `<ul>` absolut positionieren können.
+Wir beginnen damit, dem `<ul>` einen Hintergrund und {{cssxref("border")}}-Styling zu geben. Wir geben ihm auch eine {{cssxref("position")}} von `relative`, damit wir Nachfahren relativ zum `<ul>` absolut positionieren können.
 
 ```css hidden live-sample___basic-element-scoped
 body {
@@ -90,17 +90,17 @@ a {
 
 ```css live-sample___basic-element-scoped
 ul {
-  border: 2px solid #999;
-  background: #ccc;
+  border: 2px solid #999999;
+  background: #cccccc;
   position: relative;
 }
 ```
 
-Als nächstes geben wir den {{htmlelement("a")}}-Elementen eigene `border`-Stile und wenden eine {{cssxref("transition")}} an, sodass `border`-Stiländerungen bei Zustandsänderungen sanft animiert werden. Bei {{cssxref(":hover")}} und {{cssxref(":focus")}} ändern wir die Link-{{cssxref("border-color")}} in `schwarz`.
+Als nächstes geben wir den {{htmlelement("a")}}-Elementen ihre eigenen `border`-Stile und wenden eine {{cssxref("transition")}} an, sodass `border`-Stilaktualisierungen bei Zustandsänderungen fließend animiert werden. Bei {{cssxref(":hover")}} und {{cssxref(":focus")}} ändern wir die {{cssxref("border-color")}} des Links zu `black`.
 
 ```css live-sample___basic-element-scoped
 a {
-  border: 2px solid #aaa;
+  border: 2px solid #aaaaaa;
   transition: border 0.6s;
 }
 
@@ -110,7 +110,7 @@ a:focus {
 }
 ```
 
-Das relevanteste CSS für View-Übergänge definiert benutzerdefinierte `animation`-Einstellungen für die [old](/de/docs/Web/CSS/Reference/Selectors/::view-transition-old) und [new](/de/docs/Web/CSS/Reference/Selectors/::view-transition-new) Übergangszustände, die den alten DOM-Zustand heraus- und den neuen hereindrehen. Beachten Sie, dass wir für die `rotate-in`-Animation (der zweite `0.3s`-Wert) einen {{cssxref("animation-delay")}}-Wert angewendet haben, um sicherzustellen, dass sie nur dann startet, wenn die `rotate-out`-Animation endet.
+Der relevanteste CSS für View-Transitions definiert benutzerdefinierte `animation`-Einstellungen für die alten und neuen Übergangszustände, die den alten DOM-Zustand heraus und den neuen DOM-Zustand hinein rotieren. Beachten Sie, dass wir einen {{cssxref("animation-delay")}}-Wert auf die `rotate-in`-Animation angewendet haben (den zweiten `0.3s`-Wert), um sicherzustellen, dass sie erst beginnt, wenn die `rotate-out`-Animation endet.
 
 ```css live-sample___basic-element-scoped
 ::view-transition-old(*) {
@@ -142,7 +142,7 @@ Das relevanteste CSS für View-Übergänge definiert benutzerdefinierte `animati
 }
 ```
 
-Abschließend erzeugen wir etwas generierten Inhalt auf dem `<ul>`-Element mithilfe des {{cssxref("::before")}}-Pseudoelements und positionieren ihn über dem `<ul>`-Element. Der generierte Inhalt enthält einen transparenten Farbeffekt.
+Abschließend erstellen wir auf dem `<ul>`-Element mit dem {{cssxref("::before")}}-Pseudoelement generierten Inhalt und positionieren ihn über dem `<ul>`-Element. Der generierte Inhalt enthält einen transparenten Verlaufseffekt.
 
 ```css live-sample___basic-element-scoped
 ul::before {
@@ -154,8 +154,8 @@ ul::before {
   width: 100px;
   background-image: linear-gradient(
     to right,
-    rgb(255 255 255),
-    rgb(255 255 255) 25%,
+    white,
+    white 25%,
     rgb(255 255 255 / 0)
   );
   z-index: 1;
@@ -164,9 +164,9 @@ ul::before {
 
 ### JavaScript
 
-Im Skript greifen wir auf das `<ul>`-Element zu und fügen ihm einen `click`-Event-Listener hinzu. Wenn darauf geklickt wird, überprüfen wir, ob das Ereignisziel ein `<a>`-Element ist. Falls ja, rufen wir [`startViewTransition()`](/de/docs/Web/API/Element/startViewTransition) auf dem angeklickten `<a>`-Element auf, und toggeln dessen Inhalt zwischen "Standard" und "Alternative" über die `toggleText()`-Funktion.
+Im Skript holen wir uns eine Referenz zum `<ul>`-Element und fügen einen `click`-Ereignislistener hinzu. Wenn darauf geklickt wird, prüfen wir, dass das Ereignisziel ein `<a>`-Element ist. Falls ja, rufen wir [`startViewTransition()`](/de/docs/Web/API/Element/startViewTransition) auf dem angeklickten `<a>`-Element auf und schalten seinen Inhalt über die Funktion `toggleText()` zwischen "Standard" und "Alternative" um.
 
-Beachten Sie, dass wir auch eine Feature-Erkennung eingebaut haben, um sicherzustellen, dass der Code in Browsern funktioniert, die `startViewTransition()` nicht unterstützen: Bevor `startViewTransition()` ausgeführt wird, überprüfen wir, ob es auf dem Zielelement existiert. Wenn nicht, führen wir einfach die `toggleText()`-Funktion aus und `return`, sodass das DOM immer noch aktualisiert wird, aber ohne die Übergangsanimation.
+Beachten Sie, dass wir auch eine Merkmalserkennung hinzugefügt haben, um sicherzustellen, dass der Code in Browsern funktioniert, die `startViewTransition()` nicht unterstützen: Bevor `startViewTransition()` ausgeführt wird, prüfen wir, ob es auf dem Zielelement existiert. Ist dies nicht der Fall, führen wir einfach die Funktion `toggleText()` aus und `return`, sodass das DOM dennoch aktualisiert wird, aber ohne die Übergangsanimation.
 
 ```js live-sample___basic-element-scoped
 const list = document.querySelector("ul");
@@ -193,17 +193,17 @@ function handleClick(e) {
 }
 ```
 
-### Resultat
+### Ergebnis
 
 {{embedlivesample("basic-element-scoped", "100%", "520")}}
 
-Klicken/Aktivieren Sie die Links, um den View-Übergang bei jedem zu sehen.
+Klicken/Aktivieren Sie die Links, um die View-Transition auf jedem zu sehen.
 
-Jedes `<a>`-Element hat seinen eigenen View-Übergang, der nur auf dieses Element begrenzt ist. Der Rest der Seite bleibt interaktiv, während ein View-Übergang im Gange ist, sodass Sie mehrere View-Übergänge gleichzeitig ausführen können. Darüber hinaus bleiben die übergehenden Elemente unter dem überlappenden generierten Inhalt, der darüber positioniert ist.
+Jedes `<a>`-Element hat seine eigene View-Transition, die nur auf dieses Element beschränkt ist. Der Rest der Seite bleibt interaktiv, während eine View-Transition im Gange ist, sodass Sie mehrere View-Transitions gleichzeitig ausführen können. Darüber hinaus bleiben die sich ändernden Elemente unter dem überlappenden generierten Inhalt, der über ihnen positioniert ist.
 
-## Unterschiede zwischen element- und dokumentbezogenen Übergängen
+## Unterschiede zwischen element- und dokumentbasierten Transitions
 
-Das vorherige Beispiel zeigt, wie element-gebundene View-Übergänge einige der Probleme ihrer dokumentgebundenen Gegenstücke lösen. Dies ist größtenteils auf die Unterschiede in der Platzierung des Pseudoelement-Baums zurückzuführen. Anstatt innerhalb des {{cssxref(":root")}}-Elements hinzugefügt zu werden, fügt der Browser element-gebundene View-Übergangsbäume in das Element ein, auf dem `Element.startViewTransition()` aufgerufen wird.
+Das vorherige Beispiel zeigt, wie elementbasierte View-Transitions einige der Probleme ihrer dokumentbasierten Gegenstücke beheben. Dies ist hauptsächlich dank der unterschiedlichen Platzierung des Pseudoelement-Baums möglich. Anstatt innerhalb des {{cssxref(":root")}}-Elements hinzugefügt zu werden, fügt der Browser elementbasierte View-Transition-Bäume innerhalb des Elements hinzu, auf dem `Element.startViewTransition()` aufgerufen wird.
 
 Im vorherigen Beispiel würde einer der Pseudoelement-Bäume so aussehen:
 
@@ -220,28 +220,28 @@ Im vorherigen Beispiel würde einer der Pseudoelement-Bäume so aussehen:
 </a>
 ```
 
-Dies bedeutet, dass der Übergang auf das `<a>`-Element (als "Übergangswurzel" oder "Geltungsbereich" bezeichnet) und dessen DOM-Inhalt beschränkt ist, sodass er andere Elemente oder laufende View-Übergänge nicht beeinträchtigt. Wenn der View-Übergang beginnt, sucht der Browser nur innerhalb dieses Geltungsbereichs nach Elementen, die aufgenommen werden sollen. Während des Aufnahmeprozesses – bis das Versprechen [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone) erfüllt wird – wird das Rendering nur innerhalb des Geltungsbereichs pausiert.
+Das bedeutet, dass die Transition auf das `<a>`-Element (das als "Übergangs-Root" oder "Scope" bezeichnet wird) und dessen DOM-Inhalt beschränkt ist, sodass sie andere Elemente oder laufende View-Transitions nicht beeinflusst. Wenn die View-Transition beginnt, sucht der Browser nur innerhalb dieses Bereichs nach Elementen, die er erfassen soll. Während des Aufnahmeprozesses — bis das Versprechen [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone) erfüllt wird — wird das Rendering nur innerhalb des Bereichs pausiert.
 
-Das `::view-transition` Pseudoelement hat die gleiche Größe und Form wie das Übergangswurzel-Element und wird nur darüber gerendert, nicht über den Rest der Seite. Daher wird die Ebenenanordnung von Elementen außerhalb der Übergangswurzel respektiert.
+Das `::view-transition`-Pseudoelement hat die gleiche Größe und Form wie das Übergangs-Root-Element und wird nur darüber gerendert, nicht über den Rest der Seite. Aus diesem Grund wird die Schichtung von Elementen außerhalb des Übergangs-Root beachtet.
 
-## Selbstteilnehmende Geltungsbereiche und Clipping
+## Selbstbeteiligende Scopes und Clipping
 
-Eine weitere wichtige Eigenschaft von element-gebundenen View-Übergängen ist, dass, wenn das übergangene Element von seinem Container abgeschnitten wird (zum Beispiel durch `overflow: scroll`), das Element während der Übergangsanimation abgeschnitten bleibt.
+Ein weiteres wichtiges Merkmal von elementbasierten View-Transitions ist, dass, wenn das Übergangselement von seinem Container abgeschnitten wird (z.B. durch `overflow: scroll`), das Element während der Übergangsanimation abgeschnitten bleibt.
 
-Das geschieht, weil Folgendes automatisch auf dem Geltungsbereichs-Root-Element festgelegt ist:
+Dies geschieht, weil die folgenden Werte automatisch auf das Scope-Root-Element gesetzt werden:
 
-- Ein {{cssxref("view-transition-name")}}-Wert von `root`, der sicherstellt, dass das Root-Element an seinem eigenen Übergang teilnimmt (als Selbstteilnahme bezeichnet).
-- Ein `view-transition-group`-Wert von `contain`, der [verschachtelte View-Übergangsgruppen](https://developer.chrome.com/docs/css-ui/view-transitions/nested-view-transition-groups) für den Geltungsbereich ermöglicht. Ein {{cssxref("overflow")}}-Wert von `clip` wird dann auf dem resultierenden {{cssxref("::view-transition-group()")}} Pseudoelement festgelegt, wodurch die Inhalte des Pseudoelement-Baums auf den Geltungsbereich beschnitten werden.
-- Ein {{cssxref("view-transition-scope")}}-Wert von `all`, der sicherstellt, dass {{cssxref("view-transition-name")}}-Werte auf den Teilbaum des Elements beschränkt sind (siehe [Verschachtelte element-gebundene View-Übergänge](#verschachtelte_element-gebundene_view-übergänge) für weitere Details).
+- Ein {{cssxref("view-transition-name")}}-Wert von `root`, der sicherstellt, dass das Root-Element an seiner eigenen Transition teilnimmt (als Selbstbeteiligung bezeichnet).
+- Ein `view-transition-group`-Wert von `contain`, der [verschachtelte View-Transition-Gruppen](https://developer.chrome.com/docs/css-ui/view-transitions/nested-view-transition-groups) für den Scope ermöglicht. Ein {{cssxref("overflow")}}-Wert von `clip` wird dann auf das resultierende {{cssxref("::view-transition-group()")}}-Pseudoelement gesetzt, was dazu führt, dass die Inhalte des Pseudoelement-Baums auf den Scope abgeschnitten werden.
+- Ein {{cssxref("view-transition-scope")}}-Wert von `all`, der sicherstellt, dass {{cssxref("view-transition-name")}}-Werte auf den Unterbaum des Elements beschränkt werden (siehe [Verschachtelte elementbasierte View-Transitions](#verschachtelte_elementbasierte_view-transitions) für weitere Details).
 
 > [!NOTE]
-> Sie können einen View-Übergang von der Selbstteilnahme ausschließen, indem Sie `view-transition-name: none` auf dem Übergangswurzel-Element festlegen. Dies kann jedoch zu unerwünschtem Verhalten führen, wie z.B. das Auslaufen des Übergangs aus dem Root bei Clipping-Fällen. Wenn Sie sich dafür entscheiden, testen Sie sorgfältig und stellen Sie sicher, dass der Geltungsbereich seine Inhalte nicht abschneidet.
+> Sie können eine View-Transition aus der Selbstbeteiligung herausnehmen, indem Sie `view-transition-name: none` auf dem Übergangs-Root-Element setzen. Dies kann jedoch zu unerwünschtem Verhalten führen, wie das Herausragen der Transition über das Root in Clipping-Fällen. Wenn Sie sich dazu entscheiden, testen Sie sorgfältig und stellen Sie sicher, dass der Scope seine Inhalte nicht abschneidet.
 
 Betrachten wir ein weiteres Beispiel, diesmal um das Clipping-Verhalten zu demonstrieren.
 
 ### HTML
 
-Das HTML ist ähnlich wie im vorherigen Beispiel, außer dass das zentrale Element nun ein {{htmlelement("section")}} ist, das einen Absatz Text enthält. Wir fügen auch einen {{htmlelement("button")}} hinzu, den man drücken kann, um den Absatzinhalt zu ändern.
+Das HTML ist ähnlich wie im vorherigen Beispiel, außer dass das zentrale Element jetzt eine {{htmlelement("section")}} mit einem Absatz Text ist. Wir fügen auch einen {{htmlelement("button")}} hinzu, der gedrückt werden kann, um den Absatzinhalt zu ändern.
 
 ```html live-sample___element-scoped-clipping
 <p>
@@ -269,7 +269,7 @@ Das HTML ist ähnlich wie im vorherigen Beispiel, außer dass das zentrale Eleme
 
 ### CSS
 
-Zunächst legen wir eine feste `height` und `overflow-y: scroll` auf das `<section>` fest, um den `<p>`-Inhalt vertikal scrollen zu lassen.
+Zunächst setzen wir eine feste `height` und `overflow-y: scroll` auf die `<section>`, um den Inhalt des `<p>` vertikal scrollen zu lassen.
 
 ```css hidden live-sample___element-scoped-clipping
 body {
@@ -280,8 +280,8 @@ body {
 }
 
 section {
-  border: 2px solid #999;
-  background: #ddd;
+  border: 2px solid #999999;
+  background: #dddddd;
   margin: 0 auto;
 }
 
@@ -317,7 +317,7 @@ section {
 }
 ```
 
-Als nächstes setzen wir einen {{cssxref("view-transition-name")}} auf das verschachtelte `<p>`-Element, mit übereinstimmenden Namen in den benutzerdefinierten {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Pseudoelementen. Das bedeutet, dass nur `<p>` animiert wird, nicht der Rest des Übergangsgeltungsbereichs.
+Als nächstes setzen wir einen {{cssxref("view-transition-name")}} auf das verschachtelte `<p>`-Element, mit übereinstimmenden Namen in den benutzerdefinierten {{cssxref("::view-transition-old()")}} und {{cssxref("::view-transition-new()")}} Pseudoelementen. Das bedeutet, dass nur `<p>` animiert wird, nicht der Rest des Übergangsscope.
 
 ```css live-sample___element-scoped-clipping
 section p {
@@ -333,11 +333,11 @@ section p {
 }
 ```
 
-Aus Gründen der Kürze ist der {{cssxref("@keyframes")}}-Definitionscode ausgeblendet. Er ist nahezu identisch mit dem [vorherigen Beispiel](#css:~:text=%40keyframes%20rotate%2Dout); der einzige Unterschied besteht darin, dass die Rotation in diesem Beispiel um die y-Achse statt um die x-Achse erfolgt.
+Aus Gründen der Kürze ist der {{cssxref("@keyframes")}}-Definitionscode versteckt. Er ist nahezu identisch mit dem [vorherigen Beispiel](#:~:text=%40keyframes%20rotate%2Dout); der einzige Unterschied besteht darin, dass die Rotation in diesem Beispiel um die y-Achse und nicht um die x-Achse erfolgt.
 
 ### JavaScript
 
-Das Skript definiert ein `content`-Array, das zwei verschiedene Strings enthält, um den `<p>`-Inhalt auszutauschen. Dann greifen wir auf die `<section>`, `<p>` und `<button>`-Elemente zu.
+Das Skript definiert ein `content`-Array mit zwei verschiedenen Strings, zwischen denen der `<p>`-Inhalt gewechselt werden soll. Wir greifen dann auf Referenzen zu den `<section>`, `<p>` und `<button>`-Elementen zu.
 
 ```js hidden live-sample___element-scoped-clipping
 const content = [
@@ -358,7 +358,7 @@ const para = document.querySelector("section p");
 const btn = document.querySelector("button");
 ```
 
-Anschließend fügen wir dem `<button>` einen `click`-Event-Listener hinzu. Jedes Mal, wenn der Button geklickt wird, wird ein View-Übergang ausgelöst: Innerhalb des `startViewTransition()`-Aufrufs wird der `textContent` des `<p>`-Elements zwischen den beiden `content`-Array-Elementen über die `toggleText()`-Funktion umgeschaltet. Wir haben auch einfache Funktionserkennung eingebaut, die auf das direkte Ausführen von `toggleText()` in Browsern zurückfällt, die `Element.startViewTransition()` nicht unterstützen.
+Anschließend fügen wir einen `click`-Ereignislistener zum `<button>` hinzu. Jedes Mal, wenn der Button geklickt wird, wird eine View-Transition ausgelöst: Innerhalb des `startViewTransition()`-Aufrufs wird der `textContent` des `<p>`-Elements zwischen den beiden `content`-Array-Elementen über die `toggleText()`-Funktion umgeschaltet. Wir haben auch eine einfache Merkmalserkennung hinzugefügt, die sich in Browsern, die `Element.startViewTransition()` nicht unterstützen, auf das direkte Ausführen von `toggleText()` zurückfällt.
 
 ```js live-sample___element-scoped-clipping
 btn.addEventListener("click", handleClick);
@@ -383,19 +383,19 @@ function handleClick() {
 }
 ```
 
-### Resultat
+### Ergebnis
 
 {{embedlivesample("element-scoped-clipping", "100%", "520")}}
 
-Klicken Sie auf die Schaltfläche und beachten Sie, wie der Übergang nicht außerhalb des `<section>` herausragt – er bleibt auf den Übergangsgeltungsbereich beschränkt.
+Klicken Sie auf den Button und beachten Sie, wie die Transition nicht über die `<section>` hinausläuft — sie bleibt auf den Übergangsbereich beschränkt.
 
-## Verschachtelte element-gebundene View-Übergänge
+## Verschachtelte elementbasierte View-Transitions
 
-Ein weiterer bemerkenswerter Aspekt von element-gebundenen View-Übergängen ist, dass Sie View-Übergänge verschachteln und gleichzeitig ausführen können, ohne dass sie sich gegenseitig stören. Dies ist möglich, da der Browser, wie bereits erwähnt, automatisch einen {{cssxref("view-transition-scope")}}-Wert von `all` auf die Geltungsbereichs-Root-Elemente anwendet. Dies stellt sicher, dass {{cssxref("view-transition-name")}}-Werte auf den Teilbaum des Elements beschränkt sind und verhindert, dass Elemente und deren Inhalte von einem äußeren, gleichzeitigen View-Übergang erfasst werden. Browser ignorieren Elemente, bei denen `view-transition-scope: all` gesetzt ist, während des Aufnahmeprozesses.
+Ein weiterer Aspekt von elementbasierten View-Transitions, der erwähnenswert ist, ist, dass Sie View-Transitions verschachteln und gleichzeitig ohne Beeinträchtigungen ausführen lassen können. Dies ist möglich, weil, wie bereits erwähnt, der Browser automatisch einen {{cssxref("view-transition-scope")}}-Wert von `all` auf die Scope-Root-Elemente zuweist. Dies stellt sicher, dass {{cssxref("view-transition-name")}}-Werte auf den Unterbaum des Elements beschränkt werden, und verhindert, dass Elemente und deren Inhalte von einem äußeren, gleichzeitig ablaufenden View-Transition erfasst werden. Browser ignorieren Elemente, die `view-transition-scope: all` gesetzt haben, während des Aufnahmeprozesses.
 
-Werfen wir einen Blick auf eine Demonstration verschachtelter element-gebundener View-Übergänge.
+Sehen wir uns eine Demonstration von verschachtelten elementbasierten View-Transitions an.
 
-Das HTML ist dasselbe wie im [ersten Beispiel](#einfaches_element-gebundenes_beispiel), außer dass es jetzt zwei Listen von Links in einem zusätzlichen Wrapper-Element gibt.
+Das HTML ist dasselbe wie beim [ersten Beispiel](#einfaches_elementbasiertes_beispiel), außer dass es jetzt zwei Listen von Links innerhalb eines zusätzlichen Wrapper-Elements gibt.
 
 ```html hidden live-sample___element-scoped-nested
 <p>
@@ -425,7 +425,7 @@ Das HTML ist dasselbe wie im [ersten Beispiel](#einfaches_element-gebundenes_bei
 
 ### CSS
 
-Die zwei Listen werden nebeneinander im `.wrapper`-Element mit [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) angeordnet. Wir geben dem Wrapper eine `view-transition-name` von `wrapper`, und dann geben wir jeder Liste eine andere Hintergrundfarbe:
+Die beiden Listen sind nebeneinander innerhalb des `.wrapper`-Elements mithilfe von [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) angeordnet. Wir geben dem Wrapper einen `view-transition-name` von `wrapper` und dann geben wir jeder Liste eine andere Hintergrundfarbe:
 
 ```css hidden live-sample___element-scoped-nested
 body {
@@ -438,7 +438,7 @@ body {
 ul {
   list-style-type: none;
   padding-left: 0;
-  border: 2px solid #999;
+  border: 2px solid #999999;
   margin: 0 auto;
   position: relative;
   flex: 1;
@@ -452,7 +452,7 @@ a {
   text-align: center;
   background: white;
   margin: 10px;
-  border: 2px solid #aaa;
+  border: 2px solid #aaaaaa;
   transition: border 0.6s;
 }
 
@@ -519,7 +519,7 @@ a:focus {
 }
 ```
 
-Wir wenden auch verschiedene Animationen auf die allgemeinen alten und neuen Übergangs-Pseudoelemente an und dann separate Animationen auf die alten und neuen Übergangs-Pseudoelemente des `wrapper`:
+Wir wenden auch unterschiedliche Animationen auf die allgemeinen alten und neuen Übergangspseudoelemente an und dann separate Animationen auf die alten und neuen Übergangspseudoelemente des `wrapper`:
 
 ```css live-sample___element-scoped-nested
 ::view-transition-old(*) {
@@ -539,11 +539,11 @@ Wir wenden auch verschiedene Animationen auf die allgemeinen alten und neuen Üb
 }
 ```
 
-Der Rest des CSS ist aus Gründen der Kürze ausgeblendet.
+Wir haben den Rest des CSS für die Kürze versteckt.
 
 ### JavaScript
 
-Das JavaScript ist ähnlich wie im ersten Beispiel, außer dass hier zwei element-gebundene View-Übergänge gleichzeitig ausgeführt werden, jedes Mal, wenn ein Link geklickt wird. Der erste toggelt den Text des Links zwischen "Standard" und "Alternative" (über die `toggleText()`-Funktion), und der zweite tauscht die Position der beiden Listen im DOM (über die `togglePosition()`-Funktion). Wie zuvor haben wir Code zur Funktionserkennung eingebaut, sodass das Beispiel auch in Browsern funktioniert, die `Element.startViewTransition()` nicht unterstützen.
+Das JavaScript ist ähnlich wie im ersten Beispiel, außer dass hier zwei elementbasierte View-Transitions gleichzeitig jedes Mal ausgeführt werden, wenn ein Link angeklickt wird. Die erste schaltet den Text des Links zwischen "Standard" und "Alternative" (über die `toggleText()`-Funktion) um, und die zweite wechselt die Position der beiden Listen im DOM (über die `togglePosition()`-Funktion). Wie zuvor haben wir Code zur Merkmalserkennung hinzugefügt, sodass das Beispiel auch in Browsern funktioniert, die `Element.startViewTransition()` nicht unterstützen.
 
 ```js live-sample___element-scoped-nested
 const lists = document.querySelectorAll("ul");
@@ -585,20 +585,20 @@ function handleClick(e) {
 }
 ```
 
-### Resultat
+### Ergebnis
 
 {{embedlivesample("element-scoped-nested", "100%", "520")}}
 
-Klicken Sie den Text innerhalb eines Kastens an. Beachten Sie, wie das Text-Umstellen und der Listentausch gleichzeitig passieren – beide verschachtelten Übergänge laufen zur selben Zeit, ohne sich gegenseitig zu beeinträchtigen.
+Klicken Sie auf den Text in einem Kasten. Beachten Sie, wie das Umschalten des Textes und das Tauschen der Listen gleichzeitig erfolgen - beide verschachtelten Transitions laufen zur gleichen Zeit ohne gegenseitige Beeinträchtigung.
 
-## Abfrage von aktiven View-Übergängen
+## Abfragen aktiver View-Transitions
 
-Die folgenden Eigenschaften ermöglichen es Ihnen, aktive element-gebundene View-Übergänge abzufragen:
+Die folgenden Eigenschaften ermöglichen das Abfragen aktiver elementbasierter View-Transitions:
 
-- [`ViewTransition.transitionRoot`](/de/docs/Web/API/ViewTransition/transitionRoot): Gibt einen Verweis auf das Root-Element des Geltungsbereichs des View-Übergangs zurück.
-- [`Element.activeViewTransition`](/de/docs/Web/API/Element/activeViewTransition): Gibt einen Verweis auf einen aktiven `ViewTransition` eines Elements zurück, falls einer existiert.
+- [`ViewTransition.transitionRoot`](/de/docs/Web/API/ViewTransition/transitionRoot): Gibt eine Referenz zum Root-Element des View-Transition-Scope zurück.
+- [`Element.activeViewTransition`](/de/docs/Web/API/Element/activeViewTransition): Gibt eine Referenz auf eine aktive `ViewTransition` eines Elements zurück, falls eine existiert.
 
-Zum Beispiel, wenn Sie die auf ein Element aktiven Animationen während eines Übergangs auf irgendeine Weise verarbeiten möchten, können Sie darauf über `transitionRoot` zugreifen:
+Zum Beispiel, wenn Sie die während einer Transition aktiven Animationen auf einem Element auf irgendeine Weise verarbeiten möchten, können Sie auf sie zugreifen, indem Sie `transitionRoot` verwenden:
 
 ```js
 function processAnimations(transition) {
@@ -615,4 +615,4 @@ transition.ready.then(() => processAnimations(transition));
 ## Siehe auch
 
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
-- [Führen Sie gleichzeitige und verschachtelte View-Übergänge mit element-gebundenen View-Übergängen aus](https://developer.chrome.com/docs/css-ui/view-transitions/element-scoped-view-transitions) auf developer.chrome.com
+- [Concurrent und verschachtelte View-Transitions mit elementbasierten View-Transitions ausführen](https://developer.chrome.com/docs/css-ui/view-transitions/element-scoped-view-transitions) auf developer.chrome.com

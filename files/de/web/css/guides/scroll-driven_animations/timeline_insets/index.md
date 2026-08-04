@@ -1,25 +1,25 @@
 ---
-title: Verständnis der Timeline-Einsätze
+title: Verständnis von Zeitachsen-Insets
 slug: Web/CSS/Guides/Scroll-driven_animations/Timeline_insets
 l10n:
-  sourceCommit: 7f138099644a02640a903b2abc39e685ca8ca7cd
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Standardmäßig verfolgen [Ansichtsfortschritts-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) Elemente über den gesamten [Bereich der Animationszuordnung](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#the_animation_attachment_range). Der Fortschrittspunkt `0%` liegt am Anfang des Bereichs, während der Fortschrittspunkt `100%` am Ende liegt. Der Bereich der Animationszuordnung kann durch Festlegen eines [Timeline-Rangnamens](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names) geändert werden, und der Ort der `0%`- und `100%`-Fortschrittspunkte entlang des Bereichs kann durch Setzen von Längen- oder prozentbasierten Einsätzen angepasst werden.
+Standardmäßig verfolgen [View Fortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) Elemente über den gesamten [Animationsanhängebereich](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#the_animation_attachment_range). Der `0%` Fortschrittspunkt liegt am Anfang des Bereichs, während der `100%` Fortschrittspunkt am Ende liegt. Der Animationsanhängebereich kann durch das Setzen eines [Zeitachsenbereihsnamens](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names) geändert werden, und die Position der `0%` und `100%` Fortschrittspunkte entlang des Bereichs kann durch das Setzen von länge- oder prozentbasierten Inset-Werten angepasst werden.
 
-Dieser Leitfaden erklärt, wie Sie die Animationstimeline auf einen bestimmten Teil des Animationszeitlinienbereichs mithilfe von Längen- oder Prozentsatzeinsätzen beschränken können.
+Dieser Leitfaden erklärt, wie die Animationszeitachse mithilfe von Länge- oder Prozent-Inset-Werten auf einen bestimmten Teil des Animationsbereichs beschränkt wird.
 
-## Animationstimen: eine Einführung
+## Animationszeitachsen: ein Überblick
 
-[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) werden erstellt, indem benannte {{cssxref("@keyframes")}}-Animationen definiert werden, die das Verhalten einer Animation spezifizieren, und dann die Keyframe-Animation mithilfe des Animationsnamens an ein Element angehängt wird.
+[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) werden durch das Definieren von benannten {{cssxref("@keyframes")}} Animationen erstellt, die das Verhalten einer Animation spezifizieren, und anschließend die Schlüsselbild-Animation über den Namen der Animation an ein Element anhängen.
 
-Die Animations-Timeline des Elements, definiert durch die {{cssxref("animation-timeline")}} Eigenschaft, bestimmt, wie und wann das Element durch diese Keyframes fortschreitet. Standardmäßig ist die Timeline zeitbasiert und verwendet die standardmäßige dokumentbasierte Zeit-Timeline [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline).
+Die Animationszeitachse des Elements, definiert durch die {{cssxref("animation-timeline")}} Eigenschaft, bestimmt, wie und wann sich das Element durch diese Schlüsselbilder bewegt. Standardmäßig ist die Zeitachse zeitbasiert, unter Verwendung der standardmäßigen dokumentbasierten Zeitachse [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline).
 
-Das Modul [CSS-Scroll-gesteuerte Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Scroll-Fortschritts- und Ansichtsfortschritts-Timelines, bei denen es sich um Methoden zur Animation von Eigenschaftswerten entlang einer scrollbasierten Timeline anstelle der standardmäßigen zeitbasierten Dokument-Timeline handelt. In diesem Artikel besprechen wir nur Ansichtsfortschritts-Timelines, da [Scroll-Fortschritts-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines) für Timeline-Einsätze nicht relevant sind.
+Das [CSS-Modul Scroll-Driven Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) definiert Scroll-Fortschritts- und View-Fortschritts-Zeitachsen, die Methoden zur Animation von Eigenschaftswerten entlang einer scrollbasierten Zeitachse anstelle der standardmäßig zeitbasierten Dokument-Zeitachse sind. In diesem Artikel besprechen wir nur View-Fortschritts-Zeitachsen, da [Scroll-Fortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines) für Zeitachsen-Insets nicht relevant sind.
 
-### Ansichtsfortschritts-Timelines
+### View-Fortschritts-Zeitachsen
 
-Bei [Ansichtsfortschritts-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) wird die Timeline oder der Fortschritt der Animation durch die Sichtbarkeit des Elements anstelle des Zeitablaufs gesteuert, wobei die Keyframe-Progression an die Position und Sichtbarkeit des Subjektelements innerhalb des Scroll-Containers gebunden ist. Die Animation schreitet voran und kehrt sich um, wenn das Element durch das Scrollport vorwärts oder rückwärts bewegt. Die Animation erfolgt nur, wenn mindestens ein Teil des Elements innerhalb seines Scrollports sichtbar ist und pausiert, wenn das Scrollen stoppt.
+Mit [View-Fortschritts-Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines) wird die Zeitachse oder der Fortschritt der Animation durch die Sichtbarkeit des Elements anstatt durch den Zeitverlauf gesteuert, wobei der Fortschritt der Schlüsselbilder an die Position und Sichtbarkeit des Subjektelements innerhalb des Scrollcontainers gebunden ist. Die Animation schreitet voran und umkehrt, während das Element sich durch den Scrollport bewegt. Die Animation erfolgt nur, wenn zumindest ein Teil des Elements innerhalb seines Scrollports sichtbar ist und pausiert, wenn das Scrollen stoppt.
 
 ```css live-sample___svg_view
 .animated_element {
@@ -28,27 +28,27 @@ Bei [Ansichtsfortschritts-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_anima
 }
 ```
 
-Die Einstellung eines {{cssxref("animation-name")}} wendet die Animation auf das ausgewählte Element an.
+Das Setzen eines {{cssxref("animation-name")}} wendet die Animation auf das ausgewählte Element an.
 
 > [!NOTE]
-> Die `animation-timeline` Eigenschaft sollte immer nach allen `animation` Kurzschreibweise-Deklarationen stehen. Während die Kurzschreibweise-Eigenschaft nicht verwendet werden kann, um die `animation-timeline`-Eigenschaft zu setzen, setzt sie doch die Timeline auf die standardmäßige zeitbasierte Dokument-Timeline zurück.
+> Die `animation-timeline`-Eigenschaft sollte immer nach allen `animation`-Kurzschrift-Definitionen kommen. Während die Kurzschrift nicht verwendet werden kann, um die `animation-timeline`-Eigenschaft zu setzen, setzt sie die Zeitachse auf die standardmäßig zeitbasierte Dokument-Zeitachse zurück.
 
 > [!NOTE]
-> In allen Beispielen ist der {{Glossary("scroll_container", "Scroll-Container")}} `250px` hoch und wir verwenden die Standardwerte für {{cssxref("animation-iteration-count")}} (`1`), {{cssxref("animation-delay")}} (`0s`) und {{cssxref("animation-direction")}} (`normal`). Wir setzen die {{cssxref("animation-timing-function")}} auf `step-end` und den {{cssxref("animation-fill-mode")}} auf `forward`, um es deutlicher zu machen, wann die Animation noch nicht begonnen hat, wann sie aktiv ist und wann sie abgeschlossen ist. Weitere Informationen finden Sie im [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using).
+> In allen Beispielen ist der {{Glossary("scroll_container", "Scrollcontainer")}} `250px` hoch und wir verwenden die Standardwerte für {{cssxref("animation-iteration-count")}} (`1`), {{cssxref("animation-delay")}} (`0s`) und {{cssxref("animation-direction")}} (`normal`). Wir setzen die {{cssxref("animation-timing-function")}} auf `step-end` und der {{cssxref("animation-fill-mode")}} ist auf `forward` eingestellt, um deutlicher zu machen, wann die Animation noch nicht begonnen hat, wann sie aktiv ist und wann sie abgeschlossen ist. Siehe den [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using), um mehr zu erfahren.
 
-Wenn Sie nach oben scrollen, schreitet die Animation voran. Wenn Sie nach unten scrollen, kehrt sich die Animation um.
+Beim Hochscrollen schreitet die Animation voran. Beim Runterscrollen kehrt die Animation zurück.
 
 {{EmbedLiveSample("initial", "100%", "400")}}
 
-In diesem Beispiel tritt die Animation auf, wann immer ein Teil des Subjektelements im Scrollport sichtbar ist. Standardmäßig beginnen Ansichtsfortschritts-Animationen direkt dann, wenn die Oberkante des Subjektelements mit der Unterkante des Scroll-Containers übereinstimmt, und enden mit `100%` Fortschritt, wenn die Endkante mit der Startkante des Containers übereinstimmt, unabhängig von der Größe des Subjektelements. Per Voreinstellung wird die Animation angewendet, wenn ein Teil des Subjekts im Scrollport sichtbar ist.
+In diesem Beispiel erfolgt die Animation, wann immer ein Teil des Subjektelements im Scrollport sichtbar ist. Standardmäßig beginnen View-Fortschritts-Animationen genau dann, wenn die obere Kante des Subjektelements mit der unteren Kante des Scrollcontainers ausgerichtet ist, und sie enden bei `100%` Fortschritt, wenn die Endkante mit der Anfangskante des Containers ausgerichtet ist, unabhängig von der Größe des Subjektelements. Standardmäßig wird die Animation angewendet, wenn ein Teil des Subjekts im Scrollport sichtbar ist.
 
-### Animationsanhangbereich
+### Animationsanhängebereiche
 
-In einer [Ansichtsfortschritts-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines), wenn keine Animationsbereichs-Eigenschaften definiert sind, ist `<timeline-range-name>` `normal`, was standardmäßig `cover` ist. Die Animation wird angewendet, wann immer ein Teil des Subjektelements sichtbar ist, was bedeutet, dass der standardmäßige **Animationsanhangbereich** die Summe der Höhe des Scroll-Containers und der Höhe des Subjektelements ist, mit dieser zusätzlichen Höhe am Ende des Scrolls. In unserem Beispiel ist der Scroll-Container `250px` hoch, und das Subjekt ist `50px`, `250px` oder `500px` hoch, wobei der vertikale Animationsanhangbereich entsprechend `300px`, `500px` oder `750px` ist.
+In einer [View-Fortschritts-Zeitachse](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines), wenn keine Bereichseigenschaften definiert sind, ist der `<timeline-range-name>` `normal`, der standardmäßig auf `cover` gesetzt ist. Die Animation wird angewendet, wann immer ein Teil des Subjektelements sichtbar ist, was bedeutet, dass der Standard-**Animationsanhängebereich** die Summe aus der Höhe des Scrollcontainers und der Höhe des Subjektelements ist, wobei diese zusätzliche Höhe an der Scrollendkante hinzugefügt wird. In unserem Beispiel ist der Scrollcontainer `250px` hoch, und das Subjekt ist `50px`, `250px` oder `500px` hoch, wobei der vertikale Animationsanhängebereich `300px`, `500px` oder `750px` beträgt.
 
-Der `0%` Fortschritt tritt auf, wenn die Startkante des Subjektelements die Scrollport auf der Endkante schneidet und `100%` Fortschritt erreicht, wenn die Endkante des Subjekts über die Startkante der Scrollport austritt. Dies sind die oberen und unteren Kanten von Subjekt und Scrollport beim vertikalen Scrollen und die linken und rechten oder rechten und linken Kanten beim horizontalen Scrollen, je nach Schreibrichtung.
+Der `0%` Fortschritt erfolgt, wenn die Startkante des Subjektelements die Scrollport-Kante an der Endkante schneidet und `100%` Fortschritt erreicht, wenn die Endkante des Subjekts die Startkante des Scrollports verlässt. Dies sind die oberen und unteren Kanten des Subjekts und des Scrollports beim vertikalen Scrollen und die linken und rechten oder rechten und linken Kanten beim horizontalen Scrollen, abhängig vom Schreibrichtung.
 
-Das folgende Diagramm veranschaulicht die Position des Subjekts an den `0%` und `100%` Fortschrittspunkten für die drei Subjektgrößen:
+Das folgende Diagramm veranschaulicht die Position des Subjekts bei den `0%` und `100%` Fortschrittspunkten für die drei Subjektgrößen:
 
 ```html hidden live-sample___svg_view
 <div>
@@ -71,26 +71,26 @@ Das folgende Diagramm veranschaulicht die Position des Subjekts an den `0%` und 
 
 {{EmbedLiveSample("svg_view", "100%", "720")}}
 
-Die gelben Subjektelemente repräsentieren die Position des Elements, wenn das `from`-Keyframe angewendet wird, welches das `0%` Fortschrittszeichen des Animationsbereichs markiert. Das Rote repräsentiert die Position des animierten Elements relativ zum Scrollport, wenn das `to`-Keyframe angewendet wird, welches das Ende der Animation oder das `100%` Fortschrittszeichen markiert. Das Graue repräsentiert den Scrollport.
+Die gelben Subjektelemente repräsentieren die Position des Elements, wenn das `from`-Schlüsselbild angewendet wird, was das `0%`-Fortschrittszeichen des Animationsbereichs ist. Die roten repräsentieren die Position des animierten Elements relativ zum Scrollport, wenn das `to`-Schlüsselbild angewendet wird, was das Ende der Animation ist, oder das `100%`-Fortschrittszeichen. Die grauen repräsentieren den Scrollport.
 
-Standardmäßig animiert sich das Element, während es „in Sicht“ ist, aber diese Standarddefinition von „in Sicht“ passt möglicherweise nicht zu Ihren Bedürfnissen. Zum Glück können wir steuern, welche Kanten die Kanten des Animationsanhangbereichs definieren und dann den Start und das Ende dieses Bereichs mit den Eigenschaften des Animationsbereichs versetzen.
+Standardmäßig animiert das Element, während es "sichtbar" ist, aber diese Standarddefinition von "sichtbar" passt möglicherweise nicht zu Ihren Anforderungen. Glücklicherweise können wir steuern, welche Kanten die Kanten des Animationsanhängebereichs definieren und dann den Anfang und das Ende dieses Bereichs mit den Bereichseigenschaften der Animation versetzen.
 
-### Animationsbereichs-Eigenschaften
+### Eigenschaften des Animationsbereichs
 
-Die Animationsbereichs-Eigenschaften {{cssxref("animation-range")}} ermöglichen es, einen benannten Timeline-Bereich anzugeben, wie `contain` oder `exit-crossing`, der den verwendeten Bereich vom Standard `cover`-Bereich ändert. Sie können auch einen {{cssxref("length-percentage")}}-Wert einschließen, der den Anhangbereich vom Start des Bereichs versetzt. Prozentsätze beziehen sich auf die benannte oder Standard-Timeline.
+Die {{cssxref("animation-range")}} Eigenschaften ermöglichen es, einen benannten Zeitachsenbereich wie `contain` oder `exit-crossing` zu spezifizieren, der den verwendeten Bereich vom Standardbereich `cover` ändert. Sie können auch einen {{cssxref("length-percentage")}} Wert einschließen, der den Anhängebereich ab dem Anfang des Bereichs einsetzt. Prozentsätze beziehen sich auf den benannten oder Standard-Zeitachsenbereich.
 
-Benannte Timeline-Bereiche definieren die Teile einer [`ViewTimeline`](/de/docs/Web/API/ViewTimeline), die den Bereich einer Animation definieren, und spezifizieren den Start und das Ende des Anhangbereichs der Animation.
+Benannte Zeitachsenbereiche definieren die Abschnitte einer [`ViewTimeline`](/de/docs/Web/API/ViewTimeline), die den Bereich einer Animation definieren und den Beginn und das Ende des Animationsanhängebereichs spezifizieren.
 
-Die `animation-range`-Eigenschaft ist eine Kurzform und definiert die Eigenschaften {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}}. Die `animation-range-start` definiert die Position des Subjektelements, wenn die Animation beginnt. Die `animation-range-end` definiert die Position des Subjektelements, wenn die Animation endet.
+Die `animation-range`-Eigenschaft ist eine Kurzschreibweise, die die {{cssxref("animation-range-start")}} und {{cssxref("animation-range-end")}} Eigenschaften definiert. Die `animation-range-start` definiert die Position des Subjektelements, wenn die Animation beginnt. Die `animation-range-end` definiert die Position des Subjektelements, wenn die Animation endet.
 
-Lesen Sie den [Leitfaden zu Timeline-Rangnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names), um mehr über die verschiedenen benannten Timeline-Bereiche zu erfahren. Dieser Leitfaden konzentriert sich darauf, wie die {{cssxref("length-percentage")}}-Einsatzwerte funktionieren.
+Siehe den [Leitfaden zu Zeitachsenbereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names), um mehr über die verschiedenen benannten Zeitachsenbereiche zu erfahren. Dieser Leitfaden konzentriert sich darauf, wie die {{cssxref("length-percentage")}}-Inset-Werte funktionieren.
 
-## Einsätze mit Längen setzen
+## Einsetzen mit Längen
 
-Die Eigenschaften `animation-range-start` und `animation-range-end` akzeptieren jeweils einen benannten Animationsbereich, einen {{cssxref("length-percentage")}}-Offsetwert oder beides. Jeder Längen- oder Prozentsatz-Offset wird vom _Start_ des Animationsanhangbereichs gemessen.
+Die `animation-range-start` und `animation-range-end` Eigenschaften akzeptieren jeweils einen benannten Animationsbereich, einen {{cssxref("length-percentage")}} Offsetwert oder beides. Jeder Längen- oder Prozentsatz-Offset wird ab dem _Anfang_ des Animationsanhängebereichs gemessen.
 
-Wenn eine {{cssxref("length")}} gesetzt ist, ist der Offset ziemlich intuitiv.
-Hier verwenden wir die Eigenschaften `animation-range-start` und `animation-range-end`, um die Animationstimeline einzusetzen. Dies definiert einen Abschnitt der vollen Animationsanhangreichweite des Elements als das aktive Intervall, wobei die `<length>`-Werte Entfernungen vom Beginn des Standard-Animationsanhangsbereichs `normal` festlegen.
+Wenn ein {{cssxref("length")}} gesetzt wird, ist der Offset ziemlich intuitiv.
+Hier verwenden wir die `animation-range-start` und `animation-range-end` Eigenschaften, um die Animationszeitachse einzurücken. Dies definiert einen Abschnitt des vollen Animationsanhängebereichs des Elements als aktives Intervall, wobei die `<length>` Werte die Abstände vom Anfang des Standard-`normal` Animationsanhängebereich spezifizieren.
 
 ```css live-sample___inset_length
 .animated_element {
@@ -99,7 +99,7 @@ Hier verwenden wir die Eigenschaften `animation-range-start` und `animation-rang
 }
 ```
 
-Der Start und das Ende des Animationsbereichs befinden sich 1em bzw. 125px vom Anfang des Animationsanhangbereichs. Da das Standard-Timeline-Rang `normal` ist, welches sich zu `cover` auflöst, ist der Beginn des Animationsanhangbereichs die Endkante des Containers.
+Der Anfang und das Ende des Animationsbereichs sind `1em` und `125px` vom Anfang des Animationsanhängebereichs entfernt. Da der Standardzeitleistenbereich `normal` ist, der zu `cover` aufgelöst wird, ist der Anfang des Animationsanhängebereichs die Blockendkante des Containers.
 
 ```css hidden live-sample___inset_length
 :root {
@@ -111,9 +111,9 @@ article {
   background-image: linear-gradient(
     to top,
     transparent calc(var(--start) - 1px),
-    #ccc calc(var(--start) - 1px) calc(var(--start) + 1px),
+    #cccccc calc(var(--start) - 1px) calc(var(--start) + 1px),
     transparent calc(var(--start) + 1px) calc(var(--end) - 1px),
-    #ccc calc(var(--end) - 1px) calc(var(--end) + 1px),
+    #cccccc calc(var(--end) - 1px) calc(var(--end) + 1px),
     transparent calc(var(--end) + 1px)
   );
 }
@@ -121,13 +121,13 @@ article {
 
 {{EmbedLiveSample("inset_length", "100%", "400")}}
 
-Wir haben Linien `1em` und `125px` von der Endkante des Scroll-Containers hinzugefügt. Die Animation beginnt, wenn die Startkante des Blockbeginns des Subjektelements die `1em`-Linie erreicht und endet, wenn sie die `125px`-Linie erreicht.
+Wir haben Linien `1em` und `125px` von der Blockendkante des Scrollcontainers hinzugefügt. Die Animation beginnt, wenn die Blockstartkante des Subjektelements die `1em` Linie erreicht und endet, wenn sie die `125px` Linie erreicht.
 
-In diesem Fall, da der Animationsanhangbereich auf `cover` für sowohl die Start- als auch Endeinsatzwerte aufgelöst wird, ist die Position der Einsätze ziemlich direkt.
+In diesem Fall, da der Animationsanhängebereich sowohl für die Start- als auch die End-Offsetwerte auf `cover` aufgelöst wird, ist die Position der Insets ziemlich einfach.
 
-### Effekt von benannten Bereichen auf Längen-Offsets
+### Wirkung von benannten Bereichen auf Längenoffsets
 
-Der Offset-Abstand ist immer vom Beginn des zugehörigen Animationsbereichs. In diesem Beispiel setzen wir das `animation-range-start` auf `50px` vom Beginn des Standardbereichs `normal` und setzen das `animation-range-end` auf `100px` vom Beginn des explizit gesetzten `entry`-Bereichs:
+Der Abstand des Offset ist immer ab dem Anfang des zugeordneten Animationsbereichs. In diesem Beispiel setzen wir den `animation-range-start` auf `50px` vom Anfang des normalen Bereichs und setzen den `animation-range-end` auf `100px` vom Anfang des explizit gesetzten `entry` Bereichs:
 
 ```css live-sample___different_length
 .animated_element {
@@ -162,13 +162,13 @@ Der Offset-Abstand ist immer vom Beginn des zugehörigen Animationsbereichs. In 
 
 {{EmbedLiveSample("different_length", "100%", "310")}}
 
-Da die Startkante sowohl des `normal` als auch des `entry`-Bereichs die Endkante des Containers ist, beginnt die Animation, wenn die Startkante des Subjekts `50px` vom unteren Ende des Scrollports entfernt ist und endet, wenn sie `100%`-Fortschritt erreicht, wenn die Startkante des Subjekts `100px` vom unteren Ende des Scrollports entfernt ist, unabhängig von der Subjektgröße. Während die Größe des `entry`-Bereichs für die drei verschiedenen Subjektgrößen unterschiedlich ist, spielte die Größe des zugrunde liegenden Bereichs in diesem Fall keine Rolle.
+Da die Startkante sowohl des `normal` als auch des `entry` Bereichs die Endkante des Containers ist, beginnt die Animation, wenn die Startkante des Subjekts `50px` vom unteren Rand des Scrollports entfernt ist und `100%` Fortschritt erreicht, wenn die Startkante des Subjekts `100px` vom unteren Rand des Scrollports entfernt ist, unabhängig von der Subjektgröße. Während die Größe des `entry` Bereichs bei den drei verschiedenen Subjektgrößen unterschiedlich ist, spielte in diesem Fall die Größe des zugrunde liegenden Bereichs keine Rolle.
 
-### Längen-Offsets mit variierenden Bereichen
+### Längenoffsets bei unterschiedlichen Bereichen
 
-Die Größe des Bereichs spielt eine Rolle, wenn der Bereich nicht an der Endkante des Elements beginnt, wie es bei `exit` und `exit-crossing` der Fall ist, oder wenn der Offset ein Prozentsatzwert ist. Diese Tatsache und die Tatsache, dass Sie Animationsbereichsnamen mischen und anpassen können, machen Offsets für Ansichtsfortschritts-Timelines etwas komplizierter zu verstehen als nicht versetzte [Timeline-Rang-Namen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names).
+Die Größe des Bereichs spielt eine Rolle, wenn der Bereich nicht an der Endkante des Elements beginnt, wie es bei `exit` und `exit-crossing` der Fall ist, oder wenn der Offset ein Prozentwert ist. Diese Tatsache und die Tatsache, dass Sie Animationsbereichsnamen mischen und anpassen können, machen View-Fortschritts-Zeitachsen-Offsets etwas komplizierter zu verstehen als nicht versetzte [Zeitachsenbereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names).
 
-Wenn beispielsweise `exit` als Timeline-Rang-Name festgelegt wird, spielt die Subjektgröße eine Rolle, da sie den Ort der Endkante des Bereichs bestimmt.
+Zum Beispiel, wenn `exit` als Zeitachsenbereichsname gesetzt wird, spielt die Subjektgröße eine Rolle, da sie die Position der Endkante des Bereichs bestimmt.
 
 ```css live-sample___exit_length
 .animated_element {
@@ -177,37 +177,37 @@ Wenn beispielsweise `exit` als Timeline-Rang-Name festgelegt wird, spielt die Su
 }
 ```
 
-Sowohl bei `entry` als auch bei `exit` entspricht der Bereich der Größe des Subjekts, wobei die Größe auf die Größe des Scrollports begrenzt wird. Das bedeutet, dass die Höhe der `entry` und `exit` Bereiche in den Beispielen `50px` und `250px` hoch ist, während im `500px`-Beispiel der Bereich auf die Höhe des Scrollports begrenzt ist, der `250px` hoch ist.
+Mit sowohl `entry` als auch `exit` ist der Bereich die Größe des Subjekts, wobei die Größe an die Größe des Scrollports angepasst ist. Dies bedeutet, dass die Höhe der `entry` und `exit` Bereiche die Höhe der Box sowohl im `50px` als auch im `250px` Beispiel ist, während im `500px` Beispiel der Bereich an die Höhe des Scrollports angepasst ist, der `250px` hoch ist.
 
 {{EmbedLiveSample("exit_length", "100%", "310")}}
 
-Wir haben ein paar Linien hinzugefügt, um die Erklärungen, die folgen, zu erleichtern: Die untere blaue Linie ist `60px` von der Endkante des Scrollports entfernt, und die obere rote Linie ist `75px` von derselben Kante entfernt. Hier beginnen und enden der Animationsbereich.
+Wir haben ein paar Linien hinzugefügt, um die Erklärungen zu erleichtern, die folgen: Die untere blaue Linie ist `60px` von der Endkante des Scrollports entfernt und die obere rote Linie ist `75px` von dieser gleichen Kante entfernt. Hier beginnen und enden die Animationsbereiche.
 
-Dieses Beispiel demonstriert mehrere wichtige Merkmale, die wir ausführlicher erklären werden, einschließlich:
+Dieses Beispiel zeigt mehrere wichtige Merkmale, die wir ausführlich erklären werden, einschließlich:
 
-- Offsets werden [vom Beginn ihrer jeweiligen benannten Bereiche gemessen](#vom_beginn_des_bereichs_gemessen)
-- Offsets können [über die Ränder des Scrollports hinaus auftreten](#über_die_ränder_des_scrollports_hinaus)
-- [Bereiche können abgeschnitten werden](#effekte_des_abschneidens), wenn das Subjekt größer als der Scrollport ist
+- Offsets werden [von ihrem jeweiligen benannten Bereich aus gemessen](#gemessen_von_der_startkante_des_bereichs)
+- Offsets können [über die Ränder des Scrollports hinausgehen](#über_die_scrollport-ränder_hinaus)
+- [Bereiche können geklammert werden](#auswirkungen_des_klammerns), wenn das Subjekt größer als der Scrollport ist
 
-#### Vom Beginn des Bereichs gemessen
+#### Gemessen von der Startkante des Bereichs
 
-Da die Offset-Position immer relativ zum Beginn des Deklarationsanimationsbereichs ist, tritt der Beginn der Animation für alle drei Elemente auf, wenn die Startkante der Elemente den Punkt schneidet, der `60px` vom Beginn des `entry`-Bereichs entfernt ist.
+Da die Position des Offsets immer relativ zum Anfang des deklarativen Animationsbereichs ist, erfolgt der Start der Animation für alle drei Elemente, wenn die Startkante der Elemente den Punkt erreicht, der `60px` vom Anfang des `entry` Bereichs entfernt ist.
 
-Der `animation-range-end`-Wert definiert die Position, an der die Animation endet. Der Wert `exit 75px` bedeutet im Grunde "wenn `75px` des Subjekts über den Startpunkt des Scrollports hinausgegangen sind." Dies variiert für jedes Subjekt. Für das `50px`-Subjekt tritt dies erst `25px` nach ihrem Verlassen des Scrollports ein; wenn das Element nicht mehr sichtbar ist. Das Ende des Animationsbereichs für sowohl die `250px` als auch `500px` Subjekte tritt ein, wenn ihre untere Endkante die obere blaue Linie schneidet; `75px` von der Endkante des Scrollports entfernt. Warum sind ihre End-Offsets gleich? Wegen des [Abschneidens](#effekte_des_abschneidens)! Die maximale Größe des benannten Animationsbereichs ist auf die Größe des Scrollports begrenzt. Der `exit`-Bereich für beide Subjekte ist gleich, daher sind die Bereichsend-Offsets gleich.
+Der `animation-range-end` Wert definiert die Position, wo die Animation endet. Der Wert `exit 75px` bedeutet im Grunde "wenn `75px` des Subjekts den Anfang des Scrollports verlassen hat". Dies variiert für jedes Subjekt. Für das `50px` Subjekt geschieht dies erst `25px` nachdem es den Scrollport verlassen hat; wenn das Element nicht sichtbar ist. Das Ende des Animationsbereichs für sowohl das `250px` als auch das `500px` Subjekt tritt ein, wenn ihre untere Endkante die obere blaue Linie schneidet; 75 Pixel von der Endkante des Scrollports. Warum sind ihre End-Offsets gleich? Wegen des [Klammerns](#auswirkungen_des_klammerns)! Die maximale Größe des benannten Animationsbereichs ist auf die Größe des Scrollports geklammert. Der `exit` Bereich für beide Subjekte ist gleich, daher sind die Bereichsend-Offsets gleich.
 
-#### Über die Ränder des Scrollports hinaus
+#### Über die Scrollport-Ränder hinaus
 
-Für unser `50px` hohes Subjekt ist der `exit`-Bereich `50px` hoch und schließt an die Startkante des Scrollports an. Das Setzen von `animation-range-end: exit 75px` für jedes Element, das kleiner als `75px` ist, bedeutet, dass das Ende des Bereichs außerhalb des Scrollports ist, da der Punkt `75px` vom Start des `exit`-Bereichs jenseits der Startkante des Scrollports liegt. In unserem Beispiel tritt das Ende des Animationsbereichs für das `50px` Subjekt ein, wenn die Startkante des Subjekts `75px` über die Startkante des Scrollports hinaus ist. Die Animation endet, indem das `to`-Keyframe erreicht wird und das [`animationend`](/de/docs/Web/API/Element/animationend_event) Ereignis eintritt, nur wenn (und falls) das Element `25px` außer Sicht gescrollt wird.
+Für unser `50px` hohes Subjekt ist der `exit` Bereich 50px hoch und grenzt an die Anfangskante des Scrollports. Das Setzen von `animation-range-end: exit 75px` für ein beliebiges Element, das weniger als `75px` hoch ist, bedeutet, dass das Ende des Bereichs außerhalb des Scrollports liegt, da der Punkt `75px` vom Anfang des `exit` Bereichs über die Anfangskante des Scrollports hinausgeht. In unserem Beispiel endet der Animationsbereich für das `50px` Subjekt, wenn die Startkante des Subjekts `75px` über die Startkante des Scrollports hinaus ist. Die Animation endet, erreicht das `to` Schlüsselbild und das [`animationend`](/de/docs/Web/API/Element/animationend_event) Ereignis, nur wenn (und wenn) das Element `25px` aus dem Blickfeld gescrollt wird.
 
-Die Animation endet selbst dann, wenn das Ende des Animationsbereichs außerhalb des Scrollports ist, solange es einen Raum gibt, zu diesem Punkt zu scrollen. Hätten wir `animation-range-end: exit 250px` gesetzt, wäre die Animation geendet, wenn die Endkante der mittleren und hohen Subjekte den Scrollport an der Startkante des Containers verlassen.
+Die Animation endet auch wenn das Animationsbereichsende außerhalb des Scrollports liegt, solange es möglich ist, zu diesem Punkt zu scrollen. Hätten wir `animation-range-end: exit 250px` gesetzt, würde die Animation enden, wenn die Endkante der mittleren und großen Subjekte den Scrollport an der Startkante des Containers verlässt.
 
-Wäre das Ende auf `exit 250px` gesetzt, würde die Animation des kleinen Subjekts möglicherweise nicht enden, da es möglicherweise nicht `450px` an Inhalt nach dem Subjekt zum Scrollen gibt, bevor der Endpunkt erreicht ist.
+Mit dem Ende auf `exit 250px` gesetzt, könnte die Animation des kleinen Subjekts möglicherweise nicht enden, da es möglicherweise nicht `450px` Inhalt nach dem Subjekt gibt, in den der Nutzer scrollen kann, bevor der Endpunkt erreicht wird.
 
-#### Effekte des Abschneidens
+#### Auswirkungen des Klammerns
 
-Bei unserem `250px` hohen Container, wenn das Subjekt `250px` oder `500px` hoch ist, ist der `exit`-Bereich die Größe des Containers, wobei der Start die Endkante des Scrollport des Containers ist. Mit einem `75px`-Offset tritt das Ende der Animation ein, wenn die Endkante des Subjekts `75px` von der Endkante des Scrollports entfernt ist, was durch die obere rote Linie angezeigt wird.
+Mit unserem `250px` hohen Container, wenn das Subjekt `250px` oder `500px` hoch ist, ist der `exit` Bereich die Größe des Containers, wobei der Start die Endkante des Scrollcontainers ist. Mit einem `75px` Offset tritt das Ende der Animation auf, wenn die Endkante des Subjekts `75px` von der Endkante des Scrollcontainers ist (gekennzeichnet durch die obere rote Linie).
 
-Da die Offset-Position immer relativ zum Beginn des benannten oder Standard-Animationsbereichs ist, wirkt sich das Abschneiden in unserem Beispiel auf das `animation-range-end` des großen Subjekts aus. Wir setzen das Ende des Bereichs auf `exit 75px`, was `75px` vom Beginn des `exit`-Bereichs entfernt ist. Wenn das Subjekt dieselbe Größe wie der Scrollport hat (unser `250px` Subjekt) oder größer (unser `500px` Subjekt), ist das Ende des Animationsbereichs `75px` von der Endkante des Scrollports entfernt, was `75px` vom Beginn des scrollport-begrenzten `exit`-Bereichs entfernt ist.
+Da die Position des Offsets immer relativ zur Startkante des benannten oder Standard-Animationsbereichs ist, wirkt sich in unserem Beispiel das Klammern auf das `animation-range-end` des großen Subjekts aus. Wir setzen das Ende des Bereichs auf `exit 75px`, was `75px` von der Startkante des `exit` Bereichs entfernt ist. Wenn das Subjekt die gleiche Größe wie der Scrollport (unser `250px` Subjekt) oder größer (unser `500px` Subjekt) hat, ist das Animationsbereichsende `75px` von der Endkante des Scrollports, also `75px` von der Startkante des auf den Scrollport geklammerten `exit` Bereichs.
 
 ```css hidden live-sample___exit_length
 article {
@@ -257,9 +257,9 @@ article {
     background-image: linear-gradient(
       to top,
       transparent 49.5px,
-      #666 49.5px 50.5px,
+      #666666 49.5px 50.5px,
       transparent 50.5px 99.5px,
-      #666 99.5px 100.5px,
+      #666666 99.5px 100.5px,
       transparent 100.5px
     );
     background-origin: content-box;
@@ -307,9 +307,9 @@ article {
 
 ### Negative Längen
 
-Bis zu diesem Punkt lagen alle Offsets über null. Es ist wichtig zu beachten, dass negative Längen gültig sind. Ein negativer Offset auf dem `animation-range-start` macht den Bereich länger, während ein negativer Offset auf dem `animation-range-end` den Bereich kürzer macht.
+Bis zu diesem Punkt waren alle Offsets größer als Null. Es ist wichtig zu beachten, dass negative Längen gültig sind. Ein negativer Offset am `animation-range-start` verlängert den Bereich, während ein negativer Offset am `animation-range-end` den Bereich verkürzt.
 
-Vergleichen wir die negativen Einsätze mit den `0` Werten:
+Vergleichen wir die negativen Insets mit den `0` Werten:
 
 ```css live-sample___exit_length_negative
 #A {
@@ -324,7 +324,7 @@ Vergleichen wir die negativen Einsätze mit den `0` Werten:
 
 {{EmbedLiveSample("exit_length_negative", "100%", "380")}}
 
-Der erste Animationsbereich ist um `25px` zur Endkante des Containers hin versetzt.
+Der erste Animationsbereich ist um `25px` in Richtung der Endkante des Containers versetzt.
 
 ```css hidden live-sample___exit_length_negative
 fieldset.double {
@@ -338,11 +338,11 @@ fieldset.double {
 }
 ```
 
-## Einsätze mit Prozentangaben setzen
+## Einsetzen mit Prozentsätzen
 
-Wie Längenwerte definieren Prozentsatzwerte Offsets vom _Start_ des Animationsanhangbereichs. Die Prozentsatz-Offsets beziehen sich auf die Dimension des Zeitlinienbereichs, nicht auf den Scrollport. Aus diesem Grund sind Prozentsatzwerte für die meisten Menschen nicht so intuitiv wie Längenwerte (zumal Längenwerte auch nicht so intuitiv waren).
+Wie Längenwerte definieren auch Prozentwerte Offsets vom _Anfang_ des Animationsanhängebereichs. Die Prozentsatz-Offsets beziehen sich auf die Dimension des Zeitachsenbereichs, nicht relativ zum Scrollport. Aus diesem Grund sind Prozentwerte für die meisten Menschen nicht so intuitiv wie Längenwerte (und wir erkennen, dass Längenwerte auch nicht intuitiv waren).
 
-Hier verwenden wir `animation-range-start` und `animation-range-end`, um die Animationstimeline einzusetzen. Während wir dieselben Eigenschaften verwenden, setzen wir `<percentage>`-Werte anstelle von `<length>`-Werten:
+Hier verwenden wir `animation-range-start` und `animation-range-end`, um die Animationszeitachse einzusetzen. Während wir die gleichen Eigenschaften verwenden, setzen wir `<percentage>` Werte anstelle von `<length>` Werten:
 
 ```css live-sample___inset_percent
 .animated_element {
@@ -356,9 +356,9 @@ i {
   background-image: linear-gradient(
     to bottom,
     transparent calc(20% - 1px),
-    #3333 calc(20% - 1px) calc(20% + 1px),
+    #33333333 calc(20% - 1px) calc(20% + 1px),
     transparent calc(20% + 1px) calc(60% - 1px),
-    #3333 calc(60% - 1px) calc(60% + 1px),
+    #33333333 calc(60% - 1px) calc(60% + 1px),
     transparent calc(60% + 1px)
   );
 }
@@ -380,11 +380,11 @@ article {
     linear-gradient(
       to top,
       transparent 0 calc(var(--containerHeight) * 0.2 - 0.5px),
-      #3333 calc(var(--containerHeight) * 0.2 - 0.5px)
+      #33333333 calc(var(--containerHeight) * 0.2 - 0.5px)
         calc(var(--containerHeight) * 0.2 + 0.5px),
       transparent calc(var(--containerHeight) * 0.2 + 0.5px)
         calc(var(--containerHeight) * 0.6 - 0.5px),
-      #3333 calc(var(--containerHeight) * 0.6 - 0.5px)
+      #33333333 calc(var(--containerHeight) * 0.6 - 0.5px)
         calc(var(--containerHeight) * 0.6 + 0.5px),
       transparent 0 calc(var(--containerHeight) * 0.6 + 0.5px)
     );
@@ -392,20 +392,20 @@ article {
 }
 ```
 
-Dies definiert das aktive Intervall, das `20%` in den Standardanhangbereich hinein beginnt und `60%` durch denselben Bereich endet. Der Standardanhangbereich `normal`, der sich als [`cover`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#cover) verhält, ist die Höhe des Scroll-Containers plus die Höhe des Subjektelements, was bedeutet, dass der Bereich je nach ausgewähltem Radioknopf unterschiedlich ist.
+Dies definiert das aktive Intervall, das `20%` in den Standardanhängebereich beginnt und nach `60%` durch denselben Bereich endet. Der Standard-`normal` Animationsanhängebereich, der sich wie [`cover`](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names#cover) verhält, ist die Höhe des Scrollcontainers plus die Höhe des Subjektelements, was bedeutet, dass sich der Bereich je nach ausgewähltem Radio-Button unterscheidet.
 
 {{EmbedLiveSample("inset_percent", "100%", "400")}}
 
-Zu Illustrationszwecken gibt es zwei dunkle Linien, die den Container an den `20%`- und `60%`-Punkten des gesamten Animationsbereichs kreuzen. Die Animation beginnt, wenn die Block-Startkante den `20%`-Punkt erreicht, der die untere grüne Linie ist. Die Animation endet, wenn die Startblockkante 60% des Wegs durch den normalen Bereich ist, die obere rote Linie.
+Zu Illustrationszwecken gibt es zwei dunkle Linien, die den Container an den `20%` und `60%` Punkten des vollen Animationsbereichs schneiden. Die Animation beginnt, wenn die Blockstartkante den `20%` Punkt erreicht, was die untere grüne Linie ist. Die Animation endet, wenn die Blockstartkante `60%` des Weges durch den normalen Bereich ist, was die obere rote Linie ist.
 
-Nur wenn das Element `50px` hoch ist, ist die Oberkante des Subjekts noch im Scrollport, wenn das Ende der Animation erreicht ist; es gibt keine oberen roten Linien, wenn `250px` oder `500px` ausgewählt sind, da das Ende des Animationsbereichs außerhalb des Scrollports ist.
+Nur wenn das Element `50px` hoch ist, befindet sich die Oberseite des Subjekts bei Erreichen des Endes der Animation noch im Scrollport; es gibt keine oberen roten Linien, wenn `250px` oder `500px` ausgewählt sind, da das Ende des Animationsbereichs außerhalb des Scrollports liegt.
 
-Basierend auf der Höhe unserer Subjekte ist das `20%`-Zeichen entweder `60px`, `100px` oder `150px` von der Endkante des Scrollports entfernt (markiert durch die grüne Linie, die immer im Scrollport ist), und das `60%`-Zeichen ist `180px`, `300px` oder `450px` vom selben Punkt entfernt (markiert mit einer roten Linie, aber nur für das `50px`-Subjekt sichtbar).
+Aufgrund der Höhe unserer Subjekte ist die `20%` Marke entweder `60px`, `100px` oder `150px` von der Endkante des Scrollports entfernt (gekennzeichnet durch die grüne Linie, die immer im Scrollport ist), und die `60%` Marke ist `180px`, `300px` oder `450px` von diesem gleichen Punkt entfernt (gekennzeichnet mit einer roten Linie, aber nur sichtbar für das `50px` Subjekt).
 
-Zu Illustrationszwecken gibt es zwei hellgraue Linien, die den Container `20%` und `60%` durch den Scrollport kreuzen, die `50px` und `150px` vom unteren Ende des Scrollports entfernt sind. Da sich die `animation-range-*` Prozentwerte auf den Zeitlinienbereich beziehen, nicht auf den Scrollport, zeigen diese Linien nur, wie die Prozentsätze **nicht** übereinstimmen. Wir haben auch zwei horizontale hellgraue Linien über jedes Subjekt in ihren eigenen `20%`- und `60%`-Marken hinzugefügt. Diese Linien stimmen mit den hellgrauen Linien des Scrollports überein, wenn die Animationen der einzelnen Subjekte beginnen und enden.
+Zu Illustrationszwecken gibt es zwei hellgraue Linien, die den Container `20%` und `60%` des Weges durch den Scrollport durchqueren, die jeweils `50px` und `150px` vom unteren Rand des Scrollports entfernt sind. Da die `animation-range-*` Prozentsätze relativ zum Zeitachsenbereich sind, nicht zum Scrollport, zeigen diese Linien nur, wie die Prozentsätze **nicht** ausgerichtet sind. Wir haben auch zwei horizontale hellgraue Linien, die über jedes Subjekt an ihren eigenen `20%` und `60%` Marken verlaufen. Diese Linien stimmen mit den hellgrauen Scrollport-Linien überein, wenn die Animation der einzelnen Subjekte beginnt und endet.
 
-Das folgende Bild zeigt, wo sich die Subjektelemente befinden, wenn die Animation beginnt (das `0%`-Keyframe) und endet (das `100%`-Keyframe).
-Dieses Bild enthält die Einsätze aus der vorherigen Demonstration der Zeitleiste und die Zeitleiste ohne Einsätze zum Vergleich.
+Das folgende Bild zeigt, wo sich die Subjektelemente befinden, wenn die Animation beginnt (das `0%` Schlüsselbild) und endet (das `100%` Schlüsselbild).
+Dieses Bild enthält die Einsätze der Animationszeitachse aus der vorherigen Demonstration und die Zeitachse ohne Einsätze zum Vergleich.
 
 ```html hidden live-sample___svg_insets2
 <div>
@@ -444,19 +444,19 @@ Dieses Bild enthält die Einsätze aus der vorherigen Demonstration der Zeitleis
 
 {{EmbedLiveSample("svg_insets2", "100%", "710")}}
 
-Wie zuvor repräsentiert das Gelbe die Position des Elements, wenn das `from`-Keyframe angewendet wird, das Rote repräsentiert die Position, wenn das `to`-Keyframe angewendet wird, und das Graue repräsentiert den Scrollport. Die gestreiften Bereiche sind, wo sich die roten und gelben Elementdarstellungen überlappen. Zu Illustrationszwecken haben wir gestrichelte schwarze horizontale Linien `20%` und `60%` durch den Scrollport, beginnend von unten, hinzugefügt.
+Wie zuvor repräsentiert das Gelbe die Position des Elements, wenn das `from` Schlüsselbild angewendet wird, das Rote repräsentiert die Position, wenn das `to` Schlüsselbild angewendet wird, und das Graue repräsentiert den Scrollport. Die gestreiften Bereiche sind dort, wo sich die roten und gelben Elementdarstellungen überlappen. Zu Illustrationszwecken haben wir schwarze gestrichelte horizontale Linien `20%` und `60%` des Weges durch den Scrollport, beginnend vom Boden, hinzugefügt.
 
-Die Animation beginnt nur, wenn das Element die `20%`-Marke entlang des Animationsanhangbereichs erreicht. Dieser Punkt ist `60px`, `100px` oder `150px` von der unteren Kante des Scrollports entfernt, abhängig von der Größe des Elements. Die Position des Subjektelements an diesem Punkt, die die Position des Elements darstellt, wenn das `from` oder `0%`-Keyframe angewendet wird, wird in Gelb dargestellt.
+Die Animation beginnt nur, wenn das Element den `20%` Markierungspunkt entlang des Animationsanhängebereichs erreicht. Dieser Punkt befindet sich `60px`, `100px` oder `150px` von der Endkante des Scrollports entfernt, abhängig von der Größe des Elements. Die Position des Subjektelements zu diesem Zeitpunkt, die die Position des Elements repräsentiert, wenn das `from` oder `0%` Schlüsselbild angewendet wird, wird in Gelb angezeigt.
 
-Das Rote repräsentiert die Position des animierten Elements relativ zum Scrollport, wenn das `to` oder `100%`-Keyframe angewendet wird, welches das Ende der Animation markiert. Dieser Punkt ist entweder `180px`, `300px` oder `450px` von der unteren Kante des Scrollports entfernt, abhängig von der Subjektgröße. Die Animation erfolgt, wenn das Element zwischen den `to`- und `from`-Positionen liegt.
+Das Rote repräsentiert die Position des animierten Elements relativ zum Scrollport, wenn das `to` oder `100%` Schlüsselbild angewendet wird, was das Ende der Animation ist. Dieser Punkt ist entweder `180px`, `300px` oder `450px` von der Endkante des Scrollports entfernt, abhängig von der Subjektgröße. Die Animation erfolgt, wenn das Element sich zwischen den `to` und den `from` Positionen befindet.
 
-Vielleicht haben Sie etwas Interessantes an den gestrichelten horizontalen Linien bemerkt: Wenn die Animation beginnt, ist die Linie, die `20%` von der Endkante des Viewports entfernt ist, `20%` vom _oben_ des Subjektelements entfernt und die Linie, die `60%` von der Endkante des Viewports entfernt ist, ist `60%` vom _oben_ des Subjektelements entfernt, wenn die Animation endet. Dies wurde durch die sehr hellgrauen Linien in der Live-Demo für dieses Beispiel veranschaulicht.
+Sie haben vielleicht etwas Interessantes an den gestrichelten horizontalen Linien bemerkt: Wenn die Animation beginnt, ist die Linie, die `20%` von der Endkante des Viewports entfernt ist, `20%` von der _Oberseite_ des Subjektelements entfernt und die Linie, die `60%` von der Endkante des Viewports entfernt ist, `60%` von der _Oberseite_ des Subjektelements entfernt, wenn die Animation endet. Dies wurde durch die sehr hellgrauen Linien in der Live-Demonstration für dieses Beispiel illustriert.
 
-### Subjektgröße ist entscheidend
+### Die Größe des Subjekts zählt
 
-Wie wir gesehen haben, als wir [Einsätze mit Längen gesetzt haben](#einsätze_mit_längen_setzen), kann die Größe des Subjekts einen Unterschied machen. Beim Festlegen von Animationsbereichen beziehen sich Prozentwerte auf die Größe des Animationsanhangbereichs, nicht auf den Scrollport. Für die meisten benannten Bereiche hängt die Größe des Anhangbereichs teilweise von der Subjektgröße ab. Da Prozentsätze auf der Größe des Bereichs basieren, wirkt sich der benannte Bereich auf die aufgelöste Größe der Einsätze aus. Je nach Name kann sich die Startposition ebenfalls ändern, was sich auf die Position des Bereichs und damit auf die Positionen der Fortschrittspunkte auswirkt.
+Wie wir gesehen haben, als wir [Einsätze mit Längen setzten](#einsetzen_mit_längen), kann die Größe des Subjekts einen Unterschied machen. Beim Festlegen von Animationsbereichen sind Prozentsatzwerte relativ zur Größe des Animationsanhängebereichs, nicht zum Scrollport. Für die meisten benannten Bereiche hängt die Größe des Anhängebereichs teilweise von der Subjektgröße ab. Da Prozentsätze auf der Größe des Bereichs basieren, beeinflusst der benannte Bereich die aufgelöste Größe der Einsätze. Abhängig vom Namen kann sich auch die Startposition ändern, was sich auf den Standort des Bereichs und damit auf den Standort der Fortschrittspunkte auswirkt.
 
-In diesem Beispiel definieren wir einen aktiven Bereich, der `40%` der Größe des Subjekts entspricht:
+In diesem Beispiel definieren wir einen aktiven Bereich, der `40%` der Größe des Subjekts ausmacht:
 
 ```css live-sample___exit_percent
 .animated_element {
@@ -476,17 +476,17 @@ body .animated_element {
 
 {{EmbedLiveSample("exit_percent", "100%", "400")}}
 
-Die Animation dauert `40%` des Animationsanhangbereichs. Wenn Sie scrollen, beachten Sie, wie größer das Subjekt, desto länger die Reichweite. Mit exit-crossing wird der Animationsbereich nicht beschnitten; er entspricht der Größe des Subjekts, auch wenn das Subjekt größer als der Viewport ist, wobei der Bereich an die Startkante des Scrollports anschließt und sich über die Endkante hinaus erstreckt, wenn das Subjekt größer als der Scrollport ist.
+Die Animation dauert `40%` des Animations-Anhängebereichs. Beim Scrollen bemerken Sie, dass je größer das Subjekt, desto länger der Bereich. Bei `exit-crossing` wird der Animationsbereich nicht beschnitten; er entspricht der Größe des Subjekts, auch wenn das Subjekt größer als der Viewport ist, wobei der Bereich an die Startkante des Scrollports grenzt und über die Endkante hinausgeht, wenn das Subjekt größer als der Scrollport ist.
 
-Mit den `-20%` und `20%`-Einsätzen wird die Animation des `50px`-Subjekts `20px` überdecken: Die Animation beginnt, wenn das Ende des Subjekts `-10px` von Bereichbeginn ist, oder `60px` vom Bildschirmende entfernt, und endet, wenn das Ende des Subjekts `40px` vom Bildschirmende entfernt ist. Das mittlere Subjekt wird über `100px` animieren: Die Animation beginnt, wenn das Ende des Subjekts `-50px` vom Bereichsbeginn ist, was `50px` vom Endrand des Scrollports entfernt ist, und endet, wenn das Ende des Subjekts `50px` in den Scrollport eingedrungen ist. Das große Subjekt animiert über `200px`, beginnt, wenn das Ende `600px` vom Containerstart entfernt ist, wobei nur `150px` im Blickfeld sind, und endet, wenn das Ende 400px vom Containerstart entfernt ist, wenn `100px` über den Start hinaus gescrollt sind.
+Mit den `-20%` und `20%` Einsätzen wird die Animation des `50px` Subjekts über `20px` hinweg erfolgen: die Animation beginnt, wenn das Ende des Subjekts `-10px` vom Bereichsstart entfernt ist, oder `60px` vom Verlassen des Bildschirms, und endet, wenn das Ende des Subjekts `40px` vom Verlassen des Bildschirms entfernt ist. Das mittlere Subjekt wird über `100px` hinweg animieren: die Animation beginnt, wenn das Ende des Subjekts `-50px` vom Bereichsstart entfernt ist, was `50px` vom Ende des Scrollports ist, und endet, wenn das Ende des Subjekts `50px` in den Scrollport hineinragt. Das große Subjekt animiert über `200px`, beginnend wenn das Ende `600px` von der Startkante des Containers entfernt ist, mit nur `150px` im Blick, und endet, wenn das Ende 400px von dieser Startkante entfernt ist, wenn `100px` aus der Startkante gescrollt wurden.
 
-### Prozentsätze, die dem Scrollport entsprechen
+### Prozentsätze gleich dem Scrollport
 
-Wenn es um das Versetzen mit Prozentsätzen geht, ist der am wenigsten komplizierte benannte Zeitlinienbereich `contain`. Bei `contain` entspricht der Animationsbereich der Größe des Scrollports, was bedeutet, dass die Start- und Endprozentsätze relativ zum Scrollport sind. Aus diesem Grund könnten Sie bei der Verwendung von Offsets `contain` anstelle der Standard-Einstellung, die sich zu `cover` auflöst, nutzen wollen.
+Wenn es um das Versetzen mit Prozentsätzen geht, ist der am wenigsten komplizierte benannte Zeitachsenbereich `contain`. Mit `contain` ist der Animationsbereich die Größe des Scrollports, was bedeutet, dass die Start- und Endprozentsätze relativ zum Scrollport sind. Aus diesem Grund, wenn Sie Offsets verwenden, möchten Sie möglicherweise `contain` verwenden, anstatt den Bereich standardmäßig aufzulösen und ihn auf `cover` zu setzen.
 
-Der `contain`-Bereich umfasst die Animation vollständig innerhalb des Scrollports. Er stellt den Bereich dar, in dem die Hauptbox entweder vollständig imsichtbaren Bereich des Scrollports enthalten ist oder ihn vollständig überdeckt. Bei `contain`, wenn das Subjekt dieselbe Größe oder kleiner als der Scrollport hat, kann es vollständig sichtbar sein. Wenn das Element dieselbe Größe wie der Container hat, wird die Animation jedoch über `0px` laufen. Das bedeutet, dass sie ausgeführt wird, aber für den Benutzer nicht sichtbar ist.
+Der `contain` Bereich enthält die Animation vollständig innerhalb des Scrollports. Er repräsentiert den Bereich, während dem die Hauptbox entweder vollständig vom oder vollständig den Sichtbarkeitsbereich ihres Fortschrittsbereichs im Scrollport abdeckt. Mit `contain`, wenn das Subjekt die gleiche Größe oder kleiner als der Scrollport ist, kann es vollständig sichtbar sein. Wenn das Element die gleiche Größe wie der Container hat, erfolgt die Animation über `0px`. Das bedeutet, dass sie abläuft, aber sie ist für den Benutzer nicht sichtbar.
 
-Anders ausgedrückt, ohne die Größe des Containers oder der Subjekte kennen zu müssen, sind wir in der Lage, unsere Animation auf die Mitte des Scrollports zu beschränken, obwohl die Animation über `0px` erfolgt, wenn das Subjekt dieselbe Größe wie der Scrollport hat.
+Mit anderen Worten, ohne die Größe des Containers oder der Subjekte zu kennen, können wir unsere Animation auf die Mitte des Scrollports beschränken, obwohl die Animation über `0px` ablaufen wird, wenn das Subjekt die gleiche Größe wie der Scrollport hat.
 
 ```css live-sample___center
 .animated_element {
@@ -764,8 +764,8 @@ line {
 ## Siehe auch
 
 - {{cssxref("timeline-range-name")}} Datentyp
-- [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors)
-- [Scroll-gesteuerte Animationstimen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [Scroll-gesteuerte Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Schlüsselbildselektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors)
+- [Scrollgetriebene Animationszeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [Scrollgetriebene Animation](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
-- [Web Animations API](/de/docs/Web/API/Web_Animations_API)
+- [Web-Animationen API](/de/docs/Web/API/Web_Animations_API)

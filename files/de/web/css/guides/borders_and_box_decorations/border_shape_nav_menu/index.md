@@ -3,16 +3,16 @@ title: Erstellen eines unregelmäßigen Navigationsmenüs mit border-shape
 short-title: "`border-shape` Navigationsmenü"
 slug: Web/CSS/Guides/Borders_and_box_decorations/Border_shape_nav_menu
 l10n:
-  sourceCommit: cd0970bc03cf30a9a8089954cc542a17dbe9eba3
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Die CSS-Eigenschaft {{cssxref("border-shape")}} kann auf Elemente angewendet werden, um präzise geformte Container wie Sprechblasen, abstrakte Tooltip-Designs und mehr zu erstellen, wodurch viele neue kreative Ideen umgesetzt werden können, ohne dass Workarounds oder Tricks erforderlich sind. Sie können alles über die Eigenschaft lernen und grundlegende Beispiele in Aktion auf der Eigenschaftsreferenzseite sehen.
+Die CSS-Eigenschaft {{cssxref("border-shape")}} kann auf Elemente angewendet werden, um präzise geformte Container wie Sprechblasen, abstrakte Tooltip-Designs und mehr zu erstellen. Dies ermöglicht viele neue kreative Ideen in die Produktion zu bringen, ohne dass Workarounds oder Hacks erforderlich sind. Auf der Eigenschaftsreferenzseite können Sie alles über die Eigenschaft erfahren und grundlegende Beispiele in Aktion sehen.
 
-In diesem Leitfaden zeigen wir Ihnen, wie Sie `border-shape` verwenden, um ein unregelmäßiges animiertes Navigationsmenü zu erstellen, bei dem jedes Navigationselement wie ein Puzzlestück geformt ist.
+In diesem Leitfaden zeigen wir Ihnen, wie Sie `border-shape` verwenden, um ein unregelmäßiges animiertes Navigationsmenü zu erstellen, bei dem jedes Navigationselement wie ein Puzzleteil geformt ist.
 
-## Definition des Navigationsmenü-Markups
+## Definieren des Navigationsmenü-Markups
 
-Unser HTML ist für ein Navigationsmenü ziemlich typisch — eine Liste von Links.
+Unser HTML ist typisch für ein Navigationsmenü — eine Liste von Links.
 
 ```html live-sample___jigsaw-example
 <ul>
@@ -23,9 +23,9 @@ Unser HTML ist für ein Navigationsmenü ziemlich typisch — eine Liste von Lin
 </ul>
 ```
 
-## Festlegung der grundlegenden Seitenstile
+## Festlegen der grundlegenden Seitendesigns
 
-Die grundlegenden Seiten-Einrichtungsstile sind wie folgt. Wir wenden einige grundlegende Schriftstile an, verwenden {{cssxref("height")}}, um den {{htmlelement("body")}} den Ansichtsbereich ausfüllen zu lassen, und verwenden [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um das Navigationsmenü in der Mitte des Bildschirms zu platzieren.
+Die grundlegenden Seitenlayout-Designs sind wie folgt. Wir wenden einige grundlegende Schriftartenstile an, verwenden {{cssxref("height")}}, um den {{htmlelement("body")}} den Ansichtsbereich ausfüllen zu lassen, und verwenden [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um das Navigationsmenü in der Mitte des Bildschirms zu platzieren.
 
 ```css live-sample___jigsaw-example
 * {
@@ -34,7 +34,7 @@ Die grundlegenden Seiten-Einrichtungsstile sind wie folgt. Wir wenden einige gru
 
 html {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial";
   font-size: 1.2rem;
 }
 
@@ -47,9 +47,9 @@ body {
 }
 ```
 
-## Anwendung der allgemeinen Navigationsstile
+## Anwenden der allgemeinen Navigationsstile
 
-Zuerst stylen wir das {{htmlelement("ul")}}, indem wir den Standardwert {{cssxref("list-style-type")}} und {{cssxref("padding")}} entfernen und einen {{cssxref("display")}}-Wert von `flex` setzen, um die enthaltenen {{htmlelement("li")}}-Elemente in einer Reihe anzuordnen. Dann setzen wir einen {{cssxref("gap")}}-Wert von `0` und wenden eine {{cssxref("transition")}} an, sodass sich ein Wertwechsel des `gap`-Wertes beim Ändern des `<ul>`-Zustands sanft animiert.
+Zuerst stylen wir das {{htmlelement("ul")}}, indem wir den Standard-{{cssxref("list-style-type")}} und das {{cssxref("padding")}} entfernen und einen {{cssxref("display")}}-Wert von `flex` setzen, um die enthaltenen {{htmlelement("li")}}-Elemente in einer Reihe anzuordnen. Wir setzen dann einen {{cssxref("gap")}}-Wert von `0` und wenden eine {{cssxref("transition")}} an, sodass bei einer Zustandsänderung des `<ul>` ein Wertänderung des `gap`-Werts sanft animiert.
 
 ```css live-sample___jigsaw-example
 ul {
@@ -61,7 +61,7 @@ ul {
 }
 ```
 
-Als nächstes stylen wir die `<li>`-Elemente. Wir möchten jedes Navigationselement quadratisch machen, also setzen wir eine gleiche {{cssxref("width")}} und {{cssxref("height")}}.
+Als nächstes stylen wir die `<li>`-Elemente. Wir möchten, dass jedes Navigationselement quadratisch ist, daher setzen wir eine gleiche {{cssxref("width")}} und {{cssxref("height")}}.
 
 ```css live-sample___jigsaw-example
 li {
@@ -70,9 +70,9 @@ li {
 }
 ```
 
-Als nächstes stylen wir die {{htmlelement("a")}}-Elemente innerhalb der Listeneinträge. Wir beginnen damit, die Standardwerte von {{cssxref("text-decoration")}} zu entfernen und die {{cssxref("color")}} auf `black` zu setzen. Dann setzen wir eine `width` und `height` von `100%`, um die `<a>`-Elemente den gesamten Bereich der `<li>`-Elemente ausfüllen zu lassen, und verwenden [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um ihren Text horizontal und vertikal zu zentrieren.
+Anschließend stylen wir die {{htmlelement("a")}}-Elemente innerhalb der Listenelemente. Wir beginnen damit, die Standard-{{cssxref("text-decoration")}} zu entfernen und die {{cssxref("color")}} auf `black` zu setzen. Dann setzen wir eine `width` und `height` von `100%`, um die `<a>`-Elemente den gesamten Bereich der `<li>`-Elemente ausfüllen zu lassen, und verwenden [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um ihren Text horizontal und vertikal zu zentrieren.
 
-Dann setzen wir {{cssxref("box-shadow")}} und {{cssxref("text-shadow")}}-Eigenschaften auf den Links und eine `transition`, damit alle Eigenschaftswertänderungen sanft animiert werden, wenn sich der Zustand des Elements ändert.
+Wir setzen dann {{cssxref("box-shadow")}} und {{cssxref("text-shadow")}}-Eigenschaften auf die Links, plus eine `transition`, sodass alle Eigenschaftswertänderungen sanft animiert werden, wenn sich der Zustand des Elements ändert.
 
 ```css live-sample___jigsaw-example
 a {
@@ -92,7 +92,7 @@ a {
 }
 ```
 
-Dann geben wir jedem Puzzlestück eine andere Farbe:
+Dann geben wir jedem Puzzleteil eine andere Farbe:
 
 ```css live-sample___jigsaw-example
 li:nth-child(1) a {
@@ -112,9 +112,9 @@ li:nth-child(4) a {
 }
 ```
 
-## Umgang mit der Randform
+## Handhabung der Randform
 
-Jetzt ist es an der Zeit, das `border-shape` für jedes Navigationselement zu setzen, um das gewünschte Puzzlestück-Aussehen zu erreichen. Zur Abwechslung haben wir jedes ungeradzahlige `<a>`-Element wie ein nach unten zeigendes Puzzlestück und jedes gerade `<a>`-Element wie ein nach oben zeigendes Puzzlestück geformt:
+Jetzt ist es an der Zeit, die `border-shape` für jedes Navigationselement festzulegen, um den Puzzleteillook zu erhalten, den wir anstreben. Zur Abwechslung haben wir jedes ungerade `<a>`-Element wie ein nach unten zeigendes Puzzleteil und jedes gerade `<a>`-Element wie ein nach oben zeigendes Puzzleteil geformt:
 
 ```css live-sample___jigsaw-example
 li:nth-child(even) a {
@@ -156,11 +156,11 @@ li:nth-child(odd) a {
 }
 ```
 
-Dies erzeugt sofort ein Problem — die Aussparungen der Puzzlestücke, die über den ursprünglichen `<a>`-Bereich hinausgehen, werden nicht von den Hintergrundfarben der `<a>`-Elemente ausgefüllt.
+Dies erzeugt sofort ein Problem — die Kerben an den Puzzleteilen, die außerhalb des ursprünglichen `<a>`-Bereichs liegen, sind nicht durch die Hintergrundfarben der `<a>`-Elemente gefüllt.
 
-Es gibt eine Lösung für dieses Problem. Wir haben absichtlich die `content-box` `<geometry-box>`-Wert nach jeder `shape()`-Funktion in den vorherigen beiden Regeln eingeschlossen. Dies bedeutet, dass die Formen relativ zu den Inhaltsboxen der Elemente gezeichnet werden und alle angewendeten `padding`-Werte nicht innerhalb der Form gesetzt werden. Stattdessen wird das Padding außerhalb der Form platziert, wodurch es kleiner wird und die Hintergrundfarbe die Aussparungen ausfüllt.
+Es gibt eine Lösung für dieses Problem. Wir haben absichtlich den `content-box` `<geometry-box>`-Wert nach jeder `shape()`-Funktion in den vorherigen zwei Regeln eingefügt. Das bedeutet, dass die Formen relativ zu den Content-Boxen der Elemente gezeichnet werden und jegliches angewandte `padding` nicht innerhalb der Form gesetzt wird. Stattdessen wird das Padding außerhalb der Form platziert, wodurch diese kleiner wird und die Hintergrundfarbe die Kerben auffüllt.
 
-Das erforderliche `padding` wird wie folgt gesetzt:
+Das erforderliche `padding` wird folgendermaßen gesetzt:
 
 ```css live-sample___jigsaw-example
 a {
@@ -169,9 +169,9 @@ a {
 ```
 
 > [!NOTE]
-> Sie können sehen, wie das Hintergrundproblem aussieht, indem Sie das [Live-Beispiel](#ergebnis) in den Entwicklertools Ihres Browsers inspizieren und das auf die `<a>`-Elemente angewendete `padding` deaktivieren.
+> Sie können das Hintergrundproblem sehen, indem Sie das [Live-Beispiel](#ergebnis) in den Entwicklerwerkzeugen Ihres Browsers inspizieren und das auf die `<a>`-Elemente angewendete `padding` deaktivieren.
 
-Das `padding` bewirkt, dass die Puzzlestücke kleiner werden, sodass Lücken zwischen ihnen entstehen. Wir möchten, dass sie sich zunächst berühren, daher setzen wir einen großen negativen {{cssxref("margin-right")}}-Wert auf jedes Listenelement, um sie zusammenzubringen:
+Das `padding` führt dazu, dass die Puzzleteile kleiner werden, sodass Lücken zwischen ihnen entstehen. Wir möchten, dass sie sich anfänglich berühren, daher setzen wir einen großen negativen {{cssxref("margin-right")}}-Wert auf jedes Listenelement, um sie zusammenzubringen:
 
 ```css live-sample___jigsaw-example
 li {
@@ -179,7 +179,7 @@ li {
 }
 ```
 
-Ein Nebeneffekt dieser `margin-right`-Einstellung ist, dass alle `<li>`-Elemente nach rechts verschoben werden, sodass das Navigationsmenü nicht mehr horizontal zentriert ist. Um dies zu beheben, verwenden wir [relative Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#relative_positioning), um das `<ul>` wieder nach links zu verschieben:
+Eine Nebenwirkung dieser `margin-right`-Einstellung ist, dass alle `<li>`-Elemente nach rechts verschoben werden, sodass das Navigationsmenü nicht mehr horizontal zentriert ist. Um dies zu beheben, verwenden wir die [relative Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#relative_positioning), um das `<ul>` wieder nach links zu verschieben:
 
 ```css live-sample___jigsaw-example
 ul {
@@ -188,7 +188,7 @@ ul {
 }
 ```
 
-Schließlich wenden wir einige Stilaktualisierungen bei `:hover` und `:focus` an, die zusammen mit den zuvor gesetzten `transition`-Eigenschaften einige animierte Effekte bei Interaktionen mit den Navigationselementen erzeugen. Wir erhöhen das `gap`, das beim `<ul>`-Flexbox-Layout gesetzt ist, wenn es fokussiert oder über es gehobert wird. Um den Fokuszustand zu handhaben, verwenden wir die {{cssxref(":has")}} Pseudoklasse, um das gesamte `<ul>` auszuwählen, wenn ein `<a>` darin fokussiert wird.
+Schließlich wenden wir einige Stilaktualisierungen an, die bei `:hover` und `:focus` in Kombination mit den zuvor gesetzten `transition`-Eigenschaften einige animierte Effekte bei der Interaktion mit den Navigationselementen erzeugen. Wir erhöhen das auf das `<ul>`-Flexbox-Layout gesetzte `gap`, wenn es überfahren oder fokussiert wird. Um den Fokussierzustand zu handhaben, verwenden wir die {{cssxref(":has")}}-Pseudo-Klasse, um das gesamte `<ul>` zu selektieren, wenn ein `<a>` darin fokussiert wird.
 
 ```css live-sample___jigsaw-example
 ul:hover,
@@ -197,7 +197,7 @@ ul:has(a:focus) {
 }
 ```
 
-Wir setzen dann einen erhöhten `brightness` {{cssxref("filter")}}, {{cssxref("scale")}}-Faktor und äußeren `box-shadow` auf die `<a>`-Elemente selbst, wenn sie gehobert oder fokussiert werden, wodurch sie heller und angehoben erscheinen, sobald sie interagiert werden.
+Wir setzen dann einen erhöhten `brightness` {{cssxref("filter")}}, einen {{cssxref("scale")}}-Faktor und einen äußeren `box-shadow` auf die `<a>`-Elemente selbst, wenn sie überfahren oder fokussiert werden, sodass sie bei Interaktion heller und angehoben erscheinen.
 
 ```css live-sample___jigsaw-example
 a:hover,
@@ -214,7 +214,7 @@ a:focus {
 
 {{EmbedLiveSample("jigsaw-example", "100%", "240")}}
 
-Hover oder fokussieren Sie die Navigationselemente, um die animierten Effekte zu sehen. Beachten Sie, wie natürlich die verschiedenen angewendeten Effekte mit den `border-shape`-Werten funktionieren.
+Fahren Sie mit der Maus über die Navigationselemente oder fokussieren Sie sie, um die animierten Effekte zu sehen. Beachten Sie, wie natürlich die verschiedenen angewendeten Effekte mit den `border-shape`-Werten zusammenarbeiten.
 
 ```css hidden live-sample___jigsaw-example
 @supports not (border-shape: circle(50%)) {
@@ -235,7 +235,7 @@ Hover oder fokussieren Sie die Navigationselemente, um die animierten Effekte zu
 ## Siehe auch
 
 - {{cssxref("border-shape")}}
-- [CSS-Ränder und Kastenverzierungen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
-- [border-shape: die Zukunft des nicht-rechteckigen Webs](https://una.im/border-shape) von Una Kravets (2026)
-- [Machen Sie sich bereit für die leistungsstarke CSS border-shape-Eigenschaft!](https://css-tricks.com/get-ready-for-the-powerful-css-border-shape-property/) auf CSS Tricks (2026)
+- Modul [CSS-Ränder und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations)
+- Modul [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [border-shape: the future of the non-rectangular web](https://una.im/border-shape) von Una Kravets (2026)
+- [Get Ready For the Powerful CSS border-shape Property!](https://css-tricks.com/get-ready-for-the-powerful-css-border-shape-property/) auf CSS Tricks (2026)

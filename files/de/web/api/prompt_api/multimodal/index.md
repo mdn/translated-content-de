@@ -1,17 +1,17 @@
 ---
-title: Multimodale Eingabebefehle
+title: Multimodale Eingabeaufforderungen
 slug: Web/API/Prompt_API/Multimodal
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{DefaultAPISidebar("Prompt API")}}
 
-Die [Prompt API](/de/docs/Web/API/Prompt_API) akzeptiert multimodale Eingaben, einschließlich Bild- und Audioinhalte. Dieser Artikel erläutert, wie Sie mit multimodalen Eingaben in Ihrer App umgehen können.
+Die [Prompt API](/de/docs/Web/API/Prompt_API) akzeptiert multimodale Eingaben, einschließlich Bild- und Audioinhalten. Dieser Artikel behandelt, wie Sie multimodale Eingaben in Ihrer App handhaben können.
 
-## Bestimmung der erwarteten Eingabetypen
+## Festlegen der erwarteten Eingabetypen
 
-Um anzugeben, dass Sie Bild- und/oder Audioeingaben in Ihrer Sitzung verwenden möchten, müssen Sie diese in die `expectedInputs`-Option der [`create()`](/de/docs/Web/API/LanguageModel/create_static)-Methode aufnehmen:
+Um anzugeben, dass Sie Bild- und/oder Audioeingaben in Ihrer Sitzung verwenden möchten, müssen Sie diese in die `expectedInputs`-Option der [`create()`](/de/docs/Web/API/LanguageModel/create_static)-Methode einfügen:
 
 ```js
 return await LanguageModel.create({
@@ -24,11 +24,11 @@ return await LanguageModel.create({
 });
 ```
 
-## Bereitstellung multimodaler Eingabedaten
+## Bereitstellung von multimodalen Eingabedaten
 
-Bei der Bereitstellung multimodaler Eingaben — zum Beispiel in einem Aufruf von [`prompt()`](/de/docs/Web/API/LanguageModel/prompt), [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) oder [`append()`](/de/docs/Web/API/LanguageModel/append), oder in der `initialPrompts`-Option von einem `create()`-Aufruf — müssen Sie den korrekten Datentyp in Ihren Eingabeobjekten angeben und auf die Datenquelle in Ihren `value`-Eigenschaften verweisen.
+Beim Bereitstellen von multimodalen Eingaben — zum Beispiel in einem Aufruf von [`prompt()`](/de/docs/Web/API/LanguageModel/prompt), [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) oder [`append()`](/de/docs/Web/API/LanguageModel/append), oder in der Option [`initialPrompts`](/de/docs/Web/API/LanguageModel/create_static#initialprompts) eines `create()` Aufrufs — müssen Sie den korrekten Datentyp in Ihren Eingabeobjekten angeben und die Datenquelle in Ihren `value` Eigenschaften angeben.
 
-Das folgende Beispiel übergibt drei `user`-Eingaben in einem `prompt()`-Aufruf, jeweils einen von jedem Typ — `text`, `image`, und `audio`.
+Das folgende Beispiel übergibt drei `user` Eingaben in einen `prompt()` Aufruf, je eine von jedem Typ — `text`, `image` und `audio`.
 
 ```js
 const response = await session.prompt([
@@ -45,7 +45,7 @@ const response = await session.prompt([
 
 ## Welche Datentypen werden akzeptiert?
 
-Die Prompt API akzeptiert verschiedene Formate für Audio- und Bilddaten:
+Die Prompt API akzeptiert mehrere unterschiedliche Formate für Audio- und Bilddaten:
 
 - Audio:
   - [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)
@@ -55,7 +55,7 @@ Die Prompt API akzeptiert verschiedene Formate für Audio- und Bilddaten:
 - Bild:
   - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
   - [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)
-  - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) (verwendet das Bild vom aktuellen `<video>`-Frame)
+  - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) (verwendet das Frame an der aktuellen `<video>` Position)
   - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
   - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
   - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
@@ -65,13 +65,13 @@ Die Prompt API akzeptiert verschiedene Formate für Audio- und Bilddaten:
 
 ## Komplettes Beispiel
 
-Schauen wir uns ein multimodales Beispiel an, welches ermöglicht, eine lokale Bilddatei auszuwählen und von der API beschreiben zu lassen.
+Lassen Sie uns ein multimodales Beispiel anschauen, bei dem Sie eine lokale Bilddatei auswählen und die API diese beschreiben lassen können.
 
-Die allgemeine Struktur der App ist sehr ähnlich wie in vorherigen Leitfäden. Wir werden nicht den gesamten Code ausführlich durchgehen; stattdessen erklären wir nur die relevantesten Teile. Um den vollständigen Code im Detail anzusehen, drücken Sie die "Play"-Schaltfläche in der [gerenderten Live-Ausgabe](#ergebnis), um den gesamten Code im MDN Playground zu öffnen.
+Die Gesamtstruktur der App ist sehr ähnlich zu Beispielen in vorherigen Leitfäden. Wir werden nicht den gesamten Code ausführlich durchgehen, sondern nur die relevantesten Teile erklären. Um den vollständigen Code genauer anzuschauen, drücken Sie die "Play" Taste im [angezeigten Live-Ausgabe](#ergebnis), um den kompletten Code im MDN Playground zu öffnen.
 
 ### HTML
 
-Die zu beschreibende Datei wird mit einem [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Element ausgewählt. Die Bildbeschreibung der API wird in ein {{htmlelement("p")}}-Element ausgegeben. Wir fügen auch ein {{htmlelement("img")}}-Element hinzu, um das ausgewählte Bild anzuzeigen.
+Die zu beschreibende Datei wird mit einem [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Element ausgewählt. Die Bildbeschreibung der API wird an ein {{htmlelement("p")}} Element ausgegeben. Wir fügen auch ein {{htmlelement("img")}} Element hinzu, um das ausgewählte Bild anzuzeigen.
 
 ```html live-sample___multimodal
 <h1>Prompt API demo</h1>
@@ -106,7 +106,7 @@ Die zu beschreibende Datei wird mit einem [`<input type="file">`](/de/docs/Web/H
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial";
 }
 
 body {
@@ -127,7 +127,7 @@ img {
   display: block;
   flex: 1;
   max-width: 300px;
-  border: 1px solid #999;
+  border: 1px solid #999999;
 }
 
 form div {
@@ -160,7 +160,7 @@ button {
 
 ### JavaScript
 
-Wir erstellen eine `session`-Variable, um unsere Sitzung zu halten. Da die Verwendung der API eine {{Glossary("Transient_activation", "transiente Aktivierung")}} erfordert, füllen wir `session` innerhalb eines `keydown`-Ereignishandlers im Demo-Fenster. Wenn der Benutzer den Fokus auf die Demo legt und eine Taste drückt, prüfen wir zuerst, ob die API unterstützt wird; wenn nicht, geben wir eine Nachricht über die Nicht-Unterstützung aus. Wenn die Unterstützung verfügbar ist, prüfen wir, ob `session` bereits einen Wert zugewiesen hat (wir möchten keine neue Sitzung jedes Mal erstellen). Wenn nicht, führen wir die `init()`-Funktion aus.
+Wir erstellen eine `session` Variable, um unsere Sitzung zu halten. Da die Verwendung der API {{Glossary("Transient_activation", "transiente Aktivierung")}} erfordert, füllen wir `session` in einem `keydown` Ereignis-Handler im Demofenster. Wenn der Benutzer den Fokus auf die Demo legt und eine Taste drückt, überprüfen wir zuerst, ob die API unterstützt wird; falls nicht, drucken wir eine Nachricht zur fehlenden Unterstützung. Falls Unterstützung verfügbar ist, überprüfen wir, ob `session` bereits einen Wert zugewiesen hat (wir wollen nicht jedes Mal eine neue Sitzung erstellen). Falls nicht, führen wir die `init()` Funktion aus.
 
 ```js hidden live-sample___multimodal
 const form = document.querySelector("form");
@@ -185,9 +185,9 @@ window.addEventListener("keydown", () => {
 });
 ```
 
-Die `init()`-Funktion generiert eine `LanguageModel`-Instanz mit Hilfe der benutzerdefinierten `getSession()`-Funktion.
+Die `init()` Funktion generiert eine `LanguageModel` Instanz mithilfe der benutzerdefinierten `getSession()` Funktion.
 
-Vorausgesetzt, die Generierung ist erfolgreich, weisen wir die resultierende `LanguageModel`-Instanz der `session`-Variable zu, geben eine Erfolgsmeldung an die Ausgabe-`<p>` aus, aktivieren das `<input>`, sodass Bilder ausgewählt werden können, und weisen Ereignis-Listener zu, um die Benutzeroberfläche zu aktualisieren, sobald ein neues Bild im Dateiauswahlfenster ausgewählt wird, und um die Übermittlung einer Anfrage zu verarbeiten.
+Bei erfolgreicher Generierung weisen wir die resultierende `LanguageModel` Instanz der `session` Variable zu, drucken eine Erfolgsnachricht an das Ausgabe-`<p>`, aktivieren das `<input>`, damit Bilder ausgewählt werden können, und weisen Ereignis-Listener zu, um die UI zu aktualisieren, wenn ein neues Bild im Datei-Picker ausgewählt wird, und um die Einreichung einer Abfrage zu behandeln.
 
 ```js live-sample___multimodal
 async function init() {
@@ -200,7 +200,7 @@ async function init() {
 }
 ```
 
-Die `getSession()`-Funktion funktioniert wie in anderen Beispielen ([`getSession()` wird hier erklärt](/de/docs/Web/API/Prompt_API/Using#complete_example:~:text=Now%20we%20define%20the%20getSession%28%29%20function)), außer dass wir `image` in unsere `expectedInputs`-Option sowie `text` aufnehmen:
+Die `getSession()` Funktion funktioniert wie in anderen Beispielen ([`getSession()` ist hier erklärt](/de/docs/Web/API/Prompt_API/Using#complete_example:~:text=Now%20we%20define%20the%20getSession%28%29%20function)), außer dass wir `image` in unserer `expectedInputs` Option sowie `text` einbeziehen:
 
 ```js
 return await LanguageModel.create({
@@ -209,12 +209,12 @@ return await LanguageModel.create({
 });
 ```
 
-Die `getImage()`-Funktion prüft zunächst, ob eine Datei im `<input type="file">`-Fenster ausgewählt ist. Wenn nicht, geben wir einen passenden Fehler an die Ausgabe-`<p>` aus und `return`. Am Ende des Funktionskörpers setzen wir das `src`-Attribut des `<img>`-Elements auf eine Objekt-URL, die aus der im Dateiauswahlfenster ausgewählten Datei erstellt wurde, damit das Bild in der Benutzeroberfläche angezeigt wird.
+Die `getImage()` Funktion überprüft zuerst, ob im `<input type="file">` Picker eine Datei ausgewählt ist. Falls nicht, drucken wir einen passenden Fehler an das Ausgabe-`<p>` und `return`. Am Ende des Funktionskörpers setzen wir das `src` Attribut des `<img>` Elements auf eine Objekt-URL, die aus der im Datei-Picker ausgewählten Datei erstellt wurde, damit das Bild in der UI angezeigt wird.
 
-Weiter oben fügen wir zwei Ereignis-Listener zum `<img>` hinzu:
+Oben fügen wir zwei Ereignis-Listener dem `<img>` hinzu:
 
-- Wenn ein `error`-Ereignis auf dem `<img>` ausgelöst wird, geben wir einen passenden Fehler an die Ausgabe-`<p>` aus und `return`.
-- Wenn ein `load`-Ereignis auf dem `<img>` ausgelöst wird, geben wir eine Erfolgsmeldung an die Ausgabe-`<p>` aus, um dem Benutzer mitzuteilen, dass die App bereit ist, das Bild abzufragen, und aktivieren dann das `submit`-`<button>`, damit die Abfrage übermittelt werden kann.
+- Wenn ein `error` Ereignis auf dem `<img>` ausgelöst wird, drucken wir einen passenden Fehler an das Ausgabe-`<p>` und `return`.
+- Wenn ein `load` Ereignis auf dem `<img>` ausgelöst wird, drucken wir eine Erfolgsnachricht an das Ausgabe-`<p>`, um dem Benutzer zu sagen, dass die App bereit ist, das Bild abzufragen, und aktivieren dann den Absende-`<button>`, damit die Abfrage eingereicht werden kann.
 
 ```js live-sample___multimodal
 function getImage() {
@@ -238,7 +238,7 @@ function getImage() {
 }
 ```
 
-Die `handleSubmission()`-Funktion verwendet denselben Ablauf wie die vorherigen Beispiele, um das Sprachmodell zu befragen und seine Ausgabe zu erhalten ([siehe Erklärung](/de/docs/Web/API/Prompt_API/Using#complete_example:~:text=Next%2C%20inside%20a%20try%20block%2C%20we)). Der Hauptunterschied liegt darin, dass wir in den `prompt()`-Eingaben zuerst die API bitten, das Bild zu beschreiben, und dann eine Referenz auf das `<img>`-Element selbst übergeben.
+Die `handleSubmission()` Funktion verwendet denselben Ablauf wie vorherige Beispiele, um das Sprachmodell zu befragen und seine Ausgabe abzurufen ([siehe Erklärung](/de/docs/Web/API/Prompt_API/Using#complete_example:~:text=Next%2C%20inside%20a%20try%20block%2C%20we)). Der Hauptunterschied besteht darin, dass wir bei den Eingaben des `prompt()` Aufrufs zuerst die API bitten, das Bild zu beschreiben, und dann geben wir ihr einen Verweis auf das `<img>` Element selbst.
 
 ```js live-sample___multimodal
 async function handleSubmission(e) {
@@ -315,9 +315,9 @@ async function getSession() {
 
 {{EmbedLiveSample("multimodal", , "630px", , , , "language-model", "allow-forms")}}
 
-Fokussieren Sie das eingebettete Demo-Fenster und drücken Sie eine Taste auf Ihrer Tastatur, um die App zu starten, und wählen Sie dann ein Bild über die Dateiauswahl aus. Wenn das Bild geladen ist, drücken Sie die "Submit query"-Schaltfläche. Nach einer kurzen Wartezeit sollte die Beschreibung des Bildes durch die API im Ausgabe-`<p>` erscheinen.
+Fokussieren Sie das eingebettete Demo-Fenster und drücken Sie eine Taste auf Ihrer Tastatur, um die App zu starten. Wählen Sie dann ein Bild mit dem Datei-Picker aus. Wenn das Bild geladen ist, drücken Sie die Schaltfläche "Abfrage absenden". Nach einer kurzen Wartezeit sollte die Beschreibung des Bildes durch die API im Ausgabe-`<p>` erscheinen.
 
 ## Siehe auch
 
 - [MediaRecorder + Audio Prompt API Demo](https://chrome.dev/web-ai-demos/mediarecorder-audio-prompt/) auf chrome.dev (2026)
-- [Prompt API mit Bild-Eingabedemo](https://chrome.dev/web-ai-demos/canvas-image-prompt/) auf chrome.dev (2026)
+- [Prompt API mit Bild-Eingabe Demo](https://chrome.dev/web-ai-demos/canvas-image-prompt/) auf chrome.dev (2026)

@@ -1,12 +1,12 @@
 ---
-title: "try_table: Wasm Ausnahmebehandlungsanweisung"
+title: "try_table: Wasm-Ausnahmebehandlungsanweisung"
 short-title: try_table
 slug: WebAssembly/Reference/Exception_handling/try_table
 l10n:
-  sourceCommit: b8f9d7c0ac5bb5fb6f658da557e510ef9f4f3394
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Die **`try_table`** [Ausnahmebehandlungs](/de/docs/WebAssembly/Reference/Exception_handling)-Anweisung ermöglicht es Ihnen, einen Codeblock zu testen, um festzustellen, ob eine Ausnahme ausgelöst wird, und diese mit einer `catch`-Klausel zu behandeln, falls dies der Fall ist.
+Die **`try_table`**-Anweisung zur [Ausnahmebehandlung](/de/docs/WebAssembly/Reference/Exception_handling) ermöglicht es Ihnen, einen Codeblock zu testen, um festzustellen, ob er eine Ausnahme auslöst, und die Ausnahme mit einer `catch`-Klausel zu behandeln, falls dies der Fall ist.
 
 {{InteractiveExample("Wat Demo: try_table", "tabbed-taller")}}
 
@@ -70,17 +70,17 @@ try_table blocktype catch* instruction*
 ```
 
 - `try_table`
-  - : Die `try_table` Anweisung.
+  - : Die `try_table`-Anweisung.
 - `blocktype` {{optional_inline}}
-  - : Gibt einen oder mehrere Parameter an, die in den `try_table`-Block übergeben werden und nach der Ausführung des Blocks als Ergebniswert bereitgestellt werden.
+  - : Gibt einen oder mehrere Parameter an, die in den `try_table`-Block übergeben werden und als Ergebniswert bereitgestellt werden, nachdem der Block ausgeführt wurde.
 - `catch*`
-  - : Eine oder mehrere `catch`-Klauseln, die jeweils Kriterien zum Auffangen von Ausnahmen darstellen und einen [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) angeben, zu dem bei Auftreten einer Ausnahme verzweigt wird. Jede Klausel kann eines der Folgenden sein:
+  - : Eine oder mehrere `catch`-Klauseln, die jeweils Kriterien zum Abfangen von Ausnahmen darstellen und einen [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) angeben, zu dem verzweigt wird. Jede Klausel kann eine der folgenden sein:
     - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch)
     - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all)
     - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)
     - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)
 - `instruction*`
-  - : Null oder mehr Anweisungen, die innerhalb des `try`-Blocks ausgeführt werden.
+  - : Null oder mehr Anweisungen, die innerhalb des try-Blocks ausgeführt werden sollen.
 
 ### Typ
 
@@ -89,17 +89,17 @@ try_table blocktype catch* instruction*
 ```
 
 - `param*`
-  - : Null oder mehr Parameterwerte, die vom `try_table`-Block konsumiert werden, wie im `blocktype` deklariert.
+  - : Null oder mehr Parameterwerte, die vom `try_table`-Block konsumiert werden, wie vom `blocktype` deklariert.
 - `result*`
-  - : Null oder mehr Ergebniswerte, die vom `try_table`-Block produziert werden, wie im `blocktype` deklariert.
+  - : Null oder mehr Ergebniswerte, die vom `try_table`-Block produziert werden, wie vom `blocktype` deklariert.
 
-### Binärkodierung
+### Binärcodierung
 
 | Anweisung   | Binärformat                                              |
 | ----------- | -------------------------------------------------------- |
 | `try_table` | `0x1f bt:blocktype n:u32 (ct:catch)^n instruction* 0x0b` |
 
-Ein grundlegendes `try_table` mit einer einzigen `catch`-Klausel:
+Ein grundlegendes `try_table` mit einer einzelnen `catch`-Klausel:
 
 ```wat
 (try_table (catch $my_error $handler)
@@ -107,7 +107,7 @@ Ein grundlegendes `try_table` mit einer einzigen `catch`-Klausel:
 )
 ```
 
-Würde wie folgt codiert werden:
+Würde so kodiert werden:
 
 ```plain
 0x1f 0x40 0x01 0x00 0x00 0x00 ...instructions binary... 0x0b
@@ -115,24 +115,24 @@ Würde wie folgt codiert werden:
 
 ## Beschreibung
 
-Eine `try_table`-Anweisung, kombiniert mit `catch`-Klauseln, bildet das Wasm-Äquivalent einer JavaScript [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Anweisung. Die Anweisungen innerhalb des `try_table`-Blocks werden ausgeführt, und wenn eine Ausnahme ausgelöst wird, die von den verfügbaren `catch`-Klauseln aufgefangen wird, verzweigt der Code zum angegebenen äußeren [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), und die von der `catch`-Klausel erzeugten Werte werden auf den Stapel geschoben.
+Eine `try_table`-Anweisung erzeugt in Kombination mit `catch`-Klauseln das Wasm-Äquivalent eines JavaScript-[`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Statements. Die Anweisungen innerhalb des `try_table`-Blocks werden ausgeführt, und wenn eine Ausnahme ausgelöst wird, die von den verfügbaren `catch`-Klauseln abgefangen wird, verzweigt der Code zum angegebenen äußeren [`block`](/de/docs/WebAssembly/Reference/Control_flow/block), und die von der `catch`-Klausel erzeugten Werte werden auf den Stapel gelegt.
 
 Die verschiedenen `catch`-Klauseln verhalten sich wie folgt:
 
 - [`catch`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch)
-  - : Wenn eine Ausnahme mit einem passenden Tag ausgelöst wird, verzweigen Sie zum angegebenen `block` und schieben die Nutzlastwerte auf den Stapel.
+  - : Wenn eine Ausnahme mit einem passenden Tag ausgelöst wird, verzweigt zum angegebenen `block` und legt die Nutzlastwerte auf den Stapel.
 - [`catch_all`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all)
-  - : Wenn eine beliebige Ausnahme ausgelöst wird, verzweigen Sie zum angegebenen `block`, ohne etwas auf den Stapel zu schieben.
+  - : Wenn irgendeine Ausnahme ausgelöst wird, verzweigt zum angegebenen `block` und legt nichts auf den Stapel.
 - [`catch_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_ref)
-  - : Wenn eine Ausnahme mit einem passenden Tag ausgelöst wird, verzweigen Sie zum angegebenen `block`, schieben die Nutzlastwerte und einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die Ausnahme darstellt, auf den Stapel.
+  - : Wenn eine Ausnahme mit einem passenden Tag ausgelöst wird, verzweigt zum angegebenen `block`, legt die Nutzlastwerte und einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die Ausnahme darstellt, auf den Stapel.
 - [`catch_all_ref`](/de/docs/WebAssembly/Reference/Exception_handling/try_table/catch_all_ref)
-  - : Wenn eine beliebige Ausnahme ausgelöst wird, verzweigen Sie zum angegebenen `block`, schieben Sie einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die Ausnahme darstellt, auf den Stapel.
+  - : Wenn irgendeine Ausnahme ausgelöst wird, verzweigt zum angegebenen `block` und legt einen [`exnref`](/de/docs/WebAssembly/Reference/Value_types/exnref)-Wert, der die Ausnahme darstellt, auf den Stapel.
 
-Jede `catch`-Klausel, die zu einem äußeren `block` verzweigt, muss Werte erzeugen, die dem Ergebnistyp dieses `block`s entsprechen, wenn eine ausgelöste Ausnahme aufgefangen wird.
+Jede `catch`-Klausel, die zu einem äußeren `block` verzweigt, muss Werte erzeugen, die dem Ergebnisdatentyp dieses `blocks` entsprechen, wenn eine ausgelöste Ausnahme abgefangen wird.
 
 ### Blocktype-Parameter
 
-Die optionalen Blocktype-Parameter werden in den `try_table`-Block übergeben und als Ergebniswert nach der Ausführung des Blocks bereitgestellt. Der Wert kann vor dem `try_table`-Block oder innerhalb angegeben werden. Zum Beispiel:
+Die optionalen Blocktype-Parameter werden in den `try_table`-Block übergeben und als Ergebniswert bereitgestellt, nachdem der Block ausgeführt wurde. Der Wert kann vor dem `try_table`-Block oder innerhalb davon angegeben werden. Zum Beispiel:
 
 ```wat
 ;; Push an i32
@@ -157,17 +157,17 @@ end
 ;; The result i32 is now available to be used here
 ```
 
-Oder Sie können eine beliebige Kombination dieser Strukturen verwenden.
+Oder Sie können jede Kombination dieser Strukturen verwenden.
 
 ## Beispiele
 
 ### Umgang mit mehreren Ausnahmen
 
-Dieses Beispiel zeigt, wie mit mehreren Ausnahmen in einer einzigen `try_table`-Struktur umgegangen wird.
+Dieses Beispiel zeigt, wie mehrere Ausnahmen in einer einzigen `try_table`-Struktur behandelt werden.
 
 #### JavaScript
 
-In unserem Skript beginnen wir damit, eine Referenz zu einem {{htmlelement("p")}}-Element zu erhalten, auf das wir Ergebnisse ausgeben werden. Dann definieren wir zwei verschiedene Fehler-Tags, um einen Typfehler und einen Reichweitenfehler mit dem [`WebAssembly.Tag()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag)-Konstruktor darzustellen.
+In unserem Skript beginnen wir damit, eine Referenz auf ein {{htmlelement("p")}}-Element zu erfassen, zu dem wir Ergebnisse ausgeben werden. Dann definieren wir zwei verschiedene Fehler-Tags, um einen Typfehler und einen Bereichsfehler mit dem [`WebAssembly.Tag()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag/Tag)-Konstruktor darzustellen.
 
 ```html hidden live-sample___multiple-exceptions
 <p></p>
@@ -180,9 +180,9 @@ const typeErrorTag = new WebAssembly.Tag({ parameters: ["i32"] });
 const rangeErrorTag = new WebAssembly.Tag({ parameters: ["i32", "i32"] });
 ```
 
-Als Nächstes kompilieren und instanziieren wir unser Wasm-Modul mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static), importieren die zwei Fehler-Tags und eine Funktion, um Ergebnisse zum `<p>`-Element zu protokollieren.
+Als nächstes kompilieren und instanziieren wir unser Wasm-Modul mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static)-Methode, importieren die beiden Fehler-Tags und eine Funktion, um Ergebnisse in das `<p>`-Element zu protokollieren.
 
-Wir rufen die exportierte Wasm-`try_multiple()`-Funktion auf, die im WebAssembly [`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance)-[`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt verfügbar ist, mehrmals auf, übergeben ihr zwei verschiedene Parameter, um verschiedene Ausnahmen auszulösen, und dann schließlich einen Wert, der keine Ausnahme auslöst.
+Wir rufen die exportierte Wasm-`try_multiple()`-Funktion mehrfach auf dem WebAssembly-[`Instance`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance) [`exports`](/de/docs/WebAssembly/Reference/JavaScript_interface/Instance/exports)-Objekt auf, indem wir ihr zwei verschiedene Parameter übergeben, um verschiedene Ausnahmen auszulösen, und dann schließlich einen Wert, der keine Ausnahme auslöst.
 
 ```js live-sample___multiple-exceptions
 async function init() {
@@ -192,7 +192,7 @@ async function init() {
       env: {
         type_error: typeErrorTag,
         range_error: rangeErrorTag,
-        log: (code) => {
+        log(code) {
           output.textContent += `Error code: ${code} | `;
         },
       },
@@ -209,13 +209,13 @@ init();
 
 #### Wasm
 
-In unserem Wasm-Modul importieren wir zunächst unsere beiden Fehler-Tags und die Protokollierungsfunktion. Dann erstellen wir eine Funktion namens `$try_multiple`, die zwei verschachtelte `block`s hat, um `$type_error`s beziehungsweise `$range_error`s zu behandeln. In der Mitte der `block`s befindet sich eine `try_table`-Struktur mit zwei `catch`-Klauseln, eine für jeden Fehlertyp. Wir rufen dann die `$might_throw`-Funktion auf, die später definiert ist, um zu sehen, ob sie Ausnahmen auslöst:
+In unserem Wasm-Modul importieren wir zuerst unsere beiden Fehler-Tags und die Protokollierungsfunktion. Dann erstellen wir eine Funktion namens `$try_multiple`, die zwei verschachtelte `block`s enthält, um `$type_error`s bzw. `$range_error`s zu behandeln. In der Mitte der `block`s befindet sich eine `try_table`-Struktur, die zwei `catch`-Klauseln enthält, eine, um jeden Fehler-Typ abzufangen. Dann rufen wir die später definierte Funktion `$might_throw` auf, um zu sehen, ob sie Ausnahmen auslöst:
 
 - Wenn ein `$type_error` ausgelöst wird, verzweigen wir zum `$on_type_error`-`block` und protokollieren den Nutzlastwert.
-- Wenn ein `$range_error` ausgelöst wird, verzweigen wir zum `$on_range_error`-`block`, verwerfen den ersten der beiden Nutzlastwerte und protokollieren den zweiten, dann kehren wir aus dem `block` zurück.
+- Wenn ein `$range_error` ausgelöst wird, verzweigen wir zum `$on_range_error`-`block`, lassen den ersten der beiden Nutzlastwerte fallen und protokollieren den zweiten, und kehren dann aus dem `block` zurück.
 - Wenn keine Ausnahme ausgelöst wird, kehren wir einfach aus dem `block` zurück.
 
-Die `$might_throw`-Funktion selbst nimmt einen einzelnen Parameter und überprüft dessen Wert. Wenn der Wert kleiner als `0` ist, löst er einen `$type_error` mit Fehlercode `10` aus. Wenn der Wert größer als `100` ist, löst er einen `$range_error` mit Code `99` aus.
+Die Funktion `$might_throw` selbst nimmt einen einzelnen Parameter und überprüft ihren Wert. Wenn der Wert kleiner als `0` ist, löst sie einen `$type_error` mit Fehlercode `10` aus. Wenn der Wert größer als `100` ist, löst sie einen `$range_error` mit Code `99` aus.
 
 ```wat live-sample___multiple-exceptions
 (module
@@ -272,7 +272,7 @@ Die `$might_throw`-Funktion selbst nimmt einen einzelnen Parameter und überprü
 
 {{embedlivesample("multiple-exceptions", "100%", 100)}}
 
-Wir rufen die `try_multiple()`-Funktion dreimal auf. Beim ersten Mal wird ein `$type_error` ausgelöst, also wird der Fehlercode `10` protokolliert. Beim zweiten Mal wird ein `$range_error` ausgelöst, also wird der Fehlercode `99` protokolliert. Beim dritten Mal wird keine Ausnahme ausgelöst.
+Wir rufen die `try_multiple()`-Funktion dreimal auf. Beim ersten Mal wird ein `$type_error` ausgelöst, sodass Fehlercode `10` protokolliert wird. Beim zweiten Mal wird ein `$range_error` ausgelöst, sodass Fehlercode `99` protokolliert wird. Beim dritten Mal wird keine Ausnahme ausgelöst.
 
 ## Spezifikationen
 

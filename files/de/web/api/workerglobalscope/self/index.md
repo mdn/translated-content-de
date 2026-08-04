@@ -3,26 +3,26 @@ title: "WorkerGlobalScope: self-Eigenschaft"
 short-title: self
 slug: Web/API/WorkerGlobalScope/self
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`self`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt eine Referenz auf den `WorkerGlobalScope` selbst zurück. Meistens handelt es sich um einen speziellen Scope wie zum Beispiel [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope).
+Die **`self`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt eine Referenz auf das `WorkerGlobalScope` selbst zurück. Meistens handelt es sich um einen spezifischen Scope wie [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope).
 
 ## Wert
 
-Ein globales Scope-Objekt (unterschiedlich, je nachdem, mit welchem Workertyp Sie es zu tun haben, wie oben angegeben).
+Ein globales Scope-Objekt (unterscheidet sich je nach Art des Arbeiters, mit dem Sie es zu tun haben, wie oben angegeben).
 
 ## Beispiele
 
-Wenn Sie
+Wenn Sie das Folgende innerhalb eines Workers aufgerufen haben
 
 ```js
 console.log(self);
 ```
 
-innerhalb eines Workers aufrufen, wird ein Worker-Global-Scope desselben Typs wie das Worker-Objekt in die Konsole geschrieben — etwa wie folgt:
+wird ein Worker-Global-Scope vom gleichen Typ wie dieses Worker-Objekt in die Konsole geschrieben — etwa so etwas wie das Folgende:
 
 ```plain
 DedicatedWorkerGlobalScope {
@@ -49,7 +49,7 @@ undefined: undefined, Infinity: Infinity, Math: MathConstructor, NaN: NaN, Intl:
 // etc. etc.
 ```
 
-Dies liefert eine vollständige Liste der Objekte, die für diesen Worker-Scope verfügbar sind. Es ist ein sehr nützlicher Test, wenn Sie prüfen möchten, ob etwas für Ihren Worker verfügbar ist oder nicht. Wir führen auch eine Liste von [Funktionen und Klassen, die Web Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
+Dies bietet eine vollständige Liste der in diesem Worker-Scope verfügbaren Objekte, was einen nützlichen Test darstellt, wenn Sie herausfinden möchten, ob etwas für Ihren Worker verfügbar ist oder nicht. Wir führen auch eine Liste von [Funktionen und Klassen, die für Web Workers verfügbar sind](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
 
 ## Spezifikationen
 
@@ -61,4 +61,4 @@ Dies liefert eine vollständige Liste der Objekte, die für diesen Worker-Scope 
 
 ## Siehe auch
 
-[`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
+- [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)

@@ -3,7 +3,7 @@ title: "`-webkit-mask-position-x` CSS property"
 short-title: -webkit-mask-position-x
 slug: Web/CSS/Reference/Properties/-webkit-mask-position-x
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{Non-standard_header}}
@@ -43,7 +43,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Innenrand des Kastens angibt. Prozentwerte werden im Verhältnis zur horizontalen Dimension des Innenbereichs des Kastens berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Innenrand des Kastens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Innenrand des Kastens ausgerichtet ist.
+  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Rand des Box-Inhalts angibt. Prozentsätze werden in Bezug auf die horizontale Dimension der Box-Inhaltfläche berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Rand der Box-Inhaltfläche ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Rand der Box-Inhaltfläche ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -61,7 +61,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Beispiele
 
-### Horizontale Positionierung eines Maskenbildes
+### Horizontales Positionieren eines Maskenbildes
 
 ```css
 .exampleOne {
@@ -77,7 +77,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 
@@ -85,4 +85,6 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-{{cssxref("mask-position", "-webkit-mask-position")}}, {{cssxref("-webkit-mask-position-y")}}, {{cssxref("mask-origin", "-webkit-mask-origin")}}
+- {{cssxref("mask-position", "-webkit-mask-position")}}
+- {{cssxref("-webkit-mask-position-y")}}
+- {{cssxref("mask-origin", "-webkit-mask-origin")}}

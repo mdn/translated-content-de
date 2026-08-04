@@ -1,16 +1,16 @@
 ---
-title: "NavigationPreloadManager: enable() Methode"
+title: "NavigationPreloadManager: enable()-Methode"
 short-title: enable()
 slug: Web/API/NavigationPreloadManager/enable
 l10n:
-  sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`enable()`** Methode der Schnittstelle [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) wird verwendet, um das Vorladen von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
+Die **`enable()`**-Methode des [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Interfaces wird genutzt, um das Vorladen von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
 
-Die Methode sollte im `activate` Event-Handler des Service Workers aufgerufen werden, um sicherzustellen, dass sie vor jedem `fetch` Event-Handler ausgeführt wird.
+Die Methode sollte im `activate`-Ereignishandler des Service Workers aufgerufen werden, was sicherstellt, dass sie ausgeführt wird, bevor jeglicher `fetch`-Ereignishandler ausgelöst werden kann.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie das Vorladen aktiviert wird, nachdem mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) zuerst getestet wurde, ob es unterstützt wird.
+Der untenstehende Code zeigt, wie man das Vorladen aktiviert, nachdem zuvor mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) überprüft wurde, ob es unterstützt wird.
 
 ```js
 addEventListener("activate", (event) => {
@@ -58,4 +58,4 @@ addEventListener("activate", (event) => {
 
 ## Siehe auch
 
-[`NavigationPreloadManager.disable()`](/de/docs/Web/API/NavigationPreloadManager/disable)
+- [`NavigationPreloadManager.disable()`](/de/docs/Web/API/NavigationPreloadManager/disable)

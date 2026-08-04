@@ -2,21 +2,21 @@
 title: manifest.json
 slug: Mozilla/Add-ons/WebExtensions/manifest.json
 l10n:
-  sourceCommit: 6d09b387b3a5137be8fc24137d8052403d26ecc6
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 > [!NOTE]
-> Dieser Artikel beschreibt `manifest.json` für Web-Erweiterungen. Wenn Sie Informationen über die `manifest.json` in PWAs suchen, schauen Sie sich den [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest) Artikel an.
+> Dieser Artikel beschreibt das manifest.json für Web-Erweiterungen. Wenn Sie Informationen über das manifest.json in PWAs suchen, lesen Sie den Artikel zum [Web App Manifest](/de/docs/Web/Progressive_web_apps/Manifest).
 
-Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung benötigt, die WebExtension-APIs verwendet.
+Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung, die WebExtension-APIs verwendet, enthalten muss.
 
-Mit `manifest.json` legen Sie grundlegende Metadaten Ihrer Erweiterung fest, wie z.B. den Namen und die Version. Sie können auch Aspekte der Funktionalität Ihrer Erweiterung angeben (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
+Mit `manifest.json` geben Sie grundlegende Metadaten über Ihre Erweiterung an, wie den Namen und die Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung spezifizieren (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
 
-Es ist eine im {{Glossary("JSON", "JSON")}}-Format vorliegende Datei, mit einer Ausnahme: Sie darf Kommentare im `//`-Stil enthalten.
+Es handelt sich um eine im {{Glossary("JSON", "JSON")}}-Format vorliegende Datei, mit einer Ausnahme: Es ist erlaubt, `//`-Kommentare darin zu verwenden.
 
 ## Liste der manifest.json-Schlüssel
 
-Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 und höher verfügbar, es sei denn, es wird anders angegeben:
+Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 und höher verfügbar, sofern nicht anders angegeben:
 
 - [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) (Manifest V3 und höher)
 - [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author)
@@ -62,13 +62,13 @@ Dies sind die `manifest.json`-Schlüssel; diese Schlüssel sind in Manifest V2 u
 
 ### Hinweise zu manifest.json-Schlüsseln
 
-- `"manifest_version"`, `"version"` und `"name"` sind die einzigen Pflichtschlüssel.
+- `"manifest_version"`, `"version"` und `"name"` sind die einzigen obligatorischen Schlüssel.
 - `"default_locale"` muss vorhanden sein, wenn das `_locales`-Verzeichnis vorhanden ist, und muss ansonsten fehlen.
 - `"browser_specific_settings"` wird in Google Chrome nicht unterstützt.
 
 ### Zugriff auf manifest.json-Schlüssel zur Laufzeit
 
-Sie können von der JavaScript-Erweiterung Ihrer Erweiterung mit der Funktion {{WebExtAPIRef("runtime.getManifest()")}} auf das Manifest zugreifen:
+Sie können auf das Manifest Ihrer Erweiterung vom JavaScript der Erweiterung aus mit der Funktion {{WebExtAPIRef("runtime.getManifest()")}} zugreifen:
 
 ```js
 browser.runtime.getManifest().version;
@@ -76,10 +76,10 @@ browser.runtime.getManifest().version;
 
 ## Beispiel
 
-Der folgende Block zeigt die grundlegende Syntax für einige gebräuchliche Manifest-Schlüssel.
+Der untenstehende Block zeigt die grundlegende Syntax für einige häufige Manifest-Schlüssel.
 
 > [!NOTE]
-> Dies ist nicht als copy-paste-fertiges Beispiel gedacht. Die Auswahl der erforderlichen Schlüssel hängt von der zu entwickelnden Erweiterung ab.
+> Dies soll nicht als eine gebrauchsfertige Kopiervorlage dienen. Die Auswahl der benötigten Schlüssel hängt von der Erweiterung ab, die Sie entwickeln.
 
 Für vollständige Beispielerweiterungen siehe [Beispielerweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions/Examples).
 
@@ -165,4 +165,4 @@ Für vollständige Beispielerweiterungen siehe [Beispielerweiterungen](/de/docs/
 
 ## Siehe auch
 
-{{WebExtAPIRef("permissions")}} JavaScript API
+- {{WebExtAPIRef("permissions")}} JavaScript-API

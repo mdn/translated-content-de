@@ -3,7 +3,7 @@ title: "MediaStreamTrackProcessor: totalFrames-Eigenschaft"
 short-title: totalFrames
 slug: Web/API/MediaStreamTrackProcessor/totalFrames
 l10n:
-  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}
@@ -59,4 +59,4 @@ document.querySelector("button").addEventListener("click", init);
 
 ## Siehe auch
 
-[`MediaStreamTrackProcessor.discardedframes`](/de/docs/Web/API/MediaStreamTrackProcessor/discardedFrames)
+- [`MediaStreamTrackProcessor.discardedFrames`](/de/docs/Web/API/MediaStreamTrackProcessor/discardedFrames)

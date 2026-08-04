@@ -3,16 +3,16 @@ title: CSS-Abstände
 short-title: Gaps
 slug: Web/CSS/Guides/Gaps
 l10n:
-  sourceCommit: b5c3edee358451f960799810aaed0749e5f1b2be
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Das **CSS-Abstände**-Modul ermöglicht es Ihnen, Abstände oder "Gaps" zwischen Elementen in [Multi-Column](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), und [Grid](/de/docs/Web/CSS/Guides/Grid_layout) Layouts zu spezifizieren. Das [CSS Multi-Column Layout](/de/docs/Web/CSS/Guides/Multicol_layout)-Modul definierte ursprünglich Abstände und Regeln, die den Abstand zwischen Spalten in Multi-Column-Containern steuern. Dieses Modul erweitert diese sichtbaren Trennzeichen, genannt _Gap-Dekorationen_, und dehnt sie auf Grid- und Flexbox-Layouts aus.
+Das **CSS-Abstände**-Modul ermöglicht es Ihnen, Abstände oder "Gaps" zwischen Elementen in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Layouts festzulegen. Das [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout)-Modul definierte ursprünglich Lücken und Regeln zur Steuerung der Abstände zwischen Spalten in Mehrspalten-Containern. Dieses Modul erweitert diese sichtbaren Trennungen, genannt _Gap-Dekorationen_, und erstreckt sie auf Grid und Flexbox.
 
-Während {{cssxref("margin")}} und {{cssxref("padding")}} visuellen Abstand um einzelne Boxen angeben, ermöglichen die Eigenschaften in diesem Modul die Festlegung des Abstands zwischen benachbarten Boxen innerhalb eines gegebenen Layoutkontextes für Layouts, die {{Glossary("gutters", "Rinnen")}} und Abstände haben, wenn der Abstand zwischen Geschwisterboxen anders ist als zwischen der ersten Box, der letzten Box und dem Rand des Containers. Sie können Regeln in jedem Abstand oder in einem Teil der Abstände anzeigen, indem Sie voll animierbare Regelbreiten, Farben und Einzüge definieren.
+Während {{cssxref("margin")}} und {{cssxref("padding")}} visuelle Abstände um einzelne Boxen spezifizieren, ermöglichen die Eigenschaften in diesem Modul, die Abstände zwischen benachbarten Boxen innerhalb eines gegebenen Layout-Kontexts für Layouts zu spezifizieren, die {{Glossary("gutters", "Rinnen")}} und Lücken haben, wenn der Abstand zwischen benachbarten Boxen anders ist als zwischen der ersten Box, der letzten Box und dem Rand des Containers. Sie können Regeln in jeder Lücke oder in einem Teil der Lücken anzeigen, indem vollständig animierbare Regelbreiten, Farben und Einfügungen definiert werden.
 
-## Abstände in Aktion
+## Lücken in Aktion
 
-In diesem Beispiel wird das 2021 zur US-Inauguration vorgetragene Gedicht, _The Hill We Climb_, von Amanda Gorman über mehrere Spalten hinweg angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn Sie JavaScript aktiviert haben, ermöglichen es Steuerungen, die {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} Eigenschaften zu ändern, sowie die bevorzugte Anzahl an Spalten und ob der Titel und ein Zitat über alle Spalten hinweggehen sollen.
+In diesem Beispiel wird das Gedicht von der Amtseinführung 2021 in den USA, _The Hill We Climb_ von Amanda Gorman, über mehrere Spalten hinweg angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn Sie JavaScript aktiviert haben, ermöglichen Steuerelemente die Anpassung der {{cssxref("column-gap")}}, {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} Eigenschaften sowie die bevorzugte Anzahl von Spalten und ob der Titel und ein Zitat alle Spalten einnehmen sollen.
 
 ```html hidden live-sample___multicol
 <article>
@@ -274,7 +274,7 @@ function setColSpan(control, element) {
 article {
   column-count: 5;
   gap: 1em;
-  column-rule: 0.25em dashed currentcolor;
+  column-rule: 0.25em dashed currentColor;
 }
 .title {
   column-span: all;
@@ -288,7 +288,7 @@ p {
   line-height: 1.4;
 }
 .code {
-  font-style: monospace;
+  font-family: monospace;
 }
 .breakInside * {
   break-inside: avoid;
@@ -341,7 +341,7 @@ blockquote p::after {
 
 {{EmbedLiveSample("multicol", "", "800px")}}
 
-Wenn die Spaltenregel größer als der Spaltenabstand ist, erscheint die dekorative Linie hinter dem Text; sie verändert nicht die Größe des Abstands.
+Wenn die Spaltenregel breiter als der Spaltenabstand ist, erscheint die dekorative Linie hinter dem Text; sie ändert nicht die Größe der Lücke.
 
 ## Referenz
 
@@ -397,23 +397,23 @@ Wenn die Spaltenregel größer als der Spaltenabstand ist, erscheint die dekorat
 
 - {{Glossary("Grid", "Grid")}}
 - {{Glossary("Grid_cell", "Grid-Zelle")}}
-- {{Glossary("Grid_column", "Gitterspalte")}}
-- {{Glossary("Grid_lines", "Gitterlinien")}}
-- {{Glossary("Grid_row", "Gitterreihe")}}
+- {{Glossary("Grid_column", "Grid-Spalte")}}
+- {{Glossary("Grid_lines", "Grid-Linien")}}
+- {{Glossary("Grid_row", "Grid-Reihe")}}
 - {{Glossary("Gutters", "Rinnen")}}
 
 ## Leitfäden
 
-- [Styling von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
-  - : Leitfaden zum Styling von Spalten und zur Verwaltung des Abstands zwischen Spalten.
-- [Umgang mit Inhaltsumbrüchen im Multi-Column-Layout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
-  - : Einführung in die Fragmentierungs-Spezifikation und wie man steuert, wo Spalteninhalte umgebrochen werden.
-- [Leitfäden zur Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment#guides)
-  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspaltigem Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und für [Block-, absolut positionierte und Tabellenlayouts](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
+- [Spalten stylen](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
+  - : Leitfaden zum Stylen von Spalten und zur Verwaltung der Abstände zwischen Spalten.
+- [Umgang mit Inhaltsumbrüchen im Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
+  - : Einführung in die Fragmentierungsspezifikation und wie man kontrolliert, wo Spalteninhalte umbrochen werden.
+- [Box-Ausrichtungsleitfäden](/de/docs/Web/CSS/Guides/Box_alignment#guides)
+  - : Wie [Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment/Overview) im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und für [Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables) funktioniert.
 
 ## Verwandte Konzepte
 
-[CSS Flexibler Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+[CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
 
 - {{cssxref("flex")}}
 - {{cssxref("flex-basis")}}
@@ -423,30 +423,30 @@ Wenn die Spaltenregel größer als der Spaltenabstand ist, erscheint die dekorat
 - {{cssxref("flex-shrink")}}
 - {{cssxref("flex-wrap")}}
 
-[CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
 
 - {{CSSxRef("grid")}}
 - {{CSSxRef("grid-column")}}
 - {{CSSxRef("grid-row")}}
 - {{cssxref("repeat()")}}
 
-[CSS Mehrspaltiges Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+[CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
 
 - {{cssxref("column-fill")}}
 - {{cssxref("column-span")}}
-- {{cssxref("columns")}} Kurzform
+- {{cssxref("columns")}} Shorthand
   - {{cssxref("column-count")}}
   - {{cssxref("column-height")}}
   - {{cssxref("column-width")}}
 - {{cssxref("column-wrap")}}
 - {{cssxref("::column")}}
 
-[CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
+[CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
 
 - {{cssxref("align-content")}}
 - {{cssxref("justify-content")}}
 
-[CSS Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
+[CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 
 - {{cssxref("height")}}
 - {{cssxref("max-height")}}
@@ -454,10 +454,10 @@ Wenn die Spaltenregel größer als der Spaltenabstand ist, erscheint die dekorat
 - {{cssxref("width")}}
 - {{cssxref("max-width")}}
 
-[CSS Anzeige](/de/docs/Web/CSS/Guides/Display) Modul
+[CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
 
 - {{cssxref("display")}}
-- [Blockformatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
 
 ## Spezifikationen
 
@@ -465,6 +465,6 @@ Wenn die Spaltenregel größer als der Spaltenabstand ist, erscheint die dekorat
 
 ## Siehe auch
 
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
 - [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)

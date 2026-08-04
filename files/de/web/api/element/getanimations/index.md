@@ -3,16 +3,16 @@ title: "Element: getAnimations() Methode"
 short-title: getAnimations()
 slug: Web/API/Element/getAnimations
 l10n:
-  sourceCommit: 24e13993867fc8fd95d6112117b170595b015aee
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("Web Animations")}}
 
-Die `getAnimations()`-Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt ein Array von allen [`Animation`](/de/docs/Web/API/Animation)-Objekten zurück, die dieses Element beeinflussen oder dies in Zukunft tun sollen.
-Optional kann sie auch [`Animation`](/de/docs/Web/API/Animation)-Objekte entweder für Nachkommenelemente und deren [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) oder nur für das angegebene Pseudo-Element zurückgeben.
+Die Methode `getAnimations()` des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die dieses Element betreffen oder in Zukunft betreffen sollen.
+Optional kann sie [`Animation`](/de/docs/Web/API/Animation)-Objekte entweder für Nachkommen-Elemente und deren [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) oder nur für das angegebene Pseudoelement zurückgeben.
 
 > [!NOTE]
-> Dieses Array enthält [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
+> Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
 
 ## Syntax
 
@@ -26,31 +26,31 @@ getAnimations(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `subtree`
-      - : Ein boolescher Wert, der, wenn `true`, bewirkt, dass auch Animationen zurückgegeben werden, die auf Nachkommen von _Element_ abzielen.
-        Dazu gehören Animationen, die sich auf beliebige CSS-[Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) beziehen, die _Element_ oder einem seiner Nachkommen angehängt sind.
-        Standardmäßig `false`.
+      - : Ein boolescher Wert, der, wenn `true`, dazu führt, dass auch Animationen zurückgegeben werden, die Nachkommen von _Element_ anvisieren.
+        Dazu gehören Animationen, die alle CSS-[Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) betreffen, die an _Element_ oder einen seiner Nachkommen angefügt sind.
+        Standardwert ist `false`.
     - `pseudoElement`
-      - : Ein String, der ein [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) angibt, das das Ziel-Element sein soll, wie zum Beispiel [`::after`](/de/docs/Web/CSS/Reference/Selectors/::after).
+      - : Ein String, der ein [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) spezifiziert, das als Ziel-Element verwendet wird, wie z.B. [`::after`](/de/docs/Web/CSS/Reference/Selectors/::after).
 
-    Beachten Sie, dass die Angabe sowohl von `pseudoElement` als auch von `subtree` gleichbedeutend ist mit der Angabe nur von `pseudoElement`.
+    Beachten Sie, dass die Angabe von sowohl `pseudoElement` als auch `subtree` dem alleinigen Spezifizieren von `pseudoElement` entspricht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, die jeweils eine Animation darstellen, die das [`Element`](/de/docs/Web/API/Element) aktuell anvisiert.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, von denen jedes eine Animation repräsentiert, die derzeit auf das [`Element`](/de/docs/Web/API/Element) abzielt.
 
-Wenn der Parameter `{ subtree: true }` festgelegt ist, umfasst der zurückgegebene Wert auch Animationsobjekte, die auf Nachkommenelemente abzielen, einschließlich Pseudo-Elemente.
-Wenn `options.pseudoElement` angegeben ist, enthält der Rückgabewert nur die Animationsobjekte, die mit dem ausgewählten Pseudo-Element übereinstimmen.
+Wenn der Parameter `{ subtree: true }` angegeben wird, umfasst der zurückgegebene Wert auch Animationsobjekte, die auf Nachkommen-Elemente abzielen, einschließlich Pseudoelementen.
+Wenn `options.pseudoElement` angegeben ist, umfasst der Rückgabewert nur die Animationsobjekte, die mit dem ausgewählten Pseudoelement übereinstimmen.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ein ungültiges Pseudo-Element wurde im Parameter [`options.pseudoElement`](#pseudoelement) übergeben.
+  - : Ein ungültiges Pseudoelement wurde im [`options.pseudoElement`](#pseudoelement)-Parameter übergeben.
 
 ## Beispiele
 
 ### Warten auf alle Animationen eines Elements und seiner Nachkommen
 
-Der folgende Codeausschnitt wartet darauf, dass alle Animationen auf `elem` und seine Nachkommen beendet werden, bevor das Element aus dem Dokument entfernt wird.
+Der folgende Code-Schnipsel wartet darauf, dass alle Animationen auf `elem` und seinen Nachkommen beendet sind, bevor das Element aus dem Dokument entfernt wird.
 
 ```js
 Promise.all(
@@ -58,13 +58,13 @@ Promise.all(
 ).then(() => elem.remove());
 ```
 
-### Animationen für ein Pseudo-Element-Ziel abrufen
+### Holen Sie sich Animationen für ein Pseudoelement-Ziel
 
-Dieses Beispiel zeigt eine Fortschrittsanzeige mit einem Pseudo-Element an.
-Es verwendet `getAnimations()`, um die Animationen für das Pseudo-Element zurückzugeben, startet sie und entfernt dann die Fortschrittsanzeige, sobald die Animation abgeschlossen ist.
+Dieses Beispiel zeigt einen Fortschrittsbalken mit einem Pseudoelement.
+Es nutzt `getAnimations()`, um die Animationen für das Pseudoelement zurückzugeben, startet diese und entfernt dann den Fortschrittsbalken, sobald die Animation abgeschlossen ist.
 
 Beachten Sie, dass der Code einen Fallback-Ansatz verwendet, um die Animationen zu erhalten, falls die `pseudoElement`-Option nicht unterstützt wird.
-Es gibt auch versteckten Code, um eine "Neustart"-Schaltfläche anzuzeigen.
+Es gibt auch versteckten Code, um einen "Neustart"-Button anzuzeigen.
 
 #### HTML
 
@@ -74,14 +74,14 @@ Es gibt auch versteckten Code, um eine "Neustart"-Schaltfläche anzuzeigen.
 
 #### CSS
 
-Das CSS gestaltet das Fortschrittsbalkenelement, um innerhalb von 3 Sekunden über die Breite seines Containers zu animieren.
-Die Animation ist anfangs pausiert, damit wir sie in JavaScript starten können.
+Das CSS stylt das Fortschrittsbalken-Element so, dass es sich über die Breite seines Containers in 3 Sekunden hinweg bewegt.
+Die Animation ist anfänglich pausiert, damit wir sie in JavaScript starten können.
 
 ```css
 .progress-bar {
   width: 100%;
   height: 20px;
-  background: #eee;
+  background: #eeeeee;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -108,8 +108,8 @@ Die Animation ist anfangs pausiert, damit wir sie in JavaScript starten können.
 
 #### JavaScript
 
-Zuerst definieren wir eine Funktion, um die mit einem bestimmten Element und Pseudo-Element verbundenen Animationen zu erhalten.
-Sie ruft `getAnimations()` mit der Option [`pseudoElement`](#pseudoelement) auf, und falls das keine Animationen zurückgibt, wird auf das Filtern der Animationen zurückgegriffen, die durch [`subtree`](#subtree) zurückgegeben werden.
+Zuerst definieren wir eine Funktion, um die Animationen zu erhalten, die einem bestimmten Element und Pseudoelement zugeordnet sind.
+Sie ruft `getAnimations()` mit der [`pseudoElement`](#pseudoelement)-Option auf, und falls dies keine Animationen zurückgibt, wird auf das Filtern der Animationen über [`subtree`](#subtree) zurückgegriffen.
 
 ```js
 function getAnimationsForPseudo(element, pseudo) {
@@ -130,9 +130,9 @@ function getAnimationsForPseudo(element, pseudo) {
 }
 ```
 
-Wir verwenden diese Funktion, um alle Animationen abzurufen, die mit dem Fortschrittsbalken-Pseudo-Element verbunden sind.
-Der Code iteriert durch die Animationen, um sie zu starten und entfernt den Fortschrittsbalken, wenn alle Animationen beendet sind.
-Beachten Sie, dass wir den Code in `requestAnimationFrame()` ausführen, um sicherzustellen, dass die Animation bereit ist zu starten, bevor unser JavaScript ausgeführt wird.
+Wir verwenden diese Funktion, um alle Animationen zu bekommen, die mit dem Fortschrittsbalken-Pseudoelement verbunden sind.
+Der Code durchläuft die Animationen, um sie zu starten, und entfernt dann den Fortschrittsbalken, wenn alle Animationen abgeschlossen sind.
+Beachten Sie, dass wir den Code in `requestAnimationFrame()` ausführen, um sicherzustellen, dass die Animation bereit ist, bevor unser JavaScript ausgeführt wird.
 
 ```js
 const bar = document.getElementById("bar");
@@ -158,8 +158,8 @@ reload.addEventListener("click", () => {
 
 #### Ergebnis
 
-Der Balken sollte über die Breite seines Containers fortschreiten und dann verschwinden.
-Sie können ihn neu starten, indem Sie die "Neustart"-Schaltfläche drücken.
+Der Balken sollte sich über die Breite seines Containers bewegen und dann verschwinden.
+Sie können ihn neu starten, indem Sie den "Neustart"-Button drücken.
 
 {{EmbedLiveSample("Get animations for a pseudo-element target", "100%", "50px")}}
 

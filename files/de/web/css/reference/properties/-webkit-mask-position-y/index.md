@@ -3,7 +3,7 @@ title: "`-webkit-mask-position-y` CSS property"
 short-title: -webkit-mask-position-y
 slug: Web/CSS/Reference/Properties/-webkit-mask-position-y
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{Non-standard_header}}
@@ -43,7 +43,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante des Polsterbereichs der Box angibt. Prozentsätze werden im Verhältnis zur vertikalen Dimension des Polsterbereichs der Box berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante des Polsterbereichs der Box ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante des Polsterbereichs der Box ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante des Box-Innenabstands angibt. Prozentsätze werden im Verhältnis zur vertikalen Dimension des Innenabstandsbereichs der Box berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante des Box-Innenabstands ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante des Box-Innenabstands ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`
@@ -61,7 +61,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Beispiele
 
-### Eine Maske vertikal positionieren
+### Vertikale Positionierung eines Maskenbildes
 
 ```css
 .exampleOne {
@@ -77,7 +77,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -85,4 +85,6 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-{{cssxref("mask-position", "-webkit-mask-position")}}, {{cssxref("-webkit-mask-position-x")}}, {{cssxref("mask-origin", "-webkit-mask-origin")}}
+- {{cssxref("mask-position", "-webkit-mask-position")}}
+- {{cssxref("-webkit-mask-position-x")}}
+- {{cssxref("mask-origin", "-webkit-mask-origin")}}

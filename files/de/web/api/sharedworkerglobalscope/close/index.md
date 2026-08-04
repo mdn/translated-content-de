@@ -1,14 +1,14 @@
 ---
-title: "SharedWorkerGlobalScope: close()-Methode"
+title: "SharedWorkerGlobalScope: close() Methode"
 short-title: close()
 slug: Web/API/SharedWorkerGlobalScope/close
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
 {{APIRef("Web Workers API")}}
 
-Die **`close()`**-Methode des [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)-Interfaces verwirft alle Aufgaben, die in der Ereignisschleife des `SharedWorkerGlobalScope` eingereiht sind, und schließt diesen spezifischen Bereich effektiv.
+Die **`close()`** Methode der [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)-Schnittstelle verwirft alle Aufgaben, die in der Ereignisschleife des `SharedWorkerGlobalScope` eingereiht sind, und schließt diesen bestimmten Bereich effektiv.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -32,10 +32,10 @@ Wenn Sie Ihre Worker-Instanz von innerhalb des Workers selbst schließen möchte
 close();
 ```
 
-`close()` und `self.close()` sind effektiv gleichwertig — beide stellen `close()` dar, das im inneren Bereich des Workers aufgerufen wird.
+`close()` und `self.close()` sind im Wesentlichen gleichwertig — beide stellen dar, dass `close()` von innerhalb des inneren Bereichs des Workers aufgerufen wird.
 
 > [!NOTE]
-> Es gibt auch eine Möglichkeit, den Worker aus dem Hauptthread zu stoppen: die [`Worker.terminate`](/de/docs/Web/API/Worker/terminate)-Methode.
+> Es gibt auch eine Möglichkeit, den Worker vom Haupt-Thread aus zu stoppen: die [`Worker.terminate`](/de/docs/Web/API/Worker/terminate)-Methode.
 
 ## Spezifikationen
 
@@ -47,4 +47,4 @@ close();
 
 ## Siehe auch
 
-[`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
+- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)

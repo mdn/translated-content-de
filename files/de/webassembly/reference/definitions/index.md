@@ -2,15 +2,15 @@
 title: WebAssembly-Definitionen
 slug: WebAssembly/Reference/Definitions
 l10n:
-  sourceCommit: f35f247e16286c4e0b1c88fba3d8ce01683c189b
+  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
 ---
 
-Dieses Set von Seiten beschreibt die Moduleigenschaften auf oberster Ebene, die in Wasm verfügbar sind, um Elemente wie Tabellen, Typen, Speicher, Funktionen usw. zu definieren.
+Diese Seitenreihe beschreibt die Funktionen zur Moduldefinition auf oberster Ebene, die in Wasm verfügbar sind, um Elemente wie Tabellen, Typen, Speicher, Funktionen usw. zu definieren.
 
 ## Typen
 
 - [`func`](/de/docs/WebAssembly/Reference/Definitions/types/func)
-  - : Ein Funktionssignature, die die Kennung einer Funktion, die Parametertypen, den Körper und die Ergebnistypen definiert.
+  - : Eine Funktionssignatur, die die Kennung einer Funktion, die Parametertypen, den Körper und die Ergebnistypen definiert.
 
 ## Definitionen
 
@@ -25,4 +25,8 @@ Dieses Set von Seiten beschreibt die Moduleigenschaften auf oberster Ebene, die 
 - [`table`](/de/docs/WebAssembly/Reference/Definitions/table)
   - : Erstellt eine neue Tabelle.
 - [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag)
-  - : Deklariert einen Ausnahme-Typ, der im Modul ausgelöst werden kann.
+  - : Deklariert einen Ausnahmetyp, der im Modul ausgelöst werden kann.
+
+## Spezifikationen
+
+{{Specifications}}
