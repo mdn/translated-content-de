@@ -3,12 +3,12 @@ title: "CSSTransformValue: values() Methode"
 short-title: values()
 slug: Web/API/CSSTransformValue/values
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSTransformValue.values()`** liefert ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSTransformValue`-Objekt enthält.
+Die Methode **`CSSTransformValue.values()`** gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSTransformValue`-Objekt enthält.
 
 ## Syntax
 

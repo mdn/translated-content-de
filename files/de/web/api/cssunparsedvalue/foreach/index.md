@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/CSSUnparsedValue/forEach
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSUnparsedValue.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) aus.
+Die **`CSSUnparsedValue.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element des [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) aus.
 
 ## Syntax
 
@@ -20,16 +20,17 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Die Funktion, die für jedes Element ausgeführt wird und drei Argumente entgegennimmt:
+  - : Die Funktion, die für jedes Element ausgeführt wird, wobei drei Argumente übergeben werden:
     - `currentValue`
       - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
       - : Der Index des aktuellen Elements, das verarbeitet wird.
     - `array` {{optional_inline}}
-      - : Das `CSSUnparsedValue`, auf dem `forEach()` aufgerufen wird.
+      - : Der `CSSUnparsedValue`, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d.h. das Referenz-`Object`) verwendet wird, wenn `callback` ausgeführt wird.
+  - : Wert, der als **`this`** (d.h. das Referenz
+    `Object`) verwendet wird, wenn `callback` ausgeführt wird.
 
 ### Rückgabewert
 

@@ -1,15 +1,15 @@
 ---
-title: Funktionen und Klassen, die Web-Workern zur Verfügung stehen
+title: Funktionen und Klassen, die für Web Worker verfügbar sind
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: d172ab534ac45c6acfda33782752b095ed98aea8
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zu dem standardmäßigen [JavaScript](/de/docs/Web/JavaScript)-Funktionssatz (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) stehen in Workern eine Vielzahl von Funktionen (und APIs) zur Verfügung. Dieser Artikel bietet eine Liste dieser Funktionen.
+Zusätzlich zum standardmäßigen [JavaScript](/de/docs/Web/JavaScript)-Funktionsumfang (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, etc.) gibt es eine Vielzahl von Funktionen (und APIs), die in Workern verfügbar sind. Dieser Artikel bietet eine Liste dieser Funktionen.
 
-## Funktionen, die in Workern verfügbar sind
+## Funktionen, die in Workern zur Verfügung stehen
 
 Die folgenden Funktionen stehen Workern zur Verfügung:
 
@@ -29,16 +29,16 @@ Die folgenden Funktionen stehen Workern zur Verfügung:
 - [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Worker)
 - [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Worker)
 
-Die folgenden Funktionen sind **nur** in Workern verfügbar:
+Die folgenden Funktionen stehen **nur** Workern zur Verfügung:
 
 - [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts)
 
-## Web-APIs, die in Workern verfügbar sind
+## Web APIs, die in Workern verfügbar sind
 
 > [!NOTE]
-> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann im Allgemeinen davon ausgegangen werden, dass sie in Web-Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt oder eine Funktion mit dem [Worker Playground](https://mdn.github.io/dom-examples/web-workers/worker-playground/) testen.
+> Wenn eine aufgelistete API von einer Plattform in einer bestimmten Version unterstützt wird, kann davon ausgegangen werden, dass sie in Web Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt oder eine Funktion im [Worker Playground](https://mdn.github.io/dom-examples/web-workers/worker-playground/) testen.
 
-Die folgenden Web-APIs sind in Workern verfügbar:
+Die folgenden Web APIs sind in Workern verfügbar:
 
 - [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
@@ -50,8 +50,9 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API)
 - [Console API](/de/docs/Web/API/Console_API)
 - [Content Index API](/de/docs/Web/API/Content_Index_API)
-- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) (nur Service-Worker)
+- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) (nur Service Worker)
 - [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API)
+- [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) (ohne [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap))
 - [Encoding API](/de/docs/Web/API/Encoding_API)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [File API](/de/docs/Web/API/File_API)
@@ -82,12 +83,12 @@ Die folgenden Web-APIs sind in Workern verfügbar:
 - [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
 - [WebGL API](/de/docs/Web/API/WebGL_API)
 - [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service-Worker)
+- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service Worker)
 - [WebUSB API](/de/docs/Web/API/WebUSB_API)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Worker können auch andere Worker erstellen, sodass diese APIs ebenfalls verfügbar sind:
+Worker können auch andere Worker erstellen, daher sind diese APIs ebenfalls verfügbar:
 
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
@@ -96,5 +97,5 @@ Worker können auch andere Worker erstellen, sodass diese APIs ebenfalls verfüg
 
 ## Siehe auch
 
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [`Worker`](/de/docs/Web/API/Worker)

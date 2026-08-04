@@ -1,18 +1,18 @@
 ---
-title: "CSSRotate: y-Eigenschaft"
+title: "CSSRotate: y Eigenschaft"
 short-title: y
 slug: Web/API/CSSRotate/y
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`y`**-Eigenschaft des [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Interfaces liest und setzt die Ordinate oder die y-Achse des Übersetzungsvektors.
+Die **`y`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle ruft die Ordinate oder die y-Achse des Verschiebungsvektors ab oder setzt sie.
 
 ## Wert
 
-Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl gesetzt werden, die in einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl gesetzt werden, die in einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) von `unit: "number"` eingebettet ist.
 
 ## Beispiele
 

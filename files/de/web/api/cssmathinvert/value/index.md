@@ -3,12 +3,12 @@ title: "CSSMathInvert: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSMathInvert/value
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `CSSMathInvert.value` der [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
+Die schreibgeschützte Eigenschaft CSSMathInvert.value der [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Noch zu erledigen
+To do
 
 ## Spezifikationen
 

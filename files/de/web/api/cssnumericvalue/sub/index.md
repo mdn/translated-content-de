@@ -3,12 +3,12 @@ title: "CSSNumericValue: sub() Methode"
 short-title: sub()
 slug: Web/API/CSSNumericValue/sub
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`sub()`** Methode des [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Interfaces subtrahiert eine angegebene Zahl von der `CSSNumericValue`.
+Die **`sub()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle subtrahiert eine angegebene Zahl von der `CSSNumericValue`.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 let mathSum = CSS.px("23")

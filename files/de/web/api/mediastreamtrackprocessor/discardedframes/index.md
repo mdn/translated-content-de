@@ -1,14 +1,14 @@
 ---
-title: "MediaStreamTrackProcessor: Eigenschaft discardedFrames"
+title: "MediaStreamTrackProcessor: discardedFrames Eigenschaft"
 short-title: discardedFrames
 slug: Web/API/MediaStreamTrackProcessor/discardedFrames
 l10n:
-  sourceCommit: beddbc32e7841660ea31e0bb27b024d8882b3173
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("Insertable Streams for MediaStreamTrack API")}}
+{{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}
 
-Die Eigenschaft **`discardedFrames`** des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Interfaces gibt eine Zahl zurück, die angibt, wie viele Frames vom Prozessor verworfen wurden.
+Die **`discardedFrames`**-Eigenschaft des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) Schnittstelle liefert eine Zahl, die angibt, wie viele Frames vom Prozessor verworfen wurden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 async function init() {

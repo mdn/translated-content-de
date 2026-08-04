@@ -1,12 +1,12 @@
 ---
-title: "CSSTransformValue: toMatrix()-Methode"
+title: "CSSTransformValue: Methode toMatrix()"
 short-title: toMatrix()
 slug: Web/API/CSSTransformValue/toMatrix
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
 Die **`toMatrix()`**-Methode der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle gibt ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt zurück.
 
@@ -27,11 +27,11 @@ Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn Längen, die an der Erstellung der Matrix beteiligt sind, nicht mit Einheiten in px kompatibel sind (wie zum Beispiel relative Längen oder Prozentsätze).
+  - : Wird ausgelöst, wenn Längen, die bei der Generierung der Matrix beteiligt sind, nicht mit px kompatible Einheiten sind (wie relative Längen oder Prozentsätze).
 
 ## Beispiele
 
-Zu erledigen
+To Do
 
 ## Spezifikationen
 

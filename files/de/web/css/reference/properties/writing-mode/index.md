@@ -3,10 +3,10 @@ title: "`writing-mode` CSS property"
 short-title: writing-mode
 slug: Web/CSS/Reference/Properties/writing-mode
 l10n:
-  sourceCommit: 52b551c479b9ab85215a05e40161013e3f285746
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-Die **`writing-mode`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt fest, ob Textzeilen horizontal oder vertikal ausgerichtet werden und in welcher Richtung der Text fließt.
+Die **`writing-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Textzeilen horizontal oder vertikal angeordnet werden und in welche Richtung der Text fließt.
 
 {{InteractiveExample("CSS Demo: writing-mode")}}
 
@@ -76,38 +76,38 @@ writing-mode: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als eines der folgenden Schlüsselwörter angegeben:
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwörter spezifiziert:
 
 - `horizontal-tb`
-  - : Für `ltr`-Schriften fließt der Inhalt horizontal von links nach rechts. Für `rtl`-Schriften fließt der Inhalt horizontal von rechts nach links. Die nächste horizontale Zeile befindet sich unter der vorherigen Zeile.
+  - : Für `ltr`-Schriften fließt der Inhalt horizontal von links nach rechts. Für `rtl`-Schriften fließt der Inhalt horizontal von rechts nach links. Die nächste horizontale Linie wird unter der vorherigen Linie positioniert.
 - `vertical-rl`
-  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Zeile befindet sich links von der vorherigen Zeile. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Zeile befindet sich links von der vorherigen Zeile.
+  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Linie wird links von der vorherigen Linie positioniert. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Linie wird links von der vorherigen Linie positioniert.
 - `vertical-lr`
-  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Zeile befindet sich rechts von der vorherigen Zeile. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Zeile befindet sich rechts von der vorherigen Zeile.
+  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten, und die nächste vertikale Linie wird rechts von der vorherigen Linie positioniert. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben, und die nächste vertikale Linie wird rechts von der vorherigen Linie positioniert.
 - `sideways-rl`
-  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben. Alle Glyphen, auch die in vertikalen Schriften, werden seitwärts nach rechts gesetzt.
+  - : Für `ltr`-Schriften fließt der Inhalt vertikal von oben nach unten. Für `rtl`-Schriften fließt der Inhalt vertikal von unten nach oben. Alle Glyphen, auch diejenigen in vertikalen Schriften, werden seitlich nach rechts gesetzt.
 - `sideways-lr`
-  - : Für `ltr`-Schriften fließt der Inhalt vertikal von unten nach oben. Für `rtl`-Schriften fließt der Inhalt vertikal von oben nach unten. Alle Glyphen, auch die in vertikalen Schriften, werden seitwärts nach links gesetzt.
-- `lr` {{Deprecated_Inline}}
+  - : Für `ltr`-Schriften fließt der Inhalt vertikal von unten nach oben. Für `rtl`-Schriften fließt der Inhalt vertikal von oben nach unten. Alle Glyphen, auch diejenigen in vertikalen Schriften, werden seitlich nach links gesetzt.
+- `lr`
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
-- `lr-tb` {{Deprecated_Inline}}
+- `lr-tb`
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
-- `rl` {{Deprecated_Inline}}
+- `rl`
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `horizontal-tb`.
-- `tb` {{Deprecated_Inline}}
+- `tb`
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-lr`.
 - `tb-lr` {{Deprecated_Inline}}
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-lr`.
-- `tb-rl` {{Deprecated_Inline}}
+- `tb-rl`
   - : Veraltet, außer für SVG1-Dokumente. Für CSS verwenden Sie stattdessen `vertical-rl`.
 
 ## Beschreibung
 
-Die `writing-mode`-Eigenschaft legt fest, ob Textzeilen horizontal oder vertikal ausgerichtet werden. Sie gibt die Richtung des _Blockflusses_ an, d.h. die Richtung, in der blockbezogene Container gestapelt werden, und die Richtung, in der Inline-Elemente innerhalb eines Blockcontainers fließen. Sie bestimmt somit auch die Reihenfolge des blockbezogenen Inhalts.
+Die `writing-mode`-Eigenschaft legt fest, ob Textzeilen horizontal oder vertikal angeordnet werden. Sie spezifiziert die _Blockflussrichtung_, welche die Richtung ist, in der Block-Container gestapelt werden, sowie die Richtung, in der Inline-Inhalte innerhalb eines Block-Containers fließen. Somit bestimmt sie auch die Anordnung der Block-Inhalte.
 
-Die Fließrichtung in horizontalen Schriften wird auch durch die [Richtung dieser Schrift](https://www.w3.org/International/questions/qa-scripts.en) beeinflusst, entweder von links nach rechts (`ltr`, wie Englisch und die meisten anderen Sprachen) oder von rechts nach links (`rtl`, wie Hebräisch oder Arabisch).
+Die Flussrichtung in horizontalen Schriften wird auch von der [Richtung dieser Schrift](https://www.w3.org/International/questions/qa-scripts.en) beeinflusst, entweder links-nach-rechts (`ltr`, wie Englisch und die meisten anderen Sprachen) oder rechts-nach-links (`rtl`, wie Hebräisch oder Arabisch).
 
-Wenn die Eigenschaft für ein ganzes Dokument gesetzt wird, sollte dies im Root-Element (`html`-Element für HTML-Dokumente) erfolgen.
+Wenn diese Eigenschaft für ein ganzes Dokument gesetzt wird, sollte sie auf dem Wurzelelement gesetzt werden (dem `html`-Element für HTML-Dokumente).
 
 ## Formale Definition
 
@@ -121,11 +121,11 @@ Wenn die Eigenschaft für ein ganzes Dokument gesetzt wird, sollte dies im Root-
 
 ### Verwendung mehrerer Schreibmodi
 
-Dieses Beispiel zeigt alle Schreibmodi, wobei jeder mit Text in verschiedenen Sprachen gezeigt wird.
+Dieses Beispiel demonstriert alle Schreibmodi, wobei jeder mit Text in verschiedenen Sprachen dargestellt wird.
 
 #### HTML
 
-Das HTML ist eine {{HTMLElement("table")}} mit jeder Schreibweise in einer Zeile mit einer Spalte, die Text in verschiedenen Schriften mit diesem Schreibmodus zeigt.
+Das HTML ist eine {{HTMLElement("table")}} mit jedem Schreibmodus in einer Reihe und einer Spalte, die Text in verschiedenen Schriften in diesem Schreibmodus zeigt.
 
 ```html
 <table>
@@ -248,11 +248,11 @@ Das CSS, das die Richtung des Inhalts anpasst, sieht so aus:
 
 {{EmbedLiveSample("Using_multiple_writing_modes", 400, 700)}}
 
-### Verwendung von `writing-mode` mit Transformationen
+### Verwendung von writing-mode mit Transformationen
 
-Wenn Ihr Browser `sideways-lr` nicht unterstützt, können Sie {{cssxref("transform")}} verwenden, um einen ähnlichen Effekt je nach Schreibrichtung zu erzielen.
-Der Effekt von `vertical-rl` ist derselbe wie bei `sideways-lr`, daher ist keine Transformation für Schriften von links nach rechts erforderlich.
-In einigen Fällen reicht es aus, den Text um 180 Grad zu drehen, um den Effekt von `sideways-lr` zu erzielen. Die Schriftzeichen sind jedoch möglicherweise nicht dafür ausgelegt, gedreht zu werden, sodass dies zu unerwarteten Positionen oder Darstellungen führen kann.
+Wenn Ihr Browser `sideways-lr` nicht unterstützt, besteht eine Möglichkeit darin, {{cssxref("transform")}} zu verwenden, um einen ähnlichen Effekt je nach Richtung der Schrift zu erzielen.
+Der Effekt von `vertical-rl` ist derselbe wie bei `sideways-lr`, sodass keine Transformation für links-nach-rechts-Schriften erforderlich ist.
+In einigen Fällen reicht es aus, den Text um 180 Grad zu drehen, um den Effekt von `sideways-lr` zu erreichen, aber Schriftglykphens sind möglicherweise nicht dafür ausgelegt, gedreht zu werden, sodass dies zu unerwarteten Positionierungs- oder Renderingproblemen führen kann.
 
 #### HTML
 
@@ -350,9 +350,9 @@ span {
 - {{Cssxref("unicode-bidi")}}
 - {{Cssxref("text-orientation")}}
 - {{Cssxref("text-combine-upright")}}
-- [CSS logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- [CSS Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
-- SVG-Attribut {{SVGAttr("writing-mode")}}
+- [CSS-logische Eigenschaften](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
+- SVG {{SVGAttr("writing-mode")}} Attribut
 - [Erstellen vertikaler Formularelemente](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
-- [Umgang mit unterschiedlichen Textausrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
-- [Gestaltung vertikaler Texte (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/) auf W3.org (2022)
+- [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions)
+- [Vertikalen Text stylen (Chinesisch, Japanisch, Koreanisch und Mongolisch)](https://www.w3.org/International/articles/vertical-text/) auf W3.org (2022)

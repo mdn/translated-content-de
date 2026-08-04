@@ -1,14 +1,14 @@
 ---
-title: "StylePropertyMapReadOnly: keys()-Methode"
+title: "StylePropertyMapReadOnly: keys() Methode"
 short-title: keys()
 slug: Web/API/StylePropertyMapReadOnly/keys
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`StylePropertyMapReadOnly.keys()`**-Methode gibt einen neuen _Array-Iterator_ zurück, der die Schlüssel für jedes Element in `StylePropertyMapReadOnly` enthält.
+Die **`StylePropertyMapReadOnly.keys()`** Methode gibt einen neuen _Array-Iterator_ zurück, der die Schlüssel für jedes Element in `StylePropertyMapReadOnly` enthält.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein neues {{jsxref("Array")}}.
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel verwenden wir die `keys()`-Methode, um auf die Eigenschaften innerhalb von [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zuzugreifen.
+In diesem Beispiel verwenden wir die `keys()` Methode, um auf die Eigenschaften innerhalb des [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zuzugreifen.
 
 ```js
 // get a button element

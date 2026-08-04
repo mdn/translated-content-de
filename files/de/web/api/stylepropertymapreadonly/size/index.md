@@ -3,22 +3,22 @@ title: "StylePropertyMapReadOnly: size-Eigenschaft"
 short-title: size
 slug: Web/API/StylePropertyMapReadOnly/size
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`size`**-Eigenschaft der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt eine positive Ganzzahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
+Die **`size`** schreibgeschützte Eigenschaft des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) Interfaces gibt eine positive ganze Zahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
 
 ## Wert
 
-Eine positive Ganzzahl.
+Eine positive ganze Zahl.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Hier nutzen wir die size-Eigenschaft, um die Gesamtzahl der Einträge innerhalb der [`computedStyleMap`](/de/docs/Web/API/Element/computedStyleMap) der Button-Elemente zurückzugeben.
+Hier verwenden wir die size-Eigenschaft, um die Gesamteinträge innerhalb der [`computedStyleMap`](/de/docs/Web/API/Element/computedStyleMap) der Button-Elemente zurückzugeben.
 
 ```js
 // grab our element

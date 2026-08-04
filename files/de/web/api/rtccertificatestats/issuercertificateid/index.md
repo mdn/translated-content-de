@@ -3,18 +3,18 @@ title: "RTCCertificateStats: issuerCertificateId-Eigenschaft"
 short-title: issuerCertificateId
 slug: Web/API/RTCCertificateStats/issuerCertificateId
 l10n:
-  sourceCommit: af5284cd1095a4267cd72fa3eb0d0ef6878e1f9f
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`issuerCertificateId`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Wörterbuchs ist ein String, der die [`id`](/de/docs/Web/API/RTCCertificateStats/id) des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Objekts in diesem Bericht enthält, das das nächste Zertifikat in der Zertifikatskette enthält.
+Die **`issuerCertificateId`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Wörterbuchs ist ein String, der die [`id`](/de/docs/Web/API/RTCCertificateStats/id) des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Objekts in diesem Bericht enthält, welches das nächste Zertifikat in der Zertifikatskette enthält.
 
-Wenn es keine weiteren Zertifikate in der Kette gibt, zum Beispiel wenn dies das Stammzertifikat oder ein selbstsigniertes Zertifikat ist, ist der Wert `undefined`.
+Wenn es keine weiteren Zertifikate in der Kette gibt, wie zum Beispiel wenn dies das Root-Zertifikat oder ein selbstsigniertes Zertifikat ist, ist der Wert `undefined`.
 
 Beachten Sie, dass WebRTC Zertifikate verwendet, wenn eine DTLS-Verbindung hergestellt wird.
-Standardmäßig verwenden Verbindungen selbstsignierte Zertifikate, aber in Unternehmensumgebungen oder WebRTC-Gateway-Einrichtungen können stattdessen signierte Zertifikatsketten von Zwischen- und Stammzertifizierungsstellen (CAs) verwendet werden.
-Diese Eigenschaft ermöglicht es Ihnen, bei Bedarf die Kette der Zertifikate zu durchlaufen.
+Standardmäßig verwenden Verbindungen selbstsignierte Zertifikate, aber in Unternehmens- oder WebRTC-Gateway-Konfigurationen können stattdessen signierte Zertifikatsketten von Zwischen- und Root-Zertifizierungsstellen (CAs) verwendet werden.
+Diese Eigenschaft ermöglicht es Ihnen, bei Bedarf die Zertifikatskette zu durchlaufen.
 
 ## Wert
 

@@ -2,10 +2,10 @@
 title: CSSMathSum
 slug: Web/API/CSSMathSum
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
 Das **`CSSMathSum`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert das Ergebnis, das durch Aufrufen von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
 
@@ -18,7 +18,7 @@ Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`St
 - [`CSSMathSum()`](/de/docs/Web/API/CSSMathSum/CSSMathSum) {{Experimental_Inline}}
   - : Erstellt ein neues `CSSMathSum`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`CSSMathSum.values`](/de/docs/Web/API/CSSMathSum/values)
   - : Gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
@@ -27,13 +27,13 @@ Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`St
 
 _Das Interface kann auch Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Das Interface kann auch Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer {{cssxref("width")}}, die durch eine {{cssxref("calc()")}}-Funktion bestimmt wird, dann verwenden wir [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` und die `values` auszugeben, und untersuchen die Werte ein wenig.
+Wir erstellen ein Element mit einer {{cssxref("width")}}, die mithilfe einer {{cssxref("calc()")}}-Funktion bestimmt wird, dann verwenden wir [`console.log()`](/de/docs/Web/API/console/log_static) für den `operator` und die `values` und untersuchen die Werte genauer.
 
 ```html
 <div>has width</div>
@@ -65,7 +65,7 @@ console.log(styleMap.get("width").values[1].unit); // 'px'
 
 {{EmbedLiveSample("Examples", 120, 300)}}
 
-Die Spezifikation entwickelt sich noch weiter. In Zukunft könnten wir die letzten drei Zeilen wie folgt schreiben:
+Die Spezifikation ist noch in Entwicklung. In Zukunft könnten wir die letzten drei Zeilen wie folgt schreiben:
 
 ```js
 console.log(styleMap.get("width").values[1]); // CSSMathNegate {value: CSSUnitValue, operator: "negate"}

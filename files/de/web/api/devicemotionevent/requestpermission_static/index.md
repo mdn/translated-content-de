@@ -1,14 +1,14 @@
 ---
-title: "DeviceMotionEvent: Static-Methode requestPermission()"
+title: "DeviceMotionEvent: requestPermission() statische Methode"
 short-title: requestPermission()
 slug: Web/API/DeviceMotionEvent/requestPermission_static
 l10n:
-  sourceCommit: bcfc05aac40b47aecad69d44c54e33bf5f9b4e41
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("Device Orientation Events")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`requestPermission()`**-Methode der Schnittstelle [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) fordert die Erlaubnis des Benutzers an, auf Bewegungsdaten des Geräts von den Beschleunigungs- und Gyroskopsensoren zuzugreifen. Diese Methode erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}}, was bedeutet, dass sie durch eine Benutzeroberflächeninteraktion wie einen Klick auf eine Schaltfläche ausgelöst werden muss.
+Die **`requestPermission()`** statische Methode der [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) Schnittstelle fordert die Erlaubnis des Benutzers an, auf Bewegungsdaten des Geräts von den Beschleunigungs- und Gyroskop-Sensoren zuzugreifen. Diese Methode erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}}, was bedeutet, dass sie durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden muss.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem String aufgelöst wird, der entweder `"granted"` oder `"denied"` ist.
+Ein {{jsxref("Promise")}}, das mit einem String aufgelöst wird, der entweder `"granted"` oder `"denied"` ist.
 
 ### Ausnahmen
 
@@ -33,11 +33,11 @@ Das zurückgegebene Promise wird mit den folgenden Ausnahmen abgelehnt:
 
 ## Sicherheit
 
-Eine [transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Eine [transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktionalität funktioniert.
 
 ## Beispiele
 
-### Anfordern der Bewegungsberechtigung des Geräts bei Klick
+### Anfordern der Erlaubnis für Bewegungsdaten bei Klick
 
 ```js
 document.querySelector("button").addEventListener("click", async () => {

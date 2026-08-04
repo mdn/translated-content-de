@@ -3,14 +3,14 @@ title: "RTCIceCandidatePair: lokale Eigenschaft"
 short-title: local
 slug: Web/API/RTCIceCandidatePair/local
 l10n:
-  sourceCommit: 7dae8cc1bbde35982df7baaa495714f45a064913
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`local`**-Eigenschaft der Schnittstelle [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair) gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der die Konfiguration des lokalen Endes einer funktionierenden WebRTC-Verbindung beschreibt.
+Die **`local`**-Eigenschaft des [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Interfaces spezifiziert den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des lokalen Endes einer funktionsfähigen WebRTC-Verbindung beschreibt.
 
-Das `RTCIceCandidatePair` wird von der Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) von [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) zurückgegeben.
+Das `RTCIceCandidatePair` wird von der Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) zurückgegeben.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate).
 
 ### Grundlegende Verwendung
 
-Dieses einzeilige Beispiel erhält das aktuelle Kandidatenpaar und ermittelt daraus den lokalen Kandidaten.
+Dieses einzeilige Beispiel erhält das aktuelle Kandidatenpaar und davon den lokalen Kandidaten.
 
 ```js
 const candidatePair = pc

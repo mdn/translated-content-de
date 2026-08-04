@@ -2,12 +2,12 @@
 title: CSSMathClamp
 slug: Web/API/CSSMathClamp
 l10n:
-  sourceCommit: 0266df57cb5eb52a057e305ba12d49c93f0edb7e
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSMathClamp`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS {{CSSXref("clamp","clamp()")}}-Funktion. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Das **`CSSMathClamp`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS-{{CSSXref("clamp","clamp()")}}-Funktion. Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt.
 
 {{InheritanceDiagram}}
 
@@ -16,22 +16,22 @@ Die **`CSSMathClamp`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/W
 - [`CSSMathClamp()`](/de/docs/Web/API/CSSMathClamp/CSSMathClamp)
   - : Erstellt ein neues `CSSMathClamp`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`CSSMathClamp.lower`](/de/docs/Web/API/CSSMathClamp/lower)
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Minimalwert enthält.
 - [`CSSMathClamp.value`](/de/docs/Web/API/CSSMathClamp/value)
   - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den bevorzugten Wert enthält.
 - [`CSSMathClamp.upper`](/de/docs/Web/API/CSSMathClamp/upper)
-  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den oberen Wert enthält.
+  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den Höchstwert enthält.
 
 ## Statische Methoden
 
-_Die Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Das Interface erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Das Interface erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
 ## Beispiele
 

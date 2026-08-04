@@ -3,12 +3,12 @@ title: "StylePropertyMapReadOnly: get()-Methode"
 short-title: get()
 slug: Web/API/StylePropertyMapReadOnly/get
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`get()`**-Methode des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt für den ersten Wert der angegebenen Eigenschaft zurück.
+Die **`get()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt für den ersten Wert der angegebenen Eigenschaft zurück.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Lassen Sie uns ein paar Eigenschaften und Werte abrufen. Beginnen wir damit, einen Link innerhalb eines Absatzes in unserem HTML zu erstellen, und fügen eine Definitionsliste hinzu, die wir mit JavaScript füllen werden:
+Lassen Sie uns nur einige Eigenschaften und Werte abrufen. Beginnen wir mit dem Erstellen eines Links innerhalb eines Absatzes in unserem HTML und fügen eine Definitionsliste hinzu, die wir mit JavaScript befüllen:
 
 ```html
 <p>
@@ -38,7 +38,7 @@ Lassen Sie uns ein paar Eigenschaften und Werte abrufen. Beginnen wir damit, ein
 <dl id="results"></dl>
 ```
 
-Wir fügen ein bisschen CSS hinzu, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
+Wir fügen etwas CSS hinzu, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
 
 ```css
 p {

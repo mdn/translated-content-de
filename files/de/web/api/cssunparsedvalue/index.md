@@ -2,14 +2,14 @@
 title: CSSUnparsedValue
 slug: Web/API/CSSUnparsedValue
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSUnparsedValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert Eigenschaftswerte, die auf [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables) verweisen. Es besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
+Die **`CSSUnparsedValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert Eigenschaftswerte, die auf [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables) verweisen. Sie besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
 
-Benutzerdefinierte Eigenschaften werden durch `CSSUnparsedValue` dargestellt und {{cssxref("var", "var()")}}-Referenzen werden unter Verwendung von [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) dargestellt.
+Benutzerdefinierte Eigenschaften werden durch `CSSUnparsedValue` dargestellt und {{cssxref("var", "var()")}}-Referenzen werden mit [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) dargestellt.
 
 {{InheritanceDiagram}}
 
@@ -26,7 +26,7 @@ Benutzerdefinierte Eigenschaften werden durch `CSSUnparsedValue` dargestellt und
 ## Instanz-Methoden
 
 - [`CSSUnparsedValue.entries()`](/de/docs/Web/API/CSSUnparsedValue/entries)
-  - : Gibt ein Array der eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts in der gleichen Reihenfolge zurück, wie sie durch eine {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
+  - : Gibt ein Array der eigenen aufzählbaren `[key, value]` Paare eines gegebenen Objekts in derselben Reihenfolge zurück, die auch von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in Schleife auch Eigenschaften in der Prototypenkette aufzählt).
 - [`CSSUnparsedValue.forEach()`](/de/docs/Web/API/CSSUnparsedValue/forEach)
   - : Führt eine bereitgestellte Funktion einmal für jedes Element des `CSSUnparsedValue`-Objekts aus.
 - [`CSSUnparsedValue.keys()`](/de/docs/Web/API/CSSUnparsedValue/keys)

@@ -1,22 +1,22 @@
 ---
-title: "CSSTransformComponent: is2D-Eigenschaft"
+title: "CSSTransformComponent: is2D Eigenschaft"
 short-title: is2D
 slug: Web/API/CSSTransformComponent/is2D
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`is2D`**-Eigenschaft der Schnittstelle [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) zeigt an, ob die Transformation 2D oder 3D ist.
+Die schreibgeschützte Eigenschaft **`is2D`** der [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Schnittstelle zeigt an, ob die Transformation 2D oder 3D ist.
 
 ## Wert
 
-Ein Boolean. True bedeutet, dass die Transformation eine 2D-Transformation ist, false, wenn sie eine 3D-Transformation ist.
+Ein Boolean-Wert. True, wenn die Transformation eine 2D-Transformation ist, false, wenn es sich um eine 3D-Transformation handelt.
 
 ## Beispiele
 
-To Do
+Noch zu erledigen
 
 ## Spezifikationen
 

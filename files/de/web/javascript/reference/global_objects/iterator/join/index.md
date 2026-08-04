@@ -3,10 +3,12 @@ title: Iterator.prototype.join()
 short-title: join()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/join
 l10n:
-  sourceCommit: 7c2fdcaace1ab622a1055b7cc710297c452ce9ee
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-Die **`join()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.join()")}}: sie gibt einen String zurück, der die Verkettung aller vom Iterator erzeugten Elemente ist, getrennt durch Kommas oder einen angegebenen Trennzeichen-String. Hat der Iterator nur ein Element, wird das zur Stringifizierung gebrachte Element ohne Verwendung des Trennzeichens zurückgegeben.
+{{SeeCompatTable}}
+
+Die **`join()`**-Methode von {{jsxref("Iterator")}}-Instanzen ist ähnlich wie {{jsxref("Array.prototype.join()")}}: Sie gibt einen String zurück, der die Verkettung aller vom Iterator produzierten Elemente ist, getrennt durch Kommata oder eine angegebene Trennzeichen-String. Hat der Iterator nur ein Element, wird dessen String-Darstellung ohne das Trennzeichen zurückgegeben.
 
 ## Syntax
 
@@ -18,15 +20,15 @@ join(separator)
 ### Parameter
 
 - `separator` {{optional_inline}}
-  - : Ein String, der jeweils ein Paar benachbarter Elemente des Iterators trennt. Wenn er weggelassen wird, werden die Elemente mit einem Komma (",") getrennt.
+  - : Ein String, der verwendet wird, um jedes Paar von benachbarten Elementen des Iterators zu trennen. Wenn ausgelassen, werden die Elemente mit einem Komma (",") getrennt.
 
 ### Rückgabewert
 
-Ein String, der alle erzeugten Elemente verbindet. Die Elemente werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn ein Element `undefined` oder `null` ist, wird es in einen leeren String anstelle des Strings `"null"` oder `"undefined"` umgewandelt. Ist der Iterator leer, wird der leere String zurückgegeben.
+Ein String, der alle erzeugten Elemente verbindet. Die Elemente werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Wenn ein Element `undefined` oder `null` ist, wird es in einen leeren String konvertiert, anstatt in den String `"null"` oder `"undefined"`. Wenn der Iterator leer ist, wird der leere String zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.join()")}} für Details, wie `join()` funktioniert. Im Gegensatz zu den meisten anderen Iterator-Hilfsmethoden funktioniert diese nicht gut mit unendlichen Iteratoren, da sie nicht lazy ist.
+Siehe {{jsxref("Array.prototype.join()")}} für Details darüber, wie `join()` funktioniert. Im Gegensatz zu den meisten anderen Iterator-Hilfsmethoden funktioniert sie nicht gut mit unendlichen Iteratoren, da sie nicht 'lazy' ist.
 
 ## Beispiele
 

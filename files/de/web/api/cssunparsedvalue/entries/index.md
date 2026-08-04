@@ -1,14 +1,14 @@
 ---
-title: "CSSUnparsedValue: entries() Methode"
+title: "CSSUnparsedValue: entries()-Methode"
 short-title: entries()
 slug: Web/API/CSSUnparsedValue/entries
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSUnparsedValue.entries()`** Methode gibt ein Array von `[key, value]` Paaren eines gegebenen Objekts zurück, das seine eigenen aufzählbaren Eigenschaften in derselben Reihenfolge enthält, wie sie von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (mit dem Unterschied, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
+Die **`CSSUnparsedValue.entries()`**-Methode gibt ein Array von `[key, value]`-Paaren der eigenen aufzählbaren Eigenschaften eines gegebenen Objekts zurück, und zwar in derselben Reihenfolge, wie sie eine {{jsxref("Statements/for...in", "for...in")}} Schleife bereitstellt (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette auflistet).
 
 ## Syntax
 
@@ -19,11 +19,11 @@ entries(obj)
 ### Parameter
 
 - `obj`
-  - : Der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), dessen aufzählbare eigene Eigenschaftspaare `[key, value]` zurückgegeben werden sollen.
+  - : Das [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue), dessen aufzählbare eigene `[key, value]`-Paare zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren Eigenschaftspaare `[key, value]` des gegebenen `CSSUnparsedValue` Objekts.
+Ein Array der eigenen aufzählbaren `[key, value]`-Paare des gegebenen `CSSUnparsedValue`-Objekts.
 
 ## Spezifikationen
 
@@ -40,5 +40,5 @@ Ein Array der eigenen aufzählbaren Eigenschaftspaare `[key, value]` des gegeben
 - [`CSSUnparsedValue.keys`](/de/docs/Web/API/CSSUnparsedValue/keys)
 - [`CSSUnparsedValue.length`](/de/docs/Web/API/CSSUnparsedValue/length)
 - [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
-- [Verwendung der CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

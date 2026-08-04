@@ -3,12 +3,12 @@ title: "CSSPerspective: CSSPerspective() Konstruktor"
 short-title: CSSPerspective()
 slug: Web/API/CSSPerspective/CSSPerspective
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSPerspective()`** Konstruktor erstellt ein neues [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekt, das den {{cssxref("transform-function/perspective", "perspective()")}} Wert der einzelnen {{CSSXref('transform')}} Eigenschaft in CSS darstellt.
+Der **`CSSPerspective()`** Konstruktor erstellt ein neues [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekt, das den {{cssxref("transform-function/perspective", "perspective()")}} Wert der individuellen {{CSSXref('transform')}} Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -19,7 +19,8 @@ new CSSPerspective(length)
 ### Parameter
 
 - [`length`](/de/docs/Web/API/CSSPerspective/length)
-  - : Ein Wert für die Entfernung von z=0 des zu konstruierenden [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekts. Dies muss ein {{cssxref('length')}} sein.
+  - : Ein Wert für die Distanz von z=0 des zu konstruierenden [`CSSPerspective`](/de/docs/Web/API/CSSPerspective) Objekts.
+    Dies muss ein {{cssxref('length')}} sein.
 
 ### Ausnahmen
 
@@ -28,7 +29,7 @@ new CSSPerspective(length)
 
 ## Beispiele
 
-Noch zu erledigen
+In Bearbeitung
 
 ## Spezifikationen
 

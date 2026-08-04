@@ -1,14 +1,14 @@
 ---
-title: "CSSSkew: ax Eigenschaft"
+title: "CSSSkew: ax-Eigenschaft"
 short-title: ax
 slug: Web/API/CSSSkew/ax
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`ax`**-Eigenschaft des [`CSSSkew`](/de/docs/Web/API/CSSSkew)-Interfaces erhält und setzt den Winkel, der verwendet wird, um das Element entlang der x-Achse (oder Abszisse) zu verzerren.
+Die **`ax`**-Eigenschaft der [`CSSSkew`](/de/docs/Web/API/CSSSkew)-Schnittstelle ruft den Wert ab und setzt den Winkel, der verwendet wird, um das Element entlang der x-Achse (oder Abszisse) zu verzerren.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-To do
+In Bearbeitung
 
 ## Spezifikationen
 

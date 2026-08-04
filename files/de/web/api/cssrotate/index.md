@@ -2,13 +2,13 @@
 title: CSSRotate
 slug: Web/API/CSSRotate
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSRotate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den `rotate`-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
-Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSRotate`**-Interface des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Drehwert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
+Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -30,7 +30,7 @@ Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/
 
 ## Beispiele
 
-Noch zu tun.
+Zu erledigen.
 
 ## Spezifikationen
 

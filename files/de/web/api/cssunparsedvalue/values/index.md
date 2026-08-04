@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: values() Methode"
 short-title: values()
 slug: Web/API/CSSUnparsedValue/values
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSUnparsedValue.values()`** Methode gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSUnparsedValue`-Objekt enthält.
+Die **`CSSUnparsedValue.values()`**-Methode gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jedes Index im CSSUnparsedValue-Objekt enthält.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer {{jsxref("Array")}}.
+Ein neues {{jsxref("Array")}}.
 
 ## Spezifikationen
 

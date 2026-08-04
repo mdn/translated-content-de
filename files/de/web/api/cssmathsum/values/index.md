@@ -1,14 +1,14 @@
 ---
-title: "CSSMathSum: values-Eigenschaft"
+title: "CSSMathSum: Werte-Eigenschaft"
 short-title: values
 slug: Web/API/CSSMathSum/values
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSMathSum.values`** schreibgeschützte Eigenschaft der [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
+Die schreibgeschützte Eigenschaft **`CSSMathSum.values`** des [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Interfaces gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 

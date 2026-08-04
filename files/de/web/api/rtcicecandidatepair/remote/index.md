@@ -3,14 +3,14 @@ title: "RTCIceCandidatePair: remote-Eigenschaft"
 short-title: remote
 slug: Web/API/RTCIceCandidatePair/remote
 l10n:
-  sourceCommit: 7dae8cc1bbde35982df7baaa495714f45a064913
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`remote`**-Eigenschaft des [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Interfaces gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der die Konfiguration des entfernten Endes einer funktionsfähigen WebRTC-Verbindung beschreibt.
+Die **`remote`**-Eigenschaft der [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Schnittstelle gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der die Konfiguration des Remote-Endes einer funktionierenden WebRTC-Verbindung beschreibt.
 
-Das `RTCIceCandidatePair` wird von der Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) zurückgegeben.
+Das `RTCIceCandidatePair` wird von der [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair)-Methode von [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) zurückgegeben.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses einzeilige Beispiel erhält das aktuelle Kandidatenpaar und daraus den entfernten Kandidaten.
+Dieses einzeilige Beispiel erhält das aktuelle Kandidatenpaar und daraus den Remote-Kandidaten.
 
 ```js
 const candidatePair = pc
@@ -29,7 +29,7 @@ const candidatePair = pc
 const remoteCandidate = candidatePair.remote;
 ```
 
-Das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird gefunden, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird.
+Das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird ermittelt, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für den [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird.
 Im ersten `RTCRtpSender` erhalten wir das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über das die Mediendaten übertragen werden, und schließlich daraus das `RTCIceTransport`.
 
 ## Spezifikationen

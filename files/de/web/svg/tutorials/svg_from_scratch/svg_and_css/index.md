@@ -2,29 +2,28 @@
 title: SVG und CSS
 slug: Web/SVG/Tutorials/SVG_from_scratch/SVG_and_CSS
 l10n:
-  sourceCommit: d559e66723de93ce6c59eb5d22a29afca7265c2a
+  sourceCommit: a988fe7e721539634bad936da7259ffbad37d0e5
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Tools_for_SVG") }}
 
 Diese Seite veranschaulicht die Anwendung von CSS auf die spezialisierte Sprache zur Erstellung von Grafiken: [SVG](/de/docs/Web/SVG).
 
-Im Folgenden erstellen Sie eine Demonstration, die in einem Browser ausgeführt wird.
+Unten erstellen Sie eine Demonstration, die in einem Browser läuft.
 
 > [!NOTE]
-> Elemente, die durch {{SVGElement("use")}}-Elemente referenziert werden, erben die Stile von diesem Element. Um ihnen unterschiedliche Stile zuzuweisen, sollten Sie [CSS-Custom-Properties](/de/docs/Web/CSS/Guides/Cascading_variables) verwenden.
+> Elemente, die von {{SVGElement("use")}}-Elementen referenziert werden, erben die Stile von diesem Element. Um ihnen unterschiedliche Stile zuzuweisen, sollten Sie [CSS-Kundeneigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables) verwenden.
 
 ## Beispiel
 
-Erstellen Sie ein neues SVG-Dokument als einfache Textdatei, `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein, und stellen Sie sicher, dass Sie scrollen, um alles zu erfassen:
+Erstellen Sie ein neues SVG-Dokument als eine einfache Textdatei, `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein, und stellen Sie sicher, dass Sie scrollen, um alles zu erfassen:
 
 ```html live-sample___example
 <svg
   width="600px"
   height="600px"
   viewBox="-300 -300 600 600"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+  xmlns="http://www.w3.org/2000/svg">
   <link
     xmlns="http://www.w3.org/1999/xhtml"
     rel="stylesheet"
@@ -251,7 +250,7 @@ Erstellen Sie ein neues SVG-Dokument als einfache Textdatei, `doc8.svg`. Kopiere
 </svg>
 ```
 
-Erstellen Sie eine neue CSS-Datei, `style8.css`, im selben Verzeichnis wie `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein, und stellen Sie sicher, dass Sie scrollen, um alles zu erfassen:
+Erstellen Sie eine neue CSS-Datei, `style8.css` im gleichen Verzeichnis wie `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein, und stellen Sie sicher, dass Sie scrollen, um alles zu erfassen:
 
 ```css live-sample___example
 /*** SVG demonstration ***/
@@ -384,13 +383,13 @@ svg {
 }
 ```
 
-Öffnen Sie das `doc8.svg`-Dokument in Ihrem SVG-fähigen Browser. Bewegen Sie Ihren Mauszeiger über die Grafik, um zu sehen, was passiert.
+Öffnen Sie das Dokument `doc8.svg` in Ihrem SVG-fähigen Browser. Bewegen Sie den Mauszeiger über die Grafik, um zu sehen, was passiert.
 
 ### Ergebnis
 
 {{EmbedLiveSample("example", "660", "660")}}
 
-Hinweise zu dieser Demonstration:
+Anmerkungen zu dieser Demonstration:
 
 - Das SVG-Dokument verlinkt das Stylesheet mit dem folgenden HTML `<link>`-Tag:
 
@@ -410,12 +409,12 @@ Hinweise zu dieser Demonstration:
 
 ### Herausforderung
 
-Ändern Sie das Stylesheet so, dass alle inneren Blütenblätter pink werden, wenn der Mauszeiger über einem von ihnen schwebt, ohne die Funktionsweise der äußeren Blütenblätter zu ändern.
+Ändern Sie das Stylesheet so, dass alle inneren Blütenblätter rosa werden, wenn der Mauszeiger über eines von ihnen bewegt wird, ohne die Arbeitsweise der äußeren Blütenblätter zu ändern.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung zu sehen</summary>
 
-Ändern Sie die Position der `:hover`-Pseudoklasse von einem bestimmten Blütenblatt auf alle Blütenblätter:
+Verschieben Sie die Position der `:hover`-Pseudoklasse von einem bestimmten Blütenblatt auf alle Blütenblätter:
 
 ```css
 #inner-petals {
@@ -433,7 +432,7 @@ Hinweise zu dieser Demonstration:
 
 ## Vereinfachte Struktur
 
-Die oben gezeigte SVG-Struktur könnte viel prägnanter geschrieben werden, indem die einzelnen Teile der Blume über {{SVGElement("use")}}-Elemente referenziert werden. Dieses [Verhalten ist standardisiert](https://w3c.github.io/svgwg/svg2-draft/struct.html#UseStyleInheritance), obwohl momentan nur wenige Browser die {{cssxref(":hover")}}-Pseudoklasse und andere komplexere CSS-Selektoren auf Elemente unterstützen, die über `<use>`-Elemente referenziert werden. Es gibt [einige Diskussionen darüber, welche Regeln auf solche referenzierten Elemente angewendet werden](https://github.com/w3c/svgwg/issues/504).
+Die oben gezeigte SVG-Struktur könnte viel prägnanter geschrieben werden, indem die einzelnen Teile der Blume über {{SVGElement("use")}}-Elemente referenziert werden. Dieses [Verhalten ist standardisiert](https://w3c.github.io/svgwg/svg2-draft/struct.html#UseStyleInheritance), obwohl momentan nur wenige Browser die {{cssxref(":hover")}}-Pseudoklasse und andere komplexere CSS-Selektoren auf Elemente unterstützen, die über `<use>`-Elemente referenziert werden. Es gibt [eine Diskussion darüber, welche Regeln für solche referenzierten Elemente gelten](https://github.com/w3c/svgwg/issues/504).
 
 Sehen Sie unten, wie die Struktur dann aussieht.
 
@@ -442,8 +441,7 @@ Sehen Sie unten, wie die Struktur dann aussieht.
   width="600px"
   height="600px"
   viewBox="-300 -300 600 600"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
+  xmlns="http://www.w3.org/2000/svg">
   <link
     xmlns="http://www.w3.org/1999/xhtml"
     rel="stylesheet"
@@ -504,4 +502,4 @@ Sehen Sie unten, wie die Struktur dann aussieht.
 
 ## Was nun?
 
-In dieser Demonstration weiß Ihr SVG-fähiger Browser bereits, wie SVG-Elemente angezeigt werden sollen. Das Stylesheet verändert die Anzeige nur auf bestimmte Weise. Dies trifft auch auf HTML-Dokumente zu. Aber Sie können CSS für allgemeine XML-Dokumente verwenden, bei denen es keine vordefinierte Anzeigeweise für die Elemente gibt. Die nächste Seite demonstriert dies: [XML-Einführung](/de/docs/Web/XML/Guides/XML_introduction)
+In dieser Demonstration weiß Ihr SVG-fähiger Browser bereits, wie SVG-Elemente angezeigt werden. Das Stylesheet verändert die Darstellung nur in bestimmter Weise. Dies gilt auch für HTML-Dokumente. Aber Sie können CSS für allgemeine XML-Dokumente verwenden, bei denen es keine vordefinierte Möglichkeit gibt, die Elemente anzuzeigen. Die nächste Seite demonstriert dies: [Einführung in XML](/de/docs/Web/XML/Guides/XML_introduction)

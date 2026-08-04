@@ -2,23 +2,23 @@
 title: RTCIceCandidatePair
 slug: Web/API/RTCIceCandidatePair
 l10n:
-  sourceCommit: fa1301aead2cee37516b7ad5a5ec2fb21e004227
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Das **`RTCIceCandidatePair`**-Wörterbuch beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer möglichen Verbindung zwischen zwei WebRTC-Endpunkten darstellen. Es wird als Rückgabewert von [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) verwendet, um das derzeit vom ICE-Agenten ausgewählte Kandidatenpaar zu identifizieren.
+Das **`RTCIceCandidatePair`** Dictionary beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer möglichen Verbindung zwischen zwei WebRTC-Endpunkten bilden. Es wird als Rückgabewert von [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) verwendet, um das aktuell vom ICE-Agenten ausgewählte Kandidatenpaar zu identifizieren.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- [`local`](/de/docs/Web/API/RTCIceCandidatePair/local)
-  - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), das die Konfiguration des lokalen Endes der Verbindung beschreibt.
-- [`remote`](/de/docs/Web/API/RTCIceCandidatePair/remote)
+- [`local`](/de/docs/Web/API/RTCIceCandidatePair/local) {{experimental_inline}}
+  - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des lokalen Endes der Verbindung beschreibt.
+- [`remote`](/de/docs/Web/API/RTCIceCandidatePair/remote) {{experimental_inline}}
   - : Der **`RTCIceCandidate`**, der die Konfiguration des entfernten Endes der Verbindung beschreibt.
 
 ## Beispiele
 
-Beispielcode finden Sie unter [`RTCIceTransport.onselectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event#examples).
+Siehe [`RTCIceTransport.onselectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event#examples) für Beispielcode.
 
 ## Spezifikationen
 

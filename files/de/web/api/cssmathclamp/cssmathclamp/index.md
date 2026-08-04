@@ -3,12 +3,12 @@ title: "CSSMathClamp: CSSMathClamp() Konstruktor"
 short-title: CSSMathClamp()
 slug: Web/API/CSSMathClamp/CSSMathClamp
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSMathClamp()`** Konstruktor erstellt ein neues [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekt, das eine CSS {{CSSXref("clamp", "clamp()")}}-Funktion repräsentiert.
+Der **`CSSMathClamp()`** Konstruktor erstellt ein neues [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekt, das eine CSS-{{CSSXref("clamp", "clamp()")}}-Funktion darstellt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new CSSMathClamp(lower, value, upper)
 ### Parameter
 
 - `lower`
-  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – das den Mindestwert darstellt.
+  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – die den minimalen Wert darstellt.
 - `value`
-  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – das den bevorzugten Wert darstellt.
+  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – die den bevorzugten Wert darstellt.
 - `upper`
-  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – das den Höchstwert darstellt.
+  - : Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt – entweder eine Zahl oder [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) – die den maximalen Wert darstellt.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ new CSSMathClamp(lower, value, upper)
 
 ## Beispiele
 
-To do
+In Bearbeitung
 
 ## Spezifikationen
 

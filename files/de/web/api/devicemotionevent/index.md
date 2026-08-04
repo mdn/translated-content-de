@@ -2,15 +2,15 @@
 title: DeviceMotionEvent
 slug: Web/API/DeviceMotionEvent
 l10n:
-  sourceCommit: bcfc05aac40b47aecad69d44c54e33bf5f9b4e41
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`DeviceMotionEvent`** Interface der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) bietet Webentwicklern Informationen über die Geschwindigkeit der Änderungen der Position und Ausrichtung des Geräts.
+Das **`DeviceMotionEvent`**-Interface der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) bietet Webentwicklern Informationen über die Geschwindigkeit von Änderungen in der Position und Orientierung des Geräts.
 
 > [!WARNING]
-> Derzeit behandeln Firefox und Chrome die Koordinaten nicht auf die gleiche Weise. Achten Sie darauf, wenn Sie diese verwenden.
+> Zurzeit behandeln Firefox und Chrome die Koordinaten nicht auf die gleiche Weise. Achten Sie darauf, wenn Sie sie verwenden.
 
 {{InheritanceDiagram}}
 
@@ -21,19 +21,19 @@ Das **`DeviceMotionEvent`** Interface der [Device Orientation Events](/de/docs/W
 
 ## Statische Methoden
 
-- [`DeviceMotionEvent.requestPermission()`](/de/docs/Web/API/DeviceMotionEvent/requestPermission_static) {{experimental_inline}}
-  - : Fordert die Erlaubnis des Benutzers an, auf Bewegungsdaten des Geräts von den Beschleunigungs- und Gyroskopsensoren zuzugreifen. Gibt ein {{jsxref("Promise")}} zurück, das mit einem String von `"granted"` oder `"denied"` erfüllt wird.
+- [`DeviceMotionEvent.requestPermission()`](/de/docs/Web/API/DeviceMotionEvent/requestPermission_static)
+  - : Fordert die Erlaubnis des Benutzers an, auf Bewegungsdaten des Geräts von den Beschleunigungs- und Gyroskopsensoren zuzugreifen. Gibt ein {{jsxref("Promise")}} zurück, das mit einem String von `"granted"` oder `"denied"` aufgelöst wird.
 
 ## Instanz-Eigenschaften
 
 - [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) {{ReadOnlyInline}}
   - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z mit dem Einfluss der Gravitation angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
+  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z inklusive der Wirkung der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
 - [`DeviceMotionEvent.rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) {{ReadOnlyInline}}
-  - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
+  - : Ein Objekt, das die Rate der Veränderung der Orientierung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
 - [`DeviceMotionEvent.interval`](/de/docs/Web/API/DeviceMotionEvent/interval) {{ReadOnlyInline}}
-  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem Daten vom Gerät abgerufen werden.
+  - : Eine Zahl, die das Intervall der Zeit in Millisekunden angibt, in dem Daten vom Gerät abgerufen werden.
 
 ## Beispiel
 
@@ -53,7 +53,7 @@ window.addEventListener("devicemotion", (event) => {
 
 ## Siehe auch
 
-- [Erkennen der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erkennen der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
 - [Erklärung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
 - [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)
 - [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) Ereignis

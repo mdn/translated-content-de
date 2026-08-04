@@ -3,22 +3,22 @@ title: "CSSUnparsedValue: length-Eigenschaft"
 short-title: length
 slug: Web/API/CSSUnparsedValue/length
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`length`** schreibgeschützte Eigenschaft des [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Interface gibt die Anzahl der Elemente im Objekt zurück.
+Die **`length`** schreibgeschützte Eigenschaft des [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Interfaces gibt die Anzahl der Elemente im Objekt zurück.
 
 ## Wert
 
-Eine ganze Zahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-In diesem Beispiel verwenden wir den [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue) Konstruktor und erfragen dann die Länge:
+In diesem Beispiel verwenden wir den [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)-Konstruktor und erfragen dann die Länge:
 
 ```js
 const values = new CSSUnparsedValue(["1em", "#445566", "-45px"]);

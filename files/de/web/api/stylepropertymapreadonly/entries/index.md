@@ -3,12 +3,12 @@ title: "StylePropertyMapReadOnly: entries() Methode"
 short-title: entries()
 slug: Web/API/StylePropertyMapReadOnly/entries
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`StylePropertyMapReadOnly.entries()`** Methode gibt ein Array von `[key, value]` Paaren eines Objekts zurück, das die eigenen aufzählbaren Eigenschaften und Schlüssel des Objekts enthält. Diese stehen in der gleichen Reihenfolge wie bei einer {{jsxref("Statements/for...in", "for...in")}} Schleife (mit dem Unterschied, dass eine for-in-Schleife auch Eigenschaften in der Prototyp-Kette aufzählt).
+Die **`StylePropertyMapReadOnly.entries()`**-Methode gibt ein Array der eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts zurück, in der gleichen Reihenfolge, wie sie durch eine {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypenkette aufzählt).
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array der eigenen aufzählbaren `[key, value]` Paare des `StylePropertyMapReadOnly` Objekts.
+Ein Array der eigenen aufzählbaren `[key, value]`-Paare des gegebenen `StylePropertyMapReadOnly` Objekts.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Der folgende Code zeigt ein Beispiel für die Verwendung der Methode `StylePropertyMapReadOnly.entries()` auf den berechneten Stilen eines Elements.
+Der folgende Code zeigt ein Beispiel für die Verwendung der `StylePropertyMapReadOnly.entries()`-Methode auf den berechneten Stilen eines Elements.
 
 ```js
 // grab a DOM element

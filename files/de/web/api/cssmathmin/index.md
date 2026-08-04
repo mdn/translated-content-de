@@ -2,13 +2,13 @@
 title: CSSMathMin
 slug: Web/API/CSSMathMin
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSMathMin`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS-Funktion {{CSSXref('min','min()')}}.
-Es erbt Eigenschaften und Methoden von seinem Eltern-Interface [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+Die **`CSSMathMin`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS-Funktion {{CSSXref('min','min()')}}.
+Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
@@ -17,18 +17,18 @@ Es erbt Eigenschaften und Methoden von seinem Eltern-Interface [`CSSNumericValue
 - [`CSSMathMin()`](/de/docs/Web/API/CSSMathMin/CSSMathMin) {{Experimental_Inline}}
   - : Erstellt ein neues `CSSMathMin`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`CSSMathMin.values`](/de/docs/Web/API/CSSMathMin/values) {{ReadOnlyInline}}
-  - : Gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray) Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Objekte enthält.
+  - : Gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, welches ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Statische Methoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue), erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Das Interface kann auch Methoden von seinem Eltern-Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue), erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Beispiele
 

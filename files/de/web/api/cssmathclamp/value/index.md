@@ -3,12 +3,12 @@ title: "CSSMathClamp: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSMathClamp/value
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`value`** schreibgeschützte Eigenschaft des [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Interfaces gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den bevorzugten Wert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
+Die schreibgeschützte **`value`**-Eigenschaft der [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den bevorzugten Wert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
 
 ## Wert
 

@@ -3,13 +3,13 @@ title: "CSSRotate: angle-Eigenschaft"
 short-title: angle
 slug: Web/API/CSSRotate/angle
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`angle`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle holt und setzt den Winkel der Rotation.
-Ein positiver Winkel bedeutet eine Rotation im Uhrzeigersinn, ein negativer Winkel eine gegen den Uhrzeigersinn.
+Die **`angle`**-Eigenschaft der [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle erhält und setzt den Winkel der Drehung.
+Ein positiver Winkel bezeichnet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-To Do
+Ausstehend
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: CSSNumericArray
 slug: Web/API/CSSNumericArray
 l10n:
-  sourceCommit: ecc46f2c8d6e09f0aa6e1b3f5194abfcf462e603
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSNumericArray`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) enthält eine Liste von [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekten.
+Das **`CSSNumericArray`**-Interface des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) enthält eine Liste von [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekten.
 
 ## Instanz-Eigenschaften
 
@@ -16,7 +16,7 @@ Das **`CSSNumericArray`**-Interface der [CSS Typed Object Model API](/de/docs/We
 
 ## Beispiele
 
-Zu erledigen.
+To do.
 
 ## Spezifikationen
 

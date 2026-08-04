@@ -3,10 +3,12 @@ title: "`param()` CSS-Funktion"
 short-title: param()
 slug: Web/CSS/Reference/Values/param
 l10n:
-  sourceCommit: 35cd8b781219157e42b289364754cff862c2dd1a
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-Die **`param()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird verwendet, um Link-Parameter festzulegen. Dies kann mit der {{cssxref("link-parameters")}} CSS-Funktion, im Fragment-URL einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der `url()` CSS-Funktion erfolgen.
+{{SeeCompatTable}}
+
+Die **`param()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird verwendet, um Link-Parameter festzulegen. Dies kann mit der {{cssxref("link-parameters")}} CSS-Funktion, im Fragment-URL einer externen Ressource oder im [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier) der `url()` CSS-Funktion geschehen.
 
 ## Syntax
 
@@ -23,10 +25,10 @@ param(--color3, green);
 ## Werte
 
 - [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident)
-  - Ein `<dashed-ident>` ist eine benutzerdefinierte Variable, die als Identifikator in der {{cssxref("env")}} CSS-Funktion verwendet wird, um den Wert zu aktualisieren.
+  - Ein `<dashed-ident>` ist eine vom Benutzer definierte Variable, die als Bezeichner in der {{cssxref("env")}} CSS-Funktion verwendet wird, um den Wert zu aktualisieren.
 
 - `<declaration_value>` {{optional_inline}}
-  - : Ein `<declaration_value>` ist der Wert des zu aktualisierenden Attributs. Wenn der `<declaration-value>` weggelassen wird, stellt er einen leeren Wert dar.
+  - : Ein `<declaration_value>` ist der Wert des Attributs, das aktualisiert wird. Wenn der `<declaration-value>` weggelassen wird, stellt er einen leeren Wert dar.
 
 ## Formale Definition
 
@@ -34,7 +36,7 @@ param(--color3, green);
 
 ## Beispiele
 
-Alle folgenden Beispiele verwenden die gleiche SVG-Datei, welche Attribute mit der {{cssxref("env")}} CSS-Funktion festgelegt hat.
+Alle folgenden Beispiele verwenden dieselbe SVG-Datei, die Attribute mit der {{cssxref("env")}} CSS-Funktion gesetzt hat.
 
 ```svg
 <!-- example of the code in the external SVG file -->
@@ -107,9 +109,9 @@ img {
 
 {{EmbedLiveSample('using_link-parameters_property', '100%', '210px')}}
 
-### Übergabe der `param()` in den URL-Modifikator
+### Übergabe von `param()` in den URL-Modifizierer
 
-In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die `param()` Funktion in das URL-Fragment des [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) Attributs des {{htmlelement("img")}} HTML-Elements übergeben wird.
+In diesem Beispiel werden die SVG-Attribute durch Übergabe der `param()` Funktion in das URL-Fragment des [`src`](/de/docs/Web/HTML/Reference/Elements/img#src) Attributs des {{htmlelement("img")}} HTML-Elements aktualisiert.
 
 ```html-nolint
 <img
@@ -120,7 +122,7 @@ In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die `param()` Fu
 
 ### Verwendung von `param()` mit der `background-image` Eigenschaft
 
-In diesem Beispiel werden die SVG-Attribute aktualisiert, indem die `param()` Funktion in den {{cssxref("url","url()")}} Datentyp der {{cssxref("background-image")}} CSS-Eigenschaft übergeben wird.
+In diesem Beispiel werden die SVG-Attribute durch Übergabe der `param()` Funktion in den {{cssxref("url","url()")}} Datentyp der {{cssxref("background-image")}} CSS-Eigenschaft aktualisiert.
 
 ```css-nolint
 .foo {

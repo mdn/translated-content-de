@@ -3,10 +3,10 @@ title: "CSSUnitValue: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSUnitValue/value
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
 Die **`CSSUnitValue.value`**-Eigenschaft der [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Schnittstelle gibt ein Double zurück, das die Anzahl der Einheiten angibt.
 
@@ -18,7 +18,7 @@ Ein Double.
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt einen [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue`-Konstruktoren und fragt dann die `CSSUnitValue.value` ab.
+Der folgende Code erstellt einen [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue`-Konstruktoren und fragt dann den `CSSUnitValue.value` ab.
 
 ```js
 const pos = new CSSPositionValue(

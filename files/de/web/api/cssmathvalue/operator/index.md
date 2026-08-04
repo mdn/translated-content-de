@@ -1,14 +1,15 @@
 ---
-title: "CSSMathValue: operator-Eigenschaft"
+title: "CSSMathValue: operator Eigenschaft"
 short-title: operator
 slug: Web/API/CSSMathValue/operator
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSMathValue.operator`** schreibgeschützte Eigenschaft des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt. Beispielsweise, wenn der aktuelle `CSSMathValue`-Subtyp `CSSMathSum` ist, gibt diese Eigenschaft den String `"sum"` zurück.
+Die schreibgeschützte Eigenschaft **`CSSMathValue.operator`** des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt.
+Wenn der aktuelle `CSSMathValue`-Subtyp beispielsweise `CSSMathSum` ist, wird diese Eigenschaft den String `"sum"` zurückgeben.
 
 ## Wert
 
@@ -28,7 +29,7 @@ Ein {{jsxref('String')}}.
 
 ### Grundlegende Verwendung
 
-Wir erstellen ein Element mit einer durch eine {{cssxref("calc()")}}-Funktion bestimmten {{cssxref("width")}} und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static) auf den `operator`.
+Wir erstellen ein Element mit einer {{cssxref("width")}}, die mit einer {{cssxref("calc()")}}-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
 
 ```html
 <div>My width has a <code>calc()</code> function</div>
@@ -55,7 +56,7 @@ console.log(styleMap.get("width").values[1].operator); // 'negate'
 
 {{EmbedLiveSample("Grundlegende Verwendung", 120, 300)}}
 
-Der `CSSMathValue.operator` gibt `sum` für die Gleichung und `negate` für den Operator beim zweiten Wert zurück.
+`CSSMathValue.operator` gibt `sum` für die Gleichung und `negate` für den Operator auf dem zweiten Wert zurück.
 
 ## Spezifikationen
 

@@ -3,10 +3,10 @@ title: "CSSVariableReferenceValue: CSSVariableReferenceValue() Konstruktor"
 short-title: CSSVariableReferenceValue()
 slug: Web/API/CSSVariableReferenceValue/CSSVariableReferenceValue
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
 Erstellt ein neues [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue).
 
@@ -20,9 +20,9 @@ new CSSVariableReferenceValue(variable, fallback)
 ### Parameter
 
 - `variable`
-  - : Ein [Name einer benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*).
+  - : Ein [benutzerdefinierter Eigenschaftsname](/de/docs/Web/CSS/Reference/Properties/--*).
 - `fallback` {{optional_inline}}
-  - : Ein [Fallback-Wert einer benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties#custom_property_fallback_values).
+  - : Ein [benutzerdefinierter Fallback-Wert für Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties#custom_property_fallback_values).
 
 ## Spezifikationen
 

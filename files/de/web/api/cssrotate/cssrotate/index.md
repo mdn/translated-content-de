@@ -3,12 +3,12 @@ title: "CSSRotate: CSSRotate() Konstruktor"
 short-title: CSSRotate()
 slug: Web/API/CSSRotate/CSSRotate
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSRotate()`** Konstruktor erstellt ein neues [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekt, das den {{cssxref("transform-function/rotate", "rotate()")}}-Wert der individuellen {{CSSXref('transform')}}-Eigenschaft in CSS darstellt.
+Der **`CSSRotate()`** Konstruktor erzeugt ein neues [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekt, das den {{cssxref("transform-function/rotate", "rotate()")}}-Wert der individuellen {{CSSXref('transform')}}-Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new CSSRotate(x, y, z, angle)
 ### Parameter
 
 - [`x`](/de/docs/Web/API/CSSRotate/x)
-  - : Ein Wert für die x-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+  - : Ein Wert für die x-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) von `unit: "number"` eingeschlossen wird) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 - [`y`](/de/docs/Web/API/CSSRotate/y)
-  - : Ein Wert für die y-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+  - : Ein Wert für die y-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) von `unit: "number"` eingeschlossen wird) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 - [`z`](/de/docs/Web/API/CSSRotate/z)
-  - : Ein Wert für die z-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
+  - : Ein Wert für die z-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss entweder eine Zahl sein (die in ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) von `unit: "number"` eingeschlossen wird) oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 - [`angle`](/de/docs/Web/API/CSSRotate/angle)
   - : Ein Wert für den Winkel des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dieser muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 

@@ -1,14 +1,14 @@
 ---
-title: "CSSNumericValue: toSum()-Methode"
+title: "CSSNumericValue: toSum() Methode"
 short-title: toSum()
 slug: Web/API/CSSNumericValue/toSum
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle wandelt den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt um, um Werte der angegebenen Einheit darzustellen.
+Die **`toSum()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, um Werte der angegebenen Einheit zu erhalten.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wird.
+  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 
 ## Beispiele
 

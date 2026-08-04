@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: CSSUnparsedValue() Konstruktor"
 short-title: CSSUnparsedValue()
 slug: Web/API/CSSUnparsedValue/CSSUnparsedValue
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Objekt, das Eigenschaftswerte darstellt, die auf benutzerdefinierte Eigenschaften verweisen.
+Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Objekt, das Eigenschaftswerte repräsentiert, die auf benutzerdefinierte Eigenschaften verweisen.
 
 ## Syntax
 

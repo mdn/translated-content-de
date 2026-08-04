@@ -1,14 +1,14 @@
 ---
-title: "StylePropertyMapReadOnly: forEach() Methode"
+title: "StylePropertyMapReadOnly: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/StylePropertyMapReadOnly/forEach
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`StylePropertyMapReadOnly.forEach()`** Methode führt eine bereitgestellte Funktion einmal für jedes Element von [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) aus.
+Die **`StylePropertyMapReadOnly.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element von [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) aus.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Die Funktion, die für jedes Element ausgeführt wird und drei Argumente nimmt:
+  - : Die Funktion, die für jedes Element ausgeführt wird und drei Argumente annimmt:
     - `currentValue`
       - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
@@ -29,7 +29,8 @@ forEach(callbackFn, thisArg)
       - : Das StylePropertyMapReadOnly, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d.h. das Referenz-`Objekt`) beim Ausführen von `callback` verwendet wird.
+  - : Der Wert, der als **`this`** (d.h. das referenzierte
+    `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -39,7 +40,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Grundlegende Verwendung
 
-Der folgende Code ist ein Beispiel für die Verwendung von `forEach()` auf einer abgerufenen [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap).
+Der folgende Code ist ein Beispiel für die Verwendung von `forEach()` auf einem abgerufenen [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap).
 
 ```js
 // get a button element

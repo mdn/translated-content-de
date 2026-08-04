@@ -3,10 +3,10 @@ title: "MediaStreamTrackProcessor: totalFrames-Eigenschaft"
 short-title: totalFrames
 slug: Web/API/MediaStreamTrackProcessor/totalFrames
 l10n:
-  sourceCommit: beddbc32e7841660ea31e0bb27b024d8882b3173
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("Insertable Streams for MediaStreamTrack API")}}
+{{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}
 
 Die **`totalFrames`**-Eigenschaft des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Interfaces gibt eine Zahl zurück, die angibt, wie viele Frames insgesamt vom Prozessor empfangen wurden.
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 async function init() {

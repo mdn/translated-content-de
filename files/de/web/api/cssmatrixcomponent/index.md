@@ -2,12 +2,12 @@
 title: CSSMatrixComponent
 slug: Web/API/CSSMatrixComponent
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSMatrixComponent`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Werte {{cssxref("transform-function/matrix", "matrix()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSMatrixComponent`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Werte {{cssxref("transform-function/matrix", "matrix()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -16,14 +16,14 @@ Die **`CSSMatrixComponent`**-Schnittstelle der [CSS Typed Object Model API](/de/
 - [`CSSMatrixComponent()`](/de/docs/Web/API/CSSMatrixComponent/CSSMatrixComponent)
   - : Erstellt ein neues `CSSMatrixComponent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`matrix`](/de/docs/Web/API/CSSMatrixComponent/matrix)
   - : Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt.
 
 ## Beispiele
 
-Noch zu erledigen.
+In Bearbeitung.
 
 ## Spezifikationen
 

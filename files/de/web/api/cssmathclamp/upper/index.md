@@ -3,12 +3,12 @@ title: "CSSMathClamp: upper-Eigenschaft"
 short-title: upper
 slug: Web/API/CSSMathClamp/upper
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`upper`** schreibgeschützte Eigenschaft des [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Interfaces gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den maximalen Wert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
+Die **`upper`**-Eigenschaft, eine schreibgeschützte Eigenschaft der [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Schnittstelle, gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück, das den maximalen Wert eines [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)-Objekts enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-In Bearbeitung
+To do
 
 ## Spezifikationen
 

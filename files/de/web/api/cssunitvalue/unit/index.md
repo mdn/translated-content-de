@@ -3,22 +3,22 @@ title: "CSSUnitValue: unit-Eigenschaft"
 short-title: unit
 slug: Web/API/CSSUnitValue/unit
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`CSSUnitValue.unit`** schreibgeschützte Eigenschaft des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen String zurück, der den [Einheitstyp](/de/docs/Web/CSS/Guides/Values_and_units#units) angibt.
+Die schreibgeschützte Eigenschaft **`CSSUnitValue.unit`** des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen String zurück, der den [Einheitstyp](/de/docs/Web/CSS/Guides/Values_and_units#units) angibt.
 
 ## Wert
 
-Ein String, der den Einheitstyp angibt, wie `"em"`, `"px"`, `"%"`, etc.
+Ein String, der den Einheitstyp angibt, wie z.B. `"em"`, `"px"`, `"%"`, usw.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Der folgende Code erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue` Konstruktoren und fragt dann die `CSSUnitValue.unit` ab.
+Der folgende Code erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue` Konstruktoren und fragt dann das `CSSUnitValue.unit` ab.
 
 ```js
 const pos = new CSSPositionValue(

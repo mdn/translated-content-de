@@ -2,27 +2,31 @@
 title: StylePropertyMap
 slug: Web/API/StylePropertyMap
 l10n:
-  sourceCommit: 829720f86ce858b9bb8cbe7aa9e0bea148915f8c
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`StylePropertyMap`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) bietet eine Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
+Das **`StylePropertyMap`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) bietet eine Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+> [!NOTE]
+> Dieses Interface ist nur im Fenster-Thread verfügbar; im Gegensatz zu anderen Interfaces in dieser API kann es nicht in [`Worker`](/de/docs/Web/API/Worker)- oder [`Worklet`](/de/docs/Web/API/Worklet)-Kontexten aufgerufen werden.
+> Worklets erhalten einen schreibgeschützten Schnappschuss des Stils eines Elements über [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly).
 
-_Erbt Eigenschaften von ihrem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
+## Instanz-Eigenschaften
 
-## Instanzmethoden
+_Erbt Eigenschaften von seinem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
 
-_Erbt Methoden von ihrem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
+## Instanz-Methoden
+
+_Erbt Methoden von seinem Elternteil, [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)._
 
 - [`StylePropertyMap.append()`](/de/docs/Web/API/StylePropertyMap/append)
-  - : Fügt eine neue CSS-Deklaration mit der angegebenen Eigenschaft und dem Wert zur `StylePropertyMap` hinzu.
+  - : Fügt eine neue CSS-Deklaration mit der angegebenen Eigenschaft und dem Wert zum `StylePropertyMap` hinzu.
 - [`StylePropertyMap.clear()`](/de/docs/Web/API/StylePropertyMap/clear)
-  - : Entfernt alle Deklarationen in der `StylePropertyMap`.
+  - : Entfernt alle Deklarationen im `StylePropertyMap`.
 - [`StylePropertyMap.delete()`](/de/docs/Web/API/StylePropertyMap/delete)
   - : Entfernt die CSS-Deklaration mit der angegebenen Eigenschaft.
 - [`StylePropertyMap.set()`](/de/docs/Web/API/StylePropertyMap/set)

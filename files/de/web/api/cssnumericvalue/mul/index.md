@@ -3,12 +3,12 @@ title: "CSSNumericValue: mul() Methode"
 short-title: mul()
 slug: Web/API/CSSNumericValue/mul
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`mul()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle multipliziert den `CSSNumericValue` mit dem übergebenen Wert.
+Die **`mul()`**-Methode der Schnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) multipliziert den `CSSNumericValue` mit dem angegebenen Wert.
 
 ## Syntax
 

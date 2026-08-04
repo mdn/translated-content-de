@@ -3,12 +3,12 @@ title: "DeviceOrientationEvent: requestPermission() statische Methode"
 short-title: requestPermission()
 slug: Web/API/DeviceOrientationEvent/requestPermission_static
 l10n:
-  sourceCommit: bcfc05aac40b47aecad69d44c54e33bf5f9b4e41
+  sourceCommit: e57e3fdd4ab6fb372ddc3d78e5b428f318202426
 ---
 
-{{APIRef("Device Orientation Events")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`requestPermission()`**-statische Methode des [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Interfaces fordert die Erlaubnis des Nutzers an, auf die Geräteorientierungsdaten von den Beschleunigungs- und Gyroskopsensoren zuzugreifen. Sie kann auch die Erlaubnis anfordern, auf Magnetometerdaten zuzugreifen, wenn eine absolute Orientierung benötigt wird. Diese Methode erfordert {{Glossary("transient_activation", "transiente Aktivierung")}}, was bedeutet, dass sie durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden muss.
+Die statische Methode **`requestPermission()`** des [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Interfaces fordert die Erlaubnis des Benutzers an, um auf Gerätorientierungsdaten von den Beschleunigungs- und Gyroskopsensoren zuzugreifen. Sie kann auch die Erlaubnis anfordern, auf Magnetometerdaten zuzugreifen, wenn eine absolute Orientierung benötigt wird. Diese Methode erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}}, was bedeutet, dass sie durch ein UI-Ereignis wie einen Klick auf einen Button ausgelöst werden muss.
 
 ## Syntax
 
@@ -20,26 +20,26 @@ DeviceOrientationEvent.requestPermission(absolute)
 ### Parameter
 
 - `absolute` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob absolute Orientierungsdaten benötigt werden. Wenn `true`, umfasst die Erlaubnisanfrage auch den Magnetometersensor. Standardmäßig auf `false`.
+  - : Ein Boolean, der angibt, ob absolute Orientierungsdaten benötigt werden. Wenn `true`, umfasst die Berechtigungsanfrage auch den Magnetometersensor. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem String aufgelöst wird, der entweder `"granted"` oder `"denied"` ist.
+Ein {{jsxref("Promise")}}, das mit einem String aufgelöst wird, der entweder `"granted"` oder `"denied"` ist.
 
 ### Ausnahmen
 
-Das zurückgegebene Promise lehnt die folgenden Ausnahmen ab:
+Das zurückgegebene Promise schlägt mit den folgenden Ausnahmen fehl:
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der Erlaubnisstatus ist `"prompt"` und die aufrufende Funktion hat keine {{Glossary("transient_activation", "transiente Aktivierung")}}.
+  - : Der Berechtigungsstatus ist `"prompt"` und die aufrufende Funktion hat keine {{Glossary("transient_activation", "transiente Aktivierung")}}.
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-### Anfordern der Geräteorientierungserlaubnis bei Klick
+### Anfordern der Erlaubnis zur Geräteorientierung bei Klick
 
 ```js
 document.querySelector("button").addEventListener("click", async () => {
@@ -59,9 +59,9 @@ document.querySelector("button").addEventListener("click", async () => {
 });
 ```
 
-### Anfordern der absoluten Orientierungserlaubnis
+### Anfordern der Erlaubnis zur absoluten Orientierung
 
-Wenn absolute Orientierungsdaten benötigt werden (z.B. für kompassbasierte Anwendungen), übergeben Sie `true` als `absolute` Parameter. Dies fordert zusätzlich den Zugriff auf den Magnetometer an.
+Wenn absolute Orientierungsdaten benötigt werden (z. B. für kompassbasierte Anwendungen), übergeben Sie `true` als `absolute`-Parameter. Dies fordert zusätzlich den Zugriff auf das Magnetometer an.
 
 ```js
 document.querySelector("button").addEventListener("click", async () => {
@@ -92,4 +92,4 @@ document.querySelector("button").addEventListener("click", async () => {
 - [`DeviceMotionEvent.requestPermission()`](/de/docs/Web/API/DeviceMotionEvent/requestPermission_static)
 - [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) Ereignis
 - [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event) Ereignis
-- [Erkennung der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erkennen der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)

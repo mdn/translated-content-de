@@ -3,20 +3,20 @@ title: "CSSScale: x-Eigenschaft"
 short-title: x
 slug: Web/API/CSSScale/x
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`x`**-Eigenschaft der [`CSSScale`](/de/docs/Web/API/CSSScale)-Schnittstelle liest und setzt die Abszisse oder x-Achse des Transformationsvektors.
+Die **`x`**-Eigenschaft des [`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces ruft die Abszisse bzw. x-Achse des Übersetzungvektors ab und setzt sie.
 
 ## Wert
 
-Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl gesetzt werden, die in einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) mit `unit: "number"` eingeschlossen ist.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue). Kann auf eine Zahl gesetzt werden, die in einem [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) von `unit: "number"` eingeschlossen ist.
 
 ## Beispiele
 
-To Do
+Zu erledigen
 
 ## Spezifikationen
 

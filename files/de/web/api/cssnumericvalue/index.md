@@ -2,18 +2,18 @@
 title: CSSNumericValue
 slug: Web/API/CSSNumericValue
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
 ---
 
-{{APIRef("CSS Typed Object Model API")}}
+{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Das **`CSSNumericValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Operationen, die alle numerischen Werte ausführen können.
+Das **`CSSNumericValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) repräsentiert Operationen, die alle numerischen Werte durchführen können.
 
 {{InheritanceDiagram}}
 
 ## Schnittstellen basierend auf CSSNumericValue
 
-Unten finden Sie eine Liste der Schnittstellen, die auf dem CSSNumericValue-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf dem Interface CSSNumericValue basieren.
 
 - [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)
 - [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)
@@ -26,35 +26,35 @@ Unten finden Sie eine Liste der Schnittstellen, die auf dem CSSNumericValue-Inte
 - [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)
 - [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Keine.
 
 ## Statische Methoden
 
 - [`CSSNumericValue.parse`](/de/docs/Web/API/CSSNumericValue/parse_static)
-  - : Ermöglicht es, direkt aus einem String, der CSS enthält, ein `CSSNumericValue` zu erstellen.
+  - : Erlaubt es, ein `CSSNumericValue` direkt aus einem String zu konstruieren, der CSS enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`CSSNumericValue.add`](/de/docs/Web/API/CSSNumericValue/add)
-  - : Fügt einen angegebenen Wert zur `CSSNumericValue` hinzu.
+  - : Fügt einen übergebenen Wert zum `CSSNumericValue` hinzu.
 - [`CSSNumericValue.sub`](/de/docs/Web/API/CSSNumericValue/sub)
-  - : Subtrahiert einen angegebenen Wert von der `CSSNumericValue`.
+  - : Subtrahiert einen übergebenen Wert vom `CSSNumericValue`.
 - [`CSSNumericValue.mul`](/de/docs/Web/API/CSSNumericValue/mul)
-  - : Multipliziert die `CSSNumericValue` mit dem angegebenen Wert.
+  - : Multipliziert das `CSSNumericValue` mit dem übergebenen Wert.
 - [`CSSNumericValue.div`](/de/docs/Web/API/CSSNumericValue/div)
-  - : Dividiert die `CSSNumericValue` durch den angegebenen Wert.
+  - : Teilt das `CSSNumericValue` durch den übergebenen Wert.
 - [`CSSNumericValue.min`](/de/docs/Web/API/CSSNumericValue/min)
-  - : Gibt den kleinsten übergebenen Wert zurück
+  - : Gibt den minimal übergebenen Wert zurück.
 - [`CSSNumericValue.max`](/de/docs/Web/API/CSSNumericValue/max)
-  - : Gibt den größten übergebenen Wert zurück
+  - : Gibt den maximal übergebenen Wert zurück.
 - [`CSSNumericValue.equals`](/de/docs/Web/API/CSSNumericValue/equals)
-  - : _True_, wenn alle Werte exakt denselben Typ und Wert, in derselben Reihenfolge haben. Andernfalls _false._
+  - : _True_, wenn alle Werte genau denselben Typ und Wert, in derselben Reihenfolge haben. Andernfalls _false_.
 - [`CSSNumericValue.to`](/de/docs/Web/API/CSSNumericValue/to)
-  - : Konvertiert `value` in einen anderen mit der angegebenen _Einheit._
+  - : Konvertiert `value` in einen anderen mit der angegebenen _Unit_.
 - [`CSSNumericValue.toSum`](/de/docs/Web/API/CSSNumericValue/toSum)
-  - : Konvertiert eine vorhandene `CSSNumericValue` in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt mit Werten einer angegebenen Einheit.
+  - : Konvertiert ein bestehendes `CSSNumericValue` in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) Objekt mit Werten einer angegebenen Einheit.
 - [`CSSNumericValue.type`](/de/docs/Web/API/CSSNumericValue/type)
   - : Gibt den Typ von `CSSNumericValue` zurück, einer von `angle`, `flex`, `frequency`, `length`, `resolution`, `percent`, `percentHint` oder `time`.
 
