@@ -7,7 +7,7 @@ l10n:
 
 Allgemein gesprochen ist eine Funktion ein "Unterprogramm", das von externem Code (oder internem Code im Fall von Rekursion) aufgerufen werden kann. Wie das Programm selbst besteht eine Funktion aus einer Abfolge von Anweisungen, die als _Funktionskörper_ bezeichnet werden. Werte können als Parameter an eine Funktion _übergeben_ werden, und die Funktion wird einen Wert _zurückgeben_.
 
-In JavaScript sind Funktionen {{Glossary("First-class_Function", "first-class objects")}}, da sie an andere Funktionen übergeben, von Funktionen zurückgegeben und Variablen und Eigenschaften zugewiesen werden können. Sie können auch Eigenschaften und Methoden wie jedes andere Objekt haben. Was sie von anderen Objekten unterscheidet, ist, dass Funktionen aufgerufen werden können.
+In JavaScript sind Funktionen {{Glossary("First-Class_Function", "First-Class-Objekte")}}, da sie an andere Funktionen übergeben, von Funktionen zurückgegeben und Variablen und Eigenschaften zugewiesen werden können. Sie können auch Eigenschaften und Methoden wie jedes andere Objekt haben. Was sie von anderen Objekten unterscheidet, ist, dass Funktionen aufgerufen werden können.
 
 Für weitere Beispiele und Erklärungen siehe den [JavaScript-Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions).
 
@@ -247,7 +247,7 @@ function myFunc({ a, b }, c = 1, ...rest) {
 Es gibt einige Folgen, wenn eine der oben genannten nicht einfachen Parametersyntaxen verwendet wird:
 
 - Sie können `"use strict"` nicht auf den Funktionskörper anwenden — dies führt zu einem [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Strict_non_simple_params).
-- Auch wenn die Funktion nicht im [strikte Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist, gelten bestimmte Funktionen im strikten Modus, einschließlich, dass das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt nicht mehr mit den benannten Parametern synchronisiert wird, [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) beim Zugriff einen Fehler auslöst und doppelte Parameternamen nicht erlaubt sind.
+- Auch wenn die Funktion nicht im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist, gelten bestimmte Funktionen im strikten Modus, einschließlich, dass das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt nicht mehr mit den benannten Parametern synchronisiert wird, [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) beim Zugriff einen Fehler auslöst und doppelte Parameternamen nicht erlaubt sind.
 
 ### Das arguments-Objekt
 
@@ -262,7 +262,7 @@ Sie können auf die Argumente einer Funktion innerhalb der Funktion über das [`
 
 ### Getter- und Setter-Funktionen
 
-Sie können Zugriffs-Eigenschaften auf jedem standardmäßig eingebauten Objekt oder benutzerdefinierten Objekt definieren, das die Hinzufügung neuer Eigenschaften unterstützt. Innerhalb von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Klassen](/de/docs/Web/JavaScript/Reference/Classes), können Sie spezielle Syntaxen verwenden, um den Getter und Setter einer Zugriffs-Eigenschaft zu definieren.
+Sie können Zugriffs-Eigenschaften auf jedem standardmäßig eingebauten Objekt oder benutzerdefinierten Objekt definieren, das die Hinzufügung neuer Eigenschaften unterstützt. Innerhalb von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Klassen](/de/docs/Web/JavaScript/Reference/Classes) können Sie spezielle Syntaxen verwenden, um den Getter und Setter einer Zugriffs-Eigenschaft zu definieren.
 
 - [get](/de/docs/Web/JavaScript/Reference/Functions/get)
   - : Bindet eine Objekteigenschaft an eine Funktion, die aufgerufen wird, wenn diese Eigenschaft nachgeschlagen wird.
@@ -271,9 +271,9 @@ Sie können Zugriffs-Eigenschaften auf jedem standardmäßig eingebauten Objekt 
 
 Beachten Sie, dass diese Syntaxen eine _Objekteigenschaft_ und keine _Methode_ erstellen. Die Getter- und Setterfunktionen selbst können nur mit reflektierenden APIs wie {{jsxref("Object.getOwnPropertyDescriptor()")}} aufgerufen werden.
 
-### Block-level Funktionen
+### Block-Level Funktionen
 
-Im [strikte Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionen innerhalb von Blöcken auf diesen Block begrenzt. Vor ES2015 waren block-level Funktionen im strikten Modus verboten.
+Im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionen innerhalb von Blöcken auf diesen Block begrenzt. Vor ES2015 waren Block-Level Funktionen im strikten Modus verboten.
 
 ```js
 "use strict";
@@ -293,7 +293,7 @@ f() === 1; // true
 // f() === 2 in non-strict mode
 ```
 
-### Block-level Funktionen in nicht-striktem Code
+### Block-Level Funktionen in nicht-striktem Code
 
 In einem Wort: **Nicht tun.**
 
