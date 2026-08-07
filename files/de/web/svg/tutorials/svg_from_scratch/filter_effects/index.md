@@ -2,25 +2,21 @@
 title: Filtereffekte
 slug: Web/SVG/Tutorials/SVG_from_scratch/Filter_effects
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Other_content_in_SVG", "Web/SVG/Tutorials/SVG_from_scratch/Using_fonts") }}
 
-Es gibt Situationen, in denen grundlegende Formen nicht die Flexibilität bieten, die Sie benötigen, um einen bestimmten Effekt zu erzielen. Schlagschatten, um ein populäres Beispiel zu nennen, können nicht vernünftig mit einer Kombination aus Verläufen erstellt werden. Filter sind SVGs Mechanismus, um anspruchsvolle Effekte zu erzeugen.
+Es gibt Situationen, in denen grundlegende Formen nicht die Flexibilität bieten, die Sie benötigen, um einen bestimmten Effekt zu erzielen. Ein verbreitetes Beispiel sind Schatten, die nicht vernünftig mit einer Kombination von Farbverläufen erstellt werden können. Filter sind der Mechanismus von SVG, um komplexe Effekte zu erzeugen.
 
-Ein einfaches Beispiel ist das Hinzufügen eines Unschärfeeffekts zu SVG-Inhalten. Während einfache Unschärfen mit Hilfe von Verläufen erreicht werden können, ist der Unschärfefilter erforderlich, um darüber hinausgehende Effekte zu erzielen.
+Ein einfaches Beispiel ist das Hinzufügen eines Unschärfeeffekts zu SVG-Inhalten. Während grundlegende Unschärfen mit Hilfe von Farbverläufen erreicht werden können, wird der Unschärfefilter benötigt, um darüber hinausgehende Effekte zu erzielen.
 
 ## Beispiel
 
-Filter werden durch das {{SVGElement('filter')}}-Element definiert, das im `<defs>`-Abschnitt Ihrer SVG-Datei platziert werden sollte. Zwischen die Filter-Tags kommt eine Liste von _Primitives_: Grundlegende Operationen, die auf den vorherigen Operationen aufbauen (wie Unschärfe, Hinzufügen eines Lichteffekts, etc.). Um Ihren erstellten Filter auf ein grafisches Element anzuwenden, setzen Sie das {{SVGAttr('filter')}}-Attribut.
+Filter werden durch das {{SVGElement('filter')}}-Element definiert, welches im `<defs>`-Abschnitt Ihrer SVG-Datei platziert werden sollte. Zwischen die Filter-Tags kommt eine Liste von _Primitiven_: Grundlegende Operationen, die auf den vorherigen Operationen aufbauen (wie Unschärfe, Hinzufügen eines Beleuchtungseffekts etc.). Um Ihren erstellten Filter auf ein grafisches Element anzuwenden, setzen Sie das {{SVGAttr('filter')}}-Attribut.
 
 ```html
-<svg
-  width="250"
-  viewBox="0 0 200 85"
-  xmlns="http://www.w3.org/2000/svg"
-  version="1.1">
+<svg width="250" viewBox="0 0 200 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Filter declaration -->
     <filter
@@ -92,7 +88,7 @@ Filter werden durch das {{SVGElement('filter')}}-Element definiert, das im `<def
 <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur" />
 ```
 
-{{SVGElement('feGaussianBlur')}} nimmt `in` "SourceAlpha", was der Alphakanal des Quellgrafikelements ist; wendet eine Unschärfe von 4 an und speichert das `result` in einem temporären Puffer namens "blur".
+{{SVGElement('feGaussianBlur')}} verwendet `in` "SourceAlpha", was der Alphakanal der Quellgrafik ist; wendet eine Unschärfe von 4 an und speichert das `result` in einem temporären Puffer namens "blur".
 
 ### Schritt 2
 
@@ -100,7 +96,7 @@ Filter werden durch das {{SVGElement('filter')}}-Element definiert, das im `<def
 <feOffset in="blur" dx="4" dy="4" result="offsetBlur" />
 ```
 
-{{SVGElement('feOffset')}} nimmt `in` "blur", das wir zuvor erstellt haben; verschiebt das Ergebnis um "4" nach rechts und "4" nach unten und speichert das `result` im Puffer "offsetBlur". Die ersten beiden Primitives haben somit einen Schlagschatten erstellt.
+{{SVGElement('feOffset')}} verwendet `in` "blur", welches wir zuvor erstellt haben; verschiebt das Ergebnis um "4" nach rechts und "4" nach unten; und speichert das `result` im Puffer "offsetBlur". Die ersten beiden Primitiven haben gerade einen Schlagschatten erstellt.
 
 ### Schritt 3
 
@@ -116,7 +112,7 @@ Filter werden durch das {{SVGElement('filter')}}-Element definiert, das im `<def
 </feSpecularLighting>
 ```
 
-{{SVGelement('feSpecularLighting')}} nimmt `in` "offsetBlur", erzeugt einen Lichteffekt und speichert das `result` im Puffer "specOut".
+{{SVGelement('feSpecularLighting')}} verwendet `in` "offsetBlur", erzeugt einen Beleuchtungseffekt und speichert das `result` im Puffer "specOut".
 
 ### Schritt 4
 
@@ -124,7 +120,7 @@ Filter werden durch das {{SVGElement('filter')}}-Element definiert, das im `<def
 <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut" />
 ```
 
-Der erste {{SVGElement('feComposite')}} nimmt `in` "specOut" und "SourceAlpha", maskiert das Ergebnis von "specOut", sodass das Ergebnis nicht größer als "SourceAlpha" (die ursprüngliche Quellgrafik) ist, und überschreibt das `result` "specOut".
+Das erste {{SVGElement('feComposite')}} verwendet `in` "specOut" und "SourceAlpha", maskiert das Ergebnis von "specOut", so dass das Ergebnis nicht größer als "SourceAlpha" ist (die ursprüngliche Quellgrafik), und überschreibt das `result` "specOut".
 
 ### Schritt 5
 
@@ -140,7 +136,7 @@ Der erste {{SVGElement('feComposite')}} nimmt `in` "specOut" und "SourceAlpha", 
   result="litPaint" />
 ```
 
-Der zweite {{SVGElement('feComposite')}} nimmt `in` "SourceGraphic" und "specOut", fügt das Ergebnis von "specOut" auf "SourceGraphic" hinzu und speichert das `result` in "litPaint".
+Das zweite {{SVGElement('feComposite')}} verwendet `in` "SourceGraphic" und "specOut", fügt das Ergebnis von "specOut" auf "SourceGraphic" hinzu und speichert das `result` in "litPaint".
 
 ### Schritt 6
 
@@ -151,11 +147,11 @@ Der zweite {{SVGElement('feComposite')}} nimmt `in` "SourceGraphic" und "specOut
 </feMerge>
 ```
 
-Schließlich vereint {{SVGElement('feMerge')}} "offsetBlur", welches der Schlagschatten ist, und "litPaint", das die ursprüngliche Quellgrafik mit einem Lichteffekt ist.
+Schließlich fügt {{SVGElement('feMerge')}} "offsetBlur", das der Schlagschatten ist, und "litPaint", das die ursprüngliche Quellgrafik mit einem Beleuchtungseffekt ist, zusammen.
 
-![Quellgrafik](filters01-0.png)
+![Quelle Grafik](filters01-0.png)
 
-Quellgrafik
+Quelle Grafik
 
 ![Primitive 1](filters01-1.png)
 

@@ -3,10 +3,12 @@ title: "`rule-color` CSS property"
 short-title: rule-color
 slug: Web/CSS/Reference/Properties/rule-color
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 343ab51426f9279175b8f71fff911621d0a7da20
 ---
 
-Die **`rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farben der Linien, die zwischen Spalten und Zeilen in Mehrspalten-, Flex- und Mehrspalten-Layouts gezogen werden, und setzt die Farben der Spalten- und Zeilenregeln auf denselben Wert fest.
+{{SeeCompatTable}}
+
+Die **`rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farben der Linien, die zwischen Spalten und Zeilen in Multi-Column-Grid, Flex- und Multi-Column-Layouts gezeichnet werden, und setzt die Farben der Spalten- und Zeilenlinien auf denselben Wert.
 
 {{InteractiveExample("CSS Demo: rule-color")}}
 
@@ -104,33 +106,32 @@ rule-color: unset;
 
 ### Werte
 
-Die `rule-color` Eigenschaft akzeptiert eine kommagetrennte Liste von Werten, einschließlich:
+Die `rule-color` Eigenschaft akzeptiert eine durch Kommas getrennte Liste von Werten, einschließlich:
 
 - `<line-color>`
-  - : Ein {{cssxref("&lt;color&gt;")}}, das die Farbe der Linie darstellt.
+  - : Ein {{cssxref("&lt;color&gt;")}} der die Farbe der Linie repräsentiert.
 
 - `<repeat-line-color>`
-  - : Eine {{cssxref("repeat()")}} Funktion, mit einem {{cssxref("&lt;integer&gt;")}} von `1` oder mehr als erstes Argument und einem oder mehreren `<color>` Werten als nachfolgenden Argumenten. Das `<integer>` gibt an, wie oft die `<color>` Werte wiederholt werden sollen.
+  - : Eine {{cssxref("repeat()")}} Funktion, mit einem {{cssxref("&lt;integer&gt;")}} von `1` oder mehr als erstem Argument und einem oder mehreren `<color>` Werten als nachfolgende Argumente. Der `<integer>` gibt an, wie oft die `<color>` Werte wiederholt werden sollen.
 
 - `<auto-repeat-line-color>`
-  - : Eine {{cssxref("repeat()")}} Funktion, mit `auto` als erstes Argument und einem oder mehreren `<color>` Werten als nachfolgenden Argumenten. Die angegebenen `<color>` Werte werden so oft wie nötig wiederholt, um Werte für alle Regeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswertes angegeben sind.
+  - : Eine {{cssxref("repeat()")}} Funktion, mit `auto` als erstem Argument und einem oder mehreren `<color>` Werten als nachfolgende Argumente. Die bereitgestellten `<color>` Werte werden so oft wie nötig wiederholt, um fehlende Werte für Regeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts angegeben sind.
 
 ## Beschreibung
 
-Die `rule-color` Eigenschaft definiert die Farben aller Linien, die in den Lücken zwischen Spalten und Zeilen in [Mehrspalten](/de/docs/Web/CSS/Guides/Multicol_layout) -, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) - und [Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Containern mit mehr als einer Spalte oder Zeile gezogen werden. Sie ist eine Kurzform, die sowohl die {{cssxref("row-rule-color")}} als auch die {{cssxref("column-rule-color")}} Eigenschaften auf denselben Wert setzt.
+Die `rule-color` Eigenschaft definiert die Farben von Linien, die in den Lücken zwischen Spalten und Zeilen in [multi-column](/de/docs/Web/CSS/Guides/Multicol_layout), [flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [grid](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte oder Zeile gezeichnet werden. Es ist eine Kurzform, die sowohl die {{cssxref("row-rule-color")}} als auch die {{cssxref("column-rule-color")}} Eigenschaften auf denselben Wert setzt.
 
-Der Wert ist eine kommagetrennte Liste von Komponenten, die `<line-color>`, `<repeat-line-color>` und `<auto-repeat-line-color>` Typen enthalten kann.
-Die `rule-color` Eigenschaft kann zusammen mit den Eigenschaften {{cssxref("rule-width")}} und {{cssxref("rule-style")}} über die Kurzform {{cssxref("rule")}} gesetzt werden.
+Der Wert ist eine durch Kommas getrennte Liste von Komponenten, die `<line-color>`, `<repeat-line-color>` und `<auto-repeat-line-color>` Typen enthalten kann. Die `rule-color` Eigenschaft kann zusammen mit den Eigenschaften {{cssxref("rule-width")}} und {{cssxref("rule-style")}} mit der Kurzform {{cssxref("rule")}} festgelegt werden.
 
 ### Linienfarben
 
-Ein `<line-color>` kann als jeder gültige CSS {{cssxref("&lt;color&gt;")}} Wert angegeben werden. Wenn der Eigenschaftswert nur aus einer `<color>` besteht, werden alle Regel-Linien in dieser Farbe sein. Wenn wir beispielsweise Folgendes deklarieren, werden die Linien in den Abständen zwischen Spalten und Zeilen alle blau sein:
+Ein `<line-color>` kann als jeder gültige CSS {{cssxref("&lt;color&gt;")}} Wert deklariert werden. Wenn der Eigenschaftswert nur aus einer `<color>` besteht, sind alle Regel-Linien in dieser Farbe. Wenn wir zum Beispiel das Folgende deklarieren, werden die Linien in den Abständen zwischen Spalten und Zeilen alle blau sein:
 
 ```css
 rule-color: blue;
 ```
 
-Wenn mehrere `<line-color>` Werte deklariert werden, werden sie in der angegebenen Reihenfolge auf die Linien in den Abständen zwischen den Spalten und Zeilen angewendet. Wenn mehr Regeln vorhanden sind als `<line-color>` Werte, wird die Liste der Farben wiederholt, bis jede Spaltenregel eine Farbe hat. Wenn wir beispielsweise Folgendes deklarieren, wird jede ungerade Regel rot und jede gerade Regel gelb sein.
+Wenn mehrere `<line-color>` Werte deklariert sind, werden sie in der angegebenen Reihenfolge auf die Linien in den Spalten- und Zeilenabständen angewendet. Wenn es mehr Regeln als `<line-color>` Werte gibt, wird die Liste der Farben wiederholt, bis jede Spaltenregel eine Farbe hat. Wenn wir zum Beispiel das Folgende deklarieren, ist jede ungerade Regel rot und jede gerade Regel gelb.
 
 ```css
 rule-color: red, yellow;
@@ -138,26 +139,26 @@ rule-color: red, yellow;
 
 ### Wiederholte Linienfarben
 
-Die `repeat()` Funktion, mit einer Ganzzahl von `1` oder größer als erstes Argument, kann verwendet werden, um eine gültige Liste von CSS {{cssxref("&lt;color&gt;")}} Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht es, die Farbwerte so oft zu wiederholen, wie Sie es benötigen, ohne sie einzeln auflisten zu müssen. Die folgenden Deklarationen sind gleichwertig:
+Die `repeat()` Funktion, mit einem Integer von `1` oder größer als erstem Argument, kann verwendet werden, um eine gültige Liste von CSS {{cssxref("&lt;color&gt;")}} Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Zeiten zu wiederholen. Dies ermöglicht es, die Farbwerte so oft wie nötig zu wiederholen, ohne sie einzeln auflisten zu müssen. Die folgenden Deklarationen sind äquivalent:
 
 ```css
 rule-color: blue, yellow, red, yellow, red, yellow, red;
 rule-color: blue, repeat(3, yellow, red);
 ```
 
-Dies erstellt eine Liste von sieben Farben. Wenn die Anzahl der Farben in der Farbliste des `rule-color` Wertes die Anzahl der Lücken zwischen Spalten und Zeilen übersteigt, werden die überzähligen Farbwerte ignoriert. Wenn es weniger Farben als Abstände gibt, wird die Liste der Werte wiederholt, bis jede Regel eine zugeordnete Farbe hat. Zum Beispiel, wenn der Container drei Spalten und 18 Zeilen hat, wird die Regel in der ersten Spaltenlücke blau und die zweite gelb sein. Für die Zeilenregeln wiederholt sich die Sequenz, wobei die erste, achte und fünfzehnte Zeilenregel blau sind.
+Dies erstellt eine Liste von sieben Farben. Wenn die Anzahl der Farben in der `rule-color` Farbliste die Anzahl der Lücken zwischen Spalten und Zeilen übersteigt, werden die überschüssigen Farbwerte ignoriert. Wenn es weniger Farben als Abstände gibt, wird die Liste der Werte wiederholt, bis jede Regel mit einer Farbe assoziiert ist. Zum Beispiel, wenn der Container drei Spalten und 18 Zeilen hat, wird die Regel im ersten Spaltenabstand blau und die zweite gelb sein. Für die Zeilenregeln wird die Sequenz wiederholt, wobei die erste, achte, und fünfzehnte Zeilenregel blau sind.
 
-### Automatisch wiederholte Linienfarben
+### Auto-wiederholende Linienfarben
 
-Die `repeat()` Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstem Argument werden die `<color>` Werte, die als nachfolgende Argumente übergeben werden, so oft wie nötig wiederholt, um Werte für alle Spalten- und Zeilenregeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswertes angegeben sind.
+Die `repeat()` Funktion akzeptiert auch `auto` als erstes Argument anstelle eines positiven Integers. Mit `auto` als erstem Argument werden die `<color>` Werte, die als nachfolgende Argumente übergeben werden, so oft wie nötig wiederholt, um Werte für alle Spalten- und Zeilenregeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts angegeben werden.
 
 ```css
 rule-color: blue, repeat(auto, yellow), red;
 ```
 
-In diesem Fall werden die ersten Spalten- und Zeilenregeln blau, die letzten rot und alle anderen gelb sein. Solange es mindestens zwei Regeln in einer Richtung gibt, wird die erste Regel immer blau und die letzte immer rot sein. Alle anderen Regeln werden gelb sein, was bedeutet, dass, wenn es nur 2 oder 3 Spalten und Zeilen gibt, keine gelben Linien vorhanden sein werden.
+In diesem Fall werden die erste Spalten- und Zeilenregel blau, die letzte rot und alle anderen gelb sein. Solange es mindestens zwei Regeln in jeder Richtung gibt, wird die erste Regel immer blau und die letzte immer rot sein. Alle anderen Regeln werden gelb, was bedeutet, dass es bei nur 2 oder 3 Spalten und Zeilen keine gelben Linien geben wird.
 
-Das `auto` Schlagwort innerhalb der `repeat()` Funktion erstellt einen Auto-Wiederholer, der Werte für die Linienregel-Farben füllt, die sonst keine Werte aus anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste zyklisch wird. Ein `rule-color` Wert kann höchstens einen `repeat(auto, <color>)` enthalten.
+Das `auto` Schlüsselwort innerhalb der `repeat()` Funktion erstellt einen Auto-Wiederholer, der Werte für die Farben der Regel-Linien füllt, die ansonsten keine Werte von anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste zyklisch wird. Ein `rule-color` Wert kann höchstens eine `repeat(auto, <color>)` enthalten.
 
 ## Formale Definition
 
@@ -171,11 +172,11 @@ Das `auto` Schlagwort innerhalb der `repeat()` Funktion erstellt einen Auto-Wied
 
 ### Einfaches Beispiel
 
-In diesem Beispiel definieren wir eine einzelne `<color>` für die zwischen den Spalten und Zeilen der Elemente in einem Grid-Container gezeichneten Linien.
+In diesem Beispiel definieren wir eine einzelne `<color>` für die Linien, die zwischen den Spalten und Zeilen der Elemente in einem Grid-Container gezeichnet werden.
 
 #### HTML
 
-Wir erstellen eine Liste von 75 Items. Der größte Teil des HTMLs ist der Kürze halber ausgeblendet.
+Wir erstellen eine Liste von 75 Elementen. Der Großteil des HTMLs ist zur Übersichtlichkeit ausgeblendet.
 
 ```html
 <ul>
@@ -269,9 +270,9 @@ Wir erstellen eine Liste von 75 Items. Der größte Teil des HTMLs ist der Kürz
 
 #### CSS
 
-Wir definieren die ungeordnete Liste als ein 10-Spalten-Container und erstellen Spalten und Zeilen mit der {{cssxref("grid-template-columns")}} Eigenschaft. Wir fügen einen {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Spalten und Zeilen für unsere `3px` gestrichelte Regel zu schaffen, und setzen {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen.
+Wir definieren die ungeordnete Liste als einen Container mit 10 Spalten, erstellen Spalten und Zeilen mit der {{cssxref("grid-template-columns")}} Eigenschaft. Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genug Platz zwischen den Spalten und Zeilen für unsere `3px` gestrichelte Regel zu bieten, und setzen {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen.
 
-Wir fügen einen {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Items für unsere mittlere gestrichelte Regel zu schaffen. Wir setzen die `rule-color` auf `#22BB22`, einen grünen {{cssxref("hex-color")}} Wert:
+Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Elementen für unsere mittlere gestrichelte Regel zu bieten. Wir setzen die `rule-color` auf `#22BB22`, einen grünen {{cssxref("hex-color")}} Wert:
 
 ```css live-sample___basic live-sample___multiple live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -314,9 +315,9 @@ li {
 
 ### Mehrere Farbwerte
 
-Dieses Beispiel demonstriert, wie man mehr als eine Farbe deklariert und wie die Werte wiederholt werden, wenn es weniger Werte in der Farbliste gibt als Abstände zwischen Spalten und Zeilen.
+Dieses Beispiel demonstriert die Deklaration von mehr als einer Farbe und, wie die Werte wiederholt werden, wenn es weniger Werte in der Farbliste als Abstände zwischen Spalten und Zeilen gibt.
 
-Unter Verwendung des gleichen HTMLs und CSS wie im vorherigen Beispiel fügen wir drei kommagetrennte Farben als Wert für `rule-color` hinzu:
+Wir verwenden das gleiche HTML und CSS wie im vorherigen Beispiel, fügen jedoch drei durch Kommas getrennte Farben als `rule-color` Wert hinzu:
 
 ```css hidden live-sample___multiple
 @layer no-support {
@@ -346,17 +347,17 @@ ul {
 
 {{EmbedLiveSample("Multiple", "", "600")}}
 
-Es gibt neun Spaltenabstände und sechs Zeilenabstände, aber nur drei Farben in unserer Farbliste, daher wird die Liste wiederholt, wobei die erste, vierte und siebte Zeile blau sind.
+Es gibt neun Spaltenabstände und sechs Zeilenabstände, aber nur drei Farben in unserer Farbliste, daher wird die Liste wiederholt, wobei die erste, vierte und siebte Linie blau sind.
 
 ### Verwendung der `repeat()` Funktion
 
-Dieses Beispiel zeigt die Verwendung der `repeat()` Funktion im `rule-color` Eigenschaftswert und wie diese Funktion hilft, komplexe Werte handhabbar zu halten.
+Dieses Beispiel demonstriert die Verwendung der `repeat()` Funktion innerhalb des `rule-color` Eigenschaftswerts und wie diese Funktion helfen kann, komplexe Werte handhabbar zu machen.
 
 #### CSS
 
-Um zu demonstrieren, wie Werte kompliziert werden können und den Nutzen der `repeat()` Funktion, deklarieren wir zwei benutzerdefinierte Eigenschaften, die wir in vier {{cssxref("color-mix()")}} Farbfunktionserklärungen verwenden, um blaue, rötliche, blaustichige und gelbe Farben zu erstellen. Die rötlichen und blaustichigen `color-mix()` Farben sind innerhalb einer `repeat()` Funktion, die auf dreimal wiederholen eingestellt ist.
+Um zu demonstrieren, wie Werte kompliziert werden können und der Nutzen der `repeat()` Funktion, deklarieren wir zwei benutzerdefinierte Eigenschaften, die wir in vier {{cssxref("color-mix()")}} Farbfunktionserklärungen verwenden, um blaue, rötliche, tealfarbene und gelbe Farben zu erstellen. Die rötlichen und tealfarbenen `color-mix()` Farben befinden sich innerhalb einer `repeat()` Funktion, die auf dreimaliges Wiederholen gesetzt ist.
 
-Wir haben auch einen Rahmen um jedes Grid-Item hinzugefügt, damit Sie sehen können, wie die Linie in der Mitte des Abstands zwischen den Spalten und Zeilen ist.
+Wir haben auch eine Umrandung um jedes Gitterelement hinzugefügt, damit Sie sehen können, wie die Linie in der Mitte des Abstands zwischen den Spalten und Zeilen verläuft.
 
 ```css live-sample___repeat
 ul {
@@ -378,13 +379,13 @@ ul {
 
 {{EmbedLiveSample("repeat", "", "600")}}
 
-Das Grid hat 10 Spalten und 7 Zeilen, wodurch 9 Spalten- und 6 Zeilenabstände entstehen. Die `repeat()` Funktion wiederholt die zwei enthaltenen gemischten Farben dreimal und erstellt eine Farbliste mit insgesamt acht Farben. Obwohl es viel CSS gibt, um die vier Farben zu erstellen, mussten wir zumindest nicht alle acht `color-mix()` Funktionen ausschreiben. Da es mehr Spaltenabstände als Listenfarben gibt, werden die Farben für die Spaltenabstände wiederholt. Da es weniger Zeilenabstände als Farben gibt, werden die letzten zwei Farben in der Liste für die Zeilenabstände nicht verwendet.
+Das Gitter hat 10 Spalten und 7 Zeilen, wodurch 9 Spalten- und 6 Zeilenabstände entstehen. Die `repeat()` Funktion wiederholt die beiden enthaltenen gemischten Farben dreimal, wodurch eine Farbliste mit insgesamt acht Farben entsteht. Obwohl es viel CSS gibt, um die vier Farben zu erstellen, mussten wir wenigstens nicht alle acht `color-mix()` Funktionen ausschreiben. Da es mehr Spaltenabstände als Listenfarben gibt, werden die Farben für die Spaltenabstände wiederholt. Da es weniger Zeilenabstände als Farben gibt, werden die letzten beiden Farben in der Liste nicht für die Zeilenabstände verwendet.
 
 ### Verwendung von `auto` innerhalb von `repeat()`
 
-Dieses Beispiel zeigt die Verwendung von `auto` anstelle einer Ganzzahl innerhalb der `repeat()` Funktion.
+Dieses Beispiel zeigt die Verwendung von `auto`, anstelle eines Integers, innerhalb der `repeat()` Funktion.
 
-Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen, überschreiben jedoch den `rule-color` Wert. Hier verwenden wir `repeat(auto, <color>)`, um alle Linien auf fast transparentes Schwarz (`#0003`) zu setzen, außer die erste und die letzte, die wir auf ein solides `Schwarz` setzen.
+Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen, überschreiben jedoch den `rule-color` Wert. Hier verwenden wir `repeat(auto, <color>)`, um alle Linien fast transparent schwarz (`#0003`) zu setzen, außer der ersten und letzten, die wir auf ein festes `schwarz` setzen.
 
 ```css live-sample___auto
 ul {
@@ -432,4 +433,4 @@ Obwohl es mehr Spaltenregel-Linien als Zeilenregel-Linien gibt, ermöglicht der 
 - {{cssxref("row-rule-color")}}
 - {{cssxref("column-rule-color")}}
 - {{cssxref("rule")}} Kurzform
-- [CSS Abstände](/de/docs/Web/CSS/Guides/Gaps) Modul
+- [CSS Lückenmodul](/de/docs/Web/CSS/Guides/Gaps)

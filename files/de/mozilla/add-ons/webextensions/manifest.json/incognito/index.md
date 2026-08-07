@@ -2,7 +2,7 @@
 title: incognito
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/incognito
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: ea339987e78c36abcab58aee7af2dd526ba5c3af
 ---
 
 <table class="fullwidth-table standard-table">
@@ -16,11 +16,11 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
-      <th scope="row">Beispiele</th>
+      <th scope="row">Beispiel</th>
       <td>
         <pre class="brush: json">"incognito": "spanning"</pre>
         <pre class="brush: json">"incognito": "split"</pre>
@@ -30,14 +30,14 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `incognito`, um zu steuern, wie die Erweiterung mit Fenstern im privaten Modus funktioniert.
+Verwenden Sie den Schlüssel `incognito`, um zu steuern, wie die Erweiterung mit privaten Browserfenstern arbeitet.
 
 > [!NOTE]
-> Standardmäßig werden Erweiterungen in privaten Fenstern nicht ausgeführt. Ob eine Erweiterung auf private Fenster zugreifen kann, liegt in der Hand des Benutzers. Für weitere Details siehe [Erweiterungen im Privaten Modus](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann überprüfen, ob sie auf private Fenster zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
+> Standardmäßig laufen Erweiterungen nicht in privaten Browserfenstern. Ob eine Erweiterung auf private Browserfenster zugreifen kann, liegt in der Kontrolle des Benutzers. Für weitere Details siehe [Extensions in Private Browsing](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann überprüfen, ob sie auf private Browserfenster zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
 
-Dies ist ein String, der einen der folgenden Werte haben kann:
+Dies ist ein String, der einen der folgenden Werte annehmen kann:
 
-- "spanning" (Standard): Die Erweiterung sieht Ereignisse sowohl von privaten als auch von nicht-privaten Fenstern und Tabs. In den Objekten [`Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window) oder [`Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab), die sie repräsentieren, gibt es eine `incognito`-Eigenschaft. Diese Eigenschaft zeigt an, ob das Objekt privat ist oder nicht:
+- "spanning" (der Standard): Die Erweiterung sieht Ereignisse sowohl von privaten als auch von nicht-privaten Fenstern und Tabs. Fenster und Tabs erhalten eine `incognito`-Eigenschaft in dem [`Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window) oder [`Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab), das sie repräsentiert. Diese Eigenschaft zeigt an, ob das Objekt privat ist oder nicht:
 
   ```js
   browser.windows.getLastFocused().then((windowInfo) => {
@@ -45,14 +45,27 @@ Dies ist ein String, der einen der folgenden Werte haben kann:
   });
   ```
 
-- "split": Die Erweiterung ist zwischen privaten und nicht-privaten Fenstern aufgeteilt. Es gibt im Wesentlichen zwei Kopien der Erweiterung: Eine sieht nur nicht-private Fenster, die andere sieht nur private Fenster. Jede Kopie hat isolierten Zugriff auf Web-APIs (zum Beispiel wird [`localStorage`](/de/docs/Web/API/Window/localStorage) nicht geteilt). Die WebExtension-API [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local) wird jedoch geteilt.
+- "split": Die Erweiterung ist aufgetrennt zwischen privaten und nicht-privaten Fenstern. Es laufen effektiv zwei Kopien der Erweiterung: Eine sieht nur nicht-private Fenster, die andere nur private Fenster. Jede Kopie hat isolierten Zugriff auf Web-APIs (zum Beispiel wird [`localStorage`](/de/docs/Web/API/Window/localStorage) nicht geteilt). Allerdings wird die WebExtension-API [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local) geteilt.
 
   > [!NOTE]
-  > Firefox unterstützt den "split"-Modus nicht. Erweiterungen, die diese Option in Firefox anfordern, werden mit "not_allowed" installiert.
+  > Firefox unterstützt den "split"-Modus nicht. Erweiterungen, die diese Option in Firefox anfordern, werden im Modus "not_allowed" installiert. Es wird jedoch empfohlen, den `incognito`-Schlüssel von migrierten Erweiterungen zu löschen, um das Standardverhalten ("spanning") beizubehalten.
 
 - "not_allowed": Private Tabs und Fenster sind für die Erweiterung unsichtbar.
 
-## Beispiel
+## Datenschutzüberlegungen
+
+Wenn Ihre Erweiterung den Modus `"spanning"` verwendet, um auf private und nicht-private Fenster zuzugreifen, achten Sie darauf, nicht den Zustand von privaten an nicht-private Browsersitzungen zu leaken. Ein häufiger Fehler ist es, Daten von einem Content Script, das in einem privaten Browsertab läuft, an einen externen Server mit einer Netzwerk-Anfrage von der Hintergrundseite zu senden. Da die Hintergrundseite Cookies mit der Haupt-Browsersitzung teilt, kann dies private Browsing-Aktivität mit der nicht-privaten Sitzung verknüpfen.
+
+Um dies zu vermeiden, nutzen Sie [`credentials: "omit"`](/de/docs/Web/API/RequestInit#credentials) und [`cache: "no-cache"`](/de/docs/Web/API/RequestInit#cache) in allen `fetch()`-Aufrufen von der Hintergrundseite, die Daten aus privaten Browserfenstern beinhalten könnten:
+
+```js
+fetch(url, {
+  credentials: "omit",
+  cache: "no-cache",
+});
+```
+
+## Beispiele
 
 ```json
 "incognito": "spanning"

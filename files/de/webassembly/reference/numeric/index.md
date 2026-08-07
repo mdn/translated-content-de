@@ -2,7 +2,7 @@
 title: WebAssembly numerische Anweisungen
 slug: WebAssembly/Reference/Numeric
 l10n:
-  sourceCommit: 9851fc885f1bbc916f529378b506471c150fae98
+  sourceCommit: 43030e03d6c792494bf8eb4d76963933a564e8d9
 ---
 
 WebAssembly numerische Anweisungen.
@@ -21,29 +21,29 @@ WebAssembly numerische Anweisungen.
 - [`ne`](/de/docs/WebAssembly/Reference/Numeric/ne)
   - : Überprüfen Sie, ob zwei Zahlen ungleich sind.
 - [`gt`](/de/docs/WebAssembly/Reference/Numeric/gt)
-  - : Überprüfen Sie, ob eine Gleitkommazahl größer ist als eine andere Gleitkommazahl.
+  - : Überprüfen Sie, ob eine Fließkommazahl größer ist als eine andere Fließkommazahl.
 - [`gt_s`](/de/docs/WebAssembly/Reference/Numeric/gt_s)
-  - : Überprüfen Sie, ob eine vorzeichenbehaftete Ganzzahl größer ist als eine andere vorzeichenbehaftete Ganzzahl.
+  - : Überprüfen Sie, ob eine vorzeichenbehaftete ganze Zahl größer ist als eine andere vorzeichenbehaftete ganze Zahl.
 - [`gt_u`](/de/docs/WebAssembly/Reference/Numeric/gt_u)
-  - : Überprüfen Sie, ob eine vorzeichenlose Ganzzahl größer ist als eine andere vorzeichenlose Ganzzahl.
+  - : Überprüfen Sie, ob eine vorzeichenlose ganze Zahl größer ist als eine andere vorzeichenlose ganze Zahl.
 - [`lt`](/de/docs/WebAssembly/Reference/Numeric/lt)
-  - : Überprüfen Sie, ob eine Gleitkommazahl kleiner ist als eine andere Gleitkommazahl.
+  - : Überprüfen Sie, ob eine Fließkommazahl kleiner ist als eine andere Fließkommazahl.
 - [`lt_s`](/de/docs/WebAssembly/Reference/Numeric/lt_s)
-  - : Überprüfen Sie, ob eine vorzeichenbehaftete Ganzzahl kleiner ist als eine andere vorzeichenbehaftete Ganzzahl.
+  - : Überprüfen Sie, ob eine vorzeichenbehaftete ganze Zahl kleiner ist als eine andere vorzeichenbehaftete ganze Zahl.
 - [`lt_u`](/de/docs/WebAssembly/Reference/Numeric/lt_u)
-  - : Überprüfen Sie, ob eine vorzeichenlose Ganzzahl kleiner ist als eine andere vorzeichenlose Ganzzahl.
+  - : Überprüfen Sie, ob eine vorzeichenlose ganze Zahl kleiner ist als eine andere vorzeichenlose ganze Zahl.
 - [`ge`](/de/docs/WebAssembly/Reference/Numeric/ge)
-  - : Überprüfen Sie, ob eine Gleitkommazahl größer oder gleich einer anderen Gleitkommazahl ist.
+  - : Überprüfen Sie, ob eine Fließkommazahl größer oder gleich einer anderen Fließkommazahl ist.
 - [`ge_s`](/de/docs/WebAssembly/Reference/Numeric/ge_s)
-  - : Überprüfen Sie, ob eine vorzeichenbehaftete Ganzzahl größer oder gleich einer anderen vorzeichenbehafteten Ganzzahl ist.
+  - : Überprüfen Sie, ob eine vorzeichenbehaftete ganze Zahl größer oder gleich einer anderen vorzeichenbehafteten ganzen Zahl ist.
 - [`ge_u`](/de/docs/WebAssembly/Reference/Numeric/ge_u)
-  - : Überprüfen Sie, ob eine vorzeichenlose Ganzzahl größer oder gleich einer anderen vorzeichenlosen Ganzzahl ist.
+  - : Überprüfen Sie, ob eine vorzeichenlose ganze Zahl größer oder gleich einer anderen vorzeichenlosen ganzen Zahl ist.
 - [`le`](/de/docs/WebAssembly/Reference/Numeric/le)
-  - : Überprüfen Sie, ob eine Gleitkommazahl kleiner oder gleich einer anderen Gleitkommazahl ist.
+  - : Überprüfen Sie, ob eine Fließkommazahl kleiner oder gleich einer anderen Fließkommazahl ist.
 - [`le_s`](/de/docs/WebAssembly/Reference/Numeric/le_s)
-  - : Überprüfen Sie, ob eine vorzeichenbehaftete Ganzzahl kleiner oder gleich einer anderen vorzeichenbehafteten Ganzzahl ist.
+  - : Überprüfen Sie, ob eine vorzeichenbehaftete ganze Zahl kleiner oder gleich einer anderen vorzeichenbehafteten ganzen Zahl ist.
 - [`le_u`](/de/docs/WebAssembly/Reference/Numeric/le_u)
-  - : Überprüfen Sie, ob eine vorzeichenlose Ganzzahl kleiner oder gleich einer anderen vorzeichenlosen Ganzzahl ist.
+  - : Überprüfen Sie, ob eine vorzeichenlose ganze Zahl kleiner oder gleich einer anderen vorzeichenlosen ganzen Zahl ist.
 
 ## Arithmetik
 
@@ -56,39 +56,39 @@ WebAssembly numerische Anweisungen.
 - [`div`](/de/docs/WebAssembly/Reference/Numeric/div)
   - : Teilen Sie eine Zahl durch eine andere Zahl.
 - [`rem`](/de/docs/WebAssembly/Reference/Numeric/rem)
-  - : Berechnen Sie den Rest, der übrig bleibt, wenn eine Ganzzahl durch eine andere Ganzzahl geteilt wird.
+  - : Berechnen Sie den Rest, der übrig bleibt, wenn eine ganze Zahl durch eine andere ganze Zahl geteilt wird.
 
 ## Umwandlung
 
 - [`extend`](/de/docs/WebAssembly/Reference/Numeric/extend)
-  - : Konvertiert (erweitert) `i32` zu `i64`.
+  - : Konvertieren (erweitern) von `i32` zu `i64`.
 - [`wrap_i64`](/de/docs/WebAssembly/Reference/Numeric/wrap_i64)
-  - : Konvertiert (umwickelt) `i64` zu `i32`.
+  - : Konvertieren (umwickeln) von `i64` zu `i32`.
 - [`promote_32`](/de/docs/WebAssembly/Reference/Numeric/promote_32)
-  - : Konvertiert (erhöht) `f32` zu `f64`.
+  - : Konvertieren (fördern) von `f32` zu `f64`.
 - [`demote`](/de/docs/WebAssembly/Reference/Numeric/demote)
-  - : Konvertiert (degradiert) `f64` zu `f32`.
+  - : Konvertieren (degradieren) von `f64` zu `f32`.
 - [`convert`](/de/docs/WebAssembly/Reference/Numeric/convert)
-  - : Konvertiert Ganzzahlen zu Gleitkommazahlen.
+  - : Konvertieren von ganzen Zahlen zu Fließkommazahlen.
 - [`trunc`](/de/docs/WebAssembly/Reference/Numeric/trunc)
-  - : Erhält den Wert einer Gleitkommazahl ohne ihren Bruchteil.
+  - : Holt den Wert einer Fließkommazahl ohne ihren Dezimalteil.
 - [`trunc_f32_s`](/de/docs/WebAssembly/Reference/Numeric/trunc_f32_s)
-  - : Entfernt den Bruchteil eines `f32`-Werts und gibt ihn als vorzeichenbehaftete Ganzzahl aus.
+  - : Entfernt den Dezimalteil eines `f32`-Wertes und gibt ihn als vorzeichenbehaftete ganze Zahl aus.
 - [`trunc_f32_u`](/de/docs/WebAssembly/Reference/Numeric/trunc_f32_u)
-  - : Entfernt den Bruchteil eines `f32`-Werts und gibt ihn als vorzeichenlose Ganzzahl aus.
+  - : Entfernt den Dezimalteil eines `f32`-Wertes und gibt ihn als vorzeichenlose ganze Zahl aus.
 - [`trunc_f64_s`](/de/docs/WebAssembly/Reference/Numeric/trunc_f64_s)
-  - : Entfernt den Bruchteil eines `f64`-Werts und gibt ihn als vorzeichenbehaftete Ganzzahl aus.
+  - : Entfernt den Dezimalteil eines `f64`-Wertes und gibt ihn als vorzeichenbehaftete ganze Zahl aus.
 - [`trunc_f64_u`](/de/docs/WebAssembly/Reference/Numeric/trunc_f64_u)
-  - : Entfernt den Bruchteil eines `f64`-Werts und gibt ihn als vorzeichenlose Ganzzahl aus.
+  - : Entfernt den Dezimalteil eines `f64`-Wertes und gibt ihn als vorzeichenlose ganze Zahl aus.
 - [`reinterpret`](/de/docs/WebAssembly/Reference/Numeric/reinterpret)
-  - : Interpretiert die Bytes von Ganzzahlen als Gleitkommazahlen und umgekehrt.
+  - : Die Bytes von ganzen Zahlen als Fließkommazahlen und umgekehrt umdeuten.
 
-## Gleitkomma-spezifische Anweisungen
+## Fließkomma-spezifische Anweisungen
 
 - [`min`](/de/docs/WebAssembly/Reference/Numeric/min)
-  - : Erhalten Sie den kleineren von zwei Zahlen.
+  - : Holen Sie die kleinere von zwei Zahlen.
 - [`max`](/de/docs/WebAssembly/Reference/Numeric/max)
-  - : Erhalten Sie die größere von zwei Gleitkommazahlen.
+  - : Holen Sie die größere von zwei Fließkommazahlen.
 - [`nearest`](/de/docs/WebAssembly/Reference/Numeric/nearest)
   - : Runden Sie eine Zahl auf die nächste ganze Zahl.
 - [`ceil`](/de/docs/WebAssembly/Reference/Numeric/ceil)
@@ -96,37 +96,46 @@ WebAssembly numerische Anweisungen.
 - [`floor`](/de/docs/WebAssembly/Reference/Numeric/floor)
   - : Runden Sie eine Zahl ab.
 - [`trunc`](/de/docs/WebAssembly/Reference/Numeric/trunc)
-  - : Verwerfen Sie den Bruchteil einer Zahl.
+  - : Verwerfen Sie den Dezimalteil einer Zahl.
 - [`abs`](/de/docs/WebAssembly/Reference/Numeric/abs)
-  - : Erhalten Sie den Absolutwert einer Zahl.
+  - : Holen Sie den absoluten Wert einer Zahl.
 - [`neg`](/de/docs/WebAssembly/Reference/Numeric/neg)
   - : Negieren Sie eine Zahl.
 - [`sqrt`](/de/docs/WebAssembly/Reference/Numeric/sqrt)
-  - : Erhalten Sie die Quadratwurzel einer Zahl.
+  - : Holen Sie die Quadratwurzel einer Zahl.
 - [`copysign`](/de/docs/WebAssembly/Reference/Numeric/copysign)
   - : Kopieren Sie nur das Vorzeichenbit von einer Zahl zu einer anderen.
 
-## Bitweise
+## Bitweise Operationen
 
 - [`and`](/de/docs/WebAssembly/Reference/Numeric/and)
-  - : Wird verwendet, um ein bitweises UND durchzuführen.
+  - : Wird für die Ausführung eines bitweisen UND verwendet.
 - [`or`](/de/docs/WebAssembly/Reference/Numeric/or)
-  - : Wird verwendet, um ein bitweises OR durchzuführen.
+  - : Wird für die Ausführung eines bitweisen ODER verwendet.
 - [`xor`](/de/docs/WebAssembly/Reference/Numeric/xor)
-  - : Wird verwendet, um ein bitweises XOR durchzuführen.
+  - : Wird für die Ausführung eines bitweisen XOR verwendet.
 - [`shl`](/de/docs/WebAssembly/Reference/Numeric/shl)
-  - : Wird verwendet, um eine bitweise Linksverschiebung durchzuführen.
+  - : Wird für die Ausführung eines bitweisen Linksverschiebens verwendet.
 - [`shr_s`](/de/docs/WebAssembly/Reference/Numeric/shr_s)
-  - : Wird verwendet, um eine bitweise Rechtsverschiebung bei vorzeichenbehafteten Ganzzahlen durchzuführen.
+  - : Wird für die Ausführung eines bitweisen Rechtsverschiebens auf vorzeichenbehafteten ganzen Zahlen verwendet.
 - [`shr_u`](/de/docs/WebAssembly/Reference/Numeric/shr_u)
-  - : Wird verwendet, um eine bitweise Rechtsverschiebung bei vorzeichenlosen Ganzzahlen durchzuführen.
+  - : Wird für die Ausführung eines bitweisen Rechtsverschiebens auf vorzeichenlosen ganzen Zahlen verwendet.
 - [`rotl`](/de/docs/WebAssembly/Reference/Numeric/rotl)
-  - : Wird verwendet, um eine bitweise Linksrotation durchzuführen.
+  - : Wird für die Ausführung eines bitweisen Linksdrehens verwendet.
 - [`rotr`](/de/docs/WebAssembly/Reference/Numeric/rotr)
-  - : Wird verwendet, um eine bitweise Rechtsrotation durchzuführen.
+  - : Wird für die Ausführung eines bitweisen Rechtsdrehens verwendet.
 - [`clz`](/de/docs/WebAssembly/Reference/Numeric/clz)
-  - : Zählt die Anzahl der führenden Nullen in der Binärdarstellung einer Zahl.
+  - : Zählt die Anzahl führender Nullen in der binären Darstellung einer Zahl.
 - [`ctz`](/de/docs/WebAssembly/Reference/Numeric/ctz)
-  - : Zählt die Anzahl der nachgestellten Nullen in der Binärdarstellung einer Zahl.
+  - : Zählt die Anzahl nachfolgender Nullen in der binären Darstellung einer Zahl.
 - [`popcnt`](/de/docs/WebAssembly/Reference/Numeric/popcnt)
-  - : Zählt die Gesamtzahl der Einsen in der Binärdarstellung einer Zahl.
+  - : Zählt die Gesamtanzahl von 1en in der binären Darstellung einer Zahl.
+
+## Vorzeichen-Zusatzerweiterung
+
+- [`extend8_s`](/de/docs/WebAssembly/Reference/Numeric/extend8_s)
+  - : Vorzeichen-Erweiterung der niedrigen 8 Bits einer ganzen Zahl, um ihr Vorzeichen im gesamten Wert zu propagieren.
+- [`extend16_s`](/de/docs/WebAssembly/Reference/Numeric/extend16_s)
+  - : Vorzeichen-Erweiterung der niedrigen 16 Bits einer ganzen Zahl, um ihr Vorzeichen im gesamten Wert zu propagieren.
+- [`extend32_s`](/de/docs/WebAssembly/Reference/Numeric/extend32_s)
+  - : Vorzeichen-Erweiterung der niedrigen 32 Bits einer 64-Bit-Ganzzahl, um ihr Vorzeichen im gesamten Wert zu propagieren.

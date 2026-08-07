@@ -2,12 +2,12 @@
 title: slope
 slug: Web/SVG/Reference/Attribute/slope
 l10n:
-  sourceCommit: d35e3fd4bc6b80049899b45d74ed71dc996adfc7
+  sourceCommit: 8d0c8728f49f2a0577ca17910f2149d6dd36b37e
 ---
 
-Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie zum Beispiel Helligkeit.
+Das **`slope`**-Attribut definiert die Werte für lineare Filter, wie z.B. Helligkeit.
 
-Das `slope`-Attribut wird von untergeordneten Elementen der {{SVGElement("feComponentTransfer")}} Filterprimitive unterstützt, einschließlich der `feFunc-RGBA` Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
+Das `slope`-Attribut wird von untergeordneten Elementen der {{SVGElement("feComponentTransfer")}}-Filterprimitive unterstützt, einschließlich der `feFunc-RGBA`-Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
 
 Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
 
@@ -17,9 +17,9 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionse
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Diese Verwendungsmöglichkeit ist veraltet.
+> Ursprünglich wurde das `slope`-Attribut innerhalb von `<font-face>` verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Diese Anwendungsfall ist veraltet.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -49,15 +49,14 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktionse
 
 ## Beispiele
 
-In diesem Beispiel hat ein Gradient-Box zwei Textelemente mit angewandten linearen Filtern. Die Steigungen der Filter-Transferfunktionen jedes Filters sind unterschiedlich.
+In diesem Beispiel hat ein Verlaufsrechteck zwei Textelemente, auf die lineare Filter angewendet sind. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
 
 ```html
 <svg
   width="8cm"
   height="4cm"
   viewBox="0 0 800 400"
-  xmlns="http://www.w3.org/2000/svg"
-  version="1.1">
+  xmlns="http://www.w3.org/2000/svg">
   <title>Examples of feComponentTransfer operations</title>
   <desc>
     Text strings showing the effects of the slope attribute of the
