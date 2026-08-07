@@ -2,14 +2,14 @@
 title: xlink:type
 slug: Web/SVG/Reference/Attribute/xlink:type
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 9ac8d4f4ed0eb2f329e605329afeb51754c7fa79
 ---
 
 {{Deprecated_Header}}
 
-Das **`xlink:type`**-Attribut identifiziert den Typ des verwendeten {{Glossary("XLink", "XLink")}}. In SVG sind nur einfache Links verfügbar.
+Das **`xlink:type`** Attribut identifiziert den Typ des verwendeten {{Glossary("XLink", "XLink")}}. In SVG sind nur einfache Links verfügbar.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -27,7 +27,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("use")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -47,16 +47,12 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `simple`
-  - : Dieser Wert gibt an, dass die referenzierte Ressource ein einfacher Link ist.
+  - : Dieser Wert gibt an, dass die referierte Ressource ein einfacher Link ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Siehe auch
 
-- [Definition des `xlink:type`-Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-types)
+- [Definition des `xlink:type` Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-types)

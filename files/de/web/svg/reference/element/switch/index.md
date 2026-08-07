@@ -2,15 +2,15 @@
 title: <switch>
 slug: Web/SVG/Reference/Element/switch
 l10n:
-  sourceCommit: 1db55979ae2b6ed7abb484b74e70809d66fa7637
+  sourceCommit: 1ea9b498e0af377455459fbbe33164091fb75f61
 ---
 
-Das **`<switch>`** [SVG](/de/docs/Web/SVG) Element bewertet die Attribute {{SVGAttr("requiredFeatures")}}, {{SVGAttr("requiredExtensions")}} und {{SVGAttr("systemLanguage")}} seiner direkten Kindelemente in der Reihenfolge und rendert dann das erste Kind, bei dem diese Attribute auf wahr auswerten.
+Das **`<switch>`**-[SVG](/de/docs/Web/SVG)-Element bewertet alle {{SVGAttr("requiredExtensions")}}- und {{SVGAttr("systemLanguage")}}-Attribute seiner direkten Kindelemente der Reihe nach und rendert dann das erste Kindelement, bei dem diese Attribute auf true ausgewertet werden.
 
 Andere direkte Kindelemente werden übersprungen und daher nicht gerendert. Wenn ein Kindelement ein Container-Element ist, wie {{SVGElement("g")}}, wird auch dessen Unterbaum verarbeitet/gerendert oder übersprungen/nicht gerendert.
 
 > [!NOTE]
-> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>` Elements. Insbesondere hat das Setzen von `display:none` bei einem Kindelement keinen Einfluss auf den Wahr/Falsch-Test während der `<switch>` Verarbeitung.
+> Die Eigenschaften `display` und `visibility` haben keinen Einfluss auf die Verarbeitung des `<switch>`-Elements. Insbesondere hat die Einstellung von `display:none` auf ein Kindelement keinen Einfluss auf die True/False-Auswertung für die `<switch>`-Verarbeitung.
 
 ## Verwendungskontext
 
@@ -19,18 +19,18 @@ Andere direkte Kindelemente werden übersprungen und daher nicht gerendert. Wenn
 ## Attribute
 
 - {{SVGAttr("requiredExtensions")}}
-  - : Eine durch Leerzeichen getrennte Liste von URL-Werten, die Sprach-Erweiterungen referenzieren, die der Benutzeragent unterstützen muss, damit das Element gerendert wird.
+  - : Eine durch Leerzeichen getrennte Liste von URL-Werten, die auf die Sprach-Erweiterungen verweisen, die der Benutzeragent unterstützen muss, damit das Element gerendert wird.
 
 - {{SVGAttr("systemLanguage")}}
-  - : Eine durch Komma getrennte Liste von unterstützten {{Glossary("BCP_47_language_tag", "Sprachtags")}}.
+  - : Eine durch Kommas getrennte Liste unterstützter {{Glossary("BCP_47_language_tag", "Sprachtags")}}.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement) Schnittstelle.
+Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement)-Schnittstelle.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie verschiedene Textinhalte abhängig von den Spracheinstellungen des Browsers angezeigt werden. Das `<switch>` Element wird das erste seiner Kindelemente anzeigen, dessen {{SVGAttr("systemLanguage")}} Attribut mit der Sprache des Benutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage` Attribut, falls keines übereinstimmt.
+Dieses Beispiel zeigt, wie je nach Spracheinstellung des Browsers unterschiedliche Textinhalte angezeigt werden können. Das `<switch>`-Element zeigt das erste seiner Kindelemente an, dessen {{SVGAttr("systemLanguage")}}-Attribut mit der Sprache des Benutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage`-Attribut, wenn keines von ihnen übereinstimmt.
 
 ```html
 <svg viewBox="0 -20 100 50">
@@ -62,4 +62,5 @@ Dieses Beispiel zeigt, wie verschiedene Textinhalte abhängig von den Spracheins
 
 ## Siehe auch
 
-- {{SVGAttr("requiredFeatures")}}
+- {{SVGAttr("requiredExtensions")}}
+- {{SVGAttr("systemLanguage")}}

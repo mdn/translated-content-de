@@ -2,12 +2,12 @@
 title: systemLanguage
 slug: Web/SVG/Reference/Attribute/systemLanguage
 l10n:
-  sourceCommit: 1db55979ae2b6ed7abb484b74e70809d66fa7637
+  sourceCommit: 9ac8d4f4ed0eb2f329e605329afeb51754c7fa79
 ---
 
-Das **`systemLanguage`**-Attribut repräsentiert eine Liste unterstützter Sprach-Tags. Diese Liste wird mit der in den Benutzereinstellungen definierten Sprache abgeglichen.
+Das Attribut **`systemLanguage`** repräsentiert eine Liste unterstützter Sprach-Tags. Diese Liste wird mit der in den Benutzereinstellungen definierten Sprache abgeglichen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -35,7 +35,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -55,29 +55,29 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<language-tags>`
-  - : Der Wert ist eine Menge von Komma-getrennten Tokens, von denen jedes ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 language tag")}} sein muss.
+  - : Der Wert ist eine Menge von durch Kommas getrennten Token, von denen jedes ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} sein muss.
 
-`systemLanguage` wird oft in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn das Attribut in anderen Situationen verwendet wird, stellt es einen einfachen Schalter am gegebenen Element dar, ob das Element gerendert wird oder nicht.
-
-> [!NOTE]
-> Wenn mehrere alternative Sprachobjekte in einem `<switch>` enthalten sind und keines davon übereinstimmt, kann dies dazu führen, dass kein Inhalt angezeigt wird. Es wird daher empfohlen, eine "Fang-alles"-Option am Ende eines solchen `<switch>` einzuschließen, die in allen Fällen akzeptabel ist.
-
-Das Attribut wird als "true" ausgewertet, wenn eines der durch die Benutzereinstellungen angegebenen Sprach-Tags eine groß-/kleinschreibung-unabhängige Übereinstimmung oder ein Präfix (gefolgt von einem "-") eines der im Wert dieses Parameters angegebenen Sprach-Tags ist. Andernfalls wird es als "false" ausgewertet.
+`systemLanguage` wird oft in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn das Attribut in anderen Situationen verwendet wird, dann stellt es einen einfachen Schalter am gegebenen Element dar, ob das Element gerendert werden soll oder nicht.
 
 > [!NOTE]
-> Die Präfix-Matching-Regel impliziert nicht, dass wenn ein Benutzer eine Sprache mit einem bestimmten Tag versteht, der Benutzer auch alle Sprachen mit dem Tag als Präfix versteht.
+> Wenn mehrere alternative Sprachobjekte in einem `<switch>` eingeschlossen sind und keines davon übereinstimmt, kann dies zu Situationen führen, in denen kein Inhalt angezeigt wird. Daher wird empfohlen, am Ende eines solchen `<switch>` eine "Catch-All"-Option einzufügen, die in allen Fällen akzeptabel ist.
 
-Wenn das Attribut nicht vorhanden ist, wird es implizit als "true" ausgewertet. Wenn ein Null-String oder ein leerer String-Wert angegeben wird, wird das Attribut als "false" ausgewertet.
+Das Attribut wird als "true" ausgewertet, wenn eines der Benutzervoreinstellungen angegebenen Sprach-Tags eine Groß-/Kleinschreibung-unabhängige Übereinstimmung oder ein Präfix (gefolgt von einem "-") eines der in diesem Parameterwert angegebenen Sprach-Tags ist. Andernfalls wird es als "false" ausgewertet.
 
-Die Präfixregel erlaubt die Verwendung von Präfix-Tags, wenn dies der Fall ist.
+> [!NOTE]
+> Die Präfixregel bedeutet nicht, dass, wenn ein Benutzer eine Sprache mit einem bestimmten Tag versteht, der Benutzer auch alle Sprachen mit dem Tag als Präfix verstehen wird.
 
-Es können mehrere Sprachen für Inhalte aufgelistet werden, die für mehrere Zielgruppen bestimmt sind. Zum Beispiel würden Inhalte, die gleichzeitig in der ursprünglichen Maori- und in der englischen Version präsentiert werden, Folgendes erfordern:
+Ist das Attribut nicht vorhanden, wird es implizit als "true" ausgewertet. Wird ein Null-String oder ein leerer String-Wert angegeben, wird das Attribut als "false" ausgewertet.
+
+Die Präfixregel ermöglicht die Verwendung von Präfix-Tags, wenn dies der Fall ist.
+
+Es können mehrere Sprachen aufgeführt werden, wenn Inhalte für mehrere Zielgruppen bestimmt sind. Wenn beispielsweise Inhalte gleichzeitig in der ursprünglichen Maori- und der englischen Version präsentiert werden, wäre dies folgendermaßen aufzuführen:
 
 ```html
 <text systemLanguage="mi, en"><!-- content goes here --></text>
 ```
 
-Jedoch bedeutet das Vorhandensein mehrerer Sprachen innerhalb des Objekts, auf dem das `systemLanguage`-Testattribut platziert ist, nicht, dass es für mehrere sprachliche Zielgruppen gedacht ist. Ein Beispiel wäre eine Einführung in eine Sprache, wie "Eine erste Lektion in Latein", das offensichtlich für ein englischsprechendes Publikum gedacht ist. In diesem Fall sollte das Attribut nur `en` enthalten.
+Nur weil mehrere Sprachen innerhalb des Objekts vorhanden sind, auf dem das `systemLanguage`-Testattribut platziert ist, bedeutet dies nicht, dass es für mehrere sprachliche Zielgruppen bestimmt ist. Ein Beispiel wäre ein Anfänger-Sprachkurs wie "A First Lesson in Latin", der eindeutig für ein englischsprachiges Publikum gedacht ist. In diesem Fall sollte das Attribut nur `en` enthalten.
 
 ## Spezifikationen
 

@@ -2,14 +2,14 @@
 title: xlink:arcrole
 slug: Web/SVG/Reference/Attribute/xlink:arcrole
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 9ac8d4f4ed0eb2f329e605329afeb51754c7fa79
 ---
 
 {{Deprecated_Header}}
 
-Das Attribut **`xlink:arcrole`** gibt eine kontextbezogene Rolle für das Element an und entspricht dem Begriff einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
+Das **`xlink:arcrole`**-Attribut spezifiziert eine kontextuelle Rolle für das Element und entspricht der [RDF-Primer](https://www.w3.org/TR/rdf-primer/)-Vorstellung einer Eigenschaft.
 
-Diese kontextbezogene Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontexts dieses bestimmten Bogens betrachtet wird. Beispielsweise könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle einer "Mutter" und im Kontext eines anderen Bogens die Rolle einer "Tochter" haben.
+Diese kontextuelle Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontextes dieses speziellen Bogens betrachtet wird. Zum Beispiel könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle einer "Mutter" und im Kontext eines anderen Bogens die Rolle einer "Tochter" haben.
 
 Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
 
@@ -53,15 +53,11 @@ Dieses Attribut können Sie mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<iri>`
-  - : Dieser Wert gibt eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri)-Referenz an, die eine Ressource identifiziert, die die beabsichtigte Eigenschaft beschreibt.
+  - : Dieser Wert spezifiziert eine [IRI](/de/docs/Web/SVG/Guides/Content_type#iri)-Referenz, die eine Ressource identifiziert, die die vorgesehene Eigenschaft beschreibt.
 
 ## Spezifikationen
 
 {{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Siehe auch
 
