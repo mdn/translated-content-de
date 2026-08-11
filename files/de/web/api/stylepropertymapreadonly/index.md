@@ -2,23 +2,23 @@
 title: StylePropertyMapReadOnly
 slug: Web/API/StylePropertyMapReadOnly
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`StylePropertyMapReadOnly`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) bietet eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks, die eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
+Die **`StylePropertyMapReadOnly`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) bietet eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) ist.
 Eine Instanz dieser Schnittstelle kann mit [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) abgerufen werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- [`StylePropertyMapReadOnly.size`](/de/docs/Web/API/StylePropertyMapReadOnly/size)
-  - : Gibt eine nicht-negative ganze Zahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
+- [`StylePropertyMapReadOnly.size`](/de/docs/Web/API/StylePropertyMapReadOnly/size) {{ReadOnlyInline}}
+  - : Gibt eine nicht signierte Ganzzahl zurück, die die Größe des `StylePropertyMapReadOnly`-Objekts enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`StylePropertyMapReadOnly.entries()`](/de/docs/Web/API/StylePropertyMapReadOnly/entries)
-  - : Gibt ein Array von `[key, value]`-Paaren der eigenen aufzählbaren Eigenschaften eines gegebenen Objekts zurück, in der gleichen Reihenfolge, wie sie durch eine {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt werden (der Unterschied ist, dass eine for-in-Schleife auch Eigenschaften in der Prototypenkette aufzählt).
+  - : Gibt ein Array der eigenen aufzählbaren `[key, value]`-Paare eines Objekts in derselben Reihenfolge zurück, wie sie von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt werden (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
 - [`StylePropertyMapReadOnly.forEach()`](/de/docs/Web/API/StylePropertyMapReadOnly/forEach)
   - : Führt eine bereitgestellte Funktion einmal für jedes Element von `StylePropertyMapReadOnly` aus.
 - [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get)
@@ -26,17 +26,17 @@ Eine Instanz dieser Schnittstelle kann mit [`Element.computedStyleMap()`](/de/do
 - [`StylePropertyMapReadOnly.getAll()`](/de/docs/Web/API/StylePropertyMapReadOnly/getAll)
   - : Gibt ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, die die Werte für die angegebene Eigenschaft enthalten.
 - [`StylePropertyMapReadOnly.has()`](/de/docs/Web/API/StylePropertyMapReadOnly/has)
-  - : Gibt an, ob die angegebene Eigenschaft im `StylePropertyMapReadOnly`-Objekt enthalten ist.
+  - : Zeigt an, ob die angegebene Eigenschaft im `StylePropertyMapReadOnly`-Objekt enthalten ist.
 - [`StylePropertyMapReadOnly.keys()`](/de/docs/Web/API/StylePropertyMapReadOnly/keys)
   - : Gibt einen neuen _Array-Iterator_ zurück, der die Schlüssel für jedes Element in `StylePropertyMapReadOnly` enthält.
 - [`StylePropertyMapReadOnly.values()`](/de/docs/Web/API/StylePropertyMapReadOnly/values)
-  - : Gibt einen neuen _Array-Iterator_ zurück, der die Werte für jedes Index im `StylePropertyMapReadOnly`-Objekt enthält.
+  - : Gibt einen neuen _Array-Iterator_ zurück, der die Werte für jeden Index im `StylePropertyMapReadOnly`-Objekt enthält.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Wir benötigen ein Element zur Beobachtung:
+Wir benötigen ein Element, um es zu beobachten:
 
 ```html
 <p>
@@ -57,7 +57,7 @@ p {
 }
 ```
 
-Wir fügen JavaScript hinzu, um unser Paragraphen-Element zu greifen und eine Definitionsliste aller Standard-CSS-Eigenschaftswerte mit [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zurückzugeben.
+Wir fügen JavaScript hinzu, um unseren Absatz zu erfassen und eine Definitionsliste aller Standard-CSS-Eigenschaftswerte mit [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zurückzugeben.
 
 ```js
 // get the element

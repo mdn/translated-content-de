@@ -3,10 +3,10 @@ title: "`column-fill` CSS property"
 short-title: column-fill
 slug: Web/CSS/Reference/Properties/column-fill
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
 ---
 
-Die **`column-fill`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie der Inhalt eines Elements aufgeteilt wird, wenn er in Spalten aufgebrochen wird.
+Die **`column-fill`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie der Inhalt eines Elements ausgeglichen wird, wenn er in Spalten aufgeteilt wird.
 
 {{InteractiveExample("CSS Demo: column-fill")}}
 
@@ -51,16 +51,16 @@ column-fill: revert-layer;
 column-fill: unset;
 ```
 
-Die `column-fill`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der Anfangswert ist `balance`, sodass der Inhalt über die Spalten hinweg ausgeglichen wird.
-
 ### Werte
 
-- `auto`
-  - : Die Spalten werden der Reihe nach gefüllt. Der Inhalt nimmt nur den Platz ein, den er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
-- `balance`
-  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z.B. bei [Seitenausgabe](/de/docs/Web/CSS/Guides/Paged_media), wird nur das letzte Fragment ausgeglichen. Daher wird bei Seitenausgabe nur die letzte Seite ausgeglichen.
+Diese Eigenschaft wird als eines der folgenden Schlüsselwörter angegeben:
 
-Die Spezifikation definiert einen `balance-all`-Wert, bei dem der Inhalt in fragmentierten Kontexten, wie z.B. bei [Seitenausgabe](/de/docs/Web/CSS/Guides/Paged_media), gleichmäßig auf die Spalten verteilt wird. Dieser Wert wird bisher von keinem Browser unterstützt.
+- `auto`
+  - : Spalten werden nacheinander gefüllt. Der Inhalt benötigt nur den Platz, den er tatsächlich beansprucht, was dazu führen kann, dass einige Spalten leer bleiben.
+- `balance`
+  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z.B. [Paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media), wird nur das letzte Fragment ausgeglichen. Daher wäre in paginierten Medien nur die letzte Seite ausgeglichen. Dies ist der Standardwert.
+
+Die Spezifikation definiert einen `balance-all`-Wert, bei dem der Inhalt in fragmentierten Kontexten, wie z.B. [Paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media), gleichmäßig auf die Spalten verteilt wird. Dieser Wert wird derzeit in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ Die Spezifikation definiert einen `balance-all`-Wert, bei dem der Inhalt in frag
 
 ## Beispiele
 
-### Ausgleich von Spalteninhalten
+### Ausbalancieren von Spalteninhalten
 
 #### HTML
 
@@ -119,12 +119,12 @@ p.fill-balance {
 {{Compat}}
 
 > [!WARNING]
-> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` in verschiedenen Browsern aufgrund ungelöster Probleme in der Spezifikation.
+> Es gibt einige Interoperabilitätsprobleme und Bugs bei `column-fill` in verschiedenen Browsern, aufgrund ungelöster Probleme in der Spezifikation.
 >
-> Insbesondere beim Verwenden von `column-fill: auto` zum sequenziellen Füllen von Spalten wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Mehrspalten-Container eine Größe in der Block-Dimension aufweist (z.B. Höhe bei horizontaler Schreibrichtung). Firefox wird diese Eigenschaft immer berücksichtigen und daher im Falle fehlender Größe die erste Spalte mit dem gesamten Inhalt füllen.
+> Insbesondere bei der Verwendung von `column-fill: auto`, um Spalten nacheinander zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multicol-Container eine Größe in der Blockdimension (z.B. Höhe im horizontalen Schreibmodus) hat. Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, falls keine Größe angegeben ist.
 
 ## Siehe auch
 
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-count")}}
 - {{CSSXref("column-width")}}

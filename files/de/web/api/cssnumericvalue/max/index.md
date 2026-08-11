@@ -3,23 +3,25 @@ title: "CSSNumericValue: max() Methode"
 short-title: max()
 slug: Web/API/CSSNumericValue/max
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`max()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den höchsten Wert unter den übergebenen Werten zurück.
-Die übergebenen Werte müssen vom gleichen Typ sein.
+Die **`max()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den höchsten Wert aus den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
 
 ## Syntax
 
 ```js-nolint
-max(number1, /* …, */ numberN)
+max()
+max(number1)
+max(number1, number2)
+max(number1, number2, /* …, */ numberN)
 ```
 
 ### Parameter
 
-- `number1`, …, `numberN`
+- `number1`, …, `numberN` {{optional_inline}}
   - : Entweder eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Rückgabewert
@@ -33,10 +35,9 @@ Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein.
-Einige der folgenden Beispiele veranschaulichen, was passiert, wenn dies nicht der Fall ist.
+Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele veranschaulichen, was passiert, wenn sie es nicht sind.
 
 ```js
 // Prints "2cm"

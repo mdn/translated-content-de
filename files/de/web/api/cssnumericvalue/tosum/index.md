@@ -3,32 +3,39 @@ title: "CSSNumericValue: toSum() Methode"
 short-title: toSum()
 slug: Web/API/CSSNumericValue/toSum
 l10n:
-  sourceCommit: 285179734bb0505a755c76aa556b6cb12d81b643
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`toSum()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, um Werte der angegebenen Einheit zu erhalten.
+Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in eine [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) von [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)s, indem nur die angegebenen Einheiten verwendet werden, wenn möglich. Wenn sie ohne Einheiten aufgerufen wird, vereinfacht sie den Wert stattdessen in eine minimale Summe von `CSSUnitValue`s.
 
 ## Syntax
 
 ```js-nolint
-toSum(units)
+toSum()
+toSum(unit1)
+toSum(unit1, unit2)
+toSum(unit1, unit2, /* …, */ unitN)
 ```
 
 ### Parameter
 
-- `units`
-  - : Die Einheiten, in die umgewandelt werden soll.
+- `unit1`, …, `unitN` {{optional_inline}}
+  - : Die Einheiten, in die konvertiert werden soll.
 
 ### Rückgabewert
 
-Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
+Eine [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 
 ### Ausnahmen
 
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine der `unit1`, …, `unitN` keine gültige Einheit ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
+  - : Wird ausgelöst, wenn:
+    - Der Wert nicht als Summe von `CSSUnitValue`s ausgedrückt werden kann — zum Beispiel, weil einer seiner Terme eine zusammengesetzte Einheit (wie `px * s`) hat, die nicht durch einen einzelnen `CSSUnitValue` dargestellt werden kann.
+    - Eine oder mehrere Einheiten an die Methode übergeben wurden und der Wert einen Term enthält, dessen Einheit mit keiner von ihnen kompatibel ist.
 
 ## Beispiele
 

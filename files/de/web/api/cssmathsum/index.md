@@ -2,14 +2,12 @@
 title: CSSMathSum
 slug: Web/API/CSSMathSum
 l10n:
-  sourceCommit: dd7010ad7ca5647b43f68b66578835b974bf4e70
+  sourceCommit: 793b293c6c43b480bf060c2f98ca9240712f461e
 ---
 
-{{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
+{{APIRef("CSS Typed Object Model API")}}{{AvailableInWorkers}}
 
-Das **`CSSMathSum`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert das Ergebnis, das durch den Aufruf von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
-
-Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) auf eine CSS-Eigenschaft angewendet wird, deren Wert mit einer {{cssxref("calc()")}}-Funktion erstellt wurde.
+Die **`CSSMathSum`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die Summe von zwei oder mehr [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Werten, in Fällen, in denen das Ergebnis nicht als einzelner Wert dargestellt werden kann.
 
 {{InheritanceDiagram}}
 
@@ -18,62 +16,125 @@ Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`St
 - [`CSSMathSum()`](/de/docs/Web/API/CSSMathSum/CSSMathSum) {{Experimental_Inline}}
   - : Erstellt ein neues `CSSMathSum`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
-- [`CSSMathSum.values`](/de/docs/Web/API/CSSMathSum/values)
+- [`CSSMathSum.values`](/de/docs/Web/API/CSSMathSum/values) {{ReadOnlyInline}}
   - : Gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Statische Methoden
 
-_Erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Methoden von seinem übergeordneten Interface, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)._
+
+## Beschreibung
+
+Ein `CSSMathSum` wird erzeugt, wenn eine Addition oder Subtraktion nicht auf einen einzelnen Wert reduziert werden kann — zum Beispiel, wenn die Operanden unterschiedliche Einheiten verwenden, wie eine Länge und ein Prozentsatz.
+
+Das Aufrufen von [`add()`](/de/docs/Web/API/CSSNumericValue/add) oder [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) auf Operanden, die nicht kombiniert werden können, liefert ein `CSSMathSum`; wenn jeder Operand dieselbe Einheit hat, lösen sie sich sofort in einen einzelnen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) auf.
+[`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) hingegen gibt immer ein `CSSMathSum` zurück, selbst wenn seine Terme in einen einzelnen Wert kombiniert werden könnten.
+
+[`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) gibt ein `CSSMathSum` auf die gleiche Weise zurück — für einen {{cssxref("calc()")}}-Wert, der auf eine Addition oder Subtraktion aufgelöst wird, die nicht zu einem Wert kombiniert werden kann.
+
+`CSSMathSum` repräsentiert den Ausdruck der Summe selbst, nicht einen aufgelösten Wert.
+Um den aufgelösten Wert zu erhalten, verwenden Sie [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle).
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer {{cssxref("width")}}, die unter Verwendung einer {{cssxref("calc()")}}-Funktion bestimmt wird, dann nutzen wir [`console.log()`](/de/docs/Web/API/console/log_static) für den `operator` und die `values`, und untersuchen die Werte etwas näher.
+### Grundlegende Verwendung
 
-```html
-<div>has width</div>
+Der folgende Code erstellt eine `CSSMathSum`-Instanz aus drei Werten und liest dann seine `operator`- und `values`-Eigenschaften aus.
+
+```js
+const sum = new CSSMathSum(CSS.px(10), CSS.em(5), CSS.percent(50));
+
+console.log(sum.constructor.name); // "CSSMathSum"
+console.log(sum.operator); // 'sum'
+
+console.log(sum.values); // CSSNumericArray {0: CSSUnitValue, 1: CSSUnitValue, 2: CSSUnitValue, length: 3}
+console.log(sum.values[0]); // CSSUnitValue {value: 10, unit: "px"}
 ```
 
-Wir weisen eine `width` zu
+### `calc()`-Darstellungen
+
+Dieses Beispiel zeigt, wie eine {{cssxref("calc()")}}-Addition durch einen [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) oder ein `CSSMathSum` dargestellt wird, je nachdem, ob seine Terme eine Einheit teilen.
+
+#### HTML
+
+```html
+<div id="demoBox">Text</div>
+```
+
+```html hidden
+<pre id="log"></pre>
+```
+
+#### CSS
+
+`width` wird mit einer `calc()`-Summe gesetzt, deren Terme beide `px`-Längen sind, sodass der Browser diese sofort in einen einzelnen festen Wert auflösen kann.
+`font-size` wird mit einer `calc()`-Summe gesetzt, die `rem` und `vw` mischt, sodass der Browser die Terme erst beim Layout kombinieren kann (dies wird durch ein `CSSMathSum` dargestellt).
 
 ```css
-div {
-  width: calc(30% - 20px);
+#demoBox {
+  width: calc(10px + 5px);
+  font-size: calc(1rem + 5vw);
 }
 ```
 
-Wir fügen das JavaScript hinzu
-
-```js
-const styleMap = document.querySelector("div").computedStyleMap();
-
-console.log(styleMap.get("width")); // CSSMathSum {values: CSSNumericArray, operator: "sum"}
-console.log(styleMap.get("width").operator); // 'sum'
-console.log(styleMap.get("width").values); // CSSNumericArray {0: CSSUnitValue, 1: CSSUnitValue, length: 2}
-console.log(styleMap.get("width").values[0]); // CSSUnitValue {value: 30, unit: "percent"}
-console.log(styleMap.get("width").values[0].value); // 30
-console.log(styleMap.get("width").values[0].unit); // 'percent'
-console.log(styleMap.get("width").values[1]); // CSSUnitValue {value: -20, unit: "px"}
-console.log(styleMap.get("width").values[1].value); //  -20
-console.log(styleMap.get("width").values[1].unit); // 'px'
+```css hidden
+#log {
+  height: 200px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
 ```
 
-{{EmbedLiveSample("Examples", 120, 300)}}
+#### JavaScript
 
-Die Spezifikation entwickelt sich noch. In der Zukunft könnten wir die letzten drei Zeilen folgendermaßen schreiben:
+```js hidden
+const logElement = document.querySelector("#log");
+function log(text) {
+  logElement.innerText += `${text}\n`;
+}
+```
+
+Zuerst suchen wir die Stilregel des Demo-Box und lesen ihre `width`- und `font-size`-Werte mithilfe von [`styleMap`](/de/docs/Web/API/CSSStyleRule/styleMap).
 
 ```js
-console.log(styleMap.get("width").values[1]); // CSSMathNegate {value: CSSUnitValue, operator: "negate"}
-console.log(styleMap.get("width").values[1].value); // CSSUnitValue {value: 20, unit: "px"}
-console.log(styleMap.get("width").values[1].value.unit); // 'px'
+const demoBox = document.querySelector("#demoBox");
+
+const rules = document.getElementById("css-output").sheet.cssRules;
+const rule = [...rules].find((r) => r.selectorText === "#demoBox");
+const styleMap = rule.styleMap;
+const width = styleMap.get("width");
+const fontSize = styleMap.get("font-size");
 ```
+
+Wir protokollieren dann den Typ und den Wert der CSS Typed OM-Darstellungen, gefolgt von den berechneten (aufgelösten) Werten.
+
+```js
+log("width");
+log(` type: ${width.constructor.name}`);
+log(` value: ${width}`);
+log(` resolved: ${getComputedStyle(demoBox).width}`);
+
+log("\nfont-size");
+log(` type: ${fontSize.constructor.name}`);
+log(` values: [${[...fontSize.values].join(", ")}]`);
+log(` resolved: ${getComputedStyle(demoBox).fontSize}`);
+```
+
+#### Ergebnis
+
+`width` wird durch ein `CSSUnitValue`-Objekt repräsentiert, das einen Wert hat, der mit der aufgelösten Breite übereinstimmt.
+`font-size` wird durch ein `CSSMathSum`-Objekt repräsentiert, das die ursprünglichen Terme der `calc()`-Summe darstellt.
+
+{{EmbedLiveSample("`calc()` representations", 300, 300)}}
 
 ## Spezifikationen
 
@@ -82,3 +143,12 @@ console.log(styleMap.get("width").values[1].value.unit); // 'px'
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`add()`](/de/docs/Web/API/CSSNumericValue/add)
+- [`sub()`](/de/docs/Web/API/CSSNumericValue/sub)
+- [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum)
+- [`CSSMathValue.operator`](/de/docs/Web/API/CSSMathValue/operator)
+- [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)
+- [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)
