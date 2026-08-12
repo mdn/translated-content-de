@@ -12533,7 +12533,7 @@
 /de/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement	/de/docs/Web/CSS/Guides/Grid_layout
 /de/docs/Web/CSS/CSS_Grid_Layout/Grid_logical_values_and_writing_modes	/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes
 /de/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid	/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement
-/de/docs/Web/CSS/CSS_Grid_Layout/Masonry	/de/docs/Web/CSS/Guides/Grid_layout/Masonry_layout
+/de/docs/Web/CSS/CSS_Grid_Layout/Masonry	/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes
 /de/docs/Web/CSS/CSS_Grid_Layout/Realising_common_layouts_using_CSS_Grid_	/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts
 /de/docs/Web/CSS/CSS_Grid_Layout/Realizing_common_layouts_using_CSS_Grid_Layout	/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts
 /de/docs/Web/CSS/CSS_Grid_Layout/Realizing_common_layouts_using_CSS_Grid_Layout_	/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts
@@ -12714,7 +12714,7 @@
 /de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes	/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes
 /de/docs/Web/CSS/CSS_grid_layout/Layout_using_line-based_placement	/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement
 /de/docs/Web/CSS/CSS_grid_layout/Layout_using_named_grid_lines	/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines
-/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout	/de/docs/Web/CSS/Guides/Grid_layout/Masonry_layout
+/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout	/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes
 /de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids	/de/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts
 /de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods	/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods
 /de/docs/Web/CSS/CSS_grid_layout/Subgrid	/de/docs/Web/CSS/Guides/Grid_layout/Subgrid
@@ -13010,7 +13010,7 @@
 /de/docs/Web/CSS/align-content	/de/docs/Web/CSS/Reference/Properties/align-content
 /de/docs/Web/CSS/align-items	/de/docs/Web/CSS/Reference/Properties/align-items
 /de/docs/Web/CSS/align-self	/de/docs/Web/CSS/Reference/Properties/align-self
-/de/docs/Web/CSS/align-tracks	/de/docs/Web/CSS/Guides/Grid_layout/Masonry_layout
+/de/docs/Web/CSS/align-tracks	/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes
 /de/docs/Web/CSS/alignment-baseline	/de/docs/Web/CSS/Reference/Properties/alignment-baseline
 /de/docs/Web/CSS/all	/de/docs/Web/CSS/Reference/Properties/all
 /de/docs/Web/CSS/alpha-value	/de/docs/Web/CSS/Reference/Values/alpha-value
@@ -13459,7 +13459,7 @@
 /de/docs/Web/CSS/justify-content	/de/docs/Web/CSS/Reference/Properties/justify-content
 /de/docs/Web/CSS/justify-items	/de/docs/Web/CSS/Reference/Properties/justify-items
 /de/docs/Web/CSS/justify-self	/de/docs/Web/CSS/Reference/Properties/justify-self
-/de/docs/Web/CSS/justify-tracks	/de/docs/Web/CSS/Guides/Grid_layout/Masonry_layout
+/de/docs/Web/CSS/justify-tracks	/de/docs/Web/CSS/Guides/Grid_layout/Grid_lanes
 /de/docs/Web/CSS/kerning	/de/docs/Web/CSS/Reference/Properties/font-kerning
 /de/docs/Web/CSS/left	/de/docs/Web/CSS/Reference/Properties/left
 /de/docs/Web/CSS/length	/de/docs/Web/CSS/Reference/Values/length

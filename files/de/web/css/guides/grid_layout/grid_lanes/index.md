@@ -1,21 +1,21 @@
 ---
-title: Masonry-Layout
-slug: Web/CSS/Guides/Grid_layout/Masonry_layout
+title: Grid-Lanes-Layout
+slug: Web/CSS/Guides/Grid_layout/Grid_lanes
 l10n:
-  sourceCommit: 24cdca6f7927df0c49c00d272f68d4a25c817af3
+  sourceCommit: b02c4fe0f8c485fa3fd0af10005310aaecef64ca
 ---
 
 {{SeeCompatTable}}
 
-Level 3 der [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) Spezifikation definiert den **Masonry-Layout** (auch bekannt als **grid-lanes** Layout), der über die {{cssxref("display")}} Werte `grid-lanes` und `inline-grid-lanes` zugänglich ist. Dieser Leitfaden beschreibt, was ein Masonry-Layout ist und wie es verwendet wird.
+Level 3 der [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Spezifikation definiert das **Grid-Lanes-Layout**, das über die {{cssxref("display")}}-Werte `grid-lanes` und `inline-grid-lanes` zugänglich ist. Dieser Leitfaden erklärt, wie das Grid-Lanes-Layout funktioniert und wie es verwendet wird.
 
-Ein Masonry-Layout ist eine Layoutmethode, bei der eine Achse einen typischen strikten Grid-Layout verwendet, meist Spalten, und die andere ein **Stapellayout** (Masonry). Auf der Stapelachse richten sich die Elemente nicht nach einem strengen Grid mit Lücken, die nach kürzeren Elementen verbleiben, sondern die Elemente der folgenden Reihe steigen auf, um die Lücken zu füllen.
+Das Grid-Lanes-Layout ist eine Layoutmethode, bei der eine Achse ein typisches strenges Rasterlayout verwendet, meistens Spalten, und die andere eine Stapelalgorithmus nutzt. Auf der Stapelachse steigen die Elemente der folgenden Zeile hoch, um die Lücken zu füllen, anstatt sich an ein strenges Raster zu halten, bei dem nach kürzeren Elementen Lücken verbleiben.
 
-## Erstellen eines Masonry-Layouts
+## Erstellen eines Grid-Lanes-Layouts
 
-Um das häufigste Masonry-Layout zu erstellen, bei dem die Spalten in einem Grid angeordnet sind und die Reihen wie Mauerwerk gestapelt sind, verwenden Sie **`display: grid-lanes`** zusammen mit {{cssxref("grid-template-columns")}}.
+Um das häufigste Grid-Lanes-Layout zu erstellen, bei dem die Spalten in einem Raster angeordnet sind und die Zeilen mit dem Grid-Lanes-Layout-Algorithmus gefüllt werden, verwenden Sie **`display: grid-lanes`** zusammen mit {{cssxref("grid-template-columns")}}.
 
-Die Kindelemente dieses Containers werden entlang der Stapelachse gemäß dem Masonry-Algorithmus Element für Element angeordnet: Jede Reihe wird in die Spalte mit dem meisten Platz geladen, was zu einem dicht gepackten Layout ohne strikte Reihenspuren führt.
+Die Kindelemente dieses Containers werden Element für Element entlang der Stapelachse gemäß dem Grid-Lanes-Layout-Algorithmus angeordnet: Jede Zeile von Elementen lädt sich in die Spalte mit dem meisten Platz, was zu einem dicht gepackten Layout ohne strenge Zeilenspuren führt.
 
 ```css hidden live-sample___block-axis live-sample___inline-axis live-sample___spanners live-sample___positioned
 * {
@@ -78,7 +78,7 @@ for (let i = 0; i < items.length; i++) {
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Masonry-Layout mit Elementen zu erstellen, die in Reihen geladen werden.
+Es ist auch möglich, ein Grid-Lanes-Layout mit in Zeilen geladenen Elementen zu erstellen.
 
 ```js live-sample___inline-axis
 // prettier-ignore
@@ -102,13 +102,13 @@ for (let i = 0; i < items.length; i++) {
 
 {{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Steuerung der Grid-Achse
+## Kontrolle über die Rasterachse
 
-Auf der Grid-Achse funktionieren die Dinge genauso, wie Sie es von einem Grid-Layout erwarten. Sie können Elemente dazu bringen, mehrere Tracks zu umfassen, während sie sich in Auto-Platzierung befinden, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch unter Verwendung von linienbasierter Positionierung positioniert werden.
+Auf der Rasterachse funktioniert alles wie erwartet im Grid-Layout. Sie können Objekte dazu bringen, mehrere Spuren zu überspannen, während sie im Auto-Platzierung-Modus bleiben, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch durch linienbasierte Positionierung platziert werden.
 
-### Masonry-Layout mit übergreifenden Elementen
+### Grid-Lanes-Layout mit überspannenden Elementen
 
-In diesem Beispiel erstrecken sich zwei der Elemente über zwei Tracks, und die Masonry-Elemente arbeiten um sie herum.
+In diesem Beispiel überspannen zwei der Elemente zwei Spuren, und die verbleibenden Elemente werden vom Grid-Lanes-Layout-Algorithmus um sie herum gepackt.
 
 ```html live-sample___spanners
 <div class="grid">
@@ -139,7 +139,7 @@ In diesem Beispiel erstrecken sich zwei der Elemente über zwei Tracks, und die 
 
 {{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. Elemente mit definierter Platzierung werden vor dem Masonry-Layout platziert.
+Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. Elemente mit fester Platzierung werden platziert, bevor der Grid-Lanes-Layout-Algorithmus ausgeführt wird.
 
 ```html live-sample___positioned
 <div class="grid">
@@ -171,10 +171,6 @@ Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. 
 
 {{EmbedLiveSample("positioned", "", "290px")}}
 
-## Fallbacks für Masonry-Layout
-
-In Browsern [die Masonry nicht unterstützen](#browser-kompatibilität), wird stattdessen das reguläre Grid-Auto-Placement verwendet.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -185,4 +181,4 @@ In Browsern [die Masonry nicht unterstützen](#browser-kompatibilität), wird st
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Gitterplatzierung
+- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Rasterplatzierung

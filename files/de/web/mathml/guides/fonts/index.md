@@ -1,54 +1,54 @@
 ---
-title: Fonts für MathML
+title: Schriften für MathML
 short-title: Fonts
 slug: Web/MathML/Guides/Fonts
 l10n:
-  sourceCommit: e1369ab17010cbf44d3668a4a3573b58c6efb43e
+  sourceCommit: 4d1121972ed8c33a0d539c72ef1ecccb068343ed
 ---
 
-Schriftarten mit geeigneter Unicode-Abdeckung und Open Font Format-Funktionen sind für eine gute mathematische Darstellung erforderlich. Diese Seite beschreibt, wie Benutzer solche mathematischen Schriftarten installieren können, um MathML in Browsern korrekt anzuzeigen.
+Für eine gute mathematische Darstellung sind Schriften mit angemessener Unicode-Abdeckung und Open Font Format-Funktionen erforderlich. Diese Seite beschreibt, wie Benutzer solche Mathe-Schriften installieren können, um MathML in Browsern richtig anzuzeigen.
 
 ## Installationsanweisungen
 
-Als generelle Faustregel wird empfohlen, sowohl _Latin Modern Math_ (welches den [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern) Stil verwendet, der für mathematische Formeln beliebt ist) als auch _STIX Two Math_ (welches eine große Unicode-Abdeckung für wissenschaftliche Zeichen hat) zu installieren. In den folgenden Abschnitten finden Sie detaillierte Anleitungen zur Installation dieser Schriftarten auf verschiedenen Betriebssystemen.
+Als Faustregel wird empfohlen, sowohl _Latin Modern Math_ (welches den [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern)-Stil verwendet, der für mathematische Formeln beliebt ist) als auch _STIX Two Math_ (das eine große Unicode-Abdeckung für wissenschaftliche Zeichen hat) zu installieren. In den nächsten Abschnitten finden Sie detaillierte Anweisungen zur Installation dieser Schriften auf verschiedenen Betriebssystemen.
 
 ### Windows
 
-Installieren Sie die _Latin Modern Math_ und _STIX Two Math_ Schriftarten wie folgt:
+Installieren Sie die Schriften _Latin Modern Math_ und _STIX Two Math_ wie folgt:
 
 1. Laden Sie [latinmodern-math-1959.zip](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) herunter.
-2. Öffnen Sie das ZIP-Archiv, gehen Sie in das Verzeichnis `latinmodern-math-1959` und dann in das Verzeichnis `otf`. Sie finden eine `latinmodern-math` Schriftdatei.
-3. Öffnen Sie die `latinmodern-math` Schriftdatei und klicken Sie auf die Schaltfläche **Installieren**.
-4. Laden Sie [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/master/zipfiles/static_otf.zip) herunter.
-5. Öffnen Sie das ZIP-Archiv `static_otf.zip` und gehen Sie dann in das Verzeichnis `static_otf`. Unter den dortigen Dateien finden Sie eine `STIXTwoMath-Regular` Datei.
-6. Öffnen Sie die `STIXTwoMath-Regular` Datei und klicken Sie auf die Schaltfläche **Installieren**. Bei Bedarf können Sie dies auch mit den anderen Schriftdateien im Verzeichnis tun.
+2. Öffnen Sie das ZIP-Archiv, gehen Sie in das Verzeichnis `latinmodern-math-1959` und dann in das Verzeichnis `otf`. Dort finden Sie eine `latinmodern-math`-Schriftdatei.
+3. Öffnen Sie die `latinmodern-math`-Schriftdatei und klicken Sie auf die Schaltfläche **Installieren**.
+4. Laden Sie [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/v2.13b171/zipfiles/static_otf.zip) herunter.
+5. Öffnen Sie das `static_otf.zip` ZIP-Archiv und gehen Sie in das Verzeichnis `static_otf`. Unter den dortigen Dateien finden Sie eine `STIXTwoMath-Regular`-Datei.
+6. Öffnen Sie die `STIXTwoMath-Regular`-Datei und klicken Sie auf die Schaltfläche **Installieren**. Bei Bedarf können Sie dasselbe auch für die anderen Schriftdateien im Verzeichnis tun.
 
 > [!NOTE]
-> _Cambria Math_ ist standardmäßig auf Windows installiert und sollte eine relativ gute MathML-Darstellung sicherstellen.
+> _Cambria Math_ ist standardmäßig auf Windows installiert und sollte eine relativ gute MathML-Darstellung gewährleisten.
 
 ### macOS
 
-Installieren Sie die _Latin Modern Math_ Schriftart wie folgt:
+Installieren Sie die Schrift _Latin Modern Math_ wie folgt:
 
 1. Laden Sie [latinmodern-math-1959.zip](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) herunter.
-2. Entpacken Sie das ZIP-Archiv, gehen Sie in das Verzeichnis `latinmodern-math-1959` und dann in das Verzeichnis `otf`. Sie finden eine `latinmodern-math` Schriftdatei.
-3. Doppelklicken Sie auf die `latinmodern-math` Schriftdatei und klicken Sie auf die Schaltfläche **Schriftart installieren** im sich öffnenden Fenster.
+2. Entpacken Sie das ZIP-Archiv, gehen Sie in das Verzeichnis `latinmodern-math-1959` und dann in das Verzeichnis `otf`. Dort finden Sie eine `latinmodern-math`-Schriftdatei.
+3. Doppelklicken Sie auf die `latinmodern-math`-Schriftdatei und klicken Sie auf die Schaltfläche **Schrift installieren** im geöffneten Fenster.
 
 > [!NOTE]
 > Wenn Sie macOS Ventura (Version 13) oder höher verwenden, ist _STIX Two Math_ bereits vorinstalliert und Sie können die folgenden Schritte überspringen.
 
-Installieren Sie die _STIX Two Math_ Schriftart wie folgt:
+Installieren Sie die Schrift _STIX Two Math_ wie folgt:
 
-1. Laden Sie [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/master/zipfiles/static_otf.zip) herunter.
-2. Öffnen Sie das `static_otf.zip` ZIP-Archiv und gehen Sie dann in das Verzeichnis `static_otf`. Unter den dortigen Dateien finden Sie eine `STIXTwoMath-Regular.otf` Datei.
-3. Öffnen Sie die `STIXTwoMath-Regular.otf` Datei und klicken Sie auf die Schaltfläche **Schriftart installieren** im sich öffnenden Fenster. Bei Bedarf können Sie dies auch mit den anderen Schriftdateien im Verzeichnis tun.
+1. Laden Sie [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/v2.13b171/zipfiles/static_otf.zip) herunter.
+2. Öffnen Sie das `static_otf.zip` ZIP-Archiv und gehen Sie in das Verzeichnis `static_otf`. Unter den dortigen Dateien finden Sie eine `STIXTwoMath-Regular.otf`-Datei.
+3. Öffnen Sie die `STIXTwoMath-Regular.otf`-Datei und klicken Sie auf die Schaltfläche **Schrift installieren** im geöffneten Fenster. Bei Bedarf können Sie dasselbe auch für die anderen Schriftdateien im Verzeichnis tun.
 
 > [!NOTE]
-> **Eine veraltete Version von _STIX_ ist ab OS X Lion (Version 10.7) vorinstalliert.** Obwohl einige Browser in der Lage sind, diese zu nutzen, wird dringend empfohlen, die obigen Anweisungen für eine optimale mathematische Darstellung zu befolgen.
+> Eine veraltete Version von _STIX_ ist ab OS X Lion (Version 10.7) vorinstalliert. Obwohl einige Browser sie verwenden können, wird dringend empfohlen, die obigen Anweisungen für eine optimale mathematische Darstellung zu befolgen.
 
 ### Linux
 
-Unten finden Sie Befehle zur Ausführung auf beliebten Linux-Distributionen, um mathematische Schriftarten von Ihrem Paketmanager zu installieren. Es werden auch alternative Ansätze bereitgestellt, falls Ihre Linux-Distribution keine dedizierten Pakete für diese Schriftarten bietet.
+Nachfolgend finden Sie Befehle, die Sie auf beliebten Linux-Distributionen ausführen können, um Matheschriften über Ihren Paketmanager zu installieren. Alternative Ansätze werden ebenfalls bereitgestellt, falls Ihre Linux-Distribution keine speziellen Pakete für diese Schriften bietet.
 
 #### Debian-basierte Distributionen (einschließlich Ubuntu und Mint)
 
@@ -57,7 +57,7 @@ sudo apt-get install fonts-lmodern
 ```
 
 > [!NOTE]
-> Das Debian-Paket `fonts-stix` installiert die STIX 1.x Schriftarten, nicht _STIX Two Math_.
+> Das Debian-Paket `fonts-stix` installiert STIX 1.x-Schriften, nicht _STIX Two Math_.
 
 #### Fedora-basierte Distributionen
 
@@ -65,7 +65,7 @@ sudo apt-get install fonts-lmodern
 sudo dnf install texlive-lm-math stix-math-fonts
 ```
 
-#### openSUSE-basierte Distributionen
+#### OpenSUSE-basierte Distributionen
 
 ```bash
 sudo zypper install texlive-lm-math stix-fonts
@@ -79,13 +79,13 @@ sudo pacman -S otf-latinmodern-math otf-stix
 
 #### TeXLive-Pakete
 
-Falls Ihre Linux-Distribution keine Pakete für die _Latin Modern Math_ und _STIX_ Schriftarten bietet, ziehen Sie stattdessen in Betracht, die `texlive` Pakete zu installieren, die die _Latin Modern Math_ und _XITS_ Schriftarten enthalten. Zum Beispiel auf Mageia:
+Wenn Ihre Linux-Distribution keine Pakete für die _Latin Modern Math_- und _STIX_-Schriften bereitstellt, ziehen Sie stattdessen die Installation der `texlive`-Pakete in Betracht, die die Schriften _Latin Modern Math_ und _XITS_ enthalten. Zum Beispiel auf Mageia:
 
 ```bash
 sudo urpmi texlive-dist texlive-fontsextra
 ```
 
-Sie werden jedoch wahrscheinlich sicherstellen müssen, dass diese Schriftarten Ihrem System bekannt sind. Fügen Sie eine Konfiguration für fontconfig `/etc/fonts/conf.avail/09-texlive-fonts.conf` hinzu, die auf das `opentype` Verzeichnis von TeXLive verweist, zum Beispiel:
+Es ist jedoch wahrscheinlich notwendig sicherzustellen, dass diese Schriften Ihrem System bekannt sind. Fügen Sie eine Schriftkonfigurationsdatei `/etc/fonts/conf.avail/09-texlive-fonts.conf` hinzu, die auf das `opentype`-Verzeichnis von TeXLive verweist, z.B.:
 
 ```xml
 <?xml version="1.0"?>
@@ -95,7 +95,7 @@ Sie werden jedoch wahrscheinlich sicherstellen müssen, dass diese Schriftarten 
 </fontconfig>
 ```
 
-Fügen Sie schließlich diese Konfigurationsdatei zur Liste der Systemschriftartenstandorte hinzu und regenerieren Sie den fontconfig-Cache:
+Fügen Sie schließlich diese Konfigurationsdatei der Systemschriftliste hinzu und regenerieren Sie den Fontconfig-Cache:
 
 ```bash
 ln -sf /etc/fonts/conf.avail/09-texlive-fonts.conf /etc/fonts/conf.d/
@@ -104,39 +104,39 @@ fc-cache -sf
 
 #### Upstream-Pakete
 
-Wenn auf Ihren Linux-Distributionen keine Pakete verfügbar sind oder wenn Sie nur Upstream-Pakete installieren möchten, versuchen Sie Folgendes:
+Wenn auf Ihren Linux-Distributionen keine Pakete verfügbar sind oder Sie einfach Upstream-Pakete installieren möchten, versuchen Sie Folgendes:
 
-1. Laden Sie [latinmodern-math-1959.zip](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) und [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/master/zipfiles/static_otf.zip) herunter.
-2. Erstellen Sie einen `~/.fonts` Ordner, falls dieser noch nicht existiert, und platzieren Sie `latinmodern-math.otf` und `STIXTwoMath-Regular.otf` in diesem Verzeichnis.
-3. Führen Sie `fc-cache -f` aus, um den fontconfig-Cache zu regenerieren.
+1. Laden Sie [latinmodern-math-1959.zip](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) und [static_otf.zip](https://raw.githubusercontent.com/stipub/stixfonts/v2.13b171/zipfiles/static_otf.zip) herunter.
+2. Erstellen Sie ein Verzeichnis `~/.fonts`, falls es nicht bereits existiert, und platzieren Sie `latinmodern-math.otf` und `STIXTwoMath-Regular.otf` darin.
+3. Führen Sie `fc-cache -f` aus, um den Fontconfig-Cache zu regenerieren.
 
 ### Android
 
 Sie müssen das [MathML-fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/) verwenden.
 
-Noto Sans Math bietet eine gute Unicode-Abdeckung für mathematische Symbole und [mathematischen Satz](https://github.com/notofonts/math/blob/main/documentation/building-math-fonts/index.md).
+Noto Sans Math bietet eine gute Unicode-Abdeckung für mathematische Symbole und [mathematische Layouts](https://github.com/notofonts/math/blob/main/documentation/building-math-fonts/index.md).
 
 ### Andere Systeme
 
-Auf anderen Systemen ziehen Sie in Betracht, eine [Schriftart mit einer MATH-Tabelle](#schriftarten_mit_einer_math-tabelle) über Ihren Paketmanager zu installieren. Beachten Sie, dass diese Schriftarten in der Regel mit TeX-Distributionen wie [TeX Live](https://www.tug.org/texlive/) geliefert werden, aber möglicherweise müssen Sie spezifischen Anweisungen folgen, damit Ihr System die Schriftarten erkennt. Als letztes Mittel installieren Sie das [MathML fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/).
+Auf anderen Systemen erwägen Sie, eine [Schrift mit einer MATH-Tabelle](#schriften_mit_einer_math-tabelle) über Ihren Paketmanager zu installieren. Beachten Sie, dass diese Schriften im Allgemeinen mit TeX-Distributionen wie [TeX Live](https://www.tug.org/texlive/) geliefert werden, aber Sie müssen möglicherweise spezifische Anweisungen befolgen, damit Ihr System die Schriften erkennt. Als letzter Ausweg installieren Sie das [MathML fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/).
 
-## Erweitertes Setup
+## Erweiterte Einrichtung
 
-In den folgenden Abschnitten finden Sie weitere nützliche Tipps zur Installation und Konfiguration von Schriftarten für MathML.
+In den folgenden Abschnitten finden Sie weitere nützliche Tipps für die Installation und Konfiguration von Schriften für MathML.
 
 ### Arabische mathematische alphabetische Symbole
 
-Derzeit haben sehr wenige Schriftarten geeignete Glyphen für arabische mathematische alphabetische Symbole. Wenn Sie wahrscheinlich diese Zeichen benötigen, empfehlen wir, die _XITS_ oder [Amiri](https://aliftype.com/amiri/) Schriftarten zu installieren.
+Derzeit haben sehr wenige Schriften geeignete Glyphen für die arabischen mathematischen alphabetischen Symbole. Wenn Sie wahrscheinlich diese Zeichen benötigen, empfehlen wir, die Schriften _XITS_ oder [Amiri](https://aliftype.com/amiri/) zu installieren.
 
-### Installation ohne Administratorberechtigung
+### Installation ohne Administratorrechte
 
-Wenn Sie Schriftarten auf einem System ohne Administratorberechtigung installieren müssen, ist die einfachste Option die Verwendung der mathematischen Schriftart mit dem [MathML-fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/). Beachten Sie, dass die Verwendung des Add-ons nicht optimal ist, da es Ihren Gecko-Browser zwingt, auf jeder besuchten Seite ein CSS-Stylesheet sowie Webmathematik-Fonts auf allen Seiten mit MathML-Inhalten zu laden.
+Wenn Sie Schriften auf einem System ohne Administratorrechte installieren müssen, ist die einfachste Option, das [MathML-fonts Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-fonts/) zu verwenden. Beachten Sie, dass die Verwendung des Add-ons nicht optimal ist, da es Ihren Gecko-Browser zwingt, ein CSS-Stylesheet auf jeder besuchten Seite sowie Web-Matheschriften auf allen Seiten mit MathML-Inhalten zu laden.
 
-Eine bessere Alternative auf UNIX-Systemen ist es, die OTF-Dateien für [Latin Modern Math](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) und [STIX](https://github.com/stipub/stixfonts) in einem lokalen Schriftarten-Verzeichnis zu installieren und (falls nötig) `fc-cache` darauf auszuführen. Auf macOS und Linux sind die Standardpfade jeweils `~/Library/Fonts/` und `~/.fonts`.
+Eine bessere Alternative auf UNIX-Systemen ist die Installation der OTF-Dateien für [Latin Modern Math](https://www.gust.org.pl/projects/e-foundry/lm-math/download/latinmodern-math-1959.zip) und [STIX](https://github.com/stipub/stixfonts) in einem lokalen Schriftverzeichnis und (falls erforderlich) `fc-cache` darauf auszuführen. Auf macOS und Linux sind die Standardpfade jeweils `~/Library/Fonts/` und `~/.fonts`.
 
-### Schriftarten mit einer MATH-Tabelle
+### Schriften mit einer MATH-Tabelle
 
-Sie können tatsächlich jede beliebige [mathematische OpenType-Schriftart](https://fred-wang.github.io/MathFonts/) installieren und sie für die Darstellung von MathML verwenden. Einige Browser bieten die Möglichkeit, die Standardschriftart für MathML im Schriftartenpräferenzmenü zu konfigurieren. Alternativ können Sie das [MathML Font Settings Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-font-settings/) ausprobieren.
+Sie können tatsächlich jede [mathematische OpenType-Schrift](https://fred-wang.github.io/MathFonts/) installieren und sie für das MathML-Rendering verwenden. Einige Browser bieten eine Möglichkeit, die Standardschriftart für MathML im Schriftpräferenzmenü zu konfigurieren. Alternativ können Sie das [MathML Font Settings Add-on](https://addons.mozilla.org/en-US/firefox/addon/mathml-font-settings/) ausprobieren.
 
 - [Asana Math](https://www.ctan.org/tex-archive/fonts/Asana-Math/)
 - [Cambria Math](https://learn.microsoft.com/en-us/typography/font-list/?FID=360)

@@ -1,12 +1,12 @@
 ---
-title: "`<select>` HTML-Selektieren-Element"
+title: "`<select>` HTML-Auswahlelement"
 short-title: <select>
 slug: Web/HTML/Reference/Elements/select
 l10n:
-  sourceCommit: 9edb26a033a11bcc1e101814a466c30d13e09f43
+  sourceCommit: 221ca1f7a86235a442dc8312a56e4151a85fcf29
 ---
 
-Das **`<select>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert ein Steuerungselement, das ein Menü mit Optionen bietet.
+Das **`<select>`**-Element in [HTML](/de/docs/Web/HTML) steht für ein Steuerelement, das ein Menü von Optionen bereitstellt.
 
 {{InteractiveExample("HTML Demo: &lt;select&gt;", "tabbed-standard")}}
 
@@ -37,113 +37,111 @@ select {
 }
 ```
 
-Das obige Beispiel zeigt die typische Verwendung von `<select>`. Es hat ein `id`-Attribut, um es mit einem {{htmlelement("label")}} für Barrierefreiheitszwecke zu verbinden, sowie ein `name`-Attribut, um den Namen des zugehörigen Datenpunkts zu repräsentieren, der an den Server übermittelt wird. Jede Menüoption wird durch ein innerhalb von `<select>` verschachteltes {{htmlelement("option")}}-Element definiert.
-
-Jedes `<option>`-Element sollte ein [`value`](/de/docs/Web/HTML/Reference/Elements/option#value)-Attribut enthalten, das den zu übermittelnden Datenwert an den Server enthält, wenn diese Option ausgewählt ist. Wenn kein `value`-Attribut enthalten ist, wird der Wert standardmäßig auf den im Element enthaltenen Text gesetzt. Sie können ein [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)-Attribut auf ein `<option>`-Element setzen, um es standardmäßig ausgewählt zu machen, wenn die Seite geladen wird. Wenn kein `selected`-Attribut angegeben ist, wird standardmäßig das erste `<option>`-Element ausgewählt.
-
-Ein `<select>`-Element wird in JavaScript durch ein [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Objekt repräsentiert, und dieses Objekt besitzt eine [`value`](/de/docs/Web/API/HTMLSelectElement/value)-Eigenschaft, die den Wert der ausgewählten `<option>` enthält.
-
-Das `<select>`-Element verfügt über einige einzigartige Attribute, die Sie verwenden können, um es zu steuern, wie z.B. `multiple`, um anzugeben, ob mehrere Optionen ausgewählt werden können, und `size`, um anzugeben, wie viele Optionen gleichzeitig angezeigt werden sollen. Es akzeptiert auch die meisten allgemeinen Formular-Eingabeattribute wie `required`, `disabled`, `autofocus` usw.
-
-Sie können weiterhin {{HTMLElement("option")}}-Elemente innerhalb von {{HTMLElement("optgroup")}}-Elementen verschachteln, um separate Gruppen von Optionen innerhalb des Dropdowns zu erstellen. Sie können auch {{HTMLElement("hr")}}-Elemente einschließen, um Trennlinien zu schaffen, die optische Abgrenzungen zwischen Optionen hinzufügen.
-
-Für weitere Beispiele siehe [Die nativen Formular-Widgets: Dropdown-Inhalte](/de/docs/Learn_web_development/Extensions/Forms/Other_form_controls#drop-down_controls).
-
 ## Attribute
 
-Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)
-  - : Ein String, der einen Hinweis für die Autovervollständigungsfunktion eines {{Glossary("user_agent", "user agent's")}} bereitstellt. Siehe [Das HTML-Autovervollständigungsattribut](/de/docs/Web/HTML/Reference/Attributes/autocomplete) für eine vollständige Liste von Werten und Details zur Verwendung von Autovervollständigung.
+  - : Ein String, der einen Hinweis für die Autovervollständigungsfunktion eines {{Glossary("user_agent", "User-Agents")}} bereitstellt. Siehe [Das HTML-Autocomplete-Attribut](/de/docs/Web/HTML/Reference/Attributes/autocomplete) für eine vollständige Liste von Werten und Details zur Verwendung von Autocomplete.
 - `autofocus`
-  - : Dieses Boolesche Attribut erlaubt es Ihnen anzugeben, dass ein Formularsteuerelement den Eingabefokus haben soll, wenn die Seite geladen wird. Nur ein Formularelement in einem Dokument kann das `autofocus`-Attribut haben.
+  - : Dieses Boolean-Attribut ermöglicht es Ihnen, anzugeben, dass ein Formularelement beim Laden der Seite den Eingabefokus haben soll. Nur ein Formularelement in einem Dokument kann das `autofocus`-Attribut haben.
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
-  - : Dieses Boolesche Attribut zeigt an, dass der Benutzer nicht mit dem Steuerelement interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement die Einstellung vom enthaltenen Element, z.B. {{htmlelement("fieldset")}}; wenn es kein enthaltenes Element mit gesetztem `disabled`-Attribut gibt, dann ist das Steuerelement aktiviert.
+  - : Dieses Boolean-Attribut gibt an, dass der Benutzer nicht mit dem Steuerelement interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement die Einstellung vom umgebenden Element, zum Beispiel vom {{htmlelement("fieldset")}}; wenn es kein umgebendes Element mit gesetztem `disabled`-Attribut gibt, ist das Steuerelement aktiviert.
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
-  - : Das {{HTMLElement("form")}}-Element, mit dem das `<select>`-Element verbunden werden soll (sein _Formular-Eigentümer_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>` im gleichen Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird das `<select>` mit seinem Vorfahren-`<form>`-Element verbunden, falls vorhanden.)
+  - : Das {{HTMLElement("form")}}-Element, mit dem das `<select>`-Element verknüpft werden soll (sein _formularbesitzender_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>`-Elements im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird das `<select>` mit seinem übergeordneten `<form>`-Element verknüpft, falls vorhanden.)
 
-    Dieses Attribut ermöglicht es Ihnen, `<select>`-Elemente mit `<form>`s irgendwo im Dokument zu verbinden, nicht nur innerhalb eines `<form>`. Es kann auch ein Vorfahren-`<form>`-Element überschreiben.
+    Dieses Attribut ermöglicht es Ihnen, `<select>`-Elemente an `<form>`-Elemente überall im Dokument zu binden, nicht nur innerhalb eines `<form>`. Es kann auch ein übergeordnetes `<form>`-Element überschreiben.
 
 - [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)
-  - : Dieses Boolesche Attribut zeigt an, dass mehrere Optionen in der Liste ausgewählt werden können. Wenn es nicht angegeben ist, kann nur eine Option auf einmal ausgewählt werden. Wenn `multiple` angegeben ist, zeigen die meisten Browser eine scrollende Listenbox anstelle eines einzeiligen Dropdowns. Mehrere ausgewählte Optionen werden unter Verwendung des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Array-Konvention übermittelt, z.B., `name=value1&name=value2`.
+  - : Dieses Boolean-Attribut gibt an, dass null oder mehr Optionen in der Liste ausgewählt werden können. Wenn es nicht angegeben ist, kann jeweils nur eine Option ausgewählt werden. Mehrfach ausgewählte Optionen werden mit dem [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Array-Konvention übermittelt, d.h. `name=value1&name=value2`. Wenn `multiple` angegeben ist, ist der Standardwert von `size` `4` statt `1`.
 - `name`
   - : Dieses Attribut wird verwendet, um den Namen des Steuerelements anzugeben.
 - [`required`](/de/docs/Web/HTML/Reference/Attributes/required)
-  - : Ein Boolesches Attribut, das anzeigt, dass eine Option mit einem nicht-leeren Stringwert ausgewählt werden muss.
+  - : Dieses Boolean-Attribut gibt an, dass der Benutzer mindestens eine Option auswählen muss, bevor das Formular übermittelt werden kann. Das `<select>` hat keine ausgewählten Optionen, wenn es keine Optionen hat, `multiple` angegeben ist und der Benutzer alle Optionen deselektiert, der Wert des Selects programmgesteuert auf `""` gesetzt wird oder nur die _Platzhalter-Labeloption_ ausgewählt ist. Jede andere Option als die Platzhalter-Labeloption wird als gültig betrachtet, auch wenn ihr Wert ebenfalls leer ist.
+
+    Die Platzhalter-Labeloption ist der Text, der in der Box angezeigt wird, bevor der Benutzer eine Auswahl trifft, wie das "--Bitte wählen Sie eine Option--" im obigen [Try it](#try_it)-Demo. Semantisch wird sie als äquivalent zum [`placeholder`](/de/docs/Web/HTML/Reference/Attributes/placeholder)-Attribut betrachtet und nicht als tatsächliche Option angesehen. Sie ist die erste Option in der Optionsliste, die ein direktes Kind von `<select>` ist (nicht innerhalb eines `<optgroup>`) und deren Wert ein leerer String ist. Sie ist nur relevant, wenn `size` `1` ist und `multiple` nicht angegeben ist; in allen anderen Fällen ist eine solche `<option>`-Option nur eine reguläre Option, da `<select>` so dargestellt wird.
+
 - [`size`](/de/docs/Web/HTML/Reference/Attributes/size)
-  - : Wenn das Steuerelement als scrollende Listenbox dargestellt wird (z.B. wenn `multiple` angegeben ist), gibt dieses Attribut die Anzahl der Zeilen in der Liste an, die gleichzeitig sichtbar sein sollen. Browser müssen ein Selektions-Element nicht als scrollende Listenbox anzeigen. Der Standardwert ist `0`.
+  - : Dieses Attribut steht für die Anzahl der gleichzeitig anzuzeigenden Optionen und muss eine positive Ganzzahl sein. Wenn der Wert `1` ist, stellen Browser eine Dropdown-Liste dar. Wenn der Wert größer als `1` ist, stellen Browser eine Scroll-Liste dar, die die angegebene Anzahl sichtbarer Zeilen anzeigt. Wenn das Attribut nicht angegeben ist, beträgt der Standardwert `1`. Wenn das `multiple`-Attribut angegeben ist, beträgt der Standardwert `4`. Aufgrund der Abwärtskompatibilität wird die [`size`](/de/docs/Web/API/HTMLSelectElement/size)-Eigenschaft jedoch immer `0` als Standardwert zurückgeben.
 
-    > [!NOTE]
-    > Gemäß der HTML-Spezifikation sollte der Standardwert für Size `1` sein; jedoch hat sich in der Praxis gezeigt, dass dies einige Websites bricht, und kein anderer Browser tut das derzeit, also hat sich Mozilla dazu entschieden, mit Firefox vorerst weiterhin `0` zurückzugeben.
+## Nutzungshinweise
 
-## Verwendungshinweise
+Typischerweise wird, wie andere Formularelemente, ein `<select>`-Element für Zugänglichkeitszwecke mit einem {{htmlelement("label")}} verknüpft, sowie mit einem `name`-Attribut, das den Namen des verknüpften Datenelements darstellt, das an den Server übermittelt wird. Jede Menüoption wird durch ein innerhalb des `<select>` verschachteltes {{htmlelement("option")}}-Element definiert.
 
-### Optionen innerhalb von Umhüllungselementen
+Jedes `<option>`-Element sollte ein [`value`](/de/docs/Web/HTML/Reference/Elements/option#value)-Attribut haben, das den Datenwert enthält, der an den Server übermittelt wird, wenn diese Option ausgewählt ist. Wenn kein `value`-Attribut enthalten ist, ist der Standardwert der Text, der im Element enthalten ist. Sie können ein [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)-Attribut in ein `<option>`-Element aufnehmen, um es standardmäßig auszuwählen, wenn die Seite geladen wird. Wenn kein `selected`-Attribut angegeben ist, wird standardmäßig das erste `<option>`-Element ausgewählt.
 
-Das `<select>`-Element baut seine Liste von Optionen aus allen `<option>`-Nachkommen auf, nicht nur aus seinen direkten Kindern.
-Dies bedeutet, dass Optionen in andere Elemente wie {{HTMLElement("div")}}-Elemente eingewickelt werden können und sie dennoch als auswählbare Optionen im Dropdown erscheinen und in das Formular eingegliedert werden.
-Umhüllungselemente sind nützlich zum Gestalten in [anpassbaren Auswahl-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), haben jedoch keinen Einfluss auf das Verhalten der Auswahl: sie erstellen keine Gruppen, Beschriftungen oder Trennlinien.
-Um Optionen unter einer Überschrift zu gruppieren, verwenden Sie ein {{HTMLElement("optgroup")}}; ein {{HTMLElement("option")}} zählt als Teil eines `<optgroup>`, wenn die Gruppe ein Vorfahre ist, sodass Umhüllungselemente auch innerhalb einer Gruppe verwendet werden können, ohne die Zuordnung zu brechen.
+Ein `<select>`-Element wird in JavaScript durch ein [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Objekt dargestellt, und dieses Objekt hat eine [`value`](/de/docs/Web/API/HTMLSelectElement/value)-Eigenschaft, die den Wert der ausgewählten `<option>` enthält.
+
+Sie können zusätzlich {{HTMLElement("option")}}-Elemente innerhalb von {{HTMLElement("optgroup")}}-Elementen verschachteln, um separate Gruppen von Optionen innerhalb des Dropdowns zu erstellen. Sie können auch {{HTMLElement("hr")}}-Elemente einfügen, um visuelle Trennlinien zwischen den Optionen zu schaffen.
+
+Weitere Beispiele finden Sie unter [Die nativen Formular-Widgets: Dropdown-Inhalte](/de/docs/Learn_web_development/Extensions/Forms/Other_form_controls#drop-down_controls).
+
+### Optionen innerhalb von Wrapper-Elementen
+
+Das `<select>`-Element erstellt seine Liste von Optionen aus allen `<option>`-Nachfahren, nicht nur aus seinen direkten Kindern.
+Das bedeutet, dass Optionen in andere Elemente, wie {{HTMLElement("div")}}-Elemente, eingebettet werden können und sie trotzdem als auswählbare Optionen im Dropdown erscheinen und in die Formularübermittlung einbezogen werden.
+Wrapper-Elemente sind nützlich zum Stylen in [anpassbaren Auswahl-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), haben aber keinen Einfluss auf das Verhalten der Auswahl: Sie erstellen keine Gruppen, Labels oder Trennlinien.
+Um Optionen unter einer Überschrift zu gruppieren, verwenden Sie ein {{HTMLElement("optgroup")}}; ein {{HTMLElement("option")}} zählt als Teil eines `<optgroup>`, wenn die Gruppe ein Vorfahr ist, daher können auch Wrapper-Elemente innerhalb einer Gruppe verwendet werden, ohne die Zuordnung zu brechen.
 
 > [!NOTE]
-> Browser mit modernem Parsing-Verhalten bewahren alle Elemente innerhalb eines `<select>` im DOM auf — einschließlich Umhüllungselementen, {{HTMLElement("button")}} und {{HTMLElement("selectedcontent")}}.
-> Ältere Browser entfernen stattdessen nicht erlaubte Elemente beim Parsen, wobei nur die `<option>`, `<optgroup>`, und `<hr>`-Struktur erhalten bleibt.
-> Infolgedessen funktionieren Gestaltung, Markup oder Skripte, die auf den entfernten Elementen basieren, nicht in älteren Browsern.
+> Browser mit modernem Parsing-Verhalten bewahren alle Elemente im DOM auf, die innerhalb eines `<select>` geschrieben werden – einschließlich Wrapper-Elemente, {{HTMLElement("button")}} und {{HTMLElement("selectedcontent")}}.
+> Ältere Browser entfernen stattdessen nicht zugelassene Elemente beim Parsen, wobei nur die Struktur `<option>`, `<optgroup>` und `<hr>` erhalten bleibt.
+> Folglich werden Styling, Markup oder Scripting, das von den entfernten Elementen abhängt, in älteren Browsern nicht funktionieren.
 
-### Auswahl mehrerer Optionen
+### Auswählen mehrerer Optionen
 
-Auf einem Desktop-Computer gibt es mehrere Möglichkeiten, mehrere Optionen in einem `<select>`-Element mit einem `multiple`-Attribut auszuwählen:
+Auf einem Desktop-Computer gibt es mehrere Möglichkeiten, mehrere Optionen in einem `<select>`-Element mit dem `multiple`-Attribut und einem `size`-Attribut größer als `1` auszuwählen.
 
-Maus-Benutzer können die <kbd>Strg</kbd>-, <kbd>Befehl</kbd>- oder <kbd>Umschalt</kbd>-Tasten gedrückt halten (abhängig davon, was für Ihr Betriebssystem sinnvoll ist) und dann auf mehrere Optionen klicken, um sie auszuwählen/abzuwählen.
+Mausbenutzer können die <kbd>Strg</kbd>-, <kbd>Command</kbd>-, oder <kbd>Shift</kbd>-Tasten gedrückt halten (abhängig davon, was für Ihr Betriebssystem sinnvoll ist) und dann auf mehrere Optionen klicken, um sie auszuwählen/abzuwählen.
 
 > [!WARNING]
-> Der Mechanismus zum Auswählen mehrerer nicht angrenzender Elemente über die Tastatur, die unten beschrieben werden, scheint derzeit nur in Firefox zu funktionieren.
+> Der unten beschriebene Mechanismus zum Auswählen mehrerer nicht zusammenhängender Elemente über die Tastatur scheint derzeit nur in Firefox zu funktionieren.
 >
-> Auf macOS stehen die <kbd>Strg</kbd> + <kbd>Nach oben</kbd>- und <kbd>Strg</kbd> + <kbd>Nach unten</kbd>-Shortcuts im Konflikt mit den OS-Standards für _Mission Control_ und _Anwendungsfenster_, daher müssen Sie diese deaktivieren, bevor es funktioniert.
+> Unter macOS kollidieren die Tastenkombinationen <kbd>Strg</kbd> + <kbd>Auf</kbd> und <kbd>Strg</kbd> + <kbd>Ab</kbd> mit den Standardtastenkombinationen für _Mission Control_ und _Anwendungsfenster_, daher müssen Sie diese deaktivieren, bevor sie funktionieren.
 
-Tastaturnutzer können mehrere zusammenhängende Elemente auswählen, indem sie:
+Tastaturbenutzer können mehrere zusammenhängende Elemente auswählen, indem sie:
 
-- Das `<select>`-Element fokussieren (z.B. mit <kbd>Tab</kbd>).
-- Ein Element oben oder unten im Bereich auswählen, den sie auswählen möchten, mit den <kbd>Nach oben</kbd>- und <kbd>Nach unten</kbd>-Pfeiltasten, um durch die Optionen zu navigieren.
-- Die <kbd>Umschalt</kbd>-Taste gedrückt halten und dann die <kbd>Nach oben</kbd>- und <kbd>Nach unten</kbd>-Pfeiltasten verwenden, um den Bereich der ausgewählten Elemente zu vergrößern oder zu verkleinern.
+- Den Fokus auf das `<select>`-Element richten (z. B. durch Verwenden von <kbd>Tab</kbd>).
+- Ein Element oben oder unten im Bereich auswählen, den sie auswählen möchten, indem sie die Tasten <kbd>Auf</kbd> und <kbd>Ab</kbd> verwenden, um die Optionen nach oben und unten zu gehen.
+- Die <kbd>Shift</kbd>-Taste halten und dann die Tasten <kbd>Auf</kbd> und <kbd>Ab</kbd> verwenden, um den Bereich der ausgewählten Elemente zu vergrößern oder zu verkleinern.
 
-Tastaturnutzer können mehrere nicht zusammenhängende Elemente auswählen, indem sie:
+Tastaturbenutzer können mehrere nicht zusammenhängende Elemente auswählen, indem sie:
 
-- Das `<select>`-Element fokussieren (z.B. mit <kbd>Tab</kbd>).
-- Die <kbd>Strg</kbd>-Taste gedrückt halten und dann die <kbd>Nach oben</kbd>- und <kbd>Nach unten</kbd>-Pfeiltasten verwenden, um die "fokussierte" Auswahloption zu ändern, d.h. diejenige, die ausgewählt wird, wenn sie dies tun. Die "fokussierte" Auswahloption wird mit einer gepunkteten Umrandung hervorgehoben, genauso wie ein mit der Tastatur fokussierter Link.
-- Die <kbd>Leertaste</kbd> drücken, um "fokussierte" Auswahloptionen auszuwählen/abzuwählen.
+- Den Fokus auf das `<select>`-Element richten (z. B. durch Verwenden von <kbd>Tab</kbd>).
+- Die <kbd>Strg</kbd>-Taste gedrückt halten und dann die Tasten <kbd>Auf</kbd> und <kbd>Ab</kbd> verwenden, um die "fokussierte" Auswahloption zu ändern, d.h. diejenige, die ausgewählt wird, wenn Sie sich dafür entscheiden, dies zu tun. Die "fokussierte" Auswahloption wird mit einem gestrichelten Umriss hervorgehoben, ähnlich wie ein tastaturfokussierter Link.
+- <kbd>Leertaste</kbd> drücken, um "fokussierte" Auswahloptionen auszuwählen/deselektieren.
 
-## Gestaltung mit CSS
+## Styling mit CSS
 
-Das `<select>`-Element war historisch schwer effektiv mit CSS zu gestalten.
-Die folgenden Leitfäden enthalten Informationen zu Funktionen, die vollständig anpassbare Auswahl-Elemente ermöglichen:
+Das `<select>`-Element war historisch gesehen schwierig, effektiv mit CSS zu stylen.
+Die folgenden Leitfäden enthalten Informationen über Funktionen, die vollständig anpassbare Auswahlelemente ermöglichen:
 
-- [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
-- [Anpassbare Auswahl-Listenboxen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select_listboxes)
+- [Anpassbare Auswahlelemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Auswahllistenkästchen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select_listboxes)
 
-### Traditionelle Auswahlgestaltung
+### Legacy-Auswahl-Styling
 
-In Browsern, die die modernen Anpassungsfunktionen nicht unterstützen (oder bei älteren Codebasen, wo sie nicht verwendet werden können), sind Sie darauf beschränkt, das [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model), die [angezeigte Schriftart](/de/docs/Web/CSS/Guides/Fonts) usw. zu manipulieren. Sie können auch die {{cssxref("appearance")}}-Eigenschaft verwenden, um das standardmäßige System-`appearance` zu entfernen.
+In Browsern, die moderne Anpassungsfunktionen nicht unterstützen (oder alten Codebasen, in denen sie nicht verwendet werden können), sind Sie darauf beschränkt, das [Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model), die [angezeigte Schriftart](/de/docs/Web/CSS/Guides/Fonts), usw. zu manipulieren. Sie können auch die {{cssxref("appearance")}}-Eigenschaft verwenden, um das Aussehen des Standard-Systems zu entfernen.
 
-Es ist jedoch schwierig, ein konsistentes Ergebnis über verschiedene Browser hinweg mit traditionellen `<select>`-Elementen zu erzielen. Wenn Sie volle Kontrolle erhalten möchten, sollten Sie erwägen, eine Bibliothek mit guten Möglichkeiten zur Gestaltung von Formularelementen zu verwenden, oder versuchen, Ihr eigenes Dropdown-Menü mit nicht-sematischen Elementen, JavaScript und [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) zu erstellen, um die Semantik bereitzustellen.
+Es ist jedoch schwierig, ein konsistentes Ergebnis über verschiedene Browser mit traditionellen `<select>`-Elementen zu erzielen. Wenn Sie vollständige Kontrolle benötigen, sollten Sie in Erwägung ziehen, eine Bibliothek mit guten Möglichkeiten zum Stylen von Formularelementen zu verwenden oder versuchen, Ihr eigenes Dropdown-Menü mit nicht-semantischen Elementen, JavaScript und [WAI-ARIA](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics) zu erstellen, um Semantik bereitzustellen.
 
-Sie können die {{cssxref(":open")}}-Pseudo-Klasse verwenden, um `<select>`-Elemente im geöffneten Zustand zu gestalten, das heißt, wenn die Dropdown-Optionsliste angezeigt wird. Dies gilt nicht für mehrzeilige `<select>`-Elemente (diese mit dem gesetzten [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut) — sie neigen dazu, sich als scrollende Listenbox anstelle eines Dropdowns darzustellen, daher haben sie keinen offenen Zustand.
+Sie können die {{cssxref(":open")}}-Pseudoklasse verwenden, um `<select>`-Elemente im geöffneten Zustand zu stylen, d.h. wenn die Dropdown-Optionsliste angezeigt wird. Dies gilt nicht für Mehrzeilen-`<select>`-Elemente (die mit dem [`multiple`](/de/docs/Web/HTML/Reference/Attributes/multiple)-Attribut gesetzt sind) – diese werden tendenziell als Scroll-Liste statt als Dropdown gerendert und haben daher keinen offenen Zustand.
 
-Für weitere Informationen zur Gestaltung traditioneller `<select>`-Elemente siehe:
+Weitere Informationen über das Legacy-`<select>`-Styling finden Sie unter:
 
-- [Gestaltung von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
-- [Erweiterte Gestaltung für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
-- Die {{cssxref("field-sizing")}}-Eigenschaft, die kontrolliert, wie `<select>`-Elemente in Bezug auf ihre enthaltenen Optionen dimensioniert sind.
+- [Styling von HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
+- [Erweitertes Styling für HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling)
+- Die {{cssxref("field-sizing")}}-Eigenschaft, die steuert, wie `<select>`-Elemente im Verhältnis zu ihren enthaltenen Optionen dimensioniert werden.
 
 ## Barrierefreiheit
 
-Das `<hr>` innerhalb eines `<select>` sollte als rein dekorativ betrachtet werden, da sie derzeit nicht innerhalb des Barrierefreiheitsbaums exponiert sind und daher nicht von unterstützenden Technologien erkannt werden.
+Das `<hr>` innerhalb eines `<select>` sollte als rein dekorativ betrachtet werden, da es derzeit nicht im Barrierefreiheitsbaum dargestellt und daher nicht an unterstützende Technologien weitergegeben wird.
 
 ## Beispiele
 
-### Einfaches Select
+### Basisauswahl
 
-Im folgenden Beispiel wird ein Dropdown-Menü mit drei Werten erstellt. Die zweite Option enthält das `selected`-Attribut, wodurch diese Option standardmäßig ausgewählt wird.
+Das folgende Beispiel erstellt ein Dropdown-Menü mit drei Werten. Die zweite Option enthält das `selected`-Attribut, wodurch diese Option standardmäßig ausgewählt ist.
 
 ```html
 <select name="choice">
@@ -157,7 +155,7 @@ Im folgenden Beispiel wird ein Dropdown-Menü mit drei Werten erstellt. Die zwei
 
 {{EmbedLiveSample("Basic_select", "", "100")}}
 
-### Select mit gruppierten Optionen
+### Auswahl mit Gruppenoptionen
 
 Das folgende Beispiel erstellt ein Dropdown-Menü mit Gruppierung unter Verwendung von {{HTMLElement("optgroup")}} und {{HTMLElement("hr")}}, um es dem Benutzer zu erleichtern, den Inhalt im Dropdown zu verstehen.
 
@@ -199,14 +197,14 @@ Das folgende Beispiel erstellt ein Dropdown-Menü mit Gruppierung unter Verwendu
 
 {{EmbedLiveSample("select_with_grouping_options", "", "100")}}
 
-### Erweitertes Select mit mehreren Funktionen
+### Erweiterte Auswahl mit mehreren Funktionen
 
-Das folgende Beispiel ist komplexer und zeigt mehr Funktionen, die Sie auf einem `<select>`-Element verwenden können:
+Das folgende Beispiel ist komplexer und zeigt mehr Features, die Sie auf einem `<select>`-Element verwenden können:
 
 - Das `multiple`-Attribut ermöglicht die Auswahl von mehr als einer Option.
 - Das `size`-Attribut ist auf `4` gesetzt, was bedeutet, dass 4 Zeilen gleichzeitig angezeigt werden. Benutzer können scrollen, um alle Optionen anzuzeigen.
-- Zwei {{htmlelement("optgroup")}}-Elemente sind enthalten, die zwei visuelle Gruppierungen schaffen, in der Regel mit dem Gruppenname fett gedruckt und die verschachtelten Optionen eingerückt.
-- Das `disabled`-Attribut ist bei der "Hamster"-Option enthalten, wodurch diese Option nicht auswählbar ist.
+- Zwei {{htmlelement("optgroup")}}-Elemente sind enthalten, die zwei visuelle Gruppierungen erstellen, wobei der Gruppenname in der Regel fett ist und die verschachtelten Optionen eingerückt sind.
+- Das `disabled`-Attribut ist bei der Option "Hamster" enthalten, wodurch diese Option nicht auswählbar ist.
 
 ```html
 <label>
@@ -242,70 +240,71 @@ Das folgende Beispiel ist komplexer und zeigt mehr Funktionen, die Sie auf einem
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Satzinhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#interactive_content"
-          >interaktiver Inhalt</a
+          >Interaktiver Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#listed"
-          >gelistet</a
+          >aufgelistet</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#labelable"
-          >etikettierbar</a
+          >beschriftbar</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#resettable"
           >zurücksetzbar</a
         >, und
         <a href="/de/docs/Web/HTML/Guides/Content_categories#submittable"
-          >übermittelbar</a
+          >übermittlungsfähig</a
         >
         <a href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content"
-          >Formular-assoziiertes</a
-        > Element
+          >form-bezogenes</a
+        >-Element
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <ul>
-          <li>{{HTMLElement("option")}}, {{HTMLElement("optgroup")}} oder {{HTMLElement("hr")}}-Elemente, optional vorangestellt durch ein {{htmlelement("button")}}-Element mit einem verschachtelten {{htmlelement("selectedcontent")}}-Element, wenn eine Dropdown-Box.</li>
+          <li>{{HTMLElement("option")}}, {{HTMLElement("optgroup")}} oder {{HTMLElement("hr")}}-Elemente, optional vorangestellt von einem {{htmlelement("button")}}-Element mit einem verschachtelten {{htmlelement("selectedcontent")}}-Element, wenn eine Dropdown-Box.</li>
           <li>{{htmlelement("div")}}, {{htmlelement("script")}}, {{htmlelement("template")}} und {{htmlelement("noscript")}}-Elemente.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        > akzeptiert.
+          >Satzinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
-        ohne <strong>kein</strong> <code>multiple</code>-Attribut und <strong>keines</strong>
-        <code>size</code>-Attribut größer als 1, ansonsten
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a> ohne
+        <code>multiple</code>-Attribut und ohne
+        <code>size</code>-Attribut größer als 1, sonst
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role"><code>listbox</code></a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role"><code>menu</code></a>
-        ohne <strong>kein</strong> <code>multiple</code>-Attribut und <strong>keines</strong>
-        <code>size</code>-Attribut größer als 1, ansonsten <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
-        ist erlaubt, wird aber nicht empfohlen.
+        <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role"><code>menu</code></a> ohne
+        <code>multiple</code>-Attribut und ohne
+        <code>size</code>-Attribut größer als 1, sonst <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/combobox_role"><code>combobox</code></a>
+        ist erlaubt, aber nicht empfohlen.
       </td>
     </tr>
     <tr>
@@ -327,5 +326,5 @@ Das folgende Beispiel ist komplexer und zeigt mehr Funktionen, die Sie auf einem
 
 - Das {{HTMLElement("option")}}-Element
 - Das {{HTMLElement("optgroup")}}-Element
-- [Anpassbare Auswahl-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
+- [Anpassbare Auswahlelemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select)
 - Ereignisse, die von `<select>` ausgelöst werden: [`change`](/de/docs/Web/API/HTMLElement/change_event), [`input`](/de/docs/Web/API/Element/input_event)

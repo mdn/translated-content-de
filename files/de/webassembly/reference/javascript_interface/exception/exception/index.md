@@ -2,7 +2,7 @@
 title: WebAssembly.Exception-Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/Exception/Exception
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: ad01ed9218be15d7aeaa0666ec0bc2a2d17f3574
 ---
 
 Der **`WebAssembly.Exception()`**-Konstruktor wird verwendet, um eine neue Instanz eines [`WebAssembly.Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception)-Objekts zu erstellen.
@@ -19,31 +19,31 @@ new Exception(tag, payload, options)
 - `tag`
   - : Eine Instanz von [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), die die erwarteten Datentypen für jeden der Werte im `payload` definiert.
 - `payload`
-  - : Ein Array von einem oder mehreren Datenfeldern, die die Nutzlast der Ausnahme bilden.
-    Die Elemente müssen mit den Datentypen der entsprechenden Elemente im `tag` übereinstimmen.
-    Wenn die Anzahl der Datenfelder in der Nutzlast und deren Typen nicht übereinstimmen, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+  - : Ein Array aus einem oder mehreren Datenfeldern, die die Nutzlast der Ausnahme bilden.
+    Die Elemente müssen den Datentypen der entsprechenden Elemente im `tag` entsprechen.
+    Wenn die Anzahl der Datenfelder in der Nutzlast und ihre Typen nicht übereinstimmen, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 - `options` {{optional_inline}} {{non-standard_inline}}
   - : Ein Objekt mit den folgenden optionalen Feldern:
     - `traceStack` {{optional_inline}} {{non-standard_inline}}
-      - : `true`, wenn die `Exception` möglicherweise einen Stack-Trace an deren [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack)-Eigenschaft angehängt hat, ansonsten `false`.
-        Standardmäßig `false`.
+      - : `true`, wenn die `Exception` einen Stack-Trace an seiner [`stack`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/stack)-Eigenschaft haben darf, andernfalls `false`.
+        Standardwert ist `false`.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Die `payload`- und `tag`-Sequenzen haben nicht die gleiche Anzahl an Elementen und/oder die Elemente sind nicht von übereinstimmenden Typen.
+  - : Die `payload`- und `tag`-Sequenzen haben nicht die gleiche Anzahl von Elementen und/oder die Elemente sind nicht von passenden Typen.
 
 ## Beschreibung
 
-Der `Exception()`-Konstruktor akzeptiert ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), ein Array von Werten und ein `options`-Objekt als Argumente.
+Der `Exception()`-Konstruktor akzeptiert einen [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), ein Array von Werten und ein `options`-Objekt als Argumente.
 Der Tag definiert eindeutig den _Typ_ einer Ausnahme, einschließlich der Reihenfolge ihrer Argumente und deren Datentypen.
-Der gleiche Tag, der zur Erstellung der `Exception` verwendet wurde, ist erforderlich, um die Argumente einer ausgelösten Ausnahme zuzugreifen (mithilfe von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg)).
+Der gleiche Tag, der verwendet wurde, um die `Exception` zu erstellen, ist erforderlich, um auf die Argumente einer ausgelösten Ausnahme zuzugreifen (unter Verwendung von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg)).
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Normalerweise würde man diesen Konstruktor nicht verwenden, um manuell eine Wasm-Ausnahme zu erstellen. Stattdessen wird ein `WebAssembly.Exception`-Objekt normalerweise beim Umgang mit Wasm-Ausnahmen erstellt, zum Beispiel:
+Normalerweise würden Sie diesen Konstruktor nicht verwenden, um eine Wasm-Ausnahme manuell zu erstellen. Stattdessen wird ein `WebAssembly.Exception`-Objekt normalerweise beim Umgang mit Wasm-Ausnahmen erstellt, zum Beispiel:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
@@ -63,7 +63,7 @@ WebAssembly.instantiateStreaming(fetch("module.wasm"), { env }).then(
 );
 ```
 
-Für ein funktionierendes Beispiel siehe die [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Instruktionsreferenzseite.
+Für ein Arbeitsbeispiel sehen Sie sich die Referenzseite zur [`throw`](/de/docs/WebAssembly/Reference/Exception_handling/throw)-Anweisung an.
 
 ### Manuelle Verwendung
 
@@ -88,6 +88,6 @@ const exception = new WebAssembly.Exception(tag, [42, 42.3]);
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly)-Übersicht
-- [WebAssembly-Grundlagen](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- Überblick über [WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

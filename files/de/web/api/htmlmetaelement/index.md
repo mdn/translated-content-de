@@ -2,23 +2,23 @@
 title: HTMLMetaElement
 slug: Web/API/HTMLMetaElement
 l10n:
-  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
+  sourceCommit: ad01ed9218be15d7aeaa0666ec0bc2a2d17f3574
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLMetaElement`**-Schnittstelle enthält beschreibende Metadaten über ein Dokument, die in HTML als [`<meta>`](/de/docs/Web/HTML/Reference/Elements/meta)-Elemente bereitgestellt werden. Diese Schnittstelle erbt alle Eigenschaften und Methoden, die in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
+Das **`HTMLMetaElement`**-Interface enthält beschreibende Metadaten über ein Dokument, die in HTML als [`<meta>`](/de/docs/Web/HTML/Reference/Elements/meta) Elemente bereitgestellt werden. Dieses Interface erbt alle Eigenschaften und Methoden, die im [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface beschrieben sind.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - {{HTMLElement("meta#charset")}}
   - : Die Zeichenkodierung für ein HTML-Dokument.
 - [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content)
-  - : Der 'Wert'-Teil der Name-Wert-Paare der Dokument-Metadaten.
+  - : Der 'Wert'-Teil der Name-Wert-Paare der Dokumentenmetadaten.
 - [`HTMLMetaElement.httpEquiv`](/de/docs/Web/API/HTMLMetaElement/httpEquiv)
   - : Der Name der Pragma-Direktive, des HTTP-Antwort-Headers, für ein Dokument.
 - [`HTMLMetaElement.media`](/de/docs/Web/API/HTMLMetaElement/media)
@@ -26,19 +26,20 @@ _Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLE
 - [`HTMLMetaElement.name`](/de/docs/Web/API/HTMLMetaElement/name)
   - : Der 'Name'-Teil der Name-Wert-Paare, die die benannten Metadaten eines Dokuments definieren.
 - [`HTMLMetaElement.scheme`](/de/docs/Web/API/HTMLMetaElement/scheme) {{deprecated_inline}}
-  - : Definiert das Schema des Wertes im [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content)-Attribut. Dies ist veraltet und sollte nicht auf neuen Webseiten verwendet werden.
+  - : Definiert das Schema des Wertes im [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content) Attribut.
+    Dies ist veraltet und sollte auf neuen Webseiten nicht verwendet werden.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Beispiele
 
-Die folgenden zwei Beispiele zeigen einen allgemeinen Ansatz zur Verwendung der `HTMLMetaElement`-Schnittstelle. Für spezifische Beispiele siehe die Seiten zu den einzelnen Eigenschaften, wie im Abschnitt [Instanz-Eigenschaften](#instanz-eigenschaften) oben beschrieben.
+Die folgenden zwei Beispiele zeigen einen allgemeinen Ansatz zur Verwendung des `HTMLMetaElement`-Interfaces. Für spezifische Beispiele siehe die Seiten für die einzelnen Eigenschaften, wie in der [Instanz-Eigenschaften](#instanz-eigenschaften) Sektion oben beschrieben.
 
-### Festlegen der Seitenbeschreibung-Metadaten
+### Einstellen der Metadaten zur Seitenbeschreibung
 
-Das folgende Beispiel erstellt ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`description`](/de/docs/Web/HTML/Reference/Elements/meta/name#meta_names_defined_in_the_html_specification) gesetzt ist. Das `content`-Attribut setzt eine Beschreibung des Dokuments und wird dem Dokument `<head>` hinzugefügt:
+Das folgende Beispiel erstellt ein neues `<meta>` Element mit einem `name` Attribut, das auf [`description`](/de/docs/Web/HTML/Reference/Elements/meta/name#meta_names_defined_in_the_html_specification) gesetzt ist. Das `content` Attribut setzt eine Beschreibung des Dokuments und wird in den `<head>` des Dokuments eingefügt:
 
 ```js
 const meta = document.createElement("meta");
@@ -48,9 +49,9 @@ meta.content =
 document.head.appendChild(meta);
 ```
 
-### Festlegen der Viewport-Metadaten
+### Einstellen der Viewport-Metadaten
 
-Das folgende Beispiel zeigt, wie man ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) gesetzt ist, erstellt. Das `content`-Attribut setzt die Viewport-Größe und wird dem Dokument `<head>` hinzugefügt:
+Das folgende Beispiel zeigt, wie man ein neues `<meta>` Element mit einem `name` Attribut erstellt, das auf [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) gesetzt ist. Das `content` Attribut setzt die Größe des Viewports und wird in den `<head>` des Dokuments eingefügt:
 
 ```js
 const meta = document.createElement("meta");
@@ -59,7 +60,7 @@ meta.content = "width=device-width, initial-scale=1";
 document.head.appendChild(meta);
 ```
 
-Für weitere Informationen zum Einstellen des Viewports siehe [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport).
+Für weitere Informationen über das Einstellen des Viewports, siehe [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport).
 
 ## Spezifikationen
 
@@ -71,4 +72,4 @@ Für weitere Informationen zum Einstellen des Viewports siehe [`<meta name="view
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("meta")}}
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("meta")}}

@@ -1,80 +1,80 @@
 ---
-title: "Element: innerHTML Eigenschaft"
+title: "Element: innerHTML-Eigenschaft"
 short-title: innerHTML
 slug: Web/API/Element/innerHTML
 l10n:
-  sourceCommit: 65cbd4ff030e6763d6868917137d728c3ec29288
+  sourceCommit: ad01ed9218be15d7aeaa0666ec0bc2a2d17f3574
 ---
 
 {{APIRef("DOM")}}
 
 > [!WARNING]
-> Diese Eigenschaft analysiert ihre Eingabe als HTML und schreibt das Ergebnis in den DOM.
-> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell ein Einfallstor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe dar, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Eigenschaft analysiert ihre Eingaben als HTML und schreibt das Ergebnis in das DOM.
+> Solche APIs sind bekannt als [Injection-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML` Objekte anstatt von Zeichenketten zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsaspekte](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie immer `TrustedHTML`-Objekte statt Zeichenfolgen zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`innerHTML`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element) Interface erhält oder setzt das HTML- oder XML-Markup, das innerhalb des Elements enthalten ist, und lässt dabei die {{Glossary("shadow_tree", "Shadow Roots")}} in beiden Fällen aus.
+Die **`innerHTML`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces erhält oder setzt das HTML- oder XML-Markup, das im Element enthalten ist, wobei in beiden Fällen alle {{Glossary("shadow_tree", "Schattenwurzeln")}} weggelassen werden.
 
-Um das HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
+Um HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt eine Zeichenkette zurück, die die HTML-Serialisierung der Nachkommen des Elements enthält.
+Das Abrufen der Eigenschaft gibt eine Zeichenfolge zurück, die die HTML-Serialisierung der Nachkommen des Elements enthält.
 
-Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekt oder eine Zeichenkette. Dieser Wert wird als HTML analysiert und alle Nachkommen des Elements werden durch das Ergebnis ersetzt.
-Wenn `null` festgelegt wird, wird dieser `null`-Wert in die leere Zeichenkette (`""`) umgewandelt, sodass `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""` ist.
+Das Festlegen der Eigenschaft akzeptiert entweder ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt oder eine Zeichenfolge. Es analysiert diesen Wert als HTML und ersetzt alle Nachkommen des Elements mit dem Ergebnis.
+Wenn der Wert `null` ist, wird dieser `null`-Wert in die leere Zeichenfolge (`""`) konvertiert, sodass `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""` ist.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, den Wert von `innerHTML` mit einer Zeichenkette festzulegen, die kein korrekt geformtes HTML ist.
+  - : Wird ausgelöst, wenn versucht wurde, den Wert von `innerHTML` mit einer Zeichenfolge zu setzen, die kein korrekt geformtes HTML ist.
 - `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenkette gesetzt wird, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) werden und keine Standardrichtlinie definiert ist.
+  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenfolge gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wurde, das HTML in einen Knoten einzufügen, dessen Elternknoten ein [`Document`](/de/docs/Web/API/Document) ist.
+  - : Wird ausgelöst, wenn versucht wurde, das HTML in einen Knoten einzufügen, dessen Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
 
 ## Beschreibung
 
-`innerHTML` erhält eine Serialisierung der verschachtelten Kind-DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, das analysiert werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
+`innerHTML` erhält eine Serialisierung der verschachtelten Kind-DOM-Elemente innerhalb des Elements oder setzt HTML oder XML, die analysiert werden soll, um den DOM-Baum innerhalb des Elements zu ersetzen.
 
-Beachten Sie, dass einige Browser die `<` und `>` Zeichen ähnlich wie `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten erscheinen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
-Dies dient dem Schutz vor einer potenziellen Sicherheitslücke ([Mutation XSS](https://www.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)), bei der ein Angreifer Eingaben erstellen kann, die eine [Bereinigungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen und einen Cross-Site Scripting (XSS) Angriff ermöglichen.
+Beachten Sie, dass einige Browser die Zeichen `<` und `>` als `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten erscheinen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Dies soll eine potenzielle Sicherheitslücke ([Mutation XSS](https://www.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)) verhindern, bei der ein Angreifer eine Eingabe erstellen kann, die eine [Sanisierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgeht und somit einen Cross-Site-Scripting (XSS)-Angriff ermöglicht.
 
 ### Überlegungen zum Shadow DOM
 
-Die Serialisierung des DOM-Baums, die aus der Eigenschaft gelesen wird, schließt keine {{Glossary("shadow_tree", "Shadow Roots")}} ein – wenn Sie eine HTML-Zeichenkette erhalten möchten, die Shadow Roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
+Die Serialisierung des vom Attribut gelesenen DOM-Baums umfasst keine {{Glossary("shadow_tree", "Schattenwurzeln")}} — wenn Sie eine HTML-Zeichenfolge erhalten möchten, die Schattenwurzeln enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
 
-Ähnlich verhält es sich, wenn Sie den Inhalt eines Elements mit `innerHTML` setzen, wird die HTML-Zeichenkette in DOM-Elemente geparst, die keine Shadow Roots enthalten.
-So wird zum Beispiel [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) Attribut angegeben ist oder nicht.
-Um den Inhalt eines Elements aus einer HTML-Zeichenkette zu setzen, die deklarative Shadow Roots enthält, müssen Sie stattdessen [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
+Ebenso wird beim Festlegen von Elementinhalten mit `innerHTML` die HTML-Zeichenfolge in DOM-Elemente geparst, die keine Schattenwurzeln enthalten.
+Zum Beispiel wird [`<template>`](/de/docs/Web/HTML/Reference/Elements/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Reference/Elements/template#shadowrootmode) angegeben ist oder nicht.
+Um den Inhalt eines Elements von einer HTML-Zeichenfolge aus festzulegen, die deklarative Schattenwurzeln enthält, müssen Sie stattdessen [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe) oder [`ShadowRoot.setHTMLUnsafe()`](/de/docs/Web/API/ShadowRoot/setHTMLUnsafe) verwenden.
 
 ### Sicherheitsüberlegungen
 
-Die `innerHTML`-Eigenschaft ist wahrscheinlich das häufigste Einfallstor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, bei denen potenziell unsichere Zeichenfolgen von einem Benutzer bereitgestellt und in den DOM eingefügt werden, ohne vorher gereinigt zu werden.
-Obwohl die Eigenschaft verhindert, dass {{HTMLElement("script")}} Elemente ausgeführt werden, wenn sie eingefügt werden, ist sie dennoch anfällig für viele andere Methoden, mit denen Angreifer HTML erstellen können, um bösartigen JavaScript-Code auszuführen.
-Zum Beispiel würde das folgende Beispiel den Code im `error`-Ereignishandler ausführen, weil der {{htmlelement("img")}} `src` Wert keine gültige Bild-URL ist:
+Die `innerHTML`-Eigenschaft ist wahrscheinlich der häufigste Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe, bei denen potenziell unsichere Zeichenfolgen, die von einem Benutzer bereitgestellt werden, in das DOM injiziert werden, ohne zuvor saniert zu werden.
+Während die Eigenschaft verhindert, dass {{HTMLElement("script")}}-Elemente beim Einfügen ausgeführt werden, ist sie anfällig für viele andere Möglichkeiten, bei denen Angreifer HTML erstellen können, um bösartigen JavaScript-Code auszuführen.
+Zum Beispiel würde das folgende Beispiel den Code im `error`-Ereignishandler ausführen, da der {{htmlelement("img")}} `src`-Wert keine gültige Bild-URL ist:
 
 ```js
 const name = "<img src='x' onerror='alert(1)'>";
 el.innerHTML = name; // shows the alert
 ```
 
-Diese Probleme können gemindert werden, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte statt Zeichenfolgen zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingaben zu [bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup zu entfernen, bevor es eingefügt wird.
+Sie können diese Probleme mindern, indem Sie immer [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Zeichenfolgen zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanisieren](/de/docs/Web/Security/Attacks/XSS#sanitization) und potenziell gefährliches Markup zu entfernen, bevor es injiziert wird.
 
 > [!NOTE]
-> [`Node.textContent`](/de/docs/Web/API/Node/textContent) sollte verwendet werden, wenn Sie wissen, dass der vom Benutzer bereitgestellte Inhalt reiner Text sein sollte.
-> Dies verhindert, dass er als HTML analysiert wird.
+> [`Node.textContent`](/de/docs/Web/API/Node/textContent) sollte verwendet werden, wenn Sie wissen, dass der vom Benutzer bereitgestellte Inhalt nur Klartext sein sollte.
+> Dies verhindert, dass er als HTML geparst wird.
 
 ## Beispiele
 
 ### Lesen des HTML-Inhalts eines Elements
 
-Das Lesen von `innerHTML` veranlasst den Benutzeragenten, die Nachkommen des Elements zu serialisieren.
+Das Lesen von `innerHTML` veranlasst den User-Agent, die Nachkommen des Elements zu serialisieren.
 
-Angesichts des folgenden HTML:
+Angenommen, Sie haben das folgende HTML:
 
 ```html
 <div id="example">
@@ -82,7 +82,7 @@ Angesichts des folgenden HTML:
 </div>
 ```
 
-Können Sie den Markup-Inhalt des äußeren {{htmlelement("div")}} wie folgt abrufen und protokollieren:
+Sie können das Markup für den Inhalt des äußeren {{htmlelement("div")}} wie folgt abrufen und protokollieren:
 
 ```js
 const myElement = document.querySelector("#example");
@@ -92,19 +92,19 @@ console.log(contents); // "\n  <p>My name is Joe</p>\n"
 
 ### Ersetzen des Inhalts eines Elements
 
-In diesem Beispiel werden wir den DOM eines Elements ersetzen, indem wir HTML in die `innerHTML`-Eigenschaft des Elements zuweisen.
-Um das Risiko von XSS zu minimieren, erstellen wir zunächst ein `TrustedHTML` Objekt aus der Zeichenkette, die das HTML enthält, und weisen dieses Objekt dann `innerHTML` zu.
+In diesem Beispiel werden wir das DOM eines Elements ersetzen, indem wir HTML an die `innerHTML`-Eigenschaft des Elements zuweisen.
+Um das Risiko von XSS zu mindern, erstellen wir zuerst ein `TrustedHTML`-Objekt aus der Zeichenfolge, die das HTML enthält, und weisen dann dieses Objekt `innerHTML` zu.
 
-Vertrauenswürdige Typen werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript API:
+Trusted Types werden noch nicht in allen Browsern unterstützt, daher definieren wir zuerst den [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dies dient als transparenter Ersatz für die Trusted Types JavaScript-API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die ein [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) für die Umwandlung einer Eingabezeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanzen definiert.
-Üblicherweise verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu bereinigen:
+Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) für die Umwandlung einer Eingabezeichenfolge in [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanzen definiert.
+Üblicherweise verwenden Implementierungen von `createHTML()` eine Bibliothek wie [DOMPurify](https://github.com/cure53/DOMPurify), um die Eingabe wie unten gezeigt zu sanisieren:
 
 ```js
 const policy = trustedTypes.createPolicy("my-policy", {
@@ -112,7 +112,7 @@ const policy = trustedTypes.createPolicy("my-policy", {
 });
 ```
 
-Dann verwenden wir dieses `policy` Objekt, um ein `TrustedHTML` Objekt aus der potenziell unsicheren Eingabezeichenfolge zu erstellen und das Ergebnis dem Element zuzuweisen:
+Dann verwenden wir dieses `policy`-Objekt, um ein `TrustedHTML`-Objekt aus der potenziell unsicheren Eingabezeichenfolge zu erstellen und weisen das Ergebnis dem Element zu:
 
 ```js
 // The potentially malicious string
@@ -127,8 +127,8 @@ element.innerHTML = trustedHTML;
 ```
 
 > [!WARNING]
-> Während Sie direkt eine Zeichenkette `innerHTML` zuweisen können, ist dies ein [Sicherheitsrisiko](#sicherheitsüberlegungen), wenn die einzufügende Zeichenkette potenziell bösartigen Inhalt enthalten könnte.
-> Sie sollten `TrustedHTML` verwenden, um sicherzustellen, dass der Inhalt vor dem Einfügen bereinigt wird, und Sie sollten einen CSP-Header setzen, um [vertrauenswürdige Typen zu erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Obwohl Sie direkt eine Zeichenfolge an `innerHTML` zuweisen können, ist dies ein [Sicherheitsrisiko](#sicherheitsüberlegungen), wenn die einzufügende Zeichenfolge potenziell bösartigen Inhalt enthalten könnte.
+> Sie sollten `TrustedHTML` verwenden, um sicherzustellen, dass der Inhalt vor dem Einfügen saniert wird, und Sie sollten einen CSP-Header setzen, um [Trusted Types durchzusetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 
 ## Spezifikationen
 
@@ -144,7 +144,7 @@ element.innerHTML = trustedHTML;
 - [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
 - [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)
 - Parsen von HTML oder XML in einen DOM-Baum: [`DOMParser`](/de/docs/Web/API/DOMParser)
-- Serialisieren eines DOM-Baums in eine XML-Zeichenkette: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
+- Serialisieren eines DOM-Baums in eine XML-Zeichenfolge: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
 - [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML)
 - [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML)
 - [`Element.setHTMLUnsafe()`](/de/docs/Web/API/Element/setHTMLUnsafe)

@@ -1,12 +1,14 @@
 ---
-title: "`<kbd>` HTML Keyboard-Eingabeelement"
+title: "`<kbd>` HTML-Tastatureingabeelement"
 short-title: <kbd>
 slug: Web/HTML/Reference/Elements/kbd
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: f201fb25d8aeda059065686c180e161c995369d2
 ---
 
-Das **`<kbd>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einen Textabschnitt, der eine Benutzereingabe über die Tastatur, Spracheingabe oder ein anderes Texteingabegerät beschreibt. Üblicherweise rendert der {{Glossary("user_agent", "User-Agent")}} den Inhalt eines `<kbd>`-Elements mit seiner Standard-Schriftart für Monospace, obwohl dies vom HTML-Standard nicht vorgeschrieben ist.
+Das **`<kbd>`** [HTML](/de/docs/Web/HTML)-Element stellt Benutzereingaben dar (typischerweise Tastatureingaben). Standardmäßig wird der Inhaltstext mit der monospace Schriftart des {{Glossary("user_agent", "Benutzeragenten")}} angezeigt.
+
+`<kbd>` kann in verschiedenen Kombinationen mit dem {{HTMLElement("samp")}} (Beispielausgabe) Element verschachtelt werden, um verschiedene Formen von Eingaben oder Ausgaben basierend auf visuellen Hinweisen darzustellen.
 
 {{InteractiveExample("HTML Demo: &lt;kbd&gt;", "tabbed-shorter")}}
 
@@ -35,8 +37,6 @@ kbd {
 }
 ```
 
-`<kbd>` kann in verschiedenen Kombinationen mit dem {{HTMLElement("samp")}}-Element (Beispielausgabe) verschachtelt werden, um verschiedene Formen von Ein- oder Ausgaben basierend auf visuellen Hinweisen darzustellen.
-
 ## Attribute
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
@@ -45,12 +45,12 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 Andere Elemente können zusammen mit `<kbd>` verwendet werden, um spezifischere Szenarien darzustellen:
 
-- Die Verschachtelung eines `<kbd>`-Elements innerhalb eines anderen `<kbd>`-Elements repräsentiert einen tatsächlichen Tastendruck oder eine andere Eingabeeinheit als Teil einer größeren Eingabe. Siehe [Darstellung von Tastendrücken innerhalb einer Eingabe](#darstellung_von_tastendrücken_innerhalb_einer_eingabe) unten.
-- Die Verschachtelung eines `<kbd>`-Elements in einem {{HTMLElement("samp")}}-Element stellt eine Eingabe dar, die dem Benutzer vom System zurückgegeben wurde. Ein Beispiel dazu finden Sie unter [Zurückgegebene Eingabe](#zurückgegebene_eingabe).
-- Die Verschachtelung eines `<samp>`-Elements in einem `<kbd>`-Element hingegen repräsentiert eine Eingabe, die auf vom System präsentierten Text basiert, wie z.B. Namen von Menüs und Menüeinträgen oder die Bezeichnungen von Schaltflächen auf dem Bildschirm. Siehe das Beispiel unter [Darstellung von Bildschirm-Eingabeoptionen](#darstellung_von_bildschirm-eingabeoptionen) unten.
+- Das Verschachteln eines `<kbd>`-Elements in einem anderen `<kbd>`-Element stellt eine tatsächliche Taste oder andere Eingabeeinheit als Teil einer größeren Eingabe dar. Siehe [Darstellung von Tastendrücken innerhalb einer Eingabe](#darstellung_von_tastendrücken_innerhalb_einer_eingabe) unten.
+- Ein `<kbd>`-Element innerhalb eines {{HTMLElement("samp")}}-Elements darstellt eine Eingabe, die vom System an den Benutzer zurückgegeben wurde. Siehe [Zurückgegebene Eingaben](#zurückgegebene_eingaben), unten, für ein Beispiel.
+- Ein `<samp>`-Element innerhalb eines `<kbd>`-Elements stellt Eingaben dar, die auf Text basieren, der vom System präsentiert wird, wie die Namen von Menüs und Menüpunkten oder die Namen von Bildschirmtasten. Siehe das Beispiel unter [Darstellung von Bildschirm-Eingabeoptionen](#darstellung_von_bildschirm-eingabeoptionen) unten.
 
 > [!NOTE]
-> Sie können einen benutzerdefinierten Stil festlegen, um die Standard-Schriftauswahl des Browsers für das `<kbd>`-Element zu überschreiben, obwohl die Vorlieben des Benutzers möglicherweise Ihre CSS überschreiben können.
+> Sie können einen benutzerdefinierten Stil definieren, um die Schriftartenauswahl des Browsers für das `<kbd>`-Element zu überschreiben, obwohl die Präferenzen des Benutzers möglicherweise Ihre CSS überschreiben.
 
 ## Beispiele
 
@@ -65,15 +65,15 @@ Andere Elemente können zusammen mit `<kbd>` verwendet werden, um spezifischere 
 
 #### Ergebnis
 
-{{EmbedLiveSample('Basic_example', 350, 80)}}
+{{ EmbedLiveSample('Basic_example', 350, 80) }}
 
 ### Darstellung von Tastendrücken innerhalb einer Eingabe
 
-Um eine Eingabe zu beschreiben, die aus mehreren Tastendrücken besteht, können Sie mehrere `<kbd>`-Elemente verschachteln, wobei ein äußeres `<kbd>`-Element die gesamte Eingabe darstellt und jeder einzelne Tastendruck oder Bestandteil der Eingabe in einem eigenen `<kbd>` eingeschlossen ist.
+Um eine Eingabe zu beschreiben, die aus mehreren Tastendrücken besteht, können Sie mehrere `<kbd>`-Elemente verschachteln, wobei ein äußeres `<kbd>`-Element die gesamte Eingabe darstellt und jeder einzelne Tastendruck oder Komponenten der Eingabe in einem eigenen `<kbd>`-Element eingeschlossen ist.
 
-#### Unformatiert
+#### Ungestyled
 
-Sehen wir uns zunächst an, wie das in einfachem HTML aussieht.
+Zuerst schauen wir uns an, wie das als einfaches HTML aussieht.
 
 ##### HTML
 
@@ -84,16 +84,16 @@ Sehen wir uns zunächst an, wie das in einfachem HTML aussieht.
 </p>
 ```
 
-Das umschließt die gesamte Tastenfolge in einem äußeren `<kbd>`-Element und dann jede einzelne Taste in einem eigenen, um die Bestandteile der Sequenz zu kennzeichnen.
+Dies umschließt die gesamte Tastenfolge in einem äußeren `<kbd>`-Element, dann jede einzelne Taste in ihrem eigenen, um die Komponenten der Sequenz zu kennzeichnen.
 
 > [!NOTE]
-> Sie müssen nicht all diese Verschachtelungen vornehmen; Sie können es vereinfachen, indem Sie das äußere `<kbd>`-Element weglassen. Einfacher gesagt, dies auf `<kbd>Ctrl</kbd>+<kbd>N</kbd>` zu reduzieren, wäre vollkommen gültig.
+> Sie müssen nicht all diese Verschachtelungen vornehmen; Sie können es vereinfachen, indem Sie das äußere `<kbd>`-Element weglassen. Mit anderen Worten, die Vereinfachung auf nur `<kbd>Strg</kbd>+<kbd>N</kbd>` wäre völlig gültig.
 >
-> Abhängig von Ihrem Stylesheet finden Sie diese Art der Verschachtelung jedoch möglicherweise nützlich.
+> Abhängig von Ihrem Stylesheet kann es jedoch nützlich sein, diese Art der Verschachtelung vorzunehmen.
 
 ##### Ergebnis
 
-Ohne angewandtes Stylesheet sieht die Ausgabe so aus:
+Die Ausgabe sieht so aus, ohne dass ein Stylesheet angewendet wurde:
 
 {{EmbedLiveSample("Unstyled", 650, 80)}}
 
@@ -103,7 +103,7 @@ Wir können dies verständlicher machen, indem wir etwas CSS hinzufügen:
 
 ##### CSS
 
-Wir fügen einen neuen Selektor für verschachtelte `<kbd>`-Elemente, `kbd>kbd`, hinzu, den wir beim Rendern von Tastaturtasten anwenden können:
+Wir fügen einen neuen Selektor für verschachtelte `<kbd>`-Elemente hinzu, `kbd>kbd`, den wir beim Rendern von Keyboardtasten anwenden können:
 
 ```css
 kbd > kbd {
@@ -115,7 +115,7 @@ kbd > kbd {
 
 ##### HTML
 
-Dann aktualisieren wir das HTML, um diese Klasse für die in der Ausgabe dargestellten Tasten zu verwenden:
+Dann aktualisieren wir das HTML, um diese Klasse auf die Tasten im auszugebenden Inhalt anzuwenden:
 
 ```html
 <p>
@@ -130,9 +130,9 @@ Das Ergebnis ist genau das, was wir wollen!
 
 {{EmbedLiveSample("With_custom_styles", 650, 80)}}
 
-### Zurückgegebene Eingabe
+### Zurückgegebene Eingaben
 
-Die Verschachtelung eines `<kbd>`-Elements in einem {{HTMLElement("samp")}}-Element repräsentiert eine Eingabe, die dem Benutzer vom System zurückgegeben wurde.
+Ein `<kbd>`-Element innerhalb eines {{HTMLElement("samp")}}-Elements darstellt eine Eingabe, die vom System an den Benutzer zurückgegeben wurde.
 
 ```html
 <p>
@@ -150,9 +150,9 @@ Die Verschachtelung eines `<kbd>`-Elements in einem {{HTMLElement("samp")}}-Elem
 
 ### Darstellung von Bildschirm-Eingabeoptionen
 
-Die Verschachtelung eines `<samp>`-Elements in einem `<kbd>`-Element repräsentiert eine Eingabe, die auf vom System präsentierten Text basiert, wie z.B. die Namen von Menüs und Menüeinträgen oder die Bezeichnungen von Schaltflächen auf dem Bildschirm.
+Ein `<samp>`-Element innerhalb eines `<kbd>`-Elements stellt Eingaben dar, die auf Text basieren, der vom System präsentiert wird, wie die Namen von Menüs und Menüpunkten oder die Namen von Bildschirmtasten.
 
-Zum Beispiel können Sie erklären, wie Sie die Option "Neues Dokument" im Menü "Datei" auswählen, durch HTML, das so aussieht:
+Zum Beispiel können Sie erklären, wie die Option "Neues Dokument" im Menü "Datei" ausgewählt wird, indem Sie HTML verwenden, das folgendermaßen aussieht:
 
 ```html-nolint
 <p>
@@ -166,7 +166,7 @@ Zum Beispiel können Sie erklären, wie Sie die Option "Neues Dokument" im Menü
 </p>
 ```
 
-Das umfasst eine interessante Verschachtelung. Für die Beschreibung der Menüoption ist die gesamte Eingabe in einem `<kbd>`-Element eingeschlossen. Dann sind innerhalb dessen sowohl die Menünamen als auch die Menüeintragsnamen in `<kbd>` und `<samp>` enthalten, was eine Eingabe darstellt, die aus einem Bildschirm-Widget ausgewählt wird.
+Dies umfasst einige interessante Verschachtelungen. Für die Menüoption Beschreibung wird die gesamte Eingabe in einem `<kbd>`-Element eingeschlossen. Dann sind innerhalb dieses Elements sowohl die Menünamen als auch die Menüpunktnamen in `<kbd>` und `<samp>` enthalten, wodurch eine Eingabe angezeigt wird, die aus einem Bildschirm-Widget ausgewählt wird.
 
 #### Ergebnis
 
@@ -182,28 +182,28 @@ Das umfasst eine interessante Verschachtelung. Für die Beschreibung der Menüop
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fluss-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungs-Inhalt</a>, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungs-Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungs-Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
