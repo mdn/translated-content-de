@@ -3,16 +3,16 @@ title: "PerformanceEntry: name-Eigenschaft"
 short-title: name
 slug: Web/API/PerformanceEntry/name
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 3f058f207a00078456c19b9de46218af3f084420
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Interfaces ist ein String, der den Namen eines Performance-Eintrags darstellt. Er fungiert als eine Art Identifikator, muss jedoch nicht eindeutig sein. Der Wert hängt von der jeweiligen Unterklasse ab.
+Die schreibgeschützte **`name`**-Eigenschaft der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Schnittstelle ist ein String, der den Namen eines Leistungseintrags darstellt. Sie fungiert als Bezeichner, muss jedoch nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
 
 ## Wert
 
-Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie in der folgenden Tabelle gezeigt.
+Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie in der Tabelle unten gezeigt.
 
 <table class="no-markdown">
   <thead>
@@ -23,12 +23,16 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
   </thead>
   <tbody>
     <tr>
+      <td>[`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)</td>
+      <td>Gibt immer einen leeren String zurück.</td>
+    </tr>
+    <tr>
       <td>[`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)</td>
-      <td>Liefert immer einen leeren String zurück.</td>
+      <td>Gibt immer einen leeren String zurück.</td>
     </tr>
     <tr>
       <td>[`LayoutShift`](/de/docs/Web/API/LayoutShift)</td>
-      <td>Liefert immer <code>"layout-shift"</code> zurück.</td>
+      <td>Gibt immer <code>"layout-shift"</code> zurück.</td>
     </tr>
     <tr>
       <td>[`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)</td>
@@ -41,7 +45,11 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
     </tr>
     <tr>
       <td>[`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)</td>
-      <td>Der Typ des zugehörigen Events.</td>
+      <td>Der Typ des zugehörigen Ereignisses.</td>
+    </tr>
+    <tr>
+      <td>[`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)</td>
+      <td>Gibt immer <code>"long-animation-frame"</code> zurück.</td>
     </tr>
     <tr>
       <td>[`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)</td>
@@ -76,7 +84,7 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
     <tr>
       <td>[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)</td>
       <td>Die aufgelöste URL der angeforderten Ressource.
-      Beachten Sie, dass hierbei keine <a href="/de/docs/Web/URI/Reference/Fragment/Text_fragments">Textfragmente</a> oder andere Fragmentanweisungen enthalten sind.
+      Beachten Sie, dass dies alle <a href="/de/docs/Web/URI/Reference/Fragment/Text_fragments">Textfragmente</a> oder andere Fragmentdirektiven ausschließt.
       Der Wert ändert sich nicht, auch wenn die Anfrage umgeleitet wird.
       </td>
     </tr>
@@ -94,8 +102,12 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
       <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, auch wenn die Anfrage umgeleitet wird.</td>
     </tr>
     <tr>
+      <td>[`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)</td>
+      <td>Die neue navigierte URL.</td>
+    </tr>
+    <tr>
       <td>[`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)</td>
-      <td>Liefert immer <code>"unknown"</code> zurück.</td>
+      <td>Gibt immer <code>"unknown"</code> zurück.</td>
     </tr>
     <tr>
       <td>[`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)</td>
@@ -111,10 +123,9 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
 
 ## Beispiele
 
-### Filtern von Performance-Einträgen nach Namen
+### Leistungseinträge nach Name filtern
 
-Wenn das `PerformanceEntry` ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource.
-In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, zum Beispiel alle SVG-Bilder.
+Wenn das `PerformanceEntry`-Objekt ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource. In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, beispielsweise alle SVG-Bilder.
 
 ```js
 // Log durations of SVG resources
@@ -125,9 +136,9 @@ performance.getEntriesByType("resource").forEach((entry) => {
 });
 ```
 
-### Abrufen von Performance-Einträgen nach Namen
+### Leistungseinträge nach Name abrufen
 
-Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, mit denen Sie Performance-Einträge direkt nach Namen abrufen können. Sie müssen die `name`-Eigenschaft dafür nicht unbedingt verwenden, sondern können stattdessen [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, die es ermöglichen, Leistungseinträge direkt nach Name abzurufen. Man benötigt nicht unbedingt die `name`-Eigenschaft dafür, stattdessen kann man [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
 
 ```js
 // Log all marks named "debug-marks" at this point in time

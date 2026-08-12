@@ -3,23 +3,23 @@ title: "CanvasRenderingContext2D: fillStyle-Eigenschaft"
 short-title: fillStyle
 slug: Web/API/CanvasRenderingContext2D/fillStyle
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) gibt die Farbe, den Farbverlauf oder das Muster an, die/das innerhalb von Formen verwendet werden soll. Der Standardstil ist `black`.
+Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) gibt die Farbe, den Verlauf oder das Muster an, das innerhalb von Formen verwendet werden soll. Der Standardstil ist `black`.
 
 > [!NOTE]
-> Für weitere Beispiele zu Füll- und Linienstilen siehe [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Leitfaden](/de/docs/Web/API/Canvas_API/Tutorial).
+> Für mehr Beispiele zu Füll- und Strichstilen siehe [Anwendung von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Leitfaden](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
 Einer der folgenden:
 
-- Ein String wird als CSS {{cssxref("&lt;color&gt;")}}-Wert geparst.
-- Ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt (ein linearer oder radialer Farbverlauf).
-- Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein wiederholtes Bild).
+- Ein String, der als CSS {{cssxref("&lt;color&gt;")}}-Wert interpretiert wird.
+- Ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt (ein linearer oder radialer Verlauf).
+- Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein sich wiederholendes Bild).
 
 ## Beispiele
 
@@ -45,18 +45,18 @@ ctx.fillRect(10, 10, 100, 100);
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Changing_the_fill_color_of_a_shape', 700, 160) }}
+{{EmbedLiveSample('Changing_the_fill_color_of_a_shape', 700, 160)}}
 
 ### Erstellen mehrerer Füllfarben mit Schleifen
 
-In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, die jeweils eine andere Füllfarbe haben. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um eine einzigartige RGB-Farbe für jedes Quadrat zu erzeugen, und modifizieren nur die roten und grünen Werte. (Der blaue Kanal hat einen festen Wert.) Indem Sie die Kanäle modifizieren, können Sie alle Arten von Paletten erzeugen.
+In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, die jeweils eine unterschiedliche Füllfarbe haben. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um eine einzigartige RGB-Farbe für jedes Quadrat zu erzeugen, und ändern dabei nur die Rot- und Grünwerte. (Der Blaukanal hat einen festen Wert.) Durch das Ändern der Kanäle können Sie alle Arten von Paletten erzeugen.
 
 ```html hidden
-<canvas id="canvas" width="150" height="150"></canvas>
+<canvas id="my-canvas" width="150" height="150"></canvas>
 ```
 
 ```js
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 
 for (let i = 0; i < 6; i++) {
@@ -70,7 +70,7 @@ for (let i = 0; i < 6; i++) {
 }
 ```
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Creating_multiple_fill_colors_using_loops", "", "160")}}
 
@@ -82,9 +82,9 @@ Das Ergebnis sieht so aus:
 
 {{Compat}}
 
-### WebKit-/Blink-spezifische Anmerkung
+### WebKit/Blink-spezifische Anmerkung
 
-In WebKit- und Blink-basierten Browsern wird zusätzlich zu dieser Eigenschaft die nicht standardisierte und veraltete Methode `ctx.setFillColor()` implementiert.
+In auf WebKit und Blink basierenden Browsern ist die nicht standardisierte und veraltete Methode `ctx.setFillColor()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ```js
 setFillColor(color, /* (optional) */ alpha);

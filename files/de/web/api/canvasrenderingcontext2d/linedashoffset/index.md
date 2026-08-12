@@ -3,29 +3,26 @@ title: "CanvasRenderingContext2D: lineDashOffset-Eigenschaft"
 short-title: lineDashOffset
 slug: Web/API/CanvasRenderingContext2D/lineDashOffset
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
 ---
 
 {{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.lineDashOffset`**
-Eigenschaft der Canvas 2D API setzt den Linienstrich-Versatz oder die "Phase".
+Die **`CanvasRenderingContext2D.lineDashOffset`**-Eigenschaft der Canvas 2D API legt den Linienstrichversatz oder die "Phase" fest.
 
 > [!NOTE]
-> Linien werden gezeichnet, indem die
-> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) Methode aufgerufen wird.
+> Linien werden durch Aufrufen der
+> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)-Methode gezeichnet.
 
 ## Wert
 
-Ein Float, der die Höhe des Versatzes des Linie-Strichs angibt. Der Standardwert ist `0.0`.
+Ein Gleitkommawert, der den Versatz der gestrichelten Linie angibt. Der Standardwert ist `0.0`.
 
 ## Beispiele
 
-### Versatz eines Linie-Strichs
+### Versatz eines gestrichelten Linies
 
-Dieses Beispiel zeichnet zwei gestrichelte Linien. Die erste hat keinen Linienversatz. Die zweite hat einen
-Linienversatz von 4.
+Dieses Beispiel zeichnet zwei gestrichelte Linien. Die erste hat keinen Strichversatz. Die zweite hat einen Strichversatz von 4.
 
 #### HTML
 
@@ -58,22 +55,20 @@ ctx.stroke();
 
 #### Ergebnis
 
-Die Linie mit einem Linienversatz wird in Rot gezeichnet.
+Die Linie mit einem Strichversatz wird in Rot gezeichnet.
 
 {{ EmbedLiveSample('Offsetting_a_line_dash', 700, 180) }}
 
-### Marching Ants
+### Laufende Ameisen
 
-Der [Marching Ants](https://en.wikipedia.org/wiki/Marching_ants)-Effekt ist
-eine Animationstechnik, die oft in Auswahlwerkzeugen von Computer-Grafikprogrammen zu finden ist. Er
-hilft dem Benutzer, die Auswahlgrenze vom Hintergrundbild zu unterscheiden, indem die Grenze animiert wird.
+Der [Effekt der laufenden Ameisen](https://en.wikipedia.org/wiki/Marching_ants) ist eine Animationstechnik, die häufig in Auswahlwerkzeugen von Grafikprogrammen verwendet wird. Sie hilft dem Benutzer, den Auswahlrand von dem Bildhintergrund zu unterscheiden, indem der Rand animiert wird.
 
 ```html hidden
-<canvas id="canvas"></canvas>
+<canvas id="my-canvas"></canvas>
 ```
 
 ```js
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 let offset = 0;
 
@@ -108,7 +103,7 @@ march();
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.getLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/getLineDash)
 - [`CanvasRenderingContext2D.setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash)
-- [Anwenden von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

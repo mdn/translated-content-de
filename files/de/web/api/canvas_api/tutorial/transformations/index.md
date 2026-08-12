@@ -2,23 +2,23 @@
 title: Transformationen
 slug: Web/API/Canvas_API/Tutorial/Transformations
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Using_images", "Web/API/Canvas_API/Tutorial/Compositing")}}
 
-Früher in diesem Leitfaden haben wir über das [Canvas-Raster](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) und den **Koordinatenraum** gelernt. Bisher haben wir nur das Standardraster verwendet und die Größe der gesamten Leinwand nach unseren Bedürfnissen angepasst. Mit Transformationen gibt es leistungsfähigere Möglichkeiten, den Ursprung an eine andere Position zu verschieben, das Raster zu drehen und es sogar zu skalieren.
+Früher in diesem Tutorial haben wir über das [Canvas-Gitter](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) und den **Koordinatenraum** gelernt. Bisher haben wir nur das Standardgitter verwendet und die Größe der gesamten Leinwand an unsere Bedürfnisse angepasst. Mit Transformationen gibt es jedoch leistungsstärkere Möglichkeiten, den Ursprung an eine andere Position zu verschieben, das Gitter zu drehen und es sogar zu skalieren.
 
 ## Speichern und Wiederherstellen des Zustands
 
-Bevor wir uns die Transformationsmethoden ansehen, betrachten wir zwei andere Methoden, die unverzichtbar sind, sobald Sie immer komplexere Zeichnungen erstellen.
+Bevor wir uns die Transformationsmethoden ansehen, betrachten wir zwei weitere Methoden, die unerlässlich sind, sobald Sie immer komplexere Zeichnungen erstellen.
 
 - [`save()`](/de/docs/Web/API/CanvasRenderingContext2D/save)
   - : Speichert den gesamten Zustand der Leinwand.
 - [`restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore)
   - : Stellt den zuletzt gespeicherten Zustand der Leinwand wieder her.
 
-Canvas-Zustände werden in einem Stapelspeicher abgelegt. Jedes Mal, wenn die Methode `save()` aufgerufen wird, wird der aktuelle Zeichenstatus auf den Stapel geschoben. Ein Zeichenstatus besteht aus
+Canvas-Zustände werden in einem Stapel gespeichert. Jedes Mal, wenn die `save()`-Methode aufgerufen wird, wird der aktuelle Zeichenstatus auf den Stapel geschoben. Ein Zeichenstatus besteht aus:
 
 - Den angewendeten Transformationen (d.h. `translate`, `rotate` und `scale` – siehe unten).
 - Den aktuellen Werten der folgenden Attribute:
@@ -40,15 +40,15 @@ Canvas-Zustände werden in einem Stapelspeicher abgelegt. Jedes Mal, wenn die Me
   - [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)
   - [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)
   - [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled).
-- Der aktuelle [Clip-Pfad](/de/docs/Web/API/Canvas_API/Tutorial/Compositing#clipping_paths), den wir im nächsten Abschnitt sehen werden.
+- Dem aktuellen [Clipping-Pfad](/de/docs/Web/API/Canvas_API/Tutorial/Compositing#clipping_paths), den wir im nächsten Abschnitt sehen werden.
 
 Sie können die `save()`-Methode so oft aufrufen, wie Sie möchten. Jedes Mal, wenn die `restore()`-Methode aufgerufen wird, wird der zuletzt gespeicherte Zustand vom Stapel entfernt und alle gespeicherten Einstellungen werden wiederhergestellt.
 
-### Ein Beispiel für den Zustand `save` und `restore`
+### Ein Beispiel für den `save` und `restore` Canvas-Zustand
 
 ```js
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const ctx = document.getElementById("my-canvas").getContext("2d");
 
   ctx.fillRect(0, 0, 150, 150); // Draw a Black rectangle with default settings
   ctx.save(); // Save the original default state
@@ -70,41 +70,41 @@ function draw() {
 ```
 
 ```html hidden
-<canvas id="canvas" width="150" height="150"></canvas>
+<canvas id="my-canvas" width="150" height="150"></canvas>
 ```
 
 ```js hidden
 draw();
 ```
 
-Der erste Schritt besteht darin, ein großes Rechteck mit den Standardeinstellungen zu zeichnen. Als nächstes speichern wir diesen Zustand und ändern die Füllfarbe. Dann zeichnen wir das zweite kleinere blaue Rechteck und speichern den Zustand. Erneut ändern wir einige Zeichen-Einstellungen und zeichnen das dritte halbtransparente weiße Rechteck.
+Der erste Schritt besteht darin, ein großes Rechteck mit den Standardeinstellungen zu zeichnen. Als nächstes speichern wir diesen Zustand und ändern die Füllfarbe. Dann zeichnen wir das zweite und kleinere blaue Rechteck und speichern den Zustand. Erneut ändern wir einige Zeichnungseinstellungen und zeichnen das dritte halbtransparente weiße Rechteck.
 
-Bisher ist dies ziemlich ähnlich zu dem, was wir in den vorherigen Abschnitten gemacht haben. Sobald wir allerdings die erste `restore()`-Anweisung aufrufen, wird der oberste Zeichen-Zustand vom Stapel entfernt und die Einstellungen werden wiederhergestellt. Hätten wir den Zustand nicht mit `save()` gespeichert, müssten wir die Füllfarbe und Transparenz manuell ändern, um in den vorherigen Zustand zurückzukehren. Dies wäre bei zwei Eigenschaften einfach, aber wenn wir mehr als das haben, würde unser Code sehr schnell sehr lang werden.
+Bisher ist dies ziemlich ähnlich zu dem, was wir in den vorherigen Abschnitten getan haben. Sobald wir jedoch die erste `restore()`-Anweisung aufrufen, wird der oberste Zeichenstatus vom Stapel entfernt und die Einstellungen werden wiederhergestellt. Hätten wir den Zustand nicht mit `save()` gespeichert, müssten wir die Füllfarbe und die Transparenz manuell ändern, um zum vorherigen Zustand zurückzukehren. Dies wäre einfach bei zwei Eigenschaften, aber wenn wir mehr als das haben, würde unser Code sehr schnell sehr lang werden.
 
-Wenn die zweite `restore()`-Anweisung aufgerufen wird, wird der ursprüngliche Zustand (der Zustand, den wir vor dem ersten Aufruf von `save` festgelegt haben) wiederhergestellt und das letzte Rechteck wird erneut in Schwarz gezeichnet.
+Wenn die zweite `restore()`-Anweisung aufgerufen wird, wird der ursprüngliche Zustand (der, den wir vor dem ersten Aufruf von `save` festgelegt haben) wiederhergestellt und das letzte Rechteck wird erneut in Schwarz gezeichnet.
 
 {{EmbedLiveSample("A_save_and_restore_canvas_state_example", "", "160")}}
 
 ## Übersetzen
 
-Die erste der Transformationsmethoden, die wir uns anschauen, ist `translate()`. Diese Methode wird verwendet, um die Leinwand und ihren Ursprung an einen anderen Punkt im Raster zu verschieben.
+Die erste der Transformationsmethoden, die wir betrachten werden, ist `translate()`. Diese Methode wird verwendet, um die Leinwand und ihren Ursprung zu einem anderen Punkt im Gitter zu verschieben.
 
 - [`translate(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/translate)
-  - : Verschiebt die Leinwand und ihren Ursprung im Raster. `x` gibt die horizontale Verschiebung an und `y` gibt an, wie weit das Raster vertikal verschoben werden soll.
+  - : Verschiebt die Leinwand und ihren Ursprung im Gitter. `x` gibt die horizontale Verschiebung an, und `y` gibt an, wie weit das Gitter vertikal verschoben werden soll.
 
-![Die Leinwand wird nach unten und rechts verschoben oder vom Ursprungspunkt im Raster um 'x' Einheiten horizontal und 'y' Einheiten vertikal übersetzt.](canvas_grid_translate.png)
+![Die Leinwand wird von ihrem Ursprungspunkt im Gitter um 'x' Einheiten horizontal und 'y' Einheiten vertikal nach unten und nach rechts verschoben, oder übersetzt.](canvas_grid_translate.png)
 
-Es ist sinnvoll, den Zustand der Leinwand zu speichern, bevor Transformationen durchgeführt werden. In den meisten Fällen ist es einfacher, die `restore`-Methode aufzurufen, als eine Rückübersetzung durchführen zu müssen, um in den ursprünglichen Zustand zurückzukehren. Auch wenn Sie innerhalb einer Schleife übersetzen und den Zustand der Leinwand nicht speichern und wiederherstellen, könnten Sie am Ende Teile Ihrer Zeichnung verpassen, weil sie außerhalb des Leinwandrands gezeichnet wurden.
+Es ist eine gute Idee, den Leinwandzustand zu speichern, bevor Transformationen durchgeführt werden. In den meisten Fällen ist es einfacher, die `restore`-Methode aufzurufen, als eine Rückübersetzung durchzuführen, um zum ursprünglichen Zustand zurückzukehren. Außerdem, wenn Sie innerhalb einer Schleife übersetzen und den Leinwandzustand nicht speichern und wiederherstellen, könnte es passieren, dass Sie einen Teil Ihrer Zeichnung vermissen, weil sie außerhalb der Leinwandkante gezeichnet wurde.
 
 ### Ein Beispiel für `translate`
 
-Dieses Beispiel zeigt einige Vorteile der Übersetzung des Leinwand-Ursprungs. Ohne die `translate()`-Methode würden alle Rechtecke an derselben Position (0,0) gezeichnet werden. Die `translate()`-Methode gibt uns auch die Freiheit, das Rechteck an beliebiger Stelle auf der Leinwand zu platzieren, ohne die Koordinaten in der `fillRect()`-Funktion manuell anpassen zu müssen. Das macht es etwas einfacher zu verstehen und zu verwenden.
+Dieses Beispiel zeigt einige der Vorteile der Übersetzung des Leinwandursprungs. Ohne die Methode `translate()` würden alle Rechtecke an derselben Position (0,0) gezeichnet werden. Die Methode `translate()` gibt uns auch die Freiheit, das Rechteck überall auf der Leinwand zu platzieren, ohne die Koordinaten in der Funktion `fillRect()` manuell anpassen zu müssen. Dies macht es etwas einfacher zu verstehen und zu verwenden.
 
-In der `draw()`-Funktion rufen wir die `fillRect()`-Funktion neunmal mit zwei `for`-Schleifen auf. In jeder Schleife wird die Leinwand übersetzt, das Rechteck gezeichnet und die Leinwand in ihren ursprünglichen Zustand zurückversetzt. Beachten Sie, wie der Aufruf von `fillRect()` jedes Mal dieselben Koordinaten verwendet und sich auf `translate()` verlässt, um die Position der Zeichnung anzupassen.
+In der Funktion `draw()` rufen wir die Funktion `fillRect()` neun Mal mit zwei `for`-Schleifen auf. In jeder Schleife wird die Leinwand übersetzt, das Rechteck gezeichnet und die Leinwand in ihren ursprünglichen Zustand zurückversetzt. Beachten Sie, wie der Aufruf von `fillRect()` jedes Mal dieselben Koordinaten verwendet, wobei `translate()` die Zeichenposition anpasst.
 
 ```js
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const ctx = document.getElementById("my-canvas").getContext("2d");
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       ctx.save();
@@ -118,7 +118,7 @@ function draw() {
 ```
 
 ```html hidden
-<canvas id="canvas" width="150" height="150"></canvas>
+<canvas id="my-canvas" width="150" height="150"></canvas>
 ```
 
 ```js hidden
@@ -127,27 +127,27 @@ draw();
 
 {{EmbedLiveSample("A_translate_example", "", "160")}}
 
-## Rotieren
+## Drehen
 
 Die zweite Transformationsmethode ist `rotate()`. Wir verwenden sie, um die Leinwand um den aktuellen Ursprung zu drehen.
 
 - [`rotate(angle)`](/de/docs/Web/API/CanvasRenderingContext2D/rotate)
-  - : Dreht die Leinwand im Uhrzeigersinn um den aktuellen Ursprung um den `angle`-Winkel in Radianten.
+  - : Dreht die Leinwand im Uhrzeigersinn um den aktuellen Ursprung um den `angle`-Wert in Bogenmaß.
 
-![Der Standardursprungspunkt befindet sich oben links, 0 Grad ist horizontal und nach rechts. Der Drehungspunkt beginnt vom Ursprungspunkt und geht im Uhrzeigersinn.](canvas_grid_rotate.png)
+![Der Standardursprungspunkt befindet sich oben links, 0 Grad ist horizontal und nach rechts. Der Drehpunkt beginnt vom Ursprungspunkt und verläuft im Uhrzeigersinn.](canvas_grid_rotate.png)
 
-Der Drehpunkt ist immer der Leinwandursprung. Um den Mittelpunkt zu ändern, müssen wir die Leinwand mithilfe der `translate()`-Methode verschieben.
+Der Rotationsmittelpunkt ist immer der Ursprung der Leinwand. Um den Mittelpunkt zu ändern, müssen wir die Leinwand mit der Methode `translate()` verschieben.
 
 ### Ein Beispiel für `rotate`
 
-In diesem Beispiel verwenden wir die `rotate()`-Methode, um zuerst ein Rechteck vom Leinwandursprung aus und dann vom Zentrum des Rechtecks selbst mit Hilfe von `translate()` zu drehen.
+In diesem Beispiel verwenden wir die Methode `rotate()`, um zuerst ein Rechteck vom Ursprung der Leinwand und dann vom Zentrum des Rechtecks selbst mit Hilfe von `translate()` zu drehen.
 
 > [!NOTE]
-> Winkel sind in Radiant, nicht in Grad. Zum Konvertieren verwenden wir: `radians = (Math.PI/180)*degrees`.
+> Winkel sind in Bogenmaß, nicht in Grad. Zur Umwandlung verwenden wir: `radians = (Math.PI/180)*degrees`.
 
 ```js
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const ctx = document.getElementById("my-canvas").getContext("2d");
 
   // left rectangles, rotate from canvas origin
   ctx.save();
@@ -177,10 +177,10 @@ function draw() {
 }
 ```
 
-Um das Rechteck um sein eigenes Zentrum zu drehen, übersetzen wir die Leinwand zum Zentrum des Rechtecks, drehen dann die Leinwand, übersetzen die Leinwand zurück zu 0,0 und zeichnen dann das Rechteck.
+Um das Rechteck um sein eigenes Zentrum zu drehen, verschieben wir die Leinwand zum Zentrum des Rechtecks, drehen die Leinwand, verschieben die Leinwand zurück zu 0,0 und zeichnen dann das Rechteck.
 
 ```html hidden
-<canvas id="canvas" width="300" height="200"></canvas>
+<canvas id="my-canvas" width="300" height="200"></canvas>
 ```
 
 ```js hidden
@@ -191,14 +191,14 @@ draw();
 
 ## Skalieren
 
-Die nächste Transformationsmethode ist das Skalieren. Wir verwenden sie, um die Einheiten in unserem Canvas-Raster zu vergrößern oder zu verkleinern. Dies kann verwendet werden, um verkleinerte oder vergrößerte Formen und Bitmaps zu zeichnen.
+Die nächste Transformationsmethode ist das Skalieren. Wir verwenden sie, um die Einheiten in unserem Leinwandgitter zu vergrößern oder zu verkleinern. Dies kann verwendet werden, um verkleinerte oder vergrößerte Formen und Bitmaps zu zeichnen.
 
 - [`scale(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/scale)
-  - : Skaliert die Canvas-Einheiten horizontal um x und vertikal um y. Beide Parameter sind reelle Zahlen. Werte kleiner als 1.0 verkleinern die Einheitengröße und Werte größer als 1.0 vergrößern die Einheitengröße. Werte von 1.0 lassen die Einheiten unverändert.
+  - : Skaliert die Leinwandeinheiten um x horizontal und um y vertikal. Beide Parameter sind reelle Zahlen. Werte, die kleiner als 1,0 sind, verkleinern die Einheitengröße, und Werte über 1,0 vergrößern die Einheitengröße. Werte von 1,0 lassen die Einheiten gleich groß bleiben.
 
-Mit negativen Zahlen können Sie eine Achsenspiegelung durchführen (zum Beispiel mit `translate(0,canvas.height); scale(1,-1);` haben Sie das bekannte kartesische Koordinatensystem, mit dem Ursprung in der unteren linken Ecke).
+Mit negativen Zahlen können Sie eine Achsenspiegelung durchführen (zum Beispiel mit `translate(0,canvas.height); scale(1,-1);` erhalten Sie das bekannte kartesische Koordinatensystem mit dem Ursprung in der unteren linken Ecke).
 
-Standardmäßig ist eine Einheit auf der Leinwand genau ein Pixel. Wenn wir beispielsweise einen Skalierungsfaktor von 0.5 anwenden, wird die resultierende Einheit 0.5 Pixel groß und somit würden Formen auf halber Größe gezeichnet. Ähnlich würde der Skalierungsfaktor auf 2.0 gesetzt die Einheitengröße vergrößern und eine Einheit wäre nun zwei Pixel. Dies führt dazu, dass Formen doppelt so groß gezeichnet werden.
+Standardmäßig ist eine Einheit auf der Leinwand genau ein Pixel. Wenn wir beispielsweise einen Skalierungsfaktor von 0,5 anwenden, würde die resultierende Einheit 0,5 Pixel betragen, und somit würden Formen halb so groß gezeichnet. In ähnlicher Weise vergrößert das Setzen des Skalierungsfaktors auf 2,0 die Einheitengröße und eine Einheit wird jetzt zu zwei Pixeln. Dies führt dazu, dass Formen doppelt so groß gezeichnet werden.
 
 ### Ein Beispiel für `scale`
 
@@ -206,7 +206,7 @@ In diesem letzten Beispiel zeichnen wir Formen mit unterschiedlichen Skalierungs
 
 ```js
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const ctx = document.getElementById("my-canvas").getContext("2d");
 
   // draw a simple rectangle, but scale it.
   ctx.save();
@@ -222,7 +222,7 @@ function draw() {
 ```
 
 ```html hidden
-<canvas id="canvas" width="150" height="150"></canvas>
+<canvas id="my-canvas" width="150" height="150"></canvas>
 ```
 
 ```js hidden
@@ -233,7 +233,7 @@ draw();
 
 ## Transformationen
 
-Schließlich ermöglichen die folgenden Transformationsmethoden direkte Modifikationen der Transformationsmatrix.
+Schließlich erlauben die folgenden Transformationsmethoden direkte Modifikationen an der Transformationsmatrix.
 
 - [`transform(a, b, c, d, e, f)`](/de/docs/Web/API/CanvasRenderingContext2D/transform)
   - : Multipliziert die aktuelle Transformationsmatrix mit der Matrix, die durch ihre Argumente beschrieben wird. Die Transformationsmatrix wird beschrieben durch:
@@ -245,16 +245,16 @@ Schließlich ermöglichen die folgenden Transformationsmethoden direkte Modifika
     </math>
     <!-- prettier-ignore-end -->
 
-    Wenn eines der Argumente [`Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity) ist, muss die Transformationsmatrix als unendlich markiert werden, anstatt dass die Methode eine Ausnahme auslöst.
+    Wenn eines der Argumente [`Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity) ist, muss die Transformationsmatrix als unendlich markiert werden, anstatt dass die Methode eine Ausnahme wirft.
 
 Die Parameter dieser Funktion sind:
 
 - `a` (`m11`)
   - : Horizontale Skalierung.
 - `b` (`m12`)
-  - : Horizontale Schrägung.
+  - : Horizontales Scheren.
 - `c` (`m21`)
-  - : Vertikale Schrägung.
+  - : Vertikales Scheren.
 - `d` (`m22`)
   - : Vertikale Skalierung.
 - `e` (`dx`)
@@ -262,15 +262,15 @@ Die Parameter dieser Funktion sind:
 - `f` (`dy`)
   - : Vertikale Verschiebung.
 - [`setTransform(a, b, c, d, e, f)`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform)
-  - : Setzt die aktuelle Transformation auf die Einheitsmatrix zurück und ruft dann die `transform()`-Methode mit denselben Argumenten auf. Dies hebt im Grunde die aktuelle Transformation auf und setzt die angegebene Transformation, alles in einem Schritt.
+  - : Setzt die aktuelle Transformation auf die Einheitsmatrix zurück und ruft dann die `transform()`-Methode mit denselben Argumenten auf. Dies macht im Wesentlichen die aktuelle Transformation rückgängig und setzt die angegebene Transformation, alles in einem Schritt.
 - [`resetTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/resetTransform)
-  - : Setzt die aktuelle Transformation auf die Einheitsmatrix zurück. Dies ist dasselbe wie der Aufruf von: `ctx.setTransform(1, 0, 0, 1, 0, 0);`
+  - : Setzt die aktuelle Transformation auf die Einheitsmatrix zurück. Dies entspricht dem Aufruf von: `ctx.setTransform(1, 0, 0, 1, 0, 0);`
 
 ### Beispiel für `transform` und `setTransform`
 
 ```js
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const ctx = document.getElementById("my-canvas").getContext("2d");
 
   const sin = Math.sin(Math.PI / 6);
   const cos = Math.cos(Math.PI / 6);
@@ -290,7 +290,7 @@ function draw() {
 ```
 
 ```html hidden
-<canvas id="canvas" width="200" height="250"></canvas>
+<canvas id="my-canvas" width="200" height="250"></canvas>
 ```
 
 ```js hidden

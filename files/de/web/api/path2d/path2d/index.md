@@ -1,14 +1,14 @@
 ---
-title: "Path2D: Path2D() Konstruktor"
+title: "Path2D: Path2D()-Konstruktor"
 short-title: Path2D()
 slug: Web/API/Path2D/Path2D
 l10n:
-  sourceCommit: df440f2a6c405f27bfa4c0d0960f2c02ff217d67
+  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Der **`Path2D()`** Konstruktor gibt ein neu instanziiertes `Path2D` Objekt zurück, wahlweise mit einem anderen Pfad als Argument (erstellt eine Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) Daten besteht.
+Der **`Path2D()`**-Konstruktor gibt ein neu instanziiertes `Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (zum Erstellen einer Kopie) oder optional mit einem String, der aus [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) besteht.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ new Path2D(d)
 ### Parameter
 
 - `path` {{optional_inline}}
-  - : Wenn er mit einem anderen `Path2D` Objekt aufgerufen wird, wird eine Kopie des `path`-Arguments erstellt.
+  - : Wenn er mit einem anderen `Path2D`-Objekt aufgerufen wird, wird eine Kopie des `path`-Arguments erstellt.
 - `d` {{optional_inline}}
-  - : Wenn er mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) Daten besteht, aufgerufen wird, wird ein neuer Pfad aus dieser Beschreibung erstellt.
+  - : Wenn er mit einem String, der aus [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) besteht, aufgerufen wird, wird ein neuer Pfad aus dieser Beschreibung erstellt.
 
 ## Beispiele
 
 ### Erstellen und Kopieren von Pfaden
 
-Dieses Beispiel erstellt und kopiert einen `Path2D` Pfad. Zuerst ist `path1` ein rechteckiger Pfad. Dann kopieren wir `path1` in `path2` und fügen einen Kreis hinzu. Schließlich ziehen wir `path2`, das sowohl das Rechteck als auch den Kreis enthält. Beachten Sie, dass `path1` unverändert bleibt, obwohl wir es nie auf die Leinwand zeichnen. Sein einziger Zweck ist zu zeigen, wie Sie einen komplexen Pfad aufbauen können, indem Sie auf bestehenden Pfaden aufbauen.
+Dieses Beispiel erstellt und kopiert einen `Path2D`-Pfad. Zuerst ist `path1` ein rechteckiger Pfad. Dann kopieren wir `path1` in `path2` und fügen einen Kreis hinzu. Schließlich zeichnen wir `path2`, das sowohl das Rechteck als auch den Kreis enthält. Beachten Sie, dass `path1` unverändert bleibt, obwohl wir ihn nie auf der Leinwand zeichnen. Sein einziger Zweck besteht darin, zu zeigen, wie man einen komplexen Pfad erstellen kann, indem man auf bestehenden Pfaden aufbaut.
 
-```html hidden
-<canvas id="canvas"></canvas>
+```html
+<canvas id="my-canvas"></canvas>
 ```
 
 ```js
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 
 const path1 = new Path2D();
@@ -51,16 +51,16 @@ ctx.stroke(path2);
 
 {{ EmbedLiveSample('Creating_and_copying_paths', 700, 180) }}
 
-### Verwendung von SVG-Pfaden
+### Verwenden von SVG-Pfaden
 
-Dieses Beispiel erstellt einen `Path2D` Pfad unter Verwendung von [SVG-Pfad Daten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths). Der Pfad bewegt sich zu Punkt (`M10 10`) und dann horizontal 80 Punkte nach rechts (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`) und dann zurück zum Anfang (`Z`).
+Dieses Beispiel erstellt einen `Path2D`-Pfad mit [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths). Der Pfad bewegt sich zu Punkt (`M10 10`) und dann horizontal 80 Punkte nach rechts (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`), und schließlich zurück zum Anfang (`Z`).
 
-```html hidden
-<canvas id="canvas"></canvas>
+```html
+<canvas id="my-canvas"></canvas>
 ```
 
 ```js
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 
 const p = new Path2D("M10 10 h 80 v 80 h -80 Z");
