@@ -2,20 +2,20 @@
 title: CSS Custom Highlight API
 slug: Web/API/CSS_Custom_Highlight_API
 l10n:
-  sourceCommit: 25a72b4fcc8808d3943ae9d0642d4a16086df4a2
+  sourceCommit: 8a10694edf44bde124fa8f18af65651855f632dc
 ---
 
 {{DefaultAPISidebar("CSS Custom Highlight API")}}
 
-Die CSS Custom Highlight API bietet einen Mechanismus, um beliebige Textbereiche in einem Dokument zu stylen, indem JavaScript verwendet wird, um die Bereiche zu erstellen, und CSS, um sie zu gestalten.
+Die CSS Custom Highlight API bietet eine Möglichkeit, mit JavaScript Textbereiche im Dokument zu erstellen und diese mit CSS zu stylen.
 
 ## Konzepte und Verwendung
 
 Das Stylen von Textbereichen auf einer Webseite kann sehr nützlich sein. Zum Beispiel heben Textbearbeitungs-Web-Apps Rechtschreib- oder Grammatikfehler hervor, und Code-Editoren markieren Syntaxfehler.
 
-Die CSS Custom Highlight API erweitert das Konzept anderer Highlight-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}} und {{cssxref('::target-text')}} indem sie eine Möglichkeit bietet, beliebige [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen und zu stylen, anstatt nur auf browserdefinierte Bereiche beschränkt zu sein.
+Die CSS Custom Highlight API erweitert das Konzept anderer Highlight-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}} und {{cssxref('::target-text')}}. Sie bietet eine Möglichkeit, beliebige [`Range`](/de/docs/Web/API/Range)-Objekte zu erstellen und zu stylen, anstatt auf browserdefinierte Bereiche beschränkt zu sein.
 
-Mit der CSS Custom Highlight API können Sie programmatisch Textbereiche erstellen und markieren, ohne die DOM-Struktur auf der Seite zu beeinflussen.
+Mit der CSS Custom Highlight API können Sie programmatisch Textbereiche erstellen und hervorheben, ohne die DOM-Struktur auf der Seite zu beeinflussen.
 
 Es gibt vier Schritte, um Textbereiche auf einer Webseite mit der CSS Custom Highlight API zu stylen:
 
@@ -26,7 +26,7 @@ Es gibt vier Schritte, um Textbereiche auf einer Webseite mit der CSS Custom Hig
 
 ### Bereiche erstellen
 
-Der erste Schritt besteht darin, die Textbereiche zu definieren, die Sie stylen möchten, indem Sie [`Range`](/de/docs/Web/API/Range)-Objekte in JavaScript erstellen. Zum Beispiel:
+Der erste Schritt besteht darin, die zu stylenden Textbereiche zu definieren, indem Sie in JavaScript [`Range`](/de/docs/Web/API/Range)-Objekte erstellen. Zum Beispiel:
 
 ```js
 const parentNode = document.getElementById("foo");
@@ -44,13 +44,13 @@ range2.setEnd(parentNode, 60);
 
 Der zweite Schritt ist das Instanziieren von [`Highlight`](/de/docs/Web/API/Highlight)-Objekten für Ihre Textbereiche.
 
-Mehrere Bereiche können einem Highlight zugeordnet werden. Wenn Sie mehrere Textstücke auf die gleiche Weise hervorheben möchten, müssen Sie ein einzelnes Highlight erstellen und es mit den entsprechenden Bereichen initialisieren.
+Mehrere Bereiche können einem Highlight zugeordnet werden. Wenn Sie mehrere Textstellen auf dieselbe Weise hervorheben möchten, müssen Sie ein einziges Highlight erstellen und es mit den entsprechenden Bereichen initialisieren.
 
 ```js
 const highlight = new Highlight(range1, range2);
 ```
 
-Aber Sie können auch so viele Highlights erstellen, wie Sie benötigen. Beispielsweise, wenn Sie einen kollaborativen Texteditor erstellen, bei dem jeder Benutzer eine andere Textfarbe erhält, können Sie ein Highlight pro Benutzer erstellen, wie im folgenden Codeausschnitt gezeigt:
+Aber Sie können auch so viele Highlights erstellen, wie Sie benötigen. Beispielsweise, wenn Sie einen kollaborativen Texteditor erstellen, bei dem jeder Benutzer eine andere Textfarbe erhält, können Sie pro Benutzer ein Highlight erstellen, wie im folgenden Code-Snippet gezeigt:
 
 ```js
 const user1Highlight = new Highlight(user1Range1, user1Range2);
@@ -61,18 +61,18 @@ Jedes Highlight kann unterschiedlich gestylt werden.
 
 ### Highlights registrieren
 
-Sobald Highlights erstellt wurden, registrieren Sie diese mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry), der als [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) verfügbar ist.
+Sobald Highlights erstellt wurden, registrieren Sie sie mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry), das als [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) verfügbar ist.
 
-Das Register ist ein {{jsxref("Map")}}-ähnliches Objekt, das verwendet wird, um Highlights mit Namen zu registrieren, wie unten gezeigt:
+Das Registry ist ein {{jsxref("Map")}}-ähnliches Objekt, mit dem Highlights anhand von Namen registriert werden können, wie unten gezeigt:
 
 ```js
 CSS.highlights.set("user-1-highlight", user1Highlight);
 CSS.highlights.set("user-2-highlight", user2Highlight);
 ```
 
-In dem obigen Codeausschnitt sind die Strings `user-1-highlight` und `user-2-highlight` benutzerdefinierte Bezeichner, die in CSS verwendet werden können, um Stile auf die registrierten Highlights anzuwenden.
+Im obigen Code-Snippet sind die Zeichenfolgen `user-1-highlight` und `user-2-highlight` benutzerdefinierte Bezeichner, die in CSS verwendet werden können, um die registrierten Highlights zu stylen.
 
-Sie können so viele Highlights wie nötig im Register anmelden, sowie Highlights entfernen und das gesamte Register leeren.
+Sie können so viele Highlights registrieren, wie Sie im Registry benötigen, ebenso wie Highlights entfernen und das gesamte Registry löschen.
 
 ```js
 // Remove a single highlight from the registry.
@@ -84,7 +84,7 @@ CSS.highlights.clear();
 
 ### Highlights stylen
 
-Der letzte Schritt besteht darin, die registrierten Highlights zu stylen. Dies geschieht durch Verwendung des {{cssxref("::highlight", "::highlight()")}}-Pseudoelements. Zum Beispiel, um das `user-1-highlight`-Highlight zu stylen, das im vorherigen Schritt registriert wurde:
+Der letzte Schritt ist das Stylen der registrierten Highlights. Dies erfolgt durch die Verwendung des {{cssxref("::highlight", "::highlight()")}}-Pseudoelements. Zum Beispiel, um das in dem vorherigen Schritt registrierte `user-1-highlight` zu stylen:
 
 ```css
 ::highlight(user-1-highlight) {
@@ -93,12 +93,18 @@ Der letzte Schritt besteht darin, die registrierten Highlights zu stylen. Dies g
 }
 ```
 
+### Barrierefreiheit
+
+Die benutzerdefinierten Highlights bieten in der Dokumentstruktur keine semantische Bedeutung. Das [`type`](/de/docs/Web/API/Highlight/type)-Attribut macht Semantik (wie Rechtschreib- oder Grammatikfehler) für unterstützende Technologien sichtbar, aber die Unterstützung kann je nach Plattform variieren und der verwendete Typ.
+
+Wenn Kompatibilität mit unterstützenden Technologien ein Anliegen ist, sollten Sie die Verwendung semantischer HTML-Elemente wie {{HTMLElement("mark")}} in Betracht ziehen oder zusätzliche zugängliche Hinweise für Highlights bereitstellen, die wichtige Informationen kommunizieren.
+
 ## Schnittstellen
 
 - [`Highlight`](/de/docs/Web/API/Highlight)
-  - : Diese Schnittstelle wird verwendet, um eine Sammlung von Bereichen darzustellen, die auf einem Dokument gestylt werden sollen.
+  - : Diese Schnittstelle wird verwendet, um eine Sammlung von Bereichen zu repräsentieren, die auf einem Dokument gestylt werden sollen.
 - [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)
-  - : Über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) zugänglich, wird dieses {{jsxref("Map")}}-ähnliche Objekt verwendet, um Highlights mit benutzerdefinierten Bezeichnern zu registrieren.
+  - : Zugänglich über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static), dieses {{jsxref("Map")}}-ähnliche Objekt wird verwendet, um Highlights mit benutzerdefinierten Bezeichnern zu registrieren.
 
 ## Beispiele
 
@@ -108,7 +114,7 @@ Dieses Beispiel zeigt, wie die CSS Custom Highlight API verwendet wird, um Suche
 
 #### HTML
 
-Der folgende HTML-Codeausschnitt definiert ein Suchfeld und einen Artikel mit einigen Textabsätzen:
+Das folgende HTML-Code-Snippet definiert ein Suchfeld und einen Artikel mit einigen Textabsätzen:
 
 ```html
 <label>Search within text <input id="query" type="text" /></label>
@@ -136,7 +142,7 @@ Der folgende HTML-Codeausschnitt definiert ein Suchfeld und einen Artikel mit ei
 
 #### JavaScript
 
-JavaScript wird verwendet, um auf das `input`-Ereignis im Suchfeld zu hören. Wenn das Ereignis ausgelöst wird, sucht der Code nach Übereinstimmungen für den eingegebenen Text im Artikeltext. Anschließend erstellt er Bereiche für die Übereinstimmungen und verwendet die CSS Custom Highlight API, um ein `search-results`-Highlight-Objekt zu erstellen und zu registrieren:
+JavaScript wird verwendet, um auf das `input`-Ereignis im Suchfeld zu lauschen. Wenn das Ereignis ausgelöst wird, lokalisiert der Code Übereinstimmungen für den eingegebenen Text im Artikeltext. Anschließend erstellt er Bereiche für die Übereinstimmungen und verwendet die CSS Custom Highlight API, um ein `search-results` Highlight-Objekt zu erstellen und zu registrieren:
 
 ```js
 const query = document.getElementById("query");
@@ -230,7 +236,7 @@ Das Ergebnis wird unten angezeigt. Geben Sie Text im Suchfeld ein, um Übereinst
 
 ## Siehe auch
 
-- HTML-Attribut [`contentEditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)
+- HTML-[`contentEditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut
 - CSS {{cssxref("pseudo-elements")}}
 - [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/) via CSS-Tricks (2022)
