@@ -2,10 +2,10 @@
 title: fr
 slug: Web/SVG/Reference/Attribute/fr
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 27bb49e1849433e05c964c8a645c448f184380ce
 ---
 
-Das **`fr`** Attribut definiert den Radius des Brennpunkts für den radialen Farbverlauf.
+Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Verlauf.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -23,7 +23,7 @@ svg {
 
 ### Ändern des Werts von `fr`
 
-Das folgende Beispiel zeigt zwei Kreise: der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` hat.
+Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` hat.
 
 ```html
 <svg
@@ -63,9 +63,9 @@ Das folgende Beispiel zeigt zwei Kreise: der erste hat `fr` auf `5%` gesetzt, w�
 
 {{EmbedLiveSample("changing_the_value_of_fr", "480", "200")}}
 
-### Beziehung des Brennpunkts zu `(fx, fy)`
+### Die Beziehung des Brennpunkts zu `(fx, fy)`
 
-Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die in der SVG als solche gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Farbverlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbstop, in diesem Fall die Farbe Rot, in den anderen Farbstop, der in diesem Fall Blau ist, übergehen soll.
+Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die als solche im SVG gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbverlauf, in diesem Fall die Farbe Rot, in den anderen Farbverlauf, hier die Farbe Blau, übergehen soll.
 
 ```html
 <svg
@@ -98,13 +98,7 @@ Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` 
     stroke="black"
     stroke-width="2" />
 
-  <circle
-    cx="60"
-    cy="60"
-    r="50"
-    fill="transparent"
-    stroke="white"
-    stroke-width="2" />
+  <circle cx="60" cy="60" r="50" fill="none" stroke="white" stroke-width="2" />
   <circle cx="45" cy="45" r="2" fill="white" stroke="white" />
   <circle cx="60" cy="60" r="2" fill="white" stroke="white" />
   <text x="38" y="40" fill="white" font-family="sans-serif" font-size="10pt">
@@ -134,7 +128,7 @@ Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Keine</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>

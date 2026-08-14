@@ -1,23 +1,23 @@
 ---
-title: Sitzungen über Neuladen hinaus beibehalten
-short-title: Sitzungen beibehalten
+title: Sitzungen über Neuladen hinweg erhalten
+short-title: Sitzungen erhalten
 slug: Web/API/Prompt_API/Preserving_sessions
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{DefaultAPISidebar("Prompt API")}}
 
-Ein Problem mit der [Prompt API](/de/docs/Web/API/Prompt_API) besteht darin, dass der Browser keine Sitzungsinformationen über Browser-Neuladungen hinweg speichert — das ist keine Überraschung, da das Web standardmäßig zustandslos ist, aber es ist dennoch ein Problem. Um den Sitzungs-Kontext nach einem Neuladen oder Browser-Neustart wiederherzustellen, müssen Sie einen Mechanismus implementieren, um das Gespräch zu speichern und auf Server- oder Client-Seite wiederherzustellen.
+Ein Problem mit der [Prompt API](/de/docs/Web/API/Prompt_API) ist, dass der Browser keine Sitzungsinformationen über Browser-Neuladen hinweg speichert – dies ist keine Überraschung, da das Web standardmäßig zustandslos ist, aber es ist dennoch ein Problem. Um den Sitzungszusammenhang nach einem Neuladen oder Browser-Neustart wiederherzustellen, müssen Sie einen Mechanismus implementieren, um das Gespräch zu speichern und es mit einer server- oder clientseitigen Lösung wiederherzustellen.
 
-Dieser Artikel zeigt Ihnen, wie Sie ein einfaches Abfrage-und-Antwort-Beispiel umsetzen können (ähnlich wie das [vollständige Beispiel](/de/docs/Web/API/Prompt_API/Using#complete_example) in unserem ersten Prompt API Leitfaden), das eine lösungsbewahrende Lösung enthält, die mit [Web Storage](/de/docs/Web/API/Web_Storage_API) erstellt wurde.
+Dieser Artikel zeigt Ihnen, wie Sie ein einfaches Beispiel für Abfrage und Antwort implementieren (ähnlich dem [kompletten Beispiel](/de/docs/Web/API/Prompt_API/Using#complete_example) im ersten Prompt API-Leitfaden), das eine mit [Web Storage](/de/docs/Web/API/Web_Storage_API) erstellte sitzungserhaltende Lösung enthält.
 
 > [!NOTE]
-> Um den vollständigen Quellcode detaillierter zu betrachten, sehen Sie sich [den vollständigen Quellcode](https://github.com/mdn/dom-examples/tree/main/prompt-api-web-storage) an.
+> Um den vollständigen Code ausführlicher zu betrachten, sehen Sie sich [den vollständigen Quellcode](https://github.com/mdn/dom-examples/tree/main/prompt-api-web-storage) an.
 
 ## Die Benutzeroberfläche
 
-Das HTML für dieses Beispiel enthält ein {{htmlelement("textarea")}}-Element zum Eingeben der Eingabeaufforderungen und ein {{htmlelement("p")}}-Element zum Schreiben der API-Antworten. Es enthält außerdem drei {{htmlelement("button")}}-Elemente — eines, um die Eingabeaufforderung an die API zu übermitteln, eines, um eine laufende Eingabeaufforderung abzubrechen, und eines, um den gespeicherten Sitzungsverlauf zu löschen.
+Das HTML für dieses Beispiel enthält ein {{htmlelement("textarea")}}-Element zum Eingeben von Eingabeaufforderungen und ein {{htmlelement("p")}} zum Schreiben der Antworten der API. Es enthält außerdem drei {{htmlelement("button")}}-Elemente – eines, um die Eingabeaufforderung an die API zu senden, eines, um eine laufende Eingabeaufforderungsanfrage abzubrechen, und eines, um den gespeicherten Sitzungsverlauf zu löschen.
 
 ```html
 <h1>Prompt API demo</h1>
@@ -43,19 +43,19 @@ Das HTML für dieses Beispiel enthält ein {{htmlelement("textarea")}}-Element z
 <p class="prompt-output"></p>
 ```
 
-Aus Gründen der Kürze zeigen wir das CSS nicht; es gibt stilistisch nichts Bedeutendes zu besprechen.
+Aus Gründen der Kürze zeigen wir das CSS nicht; es gibt stilistisch nichts Wesentliches zu diskutieren.
 
-## Den Verlauf der Eingabeaufforderungen abrufen
+## Abrufen des Eingabeaufforderungsverlaufs
 
-Wenn die Seite zum ersten Mal geladen wird, müssen wir prüfen, ob wir einen gespeicherten Verlauf der Eingabeaufforderungen haben und diesen gegebenenfalls in die Sitzung laden.
+Wenn die Seite zum ersten Mal geladen wird, müssen wir prüfen, ob ein Verlauf von Eingabeaufforderungen gespeichert ist und, falls ja, ihn in die Sitzung laden.
 
-Wir beginnen mit der Definition einer Variablen namens `promptHistory`, um den gespeicherten Verlauf zu speichern:
+Wir beginnen damit, eine Variable namens `promptHistory` zum Speichern des gespeicherten Verlaufs zu definieren:
 
 ```js
 let promptHistory;
 ```
 
-Wir prüfen dann, ob es eine Eigenschaft in [`localStorage`](/de/docs/Web/API/Window/localStorage) namens `promptHistory` gibt, unter der wir unseren Verlauf der Eingabeaufforderungen speichern werden. Wenn ja, rufen wir dieses Speicherelement mit [`getItem()`](/de/docs/Web/API/Storage/getItem) ab, parsen es mit {{jsxref("JSON.parse()")}} in ein Array und speichern es in der Variablen. Wir aktivieren auch den Löschen-`<button>`, da es nun einen Verlauf zum Löschen gibt. Wenn kein gespeicherter Schlüssel namens `promptHistory` vorhanden ist, setzen wir die `promptHistory`-Variable auf ein leeres Array.
+Dann überprüfen wir, ob es eine Eigenschaft in [`localStorage`](/de/docs/Web/API/Window/localStorage) namens `promptHistory` gibt, was der Schlüssel ist, unter dem wir unseren Eingabeaufforderungsverlauf speichern werden. Wenn es eine gibt, rufen wir diesen Speichereintrag mit [`getItem()`](/de/docs/Web/API/Storage/getItem) ab, analysieren ihn in ein Array mit {{jsxref("JSON.parse()")}} und speichern ihn in der Variable. Wir aktivieren auch die Lösch-`<button>`, da es jetzt einen zu löschenden Verlauf gibt. Wenn kein gespeicherter Schlüssel namens `promptHistory` vorhanden ist, setzen wir die Variable `promptHistory` auf ein leeres Array.
 
 ```js
 if (localStorage.promptHistory) {
@@ -66,11 +66,11 @@ if (localStorage.promptHistory) {
 }
 ```
 
-## Den Verlauf zur Sitzung hinzufügen
+## Hinzufügen des Eingabeaufforderungsverlaufs zur Sitzung
 
-Als Nächstes erstellen wir eine `session`-Variable, um unsere Sitzung zu halten. Da die Verwendung der API eine {{Glossary("Transient_activation", "transiente Aktivierung")}} erfordert, füllen wir `session` innerhalb eines `focus`-Ereignis-Handlers auf dem `<textarea>` aus. Wenn der Benutzer das `<textarea>` fokussiert, prüfen wir zunächst, ob die API unterstützt wird; falls nicht, geben wir eine Nicht-Unterstützungsmeldung aus und `return` frühzeitig. Anschließend überprüfen wir, ob `session` bereits einen Wert zugewiesen bekommen hat (wir möchten nicht jedes Mal eine neue Sitzung erstellen). Wenn nicht, führen wir die `init()`-Funktion aus, die eine `LanguageModel`-Instanz mithilfe der benutzerdefinierten `getSession()`-Funktion generiert. Wir übergeben `getSession()` die `promptHistory`-Variable von früher, um den gespeicherten Verlauf der Sitzung bei der Erstellung hinzuzufügen.
+Als nächstes erstellen wir eine `session`-Variable, um unsere Sitzung zu halten. Da die Verwendung der API {{Glossary("Transient_activation", "transiente Aktivierung")}} erfordert, füllen wir `session` innerhalb eines `focus`-Ereignishandlers auf dem `<textarea>` aus. Wenn der Benutzer das `<textarea>` fokussiert, prüfen wir zunächst, ob die API unterstützt wird; wenn nicht, drucken wir eine Nicht-Unterstützungsnachricht und `return` frühzeitig. Dann überprüfen wir, ob `session` bereits einen Wert zugewiesen hat (wir möchten nicht jedes Mal eine neue Sitzung erstellen). Wenn nicht, führen wir die `init()`-Funktion aus, die mit der benutzerdefinierten `getSession()`-Funktion eine `LanguageModel`-Instanz generiert. Wir übergeben `getSession()` die `promptHistory`-Variable von früher, um den gespeicherten Verlauf bei der Erstellung zur Sitzung hinzuzufügen.
 
-Wenn die Erstellung erfolgreich ist, weisen wir die resultierende `LanguageModel`-Instanz der `session`-Variablen zu, geben eine Erfolgsmeldung in das Ausgabe-`<p>` aus und aktivieren den Abschicken-`<button>` (nun, da die Sitzung verfügbar ist, können wir sie anfragen).
+Wenn die Generierung erfolgreich ist, weisen wir die resultierende `LanguageModel`-Instanz der `session`-Variable zu, drucken eine Erfolgsnachricht auf das Ausgabe-`<p>` und aktivieren den Senden-`<button>` (da die Sitzung jetzt verfügbar ist, können wir beginnen, sie abzufragen).
 
 ```js
 let session;
@@ -92,11 +92,11 @@ async function init() {
 }
 ```
 
-Nun betrachten wir die `getSession()`-Funktion. Die Funktion beginnt damit, unsere gewünschten Modellanforderungen durch die `availability()`-Methode laufen zu lassen, um zu sehen, ob sie verfügbar sind:
+Nun werfen wir einen Blick auf die `getSession()`-Funktion. Die Funktion beginnt damit, unsere gewünschten Modellanforderungen durch die `availability()`-Methode laufen zu lassen, um zu sehen, ob sie verfügbar sind:
 
-- Wenn sie `unavailable` zurückgibt, geben wir eine entsprechende Fehlermeldung in das Ausgabe-`<p>` aus.
-- Wenn sie `available` zurückgibt, erstellen wir eine Sitzung mit der `create()`-Methode, wobei wir mehrere Optionen übergeben, einschließlich `initialPrompts`, die wir auf unseren Verlauf-Parameter setzen. Dies gibt der Sitzung den vorherigen Verlauf der Eingabeaufforderungen als Kontext nach jedem Seitenladen.
-- Wenn ein anderer Wert zurückgegeben wird (das heißt, `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, fügen jedoch diesmal einen `monitor` hinzu, der den Prozentsatz der zusätzlichen heruntergeladenen Daten jedes Mal ausgibt, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event) Ereignis ausgelöst wird.
+- Wenn sie `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung auf das Ausgabe-`<p>`.
+- Wenn sie `available` zurückgibt, erstellen wir eine Sitzung mit der `create()`-Methode und übergeben ihr mehrere Optionen, einschließlich `initialPrompts`, die wir auf unseren Verlauf-Parameter setzen. Dies ist das, was der Sitzung den vorherigen Eingabeaufforderungsverlauf als Kontext nach jedem Seitenladen gibt.
+- Wenn sie einen anderen Wert zurückgibt (das heißt `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, aber diesmal schließen wir einen `monitor` ein, der bei jedem Auslösen des [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignisses den Prozentsatz der heruntergeladenen zusätzlichen Daten auf das Ausgabe-`<p>` druckt.
 
 ```js
 async function getSession(history) {
@@ -113,26 +113,25 @@ async function getSession(history) {
       expectedInputs: [{ type: "text", languages: ["en"] }],
       expectedOutputs: [{ type: "text", languages: ["en"] }],
     });
-  } else {
-    return await LanguageModel.create({
-      initialPrompts: history,
-      expectedInputs: [{ type: "text", languages: ["en"] }],
-      expectedOutputs: [{ type: "text", languages: ["en"] }],
-      monitor(monitor) {
-        monitor.addEventListener("downloadprogress", (e) => {
-          promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
-        });
-      },
-    });
   }
+  return await LanguageModel.create({
+    initialPrompts: history,
+    expectedInputs: [{ type: "text", languages: ["en"] }],
+    expectedOutputs: [{ type: "text", languages: ["en"] }],
+    monitor(monitor) {
+      monitor.addEventListener("downloadprogress", (e) => {
+        promptOutput.textContent = `Downloading model data ${Math.floor(e.loaded * 100)}%`;
+      });
+    },
+  });
 }
 ```
 
-## Den Verlauf nach jeder Eingabeaufforderung aktualisieren
+## Aktualisieren des Verlaufs nach jeder Eingabeaufforderung
 
-Wenn das Formular abgeschickt wird, werden die Inhalte des `<textarea>` in einen [`prompt()`](/de/docs/Web/API/LanguageModel/prompt)-Aufruf einbezogen und das zurückgegebene Ergebnis wird in das Ausgabe-`<p>` einbezogen, sodass der Benutzer es sehen kann.
+Wenn das Formular gesendet wird, werden die Inhalte des `<textarea>` in einen [`prompt()`](/de/docs/Web/API/LanguageModel/prompt)-Aufruf einbezogen und das zurückgegebene Ergebnis in das Ausgabe-`<p>` aufgenommen, damit der Benutzer es sehen kann.
 
-Der bedeutendste Teil dieses Beispiels ist, wie wir den Verlauf für später speichern — beachten Sie, wie wir nach jeder erfolgreichen Operation zwei Objekte mit {{jsxref("Array.push", "push()")}} in das `promptHistory`-Array einfügen, eines, das die `user`-Eingabeaufforderung darstellt, und eines, das die `assistant`-Antwort darstellt, im korrekten Format, damit die API sie interpretieren kann. Wir {{jsxref("JSON.stringify", "stringify()")}} den aktualisierten `promptHistory` und speichern ihn mit [`setItem()`](/de/docs/Web/API/Storage/setItem) im `promptHistory`-Webspeicherelement. Zu diesem Zeitpunkt aktivieren wir auch den Löschen-`<button>`, da es zu diesem Zeitpunkt definitiv einen Verlauf zu löschen gibt.
+Der bedeutendste Teil dieses Beispiels ist, wie wir den Verlauf für später speichern – beachten Sie, wie wir nach jedem erfolgreichen Vorgang zwei Objekte an das `promptHistory`-Array anhängen, eines, das die `user`-Eingabeaufforderung und eines, das die `assistant`-Antwort darstellt, im richtigen Format für die API-Interpretation. Dann speichern wir das aktualisierte `promptHistory`, indem wir es mithilfe von {{jsxref("JSON.stringify", "stringify()")}} in den `promptHistory`-Web-Speichereintrag mit [`setItem()`](/de/docs/Web/API/Storage/setItem) konvertieren. Zu diesem Zeitpunkt aktivieren wir auch den Lösch-`<button>`, da jetzt definitiv ein Verlauf vorhanden ist, der gelöscht werden kann.
 
 ```js
 form.addEventListener("submit", handleSubmission);
@@ -177,9 +176,9 @@ async function handleSubmission(e) {
 }
 ```
 
-## Den Löschen-Button verbinden
+## Verkabelung des Löschbuttons
 
-Wenn der Löschen-`<button>` angeklickt wird, entfernen wir das `promptHistory`-Element aus dem lokalen Speicher mit [`removeItem()`](/de/docs/Web/API/Storage/removeItem). Wir laden auch die Seite mit [`Location.reload()`](/de/docs/Web/API/Location/reload) neu, als kostengünstige Möglichkeit, Kontinuitätsprobleme zwischen dem lokalen Speicher und der Modellsitzung zu vermeiden.
+Wenn der Lösch-`<button>` geklickt wird, entfernen wir das `promptHistory`-Element aus dem lokalen Speicher mit [`removeItem()`](/de/docs/Web/API/Storage/removeItem). Wir laden die Seite auch mit [`Location.reload()`](/de/docs/Web/API/Location/reload) neu, um auf einfache Weise Kontinuitätsprobleme zwischen dem lokalen Speicher und der Modellsitzung zu vermeiden.
 
 ```js
 deleteBtn.addEventListener("click", () => {
@@ -190,8 +189,8 @@ deleteBtn.addEventListener("click", () => {
 
 ## Ergebnis
 
-[Führen Sie die Demo aus](https://mdn.github.io/dom-examples/prompt-api-web-storage/) in einem neuen Tab, um ihre Funktionalität zu beobachten (siehe auch [den vollständigen Quellcode](https://github.com/mdn/dom-examples/tree/main/prompt-api-web-storage)). Wir konnten keine funktionierende Version dieser Demo eingebettet auf der Seite bereitstellen, da MDN alle Speicherdaten löscht.
+[Starten Sie die Demo](https://mdn.github.io/dom-examples/prompt-api-web-storage/) in einem neuen Tab, um ihre Funktionalität zu beobachten (siehe auch [den vollständigen Quellcode](https://github.com/mdn/dom-examples/tree/main/prompt-api-web-storage)). Wir konnten keine funktionierende Version dieser Demo auf der Seite bereitstellen, da MDN alle Speicherdaten löscht.
 
-Versuchen Sie, eine Eingabeaufforderung wie "Meine Lieblingsfarbe ist Rot" einzureichen, laden Sie dann die Seite neu und versuchen Sie, "Was ist meine Lieblingsfarbe?" zum Beispiel einzureichen. Das Modell sollte sich an Ihr vorheriges Gespräch erinnern.
+Versuchen Sie, eine Eingabeaufforderung wie "Meine Lieblingsfarbe ist Rot" abzuschicken, laden Sie dann die Seite neu und versuchen Sie, "Was ist meine Lieblingsfarbe?" einzugeben. Das Modell sollte sich an Ihr vorheriges Gespräch erinnern.
 
-Versuchen Sie dasselbe jetzt noch einmal, aber drücken Sie zwischendurch auf "Gespeicherten Verlauf der Eingabeaufforderungen löschen". Dieses Mal wird sich das Modell nicht an Ihr vorheriges Gespräch erinnern.
+Versuchen Sie nun dasselbe, drücken Sie jedoch in der Zwischenzeit "Gespeicherte Eingabeaufforderungsverlauf löschen". Diesmal wird sich das Modell nicht an Ihr vorheriges Gespräch erinnern.

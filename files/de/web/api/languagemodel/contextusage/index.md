@@ -3,28 +3,28 @@ title: "LanguageModel: contextUsage-Eigenschaft"
 short-title: contextUsage
 slug: Web/API/LanguageModel/contextUsage
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`contextUsage`** nur lesbare Eigenschaft der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle gibt die Anzahl der Kontextfenster-Token zurück, die derzeit von der Sitzung, die sie aufruft, verbraucht werden, einschließlich der anfänglichen Eingaben und aller nachfolgenden Runden.
+Die schreibgeschützte **`contextUsage`**-Eigenschaft der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle gibt die Anzahl der Kontextfenster-Token zurück, die momentan von der Sitzung verbraucht werden, die sie aufruft, einschließlich anfänglicher Eingabeaufforderungen und aller nachfolgenden Runden.
 
 Dieser Wert erhöht sich jedes Mal, wenn Sie [`prompt()`](/de/docs/Web/API/LanguageModel/prompt), [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) oder [`append()`](/de/docs/Web/API/LanguageModel/append) aufrufen.
 
-Vergleichen Sie `contextUsage` mit [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow), um festzustellen, wie viele Token verbleiben. Wenn `contextUsage` `contextWindow` überschreiten würde, führen nachfolgende Methodenaufrufe zu einem `QuotaExceededError` und das [`contextoverflow`](/de/docs/Web/API/LanguageModel/contextoverflow_event)-Ereignis wird ausgelöst.
+Vergleichen Sie `contextUsage` mit [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow), um zu bestimmen, wie viele Token noch verbleiben. Wenn `contextUsage` `contextWindow` überschreiten würde, werfen nachfolgende Methodenaufrufe einen `QuotaExceededError` und das [`contextoverflow`](/de/docs/Web/API/LanguageModel/contextoverflow_event)-Ereignis wird ausgelöst.
 
-Um abzuschätzen, wie viele Token ein neuer Eingabeaufforderung nutzen würde, bevor Sie ihn senden, rufen Sie [`LanguageModel.measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage) auf.
+Um abzuschätzen, wie viele Token eine neue Eingabeaufforderung verwenden würde, bevor sie gesendet wird, rufen Sie [`LanguageModel.measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage) auf.
 
 ## Wert
 
-Eine Zahl, die die aktuelle Nutzung des Kontextfensters in Token darstellt.
+Eine Zahl, die die aktuelle Nutzung des Kontextfensters in Token repräsentiert.
 
 ## Beispiele
 
-### Überwachung der Nutzung des Kontexts während eines Gesprächs
+### Überwachung der Kontextnutzung während eines Gesprächs
 
-Dieses Beispiel schreibt die Nutzung des Kontexts in die Konsole, nachdem eine Sitzungseingabeaufforderung abgeschlossen ist.
+Dieses Beispiel schreibt die Kontextnutzung in die Konsole, nachdem eine Sitzungseingabeaufforderung abgeschlossen ist.
 
 ```js
 const session = await LanguageModel.create();
@@ -38,10 +38,11 @@ console.log(
 
 ### Warnung, wenn der Kontext fast voll ist
 
-Das folgende Beispiel verwendet eine Funktion, um zu überprüfen, ob Kontext verfügbar ist, bevor [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird. Zuerst berechnet es den verbleibenden Kontext und übergibt diesen Wert an `measureContextUsage()`. Wenn `needed` kleiner oder gleich `remaining` ist, gibt es `true` zurück und die Sitzung wird fortgesetzt.
+Das folgende Beispiel verwendet eine Funktion, um zu überprüfen, ob Kontext verfügbar ist, bevor [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufgerufen wird. Es berechnet zuerst den verbleibenden Kontext und übergibt diesen Wert an `measureContextUsage()`. Wenn `needed` kleiner oder gleich `remaining` ist, gibt es `true` zurück und die Sitzung wird fortgesetzt.
 
 ```js
 const promptText = "Let me ask you an interesting question...";
+const session = await LanguageModel.create();
 
 async function contextAvailable(promptText) {
   const remaining = session.contextWindow - session.contextUsage;
@@ -49,8 +50,6 @@ async function contextAvailable(promptText) {
 
   return needed <= remaining;
 }
-
-const session = await LanguageModel.create();
 
 if (await contextAvailable(promptText)) {
   const response = await session.prompt(promptText);
@@ -72,6 +71,6 @@ if (await contextAvailable(promptText)) {
 
 - [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow)
 - [`LanguageModel.measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage)
-- [`contextoverflow`](/de/docs/Web/API/LanguageModel/contextoverflow_event) Ereignis
+- [`contextoverflow`](/de/docs/Web/API/LanguageModel/contextoverflow_event)-Ereignis
 - [Prompt API](/de/docs/Web/API/Prompt_API)
 - [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)

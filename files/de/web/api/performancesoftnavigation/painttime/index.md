@@ -3,14 +3,14 @@ title: "PerformanceSoftNavigation: paintTime-Eigenschaft"
 short-title: paintTime
 slug: Web/API/PerformanceSoftNavigation/paintTime
 l10n:
-  sourceCommit: 3f058f207a00078456c19b9de46218af3f084420
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`paintTime`**-Eigenschaft, die nur lesbar ist, der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
+Die **`paintTime`**-Eigenschaft der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurückgibt, wann die Rendering-Phase endete und die Paint-Phase begann.
 
-Die `paintTime` ist im Wesentlichen interoperabel: Der Wert sollte in verschiedenen Implementierungen gleich sein.
+Die `paintTime` ist im Allgemeinen interoperabel: Der Wert sollte bei unterschiedlichen Implementierungen gleich sein.
 
 ## Wert
 
@@ -18,25 +18,25 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `soft-navigation`-Performanceeinträge zu protokollieren, wie sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `soft-navigation`-Performance-Einträge zu protokollieren, sobald sie in der Leistungszeitleiste des Browsers erfasst werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
-    console.log('Soft Nav:', entry.startTime, entry.paintTime);
+    console.log("Soft Nav:", entry.startTime, entry.paintTime);
   }
 });
 observer.observe({ type: "soft-navigation", buffered: true });
+```
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}
 
-## See also
+## Siehe auch
 
-- {{domxref("LargestContentfulPaint.presentationTime")}}
-```
+- [`LargestContentfulPaint.presentationTime`](/de/docs/Web/API/LargestContentfulPaint/presentationTime)

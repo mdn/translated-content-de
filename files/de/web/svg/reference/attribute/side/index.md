@@ -2,14 +2,14 @@
 title: side
 slug: Web/SVG/Reference/Attribute/side
 l10n:
-  sourceCommit: 73f93cb9449dc42059d2f8835338e8674b3d8bdd
+  sourceCommit: 27bb49e1849433e05c964c8a645c448f184380ce
 ---
 
 {{SeeCompatTable}}
 
-Das **`side`** Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Pfadrichtung).
+Das **`side`**-Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Pfadrichtung).
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel zeichnet zwei kreisförmige Textpfade und zeigt den Text auf der linken und der rechten Seite an.
+Das folgende Beispiel zeichnet zwei kreisförmige Textpfade, die den Text auf der linken und rechten Seite des Pfades anzeigen.
 
 #### HTML
 
@@ -45,30 +45,18 @@ text {
     <textPath href="#circle2" side="right">Text on right of path</textPath>
   </text>
 
-  <circle
-    id="circle1"
-    cx="100"
-    cy="100"
-    r="70"
-    fill="transparent"
-    stroke="silver" />
-  <circle
-    id="circle2"
-    cx="320"
-    cy="100"
-    r="70"
-    fill="transparent"
-    stroke="silver" />
+  <circle id="circle1" cx="100" cy="100" r="70" fill="none" stroke="silver" />
+  <circle id="circle2" cx="320" cy="100" r="70" fill="none" stroke="silver" />
 </svg>
 ```
 
 #### Ergebnis
 
-Browser, die die Einstellung des `side` Attributs unterstützen, werden den Text links (außen) und rechts (innen) des kreisförmigen Textpfades unten anzeigen.
+Browser, die das Setzen des `side`-Attributs unterstützen, zeigen den Text links (außen) und rechts (innen) des unten stehenden kreisförmigen Textpfads an.
 
 {{EmbedLiveSample("Basic usage", "420", "220")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

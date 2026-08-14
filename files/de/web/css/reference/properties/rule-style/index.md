@@ -3,12 +3,12 @@ title: "`rule-style` CSS property"
 short-title: rule-style
 slug: Web/CSS/Reference/Properties/rule-style
 l10n:
-  sourceCommit: 343ab51426f9279175b8f71fff911621d0a7da20
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{SeeCompatTable}}
 
-Die CSS-Eigenschaft **`rule-style`** definiert den Linienstil der Linien, die zwischen Spalten und Reihen in Multi-Column-, Flex- und Multi-Col-Layouts gezeichnet werden, indem die Stile der Spalten- und Reihenlinien auf denselben Wert gesetzt werden.
+Die **`rule-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Linienstil der Linien, die zwischen Spalten und Zeilen in Mehrspalten-, Flex- und Multi-Col-Layouts gezogen werden. Dadurch wird der Stil der Spalten- und Zeilenlinien auf denselben Wert gesetzt.
 
 {{InteractiveExample("CSS Demo: rule-style")}}
 
@@ -77,7 +77,7 @@ rule-style: hidden;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zugehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -120,27 +120,26 @@ Die `rule-style` Eigenschaft akzeptiert eine durch Kommas getrennte Liste von We
   - : Ein {{cssxref("&lt;line-style&gt;")}}: einer von `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset` oder `outset`. Der Standardwert ist `none`.
 
 - `<repeat-line-style>`
-  - : Eine {{cssxref("repeat()")}} Funktion, wobei das erste Argument ein {{cssxref("&lt;integer&gt;")}} von `1` oder mehr ist und die folgenden Argumente {{cssxref("&lt;line-style&gt;")}} Werte sind. Der ganzzahlige Wert gibt an, wie oft die `<line-style>` Werte wiederholt werden sollen.
+  - : Eine {{cssxref("repeat()")}} Funktion, wobei das erste Argument ein {{cssxref("&lt;integer&gt;")}} von `1` oder mehr ist und nachfolgende Argumente {{cssxref("&lt;line-style&gt;")}} Werte sind. Der Integer gibt an, wie oft die `<line-style>` Werte wiederholt werden sollen.
 
 - `<auto-repeat-line-style>`
-  - : Eine {{cssxref("repeat()")}} Funktion, mit `auto` als erstem Argument und einem oder mehreren `<line-style>` Werten als folgenden Argumenten. Die angegebenen `<line-style>` Werte werden so oft wiederholt, wie nötig, um Werte für alle Linien zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts spezifiziert werden.
+  - : Eine {{cssxref("repeat()")}} Funktion, mit `auto` als erstem Argument und einem oder mehreren `<line-style>` Werten als nachfolgende Argumente. Die angegebenen `<line-style>` Werte werden so oft wiederholt, wie nötig, um Werte für alle Linien zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts spezifiziert werden.
 
 ## Beschreibung
 
-Die Eigenschaft `rule-style` definiert den Linienstil jeder Spalten- und Reihenlinie, die in den Lücken zwischen Spalten und Reihen in [multi-column](/de/docs/Web/CSS/Guides/Multicol_layout), [flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [grid](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte oder einer Reihe gezeichnet werden.
+Die `rule-style` Eigenschaft definiert den Linienstil von Spalten- und Zeilenlinien, die in den Lücken zwischen Spalten und Zeilen in [Mehrspalten](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte oder Zeile gezogen werden.
 
-Die `rule-style` Eigenschaft setzt sowohl die {{cssxref("column-rule-style")}} als auch die {{cssxref("row-rule-style")}} Eigenschaften auf denselben Wert.
-Die `rule-style` Eigenschaft, zusammen mit den {{cssxref("rule-color")}} und {{cssxref("rule-width")}} Eigenschaften, kann auch mit der Kurzform {{cssxref("rule")}} gesetzt werden.
+Die `rule-style` setzt sowohl die {{cssxref("column-rule-style")}} als auch die {{cssxref("row-rule-style")}} Eigenschaften auf denselben Wert. Die `rule-style` Eigenschaft, zusammen mit den {{cssxref("rule-color")}} und {{cssxref("rule-width")}} Eigenschaften, kann auch mit der {{cssxref("rule")}} Kurzform gesetzt werden.
 
 Der Wert ist eine durch Kommas getrennte Liste von Komponenten, die `<line-style>`, `<repeat-line-style>` und `<auto-repeat-line-style>` Typen enthalten können.
 
-Wenn der Eigenschaftswert nur einen `<line-style>` enthält, haben alle Spalten- und Reihenlinien diesen Stil. Wenn wir das Folgende deklarieren, werden alle Spalten- und Reihenlinien `double` sein:
+Wenn der Eigenschaftswert nur einen `<line-style>` hat, werden alle Spalten- und Zeilenlinien diesen Stil haben. Wenn wir Folgendes deklarieren, werden alle Spalten- und Zeilenlinien `double` sein:
 
 ```css
 rule-style: double;
 ```
 
-Wenn mehrere `<line-style>` Werte deklariert werden, werden sie in der angegebenen Reihenfolge auf die Linien angewendet. Wenn es mehr Linien als `<line-style>` Werte gibt, wird die Liste der Linienstile wiederholt, bis jede Spalten- und Reihenlinie einen Stil hat. Zum Beispiel, wenn wir das Folgende deklarieren, wird jede ungerade Linie `double` und jede gerade Linie `inset` sein.
+Wenn mehrere `<line-style>` Werte deklariert werden, werden diese in der angegebenen Reihenfolge auf die Linien angewendet. Wenn es mehr Linien als `<line-style>` Werte gibt, wird die Liste der Linienstile wiederholt, bis jede Spalten- und Zeilenlinie einen Stil hat. Wenn wir zum Beispiel Folgendes deklarieren, wird jede ungerade Linie `double` und jede gerade `inset` sein.
 
 ```css
 rule-style: double, inset;
@@ -148,28 +147,28 @@ rule-style: double, inset;
 
 ### Wiederholte Linienstile
 
-Die `repeat()` Funktion, mit einer Ganzzahl von `1` oder mehr als erstem Argument, kann verwendet werden, um eine gültige Liste von CSS {{cssxref("&lt;line-style&gt;")}} Werten, die als folgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht, denselben Stil mehrfach wiederholt ohne den gleichen Wert zu wiederholen. Sie können `<line-style>` Schlüsselwörter oder benutzerdefinierte Eigenschaften, die zu einem gültigen `<line-style>` aufgelöst werden, einschließen. Die Verwendung von `repeat()` kann es erleichtern, Werte zu schreiben, indem wiederkehrende Muster mit einer Funktion notiert werden, unabhängig von der Anzahl der Spalten oder Reihen. Folgende Deklarationen sind gleichwertig:
+Die `repeat()` Funktion, mit einem Integer von `1` oder größer als erstes Argument, kann verwendet werden, um eine gültige Liste von CSS {{cssxref("&lt;line-style&gt;")}} Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht es, denselben Stil eine bestimmte Anzahl von Malen zu wiederholen, ohne denselben Wert zu wiederholen. Sie können `<line-style>` Schlüsselwortwerte oder benutzerdefinierte Eigenschaften, die sich zu einem gültigen `<line-style>` auflösen, einschließen. Die Verwendung von `repeat()` kann es einfacher machen, Werte zu schreiben, indem sie wiederkehrende Muster mit einer einzigen Funktion schreiben, unabhängig von der Anzahl der Spalten oder Zeilen. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 rule-style: solid, outset, inset, outset, inset, outset, inset;
 rule-style: solid, repeat(3, outset, inset);
 ```
 
-Dies erzeugt eine Liste von sieben Stilen. Wenn die Anzahl der Stile in der Stilenliste des `rule-style` Werts die Anzahl der Lücken zwischen Spalten oder Reihen überschreitet, werden die überschüssigen Stilwerte ignoriert. Wenn der Container drei Spalten oder Reihen hat, wird die Linie in der ersten Lücke `solid` sein und die zweite `outset`.
+Dies erstellt eine Liste von sieben Stilen. Wenn die Anzahl der Stile in der Stilenliste eines `rule-style` Werts die Anzahl der Lücken zwischen den Spalten oder Zeilen übersteigt, werden die überschüssigen Stilwerte ignoriert. Wenn der Container drei Spalten oder Zeilen hat, wird die Linie in der ersten Rinne `solid` und die zweite `outset` sein.
 
-Wenn es mehr Lücken als Stile gibt, wird die Liste der Stile wiederholt. Wenn der Container 8, 15, 22 oder 29 Spalten oder Reihen hat, wird diese Sequenz von Stilen eins, zwei, drei oder vier Mal entsprechend wiederholt, wobei die letzte Linie `inset` sein wird.
+Wenn es mehr Rinnen als Stile gibt, wird die Liste der Stile wiederholt. Wenn der Container 8, 15, 22 oder 29 Spalten oder Zeilen hat, wird diese Abfolge von Stilen ein-, zwei-, drei- oder viermal wiederholt, wobei die letzte Linie `inset` sein wird.
 
-### Automatisch wiederholende Linienstile
+### Auto-wiederholende Linienstile
 
-Die `repeat()` Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstem Argument werden die `<line-style>` Werte, die als folgende Parameter übergeben werden, so oft wie nötig wiederholt, um Werte für alle Linien zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts spezifiziert werden.
+Die `repeat()` Funktion akzeptiert auch `auto` als erstes Argument anstelle eines positiven Integers. Mit `auto` als erstem Argument werden die `<line-style>` Werte, die als nachfolgende Parameter übergeben werden, so oft wiederholt, wie nötig, um Werte für alle Linien zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts spezifiziert werden.
 
-Das `auto` Schlüsselwort innerhalb der `repeat()` Funktion erzeugt einen automatischen Wiederholer, der Werte für Spalten- und Reihenlinien ausfüllt, die andernfalls keine Werte von anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste durchlaufen wird. Nur eine `repeat(auto, <line-style>)` ist innerhalb eines `rule-style` Wertes erlaubt.
+Das `auto` Schlüsselwort innerhalb der `repeat()` Funktion erstellt einen Auto-Wiederholer, der Werte für Spalten- und Zeilenlinien auffüllt, die sonst keine Werte von anderen Teilen der Liste erhalten würden, und verhindert, dass die Liste durchlaufen wird. Innerhalb eines `rule-style` Werts ist nur ein `repeat(auto, <line-style>)` erlaubt.
 
 ```css
 rule-style: solid, repeat(auto, dotted), solid;
 ```
 
-In diesem Fall spielt es keine Rolle, ob der Container 8, 15, 22 oder 29 Spalten oder Reihen hat; die erste und letzte Linie werden immer `solid` sein und alle anderen Linien werden `dotted` sein. Wenn es nur 2 oder 3 Spalten und Reihen gibt, wird es keine gepunktete Linie geben.
+In diesem Fall spielt es keine Rolle, ob der Container 8, 15, 22 oder 29 Spalten oder Zeilen hat; die erste und letzte Linie werden immer `solid` sein, und alle anderen Linien werden `dotted` sein. Wenn es nur 2 oder 3 Spalten und Zeilen gibt, wird es keine gepunkteten Linien geben.
 
 ## Formale Definition
 
@@ -183,11 +182,11 @@ In diesem Fall spielt es keine Rolle, ob der Container 8, 15, 22 oder 29 Spalten
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel definieren wir einen einzelnen `<line-style>` für die Linien, die zwischen den Spalten und Reihen von Elementen in einem Grid-Container gezeichnet werden.
+In diesem Beispiel definieren wir einen einzelnen `<line-style>` für die zwischen den Spalten und Zeilen der Elemente in einem Grid-Container gezeichneten Linien.
 
 #### HTML
 
-Wir erstellen eine Liste von 75 Elementen. Der größte Teil des HTML ist der Übersichtlichkeit halber ausgeblendet.
+Wir erstellen eine Liste mit 75 Elementen. Der größte Teil des HTML ist der Kürze halber ausgeblendet.
 
 ```html
 <ul>
@@ -281,7 +280,7 @@ Wir erstellen eine Liste von 75 Elementen. Der größte Teil des HTML ist der Ü
 
 #### CSS
 
-Wir definieren die ungeordnete Liste als einen 10-Spalten-Container, indem wir Spalten und Reihen mit der Eigenschaft {{cssxref("grid-template-columns")}} erstellen; dann setzen wir {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen. Wir fügen eine {{cssxref("gap")}} von `5px` hinzu, um genügend Platz zwischen den Spalten und Reihen zu schaffen, um unsere `thick dashed orange` Regel einzufügen.
+Wir definieren die unsortierte Liste als einen 10-Spalten-Container, der Spalten und Zeilen mit der {{cssxref("grid-template-columns")}} Eigenschaft erstellt; wir setzen dann {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen. Wir fügen einen {{cssxref("gap")}} von `5px` ein, um genügend Platz zwischen den Spalten und Zeilen für unsere `dicken gestrichelten orangen` Linien zu schaffen.
 
 ```css live-sample___basic live-sample___multiple live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -320,9 +319,9 @@ li {
 
 ### Mehrere Werte
 
-Dieses Beispiel demonstriert die Verwendung mehrerer `<line-style>` Werte als Eigenschaftswert und was passiert, wenn mehr `<line-style>` Werte angegeben werden, als es Lücken zum Stylen gibt.
+Dieses Beispiel zeigt die Verwendung mehrerer `<line-style>` Werte als Eigenschaftswert und was passiert, wenn mehr `<line-style>` Werte angegeben werden als Stilabmessungen vorhanden sind.
 
-Wir setzen die `rule-style` Eigenschaft auf eine durch Kommas getrennte Liste aller möglichen `<line-style>` Werte.
+Wir setzen die `rule-style` Eigenschaft als eine durch Kommas getrennte Liste aller möglichen `<line-style>` Werte.
 
 ```css live-sample___multiple
 ul {
@@ -335,13 +334,13 @@ ul {
 
 {{EmbedLiveSample("Multiple", "", "600")}}
 
-Es gibt mehr Werte als Lücken für sowohl die Reihen als auch die Spalten; die letzten Werte werden in jedem Fall nicht verwendet.
+Es gibt mehr Werte als Lücken sowohl für die Zeilen als auch die Spalten; die letzten Werte werden in jedem Fall nicht verwendet.
 
-### Wiederholende Werte
+### Wiederholte Werte
 
-Dieses Beispiel zeigt, wie, wenn es weniger Werte in der Liste der Stile gibt als Spalten- und Reihenlinien, die Werte wiederholt werden.
+Dieses Beispiel zeigt, wie, wenn es weniger Werte in der Stilenliste als Spalten- und Zeilenlinien gibt, die Werte wiederholt werden.
 
-Verwenden Sie dasselbe HTML und CSS wie im vorherigen Beispiel, fügen wir drei durch Kommas getrennte Stile als `rule-style` Wert hinzu:
+Verwendet dasselbe HTML und CSS wie im vorherigen Beispiel, fügen wir drei durch Kommas getrennte Stile als `rule-style` Wert hinzu:
 
 ```css live-sample___repeat
 ul {
@@ -353,7 +352,7 @@ ul {
 
 ### Verwendung der `repeat()` Funktion
 
-Dieses Beispiel zeigt die Verwendung der `repeat()` Funktion innerhalb des `rule-style` Eigenschaftswerts. Wir verwenden dasselbe HTML und CSS wie in den vorherigen Beispielen. Wir fügen eine `repeat()` Funktion ein, die eine Liste von zwei `<line-style>` Werten setzt, die dreimal wiederholt werden.
+Dieses Beispiel zeigt die Verwendung der `repeat()` Funktion innerhalb des `rule-style` Eigenschaftswerts. Wir verwenden das gleiche HTML und CSS wie in den vorherigen Beispielen. Wir fügen eine `repeat()` Funktion hinzu, die eine Liste von zwei `<line-style>` Werten festlegt, die 3 Mal wiederholt werden sollen.
 
 ```css live-sample___func
 ul {
@@ -363,13 +362,13 @@ ul {
 
 {{EmbedLiveSample("func", "", "600")}}
 
-Die `repeat()` Funktion wiederholt zwei Stilwerte dreimal und erstellt eine Liste von acht Stilwerten. Die Stile werden bei den Spalten wiederholt; die letzten Werte in der Liste werden jedoch bei den Reihen verworfen.
+Die `repeat()` Funktion wiederholt zwei Stilwerte dreimal und erstellt eine Liste von acht Stilwerten. Die Stile werden für die Spalten wiederholt, allerdings werden die letzten Werte in der Liste für die Zeilen verworfen.
 
-### Verwendung von `auto` innerhalb von `repeat()`
+### Verwendung von `auto` innerhalb `repeat()`
 
-Dieses Beispiel zeigt, wie `auto` anstelle einer Ganzzahl innerhalb der `repeat()` Funktion verwendet wird.
+Dieses Beispiel zeigt die Verwendung von `auto` anstelle eines Integers innerhalb der `repeat()` Funktion.
 
-Mit `repeat(auto, <line-style>)` setzen wir alle Spalten- und Reihenlinien auf `groove`, außer die erste und letzte, die wir auf `solid` setzen.
+Mit `repeat(auto, <line-style>)` setzen wir alle Spalten- und Zeilenlinien auf `groove`, außer der ersten und letzten, die wir auf `solid` setzen.
 
 ```css live-sample___auto
 ul {
@@ -379,7 +378,7 @@ ul {
 
 {{EmbedLiveSample("auto", "", "600")}}
 
-Obwohl es mehr Spaltenlinien als Reihenlinien gibt, ermöglicht das `<auto-repeat-line-color>` die Erstellung dieses symmetrischen Effekts.
+Auch wenn es mehr Spaltenlinien als Zeilenlinien gibt, ermöglicht `<auto-repeat-line-color>` die Erstellung dieses symmetrischen Effekts.
 
 ```css hidden live-sample___multiple live-sample___repeat live-sample___func live-sample___auto
 @layer no-support {
@@ -407,8 +406,7 @@ Obwohl es mehr Spaltenlinien als Reihenlinien gibt, ermöglicht das `<auto-repea
 
 - {{cssxref("rule-color")}}
 - {{cssxref("rule-width")}}
+- {{cssxref("column-rule-style")}}
 - {{cssxref("row-rule-style")}}
 - {{cssxref("rule")}} Kurzform
-- {{cssxref("rule-style")}} Kurzform
-- {{cssxref("rule")}} Kurzform
-- [CSS gaps](/de/docs/Web/CSS/Guides/Gaps) Modul
+- [CSS Lücken](/de/docs/Web/CSS/Guides/Gaps) Modul

@@ -2,40 +2,40 @@
 title: Werkzeuge für SVG
 slug: Web/SVG/Tutorials/SVG_from_scratch/Tools_for_SVG
 l10n:
-  sourceCommit: 144fc1770b3eaa69bb5be691f505565b6dd9a68e
+  sourceCommit: fd216f3c4358f24fef043d32b28d6e980a78afc0
 ---
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Image_element", "Web/SVG/Tutorials/SVG_from_scratch/SVG_and_CSS") }}
 
-Nachdem wir die Grundlagen der SVG-Interna behandelt haben, werfen wir einen Blick auf einige Werkzeuge zum Arbeiten mit SVG-Dateien.
+Nachdem wir die Grundlagen des SVG-Internen behandelt haben, werden wir uns einige Werkzeuge ansehen, die zur Arbeit mit SVG-Dateien nützlich sind.
 
 ## Inkscape
 
 URL: [www.inkscape.org](https://inkscape.org/)
 
-Eines der wichtigsten Werkzeuge für ein Grafikformat ist ein ordentliches Zeichenprogramm. Inkscape bietet modernstes Vektorgrafikzeichnen und ist Open Source.
+Eines der wichtigsten Werkzeuge für ein Grafikformat ist ein ordentliches Zeichenprogramm. Inkscape bietet moderne Vektorzeichnungen und ist Open Source.
 
-Darüber hinaus verwendet es SVG als sein natives Dateiformat. Um Inkscape-spezifische Daten zu speichern, erweitert es die SVG-Datei mit Elementen und Attributen in einem benutzerdefinierten Namensraum, aber Sie können auch als einfaches SVG exportieren.
+Darüber hinaus verwendet es SVG als sein natives Dateiformat. Um Inkscape-spezifische Daten zu speichern, erweitert es die SVG-Datei mit Elementen und Attributen in einem benutzerdefinierten Namensraum, aber Sie können auch den Export als reines SVG wählen.
 
 ## Adobe Illustrator
 
 URL: [www.adobe.com/products/illustrator/](https://www.adobe.com/products/illustrator.html)
 
-Bevor Adobe Macromedia übernahm, war es der prominenteste Förderer von SVG. Aus dieser Zeit stammt die gute Unterstützung von SVG in Illustrator. Allerdings weist das resultierende SVG oft einige Eigenheiten auf, die es notwendig machen, es für die allgemeine Verwendbarkeit nachzuarbeiten.
+Bevor Adobe Macromedia übernahm, war es der prominenteste Förderer von SVG. Aus dieser Zeit stammt die gute Unterstützung von SVG in Illustrator. Allerdings zeigt das resultierende SVG oft einige Eigenheiten, die eine Nachbearbeitung für die allgemeine Anwendbarkeit erforderlich machen.
 
 ## Apache Batik
 
 URL: [xmlgraphics.apache.org/batik/](https://xmlgraphics.apache.org/batik/)
 
-Batik ist eine Reihe von Open-Source-Tools unter dem Dach der Apache Software Foundation. Das Toolkit ist in Java geschrieben und bietet nahezu vollständige Unterstützung für SVG 1.1 sowie einige Funktionen, die ursprünglich für SVG 1.2 geplant waren.
+Batik ist eine Reihe von Open-Source-Werkzeugen unter dem Dach der Apache Software Foundation. Das Toolkit ist in Java geschrieben und bietet nahezu vollständige Unterstützung für SVG 1.1 sowie einige Funktionen, die ursprünglich für SVG 1.2 geplant waren.
 
-Batik bietet einen Viewer (Squiggle), einen Rasterizer für PNG-Ausgabe, einen SVG-Pretty-Printer zum Formatieren von SVG-Dateien und einen TrueType-zu-SVG-Font-Konverter.
+Batik bietet einen Viewer (Squiggle), einen Rasterizer für PNG-Ausgaben und einen SVG-Pretty-Printer zur Formatierung von SVG-Dateien.
 
 Zusammen mit [Apache FOP](https://xmlgraphics.apache.org/fop/) kann Batik SVG in PDF umwandeln.
 
-### Andere Renderer
+### Weitere Renderer
 
-Es existieren mehrere Projekte, die ein Rasterbild aus einer SVG-Quelle erstellen können. [ImageMagick](https://imagemagick.org/) ist eines der bekanntesten Kommandozeilen-Tools für die Bildverarbeitung. Die GNOME-Bibliothek [rsvg](https://wiki.gnome.org/Projects/LibRsvg) wird von der Wikipedia verwendet, um ihre SVG-Grafiken zu rasterisieren. Die Verwendung von Headless-Browsern wie SlimerJS und PhantomJS ist ebenfalls beliebt für diesen Zweck, da das erzeugte Bild näher an dem aussieht, wie das SVG im Browser erscheinen wird.
+Es gibt mehrere Projekte, die aus einer SVG-Quelle ein Rasterbild erstellen können. [ImageMagick](https://imagemagick.org/) ist eines der bekanntesten Kommandozeilen-Tools zur Bildverarbeitung. Die GNOME-Bibliothek [librsvg](https://gitlab.gnome.org/GNOME/librsvg) wird von Wikipedia verwendet, um ihre SVG-Grafiken zu rasterisieren, und [resvg](https://github.com/linebender/resvg) ist ein schneller eigenständiger Renderer. Headless-Browser, die von [Puppeteer](https://pptr.dev/) oder [Playwright](https://playwright.dev/) gesteuert werden, sind für diesen Zweck ebenfalls beliebt, da das erzeugte Bild dem näher kommt, wie das SVG im Browser aussehen wird.
 
 ## Google Docs
 
@@ -45,12 +45,12 @@ Zeichnungen aus Google Docs können als SVG exportiert werden.
 
 ## Wissenschaft
 
-Die bekannten Diagramm-Tools xfig und gnuplot unterstützen beide den Export als SVG. Um Grafiken im Web zu rendern, unterstützt [JSXGraph](https://jsxgraph.uni-bayreuth.de/home/) VML, SVG und Canvas und entscheidet automatisch, welche Technologie basierend auf den Browser-Fähigkeiten verwendet werden soll.
+Die bekannten Plotting-Tools, xfig und gnuplot, unterstützen beide den Export als SVG. Zum Rendern von Grafiken im Web unterstützt [JSXGraph](https://jsxgraph.uni-bayreuth.de/home/) SVG und Canvas und entscheidet automatisch, welche Technologie basierend auf den Fähigkeiten des Browsers verwendet werden soll.
 
-In GIS (Geographic Information System) Anwendungen wird SVG oft sowohl als Speicher- als auch als Render-Format verwendet. Siehe [carto.net](https://carto.net/) für Details.
+In geografischen Informationssystemen (GIS)-Anwendungen wird SVG oft sowohl als Speicher- als auch als Renderformat verwendet.
 
-## Weitere Werkzeuge!
+## Mehr Werkzeuge!
 
-Das W3C bietet eine [Liste von Programmen](https://www.w3.org/Graphics/SVG/WG/wiki/Implementations) an, die SVG unterstützen.
+Das W3C bietet eine [Liste von Programmen](https://www.w3.org/Graphics/SVG/WG/wiki/Implementations), die SVG unterstützen.
 
 {{ PreviousNext("Web/SVG/Tutorials/SVG_from_scratch/Image_element", "Web/SVG/Tutorials/SVG_from_scratch/SVG_and_CSS") }}

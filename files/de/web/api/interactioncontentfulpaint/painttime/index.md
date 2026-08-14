@@ -3,14 +3,14 @@ title: "InteractionContentfulPaint: paintTime-Eigenschaft"
 short-title: paintTime
 slug: Web/API/InteractionContentfulPaint/paintTime
 l10n:
-  sourceCommit: 3f058f207a00078456c19b9de46218af3f084420
+  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`paintTime`** der Schnittstelle [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Rendering-Phase endete und die Paint-Phase begann.
+Die **`paintTime`** schreibgeschützte Eigenschaft des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Interfaces gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Renderphase beendet und die Zeichenphase gestartet wurde.
 
-Die `paintTime` ist weitgehend kompatibel: Der Wert sollte in verschiedenen Implementierungen identisch sein.
+Die `paintTime` ist weitgehend interoperabel: Der Wert sollte bei verschiedenen Implementierungen gleich sein.
 
 ## Wert
 
@@ -18,25 +18,29 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint`-Leistungseinträge zu protokollieren, sobald sie in der Leistungstimeline des Browsers erfasst werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint`-Performance-Einträge zu protokollieren, sobald sie in der Leistungszeitachse des Browsers erfasst werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
-    console.log('Interaction Contentful Paint:', entry.startTime, entry.paintTime);
+    console.log(
+      "Interaction Contentful Paint:",
+      entry.startTime,
+      entry.paintTime,
+    );
   }
 });
 observer.observe({ type: "interaction-contentful-paint", buffered: true });
+```
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}
 
-## See also
+## Siehe auch
 
-- {{domxref("LargestContentfulPaint.presentationTime")}}
-```
+- [`LargestContentfulPaint.presentationTime`](/de/docs/Web/API/LargestContentfulPaint/presentationTime)
