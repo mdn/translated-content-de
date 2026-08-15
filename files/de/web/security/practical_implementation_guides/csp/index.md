@@ -1,75 +1,75 @@
 ---
-title: Implementierung der Content Security Policy (CSP)
-short-title: Content Security Policy (CSP)
+title: Inhaltssicherheitsrichtlinie (CSP) Implementierung
+short-title: Inhaltssicherheitsrichtlinie (CSP)
 slug: Web/Security/Practical_implementation_guides/CSP
 l10n:
-  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
+  sourceCommit: 972c6cc542e271e4c00def9465d7a0cc81011378
 ---
 
-Der [`Content-Security-Policy`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) HTTP-Header bietet eine detaillierte Kontrolle über den Code, der auf einer Website geladen werden kann, und was damit gemacht werden darf.
+Der [`Content-Security-Policy`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy) HTTP-Header bietet eine fein abgestimmte Kontrolle darüber, welcher Code auf einer Seite geladen werden kann und was er tun darf.
 
 ## Problem
 
-Das Hauptproblem, auf das dieser Artikel abzielt, sind Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) Angriffe. Diese resultieren im Allgemeinen aus einem Mangel an Kontrolle und Bewusstsein über die Quellen, aus denen Website-Ressourcen geladen werden. Dieses Problem wird schwerer zu handhaben, je größer und komplexer Websites werden und immer mehr auf Drittpartei-Ressourcen wie JavaScript-Bibliotheken angewiesen sind.
+Das Hauptproblem, auf das sich dieser Artikel konzentriert, sind Cross-Site Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) Angriffe. Diese entstehen in der Regel durch fehlende Kontrolle und Unkenntnis über die Quellen, von denen Seitenressourcen geladen werden. Dieses Problem wird schwieriger zu handhaben, je größer und komplexer Websites werden und je stärker sie auf Ressourcen Dritter wie JavaScript-Bibliotheken angewiesen sind.
 
 > [!NOTE]
-> CSP ist ein Teil einer umfassenden Strategie zum Schutz vor XSS-Angriffen. Es gibt noch andere Faktoren, wie [Ausgabe-Codierung](/de/docs/Web/Security/Attacks/XSS#output_encoding) und [Bereinigung](/de/docs/Web/Security/Attacks/XSS#sanitization), die ebenfalls wichtig sind.
+> CSP ist ein Teil einer umfassenden Strategie zum Schutz vor XSS-Angriffen. Es gibt auch andere wichtige Faktoren, wie z.B. [Output-Encoding](/de/docs/Web/Security/Attacks/XSS#output_encoding) und [Sanitization](/de/docs/Web/Security/Attacks/XSS#sanitization).
 
-CSP kann auch helfen, andere Probleme zu beheben, die in anderen Artikeln behandelt werden:
+CSP kann auch helfen, andere Probleme zu lösen, die in anderen Artikeln behandelt werden:
 
-- Verhindern von [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) indem verhindert wird, dass Ihre Website in {{htmlelement("iframe")}}-Elemente eingebettet wird. Dies geschieht mithilfe der CSP-Richtlinie [`frame-ancestors`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors).
-- Verhindern von [Man-in-the-Middle](/de/docs/Web/Security/Attacks/MITM) (MiTM) Angriffen durch das Upgrade jeglicher HTTP-Verbindungen auf HTTPS. Dies wird durch die CSP-Richtlinie [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) unterstützt. Siehe [Upgrading insecure requests](/de/docs/Web/HTTP/Guides/CSP#upgrading_insecure_requests).
+- Verhinderung von [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking), indem verhindert wird, dass Ihre Seite in {{htmlelement("iframe")}}-Elemente eingebettet wird. Dies wird mit der CSP-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) erreicht.
+- Verhinderung von [Man-in-the-Middle](/de/docs/Web/Security/Attacks/MITM) (MiTM) Angriffen durch Hochstufen von HTTP-Verbindungen auf HTTPS. Dies wird durch die CSP-Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) unterstützt. Siehe [Veraltete unsichere Anforderungen hochstufen](/de/docs/Web/HTTP/Guides/CSP#upgrading_insecure_requests).
 
 ## Lösung
 
-Die Implementierung einer [strikten CSP](/de/docs/Web/HTTP/Guides/CSP#strict_csp) ist der beste Weg, um XSS-Schwachstellen mit CSP zu mildern. Dies verwendet nonce- oder hashbasierte Abrufrichtlinien, um sicherzustellen, dass nur Skripte und/oder Stile ausgeführt werden, die das korrekte {{Glossary("Nonce", "Nonce")}} oder den korrekten Hash enthalten. JavaScript, das von einem Hacker eingefügt wird, läuft einfach nicht.
+Die Implementierung einer [strengen CSP](/de/docs/Web/HTTP/Guides/CSP#strict_csp) ist der beste Weg, um XSS-Schwachstellen mit CSP zu begegnen. Dabei werden [nonce-](/de/docs/Web/HTTP/Guides/CSP#nonces) oder [hash-](/de/docs/Web/HTTP/Guides/CSP#hashes)basierte Lade-Direktiven verwendet, um sicherzustellen, dass nur Scripts und/oder Styles ausgeführt werden, die den richtigen {{Glossary("Nonce", "Nonce")}} oder Hash enthalten. Von einem Hacker eingefügtes JavaScript wird einfach nicht ausgeführt.
 
-Strikte CSPs:
+Strenge CSPs:
 
-- Deaktivieren die Verwendung von unsicherem [Inline-JavaScript](/de/docs/Web/HTTP/Guides/CSP#inline_javascript), das heißt Inline-[Ereignishandler-Attribute](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) wie `onclick`. Dies verhindert, dass nicht ordnungsgemäß maskierte Benutzereingaben vom Webbrowser als JavaScript interpretiert werden.
-- Deaktivieren die Verwendung von [riskanten API-Aufrufen wie `eval()`](/de/docs/Web/HTTP/Guides/CSP#eval_and_similar_apis), was ein weiterer Effekt der `script-src`-Richtlinie ist.
-- Deaktivieren das Einbetten aller Objekte über `object-src 'none'`.
-- Verhindern die Verwendung des `<base>`-Elements zur Setzung einer Basis-URI über `base-uri 'none';`.
+- Deaktivieren die Verwendung unsicheren [Inline-JavaScripts](/de/docs/Web/HTTP/Guides/CSP#inline_javascript), wie Inline [Ereignis-Handler-Attribute](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) wie `onclick`. Dies verhindert, dass unsachgemäß escapte Benutzereingaben vom Webbrowser als JavaScript interpretiert werden.
+- Deaktivieren die Nutzung von [riskanten API-Aufrufen wie `eval()`](/de/docs/Web/HTTP/Guides/CSP#eval_and_similar_apis), was ein weiterer Effekt der `script-src`-Direktive ist.
+- Deaktivieren alle Objekteinbettungen über `object-src 'none'`.
+- Deaktivieren die Verwendung des `<base>`-Elements zur Festlegung einer Basis-URI über `base-uri 'none';`.
 
-Strikte CSPs werden gegenüber [standortbasierten](/de/docs/Web/HTTP/Guides/CSP#location-based_policies) Richtlinien, auch Erlaubnislistenrichtlinien genannt, bevorzugt, bei denen Sie angeben, von welchen Domains Skripte ausgeführt werden dürfen. Erlaubnislistenrichtlinien erlauben oft unsichere Domains, wodurch der gesamte Zweck einer CSP zunichtegemacht wird, und sie können sehr groß und unhandlich werden, besonders wenn Sie versuchen, Dienste zu erlauben, die viele Drittanbieter-Skripte benötigen.
+Strenge CSPs sind bevorzugt gegenüber [standortbasierten](/de/docs/Web/HTTP/Guides/CSP#location-based_policies) Richtlinien, auch als Positivlisten-Richtlinien bekannt, bei denen Sie festlegen, von welchen Domains Skripte ausgeführt werden dürfen. Das liegt daran, dass Positivlisten-Richtlinien oft dazu führen, dass unsichere Domains erlaubt werden, was den gesamten Sinn einer CSP zunichte macht, und sie können sehr groß und unübersichtlich werden, insbesondere wenn Sie versuchen, Dienste zuzulassen, die viele Drittanbieter-Skripte zum Funktionieren benötigen.
 
-### Schritte zur Implementierung von CSP
+### Schritte zur Implementierung der CSP
 
-Implementieren Sie eine strikte CSP und beginnen Sie dann, Ressourcen zu identifizieren, die aufgrund der Richtlinie nicht geladen werden können, und ergreifen Sie Maßnahmen, um diese Probleme zu umgehen.
+Implementieren Sie eine strenge CSP und beginnen Sie, Ressourcen zu identifizieren, die aufgrund der Richtlinie nicht geladen werden können. Unternehmen Sie Schritte, um diese Probleme zu umgehen.
 
 > [!NOTE]
-> Bevor Sie irgendeine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, wird empfohlen, diese zuerst mit dem [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only) HTTP-Header zu testen; siehe [Bericht-only CSPs](#bericht-only_csps) unten.
+> Bevor Sie irgendeine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, wird empfohlen, sie zuerst mit dem [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only) HTTP-Header zu testen; siehe [Nur-Bericht CSPs](#nur-bericht_csps) unten.
 
 1. Entscheiden Sie, ob Sie Nonces oder Hashes verwenden möchten. Sie sollten Nonces verwenden, wenn Sie Inhalte dynamisch generieren können, oder Hashes, wenn Sie statische Inhalte bereitstellen müssen.
-2. Implementieren Sie eine strikte CSP, wie im Abschnitt [Lösung](#lösung) beschrieben. Stellen Sie sicher, dass externe und interne Skripte (eingeschlossen über {{htmlelement("script")}}-Elemente), die Sie ausführen möchten, die korrekte Nonce in die [`nonce`](/de/docs/Web/HTML/Reference/Elements/script#nonce)-Attribute vom Server eingefügt haben. Wenn Sie stattdessen Hashes verwenden, sollten externe Skripte den korrekten Hash im [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attribut haben.
-3. Wenn ein erlaubtes Skript Drittanbieter-Skripte lädt, werden diese Skripte nicht geladen, da ihnen die erforderliche Nonce oder der Hash fehlt. Beheben Sie dieses Problem, indem Sie die [`strict-dynamic`](/de/docs/Web/HTTP/Guides/CSP#the_strict-dynamic_keyword)-Richtlinie hinzufügen, die Skripte, die vom ersten Skript geladen werden, ohne explizit eine Nonce oder einen Hash zu erhalten, dasselbe Vertrauensniveau gibt.
-4. Überarbeiten Sie Muster, die durch die strikte CSP nicht erlaubt sind, wie Inline-Ereignishandler und `eval()`. Ersetzen Sie zum Beispiel Inline-Ereignishandler mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Aufrufen innerhalb von Skripten.
-5. Sofern Websites nicht die Fähigkeit benötigen, Einbettungen einzuschließen, sollte deren Ausführung mit `object-src 'none'` deaktiviert werden.
-6. Wenn es Ihnen nicht möglich ist, die Verwendung von `eval()` zu entfernen, können Sie das Schlüsselwort [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) zu Ihrer strikten CSP hinzufügen, um diese zu erlauben, obwohl dies die CSP erheblich schwächt.
-7. Wenn es Ihnen nicht möglich ist, Ereignishandler-Attribute zu entfernen, können Sie das Schlüsselwort [`unsafe-hashes`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-hashes) zu Ihrer strikten CSP hinzufügen, um diese zu erlauben. Dies ist etwas unsicher, aber viel sicherer als alle Inline-JavaScript zu erlauben.
+2. Implementieren Sie eine strenge CSP, wie im Abschnitt [Lösung](#lösung) beschrieben. Stellen Sie sicher, dass externe und interne Skripte (eingefügt über {{htmlelement("script")}}-Elemente), die Sie ausführen möchten, den richtigen Nonce in den [`nonce`](/de/docs/Web/HTML/Reference/Elements/script#nonce) Attributen durch den Server eingefügt haben. Wenn Sie stattdessen Hashes verwenden, sollten externe Skripte den richtigen Hash in den [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attributen haben.
+3. Wenn ein erlaubtes Skript weitere Drittanbieter-Skripte lädt, werden diese Skripte nicht geladen, da sie den erforderlichen Nonce oder Hash nicht haben. Beheben Sie dieses Problem, indem Sie die [`strict-dynamic`](/de/docs/Web/HTTP/Guides/CSP#the_strict-dynamic_keyword) Direktive hinzufügen, die Skripten, die vom ersten Skript geladen werden, das gleiche Vertrauensniveau gibt, ohne ihnen explizit einen Nonce oder Hash zu geben.
+4. Überarbeiten Sie Muster, die von der strengen CSP nicht zugelassen werden, wie Inline-Ereignis-Handler und `eval()`. Ersetzen Sie beispielsweise Inline-Ereignis-Handler durch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Aufrufe innerhalb von Skripten.
+5. Sofern Websites nicht die Möglichkeit benötigen, Einbettungen zu enthalten, sollte deren Ausführung mit `object-src 'none'` deaktiviert werden.
+6. Wenn Sie die Verwendung von `eval()` nicht entfernen können, können Sie das [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) Schlüsselwort zu Ihrer strengen CSP hinzufügen, um sie zuzulassen, obwohl dies die CSP erheblich schwächt.
+7. Wenn Sie die Verwendung von Ereignis-Handler-Attributen nicht entfernen können, können Sie das [`unsafe-hashes`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-hashes) Schlüsselwort zu Ihrer strengen CSP hinzufügen, um sie zuzulassen. Dies ist etwas unsicher, aber viel sicherer als die Erlaubnis aller Inline-JavaScripts.
 
-Wenn Sie es nicht schaffen, eine strikte CSP zum Funktionieren zu bringen, ist eine erlaubnisbasierte CSP viel besser als keine, und eine CSP wie `default-src https:` bietet trotzdem einen gewissen Schutz, indem unsicheres Inline/`eval()` deaktiviert wird und nur das Laden von Ressourcen (Bilder, Schriftarten, Skripte, etc.) über HTTPS erlaubt wird.
+Wenn Sie keine strenge CSP zum Laufen bringen können, ist eine Positivlisten-basierte CSP viel besser als keine, und eine CSP wie `default-src https:` bietet dennoch einen gewissen Schutz, indem unsichere Inline-/`eval()`-Ausführungen deaktiviert werden und nur das Laden von Ressourcen (Bilder, Schriften, Skripte usw.) über HTTPS erlaubt wird.
 
 > [!WARNING]
-> Wenn irgendwie möglich, vermeiden Sie es, unsichere Quellen in Ihre CSP einzuschließen. Beispiele beinhalten:
+> Wenn möglich, vermeiden Sie es, unsichere Quellen in Ihrer CSP aufzunehmen. Beispiele beinhalten:
 >
 > - `unsafe-inline`.
 > - `data:` URIs innerhalb von `script-src`, `object-src` oder `default-src`.
-> - Übermäßig breite Quellen oder Ziele für Formularübermittlungen.
+> - Zu breite Quellen oder Zieladressen für Formulareinsendungen.
 
-Wenn Sie den `Content-Security-Policy`-Header nicht verwenden können, können Seiten stattdessen ein [`<meta http-equiv="Content-Security-Policy" content="…">`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv)-Element einschließen. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im {{htmlelement("head")}} des Dokuments erscheint.
+Falls Sie den `Content-Security-Policy`-Header nicht verwenden können, können Seiten stattdessen ein [`<meta http-equiv="Content-Security-Policy" content="…">`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) Element einschließen. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im Dokument {{htmlelement("head")}} erscheint.
 
-### Bericht-only CSPs
+### Nur-Bericht CSPs
 
-Bevor Sie irgendeine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, wird empfohlen, diese zuerst mit dem [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only) HTTP-Header zu testen. Dies ermöglicht es Ihnen zu sehen, ob irgendwelche Verstöße mit dieser Richtlinie aufgetreten wären.
+Bevor Sie irgendeine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, wird empfohlen, sie zuerst mit dem [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only) HTTP-Header zu testen. Auf diese Weise können Sie sehen, ob mit dieser Richtlinie Verstöße aufgetreten wären.
 
-Websites sollten die {{Glossary("Reporting_directive", "Berichterstattungsrichtlinien")}} [`report-to`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri) verwenden. Diese bewirken, dass der Browser JSON-Berichte über CSP-Verstöße an Endpunkte [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST), die im {{httpheader("Reporting-Endpoints")}}-Header im Fall von `report-to` angegeben sind, sendet. Dies ermöglicht es, CSP-Verstöße schnell zu erkennen und zu beheben.
+Websites sollten die {{Glossary("Reporting_directive", "Berichts-Direktiven")}} [`report-to`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri) verwenden. Diese veranlassen den Browser, JSON-Berichte über CSP-Verstöße an Endpunkte zu [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)en (wie im {{httpheader("Reporting-Endpoints")}} Header im Fall von `report-to` angegeben). Dadurch können CSP-Verstöße schnell erkannt und behoben werden.
 
 > [!NOTE]
-> Die `report-to`-Richtlinie wird gegenüber der veralteten `report-uri`-Richtlinie bevorzugt. Beide sind jedoch immer noch nötig, da `report-to` noch keine vollständige browserübergreifende Unterstützung hat.
+> Die `report-to` Direktive wird der veralteten `report-uri` Direktive vorgezogen. Beide sind jedoch weiterhin erforderlich, da `report-to` noch keine vollständige browserübergreifende Unterstützung hat.
 
 ## Siehe auch
 
-- [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP)
-- [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)
-- [CSP-Evaluator](https://csp-evaluator.withgoogle.com/)
+- [Inhaltssicherheitsrichtlinie (CSP)](/de/docs/Web/HTTP/Guides/CSP)
+- [Cross-site scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)
+- [CSP Evaluator](https://csp-evaluator.withgoogle.com/)

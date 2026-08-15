@@ -3,18 +3,18 @@ title: "Element: auxclick Event"
 short-title: auxclick
 slug: Web/API/Element/auxclick_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 620c181285150bdb00b1abc2974251d18560efd1
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`auxclick`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine nicht primäre Taste eines Zeigegeräts (jede Maustaste außer der primären – normalerweise die linke Taste) gedrückt und losgelassen wurde, und zwar innerhalb desselben Elements.
+Das **`auxclick`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn eine Taste eines Zeigegeräts, die nicht die primäre Taste ist (jede Maustaste außer der primären - normalerweise die linke), innerhalb desselben Elements gedrückt und losgelassen wurde.
 
-`auxclick` wird ausgelöst, nachdem die Ereignisse [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) in dieser Reihenfolge ausgelöst wurden.
+`auxclick` wird nach den Ereignissen [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) in dieser Reihenfolge ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("auxclick", (event) => { })
@@ -33,15 +33,15 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de
 
 ## Verhindern von Standardaktionen
 
-Bei der großen Mehrheit der Browser, die den Mittelklick zum Öffnen eines Links in einem neuen Tab abbilden, einschließlich Firefox, ist es möglich, dieses Verhalten zu unterbinden, indem [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) innerhalb eines `auxclick`-Ereignishandlers aufgerufen wird.
+Für die überwiegende Mehrheit der Browser, die den Mittelclick mit dem Öffnen eines Links in einem neuen Tab verknüpfen, einschließlich Firefox, ist es möglich, dieses Verhalten durch den Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) innerhalb eines `auxclick`-Ereignishandlers zu verhindern.
 
-Wenn Sie `auxclick`-Ereignisse überwachen, die von Elementen stammen, die keine Eingabe oder Navigation unterstützen, möchten Sie oft explizit andere Standardaktionen verhindern, die der Runter-Aktion der mittleren Maustaste zugeordnet sind. Unter Windows ist dies normalerweise das Autoscrolling, unter macOS und Linux ist dies häufig das Einfügen der Zwischenablage. Dies kann erreicht werden, indem das Standardverhalten des [`mousedown`](/de/docs/Web/API/Element/mousedown_event) oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignisses verhindert wird.
+Wenn Sie `auxclick`-Ereignisse überwachen, die von Elementen ausgehen, die keine Eingabe oder Navigation unterstützen, möchten Sie oft explizit andere Standardaktionen verhindern, die dem Drücken der mittleren Maustaste zugeordnet sind. Unter Windows ist dies normalerweise das automatische Scrollen, unter Linux das Einfügen aus der Zwischenablage. Dies kann durch Verhindern des Standardverhaltens des [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- oder [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisses erreicht werden.
 
-Zusätzlich sollten Sie das Öffnen eines Systemkontextmenüs nach einem Rechtsklick vermeiden. Aufgrund von Zeitunterschieden zwischen Betriebssystemen ist auch dies kein standardmäßiges, durch `auxclick` verhinderbares Verhalten. Stattdessen kann dies durch das Verhindern des Standardverhaltens des [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignisses erreicht werden.
+Zusätzlich müssen Sie möglicherweise das Öffnen eines System-Kontextmenüs nach einem Rechtsklick vermeiden. Aufgrund von Zeitunterschieden zwischen Betriebssystemen ist dies ebenfalls kein verhinderbares Standardverhalten von `auxclick`. Stattdessen kann dies durch Verhindern des Standardverhaltens des [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)-Ereignisses geschehen.
 
 ## Beispiele
 
-In diesem Beispiel definieren wir Funktionen für zwei Ereignishandler — [`onclick`](/de/docs/Web/API/Element/click_event) und `onauxclick`. Der erste ändert die Hintergrundfarbe des Buttons, während der zweite die Vordergrund- (Text-) Farbe des Buttons ändert. Sie können die beiden Funktionen auch in Aktion sehen, indem Sie das Demo mit einer Mehrtastenmaus ausprobieren ([sehen Sie es live auf GitHub](https://mdn.github.io/dom-examples/auxclick/); sehen Sie auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/auxclick/index.html)).
+In diesem Beispiel definieren wir Funktionen für zwei Ereignis-Handler — [`onclick`](/de/docs/Web/API/Element/click_event) und `onauxclick`. Der erstere ändert die Hintergrundfarbe des Buttons, während der letztere die Vordergrundfarbe (Text) ändert. Sie können die beiden Funktionen auch in Aktion sehen, indem Sie das Demo mit einer Multi-Button-Maus ausprobieren ([siehe es live auf GitHub](https://mdn.github.io/dom-examples/auxclick/); auch [sehen Sie den Quellcode](https://github.com/mdn/dom-examples/blob/main/auxclick/index.html)).
 
 ### JavaScript
 
@@ -71,7 +71,7 @@ button.oncontextmenu = (e) => {
 };
 ```
 
-Beachten Sie, dass zusätzlich zum Erfassen des `auxclick`-Ereignisses mit `onauxclick` auch das [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignis erfasst wird, und [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) bei diesem Ereignis aufgerufen wird, um zu verhindern, dass das Kontextmenü nach dem Farbwechsel auftaucht.
+Beachten Sie, dass zusätzlich zum Erfassen des `auxclick`-Ereignisses mit `onauxclick` auch das [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)-Ereignis erfasst wird und [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) für dieses Ereignis aufgerufen wird, um zu verhindern, dass das Kontextmenü nach der Farbänderung angezeigt wird.
 
 ### HTML
 
@@ -107,7 +107,7 @@ button {
 {{EmbedLiveSample("Examples", 640, 300)}}
 
 > [!NOTE]
-> Wenn Sie eine Dreitastenmaus verwenden, werden Sie feststellen, dass der `onauxclick`-Handler ausgelöst wird, wenn eine der nicht-linken Maustasten geklickt wird (in der Regel einschließlich aller "Sonder"-Tasten auf Gaming-Mäusen).
+> Wenn Sie eine Drei-Tasten-Maus verwenden, werden Sie feststellen, dass der `onauxclick`-Handler ausgeführt wird, wenn eine der nicht linken Maustasten (normalerweise einschließlich spezieller Tasten bei Gaming-Mäusen) gedrückt wird.
 
 ## Spezifikationen
 
@@ -119,7 +119,7 @@ button {
 
 ## Siehe auch
 
-- [Erlernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
+- [Lernen: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`click`](/de/docs/Web/API/Element/click_event)
 - [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
 - [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
