@@ -3,10 +3,10 @@ title: "`flex-flow` CSS-Eigenschaft"
 short-title: flex-flow
 slug: Web/CSS/Reference/Properties/flex-flow
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: ae836b44d9faa0e9f581631ed1dcccd2a502b618
 ---
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchverhalten fest.
+Die **`flex-flow`**-[CSS](/de/docs/Web/CSS)-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) spezifiziert die Richtung eines Flex-Containers sowie das Verhalten beim Umbruch.
 
 {{InteractiveExample("CSS Demo: flex-flow")}}
 
@@ -19,11 +19,19 @@ flex-flow: row-reverse nowrap;
 ```
 
 ```css interactive-example-choice
+flex-flow: row wrap balance;
+```
+
+```css interactive-example-choice
 flex-flow: column wrap-reverse;
 ```
 
 ```css interactive-example-choice
 flex-flow: column wrap;
+```
+
+```css interactive-example-choice
+flex-flow: column balance wrap;
 ```
 
 ```html interactive-example
@@ -35,6 +43,7 @@ flex-flow: column wrap;
     <div>Item Four</div>
     <div>Item Five</div>
     <div>Item Six</div>
+    <div>Item Seven</div>
   </div>
 </section>
 ```
@@ -51,13 +60,13 @@ flex-flow: column wrap;
   background-color: rgb(0 0 255 / 0.2);
   border: 3px solid blue;
   width: 60px;
-  margin: 10px;
+  margin: 5px 10px;
 }
 ```
 
-## Bestanteileigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("flex-direction")}}
 - {{cssxref("flex-wrap")}}
@@ -75,11 +84,14 @@ flex-flow: column-reverse;
 flex-flow: nowrap;
 flex-flow: wrap;
 flex-flow: wrap-reverse;
+flex-flow: wrap balance;
+flex-flow: balance wrap-reverse;
 
 /* flex-flow: <'flex-direction'> and <'flex-wrap'> */
 flex-flow: row nowrap;
 flex-flow: column wrap;
 flex-flow: column-reverse wrap-reverse;
+flex-flow: row-reverse balance wrap
 
 /* Global values */
 flex-flow: inherit;
@@ -91,7 +103,7 @@ flex-flow: unset;
 
 ### Werte
 
-Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu den Werten.
+Details zu den Werten finden Sie unter {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}}.
 
 ## Formale Definition
 
@@ -103,13 +115,21 @@ Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu
 
 ## Beispiele
 
-### column-reverse und wrap setzen
+### Setzen von column-reverse und wrap
 
-In diesem Beispiel ist die Hauptachse die Blockrichtung, mit umgekehrtem Haupt-Start und Haupt-Ende. Die Flex-Elemente dürfen umbrechen und bei Bedarf neue Zeilen erstellen.
+In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten Hauptanfang und Hauptende. Die Flex-Elemente dürfen umgebrochen werden und bei Bedarf neue Linien erzeugen.
 
 ```css
 .container {
   flex-flow: column-reverse wrap;
+}
+```
+
+Um die Flex-Elemente gleichmäßig über jede Flex-Linie zu verteilen, können Sie das `flex-wrap`-Schlüsselwort [`balance`](/de/docs/Web/CSS/Reference/Properties/flex-wrap#balance) zusätzlich zu `wrap` einfügen:
+
+```css
+.container {
+  flex-flow: column-reverse wrap balance;
 }
 ```
 

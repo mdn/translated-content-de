@@ -3,11 +3,10 @@ title: "`contain` CSS property"
 short-title: contain
 slug: Web/CSS/Reference/Properties/contain
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 65ecf8a285c4139f902eae63ececc6796eb98eaa
 ---
 
-Die **`contain`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, dass ein Element und sein Inhalt, soweit wie möglich, unabhängig vom Rest des Dokumentbaums sind.
-Containment ermöglicht es, einen Abschnitt des DOM zu isolieren und bietet Leistungsverbesserungen durch die Begrenzung von Berechnungen für Layout, Stil, Malen, Größe oder eine beliebige Kombination auf einen DOM-Teilbaum statt auf die gesamte Seite. Containment kann auch verwendet werden, um CSS-Zähler und Zitate zu begrenzen.
+Die **`contain`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, dass ein Element und sein Inhalt, soweit möglich, unabhängig vom Rest des Dokumentbaums sind. Die Einschließung ermöglicht es, einen Abschnitt des DOM zu isolieren, was Leistungsvorteile bietet, indem Berechnungen von Layout, Stil, Malen, Größe oder jede Kombination auf einen DOM-Teilbaum beschränkt werden, anstatt auf die gesamte Seite. Einschließung kann auch verwendet werden, um CSS-Zähler und Zitate zu begrenzen.
 
 {{InteractiveExample("CSS Demo: contain")}}
 
@@ -104,42 +103,39 @@ contain: unset;
 Die `contain`-Eigenschaft kann einen der folgenden Werte haben:
 
 - Das Schlüsselwort `none` **oder**
-- Eines oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
-- Einer der Kurzschriftwerte `strict` oder `content`
+- Ein oder mehrere der durch Leerzeichen getrennten Schlüsselwörter `size` (oder `inline-size`), `layout`, `style` und `paint` in beliebiger Reihenfolge **oder**
+- Einer der Kurzwerte `strict` oder `content`
 
 Die Schlüsselwörter haben folgende Bedeutungen:
 
 - `none`
-  - : Das Element wird wie gewohnt gerendert, ohne angewendetes Containment.
+  - : Das Element wird normal gerendert, ohne dass Einschließung angewendet wird.
 - `strict`
-  - : Alle Containment-Regeln werden auf das Element angewandt. Dies entspricht `contain: size layout paint style`.
+  - : Allen Einschließungsregeln wird auf das Element angewendet. Dies entspricht `contain: size layout paint style`.
 - `content`
-  - : Alle Containment-Regeln außer `size` werden auf das Element angewandt. Dies ist gleichbedeutend mit `contain: layout paint style`.
+  - : Alle Einschließungsregeln außer `size` werden auf das Element angewendet. Dies entspricht `contain: layout paint style`.
 - `size`
-  - : Größen-Containment wird auf das Element in sowohl Inline- als auch Block-Richtung angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
+  - : Größenbeschränkung wird auf das Element sowohl in Inline- als auch in Blockrichtung angewendet. Die Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `inline-size` kombiniert werden.
 - `inline-size`
-  - : Inline-Größen-Containment wird auf das Element angewendet. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `size` kombiniert werden.
+  - : Inline-Größenbeschränkung wird auf das Element angewendet. Die Inline-Größe des Elements kann isoliert berechnet werden, ohne die Kindelemente zu berücksichtigen. Dieser Wert kann nicht mit `size` kombiniert werden.
 - `layout`
-  - : Das innere Layout des Elements ist vom Rest der Seite isoliert. Das bedeutet, dass nichts außerhalb des Elements das innere Layout beeinflusst und umgekehrt.
+  - : Das interne Layout des Elements ist vom Rest der Seite isoliert. Das bedeutet, dass nichts außerhalb des Elements sein internes Layout beeinflusst und umgekehrt.
 - `style`
-  - : Für Eigenschaften, die mehr als nur ein Element und seine Nachfahren beeinflussen können, verlassen die Effekte nicht das enthaltene Element. Zähler und Zitate sind auf das Element und seinen Inhalt begrenzt.
+  - : Für Eigenschaften, die mehr als nur das Element und seine Nachkommen betreffen können, beschränken sich die Effekte auf das enthaltende Element. Zähler und Zitate sind auf das Element und seinen Inhalt begrenzt.
 - `paint`
-  - : Nachkommen des Elements werden nicht außerhalb seiner Begrenzungen angezeigt. Wenn das umgebende Rechteck nicht auf dem Bildschirm sichtbar ist, muss der Browser seine enthaltenen Elemente nicht zeichnen — diese müssen ebenfalls offscreen sein, da sie vollständig von diesem Rechteck eingeschlossen sind. Wenn ein Nachkomme über die Begrenzungen des enthaltenen Elements hinausgeht, wird dieser Nachkomme auf die Begrenzungsbox des enthaltenen Elements zugeschnitten.
+  - : Nachkommen des Elements werden nicht außerhalb seiner Grenzen angezeigt. Wenn das enthaltende Feld außerhalb des Bildschirms ist, muss der Browser seine enthaltenen Elemente nicht zeichnen, da sie vollständig durch dieses Feld enthalten sind. Wenn ein Nachkomme die Grenzen des enthaltenen Elements überschreitet, wird dieser Nachkomme an der Überlauf-Klipprand des enthaltenen Elements abgeschnitten. Standardmäßig entspricht diese Kante der Padding-Box für nicht ersetzte Elemente.
 
 ## Beschreibung
 
-Es gibt vier Arten von CSS-Containment: Größe, Layout, Stil und Malen, die auf dem Container festgelegt werden.
-Die Eigenschaft ist eine durch Leerzeichen getrennte Liste eines Subsets der fünf Standardwerte oder einer der beiden Kurzschriftwerte.
-Änderungen an den enthaltenen Eigenschaften innerhalb des Containers werden nicht außerhalb des enthaltenen Elements auf den Rest der Seite übertragen.
-Der Hauptvorteil von Containment besteht darin, dass der Browser das DOM oder das Seitenlayout nicht so häufig neu rendern muss, was zu kleinen Leistungsverbesserungen beim Rendern statischer Seiten und zu größeren Leistungsverbesserungen in dynamischeren Anwendungen führt.
+Es gibt vier Typen von CSS-Einschließung: Größe, Layout, Stil und Malen, die am Container gesetzt werden. Die Eigenschaft ist eine durch Leerzeichen getrennte Liste von Teilmengen der fünf Standardwerte oder einer der beiden Kurzwerte. Änderungen an den enthaltenen Eigenschaften innerhalb des Containers werden nicht außerhalb des enthaltenen Elements auf den Rest der Seite übertragen. Der Hauptvorteil der Einschließung besteht darin, dass der Browser das DOM oder das Seitenlayout nicht so häufig neu rendern muss, was zu kleinen Leistungsvorteilen beim Rendern von statischen Seiten und zu größeren Leistungsvorteilen in dynamischeren Anwendungen führt.
 
-Das Verwenden der `contain`-Eigenschaft ist auf Seiten nützlich, die Gruppen von Elementen enthalten, die unabhängig sein sollen, da sie verhindern kann, dass die Interna eines Elements Seiteneffekte außerhalb seiner Begrenzungsbox haben.
+Die Verwendung der `contain`-Eigenschaft ist nützlich auf Seiten mit Gruppen von Elementen, die unabhängig sein sollen, da sie verhindert, dass interne Elemente Seiteneffekte außerhalb ihrer Begrenzungsbox haben.
 
 > [!NOTE]
 > Die Verwendung der Werte `layout`, `paint`, `strict` oder `content` für diese Eigenschaft erzeugt:
 >
-> 1. Einen neuen [Containment-Block](/de/docs/Web/CSS/Guides/Display/Containing_block) (für die Nachkommen, deren {{cssxref("position")}}-Eigenschaft `absolute` oder `fixed` ist).
-> 2. Einen neuen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
+> 1. Einen neuen [Enthalten Block](/de/docs/Web/CSS/Guides/Display/Containing_block) (für die Nachkommen, deren {{cssxref("position")}}-Eigenschaft `absolute` oder `fixed` ist).
+> 2. Einen neuen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
 > 3. Einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context).
 
 ## Formale Definition
@@ -152,9 +148,9 @@ Das Verwenden der `contain`-Eigenschaft ist auf Seiten nützlich, die Gruppen vo
 
 ## Beispiele
 
-### Mal-Containment
+### Malen-Einschließung
 
-Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass die Nachkommen eines Elements außerhalb seiner Begrenzungen gezeichnet werden.
+Das folgende Beispiel zeigt, wie `contain: paint` verwendet wird, um zu verhindern, dass die Nachkommen eines Elements außerhalb seiner Grenzen gezeichnet werden.
 
 ```css
 div {
@@ -181,9 +177,9 @@ div {
 
 {{EmbedLiveSample("Paint_containment", "100%", 280)}}
 
-### Layout-Containment
+### Layout-Einschließung
 
-Betrachten Sie das folgende Beispiel, das zeigt, wie sich Elemente mit und ohne angewendetes Layout-Containment verhalten:
+Betrachten Sie das folgende Beispiel, das zeigt, wie sich Elemente mit und ohne angewandte Layout-Einschließung verhalten:
 
 ```html
 <div class="card contain-layout">
@@ -245,28 +241,19 @@ div {
 }
 ```
 
-Die erste Karte hat Layout-Containment angewandt, und ihr Layout ist vom Rest der Seite isoliert.
-Wir können diese Karte an anderen Stellen auf der Seite wiederverwenden, ohne uns um die Neuberechnung des Layouts der anderen Elemente zu kümmern.
-Wenn Floats die Begrenzungen der Karte überlappen, werden die Elemente auf dem Rest der Seite nicht beeinflusst.
-Wenn der Browser den Teilbaum des enthaltenen Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des enthaltenen Elements muss neu berechnet werden.
-Zusätzlich verwendet das feste Feld die Karte als Layout-Container, um sich selbst zu positionieren.
+Die erste Karte hat Layout-Einschließung angewendet, und ihr Layout ist vom Rest der Seite isoliert. Diese Karte kann an anderen Stellen auf der Seite wiederverwendet werden, ohne dass das Layout der anderen Elemente neu berechnet werden muss. Wenn Floats die Grenzen der Karte überlappen, sind die anderen Elemente der Seite nicht betroffen. Wenn der Browser den Teilbaum des enthaltenen Elements neu berechnet, wird nur dieses Element neu berechnet. Nichts außerhalb des enthaltenen Elements muss neu berechnet werden. Darüber hinaus verwendet das fixierte Box die Karte als Layout-Container, um sich selbst zu positionieren.
 
-Die zweite und dritte Karte haben kein Containment.
-Der Layout-Kontext für das feste Feld auf der zweiten Karte ist das Root-Element, sodass das feste Feld in der oberen rechten Ecke der Seite positioniert ist.
-Ein Float überlappt die Begrenzungen der zweiten Karte, was dazu führt, dass die dritte Karte eine unerwartete Layout-Verschiebung hat, die in der Positionierung des `<h2>`-Elements sichtbar ist.
-Wenn eine Neuberechnung erfolgt, ist sie nicht auf einen Container beschränkt.
-Dies wirkt sich auf die Leistung aus und beeinträchtigt das restliche Seitenlayout.
+Die zweite und dritte Karte haben keine Einschließung. Der Layout-Kontext für das fixierte Box in der zweiten Karte ist das Root-Element, sodass das fixierte Box oben rechts auf der Seite positioniert wird. Ein Float überlappt die Bounding-Box und verursacht, dass die dritte Karte eine unerwartete Layoutverschiebung hat, die in der Positionierung des `<h2>`-Elements sichtbar ist. Wenn eine Neuberechnung stattfindet, ist sie nicht auf einen Container beschränkt. Dies beeinträchtigt die Leistung und stört das restliche Seitenlayout.
 
 {{EmbedLiveSample("Layout_containment", "100%", 350)}}
 
-### Stil-Containment
+### Stil-Einschließung
 
-Stil-Containment begrenzt [Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) und [Zitate](/de/docs/Web/CSS/Reference/Properties/quotes) auf das enthaltene Element.
-Für CSS-Zähler sind die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} auf das Element begrenzt, als ob das Element an der Wurzel des Dokuments steht.
+Die Stil-Einschließung begrenzt [Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) und [Zitate](/de/docs/Web/CSS/Reference/Properties/quotes) auf das enthaltene Element. Für CSS-Zähler sind die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} auf das Element begrenzt, als ob das Element an der Wurzel des Dokuments wäre.
 
-#### Containment und Zähler
+#### Einschließung und Zähler
 
-Das folgende Beispiel gibt einen Einblick, wie Zähler funktionieren, wenn Stil-Containment angewandt wird:
+Das folgende Beispiel betrachtet, wie Zähler funktionieren, wenn Stil-Einschließung angewandt wird:
 
 ```html
 <ul>
@@ -293,14 +280,13 @@ li::before {
 }
 ```
 
-Ohne Containment würde der Zähler von 1 bis 5 für jedes Listenelement erhöhen.
-Stil-Containment bewirkt, dass die {{cssxref("counter-increment")}}-Eigenschaft auf den Teilbaum des Elements begrenzt wird, und der Zähler beginnt wieder bei 1:
+Ohne Einschließung würde der Zähler für jedes Listenelement von 1 auf 5 inkrementiert. Stil-Einschließung bewirkt, dass die Eigenschaft {{cssxref("counter-increment")}} auf den Teilbaum des Elements begrenzt wird und der Zähler beginnt wieder bei 1:
 
 {{EmbedLiveSample('Containment_and_counters', '100%', 140)}}
 
-#### Containment und Zitate
+#### Einschließung und Zitate
 
-CSS-Zitate sind ähnlich betroffen, in der Weise, dass die {{cssxref("content")}}-Werte, die sich auf Zitate beziehen, auf das Element beschränkt sind:
+CSS-Zitate sind ähnlich betroffen, sodass die {{cssxref("content")}}-Werte in Bezug auf Zitate auf das Element begrenzt sind:
 
 ```html
 <!-- With style containment -->
@@ -339,7 +325,7 @@ body {
 }
 ```
 
-Aufgrund des Containments ignoriert das erste schließende Zitat das innere Spann-Element und verwendet stattdessen das schließende Zitat des äußeren Spann-Elements:
+Aufgrund der Einschließung ignoriert das erste schließende Zitat das innere Span und verwendet stattdessen das schließende Zitat des äußeren Spans:
 
 {{EmbedLiveSample('Containment_and_quotes', '100%', 40)}}
 
@@ -353,7 +339,7 @@ Aufgrund des Containments ignoriert das erste schließende Zitat das innere Span
 
 ## Siehe auch
 
-- [CSS-Containment](/de/docs/Web/CSS/Guides/Containment)
+- [CSS-Einschließung](/de/docs/Web/CSS/Guides/Containment)
 - [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
-- CSS-{{cssxref("content-visibility")}}-Eigenschaft
-- CSS-{{cssxref("position")}}-Eigenschaft
+- CSS {{cssxref("content-visibility")}} Eigenschaft
+- CSS {{cssxref("position")}} Eigenschaft
