@@ -1,39 +1,35 @@
 ---
-title: "Element: Methode getAttributeNodeNS()"
+title: "Element: getAttributeNodeNS() Methode"
 short-title: getAttributeNodeNS()
 slug: Web/API/Element/getAttributeNodeNS
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: f22f67069495dc37e550e354913d4ca984f5a4b0
 ---
 
-{{ APIRef("DOM") }}
+{{APIRef("DOM")}}
 
-Die **`getAttributeNodeNS()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces gibt den namensraumbezogenen [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements zurück.
+Die **`getAttributeNodeNS()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle gibt das angegebene namespacete Attribut des angegebenen Elements als ein [`Attr`](/de/docs/Web/API/Attr) Knoten zurück. Sie gibt `null` zurück, wenn das Element kein Attribut mit dem angegebenen Namen im Namespace hat.
 
-Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften des namensraumbezogenen Attributs benötigen. Wenn Sie nur den Wert des namensraumbezogenen Attributs benötigen, können Sie stattdessen die [`getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS) Methode verwenden.
+Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften des namespaceten Attributs benötigen. Wenn Sie nur den Wert des namespaceten Attributs benötigen, können Sie stattdessen die [`getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS) Methode verwenden.
 
-Wenn Sie den [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements in HTML-Dokumenten benötigen und das Attribut nicht namensraumbezogen ist, verwenden Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespaces angeben müssen, verwenden Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode.
 
 ## Syntax
 
 ```js-nolint
-getAttributeNodeNS(namespace, nodeName)
+getAttributeNodeNS(namespace, localName)
 ```
 
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namensraum des Attributs angibt.
-- `nodeName`
+  - : Ein String, der den Namespace des Attributs angibt, oder `null` für keinen expliziten Namespace.
+- `localName`
   - : Ein String, der den Namen des Attributs angibt.
 
 ### Rückgabewert
 
-Der Knoten für das angegebene Attribut.
-
-## Hinweise
-
-`getAttributeNodeNS` ist spezifischer als [getAttributeNode](/de/docs/Web/API/Element/getAttributeNode), da es Ihnen erlaubt, Attribute zu spezifizieren, die Teil eines bestimmten Namensraums sind. Die entsprechende Setter-Methode ist [setAttributeNodeNS](/de/docs/Web/API/Element/setAttributeNodeNS).
+Ein `Attr` Knoten für das Attribut oder `null`, wenn das Element kein Attribut mit dem angegebenen Namen im Namespace hat.
 
 ## Spezifikationen
 

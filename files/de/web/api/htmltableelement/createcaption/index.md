@@ -1,21 +1,16 @@
 ---
-title: "HTMLTableElement: createCaption() Methode"
+title: "HTMLTableElement: createCaption()-Methode"
 short-title: createCaption()
 slug: Web/API/HTMLTableElement/createCaption
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.createCaption()`** Methode gibt das
-{{HtmlElement("caption")}} Element zurück, das mit einem bestimmten {{HtmlElement("table")}} verknüpft ist.
-Wenn kein `<caption>` Element in der Tabelle vorhanden ist, erstellt diese Methode
-es und gibt es danach zurück.
+Die **`createCaption()`**-Methode der [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Schnittstelle erstellt ein {{HTMLElement("caption")}}-Element, fügt es als erstes Kind des angegebenen {{HTMLElement("table")}} ein und gibt es zurück. Wenn die Tabelle bereits ein `<caption>`-Elementkind hat, gibt diese Methode das erste solcher Kinder zurück, ohne eins zu erstellen.
 
-> [!NOTE]
-> Wenn keine Beschriftung existiert, fügt `createCaption()` direkt eine neue Beschriftung
-> in die Tabelle ein. Die Beschriftung muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<caption>` Element zu erstellen.
+Wenn eine Erstellung erforderlich ist, erstellt und fügt diese Methode das Element direkt ein, ohne dass separate Aufrufe von Methoden wie [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) erforderlich sind.
 
 ## Syntax
 
@@ -29,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-[`HTMLTableCaptionElement`](/de/docs/Web/API/HTMLTableCaptionElement)
+Ein [`HTMLTableCaptionElement`](/de/docs/Web/API/HTMLTableCaptionElement).
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um einer Tabelle, die anfangs keine hat, eine Beschriftung hinzuzufügen.
+Dieses Beispiel verwendet JavaScript, um einer Tabelle, die zunächst keine besitzt, eine Beschriftung hinzuzufügen.
 
 ### HTML
 
@@ -57,8 +52,8 @@ Dieses Beispiel verwendet JavaScript, um einer Tabelle, die anfangs keine hat, e
 ### JavaScript
 
 ```js
-let table = document.querySelector("table");
-let caption = table.createCaption();
+const table = document.querySelector("table");
+const caption = table.createCaption();
 caption.textContent = "This caption was created by JavaScript!";
 ```
 
@@ -73,3 +68,10 @@ caption.textContent = "This caption was created by JavaScript!";
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLTableElement.createTBody()`](/de/docs/Web/API/HTMLTableElement/createTBody)
+- [`HTMLTableElement.createTFoot()`](/de/docs/Web/API/HTMLTableElement/createTFoot)
+- [`HTMLTableElement.createTHead()`](/de/docs/Web/API/HTMLTableElement/createTHead)
+- [`HTMLTableElement.deleteCaption()`](/de/docs/Web/API/HTMLTableElement/deleteCaption)

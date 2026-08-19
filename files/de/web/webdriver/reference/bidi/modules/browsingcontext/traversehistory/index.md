@@ -3,10 +3,10 @@ title: "`browsingContext.traverseHistory`-Befehl"
 short-title: traverseHistory
 slug: Web/WebDriver/Reference/BiDi/Modules/browsingContext/traverseHistory
 l10n:
-  sourceCommit: 50e846e7423814d7d0c3c3630ff8e793b38cad8a
+  sourceCommit: e5999f9b30c19ca727cbf28ec254f2111f7d36c8
 ---
 
-Der `browsingContext.traverseHistory` [Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls navigiert im Verlauf der Sitzung des angegebenen [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) zurück oder vorwärts, ähnlich wie ein Benutzer, der die Vor- und Zurück-Buttons des Browsers klickt.
+Der `browsingContext.traverseHistory`-[Befehl](/de/docs/Web/WebDriver/Reference/BiDi/Modules#commands) des [`browsingContext`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext)-Moduls navigiert zurück oder vorwärts in der Sitzungshistorie des angegebenen [Top-Level-Kontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context), ähnlich wie wenn ein Benutzer in seinem Browser die Zurück- und Vorwärts-Buttons klickt.
 
 ## Syntax
 
@@ -14,8 +14,8 @@ Der `browsingContext.traverseHistory` [Befehl](/de/docs/Web/WebDriver/Reference/
 {
   "method": "browsingContext.traverseHistory",
   "params": {
-    "context": "<contextId>",
-    "delta": <integer>
+    "context": "93ee5bd6-d256-4608-a002-9a8995cc0e5f",
+    "delta": -1
   }
 }
 ```
@@ -25,35 +25,35 @@ Der `browsingContext.traverseHistory` [Befehl](/de/docs/Web/WebDriver/Reference/
 Das `params`-Feld enthält:
 
 - `context`
-  - : Ein String, der die ID des [Top-Level-Kontexts](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) enthält, dessen Sitzungsverlauf navigiert werden soll.
+  - : Ein String, der die ID des [Top-Level-Kontextes](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) enthält, dessen Sitzungshistorie navigiert werden soll.
     Kontext-IDs werden von Befehlen wie [`browsingContext.getTree`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/getTree) zurückgegeben.
 - `delta`
-  - : Ein Integer, der die Anzahl der Verlaufs-Einträge angibt, die im Sitzungsverlauf bewegt werden sollen.
-    Ein positiver Wert bewegt den Kontext vorwärts im Verlauf; ein negativer Wert bewegt ihn rückwärts.
+  - : Ein Integer, der die Anzahl der zu bewegenden Einträge in der Sitzungshistorie spezifiziert.
+    Ein positiver Wert bewegt den Kontext vorwärts in der Historie; ein negativer Wert bewegt ihn rückwärts.
 
 ### Rückgabewert
 
 Das `result`-Feld in der Antwort ist ein leeres Objekt (`{}`).
-Der Befehl gibt zurück, sobald die Navigation in die Warteschlange gestellt wurde, noch bevor die resultierende Navigation abgeschlossen ist.
-Das [`browsingContext.historyUpdated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/historyUpdated)-Ereignis wird ausgelöst, wenn die Navigation abgeschlossen ist.
+Der Befehl gibt zurück, sobald die Traversierung in die Warteschlange gestellt wurde, noch bevor die resultierende Navigation abgeschlossen ist.
+Das [`browsingContext.historyUpdated`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/historyUpdated)-Ereignis wird ausgelöst, wenn die Traversierung abgeschlossen ist.
 
 ### Fehler
 
 - [`invalid argument`](/de/docs/Web/WebDriver/Reference/Errors/InvalidArgument)
   - : Ein erforderlicher Parameter fehlt oder hat einen ungültigen Typ.
-    Dieser Fehler wird auch zurückgegeben, wenn der angegebene `context` kein [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) ist.
+    Dieser Fehler wird auch zurückgegeben, wenn der spezifizierte `context` kein [Top-Level-Kontext](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext#top-level_context) ist.
 - `no such frame`
-  - : Kein Kontext mit der angegebenen Kontext-ID gefunden.
+  - : Es wurde kein Kontext mit der gegebenen Kontext-ID gefunden.
 - `no such history entry`
-  - : Die durch `delta` angegebene Position im Sitzungsverlauf existiert nicht.
+  - : Die in der Sitzungshistorie von `delta` angegebene Position existiert nicht.
 
 ## Beispiele
 
-### Im Verlauf zurück navigieren
+### Rückwärts in der Historie navigieren
 
 Angenommen, Sie haben eine [WebDriver BiDi-Verbindung](/de/docs/Web/WebDriver/How_to/Create_BiDi_connection) und eine [aktive Sitzung](/de/docs/Web/WebDriver/Reference/BiDi/Modules/session/new).
 
-Angenommen, Sie haben einen Tab mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) erstellt und ihn über mehrere Seiten mit [`browsingContext.navigate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/navigate) navigiert: von `https://example.com/page1.html` zu `https://example.com/page2.html` und dann zu `https://example.com/page3.html`. Um zwei Verlaufs-Einträge zurück zu navigieren, also `https://example.com/page2.html` zu überspringen und bei `https://example.com/page1.html` zu landen, senden Sie die folgende Nachricht:
+Angenommen, Sie haben einen Tab mit [`browsingContext.create`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/create) erstellt und sind durch mehrere Seiten mit [`browsingContext.navigate`](/de/docs/Web/WebDriver/Reference/BiDi/Modules/browsingContext/navigate) navigiert: von `https://example.com/page1.html` zu `https://example.com/page2.html` und dann zu `https://example.com/page3.html`. Um zwei Einträge in der Historie zurück zu navigieren, also `https://example.com/page2.html` zu überspringen und bei `https://example.com/page1.html` zu landen, senden Sie die folgende Nachricht:
 
 ```json
 {
@@ -66,7 +66,7 @@ Angenommen, Sie haben einen Tab mit [`browsingContext.create`](/de/docs/Web/WebD
 }
 ```
 
-Der Browser stellt die Verlauf-Navigation in die Warteschlange und antwortet wie folgt:
+Der Browser stellt die Historien-Traversierung in die Warteschlange und antwortet wie folgt:
 
 ```json
 {
@@ -76,9 +76,9 @@ Der Browser stellt die Verlauf-Navigation in die Warteschlange und antwortet wie
 }
 ```
 
-### Im Verlauf vorwärts navigieren
+### Vorwärts in der Historie navigieren
 
-Fortsetzung des vorherigen Beispiels: Um einen Verlaufs-Eintrag vorwärts zu navigieren und bei `https://example.com/page2.html` zu landen, senden Sie die folgende Nachricht:
+Fortsetzung des vorherigen Beispiels, um einen Eintrag in der Historie vorwärts zu navigieren und bei `https://example.com/page2.html` zu landen, senden Sie die folgende Nachricht:
 
 ```json
 {
@@ -91,7 +91,7 @@ Fortsetzung des vorherigen Beispiels: Um einen Verlaufs-Eintrag vorwärts zu nav
 }
 ```
 
-Der Browser stellt die Verlauf-Navigation in die Warteschlange und antwortet wie folgt:
+Der Browser stellt die Historien-Traversierung in die Warteschlange und antwortet wie folgt:
 
 ```json
 {

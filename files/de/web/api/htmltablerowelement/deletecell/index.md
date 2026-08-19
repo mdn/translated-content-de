@@ -3,12 +3,12 @@ title: "HTMLTableRowElement: deleteCell() Methode"
 short-title: deleteCell()
 slug: Web/API/HTMLTableRowElement/deleteCell
 l10n:
-  sourceCommit: 712156520cf3aaca9f9b37d9a82831063eb9c87b
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteCell()`**-Methode des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces entfernt eine bestimmte Tabellenzelle aus einer gegebenen {{htmlelement("tr")}}.
+Die **`deleteCell()`** Methode der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Schnittstelle entfernt eine bestimmte Tabellenzelle aus einem gegebenen {{htmlelement("tr")}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteCell(index)
 ### Parameter
 
 - `index`
-  - : Der Zellindex der zu entfernenden Zelle. Wenn `index` `-1` ist oder gleich der Anzahl der Zellen, wird die letzte Zelle der Zeile entfernt.
+  - : Der Index der zu entfernenden Zelle in der [`cells`](/de/docs/Web/API/HTMLTableRowElement/cells) Sammlung. Wenn `index` `-1` ist, wird die letzte Zelle der Zeile entfernt.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zellen oder kleiner als `-1`.
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der Zellen oder kleiner als `-1` ist.
 
 ## Beispiele
 
@@ -125,4 +125,5 @@ removeButton.addEventListener("click", () => {
 ## Siehe auch
 
 - [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow)
+- [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell)
 - Das HTML-Element, das Zellen darstellt: [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)

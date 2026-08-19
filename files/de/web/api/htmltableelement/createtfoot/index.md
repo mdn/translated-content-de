@@ -3,15 +3,14 @@ title: "HTMLTableElement: createTFoot() Methode"
 short-title: createTFoot()
 slug: Web/API/HTMLTableElement/createTFoot
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`createTFoot()`**-Methode von [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Objekten gibt das mit einem bestimmten {{HtmlElement("table")}} verbundene {{HTMLElement("tfoot")}}-Element zurück. Falls kein Fußzeilen-Element in der Tabelle existiert, wird dieses durch die Methode erstellt und anschließend zurückgegeben.
+Die **`createTFoot()`** Methode des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) Interfaces erstellt ein {{HTMLElement("tfoot")}}-Element, fügt es als letztes Kind des gegebenen {{HTMLElement("table")}} ein und gibt es zurück. Wenn die Tabelle bereits ein `<tfoot>`-Element als Kind hat, gibt diese Methode das erste solche Kind zurück, ohne ein neues zu erstellen.
 
-> [!NOTE]
-> Wenn keine Fußzeile existiert, fügt `createTFoot()` eine neue Fußzeile direkt in die Tabelle ein. Die Fußzeile muss nicht separat hinzugefügt werden, was der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<tfoot>`-Element zu erstellen.
+Wenn eine Erstellung erforderlich ist, erstellt und fügt diese Methode das Element direkt ein, ohne dass separate Aufrufe von Methoden wie [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) erforderlich sind.
 
 ## Syntax
 
@@ -25,12 +24,12 @@ Keine.
 
 ### Rückgabewert
 
-[`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)
+Ein [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement) (das immer ein `tfoot` ist).
 
 ## Beispiele
 
 ```js
-let myFoot = myTable.createTFoot();
+const myFoot = myTable.createTFoot();
 // Now this should be true: myFoot === myTable.tFoot
 ```
 
@@ -41,3 +40,10 @@ let myFoot = myTable.createTFoot();
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLTableElement.createCaption()`](/de/docs/Web/API/HTMLTableElement/createCaption)
+- [`HTMLTableElement.createTBody()`](/de/docs/Web/API/HTMLTableElement/createTBody)
+- [`HTMLTableElement.createTHead()`](/de/docs/Web/API/HTMLTableElement/createTHead)
+- [`HTMLTableElement.deleteTFoot()`](/de/docs/Web/API/HTMLTableElement/deleteTFoot)

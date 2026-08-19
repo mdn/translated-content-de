@@ -1,14 +1,14 @@
 ---
-title: "HTMLTableElement: deleteRow() Methode"
+title: "HTMLTableElement: deleteRow()-Methode"
 short-title: deleteRow()
 slug: Web/API/HTMLTableElement/deleteRow
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteRow()`**-Methode entfernt eine bestimmte Zeile ({{HtmlElement("tr")}}) aus einer gegebenen {{HtmlElement("table")}}.
+Die **`deleteRow()`**-Methode des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces entfernt eine spezifische Zeile ({{HTMLElement("tr")}}) aus einer gegebenen {{HTMLElement("table")}}.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ deleteRow(index)
 ### Parameter
 
 - `index`
-  - : `index` ist ein Ganzzahlwert, der die Zeile repräsentiert, die gelöscht werden soll. Der spezielle Index `-1` kann jedoch verwendet werden, um die letzte Zeile einer Tabelle zu entfernen.
+  - : Der Index der zu entfernenden Zeile in der [`rows`](/de/docs/Web/API/HTMLTableElement/rows)-Sammlung. Wenn `index` `-1` ist, wird die letzte Zeile entfernt.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder ein negativer Wert ist, der nicht `-1` ist.
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der Zeilen oder kleiner als `-1` ist.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ Dieses Beispiel verwendet JavaScript, um die zweite Zeile einer Tabelle zu lösc
 ### JavaScript
 
 ```js
-let table = document.querySelector("table");
+const table = document.querySelector("table");
 
 // Delete second row
 table.deleteRow(1);
@@ -81,4 +81,5 @@ table.deleteRow(1);
 
 ## Siehe auch
 
+- [`HTMLTableRowElement.deleteCell()`](/de/docs/Web/API/HTMLTableRowElement/deleteCell)
 - [`HTMLTableSectionElement.deleteRow()`](/de/docs/Web/API/HTMLTableSectionElement/deleteRow)

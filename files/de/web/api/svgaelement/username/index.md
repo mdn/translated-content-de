@@ -3,12 +3,12 @@ title: "SVGAElement: username-Eigenschaft"
 short-title: username
 slug: Web/API/SVGAElement/username
 l10n:
-  sourceCommit: acb7e62eb10471075a46e78542cdb4798e82bfe7
+  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
 ---
 
 {{APIRef("SVG")}}
 
-Die **`username`**-Eigenschaft der Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen String zurück, der den vor dem Domain-Namen angegebenen Benutzernamen enthält.
+Die **`username`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt einen String zurück, der den vor dem Domainnamen angegebenen Benutzernamen enthält.
 
 Diese Eigenschaft kann gesetzt werden, um den Benutzernamen der URL zu ändern.
 
@@ -26,4 +26,4 @@ Ein String.
 
 ## Siehe auch
 
-- SVG [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) Element
+- SVG {{SVGElement("a")}}-Element

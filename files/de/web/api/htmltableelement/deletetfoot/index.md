@@ -3,13 +3,12 @@ title: "HTMLTableElement: deleteTFoot() Methode"
 short-title: deleteTFoot()
 slug: Web/API/HTMLTableElement/deleteTFoot
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: ea061caed30f127a79157d07c538d26f01b8702b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`HTMLTableElement.deleteTFoot()`** entfernt das
-{{HTMLElement("tfoot")}}-Element von einem gegebenen {{HtmlElement("table")}}.
+Die **`deleteTFoot()`**-Methode der [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Schnittstelle entfernt das erste {{HTMLElement("tfoot")}}-Element-Kind aus einem gegebenen {{HTMLElement("table")}}, falls vorhanden.
 
 ## Syntax
 
@@ -23,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um den Footer einer Tabelle zu löschen.
+Dieses Beispiel verwendet JavaScript, um die Fußzeile einer Tabelle zu löschen.
 
 ### HTML
 
@@ -61,7 +60,7 @@ Dieses Beispiel verwendet JavaScript, um den Footer einer Tabelle zu löschen.
 ### JavaScript
 
 ```js
-let table = document.querySelector("table");
+const table = document.querySelector("table");
 table.deleteTFoot();
 ```
 
@@ -76,3 +75,9 @@ table.deleteTFoot();
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLTableElement.createTFoot()`](/de/docs/Web/API/HTMLTableElement/createTFoot)
+- [`HTMLTableElement.deleteCaption()`](/de/docs/Web/API/HTMLTableElement/deleteCaption)
+- [`HTMLTableElement.deleteTHead()`](/de/docs/Web/API/HTMLTableElement/deleteTHead)
