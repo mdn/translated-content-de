@@ -1,29 +1,29 @@
 ---
-title: Überwachen von bfcache-Blockierungsgründen
+title: Überwachung von bfcache-Blockierungsgründen
 slug: Web/API/Performance_API/Monitoring_bfcache_blocking_reasons
 l10n:
-  sourceCommit: 1f3bed5237b95fc595e0e49a97ee3ee147724dc1
+  sourceCommit: 3e23ee580c298320c9ecbbb745371611389e6cb8
 ---
 
 {{DefaultAPISidebar("Performance API")}}{{SeeCompatTable}}
 
-Die [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)-Eigenschaft liefert Informationen darüber, warum das aktuelle Dokument daran gehindert wurde, den {{Glossary("bfcache", "bfcache")}} bei der Navigation zu nutzen. Entwickler können diese Informationen verwenden, um Seiten zu identifizieren, die Aktualisierungen benötigen, um bfcache-kompatibel zu sein, und so die Leistung der Website zu verbessern.
+Die Eigenschaft [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons) liefert Informationen darüber, warum das aktuelle Dokument daran gehindert wurde, den {{Glossary("bfcache", "bfcache")}} bei der Navigation zu nutzen. Entwickler können diese Informationen nutzen, um Seiten zu identifizieren, die aktualisiert werden müssen, um bfcache-kompatibel zu werden und so die Leistung der Website zu verbessern.
 
-## Back/forward Cache (bfcache)
+## Vor-/Zurück-Cache (bfcache)
 
-Moderne Browser bieten eine Optimierungsfunktion für die Navigation in der Historie namens back/forward cache ({{Glossary("bfcache", "bfcache")}}). Diese ermöglicht ein sofortiges Laden von Seiten, die der Benutzer bereits besucht hat. Seiten können aus verschiedenen Gründen daran gehindert werden, in den bfcache zu gelangen oder während sie sich darin befinden, entfernt zu werden, einige dieser Gründe sind durch Spezifikationen erforderlich, andere spezifisch für Browser-Implementierungen.
+Moderne Browser bieten eine Optimierungsfunktion für die Verlauf-Navigation, genannt Vor-/Zurück-Cache ({{Glossary("bfcache", "bfcache")}}). Diese ermöglicht ein sofortiges Laden, wenn Benutzer zu einer bereits besuchten Seite zurückkehren. Seiten können aus verschiedenen Gründen davon abgehalten werden, in den bfcache zu gelangen, oder sie werden währenddessen aus dem bfcache entfernt, einige davon durch eine Spezifikation gefordert und einige spezifisch für die Implementierung des Browsers.
 
-Um die Überwachung der bfcache-Blockierungsgründe zu ermöglichen, enthält die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Klasse eine `notRestoredReasons`-Eigenschaft. Diese gibt ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück, das verwandte Informationen über das Top-Level-Frame und alle {{htmlelement("iframe")}}s im Dokument enthält:
+Um die Überwachung der bfcache-Blockierungsgründe zu ermöglichen, enthält die Klasse [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) eine Eigenschaft `notRestoredReasons`. Diese liefert ein Objekt vom Typ [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons), das relevante Informationen über den obersten Frame und alle im Dokument vorhandenen {{htmlelement("iframe")}}s enthält:
 
 - Gründe, warum die Nutzung des bfcache blockiert wurde.
-- Details wie die `id` und `name` des Frames, um `<iframe>`s im HTML zu identifizieren.
+- Details wie `id` und `name` des Frames, um `<iframe>`s im HTML zu identifizieren.
 
 > [!NOTE]
-> Historisch gesehen wurde die veraltete [`PerformanceNavigation.type`](/de/docs/Web/API/PerformanceNavigation/type)-Eigenschaft verwendet, um den bfcache zu überwachen, wobei Entwickler beim Testen auf einen `type` von `"TYPE_BACK_FORWARD"` eine Indikation der bfcache-Trefferquote erhielten. Dies bot jedoch keine Gründe für die bfcache-Blockierung oder andere Daten. Zukünftig sollte die `notRestoredReasons`-Eigenschaft verwendet werden, um die bfcache-Blockierung zu überwachen.
+> Historisch gesehen wurde die veraltete Eigenschaft [`PerformanceNavigation.type`](/de/docs/Web/API/PerformanceNavigation/type) verwendet, um den bfcache zu überwachen, wobei die Entwickler auf einen `type` von `"TYPE_BACK_FORWARD"` testeten, um einen Hinweis auf die bfcache-Trefferquote zu erhalten. Dies lieferte jedoch keine Gründe für die Blockierung des bfcache oder andere Daten. Die Eigenschaft `notRestoredReasons` sollte zukünftig zur Überwachung der bfcache-Blockierung verwendet werden.
 
-## Protokollierung von bfcache-Blockierungsgründen
+## Protokollierung der bfcache-Blockierungsgründe
 
-Laufende Daten zur bfcache-Blockierung können mittels eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) abgerufen werden, wie hier gezeigt:
+Laufende Daten zur bfcache-Blockierung können mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) erfasst werden, wie hier gezeigt:
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -36,7 +36,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Alternativ können Sie historische Daten zur bfcache-Blockierung mit einer geeigneten Methode wie [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) abrufen:
+Alternativ können Sie historische Daten zur bfcache-Blockierung erhalten, indem Sie eine geeignete Methode wie [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) verwenden:
 
 ```js
 function returnNRR() {
@@ -49,7 +49,7 @@ function returnNRR() {
 }
 ```
 
-Die obigen Code-Snippets protokollieren [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekte in der Konsole. Diese Objekte haben folgende Struktur, die den blockierten Zustand des Top-Level-Frames darstellt:
+Die oben gezeigten Code-Snippets protokollieren [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekte in die Konsole. Diese Objekte haben die folgende Struktur, die den blockierten Zustand des oberen Frames darstellt:
 
 ```json
 {
@@ -65,21 +65,21 @@ Die obigen Code-Snippets protokollieren [`NotRestoredReasons`](/de/docs/Web/API/
 Die Eigenschaften sind wie folgt:
 
 - [`children`](/de/docs/Web/API/NotRestoredReasons/children) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Array von [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekten, eines für jedes Kind-{{htmlelement("iframe")}}, das im aktuellen Dokument eingebettet ist und Gründe enthalten kann, warum das Top-Level-Frame in Bezug auf die Kind-Frames blockiert wurde. Jedes Objekt hat dieselbe Struktur wie das Elternobjekt — auf diese Weise können beliebig viele Ebenen von eingebetteten `<iframe>`s rekursiv innerhalb des Objekts dargestellt werden. Wenn das Frame keine Kinder hat, ist das Array leer; wenn sich das Dokument in einem Cross-Origin-`<iframe>` befindet, gibt `children` `null` zurück.
+  - : Ein Array von [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekten, eines für jedes untergeordnete {{htmlelement("iframe")}}, das im aktuellen Dokument eingebettet ist und Gründe enthalten kann, warum der oberste Frame im Zusammenhang mit den untergeordneten Frames blockiert wurde. Jedes Objekt hat die gleiche Struktur wie das übergeordnete Objekt – auf diese Weise können beliebig viele Ebenen eingebetteter `<iframe>`s rekursiv innerhalb des Objekts dargestellt werden. Wenn der Frame keine Kinder hat, wird das Array leer sein; wenn das Dokument in einem Cross-Origin-`<iframe>` ist, wird `children` `null` zurückgeben.
 - [`id`](/de/docs/Web/API/NotRestoredReasons/id) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der den Wert des `id`-Attributs des `<iframe>` darstellt, in dem das Dokument enthalten ist (beispielsweise `<iframe id="foo" src="...">`). Befindet sich das Dokument nicht in einem `<iframe>` oder hat das `<iframe>` keine `id` gesetzt, gibt `id` `null` zurück.
+  - : Ein String, der den Wert des `id`-Attributs des `<iframe>`s darstellt, in dem sich das Dokument befindet (zum Beispiel `<iframe id="foo" src="...">`). Wenn sich das Dokument nicht in einem `<iframe>` befindet oder das `<iframe>` keine `id` hat, gibt `id` `null` zurück.
 - [`name`](/de/docs/Web/API/NotRestoredReasons/name) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der den Wert des `name`-Attributs des `<iframe>` darstellt, in dem das Dokument enthalten ist (beispielsweise `<iframe name="bar" src="...">`). Befindet sich das Dokument nicht in einem `<iframe>` oder hat das `<iframe>` keinen `name` gesetzt, gibt `name` `null` zurück.
+  - : Ein String, der den Wert des `name`-Attributs des `<iframe>`s darstellt, in dem sich das Dokument befindet (zum Beispiel `<iframe name="bar" src="...">`). Wenn sich das Dokument nicht in einem `<iframe>` befindet oder das `<iframe>` keinen Namen hat, gibt `name` `null` zurück.
 - [`reasons`](/de/docs/Web/API/NotRestoredReasons/reasons) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten, die jeweils einen Grund darstellen, warum die navigierte Seite daran gehindert wurde, den bfcache zu nutzen. Befindet sich das Dokument in einem Cross-Origin-`<iframe>`, gibt `reasons` `null` zurück, aber das übergeordnete Dokument kann einen `reason` von `"masked"` anzeigen, wenn eines der `<iframe>`s die bfcache-Nutzung für das Top-Level-Frame blockiert hat. Weitere Details zu den Gründen finden Sie unter [Blockierungsgründe](#blockierungsgründe).
+  - : Ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten, von denen jedes einen Grund darstellt, warum die navigierte Seite daran gehindert wurde, den bfcache zu nutzen. Wenn sich das Dokument in einem Cross-Origin-`<iframe>` befindet, gibt `reasons` `null` zurück, aber das übergeordnete Dokument kann einen `reason` von `"masked"` anzeigen, wenn `<iframe>`s die Nutzung des bfcache für den obersten Frame blockierten. Siehe [Blockierungsgründe](#blockierungsgründe) für weitere Details zu den Gründen.
 - [`src`](/de/docs/Web/API/NotRestoredReasons/src) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der den Pfad zur Quelle des `<iframe>` darstellt, in dem das Dokument enthalten ist (beispielsweise `<iframe src="exampleframe.html">`). Befindet sich das Dokument nicht in einem `<iframe>`, gibt `src` `null` zurück.
+  - : Ein String, der den Pfad zur Quelle des `<iframe>`s darstellt, in dem sich das Dokument befindet (zum Beispiel `<iframe src="exampleframe.html">`). Wenn sich das Dokument nicht in einem `<iframe>` befindet, gibt `src` `null` zurück.
 - [`url`](/de/docs/Web/API/NotRestoredReasons/url) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der die URL der navigierten Seite oder des `<iframe>`s repräsentiert. Befindet sich das Dokument in einem Cross-Origin-`<iframe>`, gibt `url` `null` zurück.
+  - : Ein String, der die URL der navigierten Seite oder des `<iframe>` darstellt. Wenn sich das Dokument in einem Cross-Origin-`<iframe>` befindet, gibt `url` `null` zurück.
 
-### Bericht über bfcache-Blockaden in gleich-originierenden `<iframe>`s
+### Berichterstattung über bfcache-Blockierungen in gleich-origin `<iframe>`s
 
-Wenn eine Seite gleich-originierende `<iframe>`s eingebettet hat, enthält der zurückgegebene `notRestoredReasons`-Wert ein Array von Objekten innerhalb der `children`-Eigenschaft, die die Blockierungsgründe in Bezug auf jedes eingebettete Frame darstellen.
+Wenn eine Seite gleich-origin `<iframe>`s eingebettet hat, enthält der zurückgegebene `notRestoredReasons`-Wert ein Array von Objekten innerhalb der `children`-Eigenschaft, die die blockierenden Gründe für jeden eingebetteten Frame darstellen.
 
 Zum Beispiel:
 
@@ -111,9 +111,9 @@ Zum Beispiel:
 }
 ```
 
-### Bericht über bfcache-Blockaden in Cross-Origin-`<iframe>`s
+### Berichterstattung über bfcache-Blockierungen in Cross-Origin-`<iframe>`s
 
-Wenn eine Seite Cross-Origin-Frames eingebettet hat, ist die Menge der darüber geteilten Informationen begrenzt, um das Auslaufen von Cross-Origin-Informationen zu vermeiden. Es wird nur Information einbezogen, die die äußere Seite bereits kennt, und ob der Cross-Origin-Subtree die bfcache-Blockierung verursacht hat. Keine Blockierungsgründe oder Informationen über tiefere Ebenen des Subtrees (selbst wenn einige Sub-Level gleich-originierend sind) werden einbezogen.
+Wenn eine Seite Cross-Origin-Frames eingebettet hat, ist die Menge der über sie geteilten Informationen begrenzt, um ein Auslaufen von Cross-Origin-Informationen zu verhindern. Es werden nur Informationen eingeschlossen, die die äußere Seite bereits kennt, sowie ob der Cross-Origin-Teilbaum eine bfcache-Blockierung verursacht hat oder nicht. Keine Blockierungsgründe oder Informationen über niedrigere Ebenen des Teilbaums (auch wenn einige Unterebenen gleich-origin sind) werden einbezogen.
 
 Zum Beispiel:
 
@@ -137,113 +137,115 @@ Zum Beispiel:
 }
 ```
 
-Bei allen Cross-Origin-`<iframe>`s werden keine Blockierungsgründe gemeldet; für das Top-Level-Frame wird ein Grund von `"masked"` gemeldet, um anzuzeigen, dass die Gründe aus Datenschutzgründen verborgen werden. Beachten Sie, dass `"masked"` auch zum Verbergen von benutzerspezifischen Gründen der User Agents verwendet werden kann; es weist nicht immer auf ein Problem in einem `<iframe>` hin.
+Für alle Cross-Origin-`<iframe>`s werden keine Blockierungsgründe gemeldet; für den obersten Frame wird ein Grund von `"masked"` angegeben, um anzuzeigen, dass die Gründe aus Datenschutzgründen verborgen werden. Beachten Sie, dass `"masked"` auch verwendet werden kann, um benutzeragenten-spezifische Gründe zu verbergen; es weist nicht immer auf ein Problem in einem `<iframe>` hin.
 
 ## Blockierungsgründe
 
-Es gibt viele verschiedene Gründe, warum eine Blockierung auftreten könnte. Obwohl die Gründe standardisiert sind, sollten Entwickler vermeiden, sich auf eine bestimmte Wortwahl zu verlassen, und darauf vorbereitet sein, dass neue Gründe hinzugefügt und alte entfernt werden.
+Es gibt viele verschiedene Gründe, warum eine Blockierung auftreten kann. Obwohl die Gründe standardisiert sind, sollten Entwickler vermeiden, sich auf spezifische Formulierungen für Gründe zu verlassen und darauf vorbereitet sein, mit neuen hinzugefügten und gelöschten Gründen umzugehen.
 
-Die in [der Spezifikation](https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-notrestoredreasons-interface) aufgeführten Werte sind:
+Die in [der Spezifikation](https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-notrestoredreasons-interface) aufgelisteten Werte sind:
 
 - `"fetch"`
-  - : Beim Ausladen wurde ein vom aktuellen Dokument initiierter Abruf (z. B. über [`fetch()`](/de/docs/Web/API/Window/fetch)) abgebrochen, während er noch im Gange war. Infolgedessen befand sich die Seite nicht in einem stabilen Zustand, der im bfcache gespeichert werden konnte.
+  - : Während des Entladens wurde ein durch das aktuelle Dokument initiierter Abruf (z.B. über [`fetch()`](/de/docs/Web/API/Window/fetch)) abgebrochen, während er noch lief. Infolgedessen befand sich die Seite nicht in einem stabilen Zustand, der im bfcache gespeichert werden konnte.
 - `"lock"`
-  - : Beim Ausladen wurden gehaltene Sperren und Sperranforderungen beendet, sodass sich die Seite nicht in einem stabilen Zustand befand, der im bfcache gespeichert werden konnte.
+  - : Während des Entladens wurden gehaltene Sperren und Sperranfragen beendet, sodass sich die Seite nicht in einem stabilen Zustand befand, der im bfcache gespeichert werden konnte.
 - `"masked"`
   - : Der genaue Grund ist aus Datenschutzgründen verborgen. Dieser Wert kann Folgendes bedeuten:
-    - Das aktuelle Dokument hat Kinder, die in einem Cross-Origin-{{htmlelement("iframe")}} enthalten sind und die Speicherung im bfcache verhinderten.
-    - Das aktuelle Dokument konnte aus benutzerspezifischen Gründen des User Agents nicht im bfcache gespeichert werden.
+    - Das aktuelle Dokument hat Kinder, die in einem Cross-Origin-{{htmlelement("iframe")}} enthalten sind und die eine Speicherung im bfcache verhinderten.
+    - Das aktuelle Dokument konnte aus benutzeragenten-spezifischen Gründen nicht im bfcache gespeichert werden.
 - `"navigation-failure"`
-  - : Die ursprüngliche Navigation, die das aktuelle Dokument erstellt hat, ist fehlgeschlagen, und die Speicherung des resultierenden Fehlerdokuments im bfcache wurde verhindert.
+  - : Die ursprüngliche Navigation, die das aktuelle Dokument erzeugte, schlug fehl, und die Speicherung des resultierenden Fehlerdokuments im bfcache wurde verhindert.
 - `"parser-aborted"`
-  - : Das aktuelle Dokument hat sein initiales HTML-Parsen nie beendet, und die Speicherung des unvollständigen Dokuments im bfcache wurde verhindert.
+  - : Das aktuelle Dokument hat niemals seine anfängliche HTML-Analyse abgeschlossen, und die Speicherung des unvollständigen Dokuments im bfcache wurde verhindert.
 - `"websocket"`
-  - : Während des Ausladens wurde eine offene [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung geschlossen, sodass sich die Seite nicht in einem stabilen Zustand befand, der im bfcache gespeichert werden konnte.
+  - : Während des Entladens wurde eine offene [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung geschlossen, sodass die Seite nicht in einem stabilen Zustand war, der im bfcache gespeichert werden konnte.
 
-### Benutzerspezifische Blockierungsgründe
+    In [einigen Browsern](#browser-kompatibilität) verhindern aktive WebSockets nicht, dass Seiten in den bfcache gelangen. In solchen Fällen werden die WebSocket-Verbindungen bei Eintritt getrennt und können beim Wiederherstellen der Seite wieder verbunden werden. In Chrome beispielsweise löst der Browser beim Wiederherstellen einer Seite aus dem bfcache die [`error`](/de/docs/Web/API/WebSocket/error_event)- und [`close`](/de/docs/Web/API/WebSocket/close_event)-Ereignisse aus, sodass eine Anwendung ihre bestehende Logik auslösen kann, um die Verbindung zum WebSocket wiederherzustellen.
+
+### Benutzeragenten-spezifische Blockierungsgründe
 
 Zusätzliche Blockierungsgründe, die von einigen Browsern verwendet werden können, sind ebenfalls spezifiziert:
 
 - `"audio-capture"`
-  - : Das Dokument hat um Erlaubnis zur Audioaufnahme gebeten, indem es Media Capture and Streams' [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) mit Audio verwendet hat.
+  - : Das Dokument hat die Erlaubnis zur Audioaufnahme angefordert, indem Media Capture and Streams' [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) mit Audio verwendet wurde.
 - `"background-work"`
-  - : Das Dokument hat um Hintergrundarbeit gebeten, indem die Methode [`register()`](/de/docs/Web/API/SyncManager/register) des [`SyncManager`](/de/docs/Web/API/SyncManager), die Methode [`register()`](/de/docs/Web/API/PeriodicSyncManager/register) des [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) oder die Methode [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) des [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager) aufgerufen wurde.
+  - : Das Dokument hat Hintergrundarbeit angefordert, indem die Methode [`register()`](/de/docs/Web/API/SyncManager/register) des [`SyncManager`](/de/docs/Web/API/SyncManager), die Methode [`register()`](/de/docs/Web/API/PeriodicSyncManager/register) des [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) oder die Methode [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) des [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager) aufgerufen wurde.
 - `"broadcastchannel-message"`
-  - : Während die Seite im Back/Forward-Cache gespeichert war, hat eine [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Verbindung auf der Seite eine Nachricht erhalten, die ein [`message`](/de/docs/Web/API/MessageEvent)-Ereignis ausgelöst hat.
+  - : Während die Seite im Vor-/Zurück-Cache gespeichert war, hat eine [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Verbindung auf der Seite eine Nachricht empfangen, die ein [`message`](/de/docs/Web/API/MessageEvent)-Ereignis auslöste.
 - `"idbversionchangeevent"`
-  - : Das Dokument hatte ein ausstehendes [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent) beim Ausladen.
+  - : Das Dokument hatte ein anstehendes [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent), während es entladen wurde.
 - `"idledetector"`
-  - : Das Dokument hatte einen aktiven [`IdleDetector`](/de/docs/Web/API/IdleDetector) beim Ausladen.
+  - : Das Dokument hatte einen aktiven [`IdleDetector`](/de/docs/Web/API/IdleDetector), während es entladen wurde.
 - `"keyboardlock"`
-  - : Beim Ausladen war die Tastatursperre noch aktiv, da die Methode [`lock()`](/de/docs/Web/API/Keyboard/lock) der [`Keyboard`](/de/docs/Web/API/Keyboard) aufgerufen wurde.
+  - : Während des Entladens war die Tastatursperre noch aktiv, da die Methode [`lock()`](/de/docs/Web/API/Keyboard/lock) von [`Keyboard`](/de/docs/Web/API/Keyboard) aufgerufen wurde.
 - `"mediastream"`
-  - : Ein [MediaStreamTrack](/de/docs/Web/API/MediaStreamTrack) war beim Ausladen im Live-Zustand.
+  - : Ein [MediaStreamTrack](/de/docs/Web/API/MediaStreamTrack) befand sich beim Entladen im Live-Zustand.
 - `"midi"`
-  - : Das Dokument hat um MIDI-Berechtigung gebeten, indem [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) aufgerufen wurde.
+  - : Das Dokument hat eine MIDI-Berechtigung angefordert, indem es [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) aufgerufen hat.
 - `"modals"`
-  - : Beim Ausladen wurden Benutzereingabeaufforderungen angezeigt.
+  - : Während des Entladens wurden Benutzereingabeaufforderungen angezeigt.
 - `"navigating"`
-  - : Beim Ausladen war das Laden noch im Gange, und somit befand sich das Dokument nicht in einem Zustand, der im Back/Forward-Cache gespeichert werden konnte.
+  - : Während des Entladens war das Laden noch im Gange, sodass das Dokument nicht in einem Zustand war, der im Vor-/Zurück-Cache gespeichert werden konnte.
 - `"navigation-canceled"`
-  - : Die Navigationsanforderung wurde durch Aufruf von [`window.stop()`](/de/docs/Web/API/Window/stop) abgebrochen und die Seite befand sich nicht in einem Zustand, der im Back/Forward-Cache gespeichert werden konnte.
+  - : Die Navigationsanforderung wurde durch den Aufruf von [`window.stop()`](/de/docs/Web/API/Window/stop) abgebrochen, und die Seite war nicht in einem Zustand, der im Vor-/Zurück-Cache gespeichert werden konnte.
 - `"non-trivial-browsing-context-group"`
-  - : Die Browsing-Kontextgruppe dieses Dokuments hatte mehr als einen Top-Level-Browsing-Kontext.
+  - : Die Browsing-Kontext-Gruppe dieses Dokuments hatte mehr als einen Top-Level-Browsing-Kontext.
 - `"otpcredential"`
   - : Das Dokument hat ein [`OTPCredential`](/de/docs/Web/API/OTPCredential) erstellt.
 - `"outstanding-network-request"`
-  - : Beim Ausladen hatte das Dokument ausstehende Netzwerk-Anfragen und befand sich nicht in einem Zustand, der im Back/Forward-Cache gespeichert werden konnte.
+  - : Während des Entladens hatte das Dokument ausstehende Netzwerk-Anfragen und war nicht in einem Zustand, der im Vor-/Zurück-Cache gespeichert werden konnte.
 - `"paymentrequest"`
-  - : Das Dokument hatte einen aktiven [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) beim Ausladen.
+  - : Das Dokument hatte eine aktive [`PaymentRequest`](/de/docs/Web/API/PaymentRequest), während es entladen wurde.
 - `"pictureinpicturewindow"`
-  - : Das Dokument hatte ein aktives [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) beim Ausladen.
+  - : Das Dokument hatte ein aktives [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow), während es entladen wurde.
 - `"plugins"`
   - : Das Dokument enthielt Plugins.
 - `"request-method-not-get"`
-  - : Das Dokument wurde aus einer HTTP-Anfrage erstellt, deren Methode nicht {{httpmethod("GET")}} war.
+  - : Das Dokument wurde durch eine HTTP-Anfrage mit einer Methode erstellt, die nicht {{httpmethod("GET")}} war.
 - `"response-auth-required"`
-  - : Das Dokument wurde aus einer HTTP-Antwort erstellt, die eine HTTP-Authentifizierung erforderte.
+  - : Das Dokument wurde durch eine HTTP-Antwort erstellt, die eine HTTP-Authentifizierung erforderte.
 - `"response-cache-control-no-store"`
-  - : Das Dokument wurde aus einer HTTP-Antwort erstellt, deren {{httpheader("Cache-Control")}}-Header das "no-store"-Token enthielt.
+  - : Das Dokument wurde durch eine HTTP-Antwort erstellt, deren {{httpheader("Cache-Control")}}-Header das "no-store"-Token enthielt.
 - `"response-cache-control-no-cache"`
-  - : Das Dokument wurde aus einer HTTP-Antwort erstellt, deren {{httpheader("Cache-Control")}}-Header das "no-cache"-Token enthielt.
+  - : Das Dokument wurde durch eine HTTP-Antwort erstellt, deren {{httpheader("Cache-Control")}}-Header das "no-cache"-Token enthielt.
 - `"response-keep-alive"`
-  - : Das Dokument wurde aus einer HTTP-Antwort erstellt, die einen {{httpheader("Keep-Alive")}}-Header enthielt.
+  - : Das Dokument wurde durch eine HTTP-Antwort erstellt, die einen {{httpheader("Keep-Alive")}}-Header enthielt.
 - `"response-scheme-not-http-or-https"`
-  - : Das Dokument wurde aus einer Antwort erstellt, deren URL-Schema kein HTTP(S)-Schema war.
+  - : Das Dokument wurde durch eine Antwort erstellt, deren URL-Schema kein HTTP(S)-Schema war.
 - `"response-status-not-ok"`
-  - : Das Dokument wurde aus einer HTTP-Antwort erstellt, deren Status kein ok-Status war.
+  - : Das Dokument wurde durch eine HTTP-Antwort erstellt, deren Status kein ok-Status war.
 - `"rtc"`
-  - : Während des Ausladens wurde eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) geschlossen, sodass sich die Seite nicht in einem Zustand befand, der im Back/Forward-Cache gespeichert werden konnte.
+  - : Während des Entladens wurde eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) heruntergefahren, sodass die Seite nicht in einem Zustand war, der im Vor-/Zurück-Cache gespeichert werden konnte.
 - `"sensors"`
-  - : Das Dokument hat Sensorzugriff angefordert.
+  - : Das Dokument hat den Zugriff auf Sensoren angefordert.
 - `"serviceworker-added"`
-  - : Der Service-Worker-Client des Dokuments begann, von einem [Service-Worker](/de/docs/Web/API/Service_Worker_API) kontrolliert zu werden, während die Seite im Back/Forward-Cache war.
+  - : Der Service-Worker-Client des Dokuments begann, von einem [Service-Worker](/de/docs/Web/API/Service_Worker_API) kontrolliert zu werden, während die Seite im Vor-/Zurück-Cache war.
 - `"serviceworker-claimed"`
-  - : Der aktive Service-Worker des Service-Worker-Clients des Dokuments wurde beansprucht, während die Seite im Back/Forward-Cache war.
+  - : Der aktive [Service-Worker](/de/docs/Web/API/Service_Worker_API) des Service-Worker-Clients des Dokuments wurde beansprucht, während die Seite im Vor-/Zurück-Cache war.
 - `"serviceworker-postmessage"`
-  - : Der aktive Service-Worker des Service-Worker-Clients des Dokuments erhielt eine Nachricht, während die Seite im Back/Forward-Cache war.
+  - : Der aktive [Service-Worker](/de/docs/Web/API/Service_Worker_API) des Service-Worker-Clients des Dokuments empfing eine Nachricht, während die Seite im Vor-/Zurück-Cache war.
 - `"serviceworker-version-activated"`
-  - : Die Version des aktiven Service-Workers des Service-Worker-Clients des Dokuments wurde aktiviert, während die Seite im Back/Forward-Cache war.
+  - : Die Version des aktiven [Service-Workers](/de/docs/Web/API/Service_Worker_API) des Service-Worker-Clients des Dokuments wurde aktiviert, während die Seite im Vor-/Zurück-Cache war.
 - `"serviceworker-unregistered"`
-  - : Die Service-Worker-Registrierung des aktiven Service-Workers des Service-Worker-Clients des Dokuments wurde abgemeldet, während die Seite im Back/Forward-Cache war.
+  - : Die Registrierung des aktiven [Service-Workers](/de/docs/Web/API/Service_Worker_API) des Service-Worker-Clients des Dokuments wurde aufgehoben, während die Seite im Vor-/Zurück-Cache war.
 - `"sharedworker"`
-  - : Dieses Dokument war im Besitzerset eines [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope).
+  - : Dieses Dokument befand sich im Eigentümer-Set eines [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope).
 - `"smartcardconnection"`
-  - : Das Dokument hatte eine aktive `SmartCardConnection` beim Ausladen.
+  - : Das Dokument hatte eine aktive `SmartCardConnection`, während es entladen wurde.
 - `"speechrecognition"`
-  - : Das Dokument hatte eine aktive [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) beim Ausladen.
+  - : Das Dokument hatte eine aktive [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition), während es entladen wurde.
 - `"storageaccess"`
-  - : Das Dokument hat die Speicherzugriffsberechtigung mithilfe der [Storage Access API](/de/docs/Web/API/Storage_Access_API) angefordert.
+  - : Das Dokument hat durch die Verwendung der [Storage Access API](/de/docs/Web/API/Storage_Access_API) die Erlaubnis zum Speichern angefordert.
 - `"unload-listener"`
   - : Das Dokument hat einen Ereignis-Listener für das [`unload`-Ereignis](/de/docs/Web/API/Window/unload_event) registriert.
 - `"video-capture"`
-  - : Das Dokument hat um Erlaubnis zur Videoaufnahme gebeten, indem es Media Capture and Streams' [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) mit Video verwendet hat.
+  - : Das Dokument hat die Erlaubnis zur Videoaufnahme angefordert, indem Media Capture and Streams' [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) mit Video verwendet wurde.
 - `"webhid"`
   - : Das Dokument hat die Methode [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) der [WebHID API](/de/docs/Web/API/WebHID_API) aufgerufen.
 - `"webshare"`
-  - : Das Dokument hat die [Web Share API](/de/docs/Web/API/Web_Share_API) verwendet, um die Methode [`navigator.share()`](/de/docs/Web/API/Navigator/share) aufzurufen.
+  - : Das Dokument hat die Methode [`navigator.share()`](/de/docs/Web/API/Navigator/share) der [Web Share API](/de/docs/Web/API/Web_Share_API) verwendet.
 - `"webtransport"`
-  - : Während des Ausladens wurde eine offene [`WebTransport`](/de/docs/Web/API/WebTransport)-Verbindung geschlossen, sodass sich die Seite nicht in einem Zustand befand, der im Back/Forward-Cache gespeichert werden konnte.
+  - : Während des Entladens wurde eine offene [`WebTransport`](/de/docs/Web/API/WebTransport)-Verbindung heruntergefahren, sodass die Seite nicht in einem Zustand war, der im Vor-/Zurück-Cache gespeichert werden konnte.
 - `"webxrdevice"`
   - : Das Dokument hat ein [XRSystem](/de/docs/Web/API/XRSystem) erstellt.
 
@@ -253,7 +255,7 @@ Zusätzliche Blockierungsgründe, die von einigen Browsern verwendet werden kön
 
 ## Siehe auch
 
-- [`notRestoredReasons` API Explainer](https://github.com/WICG/bfcache-not-restored-reason/blob/main/NotRestoredReason.md)
+- [`notRestoredReasons` API Erklärer](https://github.com/WICG/bfcache-not-restored-reason/blob/main/NotRestoredReason.md)
 - [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)
 - [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)
 
