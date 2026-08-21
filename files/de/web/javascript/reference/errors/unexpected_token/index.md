@@ -1,11 +1,11 @@
 ---
-title: "SyntaxError: Unerwartetes Token"
+title: "SyntaxError: Unexpected token"
 slug: Web/JavaScript/Reference/Errors/Unexpected_token
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
-Die JavaScript-Ausnahmen "unerwartetes Token" treten auf, wenn der Parser an der angegebenen Stelle ein Token sieht, das er nicht erkennt, sodass er die Struktur des Programms nicht verstehen kann. Dies könnte ein einfacher Tippfehler sein.
+Die JavaScript-Ausnahme "unerwartetes Token" tritt auf, wenn der Parser an der angegebenen Position ein Token sieht, das er nicht erkennt, und daher die Struktur des Programms nicht interpretieren kann. Dies könnte ein einfacher Tippfehler sein.
 
 ## Nachricht
 
@@ -32,13 +32,13 @@ SyntaxError: expected closing parenthesis, got "x" (Firefox)
 
 ## Was ist schiefgelaufen?
 
-Ein bestimmtes Sprachkonstrukt wurde erwartet, aber es wurde etwas anderes übergeben. Dies könnte ein einfacher Tippfehler sein.
+Ein spezifisches Sprachkonstrukt wurde erwartet, aber etwas anderes wurde bereitgestellt. Dies könnte ein einfacher Tippfehler sein.
 
 ## Beispiele
 
 ### Ausdruck erwartet
 
-Zum Beispiel sind bei der Verkettung von Ausdrücken nachgestellte Kommas nicht erlaubt.
+Zum Beispiel, wenn Ausdrücke verkettet werden, sind abschließende Kommas nicht erlaubt.
 
 ```js-nolint example-bad
 for (let i = 0; i < 5,; ++i) {
@@ -47,7 +47,7 @@ for (let i = 0; i < 5,; ++i) {
 // Uncaught SyntaxError: expected expression, got ';'
 ```
 
-Korrekt wäre, das Komma wegzulassen oder einen weiteren Ausdruck hinzuzufügen:
+Korrekt wäre es, das Komma wegzulassen oder einen weiteren Ausdruck hinzuzufügen:
 
 ```js example-good
 for (let i = 0; i < 5; ++i) {
@@ -57,7 +57,7 @@ for (let i = 0; i < 5; ++i) {
 
 ### Nicht genügend Klammern
 
-Manchmal vergisst man Klammern um `if`-Anweisungen:
+Manchmal werden Klammern um `if`-Anweisungen ausgelassen:
 
 ```js-nolint example-bad
 function round(n, upperBound, lowerBound) {
@@ -71,7 +71,7 @@ if (n > upperBound) || (n < lowerBound) { // Missing parentheses here!
 } // SyntaxError: expected expression, got '||'
 ```
 
-Die Klammern sehen auf den ersten Blick korrekt aus, aber beachten Sie, dass das `||` außerhalb der Klammern steht. Korrekt wäre es, Klammern um das `||` zu setzen:
+Die Klammern sehen auf den ersten Blick korrekt aus, aber beachten Sie, wie das `||` außerhalb der Klammern steht. Korrekt wäre es, Klammern um das `||` zu setzen:
 
 ```js-nolint example-good
 function round(n, upperBound, lowerBound) {
@@ -87,9 +87,9 @@ function round(n, upperBound, lowerBound) {
 }
 ```
 
-### Ein Strukturfehler weiter oben verwirrte die Bedeutung
+### Ein Strukturfehler weiter oben hat die Bedeutung verwirrt
 
-Manchmal wird der Fehler durch Strukturprobleme verursacht, die nicht direkt neben dem Fehlerort liegen, sodass Sie nach potenziellen Fehlern in der Umgebung suchen müssen. Zum Beispiel wollten Sie eine Methode eines Objekts deklarieren, haben sie aber stattdessen als Eigenschaft deklariert:
+Manchmal wird der Fehler durch Strukturprobleme verursacht, die sich nicht direkt an der Fehlerstelle befinden, sodass Sie die Umgebung auf potenzielle Fehler untersuchen müssen. Zum Beispiel wollten Sie eine Methode eines Objekts deklarieren, haben es aber stattdessen als Eigenschaft deklariert:
 
 ```js-nolint example-bad
 const MyComponent = {
@@ -99,7 +99,7 @@ const MyComponent = {
 }
 ```
 
-Der `.` nach `document` ist unerwartet, da JavaScript die `{}` als Objektliteral statt als Funktionskörper interpretiert und daher ein `:` erwartet. Das Problem wird gelöst, indem `mounted` als Funktion deklariert wird.
+Der `.` nach `document` ist unerwartet, weil JavaScript die `{}` als Objektliteral und nicht als Funktionskörper interpretiert und daher ein `:` erwartet. Das Problem wird gelöst, indem `mounted` als Funktion deklariert wird.
 
 ```js-nolint example-good
 const MyComponent = {

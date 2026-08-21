@@ -3,10 +3,10 @@ title: "HTMLTableElement: frame-Eigenschaft"
 short-title: frame
 slug: Web/API/HTMLTableElement/frame
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
 Die **`frame`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces ist ein String, der angibt, welche der äußeren Rahmen der Tabelle gezeichnet werden sollen.
 
@@ -15,7 +15,7 @@ Die **`frame`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableE
 Einer der folgenden:
 
 - `void`
-  - : Keine Seiten. Dies ist der Standardwert.
+  - : Keine Seiten. Dies ist der Standard.
 - `"above"`
   - : Oberseite
 - `"below"`

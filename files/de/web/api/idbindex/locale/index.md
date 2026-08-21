@@ -1,14 +1,14 @@
 ---
-title: "IDBIndex: locale Eigenschaft"
+title: "IDBIndex: locale-Eigenschaft"
 short-title: locale
 slug: Web/API/IDBIndex/locale
 l10n:
-  sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("IndexedDB")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("IndexedDB")}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`locale`** der Schnittstelle [`IDBIndex`](/de/docs/Web/API/IDBIndex) gibt den Ländercode des Indexes zurück (z. B. `en-US` oder `pl`), wenn beim Erstellen ein `locale`-Wert angegeben wurde (siehe den [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options) Parameter in [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex)). Beachten Sie, dass diese Eigenschaft immer den aktuell in diesem Index verwendeten Ländercode zurückgibt, mit anderen Worten, sie gibt niemals `"auto"` zurück.
+Die **`locale`**-Schreibgeschützte Eigenschaft der [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Schnittstelle gibt die Gebietsschemaeinstellung des Indexes zurück (zum Beispiel `en-US` oder `pl`), wenn ein `locale`-Wert bei dessen Erstellung angegeben wurde (siehe das [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options)-Parameter bei [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex).) Beachten Sie, dass diese Eigenschaft immer das aktuelle in diesem Index verwendete Gebietsschema zurückgibt, mit anderen Worten, sie gibt niemals `"auto"` zurück.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen einfachen Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und ein Objekt-Depot und erhalten dann den Index `lName` von einer einfachen Kontaktdatenbank. Dann öffnen wir einen einfachen Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht dem Primärschlüssel sortiert werden.
 
-Der `locale`-Wert wird in der Konsole protokolliert.
+Der `locale`-Wert wird in die Konsole protokolliert.
 
 ```js
 function displayDataByIndex() {
@@ -59,7 +59,7 @@ function displayDataByIndex() {
 
 ## Spezifikationen
 
-Derzeit nicht Teil einer Spezifikation.
+Derzeit kein Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -67,10 +67,10 @@ Derzeit nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Ihre Daten abrufen und ändern: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Cursors verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

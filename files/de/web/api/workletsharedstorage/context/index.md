@@ -1,22 +1,22 @@
 ---
-title: "WorkletSharedStorage: Kontext-Eigenschaft"
+title: "WorkletSharedStorage: context-Eigenschaft"
 short-title: context
 slug: Web/API/WorkletSharedStorage/context
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}{{Non-standard_Header}}
+{{APIRef("Shared Storage API")}}{{Non-standard_Header}}
 
-Die **`context`**-Schreibgeschützte Eigenschaft des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Interfaces enthält Kontextdaten, die dem Shared-Storage-Worklet aus dem zugehörigen Browsing-Kontext über die Methode [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) übergeben wurden.
+Die schreibgeschützte **`context`**-Eigenschaft des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Interfaces enthält kontextbezogene Daten, die über die [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext)-Methode aus dem zugehörigen Browsing-Kontext in den Shared Storage Worklet übergeben wurden.
 
 ## Wert
 
-Ein String, der die Daten repräsentiert. Der Wert entspricht dem neuesten Wert, der vor der Navigation zum [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig) in die Methode [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) übergeben wurde. Wenn kein Wert von `setSharedStorageContext()` vor der Navigation festgelegt wurde, gibt `context` `undefined` zurück.
+Ein String, der die Daten darstellt. Der Wert entspricht dem zuletzt über die Methode [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) vor der Navigation zur [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig) übergebenen Wert. Wenn vor der Navigation kein Wert durch `setSharedStorageContext()` gesetzt wurde, gibt `context` `undefined` zurück.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) für ein Beispiel an.
+Ein Beispiel finden Sie auf der Hauptseite von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage).
 
 ## Spezifikationen
 

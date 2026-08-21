@@ -1,25 +1,25 @@
 ---
-title: "GamepadHapticActuator: type-Eigenschaft"
+title: "GamepadHapticActuator: Eigenschaft type"
 short-title: type
 slug: Web/API/GamepadHapticActuator/type
 l10n:
-  sourceCommit: c28529c0cc75eb5d2de857c923f0a1ebd5145313
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Gamepad API")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("Gamepad API")}}{{non-standard_header}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Schnittstelle gibt einen enumerierten Wert zurück, der den Typ der haptischen Hardware darstellt.
+Die schreibgeschützte **`type`**-Eigenschaft der [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Schnittstelle gibt einen aufgezählten Wert zurück, der den Typ der haptischen Hardware darstellt.
 
-Diese Eigenschaft ist veraltet: Verwenden Sie [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects), um die Unterstützung der Effekte zu erkennen.
+Diese Eigenschaft ist veraltet: Verwenden Sie [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects), um die Unterstützung von Effekten zu erkennen.
 
 ## Wert
 
-Ein enumerierter Wert, der den Typ der haptischen Hardware darstellt. Derzeit verfügbare Typen sind:
+Ein aufgezählter Wert, der den Typ der haptischen Hardware darstellt. Derzeit verfügbare Typen sind:
 
 - `"vibration"`
-  - : Einfache Vibrationshardware, die einen Rumble-Effekt erzeugt.
+  - : Einfache Vibrationshardware, die einen Rumpel-Effekt erzeugt.
 - `"dual-rumble"`
-  - : Ein Controller mit einem Vibrationsmotor in jedem Griff. Jeder Motor kann unabhängig voneinander vibrieren, um positionale Rumble-Effekte zu erzeugen.
+  - : Ein Controller mit einem Vibrationsmotor in jedem Griff. Jeder Motor kann unabhängig voneinander vibrieren, um positionsabhängige Rumpel-Effekte zu erzeugen.
 
 ## Beispiele
 

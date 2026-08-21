@@ -2,23 +2,21 @@
 title: xml:space
 slug: Web/SVG/Reference/Attribute/xml:space
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-SVG unterstützt das eingebaute XML-Attribut **`xml:space`**, um Leerzeichen innerhalb von Elementen zu behandeln. Kind-Elemente innerhalb eines Elements können ebenfalls ein `xml:space`-Attribut haben, das das des Elternteils überschreibt.
+SVG unterstützt das eingebaute XML-Attribut **`xml:space`**, um Leerzeichen innerhalb von Elementen zu handhaben. Kindelemente innerhalb eines Elements können ebenfalls ein `xml:space`-Attribut haben, das das des übergeordneten Elements überschreibt.
 
 > [!NOTE]
-> Anstatt das `xml:space`-Attribut zu verwenden, nutzen Sie die {{cssxref("white-space")}} CSS-Eigenschaft.
+> Anstelle des `xml:space`-Attributs verwenden Sie die CSS-Eigenschaft {{cssxref("white-space")}}.
 
-Dieses Attribut beeinflusst, wie Browser Textinhalte parsen und dadurch die Struktur des {{Glossary("DOM", "DOM")}} verändern. Daher kann das Ändern des Attributwerts über die DOM-API wirkungslos sein.
+Dieses Attribut beeinflusst, wie Browser Textinhalte parsen und somit ändert es die Art und Weise, wie das {{Glossary("DOM", "DOM")}} aufgebaut wird. Daher kann das Ändern des Attributwerts über die DOM-API keine Auswirkung haben.
 
 ## Elemente
 
-Sie können dieses Attribut mit jedem SVG-Element verwenden.
+Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 
-## Gebrauchshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -38,16 +36,16 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 - `default`
-  - : Mit diesem Wert eingestellt, werden Leerzeichen in folgender Reihenfolge verarbeitet:
-    1. Alle Zeilenumbrüche werden entfernt.
-    2. Alle Tabulatorzeichen werden in Leerzeichen umgewandelt.
-    3. Alle führenden und nachgestellten Leerzeichen werden entfernt.
+  - : Mit diesem Wert werden Leerzeichen in folgender Reihenfolge verarbeitet:
+    1. Alle Zeilenumbruchzeichen werden entfernt.
+    2. Alle Tab-Zeichen werden in Leerzeichen umgewandelt.
+    3. Alle führenden und abschließenden Leerzeichen werden entfernt.
     4. Alle aufeinanderfolgenden Leerzeichen werden zu einem einzelnen Leerzeichen zusammengefasst.
 
 - `preserve`
-  - : Dieser Wert teilt dem Benutzeragenten mit, alle Zeilenumbrüche und Tabulatorzeichen in Leerzeichen umzuwandeln. Dann werden alle Leerzeichen dargestellt (einschließlich führender, nachgestellter und mehrfach aufeinanderfolgender Leerzeichen).
+  - : Dieser Wert weist den Benutzeragenten an, alle Zeilenumbruchs- und Tab-Zeichen in Leerzeichen umzuwandeln. Dann werden alle Leerzeichen gezeichnet (einschließlich führender, abschließender und mehrfach aufeinanderfolgender Leerzeichen).
 
-    Zum Beispiel trennt der String "a&nbsp;&nbsp;&nbsp;b" (drei Leerzeichen zwischen "a" und "b") "a" und "b" mehr als "a b" (ein Leerzeichen zwischen "a" und "b").
+    Zum Beispiel trennt der String „a&nbsp;&nbsp;&nbsp;b“ (drei Leerzeichen zwischen „a“ und „b“) „a“ und „b“ mehr als „a b“ (ein Leerzeichen zwischen „a“ und „b“).
 
 ## Beispiele
 

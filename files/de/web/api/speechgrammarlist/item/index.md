@@ -3,14 +3,12 @@ title: "SpeechGrammarList: item() Methode"
 short-title: item()
 slug: Web/API/SpeechGrammarList/item
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Speech API")}}{{deprecated_header}}
+{{APIRef("Web Speech API")}}
 
-Der **`item`** Getter des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)
-Interfaces ist ein standardmäßiger Getter — er erlaubt es, einzelne [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)
-Objekte aus der `SpeechGrammarList` mithilfe der Array-Syntax abzurufen.
+Der **`item`** Getter der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) Schnittstelle ist ein Standard-Getter – er ermöglicht, einzelne [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Objekte aus der `SpeechGrammarList` mithilfe der Array-Syntax zu erhalten.
 
 ## Syntax
 

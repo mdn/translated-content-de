@@ -2,15 +2,13 @@
 title: unescape()
 slug: Web/JavaScript/Reference/Global_Objects/unescape
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
 > [!NOTE]
-> `unescape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wurde und nur zur Sicherstellung der Kompatibilität zwischen verschiedenen Engines standardisiert wurde. Es wird nicht vorausgesetzt, dass sie von allen JavaScript-Engines implementiert wird, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("decodeURIComponent()")}} oder {{jsxref("decodeURI()")}}.
+> `unescape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wurde und nur zur Gewährleistung der Kompatibilität zwischen verschiedenen Engines standardisiert wurde. Es ist nicht erforderlich, dass alle JavaScript-Engines implementiert sind, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("decodeURIComponent()")}} oder {{jsxref("decodeURI()")}}.
 
-Die **`unescape()`** Funktion erzeugt einen neuen String, in dem hexadezimale Escape-Sequenzen durch die Zeichen ersetzt werden, die sie repräsentieren. Die Escape-Sequenzen könnten durch eine Funktion wie {{jsxref("escape()")}} eingeführt worden sein.
+Die **`unescape()`**-Funktion erstellt einen neuen Zeichenfolgenwert, in dem hexadezimale Escape-Sequenzen durch die Zeichen ersetzt werden, die sie repräsentieren. Die Escape-Sequenzen könnten durch eine Funktion wie {{jsxref("escape()")}} eingeführt worden sein.
 
 ## Syntax
 
@@ -21,20 +19,20 @@ unescape(str)
 ### Parameter
 
 - `str`
-  - : Ein zu dekodierender String.
+  - : Eine Zeichenfolge, die decodiert werden soll.
 
 ### Rückgabewert
 
-Ein neuer String, in dem bestimmte Zeichen unescaped wurden.
+Eine neue Zeichenfolge, in der bestimmte Zeichen unescaped worden sind.
 
 ## Beschreibung
 
 `unescape()` ist eine Funktionseigenschaft des globalen Objekts.
 
-Die `unescape()` Funktion ersetzt jede Escape-Sequenz durch das Zeichen, das sie repräsentiert. Sie ersetzt speziell jede Escape-Sequenz der Form `%XX` oder `%uXXXX` (wobei `X` eine hexadezimale Ziffer darstellt) durch das Zeichen, das den hexadezimalen Wert `XX`/`XXXX` hat. Wenn die Escape-Sequenz keine gültige Escape-Sequenz ist (zum Beispiel, wenn `%` von einer oder keiner Hex-Ziffer gefolgt wird), bleibt sie unverändert.
+Die `unescape()`-Funktion ersetzt jede Escape-Sequenz durch das Zeichen, das sie repräsentiert. Genauer gesagt ersetzt sie jede Escape-Sequenz der Form `%XX` oder `%uXXXX` (wobei `X` eine hexadezimale Ziffer darstellt) durch das Zeichen mit dem hexadezimalen Wert `XX`/`XXXX`. Wenn die Escape-Sequenz keine gültige Escape-Sequenz ist (beispielsweise, wenn `%` von einer oder keiner Hexadezimalziffer gefolgt wird), bleibt sie unverändert.
 
 > [!NOTE]
-> Diese Funktion wurde hauptsächlich für das {{Glossary("Percent-encoding", "Prozent-Codierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die `unescape()` Funktion wertet _keine_ [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um einen String zu erhalten, der von `unescape()` verarbeitet werden kann.
+> Diese Funktion wurde hauptsächlich für die {{Glossary("Percent-encoding", "Prozentcodierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die `unescape()`-Funktion wertet _nicht_ [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in Zeichenfolgenliteral aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um eine Zeichenfolge zu erhalten, die von `unescape()` behandelt werden kann.
 
 ## Beispiele
 

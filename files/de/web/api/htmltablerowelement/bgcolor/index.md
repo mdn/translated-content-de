@@ -3,10 +3,10 @@ title: "HTMLTableRowElement: bgColor-Eigenschaft"
 short-title: bgColor
 slug: Web/API/HTMLTableRowElement/bgColor
 l10n:
-  sourceCommit: 21fddb9643fae34dce16aec8eb5dd86cc29e0b7c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
 Die **`HTMLTableRowElement.bgColor`**-Eigenschaft wird verwendet, um die Hintergrundfarbe einer Zeile festzulegen oder den Wert des veralteten [`bgColor`](/de/docs/Web/HTML/Reference/Elements/tr#bgcolor)-Attributs abzurufen, falls vorhanden.
 
@@ -17,15 +17,15 @@ Die **`HTMLTableRowElement.bgColor`**-Eigenschaft wird verwendet, um die Hinterg
 
 Es können folgende Wertetypen verwendet werden:
 
-- ein benannter Farbwert, wie `red` oder `blue`
-- ein Hexadezimal-Code, wie `#0000dd`
+- ein benannter Farbname, wie `red` oder `blue`
+- ein Hexadezimalcode, wie `#0000dd`
 
 > [!NOTE]
-> Die hier akzeptierten Werte sind eine Teilmenge der CSS-Farbwerte. Sie können HTML-Farbwerte in CSS wiederverwenden, aber nicht in die andere Richtung: Unbekannte Farben würden anders erscheinen als erwartet.
+> Die hier akzeptierten Werte sind ein Teil der CSS-Farbwerte. Sie können HTML-Farbwerte in CSS wiederverwenden, aber nicht in umgekehrter Richtung: unbekannte Farben würden anders erscheinen als erwartet.
 
 ## Beispiele
 
-Verwenden Sie stattdessen CSS `background-color`. Ein [Beispiel](/de/docs/Web/CSS/Reference/Properties/background-color#colorized_tables) ist auf der {{cssxref("background-color")}}-Seite verfügbar.
+Verwenden Sie stattdessen die CSS-`background-color`. Ein [Beispiel](/de/docs/Web/CSS/Reference/Properties/background-color#colorized_tables) ist auf der {{cssxref("background-color")}}-Seite verfügbar.
 
 ## Spezifikationen
 

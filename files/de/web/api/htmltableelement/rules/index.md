@@ -3,25 +3,25 @@ title: "HTMLTableElement: rules-Eigenschaft"
 short-title: rules
 slug: Web/API/HTMLTableElement/rules
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellgrenzen in der Tabelle gerendert werden sollen.
+Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellränder in der Tabelle gerendert werden sollen.
 
 ## Wert
 
-Einer der folgenden:
+Einer der folgenden Werte:
 
 - `none`
   - : Keine Regeln
 - `groups`
   - : Linien nur zwischen Gruppen
 - `rows`
-  - : Linien zwischen den Zeilen
+  - : Linien zwischen Zeilen
 - `cols`
-  - : Linien zwischen den Spalten
+  - : Linien zwischen Spalten
 - `all`
   - : Linien zwischen allen Zellen
 

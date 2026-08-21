@@ -3,14 +3,14 @@ title: "`-moz-user-focus` CSS property"
 short-title: -moz-user-focus
 slug: Web/CSS/Reference/Properties/-moz-user-focus
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{non-standard_header}}
+{{non-standard_header}}
 
-Die **`-moz-user-focus`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um anzugeben, ob ein Element den Fokus erhalten kann.
+Die **`-moz-user-focus`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um anzugeben, ob ein Element den Fokus haben kann.
 
-Wenn Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren, was bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tabulatorreihenfolge übersprungen wird. Der Standardwert ist `none`, was das Fokussieren auf das Element deaktiviert und den Fokus auf anderen Elementen entfernt, wenn versucht wird, das Element auszuwählen.
+Indem Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements deaktivieren, was bedeutet, dass der Benutzer das Element nicht aktivieren kann und das Element in der Tab-Reihenfolge übersprungen wird. Der Standardwert ist `none`, welches das Fokussieren auf das Element deaktiviert und den Fokus auf andere Elemente entfernt, falls versucht wird, das Element auszuwählen.
 
 ## Syntax
 
@@ -62,7 +62,7 @@ Wenn Sie den Wert auf `ignore` setzen, können Sie das Fokussieren des Elements 
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

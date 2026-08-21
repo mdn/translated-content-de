@@ -1,26 +1,25 @@
 ---
-title: "RTCDataChannel: reliable Eigenschaft"
+title: "RTCDataChannel: reliable-Eigenschaft"
 short-title: reliable
 slug: Web/API/RTCDataChannel/reliable
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("WebRTC")}}{{Non-standard_Header}}
 
 Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`reliable`** gibt an, ob der Datenkanal zuverlässig ist oder nicht.
 
 > [!WARNING]
-> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen [`RTCDataChannel.ordered`](/de/docs/Web/API/RTCDataChannel/ordered) in neuem Code und aktualisieren Sie bestehenden Code so schnell wie möglich.
+> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen [`RTCDataChannel.ordered`](/de/docs/Web/API/RTCDataChannel/ordered) in neuem Code und aktualisieren Sie vorhandenen Code so schnell wie möglich.
 
 ## Wert
 
-`true`, wenn die Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuverlässig ist;
-`false`, wenn sie es nicht ist.
+`true`, wenn die Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuverlässig ist; `false`, wenn sie es nicht ist.
 
 ## Spezifikationen
 
-Nicht mehr Teil einer Spezifikation.
+Kein Bestandteil mehr einer Spezifikation.
 
 ## Browser-Kompatibilität
 

@@ -3,29 +3,29 @@ title: Sec-Browsing-Topics header
 short-title: Sec-Browsing-Topics
 slug: Web/HTTP/Reference/Headers/Sec-Browsing-Topics
 l10n:
-  sourceCommit: c807b72777506cd8aaa8d888b7a187dbc6079ca1
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{non-standard_header}}{{deprecated_header}}
+{{non-standard_header}}
 
 > [!WARNING]
-> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standpunkt der Standardisierungsorganisationen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
+> Diese Funktion wird derzeit von zwei Browseranbietern abgelehnt. Siehe den Abschnitt [Standards Positionen](/de/docs/Web/API/Topics_API#standards_positions) für Details zur Ablehnung.
 
 > [!NOTE]
-> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu nutzen.
+> Ein [Anmeldeprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu nutzen.
 
-Der HTTP-**`Sec-Browsing-Topics`**-{{Glossary("request_header", "Anfrage-Header")}} sendet die ausgewählten Themen für den aktuellen Benutzer zusammen mit der zugehörigen Anfrage, die von einer Werbetechnologie-Plattform genutzt werden, um eine personalisierte Werbung auszuwählen, die angezeigt werden soll.
+Der HTTP **`Sec-Browsing-Topics`** {{Glossary("request_header", "Anforderungs-Header")}} sendet die ausgewählten Themen des aktuellen Nutzers zusammen mit der zugehörigen Anforderung. Diese werden von einer Werbetechnologie-Plattform verwendet, um eine personalisierte Werbung auszuwählen, die angezeigt werden soll.
 
-Wenn die aufrufende Seite die Topics-API nicht in einem erfolgreichen [Registrierungsprozess für die Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) beinhaltet, schlägt der Versuch, `Sec-Browsing-Topics` zu erstellen oder zu ändern, stillschweigend fehl, und ein vorhandener `Sec-Browsing-Topics`-Header wird gelöscht.
+Wenn die aufrufende Seite die Topics API nicht in einem erfolgreichen [Anmeldeprozess der Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) enthalten hat, schlägt ein Versuch zur Erstellung oder Änderung von `Sec-Browsing-Topics` stillschweigend fehl und ein vorhandener `Sec-Browsing-Topics`-Header wird gelöscht.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anfrage-Header")}}</td>
+      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
@@ -39,22 +39,22 @@ Sec-Browsing-Topics: <array-of-observed-topics>
 
 ## Direktiven
 
-Ein JSON-Objekt, das ein Array von bis zu drei Objekten darstellt, die die ausgewählten Themen des aktuellen Benutzers für die letzten drei Epochen repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein JSON-Objekt, das ein Array von bis zu drei Objekten darstellt, die die vom aktuellen Nutzer ausgewählten Themen für die letzten drei Epochen repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `configVersion`
-  - : Eine Zeichenfolge, die den Algorithmus identifiziert (mit Ausnahme des Modellteils), der zur Berechnung des Themas verwendet wird.
+  - : Ein String, der den Algorithmus (außer dem Modellteil) identifiziert, der zur Berechnung des Themas verwendet wird.
 - `modelVersion`
-  - : Eine Zeichenfolge, die das Modell darstellt, das verwendet wird, um eine Zeichenfolge (wie den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
+  - : Ein String, der das Modell repräsentiert, das verwendet wird, um einen String (wie zum Beispiel den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
 - `taxonomyVersion`
-  - : Eine Zeichenfolge, die die verwendete Taxonomieversion darstellt.
+  - : Ein String, der die verwendete Taxonomieversion darstellt.
 - `topic`
-  - : Eine Zahl, die die ID des Themas darstellt, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel für eine [Interessen-Taxonomie](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
+  - : Eine Zahl, die die ID des Themas darstellt, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel für die [Taxonomie von Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
 - `version`
-  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, verkettet mit Doppelpunkten (`:`) zwischen jedem.
+  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, mit Doppelpunkten (`:`) zwischen jeweils.
 
 ## Beispiele
 
-Die genauen Eigenschaftenwerte können je nach Browser-Implementierung variieren. Ein Beispiel-Header von Chrome könnte wie folgt aussehen:
+Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren. Ein Beispiel-Header aus Chrome könnte folgendermaßen aussehen:
 
 ```http
 Sec-Browsing-Topics: [{configVersion: "chrome.1", modelVersion: "1", taxonomyVersion: "1", topic: 43, version: "chrome.1:1:1"}]
@@ -62,7 +62,7 @@ Sec-Browsing-Topics: [{configVersion: "chrome.1", modelVersion: "1", taxonomyVer
 
 ## Spezifikationen
 
-Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [inoffiziellen Entwurfsvorschlag der Topics API](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Diese Funktion ist kein Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

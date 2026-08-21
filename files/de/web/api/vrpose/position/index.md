@@ -1,45 +1,45 @@
 ---
-title: "VRPose: Position-Eigenschaft"
+title: "VRPose: position-Eigenschaft"
 short-title: position
 slug: Web/API/VRPose/position
 l10n:
-  sourceCommit: ce094c10e0b71ff594e013d459b9c29110a6442a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("WebVR API")}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`position`**-Eigenschaft des [`VRPose`](/de/docs/Web/API/VRPose)-Interfaces gibt die Position des [`VRDisplay`](/de/docs/Web/API/VRDisplay) zum aktuellen Zeitstempel als 3D-Vektor zurück.
+Die **`position`** schreibgeschützte Eigenschaft des [`VRPose`](/de/docs/Web/API/VRPose)-Interfaces gibt die Position des [`VRDisplay`](/de/docs/Web/API/VRDisplay) zum aktuellen Zeitpunkt als 3D-Vektor zurück.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
 Das Koordinatensystem ist wie folgt:
 
-- Positives X ist zur rechten Seite des Nutzers.
-- Positives Y ist nach oben.
-- Positives Z ist hinter dem Nutzer.
+- Positive X zeigt nach rechts vom Benutzer.
+- Positive Y zeigt nach oben.
+- Positive Z zeigt hinter den Benutzer.
 
-Positionen werden in Metern von einem Ursprungspunkt gemessen — dieser Punkt ist entweder die Position, an der der Sensor zuerst gelesen wurde, oder die Position des Sensors, an der [`VRDisplay.resetPose()`](/de/docs/Web/API/VRDisplay/resetPose) zuletzt aufgerufen wurde.
+Positionen werden in Metern von einem Ursprungspunkt aus gemessen — dieser Punkt ist entweder die Position, bei der der Sensor zum ersten Mal gelesen wurde, oder die Position des Sensors zu dem Zeitpunkt, an dem [`VRDisplay.resetPose()`](/de/docs/Web/API/VRDisplay/resetPose) zuletzt aufgerufen wurde.
 
 > [!NOTE]
-> Standardmäßig werden alle Positionen als Sitzplatzposition angegeben. Die Transformation dieses Punktes mit [`VRStageParameters.sittingToStandingTransform`](/de/docs/Web/API/VRStageParameters/sittingToStandingTransform) — beispielsweise wenn Sie mit einem Raum-Display arbeiten — wandelt dies in eine stehende Position um.
+> Standardmäßig werden alle Positionen als Sitzplatzpositionen angegeben. Die Transformation dieses Punktes mit [`VRStageParameters.sittingToStandingTransform`](/de/docs/Web/API/VRStageParameters/sittingToStandingTransform) — wenn Sie beispielsweise mit einem Raumdisplay arbeiten — wandelt dies in eine stehende Platzposition um.
 
 ## Wert
 
 Ein {{jsxref("Float32Array")}}, oder null, wenn der VR-Sensor keine Positionsdaten bereitstellen kann.
 
 > [!NOTE]
-> User Agents können emulierte Positionswerte durch Techniken wie das Nackenmodell bereitstellen; wenn sie dies tun, sollten sie dennoch [`VRDisplayCapabilities.hasPosition`](/de/docs/Web/API/VRDisplayCapabilities/hasPosition) als false melden.
+> Benutzeragenten können emulierte Positionswerte durch Techniken wie Nackenmodellierung bereitstellen; dabei sollten sie dennoch [`VRDisplayCapabilities.hasPosition`](/de/docs/Web/API/VRDisplayCapabilities/hasPosition) als falsch melden.
 
 ## Beispiele
 
-Sehen Sie sich [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData#examples) für Beispielcode an.
+Siehe [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData#examples) für Beispielcode.
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

@@ -2,21 +2,19 @@
 title: glyph-orientation-vertical
 slug: Web/SVG/Reference/Attribute/glyph-orientation-vertical
 l10n:
-  sourceCommit: a516a9818e8cef06c626d436ee1d73fc6d87ec51
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das Attribut **`glyph-orientation-vertical`** beeinflusst den Betrag, um den die aktuelle Textposition voranschreitet, während jedes {{Glossary("glyph", "glyph")}} gerendert wird.
 
-Das **`glyph-orientation-vertical`** Attribut beeinflusst die Menge, um die die aktuelle Textposition voranschreitet, während jedes {{Glossary("glyph", "Glyph")}} gerendert wird.
-
-Wenn die Inline-Progressionsrichtung vertikal ist und `glyph-orientation-vertical` zu einem Orientierungswinkel führt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den vertikalen Metriken des Glyphs inkrementiert. Andernfalls, wenn der Winkel kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs inkrementiert.
+Wenn die inline-progression-direction vertikal ist und die `glyph-orientation-vertical` zu einem Orientierungswinkel führt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß der vertikalen Metriken des Glyphen inkrementiert. Andernfalls, wenn der Winkel kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß der horizontalen Metriken des Glyphen inkrementiert.
 
 Dieses Attribut wird nur auf Text angewendet, der in einem vertikalen {{SVGAttr("writing-mode")}} geschrieben ist.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `glyph-orientation-vertical` auch ein entsprechendes CSS-Property: {{cssxref("glyph-orientation-vertical")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `glyph-orientation-vertical` auch ein entsprechendes CSS-Property: {{cssxref("glyph-orientation-vertical")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 - {{SVGElement("text")}}
@@ -49,17 +47,18 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `auto`
-  - : Volle Breite ideografischer und Volle Breite lateinischer Text wird mit einer Glyphenorientierung von 0 Grad gesetzt. Ideografische Interpunktionen und andere ideografische Zeichen mit alternativen horizontalen und vertikalen Formen verwenden die vertikale Form des Glyphs. Text, der nicht von voller Breite ist, wird mit einer Glyphenorientierung von 90 Grad gesetzt.
+  - : Vollbreite ideografische und vollbreite lateinische Schriftarten werden mit einer Glyphen-Orientierung von 0 Grad gesetzt. Ideografische Satzzeichen und andere ideografische Zeichen mit alternativen horizontalen und vertikalen Formen verwenden die vertikale Form des Glyphen. Text, der nicht vollbreit ist, wird mit einer Glyphen-Orientierung von 90 Grad gesetzt.
 
-    Diese Neuorientierungsregel gilt nur für den erstemaligen nicht-ideografischen Text. Alle weiteren Einbettungen von Schreibmodi oder bidirektionaler Verarbeitung basieren auf der erstemaligen Rotation.
+    Diese Neuausrichtungsregel gilt nur für den ersten nicht-ideografischen Text. Alle weiteren Einbettungen von Schreibmodi oder bidirektionalen Verarbeitungen basieren auf der ersten Drehung.
 
     > [!NOTE]
-    > Text, der auf diese "gedrehte" Weise gesetzt ist, kann Ligaturen oder andere kombinierte und neu geordnete Glyphen enthalten, die für die Sprache und Schrift üblich sind. (Diese Präsentationsform deaktiviert nicht die automatische Ligaturenbildung oder ähnliche kontextgesteuerte Variationen.)
+    > Text, der auf diese "gedrehte" Weise gesetzt wird, kann Ligaturen oder andere Glyphen-Kombinationen und Umordnungen enthalten, die für die Sprache und Schrift typisch sind. (Diese Präsentationsform deaktiviert nicht die automatische Ligaturbildung oder ähnliche kontextgesteuerte Variationen.)
 
-    Die Bestimmung, welche Zeichen automatisch gedreht werden sollen, kann je nach Benutzeragent variieren. Die Bestimmung basiert auf einer komplexen Interaktion zwischen Land, Sprache, Schrift, Zeichenmerkmalen, Schriftart und Zeichenkontext.
+    Die Bestimmung, welche Zeichen automatisch gedreht werden sollen, kann je nach Nutzeragent variieren. Diese Bestimmung basiert auf einer komplexen Interaktion zwischen Land, Sprache, Schrift, Zeichen-Eigenschaften, Schriftart und Zeichenkontext.
 
 - `<angle>`
-  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächstgelegenen der erlaubten Werte gerundet. Ein Wert von `0deg` gibt an, dass alle Zeichen mit der Oberseite der Zeichen in Richtung der Referenzorientierung gesetzt werden. Ein Wert von `90deg` gibt eine Orientierung von 90 Grad im Uhrzeigersinn von der Referenzorientierung an.
+  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächstgelegenen der zulässigen Werte gerundet.
+    Ein Wert von `0deg` zeigt an, dass alle Glyphen mit der Oberseite der Glyphen zur Referenzorientierung gesetzt werden. Ein Wert von `90deg` zeigt eine Orientierung von 90 Grad im Uhrzeigersinn von der Referenzorientierung an.
 
 ## Spezifikationen
 

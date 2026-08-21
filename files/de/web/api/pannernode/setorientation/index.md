@@ -3,17 +3,17 @@ title: "PannerNode: setOrientation()-Methode"
 short-title: setOrientation()
 slug: Web/API/PannerNode/setOrientation
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Audio API")}}{{Deprecated_Header}}
+{{APIRef("Web Audio API")}}
 
 > [!NOTE]
-> Der empfohlene Ersatz für diese veraltete Methode ist es, stattdessen die Attribute [`orientationX`](/de/docs/Web/API/PannerNode/orientationX), [`orientationY`](/de/docs/Web/API/PannerNode/orientationY) und [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ) direkt zu setzen.
+> Der empfohlene Ersatz für diese veraltete Methode besteht darin, stattdessen die Attribute [`orientationX`](/de/docs/Web/API/PannerNode/orientationX), [`orientationY`](/de/docs/Web/API/PannerNode/orientationY) und [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ) direkt zu setzen.
 
 Die `setOrientation()`-Methode der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle definiert die Richtung, in der die Audioquelle abgespielt wird.
 
-Dies kann einen großen Effekt haben, wenn der Klang sehr gerichtet ist – gesteuert durch die drei konusbezogenen Attribute [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) und [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain). In einem solchen Fall kann ein Klang, der vom Hörer weg zeigt, sehr leise oder sogar stumm sein.
+Dies kann eine große Wirkung haben, wenn der Klang sehr gerichtet ist - kontrolliert durch die drei konusbezogenen Attribute [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) und [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain). In einem solchen Fall kann ein Klang, der vom Zuhörer wegzeigt, sehr leise oder sogar stumm sein.
 
 Die drei Parameter `x`, `y` und `z` sind einheitslos und beschreiben einen Richtungsvektor im 3D-Raum unter Verwendung des rechtshändigen kartesischen Koordinatensystems. Der Standardwert des Richtungsvektors ist `(1, 0, 0)`.
 

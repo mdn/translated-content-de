@@ -3,15 +3,13 @@ title: "`page-break-inside` CSS property"
 short-title: page-break-inside
 slug: Web/CSS/Reference/Properties/page-break-inside
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
-
 > [!WARNING]
-> Diese Eigenschaft wurde durch die {{cssxref("break-inside")}}-Eigenschaft ersetzt.
+> Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-inside")}} ersetzt.
 
-Die **`page-break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _innerhalb_ des aktuellen Elements an.
+Die **`page-break-inside`** [CSS](/de/docs/Web/CSS)-Eigenschaft passt Seitenumbrüche _innerhalb_ des aktuellen Elements an.
 
 {{InteractiveExample("CSS Demo: page-break-inside")}}
 
@@ -84,18 +82,18 @@ page-break-inside: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `auto`
-  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Standardwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `avoid`
-  - : Vermeidet Seitenumbrüche innerhalb des Elements.
+  - : Vermeiden von Seitenumbrüchen innerhalb des Elements.
 
 ## Seitenumbruch-Aliase
 
-Die `page-break-inside`-Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
+Die `page-break-inside`-Eigenschaft ist jetzt eine veraltete Eigenschaft, ersetzt durch {{cssxref("break-inside")}}.
 
-Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt aliasisiert werden:
+Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |

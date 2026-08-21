@@ -3,12 +3,12 @@ title: "Window: clearImmediate() Methode"
 short-title: clearImmediate()
 slug: Web/API/Window/clearImmediate
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}} {{deprecated_header}}{{non-standard_header}}
+{{APIRef("HTML DOM")}} {{non-standard_header}}
 
-Diese Methode löscht die Aktion, die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) festgelegt wurde.
+Diese Methode beendet die Aktion, die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) spezifiziert wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ clearImmediate(immediateID)
 ### Parameter
 
 - `immediateID`
-  - : Die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) zurückgegebene ID.
+  - : Die ID, die von [`window.setImmediate`](/de/docs/Web/API/Window/setImmediate) zurückgegeben wird.
 
 ### Rückgabewert
 
@@ -39,8 +39,9 @@ document.getElementById("button").addEventListener(() => {
 
 ## Spezifikationen
 
-Nicht Teil aktueller Spezifikationen.
-An der [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) Spezifikation wird nicht mehr gearbeitet.
+Kein Teil der aktuellen Spezifikationen.
+An der [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate)
+Spezifikation wird nicht mehr gearbeitet.
 
 ## Browser-Kompatibilität
 

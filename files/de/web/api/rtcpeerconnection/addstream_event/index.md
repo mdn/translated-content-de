@@ -1,25 +1,25 @@
 ---
-title: "RTCPeerConnection: addstream Ereignis"
+title: "RTCPeerConnection: addstream-Ereignis"
 short-title: addstream
 slug: Web/API/RTCPeerConnection/addstream_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("WebRTC")}}{{Non-standard_Header}}
 
-Das veraltete **`addstream`** Ereignis wird an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn neue Medien in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream) Objekts hinzugefügt wurden.
+Das veraltete **`addstream`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn neue Medien in Form eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts hinzugefügt wurden.
 
 > [!WARNING]
-> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Stattdessen sollten Sie das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis überwachen, welches für jeden Medientrack gesendet wird, der zur `RTCPeerConnection` hinzugefügt wird.
+> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt. Stattdessen sollten Sie das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis beobachten, das für jede Medienspur gesendet wird, die zur `RTCPeerConnection` hinzugefügt wird.
 
-Sie können ähnlich überwachen, ob Streams von der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event) Ereignis beobachten.
+Sie können ähnlich beobachten, wann Streams aus der Verbindung entfernt werden, indem Sie das [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event)-Ereignis überwachen.
 
-Dieses Ereignis ist nicht abbruchfähig und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("addstream", (event) => { })
@@ -35,7 +35,7 @@ Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent). Erbt von [`Event`](
 
 ## Beispiele
 
-Dieses Beispiel prüft, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis unterstützt. Falls ja, wird ein `track` Ereignis-Listener eingerichtet; andernfalls wird ein `addstream` Ereignis-Listener eingerichtet. `pc` ist eine `RTCPeerConnection`.
+Dieses Beispiel prüft, ob der Browser des Benutzers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis unterstützt. Falls ja, wird ein `track`-Ereignis-Listener eingerichtet; andernfalls ein `addstream`-Ereignis-Listener. `pc` ist eine `RTCPeerConnection`.
 
 ```js
 if (pc.addTrack !== undefined) {
@@ -49,7 +49,7 @@ if (pc.addTrack !== undefined) {
 }
 ```
 
-Dies ruft die Funktion `doAddStream()` einmal für jeden Stream auf, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird, unabhängig davon, ob der Browser `addstream` oder `track` sendet.
+Diese Funktion ruft einmal für jeden Stream, der zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird, die Funktion `doAddStream()` auf, unabhängig davon, ob der Browser `addstream` oder `track` sendet.
 
 Sie können auch die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um einen Ereignis-Listener einzurichten:
 

@@ -3,21 +3,21 @@ title: "Element: beforescriptexecute-Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Element/beforescriptexecute_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{Non-standard_header}}{{deprecated_header}}
+{{APIRef("DOM")}}{{Non-standard_header}}
 
 > [!WARNING]
 > Dieses Ereignis war ein Vorschlag in einer frühen Version der Spezifikation. Verlassen Sie sich nicht darauf.
 
-Das **`beforescriptexecute`**-Ereignis wird ausgelöst, wenn ein Skript ausgeführt werden soll. Das Abbrechen des Ereignisses verhindert die Ausführung des Skripts.
+Das **`beforescriptexecute`**-Ereignis wird ausgelöst, wenn ein Skript kurz vor der Ausführung steht. Das Abbrechen des Ereignisses verhindert die Ausführung des Skripts.
 
 Es handelt sich um ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("beforescriptexecute", (event) => { })

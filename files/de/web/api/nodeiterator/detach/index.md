@@ -1,16 +1,16 @@
 ---
-title: "NodeIterator: detach()-Methode"
+title: "NodeIterator: detach() Methode"
 short-title: detach()
 slug: Web/API/NodeIterator/detach
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}
+{{APIRef("DOM")}}
 
-Die Methode **`NodeIterator.detach()`** ist eine Nicht-Operation, die nur aus Gründen der Rückwärtskompatibilität erhalten bleibt.
+Die **`NodeIterator.detach()`**-Methode ist eine No-op, die nur aus Gründen der Rückwärtskompatibilität beibehalten wurde.
 
-Ursprünglich hat sie den [`NodeIterator`](/de/docs/Web/API/NodeIterator) von der Menge getrennt, über die er iteriert, indem sie alle von der Menge genutzten Ressourcen freigegeben und den Zustand des Iterators auf `INVALID` gesetzt hat. Nachdem diese Methode aufgerufen wurde, hätten Aufrufe anderer Methoden auf `NodeIterator` die Ausnahme `INVALID_STATE_ERR` ausgelöst.
+Ursprünglich trennte sie den [`NodeIterator`](/de/docs/Web/API/NodeIterator) von der Menge, über die er iteriert, und gab dabei alle von der Menge verwendeten Ressourcen frei, indem sie den Zustand des Iterators auf `INVALID` setzte. Sobald diese Methode aufgerufen worden war, führten Aufrufe anderer Methoden auf `NodeIterator` zu der Ausnahme `INVALID_STATE_ERR`.
 
 ## Syntax
 
@@ -53,4 +53,4 @@ nodeIterator.nextNode(); // throws an INVALID_STATE_ERR exception
 
 ## Siehe auch
 
-- Das zugehörige Interface: [`NodeIterator`](/de/docs/Web/API/NodeIterator).
+- Die Schnittstelle, zu der sie gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

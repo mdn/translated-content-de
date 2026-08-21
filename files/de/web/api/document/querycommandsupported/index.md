@@ -1,17 +1,17 @@
 ---
-title: "Dokumentation: queryCommandSupported() Methode"
+title: "Dokumentation: queryCommandSupported()-Methode"
 short-title: queryCommandSupported()
 slug: Web/API/Document/queryCommandSupported
 l10n:
-  sourceCommit: 22cf84fc5704222a2e2e5ac67b95b02dcfea08ff
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
+{{ApiRef("DOM")}}{{Non-standard_header}}
 
 > [!NOTE]
-> Auch wenn die Methode [`execCommand()`](/de/docs/Web/API/Document/execCommand) veraltet ist, sollten Sie, falls Sie sich aus den auf dieser Seite genannten Gründen dafür entscheiden, in Betracht ziehen, die Verfügbarkeit des Befehls mit `queryCommandSupported()` zu überprüfen, um die Kompatibilität sicherzustellen.
+> Obwohl die [`execCommand()`](/de/docs/Web/API/Document/execCommand)-Methode veraltet ist, sollten Sie, wenn Sie sich aus den auf dieser Seite genannten Gründen dafür entscheiden, sie zu verwenden, über die Nutzung von `queryCommandSupported()` nachdenken, um die Verfügbarkeit des Befehls zu überprüfen und die Kompatibilität sicherzustellen.
 
-Die **`Document.queryCommandSupported()`**-Methode meldet, ob der angegebene Editor-Befehl vom Browser unterstützt wird oder nicht.
+Die **`Document.queryCommandSupported()`**-Methode gibt an, ob der angegebene Editorbefehl vom Browser unterstützt wird oder nicht.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ queryCommandSupported(command)
 ### Parameter
 
 - `command`
-  - : Der Befehl, für den die Unterstützung ermittelt werden soll.
+  - : Der Befehl, für den die Unterstützung bestimmt werden soll.
 
 ### Rückgabewert
 
 Gibt einen booleschen Wert zurück, der `true` ist, wenn der Befehl unterstützt wird, und `false`, wenn der Befehl nicht unterstützt wird.
 
-## Hinweise
+## Anmerkungen
 
-Der `'paste'`-Befehl gibt `false` zurück, nicht nur wenn die Funktion nicht verfügbar ist, sondern auch, wenn das Skript, das den Aufruf tätigt, nicht die erforderlichen Berechtigungen hat, um die Aktion auszuführen.
+Der `'paste'`-Befehl gibt `false` zurück, nicht nur, wenn die Funktion nicht verfügbar ist, sondern auch, wenn das aufrufende Skript nicht über ausreichende Berechtigungen verfügt, um die Aktion auszuführen.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ if (flg) {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr vorgesehen, dass es ein Standard wird. Es gibt einen inoffiziellen [W3C execCommand Spec-Entwurf](https://w3c.github.io/editing/docs/execCommand/).
+Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden. Es gibt einen inoffiziellen [W3C execCommand Spec Entwurf](https://w3c.github.io/editing/docs/execCommand/).
 
 ## Browser-Kompatibilität
 

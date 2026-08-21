@@ -3,12 +3,12 @@ title: "CSSPositionValue: x-Eigenschaft"
 short-title: x
 slug: Web/API/CSSPositionValue/x
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
+{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
-Die **`x`**-Eigenschaft der [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Schnittstelle gibt die Position des Elements entlang der horizontalen Achse der Webseite zurück.
+Die **`x`**-Eigenschaft des [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Interfaces gibt die Position des Elements entlang der horizontalen Achse der Webseite zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel positioniert ein Container-`<div>` 5 Pixel von oben und 10 Pixel von links der Seite entfernt.
+Im folgenden Beispiel wird ein Container-`<div>` 5 Pixel von oben und 10 Pixel von links der Seite positioniert.
 
 ```js
 let someDiv = document.getElementById("container");

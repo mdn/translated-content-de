@@ -1,21 +1,21 @@
 ---
-title: Direkte unsichere Objektreferenz (IDOR)
+title: Unsichere direkte Objektreferenz (IDOR)
 slug: Web/Security/Attacks/IDOR
 l10n:
-  sourceCommit: aa6c136a56b7861893376386fc572e9a505d39db
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-**Direkte unsichere Objektreferenz (IDOR)** ist eine Sicherheitslücke, die es einem Angreifer ermöglicht, unzureichende Zugriffskontrolle und unsichere Offenlegung von Objekt-Identifikatoren, wie Datenbankschlüssel oder Dateipfade, auszunutzen.
+**Unsichere direkte Objektreferenz (IDOR)** ist eine Schwachstelle, die es einem Angreifer ermöglicht, unzureichende Zugangskontrollen und unsichere Exposition von Objektidentifikatoren, wie Datenbankschlüssel oder Dateipfade, auszunutzen.
 
-Websites möchten oft unterschiedlichen Benutzern verschiedene Inhalte anzeigen: Beispielsweise könnte eine Shopping-Website es jedem Benutzer ermöglichen, seinen Kaufverlauf anzusehen. Websites können Benutzer {{Glossary("Authentication", "authentifizieren")}}, indem sie eine Methode wie ein Passwort oder einen Sicherheitsschlüssel verwenden. Oftmals, nachdem eine Website einen Benutzer authentifiziert hat, wird ein Sitzungscookie im Browser dieses Benutzers gesetzt: Dann, wenn der Benutzer eine Anfrage stellt, weiß der Server, dass die Anfrage von diesem authentifizierten Benutzer stammt.
+Websites möchten oft unterschiedlichen Benutzern unterschiedliche Inhalte bereitstellen: Ein Shopping-Website könnte beispielsweise jedem Benutzer ermöglichen, seine Kaufhistorie einzusehen. Websites können Benutzer durch {{Glossary("Authentication", "Authentifizierung")}} identifizieren, indem sie eine Methode wie ein Passwort oder einen Zugangsschlüssel verwenden. Oftmals wird, sobald eine Website einen Benutzer authentifiziert hat, ein Session-Cookie im Browser dieses Benutzers gesetzt: Wenn der Benutzer dann eine Anfrage stellt, weiß der Server, dass die Anfrage von diesem authentifizierten Benutzer stammt.
 
-Allerdings muss der Server nicht nur überprüfen, dass die Anfrage von einem authentifizierten Benutzer stammt, sondern auch eine Zugriffskontrolle für die angeforderten Ressourcen implementieren: Das heißt, sie müssen überprüfen, ob dieser Benutzer berechtigt ist, auf die angeforderte Ressource zuzugreifen. Zum Beispiel darf jeder authentifizierte Benutzer nur seine eigenen Kaufverläufe sehen.
+Zusätzlich zu der Überprüfung, dass die Anfrage von einem authentifizierten Benutzer stammt, muss der Server jedoch Zugriffskontrollen für die angeforderten Ressourcen implementieren: Das bedeutet, er muss überprüfen, ob der Benutzer berechtigt ist, auf die angeforderte spezifische Ressource zuzugreifen. Beispielsweise darf jedem authentifizierten Benutzer nur gestattet werden, seine eigene Kaufhistorie zu sehen.
 
-Wenn ein Server keine Zugriffskontrolle für Ressourcen implementiert, dann kann ein Angreifer, der auf der Seite angemeldet ist, möglicherweise auf die Ressourcen eines anderen Benutzers zugreifen. Dies wird als direkte unsichere Objektreferenz (IDOR)-Angriff bezeichnet.
+Wenn ein Server keine Zugriffskontrolle für Ressourcen implementiert, könnte ein Angreifer, der auf der Website angemeldet ist, möglicherweise auf die Ressourcen eines anderen Benutzers zugreifen. Dies wird als ein Angriff auf eine unsichere direkte Objektreferenz (IDOR) bezeichnet.
 
-## Beispiel Szenarien
+## Beispiel-Szenarien
 
-Der klassische IDOR-Angriff tritt auf, wenn der Server nur überprüft, ob der Benutzer authentifiziert ist, nicht jedoch, ob er autorisiert ist, auf eine Objektreferenz zuzugreifen. In einem typischen Ablauf:
+Der klassische IDOR-Angriff tritt auf, wenn der Server nur überprüft, dass der Benutzer authentifiziert ist, aber nicht, ob er berechtigt ist, auf eine Objektreferenz zuzugreifen. In einem typischen Ablauf:
 
 1. Meldet sich der Angreifer als normaler Benutzer an.
 2. Findet eine URL, ein Formularfeld oder eine Datei, die auf eine Benutzer- oder Ressourcen-ID verweist (z. B. 1234).
@@ -24,9 +24,9 @@ Der klassische IDOR-Angriff tritt auf, wenn der Server nur überprüft, ob der B
 
 In den folgenden Abschnitten werden wir einige konkrete Beispiele für diesen Angriff untersuchen.
 
-### Manipulation der URL
+### URL-Manipulation
 
-Ein häufiger Typ von IDOR-Angriff betrifft die Manipulation von direkten Objektreferenzen in der URL. Die "1234" in den folgenden URLs ist ein Identifikator für den Datensatz des Benutzers in der Datenbank des Servers. Wenn ein Angreifer diese Zahl in eine andere Zahl (zum Beispiel "1235") ändert und auf die Informationen eines anderen Benutzers zugreift, ist Ihre Anwendung anfällig für direkte unsichere Objektreferenz.
+Ein häufiger Typ von IDOR-Angriff umfasst die Manipulation von direkten Objektreferenzen in der URL. Die "1234" in den folgenden URLs ist ein Identifikator für den Datensatz des Benutzers in der Datenbank des Servers. Wenn ein Angreifer diese Nummer in eine andere Nummer (zum Beispiel "1235") ändert und Zugriff auf die Informationen eines anderen Benutzers erhält, ist Ihre Anwendung anfällig für unsichere direkte Objektreferenz.
 
 ```http
 # The attacker is logged in as user 1234
@@ -36,7 +36,7 @@ https://example.org/user/id/1234
 https://example.org/user/id/1235
 ```
 
-Im folgenden [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)-Code steht der in der URL angegebene Wert als `req.params.id` zur Verfügung, und wir verwenden diesen Wert, um den entsprechenden Datensatz in der Datenbank abzurufen. Wir überprüfen auch, ob die Anfrage von einem authentifizierten Benutzer stammt, indem wir die `isAuthenticated`-Funktion aufrufen. Kritisch ist jedoch, dass wir nicht überprüfen, ob die ID des authentifizierten Benutzers mit der ID in der URL übereinstimmt, und dies ermöglicht einem authentifizierten Benutzer (dem Angreifer), eine Seite für einen anderen authentifizierten Benutzer (das Opfer) abzurufen.
+Im folgenden [Express](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)-Code ist der im URL angegebene Wert als `req.params.id` verfügbar, und wir verwenden diesen Wert, um den entsprechenden Datensatz in der Datenbank abzurufen. Wir überprüfen auch, dass die Anfrage von einem authentifizierten Benutzer stammt, indem wir die Funktion `isAuthenticated` aufrufen. Kritisch ist jedoch, dass wir nicht überprüfen, ob die ID des authentifizierten Benutzers mit der ID in der URL übereinstimmt, und dies ermöglicht es einem authentifizierten Benutzer (dem Angreifer), eine Seite für einen anderen authentifizierten Benutzer (das Opfer) zu erhalten.
 
 ```js example-bad
 app.get("/user/id/:id", (req, res) => {
@@ -48,7 +48,7 @@ app.get("/user/id/:id", (req, res) => {
 });
 ```
 
-Stattdessen sollten Sie Regeln implementieren, um den Zugriff auf Benutzerinformationen zu autorisieren. Zum Beispiel sollte die Benutzerseite nur gerendert werden, wenn die ID des angemeldeten Benutzers mit der angeforderten Benutzer-ID übereinstimmt. Andernfalls geben Sie eine HTTP {{HTTPStatus("401")}} `Unauthorized`-Antwort zurück.
+Stattdessen sollten Sie Regeln implementieren, um den Zugang zu Benutzerinformationen zu autorisieren. Beispielsweise sollte die Benutzerseite nur gerendert werden, wenn die angemeldete Benutzer-ID mit der angeforderten Benutzer-ID übereinstimmt. Andernfalls sollte eine HTTP {{HTTPStatus("401")}} `Unauthorized`-Antwort zurückgegeben werden.
 
 ```js
 app.get("/user/id/:id", (req, res) => {
@@ -63,8 +63,7 @@ app.get("/user/id/:id", (req, res) => {
 
 ### Dokumentenmanipulation
 
-Ähnlich wie bei der URL-Manipulation kann der Dokumenteninhalt einer Seite von einem Angreifer durch das Ändern von Werten von {{HTMLElement("form")}}-Elementen, wie Radiobuttons, Kontrollkästchen oder (versteckten) {{HTMLElement("input")}}-Elementen in den Entwicklertools des Browsers, manipuliert werden.
-Zum Beispiel überträgt Ihre Anwendung möglicherweise die Benutzer-ID nicht in der URL, sondern übergibt die Benutzer-ID in einem versteckten Formularelement:
+Ähnlich wie bei der URL-Manipulation kann der Dokumentenkörper einer Seite von einem Angreifer manipuliert werden, indem Werte von {{HTMLElement("form")}}-Elementen, wie Optionsfeldern, Kontrollkästchen oder (versteckten) {{HTMLElement("input")}}-Elementen in den Entwicklertools des Browsers geändert werden. Beispielsweise stellt Ihre Anwendung vielleicht die Benutzer-ID nicht in der URL bereit, überträgt die Benutzer-ID jedoch stattdessen in einem versteckten Formularelement:
 
 ```html
 <form action="updateUser" method="POST">
@@ -73,32 +72,32 @@ Zum Beispiel überträgt Ihre Anwendung möglicherweise die Benutzer-ID nicht in
 </form>
 ```
 
-Wenn keine serverseitige Zugriffskontrolle durchgeführt wird, kann der Angreifer den `user_id`-Wert im versteckten `<input>`-Element auf eine andere Benutzer-ID ändern und möglicherweise das Profil ohne Autorisierung ändern.
+Wenn keine serverseitige Zugriffskontrolle durchgeführt wird, kann der Angreifer den `user_id`-Wert im versteckten `<input>`-Element in eine andere Benutzer-ID ändern und möglicherweise das Profil ohne Autorisierung modifizieren.
 
-### Dateizugriff
+### Datei-Zugriff
 
-Ein Spezialfall von IDOR-Angriffen ist der Zugriff auf Dateien oder Verzeichnisse, die nicht durch Zugriffskontrollen geschützt sind. Wenn Sie zum Beispiel einen Ordner für PDF-Dateiuploads bereitstellen und die Uploads fortlaufend benannt werden, kann ein Angreifer die Dateinamen erraten und sie alle herunterladen, wenn keine Zugriffskontrolle vorhanden ist. Potenziell können auch andere Dateien in ungeschützten Verzeichnissen, wie Serverkonfigurationsdateien, abgerufen werden, was zu zusätzlichen Schwachstellen führen könnte.
+Ein spezieller Fall von IDOR-Angriffen ist der Zugriff auf Dateien oder Verzeichnisse, die nicht durch Zugriffskontrollen geschützt sind. Wenn Sie zum Beispiel einen Ordner für den Upload von PDF-Dateien bereitstellen und die Uploads fortlaufend benannt werden, kann ein Angreifer die Dateinamen erraten und alle herunterladen, wenn keine Zugriffskontrolle vorhanden ist. Potenziell können auch andere Dateien in ungeschützten Verzeichnissen wie Server-Konfigurationsdateien erlangt werden, was zu zusätzlichen Schwachstellen führen kann.
 
 ```http
 https://example.org/static/pdfs/1.pdf
 https://example.org/static/pdfs/2.pdf
 ```
 
-## Abwehrmaßnahmen gegen IDOR
+## Verteidigungen gegen IDOR
 
 ### Zugriffskontrolle für jedes Objekt
 
-Die wichtigste Maßnahme gegen IDOR-Angriffe ist die Implementierung von serverseitigen Zugriffskontrollen für jedes Objekt, auf das Benutzer zugreifen möchten. Vergewissern Sie sich stets, dass der authentifizierte Benutzer das Recht hat, auf das angezielte Objekt zuzugreifen oder Handlungen darauf auszuführen.
+Die wichtigste Maßnahme zur Verhinderung von IDOR-Angriffen ist die Implementierung von serverseitigen Zugriffskontrollprüfungen für jedes Objekt, auf das Benutzer zuzugreifen versuchen. Verifizieren Sie immer, dass der authentifizierte Benutzer das Recht hat, auf das angezielte Objekt zuzugreifen oder Aktionen daran durchzuführen.
 
 ### Komplexität der Identifikatoren
 
-Stellen Sie sicher, dass Identifikatoren für Ressourcen nicht von einem Angreifer erraten werden können. Geben Sie keine persönlich identifizierbaren Informationen (PII) wie Benutzernamen oder E-Mail-Adressen in der URL preis. Verwenden Sie stattdessen ein eindeutiges, nicht erratbares Token, um den Benutzer zu repräsentieren. Sie können komplexere IDs als Primärschlüssel verwenden, wie {{Glossary("UUID", "UUIDs")}}, und es erschweren, gültige Werte zu erraten. Dies verringert jedoch nur die Wahrscheinlichkeit, gültige IDs zu erraten, und ersetzt nicht die Notwendigkeit einer ordnungsgemäßen Zugriffskontrolle.
+Stellen Sie sicher, dass Identifikatoren für Ressourcen nicht von einem Angreifer erraten werden können. Vermeiden Sie es, persönlich identifizierbare Informationen (PII) wie Benutzernamen oder E-Mail-Adressen in der URL offenzulegen. Verwenden Sie stattdessen ein einzigartiges, nicht erratbares Token zur Identifizierung des Benutzers. Sie können komplexere IDs als Primärschlüssel verwenden, wie {{Glossary("UUID", "UUIDs")}}, und es schwieriger machen, gültige Werte zu erraten. Dies reduziert jedoch nur die Wahrscheinlichkeit, gültige IDs zu erraten, ersetzt jedoch nicht die Notwendigkeit einer ordnungsgemäßen Zugriffskontrolle.
 
-## Zusammenfassung der Abwehrmaßnahmen
+## Verteidigungsscheckliste
 
-- Verifizieren Sie immer, dass der authentifizierte Benutzer autorisiert ist, auf das Objekt zuzugreifen oder es zu verändern.
-- Vermeiden Sie, vorhersehbare, fortlaufende oder sensible Objekt-Identifikatoren (wie Benutzer-IDs oder E-Mail-Adressen) preiszugeben.
-- Verwenden Sie komplexere IDs, die schwerer vorhersehbar sind (zum Beispiel UUIDs).
+- Verifizieren Sie immer, dass der authentifizierte Benutzer berechtigt ist, auf das Objekt zuzugreifen oder es zu modifizieren.
+- Vermeiden Sie die Offenlegung von vorhersehbaren, sequentiellen oder sensiblen Objektidentifikatoren (wie Benutzer-IDs oder E-Mail-Adressen).
+- Verwenden Sie komplexere IDs, die schwerer vorherzusagen sind (zum Beispiel UUIDs).
 
 ## Siehe auch
 

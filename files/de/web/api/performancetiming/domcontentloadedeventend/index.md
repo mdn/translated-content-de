@@ -3,18 +3,15 @@ title: "PerformanceTiming: domContentLoadedEventEnd-Eigenschaft"
 short-title: domContentLoadedEventEnd
 slug: Web/API/PerformanceTiming/domContentLoadedEventEnd
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Specification](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte nutzen Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.domContentLoadedEventEnd`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment darstellt,
-in Millisekunden seit dem UNIX-Epoch, direkt nachdem alle Skripte, die so schnell wie möglich ausgeführt werden müssen, unabhängig von der Reihenfolge, ausgeführt wurden.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.domContentLoadedEventEnd`** gibt einen `unsigned long long` zurück, der den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, unmittelbar nachdem alle Skripte, die so schnell wie möglich ausgeführt werden müssen, ausgeführt wurden, unabhängig von der Reihenfolge.
 
 ## Wert
 

@@ -3,12 +3,12 @@ title: "VideoPlaybackQuality: totalFrameDelay-Eigenschaft"
 short-title: totalFrameDelay
 slug: Web/API/VideoPlaybackQuality/totalFrameDelay
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Media Source Extensions")}}{{deprecated_header}}{{Non-standard_header}}
+{{APIRef("Media Source Extensions")}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`VideoPlaybackQuality.totalFrameDelay`** gibt ein `double` zurück, das die Summe der Bildverzögerung seit der Erstellung des zugehörigen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält. Die Bildverzögerung ist die Differenz zwischen der theoretischen Präsentationszeit eines Bildes und seiner tatsächlichen Anzeigedauer.
+Die schreibgeschützte Eigenschaft **`VideoPlaybackQuality.totalFrameDelay`** liefert ein `double`, das die Summe der Frame-Verzögerungen seit der Erstellung des zugehörigen [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) enthält. Die Frame-Verzögerung ist der Unterschied zwischen der theoretischen Präsentationszeit eines Frames und seiner effektiven Anzeigezeit.
 
 ## Wert
 
@@ -29,6 +29,6 @@ alert(quality.totalFrameDelay);
 
 ## Siehe auch
 
-- Die [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)-Methode zum Erstellen und Zurückgeben dieses Interfaces.
+- Die Methode [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) zum Erstellen und Zurückgeben dieses Interfaces.
 - [`MediaSource`](/de/docs/Web/API/MediaSource)
 - [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)

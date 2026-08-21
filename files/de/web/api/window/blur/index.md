@@ -1,19 +1,17 @@
 ---
-title: "Window: blur() Methode"
+title: "Window: blur()-Methode"
 short-title: blur()
 slug: Web/API/Window/blur
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`Window.blur()`** Methode macht nichts.
+Die **`Window.blur()`**-Methode tut nichts.
 
 > [!NOTE]
-> Historisch gesehen war diese Methode das programmatische Äquivalent zum Verschieben des Fokus von
-> dem aktuellen Fenster durch den Benutzer. Dieses Verhalten wurde entfernt, da feindliche Websites diese Funktionalität missbrauchten.
-> In Firefox können Sie das alte Verhalten mit der `dom.disable_window_flip` Präferenz aktivieren.
+> Historisch gesehen war diese Methode das programmgesteuerte Äquivalent dazu, dass der Benutzer den Fokus von dem aktuellen Fenster weg verschiebt. Dieses Verhalten wurde entfernt, da feindliche Webseiten diese Funktionalität missbrauchten. In Firefox können Sie das alte Verhalten mit der `dom.disable_window_flip`-Einstellung aktivieren.
 
 ## Syntax
 

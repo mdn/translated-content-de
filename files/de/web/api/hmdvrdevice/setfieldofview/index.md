@@ -3,10 +3,10 @@ title: "HMDVRDevice: setFieldOfView()-Methode"
 short-title: setFieldOfView()
 slug: Web/API/HMDVRDevice/setFieldOfView
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("WebVR API")}}{{Non-standard_header}}
+{{APIRef("WebVR API")}}{{Non-standard_header}}
 
 Die **`setFieldOfView()`**-Methode des [`HMDVRDevice`](/de/docs/Web/API/HMDVRDevice)-Interfaces kann verwendet werden, um das Sichtfeld für ein Auge oder beide Augen gleichzeitig einzustellen.
 
@@ -23,9 +23,9 @@ setFieldOfView(leftFOV, rightFOV, zNear, zFar)
 - `rightFOV` {{optional_inline}}
   - : Ein [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView)-Objekt, das das neue Sichtfeld für das rechte Auge definiert. Wenn nicht angegeben, ändert sich das Sichtfeld des rechten Auges nicht.
 - `zNear` {{optional_inline}}
-  - : Die Entfernung von den Augen zum nächsten Punkt des Sichtfeldes. Die nächste Entfernung, bei der Objekte noch sichtbar sind. Wenn nicht angegeben, wird der Standardwert verwendet — `0.01`.
+  - : Die Entfernung vom nächsten Punkt der Ansicht zu den Augen. Der nächste Punkt, der gesehen werden kann und der noch im Sichtfeld ist. Wenn nicht angegeben, wird der Standardwert verwendet — `0.01`.
 - `zFar` {{optional_inline}}
-  - : Die Entfernung von den Augen zum entferntesten Punkt des Sichtfeldes. Die weiteste Entfernung, bei der Objekte noch sichtbar sind. Wenn nicht angegeben, wird der Standardwert verwendet — `10000.0`.
+  - : Die Entfernung vom weitesten Punkt der Ansicht zu den Augen. Der entfernteste Punkt, der noch im Sichtfeld ist. Wenn nicht angegeben, wird der Standardwert verwendet — `10000.0`.
 
 ### Rückgabewert
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende einfache Beispiel zeigt eine Funktion, die verwendet werden kann, um ein benutzerdefiniertes Sichtfeld mit vier angegebenen Gradwerten für oben, rechts, unten und links einzustellen. Der `VRFieldOfView()`-Konstruktor wird verwendet, um ein [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView)-Objekt aus den angegebenen Werten zu erstellen, das dann in die `setFieldOfView()`-Methode eingefügt wird (die Standardwerte für `zNear` und `zFar` werden in diesem Fall immer verwendet).
+Das folgende einfache Beispiel zeigt eine Funktion, die verwendet werden kann, um ein benutzerdefiniertes Sichtfeld mit vier angegebenen Gradwerten für oben, rechts, unten und links einzustellen. Der `VRFieldOfView()`-Konstruktor wird verwendet, um ein [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView)-Objekt aus den bereitgestellten Werten zu erstellen, das dann in die `setFieldOfView()`-Methode eingespeist wird (die Standardwerte für `zNear` und `zFar` werden in diesem Fall immer verwendet).
 
 ```js
 function setCustomFOV(up, right, down, left) {
@@ -49,7 +49,7 @@ function setCustomFOV(up, right, down, left) {
 ```
 
 > [!NOTE]
-> Beim Testen kann das Einstellen eines seltsamen/kleinen Sichtfeldes das Sichtfeld erheblich beeinträchtigen. Es ist eine gute Idee, zunächst das aktuelle Sichtfeld zu erfassen (unter Verwendung von [`VREyeParameters.fieldOfView`](/de/docs/Web/API/VREyeParameters/fieldOfView)), bevor drastische Änderungen vorgenommen werden, damit es bei Bedarf später zurückgesetzt werden kann.
+> Beim Testen kann das Einstellen eines merkwürdigen/kleinen Sichtfelds wirklich Ihre Sicht durcheinander bringen. Es ist eine gute Idee, das aktuelle Sichtfeld zuerst abzurufen (durch Verwendung von [`VREyeParameters.fieldOfView`](/de/docs/Web/API/VREyeParameters/fieldOfView)), bevor Sie drastische Änderungen vornehmen, damit Sie es bei Bedarf zurücksetzen können.
 
 ## Browser-Kompatibilität
 

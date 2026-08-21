@@ -1,23 +1,23 @@
 ---
-title: "Dokument: browsingTopics() Methode"
+title: "Dokument: browsingTopics()-Methode"
 short-title: browsingTopics()
 slug: Web/API/Document/browsingTopics
 l10n:
-  sourceCommit: c807b72777506cd8aaa8d888b7a187dbc6079ca1
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Topics API")}}{{non-standard_header}}{{deprecated_header}}
+{{APIRef("Topics API")}}{{non-standard_header}}
 
 > [!WARNING]
-> Diese Funktion wird derzeit von zwei Browser-Anbietern abgelehnt. Details zur Ablehnung finden Sie im Abschnitt [Standards positionen](/de/docs/Web/API/Topics_API#standards_positions) unten.
+> Dieses Feature wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standards-Positionen](/de/docs/Web/API/Topics_API#standards_positions) unten für Details zur Ablehnung.
 
 > [!NOTE]
-> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) ist erforderlich, um diese Funktion in Ihren Anwendungen zu verwenden.
+> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) ist erforderlich, um dieses Feature in Ihren Anwendungen zu nutzen.
 
-Die `browsingTopics()`-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein Promise zurück, das mit einem Array von Objekten erfüllt wird, die die Top-Themen des Benutzers repräsentieren, eines aus jedem der letzten drei Zeitabschnitte. Diese Themen könnten dann bei einer nachfolgenden Fetch-Anfrage an die Werbetechnologie-Plattform zurückgegeben werden. Standardmäßig führt die Methode auch dazu, dass der Browser den aktuellen Seitenbesuch als vom Aufrufer beobachtet aufzeichnet, sodass der Hostname der Seite später in die Themenberechnung einbezogen werden kann.
+Die `browsingTopics()`-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Versprechen (`promise`) zurück, das mit einem Array von Objekten erfüllt wird, die die Top-Themen für den Benutzer darstellen, eines aus jedem der letzten drei Epochen. Diese Themen könnten dann in einer nachfolgenden Fetch-Anfrage an die Werbetechnologie-Plattform übermittelt werden. Standardmäßig führt die Methode auch dazu, dass der Browser den aktuellen Seitenbesuch als vom Aufrufer beobachtet protokolliert, sodass der Hostname der Seite später in der Themenberechnung verwendet werden kann.
 
 > [!NOTE]
-> `browsingTopics()` verlässt sich nicht auf HTTP-Header, um Themen zu senden und als beobachtet zu markieren, wie die anderen Funktionen, die die Topics API ermöglichen, ist jedoch etwas weniger leistungsfähig. Es wird empfohlen, eine der HTTP-Header-verwendenden Funktionen zu nutzen und nur dann auf `browsingTopics()` zurückzugreifen, wenn die Header nicht geändert werden können.
+> `browsingTopics()` stützt sich nicht auf HTTP-Header, um Themen zu senden und als beobachtet zu markieren, wie es die anderen Features zur Aktivierung der Topics API tun, ist aber etwas weniger performant. Es wird empfohlen, eines der auf HTTP-Header basierenden Features zu verwenden und `browsingTopics()` nur in Situationen einzusetzen, in denen die Header nicht geändert werden können.
 
 ## Syntax
 
@@ -31,22 +31,22 @@ browsingTopics(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthalten kann:
     - `skipObservation`
-      - : Ein boolescher Wert, der, wenn er auf `true` gesetzt ist, dazu führt, dass der Browser keine Themen beobachtet, wenn `browsingTopics()` aufgerufen wird. Der Standardwert ist `false`, was dazu führt, dass Themen beobachtet werden.
+      - : Ein boolescher Wert, der, wenn er auf `true` gesetzt ist, den Browser dazu veranlasst, Themen _nicht_ zu beobachten, wenn `browsingTopics()` aufgerufen wird. Der Standardwert ist `false`, was dazu führt, dass Themen beobachtet werden.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von bis zu drei Objekten erfüllt wird, die die ausgewählten Themen des aktuellen Benutzers für die letzten drei Zeitabschnitte repräsentieren. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem Array von bis zu drei Objekten erfüllt wird, die die ausgewählten Themen des aktuellen Benutzers für die letzten drei Epochen darstellen. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `configVersion`
-  - : Ein String, der den Algorithmus (außer dem Modellteil) identifiziert, der verwendet wird, um das Thema zu berechnen.
+  - : Ein String, der den Algorithmus (außerhalb des Modellteils) identifiziert, der zur Berechnung des Themas verwendet wird.
 - `modelVersion`
-  - : Ein String, der das Modell repräsentiert, das verwendet wird, um einen String (wie den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
+  - : Ein String, der das Modell darstellt, das verwendet wird, um einen String (wie den Hostnamen einer Webseite) in Themen-IDs zu klassifizieren.
 - `taxonomyVersion`
-  - : Ein String, der die verwendete Taxonomieversion repräsentiert.
+  - : Ein String, der die verwendete Taxonomie-Version darstellt.
 - `topic`
-  - : Eine Zahl, die die ID des Themas repräsentiert, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel für eine [Taxonomie von Interessen](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
+  - : Eine Zahl, die die ID des Themas darstellt, die vom Browser verwendet werden kann, um das Thema aus der Taxonomie abzurufen (siehe ein Beispiel für eine [Interessen-Taxonomie](https://github.com/patcg-individual-drafts/topics/blob/main/taxonomy_v1.md)).
 - `version`
-  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, konkateniert mit Doppelpunkten (`:`) zwischen jeder.
+  - : Die `configVersion`, `modelVersion` und `taxonomyVersion`, zusammengefügt mit Doppelpunkten (`:`) zwischen jedem.
 
 Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren. Ein Beispielobjekt aus Chrome könnte wie folgt aussehen:
 
@@ -64,8 +64,8 @@ Die genauen Eigenschaftswerte können je nach Browser-Implementierung variieren.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die Verwendung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) untersagt ist.
-    - Die aufrufende Seite die Topics API nicht in einen erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) einbezogen hat.
+    - Die Nutzung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) nicht erlaubt ist.
+    - Die aufrufende Seite die Topics API nicht in einem erfolgreichen [Registrierungsprozess der Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) inkludiert hat.
 
 ## Beispiele
 
@@ -90,7 +90,7 @@ const creative = await response.json();
 
 ## Spezifikationen
 
-Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
+Dieses Feature ist nicht Teil eines offiziellen Standards, obwohl es im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 

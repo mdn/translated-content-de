@@ -1,14 +1,14 @@
 ---
-title: "Document: clear() Methode"
+title: "Dokument: clear() Methode"
 short-title: clear()
 slug: Web/API/Document/clear
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{Deprecated_Header}}
+{{APIRef("DOM")}}
 
-Die **`Document.clear()`** Methode tut nichts, löst aber keinen Fehler aus.
+Die **`Document.clear()`** Methode tut nichts, wirft jedoch keinen Fehler.
 
 ## Syntax
 

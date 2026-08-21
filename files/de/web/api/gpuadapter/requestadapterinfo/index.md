@@ -1,14 +1,14 @@
 ---
-title: "GPUAdapter: requestAdapterInfo()-Methode"
+title: "GPUAdapter: requestAdapterInfo() Methode"
 short-title: requestAdapterInfo()
 slug: Web/API/GPUAdapter/requestAdapterInfo
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die Methode **`requestAdapterInfo()`** des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt erfüllt wird, das identifizierende Informationen über einen Adapter enthält.
+Die **`requestAdapterInfo()`** Methode der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo) Objekt erfüllt wird, das Identifikationsinformationen über einen Adapter enthält.
 
 `requestAdapterInfo()` wurde aus der WebGPU-Spezifikation entfernt. Verwenden Sie stattdessen [`GPUAdapter.info`](/de/docs/Web/API/GPUAdapter/info), um auf Adapterinformationen zuzugreifen.
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Instanz des [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekts erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo) Objektinstanz erfüllt wird.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ async function init() {
 
 ## Spezifikationen
 
-Nicht mehr Teil der [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/).
+Nicht länger Teil der [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/).
 
 ## Browser-Kompatibilität
 
@@ -57,4 +57,4 @@ Nicht mehr Teil der [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/).
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

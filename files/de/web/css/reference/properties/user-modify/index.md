@@ -3,15 +3,15 @@ title: "`user-modify` CSS property"
 short-title: user-modify
 slug: Web/CSS/Reference/Properties/user-modify
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Non-standard_Header}}{{Deprecated_Header}}
+{{Non-standard_Header}}
 
-Die **`user-modify`** Eigenschaft hat in Firefox keine Wirkung. Ursprünglich war sie dafür gedacht, festzulegen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann oder nicht.
+Die **`user-modify`** Eigenschaft hat in Firefox keine Wirkung. Ursprünglich war geplant, damit festzulegen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann oder nicht.
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut ersetzt.
+> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut ersetzt.
 
 ## Syntax
 
@@ -30,14 +30,14 @@ user-modify: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
+Diese Eigenschaft wird als ein Schlüsselwortwert der folgenden bestimmt:
 
 - `read-only`
   - : Standardwert. Inhalte sind schreibgeschützt.
 - `read-write`
   - : Der Benutzer kann Inhalte lesen und schreiben.
 - `read-write-plaintext-only`
-  - : Wie `read-write`, aber die Formatierung von Rich-Text geht verloren.
+  - : Wie `read-write`, jedoch geht Formatierung von Rich-Text verloren.
 - `write-only`
   - : Der Benutzer kann den Inhalt bearbeiten, aber nicht lesen.
 
@@ -64,7 +64,7 @@ Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

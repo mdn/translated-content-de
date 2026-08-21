@@ -1,17 +1,17 @@
 ---
-title: "PerformanceTiming: redirectEnd-Eigenschaft"
+title: "PerformanceTiming: Eigenschaft redirectEnd"
 short-title: redirectEnd
 slug: Web/API/PerformanceTiming/redirectEnd
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{Deprecated_Header}}
+{{APIRef("Performance API")}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
+> Diese Eigenschaftsschnittstelle ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.redirectEnd`** gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, an dem die letzte HTTP-Weiterleitung abgeschlossen ist, also wenn das letzte Byte der HTTP-Antwort empfangen wurde. Wenn es keine Weiterleitung gibt oder wenn eine der Weiterleitungen nicht vom gleichen Ursprung stammt, wird der Wert `0` zurückgegeben.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.redirectEnd`** gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, zu dem die letzte HTTP-Weiterleitung abgeschlossen ist, also wenn das letzte Byte der HTTP-Antwort empfangen wurde. Wenn es keine Weiterleitung gibt, oder wenn eine der Weiterleitungen nicht vom gleichen Ursprung ist, wird der Wert `0` zurückgegeben.
 
 ## Wert
 

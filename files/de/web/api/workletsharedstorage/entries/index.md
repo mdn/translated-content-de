@@ -1,14 +1,14 @@
 ---
-title: "WorkletSharedStorage: entries() Methode"
+title: "WorkletSharedStorage: entries()-Methode"
 short-title: entries()
 slug: Web/API/WorkletSharedStorage/entries
 l10n:
-  sourceCommit: 0c906f7f464d8ff632baf8d25fa63eed3f03b632
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}
 
-Die **`entries()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ist ähnlich wie in einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypenkette aufzählt.
+Die **`entries()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ähnelt der in einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypen-Kette aufzählt.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array der aufzählbaren Schlüssel-Wert-Paare von `WorkletSharedStorage`.
+Ein Array der aufzählbaren Eigenschaftsschlüssel-Wert-Paaren der `WorkletSharedStorage`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die aufrufende Stelle die Shared Storage API nicht im Rahmen eines erfolgreichen [Privacy Sandbox Enrollment-Prozesses](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) einbezogen hat.
+  - : Wird ausgelöst, wenn die aufrufende Site die Shared Storage API nicht in einem erfolgreichen [Privacy-Sandbox-Eintrag](/de/docs/Web/Privacy/Guides/Privacy_sandbox#enrollment) eingeschlossen hat.
 
 ## Beispiele
 

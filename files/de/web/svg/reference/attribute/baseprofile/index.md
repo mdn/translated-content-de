@@ -2,22 +2,20 @@
 title: baseProfile
 slug: Web/SVG/Reference/Attribute/baseProfile
 l10n:
-  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das Attribut **`baseProfile`** beschreibt das minimale SVG-Sprachprofil, das der Autor für notwendig hält, um den Inhalt korrekt darzustellen. Das Attribut spezifiziert keine Verarbeitungseinschränkungen; es kann als Metadaten betrachtet werden.
 
-Das **`baseProfile`** Attribut beschreibt das minimale SVG-Sprachprofil, das nach Ansicht des Autors notwendig ist, um den Inhalt korrekt darzustellen. Das Attribut legt keine Verarbeitungseinschränkungen fest; es kann als Metadaten betrachtet werden.
+Zum Beispiel könnte der Wert des Attributs von einem Autorentool verwendet werden, um den Nutzer zu warnen, wenn er das Dokument über den Umfang des angegebenen Basisprofils hinaus bearbeitet.
 
-Zum Beispiel könnte der Wert des Attributs von einem Autorentool verwendet werden, um den Benutzer zu warnen, wenn er das Dokument über den Umfang des angegebenen Basisprofils hinaus verändert.
+Jedes SVG-Profil sollte den für dieses Attribut geeigneten Text definieren.
 
-Jedes SVG-Profil sollte den Text definieren, der für dieses Attribut geeignet ist.
-
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("svg")}}
 
-## Kontexthinweise
+## Kontextnotizen
 
 <table class="properties">
   <tbody>

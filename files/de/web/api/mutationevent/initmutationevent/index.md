@@ -1,19 +1,19 @@
 ---
-title: "MutationEvent: Methode initMutationEvent()"
+title: "MutationEvent: initMutationEvent() Methode"
 short-title: initMutationEvent()
 slug: Web/API/MutationEvent/initMutationEvent
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("UI Events")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("UI Events")}}{{non-standard_header}}
 
-Die **`initMutationEvent()`**-Methode der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle initialisiert den Wert eines Mutation-Events, nachdem es erstellt wurde (normalerweise mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent)).
+Die **`initMutationEvent()`**-Methode der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle initialisiert den Wert eines Mutationsereignisses, nachdem es erstellt wurde (normalerweise mit der [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent)-Methode).
 
-Diese Methode muss aufgerufen werden, um das Event zu setzen, bevor es mithilfe von [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
+Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es unter Verwendung von [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgesendet wird.
 
 > [!NOTE]
-> Im Allgemeinen erstellen Sie diese Events nicht selbst; sie werden vom Browser erstellt.
+> Im Allgemeinen werden Sie diese Ereignisse nicht selbst erstellen; sie werden vom Browser erstellt.
 
 ## Syntax
 
@@ -25,22 +25,21 @@ initMutationEvent(type, canBubble, cancelable, relatedNode,
 ### Parameter
 
 - `type`
-  - : Ein String, der den [`type`](/de/docs/Web/API/Event/type) des Events festlegt. Browser setzen die folgenden Werte für [`MutationEvent`](/de/docs/Web/API/MutationEvent):
-    `DOMAttrModified`, `DOMAttributeNameChanged`, `DOMCharacterDataModified`, `DOMElementNameChanged`, `DOMNodeInserted`, `DOMNodeInsertedIntoDocument`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMSubtreeModified`.
+  - : Ein String, um den [`type`](/de/docs/Web/API/Event/type) des Ereignisses festzulegen. Browser setzen die folgenden Werte für [`MutationEvent`](/de/docs/Web/API/MutationEvent): `DOMAttrModified`, `DOMAttributeNameChanged`, `DOMCharacterDataModified`, `DOMElementNameChanged`, `DOMNodeInserted`, `DOMNodeInsertedIntoDocument`, `DOMNodeRemoved`, `DOMNodeRemovedFromDocument`, `DOMSubtreeModified`.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Event "bubbeln" kann oder nicht. Legt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) fest.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis aufsteigen kann. Setzt den Wert von [`Event.bubbles`](/de/docs/Web/API/Event/bubbles).
 - `cancelable`
-  - : Ein boolescher Wert, der angibt, ob die Standardaktion des Events verhindert werden kann. Legt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) fest.
+  - : Ein boolescher Wert, der angibt, ob die Standardaktion des Ereignisses verhindert werden kann. Setzt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable).
 - `relatedNode`
-  - : Ein String, der den neuen Wert des geänderten Knotens repräsentiert, falls vorhanden. Legt den Wert von [`MutationEvent.relatedNode`](/de/docs/Web/API/MutationEvent/relatedNode) fest.
+  - : Ein String, der den neuen Wert des geänderten Knotens darstellt, falls vorhanden. Setzt den Wert von [`MutationEvent.relatedNode`](/de/docs/Web/API/MutationEvent/relatedNode).
 - `prevValue`
-  - : Ein String, der den vorherigen Wert des geänderten Knotens repräsentiert, falls vorhanden. Legt den Wert von [`MutationEvent.prevValue`](/de/docs/Web/API/MutationEvent/prevValue) fest.
+  - : Ein String, der den vorherigen Wert des geänderten Knotens darstellt, falls vorhanden. Setzt den Wert von [`MutationEvent.prevValue`](/de/docs/Web/API/MutationEvent/prevValue).
 - `newValue`
-  - : Ein String, der den neuen Wert des geänderten Knotens repräsentiert, falls vorhanden. Legt den Wert von [`MutationEvent.newValue`](/de/docs/Web/API/MutationEvent/newValue) fest.
+  - : Ein String, der den neuen Wert des geänderten Knotens darstellt, falls vorhanden. Setzt den Wert von [`MutationEvent.newValue`](/de/docs/Web/API/MutationEvent/newValue).
 - `attrName`
-  - : Ein String, der den Namen des geänderten [`Attr`](/de/docs/Web/API/Attr)-Knotens repräsentiert, falls vorhanden. Legt den Wert von [`MutationEvent.attrName`](/de/docs/Web/API/MutationEvent/attrName) fest.
+  - : Ein String, der den Namen des geänderten [`Attr`](/de/docs/Web/API/Attr)-Knotens darstellt, falls vorhanden. Setzt den Wert von [`MutationEvent.attrName`](/de/docs/Web/API/MutationEvent/attrName).
 - `attrChange`
-  - : Ein Integer, der den Grund der Attributsänderung repräsentiert. Legt den Wert von [`MutationEvent.attrChange`](/de/docs/Web/API/MutationEvent/attrChange) fest.
+  - : Ein Integer, der den Grund für die Änderung des Attributsknotens darstellt. Setzt den Wert von [`MutationEvent.attrChange`](/de/docs/Web/API/MutationEvent/attrChange).
 
 ### Rückgabewert
 

@@ -1,17 +1,16 @@
 ---
-title: "CSSRule: type Eigenschaft"
+title: "CSSRule: type-Eigenschaft"
 short-title: type
 slug: Web/API/CSSRule/type
 l10n:
-  sourceCommit: cf58dd416cd934f77b6edfde2d3a6286472875c2
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("CSSOM")}}{{Deprecated_header}}
+{{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des
-[`CSSRule`](/de/docs/Web/API/CSSRule) Interfaces ist eine veraltete Eigenschaft, die eine Ganzzahl zurückgibt, die angibt, welchen Typ von Regel die [`CSSRule`](/de/docs/Web/API/CSSRule) darstellt.
+Die schreibgeschützte **`type`**-Eigenschaft des [`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces ist eine veraltete Eigenschaft, die eine Ganzzahl zurückgibt, die angibt, welche Art von Regel die [`CSSRule`](/de/docs/Web/API/CSSRule) darstellt.
 
-Wenn Sie verschiedene Typen von CSS-Regeln unterscheiden müssen, ist eine gute Alternative, [`constructor.name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name) zu verwenden:
+Wenn Sie verschiedene Arten von CSS-Regeln unterscheiden müssen, ist eine gute Alternative die Verwendung von [`constructor.name`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name):
 
 ```js
 const sheets = Array.from(document.styleSheets);
@@ -31,7 +30,7 @@ for (const rule of rules) {
 - `CSSRule.MEDIA_RULE` (`4`)
   - : Die Regel ist eine [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule).
 - `CSSRule.FONT_FACE_RULE` (`5`)
-  - : Die Regel ist eine [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)
+  - : Die Regel ist eine [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule).
 - `CSSRule.PAGE_RULE` (`6`)
   - : Die Regel ist eine [`CSSPageRule`](/de/docs/Web/API/CSSPageRule).
 - `CSSRule.KEYFRAMES_RULE` (`7`)
@@ -49,7 +48,7 @@ for (const rule of rules) {
 - `CSSRule.FONT_FEATURE_VALUES_RULE` (`14`)
   - : Die Regel ist eine [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule).
 
-Die Werte `CSSRule.UNKNOWN_RULE` (`0`), `CSSRule.CHARSET_RULE` (`2`), `CSSRule.DOCUMENT_RULE` (`13`), `CSSRule.VIEWPORT_RULE` (`14`), und `CSSRule.REGION_STYLE_RULE` (`16`) können nicht mehr erhalten werden.
+Die Werte `CSSRule.UNKNOWN_RULE` (`0`), `CSSRule.CHARSET_RULE` (`2`), `CSSRule.DOCUMENT_RULE` (`13`), `CSSRule.VIEWPORT_RULE` (`14`) und `CSSRule.REGION_STYLE_RULE` (`16`) können nicht mehr abgerufen werden.
 
 ## Beispiele
 

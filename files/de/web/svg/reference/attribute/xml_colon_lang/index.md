@@ -2,22 +2,20 @@
 title: xml:lang
 slug: Web/SVG/Reference/Attribute/xml:lang
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das Attribut **`xml:lang`** gibt die Hauptsprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
 
-Das **`xml:lang`** Attribut gibt die Hauptsprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
+Es ist ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache zu kennzeichnen, die ein Element enthält.
 
-Es ist ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache zu markieren, die ein Element enthält.
-
-Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namensraum). Wenn beide definiert sind, wird das mit Namensraum verwendet und das ohne wird ignoriert.
+Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namensraum). Wenn beide definiert sind, wird das Attribut mit Namensraum verwendet und das ohne wird ignoriert.
 
 ## Elemente
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -37,9 +35,9 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 - `<language-tag>`
-  - : Dieser Wert gibt die Sprache des Elements als einen gültigen {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} an.
+  - : Dieser Wert gibt die für das Element verwendete Sprache als gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} an.
 
-    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen, kleingeschriebenen Teil für die Sprache und einem zweistelligen, großgeschriebenen Teil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
+    Die gebräuchlichste Syntax ist ein Wert, der aus einem kleinen zweistelligen Teil für die Sprache und einem großen zweistelligen Teil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z. B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
 
 ## Beispiele
 

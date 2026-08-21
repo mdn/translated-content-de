@@ -2,15 +2,13 @@
 title: mathsize
 slug: Web/MathML/Reference/Global_attributes/mathsize
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Das **`mathsize`** [globales Attribut](/de/docs/Web/MathML/Reference/Global_attributes) setzt die [Schriftgröße](/de/docs/Web/CSS/Reference/Properties/font-size) eines MathML-Elements.
+Das **`mathsize`** [Globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [Schriftgröße](/de/docs/Web/CSS/Reference/Properties/font-size) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathsize`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen, und wird von der CSS-Eigenschaft `font-size` überschrieben, wenn sie gesetzt ist.
+> Verwenden Sie CSS für die Gestaltung von MathML, wann immer möglich. Das `mathsize`-Attribut sollte nur für Anwendungen verwendet werden, die nicht CSS-fähig sind, und es wird durch die CSS-Eigenschaft `font-size` überschrieben, falls gesetzt.
 
 ## Beispiel
 
@@ -67,15 +65,17 @@ body {
   - : Ein positiver {{cssxref("&lt;percentage&gt;")}}-Wert, relativ zur Schriftgröße des Elternelements.
 
 > [!NOTE]
-> Einige Browser akzeptieren möglicherweise auch [veraltete MathML-Größen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths).
+> Einige Browser akzeptieren möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Reference/Values#legacy_mathml_lengths).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurden die Schlüsselwörter `small`, `normal` und `big` sowie die MathML3-spezifische Syntax für Längen unterstützt. Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;length-percentage&gt;")}}-Werten.
+- In MathML 3 und früheren Versionen wurden die Schlüsselwörter `small`, `normal` und `big` sowie die spezifische MathML3-Syntax für Längen unterstützt.
+  Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;length-percentage&gt;")}}-Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen entworfen, die CSS nicht unterstützen. Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entworfen, die nicht CSS-fähig sind.
+  Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
 
 ## Browser-Kompatibilität
 

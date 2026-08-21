@@ -3,15 +3,15 @@ title: "PushManager: register()-Methode"
 short-title: register()
 slug: Web/API/PushManager/register
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
+{{ApiRef("Push API")}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`register`**-Methode wird verwendet, um das System zu bitten, einen neuen Endpunkt für Benachrichtigungen anzufordern.
+Die **`register`**-Methode wird verwendet, um das System aufzufordern, einen neuen Endpunkt für Benachrichtigungen anzufordern.
 
 > [!NOTE]
-> Diese Methode wurde durch [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) abgelöst.
+> Diese Methode wird von [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) ersetzt.
 
 ## Syntax
 
@@ -25,12 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt, um den Erfolg oder Fehlschlag des Methodenaufrufs zu verwalten.
+Ein `DOMRequest`-Objekt, um den Erfolg oder das Scheitern des Methodenaufrufs zu verwalten.
 
-Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage eine Zeichenkette sein, die die Endpunkt-URL darstellt.
+Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage eine Zeichenkette sein, die die Endpunkt-URL ist.
 
 > [!NOTE]
-> Falls Sie die URL nicht mehr benötigen, verwenden Sie bitte [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister), um aufzuräumen.
+> Wenn Sie die URL nicht mehr benötigen, verwenden Sie bitte
+> [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister), um aufzuräumen.
 
 ## Beispiele
 
@@ -49,7 +50,7 @@ req.onerror = (e) => {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation und wird nicht mehr als Standard verfolgt.
+Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

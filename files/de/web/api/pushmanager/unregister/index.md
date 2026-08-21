@@ -3,15 +3,15 @@ title: "PushManager: unregister() Methode"
 short-title: unregister()
 slug: Web/API/PushManager/unregister
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
+{{ApiRef("Push API")}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode wurde verwendet, um das System aufzufordern, den angegebenen Endpunkt abzumelden und zu löschen.
+Die **`unregister()`**-Methode wurde verwendet, um das System zu bitten, den angegebenen Endpunkt abzumelden und zu löschen.
 
 > [!NOTE]
-> In der aktualisierten API kann ein Abonnement über die [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe)-Methode abgemeldet werden.
+> In der aktualisierten API kann eine Registrierung über die [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe)-Methode abgemeldet werden.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ unregister(pushEndpoint)
 ### Parameter
 
 - `pushEndpoint`
-  - : Ein `pushEndpoint`, der abgemeldet werden soll.
+  - : Ein zu abmeldender `pushEndpoint`.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt, um den Erfolg oder Misserfolg des Methodenaufrufs zu behandeln.
+Ein `DOMRequest`-Objekt zur Behandlung des Erfolgs oder Fehlers des Methodenaufrufs.
 
 Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage ein
-[PushRegistration](#pushregistration)-Objekt sein, das den Endpunkt repräsentiert, der abgemeldet wurde.
+[PushRegistration](#pushregistration)-Objekt sein, das den abgemeldeten Endpunkt repräsentiert.
 
 ### PushRegistration
 
@@ -57,7 +57,7 @@ req.onerror = (e) => {
 
 ## Spezifikationen
 
-Diese Funktion ist nicht mehr Teil einer Spezifikation. Sie ist nicht mehr darauf ausgelegt, ein Standard zu werden.
+Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

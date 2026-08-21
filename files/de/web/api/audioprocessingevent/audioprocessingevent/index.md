@@ -1,17 +1,17 @@
 ---
-title: "AudioProcessingEvent: Konstruktor AudioProcessingEvent()"
+title: "AudioProcessingEvent: AudioProcessingEvent() Konstruktor"
 short-title: AudioProcessingEvent()
 slug: Web/API/AudioProcessingEvent/AudioProcessingEvent
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Audio API")}}{{Deprecated_header}}
+{{APIRef("Web Audio API")}}
 
-Der **`AudioProcessingEvent()`**-Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Objekt.
+Der **`AudioProcessingEvent()`** Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) Objekt.
 
 > [!NOTE]
-> Normalerweise wird dieser Konstruktor nicht direkt von Ihrem Code aufgerufen, da der Browser diese Objekte selbst erstellt und dem Event-Handler zur Verfügung stellt.
+> Normalerweise wird dieser Konstruktor nicht direkt von Ihrem Code aufgerufen, da der Browser diese Objekte selbst erstellt und sie dem Ereignis-Handler zur Verfügung stellt.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ new AudioProcessingEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/klein-schreibungsempfindlich und Browser setzen ihn immer auf `audioprocess`.
+    Es ist case-sensitiv und Browser setzen es immer auf `audioprocess`.
 - `options`
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `playbackTime`
       - : Eine Zahl, die die Zeit darstellt, wann der Ton abgespielt wird.
     - `inputBuffer`
-      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die Eingabe-Audiodaten enthält.
+      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die Eingabedaten des Audios enthält.
     - `outputBuffer`
-      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in dem die Ausgabe-Audiodaten geschrieben werden.
+      - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in das die Ausgabedaten des Audios geschrieben werden.
 
 ### Rückgabewert
 

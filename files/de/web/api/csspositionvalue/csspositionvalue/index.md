@@ -3,12 +3,12 @@ title: "CSSPositionValue: CSSPositionValue() Konstruktor"
 short-title: CSSPositionValue()
 slug: Web/API/CSSPositionValue/CSSPositionValue
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("CSS Typed Object Model API")}}{{deprecated_header}}{{Non-standard_header}}
+{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
-Der **`CSSPositionValue()`** Konstruktor erstellt ein neues [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Objekt, das Werte für Eigenschaften darstellt, die eine Position erfordern, beispielsweise {{cssxref('object-position')}}.
+Der **`CSSPositionValue()`** Konstruktor erstellt ein neues [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Objekt, das Werte für Eigenschaften darstellt, die eine Position einnehmen, zum Beispiel {{cssxref('object-position')}}.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ new CSSPositionValue(x, y)
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel positioniert einen Container `<div>` 5 Pixel vom oberen Rand und 10 Pixel vom linken Rand der Seite entfernt.
+Das folgende Beispiel positioniert ein Container-`<div>` 5 Pixel von oben und 10 Pixel von links der Seite entfernt.
 
 ```js
 let someDiv = document.getElementById("container");

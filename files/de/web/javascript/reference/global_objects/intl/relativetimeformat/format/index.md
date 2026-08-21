@@ -3,10 +3,10 @@ title: Intl.RelativeTimeFormat.prototype.format()
 short-title: format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
-Die **`format()`** Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen formatiert einen `value` und `unit` gemäß den Gebietsschema- und Formatierungsoptionen dieses `Intl.RelativeTimeFormat` Objekts.
+Die **`format()`** Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen formatiert einen `value` und `unit` gemäß der Sprach- und Formatierungsoptionen dieses `Intl.RelativeTimeFormat`-Objekts.
 
 {{InteractiveExample("JavaScript Demo: Intl.RelativeTimeFormat.prototype.format()")}}
 
@@ -32,22 +32,22 @@ format(value, unit)
 ### Parameter
 
 - `value`
-  - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet werden soll.
+  - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet wird.
 - `unit`
-  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet werden soll. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls erlaubt.
+  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Pluralformen sind ebenfalls zulässig.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen `value` und `unit` formatiert gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.RelativeTimeFormat")}} Objekts darstellt.
+Ein String, der den gegebenen `value` und `unit` formatiert gemäß der Sprach- und Formatierungsoptionen dieses {{jsxref("Intl.RelativeTimeFormat")}}-Objekts darstellt.
 
 > [!NOTE]
-> Die Formatierung, die von `format()` zurückgegeben wird, ist meistens konsistent. Trotzdem kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb desselben Gebietsschemas — Unterschiede in der Ausgabe sind beabsichtigt und von der Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel könnte der String nicht trennende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist die Formatierung, die von `format()` zurückgegeben wird, konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb der gleichen Sprache — diese Variationen sind gewollt und werden von der Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Zum Beispiel kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Grundlegende Verwendung der Formatierung
 
-Das folgende Beispiel zeigt, wie ein relativer Zeit-Formatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen relativen Zeitformatierer mit der englischen Sprache erstellt.
 
 ```js
 // Create a relative time formatter in your locale
@@ -67,7 +67,7 @@ rtf.format(1, "day"); // "in 1 day"
 
 ### Verwendung der Auto-Option
 
-Wenn die Option `numeric:auto` übergeben wird, wird der String `yesterday`, `today` oder `tomorrow` anstelle von `1 day ago`, `in 0 days` oder `in 1 day` erzeugt. Dies ermöglicht es, nicht immer numerische Werte in der Ausgabe verwenden zu müssen.
+Wenn die Option `numeric: "auto"` übergeben wird, wird sie die Zeichenkette `yesterday`, `today` oder `tomorrow` erzeugen, anstatt `1 day ago`, `in 0 days` oder `in 1 day`. Dies ermöglicht es, nicht immer numerische Werte in der Ausgabe verwenden zu müssen.
 
 ```js
 // Create a relative time formatter in your locale

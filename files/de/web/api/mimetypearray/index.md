@@ -2,14 +2,14 @@
 title: MimeTypeArray
 slug: Web/API/MimeTypeArray
 l10n:
-  sourceCommit: cfa628aedb53a83b315943ef19fa6c73298fb7d5
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
-Die Schnittstelle **`MimeTypeArray`** gibt ein Array von [`MimeType`](/de/docs/Web/API/MimeType)-Instanzen zurück, von denen jede Informationen über unterstützte Browser-Plugins enthält. Dieses Objekt wird von der veralteten Eigenschaft [`Navigator.mimeTypes`](/de/docs/Web/API/Navigator/mimeTypes) zurückgegeben.
+Das **`MimeTypeArray`** Interface gibt ein Array von [`MimeType`](/de/docs/Web/API/MimeType)-Instanzen zurück, die jeweils Informationen über unterstützte Browser-Plugins enthalten. Dieses Objekt wird von der veralteten [`Navigator.mimeTypes`](/de/docs/Web/API/Navigator/mimeTypes)-Eigenschaft zurückgegeben.
 
-Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bereits existierenden Code nicht zu brechen, der sie verwendet. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken auf ihre Nutzung angewandt werden (wie zum Beispiel, dass ihre Elemente schreibgeschützt sind).
+Dieses Interface war ein [Versuch, eine unveränderbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um Code, der es bereits verwendet, nicht zu brechen. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken bei der Verwendung auferlegen (wie beispielsweise das Festlegen, dass ihre Elemente schreibgeschützt sind).
 
 ## Instanz-Eigenschaften
 
@@ -25,7 +25,7 @@ Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](
 
 ## Beispiel
 
-Das folgende Beispiel testet, ob ein Plugin für den 'application/pdf'-MIME-Typ verfügbar ist und falls ja, wird die Beschreibung protokolliert.
+Das folgende Beispiel testet, ob ein Plugin für den 'application/pdf'-MIME-Typ verfügbar ist und wenn ja, protokolliert es dessen Beschreibung.
 
 ```js
 const mimeTypes = navigator.mimeTypes;

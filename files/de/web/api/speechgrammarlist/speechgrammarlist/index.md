@@ -3,12 +3,12 @@ title: "SpeechGrammarList: SpeechGrammarList() Konstruktor"
 short-title: SpeechGrammarList()
 slug: Web/API/SpeechGrammarList/SpeechGrammarList
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Web Speech API")}}{{deprecated_header}}
+{{APIRef("Web Speech API")}}
 
-Der **`SpeechGrammarList()`** Konstruktor erstellt eine neue Instanz des `SpeechGrammarList` Objekts.
+Der **`SpeechGrammarList()`** Konstruktor erstellt eine neue Instanz eines `SpeechGrammarList` Objekts.
 
 ## Syntax
 

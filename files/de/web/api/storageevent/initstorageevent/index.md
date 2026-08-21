@@ -1,14 +1,14 @@
 ---
-title: "StorageEvent: initStorageEvent() Methode"
+title: "StorageEvent: Methode initStorageEvent()"
 short-title: initStorageEvent()
 slug: Web/API/StorageEvent/initStorageEvent
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("Web Storage API")}}{{deprecated_header}}
+{{ApiRef("Web Storage API")}}
 
-Die **`StorageEvent.initStorageEvent()`** Methode wird verwendet, um den Wert eines [`StorageEvent`](/de/docs/Web/API/StorageEvent) zu initialisieren.
+Die **`StorageEvent.initStorageEvent()`**-Methode wird verwendet, um den Wert eines [`StorageEvent`](/de/docs/Web/API/StorageEvent) zu initialisieren.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 ### Parameter
 
 - `typeArg`
-  - : Der Name des Ereignisses.
+  - : Der Name des Events.
 - `canBubble` {{optional_inline}}
-  - : Ein boolean, der angibt, ob das Ereignis innerhalb des DOM nach oben steigen kann oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis durch das DOM nach oben propagiert oder nicht.
 - `cancelable` {{optional_inline}}
-  - : Ein boolean, der angibt, ob das Ereignis abgebrochen werden kann.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - `key` {{optional_inline}}
   - : Der Schlüssel, dessen Wert sich infolge dieses Ereignisses ändert.
 - `oldValue` {{optional_inline}}
@@ -40,7 +40,7 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 - `url` {{optional_inline}}
   - : Die URL des Dokuments, das die Änderung initiiert.
 - `storageArea` {{optional_inline}}
-  - : Das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den Speicherbereich repräsentiert, in dem dieses Ereignis aufgetreten ist.
+  - : Das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den Speicherbereich repräsentiert, auf dem dieses Ereignis auftrat.
 
 ### Rückgabewert
 
@@ -57,4 +57,4 @@ Keiner ({{jsxref("undefined")}}).
 ## Siehe auch
 
 - [Web Storage API](/de/docs/Web/API/Web_Storage_API)
-- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte: [`StorageEvent()`](/de/docs/Web/API/StorageEvent/StorageEvent).
+- Der Konstruktor, den Sie anstelle dieser veralteten Methode verwenden sollten: [`StorageEvent()`](/de/docs/Web/API/StorageEvent/StorageEvent).

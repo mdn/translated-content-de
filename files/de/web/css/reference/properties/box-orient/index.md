@@ -3,15 +3,15 @@ title: "`box-orient` CSS property"
 short-title: box-orient
 slug: Web/CSS/Reference/Properties/box-orient
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Non-standard_header}}{{Deprecated_Header}}
+{{Non-standard_header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt. Weitere Informationen über den aktuellen Standard finden Sie im [Flexbox-Leitfaden](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexbox-Modul-Entwurfs und wurde durch einen neueren Standard ersetzt. Weitere Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
 
-Die **`box-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element seine Inhalte horizontal oder vertikal anordnet.
+Die **`box-orient`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element seinen Inhalt horizontal oder vertikal ausrichtet.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ box-orient: unset;
 Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
 
 - `horizontal`
-  - : Die Box ordnet ihre Inhalte horizontal an.
+  - : Die Box richtet ihren Inhalt horizontal aus.
 - `vertical`
-  - : Die Box ordnet ihre Inhalte vertikal an.
+  - : Die Box richtet ihren Inhalt vertikal aus.
 - `inline-axis` (HTML)
   - : Die Box zeigt ihre Kinder entlang der Inline-Achse an.
 - `block-axis` (HTML)
   - : Die Box zeigt ihre Kinder entlang der Block-Achse an.
 
-Die Inline- und Block-Achsen sind die schreibmodusabhängigen Schlüsselwörter, die im Englischen jeweils `horizontal` und `vertical` zugeordnet werden.
+Die Inline- und Blockachsen sind von der Schreibweise abhängige Schlüsselwörter, die im Englischen auf `horizontal` bzw. `vertical` verweisen.
 
 ## Beschreibung
 
-HTML-DOM-Elemente ordnen standardmäßig ihre Inhalte entlang der Inline-Achse an. Diese CSS-Eigenschaft gilt nur für HTML-Elemente mit einem CSS-{{CSSxRef("display")}}-Wert von `box` oder `inline-box`.
+HTML-DOM-Elemente richten ihren Inhalt standardmäßig entlang der Inline-Achse aus. Diese CSS-Eigenschaft wird nur auf HTML-Elemente angewendet, die einen CSS {{CSSxRef("display")}} Wert von `box` oder `inline-box` haben.
 
 ## Formale Definition
 
@@ -57,9 +57,9 @@ HTML-DOM-Elemente ordnen standardmäßig ihre Inhalte entlang der Inline-Achse a
 
 ## Beispiele
 
-### Horizontale Boxausrichtung einstellen
+### Horizontale Box-Ausrichtung einstellen
 
-Hier wird die Eigenschaft `box-orient` dafür sorgen, dass die beiden {{HTMLElement("p")}}-Abschnitte im Beispiel in derselben Zeile angezeigt werden.
+Hier wird die Eigenschaft `box-orient` dazu führen, dass die beiden {{HTMLElement("p")}}-Abschnitte im Beispiel in einer Linie angezeigt werden.
 
 #### HTML
 
@@ -91,7 +91,7 @@ div.example {
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

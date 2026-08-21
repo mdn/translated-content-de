@@ -1,19 +1,19 @@
 ---
-title: "HTMLTableSectionElement: Eigenschaft ch"
+title: "HTMLTableSectionElement: ch-Eigenschaft"
 short-title: ch
 slug: Web/API/HTMLTableSectionElement/ch
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`ch`**-Eigenschaft des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces hat keine Funktion. Sie spiegelt das `char`-Attribut des Abschnittselements wider.
+Die **`ch`**-Eigenschaft des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces bewirkt nichts. Sie spiegelt das `char`-Attribut des Abschnitts-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft war dafür gedacht, die Möglichkeit zu bieten, den Inhalt von Tabellenspalten an einem bestimmten Zeichen (typischerweise der Dezimalpunkt) auszurichten, wurde aber nie von Browsern implementiert.
+> Diese Eigenschaft wurde entwickelt, um die Fähigkeit zu unterstützen, Tabellenzellen-Inhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines String-Wertes mit der {{cssxref("text-align")}} CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, beobachten Sie die Unterstützung eines Zeichenfolgenwerts mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
 
 ## Wert
 

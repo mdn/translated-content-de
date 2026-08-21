@@ -3,10 +3,10 @@ title: "CSSPositionValue: y-Eigenschaft"
 short-title: y
 slug: Web/API/CSSPositionValue/y
 l10n:
-  sourceCommit: ebb9a6421c24c4aff2fef3913527571441361cf0
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
+{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
 Die **`y`**-Eigenschaft des [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Interfaces gibt die Position des Elements entlang der vertikalen Achse zurück.
 
@@ -18,7 +18,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel positioniert ein Container-`<div>` 5 Pixel vom oberen Rand und 10 Pixel vom linken Rand der Seite.
+Das folgende Beispiel positioniert einen Container `<div>` 5 Pixel von oben und 10 Pixel von links der Seite.
 
 ```js
 let replaceEl = document.getElementById("container");

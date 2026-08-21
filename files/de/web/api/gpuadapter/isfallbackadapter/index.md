@@ -3,14 +3,14 @@ title: "GPUAdapter: isFallbackAdapter-Eigenschaft"
 short-title: isFallbackAdapter
 slug: Web/API/GPUAdapter/isFallbackAdapter
 l10n:
-  sourceCommit: c03dee2dd8e7e28ba041b899de4db10f002d6645
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`isFallbackAdapter`** des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
+Die **`isFallbackAdapter`**-Schreibgeschützte Eigenschaft der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
 
-Diese Eigenschaft wurde aus der Web-Plattform entfernt. Verwenden Sie stattdessen [`GPUAdapterInfo.isFallbackAdapter`](/de/docs/Web/API/GPUAdapterInfo/isFallbackAdapter).
+Diese Eigenschaft wurde von der Webplattform entfernt. Verwenden Sie stattdessen [`GPUAdapterInfo.isFallbackAdapter`](/de/docs/Web/API/GPUAdapterInfo/isFallbackAdapter).
 
 ## Wert
 

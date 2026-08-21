@@ -2,18 +2,16 @@
 title: xlink:show
 slug: Web/SVG/Reference/Attribute/xlink:show
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
-
-Das **`xlink:show`** Attribut gibt an, wie eine verlinkte Ressource geöffnet werden soll und ist für {{Glossary("XLink", "XLink")}}-fähige Prozessoren gedacht. Bei einem Konflikt hat das {{SVGAttr("target")}} Attribut Vorrang, da es eine größere Bandbreite an Werten ausdrücken kann.
+Das **`xlink:show`** Attribut gibt an, wie eine verlinkte Ressource geöffnet werden soll, und ist für {{Glossary("XLink", "XLink")}}-fähige Prozessoren gedacht. Bei einem Konflikt hat das {{SVGAttr("target")}} Attribut Vorrang, da es einen größeren Wertebereich ausdrücken kann.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -36,15 +34,15 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `new`
-  - : Dieser Wert gibt an, dass die referenzierte Ressource in einem neuen Fenster oder Tab geöffnet wird. Dies ähnelt dem Effekt, der durch ein HTML {{HTMLElement("a")}} Element mit [target](/de/docs/Web/HTML/Reference/Elements/a#target) auf `_blank` gesetzt, erreicht wird.
+  - : Dieser Wert gibt an, dass die referenzierte Ressource in einem neuen Fenster oder Tab geöffnet wird. Dies ist ähnlich wie der Effekt, der durch ein HTML {{HTMLElement("a")}} Element mit gesetztem [target](/de/docs/Web/HTML/Reference/Elements/a#target) auf `_blank` erreicht wird.
 - `replace`
-  - : Dieser Wert gibt an, dass die referenzierte Ressource im gleichen Fenster oder Tab geöffnet wird. Dies ähnelt dem Effekt, der durch ein HTML {{HTMLElement("a")}} Element mit [target](/de/docs/Web/HTML/Reference/Elements/a#target) auf `_self` gesetzt, erreicht wird.
+  - : Dieser Wert gibt an, dass die referenzierte Ressource im selben Fenster oder Tab geöffnet wird. Dies ist ähnlich wie der Effekt, der durch ein HTML {{HTMLElement("a")}} Element mit gesetztem [target](/de/docs/Web/HTML/Reference/Elements/a#target) auf `_self` erreicht wird.
 - `embed`
-  - : Dieser Wert gibt an, dass anstatt zur Ressource zu verlinken, diese geladen und im Dokument angezeigt wird. Dies ähnelt dem Effekt, der durch ein HTML {{HTMLElement("img")}} Element erreicht wird.
+  - : Dieser Wert gibt an, dass anstatt zur Ressource zu verlinken, sie geladen und innerhalb des Dokuments angezeigt wird. Dies ist ähnlich wie der Effekt, der durch ein HTML {{HTMLElement("img")}} Element erreicht wird.
 - `other`
   - : Dieser Wert zeigt an, dass anderes im Link vorhandenes Markup, d.h. das {{SVGAttr("target")}} Attribut, sein Verhalten bestimmt.
 - `none`
-  - : Dieser Wert gibt an, dass es keine Angabe gibt, wie auf die verlinkte Ressource verwiesen werden soll.
+  - : Dieser Wert gibt an, dass keine Angabe vorgenommen wird, wie auf die verlinkte Ressource verwiesen werden soll.
 
 ## Spezifikationen
 

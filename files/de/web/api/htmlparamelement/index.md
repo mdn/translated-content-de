@@ -2,29 +2,29 @@
 title: HTMLParamElement
 slug: Web/API/HTMLParamElement
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
-Das **`HTMLParamElement`**-Interface bietet spezielle Eigenschaften (über die des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt-Interfaces hinaus, das es erbt) zum Manipulieren von {{HTMLElement("param")}}-Elementen, die ein Paar aus Schlüssel und Wert darstellen und als Parameter für ein {{HTMLElement("object")}}-Element dienen.
+Das **`HTMLParamElement`**-Interface bietet spezielle Eigenschaften (über die des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt-Interfaces, das es erbt, hinaus) zur Manipulation von {{HTMLElement("param")}}-Elementen, die ein Paar aus Schlüssel und Wert darstellen und als Parameter für ein {{HTMLElement("object")}}-Element fungieren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLParamElement.name`](/de/docs/Web/API/HTMLParamElement/name) {{Deprecated_Inline}}
-  - : Eine Zeichenkette, die den Namen des Parameters darstellt. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/param#name)-Attribut wider.
+  - : Ein String, der den Namen des Parameters repräsentiert. Er spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/param#name)-Attribut wider.
 - [`HTMLParamElement.value`](/de/docs/Web/API/HTMLParamElement/value) {{Deprecated_Inline}}
-  - : Eine Zeichenkette, die den mit dem Parameter verknüpften Wert darstellt. Sie spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/param#value)-Attribut wider.
+  - : Ein String, der den mit dem Parameter assoziierten Wert repräsentiert. Er spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/param#value)-Attribut wider.
 - [`HTMLParamElement.type`](/de/docs/Web/API/HTMLParamElement/type) {{Deprecated_Inline}}
-  - : Eine Zeichenkette, die den Typ des Parameters enthält, wenn `valueType` den Wert `"ref"` hat. Sie spiegelt das [`type`](/de/docs/Web/HTML/Reference/Elements/param#type)-Attribut wider.
+  - : Ein String, der den Typ des Parameters enthält, wenn `valueType` den Wert `"ref"` hat. Er spiegelt das [`type`](/de/docs/Web/HTML/Reference/Elements/param#type)-Attribut wider.
 - [`HTMLParamElement.valueType`](/de/docs/Web/API/HTMLParamElement/valueType) {{Deprecated_Inline}}
-  - : Eine Zeichenkette, die den Typ des `value` enthält. Sie spiegelt das [valuetype](/de/docs/Web/HTML/Reference/Elements/param#valuetype)-Attribut wider und hat einen der Werte: `"data"`, `"ref"` oder `"object"`.
+  - : Ein String, der den Typ des `value` enthält. Er spiegelt das [valuetype](/de/docs/Web/HTML/Reference/Elements/param#valuetype)-Attribut wider und hat einen der Werte: `"data"`, `"ref"` oder `"object"`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifischen Methoden, erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 

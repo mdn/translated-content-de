@@ -1,14 +1,14 @@
 ---
-title: "PositionSensorVRDevice: getState() Methode"
+title: "PositionSensorVRDevice: getState()-Methode"
 short-title: getState()
 slug: Web/API/PositionSensorVRDevice/getState
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("WebVR API")}}{{Non-standard_header}}
+{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`getState()`**-Methode der [`PositionSensorVRDevice`](/de/docs/Web/API/PositionSensorVRDevice)-Schnittstelle gibt den aktuellen Zustand des Positionssensors für den aktuellen Frame zurück (z. B. innerhalb des aktuellen [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks) oder für den vorherigen Frame, enthalten in einem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt. Dies ist die Methode, die Sie normalerweise verwenden sollten, im Gegensatz zu [`PositionSensorVRDevice.getImmediateState`](/de/docs/Web/API/PositionSensorVRDevice/getImmediateState).
+Die **`getState()`** Methode der [`PositionSensorVRDevice`](/de/docs/Web/API/PositionSensorVRDevice)-Schnittstelle gibt den aktuellen Zustand des Positionssensors für das aktuelle Frame zurück (z.B. innerhalb des aktuellen [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks) oder für das vorherige Frame, enthalten in einem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt. Dies ist die Methode, die Sie normalerweise verwenden möchten, im Vergleich zu [`PositionSensorVRDevice.getImmediateState`](/de/docs/Web/API/PositionSensorVRDevice/getImmediateState).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die WebVR API, um die Ansicht einer einfachen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Szene in jedem Frame einer [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife zu aktualisieren.
+Das folgende Beispiel verwendet die WebVR-API, um die Ansicht einer einfachen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Szene in jedem Frame einer [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife zu aktualisieren.
 
 ```js
 function setView() {
@@ -53,9 +53,9 @@ function setView() {
 }
 ```
 
-Hier holen wir uns ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt mit `getState()` und speichern es in `posState`. Wir überprüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) nutzen (diese geben `null` zurück, wenn beispielsweise das Headset ausgeschaltet ist oder nicht auf den Positionssensor gerichtet ist, was einen Fehler verursachen würde).
+Hier greifen wir ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt mit `getState()` ab und speichern es in `posState`. Wir überprüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) verwenden (diese geben `null` zurück, falls zum Beispiel das Head-Mounted Display ausgeschaltet ist oder nicht auf den Positionssensor zeigt, was zu einem Fehler führen würde.)
 
-Wir geben dann die x-, y- und z-Position und Orientierungswerte zu Informationszwecken aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die zur Aktualisierung des Szenen-Renderings in jedem Frame verwendet werden.
+Wir geben dann zum Informationszweck die x-, y- und z-Position und Orientierungswerte aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die verwendet werden, um das Scene-Rendering in jedem Frame zu aktualisieren.
 
 ## Browser-Kompatibilität
 

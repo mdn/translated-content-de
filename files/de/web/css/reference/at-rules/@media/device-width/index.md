@@ -1,21 +1,19 @@
 ---
-title: "`device-width` CSS-Medienfeature"
+title: "`device-width` CSS-Media-Feature"
 short-title: device-width
 slug: Web/CSS/Reference/At-rules/@media/device-width
 l10n:
-  sourceCommit: 67d40334c8b90e4623f3b0d3aea466b9882d8236
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}
-
 > [!NOTE]
-> Um die Breite des Ansichtsfensters abzufragen, sollten Entwickler stattdessen das [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width) Medienfeature verwenden.
+> Um die Breite des Ansichtsfensters abzufragen, sollten Entwickler stattdessen die [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width) Media-Feature verwenden.
 
-Das **`device-width`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite der Rendering-Oberfläche eines Ausgabegeräts zu testen.
+Die **`device-width`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite der Anzeigefläche eines Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `device-width` Feature wird als ein {{cssxref("&lt;length&gt;")}} Wert angegeben. Es ist ein Bereichsmerkmal, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-device-width`** und **`max-device-width`** verwenden können, um Mindest- und Höchstwerte abzufragen.
+Die `device-width`-Feature wird als {{cssxref("&lt;length&gt;")}} Wert angegeben. Es handelt sich um ein Bereichsfeature, was bedeutet, dass Sie auch die mit **`min-device-width`** und **`max-device-width`** versehenen Varianten verwenden können, um Minimum- und Maximumwerte abzufragen.
 
 ## Beispiele
 

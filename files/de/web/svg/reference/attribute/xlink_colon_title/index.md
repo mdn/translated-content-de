@@ -2,17 +2,15 @@
 title: xlink:title
 slug: Web/SVG/Reference/Attribute/xlink:title
 l10n:
-  sourceCommit: 9ac8d4f4ed0eb2f329e605329afeb51754c7fa79
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}
+Das Attribut **`xlink:title`** wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
 
-Das **`xlink:title`**-Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource in verständlicher Form zu beschreiben.
-
-Die Nutzung dieser Information hängt stark von der Art der Verarbeitung ab. Es kann beispielsweise verwendet werden, um Titel für Anwendungen, die von sehbehinderten Nutzern verwendet werden, bereitzustellen, um eine Tabelle von Links zu erstellen oder um Hilfetext anzuzeigen, der erscheint, wenn ein Nutzer den Mauszeiger über eine Anfangsressource schweben lässt.
+Die Verwendung dieser Information hängt stark von der Art der Verarbeitung ab. Es kann beispielsweise verwendet werden, um Titel für Anwendungen verfügbar zu machen, die von sehbehinderten Nutzern genutzt werden, oder um eine Tabelle mit Links zu erstellen oder um Hilfetext anzuzeigen, der erscheint, wenn ein Nutzer den Mauszeiger über eine startende Ressource bewegt.
 
 > [!NOTE]
-> Neue Inhalte sollten ein {{SVGElement("title")}}-Kind-Element anstelle eines `xlink:title`-Attributs verwenden.
+> Neue Inhalte sollten ein {{SVGElement("title")}} Kindelement anstelle eines `xlink:title` Attributs verwenden.
 
 ## Elemente
 
@@ -34,7 +32,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("use")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -60,7 +58,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<anything>`
-  - : Dieser Wert gibt den Titel an, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
+  - : Dieser Wert spezifiziert den Titel, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
 
 ## Spezifikationen
 

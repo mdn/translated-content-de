@@ -3,17 +3,17 @@ title: "Performance: timing-Eigenschaft"
 short-title: timing
 slug: Web/API/Performance/timing
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Performance API")}}{{deprecated_header}}
+{{APIRef("Performance API")}}
 
-Die veraltete, schreibgeschützte Eigenschaft **`Performance.timing`** gibt ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt zurück, das latenzbezogene Leistungsinformationen enthält.
+Die veraltete **`Performance.timing`** schreibgeschützte Eigenschaft gibt ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt zurück, das latenzbezogene Leistungsinformationen enthält.
 
-Diese Eigenschaft ist in Web-Workern nicht verfügbar.
+Diese Eigenschaft ist in Workern nicht verfügbar.
 
 > [!WARNING]
-> Diese Eigenschaft ist im [Navigation Timing Level 2 spec](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
+> Diese Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
 
 ## Wert
 

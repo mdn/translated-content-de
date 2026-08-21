@@ -3,16 +3,16 @@ title: "Dokument: anchors-Eigenschaft"
 short-title: anchors
 slug: Web/API/Document/anchors
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}} {{Deprecated_Header}}
+{{APIRef("DOM")}}
 
-Die schreibgeschützte **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interface gibt eine Liste aller Anker im Dokument zurück.
+Die schreibgeschützte **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste aller Anker im Dokument zurück.
 
 ## Wert
 
-Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ if (document.anchors.length >= 5) {
 
 ### Erstellen eines Inhaltsverzeichnisses
 
-Das folgende Beispiel füllt ein Inhaltsverzeichnis automatisch mit jedem Anker auf der Seite:
+Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem Anker auf der Seite gefüllt wird:
 
 ```html
 <h1>Title</h1>
@@ -64,7 +64,7 @@ for (const anchor of document.anchors) {
 
 ## Hinweise
 
-Aus Gründen der Rückwärtskompatibilität enthält die zurückgegebene Menge an Ankern nur diejenigen Anker, die mit dem `name`-Attribut erstellt wurden, nicht diejenigen, die mit dem `id`-Attribut erstellt wurden.
+Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur jene, die mit dem `name`-Attribut erstellt wurden, nicht jene, die mit dem `id`-Attribut erstellt wurden.
 
 ## Spezifikationen
 

@@ -1,14 +1,14 @@
 ---
-title: "Event: srcElement-Eigenschaft"
+title: "Event: srcElement Eigenschaft"
 short-title: srcElement
 slug: Web/API/Event/srcElement
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}{{AvailableInWorkers}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die veraltete **`Event.srcElement`** ist ein Alias für die [`Event.target`](/de/docs/Web/API/Event/target)-Eigenschaft. Verwenden Sie stattdessen [`Event.target`](/de/docs/Web/API/Event/target).
+Die veraltete **`Event.srcElement`** ist ein Alias für die [`Event.target`](/de/docs/Web/API/Event/target) Eigenschaft. Verwenden Sie stattdessen [`Event.target`](/de/docs/Web/API/Event/target).
 
 ## Spezifikationen
 

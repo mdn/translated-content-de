@@ -2,23 +2,23 @@
 title: SharedStorageRunOperation
 slug: Web/API/SharedStorageRunOperation
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}
 
-Das **`SharedStorageRunOperation`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert eine [Run output gate](/de/docs/Web/API/Shared_Storage_API#run)-Operation.
+Das **`SharedStorageRunOperation`** Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert eine [Run output gate](/de/docs/Web/API/Shared_Storage_API#run) Operation.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`run()`](/de/docs/Web/API/SharedStorageRunOperation/run) {{Deprecated_Inline}}
-  - : Definiert die Struktur, der die `run()`-Methode innerhalb einer Run output gate-Operation entsprechen sollte.
+  - : Definiert die Struktur, der die `run()`-Methode, die innerhalb einer Run output gate Operation definiert ist, entsprechen sollte.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Klasse namens `ReachMeasurementOperation` in einem Worklet definiert und mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) unter dem Namen `reach-measurement` registriert. `SharedStorageRunOperation` definiert die Struktur, der diese Klasse entsprechen muss, im Wesentlichen die Parameter, die für die `run()`-Methode erforderlich sind. Über diese Anforderung hinaus kann die Funktionalität der Klasse flexibel definiert werden.
+In diesem Beispiel wird eine Klasse namens `ReachMeasurementOperation` in einem Worklet definiert und mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) unter dem Namen `reach-measurement` registriert. `SharedStorageRunOperation` definiert die Struktur, der diese Klasse entsprechen muss, und legt im Wesentlichen die Parameter fest, die für die `run()`-Methode erforderlich sind. Abgesehen von dieser Anforderung kann die Funktionalität der Klasse flexibel definiert werden.
 
 ```js
 // reach-measurement-worklet.js
@@ -58,7 +58,7 @@ register("reach-measurement", ReachMeasurementOperation);
 ```
 
 > [!NOTE]
-> Es ist möglich, mehrere Operationen im gleichen Shared-Storage-Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren. Siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
+> Es ist möglich, mehrere Operationen im gleichen Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren. Sehen Sie [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
 
 Im Hauptbrowserkontext wird die `reach-measurement`-Operation mit der [`WindowSharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run)-Methode aufgerufen:
 

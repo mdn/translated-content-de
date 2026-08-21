@@ -1,18 +1,18 @@
 ---
-title: "PaymentAddress: Stadt-Eigenschaft"
-short-title: Stadt
+title: "PaymentAddress: city Eigenschaft"
+short-title: city
 slug: Web/API/PaymentAddress/city
 l10n:
-  sourceCommit: a5d90e4c36c0155024621fe00e15ae61f3697d88
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
 Die schreibgeschützte Eigenschaft **`city`** des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der den Stadt- oder Gemeindeteil der Adresse enthält.
 
 ## Wert
 
-Ein String, der den Stadt- oder Gemeindeteil der durch das [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt beschriebenen Adresse angibt.
+Ein String, der den Stadt- oder Gemeindeteil der Adresse angibt, der durch das [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt beschrieben wird.
 
 ## Browser-Kompatibilität
 

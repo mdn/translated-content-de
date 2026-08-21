@@ -3,15 +3,15 @@ title: "`box-pack` CSS property"
 short-title: box-pack
 slug: Web/CSS/Reference/Properties/box-pack
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Non-standard_header}}{{Deprecated_Header}}
+{{Non-standard_header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen CSS-Flexible-Box-Layout-Modul-Entwurfs und wurde durch einen neueren Standard ersetzt. Informationen über den aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des flexiblen Box-Layout-Moduls von CSS, die durch einen neueren Standard ersetzt wurde. Siehe [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
 
-Die **`-moz-box-pack`** und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften bestimmen, wie ein `-moz-box` oder `-webkit-box` seine Inhalte in der Richtung seines Layouts packt. Der Effekt ist nur sichtbar, wenn im Kasten zusätzlicher Platz vorhanden ist.
+Die **`-moz-box-pack`**- und **`-webkit-box-pack`** [CSS](/de/docs/Web/CSS) Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` ihren Inhalt in Richtung ihres Layouts packt. Der Effekt dieser Eigenschaft ist nur zu sehen, wenn in der Box zusätzlicher Platz vorhanden ist.
 
 Die Richtung des Layouts hängt von der Ausrichtung des Elements ab: horizontal oder vertikal.
 
@@ -32,20 +32,20 @@ box-pack: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Diese Eigenschaft wird mit einem der folgenden Schlüsselwortwerte angegeben:
 
 - `start`
-  - : Der Kasten packt Inhalte am Anfang und lässt jeden zusätzlichen Platz am Ende.
+  - : Die Box packt den Inhalt am Anfang, sodass zusätzlicher Platz am Ende bleibt.
 - `center`
-  - : Der Kasten packt Inhalte in der Mitte und teilt jeden zusätzlichen Platz gleichmäßig zwischen Anfang und Ende auf.
+  - : Die Box packt den Inhalt in der Mitte, wobei der zusätzliche Platz gleichmäßig zwischen Anfang und Ende verteilt wird.
 - `end`
-  - : Der Kasten packt Inhalte am Ende und lässt jeden zusätzlichen Platz am Anfang.
+  - : Die Box packt den Inhalt am Ende, sodass zusätzlicher Platz am Anfang bleibt.
 - `justify`
-  - : Der Platz wird gleichmäßig zwischen jedem Kind aufgeteilt, ohne dass zusätzlicher Platz vor dem ersten Kind oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert wie `start` behandelt.
+  - : Der Platz wird gleichmäßig zwischen den einzelnen Kindern aufgeteilt, ohne dass zusätzlicher Platz vor dem ersten oder nach dem letzten Kind platziert wird. Wenn es nur ein Kind gibt, wird der Wert so behandelt, als ob es `start` wäre.
 
-## Anmerkungen
+## Hinweise
 
-Der Rand des Kastens, der für Verpackungszwecke als _Anfang_ bezeichnet wird, hängt von der Ausrichtung und Richtung des Kastens ab:
+Der Rand der Box, der für Packzwecke als _Anfang_ bezeichnet wird, hängt von der Ausrichtung und Richtung der Box ab:
 
 - Für horizontale Elemente ist der _Anfang_ die obere Kante.
 - Für vertikale Elemente ist der _Anfang_ die linke Kante.
@@ -70,9 +70,9 @@ Der Rand des Kastens, der für Verpackungszwecke als _Anfang_ bezeichnet wird, h
   </tbody>
 </table>
 
-Die dem Anfang gegenüberliegende Kante wird als das _Ende_ bezeichnet.
+Der gegenüberliegende Rand des Anfangs wird als _Ende_ bezeichnet.
 
-Wenn das Verpacken mit dem `pack`-Attribut des Elements eingestellt ist, wird der Stil ignoriert.
+Wenn das Packen mit dem `pack`-Attribut eines Elements gesetzt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 

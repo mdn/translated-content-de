@@ -3,10 +3,10 @@ title: Iterator.concat()
 short-title: concat()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/concat
 l10n:
-  sourceCommit: dc02b8a490ea0ff4ac1236546f32270ca0cc0aa5
+  sourceCommit: 1474534461893381d54c502e655f334b5568e597
 ---
 
-Die **`Iterator.concat()`**-statische Methode erstellt ein neues {{jsxref("Iterator")}}-Objekt aus einer Liste von iterierbaren Objekten. Der neue Iterator liefert die Werte aus jedem der Eingabe-Iterablen in der Reihenfolge.
+Die statische Methode **`Iterator.concat()`** erzeugt ein neues {{jsxref("Iterator")}}-Objekt aus einer Liste von iterierbaren Objekten. Der neue Iterator liefert die Werte aus jeder der Eingabe-Iterables sequenziell.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ Iterator.concat(it1, it2, /* …, */ itN)
 ### Parameter
 
 - `it1`, `it2`, …, `itN`
-  - : Ein Objekt, das das [iterierbare Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) implementiert. [Iterators](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol), die nicht auch iterierbar sind, können nicht direkt an diese Methode übergeben werden; sie müssen zuerst mit {{jsxref("Iterator.from()")}} umschlossen werden.
+  - : Ein Objekt, das das [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)-Protokoll implementiert. [Iterators](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol), die nicht auch iterable sind, können nicht direkt an diese Methode übergeben werden; sie müssen zuerst mit {{jsxref("Iterator.from()")}} umwickelt werden.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Iterator")}}-Objekt, das die Werte aus jedem der Eingabe-Iterablen in der Reihenfolge liefert.
+Ein neues {{jsxref("Iterator")}}-Objekt, das die Werte aus jeder der Eingabe-Iterables sequenziell liefert.
 
 ## Beschreibung
 
-Die `Iterator.concat()`-Methode ist konzeptionell ähnlich wie die `Array`-Methode [`concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), aber sie arbeitet mit jeder Art von Iterable und gibt einen Iterator anstelle eines Arrays zurück. Dies bedeutet, dass die Iterablen träge durchlaufen werden können, wodurch unnötige Zuweisungen oder Berechnungen vermieden werden. Es bedeutet auch, dass Sie technisch gesehen [unendliche Iterablen verketten](#verketten_von_unendlichen_iterablen) können, aber Ergebnisse von Iterablen nach der ersten unendlichen Iterablen werden nie erreicht.
+Die Methode `Iterator.concat()` ist konzeptionell ähnlich zur `Array`-Methode [`concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), aber sie funktioniert mit jeder Art von Iterable und gibt einen Iterator anstelle eines Array zurück. Das bedeutet, dass die Iterables verzögert iteriert werden können, um unnötige Allokationen oder Berechnungen zu vermeiden. Es bedeutet auch, dass Sie technisch gesehen [_unendliche Iterables_](#verkettung_unendlicher_iterables) verketten können, aber die Ergebnisse von Iterables nach dem ersten unendlichen Iterable werden niemals erreicht.
 
-Während jedes Iterable unendlich sein kann, muss die Liste der Iterablen endlich und in der Anzahl sehr begrenzt sein, da Engines ein sehr niedriges Limit für die Anzahl der Funktionsargumente auferlegen. Wenn Sie eine große oder sogar unendliche Anzahl von Iterablen verketten müssen, verwenden Sie {{jsxref("Iterator.prototype.flatMap()")}} stattdessen.
+Während jedes Iterable unendlich sein kann, muss die Liste der Iterables endlich und ziemlich begrenzt in der Anzahl sein, da die Engines sehr niedrige Limits für die Anzahl der Funktionsargumente setzen. Wenn Sie eine große — oder sogar unendliche — Anzahl von Iterables verketten müssen, verwenden Sie stattdessen {{jsxref("Iterator.prototype.flatMap()")}}.
 
 ```js
 function* infiniteIterables() {
@@ -47,7 +47,7 @@ const it = infiniteIterables().flatMap((x) => x);
 // Infinite sequence of numbers: 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, ...
 ```
 
-Die `Iterator.concat()`-Methode ist in ihrer Funktionalität der folgenden Funktion ähnlich, die den [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*)-Operator verwendet, um Werte aus jedem der Eingabe-Iterablen in der Reihenfolge zu liefern:
+Die `Iterator.concat()`-Methode ist funktional ähnlich der folgenden Funktion, die den [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*)-Operator verwendet, um Werte aus jeder der Eingabe-Iterables sequenziell zu liefern:
 
 ```js
 function* concat(...iterables) {
@@ -57,13 +57,13 @@ function* concat(...iterables) {
 }
 ```
 
-Wie `yield*` unterstützt `Iterator.concat()` keine Argumente, die nicht iterierbar sind (d.h. nicht die `[Symbol.iterator]()`-Methode haben). Dies liegt daran, dass `Iterator.concat()` immer die Kontrolle über seine Iteratoren übernimmt und offene Iteratoren [schließt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#returnvalue), wenn die Methode beendet wird. Mit iterierbaren Argumenten erwirbt `Iterator.concat()` Iteratoren nacheinander und schließt einfach den aktuellen Iterator, wenn die Iteration angehalten wird. Bei Iterator-Argumenten ist nicht klar, ob der Aufrufer oder `Iterator.concat()` für das Schließen der Iteratoren verantwortlich sein sollte, insbesondere derjenigen, die `Iterator.concat()` nicht erreicht hat, sodass die Methode nicht-iterierbare Argumente einfach nicht zulässt.
+Wie `yield*` unterstützt `Iterator.concat()` keine Argumente, die nicht iterierbar sind (d.h. die nicht die `[Symbol.iterator]()`-Methode haben). Dies liegt daran, dass `Iterator.concat()` immer die Kontrolle über seine Iteratoren übernimmt und offene Iteratoren [schließt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#returnvalue), wenn die Methode beendet wird. Mit iterierbaren Argumenten erwirbt `Iterator.concat()` Iteratoren nacheinander und schließt einfach den aktuellen Iterator, wenn die Iteration gestoppt wird. Bei Iterator-Argumenten ist nicht klar, ob der Anrufer oder `Iterator.concat()` für das Schließen der Iteratoren verantwortlich sein soll, insbesondere für die, die `Iterator.concat()` nicht erreicht hat, daher erlaubt die Methode einfach keine nicht-iterierbaren Argumente.
 
 ## Beispiele
 
 ### Kombinieren von Maps
 
-In diesem Beispiel erstellen wir eine neue {{jsxref("Map")}}, die die Vereinigung von drei anderen Maps ist. Der {{jsxref("Map/Map", "Map()")}}-Konstruktor akzeptiert ein Iterable von Schlüssel-Wert-Paaren, während der [Map-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator) Schlüssel-Wert-Paare aus der Map liefert, daher ist es ausreichend, `Iterator.concat()` auf den Maps zu verwenden, um die neue Map zu erstellen.
+In diesem Beispiel erstellen wir eine neue {{jsxref("Map")}}, die die Vereinigung von drei anderen Maps ist. Der Konstruktor {{jsxref("Map/Map", "Map()")}} akzeptiert ein Iterable von Schlüssel-Wert-Paaren, während der [Map-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator) Schlüssel-Wert-Paare aus der Map liefert, so dass es ausreicht, `Iterator.concat()` auf die Maps anzuwenden, um die neue Map zu erstellen.
 
 ```js
 const map1 = new Map([
@@ -84,11 +84,11 @@ console.log(map);
 // Map(5) {'a' => 5, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 6}
 ```
 
-Beachten Sie, dass der Wert des Schlüssels `"a"` in der resultierenden Map `5` ist. Dies liegt daran, dass der `Map`-Konstruktor den letzten Wert für jeden Schlüssel verwendet.
+Beachten Sie, dass der Wert des Schlüssels `"a"` in der resultierenden Map `5` ist. Das liegt daran, dass der `Map`-Konstruktor den letzten Wert für jeden Schlüssel verwendet.
 
-### Verketten von unendlichen Iterablen
+### Verkettung unendlicher Iterables
 
-Wenn eines der Eingabe-Iterablen unendlich ist, wird der resultierende Iterator ebenfalls unendlich sein. Dies ist nicht sofort ein Problem, da Iteratoren träge konsumiert und jederzeit geschlossen werden können, aber es bedeutet, dass Iterablen nach dem ersten unendlichen Iterable nie erreicht werden.
+Wenn eines der Eingabe-Iterables unendlich ist, wird auch der resultierende Iterator unendlich sein. Das stellt nicht sofort ein Problem dar, da Iteratoren verzögert konsumiert und jederzeit geschlossen werden können, aber es bedeutet, dass Iterables nach dem ersten unendlichen Iterable niemals erreicht werden.
 
 ```js
 function* it1() {
@@ -114,9 +114,9 @@ for (const value of it.take(10)) {
 // "done" is never reached
 ```
 
-### Verketten von Iterablen unterschiedlicher Typen
+### Verkettung von Iterables unterschiedlicher Typen
 
-Sie können Iterablen unterschiedlicher Typen verketten.
+Sie können Iterables unterschiedlicher Typen verketten.
 
 ```js
 const array = [1, 2, 3];
@@ -131,7 +131,7 @@ const it = Iterator.concat(array, set, gen());
 console.log([...it]); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-Die Elemente jedes Iterablen können auch verschiedene Typen haben, genau wie Arrays.
+Die Elemente jedes Iterables können auch unterschiedliche Typen haben, genau wie Arrays.
 
 ```js
 const array = [1, "two", 3];
@@ -141,9 +141,9 @@ const it = Iterator.concat(array, set);
 console.log([...it]); // [1, "two", 3, true, {}]
 ```
 
-### Verketten von nicht iterierbaren Objekten
+### Verkettung nicht-iterierbarer Objekte
 
-Nicht iterierbare Objekte werfen einen `TypeError`, wenn sie an `Iterator.concat()` übergeben werden, da sie nicht die `[Symbol.iterator]()`-Methode haben.
+Nicht-iterierbare Objekte lösen einen `TypeError` aus, wenn sie an `Iterator.concat()` übergeben werden, weil sie nicht die `[Symbol.iterator]()`-Methode haben.
 
 ```js
 const nonIterable = {
@@ -163,7 +163,7 @@ const arrayIterator = [1, 2, 3][Symbol.iterator]();
 const it = Iterator.concat(arrayIterator); // No error
 ```
 
-Um einen Iterator zu übergeben, der nicht auch iterierbar ist, können Sie ihn mit {{jsxref("Iterator.from()")}} umschließen.
+Um einen Iterator zu übergeben, der nicht auch iterierbar ist, können Sie ihn mit {{jsxref("Iterator.from()")}} umwickeln.
 
 ```js
 const nonIterable = {
@@ -175,7 +175,7 @@ const nonIterable = {
 const it = Iterator.concat(Iterator.from(nonIterable)); // No error
 ```
 
-Eine andere Möglichkeit ist die Verwendung von {{jsxref("Iterator.prototype.flatMap()")}} stattdessen, das automatisch `Iterator.from()` aufruft. Aber Vorsicht: Sie müssen `flatMap()` auf einem Iterator aufrufen, nicht auf einem Array, da {{jsxref("Array.prototype.flatMap()")}} nur Array-Rückgabewerte unterstützt.
+Eine weitere Option ist die Verwendung von {{jsxref("Iterator.prototype.flatMap()")}}, das automatisch `Iterator.from()` aufruft. Aber seien Sie vorsichtig: Sie müssen `flatMap()` auf einem Iterator aufrufen, nicht auf einem Array, da {{jsxref("Array.prototype.flatMap()")}} nur Array-Rückgabewerte unterstützt.
 
 ```js
 const nonIterable = {
@@ -187,7 +187,7 @@ const nonIterable = {
 const it = [nonIterable].values().flatMap((x) => x); // No error
 ```
 
-Wenn Sie Ihre eigenen Iteratoren implementieren, sollten Sie darüber nachdenken, sie iterierbar zu machen, indem Sie sie [von `Iterator` ableiten](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Iterator#subclassing_iterator) oder eine `[Symbol.iterator]()`-Methode hinzufügen, die `this` zurückgibt.
+Wenn Sie Ihre eigenen Iteratoren implementieren, sollten Sie in Betracht ziehen, sie iterierbar zu machen, indem Sie entweder die `Iterator`-Klasse [subclassen](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator/Iterator#subclassing_iterator) oder eine `[Symbol.iterator]()`-Methode hinzufügen, die `this` zurückgibt.
 
 ## Spezifikationen
 

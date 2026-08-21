@@ -3,26 +3,26 @@ title: DPR header
 short-title: DPR
 slug: Web/HTTP/Reference/Headers/DPR
 l10n:
-  sourceCommit: 013f3148c4e85038bd961c984e357da703d315e3
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Deprecated_Header}}{{SecureContext_Header}}{{Non-standard_Header}}
+{{SecureContext_Header}}{{Non-standard_Header}}
 
 > [!WARNING]
 > Der `DPR`-Header wurde als {{HTTPHeader("Sec-CH-DPR")}} standardisiert und der neue Name wird jetzt bevorzugt.
 
-Der HTTP **`DPR`** {{Glossary("request_header", "Request-Header")}} liefert [device client hints](/de/docs/Web/HTTP/Guides/Client_hints) über das Gerät-Bildverhältnis des Client (DPR).
-Dieses Verhältnis ist die Anzahl der physischen Gerätepixel, die jedem {{Glossary("CSS_pixel", "CSS-Pixel")}} entsprechen.
+Der HTTP **`DPR`** {{Glossary("request_header", "Request-Header")}} liefert [Client-Hinweise](/de/docs/Web/HTTP/Guides/Client_hints) über das Pixelverhältnis (DPR) des Client-Geräts.
+Dieses Verhältnis ist die Anzahl der physischen Gerät-Pixel, die jedem {{Glossary("CSS_pixel", "CSS-Pixel")}} entsprechen.
 
-Der Hinweis ist nützlich bei der Auswahl von Bildquellen, die der Pixeldichte eines Bildschirms am besten entsprechen.
-Dies ist ähnlich wie die Rolle, die `x`-Deskriptoren im `<img>` [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut spielen, um Benutzeragenten die Auswahl eines bevorzugten Bildes zu ermöglichen.
+Der Hinweis ist nützlich, um Bildquellen auszuwählen, die am besten zur Pixeldichte eines Bildschirms passen.
+Dies ist ähnlich wie die Rolle, die `x`-Deskriptoren im `<img>`-[`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut spielen, um Benutzeragenten die Auswahl eines bevorzugten Bildes zu ermöglichen.
 
-Wenn ein Server den `DPR`-Hinweis verwendet, um die Ressource auszuwählen, die in einer Antwort gesendet wird, muss die Antwort den {{HTTPHeader("Content-DPR")}}-Header enthalten.
+Wenn ein Server den `DPR`-Hinweis verwendet, um auszuwählen, welche Ressource in einer Antwort gesendet wird, muss die Antwort den {{HTTPHeader("Content-DPR")}}-Header enthalten.
 Der Client muss den Wert in `Content-DPR` für das Layout verwenden, wenn er sich vom Wert im `DPR`-Header der Anfrage unterscheidet.
 
-Wenn der `DPR`-Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
+Erscheint der `DPR`-Header mehr als einmal in einer Nachricht, wird das letzte Vorkommen verwendet.
 
-Server, die sich für den `DPR`-Client-Hinweis entscheiden, werden diesen üblicherweise auch im {{HTTPHeader("Vary")}}-Header angeben, um Caches darüber zu informieren, dass der Server basierend auf dem Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
+Server, die sich für den `DPR`-Client-Hinweis entscheiden, geben diesen typischerweise auch im {{HTTPHeader("Vary")}}-Header an, um Caches zu informieren, dass der Server aufgrund des Header-Werts in einer Anfrage unterschiedliche Antworten senden kann.
 
 <table class="properties">
   <tbody>
@@ -49,7 +49,7 @@ DPR: <number>
 ## Direktiven
 
 - `<number>`
-  - : Das Gerät-Bildverhältnis des Clients.
+  - : Das Pixelverhältnis des Client-Geräts.
 
 ## Beispiele
 
@@ -59,13 +59,13 @@ Ein Server muss zuerst zustimmen, den `DPR`-Header zu empfangen, indem er den An
 Accept-CH: DPR
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen den `DPR`-Header an den Server senden:
+Dann kann der Client bei nachfolgenden Anfragen den `DPR`-Header an den Server senden:
 
 ```http
 DPR: 2.0
 ```
 
-Falls eine Anfrage mit dem `DPR`-Header (wie oben gezeigt) für eine Bild-Ressource ist, muss die Server-Antwort den {{HTTPHeader("Content-DPR")}}-Header enthalten:
+Wenn eine Anfrage mit dem `DPR`-Header (wie oben gezeigt) für eine Bildressource erfolgt, muss die Serverantwort den {{HTTPHeader("Content-DPR")}}-Header enthalten:
 
 ```http
 Content-DPR: 2.0
@@ -77,7 +77,7 @@ Content-DPR: 2.0
 
 ## Siehe auch
 
-- Geräte- und responsive Bild-Client-Hints
+- Geräte- und responsive Bild-Client-Hinweise
   - {{HTTPHeader("Sec-CH-DPR")}}
   - {{HTTPHeader("Sec-CH-Device-Memory")}}
   - {{HTTPHeader("Sec-CH-Viewport-Height")}}
@@ -89,4 +89,4 @@ Content-DPR: 2.0
   - {{HTTPHeader("Width")}} {{deprecated_inline}}
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

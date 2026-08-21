@@ -2,12 +2,12 @@
 title: CSSPositionValue
 slug: Web/API/CSSPositionValue
 l10n:
-  sourceCommit: b280ea1234452ff553caa466bf532a66ba51db01
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{deprecated_header}}{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
+{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
-Die **`CSSPositionValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die eine Position erfordern, zum Beispiel {{cssxref('object-position')}}.
+Das **`CSSPositionValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die eine Position annehmen, zum Beispiel {{cssxref('object-position')}}.
 
 ## Konstruktor
 
@@ -27,7 +27,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel positioniert einen Container `<div>` 5 Pixel von oben und 10 Pixel von links der Seite.
+Das folgende Beispiel positioniert einen `<div>`-Container 5 Pixel von oben und 10 Pixel von links der Seite entfernt.
 
 ```js
 const replacedEl = document.getElementById("image");

@@ -1,18 +1,18 @@
 ---
-title: "Dokument: fgColor-Eigenschaft"
+title: "Dokument: Eigenschaft fgColor"
 short-title: fgColor
 slug: Web/API/Document/fgColor
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{Deprecated_header}}
+{{APIRef("DOM")}}
 
-**`fgColor`** liest/setzt die Vordergrundfarbe oder Textfarbe des aktuellen Dokuments.
+**`fgColor`** ruft die Vordergrundfarbe oder Textfarbe des aktuellen Dokuments ab oder setzt diese.
 
 ## Wert
 
-Ein Zeichenfolgenwert, der die Farbe als Wort (z. B. `"red"`) oder als hexadezimale Zahl (z. B. `"#ff0000"`) darstellt.
+Ein String, der die Farbe als Wort (z.B. `"red"`) oder als hexadezimalen Wert (z.B. `"#ff0000"`) darstellt.
 
 ## Beispiele
 
@@ -21,12 +21,11 @@ document.fgColor = "white";
 document.bgColor = "darkblue";
 ```
 
-## Hinweise
+## Anmerkungen
 
 Der Standardwert für diese Eigenschaft in Mozilla Firefox ist schwarz (`#000000` in Hexadezimal).
 
-`document.fgColor` ist im [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-fgcolor) veraltet. Die empfohlene Alternative ist die CSS-Eigenschaft {{Cssxref("color")}}
-(z. B. `document.body.style.color = "red"`).
+`document.fgColor` ist im [HTML-Standard](https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-fgcolor) veraltet. Die empfohlene Alternative ist die CSS-Eigenschaft {{Cssxref("color")}} (z.B. `document.body.style.color = "red"`).
 
 ## Spezifikationen
 

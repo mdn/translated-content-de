@@ -3,16 +3,16 @@ title: "PaymentAddress: recipient-Eigenschaft"
 short-title: recipient
 slug: Web/API/PaymentAddress/recipient
 l10n:
-  sourceCommit: a5d90e4c36c0155024621fe00e15ae61f3697d88
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Non-standard_Header}}
 
 Die schreibgeschützte **`recipient`**-Eigenschaft des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der den Namen des Empfängers, Käufers oder Ansprechpartners an der Zahlungsadresse enthält.
 
 ## Wert
 
-Ein String mit dem Namen der Person, die die Zahlung erhält oder vornimmt, oder der Name einer Kontaktperson in anderen Kontexten. Wenn kein Name verfügbar ist, ist dieser String leer.
+Ein String, der den Namen der Person angibt, die den Kauf erhält oder bezahlt, oder den Namen eines Ansprechpartners in anderen Kontexten. Wenn kein Name verfügbar ist, bleibt dieser String leer.
 
 ## Browser-Kompatibilität
 

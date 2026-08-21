@@ -1,14 +1,15 @@
 ---
-title: "SharedStorageRunOperation: run()-Methode"
+title: "SharedStorageRunOperation: run() Methode"
 short-title: run()
 slug: Web/API/SharedStorageRunOperation/run
 l10n:
-  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Shared Storage API")}}{{deprecated_header}}
+{{APIRef("Shared Storage API")}}
 
-Die **`run()`**-Methode der [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)-Schnittstelle definiert die Struktur, der die `run()`-Methode innerhalb einer Run-Ausgangssperre-Operation entsprechen sollte.
+Die **`run()`** Methode der
+[`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)-Schnittstelle definiert die Struktur, der die `run()` Methode innerhalb eines Run-Output-Gate-Operations entsprechen sollte.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ run(data)
 ### Parameter
 
 - `data`
-  - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten darstellt.
+  - : Ein Objekt, das beliebige Daten darstellt, die für die Ausführung der Operation erforderlich sind.
 
 ### Rückgabewert
 
@@ -27,7 +28,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite der [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) für ein Beispiel an.
+Siehe die Hauptseite [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) für ein Beispiel.
 
 ## Spezifikationen
 

@@ -1,23 +1,25 @@
 ---
-title: "Document: selectedStyleSheetSet-Eigenschaft"
+title: "Dokument: selectedStyleSheetSet-Eigenschaft"
 short-title: selectedStyleSheetSet
 slug: Web/API/Document/selectedStyleSheetSet
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
+{{APIRef("DOM")}}{{Non-standard_header}}
 
-Die **`selectedStyleSheetSet`**-Eigenschaft gibt den Namen des aktuell verwendeten Style-Sheet-Sets an.
+Die **`selectedStyleSheetSet`**-Eigenschaft gibt den Namen des aktuell verwendeten Stilblatt-Sets an.
 
 ## Wert
 
-Der Name des aktuell verwendeten Style-Sheet-Sets. Sie können auch das aktuelle Style-Sheet-Set über diese Eigenschaft festlegen.
+Der Name des aktuell verwendeten Stilblatt-Sets. Sie können auch das aktuelle Stilblatt-Set mithilfe dieser Eigenschaft festlegen.
 
-Das Setzen des Werts dieser Eigenschaft entspricht dem Aufruf von [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet) mit dem Wert von `currentStyleSheetSet` und anschließendem Setzen des Wertes von `lastStyleSheetSet` auf diesen Wert.
+Das Setzen des Werts dieser Eigenschaft entspricht dem Aufruf von [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet) mit dem Wert von `currentStyleSheetSet`, gefolgt vom Setzen des Werts von `lastStyleSheetSet` auf diesen Wert.
 
 > [!NOTE]
-> Der Wert dieses Attributs ist dynamisch; das direkte Ändern des `disabled`-Attributs von Stylesheets wirkt sich auf den Wert dieses Attributs aus.
+> Der Wert dieses Attributs ist dynamisch; eine direkte Änderung
+> des `disabled`-Attributs auf Stilblättern beeinflusst den Wert dieses
+> Attributs.
 
 ## Beispiele
 

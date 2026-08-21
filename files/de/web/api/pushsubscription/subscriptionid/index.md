@@ -1,17 +1,18 @@
 ---
-title: "PushSubscription: subscriptionId-Eigenschaft"
+title: "PushSubscription: Eigenschaft subscriptionId"
 short-title: subscriptionId
 slug: Web/API/PushSubscription/subscriptionId
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{ApiRef("Push API")}}{{non-standard_header}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`subscriptionId`**-Eigenschaft des schreibgeschützten [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Interfaces gibt einen String zurück, der die mit der Push-Subscription verbundene Abonnement-ID enthält.
+Die schreibgeschützte Eigenschaft **`subscriptionId`** der
+[`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle gibt einen String zurück, der die Abonnement-ID enthält, die mit dem Push-Abonnement verknüpft ist.
 
 > [!WARNING]
-> Statt dieses Features sollten Sie die [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint)-Eigenschaft auf demselben Interface verwenden.
+> Statt dieser Funktion verwenden Sie die [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint)-Eigenschaft auf derselben Schnittstelle.
 
 ## Wert
 
@@ -19,7 +20,7 @@ Ein String.
 
 ## Spezifikationen
 
-Dieses Feature wurde aus der [Push API](https://w3c.github.io/push-api/#pushsubscription-interface)-Spezifikation entfernt. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion wurde aus der [Push API](https://w3c.github.io/push-api/#pushsubscription-interface)-Spezifikation entfernt. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

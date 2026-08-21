@@ -3,13 +3,12 @@ title: "HTMLObjectElement: useMap-Eigenschaft"
 short-title: useMap
 slug: Web/API/HTMLObjectElement/useMap
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}}{{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`useMap`**-Eigenschaft des
-[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das `usemap`-HTML-Attribut widerspiegelt und ein {{HTMLElement("map")}}-Element angibt, das verwendet werden soll.
+Die **`useMap`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das HTML-Attribut [`usemap`](/de/docs/Web/HTML/Reference/Elements/object#usemap) widerspiegelt. Es wird ein {{HTMLElement("map")}}-Element angegeben, das verwendet werden soll.
 
 ## Wert
 

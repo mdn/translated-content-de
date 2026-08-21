@@ -3,16 +3,16 @@ title: "PaymentRequest: merchantvalidation Ereignis"
 short-title: merchantvalidation
 slug: Web/API/PaymentRequest/merchantvalidation_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{non-standard_header}}
+{{APIRef("Payment Request API")}}{{SecureContext_Header}}{{non-standard_header}}
 
-**`merchantvalidation`** Ereignisse werden von der [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt geliefert, wenn ein Zahlungsabwickler erfordert, dass der Händler, der den Kauf anfordert, sich als berechtigt validiert, den Zahlungsabwickler zu verwenden.
+**`merchantvalidation`** Ereignisse werden vom [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Objekt übermittelt, wenn ein Zahlungsanbieter verlangt, dass der Händler, der den Kauf anfordert, sich als berechtigt zur Nutzung des Zahlungsanbieters validiert.
 
 Erfahren Sie, wie der [Händler-Validierungsprozess](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) funktioniert.
 
-Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Ein [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent). Erbt 
 
 ## Beispiele
 
-In diesem Beispiel wird ein Ereignis-Handler für das `merchantvalidation` Ereignis eingerichtet. Es verwendet die [`fetch()`](/de/docs/Web/API/Window/fetch) Funktion, um eine Anfrage an seinen eigenen Server mit einem Argument der Validierungs-URL des Zahlungsmittels zu senden, die über die [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) Eigenschaft des Ereignisses erhalten wird. Der Händler-Server sollte die Validierungs-URL gemäß der Dokumentation des Zahlungsmittels aufrufen. Typischerweise sollte ein Client die Validierungs-URL nicht direkt aufrufen.
+In diesem Beispiel wird ein Ereignishandler für das `merchantvalidation` Ereignis eingerichtet. Er verwendet [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Anfrage an seinen eigenen Server mit einem Argument der Validierungs-URL der Zahlungsmethode zu senden, die aus der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) Eigenschaft des Ereignisses abgerufen wird. Der Händler-Server sollte die Validierungs-URL gemäß der Dokumentation der Zahlungsmethode aufrufen. Typischerweise sollte ein Client nicht auf die Validierungs-URL zugreifen.
 
 ```js
 request.addEventListener("merchantvalidation", (event) => {
@@ -48,7 +48,7 @@ request.addEventListener("merchantvalidation", (event) => {
 const response = await request.show();
 ```
 
-Wie der Händler-Server die Validierung durchführt, hängt von der Server-Implementierung und der Dokumentation des Zahlungsmittels ab. Der vom Validierungs-Server gelieferte Inhalt wird an den Händler-Server weitergeleitet und dann vom Erfüllungs-Handler des `fetch()` Aufrufs an die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) Methode auf dem Ereignis zurückgegeben. Diese Antwort informiert den Zahlungsabwickler darüber, ob der Händler validiert ist.
+Wie der Händler-Server die Validierung behandelt, hängt von der Implementierung des Servers und der Dokumentation der Zahlungsmethode ab. Der vom Validierungsserver bereitgestellte Inhalt wird an den Händler-Server weitergeleitet und dann im Erfolgs-Handler des `fetch()` Aufrufs an die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) Methode des Ereignisses zurückgegeben. Diese Antwort informiert den Zahlungsanbieter darüber, ob der Händler validiert ist.
 
 Sie können auch die `onmerchantvalidation` Ereignis-Handler-Eigenschaft verwenden, um den Handler für dieses Ereignis einzurichten:
 
@@ -75,7 +75,7 @@ Für weitere Informationen siehe [Händler-Validierung](/de/docs/Web/API/Payment
 ## Siehe auch
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
-- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [Verwendung des Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - `onmerchantvalidation` Ereignis-Handler-Eigenschaft
 - [Händler-Validierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation)
 - [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event) Ereignis

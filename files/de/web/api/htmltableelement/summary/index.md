@@ -3,10 +3,10 @@ title: "HTMLTableElement: summary-Eigenschaft"
 short-title: summary
 slug: Web/API/HTMLTableElement/summary
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.summary`**-Eigenschaft repräsentiert die
 Tabellenbeschreibung.

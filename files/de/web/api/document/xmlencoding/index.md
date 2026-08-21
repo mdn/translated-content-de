@@ -1,17 +1,17 @@
 ---
-title: "Document: xmlEncoding Eigenschaft"
+title: "Dokument: xmlEncoding-Eigenschaft"
 short-title: xmlEncoding
 slug: Web/API/Document/xmlEncoding
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("DOM")}}{{deprecated_header}}
+{{APIRef("DOM")}}
 
-Gibt die Kodierung zurück, wie sie in der XML-Deklaration angegeben ist. Sollte `null` sein, wenn sie nicht festgelegt oder unbekannt ist.
+Gibt die Kodierung zurück, wie sie durch die XML-Deklaration bestimmt wird. Sollte `null` sein, wenn sie nicht angegeben oder unbekannt ist.
 
 > [!WARNING]
-> Verwenden Sie dieses Attribut nicht; es wurde aus der DOM Level 4 Spezifikation entfernt und wird in Firefox 10.0 nicht mehr unterstützt.
+> Verwenden Sie dieses Attribut nicht; es wurde aus der DOM-Level-4-Spezifikation entfernt und wird in Firefox 10.0 nicht mehr unterstützt.
 
 Betrachten Sie die folgende XML-Deklaration:
 

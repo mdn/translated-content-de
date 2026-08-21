@@ -3,15 +3,15 @@ title: "`:-moz-broken` CSS-Pseudoklasse"
 short-title: :-moz-broken
 slug: Web/CSS/Reference/Selectors/:-moz-broken
 l10n:
-  sourceCommit: bf90d24ddf56e3f60df25fcbc0d4e3e084004794
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{Non-standard_header}}{{deprecated_header}}
+{{Non-standard_header}}
 
-Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente markiert, die defekte Bildlinks repräsentieren.
+Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente auswählt, die defekte Bildlinks darstellen.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
+> Dieser Selektor ist hauptsächlich für Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -44,7 +44,7 @@ Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/R
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -53,4 +53,4 @@ Nicht Teil eines Standards.
 ## Siehe auch
 
 - {{cssxref(":-moz-loading")}}, {{cssxref(":-moz-suppressed")}}, {{cssxref(":-moz-user-disabled")}}
-- [Firefox Fehler 11011](https://bugzil.la/11011)
+- [Firefox Bug 11011](https://bugzil.la/11011)

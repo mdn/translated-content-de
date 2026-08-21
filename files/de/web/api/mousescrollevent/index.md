@@ -2,17 +2,17 @@
 title: MouseScrollEvent
 slug: Web/API/MouseScrollEvent
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
 ---
 
-{{APIRef("UI Events")}}{{ Non-standard_Header }}{{Deprecated_Header}}
+{{APIRef("UI Events")}}{{ Non-standard_Header }}
 
-Die **`MouseScrollEvent`**-Schnittstelle repräsentiert Ereignisse, die auftreten, wenn der Benutzer ein Mausrad oder ein ähnliches Eingabegerät bewegt.
+Die **`MouseScrollEvent`**-Schnittstelle stellt Ereignisse dar, die auftreten, wenn ein Benutzer ein Mausrad oder ein ähnliches Eingabegerät bewegt.
 
 > [!WARNING]
-> Verwenden Sie diese Schnittstelle nicht für Radevents.
+> Verwenden Sie diese Schnittstelle nicht für Wheel-Ereignisse.
 >
-> Wie `MouseWheelEvent` ist diese Schnittstelle nicht standardisiert und veraltet. Sie wurde nur in Gecko-basierten Browsern verwendet. Verwenden Sie stattdessen das standardisierte _[`WheelEvent`](/de/docs/Web/API/WheelEvent)._
+> Ähnlich wie `MouseWheelEvent` ist diese Schnittstelle nicht standardisiert und veraltet. Sie wurde nur in Gecko-basierten Browsern verwendet. Stattdessen sollten Sie den standardisierten _[`WheelEvent`](/de/docs/Web/API/WheelEvent)_ verwenden.
 
 ## Methodenübersicht
 
@@ -46,10 +46,10 @@ void initMouseScrollEvent(
 
 ### Delta-Modi
 
-| Konstante         | Wert   | Beschreibung                                                     |
-| ----------------- | ------ | ---------------------------------------------------------------- |
-| `HORIZONTAL_AXIS` | `0x01` | Das Ereignis wird durch eine horizontalen Radbewegung ausgelöst. |
-| `VERTICAL_AXIS`   | `0x02` | Das Ereignis wird durch eine vertikalen Radbewegung ausgelöst.   |
+| Konstante         | Wert   | Beschreibung                                                      |
+| ----------------- | ------ | ----------------------------------------------------------------- |
+| `HORIZONTAL_AXIS` | `0x01` | Das Ereignis wird durch eine horizontale Radbedienung verursacht. |
+| `VERTICAL_AXIS`   | `0x02` | Das Ereignis wird durch eine vertikale Radbedienung verursacht.   |
 
 ## Instanzmethoden
 
@@ -64,4 +64,4 @@ void initMouseScrollEvent(
 
 - `DOMMouseScroll`
 - `MozMousePixelScroll`
-- Standardisiertes Maus-Radereignis-Objekt: [`WheelEvent`](/de/docs/Web/API/WheelEvent)
+- Standardisiertes Mausrad-Ereignisobjekt: [`WheelEvent`](/de/docs/Web/API/WheelEvent)

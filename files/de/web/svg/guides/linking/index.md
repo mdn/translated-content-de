@@ -1,18 +1,18 @@
 ---
-title: Verlinkung
+title: Verlinken
 slug: Web/SVG/Guides/Linking
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
 ---
 
-Das {{SVGAttr("target")}} Attribut auf dem SVG {{SVGElement("a")}} Element funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments mit dem Tag eingebettet werden:
+Das {{SVGAttr("target")}}-Attribut im SVG-{{SVGElement("a")}}-Element funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments mit dem Tag eingebettet werden:
 
 page1.html:
 
 ```html
 <html lang="en">
   <body>
-    <p>This is a SVG button:</p>
+    <p>This is an SVG button:</p>
     <object
       width="100"
       height="50"
@@ -35,9 +35,9 @@ button.svg:
 </svg>
 ```
 
-Die Spezifikation besagt, dass der Browser zum HTML-Dokument page2.html navigieren sollte, wenn auf die Schaltflächengrafiken geklickt wird. Allerdings funktioniert `target` nicht mit Mozillas Implementierung des SVG `<a>` Elements in Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben.)
+Laut Spezifikation sollte der Browser zur HTML-Dokumentseite page2.html navigieren, wenn auf die Schaltflächengrafik geklickt wird. Allerdings funktioniert `target` in Mozillas Implementierung des SVG-`<a>`-Elements in Firefox 1.5 nicht. (Das Problem wird in Firefox 2.0 behoben sein.)
 
-Das resultierende Verhalten in Moz SVG ist, dass page2.html in dem Frame geladen wird, in dem sich die SVG-Schaltfläche befand (d.h. Sie hätten jetzt page2.html eingebettet in einem 100x50 Pixel großen Frame innerhalb von page1.html).
+Das resultierende Verhalten in Moz SVG ist jedoch, dass page2.html in den Rahmen geladen wird, in dem sich die SVG-Schaltfläche befand (d.h. Sie würden jetzt page2.html in einem 100x50-Pixel-Rahmen innerhalb von page1.html eingebettet haben).
 
 Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacking erforderlich:
 
@@ -54,4 +54,4 @@ button.svg:
 
 ## Beispiel
 
-Ein Beispiel für diese Lösung in Aktion finden Sie unter [www.codedread.com](https://www.codedread.com/).
+Für ein Beispiel, wie diese Lösung funktioniert, siehe [www.codedread.com](https://www.codedread.com/).
