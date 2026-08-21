@@ -1,26 +1,26 @@
 ---
-title: "Window: resize-Ereignis"
+title: "Window: resize event"
 short-title: resize
 slug: Web/API/Window/resize_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Das **`resize`**-Ereignis wird ausgelöst, wenn die Dokumentansicht (Fenster) in ihrer Größe verändert wird.
+Das **`resize`**-Ereignis wird ausgelöst, wenn die Dokumentansicht (Fenster) in ihrer Größe verändert wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis ist nicht abbrechbar und verteilt sich nicht auf andere Elemente.
 
-In einigen älteren Browsern war es möglich, `resize`-Ereignishandler für jedes HTML-Element zu registrieren. Es ist immer noch möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler für jedes Element festzulegen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d.h. zurückgegeben von [`document.defaultView`](/de/docs/Web/API/Document/defaultView)). Nur Handler, die auf dem `window`-Objekt registriert sind, empfangen `resize`-Ereignisse.
+In einigen früheren Browsern war es möglich, `resize`-Ereignishandler auf jedem HTML-Element zu registrieren. Es ist weiterhin möglich, `onresize`-Attribute zu setzen oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden, um einen Handler auf einem beliebigen Element zu setzen. Allerdings werden `resize`-Ereignisse nur auf dem [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst (d.h. durch [`document.defaultView`](/de/docs/Web/API/Document/defaultView) zurückgegeben). Nur auf dem `window`-Objekt registrierte Handler empfangen `resize`-Ereignisse.
 
-Während das `resize`-Ereignis heutzutage nur für das Fenster ausgelöst wird, können Sie Resize-Benachrichtigungen für andere Elemente über die [ResizeObserver](/de/docs/Web/API/ResizeObserver)-API erhalten.
+Obwohl das `resize`-Ereignis heutzutage nur für das Fenster ausgelöst wird, können Sie Änderungsbenachrichtigungen für andere Elemente mittels der [ResizeObserver](/de/docs/Web/API/ResizeObserver)-API erhalten.
 
-Falls das `resize`-Ereignis zu häufig für Ihre Anwendung ausgelöst wird, lesen Sie [Optimizing window.onresize](https://bencentra.com/code/2015/02/27/optimizing-window-resize.html), um zu steuern, nach welcher Zeitspanne das Ereignis ausgelöst wird.
+Wenn das `resize`-Ereignis in Ihrer Anwendung zu häufig ausgelöst wird, lesen Sie [Optimizing window.onresize](https://bencentra.com/code/2015/02/27/optimizing-window-resize.html), um zu steuern, nach welcher Zeit das Ereignis ausgelöst wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("resize", (event) => { })
@@ -34,9 +34,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Fenstergroßen-Logger
+### Fenstergrößen-Logger
 
-Das folgende Beispiel gibt die Fenstergröße jedes Mal an, wenn sie geändert wird.
+Das folgende Beispiel informiert über die Fenstergröße bei jeder Größenänderung.
 
 #### HTML
 
@@ -65,13 +65,13 @@ window.onresize = reportWindowSize;
 {{EmbedLiveSample("Window_size_logger")}}
 
 > [!NOTE]
-> Die Beispielausgabe hier befindet sich in einem {{HTMLElement("iframe")}}, daher sind die angegebenen Breiten- und Höhenwerte für das `<iframe>`, nicht für das Fenster, in dem sich diese Seite befindet. Insbesondere wird es schwierig sein, die Fenstergröße so anzupassen, dass ein Unterschied in der angegebenen Höhe sichtbar wird.
+> Die Beispielausgabe hier befindet sich in einem {{HTMLElement("iframe")}}, daher sind die angegebenen Breiten- und Höhenwerte für das `<iframe>`, nicht für das Fenster, in dem sich diese Seite befindet. Insbesondere wird es schwierig sein, die Fenstergröße so zu ändern, dass ein Unterschied in der gemeldeten Höhe sichtbar wird.
 >
-> Der Effekt lässt sich leichter erkennen, wenn Sie das {{LiveSampleLink("Window_size_logger", "Beispiel in einem eigenen Fenster anzeigen")}}.
+> Der Effekt ist leichter zu erkennen, wenn Sie {{LiveSampleLink("Window_size_logger", "das Beispiel in einem eigenen Fenster anzeigen")}}.
 
 ### addEventListener-Äquivalent
 
-Sie könnten den Ereignishandler auch mithilfe der [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode einrichten:
+Sie können den Ereignishandler mit der Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einrichten:
 
 ```js
 window.addEventListener("resize", reportWindowSize);

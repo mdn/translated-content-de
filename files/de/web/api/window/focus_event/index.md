@@ -3,20 +3,20 @@ title: "Fenster: focus-Ereignis"
 short-title: focus
 slug: Web/API/Window/focus_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
-Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhalten hat.
+Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhält.
 
 Das Gegenteil von `focus` ist [`blur`](/de/docs/Web/API/Window/blur_event).
 
-Dieses Ereignis kann nicht abgebrochen werden und breitet sich nicht aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisweitergabe (Bubbeln) aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("focus", (event) => { })
@@ -34,7 +34,7 @@ Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/W
 
 ### Live-Beispiel
 
-Dieses Beispiel ändert das Aussehen eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um `focus`- und [`blur`](/de/docs/Web/API/Window/blur_event)-Ereignisse zu überwachen.
+Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um `focus`- und [`blur`](/de/docs/Web/API/Window/blur_event)-Ereignisse zu überwachen.
 
 #### HTML
 
@@ -86,4 +86,4 @@ window.addEventListener("focus", play);
 ## Siehe auch
 
 - Verwandtes Ereignis: [`blur`](/de/docs/Web/API/Window/blur_event)
-- Dieses Ereignis bei `Element`-Zielen: [`focus`](/de/docs/Web/API/Element/focus_event) Ereignis
+- Dieses Ereignis bei `Element`-Zielen: [`focus`](/de/docs/Web/API/Element/focus_event)-Ereignis

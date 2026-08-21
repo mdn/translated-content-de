@@ -3,20 +3,20 @@ title: "Window: menubar-Eigenschaft"
 short-title: menubar
 slug: Web/API/Window/menubar
 l10n:
-  sourceCommit: 62cedc63226017e9e7d0718b6fea3529ca8dbf37
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
 Gibt das `menubar`-Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war oder nicht.
+Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
 
 Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
 
 ## Wert
 
-Ein Objekt, das eine einzelne Eigenschaft enthält:
+Ein Objekt, das eine einzige Eigenschaft enthält:
 
 - `visible` {{ReadOnlyInline}}
   - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.

@@ -3,23 +3,23 @@ title: "Window: screenY-Eigenschaft"
 short-title: screenY
 slug: Web/API/Window/screenY
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte **`Window.screenY`**-Eigenschaft gibt die vertikale Distanz in CSS-Pixeln von der oberen Grenze des Browser-Viewports des Benutzers zur oberen Kante des Bildschirms zurück.
+Die schreibgeschützte **`Window.screenY`**-Eigenschaft gibt die vertikale Distanz in CSS-Pixeln von der oberen Grenze des Browser-Viewports des Benutzers bis zur oberen Kante des Bildschirms zurück.
 
 > [!NOTE]
-> Ein Alias von `screenY` wurde in letzter Zeit in modernen Browsern implementiert — [`Window.screenTop`](/de/docs/Web/API/Window/screenTop). Dieser wurde ursprünglich nur in IE unterstützt, aber aufgrund seiner Beliebtheit überall eingeführt.
+> Ein Alias von `screenY` wurde in den letzten Jahren in modernen Browsern implementiert — [`Window.screenTop`](/de/docs/Web/API/Window/screenTop). Ursprünglich wurde dies nur in IE unterstützt, aber aufgrund der Beliebtheit überall eingeführt.
 
 ## Wert
 
-Eine Zahl, die der Anzahl der CSS-Pixel von der oberen Kante des Browser-Viewports zur oberen Kante des Bildschirms entspricht.
+Eine Zahl, die der Anzahl der CSS-Pixel von der oberen Kante des Browser-Viewports bis zur oberen Kante des Bildschirms entspricht.
 
 ## Beispiele
 
-In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/)-Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir [`Window.screenLeft`](/de/docs/Web/API/Window/screenLeft)/[`Window.screenTop`](/de/docs/Web/API/Window/screenTop) zusammen mit [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis konstant an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Position des Fensters verschoben wird.
+In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/)-Beispiel sehen Sie eine Leinwand, auf der ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir [`Window.screenLeft`](/de/docs/Web/API/Window/screenLeft)/[`Window.screenTop`](/de/docs/Web/API/Window/screenTop) zusammen mit [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
 
 ```js
 initialLeft = window.screenLeft + canvasElem.offsetLeft;
@@ -54,9 +54,9 @@ function positionElem() {
 window.requestAnimationFrame(positionElem);
 ```
 
-Diese funktionieren genau in derselben Weise wie `screenX`/`screenY`.
+Diese funktionieren genau wie `screenX`/`screenY`.
 
-Im Code fügen wir auch einen Schnipsel ein, der erkennt, ob `screenLeft` unterstützt wird, und falls nicht, `screenLeft`/`screenTop` mit Hilfe von `screenX`/`screenY` auffüllt.
+Außerdem haben wir im Code ein Schnipsel eingefügt, das erkennt, ob `screenLeft` unterstützt wird. Falls nicht, wird `screenLeft`/`screenTop` mit `screenX`/`screenY` durch einen Polyfill bereitgestellt.
 
 ```js
 if (!window.screenLeft) {

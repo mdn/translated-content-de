@@ -3,13 +3,13 @@ title: "Window: status-Eigenschaft"
 short-title: status
 slug: Web/API/Window/status
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die **`status`**-Eigenschaft der
-[`Window`](/de/docs/Web/API/Window)-Schnittstelle war ursprünglich dazu gedacht, den Text in der Statusleiste am unteren Rand des Browserfensters zu setzen. Der HTML-Standard fordert jedoch jetzt, dass das Setzen von `window.status` keinen Effekt auf den in der Statusleiste angezeigten Text hat.
+Die **`status`**-Eigenschaft des
+[`Window`](/de/docs/Web/API/Window)-Interfaces war ursprünglich dazu gedacht, den Text in der Statusleiste am unteren Rand des Browserfensters festzulegen. Allerdings erfordert der HTML-Standard jetzt, dass das Setzen von `window.status` keine Auswirkung auf den in der Statusleiste angezeigten Text hat.
 
 ## Wert
 

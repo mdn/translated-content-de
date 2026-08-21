@@ -3,24 +3,24 @@ title: "Window: originAgentCluster-Eigenschaft"
 short-title: originAgentCluster
 slug: Web/API/Window/originAgentCluster
 l10n:
-  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die **`originAgentCluster`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt `true` zurück, wenn dieses Fenster zu einem _originbasierten [Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ gehört: Das bedeutet, dass das Betriebssystem diesem Fenster eigene Ressourcen (z. B. einen Prozess des Betriebssystems) zugewiesen hat, die nicht mit Fenstern anderer Ursprünge geteilt werden.
+Die schreibgeschützte **`originAgentCluster`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt `true` zurück, wenn dieses Fenster zu einem _origin-gebundenen [Agent-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ gehört: Das bedeutet, dass das Betriebssystem diesem Fenster Ursprungs-spezifische Ressourcen (zum Beispiel einen Betriebssystemprozess) bereitgestellt hat, die nicht mit Fenstern anderer Ursprünge geteilt werden.
 
 Andernfalls gibt diese Eigenschaft `false` zurück.
 
-Fenster, die Teil eines origin-basierten Agenten-Clusters sind, unterliegen im Vergleich zu Fenstern, die dies nicht sind, einigen zusätzlichen Einschränkungen. Insbesondere können sie nicht:
+Fenster, die Teil eines origin-gebundenen Agent-Clusters sind, unterliegen im Vergleich zu Fenstern, die dies nicht sind, einigen zusätzlichen Beschränkungen. Insbesondere können sie nicht:
 
-- [`Document.domain`](/de/docs/Web/API/Document/domain) setzen, was ein veraltetes Feature ist, das normalerweise ermöglicht, dass gleiche Seiten mit unterschiedlichen Ursprüngen synchron auf das DOM des anderen zugreifen.
-- [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekte über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) an andere gleichseitige Seiten mit unterschiedlichen Ursprüngen senden.
-- {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte an andere gleichseitige Seiten mit unterschiedlichen Ursprüngen senden.
+- [`Document.domain`](/de/docs/Web/API/Document/domain) festlegen, was ein veraltetes Feature ist, das normalerweise erlaubt, dass gleichseitige, verschiedene Ursprungsseiten synchron auf das DOM des anderen zugreifen können.
+- [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekte zu anderen gleichseitigen, verschiedenen Ursprungsseiten über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) senden.
+- {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte zu anderen gleichseitigen, verschiedenen Ursprungsseiten senden.
 
-Um den Browser zu bitten, diesem Fenster einen origin-basierten Agenten-Cluster zuzuweisen, muss der Server den {{httpheader("Origin-Agent-Cluster")}}-Antwortheader senden.
+Um zu verlangen, dass der Browser dieses Fenster einem origin-gebundenen Agent-Cluster zuweist, muss der Server den {{httpheader("Origin-Agent-Cluster")}}-Antwort-Header senden.
 
-Beachten Sie, dass das origin-basierte Agenten-Cluster-Feature nur in {{Glossary("Secure_Context", "sicheren Kontexten")}} unterstützt wird. Wenn eine Seite kein sicherer Kontext ist, wird `window.originAgentCluster` immer `false` zurückgeben.
+Beachten Sie, dass die Funktion des origin-gebundenen Agent-Clusters nur in {{Glossary("Secure_Context", "sicheren Kontexten")}} unterstützt wird. Wenn eine Website kein sicherer Kontext ist, wird `window.originAgentCluster` immer `false` zurückgeben.
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Beachten Sie, dass das origin-basierte Agenten-Cluster-Feature nur in {{Glossary
 
 ## Siehe auch
 
-- {{httpheader("Origin-Agent-Cluster")}} HTTP-Antwortheader
+- {{httpheader("Origin-Agent-Cluster")}} HTTP-Antwort-Header
 - [Anfordern von Leistungsisolation mit dem Origin-Agent-Cluster-Header](https://web.dev/articles/origin-agent-cluster)

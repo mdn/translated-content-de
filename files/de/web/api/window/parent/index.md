@@ -1,22 +1,22 @@
 ---
-title: "Window: parent-Eigenschaft"
+title: "Window: Eigenschaft parent"
 short-title: parent
 slug: Web/API/Window/parent
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die **`Window.parent`**-Eigenschaft ist eine Referenz auf das übergeordnete
-Fenster oder Unterrahmen des aktuellen Fensters.
+Die **`Window.parent`**-Eigenschaft ist eine Referenz auf das übergeordnete Objekt
+des aktuellen Fensters oder Unterframes.
 
-Wenn ein Fenster kein übergeordnetes Element hat, ist seine `parent`-Eigenschaft eine Referenz
-auf sich selbst.
+Wenn ein Fenster kein übergeordnetes Objekt hat, ist seine `parent`-Eigenschaft eine Referenz auf
+sich selbst.
 
 Wenn ein Fenster in einem {{htmlelement("iframe")}}, {{htmlelement("object")}} oder
-{{htmlelement("frame")}} geladen wird, ist sein übergeordnetes Element das Fenster mit dem Element, das das
-Fenster einbettet.
+{{htmlelement("frame")}} geladen wird, ist das übergeordnete Objekt das Fenster mit dem Element, das
+das Fenster einbettet.
 
 ## Wert
 

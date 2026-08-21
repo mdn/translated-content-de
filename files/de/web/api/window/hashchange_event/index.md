@@ -3,18 +3,18 @@ title: "Window: hashchange-Event"
 short-title: hashchange
 slug: Web/API/Window/hashchange_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`hashchange`**-Event wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und diesem folgt).
+Das **`hashchange`**-Event wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und ihm folgt).
 
-Dieses Event wird nicht ausgelöst, wenn der Hash mit [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) geändert wird.
+Dieses Event wird nicht ausgelöst, wenn der Hash mit [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) modifiziert wird.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js-nolint
 addEventListener("hashchange", (event) => { })
@@ -22,15 +22,15 @@ addEventListener("hashchange", (event) => { })
 onhashchange = (event) => { }
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("HashChangeEvent")}}
 
-## Event-Handler-Alias
+## Ereignis-Handler-Aliase
 
-Zusätzlich zum `Window`-Interface ist die Ereignishandler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignisbehandlereigenschaft `onhashchange` auch auf folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -38,7 +38,7 @@ Zusätzlich zum `Window`-Interface ist die Ereignishandler-Eigenschaft `onhashch
 
 ## Beispiele
 
-Sie können das `hashchange`-Event in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `hashchange`-Event in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener("hashchange", () => {
@@ -46,7 +46,7 @@ window.addEventListener("hashchange", () => {
 });
 ```
 
-Oder verwenden Sie die `onhashchange` Ereignishandler-Eigenschaft:
+Oder verwenden Sie die `onhashchange`-Ereignisbehandlereigenschaft:
 
 ```js
 function locationHashChanged() {
@@ -68,4 +68,4 @@ window.onhashchange = locationHashChanged;
 
 ## Siehe auch
 
-- [`popstate`](/de/docs/Web/API/Window/popstate_event) Event
+- [`popstate`](/de/docs/Web/API/Window/popstate_event)-Event

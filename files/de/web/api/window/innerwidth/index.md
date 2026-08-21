@@ -1,28 +1,28 @@
 ---
-title: "Window: Eigenschaft innerWidth"
+title: "Window: innerWidth-Eigenschaft"
 short-title: innerWidth
 slug: Web/API/Window/innerWidth
 l10n:
-  sourceCommit: 277e1432bea11473d0c638cd720130c44b26b3f4
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`innerWidth`** gibt die Innenbreite des Fensters in Pixeln zurück (d.h. die Breite des {{Glossary("layout_viewport", "Layout-Viewports")}} des Fensters). Dies schließt die Breite der vertikalen Scrollleiste ein, falls vorhanden.
+Die schreibgeschützte [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`innerWidth`** gibt die Innenbreite des Fensters in Pixeln zurück (d.h. die Breite des {{Glossary("layout_viewport", "Layout-Viewports")}} des Fensters). Dies schließt die Breite der vertikalen Scrollleiste ein, falls eine vorhanden ist.
 
-Ähnlich kann die Innenhöhe des Fensters (d.h. die Höhe des Layout-Viewports) mit der [`innerHeight`](/de/docs/Web/API/Window/innerHeight)-Eigenschaft ermittelt werden. Diese Messung berücksichtigt auch die Höhe der horizontalen Scrollleiste, wenn sie sichtbar ist.
+Ähnlich kann die Innenhöhe des Fensters (d.h. die Höhe des Layout-Viewports) mit der [`innerHeight`](/de/docs/Web/API/Window/innerHeight)-Eigenschaft ermittelt werden. Diese Messung berücksichtigt auch die Höhe der horizontalen Scrollleiste, falls sie sichtbar ist.
 
 ## Wert
 
 Ein ganzzahliger Wert, der die Breite des Layout-Viewports des Fensters in Pixeln angibt. Diese Eigenschaft ist schreibgeschützt und hat keinen Standardwert.
 
-Um die Breite des Fensters zu ändern, verwenden Sie eine der [`Window`](/de/docs/Web/API/Window)-Methoden zum Ändern der Fenstergröße, wie zum Beispiel [`resizeBy()`](/de/docs/Web/API/Window/resizeBy) oder [`resizeTo()`](/de/docs/Web/API/Window/resizeTo).
+Um die Breite des Fensters zu ändern, verwenden Sie eine der [`Window`](/de/docs/Web/API/Window)-Methoden zum Anpassen von Fenstern, wie zum Beispiel [`resizeBy()`](/de/docs/Web/API/Window/resizeBy) oder [`resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
-## Nutzungshinweise
+## Anwendungshinweise
 
-Wenn Sie die Breite des Fensters abzüglich der Scrollleiste und der Ränder benötigen, verwenden Sie stattdessen die [`clientWidth`](/de/docs/Web/API/Element/clientWidth)-Eigenschaft des Wurzelelements {{HTMLElement("html")}}.
+Wenn Sie die Breite des Fensters abzüglich der Scrollleiste und Ränder benötigen, verwenden Sie stattdessen die [`clientWidth`](/de/docs/Web/API/Element/clientWidth)-Eigenschaft des Wurzelelements {{HTMLElement("html")}}.
 
-Die `innerWidth`-Eigenschaft ist auf jedem Fenster oder Objekt verfügbar, das sich wie ein Fenster verhält, wie zum Beispiel ein Frame oder Tab.
+Die `innerWidth`-Eigenschaft ist in jedem Fenster oder Objekt verfügbar, das sich wie ein Fenster verhält, wie z.B. ein Frame oder Tab.
 
 ## Beispiele
 
@@ -69,7 +69,7 @@ window.addEventListener("resize", updateSize);
 
 {{EmbedLiveSample('Demo')}}
 
-Sie können auch {{LiveSampleLink('Demo', 'die Ergebnisse des Demo-Codes auf einer separaten Seite anzeigen')}}.
+Sie können auch die {{LiveSampleLink('Demo', 'Ergebnisse des Demo-Codes auf einer separaten Seite anzeigen')}}.
 
 ## Spezifikationen
 

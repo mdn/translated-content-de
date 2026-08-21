@@ -1,17 +1,17 @@
 ---
-title: "Window: online Event"
+title: "Fenster: online-Ereignis"
 short-title: online
 slug: Web/API/Window/online_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`online`** Event des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugriff auf das Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
+Das **`online`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugang zum Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
 
 > [!NOTE]
-> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls können weiterhin verhindern, dass die Website erreicht wird.
+> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls könnten dennoch verhindern, dass die Website erreichbar ist.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ ononline = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Alias für Ereignis-Handler
+## Ereignishandler-Aliase
 
 Zusätzlich zum `Window`-Interface ist die Ereignis-Handler-Eigenschaft `ononline` auch auf den folgenden Zielen verfügbar:
 

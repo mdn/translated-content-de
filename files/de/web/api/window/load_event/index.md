@@ -1,29 +1,29 @@
 ---
-title: "Window: load-Event"
+title: "Window: load event"
 short-title: load
 slug: Web/API/Window/load_event
 l10n:
-  sourceCommit: 09d8ff096be97b28ea415fc4c68fb1cff0ff8af9
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
-Das **`load`**-Ereignis wird ausgelöst, wenn die gesamte Seite geladen wurde, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripte (einschließlich asynchroner, verzögerter und Modulscripte), `iframes` und Bilder, mit Ausnahme derer, die [lazy geladen](/de/docs/Web/Performance/Guides/Lazy_loading#images_iframes_videos_and_audio) werden.
-Dies steht im Gegensatz zu [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), das ausgelöst wird, sobald der DOM der Seite geladen ist, ohne darauf zu warten, dass Ressourcen vollständig geladen sind.
+Das **`load`** Ereignis wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripten (einschließlich async, deferred und module scripts), iframes und Bilder, außer solchen, die [lazy geladen](/de/docs/Web/Performance/Guides/Lazy_loading#images_iframes_videos_and_audio) werden.
+Dies steht im Gegensatz zum [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), welches ausgelöst wird, sobald das Seiten-DOM geladen wurde, ohne darauf zu warten, dass die Ressourcen fertig geladen sind.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
-
-> [!NOTE]
-> _Alle Ereignisse mit dem Namen `load` werden nicht zum `Window` propagiert_, selbst wenn `bubbles` auf `true` gesetzt ist. Um `load`-Ereignisse im `window` zu erfassen, muss dieses `load`-Ereignis direkt an das `window` gesendet werden.
+Dieses Ereignis kann nicht abgebrochen werden und führt keine Bubbling aus.
 
 > [!NOTE]
-> Das `load`-Ereignis, das ausgelöst wird, wenn das Hauptdokument geladen wurde, _wird_ im `window` ausgelöst, aber es hat zwei veränderte Eigenschaften: `target` ist `document`, und `path` ist `undefined`. Diese beiden Eigenschaften sind aufgrund der Kompatibilität mit älteren Versionen verändert.
+> _Alle Ereignisse namens `load` werden nicht zum `Window` propagiert_, selbst wenn `bubbles` auf `true` gesetzt ist. Um `load`-Ereignisse auf dem `window` abzufangen, muss dieses `load`-Ereignis direkt an das `window` gesendet werden.
 
-Um zu vermeiden, dass ein Skript ausgeführt wird, bevor der vom Skript manipulierte DOM vollständig erstellt wurde, können Sie das Skript am Ende des `body`-Dokuments platzieren, direkt vor dem schließenden `</body>`-Tag, ohne es in einen Ereignislistener zu wickeln. Normalerweise sollten Sie das `load`-Ereignis nur verwenden, um auf das Laden externer Ressourcen wie Bilder oder verzögerte Skripte zu warten.
+> [!NOTE]
+> Das `load` Ereignis, das ausgelöst wird, wenn das Hauptdokument geladen ist, _wird_ auf das `window` gesendet, hat aber zwei veränderte Eigenschaften: `target` ist `document`, und `path` ist `undefined`. Diese zwei Eigenschaften sind aufgrund von Kompatibilität mit Legacy-Systemen verändert.
+
+Um zu vermeiden, dass ein Skript ausgeführt wird, bevor das DOM, das es manipuliert, vollständig aufgebaut wurde, können Sie das Skript am Ende des Dokumentkörpers einfügen, unmittelbar vor dem schließenden `</body>` Tag, ohne es in einen Event-Listener einzuwickeln. Normalerweise sollten Sie das `load` Ereignis nur dazu verwenden, um auf das Laden von externen Ressourcen wie Bildern oder deferred scripts zu warten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungseigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("load", (event) => { })
@@ -37,7 +37,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Eine Nachricht ausgeben, wenn die Seite vollständig geladen ist:
+Protokollieren Sie eine Nachricht, wenn die Seite vollständig geladen ist:
 
 ```js
 window.addEventListener("load", (event) => {
@@ -45,7 +45,7 @@ window.addEventListener("load", (event) => {
 });
 ```
 
-Dasselbe, aber mit der `onload`-Ereignisbehandlungseigenschaft:
+Dasselbe, aber mit der `onload` Event-Handler-Eigenschaft:
 
 ```js
 window.onload = (event) => {

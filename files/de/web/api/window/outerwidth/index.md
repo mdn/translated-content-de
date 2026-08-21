@@ -3,12 +3,12 @@ title: "Window: outerWidth-Eigenschaft"
 short-title: outerWidth
 slug: Web/API/Window/outerWidth
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`Window.outerWidth`** gibt die Breite der Außenseite des Browserfensters zurück. Sie repräsentiert die Breite des gesamten Browserfensters einschließlich der Seitenleiste (falls erweitert), des Fensterchroms und der Größenänderungsränder/-griffe des Fensters.
+Die schreibgeschützte Eigenschaft **`Window.outerWidth`** gibt die Breite der Außenseite des Browserfensters zurück. Sie stellt die Breite des gesamten Browserfensters dar, einschließlich der Seitenleiste (falls expandiert), des Fensterchroms und der Fensterrahmen/-griffe zur Größenänderung.
 
 ## Hinweise
 

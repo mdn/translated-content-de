@@ -1,18 +1,18 @@
 ---
-title: "Window: document Eigenschaft"
+title: "Window: document-Eigenschaft"
 short-title: document
 slug: Web/API/Window/document
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-**`window.document`** gibt eine Referenz auf das im Fenster enthaltene [Dokument](/de/docs/Web/API/Document) zurück.
+**`window.document`** gibt eine Referenz auf das im Fenster enthaltene [document](/de/docs/Web/API/Document) zurück.
 
 ## Wert
 
-Ein [Document](/de/docs/Web/API/Document) Objekt.
+Ein [document](/de/docs/Web/API/Document)-Objekt.
 
 ## Beispiele
 

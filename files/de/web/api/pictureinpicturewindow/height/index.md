@@ -3,16 +3,16 @@ title: "PictureInPictureWindow: height-Eigenschaft"
 short-title: height
 slug: Web/API/PictureInPictureWindow/height
 l10n:
-  sourceCommit: 5e3c69527de87e8ff9407de62e919db9254f0627
+  sourceCommit: 61ceefea7281f267055e4481a9a610d7ac2e724e
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft der [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Schnittstelle gibt die Höhe des schwebenden Videofensters in Pixeln zurück.
+Die **`height`**-Eigenschaft der Schnittstelle [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) gibt die Höhe des schwebenden Videofensters in Pixeln zurück. Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Höhe des schwebenden Videofensters in Pixeln angibt, falls das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
+Ein ganzzahliger Wert, der die Höhe des schwebenden Videofensters in Pixeln angibt, wenn das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
 
 ## Spezifikationen
 

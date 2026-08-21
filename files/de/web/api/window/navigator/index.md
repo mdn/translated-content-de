@@ -3,12 +3,12 @@ title: "Window: navigator-Eigenschaft"
 short-title: navigator
 slug: Web/API/Window/navigator
 l10n:
-  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Window.navigator`** gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, welches Methoden und Eigenschaften bezüglich der Anwendung enthält, die das Skript ausführt.
+Die schreibgeschützte Eigenschaft **`Window.navigator`** gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, das Methoden und Eigenschaften über die Anwendung enthält, die das Skript ausführt.
 
 ## Wert
 

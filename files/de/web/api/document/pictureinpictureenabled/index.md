@@ -1,26 +1,28 @@
 ---
-title: "Dokument: pictureInPictureEnabled-Eigenschaft"
+title: "Dokumentation: pictureInPictureEnabled-Eigenschaft"
 short-title: pictureInPictureEnabled
 slug: Web/API/Document/pictureInPictureEnabled
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 61ceefea7281f267055e4481a9a610d7ac2e724e
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte Eigenschaft **`pictureInPictureEnabled`** der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt an, ob der Bild-in-Bild-Modus verfügbar ist oder nicht.
+Die schreibgeschützte **`pictureInPictureEnabled`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt an, ob der Bild-in-Bild-Modus verfügbar ist.
 
-Der Bild-in-Bild-Modus ist standardmäßig verfügbar, es sei denn, es ist anders festgelegt durch eine [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/picture-in-picture).
-
-Obwohl diese Eigenschaft schreibgeschützt ist, wird sie beim Ändern keinen Fehler werfen (selbst im strict mode); der Setter ist eine No-Operation und wird ignoriert.
+Der Bild-in-Bild-Modus ist standardmäßig verfügbar, es sei denn, er wird durch die [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/picture-in-picture) der Seite verweigert.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus versetzt werden und in einem schwebenden Fenster angezeigt werden kann, indem [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) aufgerufen wird. Wenn der Bild-in-Bild-Modus nicht verfügbar ist, ist dieser Wert `false`.
+Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus wechseln und in einem schwebenden Fenster angezeigt werden kann, indem [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) aufgerufen wird. Wenn der Bild-in-Bild-Modus nicht verfügbar ist, ist dieser Wert `false`.
+
+Obwohl diese Eigenschaft schreibgeschützt ist, wird kein Fehler ausgelöst, wenn sie modifiziert wird (auch nicht im Strict Mode); der Setter hat keine Wirkung und wird ignoriert.
 
 ## Beispiele
 
-In diesem Beispiel wird, bevor versucht wird, den Bild-in-Bild-Modus für ein {{htmlElement("video")}}-Element aufzurufen, der Wert von `pictureInPictureEnabled` geprüft, um den Aufruf zu vermeiden, falls die Funktion nicht verfügbar ist.
+### Grundlegende Verwendung
+
+In diesem Beispiel wird, bevor der Versuch unternommen wird, den Bild-in-Bild-Modus für ein {{htmlElement("video")}}-Element zu aktivieren, der Wert von `pictureInPictureEnabled` überprüft, um den Aufruf zu vermeiden, wenn die Funktion nicht verfügbar ist.
 
 ```js
 function requestPictureInPicture() {

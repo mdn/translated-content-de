@@ -1,14 +1,14 @@
 ---
-title: "Fenster: scrollBy() Methode"
+title: "Window: scrollBy() Methode"
 short-title: scrollBy()
 slug: Web/API/Window/scrollBy
 l10n:
-  sourceCommit: afcdfa050626bb7eb05ee693df8997020db9ff2e
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Die **`scrollBy()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle scrollt das Dokument im Fenster um den angegebenen Betrag.
+Die **`scrollBy()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces scrollt das Dokument im Fenster um den angegebenen Betrag.
 
 ## Syntax
 
@@ -24,29 +24,29 @@ scrollBy(options)
 - `yCoord`
   - : Der vertikale Pixelwert, um den Sie scrollen möchten.
 - `options`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top` {{optional_inline}}
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel auf der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left` {{optional_inline}}
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
+      - : Gibt die Anzahl der Pixel auf der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort oder animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen animiert sich reibungslos.
-        - `instant`: Das Scrollen erfolgt sofort in einem Sprung.
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}} CSS-Eigenschaft auf dem Element bestimmt.
+      - : Bestimmt, ob das Scrollen sofort erfolgt oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Das Scrollen wird sanft animiert.
+        - `instant`: Das Scrollen erfolgt sofort in einem einzigen Sprung.
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert der {{cssxref("scroll-behavior")}}-CSS-Eigenschaft des Elements bestimmt.
 
-        Wenn weggelassen, ist der Standardwert von `behavior` `auto`.
+        Wird `behavior` weggelassen, ist der Standardwert `auto`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einem Objekt erfüllt, das die folgende Eigenschaft enthält:
+Ein {{jsxref("Promise")}}, das mit einem Objekt erfüllt wird, das die folgende Eigenschaft enthält:
 
 - `interrupted`
-  - : Ein boolescher Wert, der angibt, ob der Scrollvorgang unterbrochen wurde (`true`) oder nicht (`false`). Eine solche Unterbrechung geschieht typischerweise, wenn ein programmatisches Scrollen im Gange ist und ein weiteres programmatisches Scrollen im Fenster initiiert wird, bevor das erste beendet ist.
+  - : Ein boolescher Wert, der angibt, ob der Scrollvorgang unterbrochen wurde (`true`) oder nicht (`false`). Eine solche Unterbrechung tritt typischerweise auf, wenn ein programmatischer Scrollvorgang in Gang ist und ein weiterer programmatischer Scrollvorgang auf dem Fenster initiiert wird, bevor der erste abgeschlossen ist.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 Um eine Seite nach unten zu scrollen:
 
@@ -72,11 +72,11 @@ window.scrollBy({
 
 ### Reagieren auf das Ende des Scrollens
 
-Unser [Demo zu Fenstermethoden](https://mdn.github.io/dom-examples/scroll-promises/window-methods/) ([siehe Quellcode](https://github.com/mdn/dom-examples/tree/main/scroll-promises/window-methods)) demonstriert, wie der Rückgabewert von `scrollBy()` als Promise verwendet werden kann, um auf das Ende eines Scrollvorgangs zu reagieren. Diese Technik ist vor allem nützlich in Fällen, in denen das Scrollen reibungslos über die Zeit erfolgt (erreicht durch Setzen der [`behavior`](#behavior) Option auf `smooth` oder durch Setzen der {{cssxref("scroll-behavior")}} Eigenschaft des scrolling Elements auf `smooth`).
+Unsere [Fenstermethoden-Demo](https://mdn.github.io/dom-examples/scroll-promises/window-methods/) ([Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/window-methods)) zeigt, wie der Promise-Rückgabewert von `scrollBy()` verwendet werden kann, um auf das Ende eines Scrollvorgangs zu reagieren. Diese Technik ist hauptsächlich in Fällen nützlich, in denen das Scrollen über die Zeit hinweg sanft erfolgt (erreicht durch die Einstellung der [`behavior`](#behavior)-Option auf `smooth` oder durch das Setzen der {{cssxref("scroll-behavior")}}-Eigenschaft des Scroll-Elements auf `smooth`).
 
 #### HTML
 
-Unser HTML enthält mehrere Absätze von Inhalten und ein {{htmlelement("div")}} Element Toolbar mit {{htmlelement("button")}} Elementen, die verschiedene Scrolloperationen im Fenster auslösen.
+Unser HTML enthält mehrere Absätze Inhalt und ein {{htmlelement("div")}}-Element-Toolbar mit {{htmlelement("button")}}-Elementen, die verschiedene Scrollvorgänge im Fenster auslösen.
 
 ```html
 <div>
@@ -94,7 +94,7 @@ Unser HTML enthält mehrere Absätze von Inhalten und ein {{htmlelement("div")}}
 
 #### CSS
 
-Wir geben dem {{cssxref(":root")}} Element einen Wert der {{cssxref("scroll-behavior")}} Eigenschaft von `smooth`, sodass alle Scrolloperationen über die Zeit hinweg animiert werden anstatt sofort zu erfolgen.
+Wir geben dem {{cssxref(":root")}}-Element einen Wert der {{cssxref("scroll-behavior")}}-Eigenschaft von `smooth`, sodass alle Scrollvorgänge über die Zeit hinweg sanft animiert werden, anstatt sofort zu erfolgen.
 
 ```css
 :root {
@@ -102,7 +102,7 @@ Wir geben dem {{cssxref(":root")}} Element einen Wert der {{cssxref("scroll-beha
 }
 ```
 
-Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, damit es sanft ausblendet oder einblendet. Wir definieren auch {{cssxref("@keyframes")}} Blöcke, um die erforderlichen Änderungen der {{cssxref("opacity")}} für diese Animationen zu definieren.
+Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out`- oder `fade-in`-Klasse auf ein Element angewendet wird, wird eine {{cssxref("animation")}} angewendet, sodass sie sanft aus- oder eingeblendet wird. Wir definieren auch {{cssxref("@keyframes")}}-Blöcke, um die erforderlichen {{cssxref("opacity")}}-Änderungen für diese Animationen zu definieren.
 
 ```css
 .fade-out {
@@ -134,18 +134,18 @@ Wir erstellen auch zwei Klassenselektoren; wenn eine `fade-out` oder `fade-in` K
 }
 ```
 
-Der restliche CSS-Code wird aus Gründen der Kürze nicht angezeigt.
+Der Rest des CSS wird aus Gründen der Kürze nicht angezeigt.
 
 #### JavaScript
 
-Wir beginnen damit, Referenzen zum `<button>`, das die `scrollBy()` Operation ausführt, und zur Toolbar `<div>` zu holen:
+Wir beginnen damit, Referenzen auf die `<button>`, die den `scrollBy()`-Vorgang ausführen, und die Toolbar-`<div>` zu erfassen:
 
 ```js
 const scrollByBtn = document.querySelector(".scroll-by");
 const toolbar = document.querySelector("div");
 ```
 
-Als nächstes definieren wir eine Funktion namens `isInterrupted()`, die als Reaktion auf den Abschluss eines Scrollvorgangs ausgeführt wird und einen booleschen Wert `interrupted` als Parameter nimmt. Sie protokolliert eine Nachricht in der Konsole, dass das Scrollen abgeschlossen ist und angibt, ob der Vorgang unterbrochen wurde (`interrupted` ist `true`) oder nicht. Zusätzlich, wenn `interrupted` `true` ist, wird `alert()` aufgerufen, um die Unterbrechung klar anzuzeigen.
+Als Nächstes definieren wir eine Funktion namens `isInterrupted()`, die als Reaktion darauf ausgeführt wird, dass ein Scrollvorgang endet und die einen booleschen `interrupted`-Wert als Parameter nimmt. Sie protokolliert eine Nachricht in der Konsole, um zu sagen, dass das Scrollen beendet ist und ob der Vorgang unterbrochen wurde (`interrupted` ist `true`) oder nicht. Außerdem wird, falls `interrupted` `true` ist, ein `alert()` ausgeführt, um die Unterbrechung deutlich anzuzeigen.
 
 ```js
 function isInterrupted(interrupted) {
@@ -156,7 +156,7 @@ function isInterrupted(interrupted) {
 }
 ```
 
-Wenn die Schaltfläche angeklickt wird, wenden wir sofort die `fade-out` Klasse auf die Toolbar an, was dazu führt, dass sie ausblendet. Wir führen dann `scrollBy(0, 200)` im Fenster aus, um dessen Inhalt um 200 Pixel nach unten zu scrollen, warten auf die Auflösung des zugehörigen Promises und speichern das `result` in einer Konstante. Wenn das Promise aufgelöst wurde, rufen wir `isInterrupted()` auf, um zu melden, dass der Scrollvorgang abgeschlossen ist und ob er unterbrochen wurde. Schließlich wenden wir die `fade-in` Klasse auf die Toolbar an, wodurch sie wieder eingeblendet wird.
+Wenn die Schaltfläche geklickt wird, wenden wir sofort die `fade-out`-Klasse auf die Toolbar an, sodass sie ausblendet. Danach führen wir `scrollBy(0, 200)` auf dem Fenster aus, um dessen Inhalt um 200 Pixel nach unten zu scrollen, warten auf die Auflösung des Promises und speichern das `result` in einer Konstante. Wenn das Promise aufgelöst wurde, nennen wir `isInterrupted()`, um zu melden, dass der Scrollvorgang abgeschlossen ist und ob er unterbrochen wurde. Schließlich wenden wir die `fade-in`-Klasse auf die Toolbar an, wodurch sie wieder eingeblendet wird.
 
 ```js
 scrollByBtn.addEventListener("click", async () => {
@@ -167,19 +167,19 @@ scrollByBtn.addEventListener("click", async () => {
 });
 ```
 
-Der für `scrollBy()` nicht relevante Code wird aus Gründen der Kürze nicht angezeigt.
+Der nicht relevante Code für `scrollBy()` wird aus Gründen der Kürze nicht angezeigt.
 
 #### Ergebnis
 
-Klicken Sie auf die Schaltflächen, um das Scrollverhalten zu sehen. Beachten Sie, wie die Toolbar ausblendet, wenn eine Schaltfläche gedrückt wird, und wieder einblendet, sobald das reibungslose Scrollen beendet ist. Versuchen Sie auch, eine Schaltfläche zu drücken und dann schnell eine andere Schaltfläche zu drücken, bevor der erste Scrollvorgang abgeschlossen ist. Beachten Sie, wie in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
+Klicken Sie auf die Schaltflächen, um das Scrollverhalten zu sehen. Beachten Sie, wie sich die Toolbar ausblendet, wenn eine Schaltfläche gedrückt wird, und sich wieder einblendet, sobald das sanfte Scrollen beendet ist. Versuchen Sie auch, eine Schaltfläche zu drücken und schnell eine andere Schaltfläche zu drücken, bevor der erste Scrollvorgang beendet ist. Beachten Sie, wie in diesen Fällen das Scrollen als unterbrochen gemeldet wird.
 
 {{EmbedGHLiveSample("dom-examples/scroll-promises/window-methods/", "100%", 400)}}
 
 Sie können das [Demo auch in einem separaten Tab laden](https://mdn.github.io/dom-examples/scroll-promises/window-methods/) und den [Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/scroll-promises/window-methods).
 
-#### Anmerkung zur Feature-Erkennung
+#### Hinweis zur Funktionserkennung
 
-Wenn Sie dieses Beispiel in einem Browser ausführen, der Scroll-Operationen, die ein Promise zurückgeben, nicht unterstützt, sind die Scroll-Operationen weiterhin reibungslos, aber die Toolbar blendet nicht aus und wieder ein, sobald der Vorgang abgeschlossen ist. Die Feature-Erkennung wird von einer Funktion namens `supportsScrollPromises()` gehandhabt, die einen Scrollvorgang ausführt und testet, ob sein Rückgabewert ein Promise ist:
+Wenn Sie dieses Beispiel in einem Browser ausführen, der keine Promise-zurückgebenden Scrollvorgänge unterstützt, sind die Scrollvorgänge zwar immer noch sanft, aber die Toolbar blendet sich nicht aus und dann wieder ein, sobald der Vorgang abgeschlossen ist. Die Funktionserkennung wird von einer Funktion namens `supportsScrollPromises()` behandelt, die einen Scrollvorgang ausführt und testet, ob dessen Rückgabewert ein Promise ist:
 
 ```js
 function supportsScrollPromises() {
@@ -188,7 +188,7 @@ function supportsScrollPromises() {
 }
 ```
 
-Sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/window-methods/index.js) an, um zu sehen, wie die Feature-Erkennung verwendet wird.
+Schauen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/blob/main/scroll-promises/window-methods/index.js) an, um zu sehen, wie die Funktionserkennung verwendet wird.
 
 ## Spezifikationen
 

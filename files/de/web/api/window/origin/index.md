@@ -3,12 +3,12 @@ title: "Window: origin-Eigenschaft"
 short-title: origin
 slug: Web/API/Window/origin
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`origin`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt den Ursprung des globalen Bereichs als Zeichenkette zurück.
+Die schreibgeschützte **`origin`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window) Interface gibt den Ursprung des globalen Bereichs zurück, serialisiert als Zeichenkette.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-Ausgeführt im Fensterscope wird das folgende Snippet den Ursprung des globalen Bereichs des Dokuments in die Konsole loggen.
+Ausgeführt im Fensterscope, wird das folgende Snippet den Ursprung des globalen Bereichs des Dokuments in die Konsole protokollieren.
 
 ```js
 console.log(window.origin); // On this page returns 'https://developer.mozilla.org'
 ```
 
-Wenn der Ursprung kein Scheme/Host/Port-Tupel ist (zum Beispiel, wenn Sie versuchen, es lokal auszuführen, d.h. über eine `file://` URL), wird `origin` die Zeichenkette `"null"` zurückgeben.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (z. B. wenn Sie versuchen, es lokal auszuführen, d.h. über die `file://` URL), wird `origin` den String `"null"` zurückgeben.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Wenn der Ursprung kein Scheme/Host/Port-Tupel ist (zum Beispiel, wenn Sie versuc
 ## Siehe auch
 
 - [`WorkerGlobalScope.origin`](/de/docs/Web/API/WorkerGlobalScope/origin)
-- {{Glossary("origin", "origin")}} Glossarbegriff
+- {{Glossary("origin", "Ursprung")}} im Glossar

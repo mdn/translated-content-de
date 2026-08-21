@@ -1,31 +1,31 @@
 ---
-title: "Window: unload-Ereignis"
+title: "Window: unload-Event"
 short-title: unload
 slug: Web/API/Window/unload_event
 l10n:
-  sourceCommit: e380b2e33938d1a2f99ff0e26fbc47bab85b9313
+  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
 > [!WARNING]
-> Entwickler sollten die Verwendung dieses Ereignisses vermeiden. Siehe "Hinweise zur Verwendung" unten.
+> Entwickler sollten die Verwendung dieses Events vermeiden. Siehe "Hinweise zur Verwendung" unten.
 
-Das **`unload`**-Ereignis wird ausgelöst, wenn das Dokument oder eine untergeordnete Ressource entladen wird.
+Das **`unload`**-Event wird ausgelöst, wenn das Dokument oder eine untergeordnete Ressource entladen wird.
 
-Es wird nach folgenden Ereignissen ausgelöst:
+Es wird nach folgenden Events ausgelöst:
 
-- [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) (abbrechbares Ereignis)
+- [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) (abbrechbares Event)
 - [`pagehide`](/de/docs/Web/API/Window/pagehide_event)
 
 Das Dokument befindet sich in folgendem Zustand:
 
 - Alle Ressourcen existieren noch (img, iframe etc.)
-- Für den Endbenutzer ist nichts mehr sichtbar
-- Benutzeroberflächen-Interaktionen sind unwirksam ([`window.open`](/de/docs/Web/API/Window/open), [`alert`](/de/docs/Web/API/Window/alert), [`confirm`](/de/docs/Web/API/Window/confirm), etc.)
+- Nichts ist mehr für den Endbenutzer sichtbar
+- UI-Interaktionen sind wirkungslos ([`window.open`](/de/docs/Web/API/Window/open), [`alert`](/de/docs/Web/API/Window/alert), [`confirm`](/de/docs/Web/API/Window/confirm) etc.)
 - Ein Fehler stoppt den Entladevorgang nicht
 
-Bitte beachten Sie, dass das `unload`-Ereignis auch dem Dokumentbaum folgt: Das Entladen des übergeordneten Rahmens erfolgt **vor** dem `unload` des untergeordneten Rahmens (siehe Beispiel unten).
+Bitte beachten Sie, dass das unload-Event auch dem Dokumentbaum folgt: das Entladen des übergeordneten Frames erfolgt **vor** dem `unload` des untergeordneten Frames (siehe Beispiel unten).
 
 ## Syntax
 
@@ -37,13 +37,13 @@ addEventListener("unload", (event) => { })
 onunload = (event) => { }
 ```
 
-## Ereignistyp
+## Eventtyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Ereignis-Handler-Aliase
+## Event-Handler-Aliase
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onunload` auch für die folgenden Ziele verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onunload` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -51,21 +51,21 @@ Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onu
 
 ## Hinweise zur Verwendung
 
-Entwickler sollten die Verwendung dieses Ereignisses vermeiden.
+Entwickler sollten die Verwendung dieses Events vermeiden.
 
-Insbesondere auf mobilen Geräten wird das `unload`-Ereignis nicht zuverlässig ausgelöst. Das `unload`-Ereignis wird zum Beispiel in folgendem Szenario überhaupt nicht ausgelöst:
+Insbesondere auf mobilen Geräten wird das `unload`-Event nicht zuverlässig ausgelöst. Zum Beispiel wird das `unload`-Event in folgendem Szenario überhaupt nicht ausgelöst:
 
 1. Ein mobiler Benutzer besucht Ihre Seite.
 2. Der Benutzer wechselt dann zu einer anderen App.
-3. Später schließt der Benutzer den Browser über den App-Manager.
+3. Später schließt der Benutzer den Browser aus dem App-Manager.
 
-Das `unload`-Ereignis ist auch nicht mit dem [Back/Forward Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel, da viele Seiten, die dieses Ereignis verwenden, davon ausgehen, dass die Seite nicht weiter existieren wird, nachdem das Ereignis ausgelöst wurde. Um dem entgegenzuwirken, platzieren einige Browser (wie Firefox) Seiten nicht im bfcache, wenn sie `unload`-Listener haben, was schlecht für die Leistung ist. Andere, wie Chrome, lösen das `unload`-Ereignis nicht aus, wenn ein Benutzer die Seite verlässt.
+Außerdem ist das `unload`-Event nicht mit dem [Back/Forward-Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel, da viele Seiten, die dieses Event verwenden, davon ausgehen, dass die Seite nach dem Event nicht mehr existiert. Um dies zu bekämpfen, platzieren einige Browser (wie Firefox) Seiten nicht im bfcache, wenn sie unload-Listener haben, was schlecht für die Leistung ist. Andere, wie Chrome, werden das `unload`-Event nicht auslösen, wenn ein Benutzer weg navigiert.
 
-Das beste Ereignis, um das Ende einer Benutzersitzung zu signalisieren, ist das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis. In Browsern, die `visibilitychange` nicht unterstützen, ist die nächstbeste Alternative das [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis, das zwar auch nicht zuverlässig ausgelöst wird, aber bfcache-kompatibel ist.
+Das beste Ereignis, um das Ende einer Benutzersitzung zu signalisieren, ist das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Event. In Browsern, die `visibilitychange` nicht unterstützen, ist das nächstbeste alternativ das [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Event, das ebenfalls nicht zuverlässig ausgelöst wird, aber bfcache-kompatibel ist.
 
-Wenn Sie speziell versuchen, Entladeereignisse der Seite zu erkennen, sollten Sie am besten auf das `pagehide`-Ereignis hören.
+Wenn Sie speziell versuchen, Seitenentlade-Ereignisse zu erkennen, ist es am besten, das `pagehide`-Event zu hören.
 
-Weitere Informationen zu den Problemen im Zusammenhang mit dem `unload`-Ereignis finden Sie im [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#the-unload-event) Leitfaden.
+Siehe die [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#the-unload-event)-Leitfaden für weitere Informationen über die Probleme, die mit dem `unload`-Event verbunden sind.
 
 ## Beispiele
 
@@ -90,7 +90,7 @@ Weitere Informationen zu den Problemen im Zusammenhang mit dem `unload`-Ereignis
 </html>
 ```
 
-Unten, der Inhalt von `child-frame.html`:
+Nachfolgend der Inhalt von `child-frame.html`:
 
 ```html
 <!doctype html>
@@ -113,7 +113,7 @@ Unten, der Inhalt von `child-frame.html`:
 </html>
 ```
 
-Wenn der übergeordnete Rahmen entladen wird, werden die Ereignisse in der Reihenfolge ausgelöst, die durch die `console.log()`-Nachrichten beschrieben wird.
+Wenn der übergeordnete Frame entladen wird, werden die Ereignisse in der durch die `console.log()`-Nachrichten beschriebenen Reihenfolge ausgelöst.
 
 ## Spezifikationen
 
@@ -125,10 +125,10 @@ Wenn der übergeordnete Rahmen entladen wird, werden die Ereignisse in der Reihe
 
 ## Siehe auch
 
-- Verwandte Ereignisse: [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event), [`load`](/de/docs/Web/API/Window/load_event)
-- [Entladen von Dokumenten — Entladen eines Dokuments](https://html.spec.whatwg.org/multipage/browsers.html#unloading-documents)
-- Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis.
-- [Verlieren Sie nicht den Benutzer- und App-Zustand, verwenden Sie die Sichtbarkeit der Seite](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt im Detail, warum Sie `visibilitychange` und nicht `beforeunload`/`unload` verwenden sollten.
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) gibt Leitlinien für bewährte Praktiken zum Umgang mit dem Seitenlebenszyklusverhalten in Ihren Webanwendungen.
-- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): eine JavaScript-Bibliothek, die sich mit inkonsistenten Seitenlebenszyklusverhalten zwischen den Browsern befasst.
-- [Back/Forward Cache](https://web.dev/articles/bfcache) erklärt, was der Back/Forward Cache ist und seine Auswirkungen auf verschiedene Seitenlebenszyklusereignisse.
+- Verwandte Events: [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event), [`load`](/de/docs/Web/API/Window/load_event)
+- [Entladen von Dokumenten — ein Dokument entladen](https://html.spec.whatwg.org/multipage/browsers.html#unloading-documents)
+- Das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Event.
+- [Verlieren Sie nicht den Benutzer- und App-Status, verwenden Sie die Seiten-Sichtbarkeit](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt im Detail, warum Sie `visibilitychange` und nicht `beforeunload`/`unload` verwenden sollten.
+- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet bewährte Methoden für den Umgang mit dem Seitenlebenszyklus in Ihren Webanwendungen.
+- [PageLifecycle.js](https://github.com/GoogleChromeLabs/page-lifecycle): Eine JavaScript-Bibliothek, die plattformübergreifende Inkonsistenzen im Seitenlebenszyklusverhalten handhabt.
+- [Back/forward cache](https://web.dev/articles/bfcache) erklärt, was der Back/Forward-Cache ist und seine Auswirkungen auf verschiedene Ereignisse im Seitenlebenszyklus.
