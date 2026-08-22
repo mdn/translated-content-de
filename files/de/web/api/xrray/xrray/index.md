@@ -3,12 +3,12 @@ title: "XRRay: XRRay() Konstruktor"
 short-title: XRRay()
 slug: Web/API/XRRay/XRRay
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`XRRay()`**-Konstruktor erzeugt ein neues [`XRRay`](/de/docs/Web/API/XRRay)-Objekt, das eine geometrische Strahlung beschreibt, definiert durch einen Ursprungspunkt und einen Richtungsvektor.
+Der **`XRRay()`** Konstruktor erstellt ein neues [`XRRay`](/de/docs/Web/API/XRRay) Objekt, das durch einen geometrischen Strahl beschrieben wird, der aus einem Ursprungspunkt und einem Richtungsvektor besteht.
 
 ## Syntax
 
@@ -22,29 +22,29 @@ new XRRay(transform)
 ### Parameter
 
 - `origin` {{Optional_Inline}}
-  - : Ein Punktobjekt, das den dreidimensionalen Punkt im Raum definiert, von dem der Strahl ausgeht, in Metern. Alle Dimensionen sind optional, jedoch muss, wenn angegeben, die `w`-Eigenschaft des Ursprungs 1,0 sein. Das Objekt wird standardmäßig auf `{ x: 0.0, y: 0.0, z: 0.0, w: 1.0 }` initialisiert.
+  - : Ein Punktobjekt, das den dreidimensionalen Punkt im Raum definiert, von dem der Strahl ausgeht, in Metern. Alle Dimensionen sind optional, jedoch muss, wenn angegeben, die `w`-Eigenschaft des Ursprungs 1.0 sein. Das Objekt wird standardmäßig mit `{ x: 0.0, y: 0.0, z: 0.0, w: 1.0 }` initialisiert.
 - `direction` {{Optional_Inline}}
-  - : Ein Vektorobjekt, das den dreidimensionalen Richtungsvektor des Strahls definiert. Alle Dimensionen sind optional, jedoch muss, wenn angegeben, die `w`-Eigenschaft der Richtung 0,0 sein. Das Objekt wird standardmäßig auf `{ x: 0.0, y: 0.0, z: -1.0, w: 0.0 }` initialisiert.
+  - : Ein Vektorobjekt, das den dreidimensionalen Richtungsvektor des Strahls definiert. Alle Dimensionen sind optional, jedoch muss, wenn angegeben, die `w`-Eigenschaft der Richtung 0.0 sein. Das Objekt wird standardmäßig mit `{ x: 0.0, y: 0.0, z: -1.0, w: 0.0 }` initialisiert.
 - `transform` {{Optional_Inline}}
-  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das die Position und Orientierung des Strahls repräsentiert.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) Objekt, das die Position und Orientierung des Strahls darstellt.
 
 ### Rückgabewert
 
-Ein neu erstelltes [`XRRay`](/de/docs/Web/API/XRRay)-Objekt.
+Ein neu erstelltes [`XRRay`](/de/docs/Web/API/XRRay) Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn eine der folgenden Bedingungen erfüllt ist:
     - alle `x`-, `y`- und `z`-Koordinaten von `direction` sind null.
-    - die `w`-Koordinate von `direction` ist nicht 0,0.
-    - die `w`-Koordinate von `origin` ist nicht 1,0.
+    - die `w`-Koordinate von `direction` ist nicht 0.0.
+    - die `w`-Koordinate von `origin` ist nicht 1.0.
 
 ## Beispiele
 
-### Erstellen von `XRRay`-Objekten
+### Erstellen von `XRRay` Objekten
 
-Der `XRRay()`-Konstruktor ermöglicht das Erstellen neuer Strahlen, indem entweder ein `origin`-Punkt und ein `direction`-Vektor bereitgestellt wird oder indem ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt übergeben wird.
+Der `XRRay()` Konstruktor ermöglicht es Ihnen, neue Strahlen zu erstellen, indem Sie entweder einen `origin` Punkt und einen `direction` Vektor angeben oder ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) Objekt übergeben.
 
 ```js
 // Default configuration

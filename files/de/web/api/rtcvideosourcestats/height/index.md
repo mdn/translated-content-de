@@ -3,34 +3,34 @@ title: "RTCVideoSourceStats: height-Eigenschaft"
 short-title: height
 slug: Web/API/RTCVideoSourceStats/height
 l10n:
-  sourceCommit: d32ba6a7c5a4c43029b92fab2e78e3bedc00b63c
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`height`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) Wörterbuchs gibt die Höhe, in Pixeln, des letzten Frames an, der von dieser Quelle stammt.
+Die **`height`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs zeigt die Höhe, in Pixel, des letzten Frames an, der von dieser Quelle stammt.
 
-Diese Eigenschaft wird im Statistikobjekt erst nach der Erzeugung des ersten Frames definiert.
+Diese Eigenschaft ist im Statistikobjekt erst nach der Erzeugung des ersten Frames definiert.
 
 ## Wert
 
-Eine positive Zahl, die die Höhe in Pixeln angibt.
+Eine positive Zahl, die die Höhe in Pixel angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie durch das Statistikobjekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, iterieren können, um die Videoquellenstatistiken zu erhalten und dann die `height` extrahieren.
+Dieses Beispiel zeigt, wie Sie möglicherweise das Statistikobjekt iterieren, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Videoquellen-Statistiken zu erhalten und dann die `height` extrahieren.
 
 ```js
 // where sender is an RTCRtpSender
 const stats = await sender.getStats();
 let videoSourceStats = null;
 
-stats.forEach((report) => {
-  if (report.type === "media-source" && report.kind==="video") {
+for (const report of stats.values()) {
+  if (report.type === "media-source" && report.kind === "video") {
     videoSourceStats = report;
     break;
   }
-});
+}
 
 // Note, test is conditional in case the stats object
 // does not include video source stats

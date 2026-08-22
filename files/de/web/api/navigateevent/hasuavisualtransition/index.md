@@ -1,16 +1,16 @@
 ---
-title: "NavigateEvent: hasUAVisualTransition-Eigenschaft"
+title: "NavigateEvent: hasUAVisualTransition Eigenschaft"
 short-title: hasUAVisualTransition
 slug: Web/API/NavigateEvent/hasUAVisualTransition
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Navigation API")}}
 
-Die schreibgeschützte Eigenschaft **`hasUAVisualTransition`** der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle gibt `true` zurück, wenn der Benutzer-Agent eine visuelle Transition für diese Navigation durchgeführt hat, bevor dieses Ereignis ausgelöst wurde, andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`hasUAVisualTransition`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat, andernfalls `false`.
 
-Benutzer-Agenten können eine integrierte visuelle Transition bereitstellen, wenn sie Site-Navigationen ausführen. Wenn der Site-Autor ebenfalls eine visuelle Transition hinzufügt, können sich Benutzer-Agent und Autoren-Transitions widersprechen und den Besucher verwirren. Die Eigenschaft ermöglicht es Ihnen zu erkennen, ob eine Benutzer-Agent-Transition zur Verfügung gestellt wurde, sodass Sie Autoren-Transitions auslassen können, um eine bessere Benutzererfahrung zu bieten.
+User-Agents können beim Ausführen von Site-Navigationen eine eingebaute visuelle Transition bereitstellen. Wenn der Site-Autor ebenfalls eine visuelle Transition hinzufügt, können sich User-Agent- und Autor-Transitionen überschneiden und Besucher verwirren. Die Eigenschaft ermöglicht es Ihnen zu erkennen, ob eine UA-Transition bereitgestellt wurde, sodass Sie Autor-Transitionen überspringen können, um eine bessere Benutzererfahrung zu bieten.
 
 ## Wert
 
@@ -32,7 +32,7 @@ navigation.addEventListener("navigate", (event) => {
   }
 
   event.intercept({
-    handler() {
+    async handler() {
       // Fetch the new content
       const newContent = await fetchNewContent(event.destination.url, {
         signal: event.signal,
@@ -65,6 +65,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- [Gleiche-Dokument-Ansichtstransitionen für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)
+- [Moderne clientseitige Routenerstellung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Transitions im selben Dokument für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)

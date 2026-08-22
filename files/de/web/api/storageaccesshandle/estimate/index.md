@@ -3,13 +3,13 @@ title: "StorageAccessHandle: estimate() Methode"
 short-title: estimate()
 slug: Web/API/StorageAccessHandle/estimate
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate), um die Verwendung zu verstehen.
+> Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate), um die Nutzung zu verstehen.
 
 ## Syntax
 
@@ -23,12 +23,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten [`StorageEstimate`](/de/docs/Web/API/StorageManager/estimate) Objekt erfüllt wird.
+Ein {{jsxref("Promise")}}, das sich mit einem unpartitionierten [`StorageEstimate`](/de/docs/Web/API/StorageManager/estimate) Objekt erfüllt.
 
 ### Ausnahmen
 
 - `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
+  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate)
 
@@ -36,7 +36,7 @@ Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate)
 
 ```js
 document.requestStorageAccess({ estimate: true }).then(
-  (handle) => {
+  async (handle) => {
     console.log("estimate access granted");
     await handle.estimate();
   },

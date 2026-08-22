@@ -3,12 +3,12 @@ title: "StorageAccessHandle: caches-Eigenschaft"
 short-title: caches
 slug: Web/API/StorageAccessHandle/caches
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
 ---
 
 {{APIRef("Storage Access API")}}
 
-Die **`caches`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException).
+Die **`caches`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein unpartitioniertes [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 
 ```js
 document.requestStorageAccess({ caches: true }).then(
-  (handle) => {
+  async (handle) => {
     console.log("caches access granted");
     const cache = await handle.caches.open("foo");
     await cache.add("/");
@@ -30,7 +30,7 @@ document.requestStorageAccess({ caches: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwenden der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Sehen Sie sich [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ document.requestStorageAccess({ caches: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Verwenden der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
