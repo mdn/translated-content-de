@@ -3,14 +3,14 @@ title: "`counter-increment` CSS property"
 short-title: counter-increment
 slug: Web/CSS/Reference/Properties/counter-increment
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
 ---
 
-Die **`counter-increment`** [CSS](/de/docs/Web/CSS) Eigenschaft kann verwendet werden, um den Wert der benannten [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) um die angegebenen Werte zu erhöhen oder zu verringern oder um zu verhindern, dass alle oder einzelne Zählerwerte verändert werden.
+Die **`counter-increment`** [CSS](/de/docs/Web/CSS) Eigenschaft kann verwendet werden, um den Wert der benannten [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) um die angegebenen Werte zu erhöhen oder zu verringern, oder um zu verhindern, dass der Wert aller Zähler oder eines einzelnen Zählers geändert wird.
 
-Wenn ein benannter Zähler in der Liste der durch Leerzeichen getrennten Zähler und Werte nicht existiert, wird er erstellt. Wenn in der Liste der Zähler kein Wert für einen Zähler angegeben wird, wird der Zähler um `1` erhöht.
+Wenn ein benannter Zähler in der Liste der durch Leerzeichen getrennten Zähler und Werte nicht existiert, wird er erstellt. Wird kein Wert für einen Zähler in der Liste angegeben, wird der Zähler um `1` erhöht.
 
-Der Wert des Zählers kann mit der {{cssxref("counter-reset")}} CSS-Eigenschaft auf einen beliebigen ganzzahligen Wert zurückgesetzt werden.
+Der Wert des Zählers kann mit der {{cssxref("counter-reset")}} CSS-Eigenschaft auf einen beliebigen Ganzzahlwert zurückgesetzt werden.
 
 {{InteractiveExample("CSS Demo: counter-increment")}}
 
@@ -75,17 +75,17 @@ counter-increment: unset;
 
 ### Werte
 
-Die `counter-increment`-Eigenschaft akzeptiert als Wert entweder eine Liste der durch Leerzeichen getrennten Zählernamen, angegeben als `<custom-ident>` mit einem optionalen `<integer>`-Wert, oder das Schlüsselwort `none`. Sie können so viele Zähler inkrementieren, wie Sie möchten, wobei jeder Name oder jedes Namens-Nummern-Paar durch ein Leerzeichen getrennt ist.
+Diese Eigenschaft wird als eine durch Leerzeichen getrennte Liste von `<custom-ident>`-Werten angegeben, die jeweils optional von einem `<integer>` gefolgt werden, oder dem Schlüsselwort `none`:
 
 - {{cssxref("&lt;custom-ident&gt;")}}
   - : Gibt den Namen des Zählers an, der erhöht oder verringert werden soll.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Gibt den Wert an, der zum Zähler hinzugefügt werden soll. Wenn die ganze Zahl von einem `-`-Zeichen vorangestellt wird, wird der Wert vom Zähler subtrahiert. Standardmäßig wird `1` angenommen, wenn kein Wert angegeben wird.
+  - : Gibt den Wert an, der dem Zähler hinzugefügt wird. Wenn der Ganzzahlwert einem `-` Zeichen vorausgeht, wird der Wert vom Zähler subtrahiert. Der Standardwert ist `1`, wenn kein Wert angegeben wird.
 - `none`
-  - : Gibt an, dass kein Zähler erhöht oder verringert werden darf. Dieser Wert kann auch verwendet werden, um alle Zähler in spezifischeren Regeln vor einer Erhöhung oder Verminderung zu bewahren. Dies ist der Standardwert der Eigenschaft.
+  - : Gibt an, dass kein Zähler erhöht oder verringert werden muss. Dieser Wert kann auch verwendet werden, um alle Zähler von der Erhöhung oder Verringerung in spezifischeren Regeln auszuschließen. Dies ist der Standardwert der Eigenschaft.
 
 > [!NOTE]
-> Die Verwendung des Werts `none` verhindert, dass alle Zähler für die ausgewählten Elemente, für die diese Regel gilt, erhöht oder verringert werden. Um nur bestimmte Zähler nicht zu erhöhen oder zu verringern, setzen Sie den `integer`-Wert auf `0` bei den relevanten Zählern.
+> Die Verwendung des Wertes `none` verhindert, dass alle Zähler für die ausgewählten Elemente, für die diese Regel gilt, erhöht oder verringert werden. Um nur bestimmte Zähler vom Erhöhen oder Verringern auszunehmen, setzen Sie den `integer`-Wert auf `0` für die entsprechenden Zähler.
 
 ## Formale Definition
 
@@ -97,9 +97,9 @@ Die `counter-increment`-Eigenschaft akzeptiert als Wert entweder eine Liste der 
 
 ## Beispiele
 
-### Verringern des Zählerwerts
+### Den Zählerwert verringern
 
-In diesem Beispiel zeigen wir eine Zahlenreihe an, die rückwärts zählt. Dazu verwenden wir einen Zähler, um Zahlen beginnend bei 100 anzuzeigen und jedes Mal um 7 zu verringern.
+In diesem Beispiel zeigen wir eine Zahlenfolge rückwärts zählend an. Dazu verwenden wir einen Zähler, um ab`100` zu beginnen und jedes Mal um `7` zu verringern.
 
 #### HTML
 
@@ -113,9 +113,9 @@ In diesem Beispiel zeigen wir eine Zahlenreihe an, die rückwärts zählt. Dazu 
 
 #### CSS
 
-Wir setzen den Anfangswert des Zählers namens `sevens` auf `100` mit {{cssxref("counter-reset")}}. Dann verringern wir für jedes {{HTMLElement("i")}} den Zähler um `7`.
+Wir setzen den Anfangswert des Zählers namens `sevens` auf `100` mit der Verwendung von {{cssxref("counter-reset")}}. Dann verringern wir für jedes {{HTMLElement("i")}} den Zähler um `7`.
 
-Um die erste Zählung auf `100` zu setzen, zielen wir auf das erste `<i>`-Element mit der {{cssxref(":first-of-type")}} Pseudo-Klasse und setzen `counter-increment: none;`. Zusätzlich wird die {{cssxref("content")}} Eigenschaft im {{cssxref("::before")}} Pseudo-Element verwendet, um den Wert des Zählers mit der [`counter()`](/de/docs/Web/CSS/Reference/Values/counter) Funktion anzuzeigen.
+Um den ersten Zählwert auf `100` zu setzen, zielen wir auf das erste `<i>`-Element mit der Verwendung der {{cssxref(":first-of-type")}} Pseudo-Klasse und setzen `counter-increment: none;`. Zusätzlich wird die {{cssxref("content")}} Eigenschaft im {{cssxref("::before")}} Pseudo-Element verwendet, um den Wert des Zählers mit der [`counter()`](/de/docs/Web/CSS/Reference/Values/counter) Funktion anzuzeigen.
 
 ```css
 div {
@@ -149,7 +149,7 @@ i {
 
 {{EmbedLiveSample("Decreasing the counter value", 140, 300)}}
 
-Hätten wir nicht `counter-reset` (oder {{cssxref("counter-set")}}) verwendet, um den Zähler zu erstellen und den Wert auf `100` zu setzen, wäre der `sevens`-Zähler trotzdem erstellt worden, aber mit einem Anfangswert `0`.
+Hätten wir `counter-reset` (oder {{cssxref("counter-set")}}) nicht verwendet, um den Zähler zu erstellen und den Wert auf `100` zu setzen, wäre der `sevens` Zähler trotzdem erstellt worden, jedoch mit einem anfänglichen Wert von `0`.
 
 ## Spezifikationen
 
@@ -162,8 +162,8 @@ Hätten wir nicht `counter-reset` (oder {{cssxref("counter-set")}}) verwendet, u
 ## Siehe auch
 
 - Zählereigenschaften: {{cssxref("counter-set")}}, {{cssxref("counter-reset")}}
-- Zählerregel: {{cssxref("@counter-style")}}
+- Counter-At-Regel: {{cssxref("@counter-style")}}
 - Zählerfunktionen: {{cssxref("counter()")}}, {{cssxref("counters()")}}
-- [Verwendung von CSS-Zählern](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) Leitfaden
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [Using CSS counters](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) Leitfaden
+- [CSS lists and counters](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS counter styles](/de/docs/Web/CSS/Guides/Counter_styles) Modul

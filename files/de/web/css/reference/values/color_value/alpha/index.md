@@ -3,10 +3,10 @@ title: "`alpha()` CSS-Funktion"
 short-title: alpha()
 slug: Web/CSS/Reference/Values/color_value/alpha
 l10n:
-  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
+  sourceCommit: 77ee105b32c153b8822321ce54462134d4767c50
 ---
 
-Die **`alpha()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) nimmt einen Ursprungs{{cssxref("color_value","color")}} und gibt dieselbe Farbe mit einem modifizierten Alpha- (Transparenz-) Kanal zurück. Die Farbkomponenten der Ursprungsfarbe bleiben unverändert. Das Ergebnis befindet sich im selben Farbraum wie die Ursprungsfarbe.
+Die **`alpha()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) nimmt eine Ursprungs-{{cssxref("color_value","color")}} und gibt diese Farbe mit einem geänderten Alpha (Transparenz)-Kanal zurück. Die Farbkomponenten der Ursprungsfarbe bleiben unverändert. Das Ergebnis befindet sich im gleichen Farbraum wie die Ursprungsfarbe.
 
 ## Syntax
 
@@ -22,30 +22,34 @@ alpha(from var(--my-color) / calc(alpha * 0.5))
 ### Parameter
 
 - `from <color>`
-  - : Das Schlüsselwort `from` der [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), gefolgt von jedem gültigen {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** definiert. Die Farbkomponenten der Ursprungsfarbe werden unverändert in das Ergebnis übernommen; nur der Alpha-Kanal wird beeinflusst.
+  - : Das [relative color](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) Syntax-Schlüsselwort `from` gefolgt von einem gültigen {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** definiert. Die Farbkomponenten der Ursprungsfarbe werden unverändert in das Ergebnis übernommen; nur der Alphakanal wird beeinflusst.
 
-- `/ <alpha-value>` {{optional_inline}}
-  - : Ein {{cssxref("&lt;alpha-value&gt;")}}, der das Alpha der Ausgabefarbe angibt. Dies kann ein `<number>` zwischen `0` und `1`, ein `<percentage>` zwischen `0%` und `100%` oder ein {{cssxref("calc()")}} Ausdruck sein. Innerhalb dieses Wertes kann das Schlüsselwort **`alpha`** verwendet werden, um auf den Alpha-Kanal der Ursprungsfarbe als `<number>` zu verweisen (wobei `1.0` gleich `100%` ist). Wenn dieses Argument weggelassen wird, bleibt das Alpha der Ursprungsfarbe unverändert.
+- `/ <alpha-value>`
+  - : Ein {{cssxref("&lt;alpha-value&gt;")}}, das das Alpha der Ausgabefarbe spezifiziert. Dies kann eine `<number>` zwischen `0` und `1`, ein `<percentage>` zwischen `0%` und `100%`, oder ein {{cssxref("calc()")}} Ausdruck sein. Innerhalb dieses Werts kann das Schlüsselwort **`alpha`** verwendet werden, um auf den Alphakanal der Ursprungsfarbe als `<number>` zu verweisen (wobei `1.0` äquivalent zu `100%` ist).
 
 ### Rückgabewert
 
-Ein Farbwert im selben Farbraum wie die Ursprungsfarbe, mit identischen Farbkomponenten und einem modifizierten Alpha-Kanalwert gemäß Angabe.
+Ein Farbwert im gleichen Farbraum wie die Ursprungsfarbe, mit identischen Farbkomponenten und einem geänderten Alphakanalwert gemäß der Spezifikation.
 
 ## Beschreibung
 
-Die `alpha()`-Funktion ist eine Funktion der [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), die es Ihnen ermöglicht, die Transparenz einer beliebigen Farbe anzupassen, ohne ihre anderen Komponenten neu zu schreiben. Dies ist besonders nützlich, wenn Sie eine halbtransparente Variante eines Design-Tokens oder einer benutzerdefinierten Farbe benötigen und diese automatisch von der Originalfarbe ableiten möchten, anstatt einen separaten Wert zu pflegen.
+Die `alpha()` Funktion ist eine [relative color](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) Funktion, die Ihnen ermöglicht, die Transparenz jeder Farbe anzupassen, ohne ihre anderen Komponenten neu zu schreiben. Dies ist besonders nützlich, wenn Sie eine halbtransparente Variante eines Design-Tokens oder einer benutzerdefinierten Eigenschaftsfarbe benötigen und diese automatisch aus dem Original ableiten möchten, anstatt einen separaten Wert zu verwalten.
 
-Innerhalb des Alpha-Wert-Arguments löst das Schlüsselwort `alpha` den Alpha-Kanal der Ursprungsfarbe als {{cssxref("&lt;number&gt;")}} im Bereich `[0, 1]` auf. Dies ermöglicht es Ihnen, das Ausgabe-Alpha relativ zum Eingabewert auszudrücken, indem Sie es beispielsweise mit `calc(alpha * 0.5)` halbieren oder mit `clamp(0.2, alpha, 0.8)` einschränken.
+Innerhalb des Alphawertarguments löst das Komponenten-Schlüsselwort `alpha` sich zum Alphakanal der Ursprungsfarbe als {{cssxref("&lt;number&gt;")}} im Bereich `[0, 1]` auf. Dies ermöglicht es Ihnen, das Ausgabe-Alpha relativ zum Eingabewert auszudrücken, z.B. indem Sie es mit `calc(alpha * 0.5)` halbieren oder mit `clamp(0.2, alpha, 0.8)` abklemmen.
 
-Im Gegensatz zur allgemeinen [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) (z.B. `oklch(from ...)`) gibt die `alpha()`-Funktion nicht die einzelnen Farbkanal-Schlüsselwörter des Ursprungsfarbraums preis. Sie bezieht sich ausschließlich auf den Alpha-Kanal und hält den Rest der Farbe intakt.
+Im Gegensatz zur allgemeinen [relative color syntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) (z.B. `oklch(from ...)`) zeigt die `alpha()` Funktion nicht die individuellen Farbkanal-Schlüsselwörter des Ursprungsfarbraums. Sie bezieht sich ausschließlich auf den Alphakanal und lässt den Rest der Farbe unberührt.
 
-Der Rückgabewert ist immer im selben Farbraum wie die Ursprungsfarbe. Wenn die Ursprungsfarbe beispielsweise eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch) Farbe ist, wird das Ergebnis ebenfalls in OKLCh aufgelöst, mit der gleichen Helligkeit, Chroma und dem gleichen Farbton.
+Der Rückgabewert befindet sich immer im selben Farbraum wie die Ursprungsfarbe. Zum Beispiel, wenn die Ursprungsfarbe eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch) Farbe ist, wird das Ergebnis auch in OKLCh aufgelöst, mit derselben Helligkeit, Chroma und Farbton.
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
-### Ersetzen des Alphas einer Farbe
+### Das Alpha einer Farbe ersetzen
 
-In diesem Beispiel geben wir zwei Farben an. Die zweite Farbe wird definiert, indem die erste Farbe in die `alpha()`-Funktion übergeben wird, wobei ihr Alpha-Kanal auf einen festen Wert von `80%` gesetzt wird. Die beiden Farben werden als {{cssxref("background-color")}} von zwei {{htmlelement("div")}} Elementen gesetzt, um den Unterschied zu demonstrieren.
+In diesem Beispiel spezifizieren wir zwei Farben. Die zweite Farbe wird definiert, indem die erste Farbe in die `alpha()` Funktion übergeben wird, wobei ihr Alphakanal auf einen festen Wert von `80%` gesetzt wird. Die beiden Farben werden als {{cssxref("background-color")}} von zwei {{htmlelement("div")}} Elementen gesetzt, um den Unterschied zu demonstrieren.
 
 ```html live-sample___replace-alpha
 <div class="box1">Original</div>
@@ -90,7 +94,7 @@ div {
 
 ### Ableiten einer halbtransparenten Variante
 
-Dieses Beispiel ist dem vorherigen sehr ähnlich, mit dem Unterschied, dass dieses Mal das Alpha der zweiten Farbe als die Hälfte des Alphas der ersten Farbe berechnet wird, indem das Schlüsselwort `alpha` innerhalb eines `calc()`-Ausdrucks verwendet wird.
+Dieses Beispiel ist dem vorhergehenden sehr ähnlich, es sei denn, dass dieses Mal das Alpha der zweiten Farbe als die Hälfte des Alphas der ersten Farbe berechnet wird, unter Verwendung des `alpha` Komponentenschlüsselworts innerhalb eines `calc()` Ausdrucks.
 
 ```html live-sample___derive-alpha
 <div class="box1">Original</div>
@@ -116,9 +120,9 @@ Dieses Beispiel ist dem vorherigen sehr ähnlich, mit dem Unterschied, dass dies
 
 {{EmbedLiveSample("derive-alpha", "100%", 100)}}
 
-### Einblenden einer Farbe bei Hover
+### Eine Farbe beim Hover verblassen lassen
 
-In diesem Beispiel wird der Hintergrund eines Elements bei {{cssxref(":hover")}} auf `40%` Deckkraft ausgeblendet, während die Farbe selbst gleich bleibt.
+In diesem Beispiel verblasst der Hintergrund eines Elements auf `40%` Opazität bei {{cssxref(":hover")}}, während die Farbe selbst gleich bleibt.
 
 ```html live-sample___fade-on-hover
 <button class="card">Hover over me</button>
@@ -181,6 +185,6 @@ body {
 
 - {{cssxref("&lt;color&gt;")}} Datentyp
 - {{cssxref("&lt;alpha-value&gt;")}} Datentyp
-- [Relative Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
-- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
-- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) und {{cssxref("var")}}
+- [Relative color syntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS colors](/de/docs/Web/CSS/Guides/Colors) Modul
+- [CSS Custom Properties](/de/docs/Web/CSS/Reference/Properties/--*) und {{cssxref("var")}}

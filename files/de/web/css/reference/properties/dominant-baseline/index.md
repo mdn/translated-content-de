@@ -3,23 +3,23 @@ title: "`dominant-baseline` CSS property"
 short-title: dominant-baseline
 slug: Web/CSS/Reference/Properties/dominant-baseline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
 ---
 
-Die **`dominant-baseline`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die spezifische {{Glossary("Baseline/Typography", "Basislinie")}} fest, die verwendet wird, um den Text und die Inhalte auf Inline-Ebene einer Box auszurichten. Sie gibt auch die Standardausrichtungsbasislinie aller Boxen an, die an der Basislinenausrichtung im Kontext der Boxausrichtung teilnehmen. Falls vorhanden, überschreibt sie das {{SVGAttr("dominant-baseline")}}-Attribut der Form.
+Die **`dominant-baseline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die spezifische {{Glossary("Baseline/Typography", "Baseline")}} fest, die verwendet wird, um den Text und die Inline-Level-Inhalte der Box auszurichten. Sie gibt auch die Standardausrichtungsbaseline von allen Boxen an, die an der Baseline-Ausrichtung im Ausrichtungskontext der Box teilnehmen. Falls vorhanden, überschreibt sie das {{SVGAttr("dominant-baseline")}} Attribut der Form.
 
-Basislinien werden aus der Basislinientabelle der Schriftart ausgewählt. Gibt es keine Basislinientabelle in der nominalen Schriftart oder fehlt der gewünschte Eintrag in der Basislinientabelle, darf der Browser Heuristiken verwenden, um die Position der gewünschten Basislinie zu bestimmen.
+Baselines werden aus der Schrift-Baseline-Tabelle ausgewählt. Sollte es keine Baseline-Tabelle in der nominellen Schrift geben oder sollte der Eintrag für die gewünschte Baseline fehlen, kann der Browser Heuristiken verwenden, um die Position der gewünschten Baseline zu bestimmen.
 
-Die `dominant-baseline`-Eigenschaft wird verwendet, um eine _scaled-baseline-table_ zu bestimmen oder neu zu bestimmen. Eine scaled-baseline-table ist ein zusammengesetzter Wert mit drei Komponenten:
+Die `dominant-baseline` Eigenschaft wird verwendet, um eine _scaled-baseline-table_ zu bestimmen oder neu zu bestimmen. Eine scaled-baseline-table ist ein zusammengesetzter Wert mit drei Komponenten:
 
-1. ein Basislinien-Identifikator für die dominante Basislinie,
-2. eine Basislinientabelle und
-3. eine Basislinien-Schriftgröße.
+1. einem Baseline-Identifikator für die dominant-baseline,
+2. einer Baseline-Tabelle und
+3. einer Baseline-Tabelle Schriftgröße.
 
-Einige Werte von `dominant-baseline` bestimmen alle drei Werte neu. Andere stellen nur die Schriftgröße der Basislinientabelle wieder her. Wenn der Anfangswert, `auto`, ein unerwünschtes Ergebnis liefern würde, kann diese Eigenschaft verwendet werden, um die gewünschte scaled-baseline-table explizit festzulegen.
+Einige Werte von `dominant-baseline` bestimmen alle drei Werte neu, andere nur die Baseline-Tabelle Schriftgröße. Wenn der Initialwert `auto` ein unerwünschtes Ergebnis liefern würde, kann diese Eigenschaft verwendet werden, um die gewünschte scaled-baseline-table explizit festzulegen.
 
 > [!NOTE]
-> Die `dominant-baseline`-Eigenschaft wirkt sich nur auf die {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} SVG-Elemente aus.
+> Die `dominant-baseline` Eigenschaft hat nur Auswirkungen auf die {{SVGElement("text")}}, {{SVGElement("textPath")}} und {{SVGElement("tspan")}} SVG-Elemente.
 
 ## Syntax
 
@@ -47,33 +47,35 @@ dominant-baseline: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als eines der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Wird diese Eigenschaft auf ein {{SVGElement("text")}}-Element angewendet, hängt der berechnete Wert vom Wert des {{SVGAttr("writing-mode")}}-Attributs ab.
+  - : Wenn diese Eigenschaft auf ein {{SVGElement("text")}} Element angewendet wird, hängt der berechnete Wert vom Wert des {{SVGAttr("writing-mode")}} Attributs ab.
 
-    Ist der {{SVGAttr("writing-mode")}} horizontal, dann ist der Wert der dominanten Basislinien-Komponente `alphabetic`. Andernfalls, wenn der {{SVGAttr("writing-mode")}} vertikal ist, dann ist der Wert der dominanten Basislinien-Komponente `central`.
+    Wenn der {{SVGAttr("writing-mode")}} horizontal ist, dann ist der Wert der dominant-baseline Komponente `alphabetic`. Andernfalls, wenn der {{SVGAttr("writing-mode")}} vertikal ist, ist der Wert der dominant-baseline Komponente `central`.
 
-    Wird diese Eigenschaft auf ein {{SVGElement("tspan")}}- oder {{SVGElement("textPath")}}-Element angewendet, bleiben die dominanten Basislinien- und Basislinientabellen-Komponenten dieselben wie die des übergeordneten Textinhalts-Elements.
+    Wenn diese Eigenschaft auf ein {{SVGElement("tspan")}} oder {{SVGElement("textPath")}} Element angewendet wird, bleiben die dominant-baseline und die Baseline-Tabelle Komponenten gleich denen des übergeordneten Textelementinhalts.
 
-    Wenn der berechnete {{SVGAttr("baseline-shift")}}-Wert die Basislinie tatsächlich verschiebt, wird die Schriftgröße der Basislinientabelle auf den Wert des {{SVGAttr("font-size")}}-Attributs des Elements gesetzt, bei dem das `dominant-baseline`-Attribut vorkommt. Andernfalls bleibt die Schriftgröße der Basislinientabelle dieselbe wie die des Elements.
+    Wenn der berechnete {{SVGAttr("baseline-shift")}} Wert tatsächlich die Baseline verschiebt, dann wird die Schriftgröße-Komponente der Baseline-Tabelle auf den Wert des {{SVGAttr("font-size")}} Attributs des Elements festgelegt, auf dem das `dominant-baseline` Attribut vorkommt, andernfalls bleibt die Schriftgröße-Komponente der Baseline-Tabelle gleich der des Elements.
 
-    Gibt es kein übergeordnetes Textinhalts-Element, wird der scaled-baseline-table-Wert wie für {{SVGElement("text")}}-Elemente konstruiert.
+    Gibt es kein übergeordnetes Textelement, wird die scaled-baseline-table wie für {{SVGElement("text")}} Elemente aufgebaut.
 
 - `alphabetic`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `alphabetic` gesetzt. Die abgeleitete Basislinientabelle wird unter Verwendung der `alphabetic`-Basislinientabelle in der Schrift erstellt, und die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs oder der CSS {{cssxref('font-size')}}, falls gesetzt, geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `alphabetic` gesetzt, die abgeleitete Baseline-Tabelle wird unter Verwendung der `alphabetic` Baseline-Tabelle in der Schrift aufgebaut und die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des Elements oder der CSS {{cssxref('font-size')}} festgelegt, falls festgelegt.
 - `central`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `central` gesetzt. Die abgeleitete Basislinientabelle wird aus den definierten Basislinien in der Basislinientabelle der Schrift erstellt. Diese Schrift-Basislinientabelle wird anhand der folgenden Prioritätenreihenfolge von Basislinientabellennamen gewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs oder des CSS {{cssxref('font-size')}}, falls gesetzt, geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `central` gesetzt. Die abgeleitete Baseline-Tabelle wird aus den definierten Baselines in der Baseline-Tabelle der Schrift aufgebaut. Diese Baseline-Tabelle der Schrift wird unter Verwendung der folgenden Prioritätsreihenfolge der Baseline-Tabellennamen gewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des Elements oder der CSS {{cssxref('font-size')}} festgelegt, falls festgelegt.
 - `hanging`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `hanging` gesetzt. Die abgeleitete Basislinientabelle wird unter Verwendung der `hanging`-Basislinientabelle in der Schrift erstellt, und die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs der {{cssxref('font-size')}}-CSS-Eigenschaft für dieses Element geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `hanging` gesetzt, die abgeleitete Baseline-Tabelle wird unter Verwendung der `hanging` Baseline-Tabelle in der Schrift aufgebaut, und die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des CSS-Eigenschaft {{cssxref('font-size')}} dieses Elements geändert.
 - `ideographic`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `ideographic` gesetzt. Die abgeleitete Basislinientabelle wird unter Verwendung der `ideographic`-Basislinientabelle in der Schrift erstellt, und die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs oder der CSS {{cssxref('font-size')}}, falls gesetzt, geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `ideographic` gesetzt, die abgeleitete Baseline-Tabelle wird unter Verwendung der `ideographic` Baseline-Tabelle in der Schrift aufgebaut und die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des Elements oder der CSS {{cssxref('font-size')}} festgelegt, falls angegeben.
 - `mathematical`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `mathematical` gesetzt. Die abgeleitete Basislinientabelle wird unter Verwendung der `mathematical`-Basislinientabelle in der Schrift erstellt, und die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs oder der CSS {{cssxref('font-size')}}, falls gesetzt, geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `mathematical` gesetzt, die abgeleitete Baseline-Tabelle wird unter Verwendung der `mathematical` Baseline-Tabelle in der Schrift aufgebaut und die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des Elements oder der CSS {{cssxref('font-size')}} festgelegt, falls angegeben.
 - `middle`
-  - : Der Basislinien-Identifikator für die dominante Basislinie wird auf `middle` gesetzt. Die abgeleitete Basislinientabelle wird aus den definierten Basislinien in einer Basislinientabelle der Schrift erstellt. Diese Schrift-Basislinientabelle wird anhand der folgenden Prioritätenreihenfolge von Basislinientabellennamen gewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgröße der Basislinientabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs oder der CSS {{cssxref('font-size')}}, falls gesetzt, geändert.
+  - : Der Baseline-Identifikator für die dominant-baseline wird auf `middle` gesetzt. Die abgeleitete Baseline-Tabelle wird aus den definierten Baselines in einer Baseline-Tabelle in der Schrift aufgebaut. Diese Baseline-Tabelle der Schrift wird unter Verwendung der folgenden Prioritätsreihenfolge der Baseline-Tabellennamen gewählt: `ideographic`, `alphabetic`, `hanging`, `mathematical`. Die Schriftgröße der Baseline-Tabelle wird auf den Wert des {{SVGAttr('font-size')}} SVG-Attributs des Elements oder der CSS {{cssxref('font-size')}} festgelegt, falls angegeben.
 - `text-bottom`
-  - : Die _line-under_-Kante wird als Basislinie verwendet, die normalerweise der untere Rand der em-Box der Schrift ist.
+  - : Die _line-under_ Kante wird als Baseline verwendet, die in der Regel die untere Kante des em-Kastens der Schrift ist.
 - `text-top`
-  - : Die _line-over_-Kante wird als Basislinie verwendet, die normalerweise der obere Rand der em-Box der Schrift ist.
+  - : Die _line-over_ Kante wird als Baseline verwendet, die in der Regel die obere Kante des em-Kastens der Schrift ist.
 
 ## Formale Definition
 
