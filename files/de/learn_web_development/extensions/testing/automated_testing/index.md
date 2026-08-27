@@ -1,80 +1,80 @@
 ---
-title: Einführung in das automatisierte Testen
+title: Einführung in automatisiertes Testen
 short-title: Automatisiertes Testen
 slug: Learn_web_development/Extensions/Testing/Automated_testing
 l10n:
-  sourceCommit: 3251a58ecf1ded5df0e1aa5d23c8436247252b52
+  sourceCommit: 710372d69095aaeadfba6c892f3e39ed63df4c54
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Testing/Feature_detection", "Learn_web_development/Extensions/Testing/Your_own_automation_environment", "Learn_web_development/Extensions/Testing")}}
 
-Das manuelle Ausführen von Tests auf mehreren Browsern und Geräten, mehrmals pro Tag, kann mühsam und zeitaufwändig sein. Um dies effizienter zu handhaben, sollten Sie sich mit Automatisierungstools vertraut machen. In diesem Artikel werfen wir einen Blick darauf, was verfügbar ist, wie man Task-Runner verwendet und wie man die Grundlagen von kommerziellen Browser-Testautomatisierungs-Apps wie Sauce Labs, BrowserStack und TestingBot nutzt.
+Das manuelle Durchführen von Tests auf mehreren Browsern und Geräten, mehrmals täglich, kann mühsam und zeitaufwendig werden. Um dies effizient zu bewältigen, sollten Sie sich mit Automatisierungstools vertraut machen. In diesem Artikel schauen wir uns an, was verfügbar ist, wie man Task-Runner verwendet und wie man die Grundlagen kommerzieller Browser-Testautomatisierungs-Apps wie Sauce Labs, BrowserStack und TestingBot benutzt.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den grundlegenden Sprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>;
-        eine Vorstellung von den grundlegenden <a href="/de/docs/Learn_web_development/Extensions/Testing/Introduction">Prinzipien des Cross-Browser-Testings</a>.
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>;
+        eine Vorstellung der grundlegenden <a href="/de/docs/Learn_web_development/Extensions/Testing/Introduction">Prinzipien des Cross-Browser-Testens</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein Verständnis dafür zu vermitteln, was automatisiertes Testen umfasst, wie es Ihr Leben erleichtern kann und wie Sie einige der kommerziellen Produkte nutzen können, die Dinge einfacher machen.
+        Ein Verständnis dafür zu vermitteln, was automatisiertes Testen beinhaltet, wie es Ihren Alltag erleichtern kann, und wie Sie einige der kommerziellen Produkte nutzen können, die die Dinge einfacher machen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Automatisierung macht Dinge einfacher
+## Automatisierung macht das Leben einfacher
 
-In diesem Modul haben wir viele verschiedene Möglichkeiten detailliert beschrieben, wie Sie Ihre Websites und Apps testen können, und erklärt, welchen Umfang Ihre Cross-Browser-Testing-Bemühungen haben sollten in Bezug auf die zu testenden Browser, Barrierefreiheitsüberlegungen und mehr. Klingt nach viel Arbeit, nicht wahr?
+In diesem Modul haben wir viele verschiedene Möglichkeiten detailliert beschrieben, wie Sie Ihre Websites und Apps testen können, und erklärt, welchen Umfang Ihre Cross-Browser-Testbemühungen in Bezug auf zu testende Browser, Barrierefreiheitsüberlegungen und mehr haben sollten. Klingt nach viel Arbeit, nicht wahr?
 
-Wir stimmen zu — alles Manuell zu testen, was wir in den vorherigen Artikeln besprochen haben, kann wirklich anstrengend sein. Glücklicherweise gibt es Tools, die uns helfen können, einen Teil dieser Mühen zu automatisieren. Es gibt zwei Hauptwege, wie wir die Tests, über die wir in diesem Modul gesprochen haben, automatisieren können:
+Da stimmen wir zu — das manuelle Testen all der Dinge, die wir in vorherigen Artikeln besprochen haben, kann wirklich mühsam sein. Glücklicherweise gibt es Werkzeuge, die uns helfen, einen Teil dieser Mühe zu automatisieren. Es gibt zwei Hauptwege, wie wir die Tests, über die wir in diesem Modul gesprochen haben, automatisieren können:
 
-1. Verwenden Sie einen Task-Runner wie [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/) oder [npm scripts](https://docs.npmjs.com/misc/scripts/), um Tests auszuführen und Code während Ihres Build-Prozesses aufzuräumen. Dies ist eine großartige Möglichkeit, Aufgaben wie Linting und Minifizierung von Code, das Hinzufügen von CSS-Präfixen oder das Transpilieren neuer JavaScript-Funktionen für maximale Cross-Browser-Reichweite zu erledigen.
-2. Verwenden Sie ein Browser-Automatisierungssystem wie [Selenium](https://www.selenium.dev/), um spezifische Tests auf installierten Browsern auszuführen und Ergebnisse zurückzugeben, die Sie auf Fehler in Browsern aufmerksam machen, sobald sie auftreten. Kommerzielle Cross-Browser-Test-Apps wie [Sauce Labs](https://saucelabs.com/) und [BrowserStack](https://www.browserstack.com/) basieren auf Selenium, ermöglichen es Ihnen jedoch, auf ihre Einrichtung aus der Ferne über eine Schnittstelle zuzugreifen, wodurch Sie sich den Aufwand sparen, Ihr eigenes Testsystem einzurichten.
+1. Verwenden Sie einen Task-Runner wie [Grunt](https://gruntjs.com/) oder [Gulp](https://gulpjs.com/), oder [npm-Skripte](https://docs.npmjs.com/misc/scripts/), um beim Build-Prozess Aufgaben wie das Überprüfen und Minimieren von Code auszuführen, CSS-Präfixe hinzuzufügen oder aktuelle JavaScript-Funktionen auf maximale Cross-Browser-Kompatibilität zu transpilieren, und so weiter.
+2. Verwenden Sie ein Browser-Automatisierungssystem wie [Selenium](https://www.selenium.dev/), um spezifische Tests auf installierten Browsern auszuführen und Ergebnisse zurückzugeben, und Sie auf Fehler in Browsern hinzuweisen, sobald sie auftreten. Kommerzielle Cross-Browser-Test-Apps wie [Sauce Labs](https://saucelabs.com/) und [BrowserStack](https://www.browserstack.com/) basieren auf Selenium, erlauben Ihnen jedoch, deren Einrichtung aus der Ferne über eine Schnittstelle zu nutzen, und ersparen Ihnen den Aufwand, Ihr eigenes Testsystem einzurichten.
 
-Im nächsten Artikel werden wir uns damit beschäftigen, wie Sie Ihr eigenes auf Selenium basierendes Testsystem einrichten können. In diesem Artikel werden wir uns ansehen, wie Sie einen Task-Runner einrichten und die grundlegende Funktionalität von kommerziellen Systemen wie den oben genannten nutzen.
+Im nächsten Artikel erklären wir, wie Sie Ihr eigenes Selenium-basiertes Testsystem einrichten. In diesem Artikel werden wir uns ansehen, wie man einen Task-Runner einrichtet und die grundlegenden Funktionen kommerzieller Systeme wie der oben genannten nutzt.
 
 > [!NOTE]
-> Die obigen beiden Kategorien schließen sich nicht gegenseitig aus. Es ist möglich, einen Task-Runner einzurichten, um über eine API auf einen Service wie Sauce Labs zuzugreifen, Cross-Browser-Tests durchzuführen und die Ergebnisse zurückzugeben. Wir werden uns dies weiter unten ebenfalls ansehen.
+> Die obigen beiden Kategorien schließen sich nicht gegenseitig aus. Es ist möglich, einen Task-Runner einzurichten, der über eine API Zugriff auf einen Dienst wie Sauce Labs erhält, Cross-Browser-Tests durchführt und Ergebnisse zurückgibt. Wir werden dies im Folgenden ebenfalls betrachten.
 
-## Verwendung eines Task-Runners zur Automatisierung von Testwerkzeugen
+## Einen Task-Runner verwenden, um Testwerkzeuge zu automatisieren
 
-Wie bereits erwähnt, können Sie häufige Aufgaben wie Linting und Minifizierung von Code drastisch beschleunigen, indem Sie einen Task-Runner verwenden, um alles automatisch an einem bestimmten Punkt in Ihrem Build-Prozess auszuführen, was Sie ausführen müssen. Zum Beispiel könnte dies jedes Mal sein, wenn Sie eine Datei speichern oder zu einem anderen Zeitpunkt. In diesem Abschnitt schauen wir uns an, wie Sie das Task-Running mit Node und Gulp automatisieren, eine einsteigerfreundliche Option.
+Wie oben erwähnt, können Sie häufige Aufgaben wie das Überprüfen und Minimieren von Code erheblich beschleunigen, indem Sie einen Task-Runner verwenden, um alles, was Sie benötigen, automatisch zu einem bestimmten Zeitpunkt im Build-Prozess laufen zu lassen. Dies könnte zum Beispiel jedes Mal sein, wenn Sie eine Datei speichern, oder zu einem anderen Zeitpunkt. In diesem Abschnitt schauen wir uns an, wie man Task-Running mit Node und Gulp automatisiert, eine anfängerfreundliche Option.
 
-### Einrichtung von Node und npm
+### Node und npm einrichten
 
-Die meisten Tools basieren heutzutage auf {{Glossary("Node.js", "Node.js")}}, daher müssen Sie es zusammen mit seinem Gegenstück Paketmanager, [`npm`](https://www.npmjs.com/), installieren:
+Die meisten Werkzeuge heutzutage basieren auf {{Glossary("Node.js", "Node.js")}}, also müssen Sie es zusammen mit seinem Gegenstück `npm`, dem Paketmanager, installieren:
 
-1. Der einfachste Weg, Node.js und `npm` zu installieren und zu aktualisieren, ist über einen Node-Version-Manager: Folgen Sie den Anweisungen unter [Node installieren](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment#installing_node), um dies zu tun.
+1. Die einfachste Methode, Node.js und `npm` zu installieren und zu aktualisieren, ist über einen Node-Version-Manager: Folgen Sie den Anweisungen unter [Node installieren](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment#installing_node), um dies zu tun.
 2. Stellen Sie sicher, dass Sie [testen, ob Ihre Installation erfolgreich war](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/development_environment#testing_your_nodejs_and_npm_installation), bevor Sie fortfahren.
-3. Wenn Sie Node.js/`npm` zuvor installiert haben, sollten Sie diese auf die neuesten Versionen aktualisieren. Dies kann getan werden, indem Sie den Node-Version-Manager verwenden, um die neuesten LTS-Versionen zu installieren (verweisen Sie erneut auf die oben verlinkten Anweisungen).
+3. Wenn Sie Node.js/`npm` bereits zuvor installiert haben, sollten Sie es auf die neuesten Versionen aktualisieren. Dies kann erfolgen, indem Sie den Node-Version-Manager verwenden, um die neuesten LTS-Versionen zu installieren (verweisen Sie erneut auf die oben verlinkten Anweisungen).
 
-Um Node/npm-basierte Pakete in Ihren Projekten zu verwenden, müssen Sie Ihr Projektverzeichnis als npm-Projekte einrichten. Dies ist einfach zu tun.
+Um mit der Verwendung von Node/npm-basierten Paketen in Ihren Projekten zu beginnen, müssen Sie Ihre Projektverzeichnisse als npm-Projekte einrichten. Dies ist einfach zu tun.
 
-Zum Beispiel, lassen Sie uns zunächst ein Testverzeichnis erstellen, um ohne Angst davor, etwas zu zerstören, zu spielen.
+Zum Beispiel erstellen wir zuerst ein Testverzeichnis, um ohne Angst vor dem Brechen von irgendetwas zu experimentieren.
 
-1. Erstellen Sie ein neues Verzeichnis an einem sinnvollen Ort mit der Benutzeroberfläche Ihres Dateimanagers oder in einer Befehlszeile, indem Sie zu dem Ort navigieren, den Sie möchten, und den folgenden Befehl ausführen:
+1. Erstellen Sie ein neues Verzeichnis an einem sinnvollen Ort mithilfe Ihrer Dateimanager-Oberfläche oder in einer Befehlszeile, indem Sie zu dem Ort navigieren, den Sie wollen, und den folgenden Befehl ausführen:
 
    ```bash
    mkdir node-test
    ```
 
-2. Um dieses Verzeichnis zu einem npm-Projekt zu machen, müssen Sie nur in Ihr Testverzeichnis gehen und es initialisieren, mit dem folgenden:
+2. Um dieses Verzeichnis zu einem npm-Projekt zu machen, müssen Sie nur in Ihr Testverzeichnis gehen und es initialisieren, mit dem folgenden Befehl:
 
    ```bash
    cd node-test
    npm init
    ```
 
-3. Dieser zweite Befehl wird Ihnen viele Fragen stellen, um die erforderlichen Informationen zur Einrichtung des Projekts herauszufinden; Sie können vorerst die Standardeinstellungen auswählen.
-4. Sobald alle Fragen gestellt wurden, wird er Sie fragen, ob die eingegebenen Informationen in Ordnung sind. Geben Sie `yes` ein und drücken Sie Enter/Return und npm wird eine `package.json`-Datei in Ihrem Verzeichnis generieren.
+3. Dieser zweite Befehl stellt Ihnen viele Fragen, um die Informationen zu ermitteln, die für die Einrichtung des Projekts erforderlich sind; Sie können vorerst die Standardwerte auswählen.
+4. Sobald alle Fragen gestellt wurden, wird es Sie fragen, ob die eingegebenen Informationen in Ordnung sind. Tippen Sie `yes` und drücken Sie Enter/Return, und npm wird eine `package.json`-Datei in Ihrem Verzeichnis erstellen.
 
-Diese Datei ist im Wesentlichen eine Konfigurationsdatei für das Projekt. Sie können sie später anpassen, aber vorerst sieht sie ungefähr so aus:
+Diese Datei ist im Wesentlichen eine Konfigurationsdatei für das Projekt. Sie können es später anpassen, aber für den Moment wird es etwa so aussehen:
 
 ```json
 {
@@ -90,14 +90,14 @@ Diese Datei ist im Wesentlichen eine Konfigurationsdatei für das Projekt. Sie k
 }
 ```
 
-Damit sind Sie bereit, weiterzumachen.
+Damit sind Sie bereit, fortzufahren.
 
-### Einrichtung der Gulp-Automatisierung
+### Gulp-Automatisierung einrichten
 
-Schauen wir uns an, wie wir Gulp einrichten und es verwenden können, um einige Testwerkzeuge zu automatisieren.
+Schauen wir uns an, wie man Gulp einrichtet und es verwendet, um einige Testwerkzeuge zu automatisieren.
 
-1. Zuerst erstellen Sie ein Test-Npm-Projekt, indem Sie das Verfahren ganz unten im vorherigen Abschnitt befolgen.
-   Aktualisieren Sie auch die `package.json`-Datei mit der Zeile: `"type": "module"`, sodass sie ungefähr so aussieht:
+1. Beginnen Sie damit, ein Test-npm-Projekt nach dem Verfahren unten im vorherigen Abschnitt einzurichten.
+   Aktualisieren Sie auch die `package.json`-Datei mit der Zeile: `"type": "module"`, sodass sie etwa so aussieht:
 
    ```json
    {
@@ -114,21 +114,21 @@ Schauen wir uns an, wie wir Gulp einrichten und es verwenden können, um einige 
    }
    ```
 
-2. Als nächstes benötigen Sie einige Beispielinhalte in HTML, CSS und JavaScript, um Ihr System zu testen — erstellen Sie Kopien unserer Beispiel-Dateien [index.html](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/index.html), [main.js](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/main.js) und [style.css](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/style.css) in einem Unterordner mit dem Namen `src` innerhalb Ihres Projektordners.
-   Sie können auch Ihre eigenen Testinhalte ausprobieren, beachten Sie jedoch, dass solche Tools nicht gut mit in der HTML-Datei eingebettetem JS/CSS funktionieren — Sie benötigen separate Dateien.
-3. Installieren Sie Gulp global (das bedeutet, es wird in allen Projekten verfügbar sein) mit dem folgenden Befehl:
+2. Als Nächstes benötigen Sie einige HTML-, CSS- und JavaScript-Beispielinhalte, um Ihr System zu testen — erstellen Sie Kopien unserer Beispiel-Dateien [index.html](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/index.html), [main.js](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/main.js), und [style.css](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/automation/style.css) in einem Unterordner mit dem Namen `src` in Ihrem Projektordner.
+   Sie können auch Ihre eigenen Testinhalte ausprobieren, aber beachten Sie, dass solche Werkzeuge nicht gut mit JS/CSS funktionieren, die direkt in der HTML-Datei eingebettet sind — Sie benötigen separate Dateien.
+3. Installieren Sie Gulp global (bedeutet, es wird in allen Projekten verfügbar) mit dem folgenden Befehl:
 
    ```bash
    npm install --global gulp-cli
    ```
 
-4. Führen Sie als nächstes den folgenden Befehl im Stammverzeichnis Ihres npm-Projekts aus, um Gulp als Abhängigkeit Ihres Projekts einzurichten:
+4. Führen Sie als Nächstes den folgenden Befehl im Stammverzeichnis Ihres npm-Projekts aus, um Gulp als Abhängigkeit Ihres Projekts einzurichten:
 
    ```bash
    npm install --save-dev gulp
    ```
 
-5. Erstellen Sie nun eine neue Datei in Ihrem Projektverzeichnis namens `gulpfile.mjs`. Dies ist die Datei, die alle unsere Aufgaben ausführt. In dieser Datei setzen Sie folgendes:
+5. Erstellen Sie nun eine neue Datei in Ihrem Projektverzeichnis mit dem Namen `gulpfile.mjs`. Dies ist die Datei, die alle unsere Aufgaben ausführen wird. Setzen Sie in diese Datei Folgendes:
 
    ```js
    import gulp from "gulp";
@@ -139,7 +139,7 @@ Schauen wir uns an, wie wir Gulp einrichten und es verwenden können, um einige 
    }
    ```
 
-   Dies erfordert das `gulp`-Modul, das wir zuvor installiert haben, und exportiert dann eine Standardaufgabe, die nichts weiter tut, als eine Nachricht im Terminal auszugeben — das ist nützlich, um uns zu zeigen, dass Gulp funktioniert. In den nächsten Abschnitten werden wir diese `export default`-Anweisung in etwas Nützlicheres umwandeln.
+   Dies erfordert das `gulp`-Modul, das wir zuvor installiert haben, und exportiert dann eine Standardaufgabe, die nichts anderes tut, als eine Nachricht im Terminal zu drucken — das ist nützlich, um zu wissen, dass Gulp funktioniert. In den nächsten Abschnitten werden wir diesen `export default`-Aussage in etwas Nützlicheres ändern.
 
    Jede Gulp-Aufgabe wird im gleichen grundlegenden Format exportiert — `exports function taskName(cb) {...}`. Jede Funktion nimmt einen Parameter — einen Callback, der ausgeführt wird, wenn die Aufgabe abgeschlossen ist.
 
@@ -149,15 +149,15 @@ Schauen wir uns an, wie wir Gulp einrichten und es verwenden können, um einige 
    gulp
    ```
 
-### Hinzufügen echter Aufgaben zu Gulp
+### Einige echte Aufgaben zu Gulp hinzufügen
 
-Nun sind wir bereit, weitere Aufgaben zu unserer Gulp-Datei hinzuzufügen. Jede Hinzufügung könnte Sie dazu bringen, die `gulpfile.mjs`-Datei in folgender Weise zu ändern:
+Jetzt sind wir bereit, weitere Aufgaben in unsere Gulp-Datei hinzuzufügen. Jede Ergänzung erfordert möglicherweise, dass Sie die `gulpfile.mjs`-Datei folgendermaßen ändern:
 
-- Wenn wir Sie bitten, einige `import`-Anweisungen hinzuzufügen, fügen Sie diese unter der bestehenden `import`-Anweisung hinzu.
-- Wenn wir Sie bitten, eine neue `export function ...`-Anweisung hinzuzufügen, fügen Sie diese am Ende der Datei an.
-- Wenn wir Sie bitten, den Standardexport zu ändern, ändern Sie die `export default`-Anweisung in der von uns spezifizierten Weise.
+- Wenn wir Sie bitten, einige `import`-Anweisungen hinzuzufügen, fügen Sie sie unterhalb der bestehenden `import`-Anweisung hinzu.
+- Wenn wir Sie bitten, eine neue `export function ...`-Anweisung hinzuzufügen, fügen Sie sie am Ende der Datei hinzu.
+- Wenn wir Sie bitten, den Standardexport zu ändern, ändern Sie die `export default`-Anweisung in der von uns vorgeschlagenen Weise.
 
-So wird Ihre `gulpfile.mjs`-Datei wachsen:
+So wird Ihre `gulpfile.mjs`-Datei strukturiert wie folgt wachsen:
 
 ```js
 import gulp from "gulp";
@@ -171,28 +171,28 @@ import gulp from "gulp";
 // export function ...
 ```
 
-Um einige echte Aufgaben zu Gulp hinzuzufügen, müssen wir darüber nachdenken, was wir tun möchten. Eine vernünftige Grundfunktionalität, die Sie auf unserem Projekt ausführen sollten, umfasst:
+Um Gulp einige echte Aufgaben hinzuzufügen, müssen wir darüber nachdenken, was wir tun wollen. Ein vernünftiger Satz von Grundfunktionen für unser Projekt ist wie folgt:
 
-- html-tidy, css-lint, und js-hint, um häufige HTML/CSS/JS-Fehler zu linden und zu melden/beheben (siehe [gulp-htmltidy](https://www.npmjs.com/package/gulp-htmltidy), [gulp-csslint](https://www.npmjs.com/package/gulp-csslint), [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)).
-- Autoprefixer, um unser CSS zu scannen und nur dort Anbieterpräfixe hinzuzufügen, wo es nötig ist (siehe [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)).
-- babel, um alle neuen JavaScript-Syntaxfunktionen in traditionellen Syntax zu transpilieren, die in älteren Browsern funktionieren (siehe [gulp-babel](https://www.npmjs.com/package/gulp-babel)).
+- html-tidy, css-lint und js-hint, um häufige HTML/CSS/JS-Fehler zu überprüfen und zu berichten, bzw. zu beheben (siehe [gulp-htmltidy](https://www.npmjs.com/package/gulp-htmltidy), [gulp-csslint](https://www.npmjs.com/package/gulp-csslint), [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)).
+- Autoprefixer, um unser CSS zu scannen und nur dort Vendor-Prefixe hinzuzufügen, wo sie benötigt werden (siehe [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)).
+- babel, um neue JavaScript-Syntax-Funktionen in traditionelle Syntax zu transpilieren, die in älteren Browsern funktioniert (siehe [gulp-babel](https://www.npmjs.com/package/gulp-babel)).
 
 Siehe die oben genannten Links für vollständige Anweisungen zu den verschiedenen Gulp-Paketen, die wir verwenden.
 
-Um jedes Plugin zu nutzen, müssen Sie es zuerst über npm installieren, dann alle Abhängigkeiten am Anfang der `gulpfile.mjs`-Datei einbringen und schließlich den Namen Ihrer Aufgabe exportieren, um über den Gulp-Befehl zugänglich zu sein.
+Um jedes Plugin zu verwenden, müssen Sie es zuerst über npm installieren, dann alle Abhängigkeiten oben in der `gulpfile.mjs`-Datei einfügen, dann Ihren Test/Tests unten in die Datei hinzufügen und schließlich den Namen Ihrer Aufgabe exportieren, um sie über den Gulp-Befehl verfügbar zu machen.
 
 #### html-tidy
 
-1. Installieren Sie es mit der folgenden Zeile:
+1. Installieren Sie mit der folgenden Zeile:
 
    ```bash
    npm install --save-dev gulp-htmltidy
    ```
 
    > [!NOTE]
-   > `--save-dev` fügt das Paket als eine Abhängigkeit zu Ihrem Projekt hinzu. Wenn Sie in die `package.json`-Datei Ihres Projekts schauen, sehen Sie einen Eintrag dafür in der Eigenschaft `devDependencies`.
+   > `--save-dev` fügt das Paket als Abhängigkeit zu Ihrem Projekt hinzu. Wenn Sie in Ihrer Projektdatei `package.json` nachschauen, sehen Sie einen Eintrag dafür im `devDependencies`-Eigenschaft.
 
-2. Fügen Sie die folgende Abhängigkeit zur `gulpfile.mjs` hinzu:
+2. Fügen Sie die folgende Abhängigkeit der `gulpfile.mjs` hinzu:
 
    ```js
    import htmltidy from "gulp-htmltidy";
@@ -215,22 +215,22 @@ Um jedes Plugin zu nutzen, müssen Sie es zuerst über npm installieren, dann al
    export default html;
    ```
 
-Hier greifen wir unsere Entwicklungs-`index.html`-Datei mit `gulp.src()` ab, das es uns ermöglicht, eine Quelldatei zu greifen, um etwas damit zu tun.
+Hier erfassen wir unsere Entwicklungs-`index.html`-Datei mit `gulp.src()`, das uns ermöglicht, eine Quelldatei zu erfassen, um etwas damit zu machen.
 
-Wir verwenden dann die Funktion `pipe()`, um diese Quelle an einen anderen Befehl weiterzugeben, um etwas anderes damit zu tun. Wir können so viele davon ketten, wie wir wollen. Wir führen zuerst `htmltidy()` auf der Quelle aus, das durchgeht und Fehler in unserer Datei behebt. Die zweite `pipe()`-Funktion schreibt die Ausgabedatei in das `build`-Verzeichnis.
+Wir verwenden dann die `pipe()`-Funktion, um diese Quelle an einen anderen Befehl weiterzugeben, der damit etwas anderes macht. Wir können so viele davon verketten, wie wir wollen. Wir führen zunächst `htmltidy()` auf der Quelle aus, die durchgeht und Fehler in unserer Datei behebt. Die zweite `pipe()`-Funktion schreibt die Ausgabedatei in das `build`-Verzeichnis.
 
-In der Eingabedateiversion haben Sie vielleicht bemerkt, dass wir ein leeres {{htmlelement("p")}}-Element eingefügt haben; htmltidy hat dies entfernt, als die Ausgabedatei erstellt wurde.
+In der Eingabeversion der Datei haben Sie vielleicht bemerkt, dass wir ein leeres {{htmlelement("p")}}-Element eingefügt haben; htmltidy hat dies entfernt, sobald die Ausgabedatei erstellt wurde.
 
 #### Autoprefixer und css-lint
 
-1. Installieren Sie es mit den folgenden Zeilen:
+1. Installieren Sie mit den folgenden Zeilen:
 
    ```bash
    npm install --save-dev gulp-autoprefixer
    npm install --save-dev gulp-csslint
    ```
 
-2. Fügen Sie die folgenden Abhängigkeiten zur `gulpfile.mjs` hinzu:
+2. Fügen Sie die folgenden Abhängigkeiten der `gulpfile.mjs` hinzu:
 
    ```js
    import autoprefixer from "gulp-autoprefixer";
@@ -254,7 +254,7 @@ In der Eingabedateiversion haben Sie vielleicht bemerkt, dass wir ein leeres {{h
    }
    ```
 
-4. Fügen Sie die folgende Eigenschaft zur `package.json` hinzu:
+4. Fügen Sie das folgende Property zu `package.json` hinzu:
 
    ```json
    {
@@ -268,11 +268,11 @@ In der Eingabedateiversion haben Sie vielleicht bemerkt, dass wir ein leeres {{h
    export default gulp.series(html, css);
    ```
 
-Hier greifen wir unsere `style.css`-Datei ab, führen csslint darauf aus (das eine Liste aller Fehler in Ihrem CSS im Terminal ausgibt), und leiten es dann durch autoprefixer, um alle benötigten Präfixe hinzuzufügen, um neue CSS-Funktionen in älteren Browsern lauffähig zu machen. Am Ende der Pipe-Kette geben wir unser modifiziertes CSS mit Präfix in das `build`-Verzeichnis aus. Beachten Sie, dass dies nur funktioniert, wenn csslint keine Fehler findet — versuchen Sie, eine geschweifte Klammer aus Ihrer CSS-Datei zu entfernen und gulp erneut auszuführen, um zu sehen, welche Ausgabe Sie erhalten!
+Hier erfassen wir unsere `style.css`-Datei, führen csslint darauf aus (was eine Liste aller Fehler in Ihrem CSS auf das Terminal ausgibt), und führen es dann durch autoprefixer, um alle Präfixe hinzuzufügen, die notwendig sind, um moderne CSS-Funktionen in älteren Browsern auszuführen. Am Ende der Pipe-Kette geben wir unser modifiziertes CSS mit Präfixen in das `build`-Verzeichnis aus. Beachten Sie, dass dies nur funktioniert, wenn csslint keine Fehler findet — versuchen Sie, eine geschweifte Klammer aus Ihrer CSS-Datei zu entfernen und gulp erneut auszuführen, um zu sehen, welche Ausgabe Sie erhalten!
 
 #### js-hint und babel
 
-1. Installieren Sie es mit den folgenden Zeilen:
+1. Installieren Sie mit den folgenden Zeilen:
 
    ```bash
    npm install --save-dev gulp-babel @babel/preset-env
@@ -280,7 +280,7 @@ Hier greifen wir unsere `style.css`-Datei ab, führen csslint darauf aus (das ei
    npm install jshint gulp-jshint --save-dev
    ```
 
-2. Fügen Sie die folgenden Abhängigkeiten zur `gulpfile.mjs` hinzu:
+2. Fügen Sie die folgenden Abhängigkeiten der `gulpfile.mjs` hinzu:
 
    ```js
    import babel from "gulp-babel";
@@ -310,19 +310,19 @@ Hier greifen wir unsere `style.css`-Datei ab, führen csslint darauf aus (das ei
    export default gulp.series(html, css, js);
    ```
 
-Hier greifen wir unsere `main.js`-Datei ab, führen `jshint` darauf aus und geben die Ergebnisse mithilfe von `jshint.reporter` ins Terminal aus; dann leiten wir die Datei an babel weiter, das sie in einen alten Syntaxstil umwandelt und das Ergebnis in das `build`-Verzeichnis ausgibt. Unser ursprünglicher Code enthielt eine [Fat Arrow Function](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), die von babel in eine alte Funktionsweise umgewandelt wurde.
+Hier erfassen wir unsere `main.js`-Datei, führen `jshint` darauf aus und geben die Ergebnisse an das Terminal aus, indem wir `jshint.reporter` verwenden; wir geben dann die Datei an babel weiter, das sie in eine alte Syntax umwandelt und das Ergebnis in das `build`-Verzeichnis ausgibt. Unser ursprünglicher Code enthielt eine [Fat Arrow Function](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), die babel in eine alte Funktionssyntax umgewandelt hat.
 
 #### Weitere Ideen
 
-Sobald alles eingerichtet ist, können Sie den `gulp`-Befehl in Ihrem Projektverzeichnis ausführen und Sie sollten eine Ausgabe wie diese erhalten:
+Wenn das alles eingerichtet ist, können Sie den `gulp`-Befehl in Ihrem Projektverzeichnis ausführen, und Sie sollten eine Ausgabe wie diese erhalten:
 
-![Ausgabe in einem Code-Editor, in der Zeilen die Start- oder Endzeit von Aufgaben, den Aufgabennamen und die Dauer von 'Abgeschlossenen' Aufgaben zeigen.](gulp-output.png)
+![Ausgabe in einem Code-Editor, wo Zeilen die Zeit anzeigen, wann Aufgaben gestartet oder beendet wurden, den Aufgabennamen und die Dauer der 'Finished'-Aufgaben.](gulp-output.png)
 
-Dann können Sie die von Ihren automatisierten Aufgaben erstellten Dateien testen, indem Sie sie im `build`-Verzeichnis betrachten und `build/index.html` in Ihrem Webbrowser laden.
+Sie können dann versuchen, auf die von Ihren automatisierten Aufgaben ausgegebenen Dateien zuzugreifen, indem Sie sie im `build`-Verzeichnis betrachten und `build/index.html` in Ihrem Webbrowser laden.
 
-Wenn Sie Fehler erhalten, prüfen Sie, ob Sie alle Abhängigkeiten und Tests wie oben gezeigt hinzugefügt haben; versuchen Sie auch, Codeabschnitte in HTML/CSS/JavaScript auszukommentieren und dann Gulp erneut auszuführen, um zu sehen, ob Sie das Problem eingrenzen können.
+Wenn Sie Fehler erhalten, überprüfen Sie, ob Sie alle Abhängigkeiten und Tests wie oben gezeigt hinzugefügt haben; versuchen Sie auch, die HTML/CSS/JavaScript-Codeabschnitte auszukommentieren und dann gulp erneut auszuführen, um zu sehen, ob Sie das Problem isolieren können.
 
-Gulp wird mit einer `watch()`-Funktion geliefert, die Sie verwenden können, um Ihre Dateien zu beobachten und Tests bei jedem Speichern einer Datei auszuführen. Zum Beispiel, versuchen Sie, das folgende am Ende Ihrer `gulpfile.mjs` hinzuzufügen:
+Gulp verfügt über eine `watch()`-Funktion, mit der Sie Ihre Dateien überwachen und Tests ausführen können, wann immer Sie eine Datei speichern. Zum Beispiel, versuchen Sie das folgende am Ende Ihrer `gulpfile.mjs` hinzuzufügen:
 
 ```js
 export function watch() {
@@ -332,79 +332,79 @@ export function watch() {
 }
 ```
 
-Versuchen Sie nun, den Befehl `gulp watch` in Ihrem Terminal einzugeben. Gulp wird nun Ihr Verzeichnis beobachten und die entsprechenden Aufgaben ausführen, wenn Sie eine Änderung an einer HTML-, CSS- oder JavaScript-Datei speichern.
+Versuchen Sie jetzt, den `gulp watch`-Befehl in Ihr Terminal einzugeben. Gulp wird nun Ihr Verzeichnis überwachen und die entsprechenden Aufgaben ausführen, wann immer Sie Änderungen an einer HTML-, CSS- oder JavaScript-Datei speichern.
 
 > [!NOTE]
-> Das `*`-Zeichen ist ein Platzhalterzeichen — hier sagen wir "führen Sie diese Aufgaben aus, wenn Dateien dieses Typs gespeichert werden. Sie könnten auch Platzhalter in Ihren Hauptaufgaben verwenden, zum Beispiel `gulp.src('src/*.css')` würde alle Ihre CSS-Dateien greifen und dann Aufgaben darauf ausführen.
+> Das `*`-Zeichen ist ein Platzhalterzeichen — hier sagen wir "führe diese Aufgaben aus, wenn beliebige Dateien dieses Typs gespeichert werden. Sie könnten auch Platzhalter in Ihren Hauptaufgaben verwenden, zum Beispiel `gulp.src('src/*.css')` würde alle Ihre CSS-Dateien erfassen und dann gepipte Aufgaben auf sie ausführen.
 
-Es gibt eine Menge mehr, was Sie mit Gulp tun können. Das [Gulp-Plugin-Verzeichnis](https://gulpjs.com/plugins/) enthält buchstäblich Tausende von Plugins, durch die Sie suchen können.
+Es gibt noch viel mehr, was Sie mit Gulp machen können. Das [Gulp Plugin-Verzeichnis](https://gulpjs.com/plugins/) hat buchstäblich Tausende von Plugins, durch die Sie suchen können.
 
 ### Andere Task-Runner
 
-Es gibt viele andere Task-Runner. Wir behaupten sicherlich nicht, dass Gulp die beste Lösung ist, aber es funktioniert für uns und ist relativ zugänglich für Anfänger. Sie könnten auch versuchen, andere Lösungen zu verwenden:
+Es gibt viele andere Task-Runner, die verfügbar sind. Wir behaupten sicherlich nicht, dass Gulp die beste Lösung ist, die es gibt, aber es funktioniert für uns, und es ist ziemlich zugänglich für Anfänger. Sie könnten auch andere Lösungen ausprobieren:
 
-- Grunt funktioniert sehr ähnlich wie Gulp, außer dass es sich auf Aufgaben verlässt, die in einer Konfigurationsdatei angegeben sind, anstatt auf selbst geschriebenes JavaScript (siehe [Getting started with Grunt for more details.](https://gruntjs.com/getting-started)).
-- Sie können Aufgaben auch direkt mit npm-Skripten durchführen, die sich in Ihrer `package.json`-Datei befinden, ohne ein zusätzliches Task-Runner-System installieren zu müssen. Dies basiert auf der Prämisse, dass Dinge wie Gulp-Plugins im Grunde Wrapper um Kommandozeilen-Tools sind. Wenn Sie also herausfinden können, wie man die Tools mit der Kommandozeile ausführt, können Sie sie dann mit npm-Skripten ausführen. Es ist ein bisschen schwieriger zu arbeiten, kann aber lohnend sein für diejenigen, die mit ihren Kommandozeilenfähigkeiten stark sind. [Why npm scripts?](https://css-tricks.com/why-npm-scripts/) bietet eine gute Einführung mit vielen weiteren Informationen.
+- Grunt funktioniert sehr ähnlich zu Gulp, außer dass es sich auf Aufgaben stützt, die in einer Konfigurationsdatei angegeben sind, anstatt geschriebenes JavaScript zu verwenden. Sehen Sie sich [Getting started mit Grunt für mehr Details an.](https://gruntjs.com/getting-started)
+- Sie können Aufgaben auch direkt mit npm-Skripten ausführen, die in Ihrer `package.json`-Datei enthalten sind, ohne ein zusätzliches Task-Runner-System installieren zu müssen. Dies basiert auf der Annahme, dass Dinge wie Gulp-Plugins im Grunde genommen Wrapper um Kommandozeilenwerkzeuge sind. Wenn Sie also herausfinden können, wie Sie die Tools über die Kommandozeile ausführen, können Sie sie dann mit npm-Skripten ausführen. Es ist ein bisschen schwieriger zu handhaben, kann aber für diejenigen belohnend sein, die stark in ihren Kommandozeilenfähigkeiten sind. [Warum npm-Skripte?](https://css-tricks.com/why-npm-scripts/) bietet eine gute Einführung mit vielen weiteren Informationen.
 
-## Nutzung von kommerziellen Testdiensten zur Beschleunigung von Browser-Tests
+## Kommerzielle Testservices zur Beschleunigung des Browser-Testens verwenden
 
-Schauen wir uns nun kommerzielle Drittanbieter-Browser-Testdienste an und was sie für uns tun können.
+Schauen wir uns nun kommerzielle Drittanbieter-Browser-Testservices an und was sie für uns tun können.
 
-Wenn Sie diese Art von Diensten nutzen, geben Sie eine URL der Seite an, die Sie testen möchten, zusammen mit Informationen, wie etwa welche Browser Sie getestet haben möchten. Die App konfiguriert dann eine neue VM mit dem von Ihnen angegebenen Betriebssystem und Browser und gibt die Testergebnisse in Form von Screenshots, Videos, Protokolldateien, Text usw. zurück. Dies ist sehr nützlich und wesentlich praktischer, als alle OS/Browser-Kombinationen selbst einrichten zu müssen.
+Wenn Sie diese Art von Diensten verwenden, geben Sie eine URL der Seite an, die Sie testen möchten, zusammen mit Informationen wie welche Browser Sie testen möchten. Die App konfiguriert dann eine neue VM mit dem von Ihnen angegebenen Betriebssystem und Browser und liefert die Testergebnisse in Form von Screenshots, Videos, Logdateien, Text usw. zurück. Dies ist sehr nützlich und weit bequemer, als alle OS-/Browser-Kombinationen selbst einzurichten.
 
-Sie können dann einen Gang höher schalten, indem Sie eine API nutzen, um die Funktionalität programmatisch zuzugreifen, was bedeutet, dass solche Apps mit Task-Runnern kombiniert werden können, sowie mit Ihren eigenen lokalen Selenium-Umgebungen und anderen, um automatisierte Tests zu erstellen.
+Sie können dann einen Gang höher schalten und eine API verwenden, um Funktionalität programmatisch zuzugreifen, was bedeutet, dass solche Apps mit Task-Runnern wie Ihren eigenen lokalen Selenium-Umgebungen und anderen kombiniert werden können, um automatisierte Tests zu erstellen.
 
 > [!NOTE]
-> Es gibt andere kommerzielle Browser-Testsysteme, aber in diesem Artikel konzentrieren wir uns auf BrowserStack, Sauce Labs und TestingBot. Wir behaupten nicht, dass dies unbedingt die besten verfügbaren Werkzeuge sind, aber sie sind gute, die Anfänger einfach in Betrieb nehmen können.
+> Es gibt andere kommerzielle Browser-Testsysteme, die verfügbar sind, aber in diesem Artikel werden wir uns auf BrowserStack, Sauce Labs und TestingBot konzentrieren. Wir sagen nicht, dass dies unbedingt die besten Werkzeuge sind, die verfügbar sind, aber sie sind gut und relativ einfach für Anfänger zum Einrichten und Verwenden.
 
 ### BrowserStack
 
-#### Erste Schritte mit BrowserStack
+#### BrowserStack erste Schritte
 
-Um loszulegen:
+Um zu beginnen:
 
 1. Erstellen Sie ein [BrowserStack-Testkonto](https://www.browserstack.com/users/sign_up).
-2. Melden Sie sich an. Dies sollte automatisch geschehen, nachdem Sie Ihre E-Mail-Adresse verifiziert haben.
-3. Klicken Sie auf den _Live_-Link im oberen Navigationsmenü, um zum Live-Manual Testing zu gelangen.
+2. Melden Sie sich an. Dies sollte automatisch geschehen, nachdem Sie Ihre E-Mail-Adresse bestätigt haben.
+3. Klicken Sie auf den Link _Live_ im oberen Navigationsmenü, um zu Live Manual Testing zu gelangen.
 
 #### Die Grundlagen: Manuelle Tests
 
 Das BrowserStack Live-Dashboard ermöglicht es Ihnen, die Plattform, das Gerät und den Browser auszuwählen, die Sie testen möchten.
 Für Desktop-Tests wählen Sie das Betriebssystem und den Browser direkt aus.
-Für mobile Geräte wählen Sie das mobile Betriebssystem, das Gerät und können dann einen Browser für Ihre Geräte-Browser-Kombination auswählen.
+Für mobile Geräte wählen Sie das mobile Betriebssystem, das Gerät und dann können Sie einen Browser für Ihre Gerätschaften-Browser-Kombination auswählen.
 
 ![Testauswahl](browserstack-test-choices-sized.png)
 
-Wenn Sie auf eines dieser Browsersymbole klicken, wird Ihre Wahl von Plattform, Gerät und Browser geladen — wählen Sie jetzt eines aus und probieren Sie es aus.
+Das Klicken auf eines dieser Browsersymbole lädt Ihre Wahl der Plattform, des Geräts und des Browsers — wählen Sie jetzt einen und probieren es aus.
 
 ![Testgeräte](browserstack-test-device-sized.png)
 
-Sie können URLs in die Adressleiste eingeben, nach oben und unten scrollen, indem Sie mit der Maus ziehen, und geeignete Gesten (zum Beispiel Kneifen/Zoomen, zwei Finger zum Scrollen) auf den Touchpads von unterstützenden Geräten wie MacBooks verwenden.
+Sie können URLs in die Adressleiste eingeben, nach oben und unten scrollen, indem Sie mit der Maus ziehen, und die entsprechenden Gesten (zum Beispiel, Kneifen/Zoomen, zwei Finger zum Scrollen) auf den Touchpads unterstützender Geräte wie MacBooks verwenden.
 
-Die verfügbaren Funktionen variieren, je nachdem, welcher Browser geladen ist, und können beinhalten:
+Die verfügbaren Funktionen variieren je nach geladenem Browser und können Steuerungen umfassen für:
 
 - Anzeigen von Informationen zum aktuellen Browser
 - Wechseln zu anderen Browsern
-- Testen von localhost-URLs
-- Einstellen der Zoomstufe und Umschalten der Ausrichtung
+- Testen von localhost URLs
+- Einstellen des Zoomlevels und Umschalten der Ausrichtung
 - Speichern und Laden von Lesezeichen
-- Erfassen/Annotieren von Screenshots und Erstellen von Fehlerberichten
-- Zugriff auf Browser-DevTools
+- Aufnehmen/Annotieren von Screenshots und Erstellen von Fehlerberichten
+- Zugriff auf Browser DevTools
 - Ändern des gemeldeten Standorts
 - Drosseln des Netzwerks
-- Zugang zu Bildschirmlesern
+- Zugriff auf Screenreader
 
 ![Testmenü](browserstack-test-menu-sized.png)
 
 Weitere Informationen finden Sie in der [BrowserStack Live](https://www.browserstack.com/docs/live)-Dokumentation.
 
-#### Fortgeschritten: Die BrowserStack API
+#### Fortgeschritten: Die BrowserStack-API
 
-BrowserStack verfügt auch über eine [Restful API](https://www.browserstack.com/docs/automate/api-reference/selenium/introduction) die es Ihnen ermöglicht, programmatisch Details Ihres Konto-Plans, Sitzungen, Builds usw. abzurufen.
+BrowserStack verfügt auch über eine [RESTful API](https://www.browserstack.com/docs/automate/api-reference/selenium/introduction), die es Ihnen ermöglicht, Details zu Ihrem Kontoplan, Sitzungen, Builds usw. programmatisch abzurufen.
 
-Werfen wir einen kurzen Blick darauf, wie wir über Node.js auf die API zugreifen würden.
+Lassen Sie uns einen kurzen Blick darauf werfen, wie wir mit Node.js auf die API zugreifen würden.
 
-1. Zuerst richten Sie ein neues npm-Projekt ein, um dies zu testen, wie unter [Einrichtung von Node und npm](#einrichtung_von_node_und_npm) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als zuvor, zum Beispiel `bstack-test`.
+1. Richten Sie zunächst ein neues npm-Projekt ein, um dies zu testen, wie in [Einrichten von Node und npm](#node_und_npm_einrichten) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als zuvor, zum Beispiel `bstack-test`.
 2. Erstellen Sie eine neue Datei im Stammverzeichnis Ihres Projekts namens `call_bstack.js` und geben Sie ihr den folgenden Inhalt:
 
    ```js
@@ -434,22 +434,22 @@ Werfen wir einen kurzen Blick darauf, wie wir über Node.js auf die API zugreife
    getPlanDetails();
    ```
 
-3. Ersetzen Sie die Platzhalter für BrowserStack-Benutzernamen und Zugangs-Schlüssel durch Ihre tatsächlichen Werte. Diese können aus Ihren [BrowserStack-Konto- und Profil-Details](https://www.browserstack.com/accounts/profile/details) abgerufen werden, unter dem Abschnitt _Authentication & Security_.
-4. Installieren Sie das [axios](https://www.npmjs.com/package/axios)-Modul, das wir im Code verwenden, um HTTP-Anfragen zu senden, indem Sie den folgenden Befehl in Ihrem Terminal ausführen (wir haben axios gewählt, weil es einfach, populär und gut unterstützt ist):
+3. Ersetzen Sie die Platzhalter für den BrowserStack-Benutzernamen und den Zugangsschlüssel durch Ihre tatsächlichen Werte. Diese können Sie von Ihren [BrowserStack Account & Profile Details](https://www.browserstack.com/accounts/profile/details), unter dem Abschnitt _Authentication & Security_ abrufen.
+4. Installieren Sie das [axios](https://www.npmjs.com/package/axios)-Modul, das wir im Code verwenden, um HTTP-Anfragen zu senden, indem Sie den folgenden Befehl in Ihrem Terminal ausführen (wir haben axios gewählt, da es einfach, beliebt und gut unterstützt ist):
 
    ```bash
    npm install axios
    ```
 
-5. Stellen Sie sicher, dass Ihre JavaScript-Datei gespeichert ist, und führen Sie sie mit dem folgenden Befehl in Ihrem Terminal aus. Sie sollten vor einem Objekt im Terminal sehen, das Ihre BrowserStack-Plan-Details enthält.
+5. Stellen Sie sicher, dass Ihre JavaScript-Datei gespeichert ist, und führen Sie sie aus, indem Sie den folgenden Befehl in Ihrem Terminal ausführen. Sie sollten ein Objekt sehen, das in Ihrem Terminal gedruckt wurde und Ihre BrowserStack-Plan-Details enthält.
 
    ```bash
    node call_bstack
    ```
 
-Unten haben wir auch einige andere fertige Funktionen bereitgestellt, die Sie beim Arbeiten mit der BrowserStack Restful API nützlich finden könnten.
+Unten haben wir einige weitere fertige Funktionen bereitgestellt, die Sie nützlich finden könnten, wenn Sie mit der BrowserStack-RESTful API arbeiten.
 
-Diese Funktion gibt zusammenfassende Details aller zuvor erstellten automatisierten Builds zurück (siehe den nächsten Artikel für [BrowserStack automatisierte Testdetails](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment#browserstack)):
+Diese Funktion gibt Übersicht-Details aller zuvor erstellten automatisierten Builds zurück (siehe den nächsten Artikel für [BrowserStack automatisierte Testdetails](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment#browserstack)):
 
 ```js
 function getBuilds() {
@@ -485,7 +485,7 @@ function getBuilds() {
 }
 ```
 
-Diese Funktion gibt Details zu den spezifischen Sitzungen für einen bestimmten Build zurück:
+Diese Funktion gibt Details zu den spezifischen Sitzungen für ein bestimmtes Build zurück:
 
 ```js
 function getSessionsInBuild(build) {
@@ -569,54 +569,54 @@ function getSessionDetails(session) {
 
 #### Fortgeschritten: Automatisierte Tests
 
-Wir werden [automatisierte BrowserStack-Tests ausführen](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment#browserstack) im nächsten Artikel.
+Wir werden das [Ausführen automatisierter BrowserStack-Tests](/de/docs/Learn_web_development/Extensions/Testing/Your_own_automation_environment#browserstack) im nächsten Artikel behandeln.
 
 ### Sauce Labs
 
-#### Erste Schritte mit Sauce Labs
+#### Sauce Labs erste Schritte
 
-Lassen Sie uns mit einem Sauce Labs Trial beginnen.
+Beginnen wir mit einem Sauce Labs Testzugang.
 
-1. Erstellen Sie ein Sauce Labs-Testkonto.
-2. Melden Sie sich an. Diese Anmeldung sollte automatisch erfolgen, nachdem Sie Ihre E-Mail-Adresse verifiziert haben.
+1. Erstellen Sie ein Sauce Labs Testkonto.
+2. Melden Sie sich an. Dies sollte automatisch nach der Validierung Ihrer E-Mail-Adresse geschehen.
 
-#### Die Grundlagen: Manuelle Tests
+#### Die Grundlagen: Manuelles Testen
 
-Das [Sauce Labs-Dashboard](https://app.saucelabs.com/dashboard/manual) bietet viele verfügbare Optionen.
-Wenn Sie angemeldet sind, folgen Sie dem 'Getting started'-Leitfaden oben links auf der Seite:
+Das [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/manual) hat viele verfügbare Optionen.
+Wenn Sie angemeldet sind, folgen Sie dem 'Getting started'-Leitfaden in der oberen linken Ecke der Seite:
 
-1. Klicken Sie in "Führen Sie Ihren ersten Test durch" auf _Desktop Browser_.
-2. Geben Sie im nächsten Bildschirm die URL einer Seite ein, die Sie testen möchten (zum Beispiel diese Seite) und wählen Sie dann eine Browser/OS-Kombination, die Sie testen möchten, indem Sie die verschiedenen Schaltflächen und Listen verwenden.
-   Es gibt eine Menge Auswahlmöglichkeiten, wie Sie sehen werden!
-   ![Select Sauce Manual Session](sauce-manual-session.png)
-3. Wenn Sie den Test starten, wird ein Ladebildschirm angezeigt und eine Umgebung wird gestartet, die von Ihnen gewählte Gerät/Browsers-Kombination ausführt.
-   Sie können dann beginnen, die Website im gewählten Browser fernzutesten.
+1. In "Run your first test", klicken Sie auf _Desktop browser_.
+2. Geben Sie im nächsten Bildschirm die URL einer Seite ein, die Sie testen möchten (wie zum Beispiel diese Seite), und wählen Sie dann eine Browser/OS-Kombination, die Sie testen möchten, indem Sie die verschiedenen Schaltflächen und Listen verwenden.
+   Es gibt eine Menge zur Auswahl, wie Sie sehen werden!
+   ![select sauce manual session](sauce-manual-session.png)
+3. Wenn Sie mit dem Testen beginnen, wird ein Ladescreen angezeigt, und eine Umgebung wird gestartet, die die von Ihnen gewählte Geräte-/Browser-Kombination ausführt.
+   Sie können dann beginnen, die Website aus der Ferne im gewählten Browser zu testen.
 
-An diesem Punkt können Sie recht viel tun, wie zum Beispiel eine Test-URL freigeben, sodass jemand anders den Test aus der Ferne beobachten kann, Text/Notizen in eine entfernte Zwischenablage kopieren, einen Screenshot machen, im Vollbildmodus testen und mehr.
+Sie können an diesem Punkt ziemlich viel tun, wie eine Test-URL teilen, damit jemand anderes den Test aus der Ferne beobachten kann, Text/Notizen in einer entfernten Zwischenablage kopieren, einen Screenshot machen, im Vollbildmodus testen und mehr.
 
-Sobald Sie die Sitzung beenden, kehren Sie zum _Live_-Tab zurück, wo Sie einen Eintrag für jede der vorher gestarteten manuellen Sitzungen sehen werden.
-Wenn Sie auf einen dieser Einträge klicken, werden mehr Daten für die Sitzung angezeigt.
-Hier können Sie alle Screenshots herunterladen, die Sie gemacht haben, ein Video der Sitzung ansehen, Protokolldaten anzeigen und mehr.
-Dies ist bereits sehr nützlich und viel bequemer, als mehrere Emulatoren und virtuelle Maschinen selbst einrichten zu müssen.
+Sobald Sie die Sitzung beenden, kehren Sie zum _Live_-Tab zurück, wo Sie einen Eintrag für jede der zuvor gestarteten manuellen Sitzungen sehen werden.
+Wenn Sie auf einen dieser Einträge klicken, werden weitere Daten zur Sitzung angezeigt.
+Hier können Sie alle Screenshots, die Sie gemacht haben, herunterladen, ein Video der Sitzung ansehen, Datenprotokolle anzeigen und mehr.
+Dies ist bereits sehr nützlich und weit bequemer, als mehrere Emulatoren und virtuelle Maschinen selbst aufzustellen.
 
-Für weitere Informationen, siehe die [Sauce Labs Dokumentation](https://docs.saucelabs.com/).
+Weitere Informationen finden Sie in der [Sauce Labs-Dokumentation](https://docs.saucelabs.com/).
 
 #### Fortgeschritten: Die Sauce Labs API
 
-Sauce Labs verfügt über eine [Restful API](https://docs.saucelabs.com/dev/api/), die es Ihnen ermöglicht, programmatisch Details über Ihr Konto und bestehende Tests abzurufen und Tests mit weiteren Details zu annotieren, wie z.B. ihrem Bestehen/Nichtbestehen-Status, der alleine durch manuelle Tests nicht aufnehmbar ist. Zum Beispiel könnten Sie einen Ihrer eigenen Selenium-Tests aus der Ferne mit Sauce Labs ausführen möchten, um eine bestimmte Browser/OS-Kombination zu testen, und dann die Testergebnisse an Sauce Labs zurückübermitteln.
+Sauce Labs verfügt über eine [RESTful API](https://docs.saucelabs.com/dev/api/), die es Ihnen erlaubt, Details zu Ihrem Konto und bestehenden Tests programmatisch abzurufen und Tests mit weiteren Details anzureichern, wie ihrem Erfolgs- oder Fehlschlagstatus, der nicht allein durch manuelles Testen erfassbar ist. Beispielsweise möchten Sie möglicherweise einen Ihrer eigenen Selenium-Tests von der Ferne aus unter Verwendung von Sauce Labs ausführen, um eine bestimmte Browser/OS-Kombination zu testen, und dann die Testergebnisse zurück an Sauce Labs übermitteln.
 
-Es gibt mehrere Clients, die es Ihnen ermöglichen, API-Aufrufe mit Ihrer bevorzugten Umgebung zu tätigen, sei es PHP, Java, Node.js usw.
+Es gibt mehrere Clients, die es Ihnen ermöglichen, API-Aufrufe mit Ihrer bevorzugten Umgebung zu machen, sei es PHP, Java, Node.js usw.
 
-Lassen Sie uns einen kurzen Blick darauf werfen, wie wir über Node.js und [node-saucelabs](https://github.com/saucelabs/node-saucelabs) auf die API zugreifen würden.
+Lassen Sie uns einen kurzen Blick darauf werfen, wie wir mit Node.js und [node-saucelabs](https://github.com/saucelabs/node-saucelabs) auf die API zugreifen würden.
 
-1. Zuerst richten Sie ein neues npm-Projekt ein, um dies zu testen, wie unter [Einrichtung von Node und npm](#einrichtung_von_node_und_npm) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als vorher, wie z.B. `sauce-test`.
-2. Installieren Sie den Node Sauce Labs-Wrapper mit dem folgenden Befehl:
+1. Richten Sie zunächst ein neues npm-Projekt ein, um dies zu testen, wie in [Einrichten von Node und npm](#node_und_npm_einrichten) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als zuvor, zum Beispiel `sauce-test`.
+2. Installieren Sie den Node Sauce Labs-Wrapper mit folgendem Befehl:
 
    ```bash
    npm install saucelabs
    ```
 
-3. Erstellen Sie eine neue Datei in Ihrem Projektstamm namens `call_sauce.js`. Geben Sie ihm den folgenden Inhalt:
+3. Erstellen Sie eine neue Datei in Ihrem Projekt-Stammverzeichnis namens `call_sauce.js`. Geben Sie ihr den folgenden Inhalt:
 
    ```js
    const SauceLabs = require("saucelabs").default;
@@ -640,8 +640,8 @@ Lassen Sie uns einen kurzen Blick darauf werfen, wie wir über Node.js und [node
    })();
    ```
 
-4. Sie müssen Ihren Sauce Labs-Benutzernamen und API-Schlüssel an den angegebenen Stellen eintragen. Diese können Sie auf Ihrer Seite [User Settings](https://app.saucelabs.com/user-settings) finden. Füllen Sie diese jetzt aus.
-5. Stellen Sie sicher, dass alles gespeichert ist und führen Sie Ihre Datei folgendermaßen aus:
+4. Sie müssen Ihre Sauce Labs Benutzername und API-Schlüssel in den angegebenen Stellen eintragen. Diese können von Ihrer [Benutzereinstellungen](https://app.saucelabs.com/user-settings) Seite abgerufen werden. Füllen Sie diese jetzt ein.
+5. Stellen Sie sicher, dass alles gespeichert wurde, und führen Sie Ihre Datei wie folgt aus:
 
    ```bash
    node call_sauce
@@ -649,51 +649,51 @@ Lassen Sie uns einen kurzen Blick darauf werfen, wie wir über Node.js und [node
 
 #### Fortgeschritten: Automatisierte Tests
 
-Wir werden das tatsächliche Ausführen von automatisierten Sauce Lab-Tests im nächsten Artikel behandeln.
+Wir werden das tatsächliche Ausführen automatisierter Sauce Lab-Tests im nächsten Artikel behandeln.
 
 ### TestingBot
 
 #### Erste Schritte mit TestingBot
 
-Lassen Sie uns mit einem TestingBot Test-Account beginnen.
+Beginnen wir mit einem TestingBot-Testzugang.
 
-1. Erstellen Sie ein [TestingBot Test-Account](https://testingbot.com/users/sign_up).
-2. Melden Sie sich an. Dies sollte automatisch geschehen, nachdem Sie Ihre E-Mail-Adresse verifiziert haben.
+1. Erstellen Sie ein [TestingBot-Testkonto](https://testingbot.com/users/sign_up).
+2. Melden Sie sich an. Dies sollte automatisch nach der Überprüfung Ihrer E-Mail-Adresse geschehen.
 
 #### Die Grundlagen: Manuelle Tests
 
-Das [TestingBot Dashboard](https://testingbot.com/members) listet die verschiedenen Optionen auf, die Sie auswählen können. Stellen Sie sicher, dass Sie sich auf dem Tab _Live Web Testing_ befinden.
+Das [TestingBot Dashboard](https://testingbot.com/members) listet die verschiedenen Optionen auf, die Sie wählen können. Stellen Sie für jetzt sicher, dass Sie auf der Registerkarte _Live Web Testing_ sind.
 
 1. Geben Sie die URL der Seite ein, die Sie testen möchten.
 2. Wählen Sie die Browser/OS-Kombination, die Sie testen möchten, indem Sie die Kombination im Raster auswählen.
-   ![Test Auswahl](screen_shot_2019-04-19_at_14.55.33.png)
-3. Wenn Sie auf _Start Browser_ klicken, wird ein Ladebildschirm angezeigt, der eine virtuelle Maschine mit der gewählten Kombination ausführt.
-4. Sobald das Laden abgeschlossen ist, können Sie die Website im gewählten Browser fernzutesten beginnen.
-5. Von hier aus können Sie das Layout sehen, wie es im von Ihnen getesteten Browser aussehen würde, die Maus bewegen und versuchen, auf Schaltflächen zu klicken, usw. Das Seitenmenü ermöglicht es Ihnen:
+   ![Testauswahl](screen_shot_2019-04-19_at_14.55.33.png)
+3. Wenn Sie auf _Start Browser\_ klicken, wird ein Ladebildschirm angezeigt, der eine virtuelle Maschine mit der gewählten Kombination startet.
+4. Wenn das Laden abgeschlossen ist, können Sie dann beginnen, die Website aus der Ferne im gewählten Browser zu testen.
+5. Von hier aus können Sie das Layout so sehen, wie es im Browser aussehen würde, den Sie testen, die Maus bewegen und versuchen, Schaltflächen zu klicken, usw. Das Seitenmenü ermöglicht Ihnen:
    - Die Sitzung zu stoppen
    - Die Bildschirmauflösung zu ändern
-   - Text/Notizen in eine entfernte Zwischenablage zu kopieren
+   - Text/Notizen in einer entfernten Zwischenablage zu kopieren
    - Screenshots zu machen, zu bearbeiten und herunterzuladen
-   - Im Vollbildmodus zu testen.
+   - im Vollbildmodus zu testen.
 
-Sobald Sie die Sitzung beenden, kehren Sie zur _Live Web Testing_-Seite zurück, wo Sie einen Eintrag für jede der vorher gestarteten manuellen Sitzungen sehen. Wenn Sie auf einen dieser Einträge klicken, werden mehr Daten für die Sitzung angezeigt. Hier können Sie alle Screenshots herunterladen, die Sie gemacht haben, ein Video des Tests ansehen und Protokolle für die Sitzung einsehen.
+Sobald Sie die Sitzung beenden, kehren Sie zur Seite _Live Web Testing_ zurück, wo Sie einen Eintrag für jede der zuvor begonnenen manuellen Sitzungen sehen werden. Wenn Sie auf einen dieser Einträge klicken, werden mehr Daten zur Sitzung angezeigt. Hier können Sie alle gemachten Screenshots herunterladen, ein Video des Tests ansehen und Protokolle der Sitzung anzeigen.
 
 #### Fortgeschritten: Die TestingBot API
 
-TestingBot hat eine [Restful API](https://testingbot.com/support/api), die es Ihnen ermöglicht, programmatisch Informationen über Ihr Konto und vorhandene Tests abzurufen und Tests mit weiteren Details zu annotieren, wie z.B. ihren Bestehen/Nichtbestehen-Status, der allein durch manuelle Tests nicht festgehalten werden kann.
+TestingBot verfügt über eine [RESTful API](https://testingbot.com/support/api), die es Ihnen ermöglicht, Details zu Ihrem Konto und bestehenden Tests programmatisch abzurufen, und Tests mit weiteren Details zu annotieren, wie ihrem Erfolgs- oder Fehlschlagstatus, der nicht allein durch manuelles Testen erfassbar ist.
 
-TestingBot hat mehrere API-Clients, die Sie verwenden können, um mit der API zu interagieren, einschließlich Clients für NodeJS, Python, Ruby, Java und PHP.
+TestingBot verfügt über mehrere API-Clients, die Sie verwenden können, um mit der API zu interagieren, einschließlich Clients für Node.js, Python, Ruby, Java und PHP.
 
-Unten finden Sie ein Beispiel, wie man mit dem NodeJS-Client [testingbot-api](https://www.npmjs.com/package/testingbot-api) mit der TestingBot API interagiert.
+Im Folgenden ist ein Beispiel, wie man mit dem Node.js Client [testingbot-api](https://www.npmjs.com/package/testingbot-api) mit der TestingBot API interagiert.
 
-1. Richten Sie zuerst ein neues npm-Projekt ein, um dies zu testen, wie unter [Einrichtung von Node und npm](#einrichtung_von_node_und_npm) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als vorher, wie `tb-test` zum Beispiel.
+1. Richten Sie zunächst ein neues npm-Projekt ein, um dies zu testen, wie in [Einrichten von Node und npm](#node_und_npm_einrichten) beschrieben. Verwenden Sie einen anderen Verzeichnisnamen als zuvor, zum Beispiel `tb-test`.
 2. Installieren Sie den Node TestingBot-Wrapper mit dem folgenden Befehl:
 
    ```bash
    npm install testingbot-api
    ```
 
-3. Erstellen Sie eine neue Datei im Stammverzeichnis Ihres Projekts namens `tb.js`. Geben Sie ihm den folgenden Inhalt:
+3. Erstellen Sie eine neue Datei in Ihrem Projekt-Stammverzeichnis namens `tb.js`. Geben Sie ihr den folgenden Inhalt:
 
    ```js
    const TestingBot = require("testingbot-api");
@@ -708,8 +708,8 @@ Unten finden Sie ein Beispiel, wie man mit dem NodeJS-Client [testingbot-api](ht
    });
    ```
 
-4. Sie müssen Ihren TestingBot-Schlüssel und Ihr Geheimnis an den angegebenen Stellen ausfüllen. Diese können Sie im [TestingBot-Dashboard](https://testingbot.com/members/user/edit) finden.
-5. Stellen Sie sicher, dass alle gespeichert sind, und führen Sie die Datei aus:
+4. Sie müssen Ihren TestingBot-Schlüssel und Ihr Geheimnis an den angegebenen Stellen eintragen. Sie können diese im [TestingBot Dashboard](https://testingbot.com/members/user/edit) finden.
+5. Stellen Sie sicher, dass alles gespeichert ist, und führen Sie die Datei aus:
 
    ```bash
    node tb.js
@@ -717,12 +717,12 @@ Unten finden Sie ein Beispiel, wie man mit dem NodeJS-Client [testingbot-api](ht
 
 #### Fortgeschritten: Automatisierte Tests
 
-Wir werden das tatsächliche Ausführen von automatisierten TestingBot-Tests im nächsten Artikel behandeln.
+Wir werden das tatsächliche Ausführen automatisierter TestingBot-Tests im nächsten Artikel behandeln.
 
 ## Zusammenfassung
 
-Das war eine ziemliche Reise, aber ich bin sicher, Sie können die Vorteile erkennen, die die Nutzung von Automatisierungstools bietet, um einen Teil der Testarbeit zu übernehmen.
+Das war eine ganz schöne Reise, aber ich bin sicher, Sie können beginnen, die Vorteile der Nutzung von Automatisierungswerkzeugen zu erkennen, um einige der schweren Aufgaben im Bereich des Testens zu übernehmen.
 
-Im nächsten Artikel werden wir uns mit der Einrichtung unseres eigenen lokalen Automatisierungssystems mit Selenium befassen und wie man dies mit Diensten wie Sauce Labs, BrowserStack und TestingBot kombiniert.
+Im nächsten Artikel werden wir uns ansehen, wie wir unser eigenes lokales Automatisierungssystem mit Selenium einrichten und wie wir dies mit Diensten wie Sauce Labs, BrowserStack und TestingBot kombinieren können.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Testing/Feature_detection", "Learn_web_development/Extensions/Testing/Your_own_automation_environment", "Learn_web_development/Extensions/Testing")}}

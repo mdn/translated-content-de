@@ -2,10 +2,10 @@
 title: <fePointLight>
 slug: Web/SVG/Reference/Element/fePointLight
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
-Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Lichtquelle, die einen Punktlichteffekt erzeugen kann. Es kann innerhalb einer Beleuchtungsfilter-Primitive verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG) Element definiert eine Lichtquelle, die es ermöglicht, einen Punktlichteeffekt zu erzeugen. Es kann innerhalb einer Beleuchtungsfilter-Primitive verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
 ## Verwendungskontext
 
@@ -19,7 +19,7 @@ Das **`<fePointLight>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Lichtque
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement) Schnittstelle.
 
 ## Beispiel
 

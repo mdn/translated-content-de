@@ -3,18 +3,18 @@ title: "SVGAElement: hash-Eigenschaft"
 short-title: hash
 slug: Web/API/SVGAElement/hash
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`hash`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt einen String zurück, der den Fragmentbezeichner darstellt, einschließlich des führenden Rautezeichens (`#`), falls vorhanden, in der referenzierten URL.
+Die **`hash`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt eine Zeichenkette zurück, die den Fragmentbezeichner, einschließlich des führenden Rautenzeichens (`#`), darstellt, falls vorhanden, in der referenzierten URL.
 
-Diese Eigenschaft kann gesetzt werden, um das Fragment der URL zu ändern (ignoriert führende `#`).
+Diese Eigenschaft kann gesetzt werden, um das Fragment der URL zu ändern (ignoriert führendes `#`).
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Ein String.
 
 ## Siehe auch
 
-- SVG {{SVGElement("a")}} Element
+- SVG {{SVGElement("a")}}-Element

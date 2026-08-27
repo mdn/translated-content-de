@@ -1,25 +1,25 @@
 ---
-title: "Dokument: fonts-Eigenschaft"
+title: "Dokument: fonts Eigenschaft"
 short-title: fonts
 slug: Web/API/Document/fonts
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: e1e7e2ac2cb1e40293c32c24bc0667905e9a7a04
 ---
 
 {{APIRef("DOM")}}
 
-Die **`fonts`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments zurück.
+Die **`fonts`** Eigenschaft des [`Document`](/de/docs/Web/API/Document) Interfaces gibt das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments zurück.
 
 Diese Funktion ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API).
 
 ## Wert
 
-Der zurückgegebene Wert ist die [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle des Dokuments.
-Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status von zuvor geladenen Schriftarten usw.
+Der zurückgegebene Wert ist das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments.
+Das `FontFaceSet` Interface ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten etc.
 
 ## Beispiele
 
-### Ausführung nach dem Laden der Schriftarten
+### Durchführung von Operationen, nachdem Schriftarten geladen sind
 
 ```js
 document.fonts.ready.then((fontFaceSet) => {
@@ -32,7 +32,7 @@ document.fonts.ready.then((fontFaceSet) => {
 });
 ```
 
-Das Versprechen wird erfüllt, wenn die Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Die Menge der verwendeten Schriftarten kann von der Menge der _deklarierten_ Schriftarten abweichen, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert sind) nicht rechtzeitig geladen werden konnten.
+Das Versprechen wird erfüllt, wenn Lade- und Layoutoperationen aller verwendeten Schriftarten abgeschlossen sind. Die Menge der verwendeten Schriftarten kann sich von der Menge der _erklärten_ Schriftarten unterscheiden, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert wurden) nicht rechtzeitig geladen werden konnten.
 
 ## Spezifikationen
 
@@ -44,5 +44,5 @@ Das Versprechen wird erfüllt, wenn die Lade- und Layout-Operationen aller verwe
 
 ## Siehe auch
 
-- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle
-- [`FontFace`](/de/docs/Web/API/FontFace) Schnittstelle
+- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface
+- [`FontFace`](/de/docs/Web/API/FontFace)

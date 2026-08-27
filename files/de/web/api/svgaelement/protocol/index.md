@@ -3,18 +3,18 @@ title: "SVGAElement: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/SVGAElement/protocol
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`protocol`**-Eigenschaft der Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine Zeichenkette zurück, die den Protokollbestandteil, einschließlich des folgenden Doppelpunkts (`:`), der referenzierten URL darstellt.
+Die **`protocol`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt einen String zurück, der die Protokollkomponente, einschließlich des abschließenden Doppelpunkts (`:`), der referenzierten URL darstellt.
 
 Diese Eigenschaft kann gesetzt werden, um das Protokoll der URL zu ändern.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Eine Zeichenkette.
 
 ## Siehe auch
 
-- SVG-{{SVGElement("a")}}-Element
+- SVG {{SVGElement("a")}}-Element

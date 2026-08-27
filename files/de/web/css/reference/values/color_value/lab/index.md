@@ -1,14 +1,14 @@
 ---
-title: "`lab()` CSS-Funktion"
+title: CSS-Funktion `lab()`
 short-title: lab()
 slug: Web/CSS/Reference/Values/color_value/lab
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
 ---
 
 Die **`lab()`** Funktionsnotation drückt eine gegebene Farbe im CIE L\*a\*b\* {{Glossary("color_space", "Farbraum")}} aus.
 
-Lab repräsentiert das gesamte Spektrum der Farben, die Menschen sehen können, indem es die Helligkeit der Farbe, einen Rot/Grün-Achsenwert, einen Blau/Gelb-Achsenwert und einen optionalen Alphatransparenzwert angibt.
+Lab repräsentiert das gesamte Spektrum der Farben, die der Mensch sehen kann, indem es die Helligkeit der Farbe, einen Rot/Grün-Achsenwert, einen Blau/Gelb-Achsenwert und einen optionalen Alphatransparenzwert angibt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ lab(from hsl(180 100% 50%) calc(l - 10) a b)
 
 ### Werte
 
-Nachfolgend finden Sie Beschreibungen der erlaubten Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors).
+Nachfolgend sind die Beschreibungen der erlaubten Werte sowohl für absolute als auch [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) aufgeführt.
 
 #### Absolute Werte-Syntax
 
@@ -37,16 +37,16 @@ lab(L a b[ / A])
 Die Parameter sind wie folgt:
 
 - `L`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert spezifiziert die Helligkeit der Farbe. Hierbei entspricht die Zahl `0` dem Wert `0%` (schwarz) und die Zahl `100` dem Wert `100%` (weiß).
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt die Helligkeit der Farbe an. Hier entspricht die Zahl `0` `0%` (schwarz) und die Zahl `100` `100%` (weiß).
 - `a`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert spezifiziert die Entfernung der Farbe entlang der `a`-Achse, die definiert, wie grün (in Richtung `-125`) oder rot (in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte vorzeichenbehaftet sind (sowohl positive als auch negative Werte sind möglich) und theoretisch unbegrenzt, was bedeutet, dass Sie Werte außerhalb der Grenzen von `±125` (`±100%`) festlegen können. In der Praxis können die Werte jedoch nicht `±160` überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt die Entfernung der Farbe entlang der `a`-Achse an, die definiert, wie grün (bewegend in Richtung `-125`) oder rot (bewegend in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte zulassen) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der `±125` (`±100%`) Grenzen setzen können. In der Praxis können die Werte `±160` nicht überschreiten.
 - `b`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert spezifiziert die Entfernung der Farbe entlang der `b`-Achse, die definiert, wie blau (in Richtung `-125`) oder gelb (in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte vorzeichenbehaftet sind (sowohl positive als auch negative Werte sind möglich) und theoretisch unbegrenzt, was bedeutet, dass Sie Werte außerhalb der Grenzen von `±125` (`±100%`) festlegen können. In der Praxis können die Werte jedoch nicht `±160` überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt die Entfernung der Farbe entlang der `b`-Achse an, die definiert, wie blau (bewegend in Richtung `-125`) oder gelb (bewegend in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte zulassen) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der `±125` (`±100%`) Grenzen setzen können. In der Praxis können die Werte `±160` nicht überschreiten.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} welcher den Alpha-Kanal-Wert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) entspricht und `1` `100%` (vollständig undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist der Standardwert 100%. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} der den Alphakanalwert der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig auf 100% gesetzt. Falls enthalten, wird dem Wert ein Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Weitere Informationen über fehlende Farbkomponenten finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components).
+> Siehe [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components) für mehr Informationen über die Wirkung von `none`.
 
 #### Relative Werte-Syntax
 
@@ -57,40 +57,40 @@ lab(from <color> L a b[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` wird immer eingeschlossen, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ausgangsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ausgangsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` wird immer einbezogen, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 - `L`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Helligkeit der Ausgabefarbe. Hierbei entspricht die Zahl `0` dem Wert `0%` (schwarz) und die Zahl `100` dem Wert `100%` (weiß).
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Helligkeit der Ausgabefarbe. Hier entspricht die Zahl `0` `0%` (schwarz) und die Zahl `100` `100%` (weiß).
 - `a`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `a`-Achse, die definiert, wie grün (in Richtung `-125`) oder rot (in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte vorzeichenbehaftet sind (sowohl positive als auch negative Werte sind möglich) und theoretisch unbegrenzt, was bedeutet, dass Sie Werte außerhalb der Grenzen von `±125` (`±100%`) festlegen können. In der Praxis können die Werte jedoch nicht `±160` überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `a`-Achse, die definiert, wie grün (bewegend in Richtung `-125`) oder rot (bewegend in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte zulassen) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der `±125` (`±100%`) Grenzen setzen können. In der Praxis können die Werte `±160` nicht überschreiten.
 - `b`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `b`-Achse, die definiert, wie blau (in Richtung `-125`) oder gelb (in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte vorzeichenbehaftet sind (sowohl positive als auch negative Werte sind möglich) und theoretisch unbegrenzt, was bedeutet, dass Sie Werte außerhalb der Grenzen von `±125` (`±100%`) festlegen können. In der Praxis können die Werte jedoch nicht `±160` überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-125` und `125`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `b`-Achse, die definiert, wie blau (bewegend in Richtung `-125`) oder gelb (bewegend in Richtung `+125`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte zulassen) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der `±125` (`±100%`) Grenzen setzen können. In der Praxis können die Werte `±160` nicht überschreiten.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} welcher den Alpha-Kanal-Wert der Ausgabefarbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) entspricht und `1` `100%` (vollständig undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig der Alpha-Kanal-Wert der Ausgangsfarbe. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} der den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig auf den Alphakanalwert der Ursprungsfarbe gesetzt. Falls enthalten, wird dem Wert ein Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> In der Regel entspricht `100%` in CSS einem numerischen Äquivalent von `1`. Dies ist nicht immer der Fall für die Helligkeit und die `a`- und `b`-Achsen von Lab, wie oben erwähnt. Bei `L` reicht das Spektrum von 0 bis 100, wobei `100%` `100` entspricht. Die `a`- und `b`-Werte unterstützen sowohl negative als auch positive Werte, wobei `100%` `125` und `-100%` `-125` entspricht.
+> In der Regel sind Prozentwerte, die in CSS eine numerische Entsprechung haben, so dass `100%` der Zahl `1` entspricht. Dies ist jedoch nicht immer der Fall bei der Helligkeit von Lab und den `a`- und `b`-Achsen, wie oben erwähnt. Bei `L` reicht der Bereich von 0 bis 100, wobei `100%` `100` entspricht. Die Werte `a` und `b` unterstützen sowohl negative als auch positive Werte, wobei `100%` `125` und `-100%` `-125` entspricht.
 
-#### Definition von relativen Farb-Ausgabekanal-Komponenten
+#### Definition der Ausgabekanalkomponenten von relativen Farben
 
-Bei der Verwendung der relativen Farbsyntax innerhalb einer `lab()`-Funktion konvertiert der Browser die Ausgangsfarbe in eine gleichwertige Lab-Farbe (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei verschiedene Farbkanalwerte definiert — `l` (Helligkeit), `a` (grüne/rote Achse) und `b` (blaue/gelbe Achse) — plus einem Alpha-Kanalwert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um verwendet zu werden, wenn die Ausgabefarbkanalwerte definiert werden:
+Beim Verwenden der relativen Farbsyntax innerhalb einer `lab()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente Lab-Farbe (falls sie nicht bereits so angegeben ist). Die Farbe wird als drei unterschiedliche Farbkanalwerte — `l` (Helligkeit), `a` (grün/rot-Achse) und `b` (blau/gelb-Achse) — sowie ein Alphakanalwert (`alpha`) definiert. Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
 
-- Der `l`-Kanalwert wird auf ein `<number>` zwischen `0` und `100` aufgelöst, einschließlich.
-- Die `a`- und `b`-Kanäle werden jeweils auf ein `<number>` zwischen `-125` und `125` aufgelöst, einschließlich.
-- Der `alpha`-Kanal wird auf ein `<number>` zwischen `0` und `1` aufgelöst, einschließlich.
+- Der `l`-Kanalwert wird auf einen `<number>` zwischen `0` und `100` aufgelöst, einschließlich.
+- Die `a`- und `b`-Kanäle werden jeweils auf einen `<number>` zwischen `-125` und `125` aufgelöst, einschließlich.
+- Der `alpha`-Kanal wird auf einen `<number>` zwischen `0` und `1` aufgelöst, einschließlich.
 
-Beim Definieren einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Arten ausgedrückt werden. Im Folgenden betrachten wir einige Beispiele, um dies zu veranschaulichen.
+Beim Definieren einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Weise ausgedrückt werden. Im Folgenden werden wir einige Beispiele untersuchen, um diese zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste Beispiel gibt jedoch dieselbe Farbe wie die Ausgangsfarbe aus, während das zweite Beispiel eine Farbe ausgibt, die überhaupt nicht auf der Ausgangsfarbe basiert. Sie erzeugen tatsächlich keine relativen Farben! In einer echten Codebasis würden Sie wahrscheinlich niemals solche verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Lernen über die relative `lab()`-Syntax aufgenommen.
+In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste Beispiel gibt jedoch die gleiche Farbe wie die Ursprungsfarbe aus und das zweite gibt eine Farbe aus, die nicht auf der Ursprungsfarbe basiert. Sie erstellen eigentlich keine relativen Farben! Sie würden diese wahrscheinlich niemals in einer tatsächlichen Codebasis verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Lernen der relativen `lab()`-Syntax aufgenommen.
 
-Beginnen wir mit einer Ausgangsfarbe von `hsl(0 100% 50%)` (entspricht `rot`). Die folgende Funktion gibt dieselbe Farbe wie die Ausgangsfarbe aus - sie verwendet die `l`, `a` und `b` Kanalwerte der Ausgangsfarbe (`54.29`, `80.8198` und `69.8997`) als Ausgabekanalwerte:
+Beginnen wir mit einer Ursprungsfarbe `hsl(0 100% 50%)` (entspricht `red`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `l`-, `a`- und `b`-Kanalwerte (`54.29`, `80.8198`, und `69.8997`) der Ursprungsfarbe als die Ausgabekanalwerte:
 
 ```css
 lab(from hsl(0 100% 50%) l a b)
 ```
 
-Die Ausgabe dieser Funktion ist die Farbe `lab(54.29 80.8198 69.8997)`.
+Die Ausgabe dieser Funktion ist `lab(54.29 80.8198 69.8997)`.
 
-Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ausgangsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 lab(from hsl(0 100% 50%) 29.692% 44.89% -29.034%)
@@ -98,26 +98,26 @@ lab(from hsl(0 100% 50%) 29.692% 44.89% -29.034%)
 
 In diesem Fall ist die Ausgabefarbe `lab(29.692 56.1125 -36.2925)`.
 
-Die folgende Funktion erstellt eine relative Farbe basierend auf der Ausgangsfarbe:
+Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
 
 ```css
 lab(from hsl(0 100% 50%) l -100 b)
 ```
 
-In diesem Beispiel:
+Dieses Beispiel:
 
-- Konvertiert die `hsl()` Ausgangsfarbe in eine gleichwertige `lab()` Farbe — `lab(54.29 80.8198 69.8997)`.
-- Setzt die `l` und `b` Kanalwerte für die Ausgabefarbe auf die Werte der entsprechenden `L` und `b` Kanalwerte der `lab()`-Äquivalent-Ausgangsfarbe — diese Werte sind `54.29` und `69.8997`.
-- Setzt den `a`-Kanalwert der Ausgabefarbe auf einen neuen Wert, der nicht auf der Ausgangsfarbe basiert: `-100`.
+- Konvertiert die `hsl()`-Ursprungsfarbe in eine äquivalente `lab()`-Farbe — `lab(54.29 80.8198 69.8997)`.
+- Setzt die `l`- und `b`-Kanalwerte der Ausgabefarbe auf die `L`- und `b`-Kanalwerte des `lab()`-Äquivalents der Ursprungsfarbe — diese Werte sind `54.29` und `69.8997`.
+- Setzt den `a`-Kanalwert der Ausgabefarbe auf einen neuen, nicht auf der Ursprungsfarbe basierenden Wert: `-100`.
 
-Die endgültige Ausgabefarbe ist `lab(54.29 -100 69.8997)`.
+Die finale Ausgabefarbe ist `lab(54.29 -100 69.8997)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wird die Ausgangsfarbe, wenn das Ausgabefarbmodell ein anderes als das der Ausgangsfarbe ist, im Hintergrund in dasselbe Modell wie die Ausgabefarbe konvertiert, damit sie eine kompatible Darstellung erhält (d.h. mit denselben Kanälen).
+> Wie oben erwähnt, wird die Ursprungsfarbe in das gleiche Modell wie die Ausgabefarbe konvertiert, falls die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, damit sie in kompatibler Weise dargestellt werden kann (d.h. mit den gleichen Kanälen).
 
-In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alpha-Kanäle weder für die Ausgangs- noch für die Ausgabefarben explizit spezifiziert. Wenn der Alpha-Kanal der Ausgabefarbe nicht spezifiziert wird, wird er standardmäßig auf denselben Wert wie der Alpha-Kanal der Ausgangsfarbe gesetzt. Wenn der Alpha-Kanal der Ausgangsfarbe nicht spezifiziert wird (und es sich nicht um eine relative Farbe handelt), ist der Standardwert `1`. Daher sind die Alpha-Kanalwerte von Ausgangs- und Ausgabefarbe für die obigen Beispiele `1`.
+In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht angegeben wird, entspricht er standardmäßig dem gleichen Wert wie der Alphakanal der Ursprungsfarbe. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben wird (und es sich nicht um eine relative Farbe handelt), entspricht er standardmäßig `1`. Daher sind die Ursprungs- und Ausgabekanalwerte in den obigen Beispielen `1`.
 
-Lassen Sie uns einige Beispiele betrachten, die die Alpha-Kanalwerte von Ausgangs- und Ausgabefarbe spezifizieren. Das erste Beispiel spezifiziert den Alpha-Kanalwert der Ausgabe als denselben wie den der Ausgangsfarbe, während das zweite Beispiel einen anderen, von der Ausgangsfarbe unabhängigen, Alpha-Kanalwert der Ausgabe angibt.
+Untersuchen wir einige Beispiele, die Ursprungs- und Ausgabewerte für Alphakanäle angeben. Das erste Beispiel gibt den Alphakanalwert der Ausgabefarbe als identisch mit dem Alphakanalwert der Ursprungsfarbe an, während das zweite einen anderen Alphakanalwert für die Ausgabefarbe angibt, der nicht im Zusammenhang mit dem Alphakanalwert der Ursprungsfarbe steht.
 
 ```css
 lab(from hsl(0 100% 50% / 0.8) l a b / alpha)
@@ -127,14 +127,14 @@ lab(from hsl(0 100% 50% / 0.8) l a b / 0.5)
 /* Computed output color: lab(54.29 80.8198 69.8997 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die `hsl()` Ausgangsfarbe erneut in ihre `lab()`-Äquivalent konvertiert - `lab(54.29 80.8198 69.8997)`. {{cssxref("calc")}} Berechnungen werden auf die `L`, `a`, `b` und `A` Werte angewendet, was zu einer Ausgabefarbe von `lab(74.29 60.8198 29.8997 / 0.9)` führt:
+Im folgenden Beispiel wird die `hsl()`-Ursprungsfarbe wieder in das `lab()`-Äquivalent — `lab(54.29 80.8198 69.8997)` — konvertiert. {{cssxref("calc")}}-Berechnungen werden auf die `L`-, `a`-, `b`- und `A`-Werte angewendet, wodurch eine Ausgabefarbe von `lab(74.29 60.8198 29.8997 / 0.9)` entsteht:
 
 ```css
 lab(from hsl(0 100% 50%) calc(l + 20) calc(a - 20) calc(b - 40) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ausgangskanalwerte auf `<number>` Werte aufgelöst werden, müssen Sie Zahlen zu diesen addieren, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>` funktioniert zum Beispiel nicht.
+> Da die Ursprungsfarbkanalwerte in `<number>`-Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>`, zum Beispiel, funktioniert nicht.
 
 ## Formale Syntax
 
@@ -144,7 +144,7 @@ lab(from hsl(0 100% 50%) calc(l + 20) calc(a - 20) calc(b - 40) / calc(alpha - 0
 
 ### Anpassung der Helligkeit
 
-Das folgende Beispiel zeigt die Auswirkungen der Variation des Helligkeitswerts der `lab()`-Funktion.
+Das folgende Beispiel zeigt den Effekt der Variation des Helligkeitswertes der `lab()`-Funktion.
 
 #### HTML
 
@@ -215,7 +215,7 @@ div {
 
 ### Anpassung der Farbachsen
 
-Dieses Beispiel demonstriert die Effekte des Setzens der `a` und `b` Werte der `lab()`-Funktion zu den Endpunkten und Mittelpunkten der a-Achse, die von Grün (-125) zu Rot (125) reicht, und der b-Achse, die von Gelb (-125) zu Blau (125) reicht.
+Dieses Beispiel demonstriert die Auswirkungen der Einstellung der `a`- und `b`-Werte der `lab()`-Funktion auf die Enden und Mittelpunkte der a-Achse, die von grün (-125) zu rot (125) geht und die b-Achse, die von gelb (-125) zu blau (125) geht.
 
 #### HTML
 
@@ -235,7 +235,7 @@ Dieses Beispiel demonstriert die Effekte des Setzens der `a` und `b` Werte der `
 
 #### CSS
 
-Unter Verwendung der CSS {{cssxref("background-color")}} Eigenschaft variieren wir die `a` und `b` Werte der `lab()` Farb-Funktion entlang der a-Achse und b-Achse, um die Effekte von maximalen, mittleren und minimalen Werten in jedem Fall zu zeigen.
+Mit der CSS {{cssxref("background-color")}}-Eigenschaft variieren wir die `a`- und `b`-Werte der `lab()`-Farbfunktion entlang der a- und b-Achse, um die Auswirkungen von maximalen, mittleren und minimalen Werten in jedem Fall zu zeigen.
 
 ```css hidden
 body {
@@ -289,11 +289,11 @@ div {
 
 {{EmbedLiveSample("Adjusting_color_axes", "", "200")}}
 
-Die linke Spalte steht am gelben Ende (-125) der b-Achse und die rechte Spalte am blauen Ende (125). Die obere Zeile zeigt Farben am roten Ende der a-Achse (-125) und die untere Zeile am grünen Ende (125). Die mittlere Spalte und Zeile sind an den Mittelpunkten (0) jeder Achse, wobei die mittlere Zelle grau ist; sie enthält kein Rot, Grün, Gelb oder Blau, mit einem `0`-Wert für beide Achsen.
+Die linke Spalte befindet sich am Gelbende (-125) der b-Achse und die rechte Spalte befindet sich am Blauende (125). Die obere Reihe zeigt Farben am Rotende der a-Achse (-125) und die untere Reihe befindet sich am Grünende (125). Die mittlere Spalte und die Reihe befinden sich an den Mittelpunkten (0) der jeweiligen Achsen, wobei die mittlere Zelle grau ist; sie enthält kein Rot, Grün, Gelb oder Blau, mit einem `0`-Wert für beide Achsen.
 
-### Lineare Farbverläufe entlang der a-Achse und b-Achse
+### Lineare Verläufe entlang der a-Achse und b-Achse
 
-Dieses Beispiel enthält lineare Farbverläufe, um die Veränderung der Werte der `lab()`-Funktion entlang der a-Achse (von Rot zu Grün) und entlang der b-Achse (von Gelb zu Blau) zu zeigen. In jedem Gradientenbild bleibt eine Achse statisch, während die andere Achse von einem Ende zum anderen Ende der Achsenwerte fortschreitet.
+Dieses Beispiel enthält lineare Verläufe, um den Verlauf der Werte der `lab()`-Funktion entlang der a-Achse (von rot zu grün) und entlang der b-Achse (von gelb zu blau) zu demonstrieren. In jedem Verlauf bleibt eine Achse statisch, während die andere Achse vom unteren Ende zum oberen Ende der Achsenwerte fortschreitet.
 
 ```html hidden
 <div data-color="red-to-green-yellow">
@@ -363,9 +363,11 @@ span {
 
 {{EmbedLiveSample("Linear gradients along the a-axis and b-axis", '', '420')}}
 
-### Anpassung der Deckkraft
+### Anpassung der Transparenz
 
-Das folgende Beispiel zeigt die Auswirkungen der Variation des `A` (Alpha)-Werts der `lab()` Funktionsnotation. Die `red` und `red-alpha` Elemente überlappen das `#background-div` Element, um den Effekt der Deckkraft zu demonstrieren. Ein Wert von `0.4` für `A` macht die Farbe zu 40% opak.
+Das folgende Beispiel zeigt die Wirkung der Veränderung des `A` (Alpha)-Wertes der `lab()` Funktionsnotation.
+Die `red`- und `red-alpha`-Elemente überlagern das `#background-div`-Element, um die Wirkung der Transparenz zu demonstrieren.
+Durch die Zuweisung eines Wertes von `0.4` für `A` wird die Farbe 40% undurchsichtig.
 
 #### HTML
 
@@ -407,11 +409,11 @@ div {
 
 {{EmbedLiveSample('Adjusting_opacity')}}
 
-### Verwendung relativer Farben mit lab()
+### Verwenden von relativen Farben mit lab()
 
-Dieses Beispiel styled drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben. Das mittlere hat die unveränderte `--base-color`, während die linken und rechten Farbvarianten aufgehellt bzw. abgedunkelt auf dieser `--base-color` basieren.
+Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben. Das mittlere erhält die unveränderte `--base-color`, während die linke und rechte Variante dieser `--base-color` aufgehellt bzw. abgedunkelt sind.
 
-Diese Varianten werden mit relativen Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in eine `lab()`-Funktion übergeben, und die Ausgabefarben haben ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen. Die aufgehellte Farbe hat der Helligkeitskanal um 15% erhöht, und bei der abgedunkelten Farbe wurde der Helligkeitskanal um 15% reduziert.
+Diese Varianten werden mit relativen Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in einer `lab()`-Funktion übergeben, und die Ausgabefarben haben ihren Helligkeitskanal verändert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen. Die aufgehellte Farbe hat 15% zur Helligkeit hinzugefügt, und die abgedunkelte Farbe hat 15% von der Helligkeit subtrahiert.
 
 ```html hidden
 <div id="container">
@@ -458,7 +460,7 @@ Diese Varianten werden mit relativen Farben definiert — die `--base-color` [be
 
 #### Ergebnis
 
-Das Ergebnis ist wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{ EmbedLiveSample("Using relative colors with lab", "100%", "200") }}
 
@@ -475,6 +477,6 @@ Das Ergebnis ist wie folgt:
 - {{cssxref("&lt;color&gt;")}} Datentyp
 - [`<color-function>`](/de/docs/Web/CSS/Guides/Colors#functions) Datentyp
 - [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
-- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
-- [LCH Farben in CSS: was, warum und wie?](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/) von Lea Verou (2020)
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+- [LCH-Farben in CSS: Was, warum und wie?](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/) von Lea Verou (2020)
 - [Safari Technology Preview 122 Release Notes](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/): beinhaltet `lab()` und {{cssxref("color_value/lch",'lch()')}} Farben

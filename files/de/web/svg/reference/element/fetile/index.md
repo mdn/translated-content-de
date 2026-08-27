@@ -2,10 +2,10 @@
 title: <feTile>
 slug: Web/SVG/Reference/Element/feTile
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
-Das **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Füllen eines Zielrechtecks mit einem wiederholten, gekachelten Muster eines Eingangsbildes. Der Effekt ist ähnlich dem eines {{SVGElement("pattern")}}.
+Das **`<feTile>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ermöglicht es Ihnen, ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes zu füllen. Der Effekt ähnelt dem eines {{SVGElement("pattern")}}.
 
 ## Verwendungskontext
 
@@ -18,7 +18,7 @@ Das **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Fül
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle.
 
 ## Beispiel
 

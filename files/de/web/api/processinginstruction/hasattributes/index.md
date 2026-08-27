@@ -3,12 +3,13 @@ title: "ProcessingInstruction: hasAttributes() Methode"
 short-title: hasAttributes()
 slug: Web/API/ProcessingInstruction/hasAttributes
 l10n:
-  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{ApiRef("DOM")}}
+{{ApiRef("DOM")}}{{SeeCompatTable}}
 
-Die **`hasAttributes()`** Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das aktuelle Element Attribute hat oder nicht.
+Die **`hasAttributes()`**-Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)
+Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das aktuelle Element Attribute hat oder nicht.
 
 ## Syntax
 
@@ -26,7 +27,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 const pi = document.createProcessingInstruction("start", 'name="placeholder"');

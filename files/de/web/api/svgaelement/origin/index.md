@@ -3,12 +3,12 @@ title: "SVGAElement: origin-Eigenschaft"
 short-title: origin
 slug: Web/API/SVGAElement/origin
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`origin`** der Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen String zurück, der den Ursprung der URL enthält — das heißt, ihr Schema, ihre Domain und ihren Port.
+Die **`origin`** schreibgeschützte Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) Interfaces gibt einen String zurück, der den Ursprung der URL enthält — das heißt, ihr Schema, ihre Domain und ihren Port.
 
 ## Wert
 

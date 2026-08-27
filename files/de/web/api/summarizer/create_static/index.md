@@ -3,15 +3,15 @@ title: "Summarizer: create() statische Methode"
 short-title: create()
 slug: Web/API/Summarizer/create_static
 l10n:
-  sourceCommit: 613cb65038a6b572f78ce5f83c711ec2611599fb
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`create()`** statische Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle erstellt eine neue `Summarizer`-Instanz, um Zusammenfassungen zu generieren.
+Die statische Methode **`create()`** der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle erstellt eine neue `Summarizer` Instanz, um Zusammenfassungen zu generieren.
 
 > [!NOTE]
-> Die `create()`-Methode erfordert eine {{Glossary("Transient_activation", "transiente Aktivierung")}}, das heißt, sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
+> Die `create()` Methode erfordert {{Glossary("Transient_activation", "transient activation")}}, das heißt, sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
 
 ## Syntax
 
@@ -23,44 +23,44 @@ Summarizer.create(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für den `Summarizer` angibt. Mögliche Werte sind:
+  - : Ein Objekt, das Konfigurationsoptionen für den `Summarizer` spezifiziert. Mögliche Werte umfassen:
     - `expectedInputLanguages`
-      - : Ein Array von Zeichenfolgen, die die erwarteten Sprachen des Eingabetextes angeben. Diese sollten gültige {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tags")}} sein. Standardmäßig `["en"]`.
+      - : Ein Array von Zeichenfolgen, das die erwarteten Sprachen des Eingabetextes angibt, die gültige {{Glossary("BCP_47_language_tag", "BCP 47 Sprachtags")}} sein sollten. Standardmäßig `["en"]`.
     - `expectedContextLanguages`
-      - : Ein Array von Zeichenfolgen, die die erwarteten Sprachen aller bereitgestellten Kontexttexte angeben (entweder der [`sharedContext`](#sharedcontext), der dem `Summarizer` übergeben wurde, oder ein `context`, der während eines [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) Aufrufs angegeben wurde). Diese sollten gültige BCP 47-Sprachtags sein. Standardmäßig `["en"]`.
+      - : Ein Array von Zeichenfolgen, das die erwarteten Sprachen aller bereitgestellten Kontextzeichenfolgen angibt (entweder der an den `Summarizer` übergebene [`sharedContext`](#sharedcontext), oder ein während eines [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) Aufrufs spezifizierter `context`), die gültige BCP 47 Sprachtags sein sollten. Standardmäßig `["en"]`.
     - `format`
-      - : Ein Aufzählungswert, der das Text[`format`](/de/docs/Web/API/Summarizer/format) angibt, in dem Sie die Zusammenfassungen zurückgeben möchten. Standardmäßig `markdown`.
+      - : Ein enumerierter Wert, der das Text-[`format`](/de/docs/Web/API/Summarizer/format) angibt, in dem die Zusammenfassungen zurückgegeben werden sollen. Standardmäßig `markdown`.
     - `length`
-      - : Ein Aufzählungswert, der die relative [`length`](/de/docs/Web/API/Summarizer/length) für die erzeugten Zusammenfassungen angibt. Standardmäßig `short`.
+      - : Ein enumerierter Wert, der die relative [`length`](/de/docs/Web/API/Summarizer/length) für die generierten Zusammenfassungen angibt. Standardmäßig `short`.
     - `monitor`
-      - : Eine Callback-Funktion mit einem [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) Argument, das es ermöglicht, den Download-Fortschritt des KI-Modells zu überwachen.
+      - : Eine Callback-Funktion mit einem [`CreateMonitor`](/de/docs/Web/API/CreateMonitor) Argument, das die Überwachung des Downloadfortschritts des KI-Modells ermöglicht.
     - `outputLanguage`
-      - : Eine Zeichenfolge, die die erwartete Sprache der vom `Summarizer` erzeugten Zusammenfassungen angibt, die ein gültiges BCP 47-Sprachtag sein sollte. Standardmäßig `en`.
+      - : Eine Zeichenfolge, die die erwartete Sprache der vom `Summarizer` generierten Zusammenfassungen angibt, die ein gültiger BCP 47 Sprachtag sein sollte. Standardmäßig `en`.
     - `sharedContext`
-      - : Eine [`sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) Zeichenfolge, die den Kontext beschreibt, in dem die zusammenzufassenden Textstücke verwendet werden. Dies hilft dem `Summarizer`, geeignetere Zusammenfassungen zu erstellen.
+      - : Eine [`sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) Zeichenfolge, die den Kontext beschreibt, in dem die zu zusammenfassenden Textstücke verwendet werden, was dem `Summarizer` hilft, geeignetere Zusammenfassungen zu generieren.
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es ermöglicht, eine `create()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen. Die genaue Wirkung hängt davon ab, wann [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird:
-        - Wenn `abort()` vor der Auflösung des `create()`-Promise aufgerufen wird, wird die `create()`-Operation abgebrochen.
-        - Wenn `abort()` nach Erfüllung des `create()`-Promise aufgerufen wird, hat es den gleichen Effekt wie ein Aufruf von [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy): Die Ressourcen der resultierenden `Summarizer`-Instanz werden freigegeben, und laufende sowie nachfolgende `Summarizer`-Methodenaufrufe werden mit einem `AbortError` abgelehnt.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es ermöglicht, eine `create()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen. Die genaue Wirkung hängt davon ab, wann [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird:
+        - Wenn `abort()` vor der Auflösung des `create()` Promise aufgerufen wird, wird die `create()` Operation abgebrochen.
+        - Wenn `abort()` nach der Erfüllung des `create()` Promise aufgerufen wird, hat es die gleiche Wirkung wie der Aufruf von [`Summarizer.destroy()`](/de/docs/Web/API/Summarizer/destroy): Die den resultierenden `Summarizer` Instanz zugewiesenen Ressourcen werden freigegeben, und alle laufenden und nachfolgenden `Summarizer` Methodenanrufe werden mit einem `AbortError` abgelehnt.
     - `type`
-      - : Ein Aufzählungswert, der den [`type`](/de/docs/Web/API/Summarizer/type) der Zusammenfassung angibt, die dieser `Summarizer` erzeugen soll. Standardmäßig `key-points`.
+      - : Ein enumerierter Wert, der den [`type`](/de/docs/Web/API/Summarizer/type) der Zusammenfassung angibt, die dieser `Summarizer` generieren soll. Standardmäßig `key-points`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer `Summarizer`-Objektinstanz erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer `Summarizer` Objektinstanz erfüllt wird.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Nutzung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Nutzung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn eines der in `expectedContextLanguages`, `expectedInputLanguages` oder `outputLanguage` angegebenen Sprach-Tags ungültig oder nicht unterstützt ist.
+  - : Wird ausgelöst, wenn eines der in `expectedContextLanguages`, `expectedInputLanguages` oder `outputLanguage` angegebenen Sprach-Tags ungültig oder nicht unterstützt ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Allgemeine Ausnahme, die ausgelöst wird, wenn die Erstellung des `Summarizer` aus irgendeinem anderen Grund fehlschlägt.
+  - : Allgemeiner Zweck-Ausnahme ausgelöst, wenn die Erstellung des `Summarizer` aus einem anderen Grund fehlgeschlagen ist.
 
 ## Beispiele
 
-### Grundlegendes `Summarizer`-Erstellung
+### Grundlegende `Summarizer` Erstellung
 
 ```js
 const summarizer = await Summarizer.create({
@@ -85,4 +85,4 @@ const summarizer = await Summarizer.create({
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web KI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

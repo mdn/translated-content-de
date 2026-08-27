@@ -1,15 +1,14 @@
 ---
-title: "SpeechSynthesis: speak() Methode"
+title: "SpeechSynthesis: speak()-Methode"
 short-title: speak()
 slug: Web/API/SpeechSynthesis/speak
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 3143a6094e7b87cf1a96b61f9551fb4d95049777
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`speak()`** Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)
-Interfaces fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Äußerungswarteschlange hinzu; sie wird gesprochen, sobald alle vorher in die Warteschlange gestellten Äußerungen abgearbeitet wurden.
+Die **`speak()`**-Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle fügt ein [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Aussagenschlange hinzu; sie wird gesprochen, wenn alle anderen vorher in der Schlange stehenden Äußerungen gesprochen wurden.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ speak(utterance)
 ### Parameter
 
 - `utterance`
-  - : Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekt.
+  - : Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekt.
 
 ### Rückgabewert
 
@@ -28,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Snippet ist ein Auszug aus unserem [Speech synthesizer Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([live ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)). Wenn ein Formular, das den zu sprechenden Text enthält, eingereicht wird, erstellen wir (unter anderem) eine neue Äußerung, die diesen Text enthält, und sprechen ihn, indem wir ihn als Parameter an `speak()` übergeben.
+Dieses Codebeispiel ist aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([live ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)) entnommen. Wenn ein Formular, das den Text enthält, den wir sprechen möchten, abgeschickt wird, erstellen wir (neben anderen Aktionen) eine neue Äußerung mit diesem Text und sprechen sie dann, indem wir sie als Parameter in `speak()` einfügen.
 
 ```js
 const synth = window.speechSynthesis;

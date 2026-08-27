@@ -3,12 +3,14 @@ title: Iterator.prototype.windows()
 short-title: windows()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/windows
 l10n:
-  sourceCommit: d43ba33e72afa135ce782e2c0ca19fe32a93bb13
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-Die **`windows()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das ein gleitendes Fenster von Elementen liefert. Jedes Mal, wenn der Helfer iteriert wird, liefert er ein Array, das das erste Element der vorherigen Iteration entfernt und das nächste Element des ursprünglichen Iterators hinzufügt.
+{{SeeCompatTable}}
 
-Um unterschiedliche Abschnitte zu erhalten, siehe {{jsxref("Iterator.prototype.chunks()")}}.
+Die **`windows()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das ein gleitendes Fenster von Elementen liefert. Jedes Mal, wenn der Helfer iteriert wird, gibt er ein Array zurück, das das erste Element der vorherigen Iteration entfernt und das nächste Element des ursprünglichen Iterators hinzufügt.
+
+Um unterschiedliche Blöcke zu erhalten, siehe {{jsxref("Iterator.prototype.chunks()")}}.
 
 ## Syntax
 
@@ -20,34 +22,34 @@ windows(windowSize, underSized)
 ### Parameter
 
 - `windowSize`
-  - : Die Anzahl der Elemente im gleitenden Fenster. Muss eine positive Ganzzahl weniger als 2<sup>32</sup> (die maximale Array-Länge) sein.
+  - : Die Anzahl der Elemente im gleitenden Fenster. Muss eine positive ganze Zahl kleiner als 2<sup>32</sup> (die maximale Array-Länge) sein.
 - `underSized` {{optional_inline}}
-  - : Ein String, der angibt, was zu tun ist, wenn die Anzahl der Elemente im Iterator weniger als `windowSize` aber größer als 0 ist. Es kann einer der folgenden sein:
+  - : Ein String, der angibt, was zu tun ist, wenn die Anzahl der Elemente im Iterator kleiner als `windowSize`, aber größer als 0 ist. Es kann einer der folgenden sein:
     - `"only-full"` (Standard)
-      - : Ignoriere das teilweise Fenster. Der zurückgegebene Iterator wird sofort abgeschlossen, als ob die Eingabe leer wäre.
+      - : Ignoriert das unvollständige Fenster. Der zurückgegebene Iterator wird sofort abgeschlossen, als ob der Eingang leer wäre.
     - `"allow-partial"`
-      - : Liefert alle Elemente im teilweisen Fenster als ein Array (mit Länge kleiner als `windowSize`).
+      - : Alle Elemente im unvollständigen Fenster werden als Array (mit Länge kleiner als `windowSize`) geliefert.
 
-    Beachten Sie, dass der zurückgegebene Iterator, wenn die Eingabe leer ist, immer sofort ohne Ausgabe eines leeren Arrays abgeschlossen wird.
+    Beachten Sie, dass bei leerem Input der zurückgegebene Iterator immer sofort abgeschlossen wird, ohne ein leeres Array zu liefern.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Wenn die `next()`-Methode des zurückgegebenen Iterator-Helfers zum ersten Mal aufgerufen wird, wird der aktuelle Iterator sofort um `windowSize` Elemente weitergeschaltet. Wenn so viele Elemente verfügbar sind, werden sie zusammen als Array geliefert. Andernfalls hängt das Verhalten vom `underSized`-Argument ab: Der Iterator wird entweder sofort ohne Ausgabe von etwas abgeschlossen (bei `"only-full"` oder bei einer vollständig leeren Eingabe), oder ein Array mit einer Länge kleiner als `windowSize` wird geliefert.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Beim ersten Aufruf der `next()`-Methode des zurückgegebenen Iterator-Helfers wird der aktuelle Iterator sofort um `windowSize` Elemente vorgerückt. Wenn so viele Elemente verfügbar sind, werden sie zusammen als Array geliefert. Andernfalls hängt das Verhalten vom `underSized`-Argument ab: der Iterator wird entweder ohne Ausgabe sofort abgeschlossen (mit `"only-full"` oder bei vollständig leerem Eingang), oder es wird ein Array mit einer Länge kleiner als `windowSize` geliefert.
 
-Danach besteht jedes Mal das gelieferte Array aus dem vorherigen Array, das linkeste Element entfernt, ein neues Element aus dem Eingabeiterable hinzugefügt. Wenn das Eingabeiterable erschöpft ist, wird der Iterator-Helfer auch abgeschlossen.
+Danach besteht das jedes Mal gelieferte Array aus dem vorherigen Array, dem entferntem äußersten linken Element, einem neu aus dem Eingangsiterierbaren abgerufenen Element, das angehängt wird. Wenn das Eingangsiterierbare erschöpft ist, wird auch der Iterator-Helfer abgeschlossen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `limit` keine Ganzzahl ist oder wenn `underSized` nicht einer der erlaubten Werte ist.
+  - : Wird ausgelöst, wenn `limit` keine ganze Zahl ist oder wenn `underSized` nicht einer der erlaubten Werte ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `limit` weniger als 1 oder größer als 2<sup>32</sup>－1 ist.
+  - : Wird ausgelöst, wenn `limit` kleiner als 1 oder größer als 2<sup>32</sup>－1 ist.
 
 ## Beispiele
 
 ### Gleitender Durchschnitt
 
-Das folgende Beispiel erzeugt einen Iterator, der Begriffe der Fibonacci-Folge liefert. Dann wird ein neuer Iterator erstellt, der jedes Mal den Durchschnitt von zwei benachbarten Elementen liefert.
+Das folgende Beispiel erstellt einen Iterator, der Elemente der Fibonacci-Folge liefert. Dann wird ein neuer Iterator erstellt, der jedes Mal den Durchschnitt von zwei benachbarten Elementen liefert.
 
 ```js
 function* fibonacci() {
@@ -69,14 +71,14 @@ console.log(averaged.next().value); // 2.5 (2, 3)
 console.log(averaged.next().value); // 4 (3, 5)
 ```
 
-Dieser Prozess, bekannt als gleitender Durchschnitt, ist sehr nützlich in der Signalverarbeitung.
+Dieser Prozess, bekannt als gleitender Durchschnitt, ist in der Signalverarbeitung sehr nützlich.
 
-### Aufzählen von Teilstrings
+### Substrings aufzählen
 
-Das folgende Beispiel zählt alle Teilstrings einer gegebenen Länge in einem String auf. Die `windows()`-Methode wird verwendet, um ein gleitendes Fenster von Zeichen zu erstellen, die dann zusammengefügt werden, um Teilstrings zu bilden.
+Das folgende Beispiel zählt alle Substrings einer gegebenen Länge in einem String auf. Die `windows()`-Methode wird verwendet, um ein gleitendes Fenster von Zeichen zu erstellen, die dann zusammengefügt werden, um Substrings zu bilden.
 
 > [!NOTE]
-> Dies ist wahrscheinlich viel weniger effizient, als manuell einen Zahlenindex zu iterieren und die Methode {{jsxref("String.prototype.substring()")}} aufzurufen.
+> Dies ist wahrscheinlich viel weniger effizient als das manuelle Iterieren eines Indexes und der Aufruf der {{jsxref("String.prototype.substring()")}} Methode.
 
 ```js
 const chars = Iterator.from("MASSACHUSETTS");

@@ -3,7 +3,7 @@ title: "PerformanceEntry: startTime-Eigenschaft"
 short-title: startTime
 slug: Web/API/PerformanceEntry/startTime
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
@@ -12,20 +12,21 @@ Die schreibgeschützte **`startTime`**-Eigenschaft gibt den ersten [Zeitstempel]
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den ersten Zeitstempel darstellt, als der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) erstellt wurde.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den ersten Zeitstempel darstellt, als der
+[`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) erstellt wurde.
 
 Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Performance-Eintrags ab:
 
 - `element`
-  - : Entweder der Wert des [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags, wenn er nicht `0` ist, andernfalls der Wert des [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
+  - : Entweder der Wert der [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags, falls dieser nicht `0` ist, andernfalls der Wert der [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
 - `event`
   - : Die Zeit, zu der das Ereignis erstellt wurde, d.h. die [`timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des Ereignisses.
 - `first-input`
-  - : Die Zeit, zu der das erste Eingabeereignis erstellt wurde, d.h. die [`timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft dieses Ereignisses.
+  - : Die Zeit, zu der das erste Eingangsevent erstellt wurde, d.h. die [`timeStamp`](/de/docs/Web/API/Event/timeStamp) dieses Ereignisses.
 - `largest-contentful-paint`
-  - : Der Wert des [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags, wenn er nicht `0` ist, andernfalls der Wert des [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags.
+  - : Der Wert der [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags, falls dieser nicht `0` ist, andernfalls der Wert der [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags.
 - `layout-shift`
-  - : Die Zeit, zu der die Layout-Verschiebung begann.
+  - : Die Zeit, zu der die Layoutverschiebung begann.
 - `longtask`
   - : Die Zeit, zu der die Aufgabe begann.
 - `mark`
@@ -35,21 +36,22 @@ Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/
 - `navigation`
   - : Immer `0`.
 - `paint`
-  - : Die Zeit, zu der das Rendering stattfand.
+  - : Die Zeit, zu der das Malen stattfand.
 - `resource`
   - : Der Wert der [`fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart)-Eigenschaft dieses Eintrags.
 - `taskattribution`
   - : Immer `0`.
 - `visibility-state`
-  - : Die Zeit, zu der die Änderung des Sichtbarkeitszustands erfolgte.
+  - : Die Zeit, zu der der Sichtbarkeitsstatuswechsel stattfand.
 
 ## Beispiele
 
 ### Verwendung der startTime-Eigenschaft
 
-Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die während der Performance-Beobachtung protokolliert werden kann.
+Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die Sie während der Leistungsbeobachtung protokollieren können.
 
-> [!NOTE] Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) ermöglicht es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) erlaubt es, den Beginn der Messung festzulegen.
+> [!NOTE]
+> Die [`performance.mark()`](/de/docs/Web/API/Performance/mark)-Methode ermöglicht es Ihnen, Ihre eigene `startTime` festzulegen, und die [`performance.measure()`](/de/docs/Web/API/Performance/measure)-Methode ermöglicht es Ihnen, den Beginn der Messung festzulegen.
 
 ```js
 performance.mark("my-mark");

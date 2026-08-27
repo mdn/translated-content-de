@@ -3,14 +3,12 @@ title: "ProcessingInstruction: hasAttribute() Methode"
 short-title: hasAttribute()
 slug: Web/API/ProcessingInstruction/hasAttribute
 l10n:
-  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`hasAttribute()`** Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) Interfaces gibt einen
-booleschen Wert zurück, der angibt, ob das angegebene Element das
-spezifizierte Attribut besitzt oder nicht.
+Die **`hasAttribute()`**-Methode der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das angegebene Element das spezifizierte Attribut besitzt oder nicht.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ hasAttribute(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen des Attributs repräsentiert.
+  - : Ein String, der den Namen des Attributs darstellt.
 
 ### Rückgabewert
 

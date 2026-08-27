@@ -3,12 +3,14 @@ title: Iterator.prototype.chunks()
 short-title: chunks()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/chunks
 l10n:
-  sourceCommit: d43ba33e72afa135ce782e2c0ca19fe32a93bb13
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-Die **`chunks()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die Elemente des ursprünglichen Iterators in aufeinanderfolgende Array-Teile aufteilt. Jedes Mal, wenn der Helfer iteriert wird, erhält er die angegebene Anzahl von Elementen aus dem zugrunde liegenden Iterator und liefert sie zusammen.
+{{SeeCompatTable}}
 
-Um sich überlappende Sequenzen (d.h. Gleitfenster) zu erzeugen, siehe {{jsxref("Iterator.prototype.windows()")}}.
+Die **`chunks()`** Methode von {{jsxref("Iterator")}} Instanzen gibt ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects) zurück, das die Elemente des ursprünglichen Iterators in aufeinanderfolgende Array-Blöcke aufteilt. Jedes Mal, wenn der Hilfsiterator durchlaufen wird, werden die angegebene Anzahl von Elementen aus dem zugrunde liegenden Iterator entnommen und gemeinsam ausgegeben.
+
+Um überlappende Sequenzen (d.h. ein gleitendes Fenster) auszugeben, siehe {{jsxref("Iterator.prototype.windows()")}}.
 
 ## Syntax
 
@@ -19,28 +21,28 @@ chunks(chunkSize)
 ### Parameter
 
 - `chunkSize`
-  - : Die Anzahl der Elemente in jedem Chunk. Muss eine positive Ganzzahl kleiner als 2<sup>32</sup> (die maximale Array-Länge) sein.
+  - : Die Anzahl von Elementen in jedem Block. Muss eine positive ganze Zahl kleiner als 2<sup>32</sup> (die maximale Array-Länge) sein.
 
 ### Rückgabewert
 
-Ein neues [Iterator-Helferobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Jedes Mal, wenn die `next()`-Methode des zurückgegebenen Iterator-Helfers aufgerufen wird, wird der ursprüngliche Iterator um `chunkSize` Elemente weitergeführt, und diese Elemente werden zusammen als Array geliefert.
+Ein neues [Iterator-Hilfsobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_objects). Jedes Mal, wenn die `next()`-Methode des zurückgegebenen Iterator-Hilfsobjekts aufgerufen wird, wird der ursprüngliche Iterator um `chunkSize` Elemente vorgerückt und diese Elemente werden gemeinsam als Array ausgegeben.
 
-Wenn der ursprüngliche Iterator einige, aber weniger als `chunkSize` Elemente übrig hat, werden diese Elemente trotzdem als Array geliefert (die Länge ist also kleiner als `chunkSize`), und der Iterator-Helfer wird sofort abgeschlossen, wenn `next()` das nächste Mal aufgerufen wird.
+Wenn der ursprüngliche Iterator einige, aber weniger als `chunkSize` Elemente übrig hat, werden diese Elemente trotzdem als Array ausgegeben (sodass die Länge kleiner als `chunkSize` ist), und der Iterator-Hilfsobjekt wird beim nächsten Aufruf von `next()` sofort abgeschlossen.
 
-Wenn der ursprüngliche Iterator keine Elemente mehr übrig hat, wird der Iterator-Helfer sofort ohne ein leeres Array abgeschlossen.
+Wenn der ursprüngliche Iterator keine Elemente mehr hat, wird der Iterator-Hilfsobjekt sofort abgeschlossen, ohne ein leeres Array auszugeben.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `chunkSize` keine Ganzzahl ist.
+  - : Wird ausgelöst, wenn `chunkSize` keine ganze Zahl ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `chunkSize` kleiner als 1 oder größer als 2<sup>32</sup>－1 ist.
 
 ## Beispiele
 
-### Elemente in einem Raster drucken
+### Elemente in einem Raster ausgeben
 
-Das folgende Beispiel erstellt einen Iterator, der Begriffe der Fibonacci-Folge ausgibt. Dann werden sie in einem Rasterlayout gedruckt, indem jedes Mal 5 Elemente abgerufen werden.
+Das folgende Beispiel erstellt einen Iterator, der die Terme der Fibonacci-Sequenz ausgibt. Dann werden diese in einem Rasterlayout ausgegeben, indem jedes Mal 5 Elemente abgerufen werden.
 
 ```js
 function* fibonacci() {

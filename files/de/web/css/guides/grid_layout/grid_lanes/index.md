@@ -1,21 +1,23 @@
 ---
-title: Grid-Lanes-Layout
+title: Rasterspuren-Layout
 slug: Web/CSS/Guides/Grid_layout/Grid_lanes
 l10n:
-  sourceCommit: b02c4fe0f8c485fa3fd0af10005310aaecef64ca
+  sourceCommit: 6ddfa5bed55ec6dc6f506ea9d894c2b449617e55
 ---
 
 {{SeeCompatTable}}
 
-Level 3 der [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Spezifikation definiert das **Grid-Lanes-Layout**, das über die {{cssxref("display")}}-Werte `grid-lanes` und `inline-grid-lanes` zugänglich ist. Dieser Leitfaden erklärt, wie das Grid-Lanes-Layout funktioniert und wie es verwendet wird.
+Level 3 der Spezifikation für [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) definiert das **Rasterspuren-Layout**, das über die {{cssxref("display")}} Werte `grid-lanes` und `inline-grid-lanes` zugänglich ist. Dieser Leitfaden erklärt, wie das Rasterspuren-Layout funktioniert und wie Sie es verwenden können.
 
-Das Grid-Lanes-Layout ist eine Layoutmethode, bei der eine Achse ein typisches strenges Rasterlayout verwendet, meistens Spalten, und die andere eine Stapelalgorithmus nutzt. Auf der Stapelachse steigen die Elemente der folgenden Zeile hoch, um die Lücken zu füllen, anstatt sich an ein strenges Raster zu halten, bei dem nach kürzeren Elementen Lücken verbleiben.
+Das Rasterspuren-Layout ist eine Layoutmethode, bei der eine Achse ein striktes Rasterlayout verwendet und die andere einen Stapelalgorithmus. Jedes Element wird in die Spur mit dem meisten verfügbaren Platz eingefügt, was zu einem dicht gepackten Layout ohne strikte Spuren auf der Stapelachse führt.
 
-## Erstellen eines Grid-Lanes-Layouts
+Das Rasterspuren-Layout wird oft als _Mauerwerkslayout_ bezeichnet, da es dem ähnelt, wie Ziegel in einer Wand gelegt werden und Lücken so effizient wie möglich füllen.
 
-Um das häufigste Grid-Lanes-Layout zu erstellen, bei dem die Spalten in einem Raster angeordnet sind und die Zeilen mit dem Grid-Lanes-Layout-Algorithmus gefüllt werden, verwenden Sie **`display: grid-lanes`** zusammen mit {{cssxref("grid-template-columns")}}.
+## Erstellen eines Rasterspuren-Layouts
 
-Die Kindelemente dieses Containers werden Element für Element entlang der Stapelachse gemäß dem Grid-Lanes-Layout-Algorithmus angeordnet: Jede Zeile von Elementen lädt sich in die Spalte mit dem meisten Platz, was zu einem dicht gepackten Layout ohne strenge Zeilenspuren führt.
+Um das gängigste Rasterspuren-Layout zu erstellen, bei dem die Spalten in einem Raster angeordnet sind und die Reihen mithilfe des Rasterspuren-Layout-Algorithmus gepackt werden, verwenden Sie **`display: grid-lanes`** zusammen mit {{cssxref("grid-template-columns")}}.
+
+Die Kindelemente dieses Containers werden nach dem Rasterspuren-Layout-Algorithmus Element für Element entlang der Stapelachse angeordnet: Jede Reihe von Elementen wird in die Spalte mit dem meisten Platz geladen, was zu einem dicht gepackten Layout ohne strikte Reihenspuren führt.
 
 ```css hidden live-sample___block-axis live-sample___inline-axis live-sample___spanners live-sample___positioned
 * {
@@ -78,7 +80,7 @@ for (let i = 0; i < items.length; i++) {
 
 {{EmbedLiveSample("block-axis", "", "250px")}}
 
-Es ist auch möglich, ein Grid-Lanes-Layout mit in Zeilen geladenen Elementen zu erstellen.
+Es ist auch möglich, ein Rasterspuren-Layout mit Elementen zu erstellen, die in Reihen geladen werden.
 
 ```js live-sample___inline-axis
 // prettier-ignore
@@ -102,13 +104,13 @@ for (let i = 0; i < items.length; i++) {
 
 {{EmbedLiveSample("inline-axis", "", "450px")}}
 
-## Kontrolle über die Rasterachse
+## Steuerung der Rasterachse
 
-Auf der Rasterachse funktioniert alles wie erwartet im Grid-Layout. Sie können Objekte dazu bringen, mehrere Spuren zu überspannen, während sie im Auto-Platzierung-Modus bleiben, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch durch linienbasierte Positionierung platziert werden.
+Auf der Rasterachse funktioniert alles so, wie Sie es vom Grid-Layout erwarten. Sie können Elemente mehrere Spuren überspannen lassen, während sie im automatischen Platzierungsmodus bleiben, indem Sie das `span`-Schlüsselwort verwenden. Elemente können auch über die linienbasierte Positionierung positioniert werden.
 
-### Grid-Lanes-Layout mit überspannenden Elementen
+### Rasterspuren-Layout mit überspannenden Elementen
 
-In diesem Beispiel überspannen zwei der Elemente zwei Spuren, und die verbleibenden Elemente werden vom Grid-Lanes-Layout-Algorithmus um sie herum gepackt.
+In diesem Beispiel überspannen zwei der Elemente zwei Spuren, und die verbleibenden Elemente werden durch den Rasterspuren-Layout-Algorithmus darum herum gepackt.
 
 ```html live-sample___spanners
 <div class="grid">
@@ -139,7 +141,7 @@ In diesem Beispiel überspannen zwei der Elemente zwei Spuren, und die verbleibe
 
 {{EmbedLiveSample("spanners", "", "270px")}}
 
-Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. Elemente mit fester Platzierung werden platziert, bevor der Grid-Lanes-Layout-Algorithmus ausgeführt wird.
+Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. Elemente mit definitiver Platzierung werden positioniert, bevor der Rasterspuren-Layout-Algorithmus ausgeführt wird.
 
 ```html live-sample___positioned
 <div class="grid">
@@ -181,4 +183,4 @@ Dieses Beispiel enthält ein Element, das eine Positionierung für Spalten hat. 
 
 ## Siehe auch
 
-- {{cssxref("grid-auto-flow")}} zur Steuerung der automatischen Rasterplatzierung
+- {{cssxref("grid-auto-flow")}} für die Steuerung der automatischen Rasterplatzierung

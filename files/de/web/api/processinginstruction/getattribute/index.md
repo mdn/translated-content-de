@@ -3,14 +3,14 @@ title: "ProcessingInstruction: getAttribute() Methode"
 short-title: getAttribute()
 slug: Web/API/ProcessingInstruction/getAttribute
 l10n:
-  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`getAttribute()`**-Methode der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle gibt den Wert eines angegebenen Attributs auf der Verarbeitungshinweis zurück.
+Die **`getAttribute()`** Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Interfaces gibt den Wert eines angegebenen Attributs der Verarbeitungshinweise zurück.
 
-Wenn das angegebene Attribut nicht existiert, wird der zurückgegebene Wert `null` sein.
+Falls das angegebene Attribut nicht existiert, wird der Wert `null` zurückgegeben.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ getAttribute(attributeName)
 
 ### Rückgabewert
 
-Ein String, der den Wert von `attributeName` enthält, wenn das Attribut existiert; ansonsten `null`.
+Ein String, der den Wert von `attributeName` enthält, wenn das Attribut existiert; andernfalls `null`.
 
 ## Beschreibung
 
 ### Groß- und Kleinschreibung
 
-Die Argumente der Verarbeitungshinweise sind case-sensitiv.
+Argumente von Verarbeitungshinweisen sind groß- und kleinschreibungssensitiv.
 
 ### Dekodierte Zeichenreferenzen in Attributwerten
 
-HTML {{Glossary("Character_reference", "Zeichenreferenzen")}} in einem Attributsquellcode (zum Beispiel `&lt;`, `&amp;` oder `&#x3C;`) werden vom HTML-Parser dekodiert, wenn das Dokument geparst wird, sodass `getAttribute()` den dekodierten Wert und nicht den Quellwert zurückgibt.
+HTML-{{Glossary("Character_reference", "Zeichenreferenzen")}} im Quellmarkup eines Attributs (zum Beispiel `&lt;`, `&amp;` oder `&#x3C;`) werden vom HTML-Parser dekodiert, wenn das Dokument geparst wird, sodass `getAttribute()` den dekodierten Wert zurückgibt, nicht den Quellwert.
 
 Zum Beispiel:
 

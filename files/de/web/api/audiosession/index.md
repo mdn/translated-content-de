@@ -2,14 +2,14 @@
 title: AudioSession
 slug: Web/API/AudioSession
 l10n:
-  sourceCommit: 52a02663d8a43fb35ea80f1b276dab03d8dab9ef
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
 {{APIRef("Audio Session API")}}{{SeeCompatTable}}
 
-Die **`AudioSession`** Schnittstelle der [Audio Session API](/de/docs/Web/API/Audio_Session_API) ermöglicht es einer Webseite, den Typ des Audios zu deklarieren, das sie produziert – zum Beispiel Musik-Wiedergabe, ein Videoanruf oder eine kurze Benachrichtigung. Die Plattform verwendet den deklarierten Typ, um zu entscheiden, wie das Audio der Seite und Audio von anderen Anwendungen und Tabs koexistieren sollen – ob pausiert, gedämpft (die Lautstärke gesenkt) oder parallel abgespielt werden soll.
+Die **`AudioSession`**-Schnittstelle der [Audio Session API](/de/docs/Web/API/Audio_Session_API) ermöglicht es einer Webseite, den Typ der von ihr produzierten Audioausgabe zu deklarieren - zum Beispiel Musik-Wiedergabe, ein Videoanruf oder eine kurze Benachrichtigung. Die Plattform verwendet den deklarierten Typ, um zu entscheiden, wie die Audioausgabe der Seite und die Audiosignale anderer Anwendungen und Tabs koexistieren sollen — ob sie pausiert, abgesenkt (die Lautstärke verringert) oder parallel abgespielt werden sollen.
 
-Die Schnittstelle bietet auch die [`state`](/de/docs/Web/API/AudioSession/state) Eigenschaft, die anzeigt, ob Audio aktiv auf der Seite abgespielt wird, inaktiv ist oder unterbrochen wurde, sowie das [`statechange`](/de/docs/Web/API/AudioSession/statechange_event) Ereignis, das eine Benachrichtigung liefert, wenn sich der Zustand ändert. Während hörbare Medien automatisch durch Unterbrechungen pausiert/fortgesetzt werden, ermöglicht die Zustandsüberwachung die Konfiguration von Verhalten, das nicht automatisch gesteuert wird.
+Die Schnittstelle bietet auch die Eigenschaft [`state`](/de/docs/Web/API/AudioSession/state), die anzeigt, ob Audio aktiv auf der Seite abgespielt wird, inaktiv ist oder unterbrochen wurde, sowie das Ereignis [`statechange`](/de/docs/Web/API/AudioSession/statechange_event), das eine Benachrichtigung bereitstellt, wenn sich der Zustand ändert. Während hörbare Medien automatisch durch Unterbrechungen pausiert/fortgesetzt werden, ermöglicht die Zustandsüberwachung die Konfiguration von nicht automatisch gesteuertem Verhalten.
 
 {{InheritanceDiagram}}
 
@@ -22,17 +22,17 @@ Die Schnittstelle bietet auch die [`state`](/de/docs/Web/API/AudioSession/state)
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname` Eigenschaft dieser Schnittstelle zuweisen.
+Diese Ereignisse können mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Handlers zur `oneventname`-Eigenschaft dieser Schnittstelle gehört werden.
 
-- [`statechange`](/de/docs/Web/API/AudioSession/statechange_event)
-  - : Wird ausgelöst, wenn sich die [`state`](/de/docs/Web/API/AudioSession/state) Eigenschaft ändert.
-    Auch verfügbar über die [`onstatechange`](/de/docs/Web/API/AudioSession/statechange_event) Ereignis-Handler-Eigenschaft.
+- [`statechange`](/de/docs/Web/API/AudioSession/statechange_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn sich die [`state`](/de/docs/Web/API/AudioSession/state)-Eigenschaft ändert.
+    Auch verfügbar über die [`onstatechange`](/de/docs/Web/API/AudioSession/statechange_event) Ereignishandler-Eigenschaft.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Das folgende Beispiel setzt den Audiositzungstyp auf `"playback"`, bevor die Medienwiedergabe gestartet wird (vorausgesetzt, `AudioSession` wird unterstützt). Dies signalisiert, dass die Seite Medien wie Musik oder Video abspielt.
+Das folgende Beispiel setzt den Audiositzungstyp auf `"playback"`, bevor die Medienwiedergabe gestartet wird (sofern `AudioSession` unterstützt wird). Dies signalisiert, dass die Seite Medien wie Musik oder Video abspielt.
 
 ```js
 if ("audioSession" in navigator) {
@@ -44,11 +44,11 @@ if ("audioSession" in navigator) {
 audioElement.play();
 ```
 
-### Einrichtung einer Video-Konferenzanwendung
+### Einrichten einer Video-Konferenzanwendung
 
-Dieses Beispiel setzt den Audiositzungstyp auf `"play-and-record"` für eine Videokonferenz-Anwendung.
+Dieses Beispiel setzt den Audiositzungstyp für eine Videokonferenzanwendung auf `"play-and-record"`.
 
-Zuerst verwenden wir [`Navigator.audioSession`](/de/docs/Web/API/Navigator/audioSession), um zu signalisieren, dass die Seite simultane Wiedergabe und Aufnahme benötigt. Dies kann dazu führen, dass das System Audio durch den richtigen Ausgang leitet (zum Beispiel Ohrhörer statt Lautsprecher auf mobilen Geräten) und verhindert, dass das Audio anderer Anwendungen den Anruf unterbricht. Dann beginnen wir mit dem Abspielen des entfernten Medien und dem Streamen unseres eigenen Videos und Audios.
+Zuerst verwenden wir [`Navigator.audioSession`](/de/docs/Web/API/Navigator/audioSession), um zu signalisieren, dass die Seite gleichzeitige Wiedergabe und Aufnahme benötigt. Dadurch kann das System den Audioausgang korrekt routen (zum Beispiel das Ohrstück statt des Lautsprechers auf Mobilgeräten verwenden) und verhindern, dass die Audioausgabe anderer Anwendungen den Anruf unterbricht. Dann beginnen wir mit der Wiedergabe des fremden Mediums und dem Streamen unseres eigenen Videos und Audios.
 
 ```js
 navigator.audioSession.type = "play-and-record";
@@ -65,7 +65,7 @@ const stream = await navigator.mediaDevices.getUserMedia({
 localVideo.srcObject = stream;
 ```
 
-Der folgende Code lauscht auf das [`statechange`](/de/docs/Web/API/AudioSession/statechange_event) Ereignis. Wenn der Sitzungszustand durch die Plattform auf `"interrupted"` gesetzt wird, zum Beispiel aufgrund eines eingehenden Telefonanrufs, pausiert der Handler ungemutetes lokales und entferntes Video, solange die Unterbrechung dauert (die Plattform selbst wird alle Elemente, die eine hörbare Ausgabe haben, pausieren und neu starten).
+Der folgende Code hört auf das [`statechange`](/de/docs/Web/API/AudioSession/statechange_event)-Ereignis. Wenn der Sitzungszustand vom System unterbrochen wird, zum Beispiel aufgrund eines eingehenden Telefonanrufs, pausiert der Handler ungemutetes lokales und fremdes Video, solange die Unterbrechung anhält (das System selbst pausiert und startet alle Elemente neu, die eine hörbare Ausgabe haben).
 
 ```js
 // Pause local playback and recording while the platform interrupts the call

@@ -2,16 +2,16 @@
 title: WebGLTransformFeedback
 slug: Web/API/WebGLTransformFeedback
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Das **`WebGLTransformFeedback`**-Interface ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und ermöglicht Transformations-Feedback, welches der Prozess ist, Primitive zu erfassen, die durch die Vertex-Verarbeitung erzeugt werden. Es erlaubt, den Post-Transformations-Rendering-Zustand eines Objekts zu bewahren und diese Daten mehrmals erneut einzureichen.
+Die **`WebGLTransformFeedback`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und ermöglicht Transform-Feedback, was der Prozess des Einfangens von Primitiven ist, die durch die Vertexverarbeitung erzeugt werden. Sie erlaubt es, den Post-Transform-Rendering-Zustand eines Objekts zu bewahren und diese Daten mehrere Male erneut einzureichen.
 
 {{InheritanceDiagram}}
 
-Beim Arbeiten mit `WebGLTransformFeedback`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
+Bei der Arbeit mit `WebGLTransformFeedback`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
 
 - [`WebGL2RenderingContext.createTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/createTransformFeedback)
 - [`WebGL2RenderingContext.deleteTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/deleteTransformFeedback)

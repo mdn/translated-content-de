@@ -2,17 +2,17 @@
 title: XPathEvaluator
 slug: Web/API/XPathEvaluator
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("DOM")}}
 
-Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von {{Glossary("XPath", "XPath")}}-Ausdrücken.
+Das `XPathEvaluator` Interface ermöglicht es Ihnen, {{Glossary("XPath", "XPath")}}-Ausdrücke zu kompilieren und auszuwerten.
 
 ## Konstruktor
 
 - [`XPathEvaluator()`](/de/docs/Web/API/XPathEvaluator/XPathEvaluator)
-  - : Erzeugt ein neues `XPathEvaluator`-Objekt.
+  - : Erstellt ein neues `XPathEvaluator`-Objekt.
 
 ## Instanzmethoden
 
@@ -21,13 +21,13 @@ Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von {{G
 - [`XPathEvaluator.createNSResolver()`](/de/docs/Web/API/XPathEvaluator/createNSResolver) {{deprecated_inline}}
   - : Gibt die Eingabe unverändert zurück.
 - [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate)
-  - : Wertet einen XPath-Ausdrucks-String aus und gibt, falls möglich, ein Ergebnis des angegebenen Typs zurück.
+  - : Wertet einen XPath-Ausdrucks-String aus und gibt ein Ergebnis des angegebenen Typs zurück, wenn möglich.
 
 ## Beispiel
 
-### Zähle die Anzahl der `<div>`-Elemente
+### Zählen der Anzahl von `<div>`-Elementen
 
-Das folgende Beispiel zeigt die Verwendung des `XPathEvaluator`-Interfaces.
+Das folgende Beispiel zeigt die Verwendung des `XPathEvaluator` Interfaces.
 
 #### HTML
 

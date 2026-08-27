@@ -1,17 +1,17 @@
 ---
-title: "RTCPeerConnection: getIdentityAssertion()-Methode"
+title: "RTCPeerConnection: getIdentityAssertion() Methode"
 short-title: getIdentityAssertion()
 slug: Web/API/RTCPeerConnection/getIdentityAssertion
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`getIdentityAssertion()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces initiiert die Erfassung einer Identitätsbehauptung.
-Dies hat nur eine Wirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
+Die **`getIdentityAssertion()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert das Sammeln einer Identitätsbehauptung.
+Dies hat nur dann eine Wirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
 
-Es wird nicht erwartet, dass die Anwendung, die mit der `RTCPeerConnection` arbeitet, dies explizit aufruft: Dies wird automatisch erledigt; ein expliziter Aufruf ermöglicht es nur, den Bedarf vorherzusehen.
+Es wird nicht erwartet, dass die Anwendung, die mit dem `RTCPeerConnection` arbeitet, dies tut: Dies wird automatisch durchgeführt; ein expliziter Aufruf ermöglicht es Ihnen lediglich, den Bedarf vorwegzunehmen.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der in eine als Zeichenkette kodierte Identitätsbehauptung aufgelöst wird.
+Ein {{jsxref("Promise")}}, der sich zu einer Identitätsbehauptung auflöst, die als Zeichenkette kodiert ist.
 
 ## Beispiel
 

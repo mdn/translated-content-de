@@ -2,414 +2,414 @@
 title: Window
 slug: Web/API/Window
 l10n:
-  sourceCommit: 285941521a9a7c2c1b3c443d5f785e5f663a8fc9
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`Window`**-Schnittstelle repräsentiert ein Fenster, das ein {{Glossary("DOM", "DOM")}}-Dokument enthält; die `document`-Eigenschaft verweist auf das [DOM-Dokument](/de/docs/Web/API/Document), das in diesem Fenster geladen ist.
+Das **`Window`**-Interface repräsentiert ein Fenster, das ein {{Glossary("DOM", "DOM")}}-Dokument enthält; Die `document`-Eigenschaft verweist auf das im Fenster geladene [DOM-Dokument](/de/docs/Web/API/Document).
 
 Ein Fenster für ein bestimmtes Dokument kann über die [`document.defaultView`](/de/docs/Web/API/Document/defaultView)-Eigenschaft abgerufen werden.
 
-Eine globale Variable, `window`, die das Fenster repräsentiert, in dem das Skript ausgeführt wird, steht im JavaScript-Code zur Verfügung.
+Eine globale Variable, `window`, die das Fenster darstellt, in dem das Skript ausgeführt wird, wird im JavaScript-Code bereitgestellt.
 
-Die `Window`-Schnittstelle beherbergt eine Vielzahl von Funktionen, Namespaces, Objekten und Konstruktoren, die nicht unbedingt direkt mit dem Konzept eines Benutzeroberflächenfensters verbunden sind. Die `Window`-Schnittstelle ist jedoch ein geeigneter Ort, um solche Elemente aufzunehmen, die global verfügbar sein müssen. Viele davon sind in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) und der [DOM-Referenz](/de/docs/Web/API/Document_Object_Model) dokumentiert.
+Das `Window`-Interface ist die Heimat einer Vielzahl von Funktionen, Namensräumen, Objekten und Konstruktoren, die nicht unbedingt direkt mit dem Konzept eines Benutzeroberflächenfensters verbunden sind. Trotzdem ist das `Window`-Interface ein geeigneter Ort, um diese Elemente aufzunehmen, die global verfügbar sein müssen. Viele davon sind in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) und der [DOM-Referenz](/de/docs/Web/API/Document_Object_Model) dokumentiert.
 
-In einem Browser mit Registerkarten wird jede Registerkarte durch ein eigenes `Window`-Objekt repräsentiert; das globale `window`, das von JavaScript-Code in einer gegebenen Registerkarte gesehen wird, repräsentiert immer die Registerkarte, in der der Code ausgeführt wird. Trotzdem gelten einige Eigenschaften und Methoden auch für das gesamte Fenster, das die Registerkarte enthält, wie z.B. [`resizeTo()`](/de/docs/Web/API/Window/resizeTo) und [`innerHeight`](/de/docs/Web/API/Window/innerHeight). Im Allgemeinen betrifft alles, was nicht vernünftigerweise zu einer Registerkarte gehören kann, stattdessen das Fenster.
+In einem Tabbed-Browser wird jeder Tab durch ein eigenes `Window`-Objekt dargestellt; das globale `window`, das der JavaScript-Code sieht, läuft immer innerhalb des Tabs, in dem der Code läuft. Dennoch gelten auch in einem Tabbed-Browser einige Eigenschaften und Methoden für das gesamte Fenster, das den Tab enthält, wie etwa [`resizeTo()`](/de/docs/Web/API/Window/resizeTo) und [`innerHeight`](/de/docs/Web/API/Window/innerHeight). Im Allgemeinen gilt alles, was nicht vernünftigerweise für einen Tab gelten kann, stattdessen für das Fenster.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von der [`EventTarget`](/de/docs/Web/API/EventTarget)-Schnittstelle._
+_Dieses Interface erbt Eigenschaften vom [`EventTarget`](/de/docs/Web/API/EventTarget)-Interface._
 
 Beachten Sie, dass Eigenschaften, die Objekte sind (z.B. zum Überschreiben des Prototyps von eingebauten Elementen), in einem separaten Abschnitt unten aufgeführt sind.
 
 - [`Window.caches`](/de/docs/Web/API/Window/caches) {{ReadOnlyInline}} {{SecureContext_Inline}}
-  - : Gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verbunden ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen für die Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anforderungen.
+  - : Gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen für die Offline-Nutzung und das Erzeugen benutzerdefinierter Antworten auf Anfragen.
 - [`Window.clientInformation`](/de/docs/Web/API/Window/navigator) {{ReadOnlyInline}}
   - : Ein Alias für [`Window.navigator`](/de/docs/Web/API/Window/navigator).
 - [`Window.closed`](/de/docs/Web/API/Window/closed) {{ReadOnlyInline}}
   - : Diese Eigenschaft zeigt an, ob das aktuelle Fenster geschlossen ist oder nicht.
 - [`Window.cookieStore`](/de/docs/Web/API/Window/cookieStore) {{ReadOnlyInline}} {{SecureContext_Inline}}
-  - : Gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt für den aktuellen Dokumentkontext zurück.
+  - : Gibt einen Verweis auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt für den aktuellen Dokumentkontext zurück.
 - [`Window.crashReport`](/de/docs/Web/API/Window/crashReport) {{ReadOnlyInline}} {{SecureContext_Inline}} {{experimental_inline}}
   - : Gibt ein [`CrashReportContext`](/de/docs/Web/API/CrashReportContext)-Objekt zurück, das es ermöglicht, beliebige Daten für den aktuellen obersten Browsing-Kontext aufzuzeichnen, die dann zu einem [`CrashReport`](/de/docs/Web/API/CrashReport) hinzugefügt und an einen Meldeendpunkt gesendet werden, wenn ein Browser-Absturz auftritt.
 - [`Window.credentialless`](/de/docs/Web/API/Window/credentialless) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Dokument in einem anmeldefreien {{htmlelement("iframe")}} geladen wurde. Siehe [IFrame anmeldefrei](/de/docs/Web/HTTP/Guides/IFrame_credentialless) für weitere Details.
+  - : Gibt ein boolean zurück, das angibt, ob das aktuelle Dokument in einem credentialless {{htmlelement("iframe")}} geladen wurde. Siehe [IFrame credentialless](/de/docs/Web/HTTP/Guides/IFrame_credentialless) für weitere Details.
 - [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob die Website sich in einem cross-origin Isolation-Zustand befindet.
+  - : Gibt ein boolean zurück, das angibt, ob sich die Website in einem Cross-Origin-Isolationszustand befindet.
 - [`Window.crypto`](/de/docs/Web/API/Window/crypto) {{ReadOnlyInline}}
-  - : Gibt das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt zurück, das mit dem globalen Objekt assoziiert ist.
+  - : Gibt das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt zurück, das mit dem globalen Objekt verknüpft ist.
 - [`Window.customElements`](/de/docs/Web/API/Window/customElements) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück, das verwendet werden kann, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über zuvor registrierte benutzerdefinierte Elemente zu erhalten.
+  - : Gibt einen Verweis auf das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurück, das verwendet werden kann, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über zuvor registrierte benutzerdefinierte Elemente zu erhalten.
 - [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) {{ReadOnlyInline}}
   - : Gibt das Verhältnis zwischen physischen Pixeln und geräteunabhängigen Pixeln im aktuellen Display zurück.
 - [`Window.document`](/de/docs/Web/API/Window/document) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das Dokument zurück, das das Fenster enthält.
+  - : Gibt einen Verweis auf das Dokument zurück, das das Fenster enthält.
 - [`Window.documentPictureInPicture`](/de/docs/Web/API/Window/documentPictureInPicture) {{ReadOnlyInline}} {{SecureContext_Inline}}
-  - : Gibt eine Referenz auf das [Dokument Picture-in-Picture](/de/docs/Web/API/Document_Picture-in-Picture_API)-Fenster für den aktuellen Dokumentkontext zurück.
-- [`Window.fence`](/de/docs/Web/API/Window/fence) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt eine [`Fence`](/de/docs/Web/API/Fence)-Objektinstanz für den aktuellen Dokumentkontext zurück. Nur für Dokumente verfügbar, die in einem {{htmlelement("fencedframe")}} eingebettet sind.
+  - : Gibt einen Verweis auf das [document Picture-in-Picture](/de/docs/Web/API/Document_Picture-in-Picture_API)-Fenster für den aktuellen Dokumentkontext zurück.
+- [`Window.fence`](/de/docs/Web/API/Window/fence) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Gibt eine [`Fence`](/de/docs/Web/API/Fence)-Objektexemplar für den aktuellen Dokumentkontext zurück. Nur für Dokumente verfügbar, die in einem {{htmlelement("fencedframe")}} eingebettet sind.
 - [`Window.frameElement`](/de/docs/Web/API/Window/frameElement) {{ReadOnlyInline}}
-  - : Gibt das Element zurück, in dem das Fenster eingebettet ist, oder null, wenn das Fenster nicht eingebettet ist.
+  - : Gibt das Element zurück, in das das Fenster eingebettet ist, oder null, wenn das Fenster nicht eingebettet ist.
 - [`Window.frames`](/de/docs/Web/API/Window/frames) {{ReadOnlyInline}}
   - : Gibt ein Array der Unterrahmen im aktuellen Fenster zurück.
 - [`Window.fullScreen`](/de/docs/Web/API/Window/fullScreen) {{Non-standard_Inline}}
   - : Diese Eigenschaft zeigt an, ob das Fenster im Vollbildmodus angezeigt wird oder nicht.
 - [`Window.history`](/de/docs/Web/API/Window/history) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das Verlaufsobjekt zurück.
+  - : Gibt einen Verweis auf das Verlauf-Objekt zurück.
 - [`Window.indexedDB`](/de/docs/Web/API/Window/indexedDB) {{ReadOnlyInline}}
-  - : Bietet einen Mechanismus für Anwendungen, um asynchron auf Funktionen von indizierten Datenbanken zuzugreifen; gibt ein [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt zurück.
+  - : Bietet eine Möglichkeit für Anwendungen, asynchron auf Fähigkeiten indizierter Datenbanken zuzugreifen; gibt ein [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt zurück.
 - [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight) {{ReadOnlyInline}}
-  - : Gibt die Höhe des Inhaltsbereichs des Browserfensters einschließlich, falls gerendert, der horizontalen Bildlaufleiste zurück.
+  - : Ruft die Höhe des Inhaltsbereichs des Browserfensters ab, einschließlich, wenn gerendert, der horizontalen Bildlaufleiste.
 - [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) {{ReadOnlyInline}}
-  - : Gibt die Breite des Inhaltsbereichs des Browserfensters einschließlich, falls gerendert, der vertikalen Bildlaufleiste zurück.
+  - : Ruft die Breite des Inhaltsbereichs des Browserfensters ab, einschließlich, wenn gerendert, der vertikalen Bildlaufleiste.
 - [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext) {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob der aktuelle Kontext sicher (`true`) oder nicht (`false`) ist.
+  - : Gibt ein boolean zurück, das anzeigt, ob der aktuelle Kontext sicher ist (`true`) oder nicht (`false`).
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Wenn eine [progressive Web-App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem `launch_handler` `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet die `launchQueue` Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Startrichtungsbehandlung für die PWA zu implementieren.
+  - : Wenn eine [fortschrittliche Webanwendung](/de/docs/Web/Progressive_web_apps) (PWA) mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet die `launchQueue` Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse, die es ermöglicht, eine benutzerdefinierte Startnavigation für die PWA zu implementieren.
 - [`Window.length`](/de/docs/Web/API/Window/length) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Rahmen im Fenster zurück. Siehe auch [`window.frames`](/de/docs/Web/API/Window/frames).
+  - : Gibt die Anzahl der Frames im Fenster zurück. Siehe auch [`window.frames`](/de/docs/Web/API/Window/frames).
 - [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das lokale Speicherobjekt zurück, das zum Speichern von Daten verwendet wird, die nur von der Ursprungsadresse abgerufen werden können, die es erstellt hat.
+  - : Gibt einen Verweis auf das lokale Speicherobjekt zurück, das Daten speichert, die nur vom Urheber, der es erstellt hat, abgerufen werden können.
 - [`Window.location`](/de/docs/Web/API/Window/location)
-  - : Holt/legt den Standort oder die aktuelle URL des Fensterobjektes fest.
+  - : Ruft den Standort ab oder legt den aktuellen URL des Fensterobjekts fest.
 - [`Window.locationbar`](/de/docs/Web/API/Window/locationbar) {{ReadOnlyInline}}
   - : Gibt das locationbar-Objekt zurück.
 - [`Window.menubar`](/de/docs/Web/API/Window/menubar) {{ReadOnlyInline}}
   - : Gibt das menubar-Objekt zurück.
 - [`Window.mozInnerScreenX`](/de/docs/Web/API/Window/mozInnerScreenX) {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt die horizontale (X) Koordinate der linken oberen Ecke des Ansichtsfensters des Fensters in Bildschirmkoordinaten zurück. Dieser Wert wird in CSS-Pixeln angegeben. Siehe `mozScreenPixelsPerCSSPixel` in `nsIDOMWindowUtils` für einen Umrechnungsfaktor, um bei Bedarf an Bildschirm-Pixel anzupassen.
+  - : Gibt die horizontale (X) Koordinate der oberen linken Ecke des Fensters im Ansichtsbereich in Bildschirmkoordinaten zurück. Dieser Wert wird in CSS-Pixeln angegeben. Siehe `mozScreenPixelsPerCSSPixel` in `nsIDOMWindowUtils` für einen Umrechnungsfaktor, um bei Bedarf an Bildschirm-Pixel anzupassen.
 - [`Window.mozInnerScreenY`](/de/docs/Web/API/Window/mozInnerScreenY) {{ReadOnlyInline}} {{Non-standard_Inline}}
-  - : Gibt die vertikale (Y) Koordinate der linken oberen Ecke des Ansichtsfensters des Fensters in Bildschirmkoordinaten zurück. Dieser Wert wird in CSS-Pixeln angegeben. Siehe `mozScreenPixelsPerCSSPixel` für einen Umrechnungsfaktor, um bei Bedarf an Bildschirm-Pixel anzupassen.
+  - : Gibt die vertikale (Y) Koordinate der oberen linken Ecke des Fensters im Ansichtsbereich in Bildschirmkoordinaten zurück. Dieser Wert wird in CSS-Pixeln angegeben. Siehe `mozScreenPixelsPerCSSPixel` für einen Umrechnungsfaktor, um bei Bedarf an Bildschirm-Pixel anzupassen.
 - [`Window.name`](/de/docs/Web/API/Window/name)
-  - : Holt/legt den Namen des Fensters fest.
+  - : Ruft den Namen des Fensters ab oder legt ihn fest.
 - [`Window.navigation`](/de/docs/Web/API/Window/navigation) {{ReadOnlyInline}}
-  - : Gibt das aktuell `window` zugeordnete [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück. Der Einstiegspunkt für die [Navigation API](/de/docs/Web/API/Navigation_API).
+  - : Gibt das aktuelle `window`-verbundene [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück. Der Einstiegspunkt für die [Navigation API](/de/docs/Web/API/Navigation_API).
 - [`Window.navigator`](/de/docs/Web/API/Window/navigator) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das navigator-Objekt zurück.
+  - : Gibt einen Verweis auf das navigator-Objekt zurück.
 - [`Window.opener`](/de/docs/Web/API/Window/opener)
-  - : Gibt eine Referenz auf das Fenster zurück, das dieses aktuelle Fenster geöffnet hat.
+  - : Gibt einen Verweis auf das Fenster zurück, das dieses aktuelle Fenster geöffnet hat.
 - [`Window.origin`](/de/docs/Web/API/Window/origin) {{ReadOnlyInline}}
-  - : Gibt den Ursprung des globalen Objekts zurück, als Zeichenkette serialisiert.
+  - : Gibt den Ursprung des globalen Objekts, als Zeichenkette serialisiert, zurück.
 - [`Window.originAgentCluster`](/de/docs/Web/API/Window/originAgentCluster) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn dieses Fenster zu einem ursprungsbezogenen Agenten-Cluster gehört.
+  - : Gibt `true` zurück, wenn dieses Fenster zu einem ursprungs-gebundenen Agentencluster gehört.
 - [`Window.outerHeight`](/de/docs/Web/API/Window/outerHeight) {{ReadOnlyInline}}
-  - : Gibt die Höhe der Außenseite des Browserfensters zurück.
+  - : Ruft die Höhe der Außenseite des Browserfensters ab.
 - [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) {{ReadOnlyInline}}
-  - : Gibt die Breite der Außenseite des Browserfensters zurück.
+  - : Ruft die Breite der Außenseite des Browserfensters ab.
 - [`Window.pageXOffset`](/de/docs/Web/API/Window/scrollX) {{ReadOnlyInline}}
   - : Ein Alias für [`window.scrollX`](/de/docs/Web/API/Window/scrollX).
 - [`Window.pageYOffset`](/de/docs/Web/API/Window/scrollY) {{ReadOnlyInline}}
   - : Ein Alias für [`window.scrollY`](/de/docs/Web/API/Window/scrollY).
 - [`Window.parent`](/de/docs/Web/API/Window/parent) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das übergeordnete Fenster oder den übergeordneten Unterrahmen des aktuellen Fensters zurück.
+  - : Gibt einen Verweis auf das übergeordnete Fenster des aktuellen Fensters oder Unterrahmens zurück.
 - [`Window.performance`](/de/docs/Web/API/Window/performance) {{ReadOnlyInline}}
-  - : Gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das die [`timing`](/de/docs/Web/API/Performance/timing)- und [`navigation`](/de/docs/Web/API/Performance/navigation)-Attribute enthält, von denen jedes ein Objekt ist, das [leistungsbezogene](/de/docs/Web/API/Performance_API/Navigation_timing) Daten bereitstellt. Siehe auch [Using Navigation Timing](/de/docs/Web/API/Performance_API/Navigation_timing) für zusätzliche Informationen und Beispiele.
+  - : Gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, das die [`timing`](/de/docs/Web/API/Performance/timing) und [`navigation`](/de/docs/Web/API/Performance/navigation) Attribute enthält, die jeweils ein Objekt sind, das [leistungsbezogene](/de/docs/Web/API/Performance_API/Navigation_timing) Daten bereitstellt. Siehe auch [Verwenden der Navigation Timing API](/de/docs/Web/API/Performance_API/Navigation_timing) für zusätzliche Informationen und Beispiele.
 - [`Window.personalbar`](/de/docs/Web/API/Window/personalbar) {{ReadOnlyInline}}
   - : Gibt das personalbar-Objekt zurück.
 - [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) {{ReadOnlyInline}}
-  - : Gibt das [`Scheduler`](/de/docs/Web/API/Scheduler)-Objekt zurück, das mit dem aktuellen Kontext assoziiert ist. Dies ist der Einstiegspunkt für die Nutzung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
+  - : Gibt das [`Scheduler`](/de/docs/Web/API/Scheduler)-Objekt zurück, das mit dem aktuellen Kontext verbunden ist. Dies ist der Einstiegspunkt für die Verwendung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
 - [`Window.screen`](/de/docs/Web/API/Window/screen) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster assoziiert ist.
+  - : Gibt einen Verweis auf das mit dem Fenster verbundene Bildschirmobjekt zurück.
 - [`Window.screenX`](/de/docs/Web/API/Window/screenX) und [`Window.screenLeft`](/de/docs/Web/API/Window/screenLeft) {{ReadOnlyInline}}
-  - : Beide Eigenschaften geben den horizontalen Abstand vom linken Rand des Ansichtsfensters des Benutzers bis zur linken Seite des Bildschirms zurück.
+  - : Beide Eigenschaften geben die horizontale Distanz von der linken Grenze des Ansichtsbereichs des Benutzers bis zur linken Seite des Bildschirms zurück.
 - [`Window.screenY`](/de/docs/Web/API/Window/screenY) und [`Window.screenTop`](/de/docs/Web/API/Window/screenTop) {{ReadOnlyInline}}
-  - : Beide Eigenschaften geben den vertikalen Abstand vom oberen Rand des Ansichtsfensters des Benutzers bis zur oberen Seite des Bildschirms zurück.
+  - : Beide Eigenschaften geben die vertikale Distanz von der oberen Grenze des Ansichtsbereichs des Benutzers bis zur oberen Seite des Bildschirms zurück.
 - [`Window.scrollbars`](/de/docs/Web/API/Window/scrollbars) {{ReadOnlyInline}}
   - : Gibt das scrollbars-Objekt zurück.
 - [`Window.scrollMaxX`](/de/docs/Web/API/Window/scrollMaxX) {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Der maximale Versatz, auf den das Fenster horizontal gescrollt werden kann, d.h. die Dokumentbreite minus der Ansichtsfensterbreite.
+  - : Der maximale Versatz, zu dem das Fenster horizontal gescrollt werden kann, d.h. die Dokumentbreite minus die Ansichtsbreite.
 - [`Window.scrollMaxY`](/de/docs/Web/API/Window/scrollMaxY) {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Der maximale Versatz, auf den das Fenster vertikal gescrollt werden kann (d.h. die Dokumenthöhe minus der Ansichtsfensterhöhe).
+  - : Der maximale Versatz, zu dem das Fenster vertikal gescrollt werden kann (d.h. die Dokumenhöhe minus die Ansichtshöhe).
 - [`Window.scrollX`](/de/docs/Web/API/Window/scrollX) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der horizontal bereits gescrollten Pixel des Dokuments zurück.
+  - : Gibt die Anzahl der Pixel zurück, um die das Dokument bereits horizontal gescrollt wurde.
 - [`Window.scrollY`](/de/docs/Web/API/Window/scrollY) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der vertikal bereits gescrollten Pixel des Dokuments zurück.
+  - : Gibt die Anzahl der Pixel zurück, um die das Dokument bereits vertikal gescrollt wurde.
 - [`Window.self`](/de/docs/Web/API/Window/self) {{ReadOnlyInline}}
-  - : Gibt eine Objekt-Referenz auf das Fensterobjekt selbst zurück.
+  - : Gibt einen Objektverweis auf das Fensterobjekt selbst zurück.
 - [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage)
-  - : Gibt eine Referenz auf das Sitzungsspeicher-Objekt zurück, das zum Speichern von Daten verwendet wird, die nur von der Ursprungsadresse abgerufen werden können, die es erstellt hat.
+  - : Gibt einen Verweis auf das Sitzungsspeicherobjekt zurück, das Daten speichert, die nur von der Ursprungsadresse abgerufen werden können, die sie erstellt hat.
 - [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage) {{ReadOnlyInline}} {{SecureContext_Inline}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt das [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Objekt für den aktuellen Ursprung zurück. Dies ist der Haupteinstiegspunkt zum Schreiben von Daten in den gemeinsamen Speicher mit der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API).
+  - : Gibt das [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Objekt für den aktuellen Ursprung zurück. Dies ist der Haupteinstiegspunkt für das Schreiben von Daten in den gemeinsamen Speicher mithilfe der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API).
 - [`Window.speechSynthesis`](/de/docs/Web/API/Window/speechSynthesis) {{ReadOnlyInline}}
-  - : Gibt ein [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Objekt zurück, das den Einstieg in die Nutzung der Sprachsynthese-Funktionen der [Web Speech API](/de/docs/Web/API/Web_Speech_API) bietet.
+  - : Gibt ein [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Objekt zurück, das den Einstiegspunkt in die Verwendung der Sprachsynthesefunktionalität der [Web Speech API](/de/docs/Web/API/Web_Speech_API) darstellt.
 - [`Window.statusbar`](/de/docs/Web/API/Window/statusbar) {{ReadOnlyInline}}
   - : Gibt das statusbar-Objekt zurück.
 - [`Window.toolbar`](/de/docs/Web/API/Window/toolbar) {{ReadOnlyInline}}
   - : Gibt das toolbar-Objekt zurück.
 - [`Window.top`](/de/docs/Web/API/Window/top) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das oberste Fenster in der Fenster-Hierarchie zurück. Diese Eigenschaft ist nur lesbar.
+  - : Gibt einen Verweis auf das oberste Fenster in der Fensterhierarchie zurück. Diese Eigenschaft ist schreibgeschützt.
 - [`Window.trustedTypes`](/de/docs/Web/API/Window/trustedTypes) {{ReadOnlyInline}}
-  - : Gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt zurück, das mit dem globalen Objekt assoziiert ist und den Einstiegspunkt für die Nutzung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet.
+  - : Gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt zurück, das mit dem globalen Objekt verbunden ist und den Einstiegspunkt für die Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet.
 - [`Window.viewport`](/de/docs/Web/API/Window/viewport) {{Experimental_inline}} {{ReadOnlyInline}}
-  - : Gibt eine [`Viewport`](/de/docs/Web/API/Viewport)-Objektinstanz zurück, die Informationen über den aktuellen Zustand des Geräteansichtsfensters bereitstellt.
+  - : Gibt eine [`Viewport`](/de/docs/Web/API/Viewport)-Objektexemplar zurück, die Informationen über den aktuellen Zustand des Ansichtsbereichs des Geräts liefert.
 - [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) {{ReadOnlyInline}}
-  - : Gibt ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt zurück, das das visuelle Ansichtsfenster für ein gegebenes Fenster darstellt.
+  - : Gibt ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt zurück, das den visuellen Ansichtsbereich für ein gegebenes Fenster repräsentiert.
 - [`Window.window`](/de/docs/Web/API/Window/window) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das aktuelle Fenster zurück.
-- `window[0]`, `window[1]`, usw.
-  - : Gibt eine Referenz auf das `window`-Objekt in den Rahmen zurück. Siehe [`Window.frames`](/de/docs/Web/API/Window/frames) für weitere Details.
+  - : Gibt einen Verweis auf das aktuelle Fenster zurück.
+- `window[0]`, `window[1]`, etc.
+  - : Gibt einen Verweis auf das `window`-Objekt in den Frames zurück. Siehe [`Window.frames`](/de/docs/Web/API/Window/frames) für weitere Details.
 - Benannte Eigenschaften
-  - : Einige Elemente im Dokument sind auch als Fenstereigenschaften verfügbar:
-    - Für jedes {{HTMLElement("embed")}}, {{HTMLElement("form")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}} und {{HTMLElement("object")}}-Element wird sein `name` (wenn nicht leer) exponiert.
-      Zum Beispiel, wenn das Dokument `<form name="my_form">` enthält, dann gibt `window["my_form"]` (und sein Äquivalent `window.my_form`) eine Referenz auf dieses Element zurück.
-    - Für jedes HTMLElement wird seine `id` (wenn nicht leer) exponiert.
+  - : Einige Elemente im Dokument werden auch als Fenster-Eigenschaften verfügbar gemacht:
+    - Für jedes {{HTMLElement("embed")}}, {{HTMLElement("form")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}} und {{HTMLElement("object")}}-Element wird der `name` (wenn nicht leer) verfügbar gemacht.
+      Zum Beispiel, wenn das Dokument `<form name="my_form">` enthält, dann gibt `window["my_form"]` (und das äquivalente `window.my_form`) einen Verweis auf dieses Element zurück.
+    - Für jedes HTML-Element wird die `id` (wenn nicht leer) verfügbar gemacht.
 
-    Wenn eine Eigenschaft mit einem einzelnen Element übereinstimmt, wird dieses Element direkt zurückgegeben. Wenn die Eigenschaft mit mehreren Elementen übereinstimmt, wird eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurückgegeben, die alle enthält. Wenn eines der Elemente ein navigierbares `<iframe>` oder `<object>` ist, wird stattdessen das [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) des ersten solchen iframes zurückgegeben.
+    Wenn eine Eigenschaft einem einzelnen Element entspricht, wird dieses Element direkt zurückgegeben. Wenn die Eigenschaft mehreren Elementen entspricht, wird eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurückgegeben, die alle enthält. Wenn eines der Elemente ein navigierbares `<iframe>` oder `<object>` ist, wird stattdessen das [`contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) des ersten solchen iframes zurückgegeben.
 
 ### Veraltete Eigenschaften
 
 - [`Window.event`](/de/docs/Web/API/Window/event) {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Gibt das **aktuelle Ereignis** zurück, das Ereignis, das derzeit vom JavaScript-Kontext der Anwendung gehandhabt wird, oder `undefined`, wenn gerade kein Ereignis behandelt wird. Das [`Event`](/de/docs/Web/API/Event)-Objekt, das direkt an Ereignishandler übergeben wird, sollte wann immer möglich stattdessen verwendet werden.
+  - : Gibt das **aktuelle Ereignis** zurück, welches das Ereignis ist, das momentan im JavaScript-Kontext verarbeitet wird, oder `undefined`, wenn momentan kein Ereignis verarbeitet wird. Das direkt an die Ereignishandler übergebene [`Event`](/de/docs/Web/API/Event)-Objekt sollte stattdessen wann immer möglich verwendet werden.
 - [`Window.external`](/de/docs/Web/API/Window/external) {{Deprecated_Inline}} {{ReadOnlyInline}}
   - : Gibt ein Objekt mit Funktionen zurück, um externe Suchanbieter zum Browser hinzuzufügen.
 - [`Window.orientation`](/de/docs/Web/API/Window/orientation) {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Gibt die Ausrichtung in Grad (in 90-Grad-Schritten) des Viewports relativ zur natürlichen Ausrichtung des Geräts zurück.
+  - : Gibt die Orientierung in Grad zurück (in 90-Grad-Schritten) des Ansichtsbereichs im Verhältnis zur natürlichen Orientierung des Geräts.
 - [`Window.status`](/de/docs/Web/API/Window/status) {{Deprecated_Inline}}
-  - : Holt/legt den Text in der Statusleiste am unteren Rand des Browsers fest.
+  - : Ruft den Text in der Statusleiste am unteren Rand des Browsers ab oder legt ihn fest.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt Methoden von der [`EventTarget`](/de/docs/Web/API/EventTarget)-Schnittstelle._
+_Dieses Interface erbt Methoden vom [`EventTarget`](/de/docs/Web/API/EventTarget)-Interface._
 
 - [`Window.atob()`](/de/docs/Web/API/Window/atob)
-  - : Dekodiert einen Datenstring, der mit der base-64-Codierung kodiert wurde.
+  - : Dekodiert eine Zeichenkette von Daten, die unter Verwendung der Basis-64-Codierung codiert wurde.
 - [`Window.alert()`](/de/docs/Web/API/Window/alert)
-  - : Zeigt ein Alarmdialogfeld an.
+  - : Zeigt einen Alert-Dialog an.
 - [`Window.blur()`](/de/docs/Web/API/Window/blur) {{deprecated_inline}}
-  - : Entfernt den Fokus vom Fenster.
+  - : Setzt den Fokus vom Fenster weg.
 - [`Window.btoa()`](/de/docs/Web/API/Window/btoa)
-  - : Erstellt einen base-64-kodierten ASCII-String aus einem String aus binären Daten.
+  - : Erstellt eine ASCII-Zeichenkette, die mithilfe von Basis-64-Codierung aus einer Binärdaten-Zeichenkette codiert wurde.
 - [`Window.cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame)
-  - : Ermöglicht es, einen zuvor mit [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) anberaumten Rückruf abzubrechen.
+  - : Ermöglicht das Abbrechen eines zuvor mit [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) geplanten Rückrufs.
 - [`Window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback)
-  - : Ermöglicht es, einen zuvor mit [`Window.requestIdleCallback`](/de/docs/Web/API/Window/requestIdleCallback) geplanten Rückruf abzubrechen.
+  - : Ermöglicht das Abbrechen eines zuvor geplanten Rückrufs mit [`Window.requestIdleCallback`](/de/docs/Web/API/Window/requestIdleCallback).
 - [`Window.clearInterval()`](/de/docs/Web/API/Window/clearInterval)
-  - : Hebt die wiederholte Ausführung auf, die mit [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) gesetzt wurde.
+  - : Hebt die wiederholte Ausführung auf, die mit [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) eingestellt wurde.
 - [`Window.clearTimeout()`](/de/docs/Web/API/Window/clearTimeout)
-  - : Hebt die verzögerte Ausführung auf, die mit [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) gesetzt wurde.
+  - : Hebt die verzögerte Ausführung auf, die mit [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) eingestellt wurde.
 - [`Window.close()`](/de/docs/Web/API/Window/close)
   - : Schließt das aktuelle Fenster.
 - [`Window.confirm()`](/de/docs/Web/API/Window/confirm)
   - : Zeigt einen Dialog mit einer Nachricht an, auf die der Benutzer reagieren muss.
 - [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap)
-  - : Akzeptiert eine Vielzahl unterschiedlicher Bildquellen und gibt ein {{jsxref("Promise")}} zurück, das in einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) aufgelöst wird. Optional wird die Quelle auf das Rechteck von Pixeln beschnitten, das bei _(sx, sy)_ mit der Breite sw und Höhe sh beginnt.
+  - : Akzeptiert eine Vielzahl verschiedener Bildquellen und gibt eine {{jsxref("Promise")}} zurück, die in einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) aufgelöst wird. Optional wird die Quelle auf das Rechteck von Pixeln zugeschnitten, die an _(sx, sy)_ mit der Breite sw und der Höhe sh ihren Ursprung haben.
 - [`Window.dump()`](/de/docs/Web/API/Window/dump) {{Non-standard_Inline}}
   - : Schreibt eine Nachricht in die Konsole.
 - [`Window.fetch()`](/de/docs/Web/API/Window/fetch)
-  - : Startet den Vorgang des Abrufens einer Ressource aus dem Netzwerk.
+  - : Startet den Prozess des Abrufens einer Ressource aus dem Netzwerk.
 - [`Window.fetchLater()`](/de/docs/Web/API/Window/fetchLater) {{experimental_inline}}
-  - : Erstellt einen zurückgestellten Abruf, der gesendet wird, sobald die Seite verlassen wird (sie wird zerstört oder geht in den {{Glossary("bfcache", "bfcache")}}) oder nach einem festgelegten `activateAfter`-Timeout — je nachdem, was zuerst eintritt.
+  - : Erstellt einen zurückgestellten Abruf, der gesendet wird, sobald die Seite verlassen wird (sie zerstört wird oder in den {{Glossary("bfcache", "bfcache")}} eintritt), oder nach einem angegebenen `activateAfter`-Timer — was auch immer zuerst eintritt.
 - [`Window.find()`](/de/docs/Web/API/Window/find) {{Non-standard_Inline}}
-  - : Sucht in einem Fenster nach einer bestimmten Zeichenfolge.
+  - : Sucht in einem Fenster nach einer gegebenen Zeichenkette.
 - [`Window.focus()`](/de/docs/Web/API/Window/focus)
   - : Setzt den Fokus auf das aktuelle Fenster.
 - [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle)
-  - : Holt den berechneten Stil für das angegebene Element. Der berechnete Stil gibt die berechneten Werte aller CSS-Eigenschaften des Elements an.
+  - : Ruft den berechneten Stil für das angegebene Element ab. Der berechnete Stil zeigt die berechneten Werte aller CSS-Eigenschaften des Elements an.
 - [`Window.getDefaultComputedStyle()`](/de/docs/Web/API/Window/getDefaultComputedStyle) {{Non-standard_Inline}}
-  - : Holt den Standard-berechneten Stil für das angegebene Element, ignoriert dabei Autorenstile.
+  - : Ruft den Standard-berechneten Stil für das angegebene Element ab, wobei Autoren-Stylesheets ignoriert werden.
 - [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) {{experimental_inline}} {{securecontext_inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objektinstanz erfüllt wird, die die Details aller Bildschirme darstellt, die dem Gerät des Benutzers zur Verfügung stehen.
+  - : Gibt eine {{jsxref("Promise")}} zurück, die sich mit einem [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objektexemplar erfüllt, das die Details aller Bildschirme bereitstellt, die dem Gerät des Benutzers zur Verfügung stehen.
 - [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection)
-  - : Gibt das Selectionsobjekt zurück, das die ausgewählten Elemente repräsentiert.
+  - : Gibt das Auswahlobjekt zurück, das das/die ausgewählte(n) Element(e) repräsentiert.
 - [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
-  - : Gibt ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das die angegebene Media Query-Zeichenfolge repräsentiert.
+  - : Gibt ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das die angegebene Media-Query-Zeichenkette repräsentiert.
 - [`Window.moveBy()`](/de/docs/Web/API/Window/moveBy)
-  - : Verschiebt das aktuelle Fenster um eine festgelegte Menge.
+  - : Verschiebt das aktuelle Fenster um einen angegebenen Betrag.
 - [`Window.moveTo()`](/de/docs/Web/API/Window/moveTo)
   - : Verschiebt das Fenster zu den angegebenen Koordinaten.
 - [`Window.open()`](/de/docs/Web/API/Window/open)
   - : Öffnet ein neues Fenster.
 - [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
-  - : Bietet eine sichere Möglichkeit für ein Fenster, einen Zeichenfolgen-Datensatz an ein anderes Fenster zu senden, das nicht in derselben Domäne wie das erste sein muss.
+  - : Bietet eine sichere Möglichkeit, dass ein Fenster eine Zeichenkette von Daten an ein anderes Fenster sendet, das nicht in derselben Domain wie das erste sein muss.
 - [`Window.print()`](/de/docs/Web/API/Window/print)
-  - : Öffnet den Druckdialog zum Drucken des aktuellen Dokuments.
+  - : Öffnet den Druckdialog, um das aktuelle Dokument zu drucken.
 - [`Window.prompt()`](/de/docs/Web/API/Window/prompt)
-  - : Gibt den vom Benutzer in einem Eingabedialog eingegebenen Text zurück.
+  - : Gibt den vom Benutzer in einem Eingabefeld eines Dialogs eingegebenen Text zurück.
 - [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt wird, die die lokal verfügbaren Schriftzeichen repräsentieren.
+  - : Gibt eine {{jsxref("Promise")}} zurück, die sich mit einem Array von [`FontData`](/de/docs/Web/API/FontData)-Objekten erfüllt, die die lokal verfügbaren Schriftarten repräsentieren.
 - [`Window.queueMicrotask()`](/de/docs/Web/API/Window/queueMicrotask)
-  - : Wartet einen Mikroauftrag zur Ausführung zu einem sicheren Zeitpunkt, bevor die Steuerung in die Ereignisschleife des Browsers zurückkehrt, ein.
+  - : Wartet einen Mikroauftrag ein, um zu einem sicheren Zeitpunkt vor der Rückkehr der Kontrolle in die Ereignisschleife des Browsers ausgeführt zu werden.
 - [`Window.reportError()`](/de/docs/Web/API/Window/reportError)
-  - : Meldet einen Fehler in einem Skript und simuliert eine nicht behandelte Ausnahme.
+  - : Meldet einen Fehler in einem Skript und emuliert eine unbehandelte Ausnahme.
 - [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)
-  - : Teilt dem Browser mit, dass eine Animation im Gange ist und fordert, dass der Browser einen Neuzeichen-Zyklus des Fensters für den nächsten Animationsrahmen ansetzt.
+  - : Teilt dem Browser mit, dass eine Animation im Gange ist und fordert den Browser auf, ein Neuzeichnen des Fensters für den nächsten Animationsrahmen zu planen.
 - [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)
-  - : Ermöglicht die Planung von Aufgaben während der Leerlaufzeiten eines Browsers.
+  - : Ermöglicht die Planung von Aufgaben während der Ruhezeiten eines Browsers.
 - [`Window.requestResize()`](/de/docs/Web/API/Window/requestResize) {{experimental_inline}}
-  - : Aktualisiert die Größeninformationen, die von einem eingebetteten Dokument mit seinem einbettenden Elternteil geteilt werden, aber nur, wenn das eingebettete Dokument zugestimmt hat, seine Größeninformationen zu teilen.
+  - : Aktualisiert die Größeninformationen, die von einem eingebetteten Dokument mit seinem einbettenden übergeordneten Element geteilt werden, jedoch nur, wenn das eingebettete Dokument sich entschieden hat, seine Größeninformationen zu teilen.
 - [`Window.resizeBy()`](/de/docs/Web/API/Window/resizeBy)
   - : Ändert die Größe des aktuellen Fensters um einen bestimmten Betrag.
 - [`Window.resizeTo()`](/de/docs/Web/API/Window/resizeTo)
-  - : Ändert dynamisch die Größe des Fensters.
+  - : Ändert die Größe des Fensters dynamisch.
 - [`Window.scroll()`](/de/docs/Web/API/Window/scroll)
-  - : Scrollt das Fenster zu einem bestimmten Platz im Dokument.
+  - : Scrollt das Fenster an eine bestimmte Stelle im Dokument.
 - [`Window.scrollBy()`](/de/docs/Web/API/Window/scrollBy)
-  - : Scrollt das Dokument im Fenster um die angegebene Menge.
+  - : Scrollt das Dokument im Fenster um den angegebenen Betrag.
 - [`Window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) {{Non-standard_Inline}}
   - : Scrollt das Dokument um die angegebene Anzahl von Zeilen.
 - [`Window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages) {{Non-standard_Inline}}
   - : Scrollt das aktuelle Dokument um die angegebene Anzahl von Seiten.
 - [`Window.scrollTo()`](/de/docs/Web/API/Window/scrollTo)
-  - : Scrollt zu einem bestimmten Koordinatensatz im Dokument.
+  - : Scrollt zu einem bestimmten Satz von Koordinaten im Dokument.
 - [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval)
-  - : Plant die Ausführung einer Funktion jedes Mal, wenn eine bestimmte Anzahl von Millisekunden vergangen ist.
+  - : Plant eine Funktion zur Ausführung, jedes Mal wenn eine angegebene Anzahl von Millisekunden vergangen ist.
 - [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout)
-  - : Plant die Ausführung einer Funktion in einer bestimmten Zeit.
+  - : Plant eine Funktion zur Ausführung nach einer bestimmten Zeitspanne.
 - [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Zeigt ein Verzeichnis-Auswahlfeld an, das es dem Benutzer ermöglicht, ein Verzeichnis auszuwählen.
+  - : Zeigt einen Verzeichnisauswahldialog an, der dem Benutzer ermöglicht, ein Verzeichnis auszuwählen.
 - [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Zeigt ein Dateiauswahlfeld an, mit dem ein Benutzer eine oder mehrere Dateien auswählen kann.
+  - : Zeigt einen Dateiauswahldialog an, der dem Benutzer ermöglicht, eine Datei oder mehrere Dateien auszuwählen.
 - [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker) {{Experimental_Inline}} {{SecureContext_Inline}}
-  - : Zeigt ein Dateiauswahlfeld an, das es einem Benutzer ermöglicht, eine Datei zu speichern.
+  - : Zeigt einen Dateiauswahldialog an, der dem Benutzer ermöglicht, eine Datei zu speichern.
 - [`Window.sizeToContent()`](/de/docs/Web/API/Window/sizeToContent) {{Non-standard_Inline}}
-  - : Dimensioniert das Fenster entsprechend seinem Inhalt.
+  - : Passt die Größe des Fensters an seinen Inhalt an.
 - [`Window.stop()`](/de/docs/Web/API/Window/stop)
   - : Diese Methode stoppt das Laden des Fensters.
 - [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone)
-  - : Erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Wertes unter Verwendung des [strukturierten Kopier-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+  - : Erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Wertes unter Verwendung des [Strukturklon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
 ### Veraltete Methoden
 
 - [`Window.captureEvents()`](/de/docs/Web/API/Window/captureEvents) {{Deprecated_Inline}}
-  - : Registriert das Fenster, um alle Ereignisse eines bestimmten Typs zu erfassen.
+  - : Registriert das Fenster, um alle Ereignisse des angegebenen Typs zu erfassen.
 - [`Window.clearImmediate()`](/de/docs/Web/API/Window/clearImmediate) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Hebt die wiederholte Ausführung auf, die mit `setImmediate()` festgelegt wurde.
+  - : Hebt die wiederholte Ausführung auf, die mit `setImmediate()` eingestellt wurde.
 - [`Window.releaseEvents()`](/de/docs/Web/API/Window/releaseEvents) {{Deprecated_Inline}}
-  - : Hebt die Erfassung von bestimmten Ereignistypen durch das Fenster auf.
+  - : Gibt das Fenster frei, um Ereignisse eines bestimmten Typs abzufangen.
 - [`Window.requestFileSystem()`](/de/docs/Web/API/Window/requestFileSystem) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Ermöglicht einer Website oder App den Zugriff auf ein sandboxed Dateisystem für den eigenen Gebrauch.
+  - : Ermöglicht einer Website oder App, Zugriff auf ein sandboxed Dateisystem für eigenen Gebrauch zu erhalten.
 - [`Window.setImmediate()`](/de/docs/Web/API/Window/setImmediate) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Führt eine Funktion aus, nachdem der Browser andere intensive Aufgaben abgeschlossen hat.
+  - : Führt eine Funktion aus, nachdem der Browser andere schwere Aufgaben beendet hat.
 - [`Window.setResizable()`](/de/docs/Web/API/Window/setResizable) {{Non-standard_Inline}} {{deprecated_inline}}
-  - : Macht nichts (kein Effekt). Beibehalten zur Rückwärtskompatibilität mit Netscape 4.x.
+  - : Macht nichts (no-op). Wird für Rückwärtskompatibilität mit Netscape 4.x beibehalten.
 - [`Window.webkitConvertPointFromNodeToPage()`](/de/docs/Web/API/Window/webkitConvertPointFromNodeToPage) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Transformiert einen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint) vom Koordinatensystem des Knotens in das Koordinatensystem der Seite.
+  - : Transformiert einen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint) vom Koordinatensystem des Knotens zum Koordinatensystem der Seite.
 - [`Window.webkitConvertPointFromPageToNode()`](/de/docs/Web/API/Window/webkitConvertPointFromPageToNode) {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Transformiert einen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint) vom Koordinatensystem der Seite in das Koordinatensystem des Knotens.
+  - : Transformiert einen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint) vom Koordinatensystem der Seite zum Koordinatensystem des Knotens.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle. Zusätzlich zu den unten aufgeführten Ereignissen können viele Ereignisse aus dem [`Document`](/de/docs/Web/API/Document), das im Fenster-Objekt enthalten ist, durch aufsteigen.
+Hören Sie auf diese Ereignisse, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen. Zusätzlich zu den unten aufgeführten Ereignissen können viele Ereignisse vom [`Document`](/de/docs/Web/API/Document), das sich im Fensterobjekt befindet, nach oben blubbern.
 
 - [`error`](/de/docs/Web/API/Window/error_event)
-  - : Tritt auf, wenn eine Ressource nicht geladen wurde oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden oder ungültig ist.
+  - : Wird ausgelöst, wenn eine Ressource nicht geladen werden kann oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden werden kann oder ungültig ist.
 - [`languagechange`](/de/docs/Web/API/Window/languagechange_event)
-  - : Wird am globalen Geltungsbereich-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+  - : Wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 - [`resize`](/de/docs/Web/API/Window/resize_event)
-  - : Wird ausgelöst, wenn das Fenster in der Größe geändert wurde.
+  - : Wird ausgelöst, wenn das Fenster in der Größe verändert wurde.
 - [`storage`](/de/docs/Web/API/Window/storage_event)
   - : Wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments geändert wurde.
 
-### Verbindungsevents
+### Verbindung-Ereignisse
 
 - [`offline`](/de/docs/Web/API/Window/offline_event)
-  - : Tritt ein, wenn der Browser den Zugriff aufs Netzwerk verloren hat und der Wert von `navigator.onLine` auf `false` gewechselt hat.
+  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk verloren hat und der Wert von `navigator.onLine` auf `false` gewechselt ist.
 - [`online`](/de/docs/Web/API/Window/online_event)
-  - : Tritt ein, wenn der Browser den Zugriff aufs Netzwerk wiedererlangt hat und der Wert von `navigator.onLine` auf `true` gewechselt hat.
+  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk erhalten hat und der Wert von `navigator.onLine` auf `true` gewechselt ist.
 
-### Geräteorientierungsereignisse
+### Geräteorientierungs-Ereignisse
 
 - [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event) {{SecureContext_Inline}}
-  - : Wird in regelmäßigen Abständen ausgelöst und zeigt die physische Beschleunigungskraft an, die das Gerät erfährt sowie die Rotationsrate, falls verfügbar.
+  - : Wird in regelmäßigen Abständen ausgelöst und gibt die Menge an physischer Beschleunigungskraft an, die das Gerät empfängt, sowie die Rotationsrate, falls verfügbar.
 - [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) {{SecureContext_Inline}}
-  - : Wird ausgelöst, wenn neue Daten vom Magnetometer-Orientierungssensor über die aktuelle Orientierung des Geräts im Vergleich zum Erdkoordinatenrahmen vorliegen.
+  - : Wird ausgelöst, wenn frische Daten vom Magnetometer-Orientierungssensor über die aktuelle Ausrichtung des Geräts im Vergleich zum Erdkordinatensystem verfügbar sind.
 - [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event) {{SecureContext_Inline}}
-  - : Wird ausgelöst, wenn neue Daten vom Magnetometer-Orientierungssensor über die aktuelle absolute Orientierung des Geräts im Vergleich zum Erdkoordinatenrahmen vorliegen.
+  - : Wird ausgelöst, wenn frische Daten vom Magnetometer-Orientierungssensor über die aktuelle absolute Ausrichtung des Geräts im Vergleich zum Erdkordinatensystem verfügbar sind.
 
-### Fokusevents
+### Fokus-Ereignisse
 
 - [`blur`](/de/docs/Web/API/Window/blur_event)
-  - : Tritt auf, wenn ein Element den Fokus verloren hat.
+  - : Wird ausgelöst, wenn ein Element den Fokus verloren hat.
 - [`focus`](/de/docs/Web/API/Window/focus_event)
-  - : Tritt auf, wenn ein Element den Fokus erlangt hat.
+  - : Wird ausgelöst, wenn ein Element den Fokus erlangt hat.
 
-### Gamepadevents
+### Gamepad-Ereignisse
 
 - [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)
-  - : Tritt auf, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder das erste Mal eine Taste/Achse des Gamepads benutzt wird.
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad verbunden wurde oder das erste Mal ein Knopf/Achse des Gamepads benutzt wird.
 - [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)
-  - : Tritt auf, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
 
-### Verlaufsevents
+### Verlaufs-Ereignisse
 
 - [`hashchange`](/de/docs/Web/API/Window/hashchange_event)
-  - : Tritt auf, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und danach folgt).
+  - : Wird ausgelöst, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit `#` beginnt und ihm folgt).
 - [`pagehide`](/de/docs/Web/API/Window/pagehide_event)
-  - : Wird gesendet, wenn der Browser das aktuelle Dokument versteckt, während im Prozess des Wechsels, um ein anderes Dokument aus dem Sitzungsverlauf anzuzeigen. Dies geschieht zum Beispiel, wenn der Benutzer auf die Zurück-Schaltfläche klickt oder wenn er auf die Vorwärts-Schaltfläche klickt, um im Sitzungsverlauf voranzuschreiten.
+  - : Wird gesendet, wenn der Browser das aktuelle Dokument versteckt, während im Prozess des Wechsels zur Anzeige eines anderen Dokuments aus der Sitzungshistorie. Dies geschieht zum Beispiel, wenn der Benutzer die Zurück-Schaltfläche klickt oder wenn er die Vorwärts-Schaltfläche klickt, um in der Sitzungshistorie weiter zu navigieren.
 - [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)
-  - : Tritt auf, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
+  - : Wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines frischen Dokuments aus dem Netzwerk oder der Aktivierung eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
 - [`pageshow`](/de/docs/Web/API/Window/pageshow_event)
-  - : Wird gesendet, wenn der Browser das Dokument sichtbar macht aufgrund von Navigationen, einschließlich nicht nur wenn die Seite zum ersten Mal geladen wird, sondern auch Situationen wie wenn der Benutzer zur Seite zurücknavigiert, nachdem er zu einer anderen innerhalb derselben Registerkarte navigiert hat.
+  - : Wird gesendet, wenn der Browser das Dokument durch Navigationsaufgaben sichtbar macht, einschließlich nicht nur, wenn die Seite erstmals geladen wird, sondern auch, wenn der Benutzer zur Seite zurücknavigiert, nachdem er zu einer anderen innerhalb desselben Tabs navigiert hat.
 - [`pageswap`](/de/docs/Web/API/Window/pageswap_event)
-  - : Tritt auf, wenn ein Dokument entladen wird aufgrund einer Navigation.
+  - : Wird ausgelöst, wenn ein Dokument wegen einer Navigation entladen wird.
 - [`popstate`](/de/docs/Web/API/Window/popstate_event)
-  - : Wird gesendet, wenn sich das aktive Verlaufsobjekt ändert.
+  - : Wird ausgelöst, wenn sich der aktive Verlaufseintrag ändert.
 
-### Lade- und Entladeereignisse
+### Lade- & Entlade-Ereignisse
 
 - [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)
-  - : Tritt ein, wenn das Fenster, das Dokument und seine Ressourcen entladen werden sollen.
+  - : Wird ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen kurz davor stehen, entladen zu werden.
 - [`load`](/de/docs/Web/API/Window/load_event)
-  - : Tritt auf, wenn die gesamte Seite geladen wurde, einschließlich aller abhängigen Ressourcen wie Stylesheets und Bilder.
+  - : Wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets und Bilder.
 - [`unload`](/de/docs/Web/API/Window/unload_event)
-  - : Tritt ein, wenn das Dokument oder eine untergeordnete Ressource entladen wird.
+  - : Wird ausgelöst, wenn das Dokument oder eine kindliche Ressource entladen wird.
 
 ### Manifest-Ereignisse
 
 - [`appinstalled`](/de/docs/Web/API/Window/appinstalled_event)
-  - : Tritt ein, wenn der Browser erfolgreich eine Seite als Anwendung installiert hat.
+  - : Wird ausgelöst, wenn der Browser eine Seite erfolgreich als Anwendung installiert hat.
 - [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event)
-  - : Wird ausgelöst, wenn ein Benutzer kurz davor ist, aufgefordert zu werden, eine Webanwendung zu installieren.
+  - : Wird ausgelöst, wenn ein Benutzer darauf hingewiesen wird, eine Webanwendung zu installieren.
 
-### Nachrichtenereignisse
+### Nachrichten-Ereignisse
 
 - [`message`](/de/docs/Web/API/Window/message_event)
-  - : Tritt auf, wenn das Fenster eine Nachricht erhält, zum Beispiel von einem Aufruf an [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsingkontext.
+  - : Wird ausgelöst, wenn das Fenster eine Nachricht empfängt, etwa durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
 - [`messageerror`](/de/docs/Web/API/Window/messageerror_event)
-  - : Tritt auf, wenn ein `Window`-Objekt eine Nachricht empfängt, die nicht deserialisiert werden kann.
+  - : Wird ausgelöst, wenn ein `Window`-Objekt eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
-### Druckereignisse
+### Druck-Ereignisse
 
 - [`afterprint`](/de/docs/Web/API/Window/afterprint_event)
-  - : Tritt auf, nachdem das assoziierte Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
+  - : Wird ausgelöst, nachdem das zugehörige Dokument gedruckt wurde oder die Druckvorschau geschlossen wurde.
 - [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)
-  - : Wird ausgelöst, wenn das assoziierte Dokument gedruckt oder zur Druckanzeige vorbereitet wird.
+  - : Wird ausgelöst, wenn das zugehörige Dokument gedruckt wird oder zur Druckvorschau vorbereitet wird.
 
-### Promise-Rejection-Ereignisse
+### Promise-Abweisungs-Ereignisse
 
 - [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
-  - : Wird jedes Mal gesendet, wenn ein JavaScript {{jsxref("Promise")}} abgelehnt wird, unabhängig davon, ob ein Handler vorhanden ist, der die Ablehnung fängt oder nicht.
+  - : Wird gesendet, jedes Mal wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird, egal ob ein Handler vorhanden ist, um die Ablehnung zu behandeln oder nicht.
 - [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
-  - : Wird gesendet, wenn ein JavaScript {{jsxref("Promise")}} abgelehnt wird, aber kein Handler vorhanden ist, der die Ablehnung fängt.
+  - : Wird gesendet, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird, aber kein Handler vorhanden ist, um die Ablehnung zu behandeln.
 
-### Scrollereignisse
+### Scroll-Ereignisse
 
 - [`scrollsnapchange`](/de/docs/Web/API/Window/scrollsnapchange_event) {{experimental_inline}}
-  - : Wird am Scroll-Container am Ende einer Scroll-Operation ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wurde.
+  - : Wird am Scrollcontainer am Ende eines Scrollvorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wurde.
 - [`scrollsnapchanging`](/de/docs/Web/API/Window/scrollsnapchanging_event) {{experimental_inline}}
-  - : Wird am Scroll-Container ausgelöst, wenn der Browser bestimmt hat, dass ein neues Scroll-Snap-Ziel anhängig ist, d.h. es wird ausgewählt, wenn die aktuelle Scroll-Geste endet.
+  - : Wird am Scrollcontainer ausgelöst, wenn der Browser bestimmt, dass ein neues Scroll-Snap-Ziel aussteht, d.h. es wird ausgewählt, wenn die aktuelle Scrollgeste endet.
 
 ### Veraltete Ereignisse
 
 - [`orientationchange`](/de/docs/Web/API/Window/orientationchange_event) {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn sich die Ausrichtung des Geräts ändert.
+  - : Wird ausgelöst, wenn sich die Ausrichtung des Geräts geändert hat.
 - [`vrdisplayactivate`](/de/docs/Web/API/Window/vrdisplayactivate_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn ein Display präsentiert werden kann.
+  - : Wird ausgelöst, wenn ein Display zur Darstellung bereit ist.
 - [`vrdisplayconnect`](/de/docs/Web/API/Window/vrdisplayconnect_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn ein kompatibles VR-Gerät mit dem Computer verbunden wurde.
+  - : Wird ausgelöst, wenn ein kompatibles VR-Gerät an den Computer angeschlossen wurde.
 - [`vrdisplaydisconnect`](/de/docs/Web/API/Window/vrdisplaydisconnect_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Wird ausgelöst, wenn ein kompatibles VR-Gerät vom Computer getrennt wurde.
 - [`vrdisplaydeactivate`](/de/docs/Web/API/Window/vrdisplaydeactivate_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn ein Display nicht mehr präsentiert werden kann.
+  - : Wird ausgelöst, wenn ein Display nicht mehr dargestellt werden kann.
 - [`vrdisplaypresentchange`](/de/docs/Web/API/Window/vrdisplaypresentchange_event) {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn sich der Präsentationsstatus eines VR-Geräts ändert — d.h. es wechselt von präsentierend zu nicht präsentierend oder umgekehrt.
+  - : Wird ausgelöst, wenn sich der Präsentationsstatus eines VR-Geräts ändert — d.h. von der Darstellung zur Nichtdarstellung oder umgekehrt.
 
-### Geblendete Ereignisse
+### Gebubbelte Ereignisse
 
-Nicht alle Ereignisse, die blasen können, erreichen das `Window`-Objekt. Nur die folgenden tun dies und können am `Window`-Objekt gehört werden:
+Nicht alle Ereignisse, die gebubbelt werden, können das `Window`-Objekt erreichen. Nur die folgenden können dies tun und können auf dem `Window`-Objekt abgehört werden:
 
 - `abort`
 - [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
@@ -481,15 +481,15 @@ Nicht alle Ereignisse, die blasen können, erreichen das `Window`-Objekt. Nur di
 
 Siehe [DOM-Referenz](/de/docs/Web/API/Document_Object_Model).
 
-## Ereignisse auf Fenster hören
+## Ereignisse auf Window hören
 
 HTML-Elemente haben drei Möglichkeiten, um auf Ereignisse zu hören:
 
-- Fügen Sie dem Element einen Ereignishandler mit der Methode [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) hinzu.
-- Weisen Sie dem `oneventname`-Eigentum des Elements in JavaScript einen Ereignishandler zu.
+- Fügen Sie dem Element einen Ereignis-Listener mit der Methode [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) hinzu.
+- Weisen Sie dem Element einen Ereignis-Handler in JavaScript zu dessen `oneventname`-Eigenschaft zu.
 - Fügen Sie dem Element im HTML ein `on`-präfixiertes Attribut hinzu.
 
-Um auf Ereignisse auf `Window`-Objekten zu hören, können Sie im Allgemeinen nur die ersten beiden Methoden verwenden, da `Window` kein entsprechendes HTML-Element hat. Es gibt jedoch eine bestimmte Gruppe von Ereignissen, deren Listener dem {{HTMLElement("body")}} (oder dem veralteten {{HTMLElement("frameset")}}) Element des Dokuments des `Window` mit der zweiten oder dritten Methoden hinzugefügt werden können. Diese Ereignisse sind:
+Um Ereignisse auf `Window`-Objekten zu hören, können Sie im Allgemeinen nur die ersten beiden Methoden verwenden, da `Window` kein entsprechendes HTML-Element hat. Es gibt jedoch eine bestimmte Gruppe von Ereignissen, deren Listener dem {{HTMLElement("body")}}-Element (oder dem veralteten {{HTMLElement("frameset")}}-Element), das im Dokument des `Window` enthalten ist, mit der zweiten oder dritten Methode hinzugefügt werden können. Diese Ereignisse sind:
 
 - `afterprint`
 - `beforeprint`
@@ -516,7 +516,7 @@ Um auf Ereignisse auf `Window`-Objekten zu hören, können Sie im Allgemeinen nu
 - `unhandledrejection`
 - `unload`
 
-Das bedeutet, dass die folgenden exakt gleichwertig sind:
+Dies bedeutet, dass die folgenden im Wesentlichen gleichwertig sind:
 
 ```js
 window.onresize = (e) => console.log(e.currentTarget);
@@ -527,7 +527,7 @@ document.body.onresize = (e) => console.log(e.currentTarget);
 <body onresize="console.log(event.currentTarget)"></body>
 ```
 
-In allen drei Fällen sehen Sie das `Window`-Objekt als `currentTarget`.
+In allen drei Fällen sehen Sie das `Window`-Objekt als `currentTarget` geloggt.
 
 ## Spezifikationen
 

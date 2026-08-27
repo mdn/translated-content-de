@@ -3,12 +3,12 @@ title: "SVGAElement: host-Eigenschaft"
 short-title: host
 slug: Web/API/SVGAElement/host
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`host`**-Eigenschaft der [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Schnittstelle gibt einen String zurück, der den Hostnamen und den Port (wenn es nicht der Standard-Port ist) in der referenzierten URL darstellt.
+Die **`host`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt einen String zurück, der den Hostnamen und den Port (falls es nicht der Standardport ist) in der referenzierten URL darstellt.
 
 Diese Eigenschaft kann gesetzt werden, um den Host und den Port der URL zu ändern.
 
@@ -26,4 +26,4 @@ Ein String.
 
 ## Siehe auch
 
-- SVG-{{SVGElement("a")}}-Element
+- SVG {{SVGElement("a")}}-Element

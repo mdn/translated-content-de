@@ -3,24 +3,27 @@ title: WEBGL_multi_draw Erweiterung
 short-title: WEBGL_multi_draw
 slug: Web/API/WEBGL_multi_draw
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("WebGL")}}
 
 Die **`WEBGL_multi_draw`** Erweiterung ist Teil der
-[WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht das Rendern von mehr als einem Primiv mit einem einzelnen Funktionsaufruf. Dies kann die Leistung einer WebGL-Anwendung verbessern, da es die Bindungskosten im Renderer reduziert und die GPU-Thread-Zeit mit einheitlichen Daten erhöht.
+[WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, mehr als ein
+Primitive mit einem einzigen Funktionsaufruf zu rendern. Dies kann die
+Leistung einer WebGL-Anwendung verbessern, da es die Bindungskosten im Renderer
+reduziert und die GPU-Thread-Zeit mit gleichmäßigen Daten beschleunigt.
 
 Wenn diese Erweiterung aktiviert ist:
 
-- Neue Methoden, die mehrere Listen von Argumenten in einem Aufruf verarbeiten, werden hinzugefügt
-  (siehe Methodensammlung unten).
-- Das integrierte `gl_DrawID` wird zur Shadersprache hinzugefügt.
+- Neue Methoden, die mehrere Listen von Argumenten in einem
+  Aufruf verarbeiten, werden hinzugefügt (siehe Methodenliste unten).
+- Die `gl_DrawID` Built-in wird der Shading-Sprache hinzugefügt.
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für
+> Diese Erweiterung ist sowohl in
 > [WebGL 1](/de/docs/Web/API/WebGLRenderingContext) als auch
-> [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Kontexten verfügbar.
 >
 > Im Shader-Code muss die Direktive `#extension GL_ANGLE_multi_draw`
 > aufgerufen werden, um die Erweiterung zu aktivieren.
@@ -30,28 +33,28 @@ Wenn diese Erweiterung aktiviert ist:
 ## Instanzmethoden
 
 - [`ext.multiDrawArraysWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL)
-  - : Rendert mehrere Primitiven aus Array-Daten (identisch zu mehreren Aufrufen von
+  - : Rendert mehrere Primitives aus Array-Daten (identisch zu mehreren Aufrufen von
     [`drawArrays`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)).
 - [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
-  - : Rendert mehrere Primitiven aus Element-Array-Daten (identisch zu mehreren Aufrufen von
+  - : Rendert mehrere Primitives aus Elementarray-Daten (identisch zu mehreren Aufrufen von
     [`drawElements`](/de/docs/Web/API/WebGLRenderingContext/drawElements)).
 - [`ext.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)
-  - : Rendert mehrere Primitiven aus Array-Daten (identisch zu mehreren Aufrufen von
+  - : Rendert mehrere Primitives aus Array-Daten (identisch zu mehreren Aufrufen von
     [`drawArraysInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)).
 - [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL)
-  - : Rendert mehrere Primitiven aus Element-Array-Daten (identisch zu mehreren Aufrufen von
+  - : Rendert mehrere Primitives aus Elementarray-Daten (identisch zu mehreren Aufrufen von
     [`drawElementsInstanced`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)).
 
 ## Shader-Erweiterung
 
-Hinweis: Obwohl der Erweiterungsname `WEBGL_multi_draw` lautet,
+Hinweis: Obwohl der Name der Erweiterung `WEBGL_multi_draw` lautet,
 muss die Erweiterung mit der Direktive `#extension GL_ANGLE_multi_draw`
 aktiviert werden, um die Erweiterung in einem Shader zu verwenden.
 
-Wenn diese Erweiterung aktiviert ist, kann das integrierte `gl_DrawID`
-im Shader-Code verwendet werden. Für jeden `multi*` Draw-Aufrufvariante
-kann der Index der Zeichnung `i` vom Vertex-Shader als `gl_DrawID`
-gelesen werden. Für nicht-`multi*` Aufrufe ist der Wert von
+Wenn diese Erweiterung aktiviert ist, kann das `gl_DrawID` Built-in
+im Shader-Code verwendet werden. Für jede `multi*` Zeichnungsaufrufvariante
+kann der Index der Zeichnung `i` vom Vertex-Shader als `gl_DrawID` gelesen werden.
+Für nicht-`multi*` Aufrufe ist der Wert von
 `gl_DrawID` `0`.
 
 ```html
@@ -65,9 +68,9 @@ gelesen werden. Für nicht-`multi*` Aufrufe ist der Wert von
 
 ## Beispiele
 
-### Aktivierung der Erweiterung
+### Aktivieren der Erweiterung
 
-WebGL-Erweiterungen sind mit der [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) Methode verfügbar.
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
 Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions)
 im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
@@ -109,8 +112,8 @@ ext.multiDrawArraysInstancedWEBGL(
 Beispielaufrufe für [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
 und [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL).
 
-Es wird angenommen, dass die zuvor auf den `ELEMENT_ARRAY_BUFFER`
-hochgeladenen Indizes als `UNSIGNED_SHORT` behandelt werden.
+Es wird davon ausgegangen, dass die zuvor in den `ELEMENT_ARRAY_BUFFER` hochgeladenen
+Indizes als `UNSIGNED_SHORT` behandelt werden.
 
 ```js
 // multiDrawElements variant

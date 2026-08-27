@@ -3,18 +3,18 @@ title: "SVGAElement: pathname-Eigenschaft"
 short-title: pathname
 slug: Web/API/SVGAElement/pathname
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`pathname`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces gibt eine Zeichenkette zurück, die mit einem anfänglichen `/` beginnt, gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder das Fragment einzuschließen.
+Die **`pathname`**-Eigenschaft der Schnittstelle [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine Zeichenfolge zurück, die mit einem anfänglichen `/` beginnt, gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder den Fragmentteil einzuschließen.
 
 Diese Eigenschaft kann gesetzt werden, um den Pfadnamen der URL zu ändern.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Eine Zeichenkette.
 
 ## Siehe auch
 
-- SVG-{{SVGElement("a")}}-Element
+- SVG {{SVGElement("a")}}-Element

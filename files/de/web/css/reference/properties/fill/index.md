@@ -3,17 +3,17 @@ title: "`fill` CSS property"
 short-title: fill
 slug: Web/CSS/Reference/Properties/fill
 l10n:
-  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
+  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
 ---
 
-Die **`fill`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie SVG-Textinhalte und die Innenfläche von SVG-Formen gefüllt oder bemalt werden. Wenn vorhanden, überschreibt sie das {{SVGAttr("fill")}}-Attribut des Elements.
+Die **`fill`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert, wie SVG-Textinhalte und die inneren Flächen von SVG-Formen gefüllt oder bemalt werden. Wenn vorhanden, überschreibt sie das {{SVGAttr("fill")}}-Attribut des Elements.
 
-Die Bereiche innerhalb der Umrisse der SVG-Form oder des Textes werden bemalt. Was "innerhalb" einer Form ist, ist nicht immer eindeutig. Die Pfade, die eine Form definieren, können sich überlagern. Die Bereiche, die als "innerhalb" dieser komplexen Formen gelten, werden durch die {{cssxref("fill-rule")}}-Eigenschaft oder das Attribut geklärt.
+Die Bereiche innerhalb der Umrisse der SVG-Form oder des Textes werden bemalt. Was "innerhalb" einer Form ist, kann nicht immer klar sein. Die Pfade, die eine Form definieren, können sich überlappen. Die Bereiche, die als "innerhalb" dieser komplexen Formen angesehen werden, werden durch die {{cssxref("fill-rule")}}-Eigenschaft oder das -Attribut geklärt.
 
-Wenn Teilpfade offen sind, schließt `fill` den Pfad, bevor er bemalt wird, als ob ein "closepath"-Befehl enthalten wäre, der den letzten Punkt des Teilpfades mit dem ersten Punkt des Teilpfades verbindet. Mit anderen Worten: `fill` gilt für offene Teilpfade innerhalb von `path`-Elementen (d.h. Teilpfade ohne closepath-Befehl) und `polyline`-Elemente.
+Wenn Teilpfade offen sind, schließt `fill` den Pfad automatisch vor dem Bemalen, als ob ein "closepath"-Befehl enthalten wäre, der den letzten Punkt des Teilpfads mit dem ersten Punkt des Teilpfads verbindet. Mit anderen Worten: `fill` gilt für offene Teilpfade innerhalb von `path`-Elementen (d.h. Teilpfade ohne einen "closepath"-Befehl) und `polyline`-Elemente.
 
 > [!NOTE]
-> Die `fill`-Eigenschaft gilt nur für {{SVGElement('circle')}}, {{SVGElement('ellipse')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('text')}}, {{SVGElement('textPath')}} und {{SVGElement('tspan')}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `fill`-Eigenschaft gilt nur für die Elemente {{SVGElement('circle')}}, {{SVGElement('ellipse')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('text')}}, {{SVGElement('textPath')}}, und {{SVGElement('tspan')}} innerhalb eines {{SVGElement("svg")}}. Sie gilt nicht für andere SVG, HTML oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -45,22 +45,22 @@ fill: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste oder als zwei Werte unter Verwendung von `<url>` angegeben:
+Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben oder als zwei Werte, wenn `<url>` verwendet wird:
 
 - `none`
-  - : Kein `fill` wird bemalt; die Bereiche innerhalb des Strichs, falls vorhanden, sind transparent.
+  - : Es wird keine `fill`-Bemalung durchgeführt; die Bereiche innerhalb des Strichs, falls vorhanden, sind transparent.
 
 - `context-fill`
-  - : Verwendet den Farbwert von `fill` aus einem Kontextelement.
+  - : Verwendet den Farbwert von `fill` aus einem Kontext-Element.
 
 - `context-stroke`
-  - : Verwendet den Farbwert von `stroke` aus einem Kontextelement.
+  - : Verwendet den Farbwert von `stroke` aus einem Kontext-Element.
 
 - {{cssxref("color_value", "&lt;color>")}}
-  - : Die Farbe der Füllung als jeder gültige CSS {{cssxref("color_value", "&lt;color>")}}-Wert.
+  - : Die Farbe der Füllung als jeder gültige CSS-{{cssxref("color_value", "&lt;color>")}}-Wert.
 
 - `<url>`
-  - : Ein URL-Verweis auf ein SVG-Malserver-Element, wie ein {{SVGElement("linearGradient")}}, {{SVGElement("radialGradient")}} oder {{SVGElement("pattern")}}. Der Ressourcenverweis kann optional von einem `<color>` oder `none` gefolgt werden, der als Fallback verwendet wird, falls der referenzierte Malserver nicht aufgelöst wird.
+  - : Ein URL-Verweis auf ein SVG-Paint-Server-Element, wie ein {{SVGElement("linearGradient")}}, {{SVGElement("radialGradient")}}, oder {{SVGElement("pattern")}}. Der Ressourcenverweis kann optional von einem `<color>` oder `none` gefolgt werden, welches als Fallback verwendet wird, falls der referenzierte Paint-Server nicht aufgelöst wird.
 
 ## Formale Definition
 
@@ -72,13 +72,13 @@ Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste oder als zwei 
 
 ## Beispiele
 
-### Definieren von Füllwerten für SVG-Elemente
+### Füllwerte für SVG-Elemente definieren
 
-Dieses Beispiel zeigt, wie eine `fill`-Eigenschaft deklariert wird, die Wirkung der Eigenschaft und wie die CSS-`fill`-Eigenschaft das `fill`-Attribut überschreibt.
+Dieses Beispiel zeigt, wie ein `fill` deklariert wird, die Wirkung der Eigenschaft und wie die CSS-`fill`-Eigenschaft das `fill`-Attribut überschreibt.
 
 #### HTML
 
-Wir haben ein SVG mit zwei komplexen Formen, die mit den SVG-Elementen {{SVGElement('polygon')}} und {{SVGElement('path')}} definiert sind. Beide haben das `fill`-Attribut auf den Standardwert `black` gesetzt. Wir fügen einen dunkelgrauen Strich von `#666666` mit dem SVG-Attribut {{SVGAttr("stroke")}} hinzu, hätten aber auch die {{CSSXRef("stroke")}}-Eigenschaft verwenden können.
+Wir haben ein SVG mit zwei komplexen Formen, die mit den SVG-Elementen {{SVGElement('polygon')}} und {{SVGElement('path')}} definiert sind. Beide haben das `fill`-Attribut auf den Standardwert `black` gesetzt. Wir fügen einen dunkelgrauen Umriss von `#666666` hinzu, indem wir das SVG-{{SVGAttr("stroke")}}-Attribut verwenden, hätten aber auch die {{CSSXRef("stroke")}}-Eigenschaft verwenden können.
 
 ```html
 <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ Wir haben ein SVG mit zwei komplexen Formen, die mit den SVG-Elementen {{SVGElem
 
 #### CSS
 
-Wir setzen `fill`-Werte auf den Formen im SVG.
+Wir setzen `fill`-Werte auf die Formen im SVG.
 
 ```css hidden
 svg {
@@ -118,15 +118,15 @@ polygon {
 
 {{EmbedLiveSample("Defining fill values for SVG elements", "300", "170")}}
 
-Der CSS-`fill`-Eigenschaftswert überschreibt den SVG-`fill`-Attributwert, was dazu führt, dass beide Formen mit einer roten Farbe gefüllt werden; das Rot des Polygons ist durchscheinend.
+Der CSS-`fill`-Eigenschaftswert überschreibt den SVG-`fill`-Attributwert, wodurch beide Formen mit einer roten Farbe gefüllt werden; das Rot des Polygons ist durchsichtig.
 
-### Verwendung von Füllschlüsselwortwerten
+### Verwendung von `fill`-Schlüsselwortwerten
 
 Dieses Beispiel zeigt die Verwendung von Schlüsselwortwerten für `fill`.
 
 #### HTML
 
-Wir fügen drei {{SVGElement("path")}}-Elemente und ein {{SVGElement("marker")}}-Element hinzu, das einen {{SVGElement("circle")}} zu jedem Wegpunkt hinzufügt. Wir setzen den Kreis-Marker schwarz mit einer grauen Füllung, indem wir die SVG-Attribute {{SVGAttr("stroke")}} und {{SVGAttr("fill")}} verwenden.
+Wir fügen drei {{SVGElement("path")}}-Elemente und ein {{SVGElement("marker")}}-Element hinzu, das einem jeden Punkt des Pfades einen {{SVGElement("circle")}} hinzufügt. Wir setzen den Kreismarker auf schwarz mit einer grauen Füllung mit den SVG-{{SVGAttr("stroke")}}- und {{SVGAttr("fill")}}-Attributen.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90">
@@ -148,7 +148,7 @@ Wir fügen drei {{SVGElement("path")}}-Elemente und ein {{SVGElement("marker")}}
 
 #### CSS
 
-Wir setzen unterschiedliche `stroke`- und `fill`-Farben auf jeden Pfad. Der erste Pfad, der mit einem roten Rand, hat seine `fill` auf `none` gesetzt. Wir setzen die Strich- und Füllung der Kreis-Marker auf die gleiche Farbe wie die des Streichs des Elements, das sie markieren, indem wir den `context-stroke`-Wert verwenden.
+Wir setzen unterschiedliche `stroke`- und `fill`-Farben auf jedem Pfad. Der erste Pfad, derjenige mit einem roten Rand, hat sein `fill` auf `none` gesetzt. Wir setzen den Stroke und die Füllung des Kreismarkers auf dieselbe Farbe wie den Stroke des Elements, das sie markieren, mit dem `context-stroke`-Wert.
 
 ```css hidden
 svg {
@@ -185,15 +185,15 @@ circle {
 
 {{EmbedLiveSample("Using fill keyword values", "300", "170")}}
 
-Beachten Sie, wie der Hintergrund des ersten Pfades transparent ist, da die `fill` auf `none` gesetzt ist, was den Standard-`fill`-Wert von `black` überschreibt. Die Kreise sind mit der Farbe des Streichs gefüllt. Wenn Sie den Wert in `context-fill` ändern, sind die Kreise transparent, `lightgreen` und `lightblue` statt `red`, `green` und `blue`.
+Beachten Sie, wie der erste Pfad einen transparenten Hintergrund hat, weil `fill` auf `none` gesetzt ist und damit den Standard-`fill` von `black` überschreibt. Die Kreise sind mit der Farbe des Strichs gefüllt. Wenn Sie den Wert auf `context-fill` ändern, werden die Kreise transparent, `lightgreen` und `lightblue` anstelle von `red`, `green`, und `blue`.
 
 ### Füllungen und Fallbacks
 
-Dieses Beispiel zeigt, wie man einen `url()`-Wert mit einem Fallback als `fill`-Wert einschließt.
+Dieses Beispiel zeigt, wie ein `url()`-Wert mit einem Fallback als `fill`-Wert eingeschlossen werden kann.
 
 #### HTML
 
-Wir haben ein SVG mit zwei {{SVGElement("polygon")}}-Sternen und einem {{SVGElement("linearGradient")}}, der von grün zu gold zu rot verläuft.
+Wir haben ein SVG mit zwei {{SVGElement("polygon")}}-Sternen und einem {{SVGElement("linearGradient")}}, der von grün über gold nach rot geht.
 
 ```html
 <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
@@ -211,7 +211,7 @@ Wir haben ein SVG mit zwei {{SVGElement("polygon")}}-Sternen und einem {{SVGElem
 
 #### CSS
 
-Wir setzen `fill`-Werte auf den Polygonen im SVG und geben einen `url()`-Wert und einen Fallback an.
+Wir setzen `fill`-Werte auf die Polygone im SVG und geben einen `url()`-Wert mit einem Fallback an.
 
 ```css hidden
 svg {
@@ -234,7 +234,7 @@ polygon:last-of-type {
 
 {{EmbedLiveSample("Fills and fallbacks", "300", "170")}}
 
-Der erste Stern hat ein Verlauf als Hintergrund. Der zweite Stern verwendet den Fallback-Wert, da das Element, auf das in der `url()` verwiesen wird, nicht existiert.
+Der erste Stern hat einen Verlauf als Hintergrund. Der zweite Stern verwendet den Fallback-Wert, da das in der `url()` referenzierte Element nicht existiert.
 
 ## Spezifikationen
 
@@ -246,8 +246,8 @@ Der erste Stern hat ein Verlauf als Hintergrund. Der zweite Stern verwendet den 
 
 ## Siehe auch
 
-- SVG {{SVGAttr("fill")}} Attribut
-- Darstellungseigenschaften: `fill`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-color")}}, {{cssxref("stop-opacity")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}
+- SVG-{{SVGAttr("fill")}}-Attribut
+- Präsentationseigenschaften: `fill`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-color")}}, {{cssxref("stop-opacity")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}
 - {{cssxref("opacity")}}
 - {{cssxref("background-color")}}
 - {{cssxref("color_value", "&lt;color>")}}

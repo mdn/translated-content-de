@@ -1,14 +1,14 @@
 ---
-title: "LanguageModel: Methode prompt()"
+title: "LanguageModel: prompt() Methode"
 short-title: prompt()
 slug: Web/API/LanguageModel/prompt
 l10n:
-  sourceCommit: b2c48c8b7c097aeab4bc15a388c913f466f40e25
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
 {{APIRef("Prompt API")}}{{SecureContext_Header}}
 
-Die **`prompt()`**-Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle sendet Eingaben an das Sprachmodell und gibt ein {{jsxref("Promise")}} zurück, das mit der vollständigen Antwort des Modells als Zeichenfolge aufgelöst wird.
+Die **`prompt()`** Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel) Schnittstelle sendet Eingaben an das Sprachmodell und gibt ein {{jsxref("Promise")}} zurück, das mit der vollständigen Antwort des Modells als Zeichenkette aufgelöst wird.
 
 ## Syntax
 
@@ -20,89 +20,88 @@ prompt(input, options)
 ### Parameter
 
 - `input`
-  - : Der Inhalt, mit dem das Modell aufgefordert wird. Dieser ist entweder:
-    - Ein String — Abkürzung für eine einzelne Textnachricht.
-    - Ein Array von Objekten, von denen jedes eine einzelne Nachricht in einem Gespräch mit einem Sprachmodell darstellt.
-      Objekte können die folgenden Eigenschaften haben:
+  - : Der Inhalt zur Aufforderung des Modells. Dies ist entweder:
+    - Eine Zeichenkette — Eine Kurzform für eine einzelne Textnachricht.
+    - Ein Array von Objekten, die jeweils eine einzelne Nachricht in einem Gespräch mit einem Sprachmodell repräsentieren. Objekte können die folgenden Eigenschaften haben:
       - `role`
-        - : Ein String, der die Perspektive angibt, aus der die Nachricht formuliert ist. Muss eine der folgenden sein:
+        - : Eine Zeichenkette, die die Perspektive angibt, aus der die Nachricht formuliert ist. Muss eine der folgenden sein:
           - `system`
-            - : Eine Systemanweisung, die das gesamte Verhalten des Modells leitet. Dies muss die erste Anweisung sein, die an das Modell übergeben wird.
+            - : Eine systemübergreifende Anweisung, die das allgemeine Verhalten des Modells leitet. Dies muss die erste Anweisung sein, die an das Modell übergeben wird.
           - `user`
-            - : Eine Nachricht vom Benutzer, auf die die API reagieren soll.
+            - : Eine Nachricht vom Benutzer, auf die die API antworten soll.
           - `assistant`
-            - : Eine Eingabe, die Kontext für den KI-Assistenten bereitstellt, wie z.B. seine Persönlichkeit oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext/Geschichte bereitzustellen und die Art der Modellantworten zu prägen.
+            - : Eine Eingabe, die dem KI-Assistenten Kontext bietet, wie z. B. seine Persönlichkeit oder das Format seiner Antworten. Solche Nachrichten dienen hauptsächlich dazu, Kontext/Verlauf bereitzustellen und weiter zu beeinflussen, wie das Modell antwortet.
       - `content`
-        - : Ein String, der einen Text-Trigger darstellt, oder ein Array von Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
+        - : Eine Zeichenkette, die eine Textaufforderung darstellt, oder ein Array von Objekten. Jedes Objekt umfasst die folgenden Eigenschaften:
           - `type`
-            - : Ein enumerierter Wert, der den Inhaltstyp darstellt. Dies kann einer der folgenden sein:
+            - : Ein enumerierter Wert, der den Typ des Inhalts repräsentiert. Dies kann eines der folgenden sein:
               - `audio`
-                - : Audio-Inhalt.
+                - : Audioinhalt.
               - `image`
                 - : Bildinhalt.
               - `text`
                 - : Textinhalt.
               - `tool-call`
-                - : Ein vom Modell ausgeführter Aufruf eines Werkzeugs.
+                - : Ein Werkzeugaufruf, der vom Modell ausgeführt wurde.
               - `tool-response`
                 - : Das Ergebnis eines Werkzeugaufrufs.
           - `value`
-            - : Der Inhalt der Nachricht. Wenn der `type` `text` ist, ist dies immer ein String. Wenn der `type` `audio` oder `image` ist, kann der `value` einer von mehreren verschiedenen Objekttypen sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
+            - : Der Inhalt der Nachricht. Wenn der `type` `text` ist, ist dies immer eine Zeichenkette. Wenn der `type` `audio` oder `image` ist, kann der `value` einer von mehreren unterschiedlichen Objekttypen sein; siehe [Welche Datentypen werden akzeptiert?](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted).
       - `prefix` {{optional_inline}}
-        - : Ein Boolean, der standardmäßig auf `false` steht. Wenn `true`, wird die Nachricht als Präfix für die nächste generierte Antwort des Modells behandelt, anstatt als vollständiger Zug.
+        - : Ein boolean, der standardmäßig auf `false` steht. Wenn `true`, wird die Nachricht als Präfix für die nächste generierte Antwort des Modells behandelt, anstatt als vollständiger Turn.
 - `options` {{optional_inline}}
-  - : Optionen zum Erstellen eines Prompts. Eigenschaften umfassen:
+  - : Optionen zum Erstellen einer Aufforderung. Eigenschaften umfassen:
     - `responseConstraint`
-      - : Ein Objekt, das der Struktur von [JSON Schema](https://json-schema.org/) folgt und das genaue Format definiert, in dem die Ausgabe des Modells geliefert werden soll. Wenn bereitgestellt und `omitResponseConstraintInput` `false` ist, wird jede implementierungsdefinierte Beschreibungsnachricht in die Messung eingeschlossen.
+      - : Ein Objekt, das der Struktur von [JSON Schema](https://json-schema.org/) folgt und das genaue Format definiert, in dem die Ausgabe des Modells geliefert werden soll. Wenn bereitgestellt und `omitResponseConstraintInput` `false` ist, wird jede implementierungsdefinierte Einschränkungsbeschreibungsnachricht in die Messung einbezogen.
     - `omitResponseConstraintInput`
-      - : Ein Boolean; wenn `true`, wird die automatische Beschreibungsnachricht von der Messung ausgeschlossen.
+      - : Ein boolean; Wenn `true`, wird die automatische Einschränkungsbeschreibungsnachricht aus der Messung ausgeschlossen.
     - `signal`
       - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), um den Vorgang abzubrechen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{jsxref("String")}} aufgelöst wird, der die vollständige Antwort des Modells enthält.
+Ein {{jsxref("Promise")}}, das sich mit einer {{jsxref("String")}} auflöst, die die vollständige Antwort des Modells enthält.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Vorgang über die `signal`-Option abgebrochen wurde.
+  - : Wird ausgelöst, wenn der Vorgang über die `signal` Option abgebrochen wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Nutzung der Methode durch eine {{httpheader("Permissions-Policy/language-model", "language-model")}} {{httpheader("Permissions-Policy")}} blockiert wird.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Die `role` einer Nachricht `assistant` ist und ihr `type` etwas anderes als `text` ist.
-    - Der `type` einer Nachricht `text` ist und ihr `value` kein String ist.
-    - Der Eingabe- oder Ausgabetext in einer Sprache ist, die vom Benutzeragenten nicht für Prompts unterstützt wird.
-    - Der `type` einer Nachricht `image` oder `audio` ist, der Typ jedoch nicht in `expectedInputs` aufgelistet war, oder der `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
+    - Der `type` einer Nachricht `text` ist und ihr `value` keine Zeichenkette ist.
+    - Der Eingabe- oder Ausgabe-Text in einer Sprache ist, die der Benutzeragent für Aufforderungen nicht unterstützt.
+    - Der `type` einer Nachricht `image` oder `audio` ist, aber der Typ nicht in `expectedInputs` aufgelistet war oder der `value` kein [akzeptierter Datentyp](/de/docs/Web/API/Prompt_API/Multimodal#what_data_types_are_accepted) ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Prompt aus einem anderen Grund fehlschlägt, der nicht in den anderen Ausnahmetypen aufgeführt ist.
+  - : Wird ausgelöst, wenn die Aufforderung aus einem anderen in den anderen Ausnahmearten nicht aufgeführten Grund fehlschlägt.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Prompt dazu führen würde, dass der Nutzungskontext der Sitzung das Modell [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) überschreitet.
+  - : Wird ausgelöst, wenn die Aufforderung dazu führen würde, dass die Kontextnutzung der Sitzung das [`LanguageModel.contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) des Modells überschreitet.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Keine Nachrichten im Nachrichtenarray enthalten sind.
-    - Die `prefix`-Eigenschaft einer Nachricht auf `true` gesetzt ist und:
+    - Die `prefix` Eigenschaft einer Nachricht auf `true` gesetzt ist und:
       - Die `role` der Nachricht nicht `assistant` ist.
       - Die Nachricht nicht das letzte Element im Nachrichtenarray ist.
 - `TypeError`
   - : Wird ausgelöst, wenn:
-    - `omitResponseConstraintInput` `true` ist, aber `responseConstraint` nicht angegeben wurde.
-    - Die `role` einer Nachricht `system` ist, diese aber nicht die erste übergebene Nachricht an den Kontext war.
+    - `omitResponseConstraintInput` `true` ist, aber `responseConstraint` nicht bereitgestellt wurde.
+    - Die `role` einer Nachricht `system` ist, diese jedoch nicht die erste Nachricht war, die an den Kontext übergeben wurde.
 
 ## Beschreibung
 
-Die Methode `prompt()` ist der primäre Mechanismus zur Interaktion mit einer Sprachmodell-Sitzung. Sie fügt die bereitgestellten Eingaben in das Kontextfenster ein und generiert eine Antwort. Die gesamte Antwort wird gepuffert und als ein einziger String zurückgegeben, wenn die Generierung abgeschlossen ist.
+Die `prompt()` Methode ist der primäre Mechanismus zur Interaktion mit einer Sprachmodellsitzung. Sie fügt die bereitgestellte Eingabe zum Kontextfenster hinzu und generiert eine Antwort. Die gesamte Antwort wird gepuffert und als einzelne Zeichenkette zurückgegeben, wenn die Generierung abgeschlossen ist.
 
-Für lange Antworten oder Streaming-Anwendungsfälle verwenden Sie stattdessen [`LanguageModel.promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming), um die Antwort schrittweise zu erhalten. Um Inhalte dem Kontextfenster hinzuzufügen, ohne eine Antwort zu generieren, verwenden Sie [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append).
+Für lange Antworten oder Streaming-Anwendungen verwenden Sie stattdessen [`LanguageModel.promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming), um die Antwort schrittweise zu erhalten. Um Inhalte zum Kontextfenster hinzuzufügen, ohne eine Antwort zu generieren, verwenden Sie [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append).
 
-Jeder Aufruf von `prompt()` fügt dem Kontext der Sitzung etwas hinzu. Um von einem gegebenen Zustand aus einen Zweig zu eröffnen, ohne die ursprüngliche Sitzung zu beeinträchtigen, rufen Sie [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone) auf.
+Jeder Aufruf von `prompt()` fügt dem Kontext der Sitzung hinzu. Um von einem bestimmten Zustand aus abzuzweigen, ohne die ursprüngliche Sitzung zu beeinflussen, rufen Sie [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone) auf.
 
 ## Beispiele
 
-### Einfacher Text-Prompt
+### Einfache Textaufforderung
 
-Dieses Beispiel zeigt die grundlegende Verwendung von `prompt()` mit einer einzelnen Benutzertext-Eingabe.
+Dieses Beispiel zeigt die grundlegende Verwendung von `prompt()` mit einer einzigen Benutzereingabe als Text.
 
 ```js
 const session = await LanguageModel.create();
@@ -112,9 +111,9 @@ const response = await session.prompt(
 console.log(response);
 ```
 
-Siehe auch [Die Prompt-API verwenden > Das Modell auffordern](/de/docs/Web/API/Prompt_API/Using#prompting_the_model).
+Siehe auch [Verwendung der Prompt API > Modellaufforderung](/de/docs/Web/API/Prompt_API/Using#prompting_the_model).
 
-### Mehrstufiges Gespräch
+### Mehrfachdialog
 
 ```js
 const session = await LanguageModel.create();
@@ -126,9 +125,9 @@ const reply2 = await session.prompt("What's my name?");
 console.log(reply2); // "Your name is Alex."
 ```
 
-### Eingeschränkte JSON-Ausgabe
+### Einschränkungen bei JSON-Ausgaben
 
-Das folgende Beispiel zeigt, wie JSON an die `responseConstraint`-Option übergeben wird, um festzulegen, dass Sie ein Array von dem Aufruf an `prompt()` zurückgeben möchten.
+Das folgende Beispiel zeigt, wie man JSON an die `responseConstraint` Option übergibt, um anzugeben, dass man ein Array erhalten möchte, das durch den Aufruf von `prompt()` zurückgegeben wird.
 
 ```js
 const session = await LanguageModel.create();
@@ -149,11 +148,11 @@ const { planets } = JSON.parse(raw);
 console.log(planets); // ["Mercury", "Venus", "Earth"]
 ```
 
-Siehe auch [Hinzufügen von Kontext mit anfänglichen und fortlaufenden Prompt-Eingaben > Hinzufügen von Antwortbeschränkungen](/de/docs/Web/API/Prompt_API/Adding_context#adding_response_constraints).
+Siehe auch [Hinzufügen von Kontext mit anfänglichen und laufenden Eingaben > Hinzufügen von Antwortbeschränkungen](/de/docs/Web/API/Prompt_API/Adding_context#adding_response_constraints).
 
-### Abbrechen eines Prompts
+### Abbrechen einer Aufforderung
 
-Das folgende Beispiel zeigt, wie ein Benutzer einen Prompt mit einem Button abbrechen kann. Dies erfolgt durch die Erstellung eines [`AbortController`](/de/docs/Web/API/AbortController). Sein `abort()` kann von einem Button-`click`-Handler aufgerufen werden. Damit dies funktioniert, muss ein Verweis auf die `signal`-Eigenschaft des Controllers an `prompt()` übergeben werden.
+Das folgende Beispiel zeigt, wie ein Benutzer eine Aufforderung mit einem Button abbrechen kann. Dies wird durch Erstellen eines [`AbortController`](/de/docs/Web/API/AbortController) erreicht. Sein `abort()` kann von einem `click`-Handler eines Buttons aufgerufen werden. Damit dies funktioniert, muss eine Referenz auf die `signal` Eigenschaft des Controllers an `prompt()` übergeben werden.
 
 ```js
 const controller = new AbortController();
@@ -180,7 +179,7 @@ try {
 }
 ```
 
-Siehe auch [Die Prompt-API verwenden > Vorgänge abbrechen und Instanzen zerstören](/de/docs/Web/API/Prompt_API/Using#cancelling_operations_and_destroying_instances).
+Siehe auch [Verwendung der Prompt API > Abbrechen von Operationen und Zerstören von Instanzen](/de/docs/Web/API/Prompt_API/Using#cancelling_operations_and_destroying_instances).
 
 ## Spezifikationen
 
@@ -195,5 +194,5 @@ Siehe auch [Die Prompt-API verwenden > Vorgänge abbrechen und Instanzen zerstö
 - [`LanguageModel.promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming)
 - [`LanguageModel.append()`](/de/docs/Web/API/LanguageModel/append)
 - [Prompt API](/de/docs/Web/API/Prompt_API)
-- [Die Prompt-API verwenden](/de/docs/Web/API/Prompt_API/Using)
-- [Hinzufügen von Kontext mit anfänglichen und fortlaufenden Prompt-Eingaben](/de/docs/Web/API/Prompt_API/Adding_context)
+- [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)
+- [Hinzufügen von Kontext mit anfänglichen und laufenden Eingaben](/de/docs/Web/API/Prompt_API/Adding_context)

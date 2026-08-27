@@ -1,20 +1,23 @@
 ---
-title: "Selection: rangeCount-Eigenschaft"
+title: "Auswahl: rangeCount-Eigenschaft"
 short-title: rangeCount
 slug: Web/API/Selection/rangeCount
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte **`Selection.rangeCount`**-Eigenschaft gibt die Anzahl der Bereiche in der Auswahl zurück.
+Die **`Selection.rangeCount`** schreibgeschützte Eigenschaft gibt die Anzahl der Bereiche in der Auswahl zurück.
 
-Vor dem ersten Klick des Benutzers auf eine frisch geladene Seite ist der `rangeCount` `0`. Nachdem der Benutzer auf die Seite geklickt hat, ist der `rangeCount` `1`, auch wenn keine Auswahl sichtbar ist.
+Bevor der Benutzer eine neu geladene Seite angeklickt hat, ist `rangeCount`
+`0`. Nachdem der Benutzer auf die Seite geklickt hat, ist `rangeCount`
+`1`, selbst wenn keine Auswahl sichtbar ist.
 
-Ein Benutzer kann normalerweise nur einen Bereich gleichzeitig auswählen, daher wird der `rangeCount` normalerweise `1` sein. Mit Skripten kann die Auswahl so verändert werden, dass sie mehr als einen Bereich enthält.
+Ein Benutzer kann normalerweise nur einen Bereich gleichzeitig auswählen, daher wird `rangeCount`
+in der Regel `1` sein. Scripting kann verwendet werden, um die Auswahl mehr als einen Bereich enthalten zu lassen.
 
-Gecko-Browser erlauben Mehrfachauswahlen über Tabellenzellen hinweg. Firefox erlaubt das Auswählen mehrerer Bereiche im Dokument durch Halten der Strg-Taste und Klicken (es sei denn, der Klick erfolgt innerhalb eines Elements, dem die CSS-Eigenschaft `display: table-cell` zugewiesen ist).
+Gecko-Browser erlauben Mehrfachauswahlen über Tabellenzellen hinweg. Firefox erlaubt es Ihnen, mehrere Bereiche im Dokument auszuwählen, indem Sie mit Strg+Klick (sofern der Klick nicht innerhalb eines Elements erfolgt, dem die CSS-Eigenschaft `display: table-cell` zugeordnet ist) auswählen.
 
 ## Wert
 
@@ -22,7 +25,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt den `rangeCount` jede Sekunde an. Wählen Sie Text im Browser aus, um die Änderung zu sehen.
+Das folgende Beispiel zeigt den `rangeCount` jede Sekunde. Wählen Sie Text im Browser aus, um die Änderung zu sehen.
 
 ### HTML
 
@@ -55,7 +58,7 @@ setInterval(() => {
 
 ### Ergebnis
 
-Öffnen Sie Ihre Konsole, um zu sehen, wie viele Bereiche in der Auswahl sind. In Gecko-Browsern können Sie mehrere Bereiche über Tabellenzellen hinweg auswählen, indem Sie beim Ziehen der Maus die <kbd>Strg</kbd>-Taste (oder <kbd>Cmd</kbd> auf macOS) gedrückt halten.
+Öffnen Sie Ihre Konsole, um zu sehen, wie viele Bereiche in der Auswahl sind. In Gecko-Browsern können Sie mehrere Bereiche über Tabellenzellen hinweg auswählen, indem Sie <kbd>Strg</kbd> (oder <kbd>Cmd</kbd> auf macOS) gedrückt halten, während Sie mit der Maus ziehen.
 
 {{EmbedLiveSample("Examples")}}
 
@@ -69,4 +72,4 @@ setInterval(() => {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

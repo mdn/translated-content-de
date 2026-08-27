@@ -3,12 +3,12 @@ title: "ProcessingInstruction: removeAttribute()-Methode"
 short-title: removeAttribute()
 slug: Web/API/ProcessingInstruction/removeAttribute
 l10n:
-  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{ APIRef("DOM") }}
+{{ APIRef("DOM") }}{{SeeCompatTable}}
 
-Die **`removeAttribute()`**-Methode der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) entfernt das Attribut mit dem angegebenen Namen aus der Verarbeitungshinweis.
+Die **`removeAttribute()`**-Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) entfernt das Attribut mit dem angegebenen Namen aus der Verarbeitungsanweisung.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeAttribute(attrName)
 ### Parameter
 
 - `attrName`
-  - : Ein String, der den Namen des Attributs angibt, das aus dem Verarbeitungshinweis entfernt werden soll. Wenn das angegebene Attribut nicht existiert, gibt `removeAttribute()` zurück, ohne einen Fehler zu erzeugen.
+  - : Ein String, der den Namen des Attributs angibt, das aus der Verarbeitungsanweisung entfernt werden soll. Wenn das angegebene Attribut nicht existiert, gibt `removeAttribute()` zurück, ohne einen Fehler zu erzeugen.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Verwendungshinweise
 
 Sie sollten `removeAttribute()` verwenden, anstatt den Attributwert auf `null` zu setzen (entweder direkt oder durch Verwendung von [`setAttribute()`](/de/docs/Web/API/ProcessingInstruction/setAttribute)).
-Viele Attribute werden sich nicht wie erwartet verhalten, wenn Sie sie auf `null` setzen.
+Viele Attribute verhalten sich nicht wie erwartet, wenn Sie sie auf `null` setzen.
 
 ## Beispiele
 

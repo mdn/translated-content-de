@@ -1,21 +1,21 @@
 ---
-title: "Content-Security-Policy: frame-ancestors Direktive"
+title: "Content-Security-Policy: frame-ancestors-Direktive"
 short-title: frame-ancestors
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors
 l10n:
-  sourceCommit: a2b29d9159294f1437e0adf49cdf3019e9c1c24b
+  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
 ---
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Direktive gibt gültige Eltern an, die eine Seite mithilfe von {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`**-Direktive legt gültige übergeordnete Elemente fest, die eine Seite mithilfe von {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
 
-Wenn diese Direktive auf `'none'` gesetzt wird, ist dies ähnlich wie {{HTTPHeader("X-Frame-Options", "X-Frame-Options: deny")}} (das auch in älteren Browsern unterstützt wird).
+Das Setzen dieser Direktive auf `'none'` ähnelt {{HTTPHeader("X-Frame-Options", "X-Frame-Options: deny")}} (was auch in älteren Browsern unterstützt wird).
 
 > [!NOTE]
 > **`frame-ancestors`** erlaubt es Ihnen, anzugeben, welche übergeordnete Quelle eine Seite einbetten darf.
-> Dies unterscheidet sich von **`frame-src`**, das erlaubt anzugeben, von wo iframes auf einer Seite geladen werden dürfen.
+> Dies unterscheidet sich von **`frame-src`**, die angibt, woher Iframes in einer Seite geladen werden dürfen.
 
 > [!NOTE]
-> Die **`frame-ancestors`**-Direktive [überprüft jedes Vorfahren-Element](https://w3c.github.io/webappsec-csp/#frame-ancestors-and-frame-options). Wenn ein Vorfahr nicht übereinstimmt, wird das Laden abgebrochen. Daher sollten alle Vorfahren von den **`frame-ancestors`**-Direktiven der End-Frames erlaubt sein, wenn verschachtelte Frames verwendet werden.
+> Die **`frame-ancestors`**-Direktive [überprüft jeden Vorfahren](https://w3c.github.io/webappsec-csp/#frame-ancestors-and-frame-options). Wenn ein Vorfahr nicht übereinstimmt, wird das Laden abgebrochen. Daher sollten alle Vorfahren durch die **`frame-ancestors`**-Direktive der End-Frames zugelassen sein, wenn verschachtelte Frames verwendet werden.
 
 <table class="properties">
   <tbody>
@@ -29,7 +29,7 @@ Wenn diese Direktive auf `'none'` gesetzt wird, ist dies ähnlich wie {{HTTPHead
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
-      <td>Nein. Wird dies nicht eingestellt, erlaubt es alles.</td>
+      <td>Nein. Wenn dies nicht gesetzt ist, ist alles erlaubt.</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
@@ -50,15 +50,15 @@ Content-Security-Policy: frame-ancestors <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Diese Ressource darf nicht eingebettet werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Diese Ressource darf nicht eingebettet werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _Quelle-Ausdrucks_-Werten. Diese Ressource darf eingebettet werden, wenn der Einbettende mit einem der angegebenen Quellen-Ausdrücke übereinstimmt. Für diese Direktive sind die folgenden Quellen-Ausdrucks-Werte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Diese Ressource darf eingebettet werden, wenn der Einbettende mit einem der angegebenen Source Expressions übereinstimmt. Für diese Direktive sind die folgenden Source Expression-Werte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 > [!NOTE]
-> Die Syntax der `frame-ancestors` Direktive ist ähnlich der Quellenlisten-Syntax, die von anderen Direktiven akzeptiert wird (z.B. {{CSP("child-src")}}), aber sie fällt nicht auf die `default-src` Einstellung zurück. Eine Richtlinie, die `default-src 'none'` erklärt, erlaubt es immer noch, dass die Ressource von jedem eingebettet wird.
+> Die Syntax der `frame-ancestors`-Direktive ähnelt der Source-List-Syntax, die von anderen Direktiven akzeptiert wird (z. B. {{CSP("child-src")}}), sie fällt jedoch nicht auf die `default-src`-Einstellung zurück. Eine Richtlinie, die `default-src 'none'` erklärt, erlaubt es dennoch, dass die Ressource von jedem eingebettet wird.
 
 ## Beispiele
 

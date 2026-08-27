@@ -2,12 +2,12 @@
 title: Baseline (Kompatibilität)
 slug: Glossary/Baseline/Compatibility
 l10n:
-  sourceCommit: a53d32241d95d687865c6eaaf71a066eb7208faf
+  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
 ---
 
-**Baseline** identifiziert die Verfügbarkeit von Webplattform-Funktionen in gängigen Browsern, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Webfunktionen, die entweder weit verbreitet oder neu verfügbar sind. Funktionen, die die Baseline-Kriterien nicht erfüllen, werden als begrenzt verfügbar angesehen.
+**Baseline** identifiziert die Verfügbarkeit von Webplattform-Funktionen über beliebte Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Webfunktionen als entweder weit verbreitet oder neu verfügbar. Funktionen, die die Baseline-Kriterien nicht erfüllen, gelten als begrenzt verfügbar.
 
-Die Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
+Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 
 - Apple Safari (iOS)
 - Apple Safari (macOS)
@@ -17,33 +17,33 @@ Die Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 - Mozilla Firefox (Android)
 - Mozilla Firefox (Desktop)
 
-Baseline ist eine Zusammenfassung der Browser-Unterstützung. Sie ist kein Ersatz für Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline sagt möglicherweise nicht aus, ob eine Funktion funktioniert mit:
+Baseline ist eine Zusammenfassung der Browser-Unterstützung. Es ersetzt nicht die Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline gibt möglicherweise nicht an, ob eine Funktion funktioniert mit:
 
 - Älteren Geräten und Browser-Versionen
-- Browsern, die von der Baseline-Definition nicht abgedeckt sind, wie z.B. Webansichten von Betriebssystemen
-- Unterstützender Technologie, wie z.B. Bildschirmlesegeräten.
+- Browsern, die nicht durch die Baseline-Definition abgedeckt werden, wie z. B. Betriebssystem-Webansichten
+- Unterstützender Technologie, wie Bildschirmlesern.
 
-## Baseline-Badges
+## Baseline-Abzeichen
 
 ![Grünes Widget mit Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](widely.png)
 
-Funktionen, die als **weit verbreitet** gelistet sind, haben eine konsistente Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
+Als **weit verbreitet** gelistete Funktionen haben eine konsistente Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
 
 ![Blaues Widget mit Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](newly.png)
 
-Funktionen, die als **neu verfügbar** gelistet sind, funktionieren in mindestens der neuesten stabilen Version jedes der Baseline-Browser, funktionieren jedoch möglicherweise nicht mit älteren Browsern und Geräten.
+Als **neu verfügbar** gelistete Funktionen funktionieren in mindestens der neuesten stabilen Version jedes Baseline-Browsers, funktionieren jedoch möglicherweise nicht mit älteren Browsern und Geräten.
 
 ![Graues Widget mit Kreuz: Begrenzte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](limited.png)
 
-Funktionen, die mit **begrenzter Verfügbarkeit** gelistet sind, sind _noch_ nicht in allen Browsern verfügbar.
+Mit **begrenzter Verfügbarkeit** gelistete Funktionen sind _noch nicht_ in allen Browsern verfügbar.
 
-![Graues Widget mit gestricheltem Diamant: Veraltet. Vier Browser-Logos, alle mit Häkchen.](deprecated.png)
+![Graues Widget mit gepunktetem Diamanten: Veraltet. Vier Browser-Logos, alle mit Häkchen.](deprecated.png)
 
-Funktionen, die als **veraltet** gelistet sind, können in einem oder mehreren Browsern verfügbar sein, sollten jedoch nicht in der Entwicklung verwendet werden.
+Als **veraltet** gelistete Funktionen können in einem oder mehreren Browsern verfügbar sein, sollten jedoch in der Entwicklung nicht verwendet werden.
 
-![Rotes Widget mit Kreuz: Veraltet, wird entfernt. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](removed.png)
+![Rotes Widget mit Kreuz: Veraltet, soll entfernt werden. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](removed.png)
 
-Funktionen, die als **veraltet, wird entfernt** gelistet sind, können in einem oder mehreren Browsern verfügbar sein, stehen jedoch kurz vor der Entfernung und sollten nicht in der Entwicklung verwendet werden.
+Als **veraltet, soll entfernt werden** gelistete Funktionen können in einem oder mehreren Browsern verfügbar sein, sollen jedoch entfernt werden und sollten in der Entwicklung nicht verwendet werden.
 
 ## Siehe auch
 

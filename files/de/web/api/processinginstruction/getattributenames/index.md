@@ -1,14 +1,14 @@
 ---
-title: "ProcessingInstruction: getAttributeNames() Methode"
+title: "ProcessingInstruction: Methode getAttributeNames()"
 short-title: getAttributeNames()
 slug: Web/API/ProcessingInstruction/getAttributeNames
 l10n:
-  sourceCommit: b449f4c0a3d1a9cf33ac0c49c685cbf000cc829e
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die **`getAttributeNames()`** Methode der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) Schnittstelle gibt die Attributnamen der Verarbeitungshinweise als ein {{jsxref("Array")}} von Zeichenfolgen zurück. Wenn die Verarbeitungshinweise keine Attribute haben, gibt sie ein leeres Array zurück.
+Die **`getAttributeNames()`**-Methode des [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Interfaces gibt die Attributnamen der Verarbeitungshinweise als ein {{jsxref("Array")}} von Strings zurück. Hat die Verarbeitungshinweise keine Attribute, wird ein leeres Array zurückgegeben.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Zeichenfolgen.
+Ein {{jsxref("Array")}} von Strings.
 
 ## Beschreibung
 
-Die Verwendung von `getAttributeNames()` zusammen mit [`getAttribute()`](/de/docs/Web/API/ProcessingInstruction/getAttribute) ist eine speichereffiziente und leistungsstarke Alternative zum Zugriff auf `ProcessingInstruction.data`.
+Die Verwendung von `getAttributeNames()` zusammen mit [`getAttribute()`](/de/docs/Web/API/ProcessingInstruction/getAttribute) ist eine speichereffiziente und performante Alternative zum Zugriff auf `ProcessingInstruction.data`.
 
-Die von **`getAttributeNames()`** zurückgegebenen Namen sind _qualifizierte_ Attributnamen. Das bedeutet, dass Attribute mit einem Namespace-Präfix mit diesem Präfix zurückgegeben werden (jedoch _nicht_ der eigentliche Namespace), gefolgt von einem Doppelpunkt und dem Attributnamen (zum Beispiel **`xlink:href`**). Jegliche Attribute ohne Namespace-Präfix werden mit ihren Namen unverändert zurückgegeben (zum Beispiel **`href`**).
+Die von **`getAttributeNames()`** zurückgegebenen Namen sind _qualifizierte_ Attributnamen. Das bedeutet, dass Attribute mit einem Namespace-Präfix ihre Namen mit diesem Namespace-Präfix (nicht der tatsächliche Namespace), gefolgt von einem Doppelpunkt, gefolgt vom Attributnamen zurückgeben (zum Beispiel **`xlink:href`**). Attribute ohne Namespace-Präfix werden unverändert zurückgegeben (zum Beispiel **`href`**).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 const pi = document.createProcessingInstruction(

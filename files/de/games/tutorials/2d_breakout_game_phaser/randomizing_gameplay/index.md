@@ -1,17 +1,17 @@
 ---
-title: Zufällige Spielführung
+title: Zufällige Gameplay-Elemente
 slug: Games/Tutorials/2D_breakout_game_Phaser/Randomizing_gameplay
 l10n:
-  sourceCommit: ef78a9a3336c884fb3587e4ff833e64704296f01
+  sourceCommit: 3143a6094e7b87cf1a96b61f9551fb4d95049777
 ---
 
 {{Previous("Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}
 
-Dies ist der **16. Schritt** von 16 im [Gamedev Phaser Tutorial](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Unser Spiel scheint fertig zu sein, aber bei genauem Hinsehen werden Sie feststellen, dass der Ball das Paddle während des gesamten Spiels im gleichen Winkel abprallt. Das bedeutet, dass jedes Spiel ziemlich ähnlich abläuft. Um dies zu beheben und die Spielbarkeit zu verbessern, sollten wir die Rückprallwinkel zufälliger gestalten, und in diesem Artikel sehen wir uns an, wie das geht.
+Dies ist der **16. Schritt** von 16 des [Gamedev Phaser Leitfadens](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Unser Spiel scheint fertig zu sein, aber wenn Sie genau hinsehen, werden Sie feststellen, dass der Ball während des gesamten Spiels im gleichen Winkel vom Schläger abprallt. Das bedeutet, dass jedes Spiel ziemlich ähnlich ist. Um dies zu beheben und die Spielbarkeit zu verbessern, sollten wir die Abprallwinkel zufälliger gestalten, und in diesem Artikel schauen wir, wie das geht.
 
-## Zufälliger machen von Rückprällen
+## Abprallwinkel zufälliger gestalten
 
-Wir können die Geschwindigkeit des Balls ändern, je nachdem, welcher genaue Punkt auf das Paddle trifft, indem wir die `x`-Geschwindigkeit jedes Mal modifizieren, wenn die Methode `hitPaddle()` ausgeführt wird, indem wir eine Zeile wie die unten angegebene hinzufügen. Fügen Sie jetzt diese neue Zeile in Ihren Code ein und probieren Sie es aus.
+Wir können die Geschwindigkeit des Balls ändern, je nachdem, an welchem Punkt er den Schläger trifft, indem wir die `x`-Geschwindigkeit jedes Mal modifizieren, wenn die Methode `hitPaddle()` ausgeführt wird, und dabei eine Zeile wie die folgende verwenden. Fügen Sie diese neue Zeile jetzt in Ihren Code ein und probieren Sie es aus.
 
 ```js
 class ExampleScene extends Phaser.Scene {
@@ -24,11 +24,11 @@ class ExampleScene extends Phaser.Scene {
 }
 ```
 
-Es ist ein bisschen Magie—die neue Geschwindigkeit ist höher, je größer der Abstand zwischen der Mitte des Paddles und dem Punkt ist, an dem der Ball dieses trifft. Auch die Richtung (links oder rechts) wird durch diesen Wert bestimmt—wenn der Ball die linke Seite des Paddles trifft, prallt er nach links ab, während er bei einem Treffer auf der rechten Seite nach rechts abprallt. Dies ergab sich durch ein wenig Experimentieren mit den gegebenen Werten; Sie können selbst experimentieren und sehen, was passiert. Natürlich ist es nicht völlig zufällig, aber es macht das Spiel ein wenig unvorhersehbarer und damit interessanter.
+Es ist ein bisschen Magie—die neue Geschwindigkeit ist höher, je größer die Entfernung zwischen der Mitte des Schlägers und der Stelle ist, an der der Ball ihn trifft. Auch die Richtung (links oder rechts) wird durch diesen Wert bestimmt—wenn der Ball die linke Seite des Schlägers trifft, prallt er nach links ab, während ein Treffer auf der rechten Seite ihn nach rechts abprallen lässt. Das ist letztlich durch ein wenig Experimentieren mit den gegebenen Werten entstanden; Sie können Ihr eigenes Experiment machen und sehen, was passiert. Es ist natürlich nicht vollständig zufällig, aber es macht das Gameplay etwas unvorhersehbarer und daher interessanter.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist, was Sie bisher haben sollten, live in Aktion. Um den Quellcode zu sehen, klicken Sie auf den "Play"-Button.
+Hier sehen Sie, was Sie bisher haben sollten, live ausgeführt. Um den Quellcode zu sehen, klicken Sie auf den "Play"-Button.
 
 ```html hidden
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
@@ -283,24 +283,24 @@ const config = {
 const game = new Phaser.Game(config);
 ```
 
-{{EmbedLiveSample("compare your code", "", 480, , , , , "allow-modals")}}
+{{EmbedLiveSample("vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
 
 ## Zusammenfassung
 
-Sie haben alle Lektionen abgeschlossen—herzlichen Glückwunsch! Bis zu diesem Punkt haben Sie die Grundlagen von Phaser und die Logik hinter einfachen 2D-Spielen gelernt.
+Sie haben alle Lektionen abgeschlossen—herzlichen Glückwunsch! Bis zu diesem Punkt sollten Sie die Grundlagen von Phaser und die Logik hinter einfachen 2D-Spielen gelernt haben.
 
-### Übungen zum Weitermachen
+### Zu übende Übungen
 
-Sie können viel mehr im Spiel machen—fügen Sie alles hinzu, was Ihrer Meinung nach das Spiel spaßiger und interessanter machen würde. Es ist ein einfacher Einstieg, der nur an der Oberfläche der unzähligen hilfreichen Methoden kratzt, die Phaser bietet. Unten sind einige Vorschläge, wie Sie unser kleines Spiel erweitern könnten, um zu starten:
+Es gibt im Spiel viel mehr zu tun—fügen Sie alles hinzu, was Sie für am besten halten, um es noch unterhaltsamer und interessanter zu machen. Es ist ein grundlegender Einstieg, der die Oberfläche der unzähligen hilfreichen Methoden, die Phaser bietet, nur ankratzt. Unten finden Sie einige Vorschläge, wie Sie unser kleines Spiel erweitern könnten, um Ihnen den Einstieg zu erleichtern:
 
-- Fügen Sie einen zweiten Ball oder ein Paddle hinzu.
-- Ändern Sie bei jedem Treffer die Hintergrundfarbe.
+- Fügen Sie einen zweiten Ball oder Schläger hinzu.
+- Ändern Sie die Farbe des Hintergrunds bei jedem Treffer.
 - Ändern Sie die Bilder und verwenden Sie Ihre eigenen.
-- Gewähren Sie zusätzliche Bonuspunkte, wenn Ziegel schnell zerstört werden, mehrere in Folge (oder andere Boni Ihrer Wahl).
-- Erstellen Sie Level mit unterschiedlichen Ziegelanordnungen.
+- Gewähren Sie zusätzliche Bonuspunkte, wenn Ziegel schnell nacheinander zerstört werden (oder andere Boni Ihrer Wahl).
+- Erstellen Sie Levels mit unterschiedlichen Ziegellayouts.
 
-Schauen Sie unbedingt in die ständig wachsende Liste der [Beispiele](https://labs.phaser.io/) und die [offizielle Dokumentation](https://docs.phaser.io/) und besuchen Sie das [Phaser Discourse Forum](https://phaser.discourse.group/), wenn Sie jemals Hilfe benötigen.
+Stellen Sie sicher, die ständig wachsende Liste von [Beispielen](https://labs.phaser.io/) und die [offizielle Dokumentation](https://docs.phaser.io/) zu überprüfen, und besuchen Sie das [Phaser Discourse-Forum](https://phaser.discourse.group/), wenn Sie Hilfe benötigen.
 
-Sie könnten auch zur [Indexseite dieser Tutorialreihe](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) zurückgehen.
+Sie könnten auch zur [Indextseite dieses Tutorial-Serie](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) zurückkehren.
 
 {{Previous("Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}

@@ -3,10 +3,10 @@ title: "`steps()` CSS-Funktion"
 short-title: steps()
 slug: Web/CSS/Reference/Values/easing-function/steps
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: ba3c8980510073ee92674aa71cb2c8c5b71294ab
 ---
 
-Die **`steps()`**-Funktion in [CSS](/de/docs/Web/CSS) [funktioniert](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transition, die die Eingabezeit in eine festgelegte Anzahl gleichlanger Intervalle unterteilt. Diese Unterklasse von Step-Funktionen wird manchmal auch als _Treppenfunktionen_ bezeichnet.
+Die **`steps()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert einen Übergang, der die Eingabezeit in eine angegebene Anzahl gleichlanger Intervalle unterteilt. Diese Unterklasse von Schritt-Funktionen wird manchmal auch _Treppenfunktionen_ genannt.
 
 ## Syntax
 
@@ -28,17 +28,17 @@ steps(3, jump-both)
 Die Funktion akzeptiert die folgenden Parameter:
 
 - `<integer>`
-  - : Repräsentiert die Anzahl der gleichmäßigen Intervalle oder 'Stufen'.
-    Es muss eine positive ganze Zahl größer als `0` sein, es sei denn, der zweite Parameter ist `jump-none`. In diesem Fall muss es eine positive ganze Zahl größer als `1` sein.
+  - : Repräsentiert die Anzahl der gleichmäßigen Intervalle oder 'Schritte'.
+    Es muss eine positive ganze Zahl größer als `0` sein, es sei denn, der zweite Parameter ist `jump-none`, in diesem Fall muss es eine positive ganze Zahl größer als `1` sein.
 
 - `<step-position>`
-  - : Gibt an, wann der Sprung zwischen Werten erfolgt.
-    Wenn dieser weggelassen wird, ist der Standardwert `end`.
+  - : Gibt an, wann der Sprung zwischen den Werten erfolgt.
+    Wenn dieser Parameter ausgelassen wird, ist der Standardwert `end`.
     Die möglichen Schlüsselwortwerte sind:
     - `jump-start` oder `start`
-      - : Gibt an, dass der erste Schritt zu Beginn der Animation erfolgt.
+      - : Gibt an, dass der erste Schritt erfolgt, wenn die Animation beginnt.
     - `jump-end` oder `end`
-      - : Gibt an, dass der letzte Schritt am Ende der Animation erfolgt.
+      - : Gibt an, dass der letzte Schritt erfolgt, wenn die Animation endet.
     - `jump-none`
       - : Gibt an, dass weder frühe noch späte Sprünge stattfinden.
     - `jump-both`
@@ -46,12 +46,12 @@ Die Funktion akzeptiert die folgenden Parameter:
 
 ## Beschreibung
 
-Die `steps()`-Funktion teilt die Animationsdauer in gleiche Intervalle.
-Zum Beispiel, `steps(4, end)` teilt die Animation in vier gleiche Intervalle, wobei Werte am Ende jedes Intervalls außer der letzten Änderung, die am Ende der Animation erfolgt, geändert werden.
+Die `steps()`-Funktion unterteilt die Animationsdauer in gleiche Intervalle.
+Zum Beispiel: `steps(4, end)` unterteilt die Animation in vier gleiche Intervalle, wobei die Werte am Ende jedes Intervalls geändert werden, außer der letzten Änderung, die am Ende der Animation erfolgt.
 
-Wenn eine Animation mehrere Segmente enthält, gilt die angegebene Anzahl von Schritten für jedes Segment. Zum Beispiel, wenn eine Animation drei Segmente hat und `steps(2)` verwendet, gibt es insgesamt sechs Schritte, mit zwei Schritten pro Segment.
+Wenn eine Animation mehrere Segmente enthält, gilt die angegebene Anzahl an Schritten für jedes Segment. Zum Beispiel, wenn eine Animation drei Segmente hat und `steps(2)` verwendet, gibt es insgesamt sechs Schritte, mit zwei Schritten pro Segment.
 
-Das folgende Bild zeigt die Auswirkung verschiedener `<step-position>` Werte, wann die Sprünge auftreten:
+Das folgende Bild zeigt die Wirkung verschiedener `<step-position>`-Werte, wenn die Sprünge auftreten:
 
 ```css
 steps(2, jump-start)  /* Or steps(2, start) */
@@ -60,7 +60,7 @@ steps(5, jump-none)
 steps(3, jump-both)
 ```
 
-![Graphen des Eingabevortschritts zum Ausgabevortschritt, wobei steps(2, jump-start) horizontale Linien zeigt, die jeweils 0,5 Einheiten von (0, 0.5) und (0.5, 1) erstrecken, mit leeren Kreisen am Ursprung und bei (0.5, 0.5); steps(4, jump-end) zeigt horizontale Linien, die jeweils 0,25 Einheiten von (0, 0), (0.25, 0.25), (0.5, 0.5), und (0.75, 0.75) erstrecken, mit leeren Kreisen bei (0.25, 0), (0.5, 0.25), und (0.75, 0.5), und einem gefüllten Kreis bei (1, 1); steps(5, jump-none) zeigt horizontale Linien, die jeweils 0,2 Einheiten von (0, 0), (0.2, 0.25), (0.4, 0.5), (0.6, 0.75), und (0.8, 1) erstrecken, mit leeren Kreisen bei (0.2, 0), (0.4, 0.25), (0.6, 0.5), und (0.8, 0.75); steps(3, jump-both) zeigt horizontale Linien, die jeweils 1/3 Einheiten von (0, 0.25), (1/3, 0.5), und (2/3, 0.75) erstrecken, mit einem gefüllten Kreis bei (1, 1) und leeren Kreisen am Ursprung, (1/3, 0.25), (2/3, 0.5), und (1, 0.75).](jump.svg)
+![Diagramme des Eingabe- zu Ausgabefortschritts, wobei steps(2, jump-start) horizontale Linien zeigt, die 0,5 Einheiten von (0, 0,5) und (0,5, 1) aus erstrecken, jeweils mit leeren Kreisen am Ursprung und (0,5, 0,5); steps(4, jump-end) horizontale Linien zeigt, die 0,25 Einheiten von (0, 0), (0,25, 0,25), (0,5, 0,5), und (0,75, 0,75) aus erstrecken, mit ungefüllten Kreisen bei (0,25, 0), (0,5, 0,25), und (0,75, 0,5), und einem gefüllten Kreis bei (1, 1); steps(5, jump-none) zeigt horizontale Linien, die sich 0,2 Einheiten von (0, 0), (0,2, 0,25), (0,4, 0,5), (0,6, 0,75), und (0,8, 1) erstrecken, jeweils mit ungefüllten Kreisen bei (0,2, 0), (0,4, 0,25), (0,6, 0,5), und (0,8, 0,75); steps(3, jump-both) zeigt horizontale Linien, die sich 1/3 Einheiten von (0, 0,25), (1/3, 0,5), und (2/3, 0,75) erstrecken, jeweils mit einem gefüllten Kreis bei (1, 1) und ungefüllten Kreisen am Ursprung, (1/3, 0,25), (2/3, 0,5), und (1, 0,75).](jump.svg)
 
 ## Formale Syntax
 
@@ -68,7 +68,7 @@ steps(3, jump-both)
 
 ## Beispiele
 
-### Verwendung der `steps()`-Funktion
+### Verwendung der steps()-Funktion
 
 Die folgenden `steps()`-Funktionen sind gültig:
 
@@ -107,5 +107,5 @@ steps(0, jump-none)
 ## Siehe auch
 
 - Andere Easing-Funktionen: {{cssxref("easing-function/cubic-bezier", "cubic-bezier()")}} und {{cssxref("easing-function/linear", "linear()")}}
-- [CSS Easing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions)-Modul
-- [Step-Funktion](https://en.wikipedia.org/wiki/Step_function) auf Wikipedia
+- [CSS-Easing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions)-Modul
+- [Schritt-Funktion](https://en.wikipedia.org/wiki/Step_function) auf Wikipedia

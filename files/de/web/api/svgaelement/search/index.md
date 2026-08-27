@@ -3,18 +3,18 @@ title: "SVGAElement: search-Eigenschaft"
 short-title: search
 slug: Web/API/SVGAElement/search
 l10n:
-  sourceCommit: 022e05c6f500c47e7def9759fd0256c59fa11754
+  sourceCommit: e316526e520d8163e9151dca8973eb777b5285e0
 ---
 
-{{APIRef("SVG")}}
+{{APIRef("SVG")}}{{SeeCompatTable}}
 
-Die **`search`**-Eigenschaft der [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Schnittstelle gibt einen Zeichenfolgewert zurück, der die Abfragezeichenfolge der URL darstellt, falls vorhanden, einschließlich des führenden Fragezeichens (`?`).
+Die **`search`**-Eigenschaft der [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Schnittstelle gibt einen String zurück, der die Query-String der URL darstellt, falls vorhanden, einschließlich des führenden Fragezeichens (`?`).
 
-Diese Eigenschaft kann festgelegt werden, um die Abfragekomponente der URL zu ändern.
+Diese Eigenschaft kann gesetzt werden, um die Query-Komponente der URL zu ändern.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Eine Zeichenfolge.
 
 ## Siehe auch
 
-- SVG {{SVGElement("a")}}-Element
+- SVG {{SVGElement("a")}} Element

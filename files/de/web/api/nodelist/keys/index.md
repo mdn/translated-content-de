@@ -1,15 +1,14 @@
 ---
-title: "NodeList: keys() Methode"
+title: "NodeList: keys()-Methode"
 short-title: keys()
 slug: Web/API/NodeList/keys
 l10n:
-  sourceCommit: e81cf36acffe197d01b1ad282c3582ebd7b0b54d
+  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
 ---
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.keys()`** Methode gibt einen
-{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel, die in diesem Objekt enthalten sind, zu durchlaufen. Die Schlüssel sind `unsigned integer`.
+Die **`NodeList.keys()`**-Methode gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es Ihnen ermöglicht, alle Schlüssel in diesem Objekt durchzugehen. Die Schlüssel sind `unsigned integer`.
 
 ## Syntax
 

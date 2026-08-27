@@ -1,12 +1,12 @@
 ---
-title: "`<small>` HTML-Seitenkommentarelement"
+title: "`<small>` HTML Sidekommentar-Element"
 short-title: <small>
 slug: Web/HTML/Reference/Elements/small
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 87adaa5384b1015690f3435ce0ba64ac097764eb
 ---
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitenkommentare und Kleingedrucktes, wie Copyright- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig rendert es Text innerhalb davon eine Schriftgröße kleiner, zum Beispiel von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitenkommentare und Kleindruck, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der Text darin eine Schriftgröße kleiner gerendert, z.B. von `small` zu `x-small`.
 
 {{InteractiveExample("HTML Demo: &lt;small&gt;", "tabbed-shorter")}}
 
@@ -70,9 +70,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 {{EmbedLiveSample("CSS_alternative")}}
 
-## Anmerkungen
+## Hinweise
 
-Obwohl das `<small>`-Element, genau wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation wahrgenommen werden kann, sind alle drei in HTML gültig. Autoren sollten ihr bestes Urteilsvermögen anwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, wie auch die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation wahrgenommen werden kann, sind alle drei in HTML gültig. Autoren werden ermutigt, ihr bestes Urteil zu verwenden, um zu entscheiden, ob sie `<small>` oder CSS verwenden sollen.
 
 ## Technische Zusammenfassung
 
@@ -86,35 +86,37 @@ Obwohl das `<small>`-Element, genau wie die {{htmlelement("b")}}- und {{htmlelem
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasenbezogener Inhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasenbezogener Inhalt</a
+          >Phrasing-Inhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Auslassung von Tags</th>
-      <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine; muss sowohl ein Start- als auch ein End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >phrasenbezogenen Inhalt</a
-        > akzeptiert, oder jedes Element, das
+          >Phrasing-Inhalt</a
+        >
+        akzeptiert, oder jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließenden Inhalt</a
-        > akzeptiert.
+          >Flussinhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -122,14 +124,14 @@ Obwohl das `<small>`-Element, genau wie die {{htmlelement("b")}}- und {{htmlelem
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
-            >generic</a
+            >general</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Any</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
