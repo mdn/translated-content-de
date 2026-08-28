@@ -3,19 +3,17 @@ title: "NavigationPreloadManager: setHeaderValue() Methode"
 short-title: setHeaderValue()
 slug: Web/API/NavigationPreloadManager/setHeaderValue
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: db443a6062d0e858a62af2f9a3a7558335ffd2dd
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setHeaderValue()`** Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) Schnittstelle setzt den Wert des {{HTTPHeader("Service-Worker-Navigation-Preload")}} Headers, der mit Anfragen gesendet wird, die aus einem [`fetch()`](/de/docs/Web/API/Window/fetch) Vorgang während des Vorladens von Service Worker-Navigationen resultieren.
-Sie gibt ein leeres {{jsxref("Promise")}} zurück, das mit `undefined` aufgelöst wird.
+Die **`setHeaderValue()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle legt den Wert des {{HTTPHeader("Service-Worker-Navigation-Preload")}}-Headers fest, der mit Anfragen gesendet wird, die aus einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Vorgang resultieren, der während des Service-Worker-Navigationsvorausladens durchgeführt wird. Sie gibt ein leeres {{jsxref("Promise")}} zurück, das mit `undefined` aufgelöst wird.
 
-Das Vorhandensein des {{HTTPHeader("Service-Worker-Navigation-Preload")}} Headers in Vorladeanforderungen ermöglicht es Servern, die zurückgegebene Ressource für Vorladeabfragen anders zu konfigurieren als für normale Abfragen.
-Die Standardanweisung ist auf `true` gesetzt: Diese Methode ermöglicht die Möglichkeit, mehrere unterschiedliche Antworten auf Vorladeanfragen zu konfigurieren.
+Das Vorhandensein des {{HTTPHeader("Service-Worker-Navigation-Preload")}}-Headers in Vorausladeanfragen ermöglicht es Servern, die zurückgegebene Ressource für Vorausladeanfragen anders zu konfigurieren als für normale Anfragen. Die Standarddirektive ist auf `true` gesetzt: Diese Methode ermöglicht die Konfiguration mehrerer unterschiedlicher Antworten auf Vorausladeanfragen.
 
 > [!NOTE]
-> Wenn durch das Setzen dieses Headers eine andere Antwort resultieren kann, muss der Server `Vary: Service-Worker-Navigation-Preload` setzen, um sicherzustellen, dass die unterschiedlichen Antworten zwischengespeichert werden.
+> Wenn das Setzen dieses Headers zu einer anderen Antwort führen kann, muss der Server `Vary: Service-Worker-Navigation-Preload` setzen, um sicherzustellen, dass die unterschiedlichen Antworten zwischengespeichert werden.
 
 ## Syntax
 
@@ -26,7 +24,7 @@ setHeaderValue(value)
 ### Parameter
 
 - `value`
-  - : Ein beliebiger String-Wert, den der Zielserver verwendet, um zu bestimmen, was für die angeforderte Ressource zurückgegeben werden soll.
+  - : Ein beliebiger Zeichenfolgenwert, den der Zielserver verwendet, um zu bestimmen, was für die angeforderte Ressource zurückgegeben werden soll.
 
 ### Rückgabewert
 

@@ -1,9 +1,9 @@
 ---
-title: "`circle()` CSS Funktion"
+title: "`circle()` CSS-Funktion"
 short-title: circle()
 slug: Web/CSS/Reference/Values/basic-shape/circle
 l10n:
-  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
+  sourceCommit: 30e0adab23668217555b7ed37df7e6e61b002bf3
 ---
 
 Die **`circle()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert einen Kreis unter Verwendung eines Radius und einer Position. Sie ist einer der {{cssxref("basic-shape")}} Datentypen.
@@ -63,18 +63,18 @@ border-shape: circle(60%);
 ### Werte
 
 - `<shape-radius>`
-  - : Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder einer der folgenden Schlüsselwortwerte sein:
+  - : Dies kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder einer der folgenden Schlüsselwortwerte sein:
     - `closest-side`
-      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur nächsten Seite des Bezugsrahmens, sodass die Grenze des Kreises diese Seite gerade berührt.
+      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur nächstgelegenen Seite der Referenzbox, sodass die Grenze des Kreises genau diese Seite berührt.
     - `farthest-side`
-      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur entferntesten Seite des Bezugsrahmens, sodass die Grenze des Kreises diese Seite gerade berührt.
+      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur entferntesten Seite der Referenzbox, sodass die Grenze des Kreises genau diese Seite berührt.
     - `closest-corner`
-      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur nächsten Ecke des Bezugsrahmens, sodass die Grenze des Kreises durch diese Ecke verläuft.
+      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur nächstgelegenen Ecke der Referenzbox, sodass die Grenze des Kreises durch diese Ecke verläuft.
     - `farthest-corner`
-      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur entferntesten Ecke des Bezugsrahmens, sodass die Grenze des Kreises durch diese Ecke verläuft.
+      - : Der Radius ist die Länge vom Mittelpunkt des Kreises zur entferntesten Ecke der Referenzbox, sodass die Grenze des Kreises durch diese Ecke verläuft.
 
 - `<position>`
-  - : Bewegt den Mittelpunkt des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder ein Wert wie `left` sein. Der `<position>` Wert ist standardmäßig auf center gesetzt, wenn er weggelassen wird.
+  - : Verschiebt den Mittelpunkt des Kreises. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder ein Wert wie `left` sein. Der `<position>`-Wert wird auf center gesetzt, wenn er weggelassen wird.
 
 ## Formale Syntax
 
@@ -84,7 +84,7 @@ border-shape: circle(60%);
 
 ### Einfacher Kreis
 
-Im untenstehenden Beispiel hat die Eigenschaft {{cssxref("shape-outside")}} den Wert `circle(50%)`, der einen Kreis auf einem geschwommenen Element definiert, um den der Text fließt.
+Im untenstehenden Beispiel hat die Eigenschaft {{cssxref("shape-outside")}} den Wert `circle(50%)`, wodurch ein Kreis auf einem umflossenen Element definiert wird, um den der Text herumfließt.
 
 ```html live-sample___circle
 <div class="box">
@@ -117,14 +117,14 @@ img {
 
 {{EmbedLiveSample("circle", "", "300px")}}
 
-### Interaktives Beispiel für Radius-Schlüsselwörter
+### Interaktives Beispiel für Radius-Schlüsselwörter
 
-Dieses Beispiel ermöglicht es Ihnen, die Auswirkungen der Verschiebung des Mittelpunktes des Kreises unter Verwendung jedes der vier `<shape-radius>` Schlüsselwörter zu testen.
+Dieses Beispiel ermöglicht es Ihnen, die Wirkung der Verschiebung des Kreismittelpunktes zu testen, wenn eines der vier `<shape-radius>`-Schlüsselwörter verwendet wird.
 
 #### HTML
 
-Das HTML definiert zuerst Steuerungen zur Auswahl eines gewünschten Radius-Schlüsselwortes und zur Festlegung der Position, an der der Kreis angezeigt werden soll, gefolgt von einem {{htmlelement("pre")}} Element zur Anzeige des {{cssxref("clip-path")}} der von den Steuerungswerten ausgewählt wird.
-Anschließend wird ein `#support-note` Element bereitgestellt, um anzuzeigen, wann bestimmte Radius-Schlüsselwörter nicht unterstützt werden.
+Das HTML definiert zunächst Steuerungen zur Auswahl eines gewählten Radius-Schlüsselwortes und zur Festlegung der Position, an der der Kreis angezeigt werden soll, gefolgt von einem {{htmlelement("pre")}}-Element zur Anzeige des {{cssxref("clip-path")}}, das die Steuerungswerte auswählen.
+Danach wird ein `#support-note`-Element bereitgestellt, um anzuzeigen, wann bestimmte Radius-Schlüsselwörter nicht unterstützt werden.
 
 ```html live-sample___circle-keywords-interactive
 <div class="controls">
@@ -156,9 +156,9 @@ Anschließend wird ein `#support-note` Element bereitgestellt, um anzuzeigen, wa
 <p id="support-note"></p>
 ```
 
-Das HTML definiert dann eine Reihe von {{htmlelement("div")}} Elementen, die verwendet werden, um den Kreis, den Bezugsrahmen und den Mittelpunktsmarker darzustellen.
-Die wichtigsten Elemente sind der Bezugsrahmen (`#refbox`) und das darin enthaltene `.fill` Element, die den gezeichneten Verlauf definieren (wie im folgenden CSS-Abschnitt besprochen).
-Ein `clipPath` wird im JavaScript auf den Bezugsrahmen gesetzt, um diesen Verlauf in eine kreisförmige Form zu schneiden.
+Das HTML definiert dann eine Anzahl von {{htmlelement("div")}}-Elementen, die verwendet werden, um den Kreis, die Referenzbox und den Mittelpunkt-Marker darzustellen.
+Die wichtigsten Elemente sind die Referenzbox (`#refbox`) und das darin enthaltene `.fill`-Element, die den gezeichneten Verlauf definieren (wie im folgenden CSS-Abschnitt erörtert).
+Ein `clipPath` wird im JavaScript auf die Referenzbox gesetzt, um diesen Verlauf zu einer kreisförmigen Form zu begrenzen.
 
 ```html live-sample___circle-keywords-interactive
 <div class="canvas">
@@ -170,14 +170,14 @@ Ein `clipPath` wird im JavaScript auf den Bezugsrahmen gesetzt, um diesen Verlau
 </div>
 ```
 
-Beachten Sie, dass die `.outline` und `.center-marker` zur Verfügung gestellt werden, um es einfacher zu machen, den Bezugsrahmen und den Mittelpunkt des ausschneidenden Kreises zu sehen, die ansonsten unsichtbar wären.
-Das `.outline` Element muss im Markup nach `#refbox` platziert werden: Da es selbst nicht abgeschnitten wird, bedeutet das Zeichnen nach dem Bezugsrahmen, dass seine gestrichelte Umrandung immer über dem `.fill` Verlauf rendert, selbst wenn der ausschneidende Kreis über den Bezugsrahmen hinausgeht.
+Beachten Sie, dass die `.outline` und `.center-marker` bereitgestellt werden, um das Erkennen der Referenzbox und des Kresimittelpunktes zu erleichtern, die ansonsten unsichtbar wären.
+Das `.outline`-Element muss nach `#refbox` im Markup platziert werden: Da es selbst nicht abgeschnitten ist, bedeutet das Zeichnen nach der Referenzbox, dass sein gestrichelter Rahmen immer über dem `.fill`-Verlauf gerendert wird, auch wenn der beschneidende Kreis über die Referenzbox hinausgeht.
 
 #### CSS
 
-Das CSS für das Canvas, den Bezugsrahmen und die Füllelemente wird unten angezeigt.
-Beachten Sie, dass die `.fill` einen Verlauf definiert, der den Bezugsrahmen überläuft und den größten Teil der Leinwand füllt.
-Dies ist der Verlauf, den wir mit der `circle()` schneiden werden (wir machen dies, indem wir den CSS-Ausschnittspfade dynamisch in unserem JavaScript-Code setzen).
+Das CSS für das Canvas, die Referenzbox und die Füllelemente wird unten gezeigt.
+Beachten Sie, dass das `.fill` einen Verlauf definiert, der die Referenzbox überläuft, den größten Teil des Canvas füllt.
+Dies ist der Verlauf, den wir mit dem `circle()` beschneiden (wir tun dies, indem wir den CSS-Clip-Pfad dynamisch in unserem JavaScript-Code setzen).
 
 ```css live-sample___circle-keywords-interactive
 .canvas {
@@ -204,8 +204,8 @@ Dies ist der Verlauf, den wir mit der `circle()` schneiden werden (wir machen di
 }
 ```
 
-Das CSS für die Steuerungselemente und andere Elemente wird nicht angezeigt, da es zum Verständnis der `circle()` Methode nicht erforderlich ist.
-Interessierte Leser können es im Beispiel-Spielplatz einsehen.
+Das CSS für die Steuerungs- und andere Elemente wird nicht gezeigt, da es nicht erforderlich ist, um die `circle()`-Methode zu verstehen.
+Interessierte Leser können es sich im Beispiel-Spielplatz ansehen.
 
 ```css live-sample___circle-keywords-interactive hidden
 body {
@@ -267,7 +267,7 @@ body {
 
 #### JavaScript
 
-Zuerst erhalten wir Referenzen zu jedem der vom Beispiel verwendeten Elemente.
+Zuerst holen wir uns Verweise auf jedes der im Beispiel verwendeten Elemente.
 
 ```js live-sample___circle-keywords-interactive
 const select = document.getElementById("radius-keyword");
@@ -279,8 +279,8 @@ const marker = document.getElementById("center-marker");
 const supportNote = document.getElementById("support-note");
 ```
 
-Dann definieren wir die Funktion `checkSupport()`, die verwendet wird, um zu testen, ob jedes Radius-Schlüsselwort unterstützt wird und die zugehörigen Auswahlmöglichkeiten einzuschalten oder zu deaktivieren.
-Dabei wird die Methode [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static) verwendet, um die Unterstützung von Schlüsselwörtern zu überprüfen.
+Dann definieren wir die `checkSupport()`-Funktion, die verwendet wird, um zu testen, ob jedes Radius-Schlüsselwort unterstützt wird, und die zugehörigen Auswahloptionen aktiviert/deaktiviert.
+Dies verwendet die [`CSS.supports()`](/de/docs/Web/API/CSS/supports_static)-Methode, um die Unterstützung von Schlüsselwörtern zu überprüfen.
 
 ```js live-sample___circle-keywords-interactive
 function checkSupport() {
@@ -306,8 +306,8 @@ function checkSupport() {
 }
 ```
 
-Als nächstes definieren wir eine `update()` Funktion, die immer aufgerufen wird, wenn die Eingabesteuerungen geändert werden.
-Diese setzt den Ausschnittspfad auf dem Bezugsrahmen basierend auf dem ausgewählten Schlüsselwort und der Position und bewegt den Mittelpunktsegler, um ihn anzupassen.
+Als nächstes definieren wir eine `update()`-Funktion, die immer dann aufgerufen wird, wenn die Eingabesteuerungen geändert werden.
+Diese setzt den Clip-Pfad auf der Referenzbox basierend auf dem ausgewählten Schlüsselwort und der Position und bewegt den Mittelpunkt-Marker entsprechend.
 
 ```js live-sample___circle-keywords-interactive
 function update() {
@@ -334,9 +334,9 @@ update();
 
 #### Ergebnis
 
-Ändern Sie die Position des Kreismittelpunkts und das verwendete Schlüsselwort, um deren relative Auswirkungen zu sehen.
-Beachten Sie, dass der Bezugsrahmen zusammen mit dem ausgewählten Radius-Schlüsselwort und der Position verwendet wird, um den ausschneidenden Kreis zu berechnen.
-Dieser Kreis kann den Bezugsrahmen überschreiten (zum Beispiel bei `closest-corner` oder `farthest-corner`); der `.fill` Verlauf ist absichtlich größer als der Bezugsrahmen dimensioniert, sodass er immer den vollständig ausgeschnittenen Kreis abdeckt, wie weit dieser auch reichen mag.
+Ändern Sie die Position des Kreismittelpunktes und das verwendete Schlüsselwort, um deren relative Auswirkungen zu sehen.
+Beachten Sie, dass die Referenzbox zusammen mit dem ausgewählten Radius-Schlüsselwort und der Position verwendet wird, um den beschneidenden Kreis zu berechnen.
+Dieser Kreis kann über die Referenzbox hinausgehen (zum Beispiel mit `closest-corner` oder `farthest-corner`); der `.fill`-Verlauf ist bewusst größer als die Referenzbox bemessen, sodass er immer den gesamten beschnittenen Kreis vollständig abdeckt, egal wie weit er sich erstreckt.
 
 {{EmbedLiveSample("circle-keywords-interactive", "", "640px")}}
 
@@ -351,4 +351,4 @@ Dieser Kreis kann den Bezugsrahmen überschreiten (zum Beispiel bei `closest-cor
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("border-shape")}}, {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [Leitfaden zu Basisformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)
+- [Leitfaden zu Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

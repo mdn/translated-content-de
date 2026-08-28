@@ -1,21 +1,24 @@
 ---
-title: "HTMLTextAreaElement: selectionchange-Ereignis"
+title: "HTMLTextAreaElement: selectionchange Ereignis"
 short-title: selectionchange
 slug: Web/API/HTMLTextAreaElement/selectionchange_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 81a7c1667ff8881e40435fa7fc7e968f9b6cd622
 ---
 
 {{APIRef("Selection API")}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("textarea")}}-Elements geändert wird.
-Dies schließt sowohl Änderungen im ausgewählten Zeichenbereich als auch Bewegungen des Cursors ein.
+Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("textarea")}} Elements verändert wird.
+Dies umfasst sowohl Änderungen im ausgewählten Zeichenbereich als auch Bewegungen des Cursors.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
-Das Ereignis wird normalerweise verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("textarea")}} hinzugefügt wird. In der Handlerfunktion wird auf die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) zugegriffen.
+> [!NOTE]
+> Wenn Sie die Auswahl programmatisch ändern, beispielsweise durch Aufruf von [`setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange), wird die Auswahl sofort aktualisiert, aber das `selectionchange` Ereignis wird als Aufgabe in die Warteschlange gestellt. Dessen Listener werden später ausgeführt, nachdem das aktuelle Skript die Ausführung beendet hat. Dies steht im Gegensatz zu Ereignissen wie `focus` und `click`, deren Listener synchron ausgeführt werden, wenn sie durch [`focus()`](/de/docs/Web/API/HTMLElement/focus) und [`click()`](/de/docs/Web/API/HTMLElement/click) ausgelöst werden.
 
-Es ist auch möglich, einen Listener auf dem globalen `onselectionchange`-Ereignishandler hinzuzufügen und innerhalb der Handlerfunktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Dies ist jedoch nicht sehr nützlich, um Änderungen an _Text_-Auswahlen zu erhalten.
+Das Ereignis wird in der Regel verarbeitet, indem ein Ereignis-Listener auf das {{HTMLElement("textarea")}} hinzugefügt wird und in der Handler-Funktion durch die `selectionStart`, `selectionEnd` und `selectionDirection` Eigenschaften des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) gelesen wird.
+
+Es ist auch möglich, einen Listener für den globalen `onselectionchange` Ereignishandler hinzuzufügen und innerhalb der Handler-Funktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Dies ist jedoch nicht sehr nützlich, um Änderungen an _Text_-Auswahlen zu erhalten.
 
 ## Syntax
 
@@ -33,7 +36,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man den Text erhält, der in einem {{HTMLElement("textarea")}}-Element ausgewählt ist.
+Das folgende Beispiel zeigt, wie man den im {{HTMLElement("textarea")}} Element ausgewählten Text erhält.
 
 ### HTML
 
