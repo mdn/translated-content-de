@@ -2,43 +2,43 @@
 title: RTCError
 slug: Web/API/RTCError
 l10n:
-  sourceCommit: e7f93b8ebd8b26bd6fae71f7b0b6214a671a4ef9
+  sourceCommit: 581220b4299dd4c44544f7c200440129067a9d9d
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`RTCError`**-Schnittstelle der [WebRTC API](/de/docs/Web/API/WebRTC_API) beschreibt einen Fehler, der bei der Verarbeitung von RTC-Operationen aufgetreten ist.
-Sie basiert auf der Standard-[`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle, die allgemeine DOM-Fehler beschreibt.
+Das **`RTCError`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) beschreibt einen Fehler, der beim Umgang mit RTC-Operationen aufgetreten ist.
+Es basiert auf dem standardmäßigen [`DOMException`](/de/docs/Web/API/DOMException)-Interface, das allgemeine DOM-Fehler beschreibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`RTCError()`](/de/docs/Web/API/RTCError/RTCError)
-  - : Erstellt und gibt eine neue `RTCError`-Objektinstanz zurück.
+  - : Erstellt und gibt eine neue Instanz des `RTCError`-Objekts zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`DOMException`](/de/docs/Web/API/DOMException)._
+_Erbt auch Eigenschaften von seinem übergeordneten Interface, [`DOMException`](/de/docs/Web/API/DOMException)._
 
 - [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) {{ReadOnlyInline}}
-  - : Ein Zeichenfolgenwert, der den WebRTC-spezifischen Fehlercode angibt, der den Typ des aufgetretenen Fehlers identifiziert.
+  - : Ein String, der den WebRTC-spezifischen Fehlercode angibt, der den Typ des aufgetretenen Fehlers identifiziert.
 - [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) {{ReadOnlyInline}}
-  - : Ein positiver Ganzzahlenwert, der den schwerwiegenden {{Glossary("DTLS", "DTLS")}}-Fehler angibt, der vom Netzwerk empfangen wurde.
-    Nur gültig, wenn die `errorDetail`-Zeichenfolge `dtls-failure` ist.
-    Wenn `null`, wurde kein DTLS-Fehler empfangen.
+  - : Ein positiver Ganzzahlwert, der den schwerwiegenden {{Glossary("DTLS", "DTLS")}}-Fehler angibt, der vom Netzwerk empfangen wurde.
+    Nur gültig, wenn der `errorDetail`-String `dtls-failure` ist.
+    Falls `null`, wurde kein DTLS-Fehler empfangen.
 - [`sctpCauseCode`](/de/docs/Web/API/RTCError/sctpCauseCode) {{ReadOnlyInline}}
-  - : Eine Ganzzahl, die den {{Glossary("SCTP", "SCTP")}}-Ursachencode angibt, der die Ursache der fehlgeschlagenen SCTP-Verhandlung anzeigt.
+  - : Eine Ganzzahl, die den {{Glossary("SCTP", "SCTP")}}-Ursachencode angibt, der die Ursache der fehlgeschlagenen SCTP-Verhandlung beschreibt.
     Wird gesetzt, wenn `errorDetail` `sctp-failure` ist.
     `null`, wenn der Fehler kein SCTP-Fehler ist.
 - [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber) {{ReadOnlyInline}}
-  - : Eine Ganzzahl, die die Zeilennummer der {{Glossary("SDP", "SDP")}} angibt, in der der Syntaxfehler aufgetreten ist.
+  - : Eine Ganzzahl, die die Zeilennummer des {{Glossary("SDP", "SDP")}} angibt, in der der Syntaxfehler aufgetreten ist.
     Wird gesetzt, wenn `errorDetail` `sdp-syntax-error` ist.
     `null`, wenn der Fehler kein SDP-Syntaxfehler ist.
 - [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) {{ReadOnlyInline}}
   - : Eine positive Ganzzahl, die den schwerwiegenden DTLS-Fehler angibt, der von diesem Gerät gesendet wurde.
     Wird gesetzt, wenn `errorDetail` `dtls-failure` ist.
-    Wenn `null`, wurde kein DTLS-Fehler gesendet.
+    Falls `null`, wurde kein DTLS-Fehler übertragen.
 
 > [!NOTE]
 > Alle `RTCError`-Objekte haben ihren [`name`](/de/docs/Web/API/DOMException/name) auf `OperationError` gesetzt.
@@ -47,7 +47,7 @@ _Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`DOMException
 
 ### Grundlegende Verwendung
 
-In diesem Beispiel wird ein Handler für das [`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) eingerichtet.
+In diesem Beispiel wird ein Handler für das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-[`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis eingerichtet.
 
 ```js
 dataChannel.addEventListener("error", (event) => {
@@ -65,11 +65,13 @@ dataChannel.addEventListener("error", (event) => {
 });
 ```
 
-Wenn der Fehler ein SDP-Syntaxfehler ist - was daran erkennbar ist, dass die Eigenschaft [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) auf `sdp-syntax-error` gesetzt ist - wird eine Nachricht konstruiert, um die Fehlermeldung und die Zeilennummer innerhalb der SDP-Nachricht darzustellen, bei der der Fehler aufgetreten ist. Diese Nachricht wird dann mit einer Funktion namens `showMyAlertMessage()` angezeigt, die für welche Ausgabemethode auch immer dieser Code verwenden mag, steht.
+Wenn der Fehler ein SDP-Syntaxfehler ist – wie durch die [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail)-Eigenschaft, die auf `sdp-syntax-error` gesetzt ist, angezeigt – wird ein Nachrichtenstring erstellt, um die Fehlermeldung und die Zeilennummer innerhalb der SDP-Nachricht darzustellen, wo der Fehler aufgetreten ist.
+Diese Nachricht wird dann mit einer Funktion namens `showMyAlertMessage()` angezeigt, die als Platzhalter für das Ausgabemechanismus dient, das dieser Code verwenden könnte.
 
-Jeder andere Fehler wird als endgültig behandelt, indem eine Funktion `terminateMyConnection()` aufgerufen wird.
+Jeder andere Fehler wird als terminal behandelt, wodurch eine Funktion `terminateMyConnection()` aufgerufen wird.
 
-Das obige Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um den Handler für `error`-Ereignisse hinzuzufügen. Sie können auch die `onerror`-Ereignishandler-Eigenschaft des `RTCDataChannel`-Objekts verwenden, wie folgt:
+Das obige Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um den Handler für `error`-Ereignisse hinzuzufügen.
+Sie können auch die [`onerror`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis-Handler-Eigenschaft des `RTCDataChannel`-Objekts verwenden, wie hier:
 
 ```js
 dataChannel.onerror = (event) => {

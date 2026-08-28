@@ -2,26 +2,26 @@
 title: IFrame credentialless
 slug: Web/HTTP/Guides/IFrame_credentialless
 l10n:
-  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
+  sourceCommit: 11a5944cd0a3bf015b2ee9c7ee4c55025dd878ca
 ---
 
 {{SeeCompatTable}}
 
-**IFrame credentialless** bietet Entwicklern einen Mechanismus, um Drittanbieter-Ressourcen in {{htmlelement("iframe")}}s mit einem neuen, flüchtigen Kontext zu laden. Es hat keinen Zugriff auf das Netzwerk, die Cookies und die Speicherdaten seines regulären Ursprungs. Es verwendet einen neuen Kontext, der lokal zur Lebensdauer des Top-Level-Dokuments ist. Im Gegenzug können die Einbettungsregeln des {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) aufgehoben werden, sodass Dokumente mit aktiviertem COEP Drittanbieter-Dokumente einbetten können, die dies nicht tun.
+**IFrame credentialless** bietet Entwicklern eine Möglichkeit, Drittanbieter-Ressourcen in {{htmlelement("iframe")}}s mit einem neuen, flüchtigen Kontext zu laden. Es hat keinen Zugriff auf das Netzwerk, Cookies und Speicherdaten seines regulären Ursprungs. Es verwendet einen neuen Kontext, der lokal zur Lebensdauer des obersten Dokuments ist. Im Gegenzug können die Einbettungsregeln des {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) aufgehoben werden, sodass Dokumente mit gesetztem COEP Drittanbieter-Dokumente einbetten können, die dies nicht tun.
 
 ## Das Problem
 
-Verschiedene Web-API-Funktionen können nur auf Websites verwendet werden, die sich für eine cross-origin Isolation entscheiden – Beispiele sind {{jsxref("SharedArrayBuffer")}} und [Hochauflösende Timer](/de/docs/Web/API/DOMHighResTimeStamp). Dies liegt an dem Risiko, dass solche Funktionen in [Spectre-Angriffen](https://spectreattack.com/spectre.pdf) ausgenutzt werden, bei denen die vertraulichen Informationen eines Opfers über einen Seitenkanal geleakt und von einem Angreifer erfasst werden können.
+Verschiedene Web-API-Funktionen können nur auf Seiten verwendet werden, die sich für eine cross-origin Isolation entscheiden – Beispiele sind {{jsxref("SharedArrayBuffer")}} und [Hochauflösende Timer](/de/docs/Web/API/DOMHighResTimeStamp). Dies liegt an dem Risiko, dass solche Funktionen bei [Spectre-Angriffen](https://spectreattack.com/spectre.pdf) ausgenutzt werden könnten, bei denen vertrauliche Informationen eines Opfers über einen Seitenkanal geleakt und von einem Angreifer erfasst werden können.
 
-Um sich für eine cross-origin Isolation zu entscheiden, muss eine Ressource mit einer {{httpheader("Cross-Origin-Opener-Policy")}} mit einem Wert von `same-origin` (schützt Ihren Ursprung vor Angreifern) und einer {{httpheader("Cross-Origin-Embedder-Policy")}} mit einem Wert von `credentialless` oder `require-corp` (schützt Opfer vor Ihrem Ursprung) bereitgestellt werden. Letzteres verhindert, dass ein Dokument beliebige authentifizierte cross-origin Ressourcen lädt, die dem Dokument nicht explizit die Erlaubnis erteilen, indem sie {{httpheader("Cross-Origin-Resource-Policy")}} oder [Cross-Origin Resource Sharing](/de/docs/Web/HTTP/Guides/CORS) verwenden.
+Um sich für cross-origin Isolation zu entscheiden, muss eine Ressource mit einem {{httpheader("Cross-Origin-Opener-Policy")}} mit einem Wert von `same-origin` (schützt Ihr Ursprung vor Angreifern) und {{httpheader("Cross-Origin-Embedder-Policy")}} mit einem Wert von `credentialless` oder `require-corp` (schützt Opfer vor Ihrem Ursprung) bereitgestellt werden. Letzteres verhindert, dass ein Dokument alle beglaubigten cross-origin Ressourcen lädt, die dem Dokument nicht explizit die Erlaubnis mittels {{httpheader("Cross-Origin-Resource-Policy")}} oder [Cross-Origin Resource Sharing](/de/docs/Web/HTTP/Guides/CORS) erteilen.
 
-Das Hauptproblem, das die Einführung der cross-origin Isolation einschränkt, ist die Tatsache, dass das `Cross-Origin-Embedder-Policy` rekursiv angewendet wird – alle Drittanbieter-Inhalte, die in `<iframe>`s in einem Dokument mit gesetzter `Cross-Origin-Embedder-Policy` geladen werden, müssen ebenfalls `Cross-Origin-Embedder-Policy` implementieren, damit die Einbettung erfolgreich ist. Dies ist für Entwickler, die Drittanbieter-Inhalte in ihren Apps einbetten (wie z.B. Inhalte von Werbenetzwerken), problematisch, da sie in der Regel keine Kontrolle darüber haben – ihre einzige Wahl bestand bisher darin, darauf zu warten, dass Drittanbieter die `Cross-Origin-Embedder-Policy` implementieren.
+Das Hauptproblem, das die Annahme der cross-origin Isolation limitiert, besteht darin, dass `Cross-Origin-Embedder-Policy` rekursiv angewendet wird – jeder Drittinhalt, der in `<iframe>`s in einem Dokument mit gesetztem `Cross-Origin-Embedder-Policy` geladen wird, muss ebenfalls `Cross-Origin-Embedder-Policy` bereitstellen, damit das Einbetten erfolgreich ist. Dies stellt ein Problem für Entwickler dar, die Drittanbieter-Inhalte in ihren Apps einbetten (wie z. B. Inhalte von Werbenetzwerken), da sie im Allgemeinen keine Kontrolle darüber haben – ihre einzige Wahl bisher war, darauf zu warten, dass die Anbieter von Drittanbieter-Inhalten `Cross-Origin-Embedder-Policy` implementieren.
 
 Dieses Problem kann durch IFrame credentialless gelöst werden.
 
-## Die Lösung — Iframe credentialless
+## Die Lösung – Iframe credentialless
 
-Ein `<iframe>` wird durch Anwenden des [`credentialless`](/de/docs/Web/HTML/Reference/Elements/iframe#credentialless)-Attributs oder durch Setzen der gleichwertigen DOM-Eigenschaft — [`HTMLIFrameElement.credentialless`](/de/docs/Web/API/HTMLIFrameElement/credentialless) — auf `true` zu einem credentialless IFrame gemacht.
+Ein `<iframe>` wird credentialless gemacht, indem das [`credentialless`](/de/docs/Web/HTML/Reference/Elements/iframe#credentialless)-Attribut auf es angewendet oder die entsprechende DOM-Eigenschaft – [`HTMLIFrameElement.credentialless`](/de/docs/Web/API/HTMLIFrameElement/credentialless) – auf `true` gesetzt wird.
 
 ```html
 <iframe
@@ -48,22 +48,22 @@ iframeElem.src =
 ```
 
 > [!NOTE]
-> Die [`window.credentialless`](/de/docs/Web/API/Window/credentialless) Eigenschaft kann von einem Dokument, das in einem `<iframe>` eingebettet ist, abgefragt werden, um zu testen, ob es in einem credentialless Kontext ausgeführt wird. Ein Wert von `true` bedeutet, dass das einbettende `<iframe>` credentialless ist.
+> Die [`window.credentialless`](/de/docs/Web/API/Window/credentialless)-Eigenschaft kann von einem Dokument, das in einem `<iframe>` eingebettet ist, abgefragt werden, um zu testen, ob es in einem credentialless Kontext ausgeführt wird. Ein Wert von `true` bedeutet, dass das einbettende `<iframe>` credentialless ist.
 
-Dies führt dazu, dass die Dokumente innerhalb des credentialless `<iframe>` mit neuen, flüchtigen Kontexten geladen werden – diese Kontexte haben keinen Zugriff auf die mit ihren Ursprüngen verbundenen Daten, wie z.B. [Cookies](/de/docs/Web/HTTP/Guides/Cookies) und [localStorage](/de/docs/Web/API/Window/localStorage). Der credentialless Speicher ist separat unterteilt mit Speicher-Schlüsseln, die mit einem {{Glossary("Nonce", "nonce")}} ("Nummer, die einmal verwendet wird") Wert modifiziert werden, der einmal pro Top-Level-Dokument festgelegt wird. Ein Cookie, das in einem credentialless `<iframe>` gesetzt wird, ist nur von anderen gleichen Ursprungs credentialless `<iframe>`s zugänglich, die unter demselben Top-Level-Dokument eingebettet sind.
+Dies führt dazu, dass die Dokumente im credentialless `<iframe>` mit neuen, flüchtigen Kontexten geladen werden – diese Kontexte haben keinen Zugriff auf die Daten, die mit ihren Ursprüngen verknüpft sind, zum Beispiel [Cookies](/de/docs/Web/HTTP/Guides/Cookies) und [localStorage](/de/docs/Web/API/Window/localStorage). Der credentialless Speicher wird separat mit Speicherschlüsseln partitioniert, die durch einen {{Glossary("Nonce", "Nonce")}} ("number used once") Wert modifiziert werden, der pro oberstes Dokument einmalig festgelegt wird. Ein Cookie, das in einem credentialless `<iframe>` gesetzt wird, ist nur von anderen selben Herkunft credentialless `<iframe>`s zugänglich, die unter demselben obersten Dokument eingebettet sind.
 
-Der nonce wird für jedes credentialless iframe, das ein Nachkomme desselben Top-Level-Dokuments ist, geteilt, ist jedoch unterschiedlich für jedes verschiedene Top-Level-Dokument, zu dem der Benutzer navigiert, und nicht mehr zugänglich, sobald der Benutzer die Navigation beendet hat. Credentialless IFrames teilen keinen Speicher über verschiedene Seiten hinweg. Bezüglich des oben erwähnten Cookies bedeutet das erneute Laden des Dokuments, dass die credentialless `<iframe>`s in einem anderen Kontext geladen werden, so dass keine der vorher gesetzten Cookies verfügbar sind.
+Der Nonce wird für jedes credentialless iframe geteilt, das ein Nachkomme desselben obersten Dokuments ist, aber er ist unterschiedlich für jedes verschiedene oberste Dokument, zu dem der Benutzer navigiert, und nicht mehr zugänglich, sobald der Benutzer weggegangen ist. Credentialless IFrames teilen Speicher nicht über verschiedene Seiten hinweg. Zurückgehend auf das oben erwähnte Cookie: Das Neuladen des Dokuments lädt die credentialless `<iframe>`s in einem anderen Kontext, sodass keine der zuvor gesetzten Cookies verfügbar sein werden.
 
-Zusätzlich:
+Darüber hinaus:
 
-- Pop-ups, die von credentialless iframes geöffnet werden, werden mit gesetztem [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener) geöffnet. Dies verhindert, dass OAuth-Pop-up-Flows in credentialless iframes verwendet werden.
-- Die Autofill- bzw. Passwortmanager-Funktionalität des Browsers ist in credentialless `<iframe>`s nicht verfügbar.
+- Pop-ups, die von credentialless iframes geöffnet werden, werden mit [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel/noopener) gesetzt geöffnet. Dies verhindert, dass OAuth-Popup-Flüsse in credentialless iframes verwendet werden.
+- Die automatische Ausfüllfunktion des Browsers oder die Funktion des Passwortmanagers ist in credentialless `<iframe>`s nicht verfügbar.
 
-Das Ergebnis ist, dass Dokumente, die in credentialless `<iframe>`s geladen werden, effektiv Standard- oder "öffentliche" Versionen sind, die nicht mit sensiblen Informationen eines Benutzers angepasst sind. Da keine sensiblen Informationen verfügbar sind, die aus diesen Dokumenten geleakt werden könnten, sind sie für potenzielle Angreifer wertlos, und daher entfällt die Anforderung der Cross-Origin Embedder Policy für diese IFrames.
+Das Ergebnis davon ist, dass in credentialless `<iframe>`s geladene Dokumente effektiv vanilla oder "öffentliche" Versionen sind, die nicht mit sensiblen Informationen eines Benutzers personalisiert sind. Da diese Dokumente keine sensiblen Informationen zum Leaken enthalten, sind sie für potenzielle Angreifer nutzlos, und daher wird die Anforderung der Cross-Origin Embedder Policy für diese IFrames fallen gelassen.
 
-## Rekursives credentialless in Kinder-IFrames
+## Rekursive credentialless in untergeordneten IFrames
 
-Wenn `credentialless` auf ein `<iframe>` gesetzt ist, das Kinder-`<iframe>`s in dem darin geladenen Dokument eingebettet hat, erben diese Kinder-`<iframe>`s die credentialless-Einstellung.
+Wenn `credentialless` auf ein `<iframe>` gesetzt wird, das untergeordnete `<iframe>`s in dem darin geladenen Dokument eingebettet hat, erben diese untergeordneten `<iframe>`s die credentialless-Einstellung.
 
 ## Spezifikationen
 
@@ -79,5 +79,5 @@ Wenn `credentialless` auf ein `<iframe>` gesetzt ist, das Kinder-`<iframe>`s in 
 - {{httpheader("Cross-Origin-Embedder-Policy")}}
 - {{httpheader("Cross-Origin-Resource-Policy")}}
 - [Cross-Origin Resource Sharing](/de/docs/Web/HTTP/Guides/CORS)
-- Das `<iframe>` [`credentialless`](/de/docs/Web/HTML/Reference/Elements/iframe#credentialless)-Attribut
+- Das `<iframe>`-Attribut [`credentialless`](/de/docs/Web/HTML/Reference/Elements/iframe#credentialless)
 - [`HTMLIFrameElement.credentialless`](/de/docs/Web/API/HTMLIFrameElement/credentialless)

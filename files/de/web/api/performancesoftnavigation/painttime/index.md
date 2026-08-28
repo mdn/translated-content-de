@@ -3,14 +3,14 @@ title: "PerformanceSoftNavigation: paintTime-Eigenschaft"
 short-title: paintTime
 slug: Web/API/PerformanceSoftNavigation/paintTime
 l10n:
-  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
+  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`paintTime`**-Eigenschaft der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurückgibt, wann die Rendering-Phase endete und die Paint-Phase begann.
+Die **`paintTime`**-Eigenschaft, die nur lesbar ist, der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die Renderphase endete und die Malphase begann.
 
-Die `paintTime` ist im Allgemeinen interoperabel: Der Wert sollte bei unterschiedlichen Implementierungen gleich sein.
+Die `paintTime` ist weitgehend interoperabel: Der Wert sollte in verschiedenen Implementierungen gleich sein.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `soft-navigation`-Performance-Einträge zu protokollieren, sobald sie in der Leistungszeitleiste des Browsers erfasst werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `soft-navigation`-Performance-Einträge zu protokollieren, wie sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
