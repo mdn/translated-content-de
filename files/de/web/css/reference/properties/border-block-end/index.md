@@ -1,12 +1,12 @@
 ---
-title: CSS-Eigenschaft `border-block-end`
+title: "`border-block-end` CSS-Eigenschaft"
 short-title: border-block-end
 slug: Web/CSS/Reference/Properties/border-block-end
 l10n:
-  sourceCommit: e9c03ba87f9ff4123150d8f7dc457bd546bdab83
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`border-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Setzen der einzelnen logischen Block-Endrahmen-Eigenschaftswerte an einer einzigen Stelle im Stylesheet.
+Die **`border-block-end`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft legt die individuellen logischen Endblockrand-Eigenschaftswerte an einer Stelle im Stylesheet fest.
 
 {{InteractiveExample("CSS Demo: border-block-end")}}
 
@@ -51,7 +51,7 @@ writing-mode: vertical-lr;
 
 ## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-block-end-color")}}
 - {{cssxref("border-block-end-style")}}
@@ -72,20 +72,20 @@ border-block-end: revert-layer;
 border-block-end: unset;
 ```
 
-`border-block-end` kann verwendet werden, um die Werte für eine oder mehrere der folgenden Eigenschaften festzulegen: {{cssxref("border-block-end-width")}}, {{cssxref("border-block-end-style")}} und {{cssxref("border-block-end-color")}}. Der physische Rahmen, auf den sie angewendet wird, hängt vom Schreibmodus, der Richtungsabhängigkeit und der Textausrichtung des Elements ab. Sie entspricht der Eigenschaft {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}, je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+`border-block-end` kann verwendet werden, um die Werte für eine oder mehrere der Eigenschaften {{cssxref("border-block-end-width")}}, {{cssxref("border-block-end-style")}} und {{cssxref("border-block-end-color")}} festzulegen. Der physische Rand, auf den sie abzielt, hängt vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Sie entspricht je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} entweder der Eigenschaft {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start")}}, {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}}, die die anderen Rahmen des Elements definieren.
+Zugehörige Eigenschaften sind {{cssxref("border-block-start")}}, {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
 `border-block-end` wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge angegeben:
 
 - {{cssxref("&lt;line-width&gt;")}}
-  - : Die Breite des Rahmens. Siehe {{cssxref("border-width")}}.
+  - : Die Breite des Rands. Siehe {{cssxref("border-width")}}.
 - {{cssxref("&lt;line-style&gt;")}}
-  - : Der Linienstil des Rahmens. Siehe {{cssxref("border-style")}}.
+  - : Der Linienstil des Rands. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Rahmens.
+  - : Die Farbe des Rands.
 
 ## Formale Definition
 
@@ -97,7 +97,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start")}}, {{cssxref("borde
 
 ## Beispiele
 
-### Rahmen mit vertikalem Text
+### Rand mit vertikalem Text
 
 #### HTML
 
@@ -136,6 +136,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft lässt sich auf eine der physischen Rahmen-Eigenschaften abbilden: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

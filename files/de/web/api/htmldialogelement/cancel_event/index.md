@@ -1,28 +1,29 @@
 ---
-title: "HTMLDialogElement: cancel Ereignis"
+title: "HTMLDialogElement: cancel event"
 short-title: cancel
 slug: Web/API/HTMLDialogElement/cancel_event
 l10n:
-  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer eine Schließen-Anforderung auslöst.
+Das **`cancel`**-Ereignis wird bei einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer eine Anforderung zum Schließen auslöst.
 
-Der `cancel`-Ereignishandler kann verwendet werden, um das Standardverhalten beim Empfang einer Schließen-Anforderung zu überschreiben und zu verhindern, dass der Dialog geschlossen wird. Wenn das Standardverhalten nicht verhindert wird, wird der Dialog geschlossen und ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
+Der `cancel`-Ereignishandler kann verwendet werden, um das Standardverhalten beim Erhalt einer Schließanforderung zu überschreiben und zu verhindern, dass der Dialog geschlossen wird.
+Wenn das Standardverhalten nicht verhindert wird, wird der Dialog geschlossen und ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
-Schließen-Anforderungen können durch folgende Aktionen ausgelöst werden:
+Schließanforderungen können ausgelöst werden durch:
 
 - Drücken der <kbd>Esc</kbd>-Taste auf Desktop-Plattformen
 - Aufrufen der Methode [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)
 - Die Zurück-Taste auf mobilen Plattformen
 
-Dieses Ereignis ist abbruchfähig und wird nicht hochgebubbelt.
+Dieses Ereignis kann abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
@@ -38,11 +39,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ### Einen Dialog abbrechen
 
-Das folgende Beispiel zeigt einen Button, der bei Klick einen {{htmlelement("dialog")}} mittels der Methode [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet.
+Das folgende Beispiel zeigt einen Button, der bei Klick einen {{htmlelement("dialog")}} mit der Methode [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet.
 
-Sie können das `cancel`-Ereignis auslösen, indem Sie entweder den _Request Close_-Button anklicken, um den Dialog zu schließen (über die Methode [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)), oder indem Sie die <kbd>Esc</kbd>-Taste drücken.
+Sie können das `cancel`-Ereignis auslösen, indem Sie entweder auf die Schaltfläche _Request Close_ klicken, um den Dialog zu schließen (über die Methode [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)) oder indem Sie die <kbd>Esc</kbd>-Taste drücken.
 
-Beachten Sie, dass der `cancel`-Ereignishandler das Ereignis protokolliert und dann zurückgibt, wodurch der Dialog geschlossen wird (was wiederum das `close`-Ereignis auslöst).
+Beachten Sie, dass der `cancel`-Ereignishandler das Ereignis protokolliert und dann zurückkehrt, wodurch der Dialog geschlossen wird (was wiederum das `close`-Ereignis auslöst).
 Sie können die Zeile, die `event.preventDefault()` enthält, auskommentieren, um das Ereignis abzubrechen.
 
 #### HTML
@@ -106,7 +107,7 @@ requestCloseButton.addEventListener("click", () => {
 dialog.addEventListener("cancel", (event) => {
   log("dialog cancel event fired");
   // Uncomment the next two lines to prevent the dialog from closing
-  // log("dialog close cancelled");
+  // log("dialog close canceled");
   // event.preventDefault();
 });
 
@@ -129,4 +130,4 @@ dialog.addEventListener("close", (event) => {
 
 ## Siehe auch
 
-- HTML {{HTMLElement("dialog")}}-Element
+- HTML-{{HTMLElement("dialog")}}-Element

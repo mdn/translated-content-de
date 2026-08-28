@@ -3,18 +3,18 @@ title: "`corner-right-shape` CSS property"
 short-title: corner-right-shape
 slug: Web/CSS/Reference/Properties/corner-right-shape
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der rechten Kante eines Kastens, innerhalb ihrer {{cssxref("border-radius")}}-Fläche.
+Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der rechten Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens der Eckformen und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
 
-## Bestandsangehörige Eigenschaften
+## Bestandteileigenschaften
 
-Die `corner-right-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physikalischen Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
 - {{cssxref("corner-top-right-shape")}}
 - {{cssxref("corner-bottom-right-shape")}}
@@ -44,10 +44,10 @@ corner-right-shape: unset;
 
 ### Werte
 
-Die `corner-right-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die Eigenschaft `corner-right-shape` wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, wird die Form **beider rechter Ecken** angegeben.
-- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **oberen rechten** Ecke an, und der zweite die Form der **unteren rechten** Ecke.
+- Wenn **ein Wert** verwendet wird, wird die Form beider **rechten Ecken** festgelegt.
+- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **oberen rechten** Ecke und der zweite die Form der **unteren rechten** Ecke an.
 
 ## Formale Definition
 
@@ -61,7 +61,7 @@ Die `corner-right-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;cor
 
 Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
-### Grundlegende Verwendung von `corner-right-shape`
+### Grundlegende Nutzung von `corner-right-shape`
 
 #### HTML
 
@@ -73,7 +73,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Übersichtlichkeit halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%` und eine `corner-right-shape` von `square scoop` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze wegen weggelassen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%` und eine `corner-right-shape` von `square scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -107,7 +107,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht so aus:
+Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -126,5 +126,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
 - {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-right-radius")}} und {{cssxref("border-bottom-right-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS Rahmen und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

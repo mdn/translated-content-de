@@ -1,17 +1,17 @@
 ---
-title: "HTMLElement: command-Ereignis"
+title: "HTMLElement: command Ereignis"
 slug: Web/API/HTMLElement/command_event
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Das **`command`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird bei einem Element ausgelöst, das über einen [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Werten gesteuert wird, wann immer mit dem Button interagiert wird (z.B. wenn er geklickt wird).
+Das **`command`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird auf einem Element ausgelöst, das über einen [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Werten gesteuert wird, wann immer der Button interagiert wird (z.B. durch Klicken).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("command", (event) => { })
@@ -41,9 +41,10 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Ereignisauslösung und -abbruch
+### Ereignisauslösung und Abbruch
 
-Es ist erwähnenswert, dass `command`-Ereignisse auf dem aufgerufenen Element ausgelöst werden. Wenn der Button geklickt wird, löst er zuerst ein `click`-Ereignis aus, das, wenn es abgebrochen wird, das `command`-Ereignis nicht ausgelöst wird und das Standardverhalten nicht ausgeführt wird. Neben dem Abbrechen des `click`-Ereignisses auf dem Button ist es auch möglich, das `command`-Ereignis abzubrechen.
+Es ist erwähnenswert, dass `command`-Ereignisse auf dem Element ausgelöst werden, das aufgerufen wird. Wenn der Button angeklickt wird, wird zuerst ein `click`-Ereignis ausgelöst, das, wenn es abgebrochen wird, das `command`-Ereignis nicht auslösen wird und das Standardverhalten nicht ausgeführt wird.
+Zusätzlich zum Abbrechen des `click`-Ereignisses auf dem Button ist es auch möglich, das `command`-Ereignis abzubrechen.
 
 Zum Beispiel:
 
@@ -55,7 +56,7 @@ button.addEventListener("click", (event) => {
 
 ```js
 element.addEventListener("command", (event) => {
-  event.preventDefault(); // the `command` event fires but the default behavior is cancelled
+  event.preventDefault(); // the `command` event fires but the default behavior is canceled
 });
 ```
 

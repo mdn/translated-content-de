@@ -1,12 +1,12 @@
 ---
-title: CSS-Eigenschaft `margin-inline`
+title: "`margin-inline` CSS-Eigenschaft"
 short-title: margin-inline
 slug: Web/CSS/Reference/Properties/margin-inline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`margin-inline`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert sowohl den logischen Inline-Start- als auch den Endabstand eines Elements, was je nach Schreibmodus, Richtung und Textorientierung des Elements auf physische Abstände abgebildet wird.
+Die **`margin-inline`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) Eigenschaft definiert sowohl die logischen Inline-Start- als auch Endabstände eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Abstände abgebildet werden.
 
 {{InteractiveExample("CSS Demo: margin-inline")}}
 
@@ -60,7 +60,7 @@ direction: rtl;
 }
 ```
 
-## Bestandeigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -89,16 +89,16 @@ margin-inline: revert-layer;
 margin-inline: unset;
 ```
 
-Diese Eigenschaft entspricht den {{CSSxRef("margin-top")}}- und {{CSSxRef("margin-bottom")}}-Eigenschaften oder den {{CSSxRef("margin-right")}}- und {{CSSxRef("margin-left")}}-Eigenschaften, abhängig von den definierten Werten für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}}.
+Diese Eigenschaft entspricht den {{CSSxRef("margin-top")}} und {{CSSxRef("margin-bottom")}} oder den {{CSSxRef("margin-right")}} und {{CSSxRef("margin-left")}} Eigenschaften, abhängig von den definierten Werten für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}}.
 
 Die `margin-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt der gleiche Abstand für **sowohl Anfang als auch Ende**.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für den **Anfang** und der zweite für das **Ende**.
+- Wenn **ein** Wert angegeben wird, gilt derselbe Abstand für **sowohl Start als auch Ende**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für den **Start**, der zweite für das **Ende**.
 
 ### Werte
 
-Die `margin-inline`-Eigenschaft nimmt die gleichen Werte wie die {{CSSxRef("margin-top", "", "#values")}}-Eigenschaft an.
+Die `margin-inline`-Eigenschaft nimmt die gleichen Werte wie die {{CSSxRef("margin-top", "", "#values")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -158,6 +158,6 @@ p {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}}, und {{CSSxRef("margin-left")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die zugeordneten physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

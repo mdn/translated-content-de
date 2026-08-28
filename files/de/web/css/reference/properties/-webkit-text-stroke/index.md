@@ -3,12 +3,12 @@ title: "`-webkit-text-stroke` CSS-Eigenschaft"
 short-title: -webkit-text-stroke
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrissen für Textzeichen fest. Dies ist eine Kurzschreibweise für die Langschreibereigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) gibt die [Breite](/de/docs/Web/CSS/Reference/Values/length) und die [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrissen für Textzeichen an.
 
-## Zughörige Eigenschaften
+## Zusammengehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -79,7 +79,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Siehe auch
 
 - [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks-Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-fill-color")}}

@@ -1,16 +1,16 @@
 ---
-title: "LanguageModel: destroy()-Methode"
+title: "LanguageModel: destroy() Methode"
 short-title: destroy()
 slug: Web/API/LanguageModel/destroy
 l10n:
-  sourceCommit: 7a2016c1eec26048dce86e8af0b2127395db7f46
+  sourceCommit: d19dec85109590176f946fcceef48c787d578b1e
 ---
 
 {{APIRef("Prompt API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`destroy()`**-Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle gibt die Ressourcen frei, die der `LanguageModel`-Instanz zugewiesen sind, auf der sie aufgerufen wird, und stoppt jegliche weitere Aktivität darauf. Alle laufenden und nachfolgenden Methodenaufrufe auf dem `LanguageModel` schlagen mit einem `AbortError` fehl.
+Die **`destroy()`** Methode der [`LanguageModel`](/de/docs/Web/API/LanguageModel) Schnittstelle gibt die Ressourcen frei, die der `LanguageModel`-Instanz zugewiesen wurden, auf die sie angewendet wird, und stoppt jegliche weitere Aktivität darauf. Alle laufenden und nachfolgenden Methodenaufrufe auf dem `LanguageModel` werden mit einem `AbortError` abgelehnt.
 
-Es ist sinnvoll, `LanguageModel`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in ihrer Handhabung binden.
+Es ist sinnvoll, `LanguageModel`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie in ihrer Handhabung erhebliche Ressourcen binden.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Grundlegende Verwendung von `destroy()`
+### Grundlegende `destroy()`-Verwendung
 
 ```js
 const session = await LanguageModel.create({
@@ -46,7 +46,7 @@ const session = await LanguageModel.create({
 session.destroy();
 ```
 
-Siehe auch [Verwendung der Prompt-API > Abbrechen von Vorgängen und Zerstören von Instanzen](/de/docs/Web/API/Prompt_API/Using#cancelling_operations_and_destroying_instances).
+Siehe auch [Verwendung der Prompt API > Abbrechen von Operationen und Zerstören von Instanzen](/de/docs/Web/API/Prompt_API/Using#canceling_operations_and_destroying_instances).
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Siehe auch [Verwendung der Prompt-API > Abbrechen von Vorgängen und Zerstören 
 ## Siehe auch
 
 - [Prompt API](/de/docs/Web/API/Prompt_API)
-- [Verwendung der Prompt-API](/de/docs/Web/API/Prompt_API/Using)
+- [Verwendung der Prompt API](/de/docs/Web/API/Prompt_API/Using)

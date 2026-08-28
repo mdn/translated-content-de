@@ -2,13 +2,13 @@
 title: stroke-linejoin
 slug: Web/SVG/Reference/Attribute/stroke-linejoin
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: d19dec85109590176f946fcceef48c787d578b1e
 ---
 
-Das **`stroke-linejoin`** Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet wird, wenn diese gestrichen werden.
+Das **`stroke-linejoin`** Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet wird, wenn sie gestreift werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `stroke-linejoin` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("stroke-linejoin")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `stroke-linejoin` auch ein entsprechendes CSS-Attribut: {{cssxref("stroke-linejoin")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -134,7 +134,7 @@ svg {
 > [!NOTE]
 > Der `arcs` Wert wird noch nicht weitgehend unterstützt.
 
-Der `arcs` Wert besagt, dass eine Bogenform verwendet wird, um Pfadsegmente zu verbinden. Die Bogenform entsteht, indem die äußeren Kanten des Strichs an der Verbindungsstelle mit Bögen verlängert werden, die die gleiche Krümmung wie die äußeren Kanten an der Verbindungsstelle aufweisen.
+Der `arcs` Wert gibt an, dass eine Bogen-Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Bogenform wird gebildet, indem die Außenkanten des Strichs am Verbindungspunkt mit Bögen verlängert werden, die dieselbe Krümmung wie die Außenkanten am Verbindungspunkt haben.
 
 ```css hidden
 html,
@@ -174,7 +174,7 @@ svg {
 
 ### bevel
 
-Der `bevel` Wert besagt, dass eine abgeschrägte Ecke verwendet wird, um Pfadsegmente zu verbinden.
+Der `bevel` Wert gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,
@@ -210,7 +210,7 @@ svg {
 
 ### miter
 
-Der `miter` Wert besagt, dass eine scharfe Ecke verwendet wird, um Pfadsegmente zu verbinden. Die Ecke entsteht, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der `miter` Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die Außenkanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
 > [!NOTE]
 > Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, fällt die Linienverbindung auf `bevel` zurück.
@@ -274,9 +274,9 @@ svg {
 > [!NOTE]
 > Der `miter-clip` Wert wird noch nicht weitgehend unterstützt.
 
-Der `miter-clip` Wert besagt, dass eine scharfe Ecke verwendet wird, um Pfadsegmente zu verbinden. Die Ecke entsteht, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der `miter-clip` Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die Außenkanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
-Wird das {{SVGAttr('stroke-miterlimit')}} überschritten, wird das Gehrungsglied in einem Abstand abgeschnitten, der der Hälfte des Wertes von {{SVGAttr('stroke-miterlimit')}} multipliziert mit der Strichbreite vom Schnittpunkt der Pfadsegmente entspricht. Dies bietet eine bessere Darstellung als `miter` bei sehr scharfen Verbindungen oder im Falle einer Animation.
+Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, wird das Gehrungsmaß bei einer Entfernung, die gleich der Hälfte des {{SVGAttr('stroke-miterlimit')}} Wertes multipliziert mit der Strichbreite von der Schnittstelle der Pfadsegmente ist, abgeschnitten. Dies bietet eine bessere Darstellung als `miter` bei sehr scharfer Verbindung oder im Falle einer Animation.
 
 ```css hidden
 html,
@@ -333,7 +333,7 @@ svg {
 
 ### round
 
-Der `round` Wert besagt, dass eine runde Ecke verwendet wird, um Pfadsegmente zu verbinden.
+Der `round` Wert gibt an, dass eine runde Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,

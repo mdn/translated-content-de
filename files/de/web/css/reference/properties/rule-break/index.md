@@ -3,12 +3,12 @@ title: "`rule-break` CSS property"
 short-title: rule-break
 slug: Web/CSS/Reference/Properties/rule-break
 l10n:
-  sourceCommit: 65de0b20f182edef16b58da2df80112b39787a04
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
 {{SeeCompatTable}}
 
-Die **`rule-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten für das Brechen von Spalten- und Zeilenregeln in Segmente fest, an denen sich Reihen und Spaltenabstände schneiden, und setzt {{cssxref("column-rule-break")}} und {{cssxref("row-rule-break")}} auf denselben Wert.
+Die **`rule-break`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft legt das Verhalten für das Brechen von Spalten- und Zeilenregeln in Segmente fest, wo sich Zeilen- und Spaltenabstände überschneiden. Sie setzt {{cssxref("column-rule-break")}} und {{cssxref("row-rule-break")}} auf den gleichen Wert.
 
 {{InteractiveExample("CSS Demo: rule")}}
 
@@ -70,9 +70,9 @@ rule-break: intersection;
 }
 ```
 
-## Bestandteil-Eigenschaften
+## Bestandteile der Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist ein Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("column-rule-break")}}
 - {{cssxref("row-rule-break")}}
@@ -95,28 +95,28 @@ rule-break: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einzelnes Schlüsselwort aus der folgenden Liste angegeben:
+Diese Eigenschaft wird als ein einzelnes Schlüsselwort aus der folgenden Liste angegeben:
 
 - `none`
-  - : Es gibt keine Unterbrechungen, wenn sich Zeilen- und Spaltenregeln schneiden; vielmehr wird eine kontinuierliche Dekoration von einem Ende jeder Lücke zum anderen gemalt.
+  - : Es gibt keine Unterbrechungen, wo sich Zeilen- und Spaltenregeln überschneiden; stattdessen wird eine durchgehende Dekoration von einem Ende jedes Spalts zum anderen gemalt.
 - `normal`
-  - : In Flex- und Grid-Containern verhält sich diese Eigenschaft wie `none`. In Mehrspalten (multi-col) verhält sich `column-rule-break` wie `intersection` und `row-rule-break` wie `none`. Dies ist der Standardwert.
+  - : In Flex- und Grid-Containern verhält es sich wie `none`. In Multi-Col verhält sich `column-rule-break` wie `intersection` und `row-rule-break` wie `none`. Dies ist der Standardwert.
 - `intersection`
-  - : Regeln brechen immer, wenn sie auf eine Lücke stoßen, wobei Regelabschnitte am Container- und Lückenrand beginnen und enden.
+  - : Regeln brechen immer, wenn sie einen Spalt schneiden, wobei Regel-Segmente an den Kanten des Containers und der Spalten beginnen und enden.
 
 ## Beschreibung
 
-Die `rule-break` Eigenschaft wird verwendet, um das Verhalten für das Brechen von Regeln in Segmente festzulegen, wenn sie Lücken kreuzen.
+Die `rule-break`-Eigenschaft wird verwendet, um das Verhalten für das Brechen von Regeln in Segmente festzulegen, wenn sie Spalten durchqueren.
 
-Lückendekorationen werden innerhalb einer Lücke als ein oder mehrere Lückendekorationssegmente gemalt, wobei Segmente zwischen zwei benachbarten Elementen auftreten. Abhängig vom Containertyp können diese Segmente standardmäßig entweder am Rand einer Lücke enden, oder die Spalten- und Zeilenregel kann die gesamte Höhe und Breite des Containers umfassen.
+Spaltdekorationen werden innerhalb eines Spalts als ein oder mehrere Spaltdekorationselemente gemalt, wobei Segmente zwischen zwei benachbarten Elementen auftreten. Abhängig vom Containertyp dürfen diese Segmente standardmäßig entweder am Rand eines Spalts enden oder die Spalten- und Zeilenregel kann die gesamte Höhe und Breite des Containers überdecken.
 
-Wenn es eine Unterbrechung in einer Regel gibt, beginnen und enden die Segmente standardmäßig am Rand der Lücken. Wenn die Lückengröße `0` ist, kann die Unterbrechung möglicherweise nicht sichtbar sein. Die `rule-break` Eigenschaft bestimmt, ob die Unterbrechung auftritt. Sie können die Größe der Unterbrechung am Ende jedes Segments mit den `rule-inset` Eigenschaften steuern. Wenn es keine Unterbrechungen gibt und die Linie kontinuierlich ist, beeinflussen die `rule-inset` Eigenschaften nur die Regel an den Start- und Endkanten des Containers. Wenn es Unterbrechungen gibt, beeinflussen die `rule-inset` Eigenschaften den Start und das Ende jedes Regelabschnitts.
+Wenn es eine Unterbrechung in einer Regel gibt, beginnen und enden die Segmente standardmäßig am Rand der Spalten. Wenn die Spaltgröße `0` ist, ist die Unterbrechung möglicherweise nicht sichtbar. Die `rule-break`-Eigenschaft bestimmt, ob die Unterbrechung auftritt. Sie können die Größe der Unterbrechung am Ende jedes Segments mit den `rule-inset`-Eigenschaften steuern. Wenn es keine Unterbrechungen gibt und die Linie durchgehend ist, beeinflussen die `rule-inset`-Eigenschaften nur die Regel an den Start- und Endkanten des Containers. Wenn es Unterbrechungen gibt, beeinflussen die `rule-inset`-Eigenschaften den Start und das Ende jedes Regelsegments.
 
-Ob eine Regel standardmäßig aus einem einzigen kontinuierlichen Segment oder Segmenten besteht, die beim Kreuzen von Lücken brechen, hängt vom Containertyp ab.
+Ob eine Regel standardmäßig aus einem einzigen durchgehenden Segment oder aus Segmenten besteht, die unterbrochen werden, wenn sie Spalten schneiden, hängt vom Containertyp ab.
 
 ### Grid-Container
 
-In Grid-Containern setzen sich Regelabschnitte standardmäßig durch sichtbare "Kreuz"-Schnittstellen fort. Das Setzen von `rule-break: intersection` zwingt die Segmente dazu, dort zu brechen, wo sie sonst kreuzen würden.
+In Grid-Containern setzen sich Regelsegmente standardmäßig durch sichtbare "Kreuz"-Schnittpunkte fort. Das Festlegen von `rule-break: intersection` wird die Segmente dort unterbrechen, wo sie sich ansonsten kreuzen würden.
 
 ```html hidden
 <h1>Default rule breaks in grid</h1>
@@ -168,11 +168,11 @@ h2 {
 
 {{EmbedLiveSample("grid containers", "", "240")}}
 
-Aktivieren Sie das Kontrollkästchen, um `rule-break` auf `intersection` zu setzen, was die kontinuierlichen Regeln an jeder "Kreuz"-Schnittstelle unterbrechen lässt.
+Markieren Sie das Kontrollkästchen, um `rule-break` auf `intersection` zu setzen, wodurch die durchgehenden Regeln an jedem "Kreuz"-Schnittpunkt unterbrochen werden.
 
 ### Flex-Container
 
-In Flexbox, wenn die `flex-direction` `row` oder `row-reverse` ist, ist die Zeilenregel kontinuierlich, wobei die Spaltensegmente am Rand der Zeilenlücken beginnen und enden. Wenn die `flex-direction` `column` oder `column-reverse` ist, ist die Spaltenregel kontinuierlich, wobei die Zeilensegmente am Rand der Spaltenlücken beginnen und enden.
+Im Flexbox, wenn die `flex-direction` `row` oder `row-reverse` ist, ist die Zeilenregel durchgehend, wobei die Spaltsegmente am Rand der Zeilenspalten beginnen und enden. Wenn die `flex-direction` `column` oder `column-reverse` ist, ist die Spaltenregel durchgehend, wobei die Zeilensegmente am Rand der Spaltspalten beginnen und enden.
 
 ```html hidden
 <h1>Default rule breaks in flexbox</h1>
@@ -256,11 +256,11 @@ section {
 
 {{EmbedLiveSample("Flex containers", "", "300")}}
 
-Beachten Sie, wie, abhängig von der `flex-direction`, die Spalten- oder Zeilenregeln standardmäßig kontinuierlich sind. Wenn Sie `rule-break` auf `intersection` setzen, brechen diese kontinuierlichen Regeln an jeder Schnittstelle.
+Beachten Sie, wie je nach `flex-direction` die Spalten- oder Zeilenregeln standardmäßig durchgehend sind. Wenn Sie die `rule-break` auf `intersection` setzen, brechen diese durchgehenden Regeln an jedem Schnittpunkt.
 
-### Multi-col Container
+### Multi-col-Container
 
-In Mehrspalten-Containern unterscheidet sich das Standardverhalten `normal` zwischen Zeilen- und Spaltenregeln. Spaltenregelabschnitte beginnen und enden, wenn sie eine Zeilenlücke kreuzen, und verhalten sich wie `column-rule-break: intersection`, während Zeilenregeln nicht brechen, wenn sie eine Spaltenlücke kreuzen, und sich wie `row-rule-break: none` verhalten.
+In Multi-Col-Containern unterscheidet sich das Standardverhalten `normal` zwischen Zeilenregeln und Spaltenregeln. Spaltenregelsegmente beginnen und enden, wenn sie einen Zeilenspalten schneiden, und verhalten sich wie `column-rule-break: intersection`, während Zeilenregeln nicht brechen, wenn sie einen Spaltenabstand schneiden, und sich wie `row-rule-break: none` verhalten.
 
 ```html hidden
 <h1>Default rule breaks in multi-col</h1>
@@ -343,7 +343,7 @@ label {
 
 {{EmbedLiveSample("multi-col containers", "", "540")}}
 
-Aktivieren Sie die Optionsfelder für jeden Wert, um den Effekt des Wertes zu sehen.
+Aktivieren Sie die Optionsfelder für jeden Wert, um die Wirkung des Wertes zu sehen.
 
 ## Formale Definition
 
@@ -355,13 +355,13 @@ Aktivieren Sie die Optionsfelder für jeden Wert, um den Effekt des Wertes zu se
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-In diesem Beispiel verwenden wir die `rule-break` Eigenschaft, um jedes Regelsegment in einem Grid-Container zu brechen, sodass keine Regeln sich schneiden.
+In diesem Beispiel verwenden wir die `rule-break`-Eigenschaft, um jedes Regel-Segment in einem Grid-Container zu brechen, sodass keine Regeln sich überschneiden.
 
 #### HTML
 
-Wir erstellen eine Liste von 50 Elementen. Der Großteil des HTML ist der Übersichtlichkeit halber ausgeblendet.
+Wir erstellen eine Liste von 50 Elementen. Der größte Teil des HTMLs ist der Kürze halber ausgeblendet.
 
 ```html
 <ul>
@@ -429,7 +429,7 @@ Wir erstellen eine Liste von 50 Elementen. Der Großteil des HTML ist der Übers
 
 #### CSS
 
-Wir definieren die ungeordnete Liste als 8-Spalten-Container, erstellen Spalten und Zeilen mit der {{cssxref("grid-template-columns")}} Eigenschaft und setzen {{cssxref("list-style-type")}} auf `none`, um die Punkte zu entfernen. Wir fügen einen {{cssxref("gap")}} von `20px` ein, um genügend Platz zwischen den Spalten und Zeilen zu schaffen, um unsere `20px` breiten, festen Spalten- und Zeilenregeln zu passen. Schließlich setzen wir die Regelabschnitte so, dass sie brechen anstatt sich zu kreuzen.
+Wir definieren die ungeordnete Liste als 8-Spalten-Container, erstellen Spalten und Zeilen mit der {{cssxref("grid-template-columns")}}-Eigenschaft und setzen {{cssxref("list-style-type")}} auf `none`, um die Aufzählungszeichen zu entfernen. Wir fügen ein {{cssxref("gap")}} von `20px` hinzu, um ausreichend Platz zwischen den Spalten und Zeilen zu schaffen, um unsere `20px` festen Spalten- und Zeilenregeln unterzubringen. Schließlich setzen wir die Regel-Segmente so, dass sie statt zu schneiden, brechen.
 
 ```css live-sample___basic
 ul {
@@ -445,7 +445,7 @@ ul {
 }
 ```
 
-Der Rest des CSS ist der Übersichtlichkeit halber ausgeblendet.
+Der Rest des CSS ist der Kürze halber ausgeblendet.
 
 ```css hidden live-sample___basic
 ol {
@@ -473,8 +473,8 @@ li {
 
 ## Siehe auch
 
-- {{cssxref("rule-inset")}} Kurzform
+- {{cssxref("rule-inset")}} shorthand
 - {{cssxref("rule-overlap")}}
 - {{cssxref("rule-visibility-items")}}
-- {{cssxref("rule")}} Kurzform
-- [CSS-Abstände](/de/docs/Web/CSS/Guides/Gaps) Modul
+- {{cssxref("rule")}} shorthand
+- [CSS gaps](/de/docs/Web/CSS/Guides/Gaps) module

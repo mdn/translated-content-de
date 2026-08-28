@@ -3,10 +3,10 @@ title: "`grid-area` CSS-Eigenschaft"
 short-title: grid-area
 slug: Web/CSS/Reference/Properties/grid-area
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`grid-area`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines {{Glossary("grid", "Grids")}} fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Platzierung im Grid beiträgt und damit die Ränder seines {{Glossary("grid_areas", "Grid-Bereichs")}} spezifiziert.
+Die **`grid-area`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert die Größe und Position eines Gitternetz-Elements innerhalb eines {{Glossary("grid", "Gitternetzes")}}, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu dessen Gitternetzplatzierung beiträgt und so die Ränder seines {{Glossary("grid_areas", "Gitternetzbereichs")}} festlegt.
 
 {{InteractiveExample("CSS Demo: grid-area")}}
 
@@ -61,13 +61,13 @@ grid-area: 2 / 1 / 2 / 4;
 
 Wenn vier `<grid-line>`-Werte angegeben sind, wird `grid-row-start` auf den ersten Wert gesetzt, `grid-column-start` auf den zweiten Wert, `grid-row-end` auf den dritten Wert und `grid-column-end` auf den vierten Wert.
 
-Wenn `grid-column-end` weggelassen wird, und `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist, wird `grid-column-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-end` weggelassen wird und `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist, wird `grid-column-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-row-end` weggelassen wird, und `grid-row-start` ein `<custom-ident>` ist, wird `grid-row-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-row-end` weggelassen wird und `grid-row-start` ein `<custom-ident>` ist, wird `grid-row-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-column-start` weggelassen wird, und `grid-row-start` ein `<custom-ident>` ist, werden alle vier Langformen auf diesen Wert gesetzt. Andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-start` weggelassen wird und `grid-row-start` ein `<custom-ident>` ist, werden alle vier Langformen auf diesen Wert gesetzt. Andernfalls wird es auf `auto` gesetzt.
 
-Die Eigenschaft `grid-area` kann auch auf ein {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, das als Name für den Bereich fungiert und dann mit {{cssxref("grid-template-areas")}} platziert werden kann.
+Die `grid-area`-Eigenschaft kann auch auf ein {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, das als Name für den Bereich fungiert und dann mit {{cssxref("grid-template-areas")}} platziert werden kann.
 
 ## Bestandteileigenschaften
 
@@ -111,28 +111,28 @@ grid-area: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was eine automatische Platzierung oder eine Standardspanne von `1` bedeutet.
+  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Gitternetz-Elements beiträgt. Dies weist auf eine automatische Platzierung oder eine Standardspanne von `1` hin.
 - `<custom-ident>`
-  - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` gibt, trägt sie die erste dieser Linien zur Platzierung des Grid-Elements bei.
+  - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` gibt, trägt es die erste solche Linie zur Platzierung des Gitternetz-Elements bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche erzeugen automatisch implizit benannte Linien dieser Form. Wenn also `grid-area: foo;` angegeben wird, wird der Start-/Endrand dieses benannten Grid-Bereichs gewählt (es sei denn, eine andere Linie namens `foo-start`/`foo-end` wurde vorher explizit angegeben).
+    > Benannte Gitternetzbereiche erzeugen automatisch implizite benannte Linien dieser Form, sodass z.B. die Angabe `grid-area: foo;` die Start-/Endkante dieses benannten Gitternetzbereichs auswählt (es sei denn, eine andere Linie mit dem Namen `foo-start`/`foo-end` wurde vorher explizit angegeben).
 
-    Andernfalls wird dies so behandelt, als ob die ganze Zahl `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
+    Andernfalls wird dies behandelt, als ob die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
 
 - `<integer> && <custom-ident>?`
-  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative ganze Zahl angegeben wird, wird stattdessen in umgekehrter Reihenfolge gezählt, beginnend vom Endrand des expliziten Grids.
+  - : Trägt zur Platzierung des n-ten Gitternetz-Linien beim Gitternetz-Element bei. Wenn eine negative Ganzzahl angegeben ist, wird stattdessen rückwärts gerechnet, angefangen bei der Endkante des expliziten Gitternetzes.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Grid-Linien für diesen Zweck diesen Namen tragen.
+    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitternetzlinien diesen Namen haben, um diese Position zu finden.
 
     Ein {{cssxref("&lt;integer&gt;")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-  - : Trägt eine Grid-Spanne zur Platzierung des Grid-Elements bei, sodass die entsprechende Kante des Grid-Bereichs des Elements _n_ Linien von der gegenüberliegenden Kante entfernt ist.
+  - : Trägt eine Gitternetzspanne zur Platzierung des Gitternetz-Elements bei, sodass die entsprechende Kante des Gitternetzbereichs des Gitternetz-Elements _n_ Linien von der gegenüberliegenden Kante entfernt ist.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, für diesen Zweck diesen Namen tragen.
+    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitternetzlinien auf der Seite des expliziten Gitternetzes, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
 
-    Wenn die {{cssxref("&lt;integer&gt;")}} weggelassen wird, beträgt ihr Standardwert `1`. Negative ganze Zahlen oder 0 sind ungültig.
+    Wenn die {{cssxref("&lt;integer&gt;")}} weggelassen wird, beträgt sie standardmäßig `1`. Negative Ganzzahlen oder 0 sind ungültig.
 
 ## Formale Definition
 
@@ -144,7 +144,7 @@ grid-area: unset;
 
 ## Beispiele
 
-### Festlegen von Grid-Bereichen
+### Gitternetzbereiche festlegen
 
 #### HTML
 
@@ -200,5 +200,5 @@ grid-area: unset;
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
 - {{cssxref("grid-template-areas")}}
-- [Grid-Vorlage Bereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
-- Video: [Grid-Vorlage Bereiche](https://gridbyexample.com/video/grid-template-areas/)
+- [Gitternetz-Template-Bereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- Video: [Gitternetz-Template-Bereiche](https://gridbyexample.com/video/grid-template-areas/)

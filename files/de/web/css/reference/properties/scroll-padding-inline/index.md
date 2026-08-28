@@ -3,10 +3,10 @@ title: "`scroll-padding-inline` CSS-Eigenschaft"
 short-title: scroll-padding-inline
 slug: Web/CSS/Reference/Properties/scroll-padding-inline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die `scroll-padding-inline` [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Inline-Dimension.
+Die **`scroll-padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Inline-Dimension.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline")}}
 
@@ -73,11 +73,11 @@ scroll-padding-inline: 2em;
 }
 ```
 
-Die Scroll-Padding-Eigenschaften definieren Offsets für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielfläche für die Platzierung von Dingen im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie z. B. fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaften für das Scroll-Padding definieren Versätze für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Dinge im Blickfeld des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-## Bestandteileigenschaften
+## Einzelne Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("scroll-padding-inline-end")}}
 - {{cssxref("scroll-padding-inline-start")}}
@@ -104,9 +104,9 @@ scroll-padding-inline: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Offset vom entsprechenden Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom entsprechenden Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Offset wird vom User Agent bestimmt. Dies ist in der Regel 0px, aber ein User Agent kann ein anderes Verhalten erkennen und einen anderen Wert verwenden, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein nicht-null Wert angemessener ist.
 
 ## Formale Definition
 
@@ -126,5 +126,5 @@ scroll-padding-inline: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [Gut gesteuertes Scrollen mit CSS-Scroll-Snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2018)

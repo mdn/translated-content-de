@@ -3,10 +3,10 @@ title: "`grid-row` CSS-Eigenschaft"
 short-title: grid-row
 slug: Web/CSS/Reference/Properties/grid-row
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`grid-row`** [CSS](/de/docs/Web/CSS) [Kurzschreibeigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer {{Glossary("grid_row", "Grid-Zeile")}} fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt. Dadurch wird die inline-start und inline-end Begrenzung seines {{Glossary("grid_areas", "Grid-Bereichs")}} festgelegt.
+Die **`grid-row`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Größe und Position eines Grid-Items innerhalb einer {{Glossary("grid_row", "Grid-Zeile")}} fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und damit den Beginn und das Ende des Inline-Rands seines {{Glossary("grid_areas", "Grid-Bereichs")}} definiert.
 
 {{InteractiveExample("CSS Demo: grid-row")}}
 
@@ -95,43 +95,43 @@ grid-row: revert-layer;
 grid-row: unset;
 ```
 
-Diese Eigenschaft wird als ein oder zwei `<grid-line>` Werte angegeben.
+Diese Eigenschaft wird als ein oder zwei `<grid-line>`-Werte angegeben.
 
-Wenn zwei `<grid-line>` Werte angegeben sind, werden diese durch `/` getrennt. Die Langform `grid-row-start` wird auf den Wert vor dem Schrägstrich gesetzt, und die Langform `grid-row-end` wird auf den Wert nach dem Schrägstrich gesetzt.
+Wenn zwei `<grid-line>`-Werte angegeben werden, werden sie durch `/` getrennt. Die Langform `grid-row-start` wird auf den Wert vor dem Schrägstrich gesetzt, und die Langform `grid-row-end` wird auf den Wert nach dem Schrägstrich gesetzt.
 
-Jeder `<grid-line>` Wert kann wie folgt angegeben werden:
+Jeder `<grid-line>`-Wert kann als folgendes angegeben werden:
 
-- entweder das `auto` Schlüsselwort
-- oder ein `<custom-ident>` Wert
-- oder ein `<integer>` Wert
+- entweder das Schlüsselwort `auto`
+- oder ein `<custom-ident>`-Wert
+- oder ein `<integer>`-Wert
 - oder sowohl `<custom-ident>` als auch `<integer>`, getrennt durch ein Leerzeichen
-- oder das Schlüsselwort `span` zusammen mit entweder einem `<custom-ident>` oder einem `<integer>` oder beidem.
+- oder das Schlüsselwort `span` zusammen mit entweder einem `<custom-ident>` oder einem `<integer>` oder beiden.
 
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt und Auto-Platzierung, eine automatische Spannweite oder eine Standardspannenweite von `1` anzeigt.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Items beiträgt und eine automatische Platzierung, eine automatische Spannweite oder eine Standardspannweite von `1` kennzeichnet.
 - `<custom-ident>`
-  - : Wenn eine benannte Linie mit dem Namen `<custom-ident>-start`/`<custom-ident>-end` existiert, trägt sie die erste solche Linie zur Platzierung des Grid-Elements bei.
+  - : Wenn eine benannte Linie mit dem Namen `<custom-ident>-start`/`<custom-ident>-end` existiert, trägt sie die erste solche Linie zur Platzierung des Grid-Items bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche erzeugen automatisch implizit benannte Linien dieser Form, sodass die Angabe von `grid-row: foo;` die start/ende Begrenzung dieses benannten Grid-Bereichs wählt (es sei denn, eine andere Linie namens `foo-start`/`foo-end` wurde vorher ausdrücklich angegeben).
+    > Benannte Grid-Bereiche erzeugen automatisch implizit benannte Linien in dieser Form, sodass `grid-row: foo;` den Start-/Endrand dieses benannten Grid-Bereichs auswählt (es sei denn, eine andere Linie mit dem Namen `foo-start`/`foo-end` wurde zuvor explizit festgelegt).
 
-    Andernfalls wird dies behandelt, als ob die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben wurde.
+    Andernfalls wird dies so behandelt, als ob die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
 
 - `<integer> && <custom-ident>?`
-  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, wird in umgekehrter Richtung gezählt, beginnend von der Endbegrenzung des expliziten Grids.
+  - : Trägt zur n-ten Grid-Linie der Platzierung des Grid-Items bei. Wenn eine negative Ganzzahl angegeben wird, wird sie stattdessen rückwärts gezählt, beginnend vom Endrand des expliziten Grids.
 
-    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien diesen Namen zu diesem Zweck haben, um diese Position zu finden.
+    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien diesen Namen haben, um diese Position zu finden.
 
-    Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
+    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-  - : Trägt eine Grid-Spanne zur Platzierung des Grid-Elements bei, sodass die entsprechende Begrenzung des Grid-Bereichs des Grid-Elements n Linien von der gegenüberliegenden Begrenzung entfernt ist.
+  - : Trägt zu einer Grid-Spanne zur Platzierung des Grid-Items bei, sodass der entsprechende Rand des Grid-Bereichs des Grid-Items n Linien vom gegenüberliegenden Rand entfernt ist.
 
-    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen zum Zweck der Zählung dieser Spannweite haben.
+    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
 
-    Wenn das `<integer>` weggelassen wird, beträgt es standardmäßig `1`. Negative Ganzzahlen oder `0` sind ungültig.
+    Wird die `<integer>`-Angabe weggelassen, wird sie standardmäßig auf `1` gesetzt. Negative Ganzzahlen oder `0` sind ungültig.
 
 ## Formale Definition
 
@@ -143,7 +143,7 @@ Jeder `<grid-line>` Wert kann wie folgt angegeben werden:
 
 ## Beispiele
 
-### Festlegen von Grid-Zeilengröße und -position
+### Einstellung der Größe und Position von Grid-Zeilen
 
 #### HTML
 
@@ -199,5 +199,5 @@ Jeder `<grid-line>` Wert kann wie folgt angegeben werden:
 - {{cssxref("grid-column")}}
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
-- [Zeilenbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Zeilenbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
 - Video: [Zeilenbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)

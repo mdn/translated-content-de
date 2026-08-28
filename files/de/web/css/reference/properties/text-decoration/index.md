@@ -3,10 +3,10 @@ title: "`text-decoration` CSS-Eigenschaft"
 short-title: text-decoration
 slug: Web/CSS/Reference/Properties/text-decoration
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`text-decoration`** [Kurzschrift](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Erscheinungsbild dekorativer Linien auf Text fest. Sie ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-style")}} und die neuere Eigenschaft {{cssxref("text-decoration-thickness")}}.
+Die **`text-decoration`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt das Erscheinungsbild dekorativer Linien auf Text fest. Sie ist eine Kurzschreibweise für die Eigenschaften {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-style")}} und die neuere Eigenschaft {{cssxref("text-decoration-thickness")}}.
 
 {{InteractiveExample("CSS Demo: text-decoration")}}
 
@@ -46,11 +46,11 @@ p {
 }
 ```
 
-Textdekorationen werden über nachfolgende Textelelemente hinweg gezeichnet. Das bedeutet, dass, wenn ein Element eine Textdekoration angibt, ein Kindelement die Dekoration nicht entfernen kann. Zum Beispiel in dem Markup `<p>This text has <em>some emphasized words</em> in it.</p>` würde die Stilregel `p { text-decoration: underline; }` dazu führen, dass der gesamte Absatz unterstrichen wird. Die Stilregel `em { text-decoration: none; }` würde keine Änderung bewirken; der gesamte Absatz bliebe unterstrichen. Die Regel `em { text-decoration: overline; }` hingegen würde dazu führen, dass eine zweite Dekoration auf "some emphasized words" erscheint.
+Textdekorationen werden über untergeordnete Textelemente hinweg gezeichnet. Das bedeutet, wenn ein Element eine Textdekoration vorgibt, kann ein Kindelement die Dekoration nicht entfernen. Zum Beispiel in dem Markup `<p>Dieser Text enthält <em>einige betonte Wörter</em>.</p>`, würde die Stilregel `p { text-decoration: underline; }` dazu führen, dass der gesamte Absatz unterstrichen wird. Die Stilregel `em { text-decoration: none; }` würde keine Änderung bewirken; der gesamte Absatz bliebe unterstrichen. Jedoch würde die Regel `em { text-decoration: overline; }` eine zweite Dekoration auf "einige betonte Wörter" hinzufügen.
 
-## Bestandeigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Kurzschreibweise umfasst die folgenden CSS-Eigenschaften:
 
 - {{cssxref("text-decoration-color")}}
 - {{cssxref("text-decoration-line")}}
@@ -72,18 +72,18 @@ text-decoration: revert-layer;
 text-decoration: unset;
 ```
 
-Die `text-decoration`-Eigenschaft wird als ein oder mehrere durch Leerzeichen getrennte Werte angegeben, die die verschiedenen Langformen der Textdekorationseigenschaften repräsentieren.
+Die `text-decoration`-Eigenschaft wird als ein oder mehrere durch Leerzeichen getrennte Werte angegeben, die die verschiedenen ausführlichen Textdekorationseigenschaften darstellen.
 
 ### Werte
 
 - {{cssxref("text-decoration-line")}}
-  - : Legt die Art der verwendeten Dekoration fest, wie `underline` oder `line-through`.
+  - : Legt die Art der verwendeten Dekoration fest, z.B. `underline` oder `line-through`.
 - {{cssxref("text-decoration-color")}}
   - : Legt die Farbe der Dekoration fest.
 - {{cssxref("text-decoration-style")}}
-  - : Legt den Stil der Linie fest, die für die Dekoration verwendet wird, wie `solid`, `wavy` oder `dashed`.
+  - : Legt den Stil der für die Dekoration verwendeten Linie fest, z.B. `solid`, `wavy` oder `dashed`.
 - {{cssxref("text-decoration-thickness")}}
-  - : Legt die Dicke der Linie fest, die für die Dekoration verwendet wird.
+  - : Legt die Dicke der für die Dekoration verwendeten Linie fest.
 
 ## Formale Definition
 
@@ -95,7 +95,7 @@ Die `text-decoration`-Eigenschaft wird als ein oder mehrere durch Leerzeichen ge
 
 ## Beispiele
 
-### Demonstration von text-decoration Werten
+### Demonstration der text-decoration Werte
 
 ```css
 .under {
@@ -159,7 +159,7 @@ Die `text-decoration`-Eigenschaft wird als ein oder mehrere durch Leerzeichen ge
 
 ## Siehe auch
 
-- Die einzelnen Textdekorationseigenschaften sind {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-style")}} und {{cssxref("text-decoration-thickness")}}.
-- Die {{cssxref("text-decoration-skip-ink")}}, {{cssxref("text-underline-offset")}}, und {{cssxref("text-underline-position")}}-Eigenschaften beeinflussen auch die Textdekoration, sind aber nicht in der Kurzform enthalten.
-- Die {{cssxref("list-style")}}-Eigenschaft kontrolliert das Erscheinungsbild von Elementen in HTML-{{HTMLElement("ol")}} und {{HTMLElement("ul")}}-Listen.
-- SVG-{{SVGAttr("text-decoration")}}-Attribut
+- Die individuellen Textdekorationseigenschaften sind {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-style")}}, und {{cssxref("text-decoration-thickness")}}.
+- Die Eigenschaften {{cssxref("text-decoration-skip-ink")}}, {{cssxref("text-underline-offset")}}, und {{cssxref("text-underline-position")}} beeinflussen ebenfalls die Textdekoration, sind aber in der Kurzschreibweise nicht enthalten.
+- Die {{cssxref("list-style")}}-Eigenschaft steuert das Erscheinungsbild von Elementen in HTML {{HTMLElement("ol")}} und {{HTMLElement("ul")}} Listen.
+- SVG {{SVGAttr("text-decoration")}} Attribut

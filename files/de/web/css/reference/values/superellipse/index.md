@@ -1,14 +1,14 @@
 ---
-title: "`superellipse()` CSS function"
+title: "`superellipse()` CSS-Funktion"
 short-title: superellipse()
 slug: Web/CSS/Reference/Values/superellipse
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: d19dec85109590176f946fcceef48c787d578b1e
 ---
 
 {{SeeCompatTable}}
 
-Die **`superellipse()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert die Krümmung einer Ellipse und wird verwendet, um [Eckformen](/de/docs/Web/CSS/Reference/Properties/corner-shape) entweder direkt oder über {{cssxref("&lt;corner-shape-value>")}} Schlüsselwörter festzulegen.
+Die **`superellipse()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert die Krümmung einer Ellipse und wird verwendet, um [Eckenformen](/de/docs/Web/CSS/Reference/Properties/corner-shape) entweder direkt oder über {{cssxref("&lt;corner-shape-value>")}} Schlüsselwörter zu spezifizieren.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ superellipse(-infinity)
 ### Parameter
 
 - {{cssxref("&lt;number>")}}
-  - : Eine Zahl im Bereich von `-infinity` bis `infinity`, einschließlich.
+  - : Eine Zahl im Bereich von `-unendlich` bis `unendlich`, inklusive.
 
 ### Rückgabewert
 
@@ -33,9 +33,9 @@ Eine Superellipse-Form.
 
 ## Beschreibung
 
-Die `superellipse()` Funktion gibt eine Superellipse-Form zurück, die verwendet wird, um {{cssxref("corner-shape")}} Werte zu spezifizieren. Eine Superellipse ist eine geschlossene kurvensymmetrische Form zwischen einem Rechteck und einer Ellipse. Sie ähnelt einer Ellipse, die die geometrischen Merkmale ihrer beiden Achsen beibehält.
+Die `superellipse()` Funktion gibt eine Superellipse-Form zurück, die zur Spezifikation von {{cssxref("corner-shape")}} Werten verwendet wird. Eine Superellipse ist eine geschlossene kurvensymmetrische Form zwischen einem Rechteck und einer Ellipse. Sie ähnelt einer Ellipse, die die geometrischen Merkmale ihrer beiden Achsen beibehält.
 
-Die Superellipse-Form wird unter Verwendung einer modifizierten Version einer Ellipse berechnet. Die folgende Gleichung definiert eine Ellipse, die am Ursprung zentriert ist:
+Die Superellipse-Form wird mit einer modifizierten Version einer Ellipse berechnet. Die folgende Gleichung definiert eine am Ursprung zentrierte Ellipse:
 
 <math display="block">
   <mfrac>
@@ -63,9 +63,9 @@ Die Superellipse-Form wird unter Verwendung einer modifizierten Version einer El
     <mn>1</mn>
   </math>
 
-Die Variablen `a` und `b` beziehen sich auf die Radien der Ellipse, während die Koordinaten `x` und `y` Punkte auf der Umkreislinie der Ellipse sind.
+Die Variablen `a` und `b` beziehen sich auf die Radien der Ellipse, während die `x` und `y` Koordinaten Punkte auf dem Umfang der Ellipse sind.
 
-Ein Kreis ist eine Ellipse, bei der die Radien, also das `a` und `b` in der vorherigen Gleichung, die gleiche Länge haben. Wenn `a` und `b` beide gleich `r` sind, kann die Gleichung für einen Kreis wie folgt geschrieben werden:
+Ein Kreis ist eine Ellipse, bei der die Radien, das `a` und `b` in der vorherigen Gleichung, die gleiche Länge haben. Mit `a` und `b` beide gleich `r`, kann die Gleichung für einen Kreis wie folgt geschrieben werden:
 
 <math display="block">
   <mrow>
@@ -86,9 +86,9 @@ Ein Kreis ist eine Ellipse, bei der die Radien, also das `a` und `b` in der vorh
   </mrow>
 </math>
 
-In dieser Gleichung sind `x` und `y` Koordinaten von Punkten auf der Umkreislinie des Kreises, und `r` ist der Radius des Kreises, wobei das Zentrum des Kreises bei `(0, 0)` liegt. Die Ellipse wird durch das Skalieren einer Kreisform entlang der `x`- und/oder `y`-Achse erzeugt.
+In dieser Gleichung sind die `x` und `y` Koordinaten Punkte auf dem Umfang des Kreises und das `r` ist der Radius des Kreises, mit dem Mittelpunkt des Kreises bei `(0, 0)`. Die Ellipse entsteht durch Skalierung einer Kreisform entlang der `x` und/oder `y` Achse.
 
-Eine Superellipse-Form wird erstellt, indem der Exponent `2` in jedem Fall durch 2<sup>K</sup> ersetzt wird, wobei `K` das Argument ist, das an die `superellipse()` Funktion übergeben wird und die Krümmung der Ellipse verändert:
+Eine Superellipse-Form wird geschaffen, indem der `2` Exponent in jedem Fall durch 2<sup>K</sup> ersetzt wird, wobei `K` das an die `superellipse()` Funktion übergebene Argument ist, das die Krümmung der Ellipse modifiziert:
 
 <math display="block">
   <mrow>
@@ -112,20 +112,20 @@ Eine Superellipse-Form wird erstellt, indem der Exponent `2` in jedem Fall durch
   </mrow>
 </math>
 
-Das folgende Diagramm veranschaulicht unterschiedliche `superellipse()` Werte für die obere rechte Ecke eines Containers: `infinity`, `1`, `0`, `-1` und `-infinity`:
+Das folgende Diagramm zeigt verschiedene `superellipse()` Werte für die obere rechte Ecke eines Containers: `unendlich`, `1`, `0`, `-1` und `-unendlich`:
 
-![Linien-Diagramm, das die Ellipsen illustriert, die mit unterschiedlichen K-Werten erstellt werden, wie nachfolgend beschrieben](superellipse-param.svg)
+![Liniendiagramm, das die mit verschiedenen K-Werten erstellten Ellipsen veranschaulicht, wie unten beschrieben](superellipse-param.svg)
 
-- Ein `K`-Wert von `0` erzeugt eine gerade Linie. Dieser Wert kann zur Erstellung von abgeschrägten Ecken verwendet werden und entspricht dem {{cssxref("&lt;corner-shape-value>")}} Schlüsselwort `bevel`.
-- Ein `K`-Wert von `1` erzeugt eine gewöhnliche Ellipse, die dem `round` Schlüsselwort entspricht.
-- Ein `K`-Wert von `>1` macht die Ellipsenform quadratischer; `2` entspricht dem `squircle` Schlüsselwort.
-- Ein `K`-Wert von `infinity` erzeugt ein perfektes Quadrat (das dem `square` Schlüsselwort entspricht), obwohl `K`-Werte von `10` oder mehr praktisch nicht von einem Quadrat zu unterscheiden sind.
-- Negative `K`-Werte führen zu einer konkaven Kurve, was zu Eckformen führt, die nach innen gekrümmt oder "ausgehöhlt" sind. Ein `K`-Wert von `-1` entspricht dem `scoop` Schlüsselwort und `-infinity` entspricht dem `notch` Schlüsselwort.
+- Ein `K` Wert von `0` erzeugt eine gerade Linie. Dieser Wert kann verwendet werden, um abgeschrägte Ecken zu erzeugen und entspricht dem {{cssxref("&lt;corner-shape-value>")}} `bevel` Schlüsselwort.
+- Ein `K` Wert von `1` erzeugt eine gewöhnliche Ellipse, entsprechend dem `round` Schlüsselwort.
+- Ein `K` Wert von `>1` macht die Ellipsenform quadratischer; `2` entspricht dem `squircle` Schlüsselwort.
+- Ein `K` Wert von `unendlich` erzeugt ein perfektes Quadrat (entsprechend dem `square` Schlüsselwort), wobei `K` Werte von `10` oder mehr praktisch nicht von einem Quadrat zu unterscheiden sind.
+- Negative `K` Werte führen zu einer konkaven Krümmung, was zu Eckenformen führt, die nach innen gekrümmt sind oder "ausgehöhlt" wirken. Ein `K` Wert von `-1` entspricht dem `scoop` Schlüsselwort und `-unendlich` entspricht dem `notch` Schlüsselwort.
 
 Eine negative oder positive Superellipse würde symmetrisch zu einer Superellipse mit ihrem inversen Wert erscheinen.
 
 > [!NOTE]
-> Für jeden übergebenen `K`-Parameterwert wird der Rückgabewert der `superellipse()` Funktion immer derselbe für diesen `K`-Wert sein. Wenn dieser Wert auf zwei Elemente angewendet wird, kann das Erscheinungsbild der Eckform variieren, wenn die Boxgröße oder {{cssxref("border-radius")}} Werte unterschiedlich sind.
+> Für jeden übergebenen `K` Parameterwert wird der Rückgabewert der `superellipse()` Funktion immer derselbe für diesen `K` Wert sein. Wenn dieser Wert auf zwei Elemente angewendet wird, kann das Aussehen der Eckenform unterschiedlich sein, wenn sich die Boxgröße oder {{cssxref("border-radius")}} Werte unterscheiden.
 
 ## Formale Syntax
 
@@ -135,7 +135,7 @@ Eine negative oder positive Superellipse würde symmetrisch zu einer Superellips
 
 ### `superellipse()` Wertvergleich
 
-In diesem Beispiel erlauben zwei [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler Ihnen, durch viele verschiedene `corner-shape` `superellipse()` Werte und {{cssxref("border-radius")}} Werte zu navigieren, sodass Sie die Effekte jedes einzelnen auf einen Container vergleichen können. Der Code ist der Kürze halber versteckt, aber die vollständige Erklärung des [Superellipse-Wertvergleichs](/de/docs/Web/CSS/Reference/Properties/corner-shape#superellipse_value_comparison) wird auf der {{cssxref("corner-shape")}} Referenzseite bereitgestellt.
+In diesem Beispiel ermöglichen zwei [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler das Durchgehen vieler verschiedener `corner-shape` `superellipse()` Werte und {{cssxref("border-radius")}} Werte, die es Ihnen ermöglichen, die Effekte von jedem auf einen Container zu vergleichen. Der Code ist zur Kürze verborgen, aber die vollständige Erklärung des [Superellipse Wertvergleichs](/de/docs/Web/CSS/Reference/Properties/corner-shape#superellipse_value_comparison) wird auf der {{cssxref("corner-shape")}} Referenzseite bereitgestellt.
 
 ```html hidden live-sample___value-comparison
 <form>
@@ -217,7 +217,7 @@ setCorners();
 {{EmbedLiveSample("value-comparison", "100%", "300")}}
 
 > [!NOTE]
-> Siehe auch das Beispiel zum [`<corner-shape-value>` Wertvergleich](/de/docs/Web/CSS/Reference/Values/corner-shape-value#corner-shape-value_value_comparison).
+> Siehe auch das Beispiel für den [`<corner-shape-value>` Wertvergleich](/de/docs/Web/CSS/Reference/Values/corner-shape-value#corner-shape-value_value_comparison).
 
 ## Spezifikationen
 

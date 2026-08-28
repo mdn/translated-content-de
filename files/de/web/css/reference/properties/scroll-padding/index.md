@@ -3,10 +3,10 @@ title: CSS-Eigenschaft `scroll-padding`
 short-title: scroll-padding
 slug: Web/CSS/Reference/Properties/scroll-padding
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`scroll-padding`** [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Abstände auf allen Seiten eines Elements gleichzeitig. Sie legt Versätze fest, die den optimalen Anzeigebereich eines Scrollport innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} definieren.
+Die CSS-Abkürzungseigenschaft **`scroll-padding`** legt den Bildlaufabstand auf allen Seiten eines Elements gleichzeitig fest. Sie spezifiziert Versätze, die den optimalen Ansichtsbereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scrollcontainers")}} definieren.
 
 {{InteractiveExample("CSS Demo: scroll-padding")}}
 
@@ -70,9 +70,9 @@ scroll-padding: 20%;
 }
 ```
 
-## Zu den Bestandteilen gehörende Eigenschaften
+## Teilweise Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -101,17 +101,17 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein nach innen gerichteter Versatz vom entsprechenden Rand des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein einwärts gerichteter Versatz von der entsprechenden Kante des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dieser wird in der Regel `0px` sein, aber der Benutzeragent kann auch einen anderen Wert verwenden, wenn ein Wert ungleich null passender ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Im Allgemeinen wird dies `0px` sein, aber der User-Agent kann erkennen, dass ein anderer Wert angemessener ist, und entsprechend handeln.
 
 ## Beschreibung
 
-Die `scroll-padding`-Eigenschaft ist eine Kurzform, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge setzt und somit den oberen, rechten, unteren und linken Scroll-Abstand eines Scroll-Containers festlegt.
+Die `scroll-padding`-Eigenschaft ist eine Abkürzung, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge setzt. Sie legt den oberen, rechten, unteren und linken Bildlaufabstand eines Scrollcontainers fest.
 
-Nützlich beim Erstellen von Scroll-Snap-Containern ermöglicht die `scroll-padding`-Eigenschaft das Festlegen von Versätzen für den _optimalen Anzeigebereich_ des Scrollports: der Bereich, der als Zielregion dient, um Elemente für den Benutzer sichtbar zu platzieren. Dies erlaubt es Ihnen, Einrückungen im Scrollport zu schaffen, um Platz für Objekte zu machen, die den Inhalt verdecken könnten, wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten, oder um mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
+Nützlich bei der Erstellung von Scroll-Snap-Containern ermöglicht die `scroll-padding`-Eigenschaft das Festlegen von Versätzen für den _optimalen Ansichtsbereich_ des Scrollports: den Bereich, der als Zielbereich für die Platzierung von Elementen im Sichtfeld des Benutzers dient. Dies ermöglicht das Erstellen von Einzügen im Scrollport, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-Obwohl in dem [CSS scroll-snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert, gilt diese Eigenschaft für alle Scroll-Container, unabhängig vom Wert der {{cssxref("scroll-snap-type")}}-Eigenschaft.
+Während diese Eigenschaft im [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert ist, gilt sie für alle Scrollcontainer, unabhängig vom Wert der {{cssxref("scroll-snap-type")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -132,7 +132,7 @@ Obwohl in dem [CSS scroll-snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul defin
 ## Siehe auch
 
 - {{cssxref("scroll-snap-type")}}
-- [Grundkonzepte des Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
-- [CSS scroll-snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
-- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
-- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Grundkonzepte von Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
+- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow)-Modul
+- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)-Modul

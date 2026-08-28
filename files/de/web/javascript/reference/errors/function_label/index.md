@@ -1,11 +1,13 @@
 ---
-title: "SyntaxError: Funktionen können nicht gekennzeichnet werden"
+title: "SyntaxError: functions cannot be labelled"
 slug: Web/JavaScript/Reference/Errors/Function_label
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
-Der JavaScript-Ausnahmefehler "functions cannot be labelled" tritt auf, wenn eine {{jsxref("Statements/function", "function")}}-Deklaration ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) davor hat.
+<!-- cSpell:ignore labelled -->
+
+Die JavaScript-Ausnahme "functions cannot be labelled" tritt auf, wenn eine {{jsxref("Statements/function", "function")}}-Deklaration ein [label](/de/docs/Web/JavaScript/Reference/Statements/label) davor hat.
 
 ## Meldung
 
@@ -30,21 +32,21 @@ SyntaxError: Unexpected keyword 'function'. Cannot use async function declaratio
 
 {{jsxref("SyntaxError")}}
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-Funktionsdeklarationen sollten niemals gekennzeichnet werden, da Labels nur auf Anweisungen, nicht auf Deklarationen angewendet werden sollten. Es gibt keine Möglichkeit, tatsächlich auf dieses Label zu springen. Aufgrund einiger veralteter JavaScript-Syntaxregeln ist die Fehlerbedingung jedoch etwas komplizierter als notwendig:
+Funktionsdeklarationen sollten niemals mit einem Label versehen sein, da Labels nur auf Anweisungen und nicht auf Deklarationen angewendet werden sollten. Es gibt keine Möglichkeit, tatsächlich zu diesem Label zu springen. Aufgrund einiger alter JavaScript-Syntaxregeln ist die Fehlersituation jedoch komplizierter als nötig:
 
-- Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) dürfen Funktionsdeklarationen niemals gekennzeichnet werden.
-- Im Nicht-Strict-Modus dürfen Funktionsdeklarationen gekennzeichnet werden, jedoch nicht, wenn die Funktion die einzige Anweisung einer `if`-Anweisung ist (was an sich schon ein veraltetes Feature ist).
-- Asynchrone Funktionen, Generatorfunktionen und asynchrone Generatorfunktionen dürfen niemals gekennzeichnet werden.
+- Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) dürfen Funktionsdeklarationen niemals ein Label haben.
+- Im Nicht-Strict-Modus dürfen Funktionsdeklarationen ein Label haben, jedoch nicht, wenn die Funktion die einzige Anweisung einer `if`-Anweisung ist (was selbst ein veraltetes Merkmal ist).
+- Asynchrone Funktionen, Generator-Funktionen und asynchrone Generator-Funktionen dürfen nie ein Label haben.
 
-Die Fehlermeldung könnte etwas in der Art von "ungültiger Ort, um eine Funktionsdeklaration erscheinen zu lassen" besagen, da der Parser, wenn er ein Label sieht, erwartet, dass eine Anweisung folgt, und eine Funktionsdeklaration ist keine Anweisung. Es hängt davon ab, ob die Perspektive des Fehlers so ist, dass ein Label nicht von einer Funktion gefolgt werden kann, oder dass eine Funktion nicht von einem Label vorangestellt werden kann.
+Die Fehlermeldung könnte etwas in der Art von "ungültiger Ort für das Erscheinen einer Funktionsdeklaration" sagen, denn wenn der Parser ein Label sieht, erwartet er, dass eine Anweisung folgt, und eine Funktionsdeklaration ist keine Anweisung. Es hängt davon ab, ob die Perspektive des Fehlers ist, dass ein Label nicht von einer Funktion gefolgt werden kann, oder dass eine Funktion nicht von einem Label vorangestellt werden kann.
 
 ## Beispiele
 
-### Falsch interpretierte Objektliterale
+### Falsch geparstes Objektliteral
 
-Während es möglich ist, dass Sie tatsächlich erwarten, dass das Label _etwas_ in der Art eines Sprungziels tut, hatten Sie normalerweise nicht vor, dass es ein Label ist. Der häufigste Fall ist, dass Sie tatsächlich möchten, dass es ein Eigenschaftsschlüssel in einem Objektliteral ist:
+Obwohl es möglich ist, dass Sie tatsächlich erwarten, dass das Label _etwas_ als Sprungziel dient, beabsichtigen Sie normalerweise nicht, dass es ein Label ist. Der häufigste Fall ist, dass Sie tatsächlich wollen, dass es ein Property-Schlüssel in einem Objektliteral ist:
 
 ```js-nolint example-bad
 const createObj = () => {
@@ -64,7 +66,7 @@ const createObj = () => ({
 });
 ```
 
-Sie möchten auch möglicherweise die [Methodensyntax](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Objektliterale verwenden, die diese Falle vermeidet:
+Sie möchten möglicherweise auch die [Methodensyntax](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Objektliterale verwenden, um dieses Problem zu vermeiden:
 
 ```js example-good
 const createObj = () => ({
@@ -76,7 +78,7 @@ const createObj = () => ({
 
 ## Siehe auch
 
-- [Gekennzeichnete Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)
+- [Label-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)
 - {{jsxref("Statements/function", "function")}}
 - [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
-- [Veraltete und obsolet Features](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)
+- [Veraltete und obsolet gewordene Eigenschaften](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)

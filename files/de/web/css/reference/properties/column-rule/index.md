@@ -3,10 +3,10 @@ title: "`column-rule` CSS-Eigenschaft"
 short-title: column-rule
 slug: Web/CSS/Reference/Properties/column-rule
 l10n:
-  sourceCommit: 737b931225e92e0cba47e57a150878b1a78ee45a
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`column-rule`** [Kurzfassung](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linien fest, die zwischen Spalten in Multi-Column-, Flex- und Multi-Col-Layouts gezogen werden.
+Die **`column-rule`** [CSS](/de/docs/Web/CSS) [Kurznotation](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Breite, den Stil und die Farbe der Linien, die zwischen Spalten in Mehrspalten-Layouts, Flex- und Grid-Layouts gezeichnet werden.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -57,7 +57,7 @@ column-rule:
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzfassung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurznotation für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -95,38 +95,38 @@ column-rule: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als kommagetrennte Liste von Werten angegeben. Jeder Wert kann einer der folgenden Typen sein:
+Diese Eigenschaft wird als kommagetrennte Liste von Werten angegeben. Jeder Wert kann eine der folgenden Werttypen sein:
 
 - `<gap-rule>`
-  - : Angegeben als einer, zwei oder drei der unten aufgelisteten Werte, in beliebiger Reihenfolge.
+  - : Angegeben als einer, zwei oder drei der unten aufgeführten Werte, in beliebiger Reihenfolge.
     - `<'line-width'>`
-      - : Ein {{cssxref("&lt;line-width&gt;")}}: Dies kann eines der Schlüsselwörter `thin`, `medium` oder `thick` oder ein positiver {{cssxref("length")}}-Wert sein, der die Breite der Linie darstellt. Der Standardwert ist `medium`.
+      - : Eine {{cssxref("&lt;line-width&gt;")}}: Dies kann eines der Schlüsselwörter `thin`, `medium` oder `thick` sein oder ein positiver {{cssxref("length")}}-Wert, der die Breite der Linie darstellt. Der Standardwert ist `medium`.
     - `<'line-style'>`
-      - : Ein {{cssxref("&lt;line-style&gt;")}}: eines von `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset` oder `outset`. Der Standardwert ist `none`. Siehe {{cssxref("column-rule-style")}}.
+      - : Ein {{cssxref("&lt;line-style&gt;")}}: einer von `none`, `hidden`, `dotted`, `dashed`, `solid`, `double`, `groove`, `ridge`, `inset` oder `outset`. Der Standardwert ist `none`. Siehe {{cssxref("column-rule-style")}}.
     - `<'color'>`
-      - : Ein {{cssxref("&lt;color&gt;")}}-Wert, der die Farbe der Linie repräsentiert. Der Standardwert ist `currentcolor`. Siehe {{cssxref("column-rule-color")}}.
+      - : Ein {{cssxref("&lt;color&gt;")}}-Wert, der die Farbe der Linie darstellt. Der Standardwert ist `currentcolor`. Siehe {{cssxref("column-rule-color")}}.
 
 - `<gap-repeat-rule>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit einem {{cssxref("&lt;integer&gt;")}} von `1` oder mehr als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als nachfolgende Argumente. Das `<integer>` gibt an, wie oft die Liste der `<gap-rule>`-Werte wiederholt werden soll.
+  - : Eine {{cssxref("repeat()")}}-Funktion, mit einer {{cssxref("&lt;integer&gt;")}} von `1` oder mehr als erstem Argument und einem oder mehreren `<gap-rule>` Werten als nachfolgende Argumente. Die `<integer>` gibt an, wie oft die Liste der `<gap-rule>` Werte wiederholt werden soll.
 
 - `<gap-auto-repeat-rule>`
-  - : Eine {{cssxref("repeat()")}}-Funktion mit `auto` als erstem Argument und einem oder mehreren `<gap-rule>`-Werten als nachfolgende Argumente. Die angegebene Liste von `<gap-rule>`-Werten wird so oft wiederholt, wie nötig, um Werte für alle Spaltenregeln auszufüllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts festgelegt sind.
+  - : Eine {{cssxref("repeat()")}}-Funktion, mit `auto` als erstem Argument und einem oder mehreren `<gap-rule>` Werten als nachfolgende Argumente. Die bereitgestellte Liste der `<gap-rule>` Werte wird so oft wiederholt, wie nötig, um Werte für alle Spaltenregeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts angegeben werden.
 
 ## Beschreibung
 
-Die `column-rule` Eigenschaft definiert den Linienstil von Linien, die in den Abständen zwischen Spalten in [multi-column](/de/docs/Web/CSS/Guides/Multicol_layout), [flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [grid](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte gezeichnet werden.
+Die `column-rule`-Eigenschaft definiert den Linienstil aller Linien, die in den Lücken zwischen Spalten in [Mehrspalten-](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Containern mit mehr als einer Spalte gezeichnet werden.
 
-Die `column-rule` ist eine Kurzfassung für {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}}. Die `column-rule`, zusammen mit der {{cssxref("row-rule")}} Kurzfassungseigenschaft, kann auch mit der {{cssxref("rule")}} Kurzfassung festgelegt werden.
+`column-rule` ist eine Kurznotation für {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}}, und {{cssxref("column-rule-width")}}. Die `column-rule`, zusammen mit der {{cssxref("row-rule")}}-Kurznotation, kann auch mit der {{cssxref("rule")}}-Kurznotation gesetzt werden.
 
-Der Eigenschaftswert ist eine kommagetrennte Liste von Komponenten, die `<gap-rule>`, `<gap-repeat-rule>` und `<gap-auto-repeat-rule>` Typen enthalten können. Jedes `<gap-rule>` definiert die Breite, Farbe und den Stil einer oder mehrerer Linien.
+Der Eigenschaftswert ist eine kommagetrennte Liste von Komponenten, die `<gap-rule>`, `<gap-repeat-rule>` und `<gap-auto-repeat-rule>` Typen enthalten kann. Jede `<gap-rule>` definiert die Breite, die Farbe und den Stil von einer oder mehreren Linienelementen.
 
-Wenn der Eigenschaftswert nur ein `<gap-rule>` enthält, haben alle Spaltenregeln diesen Stil. Wenn wir Folgendes deklarieren, haben alle Spaltenregeln den Stil `dashed maroon 3px`:
+Wenn der Eigenschaftswert nur aus einer `<gap-rule>` besteht, werden alle Spaltenregeln diesen Stil haben. Wenn wir folgendes deklarieren, werden alle Spaltenregeln `dashed maroon 3px` sein:
 
 ```css
 column-rule: dashed maroon 3px;
 ```
 
-Wenn mehr als ein `<gap-rule>` deklariert wird, werden sie in der angegebenen Reihenfolge auf die Spaltenregeln angewendet. Wenn es mehr Zwischenräume zwischen Spalten als `<gap-rule>`-Werte gibt, wird die Liste der Werte so oft wiederholt, bis jede Spaltenregel eine Trennlinie hat. Wenn wir folgendes deklarieren, wird jede ungerade Regel `dashed maroon 3px` sein und jede gerade Regel `dotted navy 5px`.
+Wenn mehr als eine `<gap-rule>` deklariert wird, werden sie in der angegebenen Reihenfolge auf die Spaltenregeln angewendet. Wenn es mehr Zwischenräume zwischen Spalten als `<gap-rule>` Werte gibt, wird die Liste der Werte wiederholt, bis jede Spaltenregel eine Lücke hat. Wenn wir das Folgende deklarieren, wird zum Beispiel jede ungerade Regel `dashed maroon 3px` sein und jede gerade Regel `dotted navy 5px`.
 
 ```css
 column-rule:
@@ -136,7 +136,7 @@ column-rule:
 
 ### Wiederholte Linienstile
 
-Die `repeat()`-Funktion mit einer Ganzzahl von `1` oder größer als erstem Argument kann verwendet werden, um eine gültige Liste von CSS [`<gap-rule>`](#gap-rule)-Werten als nachfolgende Argumente die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht es, dasselbe `<gap-rule>` eine festgelegte Anzahl von Malen zu wiederholen, ohne den gleichen CSS-Code mehrmals zu wiederholen. Die folgenden Deklarationen sind gleichwertig:
+Die `repeat()`-Funktion, mit einer Ganzzahl von `1` oder höher als erstem Argument, kann verwendet werden, um eine gültige Liste von CSS [`<gap-rule>`](#gap-rule)-Werten, die als nachfolgende Argumente übergeben werden, die angegebene Anzahl von Malen zu wiederholen. Dies ermöglicht das wiederholte Anwenden der gleichen `<gap-rule>` ohne die gleiche CSS mehrmals anzugeben. Die folgenden Deklarationen sind gleichwertig:
 
 ```css
 column-rule:
@@ -152,13 +152,13 @@ column-rule:
   repeat(3, outset navy 10px, inset olive 1px);
 ```
 
-Dies erstellt eine Liste von sieben Regeln. Wenn die Anzahl der Stile in der Stil-Liste des `column-rule`-Werts die Anzahl der Lücken zwischen den Spalten übersteigt, werden die überschüssigen Stilwerte ignoriert. Wenn der Container, auf den dies angewendet wird, drei Spalten hat, wird die Regel in der ersten Lücke `solid maroon 5px` und die zweite `outset navy 10px` sein.
+Dies erstellt eine Liste von sieben Regeln. Wenn die Anzahl der Stile in der `column-rule`-Wertstil-Liste die Anzahl der Lücken zwischen den Spalten überschreitet, werden die überzähligen Stilwerte ignoriert. Wenn der Container, auf den dies angewendet wird, drei Spalten hat, wird die Regel im ersten Zwischenraum `solid maroon 5px` und die zweite `outset navy 10px` sein.
 
-Wenn es mehr Lücken als Stile gibt, wird die Liste der Stile wiederholt. Wenn der Container 8, 15, 22 oder 29 Spalten hat, wird diese Abfolge von Stilen ein-, zwei-, drei- oder viermal wiederholt, wobei die letzte Regel `inset olive 1px` ist.
+Wenn es mehr Zwischenräume als Stile gibt, wird die Liste der Stile wiederholt. Wenn der Container 8, 15, 22 oder 29 Spalten hat, wird diese Sequenz von Stilen ein-, zwei-, drei- oder viermal wiederholt, wobei die letzte Regel `inset olive 1px` sein wird.
 
-### Auto-wiederholte Linienstile
+### Auto-wiederholende Linienstile
 
-Die `repeat()`-Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstem Argument werden die [`<gap-rule>`](#gap-rule)-Werte als nachfolgende Argumente so oft wiederholt, wie nötig, um Werte für alle Regeln zu füllen, die nicht explizit durch andere Komponenten des Eigenschaftswerts angegeben sind.
+Die `repeat()`-Funktion akzeptiert auch `auto` als erstes Argument anstelle einer positiven Ganzzahl. Mit `auto` als erstem Argument werden die [`<gap-rule>`](#gap-rule)-Werte, die als nachfolgende Argumente übergeben werden, so oft wiederholt, wie nötig, um Werte für alle Regeln zu füllen, die nicht explizit von anderen Komponenten des Eigenschaftswerts angegeben werden.
 
 ```css
 column-rule:
@@ -167,9 +167,9 @@ column-rule:
   solid maroon 5px;
 ```
 
-In diesem Fall werden die erste und letzte Spaltenregel `solid maroon 5px` sein, und alle anderen werden zwischen `dotted olive 1px` und `dashed navy 1px` wechseln. Es spielt keine Rolle, ob der Container 3, 6, 11, 16 oder 21 Spalten hat; die ersten und letzten Lücken werden immer eine dicke feste kastanienbraune Linie zwischen ihnen haben (es sei denn, {{cssxref("column-rule-visibility-items")}} führt dazu, dass keine Linie gezeichnet wird), und alle anderen Spaltenregeln werden dünne, gepunktete olivfarbene oder gestrichelte marineblaue Linien haben. Wenn es nur 2 oder 3 Spalten gibt, wird es keine gepunkteten oder gestrichelten Linien geben.
+In diesem Fall werden die ersten und letzten Spaltenregeln `solid maroon 5px` sein, und alle anderen werden zwischen `dotted olive 1px` und `dashed navy 1px` wechseln. Es spielt keine Rolle, ob der Container 3, 6, 11, 16 oder 21 Spalten hat; die ersten und letzten Zwischenräume werden immer eine dicke, solide, kastanienbraune Linie als Trennlinie haben (sofern {{cssxref("column-rule-visibility-items")}} nicht dazu führt, dass keine Linie gezeichnet wird), und alle anderen Spaltenregeln werden dünne, gepunktete olivgrüne oder gestrichelte marineblaue Linien sein. Wenn es nur 2 oder 3 Spalten gibt, gibt es keine gepunkteten oder gestrichelten Linien.
 
-Das `auto`-Schlüsselwort innerhalb der `repeat()`-Funktion erstellt einen Auto-Wiederholer, der Werte für Spaltenregeln füllt, die ansonsten keine Werte von anderen Teilen der Liste erhalten würden und verhindert, dass die Liste zyklisch wird. Höchstens kann nur ein `repeat(auto, <gap-rule>)` in einem `column-rule`-Wert vorhanden sein.
+Das `auto`-Schlüsselwort innerhalb der `repeat()`-Funktion erstellt einen Auto-Wiederholer, der Werte für Spaltenregeln füllt, die sonst keine Werte von anderen Teilen der Liste erhalten würden, um zu verhindern, dass die Liste umkreist wird. Höchstens kann nur ein `repeat(auto, <gap-rule>)` in einem `column-rule`-Wert vorhanden sein.
 
 ## Formale Definition
 
@@ -181,13 +181,13 @@ Das `auto`-Schlüsselwort innerhalb der `repeat()`-Funktion erstellt einen Auto-
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-In diesem Beispiel definieren wir eine einzelne Regel für die Linien, die zwischen Flex-Elementen gezeichnet werden.
+In diesem Beispiel definieren wir eine einzelne Regel für die Linien zwischen Flex-Elementen.
 
 #### HTML
 
-Wir fügen eine Liste von Autoren hinzu:
+Wir fügen eine Liste von Autoren ein:
 
 ```html live-sample___basic live-sample___repeat live-sample___func live-sample___auto
 <ul>
@@ -205,7 +205,7 @@ Wir fügen eine Liste von Autoren hinzu:
 
 #### CSS
 
-Wir definieren die Liste als Flex-Container, der Spalten erzeugt, indem wir die {{cssxref("flex-direction")}} auf `row` mit der {{cssxref("flex-flow")}}-Kurzfassung festlegen. Wir fügen einen {{cssxref("gap")}} von `12px` hinzu, um genügend Platz zwischen den Spalten zu schaffen, um unsere `10px groove maroon` Regel unterzubringen:
+Wir definieren die Liste als Flex-Container und erzeugen Spalten, indem wir die {{cssxref("flex-direction")}} auf `row` setzen, unter Verwendung der {{cssxref("flex-flow")}} Kurznotation. Wir fügen eine {{cssxref("gap")}} von `12px` hinzu, um genügend Platz zwischen den Spalten für unsere `10px groove maroon` Regel zu schaffen:
 
 ```css live-sample___basic live-sample___repeat live-sample___func live-sample___auto
 ul {
@@ -222,11 +222,11 @@ ul {
 
 {{EmbedLiveSample("Basic", "", "180")}}
 
-### Wiederholte Werte
+### Wiederholung von Werten
 
-Dieses Beispiel zeigt, wie die Werte wiederholt werden, wenn es weniger Werte in der Liste der Stile als Spaltenregeln gibt. Es zeigt auch die Standardwerte für die Breite, Farbe und den Stil von `medium`, `currentcolor` und `none`.
+Dieses Beispiel zeigt, wie die Werte wiederholt werden, wenn es weniger Werte in der Liste der Stile gibt als Spaltenregeln. Es zeigt auch die Standardwerte für die Breite, Farbe und den Stil von `medium`, `currentcolor` und `none`.
 
-Unter Verwendung des gleichen HTML und CSS wie im vorherigen Beispiel, fügen wir vier kommagetrennte `<gap-rule>`-Werte als den `column-rule`-Wert hinzu, wobei die Breite im ersten `<gap-rule>`, die Farbe im zweiten und der Stil im dritten weggelassen wird, wobei das vierte alle drei Komponenten enthält:
+Mit dem gleichen HTML und CSS wie im vorherigen Beispiel fügen wir vier kommagetrennte `<gap-rule>` Werte als `column-rule`-Wert hinzu, wobei die Breite in der ersten `<gap-rule>`, die Farbe in der zweiten und der Stil in der dritten ausgelassen werden, wobei die vierte alle drei Komponenten enthält:
 
 ```css live-sample___repeat
 ul {
@@ -240,11 +240,11 @@ ul {
 
 {{EmbedLiveSample("Repeat", "", "180")}}
 
-Die kastanienbraune Linie ist `3px` breit. Die gepunktete Linie hat die gleiche Farbe wie der Text. Es gibt keine türkisfarbenen Linien, da der `<line-style>` des dritten `<gap-rule>` standardmäßig `none` ist, sodass keine Linie gezeichnet wird. Es gibt mehr Lücken als `<gap-rule>`-Werte, sodass die Liste der Werte wiederholt wird.
+Die kastanienbraune Linie ist `3px` breit. Die gepunktete Linie hat die gleiche Farbe wie der Text. Es gibt keine türkisfarbenen Linien, da das `<line-style>` der dritten `<gap-rule>` standardmäßig `none` ist, sodass keine Linie gezeichnet wird. Es gibt mehr Zwischenräume als `<gap-rule>` Werte, sodass die Liste der Werte wiederholt wird.
 
 ### Verwendung der `repeat()`-Funktion
 
-Dieses Beispiel zeigt die Verwendung der `repeat()`-Funktion innerhalb des `column-rule`-Eigenschaftswerts. Wir verwenden das gleiche HTML und CSS wie in den vorherigen Beispielen. Wir fügen eine `repeat()`-Funktion hinzu, indem wir die Liste von zwei `<gap-rule>`-Werten viermal wiederholen.
+Dieses Beispiel zeigt die Verwendung der `repeat()`-Funktion innerhalb des `column-rule` Eigenschaftswerts. Wir verwenden das gleiche HTML und CSS wie in den vorherigen Beispielen. Wir fügen eine `repeat()`-Funktion hinzu und setzen die Liste von zwei `<gap-rule>` Werten, um sie viermal zu wiederholen.
 
 ```css live-sample___func live-sample___auto
 ul {
@@ -257,13 +257,13 @@ ul {
 
 {{EmbedLiveSample("func", "", "180")}}
 
-Der Flex-Container hat neun Spalten, also acht Lücken. Die `repeat()`-Funktion wiederholt zwei Stilwerte viermal und erstellt eine Liste von zehn `<gap-rule>`-Werten. Da es weniger Spaltenlücken als gesamte `<gap-rule>`-Werte gibt, werden die letzten beiden Werte in der Liste verworfen.
+Der Flex-Container hat neun Spalten, also acht Zwischenräume. Die `repeat()`-Funktion wiederholt zwei Stilwerte viermal, wodurch eine Liste von zehn `<gap-rule>` Werten entsteht. Da es weniger Spaltenzwischenräume als `<gap-rule>` Werte gibt, werden die letzten beiden Werte in der Liste verworfen.
 
 ### Verwendung von `auto` innerhalb von `repeat()`
 
 Dieses Beispiel zeigt die Verwendung des `auto`-Arguments anstelle einer Ganzzahl in der `repeat()`-Funktion.
 
-Unter Verwendung von `repeat(auto, <gap-rule>)` setzen wir alle Spaltenregeln auf `1px dotted` und standardmäßig auf die aktuelle Farbe, außer der ersten und der letzten, die wir auf `10px groove maroon` setzen.
+Durch die Verwendung von `repeat(auto, <gap-rule>)` setzen wir alle Spaltenregeln auf `1px` gepunktet und standardmäßig die aktuelle Farbe, außer den ersten und letzten, die wir auf `10px groove maroon` setzen.
 
 ```css live-sample___auto
 ul {
@@ -303,6 +303,6 @@ ul {
 - {{cssxref("column-rule-color")}}
 - {{cssxref("column-rule-width")}}
 - {{cssxref("column-rule-style")}}
-- {{cssxref("row-rule")}} Kurzfassung
-- {{cssxref("rule")}} Kurzfassung
-- [CSS gaps](/de/docs/Web/CSS/Guides/Gaps) Modul
+- {{cssxref("row-rule")}} Kurznotation
+- {{cssxref("rule")}} Kurznotation
+- [CSS Abstand](/de/docs/Web/CSS/Guides/Gaps) Modul

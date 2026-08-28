@@ -1,14 +1,14 @@
 ---
-title: CSS-Eigenschaft `inset`
+title: "`inset` CSS-Eigenschaft"
 short-title: inset
 slug: Web/CSS/Reference/Properties/inset
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`inset`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
+Die **`inset`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) Eigenschaft entspricht den {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und/oder {{cssxref("left")}} Eigenschaften. Sie hat dieselbe Mehrfachwert-Syntax wie die {{cssxref("margin")}} Shorthand.
 
-Diese {{Glossary("inset_properties", "Inset-Eigenschaften")}}, einschließlich `inset`, haben keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset-Eigenschaften")}}, einschließlich `inset`, haben keinen Effekt auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset")}}
 
@@ -65,11 +65,11 @@ inset: 0;
 }
 ```
 
-Obwohl sie Teil des Moduls [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) ist, definiert sie keine _logischen_ Offsets. Sie definiert _physische_ Offsets, unabhängig vom Schreibrichtung, Richtung und Textorientierung des Elements.
+Während sie Teil des Moduls [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) ist, definiert sie keine _logischen_ Abstände. Sie definiert _physische_ Abstände, unabhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements.
 
-## Zugehörige Eigenschaften
+## Konstituierende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform der folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("top")}}
 - {{Cssxref("right")}}
@@ -104,7 +104,7 @@ inset: unset;
 
 ### Werte
 
-Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}}-Eigenschaft an.
+Die `inset` Eigenschaft nimmt dieselben Werte wie die {{cssxref("top")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -116,7 +116,7 @@ Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")}}-Eige
 
 ## Beispiele
 
-### Festlegen von Offsets für ein Element
+### Abstände für ein Element festlegen
 
 #### HTML
 

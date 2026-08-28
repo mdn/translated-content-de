@@ -1,41 +1,41 @@
 ---
-title: Überlagerung und clipping
+title: Compositing und Clipping
 slug: Web/API/Canvas_API/Tutorial/Compositing
 l10n:
-  sourceCommit: 6f1b699dd8891431bbfe0bc3bb803f929fa6032e
+  sourceCommit: cf880ca0ef5fd518f7fdc716220488647ac83eee
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Transformations", "Web/API/Canvas_API/Tutorial/Basic_animations")}}
 
-In all unseren [vorherigen Beispielen](/de/docs/Web/API/Canvas_API/Tutorial/Transformations) wurden Formen immer eine über der anderen gezeichnet. Dies ist für die meisten Situationen mehr als ausreichend, jedoch schränkt es die Reihenfolge ein, in der zusammengesetzte Formen erstellt werden. Wir können dieses Verhalten jedoch ändern, indem wir die Eigenschaft `globalCompositeOperation` einstellen. Darüber hinaus ermöglicht uns die Eigenschaft `clip`, unerwünschte Teile von Formen auszublenden.
+In all unseren [vorherigen Beispielen](/de/docs/Web/API/Canvas_API/Tutorial/Transformations) wurden Formen immer übereinander gezeichnet. Das ist in den meisten Situationen völlig ausreichend, schränkt jedoch die Reihenfolge ein, in der zusammengesetzte Formen erstellt werden. Wir können dieses Verhalten jedoch ändern, indem wir die Eigenschaft `globalCompositeOperation` festlegen. Darüber hinaus ermöglicht uns die Eigenschaft `clip`, unerwünschte Teile von Formen auszublenden.
 
 ## `globalCompositeOperation`
 
-Wir können nicht nur neue Formen hinter vorhandenen Formen zeichnen, sondern auch bestimmte Bereiche maskieren, Bereiche von der Leinwand löschen (nicht nur auf Rechtecke beschränkt wie die Methode [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)) und mehr.
+Wir können nicht nur neue Formen hinter bestehenden Formen zeichnen, sondern auch bestimmte Bereiche maskieren, Abschnitte von der Leinwand löschen (nicht auf Rechtecke beschränkt wie die Methode [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)) und mehr.
 
 - [`globalCompositeOperation = type`](/de/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation)
-  - : Dies legt die Art der Überlagerungsoperation fest, die beim Zeichnen neuer Formen angewendet werden soll, wobei type ein String ist, der identifiziert, welche der zwölf Überlagerungsoperationen zu verwenden ist.
+  - : Dies legt den Typ der Kompositionsoperation fest, die beim Zeichnen neuer Formen angewendet wird, wobei `type` ein Zeichenfolgenwert ist, der identifiziert, welche der zwölf Kompositionsoperationen verwendet werden soll.
 
 ## Clipping-Pfade
 
-Ein Clipping-Pfad ist wie eine normale Canvas-Form, agiert jedoch als Maske, um unerwünschte Teile von Formen auszublenden. Dies wird im Bild unten veranschaulicht. Die rote Sternform ist unser Clipping-Pfad. Alles, was außerhalb dieses Pfades liegt, wird nicht auf der Leinwand gezeichnet.
+Ein Clipping-Pfad ist wie eine normale Canvas-Form, fungiert jedoch als Maske, um unerwünschte Teile von Formen auszublenden. Dies wird im Bild unten visualisiert. Die rote Sternform ist unser Clipping-Pfad. Alles, was außerhalb dieses Pfades liegt, wird nicht auf der Leinwand gezeichnet.
 
-![Ein Canvas mit einem in roter Farbe umrandeten Stern. Das Innere des Sterns ist transparent, da die Gittersquares im Inneren des Sterns klar sichtbar sind, während die Squares außerhalb des Sterns unscharf sind.](canvas_clipping_path.png)
+![Eine Leinwand mit einem Stern, der in roter Farbe umrandet ist. Das Innere des Sterns ist transparent, wie durch die Gitterquadrate im Stern sichtbar, während die Gitterquadrate außerhalb des Sterns verschwommen sind.](canvas_clipping_path.png)
 
-Vergleichen wir Clipping-Pfade mit der Eigenschaft `globalCompositeOperation`, die wir oben gesehen haben, so sehen wir zwei Überlagerungsmodi, die mehr oder weniger denselben Effekt bei `source-in` und `source-atop` erzielen. Die wichtigsten Unterschiede zwischen den beiden sind, dass Clipping-Pfade nie tatsächlich auf die Leinwand gezeichnet werden und der Clipping-Pfad nie durch das Hinzufügen neuer Formen beeinflusst wird. Dies macht Clipping-Pfade ideal für das Zeichnen mehrerer Formen in einem eingeschränkten Bereich.
+Wenn wir Clipping-Pfade mit der oben genannten Eigenschaft `globalCompositeOperation` vergleichen, sehen wir zwei Kompositionsmodi, die mehr oder weniger denselben Effekt in `source-in` und `source-atop` erzielen. Die wichtigsten Unterschiede zwischen den beiden sind, dass Clipping-Pfade niemals tatsächlich auf die Leinwand gezeichnet werden und der Clipping-Pfad nie durch das Hinzufügen neuer Formen beeinflusst wird. Dies macht Clipping-Pfade ideal zum Zeichnen mehrerer Formen in einem eingeschränkten Bereich.
 
-Im Kapitel über [Formen zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) habe ich nur die Methoden `stroke()` und `fill()` erwähnt, aber es gibt eine dritte Methode, die wir mit Pfaden verwenden können, namens `clip()`.
+Im Kapitel über [das Zeichnen von Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) habe ich nur die Methoden `stroke()` und `fill()` erwähnt, aber es gibt eine dritte Methode, die wir mit Pfaden verwenden können, genannt `clip()`.
 
 - [`clip()`](/de/docs/Web/API/CanvasRenderingContext2D/clip)
-  - : Wandelt den momentan aufgebauten Pfad in den aktuellen Clipping-Pfad um.
+  - : Wandelt den derzeit erstellten Pfad in den aktuellen Clipping-Pfad um.
 
-Man verwendet `clip()` statt `closePath()`, um einen Pfad zu schließen und in einen Clipping-Pfad umzuwandeln, anstatt den Pfad zu umranden oder zu füllen.
+Sie verwenden `clip()` anstelle von `closePath()`, um einen Pfad zu schließen und ihn in einen Clipping-Pfad zu verwandeln, anstatt den Pfad zu umranden oder zu füllen.
 
-Standardmäßig hat das {{HTMLElement("canvas")}}-Element einen Clipping-Pfad, der genau die gleiche Größe wie die Leinwand selbst hat. Mit anderen Worten: Es findet kein Clipping statt.
+Standardmäßig hat das {{HTMLElement("canvas")}}-Element einen Clipping-Pfad, der genau die gleiche Größe wie die Leinwand selbst hat. Mit anderen Worten, es erfolgt kein Clipping.
 
 ### Ein `clip`-Beispiel
 
-In diesem Beispiel verwenden wir einen kreisförmigen Clipping-Pfad, um das Zeichnen einer Reihe von zufälligen Sternen auf einen bestimmten Bereich zu beschränken.
+In diesem Beispiel verwenden wir einen kreisförmigen Clipping-Pfad, um das Zeichnen eines Satzes von zufälligen Sternen auf einen bestimmten Bereich zu beschränken.
 
 ```js
 function draw() {
@@ -98,17 +98,17 @@ function drawStar(ctx, r) {
 draw();
 ```
 
-In den ersten Zeilen des Codes zeichnen wir ein schwarzes Rechteck in der Größe der Leinwand als Hintergrund und verschieben dann den Ursprung in die Mitte. Danach erstellen wir den kreisförmigen Clipping-Pfad, indem wir einen Bogen zeichnen und `clip()` aufrufen. Clipping-Pfade sind auch Teil des Canvas-Speicherzustands. Falls wir den ursprünglichen Clipping-Pfad beibehalten möchten, könnten wir den Canvas-Zustand speichern, bevor wir den neuen erstellen.
+In den ersten paar Codezeilen zeichnen wir ein schwarzes Rechteck in der Größe der Leinwand als Hintergrund und verschieben dann den Ursprung in die Mitte. Als Nächstes erstellen wir den kreisförmigen Clipping-Pfad, indem wir einen Bogen zeichnen und `clip()` aufrufen. Clipping-Pfade sind auch Teil des Speichers des Canvas-Zustands. Wenn wir den ursprünglichen Clipping-Pfad behalten wollten, hätten wir den Canvas-Zustand vor dem Erstellen des neuen Pfades speichern können.
 
-Alles, was nach dem Erstellen des Clipping-Pfades gezeichnet wird, erscheint nur innerhalb dieses Pfades. Dies wird deutlich in dem als nächstes gezeichneten linearen Farbverlauf. Danach wird eine Reihe von 50 zufällig positionierten und skalierten Sternen gezeichnet, unter Verwendung der benutzerdefinierten Funktion `drawStar()`. Erneut erscheinen die Sterne nur innerhalb des definierten Clipping-Pfades.
+Alles, was nach dem Erstellen des Clipping-Pfades gezeichnet wird, erscheint nur innerhalb dieses Pfades. Dies sieht man deutlich im als Nächstes gezeichneten Farbverlauf. Danach wird eine Reihe von 50 zufällig positionierten und skalierten Sternen gezeichnet, wobei die benutzerdefinierte Funktion `drawStar()` verwendet wird. Auch hier erscheinen die Sterne nur innerhalb des definierten Clipping-Pfades.
 
 {{EmbedLiveSample("A_clip_example", "", "160")}}
 
 ### Inverser Clipping-Pfad
 
-Es gibt keine Funktion für eine inverse Clipping-Maske. Wir können jedoch eine Maske definieren, die die gesamte Leinwand mit einem Rechteck ausfüllt und ein Loch darin hat für die Teile, die Sie überspringen möchten. Beim [Zeichnen einer Form mit einem Loch](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#shapes_with_holes) müssen wir das Loch in entgegengesetzter Richtung zur äußeren Form zeichnen. Im Beispiel unten schlagen wir ein Loch in den Himmel.
+Es gibt keinen inversen Clipping-Masken. Wir können jedoch eine Maske definieren, die die gesamte Leinwand mit einem Rechteck füllt und ein Loch für die Bereiche hat, die Sie überspringen möchten. Wenn Sie [eine Form mit einem Loch zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#shapes_with_holes), müssen wir das Loch in die entgegengesetzte Richtung zur Außenform zeichnen. Im folgenden Beispiel stanzen wir ein Loch in den Himmel.
 
-Ein Rechteck hat keine Zeichnungsrichtung, verhält sich jedoch so, als hätten wir es im Uhrzeigersinn gezeichnet. Standardmäßig geht auch der Befehl `arc` im Uhrzeigersinn, aber seine Richtung können wir mit dem letzten Argument ändern.
+Ein Rechteck hat keine Zeichenrichtung, verhält sich jedoch so, als ob wir es im Uhrzeigersinn gezeichnet hätten. Standardmäßig erfolgt die Bogenführung auch im Uhrzeigersinn, aber wir können ihre Richtung mit dem letzten Argument ändern.
 
 ```html hidden
 <canvas id="my-canvas" width="150" height="150"></canvas>
@@ -123,7 +123,7 @@ function draw() {
   // Clipping path
   ctx.beginPath();
   ctx.rect(-75, -75, 150, 150); // Outer rectangle
-  ctx.arc(0, 0, 60, 0, Math.PI * 2, true); // Hole anticlockwise
+  ctx.arc(0, 0, 60, 0, Math.PI * 2, true); // Hole counterclockwise
   ctx.clip();
 
   // Draw background

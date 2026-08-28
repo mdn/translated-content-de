@@ -3,12 +3,12 @@ title: "`font-variant` CSS-Eigenschaft"
 short-title: font-variant
 slug: Web/CSS/Reference/Properties/font-variant
 l10n:
-  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`font-variant`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es Ihnen, alle Schriftvarianten für eine Schriftart festzulegen.
+Die **`font-variant`** [CSS](/de/docs/Web/CSS) [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) Eigenschaft ermöglicht es, alle Schriftvarianten für eine Schriftart festzulegen.
 
-Sie können auch die `<font-variant-css2>` Werte von `font-variant`, die in CSS Level 2.1 definiert sind (das heißt, `normal` oder `small-caps`), mithilfe der {{cssxref("font")}} Kurzschreibweise festlegen.
+Sie können auch die `<font-variant-css2>` Werte von `font-variant`, die in CSS Level 2.1 definiert sind (also `normal` oder `small-caps`), mittels der {{cssxref("font")}} Shorthand festlegen.
 
 {{InteractiveExample("CSS Demo: font-variant")}}
 
@@ -75,9 +75,9 @@ section {
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-variant-alternates")}}
 - {{cssxref("font-variant-caps")}}
@@ -106,10 +106,10 @@ font-variant: unset;
 Diese Eigenschaft wird als eine durch Leerzeichen getrennte Liste der folgenden Werte angegeben:
 
 - `normal`
-  - : Gibt ein normales Schriftbild an. Jede Langform-Eigenschaft hat einen Anfangswert von `normal`.
+  - : Gibt eine normale Schriftart an. Jede Langform-Eigenschaft hat einen Anfangswert von `normal`.
 
 - `none`
-  - : Setzt den Wert der {{cssxref("font-variant-ligatures")}} als `none` und die Werte der anderen Langform-Eigenschaften als `normal`, ihrem Anfangswert.
+  - : Setzt den Wert von {{cssxref("font-variant-ligatures")}} auf `none` und die Werte der anderen Langform-Eigenschaften auf `normal`, ihren Anfangswert.
 
 - `<common-lig-values>`, `<discretionary-lig-values>`, `<historical-lig-values>`, `<contextual-alt-values>`
   - : Gibt die Schlüsselwörter an, die sich auf die Langform-Eigenschaft {{cssxref("font-variant-ligatures")}} beziehen. Die möglichen Werte sind `common-ligatures`, `no-common-ligatures`, `discretionary-ligatures`, `no-discretionary-ligatures`, `historical-ligatures`, `no-historical-ligatures`, `contextual` und `no-contextual`.
@@ -118,7 +118,7 @@ Diese Eigenschaft wird als eine durch Leerzeichen getrennte Liste der folgenden 
   - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft {{cssxref("font-variant-ligatures")}} beziehen.
 
 - `small-caps`, `all-small-caps`, `petite-caps`, `all-petite-caps`, `unicase`, `titling-caps`
-  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft {{cssxref("font-variant-caps")}} beziehen. Der Wert `small-caps` ist die einzige nicht-`normal` Schriftvariante, die innerhalb der Kurzschreibweise {{cssxref("font")}} gültig ist.
+  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft {{cssxref("font-variant-caps")}} beziehen. Der Wert `small-caps` ist der einzige nicht-`normal` Schriftvariantenwert, der innerhalb der Shorthand-Eigenschaft {{cssxref("font")}} gültig ist.
 
 - `<numeric-figure-values>`, `<numeric-spacing-values>`, `<numeric-fraction-values>`, `ordinal`, `slashed-zero`
   - : Gibt die Schlüsselwörter an, die sich auf die Langform-Eigenschaft {{cssxref("font-variant-numeric")}} beziehen. Die möglichen Werte sind `lining-nums`, `oldstyle-nums`, `proportional-nums`, `tabular-nums`, `diagonal-fractions`, `stacked-fractions`, `ordinal` und `slashed-zero`.
@@ -142,7 +142,7 @@ Diese Eigenschaft wird als eine durch Leerzeichen getrennte Liste der folgenden 
 
 ## Beispiele
 
-### Einstellung der Schriftvariante small-caps
+### Festlegen der small-caps Schriftvariante
 
 #### HTML
 

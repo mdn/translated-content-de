@@ -1,25 +1,25 @@
 ---
-title: "Element: pointercancel Ereignis"
+title: "Element: pointercancel-Ereignis"
 short-title: pointercancel
 slug: Web/API/Element/pointercancel_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das **`pointercancel`**-Ereignis wird ausgelöst, wenn der Browser feststellt, dass es wahrscheinlich keine weiteren Pointer-Ereignisse geben wird, oder wenn nach dem [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis der Pointer verwendet wird, um den Ansichtsbereich durch Schwenken, Zoomen oder Scrollen zu manipulieren.
+Das **`pointercancel`**-Ereignis wird ausgelöst, wenn der Browser feststellt, dass es wahrscheinlich keine weiteren Zeigerereignisse mehr geben wird, oder wenn nach dem Auslösen des [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisses der Zeiger dann zur Manipulation des Ansichtsbereichs durch Schwenken, Zoomen oder Scrollen verwendet wird.
 
-Einige Beispiele von Situationen, die ein `pointercancel`-Ereignis auslösen:
+Einige Beispiele für Situationen, die ein `pointercancel`-Ereignis auslösen werden:
 
-- Ein Hardware-Ereignis tritt auf, das die Pointer-Aktivitäten abbricht. Dies kann zum Beispiel geschehen, wenn der Benutzer Anwendungen über ein Anwendungsumschalter-Interface wechselt oder die "Home"-Taste auf einem mobilen Gerät drückt.
-- Die Ausrichtung des Gerätebildschirms wird geändert, während der Pointer aktiv ist.
-- Der Browser entscheidet, dass der Benutzer versehentlich die Eingabe mit dem Pointer begonnen hat. Dies kann der Fall sein, wenn die Hardware Palm-Rejection unterstützt, um zu verhindern, dass eine auf dem Display ruhende Hand beim Verwenden eines Stifts versehentlich Ereignisse auslöst.
-- Die {{cssxref("touch-action")}} CSS-Eigenschaft verhindert, dass die Eingabe fortgesetzt wird.
-- Wenn der Benutzer mit zu vielen gleichzeitigen Zeigern interagiert, kann der Browser dieses Ereignis für alle vorhandenen Zeiger auslösen (selbst wenn der Benutzer noch den Bildschirm berührt).
+- Ein Hardware-Ereignis tritt auf, das die Zeigeraktivitäten abbricht. Dies kann zum Beispiel der Fall sein, wenn der Benutzer zwischen Anwendungen über eine Anwendungsumschalter-Schnittstelle oder die "Home"-Taste auf einem Mobilgerät wechselt.
+- Die Bildschirmorientierung des Geräts wird geändert, während der Zeiger aktiv ist.
+- Der Browser entscheidet, dass der Benutzer die Zeigereingabe versehentlich gestartet hat. Dies kann passieren, wenn die Hardware beispielsweise Palm Rejection unterstützt, um zu verhindern, dass sich eine Hand auf dem Display ablegt, während ein Stift verwendet wird und versehentlich Ereignisse auslöst.
+- Die CSS-Eigenschaft {{cssxref("touch-action")}} verhindert, dass die Eingabe fortgesetzt wird.
+- Wenn der Benutzer mit zu vielen gleichzeitigen Zeigern interagiert, kann der Browser dieses Ereignis für alle bestehenden Zeiger auslösen (auch wenn der Benutzer den Bildschirm noch berührt).
 
 > [!NOTE]
-> Nachdem das `pointercancel`-Ereignis ausgelöst wurde, sendet der Browser auch [`pointerout`](/de/docs/Web/API/Element/pointerout_event) gefolgt von [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event).
+> Nachdem das `pointercancel`-Ereignis ausgelöst wurde, sendet der Browser auch [`pointerout`](/de/docs/Web/API/Element/pointerout_event), gefolgt von [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event).
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Verwendung von `addEventListener()`:
 const para = document.querySelector("p");
 
 para.addEventListener("pointercancel", (event) => {
-  console.log("Pointer event cancelled");
+  console.log("Pointer event canceled");
 });
 ```
 
@@ -55,7 +55,7 @@ Verwendung der `onpointercancel`-Ereignishandler-Eigenschaft:
 const para = document.querySelector("p");
 
 para.onpointercancel = (event) => {
-  console.log("Pointer event cancelled");
+  console.log("Pointer event canceled");
 };
 ```
 

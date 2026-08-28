@@ -1,11 +1,14 @@
 ---
-title: "Input-Grenzfallassertion: ^, $"
+title: "Eingabebegrenzungs-Assertion: ^, $"
 slug: Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 8f53af45fae665627a95ac50e177b15d0228b920
 ---
 
-Eine **Input-Grenzfallassertion** überprüft, ob die aktuelle Position im String eine Input-Grenze ist. Eine Input-Grenze ist der Anfang oder das Ende des Strings; oder, wenn das `m`-Flag gesetzt ist, der Anfang oder das Ende einer Zeile.
+Eine **Eingabebegrenzungs-Assertion** überprüft, ob die aktuelle Position im String eine Eingabebegrenzung ist. Eine Eingabebegrenzung ist der Anfang oder das Ende des Strings; oder, falls das `m`-Flag gesetzt ist, der Anfang oder das Ende einer Zeile.
+
+> [!NOTE]
+> Um den Anfang und das Ende des gesamten Strings im `m`-Modus zu erfassen, verwenden Sie die [Pufferbegrenzungs-Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion) `\A`, `\z` und `\Z`.
 
 ## Syntax
 
@@ -16,13 +19,13 @@ $
 
 ## Beschreibung
 
-`^` behauptet, dass die aktuelle Position der Anfang des Inputs ist. `$` behauptet, dass die aktuelle Position das Ende des Inputs ist. Beide sind _Assertierungen_, daher verbrauchen sie keine Zeichen.
+`^` bestätigt, dass die aktuelle Position der Anfang der Eingabe ist. `$` bestätigt, dass die aktuelle Position das Ende der Eingabe ist. Beide sind _Assertions_, daher verbrauchen sie keine Zeichen.
 
-Genauer gesagt, `^` behauptet, dass das Zeichen links außerhalb der Grenzen des Strings ist; `$` behauptet, dass das Zeichen rechts außerhalb der Grenzen des Strings ist. Wenn das [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline)-Flag gesetzt ist, passt `^` auch, wenn das Zeichen links ein [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) ist, und `$` passt auch, wenn das Zeichen rechts ein Zeilenabschlusszeichen ist.
+Genauer gesagt bestätigt `^`, dass das Zeichen links außerhalb des Strings liegt; `$` bestätigt, dass das Zeichen rechts außerhalb des Strings liegt. Wenn das [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline)-Flag gesetzt ist, passt `^` auch, wenn das Zeichen links ein [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) ist, und `$` passt auch, wenn das Zeichen rechts ein Zeilenendzeichen ist.
 
-Wenn das `m`-Flag nicht gesetzt ist, machen die `^`- und `$`-Assertions nur Sinn, wenn sie an den Begrenzungen des Musters platziert sind, da alle anderen Zeichen links oder rechts von ihnen notwendigerweise dazu führen, dass die Assertion fehlschlägt.
+Wenn das `m`-Flag nicht gesetzt ist, machen diese Assertions nur Sinn, wenn keine Zeichen links oder rechts von ihnen erwartet werden. Zum Beispiel `f^o` passt nie, weil es unmöglich ist, dass `^` sowohl am Anfang des Strings steht als auch ein Zeichen links von ihm hat.
 
-Das `y`-Flag ändert nicht die Bedeutung dieser Assertions – siehe auch [Verankertes Sticky-Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky#anchored_sticky_flag).
+Diese Assertions ändern die Übereinstimmungspositionen nicht, wenn das `y`-Flag verwendet wird — siehe auch [verankertes sticky-Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky#anchored_sticky_flag).
 
 ## Beispiele
 
@@ -39,9 +42,9 @@ removeTrailingSlash("https://example.com/"); // "https://example.com"
 removeTrailingSlash("https://example.com/docs/"); // "https://example.com/docs"
 ```
 
-### Datei-Erweiterungen abgleichen
+### Dateierweiterungen abgleichen
 
-Das folgende Beispiel überprüft Dateitypen durch das Abgleichen der Dateierweiterung, die immer am Ende des Strings kommt:
+Das folgende Beispiel überprüft Dateitypen, indem es die Dateierweiterung abgleicht, die immer am Ende des Strings steht:
 
 ```js
 function isImage(filename) {
@@ -53,9 +56,9 @@ isImage("image.jpg"); // true
 isImage("image.pdf"); // false
 ```
 
-### Gesamten Input abgleichen
+### Gesamte Eingabe abgleichen
 
-Manchmal möchten Sie sicherstellen, dass Ihr Regex den gesamten Input abgleicht, nicht nur einen Teilstring des Inputs. Zum Beispiel, wenn Sie feststellen möchten, ob ein String ein gültiger [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) ist, können Sie an beiden Enden des Musters Input-Grenzfallassertionen hinzufügen:
+Manchmal möchten Sie sicherstellen, dass Ihr Regex die gesamte Eingabe und nicht nur einen Teil der Eingabe abgleicht. Wenn Sie zum Beispiel bestimmen, ob ein String ein gültiges [Identifizierer](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) ist, können Sie Eingabebegrenzungs-Assertions an beiden Enden des Musters hinzufügen:
 
 ```js
 function isValidIdentifier(str) {
@@ -68,7 +71,7 @@ isValidIdentifier("1foo"); // false
 isValidIdentifier("  foo  "); // false
 ```
 
-Diese Funktion ist nützlich beim Codegen (Erzeugen von Code mittels Code), weil Sie gültige Bezeichner anders verwenden können als andere String-Eigenschaften, wie z.B. [Punktnotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) anstelle von [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation):
+Diese Funktion ist nützlich beim Codegen (Code unter Verwendung von Code generieren), da Sie gültige Identifizierer anders verwenden können als andere Zeichenfolgeneigenschaften, wie z.B. [Punktnotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) anstelle der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation):
 
 ```js
 const variables = ["foo", "foo:bar", "  foo  "];
@@ -101,6 +104,7 @@ console.log(statements);
 
 - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Pufferbegrenzungs-Assertion: `\A`, `\z`, `\Z`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Buffer_boundary_assertion)
+- [Wortbegrenzungs-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
 - [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
 - [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)

@@ -2,20 +2,20 @@
 title: Verwendung der Prompt-API
 slug: Web/API/Prompt_API/Using
 l10n:
-  sourceCommit: b6de98eb9cd52ce7e37f22a340352f0af4c9d597
+  sourceCommit: d19dec85109590176f946fcceef48c787d578b1e
 ---
 
 {{DefaultAPISidebar("Prompt API")}}
 
-Die [Prompt-API](/de/docs/Web/API/Prompt_API) bietet einen asynchronen ({{jsxref("Promise")}}-basierten) Mechanismus für eine Website, um ein Sprachmodell, das vom Nutzeragenten bereitgestellt wird, direkt abzufragen, ohne dass die implementationsspezifischen Details des verwendeten KI-Modells verwaltet werden müssen. Ein Modell auf dem Gerät ist nützlich und effizient, da sensible Daten auf dem Gerät des Nutzers bleiben können, das Modell offline verfügbar ist und Entwickler die Kosten und Latenzen von API-Aufrufen zu externen Diensten vermeiden können.
+Die [Prompt-API](/de/docs/Web/API/Prompt_API) bietet einen asynchronen ({{jsxref("Promise")}}-basierten) Mechanismus für eine Website, um direkt ein Sprachmodell vom Benutzeragenten abzufragen, ohne dass implementierungsspezifische Details des verwendeten KI-Modells verwaltet werden müssen. Ein Modell auf dem Gerät ist nützlich und effizient, da sensible Daten auf dem Gerät des Benutzers bleiben können, das Modell offline verfügbar ist und Entwickler die Kosten und die Latenz der API-Aufrufe an externe Dienste vermeiden können.
 
-Dieser Artikel erklärt, wie Sie die grundlegenden Funktionen der Prompt-API nutzen. Alle Funktionen zur KI-Abfrage werden über das [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Interface verwaltet.
+Dieser Artikel erklärt, wie Sie die grundlegenden Elemente der Prompt-API verwenden. Alle KI-Abfragefunktionen werden über die [`LanguageModel`](/de/docs/Web/API/LanguageModel)-Schnittstelle verwaltet.
 
 ## Überprüfung der Konfigurationsunterstützung
 
-Bevor Sie versuchen, die Prompt-API zu verwenden, sollten Sie überprüfen, ob Ihre gewünschte Modellkonfiguration vom aktuellen Browser unterstützt wird, damit Sie mit vollständigen Ausfällen und Situationen, in denen zusätzliche Daten heruntergeladen werden müssen, um ein funktionierendes Modell bereitzustellen, elegant umgehen können.
+Bevor Sie versuchen, die Prompt-API zu verwenden, sollten Sie zunächst überprüfen, ob Ihre gewünschte Modellkonfiguration vom aktuellen Browser unterstützt wird, sodass Sie Situationen, in denen zusätzliche Daten heruntergeladen werden müssen, oder absolute Fehlerfälle elegant handhaben können.
 
-Die Überprüfung der Konfigurationsunterstützung erfolgt mithilfe der statischen Methode [`LanguageModel.availability()`](/de/docs/Web/API/LanguageModel/availability_static).
+Die Überprüfung der Konfigurationsunterstützung erfolgt mit der statischen Methode [`LanguageModel.availability()`](/de/docs/Web/API/LanguageModel/availability_static).
 
 Zum Beispiel:
 
@@ -26,25 +26,25 @@ const availability = await LanguageModel.availability({
 });
 ```
 
-Das Promise, das von dieser Methode zurückgegeben wird, erfüllt sich mit einem enumerierten Wert, der angibt, ob die Unterstützung für die angegebenen Optionen verfügbar ist, oder verfügbar sein wird:
+Das Rückgabepromise dieser Methode erfüllt sich mit einem enumerierten Wert, der angibt, ob die Unterstützung für die angegebene Optionsmenge verfügbar ist oder verfügbar sein wird:
 
 - `downloadable` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, aber zusätzliche Daten heruntergeladen werden müssen.
 - `downloading` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, aber einen laufenden Download abschließen muss.
 - `available` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, ohne dass neue Downloads erforderlich sind.
 - `unavailable` bedeutet, dass die Implementierung die angeforderten Optionen nicht unterstützt.
 
-Wenn ein Download erforderlich ist, wird er automatisch vom Browser gestartet, sobald eine `LanguageModel`-Instanz mit der `create()`-Methode erstellt wird. Sie können den Fortschritt dieses Downloads automatisch mit einem Monitor verfolgen, den wir im nächsten Abschnitt besprechen werden.
+Wenn ein Download erforderlich ist, wird er automatisch vom Browser gestartet, sobald eine `LanguageModel`-Instanz mit der `create()`-Methode erstellt wird. Sie können den Downloadfortschritt automatisch mit einem Monitor verfolgen, den wir im nächsten Abschnitt behandeln werden.
 
 > [!NOTE]
-> Auch wenn Sie eine Sprachmodell-Session anfordern können, die Multimedia-Ausgaben erwartet, schlägt dies fehl – die Verfügbarkeit wird `unavailable` sein. Die API unterstützt derzeit nur Textausgaben.
+> Auch wenn Sie eine Sprachmodell-Sitzung anfordern können, die multimediale Ausgaben erwartet, wird dies fehlschlagen — die Verfügbarkeit wird `unavailable` sein. Die API unterstützt derzeit nur Textausgaben.
 
 ### Überwachung des Download-Fortschritts
 
-Wenn das KI-Modell zusätzliche Daten herunterlädt (`availability()` gibt `downloading` zurück), ist es hilfreich, dem Nutzer eine Rückmeldung zu geben, um ihm mitzuteilen, wie lange er warten muss, bis der Vorgang abgeschlossen ist.
+Wenn das KI-Modell zusätzliche Daten herunterlädt (`availability()` gibt `downloading` zurück), ist es hilfreich, dem Benutzer Feedback zu geben, wie lange er warten muss, bevor der Vorgang abgeschlossen ist.
 
-Die `create()`-Methode kann eine `monitor`-Eigenschaft akzeptieren, deren Wert eine Callback-Funktion ist, die eine [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Instanz als Argument nimmt. `CreateMonitor` verfügt über ein verfügbares [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis, das ausgelöst wird, wenn Fortschritte beim Herunterladen der Daten gemacht werden.
+Die `create()`-Methode kann eine `monitor`-Eigenschaft akzeptieren, deren Wert eine Callback-Funktion ist, die eine [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Instanz als Argument annimmt. `CreateMonitor` verfügt über ein [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis, das ausgelöst wird, wenn Fortschritte beim Herunterladen der Daten erzielt werden.
 
-Sie können dieses Ereignis verwenden, um den Ladefortschritt zu ermitteln:
+Sie können dieses Ereignis verwenden, um den Ladefortschritt zu erfassen:
 
 ```js
 const session = await LanguageModel.create({
@@ -58,11 +58,11 @@ const session = await LanguageModel.create({
 });
 ```
 
-Wenn die angegebenen Sprachen nicht unterstützt werden, wird kein Download initiiert und ein `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) wird ausgelöst.
+Wenn die angegebenen Sprachen nicht unterstützt werden, wird kein Download gestartet, und es wird ein `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
-## Erstellen einer `LanguageModel`-Session
+## Erstellen einer `LanguageModel`-Sitzung
 
-Nachdem Sie überprüft haben, dass Ihre Konfiguration unterstützt wird, besteht der nächste Schritt zur Abfrage des KI-Modells darin, ein `LanguageModel`-Objekt zu erstellen. Dies geschieht mit der statischen Methode [`LanguageModel.create()`](/de/docs/Web/API/LanguageModel/create_static), die ein Optionsobjekt als Argument nimmt:
+Sobald Sie festgestellt haben, dass Ihre Konfiguration unterstützt wird, ist der nächste Schritt bei der Aufforderung des KI-Modells die Erstellung einer `LanguageModel`-Objektinstanz. Dies erfolgt mit der statischen Methode [`LanguageModel.create()`](/de/docs/Web/API/LanguageModel/create_static), die ein Optionsobjekt als Argument annimmt:
 
 ```js
 const session = await LanguageModel.create({
@@ -71,37 +71,37 @@ const session = await LanguageModel.create({
 });
 ```
 
-Der Browser lädt automatisch die entsprechenden Modelldaten herunter, um das angeforderte Sprachmodell zu verarbeiten, falls es noch nicht verfügbar ist und wenn der Browser dazu in der Lage ist.
+Der Browser lädt automatisch die entsprechenden Modelldaten herunter, um das angeforderte Sprachmodell zu bearbeiten, wenn es noch nicht verfügbar ist und wenn der Browser dazu in der Lage ist.
 
 > [!NOTE]
-> Die Methode `create()` (und andere Methoden der Prompt-API) erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}, um aufgerufen zu werden, als Vorsichtsmaßnahme, um zu verhindern, dass Apps Modellressourcen ohne Benutzerinteraktion nutzen.
+> Die `create()`-Methode (sowie andere Methoden, die über die Prompt-API verfügbar sind) erfordern {{Glossary("Transient_activation", "transiente Aktivierung")}}, um aufgerufen zu werden, als Vorsichtsmaßnahme, um Apps daran zu hindern, Sprachmodell-Ressourcen ohne Benutzerinteraktion zu nutzen.
 
-Eine `LanguageModel`-Objektinstanz und die Aktivität, die durch die Verwendung ihrer Methoden und Eigenschaften entsteht, wird als **Sitzung** bezeichnet. Der Browser speichert alle an die Prompt-API gesendeten und von ihr empfangenen Aufforderungen und Antworten als Teil einer einzigen Sitzung, was der API ermöglicht, ihre Antworten basierend auf früheren Interaktionen zu individualisieren und ein Gespräch zu führen.
+Eine Instanz eines `LanguageModel`-Objekts und die Aktivitäten, die durch die Nutzung seiner Methoden und Eigenschaften stattfinden, werden als **Sitzung** bezeichnet. Der Browser speichert alle an die Prompt-API gesendeten und von ihr empfangenen Aufforderungen und Antworten im Rahmen einer einzigen Sitzung, sodass die API ihre Antworten basierend auf früheren Interaktionen anpassen und eine Konversation führen kann.
 
-Dies umfasst alle Aufforderungsnachrichten, die über die `create()`-Methode (`initialPrompts`-Option), [`prompt()`](/de/docs/Web/API/LanguageModel/prompt), [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) oder [`append()`](/de/docs/Web/API/LanguageModel/append) an sie gesendet werden.
+Dies umfasst alle Aufforderungsnachrichten, die ihm über die `initialPrompts`-Option der [`create()`](/de/docs/Web/API/LanguageModel/create_static)-Methode, [`prompt()`](/de/docs/Web/API/LanguageModel/prompt), [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming), oder [`append()`](/de/docs/Web/API/LanguageModel/append) gesendet werden.
 
 > [!NOTE]
-> Der Browser speichert standardmäßig keine Sitzungsinformationen über Browser-Neustarts hinweg. Um die Sitzungsinformationen nach einem Neustart oder einem Browserschließen wiederherzustellen, müssen Sie einen Mechanismus implementieren, um das Gespräch zu speichern und wiederherzustellen, entweder serverseitig oder clientseitig mit einem Mechanismus wie [Web Storage](/de/docs/Web/API/Web_Storage_API). Ein solches Beispiel wird in [Sitzungen über Neustarts hinweg bewahren](/de/docs/Web/API/Prompt_API/Preserving_sessions) behandelt.
+> Der Browser speichert standardmäßig keine Sitzungsinformationen über Browser-Neuladungen hinweg. Um den Sitzungs-Kontext nach einem Neuladen oder Browser-Neustart wiederherzustellen, müssen Sie einen Mechanismus implementieren, um die Konversation zu speichern und wiederherzustellen, entweder mit einer serverseitigen Lösung oder einem clientseitigen Mechanismus wie [Web Storage](/de/docs/Web/API/Web_Storage_API). Ein solches Beispiel wird in [Sitzungen über Neuladungen hinweg bewahren](/de/docs/Web/API/Prompt_API/Preserving_sessions) behandelt.
 
-Die Parameter [`expectedInputs`](/de/docs/Web/API/LanguageModel/create_static#expectedinputs) und [`expectedOutputs`](/de/docs/Web/API/LanguageModel/create_static#expectedoutputs) geben die Arten von Eingaben und Ausgaben sowie die Eingabe-/Ausgabesprachen an, die Sie an die KI-Abfrage übergeben und von ihr empfangen möchten.
+Die Parameter [`expectedInputs`](/de/docs/Web/API/LanguageModel/create_static#expectedinputs) und [`expectedOutputs`](/de/docs/Web/API/LanguageModel/create_static#expectedoutputs) geben die Arten von Ein- und Ausgaben sowie die Ein-/Ausgabesprachen an, die Sie dem KI-Dialog bereitstellen und von ihm empfangen möchten.
 
-Die Prompt-API verarbeitet standardmäßig Texteingaben und -ausgaben, ist jedoch multimodal - Sie können ihr auch Bilder und Audiodatenüberlieferungen geben, zum Beispiel um sie zu bitten, ein Bild zu beschreiben oder eine Audiodatei zu transkribieren. Weitere Details finden Sie unter [Multimodale Eingaben](/de/docs/Web/API/Prompt_API/Multimodal).
+Die Prompt-API verarbeitet standardmäßig Text-Eingaben und -Ausgaben, ist jedoch multimodal — Sie können ihr auch Bilder und Audiodaten bereitstellen, um sie beispielsweise zu bitten, ein Bild zu beschreiben oder eine Audiodatei zu transkribieren. Weitere Informationen finden Sie unter [Multimodale Abfragen](/de/docs/Web/API/Prompt_API/Multimodal).
 
-Die Prompt-API unterstützt standardmäßig mehrere Sprachen, es ist jedoch möglich, dass sie nicht alle von Ihnen erwarteten Sprachen unterstützt, daher ist es ratsam, diese explizit anzugeben, falls der Browser zusätzliche Ressourcen herunterladen muss.
+Die Prompt-API verarbeitet standardmäßig mehrere Sprachen, aber möglicherweise nicht alle, die Sie erwarten. Daher ist es ratsam, sie explizit anzugeben, falls der Browser zusätzliche Ressourcen herunterladen muss.
 
-## Modellabfrage
+## Abfragen des Modells
 
-Nachdem Sie eine `LanguageModel`-Instanz erstellt haben, können Sie die KI-Modelle abfragen, indem Sie die Instanzmethode [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt) aufrufen und ihr eine Eingabemeldung als Argument übergeben. Zum Beispiel:
+Nachdem Sie eine `LanguageModel`-Instanz erstellt haben, können Sie beginnen, das KI-Modell abzufragen, indem Sie die [`LanguageModel.prompt()`](/de/docs/Web/API/LanguageModel/prompt)-Instanzmethode darauf aufrufen und eine Eingabemeldung als Argument übergeben. Zum Beispiel:
 
 ```js
 const response = await session.prompt(textarea.value);
 ```
 
-Diese Methode gibt ein {{jsxref("Promise")}} zurück, das sich mit einem String erfüllt, der die Antwort der KI auf Ihre Abfrage enthält.
+Diese Methode gibt ein {{jsxref("Promise")}} zurück, das mit einer Zeichenkette erfüllt wird, die die AI-Antwort auf Ihre Abfrage enthält.
 
 ### Übermittlung mehrerer Nachrichten
 
-Sie können der API mehrere Eingabemeldungen als Array übergeben, und sie können unterschiedliche Rollen haben. Zum Beispiel können Nachrichten Standardbenutzeranfragen beinhalten, sowie Anweisungen von einem `assistant`, um weiter zu beeinflussen, wie die `user`-Anfragen beantwortet werden. Um die KI zu veranlassen, auf Ihre Eingabe im Stil eines schurkischen Masterminds zu antworten, könnten Sie diesen `prompt()`-Aufruf verwenden:
+Sie können mehrere Eingabemeldungen als Array in die API übergeben, und sie können unterschiedliche Rollen haben. Beispielsweise können Nachrichten standardmäßige `user`-Eingaben enthalten und Anweisungen des `assistant`, um zusätzliche Einflussnahme darauf zu haben, wie es auf die `user`-Eingaben reagiert. Um die KI dazu zu bringen, auf Ihre Eingabe im Stil eines bösen Masterminds zu reagieren, könnten Sie diesen `prompt()`-Aufruf verwenden:
 
 ```js
 const response = await session.prompt([
@@ -116,11 +116,11 @@ const response = await session.prompt([
 ]);
 ```
 
-Weitere Informationen zu diesen Rollen finden Sie im nächsten Artikel, [Hinzufügen von Kontext mit ersten und fortlaufenden Abfrageeingaben](/de/docs/Web/API/Prompt_API/Adding_context).
+Im nächsten Artikel erfahren Sie mehr über diese Rollen, [Kontext hinzufügen mit initialen und laufenden Abfrageeingaben](/de/docs/Web/API/Prompt_API/Adding_context).
 
-### Streamende Antworten
+### Streaming-Antworten
 
-Wenn Sie möchten, dass die KI-Antwort allmählich als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückgegeben wird, anstatt als einzelner großer String, können Sie die Methode [`LanguageModel.promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) verwenden. Sie können den Stream mithilfe von `for await...of` konsumieren oder indem Sie einen Leser über [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) anhängen.
+Wenn Sie möchten, dass die KI-Antwort schrittweise als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückgegeben wird, anstatt als eine große Zeichenkette, können Sie die [`LanguageModel.promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming)-Methode verwenden. Sie können den Stream mit `for await...of` konsumieren oder einen Leser über [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) anhängen.
 
 Zum Beispiel:
 
@@ -132,15 +132,15 @@ for await (const chunk of stream) {
 }
 ```
 
-Dies ist nützlich, um Nutzern inkrementell Antworten anzuzeigen, für Ausgaben, die lange dauern, oder in jedem Szenario, in dem die wahrgenommene Latenz minimiert werden sollte.
+Dies ist nützlich, um Benutzern Antworten schrittweise anzuzeigen, für Ausgaben, die lange dauern, oder für jedes Szenario, bei dem die wahrgenommene Latenz minimiert werden soll.
 
 ## Das Kontextfenster
 
-Jede `LanguageModel`-Sitzung hat ein endliches Kontextfenster, das die Gesamtzahl der Eingabe- und Ausgabetokens beschränkt, die es gleichzeitig halten kann. Sobald Sie die Token-Zulage Ihrer Sitzung aufgebraucht haben, können Sie keine weiteren Aufforderungen mehr stellen und müssen eine Technik wie [Sitzungsklonen](#klonen_einer_sitzung) verwenden, um die Nutzung fortzusetzen.
+Jede `LanguageModel`-Sitzung hat ein begrenztes Kontextfenster, das die maximale Anzahl an Ein- und Ausgabetokens begrenzt, die es gleichzeitig aufnehmen kann. Sobald das Token-Kontingent Ihrer Sitzung ausgeschöpft ist, können Sie keine weiteren Abfragen mehr stellen. Sie müssen eine Technik wie das [Klonen einer Sitzung](#klonen_einer_sitzung) verwenden, um die Nutzung fortzusetzen.
 
-Die Eigenschaft [`contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow) gibt die maximale Kapazität der Sitzung an, und [`contextUsage`](/de/docs/Web/API/LanguageModel/contextUsage) zeigt an, wie viele Tokens bisher verbraucht wurden.
+Die [`contextWindow`](/de/docs/Web/API/LanguageModel/contextWindow)-Eigenschaft gibt die maximale Kapazität der Sitzung an, und [`contextUsage`](/de/docs/Web/API/LanguageModel/contextUsage) zeigt an, wie viele Tokens bisher verbraucht wurden.
 
-Zum Beispiel können Sie nach jeder Aufforderung berichten, wie viele Tokens noch übrig sind, indem Sie so etwas wie das folgende verwenden:
+Zum Beispiel können Sie nach jeder Abfrage angeben, wie viele Tokens noch übrig sind:
 
 ```js
 console.log(`${session.contextUsage}/${session.contextWindow}`);
@@ -148,11 +148,11 @@ console.log(`${session.contextUsage}/${session.contextWindow}`);
 
 Wenn ein Methodenaufruf wie [`prompt()`](/de/docs/Web/API/LanguageModel/prompt) oder [`promptStreaming()`](/de/docs/Web/API/LanguageModel/promptStreaming) die verbleibende Anzahl von Tokens im Kontextfenster überschreiten würde, wird ein `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst und das [`contextoverflow`](/de/docs/Web/API/LanguageModel/contextoverflow_event)-Ereignis wird ausgelöst.
 
-Um zu überprüfen, wie viele Tokens eine Abfrageoperation verbrauchen würde, ohne sie tatsächlich zu senden, verwenden Sie [`measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage).
+Um zu überprüfen, wie viele Tokens eine Abfrageaktion verbrauchen würde, ohne sie tatsächlich zu senden, verwenden Sie [`measureContextUsage()`](/de/docs/Web/API/LanguageModel/measureContextUsage).
 
 ## Klonen einer Sitzung
 
-Sie können eine vorhandene Sitzung mithilfe der Funktion [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone) kopieren. Dies erstellt eine Kopie der `LanguageModel`-Objektinstanz, bei der das Gespräch bis zu diesem Punkt und die anfängliche Aufforderung beibehalten werden, aber die Token-Zählung (`contextUsage`) zurückgesetzt wird. Sie können sich die Sitzungskopie als Abzweigung des ursprünglichen Gesprächs vorstellen, mit eigener Token-Zulage.
+Sie können eine bestehende Sitzung mithilfe der Funktion [`LanguageModel.clone()`](/de/docs/Web/API/LanguageModel/clone) kopieren. Dies erzeugt eine exakte Kopie der `LanguageModel`-Objektinstanz, bei der die bis zu diesem Punkt geführte Konversation und die anfängliche Eingabe erhalten bleiben, der Token-Zähler (`contextUsage`) jedoch zurückgesetzt wird. Sie können sich den Sitzungs-Klon als eine Gabelung der ursprünglichen Konversation vorstellen, mit ihrem eigenen Token-Kontingent.
 
 ```js
 const clonedSession = await session.clone();
@@ -160,9 +160,9 @@ const clonedSession = await session.clone();
 clonedSession.prompt("Let's talk about the weather.");
 ```
 
-Sie können `clone()` verwenden, um den Kontext zu einem bestimmten Zeitpunkt zu speichern und dann abweichende Interaktionen mit dem KI-Modell basierend auf diesem _Speicherpunkt_ zu schaffen.
+Sie können `clone()` verwenden, um den Kontext zu einem bestimmten Zeitpunkt zu speichern und dann basierend auf diesem _Speicherpunkt_ divergierende Interaktionen mit dem KI-Modell zu erstellen.
 
-Zum Beispiel könnten Sie eine Quizmaster-KI-App erstellen, um Fragen für ein Quiz oder einen Test zu generieren, und für verschiedene Themen unterschiedliche Kopien verwenden:
+Zum Beispiel könnten Sie eine Quizmaster-KI-App erstellen, die hilft, Fragen für ein Quiz oder einen Test zu generieren, und verschiedene Klone für unterschiedliche Themen verwenden:
 
 ```js
 const session = await LanguageModel.create({
@@ -188,11 +188,11 @@ await secondClone.prompt("Give me a question about 80's popular music.");
 await secondClone.prompt("Another question, please.");
 ```
 
-Das Erstellen einer neuen Sitzung über `clone()` ist auch eine gängige Methode, um das Problem des Aufbrauchens von Tokens zu umgehen.
+Das Erstellen einer neuen Sitzung über `clone()` ist auch ein üblicher Weg, um das Problem zu umgehen, dass die Tokens ausgehen.
 
-## Abbrechen von Vorgängen und Zerstörung von Instanzen
+## Abbrechen von Operationen und Zerstörung von Instanzen
 
-Sie können ausstehende `prompt()`, `clone()` und andere Vorgänge mit einem [`AbortController`](/de/docs/Web/API/AbortController) abbrechen, indem das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal) als `signal`-Eigenschaftswert im Methodenoptionsobjekt enthalten ist. Zum Beispiel könnte das Abbrechen einer `LanguageModel.prompt()`-Operation durch Drücken eines Buttons folgendermaßen aussehen:
+Sie können ausstehende `prompt()`, `clone()` und andere Operationen mithilfe eines [`AbortController`](/de/docs/Web/API/AbortController) abbrechen, wobei das dazugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal) innerhalb des Methodenosptionsobjekts als `signal`-Eigenschaftswert enthalten ist. Zum Beispiel könnte das Abbrechen eines `LanguageModel.prompt()`-Vorgangs durch Drücken einer Taste so aussehen:
 
 ```js
 const controller = new AbortController();
@@ -206,21 +206,21 @@ const response = await session.prompt(textarea.value, {
 });
 ```
 
-Nachdem ein `LanguageModel` erstellt wurde, können Sie seine zugewiesenen Ressourcen freigeben und weitere Aktivitäten stoppen, indem Sie seine [`LanguageModel.destroy()`](/de/docs/Web/API/LanguageModel/destroy)-Methode aufrufen. Es wird empfohlen, dies zu tun, nachdem Sie mit dem Objekt fertig sind, da es viele Ressourcen verbrauchen kann.
+Nachdem ein `LanguageModel` erstellt wurde, können Sie dessen zugewiesene Ressourcen freigeben und jede weitere Aktivität stoppen, indem Sie seine [`LanguageModel.destroy()`](/de/docs/Web/API/LanguageModel/destroy)-Methode aufrufen. Sie sollten dies tun, nachdem Sie das Objekt fertig verwendet haben, da es viele Ressourcen verbrauchen kann.
 
 ```js
 session.destroy();
 ```
 
-Wenn ein `create()`-Aufruf einen zugeordneten [`AbortController`](/de/docs/Web/API/AbortController) hat und Sie dessen [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort)-Methode nach dem erfolgreichen `create()`-Aufruf aufrufen, hat dies den gleichen Effekt, als würde `destroy()` auf dem resultierenden `LanguageModel`-Objekt aufgerufen werden.
+Wenn ein `create()`-Aufruf mit einem assoziierten [`AbortController`](/de/docs/Web/API/AbortController) erfolgt, und Sie dessen [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort)-Methode nach dem erfolgreichen `create()`-Aufruf aufrufen, hat dies denselben Effekt, wie `destroy()` auf das resultierende `LanguageModel`-Objekt zu rufen.
 
-## Komplettes Beispiel
+## Vollständiges Beispiel
 
-Betrachten wir ein vollständiges Beispiel, das die Prompt-API in Aktion demonstriert. Dieses Beispiel bietet ein Texteingabefeld, um eine Eingabeaufforderung einzugeben, die an die API gesendet werden kann, um eine Antwort zu erhalten. Die Antwort wird dann in einem Ausgabefeld ausgedruckt.
+Schauen wir uns ein vollständiges Beispiel an, das die Prompt-API in Aktion zeigt. Dieses Beispiel bietet ein Texteingabefeld, um eine Eingabeaufforderung einzugeben, die an die API gesendet werden kann, um eine Antwort anzufordern. Die Antwort wird dann in einer Ausgabebox angezeigt.
 
 ### HTML
 
-In unserem Markup definieren wir ein Eingabe-{{htmlelement("textarea")}}, das es dem Nutzer ermöglicht, eine Eingabeaufforderung einzugeben. Wir enthalten auch zwei {{htmlelement("button")}}-Elemente — eines, um die Eingabeaufforderung/die Anfrage zu übermitteln, und ein weiteres, um eine laufende Anfrage abzubrechen.
+In unserem Markup definieren wir ein Eingabe-{{htmlelement("textarea")}}, das es dem Benutzer erlaubt, eine Eingabeaufforderung einzugeben. Wir fügen auch zwei {{htmlelement("button")}}-Elemente hinzu — eines, um die Eingabeaufforderung abzusenden, und ein weiteres, um eine laufende Abfrage abzubrechen.
 
 ```html live-sample___prompt-example
 <h1>Prompt API demo</h1>
@@ -252,7 +252,7 @@ In unserem Markup definieren wir ein Eingabe-{{htmlelement("textarea")}}, das es
 </form>
 ```
 
-Als Nächstes fügen wir ein {{htmlelement("p")}}-Element hinzu, um die Antwort des Modells auf die Eingabeaufforderung des Benutzers anzuzeigen, sowie Details zu allen Fehlern, die aufgetreten sind.
+Als nächstes fügen wir ein {{htmlelement("p")}}-Element hinzu, um die Antwort des Modells auf die Eingabeaufforderung des Benutzers anzuzeigen sowie Details zu etwaigen Fehlern, die geworfen werden.
 
 ```html live-sample___prompt-example live-sample___prompt-streaming-example
 <h2>Output</h2>
@@ -301,11 +301,11 @@ button {
 }
 ```
 
-Beachten Sie, dass wir das CSS für dieses Beispiel nicht anzeigen werden, da keines davon relevant ist, um die Prompt-API zu verstehen.
+Beachten Sie, dass wir das CSS für dieses Beispiel nicht zeigen werden, da nichts davon relevant für das Verständnis der Prompt-API ist.
 
 ### JavaScript
 
-In unserem Skript beginnen wir damit, Referenzen auf das `<form>`, `<textarea>`, das Senden-`<button>`, das Abbrechen-`<button>` und das Ausgabefeld `<p>` zu erhalten. Wir deaktivieren die Sende- und Abbrechen-Buttons zunächst, da wir nicht möchten, dass sie gedrückt werden, bevor die zugehörigen Funktionen verfügbar sind.
+In unserem Skript beginnen wir damit, Referenzen zum `<form>`, `<textarea>`, Submit-`<button>`, Abbruch-`<button>` und zur Ausgabe-`<p>` zu erfassen. Wir deaktivieren zunächst die Submit- und Abbruch-Buttons, da wir nicht wollen, dass diese gedrückt werden, bevor die zugehörige Funktionalität verfügbar ist.
 
 ```js live-sample___prompt-example
 const form = document.querySelector("form");
@@ -317,9 +317,9 @@ submitBtn.disabled = true;
 const promptOutput = document.querySelector(".prompt-output");
 ```
 
-Als Nächstes erstellen wir eine globale `session`-Variable, um unsere Sitzung zu halten. Da die Nutzung der API eine transiente Aktivierung erfordert, füllen wir `session` innerhalb eines `focus`-Ereignishandlers auf dem `<textarea>`. Wenn der Benutzer das `<textarea>` fokussiert, überprüfen wir zuerst, ob die API unterstützt wird; wenn nicht, drucken wir eine Meldung über die Nichterfüllung und kehren frühzeitig zurück. Als Nächstes überprüfen wir, ob `session` bereits einen zugewiesenen Wert hat (wir möchten nicht jedes Mal eine neue Sitzung erstellen). Wenn nicht, führen wir die Funktion `init()` aus, die eine `LanguageModel`-Instanz mit der später definierten benutzerdefinierten `getSession()`-Funktion generiert.
+Als nächstes erstellen wir eine globale Variable `session`, um unsere Sitzung zu halten. Da die Verwendung der API eine transiente Aktivierung erfordert, befüllen wir `session` innerhalb eines `focus`-Ereignisbehandlers auf dem `<textarea>`. Wenn der Benutzer das `<textarea>` fokussiert, prüfen wir zuerst, ob die API unterstützt wird; wenn nicht, geben wir eine Nicht-Unterstützungsnachricht aus und `return` früh. Als nächstes prüfen wir, ob `session` bereits einen Wert zugewiesen hat (wir wollen nicht jedes Mal eine neue Sitzung erstellen). Falls nicht, führen wir die `init()`-Funktion aus, die eine `LanguageModel`-Instanz mithilfe der später definierten benutzerdefinierten `getSession()`-Funktion generiert.
 
-Wenn die Generierung erfolgreich ist, weisen wir die resultierende `LanguageModel`-Instanz der `session`-Variable zu, drucken eine Erfolgsmeldung in das `<p>`-Ausgabefeld und aktivieren das Sende-`<button>` (jetzt, da die Sitzung verfügbar ist, können wir anfangen, sie abzufragen).
+Bei erfolgreicher Erstellung weisen wir die resultierende `LanguageModel`-Instanz der `session`-Variable zu, geben eine Erfolgsmeldung an das Ausgabe-`<p>` aus und aktivieren den Submit-`<button>` (da jetzt die Sitzung verfügbar ist, können wir mit der Abfrage beginnen).
 
 ```js live-sample___prompt-example
 let session;
@@ -341,24 +341,24 @@ async function init() {
 }
 ```
 
-Als Nächstes fügen wir einen `submit`-Ereignis-Listener zu dem `<form>`-Element hinzu; wenn das Formular gesendet wird, wird die Funktion `handleSubmission()` aufgerufen.
+Als nächstes fügen wir einen `submit`-Ereignislistener für das `<form>`-Element hinzu; wenn das Formular abgesendet wird, wird die `handleSubmission()`-Funktion aufgerufen.
 
 ```js live-sample___prompt-example
 form.addEventListener("submit", handleSubmission);
 ```
 
-Als Nächstes definieren wir die Funktion `handleSubmission()`. Diese verhindert zunächst das Absenden des Formulars durch Verwendung von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault), und überprüft dann, ob das Eingabe-`<textarea>` beim Senden leer war. Wenn dies der Fall war, schreiben wir eine Fehlermeldung in das `<p>`-Ausgabefeld und kehren aus der Funktion zurück. Wir möchten keine Zeit damit verschwenden, zu versuchen, die KI mit einem leeren String zu befragen.
+Als nächstes definieren wir die `handleSubmission()`-Funktion. Diese stoppt zuerst die Formularübermittlung mit [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault), dann wird geprüft, ob das Eingabe-`<textarea>` bei der Übermittlung leer war. Falls ja, schreiben wir eine Fehlermeldung in das Ausgabe-`<p>` und verlassen die Funktion. Wir wollen unsere Zeit nicht damit vergeuden, die KI mit einem leeren String aufzufordern.
 
-Als Nächstes, innerhalb eines `try`-Blocks, führen wir Folgendes aus:
+Als nächstes, innerhalb eines `try`-Blocks:
 
-- Wir fügen eine Nachricht in das `<p>`-Ausgabefeld ein, um zu sagen, dass eine Antwort generiert wird, und flippen den `disabled`-Status der beiden Buttons. Zu diesem Zeitpunkt möchten wir den Nutzern ermöglichen, die bevorstehende Abfrageoperation abzubrechen, aber wir möchten nicht, dass sie versuchen, eine weitere Abfrage zu starten, bevor diese abgeschlossen ist.
-- Erstellen eines neuen [`AbortController`](/de/docs/Web/API/AbortController) und Hinzufügen eines `click`-Ereignis-Listeners zu dem Abbrechen-`<button>`, sodass wenn er geklickt wird, [`abort()`](/de/docs/Web/API/AbortController/abort) auf dem Controller ausgelöst wird, um die Abfrageoperation abzubrechen und die `<button>`-Deaktivierungszustände zurückgesetzt werden.
-- Aufrufen von `prompt()` auf der `session`, um die Eingabeforderung zu starten, indem der Inhalt des `<textarea>` als Abfrage an die Funktion übergeben wird, und ein Optionsobjekt, das eine `signal`-Eigenschaft enthält, die dem [`signal`](/de/docs/Web/API/AbortController/signal) des Controllers entspricht. Dies ermöglicht uns, die `prompt()`-Operation durch Drücken des Abbruch-`<button>` abzubrechen.
-- Setzen des `textContent` des `<p>`-Ausgabefeldes auf die `response` der API, wenn sie zurückgegeben wird, sodass der Benutzer sie lesen kann.
-- Zurücksetzen des `disabled`-Zustands der Buttons.
-- Protokollieren der verbleibenden Tokens zur Konsole, als `contextUsage`/`contextWindow`.
+- Fügen wir eine Nachricht in das Ausgabe-`<p>` ein, um zu sagen, dass eine Antwort generiert wird, und ändern den `disabled`-Status der beiden Tasten. Zu diesem Zeitpunkt möchten wir es Benutzern erlauben, die Abfrageoperation abzubrechen, die zu starten im Begriff ist, aber wir möchten nicht, dass sie versuchen, eine andere Abfrage zu starten, bis diese abgeschlossen ist.
+- Erstellen wir einen neuen [`AbortController`](/de/docs/Web/API/AbortController) und fügen dem Abbruch-`<button>` einen `click`-Ereignislistener hinzu, sodass beim Klicken [`abort()`](/de/docs/Web/API/AbortController/abort) auf dem Controller ausgelöst wird, um die Abfrageoperation abzubrechen und die deaktivierten Zustände der `<button>`-Elemente zurückgesetzt werden.
+- Rufen wir `prompt()` auf der `session` auf, um die Abfrage zu starten, übergeben ihr den Inhalt des `<textarea>` als Abfrageeingabe und ein Optionsobjekt, das eine `signal`-Eigenschaft enthält, deren Wert gleich dem [`signal`](/de/docs/Web/API/AbortController/signal) des Controllers ist. Dies ermöglicht es uns, die `prompt()`-Operation durch Drücken des Abbruch-`<button>` abzubrechen.
+- Setzen wir den `textContent` des Ausgabe-`<p>` auf die `response` der API, wenn sie zurückgegeben wird, damit der Benutzer sie lesen kann.
+- Setzen wir den `disabled`-Status der Tasten zurück.
+- Protokollieren wir die verbleibenden verfügbaren Tokens in der Konsole, in Form von `contextUsage`/`contextWindow`.
 
-Im `catch`-Gegenstück des `try`-Blocks drucken wir alle aufgetretenen Fehler in das `<p>`-Ausgabefeld.
+Im `catch`-Gegenstück des `try`-Blocks drucken wir alle geworfenen Fehler in das Ausgabe-`<p>`.
 
 ```js live-sample___prompt-example
 async function handleSubmission(e) {
@@ -396,11 +396,11 @@ async function handleSubmission(e) {
 }
 ```
 
-Nun definieren wir die Funktion `getSession()`, die verwendet wird, um unsere `LanguageModel`-Sitzung zurückzugeben. Die Funktion beginnt damit, unsere gewünschten Modellanforderungen durch die `availability()`-Methode laufen zu lassen, um zu sehen, ob sie verfügbar sind:
+Jetzt definieren wir die `getSession()`-Funktion, die unser `LanguageModel`-Sitzung zurückgeben soll. Die Funktion beginnt damit, unsere gewünschten Modellanforderungen durch die `availability()`-Methode laufen zu lassen, um zu prüfen, ob sie verfügbar ist:
 
-- Wenn sie `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung in das `<p>`-Ausgabefeld.
-- Wenn sie `available` zurückgibt, erstellen wir eine Sitzung mit der `create()`-Methode, übergeben ihr die gewünschten Optionen und geben sie zurück. Die erforderliche Konfiguration ist verfügbar, sodass wir sie sofort verwenden können.
-- Wenn sie einen anderen Wert zurückgibt (das heißt, `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, fügen aber diesmal einen `monitor` hinzu, der den Prozentsatz der heruntergeladenen zusätzlichen Daten jedes Mal, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird, in das `<p>`-Ausgabefeld druckt.
+- Wenn es `unavailable` zurückgibt, geben wir eine entsprechende Fehlermeldung in das Ausgabe-`<p>` aus.
+- Wenn es `available` zurückgibt, erstellen wir eine Sitzung mit der `create()`-Methode, übergeben ihr die gewünschten Optionen, und geben sie zurück. Die erforderliche Konfiguration ist verfügbar, sodass wir sie sofort verwenden können.
+- Wenn es einen anderen Wert zurückgibt (also `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf durch, aber diesmal fügen wir einen `monitor` hinzu, der jedes Mal, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird, den Prozentsatz der heruntergeladenen zusätzlichen Daten in das Ausgabe-`<p>` ausgibt.
 
 ```js live-sample___prompt-example
 async function getSession() {
@@ -433,11 +433,11 @@ async function getSession() {
 
 {{EmbedLiveSample("prompt-example", , "600px", , , , "language-model", "allow-forms")}}
 
-Versuchen Sie, eine Frage oder Aussage in das `<textarea>` einzugeben, und drücken Sie dann die Senden-Schaltfläche, um das KI-Modell abzufragen und eine Antwort zu generieren.
+Versuchen Sie, eine Frage oder Aussage in das `<textarea>` einzugeben, und drücken Sie dann die Senden-Taste, um das KI-Modell abzufragen und eine Antwort zu generieren.
 
-## Komplettes Streaming-Beispiel
+## Vollständiges Streaming-Beispiel
 
-Dieses Beispiel demonstriert die Verwendung der `promptStreaming()`-Methode, um Antworten vom Modell als Stream zurückzugeben. Es ist genau das gleiche wie das vorherige Beispiel, außer dass der `prompt()`-Aufruf durch `promptStreaming()` ersetzt wurde und eine `for await...of`-Schleife verwendet wurde, um die Modellantworten inkrementell auszugeben:
+Dieses Beispiel demonstriert die Verwendung der `promptStreaming()`-Methode, um Antworten des Modells als Stream zurückzugeben. Es ist genau dasselbe wie das vorherige Beispiel, außer dass der `prompt()`-Aufruf durch `promptStreaming()` ersetzt wurde und eine `for await...of`-Schleife verwendet wurde, um die Modellantworten schrittweise auszugeben:
 
 ```js
 const stream = await session.promptStreaming(textarea.value, {
@@ -546,7 +546,7 @@ async function getSession() {
 }
 ```
 
-Geben Sie eine einfache Abfrage ein und beachten Sie, wie die Antwort inkrementell in das Ausgabefeld geschrieben wird, anstatt auf einmal zu erscheinen.
+Geben Sie eine einfache Abfrage ein, und beachten Sie, wie die Antwort schrittweise in die Ausgabe geschrieben wird, anstatt auf einmal zu erscheinen.
 
 {{EmbedLiveSample("prompt-streaming-example", , "600px", , , , "language-model", "allow-forms")}}
 

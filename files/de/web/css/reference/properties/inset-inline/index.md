@@ -1,14 +1,14 @@
 ---
-title: CSS-Eigenschaft `inset-inline`
+title: "`inset-inline` CSS-Eigenschaft"
 short-title: inset-inline
 slug: Web/CSS/Reference/Properties/inset-inline
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
 ---
 
-Die **`inset-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logischen Start- und Endabstände eines Elements in der Inline-Richtung, die je nach Schreibweise des Elements, Richtung und Textausrichtung auf physische Abstände abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}}, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-inline`** [CSS-](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert die logischen Start- und Endversätze eines Elements in der Inline-Richtung, die, abhängig vom Schreibmodus, der Ausrichtung und der Textorientierung des Elements, auf physische Versätze abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
-Diese {{Glossary("inset_properties", "inset-Eigenschaft")}} hat keine Auswirkungen auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht-positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset-inline")}}
 
@@ -61,9 +61,9 @@ direction: rtl;
 }
 ```
 
-## Zusammenfassende Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("inset-inline-end")}}
 - {{cssxref("inset-inline-start")}}
@@ -106,7 +106,7 @@ Die `inset-inline`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("top")
 
 ## Beispiele
 
-### Festlegen von Inline-Start- und Endabständen
+### Festlegen von Start- und Endversätzen inline
 
 #### HTML
 
@@ -148,6 +148,6 @@ div {
 ## Siehe auch
 
 - Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
-- Die zugeordnete physische Kurzschreibweise: {{cssxref("inset")}}
-- Die zugeordnete Block-Kurzschreibweise: {{cssxref("inset-block")}}
+- Die zugeordnete physische Kurzform: {{cssxref("inset")}}
+- Die zugeordnete Block-Kurzform: {{cssxref("inset-block")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}
