@@ -1,24 +1,24 @@
 ---
-title: "InteractionContentfulPaint: Eigenschaft presentationTime"
+title: "InteractionContentfulPaint: presentationTime-Eigenschaft"
 short-title: presentationTime
 slug: Web/API/InteractionContentfulPaint/presentationTime
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`presentationTime`**-Eigenschaft der [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Schnittstelle gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die gerenderten Pixel tatsächlich auf dem Bildschirm dargestellt wurden.
+Die schreibgeschützte Eigenschaft **`presentationTime`** der Schnittstelle [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint) gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, wann die gemalten Pixel tatsächlich auf dem Bildschirm gezeichnet wurden.
 
-Die `presentationTime` ist optional — einige Browser können immer `0` zurückgeben oder den Wert überhaupt nicht bereitstellen. Der Wert ist auch implementationsabhängig — er kann zwischen Browsern, die sich dafür entscheiden, ihn bereitzustellen, unterschiedlich sein.
+Die `presentationTime` ist optional — einige Browser können immer `0` zurückgeben oder den Wert überhaupt nicht anzeigen. Der Wert ist auch implementierungsabhängig — er kann bei Browsern, die sich entscheiden, ihn anzuzeigen, variieren.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("Operators/null", "null")}}, wenn der Wert nicht bereitgestellt wird.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder {{jsxref("Operators/null", "null")}}, wenn der Wert nicht angezeigt wird.
 
 ## Beispiele
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint`-Performance-Einträge zu protokollieren, sobald sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint`-Leistungseinträge zu protokollieren, wenn sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

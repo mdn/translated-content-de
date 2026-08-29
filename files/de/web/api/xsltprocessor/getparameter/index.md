@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: getParameter() Methode"
+title: "XSLTProcessor: Methode getParameter()"
 short-title: getParameter()
 slug: Web/API/XSLTProcessor/getParameter
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
 {{APIRef("DOM")}}
 
-Die `getParameter()` Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Interfaces gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
+Die `getParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ getParameter(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namensraum, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso behandelt wie der leere String (`""`).
+  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie ein leerer String (`""`) behandelt.
 - `localName`
-  - : Der Name des Parameters im zugehörigen Namensraum.
+  - : Der Name des Parameters im zugehörigen Namespace.
 
 ### Rückgabewert
 
-Ein Objekt, das den mit dem Parameter verknüpften Wert darstellt. Es kann von jedem Typ sein.
+Ein Objekt, das mit dem Parameter assoziiert ist. Es kann jeden Typ haben.
 
 > [!NOTE]
-> Firefox unterstützt jeden Parametertyp. Chrome, Edge und Safari unterstützen nur String-Parameter.
+> Firefox unterstützt jeden Parameter-Typ. Chrome, Edge und Safari unterstützen nur Parameter vom Typ String.
 
 ## Beispiele
 

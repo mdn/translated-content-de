@@ -3,22 +3,22 @@ title: "PerformanceSoftNavigation: interactionId-Eigenschaft"
 short-title: interactionId
 slug: Web/API/PerformanceSoftNavigation/interactionId
 l10n:
-  sourceCommit: 3f058f207a00078456c19b9de46218af3f084420
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`interactionId`**-Eigenschaft der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle gibt die [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Eintrags zurück, der die Interaktion darstellt, die zur Soft-Navigation geführt hat.
+Die schreibgeschützte Eigenschaft **`interactionId`** des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Interfaces gibt die [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Eintrags zurück, der die Interaktion repräsentiert, die zu der weichen Navigation geführt hat.
 
 ## Wert
 
-Ein ganzzahliger Wert, der mit der [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) der Interaktion übereinstimmt, die zur Soft-Navigation geführt hat.
+Eine Ganzzahl, die der [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) der Interaktion entspricht, die zu der weichen Navigation geführt hat.
 
 ## Beispiele
 
-### Protokollieren der `interactionId` der Soft-Navigation
+### Protokollierung der `interactionId` der weichen Navigation
 
-In diesem Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, um neue `soft-navigation`-Performance-Einträge zu protokollieren, wenn sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `soft-navigation`-Performanceeinträge zu protokollieren, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

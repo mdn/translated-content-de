@@ -3,12 +3,14 @@ title: Promise.allKeyed()
 short-title: allKeyed()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/allKeyed
 l10n:
-  sourceCommit: cbf7f4b55e2c0bc0c096773435b159edcaa8c9e2
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-Die statische Methode **`Promise.allKeyed()`** ist wie {{jsxref("Promise.all()")}}, außer dass anstelle von Arrays/iterables als Ein-/Ausgabe Objekte verwendet werden. Sie nimmt ein Objekt an, bei dem jeder eigene Schlüssel mit einem Promise verknüpft ist, und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises der Eingabe erfüllt werden, mit einem Objekt derselben Schlüssel, die auf die entsprechenden Erfüllungswerte gemappt sind. Es wird abgelehnt, wenn eines der Promises der Eingabe abgelehnt wird, mit dem Grund der ersten Ablehnung.
+{{SeeCompatTable}}
 
-Im Vergleich zu {{jsxref("Promise.all()")}} ermöglicht `Promise.allKeyed()`, Ergebnisse mit semantisch sinnvollen Schlüsseln zu verknüpfen, anstatt mit einer willkürlichen Array-Reihenfolge, die schwer aufrechtzuerhalten sein kann.
+Die statische Methode **`Promise.allKeyed()`** ähnelt {{jsxref("Promise.all()")}}, verwendet jedoch Objekte anstelle von Arrays/Iterables als Eingangs- und Ausgangsdaten. Sie nimmt ein Objekt, bei dem jeder eigene Schlüssel mit einem Promise verknüpft ist, und gibt ein einziges {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises der Eingabe erfüllt sind, und liefert ein Objekt mit denselben Schlüsseln, die auf die entsprechenden Erfüllungswerte gemappt sind. Es wird abgelehnt, wenn eines der Promises der Eingabe abgelehnt wird, mit dem ersten Ablehnungsgrund.
+
+Im Vergleich zu {{jsxref("Promise.all()")}} ermöglicht `Promise.allKeyed()` es Ihnen, Ergebnisse mit semantisch sinnvollen Schlüsseln zu verknüpfen, anstatt mit einer beliebigen Array-Reihenfolge, die schwierig zu pflegen sein kann.
 
 ## Syntax
 
@@ -19,27 +21,27 @@ Promise.allKeyed(object)
 ### Parameter
 
 - `object`
-  - : Ein Objekt. Alle seine [eigenen aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), egal ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [abgewartet](/de/docs/Web/JavaScript/Reference/Operators/await), sodass auch andere [thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst werden, während Nicht-thenables unverändert zurückgegeben werden.
+  - : Ein Objekt. Alle eigenen [enumerierbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), unabhängig davon, ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [abgewartet](/de/docs/Web/JavaScript/Reference/Operators/await), sodass auch andere [Thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst werden, während Nicht-Thenables unverändert zurückgegeben werden.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ist:
+Ein {{jsxref("Promise")}}, das:
 
-- **Bereits erfüllt**, wenn das übergebene `object` keine eigenen aufzählbaren Eigenschaften hat.
-- **Asynchron erfüllt**, wenn alle Promises im angegebenen `object` erfüllt werden. Der Erfüllungswert ist ein Objekt der Erfüllungswerte, mit denselben Schlüsseln in derselben Reihenfolge wie das gegebene `object`, unabhängig von der Abschlussreihenfolge. Wenn das übergebene `object` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (anstelle von synchron) erfüllt.
-- **Asynchron abgelehnt**, wenn eines der Promises im angegebenen `object` abgelehnt wird. Der Ablehnungsgrund ist der Ablehnungsgrund des ersten Promise, das abgelehnt wurde.
+- **Bereits erfüllt** ist, wenn das übergebene `object` keine eigenen enumerierbaren Eigenschaften hat.
+- **Asynchron erfüllt**, wenn alle Promises im angegebenen `object` erfüllt sind. Der Erfüllungswert ist ein Objekt mit Erfüllungswerten, mit denselben Schlüsseln in derselben Reihenfolge wie das übergebene `object`, unabhängig von der Reihenfolge der Fertigstellung. Wenn das übergebene `object` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise dennoch asynchron (anstelle von synchron) erfüllt.
+- **Asynchron abgelehnt**, wenn eines der Promises im angegebenen `object` abgelehnt wird. Der Ablehnungsgrund ist der Ablehnungsgrund des ersten abgelehnten Promises.
 
 ## Beschreibung
 
-Die Methode `Promise.allKeyed()` ist eine der [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency) Methoden. Sie führt dieselbe Art von Aufgabe wie {{jsxref("Promise.all()")}} aus. Oftmals hat man jedoch nicht bereits ein Array von Promises, sondern nur einige Ad-hoc-Operationen zum Sammeln, sodass man sie in ein Array steckt und dann sofort destrukturiert:
+Die Methode `Promise.allKeyed()` ist eine der Methoden zur [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie führt dieselbe Art von Aufgaben aus wie {{jsxref("Promise.all()")}}. Allerdings haben Sie oft nicht bereits ein Array von Promises, sondern stattdessen nur einige Ad-hoc-Operationen, die Sie bündeln möchten, sodass Sie sie in ein Array packen und dann sofort dekonstruieren:
 
 ```js
 const [resultA, resultB, resultC] = await Promise.all([getA(), getB(), getC()]);
 ```
 
-Das Problem hierbei ist, dass Sie die Konsistenz der Reihenfolge auf beiden Seiten beibehalten müssen: Wenn Sie versehentlich `[resultA, resultC, resultB]` schreiben, wird Ihr Code beschädigt.
+Das Problem dabei ist, dass Sie die Konsistenz der Reihenfolge auf beiden Seiten aufrechterhalten müssen: Wenn Sie versehentlich `[resultA, resultC, resultB]` schreiben, wird Ihr Code nicht funktionieren.
 
-Die Keyed-Methode mildert das Problem, indem sie jeder asynchronen Operation einen semantischen Schlüssel zuordnet:
+Die keyed-Methode mildert das Problem, indem jede asynchrone Operation mit einem semantischen Schlüssel verknüpft wird:
 
 ```js
 const {
@@ -53,13 +55,13 @@ const {
 });
 ```
 
-Auf diese Weise spielt die Reihenfolge keine Rolle mehr, und jede Namensinkonsistenz ist lokal: Es ist jetzt viel einfacher, versehentlich `b: resultC` zu schreiben!
+Auf diese Weise spielt die Reihenfolge keine Rolle mehr, und ein eventuelles Missverständnis bei den Namen ist lokal: das versehentliche Schreiben von `b: resultC` ist nun viel leichter zu erkennen!
 
 ## Beispiele
 
 ### Verwendung von Promise.allKeyed()
 
-Die Methode `Promise.allKeyed()` nimmt ein Objekt und verarbeitet alle seine eigenen aufzählbaren Eigenschaften.
+Die Methode `Promise.allKeyed()` nimmt ein Objekt und verarbeitet alle seine eigenen enumerierbaren Eigenschaften.
 
 ```js
 function delayed(value, timeout) {
@@ -90,7 +92,7 @@ console.log(result);
 // }
 ```
 
-Für weitere Beispiele im Zusammenhang mit dem Konkurrenzverhalten, das für `Promise.all()` und `Promise.allKeyed()` gemeinsam ist, siehe {{jsxref("Promise.all()")}}.
+Für weitere Beispiele in Bezug auf das Konkurrenzverhalten, das `Promise.all()` und `Promise.allKeyed()` gemeinsam haben, siehe {{jsxref("Promise.all()")}}.
 
 ## Spezifikationen
 
@@ -103,7 +105,7 @@ Für weitere Beispiele im Zusammenhang mit dem Konkurrenzverhalten, das für `Pr
 ## Siehe auch
 
 - [Polyfill von `Promise.allKeyed` in `core-js`](https://core-js.io/docs/features/proposals/await-dictionary)
-- [es-shims Polyfill von `Promise.allKeyed`](https://www.npmjs.com/package/promise.allkeyed)
+- [es-shims polyfill von `Promise.allKeyed`](https://www.npmjs.com/package/promise.allkeyed)
 - {{jsxref("Promise")}}
 - {{jsxref("Promise.allSettledKeyed()")}}
 - {{jsxref("Promise.all()")}}

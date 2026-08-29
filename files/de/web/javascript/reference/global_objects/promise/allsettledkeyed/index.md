@@ -3,12 +3,14 @@ title: Promise.allSettledKeyed()
 short-title: allSettledKeyed()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/allSettledKeyed
 l10n:
-  sourceCommit: cbf7f4b55e2c0bc0c096773435b159edcaa8c9e2
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-Die **`Promise.allSettledKeyed()`**-Methode ähnelt {{jsxref("Promise.allSettled()")}}, außer dass sie statt Arrays/Iterables als Eingabe/Ausgabe Objekte verwendet. Sie nimmt ein Objekt, bei dem jeder eigene Schlüssel mit einem Promise verknüpft ist, und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises der Eingabe abgearbeitet sind, mit einem Objekt, das dieselben Schlüssel enthält, abgebildet auf Objekte, die das Ergebnis des entsprechenden Promises beschreiben.
+{{SeeCompatTable}}
 
-Im Vergleich zu {{jsxref("Promise.allSettled()")}} ermöglicht `Promise.allSettledKeyed()` das Zuweisen von Ergebnissen zu semantisch sinnvollen Schlüsseln, anstatt willkürlicher Array-Reihenfolge, die schwer zu pflegen sein kann.
+Die **`Promise.allSettledKeyed()`** statische Methode ähnelt {{jsxref("Promise.allSettled()")}}, außer dass sie anstelle von Arrays/Iterables als Input/Output Objekte verwendet. Sie akzeptiert ein Objekt, bei dem jeder eigene Schlüssel mit einem Promise verknüpft ist, und gibt ein einziges {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise wird erfüllt, wenn alle Promises des Inputs abgeschlossen sind, mit einem Objekt der gleichen Schlüssel, die auf Objekte abgebildet sind, die das Ergebnis des jeweiligen Promise beschreiben.
+
+Im Vergleich zu {{jsxref("Promise.allSettled()")}} ermöglicht `Promise.allSettledKeyed()` Ihnen, Ergebnisse mit semantisch sinnvollen Schlüsseln zu verknüpfen, anstatt mit einer beliebigen Array-Reihenfolge, die schwer zu pflegen sein kann.
 
 ## Syntax
 
@@ -19,26 +21,26 @@ Promise.allSettledKeyed(object)
 ### Parameter
 
 - `object`
-  - : Ein Objekt. Alle seine [eigenen aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), unabhängig davon, ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [await-ed](/de/docs/Web/JavaScript/Reference/Operators/await), sodass auch andere [thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst werden, während Nicht-thenables unverändert zurückgegeben werden.
+  - : Ein Objekt. Alle seine [eigenen aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties), egal ob der Schlüssel ein String oder ein Symbol ist, sollten {{jsxref("Promise")}}-Werte haben. Diese Werte werden [abgewartet](/de/docs/Web/JavaScript/Reference/Operators/await), so dass auch andere [Thenables](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) aufgelöst werden, während Nicht-Thenables unverändert zurückgegeben werden.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das:
 
 - **Bereits erfüllt** ist, wenn das übergebene `object` keine eigenen aufzählbaren Eigenschaften hat.
-- **Asynchron erfüllt** ist, wenn alle Promises im übergebenen `object` abgearbeitet sind (entweder erfüllt oder abgelehnt). Der Erfüllungswert ist ein Objekt, mit denselben Schlüsseln in derselben Reihenfolge wie das gegebene `object`, und der Wert jeder Eigenschaft ist ein Objekt, das das Ergebnis des entsprechenden Versprechens in `object` beschreibt, unabhängig von der Reihenfolge der Fertigstellung. Jedes Ergebnisobjekt hat die folgenden Eigenschaften:
+- **Asynchron erfüllt** ist, wenn alle Promises im gegebenen `object` abgeschlossen sind (entweder erfüllt oder abgelehnt). Der Erfüllungswert ist ein Objekt mit den gleichen Schlüsseln und in derselben Reihenfolge wie das gegebene `object`, und der Wert jeder Eigenschaft ist ein Objekt, das das Ergebnis des entsprechenden Promise in `object` beschreibt, unabhängig von der Abschlussreihenfolge. Jedes Ergebnisobjekt hat die folgenden Eigenschaften:
   - `status`
-    - : Ein String, entweder `"fulfilled"` oder `"rejected"`, der den endgültigen Zustand des Versprechens angibt.
+    - : Ein String, entweder `"fulfilled"` oder `"rejected"`, der den endgültigen Zustand des Promise anzeigt.
   - `value`
-    - : Nur vorhanden, wenn `status` `"fulfilled"` ist. Der Wert, mit dem das Versprechen erfüllt wurde.
+    - : Nur vorhanden, wenn `status` `"fulfilled"` ist. Der Wert, mit dem das Promise erfüllt wurde.
   - `reason`
-    - : Nur vorhanden, wenn `status` `"rejected"` ist. Der Grund, warum das Versprechen abgelehnt wurde.
+    - : Nur vorhanden, wenn `status` `"rejected"` ist. Der Grund, warum das Promise abgelehnt wurde.
 
-  Wenn das übergebene `object` nicht leer ist, aber keine ausstehenden Versprechungen enthält, wird das zurückgegebene Versprechen dennoch asynchron (anstelle von synchron) erfüllt.
+  Wenn das übergebene `object` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise trotzdem asynchron (anstatt synchron) erfüllt.
 
 ## Beschreibung
 
-Die `Promise.allSettledKeyed()`-Methode ist eine der [Konkurrenzmethoden für Versprechungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie erfüllt denselben Zweck wie {{jsxref("Promise.allSettled()")}}. `Promise.allSettledKeyed()` wird bevorzugt, wenn Sie nicht bereits ein Array von Promises haben und/oder Sie die Ergebnisse sofort destrukturieren; siehe {{jsxref("Promise.allKeyed()")}} für weitere Beschreibung.
+Die `Promise.allSettledKeyed()`-Methode ist eine der Methoden für [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie führt die gleiche Art von Aufgabe aus wie {{jsxref("Promise.allSettled()")}}. `Promise.allSettledKeyed()` wird bevorzugt, wenn Sie nicht bereits ein Array von Promises haben und/oder Sie die Ergebnisse sofort destrukturieren; siehe {{jsxref("Promise.allKeyed()")}} für eine genauere Beschreibung.
 
 ## Beispiele
 
@@ -75,7 +77,7 @@ console.log(result);
 // }
 ```
 
-Weitere Beispiele zum Konkurrenzverhalten, das `Promise.allSettled()` und `Promise.allSettledKeyed()` gemeinsam haben, finden Sie unter {{jsxref("Promise.allSettled()")}}.
+Für mehr Beispiele, die sich auf das Konkurrenzverhalten beziehen, das `Promise.allSettled()` und `Promise.allSettledKeyed()` gemeinsam haben, siehe {{jsxref("Promise.allSettled()")}}.
 
 ## Spezifikationen
 

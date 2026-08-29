@@ -3,20 +3,21 @@ title: "`<template>` HTML-Inhalt-Vorlagen-Element"
 short-title: <template>
 slug: Web/HTML/Reference/Elements/template
 l10n:
-  sourceCommit: 96c0e251ee3d12f373fa1c4b3370a14b3a726db6
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-Das **`<template>`** [HTML](/de/docs/Web/HTML) Element dient als Mechanismus zum Halten von {{Glossary("HTML", "HTML")}}-Fragmenten, die entweder später über JavaScript verwendet, sofort generiert und in ein Shadow DOM eingefügt oder als Teil von {{Glossary("Out_of_order_patching", "außerordentlichem Patching")}} mit `<template for="...">` verwendet werden können.
+Das **`<template>`** [HTML](/de/docs/Web/HTML)-Element dient als Mechanismus zum Halten von {{Glossary("HTML", "HTML")}}-Fragmenten, die entweder später über JavaScript verwendet, sofort generiert und in ein Shadow-DOM eingefügt oder als Teil eines {{Glossary("Out_of_order_patching", "out-of-order patching")}} mit `<template for="...">` genutzt werden können.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-- `for`
-  - : Das `for`-Attribut wird für außerordentliches Patching mit `<template for="...">` verwendet und passt zu einer entsprechenden `<?start id="...">` oder `<?marker "...">`-Markierung. Siehe den Abschnitt über [außerordentliches Patching](#außerordentliches_patching) und den [Beispielabschnitt](#beispiele).
+- `for` {{experimental_inline}}
+  - : Das `for`-Attribut wird für out-of-order patching mit `<template for="...">` verwendet und stimmt mit einem entsprechenden `<?start id="...">` oder `<?marker "...">` Marker überein. Siehe den [out-of-order patching Abschnitt](#out-of-order_patching) und den [Beispiel-Abschnitt](#beispiele).
 
 - `shadowrootmode`
-  - : Erstellt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das Elternelement. Es ist eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen {{Glossary("enumerated", "enumerierten")}} Werte.
+  - : Erstellt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das Elternelement.
+    Es ist eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen {{Glossary("enumerated", "enumerierten")}} Werte.
     - `open`
       - : Macht das interne Shadow Root DOM für JavaScript zugänglich (empfohlen für die meisten Anwendungsfälle).
 
@@ -24,79 +25,96 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       - : Verbirgt das interne Shadow Root DOM vor JavaScript.
 
     > [!NOTE]
-    > Der HTML-Parser erstellt ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt im DOM für das erste `<template>` in einem Knoten mit diesem Attribut, das auf einen zulässigen Wert gesetzt ist. Wenn das Attribut nicht gesetzt ist, oder nicht auf einen zulässigen Wert gesetzt ist – oder wenn ein `ShadowRoot` bereits deklarativ im gleichen Elternteil erstellt wurde – dann wird ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) konstruiert. Ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) kann nach dem Parsen nicht in ein Shadow Root umgewandelt werden, z. B. durch Setzen von [`HTMLTemplateElement.shadowRootMode`](/de/docs/Web/API/HTMLTemplateElement/shadowRootMode).
+    > Der HTML-Parser erstellt ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt im DOM für das erste `<template>` in einem Knoten mit diesem Attribut, wenn es auf einen erlaubten Wert gesetzt ist.
+    > Wenn das Attribut nicht gesetzt ist, auf einen nicht erlaubten Wert gesetzt ist oder ein `ShadowRoot` bereits im gleichen Elternelement deklarativ erstellt wurde, wird ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) konstruiert.
+    > Ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) kann nach dem Parsen nicht mehr in ein Shadow Root umgewandelt werden, zum Beispiel durch Setzen der Eigenschaft [`HTMLTemplateElement.shadowRootMode`](/de/docs/Web/API/HTMLTemplateElement/shadowRootMode).
 
     > [!NOTE]
-    > Sie könnten das nicht-standardisierte `shadowroot`-Attribut in älteren Tutorials und Beispielen finden, das früher in Chrome 90-110 unterstützt wurde. Dieses Attribut wurde inzwischen entfernt und durch das standardisierte `shadowrootmode`-Attribut ersetzt.
+    > Sie finden möglicherweise das nicht standardisierte `shadowroot`-Attribut in älteren Tutorials und Beispielen, die von Chrome 90-110 unterstützt wurden. Dieses Attribut wurde mittlerweile entfernt und durch das standardisierte `shadowrootmode`-Attribut ersetzt.
 
 - `shadowrootclonable`
-  - : Setzt den Wert der [`clonable`](/de/docs/Web/API/ShadowRoot/clonable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn gesetzt, enthält ein mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) erstellter Klon des Shadow-Hosts (das Elternelement dieses `<template>`) ein Shadow Root in der Kopie.
+  - : Setzt den Wert der [`clonable`](/de/docs/Web/API/ShadowRoot/clonable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`.
+    Wenn gesetzt, wird ein Klon des Shadow Host (Elternelement dieses `<template>`) mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) einen Shadow Root in der Kopie enthalten.
 
 - `shadowrootcustomelementregistry`
-  - : Setzt die [`customElementRegistry`](/de/docs/Web/API/ShadowRoot/customElementRegistry)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `null`, anstatt auf das [Custom Element Registry](/de/docs/Web/API/Document/customElementRegistry) des Dokuments. Dies ermöglicht das spätere Anfügen eines begrenzten [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) mit der Methode [`CustomElementRegistry.initialize()`](/de/docs/Web/API/CustomElementRegistry/initialize).
+  - : Setzt die [`customElementRegistry`](/de/docs/Web/API/ShadowRoot/customElementRegistry)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `null`, statt auf das [Custom-Element-Register](/de/docs/Web/API/Document/customElementRegistry) des Dokuments.
+    Dadurch kann ein eingeschränktes [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) später mit [`CustomElementRegistry.initialize()`](/de/docs/Web/API/CustomElementRegistry/initialize) verbunden werden.
 
 - `shadowrootdelegatesfocus`
-  - : Setzt den Wert der [`delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn dies gesetzt ist und ein nicht-fokussierbares Element im Shadow-Baum ausgewählt wird, wird der Fokus an das erste fokussierbare Element im Baum delegiert. Der Wert standardmäßig auf `false`.
+  - : Setzt den Wert der [`delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`.
+    Wenn dies gesetzt ist und ein nicht-gewöhnliches Element im Shadow Tree ausgewählt wird, wird der Fokus auf das erste fokussierbare Element im Tree delegiert.
+    Der Wert ist standardmäßig `false`.
 
 - `shadowrootreferencetarget` {{Experimental_Inline}} {{non-standard_inline}}
-  - : Setzt den Wert der `referenceTarget`-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot). Der Wert sollte die ID eines Elements innerhalb des Shadow DOM sein. Wenn dies gesetzt ist, wird das referenzierte Ziel-Element zum effektiven Ziel der Referenzierung des Host-Elements von außerhalb des Shadow DOM.
+  - : Setzt den Wert der `referenceTarget`-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot). Der Wert sollte die ID eines Elements im Shadow DOM sein. Wenn gesetzt, wird bei Zielverweisen auf das Host-Element von außerhalb des Shadow DOM das referenzierte Zielelement zum tatsächlichen Ziel des Verweises auf das Host-Element.
 
 - `shadowrootserializable`
-  - : Setzt den Wert der [`serializable`](/de/docs/Web/API/ShadowRoot/serializable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn gesetzt, kann das Shadow Root durch Aufrufen der Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` serialisiert werden. Der Wert standardmäßig auf `false`.
+  - : Setzt den Wert der [`serializable`](/de/docs/Web/API/ShadowRoot/serializable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`.
+    Wenn gesetzt, kann der Shadow Root durch Aufrufen der Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` serialisiert werden.
+    Der Wert ist standardmäßig `false`.
 
 - `shadowrootslotassignment` {{experimental_inline}}
-  - : Stellt die [`slotAssignment`](/de/docs/Web/API/ShadowRoot/slotAssignment)-Eigenschaft eines durch dieses Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) ein. Dies ist das deklarative Äquivalent der Option [`slotAssignment`](/de/docs/Web/API/Element/attachShadow#slotassignment) der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow).
+  - : Setzt die [`slotAssignment`](/de/docs/Web/API/ShadowRoot/slotAssignment)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot).
+    Dies ist das deklarative Äquivalent zur [`slotAssignment`](/de/docs/Web/API/Element/attachShadow#slotassignment)-Option der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow).
     - `named`
-      - : Elemente werden automatisch {{htmlelement("slot")}}-Elementen innerhalb dieses Shadow Roots zugewiesen. Dies ist der Standardwert.
+      - : Elemente werden automatisch {{HTMLElement("slot")}}-Elementen innerhalb dieses Shadow Root zugewiesen.
+        Dies ist der Standardwert.
 
-        Elemente mit dem [`slot`-Attribut](/de/docs/Web/API/Element/slot) werden dem ersten {{htmlelement("slot")}} im Template zugewiesen, das das entsprechende `name`-Attribut hat. Wenn mehrere Elemente denselben Slotnamen angeben, werden alle dem ersten Slot im Template hinzugefügt, der diesen Namen hat, und in der Reihenfolge gerendert, in der sie deklariert sind. Alle unbenannten Elemente – Elemente, die kein `slot`-Attribut angeben – werden dem Standardslot in der Reihenfolge zugewiesen, in der sie deklariert sind. Dies ist der erste unbenannte `<slot>` im Template.
+        Elemente mit dem [`slot`-Attribut](/de/docs/Web/API/Element/slot) werden dem ersten {{htmlelement("slot")}} im Template zugewiesen, das das entsprechende `name`-Attribut hat.
+        Wenn mehrere Elemente denselben Slot-Namen angeben, werden sie alle dem ersten Slot im Template hinzugefügt, der diesen Namen trägt und in der Reihenfolge dargestellt, in der sie deklariert sind.
+        Alle unbenannten Elemente – Elemente, die kein `slot`-Attribut angeben – werden dem Standardslot in der Reihenfolge zugewiesen, in der sie deklariert sind.
+        Dies ist der erste unbenannte `<slot>` im Template.
 
     - `manual`
-      - : Elemente werden manuell bestimmten Slot-Elementen mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) zugewiesen. Es findet keine automatische Zuweisung statt.
+      - : Elemente werden manuell bestimmten Slot-Elementen mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) zugewiesen.
+        Es findet keine automatische Zuweisung statt.
 
 ## Verwendungshinweise
 
-Dieses Element hat keinen zulässigen Inhalt, da alles, was in der HTML-Quelle darin verschachtelt ist, nicht wirklich die Kinder des `<template>`-Elements wird. Die Eigenschaft [`Node.childNodes`](/de/docs/Web/API/Node/childNodes) des `<template>`-Elements ist immer leer, und Sie können auf diesen verschachtelten Inhalt nur über die spezielle [`content`](/de/docs/Web/API/HTMLTemplateElement/content) Eigenschaft zugreifen. Wenn Sie jedoch Methoden wie [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) auf das `<template>`-Element aufrufen, würden Sie Kinder in das `<template>`-Element selbst einfügen, was ein Verstoß gegen sein Inhaltsmodell ist und tatsächlich das von der `content`-Eigenschaft zurückgegebene [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) nicht aktualisiert.
+Dieses Element hat keinen erlaubten Inhalt, da alles, was im HTML-Quelltext zwischen seinen Tags genestet ist, nicht wirklich die Kinder des `<template>`-Elements wird. Die [`Node.childNodes`](/de/docs/Web/API/Node/childNodes)-Eigenschaft des `<template>`-Elements ist immer leer, und Sie können auf den genesteten Inhalt nur über die spezielle [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft zugreifen. Wenn Sie jedoch [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) oder ähnliche Methoden für das `<template>`-Element aufrufen, würden Sie Kinder im `<template>`-Element selbst einfügen, was ein Verstoß gegen sein Inhaltsmodell ist und das [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das durch die `content`-Eigenschaft zurückgegeben wird, tatsächlich nicht aktualisiert.
 
-Aufgrund der Art und Weise, wie das `<template>`-Element geparst wird, sind alle `<html>`, `<head>` und `<body>`-Eröffnungs- und Schließtags innerhalb des Templates Syntaxfehler und werden vom Parser ignoriert. So ist `<template><head><title>Test</title></head></template>` dasselbe wie `<template><title>Test</title></template>`.
+Aufgrund der Art und Weise, wie das `<template>`-Element geparst wird, sind alle öffnenden und schließenden Tags `<html>`, `<head>` und `<body>` innerhalb des Templates Syntaxfehler und werden vom Parser ignoriert, sodass `<template><head><title>Test</title></head></template>` dasselbe ist wie `<template><title>Test</title></template>`.
 
-Es gibt drei Hauptansatzweisen, um das `<template>`-Element zu verwenden.
+Es gibt drei Hauptmöglichkeiten, das `<template>`-Element zu verwenden.
 
-### Template-Dokumentfragment
+### Vorlagen-Dokumentfragment
 
-Standardmäßig wird der Inhalt des Elements nicht gerendert. Die entsprechende [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Schnittstelle enthält eine standardmäßige [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft (ohne äquivalentes Inhalts-/Markup-Attribut). Diese `content`-Eigenschaft ist schreibgeschützt und enthält ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das den vom Template dargestellten DOM-Teilbaum enthält.
+Standardmäßig wird der Inhalt des Elements nicht gerendert.
+Das entsprechende [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Interface beinhaltet eine standardmäßige [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft (ohne ein gleichwertiges Inhalts-/Markup-Attribut). Diese `content`-Eigenschaft ist schreibgeschützt und enthält ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das den DOM-Teilbaum enthält, der durch das Template dargestellt wird.
 
-Die Methoden [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) und [`Document.importNode()`](/de/docs/Web/API/Document/importNode) erstellen beide eine Kopie eines Knotens. Der Unterschied besteht darin, dass `importNode()` den Knoten im Kontext des aufrufenden Dokuments klont, während `cloneNode()` das Dokument des clonierten Knotens verwendet. Der Dokumentkontext bestimmt das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) für die Konstruktion von benutzerdefinierten Elementen. Aus diesem Grund sollten Sie `document.importNode()` verwenden, um das `content`-Fragment zu klonen, sodass benutzerdefinierte Element-Nachkommen mit den Definitionen im aktuellen Dokument und nicht im separaten Dokument, das das Template besitzt, konstruiert werden. Siehe die Beispiele auf der Seite [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) für weitere Details.
+Die Methoden [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) und [`Document.importNode()`](/de/docs/Web/API/Document/importNode) erstellen beide eine Kopie eines Knotens. Der Unterschied besteht darin, dass `importNode()` den Knoten im Kontext des aufrufenden Dokuments klont, während `cloneNode()` das Dokument des geklonten Knotens verwendet. Der Dokumentkontext bestimmt das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) für die Konstruktion benutzerdefinierter Elemente. Aus diesem Grund sollten Sie `document.importNode()` verwenden, um das `content`-Fragment zu klonen, damit benutzerdefinierte Element-Nachkommen unter Verwendung der Definitionen im aktuellen Dokument konstruiert werden, anstatt im separaten Dokument, das den Template-Inhalt besitzt. Siehe die Beispieldetails auf der Seite [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode).
 
-Bitte beachten Sie, dass der `DocumentFragment`-Container selbst keine Daten haben sollte. Siehe das Beispiel [Daten auf dem DocumentFragment werden nicht geklont](#daten_auf_dem_documentfragment_werden_nicht_geklont) für weitere Details.
+Beachten Sie, dass der `DocumentFragment`-Container selbst keine Daten enthalten sollte. Siehe das Beispiel [Daten im DocumentFragment werden nicht kopiert](#daten_im_documentfragment_werden_nicht_kopiert) für weitere Details.
 
 ### Deklaratives Shadow DOM
 
-Wenn das `<template>`-Element das Attribut [`shadowrootmode`](#shadowrootmode) mit einem Wert von entweder `open` oder `closed` enthält, erzeugt der HTML-Parser sofort ein Shadow DOM. Das Element wird im DOM durch seinen Inhalt ersetzt, der in einem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingeschlossen ist und an das Elternelement angefügt wird. Dies ist das deklarative Äquivalent des Aufrufs von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um ein Shadow Root an ein Element anzufügen.
+Wenn das `<template>`-Element das Attribut [`shadowrootmode`](#shadowrootmode) mit einem Wert von entweder `open` oder `closed` enthält, wird das Shadow DOM sofort vom HTML-Parser generiert. Das Element wird im DOM durch seinen in ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingewickelten Inhalt ersetzt, der am Elternelement befestigt ist.
+Dies ist das deklarative Äquivalent zum Aufruf von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um ein Shadow Root an ein Element anzufügen.
 
-Wenn das Element einen anderen Wert für `shadowrootmode` hat oder das Attribut `shadowrootmode` nicht hat, erzeugt der Parser ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement). Entsprechend, wenn es mehrere deklarative Shadow Roots gibt, wird nur das erste durch ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) ersetzt – nachfolgende Instanzen werden als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Objekte geparst.
+Wenn das Element einen anderen Wert für `shadowrootmode` hat oder nicht das `shadowrootmode`-Attribut hat, generiert der Parser ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement).
+Ähnlich wird bei mehreren deklarativen Shadow Roots nur der erste durch ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) ersetzt — nachfolgende Instanzen werden als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Objekte geparst.
 
-Andere mit `shadowroot` vorangestellte Attribute ermöglichen die deklarative Anpassung des `ShadowRoot`, z. B. die Steuerung, wie Slots zugewiesen werden.
+Andere mit `shadowroot` vorangestellte Attribute erlauben eine deklarative Anpassung des `ShadowRoot`, wie z. B. die Steuerung, wie die Slots zugewiesen werden.
 
-### Außerordentliches Patching
+### Out-of-order patching
 
-Traditionell wird HTML in Reihenfolge geliefert und von oben nach unten gelesen, verarbeitet und angezeigt. Um diese Reihenfolge zu ändern, können Sie entweder mit CSS Elemente ausblenden oder umarrangieren oder das von HTML erzeugte DOM nachträglich mit JavaScript aktualisieren. Viele Seiten setzen sich jedoch aus mehreren Teilen zusammen, die möglicherweise zu unterschiedlichen Zeiten bereit sind, gerendert zu werden oder die für den Benutzer früher bereitgestellt werden sollten.
+Traditionell wird HTML in der Reihenfolge übermittelt und von oben nach unten gelesen, verarbeitet und angezeigt. Um diese Reihenfolge zu ändern, können Sie entweder Elemente mit CSS ausblenden oder neu anordnen oder das DOM, das durch das HTML erzeugt wurde, nachträglich mit JavaScript aktualisieren. Viele Seiten bestehen jedoch aus mehreren Teilen, die zu unterschiedlichen Zeiten bereit sein können, gerendert zu werden, oder die möglicherweise früher an den Benutzer geliefert werden sollten, weil sie wichtiger sind.
 
-Das `<template>`-Element ermöglicht die Bereitstellung von HTML {{Glossary("Out_of_order_patching", "außerhalb der Reihenfolge")}}, was das Ersetzen von [Verarbeitungsanweisungen](/de/docs/Web/API/ProcessingInstruction) durch den Inhalt des `<template>`-Elements (auch als **Patching** bezeichnet) beinhaltet.
+Das `<template>`-Element ermöglicht die Bereitstellung von HTML {{Glossary("Out_of_order_patching", "out-of-order")}}, was das Ersetzen von [Verarbeitungsanweisung](/de/docs/Web/API/ProcessingInstruction)-Markern durch den Inhalt des `<template>`-Elements bedeutet (auch als **patching** bezeichnet).
 
-Zum Beispiel kann ein `<?marker name="my-identifier">`-Verarbeitungsanweisungsmarker mit dem Inhalt eines später im HTML bereitgestellten `<template for="my-identifier">`-Elements gepatcht werden. Siehe das Beispiel [Verwenden von `<template for>` für Patching](#using_template_for_for_patching).
+Zum Beispiel kann ein `<?marker name="my-identifier">`-Verarbeitungsanweismarker mit dem Inhalt eines `<template for="my-identifier">`-Elements ersetzt werden, das viel später im HTML geliefert wird. Siehe das Beispiel [Verwenden von `<template for>` zum patchen](#using_template_for_for_patching).
 
-Neben den Verarbeitungsanweisungsmarkern `<?marker>` können ein `<?start>` und `<?end>`-Paar verwendet werden, um temporären Inhalt einzuschließen (z. B. `<?start name="my-identifier">Loading...<?end>`), der vorübergehend angezeigt wird, bis das `<template for="my-identifier">` verarbeitet wird und der gesamte Abschnitt ersetzt wird. Siehe das Beispiel [Verwenden von `<template for>` für Bereichs-Patching](#using_template_for_for_range_patching).
+Neben dem `<?marker>`-Verarbeitungsanweisungsmarker kann ein `<?start>`- und `<?end>`-Paar verwendet werden, um temporären Inhalt zu enthalten (zum Beispiel `<?start name="my-identifier">Loading...<?end>`), der temporär angezeigt wird, bis das `<template for="my-identifier">` verarbeitet wird und der gesamte Abschnitt ersetzt wird. Siehe das Beispiel [Verwenden von `<template for>` für Bereichspatching](#using_template_for_for_range_patching).
 
-Wenn diese in HTML geschrieben sind, können Verarbeitungsanweisungen mit oder ohne das abschließende `?` bereitgestellt werden, und der Browser fügt es beim Parsen des DOM hinzu, wenn es nicht bereitgestellt wird. Daher sind sowohl `<?start?>` als auch `<?start>` gültig und werden als `<?start?>` geparst. XML ist strenger und erfordert das abschließende `?`.
+Wenn sie im HTML geschrieben werden, können Verarbeitungsanweisungen mit oder ohne das abschließende `?` bereitgestellt werden, und der Browser fügt es hinzu, wenn es nicht vorhanden ist, wenn das DOM geparst wird. Daher sind sowohl `<?start?>` als auch `<?start>` gültig und werden als `<?start?>` geparst. XML ist strikter und erfordert das abschließende `?`.
 
-Wenn das `for`-Attribut nicht zu einem Verarbeitungsanweisungsnamen passt, bleibt der `<template>`-Inhalt im DOM verborgen und wird für kein Patch verwendet.
+Wenn das `for`-Attribut nicht mit einem `name`-Verarbeitungsanweisungsmarker übereinstimmt, bleibt der `<template>`-Inhalt im DOM verborgen und wird in keinem Patch verwendet.
 
-Um zu verhindern, dass Komponenten nicht verwandte Teile des DOM aktualisieren, können `<template for="...">`-Elemente Marker nur im DOM-Baum des `<template>`-Elternteils patchen. Die einzige Ausnahme bilden `<template>`-Elemente, die unmittelbare Kinder des `<body>`-Elements sind — sie können auch `<head>`-Elemente patchen, um das `<title>` und andere `<head>`-Elemente zu aktualisieren.
+Um zu verhindern, dass Komponenten nicht verwandte Teile des DOM aktualisieren, können `<template for="...">`-Elemente nur Marker innerhalb des DOM-Baums des `<template>`-Elternelements patchen. Die einzige Ausnahme sind `<template>`-Elemente, die direkte Kinder des `<body>`-Elements sind — sie können auch `<head>`-Elemente patchen, um das Aktualisieren von `<title>`- und anderen `<head>`-Elementen zu ermöglichen.
 
 ## Beispiele
 
-### Erstellen von Tabellenzeilen
+### Generieren von Tabellenzeilen
 
 Zuerst beginnen wir mit dem HTML-Teil des Beispiels.
 
@@ -121,9 +139,9 @@ Zuerst beginnen wir mit dem HTML-Teil des Beispiels.
 </template>
 ```
 
-Zuerst haben wir eine Tabelle, in die wir später Inhalte mit JavaScript-Code einfügen. Dann kommt das Template, das die Struktur eines HTML-Fragments beschreibt, das eine einzelne Tabellenzeile repräsentiert.
+Zuerst haben wir eine Tabelle, in die wir später mit JavaScript-Inhalten einfügen werden. Dann kommt das Template, das die Struktur eines HTML-Fragments beschreibt, das eine einzelne Tabellenzeile darstellt.
 
-Nachdem die Tabelle erstellt und das Template definiert wurden, verwenden wir JavaScript, um Zeilen in die Tabelle einzufügen, wobei jede Zeile mit dem Template als Basis konstruiert wird.
+Nachdem die Tabelle erstellt und das Template definiert wurde, verwenden wir JavaScript, um Zeilen in die Tabelle einzufügen, wobei jede Zeile anhand des Templates als Grundlage konstruiert wird.
 
 ```js
 // Test to see if the browser supports the HTML template element by checking
@@ -166,11 +184,11 @@ table td {
 }
 ```
 
-{{EmbedLiveSample("Erstellen von Tabellenzeilen", 500, 120)}}
+{{EmbedLiveSample("Generating table rows", 500, 120)}}
 
 ### Implementierung eines deklarativen Shadow DOM
 
-In diesem Beispiel ist zu Beginn des Markups eine versteckte Support-Warnung enthalten. Diese Warnung wird später mit JavaScript angezeigt, falls der Browser das Attribut `shadowrootmode` nicht unterstützt. Als nächstes gibt es zwei {{HTMLElement("article")}}-Elemente, die jeweils verschachtelte {{HTMLElement("style")}}-Elemente mit unterschiedlichen Verhaltensweisen enthalten. Das erste `<style>`-Element ist global für das gesamte Dokument. Das zweite ist auf den Shadow Root beschränkt, der anstelle des `<template>`-Elements aufgrund des Vorhandenseins des `shadowrootmode`-Attributs generiert wird.
+In diesem Beispiel ist eine versteckte Unterstützungswarnung zu Beginn des Markups enthalten. Diese Warnung wird später über JavaScript angezeigt, wenn der Browser das `shadowrootmode`-Attribut nicht unterstützt. Als Nächstes gibt es zwei {{HTMLElement("article")}}-Elemente, die jeweils verschachtelte {{HTMLElement("style")}}-Elemente mit unterschiedlichem Verhalten enthalten. Das erste `<style>`-Element ist global für das gesamte Dokument. Das zweite ist auf das Shadow Root beschränkt, das anstelle des `<template>`-Elements generiert wird, weil das `shadowrootmode`-Attribut vorhanden ist.
 
 ```html
 <p hidden>
@@ -213,9 +231,11 @@ document
 
 ### Deklaratives Shadow DOM mit delegiertem Fokus
 
-Dieses Beispiel zeigt, wie `shadowrootdelegatesfocus` auf einen Shadow Root angewendet wird, der deklarativ erstellt wird, und welchen Effekt dies auf den Fokus hat.
+Dieses Beispiel demonstriert, wie `shadowrootdelegatesfocus` auf einen Shadow Root angewendet wird, der deklarativ erstellt wird, und welchen Effekt dies auf den Fokus hat.
 
-Der Code erklärt zuerst einen Shadow Root innerhalb eines `<div>`-Elements unter Verwendung des `<template>`-Elements mit dem Attribut `shadowrootmode`. Dies zeigt sowohl ein nicht-fokussierbares `<div>` mit Text als auch ein fokussierbares `<input>`-Element an. Es verwendet auch CSS, um Elemente mit {{cssxref(":focus")}} in Blau zu stylen, und das normale Styling des Host-Elements festzulegen.
+Der Code erklärt zuerst einen Shadow Root innerhalb eines `<div>`-Elements mit dem `<template>`-Element mit dem `shadowrootmode`-Attribut.
+Dies zeigt sowohl ein nicht-fokussierbares `<div>` an, das Text enthält, als auch ein fokussierbares `<input>`-Element.
+Es verwendet auch CSS, um Elemente mit {{cssxref(":focus")}} blau zu färben, und um das normale Styling des Host-Elements festzulegen.
 
 ```html
 <div>
@@ -237,7 +257,7 @@ Der Code erklärt zuerst einen Shadow Root innerhalb eines `<div>`-Elements unte
 </div>
 ```
 
-Der zweite Codeblock ist identisch, außer dass er das Attribut `shadowrootdelegatesfocus` setzt, welches den Fokus an das erste fokussierbare Element im Baum delegiert, wenn ein nicht-fokussierbares Element im Baum ausgewählt wird.
+Der zweite Codeblock ist identisch, jedoch wird das `shadowrootdelegatesfocus`-Attribut gesetzt, das den Fokus auf das erste fokussierbare Element im Tree delegiert, wenn ein nicht-fokussierbares Element im Tree ausgewählt wird.
 
 ```html
 <div>
@@ -259,7 +279,7 @@ Der zweite Codeblock ist identisch, außer dass er das Attribut `shadowrootdeleg
 </div>
 ```
 
-Zuletzt verwenden wir das folgende CSS, um ein rotes Umrandung für das Eltern-`<div>`-Element anzuwenden, wenn es den Fokus hat.
+Zuletzt verwenden wir das folgende CSS, um einen roten Rand um das Elternelement `<div>` zu legen, wenn es fokussiert ist.
 
 ```css
 div:focus {
@@ -267,25 +287,30 @@ div:focus {
 }
 ```
 
-Die Ergebnisse werden unten gezeigt. Wenn das HTML zuerst gerendert wird, haben die Elemente kein Styling, wie im ersten Bild gezeigt. Bei dem Shadow Root ohne gesetztes `shadowrootdelegatesfocus` können Sie überall klicken, außer auf das `<input>`, und der Fokus ändert sich nicht (wenn Sie das `<input>`-Element auswählen, sieht es aus wie im zweiten Bild).
+Die Ergebnisse sind unten gezeigt.
+Wenn das HTML zuerst gerendert wird, haben die Elemente kein Styling, wie im ersten Bild gezeigt.
+Für den Shadow Root, der kein `shadowrootdelegatesfocus` gesetzt hat, können Sie überall außer dem `<input>` klicken und der Fokus ändert sich nicht (wenn Sie das `<input>`-Element auswählen, sieht es wie im zweiten Bild aus).
 
-![Screenshot des Codes ohne gesetzten Fokus](template_with_no_focus.png)
+![Screenshot of code with no focus set](template_with_no_focus.png)
 
-Für das Shadow Root mit gesetztem `shadowrootdelegatesfocus` bewirkt ein Klick auf den Text (der nicht fokussierbar ist), dass das `<input>`-Element ausgewählt wird, da dies das erste fokussierbare Element im Baum ist. Dies fokussiert auch das übergeordnete Element, wie unten gezeigt.
+Für den Shadow Root mit gesetztem `shadowrootdelegatesfocus`, wird beim Klicken auf den Text (der nicht fokussierbar ist) das `<input>`-Element ausgewählt, da dies das erste fokussierbare Element im Tree ist.
+Dies fokussiert auch das Elternelement, wie unten gezeigt.
 
-![Screenshot des Codes, bei dem das Element den Fokus hat](template_with_focus.png)
+![Screenshot of the code where the element has focus](template_with_focus.png)
 
-### Deklaratives Shadow DOM mit benannter Slotzuweisung
+### Deklaratives Shadow DOM mit benannter Schlitzzuweisung
 
-Dieses Beispiel zeigt, wie Elemente basierend auf ihrem [`slot`-Attribut](/de/docs/Web/API/Element/slot) (abgeglichen mit dem `name`-Attribut) Slots in einem Shadow DOM zugewiesen werden können.
+Dieses Beispiel zeigt, wie Elemente basierend auf ihrem [`slot`-Attribut](/de/docs/Web/API/Element/slot) - das gegen das `name`-Attribut des Slots abgeglichen wird - in einen Shadow DOM zugewiesen werden können.
 
 #### HTML
 
-Zuerst definieren wir ein {{HTMLElement("article")}}-Element, das Titel-, Metadaten- und Artikelkörperinformationen darstellt.
+Zuerst definieren wir ein {{HTMLElement("article")}}-Element, das Titel-, Metadaten- und Artikelkörperinformationen präsentiert.
 
-Der Artikel enthält ein `<template>`-Element, das aufgrund des Vorhandenseins des `shadowrootmode`-Attributs zum Shadow Root wird. Wir müssen das `shadowrootslotassignment`-Attribut nicht setzen, da die benannte Slotzuweisung der Standard ist.
+Der Artikel enthält ein `<template>`-Element, das zu einem Shadow Root wird, weil das `shadowrootmode`-Attribut vorhanden ist.
+Wir müssen nicht das `shadowrootslotassignment`-Attribut setzen, da die Zuordnung benannter Slots der Standard ist.
 
-Das Template definiert Elemente, die benannte Slots für "header"- und "meta"-Informationen haben, und einen unbenannten Slot für "body"-Informationen. Die Elemente sind unterschiedlich gestylt, sodass sie leicht zu unterscheiden sind.
+Das Template definiert Elemente, die benannte Slots für "header" und "meta"-Informationen und einen unbenannten Slot für "body"-Informationen haben.
+Die Elemente sind unterschiedlich gestylt, damit sie leicht zu unterscheiden sind.
 
 ```html
 <article id="host">
@@ -328,23 +353,27 @@ Das Template definiert Elemente, die benannte Slots für "header"- und "meta"-In
 </article>
 ```
 
-Innerhalb desselben Hosts, unterhalb des Templates, haben wir vier Elemente zum Befüllen der Slots. Die {{htmlelement("span")}}-Elemente haben `slot`-Attribute, die mit den `name`-Attributen an Slots im Template übereinstimmen und werden die entsprechenden Slots befüllen. Die zwei {{htmlelement("p")}}-Elemente sind unbenannt, daher werden sie beide in den unbenannten `<slot>` im "body"-Element eingefügt.
+Im selben Host, unter dem Template, haben wir vier Elemente zum Auffüllen der Slots.
+Die {{htmlelement("span")}}-Elemente haben `slot`-Attribute, die mit den `name`-Attributen auf Slots im Template übereinstimmen, und werden die entsprechenden Slots füllen.
+Die beiden {{htmlelement("p")}}-Elemente sind unbenannt, sodass sie beide in den unbenannten `<slot>` im "body"-Element eingefügt werden.
 
 #### Ergebnisse
 
 Das folgende Beispiel sollte den Inhalt der Slots in den entsprechenden Abschnitten anzeigen.
 
-{{EmbedLiveSample('Deklaratives Shadow DOM mit benannter Slotzuweisung','100', '220px')}}
+{{EmbedLiveSample('Declarative shadow DOM with named slot assignment','100', '220px')}}
 
-### Deklaratives Shadow DOM mit manueller Slotzuweisung
+### Deklaratives Shadow DOM mit manueller Schlitzzuweisung
 
-Dieses Beispiel zeigt, wie Elemente mit manueller Slotzuweisung Slots in einem Shadow DOM zugewiesen werden können.
+Dieses Beispiel zeigt, wie Elemente manuell zu bestimmten Slots in einem Shadow DOM zugewiesen werden können.
 
-Bei diesem Ansatz muss jedes Element manuell einem bestimmten Slot zugewiesen werden. Es gibt keine Standardzuweisung, sodass jeder Slot, der nicht zugewiesen wird, leer ist.
+Mit diesem Ansatz muss jedes Element manuell einem bestimmten Slot zugewiesen werden.
+Es gibt keine Standardzuweisung, sodass jeder Slot, der nicht zugewiesen wird, leer sein wird.
 
 #### HTML
 
-Zuerst haben wir eine versteckte Support-Warnung. Diese Warnung wird später mit JavaScript angezeigt, falls der Browser das `shadowrootslotassignment`-Attribut nicht unterstützt.
+Zuerst haben wir eine versteckte Unterstützungswarnung.
+Diese Warnung wird später über JavaScript angezeigt, wenn der Browser das `shadowrootslotassignment`-Attribut nicht unterstützt.
 
 ```html
 <p id="support-warning" hidden>
@@ -353,9 +382,11 @@ Zuerst haben wir eine versteckte Support-Warnung. Diese Warnung wird später mit
 </p>
 ```
 
-Als nächstes definieren wir ein {{HTMLElement("article")}}-Element, das Titel-, Metadaten- und Artikelkörperinformationen darstellt. Dies enthält ein `<template>`-Element, das zum Shadow Root wird, weil das Attribut `shadowrootmode` vorhanden ist, und wird manuelle Slotzuweisung verwenden, weil `shadowrootslotassignment="manual"` gesetzt ist.
+Als nächstes definieren wir ein {{HTMLElement("article")}}-Element, das Titel-, Metadaten- und Artikelkörperinformationen präsentiert.
+Dies enthält ein `<template>`-Element, das zu einem Shadow Root wird, weil das `shadowrootmode`-Attribut vorhanden ist und manuelle Slotzuweisung verwendet wird, weil `shadowrootslotassignment="manual"` gesetzt ist.
 
-Das Template definiert Elemente, die Slots für "header"-, "meta"- und "body"-Informationen haben, die separat durch ihr `id`-Attribut referenziert werden können. Die Elemente sind unterschiedlich gestylt, sodass sie leicht zu unterscheiden sind.
+Das Template definiert Elemente, die Slots für "header", "meta" und "body"-Informationen haben, die separat durch ihr `id`-Attribut referenziert werden können.
+Die Elemente sind unterschiedlich gestylt, damit sie leicht zu unterscheiden sind.
 
 ```html
 <article id="host">
@@ -392,11 +423,14 @@ Das Template definiert Elemente, die Slots für "header"-, "meta"- und "body"-In
 </article>
 ```
 
-Innerhalb desselben Hosts, unterhalb des Templates, haben wir vier Elemente zum Befüllen der Slots. Diese sind ebenfalls durch ID identifiziert.
+Im selben Host, unter dem Template, haben wir vier Elemente zum Auffüllen der Slots.
+Diese sind ebenfalls durch `id` identifiziert.
 
 #### JavaScript
 
-Das JavaScript für die manuelle Slotzuweisung wird unten gezeigt. Zuerst ruft der Code die Slots innerhalb des Shadow Roots ab, dann den Text, der eingefügt werden soll, und schließlich weist der Text dem Slot zu. Beachten Sie, dass Sie einem bestimmten Slot nur einmal einen Knoten zuweisen können und dass, wenn Sie mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) mehreren Knoten einem Slot zuweisen, die Reihenfolge, in der sie angegeben werden, die Reihenfolge steuert, in der sie hinzugefügt werden.
+Das JavaScript für die manuelle Slotzuweisung wird unten gezeigt.
+Zuerst erhält der Code die Slots im Shadow Root, dann den Text, der eingesetzt werden soll, und weist schließlich den Text dem Slot zu.
+Beachten Sie, dass Sie einen Knoten nur einmal einem bestimmten Slot zuweisen können, und dass wenn Sie mehrere Knoten mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) einem einzigen Slot zuweisen, die Reihenfolge, in der sie angegeben werden, die Reihenfolge steuert, in der sie hinzugefügt werden.
 
 ```js
 const host = document.querySelector("#host");
@@ -419,7 +453,7 @@ metaSlot.assign(metaText);
 bodySlot.assign(body2Text, body1Text);
 ```
 
-Der Code zeigt die versteckte Support-Warnung an, wenn die Slot-Zuweisung nicht unterstützt wird.
+Der Code zeigt die versteckte Unterstützungswarnung an, wenn die Slotzuweisung nicht unterstützt wird.
 
 ```js
 const isShadowRootSlotAssignmentSupported = Object.hasOwn(
@@ -434,16 +468,17 @@ document
 
 #### Ergebnisse
 
-Das folgende Beispiel sollte den Inhalt der Slots in den entsprechenden Abschnitten anzeigen.
+Das untenstehende Beispiel sollte den Inhalt der Slots in den entsprechenden Abschnitten anzeigen.
 
-{{EmbedLiveSample('Deklaratives Shadow DOM mit manueller Slotzuweisung','100', '220px')}}
+{{EmbedLiveSample('Declarative shadow DOM with manual slot assignment','100', '220px')}}
 
 > [!NOTE]
-> Wenn das `shadowrootslotassignment`-Attribut nicht unterstützt wird, wird eine Warnungsnotiz angezeigt und der Browser verwendet `named`-Zuweisung. Da jedoch keine der Slots oder einzufügenden Elemente benannt sind, werden alle Elemente in den Title-Slot eingefügt (da dies der erste unbenannte Slot ist und daher der "Standard"-Slot ist).
+> Wenn das `shadowrootslotassignment`-Attribut nicht unterstützt wird, wird eine Warnung angezeigt und der Browser wird die benannte Zuordnung verwenden.
+> Da jedoch keiner der Slots oder einzufügenden Elemente benannt sind, werden alle Elemente in den Titel-Slot eingefügt (weil dies der erste unbenannte Slot ist und daher der "Standard"-Slot).
 
-### Daten auf dem DocumentFragment werden nicht geklont
+### Daten im DocumentFragment werden nicht kopiert
 
-Wenn ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Wert übergeben wird, verschieben [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) und ähnliche Methoden nur die _Kinderknoten_ dieses Wertes in den Zielknoten. Daher ist es in der Regel vorzuziehen, Ereignishandler an die Kinder eines `DocumentFragment`, statt an das `DocumentFragment` selbst, anzufügen.
+Wenn ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Wert übergeben wird, verschieben [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) und ähnliche Methoden nur die _Kindknoten_ dieses Werts in den Zielknoten. Daher ist es in der Regel vorzuziehen, Ereignishandler an die Kinder eines `DocumentFragment` zu hängen, statt an das `DocumentFragment` selbst.
 
 Betrachten Sie das folgende HTML und JavaScript:
 
@@ -478,13 +513,13 @@ container.appendChild(secondClone);
 
 #### Ergebnis
 
-Da `firstClone` ein `DocumentFragment` ist, werden bei `appendChild` nur seine Kinder zu `container` hinzugefügt; die Ereignishandler von `firstClone` werden nicht kopiert. Im Gegensatz dazu wird, weil ein Ereignishandler dem ersten _Kinderknoten_ von `secondClone` hinzugefügt wird, der Ereignishandler beim Aufruf von `appendChild` kopiert, und das Klicken darauf funktioniert wie erwartet.
+Da `firstClone` ein `DocumentFragment` ist, werden nur dessen Kinder zu `container` hinzugefügt, wenn `appendChild` aufgerufen wird; die Ereignishandler von `firstClone` werden nicht kopiert. Im Gegensatz dazu, weil ein Ereignishandler zum ersten _Kindknoten_ von `secondClone` hinzugefügt wird, wird der Ereignishandler kopiert, wenn `appendChild` aufgerufen wird, und das Klicken darauf funktioniert, wie man es erwarten würde.
 
-{{EmbedLiveSample('Daten auf dem DocumentFragment werden nicht geklont')}}
+{{EmbedLiveSample('Data on the DocumentFragment is not cloned')}}
 
-### Verwendung von `<template for>` für Patching
+### Verwenden von `<template for>` zum patchen
 
-Dieses Beispiel verwendet die Verarbeitungsanweisung `<?marker name="placeholder">` als Platzhalter und füllt später den Inhalt mit `<template for="placeholder">` auf.
+Dieses Beispiel verwendet die Verarbeitungsanweisung `<?marker name="placeholder">` als Platzhalter und füllt später die Inhalte mit `<template for="placeholder">` aus.
 
 ```html-nolint
 <body>
@@ -497,7 +532,7 @@ Dieses Beispiel verwendet die Verarbeitungsanweisung `<?marker name="placeholder
 </body>
 ```
 
-Anfänglich wird ein leeres `<div>` gerendert. Dies wird dann auf das Folgende aktualisiert, nachdem das `<template>`-Element geparst und verarbeitet wurde:
+Anfänglich wird dadurch ein leeres `<div>` gerendert. Es wird dann zu folgendem aktualisiert, nachdem das `<template>`-Element geparst und verarbeitet wurde:
 
 ```html-nolint
   <div>
@@ -505,9 +540,9 @@ Anfänglich wird ein leeres `<div>` gerendert. Dies wird dann auf das Folgende a
   </div>
 ```
 
-### Verwendung von `<template for>` für Bereichs-Patching
+### Verwenden von `<template for>` für Bereichspatching
 
-Dieses Beispiel verwendet die Verarbeitungsanweisungen `<?start>` und `<?end>`, um Platzhalterinhalte zu enthalten, die anfänglich angezeigt und dann später durch den `<template for>`-Inhalt ersetzt werden.
+Dieses Beispiel verwendet die Verarbeitungsanweisungen `<?start>` und `<?end>`, um Platzhalterinhalt zu enthalten, der zunächst angezeigt und dann durch den `<template for>`-Inhalt ersetzt wird.
 
 ```html-nolint
 <body>
@@ -522,7 +557,7 @@ Dieses Beispiel verwendet die Verarbeitungsanweisungen `<?start>` und `<?end>`, 
 </body>
 ```
 
-Zu Beginn wird das `<div>` mit dem Platzhalter "Loading..." gerendert. Dies wird dann auf das Folgende aktualisiert, nachdem das `<template>`-Element geparst und verarbeitet wurde:
+Anfänglich wird das `<div>` mit dem `Loading...`-Platzhalterinhalt gerendert. Dies wird dann zu folgendem aktualisiert, nachdem das `<template>` geparst und verarbeitet wurde:
 
 ```html-nolint
   <div>
@@ -530,11 +565,11 @@ Zu Beginn wird das `<div>` mit dem Platzhalter "Loading..." gerendert. Dies wird
   </div>
 ```
 
-Dieses Beispiel zeigt auch das Fehlen von Kindverarbeitungsanweisungen und Verschachtelungen. Die Verarbeitungsanweisungen `<?start>` und `<?end>` sind, obwohl sie hinsichtlich ihrer Beziehung zu `<template for>` verknüpft sind, separate [Knoten](/de/docs/Web/API/Node) und keine öffnenden und schließenden Tags. Sie enthalten daher den "Loading..."-Inhalt nicht als Kind (wie durch das Fehlen einer Einrückung gezeigt).
+Dieses Beispiel demonstriert auch das Fehlen von Verarbeitungsanweisungskindern und -schachtelungen. Die Verarbeitungsanweisungen `<?start>` und `<?end>`, obwohl sie in ihrer Beziehung zu `<template for>` verlinkt sind, sind separate [Knoten](/de/docs/Web/API/Node) und keine öffnenden und schließenden Tags. Sie enthalten daher nicht den `Loading...`-Inhalt als Kind (wie durch das Fehlen der Einrückung gezeigt).
 
-### Verwendung von `<template for>` zum Patchen von `<head>`-Elementen
+### Verwenden von `<template for>` zum Patchen von `<head>`-Elementen
 
-Dieses Beispiel zeigt, dass `<template for>`-Elemente, die unmittelbare Kinder des `<body>`-Elements sind, `<head>`-Marker patchen können.
+Dieses Beispiel zeigt, dass `<template for>`-Elemente, die direkte Kinder des `<body>`-Elements sind, `<head>`-Marker patchen können.
 
 ```html-nolint
 <head>
@@ -565,11 +600,11 @@ Ergibt folgendes, sobald die `<template>`-Elemente geparst wurden:
 </body>
 ```
 
-### Einfügen von Markern in `<template for>`, um Inhalte später erneut zu patchen
+### Einschließen von Markern in `<template for>`, um Inhalte später erneut patchen zu können
 
-Sie können auch Marker in `<template for>`-Elemente einfügen und damit neue Platzhalter erstellen, um denselben Inhalt mehrfach zu patchen. Sie können vorhandene `name`-Attribute wiederverwenden.
+Sie können auch Marker in `<template for>`-Elemente einfügen, um neue Platzhalter zu erstellen, die das mehrfache Patchen desselben Inhalts ermöglichen. Bestehende `name`-Attribute können erneut verwendet werden.
 
-Wenn Sie beispielsweise eine {{Glossary("SPA", "Single Page Application (SPA)")}} mit `<template for>` erstellen, möchten Sie möglicherweise, dass das `<title>` bei jedem Routenupdate gepatcht wird, was so erreicht werden könnte:
+Zum Beispiel, wenn Sie eine {{Glossary("SPA", "Single Page Application (SPA)")}} mit `<template for>` erstellen, möchten Sie möglicherweise, dass der `<title>` bei jedem Routenupdate gepatcht wird, was so erreicht werden könnte:
 
 ```html-nolint
 <head>
@@ -586,7 +621,7 @@ Wenn Sie beispielsweise eine {{Glossary("SPA", "Single Page Application (SPA)")}
 </body>
 ```
 
-Dies wird das Folgende ergeben, sobald das `<template>`-Element geparst wurde:
+Dies ergibt folgendes, sobald das `<template>`-Element geparst wurde:
 
 ```html-nolint
 <head>
@@ -599,7 +634,7 @@ Dies wird das Folgende ergeben, sobald das `<template>`-Element geparst wurde:
 </body>
 ```
 
-Später könnte ein neues `<template for="title">` in das DOM eingefügt werden, um das `<title>` erneut zu ersetzen.
+Später könnte ein neues `<template for="title">` in das DOM eingefügt werden, um den `<title>` erneut zu ersetzen.
 
 ## Technische Zusammenfassung
 
@@ -613,17 +648,17 @@ Später könnte ein neues `<template for="title">` in das DOM eingefügt werden,
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-          >Metadateninhalte</a
+          >Metadaten-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalte</a
+          >Fluss-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalte</a
+          >Phrasierungsinhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#script-supporting_elements"
-          >Skriptunterstützende Elemente</a
+          >skriptunterstützendes Element</a
         >
       </td>
     </tr>
@@ -632,25 +667,26 @@ Später könnte ein neues `<template for="title">` in das DOM eingefügt werden,
       <td>Nichts (siehe <a href="#usage_notes">Verwendungshinweise</a>)</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Tag weglassbar</th>
+      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-          >Metadateninhalte</a
+          >Metadaten-Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phrasierungsinhalte</a
-        >, oder
+        > oder
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#script-supporting_elements"
           >skriptunterstützende Elemente</a
-        > akzeptiert. Ebenfalls erlaubt als Kind eines {{HTMLElement("colgroup")}}
+        > akzeptiert. Auch erlaubt als Kind eines {{HTMLElement("colgroup")}}
         Elements, das <em>nicht</em> das
-        <a href="/de/docs/Web/HTML/Reference/Elements/colgroup#span"><code>span</code></a>-Attribut hat.
+        <a href="/de/docs/Web/HTML/Reference/Elements/colgroup#span"><code>span</code></a>-Attribut
+        hat.
       </td>
     </tr>
     <tr>
@@ -663,7 +699,7 @@ Später könnte ein neues `<template for="title">` in das DOM eingefügt werden,
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Keine <code>Rolle</code> erlaubt</td>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -684,10 +720,10 @@ Später könnte ein neues `<template for="title">` in das DOM eingefügt werden,
 
 - [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) und [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts) HTML-Attribute
 - {{HTMLElement("slot")}} HTML-Element
-- {{CSSXref(":has-slotted")}}, {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}}, und {{CSSXref(":host-context", ":host-context()")}} CSS-Pseudoklassen
+- {{CSSXref(":has-slotted")}}, {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}} und {{CSSXref(":host-context", ":host-context()")}} CSS-Pseudoklassen
 - {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS-Pseudoelemente
-- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
-- [Verwendung von Vorlagen und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
-- [CSS-Eingrenzung](/de/docs/Web/CSS/Guides/Scoping)-Modul
-- [Deklaratives Shadow DOM (mit HTML)](/de/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) in _Verwendung von Shadow DOM_
+- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
+- [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
+- [CSS-Kapselung](/de/docs/Web/CSS/Guides/Scoping)-Modul
+- [Deklaratives Shadow DOM (mit html)](/de/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) in _Using Shadow DOM_
 - [Deklaratives Shadow DOM](https://web.dev/articles/declarative-shadow-dom) auf web.dev (2023)

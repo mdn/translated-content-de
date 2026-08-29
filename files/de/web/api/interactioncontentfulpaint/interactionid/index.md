@@ -1,24 +1,24 @@
 ---
-title: "InteractionContentfulPaint: InteraktionId-Eigenschaft"
+title: "InteractionContentfulPaint: interactionId-Eigenschaft"
 short-title: interactionId
 slug: Web/API/InteractionContentfulPaint/interactionId
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`interactionId`** des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Interfaces gibt die [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Eintrags zurück, der die Interaktion darstellt, die zu der Darstellung geführt hat.
+Die **`interactionId`** schreibgeschützte Eigenschaft der [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Schnittstelle gibt die [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Eintrags zurück, der die Interaktion darstellt, die zur Darstellung führte.
 
 ## Wert
 
-Eine Ganzzahl, die der [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) der Interaktion entspricht, die zu der Darstellung geführt hat.
+Ein Integer, der der [`interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) der Interaktion entspricht, die zur Darstellung geführt hat.
 
 ## Beispiele
 
 ### Protokollierung der `interactionId` von `InteractionContentfulPaint`
 
-Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint`-Leistungseinträge zu protokollieren, sobald sie in der Leistungstimeline des Browsers erfasst werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um neue `interaction-contentful-paint` Leistungsdatensätze zu protokollieren, während sie in der Leistungszeitachse des Browsers erfasst werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existierten.
 
 ```js
 const observer = new PerformanceObserver((list) => {

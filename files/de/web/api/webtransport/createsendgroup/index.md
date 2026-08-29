@@ -3,10 +3,10 @@ title: "WebTransport: createSendGroup() Methode"
 short-title: createSendGroup()
 slug: Web/API/WebTransport/createSendGroup
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
 Die **`createSendGroup()`** Methode der [`WebTransport`](/de/docs/Web/API/WebTransport) Schnittstelle erstellt und gibt eine [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup) zurück.
 
@@ -31,22 +31,24 @@ Ein [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup) Objekt.
 
 ## Beschreibung
 
-Die **`createSendGroup()`** Methode erstellt eine neue `WebTransportSendGroup`, die mit dem `WebTransport` Objekt, auf dem sie aufgerufen wird, verknüpft ist.
+Die **`createSendGroup()`** Methode erstellt eine neue `WebTransportSendGroup`, die mit dem `WebTransport` Objekt verknüpft ist, auf dem sie aufgerufen wird.
 
-Das `WebTransportSendGroup` Objekt wird verwendet, um Streams und/oder Datagramme, die auf demselben `WebTransport` erstellt wurden, zu gruppieren und deren relative Priorität für das Senden von wartenden Bytes zu steuern. Innerhalb derselben Gruppe werden Bytes auf Streams und Datagrammen mit höherer Priorität vor denen aus Streams und Datagrammen mit niedrigerer Priorität gesendet.
+Das `WebTransportSendGroup` Objekt wird verwendet, um Streams und/oder Datagramme zu gruppieren, die auf dem gleichen `WebTransport` erstellt wurden, um ihre relative Priorität beim Senden der wartenden Bytes zu steuern.
+Innerhalb derselben Gruppe werden Bytes in Streams und Datagrammen mit höherer Priorität vor Bytes aus solchen mit niedrigerer Priorität gesendet.
 
-Die zurückgegebene `WebTransportSendGroup` ist anfangs nicht mit Streams oder Datagrammen verknüpft. Sie können es auf verschiedene Arten mit einem [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable) oder [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream) Objekt verknüpfen:
+Die zurückgegebene `WebTransportSendGroup` ist anfänglich nicht mit irgendeinem Stream oder Datagramm verknüpft.
+Sie können es mit einem [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable) oder [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream) Objekt auf verschiedene Arten verknüpfen:
 
-- Indem Sie es als `sendGroup` Option übergeben, wenn das Objekt erstellt wird — siehe [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream), [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream) und [`WebTransportDatagramDuplexStream.createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable).
-- Indem Sie die `sendGroup` Eigenschaft des Objekts danach setzen — siehe `WebTransportSendStream.sendGroup` und [`WebTransportDatagramsWritable.sendGroup`](/de/docs/Web/API/WebTransportDatagramsWritable/sendGroup).
+- Indem Sie es als `sendGroup` Option angeben, wenn das Objekt erstellt wird — siehe [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream), [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream) und [`WebTransportDatagramDuplexStream.createWritable()`](/de/docs/Web/API/WebTransportDatagramDuplexStream/createWritable).
+- Indem Sie die `sendGroup` Eigenschaft des Objekts im Nachhinein festlegen — siehe `WebTransportSendStream.sendGroup` und [`WebTransportDatagramsWritable.sendGroup`](/de/docs/Web/API/WebTransportDatagramsWritable/sendGroup).
 
-Verschiedene Gruppen sollten bei der Bandbreitenzuweisung als gleichwertig behandelt werden — obwohl die genaue Methode der Bandbreitenteilung zwischen Gruppen durch die Implementierung definiert wird.
+Verschiedene Gruppen werden voraussichtlich gleich behandelt, was die Zwecke der Bandbreitenzuweisung betrifft — obwohl die genaue Art und Weise, wie die Bandbreite zwischen Gruppen aufgeteilt wird, implementierungsdefiniert ist.
 
 ## Beispiele
 
 ### Grundlegende Nutzung
 
-Dieses Beispiel erstellt eine Sendgruppe und verknüpft dann einen unidirektionalen Stream und den ausgehenden Datagramm-Stream der Verbindung mit ihr. Jeder erhält eine `sendOrder`, die ihre relative Priorität definiert.
+Dieses Beispiel erstellt eine Sendgruppe und verknüpft dann einen unidirektionalen Stream und den ausgehenden Datagramm-Stream der Verbindung damit, wobei jedem eine `sendOrder` gegeben wird, die ihre relative Priorität bestimmt.
 
 ```js
 const sendGroup = transport.createSendGroup();

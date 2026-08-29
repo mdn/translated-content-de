@@ -3,10 +3,10 @@ title: TypedArray.prototype.findLast()
 short-title: findLast()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/findLast
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: c38c731ba666318beeac7ed9f29cb315d1da09e7
 ---
 
-Die **`findLast()`** Methode von {{jsxref("TypedArray")}} Instanzen iteriert das typisierte Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn keine Elemente die Testfunktion erfüllen, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
+Die **`findLast()`**-Methode von {{jsxref("TypedArray")}}-Instanzen iteriert den typisierten Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.findLast()")}}
 
@@ -17,7 +17,7 @@ function isNegative(element /*, index, array */) {
 
 const int8 = new Int8Array([10, 0, -10, 20, -30, 40, 50]);
 
-console.log(int8.find(isNegative));
+console.log(int8.findLast(isNegative));
 // Expected output: -30
 ```
 
@@ -37,13 +37,13 @@ findLast(callbackFn, thisArg)
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf dem `findLast()` aufgerufen wurde.
+      - : Der typisierte Array, auf dem `findLast()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Das letzte (höchste Index-) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}} falls kein passendes Element gefunden wird.
+Das letzte (höchstindizierte) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}}, wenn kein passendes Element gefunden wird.
 
 ## Beschreibung
 
@@ -51,7 +51,7 @@ Siehe {{jsxref("Array.prototype.findLast()")}} für mehr Details. Diese Methode 
 
 ## Beispiele
 
-### Das letzte Primzahl im typisierten Array finden
+### Das letzte Primzahl in einem typisierten Array finden
 
 Das folgende Beispiel gibt das letzte Element im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
 
@@ -78,7 +78,7 @@ console.log(uint8.findLast(isPrime)); // 11
 ```
 
 > [!NOTE]
-> Die `isPrime()` Implementierung dient nur zur Demonstration. Für eine Anwendung in der realen Welt sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
+> Die `isPrime()`-Implementierung dient nur zur Veranschaulichung. Für eine echte Anwendung sollten Sie einen stark memoisierten Algorithmus wie das [Sieb des Eratosthenes](https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes) verwenden, um wiederholte Berechnungen zu vermeiden.
 
 ## Spezifikationen
 
@@ -91,7 +91,7 @@ console.log(uint8.findLast(isPrime)); // 11
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.findLast` in `core-js`](https://github.com/zloirock/core-js#array-find-from-last)
-- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

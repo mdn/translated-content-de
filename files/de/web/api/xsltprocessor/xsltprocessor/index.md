@@ -3,7 +3,7 @@ title: "XSLTProcessor: XSLTProcessor() Konstruktor"
 short-title: XSLTProcessor()
 slug: Web/API/XSLTProcessor/XSLTProcessor
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
 {{APIRef("DOM")}}

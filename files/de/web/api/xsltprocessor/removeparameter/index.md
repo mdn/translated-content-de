@@ -3,12 +3,12 @@ title: "XSLTProcessor: removeParameter()-Methode"
 short-title: removeParameter()
 slug: Web/API/XSLTProcessor/removeParameter
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
 {{APIRef("DOM")}}
 
-Die `removeParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle entfernt den Parameter (`<xsl:param>`) und dessen Wert aus dem Stylesheet, das im Prozessor importiert wurde.
+Die `removeParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle entfernt den Parameter (`<xsl:param>`) und seinen Wert aus dem im Prozessor importierten Stylesheet.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 Zuerst wird der `showItems`-Parameter auf `"yes"` gesetzt, was es ermöglicht, die Listenelemente in der Ausgabe anzuzeigen.
 
-Danach wird der `showItems`-Parameter mit `removeParameter()` entfernt, und die Transformation wird erneut durchgeführt, was dazu führt, dass keine Elemente angezeigt werden.
+Danach wird der `showItems`-Parameter mit `removeParameter()` entfernt, und die Transformation wird erneut durchgeführt, wodurch keine Elemente angezeigt werden.
 
 #### HTML
 

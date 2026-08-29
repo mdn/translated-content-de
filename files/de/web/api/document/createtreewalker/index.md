@@ -1,14 +1,14 @@
 ---
-title: "Dokument: createTreeWalker()-Methode"
+title: "Dokumentation: createTreeWalker()-Methode"
 short-title: createTreeWalker()
 slug: Web/API/Document/createTreeWalker
 l10n:
-  sourceCommit: 30ae43a0c98ab92f750fd571d7a3a8ee8b15b4c0
+  sourceCommit: f78ca75460fbdbc7f17b6e366dad47b9760054b0
 ---
 
 {{ApiRef("Document")}}
 
-Die **`Document.createTreeWalker()`** Erstellermethode gibt ein neu erstelltes [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt zurück.
+Die **`Document.createTreeWalker()`**-Erstellermethode gibt ein neu erstelltes [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt zurück.
 
 ## Syntax
 
@@ -21,32 +21,32 @@ createTreeWalker(root, whatToShow, filter)
 ### Parameter
 
 - `root`
-  - : Ein [`Node`](/de/docs/Web/API/Node), der die Wurzel des `TreeWalker`-Objekts darstellt, was der Anfangswert von [`TreeWalker.currentNode`](/de/docs/Web/API/TreeWalker/currentNode) ist.
+  - : Ein [`Node`](/de/docs/Web/API/Node), das die Wurzel des `TreeWalker`-Objekts darstellt, welche der Anfangswert von [`TreeWalker.currentNode`](/de/docs/Web/API/TreeWalker/currentNode) ist.
 
 - `whatToShow` {{optional_inline}}
-  - : Ein `unsigned long`, der eine Bitmaske darstellt, die durch Kombinieren der Konstanten-Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wird. Es ist eine bequeme Möglichkeit zum Filtern bestimmter Knotentypen. Standardmäßig ist es `0xFFFFFFFF`, was der Konstante `NodeFilter.SHOW_ALL` entspricht.
+  - : Ein `unsigned long`, das eine Bitmaske repräsentiert, die durch Kombination der Konstanteneigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wurde. Es ist eine bequeme Möglichkeit, bestimmte Knotentypen zu filtern. Es verwendet standardmäßig `0xFFFFFFFF`, was der Konstante `NodeFilter.SHOW_ALL` entspricht.
 
-    | Konstante                                                | Numerischer Wert | Beschreibung                                                                       |
-    | -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
-    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF`     | Zeigt alle Knoten an.                                                              |
-    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`            | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                                   |
-    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`            | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.                   |
-    | `NodeFilter.SHOW_COMMENT`                                | `0x80`           | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.                             |
-    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`          | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.                           |
-    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`          | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.           |
-    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`          | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.                   |
-    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`            | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.                             |
-    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`           | Veraltet, nicht mehr wirksam.                                                      |
-    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`           | Veraltet, nicht mehr wirksam.                                                      |
-    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`          | Veraltet, nicht mehr wirksam.                                                      |
-    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`           | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
-    | `NodeFilter.SHOW_TEXT`                                   | `0x4`            | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
+    | Konstante                                                | Zahlenwert   | Beschreibung                                                                       |
+    | -------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------- |
+    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF` | Zeigt alle Knoten an.                                                              |
+    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`        | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                                   |
+    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`        | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.                   |
+    | `NodeFilter.SHOW_COMMENT`                                | `0x80`       | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.                             |
+    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`      | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.                           |
+    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`      | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.           |
+    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`      | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.                   |
+    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`        | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.                             |
+    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`       | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`       | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`      | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`       | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
+    | `NodeFilter.SHOW_TEXT`                                   | `0x4`        | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
 
     > [!NOTE]
-    > Die Konstante `NodeFilter.SHOW_ATTRIBUTE` ist nur wirksam, wenn die Wurzel ein Attributknoten ist. Da das übergeordnete Element eines `Attr`-Knotens immer `null` ist, wird [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
+    > Die Konstante `NodeFilter.SHOW_ATTRIBUTE` ist nur wirksam, wenn die Wurzel ein Attributknoten ist. Da das Elternteil eines `Attr`-Knotens immer `null` ist, werden [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
 
 - `filter` {{optional_inline}}
-  - : Eine Rückruffunktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Teilbaum basierend auf `root` aufgerufen, der durch das `whatToShow`-Flag als einbezogen akzeptiert wird, um zu bestimmen, ob er in die Liste der iterierbaren Knoten aufgenommen wird oder nicht:
+  - : Eine Rückruffunktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Teilbaum aufgerufen, der an der `root`-Stelle basiert und durch das `whatToShow`-Flag als einzuschließend akzeptiert wird, um zu bestimmen, ob er in die Liste der durchlaufbaren Knoten aufgenommen werden soll:
     - Wenn der Rückgabewert `NodeFilter.FILTER_ACCEPT` ist, wird dieser Knoten einbezogen.
     - Wenn der Rückgabewert `NodeFilter.FILTER_REJECT` ist, wird kein Knoten im Teilbaum basierend auf diesem Knoten einbezogen.
     - Wenn der Rückgabewert `NodeFilter.FILTER_SKIP` ist, wird dieser Knoten nicht einbezogen.
@@ -59,7 +59,7 @@ Ein neues [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt.
 
 ### Verwendung von whatToShow
 
-Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben umzuwandeln. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
+Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben zu verwandeln. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
 
 #### HTML
 
@@ -98,7 +98,7 @@ while (treeWalker.nextNode()) {
 
 ### Verwendung von filter
 
-Dieses Beispiel verwendet `filter`, um Textinhalte zu maskieren. Für jeden Textknoten werden seine Inhalte mit {{JSXref("encodeURI()")}} maskiert, wenn er ein Nachkomme eines `.escape`-Elements ist, aber nicht eines `.no-escape`-Elements.
+Dieses Beispiel verwendet `filter`, um Textinhalte zu maskieren. Für jeden Textknoten werden seine Inhalte mit {{JSXref("encodeURI()")}} maskiert, wenn es ein Nachkomme eines `.escape`-Elements ist, aber nicht eines `.no-escape`-Elements.
 
 #### HTML
 

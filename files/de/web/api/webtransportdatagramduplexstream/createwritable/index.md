@@ -3,14 +3,14 @@ title: "WebTransportDatagramDuplexStream: createWritable() Methode"
 short-title: createWritable()
 slug: Web/API/WebTransportDatagramDuplexStream/createWritable
 l10n:
-  sourceCommit: 361dd9caf4ac5db8a73cc33e4d8ee43fa2e35fcc
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{SeeCompatTable}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`createWritable()`**-Methode des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt eine [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Instanz zurück, die zum Schreiben ausgehender Datagramme zum Transport verwendet werden kann.
+Die **`createWritable()`** Methode der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) Schnittstelle gibt eine [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable) Instanz zurück, die verwendet werden kann, um ausgehende Datagramme in den Transport zu schreiben.
 
-Sie sollte anstelle der veralteten [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable)-Eigenschaft verwendet werden, wo sie unterstützt wird.
+Sie sollte anstelle der veralteten [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) Eigenschaft verwendet werden, wo sie unterstützt wird.
 
 ## Syntax
 
@@ -24,36 +24,46 @@ createWritable(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
     - `sendGroup` {{optional_inline}}
-      - : Ein [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup), unter dem die Datagramme des zurückgegebenen Streams zur Zwecke der `sendOrder`-Priorisierung gruppiert werden sollen, oder `null`, wenn sie Teil der Standardgruppe sein sollen. Der Standardwert ist `null`.
+      - : Eine [`WebTransportSendGroup`](/de/docs/Web/API/WebTransportSendGroup), unter der die Datagramme des zurückgegebenen Streams für Zwecke der `sendOrder` Priorisierung gruppiert werden sollen, oder `null`, wenn sie Teil der Standardgruppe sein sollen.
+        Der Standardwert ist `null`.
     - `sendOrder` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der die Sendepriorität der Datagramme des zurückgegebenen Streams angibt. Innerhalb der `sendGroup` des Streams werden die Bytes auf Streams mit höherer Priorität und Datagramme vor denen mit niedrigerer Priorität gesendet. Der Standardwert ist `0`.
+      - : Ein ganzzahliger Wert, der die Sendepriorität der Datagramme des zurückgegebenen Streams angibt.
+        Innerhalb der `sendGroup` des Streams werden Bytes, die in höher priorisierten Streams und Datagrammen anstehen, vor denen mit niedrigerer Priorität gesendet.
+        Der Standardwert ist `0`.
 
 ### Rückgabewert
 
-Ein [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Objekt, welches [`WritableStream`](/de/docs/Web/API/WritableStream) erweitert.
+Ein [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable) Objekt, das [`WritableStream`](/de/docs/Web/API/WritableStream) erweitert.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Status des Transports `"closed"` oder `"failed"` ist, oder wenn `sendGroup` angegeben ist (nicht null) und mit einem anderen `WebTransport` assoziiert ist.
+  - : Wird ausgelöst, wenn der Zustand des Transports `"closed"` oder `"failed"` ist, oder wenn `sendGroup` angegeben ist (nicht null) und mit einem anderen `WebTransport` verbunden ist.
 
 ## Beschreibung
 
-Die **`createWritable()`**-Methode wird verwendet, um eine [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable)-Instanz zum Schreiben ausgehender Datagramme zu erstellen.
+Die **`createWritable()`** Methode wird verwendet, um eine [`WebTransportDatagramsWritable`](/de/docs/Web/API/WebTransportDatagramsWritable) Instanz zum Schreiben ausgehender Datagramme zu erstellen.
 
-Die Methode erlaubt es Ihnen, eine `sendGroup` anzugeben, die die Gruppe von Streams und Datagrammen definiert, zu der dieser Stream gehört, und eine `sendOrder`, die die relative Priorität dieses Streams innerhalb dieser Gruppe festlegt. Innerhalb einer Gruppe werden die Bytes, die auf Streams mit höherer Priorität und Datagrammen warten, vor den Bytes von niedrigeren gesendet. Verschiedene Gruppen sollten als gleichwertig für die Zwecke der Bandbreitenzuteilung behandelt werden — obwohl die genaue Art und Weise der Bandbreitenverteilung zwischen Gruppen implementierungsabhängig ist.
+Die Methode ermöglicht es Ihnen, eine `sendGroup` anzugeben, die die Gruppe von Streams und Datagrammen definiert, zu der dieser Stream gehört, sowie eine `sendOrder`, die die relative Priorität dieses Streams innerhalb dieser Gruppe festlegt.
+Innerhalb einer Gruppe werden Bytes, die in höher priorisierten Streams und Datagrammen anstehen, vor jeglichen Bytes aus niedrigeren Prioritäten gesendet.
+Unterschiedliche Gruppen sollen als gleichwertig hinsichtlich der Bandbreitenzuteilung behandelt werden — obwohl die genaue Art und Weise, wie die Bandbreite zwischen Gruppen aufgeteilt wird, von der Implementierung festgelegt wird.
 
-Die Übertragung ist unzuverlässig, was bedeutet, dass auch wenn Sie die Prioritätenfolge definieren können, es keine Garantie dafür gibt, dass jedes Datagramm gesendet wird oder dass sie in einer bestimmten Reihenfolge ankommen.
+Die Übertragung ist unzuverlässig, das bedeutet, dass es keine Garantie gibt, dass jedes Datagramm gesendet wird oder dass sie in einer bestimmten Reihenfolge ankommen, obwohl Sie die Prioritätsreihenfolge definieren können.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieser Code zeigt, wie Sie die `createWritable()`-Methode verwenden können, um ein `WebTransportDatagramsWritable` zu erhalten und es zum Senden von Daten zu nutzen.
+Dieser Code zeigt, wie Sie die `createWritable()` Methode verwenden können, um ein `WebTransportDatagramsWritable` zu erhalten und es zu nutzen, um Daten zu senden.
 
-Zuerst definieren wir eine Funktion, um unseren Stream-Erstellungscode zu kapseln. Diese konstruierst zuerst einen `WebTransport` und verwendet diesen mit `createWritable()`, um einen schreibbaren Stream zu erstellen. Beachten Sie, dass, weil `createWritable()` nicht in allen Browsern unterstützt wird, der Code auf die [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable)-Eigenschaft zurückfällt, um den schreibbaren zu erstellen.
+Zunächst definieren wir eine Funktion, um unseren Stream-Erstellungscode zu kapseln.
+Diese erstellt zuerst ein `WebTransport` und verwendet es mit `createWritable()`, um einen beschreibbaren Stream zu erstellen.
+Beachten Sie, dass, da `createWritable()` nicht in allen Browsern unterstützt wird, der Code auf die [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) Eigenschaft zum Erstellen des beschreibbaren Streams zurückfällt.
 
-`getWriter()` wird dann auf `writable` aufgerufen, um einen Schreiber zu erstellen. Da Datagrammlieferung unzuverlässig ist, werden ausgehende Datagramme, die nicht rechtzeitig gesendet werden, verworfen. Aus diesem Grund wartet der Code auf das [`ready`](/de/docs/Web/API/WritableStreamDefaultWriter/ready)-Versprechen des Schreibers, bevor jedes Schreiben durchgeführt wird, sodass Datagramme nur geschrieben werden, wenn der zugrunde liegende Transport bereit ist, sie zu senden. Es werden auch alle Fehler von `write()` abgefangen, da eine Ablehnung bedeutet, dass ein bestimmtes Datagramm nicht gesendet wurde.
+`getWriter()` wird dann auf `writable` aufgerufen, um einen Writer zu erstellen.
+Da die Zustellung von Datagrammen unzuverlässig ist, werden ausstehende ausgehende Datagramme, die nicht rechtzeitig gesendet werden, verworfen.
+Aus diesem Grund wartet der Code auf das [`ready`](/de/docs/Web/API/WritableStreamDefaultWriter/ready) Promise des Writers vor jedem Schreiben, damit Datagramme nur geschrieben werden, wenn der zugrunde liegende Transport bereit ist, sie zu senden.
+Es werden auch alle Fehler von `write()` abgefangen, da eine Ablehnung bedeutet, dass ein bestimmtes Datagramm nicht gesendet wurde.
 
 ```js
 async function sendDatagrams(url, datagrams, writableOptions = {}) {

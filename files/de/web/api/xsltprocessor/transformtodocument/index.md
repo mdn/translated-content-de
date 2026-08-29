@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: transformToDocument() Methode"
+title: "XSLTProcessor: Methode transformToDocument()"
 short-title: transformToDocument()
 slug: Web/API/XSLTProcessor/transformToDocument
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
 {{APIRef("DOM")}}
 
-Die Methode `transformToDocument()` des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces transformiert die angegebene [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`Document`](/de/docs/Web/API/Document) unter Verwendung des mit dem `XSLTProcessor` verknüpften XSLT-Stylesheets.
+Die Methode `transformToDocument()` der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle transformiert die bereitgestellte [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`Document`](/de/docs/Web/API/Document) unter Verwendung des mit `XSLTProcessor` assoziierten XSLT-Stylesheets.
 
 ## Syntax
 
@@ -23,19 +23,19 @@ transformToDocument(source)
 
 ### Rückgabewert
 
-Ein [`Document`](/de/docs/Web/API/Document). Das tatsächliche Interface hängt von der Ausgabemethode des Stylesheets ab, wie durch das `method`-Attribut des [`<xsl:output>`](/de/docs/Web/XML/XSLT/Reference/Element/output)-Elements angegeben.
+Ein [`Document`](/de/docs/Web/API/Document). Die tatsächliche Schnittstelle hängt von der Ausgabemethode des Stylesheets ab, wie sie durch das `method`-Attribut des [`<xsl:output>`](/de/docs/Web/XML/XSLT/Reference/Element/output)-Elements spezifiziert wird.
 
-| Ausgabemethode | Ergebnisinterface                                                                                                            |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `html`         | [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)                                                                              |
-| `xml`          | [`XMLDocument`](/de/docs/Web/API/XMLDocument)                                                                                |
-| `text`         | [`XMLDocument`](/de/docs/Web/API/XMLDocument) mit einem einzigen Wurzelelement `<transformiix:result>` mit dem Text als Kind |
+| Ausgabemethode | Ergebnis-Schnittstelle                                                                                                        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `html`         | [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)                                                                               |
+| `xml`          | [`XMLDocument`](/de/docs/Web/API/XMLDocument)                                                                                 |
+| `text`         | [`XMLDocument`](/de/docs/Web/API/XMLDocument) mit einem einzelnen Wurzelelement `<transformiix:result>` mit dem Text als Kind |
 
 ## Beispiele
 
 ### Verwendung von transformToDocument()
 
-Dieses Beispiel zeigt, wie `transformToDocument()` verwendet wird, um ein XML-Dokument unter Verwendung von XSLT zu transformieren, was zu einer neuen XML-Dokumentstruktur führt.
+Dieses Beispiel zeigt, wie `transformToDocument()` verwendet wird, um ein XML-Dokument mittels XSLT zu transformieren, was zu einer neuen XML-Dokumentstruktur führt.
 
 #### HTML
 

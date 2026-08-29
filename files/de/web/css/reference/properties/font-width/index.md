@@ -3,15 +3,13 @@ title: "`font-width` CSS property"
 short-title: font-width
 slug: Web/CSS/Reference/Properties/font-width
 l10n:
-  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
+  sourceCommit: f8759faac983abbcd8276fd45ae881bb39efdf7a
 ---
 
-{{SeeCompatTable}}
-
 > [!NOTE]
-> Die `font-width`-Eigenschaft ist der moderne Ersatz für {{cssxref("font-stretch")}}, das ein veraltetes Alias ist. Obwohl `font-width` der bevorzugte Name in der Spezifikation ist, hat `font-stretch` derzeit eine breitere Browser-Unterstützung. Sehen Sie sich das [Fallback-Beispiel](#anbieten_eines_`font-stretch`_fallbacks) und die [Browser-Kompatibilität](#browser-kompatibilität)-Tabelle für Details an.
+> Die Eigenschaft `font-width` ist der moderne Ersatz für {{cssxref("font-stretch")}}, welches ein veraltetes Alias ist. Während `font-width` der bevorzugte Name der Spezifikation ist, verfügt `font-stretch` derzeit über eine breitere Browser-Unterstützung. Überprüfen Sie das [Fallback-Beispiel](#bereitstellung_eines_font-stretch-fallbacks) und die [Browser-Kompatibilität](#browser-kompatibilität) Tabelle für Details.
 
-Die **`font-width`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt ein normales, komprimiertes oder erweitertes Schriftbild aus einer Schriftart.
+Die **`font-width`** [CSS](/de/docs/Web/CSS) Eigenschaft wählt ein normales, kondensiertes oder erweitertes Gesicht aus einer Schriftart aus.
 
 {{InteractiveExample("CSS Demo: font-width")}}
 
@@ -94,44 +92,44 @@ font-width: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste spezifiziert:
 
 - `normal`
-  - : Gibt ein normalerweise komprimiertes Schriftbild an.
+  - : Gibt ein normal kondensiertes Schriftbild an.
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed`
-  - : Gibt ein stärker komprimiertes Schriftbild als normal an, wobei `ultra-condensed` das am stärksten komprimierte ist.
+  - : Gibt ein stärker kondensiertes Schriftbild an als normal, wobei `ultra-condensed` das am meisten kondensierte ist.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`
-  - : Gibt ein stärker erweitertes Schriftbild als normal an, wobei `ultra-expanded` das am stärksten erweiterte ist.
+  - : Gibt ein stärker erweitertes Schriftbild an als normal, wobei `ultra-expanded` das am meisten erweiterte ist.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (inklusive). Negative Werte sind für diese Eigenschaft nicht erlaubt.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert zwischen 50% und 200% (einschließlich). Negative Werte sind für diese Eigenschaft nicht erlaubt.
 
 ### Zuordnung von Schlüsselwörtern zu numerischen Werten
 
-Die folgende Tabelle zeigt die Zuordnung zwischen den Schlüsselwortwerten und numerischen Prozentwerten:
+Die folgende Tabelle zeigt die Zuordnung zwischen den Schlüsselwortwerten und numerischen Prozentsätzen:
 
-| Schlüsselwort     | Prozentwert |
+| Schlüsselwort     | Prozentsatz |
 | ----------------- | ----------- |
 | `ultra-condensed` | 50%         |
-| `extra-condensed` | 62,5%       |
+| `extra-condensed` | 62.5%       |
 | `condensed`       | 75%         |
-| `semi-condensed`  | 87,5%       |
+| `semi-condensed`  | 87.5%       |
 | `normal`          | 100%        |
-| `semi-expanded`   | 112,5%      |
+| `semi-expanded`   | 112.5%      |
 | `expanded`        | 125%        |
 | `extra-expanded`  | 150%        |
 | `ultra-expanded`  | 200%        |
 
 ## Beschreibung
 
-Einige Schriftfamilien bieten zusätzliche Schriftbilder an, bei denen die Zeichen schmaler als das normale Schriftbild sind (_komprimierte_ Schriftbilder) oder breiter als das normale Schriftbild (_erweiterte_ Schriftbilder).
+Einige Schriftfamilien bieten zusätzliche Schriftbilder an, bei denen die Zeichen schmaler als das normale Schriftbild (_kondensierte_ Schriftbilder) oder breiter als das normale Schriftbild (_erweiterte_ Schriftbilder) sind.
 
-Sie können `font-width` verwenden, um ein komprimiertes oder erweitertes Schriftbild aus solchen Schriftarten auszuwählen. Wenn die von Ihnen verwendete Schriftart keine komprimierten oder erweiterten Schriftbilder anbietet, hat diese Eigenschaft keine Wirkung.
+Sie können `font-width` verwenden, um ein kondensiertes oder erweitertes Schriftbild aus solchen Schriften auszuwählen. Wenn die verwendete Schrift keine kondensierten oder erweiterten Schriftbilder anbietet, hat diese Eigenschaft keine Auswirkung.
 
-### Auswahl des Schriftbildes
+### Schriftbildauswahl
 
-Das für einen bestimmten Wert von `font-width` ausgewählte Schriftbild hängt von den unterstützten Schriftbildern der jeweiligen Schriftart ab. Wenn die Schriftart kein Schriftbild bietet, das genau dem angegebenen Wert entspricht, werden Werte unter 100% einem komprimierten Schriftbild zugeordnet, und Werte gleich oder größer als 100% einem erweiterten Schriftbild.
+Das für einen gegebenen `font-width`-Wert ausgewählte Schriftbild hängt von den von der Schrift unterstützten Schriftbildern ab. Wenn die Schrift kein Schriftbild anbietet, das exakt dem gegebenen Wert entspricht, werden Werte unter 100% einem kondensierten Schriftbild zugeordnet, und Werte größer oder gleich 100% einem erweiterten Schriftbild.
 
-Die folgende Tabelle veranschaulicht die Wirkung der Einstellung verschiedener Prozentwerte von `font-width` auf zwei verschiedene Schriftarten:
+Die folgende Tabelle zeigt die Auswirkung verschiedenen Prozentwerten von `font-width` auf zwei verschiedene Schriften:
 
 ```css hidden
 @font-face {
@@ -256,12 +254,12 @@ td:nth-child(10) {
 
 {{EmbedLiveSample('Font face selection', "100%", "250px")}}
 
-Der folgende Screenshot zeigt, wie die obige Tabelle gerendert wird, falls Ihr Browser die `font-width` Eigenschaft nicht unterstützt:
+Das folgende Bildschirmfoto zeigt, wie die obige Tabelle gerendert wird, falls Ihr Browser die `font-width`-Eigenschaft nicht unterstützt:
 
-![Eine Zwei-Zeilen-Vergleichstabelle, die den Kleinbuchstaben e in verschiedenen Breiten darstellt (50%, 62,5%, 75%, 87,5%, 100%, 112,5%, 125%, 150%, 200%). Die obere Zeile ist mit Inconsolata und die untere Zeile mit Anek Malayalam beschriftet. Beide Schriftarten sind serifenlos und die Buchstaben von Inconsolata sind etwas breiter im Vergleich zu den Buchstaben von Anek Malayalam.](font-face-selection.png)
+![Eine Vergleichstabelle mit zwei Zeilen, die den Kleinbuchstaben "e" in verschiedenen Breiten (50%, 62.5%, 75%, 87.5%, 100%, 112.5%, 125%, 150%, 200%) zeigt. Die obere Zeile ist mit Inconsolata und die untere mit Anek Malayalam beschriftet. Beide Schriften sind serifenlos und die Buchstaben von Inconsolata sind im Vergleich zu denen von Anek Malayalam etwas breiter.](font-face-selection.png)
 
-- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die einen kontinuierlichen Bereich von Breiten von 50% bis 200% bietet. <!-- Note, dynamically obtained woff2 from Google fonts using query: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
-- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schriftart, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die nächstliegende passende Schriftart aus.
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata) ist eine variable Schriftart, die ein kontinuierliches Spektrum von Breiten von 50% bis 200% bietet. <!-- Hinweis, dynamisch bezogenes woff2 von Google Fonts mit der Abfrage: https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200 -->
+- [Anek Malayalam](https://fonts.google.com/specimen/Anek+Malayalam) ist eine variable Google-Schrift, die Breiten von 75% bis 125% unterstützt. Werte unterhalb und oberhalb dieses Bereichs wählen die am nächsten passende Schrift aus.
 
 ## Formale Definition
 
@@ -273,7 +271,7 @@ Der folgende Screenshot zeigt, wie die obige Tabelle gerendert wird, falls Ihr B
 
 ## Beispiele
 
-### Einstellen von Prozentsätzen für die Schriftbreite
+### Einstellen von Schriftbreiten-Prozentwerten
 
 ```html
 <p class="condensed">an elephantine lizard</p>
@@ -309,9 +307,9 @@ p {
 
 {{EmbedLiveSample("Setting font width percentages", "100%", 200)}}
 
-### Anbieten eines `font-stretch` Fallbacks
+### Bereitstellung eines Font-Stretch-Fallbacks
 
-Da `font-width` noch keine breite Browser-Unterstützung hat, möchten Sie möglicherweise die veraltete {{cssxref("font-stretch")}} Eigenschaft als Fallback einbinden. Platzieren Sie `font-stretch` vor `font-width`, damit unterstützende Browser die moderne Eigenschaft verwenden:
+Da `font-width` derzeit noch keine breite Browser-Unterstützung hat, möchten Sie möglicherweise die veraltete Eigenschaft {{cssxref("font-stretch")}} als Fallback einfügen. Platzieren Sie `font-stretch` vor `font-width`, damit unterstützende Browser die moderne Eigenschaft verwenden:
 
 ```css
 p {
@@ -321,7 +319,7 @@ p {
 ```
 
 > [!NOTE]
-> Sie können dieses Fallback-Muster mit dem [postcss-preset-env](https://preset-env.cssdb.org/) Plugin für PostCSS automatisieren, das die [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property) Transformation enthält, um `font-width` Eigenschaften automatisch in `font-stretch` konvertiert.
+> Sie können dieses Fallback-Muster mithilfe des Plugins [postcss-preset-env](https://preset-env.cssdb.org/) für PostCSS automatisieren, das die Umwandlung von `font-width`-Eigenschaften in `font-stretch` automatisch mit der [postcss-font-width-property](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-font-width-property) Transformation einschließt.
 
 ## Spezifikationen
 
@@ -339,5 +337,5 @@ p {
 - {{cssxref("font-weight")}} Eigenschaft
 - SVG {{SVGAttr("font-width")}} Attribut
 - SVG {{SVGAttr("font-stretch")}} Attribut
-- [Lernen: Grundlegende Text- und Schriftartgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
-- [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts) Modul
+- [Lernen: Grundlegendes zu Text- und Schriftarten-Styling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
