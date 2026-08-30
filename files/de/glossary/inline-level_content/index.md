@@ -2,17 +2,19 @@
 title: Inline-Inhalt
 slug: Glossary/Inline-level_content
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c1821e3db21bba9f31b8d3396632fe23d2adfd4e
 ---
 
-Im CSS wird Inhalt, der am Inline-Layout teilnimmt, als **Inline-Inhalt** bezeichnet. Die meisten Textsequenzen, ersetzte Elemente und generierte Inhalte sind standardmäßig Inline-Level.
+Im CSS bezeichnet man Inhalt, der am Inline-Layout teilnimmt, als **Inline-Inhalt**. Die meisten Textsequenzen, ersetzte Elemente und generierter Inhalt sind standardmäßig Inline-Inhalte.
 
-Im Inline-Layout wird ein gemischter Strom von Text, {{Glossary("replaced_elements", "ersetzten Elementen")}} und anderen Inline-Boxen durch Fragmentierung in einen Stapel von Zeilenboxen angeordnet. Innerhalb jeder Zeilenbox sind Inline-Level-Boxen vertikal oder horizontal aneinander ausgerichtet, abhängig vom Schreibmodus. In der Regel sind sie an den Baselines ihres Textes ausgerichtet. Dies kann mit CSS geändert werden.
-
-![Inline-Layout](inline_layout.png)
+Im Inline-Layout wird ein gemischter Datenstrom aus Text, {{Glossary("replaced_elements", "ersetzten Elementen")}} und anderen Inline-Boxen durch Fragmentierung in einen Stapel von Linienboxen angeordnet. Innerhalb jeder Linienbox sind Inline-Boxen entweder vertikal oder horizontal ausgerichtet, je nach Schreibrichtung. Typischerweise sind sie an den Baselines ihres Textes ausgerichtet. Dies kann mit CSS geändert werden.
 
 > [!NOTE]
-> HTML (_HyperText Markup Language_) Elemente wurden historisch entweder als "Block-Level" oder "Inline" Elemente kategorisiert. Diese Präsentationseigenschaft wird jetzt von CSS spezifiziert.
+> HTML (_HyperText Markup Language_) Elemente wurden historisch entweder als "Block-Elemente" oder als "Inline-Elemente" kategorisiert. Als präsentationseigenschaft wird dies jetzt durch CSS spezifiziert.
+
+![inline layout](inline_layout.png)
+
+Das Diagramm zeigt, wie Inline-Inhalt innerhalb eines Blockcontainers angeordnet ist. Die _root inline box_ ist eine anonyme Box, die vom Blockcontainer generiert wird, um all seinen Inline-Inhalt, einschließlich Text und abgeleiteter Inline-Boxen, zu halten. Um mehr über die Konzepte in diesem Diagramm zu erfahren, wie _Linienboxen_, _Fragmentierung von Inline-Boxen_ und _Floats_, lesen Sie den CSS [Leitfaden zum Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context).
 
 ## Beispiele
 
@@ -25,7 +27,7 @@ Im Inline-Layout wird ein gemischter Strom von Text, {{Glossary("replaced_elemen
 </p>
 ```
 
-In diesem Beispiel enthält das {{HTMLElement("p")}}-Element etwas Text. Innerhalb dieses Textes befindet sich ein {{HTMLElement("span")}}-Element und zwei {{HTMLElement("input")}}-Elemente, die Inline-Level-Elemente sind. Wenn sich das `<span>` über zwei Zeilen erstreckt, werden zwei Zeilenboxen erzeugt. Da diese Elemente inline sind, rendert der Absatz korrekt als ein einziger Absatz mit ununterbrochenem Textfluss:
+In diesem Beispiel enthält das {{HTMLElement("p")}} Element etwas Text. Innerhalb dieses Textes befindet sich ein {{HTMLElement("span")}} Element und zwei {{HTMLElement("input")}} Elemente, die Inline-Elemente sind. Wenn sich das `<span>` über zwei Linien erstreckt, werden zwei Linienboxen generiert. Da diese Elemente inline sind, wird der Absatz korrekt als ein einzelner Absatz mit ununterbrochenem Textfluss gerendert:
 
 ```css hidden
 body {
@@ -44,6 +46,6 @@ body {
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Block-level_content", "Block-Level-Inhalt")}}
+  - {{Glossary("Block-level_content", "Block-Inhalt")}}
 - [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context)
 - {{cssxref("display")}}

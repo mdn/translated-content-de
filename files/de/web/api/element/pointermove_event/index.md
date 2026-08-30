@@ -3,18 +3,25 @@ title: "Element: pointermove-Ereignis"
 short-title: pointermove
 slug: Web/API/Element/pointermove_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: a0d27fbd56b5327923e072af498c3e8e3252afce
 ---
 
 {{APIRef("Pointer Events")}}
 
-Das `pointermove`-Ereignis wird ausgelöst, wenn ein Zeiger die Koordinaten ändert und der Zeiger nicht durch eine [Browser-Touch-Aktion](/de/docs/Web/CSS/Reference/Properties/touch-action) [abgebrochen](/de/docs/Web/API/Element/pointercancel_event) wurde. Es ist dem [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis sehr ähnlich, bietet jedoch mehr Funktionen.
+Das `pointermove`-Ereignis wird ausgelöst, wenn ein Zeiger die Koordinaten ändert und der Zeiger nicht durch eine Browser-[touch-action](/de/docs/Web/CSS/Reference/Properties/touch-action) [abgebrochen](/de/docs/Web/API/Element/pointercancel_event) wurde. Das Ereignis tritt ebenfalls auf, wenn ein Zeiger eine seiner anderen Eigenschaften ändert, vorausgesetzt, die Änderung löst kein anderes Zeigerereignis aus. Dies schließt jede Änderung des Drucks, des tangentialen Drucks, der Neigung, der Drehung, der Kontaktgeometrie (Breite und Höhe) oder der [verketteten Tasten](https://w3c.github.io/pointerevents/#dfn-chorded-buttons) ein.
 
-Diese Ereignisse treten unabhängig davon auf, ob Zeigertasten gedrückt sind oder nicht. Sie können mit einer sehr hohen Rate ausgelöst werden, abhängig davon, wie schnell der Benutzer den Zeiger bewegt, wie schnell die Maschine ist, welche anderen Aufgaben und Prozesse ablaufen usw.
+Das `pointermove`-Ereignis kann zusammengefasste Ereignisse haben, wenn bereits ein anderes `pointermove`-Ereignis mit derselben Zeiger-ID vorhanden ist, das noch nicht in der Ereignisschleife verarbeitet wurde.
+Wenn Ereignisse zusammengefasst sind, ist das `target` des ausgelösten Ereignisses dasselbe wie das letzte zusammengefasste. Weitere Informationen zu zusammengefassten Ereignissen finden Sie in der Dokumentation zu [`PointerEvent.getCoalescedEvents()`](/de/docs/Web/API/PointerEvent/getCoalescedEvents).
+
+Dieses Ereignis ist dem [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis sehr ähnlich, bietet jedoch mehr Funktionen. Diese Ereignisse treten unabhängig davon auf, ob Zeigertasten gedrückt sind oder nicht. Sie können mit sehr hoher Rate ausgelöst werden, abhängig davon, wie schnell der Benutzer den Zeiger bewegt, wie schnell die Maschine ist, welche anderen Aufgaben und Prozesse ausgeführt werden, etc.
+
+Der Unterschied zwischen [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event) und `pointermove` liegt in ihrer Auslösefrequenz.
+Ein Browser kann `pointermove`-Ereignisse verzögern, um die Leistung zu verbessern, während `pointerrawupdate`-Ereignisse so schnell und häufig wie möglich vom Browser gesendet werden.
+Für die meisten Anwendungsfälle sollten Sie `pointermove` bevorzugen, um Leistungsprobleme zu vermeiden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("pointermove", (event) => { })
@@ -28,13 +35,13 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs
 
 {{InheritanceDiagram("PointerEvent")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-Das Ereignis, das vom Typ [`PointerEvent`](/de/docs/Web/API/PointerEvent) ist, bietet alle Informationen, die Sie über die Interaktion des Benutzers mit dem Zeigegerät wissen müssen, einschließlich der Position, der Bewegungsdistanz, der Tastenstatus und vieles mehr.
+Das Ereignis, welches vom Typ [`PointerEvent`](/de/docs/Web/API/PointerEvent) ist, bietet alle Informationen, die Sie über die Interaktion des Benutzers mit dem Zeigegerät wissen müssen, einschließlich der Position, der Bewegungsdistanz, der Tastenzustände und vielem mehr.
 
 ## Beispiele
 
-Um einen Handler für `pointermove`-Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzuzufügen:
+Um einen Handler für `pointermove`-Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzuzufügen:
 
 ```js
 const para = document.querySelector("p");
@@ -44,7 +51,7 @@ para.addEventListener("pointermove", (event) => {
 });
 ```
 
-Sie können auch die `onpointermove`-Ereignishandlereigenschaft verwenden:
+Sie können auch die `onpointermove`-Ereignis-Handler-Eigenschaft verwenden:
 
 ```js
 const para = document.querySelector("p");

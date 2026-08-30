@@ -1,20 +1,20 @@
 ---
-title: "RTCTransportStats: bytesReceived Eigenschaft"
+title: "RTCTransportStats: bytesReceived-Eigenschaft"
 short-title: bytesReceived
 slug: Web/API/RTCTransportStats/bytesReceived
 l10n:
-  sourceCommit: 185acd0fe4bd6d0f4a5c6d79fa46b1b748d09ea1
+  sourceCommit: 22415524e883da3d4119d12260b37137ffc7165f
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`bytesReceived`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs gibt die Gesamtanzahl der Nutzlast-Bytes an, die über diesen Transport empfangen wurden.
+Die **`bytesReceived`**-Eigenschaft des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs gibt die Gesamtzahl der empfangenen Payload-Bytes auf diesem Transportweg an.
 
-Es werden nur die Datenbytes gezählt; Overhead wie Padding, Header usw. sind in dieser Zählung nicht enthalten.
+Es werden nur Datenbytes gezählt; Overhead wie Padding, Header und so weiter sind in dieser Zählung nicht enthalten.
 
 ## Wert
 
-Eine positive ganze Zahl, die die Anzahl der empfangenen Nutzlast-Bytes angibt.
+Eine nicht negative ganze Zahl, die die Anzahl der empfangenen Payload-Bytes angibt.
 
 ## Spezifikationen
 
