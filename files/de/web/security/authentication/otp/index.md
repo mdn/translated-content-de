@@ -1,61 +1,61 @@
 ---
-title: Einmal-Passwörter (OTP)
+title: Einmalpasswörter (OTP)
 slug: Web/Security/Authentication/OTP
 l10n:
-  sourceCommit: 87ca9db1ebe56eb20c1f20b91fca43955d8f0e26
+  sourceCommit: 815f1a18f44059500b337719295c6eda14b6228e
 ---
 
-Ein _Einmal-Passwort_ (OTP), auch bekannt als _Einmal-PIN_ oder _Einmal-Autorisierungscode_ (OTAC), ist ein generierter Code, der spezifisch für einen einzigen Anmeldeversuch ist. Die Website sendet entweder den Code über einen separaten Kanal wie eine E-Mail an den Nutzer oder das Gerät des Nutzers generiert den Code unabhängig. Der Nutzer gibt dann den Code auf der Website ein, um sich anzumelden.
+Ein _Einmalpasswort_ (OTP), auch bekannt als _Einmal-PIN_ oder _Einmal-Autorisierungscode_ (OTAC), ist ein generierter Code, der spezifisch für einen einzigen Anmeldeversuch ist. Die Website sendet entweder den Code über einen separaten Kanal, wie eine E-Mail, an den Benutzer, oder das Gerät des Benutzers generiert den Code unabhängig. Der Benutzer gibt dann den Code auf der Website ein, um sich anzumelden.
 
-## Überblick
+## Übersicht
 
-Authentifizierungsabläufe mit Einmal-Passwörtern basieren auf etwas, das der Nutzer besitzt (ein Telefon, eine E-Mail-Adresse, ein Geheimnis, das in einer Authentifizierungs-App gespeichert ist), anstatt auf etwas, das sie wissen (ein Passwort) oder etwas, das sie sind (biometrische Informationen wie ein Fingerabdruck).
+Authentifizierungsabläufe mit Einmalpasswörtern basieren auf etwas, das der Benutzer hat (ein Telefon, eine E-Mail-Adresse, ein Geheimnis in einer Authenticator-App gespeichert), und nicht auf etwas, das er weiß (ein Passwort) oder etwas, das er ist (biometrische Informationen, wie ein Fingerabdruck).
 
-Einmal-Passwörter können entweder zusätzlich zu herkömmlichen Passwörtern verwendet werden oder sie ersetzen. Oft werden sie verwendet, um die Absichten des Nutzers zu bestätigen, zum Beispiel bei einer Zahlung.
+Einmalpasswörter können entweder zusätzlich zu traditionellen Passwörtern verwendet werden oder sie können diese ersetzen. Oft werden sie verwendet, um die Absichten des Benutzers zu bestätigen, beispielsweise bei einer Zahlung.
 
-Viele OTPs sind 6-stellig mit einer 1-zu-einer-Million Chance, korrekt erraten zu werden. Dies ist wesentlich besser als 4-stellige Codes mit nur 10.000 möglichen Kombinationen. Der Sicherheitsmechanismus, auf den sich OTPs verlassen, ist die zeitliche Komponente: OTPs sind normalerweise nur einmal für einen definierten Zeitraum gültig und werden nach der Nutzung ungültig. Deshalb haben OTPs eine kurze Ablaufzeit (idealerweise ≤5 Minuten; 30–120 Sekunden für stärkeren Schutz).
+Viele OTPs sind 6-stellig mit einer 1-zu-einer-Million-Chance, korrekt zu raten. Das ist viel besser als 4 Stellen mit nur 10.000 möglichen Kombinationen. Der Sicherheitsmechanismus, auf den OTPs sich stützen, ist die zeitliche Komponente: OTPs sind normalerweise nur einmal für einen definierten Zeitraum gültig und werden nach der Nutzung ungültig. Deshalb haben OTPs eine kurze Ablaufzeit (idealerweise ≤5 Minuten; 30–120 Sekunden für stärkeren Schutz).
 
-Dieser Artikel diskutiert drei gängige Implementierungen für Einmal-Passwörter: E-Mail, SMS und zeitbasierte Einmal-Passwörter (TOTP). TOTP wird in diesem Vergleich als der sicherste Übertragungskanal betrachtet.
+Dieser Artikel diskutiert drei gängige Implementierungen für Einmalpasswörter: E-Mail, SMS und zeitbasierte Einmalpasswörter (TOTP). TOTP gilt als sicherster Lieferkanal in diesem Vergleich.
 
 ## E-Mail OTP
 
-Bei OTPs auf E-Mail-Basis, während der Registrierung:
+Beim E-Mail-basierten OTP, während der Registrierung:
 
-- Der Nutzer gibt seine E-Mail-Adresse auf der Website an.
-- Die Website verifiziert, dass er Zugang zu dieser E-Mail-Adresse hat.
+- Der Benutzer gibt seine E-Mail-Adresse auf der Website an.
+- Die Website verifiziert, dass der Benutzer Zugang zu dieser E-Mail-Adresse hat.
 
-Wenn der Nutzer sich anmelden möchte:
+Wenn der Benutzer sich anmelden möchte:
 
-- Die Website generiert den Einmal-Code und sendet ihn per E-Mail an den Nutzer.
-- Der Nutzer gibt den Code auf der Website ein.
-- Die Website meldet den Nutzer an.
+- Die Website generiert den Einmalcode und sendet ihn per E-Mail an den Benutzer.
+- Der Benutzer gibt den Code auf der Website ein.
+- Die Website meldet den Benutzer an.
 
-Es gibt zwei gängige Methoden, den Code zu übermitteln:
+Es gibt zwei gängige Ansätze zur Zustellung des Codes:
 
-1. Die Website sendet einen personalisierten Einmal-Link an die E-Mail-Adresse des Nutzers. Wenn der Nutzer auf den Link klickt, authentifiziert die Website den Nutzer. Der Link ist nur für wenige Minuten gültig und läuft sofort nach dem Klick des Nutzers ab. Diese Option kann für den Nutzer sehr praktisch sein. Es erfordert jedoch, dass der Nutzer den Vorgang auf demselben Gerät und im selben Browser abschließt, was ein Problem sein kann, wenn man sich aus einem In-App-Browser oder von einem anderen Gerät aus anmeldet. Die Aufforderung an Nutzer, Links in E-Mails zu klicken, macht sie auch anfälliger für [Phishing](/de/docs/Web/Security/Attacks/Phishing)-Angriffe.
+1. Die Website sendet einen personalisierten Einmal-Link an die E-Mail-Adresse des Benutzers. Wenn der Benutzer auf den Link klickt, authentifiziert die Website den Benutzer. Der Link ist nur für ein paar Minuten gültig und verfällt sofort, nachdem der Benutzer darauf geklickt hat. Diese Option kann für den Benutzer äußerst bequem sein. Allerdings erfordert sie, dass der Benutzer den Prozess auf demselben Gerät und im selben Browser abschließt, was ein Problem sein kann, wenn er sich in einem In-App-Browser oder einem anderen Gerät anmeldet. Benutzer zu bitten, auf Links in E-Mails zu klicken, macht sie auch anfälliger für [Phishing](/de/docs/Web/Security/Attacks/Phishing)-Angriffe.
 
-2. Die Website sendet einen personalisierten Einmal-Code an die E-Mail-Adresse des Nutzers. Der Nutzer muss dann den Code auf seinem gewünschten Gerät und in seinem gewünschten Browser auf der Website eingeben. Dieser Prozess kann langsamer und weniger bequem für den Nutzer sein, bietet jedoch mehr Flexibilität, wo man sich einloggen kann und wird als sicherer angesehen, als Links in E-Mails zu verwenden.
+2. Die Website sendet einen personalisierten Einmalcode an die E-Mail-Adresse des Benutzers. Der Benutzer wird dann aufgefordert, den Code auf dem gewünschten Gerät und im gewünschten Browser auf der Website einzugeben. Dieser Prozess kann für den Benutzer langsamer und weniger bequem sein, bietet jedoch größere Flexibilität bei der Anmeldung und gilt als sicherer als die Verwendung von Links in E-Mails.
 
-Für eine gute Benutzererfahrung mit allen E-Mail-basierten OTP-Methoden ist es wichtig, dass Nutzer die OTP-E-Mails angemessen schnell erhalten.
+Für eine gute Benutzererfahrung mit allen E-Mail-basierten OTP-Methoden ist es wichtig, dass Benutzer die OTP-E-Mails zeitnah erhalten.
 
 ## SMS OTP
 
-Bei SMS OTP gibt der Nutzer während der Registrierung seine Handynummer an, und bei der Anmeldung sendet die Website den Einmal-Code als SMS an das Telefon.
+Beim SMS OTP gibt der Benutzer während der Registrierung seine Handynummer an, und bei der Anmeldung sendet die Website den Einmalcode per SMS an das Telefon.
 
-Eine Schwäche sowohl der E-Mail- als auch der SMS-Methoden ist, dass ein Angreifer die Nachricht abfangen könnte, die den Code enthält. Dennoch wird SMS als verwundbarer angesehen:
+Eine Schwäche sowohl der E-Mail- als auch der SMS-Methoden ist, dass ein Angreifer die Nachricht, die den Code enthält, abfangen könnte. Allerdings gilt SMS als anfälliger:
 
-- Auch wenn SMS-Nachrichten mit [A5/X-Stream-Verschlüsselungen](https://de.wikipedia.org/wiki/A5/1) verschlüsselt werden können, wurden verschiedene Schwächen in der Verschlüsselung identifiziert, und Nachrichten können innerhalb von Minuten oder Sekunden entschlüsselt werden.
-- Es gibt bekannte Schwächen in SMS-Routing-Protokollen ([SS7](https://de.wikipedia.org/wiki/Sigtran)), die es Angreifern ermöglichen, Textnachrichten an sich umzuleiten.
-- Bei [SIM-Swap-Betrügereien](https://de.wikipedia.org/wiki/SIM-Swap-Betrug) missbraucht der Angreifer die Mobilnummerportabilität (normalerweise verwendet, um Dienste zu wechseln oder wenn ein Telefon verloren geht oder gestohlen wird), um sich als Opfer auszugeben.
-- Anbieter können Telefonnummern nach Schließung eines Kontos an neue Nutzer vergeben.
+- Obwohl SMS-Nachrichten mit [A5/X-Stream-ciphers](https://en.wikipedia.org/wiki/A5/1) verschlüsselt werden können, wurden verschiedene Schwachstellen im Cipher identifiziert, und Nachrichten können innerhalb von Minuten oder Sekunden entschlüsselt werden.
+- Es gibt bekannte Schwächen in SMS-Routing-Protokollen ([SS7](https://en.wikipedia.org/wiki/Signalling_System_No._7)), durch die Angreifer Textnachrichten an sich umleiten können.
+- Bei [SIM-Swap-Betrügereien](https://en.wikipedia.org/wiki/SIM_swap_scam) missbraucht der Angreifer die Mobilnummernportabilität (normalerweise verwendet, wenn Dienste gewechselt werden oder ein Telefon verloren geht oder gestohlen wird), um das Opfer zu imitieren.
+- Provider können Telefonnummern nach Schließung eines Kontos auch an neue Benutzer weitergeben.
 
-Außerdem könnten Nutzer, wenn sie reisen, eine andere SIM-Karte oder eine eSIM verwenden und möglicherweise ihre übliche SIM-Karte oder SMS-Dienste deaktiviert haben, um Kosten zu sparen, in diesem Fall erhalten sie keine SMS-Einmal-Codes.
+Benutzer könnten zudem eine andere SIM-Karte oder eine eSIM verwenden, wenn sie reisen und eventuell ihre übliche SIM-Karte oder SMS-Dienste deaktiviert haben, um Kosten zu sparen, in welchem Fall sie keine SMS Einmalpasswörter erhalten.
 
-Deshalb sollten Sie SMS-OTPs nicht eigenständig verwenden, um neue Sitzungen zu etablieren oder für die allgemeine Authentifizierung. Stattdessen, wenn überhaupt, nur als zweiten Faktor oder zur Bestätigung von Absichten (z. B. Zahlungen) verwenden.
+Aus diesem Grund sollten Sie SMS OTP nicht allein nutzen, um neue Sitzungen zu etablieren oder für die allgemeine Authentifizierung. Stattdessen sollten Sie es, wenn überhaupt, nur als zweiten Faktor oder zur Bestätigung von Absichten (z.B. Zahlungen) verwenden.
 
 ### Autovervollständigung von SMS-Codes
 
-Um es Nutzern zu erleichtern, SMS-Codes in eine Website einzugeben, und um die Wahrscheinlichkeit von Phishing-Angriffen zu reduzieren, ermöglicht der [Standard für ursprungsgebundene Einmal-Codes, die über SMS bereitgestellt werden](https://wicg.github.io/sms-one-time-codes/), dass Websites die Autovervollständigung für Einmal-Codes unterstützen.
+Um es Benutzern zu erleichtern, SMS-Codes auf einer Website einzugeben und die Wahrscheinlichkeit von Phishing-Angriffen zu verringern, ermöglicht der [Standard für Ursprungsgebundene Einmalcodes per SMS](https://wicg.github.io/sms-one-time-codes/) Websites die Unterstützung der Autovervollständigung für Einmalcode-Werte.
 
 Um dies zu ermöglichen, müssen Sie die SMS-Nachricht wie folgt formatieren:
 
@@ -65,7 +65,7 @@ Your verification code is 123456.
 @www.example.com #123456
 ```
 
-Geben Sie dann im Anmeldeformular Ihrer Website ein {{HTMLElement("input")}}-Element mit dem `autocomplete=one-time-code`-Attributwert an.
+Stellen Sie dann auf dem Anmeldeformular Ihrer Website ein {{HTMLElement("input")}}-Element mit dem Attributwert `autocomplete=one-time-code` bereit.
 
 ```html
 <form action="/verify-otp" method="POST">
@@ -80,42 +80,42 @@ Geben Sie dann im Anmeldeformular Ihrer Website ein {{HTMLElement("input")}}-Ele
 </form>
 ```
 
-Der Browser extrahiert automatisch den Code aus der SMS und füllt das `<input>`-Element mit dem Code aus, wenn der im Nachricht angegebenen Ursprung mit dem Ursprung des Anmeldeformulars übereinstimmt.
+Der Browser extrahiert den Code automatisch aus der SMS, und wenn der Ursprung in der Nachricht mit dem Ursprung des Anmeldeformulars übereinstimmt, wird das `<input>`-Element mit dem Code automatisch ausgefüllt.
 
 ### WebOTP API
 
-Die [WebOTP API](/de/docs/Web/API/WebOTP_API) gibt Websites programmgesteuerten Zugriff auf über SMS bereitgestellte Einmal-Codes. Allerdings hat sie keine gute browserübergreifende Unterstützung und es ist nicht notwendig, diese API zu verwenden, es sei denn, Sie benötigen einen programmgesteuerten Zugriff auf den Code. Die Verwendung des standardisierten Formats und `autocomplete=one-time-code` sollte ausreichen, damit die Autovervollständigung browserübergreifend funktioniert.
+Die [WebOTP API](/de/docs/Web/API/WebOTP_API) gibt Websites programmgesteuerten Zugriff auf Einmalcodes, die per SMS geliefert werden. Sie hat jedoch keine gute Unterstützung in verschiedenen Browsern, und es sei denn, Sie benötigen programmgesteuerten Zugriff auf den Code, müssen Sie diese API nicht verwenden. Die Verwendung des standardisierten Formats und `autocomplete=one-time-code` sollte ausreichen, damit die Autovervollständigung browserübergreifend funktioniert.
 
 ## TOTP
 
-Bei zeitbasierten Einmal-Passwörtern sendet die Website den Anmeldecode nicht an den Nutzer. Stattdessen können die Website und der Nutzer den gleichen Code unabhängig voneinander generieren, basierend auf der aktuellen Zeit und einem gemeinsamen Geheimnis. Um den Code zu generieren, muss der Nutzer eine App auf seinem Gerät installieren: Dies wird als _Authenticator App_ bezeichnet.
+Bei zeitbasierten Einmalpasswörtern sendet die Website den Anmeldecode nicht an den Benutzer. Stattdessen sind die Website und der Benutzer in der Lage, denselben Code unabhängig voneinander zu generieren, basierend auf der aktuellen Zeit und einem gemeinsamen Geheimnis. Um den Code zu generieren, muss der Benutzer eine App auf seinem Gerät installieren: Dies wird als _Authenticator-App_ bezeichnet.
 
-Während der Registrierung:
+Bei der Registrierung:
 
-1. Der Nutzer installiert eine Authentifizierungs-App, falls er noch keine hat.
+1. Der Benutzer installiert eine Authenticator-App, falls er noch keine hat.
 2. Die Website:
    - Generiert das gemeinsame Geheimnis.
    - Speichert das Geheimnis sicher und verknüpft es mit dem Benutzerkonto.
-   - Betttet das Geheimnis und einige zugehörige Metadaten in eine [`otpauth`](https://www.rfc-editor.org/info/rfc6238/)-URI ein.
-   - Sie kodiert die URI als QR-Code und lädt den Nutzer ein, diesen zu scannen.
+   - Betten das Geheimnis und einige zugehörige Metadaten in einer [`otpauth`](https://www.rfc-editor.org/info/rfc6238/) URI.
+   - Codiert die URI als QR-Code und lädt den Benutzer ein, diesen zu scannen.
 
-3. Die Authentifizierungs-App auf dem Gerät des Nutzers decodiert die URI aus dem QR-Code und analysiert die URI, speichert das Geheimnis und die zugehörigen Metadaten.
+3. Die Authenticator-App auf dem Gerät des Benutzers decodiert die URI aus dem QR-Code und analysiert die URI, speichert das Geheimnis und die zugehörigen Metadaten.
 
-Bei der Anmeldung gibt der Nutzer den aktuellen Code ein, den die Authentifizierungs-App basierend auf dem Geheimnis und der aktuellen Zeit berechnet. Die Website kann die gleiche Berechnung durchführen, und wenn die Werte übereinstimmen, kann der Nutzer angemeldet werden.
+Bei der Anmeldung gibt der Benutzer den aktuellen Codewert an, den die Authenticator-App basierend auf dem Geheimnis und der aktuellen Zeit berechnet. Die Website kann dieselbe Berechnung durchführen, und wenn die Werte übereinstimmen, kann der Benutzer angemeldet werden.
 
 ### TOTP-Algorithmus
 
-Der Algorithmus für zeitbasierte Einmal-Passwörter (TOTP) ist in {{rfc("6238")}} spezifiziert. Er ist eine Erweiterung des HMAC-basierten Einmal-Passwort-Algorithmus (HOTP), der in {{rfc("4226")}} spezifiziert ist.
+Der Algorithmus für zeitbasierte Einmalpasswörter (TOTP) ist in {{rfc("6238")}} spezifiziert. Er ist eine Erweiterung des HMAC-basierten Einmalpasswort-Algorithmus (HOTP), der in {{rfc("4226")}} spezifiziert ist.
 
-Der Algorithmus erstellt Einmal-Codes, die 6-stellig sind und nur eine begrenzte Zeit gültig sind (üblicherweise 30 Sekunden). Das bedeutet, dass TOTP im Gegensatz zu den anderen beschriebenen OTP-Systemen zeitbasierte Gültigkeit und automatische Invalidierung standardmäßig implementiert.
+Der Algorithmus erstellt Einmalcodes, die 6-stellig sind und nur für eine begrenzte Zeit gültig sind (in der Regel 30 Sekunden). Dies bedeutet, dass TOTP im Gegensatz zu den anderen beschriebenen OTP-Systemen Zeitbasierte Gültigkeit und automatische Ungültigmachung von Haus aus implementiert.
 
-Der geheime Schlüssel ist ein zufälliger Wert, der mindestens 160 Bit lang sein sollte.
+Der geheime Schlüssel ist ein Zufallswert, der empfohlen wird, mindestens 160 Bit lang zu sein.
 
-Sie sollten eine gut angesehene Drittanbieter-Bibliothek verwenden, um TOTP zu implementieren, wie [pyotp](https://pyauth.github.io/pyotp/) für Python oder [otpauth](https://www.npmjs.com/package/otpauth) für Node.
+Sie sollten ein anerkanntes Drittanbieterpaket verwenden, um TOTP zu implementieren, wie [pyotp](https://pyauth.github.io/pyotp/) für Python oder [otpauth](https://www.npmjs.com/package/otpauth) für Node.
 
-### Das `otpauth`-URI-Format
+### Das `otpauth` URI-Format
 
-Das `otpauth`-URI-Format ist in diesem [IETF-Entwurf](https://www.ietf.org/archive/id/draft-linuxgemini-otpauth-uri-00.html) definiert.
+Das `otpauth` URI-Format ist in diesem [IETF-Entwurf](https://www.ietf.org/archive/id/draft-linuxgemini-otpauth-uri-00.html) definiert.
 
 Für TOTP ist die URI wie folgt formatiert:
 
@@ -123,51 +123,51 @@ Für TOTP ist die URI wie folgt formatiert:
 otpauth://totp/LABEL?secret=MQCHJLS6FJXT2BGQJ6QMG3WCAVUC2HJZ&issuer=My_Website
 ```
 
-Die `LABEL`-Komponente identifiziert den Benutzer: zum Beispiel könnte es der Benutzername sein.
+Die `LABEL`-Komponente identifiziert den Benutzer: zum Beispiel könnte es ihr Benutzername sein.
 
-Die URI enthält einige Abfrageparameter, von denen die wichtigsten sind:
+Die URI beinhaltet eine Reihe von Abfragezeichenfolgenparametern, von denen die wichtigsten sind:
 
 - `secret`
-  - : Das gemeinsam genutzte Geheimnis, kodiert in [Base32](https://de.wikipedia.org/wiki/Base32).
+  - : Das in [Base32](https://en.wikipedia.org/wiki/Base32) kodierte gemeinsame Geheimnis.
 - `issuer`
-  - : Der Name des Anbieters oder Dienstes, mit dem dieses Konto verknüpft ist. Technisch optional, aber stark empfohlen.
+  - : Der Name des Anbieters oder Dienstes, mit dem dieses Konto verbunden ist. Technisch optional, aber dringend empfohlen.
 
-### Authentifizierungs-Apps
+### Authenticator-Apps
 
-Eine große Anzahl von Authentifizierungs-Apps, sowohl proprietäre als auch Open-Source, unterstützen TOTP. Beispielsweise: [Ente Auth](https://ente.com/auth/), [2FAS](https://2fas.com) und [Microsoft Authenticator](https://www.microsoft.com/en-US/security/mobile-authenticator-app).
+Eine große Anzahl von Authenticator-Apps, sowohl proprietäre als auch Open Source, unterstützen TOTP. Beispiele sind: [Ente Auth](https://ente.com/auth/), [2FAS](https://2fas.com), und [Microsoft Authenticator](https://www.microsoft.com/en-US/security/mobile-authenticator-app).
 
-### Geheimhaltung des Geheimnisses
+### Sicherung des Geheimnisses
 
 Bei TOTP muss der geheime Schlüssel sowohl auf dem Server als auch auf dem Client sicher gespeichert werden.
 
-Für den Server sind die Überlegungen ähnlich wie für die [Passwortspeicherung](/de/docs/Web/Security/Authentication/Passwords#storing_passwords): Der Server muss TOTP-Geheimnisse so speichern, dass der Angreifer keinen Zugriff darauf hat, selbst wenn er Zugang zur Datenbank des Servers erhält.
+Für den Server ähneln die Überlegungen denen für die [Passwortspeicherung](/de/docs/Web/Security/Authentication/Passwords#storing_passwords): Der Server muss TOTP-Geheimnisse so speichern, dass der Angreifer nicht auf sie zugreifen kann, selbst wenn er Zugriff auf die Datenbank des Servers erhält.
 
-Für den Client sollte die Authentifizierungs-App einen gewissen Grad an Schutz für den geheimen Schlüssel bieten.
+Für den Client sollte die Authenticator-App eine gewisse Schutzmaßnahme für den geheimen Schlüssel bieten.
 
 ## Stärken und Schwächen
 
-Im Vergleich zu [Passwörtern](/de/docs/Web/Security/Authentication/Passwords) liegt die größte Stärke von OTP darin, dass der Nutzer nicht daran beteiligt ist, Geheimnisse zu erstellen oder zu merken, sodass OTP nicht anfällig für [Rateversuche](/de/docs/Web/Security/Authentication/Passwords#guessing) oder [Credential Stuffing](/de/docs/Web/Security/Authentication/Passwords#credential_stuffing)-Angriffe ist.
+Im Vergleich zu [Passwörtern](/de/docs/Web/Security/Authentication/Passwords) ist die größte Stärke von OTP, dass der Benutzer nicht an der Erstellung oder Erinnerung von Geheimnissen beteiligt ist, sodass OTP nicht anfällig für [Erraten](/de/docs/Web/Security/Authentication/Passwords#guessing) oder [Credential Stuffing](/de/docs/Web/Security/Authentication/Passwords#credential_stuffing) Angriffe ist.
 
 ### Schwächen
 
-- SMS- und E-Mail-basierte OTP haben das Risiko, dass ein Angreifer die vom Server gesendeten OTP-Codes abfangen könnte, und SMS ist in dieser Hinsicht viel schwächer als E-Mail.
+- SMS- und E-Mail-basierte OTP haben das Risiko, dass ein Angreifer OTP-Codes, die vom Server gesendet werden, abfangen könnte, und SMS ist in dieser Hinsicht viel schwächer als E-Mail.
 
-- TOTP ist nicht anfällig für Abfangungen, bringt jedoch das Risiko mit sich, dass ein Angreifer Zugang zum gemeinsamen Geheimnis erhält.
+- TOTP ist nicht anfällig für Abfangangriffe, birgt jedoch das Risiko, dass ein Angreifer Zugriff auf das gemeinsame Geheimnis erlangen könnte.
 
 - Alle Formen von OTP sind anfällig für [Phishing-Angriffe](/de/docs/Web/Security/Attacks/Phishing#multi-factor_authentication).
 
-Unabhängig von der Sicherheit hat OTP einige Benutzerfreundlichkeitsprobleme:
+Abgesehen von der Sicherheit gibt es bei OTP einige Benutzerfreundlichkeitsprobleme:
 
-- SMS- und E-Mail-basierte OTP können umständlich zu verwenden sein, insbesondere wenn es erhebliche Verzögerungen zwischen dem Server, der den Code sendet, und dem Nutzer, der ihn erhält, gibt.
-- Bei TOTP ist die Notwendigkeit, eine Authentifizierungs-App zu installieren, eine erhebliche Hürde bei der Anmeldung, aber natürlich, wenn der Nutzer bereits die App für eine andere Website installiert hat, muss er dies nicht erneut tun, wenn er sich auf Ihrer Website anmeldet.
+- SMS- und E-Mail-basierte OTP können umständlich zu verwenden sein, insbesondere wenn es erhebliche Verzögerungen zwischen dem Senden des Codes durch den Server und dem Empfang durch den Benutzer gibt.
+- Bei TOTP stellt die Notwendigkeit, eine Authenticator-App zu installieren, eine erhebliche Barriere für die Anmeldung dar: Aber natürlich, wenn der Benutzer die App bereits für eine andere Website installiert hat, muss er dies nicht erneut tun, wenn er sich auf Ihrer Website anmeldet.
 
 ## OTP-Empfehlungen
 
-OTP, und insbesondere TOTP, kann als [zusätzlicher Authentifizierungsfaktor](/de/docs/Glossary/Multi-factor_authentication) und zur Bestätigung von Nutzerabsichten nützlich sein, beispielsweise bei der Durchführung einer Zahlung. Für allgemeine Authentifizierungszwecke ist es besser, [Passkeys](/de/docs/Web/Security/Authentication/Passkeys) zu verwenden, die widerstandsfähiger gegen Phishing-Angriffe sind.
+OTP und insbesondere TOTP können als {{Glossary("Multi-factor_authentication", "zusätzlicher Authentifizierungsfaktor")}} und zur Bestätigung von Benutzerabsichten, z.B. bei einer Zahlung, nützlich sein. Für allgemeine Authentifizierungszwecke ist es besser, [Passkeys](/de/docs/Web/Security/Authentication/Passkeys) zu verwenden, die resistenter gegen Phishing-Angriffe sind.
 
-Wenn Sie OTP implementieren, beachten Sie die folgenden Empfehlungen:
+Wenn Sie OTP implementieren, sollten Sie folgende Empfehlungen berücksichtigen:
 
-- Bevorzugen Sie TOTP gegenüber E-Mail-basierten oder SMS-basierten OTP, und vermeiden Sie insbesondere SMS-basierte OTP.
+- Bevorzugen Sie TOTP gegenüber E-Mail- oder SMS-basierten OTP und vermeiden Sie insbesondere SMS-basierte OTP.
 - Wenn Sie TOTP verwenden:
-  - Verwenden Sie eine renommierte Bibliothek zur Generierung von Geheimnissen und OTP-Codes.
+  - Nutzen Sie eine seriöse Bibliothek, um Geheimnisse und OTP-Codes zu generieren.
   - Speichern Sie das Geheimnis sicher auf dem Server.

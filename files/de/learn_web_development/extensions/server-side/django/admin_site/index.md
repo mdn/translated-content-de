@@ -3,12 +3,12 @@ title: "Django Tutorial Teil 4: Django-Admin-Seite"
 short-title: "4: Django-Admin-Seite"
 slug: Learn_web_development/Extensions/Server-side/Django/Admin_site
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 815f1a18f44059500b337719295c6eda14b6228e
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Models", "Learn_web_development/Extensions/Server-side/Django/Home_page", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Nachdem wir nun Modelle für die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website erstellt haben, werden wir die Django-Admin-Seite verwenden, um einige "echte" Buchdaten hinzuzufügen. Zuerst zeigen wir, wie man die Modelle bei der Admin-Seite registriert, dann zeigen wir, wie man sich einloggt und einige Daten erstellt. Am Ende des Artikels zeigen wir einige Möglichkeiten, wie Sie die Präsentation der Admin-Seite weiter verbessern können.
+Da wir nun Modelle für die [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Website erstellt haben, werden wir die Django-Admin-Seite verwenden, um einige "echte" Buchdaten hinzuzufügen. Zuerst zeigen wir Ihnen, wie Sie die Modelle bei der Admin-Seite registrieren, dann zeigen wir Ihnen, wie Sie sich einloggen und einige Daten erstellen können. Am Ende des Artikels werden wir einige Möglichkeiten zeigen, wie Sie die Präsentation der Admin-Seite weiter verbessern können.
 
 <table>
   <tbody>
@@ -16,14 +16,14 @@ Nachdem wir nun Modelle für die [LocalLibrary](/de/docs/Learn_web_development/E
       <th scope="row">Voraussetzungen:</th>
       <td>
         Zuerst abschließen: <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Models"
-          >Django-Tutorial Teil 3: Verwendung von Modellen</a
+          >Django Tutorial Teil 3: Verwendung von Modellen</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Um die Vorteile und Einschränkungen der Django-Admin-Seite zu verstehen und sie zu nutzen, um einige Datensätze für unsere Modelle zu erstellen.
+        Um die Vorteile und Einschränkungen der Django-Admin-Seite zu verstehen und sie zu verwenden, um einige Datensätze für unsere Modelle zu erstellen.
       </td>
     </tr>
   </tbody>
@@ -31,15 +31,15 @@ Nachdem wir nun Modelle für die [LocalLibrary](/de/docs/Learn_web_development/E
 
 ## Überblick
 
-Die Django-Admin-_Anwendung_ kann Ihre Modelle verwenden, um automatisch einen Bereich der Website zu erstellen, mit dem Sie Datensätze erstellen, anzeigen, aktualisieren und löschen können. Dies kann Ihnen während der Entwicklung viel Zeit sparen, da Sie Ihre Modelle sehr einfach testen und ein Gefühl dafür bekommen können, ob Sie die _richtigen_ Daten haben. Die Admin-Anwendung kann auch nützlich sein, um Daten in der Produktion zu verwalten, abhängig von der Art der Website. Das Django-Projekt empfiehlt es nur für die interne Datenverwaltung (d.h. nur zur Verwendung durch Admins oder Personen innerhalb Ihrer Organisation), da der modellzentrierte Ansatz nicht unbedingt die bestmögliche Benutzeroberfläche für alle Benutzer darstellt und viele unnötige Details über die Modelle offenlegt.
+Die Django-Admin-_Anwendung_ kann Ihre Modelle verwenden, um automatisch einen Website-Bereich zu erstellen, den Sie zum Erstellen, Anzeigen, Aktualisieren und Löschen von Datensätzen verwenden können. Dies kann Ihnen während der Entwicklung viel Zeit sparen, da es sehr einfach ist, Ihre Modelle zu testen und ein Gefühl dafür zu bekommen, ob Sie die _richtigen_ Daten haben. Die Admin-Anwendung kann auch nützlich für die Datenverwaltung in der Produktion sein, abhängig von der Art der Website. Das Django-Projekt empfiehlt sie nur für die interne Datenverwaltung (d.h. nur zur Verwendung durch Administratoren oder Personen innerhalb Ihrer Organisation), da der modellzentrierte Ansatz nicht unbedingt die bestmögliche Schnittstelle für alle Benutzer ist und viele unnötige Details über die Modelle preisgibt.
 
-Die gesamte Konfiguration, die erforderlich ist, um die Admin-Anwendung in Ihre Website einzubeziehen, wurde automatisch erledigt, als Sie das [Skelettprojekt erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) (Informationen zu den tatsächlichen Abhängigkeiten finden Sie in den [Django-Dokumenten hier](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/)). Das Ergebnis ist, dass alles, was Sie **tun müssen**, um Ihre Modelle der Admin-Anwendung hinzuzufügen, ist, sie zu _registrieren_. Am Ende dieses Artikels zeigen wir eine kurze Demonstration, wie Sie den Admin-Bereich weiter konfigurieren können, um unsere Modelldaten besser darzustellen.
+Alle Konfigurationen, die erforderlich sind, um die Admin-Anwendung in Ihre Website aufzunehmen, wurden automatisch durchgeführt, als Sie [das Gerüstprojekt erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) haben (für Informationen über die tatsächlichen benötigten Abhängigkeiten siehe die [Django-Dokumentation hier](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/)). Als Ergebnis müssen Sie nur **Ihre Modelle bei der Admin-Anwendung registrieren**, um sie hinzuzufügen. Am Ende dieses Artikels werden wir eine kurze Demonstration geben, wie Sie den Admin-Bereich weiter konfigurieren können, um unsere Modelldaten besser anzuzeigen.
 
-Nachdem wir die Modelle registriert haben, zeigen wir, wie man einen neuen "Superuser" erstellt, sich auf der Seite anmeldet und einige Bücher, Autoren, Buchinstanzen und Genres erstellt. Diese werden nützlich sein, um die Ansichten und Vorlagen zu testen, die wir im nächsten Tutorial beginnen werden.
+Nachdem Sie die Modelle registriert haben, zeigen wir Ihnen, wie Sie einen neuen "Superuser" erstellen, sich auf der Seite einloggen und einige Bücher, Autoren, Buchinstanzen und Genres erstellen können. Diese werden nützlich sein, um die Ansichten und Vorlagen zu testen, die wir im nächsten Tutorial erstellen werden.
 
-## Modelle registrieren
+## Registrieren von Modellen
 
-Öffnen Sie zuerst **admin.py** in der Kataloganwendung (**/django-locallibrary-tutorial/catalog/admin.py**). Es sieht derzeit so aus – beachten Sie, dass `django.contrib.admin` bereits importiert wird:
+Öffnen Sie zuerst **admin.py** in der Kataloganwendung (**/django-locallibrary-tutorial/catalog/admin.py**). Derzeit sieht es so aus — beachten Sie, dass es bereits `django.contrib.admin` importiert:
 
 ```python
 from django.contrib import admin
@@ -60,100 +60,100 @@ admin.site.register(Language)
 ```
 
 > [!NOTE]
-> Die obigen Zeilen gehen davon aus, dass Sie die Herausforderung angenommen haben, ein Modell zu erstellen, das die natürliche Sprache eines Buches repräsentiert ([siehe den Tutorial-Artikel zu Modellen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models))!
+> Die obigen Zeilen gehen davon aus, dass Sie die Herausforderung angenommen haben, ein Modell zu erstellen, das die natürliche Sprache eines Buches darstellt ([siehe den Modell-Tutorial-Artikel](/de/docs/Learn_web_development/Extensions/Server-side/Django/Models))!
 
-Dies ist der einfachste Weg, ein Modell oder Modelle auf der Seite zu registrieren. Die Admin-Seite ist hochgradig anpassbar; wir werden weiter unten mehr über andere Wege sprechen, wie Sie Ihre Modelle registrieren können.
+Dies ist der einfachste Weg, ein Modell oder mehrere Modelle auf der Seite zu registrieren. Die Admin-Seite ist hochgradig anpassbar, und wir werden weiter unten mehr über die anderen Möglichkeiten zur Registrierung Ihrer Modelle sprechen.
 
 ## Erstellen eines Superusers
 
-Um sich auf der Admin-Seite anzumelden, benötigen wir ein Benutzerkonto mit aktiviertem _Mitarbeiter_-Status. Um Datensätze anzeigen und erstellen zu können, benötigt dieser Benutzer auch Berechtigungen, um alle unsere Objekte zu verwalten. Sie können ein "Superuser"-Konto erstellen, das vollständigen Zugriff auf die Seite und alle erforderlichen Berechtigungen hat, indem Sie **manage.py** verwenden.
+Um sich bei der Admin-Seite einzuloggen, benötigen wir ein Benutzerkonto mit aktivierten _Mitarbeiter_-Status. Um Datensätze anzuzeigen und zu erstellen, müssen diesem Benutzer auch Berechtigungen erteilt werden, all unsere Objekte zu verwalten. Sie können ein "Superuser"-Konto erstellen, das vollen Zugriff auf die Seite und alle benötigten Berechtigungen hat, indem Sie **manage.py** verwenden.
 
-Rufen Sie den folgenden Befehl im gleichen Verzeichnis wie **manage.py** auf, um den Superuser zu erstellen. Sie werden aufgefordert, einen Benutzernamen, eine E-Mail-Adresse und ein _starkes_ Passwort einzugeben.
+Rufen Sie den folgenden Befehl im selben Verzeichnis wie **manage.py** auf, um den Superuser zu erstellen. Sie werden aufgefordert, einen Benutzernamen, eine E-Mail-Adresse und ein _starkes_ Passwort einzugeben.
 
 ```bash
 python3 manage.py createsuperuser
 ```
 
-Sobald dieser Befehl abgeschlossen ist, wurde ein neuer Superuser zur Datenbank hinzugefügt. Starten Sie jetzt den Entwicklungsserver neu, damit wir das Login testen können:
+Sobald dieser Befehl abgeschlossen ist, wird ein neuer Superuser zur Datenbank hinzugefügt worden sein. Starten Sie nun den Entwicklungsserver neu, damit wir den Login testen können:
 
 ```bash
 python3 manage.py runserver
 ```
 
-## Anmeldung und Nutzung der Seite
+## Einloggen und Nutzung der Seite
 
-Um sich auf der Seite anzumelden, öffnen Sie die _/admin_-URL (z.B. `http://127.0.0.1:8000/admin`) und geben Sie Ihre neuen Superuser-Benutzer-ID und Passwort-Daten ein (Sie werden zur _Login_-Seite umgeleitet und dann zurück zur _/admin_-URL, nachdem Sie Ihre Daten eingegeben haben).
+Um sich auf der Seite einzuloggen, öffnen Sie die URL _/admin_ (z.B. `http://127.0.0.1:8000/admin`) und geben Sie Ihren neuen Superuser-Benutzernamen und Passwort ein (Sie werden zur _Login_-Seite weitergeleitet und dann zurück zur _/admin_-URL, nachdem Sie Ihre Daten eingegeben haben).
 
 Dieser Teil der Seite zeigt alle unsere Modelle, gruppiert nach installierter Anwendung. Sie können auf einen Modellnamen klicken, um zu einem Bildschirm zu gelangen, der alle zugehörigen Datensätze auflistet, und Sie können weiter auf diese Datensätze klicken, um sie zu bearbeiten. Sie können auch direkt auf den **Hinzufügen**-Link neben jedem Modell klicken, um einen Datensatz dieses Typs zu erstellen.
 
-![Admin-Seite - Startseite](admin_home.png)
+![Admin-Site - Startseite](admin_home.png)
 
-Klicken Sie auf den **Hinzufügen**-Link rechts von _Büchern_, um ein neues Buch zu erstellen (dies zeigt ein Dialogfeld an, das dem unten gezeigten sehr ähnlich ist). Beachten Sie, wie die Titel jedes Feldes, der verwendete Widget-Typ und der `help_text` (falls vorhanden) den Werten entsprechen, die Sie im Modell angegeben haben.
+Klicken Sie auf den **Hinzufügen**-Link rechts neben _Bücher_, um ein neues Buch zu erstellen (dies zeigt einen Dialog ähnlich dem unten an). Beachten Sie, wie die Titel jedes Feldes, der verwendete Widget-Typ und der `help_text` (falls vorhanden) mit den im Modell angegebenen Werten übereinstimmen.
 
-Geben Sie Werte für die Felder ein. Sie können neue Autoren oder Genres erstellen, indem Sie die **+**-Taste neben den jeweiligen Feldern drücken (oder vorhandene Werte aus den Listen auswählen, wenn Sie diese bereits erstellt haben). Wenn Sie fertig sind, können Sie **SPEICHERN**, **Speichern und neu erstellen** oder **Speichern und weiter bearbeiten** drücken, um den Datensatz zu speichern.
+Geben Sie Werte für die Felder ein. Sie können neue Autoren oder Genres erstellen, indem Sie die **+** Schaltfläche neben den jeweiligen Feldern drücken (oder vorhandene Werte aus den Listen auswählen, wenn Sie diese bereits erstellt haben). Wenn Sie fertig sind, können Sie auf **SPEICHERN**, **Speichern und weiteres hinzufügen** oder **Speichern und weiter bearbeiten** klicken, um den Datensatz zu speichern.
 
-![Admin-Seite - Buch hinzufügen](admin_book_add.png)
-
-> [!NOTE]
-> An diesem Punkt möchten wir, dass Sie etwas Zeit damit verbringen, einige Bücher, Autoren, Sprachen und Genres (z.B. Fantasy) zu Ihrer Anwendung hinzuzufügen. Stellen Sie sicher, dass jeder Autor und jedes Genre ein paar verschiedene Bücher enthält (dies macht Ihre Listen- und Detailansichten interessanter, wenn wir sie später in der Artikelserie implementieren).
-
-Wenn Sie mit dem Hinzufügen von Büchern fertig sind, klicken Sie auf den **Startseite**-Link im oberen Lesezeichen, um zur Haupt-Admin-Seite zurückzukehren. Klicken Sie dann auf den **Bücher**-Link, um die aktuelle Liste der Bücher anzuzeigen (oder auf einen der anderen Links, um andere Modelllisten zu sehen). Jetzt, da Sie einige Bücher hinzugefügt haben, könnte die Liste ähnlich wie im Screenshot unten aussehen. Der Titel jedes Buches wird angezeigt; dies ist der Wert, der in der Book-Model-`__str__()`-Methode zurückgegeben wird, die wir im letzten Artikel angegeben haben.
-
-![Admin-Seite - Liste der Buchobjekte](admin_book_list.png)
-
-Von dieser Liste aus können Sie Bücher löschen, indem Sie das Kontrollkästchen neben dem Buch auswählen, das Sie nicht wünschen, die _löschen…_ Aktion aus der _Aktion_-Dropdown-Liste auswählen und dann die **Los**-Taste drücken. Sie können auch neue Bücher hinzufügen, indem Sie die **BUCH HINZUFÜGEN**-Taste drücken.
-
-Sie können ein Buch bearbeiten, indem Sie seinen Namen im Link auswählen. Die Bearbeitungsseite für ein Buch, wie unten gezeigt, ist fast identisch mit der "Hinzufügen"-Seite. Die Hauptunterschiede sind der Seitentitel (_Buch ändern_) und die Hinzufügung von **Löschen**, **VERLAUFSVERZEICHNIS** und **AUF SEITE ANZEIGEN** Tasten (diese letzte Schaltfläche erscheint, weil wir die `get_absolute_url()`-Methode in unserem Modell definiert haben).
+![Admin-Site - Buch hinzufügen](admin_book_add.png)
 
 > [!NOTE]
-> Das Klicken auf die **AUF SEITE ANZEIGEN**-Schaltfläche löst eine `NoReverseMatch`-Ausnahme aus, weil die `get_absolute_url()`-Methode versucht, eine benannte URL-Zuordnung ('book-detail') zurückzusetzen, die noch nicht definiert wurde.
-> Wir werden eine URL-Zuordnung und die zugehörige Ansicht in [Django-Tutorial Teil 6: Generische Listen- und Detailansichten](/de/docs/Learn_web_development/Extensions/Server-side/Django/Generic_views) definieren.
+> An diesem Punkt möchten wir, dass Sie etwas Zeit damit verbringen, einige Bücher, Autoren, Sprachen und Genres (z.B. Fantasy) zu Ihrer Anwendung hinzuzufügen. Stellen Sie sicher, dass jeder Autor und jedes Genre ein paar verschiedene Bücher umfasst (dies macht Ihre Listen- und Detailansichten interessanter, wenn wir sie später in der Artikelserie implementieren).
 
-![Admin-Seite - Buch bearbeiten](admin_book_modify.png)
+Wenn Sie mit dem Hinzufügen von Büchern fertig sind, klicken Sie auf den **Start**-Link im oberen Lesezeichen, um zurück zur Haupt-Admin-Seite zu gelangen. Klicken Sie dann auf den **Bücher**-Link, um die aktuelle Liste der Bücher anzuzeigen (oder auf einen der anderen Links, um andere Modellsammlungen zu sehen). Jetzt, da Sie ein paar Bücher hinzugefügt haben, könnte die Liste ähnlich dem unten abgebildeten Screenshot aussehen. Der Titel jedes Buches wird angezeigt; dies ist der im letzten Artikel angegebene Rückgabewert in der `__str__()` Methode des Buchmodells.
 
-Navigieren Sie nun zurück zur **Startseite** (über den _Startseiten_-Link in der Navigationsleiste) und sehen Sie dann die **Autoren**- und **Genre**-Listen an – Sie sollten bereits einige angelegt haben, als Sie die neuen Bücher hinzugefügt haben, aber zögern Sie nicht, weitere hinzuzufügen.
+![Admin-Site - Liste der Buchobjekte](admin_book_list.png)
 
-Was Sie nicht haben werden, sind irgendwelche _Buchinstanzen_, da diese nicht aus Büchern erstellt werden (obwohl Sie ein `Buch` von einem `BuchInstanz` erstellen können – das ist die Natur des `ForeignKey`-Feldes). Navigieren Sie zurück zur _Startseite_ und drücken Sie die zugehörige **Hinzufügen**-Schaltfläche, um den _Buchinstanz hinzufügen_-Bildschirm unten anzuzeigen. Beachten Sie die große, global eindeutige Id, die verwendet werden kann, um ein einzelnes Exemplar eines Buches in der Bibliothek separat zu identifizieren.
+Aus dieser Liste können Sie Bücher löschen, indem Sie das Kontrollkästchen neben dem Buch auswählen, das Sie nicht möchten, die _löschen…_ Aktion aus der _Aktion_-Dropdown-Liste auswählen und dann die **Los**-Schaltfläche drücken. Sie können auch neue Bücher hinzufügen, indem Sie die **BUCH HINZUFÜGEN**-Schaltfläche drücken.
 
-![Admin-Seite - BuchInstanz Hinzufügen](admin_bookinstance_add.png)
+Sie können ein Buch bearbeiten, indem Sie seinen Namen im Link auswählen. Die Bearbeitungsseite für ein Buch, die unten angezeigt wird, ist fast identisch mit der "Hinzufügen"-Seite. Die Hauptunterschiede sind der Seitentitel (_Buch ändern_) und das Hinzufügen von **Löschen**, **VERLAUF** und **AUF SEITE ANZEIGEN**-Schaltflächen (diese letzte Schaltfläche erscheint, weil wir die `get_absolute_url()` Methode in unserem Modell definiert haben).
 
-Erstellen Sie eine Reihe dieser Datensätze für jedes Ihrer Bücher. Setzen Sie den Status für einige Datensätze auf _Verfügbar_ und für andere auf _Ausgeliehen_. Wenn der Status **nicht** _Verfügbar_ ist, stellen Sie auch ein zukünftiges _Fälligkeitsdatum_ ein.
+> [!NOTE]
+> Das Klicken auf die **AUF SEITE ANZEIGEN**-Schaltfläche löst eine `NoReverseMatch` Ausnahme aus, da die `get_absolute_url()` Methode versucht, eine benannte URL-Zuordnung ('buch-detail') zu `reverse()`, die noch nicht definiert wurde.
+> Wir werden eine URL-Zuordnung und zugehörige Ansicht im [Django Tutorial Teil 6: Generische Listen- und Detailansichten](/de/docs/Learn_web_development/Extensions/Server-side/Django/Generic_views) definieren.
 
-Das war's! Sie haben nun gelernt, wie Sie die Administrationsseite einrichten und verwenden können. Sie haben auch Datensätze für `Buch`, `BuchInstanz`, `Genre`, `Sprache` und `Autor` erstellt, die wir verwenden können, sobald wir unsere eigenen Ansichten und Vorlagen erstellen.
+![Admin-Site - Buch bearbeiten](admin_book_modify.png)
 
-## Erweitere Konfiguration
+Navigieren Sie nun zurück zur **Startseite** (verwenden Sie den _Start_-Link in der Breadcrumb-Navigation) und sehen Sie sich dann die **Autor**- und **Genre**-Listen an — Sie sollten bereits einige erstellt haben, als Sie die neuen Bücher hinzugefügt haben, aber fühlen Sie sich frei, weitere hinzuzufügen.
 
-Django macht einen ziemlich guten Job beim Erstellen einer grundlegenden Admin-Seite mit den Informationen aus den registrierten Modellen:
+Was Sie nicht haben werden, sind irgendwelche _Buchinstanzen_, da diese nicht aus Büchern erstellt werden (obwohl Sie ein `Buch` aus einer `Buchinstanz` erstellen können — dies ist die Natur des `ForeignKey`-Feldes). Navigieren Sie zurück zur _Start_-Seite und drücken Sie die zugehörige **Hinzufügen**-Schaltfläche, um den unten stehenden _Buchinstanz hinzufügen_ Bildschirm anzuzeigen. Beachten Sie die große, global eindeutige ID, die verwendet werden kann, um eine einzelne Kopie eines Buches in der Bibliothek separat zu identifizieren.
 
-- Jedes Modell hat eine Liste von einzelnen Datensätzen, die durch den String identifiziert werden, der mit der `__str__()`-Methode des Modells erstellt wurde, und mit Detailansichten/Formularen für die Bearbeitung verknüpft ist. Standardmäßig hat diese Ansicht ein Aktionsmenü oben, das Sie verwenden können, um Massenlöschoperationen für Datensätze durchzuführen.
-- Die Modelldetaildatensatzformulare zum Bearbeiten und Hinzufügen von Datensätzen enthalten alle Felder im Modell, die vertikal in ihrer Deklarationsreihenfolge angeordnet sind.
+![Admin-Site - Buchinstanz hinzufügen](admin_bookinstance_add.png)
 
-Sie können die Schnittstelle weiter anpassen, um sie noch einfacher zu verwenden. Einige der Dinge, die Sie tun können, sind:
+Erstellen Sie eine Anzahl dieser Datensätze für jedes Ihrer Bücher. Setzen Sie den Status für mindestens einige Datensätze auf _Verfügbar_ und für andere auf _Ausgeliehen_. Wenn der Status **nicht** _Verfügbar_ ist, setzen Sie auch ein zukünftiges _Zurückerwartet_-Datum.
+
+Das war's! Sie haben nun gelernt, wie Sie die Verwaltungsseite einrichten und nutzen. Sie haben auch Datensätze für `Buch`, `Buchinstanz`, `Genre`, `Sprache` und `Autor` erstellt, die wir verwenden können, sobald wir unsere eigenen Ansichten und Vorlagen erstellen.
+
+## Erweiterte Konfiguration
+
+Django leistet gute Arbeit dabei, eine grundlegende Admin-Seite anhand der Informationen aus den registrierten Modellen zu erstellen:
+
+- Jedes Modell hat eine Liste von einzelnen Datensätzen, die durch die mit der `__str__()` Methode des Modells erstellte Zeichenkette identifiziert werden, und verlinkt mit Detailansichten/-formularen zur Bearbeitung. Standardmäßig hat diese Ansicht ein Aktionsmenü oben, das Sie verwenden können, um Massenlöschoperationen auf Datensätzen durchzuführen.
+- Die Modellspezifischen Datensatzformulare zum Bearbeiten und Hinzufügen von Datensätzen enthalten alle Felder im Modell, vertikal angeordnet in der Reihenfolge der Deklaration.
+
+Sie können die Benutzeroberfläche weiter anpassen, um sie noch benutzerfreundlicher zu machen. Einige der Dinge, die Sie tun können, sind:
 
 - Listenansichten:
-  - Zusätzliche Felder/Informationen für jeden Datensatz hinzufügen.
-  - Filter hinzufügen, um auszuwählen, welche Datensätze aufgelistet sind, basierend auf Datum oder einem anderen Auswahlwert (z.B. Buchausleihstatus).
-  - Zusätzliche Optionen für das Aktionsmenü in Listenansichten hinzufügen und auswählen, wo dieses Menü auf dem Formular angezeigt wird.
+  - Weitere Felder/Informationen für jeden Datensatz anzeigen.
+  - Filter hinzufügen, um auszuwählen, welche Datensätze basierend auf Datum oder einem anderen Auswahlwert (z.B. Buchausleihstatus) aufgelistet werden.
+  - Weitere Optionen im Aktionsmenü in Listenansichten hinzufügen und auswählen, wo dieses Menü im Formular angezeigt wird.
 
 - Detailansichten
-  - Welche Felder angezeigt werden (oder ausgeschlossen werden), zusammen mit ihrer Reihenfolge, Gruppierung, ob sie bearbeitbar sind, das verwendete Widget, Orientierung usw. wählen.
-  - Mit einem Datensatz verwandte Felder hinzufügen, um das Inline-Bearbeiten zu ermöglichen (z.B. die Möglichkeit hinzufügen, Buchdatensätze hinzuzufügen und zu bearbeiten, während Sie deren Autorendatensatz erstellen).
+  - Auswählen, welche Felder angezeigt (oder ausgeschlossen) werden sollen, sowie deren Reihenfolge, Gruppierung, ob sie bearbeitbar sind, das verwendete Widget, Ausrichtung usw.
+  - Zu einem Datensatz gehörende Felder hinzufügen, um eine Inline-Bearbeitung zu ermöglichen (z.B. die Möglichkeit hinzuzufügen und Bücher zu bearbeiten, während Sie das Autorendatensatz erstellen).
 
-In diesem Abschnitt werden wir uns einige Änderungen ansehen, die die Schnittstelle für unsere _LocalLibrary_ verbessern, einschließlich der Hinzufügung weiterer Informationen zu `Buch`- und `Autor`-Modelllisten und der Verbesserung der Layouts ihrer Bearbeitungsansichten. Wir werden die Präsentation der Modelle `Sprache` und `Genre` nicht ändern, da sie jeweils nur ein Feld haben, sodass es keinen wirklichen Vorteil in der Änderung gibt!
+In diesem Abschnitt werden wir uns einige Änderungen ansehen, die die Benutzeroberfläche unserer _LocalLibrary_ verbessern, einschließlich der Anzeige weiterer Informationen in `Buch`- und `Autor`-Modelllisten und der Verbesserung des Layouts ihrer Bearbeitungsansichten. Wir werden die Präsentation der `Sprache`- und `Genre`-Modelle nicht ändern, da sie jeweils nur ein Feld haben und es daher keinen wirklichen Nutzen hat, dies zu tun!
 
-Sie finden eine vollständige Referenz aller Anpassungsoptionen der Admin-Seite in [The Django Admin site](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) (Django Docs).
+Sie finden eine vollständige Referenz aller Anpassungsmöglichkeiten der Admin-Seite unter [Die Django Admin-Seite](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) (Django-Dokumentation).
 
 ### Registrieren einer ModelAdmin-Klasse
 
-Um zu ändern, wie ein Modell in der Admin-Oberfläche angezeigt wird, definieren Sie eine [ModelAdmin](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#modeladmin-objects) Klasse (die das Layout beschreibt) und registrieren es mit dem Modell.
+Um zu ändern, wie ein Modell in der Admin-Oberfläche angezeigt wird, definieren Sie eine [ModelAdmin](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#modeladmin-objects) Klasse (die das Layout beschreibt) und registrieren sie beim Modell.
 
-Beginnen wir mit dem `Autor`-Modell. Öffnen Sie **admin.py** in der Kataloganwendung (**/django-locallibrary-tutorial/catalog/admin.py**). Kommentieren Sie Ihre ursprüngliche Registrierung für das `Autor`-Modell aus (präfixieren Sie sie mit einer #):
+Beginnen wir mit dem `Autor`-Modell. Öffnen Sie **admin.py** in der Kataloganwendung (**/django-locallibrary-tutorial/catalog/admin.py**). Kommentieren Sie die ursprüngliche Registrierung (beginnen mit einem #) für das `Autor`-Modell aus:
 
 ```python
 # admin.site.register(Author)
 ```
 
-Fügen Sie nun eine neue `AutorAdmin`- und Registrierungsklasse wie unten gezeigt hinzu.
+Fügen Sie nun ein neues `AuthorAdmin` und die Registrierung wie unten gezeigt hinzu.
 
 ```python
 # Define the admin class
@@ -164,14 +164,14 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Author, AuthorAdmin)
 ```
 
-Jetzt fügen wir `ModelAdmin`-Klassen für `Buch` und `BuchInstanz` hinzu. Wir müssen die ursprünglichen Registrierungen erneut auskommentieren:
+Nun fügen wir `ModelAdmin`-Klassen für `Buch` und `Buchinstanz` hinzu. Wir müssen wiederum die ursprünglichen Registrierungen auskommentieren:
 
 ```python
 # admin.site.register(Book)
 # admin.site.register(BookInstance)
 ```
 
-Jetzt erstellen und registrieren wir die neuen Modelle; für den Zweck dieser Demonstration verwenden wir stattdessen den `@register`-Dekorator, um die Modelle zu registrieren (dies macht genau dasselbe wie die `admin.site.register()`-Syntax):
+Nun zur Erstellung und Registrierung der neuen Modelle; für den Zweck dieser Demonstration verwenden wir stattdessen den `@register`-Decorator, um die Modelle zu registrieren (dies tut genau dasselbe wie die `admin.site.register()`-Syntax):
 
 ```python
 # Register the Admin classes for Book using the decorator
@@ -185,36 +185,36 @@ class BookInstanceAdmin(admin.ModelAdmin):
     pass
 ```
 
-Derzeit sind alle unsere Admin-Klassen leer (siehe `pass`), so dass das Admin-Verhalten unverändert bleibt! Wir können diese nun erweitern, um unser modellspezifisches Admin-Verhalten zu definieren.
+Derzeit sind alle unsere Admin-Klassen leer (siehe `pass`), sodass das Admin-Verhalten unverändert bleibt! Wir können diese nun erweitern, um unser modell-spezifisches Admin-Verhalten zu definieren.
 
 ### Listenansichten konfigurieren
 
-Die _LocalLibrary_ listet derzeit alle Autoren mit dem Objektnamen auf, der aus der Modell-`__str__()`-Methode generiert wurde. Dies ist in Ordnung, wenn Sie nur wenige Autoren haben, aber sobald Sie viele haben, können Sie am Ende Duplikate haben. Um sie zu unterscheiden oder weil Sie einfach mehr interessante Informationen über jeden Autor anzeigen möchten, können Sie [list_display](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display) verwenden, um zusätzliche Felder zur Ansicht hinzuzufügen.
+Die _LocalLibrary_ listet derzeit alle Autoren mit dem von der `__str__()` Methode des Modells erzeugten Objektname. Dies ist in Ordnung, wenn Sie nur wenige Autoren haben, aber sobald Sie viele haben, können Sie Duplikate erhalten. Um sie zu unterscheiden, oder einfach, weil Sie interessantere Informationen über jeden Autor anzeigen möchten, können Sie [list_display](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display) verwenden, um der Ansicht zusätzliche Felder hinzuzufügen.
 
-Ersetzen Sie Ihre `AutorAdmin`-Klasse durch den Code unten. Die anzuzeigenden Feldnamen in der Liste werden in einem _Tupel_ in der erforderlichen Reihenfolge deklariert, wie gezeigt (dies sind die gleichen Namen, die in Ihrem ursprünglichen Modell angegeben sind).
+Ersetzen Sie Ihre `AuthorAdmin`-Klasse durch den unten stehenden Code. Die anzuzeigenden Feldnamen werden in einem _Tuple_ in der erforderlichen Reihenfolge deklariert, wie gezeigt (dies sind die gleichen Namen, die in Ihrem ursprünglichen Modell angegeben wurden).
 
 ```python
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
 ```
 
-Navigieren Sie nun zur Autorenliste auf Ihrer Website. Die oben genannten Felder sollten jetzt angezeigt werden, wie folgt:
+Navigieren Sie nun zur Autorenliste auf Ihrer Website. Die oben genannten Felder sollten nun angezeigt werden, wie folgt:
 
-![Admin-Seite - Verbessere Autorenliste](admin_improved_author_list.png)
+![Admin-Site - Verbesserte Autorenliste](admin_improved_author_list.png)
 
-Für unser `Buch`-Modell zeigen wir zusätzlich den `author` und `genre` an. Der `author` ist ein `ForeignKey`-Feld (eins-zu-viele Beziehung) und wird daher durch den `__str__()`-Wert für den zugehörigen Datensatz dargestellt. Ersetzen Sie die `BuchAdmin`-Klasse durch die Version unten.
+Für unser `Buch`-Modell zeigen wir zusätzlich den `Autor` und das `Genre` an. Der `Autor` ist ein `ForeignKey`-Feld (ein-zu-viele-Beziehung) und wird daher durch den `__str__()` Wert für den zugehörigen Datensatz dargestellt. Ersetzen Sie die `BookAdmin`-Klasse durch die unten stehende Version.
 
 ```python
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'display_genre')
 ```
 
-Leider können wir das `genre`-Feld nicht direkt in `list_display` angeben, da es sich um ein `ManyToManyField` handelt (Django verhindert dies, da dies mit hohen Kosten für den Datenbankzugriff verbunden wäre). Stattdessen definieren wir eine `display_genre`-Funktion, um die Informationen als String zu erhalten (dies ist die Funktion, die wir oben aufgerufen haben; wir definieren sie unten).
+Leider können wir das `Genre`-Feld nicht direkt in `list_display` angeben, da es sich um ein `ManyToManyField` handelt (Django verhindert dies, da dies einen großen Datenbankzugriff "Kosten" verursachen würde). Stattdessen werden wir eine `display_genre` Funktion definieren, um die Informationen als Zeichenkette zu erhalten (dies ist die Funktion, die wir oben aufrufen; wir werden sie unten definieren).
 
 > [!NOTE]
-> Das Abrufen des `genres` ist möglicherweise keine gute Idee hier, aufgrund der "Kosten" des Datenbankvorgangs. Wir zeigen Ihnen jedoch, wie Sie dies tun, weil der Aufruf von Funktionen in Ihren Modellen aus anderen Gründen sehr nützlich sein kann – zum Beispiel, um neben jedem Element in der Liste einen _Lösch_-Link hinzuzufügen.
+> Das Abrufen des `Genre`-Feldes ist hier möglicherweise keine gute Idee, aufgrund der "Kosten" der Datenbankoperation. Wir zeigen Ihnen, wie, weil das Aufrufen von Funktionen in Ihren Modellen aus anderen Gründen sehr nützlich sein kann — zum Beispiel, um einen _Löschen_ Link neben jedem Element in der Liste hinzuzufügen.
 
-Fügen Sie den folgenden Code in Ihr `Buch`-Modell (**models.py**) ein. Dies erstellt einen String aus den ersten drei Werten des `genre`-Feldes (falls vorhanden) und erstellt eine `short_description`, die für diese Methode auf der Admin-Seite verwendet werden kann.
+Fügen Sie den folgenden Code in Ihr `Buch`-Modell (**models.py**) ein. Dies erstellt eine Zeichenkette aus den ersten drei Werten des `Genre`-Feldes (falls vorhanden) und erstellt eine `short_description`, die auf der Admin-Seite für diese Methode verwendet werden kann.
 
 ```python
 def display_genre(self):
@@ -224,40 +224,40 @@ def display_genre(self):
 display_genre.short_description = 'Genre'
 ```
 
-Nach dem Speichern des Modells und des aktualisierten Admins öffnen Sie Ihre Website und gehen zur _Bücher_-Listen-Seite; die Liste sollte wie die unten gezeigte aussehen:
+Nach dem Speichern des Modells und der aktualisierten Admin-Seite öffnen Sie Ihre Website und gehen Sie zur _Bücher_-Listen-Seite; Sie sollten eine Buchliste sehen, wie unten dargestellt:
 
-![Admin-Seite - Verbesserte Bücherliste](admin_improved_book_list.png)
+![Admin-Site - Verbesserte Buchliste](admin_improved_book_list.png)
 
-Das `Genre`-Modell (und das `Sprache`-Modell, falls Sie eines definiert haben) haben jeweils nur ein Feld, daher macht es keinen Sinn, ein zusätzliches Modell zu erstellen, um zusätzliche Felder anzuzeigen.
+Das `Genre`-Modell (und das `Sprache`-Modell, falls Sie eines definiert haben) haben beide nur ein Feld, daher macht es keinen Sinn, ein zusätzliches Modell dafür zu erstellen, um zusätzliche Felder anzuzeigen.
 
 > [!NOTE]
-> Es lohnt sich, die `BuchInstanz`-Modellliste so zu aktualisieren, dass mindestens der Status und das erwartete Rückgabedatum angezeigt werden. Wir haben das am Ende dieses Artikels als Herausforderung hinzugefügt!
+> Es lohnt sich, die `Buchinstanz`-Modellliste zu aktualisieren, um zumindest den Status und das erwartete Rückgabedatum anzuzeigen. Wir haben das am Ende dieses Artikels als Herausforderung hinzugefügt!
 
-### Hinzufügen von Listenfiltern
+### Listenfilter hinzufügen
 
-Sobald Sie eine große Anzahl von Elementen in einer Liste haben, kann es nützlich sein, die anzuzeigenden Elemente filtern zu können.
-Dies erfolgt durch Auflisten von Feldern im `list_filter`-Attribut.
-Ersetzen Sie Ihre aktuelle `BuchInstanzAdmin`-Klasse durch den folgenden Codeabschnitt.
+Sobald Sie viele Elemente in einer Liste haben, kann es nützlich sein, filtern zu können, welche Elemente angezeigt werden.
+Dies wird durch Auflisten von Feldern im Attribut `list_filter` erreicht.
+Ersetzen Sie Ihre aktuelle `BookInstanceAdmin`-Klasse durch den folgenden Code-Ausschnitt.
 
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
 ```
 
-Die Listenansicht wird nun ein Filterfeld rechts enthalten. Beachten Sie, wie Sie die Daten und den Status auswählen können, um die Werte zu filtern:
+Die Listenansicht enthält nun ein Filterfeld rechts. Beachten Sie, wie Sie Daten und Status auswählen können, um die Werte zu filtern:
 
-![Admin-Seite - BuchInstanz Listenfilter](admin_improved_bookinstance_list_filters.png)
+![Admin-Site - Buchinstanz-Listenfilter](admin_improved_bookinstance_list_filters.png)
 
 ### Layout der Detailansicht organisieren
 
-Standardmäßig ordnen die Detailansichten alle Felder vertikal und in ihrer Deklarationsreihenfolge im Modell an. Sie können die Deklarationsreihenfolge ändern, welche Felder angezeigt (oder ausgeschlossen) werden, ob Abschnitte verwendet werden, um die Informationen zu organisieren, ob Felder horizontal oder vertikal angezeigt werden und sogar welche Bearbeitungswidgets in den Admin-Formularen verwendet werden.
+Standardmäßig legen die Detailansichten alle Felder vertikal in der Reihenfolge der Deklaration im Modell an. Sie können die Reihenfolge der Deklaration ändern, welche Felder angezeigt (oder ausgeschlossen) werden, ob Abschnitte verwendet werden, um die Informationen zu organisieren, ob Felder horizontal oder vertikal angezeigt werden und sogar welche Bearbeitungswidgets in den Admin-Formularen verwendet werden.
 
 > [!NOTE]
-> Die _LocalLibrary_-Modelle sind relativ einfach, sodass es keinen großen Bedarf gibt, das Layout zu ändern; wir werden jedoch einige Änderungen vornehmen, um Ihnen zu zeigen, wie es geht.
+> Die _LocalLibrary_ Modelle sind relativ einfach, sodass es keinen großen Bedarf gibt, das Layout zu ändern; wir werden dennoch einige Änderungen vornehmen, nur um Ihnen zu zeigen, wie.
 
-#### Kontrolle darüber, welche Felder angezeigt und angeordnet werden
+#### Steuerung der angezeigten und angeordneten Felder
 
-Aktualisieren Sie Ihre `AutorAdmin`-Klasse, um die `fields`-Zeile wie unten gezeigt hinzuzufügen:
+Aktualisieren Sie Ihre `AuthorAdmin`-Klasse, um die `fields`-Zeile hinzuzufügen, wie unten gezeigt:
 
 ```python
 class AuthorAdmin(admin.ModelAdmin):
@@ -266,20 +266,20 @@ class AuthorAdmin(admin.ModelAdmin):
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
 ```
 
-Das `fields`-Attribut listet nur die Felder auf, die im Formular angezeigt werden sollen, in Ordnung. Standardmäßig werden Felder vertikal angezeigt, jedoch horizontal angezeigt, wenn Sie sie weiter in einem Tupel gruppieren (wie bei den "Datums"-Feldern oben gezeigt).
+Das Attribut `fields` listet nur die Felder auf, die im Formular angezeigt werden sollen, in der Reihenfolge. Felder werden standardmäßig vertikal angezeigt, aber sie werden horizontal angezeigt, wenn Sie sie weiter in einem Tuple gruppieren (wie in den "Datum"-Feldern oben gezeigt).
 
-Gehen Sie auf Ihrer Website zur Autoren-Detailansicht – sie sollte nun wie unten angezeigt aussehen:
+Auf Ihrer Website gehen Sie zur Autoren-Detailansicht — sie sollte jetzt wie unten angezeigt werden:
 
-![Admin-Seite - Verbesserter Autorendetail](admin_improved_author_detail.png)
+![Admin-Site - Verbesserte Autorendetailansicht](admin_improved_author_detail.png)
 
 > [!NOTE]
-> Sie können auch das `exclude`-Attribut verwenden, um eine Liste von Attributen zu deklarieren, die aus dem Formular ausgeschlossen werden sollen (alle anderen Attribute im Modell werden angezeigt).
+> Sie können auch das Attribut `exclude` verwenden, um eine Liste von Attributen zu deklarieren, die aus dem Formular ausgeschlossen werden sollen (alle anderen Attribute im Modell werden angezeigt).
 
-#### Aufteilung der Detailansicht
+#### Gliederung der Detailansicht
 
-Sie können Abschnitte hinzufügen, um verwandte Modellinformationen innerhalb des Detailformulars zu gruppieren, indem Sie das [fieldsets](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets) Attribut verwenden.
+Sie können "Abschnitte" hinzufügen, um verwandte Modellinformationen innerhalb des Detailformulars zu gruppieren, indem Sie das Attribut [fieldsets](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets) verwenden.
 
-Im `BuchInstanz`-Modell haben wir Informationen darüber, was das Buch ist (d.h. `name`, `imprint` und `id`) und wann es verfügbar sein wird (`status`, `due_back`). Wir können diese wie unten dargestellt in unsere `BuchInstanzAdmin`-Klasse aufnehmen, unter Verwendung der `fieldsets`-Eigenschaft.
+Im `Buchinstanz`-Modell haben wir Informationen darüber, was das Buch ist (d.h. `Name`, `Prägung` und `id`) und wann es verfügbar sein wird (`Status`, `zurück_erwartet`). Wir können diese in unsere `BookInstanceAdmin`-Klasse hinzufügen, wie unten gezeigt, indem wir die `fieldsets`-Eigenschaft verwenden.
 
 ```python
 @admin.register(BookInstance)
@@ -296,17 +296,17 @@ class BookInstanceAdmin(admin.ModelAdmin):
     )
 ```
 
-Jeder Abschnitt hat einen eigenen Titel (oder `None`, wenn Sie keinen Titel wünschen) und ein zugehöriges Tupel von Feldern in einem Dictionary – das Format ist kompliziert zu beschreiben, aber ziemlich einfach zu verstehen, wenn Sie sich den unmittelbar obigen Codeabschnitt ansehen.
+Jeder Abschnitt hat seinen eigenen Titel (oder `None`, wenn Sie keinen Titel möchten) und ein zugeordnetes Tuple von Feldern in einem Dictionary — das Format ist kompliziert zu beschreiben, aber ziemlich einfach zu verstehen, wenn Sie sich den Codeausschnitt oben ansehen.
 
-Navigieren Sie nun zu einer Buchinstanzansicht auf Ihrer Website; das Formular sollte wie unten angezeigt aussehen:
+Navigieren Sie nun zu einer Buchinstanz-Ansicht auf Ihrer Website; das Formular sollte wie unten gezeigt angezeigt werden:
 
-![Admin-Seite - Verbesserter BuchInstanz-Detail mit Abschnitten](admin_improved_bookinstance_detail_sections.png)
+![Admin-Site - Verbesserte Buchinstanz-Detailansicht mit Abschnitten](admin_improved_bookinstance_detail_sections.png)
 
-### Inline-Bearbeitung von zugehörigen Datensätzen
+### Inline-Bearbeitung zugehöriger Datensätze
 
-Manchmal macht es Sinn, zugehörige Datensätze gleichzeitig hinzufügen zu können. Beispielsweise kann es sinnvoll sein, sowohl die Buchinformationen als auch Informationen über die spezifischen Kopien, die Sie haben, auf derselben Detailseite zu haben.
+Manchmal kann es sinnvoll sein, zugehörige Datensätze gleichzeitig hinzuzufügen. Beispielsweise kann es sinnvoll sein, sowohl die Buchinformationen als auch Informationen über die spezifischen Exemplare, die Sie haben, auf derselben Detailseite zu haben.
 
-Sie können dies erreichen, indem Sie [inlines](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.inlines) deklarieren, vom Typ [TabularInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.TabularInline) (horizontales Layout) oder [StackedInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.StackedInline) (vertikales Layout, genau wie das Standardmodell-Layout). Sie können die `BuchInstanz`-Informationen inline zu unserem `Buch`-Detail hinzufügen, indem Sie `inlines` in Ihrem `BuchAdmin` angeben:
+Sie können dies tun, indem Sie [Inlines](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.inlines) deklarieren, vom Typ [TabularInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.TabularInline) (horizontales Layout) oder [StackedInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.StackedInline) (vertikales Layout, genau wie das Standardmodell-Layout). Sie können die `Buchinstanz`-Informationen inline zu unserem `Buch`-Detail hinzufügen, indem Sie `inlines` in Ihrem `BookAdmin` angeben:
 
 ```python
 class BooksInstanceInline(admin.TabularInline):
@@ -319,29 +319,29 @@ class BookAdmin(admin.ModelAdmin):
     inlines = [BooksInstanceInline]
 ```
 
-Navigieren Sie nun zu einer Ansicht eines `Buch` auf Ihrer Website – am unteren Rand sollten Sie jetzt die Buchinstanzen sehen, die sich auf dieses Buch beziehen (unmittelbar unter den Genre-Feldern des Buches):
+Navigieren Sie nun zu einer Ansicht für ein `Buch` auf Ihrer Website — am Ende sollten Sie nun die Buchinstanzen sehen können, die zu diesem Buch gehören (direkt unter den Buchgenre-Feldern):
 
-![Admin-Seite - Buch mit Inlines](admin_improved_book_detail_inlines.png)
+![Admin-Site - Buch mit Inlines](admin_improved_book_detail_inlines.png)
 
-In diesem Fall haben wir lediglich unsere tabellarische Inline-Klasse deklariert, die einfach alle Felder aus dem _inlined_ Modell hinzufügt. Sie können alle möglichen zusätzlichen Informationen für das Layout angeben, einschließlich der anzuzeigenden Felder, ihrer Reihenfolge, ob sie schreibgeschützt sind oder nicht usw. (siehe [TabularInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.TabularInline) für weitere Informationen).
+In diesem Fall haben wir einfach unsere tabellarische Inline-Klasse deklariert, die einfach alle Felder des _eingefügten_ Modells hinzufügt. Sie können alle möglichen zusätzlichen Informationen für das Layout angeben, einschließlich der anzuzeigenden Felder, deren Reihenfolge, ob sie schreibgeschützt sind oder nicht usw. (siehe [TabularInline](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/#django.contrib.admin.TabularInline) für weitere Informationen).
 
 > [!NOTE]
-> Es gibt einige schmerzhafte Einschränkungen bei dieser Funktionalität! Im obigen Screenshot haben wir drei bestehende Buchinstanzen, gefolgt von drei Platzhaltern für neue Buchinstanzen (die sehr ähnlich aussehen!). Es wäre besser, standardmäßig KEINE ersatzlosen Buchinstanzen zu haben und sie einfach mit dem **Weitere Buchinstanz hinzufügen**-Link hinzuzufügen, oder die `BuchInstanz`-Datensätze einfach als nicht lesbare Links von hier aus aufzulisten. Die erste Option kann durch Festlegen des `extra`-Attributs auf `0` im `BooksInstanceInline`-Modell erreicht werden, probieren Sie es selbst aus.
+> Es gibt einige schmerzhafte Grenzen in dieser Funktionalität! Im obigen Screenshot haben wir drei vorhandene Buchinstanzen, gefolgt von drei Platzhaltern für neue Buchinstanzen (die sehr ähnlich aussehen!). Es wäre besser, standardmäßig KEINE Ersatzbuchinstanzen zu haben und sie einfach mit dem **Füge eine weitere Buchinstanz hinzu**-Link hinzuzufügen, oder die `BookInstance`s einfach als nicht lesbare Links von hier aufzulisten. Die erste Option kann durch Einstellen des `extra`-Attributes auf `0` im `BooksInstanceInline`-Modell erreicht werden, versuchen Sie es selbst.
 
 ## Fordern Sie sich heraus
 
-Wir haben in diesem Abschnitt viel gelernt, jetzt ist es an der Zeit, dass Sie ein paar Dinge ausprobieren.
+Wir haben in diesem Abschnitt viel gelernt, also ist es jetzt an der Zeit, dass Sie ein paar Dinge ausprobieren.
 
-1. Fügen Sie für die `BuchInstanz`-Listenansicht Code hinzu, um das Buch, den Status, das Fälligkeitsdatum und die ID anzuzeigen (anstelle des Standardtexts `__str__()`).
-2. Fügen Sie eine Inline-Auflistung von `Buch`-Elementen zur `Autor`-Detailansicht hinzu, indem Sie den gleichen Ansatz wie bei `Buch`/`BuchInstanz` verwenden.
+1. Fügen Sie in der `Buchinstanz`-Listenansicht Code hinzu, um das Buch, den Status, das Rückgabedatum und die ID anzuzeigen (anstatt des Standard-`__str__()`-Textes).
+2. Fügen Sie eine Inline-Auflistung von `Buch`-Elementen zur `Autor`-Detailansicht hinzu, indem Sie denselben Ansatz wie bei `Buch`/`Buchinstanz` verwenden.
 
 ## Zusammenfassung
 
-Das war's! Sie haben nun gelernt, wie man die Administrationsseite sowohl in ihrer einfachsten als auch in ihrer verbesserten Form einrichtet, wie man einen Superuser erstellt und wie man die Admin-Seite navigiert und betrachtet, Datensätze löscht und aktualisiert. Unterwegs haben Sie eine Menge Bücher, BuchInstanzen, Genres und Autoren erstellt, die wir in der Lage sein werden, aufzulisten und anzuzeigen, sobald wir unsere eigenen Ansichten und Vorlagen erstellen.
+Das war's! Sie haben nun gelernt, wie Sie die Verwaltungsseite sowohl in ihrer einfachsten als auch in ihrer verbesserten Form einrichten, wie Sie einen Superuser erstellen und wie Sie die Admin-Seite navigieren und Datensätze anzeigen, löschen und aktualisieren können. Unterwegs haben Sie eine Menge Bücher, Buchinstanzen, Genres und Autoren erstellt, die wir auflisten und anzeigen können, sobald wir unsere eigenen Ansichten und Vorlagen erstellen.
 
 ## Weiterführende Literatur
 
-- [Schreiben Ihrer ersten Django-App, Teil 2: Einführung in das Django-Admin-Tool](https://docs.djangoproject.com/en/5.0/intro/tutorial02/#introducing-the-django-admin) (Django-Dokumente)
-- [Die Django-Admin-Seite](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) (Django-Dokumente)
+- [Erstellen Ihrer ersten Django-App, Teil 2: Einführung in den Django-Admin](https://docs.djangoproject.com/en/5.0/intro/tutorial02/#introducing-the-django-admin) (Django-Dokumentation)
+- [Die Django-Admin-Seite](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) (Django-Dokumentation)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Models", "Learn_web_development/Extensions/Server-side/Django/Home_page", "Learn_web_development/Extensions/Server-side/Django")}}

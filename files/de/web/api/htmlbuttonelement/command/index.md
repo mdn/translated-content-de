@@ -3,18 +3,18 @@ title: "HTMLButtonElement: command-Eigenschaft"
 short-title: command
 slug: Web/API/HTMLButtonElement/command
 l10n:
-  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
+  sourceCommit: 4ad860d817cf6d8ca24f41b3846b29e158934d27
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Die **`command`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ruft die Aktion ab und legt sie fest, die bei einem durch diese Schaltfläche gesteuerten Element ausgeführt werden soll. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
+Die **`command`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces legt die Aktion fest, die auf einem von diesem Button gesteuerten Element ausgeführt werden soll, und ruft diese ab. Damit dies wirksam ist, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
 
 Sie spiegelt das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-HTML-Attribut wider.
 
 ## Wert
 
-Ein String. Siehe das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) Attribut für gültige Werte.
+Ein String. Siehe das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-Attribut für gültige Werte.
 
 ## Beispiele
 
@@ -39,8 +39,7 @@ toggleBtn.command = "show-popover";
 
 ### Verwendung benutzerdefinierter Werte für Befehle
 
-In diesem Beispiel wurden drei Schaltflächen mit [benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) für `command` erstellt.
-Jede Schaltfläche zielt auf dasselbe Bild unter Verwendung des `commandfor`-Attributs ab.
+In diesem Beispiel wurden drei Buttons mit [benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) für `command` erstellt. Jeder Button zielt mit dem `commandfor`-Attribut auf dasselbe Bild.
 
 ```html
 <div class="controls">
@@ -61,8 +60,7 @@ Jede Schaltfläche zielt auf dasselbe Bild unter Verwendung des `commandfor`-Att
 }
 ```
 
-Ein Event-Listener wird dem Bild mit dem [`command` event](/de/docs/Web/API/CommandEvent) zugeordnet.
-Wenn eine der Schaltflächen angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der der Schaltfläche zugewiesen ist, dreht das Bild und aktualisiert auch den `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
+Ein Ereignis-Listener wird an das Bild mit dem [`command`-Ereignis](/de/docs/Web/API/CommandEvent) angehängt. Wenn einer der Buttons geklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen wurde, dreht das Bild und aktualisiert auch dessen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
 
 ```js
 const image = document.getElementById("the-image");
@@ -98,4 +96,4 @@ image.addEventListener("command", (event) => {
 - [Invoker Commands API](/de/docs/Web/API/Invoker_Commands_API)
 - [`HTMLButtonElement.commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)
 - [`CommandEvent`](/de/docs/Web/API/CommandEvent)
-- [`<button>` `command` attribute](/de/docs/Web/HTML/Reference/Elements/button#command)
+- [`<button>`-`command`-Attribut](/de/docs/Web/HTML/Reference/Elements/button#command)
