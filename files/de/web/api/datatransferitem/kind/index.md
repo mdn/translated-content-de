@@ -3,22 +3,24 @@ title: "DataTransferItem: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/DataTransferItem/kind
 l10n:
-  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransferItem.kind`**-Eigenschaft gibt die Art – ein String oder eine Datei – des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das _Zugdaten-Element_ darstellt.
+Die schreibgeschützte **`kind`**-Eigenschaft der [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Schnittstelle gibt die Art–einen String oder eine Datei–des Objekts zurück, das das _Drag-Datenobjekt_ darstellt.
+
+Während einer Drag-Operation kann diese Eigenschaft in jedem Drag-Event-Handler gelesen werden, selbst wenn der Drag-Datenspeicher im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) ist. Die Art des Elements bleibt zugänglich, aber seine Daten können nur in den Handlern für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisse gelesen werden. Weitere Details finden Sie unter [Lesen des Drag-Datenspeichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store).
 
 ## Wert
 
-Ein String, der die Art des Zugdaten-Elements darstellt.
+Ein String, der die Art des Drag-Datenobjekts darstellt.
 Es muss einer der folgenden Werte sein:
 
 - `'file'`
-  - : Wenn das Zugdaten-Element eine Datei ist.
+  - : Wenn das Drag-Datenobjekt eine Datei ist.
 - `'string'`
-  - : Wenn die Art des Zugdaten-Elements ein _einfacher Unicode-String_ ist.
+  - : Wenn die Art des Drag-Datenobjekts ein _einfacher Unicode-String_ ist.
 
 ## Beispiele
 
@@ -58,4 +60,4 @@ function dropHandler(ev) {
 
 - [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Zugdaten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Arbeiten mit dem Drag-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

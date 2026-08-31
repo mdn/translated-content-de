@@ -3,14 +3,14 @@ title: "DataTransferItemList: clear() Methode"
 short-title: clear()
 slug: Web/API/DataTransferItemList/clear
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`clear()`** der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) entfernt alle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekte aus der Liste der Drag-Daten-Elemente, so dass die Liste leer bleibt.
+Die **`clear()`** Methode des [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) Schnittstelle entfernt alle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekte aus der Liste der Zieh-Daten-Elemente, wodurch die Liste leer wird.
 
-Der Drag-Daten-Speicher, in dem diese Liste aufbewahrt wird, ist nur während der Verarbeitung des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignisses beschreibbar. Während der Verarbeitung des [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisses befindet sich der Drag-Daten-Speicher im Nur-Lese-Modus, und diese Methode tut stillschweigend nichts. Es wird keine Ausnahme ausgelöst.
+Während eines Ziehvorgangs kann diese Methode nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis verwendet werden, da dies der einzige Zeitpunkt ist, zu dem der Datenspeicher des Ziehvorgangs beschreibbar ist. Ein Aufruf von anderen Ziehereignissen aus hat keine Wirkung. Details finden Sie unter [Modifying the drag data store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store).
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

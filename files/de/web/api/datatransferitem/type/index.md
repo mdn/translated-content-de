@@ -3,18 +3,20 @@ title: "DataTransferItem: type-Eigenschaft"
 short-title: type
 slug: Web/API/DataTransferItem/type
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransferItem.type`**-Eigenschaft gibt den Typ (Format) des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das Drag-Datenobjekt darstellt. Der `type` ist eine Unicode-Zeichenfolge, die im Allgemeinen durch einen MIME-Typ angegeben wird, obwohl ein MIME-Typ nicht erforderlich ist.
+Die **`type`** schreibgeschützte Eigenschaft des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Interfaces gibt den Typ (das Format) des Objekts zurück, das das Ziehdaten-Element darstellt. Der `type` ist eine Unicode-Zeichenfolge, die im Allgemeinen durch einen MIME-Typ angegeben wird, obwohl ein MIME-Typ nicht erforderlich ist.
 
 Einige Beispieltypen sind: `text/plain` und `text/html`.
 
+Während eines Ziehvorgangs kann diese Eigenschaft in jedem Ziehereignishandler gelesen werden, selbst wenn der Ziehdaten-Speicher im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) ist. Der Typ des Elements bleibt zugänglich, aber seine Daten können nur in den Handlern für die Ereignisse [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) gelesen werden. Siehe [Lesen des Ziehdaten-Speichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) für Details.
+
 ## Wert
 
-Eine Zeichenfolge, die den Typ des Drag-Datenobjekts darstellt.
+Ein String, der den Typ des Ziehdaten-Elements repräsentiert.
 
 ## Beispiele
 
@@ -56,4 +58,4 @@ function dropHandler(ev) {
 ## Siehe auch
 
 - [`DataTransfer.types()`](/de/docs/Web/API/DataTransfer/types)
-- [Liste gemeinsamer MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types)
+- [Liste der gebräuchlichen MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types)

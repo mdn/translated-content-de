@@ -3,16 +3,18 @@ title: "DataTransferItemList: length-Eigenschaft"
 short-title: length
 slug: Web/API/DataTransferItemList/length
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Interfaces gibt die Anzahl der Elemente in der aktuellen Drag-Item-Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle gibt die Anzahl der Elemente in der aktuellen Ziehelementliste zurück.
+
+Während eines Ziehvorgangs kann diese Eigenschaft in jedem Ziehereignishandler gelesen werden, sogar wenn der Ziehdaten-Store im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) ist. Die Anzahl der Elemente bleibt zugänglich, jedoch können deren Daten nur in den Handlers für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisse gelesen werden. Siehe [Lesen des Ziehdaten-Stores](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) für Details.
 
 ## Wert
 
-Die Anzahl der Drag-Daten-Elemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Item-Liste gilt als deaktiviert, wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt der Item-Liste nicht mit einem Drag-Datenspeicher verknüpft ist.
+Die Anzahl der Ziehdaten-Elemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Liste der Ziehelemente wird als deaktiviert betrachtet, wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt der Elementliste nicht mit einem Ziehdaten-Store assoziiert ist.
 
 ## Beispiele
 

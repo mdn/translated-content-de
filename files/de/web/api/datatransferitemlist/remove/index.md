@@ -1,17 +1,16 @@
 ---
-title: "DataTransferItemList: remove() Methode"
+title: "DataTransferItemList: remove()-Methode"
 short-title: remove()
 slug: Web/API/DataTransferItemList/remove
 l10n:
-  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.remove()`**-Methode entfernt das
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) am angegebenen Index aus der Liste. Wenn der Index
-kleiner als Null oder größer als die Länge der Liste minus eins ist, wird die Liste nicht
-verändert.
+Die **`remove()`**-Methode der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle entfernt das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) am angegebenen Index aus der Liste. Wenn der Index kleiner als null oder größer ist als eins weniger als die Länge der Liste, wird die Liste nicht geändert.
+
+Während eines Ziehvorgangs kann diese Methode nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis verwendet werden, da dies der einzige Zeitpunkt ist, zu dem der Datenspeicher des Ziehvorgangs beschreibbar ist. Ein Aufruf in anderen Ziehereignissen führt zu einem `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException). Siehe [Modifying the drag data store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store) für Details.
 
 ## Syntax
 
@@ -22,7 +21,7 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der
+  - : Die nullbasierte Indexnummer des Elements in der Ziehdatenliste, das entfernt werden soll. Wenn der
     `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste
     unverändert.
 
@@ -33,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Drag-Daten-Speicher nicht im Lese/Schreibmodus ist und das Element daher nicht entfernt werden kann.
+  - : Wird ausgelöst, wenn der Ziehdaten-Store nicht im Lese-/Schreibmodus ist und daher das Element nicht entfernt werden kann.
 
 ## Beispiele
 
@@ -141,7 +140,7 @@ target.addEventListener("dragover", dragoverHandler);
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Ziehen und Ablegen eines Elements', 100, '300px')}}
+{{ EmbedLiveSample('Dragging and dropping an element', 100, '300px')}}
 
 ## Spezifikationen
 

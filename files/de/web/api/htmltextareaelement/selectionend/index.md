@@ -3,18 +3,18 @@ title: "HTMLTextAreaElement: selectionEnd-Eigenschaft"
 short-title: selectionEnd
 slug: Web/API/HTMLTextAreaElement/selectionEnd
 l10n:
-  sourceCommit: 76d6c2c2bcca61d0d14ed464356716090097bc7a
+  sourceCommit: 5e28cf03014f1942a39dc0b5f52ee0249e3de859
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`selectionEnd`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die Endposition der aktuellen Textselektion in einem {{HTMLElement("textarea")}}-Element an. Es ist eine Zahl, die den letzten Index des ausgewählten Textes darstellt. Sie kann sowohl zum Abrufen als auch zum Festlegen des Indexes des Endes eines `\<textarea>` ausgewählten Textes verwendet werden.
+Die **`selectionEnd`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die Endposition der aktuellen Textauswahl in einem {{HTMLElement("textarea")}}-Element an. Es handelt sich um eine Zahl, die den letzten Index des ausgewählten Textes darstellt. Sie kann verwendet werden, um sowohl den Index des Endes eines ausgewählten Textes in einem `<textarea>` abzurufen als auch festzulegen.
 
-Wenn nichts ausgewählt ist, entspricht der Wert sowohl von [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) als auch von `selectionEnd` der Position des Cursors (Einfügemarke) innerhalb des `<textarea>`-Elements.
+Wenn nichts ausgewählt ist, entspricht der Wert von sowohl [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) als auch `selectionEnd` der Position des Cursors (Eingabemarke) innerhalb des `<textarea>`-Elements.
 
-Wenn `selectionEnd` auf einen Wert kleiner als der aktuelle Wert von [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) gesetzt wird, werden sowohl die `selectionEnd`- als auch die `selectionStart`-Eigenschaften auf diesen Wert aktualisiert. Wenn beide Werte kleiner als 0 sind, werden beide Eigenschaften auf den Wert der [`textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)-Eigenschaft gesetzt.
+Das Setzen von `selectionEnd` auf einen Wert, der kleiner ist als der aktuelle Wert von [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart), aktualisiert sowohl die `selectionEnd`- als auch die `selectionStart`-Eigenschaften auf diesen Wert. Wenn beide Werte kleiner als 0 sind, werden beide Eigenschaften auf den Wert der [`textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)-Eigenschaft gesetzt.
 
-Der Eigenschaftswert kann abgerufen und gesetzt werden, ohne dass das `<textarea>` den Fokus hat, aber das Element muss den Fokus haben, damit das {{cssxref("::selection")}}-Pseudo-Element den ausgewählten Text zuordnen kann.
+Der Eigenschaftswert kann abgerufen und festgelegt werden, ohne dass das `<textarea>` den Fokus haben muss, aber das Element muss den Fokus haben, damit das {{cssxref("::selection")}}-Pseudo-Element den ausgewählten Text übereinstimmt.
 
 Das Setzen von `selectionEnd` auf einen neuen Wert löst die [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)- und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event)-Ereignisse aus.
 
@@ -44,7 +44,7 @@ const end = textarea.selectionEnd;
 - [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
 - [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)
 - [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
-- [`selectionChange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignis
+- [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignis
 - [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
 - [`HTMLTextAreaElement.setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange)
 - [`HTMLTextAreaElement.setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)

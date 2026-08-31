@@ -3,17 +3,17 @@ title: "HTMLInputElement: selectionStart-Eigenschaft"
 short-title: selectionStart
 slug: Web/API/HTMLInputElement/selectionStart
 l10n:
-  sourceCommit: 178483fe17b808b5d8b23087796a937ce6fd2a1d
+  sourceCommit: 5e28cf03014f1942a39dc0b5f52ee0249e3de859
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionStart`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt sie die Position des Texteingabe-Cursors (Karets) innerhalb des `<input>`-Elements zurück.
+Die **`selectionStart`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle ist eine Zahl, die den Anfangsindex des markierten Textes darstellt. Wenn nichts ausgewählt ist, gibt sie die Position des Texteinfüge-Cursors (Caret) im `<input>`-Element zurück.
 
 > [!NOTE]
-> Gemäß der [WHATWG Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Tel und Passwort. Bei anderen Eingabetypen gibt das Lesen von `selectionStart` `null` zurück, und beim Setzen wird ein `InvalidStateError` ausgelöst.
+> Gemäß der [WHATWG-Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingaben der Typen text, search, URL, tel und password. Bei anderen Eingabetypen gibt das Lesen von `selectionStart` `null` zurück, und das Setzen führt zu einem `InvalidStateError`.
 
-Wenn `selectionStart` größer ist als `selectionEnd`, werden beide als der Wert von `selectionEnd` behandelt.
+Wenn `selectionStart` größer als `selectionEnd` ist, werden beide als der Wert von `selectionEnd` behandelt.
 
 ## Wert
 
@@ -71,6 +71,8 @@ console.log(colorStart.selectionStart); // Output : null
 
 ## Siehe auch
 
+- {{HTMLElement("input")}}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)-Eigenschaft
 - [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd)-Eigenschaft
 - [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)-Methode

@@ -3,16 +3,18 @@ title: "DataTransfer: setDragImage() Methode"
 short-title: setDragImage()
 slug: Web/API/DataTransfer/setDragImage
 l10n:
-  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn ein Ziehvorgang stattfindet, wird ein durchscheinendes Bild vom Ziehziel (dem Element, bei dem das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis ausgelöst wird) generiert, das während des Ziehens dem Mauszeiger folgt. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Falls jedoch ein benutzerdefiniertes Bild gewünscht wird, kann die **`DataTransfer.setDragImage()`** Methode verwendet werden, um das benutzerdefinierte Bild festzulegen. Das Bild wird typischerweise ein {{HTMLElement("img")}} Element sein, es kann jedoch auch ein {{HTMLElement("canvas")}} oder ein anderes sichtbares Element sein.
+Die **`setDragImage()`**-Methode der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle setzt ein benutzerdefiniertes Bild, das als Drag-Feedback verwendet werden soll. Das Bild ist typischerweise ein {{HTMLElement("img")}}-Element, kann jedoch auch ein {{HTMLElement("canvas")}} oder jedes andere sichtbare Element sein.
 
-Die `x`- und `y`-Koordinaten der Methode definieren, wie das Bild relativ zum Mauszeiger erscheinen soll. Diese Koordinaten definieren den Versatz im Bild, an dem sich der Mauszeiger befinden soll. Um zum Beispiel das Bild so darzustellen, dass der Zeiger in der Mitte liegt, verwenden Sie Werte, die der halben Breite und Höhe des Bildes entsprechen.
+Bei einem Ziehvorgang wird ein durchscheinendes Bild aus dem Ziehziel (dem Element, bei dem das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis ausgelöst wird) erstellt und folgt beim Ziehen dem Mauszeiger. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Verwenden Sie `setDragImage()`, um es durch ein benutzerdefiniertes Bild zu ersetzen.
 
-Diese Methode muss im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignishandler aufgerufen werden.
+Die `x`- und `y`-Koordinaten der Methode definieren, wie das Bild relativ zum Mauszeiger erscheinen soll. Diese Koordinaten definieren den Versatz innerhalb des Bildes, wo der Mauszeiger sein soll. Um beispielsweise das Bild so anzuzeigen, dass der Zeiger in der Mitte ist, verwenden Sie Werte, die die Hälfte der Breite und Höhe des Bildes ausmachen.
+
+Während eines Ziehvorgangs kann diese Methode nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis verwendet werden, da dies der einzige Zeitpunkt ist, zu dem der Datenspeicher des Ziehvorgangs beschreibbar ist. Ein Aufruf bei jedem anderen Ziehereignis hat keine Wirkung. Siehe [Bearbeiten des Datenspeichers beim Ziehen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store) für Details.
 
 ## Syntax
 
@@ -23,16 +25,16 @@ setDragImage(imgElement, xOffset, yOffset)
 ### Parameter
 
 - `imgElement`
-  - : Ein Bild [`Element`](/de/docs/Web/API/Element) Element, das für das Ziehfeedbackbild verwendet werden soll.
+  - : Ein Bild-[`Element`](/de/docs/Web/API/Element), das als Drag-Feedback-Bild verwendet wird.
 
-    Wenn [`Element`](/de/docs/Web/API/Element) ein img-Element ist, dann setzen Sie den Drag-Daten-Store-Bitmap auf das Bild des Elements (in seiner intrinsischen Größe); andernfalls setzen Sie den Drag-Daten-Store-Bitmap auf ein Bild, das aus dem angegebenen Element generiert wird (der genaue Mechanismus dafür ist derzeit nicht spezifiziert).
+    Wenn das [`Element`](/de/docs/Web/API/Element) ein img-Element ist, setzen Sie den Bitmap des Drag-Datenspeichers auf das Bild des Elements (in seiner intrinsischen Größe); andernfalls setzen Sie den Bitmap des Drag-Datenspeichers auf ein Bild, das aus dem angegebenen Element generiert wird (der genaue Mechanismus hierfür ist derzeit nicht spezifiziert).
 
-    Hinweis: Wenn das [`Element`](/de/docs/Web/API/Element) ein bestehendes [`HTMLElement`](/de/docs/Web/API/HTMLElement) ist, muss es im Viewport sichtbar sein, um als Ziehfeedbackbild angezeigt zu werden. Alternativ können Sie ein neues DOM-Element erstellen, das speziell für diesen Zweck außerhalb des Bildschirms liegt.
+    Hinweis: Wenn das [`Element`](/de/docs/Web/API/Element) ein vorhandenes [`HTMLElement`](/de/docs/Web/API/HTMLElement) ist, muss es im Ansichtsfenster sichtbar sein, um als Drag-Feedback-Bild angezeigt zu werden. Alternativ können Sie ein neues DOM-Element erstellen, das möglicherweise außerhalb des Bildschirms speziell für diesen Zweck ist.
 
 - `xOffset`
-  - : Ein `long`, das den horizontalen Versatz innerhalb des Bildes angibt.
+  - : Ein `long`, der den horizontalen Versatz innerhalb des Bildes angibt.
 - `yOffset`
-  - : Ein `long`, das den vertikalen Versatz innerhalb des Bildes angibt.
+  - : Ein `long`, der den vertikalen Versatz innerhalb des Bildes angibt.
 
 ### Rückgabewert
 
@@ -105,6 +107,6 @@ target.addEventListener("drop", (ev) => {
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Ziehen und Ablegen](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehen-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

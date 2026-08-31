@@ -1,20 +1,22 @@
 ---
-title: "HTMLElement: drag-Event"
+title: "HTMLElement: drag-Ereignis"
 short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: 3385bda58637833eedc9b8dc41a2804e653208a7
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das `drag`-Event wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Benutzer gezogen wird.
+Das `drag`-Ereignis wird wiederholt ausgelöst, wenn ein Element oder eine Textauswahl vom Benutzer gezogen wird. Die Häufigkeit des Auslösens hängt vom Browser, Betriebssystem und der Bewegung des Zeigers ab; verlassen Sie sich nicht auf ein festes Intervall.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten hochblubbern.
+Die Häufigkeit des Auslösens hängt vom Browser, Betriebssystem und der Zeigerbewegung ab. Das `drag`-Ereignis kann weiterhin ausgelöst werden, während der Zeiger stationär ist, und kann häufiger ausgelöst werden, während er sich bewegt. Verlassen Sie sich nicht auf ein festes Intervall oder erwarten Sie ein Ereignis bei jeder Zeigerbewegung. Die [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) verwendet eine Auslösefrequenz von etwa 350 ms (±200 ms). In der Praxis verwenden Browser native Drag-Updates und plattformspezifische Timer, um diese Ereignisse zu versenden, sodass dieses Intervall nicht alle Browserverhalten beschreibt.
+
+Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hinaufblubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("drag", (event) => { })
@@ -30,7 +32,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Beispiele
 
-### Drag-and-Drop-Beispiel
+### Beispiel für Drag and Drop
 
 #### HTML
 

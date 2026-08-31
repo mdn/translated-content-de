@@ -3,12 +3,14 @@ title: "DataTransferItemList: add() Methode"
 short-title: add()
 slug: Web/API/DataTransferItemList/add
 l10n:
-  sourceCommit: e0f97a8a4e8a2fc45f1a7bdc8d1e3f524ccb627d
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.add()`**-Methode erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann entweder eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
+Die **`add()`** Methode der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) Schnittstelle erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt zurückgegeben.
+
+Während eines Drag-Vorgangs kann diese Methode nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis verwendet werden, da dies der einzige Zeitpunkt ist, an dem der Datenspeicher des Drag-Vorgangs beschreibbar ist. Ein Aufruf dieser Methode von einem anderen Drag-Ereignis aus gibt `null` zurück, ohne ein Element hinzuzufügen. Weitere Details finden Sie unter [Modifying the drag data store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store).
 
 ## Syntax
 
@@ -22,22 +24,22 @@ add(file)
 - `data`
   - : Ein String, der die Daten des Drag-Elements darstellt.
 - `type`
-  - : Ein String des Typs des Drag-Elements. Einige Beispieltypen sind `text/html` und `text/plain`.
+  - : Ein String des Drag-Elementtyps. Einige Beispielt-Typen sind `text/html` und `text/plain`.
 - `file`
-  - : Ein [`File`](/de/docs/Web/API/File)-Objekt. In diesem Fall muss kein Typ angegeben werden.
+  - : Ein [`File`](/de/docs/Web/API/File) Objekt. In diesem Fall muss kein Typ angegeben werden.
 
 ### Rückgabewert
 
-Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
+Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der String `data`-Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ gleich dem angegebenen Typ-Parameter ist.
+  - : Wird ausgelöst, wenn der String `data` Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `add()`-Methode.
+Dieses Beispiel zeigt die Verwendung der `add()` Methode.
 
 ### HTML
 

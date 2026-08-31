@@ -1,27 +1,27 @@
 ---
-title: Ziehvorgänge
+title: Drag-Operationen
 slug: Web/API/HTML_Drag_and_Drop_API/Drag_operations
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 3385bda58637833eedc9b8dc41a2804e653208a7
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-Zentral für die Drag-and-Drop-API sind die verschiedenen [Ziehereignisse](/de/docs/Web/API/HTML_Drag_and_Drop_API#drag_events), die in einer bestimmten Reihenfolge ausgelöst werden und auf eine bestimmte Weise behandelt werden sollen. Dieses Dokument beschreibt die Schritte, die während eines Drag-and-Drop-Vorgangs stattfinden, und was die Anwendung in jedem Handler unternehmen soll.
+Im Zentrum der Drag and Drop API stehen die verschiedenen [Drag-Ereignisse](/de/docs/Web/API/HTML_Drag_and_Drop_API#drag_events), die in einer bestimmten Reihenfolge ausgelöst werden und auf eine bestimmte Weise behandelt werden sollen. Dieses Dokument beschreibt die Schritte, die bei einem Drag-and-Drop-Vorgang auftreten, und was die Anwendung in jedem Ereignis-Handler tun soll.
 
-Auf einer höheren Ebene sind hier die möglichen Schritte in einem Drag-and-Drop-Vorgang:
+Auf hoher Ebene sind hier die möglichen Schritte bei einem Drag-and-Drop-Vorgang:
 
-- Der Benutzer [beginnt das Ziehen](#anfang_eines_ziehvorgangs) auf einem Quellknoten; das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis wird auf dem Quellknoten ausgelöst. Innerhalb dieses Ereignisses bereitet der Quellknoten den Kontext für den Ziehvorgang vor, einschließlich der Ziehdaten, dem Feedback-Bild und den erlaubten Abwurfeffekten.
-- Der Benutzer [zieht das Element herum](#über_elemente_ziehen_und_ziele_festlegen): Jedes Mal, wenn ein neues Element betreten wird, wird das [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignis auf diesem Element ausgelöst, und das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis wird auf dem vorherigen Element ausgelöst. Alle paar hundert Millisekunden wird ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis auf dem Element ausgelöst, in dem sich das Ziehen derzeit befindet, und das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis auf dem Quellknoten.
-- Das Ziehen gelangt in ein gültiges Ziel: Das Ziel annulliert sein `dragover`-Ereignis, um anzuzeigen, dass es sich um ein gültiges Ziel handelt. Eine Form von [Abwurffeedback](#abwurffeedback) weist den Benutzer auf den erwarteten Abwurfeffekt hin.
-- Der Benutzer [führt das Abwerfen durch](#einen_abwurf_ausführen): Das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis wird auf dem Ziel ausgelöst. Innerhalb dieses Ereignisses liest der Zielknoten die Ziehdaten.
-- Der [Ziehvorgang endet](#abschluss_des_ziehvorgangs): Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis wird auf dem Quellknoten ausgelöst. Dieses Ereignis wird unabhängig davon ausgelöst, ob der Abwurf erfolgreich war oder nicht.
+- Der Benutzer [startet das Ziehen](#starten_eines_drags) an einem Quellknoten; das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis wird auf dem Quellknoten ausgelöst. Innerhalb dieses Ereignisses bereitet der Quellknoten den Kontext für die Drag-Operation vor, einschließlich der Drag-Daten, Feedback-Bild und erlaubten Drop-Effekte.
+- Der Benutzer [zieht das Element herum](#über_elemente_ziehen_und_ziele_festlegen): Jedes Mal, wenn ein neues Element betreten wird, wird das [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignis auf diesem Element ausgelöst und das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis auf dem vorherigen Element. Das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis wird wiederholt auf dem Element ausgelöst, in dem sich der Drag derzeit befindet, und das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis wird wiederholt auf dem Quellknoten ausgelöst.
+- Der Drag gelangt in ein gültiges Ziel: Das Ziel storniert sein `dragover`-Ereignis, um anzuzeigen, dass es ein gültiges Ziel ist. Eine Form von [Drop-Feedback](#drop-feedback) zeigt dem Benutzer den erwarteten Drop-Effekt.
+- Der Benutzer [führt den Drop aus](#ausführen_eines_drops): Das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis wird auf dem Ziel ausgelöst. Innerhalb dieses Ereignisses liest der Zielknoten die Drag-Daten.
+- Die [Drag-Operation endet](#beenden_des_drags): Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis wird auf dem Quellknoten ausgelöst. Dieses Ereignis wird ausgelöst, unabhängig davon, ob der Drop erfolgreich war oder nicht.
 
-## Anfang eines Ziehvorgangs
+## Starten eines Drags
 
-Das Ziehen beginnt auf einem [ziehbaren Element](/de/docs/Web/API/HTML_Drag_and_Drop_API#draggable_items), das eine Auswahl, ein ziehbares Element (einschließlich Links, Bilder und jedes Element mit `draggable="true"`), eine Datei aus dem Datei-Explorer des Betriebssystems usw. sein kann. Zuerst wird das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis auf dem _Quellknoten_ ausgelöst, der das ziehbare Element oder bei Auswahlen der Textknoten ist, auf dem das Ziehen begonnen hat. Wenn dieses Ereignis abgebrochen wird, wird der Ziehvorgang abgebrochen. Ansonsten wird das [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignis auch auf dem Quellknoten ausgelöst.
+Der Drag beginnt an einem [ziehbaren Element](/de/docs/Web/API/HTML_Drag_and_Drop_API#draggable_items), das eine Auswahl, ein ziehbares Element (einschließlich Links, Bilder und jedes Element mit `draggable="true"`), eine Datei aus dem Datei-Explorer des Betriebssystems usw. sein kann. Zuerst wird das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis auf dem _Quellknoten_ ausgelöst, bei dem es sich um das ziehbare Element oder, bei Auswahlen, um den Textknoten handelt, bei dem das Ziehen begann. Wenn dieses Ereignis abgebrochen wird, wird die Drag-Operation abgebrochen. Andernfalls wird das [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)-Ereignis ebenfalls auf dem Quellknoten ausgelöst.
 
-Das `dragstart`-Ereignis ist der einzige Zeitpunkt, an dem Sie das [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) ändern können. Für ein benutzerdefiniertes ziehbares Element möchten Sie fast immer die Ziehdaten ändern, was im [Ändern des Ziehdaten-Speichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store) im Detail behandelt wird. Es gibt zwei weitere Dinge, die Sie ändern können: das [Feedback-Bild](#das_feedback-bild_des_ziehvorgangs_einstellen) und die [erlaubten Abwurfeffekte](#abwurfeffekte).
+Das `dragstart`-Ereignis ist die einzige Zeit, in der Sie den [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) ändern können. Für ein benutzerdefiniertes ziehbares Element möchten Sie fast immer die Drag-Daten ändern, was im Detail unter [Ändern des Drag-Daten-Stores](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#modifying_the_drag_data_store) behandelt wird. Es gibt zwei weitere Dinge, die Sie ändern können: das [Feedback-Bild](#festlegen_des_drag-feedback-bildes) und die [erlaubten Drop-Effekte](#drop-effekte).
 
 In diesem Beispiel fügen wir einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis hinzu, indem wir die `addEventListener()`-Methode verwenden.
 
@@ -36,7 +36,7 @@ draggableElement.addEventListener("dragstart", (event) => {
 });
 ```
 
-Sie könnten auch einem höheren Vorfahren zuhören, da Ziehereignisse wie die meisten anderen Ereignisse aufsteigen. Aus diesem Grund ist es üblich, auch das Ziel des Ereignisses zu überprüfen, damit das Ziehen einer Auswahl innerhalb dieses Elements nicht `setData` auslöst (obwohl das Auswählen von Text innerhalb des Elements schwer ist, ist es nicht unmöglich):
+Sie könnten auch auf einen höheren Vorfahren hören, da Drag-Ereignisse wie die meisten anderen Ereignisse nach oben blubbern. Aus diesem Grund ist es üblich, auch das Ziel des Ereignisses zu überprüfen, damit das Ziehen einer Auswahl, die innerhalb dieses Elements enthalten ist, nicht das `setData` auslöst (obwohl das Auswählen von Text innerhalb des Elements schwierig ist, ist es nicht unmöglich):
 
 ```js
 draggableElement.addEventListener("dragstart", (event) => {
@@ -46,9 +46,9 @@ draggableElement.addEventListener("dragstart", (event) => {
 });
 ```
 
-### Das Feedback-Bild des Ziehvorgangs einstellen
+### Festlegen des Drag-Feedback-Bildes
 
-Wenn ein Ziehvorgang stattfindet, wird ein durchscheinendes Bild aus dem Quellknoten erstellt und folgt dem Zeiger des Benutzers während des Ziehvorgangs. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Sie können jedoch [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) verwenden, um ein benutzerdefiniertes Feedback-Bild zu spezifizieren.
+Wenn ein Drag auftritt, wird ein durchsichtiges Bild aus dem Quellknoten generiert und folgt dem Zeiger des Benutzers während des Drags. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Sie können jedoch [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) verwenden, um ein benutzerdefiniertes Drag-Feedback-Bild anzugeben.
 
 ```js
 draggableElement.addEventListener("dragstart", (event) => {
@@ -56,9 +56,9 @@ draggableElement.addEventListener("dragstart", (event) => {
 });
 ```
 
-Drei Argumente sind notwendig. Das erste ist ein Verweis auf ein Bild. Dieser Verweis wird typischerweise auf ein `<img>`-Element verweisen, er kann aber auch auf ein `<canvas>` oder ein anderes Element verweisen. Das Feedback-Bild wird aus dem erstellt, was das Bild auf dem Bildschirm zeigt, obwohl für Bilder, diese in ihrer Originalgröße gezeichnet werden. Die zweiten und dritten Argumente der [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage)-Methode sind die Versätze, wo das Bild relativ zum Mauszeiger angezeigt werden soll.
+Drei Argumente sind erforderlich. Das erste ist ein Verweis auf ein Bild. Dieser Verweis bezieht sich typischerweise auf ein `<img>`-Element, kann aber auch auf ein `<canvas>` oder ein anderes Element verweisen. Das Feedback-Bild wird aus dem, wie das Bild auf dem Bildschirm aussieht, generiert, obwohl Bilder in ihrer Originalgröße gezeichnet werden. Die zweiten und dritten Argumente der [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage)-Methode sind Offsets, wo das Bild relativ zum Mauszeiger erscheinen soll.
 
-Sie können auch Bilder und Canvases verwenden, die sich nicht in einem Dokument befinden. Diese Technik ist nützlich, wenn Sie benutzerdefinierte Ziehbilder mit dem Canvas-Element zeichnen, wie im folgenden Beispiel:
+Sie können auch Bilder und Leinwände verwenden, die sich nicht in einem Dokument befinden. Diese Technik ist nützlich, wenn benutzerdefinierte Drag-Bilder mit dem Canvas-Element gezeichnet werden, wie im folgenden Beispiel:
 
 ```js
 draggableElement.addEventListener("dragstart", (event) => {
@@ -77,16 +77,16 @@ draggableElement.addEventListener("dragstart", (event) => {
 });
 ```
 
-In diesem Beispiel machen wir ein Canvas zu dem Ziehbild. Da das Canvas 50×50 Pixel groß ist, verwenden wir Versätze von der Hälfte davon (`25`), damit das Bild zentriert auf dem Mauszeiger erscheint.
+In diesem Beispiel machen wir ein Canvas zum Drag-Bild. Da das Canvas 50×50 Pixel groß ist, verwenden wir Offsets von der Hälfte davon (`25`), sodass das Bild zentriert auf dem Mauszeiger erscheint.
 
 ## Über Elemente ziehen und Ziele festlegen
 
-Während des gesamten Ziehvorgangs werden alle Geräteeingabeereignisse (wie Maus oder Tastatur) unterdrückt. Die gezogenen Daten können über verschiedene Elemente im Dokument oder sogar über Elemente in anderen Dokumenten bewegt werden. Jedes Mal, wenn ein neues Element betreten wird, wird ein [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignis auf diesem Element ausgelöst und ein [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis auf dem vorherigen Element.
+Während der gesamten Drag-Operation werden alle Geräteeingabeereignisse (wie Maus oder Tastatur) unterdrückt. Die gezogenen Daten können über verschiedene Elemente im Dokument oder sogar Elemente in anderen Dokumenten bewegt werden. Jedes Mal, wenn ein neues Element betreten wird, wird ein [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignis auf diesem Element ausgelöst und ein [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis auf dem vorherigen Element.
 
 > [!NOTE]
-> `dragleave` wird immer _nach_ `dragenter` ausgelöst, sodass konzeptionell, zwischen diesen beiden Ereignissen das Ziel ein neues Element betreten hat, aber das vorherige noch nicht verlassen hat.
+> `dragleave` wird immer _nach_ `dragenter` ausgelöst, sodass konzeptionell zwischen diesen beiden Ereignissen das Ziel ein neues Element betreten hat, aber das vorherige noch nicht verlassen hat.
 
-Alle paar hundert Millisekunden werden zwei Ereignisse ausgelöst: Ein [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis auf dem Quellknoten und ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis auf dem Element, in das das Ziehen derzeit hineinreicht. Die meisten Bereiche einer Webseite oder Anwendung sind standardmäßig keine gültigen Stellen, um Daten abzulegen, sodass Elemente standardmäßig jedes Ablegen ignorieren, das darauf stattgefunden hat. Das Element kann sich selbst als gültigen Zielort wählen, indem es das `dragover`-Ereignis annuliert. Wenn das Element ein bearbeitbares Textfeld ist, wie ein {{HTMLElement("textarea")}} oder ein [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text), und der Datenspeicher einen `text/plain`-Eintrag enthält, dann ist das Element standardmäßig ohne Annullierung von `dragover` ein gültiges Ziel.
+Während des Drags wird das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis wiederholt auf dem Quellknoten ausgelöst, und das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis wird wiederholt auf dem Element ausgelöst, in dem sich der Drag derzeit befindet. Die meisten Bereiche einer Webseite oder Anwendung sind keine gültigen Orte zum Ablegen von Daten, daher ignorieren Elemente standardmäßig jeden Drop, der auf sie erfolgt. Das Element kann sich als gültiges Ziel deklarieren, indem es das `dragover`-Ereignis abbricht. Wenn das Element ein bearbeitbares Textfeld ist, wie z.B. ein {{HTMLElement("textarea")}} oder [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text), und der Datenstore ein `text/plain`-Element enthält, ist das Element standardmäßig ohne Abbrechen von `dragover` ein gültiges Ziel.
 
 ```html
 <div id="drop-target">You can drag and then drop a draggable item here</div>
@@ -101,10 +101,10 @@ dropElement.addEventListener("dragover", (event) => {
 ```
 
 > [!NOTE]
-> Die Spezifikation verlangt, dass auch das `dragenter`-Ereignis für ein Ziel annulliert wird, andernfalls werden die `dragover`- oder `dragleave`-Ereignisse nicht auf diesem Element ausgelöst; in der Praxis setzt kein Browser dies um, und das "aktuelle Element" ändert sich jedes Mal, wenn ein neues Element betreten wird.
+> Die Spezifikation erfordert, dass das `dragenter`-Ereignis für ein Ziel ebenfalls abgebrochen wird, andernfalls werden die `dragover`- oder `dragleave`-Ereignisse auf diesem Element gar nicht erst ausgelöst; in der Praxis implementiert kein Browser dies, und das "aktuelle Element" ändert sich jedes Mal, wenn ein neues Element betreten wird.
 
 > [!NOTE]
-> Die Spezifikation verlangt, dass das Annullieren des `drag`-Ereignisses das Ziehen [abbricht](#ein_fehlgeschlagener_abwurf); in der Praxis setzt kein Browser dies um. Siehe das folgende Beispiel:
+> Die Spezifikation erfordert, dass das Abbrechen des `drag`-Ereignisses das Ziehen [abbricht](#ein_fehlgeschlagener_drop); in der Praxis implementiert kein Browser dies. Siehe das Beispiel unten:
 >
 > {{EmbedLiveSample("cancel_drag", "", 100)}}
 
@@ -133,7 +133,7 @@ draggableElement.addEventListener("drag", (event) => {
 
 ### Bedingte Ziele
 
-Normalerweise möchten Sie nur, dass das Ziel Abwürfe in bestimmten Situationen akzeptiert (zum Beispiel nur, wenn ein Link gezogen wird). Um dies zu tun, überprüfen Sie eine Bedingung und annullieren das Ereignis nur, wenn die Bedingung erfüllt ist. Zum Beispiel können Sie überprüfen, ob die gezogenen Daten Links enthalten:
+Sie möchten in der Regel nur, dass das Ziel Drops in bestimmten Situationen akzeptiert (z.B. nur, wenn ein Link gezogen wird). Um dies zu tun, überprüfen Sie eine Bedingung und brechen das Ereignis nur ab, wenn die Bedingung erfüllt ist. Zum Beispiel können Sie überprüfen, ob die gezogenen Daten Links enthalten:
 
 ```js
 dropElement.addEventListener("dragover", (event) => {
@@ -144,28 +144,28 @@ dropElement.addEventListener("dragover", (event) => {
 });
 ```
 
-In diesem Beispiel verwenden wir die `includes`-Methode, um zu überprüfen, ob der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#dragging_links) in der Liste der Typen vorhanden ist. Sollte dies der Fall sein, annullieren wir das Ereignis, damit ein Fall erlaubt wird. Enthalten die Ziehdaten keinen Link, wird das Ereignis nicht annulliert und ein Abwurf kann an dieser Stelle nicht erfolgen.
+In diesem Beispiel verwenden wir die `includes`-Methode, um zu überprüfen, ob der Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#dragging_links) in der Liste der Typen vorhanden ist. Wenn er vorhanden ist, brechen wir das Ereignis ab, damit ein Drop erlaubt ist. Wenn die Drag-Daten keinen Link enthalten, wird das Ereignis nicht abgebrochen, und ein Drop kann an dieser Stelle nicht erfolgen.
 
-## Abwurffeedback
+## Drop-Feedback
 
-Jetzt zieht der Benutzer ein gültiges Ziel an. Es gibt verschiedene Möglichkeiten, dem Benutzer anzuzeigen, dass ein Abwurf an dieser Stelle erlaubt ist und was passieren könnte, wenn der Abwurf passiert. Normalerweise wird der Mauszeiger je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft aktualisiert. Obwohl das genaue Erscheinungsbild von der Plattform des Benutzers abhängt, wird normalerweise ein Pluszeichen-Symbol für eine `copy` angezeigt, und ein "hier nicht abwerfen"-Symbol wird angezeigt, wenn ein Abwurf nicht erlaubt ist. Dieses Feedback des Mauszeigers ist in vielen Fällen ausreichend.
+Jetzt zieht der Benutzer in ein gültiges Ziel. Es gibt mehrere Möglichkeiten, dem Benutzer anzuzeigen, dass ein Drop an dieser Stelle erlaubt ist und was passieren könnte, wenn der Drop durchgeführt wird. Normalerweise wird der Mauszeiger je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft wie notwendig aktualisiert. Obwohl das genaue Aussehen von der Plattform des Benutzers abhängt, wird typischerweise ein Pluszeichen-Symbol für ein `copy` angezeigt und ein "Kann hier nicht abgelegt werden"-Symbol, wenn ein Drop nicht erlaubt ist. Dieses Mauszeiger-Feedback ist in vielen Fällen ausreichend.
 
-### Abwurfeffekte
+### Drop-Effekte
 
-Beim Abwurf können mehrere Operationen durchgeführt werden:
+Beim Ablegen gibt es mehrere Operationen, die durchgeführt werden können:
 
 - `copy`
-  - : Die Daten werden nach dem Abwurf gleichzeitig an der Quell- und Zielstelle vorhanden sein.
+  - : Die Daten sind nach dem Ablegen gleichzeitig am Quell- und Zielort vorhanden.
 - `move`
-  - : Die Daten werden nur noch an der Zielstelle vorhanden sein und von der Quellstelle entfernt.
+  - : Die Daten sind nur noch am Zielort vorhanden und werden vom Quellort entfernt.
 - `link`
-  - : Eine Form der Verknüpfung wird zwischen der Quell- und der Zielstelle erstellt; es gibt nur eine Instanz der Daten an der Quellstelle.
+  - : Eine Form von Verlinkung wird zwischen dem Quell- und Zielort erstellt; es gibt nur eine Instanz der Daten am Quellort.
 - `none`
-  - : Nichts passiert; der Abwurf ist fehlgeschlagen.
+  - : Nichts passiert; der Drop ist fehlgeschlagen.
 
-Mit den [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignissen wird die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft auf den Effekt initialisiert, den der Benutzer anfordert. Der Benutzer kann den gewünschten Effekt durch Drücken von Modifier-Tasten ändern. Obwohl die genaue Belegung je nach Plattform variiert, würden typischerweise die <kbd>Shift</kbd> und <kbd>Control</kbd>-Tasten verwendet, um zwischen Kopieren, Verschieben und Verknüpfen zu wechseln. Der Mauszeiger wird sich ändern, um anzuzeigen, welche Operation gewünscht ist. Beispielsweise könnte für eine `copy` der Cursor mit einem Pluszeichen angezeigt werden.
+Mit den [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignissen wird die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft auf den vom Benutzer gewünschten Effekt initialisiert. Der Benutzer kann den gewünschten Effekt durch Drücken von Modifikator-Tasten ändern. Obwohl sich die genauen Tasten je nach Plattform ändern, würden typischerweise die Tasten <kbd>Shift</kbd> und <kbd>Control</kbd> verwendet, um zwischen Kopieren, Verschieben und Verlinken zu wechseln. Der Mauszeiger ändert sich, um anzuzeigen, welche Operation gewünscht ist. Zum Beispiel könnte für ein `copy` der Cursor mit einem Pluszeichen daneben erscheinen.
 
-Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft während der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse ändern, wenn ein bestimmtes Ziel nur bestimmte Operationen unterstützt. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft ändern, um den Benutzereffekt zu überschreiben und eine bestimmte Abwurfsoperation durchzusetzen.
+Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft während der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse ändern, wenn ein bestimmtes Ziel beispielsweise nur bestimmte Operationen unterstützt. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft ändern, um den Benutzereffekt zu überschreiben und eine spezifische Drop-Operation zu erzwingen.
 
 ```js
 target.addEventListener("dragover", (event) => {
@@ -173,13 +173,13 @@ target.addEventListener("dragover", (event) => {
 });
 ```
 
-In diesem Beispiel wird der Move-Effekt ausgeführt.
+In diesem Beispiel wird die Operation `move` durchgeführt.
 
-Sie können den Wert `none` verwenden, um anzuzeigen, dass an dieser Stelle kein Abwurf möglich ist. Normalerweise sollten Sie dies tun, wenn das Element nur vorübergehend keine Abwürfe akzeptiert; wenn es nicht als Ziel vorgesehen ist, sollten Sie das Ereignis einfach nicht annullieren.
+Sie können den Wert `none` verwenden, um anzuzeigen, dass an dieser Stelle kein Drop erlaubt ist. Diese Option sollten Sie normalerweise verwenden, wenn das Element nur vorübergehend keine Drops akzeptiert; wenn es nicht als Drop-Ziel gedacht ist, sollten Sie das Ereignis einfach nicht abbrechen.
 
-Beachten Sie, dass das Setzen von `dropEffect` nur den gewünschten Effekt _zu diesem speziellen Zeitpunkt_ angibt; ein späterer `dragover`-Durchlauf kann es ändern. Um die Wahl beizubehalten, müssen Sie sie in jedem `dragover`-Ereignis setzen. Dieser Effekt ist auch nur _informativer_ und welche Auswirkungen letztendlich umgesetzt werden, hängt sowohl von den Quell- als auch den Zielknoten ab (zum Beispiel, wenn der Quellknoten nicht geändert werden kann, dann auch wenn ein "move"-Effekt angefordert wurde, ist es möglicherweise nicht möglich).
+Beachten Sie, dass das Setzen von `dropEffect` nur den gewünschten Effekt _in diesem speziellen Augenblick_ anzeigt; eine spätere `dragover`-Dispatch kann dies ändern. Um die Auswahl beizubehalten, müssen Sie es in jedem `dragover`-Ereignis festlegen. Außerdem ist dieser Effekt nur _informativ_, und welche Effekte letztendlich umgesetzt werden, hängt sowohl von den Quell- als auch den Zielknoten ab (z.B. wenn der Quellknoten nicht geändert werden kann, dann kann selbst bei einer angeforderten "move"-Operation dies nicht möglich sein).
 
-Sowohl für Benutzeraktionen als auch für das programmgesteuerte Setzen von `dropEffect` stehen standardmäßig alle drei Abwurfeffekte zur Verfügung. Das ziehbare Element kann sich so einschränken, dass es nur bestimmte Effekte erlaubt, indem es die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft innerhalb eines [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis-Listeners setzt.
+Sowohl bei Benutzeraktionen als auch beim programmgesteuerten Setzen von `dropEffect` sind standardmäßig alle drei Drop-Effekte verfügbar. Das ziehbare Element kann sich darauf beschränken, nur bestimmte Effekte zuzulassen, indem es die [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaft innerhalb eines [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis-Listeners festlegt.
 
 ```js
 draggableElement.addEventListener("dragstart", (event) => {
@@ -187,23 +187,23 @@ draggableElement.addEventListener("dragstart", (event) => {
 });
 ```
 
-In diesem Beispiel ist nur eine Kopier- oder Verknüpfungsoperation erlaubt, aber eine Verschiebeoperation kann weder über ein Skript noch über Benutzeraktionen ausgewählt werden.
+In diesem Beispiel ist nur eine Kopier- oder Verlinkungsoperation erlaubt, aber eine Verschiebungsoperation kann weder über ein Skript noch über Benutzeraktionen ausgewählt werden.
 
 Die Werte von `effectAllowed` sind Kombinationen von `dropEffect`:
 
-| Wert            | Beschreibung                                                                                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `none`          | Keine Operation ist erlaubt                                                                                                                                   |
-| `copy`          | Nur `copy`                                                                                                                                                    |
-| `move`          | Nur `move`                                                                                                                                                    |
-| `link`          | Nur `link`                                                                                                                                                    |
-| `copyMove`      | Nur `copy` oder `move`                                                                                                                                        |
-| `copyLink`      | Nur `copy` oder `link`                                                                                                                                        |
-| `linkMove`      | Nur `link` oder `move`                                                                                                                                        |
-| `all`           | `copy`, `move` oder `link`                                                                                                                                    |
-| `uninitialized` | Der Standardwert, wenn der Effekt nicht gesetzt wurde; im Allgemeinen gleichbedeutend mit `all`, außer dass der Standard-`dropEffect` nicht immer `copy` ist. |
+| Wert            | Beschreibung                                                                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `none`          | Keine Operation ist erlaubt                                                                                                                                        |
+| `copy`          | Nur `copy`                                                                                                                                                         |
+| `move`          | Nur `move`                                                                                                                                                         |
+| `link`          | Nur `link`                                                                                                                                                         |
+| `copyMove`      | Nur `copy` oder `move`                                                                                                                                             |
+| `copyLink`      | Nur `copy` oder `link`                                                                                                                                             |
+| `linkMove`      | Nur `link` oder `move`                                                                                                                                             |
+| `all`           | `copy`, `move` oder `link`                                                                                                                                         |
+| `uninitialized` | Der Standardwert, wenn der Effekt nicht festgelegt wurde; im Allgemeinen gleichwertig zu `all`, außer dass der Standard-`dropEffect` nicht immer `copy` sein muss. |
 
-Standardmäßig wird `dropEffect` basierend auf `effectAllowed` initialisiert, in der Reihenfolge von `copy`, `link`, `move`, wobei der erste erlaubte Effekt ausgewählt wird. Die nicht ausgewählten, aber erlaubten Effekte können ebenfalls standardmäßig ausgewählt werden, wenn es angebracht ist; zum Beispiel bewirkt das Halten der <kbd>Alt</kbd>-Taste unter Windows, dass `link` mit Priorität verwendet wird. Wenn `effectAllowed` `uninitialized` ist und das gezogene Element ein `<a>`-Link ist, ist der Standard-`dropEffect` `link`; wenn `effectAllowed` `uninitialized` ist und das gezogene Element eine Auswahl aus einem bearbeitbaren Textfeld ist, ist der Standard-`dropEffect` `move`.
+Standardmäßig wird der `dropEffect` basierend auf `effectAllowed` initialisiert, in der Reihenfolge von `copy`, `link`, `move`, wobei der erste erlaubte Effekt ausgewählt wird. Die nicht ausgewählten, aber erlaubten Effekte können ebenfalls als Standard ausgewählt werden, wenn es angemessen ist; zum Beispiel auf Windows wird, wenn die <kbd>Alt</kbd>-Taste gedrückt wird, `link` als Priorität verwendet. Wenn `effectAllowed` `uninitialized` ist und das gezogene Element ein `<a>`-Link ist, ist der Standard-`dropEffect` `link`; wenn `effectAllowed` `uninitialized` ist und das gezogene Element eine Auswahl aus einem bearbeitbaren Textfeld ist, ist der Standard-`dropEffect` `move`.
 
 ```html hidden live-sample___drop_effects
 <div class="sources-container">
@@ -292,25 +292,25 @@ for (const dropEffect of ["none", "copy", "move", "link"]) {
 
 {{EmbedLiveSample("drop_effects", "", 500)}}
 
-### Benutzerdefiniertes Abwurffeedback
+### Benutzerdefiniertes Drop-Feedback
 
-Für komplexere visuelle Effekte können Sie während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignisses andere Operationen durchführen, indem Sie beispielsweise ein Element an der Stelle einfügen, an der der Abwurf stattfinden wird. Dies könnte ein Einfügemarker oder ein Element sein, das das gezogene Element in seiner neuen Position darstellt. Dazu könnten Sie ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element erstellen und es während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignisses in das Dokument einfügen.
+Für komplexere visuelle Effekte können Sie während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignisses andere Operationen ausführen, zum Beispiel indem Sie ein Element an der Stelle einfügen, an der der Drop erfolgen wird. Dies könnte ein Einfügemarker oder ein Element sein, das das gezogene Element an seinem neuen Ort repräsentiert. Dazu könnten Sie ein [`<img>`](/de/docs/Web/HTML/Reference/Elements/img)-Element erstellen und es während des [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)-Ereignisses in das Dokument einfügen.
 
-Das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis wird auf dem Element ausgelöst, auf das der Mauszeiger zeigt. Natürlich müssen Sie möglicherweise den Einfügemarker auch innerhalb des [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis-Handlers bewegen. Sie können die [`clientX`](/de/docs/Web/API/MouseEvent/clientX)- und [`clientY`](/de/docs/Web/API/MouseEvent/clientY)-Eigenschaften des Ereignisses wie bei anderen Mausereignissen verwenden, um den Standort des Mauszeigers zu bestimmen.
+Das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis wird am Element ausgelöst, auf das die Maus zeigt. Natürlich müssen Sie den Einfügemarker möglicherweise auch im `dragover`-Ereignis-Handler bewegen. Sie können die [`clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`clientY`](/de/docs/Web/API/MouseEvent/clientY)-Eigenschaften des Ereignisses wie bei anderen Mausereignissen verwenden, um die Position des Mauszeigers zu bestimmen.
 
-Schließlich wird das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis auf einem Element ausgelöst, wenn der Ziehvorgang das Element verlässt. Dies ist der Zeitpunkt, an dem Sie eventuell eingefügte Marker oder Hervorhebungen entfernen sollten. Sie müssen dieses Ereignis nicht annullieren. Das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis wird immer ausgelöst, selbst wenn der Ziehvorgang abgebrochen wird, sodass Sie sicherstellen können, dass jede Einfügemarkerbereinigung während dieses Ereignisses durchgeführt werden kann.
+Abschließend wird das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis bei einem Element ausgelöst, wenn der Drag das Element verlässt. Dies ist der Zeitpunkt, an dem Sie alle Einfügemarkierungen oder Hervorhebungen entfernen sollten. Sie müssen dieses Ereignis nicht stornieren. Das [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis wird immer ausgelöst, selbst wenn der Drag abgebrochen wird, sodass Sie immer sicherstellen können, dass die Reinigung des Einfügepunkts während dieses Ereignisses durchgeführt werden kann.
 
-Für ein praktisches Beispiel zur Verwendung dieser Ereignisse siehe unser [Kanban-Board-Beispiel](/de/docs/Web/API/HTML_Drag_and_Drop_API/Kanban_board#inserting_at_a_particular_location).
+Für ein praktisches Beispiel zur Verwendung dieser Ereignisse, siehe unser [Kanban-Board-Beispiel](/de/docs/Web/API/HTML_Drag_and_Drop_API/Kanban_board#inserting_at_a_particular_location).
 
-## Einen Abwurf ausführen
+## Ausführen eines Drops
 
-Wenn der Benutzer die Maus loslässt, endet der Drag-and-Drop-Vorgang.
+Wenn der Benutzer die Maus loslässt, endet die Drag-and-Drop-Operation.
 
-Damit der Abwurf _potenziell erfolgreich_ ist, muss der Abwurf über einem gültigen [Abwurfziel](#über_elemente_ziehen_und_ziele_festlegen) stattfinden, und die `dropEffect` darf zum Zeitpunkt des Mausloslassens nicht `none` sein. Andernfalls wird der Abwurfvorgang als [fehlgeschlagen](#ein_fehlgeschlagener_abwurf) angesehen.
+Damit der Drop _möglicherweise erfolgreich_ ist, muss der Drop über einem gültigen [Ziel](#über_elemente_ziehen_und_ziele_festlegen) erfolgen, und der `dropEffect` darf zum Zeitpunkt des Loslassens der Maus nicht `none` sein. Andernfalls wird die Drop-Operation als [fehlgeschlagen](#ein_fehlgeschlagener_drop) betrachtet.
 
-Wenn der Abwurf potenziell erfolgreich ist, wird ein [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis auf dem Ziel ausgelöst. Sie müssen dieses Ereignis mit `preventDefault()` annulieren, damit der Abwurf tatsächlich als erfolgreich angesehen wird. Andernfalls wird der Abwurf auch als erfolgreich angesehen, wenn der Abwurf Text (die Daten enthalten einen `text/plain`-Eintrag) in ein bearbeitbares Textfeld einfällt. In diesem Fall wird der Text ins Feld eingefügt (entweder an der Cursorposition oder am Ende, je nach Plattformkonventionen) und, falls die `dropEffect` `move` ist und die Quelle eine Auswahl innerhalb eines bearbeitbaren Bereichs ist, wird die Quelle entfernt. Andernfalls werden bei allen anderen Ziehdaten und Abwurfzielen der Abwurf als fehlgeschlagen angesehen.
+Wenn der Drop möglicherweise erfolgreich ist, wird ein [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis auf dem Zielknoten ausgelöst. Sie müssen dieses Ereignis mit `preventDefault()` abbrechen, damit der Drop als tatsächlich erfolgreich gilt. Andernfalls wird der Drop auch dann als erfolgreich betrachtet, wenn der Drop das Ablegen von Text (die Daten enthalten ein `text/plain`-Element) in ein bearbeitbares Textfeld war. In diesem Fall wird der Text in das Feld eingefügt (entweder an der Cursorposition oder am Ende, je nach Plattformkonventionen) und, wenn der `dropEffect` `move` ist, während die Quelle eine Auswahl innerhalb eines bearbeitbaren Bereichs war, wird die Quelle entfernt. Andernfalls wird für alle anderen Drag-Daten und Ziele der Drop als fehlgeschlagen betrachtet.
 
-Während des [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisses sollten Sie die gewünschten Daten aus dem Ziehdaten-Speicher mit [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData) abrufen und an der Abwurfstelle einfügen. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft verwenden, um zu bestimmen, welche Ziehoperation gewünscht war. Das `drop`-Ereignis ist die einzige Zeit, in der Sie den Ziehdaten-Speicher lesen können, abgesehen von `dragstart`.
+Während des [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisses sollten Sie die gewünschten Daten aus dem Drag-Daten-Store mit [`DataTransfer.getData()`](/de/docs/Web/API/DataTransfer/getData) abrufen und an der Drop-Position einfügen. Sie können die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft verwenden, um festzustellen, welche Drag-Operation gewünscht war. Das `drop`-Ereignis ist die einzige Zeit, in der Sie den Drag-Daten-Store lesen können, abgesehen von `dragstart`.
 
 ```js
 target.addEventListener("drop", (event) => {
@@ -320,11 +320,11 @@ target.addEventListener("drop", (event) => {
 });
 ```
 
-Im hier gezeigten Beispiel, nachdem die Daten abgerufen wurden, fügen wir die Zeichenkette als Textinhalt des Ziels ein. Dies hat den Effekt, dass der gezogene Text dort eingefügt wird, wo er abgeworfen wurde, vorausgesetzt, das Abwurfziel ist ein Textbereichs wie ein `p` oder `div`-Element.
+In diesem Beispiel fügen wir, sobald die Daten abgerufen wurden, die Zeichenkette als Textinhalt des Ziels ein. Dies hat den Effekt, dass der gezogene Text dort eingefügt wird, wo er abgelegt wurde, vorausgesetzt, dass das Ziel ein Textbereich wie ein `p`- oder `div`-Element ist.
 
-Die Methode `getData()` gibt einen leeren String zurück, wenn der Datenspeicher keine Daten des angegebenen Typs enthält. Wenn Sie [bedingte Abwurfziele](#bedingte_ziele) implementiert haben, sollte diese Situation nicht auftreten, da das Abwurfziel Abwürfe nur akzeptieren sollte, wenn die gewünschten Daten vorhanden sind.
+Die `getData()`-Methode gibt eine leere Zeichenkette zurück, wenn der Daten-Store keine Daten des angegebenen Typs enthält. Wenn Sie [bedingte Ziele](#bedingte_ziele) implementiert haben, sollte diese Situation nicht auftreten, da das Ziel nur Drops akzeptieren sollte, wenn die gewünschten Daten vorhanden sind.
 
-Sie können auch andere Datentypen abrufen. Wenn die Daten ein Link sind, sollten sie den Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#dragging_links) aufweisen. Sie könnten dann einen Link in den Inhalt einfügen.
+Sie können auch andere Datentypen abrufen. Wenn die Daten ein Link sind, sollten sie den Typ [`text/uri-list`](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#dragging_links) haben. Sie könnten dann einen Link in den Inhalt einfügen.
 
 ```js
 target.addEventListener("drop", (event) => {
@@ -341,36 +341,36 @@ target.addEventListener("drop", (event) => {
 });
 ```
 
-Weitere Informationen darüber, wie man Ziehdaten liest, finden Sie unter [Arbeiten mit dem Ziehdaten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store).
+Weitere Informationen zum Lesen von Drag-Daten finden Sie unter [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store).
 
-Es liegt auch in der Verantwortung der Quell- und Zielelemente, zusammenzuarbeiten, um die `dropEffect` zu implementieren — die Quelle hört auf das `dragend`-Ereignis und das Ziel hört auf das `drop`-Ereignis. Zum Beispiel, wenn die `dropEffect` `move` ist, dann müssen eines dieser Elemente das gezogene Element von seinem alten Ort entfernen (normalerweise das Quell-Element selbst, weil das Ziel-Element nicht unbedingt weiß oder Kontrolle über die Quelle hat).
+Es liegt auch in der Verantwortung der Quell- und Zielelemente, zusammenzuarbeiten, um den `dropEffect` zu implementieren — die Quelle hört auf das `dragend`-Ereignis und das Ziel hört auf das `drop`-Ereignis. Wenn der `dropEffect` zum Beispiel `move` ist, muss eines dieser Elemente das gezogene Element aus seiner alten Position entfernen (normalerweise das Quell-Element selbst, da das Ziel-Element nicht unbedingt Kontrolle über die Quelle hat).
 
-<!-- TODO: Standardaktion beim Ablegen von Dateien/Links in Browser -->
+<!-- TODO: Standardaktion von Dateiauswahllinks in Browsern -->
 
-## Ein fehlgeschlagener Abwurf
+## Ein fehlgeschlagener Drop
 
-Der Drag-and-Drop-Vorgang wird als fehlgeschlagen angesehen, wenn eine der folgenden Bedingungen zutrifft:
+Der Drag-and-Drop-Vorgang wird als fehlgeschlagen betrachtet, wenn eine der folgenden Bedingungen erfüllt ist:
 
-1. Der Benutzer hat die <kbd>Escape</kbd>-Taste gedrückt.
-2. Der Abwurf fand außerhalb eines gültigen [Abwurfziels](#über_elemente_ziehen_und_ziele_festlegen) statt.
-3. Der Abwurfeffekt war `none` zum Zeitpunkt des Mausloslassens.
-4. Das `drop`-Ereignis wurde nicht annulliert und der Abwurf war nicht das Ablegen von Text (der `text/plain`-Daten enthält) in ein bearbeitbares Textfeld (siehe [einen Abwurf ausführen](#einen_abwurf_ausführen)).
+1. Der Benutzer drückt die <kbd>Escape</kbd>-Taste
+2. Der Drop erfolgt außerhalb eines gültigen [Ziels](#über_elemente_ziehen_und_ziele_festlegen)
+3. Der Drop-Effekt war `none` zum Zeitpunkt des Loslassens der Maus
+4. Das `drop`-Ereignis wurde nicht abgebrochen und der Drop war nicht das Ablegen von Text (mit `text/plain`-Daten) in ein bearbeitbares Textfeld (siehe [Ausführen eines Drops](#ausführen_eines_drops))
 
-Für die Fälle 1 und 3, wenn die Unterbrechung passiert, während über einem gültigen Abwurfziel geschwebt wird, erhält das Abwurfziel ein [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis, als ob der Abwurf nicht mehr darüber passiert, sodass es etwaiges [Abwurffeedback](#benutzerdefiniertes_abwurffeedback) bereinigen kann. In allen Fällen wird das `dropEffect` für nachfolgende Ereignisse auf `none` gesetzt.
+In den Fällen 1 und 3, wenn das Abbrechen über einem gültigen Ziel erfolgt, empfängt das Ziel ein [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)-Ereignis, als ob der Drop keine Auswirkungen mehr auf es hätte, damit es jegliches [Drop-Feedback](#benutzerdefiniertes_drop-feedback) bereinigen kann. In allen Fällen wird der `dropEffect` für nachfolgende Ereignisse auf `none` gesetzt.
 
-Anschließend wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis auf dem Quellknoten ausgelöst. Der Browser kann eine Animation des gezogenen Auswahlbereichs anzeigen, der zur Quelle des Drag-and-Drop-Vorgangs zurückkehrt.
+Anschließend wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis an der Quelle ausgelöst. Der Browser kann eine Animation der gezogenen Auswahl anzeigen, die zur Quelle der Drag-and-Drop-Operation zurückkehrt.
 
-## Abschluss des Ziehvorgangs
+## Beenden des Drags
 
-Wenn das Ziehen abgeschlossen ist, wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis auf der Quelle des Ziehvorgangs ausgelöst (das gleiche Element, das das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis erhielt). Dieses Ereignis wird unabhängig davon ausgelöst, ob das Ziehen erfolgreich war.
+Sobald der Drag abgeschlossen ist, wird ein [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis an der Quelle des Drags (dem gleichen Element, das das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis erhielt) ausgelöst. Dieses Ereignis wird unabhängig davon ausgelöst, ob der Drag erfolgreich ist.
 
-Wenn die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft den Wert `none` während eines [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) hat, dann wurde der Ziehvorgang abgebrochen. Andernfalls gibt der Effekt an, welche Operation durchgeführt wurde. Die Quelle kann diese Information nach einem `move`-Vorgang verwenden, um das gezogene Element vom alten Ort zu entfernen.
+Wenn die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft während eines [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) den Wert `none` hat, wurde der Drag abgebrochen. Andernfalls gibt der Effekt an, welche Operation durchgeführt wurde. Die Quelle kann diese Information nach einer `move`-Operation verwenden, um das gezogene Element von der alten Position zu entfernen.
 
-Ein Abwurf kann im selben Fenster oder über einer anderen Anwendung erfolgen. Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis wird in jedem Fall ausgelöst. Die [`screenX`](/de/docs/Web/API/MouseEvent/screenX)- und [`screenY`](/de/docs/Web/API/MouseEvent/screenY)-Eigenschaften des Ereignisses werden auf die Bildschirmkoordinaten gesetzt, an denen der Abwurf stattfand.
+Ein Drop kann innerhalb desselben Fensters oder über einer anderen Anwendung erfolgen. Das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis wird jedoch immer ausgelöst. Die [`screenX`](/de/docs/Web/API/MouseEvent/screenX)- und [`screenY`](/de/docs/Web/API/MouseEvent/screenY)-Eigenschaften des Ereignisses werden auf die Bildschirmkoordinaten gesetzt, an denen der Drop erfolgte.
 
-Nachdem das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis seine Ausbreitung beendet hat, ist der Drag-and-Drop-Vorgang abgeschlossen.
+Nachdem das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis die Verbreitung abgeschlossen hat, ist die Drag-and-Drop-Operation abgeschlossen.
 
 ## Siehe auch
 
 - [HTML Drag and Drop API (Übersicht)](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Arbeiten mit dem Ziehdaten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

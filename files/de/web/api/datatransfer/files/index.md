@@ -1,29 +1,31 @@
 ---
-title: "DataTransfer: files-Eigenschaft"
+title: "DataTransfer: files Eigenschaft"
 short-title: files
 slug: Web/API/DataTransfer/files
 l10n:
-  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
+  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`files`**-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien umfasst, ist die Liste leer.
+Die **`files`** schreibgeschützte Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Ziehoperation. Wenn die Operation keine Dateien umfasst, ist die Liste leer.
 
-Diese Funktion kann verwendet werden, um Dateien vom Desktop eines Benutzers in den Browser zu ziehen.
+Diese Funktion kann verwendet werden, um Dateien von einem Desktop des Nutzers in den Browser zu ziehen.
 
-> [!NOTE]
-> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event)- und [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignisse zugegriffen werden. Für alle anderen Ereignisse wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegendes Datenlager sich im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) befindet.
+Während einer Ziehoperation kann diese Eigenschaft nur verwendet werden, um Dateien in den Handlern für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Events zu lesen, da dies die einzigen Zeiten sind, in denen der Ziehdaten-Store lesbar ist. Der Zugriff darauf von jedem anderen Zieh-Event ergibt eine leere Liste. Siehe [Lesen des Ziehdaten-Stores](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) für Details.
+
+Für Zwischenablageoperationen können Dateien auch im Handler für das [`paste`](/de/docs/Web/API/Element/paste_event)-Event unter Verwendung von [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) gelesen werden.
 
 ## Wert
 
-Ein [`FileList`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, ein Listenelement für jede Datei in der Operation. Hatte die Drag-Operation keine Dateien, ist die Liste leer.
+Eine [`FileList`](/de/docs/Web/API/FileList) der Dateien in einer Ziehoperation, ein Listeneintrag für
+jede Datei in der Operation. Wenn die Ziehoperation keine Dateien hatte, ist die Liste leer.
 
 ## Beispiele
 
-### Lesen der Dateienliste
+### Lesen der Dateiliste
 
-Dieses Beispiel erstellt einen einfachen Bereich, in den Sie Dateien ziehen können, und zeigt einige Metadaten an.
+Dieses Beispiel erstellt einen grundlegenden Bereich, in den Sie Dateien ablegen können, und zeigt einige Metadaten an.
 
 ```html
 <pre id="output">Drop files here from your file system.</pre>
