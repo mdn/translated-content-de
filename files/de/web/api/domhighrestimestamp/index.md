@@ -2,38 +2,37 @@
 title: DOMHighResTimeStamp
 slug: Web/API/DOMHighResTimeStamp
 l10n:
-  sourceCommit: 0496bb2fcef13172325e1cc25a5fc71410506557
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{APIRef("Performance API")}}
 
-Der **`DOMHighResTimeStamp`**-Typ ist ein `double` und wird verwendet, um einen Zeitwert in Millisekunden zu speichern.
+Der Typ **`DOMHighResTimeStamp`** ist ein `double` und wird verwendet, um einen Zeitwert in Millisekunden zu speichern.
 
-Dieser Typ kann verwendet werden, um einen bestimmten Zeitpunkt oder ein Zeitintervall (den Unterschied in der Zeit zwischen zwei bestimmten Punkten) zu beschreiben. Der Startzeitpunkt kann entweder eine spezifische, durch das Skript für eine Website oder App festgelegte Zeit sein oder der [time origin](/de/docs/Web/API/Performance/timeOrigin).
+Dieser Typ kann verwendet werden, um einen bestimmten Zeitpunkt oder ein Zeitintervall (den Zeitunterschied zwischen zwei bestimmten Zeitpunkten) zu beschreiben. Der Ausgangszeitpunkt kann entweder eine vom Skript für eine Website oder App festgelegte spezifische Zeit oder der [Zeitursprung](/de/docs/Web/API/Performance/timeOrigin) sein.
 
-Die in Millisekunden angegebene Zeit sollte genau bis zu 5 µs (Mikrosekunden) sein, wobei der gebrochene Teil der Zahl Bruchteile einer Millisekunde angibt. Wenn der Browser jedoch nicht in der Lage ist, einen Zeitwert genau auf 5 µs bereitzustellen (zum Beispiel aufgrund von Hardware- oder Softwareeinschränkungen), kann der Browser den Wert als Zeit in Millisekunden mit einer Genauigkeit von einer Millisekunde darstellen. Beachten Sie auch den untenstehenden Abschnitt über die reduzierte Zeitgenauigkeit, die durch Browsereinstellungen kontrolliert wird, um Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu vermeiden.
-
-Außerdem, wenn das Gerät oder Betriebssystem, auf dem der Benutzeragent läuft, keine Uhr auf Mikrosekundenebene hat, können sie nur bis zur Millisekunde genau sein.
+Der Bruchteil des Werts stellt Bruchteile einer Millisekunde dar. Der Typ selbst garantiert keine bestimmte Auflösung oder Genauigkeit. Die effektive Auflösung hängt von der API ab, die den Wert erzeugt, sowie von Hardware- und Softwareeinschränkungen und Sicherheits- und Datenschutzmaßnahmen des Browsers.
 
 ## Sicherheitsanforderungen
 
-Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Status der Site-Isolation vergröbert.
+Der Typ `DOMHighResTimeStamp` wendet selbst keine Timer-Rundung auf von Skripten bereitgestellte Werte an. Ob eine API diese Werte rundet, hängt von der API ab. Werte, die aus Uhrenablesungen berechnet werden, müssen auch keine Vielfachen des Rundungsintervalls der Uhr sein.
 
-- Auflösung in isolierten Kontexten: 5 Mikrosekunden
-- Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, groben Browser Zeitablesungen basierend auf dem Cross-Origin-Isolationsstatus des Kontexts. Für APIs, die ihren [Zeit-Grobheitsalgorithmus](https://w3c.github.io/hr-time/#dfn-coarsen-time) verwenden, spezifiziert die High Resolution Time-Spezifikation folgende Auflösungen oder eine gröbere, implementierungsdefinierte Auflösung:
 
-Isolieren Sie Ihre Website über die Header {{HTTPHeader("Cross-Origin-Opener-Policy")}} und
-{{HTTPHeader("Cross-Origin-Embedder-Policy")}}:
+- Cross-origin-isolierte Kontexte: 0,005 ms
+- Nicht-cross-origin-isolierte Kontexte: 0,1 ms
+
+Browser können auch Jitter hinzufügen, indem sie zum Beispiel zufällig festlegen, wann die angegebene Zeit zum nächsten Rundungsintervall fortschreitet. Diese Auflösungen sind keine Genauigkeitsgarantien. Siehe die Dokumentation der API, die den Wert erzeugt, für deren Genauigkeitsanforderungen.
+
+Schützen Sie Ihre Website durch Cross-Origin-Isolation mit den Headern {{HTTPHeader("Cross-Origin-Opener-Policy")}} und {{HTTPHeader("Cross-Origin-Embedder-Policy")}}:
 
 ```http
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Diese Header stellen sicher, dass ein Top-Level-Dokument keine Browsing-Kontextgruppe mit
-Cross-Origin-Dokumenten teilt. COOP prozessisoliert Ihr Dokument und potenzielle Angreifer
-haben keinen Zugriff auf Ihr globales Objekt, wenn sie es in einem Popup öffnen würden, was eine Reihe
-von Cross-Origin-Angriffen, die als [XS-Leaks](https://github.com/xsleaks/xsleaks) bekannt sind, verhindert.
+Diese Header stellen sicher, dass ein Dokument auf oberster Ebene keine Browsing-Kontextgruppe mit
+cross-origin Dokumenten teilt. COOP isoliert Ihren Prozess und potenzielle Angreifer können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup geöffnet haben, was eine Reihe von cross-origin Angriffen namens [XS-Leaks](https://github.com/xsleaks/xsleaks) verhindert.
 
 ## Spezifikationen
 

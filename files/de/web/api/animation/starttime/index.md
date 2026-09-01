@@ -3,24 +3,24 @@ title: "Animation: startTime-Eigenschaft"
 short-title: startTime
 slug: Web/API/Animation/startTime
 l10n:
-  sourceCommit: 291a8c75ed553e807895225d51dff7ac24ad1f05
+  sourceCommit: 91b5a448a517239876a4bc92640bbbf29e30b106
 ---
 
 {{ APIRef("Web Animations") }}
 
 Die **`Animation.startTime`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces ist ein Gleitkommawert mit doppelter Genauigkeit, der den geplanten Zeitpunkt angibt, zu dem die Wiedergabe einer Animation beginnen soll.
 
-Die **Startzeit** einer Animation ist der Zeitwert ihrer [`timeline`](/de/docs/Web/API/DocumentTimeline), wenn ihr Ziel-`[`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)` zur Wiedergabe geplant ist. Die **Startzeit** einer Animation ist zunächst nicht festgelegt (was bedeutet, dass sie `null` ist, weil sie keinen Wert hat).
+Die **Startzeit** einer Animation ist der Zeitwert ihrer [`timeline`](/de/docs/Web/API/DocumentTimeline), wenn ihr Ziel-[`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) für die Wiedergabe geplant ist. Die **Startzeit** einer Animation ist anfänglich nicht festgelegt (was bedeutet, dass sie `null` ist, weil sie keinen Wert hat).
 
 ## Wert
 
-Eine Gleitkommazahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert auslesen, um festzustellen, was die aktuelle Startzeit ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt beginnen zu lassen.
+Eine Gleitkommazahl, die die Startzeit in Millisekunden darstellt oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert lesen, um festzustellen, wo die Startzeit derzeit festgelegt ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt starten zu lassen.
 
 ## Beispiele
 
-### Verschiedene Animationen synchronisieren
+### Synchronisation verschiedener Animationen
 
-Im folgenden Beispiel können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen die gleiche `startTime` wie der ursprünglich laufenden Katze geben. Beachten Sie, dass dies nur mit der Web Animations API möglich ist: Es ist unmöglich, zwei separate Animationen mit CSS-Animationen zu synchronisieren.
+Im folgenden Beispiel können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen allen die gleiche `startTime` wie der ursprünglichen laufenden Katze geben. Beachten Sie, dass dies nur mit der Web Animation API möglich ist: Es ist unmöglich, zwei separate Animationen mit CSS-Animationen zu synchronisieren.
 
 ```html hidden
 <div id="css-cats">
@@ -124,29 +124,35 @@ insertWAAPICat.addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Syncing different animations", "", 600)}}
+{{EmbedLiveSample("Synchronisation verschiedener Animationen", "", 600)}}
 
 ## Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, könnte die Präzision von `animation.startTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall wird die Präzision auf 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` gesetzt, je nachdem, welcher größer ist.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Präzision von `animation.startTime` je nach Browsereinstellungen reduziert werden.
 
-Zum Beispiel wird bei reduzierter Zeitpräzision das Ergebnis von `animation.startTime` immer ein Vielfaches von 0,002 oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
+Der Wert dieser Eigenschaft kann aus zwei Quellen stammen: vom Skript geliefert oder von [`AnimationTimeline.currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) berechnet. Die zugrunde liegende Uhr der Timeline kann bereits vor der Berechnung gerundet werden; siehe [die reduzierte Zeitpräzision der Timeline](/de/docs/Web/API/AnimationTimeline/currentTime#reduced_time_precision) für deren Rundungsintervalle.
+
+In Chrome wendet der Browser keine zusätzliche Timer-Rundung an. In Safari rundet der Browser den zurückgegebenen Wert auf 0,001 ms, die Auflösung, die zum Darstellen von Animationszeiten verwendet wird.
+
+In Firefox rundet der Browser standardmäßig den zurückgegebenen Wert auf 0,02 ms, auch in kontextübergreifend isolierten Umgebungen. Wenn `privacy.resistFingerprinting` aktiviert ist, beträgt das Rundungsintervall 16,667 ms oder das durch `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` konfigurierte Intervall, je nachdem, welches größer ist.
+
+Zum Beispiel sind dies mögliche Werte in Firefox:
 
 ```js
-// reduced time precision (2ms) in Firefox 60
+// Reduced time precision (0.02 ms) with default settings
 animation.startTime;
 // Might be:
-// 23.404
-// 24.192
-// 25.514
+// 23.4
+// 24.18
+// 25.5
 // …
 
-// reduced time precision with `privacy.resistFingerprinting` enabled
+// Reduced time precision with `privacy.resistFingerprinting` enabled
 animation.startTime;
 // Might be:
-// 49.8
-// 50.6
-// 51.7
+// 50.001
+// 66.668
+// 83.335
 // …
 ```
 
