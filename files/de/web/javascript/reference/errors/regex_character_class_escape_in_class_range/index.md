@@ -1,11 +1,11 @@
 ---
-title: "SyntaxError: Zeichenklassenescape kann in einem Bereich innerhalb der regulären Ausdrucksklasse nicht verwendet werden"
+title: "SyntaxError: character class escape cannot be used in class range in regular expression"
 slug: Web/JavaScript/Reference/Errors/Regex_character_class_escape_in_class_range
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: a055fad7a07ef41ec3c8f90a3f1d2ad65f22826c
 ---
 
-Der JavaScript-Ausnahmefehler "character class escape cannot be used in class range in regular expression" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) reguläres Ausdrucksmuster eine [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) enthält, bei der eine Begrenzung eines Zeichenbereichs eine andere Zeichenklasse ist, wie etwa ein [Zeichenklassenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape).
+Der JavaScript-Ausnahmefehler "character class escape cannot be used in class range in regular expression" tritt auf, wenn ein ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdruck ein [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) enthält, bei dem eine Grenze eines Zeichenbereichs eine andere Zeichenklasse ist, wie etwa ein [character class escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape).
 
 ## Nachricht
 
@@ -19,11 +19,11 @@ SyntaxError: Invalid regular expression: invalid range in character class for Un
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Eine Zeichenklasse kann einen Bereich von Zeichen angeben, indem ein Bindestrich (`-`) zwischen zwei Zeichen verwendet wird. Zum Beispiel entspricht `[a-z]` jedem Kleinbuchstaben von `a` bis `z`. Die beiden Grenzen des Bereichs müssen einzelne Zeichen darstellen, damit der Bereich sinnvoll ist. Wenn eine der Grenzen tatsächlich mehrere Zeichen darstellt, wird ein Fehler erzeugt. In [Nicht-`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#non-v-mode_character_class) sind nur Zeichenklassenescapes innerhalb von Zeichenklassen erlaubt; in [`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kann dies auch vorkommen, wenn eine der Grenzen eine andere `[...]`-Zeichenklasse ist.
+Eine Zeichenklasse kann einen Bereich von Zeichen durch die Verwendung eines Bindestrichs (`-`) zwischen zwei Zeichen angeben. Zum Beispiel, `[a-z]` entspricht jedem Kleinbuchstaben von `a` bis `z`. Die beiden Grenzen des Bereichs müssen einzelne Zeichen darstellen, damit der Bereich sinnvoll ist. Wenn eine der Grenzen tatsächlich mehrere Zeichen repräsentiert, wird ein Fehler erzeugt. In [Nicht-`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#non-v-mode_character_class) sind nur character class escapes innerhalb von Zeichenklassen erlaubt; in [`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kann dies auch vorkommen, wenn eine der Grenzen eine andere `[...]` Zeichenklasse ist.
 
-Im Unicode-unbewussten Modus führt diese Syntax dazu, dass der `-` zu einem literal Zeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und sollte nicht darauf vertraut werden.
+Im Unicode-unbewussten Modus führt diese Syntax dazu, dass das `-` zu einem literalen Zeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Im Unicode-unbewussten Modus führt diese Syntax dazu, dass der `-` zu einem lit
 // Remove the hyphen so the two bounds represent two alternatives
 /[\p{L}\p{N}]/u;
 // Use -- in unicodeSets mode, which represents set subtraction
-/[[A-z]--_]]/v;
+/[[A-z]--_]/v;
 ```
 
 ## Siehe auch
