@@ -1,23 +1,22 @@
 ---
-title: HTML Attributseitenvorlage
+title: HTML-Attribut-Seitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/HTML_attribute_page_template
 l10n:
-  sourceCommit: 8d9cda4e9080e9c324a521f40c7e0704ef94ce07
+  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
 ---
 
-HTML-Attribute fallen in zwei Kategorien: **Element-spezifische Attribute**, die nur auf bestimmte Elemente angewendet werden (z. B. das `accept` Attribut auf `<input type="file">`), und **globale Attribute**, die für jedes HTML-Element verwendet werden können (z. B. `class`, `id`). Erstere sollten unter `HTML/Reference/Attributes` platziert werden, während letztere unter `HTML/Reference/Global_attributes` abgelegt werden sollten.
+HTML-Attribute fallen in zwei Kategorien: **Element-spezifische Attribute**, die nur für bestimmte Elemente gelten (z.B. das `accept` Attribut auf `<input type="file">`), und **globale Attribute**, die für jedes HTML-Element verwendet werden können (z.B. `class`, `id`). Erstere sollten unter `HTML/Reference/Attributes` eingeordnet werden, während letztere unter `HTML/Reference/Global_attributes` platziert werden sollten.
 
-Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenständigen Artikel benötigen, wenn die Attributliste im Elementreferenz ausreicht, um deren Verhalten zu beschreiben. Fügen Sie nur dann einen Artikel hinzu, wenn das Attribut genug Nuancen hat, um eigene Beispiele zu verdienen, oder es sich um ein globales Attribut handelt.
+Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenen Artikel benötigen, wenn die Attributliste in der Elementreferenz ausreicht, um ihr Verhalten zu beschreiben. Fügen Sie einen Artikel nur hinzu, wenn das Attribut genügend Nuancen aufweist, um eigene Beispiele zu verdienen, oder wenn es sich um ein globales Attribut handelt.
 
 > [!NOTE]
-> _Entfernen Sie diese gesamte erklärende Anmerkung vor der Veröffentlichung_
+> _Entfernen Sie diese gesamte erklärende Anmerkung vor der Veröffentlichung._
 >
 > ---
 >
 > **Seiten-Metadaten:**
 >
-> Die Metadaten am Anfang der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten für das jeweilige Attribut entsprechend aktualisiert werden.
+> Das Frontmatter am oberen Rand der Seite wird verwendet, um "Seiten-Metadaten" zu definieren. Die Werte sollten entsprechend für das jeweilige Attribut aktualisiert werden.
 >
 > ```md
 > ---
@@ -34,20 +33,15 @@ Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenständi
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
->     Formatieren Sie als `name-of-the-attribute` (nur der Attributname selbst).
->     Zum Beispiel hat das Attribut [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) einen _Titel_ von `class`.
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Formatieren Sie als `name-of-the-attribute` (nur der Attributname selbst). Zum Beispiel hat das [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) Attribut einen _Titel_ von `class`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
->     Dies wird im Format `Web/HTML/Reference/Global_attributes/name-of-the-attribute` oder `Web/HTML/Reference/Attributes/name-of-the-attribute` formatiert, wobei der Attributname in _Kleinbuchstaben_ ist.
->     Zum Beispiel hat das Attribut [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) einen _Slug_ von `Web/HTML/Reference/Global_attributes/class`.
+>   - : Das Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`. Dies wird formatiert wie `Web/HTML/Reference/Global_attributes/name-of-the-attribute` oder `Web/HTML/Reference/Attributes/name-of-the-attribute`, wobei der Attributname in _Kleinschreibung_ ist. Zum Beispiel hat das [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) Attribut einen _Slug_ von `Web/HTML/Reference/Global_attributes/class`.
 > - **page-type**
 >   - : Immer `html-attribute`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das eines oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Flags, die den Status dieser Funktion beschreiben. Ein Array, das eine oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert `html.global_attributes.name-of-the-attribute` durch die Abfragezeichenfolge für das globale Attribut im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
->     Für element-spezifische Attribute verwenden Sie das Format `html.elements.name-of-the-element.name-of-the-attribute`, wobei jede Abfragezeichenfolge in einer eigenen Zeile, vorangestellt von einem Bindestrich, steht. Zum Beispiel:
+>   - : Ersetzen Sie den Platzhalterwert `html.global_attributes.name-of-the-attribute` mit der Abfragezeichenfolge für das globale Attribut im [Browser compat data repo](https://github.com/mdn/browser-compat-data). Für element-spezifische Attribute verwenden Sie das Format `html.elements.name-of-the-element.name-of-the-attribute`, wobei jede Abfragezeichenfolge in einer eigenen Zeile steht, vorangestellt von einem Bindestrich. Zum Beispiel:
 >
 >     ```yaml
 >     browser-compat:
@@ -57,46 +51,37 @@ Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenständi
 >       - html.elements.textarea.autocomplete
 >     ```
 >
->     Die Werkzeugkette verwendet den Schlüssel automatisch, um die Abschnitte Kompatibilität und Spezifikationen zu füllen (er ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros).
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Attribut in unserem [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten.
->     Siehe unser [Leitfaden, wie man dies macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (Ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros). Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Attribut in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag muss Spezifikationsinformationen enthalten. Siehe unseren [Leitfaden, wie man das macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 > - **sidebar**
->   - : Bleiben Sie bei `htmlsidebar` (alle Seiten unter `/web/html/` verwenden diese Sidebar).
->     Siehe [Seitenstrukturen: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
+>   - : Behalten Sie `htmlsidebar` (alle Seiten unter `/web/html/` verwenden diese Seitenleiste). Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
 >
 > ---
 >
 > **Makros am Seitenanfang**
 >
-> Eine Anzahl von Makroaufrufen erscheint am Anfang des Inhaltsbereichs (unmittelbar unterhalb der Seiten-Metadaten).
-> Diese Makros werden automatisch durch die Werkzeugkette hinzugefügt (es ist nicht erforderlich, sie manuell hinzuzufügen/entfernen):
+> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsbereichs (unmittelbar unter dem Seiten-Metadaten).
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht notwendig, sie hinzuzufügen/entfernen):
 >
-> - `\{{SeeCompatTable}}` — erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das angibt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Falls es experimentell ist und die Technologie hinter einem Pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — erzeugt ein **Nicht-standardgemäß**-Banner, das darauf hinweist, dass das Feature Teil keiner Spezifikation ist.
+> - `\{{SeeCompatTable}}` — dies generiert ein **Dies ist eine experimentelle Technologie** Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist. Wenn sie experimentell ist und die Technologie hinter einem Pref in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Non-standard_Header}}` — dies generiert ein **Nicht-Standard** Banner, das darauf hinweist, dass die Funktion nicht Teil irgendeiner Spezifikation ist.
 >
-> Geben Sie Status-Header-Makros nicht manuell an. Beziehen Sie sich auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status der Seite hinzuzufügen.
+> Geben Sie keine Statusheader-Makros manuell ein. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status auf der Seite hinzuzufügen.
 >
-> Beispiele der **Experimentell**, **Veraltet** und **Nicht-standardgemäß** Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele der **Experimentellen**, **Veralteten** und **Nicht-Standard** Banner werden direkt nach diesem Anmerkungsblock angezeigt.
 >
 > _Denken Sie daran, diese gesamte erklärende Anmerkung vor der Veröffentlichung zu entfernen_
 >
-> {{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+> {{SeeCompatTable}}{{Non-standard_Header}}
 >
-> Beginnen Sie damit, den Leser in das Attribut und seine Verwendung einzuführen.
-> Zum Beispiel: Das **`name-of-the-attribute`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) beschreibt oder manipuliert [fügen Sie hier die Verwendungsbeschreibung ein].
+> Beginnen Sie damit, den Leser mit dem Attribut und seiner Verwendung bekannt zu machen. Zum Beispiel: Das **`name-of-the-attribute`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) beschreibt oder manipuliert [Beschreibung der Verwendung einfügen].
 
-## Probieren Sie es
+## Ausprobieren
 
-Dieser Abschnitt wird durch das `InteractiveExample`-Makro generiert.
-Dies umfasst den Titel des Abschnitts "Probieren Sie es" und den Code-Editor.
-Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibrichtlinien_ für weitere Informationen.
-Falls enthalten, folgen Sie ihm mit 1-2 kurzen Absätzen, die das implementierte Verhalten erklären und gegebenenfalls auf eine Interaktion mit JavaScript, CSS oder anderen Attributen hinweisen. Halten Sie es prägnant und vermeiden Sie es, vollständige Dokumentationen zu duplizieren — verlinken Sie bei Bedarf. Siehe erneut die Seite des `class` Attributs.
+Dieser Abschnitt wird durch das `InteractiveExample` Makro generiert. Dies umfasst den Titel "Ausprobieren" und den Code-Editor. Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibrichtlinien_ für weitere Informationen. Wenn enthalten, folgen Sie ihm mit 1-2 kurzen Absätzen, die das implementierte Verhalten erklären und optional auf eine Interaktion mit JavaScript, CSS oder anderen Attributen hinweisen. Halten Sie es prägnant und vermeiden Sie die Duplizierung vollständiger Dokumentationen — verlinken Sie nach Bedarf aus. Sehen Sie sich erneut die Seite des `class` Attributs an.
 
 ## Werte
 
-Geben Sie eine Liste möglicher Werte für das Attribut an, falls vorhanden (entfernen Sie dies, wenn nicht zutreffend). Fügen Sie den Standardwert hinzu, falls es einen gibt, und eine kurze Beschreibung für jeden Wert.
+Stellen Sie eine Liste möglicher Werte für das Attribut bereit, falls vorhanden (entfernen Sie diese, wenn sie nicht zutrifft). Geben Sie den Standardwert an, sofern vorhanden, und eine kurze Beschreibung für jeden Wert.
 
 - `"value1"`
   - : Beschreibung von Wert 1. Dies ist der Standardwert.
@@ -107,24 +92,22 @@ Geben Sie eine Liste möglicher Werte für das Attribut an, falls vorhanden (ent
 
 ## Barrierefreiheit
 
-Warnen Sie vor potenziellen Barrierefreiheitsproblemen, die bei der Verwendung dieses Attributs auftreten können, und wie man sie umgehen kann. Entfernen Sie diesen Abschnitt, falls keine aufgelistet werden müssen.
+Warnen Sie vor möglichen Barrierefreiheitsproblemen, die bei der Verwendung dieses Attributs auftreten können, und wie Sie sie umgehen können. Entfernen Sie diesen Abschnitt, wenn es keine gibt, die aufzuführen sind.
 
 ## Beispiele
 
-Zeigen Sie relevante Beispiele für dieses Attribut und wie man dieses Attribut in praktischen HTML-Kontexten verwendet.
-Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Zeigen Sie relevante Beispiele für dieses Attribut und wie Sie dieses Attribut in praktischen HTML-Kontexten verwenden. Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
-### Eine aussagekräftige Überschrift
+### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel hervorhebt. Die Überschrift sollte beschreiben, was das Beispiel tut. Beispielsweise sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
-Siehe unseren Leitfaden zum Hinzufügen von [Code-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel hervorhebt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift. Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für mehr Informationen.
 
 > [!NOTE]
 > Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
 >
-> **Fall 1:** Wenn Sie einige Beispiele auf dieser Seite und noch mehr Beispiele auf einer anderen Seite haben:
+> **Fall 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite ein und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
@@ -140,12 +123,12 @@ Siehe unseren Leitfaden zum Hinzufügen von [Code-Beispielen](/de/docs/MDN/Writi
 >
 > **Fall 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu, sondern fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" ein. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieses Attributs, siehe [die Seite über das `for` Attribut](https://example.org/).
+> Für Beispiele dieses Attributs siehe [die Seite über `for` Attribut](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -160,8 +143,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit dem aktuellen Attribut zusammenhängen. Für weitere Richtlinien siehe den [Abschnitt "Siehe auch"](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf das aktuelle Attribut beziehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibrichtlinien-Leitfaden_.
 
 - link1
 - link2
-- external_link (year)
+- external_link (Jahr)

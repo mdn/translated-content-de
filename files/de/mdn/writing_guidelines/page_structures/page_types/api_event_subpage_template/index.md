@@ -2,18 +2,18 @@
 title: API-Ereignis-Unterseitentemplate
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_event_subpage_template
 l10n:
-  sourceCommit: 1d08cee771feea858e4fdb594bac036b9cd210a6
+  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
 ---
 
 > [!NOTE]
-> _Entfernen Sie diese gesamte erklärende Anmerkung vor der Veröffentlichung._
+> _Entfernen Sie diese gesamte erklärende Notiz, bevor Sie veröffentlichen._
 >
 > ---
 >
-> **Seitenfrontmatter:**
+> **Seitenvorabinformationen:**
 >
-> Das Frontmatter oben auf der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
-> Die Werte sollten entsprechend für das jeweilige Ereignis aktualisiert werden.
+> Die Vorabinformationen am Anfang der Seite werden verwendet, um "Seitenmetadaten" zu definieren.
+> Die Werte sollten angemessen für das spezifische Ereignis aktualisiert werden.
 >
 > ```md
 > ---
@@ -29,74 +29,73 @@ l10n:
 > ```
 >
 > - **title**
->   - : Der Überschriftstitel, der oben auf der Seite angezeigt wird.
->     Formatieren Sie dies als "_NameOfTheParentInterface_**:** _NameOfTheEvent_ **event**".
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
+>     Formatieren Sie das wie "_NameOfTheParentInterface_**:** _NameOfTheEvent_ **event**".
 >     Zum Beispiel hat das [animationcancel](/de/docs/Web/API/Element/animationcancel_event) Ereignis der [Window](/de/docs/Web/API/Window) Schnittstelle einen _title_ von `Window: animationcancel event`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
->     Dies wird wie `Web/API/NameOfTheParentInterface/NameOfTheEvent_event` formatiert.
+>   - : Das Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`.
+>     Dies wird formatiert wie `Web/API/NameOfTheParentInterface/NameOfTheEvent_event`.
 > - **page-type**
->   - : Der `page-type` Schlüssel für Web/API-Ereignisse ist immer `web-api-event`.
+>   - : Der Schlüssel `page-type` für Web/API-Ereignisse ist immer `web-api-event`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe [Wie Feature-Status hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Flags, die den Status dieses Features beschreiben. Ein Array, das eines oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Sehen Sie [Wie Feature-Status hinzugefügt oder aktualisiert werden](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheEvent_event` mit dem Abfragezeichenfolgewert für das Ereignis im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet automatisch den Schlüssel, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (Ersetzung der `\{{Compat}}` und `\{{Specifications}}` Makros).
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheEvent_event` durch die Abfragezeichenfolge für das Ereignis im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Werkzeugkette verwendet den Schlüssel automatisch, um die Abschnitte zur Kompatibilität und Spezifikation zu füllen (Ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros).
 >
->     Beachten Sie, dass Sie zunächst möglicherweise einen Eintrag für das Ereignis in unserem [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data) erstellen oder aktualisieren müssen, und dieser Eintrag muss Spezifikationsinformationen enthalten.
->     Siehe unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für das Ereignis in unserem [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und dieser Eintrag muss Spezifikationsinformationen enthalten.
+>     Siehe unseren [Leitfaden dazu, wie das gemacht wird](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
-> **Makros am Seitenanfang**
+> **Makros oben auf der Seite**
 >
-> Eine Reihe von Makroaufrufen erscheint oben im Inhaltsbereich (direkt unter dem Seitenfrontmatter).
+> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts (unmittelbar unterhalb der Seitenvorabinformation).
 >
-> Diese Makros werden automatisch durch die Toolchain hinzugefügt (es ist nicht notwendig, etwas hinzuzufügen/zu entfernen):
+> Diese Makros werden von der Werkzeugkette automatisch hinzugefügt (es ist nicht nötig, hinzuzufügen/zu entfernen):
 >
-> - `\{{SeeCompatTable}}` — generiert ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es experimentell ist und die Technologie hinter einem Pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — generiert ein **Veraltet**-Banner, das darauf hinweist, dass die Nutzung der Technologie [unerwünscht](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — generiert ein **Nicht standardisiert**-Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — dies erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn es experimentell ist und die Technologie hinter einem pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Non-standard_Header}}` — dies erzeugt ein **Nicht-Standard**-Banner, das anzeigt, dass das Feature nicht Teil irgendeiner Spezifikation ist.
 >
 > Sie sollten die folgenden Makros gemäß den untenstehenden Ratschlägen aktualisieren oder löschen:
 >
-> - `\{{SecureContext_Header}}` — generiert ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
->   Wenn dies nicht der Fall ist, können Sie den Makroaufruf entfernen.
->   Wenn dies der Fall ist, sollten Sie auch einen Eintrag dafür auf der Seite [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{AvailableInWorkers}}` — generiert einen **Verfügbar in Workern** Hinweis, der darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+> - `\{{SecureContext_Header}}` — dies erzeugt ein **Sicherer Kontext**-Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
+>   Wenn nicht, können Sie den Makroaufruf entfernen.
+>   Wenn ja, sollten Sie auch einen Eintrag dafür auf der Seite [Features, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{AvailableInWorkers}}` — dies erzeugt eine **Verfügbar In Workers**-Notiz, die anzeigt, dass die Technologie in einem [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 >   Wenn es nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
->   Wenn es auch im Worker-Kontext verfügbar ist oder nur dort verfügbar ist, dann müssen Sie möglicherweise einen Parameter aufgrund seiner Verfügbarkeit übergeben (siehe [\\{{AvailableInWorkers}} Makros Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), Sie müssen möglicherweise auch einen Eintrag auf der Seite [Web-APIs verfügbar in Workern](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ausfüllen.
-> - `\{{APIRef("GroupDataName")}}` — generiert die linke Referenz-Seitenleiste, die schnelle Referenzlinks zeigt, die sich auf die aktuelle Seite beziehen.
->   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten in der API verweist.
->   Um die korrekte Seitenleiste für Ihre API zu erzeugen, müssen Sie einen `GroupData`-Eintrag in unser GitHub-Repo hinzufügen und den Namen des Eintrags innerhalb des Makroaufrufs anstelle von _GroupDataName_ verwenden.
->   Siehe unseren [API-Referenz-Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) Leitfaden für Informationen, wie Sie dies tun können.
+>   Wenn es auch verfügbar oder nur im Worker-Kontext verfügbar ist, müssen Sie möglicherweise aufgrund seiner Verfügbarkeit einen Parameter übergeben (siehe [\\{{AvailableInWorkers}} Makros Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), Sie müssen möglicherweise auch einen Eintrag auf der Seite [Web APIs verfügbar in Workers](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) ausfüllen.
+> - `\{{APIRef("GroupDataName")}}` — dies erzeugt das linke Referenz-Seitenleistenfenster, das schnelle Referenzlinks zeigt, die mit der aktuellen Seite zusammenhängen.
+>   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) die gleiche Seitenleiste, die auf die anderen Seiten in der API verweist.
+>   Um die korrekte Seitenleiste für Ihre API zu erzeugen, müssen Sie einen `GroupData` Eintrag zu unserem GitHub-Repo hinzufügen und den Eintragsnamen im Makroaufruf anstelle von _GroupDataName_ einfügen.
+>   Sehen Sie unseren [Leitfaden zu API-Referenz-Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie das geht.
 >
-> Geben Sie keine Statusheader-Makros manuell an. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated) um diese Status auf der Seite hinzuzufügen.
+> Stellen Sie Status-Header-Makros nicht manuell bereit. Beziehen Sie sich auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele für die **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht standardisiert** Banner werden direkt nach diesem Notizblock gezeigt.
+> Beispiele für die **Sicherer Kontext**, **Verfügbar in Workers**, **Experimentell**, **Veraltet** und **Nicht-Standard** Banner werden direkt nach diesem Notizblock gezeigt.
 >
 > ---
 >
 > **Link zum übergeordneten Objekt**
 >
-> Fügen Sie einen Link zu dieser neuen Seite aus dem _Events_-Abschnitt des übergeordneten Objekts hinzu.
-> Zum Beispiel wird [Element: wheel event](/de/docs/Web/API/Element/wheel_event) von den [`Element` Events](/de/docs/Web/API/Element#events) verlinkt.
+> Fügen Sie einen Link zu dieser neuen Seite aus dem _Ereignisse_-Abschnitt seines übergeordneten Objekts hinzu.
+> Beispielsweise wird [Element: wheel event](/de/docs/Web/API/Element/wheel_event) von [`Element` Ereignisse](/de/docs/Web/API/Element#events) verlinkt.
 >
-> Wenn das übergeordnete Objekt keinen _Events_-Abschnitt hat, dann fügen Sie einen hinzu.
-> Wenn dies eine neue "Klasse" von Ereignissen ist, dann sollten Sie einen Link zu diesem Abschnitt des übergeordneten Objekts aus dem [DOM Veranstaltungen](/de/docs/Web/API/Document_Object_Model/Events#event_index) Leitfaden hinzufügen.
+> Wenn das übergeordnete Objekt keinen _Ereignisse_-Abschnitt hat, fügen Sie einen hinzu.
+> Wenn dies eine neue "Klasse" von Ereignissen ist, sollten Sie einen Link zu diesem Abschnitt des Elternteils aus dem [DOM-Ereignisse](/de/docs/Web/API/Document_Object_Model/Events#event_index) Leitfaden hinzufügen.
 >
-> _Denken Sie daran, diese gesamte erklärende Anmerkung vor der Veröffentlichung zu entfernen._
+> _Denken Sie daran, diese gesamte erklärende Notiz zu entfernen, bevor Sie veröffentlichen._
 
-{{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie damit, das Ereignis zu benennen, sagen Sie, zu welcher Schnittstelle es gehört, und sagen Sie, was es tut.
-Dies sollte idealerweise ein oder zwei kurze Sätze umfassen.
-Sie könnten das meiste davon aus der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite kopieren.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz – beginnen Sie mit dem Namen des Ereignisses, sagen Sie, zu welchem Interface es gehört, und was es macht.
+Dies sollte idealerweise ein bis zwei kurze Sätze umfassen.
+Sie könnten den größten Teil davon von der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite kopieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("NameOfTheEvent", (event) => { })
@@ -106,7 +105,7 @@ onNameOfTheEvent = (event) => { }
 
 ## Ereignistyp
 
-Wenn das Ereignis einen besonderen Typ hat, erwähnen Sie es zusammen mit seiner Vererbung. Wenn nicht, geben Sie an, dass es sich um ein generisches Ereignis handelt:
+Wenn das Ereignis einen speziellen Typ hat, erwähnen Sie es zusammen mit seiner Vererbung. Wenn nicht, geben Sie an, dass es sich um ein generisches Ereignis handelt:
 
 _Ein generisches [`Event`](/de/docs/Web/API/Event)._
 
@@ -118,7 +117,7 @@ _Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de
 
 ## Beschreibung
 
-Wenn Sie weiteren Text bereitstellen möchten (zu lang für die Zusammenfassung), fügen Sie einen Beschreibungsabschnitt hinzu.
+Wenn Sie zusätzlichen Text bereitstellen möchten (zu lang für die Zusammenfassung), fügen Sie einen Beschreibungsabschnitt hinzu.
 Er kann die Überschriften enthalten
 
 ### Auslöser
@@ -127,7 +126,7 @@ und
 
 ### Anwendungsfälle
 
-die weitere Informationen bereitstellen können.
+die mehr Informationen bereitstellen können.
 
 ## Beispiele
 
@@ -135,37 +134,37 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. "Ein einfaches Beispiel" sagt nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte präzise sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Informieren Sie sich in unserem Leitfaden dazu, wie man [Code-Beispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples).
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben sind.
 >
 > **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele" hinzu, unter denen Sie die Links zu den Beispielen auf anderen Seiten bereitstellen können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Die Fetch-API nutzen
+> ### Verwendung der fetch API
 >
-> Beispiel von Fetch
+> Beispiel für Fetch
 >
 > ### Weitere Beispiele
 >
-> Links zu weiteren Beispielen auf anderen Seiten
+> Links zu mehr Beispielen auf anderen Seiten
 > ```
 >
 > **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele". Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele zu dieser API, siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele zu dieser API siehe [die Seite zu fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -186,4 +185,4 @@ Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuel
 
 - link1
 - link2
-- externer_link (Jahr)
+- external_link (year)

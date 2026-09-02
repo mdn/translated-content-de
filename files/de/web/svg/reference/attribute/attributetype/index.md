@@ -2,12 +2,10 @@
 title: attributeType
 slug: Web/SVG/Reference/Attribute/attributeType
 l10n:
-  sourceCommit: db01d0c8b4cbf8a4467b1db65e17f6724d0ce710
+  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
 ---
 
-{{Deprecated_Header}}
-
-Das **`attributeType`**-Attribut gibt den Namensraum an, in dem das Zielattribut und die zugehörigen Werte definiert sind.
+Das **`attributeType`**-Attribut spezifiziert den Namensraum, in dem das Zielattribut und seine zugehörigen Werte definiert sind.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -61,11 +59,11 @@ svg {
 </table>
 
 - `CSS`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer CSS-Eigenschaft ist, die als animierbar definiert ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer als animierbar definierten CSS-Eigenschaft ist.
 - `XML`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das im Standard-XML-Namensraum für das Zielelement als animierbar definiert ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das im Standard-XML-Namensraum für das Ziel-Element als animierbar definiert ist.
 - `auto`
-  - : Dieser Wert gibt an, dass die Implementierung {{SVGAttr("attributeName")}} einem Attribut für das Zielelement entsprechen sollte. Benutzeragenten durchsuchen zunächst die Liste der CSS-Eigenschaften nach einem passenden Eigenschaftsnamen, und falls keiner gefunden wird, durchsuchen sie den Standard-XML-Namensraum für das Element.
+  - : Dieser Wert gibt an, dass die Implementierung {{SVGAttr("attributeName")}} mit einem Attribut für das Ziel-Element abgleichen sollte. Benutzeragenten durchsuchen zunächst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen. Wenn keine gefunden wird, wird der Standard-XML-Namensraum für das Element durchsucht.
 
 ## Spezifikationen
 

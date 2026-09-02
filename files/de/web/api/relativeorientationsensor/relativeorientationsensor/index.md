@@ -3,14 +3,12 @@ title: "RelativeOrientationSensor: RelativeOrientationSensor() Konstruktor"
 short-title: RelativeOrientationSensor()
 slug: Web/API/RelativeOrientationSensor/RelativeOrientationSensor
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 9505c8d1370343fb65affa01657f27751ab59103
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`RelativeOrientationSensor()`**
-Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)-Objekt, welches
-die physische Ausrichtung des Geräts beschreibt.
+Der **`RelativeOrientationSensor()`** Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor) Objekt, das die physische Orientierung des Geräts beschreibt.
 
 ## Syntax
 
@@ -22,15 +20,11 @@ new RelativeOrientationSensor(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Optionen sind wie folgt:
+  - : Die Optionen sind wie folgt:
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Proben pro Sekunde,
-        bedeutet die Anzahl der Male pro Sekunde, dass das
-        [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lesehäufigkeit hängt von der Gerätehardware ab und kann folglich geringer als
-        angefordert sein.
+      - : Die gewünschte Anzahl von Messungen pro Sekunde, also die Anzahl der Male pro Sekunde, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis aufgerufen wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastrate hängt von der Gerätehardware ab und kann daher niedriger sein als gewünscht.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder
-        `'screen'`. Der Standardwert ist `'device'`.
+      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 

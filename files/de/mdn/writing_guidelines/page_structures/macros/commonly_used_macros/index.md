@@ -1,37 +1,39 @@
 ---
-title: Häufig verwendete Makros
+title: Allgemein verwendete Makros
 slug: MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: 8f0171397993605739530a8d32f24a804d06f882
 ---
 
-Diese Seite listet viele der allgemein verwendbaren Makros auf, die das MDN-Buildsystem [rari](https://github.com/mdn/rari) für die Nutzung auf MDN bereitstellt.
-Für allgemeine Anleitungen zur Verwendung dieser Makros in MDN-Inhalten siehe [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros).
+Diese Seite listet viele der universell einsetzbaren Makros auf, die das Build-System von MDN, [rari](https://github.com/mdn/rari), für die Nutzung auf MDN bereitstellt.
+Für allgemeine Anleitungen zur Verwendung dieser Makros in MDN-Inhalten, siehe [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros).
 
 ## Verlinkung
 
-MDN bietet eine Reihe von Linkmakros zur Erleichterung der Erstellung von Links zu Glossareinträgen, Referenzseiten und anderen Themen.
+MDN bietet eine Anzahl von Link-Makros zur Vereinfachung der Erstellung von Links zu Glossareinträgen, Referenzseiten und anderen Themen.
 
-Linkmakros werden gegenüber normalen Markdown-Links empfohlen, da sie prägnant und übersetzungsfreundlich sind.
-Zum Beispiel muss ein Glossar- oder Referenzlink, der mit einem Makro erstellt wurde, nicht übersetzt werden: In anderen Lokalen wird er automatisch zur korrekten Version der Datei verlinken.
+Link-Makros werden gegenüber normalen Markdown-Links empfohlen, da sie prägnant und übersetzungsfreundlich sind.
+Zum Beispiel muss ein mit einem Makro erstellter Glossar- oder Referenzlink nicht übersetzt werden: In anderen Sprachversionen wird automatisch auf die richtige Version der Datei verlinkt.
 
-Diese Makros werden auch ausführlicher auf der Seite [Linkmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Links) behandelt.
+Diese Makros werden auch ausführlicher auf der Seite [Link-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Links) behandelt.
 
 ### Verlinkung zu Glossarbegriffen
 
-Das [`Glossary`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/glossary.rs)-Makro erstellt einen Link zur Seite des angegebenen Begriffs im [MDN Glossary](/de/docs/Glossary).
+Das [`Glossary`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/glossary.rs)-Makro erstellt einen Link zur Seite des angegebenen Begriffs im [MDN Glossar](/de/docs/Glossary).
 Dieses Makro akzeptiert einen erforderlichen Parameter und einen optionalen Parameter.
 
-- Der Begriff ist ein erforderlicher Parameter. Um zum Beispiel zur Glossarseite für "HTML" zu verlinken, wird das Makro `\{{Glossary("HTML")}}` lauten, und dies wird den Link {{Glossary("HTML", "HTML")}} erzeugen.
-- Der Anzeigetext ist ein optionaler Parameter. Beispielsweise können Sie den Link im vorherigen Beispiel als `\{{Glossary("HTML", "HyperText Markup Language")}}` schreiben, was den Link {{Glossary("HTML", "HyperText Markup Language")}} erzeugen wird.
+- Der Begriff ist ein erforderlicher Parameter. Zum Beispiel, um auf die Glossarseite für "HTML" zu verlinken, lautet das Makro `\{{Glossary("HTML")}}`, und dies wird den Link {{Glossary("HTML", "HTML")}} erzeugen.
+- Der Anzeigetext ist ein optionaler Parameter. Zum Beispiel können Sie den Link im vorherigen Beispiel als `\{{Glossary("HTML", "HyperText Markup Language")}}` schreiben, was den Link {{Glossary("HTML", "HyperText Markup Language")}} erzeugt.
 
 ### Verlinkung zu Referenzseiten
 
-Es gibt Makros für sprachunabhängige Verlinkungen zu Seiten in bestimmten Referenzbereichen von MDN, einschließlich HTML, CSS, JavaScript, SVG und HTTP.
+Es gibt Makros für die lokalisierungsunabhängige Verlinkung zu Seiten in bestimmten Referenzbereichen von MDN, einschließlich HTML, CSS, JavaScript, SVG und HTTP.
 
-Die Makros sind einfach zu verwenden. Alles, was Sie tun müssen, ist den Namen des zu verlinkenden Elements im ersten Parameter anzugeben. Ähnlich wie beim Glossarmakro akzeptieren die meisten Referenzmakros auch einen zweiten Parameter, um den Anzeigetext zu ändern.
+Die Makros sind einfach zu verwenden.
+Alles, was Sie tun müssen, ist, den Namen des zu verlinkenden Elements im ersten Parameter anzugeben.
+Ähnlich wie das Glossar-Makro akzeptieren die meisten Referenz-Makros auch einen zweiten Parameter, um Ihnen die Möglichkeit zu geben, den Anzeigetext zu ändern.
 
-Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der folgenden Tabelle.
+Details finden Sie in den verlinkten Quelldateien in der ersten Spalte der folgenden Tabelle.
 
 <table class="standard-table">
   <thead>
@@ -54,7 +56,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
         <code>\{{CSSxRef(":hover")}}</code> ergibt {{CSSxRef(":hover")}}.<br />
         <code>\{{CSSxRef("@media")}}</code> ergibt {{CSSxRef("@media")}}.<br />
         <code>\{{CSSxRef("pow")}}</code> ergibt {{CSSxRef("pow")}}.<br /><br />
-        Details finden Sie unter <a href="/de/docs/MDN/Writing_guidelines/Page_structures/Links#using_cssxref_with_the_css_reference">Verwendung von <code>cssxref</code> mit der CSS-Referenz</a>
+        Details nachlesen unter <a href="/de/docs/MDN/Writing_guidelines/Page_structures/Links#using_cssxref_with_the_css_reference">Verwendung von <code>cssxref</code> mit der CSS-Referenz</a>
       </td>
     </tr>
     <tr>
@@ -95,7 +97,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
         <a href="https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/svgattr.rs">SVGAttr</a>
       </td>
       <td>
-        <a href="/de/docs/Web/SVG/Reference/Attribute">SVG-Attribut-Referenz</a> (/Web/SVG/Reference/Attribute)
+        <a href="/de/docs/Web/SVG/Reference/Attribute">SVG Attribut-Referenz</a> (/Web/SVG/Reference/Attribute)
       </td>
       <td>
         <code>\{{SVGAttr("d")}}</code> ergibt {{SVGAttr("d")}}.
@@ -107,7 +109,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
           href="https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/svgxref.rs">SVGElement</a>
       </td>
       <td>
-        <a href="/de/docs/Web/SVG/Reference/Element">SVG-Element-Referenz</a> (/Web/SVG/Reference/Element)
+        <a href="/de/docs/Web/SVG/Reference/Element">SVG Element-Referenz</a> (/Web/SVG/Reference/Element)
       </td>
       <td>
         <code>\{{SVGElement("view")}}</code> ergibt {{SVGElement("view")}}.
@@ -118,7 +120,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
         <code><a href="https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/http.rs">HTTPHeader</a></code>
       </td>
       <td>
-        <a href="/de/docs/Web/HTTP/Reference/Headers">HTTP-Header</a> (/Web/HTTP/Reference/Headers)
+        <a href="/de/docs/Web/HTTP/Reference/Headers">HTTP Headers</a> (/Web/HTTP/Reference/Headers)
       </td>
       <td>
         <code>\{{HTTPHeader("ACCEPT")}}</code> ergibt {{HTTPHeader("ACCEPT")}}.
@@ -129,7 +131,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
         <a href="https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/http.rs">HTTPMethod</a>
       </td>
       <td>
-        <a href="/de/docs/Web/HTTP/Reference/Methods">HTTP-Anforderungsmethoden</a> (/Web/HTTP/Reference/Methods)
+        <a href="/de/docs/Web/HTTP/Reference/Methods">HTTP-Anfragemethoden</a> (/Web/HTTP/Reference/Methods)
       </td>
       <td>
         <code>\{{HTTPMethod("HEAD")}}</code> ergibt {{HTTPMethod("HEAD")}}.
@@ -140,7 +142,7 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
         <a href="https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/links/http.rs">HTTPStatus</a>
       </td>
       <td>
-        <a href="/de/docs/Web/HTTP/Reference/Status">HTTP-Antwortstatuscodes</a> (/Web/HTTP/Reference/Status)
+        <a href="/de/docs/Web/HTTP/Reference/Status">HTTP-Antwortstatus-Codes</a> (/Web/HTTP/Reference/Status)
       </td>
       <td>
         <code>\{{HTTPStatus("404")}}</code> ergibt {{HTTPStatus("404")}}.
@@ -152,31 +154,31 @@ Einzelheiten finden Sie in den verlinkten Quelldateien in der ersten Spalte der 
 ### Hinzufügen von Navigationselementen für mehrseitige Leitfäden
 
 Die Makros [`Previous`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs), [`Next`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) und [`PreviousNext`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) bieten Navigationselemente für Artikel, die Teil einer Sequenz sind.
-Für die einseitigen Vorlagen ist der einzige benötigte Parameter der Slug des vorherigen oder nächsten Artikels in der Sequenz.
-Das Makro [`PreviousNext`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) erfordert zwei Parameter: Der erste Parameter ist der Slug für den vorherigen Artikel, und der zweite ist der Slug für den nächsten Artikel.
+Bei den einseitigen Vorlagen ist nur der Slug des vorherigen oder nächsten Artikels in der Sequenz als Parameter erforderlich.
+Das [`PreviousNext`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs)-Makro erfordert zwei Parameter: Der erste Parameter ist der Slug für den vorherigen Artikel, und der zweite ist der Slug für den nächsten Artikel.
 
-## Generierung von Codebeispielen
+## Generieren von Codebeispielen
 
 ### Live-Beispiele
 
-- [`EmbedLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_live_sample.rs) ermöglicht es Ihnen, die Ausgabe eines Codebeispiels auf einer Seite einzubetten, wie in den [Live-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
-- [`LiveSampleLink`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/live_sample_link.rs) erstellt einen Link zu einer Seite, die die Ausgabe eines Codebeispiels auf einer Seite enthält, wie in den [Live-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
-- [`EmbedGHLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_gh_live_sample.rs) ermöglicht es Ihnen, Live-Beispiele von GitHub-Seiten einzubetten.
+- [`EmbedLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_live_sample.rs) ermöglicht es Ihnen, die Ausgabe eines Codebeispiels auf einer Seite einzubetten, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
+- [`LiveSampleLink`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/live_sample_link.rs) erstellt einen Link zu einer Seite, die die Ausgabe eines Codebeispiels enthält, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
+- [`EmbedGHLiveSample`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/embeds/embed_gh_live_sample.rs) ermöglicht das Einbetten von Live-Beispielen von GitHub-Seiten.
   Weitere Informationen finden Sie unter [GitHub-Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#github_live_samples).
 
-## Hinzufügen von allgemein verwendbaren Formatierungen
+## Hinzufügen von allgemeinem Formatierungszweck
 
 ### Hinzufügen von Inline-Indikatoren für API-Dokumentation
 
-[`Optional_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) und [`ReadOnlyInline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) werden in API-Dokumentationen verwendet, normalerweise bei der Beschreibung der Liste von Objekteigenschaften oder Funktionsparametern.
+[`Optional_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) und [`ReadOnlyInline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) werden in der API-Dokumentation verwendet, normalerweise beim Beschreiben der Liste der Eigenschaften eines Objekts oder der Parameter einer Funktion.
 
 Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`.
 Beispiel:
 
 - `isCustomObject` {{ReadOnlyInline}}
-  - : Gibt an, ob das Objekt ein benutzerdefiniertes ist, wenn `true`.
+  - : zeigt an, ob das Objekt, wenn `true`, ein benutzerdefiniertes ist.
 - `parameterX` {{optional_inline}}
-  - : Gibt an…
+  - : zeigt an…
 
 ## Hinzufügen von Status- und Kompatibilitätsindikatoren
 
@@ -184,7 +186,7 @@ Beispiel:
 
 #### Nicht standardisiert
 
-[`Non-standard_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt ein Inline-Zeichen ein, das anzeigt, dass die API nicht standardisiert ist und sich nicht auf einem Standardisierungsweg befindet.
+[`Non-standard_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt eine Inline-Markierung hinzu, die angibt, dass die API nicht standardisiert und nicht auf einem Standardweg ist.
 
 ##### Syntax
 
@@ -196,8 +198,8 @@ Beispiel:
 
 #### Experimentell
 
-[`Experimental_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt ein Inline-Zeichen ein, das anzeigt, dass die API nicht weit verbreitet implementiert ist und sich in Zukunft ändern könnte.
-Für weitere Informationen zur Definition **experimentell** siehe die Dokumentation zu [Experimentell, veraltet und obsolet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
+[`Experimental_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt eine Inline-Markierung hinzu, die angibt, dass die API nicht weit verbreitet implementiert ist und sich in Zukunft ändern kann.
+Für weitere Informationen zur Definition **experimentell**, siehe die Dokumentation [Experimentell, veraltet und obsolet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
 
 ##### Syntax
 
@@ -207,12 +209,12 @@ Für weitere Informationen zur Definition **experimentell** siehe die Dokumentat
 
 - Symbol: {{Experimental_Inline}}
 
-### Hinzufügen von Inline-Indikatoren, die die Technologie angeben
+### Hinzufügen von Inline-Indikatoren mit Unterstützung zur Angabe der Technologie
 
 #### Veraltet
 
-[`Deprecated_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt ein Inline-Zeichen für veraltete APIs ein ({{Deprecated_Inline}}), um die Verwendung einer offiziell veralteten (oder entfernten) API zu entmutigen.
-Für weitere Informationen zur Definition **veraltet** siehe die Dokumentation zu [Experimentell, veraltet und obsolet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
+[`Deprecated_Inline`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/badges.rs) fügt eine Inline-Markierung für Veraltet ({{Deprecated_Inline}}) ein, um die Nutzung einer offiziell veralteten (oder entfernten) API zu entmutigen.
+Für weitere Informationen zur Definition **veraltet**, siehe die Dokumentation [Experimentell, veraltet und obsolet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
 
 ##### Syntax
 
@@ -222,25 +224,23 @@ Für weitere Informationen zur Definition **veraltet** siehe die Dokumentation z
 
 - Symbol: {{Deprecated_Inline}}
 
-### Kopfzeilen-Indikatoren für Seiten oder Abschnitte
+### Seiten- oder Abschnittsheader-Indikatoren
 
-Diese Vorlagen haben die gleiche Semantik wie ihre Inline-Gegenstücke, die oben beschrieben sind.
-Die Vorlagen sollten direkt unter dem Hauptseitentitel (oder der Breadcrumb-Navigation, falls verfügbar) in der Referenzseite platziert werden.
-Sie können auch verwendet werden, um einen Abschnitt auf einer Seite auszuzeichnen.
+Diese Vorlagen haben die gleiche Bedeutung wie ihre oben beschriebenen Inline-Gegenstücke.
+Die Vorlagen sollten direkt unter dem Hauptseitentitel (oder der Breadcrumb-Navigation, falls vorhanden) auf der Referenzseite platziert werden.
+Sie können auch verwendet werden, um einen Abschnitt auf einer Seite zu markieren.
 
 - [`Non-standard_Header`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs): `\{{Non-standard_Header}}` {{Non-standard_Header}}
-- [`SeeCompatTable`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) wird auf Seiten verwendet,
-  die [experimentelle Features](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) dokumentieren.
+- [`SeeCompatTable`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) wird auf Seiten verwendet, die [experimentelle Features](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) dokumentieren.
   Beispiel: `\{{SeeCompatTable}}` {{SeeCompatTable}}
-- [`Deprecated_Header`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs): `\{{Deprecated_Header}}` {{Deprecated_Header}}
 - [`SecureContext_Header`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs).
-  Sollte auf Hauptseiten wie Schnittstellenseiten, API-Übersichtsseiten und API-Einstiegspunkten (z.B. `navigator.xyz`) verwendet werden, aber normalerweise nicht auf Unterseiten wie Methoden- und Eigenschaften-Seiten.
+  Sollte auf Hauptseiten wie Schnittstellenseiten, API-Übersichtsseiten und API-Einstiegspunkte (z.B. `navigator.xyz`) verwendet werden, aber normalerweise nicht auf Unterseiten wie Methoden- und Eigenschaftsseiten.
   Beispiel: `\{{SecureContext_Header}}` {{SecureContext_Header}}
 
-#### Hinweis darauf, dass eine Funktion in Web-Workern verfügbar ist
+#### Hinweis, dass ein Feature in Web-Workern verfügbar ist
 
-Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) fügt ein lokalisiertes Hinweisfeld ein, das anzeigt, dass eine Funktion in einem [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
-Sie können auch einige Argumente übergeben, um anzugeben, dass eine Funktion in einem bestimmten Worker-Kontext funktioniert.
+Das Makro [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) fügt eine lokalisierte Notizbox hinzu, die angibt, dass ein Merkmal im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+Sie können auch einige Argumente übergeben, um anzugeben, dass ein Merkmal im angegebenen Worker-Kontext funktioniert.
 
 ##### Syntax
 
@@ -254,20 +254,20 @@ Sie können auch einige Argumente übergeben, um anzugeben, dass eine Funktion i
 {{AvailableInWorkers}}
 {{AvailableInWorkers("window_and_worker_except_service")}}
 
-## Verlinkung zu Browser-Kompatibilität und Spezifikationen
+## Verlinkung zu Browser-Kompatibilität und Spezifikation
 
-Die folgenden Makros sind auf allen Referenzseiten enthalten, werden jedoch auch von allen Seitentypen unterstützt:
+Die folgenden Makros sind auf allen Referenzseiten enthalten, werden aber auch von allen Seitentypen unterstützt:
 
 - `\{{Compat}}`
-  - : Erstellt eine [Kompatibilitätstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für die Funktion(en), die durch `browser-compat` im Frontmatter definiert sind.
+  - : Erstellt eine [Kompatibilitätstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für das/die in der `browser-compat` des Frontmatters definierte(n) Merkmal(e).
 - `\{{Specifications}}`
-  - : Schließt eine [Spezifikationstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Specification_tables) für die Funktion(en) ein, die durch `spec-urls` im Frontmatter, falls vorhanden, oder aus den in der Browser-Kompatibilitätsdaten definierten Spezifikationen durch `browser-compat` im Frontmatter festgelegt wurden.
+  - : Enthält eine [Spezifikationstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Specification_tables) für das/die in der `spec-urls` des Frontmatters definierte(n) Merkmal(e), falls vorhanden, oder aus der Spezifikation, die in den in der `browser-compat` des Frontmatters definierten Browser-Kompatibilitätsdaten aufgeführt ist.
 
 ## Siehe auch
 
-- [Linkmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
-- [Sidebarmakros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
-- [Feature-Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
+- [Link-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Links)
+- [Sidebar Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
+- [Feature-Status Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
 - [Andere Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Other) (selten verwendete oder veraltete Makros)
 - [Seitentemplates](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates)
 - [Seitenkomponenten](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
