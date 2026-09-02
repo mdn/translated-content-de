@@ -3,26 +3,26 @@ title: "SVGClipPathElement: clipPathUnits-Eigenschaft"
 short-title: clipPathUnits
 slug: Web/API/SVGClipPathElement/clipPathUnits
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 07758d01509695fe45ccc3f7687f6597dc3d9e2a
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`clipPathUnits`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)-Interfaces spiegelt das Attribut {{SVGAttr("clipPathUnits")}} eines {{SVGElement("clipPath")}}-Elements wider, das das Koordinatensystem definiert, das für den Inhalt des Elements verwendet wird.
+Die schreibgeschützte **`clipPathUnits`**-Eigenschaft der Schnittstelle [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement) reflektiert das Attribut {{SVGAttr("clipPathUnits")}} eines {{SVGElement("clipPath")}}-Elements, das das Koordinatensystem definiert, das für den Inhalt des Elements verwendet werden soll.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können, [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie modifizieren können, nämlich [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
 
 ## Wert
 
-Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem darstellt. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
+Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem repräsentiert. Die möglichen Werte sind in der Schnittstelle [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definiert:
 
 - `0` (`SVG_UNIT_TYPE_UNKNOWN`)
   - : Der Typ ist nicht einer der vordefinierten Typen.
 - `1` (`SVG_UNIT_TYPE_USERSPACEONUSE`)
-  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("clipPathUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements auf das Benutzerkoordinatensystem verweisen, wie es beim Erstellen des Clipping-Pfads definiert wurde. Es ist der Standardwert.
+  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("clipPathUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, das definiert wurde, als der Clipping-Pfad erstellt wurde. Es ist der Standardwert.
 - `2` (`SVG_UNIT_TYPE_OBJECTBOUNDINGBOX`)
-  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zum Begrenzungsrahmen des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Begrenzungsrahmens des Objekts ist und die Breite und Höhe des Begrenzungsrahmens des Objekts als eine Länge von 1 Einheit betrachtet werden.
+  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zur Begrenzungsbox des Elements sind, auf das der Clipping-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als Länge von 1 Einheit betrachtet werden.
 
 ## Beispiele
 

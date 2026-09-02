@@ -3,16 +3,16 @@ title: "HTMLImageElement: referrerPolicy-Eigenschaft"
 short-title: referrerPolicy
 slug: Web/API/HTMLImageElement/referrerPolicy
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: 7b9f3c730d1909846f80c70d84ac265d93d82af2
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`referrerPolicy`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird. Sie spiegelt das [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy)-Inhaltsattribut des `<img>`-Elements wider.
+Die **`referrerPolicy`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird. Sie spiegelt das [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy)-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Ein String, dessen Wert einer der folgenden ist: `no-referrer`, `no-referrer-when-downgrade`, `origin`, `origin-when-cross-origin`, `same-origin`, `strict-origin`, `strict-origin-when-cross-origin` oder `unsafe-url`. Für ihre Bedeutungen siehe den HTML [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy) Referenz.
+Ein String, dessen Wert einer der folgenden ist: `no-referrer`, `no-referrer-when-downgrade`, `origin`, `origin-when-cross-origin`, `same-origin`, `strict-origin`, `strict-origin-when-cross-origin` oder `unsafe-url`. Für deren Bedeutungen siehe die HTML-Referenz für [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#referrerpolicy).
 
 ## Beispiele
 

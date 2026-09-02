@@ -1,18 +1,18 @@
 ---
-title: "USBDevice: Eigenschaft productName"
+title: "USBDevice: productName-Eigenschaft"
 short-title: productName
 slug: Web/API/USBDevice/productName
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`productName`** der Schnittstelle [`USBDevice`](/de/docs/Web/API/USBDevice) ist der vom Hersteller definierte Name, der ein USB-Gerät identifiziert.
+Die schreibgeschützte Eigenschaft **`productName`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist der von der Herstellenden definierte Name, der ein USB-Gerät identifiziert.
 
 ## Wert
 
-Der vom Hersteller definierte Name, der ein USB-Gerät identifiziert.
+Der von der Herstellenden definierte Name, der ein USB-Gerät identifiziert.
 
 ## Spezifikationen
 

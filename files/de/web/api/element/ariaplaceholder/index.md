@@ -3,15 +3,15 @@ title: "Element: ariaPlaceholder-Eigenschaft"
 short-title: ariaPlaceholder
 slug: Web/API/Element/ariaPlaceholder
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaPlaceholder`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-placeholder`-Attributs wider, das einen kurzen Hinweis angibt, der dem Benutzer bei der Dateneingabe helfen soll, wenn das Steuerelement keinen Wert hat.
+Die **`ariaPlaceholder`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-placeholder`-Attributs wider, das einen kurzen Hinweis definiert, um dem Benutzer bei der Dateneingabe zu helfen, wenn das Steuerelement keinen Wert hat.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik besitzen und keine ARIA-Attribute erfordern.
+> Wenn möglich, verwenden Sie ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wurde das `aria-placeholder`-Attribut des Elements mit der ID `txtBoxInput` auf einen String gesetzt. Mit `ariaPlaceholder` aktualisieren wir den String auf einen anderen Wert.
+In diesem Beispiel wurde das `aria-placeholder`-Attribut des Elements mit der ID `txtBoxInput` auf einen String gesetzt. Mithilfe von `ariaPlaceholder` aktualisieren wir den String auf einen anderen Wert.
 
 ```html
 <div id="txtboxLabel">Enter your five-digit zip code</div>

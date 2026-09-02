@@ -3,12 +3,12 @@ title: "AbortSignal: any() statische Methode"
 short-title: any()
 slug: Web/API/AbortSignal/any_static
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 9bda33365e40b6c609fa5190a0af9b5dc6438cf0
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die statische Methode **`AbortSignal.any()`** nimmt ein iterierbares Element von Abbruchsignalen (`abort signals`) und gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Eingabe-Abbruchsignale im Iterierbaren abgebrochen wird. Der [Abbruchgrund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Signals gesetzt, das abgebrochen wird. Wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist, dann wird auch das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) sofort abgebrochen.
+Die statische Methode **`AbortSignal.any()`** nimmt ein iterierbares Objekt von Abbruchsignalen und gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Abbruchsignale des Input-Iterators abgebrochen wird. Der [Abbruchgrund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Signals gesetzt, das abgebrochen wurde. Wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist, wird auch das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen.
 
 ## Syntax
 
@@ -19,20 +19,28 @@ AbortSignal.any(iterable)
 ### Parameter
 
 - `iterable`
-  - : Ein [iterierbares Element](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
+  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
 
 ### Rückgabewert
 
 Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das:
 
-- **Bereits abgebrochen** ist, wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird bereits auf den [`reason`](/de/docs/Web/API/AbortSignal/reason) des ersten Abbruchsignals gesetzt, das bereits abgebrochen war.
-- **Asynchron abgebrochen** wird, wenn eines der Abbruchsignale in `iterable` abgebrochen wird. Der [`reason`](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Abbruchsignals gesetzt, das abgebrochen wird.
+- **Bereits abgebrochen** ist, wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird bereits auf den [`reason`](/de/docs/Web/API/AbortSignal/reason) des ersten bereits abgebrochenen Abbruchsignals gesetzt.
+- **Asynchron abgebrochen** wird, wenn ein Abbruchsignal im `iterable` abbricht. Der [`reason`](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten abgebrochenen Abbruchsignals gesetzt.
+
+## Beschreibung
+
+`AbortSignal.any()` bietet keine Methode, um das zurückgegebene Signal von seinen Eingabesignalen abzumelden. Das Abbrechen des zurückgegebenen Signals bricht nicht die anderen Eingabesignale ab oder storniert deren Zeitüberschreitungen.
+
+Intern werden das kombinierte Signal und seine Quellsignale durch schwache Referenzen verknüpft. Die kombinierten Signale werden nicht automatisch vor der Garbage Collection geschützt, während die Eingabesignale aktiv bleiben. Ein nicht-abgebrochenes kombiniertes Signal bleibt jedoch erhalten, solange es noch Quellsignale und entweder registrierte `abort`-Ereignislistener oder von einer API registrierte interne Abbruchschritte hat.
+
+Wenn Ihr Code `abort`-Listener zu dem kombinierten Signal hinzufügt, [entfernen Sie diese, wenn die Operation abgeschlossen ist](/de/docs/Web/API/AbortSignal#removing_the_abort_event_listener), genauso wie bei jedem anderen `AbortSignal`.
 
 ## Beispiele
 
-### Verwendung von `AbortSignal.any()`
+### Verwenden von `AbortSignal.any()`
 
-Dieses Beispiel zeigt die Kombination eines Signals von einem [`AbortController`](/de/docs/Web/API/AbortController) und einem Timeout-Signal von [`AbortSignal.timeout`](/de/docs/Web/API/AbortSignal/timeout_static).
+Dieses Beispiel zeigt die Kombination eines Signals von einem [`AbortController`](/de/docs/Web/API/AbortController) und eines Timeout-Signals von [`AbortSignal.timeout`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");

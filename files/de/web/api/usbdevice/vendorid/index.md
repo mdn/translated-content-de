@@ -1,18 +1,18 @@
 ---
-title: "USBDevice: vendorId Eigenschaft"
+title: "USBDevice: vendorId-Eigenschaft"
 short-title: vendorId
 slug: Web/API/USBDevice/vendorId
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`vendorId`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist die offiziell von usb.org zugewiesene Hersteller-ID.
+Die schreibgeschützte Eigenschaft **`vendorId`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist die von usb.org offiziell zugewiesene Hersteller-ID.
 
 ## Wert
 
-Die offiziell von usb.org zugewiesene Hersteller-ID.
+Die von usb.org offiziell zugewiesene Hersteller-ID.
 
 ## Spezifikationen
 

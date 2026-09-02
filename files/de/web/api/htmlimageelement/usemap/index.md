@@ -3,7 +3,7 @@ title: "HTMLImageElement: useMap-Eigenschaft"
 short-title: useMap
 slug: Web/API/HTMLImageElement/useMap
 l10n:
-  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
+  sourceCommit: 7b9f3c730d1909846f80c70d84ac265d93d82af2
 ---
 
 {{APIRef("HTML DOM")}}
@@ -18,7 +18,7 @@ Ein String, der das Hash-Symbol `#` gefolgt vom [`name`](/de/docs/Web/HTML/Refer
 
 ### Verwendung von useMap
 
-Betrachten Sie ein `<map>`, das folgendermaßen aussieht:
+Betrachten Sie eine `<map>`, die folgendermaßen aussieht:
 
 ```html
 <map name="mainmenu-map">
@@ -31,7 +31,7 @@ Betrachten Sie ein `<map>`, das folgendermaßen aussieht:
 </map>
 ```
 
-Da die Bildkarte `mainmenu-map` genannt wird, können Sie dynamisch Bilder erstellen, die auf die Bildkarte wie folgt verweisen:
+Angesichts der Bildkarte mit dem Namen `mainmenu-map` können Sie dynamisch Bilder erstellen, die auf die Bildkarte wie folgt verweisen:
 
 ```js
 const image = new Image();
@@ -40,7 +40,7 @@ image.alt = "";
 image.useMap = "#mainmenu-map";
 ```
 
-Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente sowie den [Leitfaden zur Verwendung von Bildkarten](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image).
+Für zusätzliche Beispiele (einschließlich interaktiver), siehe die Artikel über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente sowie den [Leitfaden zur Verwendung von Bildkarten](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image).
 
 ## Spezifikationen
 
@@ -52,6 +52,6 @@ Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel
 
 ## Siehe auch
 
-- [Eine Trefferkarte oben auf einem Bild hinzufügen](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
+- [Eine Trefferkarte auf einem Bild hinzufügen](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
 - {{HTMLElement("map")}}
 - {{HTMLElement("area")}}

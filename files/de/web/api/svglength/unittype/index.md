@@ -3,12 +3,12 @@ title: "SVGLength: unitType-Eigenschaft"
 short-title: unitType
 slug: Web/API/SVGLength/unitType
 l10n:
-  sourceCommit: 59c2a6eb9c36970aaef347707c8dcf6fbcc14499
+  sourceCommit: 7b9f3c730d1909846f80c70d84ac265d93d82af2
 ---
 
 {{APIRef("SVG")}}
 
-Die **`unitType`**-Eigenschaft der [`SVGLength`](/de/docs/Web/API/SVGLength)-Schnittstelle repräsentiert den Typ des Werts, wie durch eine der `SVG_LENGTHTYPE_*` Konstanten definiert, die auf dieser Schnittstelle definiert sind.
+Die **`unitType`**-Eigenschaft des [`SVGLength`](/de/docs/Web/API/SVGLength)-Interfaces repräsentiert den Typ des Wertes, wie er durch eine der `SVG_LENGTHTYPE_*`-Konstanten definiert ist, die in diesem Interface spezifiziert sind.
 
 ## Wert
 

@@ -3,14 +3,14 @@ title: "TaskSignal: any() statische Methode"
 short-title: any()
 slug: Web/API/TaskSignal/any_static
 l10n:
-  sourceCommit: 65692fd4d256d5647749b7c7005dcf53d425a533
+  sourceCommit: 9bda33365e40b6c609fa5190a0af9b5dc6438cf0
 ---
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **`TaskSignal.any()`** statische Methode nimmt ein iterierbares Objekt von [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekten und gibt ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchs-Signale abgebrochen wird.
+Die **`TaskSignal.any()`** statische Methode nimmt ein iterierbares Objekt von [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekten und gibt ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchsignale abgebrochen wird.
 
-Wenn das Task-Signal abgebrochen wird, wird die [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft auf den Grund des ersten abgebrochenen Signals gesetzt.
+Wenn das Task-Signal abgebrochen wird, wird seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft auf den Grund des ersten Signal, das abgebrochen wurde, gesetzt.
 
 ## Syntax
 
@@ -22,29 +22,35 @@ TaskSignal.any(signals, init)
 ### Parameter
 
 - `signals`
-  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchs-Signalen.
+  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
 - `init` {{optional_inline}}
   - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
     - `priority` {{optional_inline}}
       - : Eine der folgenden:
-        - Ein [Prioritäten-](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) String, der einer von `user-blocking`, `user-visible` und `background` ist.
+        - Ein [Prioritätsstring](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities), der einer von `user-blocking`, `user-visible` und `background` ist.
         - Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal).
 
 ### Rückgabewert
 
-Eine `TaskSignal`-Instanz. Sie wird abgebrochen, wenn das erste in `signals` übergebene Signal abgebrochen wird. Wenn dies passiert:
+Eine `TaskSignal`-Instanz. Diese wird abgebrochen, wenn das erste Signal, das in `signals` übergeben wird, abgebrochen wird. Wenn dies passiert:
 
-- Ihre [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft wird auf den Grund des Signals gesetzt, das dieses Signal zum Abbrechen gebracht hat.
+- Seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft wird auf den Grund des Signals gesetzt, das dieses Signal zum Abbruch gebracht hat.
 
-- Ihre [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft wird durch den `priority`-Parameter bestimmt:
-  - Wenn der `priority`-Parameter ein String war, wird dieser als Wert verwendet.
-  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird der Wert der `priority`-Eigenschaft dieses Signals verwendet.
+- Seine [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft wird durch den `priority`-Parameter bestimmt:
+  - Wenn der `priority`-Parameter ein String war, wird er der Wert des Strings sein.
+  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird er der Wert der [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft dieses Signals sein.
+
+## Beschreibung
+
+Die Überlegungen zur Bereinigung von Abbruchsignalen, die für [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static) beschrieben wurden, gelten auch für `TaskSignal.any()`. Es gibt keine Methode, um das zurückgegebene Signal von seinen Eingangssignalen abzumelden, und das Abbrechen des Signals führt nicht zum Abbruch der anderen Eingangssignale oder zur Stornierung ihrer Zeitlimits.
+
+Wenn `init.priority` ein Signal mit einer veränderbaren Priorität ist, bleibt das zurückgegebene Signal auch am Leben, solange es eine Prioritätsquelle hat und entweder `prioritychange`-Listener oder interne Prioritätsänderungsschritte, die von einer API registriert wurden, hat. Entfernen Sie Listener, die Ihr Code hinzugefügt hat, wenn sie nicht mehr benötigt werden. Das Abbrechen des Signals entfernt nicht die `prioritychange`-Listener und verhindert nicht, dass es Prioritätsänderungen folgt.
 
 ## Beispiele
 
-### Verwendung von `TaskSignal.any()`
+### Verwenden von `TaskSignal.any()`
 
-Dieses Beispiel zeigt die Kombination eines Signals von einem [`TaskController`](/de/docs/Web/API/TaskController) und eines Timeout-Signals von [`TaskSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static).
+Dieses Beispiel zeigt die Kombination eines Signals von einem [`TaskController`](/de/docs/Web/API/TaskController) mit einem Timeout-Signal von [`TaskSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");

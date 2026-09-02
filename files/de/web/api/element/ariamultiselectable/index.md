@@ -3,28 +3,28 @@ title: "Element: ariaMultiSelectable-Eigenschaft"
 short-title: ariaMultiSelectable
 slug: Web/API/Element/ariaMultiSelectable
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaMultiSelectable`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)-Attributes wider, das angibt, dass der Benutzer mehr als ein Element aus den aktuell auswählbaren Nachkommen auswählen kann.
+Die **`ariaMultiSelectable`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)-Attributs wider, welches anzeigt, dass der Benutzer mehr als einen Eintrag aus den aktuell auswählbaren Nachfahren auswählen kann.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("select")}}-Element, da dieses eingebaute Semantik hat und keine ARIA-Attribute erfordert.
+> Verwenden Sie, wenn möglich, ein HTML-{{htmlelement("select")}}-Element, da dieses eingebaute Semantiken hat und keine ARIA-Attribute benötigt.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Mehr als ein Element kann gleichzeitig ausgewählt werden.
+  - : Mehr als ein Eintrag kann gleichzeitig ausgewählt werden.
 - `"false"`
-  - : Es kann nur ein Element ausgewählt werden.
+  - : Nur ein Eintrag kann ausgewählt werden.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-multiselectable`-Attribut auf dem Element mit der ID `listbox1` auf "true" gesetzt, was angibt, dass diese Eingabe mehrere ausgewählte Elemente akzeptiert. Mit `ariaMultiSelectable` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-multiselectable`-Attribut auf dem Element mit der ID `listbox1` auf "true" gesetzt, was anzeigt, dass diese Eingabe mehrere ausgewählte Einträge akzeptiert. Mit `ariaMultiSelectable` aktualisieren wir den Wert auf "false".
 
 ```html
 <div
@@ -59,4 +59,4 @@ console.log(el.ariaMultiSelectable); // "false"
 
 ## Siehe auch
 
-- [ARIA: listbox role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)
+- [ARIA: listbox-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role)

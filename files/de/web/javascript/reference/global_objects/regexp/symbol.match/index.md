@@ -3,10 +3,10 @@ title: RegExp.prototype[Symbol.match]()
 short-title: "[Symbol.match]()"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match
 l10n:
-  sourceCommit: 5b3aa7e4e8cd54f1b662534d8c97074e522b7fc4
+  sourceCommit: 07758d01509695fe45ccc3f7687f6597dc3d9e2a
 ---
 
-Die **`[Symbol.match]()`** Methode der {{jsxref("RegExp")}} Instanzen spezifiziert, wie [`String.prototype.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) sich verhalten soll. Zusätzlich kann ihre Anwesenheit (oder Abwesenheit) beeinflussen, ob ein Objekt als regulärer Ausdruck betrachtet wird.
+Die **`[Symbol.match]()`** Methode von {{jsxref("RegExp")}} Instanzen definiert, wie [`String.prototype.match()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/match) sich verhalten soll. Außerdem kann seine Anwesenheit (oder Abwesenheit) beeinflussen, ob ein Objekt als regulärer Ausdruck betrachtet wird.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype[Symbol.match]()")}}
 
@@ -34,18 +34,18 @@ regexp[Symbol.match](str)
 ### Parameter
 
 - `str`
-  - : Ein {{jsxref("String")}}, der das Ziel des Matches ist.
+  - : Ein {{jsxref("String")}}, der das Ziel des Abgleichs ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}}, dessen Inhalt von der Anwesenheit oder Abwesenheit des globalen (`g`) Flags abhängt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keine Übereinstimmungen gefunden werden.
+Ein {{jsxref("Array")}}, dessen Inhalt von der Anwesenheit oder Abwesenheit des globalen (`g`) Flags abhängt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keine Treffer gefunden werden.
 
-- Wenn das `g` Flag verwendet wird, werden alle Ergebnisse, die mit dem vollständigen regulären Ausdruck übereinstimmen, zurückgegeben, aber keine Capture-Gruppen sind enthalten.
-- Wenn das `g` Flag nicht verwendet wird, wird nur die erste vollständige Übereinstimmung und ihre zugehörigen Capture-Gruppen zurückgegeben. In diesem Fall gibt `match()` dasselbe Ergebnis wie {{jsxref("RegExp.prototype.exec()")}} zurück (ein Array mit einigen zusätzlichen Eigenschaften).
+- Wenn das `g` Flag verwendet wird, werden alle Ergebnisse zurückgegeben, die dem vollständigen regulären Ausdruck entsprechen, aber Capturing-Gruppen sind nicht enthalten.
+- Wenn das `g` Flag nicht verwendet wird, wird nur der erste vollständige Treffer und die zugehörigen Capturing-Gruppen zurückgegeben. In diesem Fall liefert `match()` dasselbe Ergebnis wie {{jsxref("RegExp.prototype.exec()")}} (ein Array mit einigen zusätzlichen Eigenschaften).
 
 ## Beschreibung
 
-Diese Methode existiert zur Anpassung des Match-Verhaltens innerhalb von `RegExp`-Unterklassen. Sie wird intern in {{jsxref("String.prototype.match()")}} aufgerufen. Zum Beispiel liefern die folgenden zwei Beispiele dasselbe Ergebnis.
+Diese Methode existiert, um das Abgleichsverhalten in `RegExp`-Unterklassen anzupassen. Sie wird intern in {{jsxref("String.prototype.match()")}} aufgerufen. Zum Beispiel geben die folgenden zwei Beispiele dasselbe Ergebnis zurück.
 
 ```js
 "abc".match(/a/);
@@ -53,16 +53,16 @@ Diese Methode existiert zur Anpassung des Match-Verhaltens innerhalb von `RegExp
 /a/[Symbol.match]("abc");
 ```
 
-Wenn der Regex global ist (mit dem `g` Flag), wird sein [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) zuerst auf 0 gesetzt, sodass das Matching immer vom Anfang des Strings beginnt, und die Methode [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) des Regex wird wiederholt aufgerufen, bis `exec()` `null` zurückgibt. Wenn die aktuelle Übereinstimmung eine leere Zeichenkette ist, würde der `lastIndex` trotzdem weiter geschoben — wenn der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, würde er um einen Unicode-Codepunkte weiter schieben; andernfalls schiebt er um eine UTF-16-Codeeinheit weiter.
+Wenn der reguläre Ausdruck global ist (mit dem `g` Flag), wird sein [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) zuerst auf 0 gesetzt, sodass das Matching immer am Anfang des Strings beginnt. Die Methode [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) wird wiederholt aufgerufen, bis `exec()` `null` zurückgibt. Wenn der aktuelle Treffer ein leerer String ist, würde `lastIndex` trotzdem erhöht werden — wenn der reguläre Ausdruck [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist, würde er um einen Unicode-Codepunkt erhöht werden; andernfalls wird er um eine UTF-16-Codeeinheit erhöht.
 
 ```js
 console.log("😄".match(/(?:)/g)); // [ '', '', '' ]
 console.log("😄".match(/(?:)/gu)); // [ '', '' ]
 ```
 
-Wenn der Regex nicht global ist, würde `exec()` nur einmal aufgerufen und sein Ergebnis wird der Rückgabewert von `[Symbol.match]()`.
+Wenn der reguläre Ausdruck nicht global ist, würde `exec()` nur einmal aufgerufen werden und sein Ergebnis wird der Rückgabewert von `[Symbol.match]()`.
 
-Die `exec()` Methode setzt `lastIndex` automatisch auf 0 zurück, wenn die letzte Übereinstimmung fehlschlägt, sodass für globale Regexe mit `lastIndex`, der bei 0 beginnt, `[Symbol.match]()` im Allgemeinen keine Nebeneffekte erzeugt. Wenn der Regex jedoch [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky) ist, aber nicht global, wird `exec()` nur einmal aufgerufen und setzt daher `lastIndex` nicht zurück, wenn die Übereinstimmung erfolgreich war. In diesem Fall kann jeder Aufruf von `match()` ein anderes Ergebnis liefern.
+Die Methode `exec()` setzt `lastIndex` automatisch auf 0 zurück, wenn der letzte Abgleich fehlschlägt, sodass `[Symbol.match]()` in der Regel keine Nebenwirkungen erzeugt, wenn `lastIndex` bei 0 startet. Wenn der reguläre Ausdruck jedoch [sticky](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky), aber nicht global ist, wird `exec()` nur einmal aufgerufen und setzt `lastIndex` nicht zurück, falls der Abgleich erfolgreich war. In diesem Fall kann jeder Aufruf von `match()` ein unterschiedliches Ergebnis liefern.
 
 ```js
 const re = /[abc]/y;
@@ -76,19 +76,19 @@ for (let i = 0; i < 5; i++) {
 // [ 'a' ] 1
 ```
 
-Wenn der Regex sticky und global ist, würde er trotzdem sticky Matches durchführen — d.h. er würde keine Vorkommen jenseits des `lastIndex` finden.
+Wenn der reguläre Ausdruck sticky und global ist, würde er dennoch sticky Abgleiche durchführen — das heißt, er würde scheitern, Übereinstimmungen jenseits des `lastIndex` zu finden.
 
 ```js
 console.log("ab-c".match(/[abc]/gy)); // [ 'a', 'b' ]
 ```
 
-Darüber hinaus wird die `[Symbol.match]` Eigenschaft verwendet, um [zu prüfen, ob ein Objekt ein regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+Außerdem wird die Eigenschaft `[Symbol.match]` verwendet, um zu überprüfen, [ob ein Objekt ein regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
 ## Beispiele
 
 ### Direkter Aufruf
 
-Diese Methode kann auf _fast_ dieselbe Weise wie {{jsxref("String.prototype.match()")}} verwendet werden, außer der unterschiedlichen `this` und der unterschiedlichen Argumentreihenfolge.
+Diese Methode kann auf _fast_ die gleiche Weise wie {{jsxref("String.prototype.match()")}} verwendet werden, mit Ausnahme des unterschiedlichen `this` und der abweichenden Argumentreihenfolge.
 
 ```js
 const re = /\d+/g;

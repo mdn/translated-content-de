@@ -3,23 +3,23 @@ title: "Element: ariaLevel-Eigenschaft"
 short-title: ariaLevel
 slug: Web/API/Element/ariaLevel
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: ce12c10364f35c64184dec44be85537b7e10d91f
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaLevel`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-level`-Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
+Die **`ariaLevel`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-level` Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 
 > [!NOTE]
-> Verwenden Sie, wenn möglich, ein HTML {{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftenebene, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
+> Wo immer möglich, verwenden Sie ein HTML {{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftenebene, da diese integrierte Semantik besitzen und keine ARIA-Attribute erfordern.
 
 ## Wert
 
-Ein String, der eine ganze Zahl enthält.
+Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-level`-Attribut des Elements mit der ID `main-heading` auf "1" gesetzt. Mit `ariaLevel` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das `aria-level`-Attribut des Elements mit der ID `main-heading` auf "1" gesetzt. Mithilfe von `ariaLevel` aktualisieren wir den Wert auf "2".
 
 ```html
 <div role="heading" id="main-heading" aria-level="1">

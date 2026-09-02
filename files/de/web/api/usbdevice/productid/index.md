@@ -3,7 +3,7 @@ title: "USBDevice: productId-Eigenschaft"
 short-title: productId
 slug: Web/API/USBDevice/productId
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: 03d7663c2965d67eca296f6a27aa8a651de7dfee
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}

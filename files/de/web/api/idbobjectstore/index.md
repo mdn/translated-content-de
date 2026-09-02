@@ -2,17 +2,17 @@
 title: IDBObjectStore
 slug: Web/API/IDBObjectStore
 l10n:
-  sourceCommit: 513146a616213fee548fdcf72dc1359030eb3395
+  sourceCommit: d1fd21c87a4917e56dab84fc0b1d321ebb22874e
 ---
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Das **`IDBObjectStore`**-Interface der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert einen Objektspeicher in einer Datenbank. Datensätze in einem Objektspeicher sind gemäß ihrer Schlüssel sortiert. Diese Sortierung ermöglicht schnelles Einfügen, Nachschlagen und geordnetes Abrufen.
+Das **`IDBObjectStore`**-Interface der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert einen Objektspeicher in einer Datenbank. Datensätze innerhalb eines Objektspeichers werden nach ihren Schlüsseln sortiert. Diese Sortierung ermöglicht schnelles Einfügen, Suchen und geordnetes Abrufen.
 
 ## Instanz-Eigenschaften
 
 - [`IDBObjectStore.indexNames`](/de/docs/Web/API/IDBObjectStore/indexNames) {{ReadOnlyInline}}
-  - : Eine Liste der Namen von [Indizes](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#index) in Objekten in diesem Objektspeicher.
+  - : Eine Liste der Namen der [Indizes](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#index) für Objekte in diesem Objektspeicher.
 - [`IDBObjectStore.keyPath`](/de/docs/Web/API/IDBObjectStore/keyPath) {{ReadOnlyInline}}
   - : Der [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) dieses Objektspeichers. Wenn dieses Attribut `null` ist, muss die Anwendung einen Schlüssel für jede Änderungsoperation bereitstellen.
 - [`IDBObjectStore.name`](/de/docs/Web/API/IDBObjectStore/name)
@@ -20,44 +20,44 @@ Das **`IDBObjectStore`**-Interface der [IndexedDB API](/de/docs/Web/API/IndexedD
 - [`IDBObjectStore.transaction`](/de/docs/Web/API/IDBObjectStore/transaction) {{ReadOnlyInline}}
   - : Das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, zu dem dieser Objektspeicher gehört.
 - [`IDBObjectStore.autoIncrement`](/de/docs/Web/API/IDBObjectStore/autoIncrement) {{ReadOnlyInline}}
-  - : Der Wert des Auto-Inkrements-Flags für diesen Objektspeicher.
+  - : Der Wert des Auto-Inkrement-Flags für diesen Objektspeicher.
 
 ## Instanz-Methoden
 
 - [`IDBObjectStore.add()`](/de/docs/Web/API/IDBObjectStore/add)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des `value`, und speichert den geklonten Wert im Objektspeicher. Dies dient dazu, neue Datensätze zu einem Objektspeicher hinzuzufügen.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des `value` und speichert den geklonten Wert im Objektspeicher. Dies dient zum Hinzufügen neuer Datensätze zu einem Objektspeicher.
 - [`IDBObjectStore.clear()`](/de/docs/Web/API/IDBObjectStore/clear)
-  - : Erstellt und gibt sofort ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread diesen Objektspeicher. Dies dient dazu, alle aktuellen Datensätze aus einem Objektspeicher zu löschen.
+  - : Erstellt und gibt sofort ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht diesen Objektspeicher in einem separaten Thread. Dies dient zum Löschen aller aktuellen Datensätze aus einem Objektspeicher.
 - [`IDBObjectStore.count()`](/de/docs/Web/API/IDBObjectStore/count)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread die Gesamtanzahl der Datensätze zurück, die dem bereitgestellten Schlüssel oder [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) entsprechen. Wenn keine Argumente bereitgestellt werden, wird die gesamte Anzahl der Datensätze im Speicher zurückgegeben.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread die Gesamtzahl der Datensätze zurück, die mit dem bereitgestellten Schlüssel oder [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) übereinstimmen. Wenn keine Argumente angegeben werden, gibt es die Gesamtzahl der Datensätze im Speicher zurück.
 - [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex)
-  - : Erstellt einen neuen Index während einer Versionsaktualisierung und gibt ein neues [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Objekt in der verbundenen Datenbank zurück.
+  - : Erstellt während eines Versions-Upgrade einen neuen Index und gibt ein neues [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Objekt in der verbundenen Datenbank zurück.
 - [`IDBObjectStore.delete()`](/de/docs/Web/API/IDBObjectStore/delete)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread das ausgewählte Speicherelement, das durch den angegebenen Schlüssel bestimmt wird. Dies dient zum Löschen einzelner Datensätze aus einem Objektspeicher.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und löscht in einem separaten Thread das durch den angegebenen Schlüssel ausgewählte Speicherobjekt. Dies dient zum Löschen einzelner Datensätze aus einem Objektspeicher.
 - [`IDBObjectStore.deleteIndex()`](/de/docs/Web/API/IDBObjectStore/deleteIndex)
-  - : Zerstört den angegebenen Index in der verbundenen Datenbank, der während einer Versionsaktualisierung verwendet wird.
+  - : Zerstört den angegebenen Index in der verbundenen Datenbank, wird während eines Versions-Upgrades verwendet.
 - [`IDBObjectStore.get()`](/de/docs/Web/API/IDBObjectStore/get)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread das Objektspeicherobjekt zurück, das durch den angegebenen Schlüssel ausgewählt wird. Dies dient zum Abrufen spezifischer Datensätze aus einem Objektspeicher.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread das durch den angegebenen Schlüssel ausgewählte Speicherobjekt zurück. Dies dient zum Abrufen spezifischer Datensätze aus einem Objektspeicher.
 - [`IDBObjectStore.getKey()`](/de/docs/Web/API/IDBObjectStore/getKey)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread den Datensatzschlüssel für das Objekt im gespeicherten Objekt auf, das mit dem angegebenen Parameter übereinstimmt.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread den Datensatzschlüssel für das Objekt im Objektspeicher ab, das mit dem angegebenen Parameter übereinstimmt.
 - [`IDBObjectStore.getAll()`](/de/docs/Web/API/IDBObjectStore/getAll)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread alle Objekte im Objektspeicher ab, die dem angegebenen Parameter entsprechen, oder alle Objekte im Speicher, wenn keine Parameter angegeben sind.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread alle Objekte im Objektspeicher ab, die mit dem angegebenen Parameter übereinstimmen, oder alle Objekte im Speicher, wenn keine Parameter angegeben sind.
 - [`IDBObjectStore.getAllKeys()`](/de/docs/Web/API/IDBObjectStore/getAllKeys)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread die Datensatzschlüssel für alle Objekte im Objektspeicher ab, die dem angegebenen Parameter entsprechen, oder alle Objekte im Speicher, wenn keine Parameter angegeben sind.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und ruft in einem separaten Thread die Datensatzschlüssel für alle Objekte im Objektspeicher ab, die mit dem angegebenen Parameter übereinstimmen, oder alle Objekte im Speicher, wenn keine Parameter angegeben sind.
 - [`IDBObjectStore.getAllRecords()`](/de/docs/Web/API/IDBObjectStore/getAllRecords)
   - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und findet in einem separaten Thread alle übereinstimmenden Datensätze im Objektspeicher (einschließlich Primärschlüssel und Werte), die dem angegebenen Schlüssel entsprechen oder im Bereich liegen, wenn `key` ein [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) ist.
 - [`IDBObjectStore.index()`](/de/docs/Web/API/IDBObjectStore/index)
-  - : Öffnet einen Index aus diesem Objektspeicher, danach kann er zum Beispiel verwendet werden, um eine Sequenz von Datensätzen zu sortieren, die von diesem Index zurückgegeben werden, mithilfe eines Cursors.
+  - : Öffnet einen Index aus diesem Objektspeicher, der anschließend z. B. verwendet werden kann, um eine Sequenz von Datensätzen zu sortieren, die nach diesem Index mit einem Cursor sortiert sind.
 - [`IDBObjectStore.openCursor()`](/de/docs/Web/API/IDBObjectStore/openCursor)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread ein neues [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue)-Objekt zurück. Wird zum Durchlaufen eines Objektspeichers durch Primärschlüssel mit einem Cursor verwendet.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread ein neues [`IDBCursorWithValue`](/de/docs/Web/API/IDBCursorWithValue)-Objekt zurück. Wird zum Durchlaufen eines Objektspeichers nach Primärschlüssel mit einem Cursor verwendet.
 - [`IDBObjectStore.openKeyCursor()`](/de/docs/Web/API/IDBObjectStore/openKeyCursor)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread ein neues [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Objekt zurück. Wird zum Durchlaufen eines Objektspeichers mit einem Schlüssel verwendet.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread ein neues [`IDBCursor`](/de/docs/Web/API/IDBCursor) zurück. Wird zum Durchlaufen eines Objektspeichers mit einem Schlüssel verwendet.
 - [`IDBObjectStore.put()`](/de/docs/Web/API/IDBObjectStore/put)
-  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des `value`, und speichert den geklonten Wert im Objektspeicher. Dies dient zur Aktualisierung vorhandener Datensätze in einem Objektspeicher, wenn der Modus der Transaktion `readwrite` ist.
+  - : Gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des `value` und speichert den geklonten Wert im Objektspeicher. Dies ist zum Aktualisieren vorhandener Datensätze in einem Objektspeicher, wenn der Modus der Transaktion `readwrite` ist.
 
 ## Beispiel
 
-Dieses Beispiel zeigt verschiedene Verwendungen von Objektspeichern, vom Aktualisieren der Datenstruktur mit [`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) innerhalb einer `onupgradeneeded`-Funktion bis hin zum Hinzufügen eines neuen Elements zu unserem Objektspeicher mit [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add). Für ein vollständiges funktionsfähiges Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Dieses Beispiel zeigt eine Vielzahl unterschiedlicher Verwendungen von Objektspeichern, vom Aktualisieren der Datenstruktur mit [`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) innerhalb einer `onupgradeneeded`-Funktion bis hin zum Hinzufügen eines neuen Elements zu unserem Objektspeicher mit [`IDBObjectStore.add`](/de/docs/Web/API/IDBObjectStore/add). Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 // Let us open our database
@@ -153,7 +153,7 @@ objectStoreRequest.onsuccess = (event) => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Nutzung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Nutzung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
