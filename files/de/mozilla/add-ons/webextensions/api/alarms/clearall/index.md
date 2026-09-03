@@ -2,7 +2,7 @@
 title: alarms.clearAll()
 slug: Mozilla/Add-ons/WebExtensions/API/alarms/clearAll
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: e37b064f509db94d52a080b8983e16713737f1b7
 ---
 
 Hebt alle aktiven Alarme auf.
@@ -21,7 +21,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird. Dieses wird `true` sein, wenn Alarme gelöscht wurden, und `false` andernfalls. Beachten Sie, dass Chrome hier immer `true` übergibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem booleschen Wert erfüllt wird. Dieser ist `true`, wenn Alarme gelöscht wurden, andernfalls `false`.
+
+> [!NOTE]
+> Chrome gibt immer `true` zurück und Safari `undefined`. Der Rückgabetyp kann sich ändern und möglicherweise in Zukunft für alle Browser immer `undefined` zurückgeben. Es ist am besten, sich nicht auf den Rückgabetyp zu verlassen.
 
 ## Beispiele
 
@@ -41,4 +44,4 @@ clearAlarms.then(onClearedAll);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API.

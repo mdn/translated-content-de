@@ -3,19 +3,19 @@ title: "Window: setTimeout() Methode"
 short-title: setTimeout()
 slug: Web/API/Window/setTimeout
 l10n:
-  sourceCommit: 3b7310aac5ffd95db697bf136b7323cffc7e5bd2
+  sourceCommit: 051d02b402b7f76c2078b12283aa18318c34c38b
 ---
 
 {{APIRef("HTML DOM")}}
 
 > [!WARNING]
-> Wenn der `code`-Parameter verwendet wird, führt diese Methode seinen Wert dynamisch als JavaScript aus.
-> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und können potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein.
+> Wenn der Parameter `code` verwendet wird, führt diese Methode ihren Wert dynamisch als JavaScript aus.
+> Solche APIs sind als [Injection-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
 >
-> Sie können dieses Risiko mindern, indem Sie stets [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Strings zuweisen und vertrauenswürdige Typen [erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenfolgen zuweisen und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 > Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`setTimeout()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle setzt einen Timer, der eine Funktion oder einen angegebenen Codeausschnitt ausführt, sobald der Timer abläuft.
+Die **`setTimeout()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle setzt einen Timer, der eine Funktion oder ein bestimmtes Stück Code ausführt, sobald der Timer abläuft.
 
 ## Syntax
 
@@ -33,51 +33,54 @@ setTimeout(func, delay, param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `func`
-  - : Eine {{jsxref("Function")}}, die nach Ablauf des Timers ausgeführt wird.
+  - : Eine {{jsxref("Function")}}, die ausgeführt wird, nachdem der Timer abgelaufen ist.
 - `code`
-  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder ein String von beliebigem Code, der kompiliert und nach `delay` Millisekunden ausgeführt wird.
-    Dies kann anstelle der Übergabe einer Funktion verwendet werden, wird jedoch _stark abgeraten_, aus denselben Gründen, die die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
+  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder eine Zeichenfolge mit beliebigem Code, der nach `delay` Millisekunden kompiliert und ausgeführt wird.
+    Dies kann anstelle des Übergabens einer Funktion verwendet werden, wird jedoch _stark abgeraten_, aus denselben Gründen, die die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
 - `delay` {{optional_inline}}
-  - : Eine nicht-negative ganze Zahl, die angibt, wie lange der Timer warten soll, bevor die angegebene Funktion oder der Code ausgeführt wird, in Millisekunden.
-    Standardwert ist 0, wenn nicht angegeben.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, wie lange der Timer warten soll, bevor die angegebene Funktion oder der Code ausgeführt wird, in Millisekunden.
+    Wenn nicht angegeben, beträgt der Standardwert 0.
 
     Hinweis:
-    - Der `delay` hat einen maximalen Wert von 2147483647 ms — die Angabe größerer Werte kann zu einem Überlauf oder zur Verwendung eines Werts von 0 führen. Weitere Informationen finden Sie unten unter [Maximaler Verzögerungswert](#maximaler_verzögerungswert).
-    - Die tatsächliche Verzögerung kann länger sein als eingestellt.
-      Zum Beispiel wird bei der Einstellung von `delay` auf 0 in der nächsten Ereignisschleife ausgeführt, anstatt "sofort". Weitere Informationen finden Sie unter [Gründe für längere Verzögerungen als angegeben](#gründe_für_längere_verzögerungen_als_angegeben).
-    - Wenn der Wert keine Zahl ist, wird die implizite {{Glossary("Type_coercion", "Typumwandlung")}} ohne Rückmeldung auf den Wert angewendet, um ihn in eine Zahl zu konvertieren.
-      Dies kann zu unerwarteten und überraschenden Ergebnissen führen — siehe [Nicht numerische Verzögerungswerte werden stillschweigend in Zahlen umgewandelt](#nicht_numerische_verzögerungswerte_werden_stillschweigend_in_zahlen_umgewandelt) für ein Beispiel.
+    - Der Delay hat einen maximalen Wert von 2147483647 ms — die Angabe größerer Werte kann zu einem Überlauf oder einem Wert von 0 führen.
+      Siehe [Maximalwert der Verzögerung](#maximalwert_der_verzögerung) unten für weitere Informationen.
+    - Die tatsächliche Verzögerung kann länger als eingestellt sein.
+      Zum Beispiel wird bei einem `delay` von 0 im nächsten Ereigniszyklus ausgeführt, statt "sofort".
+      Siehe [Gründe für längere Verzögerungen als angegeben](#gründe_für_längere_verzögerungen_als_angegeben) für mehr Informationen.
+    - Wenn der Wert keine Zahl ist, wird stillschweigend eine implizite {{Glossary("Type_coercion", "Typkonvertierung")}} am Wert vorgenommen, um ihn in eine Zahl umzuwandeln.
+      Dies kann zu unerwarteten und überraschenden Ergebnissen führen — siehe [Nicht-zahlische Verzögerungswerte werden stillschweigend in Zahlen konvertiert](#nicht-zahlische_verzögerungswerte_werden_stillschweigend_in_zahlen_konvertiert) für ein Beispiel.
     - Negative Werte verhalten sich wie 0.
 
 - `param1`, …, `paramN` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch `func` angegebene Funktion übergeben werden.
+  - : Zusätzliche Argumente, die an die mit `func` spezifizierte Funktion übergeben werden.
 
 ### Rückgabewert
 
-Eine positive Ganzzahl (typischerweise im Bereich von 1 bis 2,147,483,647), die den durch diesen Aufruf erstellten Timer eindeutig identifiziert.
-Dieser Identifikator, häufig als "Timeout-ID" bezeichnet, kann an [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) übergeben werden, um den Timer zu canceln.
+Eine positive ganze Zahl (typischerweise im Bereich von 1 bis 2.147.483.647), die den durch den Aufruf erstellten Timer eindeutig identifiziert.
+Dieser Bezeichner, oft als "Timeout-ID" bezeichnet, kann an [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) übergeben werden, um den Timer zu abbrechen.
 
-Innerhalb derselben globalen Umgebung (z.B. einem bestimmten Fenster oder Worker) ist gewährleistet, dass die Timeout-ID nicht für einen neuen Timer wiederverwendet wird, solange der ursprüngliche Timer aktiv bleibt.
-Separate globale Umgebungen führen jedoch ihre eigenen unabhängigen Pools von Timer-IDs.
+Innerhalb derselben globalen Umgebung (z. B. eines bestimmten Fensters oder Workers) wird garantiert, dass die Timeout-ID nicht wiederverwendet wird, solange der ursprüngliche Timer aktiv bleibt.
+Jedoch halten separate globale Umgebungen ihre eigenen unabhängigen Pools von Timer-IDs aufrecht.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
   - : Der `code` kann nicht als Skript geparst werden.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `code`-Parameter auf einen String gesetzt ist, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) durch eine CSP [erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist. Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, ein String oder `TrustedScript`.
+  - : Wird ausgelöst, wenn der `code`-Parameter auf eine Zeichenfolge gesetzt wird, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+    Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, eine Zeichenfolge oder ein `TrustedScript`.
 
 ## Beschreibung
 
-Die `setTimeout()`-Funktion wird häufig verwendet, um eine Funktion aufzurufen, die einmalig nach einer Verzögerung ausgeführt wird.
-Sie können [`Window.clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) aufrufen, um das Timeout abzubrechen, bevor es abgeschlossen ist.
+Die `setTimeout()`-Funktion wird häufig verwendet, um eine Funktion mit einer Verzögerung einmal auszuführen.
+Sie können [`Window.clearTimeout()`](/de/docs/Web/API/Window/clearTimeout) aufrufen, um den Timeout abzubrechen, bevor er abgeschlossen ist.
 
-Wenn Sie wiederholt eine Funktion aufrufen möchten (z.B. alle _N_ Millisekunden), können Sie [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwenden.
+Wenn Sie eine Funktion wiederholt (z. B. alle _N_ Millisekunden) aufrufen möchten, können Sie [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwenden.
 
 ### Arbeiten mit asynchronen Funktionen
 
-`setTimeout()` ist eine asynchrone Funktion, was bedeutet, dass sie sofort nach dem Planen der Rückruffunktion oder des Codes zurückkehrt.
-Es "wartet" nicht, sodass die Ausführung der Codezeilen nach `setTimeout()` blockiert wird, bis der geplante Code ausgeführt wurde.
+`setTimeout()` ist eine asynchrone Funktion, was bedeutet, dass sie sofort zurückkehrt, nachdem sie die Rückruffunktion oder den Code zur Ausführung eingeplant hat.
+Sie "wartet" nicht und blockiert die Ausführung der Zeilen nach `setTimeout()`, bis der geplante Code ausgeführt wurde.
 
 Betrachten Sie das folgende Beispiel:
 
@@ -99,21 +102,21 @@ setTimeout(() => {
 // this is the first message
 ```
 
-Die `setTimeout()`-Methode wird dreimal aufgerufen und übergibt eine Rückruffunktion, die die Reihenfolge, in der `setTimeout()` aufgerufen wurde, protokolliert.
-Da die vorherigen Methodenaufrufe größere Verzögerungen haben, werden die Rückruffunktionen in umgekehrter Reihenfolge zu der ausgeführt, in der sie geplant wurden.
-Wenn `setTimeout()` blockieren würde, bis der Rückruf abgeschlossen ist, würden die Nachrichten in Reihenfolge angezeigt.
+Die `setTimeout()`-Methode wird dreimal aufgerufen und übergibt eine Rückruffunktion, die die Reihenfolge protokolliert, in der `setTimeout()` aufgerufen wurde.
+Da die früheren Methodenaufrufe größere Verzögerungen haben, werden die Rückruffunktionen in umgekehrter Reihenfolge ausgeführt, wie sie eingeplant wurden.
+Wenn `setTimeout()` blockiert, bis der Rückruf abgeschlossen ist, würden die Nachrichten in der Reihenfolge angezeigt.
 
-Asynchrone Methoden sind nützlich, weil sie es erlauben, Aufgaben parallel auszuführen, wenn die Reihenfolge der Ausführung keine Rolle spielt.
-Wenn die Reihenfolge, in der eine asynchrone Methode abgeschlossen wird, wichtig ist, können Sie [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) (Promise Chaining) verwenden, um auf den Abschluss einer Aufgabe zu warten.
+Asynchrone Methoden sind nützlich, da sie es erlauben, Aufgaben parallel auszuführen, wenn die Reihenfolge der Ausführung keine Rolle spielt.
+Wenn die Reihenfolge, in der eine asynchrone Methode abgeschlossen wird, eine Rolle spielt, können Sie [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) (Promise-Ketten) verwenden, um auf den Abschluss einer Aufgabe zu warten.
 
 ### Funktionen werden mit dem globalen `this` aufgerufen
 
-Die an `setTimeout()` übergebenen Funktionen werden mit den normalen Funktionsaufrufsemantiken zum Bestimmen der Referenz von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) ausgeführt.
-Dieses Problem wird im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference/Operators/this#callbacks) ausführlich erklärt.
+Die an `setTimeout()` übergebenen Funktionen werden mit den normalem Funktionsaufrufsemantiken für die Bestimmung der Referenz von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) ausgeführt.
+Dieses Problem wird ausführlich in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference/Operators/this#callbacks) erklärt.
 
-Für nicht-Pfeil-Funktionen wird der `this`-Kontext auf das [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) (ein Alias für [`window`](/de/docs/Web/API/Window/window) in Browsern) Objekt gesetzt.
+Für Nicht-Arrow-Funktionen wird der `this`-Kontext auf das [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) (ein Alias für [`window`](/de/docs/Web/API/Window/window) in Browsern) Objekt gesetzt.
 
-Das folgende Beispiel zeigt, wie dies zu unerwartetem Verhalten führen kann. Hier, wenn wir die Methode `counter.count` direkt an `setTimeout()` übergeben, geht der `this`-Kontext verloren, und die Methode wird auf dem globalen Objekt anstelle der `Counter`-Instanz aufgerufen, wodurch ein `TypeError` auftritt, wenn die `count`-Methode versucht, auf `this` zuzugreifen:
+Das folgende Beispiel zeigt, wie dies zu unerwartetem Verhalten führen kann. Hier, als wir die Methode `counter.count` direkt an `setTimeout()` übergeben, geht der `this`-Kontext verloren und die Methode wird auf dem globalen Objekt anstelle der `Counter`-Instanz aufgerufen, was zu einem `TypeError` führt, wenn die `count`-Methode versucht, auf `this` zuzugreifen:
 
 ```js
 class Counter {
@@ -133,9 +136,9 @@ setTimeout(counter.count, 1000, "bar");
 // TypeError: Cannot read properties of undefined (reading 'set')
 ```
 
-Um dies zu umgehen, müssen Sie sicherstellen, dass die an `setTimeout` übergebene Funktion den richtigen `this`-Kontext hat. Es gibt drei Hauptweisen, dies zu tun:
+Um dies zu umgehen, müssen Sie sicherstellen, dass die an `setTimeout` übergebene Funktion den richtigen `this`-Kontext hat. Es gibt drei Hauptmethoden, dies zu tun:
 
-1. Wenn Sie den `this`-Kontext explizit angeben möchten, anstatt die Methode direkt zu übergeben, umschließen Sie den Methodenaufruf in einer anderen anonymen Funktion, die die Methode mit dem richtigen Kontext explizit aufruft:
+1. Wenn Sie den `this`-Kontext ausdrücklich angeben möchten, wickeln Sie den Methodenaufruf in eine andere anonyme Funktion, die die Methode ausdrücklich mit dem richtigen Kontext aufruft:
 
    ```js
    setTimeout(() => counter.count("bar"), 1000);
@@ -144,7 +147,7 @@ Um dies zu umgehen, müssen Sie sicherstellen, dass die an `setTimeout` übergeb
    }, 1000);
    ```
 
-2. Wenn Sie den `this`-Kontext des Codes verwenden möchten, der `setTimeout()` aufruft, verwenden Sie immer eine Pfeilfunktion, die den `this`-Kontext ihres umgebenden Scopes erbt:
+2. Wenn Sie den `this`-Kontext des Codes verwenden möchten, der `setTimeout()` aufruft, verwenden Sie immer eine Arrow-Funktion, die den `this`-Kontext ihres umgebenden Scopes erbt:
 
    ```js example-bad
    class Counter {
@@ -170,16 +173,16 @@ Um dies zu umgehen, müssen Sie sicherstellen, dass die an `setTimeout` übergeb
    }
    ```
 
-3. Wenn Sie zusätzliche Funktionseinschließungen vermeiden möchten (die den Speicherverbrauch erhöhen), während Sie den `this`-Kontext explizit angeben, können Sie die Methode [`Function.prototype.bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) verwenden, um eine neue Funktion mit dem richtigen `this`-Kontext zu erstellen:
+3. Wenn Sie zusätzliche Funktionswrapper (die den Speicherverbrauch erhöhen) vermeiden möchten, während Sie den `this`-Kontext ausdrücklich angeben, können Sie die Methode [`Function.prototype.bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) verwenden, um eine neue Funktion mit dem korrekten `this`-Kontext zu erstellen:
 
    ```js
    setTimeout(counter.count.bind(counter), 1000, "bar");
    ```
 
-### Nicht numerische Verzögerungswerte werden stillschweigend in Zahlen umgewandelt
+### Nicht-zahlische Verzögerungswerte werden stillschweigend in Zahlen konvertiert
 
-Wenn `setTimeout()` mit einem [_delay_](#delay) Wert aufgerufen wird, der keine Zahl ist, wird eine implizite {{Glossary("Type_coercion", "Typumwandlung")}} ohne Rückmeldung auf den Wert angewendet, um ihn in eine Zahl zu konvertieren.
-Zum Beispiel wird der folgende Code fälschlicherweise der String `"1000"` für den _delay_ Wert verwendet, anstatt der Zahl `1000` – aber er funktioniert trotzdem, weil beim Ausführen des Codes der String in die Zahl `1000` umgewandelt wird, und somit der Code eine Sekunde später ausgeführt wird.
+Wenn `setTimeout()` mit einem [_delay_](#delay)-Wert aufgerufen wird, der keine Zahl ist, wird stillschweigend eine implizite {{Glossary("Type_coercion", "Typkonvertierung")}} am Wert vorgenommen, um ihn in eine Zahl umzuwandeln.
+Zum Beispiel verwendet der folgende Code fälschlicherweise die Zeichenfolge `"1000"` für den _delay_-Wert, anstatt die Zahl `1000` – aber es funktioniert dennoch, da bei der Ausführung des Codes die Zeichenkette in die Zahl `1000` konvertiert wird und der Code so 1 Sekunde später ausgeführt wird.
 
 ```js example-bad
 setTimeout(() => {
@@ -187,8 +190,8 @@ setTimeout(() => {
 }, "1000");
 ```
 
-In vielen Fällen kann die implizite Typumwandlung zu unerwarteten und überraschenden Ergebnissen führen.
-Zum Beispiel wird beim Ausführen des folgenden Codes der String `"1 second"` letztendlich in die Zahl `0` umgewandelt — und so wird der Code ohne Verzögerung ausgeführt.
+In vielen Fällen kann die implizite Typkonvertierung zu unerwarteten und überraschenden Ergebnissen führen.
+Wenn z. B. der folgende Code ausgeführt wird, wird die Zeichenfolge `"1 second"` letztendlich in die Zahl `0` konvertiert — und der Code wird mit einer Verzögerung von null ausgeführt.
 
 ```js example-bad
 setTimeout(() => {
@@ -196,7 +199,7 @@ setTimeout(() => {
 }, "1 second");
 ```
 
-Daher sollten Sie keine Strings für den _delay_ Wert verwenden, sondern immer Zahlen:
+Daher sollten Sie keine Zeichenfolgen für den _delay_-Wert verwenden, sondern immer Zahlen:
 
 ```js example-good
 setTimeout(() => {
@@ -204,37 +207,37 @@ setTimeout(() => {
 }, 1000);
 ```
 
-### Maximaler Verzögerungswert
+### Maximalwert der Verzögerung
 
-Das `delay` Argument wird in eine unterzeichnete 32-Bit-Ganzzahl konvertiert, wodurch der Wert auf 2147483647 ms, oder ungefähr 24,8 Tage, begrenzt wird.
-Verzögerungen, die diesen Wert überschreiten, führen zu einem Überlauf der Ganzzahl.
-Zum Beispiel ergibt der folgende Code:
+Das `delay`-Argument wird in eine signierte 32-Bit-Ganzzahl umgewandelt, was den Wert auf 2147483647 ms oder etwa 24,8 Tage beschränkt.
+Verzögerungen, die diesen Wert überschreiten, führen zu einem Ganzzahlüberlauf.
+Wenn z. B. dieser Code ausgeführt wird:
 
 ```js
 setTimeout(() => console.log("hi!"), 2 ** 32 - 5000);
 ```
 
-…das Timeout wird sofort ausgeführt (da `2**32 - 5000` zu einer negativen Zahl überläuft), während der folgende Code:
+...führt das dazu, dass das Timeout sofort ausgeführt wird (da `2**32 - 5000` in eine negative Zahl überläuft), während der folgende Code:
 
 ```js
 setTimeout(() => console.log("hi!"), 2 ** 32 + 5000);
 ```
 
-…das Timeout wird nach etwa 5 Sekunden ausgeführt.
+... dazu führt, dass das Timeout nach ungefähr 5 Sekunden ausgeführt wird.
 
 > [!NOTE]
-> In Node.js führt jede Verzögerung größer als 2,147,483,647 ms zur sofortigen Ausführung.
+> In Node.js führt jeder Timeout, der größer als 2.147.483.647 ms ist, zu einer sofortigen Ausführung.
 
 ### Gründe für längere Verzögerungen als angegeben
 
-Es gibt mehrere Gründe, warum ein Timeout länger dauern kann als erwartet.
-Dieser Abschnitt beschreibt die häufigsten Gründe.
+Es gibt eine Reihe von Gründen, warum ein Timeout länger dauern kann als erwartet.
+In diesem Abschnitt sind die häufigsten Gründe beschrieben.
 
 #### Verschachtelte Timeouts
 
-Wie im [HTML-Standard](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) spezifiziert, werden Browser ein Mindesttimeout von 4 Millisekunden durchsetzen, sobald ein verschachtelter `setTimeout`-Aufruf 5 mal terminiert wurde.
+Wie im [HTML-Standard](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) festgelegt, erzwingen Browser nach 5-maligem Verschachteln von `setTimeout`-Aufrufen eine Mindestzeitüberschreitung von 4 Millisekunden.
 
-Dies kann im folgenden Beispiel gesehen werden, in dem wir einen Aufruf von `setTimeout` mit einer Verzögerung von `0` Millisekunden verschachteln, und die Verzögerung jedes Mal protokollieren, wenn der Handler aufgerufen wird.
+Dies kann im folgenden Beispiel gesehen werden, in dem wir einen `setTimeout`-Aufruf mit einer Verzögerung von `0` Millisekunden verschachteln und die Verzögerung jedes Mal protokollieren, wenn der Handler aufgerufen wird.
 Die ersten vier Male beträgt die Verzögerung ungefähr 0 Millisekunden, danach etwa 4 Millisekunden:
 
 ```html
@@ -311,42 +314,42 @@ table {
 
 #### Timeouts in inaktiven Tabs
 
-Um die Belastung (und den damit verbundenen Batterieverbrauch) von Hintergrund-Tabs zu reduzieren, werden Browser ein Mindesttimeout in inaktiven Tabs durchsetzen.
-Es kann auch aufgehoben werden, wenn eine Seite Ton mit einem Web Audio API [`AudioContext`](/de/docs/Web/API/AudioContext) abspielt.
+Um die Last (und den damit verbundenen Batterieverbrauch) von Hintergrund-Tabs zu reduzieren, erzwingen Browser eine Mindestzeitüberschreitung bei inaktiven Tabs.
+Sie kann auch ausgesetzt werden, wenn eine Seite über eine Web Audio API [`AudioContext`](/de/docs/Web/API/AudioContext) Tonwiedergabe verwendet.
 
-Die Details dazu sind browserabhängig:
+Die Einzelheiten hierzu sind browserabhängig:
 
-- Firefox Desktop hat ein Mindesttimeout von 1 Sekunde für inaktive Tabs.
-- Firefox für Android hat ein Mindesttimeout von 15 Minuten für inaktive Tabs und kann sie vollständig entladen.
-- Firefox drosselt inaktive Tabs nicht, wenn der Tab ein [`AudioContext`](/de/docs/Web/API/AudioContext) enthält.
-- Chrome verwendet unterschiedliche Drosselungsstufen, je nachdem, wie aktiv der Tab ist:
-  - **Minimale Drosselung**: Gilt für Timer, wenn die Seite sichtbar ist, kürzlich Ton abgespielt hat oder von Chrome sonst als aktiv betrachtet wird. Timer laufen nahe am angeforderten Intervall.
+- Firefox Desktop hat eine Mindestzeitüberschreitung von 1 Sekunde für inaktive Tabs.
+- Firefox für Android hat eine Mindestzeitüberschreitung von 15 Minuten für inaktive Tabs und kann sie vollständig entladen.
+- Firefox drosselt keine inaktiven Tabs, wenn der Tab ein [`AudioContext`](/de/docs/Web/API/AudioContext) enthält.
+- Chrome verwendet unterschiedliche Drosselungsstufen, je nach Aktivität des Tabs:
+  - **Minimale Drosselung**: Gilt für Timer, wenn die Seite sichtbar ist, kürzlich Sound abgespielt hat oder anderweitig von Chrome als aktiv angesehen wird. Timer laufen in der Nähe des angeforderten Intervalls.
 
-  - **Drosselung**: Gilt für Timer, wenn die minimalen Bedingungen für die Drosselung nicht erfüllt sind und eine dieser Bedingungen zutrifft:
-    - Verschachtelungszähler (Anzahl der verketteten Timer-Aufrufe) ist kleiner als 5.
-    - Die Seite ist weniger als 5 Minuten unsichtbar.
+  - **Drosselung**: Gilt für Timer, wenn die minimalen Drosselbedingungen nicht erfüllt sind und einer der folgenden Bedingungen zutrifft:
+    - Der Verschachtelungszähler (d.h. die Anzahl der verketteten Timeraufrufe) ist kleiner als 5.
+    - Die Seite war weniger als 5 Minuten unsichtbar.
     - WebRTC ist aktiv.
 
-  Timer in diesem Zustand werden einmal pro Sekunde geprüft, was zusammen mit anderen Timern, die ähnliche Zeitlimits haben, gebündelt werden kann.
-  - **Intensive Drosselung**: Eingeführt in Chrome 88 (Januar 2021). Gilt für Timer, wenn weder minimale noch normale Drosselungsbedingungen erfüllt sind und alle folgenden Bedingungen zutreffen:
-    - Verschachtelungszähler beträgt 5 oder mehr.
-    - Die Seite ist länger als 5 Minuten unsichtbar.
-    - Die Seite ist seit mehr als 30 Sekunden stumm.
+  Timer in diesem Zustand werden einmal pro Sekunde überprüft, was gebündelt mit anderen Timern mit ähnlichen Zeitüberschreitungen geschehen kann.
+  - **Intensive Drosselung**: Eingeführt in Chrome 88 (Januar 2021). Gilt für Timer, wenn weder minimale Drosselung noch Drosselungsbedingungen erfüllt sind und alle der folgenden Bedingungen erfüllt sind:
+    - Der Verschachtelungszähler ist 5 oder höher.
+    - Die Seite war mehr als 5 Minuten unsichtbar.
+    - Die Seite war mehr als 30 Sekunden still.
     - WebRTC ist inaktiv.
 
-  Timer in diesem Zustand werden einmal pro Minute geprüft, was zusammen mit anderen Timern, die ähnliche Zeitlimits haben, gebündelt werden kann.
+  Timer in diesem Zustand werden einmal pro Minute überprüft, was gebündelt mit anderen Timern mit ähnlichen Zeitüberschreitungen geschehen kann.
 
 #### Drosselung von Tracking-Skripten
 
-Firefox erzwingt zusätzliche Drosselung für Skripte, die als Tracking-Skripte erkannt werden.
-Beim Ausführen im Vordergrund beträgt die minimale Drosselungsverzögerung immer noch 4ms. In Hintergrund-Tabs beträgt die minimale Drosselungsverzögerung jedoch 10.000 ms, oder 10 Sekunden, und tritt 30 Sekunden, nachdem ein Dokument erstmals geladen wurde, in Kraft.
+Firefox erzwingt eine zusätzliche Drosselung für Skripte, die als Tracking-Skripte erkannt werden.
+Im Vordergrund beträgt die Mindestzeitüberschreitung 4ms. In Hintergrund-Tabs beträgt die Mindestzeitüberschreitung jedoch 10.000 ms oder 10 Sekunden, was 30 Sekunden nach dem erstmaligen Laden eines Dokuments in Kraft tritt.
 
-Weitere Details finden Sie unter [Tracking-Schutz](https://wiki.mozilla.org/Security/Tracking_protection).
+Weitere Details finden Sie unter [Tracking Protection](https://wiki.mozilla.org/Security/Tracking_protection).
 
-#### Späte Zeitouts
+#### Verspätete Timeouts
 
-Das Timeout kann auch später auftreten als erwartet, wenn die Seite (oder das Betriebssystem/der Browser) mit anderen Aufgaben beschäftigt ist.
-Ein wichtiger Fall ist, dass das Code-Snippet oder die Funktion nicht ausgeführt werden kann, bis der Thread, der `setTimeout()` aufgerufen hat, beendet ist.
+Das Timeout kann auch später als erwartet ausgelöst werden, wenn die Seite (oder das Betriebssystem/der Browser) mit anderen Aufgaben beschäftigt ist.
+Ein wichtiger Fall ist, dass das Funktions- oder Codesegment nicht ausgeführt werden kann, bis der Thread, der `setTimeout()` aufgerufen hat, beendet ist.
 Zum Beispiel:
 
 ```js
@@ -364,59 +367,59 @@ After setTimeout
 foo has been called
 ```
 
-Dies liegt daran, dass selbst wenn `setTimeout` mit einer Verzögerung von null aufgerufen wurde, es in einer Warteschlange platziert und bei der nächsten Gelegenheit ausgeführt wird; nicht sofort.
-Der momentan ausgeführte Code muss abgeschlossen sein, bevor Funktionen in der Warteschlange ausgeführt werden. Daher kann die resultierende Ausführungsreihenfolge nicht wie erwartet sein.
+Dies liegt daran, dass, obwohl `setTimeout` mit einer Verzögerung von null aufgerufen wurde, es in eine Warteschlange gestellt und bei der nächsten Gelegenheit ausgeführt wird; nicht sofort.
+Derzeit ausgeführter Code muss abgeschlossen sein, bevor Funktionen in der Warteschlange ausgeführt werden, weshalb die resultierende Ausführungsreihenfolge möglicherweise nicht wie erwartet ist.
 
-#### Verschiebung von Timeouts während des Seitenladevorgangs
+#### Verschiebung von Timeouts während des Ladevorgangs
 
-Firefox wird das Auslösen von `setTimeout()`-Timern verzögern, während der aktuelle Tab geladen wird. Das Auslösen wird verzögert, bis der Haupt-Thread als inaktiv angesehen wird (ähnlich wie bei [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)), oder bis das Ladeereignis ausgelöst wird.
+Firefox wird `setTimeout()`-Timer verzögern, während der aktuelle Tab geladen wird. Das Auslösen wird verzögert, bis der Haupt-Thread als untätig angesehen wird (ähnlich wie [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)) oder bis das Ladeereignis ausgelöst wird.
 
 ### WebExtension-Hintergrundseiten und Timer
 
-In [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) funktioniert `setTimeout()` nicht zuverlässig. Erweiterungsautoren sollten stattdessen die [`alarms`](/de/docs/Mozilla/Add-ons/WebExtensions/API/alarms)-API verwenden.
+In [WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions) funktioniert `setTimeout()` nicht zuverlässig. Erweiterungsautoren sollten stattdessen die [`alarms`](/de/docs/Mozilla/Add-ons/WebExtensions/API/alarms) API verwenden.
 
 ### Sicherheitsüberlegungen
 
-Die Methode kann verwendet werden, um beliebige Eingaben im `code`-Parameter auszuführen.
-Wenn die Eingabe ein potenziell unsicherer String ist, der von einem Benutzer bereitgestellt wird, besteht eine mögliche Angriffsfläche für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
+Die Methode kann benutzt werden, um beliebige Eingabe auszuführen, die im `code`-Parameter übergeben wird.
+Wenn die Eingabe eine möglicherweise unsichere Zeichenkette ist, die von einem Benutzer bereitgestellt wurde, ist dies ein möglicher Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
 
-Zum Beispiel zeigt der folgende Code, wie `setTimeout()` `untrustedCode`, bereitgestellt von einem Benutzer, ausführen könnte:
+Zum Beispiel zeigt der folgende Code, wie `setTimeout()` untrustedCode ausführen könnte, das von einem Benutzer bereitgestellt wurde:
 
 ```js example-bad
 const untrustedCode = "alert('Potentially evil code!');";
 const id = setTimeout(untrustedCode, 1000);
 ```
 
-Websites mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), die [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) spezifiziert, werden standardmäßig verhindern, dass solcher Code ausgeführt wird.
-Sie können [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) in Ihrer CSP angeben, um `setTimeout()` ausführen zu lassen, aber dies ist unsicher, da es einen der Hauptschutzmechanismen der CSP deaktiviert.
+Websites mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), die [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) spezifizieren, verhindern, dass solcher Code standardmäßig ausgeführt wird.
+Sie können [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) in Ihrer CSP spezifizieren, um `setTimeout()` die Ausführung zu ermöglichen, aber das ist unsicher, da es einen der Hauptschutze von CSP deaktiviert.
 Siehe [Inline JavaScript](/de/docs/Web/HTTP/Guides/CSP#inline_javascript) im CSP-Leitfaden.
 
-Wenn Sie die Skripte zulassen müssen, die über `setTimeout()` ausgeführt werden, können Sie diese Probleme mindern, indem Sie stets [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Strings zuweisen und vertrauenswürdige Typen [erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion erfolgt.
+Wenn Sie die Ausführung der Skripte über `setTimeout()` erlauben müssen, können Sie diese Probleme mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenketten zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive.
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird.
 
-Um `setTimeout()` ausführen zu lassen, müssen Sie zusätzlich das [`trusted-types-eval` Schlüsselwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval) in Ihrer CSP-`script-src`-Directive angeben.
-Dies wirkt auf dieselbe Weise wie `unsafe-eval`, erlaubt jedoch _nur_ die Methode zu evaluieren, wenn vertrauenswürdige Typen aktiviert sind (wenn Sie `unsafe-eval` verwenden würden, würde es die Ausführung auch in Browsern erlauben, die keine vertrauenswürdigen Typen unterstützen).
+Um `setTimeout()` ausführen zu lassen, müssen Sie zudem das [`trusted-types-eval` Schlagwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval) in Ihrer CSP `script-src`-Direktive spezifizieren.
+Dies funktioniert ähnlich wie `unsafe-eval`, ermöglicht jedoch nur die Methode zur Ausführung, wenn vertrauenswürdige Typen aktiv sind (würden Sie `unsafe-eval` verwenden, würde es die Ausführung auch in Browsern erlauben, die vertrauenswürdige Typen nicht unterstützen).
 
-Zum Beispiel könnte die erforderliche CSP für Ihre Seite wie folgt aussehen:
+Zum Beispiel könnte eine notwendige CSP für Ihre Website so aussehen:
 
 ```http
 Content-Security-Policy: require-trusted-types-for 'script'; script-src '<your_allowlist>' 'trusted-types-eval'
 ```
 
-Das Verhalten der Transformationsfunktion hängt vom spezifischen Anwendungsfall ab, der ein vom Benutzer bereitgestelltes Skript erfordert.
-Wenn möglich, sollten Sie die erlaubten Skripts auf genau den Code beschränken, dem Sie vertrauen, ihn auszuführen.
-Wenn das nicht möglich ist, könnten Sie die Verwendung bestimmter Funktionen innerhalb des bereitgestellten Strings erlauben oder blockieren.
+Das Verhalten der Transformationsfunktion hängt von dem spezifischen Anwendungsfall ab, der ein benutzerbereitgestelltes Skript erfordert.
+Wenn möglich, sollten Sie die erlaubten Skripte genau auf den Code beschränken, dem Sie vertrauen, ihn auszuführen.
+Wenn das nicht möglich ist, könnten Sie die Verwendung bestimmter Funktionen innerhalb der bereitgestellten Zeichenkette erlauben oder blockieren.
 
 ## Beispiele
 
-Beachten Sie, dass diese Beispiele aus Gründen der Kürze auf die Verwendung vertrauenswürdiger Typen verzichten.
+Beachten Sie, dass diese Beispiele zur Kürze die Verwendung von vertrauenswürdigen Typen weglassen.
 Siehe [Verwendung von `TrustedScript`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_trustedscript) in `eval()` für Code, der den erwarteten Ansatz zeigt.
 
-### Setzen und Löschen von Timeouts
+### Einstellen und Abbrechen von Timeouts
 
-Das folgende Beispiel richtet zwei einfache Schaltflächen in einer Webseite ein und verknüpft sie mit den `setTimeout()`- und `clearTimeout()`-Routinen.
-Durch Drücken der ersten Schaltfläche wird ein Timeout festgelegt, das nach zwei Sekunden eine Nachricht anzeigt und die Timeout-ID zum Löschen mit `clearTimeout()` speichert.
-Sie können dieses Timeout optional durch Drücken der zweiten Schaltfläche canceln.
+Im folgenden Beispiel werden zwei einfache Schaltflächen in einer Webseite erstellt und mit den `setTimeout()`- und `clearTimeout()`-Routinen verbunden.
+Durch Drücken der ersten Schaltfläche wird ein Timeout eingestellt, das nach zwei Sekunden eine Nachricht anzeigt und die Timeout-ID zur Verwendung durch `clearTimeout()` speichert.
+Sie können dieses Timeout optional durch Drücken der zweiten Schaltfläche abbrechen.
 
 #### HTML
 
@@ -459,7 +462,7 @@ document.getElementById("cancel").addEventListener("click", clearMessage);
 
 {{EmbedLiveSample('Setting_and_clearing_timeouts')}}
 
-Siehe auch das [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout)-Beispiel.
+Siehe auch das Beispiel für [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout).
 
 ## Spezifikationen
 
@@ -471,7 +474,7 @@ Siehe auch das [`clearTimeout()`](/de/docs/Web/API/Window/clearTimeout)-Beispiel
 
 ## Siehe auch
 
-- [Polyfill von `setTimeout`, das das Übergeben von Argumenten an den Rückruf in `core-js` ermöglicht](https://github.com/zloirock/core-js#settimeout-and-setinterval)
+- [Polyfill von `setTimeout`, der das Übergeben von Argumenten an die Rückruffunktion in `core-js` ermöglicht](https://github.com/zloirock/core-js#settimeout-and-setinterval)
 - [`Window.clearTimeout()`](/de/docs/Web/API/Window/clearTimeout)
 - [`WorkerGlobalScope.setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)
 - [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval)

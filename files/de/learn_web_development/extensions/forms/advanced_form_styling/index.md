@@ -2,12 +2,12 @@
 title: Fortgeschrittene Formulargestaltung
 slug: Learn_web_development/Extensions/Forms/Advanced_form_styling
 l10n:
-  sourceCommit: 26fb7eaa7b398a35c2463fa15ab6ccfa46a9e06d
+  sourceCommit: 0daae80dae181e8156f76439b0df5749f1501bb3
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Styling_web_forms", "Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms")}}
 
-In diesem Artikel werden wir sehen, was mit CSS getan werden kann, um die Arten von Formularsteuerelementen zu gestalten, die schwieriger zu stylen sind - die "schlechten" und "hässlichen" Kategorien. Wie wir [im vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms) gesehen haben, sind Textfelder und Buttons perfekt einfach zu stylen; jetzt werden wir uns mit den problematischeren Teilen befassen.
+In diesem Artikel werden wir sehen, was mit CSS gemacht werden kann, um die Arten von Formularsteuerungen zu stylen, die schwieriger zu stylen sind – die Kategorien "schlecht" und "hässlich". Wie wir im [vorherigen Artikel](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms) gesehen haben, sind Textfelder und Buttons ziemlich einfach zu stylen; nun werden wir uns den problematischeren Teilen widmen.
 
 <table>
   <tbody>
@@ -20,42 +20,42 @@ In diesem Artikel werden wir sehen, was mit CSS getan werden kann, um die Arten 
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Zu verstehen, welche Teile von Formularen schwer zu stylen sind und warum; zu lernen,
+        Verstehen, welche Teile von Formularen schwer zu stylen sind und warum; lernen,
         was getan werden kann, um sie anzupassen.
       </td>
     </tr>
   </tbody>
 </table>
 
-Um das, was wir im vorherigen Artikel gesagt haben, zusammenzufassen, haben wir:
+Zur Wiederholung dessen, was wir im vorherigen Artikel gesagt haben, haben wir:
 
-**Die schlechten**: Einige Elemente sind schwieriger zu stylen und erfordern komplexeres CSS oder spezifischere Tricks:
+**Das Schlechte**: Einige Elemente sind schwieriger zu stylen und erfordern komplexeres CSS oder spezifischere Tricks:
 
 - Kontrollkästchen und Optionsfelder
 - [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search)
 
-**Die hässlichen**: Einige Elemente können nicht vollständig mit CSS gestylt werden. Dazu gehören:
+**Das Hässliche**: Einige Elemente können mit CSS nicht vollständig gestylt werden. Dazu gehören:
 
 - Elemente, die bei der Erstellung von Dropdown-Widgets beteiligt sind, einschließlich {{HTMLElement("select")}}, {{HTMLElement("option")}}, {{HTMLElement("optgroup")}} und {{HTMLElement("datalist")}}.
   > [!NOTE]
-  > Einige Browser unterstützen jetzt [anpassbare Selektelemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Reihe von HTML- und CSS-Funktionen, die zusammen eine vollständige Anpassung von `<select>`-Elementen und deren Inhalten wie bei regulären DOM-Elementen ermöglichen.
+  > Einige Browser unterstützen jetzt [Anpassbare Selektions-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Sammlung von HTML- und CSS-Funktionen, die eine vollständige Anpassung von `<select>`-Elementen und deren Inhalten wie bei regulären DOM-Elementen ermöglichen.
 - [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color)
 - Datumsbezogene Steuerelemente wie [`<input type="datetime-local">`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local)
 - [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range)
 - [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)
 - {{HTMLElement("progress")}} und {{HTMLElement("meter")}}
 
-Lassen Sie uns zuerst über die {{cssxref("appearance")}}-Eigenschaft sprechen, die nützlich ist, um all das oben Genannte besser stylisierbar zu machen.
+Lassen Sie uns zunächst über die {{cssxref("appearance")}}-Eigenschaft sprechen, die nützlich ist, um all das oben Genannte besser stilisierbar zu machen.
 
-## `appearance`: Kontrolle der Betriebssystem-Styling
+## `appearance`: Kontrolle über systemeigene Stilsetzung
 
-Im vorherigen Artikel haben wir erwähnt, dass die Gestaltung von Webformular-Steuerelementen historisch weitgehend vom zugrunde liegenden Betriebssystem abgeleitet wurde, was teilweise der Grund für die Schwierigkeit ist, das Aussehen dieser Steuerelemente anzupassen.
+Im vorherigen Artikel haben wir erwähnt, dass das Styling von Webformular-Steuerelementen historisch stark vom zugrunde liegenden Betriebssystem abgeleitet war, was einen Teil der Schwierigkeiten bei der Anpassung des Aussehens dieser Steuerelemente erklärt.
 
-Die {{cssxref("appearance")}}-Eigenschaft wurde geschaffen, um zu steuern, welches OS- oder Systemeinstellungen auf Webformular-Steuerelemente angewendet werden. Der bei weitem nützlichste Wert, und wahrscheinlich der einzige, den Sie verwenden werden, ist `none`. Dies verhindert, dass ein Steuerelement, auf das Sie es anwenden, so weit wie möglich systemdefiniertes Styling verwendet und ermöglicht es Ihnen, die Stile selbst mit CSS aufzubauen.
+Die {{cssxref("appearance")}}-Eigenschaft wurde eingeführt, um zu kontrollieren, welches OS- oder systemeigene Styling auf Webformular-Steuerelemente angewendet wurde. Der mit Abstand hilfreichste Wert und wahrscheinlich der einzige, den Sie verwenden werden, ist `none`. Dies verhindert, dass das System-Styling so weit wie möglich auf ein von Ihnen angewendetes Steuerelement angewendet wird, und lässt Sie die Stile selbst mit CSS aufbauen.
 
-Lassen Sie uns zum Beispiel die folgenden Steuerelemente nehmen:
+Zum Beispiel nehmen wir folgende Steuerelemente:
 
 ```html
 <form>
@@ -84,7 +84,7 @@ Lassen Sie uns zum Beispiel die folgenden Steuerelemente nehmen:
 </form>
 ```
 
-Die Anwendung des folgenden CSS darauf entfernt das systemdefinierte Styling.
+Das Anwenden des folgenden CSS auf sie entfernt systemeigene Styles.
 
 ```css
 input {
@@ -92,7 +92,7 @@ input {
 }
 ```
 
-Das folgende Live-Beispiel zeigt, wie sie in Ihrem System aussehen - standardmäßig links und mit dem obigen CSS rechts angewendet.
+Das folgende Live Beispiel zeigt Ihnen, wie sie auf Ihrem System aussehen — standardmäßig links und mit dem obigen CSS rechts angewendet.
 
 ```html hidden live-sample___appearance-tester
 <div>
@@ -172,13 +172,13 @@ form > div {
 
 {{EmbedLiveSample("appearance-tester", '100%', 350)}}
 
-In den meisten Fällen ist der Effekt, die stilisierte Grenze zu entfernen, was das CSS-Styling ein bisschen einfacher macht, aber nicht wesentlich ist. In einigen Fällen, wie bei Radiobuttons und Kontrollkästchen, wird es viel nützlicher. Wir sehen uns das jetzt an.
+In den meisten Fällen besteht die Wirkung darin, den stilisierten Rahmen zu entfernen, was das Styling mit CSS ein wenig erleichtert, aber nicht essentiell ist. In einigen Fällen, wie bei Optionsfeldern und Kontrollkästchen, wird es wesentlich nützlicher. Schauen wir uns das jetzt genauer an.
 
 ### Suchfelder und `appearance`
 
-Der Wert `appearance: none;` war besonders nützlich, um [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search)-Elemente konsistent zu stylen. Ohne diese Einstellung erlaubte Safari nicht, dass {{cssxref("height")}} oder {{cssxref("font-size")}} darauf gesetzt werden können. Dies ist jedoch seit Safari 16 und später nicht mehr der Fall. Sie möchten möglicherweise immer noch `input[type="search"]` explizit mit `appearance: none;` ansprechen, wenn Ihre Browser-Supportmatrix ältere Safari-Versionen als 16 enthält.
+Der Wert `appearance: none;` war besonders nützlich, um [`<input type="search">`](/de/docs/Web/HTML/Reference/Elements/input/search)-Elemente konsistent zu stylen. Ohne ihn erlaubte Safari nicht, {{cssxref("height")}} oder {{cssxref("font-size")}}-Werte auf sie anzuwenden. Dies ist jedoch seit Safari 16 und später nicht mehr der Fall. Möglicherweise möchten Sie immer noch `input[type="search"]` explizit mit `appearance: none;` anvisieren, wenn Ihre Browser-Support-Matrix Safari-Versionen älter als 16 einschließt.
 
-Bei Such-Eingabefeldern verschwindet der "x"-Löschen-Button, der erscheint, wenn der Wert nicht null ist, wenn das Eingabefeld in Edge und Chrome den Fokus verliert, bleibt aber in Safari bestehen. Um dies mit CSS zu entfernen, können Sie diese folgende Regel verwenden:
+In Suchfeldern verschwindet der "x"-Löschen-Button, der erscheint, wenn der Wert nicht null ist, in Edge und Chrome, wenn das Eingabefeld den Fokus verliert, bleibt aber in Safari erhalten. Um ihn via CSS zu entfernen, können Sie diese Regel verwenden:
 
 ```css
 input[type="search"]:not(:focus, :active)::-webkit-search-cancel-button {
@@ -186,11 +186,52 @@ input[type="search"]:not(:focus, :active)::-webkit-search-cancel-button {
 }
 ```
 
-### Kontrollkästchen und Radio-Buttons mit `appearance` stylen
+### Festlegung der Tönung von Formularsteuerfarben mit `accent-color`
 
-Das Styling eines Kontrollkästchens oder eines Radiobuttons ist standardmäßig schwierig. Die Größen der Standardstile für Kontrollkästchen und Radiobuttons sind nicht zur Änderung gedacht, und Browser reagieren sehr unterschiedlich, wenn Sie es versuchen. Einige vergrößern die Größe des Steuerelements und einige behalten das Steuerelement in derselben Größe und fügen zusätzliche Raum um es herum hinzu.
+Wenn Sie nur die primäre Tönungsfarbe von Kontrollkästchen, Optionsfeldern oder Range-Slidern stylen möchten, können Sie {{cssxref("accent-color")}} verwenden, ohne `appearance: none` zu benötigen. Dies ist nützlich für grundlegende Stylingfälle, da die Steuerelemente ihre systemeigene Stilsetzung beibehalten, jedoch mit einer veränderten Hauptfarbe.
 
-Ein viel besserer Ansatz ist es, das Standard-Aussehen von Kontrollkästchen und Radiobuttons vollständig mit {{cssxref("appearance", "appearance: none;")}} zu entfernen und dann Ihre eigenen Stile für ihre verschiedenen Zustände hinzuzufügen.
+```html live-sample___accent-color
+<form>
+  <fieldset>
+    <legend>Fruit preferences</legend>
+
+    <p>
+      <label>
+        <input type="checkbox" name="fruit" value="cherry" checked />
+        I like cherry
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="radio" name="favorite" value="banana" checked />
+        Banana is my favorite
+      </label>
+    </p>
+    <p>
+      <label>
+        How much do you like fruit?
+        <input type="range" name="amount" min="0" max="10" value="7" />
+      </label>
+    </p>
+  </fieldset>
+</form>
+```
+
+```css live-sample___accent-color
+input {
+  accent-color: rebeccapurple;
+}
+```
+
+{{EmbedLiveSample("accent-color", '100%', 200)}}
+
+Weil die Steuerelemente ihr natives Erscheinungsbild behalten, folgen sie Plattformkonventionen — einschließlich Modi mit erzwungenen Farben — ohne weiteres Zutun Ihrerseits. Außerdem wählt der Browser automatisch eine komplementäre Sekundärfarbe mit genügend Kontrast zur `accent-color`, um das Steuerelement zugänglich zu halten. Spielen Sie mit dem obigen Live-Beispiel und setzen Sie einige helle und dunkle `accent-color`-Werte, um die Effekte zu sehen.
+
+### Styling von Kontrollkästchen und Optionsfeldern mit `appearance`
+
+Das weitergehende Styling eines Kontrollkästchens oder Optionsfelds erfordert mehr Aufwand. Die Standardgrößen von Kontrollkästchen und Optionsfeldern sollten eigentlich nicht geändert werden, und Browser reagieren sehr unterschiedlich, wenn Sie es versuchen. Manche vergrößern die Steuerelementgröße, andere behalten sie bei und fügen zusätzlichen Raum um das Steuerelement herum hinzu.
+
+Ein viel besserer Ansatz besteht darin, das standardmäßige Erscheinungsbild von Kontrollkästchen und Optionsfeldern mit {{cssxref("appearance", "appearance: none;")}} vollständig zu entfernen und dann eigene Styles zu ihren verschiedenen Zuständen hinzuzufügen.
 
 Nehmen wir dieses Beispiel-HTML:
 
@@ -221,7 +262,7 @@ Nehmen wir dieses Beispiel-HTML:
 </form>
 ```
 
-Lassen Sie uns diese mit einem benutzerdefinierten Kontrollkästchendesign stylen. Wir beginnen damit, die ursprünglichen Kontrollkästchenstile zu entfernen:
+Lassen Sie uns diese mit einem benutzerdefinierten Kontrollkästchen-Design stylen. Wir beginnen damit, die ursprünglichen Kontrollkästchen-Stile zu entfernen:
 
 ```css live-sample___checkboxes-styled
 input[type="checkbox"] {
@@ -229,7 +270,7 @@ input[type="checkbox"] {
 }
 ```
 
-Dann können wir die {{cssxref(":checked")}} und {{cssxref(":disabled")}} Pseudo-Klassen verwenden, um das Aussehen unserer benutzerdefinierten Kontrollkästchen zu ändern, wenn sich deren Zustand ändert:
+Wir können dann die {{cssxref(":checked")}}- und {{cssxref(":disabled")}}-Pseudoklassen verwenden, um das Erscheinungsbild unserer benutzerdefinierten Kontrollkästchen zu ändern, wenn sich ihr Zustand ändert:
 
 ```css live-sample___checkboxes-styled
 input[type="checkbox"] {
@@ -264,10 +305,10 @@ input[type="checkbox"]:disabled {
 }
 ```
 
-Sie erfahren mehr über solche Pseudo-Klassen und mehr im [nächsten Artikel](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes); die oben genannten tun Folgendes:
+Sie erfahren mehr über solche Pseudoklassen und mehr im [nächsten Artikel](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes); die obigen bewirken Folgendes:
 
-- `:checked` — das Kontrollkästchen (oder das Optionsfeld) befindet sich in einem aktivierten Zustand — der Benutzer hat es angeklickt/aktiviert.
-- `:disabled` — das Kontrollkästchen (oder das Optionsfeld) befindet sich in einem deaktivierten Zustand — es kann nicht interagiert werden.
+- `:checked` — das Kontrollkästchen (oder Optionsfeld) befindet sich im ausgewählten Zustand — der Benutzer hat darauf geklickt/aktiviert es.
+- `:disabled` — das Kontrollkästchen (oder Optionsfeld) befindet sich im deaktivierten Zustand — es kann nicht interagiert werden.
 
 Sie können das Live-Ergebnis sehen:
 
@@ -275,18 +316,18 @@ Sie können das Live-Ergebnis sehen:
 
 Wir haben auch ein paar andere Beispiele erstellt, um Ihnen mehr Ideen zu geben:
 
-- [Gestylte Radiobuttons](https://mdn.github.io/learning-area/html/forms/custom-radio-styles/index.html): Benutzerdefinierte Radiobutton-Styling.
-- [Toggle-Schalter-Beispiel](https://mdn.github.io/learning-area/html/forms/toggle-switch-example/): Ein Kontrollkästchen, das wie ein Toggle-Schalter gestylt ist.
+- [Gestylte Optionsfelder](https://mdn.github.io/learning-area/html/forms/custom-radio-styles/index.html): Benutzerdefiniertes Optionsfeld-Styling.
+- [Umschaltbeispiel](https://mdn.github.io/learning-area/html/forms/toggle-switch-example/): Ein Kontrollkästchen, das wie ein Schalter gestylt ist.
 
-## Was kann man über die "hässlichen" Elemente machen?
+## Was kann man mit den "hässlichen" Elementen machen?
 
-Wenden wir uns nun den "hässlichen" Steuerelementen zu — denjenigen, die wirklich schwer vollständig zu stylen sind. Kurz gesagt, diese sind Dropdown-Felder, komplexe Steuerungstypen wie [`color`](/de/docs/Web/HTML/Reference/Elements/input/color) und [`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local), und rückmeldeorientierte Steuerelemente wie {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
+Wenden wir uns nun den "hässlichen" Steuerelementen zu — denjenigen, die wirklich schwer gründlich zu stylen sind. Kurz gesagt, dies sind Dropdown-Boxen, komplexe Steuerungstypen wie [`color`](/de/docs/Web/HTML/Reference/Elements/input/color) und [`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local) sowie rückmeldeorientierte Steuerelemente wie {{HTMLElement("progress")}} und {{HTMLElement("meter")}}.
 
-Das Problem ist, dass diese Elemente sehr unterschiedliche Standarddarstellungen in den verschiedenen Browsern haben, und obwohl Sie sie in gewisser Weise stylen können, sind einige Teile ihrer Interna unmöglich zu stylen.
+Das Problem ist, dass diese Elemente sehr unterschiedliche Standardansichten in verschiedenen Browsern haben, und obwohl Sie sie in gewisser Weise stylen können, sind einige Teile ihrer Interna unmöglich zu stylen.
 
-Wenn Sie bereit sind, einige Unterschiede im Look and Feel zu akzeptieren, können Sie einige einfache Stile verwenden, um die Dinge erheblich zu verbessern. Dazu gehört die konsistente Größenanpassung und Gestaltung von Eigenschaften wie `background-color`, sowie die Verwendung von `appearance`, um einige systemdefinierte Stylings zu entfernen.
+Wenn Sie bereit sind, mit einigen Unterschieden im Look-and-Feel zu leben, können Sie mit einfachen Styles einiges verbessern. Dies beinhaltet eine konsistente Größenanpassung und Gestaltung von Eigenschaften wie `background-color` und die Verwendung von `appearance`, um systemeigene Styles zu entfernen.
 
-Nehmen Sie das folgende Beispiel, das eine Reihe der "hässlichen" Formularmerkmale in Aktion zeigt:
+Nehmen Sie das folgende Beispiel, das eine Reihe der "hässlichen" Funktionen in Aktion zeigt:
 
 ```html hidden live-sample___ugly-styling
 <form>
@@ -354,7 +395,7 @@ Nehmen Sie das folgende Beispiel, das eine Reihe der "hässlichen" Formularmerkm
 
 {{EmbedLiveSample("ugly-styling", '100%', 750)}}
 
-Sie können auch die **Play**-Taste drücken, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten.
+Sie können auch die **Play**-Schaltfläche drücken, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten.
 
 Dieses Beispiel hat das folgende CSS darauf angewendet:
 
@@ -421,7 +462,7 @@ button {
 }
 ```
 
-Wir haben etwas JavaScript auf die Seite hinzugefügt, das die ausgewählten Dateien des Datei-Pickers unterhalb des Steuerelements auflistet. Dies ist eine vereinfachte Version des Beispiels, das auf der [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file#examples) Referenzseite zu finden ist:
+Wir haben der Seite etwas JavaScript hinzugefügt, das die von der Dateiauswahl ausgewählten Dateien unterhalb des Steuerelements auflistet. Dies ist eine vereinfachte Version des Beispiels, das auf der Referenzseite zu [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file#examples) zu finden ist:
 
 ```js live-sample___ugly-styling
 const fileInput = document.querySelector("#file");
@@ -455,11 +496,11 @@ function returnFileSize(number) {
 }
 ```
 
-### "Globale" Stile
+### "Globale" Styles
 
-Im vorherigen Beispiel haben wir recht gut geschafft, unsere hässlichen Steuerelemente in modernen Browsern einheitlich aussehen zu lassen.
+Im vorherigen Beispiel haben wir es ziemlich gut geschafft, unsere hässlichen Steuerelemente über moderne Browser hinweg einheitlich aussehen zu lassen.
 
-Wir haben etwas globales Normalisieren von CSS auf alle Steuerelemente und ihre Beschriftungen angewendet, um sie auf die gleiche Weise zu dimensionieren, dieselbe Elternschriftart zu übernehmen usw., wie im vorherigen Artikel erwähnt:
+Wir haben einige globale Normalisierungs-CSS auf alle Steuerelemente und deren Labels angewendet, damit sie auf die gleiche Weise skaliert werden, die Schrift ihrer Eltern übernehmen usw., wie im vorherigen Artikel erwähnt:
 
 ```css
 button,
@@ -479,7 +520,7 @@ meter {
 }
 ```
 
-Wir haben auch einige einheitliche Schatten und abgerundete Ecken zu den Steuerelementen hinzugefügt, wo es sinnvoll ist:
+Wir haben auch einigen Steuerelementen, wo es sinnvoll ist, einheitliche Schatten und abgerundete Ecken hinzugefügt:
 
 ```css
 input[type="text"],
@@ -491,17 +532,17 @@ select {
 }
 ```
 
-Bei anderen Steuerelementen wie Bereichsarten, Fortschrittsbalken und Zählern fügen sie nur ein hässliches Feld um den Steuerbereich herum hinzu, sodass es keinen Sinn macht.
+Bei anderen Steuerelementen wie Range-Typen, Fortschrittsbalken und Metern fügen sie nur einen hässlichen Kasten um den Steuerungsbereich hinzu, sodass es keinen Sinn ergibt.
 
-Lassen Sie uns über einige Besonderheiten dieser Steuerelementtypen sprechen und dabei Schwierigkeiten hervorheben.
+Lassen Sie uns einige Einzelheiten zu diesen Steuerelementtypen besprechen und dabei auf Schwierigkeiten hinweisen.
 
 ### Selects und Datalists
 
-Einige Browser unterstützen jetzt [anpassbare Selektelemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Reihe von HTML- und CSS-Funktionen, die zusammen die vollständige Anpassung von `<select>`-Elementen und deren Inhalts genau wie bei regulären DOM-Elementen ermöglichen. In unterstützenden Browsern und Codebasierungen müssen Sie sich nicht mehr um die unten beschriebenen Legacy-Techniken für `<select>`-Elemente kümmern.
+Einige Browser unterstützen jetzt [Anpassbare Selektions-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), eine Sammlung von HTML- und CSS-Funktionen, die eine vollständige Anpassung von `<select>`-Elementen und deren Inhalten wie bei regulären DOM-Elementen ermöglichen. In unterstützten Browsern und Codebasen müssen Sie sich nicht mehr um die älteren Techniken kümmern, die unten für `<select>`-Elemente beschrieben werden.
 
-Das Styling von Datalists und Selects (in Browsern, die anpassbare Selects nicht unterstützen) ermöglicht ein akzeptables Maß an Anpassung, sofern Sie die Optik und das Gefühl nicht zu sehr von den Standards abweichen wollen. Wir haben es geschafft, die Boxen ziemlich einheitlich und konsistent aussehen zu lassen. Das Datalist-auslösende Steuerelement ist ohnehin ein `<input type="text">`, also wussten wir, dass dies kein Problem sein würde.
+Das Styling von Datalists und Selects (in Browsern, die keine anpassbaren Selects unterstützen) erlaubt ein akzeptables Maß an Anpassung, vorausgesetzt, Sie wollen das Aussehen und Verhalten nicht zu sehr von den Standards abweichen lassen. Wir haben es geschafft, dass die Boxen recht einheitlich und konsistent aussehen. Das Steuerelement, das die Datalist aufruft, ist ohnehin ein `<input type="text">`, also wussten wir, dass dies kein Problem sein würde.
 
-Zwei Dinge sind etwas problematischer. Zuerst einmal unterscheidet sich das "Pfeil"-Symbol des Selects, das anzeigt, dass es ein Dropdown ist, in den verschiedenen Browsern. Es neigt auch dazu sich zu ändern, wenn Sie die Größe des Selects erhöhen oder es auf hässliche Weise vergrößern. Um dies in unserem Beispiel zu beheben, haben wir zuerst unseren alten Freund `appearance: none` verwendet, um das Symbol vollständig loszuwerden:
+Zwei Dinge sind etwas problematischer. Erstens unterscheidet sich das "Pfeil"-Icon des Selects, das anzeigt, dass es sich um ein Dropdown handelt, zwischen den Browsern. Es neigt auch dazu sich zu ändern, wenn Sie die Größe der Select-Box erhöhen oder sie in hässlicher Weise neu skalieren. Um dies in unserem Beispiel zu beheben, haben wir zuerst unseren alten Freund `appearance: none` verwendet, um das Icon vollständig zu entfernen:
 
 ```css
 select {
@@ -509,7 +550,7 @@ select {
 }
 ```
 
-Dann haben wir unser eigenes Symbol mit generiertem Inhalt erstellt. Wir haben eine zusätzliche Umhüllung um das Steuerelement gelegt, weil {{cssxref("::before")}}/{{cssxref("::after")}} nicht auf `<select>`-Elementen funktionieren (ihre Inhalte werden vollständig vom Browser kontrolliert):
+Wir haben dann unser eigenes Icon mit generierten Inhalten erstellt. Wir haben eine zusätzliche Hülle um das Steuerelement gelegt, da {{cssxref("::before")}}/{{cssxref("::after")}} nicht auf `<select>`-Elementen funktionieren (ihre Inhalte werden vollständig vom Browser kontrolliert):
 
 ```html
 <label for="select">Select a fruit</label>
@@ -522,7 +563,7 @@ Dann haben wir unser eigenes Symbol mit generiertem Inhalt erstellt. Wir haben e
 </div>
 ```
 
-Dann verwenden wir generierten Inhalt, um einen kleinen Abwärtspfeil zu erzeugen und ihn mithilfe der Positionierung an die richtige Stelle zu setzen:
+Wir haben dann generierte Inhalte verwendet, um einen kleinen Abwärtspfeil zu erzeugen, und ihn mit Positionierung an die richtige Stelle gebracht:
 
 ```css
 .select-wrapper {
@@ -538,9 +579,9 @@ Dann verwenden wir generierten Inhalt, um einen kleinen Abwärtspfeil zu erzeuge
 }
 ```
 
-Das zweite, etwas wichtigere Problem ist, dass Sie keine Kontrolle über die Box haben, die beim Klicken auf das `<select>`-Feld erscheint, um es zu öffnen. Sie können die auf dem Elternteil gesetzte Schriftart übernehmen, aber Sie können Dinge wie Abstände und Farben nicht setzen. Dasselbe gilt für die Autocomplete-Liste, die mit {{HTMLElement("datalist")}} erscheint.
+Das zweite, etwas wichtigere Problem ist, dass Sie keine Kontrolle über das Feld haben, das erscheint und die Optionen enthält, wenn Sie auf das `<select>`-Feld klicken, um es zu öffnen. Sie können die auf dem Elternteil eingestellte Schriftart erben, aber Sie können nicht Dinge wie Abstände und Farben setzen. Das Gleiche gilt für die Autovervollständigungsliste, die mit {{HTMLElement("datalist")}} erscheint.
 
-Wenn Sie wirklich die volle Kontrolle über das Optionenstyling benötigen, müssen Sie entweder eine Bibliothek verwenden, um ein benutzerdefiniertes Steuerelement zu erzeugen, oder Ihr eigenes bauen. Im Fall von `<select>` könnten Sie auch das `multiple`-Attribut verwenden, das alle Optionen auf der Seite erscheinen lässt und dieses spezielle Problem umgeht:
+Wenn Sie wirklich die volle Kontrolle über das Option-Styling benötigen, müssen Sie entweder eine Bibliothek verwenden, um ein benutzerdefiniertes Steuerelement zu generieren, oder Ihr eigenes erstellen. Im Fall von `<select>` können Sie auch das `multiple`-Attribut verwenden, das alle Optionen auf der Seite anzeigt und dieses spezielle Problem umgeht:
 
 ```html
 <label for="select">Select fruits</label>
@@ -549,20 +590,20 @@ Wenn Sie wirklich die volle Kontrolle über das Optionenstyling benötigen, müs
 </select>
 ```
 
-Natürlich passt dies möglicherweise auch nicht in das Design, das Sie anstreben, aber es lohnt sich zu erwähnen!
+Natürlich passt dies möglicherweise auch nicht zu dem Design, das Sie anstreben, aber es ist erwähnenswert!
 
-### Date-Eingabetypen
+### Datumseingabetypen
 
-Die Datums-/Zeit-Eingabetypen ([`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local), [`time`](/de/docs/Web/HTML/Reference/Elements/input/time), [`week`](/de/docs/Web/HTML/Reference/Elements/input/week), [`month`](/de/docs/Web/HTML/Reference/Elements/input/month)) haben alle dasselbe große zugehörige Problem. Die eigentliche umschließende Box ist so einfach zu stylen wie jedes Texteingabefeld, und das, was wir in diesem Demo haben, sieht gut aus.
+Die Datumseingabetypen ([`datetime-local`](/de/docs/Web/HTML/Reference/Elements/input/datetime-local), [`time`](/de/docs/Web/HTML/Reference/Elements/input/time), [`week`](/de/docs/Web/HTML/Reference/Elements/input/week), [`month`](/de/docs/Web/HTML/Reference/Elements/input/month)) haben alle das gleiche Hauptproblem. Die eigentliche enthaltene Box ist genauso einfach zu stylen wie jede Texteingabe, und das, was wir in diesem Demo haben, sieht gut aus.
 
-Jedoch sind die internen Teile des Steuerelements (z. B. der Popup-Kalender, den Sie verwenden, um ein Datum auszuwählen, der Spinner, den Sie benutzen können, um Werte zu erhöhen/zu verringern) überhaupt nicht stylisierbar, und Sie können sie nicht mit `appearance: none;` loswerden. Wenn Sie wirklich die volle Kontrolle über das Styling haben möchten, müssen Sie entweder eine Bibliothek verwenden, um ein benutzerdefiniertes Steuerelement zu erzeugen, oder Ihr eigenes bauen.
+Jedoch sind die internen Teile des Steuerelements (z.B. der Popup-Kalender, den Sie verwenden, um ein Datum auszuwählen, der Drehregler, den Sie verwenden können, um Werte zu erhöhen/verringern) überhaupt nicht stylnar, und Sie können sie nicht mit `appearance: none;` loswerden. Wenn Sie wirklich die volle Kontrolle über das Styling benötigen, müssen Sie entweder eine Bibliothek verwenden, um ein benutzerdefiniertes Steuerelement zu generieren, oder Ihr eigenes erstellen.
 
 > [!NOTE]
-> Es ist auch erwähnenswert jeden here [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number) - dieser hat auch einen Spinner, den Sie verwenden können, um Werte zu erhöhen/zu verringern und könnte daher dasselbe Problem haben. Bei der Nummernart der Daten, die gesammelt werden, ist das jedoch einfacher, und es ist einfach, stattdessen den Eingabetyp `tel` zu verwenden, der wie `text` aussieht, aber die numerische Tastatur bei Geräten mit Touch-Tastaturen einblendet.
+> [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number) hat ebenfalls einen Drehregler, und seine internen Teile sind genauso wenig zu stylen. Wenn Sie den Drehregler entfernen möchten, verwenden Sie [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) mit [`inputmode="numeric"`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode), um auf Geräten mit Touch-Keyboards eine numerische Tastatur anzuzeigen, und ein [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut, das Eingabewerte auf eine Nummer beschränkt. Siehe auch [`<input type="number">` > Barrierefreiheit](/de/docs/Web/HTML/Reference/Elements/input/number#accessibility).
 
-### Bereichs-Eingabetypen
+### Range Eingabetypen
 
-[`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) ist ärgerlich zu stylen. Sie können etwas wie das Folgende verwenden, um die Standardschieberegler-Leiste vollständig zu entfernen und durch einen benutzerdefinierten Stil zu ersetzen (eine dünne rote Leiste, in diesem Fall):
+[`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) ist lästig zu stylen. Sie können etwas wie das Folgende verwenden, um den Standardschieberegler-Track komplett zu entfernen und ihn durch einen benutzerdefinierten Stil zu ersetzen (in diesem Fall ein dünner roter Track):
 
 ```css
 input[type="range"] {
@@ -574,13 +615,13 @@ input[type="range"] {
 }
 ```
 
-Das Anpassen des Stils des Schiebereglers ist jedoch sehr schwierig — um die volle Kontrolle über das Styling des Bereichs zu erhalten, müssen Sie einige komplexe CSS-Codes verwenden, einschließlich mehrere nicht-standardisierte, browserspezifische Pseudo-Elemente. Lesen Sie [Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/) auf CSS-Tricks für eine ausführliche Beschreibung, was benötigt wird.
+Es ist jedoch sehr schwierig, den Stil des Schiebereglers zu ändern — um vollständige Kontrolle über das Range-Styling zu erhalten, müssen Sie einige komplexe CSS-Codes verwenden, einschließlich mehrerer nicht standardmäßiger, browserspezifischer Pseudoelemente. Schauen Sie sich [Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/) auf CSS-Tricks für eine ausführliche Beschreibung dessen an, was gebraucht wird.
 
 ### Farbeingabetypen
 
-Eingabesteuerungen des Typs Farbe sind nicht zu schlecht. In unterstützenden Browsern neigen sie dazu, Ihnen einen Block von Vollfarbe mit einem kleinen Rahmen zu geben.
+Eingabesteuerelemente vom Typ Farbe sind nicht allzu schlecht. In unterstützenden Browsern tendieren sie dazu, Ihnen einen Block aus Vollfarbe mit einem kleinen Rand zu geben.
 
-Sie können den Rahmen entfernen und nur den Farbblock lassen, indem Sie so etwas verwenden:
+Sie können den Rand entfernen, sodass nur der Farbblock verbleibt, indem Sie so etwas verwenden:
 
 ```css
 input[type="color"] {
@@ -589,15 +630,36 @@ input[type="color"] {
 }
 ```
 
-Eine benutzerdefinierte Lösung ist jedoch die einzige Möglichkeit, etwas signifikant anderes zu erreichen.
+Eine maßgeschneiderte Lösung ist jedoch der einzige Weg, um etwas signifikant Abweichendes zu bekommen.
 
-### Dateieingabetypen
+### Datei-Eingabetypen
 
-Eingaben des Typs Datei sind im Allgemeinen in Ordnung — wie Sie in unserem Beispiel gesehen haben, ist es ziemlich einfach, etwas zu erstellen, das gut mit dem Rest der Seite zusammenpasst — die Ausgabelinie, die Teil des Steuerelements ist, wird die Elternschriftart erben, wenn Sie dem Eingabefeld sagen, es zu tun, und Sie können die benutzerdefinierte Liste von Dateinamen und -größen nach Belieben stylen; wir haben sie schließlich erstellt.
+Datei-Eingaben sind im Allgemeinen in Ordnung — es ist ziemlich einfach, etwas zu erstellen, das sich gut in den Rest der Seite einfügt. Die Zeile, die als Teil des Steuerelements ausgegeben wird, übernimmt die Schriftart des Übergeordneten, wenn Sie die Eingabe entsprechend einstellen, und Sie können die benutzerdefinierte Liste der Dateinamen und -größen auf jede gewünschte Weise stylen.
 
-Das einzige Problem bei Dateiauswählern ist, dass der Button, den Sie drücken, um den Dateiauswähler zu öffnen, völlig unstylisierbar ist - er kann nicht in der Größe verändert oder gefärbt werden, und er akzeptiert nicht einmal eine andere Schriftart.
+Die Schaltfläche, die Sie zum Öffnen des Datei-Auswahl-Widgets drücken, kann mit dem {{cssxref("::file-selector-button")}}-Pseudoelement gestylt werden, das die gleichen Eigenschaften wie jede andere Schaltfläche akzeptiert:
 
-Ein Weg, dies zu umgehen, ist, die Tatsache zu nutzen, dass, wenn Sie ein Label mit einem Formularsteuerelement verknüpft haben, das Anklicken des Labels das Steuerelement aktiviert. Sie könnten also das tatsächliche Formulareingabefeld mit so etwas verstecken:
+```html live-sample___file-selector-button
+<form>
+  <label for="avatar">Choose a profile picture</label>
+  <input id="avatar" name="avatar" type="file" />
+</form>
+```
+
+```css live-sample___file-selector-button
+input[type="file"]::file-selector-button {
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, #eeeeee, #cccccc);
+  padding: 0.25em 0.75em;
+  font: inherit;
+}
+```
+
+{{EmbedLiveSample("file-selector-button", '100%', 100)}}
+
+Sie können den Text neben der Schaltfläche — die Nachricht "keine Datei ausgewählt" — oder den angezeigten Dateinamen nach der Auswahl nicht stylen. Der Browser generiert diesen Text und macht ihn für CSS nicht zugänglich. Um dieses Problem zu umgehen, verwenden Sie das Label des Steuerelements und die Tatsache, dass ein Klick auf das Label das Steuerelement aktiviert.
+
+Sie können die tatsächliche Formulareingabe mit so etwas verbergen:
 
 ```css
 input[type="file"] {
@@ -607,7 +669,7 @@ input[type="file"] {
 }
 ```
 
-Und dann das Label stylen, um wie ein Button auszusehen, der beim Drücken den Dateiauswähler wie erwartet öffnet:
+Und dann das Label so stylen, dass es wie eine Schaltfläche wirkt, die, wenn sie gedrückt wird, den Datei-Auswahldialog wie erwartet öffnet:
 
 ```css
 label[for="file"] {
@@ -628,7 +690,7 @@ label[for="file"]:active {
 }
 ```
 
-Sie können das Ergebnis des obenstehenden CSS-Stylings im Live-Beispiel unten sehen.
+Sie können das Ergebnis des oben genannten CSS-Stylings im folgenden Live-Beispiel sehen.
 
 ```html hidden live-sample___styled-file-picker
 <form>
@@ -730,18 +792,18 @@ function returnFileSize(number) {
 
 {{EmbedLiveSample("styled-file-picker", '100%', 200)}}
 
-Sie können auch die **Play**-Taste drücken, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten.
+Sie können auch die **Play**-Taste drücken, um das Beispiel im MDN Playground zu starten und den vollständigen Quellcode zu überprüfen.
 
-### Zähler und Fortschrittsbalken
+### Meter und Fortschrittsbalken
 
-[`<meter>`](/de/docs/Web/HTML/Reference/Elements/meter) und [`<progress>`](/de/docs/Web/HTML/Reference/Elements/progress) sind möglicherweise die schlimmsten von allen. Wie Sie im früheren Beispiel gesehen haben, können wir sie relativ genau auf die gewünschte Breite einstellen. Aber darüber hinaus sind sie wirklich schwer, in irgendeiner Weise zu stylen. Sie behandeln Höhenangaben nicht konsistent zueinander und zwischen Browsern, Sie können den Hintergrund kolorieren, aber nicht die Vordergrundleiste, und `appearance: none` auf ihnen anzuwenden, macht die Dinge schlechter, nicht besser.
+[`<meter>`](/de/docs/Web/HTML/Reference/Elements/meter) und [`<progress>`](/de/docs/Web/HTML/Reference/Elements/progress) sind möglicherweise die schlimmsten. Wie Sie im früheren Beispiel gesehen haben, können wir sie relativ genau auf die gewünschte Breite setzen. Aber darüber hinaus sind sie wirklich schwer zu stylen. Sie gehen nicht mit Höheneinstellungen konsistent um, sowohl zwischen sich selbst als auch zwischen Browsern, Sie können den Hintergrund färben, aber nicht die Vordergrundleiste, und `appearance: none` auf ihnen macht die Dinge eher schlechter als besser.
 
-Es ist einfacher, Ihre eigene benutzerdefinierte Lösung für diese Funktionen zu erstellen, wenn Sie das Styling kontrollieren möchten, oder eine Drittanbieterlösung wie [progressbar.js](https://kimmobrunfeldt.github.io/progressbar.js/#examples) zu verwenden.
+Es ist einfacher, Ihre eigene benutzerdefinierte Lösung zu erstellen, um das Styling dieser Funktionen zu steuern, oder eine Drittanbieterlösung wie [progressbar.js](https://kimmobrunfeldt.github.io/progressbar.js/#examples) zu verwenden.
 
 ## Zusammenfassung
 
-Obwohl es immer noch Schwierigkeiten bei der Verwendung von CSS mit HTML-Formularen gibt, gibt es Möglichkeiten, viele der Probleme zu umgehen. Es gibt keine sauberen, universellen Lösungen, aber moderne Browser bieten neue Möglichkeiten. Für jetzt ist die beste Lösung, mehr über die Art und Weise zu lernen, wie die verschiedenen Browser CSS unterstützen, wenn es auf HTML-Formular-Steuerelemente angewendet wird.
+Das Styling von HTML-Formularen stellt einige Herausforderungen dar; es gibt jedoch Möglichkeiten, viele davon zu umgehen. Es gibt keine sauberen, universellen Lösungen, aber moderne Browser bieten neue Möglichkeiten. Vorerst ist die beste Lösung, mehr darüber zu lernen, wie verschiedene Browser CSS unterstützen, wenn es auf HTML-Formularsteuerelemente angewendet wird.
 
-Im nächsten Artikel dieses Moduls werden wir untersuchen, wie man [vollständig angepasste `<select>`-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) mit den speziell dafür verfügbaren modernen HTML- und CSS-Funktionen erstellt.
+Im nächsten Artikel werden wir untersuchen, wie man [vollständig angepasste `<select>`-Elemente](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) mit den dafür verfügbaren modernen HTML- und CSS-Funktionen erstellt.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Styling_web_forms", "Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms")}}

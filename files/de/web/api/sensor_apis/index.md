@@ -2,26 +2,26 @@
 title: Sensor APIs
 slug: Web/API/Sensor_APIs
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 690498c3dbaebcf8b9a21220fbb23d192a30a225
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("Sensor API")}}
 
-Die **Sensor-APIs** sind eine Reihe von Schnittstellen, die auf einem gemeinsamen Design basieren und Gerätesensoren auf konsistente Weise der Webplattform zugänglich machen.
+Die **Sensor-APIs** sind eine Sammlung von Schnittstellen, die nach einem einheitlichen Design erstellt wurden, um Gerätesensoren in einer konsistenten Weise auf der Web-Plattform verfügbar zu machen.
 
 ## Konzepte und Verwendung
 
-Obwohl die Generic Sensor API-Spezifikation eine [`Sensor`](/de/docs/Web/API/Sensor)-Schnittstelle definiert, werden Sie als Webentwickler diese nie direkt verwenden. Stattdessen verwenden Sie eine ihrer Unterklassen, um bestimmte Arten von Sensordaten abzurufen. Zum Beispiel gibt die [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt der Abfrage zurück.
+Obwohl die Generic Sensor API-Spezifikation eine [`Sensor`](/de/docs/Web/API/Sensor) Schnittstelle definiert, werden Sie als Webentwickler diese niemals direkt verwenden. Stattdessen verwenden Sie eine ihrer Unterklassen, um spezifische Sensordaten abzurufen. Zum Beispiel liefert die [`Accelerometer`](/de/docs/Web/API/Accelerometer) Schnittstelle die Beschleunigung des Geräts entlang aller drei Achsen zur Zeit des Abrufs.
 
-Sensoren stimmen möglicherweise nicht genau mit einem physischen Gerätesensor überein. Zum Beispiel entspricht die [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Schnittstelle genau einer physischen Geräte-Schnittstelle. Alternativ bietet die [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor)-Schnittstelle Informationen, die algorithmisch aus zwei oder mehr Gerätesensoren aggregiert werden. Diese Sensortypen werden jeweils als _niedrigstufig_ und _höherstufig_ bezeichnet. Der letztere Sensortyp wird auch als Fusion-Sensor (alternativ virtuelle oder synthetische Sensoren) bezeichnet.
+Sensoren können mit einem physischen Gerätesensor übereinstimmen oder nicht. Beispielsweise entspricht die [`Gyroscope`](/de/docs/Web/API/Gyroscope) Schnittstelle genau einer physischen Geräteschnittstelle. Alternativ dazu stellt die [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor) Schnittstelle Informationen zur Verfügung, die algorithmisch aus zwei oder mehr Gerätesensoren zusammengefasst werden. Diese Sensortypen werden als _Low-Level_ bzw. _High-Level_ bezeichnet. Letzterer Sensortyp wird auch Fusion Sensor (alternativ virtuelle oder synthetische Sensoren) genannt.
 
-### Funktionsüberprüfung
+### Feature-Erkennung
 
-Sensor-Schnittstellen sind nur Stellvertreter für die zugrunde liegenden Gerätesensoren. Folglich ist die Funktionsüberprüfung bei Sensoren komplizierter als bei anderen APIs. Die Anwesenheit einer Sensor-API sagt nicht aus, ob diese API mit einem echten Hardwaresensor verbunden ist, ob dieser Sensor funktioniert, ob er immer noch verbunden ist oder ob der Benutzer Zugriff darauf gewährt hat. All diese Informationen konsistent verfügbar zu machen, ist kostenintensiv in Bezug auf Leistung und Batterielebensdauer.
+Sensor-Schnittstellen sind nur Stellvertreter für die zugrunde liegenden Gerätesensoren. Folglich ist die Feature-Erkennung für Sensoren komplizierter als für andere APIs. Das Vorhandensein einer Sensor-API sagt nichts darüber aus, ob diese API mit einem echten Hardware-Sensor verbunden ist, ob dieser Sensor funktioniert, ob er noch angeschlossen ist oder ob der Nutzer den Zugriff darauf gewährt hat. Alle diese Informationen durchgängig bereitzustellen, ist kostspielig für die Leistung und die Batterielebensdauer.
 
-Daher muss die Funktionsüberprüfung für Sensor-APIs sowohl die Erkennung der APIs selbst als auch [defensive Programmierstrategien (siehe unten)](#defensive_programmierung) beinhalten.
+Daher muss die Feature-Erkennung für Sensor-APIs sowohl die Erkennung der APIs selbst als auch [Strategien zur defensiven Programmierung (siehe unten)](#defensive_programmierung) beinhalten.
 
-Die folgenden Beispiele zeigen drei Methoden zur Erkennung von Sensor-APIs. Zusätzlich können Sie die Objektinstanziierung in einen {{jsxref('statements/try...catch', 'try...catch')}}-Block einfügen. Beachten Sie, dass die Erkennung über die [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle nicht zu den verfügbaren Optionen gehört.
+Die folgenden Beispiele zeigen drei Methoden zur Erkennung von Sensor-APIs. Zusätzlich können Sie das Erzeugen von Objekten innerhalb eines {{jsxref('Statements/try...catch', 'try...catch')}}-Blocks vornehmen. Beachten Sie, dass die Erkennung über die [`Navigator`](/de/docs/Web/API/Navigator) Schnittstelle keine der verfügbaren Optionen ist.
 
 ```js
 if (typeof Gyroscope === "function") {
@@ -39,15 +39,15 @@ if (window.AmbientLightSensor) {
 
 ### Defensive Programmierung
 
-Wie in der Funktionsüberprüfung beschrieben, reicht es nicht aus, nur für eine bestimmte Sensor-API zu prüfen. Das Vorhandensein eines tatsächlichen Sensors muss ebenfalls bestätigt werden. Hier wird defensive Programmierung benötigt. Defensive Programmierung erfordert drei Strategien.
+Wie im Abschnitt Feature-Erkennung angegeben, reicht das Überprüfen einer bestimmten Sensor-API nicht aus, um ein Feature zu erkennen. Das Vorhandensein eines tatsächlichen Sensors muss ebenfalls bestätigt werden. Hierbei kommt die defensive Programmierung ins Spiel. Die defensive Programmierung erfordert drei Strategien.
 
-- Überprüfen auf auftretende Fehler bei der Instanziierung eines Sensorobjekts.
-- Überwachen auf Fehler, die während der Nutzung auftreten.
-- Fehler so behandeln, dass die Benutzererfahrung verbessert und nicht verschlechtert wird.
+- Überprüfen auf ausgelöste Fehler beim Erstellen eines Sensorobjekts.
+- Überwachen auf Fehler, die während der Nutzung ausgelöst werden.
+- Fehler so abfangen, dass das Benutzererlebnis verbessert und nicht verschlechtert wird.
 
-Das folgende Codebeispiel veranschaulicht diese Prinzipien. Der {{jsxref('statements/try...catch', 'try...catch')}}-Block fängt während der Sensor-Instanzierung auftretende Fehler ab. Er lauscht auf [`error`](/de/docs/Web/API/Sensor/error_event)-Ereignisse, um Fehler bei der Nutzung abzufangen. Der Benutzer wird nur informiert, wenn [Berechtigungen](/de/docs/Web/API/Permissions_API) angefordert werden müssen und wenn der Sensortyp vom Gerät nicht unterstützt wird.
+Das folgende Codebeispiel veranschaulicht diese Prinzipien. Der {{jsxref('Statements/try...catch', 'try...catch')}}-Block fängt Fehler ab, die während der Sensor-Erstellung ausgelöst werden. Es überwacht [`error`](/de/docs/Web/API/Sensor/error_event) Ereignisse, um Fehler abzufangen, die während der Nutzung auftreten. Der Nutzer wird nur dann informiert, wenn [Berechtigungen](/de/docs/Web/API/Permissions_API) beantragt werden müssen und wenn der Sensortyp auf dem Gerät nicht unterstützt wird.
 
-Zusätzlich kann diese Funktion durch eine auf Ihrem Server festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
+Darüber hinaus kann dieses Feature durch eine auf Ihrem Server festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert sein.
 
 ```js
 let accelerometer = null;
@@ -78,9 +78,9 @@ try {
 
 ### Berechtigungen und Berechtigungsrichtlinie
 
-SensoR-abfragen dürfen erst durchgeführt werden, wenn der Benutzer einer bestimmten Art von Sensor durch die [Berechtigungs-API](/de/docs/Web/API/Permissions_API) die Genehmigung erteilt hat und/oder der Zugriff nicht durch den Server über die {{httpheader('Permissions-Policy')}}-Richtlinie blockiert wird.
+Sensorablesungen dürfen erst erfolgen, wenn der Nutzer für einen bestimmten Sensortyp die Berechtigung mithilfe der [Permissions API](/de/docs/Web/API/Permissions_API) erteilt hat und/oder wenn der Zugriff nicht durch die serverseitige {{httpheader('Permissions-Policy')}} blockiert wurde.
 
-Das folgende Beispiel zeigt, wie Benutzerberechtigungen angefordert werden, bevor versucht wird, den Sensor zu verwenden.
+Das folgende Beispiel zeigt, wie die Nutzerberechtigung angefragt wird, bevor versucht wird, den Sensor zu verwenden.
 
 ```js
 navigator.permissions.query({ name: "accelerometer" }).then((result) => {
@@ -103,24 +103,24 @@ sensor.addEventListener("error", (error) => {
 });
 ```
 
-Die folgende Tabelle beschreibt für jeden Sensortyp, den erforderlichen Namen für die Berechtigungs-API, das `allow`-Attribut des {{HTMLElement('iframe')}}-Elements und die {{httpheader('Permissions-Policy')}}-Direktive.
+Die folgende Tabelle beschreibt für jeden Sensortyp den erforderlichen Namen für die Permissions API, das `allow`-Attribut des {{HTMLElement('iframe')}}-Elements und die {{httpheader('Permissions-Policy')}} Richtlinie.
 
-| Sensor                      | Berechtigungsrichtlinien-Name                          |
+| Sensor                      | Berechtigungsrichtlinienname                           |
 | --------------------------- | ------------------------------------------------------ |
-| `AbsoluteOrientationSensor` | `'accelerometer'`, `'gyroscope'`, and `'magnetometer'` |
+| `AbsoluteOrientationSensor` | `'accelerometer'`, `'gyroscope'`, und `'magnetometer'` |
 | `Accelerometer`             | `'accelerometer'`                                      |
 | `AmbientLightSensor`        | `'ambient-light-sensor'`                               |
 | `GravitySensor`             | `'accelerometer'`                                      |
 | `Gyroscope`                 | `'gyroscope'`                                          |
 | `LinearAccelerationSensor`  | `'accelerometer'`                                      |
 | `Magnetometer`              | `'magnetometer'`                                       |
-| `RelativeOrientationSensor` | `'accelerometer'`, and `'gyroscope'`                   |
+| `RelativeOrientationSensor` | `'accelerometer'`, und `'gyroscope'`                   |
 
 ### Messwerte
 
-Sensor-Messwerte werden durch den [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback empfangen, das von allen Sensortypen geerbt wird. Die Abfragerate wird von Ihnen entschieden und mit einer Option, die dem Konstruktor eines Sensors übergeben wird, erreicht. Die Option ist eine Zahl, die die Anzahl der Abfragen pro Sekunde angibt. Eine Ganz- oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abfragerate hängt von der Gerätehardware ab und kann daher geringer ausfallen als angefordert.
+Sensormesswerte werden über den [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis-Callback empfangen, der von allen Sensortypen geerbt wird. Die Abtastrate wird von Ihnen entschieden, wofür eine Option beim Konstruktor eines Sensors übergeben wird. Die Option ist eine Zahl, die die Anzahl der Messungen pro Sekunde angibt. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letzterer für Frequenzen unter einer Sekunde. Die tatsächliche Abtastrate hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
 
-Das folgende Beispiel veranschaulicht dies anhand des [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Sensors.
+Das folgende Beispiel veranschaulicht dies mit dem [`Magnetometer`](/de/docs/Web/API/Magnetometer) Sensor.
 
 ```js
 let magSensor = new Magnetometer({ frequency: 60 });
@@ -139,27 +139,27 @@ magSensor.start();
 ## Schnittstellen
 
 - [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor)
-  - : Beschreibt die physische Ausrichtung des Geräts in Relation zum geographischen Koordinatensystem der Erde.
+  - : Beschreibt die physische Orientierung des Geräts in Bezug auf das Referenzkoordinatensystem der Erde.
 - [`Accelerometer`](/de/docs/Web/API/Accelerometer)
-  - : Stellt die auf das Gerät entlang aller drei Achsen wirkende Beschleunigung bereit.
+  - : Liefert die auf das Gerät angewandte Beschleunigung entlang aller drei Achsen.
 - [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)
-  - : Gibt das aktuelle Umgebungslichtniveau oder die Beleuchtungsstärke um das gastgebende Gerät herum zurück.
+  - : Gibt das aktuelle Lichtniveau oder die Beleuchtungsstärke des Umgebungslichts um das Host-Gerät zurück.
 - [`GravitySensor`](/de/docs/Web/API/GravitySensor)
-  - : Stellt die auf das Gerät entlang aller drei Achsen wirkende Gravitation bereit.
+  - : Liefert die auf das Gerät ausgeübte Schwerkraft entlang aller drei Achsen.
 - [`Gyroscope`](/de/docs/Web/API/Gyroscope)
   - : Liefert die Winkelgeschwindigkeit des Geräts entlang aller drei Achsen.
 - [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)
-  - : Stellt die auf das Gerät entlang aller drei Achsen wirkende Beschleunigung bereit, jedoch ohne den Einfluss der Gravitation.
+  - : Liefert die auf das Gerät angewandte Beschleunigung entlang aller drei Achsen, jedoch ohne den Beitrag der Schwerkraft.
 - [`Magnetometer`](/de/docs/Web/API/Magnetometer)
-  - : Liefert Informationen über das Magnetfeld, wie es vom primären Magnetsensor des Geräts erkannt wird.
+  - : Stellt Informationen über das Magnetfeld bereit, wie sie vom primären Magnetometersensor des Geräts erfasst werden.
 - [`OrientationSensor`](/de/docs/Web/API/OrientationSensor)
-  - : Die Basisklasse für den [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor). Diese Schnittstelle kann nicht direkt verwendet werden, sondern bietet Eigenschaften und Methoden, die von abgeleiteten Schnittstellen abgerufen werden.
+  - : Die Basisklasse für den [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor). Diese Schnittstelle kann nicht direkt verwendet werden, sondern stellt Eigenschaften und Methoden bereit, die von ihr ererbte Schnittstellen nutzen.
 - [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)
-  - : Beschreibt die physische Ausrichtung des Geräts ohne Bezug auf das geographische Koordinatensystem der Erde.
+  - : Beschreibt die physische Orientierung des Geräts ohne Bezug zum Referenzkoordinatensystem der Erde.
 - [`Sensor`](/de/docs/Web/API/Sensor)
-  - : Die Basisklasse für alle anderen Sensor-Schnittstellen. Diese Schnittstelle kann nicht direkt verwendet werden. Stattdessen bietet sie Eigenschaften, Ereignishandler und Methoden, die von abgeleiteten Schnittstellen abgerufen werden.
+  - : Die Basisklasse für alle anderen Sensor-Schnittstellen. Diese Schnittstelle kann nicht direkt verwendet werden. Stattdessen stellt sie Eigenschaften, Ereignisbehandler und Methoden bereit, die von ihr ererbte Schnittstellen nutzen.
 - [`SensorErrorEvent`](/de/docs/Web/API/SensorErrorEvent)
-  - : Liefert Informationen über Fehler, die von einer [`Sensor`](/de/docs/Web/API/Sensor) oder verwandten Schnittstelle aufgetreten sind.
+  - : Stellt Informationen über Fehler bereit, die von einem [`Sensor`](/de/docs/Web/API/Sensor) oder einer verwandten Schnittstelle ausgelöst wurden.
 
 ## Spezifikationen
 
