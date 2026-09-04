@@ -3,19 +3,19 @@ title: "Element: insertAdjacentHTML() Methode"
 short-title: insertAdjacentHTML()
 slug: Web/API/Element/insertAdjacentHTML
 l10n:
-  sourceCommit: 65cbd4ff030e6763d6868917137d728c3ec29288
+  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
 ---
 
 {{APIRef("DOM")}}
 
 > [!WARNING]
-> Diese Methode analysiert ihre Eingabe als HTML oder XML und schreibt das Ergebnis in das DOM.
-> APIs wie diese sind als [Injection-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und können potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein, wenn die Eingabe ursprünglich von einem Angreifer stammt.
+> Diese Methode parst ihre Eingabe als HTML oder XML und schreibt das Ergebnis in das DOM.
+> APIs wie diese sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe dar, wenn die Eingabe ursprünglich von einem Angreifer stammt.
 >
-> Sie können das Risiko reduzieren, indem Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Zeichenketten zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types), indem Sie die CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) verwenden.
-> Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Chance hat, die Eingabe zu [sanitieren](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup wie {{htmlelement("script")}}-Elemente und Event-Handler-Attribute zu entfernen.
+> Sie können das Risiko verringern, indem Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Strings zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+> Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Chance hat, die Eingabe zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliche Markups wie {{htmlelement("script")}} Elemente und Event-Handler-Attribute zu entfernen.
 
-Die **`insertAdjacentHTML()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle analysiert die angegebene Eingabe als HTML oder XML und fügt die resultierenden Knoten an einer bestimmten Position in den DOM-Baum ein.
+Die **`insertAdjacentHTML()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle parst die angegebene Eingabe als HTML oder XML und fügt die resultierenden Knoten an einer bestimmten Position in den DOM-Baum ein.
 
 ## Syntax
 
@@ -26,17 +26,17 @@ insertAdjacentHTML(position, input)
 ### Parameter
 
 - `position`
-  - : Ein String, der die Position relativ zu dem Element darstellt. Muss einer der folgenden Strings sein:
+  - : Ein String, der die Position relativ zum Element darstellt. Muss einer der folgenden Strings sein:
     - `"beforebegin"`
-      - : Vor dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element hat.
+      - : Vor dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element besitzt.
     - `"afterbegin"`
       - : Direkt innerhalb des Elements, vor seinem ersten Kind.
     - `"beforeend"`
       - : Direkt innerhalb des Elements, nach seinem letzten Kind.
     - `"afterend"`
-      - : Nach dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element hat.
+      - : Nach dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element besitzt.
 - `input`
-  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Instanz oder Zeichenkette, die das zu analysierende HTML oder XML definiert.
+  - : Eine [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Instanz oder ein String, der das zu parsende HTML oder XML definiert.
 
 ### Rückgabewert
 
@@ -44,22 +44,22 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `position` `"beforebegin"` oder `"afterend"` ist und das Element entweder kein übergeordnetes Element hat oder dessen übergeordnetes Element das `Document`-Objekt ist.
+  - : Wird ausgelöst, wenn `position` `"beforebegin"` oder `"afterend"` ist und das Element entweder kein übergeordnetes Element hat oder dessen übergeordnetes Element das `Document` Objekt ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - `position` nicht einer der vier aufgelisteten Werte ist.
     - Die Eingabe XML ist, das nicht wohlgeformt ist.
 - `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenkette gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+  - : Wird ausgelöst, wenn die Eigenschaft auf einen String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Die Methode `insertAdjacentHTML()` analysiert nicht erneut das Element, auf dem sie verwendet wird, und beschädigt daher nicht die bereits vorhandenen Elemente innerhalb dieses Elements. Dies vermeidet den zusätzlichen Schritt der Serialisierung und macht sie viel schneller als die direkte Manipulation von [`innerHTML`](/de/docs/Web/API/Element/innerHTML).
+Die Methode `insertAdjacentHTML()` parst das Element, auf dem sie verwendet wird, nicht erneut, und beeinflusst somit nicht die bestehenden Elemente innerhalb dieses Elements. Dies vermeidet den zusätzlichen Schritt der Serialisierung und macht es wesentlich schneller als die direkte Manipulation von [`innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
-Wenn `<p>` das Element ist, können wir die möglichen Positionen für den eingefügten Inhalt "foo" wie folgt visualisieren:
+Wo `<p>` das Element ist, können wir die möglichen Positionen für den eingefügten Inhalt "foo" wie folgt visualisieren:
 
 ```html
 <!-- beforebegin -->
@@ -71,25 +71,25 @@ Wenn `<p>` das Element ist, können wir die möglichen Positionen für den einge
 <!-- afterend -->
 ```
 
-Die Methode enthält keine spezielle Behandlung für {{htmlelement("template")}}-Elemente.
-In den meisten Fällen sollten Entwickler `insertAdjacentHTML()` auf der [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft der Vorlage verwenden, anstatt die Kindknoten eines Vorlagenelements direkt zu manipulieren.
+Die Methode enthält keine spezielle Behandlung für {{htmlelement("template")}} Elemente.
+Entwickler sollten in den meisten Fällen `insertAdjacentHTML()` auf der [`content`](/de/docs/Web/API/HTMLTemplateElement/content) Eigenschaft des Templates verwenden, anstatt die Kindknoten eines Template-Elements direkt zu manipulieren.
 
-### Sicherheitserwägungen
+### Sicherheitsüberlegungen
 
-Die Methode führt keine Sanitierung durch, um XSS-unsichere Elemente wie {{htmlelement("script")}} oder Event-Handler-Attributinhalte zu entfernen.
+Die Methode führt keine Sanitierung durch, um XSS-unsichere Elemente wie {{htmlelement("script")}} oder Inhalte von Event-Handlern zu entfernen.
 
-Wenn Sie HTML auf eine Seite einfügen, sollten Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte anstelle von Zeichenketten verwenden und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mit der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Chance hat, die Eingabe zu [sanitieren](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliches Markup zu entfernen, bevor es eingefügt wird.
+Beim Einfügen von HTML in eine Seite mit `insertAdjacentHTML()` sollten Sie [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte anstelle von Strings verwenden und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) mithilfe der CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for).
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Möglichkeit hat, die Eingabe zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization), um potenziell gefährliche Markups zu entfernen, bevor sie eingefügt wird.
 
 Die Methode [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText) oder [`Node.textContent`](/de/docs/Web/API/Node/textContent) sollte verwendet werden, wenn Sie wissen, dass der vom Benutzer bereitgestellte Inhalt reiner Text sein sollte.
-Dies fügt die Eingabe als Rohtext ein, anstatt sie als HTML zu analysieren.
+Dies fügt die Eingabe als Rohtext ein, anstatt sie als HTML zu parsen.
 
 ## Beispiele
 
-### HTML einfügen
+### Einfügen von HTML
 
 Dieses Beispiel demonstriert die vier Einfügepositionen.
-Alle eingefügten Texte sind fett, während Texte, die innerhalb des Elements eingefügt werden, zusätzlich als roter Monotyp (Code) formatiert sind.
+Alle eingefügten Texte sind fett, während Texte, die innerhalb des Elements eingefügt werden, zusätzlich als roter Monotyp (Code) gestylt sind.
 
 #### HTML
 
@@ -119,7 +119,7 @@ code {
 
 #### JavaScript
 
-Vertrauenswürdige Typen werden nicht auf allen Browsern unterstützt, daher definieren wir zuerst den [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst das [Trusted Types Tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
 Dies fungiert als transparenter Ersatz für die Trusted Types JavaScript API:
 
 ```js
@@ -127,9 +127,9 @@ if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als nächstes definieren wir eine Richtlinie namens `some-content-policy`, um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte aus der Eingabe zu erstellen (wir sollten die `some-content-policy` auch mit CSP erzwingen).
-Der Code implementiert eine No-Op-Richtlinie, um es diesem Beispiel zu ermöglichen, ohne eine Drittanbieter-Abhängigkeit zu funktionieren.
-Ihr eigener Anwendungscode sollte eine Drittanbieter-Bibliothek wie die "DOMPurify"-Bibliothek verwenden, um bereinigte Inhalte aus der nicht vertrauenswürdigen Eingabe zurückzugeben.
+Als Nächstes definieren wir eine Richtlinie namens `some-content-policy`, um [`TrustedHTML`](/de/docs/Web/API/TrustedHTML) Objekte aus der Eingabe zu erstellen (wir sollten auch die `some-content-policy` mithilfe von CSP erzwingen).
+Der Code implementiert eine No-Op-Richtlinie, um zu ermöglichen, dass dieses Beispiel ohne eine Drittanbieter-Abhängigkeit funktioniert.
+Ihr eigener Anwendungscode sollte eine Drittanbieter-Bibliothek wie die "DOMPurify" Bibliothek verwenden, um bereinigte Inhalte aus unzuverlässiger Eingabe zurückzugeben.
 
 ```js
 const policy = trustedTypes.createPolicy("some-content-policy", {
@@ -176,5 +176,5 @@ reset.addEventListener("click", () => {
 
 - [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
 - [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
-- [`XMLSerializer`](/de/docs/Web/API/XMLSerializer): Serialisieren eines DOM-Baums in einen XML-String
+- [`XMLSerializer`](/de/docs/Web/API/XMLSerializer): Ein DOM-Baum in eine XML-Zeichenfolge serialisieren
 - [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)

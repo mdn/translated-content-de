@@ -3,28 +3,28 @@ title: "ReadableByteStreamController: desiredSize-Eigenschaft"
 short-title: desiredSize
 slug: Web/API/ReadableByteStreamController/desiredSize
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: c16a9b4df8d0fed2512cdee329afdff73d0ff891
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`desiredSize`** der Schnittstelle [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) gibt die Anzahl der Bytes zurück, die erforderlich sind, um die interne Warteschlange des Streams auf ihre "gewünschte Größe" zu füllen.
+Die schreibgeschützte **`desiredSize`**-Eigenschaft der [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)-Schnittstelle gibt die Anzahl von Bytes zurück, die erforderlich sind, um die interne Warteschlange des Streams auf ihre "gewünschte Größe" zu füllen.
 
-Der Wert wird vom Stream verwendet, um eine bevorzugte Flussrate an die zugrunde liegende Quelle anzuzeigen. Quellen, die das Drosseln oder Pausieren ihres Datenzuflusses unterstützen (das tun nicht alle!), sollten den Zufluss so steuern, dass die `desiredSize` des Stream-Puffers positiv und so nahe wie möglich an null gehalten wird.
+Der Wert wird vom Stream verwendet, um eine bevorzugte Flussrate für die zugrunde liegende Quelle anzugeben. Quellen, die eine Drosselung oder ein Pausieren ihres Datenzuflusses unterstützen (das tun nicht alle!), sollten den Zufluss so steuern, dass `desiredSize` des Stream-Puffers positiv und so nahe wie möglich bei null gehalten wird.
 
-Die `desiredSize` wird verwendet, um [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) von nachgelagerten Verbrauchern anzuwenden.
+Das `desiredSize` wird verwendet, um [Gegendruck (backpressure)](/de/docs/Web/API/Streams_API/Concepts#backpressure) von nachgelagerten Verbrauchern anzuwenden.
 
 ## Wert
 
-Ein ganzzahliger Wert. Es ist zu beachten, dass dieser negativ sein kann, wenn die Warteschlange überfüllt ist.
+Eine Zahl oder `null`.
 
-Der Wert wird `null` sein, wenn der Stream fehlerhaft ist, und `0`, wenn er geschlossen ist.
+Die Zahl kann negativ sein, wenn die Warteschlange überfüllt ist. Obwohl die Warteschlangengröße in Bytes gemessen wird, kann eine gebrochene [Hohe Wasserstandsmarke (high water mark)](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) dazu führen, dass die Zahl eine gebrochene Komponente hat. Der Wert ist `null`, wenn der Stream einen Fehler hat und `0`, wenn er geschlossen ist.
 
 ## Beispiele
 
-Das Beispiel [Ein lesbarer Stream mit einer zugrunde liegenden Push-Quelle und Backpressure-Unterstützung](https://streams.spec.whatwg.org/#example-rs-push-backpressure) in der Spezifikation bietet ein gutes Beispiel für die Verwendung von `desiredSize`, um manuell zu erkennen, wann der Stream voll ist und Backpressure anzuwenden.
+Das [Ein leserlicher Stream mit einer zugrunde liegenden Push-Quelle und Unterstützung für Gegendruck](https://streams.spec.whatwg.org/#example-rs-push-backpressure)-Beispiel in der Spezifikation bietet ein gutes Beispiel dafür, wie `desiredSize` verwendet wird, um manuell festzustellen, wann der Stream voll ist und Gegendruck anzuwenden.
 
-Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau die gleichen wie für lesbare Bytequellen.
+Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau die gleichen wie bei lesbaren Bytequellen.
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau die
 
 ## Siehe auch
 
-- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
 - [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)

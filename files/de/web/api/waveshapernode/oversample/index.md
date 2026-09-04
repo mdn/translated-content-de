@@ -3,22 +3,22 @@ title: "WaveShaperNode: oversample-Eigenschaft"
 short-title: oversample
 slug: Web/API/WaveShaperNode/oversample
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `oversample`-Eigenschaft der [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode)-Schnittstelle ist ein enumerierter Wert, der angibt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik, bei der vor der Anwendung eines Verzerrungseffekts auf das Audiosignal mehr Samples (Hochabtastung) erstellt werden.
+Die `oversample`-Eigenschaft der [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode)-Schnittstelle ist ein enumerierter Wert, der angibt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik zur Erstellung zusätzlicher Samples (Hochabtastung), bevor ein Verzerrungseffekt auf das Audiosignal angewendet wird.
 
-Nach der Anwendung wird die Anzahl der Samples auf die ursprüngliche Anzahl reduziert. Dies führt zu besseren Ergebnissen, indem einige Aliasing-Effekte vermieden werden, geht jedoch auf Kosten einer geringeren Präzision der Formungskurve.
+Nach der Anwendung wird die Anzahl der Samples auf ihre ursprüngliche Anzahl reduziert. Dies führt zu besseren Ergebnissen, da einige Aliasing-Effekte vermieden werden, geht jedoch auf Kosten einer geringeren Präzision der Formungskurve.
 
 Die möglichen Werte für `oversample` sind:
 
 | Wert     | Effekt                                                                        |
 | -------- | ----------------------------------------------------------------------------- |
-| `'none'` | Es wird kein Oversampling durchgeführt.                                       |
-| `'2x'`   | Die Anzahl der Samples wird vor der Anwendung der Formungskurve verdoppelt.   |
-| `'4x'`   | Die Anzahl der Samples wird vor der Anwendung der Formungskurve vervierfacht. |
+| `'none'` | Kein Oversampling durchführen.                                                |
+| `'2x'`   | Verdoppele die Anzahl der Samples, bevor die Formungskurve angewendet wird.   |
+| `'4x'`   | Vervierfache die Anzahl der Samples, bevor die Formungskurve angewendet wird. |
 
 ## Wert
 

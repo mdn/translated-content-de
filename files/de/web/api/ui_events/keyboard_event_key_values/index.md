@@ -1,17 +1,17 @@
 ---
-title: Schlüsselwerte für Tastaturereignisse
+title: Tastenwerte für Tastaturereignisse
 slug: Web/API/UI_Events/Keyboard_event_key_values
 l10n:
-  sourceCommit: 28f5f3b9b463fa842fa686ccc73c9e1d9b06282b
+  sourceCommit: c26d4cc8e9b10c504587531c49fa82b7b646be18
 ---
 
 {{DefaultAPISidebar("UI Events")}}
 
-Die folgenden Tabellen listen die Standardwerte für die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft auf und erläutern die typische Verwendung der Taste. Entsprechende virtuelle Tastencodes für gängige Plattformen werden, sofern verfügbar, mit aufgeführt.
+Die folgenden Tabellen listen die Standardwerte für die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft auf und erklären, wofür die Taste typischerweise verwendet wird. Entsprechende virtuelle Tastencodes für gängige Plattformen sind, sofern verfügbar, enthalten.
 
 ## Besondere Werte
 
-Werte von `key`, die andere Bedeutungen haben, als eine spezifische Taste oder ein Zeichen zu identifizieren.
+Werte von `key`, die eine spezielle Bedeutung haben, außer der Identifizierung einer bestimmten Taste oder eines Zeichens.
 
 <table class="no-markdown">
   <thead>
@@ -32,24 +32,26 @@ Werte von `key`, die andere Bedeutungen haben, als eine spezifische Taste oder e
       <td><code>"Unidentified"</code></td>
       <td>
         <p>
-          Der Benutzeragent war nicht in der Lage, den virtuellen Tastencode des Ereignisses
-          einem bestimmten Tastwert zuzuordnen.
+          Der User-Agent konnte den virtuellen Tastencode des Ereignisses nicht
+          einer spezifischen Tastenwert zuordnen.
         </p>
         <p>
-          Dies kann aufgrund von Hardware- oder Softwarebeschränkungen geschehen oder weil der Plattform, auf der der Benutzeragent läuft, Einschränkungen unterliegt.
+          Dies kann aufgrund von Hardware- oder Softwarebeschränkungen oder
+          Beschränkungen der Plattform, auf der der User-Agent ausgeführt wird,
+          passieren.
         </p>
       </td>
-      <td><em>variabel</em></td>
-      <td><em>variabel</em></td>
-      <td><em>variabel</em></td>
-      <td><em>variabel</em></td>
+      <td><em>variiert</em></td>
+      <td><em>variiert</em></td>
+      <td><em>variiert</em></td>
+      <td><em>variiert</em></td>
     </tr>
   </tbody>
 </table>
 
-## Modifikatortasten
+## Modifizierende Tasten
 
-_Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder zur Auslösung spezieller Aktionen verwendet werden, wenn sie in Kombination mit anderen Tasten genutzt werden. Beispiele sind die Tasten <kbd>Shift</kbd> und <kbd>Control</kbd> sowie Verriegelungstasten wie <kbd>Caps Lock</kbd> und <kbd>NumLock</kbd>.
+_Modifizierer_ sind spezielle Tasten, die verwendet werden, um spezielle Zeichen zu erzeugen oder spezielle Aktionen in Kombination mit anderen Tasten auszulösen. Beispiele dafür sind die <kbd>Shift</kbd>- und <kbd>Control</kbd>-Tasten sowie Verriegelungstasten wie <kbd>Caps Lock</kbd> und <kbd>NumLock</kbd>.
 
 <table class="no-markdown">
   <thead>
@@ -90,9 +92,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"AltGraph"</code> [4]</td>
       <td>
-        Die <kbd>AltGr</kbd> oder <kbd>AltGraph</kbd> (Alternate Graphics) Taste.
-        Aktiviert den ISO Level 3 Shift Modifikator (wobei <kbd>Shift</kbd> der
-        Level 2 Modifikator ist).
+        Die <kbd>AltGr</kbd> oder <kbd>AltGraph</kbd> (Alternate Graphics)
+        Taste. Ermöglicht den ISO Level 3 Shift-Modifikator (wobei
+        <kbd>Shift</kbd> der Level 2-Modifikator ist).
       </td>
       <td></td>
       <td></td>
@@ -116,8 +118,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"CapsLock"</code></td>
       <td>
-        Die <kbd>Caps Lock</kbd> Taste. Schaltet die Großbuchstaben-Sperre für
-        die nachfolgende Eingabe ein und aus.
+        Die <kbd>Caps Lock</kbd> Taste. Schaltet die Großbuchstabensperre für
+        nachfolgende Eingaben ein oder aus.
       </td>
       <td><code>VK_CAPITAL</code> (0x14)</td>
       <td><code>kVK_CapsLock</code> (0x39)</td>
@@ -132,8 +134,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Control"</code></td>
       <td>
-        Die <kbd>Control</kbd>, <kbd>Ctrl</kbd> oder <kbd>Ctl</kbd> Taste. Ermöglicht
-        das Tippen von Steuerzeichen.
+        Die <kbd>Control</kbd>, <kbd>Ctrl</kbd> oder <kbd>Ctl</kbd> Taste.
+        Ermöglicht das Tippen von Steuerzeichen.
       </td>
       <td>
         <code>VK_CONTROL</code> (0x11)<br /><code>VK_LCONTROL</code>
@@ -159,8 +161,11 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Fn"</code></td>
       <td>
-        Die <kbd>Fn</kbd> (Funktionstaste) Taste. Wird verwendet, um Funktionszeichencodes (<kbd>F1</kbd>–<kbd>F15</kbd>, zum Beispiel) auf Tastaturen ohne
-        dedizierten Funktionsbereich zu erzeugen. Wird oft hardwareseitig gehandhabt, sodass für diese Taste keine Ereignisse generiert werden.
+        Die <kbd>Fn</kbd> (Funktionsmodifikator) Taste. Wird verwendet, um
+        Funktionstasten (<kbd>F1</kbd>–<kbd>F15</kbd> zum Beispiel) auf
+        Tastaturen ohne speziellen Funktionsbereich zu erzeugen. Häufig
+        hardwareseitig gehandhabt, sodass für diese Taste keine Ereignisse
+        erzeugt werden.
       </td>
       <td></td>
       <td><code>kVK_Function</code> (0x3F)</td>
@@ -170,8 +175,10 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"FnLock"</code></td>
       <td>
-        Die <kbd>FnLock</kbd> oder <kbd>F-Lock</kbd> (Funktion Lock) Taste.
-        Schaltet den durch <code>"Fn"</code> beschriebenen Funktionsmodus ein und aus. Wird oft hardwareseitig gehandhabt, sodass für diese Taste keine Ereignisse generiert werden.
+        Die <kbd>FnLock</kbd> oder <kbd>F-Lock</kbd> (Funktionssperre) Taste.
+        Schaltet den durch <code>"Fn"</code> beschriebenen Funktionsmodus ein
+        und aus. Häufig hardwareseitig gehandhabt, sodass für diese Taste keine
+        Ereignisse erzeugt werden.
       </td>
       <td></td>
       <td></td>
@@ -195,15 +202,18 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Meta"</code> [1]</td>
       <td>
-        Die <kbd>Meta</kbd> Taste. Ermöglicht die Eingabe spezieller Befehle.
-        Dies ist die <kbd>Windows</kbd>-Logo-Taste oder die <kbd>Command</kbd> oder <kbd>⌘</kbd> Taste auf Mac-Tastaturen.
+        Die <kbd>Meta</kbd> Taste. Erlaubt das Ausführen spezieller
+        Kommandoeingaben. Dies ist die <kbd>Windows</kbd>-Taste oder die
+        <kbd>Command</kbd> oder <kbd>⌘</kbd> Taste auf Mac-Tastaturen.
       </td>
       <td><code>VK_LWIN</code> (0x5B)<br /><code>VK_RWIN</code> (0x5C)</td>
       <td>
-        <code>kVK_Command</code> (0x37)<br /><code>kVK_RightCommand</code> (0x36)
+        <code>kVK_Command</code> (0x37)<br /><code>kVK_RightCommand</code>
+        (0x36)
       </td>
       <td>
-        <code>GDK_KEY_Meta_L</code> (0xFFE7)<br /><code>GDK_KEY_Meta_R</code> (0xFFE8)<br /><code>Qt::Key_Meta</code> (0x01000022)
+        <code>GDK_KEY_Meta_L</code> (0xFFE7)<br /><code>GDK_KEY_Meta_R</code>
+        (0xFFE8)<br /><code>Qt::Key_Meta</code> (0x01000022)
       </td>
       <td>
         <code>KEYCODE_META_LEFT</code> (117)<br /><code>KEYCODE_META_RIGHT</code> (118)
@@ -212,8 +222,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"NumLock"</code></td>
       <td>
-        Die <kbd>NumLock</kbd> (Nummern Sperre) Taste. Schaltet den Ziffernblock
-        zwischen Nummerneingabe und einem anderen Modus (oft Richtungspfeile) um.
+        Die <kbd>NumLock</kbd> (Nummernsperre) Taste. Schaltet das numerische
+        Tastenfeld zwischen Zahleneingabe und einem anderen Modus (oft
+        Richtungspfeile) um.
       </td>
       <td><code>VK_NUMLOCK</code> (0x90)</td>
       <td></td>
@@ -227,7 +238,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
       <td><code>"ScrollLock"</code> [2]</td>
       <td>
         Die <kbd>Scroll Lock</kbd> Taste. Schaltet zwischen Scroll- und
-        Cursorbewegungsmodi um.
+        Cursormodus um.
       </td>
       <td><code>VK_SCROLL</code> (0x91)</td>
       <td></td>
@@ -242,7 +253,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Shift"</code></td>
       <td>
-        Die <kbd>Shift</kbd> Taste. Modifiziert Tastatureingaben, um das Tippen von Großbuchstaben (oder anderen) zu ermöglichen, und um das Tippen von Interpunktionszeichen und anderen Sonderzeichen zu unterstützen.
+        Die <kbd>Shift</kbd> Taste. Ändert Tastenanschläge, um Großbuchstaben
+        oder andere Zeichen einzugeben, und unterstützt das Tippen von
+        Satzzeichen und anderen Sonderzeichen.
       </td>
       <td>
         <code>VK_SHIFT</code> (0x10)<br /><code>VK_LSHIFT</code>
@@ -279,7 +292,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Symbol"</code></td>
       <td>
-        Die <kbd>Symbol</kbd> Modifikatortaste (auf bestimmten virtuellen Tastaturen vorhanden).
+        Die <kbd>Symbol</kbd>-Modifikatortaste (bei bestimmten virtuellen
+        Tastaturen zu finden).
       </td>
       <td></td>
       <td></td>
@@ -297,13 +311,13 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
   </tbody>
 </table>
 
-\[1] Firefox 118 und später berichten korrekt die <kbd>Windows</kbd>-Taste als `"Meta"` (frühere Versionen berichteten die Taste als `"OS"`).
+\[1] Firefox 118 und höher berichten die <kbd>Windows</kbd>-Taste korrekt als `"Meta"` (frühere Versionen berichteten die Taste als `"OS"`).
 
-\[2] Firefox fügte die Unterstützung für die <kbd>Symbol</kbd>-Taste erst in Firefox 37 hinzu.
+\[2] Firefox hat die Unterstützung der <kbd>Symbol</kbd>-Taste erst ab Firefox 37 hinzugefügt.
 
-\[3] Firefox generiert den Tastenwert `"OS"` für die <kbd>Super</kbd>- und <kbd>Hyper</kbd>-Tasten, anstatt `"Super"` und `"Hyper"`.
+\[3] Firefox generiert den Tastenwert `"OS"` für die <kbd>Super</kbd>- und <kbd>Hyper</kbd>-Tasten, anstelle von `"Super"` und `"Hyper"`.
 
-\[4] Chrome 67 und Firefox 63 interpretieren nun korrekt die rechte <kbd>Alt</kbd>-Taste für Tastaturlayouts, die diese Taste auf <kbd>AltGr</kbd> abbilden. Siehe Firefox-Bug [Firefox bug 900750](https://bugzil.la/900750) und [Chrome bug 25503](https://crbug.com/25503) für weitere Details.
+\[4] Chrome 67 und Firefox 63 interpretieren jetzt die rechte <kbd>Alt</kbd>-Taste für Tastaturlayouts, die diese Taste auf <kbd>AltGr</kbd> abbilden, korrekt. Siehe Firefox bug [Firefox bug 900750](https://bugzil.la/900750) und [Chrome bug 25503](https://crbug.com/25503) für weitere Details.
 
 ## Leerzeichentasten
 
@@ -325,8 +339,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Enter"</code></td>
       <td>
-        Die <kbd>Enter</kbd> oder <kbd>↵</kbd> Taste (manchmal beschriftet als
-        <kbd>Return</kbd>).
+        Die <kbd>Enter</kbd> oder <kbd>↵</kbd> Taste (manchmal als
+        <kbd>Return</kbd> beschriftet).
       </td>
       <td><code>VK_RETURN</code> (0x0D)</td>
       <td>
@@ -350,7 +364,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Tab"</code></td>
-      <td>Die Horizontal-Tabulator Taste, <kbd>Tab</kbd>.</td>
+      <td>Die Horizontale Tabulatortaste, <kbd>Tab</kbd>.</td>
       <td><code>VK_TAB</code> (0x09)</td>
       <td><code>kVK_Tab</code> (0x30)</td>
       <td>
@@ -378,7 +392,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
   </tbody>
 </table>
 
-\[1] Ältere Browser können `"Spacebar"` anstelle von `" "` für die <kbd>Space Bar</kbd>-Taste zurückgeben. Firefox tat dies bis Version 37.
+\[1] Ältere Browser können `"Spacebar"` anstelle von `" "` für die <kbd>Space Bar</kbd> Taste zurückgeben. Firefox tat dies bis Version 37.
 
 ## Navigationstasten
 
@@ -443,7 +457,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"End"</code></td>
-      <td>Die <kbd>End</kbd>-Taste. Bewegt sich ans Ende des Inhalts.</td>
+      <td>Die <kbd>End</kbd> Taste. Bewegt sich ans Ende des Inhalts.</td>
       <td><code>VK_END</code> (0x23)</td>
       <td><code>kVK_End</code> (0x77)</td>
       <td>
@@ -454,7 +468,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Home"</code></td>
-      <td>Die <kbd>Home</kbd>-Taste. Bewegt sich zum Anfang des Inhalts.</td>
+      <td>Die <kbd>Home</kbd> Taste. Bewegt sich an den Anfang des Inhalts.</td>
       <td><code>VK_HOME</code> (0x24)</td>
       <td><code>kVK_Home</code> (0x73)</td>
       <td>
@@ -466,7 +480,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"PageDown"</code></td>
       <td>
-        Die <kbd>Page Down</kbd> (oder <kbd>PgDn</kbd>) Taste. Scrollt nach unten oder zeigt die nächste Seite des Inhalts an.
+        Die <kbd>Page Down</kbd> (oder <kbd>PgDn</kbd>) Taste. Scrollt nach
+        unten oder zeigt die nächste Seite des Inhalts.
       </td>
       <td><code>VK_NEXT</code> (0x22)</td>
       <td><code>kVK_PageDown</code> (0x79)</td>
@@ -481,7 +496,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"PageUp"</code></td>
       <td>
-        Die <kbd>Page Up</kbd> (oder <kbd>PgUp</kbd>) Taste. Scrollt nach oben oder zeigt die vorherige Seite des Inhalts an.
+        Die <kbd>Page Up</kbd> (oder <kbd>PgUp</kbd>) Taste. Scrollt nach oben
+        oder zeigt die vorherige Seite des Inhalts.
       </td>
       <td><code>VK_PRIOR</code> (0x21)</td>
       <td><code>kVK_PageUp</code> (0x74)</td>
@@ -496,7 +512,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
   </tbody>
 </table>
 
-\[1] Edge (16 und früher) und Firefox (36 und früher) verwenden `"Left"`, `"Right"`, `"Up"` und `"Down"` anstelle von `"ArrowLeft"`, `"ArrowRight"`, `"ArrowUp"` und `"ArrowDown"`.
+\[1] Edge (16 und früher) und Firefox (36 und früher) verwenden `"Left"`, `"Right"`, `"Up"`, und `"Down"` anstelle von `"ArrowLeft"`, `"ArrowRight"`, `"ArrowUp"`, und `"ArrowDown"`.
 
 ## Bearbeitungstasten
 
@@ -518,7 +534,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Backspace"</code></td>
       <td>
-        Die <kbd>Backspace</kbd> Taste. Diese Taste ist auf Mac-Tastaturen als <kbd>Delete</kbd> beschriftet.
+        Die <kbd>Backspace</kbd> Taste. Auf Mac-Tastaturen mit <kbd>Delete</kbd>
+        beschriftet.
       </td>
       <td><code>VK_BACK</code> (0x08)</td>
       <td><code>kVK_Delete</code> (0x33)</td>
@@ -532,7 +549,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Clear"</code></td>
-      <td>Die <kbd>Clear</kbd> Taste. Entfernt die aktuell ausgewählte Eingabe.</td>
+      <td>
+        Die <kbd>Clear</kbd> Taste. Entfernt die aktuell ausgewählte Eingabe.
+      </td>
       <td>
         <code>VK_CLEAR</code> (0x0C)<br /><code>VK_OEM_CLEAR</code> (0xFE)
       </td>
@@ -545,7 +564,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Copy"</code></td>
-      <td>Die <kbd>Copy</kbd> Taste (auf bestimmten erweiterten Tastaturen).</td>
+      <td>Die <kbd>Copy</kbd> Taste (auf einigen erweiterten Tastaturen).</td>
       <td><code>APPCOMMAND_COPY</code></td>
       <td></td>
       <td>
@@ -556,7 +575,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"CrSel"</code> [3]</td>
-      <td>Die Cursor-Auswahltaste, <kbd>CrSel</kbd>.</td>
+      <td>Die Cursor Select-Taste, <kbd>CrSel</kbd>.</td>
       <td><code>VK_CRSEL</code> (0xF7)</td>
       <td></td>
       <td><code>GDK_KEY_3270_CursorSelect</code> (0xFD1C)</td>
@@ -564,7 +583,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Cut"</code></td>
-      <td>Die <kbd>Cut</kbd> Taste (auf bestimmten erweiterten Tastaturen).</td>
+      <td>Die <kbd>Cut</kbd> Taste (auf einigen erweiterten Tastaturen).</td>
       <td><code>APPCOMMAND_CUT</code></td>
       <td></td>
       <td>
@@ -575,7 +594,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Delete"</code> [2]</td>
-      <td>Die Löschen-Taste, <kbd>Del</kbd>.</td>
+      <td>Die Delete-Taste, <kbd>Del</kbd>.</td>
       <td><code>VK_DELETE</code> (0x2E)</td>
       <td><code>kVK_ForwardDelete</code> (0x75) [1]</td>
       <td>
@@ -587,7 +606,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"EraseEof"</code></td>
       <td>
-        Löschen bis zum Ende des Feldes. Löscht alle Zeichen von der aktuellen Cursorposition bis zum Ende des aktuellen Feldes.
+        Löschen bis zum Ende des Feldes. Löscht alle Zeichen vom aktuellen
+        Cursorposition bis zum Ende des aktuellen Feldes.
       </td>
       <td><code>VK_EREOF</code> (0xF9)</td>
       <td></td>
@@ -596,7 +616,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"ExSel"</code> [4]</td>
-      <td>Die <kbd>ExSel</kbd> (Erweitere Auswahl) Taste.</td>
+      <td>Die <kbd>ExSel</kbd> (Erweiterte Auswahl) Taste.</td>
       <td><code>VK_EXSEL</code> (0xF8)</td>
       <td></td>
       <td><code>GDK_KEY_3270_ExSelect</code> (0xFD1B)</td>
@@ -605,7 +625,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Insert"</code></td>
       <td>
-        Die Einfügen-Taste, <kbd>Ins</kbd>. Umschaltet zwischen Einfügen und Überschreiben von Text.
+        Die Einfügetaste, <kbd>Ins</kbd>. Schaltet zwischen Einfügen und
+        Überschreiben von Text um.
       </td>
       <td><code>VK_INSERT</code> (0x2D)</td>
       <td></td>
@@ -645,7 +666,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
   </tbody>
 </table>
 
-\[1] Auf Tastaturen ohne dedizierte <kbd>Del</kbd>-Taste generiert Mac den Wert `"Delete"`, wenn <kbd>Fn</kbd> zusammen mit <kbd>Delete</kbd> (was auf anderen Plattformen <kbd>Backspace</kbd> ist) gedrückt wird.
+\[1] Auf Tastaturen ohne spezielle <kbd>Del</kbd>-Taste erzeugt der Mac den Wert `"Delete"`, wenn <kbd>Fn</kbd> in Kombination mit <kbd>Delete</kbd> (das entspricht <kbd>Backspace</kbd> auf anderen Plattformen) gedrückt wird.
 
 \[2] Firefox 36 und früher verwendete `"Del"` anstelle von `"Delete"` für die <kbd>Del</kbd>-Taste.
 
@@ -673,8 +694,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Accept"</code></td>
       <td>
-        Die <kbd>Accept</kbd>, <kbd>Commit</kbd> oder <kbd>OK</kbd>-Taste.
-        Akzeptiert die aktuell ausgewählte Option oder den Eingabemethoden-Sequenzkonvertierung.
+        Die <kbd>Accept</kbd>, <kbd>Commit</kbd> oder <kbd>OK</kbd> Taste oder
+        der Button. Akzeptiert die derzeit ausgewählte Option oder die
+        Sequenzumwandlung der Eingabemethode.
       </td>
       <td><code>VK_ACCEPT</code> (0x1E)</td>
       <td></td>
@@ -683,7 +705,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Again"</code></td>
-      <td>Die <kbd>Again</kbd>-Taste. Führt eine vorherige Aktion erneut aus oder wiederholt sie.</td>
+      <td>Die <kbd>Again</kbd> Taste. Wiederholt oder wiederholt eine vorherige Aktion.</td>
       <td></td>
       <td></td>
       <td><code>GDK_KEY_Redo</code> (0xFF66)</td>
@@ -699,7 +721,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Cancel"</code> [1]</td>
-      <td>Die <kbd>Cancel</kbd>-Taste.</td>
+      <td>Die <kbd>Cancel</kbd> Taste.</td>
       <td></td>
       <td></td>
       <td><code>GDK_KEY_Cancel</code> (0xFF69)</td>
@@ -709,7 +731,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
       <td><code>"ContextMenu"</code> [3]</td>
       <td>
         Zeigt das Kontextmenü an. Typischerweise zwischen der
-        <kbd>Windows</kbd> (oder <kbd>OS</kbd>)-Taste und der <kbd>Control</kbd>-Taste
+        <kbd>Windows</kbd> (oder <kbd>OS</kbd>) Taste und der <kbd>Control</kbd>-Taste
         auf der rechten Seite der Tastatur zu finden.
       </td>
       <td><code>VK_APPS</code> (0x5D)</td>
@@ -723,8 +745,10 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Escape"</code> [2]</td>
       <td>
-        Die <kbd>Esc</kbd> (Escape) Taste. Wird typischerweise als Beenden, Abbrechen oder
-        "diese Operation abbrechen"-Button verwendet. Historisch wurde das Escape-Zeichen zum Signalisieren des Beginns einer speziellen Steuersequenz von Zeichen, genannt "Escape-Sequenz", verwendet.
+        Die <kbd>Esc</kbd> (Escape) Taste. Wird typischerweise als Austritts-, Abbruch- oder
+        "Verlasse diesen Vorgang"-Taste verwendet. Historisch wurde das Escape-Zeichen
+        verwendet, um den Beginn einer speziellen Steuersequenz von Zeichen
+        namens "Escape-Sequenz" zu signalisieren.
       </td>
       <td><code>VK_ESCAPE</code> (0x1B)</td>
       <td><code>kVK_Escape</code> (0x35)</td>
@@ -736,7 +760,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Execute"</code></td>
-      <td>Die <kbd>Execute</kbd>-Taste.</td>
+      <td>Die <kbd>Execute</kbd> Taste.</td>
       <td><code>VK_EXECUTE</code> (0x2B)</td>
       <td></td>
       <td><code>Qt::Key_Execute</code> (0x01020003)</td>
@@ -745,8 +769,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Find"</code></td>
       <td>
-        Die <kbd>Find</kbd>-Taste. Öffnet eine Oberfläche (typischerweise ein Dialogfeld) für
-        die Durchführung einer Find-/Suchoperation.
+        Die <kbd>Find</kbd> Taste. Öffnet eine Schnittstelle (typischerweise ein Dialogfeld)
+        zum Durchführen einer Find-/Suchoperation.
       </td>
       <td><code>APPCOMMAND_FIND</code></td>
       <td></td>
@@ -755,7 +779,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Finish"</code> [5]</td>
-      <td>Die <kbd>Finish</kbd>-Taste.</td>
+      <td>Die <kbd>Finish</kbd> Taste.</td>
       <td><code>VK_OEM_FINISH</code> (0xF1)</td>
       <td></td>
       <td></td>
@@ -764,7 +788,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Help"</code></td>
       <td>
-        Die <kbd>Help</kbd>-Taste. Öffnet oder schaltet die Anzeige von Hilfeinformationen um.
+        Die <kbd>Help</kbd> Taste. Öffnet oder schaltet die Anzeige von
+        Hilfeinformationen um.
       </td>
       <td><code>VK_HELP</code> (0x2F)<br /><code>APPCOMMAND_HELP</code></td>
       <td><code>kVK_Help</code> (0x72)</td>
@@ -777,11 +802,13 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Pause"</code></td>
       <td>
-        Die <kbd>Pause</kbd>-Taste. Hält die aktuelle Anwendung oder den Zustand an, falls zutreffend.
+        Die <kbd>Pause</kbd> Taste. Unterbricht die aktuelle Anwendung oder den momentanen Zustand, sofern anwendbar.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Dies sollte nicht mit dem
-            <code>"MediaPause"</code>-Tastenwert verwechselt werden, der für Mediensteuerelemente verwendet wird, anstatt um Anwendungen und Prozesse zu steuern.
+            <strong>Hinweis:</strong> Diese Taste sollte nicht mit dem
+            <code>"MediaPause"</code>-Wert verwechselt werden, der für
+            Mediensteuerungen und nicht für Anwendungs- und Prozesssteuerungen
+            verwendet wird.
           </p>
         </div>
       </td>
@@ -796,11 +823,14 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Play"</code></td>
       <td>
-        Die <kbd>Play</kbd>-Taste. Setzt eine zuvor angehaltene Anwendung, falls zutreffend, fort.
+        Die <kbd>Play</kbd> Taste. Setzt eine zuvor angehaltene Anwendung fort,
+        sofern anwendbar.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Dies sollte nicht mit dem
-            <code>"MediaPlay"</code>-Tastenwert verwechselt werden, der für Mediensteuerelemente verwendet wird, anstatt um Anwendungen und Prozesse zu steuern.
+            <strong>Hinweis:</strong> Diese Taste sollte nicht mit dem
+            <code>"MediaPlay"</code>-Wert verwechselt werden, der für
+            Mediensteuerungen und nicht für Anwendungs- und Prozesssteuerungen
+            verwendet wird.
           </p>
         </div>
       </td>
@@ -814,7 +844,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Props"</code></td>
-      <td>Die <kbd>Props</kbd> (Properties) Taste.</td>
+      <td>Die <kbd>Props</kbd> (Eigenschaften) Taste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -822,7 +852,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"Select"</code></td>
-      <td>Die <kbd>Select</kbd>-Taste.</td>
+      <td>Die <kbd>Select</kbd> Taste.</td>
       <td><code>VK_SELECT</code> (0x29)</td>
       <td></td>
       <td><code>GDK_KEY_Select</code> (0xFF60)</td>
@@ -830,7 +860,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"ZoomIn"</code> [6]</td>
-      <td>Die <kbd>ZoomIn</kbd>-Taste.</td>
+      <td>Die <kbd>ZoomIn</kbd> Taste.</td>
       <td></td>
       <td></td>
       <td>
@@ -843,7 +873,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"ZoomOut"</code> [6]</td>
-      <td>Die <kbd>ZoomOut</kbd>-Taste.</td>
+      <td>Die <kbd>ZoomOut</kbd> Taste.</td>
       <td></td>
       <td></td>
       <td>
@@ -857,17 +887,17 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
   </tbody>
 </table>
 
-\[1] In Google Chrome 52 gibt die <kbd>Cancel</kbd>-Taste fälschlicherweise den Tastencode `"Pause"` zurück. Dies wurde in Chrome 53 behoben. (Siehe [Chrome bug 612749](https://crbug.com/612749) für Details.)
+\[1] In Google Chrome 52 gibt die <kbd>Cancel</kbd>-Taste fälschlicherweise den Keycode `"Pause"` zurück. Dies wurde in Chrome 53 behoben. (Siehe [Chrome bug 612749](https://crbug.com/612749) für Details.)
 
-\[2] In Firefox 36 und früher gibt die <kbd>Esc</kbd>-Taste `"Esc"` anstelle von `"Escape"` zurück.
+\[2] In Firefox 36 und früher gibt die <kbd>Esc</kbd>-Taste `"Esc"` statt `"Escape"` zurück.
 
-\[3] Firefox 36 und früher melden `"Apps"` anstelle von `"ContextMenu"` für die Kontextmenü-Taste.
+\[3] Firefox 36 und früher berichtet `"Apps"` anstelle von `"ContextMenu"` für die Kontextmenü-Taste.
 
-\[4] Die <kbd>Attn</kbd>-Taste generiert den Tastencode `"Unidentified"` in Firefox und Google Chrome, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall sie `"KanaMode"` generiert.
+\[4] Die <kbd>Attn</kbd>-Taste generiert den Keycode `"Unidentified"` auf Firefox und Google Chrome, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall es `"KanaMode"` generiert.
 
-\[5] Die <kbd>Finish</kbd>-Taste generiert den Tastencode `"Unidentified"` in Firefox, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall sie `"Katakana"` generiert.
+\[5] Die <kbd>Finish</kbd>-Taste generiert den Keycode `"Unidentified"` auf Firefox, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall es `"Katakana"` generiert.
 
-\[6] Firefox unterstützte die Tasten `"ZoomIn"` und `"ZoomOut"` erst ab Firefox 37.
+\[6] Firefox unterstützt die `"ZoomIn"`- und `"ZoomOut"`-Tasten erst ab Firefox 37.
 
 ## Gerätetasten
 
@@ -889,8 +919,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"BrightnessDown"</code></td>
       <td>
-        Die Helligkeit verringern Taste. Wird typischerweise verwendet, um die Helligkeit des
-        Displays zu reduzieren.
+        Die Helligkeit reduzieren Taste. Wird typischerweise verwendet, um die Helligkeit
+        des Bildschirms zu verringern.
       </td>
       <td></td>
       <td></td>
@@ -906,7 +936,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
       <td><code>"BrightnessUp"</code></td>
       <td>
         Die Helligkeit erhöhen Taste. Erhöht typischerweise die Helligkeit des
-        Displays.
+        Bildschirms.
       </td>
       <td></td>
       <td></td>
@@ -921,7 +951,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Eject"</code></td>
       <td>
-        Die <kbd>Eject</kbd>-Taste. Wirft Wechselmedien aus (oder öffnet und schließt den Tray eines optischen Speichergeräts).
+        Die <kbd>Eject</kbd> Taste. Wirft Wechselmedien aus (oder schaltet das Fach eines optischen
+        Speichergeräts ein- und aus).
       </td>
       <td></td>
       <td></td>
@@ -933,7 +964,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     </tr>
     <tr>
       <td><code>"LogOff"</code> [2]</td>
-      <td>Die <kbd>LogOff</kbd>-Taste.</td>
+      <td>Die <kbd>LogOff</kbd> Taste.</td>
       <td></td>
       <td></td>
       <td>
@@ -947,10 +978,12 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Power"</code></td>
       <td>
-        Die <kbd>Power</kbd>-Taste oder Schalter, um die Stromversorgung ein- und auszuschalten.
+        Der <kbd>Power</kbd> Button oder Taste, um das Gerät ein- oder
+        auszuschalten.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Nicht alle Systeme leiten diese Taste an den Benutzeragenten weiter.
+            <strong>Hinweis:</strong> Nicht alle Systeme leiten diese Taste an den
+            User-Agent weiter.
           </p>
         </div>
       </td>
@@ -962,7 +995,7 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"PowerOff"</code></td>
       <td>
-        Die <kbd>PowerOff</kbd> oder <kbd>PowerDown</kbd>-Taste. Schaltet das
+        Die <kbd>PowerOff</kbd> oder <kbd>PowerDown</kbd> Taste. Schaltet das
         System aus.
       </td>
       <td></td>
@@ -981,9 +1014,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"PrintScreen"</code></td>
       <td>
-        Die <kbd>PrintScreen</kbd> oder <kbd>PrtScr</kbd>-Taste. Manchmal
-        <kbd>SnapShot</kbd>. Erfasst den Bildschirm und druckt ihn oder speichert ihn auf
-        Festplatte.
+        Die <kbd>PrintScreen</kbd> oder <kbd>PrtScr</kbd> Taste. Manchmal auch
+        <kbd>SnapShot</kbd>. Nimmt den Bildschirm auf und druckt ihn aus oder
+        speichert ihn auf der Festplatte.
       </td>
       <td><code>VK_SNAPSHOT</code> (0x2C)</td>
       <td></td>
@@ -1001,8 +1034,10 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Hibernate"</code> [2]</td>
       <td>
-        Die <kbd>Hibernate</kbd>-Taste. Diese speichert den Zustand des Computers
-        auf der Festplatte und schaltet dann ab; der Computer kann durch Wiederherstellen der gespeicherten Zustandsinformationen in seinen vorherigen Zustand versetzt werden.
+        Die <kbd>Hibernate</kbd> Taste. Speichert den Zustand des Computers auf
+        der Festplatte und schaltet ihn dann aus; der Computer kann durch
+        Wiederherstellung der gespeicherten Zustandsinformationen in seinen
+        vorherigen Zustand versetzt werden.
       </td>
       <td></td>
       <td></td>
@@ -1017,9 +1052,9 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"Standby"</code> [1]</td>
       <td>
-        Die <kbd>Standby</kbd>-Taste. (Auch bekannt als <kbd>Suspend</kbd> oder
-        <kbd>Sleep</kbd>.) Diese schaltet das Display aus und versetzt den Computer in einen
-        energiesparenden Modus, ohne ihn vollständig auszuschalten.
+        Die <kbd>Standby</kbd> Taste. (Auch bekannt als <kbd>Suspend</kbd> oder
+        <kbd>Sleep</kbd>.) Schaltet das Display aus und versetzt den Computer in einen
+        stromsparenden Modus, ohne ihn vollständig auszuschalten.
       </td>
       <td><code>VK_SLEEP</code> (0x5F)</td>
       <td></td>
@@ -1040,7 +1075,8 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
     <tr>
       <td><code>"WakeUp"</code> [2]</td>
       <td>
-        Die <kbd>WakeUp</kbd>-Taste. Wird verwendet, um den Computer aus der Standby- oder Ruhezustand zu wecken.
+        Die <kbd>WakeUp</kbd> Taste. Wird verwendet, um den Computer aus den
+        Ruhe- oder Standby-Modus zu wecken.
       </td>
       <td></td>
       <td></td>
@@ -1059,18 +1095,18 @@ _Modifikatoren_ sind spezielle Tasten, die zum Erzeugen spezieller Zeichen oder 
 
 \[2] Vor Firefox 37 erzeugte diese Taste den Wert `"Unidentified"`.
 
-## IME und Kompositionstasten
+## IME- und Kompositionstasten
 
-Tasten, die bei der Verwendung eines {{Glossary("Input_Method_Editor", "Input Method Editors")}} (IME) verwendet werden, um Text einzugeben, der nicht einfach durch einfache Tastendrücke eingegeben werden kann, wie z.B. Text in Sprachen, die mehr Grapheme haben als es Tasten für die Zeicheneingabe auf der Tastatur gibt. Häufige Beispiele sind Chinesisch, Japanisch, Koreanisch und Hindi.
+Tasten, die beim Verwenden eines {{Glossary("Input_Method_Editor", "Eingabemethoden-Editors")}} (IME) zur Eingabe von Text verwendet werden, der nicht einfach durch einfache Tastendrücke eingegeben werden kann, wie beispielsweise Text in Sprachen, die mehr Grapheme haben als es Zeichen-Tasten auf der Tastatur gibt. Häufige Beispiele sind Chinesisch, Japanisch, Koreanisch und Hindi.
 
-Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastaturen vorkommen, die auf spezielle Sprachen abzielen. Darüber hinaus verfügen nicht alle Tastaturen über alle diese Tasten.
+Einige Tasten sind in mehreren Sprachen üblich, während andere nur auf Tastaturen existieren, die sich an bestimmte Sprachen richten. Außerdem haben nicht alle Tastaturen alle diese Tasten.
 
 ### Allgemeine IME-Tasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
       <th colspan="4" scope="col">Virtueller Tastencode</th>
     </tr>
@@ -1085,8 +1121,8 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"AllCandidates"</code></td>
       <td>
-        Die <kbd>All Candidates</kbd>-Taste, die den Mehrkandidatenmodus startet, in dem
-        mehrere Kandidaten für die laufende Eingabe angezeigt werden.
+        Die <kbd>Alle Kandidaten</kbd>-Taste, die den Mehrkandidatenmodus startet, in
+        dem mehrere Kandidaten für die laufende Eingabe angezeigt werden.
       </td>
       <td></td>
       <td></td>
@@ -1100,7 +1136,7 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     </tr>
     <tr>
       <td><code>"Alphanumeric"</code></td>
-      <td>Die <kbd>Alphanumeric</kbd>-Taste.</td>
+      <td>Die <kbd>Alphanumerische</kbd>-Taste.</td>
       <td><code>VK_OEM_ATTN</code> (0xF0)</td>
       <td></td>
       <td>
@@ -1117,8 +1153,9 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"CodeInput"</code></td>
       <td>
-        Die <kbd>Code Input</kbd>-Taste, die den Codeeingabemodus aktiviert, der es
-        dem Benutzer ermöglicht, Zeichen durch Eingabe ihrer Codepunkte (typischerweise ihrer Unicode-Zeichennummern) einzugeben.
+        Die <kbd>Code-Eingabe</kbd>-Taste, die den Codeingabemodus aktiviert, der
+        es dem Benutzer ermöglicht, Zeichen durch Eingabe ihrer Codepunkte
+        (typischerweise ihrer Unicode-Zeichennummern) einzugeben.
       </td>
       <td></td>
       <td></td>
@@ -1146,8 +1183,8 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"Convert"</code> [4]</td>
       <td>
-        Die <kbd>Convert</kbd>-Taste, die den IME anweist, die
-        aktuelle Eingabemethode-Sequenz in das resultierende Zeichen umzuwandeln.
+        Die <kbd>Konvertieren</kbd>-Taste, die das IME anweist, die aktuelle
+        Eingabemethodenfolge in das resultierende Zeichen zu konvertieren.
       </td>
       <td><code>VK_CONVERT</code> (0x1C)</td>
       <td></td>
@@ -1161,15 +1198,17 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
       <td><code>"Dead"</code></td>
       <td>
         <p>
-          Eine "kombinierende" tote Taste; das heißt, eine Taste, die in Kombination mit
-          anderen Tasten verwendet wird, um akzentuierte und andere modifizierte Zeichen zu erzeugen. Wenn
-          sie alleine gedrückt wird, erzeugt sie kein Zeichen.
+          Eine tote "kombinierende" Taste; das heißt, eine Taste, die in
+          Verbindung mit anderen Tasten verwendet wird, um akzentuierte und
+          andere modifizierte Zeichen zu erzeugen. Wird sie alleine gedrückt,
+          wird kein Zeichen generiert.
         </p>
         <p>
-          Wenn Sie feststellen möchten, welche spezifische Tot-Taste gedrückt wurde (in Fällen
-          in denen mehr als eine existiert), können Sie dies durch Prüfung des
-          dem [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) zugeordneten [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event) Ereignisses
-          [`data`](/de/docs/Web/API/CompositionEvent/data) Eigenschaft.
+          Wenn Sie feststellen möchten, welche spezielle tote Taste gedrückt
+          wurde (in Fällen, in denen mehr als eine vorhanden ist), können Sie
+          dies tun, indem Sie das [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-assoziierte
+          [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)-Ereignis und deren
+          [`data`](/de/docs/Web/API/CompositionEvent/data)-Eigenschaft überprüfen.
         </p>
       </td>
       <td></td>
@@ -1180,8 +1219,9 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"FinalMode"</code></td>
       <td>
-        Die <kbd>Final</kbd> (Final Mode) Taste wird auf einigen asiatischen Tastaturen verwendet, um
-        den Endmodus bei der Verwendung von IMEs einzugeben.
+        Die <kbd>Final</kbd> (Finalmodus)-Taste wird auf einigen asiatischen
+        Tastaturen verwendet, um den Finalmodus bei Verwendung von IMEs
+        einzugeben.
       </td>
       <td><code>VK_FINAL</code> (0x18)</td>
       <td></td>
@@ -1191,12 +1231,13 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"GroupFirst"</code></td>
       <td>
-        Wechseln zur ersten Zeichengruppe auf einer
+        Wechselt zur ersten Zeichengruppe auf einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995-Tastatur</a
         >. Jede Taste kann mehrere Zeichengruppen haben, jede in ihrer eigenen
-        Spalte. Durch das Drücken dieser Taste weist das Gerät an, Tastendrücke
-        als aus der ersten Spalte der nachfolgenden Tastaturen zu interpretieren.
+        Spalte. Das Drücken dieser Taste weist das Gerät an, die Tastendrücke
+        bei nachfolgenden Tasteneingaben als aus der ersten Spalte kommend zu
+        interpretieren.
       </td>
       <td></td>
       <td></td>
@@ -1206,7 +1247,7 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"GroupLast"</code></td>
       <td>
-        Wechseln zur letzten Zeichengruppe auf einer
+        Wechselt zur letzten Zeichengruppe auf einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995-Tastatur</a
         >.
@@ -1219,7 +1260,7 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"GroupNext"</code> [4]</td>
       <td>
-        Wechseln zur nächsten Zeichengruppe auf einer
+        Wechselt zur nächsten Zeichengruppe auf einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995-Tastatur</a
         >.
@@ -1232,7 +1273,7 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"GroupPrevious"</code></td>
       <td>
-        Wechseln zur vorherigen Zeichengruppe auf einer
+        Wechselt zur vorherigen Zeichengruppe auf einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995-Tastatur</a
         >.
@@ -1258,8 +1299,8 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"NextCandidate"</code></td>
       <td>
-        Der Next Candidate Funktionstaste. Wählt den nächsten möglichen Treffer für die
-        laufende Eingabe.
+        Die Next Candidate-Funktionstaste. Wählt die nächste mögliche Übereinstimmung
+        für die laufende Eingabe aus.
       </td>
       <td></td>
       <td></td>
@@ -1269,9 +1310,9 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"NonConvert"</code> [2]</td>
       <td>
-        Die <kbd>NonConvert</kbd>-Taste („Nicht konvertieren“). Diese bestätigt die
-        aktuelle Eingabemethode-Sequenz ohne Durchführung der Konvertierung bei der Verwendung eines
-        IME.
+        Die <kbd>Nicht konvertieren</kbd>-Taste ("Nicht konvertieren"). Diese akzeptiert die
+        aktuelle Eingabemethodenfolge, ohne eine Konvertierung durchzuführen,
+        wenn ein IME verwendet wird.
       </td>
       <td><code>VK_NONCONVERT</code> (0x1D)</td>
       <td></td>
@@ -1286,8 +1327,8 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"PreviousCandidate"</code></td>
       <td>
-        Die Previous Candidate-Taste. Wählt den vorherigen möglichen Treffer für die
-        laufende Eingabe.
+        Die Vorherige Kandidatentaste. Wählt die vorherige mögliche Übereinstimmung
+        für die laufende Eingabe aus.
       </td>
       <td></td>
       <td></td>
@@ -1302,7 +1343,8 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"Process"</code> [3]</td>
       <td>
-        Die <kbd>Process</kbd>-Taste. Weist den IME an, die Konvertierung durchzuführen.
+        Die <kbd>Prozess</kbd>-Taste. Weist das IME an, die Konvertierung
+        durchzuführen.
       </td>
       <td><code>VK_PROCESSKEY</code> (0xE5)</td>
       <td></td>
@@ -1312,8 +1354,9 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
     <tr>
       <td><code>"SingleCandidate"</code> [4]</td>
       <td>
-        Die Single Candidate-Taste. Aktiviert den Einzelkandidatenmodus (im Gegensatz zum
-        Mehrkandidatenmodus); in diesem Modus wird jeweils nur ein Kandidat angezeigt.
+        Die Single Candidate-Taste. Aktiviert den Einzelfallmodus (im Gegensatz zum
+        Mehrkandidatenmodus); in diesem Modus wird jeweils nur ein Kandidat
+        angezeigt.
       </td>
       <td></td>
       <td></td>
@@ -1330,24 +1373,22 @@ Einige Tasten sind in mehreren Sprachen gängig, während andere nur auf Tastatu
 
 \[1] Im _X Window System_ wird die <kbd>Compose</kbd>-Taste als <kbd>Multi</kbd>-Taste bezeichnet.
 
-<!-- cSpell:ignore Nonconvert -->
+\[2] Die <kbd>NonConvert</kbd>-Taste wird von Firefox-Versionen 36 und früher als `"Nonconvert"` anstelle des korrekten `"NonConvert"` gemeldet.
 
-\[2] Die <kbd>NonConvert</kbd>-Taste wird in Firefox-Versionen 36 und früher als `"Nonconvert"` statt des korrekten `"NonConvert"` gemeldet.
-
-\[3] Die <kbd>Process</kbd>-Taste gibt derzeit in Firefox `"Unidentified"` zurück. Google Chrome gibt den Wert der Taste so zurück, als ob der IME nicht in Gebrauch wäre.
+\[3] Die <kbd>Process</kbd>-Taste gibt in Firefox derzeit `"Unidentified"` zurück. Google Chrome gibt den Wert der Taste so zurück, als ob IME nicht verwendet würde.
 
 \[4] Vor Firefox 37 waren diese Tasten `"Unidentified"`.
 
-\[5] Firefox generiert den Tastenwert `"AltGraph"` anstatt `"ModeChange"`.
+\[5] Firefox erzeugt den Tastenwert `"AltGraph"` anstelle von `"ModeChange"`.
 
 ### Nur koreanische Tastaturen
 
-Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tasten, die von verschiedenen Plattformen für koreanische Tastaturen definiert sind, aber diese sind die gebräuchlichsten und die, die von der UI Events Spezifikation identifiziert werden.
+Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tasten, die von verschiedenen Plattformen für koreanische Tastaturen definiert sind, aber diese sind am häufigsten und werden in der UI Events-Spezifikation identifiziert.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
       <th colspan="4" scope="col">Virtueller Tastencode</th>
     </tr>
@@ -1362,8 +1403,8 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tas
     <tr>
       <td><code>"HangulMode"</code></td>
       <td>
-        Die <kbd>Hangul</kbd> (koreanisches Zeichensatz) Modus-Taste, die zwischen
-        den Eingabemodi Hangul und Englisch umschaltet.
+        Die <kbd>Hangul</kbd> (koreanisches Zeichensatz) Modustaste, die zwischen
+        Hangul- und Englisch-Modi umschaltet.
       </td>
       <td><code>VK_HANGUL</code> (0x15) [1]</td>
       <td></td>
@@ -1377,7 +1418,7 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tas
       <td><code>"HanjaMode"</code></td>
       <td>
         Wählt den Hanja-Modus aus, um Hangul-Zeichen in die spezifischeren
-        Hanja-Zeichen umzuwandeln.
+        Hanja-Zeichen zu konvertieren.
       </td>
       <td><code>VK_HANJA</code> (0x19) [1]</td>
       <td></td>
@@ -1408,7 +1449,7 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tas
   </tbody>
 </table>
 
-\[1] `VK_HANGUL` und `VK_KANA` teilen sich den gleichen numerischen Tastenwert in Windows, ebenso wie `VK_HANJA` und `VK_KANJI`.
+\[1] `VK_HANGUL` und `VK_KANA` teilen denselben numerischen Tastenwert auf Windows, ebenso wie `VK_HANJA` und `VK_KANJI`.
 
 ### Nur japanische Tastaturen
 
@@ -1417,7 +1458,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
       <th colspan="4" scope="col">Virtueller Tastencode</th>
     </tr>
@@ -1432,7 +1473,8 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     <tr>
       <td><code>"Eisu"</code> [1]</td>
       <td>
-        Die <kbd>Eisu</kbd>-Taste. Der Zweck dieser Taste wird durch den IME definiert, kann jedoch verwendet werden, um den IME zu schließen.
+        Die <kbd>Eisu</kbd>-Taste. Die Funktion dieser Taste wird vom IME
+        definiert, kann jedoch verwendet werden, um das IME zu schließen.
       </td>
       <td></td>
       <td><code>kVK_JIS_Eisu</code> (0x66)</td>
@@ -1446,7 +1488,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Hankaku"</code> [3]</td>
-      <td>Die <kbd>Hankaku</kbd> (halbbreite Zeichen) Taste.</td>
+      <td>Die <kbd>Hankaku</kbd> (Halbbreite Zeichen)-Taste.</td>
       <td><code>VK_OEM_AUTO</code> (0xF3)</td>
       <td></td>
       <td>
@@ -1457,7 +1499,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Hiragana"</code></td>
-      <td>Die <kbd>Hiragana</kbd>-Taste; Wählt den Kana-Zeichenmodus aus.</td>
+      <td>Die <kbd>Hiragana</kbd>-Taste; wählt den Kana-Zeichenmodus aus.</td>
       <td><code>VK_OEM_COPY</code> (0xF2)</td>
       <td></td>
       <td>
@@ -1483,7 +1525,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"KanaMode"</code></td>
-      <td>Die <kbd>Kana Mode</kbd> (Kana Lock) Taste.</td>
+      <td>Die <kbd>Kana Modus</kbd> (Kana-Sperre)-Taste.</td>
       <td><code>VK_KANA</code> (0x15) [2]<br /><code>VK_ATTN</code> (0xF6)</td>
       <td></td>
       <td>
@@ -1500,8 +1542,9 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     <tr>
       <td><code>"KanjiMode"</code></td>
       <td>
-        Die <kbd>Kanji Mode</kbd>-Taste. Ermöglicht die Eingabe japanischen Textes mit den
-        ideographischen Zeichen chinesischen Ursprungs.
+        Die <kbd>Kanji Modus</kbd>-Taste. Ermöglicht die Eingabe von
+        japanischem Text unter Verwendung der ideografischen Zeichen
+        chinesischen Ursprungs.
       </td>
       <td><code>VK_KANJI</code> [2]</td>
       <td><code>kVK_JIS_Kana</code> (0x68)</td>
@@ -1526,7 +1569,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Romaji"</code> [5]</td>
-      <td>Die <kbd>Romaji</kbd>-Taste; Wählt den römischen Zeichensatz aus.</td>
+      <td>Die <kbd>Romaji</kbd>-Taste; wählt den römischen Zeichensatz aus.</td>
       <td><code>VK_OEM_BACKTAB</code> (0xF5)</td>
       <td></td>
       <td>
@@ -1537,7 +1580,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Zenkaku"</code> [4]</td>
-      <td>Die <kbd>Zenkaku</kbd> (vollbreitige Zeichen) Taste.</td>
+      <td>Die <kbd>Zenkaku</kbd> (Vollbreiten)-Zeichen-Taste.</td>
       <td><code>VK_OEM_ENLW</code> (0xF4)</td>
       <td></td>
       <td>
@@ -1549,7 +1592,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     <tr>
       <td><code>"ZenkakuHankaku"</code> [6]</td>
       <td>
-        Die <kbd>Zenkaku/Hankaku</kbd> (vollbreit-/halbbreit) Umschalttaste.
+        Die <kbd>Zenkaku/Hankaku</kbd> (Voll-/Halbbreit)-Umschalttaste.
       </td>
       <td></td>
       <td></td>
@@ -1566,23 +1609,23 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
   </tbody>
 </table>
 
-\[1] Vor Firefox 37 wurde die <kbd>Eisu</kbd>-Taste fälschlicherweise auf `"RomanCharacters"` abgebildet.
+\[1] Vor Firefox 37 war die <kbd>Eisu</kbd>-Taste fälschlicherweise zu `"RomanCharacters"` zugeordnet.
 
-\[2] `VK_HANGUL` und `VK_KANA` teilen sich den gleichen numerischen Tastenwert in Windows, ebenso wie `VK_HANJA` und `VK_KANJI`.
+\[2] `VK_HANGUL` und `VK_KANA` teilen denselben numerischen Tastenwert auf Windows, ebenso wie `VK_HANJA` und `VK_KANJI`.
 
-\[3] Vor Firefox 37 generierte die <kbd>Hankaku</kbd> (halbbreit) Taste den Tastenwert `"HalfWidth"` in Firefox.
+\[3] Vor Firefox 37 erzeugte die <kbd>Hankaku</kbd> (Halbbreite)-Taste in Firefox den Tastenwert `"HalfWidth"`.
 
-\[4] Firefox 36 und früher identifiziert diese Taste als `"FullWidth"` auf japanischen Tastaturlayouts und `"Unidentified"` auf allen anderen Tastaturlayouts. Firefox 37 und später, sowie alle Versionen von Google Chrome, geben korrekt `"Zenkaku"` zurück.
+\[4] Firefox 36 und früher identifiziert diese Taste als `"FullWidth"` auf japanischen Tastaturlayouts und `"Unidentified"` auf allen anderen Tastaturlayouts. Firefox 37 und später, sowie alle Versionen von Google Chrome, geben korrekterweise `"Zenkaku"` zurück.
 
-\[5] Firefox 36 und früher identifiziert die <kbd>Romaji</kbd>-Taste als `"RomanCharacters"` auf japanischen Tastaturen und `"Unidentified"` für andere Tastaturen; dies wird in Firefox 37 und später korrigiert, um `"Romaji"` zurückzugeben.
+\[5] Firefox 36 und früher identifiziert die <kbd>Romaji</kbd>-Taste als `"RomanCharacters"` auf japanischen Tastaturen und `"Unidentified"` für andere Tastaturen; das wurde in Firefox 37 und später korrigiert, um `"Romaji"` zurückzugeben.
 
 \[6] Diese Taste wird vor Firefox 37 als `"Unidentified"` gemeldet.
 
 ### Tote Tastencodes für Linux
 
-Linux erzeugt akzentuierte Zeichen mithilfe spezieller **toter Tasten**. _Tote Tasten_ sind Tasten, die in Kombination mit Zeichentasten gedrückt werden, um die akzentuierten Formen dieser Zeichen zu erzeugen. Sie können erkennen, welche spezielle tote Taste verwendet wurde (wenn mehr als eine existiert), indem Sie die [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)'s zugeordnete [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event) Ereignis' [`data`](/de/docs/Web/API/CompositionEvent/data) Eigenschaft überprüfen.
+Linux erzeugt akzentuierte Zeichen mithilfe spezieller **toter Tasten**. _Tote Tasten_ sind Tasten, die in Kombination mit Zeichentasten gedrückt werden, um akzentuierte Formen dieser Zeichen zu erzeugen. Sie können feststellen, welche spezielle tote Taste verwendet wurde (falls mehr als eine existiert), indem Sie das [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)-assoziierte [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)-Ereignis und die [`data`](/de/docs/Web/API/CompositionEvent/data)-Eigenschaft überprüfen.
 
-Sie können eine Tabelle der toten Tasten und der Zeichen finden, die sie in Kombination mit anderen Zeichen erzeugen können, um akzentuierte oder anderweitig spezielle Zeichen auf Linux unter Verwendung von GTK zu erzeugen.
+Sie können eine Tabelle der toten Tasten und der Zeichen, mit denen sie verwendet werden können, um akzentuierte oder anderweitig spezielle Zeichen auf Linux unter Verwendung von GTK zu erzeugen, finden.
 
 Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der folgenden sein:
 
@@ -1590,7 +1633,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
   <thead>
     <tr>
       <th scope="col">
-        <strong><code>CompositionEvent.data</code></strong> Wert
+        <strong><code>CompositionEvent.data</code></strong>-Wert
       </th>
       <th scope="col">Symbol</th>
       <th scope="col">Kommentare</th>
@@ -1680,7 +1723,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
         (0x01001257)
       </td>
       <td>¨</td>
-      <td>Auch Umlaut genannt.</td>
+      <td>Auch als Umlaut bezeichnet.</td>
     </tr>
     <tr>
       <td>
@@ -1710,7 +1753,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
         (0x0100125A)
       </td>
       <td>ˇ</td>
-      <td>Auch Háček genannt; wird in Tschechisch unter anderem verwendet.</td>
+      <td>Auch háček genannt; wird unter anderem im Tschechischen verwendet.</td>
     </tr>
     <tr>
       <td>
@@ -1730,7 +1773,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
         (0x0100125C)
       </td>
       <td>˛</td>
-      <td>Auch Nosinė genannt; wird in Polnisch und Altirisch verwendet.</td>
+      <td>Auch nachine genannt; wird im Polnischen und Altirischen verwendet.</td>
     </tr>
     <tr>
       <td>
@@ -1740,7 +1783,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
         (0x0100125D)
       </td>
       <td> ͅ</td>
-      <td>Iota-Subscript.</td>
+      <td>Iota subscript.</td>
     </tr>
     <tr>
       <td>
@@ -1769,7 +1812,7 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
         >
         (0x01001260)
       </td>
-      <td>̣̣</td>
+      <td>̣</td>
       <td></td>
     </tr>
     <tr>
@@ -1937,14 +1980,14 @@ Der Wert von [`data`](/de/docs/Web/API/CompositionEvent/data) wird einer der fol
 
 ## Funktionstasten
 
-Während verschiedene Plattformen eine unterschiedliche Anzahl der allgemeinen Funktionstasten unterstützen, wie z.B. <kbd>F1</kbd>–<kbd>F12</kbd> (oder <kbd>F1</kbd>–<kbd>F10</kbd>, oder <kbd>F1</kbd>–<kbd>F15</kbd>, etc.), sind die ersten wenigen spezifisch wie folgt definiert.
+Während verschiedene Plattformen unterschiedliche Zahlen an allgemeinen Funktionstasten unterstützen, wie <kbd>F1</kbd>–<kbd>F12</kbd> (oder <kbd>F1</kbd>–<kbd>F10</kbd> oder <kbd>F1</kbd>–<kbd>F15</kbd>, usw.), sind die ersten wenigen wie folgt speziell festgelegt.
 
-Wenn mehr Funktionstasten verfügbar sind, setzen ihre Namen das hier dargelegte Muster fort, indem sie die nummerische Portion jedes Tastenwertes weiter erhöhen, so dass, zum Beispiel, `"F24"` ein gültiger Tastenwert ist.
+Wenn mehr Funktionstasten verfügbar sind, setzt sich das Namensmuster hier fort, indem der numerische Teil jedes Tasten-Namens fortlaufend erhöht wird, sodass beispielsweise `"F24"` ein gültiger Tastenwert ist.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
       <th colspan="4" scope="col">Virtueller Tastencode</th>
     </tr>
@@ -2213,14 +2256,14 @@ Wenn mehr Funktionstasten verfügbar sind, setzen ihre Namen das hier dargelegte
 
 ## Telefontasten
 
-Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vorhanden sind.
+Diese Tasten repräsentieren Knöpfe, die normalerweise auf modernen Smartphones vorhanden sind.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Taste</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -2233,7 +2276,7 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
     <tr>
       <td><code>"AppSwitch"</code></td>
       <td>
-        Präsentiert eine Liste kürzlich verwendeter Anwendungen, die es dem Benutzer ermöglicht, schnell zwischen Apps zu wechseln.
+        Präsentiert eine Liste von kürzlich verwendeten Anwendungen, die es dem Benutzer ermöglicht, schnell zwischen Apps zu wechseln.
       </td>
       <td></td>
       <td></td>
@@ -2266,7 +2309,7 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
     </tr>
     <tr>
       <td><code>"EndCall"</code></td>
-      <td>Die <kbd>Anruf beenden</kbd> oder <kbd>Auflegen</kbd>-Taste.</td>
+      <td>Die <kbd>Anruf beenden</kbd>- oder <kbd>Auflegen</kbd>-Taste.</td>
       <td></td>
       <td></td>
       <td><code>Qt::Key_Hangup</code> (0x01100005)</td>
@@ -2283,7 +2326,7 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
     <tr>
       <td><code>"GoHome"</code> [1]</td>
       <td>
-        Die <kbd>Home</kbd>-Taste. Bringt den Benutzer zum Hauptbildschirm des Telefons zurück (normalerweise ein Anwendungsstarter).
+        Die <kbd>Home</kbd>-Taste. Führt den Benutzer zurück zum Hauptbildschirm des Telefons (gewöhnlich ein Anwendungs-Launcher).
       </td>
       <td></td>
       <td></td>
@@ -2293,7 +2336,7 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
     <tr>
       <td><code>"HeadsetHook"</code></td>
       <td>
-        Die <kbd>Headset-Taste</kbd>. Dies ist normalerweise ein Knopf am Headset, um Anrufe aufzulegen und Medien abzuspielen oder zu pausieren.
+        Die <kbd>Headset-Haken</kbd>-Taste. Dies ist typischerweise ein Knopf am Headset, der zum Auflegen von Anrufen und zum Abspielen oder Anhalten von Medien verwendet wird.
       </td>
       <td></td>
       <td></td>
@@ -2319,7 +2362,7 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
     <tr>
       <td><code>"MannerMode"</code></td>
       <td>
-        Ein Knopf, der zwischen den Benachrichtigungsmodi wechselt: lautlos, vibrieren, klingeln, usw.
+        Eine Taste, die zwischen den Benachrichtigungsmodi wechselt: stumm, vibrieren, klingeln und so weiter.
       </td>
       <td></td>
       <td></td>
@@ -2337,18 +2380,18 @@ Diese Tasten stehen für Knöpfe, die üblicherweise auf modernen Smartphones vo
   </tbody>
 </table>
 
-\[1] Vor Firefox 37 erzeugte die Home-Taste den Tastencode `"Exit"`. Ab Firefox 37 erzeugt die Taste den Tastencode `"MozHomeScreen"`.
+\[1] Vor Firefox 37 erzeugte die Home-Taste einen Tastencode von `"Exit"`. Ab Firefox 37 erzeugt die Taste den Tastencode `"MozHomeScreen"`.
 
 ## Multimedia-Tasten
 
-Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Mediengeräten, die auf einigen Tastaturen zu finden sind.
+Die Multimedia-Tasten sind zusätzliche Tasten oder Knöpfe zur Steuerung von Mediengeräten, die auf einigen Tastaturen vorhanden sind.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Taste</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -2387,11 +2430,11 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     <tr>
       <td><code>"MediaPause"</code></td>
       <td>
-        <p>Pause des aktuell abgespielten Mediums.</p>
+        <p>Hält das aktuell wiedergegebene Medium an.</p>
         <div class="notecard note">
           <p>
             <strong>Hinweis:</strong> Einige ältere Anwendungen verwenden
-            <code>"Pause"</code>, dies ist jedoch nicht korrekt.
+            <code>"Pause"</code>, aber das ist nicht korrekt.
           </p>
         </div>
       </td>
@@ -2408,7 +2451,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     <tr>
       <td><code>"MediaPlay"</code></td>
       <td>
-        Startet oder setzt die Wiedergabe des Mediums in normaler Geschwindigkeit fort, sofern noch nicht geschehen. Andernfalls keine Wirkung.
+        Startet oder setzt die Wiedergabe der Medien mit normaler Geschwindigkeit fort, wenn dies nicht bereits geschieht. Hat sonst keine Wirkung.
       </td>
       <td><code>APPCOMMAND_MEDIA_PLAY</code></td>
       <td></td>
@@ -2417,7 +2460,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     </tr>
     <tr>
       <td><code>"MediaPlayPause"</code></td>
-      <td>Wechselt zwischen der Wiedergabe und Pause des aktuellen Mediums.</td>
+      <td>Wechselt zwischen Abspielen und Anhalten des aktuellen Mediums.</td>
       <td>
         <code>VK_MEDIA_PLAY_PAUSE</code> (0xB3)<br /><code
           >APPCOMMAND_MEDIA_PLAY_PAUSE</code
@@ -2442,7 +2485,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     </tr>
     <tr>
       <td><code>"MediaRewind"</code></td>
-      <td>Startet, setzt zurück oder erhöht die Geschwindigkeit des Zurückspulens des Mediums.</td>
+      <td>Startet, setzt fort oder erhöht die Geschwindigkeit des Zurückspulens des Mediums.</td>
       <td><code>APPCOMMAND_MEDIA_REWIND</code></td>
       <td></td>
       <td>
@@ -2456,7 +2499,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     <tr>
       <td><code>"MediaStop"</code></td>
       <td>
-        Stoppt die aktuelle Medienaktivität (z.B. Wiedergabe, Aufnahme, Pause, Vorlauf oder Rücklauf). Hat keine Wirkung, wenn die Medien bereits gestoppt sind.
+        Stoppt die aktuelle Medienaktivität (wie Abspielen, Aufnehmen, Anhalten, Vorlauf oder Rücklauf). Hat keine Wirkung, wenn das Medium bereits gestoppt ist.
       </td>
       <td>
         <code>VK_MEDIA_STOP</code> (0xB2)<br /><code
@@ -2474,7 +2517,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     </tr>
     <tr>
       <td><code>"MediaTrackNext"</code> [1]</td>
-      <td>Springt zum nächsten Medien- oder Programmtrack.</td>
+      <td>Sucht den nächsten Medien- oder Programmtrack auf.</td>
       <td>
         <code>VK_MEDIA_NEXT_TRACK</code> (0xB0)<br /><code
           >APPCOMMAND_MEDIA_NEXTTRACK</code
@@ -2491,7 +2534,7 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
     </tr>
     <tr>
       <td><code>"MediaTrackPrevious"</code> [1]</td>
-      <td>Springt zum vorherigen Medien- oder Programmtrack.</td>
+      <td>Sucht den vorherigen Medien- oder Programmtrack auf.</td>
       <td>
         <code>VK_MEDIA_PREV_TRACK</code> (0xB1)<br /><code
           >APPCOMMAND_MEDIA_PREVIOUSTRACK</code
@@ -2509,20 +2552,20 @@ Die Multimedia-Tasten sind zusätzliche Tasten für die Steuerung von Medienger�
   </tbody>
 </table>
 
-\[1] Legacy Edge und Firefox (36 und früher) verwenden `"MediaNextTrack"` und `"MediaPreviousTrack"` statt `"MediaTrackNext"` und `"MediaTrackPrevious"`.
+\[1] Legacy Edge und Firefox (36 und früher) verwenden `"MediaNextTrack"` und `"MediaPreviousTrack"` anstelle von `"MediaTrackNext"` und `"MediaTrackPrevious"`.
 
-\[2] Vor Firefox 37 generierte Firefox den Tastencode `"FastFwd"` auf einigen Plattformen und `"Unidentified"` auf anderen, anstatt `"MediaFastForward"`.
+\[2] Vor Firefox 37 erzeugte Firefox auf einigen Plattformen den Tastencode `"FastFwd"` und auf anderen den Tastencode `"Unidentified"` anstelle von `"MediaFastForward"`.
 
-## Audio-Steuerungstasten
+## Audiosteuerungstasten
 
-Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
+Diese Medientasten werden speziell zur Audio-Steuerung verwendet.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Taste</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -2534,7 +2577,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
   <tbody>
     <tr>
       <td><code>"AudioBalanceLeft"</code></td>
-      <td>Stellt das Audiogleichgewicht nach links ein.</td>
+      <td>Passt das Audio-Balance nach links an.</td>
       <td><code>VK_AUDIO_BALANCE_LEFT</code></td>
       <td></td>
       <td></td>
@@ -2542,7 +2585,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioBalanceRight"</code></td>
-      <td>Stellt das Audiogleichgewicht nach rechts ein.</td>
+      <td>Passt das Audio-Balance nach rechts an.</td>
       <td><code>VK_AUDIO_BALANCE_RIGHT</code></td>
       <td></td>
       <td></td>
@@ -2559,7 +2602,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     <tr>
       <td><code>"AudioBassBoostDown"</code></td>
       <td>
-        Verringert die Bassverstärkung oder durchläuft abwärts die Bassverstärkungsmodi oder -zustände.
+        Verringert die Bassverstärkung oder wechselt zyklisch durch Bass-Boost-Modi oder -Zustände.
       </td>
       <td><code>VK_BASS_BOOST_DOWN</code></td>
       <td></td>
@@ -2577,7 +2620,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     <tr>
       <td><code>"AudioBassBoostUp"</code></td>
       <td>
-        Erhöht die Bassverstärkung oder durchläuft aufwärts eine Reihe von Bassverstärkungsmodi oder -zuständen.
+        Erhöht die Menge der Bassverstärkung oder wechselt zyklisch durch eine Reihe von Bass-Boost-Modi oder -Zuständen.
       </td>
       <td><code>VK_BASS_BOOST_UP</code></td>
       <td></td>
@@ -2594,7 +2637,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioFaderFront"</code></td>
-      <td>Stellt den Audio-Fader nach vorne ein.</td>
+      <td>Passt den Audio-Fader nach vorne an.</td>
       <td><code>VK_FADER_FRONT</code></td>
       <td></td>
       <td></td>
@@ -2602,7 +2645,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioFaderRear"</code></td>
-      <td>Stellt den Audio-Fader nach hinten ein.</td>
+      <td>Passt den Audio-Fader nach hinten an.</td>
       <td><code>VK_FADER_REAR</code></td>
       <td></td>
       <td></td>
@@ -2618,7 +2661,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioTrebleDown"</code></td>
-      <td>Verringert die Menge an Höhen.</td>
+      <td>Verringert die Höhen.</td>
       <td><code>APPCOMMAND_TREBLE_DOWN</code></td>
       <td></td>
       <td></td>
@@ -2626,7 +2669,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioTrebleUp"</code></td>
-      <td>Erhöht die Menge an Höhen.</td>
+      <td>Erhöht die Höhen.</td>
       <td><code>APPCOMMAND_TREBLE_UP</code></td>
       <td></td>
       <td></td>
@@ -2634,7 +2677,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioVolumeDown" [1]</code></td>
-      <td>Verringert die Lautstärke.</td>
+      <td>Verringert die Audio-Lautstärke.</td>
       <td>
         <code>VK_VOLUME_DOWN</code> (0xAE)<br /><code
           >APPCOMMAND_VOLUME_DOWN</code
@@ -2651,7 +2694,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioVolumeMute" [1]</code></td>
-      <td>Stummschalten des Audios.</td>
+      <td>Stellt die Audio-Wiedergabe stumm.</td>
       <td>
         <code>VK_VOLUME_MUTE</code> (0xAD)<br /><code
           >APPCOMMAND_VOLUME_MUTE</code
@@ -2668,7 +2711,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"AudioVolumeUp" [1]</code></td>
-      <td>Erhöht die Lautstärke.</td>
+      <td>Erhöht die Audio-Lautstärke.</td>
       <td>
         <code>VK_VOLUME_UP</code> (0xAF)<br /><code>APPCOMMAND_VOLUME_UP</code>
       </td>
@@ -2699,7 +2742,7 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
     </tr>
     <tr>
       <td><code>"MicrophoneVolumeMute"</code></td>
-      <td>Stummschalten der Mikrofoneingabe.</td>
+      <td>Stellt den Mikrofoneingang stumm.</td>
       <td><code>APPCOMMAND_MICROPHONE_VOLUME_MUTE</code></td>
       <td></td>
       <td>
@@ -2721,18 +2764,18 @@ Diese Medientasten werden speziell zur Steuerung von Audio verwendet.
   </tbody>
 </table>
 
-\[1] Legacy Edge und Firefox (48 und früher) verwenden `"VolumeUp"`, `"VolumeDown"` und `"VolumeMute"` statt `"AudioVolumeUp"`, `"AudioVolumeDown"` und `"AudioVolumeMute"`. In Firefox 49 wurden sie aktualisiert, um mit der neuesten Spezifikation übereinzustimmen.
+\[1] Legacy Edge und Firefox (48 und früher) verwenden `"VolumeUp"`, `"VolumeDown"`, und `"VolumeMute"` anstelle von `"AudioVolumeUp"`, `"AudioVolumeDown"`, und `"AudioVolumeMute"`. In Firefox 49 wurden sie aktualisiert, um der neuesten Spezifikation zu entsprechen.
 
-## TV Steuerungstasten
+## TV-Steuerungstasten
 
-Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten oder Computern oder Telefonen mit TV-Unterstützung vorhanden sind.
+Diese Schlüsselwerte repräsentieren Tasten oder Knöpfe, die auf Fernsehgeräten vorhanden sind, oder auf Computern oder Telefonen, die TV-Unterstützung haben.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Taste</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -2744,7 +2787,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
   <tbody>
     <tr>
       <td><code>"TV"</code> [1]</td>
-      <td>Wechselt in den TV-Betrachtungsmodus.</td>
+      <td>Wechselt in den TV-Anzeigemodus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2768,7 +2811,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVAudioDescription"</code></td>
-      <td>Schaltet den Audiodeskriptionsmodus ein und aus.</td>
+      <td>Schaltet den Audio-Beschreibungsmodus ein und aus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2777,7 +2820,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     <tr>
       <td><code>"TVAudioDescriptionMixDown"</code></td>
       <td>
-        Verringert die Mischlautstärke der Audiodeskription; reduziert die Lautstärke der Audiodeskriptionen im Verhältnis zum Programmsound.
+        Verringert die Mischlautstärke der Audiobeschreibung; reduziert die Lautstärke der Audiobeschreibungen im Verhältnis zum Programmsound.
       </td>
       <td></td>
       <td></td>
@@ -2787,7 +2830,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     <tr>
       <td><code>"TVAudioDescriptionMixUp"</code></td>
       <td>
-        Erhöht die Mischlautstärke der Audiodeskription; erhöht die Lautstärke der Audiodeskriptionen im Verhältnis zum Programmsound.
+        Erhöht die Mischlautstärke der Audiobeschreibung; erhöht die Lautstärke der Audiobeschreibungen im Verhältnis zum Programmsound.
       </td>
       <td></td>
       <td></td>
@@ -2797,7 +2840,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     <tr>
       <td><code>"TVContentsMenu"</code></td>
       <td>
-        Zeigt oder verbirgt die zur Wiedergabe verfügbaren Medieninhalte (dies kann ein Kanalführer sein, der die aktuell laufenden Programme anzeigt, oder eine Liste von Medieninhalten, die abgespielt werden sollen).
+        Zeigt das Medieninhaltsmenü für die Wiedergabe an oder verbirgt es (dies kann ein Kanalleitfaden sein, der die derzeit laufenden Programme anzeigt, oder eine Liste von Mediendateien zur Wiedergabe).
       </td>
       <td></td>
       <td></td>
@@ -2806,7 +2849,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVDataService"</code></td>
-      <td>Zeigt oder verbirgt das Datenservicemenü des TVs.</td>
+      <td>Zeigt das TV-Datendienst-Menü an oder verbirgt es.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2814,7 +2857,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInput"</code> [2]</td>
-      <td>Durchläuft die Eingabemodi eines externen TVs.</td>
+      <td>Wechselt den Eingabemodus an einem externen TV.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2822,7 +2865,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputComponent1"</code></td>
-      <td>Wechselt zur Eingabe "Component 1".</td>
+      <td>Wechselt auf den Eingang "Komponente 1".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2830,7 +2873,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputComponent2"</code></td>
-      <td>Wechselt zur Eingabe "Component 2".</td>
+      <td>Wechselt auf den Eingang "Komponente 2".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2838,7 +2881,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputComposite1"</code></td>
-      <td>Wechselt zur Eingabe "Composite 1".</td>
+      <td>Wechselt auf den Eingang "Composite 1".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2846,7 +2889,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputComposite2"</code></td>
-      <td>Wechselt zur Eingabe "Composite 2".</td>
+      <td>Wechselt auf den Eingang "Composite 2".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2854,7 +2897,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputHDMI1"</code></td>
-      <td>Wechselt zur Eingabe "HDMI 1".</td>
+      <td>Wechselt auf den Eingang "HDMI 1".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2862,7 +2905,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputHDMI2"</code></td>
-      <td>Wechselt zur Eingabe "HDMI 2".</td>
+      <td>Wechselt auf den Eingang "HDMI 2".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2870,7 +2913,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputHDMI3"</code></td>
-      <td>Wechselt zur Eingabe "HDMI 3".</td>
+      <td>Wechselt auf den Eingang "HDMI 3".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2878,7 +2921,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputHDMI4"</code></td>
-      <td>Wechselt zur Eingabe "HDMI 4".</td>
+      <td>Wechselt auf den Eingang "HDMI 4".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2886,7 +2929,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVInputVGA1"</code></td>
-      <td>Wechselt zur Eingabe "VGA 1".</td>
+      <td>Wechselt auf den Eingang "VGA 1".</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2894,7 +2937,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVMediaContext"</code></td>
-      <td>Die Medienskontextmenü-Taste.</td>
+      <td>Die Menü-Taste für den Media-Kontext.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2902,7 +2945,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVNetwork"</code></td>
-      <td>Wechselt die Netzwerkverbindung des Fernsehers ein und aus.</td>
+      <td>Schaltet die Netzwerkverbindung des TVs ein und aus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2910,7 +2953,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVNumberEntry"</code></td>
-      <td>Setzt den TV in den Zahleneingabemodus.</td>
+      <td>Schaltet den TV in den Zahleneingabemodus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2918,7 +2961,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVPower"</code> [2]</td>
-      <td>Der Netzschalter des Geräts.</td>
+      <td>Die Ein-/Ausschalttaste des Geräts.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2934,7 +2977,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVSatellite"</code></td>
-      <td>Satelliten-Taste.</td>
+      <td>Satellitentaste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2942,7 +2985,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVSatelliteBS"</code></td>
-      <td>Satelliten-Broadcast-Taste.</td>
+      <td>Rundfunk-Satellitentaste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2950,7 +2993,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVSatelliteCS"</code></td>
-      <td>Satelliten-Kommunikations-Taste.</td>
+      <td>Kommunikations-Satellitentaste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2958,7 +3001,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVSatelliteToggle"</code></td>
-      <td>Wechselt zwischen verfügbaren Satelliten.</td>
+      <td>Wechselt zwischen den verfügbaren Satelliten.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2967,7 +3010,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     <tr>
       <td><code>"TVTerrestrialAnalog"</code></td>
       <td>
-        Wählt den analogen terrestrischen Fernsehdienst (analog über Kabel oder Antenne) aus.
+        Wählt den analogen terrestrischen Fernsehdienst (analoges Kabel oder Antennenempfang) aus.
       </td>
       <td></td>
       <td></td>
@@ -2977,7 +3020,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     <tr>
       <td><code>"TVTerrestrialDigital"</code></td>
       <td>
-        Wählt den digitalen terrestrischen Fernsehdienst (digital über Kabel oder Antenne) aus.
+        Wählt den digitalen terrestrischen Fernsehdienst (digitales Kabel oder Antennenempfang) aus.
       </td>
       <td></td>
       <td></td>
@@ -2986,7 +3029,7 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
     </tr>
     <tr>
       <td><code>"TVTimer"</code></td>
-      <td>Timer-Programmierungstaste.</td>
+      <td>Timer-Programmiertaste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -2995,30 +3038,30 @@ Diese Tastenwerte repräsentieren Knöpfe oder Tasten, die auf Fernsehgeräten o
   </tbody>
 </table>
 
-\[1] Firefox fügte in Firefox 37 die richtige Unterstützung für die `"TV"`-Taste hinzu; davor erzeugte diese Taste den Tastencode `"Live"`.
+\[1] Firefox fügte in Firefox 37 die Unterstützung für die `"TV"`-Taste hinzu; zuvor erzeugte diese Taste den Tastencode `"Live"`.
 
 \[2] Diese Tasten waren bis Firefox 37 `"Unidentified"`.
 
-## Mediensteuerungstasten
+## Mediencontroller-Tasten
 
-Da moderne Fernbedienungen für Mediengeräte oft Tasten enthalten, die über die grundlegenden Steuerungen hinausgehen, die an anderer Stelle in diesem Dokument behandelt werden, sind Tastencodes für eine breite Palette dieser zusätzlichen Tasten definiert.
+Da moderne Fernbedienungen für Mediengeräte oft über Tasten verfügen, die über die grundlegenden Steuerungen hinausgehen, die an anderer Stelle in diesem Dokument behandelt werden, sind Tastenwerte für eine breite Palette dieser zusätzlichen Tasten definiert.
 
-Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spezifikationen für Unterhaltungselektronik:
+Die unten aufgeführten Werte stammen teilweise aus einer Reihe von technischen Spezifikationen für Unterhaltungselektronik:
 
-- [DTV Application Software Environment](https://www.atsc.org/atsc-documents/a100-dtv-application-software-environment-level-1-dase-1/) (Teil der [ATSC](https://de.wikipedia.org/wiki/ATSC)-Spezifikation)
-- [Open Cable Application Platform](https://de.wikipedia.org/wiki/OpenCable_Application_Platform)
-- [ANSI/CEA-2014-B](https://shop.cta.tech/products/cta-2014): Web-basiertes Protokoll und Framework für Remote-Benutzeroberflächen auf UPnP™-Netzwerken und dem Internet
-- [Android KeyEvent key code values](https://developer.android.com/reference/android/view/KeyEvent.html)
+- [DTV Application Software Environment](https://www.atsc.org/atsc-documents/a100-dtv-application-software-environment-level-1-dase-1/) (Teil der [ATSC](https://en.wikipedia.org/wiki/ATSC)-Spezifikation)
+- [Open Cable Application Plattform](https://de.wikipedia.org/wiki/OpenCable_Application_Platform)
+- [ANSI/CEA-2014-B](https://shop.cta.tech/products/cta-2014): Web-basiertes Protokoll und Framework für Remote-Benutzeroberfläche auf UPnP™-Netzwerken und das Internet
+- [Android KeyEvent Keycode-Werte](https://developer.android.com/reference/android/view/KeyEvent.html)
 
 > [!NOTE]
-> Fernbedienungen enthalten in der Regel Tasten, deren Werte bereits anderweitig definiert sind, z. B. unter [Multimediaschlüssel](#multimedia-tasten) oder [Audio-Steuerungstasten](#audio-steuerungstasten). Die Werte dieser Tasten stimmen mit denen überein, die in diesen Tabellen dokumentiert sind.
+> Fernbedienungen enthalten typischerweise Tasten, deren Werte bereits anderswo definiert sind, wie unter [Multimedia-Tasten](#multimedia-tasten) oder [Audio-Steuerungstasten](#audiosteuerungstasten). Diese Tastencodes stimmen mit dem überein, was in diesen Tabellen dokumentiert ist.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtueller Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -3030,9 +3073,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
   <tbody>
     <tr>
       <td><code>"AVRInput"</code> [3]</td>
-      <td>
-        Ändert den Eingabemodus auf einer externen Audio-/Video-Empfängereinheit (AVR).
-      </td>
+      <td>Ändert den Eingabemodus an einem externen Audio-/Video-Empfänger (AVR)-Gerät.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3040,7 +3081,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"AVRPower"</code> [3]</td>
-      <td>Schaltet die Stromversorgung einer externen AVR-Einheit ein und aus.</td>
+      <td>Schaltet die Stromversorgung eines externen AVR-Geräts ein oder aus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3048,10 +3089,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF0Red"</code> [3]</td>
-      <td>
-        Allgemeiner Media-Funktionstaste, rot kodiert. Diese hat den Index
-        <code>0</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, rot kodiert. Diese hat den Index <code>0</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_0</code></td>
       <td></td>
       <td></td>
@@ -3059,10 +3097,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF1Green"</code> [3]</td>
-      <td>
-        Allgemeiner Media-Funktionstaste, grün kodiert. Diese hat den Index
-        <code>1</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, grün kodiert. Diese hat den Index <code>1</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_1</code></td>
       <td></td>
       <td></td>
@@ -3070,10 +3105,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF2Yellow"</code> [3]</td>
-      <td>
-        Allgemeiner Media-Funktionstaste, gelb kodiert. Diese hat den Index
-        <code>2</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, gelb kodiert. Diese hat den Index <code>2</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_2</code></td>
       <td></td>
       <td></td>
@@ -3081,10 +3113,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF3Blue"</code> [3]</td>
-      <td>
-        Allgemeiner Media-Funktionstaste, blau kodiert. Diese hat den Index
-        <code>3</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, blau kodiert. Diese hat den Index <code>3</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_3</code></td>
       <td></td>
       <td></td>
@@ -3092,10 +3121,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF4Grey"</code></td>
-      <td>
-        Allgemeiner Media-Funktionstaste, grau kodiert. Diese hat den Index
-        <code>4</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, grau kodiert. Diese hat den Index <code>4</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_4</code></td>
       <td></td>
       <td></td>
@@ -3103,10 +3129,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ColorF5Brown"</code></td>
-      <td>
-        Allgemeiner Media-Funktionstaste, braun kodiert. Diese hat den Index
-        <code>5</code> unter den farbigen Tasten.
-      </td>
+      <td>Allgemeine Medientaste, braun kodiert. Diese hat den Index <code>5</code> unter den farbcodierten Tasten.</td>
       <td><code>VK_COLORED_KEY_5</code></td>
       <td></td>
       <td></td>
@@ -3114,7 +3137,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ClosedCaptionToggle"</code></td>
-      <td>Schaltet die Untertitelung ein und aus.</td>
+      <td>Schaltet Untertitel an und aus.</td>
       <td><code>VK_CC</code></td>
       <td></td>
       <td></td>
@@ -3122,10 +3145,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Dimmer"</code></td>
-      <td>
-        Passt die Helligkeit des Geräts an, indem zwischen zwei Helligkeitsstufen
-        umgeschaltet <em>oder</em> zwischen mehreren Helligkeitsstufen gewechselt wird.
-      </td>
+      <td>Regelt die Helligkeit des Geräts, indem zwischen zwei Helligkeitsstufen umgeschaltet wird <em>oder</em> zwischen mehreren Helligkeitsstufen gewechselt wird.</td>
       <td><code>VK_DIMMER</code></td>
       <td></td>
       <td><code>GDK_KEY_BrightnessAdjust</code> (0x1008FF3B)</td>
@@ -3141,7 +3161,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"DVR"</code></td>
-      <td>Schaltet die Eingabequelle auf den Digitalvideorekorder (DVR).</td>
+      <td>Wechselt die Eingabequelle zum Digital Video Recorder (DVR).</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3149,7 +3169,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Exit"</code></td>
-      <td>Die Taste Exit, die die aktuelle Anwendung oder das Menü verlässt.</td>
+      <td>Die Beenden-Taste, die die aktuelle Anwendung oder das Menü schließt.</td>
       <td><code>VK_EXIT</code></td>
       <td></td>
       <td><code>Qt::Key_Exit</code> (0x0102000a)</td>
@@ -3157,9 +3177,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteClear0"</code></td>
-      <td>
-        Löscht das Programm oder den Inhalt, der im ersten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Löscht das Programm oder den Inhalt, der in dem ersten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_CLEAR_FAVORITE_0</code></td>
       <td></td>
       <td></td>
@@ -3167,9 +3185,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteClear1"</code></td>
-      <td>
-        Löscht das Programm oder den Inhalt, der im zweiten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Löscht das Programm oder den Inhalt, der in dem zweiten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_CLEAR_FAVORITE_1</code></td>
       <td></td>
       <td></td>
@@ -3177,9 +3193,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteClear2"</code></td>
-      <td>
-        Löscht das Programm oder den Inhalt, der im dritten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Löscht das Programm oder den Inhalt, der in dem dritten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_CLEAR_FAVORITE_2</code></td>
       <td></td>
       <td></td>
@@ -3187,9 +3201,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteClear3"</code></td>
-      <td>
-        Löscht das Programm oder den Inhalt, der im vierten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Löscht das Programm oder den Inhalt, der in dem vierten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_CLEAR_FAVORITE_3</code></td>
       <td></td>
       <td></td>
@@ -3197,9 +3209,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteRecall0"</code></td>
-      <td>
-        Wählt (ruft zurück) das Programm oder den Inhalt, der im ersten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Wählt (ruft) das Programm oder den Inhalt, der in dem ersten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_RECALL_FAVORITE_0</code></td>
       <td></td>
       <td></td>
@@ -3207,9 +3217,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteRecall1"</code></td>
-      <td>
-        Wählt (ruft zurück) das Programm oder den Inhalt, der im zweiten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Wählt (ruft) das Programm oder den Inhalt, der in dem zweiten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_RECALL_FAVORITE_1</code></td>
       <td></td>
       <td></td>
@@ -3217,9 +3225,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteRecall2"</code></td>
-      <td>
-        Wählt (ruft zurück) das Programm oder den Inhalt, der im dritten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Wählt (ruft) das Programm oder den Inhalt, der in dem dritten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_RECALL_FAVORITE_2</code></td>
       <td></td>
       <td></td>
@@ -3227,9 +3233,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteRecall3"</code></td>
-      <td>
-        Wählt (ruft zurück) das Programm oder den Inhalt, der im vierten Platz der Favoritenliste gespeichert ist.
-      </td>
+      <td>Wählt (ruft) das Programm oder den Inhalt, der in dem vierten Favoritenspeicherplatz gespeichert ist.</td>
       <td><code>VK_RECALL_FAVORITE_3</code></td>
       <td></td>
       <td></td>
@@ -3237,9 +3241,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteStore0"</code></td>
-      <td>
-        Speichert das aktuelle Programm oder den Inhalt im ersten Platz der Favoritenliste.
-      </td>
+      <td>Speichert das aktuelle Programm oder den Inhalt im ersten Favoritenspeicherplatz.</td>
       <td><code>VK_STORE_FAVORITE_0</code></td>
       <td></td>
       <td></td>
@@ -3247,9 +3249,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteStore1"</code></td>
-      <td>
-        Speichert das aktuelle Programm oder den Inhalt im zweiten Platz der Favoritenliste.
-      </td>
+      <td>Speichert das aktuelle Programm oder den Inhalt im zweiten Favoritenspeicherplatz.</td>
       <td><code>VK_STORE_FAVORITE_1</code></td>
       <td></td>
       <td></td>
@@ -3257,9 +3257,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteStore2"</code></td>
-      <td>
-        Speichert das aktuelle Programm oder den Inhalt im dritten Platz der Favoritenliste.
-      </td>
+      <td>Speichert das aktuelle Programm oder den Inhalt im dritten Favoritenspeicherplatz.</td>
       <td><code>VK_STORE_FAVORITE_2</code></td>
       <td></td>
       <td></td>
@@ -3267,9 +3265,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"FavoriteStore3"</code></td>
-      <td>
-        Speichert das aktuelle Programm oder den Inhalt im vierten Platz der Favoritenliste.
-      </td>
+      <td>Speichert das aktuelle Programm oder den Inhalt im vierten Favoritenspeicherplatz.</td>
       <td><code>VK_STORE_FAVORITE_3</code></td>
       <td></td>
       <td></td>
@@ -3277,7 +3273,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Guide"</code></td>
-      <td>Schaltet die Anzeige des Programms oder Inhaltsleitfaden um.</td>
+      <td>Schaltet die Anzeige des Programms oder Inhaltsleitfadens um.</td>
       <td><code>VK_GUIDE</code></td>
       <td></td>
       <td><code>Qt::Key_Guide</code> (0x0100011A)</td>
@@ -3285,10 +3281,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"GuideNextDay"</code></td>
-      <td>
-        Wenn der Leitfaden gerade angezeigt wird, zeigt diese Taste dem Leitfaden an,
-        die Inhalte des nächsten Tags anzuzeigen.
-      </td>
+      <td>Wenn der Leitfaden derzeit angezeigt wird, beauftragt diese Taste den Leitfaden, den Inhalt des nächsten Tages anzuzeigen.</td>
       <td><code>VK_NEXT_DAY</code></td>
       <td></td>
       <td></td>
@@ -3296,10 +3289,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"GuidePreviousDay"</code></td>
-      <td>
-        Wenn der Leitfaden gerade angezeigt wird, zeigt diese Taste dem Leitfaden an,
-        die Inhalte des vorherigen Tags anzuzeigen.
-      </td>
+      <td>Wenn der Leitfaden derzeit angezeigt wird, beauftragt diese Taste den Leitfaden, den Inhalt des vorherigen Tages anzuzeigen.</td>
       <td><code>VK_PREV_DAY</code></td>
       <td></td>
       <td></td>
@@ -3307,10 +3297,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Info"</code></td>
-      <td>
-        Schaltet die Anzeige von Informationen über den aktuell ausgewählten Inhalt,
-        das Programm oder das Medium um.
-      </td>
+      <td>Schaltet die Anzeige von Informationen über den derzeit ausgewählten Inhalt, das Programm oder die Medien um.</td>
       <td><code>VK_INFO</code></td>
       <td></td>
       <td><code>Qt::Key_Info</code> (0x0100011B)</td>
@@ -3318,11 +3305,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"InstantReplay"</code></td>
-      <td>
-        Fordert das Gerät auf, ein sofortiges Wiederholungsereignis auszuführen
-        (typischerweise eine Art Rücksprung über einen kurzen Zeitraum gefolgt von
-        einer Wiedergabe, möglicherweise aber selten in Zeitlupe).
-      </td>
+      <td>Fordert das Gerät auf, eine Sofortwiedergabe durchzuführen (normalerweise eine kurze Zeitsprung zurück und erneutes Abspielen, möglicherweise, aber nicht normalerweise in Zeitlupe).</td>
       <td><code>VK_INSTANT_REPLAY</code></td>
       <td></td>
       <td></td>
@@ -3330,10 +3313,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Link"</code></td>
-      <td>
-        Öffnet Inhalte, die mit dem aktuellen Programm verknüpft sind, falls verfügbar
-        und möglich.
-      </td>
+      <td>Öffnet Inhalte, die mit dem aktuellen Programm verlinkt sind, sofern verfügbar und möglich.</td>
       <td><code>VK_LINK</code></td>
       <td></td>
       <td></td>
@@ -3349,9 +3329,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"LiveContent"</code></td>
-      <td>
-        Schaltet eine Anzeige um, die aktuell verfügbaren Live-Inhalte oder Programme auflistet.
-      </td>
+      <td>Schaltet eine Anzeige um, die derzeit verfügbare Live-Inhalte oder Programme auflistet.</td>
       <td><code>VK_LIVE</code></td>
       <td></td>
       <td></td>
@@ -3359,7 +3337,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Lock"</code></td>
-      <td>Sperrt oder entsperrt den aktuell ausgewählten Inhalt oder das Programm.</td>
+      <td>Sperrt oder entsperrt den derzeit ausgewählten Inhalt oder das Programm.</td>
       <td><code>VK_LOCK</code></td>
       <td></td>
       <td></td>
@@ -3367,10 +3345,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaApps"</code></td>
-      <td>
-        Präsentiert eine Liste von Medienanwendungen wie Foto-Viewer, Audio- und
-        Videoplayer und Spiele. [1]
-      </td>
+      <td>Präsentiert eine Liste von Medienanwendungen wie Fotobetrachter, Audio- und Videoplayer und Spiele. [1]</td>
       <td><code>VK_APPS</code></td>
       <td></td>
       <td></td>
@@ -3378,20 +3353,15 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaAudioTrack"</code></td>
-      <td>Die Audiotrack-Taste.</td>
+      <td>Die Audio-Track-Taste.</td>
       <td></td>
       <td></td>
-      <td>
-        GDK_KEY_AudioCycleTrack (0x1008FF9B)<br /><code
-          >Qt::Key_AudioCycleTrack</code
-        >
-        (0x01000106)
-      </td>
+      <td>GDK_KEY_AudioCycleTrack (0x1008FF9B)<br /><code>Qt::Key_AudioCycleTrack</code> (0x01000106)</td>
       <td><code>KEYCODE_MEDIA_AUDIO_TRACK</code> (222)</td>
     </tr>
     <tr>
       <td><code>"MediaLast"</code></td>
-      <td>Springt zurück zum zuletzt angesehenen Inhalt, Programm oder anderen Medien.</td>
+      <td>Springt zurück zu den zuletzt angesehenen Inhalten, Programmen oder anderen Medien.</td>
       <td><code>VK_LAST</code></td>
       <td></td>
       <td><code>Qt::Key_MediaLast</code> (0x0100FFFF)</td>
@@ -3399,7 +3369,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaSkipBackward"</code></td>
-      <td>Überspringt rückwärts zum vorherigen Inhalt oder Programm.</td>
+      <td>Springt zurück zum vorherigen Inhalt oder Programm.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3407,7 +3377,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaSkipForward"</code></td>
-      <td>Überspringt vorwärts zum nächsten Inhalt oder Programm.</td>
+      <td>Springt vorwärts zum nächsten Inhalt oder Programm.</td>
       <td><code>VK_SKIP</code></td>
       <td></td>
       <td></td>
@@ -3415,7 +3385,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaStepBackward"</code></td>
-      <td>Springt rückwärts zum vorherigen Inhalt oder Programm.</td>
+      <td>Schrittweise Rückwärtsbewegung zum vorherigen Inhalt oder Programm.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3423,7 +3393,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaStepForward"</code></td>
-      <td>Springt vorwärts zum nächsten Inhalt oder Programm.</td>
+      <td>Schrittweise Vorwärtsbewegung zum nächsten Inhalt oder Programm.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3431,10 +3401,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"MediaTopMenu"</code></td>
-      <td>
-        Hauptmenü-Taste. Öffnet das Hauptmenü des Mediums (z. B. einer DVD oder
-        Blu-Ray-Disc).
-      </td>
+      <td>Hauptmenü-Taste. Öffnet das Hauptmenü der Medien (z. B. für eine DVD- oder Blu-Ray-Disc).</td>
       <td></td>
       <td></td>
       <td><code>Qt::Key_TopMenu</code> (0x0100010A)</td>
@@ -3442,7 +3409,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NavigateIn"</code></td>
-      <td>Navigiert in ein Untermenü oder eine Option hinein.</td>
+      <td>Navigation in ein Untermenü oder eine Option.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3450,7 +3417,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NavigateNext"</code></td>
-      <td>Navigiert zum nächsten Element.</td>
+      <td>Navigation zum nächsten Element.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3458,7 +3425,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NavigateOut"</code></td>
-      <td>Navigiert aus dem aktuellen Bildschirm oder Menü hinaus.</td>
+      <td>Navigation aus dem aktuellen Bildschirm oder Menü heraus.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3466,7 +3433,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NavigatePrevious"</code></td>
-      <td>Navigiert zum vorherigen Element.</td>
+      <td>Navigation zum vorherigen Element.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3474,7 +3441,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NextFavoriteChannel"</code></td>
-      <td>Wechselt zum nächsten Kanal in der Favoritenliste.</td>
+      <td>Wechseln zum nächsten Sender in der Favoritenliste.</td>
       <td><code>VK_NEXT_FAVORITE_CHANNEL</code></td>
       <td></td>
       <td></td>
@@ -3482,10 +3449,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"NextUserProfile"</code></td>
-      <td>
-        Wechselt zum nächsten gespeicherten Benutzerprofil, falls diese Funktion
-        unterstützt wird und mehrere Profile existieren.
-      </td>
+      <td>Wechseln zum nächsten gespeicherten Benutzerprofil, sofern diese Funktion unterstützt wird und mehrere Profile vorhanden sind.</td>
       <td><code>VK_USER</code></td>
       <td></td>
       <td></td>
@@ -3493,10 +3457,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"OnDemand"</code></td>
-      <td>
-        Öffnet die Benutzeroberfläche zur Auswahl von On-Demand-Inhalten oder -Programmen
-        zum Ansehen.
-      </td>
+      <td>Öffnet die Benutzeroberfläche zur Auswahl von On-Demand-Inhalten oder Programmen, die angeschaut werden sollen.</td>
       <td><code>VK_ON_DEMAND</code></td>
       <td></td>
       <td></td>
@@ -3504,10 +3465,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Pairing"</code></td>
-      <td>
-        Startet den Prozess des Koppelns der Fernbedienung mit einem zu steuernden
-        Gerät.
-      </td>
+      <td>Startet den Prozess des Koppelns der Fernbedienung mit einem zu steuernden Gerät.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3515,7 +3473,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PinPDown"</code></td>
-      <td>Eine Taste, um das Picture-in-Picture-Bild nach unten zu bewegen.</td>
+      <td>Eine Taste, um die Bild-in-Bild-Ansicht nach unten zu bewegen.</td>
       <td><code>VK_PINP_DOWN</code></td>
       <td></td>
       <td></td>
@@ -3523,7 +3481,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PinPMove"</code></td>
-      <td>Eine Taste zur Steuerung der Bewegung des Picture-in-Picture-Bildes.</td>
+      <td>Eine Taste, um die Bewegung der Bild-in-Bild-Ansicht zu steuern.</td>
       <td><code>VK_PINP_MOVE</code></td>
       <td></td>
       <td></td>
@@ -3531,7 +3489,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PinPToggle"</code></td>
-      <td>Schaltet die Anzeige des Picture-in-Picture-Bildes ein und aus.</td>
+      <td>Schaltet die Anzeige der Bild-in-Bild-Ansicht an und aus.</td>
       <td><code>VK_PINP_TOGGLE</code></td>
       <td></td>
       <td></td>
@@ -3539,7 +3497,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PinPUp"</code></td>
-      <td>Eine Taste, um das Picture-in-Picture-Bild nach oben zu bewegen.</td>
+      <td>Eine Taste, um die Bild-in-Bild-Ansicht nach oben zu bewegen.</td>
       <td><code>VK_PINP_UP</code></td>
       <td></td>
       <td></td>
@@ -3547,7 +3505,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PlaySpeedDown"</code></td>
-      <td>Verlangsamt die Wiedergabegeschwindigkeit des Mediums.</td>
+      <td>Verringert die Medienwiedergabegeschwindigkeit.</td>
       <td><code>VK_PLAY_SPEED_DOWN</code></td>
       <td></td>
       <td></td>
@@ -3555,7 +3513,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PlaySpeedReset"</code></td>
-      <td>Setzt die Wiedergabegeschwindigkeit des Mediums auf normal zurück.</td>
+      <td>Setzt die Medienwiedergabegeschwindigkeit auf normal zurück.</td>
       <td><code>VK_PLAY_SPEED_RESET</code></td>
       <td></td>
       <td></td>
@@ -3563,7 +3521,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"PlaySpeedUp"</code></td>
-      <td>Erhöht die Wiedergabegeschwindigkeit des Mediums.</td>
+      <td>Erhöht die Medienwiedergabegeschwindigkeit.</td>
       <td><code>VK_PLAY_SPEED_UP</code></td>
       <td></td>
       <td></td>
@@ -3571,7 +3529,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"RandomToggle"</code></td>
-      <td>Schaltet die Zufallswiedergabe (auch als "Shuffle-Modus" bekannt) ein und aus.</td>
+      <td>Schaltet den Zufallswiedergabemodus (auch als "Shuffle-Modus" bekannt) an und aus.</td>
       <td><code>VK_RANDOM_TOGGLE</code></td>
       <td></td>
       <td><code>GDK_KEY_AudioRandomPlay</code> (0x1008FF99)</td>
@@ -3579,10 +3537,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"RcLowBattery"</code></td>
-      <td>
-        Ein Code, der gesendet wird, wenn die Batterie der Fernbedienung schwach ist.
-        Dies entspricht tatsächlich keiner physischen Taste.
-      </td>
+      <td>Ein Code, der gesendet wird, wenn die Batterie der Fernbedienung schwach ist. Dies entspricht tatsächlich keiner physischen Taste.</td>
       <td><code>VK_RC_LOW_BATTERY</code></td>
       <td></td>
       <td></td>
@@ -3590,7 +3545,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"RecordSpeedNext"</code></td>
-      <td>Wechselt zwischen den verfügbaren Aufnahmegeschwindigkeiten des Mediums.</td>
+      <td>Durchläuft die verfügbaren Medienaufzeichnungsgeschwindigkeiten.</td>
       <td><code>VK_RECORD_SPEED_NEXT</code></td>
       <td></td>
       <td></td>
@@ -3598,11 +3553,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"RfBypass"</code></td>
-      <td>
-        Schaltet den Radiofrequenz (RF) Eingangs-Bypass-Modus ein und aus. Im RF-Bypass-Modus
-        wird der RF-Eingang direkt zum RF-Ausgang geleitet, ohne jegliche Verarbeitung
-        oder Filterung.
-      </td>
+      <td>Schaltet den Radiofrequenz (RF)-Eingangs-Bypass-Modus an und aus. RF-Bypass-Modus leitet den RF-Eingang direkt an den RF-Ausgang weiter, ohne jegliche Verarbeitung oder Filterung.</td>
       <td><code>VK_RF_BYPASS</code></td>
       <td></td>
       <td></td>
@@ -3610,10 +3561,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ScanChannelsToggle"</code></td>
-      <td>
-        Schaltet den Kanalsuchlaufmodus ein und aus. Dies ist ein Modus, der automatisch
-        durch Kanäle wechselt, bis der Benutzer den Scan stoppt.
-      </td>
+      <td>Schaltet den Sendersuchmodus an und aus. Dies ist ein Modus, der automatisch durch die Kanäle blättert, bis der Benutzer den Scan stoppt.</td>
       <td><code>VK_SCAN_CHANNELS_TOGGLE</code></td>
       <td></td>
       <td></td>
@@ -3621,7 +3569,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ScreenModeNext"</code></td>
-      <td>Wechselt zwischen den verfügbaren Bildschirmdarstellungsmodi.</td>
+      <td>Wechselt durch die verfügbaren Bildschirmdarstellungsmodi.</td>
       <td><code>VK_SCREEN_MODE_NEXT</code></td>
       <td></td>
       <td></td>
@@ -3629,7 +3577,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Settings"</code></td>
-      <td>Schaltet die Anzeige des Einstellungsbildschirms des Geräts ein und aus.</td>
+      <td>Schaltet die Anzeige des Geräteeinstellungsbildschirms an und aus.</td>
       <td><code>VK_SETTINGS</code></td>
       <td></td>
       <td><code>Qt::Key_Settings</code> (0x0100011C)</td>
@@ -3637,20 +3585,15 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"SplitScreenToggle"</code></td>
-      <td>Schaltet den Bildschirmmodus "Split-Screen" ein und aus.</td>
+      <td>Schaltet den Split-Screen-Anzeigemodus an und aus.</td>
       <td><code>VK_SPLIT_SCREEN_TOGGLE</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_SplitScreen</code> (0x1008FF7D)<br /><code
-          >Qt::Key_SplitScreen</code
-        >
-        (0x010000ED)
-      </td>
+      <td><code>GDK_KEY_SplitScreen</code> (0x1008FF7D)<br /><code>Qt::Key_SplitScreen</code> (0x010000ED)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"STBInput"</code> [3]</td>
-      <td>Wechselt die Eingabemodi auf einer externen Set-Top-Box (STB).</td>
+      <td>Wechselt zwischen den Eingabemodi an einem externen Set-Top-Box (STB).</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3666,7 +3609,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Subtitle"</code></td>
-      <td>Schaltet die Anzeige von Untertiteln ein und aus, falls verfügbar.</td>
+      <td>Schaltet die Anzeige von Untertiteln an und aus, wenn sie verfügbar sind.</td>
       <td><code>VK_SUBTITLE</code></td>
       <td></td>
       <td><code>GDK_KEY_Subtitle</code> (0x1008FF9A)</td>
@@ -3674,10 +3617,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Teletext"</code></td>
-      <td>
-        Schaltet die Anzeige von <a href="https://de.wikipedia.org/wiki/Teletext">Videotext</a> ein,
-        sofern verfügbar.
-      </td>
+      <td>Schaltet die Anzeige von <a href="https://en.wikipedia.org/wiki/Teletext">Videotext</a> um, falls verfügbar.</td>
       <td><code>VK_TELETEXT</code></td>
       <td></td>
       <td></td>
@@ -3685,7 +3625,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"VideoModeNext"</code> [3]</td>
-      <td>Wechselt zwischen den verfügbaren Videomodi.</td>
+      <td>Wechselt durch die verfügbaren Videomodi.</td>
       <td><code>VK_VIDEO_MODE_NEXT</code></td>
       <td></td>
       <td><code>GDK_KEY_Next_VMode</code> (0x1008FE22)</td>
@@ -3693,11 +3633,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"Wink"</code></td>
-      <td>
-        Veranlasst das Gerät, sich in irgendeiner Form zu identifizieren, z. B. durch
-        das Blinken eines Lichts, eine kurze Änderung der Helligkeit von
-        Anzeigelichtern oder das Ausgeben eines Tons.
-      </td>
+      <td>Veranlasst das Gerät sich in irgendeiner Weise zu identifizieren, z. B. durch Blinken einer Lampe, kurzfristige Änderung der Helligkeit der Anzeigeleuchten oder Emission eines Tons.</td>
       <td><code>VK_WINK</code></td>
       <td></td>
       <td></td>
@@ -3705,10 +3641,7 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
     </tr>
     <tr>
       <td><code>"ZoomToggle"</code> [2]</td>
-      <td>
-        Wechselt zwischen Vollbildanzeige und skalierter Inhaltsanzeige oder ändert
-        anderweitig die Vergrößerungsstufe.
-      </td>
+      <td>Schaltet zwischen Vollbild- und skaliertem Inhaltsmodus um oder ändert anderweitig den Vergrößerungsgrad.</td>
       <td><code>VK_ZOOM</code> (0xFB)</td>
       <td></td>
       <td><code>Qt::Key_Zoom</code> (0x01020006)</td>
@@ -3717,22 +3650,22 @@ Die unten stehenden Werte stammen teilweise aus einer Reihe von technischen Spez
   </tbody>
 </table>
 
-\[1] Verwechseln Sie nicht die Medienstörungstaste `VK_APPS` mit der Windows-Taste `VK_APPS`, die auch als `VK_CONTEXT_MENU` bekannt ist. Diese Taste wird als `"ContextMenu"` codiert.
+\[1] Verwechseln Sie die Mediencontroller-Taste `VK_APPS` nicht mit der Windows-Taste `VK_APPS`, die auch als `VK_CONTEXT_MENU` bekannt ist. Diese Taste ist als `"ContextMenu"` kodiert.
 
-\[2] Firefox 36 und früher identifiziert die Zoom-Umschalttaste als `"Zoom"`. Firefox 37 korrigiert dies zu `"ZoomToggle"`.
+\[2] Firefox 36 und ältere Versionen identifizieren die Zoom-Umschalttaste als `"Zoom"`. Firefox 37 korrigiert dies zu `"ZoomToggle"`.
 
-\[3] Diese Tasten waren bis Firefox 37 `"Unidentified"`.
+\[3] Diese Tasten waren bis Firefox 37 als `"Unidentified"` bekannt.
 
-## Tasten zur Sprachsteuerung
+## Sprachsteuerungstasten
 
-Diese speziellen Multimedia-Tasten werden zur Steuerung von Sprachsteuerungsfunktionen verwendet.
+Diese speziellen Multimediatasten werden verwendet, um Sprachsteuerungsfunktionen zu steuern.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtueller Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -3744,10 +3677,7 @@ Diese speziellen Multimedia-Tasten werden zur Steuerung von Sprachsteuerungsfunk
   <tbody>
     <tr>
       <td><code>"SpeechCorrectionList"</code> [1]</td>
-      <td>
-        Präsentiert eine Liste möglicher Korrekturen für ein Wort, das falsch
-        erkannt wurde.
-      </td>
+      <td>Präsentiert eine Liste möglicher Korrekturen für ein falsch identifiziertes Wort.</td>
       <td><code>APPCOMMAND_CORRECTION_LIST</code></td>
       <td></td>
       <td></td>
@@ -3755,11 +3685,7 @@ Diese speziellen Multimedia-Tasten werden zur Steuerung von Sprachsteuerungsfunk
     </tr>
     <tr>
       <td><code>"SpeechInputToggle"</code> [2]</td>
-      <td>
-        Wechselt zwischen Diktiermodus und Kommando-/Steuermodus. Dies lässt die
-        Spracherkennungs-Engine wissen, ob gesprochene Wörter als Eingabetext oder als
-        Befehle interpretiert werden sollen.
-      </td>
+      <td>Wechselt zwischen Diktiermodus und Befehls-/Steuermodus. Dies teilt der Spracherkennung mit, ob gesprochene Wörter als Eingabetext oder als Befehle interpretiert werden sollen.</td>
       <td><code>APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE</code></td>
       <td></td>
       <td></td>
@@ -3768,20 +3694,20 @@ Diese speziellen Multimedia-Tasten werden zur Steuerung von Sprachsteuerungsfunk
   </tbody>
 </table>
 
-\[1] Der Befehl `APPCOMMAND_CORRECTION_LIST` auf Windows erzeugt `"Unidentified"` in Firefox.
+\[1] Der `APPCOMMAND_CORRECTION_LIST`-Befehl unter Windows erzeugt `"Unidentified"` in Firefox.
 
-\[2] Der Befehl `APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE` auf Windows erzeugt `"Unidentified"` in Firefox.
+\[2] Der `APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE`-Befehl unter Windows erzeugt `"Unidentified"` in Firefox.
 
 ## Dokumententasten
 
-Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-Kategorien enthalten (wie den Medientasten), aber es ist sinnvoller, sie als eigene Kategorie zu betrachten.
+Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tastensätzen enthalten (wie z. B. Medientasten), aber sie werden sinnvollerweise als eigene Kategorie betrachtet.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtueller Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -3793,38 +3719,26 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
   <tbody>
     <tr>
       <td><code>"Close"</code> [1]</td>
-      <td>
-        Schließt das aktuelle Dokument oder die aktuelle Nachricht. Darf nicht die
-        Anwendung beenden.
-      </td>
+      <td>Schließt das aktuelle Dokument oder die Nachricht. Darf die Anwendung nicht beenden.</td>
       <td><code>APPCOMMAND_CLOSE</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Close</code> (0x1008FF56)<br /><code>Qt::Key_Close</code>
-        (0x010000CE)
-      </td>
+      <td><code>GDK_KEY_Close</code> (0x1008FF56)<br /><code>Qt::Key_Close</code> (0x010000CE)</td>
       <td><code>KEYCODE_MEDIA_CLOSE</code> (128)</td>
     </tr>
     <tr>
       <td><code>"New"</code> [1]</td>
-      <td>Erstellt ein neues Dokument oder eine neue Nachricht.</td>
+      <td>Erstellt ein neues Dokument oder eine Nachricht.</td>
       <td><code>APPCOMMAND_NEW</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_New</code> (0x1008FF68)<br /><code>Qt::Key_New</code>
-        (0x01000120)
-      </td>
+      <td><code>GDK_KEY_New</code> (0x1008FF68)<br /><code>Qt::Key_New</code> (0x01000120)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"Open"</code> [1]</td>
-      <td>Öffnet ein vorhandenes Dokument oder eine Nachricht.</td>
+      <td>Öffnet ein bestehendes Dokument oder eine Nachricht.</td>
       <td><code>APPCOMMAND_OPEN</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Open</code> (0x1008FF6B)<br /><code>Qt::Key_Open</code>
-        (0x01000121)
-      </td>
+      <td><code>GDK_KEY_Open</code> (0x1008FF6B)<br /><code>Qt::Key_Open</code> (0x01000121)</td>
       <td></td>
     </tr>
     <tr>
@@ -3832,10 +3746,7 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Druckt das aktuelle Dokument oder die Nachricht.</td>
       <td><code>APPCOMMAND_PRINT</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Print</code> (0xFF61)<br /><code>Qt::Print</code>
-        (0x01000009)
-      </td>
+      <td><code>GDK_KEY_Print</code> (0xFF61)<br /><code>Qt::Print</code> (0x01000009)</td>
       <td></td>
     </tr>
     <tr>
@@ -3843,10 +3754,7 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Speichert das aktuelle Dokument oder die Nachricht.</td>
       <td><code>APPCOMMAND_SAVE</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Save</code> (0x1008FF77)<br /><code>Qt::Key_Save</code>
-        (0x010000EA)
-      </td>
+      <td><code>GDK_KEY_Save</code> (0x1008FF77)<br /><code>Qt::Key_Save</code> (0x010000EA)</td>
       <td></td>
     </tr>
     <tr>
@@ -3854,10 +3762,7 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Startet die Rechtschreibprüfung des aktuellen Dokuments.</td>
       <td><code>APPCOMMAND_SPELL_CHECK</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Spell</code> (0x1008FF7C)<br /><code>Qt::Key_Spell</code>
-        (0x010000EC)
-      </td>
+      <td><code>GDK_KEY_Spell</code> (0x1008FF7C)<br /><code>Qt::Key_Spell</code> (0x010000EC)</td>
       <td></td>
     </tr>
     <tr>
@@ -3865,12 +3770,7 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Öffnet die Benutzeroberfläche zum Weiterleiten einer Nachricht.</td>
       <td><code>APPCOMMAND_FORWARD_MAIL</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_MailForward</code> (0x1008FF90)<br /><code
-          >Qt::Key_MailForward</code
-        >
-        (0x010000FB)
-      </td>
+      <td><code>GDK_KEY_MailForward</code> (0x1008FF90)<br /><code>Qt::Key_MailForward</code> (0x010000FB)</td>
       <td></td>
     </tr>
     <tr>
@@ -3878,10 +3778,7 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Öffnet die Benutzeroberfläche zum Antworten auf eine Nachricht.</td>
       <td><code>APPCOMMAND_REPLY_TO_MAIL</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Reply</code> (0x1008FF72)<br /><code>Qt::Key_Reply</code>
-        (0x010000E5)
-      </td>
+      <td><code>GDK_KEY_Reply</code> (0x1008FF72)<br /><code>Qt::Key_Reply</code> (0x010000E5)</td>
       <td></td>
     </tr>
     <tr>
@@ -3889,27 +3786,24 @@ Diese Tasten steuern Dokumente. In der Spezifikation sind sie in anderen Tasten-
       <td>Sendet die aktuelle Nachricht.</td>
       <td><code>APPCOMMAND_SEND_MAIL</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Send</code> (0x1008FF7B)<br /><code>Qt::Key_Send</code>
-        (0x010000EB)
-      </td>
+      <td><code>GDK_KEY_Send</code> (0x1008FF7B)<br /><code>Qt::Key_Send</code> (0x010000EB)</td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-\[1] Vor Firefox 37 generierte diese Taste den Wert `"Unidentified"`.
+\[1] Vor Firefox 37 erzeugte diese Taste den Tastenwert `"Unidentified"`.
 
-## Anwendungsauswahl-Tasten
+## Anwendungsauswahltasten
 
-Einige Tastaturen bieten spezielle Tasten zum Starten oder Wechseln zu bestimmten üblichen Anwendungen. Tastencodes für diese sind hier aufgelistet.
+Einige Tastaturen bieten spezielle Tasten zum Starten oder Wechseln zu bestimmten häufigen Anwendungen. Tastenwerte dafür sind hier aufgelistet.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtueller Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -3921,32 +3815,18 @@ Einige Tastaturen bieten spezielle Tasten zum Starten oder Wechseln zu bestimmte
   <tbody>
     <tr>
       <td><code>"LaunchCalculator"</code> [5]</td>
-      <td>
-        Die <kbd>Taschenrechner</kbd>-Taste, oft mit einem Symbol versehen. Dies wird oft
-        als allgemeiner Anwendungsauslöser-Taste verwendet
-        (<code>APPCOMMAND_LAUNCH_APP2</code>).
-      </td>
+      <td>Die <kbd>Taschenrechner</kbd>-Taste, oft mit einem Symbol gekennzeichnet. Diese wird häufig als generische Anwendungstarttaste verwendet (<code>APPCOMMAND_LAUNCH_APP2</code>).</td>
       <td><code>APPCOMMAND_LAUNCH_APP2</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Calculator</code> (0x1008FF1D)<br /><code
-          >Qt::Key_Calculator</code
-        >
-        (0x010000CB)
-      </td>
+      <td><code>GDK_KEY_Calculator</code> (0x1008FF1D)<br /><code>Qt::Key_Calculator</code> (0x010000CB)</td>
       <td><code>KEYCODE_CALCULATOR</code> (210)</td>
     </tr>
     <tr>
       <td><code>"LaunchCalendar"</code> [5]</td>
-      <td>Die <kbd>Kalender</kbd>-Taste. Oft mit einem Symbol versehen.</td>
+      <td>Die <kbd>Kalender</kbd>-Taste. Oft mit einem Symbol gekennzeichnet.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Calendar</code> (0x1008FF20)<br /><code
-          >Qt::Key_Calendar</code
-        >
-        (0x010000E4)
-      </td>
+      <td><code>GDK_KEY_Calendar</code> (0x1008FF20)<br /><code>Qt::Key_Calendar</code> (0x010000E4)</td>
       <td><code>KEYCODE_CALENDAR</code> (208)</td>
     </tr>
     <tr>
@@ -3959,76 +3839,42 @@ Einige Tastaturen bieten spezielle Tasten zum Starten oder Wechseln zu bestimmte
     </tr>
     <tr>
       <td><code>"LaunchMail"</code></td>
-      <td>Die <kbd>Mail</kbd>-Taste. Oft mit einem Symbol versehen.</td>
-      <td>
-        <code>VK_LAUNCH_MAIL</code> (0xB4)<br /><code
-          >APPCOMMAND_LAUNCH_MAIL</code
-        >
-      </td>
+      <td>Die <kbd>Mail</kbd>-Taste. Oft mit einem Symbol gekennzeichnet.</td>
+      <td><code>VK_LAUNCH_MAIL</code> (0xB4)<br /><code>APPCOMMAND_LAUNCH_MAIL</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Mail</code> (0x1008FF19)<br /><code
-          >Qt::Key_LaunchMail</code
-        >
-        (0x010000A0)
-      </td>
+      <td><code>GDK_KEY_Mail</code> (0x1008FF19)<br /><code>Qt::Key_LaunchMail</code> (0x010000A0)</td>
       <td><code>KEYCODE_ENVELOPE</code> (65)</td>
     </tr>
     <tr>
       <td><code>"LaunchMediaPlayer"</code> [1]</td>
       <td>Die <kbd>Media Player</kbd>-Taste.</td>
-      <td>
-        <code>VK_LAUNCH_MEDIA_SELECT</code> (0xB5)<br /><code
-          >APPCOMMAND_LAUNCH_MEDIA_SELECT</code
-        >
-      </td>
+      <td><code>VK_LAUNCH_MEDIA_SELECT</code> (0xB5)<br /><code>APPCOMMAND_LAUNCH_MEDIA_SELECT</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_CD</code> (0x1008FF53)<br /><code>GDK_KEY_Video</code>
-        (0x1008FF87)<br /><code>GDK_KEY_AudioMedia</code>
-        (0x1008FF32)<br /><code>Qt::Key_LaunchMedia</code> (0x010000A1)
-      </td>
+      <td><code>GDK_KEY_CD</code> (0x1008FF53)<br /><code>GDK_KEY_Video</code> (0x1008FF87)<br /><code>GDK_KEY_AudioMedia</code> (0x1008FF32)<br /><code>Qt::Key_LaunchMedia</code> (0x010000A1)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchMusicPlayer"</code> [5]</td>
-      <td>Die <kbd>Musikspieler</kbd>-Taste. Oft mit einem Symbol versehen.</td>
+      <td>Die <kbd>Musik-Player</kbd>-Taste. Oft mit einem Symbol gekennzeichnet.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Music</code> (0x1008FF92)<br /><code>Qt::Key_Music</code>
-        (0x010000FD)
-      </td>
+      <td><code>GDK_KEY_Music</code> (0x1008FF92)<br /><code>Qt::Key_Music</code> (0x010000FD)</td>
       <td><code>KEYCODE_MUSIC</code> (209)</td>
     </tr>
     <tr>
       <td><code>"LaunchMyComputer"</code> [5]</td>
-      <td>
-        Die <kbd>Mein Computer</kbd>-Taste auf Windows-Tastaturen. Dies wird oft
-        als allgemeiner Anwendungsauslöser-Taste verwendet
-        (<code>APPCOMMAND_LAUNCH_APP1</code>).
-      </td>
+      <td>Die <kbd>Mein Computer</kbd>-Taste auf Windows-Tastaturen. Diese wird häufig als generische Anwendungstarttaste verwendet (<code>APPCOMMAND_LAUNCH_APP1</code>).</td>
       <td><code>APPCOMMAND_LAUNCH_APP1</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_MyComputer</code> (0x1008FF33)<br /><code
-          >GDK_KEY_Explorer</code
-        >
-        (0x1008FF5D)
-      </td>
+      <td><code>GDK_KEY_MyComputer</code> (0x1008FF33)<br /><code>GDK_KEY_Explorer</code> (0x1008FF5D)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchPhone"</code></td>
-      <td>
-        Die <kbd>Telefon</kbd>-Taste. Öffnet die Wählapplikation, sofern vorhanden.
-      </td>
+      <td>Die <kbd>Telefon</kbd>-Taste. Öffnet die Telefonwahlanwendung (falls vorhanden).</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Phone</code> (0x1008FF6E)<br /><code>Qt::Key_Phone</code>
-        (0x010000E3)
-      </td>
+      <td><code>GDK_KEY_Phone</code> (0x1008FF6E)<br /><code>Qt::Key_Phone</code> (0x010000E3)</td>
       <td></td>
     </tr>
     <tr>
@@ -4036,309 +3882,192 @@ Einige Tastaturen bieten spezielle Tasten zum Starten oder Wechseln zu bestimmte
       <td>Die <kbd>Bildschirmschoner</kbd>-Taste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_ScreenSaver</code> (0x1008FF2D)<br /><code
-          >Qt::Key_ScreenSaver</code
-        >
-        (0x010000BA)
-      </td>
+      <td><code>GDK_KEY_ScreenSaver</code> (0x1008FF2D)<br /><code>Qt::Key_ScreenSaver</code> (0x010000BA)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchSpreadsheet"</code> [4]</td>
-      <td>
-        Die <kbd>Tabellenkalkulation</kbd>-Taste. Diese Taste kann mit einem Symbol
-        versehen sein.
-      </td>
+      <td>Die <kbd>Tabellenkalkulation</kbd>-Taste. Diese Taste kann mit einem Symbol gekennzeichnet sein.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Excel</code> (0x1008FF5C)<br /><code>Qt::Key_Excel</code>
-        (0x010000D4)
-      </td>
+      <td><code>GDK_KEY_Excel</code> (0x1008FF5C)<br /><code>Qt::Key_Excel</code> (0x010000D4)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchWebBrowser"</code> [4]</td>
-      <td>
-        Die <kbd>Webbrowser</kbd>-Taste. Diese Taste ist häufig mit einem Symbol
-        versehen.
-      </td>
+      <td>Die <kbd>Webbrowser</kbd>-Taste. Diese Taste ist häufig mit einem Symbol gekennzeichnet.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_WWW</code> (0x1008FF2E)<br /><code>Qt::Key_WWW</code>
-        (0x010000BB)
-      </td>
+      <td><code>GDK_KEY_WWW</code> (0x1008FF2E)<br /><code>Qt::Key_WWW</code> (0x010000BB)</td>
       <td><code>KEYCODE_EXPLORER</code> (64)</td>
     </tr>
     <tr>
       <td><code>"LaunchWebCam"</code> [5]</td>
-      <td>Die <kbd>WebCam</kbd>-Taste. Öffnet die Webcam-Applikation.</td>
+      <td>Die <kbd>Webcam</kbd>-Taste. Öffnet die Webcam-Anwendung.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_WebCam</code> (0x1008FF8F)<br /><code
-          >Qt::Key_WebCam</code
-        >
-        (0x010000FA)
-      </td>
+      <td><code>GDK_KEY_WebCam</code> (0x1008FF8F)<br /><code>Qt::Key_WebCam</code> (0x010000FA)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchWordProcessor"</code> [5]</td>
-      <td>
-        Die <kbd>Textverarbeitungsprogramm</kbd>-Taste. Dies kann ein Symbol einer
-        spezifischen Textverarbeitungsprogrammanwendung oder ein generisches
-        Dokumentsymbol sein.
-      </td>
+      <td>Die <kbd>Textverarbeitung</kbd>-Taste. Dies kann ein Symbol einer spezifischen Textverarbeitungsanwendung sein oder ein generisches Dokumentensymbol.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Word</code> (0x1008FF89)<br /><code>Qt::Key_Word</code>
-        (0x010000F4)
-      </td>
+      <td><code>GDK_KEY_Word</code> (0x1008FF89)<br /><code>Qt::Key_Word</code> (0x010000F4)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication1"</code> [2]</td>
-      <td>Die erste allgemeine Anwendungsauslöser-Taste.</td>
-      <td>
-        <code>VK_LAUNCH_APP1</code> (0xB6)<br /><code
-          >APPCOMMAND_LAUNCH_APP1</code
-        >
-      </td>
+      <td>Die erste generische Anwendungsstarttaste.</td>
+      <td><code>VK_LAUNCH_APP1</code> (0xB6)<br /><code>APPCOMMAND_LAUNCH_APP1</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch0</code> (0x1008FF40)<br /><code
-          >Qt::Key_Launch0</code
-        >
-        (0x010000A2)
-      </td>
+      <td><code>GDK_KEY_Launch0</code> (0x1008FF40)<br /><code>Qt::Key_Launch0</code> (0x010000A2)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication2"</code> [3]</td>
-      <td>Die zweite allgemeine Anwendungsauslöser-Taste.</td>
-      <td>
-        <code>VK_LAUNCH_APP2</code> (0xB7)<br /><code
-          >APPCOMMAND_LAUNCH_APP2</code
-        >
-      </td>
+      <td>Die zweite generische Anwendungsstarttaste.</td>
+      <td><code>VK_LAUNCH_APP2</code> (0xB7)<br /><code>APPCOMMAND_LAUNCH_APP2</code></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch1</code> (0x1008FF41)<br /><code
-          >Qt::Key_Launch1</code
-        >
-        (0x010000A3)
-      </td>
+      <td><code>GDK_KEY_Launch1</code> (0x1008FF41)<br /><code>Qt::Key_Launch1</code> (0x010000A3)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication3"</code></td>
-      <td>Die dritte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die dritte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch2</code> (0x1008FF42)<br /><code
-          >Qt::Key_Launch2</code
-        >
-        (0x010000A4)
-      </td>
+      <td><code>GDK_KEY_Launch2</code> (0x1008FF42)<br /><code>Qt::Key_Launch2</code> (0x010000A4)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication4"</code></td>
-      <td>Die vierte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die vierte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch3</code> (0x1008FF43)<br /><code
-          >Qt::Key_Launch3</code
-        >
-        (0x010000A5)
-      </td>
+      <td><code>GDK_KEY_Launch3</code> (0x1008FF43)<br /><code>Qt::Key_Launch3</code> (0x010000A5)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication5"</code></td>
-      <td>Die fünfte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die fünfte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch4</code> (0x1008FF44)<br /><code
-          >Qt::Key_Launch4</code
-        >
-        (0x010000A6)
-      </td>
+      <td><code>GDK_KEY_Launch4</code> (0x1008FF44)<br /><code>Qt::Key_Launch4</code> (0x010000A6)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication6"</code></td>
-      <td>Die sechste allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die sechste generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch5</code> (0x1008FF45)<br /><code
-          >Qt::Key_Launch5</code
-        >
-        (0x010000A7)
-      </td>
+      <td><code>GDK_KEY_Launch5</code> (0x1008FF45)<br /><code>Qt::Key_Launch5</code> (0x010000A7)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication7"</code></td>
-      <td>Die siebte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die siebte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch6</code> (0x1008FF46)<br /><code
-          >Qt::Key_Launch6</code
-        >
-        (0x010000A8)
-      </td>
+      <td><code>GDK_KEY_Launch6</code> (0x1008FF46)<br /><code>Qt::Key_Launch6</code> (0x010000A8)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication8"</code></td>
-      <td>Die achte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die achte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch7</code> (0x1008FF47)<br /><code
-          >Qt::Key_Launch7</code
-        >
-        (0x010000A9)
-      </td>
+      <td><code>GDK_KEY_Launch7</code> (0x1008FF47)<br /><code>Qt::Key_Launch7</code> (0x010000A9)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication9"</code></td>
-      <td>Die neunte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die neunte generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch8</code> (0x1008FF48)<br /><code
-          >Qt::Key_Launch8</code
-        >
-        (0x010000AA)
-      </td>
+      <td><code>GDK_KEY_Launch8</code> (0x1008FF48)<br /><code>Qt::Key_Launch8</code> (0x010000AA)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication10"</code></td>
-      <td>Die zehnte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 10. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_Launch9</code> (0x1008FF49)<br /><code
-          >Qt::Key_Launch9</code
-        >
-        (0x010000AB)
-      </td>
+      <td><code>GDK_KEY_Launch9</code> (0x1008FF49)<br /><code>Qt::Key_Launch9</code> (0x010000AB)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication11"</code></td>
-      <td>Die elfte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 11. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchA</code> (0x1008FF4A)<br /><code
-          >Qt::Key_LaunchA</code
-        >
-        (0x010000AC)
-      </td>
+      <td><code>GDK_KEY_LaunchA</code> (0x1008FF4A)<br /><code>Qt::Key_LaunchA</code> (0x010000AC)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication12"</code></td>
-      <td>Die zwölfte allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 12. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchB</code> (0x1008FF4B)<br /><code
-          >Qt::Key_LaunchB</code
-        >
-        (0x010000AD)
-      </td>
+      <td><code>GDK_KEY_LaunchB</code> (0x1008FF4B)<br /><code>Qt::Key_LaunchB</code> (0x010000AD)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication13"</code></td>
-      <td>Die 13. allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 13. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchC</code> (0x1008FF4C)<br /><code
-          >Qt::Key_LaunchC</code
-        >
-        (0x010000AE)
-      </td>
+      <td><code>GDK_KEY_LaunchC</code> (0x1008FF4C)<br /><code>Qt::Key_LaunchC</code> (0x010000AE)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication14"</code></td>
-      <td>Die 14. allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 14. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchD</code> (0x1008FF4D)<br /><code
-          >Qt::Key_LaunchD</code
-        >
-        (0x010000AF)
-      </td>
+      <td><code>GDK_KEY_LaunchD</code> (0x1008FF4D)<br /><code>Qt::Key_LaunchD</code> (0x010000AF)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication15"</code></td>
-      <td>Die 15. allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 15. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchE</code> (0x1008FF4E)<br /><code
-          >Qt::Key_LaunchE</code
-        >
-        (0x010000B0)
-      </td>
+      <td><code>GDK_KEY_LaunchE</code> (0x1008FF4E)<br /><code>Qt::Key_LaunchE</code> (0x010000B0)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"LaunchApplication16"</code></td>
-      <td>Die 16. allgemeine Anwendungsauslöser-Taste.</td>
+      <td>Die 16. generische Anwendungsstarttaste.</td>
       <td></td>
       <td></td>
-      <td>
-        <code>GDK_KEY_LaunchF</code> (0x1008FF4F)<br /><code
-          >Qt::Key_LaunchF</code
-        >
-        (0x010000B1)
-      </td>
+      <td><code>GDK_KEY_LaunchF</code> (0x1008FF4F)<br /><code>Qt::Key_LaunchF</code> (0x010000B1)</td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-\[1] Legacy Edge und Firefox (36 und früher) verwenden `"SelectMedia"` anstelle von `"LaunchMediaPlayer"`. Firefox 37 bis Firefox 48 verwenden `"MediaSelect"`. Firefox 49 wurde aktualisiert, um mit der neuesten Spezifikation übereinzustimmen und gibt `"LaunchMediaPlayer"` zurück.
+\[1] Legacy Edge und Firefox (36 und älter) verwenden `"SelectMedia"` anstelle von `"LaunchMediaPlayer"`. Firefox 37 bis Firefox 48 verwenden `"MediaSelect"`. Firefox 49 wurde aktualisiert, um der neuesten Spezifikation zu entsprechen und gibt `"LaunchMediaPlayer"` zurück.
 
-\[2] Google Chrome 57 und früher gab `"LaunchMyComputer"` anstelle von `"LaunchApplication1"` zurück. Siehe [Chrome Bug 612743](https://crbug.com/612743) für weitere Informationen.
+\[2] Google Chrome 57 und früher gab `"LaunchMyComputer"` anstelle von `"LaunchApplication1"` zurück. Weitere Informationen finden Sie im [Chrome Bug 612743](https://crbug.com/612743).
 
-\[3] Google Chrome 57 und früher gab `"LaunchCalculator"` anstelle von `"LaunchApplication2"` zurück. Siehe [Chrome Bug 612743](https://crbug.com/612743) für weitere Informationen.
+\[3] Google Chrome 57 und früher gab `"LaunchCalculator"` anstelle von `"LaunchApplication2"` zurück. Weitere Informationen finden Sie im [Chrome Bug 612743](https://crbug.com/612743).
 
-\[4] Vor Firefox 37 gab Firefox für die Webbrowser-Taste den Tastencode `"LaunchApplication1"` anstelle von `"LaunchWebBrowser"` zurück.
+\[4] Vor Firefox 37 gab Firefox den Tastenwert `"LaunchApplication1"` anstelle von `"LaunchWebBrowser"` für die Webbrowser-Taste zurück.
 
 \[5] Firefox führte die Unterstützung für diese Taste in Firefox 37 ein. Vorher wurde diese Taste als `"Unidentified"` gemeldet.
 
-## Steuerungstasten für den Browser
+## Browser-Steuerungstasten
 
-Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Diese Tasten sind wie folgt.
+Einige Tastaturen enthalten spezielle Tasten zur Steuerung von Webbrowsern. Diese Tasten sind im Folgenden aufgeführt.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtual Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -4351,8 +4080,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     <tr>
       <td><code>"BrowserBack"</code></td>
       <td>
-        Navigiert zum vorherigen Inhalt oder zur vorherigen Seite in der
-        Verlaufshistorie der aktuellen Webansicht.
+        Navigiert zur vorherigen Seite oder zum vorherigen Inhalt im Verlauf der aktuellen Webansicht.
       </td>
       <td>
         <code>VK_BROWSER_BACK</code> (0xA6)<br /><code
@@ -4368,7 +4096,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     </tr>
     <tr>
       <td><code>"BrowserFavorites"</code> [1]</td>
-      <td>Öffnet die Favoriten-/Lesezeichenliste des Benutzers.</td>
+      <td>Öffnet die Lesezeichen-/Favoritenliste des Benutzers.</td>
       <td>
         <code>VK_BROWSER_FAVORITES</code> (0xAB)<br /><code
           >APPCOMMAND_BROWSER_FAVORITES</code
@@ -4386,8 +4114,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     <tr>
       <td><code>"BrowserForward"</code></td>
       <td>
-        Navigiert zum nächsten Inhalt oder zur nächsten Seite in der
-        Verlaufshistorie der aktuellen Webansicht.
+        Navigiert zur nächsten Seite oder zum nächsten Inhalt im Verlauf der aktuellen Webansicht.
       </td>
       <td>
         <code>VK_BROWSER_FORWARD</code> (0xA7)<br /><code
@@ -4422,7 +4149,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     </tr>
     <tr>
       <td><code>"BrowserRefresh"</code></td>
-      <td>Aktualisiert die aktuelle Seite oder den Inhalt.</td>
+      <td>Aktualisiert die aktuelle Seite oder den aktuellen Inhalt.</td>
       <td>
         <code>VK_BROWSER_REFRESH</code> (0xA8)<br /><code
           >APPCOMMAND_BROWSER_REFRESH</code
@@ -4440,8 +4167,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     <tr>
       <td><code>"BrowserSearch"</code></td>
       <td>
-        Aktiviert die bevorzugte Suchmaschine des Benutzers oder die
-        Suchschnittstelle innerhalb ihres Browsers.
+        Aktiviert die bevorzugte Suchmaschine des Benutzers oder die Suchoberfläche in deren Browser.
       </td>
       <td>
         <code>VK_BROWSER_SEARCH</code> (0xAA)<br /><code
@@ -4459,7 +4185,7 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
     </tr>
     <tr>
       <td><code>"BrowserStop"</code></td>
-      <td>Stoppt das Laden der aktuell angezeigten Webansicht oder des Inhalts.</td>
+      <td>Stoppt das Laden der gerade angezeigten Webansicht oder des Inhalts.</td>
       <td>
         <code>VK_BROWSER_STOP</code> (0xA9)<br /><code
           >APPCOMMAND_BROWSER_STOP</code
@@ -4477,19 +4203,19 @@ Einige Tastaturen beinhalten spezielle Tasten zur Steuerung von Webbrowsern. Die
 
 \[1] Vor Firefox 37 wurde der Wert dieser Taste als `"Unidentified"` gemeldet.
 
-## Tasten auf dem numerischen Keypad
+## Tasten des numerischen Tastenfelds
 
-Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings sind nicht alle auf jeder Tastatur vorhanden. Während typische numerische Keypads nummerische Tasten von <kbd>0</kbd> bis <kbd>9</kbd> haben (codiert als `"0"` bis `"9"`), verfügen einige Multimedia-Tastaturen über zusätzliche Nummerntasten für höhere Zahlen.
+Diese Tasten befinden sich auf dem numerischen Tastenfeld der Tastatur. Allerdings sind nicht alle auf jeder Tastatur vorhanden. Typischerweise haben numerische Tastenfelder numerische Tasten von <kbd>0</kbd> bis <kbd>9</kbd> (als `"0"` bis `"9"` kodiert), einige Multimedia-Tastaturen enthalten jedoch zusätzliche Zahlentasten für höhere Zahlen.
 
 > [!NOTE]
-> Die Taste <kbd>10</kbd> erzeugt bei Vorhandensein Ereignisse mit dem `key`-Wert von `"0"`.
+> Die <kbd>10</kbd>-Taste, falls vorhanden, erzeugt Events mit dem `key`-Wert von `"0"`.
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th rowspan="2" scope="col"><code>KeyboardEvent.key</code>-Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtueller Tastencode</th>
+      <th colspan="4" scope="col">Virtual Keycode</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -4503,12 +4229,11 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
       <td><code>"Decimal"</code> [1] {{deprecated_inline}}</td>
       <td>
         <p>
-          Die Dezimaltaste (typischerweise <kbd>.</kbd> oder <kbd>,</kbd>
-          je nach Region).
+          Die Dezimaltaste (typischerweise <kbd>.</kbd> oder
+          <kbd>,</kbd>, je nach Region).
         </p>
         <p>
-          In neueren Browsern ist dieser Wert das Zeichen, das von der
-          Dezimaltaste erzeugt wird (eines dieser beiden Zeichen). [1]
+          In neueren Browsern ist dieser Wert das Zeichen, das von der Dezimaltaste erzeugt wird (eines dieser beiden Zeichen). [1]
         </p>
       </td>
       <td><code>VK_DECIMAL</code> (0x6E)</td>
@@ -4518,7 +4243,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Key11"</code></td>
-      <td>Die <kbd>11</kbd>-Taste, die auf bestimmten medialen numerischen Keypads zu finden ist.</td>
+      <td>Die <kbd>11</kbd>-Taste, die auf bestimmten numerischen Medientastenfeldern zu finden ist.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -4526,7 +4251,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Key12"</code></td>
-      <td>Die <kbd>12</kbd>-Taste, die auf bestimmten medialen numerischen Keypads zu finden ist.</td>
+      <td>Die <kbd>12</kbd>-Taste, die auf bestimmten numerischen Medientastenfeldern zu finden ist.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -4534,7 +4259,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Multiply"</code> [1] {{deprecated_inline}}</td>
-      <td>Die Multiplikationstaste des numerischen Keypads, <kbd>*</kbd>.</td>
+      <td>Die Multiplikationstaste des numerischen Tastenfelds, <kbd>*</kbd>.</td>
       <td><code>VK_MULTIPLY</code> (0x6A)</td>
       <td><code>kVK_ANSI_KeypadMultiply</code> (0x43)</td>
       <td>
@@ -4547,7 +4272,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Add"</code> [1] {{deprecated_inline}}</td>
-      <td>Die Addiertaste des numerischen Keypads, <kbd>+</kbd>.</td>
+      <td>Die Additionstaste des numerischen Tastenfelds, <kbd>+</kbd>.</td>
       <td><code>VK_ADD</code> (0x6B)</td>
       <td><code>kVK_ANSI_KeypadPlus</code> (0x45)</td>
       <td><code>GDK_KEY_KP_Add</code> (0xFFAB)</td>
@@ -4555,7 +4280,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Clear"</code></td>
-      <td>Die <kbd>Löschen</kbd>-Taste des numerischen Keypads.</td>
+      <td>Die <kbd>Clear</kbd>-Taste des numerischen Tastenfelds.</td>
       <td></td>
       <td><code>kVK_ANSI_KeypadClear</code> (0x47)</td>
       <td>
@@ -4566,7 +4291,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Divide"</code> [1] {{deprecated_inline}}</td>
-      <td>Die Divisionstaste des numerischen Keypads, <kbd>/</kbd>.</td>
+      <td>Die Divisionstaste des numerischen Tastenfelds, <kbd>/</kbd>.</td>
       <td><code>VK_DIVIDE</code> (0x6F)</td>
       <td><code>kVK_ANSI_KeypadDivide</code> (0x4B)</td>
       <td>
@@ -4577,7 +4302,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"Subtract"</code> [1] {{deprecated_inline}}</td>
-      <td>Die Subtraktionstaste des numerischen Keypads, <kbd>-</kbd>.</td>
+      <td>Die Subtraktionstaste des numerischen Tastenfelds, <kbd>-</kbd>.</td>
       <td><code>VK_SUBTRACT</code> (0x6D)</td>
       <td><code>kVK_ANSI_KeypadMinus</code> (0x4E)</td>
       <td><code>GDK_KEY_KP_Subtract</code> (0xFFAD)</td>
@@ -4586,10 +4311,9 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     <tr>
       <td><code>"Separator"</code> [1]</td>
       <td>
-        <p>Das Stellen-Trennzeichenzeichen des numerischen Keypads.</p>
+        <p>Das Trennzeichen für Tausenderstellen auf dem numerischen Tastenfeld.</p>
         <p>
-          (In den Vereinigten Staaten ist dies ein Komma, aber anderswo ist es
-          häufig ein Punkt.)
+          (In den Vereinigten Staaten ist dies ein Komma, aber anderswo ist es häufig ein Punkt.)
         </p>
       </td>
       <td><code>VK_SEPARATOR</code> (0x6C)</td>
@@ -4599,7 +4323,7 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
     </tr>
     <tr>
       <td><code>"0"</code> bis <code>"9"</code></td>
-      <td>Die eigentlichen Zahlentasten auf dem numerischen Keypad.</td>
+      <td>Die eigentlichen Zifferntasten auf dem numerischen Tastenfeld.</td>
       <td><code>VK_NUMPAD0</code> (0x60) - <code>VK_NUMPAD9</code> (0x69)</td>
       <td><code>kVK_Keypad0</code> (0x52) - <code>kVK_Keypad9</code> (0x5C)</td>
       <td>
@@ -4613,4 +4337,4 @@ Diese Tasten befinden sich auf dem numerischen Keypad der Tastatur. Allerdings s
   </tbody>
 </table>
 
-\[1] Während ältere Browser Wörter wie `"Add"`, `"Decimal"`, `"Multiply"` etc. verwendeten, identifizieren moderne Browser diese über das tatsächliche Zeichen (`"+"`, `"."`, `"*"` usw.).
+\[1] Während ältere Browser Wörter wie `"Add"`, `"Decimal"`, `"Multiply"` und so weiter verwendeten, identifizieren moderne Browser diese mittels des tatsächlichen Zeichens (`"+"`, `"."`, `"*"`, und so weiter).

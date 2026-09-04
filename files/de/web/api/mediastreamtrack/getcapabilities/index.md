@@ -3,14 +3,14 @@ title: "MediaStreamTrack: getCapabilities() Methode"
 short-title: getCapabilities()
 slug: Web/API/MediaStreamTrack/getCapabilities
 l10n:
-  sourceCommit: 77ea71add6054857698eb7ac1bfec8c7afe9ad4f
+  sourceCommit: c26d4cc8e9b10c504587531c49fa82b7b646be18
 ---
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getCapabilities()`**-Methode des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt ein Objekt zurück, das die akzeptierten Werte oder den Wertebereich für jede einschränkbare Eigenschaft des zugehörigen `MediaStreamTrack` basierend auf der Plattform und dem {{Glossary("user_agent", "User-Agent")}} beschreibt.
+Die **`getCapabilities()`** Methode der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Schnittstelle gibt ein Objekt zurück, das die akzeptierten Werte oder Wertbereiche für jede begrenzbare Eigenschaft des zugehörigen `MediaStreamTrack` auf der Grundlage der Plattform und des {{Glossary("user_agent", "User-Agent")}} beschreibt.
 
-Sobald Sie wissen, welche Fähigkeiten der Browser hat, kann Ihr Skript [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) verwenden, um zu verlangen, dass der Track konfiguriert wird, um ideale oder akzeptable Einstellungen zu erfüllen. Siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für Details, wie mit einschränkbaren Eigenschaften gearbeitet wird.
+Sobald Sie wissen, welche Fähigkeiten der Browser hat, kann Ihr Skript [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) verwenden, um zu verlangen, dass der Track konfiguriert wird, um ideale oder akzeptable Einstellungen zu erfüllen. Siehe [Capabilities, constraints, and settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für Details zum Arbeiten mit begrenzbaren Eigenschaften.
 
 ## Syntax
 
@@ -24,55 +24,55 @@ Keine.
 
 ### Rückgabewert
 
-Ein `MediaTrackCapabilities`-Objekt, das die akzeptierte Werte oder den Wertebereich unterstützt, der für jede der einschränkbaren Eigenschaften des User-Agents gilt. Beachten Sie, dass nicht jede Eigenschaft auf jedem Track erscheint; die verfügbaren Mitglieder hängen davon ab, ob der Track Audio oder Video ist. Dies kann die folgenden Mitglieder enthalten:
+Ein `MediaTrackCapabilities` Objekt, das die akzeptierten Werte oder Wertbereiche angibt, die für jede der durch den User-Agent begrenzbaren Eigenschaften unterstützt werden. Beachten Sie, dass nicht jede Eigenschaft auf jedem Track erscheint; die verfügbaren Mitglieder hängen davon ab, ob der Track Audio oder Video ist. Dies kann die folgenden Mitglieder enthalten:
 
-Für sowohl Audio- als auch Video-Tracks:
+Für sowohl Audio- als auch Videotracks:
 
 - `deviceId`
-  - : Ein String, der das Aufnahmengerät identifiziert.
+  - : Ein String, der das Aufzeichnungsgerät identifiziert.
 - `groupId`
   - : Ein String, der verwandte Geräte gruppiert.
 
 > [!NOTE]
 > Aus historischen Gründen sind diese beiden Eigenschaften Strings anstelle eines Arrays von Strings wie alle anderen Fähigkeiten.
 
-Nur für Audio-Tracks:
+Nur für Audiotracks:
 
 - `autoGainControl`
-  - : Ein Array von Booleans. Wenn die Quelle keine automatische Verstärkungsregelung durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die automatische Verstärkungsregelung nicht ausgeschaltet werden kann, wird ein einzelnes `true` gemeldet. Wenn das Skript das Feature steuern kann, meldet die Quelle sowohl `true` als auch `false`.
+  - : Ein Array von Booleans. Wenn die Quelle keine automatische Verstärkungsregelung durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die automatische Verstärkungsregelung nicht ausgeschaltet werden kann, wird ein einzelnes `true` gemeldet. Wenn das Skript die Funktion steuern kann, meldet die Quelle sowohl `true` als auch `false`.
 - `channelCount`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine nicht-negative Ganzzahl), die die unterstützte Anzahl von Kanälen beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine nicht-negative Ganzzahl), die die unterstützte Anzahl von Kanälen beschreibt.
 - `echoCancellation`
-  - : Ein Array von Booleans oder Strings, das anzeigt, ob Echokompensation unterstützt wird. Wenn die Quelle keine Echokompensation durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die Quelle Echokompensation durchführen kann, beginnt das Array mit `true`. Wenn das Skript das Feature steuern kann, beginnt das Array mit `true, false`. Zusätzlich, wenn die Quelle die Kontrolle darüber erlaubt, welche Audioquellen kompensiert werden, enthält das Array auch die Werte `"all"` und/oder `"remote-only"`.
+  - : Ein Array von Booleans oder Strings, das angibt, ob Echokompensation unterstützt wird. Wenn die Quelle keine Echokompensation durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die Quelle Echokompensation durchführen kann, beginnt das Array mit `true`. Wenn das Skript die Funktion steuern kann, beginnt das Array mit `true, false`. Zusätzlich, wenn die Quelle erlaubt, welche Audioquellen kompensiert werden sollen, enthält das Array auch die Werte `"all"` und/oder `"remote-only"`.
 - `latency`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine Zahl), die die erwartete Verzögerung in Sekunden beschreibt, vom Zeitpunkt, an dem der Klang beginnt, bis die Daten verfügbar werden.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine Zahl), die die erwartete Latenzzeit in Sekunden von dem Zeitpunkt, an dem der Ton startet, bis die Daten verfügbar werden, beschreibt.
 - `noiseSuppression`
-  - : Ein Array von Booleans, das angibt, ob Rauschunterdrückung verfügbar ist. Wenn die Quelle keine Rauschunterdrückung durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die Rauschunterdrückung nicht ausgeschaltet werden kann, wird ein einzelnes `true` gemeldet. Wenn das Skript das Feature steuern kann, meldet die Quelle sowohl `true` als auch `false`.
+  - : Ein Array von Booleans, das angibt, ob Geräuschunterdrückung verfügbar ist. Wenn die Quelle keine Geräuschunterdrückung durchführen kann, wird ein einzelnes `false` gemeldet. Wenn die Geräuschunterdrückung nicht ausgeschaltet werden kann, wird ein einzelnes `true` gemeldet. Wenn das Skript die Funktion steuern kann, meldet die Quelle sowohl `true` als auch `false`.
 - `sampleRate`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Bereich der Audio-Samplerate beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Bereich der Abtastrate beschreibt.
 - `sampleSize`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten linearen Abtastgrößenbereich in Bits beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten linearen Abtastgrößenbereich in Bits beschreibt.
 
-Nur für Video-Tracks:
+Nur für Videotracks:
 
 - `aspectRatio`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine Zahl), die den unterstützten Seitenverhältnisbereich des Videos beschreibt (Breite geteilt durch Höhe).
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine Zahl), die den unterstützten Bereich des Seitenverhältnisses (Breite geteilt durch Höhe) beschreibt.
 - `facingMode`
-  - : Ein Array von Strings, das die Kameraorientierung angibt. Siehe [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) für unterstützte Werte. Auf einigen Geräten können mehr als ein Modus der Kameraausrichtung gemeldet werden; zum Beispiel, in einer hochwertigen Telepräsenzlösung mit mehreren Kameras, die den Benutzer anblicken, kann eine Kamera links vom Benutzer sowohl `"left"` als auch `"user"` melden.
+  - : Ein Array von Strings, das die Kamerarichtung angibt. Siehe [`MediaTrackConstraints.facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) für unterstützte Werte. Auf einigen Geräten können mehr als ein Modus gemeldet werden; zum Beispiel kann eine Kamera links vom Benutzer in einer High-End-Telepräsenzlösung mit mehreren Kameras, die den Benutzer fokussieren, sowohl `"left"` als auch `"user"` melden.
 - `frameRate`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine Zahl), die den unterstützten Bereich von Frames pro Sekunde beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine Zahl), die den unterstützten Bereich der Bilder pro Sekunde beschreibt.
 - `height`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Höhenbereich in Pixeln beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Höhenbereich in Pixel beschreibt.
 - `width`
-  - : Ein Bereichsobjekt, das eine `min`- und eine `max`-Eigenschaft enthält (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Breitenbereich in Pixeln beschreibt.
+  - : Ein Objekt, das einen Bereich enthält, mit einer `min` und einer `max` Eigenschaft (beide enthalten eine nicht-negative Ganzzahl), die den unterstützten Breitenbereich in Pixel beschreibt.
 - `resizeMode`
   - : Ein Array von Strings, das angibt, wie der User-Agent die gewünschte Auflösung von der Kameraauflösung ableiten kann. Siehe [`MediaTrackConstraints.resizeMode`](/de/docs/Web/API/MediaTrackConstraints/resizeMode) für unterstützte Werte. Der Wert `"none"` ist immer enthalten.
 
-Für weitere Informationen darüber, was jede Eigenschaft bedeutet, siehe [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints).
+Für weitere Informationen, was jede Eigenschaft bedeutet, siehe [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints).
 
 ## Beispiele
 
-Der folgende Ausschnitt wird dazu führen, dass der Benutzer um Erlaubnis gebeten wird, auf seine lokale Kamera und sein Mikrofon zuzugreifen. Sobald die Erlaubnis erteilt wurde, werden `MediaTrackCapabilities`-Objekte in der Konsole protokolliert, die die Fähigkeiten jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) detailliert beschreiben:
+Der folgende Code-Schnipsel führt dazu, dass der Benutzer gefragt wird, ob er der lokalen Kamera und dem Mikrofon Zugriff gewähren möchte. Sobald die Erlaubnis erteilt wird, werden `MediaTrackCapabilities` Objekte in die Konsole geloggt, die die Fähigkeiten jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) beschreiben:
 
 ```js
 navigator.mediaDevices
@@ -83,7 +83,7 @@ navigator.mediaDevices
   });
 ```
 
-Ein Beispiel für ein Fähigkeitenobjekt sieht so aus:
+Ein Beispiel für ein Fähigkeiten-Objekt sieht so aus:
 
 ```json
 {
@@ -111,4 +111,4 @@ Der genaue Inhalt des Objekts hängt vom Browser und der Medienhardware ab.
 
 ## Siehe auch
 
-- [`InputDeviceInfo.getCapabilities()`](/de/docs/Web/API/InputDeviceInfo/getCapabilities), das auch ein `MediaTrackCapabilities`-Objekt zurückgibt.
+- [`InputDeviceInfo.getCapabilities()`](/de/docs/Web/API/InputDeviceInfo/getCapabilities), welches ebenfalls ein `MediaTrackCapabilities` Objekt zurückgibt.

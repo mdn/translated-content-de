@@ -1,38 +1,38 @@
 ---
-title: Formen zeichnen mit Canvas
+title: Zeichnen von Formen mit <canvas>
 slug: Web/API/Canvas_API/Tutorial/Drawing_shapes
 l10n:
-  sourceCommit: cf880ca0ef5fd518f7fdc716220488647ac83eee
+  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Basic_usage", "Web/API/Canvas_API/Tutorial/Applying_styles_and_colors")}}
 
-Nachdem wir nun unsere [Canvas-Umgebung](/de/docs/Web/API/Canvas_API/Tutorial/Basic_usage) eingerichtet haben, können wir uns mit den Details des Zeichnens auf dem Canvas befassen. Am Ende dieses Artikels haben Sie gelernt, wie man Rechtecke, Dreiecke, Linien, Bögen und Kurven zeichnet und sich mit einigen der grundlegenden Formen vertraut macht. Der Umgang mit Pfaden ist entscheidend, wenn Sie Objekte auf das Canvas zeichnen, und wir werden sehen, wie das gemacht werden kann.
+Nachdem wir unsere [Leinwandumgebung](/de/docs/Web/API/Canvas_API/Tutorial/Basic_usage) eingerichtet haben, können wir uns nun den Details widmen, wie man auf der Leinwand zeichnet. Am Ende dieses Artikels werden Sie gelernt haben, wie man Rechtecke, Dreiecke, Linien, Bögen und Kurven zeichnet, was Ihnen Vertrautheit mit einigen der grundlegenden Formen vermittelt. Die Arbeit mit Pfaden ist beim Zeichnen von Objekten auf die Leinwand unerlässlich, und wir werden sehen, wie das gemacht wird.
 
 ## Das Raster
 
-Bevor wir mit dem Zeichnen beginnen können, müssen wir über das Canvas-Raster oder den **Koordinatenraum** sprechen. Unser HTML-Skelett von der vorhergehenden Seite hatte ein Canvas-Element mit einer Breite von 150 Pixeln und einer Höhe von 150 Pixeln.
+Bevor wir mit dem Zeichnen beginnen können, müssen wir über das Leinwandraster oder den **Koordinatenraum** sprechen. Unser HTML-Skelett von der vorherigen Seite hatte ein `<canvas>`-Element, das 150 Pixel breit und 150 Pixel hoch ist.
 
-![Canvas-Raster mit einem blauen Quadrat, das Koordinaten und Achsen demonstriert.](canvas_default_grid.png)
+![Canvas-Raster mit einem blauen Quadrat zur Demonstration von Koordinaten und Achsen.](canvas_default_grid.png)
 
-Normalerweise entspricht eine Einheit im Raster einem Pixel auf dem Canvas. Der Ursprung dieses Rasters befindet sich in der _oberen linken_ Ecke bei der Koordinate (0,0). Alle Elemente sind relativ zu diesem Ursprung platziert. So wird die Position der oberen linken Ecke des blauen Quadrats x Pixel von links und y Pixel von oben bei der Koordinate (x,y) sein. Später in diesem Tutorial werden wir sehen, wie wir den Ursprung an eine andere Position verschieben, das Raster drehen und sogar skalieren können, aber vorerst bleiben wir bei den Standardeinstellungen.
+Normalerweise entspricht 1 Einheit im Raster 1 Pixel auf der Leinwand. Der Ursprung dieses Rasters befindet sich in der _oberen linken_ Ecke bei der Koordinate (0,0). Alle Elemente werden relativ zu diesem Ursprung positioniert. Somit wird die Position der oberen linken Ecke des blauen Quadrats x Pixel von links und y Pixel von oben bei der Koordinate (x,y) platziert. Später in diesem Tutorial werden wir sehen, wie wir den Ursprung an eine andere Position verschieben, das Raster drehen und es sogar skalieren können, aber fürs Erste halten wir uns an die Standardeinstellung.
 
-## Rechtecke zeichnen
+## Zeichnen von Rechtecken
 
-Im Gegensatz zu {{Glossary("SVG", "SVG")}} unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch die Kombination von einem oder mehreren Pfaden erstellt werden. Zum Glück stehen uns verschiedene Funktionen zum Zeichnen von Pfaden zur Verfügung, die es ermöglichen, sehr komplexe Formen zu komponieren.
+Im Gegensatz zu {{Glossary("SVG", "SVG")}} unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch die Kombination von einem oder mehreren Pfaden erstellt werden. Glücklicherweise haben wir eine Reihe von Pfadzeichnungsfunktionen, die es ermöglichen, sehr komplexe Formen zu komponieren.
 
-Werfen wir zuerst einen Blick auf das Rechteck. Es gibt drei Funktionen, die Rechtecke auf dem Canvas zeichnen:
+Zuerst schauen wir uns das Rechteck an. Es gibt drei Funktionen, die Rechtecke auf der Leinwand zeichnen:
 
 - [`fillRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)
   - : Zeichnet ein gefülltes Rechteck.
 - [`strokeRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect)
   - : Zeichnet eine rechteckige Umrandung.
 - [`clearRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)
-  - : Löscht den angegebenen rechteckigen Bereich und macht ihn vollständig transparent.
+  - : Leert den angegebenen rechteckigen Bereich und macht ihn vollständig transparent.
 
-Jede dieser drei Funktionen nimmt die gleichen Parameter. `x` und `y` legen die Position auf dem Canvas (relativ zum Ursprung) der oberen linken Ecke des Rechtecks fest. `width` und `height` geben die Größe des Rechtecks an.
+Jede dieser drei Funktionen nimmt die gleichen Parameter. `x` und `y` geben die Position auf der Leinwand (relativ zum Ursprung) der oberen linken Ecke des Rechtecks an. `width` und `height` liefern die Größe des Rechtecks.
 
-Nachfolgend ist die `draw()`-Funktion von der vorhergehenden Seite, die jetzt diese drei Funktionen nutzt.
+Unten finden Sie die `draw()`-Funktion von der vorherigen Seite, die jetzt diese drei Funktionen nutzt.
 
 ### Beispiel für rechteckige Form
 
@@ -59,15 +59,15 @@ Die Ausgabe dieses Beispiels wird unten gezeigt.
 
 {{EmbedLiveSample("Rectangular_shape_example", "", "160")}}
 
-Die `fillRect()`-Funktion zeichnet ein großes schwarzes Quadrat mit 100 Pixeln auf jeder Seite. Die `clearRect()`-Funktion löscht dann ein 60x60 Pixel großes Quadrat aus der Mitte, und dann wird `strokeRect()` aufgerufen, um eine rechteckige Umrandung von 50x50 Pixeln innerhalb des gelöscht Bereichs zu erzeugen (_konzeptionell_ 50x50; tatsächlich sind es 52x52, wie im nächsten Abschnitt erläutert wird).
+Die `fillRect()`-Funktion zeichnet ein großes schwarzes Quadrat von 100 Pixeln auf jeder Seite. Die `clearRect()`-Funktion löscht dann ein 60x60-Pixel-Quadrat aus der Mitte, und dann wird `strokeRect()` aufgerufen, um eine rechteckige Umrandung von 50x50 Pixeln innerhalb des geleerten Quadrats zu erstellen (_konzeptionell_ 50x50; in Wirklichkeit sind es 52x52, wie der nächste Abschnitt erklären wird).
 
-In den nächsten Seiten werden wir zwei alternative Methoden zu `clearRect()` sehen, und wir werden auch sehen, wie man die Farbe und den Stil der Umrandung der gezeichneten Formen ändert.
+Auf den kommenden Seiten werden wir zwei alternative Methoden für `clearRect()` sehen, und wir werden auch lernen, wie man die Farbe und den Zeichenstil der gerenderten Formen ändert.
 
-Im Gegensatz zu den Funktionen für Pfade, die wir im nächsten Abschnitt sehen, zeichnen alle drei Rechteckfunktionen sofort auf die Leinwand.
+Im Gegensatz zu den Pfadfunktionen, die wir im nächsten Abschnitt sehen werden, zeichnen alle drei Rechteckfunktionen sofort auf die Leinwand.
 
-## Unscharfe Kanten erkennbar?
+## Verschwommene Kanten sehen?
 
-Im obigen Rechteckbeispiel und in allen kommenden Beispielen werden Sie möglicherweise bemerken, dass die Kanten der Formen unschärfer erscheinen als die gleichwertigen Formen, die mit SVG oder CSS gezeichnet werden. Dies liegt nicht daran, dass die Canvas-API nicht in der Lage ist, scharfe Kanten zu zeichnen, sondern eher daran, wie das Canvas-Raster auf die tatsächlichen Bildschirm-Pixel abgebildet wird und auch daran, wie der Browser das Canvas skaliert. Wenn das obige Beispiel nicht ausreichend deutlich ist, skalieren wir das Canvas mit CSS:
+Im obigen Rechteckbeispiel und in allen kommenden Beispielen werden Ihnen möglicherweise die Kanten der Formen verschwommener erscheinen als die äquivalenten Formen, die mit SVG oder CSS gezeichnet wurden. Dies liegt nicht daran, dass die Canvas-API nicht in der Lage ist, scharfe Kanten zu zeichnen, sondern wegen der Art und Weise, wie das Leinwandraster auf die tatsächlichen Pixel auf dem Bildschirm abgebildet wird, und auch in bestimmten Fällen, wie der Browser die Leinwand skaliert. Wenn das obige Beispiel nicht deutlich genug ist, lassen Sie uns die Leinwand mit CSS vergrößern:
 
 ```html live-sample___seeing_blurry_edges live-sample___seeing_blurry_edges_2 live-sample___seeing_blurry_edges_3
 <canvas id="canvas" width="15" height="15"></canvas>
@@ -95,7 +95,7 @@ draw();
 
 {{EmbedLiveSample("Seeing blurry edges", "", "350")}}
 
-In diesem Beispiel erstellen wir unser Canvas wirklich klein (15x15), verwenden dann aber CSS, um es auf 300x300 Pixel zu skalieren. Infolgedessen wird jedes Canvas-Pixel nun durch einen 20x20-Block von CSS-Pixeln dargestellt. Wir zeichnen ein umrandetes Rechteck von (2,2) bis (12,12) und ein gefülltes Rechteck von (7,7) bis (8,8). Es erscheint _wirklich_ unscharf. Dies liegt daran, dass der Browser standardmäßig ein Glättungsalgorithmus verwendet, um die zusätzlichen Pixel zu interpolieren, wenn rasterbasierte Bilder skaliert werden. Das ist großartig für Fotos oder Canvas-Grafiken mit geschwungenen Kanten, aber nicht so gut für Formen mit geraden Kanten. Um dies zu beheben, können wir {{cssxref("image-rendering")}} auf `pixelated` setzen:
+In diesem Beispiel erstellen wir unsere Leinwand wirklich klein (15x15), skalieren sie dann aber mit CSS auf 300x300 Pixel hoch. Dadurch wird jeder Leinwandpixel nun durch einen 20x20 Block von CSS-Pixeln dargestellt. Wir zeichnen ein umrandetes Rechteck von (2,2) bis (12,12) und ein gefülltes Rechteck von (7,7) bis (8,8). Es erscheint _wirklich_ verschwommen. Das liegt daran, dass standardmäßig, wenn der Browser Rasterbilder skaliert, er einen Glättungsalgorithmus verwendet, um die zusätzlichen Pixel zu interpolieren. Dies ist großartig für Fotos oder Canvas-Grafiken mit geschwungenen Kanten, aber nicht so gut für Formen mit geraden Kanten. Um dies zu beheben, können wir {{cssxref("image-rendering")}} auf `pixelated` setzen:
 
 ```css live-sample___seeing_blurry_edges_2 live-sample___seeing_blurry_edges_3
 #canvas {
@@ -105,25 +105,25 @@ In diesem Beispiel erstellen wir unser Canvas wirklich klein (15x15), verwenden 
 
 {{EmbedLiveSample("Seeing blurry edges 2", "", "350")}}
 
-Jetzt, wenn der Browser das Canvas skaliert, wird die Pixelierung des Originals soweit wie möglich beibehalten.
+Nun, wenn der Browser die Leinwand skaliert, bewahrt er die Pixelierung des Originals so weit wie möglich.
 
 > [!NOTE]
-> `image-rendering: pixelated` hat als Technik zur Erhaltung scharfer Kanten auch seine Probleme. Wenn CSS-Pixel nicht mit Geräte-Pixeln übereinstimmen (wenn der [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) kein Ganzzahlwert ist), können bestimmte Pixel größer als andere gezeichnet werden, was zu einem ungleichmäßigen Erscheinungsbild führt. Dies ist jedoch kein leicht zu lösendes Problem, da es unmöglich ist, Geräte-Pixel genau zu füllen, wenn die CSS-Pixel nicht genau zu ihnen abgebildet werden können.
+> `image-rendering: pixelated` ist nicht ohne Probleme als Technik zur Erhaltung von scharfen Kanten. Wenn CSS-Pixel nicht mit Gerätepixeln übereinstimmen (wenn der [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) keine ganze Zahl ist), können bestimmte Pixel größer als andere gezeichnet werden, was zu einer ungleichmäßigen Darstellung führt. Dies ist jedoch kein einfach zu lösendes Problem, da es unmöglich ist, Gerätepixel genau zu füllen, wenn die CSS-Pixel nicht genau darauf abgebildet werden können.
 
-Aber nun wird ein anderes Problem sichtbar, das man auch schon im ursprünglichen Rechteckbeispiel beobachten konnte: das umrandete Rechteck ist nicht nur 2 Pixel breit statt 1, sondern erscheint auch grau statt in der Standardfarbe Schwarz. Dies liegt daran, wie die Koordinaten als Formgrenzen interpretiert werden.
+Aber jetzt wird ein anderes Problem deutlich, das Sie übrigens auch im ursprünglichen Rechteckbeispiel beobachten können: Das umrandete Rechteck ist nicht nur 2 Pixel breit anstatt 1, sondern erscheint auch grau anstatt der Standardfarbe Schwarz. Das liegt daran, wie die Koordinaten als Formgrenzen interpretiert werden.
 
-Wenn man sich das [Rasterdiagramm](#das_raster) oben noch einmal ansieht, kann man sehen, dass Koordinaten wie `2` oder `12` keinen Pixel identifizieren, sondern vielmehr die Grenze zwischen zwei Pixeln. In den folgenden Bildern stellt das Raster das Canvas-Koordinatenraster dar. Die Quadrate zwischen den Linien sind tatsächliche Bildschirm-Pixel. In dem ersten Rasterbild unten wird ein Rechteck von (2,1) bis (5,5) gefüllt. Der gesamte Bereich dazwischen (hellrot) fällt auf die Pixelgrenzen, sodass das resultierende gefüllte Rechteck scharfe Kanten hat.
+Wenn Sie sich das [Raster](#das_raster)-Diagramm oben noch einmal ansehen, können Sie sehen, dass Koordinaten wie `2` oder `12` keinen Pixel identifizieren, sondern vielmehr die Kante zwischen zwei Pixeln. In den folgenden Bildern des Rasters stellt das Raster das Leinwand-Koordinatenraster dar. Die Quadrate zwischen den Rasterlinien sind tatsächliche Pixel auf dem Bildschirm. Im ersten Rasterbild unten ist ein Rechteck von (2,1) bis (5,5) gefüllt. Der gesamte Bereich dazwischen (hellrot) fällt auf die Pixelgrenzen, so dass das resultierende gefüllte Rechteck scharfe Kanten haben wird.
 
-![Drei Koordinatenraster. Die Rasterlinien sind tatsächliche Pixel auf dem Bildschirm. Die obere linke Ecke jedes Rasters ist mit (0,0) beschriftet. Im ersten Raster wird ein Rechteck von (2,1) bis (5,5) in hellrot gefüllt. Im zweiten Raster wird (3,1) bis (3,5) mit einer königsblauen Linie von 1 Pixel Dicke verbunden. Die königsblaue Linie zentriert sich auf einer Rasterlinie, reicht von 2.5 bis 3.5 auf der x-Achse und reicht zur Hälfte in die Pixel auf jeder Seite der Grafiklinie hinein, wobei sich auf jeder Seite ein hellblauer Hintergrund erstreckt, der sich von 2 bis 4 auf der x-Achse erstreckt. Um den hellblauen Verschwimmungs-Effekt der Linie im zweiten Koordinatenraster zu vermeiden, wird der Pfad im dritten Koordinatenraster von (3.5,1) bis (3.5,5) in königsblauer Farbe dargestellt. Die 1 Pixel Linienstärke füllt am Ende eine einzelne vertikale Pixelreihe vollständig und präzise aus.](canvas-grid.png)
+![Drei Koordinatenraster. Die Rasterlinien sind tatsächliche Pixel auf dem Bildschirm. Die obere linke Ecke jedes Rasters ist mit (0,0) gekennzeichnet. Im ersten Raster ist ein Rechteck von (2,1) bis (5,5) in hellroter Farbe gefüllt. Im zweiten Raster ist (3,1) bis (3,5) mit einer 1-Pixel-dicken königsblauen Linie verbunden. Die königsblaue Linie ist auf einer Rasterlinie zentriert, reicht von 2,5 bis 3,5 auf der x-Achse, zur Hälfte in die Pixel auf beiden Seiten der Grafenlinie hinein, mit einem hellblauen Hintergrund auf beiden Seiten, der von 2 bis 4 auf der x-Achse reicht. Um die hellblaue Verwischungserweiterung der Linie im zweiten Koordinatenraster zu vermeiden, wird im dritten Koordinatenraster der Pfad in königsblau von Linie (3,5,1) bis (3,5,5) gezeichnet. Die 1 Pixel Linienbreite füllt am Ende vollständig und präzise eine einpixelige vertikale Linie vollständig aus.](canvas-grid.png)
 
-Betrachtet man einen Pfad von (3,1) bis (3,5) mit einer Linienstärke von `1.0`, ergibt sich die Situation im zweiten Bild. Der tatsächlich zu füllende Bereich (dunkelblau) reicht nur zur Hälfte in die Pixel auf jeder Seite des Pfads hinein. Eine Annäherung daran muss dargestellt werden, was bedeutet, dass diese Pixel nur teilweise schattiert sind, und daher wird der gesamte Bereich (der hellblaue und der dunkelblaue Bereich) mit einer Farbe gefüllt, die nur halb so dunkel wie die eigentliche Schlagfarbe ist. Dies ist, was bei der `1.0` Breite Linie im `strokeRect()` Aufruf im obigen Rechteckbeispiel passiert.
+Betrachtet man einen Pfad von (3,1) bis (3,5) mit einer Linienstärke von `1.0`, kommt man zur Situation im zweiten Bild. Der tatsächliche Bereich, der gefüllt werden soll (dunkelblau), reicht nur zur Hälfte in die Pixel auf beiden Seiten des Pfads. Eine Annäherung daran muss gerendert werden, was bedeutet, dass diese Pixel nur teilweise gefüllt werden, und das Ergebnis ist, dass der gesamte Bereich (der hellblaue und der dunkelblaue) mit einer Farbe gefüllt wird, die nur halb so dunkel ist wie die tatsächliche Strichfarbe. Dies ist es, was mit der `1.0` Breitenlinie in dem `strokeRect()` Aufruf im obigen Rechteckbeispiel passiert.
 
-Um dies zu beheben, müssen Sie sehr präzise bei der Pfaderstellung sein. Wenn Sie wissen, dass eine `1.0` Breite Linie sich eine halbe Einheit auf beiden Seiten des Pfades erstreckt, führt die Erstellung des Pfades von den _Zentren_ der Pixel aus zu der Situation im dritten Bild – die `1.0` Linienbreite füllt am Ende eine einzelne vertikale Linie eines Pixels vollständig und präzise aus.
+Um dies zu beheben, müssen Sie beim Erstellen Ihres Pfads sehr präzise sein. Da eine `1.0` Breitenlinie zur Hälfte zu beiden Seiten des Pfads reicht, führt die Erstellung des Pfads von _Zentren_ der Pixel zu der Situation im dritten Bild—die `1.0` Linienbreite füllt schließlich komplett und präzise eine einpixelige vertikale Linie vollständig aus.
 
 > [!NOTE]
-> Beachten Sie, dass in unserem Beispiel der Y-Position der vertikalen Linie immer noch eine ganzzahlige Rasterlinienposition zugeordnet wurde – wenn dies nicht der Fall gewesen wäre, würden wir an den Endpunkten Pixel mit halber Abdeckung sehen.
+> Beachten Sie, dass im Beispiel der vertikalen Linie die Y-Position immer noch eine ganzzahlige Rasterlinienposition referenziert - wenn das nicht der Fall wäre, würden wir an den Endpunkten Pixel mit halber Abdeckung sehen.
 
-Deshalb sagten wir früher, dass der `strokeRect(50, 50, 50, 50)` Aufruf im Rechteckbeispiel _konzeptionell_ 50x50 ist, tatsächlich aber 52x52 ist. Der tatsächlich gefüllte Bereich für die Umrandung beginnt bei (49.5, 49.5) und endet bei (100.5, 100.5) und aufgrund der teilweise gefüllten Pixel ist der tatsächlich gefüllte Bereich von (49,49) bis (101,101), was 52x52 ist, und die Kanten sind 2 Pixel breit. Um eine solide 1-Pixel breite Umrandung, die genau 50x50 ist, zu erhalten, müssten Sie das Rechteck um die Dicke der Umrandung (1px) verkleinern und es um die Hälfte der Dicke (0.5px) verschieben:
+Deshalb haben wir früher gesagt, dass der `strokeRect(50, 50, 50, 50)` Aufruf im Rechteckbeispiel _konzeptionell_ 50x50 war, aber in Wirklichkeit ist er 52x52. Der tatsächlich gefüllte Bereich für die Umrandung startet bei (49.5, 49.5) und endet bei (100.5, 100.5), und wegen der teilweise gefüllten Pixel ist der tatsächlich gefüllte Bereich von (49,49) bis (101,101), was 52x52 ist, und die Kanten sind 2 Pixel breit. Um eine solide, 1 Pixel breite Umrandung zu erhalten, die genau 50x50 ist, müssten Sie das Rechteck um die Dicke der Umrandung (1px) verkleinern und es um die Hälfte der Dicke (0.5px) verschieben:
 
 ```js live-sample___seeing_blurry_edges_3
 function draw() {
@@ -136,11 +136,11 @@ function draw() {
 
 {{EmbedLiveSample("Seeing blurry edges 3", "", "350")}}
 
-Bei Linien mit gerader Breite ist jede Hälfte eine ganze Anzahl von Pixeln, sodass man einen Pfad haben möchte, der sich zwischen den Pixeln befindet (also (3,1) bis (3,5)), anstatt in der Mitte eines Pixels.
+Bei Linien mit gerader Breite endet jede Hälfte darin, eine ganze Anzahl Pixel zu sein, also möchte man einen Pfad, der zwischen den Pixeln liegt (das heißt, (3,1) bis (3,5)), anstatt durch die Mitte der Pixel.
 
-Obwohl es anfangs etwas mühsam ist, mit skalierbaren 2D-Grafiken zu arbeiten, stellt das Beachten des Pixelrasters und der Position von Pfaden sicher, dass Ihre Zeichnungen unabhängig von Skalierungen oder anderen Transformationen korrekt aussehen. Eine `1.0` breite vertikale Linie, die an der richtigen Position gezeichnet wird, wird beim Hochskalieren um den Faktor 2 zu einer scharfen 2-Pixel-Linie und erscheint an der richtigen Position.
+Während es anfangs etwas schmerzhaft ist, mit skalierbarer 2D-Grafik zu arbeiten, stellt die Aufmerksamkeit auf das Pixelraster und die Position der Pfade sicher, dass Ihre Zeichnungen unabhängig von der Skalierung oder anderen Transformationen korrekt aussehen. Eine 1.0-Breitlinie, die an der richtigen Position gezeichnet wird, wird eine scharfe 2-Pixel-Linie, wenn sie um das 2-fache vergrößert wird, und wird an der richtigen Position erscheinen.
 
-Dieses Phänomen der teilweise gefüllten Pixel erstreckt sich auch auf Formen, die sich nicht mit dem Pixelraster ausrichten. Betrachten Sie zum Beispiel ein gedrehtes Rechteck (Sie werden lernen, wie es in den nächsten Abschnitt gezeichnet wird). Um zu sehen, wie es mit und ohne `image-rendering: pixelated` aussieht, haben wir zwei nebeneinander liegende Canvases und ein drittes in voller Größe gezeichnet, mit Rasterlinien:
+Dieses Phänomen der teilweise gefüllten Pixel erstreckt sich auch auf Formen, die nicht mit dem Pixelraster übereinstimmen. Zum Beispiel betrachte man ein gedrehtes Rechteck (Sie werden lernen, wie man es im nächsten Abschnitt zeichnet). Um zu sehen, wie es mit und ohne `image-rendering: pixelated` aussieht, haben wir zwei Leinwände nebeneinander und eine dritte vollständig skalierte, mit Rasterlinien:
 
 ```html hidden live-sample___seeing_blurry_edges_4
 <canvas id="canvas1" width="12" height="12"></canvas>
@@ -214,44 +214,44 @@ drawFullScale();
 
 {{EmbedLiveSample("Seeing blurry edges 4", "", "350")}}
 
-Wenn das Hochskalieren eines Bildes es unschärfer erscheinen lässt als beabsichtigt, dann würde das Herunterskalieren eines Bildes es _schärfer_ erscheinen lassen. Wenn Sie beispielsweise möchten, dass ein Canvas auf dem Bildschirm als 300x150 Pixel erscheint, können Sie es als 600x300 Pixel erstellen und dann CSS verwenden, um es zu verkleinern. Dies ist besonders nützlich für Bildschirme mit hoher DPI (wie Apples Retina-Displays), bei denen ein CSS-Pixel durch mehrere Bildschirm-Pixel dargestellt wird, so dass, wenn man ein 300x150 Pixel Canvas genau gezeichnet wird, es nicht die gleiche Pixelauflösung wie andere Elemente auf der Seite haben wird.
+Wenn das _Vergrößern_ eines Bildes es verschwommener erscheinen lässt als beabsichtigt, dann macht das _Verkleinern_ eines Bildes es _schärfer_. Beispielsweise, wenn Sie eine Leinwand auf dem Bildschirm als 300x150 Pixel darstellen möchten, können Sie sie als 600x300 Pixel erstellen und dann CSS verwenden, um es zu verkleinern. Dies ist besonders nützlich auf hochauflösenden Bildschirmen (wie Apple's Retina-Displays), auf denen ein CSS-Pixel durch mehrere Bildschirmpixel dargestellt wird, so dass, wenn Sie eine 300x150 Pixel große Leinwand getreu malen, es nicht die gleiche Pixelauflösung wie andere Elemente auf der Seite hat.
 
-## Pfade zeichnen
+## Zeichnen von Pfaden
 
-Nun werfen wir einen Blick auf Pfade. Ein Pfad ist eine Liste von Punkten, verbunden durch Liniensegmente, die unterschiedliche Formen, gebogen oder nicht, mit unterschiedlicher Breite und Farbe haben können. Ein Pfad oder sogar ein Teil eines Pfades kann geschlossen sein. Um Formen mit Pfaden zu erstellen, gehen wir einige zusätzliche Schritte:
+Jetzt schauen wir uns die Pfade an. Ein Pfad ist eine Liste von Punkten, verbunden durch Linien-Segmente, die unterschiedliche Formen haben können, ob gekrümmt oder nicht, von unterschiedlicher Breite und unterschiedlicher Farbe. Ein Pfad oder sogar ein Unterpfad kann geschlossen sein. Um mit Pfaden Formen zu erstellen, unternehmen wir einige zusätzliche Schritte:
 
 1. Zuerst erstellen Sie den Pfad.
 2. Dann verwenden Sie [Zeichenbefehle](/de/docs/Web/API/CanvasRenderingContext2D#paths), um in den Pfad zu zeichnen.
-3. Sobald der Pfad erstellt wurde, können Sie den Pfad nachverfolgen oder füllen, um ihn zu rendern.
+3. Sobald der Pfad erstellt wurde, können Sie den Pfad umranden oder füllen, um ihn zu rendern.
 
-Hier sind die Funktionen, die bei diesen Schritten verwendet werden:
+Hier sind die Funktionen, die verwendet werden, um diese Schritte auszuführen:
 
 - [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath)
-  - : Erstellt einen neuen Pfad. Nach der Erstellung werden zukünftige Zeichenbefehle auf den Pfad gerichtet und verwendet, um den Pfad zu erweitern.
-- [Pfad-Methoden](/de/docs/Web/API/CanvasRenderingContext2D#paths)
+  - : Erstellt einen neuen Pfad. Sobald dieser erstellt ist, werden zukünftige Zeichenbefehle in den Pfad gerichtet und verwendet, um den Pfad aufzubauen.
+- [Pfade-Methoden](/de/docs/Web/API/CanvasRenderingContext2D#paths)
   - : Methoden, um verschiedene Pfade für Objekte festzulegen.
 - [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath)
-  - : Fügt dem Pfad eine gerade Linie hinzu, die zum Anfang des aktuellen Teilpfades führt.
+  - : Fügt eine gerade Linie zum Pfad hinzu, die zum Start des aktuellen Unterpfads führt.
 - [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)
-  - : Zeichnet die Form, indem ihre Umrandung nachgezogen wird.
+  - : Zeichnet die Form, indem ihre Umrandung umrandet wird.
 - [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill)
-  - : Zeichnet eine feste Form, indem der Inhalt des Pfads gefüllt wird.
+  - : Zeichnet eine feste Form, indem der Inhaltsbereich des Pfads gefüllt wird.
 
-Der erste Schritt zur Erstellung eines Pfades ist das Aufrufen von `beginPath()`. Intern werden Pfade als eine Liste von Teilpfaden (Linien, Bögen usw.) gespeichert, die zusammen eine Form bilden. Jedes Mal, wenn diese Methode aufgerufen wird, wird die Liste zurückgesetzt und wir können anfangen, neue Formen zu zeichnen.
+Der erste Schritt, um einen Pfad zu erstellen, ist der Aufruf von `beginPath()`. Intern werden Pfade als Liste von Unterpfaden (Linien, Bögen, etc.) gespeichert, die zusammen eine Form bilden. Jedes Mal, wenn diese Methode aufgerufen wird, wird die Liste zurückgesetzt und wir können beginnen, neue Formen zu zeichnen.
 
 > [!NOTE]
-> Wenn der aktuelle Pfad leer ist, z.B. unmittelbar nach dem Aufrufen von `beginPath()`, oder auf einem neu erstellten Canvas, wird der erste Konstruktionbefehl des Pfades immer als `moveTo()` behandelt, unabhängig davon, was er tatsächlich ist. Aus diesem Grund möchten Sie fast immer Ihre Startposition nach dem Zurücksetzen eines Pfades explizit setzen.
+> Wenn der aktuelle Pfad leer ist, wie beispielsweise direkt nach einem Aufruf von `beginPath()`, oder auf einer neu erstellten Leinwand, wird der erste Pfadkonstruktionsbefehl immer als `moveTo()` behandelt, unabhängig davon, was er eigentlich ist. Aus diesem Grund werden Sie fast immer Ihre Startposition explizit nach dem Zurücksetzen eines Pfads festlegen wollen.
 
-Der zweite Schritt ist das Aufrufen der Methoden, die tatsächlich die zu zeichnenden Pfade angeben. Diese werden wir in Kürze sehen.
+Der zweite Schritt ist der Aufruf der Methoden, die tatsächlich die zu zeichnenden Pfade spezifizieren. Wir werden diese in Kürze sehen.
 
-Der dritte und optionale Schritt ist der Aufruf von `closePath()`. Diese Methode versucht die Form zu schließen, indem eine gerade Linie vom aktuellen Punkt zum Anfang gezeichnet wird. Wenn die Form bereits geschlossen ist oder nur ein Punkt in der Liste vorhanden ist, macht diese Funktion nichts.
+Der dritte und optionale Schritt ist der Aufruf von `closePath()`. Diese Methode versucht, die Form zu schließen, indem eine gerade Linie von der aktuellen Position zum Start gezogen wird. Sollte die Form bereits geschlossen sein oder es gibt nur einen Punkt in der Liste, führt diese Funktion nichts aus.
 
 > [!NOTE]
 > Wenn Sie `fill()` aufrufen, werden alle offenen Formen automatisch geschlossen, sodass Sie `closePath()` nicht aufrufen müssen. Dies ist **nicht** der Fall, wenn Sie `stroke()` aufrufen.
 
-### Dreieck zeichnen
+### Zeichnen eines Dreiecks
 
-Der Code zum Zeichnen eines Dreiecks würde beispielsweise so aussehen:
+Zum Beispiel könnte der Code zum Zeichnen eines Dreiecks so aussehen:
 
 ```html hidden
 <canvas id="my-canvas" width="100" height="100"></canvas>
@@ -274,20 +274,20 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht so aus:
+Das Resultat sieht so aus:
 
 {{EmbedLiveSample("Drawing_a_triangle", "", "110")}}
 
-### Den Stift bewegen
+### Bewegen des Stifts
 
-Eine sehr nützliche Funktion, die eigentlich nichts zeichnet, aber Teil der oben beschriebenen Pfadliste wird, ist die `moveTo()`-Funktion. Sie können sich das wahrscheinlich am besten so vorstellen, als würden Sie einen Stift oder Bleistift vom einen Platz auf einem Blatt Papier an den nächsten Platz setzen.
+Eine sehr nützliche Funktion, die tatsächlich nichts zeichnet, aber Teil der oben beschriebenen Pfadliste wird, ist die Funktion `moveTo()`. Sie können dies wahrscheinlich am besten als das Anheben eines Stifts oder Bleistifts von einem Punkt auf einem Blatt Papier und das Platzieren auf dem nächsten betrachten.
 
 - [`moveTo(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo)
   - : Bewegt den Stift zu den durch `x` und `y` angegebenen Koordinaten.
 
-Wenn das Canvas initialisiert oder `beginPath()` aufgerufen wird, möchten Sie in der Regel die `moveTo()`-Funktion verwenden, um den Startpunkt woanders hin zu verschieben. Wir könnten `moveTo()` auch verwenden, um nicht verbundene Pfade zu zeichnen. Schauen Sie sich das Smiley-Gesicht unten an.
+Wenn die Leinwand initialisiert wird oder `beginPath()` aufgerufen wird, möchten Sie in der Regel die `moveTo()`-Funktion verwenden, um den Startpunkt woanders zu platzieren. Wir könnten `moveTo()` auch verwenden, um unverbundene Pfade zu zeichnen. Schauen Sie sich das Smiley-Gesicht unten an.
 
-Um dies selbst auszuprobieren, können Sie den unten stehenden Codeausschnitt verwenden. Kopieren Sie ihn einfach in die `draw()`-Funktion, die wir zuvor gesehen haben.
+Um dies selbst auszuprobieren, können Sie das untenstehende Code-Snippet verwenden. Fügen Sie es einfach in die `draw()`-Funktion ein, die wir zuvor gesehen haben.
 
 ```html hidden
 <canvas id="my-canvas" width="150" height="150"></canvas>
@@ -314,23 +314,23 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht so aus:
+Das Resultat sieht so aus:
 
 {{EmbedLiveSample("Moving_the_pen", "", "160")}}
 
-Falls Sie die Verbindungslinien sehen möchten, können Sie die Zeilen entfernen, die `moveTo()` aufrufen.
+Wenn Sie die Verbindungs-Linien sehen möchten, können Sie die Zeilen entfernen, die `moveTo()` aufrufen.
 
 > [!NOTE]
 > Um mehr über die `arc()`-Funktion zu erfahren, siehe den Abschnitt [Bögen](#bögen) unten.
 
 ### Linien
 
-Zum Zeichnen gerader Linien verwenden Sie die `lineTo()`-Methode.
+Um gerade Linien zu zeichnen, verwenden Sie die `lineTo()`-Methode.
 
 - [`lineTo(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/lineTo)
-  - : Zeichnet eine Linie von der aktuellen Zeichenposition zur durch `x` und `y` angegebenen Position.
+  - : Zeichnet eine Linie von der aktuellen Zeichenposition zur Position, die durch `x` und `y` angegeben ist.
 
-Diese Methode nimmt zwei Argumente, `x` und `y`, die die Koordinaten des Endpunkts der Linie sind. Der Startpunkt hängt von zuvor gezeichneten Pfaden ab, bei denen der Endpunkt des vorherigen Pfades der Startpunkt für den folgenden ist, usw. Der Startpunkt kann auch durch die `moveTo()`-Methode geändert werden.
+Diese Methode nimmt zwei Argumente, `x` und `y`, die die Koordinaten des Endpunkts der Linie sind. Der Startpunkt hängt von zuvor gezeichneten Pfaden ab, wobei der Endpunkt des vorherigen Pfads der Startpunkt für den folgenden ist usw. Der Startpunkt kann auch durch die `moveTo()`-Methode geändert werden.
 
 Das folgende Beispiel zeichnet zwei Dreiecke, eines gefüllt und eines umrandet.
 
@@ -364,36 +364,36 @@ function draw() {
 draw();
 ```
 
-Dies beginnt mit dem Aufruf von `beginPath()`, um einen neuen Formpfad zu starten. Dann wird die `moveTo()` Methode verwendet, um den Startpunkt an die gewünschte Position zu verschieben. Darunter werden zwei Linien gezeichnet, die zwei Seiten des Dreiecks bilden.
+Es beginnt damit, `beginPath()` aufzurufen, um einen neuen Formpfad zu starten. Wir verwenden dann die `moveTo()`-Methode, um den Startpunkt zu der gewünschten Position zu verschieben. Darunter werden zwei Linien gezeichnet, die zwei Seiten des Dreiecks bilden.
 
 {{EmbedLiveSample("Lines", "", "160")}}
 
-Sie werden den Unterschied zwischen dem gefüllten und dem gestrichelten Dreieck bemerken. Dies liegt daran, dass Formen, wie oben erwähnt, beim Füllen automatisch geschlossen werden, jedoch nicht, wenn sie gestrichelt sind. Wenn wir das `closePath()` für das gestichelte Dreieck weggelassen hätten, wären nur zwei Linien gezeichnet worden, kein vollständiges Dreieck.
+Sie werden den Unterschied zwischen dem gefüllten und dem umrandeten Dreieck bemerken. Dies liegt, wie oben erwähnt, daran, dass Formen automatisch geschlossen werden, wenn ein Pfad gefüllt ist, aber nicht, wenn er umrandet wird. Wenn wir das `closePath()` für das umrandete Dreieck weglassen würden, wären nur zwei Linien gezeichnet worden, kein komplettes Dreieck.
 
 ### Bögen
 
-Um Bögen oder Kreise zu zeichnen, verwenden wir die `arc()` oder `arcTo()`-Methoden.
+Um Bögen oder Kreise zu zeichnen, verwenden wir die Methoden `arc()` oder `arcTo()`.
 
 - [`arc(x, y, radius, startAngle, endAngle, counterclockwise)`](/de/docs/Web/API/CanvasRenderingContext2D/arc)
-  - : Zeichnet einen Bogen, der an der Position _(x, y)_ zentriert ist, mit Radius _r_ beginnend bei _startAngle_ und endend bei _endAngle_, in der angegebenen Richtung, die durch _counterclockwise_ angezeigt wird (standardmäßig im Uhrzeigersinn).
+  - : Zeichnet einen Bogen, der sich an der Position _(x, y)_ mit Radius _r_ befindet, beginnend bei _startAngle_ und endend bei _endAngle_, wobei er in die durch _counterclockwise_ angegebene Richtung verläuft (standardmäßig im Uhrzeigersinn).
 - [`arcTo(x1, y1, x2, y2, radius)`](/de/docs/Web/API/CanvasRenderingContext2D/arcTo)
-  - : Zeichnet einen Bogen mit den angegebenen Steuerpunkten und Radius, verbunden durch eine gerade Linie mit dem vorherigen Punkt.
+  - : Zeichnet einen Bogen mit den angegebenen Kontrollpunkten und dem Radius, verbunden mit dem vorherigen Punkt durch eine gerade Linie.
 
-Betrachten wir die `arc`-Methode genauer, die sechs Parameter annimmt: `x` und `y` sind die Koordinaten des Mittelpunkts des Kreises, auf dem der Bogen gezeichnet werden soll. `radius` ist selbsterklärend. Die Parameter `startAngle` und `endAngle` definieren die Start- und Endpunkte des Bogens in Bogenmaß, entlang der Kreislinie gemessen. Diese werden von der x-Achse aus gemessen. Der Parameter `counterclockwise` ist ein Boolescher Wert, der, wenn `true`, den Bogen gegen den Uhrzeigersinn zeichnet; andernfalls wird der Bogen im Uhrzeigersinn gezeichnet.
+Werfen wir einen detaillierteren Blick auf die `arc`-Methode, die sechs Parameter benötigt: `x` und `y` sind die Koordinaten des Zentrums des Kreises, auf dem der Bogen gezeichnet werden soll. `radius` ist selbsterklärend. Die Parameter `startAngle` und `endAngle` definieren die Start- und Endpunkte des Bogens in Bogenmaß, entlang des Kreisumfangs. Diese werden von der x-Achse gemessen. Der Parameter `counterclockwise` ist ein boolescher Wert, der, wenn `true`, den Bogen gegen den Uhrzeigersinn zieht; andernfalls wird der Bogen im Uhrzeigersinn gezeichnet.
 
 > [!NOTE]
-> Winkel in der `arc`-Funktion werden in Bogenmaß und nicht in Grad gemessen. Um Grad in Bogenmaß umzurechnen, können Sie den folgenden JavaScript-Ausdruck verwenden: `radians = (Math.PI/180)*degrees`.
+> Winkel in der `arc`-Funktion werden in Bogenmaß gemessen, nicht in Grad. Um Grad in Bogenmaß zu konvertieren, können Sie den folgenden JavaScript-Ausdruck verwenden: `Radians = (Math.PI/180)*degrees`.
 
 Das folgende Beispiel ist etwas komplexer als die, die wir oben gesehen haben. Es zeichnet 12 verschiedene Bögen, alle mit unterschiedlichen Winkeln und Füllungen.
 
-Die beiden [`for` Schleifen](/de/docs/Web/JavaScript/Reference/Statements/for) dienen dazu, durch die Reihen und Spalten von Bögen zu gehen. Für jeden Bogen starten wir einen neuen Pfad, indem wir `beginPath()` aufrufen. Im Code sind die Parameter für den Bogen jeweils in einer Variablen zur Klarheit, aber das würden Sie im echten Leben nicht unbedingt so machen.
+Die beiden [`for` Schleifen](/de/docs/Web/JavaScript/Reference/Statements/for) dienen zum Durchlaufen der Zeilen und Spalten der Bögen. Für jeden Bogen beginnen wir einen neuen Pfad, indem wir `beginPath()` aufrufen. Im Code ist jeder der Parameter für den Bogen in einer Variable der Klarheit halber festgelegt, aber das würden Sie im wirklichen Leben nicht unbedingt tun.
 
-Die `x`- und `y`-Koordinaten sollten klar genug sein. `radius` und `startAngle` sind festgelegt. Der `endAngle` beginnt in der ersten Spalte bei 180 Grad (halbkreisförmig) und wird in Schritten von 90 Grad erhöht, was in einem vollständigen Kreis in der letzten Spalte mündet.
+Die `x` und `y` Koordinaten sollten klar genug sein. `radius` und `startAngle` sind fest. Der `endAngle` beginnt bei 180 Grad (ein halber Kreis) in der ersten Spalte und wird in Schritten von 90 Grad erhöht, was in einem vollständigen Kreis in der letzten Spalte kulminiert.
 
-Die Anweisung für den Parameter `clockwise` bewirkt, dass die erste und dritte Reihe im Uhrzeigersinn gezeichnet werden und die zweite und vierte Reihe gegen den Uhrzeigersinn. Schließlich bewirkt die `if`-Anweisung, dass die obere Hälfte gestrichelte Bögen sind und die untere Hälfte gefüllte Bögen.
+Die Anweisung für den `clockwise` Parameter führt dazu, dass die erste und dritte Reihe im Uhrzeigersinn gezeichnet werden und die zweite und vierte Reihe als gegen den Uhrzeigersinn Bögen. Schließlich macht die `if` Anweisung die obere Hälfte mit umrandeten Bögen und die untere Hälfte mit gefüllten Bögen.
 
 > [!NOTE]
-> Dieses Beispiel benötigt ein etwas größeres Canvas als die anderen auf dieser Seite: 150 x 200 Pixel.
+> Dieses Beispiel erfordert eine etwas größere Leinwand als die anderen auf dieser Seite: 150 x 200 Pixel.
 
 ```html hidden
 <canvas id="my-canvas" width="150" height="200"></canvas>
@@ -432,27 +432,27 @@ draw();
 
 {{EmbedLiveSample("Arcs", "", "210")}}
 
-### Bezier- und quadratische Kurven
+### Bézier- und quadratische Kurven
 
-Der nächste verfügbare Pfadtyp sind {{Glossary("Bezier_curve", "Bézier-Kurven")}}, die sowohl in kubischer als auch in quadratischer Form vorliegen. Diese werden in der Regel verwendet, um komplexe organische Formen zu zeichnen.
+Die nächste Art von verfügbaren Pfaden sind {{Glossary("Bezier_curve", "Bézier-Kurven")}}, die sowohl in kubischer als auch in quadratischer Form erhältlich sind. Diese werden im Allgemeinen für das Zeichnen komplexer, organischer Formen verwendet.
 
 - [`quadraticCurveTo(cp1x, cp1y, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
-  - : Zeichnet eine quadratische Bézier-Kurve vom aktuellen Stiftposition bis zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung des Kontrollpunkts, der durch `cp1x` und `cp1y` angegeben ist.
+  - : Zeichnet eine quadratische Bézier-Kurve von der aktuellen Stiftposition zum durch `x` und `y` angegebenen Endpunkt, unter Verwendung des durch `cp1x` und `cp1y` angegebenen Kontrollpunkts.
 - [`bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo)
-  - : Zeichnet eine kubische Bézier-Kurve vom aktuellen Stiftposition bis zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung der Kontrollpunkte, die durch (`cp1x`, `cp1y`) und (`cp2x`, `cp2y`) angegeben sind.
+  - : Zeichnet eine kubische Bézier-Kurve von der aktuellen Stiftposition zum durch `x` und `y` angegebenen Endpunkt, unter Verwendung der durch (`cp1x`, `cp1y`) und (`cp2x`, `cp2y`) angegebenen Kontrollpunkte.
 
-Der Unterschied zwischen diesen beiden liegt darin, dass eine quadratische Bézier-Kurve einen Start- und Endpunkt hat (blaue Punkte) und nur einen **Kontrollpunkt** (angegeben durch den roten Punkt), während eine kubische Bézier-Kurve zwei Kontrollpunkte verwendet.
-![Vergleich von Quadratischen und Bezier Kurven.](canvas_curves.png)
+Der Unterschied zwischen diesen besteht darin, dass eine quadratische Bézier-Kurve einen Start- und einen Endpunkt (blaue Punkte) und nur einen **Kontrollpunkt** (angezeigt durch den roten Punkt) hat, während eine kubische Bézier-Kurve zwei Kontrollpunkte verwendet.
+![Vergleich Quadratische und Bezier-Kurve.](canvas_curves.png)
 
-Die Parameter `x` und `y` in beiden Methoden sind die Koordinaten des Endpunkts. `cp1x` und `cp1y` sind die Koordinaten des ersten Kontrollpunkts, und `cp2x` und `cp2y` sind die Koordinaten des zweiten Kontrollpunkts.
+Die Parameter `x` und `y` in beiden Methoden sind die Koordinaten des Endpunkts. `cp1x` und `cp1y` sind die Koordinaten des ersten Kontrollpunkts und `cp2x` und `cp2y` sind die Koordinaten des zweiten Kontrollpunkts.
 
-Die Verwendung quadratischer und kubischer Bézier-Kurven kann ziemlich herausfordernd sein, da wir, anders als in Vektorgrafik-Software wie Adobe Illustrator, keine direkte visuelle Rückmeldung darüber haben, was wir tun. Das macht es ziemlich schwer, komplexe Formen zu zeichnen. Im nächsten Beispiel werden wir einige einfache organische Formen zeichnen, aber wenn Sie die Zeit und vor allem die Geduld haben, können wesentlich komplexere Formen erstellt werden.
+Die Verwendung von quadratischen und kubischen Bézier-Kurven kann ziemlich herausfordernd sein, da im Gegensatz zu Vektorgrafik-Software wie Adobe Illustrator, wir kein direktes visuelles Feedback dazu haben, was wir tun. Dies macht es ziemlich schwer, komplexe Formen zu zeichnen. In dem folgenden Beispiel werden wir einige einfache organische Formen zeichnen, aber wenn Sie die Zeit und vor allem die Geduld haben, können viel komplexere Formen erstellt werden.
 
-Es gibt nichts besonders Schwieriges in diesen Beispielen. In beiden Fällen sehen wir eine Abfolge von gezeichneten Kurven, die schließlich in einer vollständigen Form resultieren.
+Es gibt nichts wirklich Schwieriges in diesen Beispielen. In beiden Fällen sehen wir eine Abfolge von Kurven, die schließlich in einer vollständigen Form resultieren.
 
-#### Quadratische Bezier-Kurven
+#### Quadratische Bézier-Kurven
 
-Dieses Beispiel verwendet mehrere quadratische Bézier-Kurven, um eine Sprechblase zu zeichnen.
+Dieses Beispiel verwendet mehrere quadratische Bézier-Kurven, um eine Sprechblase zu rendern.
 
 ```html hidden
 <canvas id="my-canvas" width="150" height="150"></canvas>
@@ -482,7 +482,7 @@ draw();
 
 {{EmbedLiveSample("Quadratic_Bezier_curves", "", "160")}}
 
-#### Kubische Bezier-Kurven
+#### Kubische Bézier-Kurven
 
 Dieses Beispiel zeichnet ein Herz mit kubischen Bézier-Kurven.
 
@@ -516,16 +516,16 @@ draw();
 
 ### Rechtecke
 
-Zusätzlich zu den drei Methoden, die wir im Abschnitt [Rechtecke zeichnen](#rechtecke_zeichnen) gesehen haben, welche rechteckige Formen direkt auf das Canvas zeichnen, gibt es auch die `rect()`-Methode, die einem aktuell offenen Pfad einen rechteckigen Pfad hinzufügt.
+Zusätzlich zu den drei Methoden, die wir beim [Zeichnen von Rechtecken](#zeichnen_von_rechtecken) gesehen haben, die rechtwinklige Formen direkt auf die Leinwand zeichnen, gibt es auch die `rect()`-Methode, die einen rechteckigen Pfad zu einem derzeit geöffneten Pfad hinzufügt.
 
 - [`rect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/rect)
-  - : Zeichnet ein Rechteck, dessen obere linke Ecke durch (`x`, `y`) mit der angegebenen `Breite` und `Höhe` spezifiziert wird.
+  - : Zeichnet ein Rechteck, dessen obere linke Ecke durch (`x`, `y`) mit der angegebenen `width` und `height` angegeben ist.
 
-Vor der Ausführung dieser Methode wird die `moveTo()`-Methode automatisch mit den Parametern (x,y) aufgerufen. Mit anderen Worten, die aktuelle Stiftposition wird automatisch auf die Standardkoordinaten zurückgesetzt.
+Bevor diese Methode ausgeführt wird, wird automatisch die `moveTo()`-Methode mit den Parametern (x,y) aufgerufen. Mit anderen Worten, die aktuelle Stiftposition wird automatisch auf die Standardkoordinaten zurückgesetzt.
 
-### Kombinationen herstellen
+### Kombinationen erstellen
 
-Bis jetzt hat jedes Beispiel auf dieser Seite nur einen Typ von Pfadfunktionen pro Form verwendet. Es gibt jedoch keine Einschränkung, wie viele oder welche Arten von Pfaden Sie verwenden können, um eine Form zu erstellen. Schauen wir uns also in diesem letzten Beispiel an, wie wir alle Pfadfunktionen kombinieren können, um eine Reihe von sehr bekannten Spielcharakteren zu erstellen.
+Bisher hat jedes Beispiel auf dieser Seite nur einen Typ von Pfadfunktion pro Form verwendet. Es gibt jedoch keine Einschränkung für die Anzahl oder Arten von Pfaden, die Sie verwenden können, um eine Form zu erstellen. Lassen Sie uns also in diesem letzten Beispiel alle Pfadfunktionen kombinieren, um eine Reihe von sehr berühmten Spielfiguren zu erstellen.
 
 ```html hidden
 <canvas id="my-canvas" width="200" height="185"></canvas>
@@ -619,13 +619,13 @@ Das resultierende Bild sieht so aus:
 
 {{EmbedLiveSample("Making_combinations", "", "200")}}
 
-Da dies tatsächlich überraschend einfach ist, gehen wir nicht im Detail darauf ein. Die wichtigsten Dinge, die zu beachten sind, sind die Verwendung der `fillStyle`-Eigenschaft im Zeichenkontext und die Verwendung einer Hilfsfunktion (in diesem Fall `roundedRect()`). Die Nutzung von Hilfsfunktionen für Zeichnungen, die Sie häufig machen, kann sehr hilfreich sein und die Menge des benötigten Codes sowie seine Komplexität reduzieren.
+Wir werden dies nicht im Detail durchgehen, da es eigentlich überraschend einfach ist. Die wichtigsten Dinge, die zu beachten sind, sind die Verwendung der `fillStyle`-Eigenschaft im Zeichenkontext und die Verwendung einer Hilfsfunktion (in diesem Fall `roundedRect()`). Die Verwendung von Hilfsfunktionen für Zeichenteile, die Sie oft verwenden, kann sehr hilfreich sein und die Menge des Codes, den Sie benötigen, sowie dessen Komplexität verringern.
 
-Am Ende dieses Tutorials werfen wir einen genaueren Blick auf `fillStyle`. Hier ändern wir lediglich die Füllfarbe der Pfade von der Standardfarbe Schwarz zu Weiß und dann wieder zurück.
+Wir werden `fillStyle` in mehr Detail an späterer Stelle in diesem Tutorial noch einmal betrachten. Hier verwenden wir es einfach, um die Füllfarbe für Pfade von der Standardfarbe Schwarz auf Weiß und dann wieder zurück zu ändern.
 
 ### Formen mit Löchern
 
-Um eine Form mit einem Loch zu zeichnen, müssen wir das Loch in einer anderen Uhrzeigerrichtung zeichnen als die äußere Form. Entweder zeichnen wir die äußere Form im Uhrzeigersinn und die innere Form gegen den Uhrzeigersinn oder die äußere Form gegen den Uhrzeigersinn und die innere Form im Uhrzeigersinn.
+Um eine Form mit einem Loch darin zu zeichnen, müssen wir das Loch in unterschiedlichen Uhrzeigerrichtungen wie die äußere Form zeichnen. Wir zeichnen entweder die äußere Form im Uhrzeigersinn und die innere Form gegen den Uhrzeigersinn oder die äußere Form gegen den Uhrzeigersinn und die innere Form im Uhrzeigersinn.
 
 ```html hidden
 <canvas id="my-canvas" width="150" height="150"></canvas>
@@ -658,15 +658,15 @@ draw();
 
 {{EmbedLiveSample("Shapes_with_holes", "", "160")}}
 
-Im obigen Beispiel geht das äußere Dreieck im Uhrzeigersinn (von der oberen linken Ecke zur oberen rechten Ecke und endet am unteren Rand), und das innere Dreieck geht gegen den Uhrzeigersinn (vom oberen Rand zur unteren linken Ecke und endet rechts unten).
+Im obigen Beispiel geht das äußere Dreieck im Uhrzeigersinn (zum oberen linken Eckpunkt bewegen, dann eine Linie zum oberen rechten Eckpunkt ziehen und am unteren Ende enden) und das innere Dreieck geht gegen den Uhrzeigersinn (zum oberen Rand bewegen, dann Linie zum unteren linken Eckpunkt und am unteren rechten enden).
 
-## Path2D Objekte
+## Path2D-Objekte
 
-Wie wir im letzten Beispiel gesehen haben, können eine Reihe von Pfaden und Zeichenbefehlen verwendet werden, um Objekte auf Ihrem Canvas zu zeichnen. Um den Code zu vereinfachen und die Leistung zu verbessern, ermöglicht das [`Path2D`](/de/docs/Web/API/Path2D)-Objekt, das in neueren Versionen der Browser verfügbar ist, Ihnen, diese Zeichenbefehle zu zwischenspeichern oder aufzuzeichnen. Sie können Ihre Pfade schnell abspielen.
-Schauen wir uns an, wie wir ein `Path2D`-Objekt konstruieren können:
+Wie wir im letzten Beispiel gesehen haben, kann es eine Reihe von Pfaden und Zeichenbefehlen geben, um Objekte auf Ihre Leinwand zu zeichnen. Um den Code zu vereinfachen und die Leistung zu verbessern, ermöglicht das [`Path2D`](/de/docs/Web/API/Path2D)-Objekt, das in neueren Versionen von Browsern verfügbar ist, Ihnen, diese Zeichenbefehle zwischenzuspeichern oder aufzuzeichnen. Sie können Ihre Pfade schnell wiedergeben.
+Lassen Sie uns sehen, wie wir ein `Path2D`-Objekt konstruieren können:
 
 - [`Path2D()`](/de/docs/Web/API/Path2D/Path2D)
-  - : Der **`Path2D()`**-Konstruktor gibt ein neu instanziiertes `Path2D`-Objekt zurück, optional mit einem weiteren Pfad als Argument (erstellt eine Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths)-Daten besteht.
+  - : Der **`Path2D()`**-Konstruktor gibt ein neu instanziertes `Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erzeugt eine Kopie), oder optional mit einem String, der aus [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) besteht.
 
 ```js
 new Path2D(); // empty path object
@@ -674,16 +674,16 @@ new Path2D(path); // copy from another Path2D object
 new Path2D(d); // path from SVG path data
 ```
 
-Alle [Pfadmethoden](/de/docs/Web/API/CanvasRenderingContext2D#paths) wie `moveTo`, `rect`, `arc` oder `quadraticCurveTo`, etc., die wir oben kennengelernt haben, sind auf `Path2D`-Objekten verfügbar.
+Alle [Pfade-Methoden](/de/docs/Web/API/CanvasRenderingContext2D#paths) wie `moveTo`, `rect`, `arc` oder `quadraticCurveTo`, etc., die wir oben kennengelernt haben, sind auf `Path2D`-Objekten verfügbar.
 
-Die `Path2D` API bietet auch eine Möglichkeit, Pfade mithilfe der `addPath`-Methode zu kombinieren. Dies kann nützlich sein, wenn Sie Objekte aus mehreren Komponenten erstellen möchten.
+Das `Path2D`-API fügt auch eine Möglichkeit hinzu, Pfade mithilfe der `addPath`-Methode zu kombinieren. Dies kann nützlich sein, wenn Sie Objekte aus mehreren Komponenten bauen möchten, zum Beispiel.
 
 - [`Path2D.addPath(path [, transform])`](/de/docs/Web/API/Path2D/addPath)
   - : Fügt dem aktuellen Pfad einen Pfad mit einer optionalen Transformationsmatrix hinzu.
 
-### Path2D Beispiel
+### Path2D-Beispiel
 
-In diesem Beispiel erstellen wir ein Rechteck und einen Kreis. Beide werden als `Path2D`-Objekt gespeichert, sodass sie später verfügbar sind. Mit der neuen `Path2D` API wurden mehrere Methoden aktualisiert, um optional ein `Path2D`-Objekt zu akzeptieren, das anstelle des aktuellen Pfades verwendet wird. Hier werden `stroke` und `fill` mit einem Pfad-Argument verwendet, um beide Objekte auf das Canvas zu zeichnen.
+In diesem Beispiel erstellen wir ein Rechteck und einen Kreis. Beide werden als `Path2D`-Objekt gespeichert, sodass sie für die spätere Nutzung verfügbar sind. Mit dem neuen `Path2D`-API wurden mehrere Methoden aktualisiert, um optional ein `Path2D`-Objekt zu akzeptieren, das anstelle des aktuellen Pfads verwendet wird. Hier werden `stroke` und `fill` mit einem Pfadargument verwendet, um beide Objekte auf die Leinwand zu zeichnen, zum Beispiel.
 
 ```html hidden
 <canvas id="my-canvas" width="130" height="100"></canvas>
@@ -711,11 +711,11 @@ draw();
 
 {{EmbedLiveSample("Path2D_example", "", "110")}}
 
-### Nutzung von SVG-Pfaden
+### Verwendung von SVG-Pfaden
 
-Ein weiteres leistungsstarkes Merkmal der neuen `Path2D` Canvas-API ist die Verwendung von [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths), um Pfade auf Ihrem Canvas zu initialisieren. Dies könnte Ihnen ermöglichen Pfaddaten zu übermitteln und sowohl in SVG als auch in Canvas wiederzuverwenden.
+Ein weiteres mächtiges Feature des neuen Canvas `Path2D`-APIs ist die Verwendung von [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths), um Pfade auf Ihrer Leinwand zu initialisieren. Dies könnte es Ihnen ermöglichen, Pfaddaten weiterzureichen und sowohl in SVG als auch in dem Canvas wiederzuverwenden.
 
-Der Pfad wird bis zu Punkt (`M10 10`) bewegt und dann horizontal 80 Punkte nach rechts bewegt (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`) und schließlich zurück zum Start (`z`). Sie können dieses Beispiel auf der Seite [`Path2D` constructor](/de/docs/Web/API/Path2D/Path2D#using_svg_paths) ansehen.
+Der Pfad bewegt sich zu Punkt (`M10 10`) und bewegt sich dann horizontal 80 Punkte nach rechts (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`), und dann zurück zum Start (`z`). Sie können dieses Beispiel auf der Seite zum [`Path2D`-Konstruktor](/de/docs/Web/API/Path2D/Path2D#using_svg_paths) sehen.
 
 ```js
 const p = new Path2D("M10 10 h 80 v 80 h -80 Z");

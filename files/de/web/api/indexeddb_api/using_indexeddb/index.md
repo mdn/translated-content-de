@@ -2,56 +2,56 @@
 title: Verwendung von IndexedDB
 slug: Web/API/IndexedDB_API/Using_IndexedDB
 l10n:
-  sourceCommit: 56f3d7018159127dbe92842413fb45d0aa7e8193
+  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
 ---
 
 {{DefaultAPISidebar("IndexedDB")}}
 
-IndexedDB ist eine Möglichkeit, Daten dauerhaft im Browser eines Benutzers zu speichern. Da es Ihnen ermöglicht, Webanwendungen mit umfangreichen Abfragefähigkeiten unabhängig von der Netzwerkverfügbarkeit zu erstellen, können Ihre Anwendungen sowohl online als auch offline arbeiten.
+IndexedDB ist eine Möglichkeit, um Daten dauerhaft im Browser eines Benutzers zu speichern. Da es Ihnen ermöglicht, Webanwendungen mit umfangreichen Abfragefähigkeiten unabhängig von der Netzwerkverfügbarkeit zu erstellen, können Ihre Anwendungen sowohl online als auch offline funktionieren.
 
 ## Über dieses Dokument
 
-Dieses Tutorial führt Sie durch die Verwendung der asynchronen API von IndexedDB. Falls Sie mit IndexedDB nicht vertraut sind, sollten Sie zuerst den Artikel [IndexedDB-Schlüsseleigenschaften und grundlegende Terminologie](/de/docs/Web/API/IndexedDB_API/Basic_Terminology) lesen.
+Dieses Tutorial führt Sie durch die Verwendung der asynchronen API von IndexedDB. Wenn Sie mit IndexedDB nicht vertraut sind, sollten Sie zunächst den Artikel [IndexedDB-Schlüsselmerkmale und grundlegende Terminologie](/de/docs/Web/API/IndexedDB_API/Basic_Terminology) lesen.
 
-Für die Referenzdokumentation zur IndexedDB-API, siehe den Artikel [IndexedDB API](/de/docs/Web/API/IndexedDB_API) und seine Unterseiten. Dieser Artikel dokumentiert die von IndexedDB verwendeten Objekttypen sowie die Methoden der asynchronen API (die synchrone API wurde aus der Spezifikation entfernt).
+Für die Referenzdokumentation zur IndexedDB-API siehe den Artikel [IndexedDB API](/de/docs/Web/API/IndexedDB_API) und dessen Unterseiten. Dieser Artikel dokumentiert die Arten von Objekten, die von IndexedDB verwendet werden, sowie die Methoden der asynchronen API (die synchrone API wurde aus der Spezifikation entfernt).
 
-## Grundlegendes Muster
+## Grundmuster
 
-Das grundlegende Muster, das IndexedDB fördert, ist folgendes:
+Das Grundmuster, das IndexedDB fördert, ist folgendes:
 
 1. Öffnen Sie eine Datenbank.
-2. Erstellen Sie einen Objektstore in der Datenbank.
-3. Starten Sie eine Transaktion und stellen Sie eine Anfrage, um eine Datenbankoperation auszuführen, wie z.B. das Hinzufügen oder Abrufen von Daten.
-4. Warten Sie auf den Abschluss der Operation, indem Sie das richtige DOM-Ereignis abhören.
-5. Machen Sie etwas mit den Ergebnissen (die sich im Anfrageobjekt befinden).
+2. Erstellen Sie einen Objektspeicher in der Datenbank.
+3. Starten Sie eine Transaktion und machen Sie eine Anfrage, um eine Datenbankoperation durchzuführen, wie z.B. das Hinzufügen oder Abrufen von Daten.
+4. Warten Sie, bis die Operation abgeschlossen ist, indem Sie der richtigen Art von DOM-Ereignis zuhören.
+5. Tun Sie etwas mit den Ergebnissen (die sich im Anfrageobjekt befinden).
 
-Mit diesen großen Konzepten unter unserem Gürtel können wir uns konkreterem Zeug zuwenden.
+Mit diesen großen Konzepten können wir zu konkreteren Dingen übergehen.
 
-## Erstellen und Strukturieren des Stores
+## Erstellen und Strukturieren des Speichers
 
 ### Öffnen einer Datenbank
 
-Wir starten den gesamten Prozess so:
+Wir beginnen den gesamten Prozess so:
 
 ```js
 // Let us open our database
 const request = window.indexedDB.open("MyTestDatabase", 3);
 ```
 
-Sehen Sie das? Das Öffnen einer Datenbank ist wie jede andere Operation – Sie müssen es "anfordern".
+Sehen Sie das? Eine Datenbank zu öffnen, ist wie jede andere Operation – Sie müssen es "anfordern".
 
-Die Öffnungsanforderung öffnet die Datenbank oder startet die Transaktion nicht sofort. Der Aufruf der `open()`-Funktion gibt ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest)-Objekt mit einem Ergebnis (Erfolg) oder einem Fehlerwert zurück, den Sie als Ereignis behandeln. Die meisten anderen asynchronen Funktionen in IndexedDB tun dasselbe – sie geben ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt mit dem Ergebnis oder Fehler zurück. Das Ergebnis der Open-Funktion ist eine Instanz einer `IDBDatabase`.
+Die Öffnungsanfrage öffnet die Datenbank oder startet die Transaktion nicht sofort. Der Aufruf der `open()`-Funktion gibt ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest)-Objekt mit einem Ergebnis- (Erfolg) oder Fehlerwert zurück, den Sie als Ereignis behandeln. Die meisten anderen asynchronen Funktionen in IndexedDB machen das Gleiche – sie geben ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt mit dem Ergebnis oder Fehler zurück. Das Ergebnis für die Öffnungsfunktion ist eine Instanz von `IDBDatabase`.
 
-Der zweite Parameter der Open-Methode ist die Version der Datenbank. Die Version der Datenbank bestimmt das Datenbankschema – die Objektstores in der Datenbank und deren Struktur. Falls die Datenbank noch nicht existiert, wird sie durch die `open`-Operation erstellt, dann wird ein `onupgradeneeded`-Ereignis ausgelöst und Sie erstellen das Datenbankschema im Handler für dieses Ereignis. Falls die Datenbank existiert, Sie aber eine aktualisierte Versionsnummer angeben, wird sofort ein `onupgradeneeded`-Ereignis ausgelöst, das es Ihnen ermöglicht, ein aktualisiertes Schema in dessen Handler bereitzustellen. Mehr dazu weiter unten in [Erstellen oder Aktualisieren der Version der Datenbank](#erstellen_oder_aktualisieren_der_version_der_datenbank) und auf der Referenzseite [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open).
+Der zweite Parameter der open-Methode ist die Version der Datenbank. Die Version der Datenbank bestimmt das Datenbankschema – die Objektspeicher in der Datenbank und deren Struktur. Wenn die Datenbank noch nicht existiert, wird sie durch die `open`-Operation erstellt, dann wird ein `onupgradeneeded`-Ereignis ausgelöst, und Sie erstellen das Datenbankschema im Handler für dieses Ereignis. Wenn die Datenbank existiert, Sie aber eine erweiterte Versionsnummer angeben, wird sofort ein `onupgradeneeded`-Ereignis ausgelöst, das es Ihnen ermöglicht, ein aktualisiertes Schema in seinem Handler bereitzustellen. Mehr dazu weiter unten im Abschnitt [Erstellen oder Aktualisieren der Version der Datenbank](#erstellen_oder_aktualisieren_der_version_der_datenbank) und auf der Referenzseite [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open).
 
 > [!WARNING]
-> Versionsnummern sind Ganzzahlen. Daher unterliegen die übergebenen Werte Rundungen – zum Beispiel werden Werte von 2.1 und 2.4 beide auf 2 gerundet.
-> Der Versuch, zwischen Zahlen zu aktualisieren, die auf dieselbe ganze Zahl gerundet werden, löst kein `onupgradeneeded`-Ereignis aus.
-> Wenn Sie mit großen Versionsnummern arbeiten, beachten Sie auch den [Bereich der Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding), die in JavaScript darstellbar sind.
+> Versionsnummern sind ganze Zahlen, daher unterliegen die übergebenen Werte einer Rundung – zum Beispiel werden Werte von 2.1 und 2.4 beide auf 2 gerundet.
+> Ein Versuch, zwischen Zahlen zu aktualisieren, die auf die gleiche ganze Zahl gerundet werden, wird kein `onupgradeneeded`-Ereignis auslösen.
+> Beachten Sie bitte auch den [Bereich der Zahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding), die in JavaScript darstellbar sind, wenn Sie mit großen Versionsnummern arbeiten.
 
 #### Generieren von Handlern
 
-Das Erste, was Sie mit fast allen Anfragen, die Sie generieren, tun sollten, ist, Erfolgs- und Fehlerhandler hinzuzufügen:
+Das Erste, was Sie mit fast allen von Ihnen generierten Anfragen tun möchten, ist das Hinzufügen von Erfolgs- und Fehlerhandlern:
 
 ```js
 request.onerror = (event) => {
@@ -62,13 +62,13 @@ request.onsuccess = (event) => {
 };
 ```
 
-Wenn die Anfrage erfolgreich ist, wird das [`success`](/de/docs/Web/API/IDBRequest/success_event)-Ereignis ausgelöst, und die der `onsuccess`-Funktion zugewiesene Funktion wird aufgerufen. Wenn die Anfrage fehlschlägt, wird das [`error`](/de/docs/Web/API/IDBRequest/error_event)-Ereignis ausgelöst, und die der `onerror`-Funktion zugewiesene Funktion wird aufgerufen.
+Wenn die Anfrage erfolgreich ist, wird das [`success`](/de/docs/Web/API/IDBRequest/success_event)-Ereignis ausgelöst, und die Funktion, die `onsuccess` zugewiesen ist, wird aufgerufen. Wenn die Anfrage fehlschlägt, wird das [`error`](/de/docs/Web/API/IDBRequest/error_event)-Ereignis ausgelöst, und die Funktion, die `onerror` zugewiesen ist, wird aufgerufen.
 
-Die IndexedDB-API ist so konzipiert, dass der Bedarf an Fehlerbehandlung minimiert wird, sodass Sie wahrscheinlich nicht viele Fehlerereignisse sehen werden (zumindest nicht, wenn Sie sich an die API gewöhnt haben!). Im Fall des Öffnens einer Datenbank gibt es jedoch einige häufige Bedingungen, die Fehlerereignisse erzeugen. Das wahrscheinlichste Problem ist, dass der Benutzer Ihrer Web-App keine Erlaubnis erteilt hat, eine Datenbank zu erstellen. Eines der Hauptziele von IndexedDB ist es, große Datenmengen für die Offline-Nutzung zu speichern. (Um mehr über den verfügbaren Speicherplatz für jeden Browser zu erfahren, siehe [Wie viel Daten können gespeichert werden? auf der Seite zu Browser-Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_much_data_can_be_stored).)
+Die IndexedDB-API ist darauf ausgelegt, den Bedarf an Fehlerbehandlung zu minimieren, sodass Sie wahrscheinlich nicht viele Fehlerereignisse sehen werden (zumindest nicht, sobald Sie mit der API vertraut sind!). Im Fall des Öffnens einer Datenbank gibt es jedoch einige häufige Bedingungen, die Fehlerereignisse erzeugen. Das wahrscheinlichste Problem besteht darin, dass der Benutzer entschieden hat, Ihrer Web-App keine Erlaubnis zu geben, eine Datenbank zu erstellen. Eines der Hauptdesignziele von IndexedDB besteht darin, große Datenmengen für die Offline-Nutzung zu speichern. (Um mehr darüber zu erfahren, wie viel Speicher Sie für jeden Browser haben können, siehe [Wie viel Daten können gespeichert werden? auf der Seite zu Browser-Speichergrenzen und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_much_data_can_be_stored).)
 
-Offensichtlich möchten Browser nicht zulassen, dass ein Werbenetzwerk oder eine bösartige Website Ihren Computer verschmutzt, daher forderten Browser früher den Benutzer auf, das erste Mal, wenn eine bestimmte Web-App versucht, einen IndexedDB-Speicher zu öffnen. Der Benutzer konnte sich entscheiden, den Zugriff zu erlauben oder zu verweigern. Auch der IndexedDB-Speicher im Datenschutzmodus der Browser bleibt nur im Speicher, bis die Inkognito-Sitzung geschlossen wird.
+Natürlich möchten Browser nicht zulassen, dass ein Werbenetzwerk oder eine bösartige Website Ihren Computer verschmutzt, daher wurden die Benutzer früher aufgefordert, erstmals einer bestimmten Web-App den Zugriff auf IndexedDB zum Speichern zu gestatten. Der Benutzer konnte den Zugriff erlauben oder verweigern. Außerdem bleibt die IndexedDB-Speicherung in den Datenschutzmodi der Browser nur im Speicher, bis die Inkognito-Sitzung geschlossen wird.
 
-Nehmen wir nun an, der Benutzer hat Ihrem Antrag auf Erstellung einer Datenbank zugestimmt und Sie haben ein Erfolgsergebnis erhalten, um den Erfolgscallback auszulösen; Was kommt als Nächstes? Die Anfrage, die hier durch einen Aufruf von `indexedDB.open()` generiert wurde, bedeutet, dass `request.result` eine Instanz von `IDBDatabase` ist und Sie sollten diese definitiv für später speichern. Ihr Code könnte ungefähr so aussehen:
+Angenommen, der Benutzer hat Ihrer Anfrage, eine Datenbank zu erstellen, zugestimmt, und Sie haben ein Erfolgsevent erhalten, um die Erfolgsrückruf-Funktion auszulösen; Was kommt als Nächstes? Die Anfrage hier wurde mit einem Aufruf von `indexedDB.open()` generiert, sodass `request.result` eine Instanz von `IDBDatabase` ist, und Sie wollen diese auf jeden Fall für später speichern. Ihr Code könnte so aussehen:
 
 ```js
 let db;
@@ -83,7 +83,7 @@ request.onsuccess = (event) => {
 
 #### Fehlerbehandlung
 
-Wie oben erwähnt, blubbern Fehlerereignisse. Fehlerereignisse richten sich an die Anfrage, die den Fehler erzeugt hat, dann blubbert das Ereignis zur Transaktion und schließlich zum Datenbankobjekt. Wenn Sie Fehlerhandler für jede Anfrage vermeiden möchten, können Sie stattdessen einen einzigen Fehlerhandler auf dem Datenbankobjekt hinzufügen, so:
+Wie bereits erwähnt, steigen Fehlerereignisse zu höheren Ebenen auf. Fehlerereignisse sind auf die Anfrage, die den Fehler erzeugt hat, gerichtet und steigen dann zur Transaktion auf, und schließlich zum Datenbankobjekt. Wenn Sie vermeiden möchten, Fehlerhandler zu jeder Anfrage hinzuzufügen, können Sie stattdessen einen einzigen Fehlerhandler auf dem Datenbankobjekt hinzufügen, so:
 
 ```js
 db.onerror = (event) => {
@@ -93,11 +93,11 @@ db.onerror = (event) => {
 };
 ```
 
-Ein häufiger möglicher Fehler beim Öffnen einer Datenbank ist `VER_ERR`. Er zeigt an, dass die auf der Festplatte gespeicherte Version der Datenbank _größer_ ist als die Version, die Sie zu öffnen versuchen. Dies ist ein Fehlerfall, der immer vom Fehlerhandler behandelt werden muss.
+Ein häufiges mögliches Problem beim Öffnen einer Datenbank ist `VER_ERR`. Es zeigt an, dass die Version der auf dem Datenträger gespeicherten Datenbank _größer_ ist als die Version, die Sie zu öffnen versuchen. Dies ist ein Fehlerfall, der immer vom Fehlerhandler behandelt werden muss.
 
 ### Erstellen oder Aktualisieren der Version der Datenbank
 
-Wenn Sie eine neue Datenbank erstellen oder die Versionsnummer einer bestehenden Datenbank erhöhen (indem Sie eine höhere Versionsnummer angeben als zuvor, beim [Öffnen einer Datenbank](#öffnen_einer_datenbank)), wird das `onupgradeneeded`-Ereignis ausgelöst und ein [IDBVersionChangeEvent](/de/docs/Web/API/IDBVersionChangeEvent)-Objekt wird an jeden `onversionchange`-Ereignishandler übergeben, der auf `request.result` eingerichtet ist (d.h. `db` im Beispiel). Im Handler für das `upgradeneeded`-Ereignis sollten Sie die für diese Version der Datenbank benötigten Objektstores erstellen:
+Wenn Sie eine neue Datenbank erstellen oder die Versionsnummer einer vorhandenen Datenbank erhöhen (indem Sie eine höhere Versionsnummer angeben als zuvor beim [Öffnen einer Datenbank](#öffnen_einer_datenbank)), wird das `onupgradeneeded`-Ereignis ausgelöst und ein [IDBVersionChangeEvent](/de/docs/Web/API/IDBVersionChangeEvent)-Objekt wird an jeden `onversionchange`-Ereignishandler übergeben, der auf `request.result` (d.h. `db` im Beispiel) eingerichtet ist. Im Handler für das `upgradeneeded`-Ereignis sollten Sie die Objektspeicher erstellen, die für diese Version der Datenbank benötigt werden:
 
 ```js
 // This event is only implemented in recent browsers
@@ -110,15 +110,15 @@ request.onupgradeneeded = (event) => {
 };
 ```
 
-In diesem Fall hat die Datenbank bereits die Objektstores aus der vorherigen Version der Datenbank, sodass Sie diese Objektstores nicht erneut erstellen müssen. Sie müssen nur neue Objektstores erstellen oder Objektstores aus der vorherigen Version löschen, die nicht mehr benötigt werden. Wenn Sie einen vorhandenen Objektstore ändern müssen (z. B. um den `keyPath` zu ändern), müssen Sie den alten Objektstore löschen und ihn mit den neuen Optionen erneut erstellen. (Beachten Sie, dass dies die Informationen im Objektstore löscht! Wenn Sie diese Informationen speichern müssen, sollten Sie sie vor dem Upgrade der Datenbank auslesen und woanders speichern.)
+In diesem Fall hat die Datenbank bereits die Objektspeicher der vorherigen Version der Datenbank, sodass Sie diese Objektspeicher nicht erneut erstellen müssen. Sie müssen nur neue Objektspeicher erstellen oder Objektspeicher aus der vorherigen Version löschen, die nicht mehr benötigt werden. Wenn Sie einen bestehenden Objektspeicher ändern müssen (z. B. um den `keyPath` zu ändern), müssen Sie den alten Objektspeicher löschen und ihn mit den neuen Optionen erneut erstellen. (Beachten Sie, dass dies die im Objektspeicher enthaltenen Informationen löscht! Wenn Sie diese Informationen speichern müssen, sollten Sie sie vor dem Aktualisieren der Datenbank auslesen und woanders speichern.)
 
-Der Versuch, einen Objektstore mit einem bereits existierenden Namen zu erstellen (oder einen Objektstore mit einem nicht existierenden Namen zu löschen), führt zu einem Fehler.
+Der Versuch, einen Objektspeicher mit einem bereits vorhandenen Namen zu erstellen (oder einen Objektspeicher mit einem Namen zu löschen, der nicht existiert), führt zu einem Fehler.
 
-Wenn das `onupgradeneeded`-Ereignis erfolgreich beendet wird, wird der `onsuccess`-Handler der Open-Datenbankanforderung ausgelöst.
+Wenn das `onupgradeneeded`-Ereignis erfolgreich beendet wird, wird anschließend der `onsuccess`-Handler der Anfrage zum Öffnen der Datenbank ausgelöst.
 
 ### Strukturierung der Datenbank
 
-Nun zur Strukturierung der Datenbank. IndexedDB verwendet Objektstores anstelle von Tabellen und eine einzelne Datenbank kann eine beliebige Anzahl von Objektstores enthalten. Immer wenn ein Wert in einem Objektstore gespeichert wird, ist er mit einem Schlüssel verbunden. Je nachdem, ob der Objektstore einen [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) oder einen [Schlüsselgenerator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator) verwendet, gibt es verschiedene Möglichkeiten, wie ein Schlüssel bereitgestellt werden kann.
+Nun zur Strukturierung der Datenbank. IndexedDB verwendet Objektspeicher anstatt Tabellen, und eine einzelne Datenbank kann beliebig viele Objektspeicher enthalten. Jedes Mal, wenn ein Wert in einem Objektspeicher gespeichert wird, wird er mit einem Schlüssel verknüpft. Es gibt mehrere verschiedene Möglichkeiten, wie ein Schlüssel bereitgestellt werden kann, abhängig davon, ob der Objektspeicher einen [key path](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) oder einen [key generator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator) verwendet.
 
 Die folgende Tabelle zeigt die verschiedenen Möglichkeiten, wie die Schlüssel bereitgestellt werden:
 
@@ -135,38 +135,45 @@ Die folgende Tabelle zeigt die verschiedenen Möglichkeiten, wie die Schlüssel 
       <td>Nein</td>
       <td>Nein</td>
       <td>
-        Dieser Objektstore kann beliebige Werte speichern, sogar primitive Werte wie Zahlen und Zeichenfolgen. Sie müssen jedes Mal ein separates Schlüsselargument bereitstellen, wenn Sie einen neuen Wert hinzufügen möchten.
+        Dieser Objektspeicher kann jede Art von Wert halten, auch primitive Werte wie Zahlen und Zeichenfolgen. Sie müssen ein separates Schlüsselargument bereitstellen, wann immer
+        Sie einen neuen Wert hinzufügen möchten.
       </td>
     </tr>
     <tr>
       <td>Ja</td>
       <td>Nein</td>
       <td>
-        Dieser Objektstore kann nur JavaScript-Objekte speichern. Die Objekte müssen eine Eigenschaft mit demselben Namen wie der Schlüsselpfad haben.
+        Dieser Objektspeicher kann nur JavaScript-Objekte enthalten. Die Objekte müssen
+        eine Eigenschaft mit demselben Namen wie der Schlüsselpfad haben.
       </td>
     </tr>
     <tr>
       <td>Nein</td>
       <td>Ja</td>
       <td>
-        Dieser Objektstore kann beliebige Werte speichern. Der Schlüssel wird automatisch für Sie generiert, oder Sie können ein separates Schlüsselargument angeben, wenn Sie einen bestimmten Schlüssel verwenden möchten.
+        Dieser Objektspeicher kann jede Art von Wert enthalten. Der Schlüssel wird für
+        Sie automatisch generiert, oder Sie können ein separates Schlüsselargument bereitstellen, wenn Sie
+        einen bestimmten Schlüssel verwenden möchten.
       </td>
     </tr>
     <tr>
       <td>Ja</td>
       <td>Ja</td>
       <td>
-        Dieser Objektstore kann nur JavaScript-Objekte speichern. In der Regel wird ein Schlüssel generiert und der Wert des generierten Schlüssels wird in dem Objekt in einer Eigenschaft mit demselben Namen wie der Schlüsselpfad gespeichert. Wenn jedoch eine solche Eigenschaft bereits existiert, wird der Wert dieser Eigenschaft als Schlüssel verwendet, anstatt einen neuen Schlüssel zu generieren.
+        Dieser Objektspeicher kann nur JavaScript-Objekte enthalten. Normalerweise wird ein Schlüssel
+        generiert und der Wert des generierten Schlüssels wird im Objekt in
+        einer Eigenschaft mit demselben Namen wie der Schlüsselpfad gespeichert. Falls jedoch eine
+        solche Eigenschaft bereits existiert, wird der Wert dieser Eigenschaft anstelle der Generierung eines neuen Schlüssels verwendet.
       </td>
     </tr>
   </tbody>
 </table>
 
-Sie können auch Indizes auf jedem Objektstore erstellen, vorausgesetzt, der Objektstore enthält Objekte und keine primitiven Werte. Ein Index ermöglicht es Ihnen, die in einem Objektstore gespeicherten Werte anhand des Werts einer Eigenschaft des gespeicherten Objekts nachzuschlagen, anstatt anhand des Schlüssels des Objekts.
+Sie können auch Indizes für jeden Objektspeicher erstellen, sofern der Objektspeicher Objekte und keine primitiven Werte enthält. Ein Index ermöglicht es Ihnen, die in einem Objektspeicher gespeicherten Werte unter Verwendung des Werts einer Eigenschaft des gespeicherten Objekts anstelle des Schlüsselwerts des Objekts abzurufen.
 
-Zusätzlich haben Indizes die Fähigkeit, einfache Einschränkungen auf die gespeicherten Daten durchzusetzen. Indem Sie das eindeutige Flag beim Erstellen des Indexes setzen, stellt der Index sicher, dass keine zwei Objekte mit demselben Wert für den Schlüsselpfad des Indexes gespeichert werden. Wenn Sie zum Beispiel einen Objektstore haben, der eine Menge von Personen enthält, und Sie sicherstellen möchten, dass keine zwei Personen dieselbe E-Mail-Adresse haben, können Sie einen Index mit dem gesetzten eindeutigen Flag verwenden, um dies durchzusetzen.
+Darüber hinaus haben Indizes die Fähigkeit, einfache Einschränkungen für die gespeicherten Daten durchzusetzen. Durch das Setzen des `unique`-Flags beim Erstellen des Indexes wird sichergestellt, dass keine zwei Objekte mit demselben Wert für den Schlüsselpfad des Indexes gespeichert werden. Wenn Sie also beispielsweise einen Objektspeicher haben, der eine Gruppe von Personen enthält, und sicherstellen möchten, dass keine zwei Personen dieselbe E-Mail-Adresse haben, können Sie einen Index mit gesetztem `unique`-Flag verwenden, um dies durchzusetzen.
 
-Das mag verwirrend klingen, aber dieses einfache Beispiel sollte die Konzepte veranschaulichen. Zuerst definieren wir einige Kundendaten, die wir in unserem Beispiel verwenden möchten:
+Das klingt vielleicht verwirrend, aber dieses einfache Beispiel sollte die Konzepte veranschaulichen. Zuerst definieren wir einige Kundendaten, die wir in unserem Beispiel verwenden:
 
 ```js
 // This is what our customer data looks like.
@@ -176,9 +183,9 @@ const customerData = [
 ];
 ```
 
-Natürlich würden Sie die Sozialversicherungsnummer einer Person nicht als Primärschlüssel für eine Kundenliste verwenden, da nicht jeder eine Sozialversicherungsnummer hat, und Sie würden ihr Geburtsdatum anstelle ihres Alters speichern, aber lassen Sie uns diese unglücklichen Entscheidungen zum Zwecke der Bequemlichkeit ignorieren und fortfahren.
+Natürlich würden Sie die Sozialversicherungsnummer einer Person nicht als Primärschlüssel für eine Kunden-Tabelle verwenden, da nicht jeder eine Sozialversicherungsnummer hat, und Sie würden ihr Geburtsdatum anstelle ihres Alters speichern, aber lassen Sie uns diese unglücklichen Entscheidungen der Einfachheit halber ignorieren und fortfahren.
 
-Schauen wir uns nun an, wie man eine IndexedDB erstellt, um unsere Daten zu speichern:
+Schauen wir uns nun an, wie wir eine IndexedDB erstellen, um unsere Daten zu speichern:
 
 ```js
 const dbName = "the_name";
@@ -218,21 +225,21 @@ request.onupgradeneeded = (event) => {
 };
 ```
 
-Wie bereits erwähnt, ist `onupgradeneeded` der einzige Ort, an dem Sie die Struktur der Datenbank ändern können. Darin können Sie Objektstores erstellen und löschen sowie Indizes aufbauen und entfernen.
+Wie bereits erwähnt, ist `onupgradeneeded` der einzige Ort, an dem Sie die Struktur der Datenbank ändern können. Darin können Sie Objektspeicher erstellen und löschen sowie Indizes aufbauen und entfernen.
 
-Objektstores werden mit einem einzigen Aufruf von `createObjectStore()` erstellt. Die Methode nimmt einen Namen des Stores und ein Parameterobjekt an. Obwohl das Parameterobjekt optional ist, ist es sehr wichtig, da es Ihnen ermöglicht, wichtige optionale Eigenschaften zu definieren und den Typ des Objektstores, den Sie erstellen möchten, zu verfeinern. In unserem Fall haben wir um einen Objektstore namens "customers" gebeten und einen `keyPath` definiert, der die Eigenschaft ist, die ein einzelnes Objekt im Store einzigartig macht. Diese Eigenschaft in diesem Beispiel ist "ssn", da Sozialversicherungsnummern garantiert einzigartig sind. "ssn" muss auf jedem Objekt vorhanden sein, das im `objectStore` gespeichert wird.
+Objektspeicher werden mit einem einzigen Aufruf von `createObjectStore()` erstellt. Die Methode erfordert einen Namen für den Speicher und ein Parameterobjekt. Obwohl das Parameterobjekt optional ist, ist es sehr wichtig, da es Ihnen erlaubt, wichtige optionale Eigenschaften zu definieren und die Art des Objektspeichers zu verfeinern, den Sie erstellen möchten. In unserem Fall haben wir einen Objektspeicher mit dem Namen "customers" und einen `keyPath` definiert, welcher die Eigenschaft ist, die ein individuelles Objekt im Speicher einzigartig macht. Diese Eigenschaft in diesem Beispiel ist "ssn", da eine Sozialversicherungsnummer garantiert einzigartig ist. "ssn" muss in jedem Objekt vorhanden sein, das im `objectStore` gespeichert wird.
 
-Wir haben auch um einen Index namens "name" gebeten, der die `name`-Eigenschaft der gespeicherten Objekte betrachtet. Wie bei `createObjectStore()` nimmt `createIndex()` ein optionales `options`-Objekt an, das den Typ des Indexes verfeinert, den Sie erstellen möchten. Das Hinzufügen von Objekten, die keine `name`-Eigenschaft haben, gelingt immer noch, aber die Objekte werden nicht im "name"-Index erscheinen.
+Wir haben auch einen Index mit dem Namen "name" angefordert, der die `name`-Eigenschaft der gespeicherten Objekte betrachtet. Wie bei `createObjectStore()` nimmt `createIndex()` ein optionales `options`-Objekt an, welches die Art des gewünschten Indexes verfeinert. Das Hinzufügen von Objekten, die keine `name`-Eigenschaft haben, wird dennoch erfolgreich durchgeführt, aber die Objekte erscheinen nicht im "name"-Index.
 
-Wir können nun die gespeicherten Kundenobjekte entweder direkt mit ihrer `ssn` aus dem Objektstore abrufen oder ihren Namen verwenden, indem wir den Index verwenden. Um zu erfahren, wie das gemacht wird, lesen Sie den Abschnitt über [die Verwendung eines Indexes](#verwenden_eines_indexes).
+Wir können nun die gespeicherten Kundenobjekte direkt über ihre `ssn` aus dem Objektspeicher oder über ihren Namen mit dem Index abrufen. Um zu sehen, wie das funktioniert, siehe den Abschnitt über das [Verwenden eines Indexes](#verwenden_eines_index).
 
-### Verwendung eines Schlüsselgenerators
+### Verwenden eines Schlüsselgenerators
 
-Das Einrichten eines `autoIncrement`-Flags beim Erstellen des Objektstores würde den Schlüsselgenerator für diesen Objektstore aktivieren. Standardmäßig ist dieses Flag nicht gesetzt.
+Das Setzen eines `autoIncrement`-Flags beim Erstellen des Objektspeichers würde den Schlüsselgenerator für diesen Objektspeicher aktivieren. Standardmäßig ist dieses Flag nicht gesetzt.
 
-Mit dem Schlüsselgenerator wird der Schlüssel automatisch generiert, wenn Sie den Wert zum Objektstore hinzufügen. Die aktuelle Zahl eines Schlüsselgenerators wird immer auf 1 gesetzt, wenn der Objektstore für diesen Schlüsselgenerator zuerst erstellt wird. Im Grunde wird der neu automatisch generierte Schlüssel um 1 basierend auf dem vorherigen Schlüssel erhöht. Die aktuelle Zahl eines Schlüsselgenerators wird nie verringert, abgesehen von dem Ergebnis, dass Datenbankoperationen zurückgesetzt werden, zum Beispiel wird die Datenbanktransaktion abgebrochen. Daher beeinträchtigt das Löschen eines Datensatzes oder sogar das Löschen aller Datensätze aus einem Objektstore niemals den Schlüsselgenerator des Objektstores.
+Mit dem Schlüsselgenerator wird der Schlüssel automatisch generiert, wenn Sie den Wert dem Objektspeicher hinzufügen. Die aktuelle Nummer eines Schlüsselgenerators wird immer auf 1 gesetzt, wenn der Objektspeicher für diesen Schlüsselgenerator erstmals erstellt wird. Grundsätzlich wird der neu automatisch generierte Schlüssel um 1 basierend auf dem vorherigen Schlüssel erhöht. Die aktuelle Nummer für einen Schlüsselgenerator wird nie verringert, außer durch das Zurücksetzen von Datenbankoperationen, beispielsweise wenn eine Datenbanktransaktion abgebrochen wird. Daher hat das Löschen eines Eintrags oder sogar das Leeren aller Einträge eines Objektspeichers keinen Einfluss auf dessen Schlüsselgenerator.
 
-Wir können einen anderen Objektstore mit dem Schlüsselgenerator wie folgt erstellen:
+Wir können einen weiteren Objektspeicher mit dem Schlüsselgenerator wie folgt erstellen:
 
 ```js
 // Open the indexedDB.
@@ -254,27 +261,27 @@ request.onupgradeneeded = (event) => {
 };
 ```
 
-Für weitere Details über den Schlüsselgenerator, siehe [Schlüsselgeneratoren](https://w3c.github.io/IndexedDB/#key-generator-construct) in der Spezifikation.
+Für weitere Details zum Schlüsselgenerator siehe [Schlüsselgeneratoren](https://w3c.github.io/IndexedDB/#key-generator-construct) in der Spezifikation.
 
-## Daten hinzufügen, abrufen und entfernen
+## Hinzufügen, Abrufen und Entfernen von Daten
 
-Bevor Sie irgendetwas mit Ihrer neuen Datenbank tun können, müssen Sie eine Transaktion starten. Transaktionen kommen aus dem Datenbankobjekt, und Sie müssen angeben, welche Objektstores die Transaktion umfassen soll. Sobald Sie sich in der Transaktion befinden, können Sie auf die Objektstores zugreifen, die Ihre Daten enthalten, und Ihre Anfragen stellen. Als nächstes müssen Sie entscheiden, ob Sie Änderungen an der Datenbank vornehmen oder ob Sie nur daraus lesen möchten. Transaktionen haben drei verfügbare Modi: `readonly`, `readwrite` und `versionchange`.
+Bevor Sie etwas mit Ihrer neuen Datenbank tun können, müssen Sie eine Transaktion starten. Transaktionen stammen vom Datenbankobjekt und Sie müssen angeben, welche Objektspeicher Sie für die Transaktion Zugriff benötigen. Sobald Sie sich in der Transaktion befinden, können Sie auf die Objektspeicher zugreifen, die Ihre Daten halten, und Ihre Anfragen stellen. Als Nächstes müssen Sie entscheiden, ob Sie Änderungen an der Datenbank vornehmen oder nur lesen möchten. Transaktionen haben drei verfügbare Modi: `readonly`, `readwrite` und `versionchange`.
 
-Um die "Schema" oder Struktur der Datenbank zu ändern – was das Erstellen oder Löschen von Objektstores oder Indizes beinhaltet – muss die Transaktion im `versionchange`-Modus sein. Diese Transaktion wird durch Aufruf der Methode [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) mit einer angegebenen `version` geöffnet.
+Um das "Schema" oder die Struktur der Datenbank zu ändern – was das Erstellen oder Löschen von Objektspeichern oder Indizes umfasst – muss die Transaktion im `versionchange`-Modus sein. Diese Transaktion wird durch Aufruf der Methode [`IDBFactory.open`](/de/docs/Web/API/IDBFactory/open) mit einer `version` geöffnet.
 
-Um die Datensätze eines vorhandenen Objektstores zu lesen, kann die Transaktion entweder im `readonly`- oder `readwrite`-Modus sein. Um Änderungen an einem vorhandenen Objektstore zu vornehmen, muss die Transaktion im `readwrite`-Modus sein. Solche Transaktionen öffnen Sie mit [`IDBDatabase.transaction`](/de/docs/Web/API/IDBDatabase/transaction). Die Methode akzeptiert zwei Parameter: die `storeNames` (den Geltungsbereich, definiert als ein Array von Objektstores, die Sie zugreifen möchten) und den `mode` (`readonly` oder `readwrite`) für die Transaktion. Die Methode gibt ein Transaktionsobjekt zurück, das die Methode [`IDBIndex.objectStore`](/de/docs/Web/API/IDBIndex/objectStore) enthält, die Sie verwenden können, um auf Ihren Objektstore zuzugreifen. Standardmäßig, wenn kein Modus angegeben ist, öffnen sich Transaktionen im `readonly`-Modus.
+Um die Datensätze eines vorhandenen Objektspeichers zu lesen, kann die Transaktion entweder im `readonly` oder `readwrite`-Modus sein. Um Änderungen an einem vorhandenen Objektspeicher vorzunehmen, muss die Transaktion im `readwrite`-Modus sein. Solche Transaktionen öffnen Sie mit [`IDBDatabase.transaction`](/de/docs/Web/API/IDBDatabase/transaction). Die Methode akzeptiert zwei Parameter: die `storeNames` (den Bereich, definiert als ein Array von Objektspeichern, auf die Sie zugreifen möchten) und den `mode` (`readonly` oder `readwrite`) für die Transaktion. Die Methode gibt ein Transaktionsobjekt zurück, das die Methode [`IDBIndex.objectStore`](/de/docs/Web/API/IDBIndex/objectStore) enthält, mit der Sie auf Ihren Objektspeicher zugreifen können. Standardmäßig öffnen Transaktionen, bei denen kein Modus angegeben ist, im `readonly`-Modus.
 
 > [!NOTE]
-> Ab Firefox 40 haben IndexedDB-Transaktionen entspannte Haltbarkeitsgarantien, um die Leistung zu erhöhen (siehe [Firefox-Bug 1112702](https://bugzil.la/1112702).) Zuvor wurde in einer `readwrite`-Transaktion ein [`complete`](/de/docs/Web/API/IDBTransaction/complete_event)-Ereignis nur ausgelöst, wenn alle Daten garantiert auf die Festplatte geschrieben wurden. In Firefox 40+ wird das `complete`-Ereignis ausgelöst, nachdem dem Betriebssystem mitgeteilt wurde, die Daten zu schreiben, aber möglicherweise bevor die Daten tatsächlich auf die Festplatte geschrieben wurden. Das `complete`-Ereignis kann daher schneller als zuvor geliefert werden, es besteht jedoch eine geringe Möglichkeit, dass die gesamte Transaktion verloren geht, wenn das Betriebssystem abstürzt oder es zu einem Stromausfall kommt, bevor die Daten auf die Festplatte geschrieben werden. Da solche katastrophalen Ereignisse selten sind, sollten sich die meisten Nutzer nicht weiter darum kümmern. Wenn Sie aus irgendeinem Grund (z.B. speichern Sie kritische Daten, die später nicht mehr berechnet werden können) Haltbarkeit sicherstellen müssen, können Sie eine Transaktion vor dem Ausliefern des `complete`-Ereignisses auf die Festplatte zwingen, indem Sie eine Transaktion mit dem experimentellen (nicht standardmäßigen) `readwriteflush`-Modus erstellen (siehe [`IDBDatabase.transaction`](/de/docs/Web/API/IDBDatabase/transaction)).
+> Ab Firefox 40 haben IndexedDB-Transaktionen gelockerte Haltbarkeitsgarantien, um die Leistung zu steigern (siehe [Firefox Bug 1112702](https://bugzil.la/1112702)). Zuvor wurde in einer `readwrite`-Transaktion ein [`complete`](/de/docs/Web/API/IDBTransaction/complete_event)-Ereignis nur ausgelöst, wenn alle Daten garantiert auf die Festplatte geschrieben wurden. In Firefox 40+ wird das `complete`-Ereignis ausgelöst, nachdem das Betriebssystem darum gebeten wurde, die Daten zu schreiben, jedoch möglicherweise bevor diese Daten tatsächlich auf die Festplatte geschrieben wurden. Das `complete`-Ereignis kann daher schneller als zuvor ausgeliefert werden, jedoch besteht eine geringe Chance, dass die gesamte Transaktion verloren geht, wenn das Betriebssystem abstürzt oder die Systemleistung unterbrochen wird, bevor die Daten auf die Festplatte geschrieben wurden. Da solche katastrophalen Ereignisse selten sind, sollten sich die meisten Anwender darüber keine Gedanken machen. Wenn Sie die Haltbarkeit aus irgendeinem Grund sicherstellen müssen (z.B. weil Sie kritische Daten speichern, die später nicht mehr berechnet werden können), können Sie eine Transaktion zwingen, auf die Festplatte zu schreiben, bevor das `complete`-Ereignis ausgelöst wird, indem Sie eine Transaktion im experimentellen (nicht standardmäßigen) `readwriteflush`-Modus erstellen (siehe [`IDBDatabase.transaction`](/de/docs/Web/API/IDBDatabase/transaction)).
 
-Sie können den Datenzugriff beschleunigen, indem Sie den richtigen Geltungsbereich und Modus in der Transaktion verwenden. Hier sind ein paar Tipps:
+Sie können den Datenzugriff beschleunigen, indem Sie den richtigen Bereich und Modus in der Transaktion verwenden. Hier sind ein paar Tipps:
 
-- Wenn Sie den Geltungsbereich definieren, geben Sie nur die Objektstores an, die Sie benötigen. Auf diese Weise können Sie mehrere Transaktionen mit sich nicht überschneidenden Bereichen gleichzeitig ausführen.
-- Geben Sie nur dann einen `readwrite`-Transaktionsmodus an, wenn es notwendig ist. Sie können mehrere `readonly`-Transaktionen mit sich überschneidenden Geltungsbereichen gleichzeitig ausführen, aber Sie können nur eine `readwrite`-Transaktion für einen Objektstore haben. Um mehr zu erfahren, siehe die Definition für [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction) im Artikel [IndexedDB-Schlüsseleigenschaften und grundlegende Terminologie](/de/docs/Web/API/IndexedDB_API/Basic_Terminology).
+- Geben Sie beim Definieren des Bereichs nur die Objektspeicher an, die Sie benötigen. Auf diese Weise können Sie mehrere Transaktionen mit nicht überlappenden Bereichen gleichzeitig ausführen.
+- Geben Sie nur dann einen `readwrite`-Transaktionsmodus an, wenn dies erforderlich ist. Sie können mehrere `readonly`-Transaktionen mit überlappenden Bereichen gleichzeitig ausführen, aber Sie können nur eine `readwrite`-Transaktion für einen Objektspeicher haben. Um mehr zu erfahren, siehe die Definition für [Transaktion](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#transaction) im Artikel [IndexedDB-Schlüsselmerkmale und grundlegende Terminologie](/de/docs/Web/API/IndexedDB_API/Basic_Terminology).
 
-### Daten in die Datenbank hinzufügen
+### Daten zur Datenbank hinzufügen
 
-Wenn Sie gerade eine Datenbank erstellt haben, möchten Sie wahrscheinlich etwas hineinschreiben. So sieht das aus:
+Wenn Sie gerade eine Datenbank erstellt haben, dann möchten Sie wahrscheinlich darauf schreiben. So sieht das aus:
 
 ```js
 const transaction = db.transaction(["customers"], "readwrite");
@@ -283,13 +290,13 @@ const transaction = db.transaction(["customers"], "readwrite");
 // const transaction = db.transaction(["customers"], IDBTransaction.READ_WRITE);
 ```
 
-Die Funktion `transaction()` nimmt zwei Argumente an (obwohl eines optional ist) und gibt ein Transaktionsobjekt zurück. Das erste Argument ist eine Liste von Objektstores, die die Transaktion umfassen wird. Sie können ein leeres Array übergeben, wenn Sie möchten, dass die Transaktion alle Objektstores umfasst, aber tun Sie das nicht, da die Spezifikation besagt, dass ein leeres Array einen InvalidAccessError generieren sollte. Wenn Sie für das zweite Argument nichts angeben, erhalten Sie eine schreibgeschützte Transaktion. Da Sie hier schreiben möchten, müssen Sie das `"readwrite"`-Flag übergeben.
+Die Funktion `transaction()` nimmt zwei Argumente an (obwohl eines optional ist) und gibt ein Transaktionsobjekt zurück. Das erste Argument ist eine Liste von Objektspeichern, die die Transaktion umfassen wird. Sie können ein leeres Array übergeben, wenn Sie möchten, dass sich die Transaktion über alle Objektspeicher erstreckt. Tun Sie es aber nicht, da die Spezifikation besagt, dass ein leeres Array einen InvalidAccessError erzeugen sollte. Wenn Sie nichts für das zweite Argument angeben, erhalten Sie eine read-only Transaktion. Da Sie hier darauf schreiben wollen, müssen Sie das `"readwrite"`-Flag übergeben.
 
-Jetzt, da Sie eine Transaktion haben, müssen Sie die Lebensdauer verstehen. Transaktionen sind eng an die Ereignisschleife gekoppelt. Wenn Sie eine Transaktion erstellen und zur Ereignisschleife zurückkehren, ohne sie zu verwenden, wird die Transaktion inaktiv. Der einzige Weg, die Transaktion aktiv zu halten, besteht darin, eine Anfrage darauf zu stellen. Wenn die Anfrage abgeschlossen ist, erhalten Sie ein DOM-Ereignis und, vorausgesetzt die Anfrage war erfolgreich, haben Sie eine weitere Gelegenheit, die Transaktion während dieses Callbacks zu erweitern. Wenn Sie zur Ereignisschleife zurückkehren, ohne die Transaktion zu erweitern, wird sie inaktiv, und so weiter. Solange es ausstehende Anfragen gibt, bleibt die Transaktion aktiv. Transaktionslebenszeiten sind wirklich sehr einfach, aber es kann ein wenig Zeit in Anspruch nehmen, sich daran zu gewöhnen. Ein paar weitere Beispiele helfen auch. Wenn Sie anfangen, `TRANSACTION_INACTIVE_ERR`-Fehlercodes zu sehen, haben Sie etwas durcheinandergebracht.
+Jetzt, wo Sie eine Transaktion haben, müssen Sie deren Lebensdauer verstehen. Transaktionen sind sehr eng mit der Event-Schleife verbunden. Wenn Sie eine Transaktion durchführen und zur Event-Schleife zurückkehren, ohne sie zu verwenden, dann wird die Transaktion inaktiv. Die einzige Möglichkeit, die Transaktion aktiv zu halten, besteht darin, eine Anfrage darauf zu stellen. Wenn die Anfrage abgeschlossen ist, erhalten Sie ein DOM-Ereignis, und falls die Anfrage erfolgreich war, haben Sie eine weitere Gelegenheit, die Transaktion während dieses Rückrufs zu verlängern. Wenn Sie zur Event-Schleife zurückkehren, ohne die Transaktion zu verlängern, wird sie inaktiv, und so weiter. Solange es ausstehende Anfragen gibt, bleibt die Transaktion aktiv. Die Lebensdauer von Transaktionen ist wirklich sehr einfach, aber es könnte eine Weile dauern, sich daran zu gewöhnen. Ein paar weitere Beispiele werden auch helfen. Wenn Sie beginnen, `TRANSACTION_INACTIVE_ERR`-Fehlercodes zu sehen, haben Sie etwas vermasselt.
 
-Transaktionen können DOM-Ereignisse von drei verschiedenen Typen empfangen: `error`, `abort` und `complete`. Wir haben besprochen, wie `error`-Ereignisse blubbern, sodass eine Transaktion `error`-Ereignisse von Anfragen empfängt, die von ihr generiert werden. Ein subtilerer Punkt hier ist, dass das Standardverhalten eines Fehlers darin besteht, die Transaktion, in der er auftritt, abzubrechen. Es sei denn, Sie behandeln den Fehler, indem Sie zuerst `stopPropagation()` auf dem Fehlerereignis aufrufen und dann etwas anderes tun, wird die gesamte Transaktion zurückgesetzt. Diese Architektur zwingt Sie, über Fehler nachzudenken und sie zu behandeln. Sie können jedoch immer einen allgemeinen Fehlerhandler zur Datenbank hinzufügen, wenn die feinkörnige Fehlerbehandlung zu umständlich ist. Wenn Sie kein Fehlerereignis behandeln oder `abort()` auf die Transaktion aufrufen, wird die Transaktion zurückgesetzt und ein `abort`-Ereignis auf der Transaktion ausgelöst. Andernfalls, nachdem alle ausstehenden Anfragen abgeschlossen sind, erhalten Sie ein `complete`-Ereignis. Wenn Sie viele Datenbankoperationen durchführen, kann das Verfolgen der Transaktion anstelle einzelner Anfragen sicherlich Ihre Sanity-Anforderungen erleichtern.
+Transaktionen können DOM-Ereignisse von drei verschiedenen Typen empfangen: `error`, `abort` und `complete`. Wir haben bereits darüber gesprochen, wie Fehlerereignisse auf höhere Ebenen aufsteigen, sodass eine Transaktion Fehlerereignisse von allen Anfragen erhält, die von ihr generiert werden. Ein subtilerer Punkt hier ist, dass das Standardverhalten eines Fehlers darin besteht, die Transaktion, in der er aufgetreten ist, abzubrechen. Sofern Sie den Fehler nicht behandeln, indem Sie zuerst `stopPropagation()` für das Fehlerereignis aufrufen und dann etwas anderes tun, wird die gesamte Transaktion zurückgesetzt. Dieses Design zwingt Sie dazu, über Fehler nachzudenken und sie zu behandeln, aber Sie können immer einen allgemeinen Fehlerhandler zur Datenbank hinzufügen, wenn die detaillierte Fehlerbehandlung zu umständlich ist. Wenn Sie ein Fehlerereignis nicht behandeln oder wenn Sie `abort()` für die Transaktion aufrufen, wird die Transaktion zurückgesetzt und ein `abort`-Ereignis wird für die Transaktion ausgelöst. Andernfalls erhalten Sie, nachdem alle ausstehenden Anfragen abgeschlossen sind, ein `complete`-Ereignis. Wenn Sie viele Datenbankoperationen durchführen, kann es sicherlich Ihrer geistigen Gesundheit zugutekommen, die Transaktion zu verfolgen, anstatt einzelne Anfragen.
 
-Jetzt, da Sie eine Transaktion haben, müssen Sie den Objektstore davon erhalten. Transaktionen lassen Sie nur einen Objektstore haben, den Sie beim Erstellen der Transaktion angegeben haben. Dann können Sie alle Daten hinzufügen, die Sie benötigen.
+Jetzt, wo Sie eine Transaktion haben, müssen Sie den Objektspeicher daraus erhalten. Transaktionen ermöglichen es Ihnen nur, einen Objektspeicher zu haben, den Sie beim Erstellen der Transaktion angegeben haben. Dann können Sie alle Daten hinzufügen, die Sie benötigen.
 
 ```js
 // Do something when all the data is added to the database.
@@ -310,7 +317,7 @@ customerData.forEach((customer) => {
 });
 ```
 
-Das `result` einer Anfrage, die durch einen Aufruf von `add()` ausgelöst wird, ist der Schlüssel des hinzugefügten Werts. In diesem Fall sollte es dem `ssn`-Eigentum des hinzugefügten Objekts entsprechen, da der Objektstore das `ssn`-Eigentum für den Schlüsselpfad verwendet. Beachten Sie, dass die `add()`-Funktion erfordert, dass kein Objekt mit demselben Schlüssel bereits in der Datenbank ist. Wenn Sie einen bestehenden Eintrag ändern möchten oder es Ihnen egal ist, ob bereits einer existiert, können Sie die Funktion `put()` verwenden, wie im Abschnitt [Aktualisieren eines Eintrags in der Datenbank](#aktualisieren_eines_eintrags_in_der_datenbank) unten gezeigt wird.
+Das `Resultat` einer aus einem Aufruf von `add()` generierten Anfrage ist der Schlüssel des hinzugefügten Wertes. In diesem Fall sollte er der `ssn`-Eigenschaft des hinzugefügten Objekts entsprechen, da der Objektspeicher die `ssn`-Eigenschaft für den Schlüsselpfad verwendet. Beachten Sie, dass die Funktion `add()` erfordert, dass kein Objekt bereits in der Datenbank mit dem gleichen Schlüssel existiert. Wenn Sie versuchen, einen vorhandenen Eintrag zu ändern, oder es Ihnen egal ist, ob schon einer existiert, können Sie die Funktion `put()` verwenden, wie unten im Abschnitt [Aktualisieren eines Eintrags in der Datenbank](#aktualisieren_eines_eintrags_in_der_datenbank) gezeigt.
 
 ### Daten aus der Datenbank entfernen
 
@@ -328,7 +335,7 @@ request.onsuccess = (event) => {
 
 ### Daten aus der Datenbank abrufen
 
-Da die Datenbank nun einige Informationen enthält, können Sie sie auf verschiedene Arten abrufen. Zuerst die einfache `get()`. Sie müssen den Schlüssel angeben, um den Wert abzurufen, wie folgt:
+Jetzt, wo die Datenbank einige Informationen enthält, können Sie sie auf mehrere Arten abrufen. Zuerst die einfache `get()`. Sie müssen den Schlüssel bereitstellen, um den Wert abzurufen, so:
 
 ```js
 const transaction = db.transaction(["customers"]);
@@ -343,7 +350,7 @@ request.onsuccess = (event) => {
 };
 ```
 
-Das ist viel Code für einen "einfachen" Abruf. Hier ist, wie Sie es etwas abkürzen können, vorausgesetzt, Sie behandeln Fehler auf Datenbankebene:
+Das ist eine Menge Code für einen "einfachen" Abruf. So können Sie es etwas abkürzen, vorausgesetzt, dass Sie Fehler auf Datenbankebene behandeln:
 
 ```js
 db
@@ -354,11 +361,11 @@ db
 };
 ```
 
-Sehen Sie, wie das funktioniert? Da es nur einen Objektstore gibt, können Sie vermeiden, eine Liste von Objektstores, die Sie in Ihrer Transaktion benötigen, zu übergeben, und einfach den Namen als Zeichenfolge übergeben. Außerdem lesen Sie nur aus der Datenbank, sodass Sie keine `"readwrite"`-Transaktion benötigen. Der Aufruf von `transaction()` ohne angegebenen Modus gibt Ihnen eine `"readonly"`-Transaktion. Eine weitere Feinheit hier ist, dass Sie das Anfrageobjekt nicht tatsächlich in einer Variablen speichern. Da das DOM-Ereignis die Anfrage als Ziel hat, können Sie das Ereignis verwenden, um zur `result`-Eigenschaft zu gelangen.
+Sehen Sie, wie das funktioniert? Da es nur einen Objektspeicher gibt, können Sie das Übergeben einer Liste von Objektspeichern, die Sie in Ihrer Transaktion benötigen, vermeiden und einfach den Namen als Zeichenfolge übergeben. Außerdem lesen Sie nur von der Datenbank, sodass Sie keine `"readwrite"`-Transaktion benötigen. Der Aufruf von `transaction()` ohne angegebenen Modus gibt Ihnen eine `"readonly"`-Transaktion. Ein weiterer Punkt: Sie speichern das Anfrageobjekt nicht tatsächlich in einer Variable. Da das DOM-Ereignis die Anfrage als Ziel hat, können Sie das Ereignis verwenden, um zur `result`-Eigenschaft zu gelangen.
 
 ### Aktualisieren eines Eintrags in der Datenbank
 
-Jetzt, da wir einige Daten abgerufen haben, ist das Aktualisieren und Zurückschreiben in die IndexedDB ziemlich einfach. Lassen Sie uns das vorherige Beispiel etwas aktualisieren:
+Jetzt, wo wir einige Daten abgerufen haben, ist das Aktualisieren und Wiedereinfügen in die IndexedDB ziemlich einfach. Lassen Sie uns das vorherige Beispiel etwas aktualisieren:
 
 ```js
 const objectStore = db
@@ -386,14 +393,14 @@ request.onsuccess = (event) => {
 };
 ```
 
-Hier erstellen wir einen `objectStore` und fordern einen Kundenrekord aus ihm an, identifiziert durch seinen ssn-Wert (`444-44-4444`). Wir speichern dann das Ergebnis dieser Anfrage in einer Variablen (`data`), aktualisieren die `age`-Eigenschaft dieses Objekts, erstellen dann eine zweite Anfrage (`requestUpdate`), um den Kundenrekord zurück in den `objectStore` zu setzen und den vorherigen Wert zu überschreiben.
+Hier erstellen wir also einen `objectStore` und fordern einen Kundendatensatz von ihm an, identifiziert durch seinen ssn-Wert (`444-44-4444`). Wir legen dann das Ergebnis dieser Anfrage in einer Variable (`data`) ab, aktualisieren die `age`-Eigenschaft dieses Objekts und erstellen dann eine zweite Anfrage (`requestUpdate`), um den Kundendatensatz wieder in den `objectStore` einzufügen, wodurch der vorherige Wert überschrieben wird.
 
 > [!NOTE]
-> In diesem Fall mussten wir eine `readwrite`-Transaktion spezifizieren, weil wir in die Datenbank schreiben wollen, nicht nur aus ihr lesen.
+> In diesem Fall mussten wir eine `readwrite`-Transaktion angeben, da wir auf die Datenbank schreiben möchten und nicht nur von ihr lesen möchten.
 
 ### Verwenden eines Cursors
 
-Die Verwendung von `get()` erfordert, dass Sie wissen, welchen Schlüssel Sie abrufen möchten. Wenn Sie alle Werte in Ihrem Objektstore durchgehen möchten, können Sie einen Cursor verwenden. So sieht das aus:
+Die Verwendung von `get()` erfordert, dass Sie wissen, welchen Schlüssel Sie abrufen möchten. Wenn Sie alle Werte in Ihrem Objektspeicher durchlaufen möchten, können Sie einen Cursor verwenden. So sieht es aus:
 
 ```js
 const objectStore = db.transaction("customers").objectStore("customers");
@@ -409,9 +416,9 @@ objectStore.openCursor().onsuccess = (event) => {
 };
 ```
 
-Die Funktion `openCursor()` nimmt mehrere Argumente an. Erstens können Sie den Bereich der abgerufenen Elemente mit einem Schlüsselbereichsobjekt begrenzen, auf das wir gleich noch eingehen werden. Zweitens können Sie die Richtung angeben, in der Sie iterieren möchten. Im obigen Beispiel iterieren wir alle Objekte in aufsteigender Reihenfolge. Der Erfolgscallback für Cursors ist etwas Besonderes. Das Cursor-Objekt selbst ist das `result` der Anfrage (oben verwenden wir die Kurzform, daher ist es `event.target.result`). Dann können der tatsächliche Schlüssel und der Wert auf den `key`- und `value`-Eigenschaften des Cursor-Objekts gefunden werden. Wenn Sie weitermachen möchten, müssen Sie `continue()` auf dem Cursor aufrufen. Wenn Sie das Ende der Daten erreicht haben (oder wenn es keine Einträge gab, die Ihrer `openCursor()`-Anfrage entsprachen), erhalten Sie trotzdem einen Erfolgscallback, aber die `result`-Eigenschaft ist `undefined`.
+Die `openCursor()`-Funktion nimmt mehrere Argumente an. Erstens können Sie den Bereich von Elementen, die abgerufen werden sollen, mit einem Schlüsselbereichsobjekt einschränken, auf das wir gleich noch eingehen werden. Zweitens können Sie die Richtung angeben, in der Sie iterieren möchten. Im obigen Beispiel iterieren wir über alle Objekte in aufsteigender Reihenfolge. Der Erfolgscallback für Cursors ist etwas Besonderes. Der Cursor selbst ist das `Resultat` der Anfrage (oben verwenden wir die Kurzform, also ist es `event.target.result`). Dann können der tatsächliche Schlüssel und Wert in den `key`- und `value`-Eigenschaften des Cursor-Objekts gefunden werden. Wenn Sie weitermachen möchten, müssen Sie `continue()` auf dem Cursor aufrufen. Wenn Sie das Ende der Daten erreicht haben (oder wenn es keine Einträge gab, die Ihre `openCursor()`-Anfrage erfüllten), erhalten Sie trotzdem einen Erfolgscallback, aber die `result`-Eigenschaft ist `undefined`.
 
-Ein häufiges Muster mit Cursors ist, alle Objekte in einem Objektstore abzurufen und sie zu einem Array hinzuzufügen, wie folgt:
+Ein häufiges Muster mit Cursors ist das Abrufen aller Objekte in einem Objektspeicher und das Hinzufügen zu einem Array, wie folgt:
 
 ```js
 const customers = [];
@@ -428,7 +435,7 @@ objectStore.openCursor().onsuccess = (event) => {
 ```
 
 > [!NOTE]
-> Alternativ können Sie `getAll()` für diesen Fall verwenden (und `getAllKeys()`). Der folgende Code macht genau dasselbe wie oben:
+> Alternativ können Sie in diesem Fall `getAll()` (und `getAllKeys()`) verwenden. Der folgende Code macht genau dasselbe wie oben:
 >
 > ```js
 > objectStore.getAll().onsuccess = (event) => {
@@ -436,11 +443,11 @@ objectStore.openCursor().onsuccess = (event) => {
 > };
 > ```
 >
-> Es gibt einen Leistungseinbruch, der mit dem Blick auf die `value`-Eigenschaft eines Cursors verbunden ist, da das Objekt verzögert erstellt wird. Wenn Sie `getAll()` verwenden, muss der Browser zum Beispiel alle Objekte auf einmal erstellen. Wenn Sie nur an einem Blick auf jeden der Schlüssel interessiert sind, ist es viel effizienter, einen Cursor zu verwenden, als `getAll()` zu verwenden. Wenn Sie versuchen, ein Array aller Objekte in einem Objektstore zu erhalten, verwenden Sie jedoch `getAll()`.
+> Es gibt einen Leistungskosten, der mit der Betrachtung der `value`-Eigenschaft eines Cursors verbunden ist, da das Objekt faul erstellt wird. Wenn Sie zum Beispiel `getAll()` verwenden, muss der Browser alle Objekte auf einmal erstellen. Wenn Sie nur daran interessiert sind, sich jeden Schlüssel anzusehen, ist es viel effizienter, einen Cursor zu verwenden, als `getAll()` zu verwenden. Wenn Sie versuchen, ein Array aller Objekte in einem Objektspeicher zu erhalten, verwenden Sie jedoch `getAll()`.
 
-### Verwenden eines Indexes
+### Verwenden eines Index
 
-Das Speichern von Kundendaten mit der SSN als Schlüssel ist logisch, da die SSN eine Person eindeutig identifiziert. (Ob dies für den Datenschutz eine gute Idee ist, ist eine andere Frage und nicht Gegenstand dieses Artikels.) Wenn Sie jedoch einen Kunden nach Namen suchen müssen, müssen Sie über jede SSN in der Datenbank iterieren, bis Sie die richtige gefunden haben. Eine Suche auf diese Weise wäre sehr langsam, also können Sie stattdessen einen Index verwenden.
+Kundendaten mit der SSN als Schlüssel zu speichern, ist logisch, da die SSN eine Person eindeutig identifiziert. (Ob dies eine gute Idee für den Datenschutz ist, ist eine andere Frage und außerhalb des Umfangs dieses Artikels.) Wenn Sie jedoch einen Kunden nach seinem Namen suchen müssen, müssten Sie jede SSN in der Datenbank durchlaufen, bis Sie die richtige finden. Eine solche Suche wäre sehr langsam, daher können Sie stattdessen einen Index verwenden.
 
 ```js
 // First, make sure you created index in request.onupgradeneeded:
@@ -454,9 +461,9 @@ index.get("Donna").onsuccess = (event) => {
 };
 ```
 
-Der "name"-Index ist nicht eindeutig, daher könnte es mehr als einen Eintrag mit dem `name`-Wert `"Donna"` geben. In diesem Fall erhalten Sie immer den Eintrag mit dem niedrigsten Schlüsselwert.
+Der "name"-Index ist nicht eindeutig, sodass es mehr als einen Eintrag mit dem `name`-Wert `"Donna"` geben kann. In diesem Fall erhalten Sie immer denjenigen mit dem niedrigsten Schlüsselwert.
 
-Wenn Sie auf alle Einträge mit einem bestimmten `name` zugreifen müssen, können Sie einen Cursor verwenden. Sie können zwei verschiedene Arten von Cursors auf Indizes öffnen. Ein normaler Cursor ordnet die Index-Eigenschaft dem Objekt im Objektstore zu. Ein Schlüsselcursor ordnet die Index-Eigenschaft dem Schlüssel zu, der verwendet wird, um das Objekt im Objektstore zu speichern. Die Unterschiede werden hier illustriert:
+Wenn Sie auf alle Einträge mit einem bestimmten `name` zugreifen müssen, können Sie einen Cursor verwenden. Sie können zwei verschiedene Arten von Cursors auf Indizes öffnen. Ein normaler Cursor ordnet die Index-Eigenschaft dem Objekt im Objektspeicher zu. Ein Schlüsselcursor ordnet die Index-Eigenschaft dem Schlüssel zu, der zum Speichern des Objekts im Objektspeicher verwendet wird. Die Unterschiede werden hier veranschaulicht:
 
 ```js
 // Using a normal cursor to grab whole customer record objects
@@ -483,15 +490,15 @@ index.openKeyCursor().onsuccess = (event) => {
 };
 ```
 
-Der Index kann auch auf mehreren Eigenschaften erstellt werden, sodass Sie Datensätze anhand einer Kombination von Werten nachschlagen können, z.B. um eine Person sowohl nach ihrem Namen als auch nach ihrer E-Mail-Adresse zu finden. Um einen zusammengesetzten Index zu erstellen, geben Sie ein Array von Eigenschaftsnamen als Schlüsselpfad beim Aufruf von `createIndex` an. Sie können dann den Index abfragen, indem Sie ein Array von Werten in derselben Reihenfolge übergeben.
+Der Index kann auch auf mehreren Eigenschaften erstellt werden, sodass Sie Datensätze mit einer Kombination von Werten suchen können, z. B. eine Person sowohl nach ihrem Namen als auch nach ihrer E-Mail zu finden. Um einen zusammengesetzten Index zu erstellen, geben Sie beim Aufruf von `createIndex` ein Array von Eigenschaftsnamen als Schlüssel-Pfad an. Dann können Sie den Index abfragen, indem Sie ein Array von Werten in derselben Reihenfolge übergeben.
 
-Zuerst stellen Sie sicher, dass Sie den Index in `request.onupgradeneeded` erstellt haben:
+Stellen Sie zunächst sicher, dass Sie den Index in `request.onupgradeneeded` erstellt haben:
 
 ```js
 const index = objectStore.createIndex("name_email", ["name", "email"]);
 ```
 
-Dann können Sie später den Index wie folgt abfragen:
+Dann können Sie den Index wie folgt abfragen:
 
 ```js
 const index = objectStore.index("name_email");
@@ -504,7 +511,7 @@ index.get(["Donna", "donna@home.org"]).onsuccess = (event) => {
 
 ### Festlegen des Bereichs und der Richtung von Cursors
 
-Wenn Sie den Bereich der in einem Cursor angezeigten Werte begrenzen möchten, können Sie ein `IDBKeyRange`-Objekt verwenden und es als erstes Argument an `openCursor()` oder `openKeyCursor()` übergeben. Sie können einen Schlüsselbereich erstellen, der nur einen einzelnen Schlüssel zulässt, oder einen, der eine untere oder obere Grenze hat, oder einen, der sowohl eine untere als auch eine obere Grenze hat. Die Grenze kann "geschlossen" sein (d.h. der Schlüsselbereich umfasst die angegebenen Werte) oder "offen" (d.h. der Schlüsselbereich umfasst die angegebenen Werte nicht). So funktioniert es:
+Wenn Sie den Bereich der Werte, die Sie in einem Cursor sehen möchten, einschränken möchten, können Sie ein `IDBKeyRange`-Objekt erstellen und es als erstes Argument an `openCursor()` oder `openKeyCursor()` übergeben. Sie können einen Schlüsselbereich erstellen, der nur einen bestimmten Schlüssel zulässt, oder einen, der ein unteres oder oberes Limit hat, oder einen, der sowohl ein unteres als auch ein oberes Limit hat. Das Limit kann "geschlossen" sein (d.h. der Schlüsselbereich schließt die angegebenen Werte ein) oder "offen" (d.h. der Schlüsselbereich schließt die angegebenen Werte nicht ein). So funktioniert es:
 
 ```js
 // Only match "Donna"
@@ -532,7 +539,7 @@ index.openCursor(boundKeyRange).onsuccess = (event) => {
 };
 ```
 
-Manchmal möchten Sie möglicherweise in absteigender Reihenfolge anstelle der aufsteigenden Reihenfolge iterieren (die Standardrichtung für alle Cursors). Die Umkehrung der Richtung erfolgt, indem Sie `prev` als zweites Argument an die Funktion `openCursor()` übergeben:
+Manchmal möchten Sie möglicherweise in absteigender Reihenfolge statt in aufsteigender Reihenfolge (die Standard-Richtung für alle Cursors) iterieren. Die Richtungsänderung erfolgt, indem Sie der `openCursor()`-Funktion `prev` als zweites Argument übergeben:
 
 ```js
 objectStore.openCursor(boundKeyRange, "prev").onsuccess = (event) => {
@@ -544,7 +551,7 @@ objectStore.openCursor(boundKeyRange, "prev").onsuccess = (event) => {
 };
 ```
 
-Wenn Sie nur eine Richtungsänderung angeben möchten, aber die angezeigten Ergebnisse nicht einschränken möchten, können Sie einfach null als erstes Argument übergeben:
+Wenn Sie nur eine Richtungsänderung angeben möchten, aber die angezeigten Ergebnisse nicht einschränken möchten, können Sie einfach `null` als erstes Argument übergeben:
 
 ```js
 objectStore.openCursor(null, "prev").onsuccess = (event) => {
@@ -556,7 +563,7 @@ objectStore.openCursor(null, "prev").onsuccess = (event) => {
 };
 ```
 
-Da der "name"-Index nicht einzigartig ist, könnte es mehrere Einträge mit demselben `name` geben. Beachten Sie, dass eine solche Situation bei Objektstores nicht auftreten kann, da der Schlüssel immer eindeutig sein muss. Wenn Sie während der Cursoriteration über Indizes Duplikate herausfiltern möchten, können Sie `nextunique` (oder `prevunique`, wenn Sie rückwärts gehen) als Richtungsparameter übergeben. Wenn `nextunique` oder `prevunique` verwendet wird, ist immer der Eintrag mit dem niedrigsten Schlüssel der zurückgegebene.
+Da der "name"-Index nicht eindeutig ist, können mehrere Einträge mit demselben `name` vorhanden sein. Beachten Sie, dass eine solche Situation bei Objektspeichern nicht vorkommen kann, da der Schlüssel immer eindeutig sein muss. Wenn Sie doppelte Einträge bei der Cursoriteration über Indizes ausschließen möchten, können Sie `nextunique` (oder `prevunique`, wenn Sie rückwärts gehen) als Richtungsparameter übergeben. Wenn `nextunique` oder `prevunique` verwendet wird, wird immer der Eintrag mit dem niedrigsten Schlüssel zurückgegeben.
 
 ```js
 index.openKeyCursor(null, "nextunique").onsuccess = (event) => {
@@ -568,11 +575,11 @@ index.openKeyCursor(null, "nextunique").onsuccess = (event) => {
 };
 ```
 
-Bitte sehen Sie sich "[IDBCursor-Konstanten](/de/docs/Web/API/IDBCursor#constants)" für die gültigen Richtungsargumente an.
+Bitte beachten Sie "[IDBCursor Constants](/de/docs/Web/API/IDBCursor#constants)" für die gültigen Richtungsargumente.
 
 ## Versionsänderungen, während eine Web-App in einem anderen Tab geöffnet ist
 
-Wenn Ihre Web-App sich so ändert, dass eine Versionsänderung für Ihre Datenbank erforderlich ist, müssen Sie berücksichtigen, was passiert, wenn der Benutzer die alte Version Ihrer App in einem Tab geöffnet hat und dann die neue Version Ihrer App in einem anderen Tab lädt. Wenn Sie `open()` mit einer größeren Version als die der aktuellen Datenbank aufrufen, müssen alle anderen geöffneten Datenbanken die Anfrage ausdrücklich bestätigen, bevor Sie Änderungen an der Datenbank vornehmen können (ein `onblocked`-Ereignis wird ausgelöst, bis sie geschlossen oder neu geladen werden). So funktioniert das:
+Wenn Ihre Web-App in einer Weise geändert wird, dass eine Versionsänderung für Ihre Datenbank erforderlich ist, müssen Sie überlegen, was passiert, wenn der Benutzer die alte Version Ihrer App in einem Tab geöffnet hat und dann die neue Version Ihrer App in einem anderen Tab lädt. Wenn Sie `open()` mit einer höheren Version als der aktuellen Version der Datenbank aufrufen, müssen alle anderen offenen Datenbanken die Anfrage ausdrücklich anerkennen, bevor Sie Änderungen an der Datenbank vornehmen können (ein `onblocked`-Ereignis wird ausgelöst, bis sie geschlossen oder neu geladen werden). So funktioniert es:
 
 ```js
 const openReq = mozIndexedDB.open("MyTestDatabase", 2);
@@ -609,66 +616,66 @@ function useDatabase(db) {
 }
 ```
 
-Sie sollten auch auf `VersionError`-Fehler hören, um die Situation zu behandeln, in der bereits geöffnete Apps möglicherweise Code initiieren, der zu einem neuen Versuch führt, die Datenbank zu öffnen, jedoch mit einer veralteten Version.
+Sie sollten auch auf `VersionError`-Fehler hören, um die Situation zu bewältigen, in der bereits geöffnete Apps möglicherweise Code initiieren, der zu einem neuen Versuch führt, die Datenbank zu öffnen, aber mit einer veralteten Version.
 
 ## Sicherheit
 
-IndexedDB verwendet das gleiche Ursprungsprinzip, was bedeutet, dass es den Speicher mit dem Ursprung der Website, die ihn erstellt hat, (in der Regel die Site-Domain oder Subdomain) verknüpft, sodass er von keinem anderen Ursprung aus zugegriffen werden kann.
+IndexedDB verwendet das Same-Origin-Prinzip, was bedeutet, dass es den Speicher an die Herkunft der Website bindet, die ihn erstellt hat (normalerweise ist dies die Domäne oder Subdomäne der Website), sodass er von keiner anderen Herkunft aus zugänglich ist.
 
-Inhalte von Drittanbieterfenstern (z.B. {{htmlelement("iframe")}}-Inhalte) können nicht auf IndexedDB zugreifen, wenn der Browser auf [niemals Cookies von Drittanbietern akzeptieren](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) eingestellt ist (siehe [Firefox-Bug 1147821](https://bugzil.la/1147821)).
+Inhalte von Drittfenstern (z.B. {{htmlelement("iframe")}}-Inhalte) können nicht auf IndexedDB zugreifen, wenn der Browser so eingestellt ist, dass [niemals Cookies von Drittanbietern akzeptiert werden](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) (siehe [Firefox Bug 1147821](https://bugzil.la/1147821)).
 
-## Warnung vor dem Herunterfahren des Browsers
+## Warnung bei Browser-Ausfall
 
-Wenn der Browser heruntergefahren wird (weil der Benutzer die Option Beenden oder Schließen gewählt hat), die Festplatte mit der Datenbank unerwartet entfernt wird oder Berechtigungen für den Datenbankspeicher verloren gehen, geschehen die folgenden Dinge:
+Wenn der Browser heruntergefahren wird (weil der Benutzer die Optionen "Beenden" oder "Exit" gewählt hat), das Laufwerk, das die Datenbank enthält, unerwartet entfernt wird oder Berechtigungen für den Datenbankspeicher verloren gehen, passieren folgende Dinge:
 
-1. Jede Transaktion auf jeder betroffenen Datenbank (oder allen offenen Datenbanken im Falle eines Browser-Herunterfahrens) wird mit einem `AbortError` abgebrochen. Die Auswirkungen sind dieselben, als ob [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction/abort) auf jede Transaktion aufgerufen wird.
+1. Jede Transaktion in jeder betroffenen Datenbank (oder alle offenen Datenbanken im Fall des Herunterfahrens des Browsers) wird mit einem `AbortError` abgebrochen. Die Wirkung ist dieselbe, als ob [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction/abort) für jede Transaktion aufgerufen wird.
 2. Sobald alle Transaktionen abgeschlossen sind, wird die Datenbankverbindung geschlossen.
-3. Schließlich erhält das [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt, das die Datenbankverbindung darstellt, ein [`close`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignis. Sie können den [`IDBDatabase.onclose`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignishandler verwenden, um auf diese Ereignisse zu hören, damit Sie wissen, wann eine Datenbank unerwartet geschlossen wurde.
+3. Schließlich erhält das [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt, das die Datenbankverbindung repräsentiert, ein [`close`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignis. Sie können den [`IDBDatabase.onclose`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignishandler verwenden, um auf diese Ereignisse zu hören, sodass Sie wissen, wann eine Datenbank unerwartet geschlossen wird.
 
-Das oben beschriebene Verhalten ist neu und ist erst ab den folgenden Browser-Versionen verfügbar: Firefox 50, Google Chrome 31 (ungefähr).
+Das oben beschriebene Verhalten ist neu und ist nur ab den folgenden Browser-Versionen verfügbar: Firefox 50, Google Chrome 31 (ungefähr).
 
-Vor diesen Browserversionen werden die Transaktionen lautlos abgebrochen, und es wird kein [`close`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignis ausgelöst, sodass es keine Möglichkeit gibt, eine unerwartete Datenbankschließung zu erkennen.
+Vor diesen Browser-Versionen werden die Transaktionen stillschweigend abgebrochen und kein [`close`](/de/docs/Web/API/IDBDatabase/close_event)-Ereignis wird ausgelöst, sodass es keine Möglichkeit gibt, einen unerwarteten Datenbankschluss zu erkennen.
 
-Da der Benutzer den Browser jederzeit beenden kann, bedeutet das, dass Sie sich nicht auf ein bestimmtes Transaktionsende verlassen können, und auf älteren Browsern werden Sie nicht einmal benachrichtigt, wenn sie nicht abgeschlossen werden. Daraus ergeben sich mehrere Implikationen für dieses Verhalten.
+Da der Benutzer den Browser jederzeit schließen kann, bedeutet das, dass Sie sich nicht darauf verlassen können, dass eine bestimmte Transaktion abgeschlossen wird, und bei älteren Browsern werden Sie nicht einmal darüber informiert, wenn sie nicht abgeschlossen wird. Dies hat mehrere Auswirkungen auf dieses Verhalten.
 
-Erstens sollten Sie darauf achten, Ihre Datenbank immer in einem konsistenten Zustand am Ende jeder Transaktion zu verlassen. Wenn Sie beispielsweise IndexedDB verwenden, um eine Liste von Elementen zu speichern, die der Benutzer bearbeiten darf. Sie speichern die Liste nach der Bearbeitung, indem Sie den Objektstore leeren und dann die neue Liste schreiben. Wenn Sie den Objektstore in einer Transaktion leeren und die neue Liste in einer anderen Transaktion schreiben, besteht die Gefahr, dass der Browser nach dem Leeren, aber vor dem Schreiben geschlossen wird, sodass Sie mit einer leeren Datenbank enden. Um dies zu vermeiden, sollten Sie das Leeren und das Schreiben in eine einzige Transaktion zusammenfassen.
+Erstens sollten Sie darauf achten, Ihre Datenbank am Ende jeder Transaktion immer in einem konsistenten Zustand zu belassen. Angenommen, Sie verwenden IndexedDB, um eine Liste von Elementen zu speichern, die der Benutzer bearbeiten kann. Sie speichern die Liste nach dem Bearbeiten, indem Sie den Objektspeicher leeren und dann die neue Liste schreiben. Wenn Sie den Objektspeicher in einer Transaktion leeren und die neue Liste in einer anderen Transaktion schreiben, besteht die Gefahr, dass der Browser nach dem Leeren, aber vor dem Schreiben geschlossen wird, was Ihnen eine leere Datenbank hinterlässt. Um dies zu vermeiden, sollten Sie das Löschen und das Schreiben in eine einzelne Transaktion kombinieren.
 
-Zweitens sollten Sie Datenbanktransaktionen niemals an Entladeereignisse binden. Wenn das Entlade-Ereignis durch das Schließen des Browsers ausgelöst wird, werden alle Transaktionen, die im Entlade-Ereignishandler erstellt werden, niemals abgeschlossen. Ein intuitiver Ansatz zur Aufrechterhaltung einiger Informationen über Browsersitzungen hinweg besteht darin, diese aus der Datenbank zu lesen, wenn der Browser (oder eine bestimmte Seite) geöffnet wird, sie zu aktualisieren, während der Benutzer mit dem Browser interagiert, und sie dann in die Datenbank zu speichern, wenn der Browser (oder die Seite) geschlossen wird. Dies wird jedoch nicht funktionieren. Die Datenbanktransaktionen werden im Entladeereignishandler erstellt, aber da sie asynchron sind, werden sie vor ihrer Ausführung abgebrochen.
+Zweitens sollten Sie niemals Datenbanktransaktionen an Unload-Ereignisse binden. Wenn das Unload-Ereignis durch das Schließen des Browsers ausgelöst wird, werden alle in dem Unload-Ereignishandler erstellten Transaktionen nie abgeschlossen. Ein intuitiver Ansatz, um bestimmte Informationen über Browsersitzungen hinweg aufrechtzuerhalten, besteht darin, sie aus der Datenbank abzurufen, wenn der Browser (oder eine bestimmte Seite) geöffnet wird, sie zu aktualisieren, während der Benutzer mit dem Browser interagiert, und sie dann in der Datenbank zu speichern, wenn der Browser (oder die Seite) geschlossen wird. Dies wird jedoch nicht funktionieren. Die Datenbanktransaktionen werden im Unload-Ereignishandler erstellt, aber da sie asynchron sind, werden sie abgebrochen, bevor sie ausgeführt werden können.
 
-Tatsächlich gibt es keine Möglichkeit, zu garantieren, dass IndexedDB-Transaktionen abgeschlossen werden, selbst bei normalem Herunterfahren des Browsers. Siehe [Firefox-Bug 870645](https://bugzil.la/870645). Als Workaround für diese normale Abschlussbenachrichtigung könnten Sie Ihre Transaktionen verfolgen und ein `beforeunload`-Ereignis hinzufügen, um den Benutzer zu warnen, wenn zu diesem Zeitpunkt noch keine Transaktionen abgeschlossen sind.
+Tatsächlich gibt es keinen Weg, um sicherzustellen, dass IndexedDB-Transaktionen abgeschlossen werden, selbst mit einem normalen Herunterfahren des Browsers. Siehe [Firefox Bug 870645](https://bugzil.la/870645). Als Workaround für diese normale Herunterfahrensbenachrichtigung könnten Sie Ihre Transaktionen verfolgen und ein `beforeunload`-Ereignis hinzufügen, um den Benutzer zu warnen, wenn bei dem Entladen noch ausstehende Transaktionen vorhanden sind.
 
 Zumindest mit der Hinzufügung der Abbruchbenachrichtigungen und [`IDBDatabase.onclose`](/de/docs/Web/API/IDBDatabase/close_event) können Sie wissen, wann dies passiert ist.
 
 ## Vollständiges IndexedDB-Beispiel
 
-Wir haben ein vollständiges Beispiel mit der IndexedDB-API. Das Beispiel verwendet IndexedDB, um Publikationen zu speichern und abzurufen.
+Wir haben ein vollständiges Beispiel unter Verwendung der IndexedDB-API. Das Beispiel verwendet IndexedDB zum Speichern und Abrufen von Publikationen.
 
-- [Probieren Sie das Beispiel aus](https://mdn.github.io/dom-examples/indexeddb-api/index.html)
-- [Sehen Sie sich den Quellcode an](https://github.com/mdn/dom-examples/tree/main/indexeddb-api)
+- [Beispiel ausprobieren](https://mdn.github.io/dom-examples/indexeddb-api/index.html)
+- [Den Quellcode ansehen](https://github.com/mdn/dom-examples/tree/main/indexeddb-api)
 
 ## Siehe auch
 
-Weiterführende Informationen, falls gewünscht.
+Weiterführende Literatur für Sie, um bei Bedarf weitere Informationen zu finden.
 
 ### Referenz
 
-- [IndexedDB API Referenz](/de/docs/Web/API/IndexedDB_API)
-- [Indexed Database API Spezifikation](https://w3c.github.io/IndexedDB/)
+- [IndexedDB-API-Referenz](/de/docs/Web/API/IndexedDB_API)
+- [Spezifikation der Indexed Database API](https://w3c.github.io/IndexedDB/)
 - IndexedDB [Schnittstellendateien](https://searchfox.org/firefox-main/search?q=dom%2FindexedDB%2F.*%5C.idl&path=&case=false&regexp=true) im Firefox-Quellcode
 
 ### Tutorials und Leitfäden
 
-- [Datenbindung von UI-Elementen mit IndexedDB (2012)](https://web.dev/articles/indexeddb-uidatabinding)
-- [IndexedDB – Der Speicher in Ihrem Browser](<https://learn.microsoft.com/en-us/previous-versions/msdn10/gg679063(v=msdn.10)>)
+- [Benutzerschnittstellenelemente mit IndexedDB binden (2012)](https://web.dev/articles/indexeddb-uidatabinding)
+- [IndexedDB — Der Speicher in Ihrem Browser](<https://learn.microsoft.com/en-us/previous-versions/msdn10/gg679063(v=msdn.10)>)
 
 ### Bibliotheken
 
-- [localForage](https://localforage.github.io/localForage/): Ein Polyfill, das eine einfache Name:Wert-Syntax für die clientseitige Datenspeicherung bietet, welche im Hintergrund IndexedDB verwendet, aber auf Web SQL (veraltet) und dann localStorage zurückfällt, in Browsern, die IndexedDB nicht unterstützen.
+- [localForage](https://localforage.github.io/localForage/): Ein Polyfill, das eine einfache Namens-Wert-Syntax für die Client-seitige Datenspeicherung bereitstellt, die im Hintergrund IndexedDB verwendet, aber auf Web SQL (veraltet) und dann auf localStorage zurückfällt, wenn IndexedDB in Browsern nicht unterstützt wird.
 - [Dexie.js](https://dexie.org/): Ein Wrapper für IndexedDB, der eine viel schnellere Codeentwicklung durch eine schöne, einfache Syntax ermöglicht.
-- [JsStore](https://jsstore.net/): Ein einfacher und fortgeschrittener IndexedDB-Wrapper mit SQL-ähnlicher Syntax.
-- [MiniMongo](https://github.com/mWater/minimongo): Eine clientseitige In-Memory-MongoDB unterstützt von localstorage mit Serversynchronisation über HTTP. MiniMongo wird von MeteorJS verwendet.
-- [PouchDB](https://pouchdb.com/): Eine clientseitige Implementierung von CouchDB im Browser mit IndexedDB
-- [IDB](https://github.com/jakearchibald/idb): Eine kleine Bibliothek, die größtenteils die IndexedDB-API spiegelt, jedoch mit kleinen Verbesserungen der Benutzerfreundlichkeit.
-- [idb-keyval](https://www.npmjs.com/package/idb-keyval): Ein super-einfacher-kleiner (\~600B) versprechensbasierter Schlüssel-Wert-Speicher, der mit IndexedDB implementiert ist
-- [$mol_db](https://github.com/hyoo-ru/mam_mol/tree/master/db): Eine winzige (\~1.3kB) TypeScript-Fassade mit einem versprechensbasierten API und automatischen Migrationen.
-- [RxDB](https://rxdb.info/): Eine NoSQL-Client-seitige Datenbank, die auf IndexedDB verwendet werden kann. Unterstützt Indizes, Komprimierung und Replikation. Fügt IndexedDB auch Funktionen für crosstabs und Beobachtbarkeit hinzu.
+- [JsStore](https://jsstore.net/): Ein einfacher und fortschrittlicher IndexedDB-Wrapper mit SQL-ähnlicher Syntax.
+- [MiniMongo](https://github.com/mWater/minimongo): Eine clientseitige In-Memory-MongoDB, die mit Localstorage und Serversynchronisation über HTTP unterstützt wird. MiniMongo wird von MeteorJS verwendet.
+- [PouchDB](https://pouchdb.com/): Eine Client-seitige Implementierung von CouchDB im Browser unter Verwendung von IndexedDB.
+- [IDB](https://github.com/jakearchibald/idb): Eine kleine Bibliothek, die größtenteils die IndexedDB-API nachbildet, jedoch mit kleinen Verbesserungen der Benutzerfreundlichkeit.
+- [idb-keyval](https://www.npmjs.com/package/idb-keyval): Ein extrem einfaches, kleines (\~600B) versprechen-basiertes Schlüssel-Wert-Speicher, das mit IndexedDB implementiert ist.
+- [$mol_db](https://github.com/hyoo-ru/mam_mol/tree/master/db): Eine winzige (\~1.3kB) TypeScript-Fassade mit versprechen-basierter API und automatischen Migrationen.
+- [RxDB](https://rxdb.info/): Eine NoSQL-Client-Datenbank, die oben auf IndexedDB verwendet werden kann. Unterstützt Indizes, Komprimierung und Replikation. Fügt auch Cross-Tab-Funktionalität und Beobachtbarkeit zu IndexedDB hinzu.

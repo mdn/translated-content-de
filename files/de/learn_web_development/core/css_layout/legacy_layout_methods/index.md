@@ -1,48 +1,49 @@
 ---
-title: Alte Layoutmethoden
+title: Veraltete Layout-Methoden
 slug: Learn_web_development/Core/CSS_layout/Legacy_Layout_Methods
 l10n:
-  sourceCommit: 1b7c3c1e03f14c3878e4d8518b0f1a89bedfdc9c
+  sourceCommit: f4c14731a1a157fc8d8f7357ac4d74d14a7d7fb5
 ---
 
-Rastersysteme sind eine sehr verbreitete Funktion, die in CSS-Layouts verwendet wird. Vor der Einführung von CSS Grid Layout wurden sie oft mithilfe von Floats oder anderen Layout-Funktionen implementiert. Man stellt sich sein Layout als eine feste Anzahl von Spalten vor (z.B. 4, 6 oder 12) und fügt dann die Inhaltsspalten in diese imaginären Spalten ein. In diesem Artikel werden wir untersuchen, wie diese älteren Methoden funktionieren, damit Sie verstehen, wie sie verwendet wurden, falls Sie an einem älteren Projekt arbeiten.
+Rastersysteme sind eine sehr häufig verwendete Funktion in CSS-Layouts, und bevor es das CSS-Grid-Layout gab, neigten sie dazu, mit Floats oder anderen Layout-Funktionen implementiert zu werden. Sie stellen sich Ihr Layout als eine bestimmte Anzahl von Spalten vor (z. B. 4, 6 oder 12) und fügen dann Ihre Inhalts-Spalten in diese imaginären Spalten ein. In diesem Artikel werden wir untersuchen, wie diese älteren Methoden funktionieren, damit Sie verstehen, wie sie verwendet wurden, falls Sie an einem älteren Projekt arbeiten.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML (Studieren Sie
+        Grundlagen in HTML (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (Studieren Sie
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>).
+        >) und grundlegende Kenntnisse, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Die grundlegenden Konzepte hinter den Rastersystemen zu verstehen, die vor der Verfügbarkeit von CSS Grid Layout in Browsern verwendet wurden.
+        Die grundlegenden Konzepte hinter den Rasterlayout-Systemen zu verstehen,
+        die vor der Verfügbarkeit von CSS-Grid-Layout in Browsern verwendet wurden.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Layout- und Rastersysteme vor dem CSS Grid Layout
+## Layout- und Rastersysteme vor dem CSS-Grid-Layout
 
-Es mag für jemanden mit Designhintergrund überraschend sein, dass CSS bis vor kurzem kein eingebautes Rastersystem hatte und dass wir stattdessen eine Vielzahl von suboptimalen Methoden verwendeten, um rasterähnliche Designs zu erstellen. Wir bezeichnen diese mittlerweile als "alte" Methoden.
+Es mag für jemanden aus einem Design-Hintergrund überraschend erscheinen, dass CSS bis vor kurzem kein integriertes Rastersystem hatte und wir stattdessen eine Vielzahl von suboptimalen Methoden verwendeten, um rasterähnliche Designs zu erstellen. Wir bezeichnen diese jetzt als "veraltete" Methoden.
 
-Für neue Projekte wird in den meisten Fällen CSS Grid Layout in Kombination mit einer oder mehreren anderen modernen Layoutmethoden als Grundlage für jedes Layout verwendet. Sie werden jedoch gelegentlich auf "Rastersysteme" stoßen, die mit diesen alten Methoden erstellt wurden. Es lohnt sich zu verstehen, wie sie funktionieren und warum sie sich von CSS Grid Layout unterscheiden.
+Bei neuen Projekten wird in den meisten Fällen CSS-Grid-Layout in Kombination mit einer oder mehreren anderen modernen Layout-Methoden verwendet, um die Basis für jedes Layout zu bilden. Sie werden jedoch von Zeit zu Zeit auf "Rastersysteme" stoßen, die diese veralteten Methoden verwenden. Es ist wertvoll zu verstehen, wie sie funktionieren und warum sie sich vom CSS-Grid-Layout unterscheiden.
 
-Diese Lektion erläutert, wie auf Floats und Flexbox basierende Rastersysteme und Rasterframeworks funktionieren. Wenn Sie das Grid Layout studiert haben, werden Sie wahrscheinlich überrascht sein, wie kompliziert das alles scheint! Dieses Wissen wird Ihnen nützlich sein, wenn Sie Fallback-Code für Browser erstellen müssen, die neuere Methoden nicht unterstützen, und es ermöglicht Ihnen, an bestehenden Projekten zu arbeiten, die diese Art von Systemen verwenden.
+Diese Lektion erklärt, wie Rastersysteme und Raster-Frameworks basierend auf Floats und Flexbox funktionieren. Da Sie das Grid-Layout studiert haben, werden Sie wahrscheinlich überrascht sein, wie kompliziert das alles scheint! Dieses Wissen wird Ihnen helfen, wenn Sie Fallback-Code für Browser erstellen müssen, die neuere Methoden nicht unterstützen, zusätzlich dazu, dass Sie an bestehenden Projekten arbeiten können, die diese Arten von Systemen verwenden.
 
-Es ist wichtig zu beachten, dass keiner dieser Systeme tatsächlich ein Raster auf die gleiche Weise erstellt, wie es CSS Grid Layout tut. Sie arbeiten, indem sie Elementen eine Größe zuweisen und sie so verschieben, dass es _wie_ ein Raster aussieht.
+Es ist wichtig, im Auge zu behalten, wenn wir diese Systeme erkunden, dass keines von ihnen tatsächlich ein Raster auf die Weise erstellt, wie es das CSS-Grid-Layout tut. Sie funktionieren, indem sie den Elementen eine Größe zuweisen und sie so verschieben, dass sie sich auf eine Weise ausrichten, die _aussieht_ wie ein Raster.
 
 ## Ein zweispaltiges Layout
 
-Beginnen wir mit dem einfachsten möglichen Beispiel — einem zweispaltigen Layout. Sie können mitmachen, indem Sie eine neue `index.html`-Datei auf Ihrem Computer erstellen, sie mit einer [einfachen HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) füllen und den folgenden Code an den entsprechenden Stellen einfügen. Am Ende des Abschnitts sehen Sie ein Live-Beispiel, wie der endgültige Code aussehen sollte.
+Lassen Sie uns mit dem einfachsten möglichen Beispiel beginnen — einem zweispaltigen Layout. Sie können mitmachen, indem Sie eine neue `index.html`-Datei auf Ihrem Computer erstellen, sie mit einer [einfachen HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) füllen und den unten stehenden Code an den entsprechenden Stellen einfügen. Am Ende des Abschnitts können Sie ein Live-Beispiel dafür sehen, wie der endgültige Code aussehen sollte.
 
-Zuerst benötigen wir etwas Inhalt für unsere Spalten. Ersetzen Sie alles, was sich derzeit im Body befindet, durch Folgendes:
+Zuerst brauchen wir etwas Inhalt, den wir in unsere Spalten einfügen können. Ersetzen Sie, was sich derzeit im Body befindet, mit dem folgenden:
 
 ```html
 <h1>2 column layout example</h1>
@@ -76,9 +77,9 @@ Zuerst benötigen wir etwas Inhalt für unsere Spalten. Ersetzen Sie alles, was 
 </div>
 ```
 
-Jede der Spalten benötigt ein äußeres Element, um ihren Inhalt zu enthalten und uns zu ermöglichen, alles auf einmal zu manipulieren. In diesem Beispiel haben wir uns für {{htmlelement("div")}}s entschieden, aber Sie könnten auch etwas Semantischeres wie {{htmlelement("article")}}s, {{htmlelement("section")}}s und {{htmlelement("aside")}}, oder etwas anderes wählen.
+Jede der Spalten benötigt ein äußeres Element, um ihren Inhalt zu enthalten und uns zu ermöglichen, alles auf einmal zu manipulieren. In diesem Beispiel haben wir {{htmlelement("div")}}s gewählt, aber Sie könnten etwas Semantisch Angemesseneres wie {{htmlelement("article")}}s, {{htmlelement("section")}}s und {{htmlelement("aside")}}, oder was auch immer, wählen.
 
-Nun zum CSS. Zunächst einmal wenden Sie folgendes auf Ihr HTML an, um einige grundlegende Einstellungen vorzunehmen:
+Nun zum CSS. Zuerst einmal, wenden Sie Folgendes auf Ihr HTML an, um einige grundlegende Einstellungen vorzunehmen:
 
 ```css
 body {
@@ -88,7 +89,7 @@ body {
 }
 ```
 
-Der Body hat eine Breite von 90% des Viewports, bis er 900px breit wird, ab dann bleibt er auf dieser Breite fixiert und zentriert sich im Viewport. Standardmäßig erstrecken sich seine Kinder (die {{htmlelement("Heading_Elements", "h1")}} und die zwei {{htmlelement("div")}}s) über 100% der Breite des Bodys. Wenn wir möchten, dass die beiden {{htmlelement("div")}}s nebeneinander floaten, müssen wir ihre Breiten so einstellen, dass sie insgesamt 100% der Breite ihres Elternelements oder weniger ausmachen, um nebeneinander passen zu können. Fügen Sie dies am Ende Ihres CSS hinzu:
+Der Body wird 90% der Viewport-Breite groß sein, bis er 900px breit wird, in diesem Fall wird er fixiert bei dieser Breite bleiben und sich im Viewport zentrieren. Standardmäßig werden seine Kinder (die {{htmlelement("Heading_Elements", "h1")}} und die zwei {{htmlelement("div")}}s) 100% der Breite des Bodys einnehmen. Wenn wir möchten, dass die zwei {{htmlelement("div")}}s nebeneinander floated werden, müssen wir ihre Breiten auf insgesamt 100% der Breite ihres Elternelements oder kleiner einstellen, damit sie nebeneinander passen. Fügen Sie das Folgende am Ende Ihres CSS hinzu:
 
 ```css
 div:nth-of-type(1) {
@@ -100,7 +101,7 @@ div:nth-of-type(2) {
 }
 ```
 
-Hier haben wir beide auf 48% der Breite ihres Elternteils eingestellt — das ergibt insgesamt 96% und lässt uns 4% frei, um als Abstand zwischen den beiden Spalten zu fungieren, was dem Inhalt Raum zum Atmen gibt. Jetzt müssen wir nur noch die Spalten floaten, und zwar so:
+Hier haben wir beide auf 48% der Breite ihres Elternelements eingestellt — das ergibt 96%, sodass uns noch 4% bleiben, um als Rinne zwischen den beiden Spalten zu wirken, was dem Inhalt etwas Raum zum Atmen gibt. Jetzt müssen wir nur noch die Spalten floaten, wie so:
 
 ```css
 div:nth-of-type(1) {
@@ -114,25 +115,25 @@ div:nth-of-type(2) {
 }
 ```
 
-Wenn Sie alles zusammenfügen, sollte es ein Ergebnis wie dieses geben:
+Wenn Sie das alles zusammenfügen, sollten Sie ein Ergebnis wie folgendes erhalten:
 
 {{ EmbedLiveSample('A_two_column_layout', '100%', 520) }}
 
-Sie werden hier feststellen, dass wir für alle Breiten Prozentsätze verwenden — dies ist eine ziemlich gute Strategie, da es ein **flüssiges Layout** erzeugt, das sich an verschiedene Bildschirmgrößen anpasst und die gleichen Proportionen für die Spaltenbreiten bei kleineren Bildschirmgrößen beibehält. Versuchen Sie, die Breite Ihres Browserfensters anzupassen, um es selbst zu sehen. Dies ist ein wertvolles Werkzeug für [responsives Webdesign](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design).
+Hier werden Sie bemerken, dass wir für alle Breiten Prozentwerte verwenden — dies ist eine gute Strategie, da es ein **liquides Layout** erstellt, das sich an verschiedene Bildschirmgrößen anpasst und die gleichen Proportionen für die Spaltenbreiten bei kleineren Bildschirmgrößen beibehält. Versuchen Sie, die Breite Ihres Browserfensters anzupassen, um es selbst zu sehen. Dies ist ein wertvolles Werkzeug für [responsives Webdesign](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design).
 
-## Einfache alte Rasterframeworks erstellen
+## Einfache veraltete Raster-Frameworks erstellen
 
-Die Mehrheit der alten Frameworks nutzt das Verhalten der {{cssxref("float")}}-Eigenschaft, um eine Spalte neben der anderen zu floaten, um etwas zu schaffen, das wie ein Raster aussieht. Den Prozess des Erstellens eines Rasters mit Floats durchzugehen, zeigt Ihnen, wie dies funktioniert, und führt einige fortgeschrittenere Konzepte ein, um auf den Dingen aufzubauen, die Sie in der Lektion zu [Floats und Clearings](/de/docs/Learn_web_development/Core/CSS_layout/Floats) gelernt haben.
+Die Mehrheit der veralteten Frameworks verwenden das Verhalten der {{cssxref("float")}}-Eigenschaft, um eine Spalte neben die andere zu floaten, um etwas zu erstellen, das wie ein Raster aussieht. Der Prozess des Erstellens eines Rasters mit Floats zeigt Ihnen, wie dies funktioniert und führt auch einige fortgeschrittenere Konzepte ein, die auf den Dingen aufbauen, die Sie in der Lektion über [Floats und Clearing](/de/docs/Learn_web_development/Core/CSS_layout/Floats) gelernt haben.
 
-Die einfachste Art von Rasterframework zu erstellen ist ein festes Breite-Raster — wir müssen nur herausfinden, wie viel Gesamtbreite wir für unser Design haben wollen, wie viele Spalten wir möchten und wie breit die Abstände und Spalten sein sollen. Wenn wir stattdessen unser Design auf einem Raster mit Spalten, die je nach Browserbreite wachsen und schrumpfen, layouten möchten, müssten wir Prozentbreiten für die Spalten und die Abstände dazwischen berechnen.
+Der einfachste Typ eines Raster-Frameworks, den man erstellen kann, ist eines mit fester Breite — wir müssen nur herausfinden, wie viel Gesamtebreite unser Design haben soll, wie viele Spalten wir wollen und wie breit die Rinnen und Spalten sein sollten. Wenn wir stattdessen entscheiden, unser Design auf einem Raster mit Spalten zu gestalten, die wachsen und schrumpfen gemäß der Browser-Breite, müssten wir Prozentbreiten für die Spalten und Rinnen zwischen ihnen berechnen.
 
-In den nächsten Abschnitten werden wir uns ansehen, wie man beides erstellt. Wir werden ein 12-Spalten-Raster erstellen — eine sehr häufige Wahl, die als sehr anpassungsfähig an verschiedene Situationen angesehen wird, da 12 sich schön durch 6, 4, 3 und 2 teilen lässt.
+In den nächsten Abschnitten werden wir ansehen, wie man beides erstellt. Wir werden ein 12-Spalten-Raster erstellen — eine sehr verbreitete Wahl, die als sehr anpassungsfähig an unterschiedliche Situationen gilt, da 12 sich gut durch 6, 4, 3 und 2 teilen lässt.
 
 ### Ein einfaches Raster mit fester Breite
 
-Beginnen wir mit einem Rastersystem, das Spalten mit fester Breite verwendet.
+Lassen Sie uns zuerst ein Rastersystem erstellen, das feste Spaltenbreiten verwendet.
 
-Erstellen Sie eine neue HTML-Datei auf Ihrem lokalen System und fügen Sie den folgenden Markup in seinen `<body>` ein:
+Beginnen Sie damit, eine neue HTML-Datei auf Ihrem lokalen System zu erstellen und fügen Sie folgendes Markup in dessen `<body>` ein:
 
 ```html live-sample___basic-grid
 <div class="wrapper">
@@ -159,13 +160,13 @@ Erstellen Sie eine neue HTML-Datei auf Ihrem lokalen System und fügen Sie den f
 </div>
 ```
 
-Das Ziel ist es, dies in ein Demonstrationsraster von zwei Reihen auf einem zwölf Spalten Raster zu verwandeln — die obere Reihe zeigt die Größe der einzelnen Spalten, die zweite Reihe einige unterschiedlich große Bereiche auf dem Raster.
+Das Ziel ist, dies in ein Demonstrationsraster aus zwei Reihen auf einem zwölfspaltigen Raster zu verwandeln — die oberste Reihe demonstriert die Größe der einzelnen Spalten, die zweite Reihe einige unterschiedlich große Bereiche im Raster.
 
-![CSS Grid mit 16 Rasterelementen, verteilt auf zwölf Spalten und zwei Zeilen. Die obere Zeile hat 12 gleichbreite Rasterelemente in 12 Spalten. Die zweite Zeile hat unterschiedlich große Rasterelemente. Element 13 erstreckt sich über 1 Spalte, Element 14 über sechs Spalten, 15 über drei und 16 über zwei.](simple-grid-finished.png)
+![CSS-Raster mit 16 Rasterelementen, verteilt auf zwölf Spalten und zwei Reihen. Die obere Reihe hat 12 gleich breite Rasterelemente in 12 Spalten. Die zweite Reihe hat unterschiedlich große Rasterelemente. Element 13 erstreckt sich über 1 Spalte, Element 14 über sechs Spalten, 15 über drei und 16 über zwei.](simple-grid-finished.png)
 
-Nun, wenden Sie ein Stylesheet auf Ihr HTML an, entweder mit einem {{htmlelement("style")}}-Element oder einer externen CSS-Datei, die in einem {{htmlelement("link")}}-Element referenziert wird.
+Wenden Sie als Nächstes ein Stylesheet auf Ihr HTML an, indem Sie entweder ein {{htmlelement("style")}}-Element oder eine externe CSS-Datei verwenden, die in einem {{htmlelement("link")}}-Element referenziert wird.
 
-Fügen Sie den folgenden Code dem Stylesheet hinzu, welches dem Wrapper-Container eine Breite von 980 Pixeln verleiht, mit einem rechten Seitendrand von 20 Pixeln. Dadurch bleiben uns 960 Pixel für unsere gesamten Spalten-/Abstandbreiten — in diesem Fall wird der Seitendrand von der gesamten Inhaltsbreite abgezogen, weil wir {{cssxref("box-sizing")}} auf `border-box` für alle Elemente auf der Seite gesetzt haben (siehe [Das alternative CSS-Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#the_alternative_css_box_model) für weitere Erklärungen).
+Fügen Sie den folgenden Code zum Stylesheet hinzu, der dem Wrapper-Container eine Breite von 980 Pixeln gibt, mit einem Padding auf der rechten Seite von 20 Pixeln. Das lässt uns 960 Pixel für unsere Gesamtbreite von Spalten- und Rinnenbreiten — in diesem Fall wird das Padding von der Gesamteinhaltsbreite subtrahiert, weil wir {{cssxref("box-sizing")}} auf `border-box` auf alle Elemente auf der Seite eingestellt haben (siehe [Das alternative CSS-Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#the_alternative_css_box_model) für weitere Erklärungen).
 
 ```css live-sample___basic-grid
 * {
@@ -182,7 +183,7 @@ body {
 }
 ```
 
-Verwenden Sie jetzt den Reihen-Container, der um jede Reihe des Rasters gewickelt ist, um eine Reihe von der anderen zu trennen. Fügen Sie die folgende Regel unterhalb Ihrer vorherigen hinzu:
+Nun verwenden Sie den Reihencontainer, der um jede Reihe des Rasters gewickelt ist, um eine Reihe von der anderen zu trennen. Fügen Sie die folgende Regel unter Ihrer vorherigen hinzu:
 
 ```css live-sample___basic-grid
 .row {
@@ -190,13 +191,13 @@ Verwenden Sie jetzt den Reihen-Container, der um jede Reihe des Rasters gewickel
 }
 ```
 
-Durch das Anwenden dieser Clearing-Methode müssen wir jede Reihe nicht vollständig mit Elementen füllen, die die vollen zwölf Spalten einnehmen. Die Reihen bleiben getrennt und beeinflussen sich nicht gegenseitig.
+Die Anwendung dieses Clearings bedeutet, dass wir nicht jede Reihe vollständig mit Elementen auffüllen müssen, die die vollen zwölf Spalten ausmachen. Die Reihen bleiben getrennt und stören sich nicht gegenseitig.
 
-Die Abstände zwischen den Spalten sind 20 Pixel breit. Wir erstellen diese Abstände als Rand auf der linken Seite jeder Spalte — einschließlich der ersten Spalte, um die 20 Pixel Seitendrand auf der rechten Seite des Containers auszugleichen. So haben wir insgesamt 12 Abstände — 12 x 20 = 240.
+Die Rinnen zwischen den Spalten sind 20 Pixel breit. Wir erstellen diese Rinnen als Margin auf der linken Seite jeder Spalte — einschließlich der ersten Spalte, um die 20 Pixel Padding auf der rechten Seite des Containers auszugleichen. So haben wir insgesamt 12 Rinnen — 12 x 20 = 240.
 
-Wir müssen das von unserer Gesamtbreite von 960 Pixeln abziehen, was uns 720 Pixel für unsere Spalten gibt. Wenn wir das nun durch 12 teilen, wissen wir, dass jede Spalte 60 Pixel breit sein sollte.
+Wir müssen das von unserer Gesamtebreite von 960 Pixeln abziehen, was uns 720 Pixel für unsere Spalten lässt. Wenn wir das jetzt durch 12 teilen, wissen wir, dass jede Spalte 60 Pixel breit sein sollte.
 
-Unser nächster Schritt ist, eine Regel für die Klasse `.col` zu erstellen, sie nach links zu floaten, ihr einen {{cssxref("margin-left")}} von 20 Pixeln zu geben, um den Abstand zu bilden, und eine {{cssxref("width")}} von 60 Pixeln. Fügen Sie die folgende Regel am Ende Ihres CSS hinzu:
+Unser nächster Schritt ist, eine Regel für die Klasse `.col` zu erstellen, sie nach links zu floaten, ihr einen {{cssxref("margin-left")}} von 20 Pixeln zu geben, um die Rinne zu bilden, und eine {{cssxref("width")}} von 60 Pixeln. Fügen Sie die folgende Regel am Ende Ihres CSS hinzu:
 
 ```css live-sample___basic-grid
 .col {
@@ -207,14 +208,14 @@ Unser nächster Schritt ist, eine Regel für die Klasse `.col` zu erstellen, sie
 }
 ```
 
-Die obere Zeile der Einzelspalten legt sich jetzt ordentlich als Raster aus.
+Die obere Reihe von Einzelspalten wird nun ordentlich als ein Raster angeordnet.
 
 > [!NOTE]
 > Wir haben auch jeder Spalte eine hellrote Farbe gegeben, damit Sie genau sehen können, wie viel Platz jede einnimmt.
 
-Layout-Container, die über mehr als eine Spalte verteilt werden sollen, müssen spezielle Klassen erhalten, um ihre {{cssxref("width")}}-Werte auf die erforderliche Anzahl von Spalten (plus die Abstände dazwischen) anzupassen. Wir müssen eine zusätzliche Klasse erstellen, die es Containern ermöglicht, von 2 bis 12 Spalten zu überspannen. Jede Breite ist das Ergebnis des Addierens der Spaltenbreite dieser Anzahl von Spalten plus der Abstandbreiten, die immer eine weniger sein werden als die Anzahl der Spalten.
+Layout-Container, die wir über mehr als eine Spalte erstrecken wollen, müssen spezielle Klassen erhalten, um ihre {{cssxref("width")}}-Werte auf die erforderliche Anzahl von Spalten (plus Rinnen dazwischen) anzupassen. Wir müssen eine zusätzliche Klasse erstellen, damit Container sich über 2 bis 12 Spalten erstrecken können. Jede Breite ist das Ergebnis der Addition der Spaltenbreite dieser Anzahl von Spalten plus der Rinnenbreiten, die immer um eins weniger sind als die Anzahl der Spalten.
 
-Fügen Sie das folgende am Ende Ihres CSS hinzu:
+Fügen Sie das Folgende am Ende Ihres CSS hinzu:
 
 ```css live-sample___basic-grid
 /* Two column widths (120px) plus one gutter width (20px) */
@@ -255,11 +256,11 @@ Fügen Sie das folgende am Ende Ihres CSS hinzu:
 }
 ```
 
-Mit diesen erstellten Klassen können wir nun unterschiedlich breite Spalten auf dem Raster auslegen. Versuchen Sie, die Seite in Ihrem Browser zu speichern und zu laden, um die Effekte zu sehen. Es sollte wie das folgende Live-Beispiel aussehen:
+Mit diesen geschaffenen Klassen können wir nun unterschiedlich breite Spalten im Raster anordnen. Versuchen Sie, die Seite in Ihrem Browser zu speichern und zu laden, um die Effekte zu sehen. Es sollte so aussehen wie im folgenden Live-Beispiel:
 
 {{embedlivesample("basic-grid", "100%", 100)}}
 
-Versuchen Sie, die Klassen Ihrer Elemente zu ändern oder sogar einige Container hinzuzufügen und zu entfernen, um zu sehen, wie Sie das Layout variieren können. Zum Beispiel könnten Sie die zweite Reihe so aussehen lassen:
+Versuchen Sie, die Klassen an Ihren Elementen zu ändern oder sogar einige Container hinzuzufügen und zu entfernen, um zu sehen, wie Sie das Layout variieren können. Zum Beispiel könnten Sie die zweite Reihe so aussehen lassen:
 
 ```html
 <div class="row">
@@ -268,37 +269,37 @@ Versuchen Sie, die Klassen Ihrer Elemente zu ändern oder sogar einige Container
 </div>
 ```
 
-Jetzt, da Sie ein Rastersystem haben, können Sie die Reihen und die Anzahl der Spalten in jeder Reihe definieren und dann jeden Container mit Ihrem benötigten Inhalt füllen. Großartig!
+Jetzt haben Sie ein Rastersystem, mit dem Sie die Reihen und die Anzahl der Spalten in jeder Reihe definieren und dann jeden Container mit dem erforderlichen Inhalt füllen können. Großartig!
 
-### Ein flüssiges Raster erstellen
+### Ein flexibles Raster erstellen
 
-Unser Raster funktioniert gut, hat aber eine feste Breite; Sie werden bemerkt haben, dass das Raster im eingebetteten Beispiel oben die Seite überläuft. Wir möchten wirklich ein flexibles (flüssiges) Raster, das mit dem verfügbaren Platz im Browser-{{Glossary("viewport", "Viewport")}} wächst und schrumpft. Um dies zu erreichen, können wir die Referenz-Pixelbreiten in Prozentwerte umwandeln.
+Unser Raster funktioniert gut, hat aber eine feste Breite; Sie werden bemerkt haben, dass das Raster die eingebettete Seite im obigen Live-Beispiel überläuft. Wir wollen wirklich ein flexibles (fluides) Raster, das mit dem verfügbaren Raum im Browser {{Glossary("viewport", "Viewport")}} wächst und schrumpft. Um dies zu erreichen, können wir die Pixelbreiten in Prozentsätze umwandeln.
 
-Die Gleichung, die eine feste Breite in eine flexible, prozentbasierte umwandelt, lautet wie folgt.
+Die Gleichung, die eine feste Breite in eine flexible prozentbasierte umwandelt, ist wie folgt.
 
 ```plain
 target / context = result
 ```
 
-Für unsere Spaltenbreite ist unsere **Ziellänge** 60 Pixel und unser **Kontext** ist der 960 Pixel breite Wrapper. Wir können das folgende verwenden, um einen Prozentsatz zu berechnen.
+Für unsere Spaltenbreite ist unsere **Zielbreite** 60 Pixel und unser **Kontext** der 960 Pixel breite Wrapper. Wir können das Folgende verwenden, um einen Prozentsatz zu berechnen.
 
 ```plain
 60 / 960 = 0.0625
 ```
 
-Wir verschieben dann das Dezimalkomma um 2 Stellen und erhalten einen Prozentsatz von 6,25%. Also können wir in unserem CSS die 60 Pixel breite Spaltenbreite durch 6,25% ersetzen.
+Dann verschieben wir das Dezimal um 2 Stellen, was uns einen Prozentsatz von 6.25% gibt. In unserem CSS können wir die 60 Pixel breite Spaltenbreite durch 6.25% ersetzen.
 
-Wir müssen dasselbe mit unserer Abstandbreite tun:
+Wir müssen das Gleiche auch mit unserer Rinnenbreite tun:
 
 ```plain
 20 / 960 = 0.02083333333
 ```
 
-Wir müssen also die 20 Pixel breite {{cssxref("margin-left")}} auf unserer `.col`-Regel und die 20 Pixel breite {{cssxref("padding-right")}} auf `.wrapper` durch 2,08333333% ersetzen.
+Wir müssen also die 20 Pixel {{cssxref("margin-left")}} in unserer `.col`-Regel und das 20 Pixel {{cssxref("padding-right")}} auf der `.wrapper` mit 2.08333333% ersetzen.
 
 #### Aktualisierung unseres Rasters
 
-Um in diesem Abschnitt loszulegen, erstellen Sie eine neue Kopie Ihrer vorherigen Beispielseite oder holen Sie sich eine Kopie des Codes aus dem vorherigen Live-Beispiel (klicken Sie auf die "Play"-Taste, um den vollständigen Code im MDN-Spielplatz zu sehen).
+Um in diesem Abschnitt anzufangen, machen Sie eine neue Kopie Ihrer vorherigen Beispielseite, oder greifen Sie auf den Code aus dem vorherigen Live-Beispiel zurück, um ihn als Startpunkt zu verwenden (klicken Sie auf die "Play"-Schaltfläche, um den vollständigen Code im MDN Playground zu sehen).
 
 Aktualisieren Sie die zweite CSS-Regel (mit dem `.wrapper`-Selektor) wie folgt:
 
@@ -314,9 +315,9 @@ body {
 }
 ```
 
-Wir haben nicht nur eine prozentuale {{cssxref("width")}} gegeben, wir haben auch eine {{cssxref("max-width")}}-Eigenschaft hinzugefügt, um zu verhindern, dass das Layout zu breit wird.
+Nicht nur, dass wir ihm eine Prozent-{{cssxref("width")}} gegeben haben, wir haben auch eine {{cssxref("max-width")}} Eigenschaft hinzugefügt, um zu verhindern, dass das Layout zu breit wird.
 
-Aktualisieren Sie als nächstes die vierte CSS-Regel (mit dem `.col`-Selektor) wie folgt:
+Aktualisieren Sie als nächstes die vierte CSS-Regel (mit dem `.col`-Selektor) so:
 
 ```css
 .col {
@@ -327,9 +328,9 @@ Aktualisieren Sie als nächstes die vierte CSS-Regel (mit dem `.col`-Selektor) w
 }
 ```
 
-Nun kommt der etwas mühseligere Teil — wir müssen all unsere `.col.span`-Regeln aktualisieren, um Prozentsätze statt Pixelbreiten zu verwenden. Dies dauert ein wenig mit einem Taschenrechner; um Ihnen etwas Mühe zu ersparen, haben wir es für Sie unten gemacht.
+Jetzt kommt der etwas mühsamere Teil — wir müssen alle unsere `.col.span`-Regeln aktualisieren, um anstelle von Pixelbreiten Prozente zu verwenden. Das erfordert ein wenig Zeit mit einem Taschenrechner; um Ihnen etwas Mühe zu ersparen, haben wir es hier unten für Sie gemacht.
 
-Aktualisieren Sie den unteren Block der CSS-Regeln mit dem folgenden:
+Aktualisieren Sie den unteren Block von CSS-Regeln mit dem Folgenden:
 
 ```css
 /* Two column widths (12.5%) plus one gutter width (2.08333333%) */
@@ -370,7 +371,7 @@ Aktualisieren Sie den unteren Block der CSS-Regeln mit dem folgenden:
 }
 ```
 
-Speichern Sie nun Ihren Code und laden Sie ihn in einem Browser, oder überprüfen Sie das folgende Live-Beispiel:
+Speichern Sie nun Ihren Code und laden Sie ihn in einem Browser, oder schauen Sie sich das folgende Live-Beispiel an:
 
 ```css hidden live-sample___fluid-grid
 * {
@@ -438,13 +439,13 @@ body {
 
 {{embedlivesample("fluid-grid", "100%", 100)}}
 
-Versuchen Sie die Breite des Viewports zu ändern — Sie sollten sehen, dass sich die Spaltenbreiten schön anpassen.
+Probieren Sie aus, die Viewport-Breite zu ändern — Sie sollten sehen, dass sich die Spaltenbreiten schön anpassen, um zu passen.
 
-### Einfachere Berechnungen mit der calc()-Funktion
+### Einfachere Berechnungen mit der calc() Funktion
 
-Sie könnten die {{cssxref("calc", "calc()")}}-Funktion verwenden, um die Berechnungen direkt in Ihrem CSS durchzuführen — dies ermöglicht es Ihnen, einfache mathematische Gleichungen in Ihre CSS-Werte einzufügen, um zu berechnen, welcher Wert genommen werden soll. Es ist besonders nützlich, wenn komplexe Berechnungen durchgeführt werden müssen, und Sie können sogar eine Berechnung durchführen, die verschiedene Einheiten verwendet, z.B. "Ich möchte, dass die Höhe dieses Elements immer 100% der Höhe seines übergeordneten Elements minus 50px ist". Siehe [dieses Beispiel aus einem Kurzlehrgang zur MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API#keeping_the_interface_constrained_to_the_viewport_regardless_of_device_height_with_calc).
+Sie könnten die {{cssxref("calc", "calc()")}}-Funktion verwenden, um die Mathematik direkt in Ihrem CSS zu erledigen — dies ermöglicht es Ihnen, einfache mathematische Gleichungen in Ihre CSS-Werte einzufügen, um zu berechnen, was ein Wert sein sollte. Es ist besonders nützlich, wenn es komplexe Mathematik zu tun gibt, und Sie können sogar eine Berechnung durchführen, die verschiedene Einheiten verwendet, zum Beispiel "Ich möchte, dass die Höhe dieses Elements immer 100% der Höhe seines Elternteils minus 50px beträgt". Siehe [dieses Beispiel aus einem MediaStream Recording API Tutorial](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API#keeping_the_interface_constrained_to_the_viewport_regardless_of_device_height_with_calc).
 
-Zurück zu unseren Rastern! Jede Spalte, die mehr als eine Spalte unseres Rasters überspannt, hat eine Gesamtbreite von 6,25%, multipliziert mit der Anzahl der überspannten Spalten plus 2,08333333% multipliziert mit der Anzahl der Abstände (die immer die Anzahl der Spalten minus 1 sein wird). Die `calc()`-Funktion ermöglicht es uns, diese Berechnung direkt innerhalb des Breitenwerts vorzunehmen, sodass wir für jedes Element, das 4 Spalten überspannt, dies tun können:
+Jedenfalls, zurück zu unseren Rastern! Jede Spalte, die sich über mehr als eine Spalte unseres Rasters erstreckt, hat eine Gesamtbreite von 6.25%, multipliziert mit der Anzahl der erstreckten Spalten plus 2.08333333%, multipliziert mit der Anzahl der Rinnen (was immer die Anzahl der Spalten minus 1 sein wird). Die `calc()`-Funktion erlaubt es uns, diese Berechnung direkt im Breitenwert zu machen, so dass wir zum Beispiel für jedes Element, das 4 Spalten spannt, dies tun können:
 
 ```css
 .col.span4 {
@@ -452,7 +453,7 @@ Zurück zu unseren Rastern! Jede Spalte, die mehr als eine Spalte unseres Raster
 }
 ```
 
-Versuchen Sie, Ihren unteren Block von Regeln durch das folgende zu ersetzen, und laden Sie ihn dann im Browser, um zu sehen, ob Sie das gleiche Ergebnis erhalten:
+Versuchen Sie, Ihren unteren Regelblock mit dem folgenden zu ersetzen und laden Sie ihn dann im Browser neu, um zu sehen, ob Sie das gleiche Ergebnis erhalten:
 
 ```css
 .col.span2 {
@@ -551,15 +552,15 @@ body {
 }
 ```
 
-Dies gibt uns das folgende Endergebnis:
+Das gibt uns das folgende Endergebnis:
 
 {{embedlivesample("fluid-grid-calc", "100%", "100")}}
 
 ### Semantische versus "unsemantische" Rastersysteme
 
-Klassens werden in Ihrem Markup hinzugefügt, um das Layout zu definieren, bedeutet, dass Ihr Inhalt und Markup an Ihre visuelle Präsentation gebunden werden. Sie werden diese Verwendung von CSS-Klassen manchmal als "unsemantisch" beschrieben sehen — sie beschreibt, wie der Inhalt aussieht — im Gegensatz zu einer semantischen Verwendung von Klassen, die den Inhalt beschreibt. Dies ist der Fall bei unseren `span2`, `span3` usw. Klassen.
+Klassen zu Ihrem Markup hinzuzufügen, um das Layout zu definieren, bedeutet, dass Ihr Inhalt und Ihr Markup an Ihre visuelle Darstellung gebunden werden. Sie werden diese Verwendung von CSS-Klassen manchmal als "unsemantisch" bezeichnet hören — sie beschreibt, wie der Inhalt aussieht — anstelle einer semantischen Verwendung von Klassen, die den Inhalt beschreibt. Dies ist der Fall bei unseren `span2`, `span3`, etc., Klassen.
 
-Das sind nicht die einzigen Ansätze. Sie könnten sich stattdessen für Ihr Raster entscheiden und dann die Größeninformationen den Regeln für bestehende semantische Klassen hinzufügen. Zum Beispiel, wenn Sie ein {{htmlelement("div")}} mit einer `content`-Klasse darauf haben, die über 8 Spalten gehen soll, könnten Sie die Breite aus der `span8`-Klasse kopieren, sodass Sie eine Regel wie diese erhalten:
+Dies sind nicht die einzigen Ansätze. Sie könnten stattdessen entscheiden, Ihr Raster festzulegen und dann die Größeninformationen in die Regeln für bestehende semantische Klassen einfügen. Wenn Sie zum Beispiel ein {{htmlelement("div")}} mit einer Klasse von `content` haben, das Sie über 8 Spalten erstrecken möchten, könnten Sie die Breite aus der Klasse `span8` kopieren und damit eine Regel wie folgt erstellen:
 
 ```css
 .content {
@@ -568,17 +569,17 @@ Das sind nicht die einzigen Ansätze. Sie könnten sich stattdessen für Ihr Ras
 ```
 
 > [!NOTE]
-> Wenn Sie einen Präprozessor wie [Sass](https://sass-lang.com/) verwenden, könnten Sie ein einfaches Mixin erstellen, um diesen Wert für Sie einzufügen.
+> Wenn Sie einen Präprozessor wie [Sass](https://sass-lang.com/) verwenden würden, könnten Sie ein einfaches Mixin erstellen, um diesen Wert für Sie einzufügen.
 
-### Hinzufügen von Off-Set-Containern in unserem Raster
+### Offsets in unserem Raster ermöglichen
 
-Das Raster, das wir erstellt haben, funktioniert gut, solange wir alle Container mit dem linken Rand des Rasters beginnen wollen. Wenn wir wollten, dass ein leerer Spaltenraum vor dem ersten Container oder zwischen Container bleibt, müssten wir eine Offset-Klasse erstellen, um ein linkes Margen zu unserem Site hinzuzufügen, um es visuell über das Raster zu schieben. Mehr Mathematik!
+Das von uns erstellte Raster funktioniert gut, solange wir wollen, dass alle Container bündig mit der linken Seite des Rasters beginnen. Wenn wir einen leeren Spaltenplatz vor dem ersten Container — oder zwischen Containern — lassen wollten, müssten wir eine Offset-Klasse erstellen, um unserem Element eine linke Margin zu geben, um es visuell über das Raster zu schieben. Mehr Mathematik!
 
 Lassen Sie uns das ausprobieren.
 
-Beginnen Sie mit Ihrem vorhandenen vorherigen Code, oder verwenden Sie den Code aus dem vorherigen Live-Beispiel (drücken Sie die "Play"-Taste, um den vollständigen Code im MDN-Spielplatz zu sehen).
+Beginnen Sie mit Ihrem vorhandenen vorherigen Code oder verwenden Sie den Code aus dem vorherigen Live-Beispiel (drücken Sie die "Play"-Schaltfläche, um den vollständigen Code im MDN Playground zu sehen).
 
-Lassen Sie uns eine Klasse in unserem CSS erstellen, die ein Container-Element um eine Spaltenbreite versetzen wird. Fügen Sie folgendes dem Ende Ihres CSS hinzu:
+Lassen Sie uns eine Klasse in unserem CSS erstellen, die ein Containerelement um eine Spaltenbreite versetzt. Fügen Sie das folgende Ihrem CSS am Ende hinzu:
 
 ```css
 .offset-by-one {
@@ -586,7 +587,7 @@ Lassen Sie uns eine Klasse in unserem CSS erstellen, die ein Container-Element u
 }
 ```
 
-Oder wenn Sie es vorziehen, die Prozentsätze selbst zu berechnen, verwenden Sie dieses:
+Oder, wenn Sie es vorziehen, die Prozentsätze selbst zu berechnen, verwenden Sie diesen:
 
 ```css
 .offset-by-one {
@@ -594,22 +595,20 @@ Oder wenn Sie es vorziehen, die Prozentsätze selbst zu berechnen, verwenden Sie
 }
 ```
 
-Sie können diese Klasse jetzt jedem Container hinzufügen, bei dem Sie einen einspaltigen Leerraum auf der linken Seite bleiben möchten. Zum Beispiel, wenn Sie das in Ihrem HTML haben:
+Sie können diese Klasse nun zu jedem Container hinzufügen, bei dem Sie möchten, dass auf der linken Seite ein leerer Spaltenplatz bleibt. Zum Beispiel, wenn Sie dies in Ihrem HTML haben:
 
 ```html
 <div class="col span6">14</div>
 ```
 
-Versuchen Sie es durch
+Versuchen Sie es durch Folgendes zu ersetzen
 
 ```html
 <div class="col span5 offset-by-one">14</div>
 ```
 
-zu ersetzen.
-
 > [!NOTE]
-> Beachten Sie, dass Sie die Anzahl der überspannten Spalten verringern müssen, um Platz für den Offset zu schaffen!
+> Beachten Sie, dass Sie die Anzahl der erstreckten Spalten reduzieren müssen, um Platz für das Offset zu schaffen!
 
 ```html hidden live-sample___fluid-grid-offset
 <div class="wrapper">
@@ -704,26 +703,26 @@ body {
 }
 ```
 
-Versuchen Sie zu laden und zu aktualisieren, um den Unterschied zu sehen, oder überprüfen Sie unser fertiges Live-Beispiel:
+Versuchen Sie zu laden und zu aktualisieren, um den Unterschied zu sehen, oder überprüfen Sie unser fertiggestelltes Live-Beispiel:
 
 {{embedlivesample("fluid-grid-offset", "100%","100")}}
 
 > [!NOTE]
-> Als zusätzliche Übung, können Sie eine `offset-by-two`-Klasse implementieren?
+> Als zusätzliche Übung, können Sie eine `offset-by-two` Klasse implementieren?
 
-### Einschränkungen von gefloateten Rastern
+### Einschränkungen von Float-basierten Rastern
 
-Bei Verwendung eines Systems wie diesem müssen Sie darauf achten, dass Ihre Gesamtbreiten korrekt addieren und dass Sie keine Elemente in einer Reihe haben, die mehr Spalten umfassen, als die Reihe enthalten kann. Aufgrund der Funktionsweise von Floats, wenn die Anzahl der Rasterspalten zu breit für das Raster wird, fallen die Elemente am Ende in die nächste Zeile, was das Raster bricht.
+Wenn Sie ein System wie dieses verwenden, müssen Sie darauf achten, dass Ihre Gesamtbreiten korrekt summiert werden und dass Sie keine Elemente in einer Reihe haben, die breiter als die Reihe sind. Aufgrund der Art und Weise, wie Floats funktionieren, fallen die Elemente am Ende auf die nächste Zeile, wenn die Anzahl der Rastern zu breit für das Grid wird und das Raster zerbricht.
 
-Außerdem denken Sie daran, dass, wenn der Inhalt der Elemente breiter als die Reihen wird, in denen sie sich befinden, er überläuft und ein Durcheinander verursacht.
+Denken Sie auch daran, dass wenn der Inhalt der Elemente breiter wird als die Reihen, die sie einnehmen, er überläuft und es unordentlich aussieht.
 
-Die größte Einschränkung dieses Systems ist, dass es im Wesentlichen eindimensional ist. Wir beschäftigen uns mit Spalten und überlappenden Elementen über Spalten, aber nicht über Reihen. Es ist sehr schwierig mit diesen älteren Layoutmethoden die Höhe von Elementen zu kontrollieren, ohne explizit eine Höhe festzulegen und dies ist ebenfalls ein sehr unflexibler Ansatz — es funktioniert nur, wenn Sie garantieren können, dass Ihr Inhalt eine bestimmte Höhe haben wird.
+Die größte Einschränkung dieses Systems ist, dass es im Grunde eindimensional ist. Wir beschäftigen uns mit Spalten und dem Erspannen von Elementen über Spalten, aber nicht über Reihen. Es ist sehr schwierig mit diesen älteren Layout-Methoden, die Höhe der Elemente zu kontrollieren, ohne explizit eine Höhe zu setzen, und dies ist auch ein sehr unflexibler Ansatz — es funktioniert nur, wenn Sie garantieren können, dass Ihr Inhalt eine bestimmte Höhe hat.
 
 ## Flexbox-Raster?
 
-Wenn Sie unseren vorherigen Artikel über [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) gelesen haben, denken Sie vielleicht, dass Flexbox die ideale Lösung zur Erstellung eines Rastersystems ist. Es gibt viele auf Flexbox basierende Rastersysteme und Flexbox kann viele der Probleme lösen, die wir beim Erstellen unseres Rasters oben entdeckt haben.
+Wenn Sie unseren vorherigen Artikel über [flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) gelesen haben, denken Sie vielleicht, dass Flexbox die ideale Lösung für die Erstellung eines Rastersystems ist. Es gibt viele auf Flexbox basierende Rastersysteme und Flexbox kann viele der Probleme, die wir bereits bei der Erstellung unseres Rasters oben entdeckt haben, lösen.
 
-Allerdings wurde Flexbox nie als Rastersystem entwickelt und bringt eine neue Reihe von Herausforderungen mit sich, wenn es als solches verwendet wird. Ein einfaches Beispiel dafür ist, dass wir das gleiche Beispielmarkup wie oben verwenden und das folgende CSS verwenden, um die `wrapper`, `row`, und `col` Klassen zu stylen:
+Allerdings wurde Flexbox nie als Rastersystem entworfen und stellt eine neue Reihe von Herausforderungen dar, wenn es als eines verwendet wird. Als einfaches Beispiel hierfür können wir dasselbe Beispielmarkup verwenden, das wir oben verwendet haben, und das folgende CSS verwenden, um die `wrapper`, `row` und `col`-Klassen zu stylen:
 
 ```css
 body {
@@ -836,43 +835,43 @@ body {
 }
 ```
 
-Dies gibt uns im Wesentlichen das gleiche Ergebnis wie zuvor:
+Dies gibt uns im Grunde dasselbe Ergebnis wie zuvor:
 
 {{embedlivesample("flexbox-grid", "100%","100")}}
 
-Hier machen wir jede Zeile zu einem Flex-Container. Mit einem auf Flexbox basierenden Raster benötigen wir immer noch Reihen, um uns zu erlauben Elemente zu haben, die sich auf weniger als `100%` addieren. Wir setzen diesen Container auf `display: flex`.
+Hier machen wir jede Reihe zu einem Flex-Container. Mit einem Flexbox-basierten Raster benötigen wir immer noch Reihen, um uns zu erlauben, Elemente zu haben, die sich zu weniger als `100%` summieren. Wir stellen diesen Container auf `display: flex` ein.
 
-Auf `.col` setzen wir den ersten Wert ({{cssxref("flex-grow")}}) der {{cssxref("flex")}}-Eigenschaft auf 1, damit unsere Elemente wachsen können, den zweiten Wert ({{cssxref("flex-shrink")}}) auf 1, damit sich die Elemente verkleinern können, und den dritten Wert ({{cssxref("flex-basis")}}) auf `auto`. Da unser Element eine {{cssxref("width")}} gesetzt hat, wird `auto` diese Breite als Wert für `flex-basis` verwenden.
+Auf `.col` setzen wir den ersten Wert der {{cssxref("flex")}} Eigenschaft ({{cssxref("flex-grow")}}) auf 1, damit unsere Elemente wachsen können, den zweiten Wert ({{cssxref("flex-shrink")}}) auf 1, damit die Elemente schrumpfen können, und den dritten Wert ({{cssxref("flex-basis")}}) auf `auto`. Da unser Element eine {{cssxref("width")}} gesetzt hat, wird `auto` diese Breite als `flex-basis` Wert verwenden.
 
-Wir müssen immer noch unsere `span`-Klassen bei Spalten einbeziehen, die eine spezifische Anzahl von Reihen überspannen wollen, unter Angabe einer Breite, die den Wert ersetzt, der für `flex-basis` für diese Elemente verwendet wird.
+Wir müssen immer noch unsere `span`-Klassen auf Spalten einfügen, die wir über eine bestimmte Anzahl von Reihen erstrecken möchten, indem sie eine Breite angeben, die den für diese Elemente verwendeten `flex-basis` Wert ersetzt.
 
-Dieses System respektiert das Raster, das verwendet wird, um die Elemente zu enthalten nicht, da es nichts darüber weiß. Flexbox ist **eindimensional** von Design. Sie befasst sich mit nur einer Dimension, die einer Zeile oder einer Spalte. Wir können kein strenges Raster für Spalten und Zeilen erstellen, was bedeutet, dass wir, wenn wir Flexbox für unser Raster verwenden, immer noch Prozentsätze wie für das gefloatete Layout berechnen müssen.
+Dieses System respektiert nicht das Raster, das verwendet wird, um die Elemente zu enthalten, weil es nichts darüber weiß. Flexbox ist **eindimensional** von Design her. Es beschäftigt sich nur mit einer Dimension, entweder einer Reihe oder einer Spalte. Wir können kein striktes Raster für Spalten und Reihen erstellen, was bedeutet, dass wir auch, wenn wir Flexbox für unser Raster verwenden, Prozentsätze wie für das Float-basierte Layout berechnen müssen.
 
-In Ihrem Projekt könnten Sie sich dennoch für ein Flexbox-"Raster" entscheiden, aufgrund der zusätzlichen Ausrichtungs- und Platzverteilungsmöglichkeiten, die Flexbox über Floats bietet. Sie sollten jedoch bedenken, dass Sie immer noch ein Werkzeug verwenden, das nicht für den Zweck entworfen wurde, für den Sie es verwenden. Dies kann dazu führen, dass es Ihnen zusätzliche Herausforderungen bereitet, um das gewünschte Endergebnis zu erzielen.
+In Ihrem Projekt könnten Sie sich immer noch entscheiden, ein Flexbox-"Raster" zu verwenden, aufgrund der zusätzlichen Ausrichtungs- und Raumverteilungsfähigkeiten, die Flexbox im Vergleich zu Floats bietet. Sie sollten sich jedoch bewusst sein, dass Sie immer noch ein Tool für etwas anderes verwenden, als wofür es entworfen wurde. Sie könnten also das Gefühl haben, dass es Sie durch zusätzliche Reifen springen lässt, um das gewünschte Endergebnis zu erzielen.
 
 ## Drittanbieter-Rastersysteme
 
-Jetzt, da wir die Mathematik hinter unseren Rasterberechnungen verstehen, sind wir in einer guten Position, um uns einige der von Drittanbietern entwickelten Rastersysteme anzusehen, die häufig verwendet werden. Wenn Sie im Web nach "CSS Grid Framework" suchen, finden Sie eine riesige Liste von Optionen zur Auswahl. Beliebte Frameworks wie [Bootstrap](https://getbootstrap.com/) und [Foundation](https://get.foundation/) beinhalten ein Rastersystem. Es gibt auch eigenständige Rastersysteme, entweder mithilfe von CSS oder unter Verwendung von Präprozessoren entwickelt.
+Da wir nun die Mathematik hinter unseren Rasterberechnungen verstehen, sind wir in einer guten Position, um einige der Drittanbieter-Rastersysteme zu betrachten, die häufig verwendet werden. Wenn Sie im Netz nach "CSS-Raster-Framework" suchen, finden Sie eine riesige Liste von Optionen zur Auswahl. Beliebte Frameworks wie [Bootstrap](https://getbootstrap.com/) und [Foundation](https://get.foundation/) enthalten ein Rastersystem. Es gibt auch eigenständige Rastersysteme, die entweder mit CSS oder mit Präprozessoren entwickelt wurden.
 
-Schauen wir uns eines dieser eigenständigen Systeme an, da es gängige Techniken zur Arbeit mit einem Rasterframework demonstriert. Das Raster, das wir verwenden werden, ist Teil von Skeleton, einem einfachen CSS-Framework.
+Lassen Sie uns einen Blick auf eines dieser eigenständigen Systeme werfen, da es häufig verwendete Techniken zur Arbeit mit einem Raster-Framework demonstriert. Das Raster, das wir verwenden werden, ist Teil von Skeleton, einem einfachen CSS-Framework.
 
-Um loszulegen, besuchen Sie die [Skeleton-Website](http://getskeleton.com/) und wählen Sie "Download", um die ZIP-Datei herunterzuladen. Entpacken Sie diese und kopieren Sie die skeleton.css und normalize.css Dateien in ein neues Verzeichnis.
+Um loszulegen, besuchen Sie die [Skeleton-Website](http://getskeleton.com/), und wählen Sie "Download", um die ZIP-Datei herunterzuladen. Entpacken Sie diese und kopieren Sie die enthaltenen Dateien skeleton.css und normalize.css in ein neues Verzeichnis.
 
-Erstellen Sie eine neue HTML-Datei mit einem leeren `<body>` im selben Verzeichnis wie die Skeleton-und Normalize CSS-Dateien.
+Erstellen Sie eine neue HTML-Datei mit einem leeren `<body>` im gleichen Verzeichnis wie die Skeleton- und Normalize-CSS-Dateien.
 
-Binden Sie das Skeleton und Normalize CSS auf der HTML-Seite ein, indem Sie folgendes in den Kopf der Seite hinzufügen:
+Schließen Sie die Skeleton- und Normalize-CSS in die HTML-Seite ein, indem Sie das Folgende im Head hinzufügen:
 
 ```html
 <link href="normalize.css" rel="stylesheet" />
 <link href="skeleton.css" rel="stylesheet" />
 ```
 
-Skeleton umfasst mehr als ein Rastersystem — es enthält auch CSS für Typografie und andere Seitenelemente, die als Anfangspunkt verwendet werden können. Wir belassen dies jetzt bei den Standardeinstellungen — es ist das Raster, das uns hier wirklich interessiert.
+Skeleton enthält mehr als nur ein Rastersystem — es enthält auch CSS für Typografie und andere Seitenelemente, die Sie als Ausgangspunkt verwenden können. Wir lassen diese jedoch jetzt auf den Standardwerten, denn das Raster ist das, was uns hier wirklich interessiert.
 
 > [!NOTE]
-> [Normalize](https://necolas.github.io/normalize.css/) ist eine wirklich nützliche kleine CSS-Bibliothek, geschrieben von Nicolas Gallagher, die automatisch einige nützliche grundlegende Layout-Korrekturen vornimmt und das Standard-Element-Styling in Browsern konsistenter macht.
+> [Normalize](https://necolas.github.io/normalize.css/) ist eine wirklich nützliche kleine CSS-Bibliothek, die von Nicolas Gallagher geschrieben wurde, die einige nützliche grundlegende Layout-Fixes automatisch durchführt und das Standard-Element-Styling über Browser konsistenter macht.
 
-Wir werden einen ähnlichen HTML-Code wie in unserem früheren Beispiel verwenden. Fügen Sie folgendes in den Body Ihres HTML-Codes ein:
+Wir werden ähnliches HTML wie in unserem früheren Beispiel verwenden. Fügen Sie das Folgende in den Body Ihres HTMLs ein:
 
 ```html
 <div class="container">
@@ -899,9 +898,9 @@ Wir werden einen ähnlichen HTML-Code wie in unserem früheren Beispiel verwende
 </div>
 ```
 
-Um Skeleton zu verwenden, müssen wir dem Wrapper-{{htmlelement("div")}} die Klasse `container` geben — diese ist bereits in unserem HTML enthalten. Dies zentriert den Inhalt mit einer maximalen Breite von 960 Pixeln. Sie können sehen, wie die Boxen jetzt nie breiter als 960 Pixel werden.
+Um Skeleton zu verwenden, müssen wir dem Wrapper-{{htmlelement("div")}} eine Klasse von `container` geben — dies ist bereits in unserem HTML enthalten. Dadurch wird der Inhalt mit einer maximalen Breite von 960 Pixeln zentriert. Sie können nun sehen, wie die Boxen nie breiter als 960 Pixel werden.
 
-Sie können in die skeleton.css-Datei schauen, um das CSS zu sehen, das verwendet wird, wenn wir diese Klasse anwenden. Das `<div>` wird zentriert, indem links und rechts automatische Ränder verwendet werden, und ein Polster von 20 Pixeln wird links und rechts angewendet. Skeleton setzt auch die {{cssxref("box-sizing")}}-Eigenschaft auf `border-box`, wie wir es zuvor getan haben, sodass das Padding und die Ränder dieses Elements in die Gesamtbreite eingeschlossen werden.
+Sie können in die skeleton.css-Datei schauen, um das CSS zu sehen, das verwendet wird, wenn wir diese Klasse anwenden. Das `<div>` wird zentriert, indem `auto` für die linken und rechten Margins verwendet wird und ein Padding von 20 Pixeln links und rechts angewendet wird. Skeleton setzt auch die {{cssxref("box-sizing")}}-Eigenschaft, wie wir es zuvor getan haben, auf `border-box`, sodass das Padding und die Rahmen dieses Elements in die Gesamtbreite aufgenommen werden.
 
 ```css
 .container {
@@ -914,11 +913,11 @@ Sie können in die skeleton.css-Datei schauen, um das CSS zu sehen, das verwende
 }
 ```
 
-Elemente können nur Teil des Rasters sein, wenn sie sich innerhalb einer Zeile befinden. Daher benötigen wir wie in unserem früheren Beispiel ein zusätzliches `<div>` oder ein anderes Element mit einer `row`-Klasse, die zwischen den Inhalts-{{htmlelement("div")}}-Elementen und dem Container-{{htmlelement("div")}} geschachtelt ist. Auch dies haben wir bereits getan.
+Elemente können nur Teil des Rasters sein, wenn sie sich innerhalb einer Reihe befinden, also benötigen wir wie in unserem früheren Beispiel ein zusätzliches `<div>` oder ein anderes Element mit einer Klasse `row`, das zwischen den Inhaltselementen `<div>` und dem Container-Element `<div>` verschachtelt ist. Das haben wir auch bereits getan.
 
-Lassen Sie uns nun die Container-Boxen anordnen. Skeleton basiert auf einem 12-Spalten-Raster. Die Boxen der oberen Reihe benötigen alle Klassen von `one column`, um eine Spalte einzunehmen.
+Lassen Sie uns nun die Container-Boxen anordnen. Skeleton basiert auf einem 12-Spalten-Raster. Die Top-Linie Boxen benötigen alle Klassen von `one column`, um sich über eine Spalte zu erstrecken.
 
-Fügen Sie diese nun hinzu, wie im folgenden Schnipsel gezeigt:
+Fügen Sie diese jetzt hinzu, wie im folgenden Schnipsel gezeigt:
 
 ```html
 <div class="container">
@@ -931,7 +930,7 @@ Fügen Sie diese nun hinzu, wie im folgenden Schnipsel gezeigt:
 </div>
 ```
 
-Geben Sie als nächstes den Containern in der zweiten Reihe Klassen, die erklären, wie viele Spalten sie überspannen sollen, so wie hier:
+Geben Sie den Containern in der zweiten Reihe als Nächstes Klassen, die erklären, wie viele Spalten sie erstrecken sollen, wie folgt:
 
 ```html
 <div class="row">
@@ -942,12 +941,12 @@ Geben Sie als nächstes den Containern in der zweiten Reihe Klassen, die erklär
 </div>
 ```
 
-Versuchen Sie, die HTML-Datei zu speichern und in Ihrem Browser zu laden, um den Effekt zu sehen.
+Versuchen Sie, Ihre HTML-Datei zu speichern und in Ihrem Browser zu laden, um den Effekt zu sehen.
 
 > [!NOTE]
-> Wenn Sie Schwierigkeiten haben, dies zum Laufen zu bringen, versuchen Sie, das Fenster, das Sie zum Anzeigen verwenden, zu verbreitern (das Raster wird nicht wie hier beschrieben angezeigt, wenn das Fenster zu schmal ist). Wenn das nicht hilft, vergleichen Sie es mit unserer Datei [html-skeleton-finished.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/legacy/html-skeleton-finished.html) (sehen Sie es auch [live vorgeführt](https://mdn.github.io/learning-area/css/css-layout/legacy/html-skeleton-finished.html)).
+> Wenn Sie Schwierigkeiten haben, dieses Beispiel zum Laufen zu bringen, versuchen Sie, das Fenster, in dem Sie es anzeigen, zu verbreitern (das Raster wird nicht wie hier beschrieben angezeigt, wenn das Fenster zu schmal ist). Wenn das nicht funktioniert, versuchen Sie, es mit unserer [html-skeleton-finished.html](https://github.com/mdn/learning-area/blob/main/css/css-layout/legacy/html-skeleton-finished.html)-Datei zu vergleichen (sehen Sie es auch [live ausgeführt](https://mdn.github.io/learning-area/css/css-layout/legacy/html-skeleton-finished.html)).
 
-Wenn Sie in der skeleton.css-Datei nachsehen, können Sie sehen, wie dies funktioniert. Beispielsweise hat Skeleton folgendes definiert, um Elemente mit "drei Spalten" hinzuzufügen.
+Wenn Sie in die skeleton.css-Datei schauen, können Sie sehen, wie dies funktioniert. Zum Beispiel hat Skeleton folgendes definiert, um Elemente mit "drei Spalten" Klassen zu stylen.
 
 ```css
 .three.columns {
@@ -955,10 +954,10 @@ Wenn Sie in der skeleton.css-Datei nachsehen, können Sie sehen, wie dies funkti
 }
 ```
 
-Alles, was Skeleton (oder jedes andere Rasterframework) tut, ist, vordefinierte Klassen einzurichten, die Sie verwenden können, indem Sie sie zu Ihrem Markup hinzufügen. Es ist genau das gleiche, als ob Sie die Arbeit der Berechnung dieser Prozentsätze selbst machen würden.
+Alles, was Skeleton (oder jedes andere Raster-Framework) tut, ist, vordefinierte Klassen einzurichten, die Sie verwenden können, indem Sie sie Ihrem Markup hinzufügen. Es ist genau so, als ob Sie die Arbeit des Berechnens dieser Prozentsätze selbst erledigen würden.
 
-Wie Sie sehen können, müssen wir sehr wenig CSS schreiben, wenn wir Skeleton verwenden. Es kümmert sich um all das Floats, wenn wir Klassen zu unserem Markup hinzufügen. Es ist diese Fähigkeit, die Verantwortung für das Layout an etwas anderes zu übergeben, die die Verwendung eines Frameworks für ein Rastersystem zu einer überzeugenden Wahl machte! Allerdings in diesen Tagen, mit CSS Grid Layout, wechseln viele Entwickler von diesen Frameworks, um das eingebaute native Raster zu verwenden, das CSS bietet.
+Wie Sie sehen können, müssen wir sehr wenig CSS schreiben, wenn wir Skeleton verwenden. Es kümmert sich für uns um das floaten der Elemente, wenn wir Klassen zu unserem Markup hinzufügen. Es ist diese Fähigkeit, die Verantwortung für das Layout an etwas anderes zu übergeben, die die Verwendung eines Frameworks für ein Rastersystem zu einer überzeugenden Wahl machte! Heutzutage jedoch, mit CSS-Grid-Layout, wenden sich viele Entwickler von diesen Frameworks ab, um das in CSS native Raster zu benutzen.
 
 ## Zusammenfassung
 
-Sie verstehen nun, wie verschiedene Rastersysteme erstellt werden, was nützlich sein wird, um mit älteren Websites zu arbeiten und um den Unterschied zwischen dem nativen Raster von CSS Grid Layout und diesen älteren Systemen zu verstehen.
+Sie verstehen nun, wie verschiedene Rastersysteme erstellt werden, was nützlich beim Arbeiten mit älteren Websites sein wird und beim Verständnis des Unterschieds zwischen dem nativen Raster des CSS-Grid-Layouts und diesen älteren Systemen.

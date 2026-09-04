@@ -3,10 +3,10 @@ title: BigInt.asUintN()
 short-title: asUintN()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/asUintN
 l10n:
-  sourceCommit: e142519e137b3a2ce99d5820c3f2049b6d83113d
+  sourceCommit: f542ed344953b3312fc92150bba11536667e288a
 ---
 
-Die statische Methode **`BigInt.asUintN()`** kürzt einen `BigInt`-Wert auf die angegebene Anzahl der am wenigsten signifikanten Bits und gibt diesen Wert als vorzeichenlose Ganzzahl zurück.
+Die statische Methode **`BigInt.asUintN()`** kürzt einen `BigInt`-Wert auf die angegebene Anzahl der niederwertigsten Bits und gibt diesen Wert als vorzeichenlose Ganzzahl zurück.
 
 {{InteractiveExample("JavaScript Demo: BigInt.asUintN()", "taller")}}
 
@@ -34,13 +34,13 @@ BigInt.asUintN(bits, bigint)
 ### Parameter
 
 - `bits`
-  - : Die Anzahl der Bits, die für das zurückgegebene BigInt zur Verfügung stehen. Sollte eine ganze Zahl zwischen 0 und 2<sup>53</sup> - 1 (einschließlich) sein.
+  - : Die Anzahl der Bits, die für den zurückgegebenen BigInt verfügbar sind. Sollte eine ganze Zahl zwischen 0 und 2<sup>53</sup> - 1, einschließlich, sein.
 - `bigint`
-  - : Der BigInt-Wert, der so gekürzt wird, dass er in die angegebenen Bits passt.
+  - : Der BigInt-Wert, der gekürzt wird, um in die angegebenen Bits zu passen.
 
 ### Rückgabewert
 
-Ein BigInt, das die Bitdarstellung von `bigint`, gekürzt auf `bits` Bits, enthält und als vorzeichenlose Ganzzahl interpretiert wird.
+Ein BigInt, das die Bitdarstellung von `bigint` enthält, gekürzt auf `bits` Bits, interpretiert als vorzeichenlose Ganzzahl.
 
 ### Ausnahmen
 
@@ -49,7 +49,7 @@ Ein BigInt, das die Bitdarstellung von `bigint`, gekürzt auf `bits` Bits, enth�
 
 ## Beschreibung
 
-Die Methode `BigInt.asUintN` kürzt einen `BigInt`-Wert auf die angegebene Anzahl von Bits und interpretiert das Ergebnis als vorzeichenlose Ganzzahl. Vorzeichenlose Ganzzahlen haben keine Vorzeichenbits und sind immer nicht negativ. Zum Beispiel wird bei `BigInt.asUintN(4, 25n)` der Wert `25n` auf `9n` gekürzt:
+Die Methode `BigInt.asUintN` kürzt einen `BigInt`-Wert auf die angegebene Anzahl von Bits und interpretiert das Ergebnis als vorzeichenlose Ganzzahl. Vorzeichenlose Ganzzahlen haben keine Vorzeichenbits und sind immer nicht negativ. Zum Beispiel wird für `BigInt.asUintN(4, 25n)` der Wert `25n` auf `9n` gekürzt:
 
 ```plain
 25n = 00011001 (base 2)
@@ -58,9 +58,9 @@ Die Methode `BigInt.asUintN` kürzt einen `BigInt`-Wert auf die angegebene Anzah
 ```
 
 > [!NOTE]
-> `BigInt`-Werte werden immer als Zweierkomplement im Binärformat codiert.
+> `BigInt`-Werte werden immer im Zweierkomplement in Binärform kodiert.
 
-Im Gegensatz zu ähnlichen API-Funktionen in anderen Sprachen, wie {{jsxref("Number.prototype.toExponential()")}}, ist `asUintN` eine statische Eigenschaft von {{jsxref("BigInt")}}, daher wird sie immer als `BigInt.asUintN()` verwendet und nicht als Methode eines BigInt-Werts. Die Bereitstellung von `asUintN()` als "Funktion der Standardbibliothek" ermöglicht die [Interoperabilität mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
+Im Gegensatz zu ähnlichen Sprach-APIs wie {{jsxref("Number.prototype.toExponential()")}} ist `asUintN` eine statische Eigenschaft von {{jsxref("BigInt")}}, daher wird sie immer als `BigInt.asUintN()` verwendet und nicht als Methode eines BigInt-Werts. Die Bereitstellung von `asUintN()` als "Standardbibliotheksfunktion" ermöglicht [Interoperabilität mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
 
 ## Beispiele
 
