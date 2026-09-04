@@ -3,12 +3,12 @@ title: "InteractionContentfulPaint: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/InteractionContentfulPaint/toJSON
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Repräsentation des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Repräsentation des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts ist.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`InteractionContentfulPaint`](/de/docs/Web/API/InteractionContentfulPaint)-Objekts darstellt.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um eine JSON-Zeichenkette zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dabei wird `toJSON()` automatisch aufgerufen.
 
 ## Spezifikationen
 

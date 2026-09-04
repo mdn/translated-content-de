@@ -1,22 +1,22 @@
 ---
-title: "js13kGames: Struktur einer progressiven Webanwendung"
-short-title: PWA Struktur
+title: "js13kGames: Progressive Web App-Struktur"
+short-title: PWA structure
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/App_structure
 l10n:
-  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
+  sourceCommit: 4c58f4735f986a91bee1b77e336143630df727a2
 ---
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
 
-In diesem Artikel werden wir die [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Anwendung analysieren, warum sie so aufgebaut ist und welche Vorteile sie bietet.
+In diesem Artikel werden wir die [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/)-Anwendung analysieren, warum sie auf diese Weise aufgebaut ist und welche Vorteile sie bietet.
 
-Die Struktur der [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) Webseite ist ziemlich einfach: Sie besteht aus einer einzigen HTML-Datei ([index.html](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/index.html)) mit grundlegender CSS-Gestaltung ([style.css](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/style.css)) und einigen Bildern, Skripten und Schriftarten. Die Ordnerstruktur sieht folgendermaßen aus:
+Die Struktur der [js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/)-Website ist ziemlich einfach: Sie besteht aus einer einzigen HTML-Datei ([index.html](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/index.html)) mit grundlegender CSS-Styling ([style.css](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/style.css)) und einigen Bildern, Skripten und Schriften. Die Ordnerstruktur sieht wie folgt aus:
 
-![Ordnerstruktur von js13kPWA.](js13kpwa-directory.png)
+![Ordnerstruktur der js13kPWA.](js13kpwa-directory.png)
 
 ## Das HTML
 
-Aus HTML-Sicht ist das Anwendungsskelett alles außerhalb des Inhaltsbereichs:
+Aus der HTML-Perspektive ist die App-Shell alles außerhalb des Inhaltsbereichs:
 
 ```html
 <!doctype html>
@@ -29,7 +29,7 @@ Aus HTML-Sicht ist das Anwendungsskelett alles außerhalb des Inhaltsbereichs:
       content="A list of A-Frame entries submitted to the js13kGames 2017 competition, used as an example for the MDN articles about Progressive Web Apps." />
     <meta name="author" content="end3r" />
     <meta name="theme-color" content="#B12A34" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
     <meta
       property="og:image"
       content="https://js13kgames.com/img/js13kgames-banner.png" />
@@ -73,17 +73,17 @@ Aus HTML-Sicht ist das Anwendungsskelett alles außerhalb des Inhaltsbereichs:
 </html>
 ```
 
-Der {{htmlelement("head")}} Abschnitt enthält einige grundlegende Informationen wie Titel, Beschreibung und Links zu CSS, Webmanifest, Spieleinhalt-JS-Datei und app.js — dort wird unsere JavaScript-Anwendung initialisiert. Der {{htmlelement("body")}} ist in den {{htmlelement("header")}} (mit verlinktem Bild), die {{htmlelement("main")}} Seite (mit Titel, Beschreibung und Platz für Inhalte) und den {{htmlelement("footer")}} (Kopie und Links) aufgeteilt.
+Der {{htmlelement("head")}}-Bereich enthält einige grundlegende Informationen wie Titel, Beschreibung und Links zu CSS, Web-Manifest, Spielinhalts-JS-Datei und app.js — dort wird unsere JavaScript-Anwendung initialisiert. Der {{htmlelement("body")}} ist in den {{htmlelement("header")}} (mit verlinktem Bild), die {{htmlelement("main")}}-Seite (mit Titel, Beschreibung und Platz für einen Inhalt) und den {{htmlelement("footer")}} (Kopie und Links) aufgeteilt.
 
-Die einzige Aufgabe der App ist es, alle A-Frame Einträge aus dem js13kGames Wettbewerb 2017 aufzulisten. Wie Sie sehen, handelt es sich um eine sehr gewöhnliche, einseitige Webseite — der Punkt ist, etwas Einfaches zu haben, damit wir uns auf die Implementierung der eigentlichen PWA-Funktionen konzentrieren können.
+Die einzige Aufgabe der App ist es, alle A-Frame-Einträge vom js13kGames-Wettbewerb 2017 aufzulisten. Wie Sie sehen können, ist es eine sehr gewöhnliche, einseitige Website — der Punkt ist, etwas Einfaches zu haben, damit wir uns auf die Implementierung der tatsächlichen PWA-Funktionen konzentrieren können.
 
 ## Das CSS
 
-Das CSS ist ebenfalls so schlicht wie möglich: Es verwendet {{cssxref("@font-face")}}, um eine benutzerdefinierte Schriftart zu laden und zu verwenden, und es wendet eine einfache Gestaltung der HTML-Elemente an. Der allgemeine Ansatz ist, dass das Design sowohl auf mobilen Geräten (mit einem responsiven Webdesign-Ansatz) als auch auf Desktop-Geräten gut aussieht.
+Das CSS ist ebenfalls so schlicht wie möglich: Es verwendet {{cssxref("@font-face")}}, um eine benutzerdefinierte Schriftart zu laden und anzuwenden, und es verwendet einige einfache Styles für die HTML-Elemente. Der allgemeine Ansatz besteht darin, das Design sowohl auf mobilen (mit einem responsiven Webdesign-Ansatz) als auch auf Desktop-Geräten gut aussehen zu lassen.
 
 ## Das Haupt-JavaScript der App
 
-Die app.js Datei macht einige Dinge, die wir in den nächsten Artikeln genauer betrachten werden. Zuerst generiert sie den Inhalt basierend auf dieser Vorlage:
+Die app.js-Datei macht ein paar Dinge, die wir in den nächsten Artikeln genauer betrachten werden. Zuerst generiert sie den Inhalt basierend auf dieser Vorlage:
 
 ```js
 const template = `<article>
@@ -125,7 +125,7 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Der nächste Codeblock fordert die Erlaubnis für Benachrichtigungen an, wenn eine Schaltfläche geklickt wird:
+Der nächste Codeblock fordert die Erlaubnis für Benachrichtigungen an, wenn ein Button geklickt wird:
 
 ```js
 const button = document.getElementById("notifications");
@@ -138,7 +138,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-Der letzte Block erstellt Benachrichtigungen, die einen zufällig ausgewählten Eintrag aus der Spieleliste anzeigen:
+Der letzte Block erstellt Benachrichtigungen, die ein zufällig ausgewähltes Element aus der Spieleliste anzeigen:
 
 ```js
 function randomNotification() {
@@ -158,13 +158,13 @@ function randomNotification() {
 
 ## Der Service Worker
 
-Die letzte Datei, die wir kurz betrachten werden, ist der Service Worker: sw\.js — er importiert zuerst Daten aus der games.js Datei:
+Die letzte Datei, die wir uns kurz ansehen werden, ist der Service Worker: sw\.js — er importiert zunächst Daten aus der games.js-Datei:
 
 ```js
 self.importScripts("data/games.js");
 ```
 
-Als Nächstes erstellt er eine Liste aller Dateien, die sowohl vom Anwendungsskelett als auch vom Inhalt zwischengespeichert werden sollen:
+Dann erstellt er eine Liste aller Dateien, die zwischengespeichert werden sollen, sowohl aus der App-Shell als auch dem Inhalt:
 
 ```js
 const cacheName = "js13kPWA-v1";
@@ -210,7 +210,7 @@ self.addEventListener("install", (e) => {
 });
 ```
 
-Zuletzt ruft der Service Worker Inhalte aus dem Cache ab, wenn sie dort verfügbar sind, was die Offline-Funktionalität bietet:
+Zuletzt ruft der Service Worker Inhalte aus dem Cache ab, wenn sie dort verfügbar sind, und bietet so Offline-Funktionalität:
 
 ```js
 self.addEventListener("fetch", (e) => {
@@ -233,7 +233,7 @@ self.addEventListener("fetch", (e) => {
 
 ## Die JavaScript-Daten
 
-Die Spieledaten sind im data-Ordner in Form eines JavaScript-Objekts ([games.js](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/data/games.js)) vorhanden:
+Die Spieldaten sind im Datenordner in Form eines JavaScript-Objekts ([games.js](https://github.com/mdn/pwa-examples/blob/main/js13kpwa/data/games.js)) vorhanden:
 
 ```js
 const games = [
@@ -262,10 +262,10 @@ const games = [
 ];
 ```
 
-Jeder Eintrag hat sein eigenes Bild im data/img Ordner. Dies ist unser Inhalt, der mit JavaScript in den Inhaltsbereich geladen wird.
+Jeder Eintrag hat sein eigenes Bild im data/img-Ordner. Dies ist unser Inhalt, der mit JavaScript in den Inhaltsbereich geladen wird.
 
-## Als Nächstes
+## Als nächstes
 
-Im nächsten Artikel werden wir genauer darauf eingehen, wie das Anwendungsskelett und die Inhalte mithilfe des Service Workers für die Offline-Nutzung zwischengespeichert werden.
+Im nächsten Artikel werden wir uns genauer ansehen, wie die App-Shell und der Inhalt mit Hilfe des Service Workers für die Offline-Nutzung zwischengespeichert werden.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames", "Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

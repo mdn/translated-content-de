@@ -1,66 +1,66 @@
 ---
-title: Django Web-Anwendungssicherheit
+title: Sicherheit von Django-Webanwendungen
 short-title: Django security
 slug: Learn_web_development/Extensions/Server-side/Django/web_application_security
 l10n:
-  sourceCommit: 815f1a18f44059500b337719295c6eda14b6228e
+  sourceCommit: 6030ef1aadf967b80e2c79c3d3463cccc8ea0c95
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Server-side/Django/Deployment", "Learn_web_development/Extensions/Server-side/Django/django_assessment_blog", "Learn_web_development/Extensions/Server-side/Django")}}
 
-Der Schutz von Benutzerdaten ist ein wesentlicher Bestandteil jeder Webseitengestaltung. Wir haben zuvor einige der häufigsten Sicherheitsbedrohungen im Artikel [Web-Sicherheit](/de/docs/Web/Security) erläutert — dieser Artikel bietet eine praktische Demonstration, wie die eingebauten Schutzfunktionen von Django mit solchen Bedrohungen umgehen.
+Der Schutz von Benutzerdaten ist ein wesentlicher Bestandteil jedes Website-Designs. Wir haben zuvor einige der häufigsten Sicherheitsbedrohungen im Artikel [Web-Sicherheit](/de/docs/Web/Security) erklärt – dieser Artikel liefert eine praktische Demonstration, wie Djangos eingebaute Schutzmechanismen mit solchen Bedrohungen umgehen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Lesen Sie das Thema zum serverseitigen Programmieren "<a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security">Webseitensicherheit</a>".
-        Schließen Sie die Django-Tutorial-Themen bis (einschließlich) mindestens <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms">Django Tutorial Teil 9: Arbeiten mit Formularen</a> ab.
+        Lesen Sie das Thema "<a href="/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security">Website-Sicherheit</a>" zur serverseitigen Programmierung.
+        Schließen Sie die Django-Tutorial-Themen bis (und inklusive) mindestens <a href="/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms">Django Tutorial Teil 9: Arbeiten mit Formularen</a> ab.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Um die wichtigsten Dinge zu verstehen, die Sie tun müssen (oder nicht tun müssen), um Ihre Django-Webanwendung zu sichern.
+        Ein Verständnis dafür entwickeln, was Sie tun müssen (oder nicht tun sollten), um Ihre Django-Webanwendung zu sichern.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Das Thema [Webseitensicherheit](/de/docs/Web/Security) bietet einen Überblick darüber, was Webseitensicherheit für die serverseitige Gestaltung bedeutet, und einige der häufigsten Bedrohungen, vor denen Sie sich schützen sollten. Eine der wichtigsten Botschaften in diesem Artikel ist, dass fast alle Angriffe erfolgreich sind, wenn die Webanwendung Daten vom Browser vertraut.
+Das Thema [Website-Sicherheit](/de/docs/Web/Security) bietet einen Überblick darüber, was Website-Sicherheit für das serverseitige Design bedeutet und welche häufigen Bedrohungen es abzuwehren gilt. Eine der wichtigsten Botschaften in diesem Artikel ist, dass fast alle Angriffe erfolgreich sind, wenn die Webanwendung den Daten des Browsers vertraut.
 
 > [!WARNING]
-> Die wichtigste Lektion, die Sie über Webseitensicherheit lernen können, ist, **niemals Daten vom Browser zu vertrauen**. Dazu gehören `GET`-Anfragedaten in URL-Parametern, `POST`-Daten, HTTP-Header und Cookies, vom Benutzer hochgeladene Dateien usw. Überprüfen und bereinigen Sie immer alle eingehenden Daten. Gehen Sie immer vom Schlimmsten aus.
+> Die wichtigste Lektion, die Sie bezüglich Website-Sicherheit lernen können, ist, **niemals Daten vom Browser zu vertrauen**. Dazu gehören `GET`-Anfragedaten in URL-Parametern, `POST`-Daten, HTTP-Header und Cookies, vom Benutzer hochgeladene Dateien usw. Überprüfen und bereinigen Sie immer alle eingehenden Daten. Gehen Sie immer vom schlimmsten Fall aus.
 
-Die gute Nachricht für Django-Nutzer ist, dass viele der häufigsten Bedrohungen vom Framework gehandhabt werden! Der Artikel [Sicherheit in Django](https://docs.djangoproject.com/en/5.0/topics/security/) (Django-Dokumentation) erklärt die Sicherheitsfunktionen von Django und wie man eine Django-betriebene Website sichert.
+Die gute Nachricht für Django-Benutzer ist, dass viele der häufigeren Bedrohungen bereits durch das Framework abgedeckt sind! Der Artikel [Sicherheit in Django](https://docs.djangoproject.com/en/5.0/topics/security/) (Django-Dokumentation) erklärt Djangos Sicherheitsfunktionen und wie man eine von Django betriebene Website sichert.
 
-## Häufige Bedrohungen/Schutzmaßnahmen
+## Häufige Bedrohungen/Schutzmechanismen
 
-Anstatt hier die Django-Dokumentation zu wiederholen, werden wir in diesem Artikel nur einige der Sicherheitsfunktionen im Kontext unseres Django [LocalLibrary](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website) Tutorials demonstrieren.
+Anstatt die Django-Dokumentation hier zu wiederholen, demonstrieren wir in diesem Artikel nur einige der Sicherheitsfunktionen im Kontext unseres Django-Tutorials [LokaleBibliothek](/de/docs/Learn_web_development/Extensions/Server-side/Django/Tutorial_local_library_website).
 
-### Cross-Site-Scripting (XSS)
+### Cross-Site Scripting (XSS)
 
-XSS ist ein Begriff, der eine Klasse von Angriffen beschreibt, die es einem Angreifer ermöglichen, Client-seitige Skripte _über_ die Website in die Browser anderer Benutzer einzubetten. Dies wird normalerweise erreicht, indem bösartige Skripte in der Datenbank gespeichert werden, wo sie abgerufen und anderen Benutzern angezeigt werden können, oder indem Benutzer dazu gebracht werden, auf einen Link zu klicken, der dazu führt, dass das JavaScript des Angreifers vom Browser des Benutzers ausgeführt wird.
+XSS ist ein Begriff zur Beschreibung einer Klasse von Angriffen, die es einem Angreifer ermöglichen, clientseitige Skripte _über_ die Website in die Browser anderer Benutzer einzuschleusen. Dies wird normalerweise erreicht, indem bösartige Skripte in der Datenbank gespeichert werden, von wo aus sie abgerufen und anderen Benutzern angezeigt werden können, oder indem Benutzer dazu gebracht werden, auf einen Link zu klicken, der das JavaScript des Angreifers im Browser des Benutzers ausführt.
 
-Djangos Templatesystem schützt Sie vor den meisten XSS-Angriffen, indem es [bestimmte Zeichen "escaped"](https://docs.djangoproject.com/en/5.0/ref/templates/language/#automatic-html-escaping), die in HTML "gefährlich" sind. Wir können dies demonstrieren, indem wir versuchen, etwas JavaScript in unsere LocalLibrary-Website über das Formular "Autor erstellen" einzufügen, das wir in [Django Tutorial Teil 9: Arbeiten mit Formularen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms) eingerichtet haben.
+Djangos Template-System schützt Sie vor den meisten XSS-Angriffen, indem es [bestimmte Zeichen entwertet](https://docs.djangoproject.com/en/5.0/ref/templates/language/#automatic-html-escaping), die in HTML "gefährlich" sind. Wir können dies demonstrieren, indem wir versuchen, etwas JavaScript in unsere LokaleBibliothek-Website über das erstellte Formular für Autoren einzuschleusen, das wir in [Django Tutorial Part 9: Arbeiten mit Formularen](/de/docs/Learn_web_development/Extensions/Server-side/Django/Forms) eingerichtet haben.
 
 1. Starten Sie die Website mit dem Entwicklungsserver (`python3 manage.py runserver`).
 2. Öffnen Sie die Seite in Ihrem lokalen Browser und melden Sie sich bei Ihrem Superuser-Konto an.
-3. Navigieren Sie zur Seite zur Erstellung eines Autors (die URL sollte sein: `http://127.0.0.1:8000/catalog/author/create/`).
-4. Geben Sie Namen und Datumsdetails für einen neuen Benutzer ein und fügen Sie dann den folgenden Text zum Feld Nachname hinzu: `<script>alert('Test alert');</script>`.
+3. Navigieren Sie zur Autor-Erstellungsseite (die sich unter der URL `http://127.0.0.1:8000/catalog/author/create/` befinden sollte).
+4. Geben Sie Namen und Datum für einen neuen Benutzer ein und fügen Sie dann dem Feld Nachname den folgenden Text hinzu: `<script>alert('Test alert');</script>`.
    ![Author Form XSS test](author_create_form_alert_xss.png)
 
    > [!NOTE]
-   > Dies ist ein harmloses Skript, das, wenn es ausgeführt wird, ein Alarmfenster in Ihrem Browser anzeigt. Wenn der Alarm angezeigt wird, wenn Sie den Datensatz übermitteln, ist die Seite anfällig für XSS-Bedrohungen.
+   > Dies ist ein harmloses Skript, das, wenn es ausgeführt wird, ein Warnfeld in Ihrem Browser anzeigt. Wenn die Warnung beim Absenden des Datensatzes angezeigt wird, ist die Seite anfällig für XSS-Bedrohungen.
 
-5. Drücken Sie **Übermitteln**, um den Datensatz zu speichern.
-6. Wenn Sie den Autor speichern, wird er wie unten dargestellt angezeigt. Aufgrund der XSS-Schutzmaßnahmen sollte das `alert()` nicht ausgeführt werden. Stattdessen wird das Skript als Klartext angezeigt.
+5. Drücken Sie **Absenden**, um den Datensatz zu speichern.
+6. Wenn Sie den Autor speichern, wird der Datensatz wie unten angezeigt. Aufgrund der XSS-Schutzmechanismen sollte das `alert()` nicht ausgeführt werden. Stattdessen wird das Skript als einfacher Text angezeigt.
    ![Author detail view XSS test](author_detail_alert_xss.png)
 
-Wenn Sie den HTML-Quellcode der Seite ansehen, können Sie sehen, dass die gefährlichen Zeichen der Skript-Tags in ihre harmlosen Escape-Code-Äquivalente umgewandelt wurden (zum Beispiel ist `>` jetzt `&gt;`).
+Wenn Sie den Quellcode der Seite anzeigen, können Sie sehen, dass die gefährlichen Zeichen für die Skript-Tags in ihre harmlosen Escape-Code-Äquivalente umgewandelt wurden (zum Beispiel wird aus `>` nun `&gt;`).
 
 ```html
 <h1>
@@ -69,19 +69,19 @@ Wenn Sie den HTML-Quellcode der Seite ansehen, können Sie sehen, dass die gefä
 </h1>
 ```
 
-Die Verwendung von Django-Templates schützt Sie vor den meisten XSS-Angriffen. Es ist jedoch möglich, diesen Schutz zu deaktivieren, und der Schutz wird nicht automatisch auf alle Tags angewendet, die normalerweise nicht von Benutzereingaben gefüllt würden (zum Beispiel wird `help_text` in einem Formularfeld normalerweise nicht vom Benutzer geliefert, daher werden diese Werte von Django nicht "escaped").
+Die Verwendung von Django-Templates schützt Sie vor den meisten XSS-Angriffen. Es ist jedoch möglich, diesen Schutz zu deaktivieren, und der Schutz wird nicht automatisch auf alle Tags angewendet, die normalerweise nicht durch Benutzereingaben gefüllt werden (zum Beispiel wird `help_text` in einem Formularfeld normalerweise nicht vom Benutzer bereitgestellt, daher entwertet Django diese Werte nicht).
 
-Es ist auch möglich, dass XSS-Angriffe von anderen nicht vertrauenswürdigen Datenquellen ausgehen, wie z. B. Cookies, Webdienste oder hochgeladene Dateien (wenn die Daten nicht ausreichend bereinigt werden, bevor sie auf einer Seite eingefügt werden). Wenn Sie Daten aus diesen Quellen anzeigen, müssen Sie möglicherweise Ihren eigenen Bereinigungscode hinzufügen.
+Es ist auch möglich, dass XSS-Angriffe von anderen nicht vertrauenswürdigen Datenquellen ausgehen, wie z.B. Cookies, Webdiensten oder hochgeladenen Dateien (wann immer die Daten nicht ausreichend bereinigt werden, bevor sie in eine Seite eingebunden werden). Wenn Sie Daten aus diesen Quellen anzeigen, müssen Sie möglicherweise ihren eigenen Bereinigungscode hinzufügen.
 
-### Schutz vor Cross-Site-Request-Forgery (CSRF)
+### Schutz vor Cross-Site Request Forgery (CSRF)
 
-CSRF-Angriffe ermöglichen es einem bösartigen Benutzer, Aktionen mit den Anmeldeinformationen eines anderen Benutzers auszuführen, ohne dessen Wissen oder Zustimmung. Zum Beispiel betrachten wir den Fall, in dem wir einen Hacker haben, der zusätzliche Autoren für unsere LocalLibrary erstellen möchte.
+CSRF-Angriffe ermöglichen es einem böswilligen Benutzer, Aktionen unter Verwendung der Anmeldeinformationen eines anderen Benutzers ohne dessen Wissen oder Zustimmung auszuführen. Beispielsweise stellen Sie sich den Fall vor, in dem wir einen Hacker haben, der zusätzliche Autoren für unsere LokaleBibliothek erstellen möchte.
 
 > [!NOTE]
-> Offensichtlich ist unser Hacker nicht auf das Geld aus! Ein ehrgeizigerer Hacker könnte denselben Ansatz auf anderen Seiten verwenden, um viel schädlichere Aufgaben auszuführen (z. B. Geld auf seine eigenen Konten überweisen usw.).
+> Offensichtlich ist unser Hacker nicht im Geldgeschäft! Ein ehrgeizigerer Hacker könnte denselben Ansatz auf anderen Websites verwenden, um wesentlich schädlichere Aufgaben durchzuführen (z. B. Geld auf ihre eigenen Konten überweisen usw.)
 
-Um dies zu tun, könnten sie eine HTML-Datei wie die untenstehende erstellen, die ein Autor-Erstellungsformular enthält (wie das, das wir in der vorherigen Abschnitt verwendet haben), das eingereicht wird, sobald die Datei geladen wird.
-Sie würden dann die Datei an alle Bibliothekare senden und vorschlagen, dass sie die Datei öffnen (sie enthält einige harmlose Informationen, ehrlich!). Wenn die Datei von einem eingeloggten Bibliothekar geöffnet wird, würde das Formular mit ihren Anmeldeinformationen eingereicht und ein neuer Autor würde erstellt werden.
+Um dies zu tun, könnte er eine HTML-Datei wie die unten stehende erstellen, die ein Autoren-Erstellungsformular enthält (wie das, das wir im vorherigen Abschnitt verwendet haben), das eingereicht wird, sobald die Datei geladen ist.
+Er könnte die Datei dann an alle Bibliothekare senden und vorschlagen, dass sie die Datei öffnen (sie enthält einige harmlose Informationen, ehrlich!). Wenn die Datei von einem angemeldeten Bibliothekar geöffnet würde, dann würde das Formular mit ihren Anmeldeinformationen eingereicht und ein neuer Autor würde erstellt.
 
 ```html
 <html lang="en">
@@ -120,9 +120,9 @@ Sie würden dann die Datei an alle Bibliothekare senden und vorschlagen, dass si
 </html>
 ```
 
-Führen Sie den Entwicklungswebserver aus und melden Sie sich mit Ihrem Superuser-Konto an. Kopieren Sie den obigen Text in eine Datei und öffnen Sie ihn dann im Browser. Sie sollten einen CSRF-Fehler erhalten, da Django Schutz gegen solche Dinge hat!
+Führen Sie den Entwicklungs-Webserver aus und melden Sie sich mit Ihrem Superuser-Konto an. Kopieren Sie den obigen Text in eine Datei und öffnen Sie diese dann im Browser. Sie sollten einen CSRF-Fehler erhalten, da Django einen Schutz gegen diese Art von Angriff bietet!
 
-Der Schutz wird aktiviert, indem Sie das `{% csrf_token %}` Template-Tag in Ihre Formulardefinition aufnehmen. Dieses Token wird dann wie unten gezeigt in Ihrem HTML gerendert, mit einem Wert, der spezifisch für den Benutzer im aktuellen Browser ist.
+Der Schutz wird dadurch aktiviert, dass Sie das `{% csrf_token %}`-Template-Tag in Ihr Formular einfügen. Dieses Token wird dann in Ihrem HTML gerendert, wie unten gezeigt, mit einem Wert, der spezifisch für den Benutzer im aktuellen Browser ist.
 
 ```html
 <input
@@ -131,38 +131,38 @@ Der Schutz wird aktiviert, indem Sie das `{% csrf_token %}` Template-Tag in Ihre
   value="0QRWHnYVg776y2l66mcvZqp8alrv4lb8S8lZ4ZJUWGZFA5VHrVfL2mpH29YZ39PW" />
 ```
 
-Django generiert einen benutzer-/browserspezifischen Schlüssel und lehnt Formulare ab, die nicht das Feld enthalten oder die ein falsches Feldwert für den Benutzer/Browser enthalten.
+Django generiert einen benutzer-/browserspezifischen Schlüssel und lehnt Formulare ab, die das Feld nicht enthalten oder die ein falsches Feldwert für den Benutzer/Browser enthalten.
 
-Um diese Art von Angriff zu nutzen, muss der Hacker nun den CSRF-Schlüssel für den spezifischen Zielbenutzer entdecken und einbeziehen. Sie können auch nicht den "Streuschuss"-Ansatz verwenden, eine bösartige Datei an alle Bibliothekare zu senden und zu hoffen, dass einer von ihnen sie öffnet, da der CSRF-Schlüssel browserspezifisch ist.
+Um diese Art von Angriff zu verwenden, muss der Hacker nun den CSRF-Schlüssel für den spezifischen Zielbenutzer herausfinden und einfügen. Sie können auch nicht den "Streuschuss"-Ansatz verwenden, bei dem eine bösartige Datei an alle Bibliothekare gesendet wird und darauf gehofft wird, dass einer von ihnen sie öffnet, da der CSRF-Schlüssel browserspezifisch ist.
 
-Der CSRF-Schutz von Django ist standardmäßig aktiviert. Sie sollten immer das `{% csrf_token %}` Template-Tag in Ihren Formularen verwenden und `POST` für Anfragen nutzen, die Daten zur Datenbank ändern oder hinzufügen könnten.
+Djangos CSRF-Schutz ist standardmäßig aktiviert. Sie sollten immer das `{% csrf_token %}`-Template-Tag in Ihren Formularen verwenden und `POST` für Anfragen nutzen, die Daten in der Datenbank ändern oder hinzufügen könnten.
 
-### Weitere Schutzmaßnahmen
+### Weitere Schutzmechanismen
 
-Django bietet auch andere Formen des Schutzes, von denen die meisten schwer oder nicht besonders nützlich zu demonstrieren wären:
+Django bietet auch andere Formen des Schutzes an (die meistens schwer oder nicht besonders nützlich zu demonstrieren wären):
 
-- Schutz vor SQL-Injektionen
-  - : SQL-Injektionslücken ermöglichen es bösartigen Benutzern, beliebigen SQL-Code in einer Datenbank auszuführen, wodurch Daten unabhängig von den Berechtigungen des Benutzers abgerufen, geändert oder gelöscht werden können. In fast allen Fällen werden Sie auf die Datenbank durch die Abfrage-Sets/Modelle von Django zugreifen, sodass das resultierende SQL vom darunterliegenden Datenbanktreiber ordnungsgemäß "escaped" wird. Wenn Sie rohe Abfragen oder benutzerdefiniertes SQL schreiben müssen, dann sollten Sie explizit über das Verhindern von SQL-Injektionen nachdenken.
-- Schutz gegen Clickjacking
-  - : Bei diesem Angriff entführt ein bösartiger Benutzer Klicks, die für eine sichtbare oberste Website bestimmt sind, und leitet sie zu einer versteckten Seite darunter weiter. Diese Technik könnte beispielsweise verwendet werden, um eine legitime Bankenseite anzuzeigen, aber die Anmeldeinformationen in einem unsichtbaren [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe) zu erfassen, das vom Angreifer kontrolliert wird. Django enthält [Clickjacking](https://docs.djangoproject.com/en/4.0/ref/middleware/#django.middleware.clickjacking.XFrameOptionsMiddleware)-Schutz in Form des [`X-Frame-Options` Middleware](https://docs.djangoproject.com/en/4.0/ref/middleware/#django.middleware.clickjacking.XFrameOptionsMiddleware), die, in einem unterstützenden Browser, verhindern kann, dass eine Seite innerhalb eines Frames gerendert wird.
-- Erzwingen von TLS/HTTPS
-  - : TLS/HTTPS kann auf dem Webserver aktiviert werden, um den gesamten Datenverkehr zwischen der Seite und dem Browser zu verschlüsseln, einschließlich der Authentifizierungsdaten, die ansonsten im Klartext gesendet würden (die Aktivierung von HTTPS wird dringend empfohlen). Wenn HTTPS aktiviert ist, bietet Django eine Reihe weiterer Schutzmaßnahmen, die Sie verwenden können:
-    - [`SECURE_PROXY_SSL_HEADER`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_PROXY_SSL_HEADER) kann verwendet werden, um zu überprüfen, ob Inhalte sicher sind, selbst wenn sie von einem nicht HTTP-Proxy stammen.
-    - [`SECURE_SSL_REDIRECT`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_SSL_REDIRECT) wird verwendet, um alle HTTP-Anfragen zu HTTPS umzuleiten.
-    - Verwenden Sie [HTTP Strict Transport Security](https://docs.djangoproject.com/en/5.0/ref/middleware/#http-strict-transport-security) (HSTS). Dies ist ein HTTP-Header, der einem Browser mitteilt, dass alle zukünftigen Verbindungen zu einer bestimmten Website immer HTTPS verwenden sollten. In Kombination mit der Umleitung von HTTP-Anfragen zu HTTPS stellt diese Einstellung sicher, dass HTTPS nach einer erfolgreichen Verbindung immer verwendet wird. HSTS kann entweder über [`SECURE_HSTS_SECONDS`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_HSTS_SECONDS) und [`SECURE_HSTS_INCLUDE_SUBDOMAINS`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_HSTS_INCLUDE_SUBDOMAINS) oder auf dem Webserver konfiguriert werden.
-    - Verwenden Sie "sichere" Cookies, indem Sie [`SESSION_COOKIE_SECURE`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SESSION_COOKIE_SECURE) und [`CSRF_COOKIE_SECURE`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-CSRF_COOKIE_SECURE) auf `True` setzen. Dies stellt sicher, dass Cookies nur über HTTPS gesendet werden.
-- Überprüfung des Host-Headers
+- Schutz vor SQL-Injection
+  - : Schwachstellen bei SQL-Injections ermöglichen es böswilligen Benutzern, beliebigen SQL-Code auf einer Datenbank auszuführen, sodass Daten unabhängig von den Berechtigungen des Nutzers zugegriffen, modifiziert oder gelöscht werden können. In fast allen Fällen greifen Sie mit Djangos Querysets/Models auf die Datenbank zu, sodass der resultierende SQL korrekt durch den zugrunde liegenden Datenbanktreiber entwertet wird. Wenn Sie rohe Abfragen oder benutzerdefinierte SQL schreiben müssen, benötigen Sie ein explizites Vorgehen zur Verhinderung von SQL-Injection.
+- Schutz vor Clickjacking
+  - : Bei diesem Angriff entführt ein böswilliger Benutzer Klicks, die für eine sichtbare oberste Website bestimmt sind, und leitet sie an eine darunter verborgene Seite weiter. Diese Technik könnte zum Beispiel verwendet werden, um eine legitime Bank-Website anzuzeigen, aber die Anmeldeinformationen in einem unsichtbaren [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe) zu erfassen, das vom Angreifer kontrolliert wird. Django enthält Schutz vor [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking) in Form des [`X-Frame-Options`-Middleware](https://docs.djangoproject.com/en/4.0/ref/middleware/#django.middleware.clickjacking.XFrameOptionsMiddleware), das in einem unterstützenden Browser verhindern kann, dass eine Website innerhalb eines Rahmens gerendert wird.
+- Erzwingung von TLS/HTTPS
+  - : TLS/HTTPS kann auf dem Webserver aktiviert werden, um den gesamten Datenverkehr zwischen der Website und dem Browser zu verschlüsseln, einschließlich Authentifizierungsinformationen, die sonst im Klartext gesendet würden (es wird dringend empfohlen, HTTPS zu aktivieren). Wenn HTTPS aktiviert ist, bietet Django eine Reihe anderer Schutzmaßnahmen, die Sie verwenden können:
+    - [`SECURE_PROXY_SSL_HEADER`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_PROXY_SSL_HEADER) kann verwendet werden, um zu überprüfen, ob Inhalte sicher sind, selbst wenn sie von einem Nicht-HTTP-Proxy eingehen.
+    - [`SECURE_SSL_REDIRECT`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_SSL_REDIRECT) wird verwendet, um alle HTTP-Anfragen auf HTTPS umzuleiten.
+    - Verwenden Sie HTTP Strict Transport Security (HSTS). Dies ist ein HTTP-Header, der einen Browser darüber informiert, dass alle zukünftigen Verbindungen zu einer bestimmten Website immer HTTPS verwenden sollten. Kombiniert mit der Umleitung von HTTP auf HTTPS stellt diese Einstellung sicher, dass HTTPS immer nach einer erfolgreichen Verbindung verwendet wird. HSTS kann entweder mit [`SECURE_HSTS_SECONDS`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_HSTS_SECONDS) und [`SECURE_HSTS_INCLUDE_SUBDOMAINS`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SECURE_HSTS_INCLUDE_SUBDOMAINS) oder auf dem Webserver konfiguriert werden.
+    - Verwenden Sie ‚sichere‘ Cookies, indem Sie [`SESSION_COOKIE_SECURE`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-SESSION_COOKIE_SECURE) und [`CSRF_COOKIE_SECURE`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-CSRF_COOKIE_SECURE) auf `True` setzen. Dadurch wird sichergestellt, dass Cookies nur über HTTPS gesendet werden.
+- Host-Header-Validierung
   - : Verwenden Sie [`ALLOWED_HOSTS`](https://docs.djangoproject.com/en/5.0/ref/settings/#std:setting-ALLOWED_HOSTS), um nur Anfragen von vertrauenswürdigen Hosts zu akzeptieren.
 
-Es gibt viele andere Schutzmaßnahmen und Vorbehalte bei der Verwendung der oben genannten Mechanismen. Wir hoffen, dass dies Ihnen einen Überblick darüber gegeben hat, was Django bietet, Sie sollten jedoch trotzdem die Django-Sicherheitsdokumentation lesen.
+Es gibt viele weitere Schutzmaßnahmen und Vorbehalte zur Verwendung der oben genannten Mechanismen. Während wir hoffen, dass dieser Artikel Ihnen einen Überblick darüber gegeben hat, was Django bietet, sollten Sie dennoch die Django-Sicherheitsdokumentation lesen.
 
 ## Zusammenfassung
 
-Django bietet effektive Schutzmaßnahmen gegen eine Reihe von häufigen Bedrohungen, einschließlich XSS- und CSRF-Angriffen. In diesem Artikel haben wir demonstriert, wie diese speziellen Bedrohungen von Django auf unserer _LocalLibrary_ Website behandelt werden. Wir haben auch einen kurzen Überblick über einige der anderen Schutzmaßnahmen gegeben.
+Django bietet effektive Schutzmaßnahmen gegen eine Reihe von häufigen Bedrohungen, einschließlich XSS- und CSRF-Angriffen. In diesem Artikel haben wir gezeigt, wie Django diese besonderen Bedrohungen in unserer _LokaleBibliothek_-Website behandelt. Wir haben auch einen kurzen Überblick über einige der anderen Schutzmaßnahmen gegeben.
 
-Dies war ein sehr kurzer Ausflug in die Web-Sicherheit. Wir empfehlen dringend, dass Sie [Sicherheit in Django](https://docs.djangoproject.com/en/5.0/topics/security/) lesen, um ein tieferes Verständnis zu gewinnen.
+Dies war ein sehr kurzer Ausflug in die Web-Sicherheit. Wir empfehlen Ihnen dringend, [Sicherheit in Django](https://docs.djangoproject.com/en/5.0/topics/security/) zu lesen, um ein tieferes Verständnis zu erlangen.
 
-Der nächste und letzte Schritt in diesem Modul über Django ist die Vervollständigung der [Bewertungsaufgabe](/de/docs/Learn_web_development/Extensions/Server-side/Django/django_assessment_blog).
+Der nächste und letzte Schritt in diesem Modul über Django besteht darin, die [Assessment-Aufgabe](/de/docs/Learn_web_development/Extensions/Server-side/Django/django_assessment_blog) abzuschließen.
 
 ## Siehe auch
 

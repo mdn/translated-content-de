@@ -1,20 +1,20 @@
 ---
-title: Deployment unserer App
+title: Bereitstellung unserer App
 slug: Learn_web_development/Extensions/Client-side_tools/Deployment
 l10n:
-  sourceCommit: de5b264fa7bf6bb49811bf79f8f28f10835bfb79
+  sourceCommit: 6030ef1aadf967b80e2c79c3d3463cccc8ea0c95
 ---
 
 {{PreviousMenu("Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain", "Learn_web_development/Extensions/Client-side_tools")}}
 
-In dem letzten Artikel unserer Serie nehmen wir die in dem vorherigen Artikel erstellte Toolchain als Beispiel und ergänzen diese, um unsere Beispiel-App bereitzustellen. Wir übertragen den Code zu GitHub, stellen ihn mit GitHub Pages bereit und zeigen Ihnen sogar, wie Sie einen einfachen Test in den Prozess integrieren können.
+Im letzten Artikel unserer Serie nehmen wir die im vorherigen Artikel erstellte Beispiel-Toolchain und erweitern sie, um unsere Muster-App bereitzustellen. Wir laden den Code auf GitHub hoch, stellen ihn mithilfe von GitHub Pages bereit und zeigen Ihnen sogar, wie Sie einen einfachen Test in den Prozess integrieren können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Hauptsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>.
       </td>
@@ -22,7 +22,7 @@ In dem letzten Artikel unserer Serie nehmen wir die in dem vorherigen Artikel er
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Abschließen unseres kompletten Toolchain-Fallstudiums mit dem Fokus auf die Bereitstellung der App.
+        Unsere Fallstudie zur vollständigen Toolchain abzuschließen, mit Fokus auf die Bereitstellung der App.
       </td>
     </tr>
   </tbody>
@@ -30,60 +30,60 @@ In dem letzten Artikel unserer Serie nehmen wir die in dem vorherigen Artikel er
 
 ## Nach der Entwicklung
 
-Es gibt möglicherweise eine große Anzahl an Problemen, die in dieser Phase des Projektlebenszyklus gelöst werden müssen. Daher ist es wichtig, eine Toolchain zu erstellen, die diese Probleme so automatisiert wie möglich behandelt.
+In diesem Abschnitt des Projektlebenszyklus gibt es potenziell eine große Bandbreite an Problemen, die zu lösen sind. Daher ist es wichtig, eine Toolchain zu erstellen, die diese Probleme auf eine Weise löst, die so wenig manuelle Eingriffe wie möglich erfordert.
 
-Hier sind einige Dinge, die Sie bei diesem speziellen Projekt in Betracht ziehen sollten:
+Hier sind einige Punkte, die für dieses spezielle Projekt zu berücksichtigen sind:
 
-- Erstellen eines Produktions-Builds: Sicherstellen, dass Dateien minimiert, aufgeteilt, Tree-Shaking angewendet und Versionen „Cache-busting“ unterzogen werden.
-- Tests durchführen: Diese reichen von „ist dieser Code richtig formatiert?“ bis „macht diese Funktion, was ich erwarte?“ und dafür sorgen, dass fehlschlagende Tests die Bereitstellung verhindern.
-- Tatsächliche Bereitstellung des aktualisierten Codes auf einer Live-URL: Oder möglicherweise einer Staging-URL, damit er zuerst überprüft werden kann.
+- Erstellung eines Produktions-Builds: Sicherstellung, dass Dateien minimiert, in Blöcke aufgeteilt sind, Tree-Shaking angewendet wurde und die Versionen "Cache-busting" haben.
+- Tests durchführen: Diese können von "Ist der Code richtig formatiert?" bis hin zu "Funktioniert das, was ich erwarte?" reichen, und sicherstellen, dass fehlschlagende Tests die Bereitstellung verhindern.
+- Aktualisierten Code tatsächlich auf eine Live-URL bereitstellen: Oder möglicherweise auf eine Staging-URL, damit er zuerst überprüft werden kann.
 
 > [!NOTE]
-> Cache-Busting ist ein neuer Begriff, den wir in diesem Modul noch nicht kennengelernt haben. Dies ist die Strategie, den eigenen Caching-Mechanismus eines Browsers zu durchbrechen, was den Browser zwingt, eine neue Kopie Ihres Codes herunterzuladen. Vite (und viele andere Tools) generieren Dateinamen, die für jeden neuen Build eindeutig sind. Dieser eindeutige Dateiname „durchbricht“ den Cache Ihres Browsers und stellt sicher, dass der Browser bei jeder Aktualisierung des bereitgestellten Codes den frischen Code herunterlädt.
+> Cache-Busting ist ein neuer Begriff, den wir in diesem Modul noch nicht behandelt haben. Dies ist die Strategie, den Zwischenspeichermechanismus eines Browsers zu brechen, was den Browser zwingt, eine neue Kopie Ihres Codes herunterzuladen. Vite (und in der Tat viele andere Tools) generiert Dateinamen, die für jedes neue Build einzigartig sind. Dieser einzigartige Dateiname "bricht" den Cache Ihres Browsers, wodurch sichergestellt wird, dass der Browser den frischen Code jedes Mal herunterlädt, wenn ein Update am bereitgestellten Code vorgenommen wurde.
 
-Die oben genannten Aufgaben lassen sich auch in weitere Aufgaben unterteilen; beachten Sie dabei, dass die meisten Web-Entwicklungsteams ihre eigenen Begriffe und Prozesse für mindestens einen Teil der Post-Entwicklungsphase haben.
+Diese Aufgaben untergliedern sich auch in weitere Aufgaben; beachten Sie, dass die meisten Webentwicklungsteams ihre eigenen Begriffe und Prozesse für mindestens einen Teil der Nachentwicklungsphase haben.
 
-Für dieses Projekt verwenden wir [GitHub Pages](https://pages.github.com/)'s kostenloses Angebot für statisches Hosting, um unser Projekt zu hosten. Es dient nicht nur der Bereitstellung unserer Website im Internet, sondern gibt uns auch eine URL zu unserer Website. Es ist großartig – viele MDN-Beispiel-Websites werden auf GitHub Pages gehostet.
+Für dieses Projekt werden wir das kostenlose statische Hosting-Angebot von [GitHub Pages](https://pages.github.com/) nutzen, um unser Projekt zu hosten. Es bietet nicht nur unsere Website im Internet an, sondern gibt uns auch eine URL zu unserer Website. Es ist großartig – viele MDN-Beispielwebsites sind auf GitHub Pages gehostet.
 
-Die Bereitstellung beim Hosting tendiert dazu, das letzte Ende des Projektlebenszyklus zu sein. Mit Diensten wie GitHub Pages, die die Kosten für Bereitstellungen sowohl in finanzieller Hinsicht als auch in der tatsächlich benötigten Zeit reduzieren, ist es möglich, während der Entwicklung Bereitstellungen durchzuführen, um Arbeiten in Arbeit zu teilen oder eine Vorabveröffentlichung zu einem anderen Zweck zu haben.
+Die Bereitstellung auf einem Host erfolgt meist am Ende des Projektlebenszyklus, aber mit Diensten wie GitHub Pages, die die Kosten für Bereitstellungen senken (sowohl in finanzieller Hinsicht als auch in Bezug auf die Zeit, die tatsächlich für die Bereitstellung erforderlich ist), ist es möglich, während der Entwicklung zu deployen, um entweder Fortschritte zu teilen oder eine Vorversion aus einem anderen Zweck heraus zu veröffentlichen.
 
 GitHub bietet einen reibungslosen Workflow, um neuen Code in eine Live-Website zu verwandeln:
 
-- Sie übertragen Ihren Code zu GitHub.
-- Sie definieren eine [GitHub Action](https://docs.github.com/en/actions), die ausgelöst wird, wenn ein neuer Push in den Hauptbranch erfolgt, der den Code erstellt und an einem bestimmten Ort platziert.
-- GitHub Pages stellt dann den Code an einer bestimmten URL bereit.
+- Sie laden Ihren Code auf GitHub hoch.
+- Sie definieren eine [GitHub Action](https://docs.github.com/en/actions), die ausgelöst wird, wenn ein neuer Push zum Hauptzweig erfolgt, der den Code erstellt und an einem bestimmten Ort platziert.
+- GitHub Pages stellt den Code dann unter einer bestimmten URL bereit.
 
-Es sind genau diese Arten von verbundenen Diensten, die wir Ihnen ans Herz legen würden, wenn Sie sich für Ihre eigene Build-Toolchain entscheiden. Wir können unseren Code einchecken und zu GitHub pushen, und der aktualisierte Code löst automatisch die gesamte Build-Routine aus. Wenn alles gut geht, wird eine Live-Änderung automatisch bereitgestellt. Die _einzige_ Aktion, die wir ausführen müssen, ist dieser anfängliche „Push“.
+Genau solche verbundenen Dienste ermutigen wir Sie zu suchen, wenn Sie Ihre eigene Build-Toolchain entscheiden. Wir können unseren Code committen und auf GitHub pushen, und der aktualisierte Code wird automatisch den gesamten Build-Prozess auslösen. Wenn alles gut geht, bekommen wir eine automatische Live-Bereitstellung. Die _einzige_ Aktion, die wir ausführen müssen, ist dieser initiale "Push".
 
-Wir müssen jedoch diese Schritte einrichten, und das werden wir uns jetzt ansehen.
+Allerdings müssen wir diese Schritte einrichten, und das werden wir uns jetzt ansehen.
 
 ## Der Build-Prozess
 
-Wieder einmal, da wir Vite für die Entwicklung verwenden, ist die Hinzufügung der Build-Option äußerst einfach. Wie wir bereits gesehen haben, haben wir ein benutzerdefiniertes Skript `npm run build`, das Vite alles für die Produktion erstellen lässt, anstatt es nur für Entwicklungs- und Testzwecke auszuführen. Dazu gehören {{Glossary("Minification", "Minimierung")}} und {{Glossary("Tree_shaking", "Tree-Shaking")}} des Codes sowie Cache-Busting bei Dateinamen.
+Da wir Vite für die Entwicklung verwenden, ist die Hinzufügung der Build-Option sehr einfach. Wie wir bereits gesehen haben, haben wir bereits ein benutzerdefiniertes Skript `npm run build`, das Vite alles bereitstellen lässt, was für den Produktionsbetrieb bereit ist, anstatt es nur für Entwicklungs- und Testzwecke auszuführen. Dies beinhaltet die {{Glossary("Minification", "Minimierung")}} und das {{Glossary("Tree_shaking", "Tree-Shaking")}} des Codes sowie das Cache-Busting der Dateinamen.
 
-Es ist eine gute bewährte Praxis, immer ein `build`-Skript in Ihrem Projekt zu definieren, damit wir uns dann auf `npm run build` verlassen können, um immer den vollständigen Build-Schritt auszuführen, ohne die spezifischen Build-Befehlsargumente für jedes Projekt merken zu müssen.
+Es ist eine gute Praxis, immer ein `build`-Skript in Ihrem Projekt zu definieren, damit wir uns auf `npm run build` verlassen können, um immer den vollständigen Build-Schritt auszuführen, ohne sich die spezifischen Build-Befehlsargumente für jedes Projekt merken zu müssen.
 
-Der neu erstellte Produktionscode wird in einem neuen Verzeichnis namens `dist` platziert, das _alle_ Dateien enthält, die zum Ausführen der Website erforderlich sind, und bereit, um sie auf einen Server hochzuladen.
+Der neu erstellte Produktionscode wird in einem neuen Verzeichnis namens `dist` gespeichert, das _alle_ Dateien enthält, die erforderlich sind, um die Website auszuführen und die Sie auf einen Server hochladen können.
 
-Allerdings ist es nicht unser Endziel, diesen Schritt manuell zu machen – was wir wollen, ist, dass der Build automatisch erfolgt und das Ergebnis des `dist`-Verzeichnisses live auf unserer Website bereitgestellt wird.
+Allerdings ist das manuelle Ausführen dieses Schrittes nicht unser endgültiges Ziel — wir möchten, dass der Build automatisch erfolgt und das Ergebnis des `dist`-Verzeichnisses live auf unserer Website bereitgestellt wird.
 
-## Änderungen in GitHub einbringen
+## Änderungen zu GitHub committen
 
-Dieser Abschnitt wird Sie darüber informieren, Ihren Code in einem git-Repository zu speichern, aber es ist meilenweit entfernt von einem git-Tutorial. Es gibt viele großartige Tutorials und Bücher, und unsere Seite [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control) ist ein guter Ausgangspunkt.
+Dieser Abschnitt bringt Sie so weit, Ihren Code in einem Git-Repository zu speichern, aber es ist weit entfernt von einem Git-Tutorial. Es gibt viele großartige Tutorials und Bücher, und unsere [Git und GitHub](/de/docs/Learn_web_development/Core/Version_control)-Seite ist ein guter Ausgangspunkt.
 
-Wir haben unser Arbeitsverzeichnis bereits früher als git-Arbeitsverzeichnis initialisiert. Eine schnelle Möglichkeit, dies zu überprüfen, besteht darin, den folgenden Befehl auszuführen:
+Wir haben unser Arbeitsverzeichnis bereits als Git-Arbeitsverzeichnis initialisiert. Eine schnelle Möglichkeit, dies zu überprüfen, besteht darin, den folgenden Befehl auszuführen:
 
 ```bash
 git status
 ```
 
-Sie sollten einen Statusbericht erhalten, welche Dateien überwacht werden, welche Dateien bereitgestellt sind usw. – alles Begriffe, die Teil der git-Grammatik sind. Wenn Ihnen der Fehler `fatal: not a git repository` angezeigt wird, dann ist das Arbeitsverzeichnis kein git-Arbeitsverzeichnis, und Sie müssen git mit `git init` initialisieren.
+Sie sollten einen Statusbericht erhalten, welche Dateien verfolgt werden, welche Dateien bereit sind usw. — alles Begriffe, die Teil der Git-Grammatik sind. Wenn Sie den Fehler `fatal: not a git repository` erhalten, dann ist das Arbeitsverzeichnis kein Git-Arbeitsverzeichnis und Sie müssen Git mit `git init` initialisieren.
 
-Nun haben wir drei Aufgaben vor uns:
+Jetzt haben wir drei Aufgaben vor uns:
 
-- Alle Änderungen, die wir vorgenommen haben, zur Staging-Phase hinzufügen (ein besonderer Name für den Ort, von dem aus git Dateien festschreiben wird).
-- Die Änderungen im Repository festschreiben.
-- Die Änderungen zu GitHub pushen.
+- Alle Änderungen, die wir gemacht haben, zur Staging hinzuzufügen (ein spezieller Name für den Ort, von dem Git Dateien committet).
+- Die Änderungen ins Repository committen.
+- Die Änderungen auf GitHub pushen.
 
 1. Um Änderungen hinzuzufügen, führen Sie den folgenden Befehl aus:
 
@@ -91,34 +91,34 @@ Nun haben wir drei Aufgaben vor uns:
    git add .
    ```
 
-   Beachten Sie den Punkt am Ende, er bedeutet "alles in diesem Verzeichnis". Der Befehl `git add .` ist eine Art Holzhammer-Ansatz – er wird alle lokalen Änderungen, an denen Sie gearbeitet haben, auf einmal hinzufügen. Wenn Sie feinere Kontrolle darüber wünschen, was Sie hinzufügen, verwenden Sie `git add -p` für einen interaktiven Prozess oder fügen Sie einzelne Dateien mit `git add path/to/file` hinzu.
+   Beachten Sie den Punkt am Ende, er bedeutet "alles in diesem Verzeichnis". Der `git add .`-Befehl ist eine Art Vorschlaghammer-Methode — er fügt alle lokalen Änderungen, an denen Sie gearbeitet haben, auf einmal hinzu. Wenn Sie feinere Kontrolle darüber wünschen, was Sie hinzufügen, verwenden Sie `git add -p` für einen interaktiven Prozess oder fügen Sie einzelne Dateien mit `git add path/to/file` hinzu.
 
-2. Da jetzt der gesamte Code bereitgestellt ist, können wir ihn festschreiben; führen Sie den folgenden Befehl aus:
+2. Jetzt, da der gesamte Code bereitgestellt ist, können wir committen; führen Sie den folgenden Befehl aus:
 
    ```bash
    git commit -m 'committing initial code'
    ```
 
    > [!NOTE]
-   > Obwohl Sie im Commit-Text schreiben können, was Sie möchten, gibt es im Web einige nützliche Tipps zu guten Commit-Nachrichten. Halten Sie sie kurz, präzise und beschreibend, damit sie klar erklären, was die Änderung bewirkt.
+   > Obwohl Sie im Commit-Nachricht schreiben können, was Sie möchten, gibt es im Web einige nützliche Tipps zu guten Commit-Nachrichten. Halten Sie sie kurz, prägnant und beschreibend, damit sie klar beschreiben, was die Änderung bewirkt.
 
-3. Schließlich muss der Code in Ihr auf GitHub gehostetes Repository gepusht werden. Lassen Sie uns das nun tun.
+3. Schließlich muss der Code auf das auf GitHub gehostete Repository gepusht werden. Lassen Sie uns das jetzt tun.
 
-   Besuchen Sie GitHub unter <https://github.com/new> und erstellen Sie Ihr eigenes Repository, um diesen Code zu hosten.
+   Besuchen Sie auf GitHub <https://github.com/new> und erstellen Sie Ihr eigenes Repository, um diesen Code zu hosten.
 
-4. Geben Sie Ihrem Repository einen kurzen, einprägsamen Namen, ohne Leerzeichen darin (verwenden Sie Bindestriche, um Wörter zu trennen), und eine Beschreibung, und klicken Sie dann unten auf der Seite auf _Create repository_.
+4. Geben Sie Ihrem Repository einen kurzen, einprägsamen Namen, ohne Leerzeichen (trennen Sie Wörter durch Bindestriche), und eine Beschreibung, dann klicken Sie unten auf der Seite auf _Create repository_.
 
-   Sie sollten jetzt eine "Remote"-URL haben, die auf Ihr neues GitHub-Repository zeigt.
+   Sie sollten jetzt eine "Remote"-URL haben, die auf Ihr neues GitHub-Repo verweist.
 
-   ![Screenshot von GitHub, der Remote-URLs zeigt, die Sie verwenden können, um Code in einem GitHub-Repository bereitzustellen](github-quick-setup.png)
+   ![GitHub-Screenshot, der zeigt, welche Remote-URLs Sie verwenden können, um Code in ein GitHub-Repo zu deployen](github-quick-setup.png)
 
-5. Diese Remote-Location muss unserem lokalen git-Repository hinzugefügt werden, bevor wir es hochladen können, ansonsten kann es nicht gefunden werden. Sie müssen einen Befehl mit der folgenden Struktur ausführen (verwenden Sie vorerst die bereitgestellte HTTPS-Option – insbesondere, wenn Sie neu bei GitHub sind – nicht die SSH-Option):
+5. Dieser entfernte Standort muss unserem lokalen Git-Repository hinzugefügt werden, bevor wir es dort hochladen können, andernfalls wird es nicht in der Lage sein, es zu finden. Sie müssen einen Befehl mit der folgenden Struktur ausführen (verwenden Sie die bereitgestellte HTTPS-Option für den Moment — insbesondere, wenn Sie neu bei GitHub sind — nicht die SSH-Option):
 
    ```bash
    git remote add origin https://github.com/your-name/repo-name.git
    ```
 
-   Wenn Ihre Remote-URL `https://github.com/remy/super-website.git` wäre, wie im obigen Screenshot, wäre ihr Befehl
+   Wenn Ihre Remote-URL also `https://github.com/remy/super-website.git` war, wie im obigen Screenshot, wäre Ihr Befehl
 
    ```bash
    git remote add origin https://github.com/remy/super-website.git
@@ -127,58 +127,58 @@ Nun haben wir drei Aufgaben vor uns:
    Ändern Sie die URL in Ihr eigenes Repository und führen Sie es jetzt aus.
 
    > [!NOTE]
-   > Nachdem Sie Ihren Repository-Namen gewählt haben, stellen Sie sicher, dass die `base`-Option in Ihrer `vite.config.js` diesen Namen widerspiegelt, wie im [vorherigen Kapitel](/de/docs/Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain#javascript_transformation) erwähnt. Andernfalls werden die JavaScript- und CSS-Assets nicht korrekt verlinkt.
+   > Nachdem Sie Ihren Repositoriumsnamen gewählt haben, stellen Sie sicher, dass die `base`-Option in Ihrer `vite.config.js` diesen Namen widerspiegelt, wie im [vorherigen Kapitel](/de/docs/Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain#javascript_transformation) erwähnt. Andernfalls werden die JavaScript- und CSS-Ressourcen nicht korrekt verlinkt.
 
-6. Jetzt sind wir bereit, unseren Code zu GitHub hochzuladen; führen Sie nun den folgenden Befehl aus:
+6. Nun sind wir bereit, unseren Code auf GitHub zu pushen; führen Sie den folgenden Befehl jetzt aus:
 
    ```bash
    git push origin main
    ```
 
-   An diesem Punkt werden Sie dazu aufgefordert, einen Benutzernamen und ein Passwort einzugeben, bevor Git erlaubt, den Push zu senden. Dies liegt daran, dass wir die HTTPS-Option anstatt der SSH-Option verwendet haben, wie im Screenshot zuvor gezeigt. Dafür brauchen Sie Ihren GitHub-Benutzernamen und dann – wenn Sie keine Zwei-Faktor-Authentifizierung (2FA) aktiviert haben – Ihr GitHub-Passwort. Wir würden Ihnen immer empfehlen, 2FA zu verwenden, wenn möglich, aber beachten Sie, dass, wenn Sie dies tun, auch ein „Personal Access Token“ benötigt wird. Die Hilfeseiten von GitHub haben eine [ausgezeichnete und einfache Anleitung, wie man eines erhält](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+   An dieser Stelle werden Sie aufgefordert, einen Benutzernamen und ein Passwort einzugeben, bevor Git den Push zulässt. Dies liegt daran, dass wir die HTTPS-Option anstelle der SSH-Option verwendet haben, wie im Screenshot zuvor gesehen. Dafür benötigen Sie Ihren GitHub-Benutzernamen und dann — wenn Sie keine Zwei-Faktor-Authentifizierung (2FA) aktiviert haben — Ihr GitHub-Passwort. Wir würden immer empfehlen, 2FA zu verwenden, falls möglich, aber beachten Sie, dass Sie, wenn Sie dies tun, auch ein "Personal Access Token" verwenden müssen. Die Hilfeseiten von GitHub bieten ein [ausgezeichnetes und einfaches Tutorial, das beschreibt, wie Sie eines erhalten](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 > [!NOTE]
-> Wenn Sie daran interessiert sind, die SSH-Option zu verwenden, um damit zu vermeiden, Ihren Benutzernamen und Ihr Passwort jedes Mal einzugeben, wenn Sie zu GitHub pushen, [führt Sie dieses Tutorial durch, wie Sie dies tun können](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+> Falls Sie daran interessiert sind, die SSH-Option zu verwenden und damit die Eingabe Ihres Benutzernamens und Passworts jedes Mal zu vermeiden, wenn Sie auf GitHub pushen, [führt Sie dieses Tutorial durch den Prozess](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
-Dieser abschließende Befehl weist git an, den Code an die "Remote"-Location zu senden, die wir `origin` genannt haben (das ist das auf github.com gehostete Repository – wir hätten es nennen können, wie wir wollten) und dabei den Branch `main` zu verwenden. Wir sind dabei noch nicht auf Branches gestoßen, aber der "main"-Branch ist der Standardort für unsere Arbeit und es ist der, auf dem git beginnt. Wenn wir die Aktion definieren, die ausgelöst wird, um die Website zu erstellen, lassen wir sie auch auf Änderungen im "main"-Branch achten.
+Dieser letzte Befehl weist Git an, den Code an den "Remote"-Standort zu pushen, den wir `origin` genannt haben (das ist das Repository, das auf github.com gehostet wird — wir hätten es nennen können, wie wir möchtest), unter Verwendung des Zweigs `main`. Wir sind bisher nicht auf Zweige gestoßen, aber der "main"-Zweig ist der Standardarbeitsplatz für unser Projekt und ist es, wo Git startet. Wenn wir die Aktion definieren, die zum Erstellen der Website ausgelöst wird, lassen wir sie auch nach Änderungen im "main"-Zweig Ausschau halten.
 
 > [!NOTE]
-> Bis Oktober 2020 war der Standard-Branch auf GitHub `master`, der aus verschiedenen sozialen Gründen auf `main` geändert wurde. Sie sollten sich bewusst sein, dass dieser ältere Standard-Branch möglicherweise in verschiedenen Projekten auftaucht, die Sie sehen, aber wir würden empfehlen, `main` für Ihre eigenen Projekte zu verwenden.
+> Bis Oktober 2020 war der Standardzweig auf GitHub `master`, der aus verschiedenen sozialen Gründen auf `main` geändert wurde. Sie sollten sich bewusst sein, dass dieser ältere Standardzweig in verschiedenen Projekten, denen Sie begegnen, erscheinen kann, wir würden jedoch vorschlagen, `main` für Ihre eigenen Projekte zu verwenden.
 
-Mit unserem Projekt, das in git festgeschrieben und in unser GitHub-Repository hochgeladen wurde, besteht der nächste Schritt der Toolchain darin, eine Build-Aktion zu definieren, damit unser Projekt live im Web bereitgestellt werden kann!
+Nachdem unser Projekt in Git commitet und auf unser GitHub-Repository gepusht wurde, ist der nächste Schritt in der Toolchain, eine Build-Aktion zu definieren, damit unser Projekt live im Internet bereitgestellt werden kann!
 
 ## Verwenden von GitHub Actions für die Bereitstellung
 
-GitHub Actions, ähnlich wie die Konfiguration von ESLint, ist ein weiteres tiefes Kaninchenloch, in das Sie eintauchen können. Es ist nicht einfach, es beim ersten Versuch richtig hinzubekommen, aber für beliebte Aufgaben wie „eine statische Website erstellen und auf GitHub Pages bereitstellen“ gibt es viele Beispiele zum Kopieren und Einfügen. Sie können den Anweisungen unter [Veröffentlichen mit einem benutzerdefinierten GitHub Actions-Workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow) folgen. Sie können unsere [GitHub Action-Datei](https://github.com/mdn/client-toolchain-example/blob/main/.github/workflows/github-pages.yml) für ein funktionierendes Beispiel prüfen. (Der Dateiname spielt keine Rolle.)
+GitHub Actions, wie die ESLint-Konfiguration, ist ein weiteres tiefes Thema, in das man eintauchen kann. Es ist nicht einfach, es beim ersten Versuch richtig zu machen, aber für beliebte Aufgaben wie "eine statische Webseite erstellen und auf GitHub Pages bereitstellen" gibt es viele Beispiele zum Kopieren und Einfügen. Sie können den Anweisungen in [Veröffentlichung mit einem benutzerdefinierten GitHub Actions-Workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow) folgen. Sie können unsere [GitHub Action Datei](https://github.com/mdn/client-toolchain-example/blob/main/.github/workflows/github-pages.yml) für ein funktionierendes Beispiel überprüfen. (Der Dateiname spielt keine Rolle.)
 
-Nachdem Sie diese Datei im Haupt-Branch festgeschrieben haben, sollten Sie ein kleines grünes Häkchen neben dem Commit-Titel sehen:
+Nachdem Sie diese Datei im Hauptzweig committet haben, sollten Sie ein kleines grünes Häkchen neben dem Commit-Titel sehen:
 
 ![GitHub-Screenshot, der ein grünes Häkchen neben einem Commit-Titel zeigt](build-action-pass.png)
 
-Wenn Sie einen gelben Punkt sehen, bedeutet dies, dass die Aktion ausgeführt wird, und wenn Sie ein rotes Kreuz sehen, bedeutet es, dass die Aktion fehlgeschlagen ist. Klicken Sie auf das Symbol, um den Status und die Protokolle Ihrer eigenen Build-Aktion zu sehen (in unserem Fall benannt „Deploy build“).
+Wenn Sie einen gelben Punkt sehen, bedeutet dies, dass die Aktion läuft, und wenn Sie ein rotes Kreuz sehen, bedeutet dies, dass die Aktion fehlgeschlagen ist. Klicken Sie auf das Symbol, und Sie können den Status und die Protokolle Ihrer eigenen Build-Aktion anzeigen (in unserem Fall "Deploy build" genannt).
 
-Nachdem Sie einige weitere Minuten gewartet haben, können Sie Ihre GitHub Pages-URL besuchen, um Ihre Website live im Web zu sehen. Der Link sieht aus wie `https://<your-name>.github.io/<repo-name>`. Für unser Beispiel ist es <https://mdn.github.io/client-toolchain-example/>.
+Nachdem Sie ein paar Minuten gewartet haben, können Sie Ihre GitHub Pages URL besuchen, um Ihre Webseite live im Web zu sehen. Der Link sieht aus wie `https://<Ihr-Name>.github.io/<repo-name>`. Für unser Beispiel ist es <https://mdn.github.io/client-toolchain-example/>.
 
-Jetzt fehlt noch ein letzter Link in unserer Toolchain: ein Test, um sicherzustellen, dass unser Code ordnungsgemäß funktioniert.
+Nun der letzte Link in unserer Toolchain: ein Test, um sicherzustellen, dass unser Code funktioniert.
 
-## Tests
+## Testen
 
-Das Testen selbst ist ein weites Thema, sogar im Bereich der Front-End-Entwicklung. Ich zeige Ihnen, wie Sie einen ersten Test zu Ihrem Projekt hinzufügen und wie Sie den Test verwenden, um den Projektbereitstellungsprozess zu verhindern oder zu erlauben.
+Das Testen an sich ist ein umfangreiches Thema, sogar im Bereich der Front-End-Entwicklung. Ich werde Ihnen zeigen, wie Sie einen ersten Test zu Ihrem Projekt hinzufügen und wie Sie den Test verwenden, um zu verhindern oder zu erlauben, dass das Projekt bereitgestellt wird.
 
-Es gibt viele Ansätze beim Testen:
+Beim Herangehen an Tests gibt es viele Möglichkeiten, das Problem anzugehen:
 
-- End-to-End-Testing, bei dem Ihr Besucher auf etwas klickt und etwas anderes passiert.
-- Integrationstests, die im Grunde fragen: „Funktioniert ein Codeblock immer noch, wenn er mit einem anderen Block verbunden ist?“
-- Unit-Tests, bei denen kleine und spezifische Funktionalitäten getestet werden, um zu sehen, ob sie tun, was sie sollen.
-- [Und viele weitere Typen](https://en.wikipedia.org/wiki/Functional_testing). Siehe auch unser [Cross-Browser-Testing-Modul](/de/docs/Learn_web_development/Extensions/Testing) für viele nützliche Testinformationen.
+- End-to-End-Tests, die beinhalten, dass ein Besucher auf etwas klickt und etwas anderes passiert.
+- Integrationstests, die im Grunde fragen: "Funktioniert ein Codeblock immer noch, wenn er mit einem anderen Block verbunden ist?"
+- Unit-Tests, bei denen kleine und spezifische Funktionalitäten getestet werden, um zu sehen, ob sie das tun, was sie sollen.
+- [Und viele weitere Arten](https://en.wikipedia.org/wiki/Functional_testing). Siehe auch unser [Cross-Browser-Testmodul](/de/docs/Learn_web_development/Extensions/Testing) für viele nützliche Testinformationen.
 
 Denken Sie auch daran, dass Tests nicht auf JavaScript beschränkt sind; Tests können gegen das gerenderte DOM, Benutzerinteraktionen, CSS und sogar das Aussehen einer Seite durchgeführt werden.
 
-Für dieses Projekt erstellen wir jedoch einen kleinen Test, der überprüft, ob die GitHub-API-Daten im korrekten Format vorliegen. Wenn nicht, schlägt der Test fehl und verhindert, dass das Projekt live geht. Alles andere wäre über den Umfang dieses Moduls hinaus – das Testen ist ein riesiges Thema, das wirklich sein eigenes Modul erfordert. Wir hoffen, dass dieser Abschnitt Sie zumindest auf die Notwendigkeit des Testens aufmerksam macht und die Saat für Ihr Interesse legt, mehr darüber zu erfahren.
+Für dieses Projekt werden wir jedoch einen kleinen Test erstellen, der überprüft, ob die GitHub-API-Daten im richtigen Format vorliegen. Wenn nicht, schlägt der Test fehl und verhindert, dass das Projekt live geht. Mehr zu tun wäre über den Rahmen dieses Moduls hinaus — das Testen ist ein riesiges Thema, das wirklich ein eigenes Modul erfordert. Wir hoffen, dass dieser Abschnitt zumindest das Bewusstsein für die Notwendigkeit des Testens schafft und den Samen pflanzt, der Sie inspiriert, mehr zu lernen.
 
-Der Test selbst ist nicht das Wichtige. Was wichtig ist, ist, wie der Fehler oder Erfolg gehandhabt wird. Da wir bereits eine benutzerdefinierte Build-Aktion schreiben, können wir einen Schritt vor dem Build hinzufügen, der den Test ausführt. Wenn der Test fehlschlägt, wird der Build fehlschlagen und die Bereitstellung wird nicht stattfinden.
+Der Test selbst ist nicht das, was wichtig ist. Was wichtig ist, ist, wie das Scheitern oder der Erfolg gehandhabt wird. Da wir bereits eine benutzerdefinierte Build-Aktion schreiben, können wir vor dem Build einen Schritt hinzufügen, der den Test ausführt. Wenn der Test fehlschlägt, wird der Build fehlschlagen und die Bereitstellung wird nicht erfolgen.
 
-Die gute Nachricht: Weil wir Vite verwenden, bietet Vite bereits ein gutes integriertes Testwerkzeug an: [Vitest](https://vitest.dev/guide/).
+Die gute Nachricht ist: Da wir Vite verwenden, bietet Vite bereits ein gutes integriertes Tool zum Testen: [Vitest](https://vitest.dev/guide/).
 
 Lassen Sie uns beginnen.
 
@@ -188,7 +188,7 @@ Lassen Sie uns beginnen.
    npm install --save-dev vitest
    ```
 
-2. Suchen Sie in Ihrer package.json nach Ihrem `scripts`-Mitglied, und aktualisieren Sie es so, dass es die folgenden Test- und Build-Kommandos enthält:
+2. Finden Sie in Ihrer package.json Ihr `scripts`-Mitglied, und aktualisieren Sie es so, dass es die folgenden Test- und Build-Befehle enthält:
 
    ```json
    {
@@ -200,11 +200,11 @@ Lassen Sie uns beginnen.
    ```
 
    > [!NOTE]
-   > Hier ist der Vorteil, Vite zusammen mit Vitest zu verwenden: Wenn Sie andere Test-Frameworks verwenden, müssen Sie eine zusätzliche Konfiguration hinzufügen, die beschreibt, wie die Testdateien transformiert werden müssen, aber Vitest wird automatisch die Vite-Konfiguration verwenden.
+   > Hier ist der Vorteil der Verwendung von Vite zusammen mit Vitest: Wenn Sie andere Test-Frameworks verwenden, müssen Sie eine zusätzliche Konfiguration hinzufügen, die beschreibt, wie die Testdateien transformiert werden müssen, aber Vitest wird automatisch die Vite-Konfiguration verwenden.
 
-3. Nun müssen wir natürlich den Test zu unserem Code hinzufügen. Normalerweise, wenn Sie die Funktionalität einer Datei testen, sagen wir `App.jsx`, würden Sie eine Datei namens `App.test.jsx` neben sie hinzufügen. In diesem Fall testen wir nur die Daten, also erstellen wir ein anderes Verzeichnis, um unsere Tests zu speichern. Sie können das Beispiel-Repository öffnen, das Sie im vorherigen Kapitel heruntergeladen haben, und den Ordner `tests` kopieren.
+3. Nun müssen wir natürlich den Test in unseren Codebestand aufnehmen. Normalerweise, wenn Sie die Funktionalität einer Datei testen, z. B. `App.jsx`, würden Sie eine Datei namens `App.test.jsx` daneben hinzufügen. In diesem Fall testen wir nur die Daten, also lassen Sie uns ein weiteres Verzeichnis erstellen, um unsere Tests zu halten. Sie können das Beispielsrepository öffnen, das Sie im vorherigen Kapitel heruntergeladen haben, und den `tests`-Ordner darüber kopieren.
 
-4. Um den Test manuell auszuführen, können wir im Befehlszeilenterminal Folgendes ausführen:
+4. Nun, um den Test manuell auszuführen, können wir auf der Befehlszeile ausführen:
 
    ```bash
    npm run test
@@ -232,9 +232,9 @@ Lassen Sie uns beginnen.
          press h to show help, press q to quit
    ```
 
-   Dies bedeutet, dass der Test bestanden wurde. Wie Vite wird es auf Änderungen achten und die Tests neu ausführen, wenn Sie eine Datei speichern. Wir können mithilfe von <kbd>q</kbd> beenden.
+   Das bedeutet, dass der Test bestanden wurde. Genau wie Vite wird es auf Änderungen achten und die Tests neu ausführen, wenn Sie eine Datei speichern. Wir können mit <kbd>q</kbd> beenden.
 
-5. Wir müssen immer noch den Test mit unserer Build-Aktion verbinden, sodass er den Build blockiert, wenn der Test fehlschlägt. Öffnen Sie die Datei `.github/workflows/github-pages.yml` (oder welchen Dateinamen Sie Ihrer Build-Aktion gegeben haben) und fügen Sie den folgenden Schritt hinzu, direkt bevor der Schritt ausgeführt wird, der `npm run build` ausführt:
+5. Wir müssen den Test jedoch noch mit unserer Build-Aktion verbinden, damit er den Build blockiert, wenn der Test fehlschlägt. Öffnen Sie die Datei `.github/workflows/github-pages.yml` (oder welchen Dateinamen Sie auch immer Ihrer Build-Aktion gegeben haben) und fügen Sie den folgenden Schritt hinzu, direkt vor dem Schritt, der `npm run build` ausführt:
 
    ```yaml
    - name: Install deps
@@ -248,9 +248,9 @@ Lassen Sie uns beginnen.
      run: npm run build
    ```
 
-   Dies wird den Test vor dem Build-Schritt ausführen. Wenn der Test fehlschlägt, wird der Build fehlschlagen und die Bereitstellung wird nicht stattfinden.
+   Dies wird den Test vor dem Build-Schritt ausführen. Wenn der Test fehlschlägt, wird der Build fehlschlagen und die Bereitstellung wird nicht erfolgen.
 
-6. Jetzt laden wir den neuen Code zu GitHub hoch, indem wir ähnliche Befehle verwenden, wie Sie es zuvor getan haben:
+6. Lassen Sie uns jetzt den neuen Code auf GitHub hochladen, indem Sie ähnliche Befehle wie zuvor verwenden:
 
    ```bash
    git add .
@@ -258,28 +258,28 @@ Lassen Sie uns beginnen.
    git push origin main
    ```
 
-   In einigen Fällen möchten Sie möglicherweise das Ergebnis des gebauten Codes testen (da dies nicht ganz der Originalcode ist, den wir geschrieben haben), daher muss der Test möglicherweise nach dem Build-Befehl ausgeführt werden. Sie müssen all diese einzelnen Aspekte berücksichtigen, während Sie an Ihren eigenen Projekten arbeiten.
+   In manchen Fällen möchten Sie das Ergebnis des gebauten Codes testen (da dies nicht ganz der ursprüngliche Code ist, den wir geschrieben haben), daher muss der Test möglicherweise nach dem Build-Befehl ausgeführt werden. Sie werden alle diese individuellen Aspekte berücksichtigen müssen, während Sie an Ihren eigenen Projekten arbeiten.
 
-Zum Schluss, nach einer Minute oder so nach dem Push, wird das Update des Projekts von GitHub Pages bereitgestellt. Aber nur, wenn es den eingeführten Test besteht.
+Schließlich, nachdem Sie gepusht haben, wird GitHub Pages das Projekt-Update in einer Minute oder so bereitstellen. Aber nur, wenn es den eingeführten Test bestanden hat.
 
 ## Zusammenfassung
 
-Das war's für unsere Beispiel-Fallstudie und für das Modul! Wir hoffen, Sie fanden es nützlich. Obwohl es noch ein langer Weg ist, bis Sie sich selbst als Client-side-Tooling-Virtuosen bezeichnen können, hoffen wir, dass Ihnen dieses Modul diesen ersten wichtigen Schritt hin zu einem Verständnis für Client-seitige Tools gibt und Ihnen das Selbstbewusstsein vermittelt, mehr zu lernen und neue Dinge auszuprobieren.
+Das war's für unsere Beispiel-Fallstudie und für das Modul! Wir hoffen, Sie fanden es nützlich. Auch wenn es noch ein weiter Weg ist, bevor Sie sich als Client-Side-Tooling-Experte betrachten können, hoffen wir, dass dieses Modul Ihnen den ersten wichtigen Schritt in Richtung Verständnis von Client-Side-Tooling gegeben hat und das Vertrauen, mehr zu lernen und Neues auszuprobieren.
 
 Lassen Sie uns alle Teile der Toolchain zusammenfassen:
 
-- Die Codequalität und Wartung erfolgen durch ESLint und Prettier. Diese Tools werden als `devDependencies` hinzugefügt über `npm install --dev eslint prettier eslint-plugin-react ...` (das ESLint-Plugin wird benötigt, weil dieses spezielle Projekt React verwendet).
-- Es gibt zwei Konfigurationsdateien, die die Codequalitätstools lesen: `eslint.config.js` und `.prettierrc`.
-- Während der Entwicklung fügen wir weiterhin Abhängigkeiten mit npm hinzu. Der Vite-Entwicklungsserver läuft im Hintergrund, um Änderungen zu überwachen und unseren Quellcode automatisch zu erstellen.
-- Die Bereitstellung erfolgt durch das Pushen unserer Änderungen zu GitHub (im "main"-Branch), was durch GitHub Actions einen Build und eine Bereitstellung auslöst, um das Projekt zu veröffentlichen. Für unsere Instanz ist diese URL <https://mdn.github.io/client-toolchain-example/>; Sie werden Ihre eigene eindeutige URL haben.
-- Wir haben auch einen einfachen Test, der den Build und die Bereitstellung der Website blockiert, wenn der GitHub-API-Feed nicht das richtige Datenformat liefert.
+- Codequalität und Wartung werden von ESLint und Prettier durchgeführt. Diese Tools werden als `devDependencies` mithilfe von `npm install --dev eslint prettier eslint-plugin-react ...` (das ESLint-Plugin ist erforderlich, da dieses spezielle Projekt React verwendet) zum Projekt hinzugefügt.
+- Es gibt zwei Konfigurationsdateien, die von den Codequalitätstools gelesen werden: `eslint.config.js` und `.prettierrc`.
+- Während der Entwicklung fügen wir weiterhin Abhängigkeiten mit npm hinzu. Der Vite-Entwicklungsserver wird im Hintergrund ausgeführt, um auf Änderungen zu achten und unsere Quelle automatisch zu erstellen.
+- Die Bereitstellung erfolgt durch das Pushen unserer Änderungen auf GitHub (im Hauptzweig), was eine Build- und Bereitstellung mithilfe von GitHub Actions auslöst, um das Projekt bereitzustellen. Für unser Beispiel ist diese URL <https://mdn.github.io/client-toolchain-example/>; Sie werden Ihre eigene eindeutige URL haben.
+- Wir haben auch einen einfachen Test, der den Build und die Bereitstellung der Website blockiert, wenn der GitHub-API-Feed uns nicht das richtige Datenformat liefert.
 
-Für diejenigen von Ihnen, die eine Herausforderung suchen, überlegen Sie, ob Sie einige Teile dieser Toolchain optimieren können. Einige Fragen, die Sie sich stellen könnten:
+Für diejenigen, die eine Herausforderung suchen, überlegen Sie, ob Sie einen Teil dieser Toolchain optimieren können. Einige Fragen, die Sie sich stellen sollten:
 
-- Können wir nur die Funktionen von plotly.js extrahieren, die wir brauchen? Dies würde die Größe des JavaScript-Bundles reduzieren.
-- Vielleicht möchten Sie andere Tools hinzufügen, wie TypeScript für die Typprüfung oder stylelint für CSS-Linting?
+- Können wir nur die Funktionen von plotly.js extrahieren, die wir benötigen? Dies wird die Größe des JavaScript-Bundles reduzieren.
+- Vielleicht möchten Sie weitere Tools hinzufügen, wie TypeScript für Typüberprüfung oder stylelint für CSS-Linting?
 - Könnte React durch [etwas Kleineres](https://preactjs.com/) ersetzt werden?
-- Könnten Sie weitere Tests hinzufügen, um einen schlechten Build von der Bereitstellung zu verhindern, wie etwa [Performance-Audits](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)?
-- Könnten Sie eine Benachrichtigung einrichten, die Ihnen mitteilt, wann ein neuer Deploy erfolgreich oder fehlgeschlagen ist?
+- Könnten Sie weitere Tests hinzufügen, um zu verhindern, dass ein schlechter Build bereitgestellt wird, wie [Leistungsaudits](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)?
+- Könnten Sie eine Benachrichtigung einrichten, die Sie informiert, wenn eine neue Bereitstellung erfolgreich war oder fehlgeschlagen ist?
 
-{{PreviousMenu("Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain", "Learn_web_development/Extensions/Client_side_tools")}}
+{{PreviousMenu("Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain", "Learn_web_development/Extensions/Client-side_tools")}}

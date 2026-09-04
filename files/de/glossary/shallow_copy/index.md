@@ -1,31 +1,36 @@
 ---
-title: Flache Kopie
+title: Shallow Copy
 slug: Glossary/Shallow_copy
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: b7c5617fc1d8eb00c6884a708983da21ad61b228
 ---
 
-Eine **flache Kopie** eines Objekts ist eine Kopie, deren Eigenschaften dieselben {{Glossary("object_reference", "Referenzen")}} (zeigen auf dieselben zugrundeliegenden Werte) wie die des Quellobjekts haben, von dem die Kopie erstellt wurde. Dadurch kann es sein, dass bei Änderungen entweder am Quellobjekt oder an der Kopie, das andere Objekt ebenfalls geändert wird. Dieses Verhalten steht im Gegensatz zu dem einer {{Glossary("deep_copy", "tiefen Kopie")}}, bei der Quelle und Kopie vollständig unabhängig sind.
+Eine **shallow copy** eines Objekts ist eine Kopie, deren Eigenschaften dieselben {{Glossary("object_reference", "Referenzen")}} (verweisen auf dieselben zugrunde liegenden Werte) wie die des Quellobjekts teilen, von dem die Kopie erstellt wurde. Daher kann eine Änderung entweder am Quellobjekt oder an der Kopie auch dazu führen, dass sich das andere Objekt ändert. Dieses Verhalten steht im Kontrast zum Verhalten einer {{Glossary("deep_copy", "deep copy")}}, bei der Quelle und Kopie vollständig unabhängig sind.
 
-Formeller ausgedrückt, zwei Objekte `o1` und `o2` sind flache Kopien, wenn:
+Shallow Copying wird normalerweise wie folgt implementiert:
 
-1. Sie sind nicht dasselbe Objekt (`o1 !== o2`).
-2. Die Eigenschaften von `o1` und `o2` haben dieselben Namen in derselben Reihenfolge.
-3. Die Werte ihrer Eigenschaften sind gleich.
-4. Ihre Prototyp-Ketten sind gleich.
+1. Ein neues Objekt desselben Typs wird erstellt. Die Prototyp-Kette wird nahezu immer beibehalten. Beispielsweise sollte das Deep Copying einer {{jsxref("Map")}} in einer {{jsxref("Map")}} resultieren und nicht in etwas anderem.
+2. Für jede eigene Eigenschaft des Originalobjekts wird eine Eigenschaft mit demselben Schlüssel im neuen Objekt definiert.
+3. Der Wert jeder neuen Eigenschaft wird auf dieselbe Referenz wie der Wert der ursprünglichen Eigenschaft gesetzt. Wenn der Wert der Eigenschaft ein primitiver Wert ist, wird keine Kopie durchgeführt.
+4. Alle Daten, die nicht als Eigenschaften exponiert sind (wie {{jsxref("Map")}}), werden übernommen, jedoch ohne Objekt-Referenzen innerhalb der Daten zu kopieren, vorausgesetzt, die Implementierung erkennt den Objekttyp und weiß, wie man die Daten abruft und setzt.
 
-Siehe auch die Definition von _{{Glossary("deep_copy", "struktureller Äquivalenz")}}_.
+Beachten Sie, dass JavaScript keinen integrierten Mechanismus hat, der eine allgemeine shallow copy durchführt (die vorhandenen Mechanismen nehmen nur spezifische Objekttypen wie einfache Objekte oder Arrays an), so dass sich die Implementierungen von Bibliotheken in technischen Details oft unterscheiden, etwa:
 
-Die Kopie eines Objekts, dessen Eigenschaften alle primitive Werte haben, entspricht sowohl der Definition einer {{Glossary("deep_copy", "tiefen Kopie")}} als auch einer flachen Kopie. Es ist jedoch eher sinnlos, bei einer solchen Kopie über die Tiefe zu sprechen, da es keine verschachtelten Eigenschaften gibt und wir normalerweise im Zusammenhang mit der Mutation verschachtelter Eigenschaften über tiefe Kopien sprechen.
+- Ob nicht aufgezählte oder Symbol-Eigenschaften kopiert werden
+- Ob Eigenschaftsbeschreiber kopiert werden
+- Ob Zugriffseigenschaften als Zugriffe kopiert werden
+- Welche Datenstrukturen das Kopieren von Nicht-Eigenschaftsdaten unterstützen
 
-Bei flachen Kopien werden nur die Eigenschaften der obersten Ebene kopiert, nicht die Werte verschachtelter Objekte. Daher:
+Die Kopie eines Objekts, dessen Eigenschaften alle primitive Werte haben, entspricht sowohl der Definition einer {{Glossary("deep_copy", "deep copy")}} als auch einer shallow copy. Es ist allerdings wenig sinnvoll, die Tiefe einer solchen Kopie zu diskutieren, da sie keine verschachtelten Eigenschaften hat und wir üblicherweise über das Deep Copying im Kontext der Änderung von verschachtelten Eigenschaften sprechen.
 
-- Das Neu-Zuweisen von Eigenschaften der obersten Ebene der Kopie beeinflusst das Quellobjekt nicht.
-- Das Neu-Zuweisen von Eigenschaften verschachtelter Objekte der Kopie beeinflusst das Quellobjekt.
+Bei shallow copies werden nur die Eigenschaften der obersten Ebene kopiert, nicht die Werte von verschachtelten Objekten. Daher:
 
-In JavaScript erzeugen alle standardmäßigen eingebaute Objektkopieroperationen ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) und [`Object.assign()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)) flache Kopien anstelle von tiefen Kopien.
+- Das Neu-Zuweisen von Eigenschaften der obersten Ebene der Kopie wirkt sich nicht auf das Quellobjekt aus.
+- Das Neu-Zuweisen von Eigenschaften verschachtelter Objekte der Kopie wirkt sich auf das Quellobjekt aus.
 
-Betrachten Sie das folgende Beispiel, in dem ein `ingredientsList`-Arrayobjekt erstellt wird und dann ein `ingredientsListCopy`-Objekt durch Kopieren dieses `ingredientsList`-Objekts erstellt wird.
+In JavaScript erstellen alle standardmäßigen integrierten Objektkopieroperationen ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) und [`Object.assign()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)) shallow copies anstelle von deep copies.
+
+Betrachten Sie das folgende Beispiel, in dem ein `ingredientsList`-Array-Objekt erstellt wird, und dann ein `ingredientsListCopy`-Objekt durch das Kopieren dieses `ingredientsList`-Objekts erstellt wird.
 
 ```js
 const ingredientsList = ["noodles", { list: ["eggs", "flour", "water"] }];
@@ -43,7 +48,7 @@ console.log(ingredientsList[1].list);
 // Array [ "rice flour", "water" ]
 ```
 
-Das Neu-Zuweisen des Wertes einer Eigenschaft der obersten Ebene (in diesem Fall der `0`-Index) wird nur im geänderten Objekt sichtbar sein.
+Das Neu-Zuweisen des Wertes einer Eigenschaft der obersten Ebene (in diesem Fall der Index `0`) wird nur im geänderten Objekt sichtbar sein.
 
 ```js
 ingredientsListCopy[0] = "rice noodles";
@@ -56,5 +61,6 @@ console.log(JSON.stringify(ingredientsList));
 
 ## Siehe auch
 
-- Verwandte Glossareinträge:
-  - {{Glossary("Deep_copy", "Tiefe Kopie")}}
+- Verwandte Glossarbegriffe:
+  - {{Glossary("Deep_equality", "Tiefgleichheit")}}
+  - {{Glossary("Deep_copy", "Deep Copy")}}

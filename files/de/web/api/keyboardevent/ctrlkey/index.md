@@ -3,12 +3,14 @@ title: "KeyboardEvent: ctrlKey-Eigenschaft"
 short-title: ctrlKey
 slug: Web/API/KeyboardEvent/ctrlKey
 l10n:
-  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
+  sourceCommit: 358daf81ac9cf3db999cc8af7aed81ef4ff0c3f6
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.ctrlKey`** gibt einen boolean-Wert zurück, der anzeigt, ob die <kbd>Strg</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte **`KeyboardEvent.ctrlKey`**-Eigenschaft gibt einen boolean-Wert zurück, der angibt, ob die <kbd>Control</kbd>-Taste gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis auftrat.
+
+Wenn die <kbd>Control</kbd>-Taste selbst gedrückt oder losgelassen wird, ist diese Eigenschaft bei ihrem [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis `true` und bei ihrem [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignis `false`, da beide Ereignisse _nach_ der Statusänderung ausgelöst werden.
 
 ## Wert
 

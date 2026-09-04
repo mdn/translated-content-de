@@ -1,38 +1,38 @@
 ---
-title: "Element: ariaFlowToElements Eigenschaft"
+title: "Element: ariaFlowToElements-Eigenschaft"
 short-title: ariaFlowToElements
 slug: Web/API/Element/ariaFlowToElements
 l10n:
-  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
+  sourceCommit: 3b4a7a32fc2fe8cb6bd9a1e62f4ca52e002599ef
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaFlowToElements`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces ist ein Array, das das Element oder die Elemente enthält, die eine alternative Lesereihenfolge des Inhalts bereitstellen und die allgemeine Standardlesereihenfolge nach Ermessen des Benutzers überschreiben. Wenn nur ein Element angegeben wird, ist dies das nächste Element in der Lesereihenfolge. Wenn mehrere Elemente angegeben werden, dann stellt jedes Element einen möglichen Pfad dar, der dem Benutzer zur Auswahl angeboten werden soll.
+Die **`ariaFlowToElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das Element (oder die Elemente) enthält, die eine alternative Lesereihenfolge des Inhalts bereitstellen und die allgemeine Standardlesereihenfolge nach Ermessen des Benutzers überschreiben. Wenn nur ein Element bereitgestellt wird, ist dies das nächste Element in der Lesereihenfolge. Wenn mehrere Elemente bereitgestellt werden, stellt jedes Element einen möglichen Pfad dar, der dem Benutzer zur Auswahl angeboten werden sollte.
 
-Das Thema [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto) enthält weitere Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
+Das Thema [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
 Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
-Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt. Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
+Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt. Beim Schreiben wird das zugewiesene Array kopiert: Nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
 
 ## Beschreibung
 
-Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attributs, um eine alternative Lesereihenfolge festzulegen. Im Gegensatz zu `aria-flowto` müssen die der Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
+Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attributs, um eine alternative Lesereihenfolge festzulegen. Im Gegensatz zu `aria-flowto` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die mit gültigen, im Gültigkeitsbereich befindlichen Elementen übereinstimmen. Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht. Weitere Informationen zu reflektierten Elementreferenzen und dem Gültigkeitsbereich finden Sie unter [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attributreflektion_ Leitfaden.
+Die Eigenschaft spiegelt das [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgelistete Referenz-`id`-Werte, die gültige, im Bereich befindliche Elemente entsprechen. Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht. Weitere Informationen zu reflektierten Elementreferenzen und Anwendungsbereich finden Sie unter [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im Leitfaden _Reflected attributes_.
 
 ## Beispiele
 
-### Das Flow-to-Element abrufen
+### Holen Sie sich das Flow-to-Element
 
-Dieses Beispiel demonstriert den normalen Fluss durch drei Elemente `section1`, `section2`, `section3` in Reihenfolge und eine alternative Reihenfolge, die von `section1` zu `section3` und zurück springt. Beachten Sie, dass das Beispiel veranschaulichend ist, es sei denn, Sie haben Barrierefreiheitstools laufen: Wir folgen diesem alternativen Pfad tatsächlich nicht.
+Dieses Beispiel zeigt den normalen Fluss durch drei Elemente `section1`, `section2`, `section3` in Reihenfolge und eine alternative Reihenfolge, die von `section1` zu `section3` springt und zurück. Beachten Sie, dass das Beispiel illustrativ ist, es sei denn, Sie haben Barrierefreiheitswerkzeuge im Einsatz: Wir folgen diesem alternativen Pfad tatsächlich nicht.
 
 #### HTML
 
-Das HTML definiert drei {{htmlelement("div")}}-Elemente, die Abschnitte definieren, mit einer Klasse `"section"` und `id`-Werten: `section1`, `section2` und `section3`. Jeder Abschnitt hat einen normalen Fluss, der durch seine Reihenfolge definiert ist, beginnend bei `section1` und endend bei `section3`. Ein alternativer Fluss ist in den Abschnitten 1 und 3 unter Verwendung des `aria-flowto` Attributs definiert.
+Das HTML definiert drei {{htmlelement("div")}}-Elemente, die Abschnitte mit einer Klasse `"section"` und `id`-Werten definieren: `section1`, `section2` und `section3`. Jeder Abschnitt hat einen normalen Fluss, der durch seine Reihenfolge definiert ist und von `section1` bis `section3` reicht. Ein alternativer Fluss wird in den Abschnitten 1 und 3 unter Verwendung des `aria-flowto`-Attributs definiert.
 
 ```html hidden
 <pre id="log"></pre>
@@ -71,7 +71,7 @@ Das HTML definiert drei {{htmlelement("div")}}-Elemente, die Abschnitte definier
 
 #### JavaScript
 
-Der Code prüft zuerst, ob `ariaFlowToElements` unterstützt wird und protokolliert, falls ja, dessen Wert. Anschließend wird durch die Abschnitte iteriert und die Abschnitts-`id`, der Wert des `aria-flowto`-Attributs und der Wert der `ariaFlowToElements`-Eigenschaft protokolliert.
+Der Code überprüft zunächst, ob `ariaFlowToElements` unterstützt wird und protokolliert, falls ja, dessen Wert. Anschließend wird durch die Abschnitte iteriert, wobei die Abschnitt-`id`, der `aria-flowto`-Attributwert und der `ariaFlowToElements`-Eigenschaftswert protokolliert werden.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -101,9 +101,9 @@ if ("ariaFlowToElements" in Element.prototype) {
 
 #### Ergebnis
 
-Das nachfolgende Protokoll zeigt jeden der Abschnitte (identifiziert durch `id`) und die entsprechenden Flow-to-Element-IDs, die ggf. von Barrierefreiheitstools ausgewählt werden könnten. Wir stellen hier fest, dass das Attribut und die Eigenschaft dieselben Flow-to-Elemente identifizieren.
+Das untenstehende Log zeigt jeden der Abschnitte (identifiziert durch `id`) und die entsprechenden Flow-to-Element-IDs, die von Barrierefreiheitswerkzeugen ausgewählt werden könnten. Wir stellen hier fest, dass das Attribut und die Eigenschaft die gleichen Flow-to-Elemente identifizieren.
 
-{{EmbedLiveSample("Get the flow-to element", "100%", "570px")}}
+{{EmbedLiveSample("Get the flow-to element","100%","570px")}}
 
 ## Spezifikationen
 
@@ -115,6 +115,6 @@ Das nachfolgende Protokoll zeigt jeden der Abschnitte (identifiziert durch `id`)
 
 ## Siehe auch
 
-- [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto) Attribut
+- [`aria-flowto`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-flowto)-Attribut
 - [`ElementInternals.ariaFlowToElements`](/de/docs/Web/API/ElementInternals/ariaFlowToElements)
-- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attributreflektion_ Leitfaden.
+- [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im Leitfaden _Attribute reflection_.

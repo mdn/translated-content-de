@@ -3,12 +3,12 @@ title: "PerformanceSoftNavigation: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceSoftNavigation/toJSON
 l10n:
-  sourceCommit: c9b973e5cf1f5d5b282eb4eb49cddcc044ce7e2b
+  sourceCommit: 5b9e4bb67e5cb4bb2b780e7338a6560463e5a1a7
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation) Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation) Objekts zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation)-Objekts ist.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceSoftNavigation`](/de/docs/Web/API/PerformanceSoftNavigation) Objekts ist.
 
 ## Beispiele
 
 ### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceSoftNavigation`-Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceSoftNavigation` Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {

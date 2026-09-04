@@ -3,38 +3,36 @@ title: "Element: ariaDescribedByElements-Eigenschaft"
 short-title: ariaDescribedByElements
 slug: Web/API/Element/ariaDescribedByElements
 l10n:
-  sourceCommit: 6bed868c7b75c4c3ca3721fa8ed6c6ad2f41262b
+  sourceCommit: 3b4a7a32fc2fe8cb6bd9a1e62f4ca52e002599ef
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaDescribedByElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das bzw. die Elemente enthält, die eine zugängliche Beschreibung für das Element bereitstellen, auf das sie angewendet wird. Die zugängliche Beschreibung ist ähnlich wie das zugängliche Label (siehe [`ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements)), bietet jedoch ausführlichere Informationen.
+Die **`ariaDescribedByElements`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ist ein Array, das das Element (oder die Elemente) enthält, das eine barrierefreie Beschreibung für das Element bereitstellt, auf das es angewendet wird. Die barrierefreie Beschreibung ist ähnlich wie das barrierefreie Label (siehe [`ariaLabelledByElements`](/de/docs/Web/API/Element/ariaLabelledByElements)), bietet jedoch ausführlichere Informationen.
 
 Das Thema [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) enthält zusätzliche Informationen darüber, wie das Attribut und die Eigenschaft verwendet werden sollten.
 
 ## Wert
 
-Ein Array von Subklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement).
-Der innere Text dieser Elemente kann mit Leerzeichen verbunden werden, um die zugängliche Beschreibung zu erhalten.
+Ein Array von Unterklassen von [`HTMLElement`](/de/docs/Web/API/HTMLElement). Der innere Text dieser Elemente kann mit Leerzeichen verbunden werden, um die barrierefreie Beschreibung zu erhalten.
 
-Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt.
-Beim Schreiben wird das zugewiesene Array kopiert: Nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
+Beim Lesen ist das zurückgegebene Array statisch und schreibgeschützt. Beim Schreiben wird das zugewiesene Array kopiert: nachfolgende Änderungen am Array beeinflussen den Wert der Eigenschaft nicht.
 
 ## Beschreibung
 
-Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attributs, um die zugängliche Beschreibung festzulegen. Im Gegensatz zu `aria-describedby` müssen die dieser Eigenschaft zugewiesenen Elemente kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
+Die Eigenschaft ist eine flexible Alternative zur Verwendung des [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attributs, um die barrierefreie Beschreibung festzulegen. Im Gegensatz zu `aria-describedby` müssen die Elemente, die dieser Eigenschaft zugewiesen werden, kein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut haben.
 
-Die Eigenschaft spiegelt das `aria-describedby`-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgeführte Referenz-`id`-Werte, die gültigen In-Scope-Elementen entsprechen. Wenn die Eigenschaft gesetzt wird, wird das entsprechende Attribut geleert. Weitere Informationen zu reflektierten Elementreferenzen und dem Scope finden Sie unter [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflected attributes_-Leitfaden.
+Die Eigenschaft spiegelt das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut des Elements wider, wenn es definiert ist, jedoch nur für aufgeführte Referenz-`id`-Werte, die mit gültigen, im Geltungsbereich befindlichen Elementen übereinstimmen. Wenn die Eigenschaft gesetzt ist, wird das entsprechende Attribut gelöscht. Für weitere Informationen über reflektierte Elementreferenzen und den Geltungsbereich siehe [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Reflektierte Attribute_-Leitfaden.
 
 ## Beispiele
 
-### Abrufen der zugänglichen Beschreibung
+### Die barrierefreie Beschreibung abrufen
 
-Dieses Beispiel zeigt, wie `ariaDescribedByElements` verwendet werden kann, um die mit `aria-describedby` definierte zugängliche Beschreibung abzurufen.
+Dieses Beispiel zeigt, wie `ariaDescribedByElements` verwendet werden kann, um die mit `aria-describedby` definierte barrierefreie Beschreibung abzurufen.
 
 #### HTML
 
-Das HTML definiert zwei {{htmlelement("span")}}-Elemente und referenziert deren IDs im `aria-describedby`-Attribut eines {{htmlelement("button")}}.
+Das HTML definiert zwei {{htmlelement("span")}}-Elemente und verweist in der `aria-describedby`-Eigenschaft eines {{htmlelement("button")}} darauf.
 
 ```html
 <button aria-describedby="trash-desc1 trash-desc2">Move to trash</button>
@@ -49,7 +47,7 @@ Das HTML definiert zwei {{htmlelement("span")}}-Elemente und referenziert deren 
 
 #### CSS
 
-Hier verbergen wir einfach die `<span>`-Elemente, die unseren zugänglichen Text enthalten.
+Hier werden wir einfach die `<span>`-Elemente, die unseren barrierefreien Text enthalten, ausblenden.
 
 ```css
 span {
@@ -68,7 +66,7 @@ span {
 
 #### JavaScript
 
-Der folgende Code protokolliert zuerst den Wert des `aria-describedby`-Attributs von [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) (ein String, der die `id`-Werte der referenzierten Elemente auflistet). Anschließend wird überprüft, ob `ariaDescribedByElements` unterstützt wird, und falls ja, wird sein Wert protokolliert. Schließlich wird der zugängliche String zurückgegeben, der durch Iterieren über die zurückgegebenen Elemente und Verketten ihrer inneren Texte berechnet wird.
+Der untenstehende Code protokolliert zuerst den Wert des `aria-describedby`-Attributs von [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute) (ein String, der die `id`-Werte der referenzierten Elemente auflistet). Anschließend wird überprüft, ob `ariaDescribedByElements` unterstützt wird, und falls ja, wird dessen Wert protokolliert. Schließlich wird die barrierefreie Zeichenkette zurückgegeben, die durch Iterieren durch die zurückgegebenen Elemente und das Verbinden ihres inneren Textes berechnet wird.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -97,7 +95,7 @@ if ("ariaDescribedByElements" in Element.prototype) {
 
 #### Ergebnis
 
-Das folgende Protokoll zeigt die ursprünglichen Elementreferenzen, die zugeordneten/zurückgegebenen Elemente und die zugängliche Beschreibung.
+Das untenstehende Protokoll zeigt die ursprünglichen Elementreferenzen, die zugewiesenen/zurückgegebenen Elemente und die barrierefreie Beschreibung.
 
 {{EmbedLiveSample("Get the accessible description","100%","150px")}}
 
@@ -113,4 +111,4 @@ Das folgende Protokoll zeigt die ursprünglichen Elementreferenzen, die zugeordn
 
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Attribut
 - [`ElementInternals.ariaDescribedByElements`](/de/docs/Web/API/ElementInternals/ariaDescribedByElements)
-- [Reflected element references](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attribute reflection_-Leitfaden
+- [Reflektierte Elementreferenzen](/de/docs/Web/API/Document_Object_Model/Reflected_attributes#reflected_element_references) im _Attributreflexion_-Leitfaden

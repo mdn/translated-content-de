@@ -3,18 +3,18 @@ title: "Window: postMessage() Methode"
 short-title: postMessage()
 slug: Web/API/Window/postMessage
 l10n:
-  sourceCommit: ff81a4e4cb740060aca2df256ce2e07d1e2c0b4e
+  sourceCommit: 6030ef1aadf967b80e2c79c3d3463cccc8ea0c95
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`window.postMessage()`** Methode ermöglicht eine sichere Kommunikation zwischen verschiedenen Ursprüngen von [`Window`](/de/docs/Web/API/Window) Objekten; z. B. zwischen einer Seite und einem Popup, das sie geöffnet hat, oder zwischen einer Seite und einem eingebetteten iframe.
+Die **`window.postMessage()`**-Methode ermöglicht eine sichere Kommunikation zwischen [`Window`](/de/docs/Web/API/Window)-Objekten mit unterschiedlichen Ursprüngen; z.B. zwischen einer Seite und einem von ihr geöffneten Pop-up oder zwischen einer Seite und einem in sie eingebetteten iframe.
 
-Normalerweise ist es Skripten auf verschiedenen Seiten nur dann gestattet, aufeinander zuzugreifen, wenn die Seiten denselben [Ursprung](/de/docs/Web/API/Location/origin) (bekannt als "[Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)") teilen. `window.postMessage()` bietet einen kontrollierten Mechanismus, um diese Einschränkung sicher zu umgehen (wenn es richtig verwendet wird).
+Normalerweise dürfen Skripte auf unterschiedlichen Seiten nur dann aufeinander zugreifen, wenn die Seiten den gleichen [Ursprung](/de/docs/Web/API/Location/origin) teilen (auch bekannt als die "[Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)"). `window.postMessage()` bietet einen kontrollierten Mechanismus, um diese Einschränkung sicher zu umgehen (wenn es ordnungsgemäß verwendet wird).
 
-Darüber hinaus muss ein zugreifendes Skript das Fensterobjekt des aufgerufenen Dokuments vorher erhalten haben. Dies kann durch Methoden wie [`window.open()`](/de/docs/Web/API/Window/open) für Pop-ups oder [`iframe.contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) für iframes geschehen.
+Darüber hinaus muss ein zugreifendes Skript das Fensterobjekt des zuzugreifenden Dokuments zuvor erhalten haben. Dies kann durch Methoden wie [`window.open()`](/de/docs/Web/API/Window/open) für Pop-ups oder [`iframe.contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) für iframes geschehen.
 
-Allgemein kann ein Fenster eine Referenz zu einem anderen erhalten (z. B. via `targetWindow = window.opener`) und dann ein [`MessageEvent`](/de/docs/Web/API/MessageEvent) mit `targetWindow.postMessage()` auf es schicken. Das empfangende Fenster kann dann [dieses Ereignis behandeln](/de/docs/Web/API/Document_Object_Model/Events#registering_event_handlers), wie es benötigt wird. Die an `window.postMessage()` übergebenen Argumente (d.h. die "Nachricht") werden [dem empfangenden Fenster über das Ereignisobjekt zugänglich gemacht](#das_gesendete_ereignis).
+Im Allgemeinen kann ein Fenster eine Referenz zu einem anderen erhalten (z.B. über `targetWindow = window.opener`) und dann ein [`MessageEvent`](/de/docs/Web/API/MessageEvent) darauf mit `targetWindow.postMessage()` senden. Das empfangende Fenster kann dann [dieses Ereignis nach Bedarf behandeln](/de/docs/Web/API/Document_Object_Model/Events#registering_event_handlers). Die an `window.postMessage()` übergebenen Argumente (d.h. die "Nachricht") [werden dem empfangenden Fenster durch das Ereignisobjekt zugänglich gemacht](#das_gesendete_ereignis).
 
 ## Syntax
 
@@ -29,21 +29,21 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Daten, die an das andere Fenster gesendet werden sollen. Die Daten werden mit dem [Structured Clone Algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, dass Sie eine Vielzahl von Datenobjekten sicher an das Ziel-Fenster übergeben können, ohne sie selbst serialisieren zu müssen.
+  - : Daten, die an das andere Fenster gesendet werden sollen. Die Daten werden mit dem [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, dass Sie eine breite Palette von Datenobjekten sicher an das Ziel-Fenster übergeben können, ohne sie selbst serialisieren zu müssen.
 - `targetOrigin` {{optional_Inline}}
-  - : Gibt den {{Glossary("Origin", "Ursprung")}} an, den das empfangende Fenster haben muss, um das Ereignis zu erhalten. Damit das Ereignis gesendet werden kann, muss der Ursprung genau übereinstimmen (einschließlich Schema, Hostname und Port). Wenn er weggelassen wird, ist standardmäßig `"/"` der Ursprung, der die Methode aufruft. Dieser Mechanismus bietet Kontrolle darüber, wohin Nachrichten gesendet werden; z. B. wäre es absolut kritisch, dass dieses Argument eine URI ist, deren Ursprung mit dem des beabsichtigten Empfängers der Nachricht übereinstimmt, um zu verhindern, dass ein bösartiger Dritter das Passwort abfängt. `*` kann auch angegeben werden, was bedeutet, dass die Nachricht an einen Listener mit beliebigem Ursprung gesendet werden kann.
+  - : Gibt den {{Glossary("Origin", "Ursprung")}} an, den das empfangende Fenster haben muss, um das Ereignis zu empfangen. Damit das Ereignis gesendet wird, muss der Ursprung genau übereinstimmen (einschließlich Schema, Hostname und Port). Wenn dieser Parameter weggelassen wird, ist `"/"` der Standardwert, was dem Ursprung des aufrufenden Fensters entspricht. Dieser Mechanismus bietet Kontrolle darüber, wohin Nachrichten gesendet werden; zum Beispiel ist es absolut entscheidend, dass, wenn `postMessage()` verwendet wurde, um ein Passwort zu übermitteln, dieses Argument eine URI ist, deren Ursprung derselbe ist wie der des beabsichtigten Empfängers der Nachricht, um zu verhindern, dass das Passwort von einer bösartigen dritten Partei abgefangen wird. Es kann auch `*` angegeben werden, was bedeutet, dass die Nachricht an einen Listener mit einem beliebigen Ursprung gesendet werden kann.
     > [!NOTE]
-    > Geben Sie immer einen spezifischen `targetOrigin` an, nicht `*`, wenn Sie wissen, wo sich das Dokument des anderen Fensters befinden sollte. Wenn Sie keinen spezifischen Zielort angeben, könnten Daten an eine bösartige Website offengelegt werden.
+    > Geben Sie immer einen spezifischen `targetOrigin` an, nicht `*`, wenn Sie wissen, wo sich das Dokument des anderen Fensters befinden soll. Das Versäumnis, einen spezifischen Zielort anzugeben, könnte Daten an eine bösartige Seite preisgeben.
     >
-    > Da [`data:`](/de/docs/Web/URI/Reference/Schemes/data) URLs undurchsichtige Ursprünge haben, müssen Sie `"*"` angeben, um Nachrichten an einen Kontext mit einer `data:` URL zu senden.
+    > Da [`data:`](/de/docs/Web/URI/Reference/Schemes/data)-URLs undurchsichtige Ursprünge haben, müssen Sie `"*"` angeben, um Nachrichten an einen Kontext mit einer `data:`-URL zu senden.
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentum übertragen werden soll. Das Eigentum dieser Objekte wird an die Zielseite übergeben und sie sind auf der sendenden Seite nicht mehr verwendbar. Diese übertragbaren Objekte werden nicht automatisch gesendet; sie müssen entweder in der Nachricht enthalten sein oder dem Empfänger auf andere Weise zugänglich gemacht werden, wie z. B. durch [`MessagePort`](/de/docs/Web/API/MessagePort) über [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports).
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [transferierbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Besitz übertragen werden soll. Der Besitz dieser Objekte wird an die Zielseite übertragen und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese transferierbaren Objekte werden nicht automatisch gesendet; sie müssen entweder in der Nachricht enthalten sein oder durch andere Mittel, wie z.B. [`MessagePort`](/de/docs/Web/API/MessagePort) über [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports), für den Empfänger zugänglich sein.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `transfer` {{optional_inline}}
-      - : Hat die gleiche Bedeutung wie der `transfer` Parameter.
+      - : Hat die gleiche Bedeutung wie der `transfer`-Parameter.
     - `targetOrigin` {{optional_inline}}
-      - : Hat die gleiche Bedeutung wie der `targetOrigin` Parameter.
+      - : Hat die gleiche Bedeutung wie der `targetOrigin`-Parameter.
 
 ### Rückgabewert
 
@@ -51,7 +51,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Das gesendete Ereignis
 
-Ein `window` kann nach versendeten Nachrichten lauschen, indem das folgende JavaScript ausgeführt wird:
+Ein `window` kann für gesendete Nachrichten lauschen, indem es folgendes JavaScript ausführt:
 
 ```js
 window.addEventListener("message", (event) => {
@@ -64,33 +64,33 @@ window.addEventListener("message", (event) => {
 Die Eigenschaften der gesendeten Nachricht sind:
 
 - `data`
-  - : Das Objekt, das vom anderen Fenster übergeben wird.
+  - : Das Objekt, das von dem anderen Fenster übergeben wurde.
 - `origin`
-  - : Der {{Glossary("origin", "Ursprung")}} des Fensters, das die Nachricht gesendet hat, zum Zeitpunkt des Aufrufs von `postMessage`. Dieser String ist die Verkettung des Protokolls und "://", des Hostnamens, falls einer vorhanden ist, und ":" gefolgt von einer Portnummer, falls ein Port vorhanden ist und sich vom Standardport für das gegebene Protokoll unterscheidet. Beispiele für typische Ursprünge sind `https://example.org` (was auf Port `443` hinweist), `http://example.net` (was auf Port `80` hinweist) und `http://example.com:8080`. Beachten Sie, dass dieser Ursprung _nicht_ garantiert der aktuelle oder zukünftige Ursprung dieses Fensters ist, das möglicherweise zu einem anderen Ort navigiert wurde, seit `postMessage` aufgerufen wurde.
+  - : Der {{Glossary("origin", "Ursprung")}} des Fensters, das die Nachricht gesendet hat, zu dem Zeitpunkt, als `postMessage` aufgerufen wurde. Dieser String ist die Verkettung des Protokolls und "://", des Hostnamens, falls einer existiert, und ":" gefolgt von einer Portnummer, falls ein Port vorhanden ist und dieser vom Standardport für das gegebene Protokoll abweicht. Typische Ursprünge sind `https://example.org` (impliziert Port `443`), `http://example.net` (impliziert Port `80`) und `http://example.com:8080`. Beachten Sie, dass dieser Ursprung _nicht_ garantiert der aktuelle oder zukünftige Ursprung dieses Fensters ist, welches möglicherweise zu einem anderen Ort navigiert wurde, seit `postMessage` aufgerufen wurde.
 - `source`
-  - : Eine Referenz auf das [`window`](/de/docs/Web/API/Window) Objekt, das die Nachricht gesendet hat; Sie können dies nutzen, um eine Zwei-Wege-Kommunikation zwischen zwei Fenstern mit verschiedenen Ursprüngen herzustellen.
+  - : Eine Referenz zum [`window`](/de/docs/Web/API/Window)-Objekt, das die Nachricht gesendet hat; Sie können dies verwenden, um eine zweiseitige Kommunikation zwischen zwei Fenstern mit unterschiedlichen Ursprüngen herzustellen.
 
 ## Sicherheitsbedenken
 
-**Wenn Sie nicht erwarten, Nachrichten von anderen Websites zu erhalten, fügen Sie _keine_ Event Listener für `message` Ereignisse hinzu.** Dies ist eine völlig narrensichere Methode, um Sicherheitsprobleme zu vermeiden.
+**Wenn Sie nicht erwarten, Nachrichten von anderen Seiten zu empfangen, _fügen Sie keine_ Ereignis-Listener für `message`-Ereignisse hinzu.** Dies ist ein völlig narrensicherer Weg, um Sicherheitsprobleme zu vermeiden.
 
-Wenn Sie erwarten, Nachrichten von anderen Websites zu erhalten, **verifizieren Sie immer die Identität des Absenders** mithilfe der `origin` und möglicherweise `source` Eigenschaften. Jedes Fenster (einschließlich, zum Beispiel, `http://evil.example.com`) kann eine Nachricht an ein anderes Fenster innerhalb der iframe-Hierarchie vom obersten bis zu jedem darunter liegenden iframe des aktuellen Dokuments senden. Auch wenn Sie die Identität überprüft haben, **sollten Sie immer die Syntax der empfangenen Nachricht verifizieren**. Andernfalls könnte ein Sicherheitsloch in der Website, der Sie vertrauten, um nur vertrauenswürdige Nachrichten zu senden, ein Cross-Site-Scripting-Loch in Ihrer Website öffnen.
+Wenn Sie erwarten, Nachrichten von anderen Seiten zu empfangen, **verifizieren Sie immer die Identität des Absenders** mit den Eigenschaften `origin` und möglicherweise `source`. Jedes Fenster (einschließlich z.B. `http://evil.example.com`) kann eine Nachricht an jedes andere Fenster innerhalb der iframe-Hierarchie vom obersten Fenster bis zu jedem darunterliegenden iframe des aktuellen Dokuments senden. Nachdem Sie die Identität überprüft haben, sollten Sie trotzdem **immer die Syntax der empfangenen Nachricht überprüfen**. Andernfalls könnte ein Sicherheitsloch auf der Seite, die Sie vertraut haben, um nur vertrauenswürdige Nachrichten zu senden, ein Cross-Site-Scripting-Problem auf Ihrer Seite öffnen.
 
-**Geben Sie immer einen genauen Zielursprung an, nicht `*`, wenn Sie `postMessage` verwenden, um Daten an andere Fenster zu senden.** Eine bösartige Website kann ohne Ihr Wissen den Ort des Fensters ändern und somit die Daten abfangen, die mit `postMessage` gesendet wurden.
+**Geben Sie immer einen genauen Zielursprung an, nicht `*`, wenn Sie `postMessage` verwenden, um Daten an andere Fenster zu senden.** Eine bösartige Seite kann den Ort des Fensters ohne Ihr Wissen ändern und somit die mit `postMessage` gesendeten Daten abfangen.
 
 ### Sicheres Messaging mit gemeinsamem Speicher
 
-Wenn `postMessage()` bei der Verwendung von {{jsxref("SharedArrayBuffer")}} Objekten einen Fehler auslöst, müssen Sie möglicherweise sicherstellen, dass Ihre Website korrekt standortübergreifend isoliert wurde. Gemeinsam genutzter Speicher ist hinter zwei HTTP-Headern geschützt:
+Wenn `postMessage()` einen Fehler auslöst, wenn es mit {{jsxref("SharedArrayBuffer")}}-Objekten verwendet wird, müssen Sie möglicherweise sicherstellen, dass Sie Ihre Seite ordnungsgemäß isoliert haben. Der gemeinsame Speicher wird durch zwei HTTP-Header geregelt:
 
-- {{HTTPHeader("Cross-Origin-Opener-Policy")}} mit `same-origin` als Wert (schützt Ihre Ursprünge vor Angreifern)
-- {{HTTPHeader("Cross-Origin-Embedder-Policy")}} mit `require-corp` oder `credentialless` als Wert (schützt Opfer vor Ihren Ursprüngen)
+- {{HTTPHeader("Cross-Origin-Opener-Policy")}} mit dem Wert `same-origin` (schützt Ihren Ursprung vor Angreifern)
+- {{HTTPHeader("Cross-Origin-Embedder-Policy")}} mit dem Wert `require-corp` oder `credentialless` (schützt Opfer vor Ihrem Ursprung)
 
 ```http
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Um zu überprüfen, ob die standortübergreifende Isolation erfolgreich war, können Sie die [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) Eigenschaft testen, die in Fenster- und Worker-Kontexten verfügbar ist:
+Um zu überprüfen, ob die Cross-Origin-Isolation erfolgreich war, können Sie die [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated)-Eigenschaft testen, die in Fenster- und Arbeiterkontexten verfügbar ist:
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -159,29 +159,29 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-### Anmerkungen
+### Hinweise
 
-Jedes Skript in einem Dokument in einem Fenster kann anfordern, eine Nachricht an ein Dokument in einem anderen Fenster zu senden, dessen Fensterobjekt es erhalten hat, indem es `.postMessage()` auf diesem Fensterobjekt aufruft. Folglich muss jeder Event Listener, der verwendet wird, um Nachrichten zu empfangen, **zuerst die Identität des Absenders der Nachricht überprüfen**, indem die `origin` und möglicherweise `source` Eigenschaften verwendet werden. Dies kann nicht genug betont werden: **Das Versäumnis, die `origin` und möglicherweise `source` Eigenschaften zu überprüfen, ermöglicht Cross-Site-Scripting-Angriffe.**
+Jedes Skript in einem Dokument in einem Fenster kann anfordern, dass eine Nachricht an ein Dokument in einem anderen Fenster gesendet wird, dessen Fensterobjekt es erhalten hat, indem es `.postMessage()` auf dieses Fensterobjekt aufruft. Folglich **muss** jeder Ereignis-Listener, der zum Empfangen von Nachrichten verwendet wird, zuerst die Identität des Absenders der Nachricht mit den Eigenschaften `origin` und möglicherweise `source` überprüfen. Dies kann nicht oft genug betont werden: **Die Nichtüberprüfung der `origin`- und möglicherweise `source`-Eigenschaften ermöglicht Cross-Site-Scripting-Angriffe.**
 
-Wie bei jedem asynchron versendeten Skript (Timeouts, benutzererzeugte Ereignisse) ist es für den Aufrufer von `postMessage` nicht möglich zu erkennen, wann ein Ereignishandler, der Ereignisse von `postMessage` abhört, eine Ausnahme auslöst.
+Wie bei jedem asynchron gesendeten Skript (Timeouts, vom Benutzer generierte Ereignisse) ist es für den Aufrufer von `postMessage` nicht möglich zu erkennen, wenn ein Ereignis-Handler, der auf von `postMessage` gesendete Ereignisse lauscht, eine Ausnahme auslöst.
 
-Nachdem `postMessage()` aufgerufen wurde, wird das [`MessageEvent`](/de/docs/Web/API/MessageEvent) _erst nach_ Abschluss aller noch ausstehenden Ausführungskontexte gesendet. Zum Beispiel, wenn `postMessage()` in einem Ereignishandler aufgerufen wird, wird dieser Ereignishandler vollständig ausgeführt, ebenso wie alle verbleibenden Handler für dasselbe Ereignis, bevor das [`MessageEvent`](/de/docs/Web/API/MessageEvent) gesendet wird.
+Nachdem `postMessage()` aufgerufen wurde, wird das [`MessageEvent`](/de/docs/Web/API/MessageEvent) _erst nach Abschluss aller ausstehenden Ausführungskontexte_ gesendet. Wenn `postMessage()` beispielsweise in einem Ereignis-Handler aufgerufen wird, wird dieser Ereignis-Handler vollständig ausgeführt, ebenso alle verbleibenden Handler für dasselbe Ereignis, bevor das [`MessageEvent`](/de/docs/Web/API/MessageEvent) gesendet wird.
 
-Der Wert der `origin` Eigenschaft des gesendeten Ereignisses wird nicht durch den aktuellen Wert von `document.domain` im aufrufenden Fenster beeinflusst.
+Der Wert der `origin`-Eigenschaft des gesendeten Ereignisses wird nicht durch den aktuellen Wert von `document.domain` im aufrufenden Fenster beeinflusst.
 
-Für IDN-Hostnamen ist der Wert der `origin` Eigenschaft nicht durchgängig Unicode oder Punycode; um die größtmögliche Kompatibilität zu gewährleisten, überprüfen Sie sowohl die IDN- als auch die Punycode-Werte, wenn Sie diese Eigenschaft verwenden, falls Sie Nachrichten von IDN-Websites erwarten. Dieser Wert wird schließlich konsistent IDN sein, aber vorerst sollten Sie sowohl IDN- als auch Punycode-Formen behandeln.
+Für IDN-Hostnamen ist der Wert der `origin`-Eigenschaft nicht konsistent Unicode oder Punycode; für beste Kompatibilität prüfen Sie sowohl für die IDN- als auch die Punycode-Werte, wenn Sie diese Eigenschaft verwenden und Nachrichten von IDN-Sites erwarten. Dieser Wert wird schließlich durchgehend IDN sein, aber für jetzt sollten Sie sowohl IDN- als auch Punycode-Formen berücksichtigen.
 
-Der Wert der `origin` Eigenschaft, wenn das sendende Fenster eine [`javascript:`](/de/docs/Web/URI/Reference/Schemes/javascript) oder [`data:`](/de/docs/Web/URI/Reference/Schemes/data) URL enthält, ist der Ursprung des Skripts, das die URL geladen hat.
+Der Wert der `origin`-Eigenschaft, wenn das sendende Fenster eine [`javascript:`](/de/docs/Web/URI/Reference/Schemes/javascript)- oder [`data:`](/de/docs/Web/URI/Reference/Schemes/data)-URL enthält, ist der Ursprung des Skripts, das die URL geladen hat.
 
 ### Verwendung von window\.postMessage in Erweiterungen {{Non-standard_inline}}
 
-`window.postMessage` ist für in Chrome Code ausgeführtes JavaScript verfügbar (z. B. in Erweiterungen und privilegiertem Code), aber die `source` Eigenschaft des gesendeten Ereignisses ist immer `null` als Sicherheitsbeschränkung. (Die anderen Eigenschaften haben ihre erwarteten Werte.)
+`window.postMessage` ist für JavaScript, das im Chrome-Code läuft (z.B. in Erweiterungen und privilegiertem Code), verfügbar, aber die `source`-Eigenschaft des gesendeten Ereignisses ist aus Sicherheitsgründen immer `null`. (Die anderen Eigenschaften haben ihre erwarteten Werte.)
 
-Es ist nicht möglich, dass Skripte aus dem Inhalt oder dem Web-Kontext einen `targetOrigin` angeben, um direkt mit einer Erweiterung zu kommunizieren (entweder mit dem Hintergrundskript oder einem Inhaltsskript). Web- oder Inhaltsskripte _können_ `window.postMessage` mit einem `targetOrigin` von `"*"` verwenden, um an jeden Listener zu senden, aber dies wird nicht empfohlen, da eine Erweiterung nicht sicher sein kann, welchen Ursprung solche Nachrichten haben, und andere Hörer (einschließlich solcher, die Sie nicht kontrollieren) mithören können.
+Es ist nicht möglich, dass Inhalts- oder Webkontextscripte einen `targetOrigin` angeben, um direkt mit einer Erweiterung (entweder das Hintergrundskript oder ein Inhaltsskript) zu kommunizieren. Web- oder Inhaltskripts können `window.postMessage` mit einem `targetOrigin` von `"*"` verwenden, um an jeden Hörer zu senden, aber dies wird nicht empfohlen, da eine Erweiterung den Ursprung solcher Nachrichten nicht eindeutig feststellen kann und andere Hörer (einschließlich solcher, die Sie nicht kontrollieren) mitlesen können.
 
-Inhaltsskripte sollten {{WebExtAPIRef("runtime.sendMessage")}} verwenden, um mit dem Hintergrundskript zu kommunizieren. Web-Kontext-Skripte können benutzerdefinierte Ereignisse verwenden, um mit Inhaltsskripten zu kommunizieren (mit zufällig generierten Ereignisnamen, falls nötig, um Abhören durch die Gastseite zu verhindern).
+Inhaltsskripts sollten {{WebExtAPIRef("runtime.sendMessage")}} verwenden, um mit dem Hintergrundskript zu kommunizieren. Webkontextskripte können benutzerdefinierte Ereignisse verwenden, um mit Inhaltsskripten zu kommunizieren (mit zufällig generierten Ereignisnamen, falls erforderlich, um das Ausspionieren durch die Gastseite zu verhindern).
 
-Schließlich erfordert die Übertragung einer Nachricht an eine Seite mit einer `file:` URL derzeit, dass das `targetOrigin` Argument `"*"` ist. `file://` kann nicht als Sicherheitsbeschränkung verwendet werden; diese Beschränkung könnte in Zukunft geändert werden.
+Abschließend erfordert das Senden einer Nachricht an eine Seite mit einer `file:` URL derzeit, dass das Argument `targetOrigin` `"*"` ist. `file://` kann nicht als Sicherheitsbeschränkung verwendet werden; diese Beschränkung kann in Zukunft geändert werden.
 
 ## Spezifikationen
 
@@ -195,4 +195,4 @@ Schließlich erfordert die Übertragung einer Nachricht an eine Seite mit einer 
 
 - [`Document.domain`](/de/docs/Web/API/Document/domain)
 - [`CustomEvent`](/de/docs/Web/API/CustomEvent)
-- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) - Für Kommunikationen innerhalb desselben Ursprungs.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) - Für die Kommunikation innerhalb desselben Ursprungs.
