@@ -3,7 +3,7 @@ title: Map.prototype.size
 short-title: size
 slug: Web/JavaScript/Reference/Global_Objects/Map/size
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
 ---
 
 Die **`size`** Zugriffs-Eigenschaft von {{jsxref("Map")}} Instanzen gibt die Anzahl der Elemente in dieser Map zurück.
@@ -23,7 +23,7 @@ console.log(map.size);
 
 ## Beschreibung
 
-Der Wert von `size` ist eine ganze Zahl, die angibt, wie viele Einträge das `Map` Objekt besitzt. Eine set-Zugriffsfunktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
+Der Wert von `size` ist eine ganze Zahl, die angibt, wie viele Einträge das `Map`-Objekt hat. Eine Set-Accessor-Funktion für `size` ist `undefined`; Sie können diese Eigenschaft nicht ändern.
 
 ## Beispiele
 

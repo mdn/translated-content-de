@@ -3,54 +3,54 @@ title: "ARIA: tooltip-Rolle"
 short-title: tooltip
 slug: Web/Accessibility/ARIA/Reference/Roles/tooltip_role
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
 ---
 
-Ein `tooltip` ist ein kontextbezogenes Textfeld, das eine Beschreibung eines Elements anzeigt, die bei Zeigerhover oder Tastaturfokus erscheint.
+Ein `tooltip` ist eine kontextuelle Textblase, die eine Beschreibung für ein Element anzeigt, die beim Überfahren mit dem Mauszeiger oder beim Fokussieren mit der Tastatur erscheint.
 
 ## Beschreibung
 
-Tooltips bieten kontextbezogene Informationen über ein Element, wenn dieses Element den Fokus erhält oder darübergefahren wird, sind aber ansonsten nicht sichtbar auf der Seite. Der Tooltip wird automatisch nach einer kurzen Verzögerung angezeigt; der Benutzer fordert ihn nicht an. Während ein Tooltip auf jedem Inhalt platziert werden kann, sind sie im Allgemeinen Tipps für Werkzeuge oder Steuerungen, wie das Anbieten zusätzlicher Inhalte für Symbole, die kurze Beschriftungen haben (oder gar keine Beschriftungen, was nicht zugänglich ist!).
+Tooltips bieten kontextuelle Informationen über ein Element, wenn das besitzende Element fokussiert wird oder wenn es mit der Maus überfahren wird. Sie sind ansonsten nicht auf der Seite sichtbar. Der Tooltip wird automatisch nach einer kurzen Verzögerung angezeigt; der Benutzer fordert ihn nicht an. Auch wenn ein Tooltip an jedem beliebigen Inhalt platziert werden kann, handelt es sich in der Regel um Tipps für Werkzeuge oder Bedienelemente, die zusätzlichen Inhalt für Symbole liefern, die kurze oder keine Beschriftungen haben (was nicht barrierefrei ist!).
 
-Ein Tooltip wird typischerweise nach einer kurzen Verzögerung von in der Regel ein bis fünf Sekunden in Reaktion auf einen Maushover sichtbar oder nachdem das Eigentümer-Element den Tastaturfokus erhält. Ebenso wie er automatisch geöffnet wird, ohne Benutzeranforderung, wird er automatisch geschlossen, wenn der Fokus verloren geht oder die Maus herausgeht. Er muss offen bleiben, wenn die Maus sich über den Tooltip selbst bewegt, und sollte auch schließen, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt.
+Ein Tooltip wird typischerweise sichtbar, nachdem eine kurze Verzögerung von in der Regel einer bis fünf Sekunden vergangen ist, als Reaktion auf einen Mausüberflug oder wenn das besitzende Element den Tastaturfokus erhält. Genau wie er automatisch, ohne Benutzeranforderung geöffnet wird, wird er automatisch geschlossen, wenn der Fokus verloren geht oder bei Mausaus. Er muss geöffnet bleiben, wenn die Maus über den Tooltip selbst bewegt wird, und sollte auch geschlossen werden, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt.
 
-Da der Tooltip selbst niemals den Fokus erhält und nicht in der Tabreihenfolge enthalten ist, kann ein Tooltip keine interaktiven Elemente wie Links, Eingaben oder Schaltflächen enthalten.
+Da der Tooltip selbst nie den Fokus erhält und nicht in der Tab-Reihenfolge ist, kann ein Tooltip keine interaktiven Elemente wie Links, Eingaben oder Schaltflächen enthalten.
 
-Der Tooltip ist nicht die geeignete Rolle für das "i für mehr Informationen"-Symbol, ⓘ. Ein Tooltip ist direkt mit dem Eigentümer-Element verbunden. Das ⓘ wird nicht von detaillierten Informationen "beschrieben"; das Werkzeug oder die Steuerung wird es.
+Der Tooltip ist nicht die geeignete Rolle für das Mehr-Informationen-„i“-Symbol, ⓘ. Ein Tooltip ist direkt mit dem besitzenden Element verbunden. Das ⓘ wird nicht von detaillierten Informationen 'beschrieben'; das Werkzeug oder die Steuerung ist es.
 
-Die Verwendung der ARIA `tooltip`-Rolle ist eine Ergänzung zum normalen Browser-Tooltip-Verhalten. Ein Beispiel für einen nativen Browser-Tooltip ist die Art und Weise, wie einige Browser das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) eines Elements bei langem Maushover anzeigen. Diese Funktion kann weder durch Tastaturfokus noch durch Touch-Interaktion aktiviert werden, was diese Funktion unzugänglich macht. Wenn die Information wichtig genug ist, um als Tooltip oder Titel eingeschlossen zu werden, ziehen Sie in Betracht, sie als sichtbaren Text einzubinden.
+Der Einsatz der ARIA-`tooltip`-Rolle ergänzt das normale Tooltip-Verhalten des Browsers. Ein Beispiel für einen nativen Browser-Tooltip ist die Art und Weise, wie einige Browser das [`title`-Attribut](/de/docs/Web/HTML/Reference/Global_attributes/title) eines Elements bei langem Mausüberflug anzeigen. Diese Funktion kann weder durch Tastaturfokus noch durch Berührungsinteraktion aktiviert werden, wodurch diese Funktion unzugänglich wird. Wenn die Information wichtig genug ist, um sie als Tooltip oder Titel einzuschließen, sollte sie in sichtbarem Text enthalten sein.
 
-Elemente mit der `tooltip`-Rolle sollten durch die Verwendung von [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) referenziert werden, bevor oder wenn der Tooltip angezeigt wird. Das `aria-describedby`-Attribut befindet sich auf dem Eigentümer-Element, nicht auf dem Tooltip.
+Elemente mit der `tooltip`-Rolle sollten vor oder wenn der Tooltip angezeigt wird, durch die Verwendung von [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) referenziert werden. Das `aria-describedby`-Attribut befindet sich auf dem besitzenden Element, nicht auf dem Tooltip.
 
-Der Tooltip wird nicht als Popup im Sinne der [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Eigenschaft auf dem Eigentümer-Element angesehen, weshalb wir in der einleitenden Definition "Textfeld" verwendet haben.
+Der Tooltip wird in Bezug auf die [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Eigenschaft auf dem besitzenden Element nicht als Popup angesehen, weshalb wir im einleitenden Abschnitt den Begriff "Textblase" verwendet haben.
 
-Obwohl ein Tooltip erscheinen und verschwinden kann, da sein Erscheinen automatisch und nicht absichtlich vom Benutzer gesteuert wird, wird die [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Rolle nicht unterstützt.
+Obwohl ein Tooltip erscheinen und verschwinden kann, wird die [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Rolle nicht unterstützt, da sein Erscheinen automatisch und nicht absichtlich vom Benutzer gesteuert wird.
 
-Der zugängliche Name eines Tooltips kann aus den Inhalten kommen. Während sie theoretisch von einem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) kommen könnten, wird in den meisten Fällen die Verwendung von ARIA-Eigenschaften, um einem Tooltip einen zugänglichen Namen zu geben, nicht empfohlen.
+Der zugängliche Name eines Tooltips kann aus den Inhalten stammen. Während sie theoretisch von einem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) stammen könnten, wird in den meisten Fällen nicht empfohlen, ARIA-Eigenschaften zu verwenden, um einem Tooltip einen zugänglichen Namen zu geben.
 
-Tooltips bieten zusätzliche Informationen, in der Regel ohne direkte Interaktion mit dem Tooltip selbst. Sie sind im Allgemeinen mit dem Inhalt verbunden, den sie definieren, über ein [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) mit der `id` des primären Elements. Wenn der Tooltip also einen explizit festgelegten zugänglichen Namen hat, wird dieser Name als Beschreibung des primären Elements offenbart, statt des Inhalts des Tooltips, was bedeutet, dass der Tooltip-Inhalt von Benutzern von Bildschirmlesern möglicherweise niemals entdeckt wird.
+Tooltips bieten zusätzliche Informationen in der Regel ohne direkte Interaktion auf dem Tooltip selbst. Sie sind in der Regel mit dem Inhalt, den sie definieren, über ein [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) mit der `id` des primären Elements verbunden. Wenn der Tooltip also einen explizit gesetzten zugänglichen Namen hat, wird dieser Name als Beschreibung des primären Elements und nicht der Inhalt des Tooltips offengelegt, was bedeutet, dass die Tooltip-Inhalte von einem Screenreader-Benutzer möglicherweise nie entdeckt werden.
 
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - Das Element, das als Tooltip-Container dient, hat `role="tooltip"` gesetzt.
-- Das Element, das den Tooltip auslöst, verweist mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) auf das Tooltip-Element.
+- Das Element, das den Tooltip auslöst, referenziert das Tooltip-Element mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby).
 
 ### Tastaturinteraktionen
 
 - <kbd>Escape</kbd>
   - : Schließt den Tooltip
 
-Der Tooltip sollte bei Fokus oder wenn das Element überfahren wird, ohne zusätzliche Interaktion erscheinen. Er sollte automatisch verschwinden, wenn der Fokus auf dem Eigentümer-Element verloren geht oder die Maus außerhalb des Eigentümer-Elements und des Tooltips bewegt wird. Während der Tooltip den Fokus nicht erhält, sollte die <kbd>Escape</kbd>-Taste ihn schließen, wenn er offen ist.
+Der Tooltip sollte bei Fokus oder wenn das Element überfahren wird, ohne zusätzliche Interaktion erscheinen. Er sollte automatisch verschwinden, wenn der Fokus auf das besitzende Element verloren geht oder die Maus aus dem Bereich des besitzenden Elements und des Tooltips herausbewegt wird. Während der Tooltip keinen Fokus erhält, sollte er mit <kbd>Escape</kbd> geschlossen werden, wenn er geöffnet ist.
 
 ### Erforderliche JavaScript-Funktionen
 
-- Der Tooltip wird angezeigt und verschwindet durch Tastaturfokus und Entfernen des Fokus sowie durch die Mausereignisse - Überfahren mit der Maus und Herausbewegen der Maus.
+- Der Tooltip wird durch Tastaturfokus und Entfernung des Fokus sowie durch Mausereignisse - Überfahren mit der Maus und Herausgehen mit der Maus - angezeigt und verschwindet wieder.
 
-- Der Tooltip erhält niemals den Fokus. Der Fokus bleibt auf dem Eigentümer-Element.
+- Der Tooltip erhält nie den Fokus. Der Fokus bleibt auf dem besitzenden Element.
 
-- Der Tooltip kann mit der <kbd>Escape</kbd>-Taste ausgeblendet werden.
+- Der Tooltip kann mit der <kbd>Escape</kbd>-Taste verborgen werden
 
-- Der Tooltip bleibt offen, wenn er angefahren wird.
+- Der Tooltip bleibt offen, wenn man ihn überfährt
 
 - Der Tooltip wird nur über JavaScript und CSS-Selektoren verborgen. Wenn JavaScript nicht verfügbar ist, wird der Tooltip angezeigt.
 
@@ -72,7 +72,7 @@ Der Tooltip sollte bei Fokus oder wenn das Element überfahren wird, ohne zusät
 </div>
 ```
 
-Der Tooltip kann mit CSS instanziiert werden. Ändern Sie den Klassennamen mit JavaScript in eine Klasse, die den Tooltip ausblendet, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt.
+Der Tooltip kann mit CSS instanziiert werden. Ändern Sie den Klassennamen mit JavaScript in eine Klasse, die den Tooltip verbirgt, wenn der Benutzer die <kbd>Escape</kbd>-Taste drückt.
 
 ```css
 [role="tooltip"] {
@@ -102,17 +102,17 @@ Der Tooltip kann mit CSS instanziiert werden. Ändern Sie den Klassennamen mit J
 
 {{EmbedLiveSample("examples", "", 300)}}
 
-Das oben genannte blendet den Tooltip mit CSS im Standardzustand oder wenn die `hide-tooltip`-Klasse mit JavaScript hinzugefügt wurde (wenn der Benutzer <kbd>Escape</kbd> drückt), mit hoher Spezifizität aus, um sicherzustellen, dass der Tooltip nicht angezeigt wird. Wenn das Eigentümer-Element den Fokus erhält, wird es relativ positioniert und der Tooltip wird sichtbar. Wir halten den Tooltip sichtbar, wenn der Mauszeiger über den Tooltip fährt, was der [WCAG 1.4.13](#barrierefreiheitsaspekte) entspricht. Hier erlauben wir dem Cursor, sich von der Eingabe zum Tooltip zu bewegen, ohne dass letzterer verschwindet, indem wir 0,5 Sekunden dazwischen warten; es gibt andere Möglichkeiten, dies zu erreichen, wie das Füllen der Lücke mit einem transparenten Element, das den Tooltip sichtbar hält, wenn es angefahren wird.
+Das obige Beispiel verbirgt den Tooltip mit CSS im Standardzustand oder wenn die `hide-tooltip`-Klasse mit JavaScript hinzugefügt wurde (wenn der Benutzer <kbd>Escape</kbd> drückt), mit hoher Spezifität, um sicherzustellen, dass der Tooltip nicht angezeigt wird. Wenn das besitzende Element den Fokus erhält, wird es relativ positioniert und der Tooltip wird sichtbar. Wir halten den Tooltip sichtbar, wenn man über den Tooltip fährt, im Einklang mit [WCAG 1.4.13](#barrierefreiheit). Hier erlauben wir dem Cursor, sich vom Eingabefeld zum Tooltip zu bewegen, ohne dass Letzterer verschwindet, indem wir 0,5 s dazwischen warten; es gibt auch andere Möglichkeiten, dies zu erreichen, wie z.B. das Füllen der Lücke mit einem transparenten Element, das den Tooltip ebenfalls sichtbar hält, wenn man darüber fährt.
 
-## Barrierefreiheitsaspekte
+## Barrierefreiheit
 
-Wenn die Information wichtig genug ist für einen Tooltip, ist sie nicht wichtig genug, um immer sichtbar zu sein?
+Wenn die Information wichtig genug für einen Tooltip ist, ist sie dann nicht wichtig genug, um immer sichtbar zu sein?
 
-Der Tooltip muss offen bleiben, wenn er angefahren wird, auch wenn das technisch bedeutet, dass die Maus das Eigentümer-Element verlässt. Da Inhalte, die beim Hover erscheinen, schwer oder unmöglich zu sehen sein können, wenn ein Benutzer seinen Mauszeiger über dem Auslöser halten muss, besagt [WCAG 1.4.13](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background), dass sichtbargemachte Inhalte persistent sein sollten, das bedeutet, dass sie nicht ohne Benutzeraktion verschwinden sollten.
+Der Tooltip muss geöffnet bleiben, wenn man darüber fährt, selbst wenn das technisch bedeutet, dass die Maus das besitzende Element verlässt. Da Inhalte, die bei Hover erscheinen, schwer oder unmöglich wahrnehmbar sind, wenn ein Benutzer den Mauszeiger über dem Auslöser halten muss, sagt [WCAG 1.4.13](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background), dass sichtbar gemachte Inhalte persistent sein sollten, was bedeutet, dass sie nicht ohne Benutzerinteraktion verschwinden sollten.
 
-## Beste Praktiken
+## Best Practices
 
-Anstatt Tooltips zu verwenden und wichtige Informationen zu verbergen, ziehen Sie in Betracht, klare, prägnante, immer sichtbare Beschreibungen zu schreiben. Wenn Sie Platz haben, verwenden Sie keine Tooltips oder Toggles. Stellen Sie einfach klare Beschriftungen und ausreichenden Text bereit.
+Anstatt Tooltips zu verwenden und wichtige Informationen zu verstecken, sollten Sie klare, prägnante und immer sichtbare Beschreibungen schreiben. Wenn ausreichend Platz vorhanden ist, sollten Sie keine Tooltips oder Toggletips verwenden. Bieten Sie stattdessen klare Beschriftungen und genügend Fließtext.
 
 ## Spezifikationen
 
@@ -121,6 +121,6 @@ Anstatt Tooltips zu verwenden und wichtige Informationen zu verbergen, ziehen Si
 ## Siehe auch
 
 - [Die `dialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
-- [CSS: `:focus`-Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:focus)
+- [CSS: `:focus` Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:focus)
 - [Tooltips & Toggletips](https://inclusive-components.design/tooltips-toggletips/) von Heydon Pickering
-- [Verständnis von SC 1.4.13: Inhalt beim Hover oder Fokus (WCAG Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html)
+- [Understanding SC 1.4.13:Content on Hover or Focus (WCAG Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html)

@@ -3,14 +3,14 @@ title: "CookieStore: delete() Methode"
 short-title: delete()
 slug: Web/API/CookieStore/delete
 l10n:
-  sourceCommit: 5ef5a171a41dbcb48c953cc3c98c1237566796e9
+  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
 ---
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`delete()`** Methode des [`CookieStore`](/de/docs/Web/API/CookieStore) Interfaces löscht ein Cookie, das mit dem angegebenen `name` oder `options` Objekt übereinstimmt. Die Methode lässt das Cookie ablaufen, indem sie dessen Datum auf ein vergangenes ändert.
+Die **`delete()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle löscht ein Cookie, das dem angegebenen `name` oder `options`-Objekt entspricht. Die Methode setzt das Ablaufdatum des Cookies auf ein Datum in der Vergangenheit.
 
-Beachten Sie, dass es keinen Fehler gibt, wenn ein Cookie nicht gefunden werden kann: Das zurückgegebene Promise wird erfüllt, wenn das gefundene Cookie gelöscht wird oder wenn kein Cookie gefunden wird.
+Beachten Sie, dass es keinen Fehler gibt, wenn ein Cookie nicht gefunden werden kann: Das zurückgegebene Promise wird erfüllt, wenn das gefundene Cookie gelöscht wird oder kein Cookie gefunden wird.
 
 ## Syntax
 
@@ -29,38 +29,38 @@ Diese Methode erfordert eines der folgenden:
 Oder
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Folgendes enthält:
+  - : Ein Objekt, das enthält:
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `domain` {{Optional_Inline}}
-      - : Ein String mit der Domain eines Cookies. Standard ist `null`.
+      - : Ein String mit der Domain eines Cookies. Standardmäßig `null`.
     - `path` {{Optional_Inline}}
-      - : Ein String, der einen Pfad enthält. Standard ist `/`.
+      - : Ein String, der einen Pfad enthält. Standardmäßig `/`.
     - `partitioned` {{Optional_Inline}}
-      - : Ein Boolean-Wert, der standardmäßig auf `false` gesetzt ist. Wenn er auf `true` gesetzt wird, gibt er an, dass das zu löschende Cookie ein partitioniertes Cookie sein wird. Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies).
+      - : Ein Boolescher Wert, der standardmäßig `false` ist. Wenn er auf `true` gesetzt ist, gibt dies an, dass das zu löschende Cookie ein partitioniertes Cookie ist. Siehe [Cookies mit unabhängigem partitioniertem Status (CHIPS)](/de/docs/Web/Privacy/Guides/Third-party_cookies/Partitioned_cookies) für weitere Informationen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn der Löschvorgang abgeschlossen ist oder kein Cookie gefunden wird.
+Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, wenn die Löschoperation abgeschlossen ist oder kein Cookie gefunden wird.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn ein Cookie, das mit einem gegebenen `name` oder `options` übereinstimmt, nicht gelöscht werden kann.
+  - : Wird ausgelöst, wenn ein Cookie, das einem gegebenen `name` oder `options` entspricht, nicht gelöscht werden kann.
 
 ## Beispiele
 
-<!-- Die Beispiele funktionieren in der MDN-Umgebung aufgrund unbekannter Fehler nicht als Live-Beispiele -->
+<!-- Die Beispiele funktionieren nicht als Live-Beispiele in der MDN-Umgebung (aufgrund unbekannter Fehler) -->
 
 ### Löschen eines benannten Cookies
 
-Dieses Beispiel zeigt, wie ein Cookie gelöscht werden kann, indem sein Name an die `delete()` Methode übergeben wird.
+In diesem Beispiel wird gezeigt, wie ein Cookie durch Übergeben seines Namens an die `delete()`-Methode gelöscht werden kann.
 
-Dies funktioniert, wenn das zu löschende Cookie mit dem Cookie-Namen und den Standardwerten der oben genannten [`options`](#options) übereinstimmt. Dies ist der Fall, wenn das Cookie mit nur einem Namen und einem Wert [`set()`](/de/docs/Web/API/CookieStore/set) wurde, jedoch möglicherweise nicht, wenn das Cookie mit Optionen oder mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) erstellt wurde.
+Dies wird funktionieren, wenn das zu löschende Cookie dem Cookie-Namen und den oben beschriebenen Standardwerten der [`options`](#options) entspricht. Dies wird der Fall sein, wenn das Cookie mit [`set()`](/de/docs/Web/API/CookieStore/set) nur mit einem Namen und einem Wert gesetzt wurde, aber möglicherweise nicht, wenn das Cookie mit Optionen oder mit [`Document.cookie`](/de/docs/Web/API/Document/cookie) erstellt wurde.
 
-Der Code definiert zunächst `setTestCookies()`, das einige Test-Cookies erstellt und ihre Namen protokolliert.
+Der Code definiert zunächst `setTestCookies()`, das einige Test-Cookies erstellt und deren Namen protokolliert.
 
 ```js
 async function setTestCookies() {
@@ -111,13 +111,13 @@ async function cookieTest() {
 cookieTest();
 ```
 
-Wenn ausgeführt, sollte das Konsolenprotokoll zunächst zeigen, dass sowohl cookie1 als auch cookie2 vorhanden sind, aber cookie1 nach dem Löschen nicht mehr aufgeführt wird.
+Wenn das Programm ausgeführt wird, sollte das Konsolenprotokoll zunächst zeigen, dass sowohl cookie1 als auch cookie2 vorhanden sind, cookie1 jedoch nach dem Löschen nicht mehr aufgeführt ist.
 
 ### Löschen eines Cookies mit Optionen
 
 Dieses Beispiel ist fast identisch mit dem vorherigen, zeigt jedoch, dass die Optionen mit denen des zu löschenden Cookies übereinstimmen müssen.
 
-Der Code definiert zunächst `setTestCookies()`. Dies erstellt zwei Cookies mit der `partitioned` Eigenschaft, die auf `true` gesetzt ist, und protokolliert deren Namen.
+Der Code definiert zunächst `setTestCookies()`. Dies erstellt zwei Cookies mit der Eigenschaft `partitioned` auf `true` und protokolliert deren Namen.
 
 ```js
 async function setTestCookies() {
@@ -150,7 +150,7 @@ async function setTestCookies() {
 }
 ```
 
-Die Methode `cookieTest()` ruft `setTestCookies()` auf. Sie versucht dann, die Cookies mit dem Namen "cookie1" zu löschen, indem sie dessen Namen angibt, und "cookie2", indem sie dessen Namen und `partitioned: true` angibt. Die Methode listet dann die Cookie-Namen erneut auf.
+Die Methode `cookieTest()` ruft `setTestCookies()` auf. Sie versucht dann, die Cookies mit den Namen "cookie1", und "cookie2" zu löschen, wobei für letzteres `partitioned: true` angegeben wird. Anschließend listet die Methode die Cookie-Namen erneut auf.
 
 ```js
 async function cookieTest() {
@@ -186,19 +186,19 @@ async function cookieTest() {
 cookieTest();
 ```
 
-Wenn ausgeführt, sollte das Konsolenprotokoll zeigen, dass sowohl "cookie1" als auch "cookie2" anfangs vorhanden sind, aber "cookie2" danach nicht mehr aufgeführt wird. Das Cookie mit dem Namen "cookie1" ist immer noch vorhanden, da es nicht mit den in der `delete()`-Aufruf angegebenen Cookies übereinstimmt.
+Wenn das Programm ausgeführt wird, sollte das Konsolenprotokoll zeigen, dass sowohl "cookie1" als auch "cookie2" zunächst vorhanden sind, jedoch "cookie2" danach nicht mehr aufgeführt ist. Das Cookie mit dem Namen "cookie1" ist weiterhin vorhanden, da es nicht mit den in der `delete()`-Anfrage angegebenen Cookies übereinstimmt.
 
 > [!NOTE]
-> Das Löschen schlägt stillschweigend fehl, wenn kein Cookie übereinstimmt.
+> Das Löschen schlägt leise fehl, wenn kein Cookie gefunden wird.
 
 ### Löschen von Cookies, die mit document.cookies erstellt wurden
 
-Das Löschen eines Cookies, das mit [`document.cookie`](/de/docs/Web/API/Document/cookie) erstellt wurde, hat dieselben Anforderungen wie das Löschen eines Cookies, das mit [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set) erstellt wurde: Das Cookie muss entweder den übergebenen `options` oder dem `name` und den Standardoptionen entsprechen.
+Das Löschen eines Cookies, das mit [`document.cookie`](/de/docs/Web/API/Document/cookie) erstellt wurde, hat die gleichen Anforderungen wie das Löschen eines Cookies, das mit [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set) erstellt wurde: Das Cookie muss entweder den übergebenen `options` entsprechen oder den `name` und den Standardoptionen.
 
 > [!NOTE]
-> Mit `set()` erstellte Cookies haben immer einen [Standardpfad](/de/docs/Web/HTTP/Guides/Cookies#define_where_cookies_are_sent) von `/`, während mit `document.cookie` erstellte Cookies einen Standardpfad gleich dem Pfad des Dokuments haben, in dem sie erstellt werden. Daher können Sie beim Löschen von Cookies, die mit `document.cookie` erstellt wurden, nicht davon ausgehen, dass sie den Pfad `/` haben (es sei denn, er wurde ausdrücklich so festgelegt) und daher zu den Standardoptionen für das Löschen passen.
+> Cookies, die mit `set()` erstellt wurden, haben immer einen [Standardpfad](/de/docs/Web/HTTP/Guides/Cookies#define_where_cookies_are_sent) von `/`, während Cookies, die mit `document.cookie` erstellt wurden, einen Standardpfad haben, der dem Pfad des Dokuments entspricht, in dem sie erstellt wurden. Daher können Sie beim Löschen von Cookies, die mit `document.cookie` erstellt wurden, nicht davon ausgehen, dass sie den Pfad `/` haben (es sei denn, dieser wurde ausdrücklich so festgelegt) und daher den Standardoptionen von `delete()` entsprechen.
 
-Der folgende Code verwendet `document.cookie`, um Cookies mit den Namen "doc_cookie1" und "doc_cookie2" zu erstellen, mit den Pfaden `/some_path` bzw. `/`, und protokolliert dann beide Cookies. Der Code löscht dann beide Cookies, ohne eine `path`-Übereinstimmungsoption anzugeben, und listet die Cookies erneut auf.
+Der untenstehende Code verwendet `document.cookie`, um Cookies mit den Namen "doc_cookie1" und "doc_cookie2" zu erstellen, mit den Pfaden `/some_path` und `/` jeweils, und protokolliert dann beide Cookies. Anschließend löscht der Code die beiden Cookies, ohne eine `path`-Match-Option anzugeben, und listet die Cookies erneut auf.
 
 ```js
 async function cookieTest() {
@@ -242,7 +242,7 @@ async function cookieTest() {
 cookieTest();
 ```
 
-Wenn ausgeführt, sollte das erste Protokoll zeigen, dass beide Cookies vorhanden sind. Das zweite Protokoll sollte "doc_cookie2" nicht enthalten, da es gefunden und gelöscht worden sein sollte. Es sollte "doc_cookie1" enthalten, weil `/some_path` nicht mit dem Standardlöschpfad (`/`) übereinstimmen wird.
+Wenn das Programm ausgeführt wird, sollte das erste Protokoll zeigen, dass beide Cookies vorhanden sind. Das zweite Protokoll sollte "doc_cookie2" nicht mehr enthalten, da es übereingestimmt und gelöscht worden sein sollte. Es sollte "doc_cookie1" enthalten, weil `/some_path` nicht mit dem Standardlöschungspfad (`/`) übereinstimmt.
 
 ## Spezifikationen
 

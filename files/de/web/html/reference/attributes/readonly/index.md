@@ -1,12 +1,12 @@
 ---
-title: Attribut `readonly` in HTML
+title: "`readonly` HTML-Attribut"
 short-title: readonly
 slug: Web/HTML/Reference/Attributes/readonly
 l10n:
-  sourceCommit: b50ed7ac1c2ca21b4b5cfb594474a17da3f2e6c2
+  sourceCommit: c9f3d85f24d7839c9fe36a68d8042d088d906147
 ---
 
-Das Boolean-Attribut **`readonly`**, wenn vorhanden, macht das Element unveränderlich, was bedeutet, dass der Benutzer das Steuerelement nicht bearbeiten kann.
+Das Boolesche **`readonly`**-Attribut macht das Element, falls vorhanden, unveränderlich, was bedeutet, dass der Benutzer die Steuerung nicht bearbeiten kann.
 
 {{InteractiveExample("HTML Demo: readonly", "tabbed-shorter")}}
 
@@ -35,11 +35,11 @@ textarea:read-only {
 
 ## Überblick
 
-Wenn das `readonly`-Attribut auf einem Eingabeelement angegeben ist, nimmt das Element nicht an der Eingabewertüberprüfung teil, da der Benutzer das Eingabefeld nicht bearbeiten kann.
+Wenn das `readonly`-Attribut bei einem Eingabeelement angegeben ist, nimmt das Element aufgrund der Tatsache, dass der Benutzer die Eingabe nicht bearbeiten kann, nicht an der Beschränkungsvalidierung teil.
 
-Das `readonly`-Attribut wird von textbasierten Formularsteuerungen unterstützt, einschließlich:
+Das `readonly`-Attribut wird von textuellen Formular-Steuerelementen unterstützt, einschließlich:
 
-- {{HTMLElement("input")}}-Elemente vom Typ:
+- {{HTMLElement("input")}}-Elementen vom Typ:
   - `{{HTMLElement("input/text","text")}}`
   - `{{HTMLElement("input/search","search")}}`
   - `{{HTMLElement("input/tel","tel")}}`
@@ -67,26 +67,26 @@ Das Attribut ist für alle anderen Elemente, einschließlich {{HTMLElement("sele
 - `{{HTMLElement("input/reset","reset")}}`
 - `{{HTMLElement("input/button","button")}}`
 
-Eingaben, die das `readonly`-Attribut unterstützen, aber nicht gesetzt haben, entsprechen der Pseudo-Klasse {{cssxref(":read-write")}}. Alle anderen Elemente entsprechen der Pseudo-Klasse {{cssxref(":read-only")}}.
+Eingaben, die das `readonly`-Attribut unterstützen, bei denen das Attribut jedoch nicht gesetzt ist, entsprechen der {{cssxref(":read-write")}}-Pseudoklasse. Alle anderen Elemente entsprechen der {{cssxref(":read-only")}}-Pseudoklasse.
 
-### Attribut-Interaktionen
+### Attributinteraktionen
 
-Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) und `readonly` besteht darin, dass schreibgeschützte Steuerelemente noch funktionsfähig sind und den Fokus erhalten können, während deaktivierte Steuerelemente keinen Fokus erhalten können, nicht mit dem Formular übermittelt werden und im Allgemeinen nicht funktionsfähig sind, bis sie aktiviert werden.
+Der Unterschied zwischen [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) und `readonly` besteht darin, dass schreibgeschützte Steuerelemente weiterhin funktionieren und fokussierbar sind, wohingegen deaktivierte Steuerelemente nicht fokussierbar sind und nicht mit dem Formular übermittelt werden und im Allgemeinen nicht als Steuerelemente funktionieren, bis sie aktiviert sind.
 
-Da ein schreibgeschütztes Feld seinen Wert nicht durch Benutzerinteraktion ändern kann, hat [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keine Auswirkungen auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
+Da ein schreibgeschütztes Feld nicht durch eine Benutzerinteraktion geändert werden kann, hat das Attribut [`required`](/de/docs/Web/HTML/Reference/Attributes/required) keine Auswirkungen auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
-Die einzige Möglichkeit, den Wert des readonly-Attributs dynamisch zu ändern, ist über ein Skript.
+Die einzige Möglichkeit, den Wert des `readonly`-Attributs dynamisch zu ändern, ist über ein Skript.
 
 > [!NOTE]
-> Das `required`-Attribut ist bei Eingaben mit dem `readonly`-Attribut nicht zulässig.
+> Das `required`-Attribut ist bei Eingaben, die das `readonly`-Attribut spezifiziert haben, nicht zulässig.
 
-### Benutzbarkeit
+### Benutzerfreundlichkeit
 
 Browser zeigen das `readonly`-Attribut an.
 
-### Eingabewertüberprüfung
+### Beschränkungsvalidierung
 
-Wenn das Element schreibgeschützt ist, kann der Wert des Elements vom Benutzer nicht aktualisiert werden und nimmt nicht an der Eingabewertüberprüfung teil.
+Wenn das Element schreibgeschützt ist, kann der Wert des Elements nicht vom Benutzer aktualisiert werden und es nimmt nicht an der Beschränkungsvalidierung teil.
 
 ## Beispiel
 
