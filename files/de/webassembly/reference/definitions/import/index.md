@@ -3,10 +3,10 @@ title: "import: Wasm-Definition"
 short-title: import
 slug: WebAssembly/Reference/Definitions/import
 l10n:
-  sourceCommit: ec9b3dc8149f74755e35871e178861f9546bbc5d
+  sourceCommit: 8a13259a44523cd17b4fe347088b62c6d7a35265
 ---
 
-Die **`import`**-[Definition](/de/docs/WebAssembly/Reference/Definitions) deklariert ein oder mehrere **Imports**. Jeder verweist auf einen Wert, der vom Host importiert wird (wie eine Funktion oder [Memory](/de/docs/WebAssembly/Reference/Definitions/memory)) und macht ihn für die Verwendung im Wasm-Modul verfügbar.
+Die **`import`**-[Definition](/de/docs/WebAssembly/Reference/Definitions) deklariert ein oder mehrere **Importe**. Jeder verweist auf einen Wert, der vom Host importiert wurde (wie eine Funktion oder [Speicher](/de/docs/WebAssembly/Reference/Definitions/memory)) und macht ihn für die Verwendung im Wasm-Modul verfügbar.
 
 {{InteractiveExample("Wat Demo: import", "tabbed-taller")}}
 
@@ -37,13 +37,13 @@ Die **`import`**-[Definition](/de/docs/WebAssembly/Reference/Definitions) deklar
 
 ```js interactive-example
 const importNums = {
-  num1: () => {
+  num1() {
     return 1;
   },
-  num3: () => {
+  num3() {
     return 3;
   },
-  num5: () => {
+  num5() {
     return 5;
   },
 };
@@ -54,9 +54,9 @@ WebAssembly.instantiateStreaming(fetch("{%wasm-url%}"), {
 });
 ```
 
-In diesem Beispiel definieren wir ein Importobjekt namens `importNums` in JavaScript. Es enthält drei Funktionen, von denen jede eine Ganzzahl zurückgibt. Wenn wir das Wasm-Modul über [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) instanziieren, importieren wir `importNums` und das eingebaute [`console`](/de/docs/Web/API/console)-Objekt.
+In diesem Beispiel definieren wir ein Importobjekt namens `importNums` in JavaScript. Es enthält drei Funktionen, die jeweils eine Ganzzahl zurückgeben. Wenn wir das Wasm-Modul über [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) instanziieren, importieren wir `importNums` und das eingebaute [`console`](/de/docs/Web/API/console)-Objekt.
 
-Im Wasm-Modul importieren wir die `log()`-Funktion des `console`-Objekts mit der "vollständigen" Syntax und die Funktionen `num1()`, `num3()` und `num5()` des `importNums`-Objekts mit der [kompakten Import-Syntax](#kompakte_import-bereiche). Wir führen eine Funktion namens `main()` aus, die `num1()` und `num3()` ausführt und dann die zurückgegebenen Werte addiert. Anschließend multipliziert sie das Ergebnis mit dem Wert, der von `num5()` zurückgegeben wird. Wir loggen dann das Endergebnis in die Konsole.
+Im Wasm-Modul importieren wir die `log()`-Funktion des `console`-Objekts mit der "vollen" Syntax und die Funktionen `num1()`, `num3()` und `num5()` des `importNums`-Objekts mithilfe der [kompakten Importsyntax](#kompakte_importabschnitte). Wir führen eine Funktion namens `main()` aus, die `num1()` und `num3()` ausführt und dann die zurückgegebenen Werte zusammenaddiert. Es multipliziert dann das Ergebnis mit dem Wert, der von `num5()` zurückgegeben wird. Anschließend protokollieren wir das Endergebnis auf der Konsole.
 
 ## WAT-Syntax
 
@@ -81,70 +81,73 @@ import namespace
 - `import`
   - : Das `import`-Schlüsselwort. Muss immer zuerst enthalten sein.
 - `item`
-  - : Das `item`-Schlüsselwort. Wird zu Beginn jeder Wertdefinition verwendet, wenn die [kompakte Import-Syntax](#kompakte_import-bereiche) genutzt wird.
+  - : Das `item`-Schlüsselwort. Wird zu Beginn jeder Wertdefinitionszeile verwendet, wenn die [kompakte Importsyntax](#kompakte_importabschnitte) verwendet wird.
 - `namespace`
-  - : Der Name des Objekts im Host, das den Wert enthält, der importiert wird.
+  - : Der Name des Objekts im Host, das den importierten Wert enthält.
 - `value`
-  - : Der Name des Wertes, der importiert wird. Dies ist eine Eigenschaft innerhalb des Objekts, das durch die `namespace` identifiziert wird.
+  - : Der Name des importierten Wertes. Dies ist eine Eigenschaft innerhalb des Objekts, das durch den `namespace` identifiziert wird.
 - `type`
-  - : Der Typ des importierten Wertes, der optional einen Bezeichner enthalten kann, der verwendet werden kann, um den importierten Wert im Rest des Wasm-Moduls zu referenzieren. Der `type` kann einer der folgenden externen Typen sein:
+  - : Der Typ des importierten Wertes, der optional einen Bezeichner enthalten kann, der verwendet werden kann, um den importierten Wert im restlichen Wasm-Modul zu referenzieren. Der `type` kann einer der folgenden externen Typen sein:
     - [`func`](/de/docs/WebAssembly/Reference/Definitions/types/func)
       - : Deklariert eine Funktionssignatur.
     - [`global`](/de/docs/WebAssembly/Reference/Definitions/global)
-      - : Deklariert eine Wasm-Global.
+      - : Deklariert eine Wasm-Globale.
     - [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory)
-      - : Deklariert eine Wasm-Memory.
+      - : Deklariert einen Wasm-Speicher.
     - [`table`](/de/docs/WebAssembly/Reference/Definitions/table)
       - : Deklariert eine Wasm-Tabelle.
     - [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag)
-      - : Deklariert ein Wasm-Tag.
+      - : Deklariert einen Wasm-Tag.
 
 ## Beschreibung
 
-Wenn Sie Werte, die im Host definiert sind, in einem Wasm-Modul verwenden möchten, können Sie diese über `import`-Definitionen verfügbar machen.
+Wenn Sie in einem Wasm-Modul Werte verwenden möchten, die im Host definiert sind, können Sie diese über `import`-Definitionen verfügbar machen.
 
-Zum Beispiel zeigt das folgende Snippet, wie wir eine Funktion und eine [`WebAssembly.Global`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global) in JavaScript definieren und sie auswählen, um importiert zu werden, wenn ein Wasm-Modul instanziiert wird:
+Zum Beispiel zeigt das folgende Snippet, wie wir eine Funktion und einen [`WebAssembly.Global`](/de/docs/WebAssembly/Reference/JavaScript_interface/Global) in JavaScript definieren und sie auswählen könnten, um sie zu importieren, wenn ein Wasm-Modul instanziiert wird:
 
 ```js
 const importObj = {
-  myFunc: () => {
+  myFunc() {
     return 42;
   },
   myGlobal: new WebAssembly.Global({ value: "i32", mutable: true }, 0),
 };
 
-WebAssembly.instantiateStreaming(fetch("module.wasm"), importObj)
-  .then((obj) => { ... });
+WebAssembly.instantiateStreaming(fetch("module.wasm"), importObj).then(
+  (obj) => {
+    // ...
+  },
+);
 ```
 
-Im Wasm-Modul würden wir die Imports so definieren:
+Im Wasm-Modul würden wir die Importe so definieren:
 
 ```wat
 (import "importObj" "myFunc" (func (result i32)))
-(import "importObj" "myGlobal" (global $myglobal (mut i32)))
+(import "importObj" "myGlobal" (global $my_global (mut i32)))
 ```
 
-Sie können so viele `import`-Anweisungen in einem Modul enthalten, wie erforderlich. Die importierten Werte können dann genauso verwendet werden wie Werte, die direkt im Modul definiert sind. Zum Beispiel:
+Sie können so viele `import`-Anweisungen in ein Modul einfügen, wie erforderlich. Die importierten Werte können dann auf die gleiche Weise verwendet werden wie direkt im Modul definierte Werte. Zum Beispiel:
 
 ```wat
 ...
 
-global.get $myglobal
+global.get $my_global
 call 0
 
 ...
 ```
 
-Wenn der importierte Wert einen Namensbezeichner hat (wie im Beispiel mit dem `global`-Wert), kann er mit seinem Namen oder Indexwert referenziert werden. Wenn er keinen Namensbezeichner hat (wie im Beispiel mit dem `func`-Wert), kann er nur mit seinem Indexwert referenziert werden. Beachten Sie, dass Namensbezeichner syntaktischer Zucker für das Textformat sind. Sobald das Modul kompiliert ist, werden hinter den Kulissen die Indexwerte verwendet.
+Wenn dem importierten Wert ein Namensbezeichner zugewiesen wird (wie beim `global`-Wert im vorherigen Beispiel), kann er mit seinem Namen oder Indexwert referenziert werden. Wenn er keinen Namensbezeichner hat (wie beim `func`-Wert im vorherigen Beispiel), kann er nur durch seinen Indexwert referenziert werden. Bedenken Sie, dass Namensbezeichner syntaktischer Zucker im Textformat sind. Einmal kompiliert, verwendet das Modul die Indexwerte im Hintergrund.
 
-Importierte und definierte Elemente verwenden denselben Indexraum. Im nächsten Snippet zeigen wir eine importierte Tabelle gefolgt von einer definierten Tabelle:
+Importierte und definierte Elemente verwenden denselben Indexbereich. Im nächsten Snippet zeigen wir eine importierte Tabelle, gefolgt von einer definierten Tabelle:
 
 ```wat
 (import "importObj" "myTable" (table $table1 1 10 funcref))
 (table $table2 2 8 externref)
 ```
 
-In diesem Fall erscheint die importierte Tabelle zuerst, daher ist sie bei Index 0 verfügbar. Die definierte Tabelle erscheint als zweite, daher ist sie bei Index 1 verfügbar.
+In diesem Fall erscheint die importierte Tabelle zuerst, so dass sie auf Index 0 verfügbar ist. Die definierte Tabelle erscheint als zweite und ist daher auf Index 1 verfügbar.
 
 ### Importtypen
 
@@ -152,90 +155,90 @@ Sie können die folgenden externen Typen in ein Wasm-Modul importieren.
 
 #### Funktion
 
-Beim Importieren einer Funktion ist das `type`-Feld eine [`func`](/de/docs/WebAssembly/Reference/Definitions/types/func):
+Beim Import einer Funktion ist das `type`-Feld ein [`func`](/de/docs/WebAssembly/Reference/Definitions/types/func):
 
 ```wat
-(import "importObj" "myFunc" (func $myfunc (param i32) (result i32)))
+(import "importObj" "myFunc" (func $my_func (param i32) (result i32)))
 ```
 
 oder
 
 ```wat
-(type $myfuncType (func (param i32) (result i32)))
-(import "importObj" "myFunc" (func $myfunc (type $myfuncType)))
+(type $my_func_type (func (param i32) (result i32)))
+(import "importObj" "myFunc" (func $my_func (type $my_func_type)))
 ```
 
-Dies umfasst:
+Dies beinhaltet:
 
 - Einen optionalen Funktionsbezeichner
 - Eine Liste von Parametertypen
-- Eine Liste von Ergebnistypen
+- Eine Liste von Ergebnisstypen
 
 #### Global
 
-Beim Importieren einer Global ist das `type`-Feld eine [`global`](/de/docs/WebAssembly/Reference/Definitions/global):
+Beim Import einer globalen Variable ist das `type`-Feld ein [`global`](/de/docs/WebAssembly/Reference/Definitions/global):
 
 ```wat
-(import "importObj" "myGlobal" (global $myglobal i32))
+(import "importObj" "myGlobal" (global $my_global i32))
 ```
 
 oder
 
 ```wat
-(import "importObj" "myGlobal" (global $myglobal (mut i32)))
+(import "importObj" "myGlobal" (global $my_global (mut i32)))
 ```
 
-Dies umfasst:
+Dies beinhaltet:
 
-- Einen optionalen Global-Bezeichner
-- Den [Datentyp](/de/docs/WebAssembly/Reference/Definitions/global#data_type) des Globals, vorangestellt mit dem `mut`-Flag, wenn das Global veränderlich ist.
+- Einen optionalen globalen Bezeichner
+- Den [Datentyp](/de/docs/WebAssembly/Reference/Definitions/global#data_type) der globalen Variable, vorangestellt mit dem `mut`-Flag, wenn die globale Variable veränderlich ist.
 
 #### Speicher
 
-Beim Importieren eines Speichers ist das `type`-Feld eine [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory):
+Beim Import eines Speichers ist das `type`-Feld ein [`memory`](/de/docs/WebAssembly/Reference/Definitions/memory):
 
 ```wat
-(import "importObj" "mem" (memory $mymem 1 10 shared))
+(import "importObj" "mem" (memory $my_mem 1 10 shared))
 ```
 
-Dies umfasst:
+Dies beinhaltet:
 
 - Einen optionalen Speicherbezeichner
-- Eine anfängliche Größe in Einheiten von 64KiB-Seiten
-- Eine maximale Größe, erforderlich, wenn Sie `shared` angeben
-- Das Schlüsselwort `shared`, das auf einen gemeinsamen Speicher hinweist
+- Eine Anfangsgröße, in Einheiten von 64KiB-Seiten
+- Eine Maximalgröße, erforderlich, wenn Sie `shared` angeben
+- Das `shared`-Schlüsselwort, das einen geteilten Speicher kennzeichnet
 
 #### Tabelle
 
-Beim Importieren einer Tabelle ist das `type`-Feld eine [`table`](/de/docs/WebAssembly/Reference/Definitions/table):
+Beim Import einer Tabelle ist das `type`-Feld ein [`table`](/de/docs/WebAssembly/Reference/Definitions/table):
 
 ```wat
-(import "importObj" "myTable" (table $mytable 1 10 funcref))
+(import "importObj" "myTable" (table $my_table 1 10 funcref))
 ```
 
-Dies umfasst:
+Dies beinhaltet:
 
 - Einen optionalen Tabellenbezeichner
-- Eine anfängliche Größe
-- Eine optionale maximale Größe
+- Eine Anfangsgröße
+- Eine optionale Maximalgröße
 - Den [Wertetyp](/de/docs/WebAssembly/Reference/Definitions/elem#value_type), der von der Tabelle gespeichert wird
 
 #### Tag
 
-Beim Importieren eines Tags ist das `type`-Feld eine [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag):
+Beim Import eines Tags ist das `type`-Feld ein [`tag`](/de/docs/WebAssembly/Reference/Definitions/tag):
 
 ```wat
-(import "importObj" "tag" (tag $mytag (param i32)))
+(import "importObj" "tag" (tag $my_tag (param i32)))
 ```
 
-Dies umfasst:
+Dies beinhaltet:
 
 - Einen optionalen Tag-Bezeichner
-- Einen oder mehrere Werte, die die Parameter des dargestellten Ausnahmetyps und deren Typen angeben (jede wird mit dem Schlüsselwort `param` gefolgt von einem beliebigen [Wasm-Typ](/de/docs/WebAssembly/Reference/Value_types) geschrieben)
+- Einen oder mehrere Werte, die die Parameter und deren Typen des dargestellten Ausnahmetyps angeben (jeder wird mit dem Schlüsselwort `param` gefolgt von einem [Wasm-Typ](/de/docs/WebAssembly/Reference/Value_types) geschrieben)
 
-### Kompakte Import-Bereiche
+### Kompakte Importabschnitte
 
-Ein Problem mit der "vollständigen" `import`-Syntax ist, dass Sie den Namespace und den Wert für jeden Import angeben müssen. Dies ist bei trivialen Beispielen kein großes Problem; für größere Wasm-Module haben Sie jedoch normalerweise eine kleine Anzahl von Namespaces und eine größere Anzahl von zu importierenden Werten.
+Ein Problem mit der "vollen" `import`-Syntax ist, dass Sie den Namespace und den Wert für jeden Import angeben müssen. Dies ist für triviale Beispiele nicht so sehr ein Problem; bei größeren Wasm-Modulen haben Sie jedoch normalerweise eine geringe Anzahl von Namespaces und eine größere Anzahl von Werten, die importiert werden müssen.
 
 Zum Beispiel:
 
@@ -247,9 +250,9 @@ Zum Beispiel:
 ...
 ```
 
-In solchen Beispielen führt das Wiederholen des Namespaces und möglicherweise auch des Typs zu einer verschwenderischen Redundanz in der binären Kodierung des Moduls (und auch im Textformat).
+In solchen Beispielen führt das Wiederholen des Namespace und möglicherweise auch des Typs zu überflüssiger Redundanz in der binären Kodierung des Moduls (und auch im Textformat).
 
-Um diese Redundanz zu verringern und die Größe der Binärdatei zu reduzieren, können Sie die kompakte Import-Syntax verwenden. Es gibt zwei Formen, eine, die den Namespace dedupliziert, und eine, die sowohl den Namespace als auch den Typ dedupliziert. Betrachten wir das folgende Beispiel:
+Um diese Redundanz zu reduzieren und die Größe der Binärdatei zu verringern, können Sie die kompakte Importsyntax verwenden. Es gibt zwei Formen, eine, die den Namespace dedupliziert, und eine, die sowohl den Namespace als auch den Typ dedupliziert. Betrachten wir das folgende Beispiel:
 
 ```wat
 (import "importNums" "num1" (func $n1 (result i32)))
@@ -257,14 +260,14 @@ Um diese Redundanz zu verringern und die Größe der Binärdatei zu reduzieren, 
 (import "importNums" "num5" (func $n5 (result i32)))
 ```
 
-Die folgenden Abschnitte zeigen, wie Sie diese Importe mit den kompakten Formen umschreiben.
+Die folgenden Abschnitte zeigen, wie Sie diese Importe mit den kompakten Formen umschreiben können.
 
 > [!NOTE]
-> Das kompakte Import-Textformat bietet einen Hinweis für Wasm-Tools, eine gegebene kompakte Import-binäre Kodierung zu verwenden. Es gibt nichts, was die Tools daran hindert, eines der kompakten Textformate zu parsen und das nicht-kompakte Binärformat auszugeben.
+> Das kompakte Importtextformat liefert einen Hinweis an Wasm-Werkzeuge, eine bestimmte kompakte Import-Binärkodierung zu verwenden. Es gibt nichts, das die Werkzeuge daran hindert, eines der kompakten Textformate zu parsen und das nicht-kompakte Binärformat zu emittieren.
 
 #### Kompakte Form 1: Namespace deduplizieren
 
-In der ersten Form wird der Namespace einmal nach dem `import`-Schlüsselwort geschrieben. Sie schreiben dann jeden Wert innerhalb dieses Namespace in einer eigenen Zeile, gefolgt vom Werttyp wie zuvor. Das Textformat enthält das Schlüsselwort `item` am Anfang jeder Wertzeile.
+In der ersten Form wird der Namespace einmal nach dem `import`-Schlüsselwort geschrieben. Dann schreiben Sie jeden Wert innerhalb dieses Namespace in eine eigene Zeile, gefolgt vom Typ des Wertes wie zuvor. Das Textformat enthält das Schlüsselwort `item` am Anfang jeder Wertzeile.
 
 ```wat
 (import "importNums"
@@ -276,7 +279,7 @@ In der ersten Form wird der Namespace einmal nach dem `import`-Schlüsselwort ge
 
 #### Kompakte Form 2: Namespace und Typ deduplizieren
 
-Da jede importierte Funktion in diesem Beispiel denselben `type` hat, können wir diesen auch deduplizieren. In der zweiten Form ist jeder Wert wie zuvor nach dem `item`-Schlüsselwort enthalten, aber wir geben den `type` nur einmal an, in einer eigenen Zeile am Ende der `item`-Zeilen.
+Da jede importierte Funktion in diesem Beispiel den gleichen `type` hat, können wir auch diesen deduplizieren. In der zweiten Form wird jeder Wert wie zuvor nach dem `item`-Schlüsselwort aufgenommen, aber wir geben den `type` nur einmal an, in einer eigenen Zeile am Ende der `item`-Zeilen.
 
 ```wat
 (import "importNums"
@@ -287,7 +290,7 @@ Da jede importierte Funktion in diesem Beispiel denselben `type` hat, können wi
 )
 ```
 
-Wichtig ist, dass Sie in der zweiten Form keine Namensbezeichner für die verschiedenen Werte im Textformat angeben können, daher müssen Sie Indexwerte verwenden, wenn Sie sich auf sie beziehen:
+Es ist wichtig zu beachten, dass Sie in der zweiten Form keine Namensbezeichner für die verschiedenen Werte im Textformat angeben können, daher müssen Sie Indexwerte verwenden, wenn Sie auf sie verweisen:
 
 ```wat
 ...
