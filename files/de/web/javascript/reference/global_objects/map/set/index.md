@@ -3,10 +3,10 @@ title: Map.prototype.set()
 short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/Map/set
 l10n:
-  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
+  sourceCommit: 81a384e18b61c1d1b23d7f58f1fbd8ec3af45558
 ---
 
-Die **`set()`** Methode von {{jsxref("Map")}} Instanzen fügt diesem `Map` ein neues Element mit einem angegebenen Schlüssel und Wert hinzu oder aktualisiert ein vorhandenes Element, wenn der Schlüssel bereits existiert.
+Die Methode **`set()`** von {{jsxref("Map")}}-Instanzen fügt diesem `Map` einen neuen Eintrag mit einem angegebenen Schlüssel und Wert hinzu oder aktualisiert einen vorhandenen Eintrag, falls der Schlüssel bereits existiert.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.set()")}}
 
@@ -30,9 +30,9 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Eintrags, der zum `Map`-Objekt hinzugefügt oder darin geändert werden soll. Kann jeden Wert annehmen. Objekt-Schlüssel werden durch {{Glossary("Object_reference", "Referenz")}} und nicht durch Wert verglichen.
+  - : Der Schlüssel des Eintrags, der im `Map`-Objekt hinzugefügt oder geändert werden soll. Kann ein beliebiger Wert sein. Objektschlüssel werden nach {{Glossary("Object_reference", "Referenz")}} verglichen, nicht nach Wert.
 - `value`
-  - : Der Wert des Eintrags, der zum `Map`-Objekt hinzugefügt oder darin geändert werden soll. Kann jeden Wert annehmen.
+  - : Der Wert des Eintrags, der im `Map`-Objekt hinzugefügt oder geändert werden soll. Kann ein beliebiger Wert sein.
 
 ### Rückgabewert
 
@@ -53,9 +53,9 @@ myMap.set(1, "foobar");
 myMap.set("bar", "baz");
 ```
 
-### Verwenden von set() mit Verkettung
+### Verwendung von set() mit Verkettung
 
-Da die `set()` Methode dasselbe `Map`-Objekt zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
+Da die Methode `set()` dasselbe `Map`-Objekt zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
 
 ```js
 // Add new elements to the map with chaining.

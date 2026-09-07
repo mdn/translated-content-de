@@ -1,14 +1,14 @@
 ---
-title: "NavigationPrecommitController: redirect() Methode"
+title: "NavigationPrecommitController: Methode redirect()"
 short-title: redirect()
 slug: Web/API/NavigationPrecommitController/redirect
 l10n:
-  sourceCommit: 0563b7d83916b234fa637483211889e573df9440
+  sourceCommit: 81a384e18b61c1d1b23d7f58f1fbd8ec3af45558
 ---
 
 {{APIRef("Navigation API")}}
 
-Die **`redirect()`** Methode der [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) Schnittstelle leitet den Browser zu einer angegebenen URL um und spezifiziert das Verhalten der Historie sowie gewünschte Zustandsinformationen.
+Die Methode **`redirect()`** des Interfaces [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) leitet den Browser zu einer angegebenen URL weiter und legt das Verlaufverhalten sowie gewünschte Statusinformationen fest.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ redirect(url, options)
 ### Parameter
 
 - `url`
-  - : Die URL, zu der umgeleitet werden soll.
+  - : Die URL, zu der weitergeleitet werden soll.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt, dessen Eigenschaften Folgendes beinhalten können:
+  - : Ein Optionsobjekt, dessen Eigenschaften Folgendes umfassen können:
     - `state` {{optional_inline}}
-      - : Enthält beliebige Zustandsinformationen, die Sie zusammen mit der Navigation übergeben möchten; zum Beispiel für Protokollierungs- oder Verfolgungszwecke. Dies kann durch jeden Werttyp dargestellt werden. Der Zustand der Navigation kann anschließend über die [`NavigationHistoryEntry.getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) Methode des resultierenden Historieneintrags abgerufen werden.
+      - : Enthält Statusinformationen, die Sie zusammen mit der Navigation übergeben möchten, beispielsweise zu Protokollierungs- oder Tracking-Zwecken. Dies kann durch einen Wert eines beliebigen Typs dargestellt werden. Der Status der Navigation kann anschließend über die Methode [`NavigationHistoryEntry.getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) des resultierenden Verlaufseintrags abgerufen werden.
     - `history` {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, wie dieser Redirect zur Navigation-Historie hinzugefügt werden soll. Er kann einen der folgenden Werte annehmen:
+      - : Ein aufgezählter Wert, der angibt, wie diese Weiterleitung zum Navigationsverlauf hinzugefügt werden soll. Er kann einen der folgenden Werte annehmen:
         - `auto`
-          - : Der Standardwert, der es dem Browser überlässt, wie damit umgegangen wird:
-            - Wenn die ursprüngliche Navigation durch einen Aufruf von [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate) erfolgt ist, wird der Wert verwendet, der in der `navigate()` Aufrufoption [`history`](/de/docs/Web/API/Navigation/navigate#history) angegeben wurde.
-            - Andernfalls wird normalerweise `push` verwendet, aber es wird `replace`, wenn der Redirect auf dieselbe URL verweist wie die vor der Navigation.
+          - : Der Standardwert, der den Browser entscheiden lässt, wie damit umgegangen wird:
+            - Wenn die ursprüngliche Navigation infolge eines Aufrufs von [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate) erfolgte, entspricht der Wert dem, der in der Option [`history`](/de/docs/Web/API/Navigation/navigate#history) des `navigate()`-Aufrufs angegeben wurde.
+            - Andernfalls wird normalerweise der Wert `push` verwendet, aber er wird zu `replace`, wenn die Weiterleitung auf dieselbe URL wie die URL vor der Navigation verweist.
         - `push`
-          - : Fügt einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zur Navigation-Historie hinzu und löscht jegliche verfügbare Vorwärtsnavigation (d.h. wenn der Benutzer zuvor zu anderen Orten navigiert und dann die Zurück-Taste verwendet hat, um durch die Historie zur Navigation zurückzukehren, die die Umleitung verursacht hat).
+          - : Fügt dem Navigationsverlauf einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) hinzu und löscht alle verfügbaren Vorwärtsnavigationen (das heißt, wenn die Benutzerin oder der Benutzer zuvor zu anderen Orten navigiert und dann die Zurück-Schaltfläche verwendet hat, um im Verlauf zurückzukehren, bevor die Navigation ausgelöst wurde, die die Weiterleitung verursachte).
         - `replace`
           - : Ersetzt den [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) durch den resultierenden neuen `NavigationHistoryEntry`.
 
 > [!NOTE]
-> Die `redirect()` Methode kann das Historieverhalten zwischen `auto`, `push` und `replace` umwandeln, aber sie kann keine `traverse`-Navigation in eine `push`/`replace`-Navigation und umgekehrt umwandeln.
+> Die Methode `redirect()` kann das Verlaufverhalten zwischen `auto`, `push` und `replace` umwandeln, aber sie kann eine `traverse`-Navigation nicht in eine `push`/`replace`-Navigation umwandeln und umgekehrt.
 
 ### Rückgabewert
 
@@ -46,16 +46,16 @@ Keiner (`undefined`).
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Das auslösende [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) nicht abgefangen wurde.
+    - Das ursprüngliche [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) nicht abgefangen wurde.
     - Der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) nicht `push` oder `replace` ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die angegebene `url` ungültig ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das aktuelle Dokument nicht in der Lage ist, seine URL auf die angegebene Umleitungs-`url` umzuschreiben.
+  - : Wird ausgelöst, wenn die URL des aktuellen Dokuments nicht in die bereitgestellte Weiterleitungs-`url` umgeschrieben werden kann.
 
 ## Beispiele
 
-Siehe die Hauptseite [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite zu [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController).
 
 ## Spezifikationen
 
@@ -67,4 +67,4 @@ Siehe die Hauptseite [`NavigationPrecommitController`](/de/docs/Web/API/Navigati
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
