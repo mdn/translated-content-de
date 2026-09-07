@@ -2,10 +2,10 @@
 title: WebAssembly.Exception.prototype.getArg()
 slug: WebAssembly/Reference/JavaScript_interface/Exception/getArg
 l10n:
-  sourceCommit: 48b0dc43b7c13a2c9a5d2c56f110444d2550b90e
+  sourceCommit: 870fe25a3e6ed1a44222c52dd8a992b731c1a383
 ---
 
-Die **`getArg()`** Methode des [`Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) Objekts kann verwendet werden, um den Wert eines bestimmten Elements in den Datenargumenten der Ausnahme zu erhalten.
+Die Methode **`getArg()`** des Objekts [`Exception`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception) kann verwendet werden, um den Wert eines angegebenen Elements in den Datenargumenten der Exception abzurufen.
 
 ## Syntax
 
@@ -16,9 +16,9 @@ getArg(exceptionTag, index)
 ### Parameter
 
 - `exceptionTag`
-  - : Ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), das mit dem Tag übereinstimmen muss, das mit dieser Ausnahme verbunden ist.
+  - : Ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag), der mit dem dieser Exception zugeordneten Tag übereinstimmen muss.
 - `index`
-  - : Der Index des Wertes in den Datenargumenten, der zurückgegeben werden soll.
+  - : Der Index des Werts in den Datenargumenten, der zurückgegeben werden soll.
 
 ### Rückgabewert
 
@@ -27,22 +27,25 @@ Der Wert des Arguments bei `index`.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Tags stimmen nicht überein; die Ausnahme wurde nicht mit dem an die Methode übergebenen Tag erstellt.
+  - : Die Tags stimmen nicht überein; die Exception wurde nicht mit dem an die Methode übergebenen Tag erstellt.
 - {{jsxref("RangeError")}}
-  - : Der Wert des `index`-Parameters ist größer oder gleich der Anzahl der Felder in den Daten.
+  - : Der Wert des Parameters `index` ist größer oder gleich der Anzahl der Felder in den Daten.
 
 ## Beschreibung
 
-Die `getArg()` Methode akzeptiert ein [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) als Parameter und wird nur erfolgreich sein, wenn die geworfene `Exception` mit demselben Tag erstellt wurde, andernfalls wird ein `TypeError` ausgelöst. Dies stellt sicher, dass die Ausnahme nur gelesen werden kann, wenn der aufrufende Code Zugriff auf das Tag hat. Tags, die weder in den WebAssembly-Code importiert noch aus diesem exportiert werden, sind intern, und ihre zugehörigen Ausnahmen können mit dieser Methode nicht abgefragt werden.
+Die Methode `getArg()` akzeptiert einen [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) als Parameter und ist nur erfolgreich, wenn die ausgelöste `Exception` mit demselben Tag erstellt wurde. Andernfalls wird ein `TypeError` ausgelöst.
+Dadurch wird sichergestellt, dass die Exception nur gelesen werden kann, wenn der aufrufende Code Zugriff auf das Tag hat.
+Tags, die weder in den WebAssembly-Code importiert noch aus ihm exportiert werden, sind intern, und ihre zugeordneten Exceptions können mit dieser Methode nicht abgefragt werden.
 
 > [!NOTE]
-> Es reicht nicht aus, dass das Tag eine identische Sequenz von Datentypen hat – es muss dieselbe _Identität_ (dasselbe Tag) haben, das zur Erstellung der Ausnahme verwendet wurde.
+> Es reicht nicht aus, dass das Tag eine identische Sequenz von Datentypen hat — es muss dieselbe _Identität_ haben (dasselbe Tag sein), die zum Erstellen der Exception verwendet wurde.
 
 ## Beispiele
 
-### Abrufen von Ausnahme-Werten von einem importierten Tag
+### Abrufen von Exception-Werten aus einem importierten Tag
 
-Betrachten Sie den folgenden WebAssembly-Code, der angenommen wird, in eine Datei namens `example.wasm` kompiliert zu sein. Dieser importiert ein Tag, das intern als `$tagname` bezeichnet wird, und exportiert eine Methode `run`, die von externem Code aufgerufen werden kann, um eine Ausnahme mit dem Tag zu werfen.
+Betrachten Sie den folgenden WebAssembly-Code, der vermutlich in eine Datei namens `example.wasm` kompiliert wird.
+Dieser importiert ein Tag, auf das er intern als `$tagname` verweist, und exportiert eine Methode `run`, die von externem Code aufgerufen werden kann, um mit dem Tag eine Exception auszulösen.
 
 ```wat
 (module
@@ -63,9 +66,10 @@ Betrachten Sie den folgenden WebAssembly-Code, der angenommen wird, in eine Date
 )
 ```
 
-Der untenstehende Code ruft [`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) auf, um die Datei `example.wasm` zu importieren, wobei ein Import-Objekt (`importObject`) übergeben wird, das ein neues [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) namens `tagToImport` enthält. Das Import-Objekt definiert ein Objekt mit Eigenschaften, die der `import`-Anweisung im WebAssembly-Code entsprechen.
+Der folgende Code ruft [`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/Reference/JavaScript_interface/instantiateStreaming_static) auf, um die Datei `example.wasm` zu importieren. Dabei wird ein Importobjekt (`importObject`) übergeben, das einen neuen [`WebAssembly.Tag`](/de/docs/WebAssembly/Reference/JavaScript_interface/Tag) namens `tagToImport` enthält.
+Das Importobjekt definiert ein Objekt mit Eigenschaften, die mit der `import`-Anweisung im WebAssembly-Code übereinstimmen.
 
-Sobald die Datei instanziiert ist, ruft der Code die exportierte WebAssembly `run()` Methode auf, die sofort eine Ausnahme werfen wird.
+Sobald die Datei instanziiert wurde, ruft der Code die exportierte WebAssembly-Methode `run()` auf, die sofort eine Exception auslöst.
 
 ```js
 const tagToImport = new WebAssembly.Tag({ parameters: ["i32"] });
@@ -92,11 +96,13 @@ example.js:41 getArg 0 : 1
 */
 ```
 
-Der Code fängt die Ausnahme ab und verwendet `getArg()`, um den Wert beim ersten Index zu drucken. In diesem Fall ist der Wert `1`.
+Der Code fängt die Exception ab und verwendet `getArg()`, um den Wert am ersten Index auszugeben.
+In diesem Fall ist der Wert `1`.
 
-### Abrufen von Ausnahme-Werten von einem exportierten Tag
+### Abrufen von Exception-Werten aus einem exportierten Tag
 
-Der Prozess zur Verwendung eines exportierten Tags ist dem im vorherigen Abschnitt gezeigten sehr ähnlich. Hier ist dasselbe WebAssembly-Modul, welches einfach den Import durch einen Export ersetzt.
+Der Prozess zur Verwendung eines exportierten Tags ist dem im vorherigen Abschnitt gezeigten sehr ähnlich.
+Hier ist dasselbe WebAssembly-Modul, bei dem lediglich der Import durch einen Export ersetzt wurde.
 
 ```wat
 (module
@@ -115,7 +121,8 @@ Der Prozess zur Verwendung eines exportierten Tags ist dem im vorherigen Abschni
 )
 ```
 
-Auch das JavaScript ist ähnlich. In diesem Fall haben wir keine Importe; stattdessen erhalten wir das exportierte Tag und verwenden dieses, um das Argument zu erhalten. Wir testen auch, ob wir das richtige Tag haben, indem wir die [`is()` Methode](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is) verwenden.
+Auch das JavaScript ist ähnlich. In diesem Fall gibt es keine Importe; stattdessen wird das exportierte Tag abgerufen und verwendet, um das Argument zu erhalten.
+Außerdem wird mit der [`is()`-Methode](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is) getestet, ob es das richtige Tag ist.
 
 ```js
 let tagExportedFromWasm;
@@ -145,6 +152,6 @@ WebAssembly.instantiateStreaming(fetch("example.wasm"))
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersicht
+- [WebAssembly](/de/docs/WebAssembly)-Überblick
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwenden der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
