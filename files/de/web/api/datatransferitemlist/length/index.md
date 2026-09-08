@@ -3,22 +3,22 @@ title: "DataTransferItemList: length-Eigenschaft"
 short-title: length
 slug: Web/API/DataTransferItemList/length
 l10n:
-  sourceCommit: 565501caace6d4fbcb9c9b3d8cbf7b03145abbf5
+  sourceCommit: 2a4ce8db664c71d41fa179be43f3336ad384ab65
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle gibt die Anzahl der Elemente in der aktuellen Ziehelementliste zurück.
+Die schreibgeschützte Eigenschaft **`length`** des Interfaces [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) gibt die Anzahl der Elemente zurück, die sich derzeit in der Drag-Elementliste befinden.
 
-Während eines Ziehvorgangs kann diese Eigenschaft in jedem Ziehereignishandler gelesen werden, sogar wenn der Ziehdaten-Store im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) ist. Die Anzahl der Elemente bleibt zugänglich, jedoch können deren Daten nur in den Handlers für die [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisse gelesen werden. Siehe [Lesen des Ziehdaten-Stores](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store) für Details.
+Während eines Drag-Vorgangs kann diese Eigenschaft in jedem Drag-Event-Handler gelesen werden, selbst wenn sich der Drag-Datenspeicher im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) befindet. Die Anzahl der Elemente bleibt zugänglich, ihre Daten können jedoch nur in den Handlern für die Events [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) gelesen werden. Details finden Sie unter [Lesen des Drag-Datenspeichers](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#reading_the_drag_data_store).
 
 ## Wert
 
-Die Anzahl der Ziehdaten-Elemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Liste der Ziehelemente wird als deaktiviert betrachtet, wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt der Elementliste nicht mit einem Ziehdaten-Store assoziiert ist.
+Die Anzahl der Drag-Datenelemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Elementliste gilt als deaktiviert, wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt der Elementliste keinem Drag-Datenspeicher zugeordnet ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `length`-Eigenschaft.
+Dieses Beispiel zeigt die Verwendung der Eigenschaft `length`.
 
 ### HTML
 
@@ -80,20 +80,17 @@ target.addEventListener("drop", (ev) => {
   const data = ev.dataTransfer.items;
   // Loop through the dropped items and log their data
   for (let i = 0; i < data.length; i++) {
-    if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
+    if (data[i].kind === "string" && data[i].type === "text/plain") {
       // This item is the target node
       data[i].getAsString((s) => {
         ev.target.appendChild(document.getElementById(s));
       });
-    } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
+    } else if (data[i].kind === "string" && data[i].type === "text/html") {
       // Drag data item is HTML
       data[i].getAsString((s) => {
         console.log(`… Drop: HTML = ${s}`);
       });
-    } else if (
-      data[i].kind === "string" &&
-      data[i].type.match("^text/uri-list")
-    ) {
+    } else if (data[i].kind === "string" && data[i].type === "text/uri-list") {
       // Drag data item is URI
       data[i].getAsString((s) => {
         console.log(`… Drop: URI = ${s}`);
