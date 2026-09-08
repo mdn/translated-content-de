@@ -23,7 +23,7 @@
     "lint:yml": "prettier -c \"**/*.yml\"",
     "test": "node --test"
   },
-  "packageManager": "npm@11.9.0",
+  "packageManager": "npm@11.19.0",
   "engines": {
     "node": ">=24"
   },
