@@ -394,7 +394,7 @@ hello-wasm-0.1.0.tgz
 [INFO]: 🎒  packed up your package!
 ```
 
-Um auf npm zu veröffentlichen, benötigen Sie ein [npm-Konto](https://www.npmjs.com/) und müssen Ihre Maschine mit [`npm adduser`](https://docs.npmjs.com/cli/v10/commands/npm-adduser/) autorisieren.
+Um auf npm zu veröffentlichen, benötigen Sie ein [npm-Konto](https://www.npmjs.com/) und müssen Ihre Maschine mit [`npm login`](https://docs.npmjs.com/cli/v11/commands/npm-login/) autorisieren.
 Wenn Sie bereit sind, können Sie mit `wasm-pack` veröffentlichen, das unter der Haube `npm publish` aufruft:
 
 ```bash
