@@ -50,5 +50,8 @@
   },
   "devDependencies": {
     "lefthook": "^2.1.12"
+  },
+  "allowScripts": {
+    "lefthook": true
   }
 }
