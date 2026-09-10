@@ -3,12 +3,12 @@ title: "`-webkit-mask-position-y` CSS property"
 short-title: -webkit-mask-position-y
 slug: Web/CSS/Reference/Properties/-webkit-mask-position-y
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_header}}
 
-Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Position eines Maskenbildes fest.
+Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Position eines Maskenbilds fest.
 
 ## Syntax
 
@@ -42,8 +42,10 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ### Werte
 
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante des Box-Innenabstands angibt. Prozentsätze werden im Verhältnis zur vertikalen Dimension des Innenabstandsbereichs der Box berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante des Box-Innenabstands ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante des Box-Innenabstands ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bilds relativ zur oberen Padding-Kante der Box angibt. Prozentwerte werden relativ zur vertikalen Dimension des Padding-Bereichs der Box berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bilds an der oberen Padding-Kante der Box ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bilds an der unteren Padding-Kante der Box ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`
@@ -61,7 +63,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Beispiele
 
-### Vertikale Positionierung eines Maskenbildes
+### Vertikale Positionierung eines Maskenbilds
 
 ```css
 .exampleOne {
@@ -77,7 +79,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

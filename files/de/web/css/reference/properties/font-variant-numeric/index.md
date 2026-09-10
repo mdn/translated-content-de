@@ -3,10 +3,12 @@ title: "`font-variant-numeric` CSS property"
 short-title: font-variant-numeric
 slug: Web/CSS/Reference/Properties/font-variant-numeric
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordnungsmarker.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`font-variant-numeric`** steuert die Verwendung alternativer Glyphen für Zahlen, Brüche und Ordnungszahlmarker.
+
+<!-- Source Sans Pro doesn't support stacked-fractions -->
 
 {{InteractiveExample("CSS Demo: font-variant-numeric", "taller")}}
 
@@ -41,8 +43,6 @@ font-variant-numeric: proportional-nums;
 ```css interactive-example-choice
 font-variant-numeric: diagonal-fractions;
 ```
-
-<!-- Source Sans Pro unterstützt keine stacked-fractions -->
 
 ```html interactive-example
 <section id="default-example">
@@ -126,39 +126,39 @@ Diese Eigenschaft wird entweder als `normal` oder als durch Leerzeichen getrennt
   - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativen Glyphen.
 
 - `ordinal`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für die Ordnungsmarker, wie 1st, 2nd, 3rd, 4th im Englischen oder ein 1a im Italienischen. Es entspricht den OpenType-Werten `ordn`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Ordnungszahlmarker, wie 1st, 2nd, 3rd, 4th im Englischen oder a 1a im Italienischen. Es entspricht den OpenType-Werten `ordn`.
 
 - `slashed-zero`
-  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit einem Schrägstrich; dies ist nützlich, wenn eine klare Unterscheidung zwischen O und 0 erforderlich ist. Es entspricht den OpenType-Werten `zero`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit Schrägstrich; dies ist nützlich, wenn eine klare Unterscheidung zwischen O und 0 erforderlich ist. Es entspricht den OpenType-Werten `zero`.
 
 - _`<numeric-figure-values>`_
-  - : Diese Werte steuern die Ziffern, die für Zahlen verwendet werden. Zwei Werte sind möglich:
-    - `lining-nums` aktiviert den Satz von Ziffern, bei denen alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
-    - `oldstyle-nums` aktiviert den Satz von Ziffern, bei denen einige Zahlen, wie 3, 4, 7, 9, Unterlängen haben. Es entspricht den OpenType-Werten `onum`.
+  - : Diese Werte steuern die für Zahlen verwendeten Ziffernformen. Es sind zwei Werte möglich:
+    - `lining-nums` aktiviert den Ziffernsatz, bei dem alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
+    - `oldstyle-nums` aktiviert den Ziffernsatz, bei dem einige Zahlen wie 3, 4, 7 und 9 Unterlängen haben. Es entspricht den OpenType-Werten `onum`.
 
 - _`<numeric-spacing-values>`_
-  - : Diese Werte steuern die Größe der Ziffern, die für Zahlen verwendet werden. Zwei Werte sind möglich:
-    - `proportional-nums` aktiviert den Satz von Ziffern, bei denen die Zahlen nicht alle die gleiche Größe haben. Es entspricht den OpenType-Werten `pnum`.
-    - `tabular-nums` aktiviert den Satz von Ziffern, bei denen alle Zahlen die gleiche Größe haben, was eine einfache Ausrichtung, wie in Tabellen, ermöglicht. Es entspricht den OpenType-Werten `tnum`.
+  - : Diese Werte steuern die Größe der für Zahlen verwendeten Ziffernformen. Es sind zwei Werte möglich:
+    - `proportional-nums` aktiviert den Ziffernsatz, bei dem nicht alle Zahlen dieselbe Breite haben. Es entspricht den OpenType-Werten `pnum`.
+    - `tabular-nums` aktiviert den Ziffernsatz, bei dem alle Zahlen dieselbe Breite haben, wodurch sie wie in Tabellen einfach ausgerichtet werden können. Es entspricht den OpenType-Werten `tnum`.
 
 - _`<numeric-fraction-values>`_
-  - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Zwei Werte sind möglich:
-    - `diagonal-fractions` aktiviert den Satz von Ziffern, bei denen der Zähler und der Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
-    - `stacked-fractions` aktiviert den Satz von Ziffern, bei denen der Zähler und der Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
+  - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Es sind zwei Werte möglich:
+    - `diagonal-fractions` aktiviert den Ziffernsatz, bei dem Zähler und Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
+    - `stacked-fractions` aktiviert den Ziffernsatz, bei dem Zähler und Nenner verkleinert, übereinandergestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
 
-## Formelle Definition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Setzen von ordinalen Zahlenformen
+### Ordinale Zahlenformen festlegen
 
-Klicken Sie unten in den Code-Blöcken auf "Play", um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie in den folgenden Codeblöcken auf „Play“, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___font-variant-numeric-example
 <p class="ordinal">1st, 2nd, 3rd, 4th, 5th</p>

@@ -3,12 +3,12 @@ title: "`-webkit-mask-repeat-x` CSS property"
 short-title: -webkit-mask-repeat-x
 slug: Web/CSS/Reference/Properties/-webkit-mask-repeat-x
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_header}}
 
-Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild horizontal (gekachelt) wiederholt wird.
+Die Eigenschaft `-webkit-mask-repeat-x` gibt an, ob und wie ein Maskenbild horizontal wiederholt (gekachelt) wird.
 
 ## Syntax
 
@@ -32,16 +32,16 @@ Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild hor
 
 ### Werte
 
-- repeat
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
+- `repeat`
   - : Das Maskenbild wird sowohl horizontal als auch vertikal wiederholt.
-- no-repeat
-  - : Das Maskenbild wird nicht wiederholt; nur eine Kopie des Maskenbildes wird gezeichnet. Der verbleibende Inhalt des maskierten Elements wird nicht angezeigt.
-- repeat
-  - : Das Maskenbild wird sowohl horizontal als auch vertikal wiederholt.
-- space
-  - : Das Bild wird so oft wie möglich ohne Zuschneiden wiederholt. Die ersten und letzten Bilder sind an den Seiten des Elements verankert, und Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden angezeigt werden. Der einzige Fall, bei dem bei der Verwendung von space ein Zuschneiden erfolgt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
-- round
-  - : Wenn der verfügbare Platz zunimmt, werden die wiederholten Bilder gestreckt (ohne Lücken), bis Platz für ein weiteres Bild hinzugefügt werden kann. Wenn das nächste Bild hinzugefügt wird, komprimieren alle aktuellen, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Danach komprimieren sie auf 225px.
+- `no-repeat`
+  - : Das Maskenbild wird horizontal nicht wiederholt; in dieser Richtung wird nur eine Kopie des Maskenbilds gezeichnet. Der verbleibende Inhalt des maskierten Elements wird nicht angezeigt.
+- `space`
+  - : Das Bild wird so oft wie möglich ohne Beschneidung wiederholt. Das erste und letzte Bild werden an den jeweiligen Seiten des Elements ausgerichtet, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, sofern nicht nur ein Bild ohne Beschneidung angezeigt werden kann. Der einzige Fall, in dem bei Verwendung von space eine Beschneidung erfolgt, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
+- `round`
+  - : Wenn der verfügbare Platz größer wird, werden die wiederholten Bilder gedehnt (ohne Lücken zu hinterlassen), bis Platz für ein weiteres Bild vorhanden ist. Wenn das nächste Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, kann gedehnt werden, bis jede Wiederholung 300px breit ist; anschließend wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px komprimiert.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild hor
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines wiederholten oder nicht wiederholten Maskenbilds
 
 ```css
 .example-one {
@@ -69,7 +69,7 @@ Die Eigenschaft `-webkit-mask-repeat-x` legt fest, ob und wie ein Maskenbild hor
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommata:
+Sie können für jedes Maskenbild einen unterschiedlichen `<repeat-style>` angeben, durch Kommas getrennt:
 
 ```css
 .example-three {
@@ -78,11 +78,11 @@ Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil von der ersten zur letzten Angabe abgeglichen.
+Jedes Bild wird dem entsprechenden Wiederholungsstil zugeordnet, von der ersten bis zur letzten Angabe.
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

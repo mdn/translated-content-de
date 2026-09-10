@@ -3,16 +3,16 @@ title: "`-moz-user-input` CSS property"
 short-title: -moz-user-input
 slug: Web/CSS/Reference/Properties/-moz-user-input
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_Header}}
 
 In Mozilla-Anwendungen bestimmt **`-moz-user-input`**, ob ein Element Benutzereingaben akzeptiert.
 
-Seit Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es normalerweise keine akzeptiert. Sie kann nur verwendet werden, um Benutzereingaben zu deaktivieren.
+Seit Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es dies normalerweise nicht tut. Sie kann nur zum Deaktivieren von Benutzereingaben verwendet werden.
 
-Die `user-input`-Eigenschaft befindet sich derzeit nicht auf einem Standardisierungspfad.
+Die Eigenschaft `user-input` befindet sich derzeit nicht auf dem Weg zur Standardisierung.
 
 ## Syntax
 
@@ -29,8 +29,10 @@ Die `user-input`-Eigenschaft befindet sich derzeit nicht auf einem Standardisier
 
 ### Werte
 
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+
 - `auto`
-  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben entgegennimmt, wie ein {{HTMLElement("textarea")}}.
+  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben akzeptiert, etwa ein {{HTMLElement("textarea")}}.
 - `none`
   - : Das Element reagiert nicht auf Benutzereingaben und wird nicht {{CSSxRef(":active")}}.
 
@@ -44,7 +46,7 @@ Die `user-input`-Eigenschaft befindet sich derzeit nicht auf einem Standardisier
 
 ## Beispiele
 
-### Deaktivieren von Benutzereingaben für ein Element
+### Benutzereingaben für ein Element deaktivieren
 
 ```css
 input.example {
@@ -55,7 +57,7 @@ input.example {
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

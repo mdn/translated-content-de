@@ -1,18 +1,19 @@
 ---
-title: "ShadowRoot: fullscreenElement-Eigenschaft"
+title: "ShadowRoot: Eigenschaft fullscreenElement"
 short-title: fullscreenElement
 slug: Web/API/ShadowRoot/fullscreenElement
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: a23122d0e86fb376234614beb5b350b217068054
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die **`fullscreenElement`** schreibgeschützte Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element innerhalb des Schattenbaums zurück, das momentan im Vollbild angezeigt wird.
+Die schreibgeschützte Eigenschaft **`fullscreenElement`** des Interfaces [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gibt das Element innerhalb des Shadow Tree zurück, das derzeit im Vollbild angezeigt wird.
 
 ## Wert
 
-Das [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird, oder `null`, wenn kein Vollbild-Element vorhanden ist.
+Das [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird,
+oder `null`, wenn es kein Vollbildelement gibt.
 
 ## Beispiele
 

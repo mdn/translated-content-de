@@ -3,10 +3,12 @@ title: "`perspective-origin` CSS property"
 short-title: perspective-origin
 slug: Web/CSS/Reference/Properties/perspective-origin
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`perspective-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt die Position, von der der Betrachter schaut. Sie wird als _Fluchtpunkt_ von der {{cssxref("perspective")}}-Eigenschaft verwendet.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`perspective-origin`** bestimmt die Position, von der aus die betrachtende Person schaut. Sie wird von der Eigenschaft {{cssxref("perspective")}} als _Fluchtpunkt_ verwendet.
+
+Die Eigenschaften **`perspective-origin`** und {{cssxref('perspective')}} werden im Gegensatz zur Transformationsfunktion [`perspective()`](/de/docs/Web/CSS/Reference/Values/transform-function/perspective), die auf dem transformierten Element platziert wird, dem übergeordneten Element eines im dreidimensionalen Raum transformierten Kindelements zugeordnet.
 
 {{InteractiveExample("CSS Demo: perspective-origin")}}
 
@@ -99,8 +101,6 @@ perspective-origin: 500% 200%;
 }
 ```
 
-Die **`perspective-origin`** und {{cssxref('perspective')}}-Eigenschaften sind an das übergeordnete Element eines Kindes, das im dreidimensionalen Raum transformiert wird, angeheftet, im Gegensatz zur [`perspective()`](/de/docs/Web/CSS/Reference/Values/transform-function/perspective)-Transformationsfunktion, die auf das Element angewendet wird, das transformiert wird.
-
 ## Syntax
 
 ```css
@@ -125,18 +125,18 @@ perspective-origin: unset;
 ### Werte
 
 - _x-position_
-  - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Er kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluter Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
-    - `left`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
-    - `right`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
+  - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, das die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
+    - `left`, ein Schlüsselwort als Kurzform für den Längenwert `0`.
+    - `center`, ein Schlüsselwort als Kurzform für den Prozentwert `50%`.
+    - `right`, ein Schlüsselwort als Kurzform für den Prozentwert `100%`.
 
 - _y-position_
-  - : Gibt die Position der Ordinate des _Fluchtpunkts_ an. Er kann einen der folgenden Werte haben:
-    - {{cssxref("&lt;length-percentage&gt;")}}, der die Position als absoluter Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
-    - `top`, ein Schlüsselwort, das eine Abkürzung für den `0` Längenwert ist.
-    - `center`, ein Schlüsselwort, das eine Abkürzung für den `50%` Prozentwert ist.
-    - `bottom`, ein Schlüsselwort, das eine Abkürzung für den `100%` Prozentwert ist.
+  - : Gibt die Position der Ordinate des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
+    - {{cssxref("&lt;length-percentage&gt;")}}, das die Position als absoluten Längenwert oder relativ zur Höhe des Elements angibt. Der Wert kann negativ sein.
+    - `top`, ein Schlüsselwort als Kurzform für den Längenwert `0`.
+    - `center`, ein Schlüsselwort als Kurzform für den Prozentwert `50%`.
+    - `bottom`, ein Schlüsselwort als Kurzform für den Prozentwert `100%`.
 
 ## Formale Definition
 
@@ -148,9 +148,9 @@ perspective-origin: unset;
 
 ## Beispiele
 
-### Ändern des Perspektivursprungs
+### Ändern des Perspektivenursprungs
 
-Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unter [Using CSS transforms > Changing the perspective origin](/de/docs/Web/CSS/Guides/Transforms/Using#changing_the_perspective_origin).
+Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unter [Verwendung von CSS-Transformationen > Ändern des Perspektivenursprungs](/de/docs/Web/CSS/Guides/Transforms/Using#changing_the_perspective_origin).
 
 ## Spezifikationen
 
@@ -162,8 +162,8 @@ Ein Beispiel, das zeigt, wie `perspective-origin` geändert wird, finden Sie unt
 
 ## Siehe auch
 
-- [Using CSS Transforms](/de/docs/Web/CSS/Guides/Transforms/Using)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
 - {{cssxref('transform-style')}}
 - {{cssxref('transform-function')}}
 - {{cssxref('perspective')}}
-- [`transform: perspective()`](/de/docs/Web/CSS/Reference/Values/transform-function/perspective) Funktion
+- Funktion [`transform: perspective()`](/de/docs/Web/CSS/Reference/Values/transform-function/perspective)

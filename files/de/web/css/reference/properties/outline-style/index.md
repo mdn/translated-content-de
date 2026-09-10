@@ -3,10 +3,12 @@ title: "`outline-style` CSS property"
 short-title: outline-style
 slug: Web/CSS/Reference/Properties/outline-style
 l10n:
-  sourceCommit: c0c85c3dc0d6ff4247c85b0144149e584d74b625
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`outline-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Stil des Umrisses eines Elements fest. Ein Umriss ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`outline-style`** legt den Stil der Outline eines Elements fest. Eine Outline ist eine Linie, die um ein Element herum außerhalb des {{cssxref("border")}} gezeichnet wird.
+
+Beim Definieren des Erscheinungsbilds einer Outline ist es häufig praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden.
 
 {{InteractiveExample("CSS Demo: outline-style")}}
 
@@ -47,8 +49,6 @@ outline-style: inset;
 }
 ```
 
-Es ist oft bequemer, die Kurzschreibweise {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild eines Umrisses definiert wird.
-
 ## Syntax
 
 ```css
@@ -77,25 +77,25 @@ outline-style: unset;
 Diese Eigenschaft wird als einer der folgenden Werte angegeben:
 
 - `auto`
-  - : Erlaubt dem User-Agent, einen benutzerdefinierten Umrissstil darzustellen.
+  - : Ermöglicht es dem User Agent, einen benutzerdefinierten Outline-Stil zu rendern.
 - `none`
-  - : Es wird kein Umriss verwendet.
+  - : Es wird keine Outline verwendet.
 - `dotted`
-  - : Der Umriss ist eine Reihe von Punkten.
+  - : Die Outline besteht aus einer Reihe von Punkten.
 - `dashed`
-  - : Der Umriss besteht aus einer Reihe von kurzen Liniensegmenten.
+  - : Die Outline besteht aus einer Reihe kurzer Liniensegmente.
 - `solid`
-  - : Der Umriss ist eine einzelne Linie.
+  - : Die Outline ist eine einzelne Linie.
 - `double`
-  - : Der Umriss besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und dem Raum dazwischen.
+  - : Die Outline besteht aus zwei einzelnen Linien. Die {{cssxref("outline-width")}} ist die Summe der beiden Linien und des Zwischenraums zwischen ihnen.
 - `groove`
-  - : Der Umriss sieht aus, als wäre er in die Seite eingeschnitten.
+  - : Die Outline sieht aus, als wäre sie in die Seite eingraviert.
 - `ridge`
-  - : Das Gegenteil von `groove`: Der Umriss sieht aus, als wäre er aus der Seite herausgehoben.
+  - : Das Gegenteil von `groove`: Die Outline sieht aus, als wäre sie aus der Seite herausgeprägt.
 - `inset`
-  - : Der Umriss lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
+  - : Die Outline lässt die Box so aussehen, als wäre sie in die Seite eingebettet.
 - `outset`
-  - : Das Gegenteil von `inset`: Der Umriss lässt die Box so aussehen, als würde sie aus der Seite herauskommen.
+  - : Das Gegenteil von `inset`: Die Outline lässt die Box so aussehen, als würde sie aus der Seite herausragen.
 
 ## Formale Definition
 
@@ -107,9 +107,9 @@ Diese Eigenschaft wird als einer der folgenden Werte angegeben:
 
 ## Beispiele
 
-### Umrissstil auf auto setzen
+### Outline-Stil auf auto setzen
 
-Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) beschrieben wird als "typischerweise ein Stil \[der] entweder ein Benutzeroberflächendefault für die Plattform ist oder vielleicht ein Stil, der reicher ist, als im Detail in CSS beschrieben werden kann, z. B. ein Umriss mit abgerundeten Kanten und halbtransluzenten äußeren Pixeln, der zu leuchten scheint".
+Der Wert `auto` kennzeichnet einen benutzerdefinierten Outline-Stil, der in [der Spezifikation](https://drafts.csswg.org/css-ui/#outline-style) als „typischerweise ein Stil \[der] entweder eine Benutzeroberflächen-Standardeinstellung für die Plattform ist oder möglicherweise ein Stil, der umfangreicher ist, als er in CSS detailliert beschrieben werden kann, z. B. eine Outline mit abgerundeten Kanten und halbtransparenten äußeren Pixeln, die zu leuchten scheint“ beschrieben wird.
 
 #### HTML
 
@@ -137,7 +137,7 @@ Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der 
 
 {{ EmbedLiveSample('Setting_outline_style_to_auto') }}
 
-### Umrissstil auf gestrichelt und gepunktet setzen
+### Outline-Stil auf dashed und dotted setzen
 
 #### HTML
 
@@ -170,7 +170,7 @@ Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der 
 
 {{ EmbedLiveSample('Setting_outline_style_to_dashed_and_dotted') }}
 
-### Umrissstil auf durchgezogen und doppelt setzen
+### Outline-Stil auf solid und double setzen
 
 #### HTML
 
@@ -203,7 +203,7 @@ Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der 
 
 {{ EmbedLiveSample('Setting_outline_style_to_solid_and_double') }}
 
-### Umrissstil auf Einkerbung und Erhebung setzen
+### Outline-Stil auf groove und ridge setzen
 
 #### HTML
 
@@ -236,7 +236,7 @@ Der Wert `auto` weist auf einen benutzerdefinierten Umrissstil hin, der in [der 
 
 {{ EmbedLiveSample('Setting_outline_style_to_groove_and_ridge') }}
 
-### Umrissstil auf vertieft und hervorstehend setzen
+### Outline-Stil auf inset und outset setzen
 
 #### HTML
 

@@ -1,12 +1,12 @@
 ---
-title: "`<bdo>` HTML-Element zur bidirektionalen Textüberschreibung"
+title: "`<bdo>`-HTML-Element zur Überschreibung der bidirektionalen Textrichtung"
 short-title: <bdo>
 slug: Web/HTML/Reference/Elements/bdo
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 100cf25d92d3953f3c70ecaa2af637d5e42179d8
 ---
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text in einer anderen Richtung dargestellt wird.
+Das [HTML](/de/docs/Web/HTML)-Element **`<bdo>`** überschreibt die aktuelle Textrichtung, sodass der darin enthaltene Text in einer anderen Richtung dargestellt wird.
 
 {{InteractiveExample("HTML Demo: &lt;bdo&gt;", "tabbed-standard")}}
 
@@ -36,16 +36,18 @@ bdo {
 }
 ```
 
-Die Zeichen des Textes werden von dem Startpunkt in die angegebene Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird jedoch nicht beeinflusst (die Zeichen werden zum Beispiel nicht rückwärts gezeichnet).
-
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `dir`
-  - : Die Richtung, in der der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
-    - `ltr`: Gibt an, dass der Text von links nach rechts gehen soll.
-    - `rtl`: Gibt an, dass der Text von rechts nach links gehen soll.
+  - : Die Richtung, in der Text im Inhalt dieses Elements dargestellt werden soll. Mögliche Werte sind:
+    - `ltr`: Gibt an, dass der Text von links nach rechts verlaufen soll.
+    - `rtl`: Gibt an, dass der Text von rechts nach links verlaufen soll.
+
+## Hinweise zur Verwendung
+
+Die Zeichen des Textes werden vom Startpunkt aus in der angegebenen Richtung gezeichnet; die Ausrichtung der einzelnen Zeichen wird nicht beeinflusst (Zeichen werden also beispielsweise nicht rückwärts gezeichnet).
 
 ## Beispiele
 
@@ -59,10 +61,6 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
 
 {{EmbedLiveSample('Examples')}}
 
-## Hinweise
-
-Die HTML-4-Spezifikation legte keine Ereignisse für dieses Element fest; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
-
 ## Technische Zusammenfassung
 
 <table class="properties">
@@ -75,32 +73,33 @@ Die HTML-4-Spezifikation legte keine Ereignisse für dieses Element fest; sie wu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >, greifbarer Inhalt.
+          >Phrasing-Inhalt</a
+        >, wahrnehmbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl Start- als auch End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        > akzeptiert.
+          >Phrasing-Inhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
@@ -120,13 +119,13 @@ Die HTML-4-Spezifikation legte keine Ereignisse für dieses Element fest; sie wu
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        implementiert Firefox für dieses Element die Schnittstelle
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"
             >HTMLSpanElement</a
           ></code
-        >
-        Schnittstelle für dieses Element.
+        >.
       </td>
     </tr>
   </tbody>

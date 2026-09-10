@@ -3,10 +3,10 @@ title: CSS-Eigenschaft `gap`
 short-title: gap
 slug: Web/CSS/Reference/Properties/gap
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: 7b535c422322a8a330bd68075541abfc78efc4b7
 ---
 
-Die **`gap`**-Eigenschaft der [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Abstände (auch als {{Glossary("gutters", "Rinnen")}} bezeichnet) zwischen Reihen und Spalten in [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox-](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Containern fest.
+Die [CSS](/de/docs/Web/CSS)-[Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`gap`** legt die Abstände (auch als {{Glossary("gutters", "Rinnen")}} bezeichnet) zwischen Zeilen und Spalten in [mehrspaltigen](/de/docs/Web/CSS/Guides/Multicol_layout), [Flex-](/de/docs/Web/CSS/Guides/Flexible_box_layout)- und [Grid-](/de/docs/Web/CSS/Guides/Grid_layout)-Containern fest.
 
 {{InteractiveExample("CSS Demo: gap")}}
 
@@ -58,9 +58,9 @@ gap: calc(20px + 10%);
 }
 ```
 
-## Bestandteilige Eigenschaften
+## Enthaltene Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für folgende CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("row-gap")}}
 - {{cssxref("column-gap")}}
@@ -68,16 +68,15 @@ Diese Eigenschaft ist eine Kurzschreibweise für folgende CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Keyword value */
-gap: normal;
-
 /* One value */
+gap: normal;
 gap: 20px;
 gap: 1em;
 gap: 3vmin;
 gap: 0.5cm;
 gap: 16%;
 gap: 100%;
+gap: thick;
 gap: calc(10% + 20px);
 
 /* Two values */
@@ -87,7 +86,10 @@ gap: 3vmin 2vmax;
 gap: 0.5cm 2mm;
 gap: 16% 100%;
 gap: 21px 82%;
+gap: normal thin;
+gap: thin thick;
 gap: calc(20px + 10%) calc(10% - 5px);
+gap: calc(20px + 10%) medium;
 
 /* Global values */
 gap: inherit;
@@ -99,48 +101,50 @@ gap: unset;
 
 ### Werte
 
+Diese Eigenschaft wird als ein oder zwei Werte aus der folgenden Liste angegeben:
+
 - `normal`
-  - : Ein Wert von `1em` bei mehrspaltigen Containern und `0` in allen anderen Kontexten.
-- {{CSSxRef("&lt;length&gt;")}}
-  - : Die Größe des Abstands als nicht-negativer {{CSSxRef("&lt;length&gt;")}}-Wert.
-- {{CSSxRef("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als nicht-negativer {{CSSxRef("&lt;percentage&gt;")}}-Wert relativ zur Größe des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements in dieser Dimension.
+  - : Setzt den Abstand in mehrspaltigen Layouts auf `1em` und in allen anderen Kontexten auf `0`. Dies ist der Standardwert.
+- {{cssxref("&lt;line-width&gt;")}}
+  - : Legt die Größe des Abstands mithilfe der Schlüsselwörter `thin`, `medium` oder `thick` oder eines positiven {{cssxref("length")}}-Werts fest.
+- {{CSSxRef("length-percentage")}}
+  - : Setzt den Abstand auf einen nicht negativen {{CSSxRef("&lt;length&gt;")}}- oder {{CSSxRef("&lt;percentage&gt;")}}-Wert.
 
 ## Beschreibung
 
-Die `gap`-Eigenschaft definiert Abstände zwischen Spalten und Reihen, wobei die Wirkung der Definition davon abhängt, ob der Container ein Grid-Container, ein Flexbox-Container oder ein mehrspaltiges Layout-Container ist.
+Die Eigenschaft `gap` definiert Abstände zwischen Spalten und Zeilen, wobei die Auswirkung der Definition davon abhängt, ob der Container ein Grid-Container, ein Flexbox-Container oder ein Container für ein mehrspaltiges Layout ist.
 
-Die Kurzschreibweise wird als Wert für `<'row-gap'>`, gefolgt optional von einem Wert für `<'column-gap'>` angegeben. Während der Standardwert für beide Untereigenschaften `normal` ist, gilt, wenn nur ein Wert deklariert wird, dieser Wert für beide. Sowohl `<'row-gap'>` als auch `<'column-gap'>` können jeweils als `<length>`, `<percentage>` oder mit dem Schlüsselwort `normal` angegeben werden.
+Die Kurzform akzeptiert einen oder zwei Werte. Ein einzelner Wert setzt sowohl `row-gap` als auch `column-gap`. Zwei Werte setzen zuerst `row-gap` und dann `column-gap`. Der Standardwert ist für beide Untereigenschaften `normal`; wenn Sie jedoch nur einen Wert deklarieren, gilt dieser für beide.
 
-Prozentuale Abstandswerte werden immer relativ zur Größe des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements berechnet. Das Verhalten ist gut definiert und konsistent über alle Layout-Modi hinweg, wenn die Containergröße definiert ist.
+Prozentuale Abstandswerte werden immer relativ zur Größe der [Content-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Container-Elements berechnet. Wenn die Containergröße bestimmt ist, ist das Verhalten über die Layout-Modi hinweg wohldefiniert und konsistent.
 
-Die erzeugten Abstände schaffen leere Räume, die die Breite oder Höhe der angegebenen Abstandsgröße haben, ähnlich wie ein leeres Element oder eine Spur. Der sichtbare Raum zwischen Elementen kann von dem angegebenen `gap`-Wert abweichen, da Ränder, Auffüllungen und verteilten Anpassungen den Abstand zwischen Elementen über das hinaus vergrößern können, was durch `gap` bestimmt wird.
+Die erzeugten Abstände schaffen leere Bereiche, deren Breite oder Höhe der angegebenen Größe des Abstands entspricht, ähnlich wie ein leeres Element oder ein leerer Track. Der sichtbare Abstand zwischen Elementen kann vom angegebenen `gap`-Wert abweichen, da Margins, Padding und verteilte Ausrichtung die Trennung zwischen Elementen über das durch `gap` Bestimmte hinaus vergrößern können.
 
-Abstände können sichtbare Trennlinien als Abstandsdekorationen enthalten. Wenn dekorative Regeln zwischen den Spalten, Reihen oder beidem vorhanden sind, erscheinen sie in der Mitte des Abstands, haben jedoch keinen Einfluss auf die Größe der Abstände. Diese dekorativen Linien können dem ansonsten "leeren Raum" hinzugefügt werden, indem die {{cssxref("rule")}}-Kurzschreibweise verwendet wird.
+Abstände können sichtbare Trennlinien als Abstanddekorationen enthalten. Wenn dekorative Linien zwischen den Spalten, Zeilen oder beiden vorhanden sind, erscheinen sie in der Mitte ihres Abstands, haben jedoch keinen Einfluss auf die Größe der Abstände. Diese dekorativen Linien können dem ansonsten „leeren Raum“ mithilfe der Kurzform {{cssxref("rule")}} hinzugefügt werden.
 
 ### In Grid-Layouts
 
-Im [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) definiert die `gap`-Eigenschaft den Raum zwischen Reihen und Spalten. Der erste Wert definiert die Rinne zwischen den Reihen, und der zweite den Abstand zwischen den Spalten. Wenn nur ein Wert angegeben ist, wird dieser für beide Dimensionen verwendet.
+Im [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) definiert die Eigenschaft `gap` den Raum zwischen Zeilen und Spalten. Wenn zwei Werte enthalten sind, definiert der erste Wert die Rinne zwischen Zeilen und der zweite die Rinne zwischen Spalten.
 
-Prozentwerte werden relativ zur Größe des [Inhaltsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Containerelements berechnet. Zyklische Prozentsatzgrößen lösen sich gegen Null auf, um die {{Glossary("intrinsic_size", "intrinsische Größe")}} zu bestimmen, lösen sich jedoch gegen den Inhaltsbereich des Grid-Containers auf, wenn der Inhalt angelegt wird. Zwei Beispiele unten zeigen Prozentabstandswerte mit [expliziter Containergröße](#prozentualer_abstandswert_und_explizite_containergröße) und [impliziter Containergröße](#prozentualer_abstandswert_und_implizite_containergröße) im Abschnitt Beispiele.
+Prozentwerte werden relativ zur Größe der [Content-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des Container-Elements berechnet. Zyklische Prozentgrößen werden zur Bestimmung der Beiträge zur {{Glossary("intrinsic_size", "intrinsischen Größe")}} gegen null aufgelöst, beim Layouten der Inhalte jedoch gegen die Content-Box des Grid-Containers. Zwei nachfolgende Beispiele zeigen prozentuale Abstandswerte mit [expliziter Containergröße](#prozentualer_abstandswert_und_explizite_containergröße) und [impliziter Containergröße](#prozentualer_abstandswert_und_implizite_containergröße) im Beispielabschnitt.
 
-Der Effekt positiver `gap`-Werte ist, als ob die Gitternetzlinien Dicke bekämen: Die Gitternetzspur zwischen zwei Gitternetzlinien ist der Raum zwischen den Rinnen, die sie darstellen. Wenn ein Grid-Element mehrere Reihen oder Spalten überspannt, wird die Rinne für die Spurgrößenbestimmung als eine zusätzliche, leere, festgelegte Spur der angegebenen Größe betrachtet, die in der Dimension der Spannungsrichtung hinzugefügt wird. Zum Beispiel, wenn `gap: 10px` auf einem 3x3-Gitter von 100px x 100px Kästchen gesetzt wird, und ein Gitterelement zwei vertikale Spalten umfasst, wäre seine Breite `210px`. Wenn es alle drei umfasst, beträgt seine Breite `320px`.
+Die Wirkung positiver `gap`-Werte ist so, als hätten die Grid-Linien eine Dicke erhalten: Der Grid-Track zwischen zwei Grid-Linien ist der Raum zwischen den Rinnen, die sie darstellen. Wenn ein Grid-Element mehrere Zeilen oder Spalten überspannt, wird die Rinne zum Zweck der Track-Größenbestimmung als zusätzlicher, leerer Track mit fester Größe der angegebenen Größe behandelt, der der Dimension in Spannrichtung hinzugefügt wird. Wenn beispielsweise `gap: 10px` in einem 3x3-Grid aus Boxen mit 100px mal 100px gesetzt ist und ein Grid-Element zwei vertikale Spalten überspannt, beträgt seine Breite `210px`. Überspannt es alle drei, hat es eine Breite von `320px`.
 
-Der Abstand zwischen Grid-Reihen und -Spalten kann größer sein als der Wert der `gap`-Eigenschaft, aufgrund von zusätzlichem Raum, der zwischen den Spuren durch die {{cssxref("justify-content")}} und {{cssxref("align-content")}} Eigenschaften hinzugefügt wird.
+Der Raum zwischen Grid-Zeilen und -Spalten kann aufgrund von Raum, der durch die Eigenschaften {{cssxref("justify-content")}} und {{cssxref("align-content")}} zwischen Tracks hinzugefügt wird, größer sein als der Wert der Eigenschaft `gap`.
 
-Rinnen erscheinen nur zwischen den Spuren des impliziten Gitters. Wenn ein Gitter zwischen Spuren fragmentiert ist, wird kein Rinnenabstand zwischen diesen Spuren hinzugefügt. Es gibt keine Rinne vor der ersten Spur oder nach der letzten Spur, und wenn eine Spur zusammengebrochen ist, wird sie keine Rinne haben.
+Rinnen erscheinen nur zwischen Tracks des impliziten Grids. Wenn ein Grid zwischen Tracks fragmentiert wird, wird zwischen diesen Tracks kein Rinnenabstand hinzugefügt. Es gibt keine Rinne vor dem ersten Track oder nach dem letzten Track, und wenn ein Track eingeklappt ist, hat er keine Rinne.
 
-Frühere Versionen der CSS-Gitter-Spezifikation nannten diese Eigenschaft `grid-gap`. Um die Kompatibilität mit älteren Websites aufrechtzuerhalten, akzeptieren Browser `grid-gap` als Alias für `gap`.
+Frühe Versionen der CSS-Grid-Spezifikation nannten diese Eigenschaft `grid-gap`. Zur Aufrechterhaltung der Kompatibilität mit älteren Websites akzeptieren Browser `grid-gap` als Alias für `gap`.
 
 ### In Flexbox
 
-Bei flexiblen Containern definiert die `gap`-Eigenschaft den Raum sowohl zwischen Flex-Elementen als auch zwischen Flex-Linien. Ob der erste Wert der Abstand zwischen Flex-Elementen oder zwischen Flex-Linien ist, hängt von der Richtung ab. Flex-Elemente werden je nach Wert der {{cssxref("flex-direction")}}-Eigenschaft entweder in Reihen oder Spalten angeordnet. Für Reihen (`row` (Standard) oder `row-reverse`) definiert der erste Wert den Abstand zwischen den Flex-Linien und der zweite Wert den Abstand zwischen den Elementen innerhalb jeder Linie. Wenn nur ein Wert vorhanden ist, gilt dieser für beide Dimensionen.
+Bei Flex-Containern definiert die Eigenschaft `gap` den Raum sowohl zwischen Flex-Elementen als auch zwischen Flex-Linien. Ob der erste Wert den Abstand zwischen Flex-Elementen oder zwischen Flex-Linien darstellt, hängt von der Richtung ab. Flex-Elemente werden abhängig vom Wert der Eigenschaft {{cssxref("flex-direction")}} entweder in Zeilen oder Spalten angeordnet. Bei Zeilen (`row` (der Standardwert) oder `row-reverse`) definiert der erste Wert den Abstand zwischen Flex-Linien und der zweite Wert den Abstand zwischen Elementen innerhalb jeder Linie. Wenn nur ein Wert enthalten ist, wird dieser Wert für beide Dimensionen verwendet.
 
-Für Spalten (`column` oder `column-reverse`) definiert der erste Wert den Abstand zwischen Flex-Elementen innerhalb einer Flex-Linie und der zweite den Abstand zwischen jeder Flex-Linie. Auch hier gilt, wenn nur ein Wert vorhanden ist, wird dieser für beide Dimensionen verwendet.
+Bei Spalten (`column` oder `column-reverse`) definiert der erste Wert den Abstand zwischen Flex-Elementen innerhalb einer Flex-Linie und der zweite Wert die Abstände zwischen den einzelnen Flex-Linien. Auch hier wird ein einzelner angegebener Wert für beide Dimensionen verwendet.
 
 ### In mehrspaltigen Layouts
 
-Im [CSS mehrspaltigen Layout](/de/docs/Web/CSS/Guides/Multicol_layout) definiert die Eigenschaft die Rinne zwischen Spalten und Reihen von Spalten. Der erste Wert definiert den Abstand zwischen benachbarten Spaltenkästchen, während der zweite Wert die Größe der Rinne zwischen Reihen von Spaltenkästchen definiert, falls mehrere Reihen durch die {{cssxref("column-height")}}-Eigenschaft etabliert wurden.
+Im [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) definiert die Eigenschaft die Rinne zwischen Spalten und Spaltenzeilen. Der erste Wert definiert den Abstand zwischen benachbarten Spaltenboxen, während der zweite Wert die Größe der Rinne zwischen Zeilen von Spaltenboxen definiert, wenn durch die Eigenschaft {{cssxref("column-height")}} mehrere Zeilen eingerichtet wurden.
 
 ## Formale Definition
 
@@ -254,7 +258,7 @@ Im [CSS mehrspaltigen Layout](/de/docs/Web/CSS/Guides/Multicol_layout) definiert
 
 ### Prozentualer Abstandswert und explizite Containergröße
 
-Wenn die Containergröße festgelegt ist, basieren die Berechnungen der Abstands-Prozentwerte auf der Größe des Containers. Somit ist das Abstandsverhalten über alle Layouts hinweg gleichbleibend. Im folgenden Beispiel gibt es zwei Container, einen mit einem Grid-Layout und den anderen mit einem Flex-Layout. Die Container haben fünf rote 20x20px-Kinder. Beide Container sind explizit auf 200px Höhe gesetzt, indem `height: 200px` angegeben wird, und der Abstand wird mit `gap: 12.5% 0` festgelegt.
+Wenn der Container eine festgelegte Größe hat, basieren die Berechnungen prozentualer Abstandswerte auf der Größe des Containers. Daher ist das Verhalten von Abständen über alle Layouts hinweg konsistent. Im folgenden Beispiel gibt es zwei Container, einen mit Grid-Layout und den anderen mit Flex-Layout. Die Container enthalten fünf rote Kindelemente mit einer Größe von 20x20px. Beide Container werden mit `height: 200px` explizit auf eine Höhe von 200px gesetzt und der Abstand wird mit `gap: 12.5% 0` festgelegt.
 
 ```html
 <span>Grid</span>
@@ -306,11 +310,11 @@ body > div {
 
 {{EmbedLiveSample("Explicit container size", "auto", "200px")}}
 
-Überprüfen Sie jetzt die Grid- und Flex-Elemente mithilfe des [Inspektor-Tabs in den Webentwickler-Tools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/open_the_inspector/index.html). Um die tatsächlichen Abstände zu sehen, bewegen Sie die Maus über die `<div id="grid">` und `<div id="flex">`-Tags im Inspektor. Sie werden feststellen, dass der Abstand in beiden Fällen gleich ist, nämlich 25px.
+Untersuchen Sie nun die Grid- und Flex-Elemente über den [Inspector-Tab in den Web Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/open_the_inspector/index.html). Um die tatsächlichen Abstände zu sehen, bewegen Sie den Mauszeiger im Inspector über die Tags `<div id="grid">` und `<div id="flex">`. Sie werden feststellen, dass der Abstand in beiden Fällen gleich ist und 25px beträgt.
 
 ### Prozentualer Abstandswert und implizite Containergröße
 
-Wenn die Größe nicht explizit auf dem Container gesetzt ist, verhält sich der prozentuale Abstand in Grid- und Flex-Layouts unterschiedlich. Im folgenden Beispiel haben die Container keine explizit gesetzte Höhe.
+Wenn die Größe nicht explizit für den Container festgelegt wird, verhält sich der prozentuale Abstand bei Grid- und Flex-Layouts unterschiedlich. Im folgenden Beispiel ist die Höhe der Container nicht explizit festgelegt.
 
 ```html hidden
 <span>Grid</span>
@@ -358,9 +362,9 @@ body > div {
 
 {{EmbedLiveSample("Implicit container size", "auto", "200px")}}
 
-Im Falle des Grid-Layouts trägt der prozentuale Abstand nicht zur tatsächlichen Höhe des Grids bei. Die Höhe des Containers wird mit `0px` Abstand berechnet, sodass die tatsächliche Höhe 100px beträgt (20px x 5). Dann wird der tatsächliche prozentuale Abstand unter Verwendung der Höhe des Inhaltsbereichs berechnet; der Abstand beträgt `12.5px` (100px x 12.5%). Der Abstand wird kurz vor der Wiedergabe angewendet. Daher bleibt das Grid 100px hoch, läuft aber aufgrund des später hinzugefügten prozentualen Abstands über.
+Im Fall des Grid-Layouts trägt der prozentuale Abstand nicht zur tatsächlichen Höhe des Grids bei. Die Höhe des Containers wird mit einem Abstand von `0px` berechnet, sodass die tatsächliche Höhe 100px (20px x 5) beträgt. Anschließend wird der tatsächliche prozentuale Abstand anhand der Höhe der Content-Box berechnet; der Abstand beträgt `12.5px` (100px x 12.5%). Der Abstand wird erst unmittelbar vor dem Rendern angewendet. Somit bleibt das Grid 100px hoch, läuft aber aufgrund des später unmittelbar vor dem Rendern hinzugefügten prozentualen Abstands über.
 
-Im Falle des Flex-Layouts ergibt der prozentuale Abstand immer den Wert Null.
+Im Fall des Flex-Layouts ergibt der prozentuale Abstand immer den Wert null.
 
 ## Spezifikationen
 
@@ -374,8 +378,10 @@ Im Falle des Flex-Layouts ergibt der prozentuale Abstand immer den Wert Null.
 
 - {{CSSxRef("row-gap")}}
 - {{CSSxRef("column-gap")}}
-- [Grundkonzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
-- [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
-- [CSS Mehrspaltiges Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul
+- {{CSSxRef("rule")}}
+- [Grundlegende Konzepte des Grid-Layouts: Rinnen](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters)
+- Modul [CSS gaps](/de/docs/Web/CSS/Guides/Gaps)
+- Modul [CSS box alignment](/de/docs/Web/CSS/Guides/Box_alignment)
+- Modul [CSS flexible box layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+- Modul [CSS grid layout](/de/docs/Web/CSS/Guides/Grid_layout)
+- Modul [CSS multi-column layout](/de/docs/Web/CSS/Guides/Multicol_layout)

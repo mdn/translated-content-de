@@ -3,7 +3,7 @@ title: "`-webkit-mask-repeat-y` CSS property"
 short-title: -webkit-mask-repeat-y
 slug: Web/CSS/Reference/Properties/-webkit-mask-repeat-y
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_header}}
@@ -32,16 +32,16 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ### Werte
 
-- repeat
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
+- `repeat`
   - : Das Maskenbild wird vertikal wiederholt.
-- no-repeat
-  - : Das Maskenbild wird vertikal nicht wiederholt; nur eine Kopie des Maskenbildes wird in vertikaler Richtung gezeichnet. Der vertikale Rest des Inhalts des maskierten Elements wird nicht angezeigt.
-- repeat
-  - : Das Maskenbild wird vertikal wiederholt.
-- space
-  - : Das Bild wird so oft wie möglich wiederholt, ohne abgeschnitten zu werden. Die ersten und letzten Bilder sind an den oberen und unteren Rand des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden dargestellt werden. Der einzige Fall, in dem mit space abgeschnitten wird, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
-- round
-  - : Da der erlaubte vertikale Raum größer wird, dehnen sich die wiederholten Bilder (ohne Lücken zu lassen), bis Platz für ein weiteres Bild ist. Wenn das nächste Bild hinzugefügt wird, werden alle aktuellen komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
+- `no-repeat`
+  - : Das Maskenbild wird vertikal nicht wiederholt; in dieser Richtung wird nur eine Kopie des Maskenbilds gezeichnet. Der vertikale verbleibende Bereich des Inhalts des maskierten Elements wird nicht angezeigt.
+- `space`
+  - : Das Bild wird so oft wie möglich ohne Beschneidung wiederholt. Das erste und letzte Bild werden am oberen bzw. unteren Rand des Elements ausgerichtet, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Beschneidung angezeigt werden. Der einzige Fall, in dem bei Verwendung von space eine Beschneidung erfolgt, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
+- `round`
+  - : Wenn der verfügbare vertikale Bereich größer wird, werden die wiederholten Bilder gestreckt (ohne Lücken), bis Platz für ein weiteres Bild vorhanden ist. Wenn das nächste Bild hinzugefügt wird, werden alle aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, kann gestreckt werden, bis jede Wiederholung 300px hoch ist; anschließend wird ein weiteres Bild hinzugefügt. Danach werden sie auf eine Höhe von 225px komprimiert.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ## Beispiele
 
-### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines wiederholten oder nicht wiederholten Maskenbilds
 
 ```css
 .example-one {
@@ -69,7 +69,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommata:
+Sie können für jedes Maskenbild einen unterschiedlichen `<repeat-style>` angeben, getrennt durch Kommas:
 
 ```css
 .example-three {
@@ -78,11 +78,11 @@ Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil, vom zuerst angegebenen bis zum letzten, abgeglichen.
+Jedes Bild wird dem entsprechenden Wiederholungsstil zugeordnet, vom ersten angegebenen bis zum letzten.
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -3,10 +3,12 @@ title: "`image-rendering` CSS property"
 short-title: image-rendering
 slug: Web/CSS/Reference/Properties/image-rendering
 l10n:
-  sourceCommit: 071fd0613b1b5728d2d83845ea11512cb615067a
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`image-rendering`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt einen Bildskalierungsalgorithmus fest. Die Eigenschaft gilt für das Element selbst, für alle Bilder, die in seinen anderen Eigenschaften festgelegt sind, sowie für seine Nachfahren.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`image-rendering`** legt einen Algorithmus für die Bildskalierung fest. Die Eigenschaft gilt für ein Element selbst, für alle Bilder, die in seinen anderen Eigenschaften festgelegt sind, sowie für seine Nachfahren.
+
+Der {{Glossary("user_agent", "User Agent")}} skaliert ein Bild, wenn der Seitenautor andere Abmessungen als dessen natürliche Größe angibt. Eine Skalierung kann auch durch Benutzerinteraktion (Zoomen) erfolgen. Wenn beispielsweise die natürliche Größe eines Bildes `100×100px`_,_ beträgt, seine tatsächlichen Abmessungen jedoch `200×200px` (oder `50×50px`) sind, wird das Bild mithilfe des durch `image-rendering` angegebenen Algorithmus hochskaliert (oder herunterskaliert). Diese Eigenschaft hat keine Auswirkung auf nicht skalierte Bilder.
 
 {{InteractiveExample("CSS Demo: image-rendering")}}
 
@@ -42,8 +44,6 @@ image-rendering: pixelated;
 }
 ```
 
-Der {{Glossary("user_agent", "User-Agent")}} skaliert ein Bild, wenn der Seitenautor Abmessungen angibt, die von der natürlichen Größe abweichen. Skalierung kann auch durch Benutzerinteraktion (Zoomen) erfolgen. Wenn beispielsweise die natürliche Größe eines Bildes `100×100px` ist, seine tatsächlichen Abmessungen jedoch `200×200px` (oder `50×50px`) betragen, dann wird das Bild mit dem durch `image-rendering` angegebenen Algorithmus vergrößert (oder verkleinert) skaliert. Diese Eigenschaft hat keine Auswirkung auf nicht skalierte Bilder.
-
 ## Syntax
 
 ```css
@@ -63,22 +63,22 @@ image-rendering: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als einer der folgenden Schlüsselwort-Werte angegeben:
+Diese Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `auto`
-  - : Der Skalierungsalgorithmus ist UA-abhängig. Seit Version 1.9 (Firefox 3.0) verwendet Gecko _bilineare_ Resampling (hohe Qualität).
+  - : Der Skalierungsalgorithmus ist vom UA abhängig. Seit Version 1.9 (Firefox 3.0) verwendet Gecko _bilineares_ Resampling (hohe Qualität).
 - `smooth`
-  - : Das Bild sollte mit einem Algorithmus skaliert werden, der die Erscheinung des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen akzeptabel, die Farben "glätten", wie zum Beispiel die bilineare Interpolation. Dies ist für Bilder wie Fotos gedacht.
+  - : Das Bild sollte mit einem Algorithmus skaliert werden, der das Erscheinungsbild des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen akzeptabel, die Farben „glätten“, etwa bilineare Interpolation. Dies ist für Bilder wie Fotos vorgesehen.
 - `crisp-edges`
-  - : Das Bild wird mit einem Algorithmus wie "nächster Nachbar" skaliert, der Kontrast und Kanten im Bild bewahrt. Allgemein vorgesehen für Bilder wie Pixelkunst oder Strichzeichnungen, es tritt keine Unschärfe oder Farbglättung auf.
+  - : Das Bild wird mit einem Algorithmus wie „nearest neighbor“ skaliert, der Kontrast und Kanten im Bild bewahrt. Im Allgemeinen für Bilder wie Pixel Art oder Strichzeichnungen vorgesehen; es erfolgt keine Unschärfe oder Farbglättung.
 - `pixelated`
-  - : Das Bild wird mit dem "nächster Nachbar"- oder einem ähnlichen Algorithmus auf das nächstgelegene ganzzahlige Vielfache der ursprünglichen Bildgröße skaliert und verwendet dann eine glatte Interpolation, um das Bild auf die endgültig gewünschte Größe zu bringen. Dies soll ein "pixeliertes" Aussehen bewahren, ohne Skalierungsartefakte einzuführen, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches der ursprünglichen Größe ist.
+  - : Das Bild wird mit dem Algorithmus „nearest neighbor“ oder einem ähnlichen Algorithmus auf das nächstgelegene ganzzahlige Vielfache der ursprünglichen Bildgröße skaliert und verwendet anschließend eine glatte Interpolation, um das Bild auf die endgültig gewünschte Größe zu bringen. Dies soll ein „pixeliges“ Aussehen bewahren, ohne Skalierungsartefakte einzuführen, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches des Originals ist.
 
 > [!NOTE]
-> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorhanden sind (und von ihrem SVG-Gegenstück {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die Werte `smooth` bzw. `pixelated` definiert.
+> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorhanden waren (und von ihrem SVG-Gegenstück {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die Werte `smooth` beziehungsweise `pixelated` definiert.
 
 > [!NOTE]
-> Das [CSS images](/de/docs/Web/CSS/Guides/Images)-Modul definiert einen `high-quality`-Wert für die `image-rendering`-Eigenschaft, um eine Präferenz für hochwertigere Skalierung anzugeben, jedoch wird dies in keinem Browser unterstützt.
+> Das Modul [CSS images](/de/docs/Web/CSS/Guides/Images) definiert einen Wert `high-quality` für die Eigenschaft `image-rendering`, um eine Präferenz für eine höherwertige Skalierung bereitzustellen. Dieser wird jedoch von keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -90,9 +90,9 @@ Diese Eigenschaft wird als einer der folgenden Schlüsselwort-Werte angegeben:
 
 ## Beispiele
 
-### Festlegen von Bildskalierungsalgorithmen
+### Algorithmen für die Bildskalierung festlegen
 
-In diesem Beispiel wird ein Bild viermal wiederholt, wobei jedem ein anderer `image-rendering`-Wert zugewiesen wird.
+In diesem Beispiel wird ein Bild viermal wiederholt, wobei auf jedes ein anderer Wert von `image-rendering` angewendet wird.
 
 ```html hidden
 <div>
@@ -159,5 +159,5 @@ img {
 - {{cssxref("object-position")}}
 - {{cssxref("image-orientation")}}
 - {{cssxref("image-resolution")}}
-- [CSS images](/de/docs/Web/CSS/Guides/Images) Modul
-- SVG {{SVGAttr("image-rendering")}} Attribut
+- Modul [CSS images](/de/docs/Web/CSS/Guides/Images)
+- SVG-Attribut {{SVGAttr("image-rendering")}}

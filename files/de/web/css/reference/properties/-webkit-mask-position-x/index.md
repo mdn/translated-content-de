@@ -3,7 +3,7 @@ title: "`-webkit-mask-position-x` CSS property"
 short-title: -webkit-mask-position-x
 slug: Web/CSS/Reference/Properties/-webkit-mask-position-x
 l10n:
-  sourceCommit: c655f38c10ba17b853b0e66b43cf4cf2b176e424
+  sourceCommit: 22c0b3059ff71d769af670478cc41605581108d1
 ---
 
 {{Non-standard_header}}
@@ -42,8 +42,10 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ### Werte
 
+Diese Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben:
+
 - `<length-percentage>`
-  - : Eine Länge, die die Position des linken Randes des Bildes relativ zum linken Rand des Box-Inhalts angibt. Prozentsätze werden in Bezug auf die horizontale Dimension der Box-Inhaltfläche berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass der linke Rand des Bildes mit dem linken Rand der Box-Inhaltfläche ausgerichtet ist, und ein Wert von `100%` bedeutet, dass der rechte Rand des Bildes mit dem rechten Rand der Box-Inhaltfläche ausgerichtet ist.
+  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Padding-Kante der Box angibt. Prozentwerte werden anhand der horizontalen Dimension des Padding-Bereichs der Box berechnet. Das bedeutet, dass ein Wert von `0%` die linke Kante des Bildes an der linken Padding-Kante der Box ausrichtet und ein Wert von `100%` die rechte Kante des Bildes an der rechten Padding-Kante der Box ausrichtet.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -61,7 +63,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Beispiele
 
-### Horizontales Positionieren eines Maskenbildes
+### Horizontale Positionierung eines Maskenbildes
 
 ```css
 .exampleOne {
@@ -77,7 +79,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

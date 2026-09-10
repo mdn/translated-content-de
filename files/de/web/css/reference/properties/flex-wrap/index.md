@@ -3,10 +3,12 @@ title: "`flex-wrap` CSS property"
 short-title: flex-wrap
 slug: Web/CSS/Reference/Properties/flex-wrap
 l10n:
-  sourceCommit: ae836b44d9faa0e9f581631ed1dcccd2a502b618
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`flex-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Flex-Elemente in einer Linie erzwungen werden oder in mehrere Linien umgebrochen werden können. Wenn das Umbruch erlaubt ist, legt es die Richtung fest, in der die Linien gestapelt werden.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`flex-wrap`** legt fest, ob Flex-Elemente in einer Zeile erzwungen werden oder in mehrere Zeilen umbrochen werden können. Wenn Umbruch erlaubt ist, legt sie die Richtung fest, in der die Zeilen gestapelt werden.
+
+Die Kurzschreibweise der Eigenschaft {{cssxref("flex-flow")}} kann verwendet werden, um sowohl die Eigenschaften {{CSSXRef("flex-direction")}} als auch `flex-wrap` festzulegen, die jeweils die Haupt- und Querachsen des Flex-Containers definieren.
 
 {{InteractiveExample("CSS Demo: flex-wrap")}}
 
@@ -55,8 +57,6 @@ flex-wrap: wrap balance;
 }
 ```
 
-Die Kurzschreibweise der {{cssxref("flex-flow")}} Eigenschaft kann verwendet werden, um sowohl die {{CSSXRef("flex-direction")}} als auch `flex-wrap` Eigenschaften festzulegen, die die Haupt- und Nebenachse des Flex-Containers definieren.
-
 ## Syntax
 
 ```css
@@ -78,34 +78,34 @@ flex-wrap: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als ein einzelner Wert aus der folgenden Liste oder als zwei durch Leerzeichen getrennte Werte bei der Verwendung von `balance` angegeben:
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste oder als zwei durch Leerzeichen getrennte Werte bei Verwendung von `balance` angegeben:
 
 - `nowrap`
-  - : Die Flex-Elemente werden in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überläuft. Dies ist der Anfangswert.
+  - : Die Flex-Elemente werden in einer einzelnen Zeile angeordnet, wodurch der Flex-Container überlaufen kann. Dies ist der Anfangswert.
 - `wrap`
   - : Die Flex-Elemente können in mehrere Zeilen umbrochen werden.
 - `wrap-reverse`
-  - : Verhält sich wie `wrap`, jedoch werden die Linien in umgekehrter Reihenfolge angeordnet.
+  - : Verhält sich wie `wrap`, jedoch werden die Zeilen in umgekehrter Reihenfolge angeordnet.
 - `balance`
-  - : Gibt an, dass über mehrere Zeilen verteilte Flex-Elemente so verteilt werden, dass die Zeilenlängen so ähnlich wie möglich sind. Wenn `balance` als einziges Schlüsselwort angegeben wird, ist das andere Schlüsselwort standardmäßig `wrap`.
+  - : Gibt an, dass über mehrere Zeilen umbrochene Flex-Elemente so verteilt werden, dass die Zeilenlängen möglichst ähnlich sind. Wenn `balance` als einziges Schlüsselwort angegeben wird, ist das andere Schlüsselwort standardmäßig `wrap`.
 
 ## Beschreibung
 
-Die `flex-wrap` Eigenschaft wird verwendet, um festzulegen, ob die Flex-Elemente des Flex-Containers auf mehrere Flex-Linien umbrechen dürfen oder nicht und, falls Umbruch eingestellt ist, ob die Kinder gleichmäßig auf Flex-Linien verteilt werden sollen.
+Die Eigenschaft `flex-wrap` wird verwendet, um festzulegen, ob die untergeordneten Flex-Elemente des Flex-Containers in mehrere Flex-Zeilen umbrochen werden dürfen oder nicht und, wenn Umbruch festgelegt ist, ob die untergeordneten Elemente gleichmäßig über Flex-Zeilen verteilt werden sollen.
 
-Der Anfangswert `nowrap` gibt an, dass alle Elemente in einer einzigen Flex-Linie angeordnet werden sollten, was bedeutet, dass sie den Container überlaufen können. Die Schlüsselwörter `wrap` und `wrap-reverse` verhindern Überläufe, indem sie angeben, dass Flex-Elemente über mehrere Zeilen fließen oder umbrochen werden können.
+Der Anfangswert `nowrap` gibt an, dass alle Elemente in einer einzelnen Flex-Zeile angeordnet werden sollen, was bedeutet, dass sie den Container überlaufen können. Die Schlüsselwörter `wrap` und `wrap-reverse` verhindern Überlauf, indem sie festlegen, dass Flex-Elemente über mehrere Zeilen fließen oder umbrochen werden können.
 
-Mit `wrap` ist der Kreuz-Start dem {{Glossary("Flow_relative_values", "inline-start oder block-start")}} äquivalent, abhängig vom {{cssxref("flex-direction")}} Wert und dem aktuellen [Schreibmodus](/de/docs/Web/CSS/Guides/Writing_modes). Mit `wrap-reverse` ist der Kreuz-Start dem inline-end oder block-end äquivalent.
+Bei `wrap` entspricht cross-start je nach Wert von {{cssxref("flex-direction")}} und aktuellem [Schreibmodus](/de/docs/Web/CSS/Guides/Writing_modes) entweder inline-start oder {{Glossary("Flow_relative_values", "block-start")}}. Bei `wrap-reverse` entspricht cross-start inline-end oder block-end.
 
-### Ausbalancierung der Flex-Element-Verteilung
+### Ausbalancieren der Verteilung von Flex-Elementen
 
-Standardmäßig wird bei Angabe von `wrap` oder `wrap-reverse` jede Flex-Zeile mit Flex-Elementen gefüllt, bevor Elemente in die nächste Zeile umgebrochen werden. Dies kann zu einer ungleichmäßigen Verteilung der Elemente führen, wobei die letzte Flex-Zeile aus weniger Elementen besteht. Wenn die {{cssxref("flex-grow")}} Werte dieser Elemente ungleich Null sind, wird der zusätzliche verfügbare Raum auf diese weniger Elemente verteilt, wodurch sie viel größer als die Elemente auf gefüllten Flex-Linien werden.
+Standardmäßig wird, wenn `wrap` oder `wrap-reverse` angegeben ist, jede Flex-Zeile mit Flex-Elementen gefüllt, bevor Elemente in die nächste Zeile umbrochen werden. Dies kann zu einer ungleichmäßigen Verteilung der Elemente führen, wobei die letzte Flex-Zeile aus weniger Elementen besteht. Wenn die {{cssxref("flex-grow")}}-Werte dieser Elemente nicht null sind, wird der zusätzlich verfügbare Platz auf diese weniger zahlreichen Elemente verteilt, wodurch sie deutlich größer werden als die Elemente in gefüllten Flex-Zeilen.
 
-Das Schlüsselwort `balance` kann verwendet werden, um die Elemente in ausgewogener Weise über die Zeilen zu verteilen. Optional kann die {{cssxref("flex-line-count")}} Eigenschaft verwendet werden, um die Mindestanzahl von Zeilen festzulegen, über die die auszugleichenden Elemente verteilt werden sollen.
+Das Schlüsselwort `balance` kann verwendet werden, um die Elemente gleichmäßiger über die Zeilen zu verteilen. Optional kann die Eigenschaft {{cssxref("flex-line-count")}} verwendet werden, um die Mindestanzahl an Zeilen festzulegen, über die die ausbalancierten Elemente verteilt werden sollen.
 
-Wenn `balance` das einzige angegebene Schlüsselwort ist, ist das andere Schlüsselwort standardmäßig `wrap`.
+Wenn `balance` als einziges Schlüsselwort angegeben wird, ist das andere Schlüsselwort standardmäßig `wrap`.
 
-Ein ausgewogen umgebrochener Flex-Container kann einen {{cssxref("flex-line-count")}} Wert haben, um die Mindestanzahl von Zeilen anzugeben, über die die Flex-Elemente verteilt werden sollten. Die `flex-line-count` Eigenschaft hat keine Auswirkung, wenn `balance` nicht innerhalb von `flex-wrap` angegeben ist.
+Auf einen Flex-Container mit ausbalanciertem Umbruch kann ein Wert für {{cssxref("flex-line-count")}} angewendet werden, um die Mindestanzahl an Zeilen anzugeben, über die die Flex-Elemente verteilt werden sollen. Die Eigenschaft `flex-line-count` hat keine Wirkung, wenn `balance` nicht innerhalb von `flex-wrap` angegeben ist.
 
 Wenn `balance` zusammen mit `nowrap` angegeben wird, ist die Eigenschaft ungültig.
 
@@ -119,7 +119,7 @@ Wenn `balance` zusammen mit `nowrap` angegeben wird, ist die Eigenschaft ungült
 
 ## Beispiele
 
-### Einstellen von Flex-Container-Umbruchwerten
+### Werte für den Umbruch des Flex-Containers festlegen
 
 #### HTML
 
@@ -193,9 +193,9 @@ Wenn `balance` zusammen mit `nowrap` angegeben wird, ist die Eigenschaft ungült
 
 {{ EmbedLiveSample("flex-wrap-values", "100%", "700") }}
 
-### Demonstration des `balance` Schlüsselworts
+### Demonstration des Schlüsselworts `balance`
 
-Dieses Beispiel zeigt die Auswirkungen des `balance` Schlüsselworts innerhalb der `flex-wrap` Eigenschaft und verschiedener `flex-line-count` Werte.
+Dieses Beispiel demonstriert die Auswirkungen des Schlüsselworts `balance` innerhalb der Eigenschaft `flex-wrap` sowie verschiedener `flex-line-count`-Werte.
 
 #### HTML
 
@@ -229,7 +229,7 @@ Dieses Beispiel zeigt die Auswirkungen des `balance` Schlüsselworts innerhalb d
 <hr />
 ```
 
-Wir fügen einen Container {{htmlelement("div")}} mit einer `class` von `box` hinzu, der zehn Kind-`<div>`s hat.
+Wir fügen einen {{htmlelement("div")}}-Container mit einer `class` von `box` ein, der zehn untergeordnete `<div>`-Elemente enthält.
 
 ```html live-sample___the-balance-keyword
 <div class="box">
@@ -246,17 +246,17 @@ Wir fügen einen Container {{htmlelement("div")}} mit einer `class` von `box` hi
 </div>
 ```
 
-Wir fügen auch Steuerungen hinzu, um Funktionen des Flex-Containers ändern zu können, einschließlich:
+Wir fügen außerdem Steuerelemente hinzu, mit denen Funktionen des Flex-Containers geändert werden können, einschließlich:
 
 - Umschalten von `flex-wrap` zwischen den Werten `wrap` und `wrap-reverse`.
-- Umschalten des `balance` Schlüsselworts ein und aus.
-- Ändern des `flex-line-count` Werts.
+- Ein- und Ausschalten des Schlüsselworts `balance`.
+- Ändern des Werts `flex-line-count`.
 
-Wir haben das HTML und JavaScript zur Kürze versteckt.
+Der HTML- und JavaScript-Code wurde der Kürze halber ausgeblendet.
 
 #### CSS
 
-Wir wenden `display: flex` auf die `.box` an, um es in einen Flex-Container zu verwandeln, und setzen dann einige `flex-wrap` und `flex-line-count` Werte, um die Flex-Kinder gleichmäßig über mindestens drei Flex-Linien zu verteilen. Sie können die Werte im Live-Demo ändern. Wir setzen auch einen {{cssxref("flex")}} Wert von `1 1 150px` auf die Flex-Kinder, sodass sie eine Basisbreite von `150px` haben, wobei verbleibender Raum gleichmäßig zwischen Elementen auf derselben Flex-Linie verteilt wird.
+Wir wenden `display: flex` auf `.box` an, um sie in einen Flex-Container umzuwandeln, und setzen dann einige Werte für `flex-wrap` und `flex-line-count`, damit die Flex-Kindelemente gleichmäßig über mindestens drei Flex-Zeilen umbrochen werden. Sie können die Werte in der Live-Demo ändern. Außerdem setzen wir für die Flex-Kindelemente einen {{cssxref("flex")}}-Wert von `1 1 150px`, damit sie eine Basisbreite von `150px` haben, wobei verbleibender Platz gleichmäßig zwischen Elementen in derselben Flex-Zeile verteilt wird.
 
 ```css live-sample___the-balance-keyword
 .box {
@@ -305,7 +305,7 @@ body {
 }
 ```
 
-Wir haben den Rest des CSS zur Kürze versteckt.
+Der restliche CSS-Code wurde der Kürze halber ausgeblendet.
 
 ```js hidden live-sample___the-balance-keyword
 const boxElem = document.querySelector(".box");
@@ -354,13 +354,13 @@ lineCountInput.addEventListener("input", setFlexLineCount);
 
 {{ EmbedLiveSample("the-balance-keyword", "100%", "400") }}
 
-Ändern Sie die Einstellungen der Formsteuerelemente, um zu sehen, wie sie die Ausgabe beeinflussen. Beachten Sie, wie:
+Ändern Sie die Einstellungen der Formular-Steuerelemente, um zu sehen, wie sie die Ausgabe beeinflussen. Beachten Sie Folgendes:
 
-- Um zwischen `wrap` und `wrap-reverse` zu wechseln, ändert die Richtung, in der die Flex-Linien entlang der Kreuzachse angeordnet sind.
-- Das Einstellen von `balance` bewirkt, dass die Flex-Elemente gleichmäßig über die verfügbaren Flex-Linien verteilt werden.
-- Das Ändern des `flex-line-count` Werts ändert die Mindestanzahl der Linien, über die die Elemente verteilt werden. Die `flex-line-count` Eigenschaft, und daher der Schieberegler, hat keine Wirkung, es sei denn, `balance` ist aktiviert.
-- Da die Flex-Elemente standardmäßig über vier Flex-Linien verteilt sind, hat das Ändern des `flex-line-count` auf einen Wert unter `5` keine Wirkung. Werte von `5` bis `10` fügen eine zusätzliche Flex-Linie hinzu.
-- Da es 10 Flex-Elemente gibt, haben `flex-line-count` Werte von `10` oder mehr denselben Effekt — ein Element wird auf jede der 10 Flex-Linien platziert.
+- Das Umschalten zwischen `wrap` und `wrap-reverse` ändert die Richtung, in der die Flex-Zeilen entlang der Querachse angeordnet werden.
+- Das Setzen von `balance` bewirkt, dass die Flex-Elemente gleichmäßig über die verfügbaren Flex-Zeilen verteilt werden.
+- Das Ändern des Werts `flex-line-count` ändert die Mindestanzahl an Zeilen, über die die Elemente verteilt werden. Die Eigenschaft `flex-line-count` und damit auch der Schieberegler haben keine Wirkung, sofern `balance` nicht aktiviert ist.
+- Da die Flex-Elemente standardmäßig über vier Flex-Zeilen verteilt werden, hat das Ändern von `flex-line-count` auf einen Wert kleiner als `5` keine Wirkung. Werte von `5` bis `10` fügen eine zusätzliche Flex-Zeile hinzu.
+- Da es 10 Flex-Elemente gibt, haben alle `flex-line-count`-Werte von `10` oder höher dieselbe Wirkung — ein Element wird in jeder von 10 Flex-Zeilen platziert.
 
 ## Spezifikationen
 
@@ -373,7 +373,7 @@ lineCountInput.addEventListener("input", setFlexLineCount);
 ## Siehe auch
 
 - {{CSSXRef("flex-direction")}}
-- {{CSSXRef("flex-flow")}} Kurzschreibweise
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
-- [CSS Flexibles Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- Kurzschreibweise {{CSSXRef("flex-flow")}}
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Beherrschung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
+- Modul [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)

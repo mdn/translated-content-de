@@ -1,14 +1,14 @@
 ---
-title: "`round()` CSS-Funktion"
+title: CSS-Funktion `round()`
 short-title: round()
 slug: Web/CSS/Reference/Values/round
 l10n:
-  sourceCommit: b760560abe30bd69ca968dac38528102f423b5ea
+  sourceCommit: a23122d0e86fb376234614beb5b350b217068054
 ---
 
-Die **`round()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt eine gerundete Zahl basierend auf einer ausgewählten Rundungsstrategie zurück.
+Die [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) **`round()`** gibt eine gerundete Zahl basierend auf einer ausgewählten Rundungsstrategie zurück.
 
-Autoren sollten eine [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) (z. B. `--my-property`) für den Rundungswert, das Intervall oder beides verwenden; die Verwendung der `round()` Funktion ist überflüssig, wenn diese Werte bekannt sind.
+Autoren sollten für den Rundungswert, das Intervall oder beides eine [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) (z. B. `--my-property`) verwenden; die Verwendung der Funktion `round()` ist überflüssig, wenn diese bekannte Werte haben.
 
 ## Syntax
 
@@ -21,45 +21,45 @@ margin: round(to-zero, -105px, 10px);
 
 ### Parameter
 
-Die `round(<rounding-strategy>, valueToRound, roundingInterval)` Funktion spezifiziert eine optionale Rundungsstrategie, einen zu rundenden Wert (oder mathematischen Ausdruck) und ein Rundungsintervall (oder mathematischen Ausdruck).
-Der `valueToRound` wird gemäß der Rundungsstrategie auf das nächstliegende ganzzahlige Vielfache von `roundingInterval` gerundet.
+Die Funktion `round(<rounding-strategy>, valueToRound, roundingInterval)` legt eine optionale Rundungsstrategie, einen zu rundenden Wert (oder mathematischen Ausdruck) und ein Rundungsintervall (oder einen mathematischen Ausdruck) fest.
+`valueToRound` wird gemäß der Rundungsstrategie auf das nächste ganzzahlige Vielfache von `roundingInterval` gerundet.
 
 - `<rounding-strategy>`
   - : Die Rundungsstrategie.
     Dies kann einer der folgenden Werte sein:
     - `up`
-      - : Rundet `valueToRound` auf das nächstliegende ganzzahlige Vielfache von `roundingInterval` auf (wenn der Wert negativ ist, wird er "positiver"). Dies entspricht der JavaScript-Methode [`Math.ceil()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
+      - : Rundet `valueToRound` auf das nächste höhere ganzzahlige Vielfache von `roundingInterval` auf (ist der Wert negativ, wird er „positiver“). Dies entspricht der JavaScript-Methode [`Math.ceil()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil).
     - `down`
-      - : Rundet `valueToRound` auf das nächstliegende ganzzahlige Vielfache von `roundingInterval` ab (wenn der Wert negativ ist, wird er "negativer"). Dies entspricht der JavaScript-Methode [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+      - : Rundet `valueToRound` auf das nächste niedrigere ganzzahlige Vielfache von `roundingInterval` ab (ist der Wert negativ, wird er „negativer“). Dies entspricht der JavaScript-Methode [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
     - `nearest` (Standard)
-      - : Rundet `valueToRound` auf das nähere ganzzahlige Vielfache von `roundingInterval`, das entweder oberhalb oder unterhalb des Wertes liegen kann.
-        Wenn `valueToRound` genau zwischen den Rundungszielen ober- und unterhalb liegt (kein Ziel ist "näher"), wird es aufgerundet.
-        Entspricht der JavaScript-Methode [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round).
+      - : Rundet `valueToRound` auf das nächste ganzzahlige Vielfache von `roundingInterval`, das entweder über oder unter dem Wert liegen kann.
+        Wenn `valueToRound` genau in der Mitte zwischen den Rundungszielen darüber und darunter liegt (keines von beiden ist „näher“), wird aufgerundet.
+        Entspricht JavaScript [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round).
     - `to-zero`
-      - : Rundet `valueToRound` auf das näher an null liegende ganzzahlige Vielfache von `roundingInterval` (eine positive Zahl nimmt ab, während ein negativer Wert "weniger negativ" wird). Dies entspricht der JavaScript-Methode [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc).
+      - : Rundet `valueToRound` auf das nächste ganzzahlige Vielfache von `roundingInterval`, das näher bei bzw. in Richtung null liegt (eine positive Zahl wird kleiner, während ein negativer Wert „weniger negativ“ wird). Dies entspricht der JavaScript-Methode [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc).
 
 - `valueToRound`
   - : Der zu rundende Wert.
-    Dies muss ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} sein, oder ein mathematischer Ausdruck, der zu einem dieser Werte aufgelöst wird.
+    Dies muss ein {{CSSxREF("&lt;number&gt;")}}, ein {{CSSxREF("&lt;dimension&gt;")}}, ein {{CSSxREF("&lt;percentage&gt;")}} oder ein mathematischer Ausdruck sein, der zu einem dieser Werte aufgelöst wird.
 
 - `roundingInterval`
   - : Das Rundungsintervall.
-    Dies ist ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}}, oder ein mathematischer Ausdruck, der zu einem dieser Werte aufgelöst wird. Wenn `valueToRound` ein {{CSSxREF("&lt;number&gt;")}} ist, kann `roundingInterval` weggelassen werden und standardmäßig auf `1` gesetzt werden. Andernfalls führt das Weglassen zu einem ungültigen Ausdruck.
+    Dies ist ein {{CSSxREF("&lt;number&gt;")}}, ein {{CSSxREF("&lt;dimension&gt;")}}, ein {{CSSxREF("&lt;percentage&gt;")}} oder ein mathematischer Ausdruck, der zu einem dieser Werte aufgelöst wird. Wenn `valueToRound` ein {{CSSxREF("&lt;number&gt;")}} ist, kann `roundingInterval` weggelassen werden und hat dann standardmäßig den Wert `1`. Andernfalls führt das Weglassen zu einem ungültigen Ausdruck.
 
 ### Rückgabewert
 
-Der Wert von `valueToRound`, gerundet auf das nächstliegende niedrigere oder höhere ganzzahlige Vielfache von `roundingInterval`, abhängig von der `rounding strategy`.
+Der Wert von `valueToRound`, auf das nächste niedrigere oder höhere ganzzahlige Vielfache von `roundingInterval` gerundet, abhängig von der `rounding strategy`.
 
-- Wenn `roundingInterval` 0 ist, ist das Ergebnis `NaN`.
-- Wenn `valueToRound` und `roundingInterval` beide unendlich sind, ist das Ergebnis `NaN`.
-- Wenn `valueToRound` unendlich ist, aber `roundingInterval` endlich, ist das Ergebnis dasselbe `Unendlichkeit`.
-- Wenn `valueToRound` endlich ist, aber `roundingInterval` unendlich, hängt das Ergebnis von der Rundungsstrategie und dem Vorzeichen von `A` ab:
-  - `up` - Wenn `valueToRound` positiv (nicht null) ist, wird `+∞` zurückgegeben. Wenn `valueToRound` `0⁺` ist, wird `0⁺` zurückgegeben. Andernfalls `0⁻`.
-  - `down` - Wenn `valueToRound` negativ (nicht null) ist, wird `−∞` zurückgegeben. Wenn `valueToRound` `0⁻` ist, wird `0⁻` zurückgegeben. Andernfalls `0⁺`.
-  - `nearest`, `to-zero` - Wenn `valueToRound` positiv oder `0⁺` ist, wird `0⁺` zurückgegeben. Andernfalls `0⁻`.
+- Wenn `roundingInterval` 0 ist, lautet das Ergebnis `NaN`.
+- Wenn `valueToRound` und `roundingInterval` beide `infinite` sind, lautet das Ergebnis `NaN`.
+- Wenn `valueToRound` unendlich, `roundingInterval` jedoch endlich ist, entspricht das Ergebnis derselben `infinity`.
+- Wenn `valueToRound` endlich, `roundingInterval` jedoch unendlich ist, hängt das Ergebnis von der Rundungsstrategie und dem Vorzeichen von `A` ab:
+  - `up` – Wenn `valueToRound` positiv (und nicht null) ist, geben Sie `+∞` zurück. Wenn `valueToRound` `0⁺` ist, geben Sie `0⁺` zurück. Andernfalls geben Sie `0⁻` zurück.
+  - `down` – Wenn `valueToRound` negativ (und nicht null) ist, geben Sie `−∞` zurück. Wenn `valueToRound` `0⁻` ist, geben Sie `0⁻` zurück. Andernfalls geben Sie `0⁺` zurück.
+  - `nearest`, `to-zero` – Wenn `valueToRound` positiv oder `0⁺` ist, geben Sie `0⁺` zurück. Andernfalls geben Sie `0⁻` zurück.
 
-- Die Argumentberechnungen können zu {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} aufgelöst werden, müssen jedoch denselben Typ haben, andernfalls ist die Funktion ungültig; das Ergebnis hat denselben Typ wie die Argumente.
-- Wenn `valueToRound` genau einem ganzzahligen Vielfachen von `roundingInterval` entspricht, löst sich `round()` genau zu `valueToRound` auf (wobei beibehalten wird, ob `valueToRound` `0⁻` oder `0⁺` ist, falls relevant). Andernfalls gibt es zwei ganzzahlige Vielfache von `roundingInterval`, die potenziell "am nächsten" zu `valueToRound` sind, das niedrigere `roundingInterval`, das näher zu `−∞` ist, und das höhere `roundingInterval`, das näher zu `+∞` ist.
+- Die Argumentberechnungen können zu {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}} oder {{CSSxREF("&lt;percentage&gt;")}} aufgelöst werden, müssen jedoch denselben Typ haben; andernfalls ist die Funktion ungültig. Das Ergebnis hat denselben Typ wie die Argumente.
+- Wenn `valueToRound` exakt einem ganzzahligen Vielfachen von `roundingInterval` entspricht, wird `round()` exakt zu `valueToRound` aufgelöst (wobei gegebenenfalls erhalten bleibt, ob `valueToRound` `0⁻` oder `0⁺` ist). Andernfalls gibt es zwei ganzzahlige Vielfache von `roundingInterval`, die potenziell am „nächsten“ bei `valueToRound` liegen: das untere `roundingInterval`, das näher bei `−∞` liegt, und das obere `roundingInterval`, das näher bei `+∞` liegt.
 
 ## Formale Syntax
 
@@ -69,16 +69,16 @@ Der Wert von `valueToRound`, gerundet auf das nächstliegende niedrigere oder h�
 
 ### Positive Werte runden
 
-Dieses Beispiel demonstriert, wie die Rundungsstrategien der `round()`-Funktion für positive Werte funktionieren.
+Dieses Beispiel zeigt, wie die Rundungsstrategien der Funktion `round()` bei positiven Werten funktionieren.
 
-Von den fünf nachstehenden Boxen wird die `round()`-Funktion verwendet, um die Höhe der letzten vier festzulegen.
-Der zu rundende Wert liegt in jedem Fall zwischen 100 px und 125 px, und der Rundungswert beträgt in allen Fällen 25px.
-Die Höhe der Boxen wird daher entweder auf 125 px aufgerundet oder auf 100 px abgerundet.
+Von den fünf untenstehenden Kästen wird die Funktion `round()` verwendet, um die Höhe der letzten vier festzulegen.
+Der zu rundende Wert liegt jeweils zwischen 100 px und 125 px, und der Rundungswert beträgt in allen Fällen 25px.
+Die Höhe der Kästen wird daher entweder auf 125 px auf- oder auf 100 px abgerundet.
 
 #### HTML
 
-Das HTML definiert 5 `div`-Elemente, die durch das CSS als Boxen dargestellt werden.
-Die Elemente enthalten Text, der die Rundungsstrategie, den Anfangswert und die erwartete endgültige Höhe der Box (in Klammern) angibt.
+Das HTML definiert 5 `div`-Elemente, die durch das CSS als Kästen dargestellt werden.
+Die Elemente enthalten Text, der die Rundungsstrategie, den Ausgangswert und die erwartete endgültige Höhe des Kastens angibt (in Klammern).
 
 ```html
 <div class="box box-1">height: 100px</div>
@@ -100,7 +100,7 @@ body {
 }
 ```
 
-Das CSS, das auf alle Boxen angewendet wird, ist unten dargestellt.
+Das CSS, das auf alle Kästen angewendet wird, ist unten dargestellt.
 Beachten Sie, dass wir eine [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) namens `--rounding-interval` anwenden, die wir für das Rundungsintervall verwenden werden.
 
 ```css
@@ -113,7 +113,7 @@ div.box {
 ```
 
 Das erste `div` von links wird nicht mit spezifischen CSS-Regeln angesprochen und hat daher eine Standardhöhe von 100px.
-Das CSS für das zweite, dritte und vierte `div` wird unten dargestellt, die jeweils nach oben, unten und auf null abrunden.
+Das CSS für das zweite, dritte und vierte `div` ist unten dargestellt; diese werden jeweils auf-, ab- und in Richtung null gerundet.
 
 ```css
 div.box-2 {
@@ -127,12 +127,12 @@ div.box-4 {
 }
 ```
 
-Beachten Sie, wie wir oben das Rundungsintervall mit `var()` und der benutzerdefinierten CSS-Eigenschaft `--rounding-interval` angeben.
+Beachten Sie, dass wir oben das Rundungsintervall mithilfe von `var()` und der benutzerdefinierten CSS-Eigenschaft `--rounding-interval` angeben.
 
-Die letzte Box wird ohne Angabe einer Rundungsstrategie festgelegt und daher standardmäßig auf `nearest` gesetzt.
-In diesem Fall liegt das nächstliegende Intervall zu 117 px bei 125px, daher wird es aufgerundet.
-Nur zum Kontrast haben wir hier fest codierte Werte sowohl für den Rundungswert als auch das Intervall angegeben.
-Obwohl dies erlaubt ist, würden Sie dies normalerweise nicht tun, weil es keinen Sinn macht, eine Zahl zu runden, wenn Sie bereits wissen, was das Ergebnis sein muss.
+Für den letzten Kasten wird keine Rundungsstrategie angegeben und daher standardmäßig `nearest` verwendet.
+In diesem Fall ist das nächste Intervall zu 117 px 125px, sodass aufgerundet wird.
+Zum Vergleich haben wir hier sowohl für den Rundungswert als auch für das Intervall fest codierte Werte angegeben.
+Obwohl dies zulässig ist, würden Sie dies normalerweise nicht tun, da es keinen Sinn ergibt, eine Zahl zu runden, wenn Sie bereits wissen, wie das Ergebnis lauten muss.
 
 ```css
 div.box-5 {
@@ -142,7 +142,7 @@ div.box-5 {
 
 #### Ergebnis
 
-Wenn der Browser die CSS-`round()`-Funktion unterstützt, sollten Sie fünf Spalten mit Höhen sehen, die wie durch ihren enthaltenen Text angegeben, gerundet sind.
+Wenn der Browser die CSS-Funktion `round()` unterstützt, sollten Sie fünf Spalten sehen, deren Höhen wie durch den darin enthaltenen Text angegeben gerundet sind.
 
 {{EmbedLiveSample('Round positive values', '100%', '200px')}}
 

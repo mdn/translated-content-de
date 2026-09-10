@@ -1,22 +1,22 @@
 ---
-title: "Window: fullScreen Eigenschaft"
+title: "Window: fullScreen-Eigenschaft"
 short-title: fullScreen
 slug: Web/API/Window/fullScreen
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: a23122d0e86fb376234614beb5b350b217068054
 ---
 
 {{APIRef}}{{Non-standard_Header}}
 
-Die **`fullScreen`** Eigenschaft des `Window`-Interfaces zeigt an, ob das Fenster im Vollbildmodus angezeigt wird oder nicht.
+Die **`fullScreen`**-Eigenschaft der `Window`-Schnittstelle gibt an, ob das Fenster im Vollbildmodus angezeigt wird oder nicht.
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` bedeutet, dass das Fenster im Vollbildmodus ist, und `false`, dass es nicht der Fall ist.
+Ein boolescher Wert, wobei `true` bedeutet, dass sich das Fenster im Vollbildmodus befindet, und `false`, dass dies nicht der Fall ist.
 
 ## Hinweise
 
-- Das Wechseln zwischen regulärem Fenster und Vollbildmodus löst das "resize"-Ereignis auf dem entsprechenden Fenster aus.
+- Das Umschalten zwischen normalem Fenster und Vollbild löst das Ereignis „resize“ für das entsprechende Fenster aus.
 
 ## Beispiele
 

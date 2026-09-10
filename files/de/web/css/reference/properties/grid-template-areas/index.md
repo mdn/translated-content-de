@@ -3,10 +3,12 @@ title: "`grid-template-areas` CSS property"
 short-title: grid-template-areas
 slug: Web/CSS/Reference/Properties/grid-template-areas
 l10n:
-  sourceCommit: bcbb4bd6a80292c0663b723d5466759cfaaa8315
+  sourceCommit: 3fb9ea0187429234b47cb0385a9515a69757fe63
 ---
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt benannte {{Glossary("grid_areas", "Gitternetzbereiche")}} fest, indem sie die Zellen im Raster definiert und ihnen Namen zuweist.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`grid-template-areas`** legt benannte {{Glossary("grid_areas", "Grid-Bereiche")}} fest, wodurch die Zellen im Grid erstellt und ihnen Namen zugewiesen werden.
+
+Diese Bereiche sind keinem bestimmten Grid-Element zugeordnet, können jedoch über die Grid-Positionierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} sowie deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 {{InteractiveExample("CSS Demo: grid-template-areas")}}
 
@@ -72,8 +74,6 @@ grid-template-areas:
 }
 ```
 
-Diese Bereiche sind keinem bestimmten Gitternetz-Element zugeordnet, können aber in den Gitterplatzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
-
 ## Syntax
 
 ```css
@@ -97,11 +97,11 @@ grid-template-areas: unset;
 ### Werte
 
 - `none`
-  - : Der Gitter-Container definiert keine benannten Gitternetzbereiche.
+  - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - {{cssxref("&lt;string&gt;")}}
-  - : Für jede separate, aufgeführte Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Tokens mit demselben Namen innerhalb und zwischen den Zeilen erstellen einen einzelnen benannten Gitternetzbereich, der die entsprechenden Gitternetz-Zellen umspannt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+  - : Für jede aufgeführte separate Zeichenfolge wird eine Zeile erstellt, und für jede Zelle in der Zeichenfolge wird eine Spalte erstellt. Mehrere Zellen-Token mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Grid-Bereich, der sich über die entsprechenden Grid-Zellen erstreckt. Sofern diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle verbleibenden unbenannten Bereiche in einem Gitter können mit _Null-Zell-Tokens_ referenziert werden. Ein Null-Zell-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Räume im Gitter zu erstellen.
+    Alle verbleibenden unbenannten Bereiche in einem Grid können mithilfe von _Nullzellen-Token_ referenziert werden. Ein Nullzellen-Token ist eine Sequenz aus einem oder mehreren `.`-Zeichen (U+002E FULL STOP), beispielsweise `.`, `...` oder `.....` usw. Ein Nullzellen-Token kann verwendet werden, um leere Bereiche im Grid zu erstellen.
 
 ## Formale Definition
 
@@ -113,7 +113,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Gitternetzbereiche festlegen
+### Benannte Grid-Bereiche festlegen
 
 #### HTML
 
@@ -162,7 +162,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Gitter-Container zu erstellen, den wir benutzt haben, um einen leeren Raum in der unteren linken Ecke des Gitters zu schaffen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir genutzt haben, um einen leeren Bereich in der unteren linken Ecke des Grids zu erzeugen.
 
 #### Ergebnis
 
@@ -181,5 +181,5 @@ Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereic
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template")}}
-- [Gitternetz-Vorlagenbereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
-- Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)
+- [Grid-Vorlagenbereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- Video: [Grid-Vorlagenbereiche](https://gridbyexample.com/video/grid-template-areas/)

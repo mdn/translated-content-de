@@ -1,12 +1,12 @@
 ---
-title: "`<rt>` HTML ruby text Element"
+title: "`<rt>`-HTML-Ruby-Textelement"
 short-title: <rt>
 slug: Web/HTML/Reference/Elements/rt
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 100cf25d92d3953f3c70ecaa2af637d5e42179d8
 ---
 
-Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert die Ruby-Text-Komponente einer Ruby-Annotation, die verwendet wird, um Aussprache-, Übersetzungs- oder Transliterationinformationen für ostasiatische Typografie bereitzustellen. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
+Das **`<rt>`**-[HTML](/de/docs/Web/HTML)-Element legt die Ruby-Textkomponente einer Ruby-Anmerkung fest, die verwendet wird, um Informationen zur Aussprache, Übersetzung oder Transliteration für ostasiatische Typografie bereitzustellen. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
 
 {{InteractiveExample("HTML Demo: &lt;rt&gt;", "tabbed-shorter")}}
 
@@ -22,17 +22,15 @@ ruby {
 }
 ```
 
-Lesen Sie den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
-
 ## Attribute
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-### Verwendung von Ruby-Annotations
+### Verwendung von Ruby-Anmerkungen
 
-Dieses Beispiel bietet eine Romaji-Transliteration für die Kanji-Zeichen innerhalb des {{HTMLElement("ruby")}}-Elements:
+Dieses Beispiel stellt die Romaji-Transliteration für die Kanji-Zeichen innerhalb des {{HTMLElement("ruby")}}-Elements bereit:
 
 ```html
 <ruby> 漢 <rt>Kan</rt> 字 <rt>ji</rt> </ruby>
@@ -48,6 +46,8 @@ body {
 
 {{EmbedLiveSample("Using_ruby_annotations", 600, 60)}}
 
+Weitere Beispiele finden Sie beim {{HTMLElement("ruby")}}-Element.
+
 ## Technische Zusammenfassung
 
 <table class="properties">
@@ -61,7 +61,7 @@ body {
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
@@ -69,16 +69,16 @@ body {
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Weglassen von Tags</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
-        unmittelbar von einem <code>&#x3C;rt></code>- oder
-        {{HTMLElement("rp")}}-Element gefolgt wird oder wenn im
-        Elternelement kein Inhalt mehr vorhanden ist
+        Das End-Tag kann weggelassen werden, wenn auf das <code>&#x3C;rt></code>-Element
+        unmittelbar ein <code>&#x3C;rt></code>- oder ein
+        {{HTMLElement("rp")}}-Element folgt oder wenn im Elternelement kein weiterer
+        Inhalt vorhanden ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
@@ -90,8 +90,8 @@ body {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -115,4 +115,4 @@ body {
 - {{HTMLElement("rb")}}
 - {{HTMLElement("rtc")}}
 - {{CSSXRef("text-transform", "text-transform: full-size-kana")}}
-- [CSS Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)-Modul
