@@ -1,18 +1,18 @@
 ---
-title: "HTMLSlotElement: assignedElements() Methode"
+title: "HTMLSlotElement: Methode assignedElements()"
 short-title: assignedElements()
 slug: Web/API/HTMLSlotElement/assignedElements
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
 {{APIRef("Shadow DOM API")}}
 
-Die **`assignedElements()`** Methode des [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)
-Interfaces gibt eine Sequenz der Elemente zurück, die diesem Slot zugewiesen sind (und keine
+Die Methode **`assignedElements()`** des Interfaces [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)
+gibt eine Sequenz der diesem Slot zugewiesenen Elemente zurück (und keine
 anderen Knoten).
 
-Wenn die `flatten`-Option auf `true` gesetzt ist, gibt sie eine Sequenz von sowohl den Elementen zurück, die diesem Slot zugewiesen sind, als auch den Elementen, die zu anderen Slots gehören, die Nachfolger dieses Slots sind. Wenn keine zugewiesenen Elemente gefunden werden, wird der Fallback-Inhalt des Slots zurückgegeben.
+Wenn die Option `flatten` auf `true` gesetzt ist, gibt sie eine Sequenz sowohl der diesem Slot zugewiesenen Elemente als auch der Elemente zurück, die allen anderen Slots zugewiesen sind, welche Nachkommen dieses Slots sind. Wenn keine zugewiesenen Elemente gefunden werden, gibt sie den Fallback-Inhalt des Slots zurück.
 
 ## Syntax
 
@@ -27,8 +27,8 @@ assignedElements(options)
   - : Ein Objekt, das Optionen für die zurückzugebenden Knoten festlegt. Die verfügbaren Optionen sind:
     - `flatten`
       - : Ein boolescher Wert, der angibt, ob die
-        zugewiesenen Elemente von beliebigen vorhandenen untergeordneten `<slot>`-Elementen
-        zurückgegeben werden sollen (`true`) oder nicht (`false`). Der Standardwert ist `false`.
+        zugewiesenen Elemente aller verfügbaren untergeordneten `<slot>`-Elemente
+        (`true`) zurückgegeben werden sollen oder nicht (`false`). Der Standardwert ist `false`.
 
 ### Rückgabewert
 

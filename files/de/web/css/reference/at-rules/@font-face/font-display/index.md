@@ -1,12 +1,12 @@
 ---
-title: "`font-display` CSS at-rule Descriptor"
+title: "`font-display`-CSS-At-Regel-Deskriptor"
 short-title: font-display
 slug: Web/CSS/Reference/At-rules/@font-face/font-display
 l10n:
-  sourceCommit: f0094356d3acb19475dde45508dfeac6abf596db
+  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
 ---
 
-Der **`font-display`** Descriptor für die {{cssxref("@font-face")}} At-Regel bestimmt, wie eine Schriftart angezeigt wird, abhängig davon, ob und wann sie heruntergeladen und einsatzbereit ist.
+Der **`font-display`**-Deskriptor für die {{cssxref("@font-face")}}-At-Regel bestimmt, wie eine Schriftart dargestellt wird, abhängig davon, ob und wann sie heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
@@ -22,27 +22,28 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Schriftanzeigestrategie wird durch den Benutzeragenten definiert.
+  - : Die Strategie zur Darstellung der Schriftart wird durch den User-Agent definiert.
 - `block`
-  - : Gibt dem Schriftbild eine kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Gibt der Schriftart eine kurze Blockierungsperiode und eine unbegrenzte Austauschperiode.
 - `swap`
-  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und eine unbegrenzte Austauschperiode.
 - `fallback`
-  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und eine kurze Swap-Periode.
+  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und eine kurze Austauschperiode.
 - `optional`
-  - : Gibt dem Schriftbild eine extrem kurze Blockperiode und keine Swap-Periode.
+  - : Gibt der Schriftart eine äußerst kurze Blockierungsperiode und keine Austauschperiode.
 
 > [!NOTE]
 > In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay`
-> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" bzw. "extrem kurzen" Perioden an.
+> und `gfx.downloadable_fonts.fallback_delay_short` jeweils die Dauer
+> der „kurzen“ und „äußerst kurzen“ Perioden an.
 
 ## Beschreibung
 
-Die Schriftanzeige-Zeitlinie basiert auf einem Timer, der beginnt, sobald der Benutzeragent versucht, eine gegebene heruntergeladene Schriftart zu verwenden. Die Zeitlinie ist in die drei unten aufgeführten Perioden unterteilt, die das Darstellungsverhalten aller Elemente bestimmen, die die Schriftart verwenden:
+Die Zeitleiste für die Schriftdarstellung basiert auf einem Timer, der beginnt, sobald der User-Agent versucht, eine bestimmte heruntergeladene Schriftart zu verwenden. Die Zeitleiste ist in die folgenden drei Perioden unterteilt, die das Rendering-Verhalten aller Elemente bestimmen, welche die Schriftart verwenden:
 
-- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das sie verwenden möchte, eine _unsichtbare_ Fallback-Schrift verwenden. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
-- Schrift-Swap-Periode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das sie verwenden möchte, eine Fallback-Schrift verwenden. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
-- Schrift-Ausfallperiode: Wenn die Schriftart nicht geladen ist, behandelt der Benutzeragent sie als fehlgeschlagenen Ladevorgang, was zu einem normalen Schrift-Fallback führt.
+- Schrift-Blockierungsperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Fallback-Schriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schrift-Austauschperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Fallback-Schriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schriftfehlerperiode: Wenn die Schriftart nicht geladen ist, behandelt der User-Agent dies als fehlgeschlagenes Laden, was zu einem normalen Schrift-Fallback führt.
 
 ## Formale Definition
 
@@ -54,14 +55,12 @@ Die Schriftanzeige-Zeitlinie basiert auf einem Timer, der beginnt, sobald der Be
 
 ## Beispiele
 
-### Spezifizieren von Fallback font-display
+### Fallback-`font-display` angeben
 
 ```css
 @font-face {
   font-family: "ExampleFont";
-  src:
-    url("/path/to/fonts/example-font.woff") format("woff"),
-    url("/path/to/fonts/example-font.eot") format("embedded-opentype");
+  src: url("/path/to/fonts/example-font.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: fallback;

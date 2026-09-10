@@ -3,10 +3,10 @@ title: CSS-Eigenschaft `scroll-padding`
 short-title: scroll-padding
 slug: Web/CSS/Reference/Properties/scroll-padding
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: ab710051a7a7cd8d74123b659a57483c3e8a5948
 ---
 
-Die CSS-Abkürzungseigenschaft **`scroll-padding`** legt den Bildlaufabstand auf allen Seiten eines Elements gleichzeitig fest. Sie spezifiziert Versätze, die den optimalen Ansichtsbereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scrollcontainers")}} definieren.
+Die [CSS](/de/docs/Web/CSS)-[Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`scroll-padding`** legt den Scroll-Padding auf allen Seiten eines Elements gleichzeitig fest. Sie gibt Versätze an, die den optimalen Sichtbereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} definieren.
 
 {{InteractiveExample("CSS Demo: scroll-padding")}}
 
@@ -70,9 +70,9 @@ scroll-padding: 20%;
 }
 ```
 
-## Teilweise Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -101,17 +101,17 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein einwärts gerichteter Versatz von der entsprechenden Kante des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein nach innen gerichteter Versatz von der entsprechenden Kante des Scrollports, als gültiges {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Versatz wird vom User-Agent bestimmt. Im Allgemeinen wird dies `0px` sein, aber der User-Agent kann erkennen, dass ein anderer Wert angemessener ist, und entsprechend handeln.
+  - : Der Versatz wird durch den User-Agent bestimmt. Im Allgemeinen ist dies `0px`, aber der User-Agent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Beschreibung
 
-Die `scroll-padding`-Eigenschaft ist eine Abkürzung, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge setzt. Sie legt den oberen, rechten, unteren und linken Bildlaufabstand eines Scrollcontainers fest.
+Die Eigenschaft `scroll-padding` ist eine Shorthand, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in dieser Reihenfolge festlegt und damit jeweils den oberen, rechten, unteren und linken Scroll-Padding eines Scroll-Containers setzt.
 
-Nützlich bei der Erstellung von Scroll-Snap-Containern ermöglicht die `scroll-padding`-Eigenschaft das Festlegen von Versätzen für den _optimalen Ansichtsbereich_ des Scrollports: den Bereich, der als Zielbereich für die Platzierung von Elementen im Sichtfeld des Benutzers dient. Dies ermöglicht das Erstellen von Einzügen im Scrollport, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding` ist beim Erstellen von Scroll-Snap-Containern nützlich und ermöglicht das Definieren von Versätzen für den _optimalen Sichtbereich_ des Scrollports: den Bereich, der als Zielbereich verwendet wird, um Elemente für Benutzerinnen und Benutzer sichtbar zu platzieren. Dadurch können Sie Einzüge im Scrollport erstellen, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, etwa Toolbars oder Sidebars mit fester Positionierung, oder um mehr Abstand zwischen einem anvisierten Element und den Kanten des Scrollports zu schaffen.
 
-Während diese Eigenschaft im [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert ist, gilt sie für alle Scrollcontainer, unabhängig vom Wert der {{cssxref("scroll-snap-type")}}-Eigenschaft.
+Obwohl diese Eigenschaft im Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) definiert ist, gilt sie für alle Scroll-Container, unabhängig vom Wert der Eigenschaft {{cssxref("scroll-snap-type")}}.
 
 ## Formale Definition
 
@@ -120,6 +120,98 @@ Während diese Eigenschaft im [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_s
 ## Formale Syntax
 
 {{csssyntax}}
+
+## Beispiele
+
+### Verhindern, dass Inhalt von einem festen Header verdeckt wird
+
+Ein häufiger Anwendungsfall für `scroll-padding` besteht darin, zu verhindern, dass scrollender Inhalt von einem Header mit fester Positionierung verdeckt wird. Dieses Beispiel zeigt, wie `scroll-padding` hierfür verwendet wird.
+
+#### HTML
+
+Der Header enthält Links zu drei Abschnitten auf der Seite.
+
+```html
+<header>
+  <nav>
+    <a href="#section-1">Section 1</a>
+    <a href="#section-2">Section 2</a>
+    <a href="#section-3">Section 3</a>
+  </nav>
+</header>
+<main>
+  <section id="section-1">
+    <h2>Section 1</h2>
+    <p>Use the links in the header to jump to another section.</p>
+  </section>
+  <section id="section-2">
+    <h2>Section 2</h2>
+    <p>This heading remains visible below the fixed header.</p>
+  </section>
+  <section id="section-3">
+    <h2>Section 3</h2>
+    <p>This heading also remains visible below the fixed header.</p>
+  </section>
+</main>
+```
+
+#### CSS
+
+```css hidden
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+section {
+  box-sizing: border-box;
+  padding: 1rem;
+  min-height: 60vh;
+}
+
+h2 {
+  margin-top: 0;
+}
+```
+
+Der Header ist oben im Viewport fixiert und `60px` hoch. Wir setzen `scroll-padding` auf dem Wurzelelement, um beim Scrollen zu einem Abschnitt `60px` am oberen Rand des Viewports zu reservieren, ohne Versatz an den anderen Seiten.
+
+```css
+html {
+  --navbar-height: 60px;
+
+  scroll-padding: var(--navbar-height) 0 0;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  height: var(--navbar-height);
+  width: 100%;
+}
+```
+
+Wir fügen dem Hauptinhalt Padding hinzu, damit der erste Abschnitt beim initialen Laden unterhalb des Headers beginnt.
+
+```css
+main {
+  padding-top: var(--navbar-height);
+}
+```
+
+#### Ergebnis
+
+Klicken Sie auf die Links im Header, um zwischen den Abschnitten zu springen. Jeder Abschnitt erscheint unterhalb des Headers, sodass seine Überschrift sichtbar bleibt. Öffnen Sie dieses Beispiel im Playground, entfernen Sie die Zeile `scroll-padding` und klicken Sie erneut auf die Links, um zu sehen, wie der Header die Überschriften verdeckt.
+
+{{EmbedLiveSample("Preventing content from being hidden by a fixed header", "100%", 300)}}
 
 ## Spezifikationen
 
@@ -132,7 +224,7 @@ Während diese Eigenschaft im [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_s
 ## Siehe auch
 
 - {{cssxref("scroll-snap-type")}}
-- [Grundkonzepte von Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
-- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul
-- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow)-Modul
-- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)-Modul
+- [Grundlegende Konzepte von scroll-snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
+- Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- Modul [CSS overflow](/de/docs/Web/CSS/Guides/Overflow)
+- Modul [CSS scroll-driven animations](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

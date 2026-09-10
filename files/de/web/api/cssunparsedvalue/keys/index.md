@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: keys()-Methode"
 short-title: keys()
 slug: Web/API/CSSUnparsedValue/keys
 l10n:
-  sourceCommit: e03cdadd99259770aefef875de5a988aeda6aff0
+  sourceCommit: b9426971d8a2176ad015a0fd01df59ec79760898
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`keys()`**-Methode der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Schnittstelle gibt einen neuen _Array-Iterator_ zurück, der den Index jedes Elements im Objekt liefert.
+Die **`keys()`**-Methode des [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Interfaces gibt einen neuen _Array-Iterator_ zurück, der den Index jedes Elements im Objekt liefert.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer [iterierbarer Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols).
+Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beispiele
 
-### Iteration über Indizes
+### Über Indizes iterieren
 
 ```js
 const value = new CSSUnparsedValue(["1em", "#445566", "-45px"]);

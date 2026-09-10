@@ -3,12 +3,12 @@ title: "CSSUnparsedValue: entries()-Methode"
 short-title: entries()
 slug: Web/API/CSSUnparsedValue/entries
 l10n:
-  sourceCommit: e03cdadd99259770aefef875de5a988aeda6aff0
+  sourceCommit: b9426971d8a2176ad015a0fd01df59ec79760898
 ---
 
 {{APIRef("CSS Typed Object Model API")}} {{AvailableInWorkers}}
 
-Die **`entries()`**-Methode der [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Schnittstelle gibt einen neuen _Array-Iterator_ zurück, der `[index, value]`-Paare für jedes Element im Objekt ausgibt.
+Die **`entries()`**-Methode der Schnittstelle [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) gibt einen neuen _Array-Iterator_ zurück, der für jedes Element im Objekt `[index, value]`-Paare liefert.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer [iterierbarer Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols).
+Ein neues [iterierbares Iteratorobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beispiele
 
-### Iteration über Index/Werte-Paare
+### Über Index/Wert-Paare iterieren
 
 ```js
 const value = new CSSUnparsedValue(["1em", "#445566", "-45px"]);

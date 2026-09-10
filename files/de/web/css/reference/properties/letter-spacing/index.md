@@ -3,10 +3,10 @@ title: "`letter-spacing` CSS property"
 short-title: letter-spacing
 slug: Web/CSS/Reference/Properties/letter-spacing
 l10n:
-  sourceCommit: a5531a7b1fa30ab1de952ffff619a9830eb1c1a9
+  sourceCommit: 91e08923c809ca8deded3e3294f49bbe1a4a00b3
 ---
 
-Die **`letter-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen Textzeichen fest. Dieser Wert wird zu dem natürlichen Abstand zwischen Zeichen hinzugefügt, während der Text gerendert wird. Positive Werte von `letter-spacing` spreizen die Zeichen weiter auseinander, während negative Werte die Zeichen näher zusammenbringen.
+Die [CSS](/de/docs/Web/CSS)-Eigenschaft **`letter-spacing`** legt den Abstand zwischen Textzeichen fest. Dieser Wert wird beim Rendern des Textes zum natürlichen Abstand zwischen Zeichen hinzugefügt. Positive Werte von `letter-spacing` vergrößern den Abstand zwischen Zeichen, während negative Werte von `letter-spacing` Zeichen näher zusammenrücken lassen.
 
 {{InteractiveExample("CSS Demo: letter-spacing")}}
 
@@ -42,7 +42,7 @@ letter-spacing: -1px;
 
 ```css interactive-example
 @font-face {
-  src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
+  src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.woff2");
   font-family: "Amstelvar";
   font-style: normal;
 }
@@ -75,31 +75,31 @@ letter-spacing: unset;
 
 ### Werte
 
-Diese Eigenschaft wird als Einzelwert aus der folgenden Liste angegeben:
+Diese Eigenschaft wird als einzelner Wert aus der folgenden Liste angegeben:
 
 - `normal`
-  - : Der normale Buchstabenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` erlaubt dieses Schlüsselwort dem {{Glossary("user_agent", "User Agent")}}, den Abstand zwischen Zeichen zu verändern, um Text auszurichten.
+  - : Der normale Zeichenabstand für die aktuelle Schriftart. Anders als ein Wert von `0` erlaubt dieses Schlüsselwort dem {{Glossary("user_agent", "User Agent")}}, den Abstand zwischen Zeichen zu verändern, um Text im Blocksatz auszurichten.
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Gibt zusätzlichen Zeichenabstand _zusätzlich zu_ dem Standardabstand zwischen Zeichen an. Während die Werte negativ sein können, können sie durch implementierungsspezifische Grenzen eingeschränkt sein. User Agents dürfen den Zeichenabstand zur Textausrichtung nicht weiter vergrößern oder verkleinern.
+  - : Gibt zusätzlichen Abstand zwischen Zeichen _zusätzlich zu_ dem Standardabstand zwischen Zeichen an. Obwohl Werte negativ sein können, können sie auf implementationsspezifische Grenzen beschränkt sein. User Agents dürfen den Abstand zwischen Zeichen zur Ausrichtung von Text im Blocksatz nicht weiter vergrößern oder verkleinern.
 
     Prozentwerte werden relativ zur Breite des Leerzeichens der auf den Text angewendeten Schriftart berechnet.
 
     > [!NOTE]
-    > Wenn `letter-spacing` ungleich null ist, wenden User Agents keine optionalen Ligaturen an, wie die `liga` (Standardligaturen) und `clig` (kontextuelle Ligaturen) OpenType-Features, die normalerweise durch {{cssxref("font-variant-ligatures")}} gesteuert werden.
-    > Diese Features können explizit durch {{cssxref("font-feature-settings")}} erneut aktiviert werden.
+    > Wenn `letter-spacing` nicht null ist, wenden User Agents optionale Ligaturen wie die OpenType-Features `liga` (Standardligaturen) und `clig` (kontextabhängige Ligaturen), die normalerweise durch {{cssxref("font-variant-ligatures")}} gesteuert werden, nicht an.
+    > Diese Features können mit {{cssxref("font-feature-settings")}} explizit wieder aktiviert werden.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `letter-spacing`-Wert macht das/die Wort(e), auf die das Styling angewendet wird, unleserlich. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Buchstaben so weit voneinander entfernt, dass das/die Wort(e) wie eine Reihe von einzelnen, unverbundenen Buchstaben erscheinen. Bei Text, der mit einem sehr großen negativen Wert gestylt ist, können die Buchstaben so stark übereinander liegen, dass das/die Wort(e) nicht mehr erkennbar sind.
+Ein großer positiver oder negativer Wert für `letter-spacing` macht die Wörter, auf die das Styling angewendet wird, unlesbar. Bei Text, der mit einem sehr großen positiven Wert formatiert ist, liegen die Buchstaben so weit auseinander, dass die Wörter wie eine Reihe einzelner, nicht miteinander verbundener Buchstaben erscheinen. Bei Text, der mit einem sehr großen negativen Wert formatiert ist, können sich die Buchstaben so weit überlappen, dass die Wörter möglicherweise nicht mehr erkennbar sind.
 
-Ein lesbarer Buchstabenabstand muss fallweise bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit beibehalten.
+Lesbarer Zeichenabstand muss von Fall zu Fall bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzelnen Wert, der sicherstellen kann, dass alle Schriftfamilien automatisch lesbar bleiben.
 
-- [MDN Verständnis von WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgs Kriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN: Erläuterungen zum Verständnis von WCAG, Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erfolgskriterium 1.4.8 verstehen | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
-## Internationalisierungsprobleme
+## Hinweise zur Internationalisierung
 
-In einigen Schriftsystemen sollte kein Buchstabenabstand angewendet werden. Zum Beispiel erwarten Sprachen, die das arabische Alphabet verwenden, dass verbundene Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Das Anwenden von Buchstabenabstand kann dazu führen, dass der Text kaputt aussieht.
+Bei einigen geschriebenen Sprachen sollte kein Zeichenabstand angewendet werden. Beispielsweise erwarten Sprachen, die die arabische Schrift verwenden, dass verbundene Buchstaben visuell verbunden bleiben, wie im folgenden Beispiel. Das Anwenden von Zeichenabstand kann dazu führen, dass der Text unterbrochen aussieht.
 
 ```html live-sample___i18n-sample
 <p lang="ar" dir="rtl">شسيبتنمك</p>
@@ -124,9 +124,9 @@ p {
 
 ## Beispiele
 
-### Buchstabenabstand mit Längenwerten einstellen
+### Zeichenabstand mit Längenwerten festlegen
 
-Dieses Beispiel zeigt mehrere Absätze mit unterschiedlichen Längenwerten für den `letter-spacing`, die es Ihnen ermöglichen, sie zu vergleichen.
+Dieses Beispiel zeigt mehrere Absätze mit unterschiedlichen festgelegten `letter-spacing`-Längenwerten, sodass Sie sie vergleichen können.
 
 #### HTML
 
@@ -142,7 +142,7 @@ Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt.
 
 #### CSS
 
-Unser CSS wendet jedem Absatz einen anderen `letter-spacing`-Wert zu.
+Unser CSS weist jedem Absatz einen unterschiedlichen `letting-spacing`-Wert zu.
 
 ```css live-sample___length-letter-spacing
 .normal {
@@ -164,19 +164,19 @@ Unser CSS wendet jedem Absatz einen anderen `letter-spacing`-Wert zu.
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht wie folgt aus:
 
 {{ EmbedLiveSample("length-letter-spacing", "100%", 200) }}
 
-### Vergleich von letter-spacing, gesetzt mit Länge und Prozentwerten
+### Vergleich von mit Länge und Prozentwert festgelegtem Zeichenabstand
 
-Dieses Beispiel zeigt, dass Prozentwerte für `letter-spacing` nützlich für die responsive Textgrößenanpassung sind.
+Dieses Beispiel zeigt, dass prozentuale `letter-spacing`-Werte für responsive Textgrößen nützlich sind.
 
-Der Code zeigt mehrere Absätze, die denselben `letter-spacing`-Wert aufweisen, aber den Text mit zunehmender Schriftgröße. Wir bieten eine Funktionalität, zwischen einem Längen- und einem Prozentwert für `letter-spacing` zu wechseln, sodass Sie die responsiven Eigenschaften der Verwendung eines Prozentwerts beobachten können.
+Der Code zeigt mehrere Absätze mit demselben `letter-spacing` für Text mit zunehmender Schriftgröße. Wir stellen eine Funktion bereit, um zwischen einem `letter-spacing`-Längenwert und einem prozentualen `letter-spacing`-Wert umzuschalten, damit Sie die responsiven Eigenschaften eines Prozentwerts beobachten können.
 
 #### HTML
 
-Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt und ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), das wir verwenden, um zwischen einem Längen-`letter-spacing`-Wert und einem Prozent-`letter-spacing`-Wert zu wechseln.
+Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt sowie ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), das wir verwenden, um zwischen einem `letter-spacing`-Längenwert und einem prozentualen `letter-spacing`-Wert umzuschalten.
 
 ```html live-sample___percentage-versus-length
 <p class="x-small">X-small font-size (0.8em)</p>
@@ -196,7 +196,7 @@ Das HTML enthält mehrere {{htmlelement("p")}}-Elemente mit Textinhalt und ein [
 
 #### CSS
 
-Unser CSS beginnt mit der Anwendung von zunehmenden {{cssxref("font-size")}}-Werten auf jeden aufeinanderfolgenden Absatz:
+Unser CSS beginnt damit, jedem aufeinanderfolgenden Absatz zunehmende {{cssxref("font-size")}}-Werte zuzuweisen:
 
 ```css hidden live-sample___percentage-versus-length
 html {
@@ -226,7 +226,7 @@ html {
 }
 ```
 
-Wir wenden standardmäßig einen `letter-spacing`-Wert von `8px` auf alle Absätze an. Wenn das Kontrollkästchen aktiviert ist, ändern wir jedoch den `letter-spacing`-Wert auf `12%`:
+Standardmäßig wenden wir auf alle Absätze einen `letter-spacing`-Wert von `8px` an. Wenn das Kontrollkästchen aktiviert ist, ändern wir den `letter-spacing`-Wert jedoch in `12%`:
 
 ```css live-sample___percentage-versus-length
 p {
@@ -240,11 +240,11 @@ p:has(~ form > input:checked) {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht wie folgt aus:
 
 {{ EmbedLiveSample("percentage-versus-length", "100%", 460) }}
 
-Beachten Sie zunächst, wie der anfängliche Längen-Buchstabenabstandswert bei größeren Schriftgrößen gut aussieht, aber bei kleineren Schriftgrößen nicht gut aussieht. Schalten Sie nun das Kontrollkästchen um und beachten Sie, wie der Prozent-Buchstabenabstand auf allen Zeilen angemessen aussieht, da er mit der Schriftgröße skaliert.
+Beachten Sie zunächst, dass der anfängliche Zeichenabstand mit Längenwert bei den größeren Schriftgrößen gut aussieht, bei den kleineren Schriftgrößen jedoch nicht gut wirkt. Aktivieren Sie nun das Kontrollkästchen und beachten Sie, dass der prozentuale Zeichenabstand in allen Zeilen angemessen aussieht, da er mit der Schriftgröße skaliert.
 
 ## Spezifikationen
 
@@ -258,4 +258,4 @@ Beachten Sie zunächst, wie der anfängliche Längen-Buchstabenabstandswert bei 
 
 - {{cssxref("font-kerning")}}
 - {{cssxref("word-spacing")}}
-- SVG {{SVGAttr("letter-spacing")}} Attribut
+- SVG-Attribut {{SVGAttr("letter-spacing")}}

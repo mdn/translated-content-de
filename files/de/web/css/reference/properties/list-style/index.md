@@ -1,12 +1,12 @@
 ---
-title: "`list-style` CSS-Eigenschaft"
+title: CSS-Eigenschaft `list-style`
 short-title: list-style
 slug: Web/CSS/Reference/Properties/list-style
 l10n:
-  sourceCommit: 5381238460a48ff323a93e652d15cb62598f0262
+  sourceCommit: c2375c58cf5a6f0fd7053f3cee7cba8bd88a2bbe
 ---
 
-Die **`list-style`** [CSS](/de/docs/Web/CSS) [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) Eigenschaft ermöglicht es Ihnen, alle Listeneigenschaften auf einmal festzulegen.
+Die [CSS](/de/docs/Web/CSS)-[Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-Eigenschaft **`list-style`** ermöglicht es Ihnen, alle Eigenschaften für den Listenstil auf einmal festzulegen.
 
 {{InteractiveExample("CSS Demo: list-style")}}
 
@@ -85,9 +85,7 @@ hr {
 }
 ```
 
-Die Werte dieser Eigenschaft werden auf Listenelemente angewendet, einschließlich {{HTMLElement("li")}}-Elementen und Elementen mit `{{cssxref("display")}}: list-item;`. Da diese Eigenschaft vererbt wird, kann sie auf einem Elternelement gesetzt werden (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}), um das gleiche Listenstil auf alle verschachtelten Elemente anzuwenden.
-
-## Bestandteilige Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -125,32 +123,67 @@ list-style: revert-layer;
 list-style: unset;
 ```
 
-Die `list-style`-Eigenschaft wird mit einem, zwei oder drei Werten in beliebiger Reihenfolge angegeben. Wenn sowohl {{cssxref("list-style-type")}} als auch {{cssxref("list-style-image")}} festgelegt sind, wird `list-style-type` als Fallback verwendet, falls das Bild nicht verfügbar ist.
+Die Eigenschaft `list-style` wird als ein, zwei oder drei Werte in beliebiger Reihenfolge angegeben. Wenn sowohl {{cssxref("list-style-type")}} als auch {{cssxref("list-style-image")}} festgelegt sind, wird `list-style-type` als Fallback verwendet, falls das Bild nicht verfügbar ist.
 
 ### Werte
 
 - {{cssxref("list-style-type")}}
-  - : Ein `<counter-style>`, {{cssxref("string")}}, oder `none`. Wenn im Kurzformausdruck nicht angegeben, wird der Standardwert `disc` verwendet. Siehe {{cssxref("list-style-type")}}.
+  - : Ein `<counter-style>`, {{cssxref("string")}} oder `none`. Wenn in der Kurzform ausgelassen, ist der Standardwert `disc`. Siehe {{cssxref("list-style-type")}}.
 - {{cssxref("list-style-image")}}
-  - : Ein {{cssxref("image")}} oder `none`. Wenn nicht angegeben, wird der Standardwert `none` verwendet. Siehe {{cssxref("list-style-image")}}.
+  - : Ein {{cssxref("image")}} oder `none`. Wenn ausgelassen, ist der Standardwert `none`. Siehe {{cssxref("list-style-image")}}.
 - {{cssxref("list-style-position")}}
-  - : Entweder `inside` oder `outside`. Wenn nicht angegeben, wird der Standardwert `outside` verwendet. Siehe {{cssxref("list-style-position")}}.
+  - : Entweder `inside` oder `outside`. Wenn ausgelassen, ist der Standardwert `outside`. Siehe {{cssxref("list-style-position")}}.
 - `none`
-  - : Kein Listenstil wird verwendet.
+  - : Es wird kein Listenstil verwendet.
 
-## Formale Definition
+## Beschreibung
 
-{{cssinfo}}
+Die Eigenschaft `list-style` ermöglicht Ihnen, das Erscheinungsbild von Listenelementen anzupassen. Die Werte dieser Eigenschaft werden auf Listenelemente angewendet, einschließlich {{HTMLElement("li")}}-Elementen und Elementen mit `{{cssxref("display")}}: list-item;`.
 
-## Formale Syntax
+### Vererbung des Listenstils
 
-{{csssyntax}}
+Da die Langform-Eigenschaft {{cssxref("list-style-type")}} vererbt wird, kann `list-style` für ein übergeordnetes Element (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) festgelegt werden, damit dieselbe Listengestaltung auf dessen Listenelemente angewendet wird. User-Agent-Stylesheets legen jedoch `list-style-type` für `<ul>`, `<ol>` und {{HTMLElement("menu")}}-Elemente fest, sodass verschachtelte Listen diese Standardwerte verwenden, anstatt den `list-style` der übergeordneten Liste zu erben. Die Werte von {{cssxref("list-style-position")}} und {{cssxref("list-style-image")}} werden normalerweise in verschachtelte Listen vererbt. Damit verschachtelte Listen auch den Markierungstyp erben, setzen Sie `list-style` oder `list-style-type` für die verschachtelten Listenelemente auf `inherit`.
+
+Beispielsweise in Fällen wie diesem:
+
+```html live-sample___list-style-inherit
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>
+    Three
+    <ul>
+      <li>Four</li>
+      <li>Five</li>
+      <li>Six</li>
+    </ul>
+  </li>
+</ul>
+```
+
+Bei denen für die äußere Liste ein benutzerdefinierter Stil festgelegt ist:
+
+```css live-sample___list-style-inherit
+body > ul {
+  list-style: square;
+}
+```
+
+Die innere Liste erbt den benutzerdefinierten Stil nicht, sofern Sie sie nicht auf Vererbung setzen:
+
+```css live-sample___list-style-inherit
+ul ul {
+  list-style: inherit;
+}
+```
+
+{{embedlivesample("list-style-inherit", "100%", "200")}}
 
 ## Barrierefreiheit
 
-Safari erkennt geordnete oder ungeordnete Listen nicht als Listen im Barrierefreiheitsbaum, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des {{HTMLElement("nav")}}-Navigationselements verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler angesehen.
+Safari erkennt geordnete oder ungeordnete Listen im Barrierefreiheitsbaum nicht als Listen, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des Navigationselements {{HTMLElement("nav")}} verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler betrachtet.
 
-Um sicherzustellen, dass Listen als solche angesagt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) zu {{HTMLElement("ol")}} und {{HTMLElement("ul")}} Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dies stellt die Listensemantik ohne Beeinträchtigung des Designs wieder her:
+Um sicherzustellen, dass Listen als Listen angesagt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) zu {{HTMLElement("ol")}}- und {{HTMLElement("ul")}}-Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dadurch wird die Listensemantik wiederhergestellt, ohne das Design zu beeinflussen:
 
 ```html
 <ul role="list">
@@ -159,7 +192,7 @@ Um sicherzustellen, dass Listen als solche angesagt werden, fügen Sie [`role="l
 </ul>
 ```
 
-Wenn eine ARIA-`role` für Ihren Code keine Option ist, kann stattdessen CSS verwendet werden. Das Hinzufügen von nicht-leerem [Pseudo-Content](/de/docs/Web/CSS/Reference/Properties/content) wie Text oder Bilder vor jedem Listenelement kann die Listensemantik wiederherstellen, beeinflusst jedoch das visuelle Erscheinungsbild. Safari bestimmt, ob der hinzugefügte Pseudo-Content als barrierefreie Inhalte ausreicht, und stellt die Listensemantik wieder her, wenn dies der Fall ist. Im Allgemeinen werden von Safari Text und Bilder als ausreichend erachtet, weshalb das unten gezeigte `content: "+ ";` funktioniert (erfordert jedoch zusätzliche Stylingmaßnahmen, um das Design nicht zu beeinträchtigen).
+Wenn eine ARIA-`role` für Ihren Code keine Option ist, kann stattdessen CSS verwendet werden. Das Hinzufügen von nicht leerem [Pseudo-Inhalt](/de/docs/Web/CSS/Reference/Properties/content) wie Text oder Bildern vor jedem Listenelement kann die Listensemantik wiederherstellen, wirkt sich jedoch auf das visuelle Erscheinungsbild aus. Safari bestimmt, ob der hinzugefügte Pseudo-Inhalt als barrierefreier Inhalt ausreicht, und stellt die Listensemantik wieder her, wenn dies der Fall ist. Im Allgemeinen betrachtet Safari Text und Bilder als ausreichend, weshalb das unten gezeigte `content: "+ ";` funktioniert (jedoch zusätzliches Styling erfordert, damit das Design nicht beeinträchtigt wird).
 
 ```css
 ul {
@@ -171,18 +204,26 @@ ul li::before {
 }
 ```
 
-Eine Deklaration von `content: "";` (ein leerer String) wird ignoriert, ebenso wie `content`-Werte, die nur Leerzeichen enthalten, wie `content: " ";`.
+Eine Deklaration von `content: "";` (eine leere Zeichenfolge) wird ignoriert, ebenso wie `content`-Werte, die nur Leerzeichen enthalten, etwa `content: " ";`.
 
-Diese CSS-Workarounds sollten nur verwendet werden, wenn keine HTML-Lösung verfügbar ist und nur nach Tests, um sicherzustellen, dass sie nicht zu unerwarteten Verhaltensweisen führen, die die Benutzererfahrung negativ beeinflussen könnten.
+Diese CSS-Workarounds sollten nur verwendet werden, wenn keine HTML-Lösung verfügbar ist, und erst nach Tests, um sicherzustellen, dass sie nicht zu unerwarteten Verhaltensweisen führen, die sich negativ auf die Benutzererfahrung auswirken können.
 
 - ['Fixing' Lists](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) (2023)
-- [VoiceOver and list-style-type: none](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html) (2017)
-- [Verständnis von WCAG: Erstellen von Inhalten, die auf unterschiedliche Weise präsentiert werden können](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
-- [Verständnis des Erfolgskriteriums 1.3.1: Informationen und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+- [VoiceOver und list-style-type: none](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html) (2017)
+- [WCAG verstehen: Inhalte erstellen, die auf verschiedene Arten präsentiert werden können](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
+- [Erfolgskriterium 1.3.1 verstehen: Informationen und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+
+## Formale Definition
+
+{{cssinfo}}
+
+## Formale Syntax
+
+{{csssyntax}}
 
 ## Beispiele
 
-### Festlegen des Listenstiltyps und der Position
+### Listenstiltyp und -position festlegen
 
 #### HTML
 
@@ -227,7 +268,7 @@ List 2
 
 ## Siehe auch
 
-- Komponenteneigenschaften: {{Cssxref("list-style-type")}}, {{Cssxref("list-style-image")}}, und {{Cssxref("list-style-position")}}
+- Komponenten-Eigenschaften: {{Cssxref("list-style-type")}}, {{Cssxref("list-style-image")}} und {{Cssxref("list-style-position")}}
 - Pseudo-Element {{Cssxref("::marker")}}
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- Modul [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists)
+- Modul [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles)

@@ -2,75 +2,75 @@
 title: Eingaben und Eingabequellen
 slug: Web/API/WebXR_Device_API/Inputs
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-Ein vollständiges WebXR-Erlebnis besteht nicht nur darin, dem Benutzer eine völlig virtuelle Szene zu zeigen oder die Realität durch Hinzufügen oder Ändern der Umgebung zu erweitern. Um ein erfüllendes und ansprechendes Erlebnis zu schaffen, muss der Benutzer in der Lage sein, damit zu interagieren. Zu diesem Zweck bietet WebXR Unterstützung für eine Vielzahl von Eingabegeräten.
+Ein vollständiges WebXR-Erlebnis besteht nicht nur darin, dem Benutzer eine vollständig virtuelle Szene zu zeigen oder die Realität zu erweitern, indem die Welt um ihn herum ergänzt oder verändert wird. Um ein erfüllendes und ansprechendes Erlebnis zu schaffen, muss der Benutzer damit interagieren können. Zu diesem Zweck unterstützt WebXR verschiedene Arten von Eingabegeräten.
 
-In diesem Leitfaden sehen wir uns an, wie die Eingabegeräteverwaltungsfunktionen von WebXR genutzt werden können, um festzustellen, welche Eingabequellen verfügbar sind, und wie diese Quellen überwacht werden können, um die Benutzerinteraktivität mit Ihrer virtuellen oder erweiterten Umgebung zu handhaben.
+In diesem Leitfaden sehen wir uns an, wie Sie die Funktionen zur Verwaltung von Eingabegeräten von WebXR verwenden, um festzustellen, welche Eingabequellen verfügbar sind und wie Sie diese Quellen anschließend auf Eingaben überwachen, um Benutzerinteraktionen mit Ihrer virtuellen oder erweiterten Umgebung zu verarbeiten.
 
 ## Eingaben in WebXR
 
-Grundsätzlich fallen Eingaben in WebXR in zwei Hauptkategorien: Zielsteuerung und Aktionen. Zielsteuerung ist die Spezifikation eines Punkts im Raum durch die Benutzereingabe. Dies kann bedeuten, dass der Benutzer auf einen Punkt auf dem Bildschirm tippt, seine Augenbewegungen verfolgt oder einen Joystick oder Controller mit Bewegungssensor verwendet, um einen Cursor zu bewegen.
+Grundsätzlich lassen sich Eingaben in WebXR in zwei Basiskategorien einteilen: Targeting und Aktionen. Targeting ist die Angabe eines Punkts im Raum durch die Eingabe des Benutzers. Dies kann beinhalten, dass der Benutzer auf eine Stelle auf dem Bildschirm tippt, seine Augen verfolgt werden oder ein Joystick oder bewegungserfassender Controller verwendet wird, um einen Cursor zu bewegen.
 
-Aktionen umfassen sowohl Auswahlaktionen, wie das Klicken auf einen Button, als auch Quetschaktionen, wie das Betätigen eines Triggers oder das Festigen des Griffs, während man haptische Handschuhe trägt.
+Aktionen umfassen sowohl Auswahlaktionen wie das Klicken auf eine Schaltfläche als auch Squeeze-Aktionen wie das Betätigen eines Abzugs oder das Festigen des Griffs beim Tragen haptischer Handschuhe.
 
-Durch die Kombination dieser beiden Eingabetypen mit der Änderung der Blickposition und/oder -orientierung durch das Headset oder andere Mechanismen können Sie eine interaktive simulierte Umgebung schaffen.
+Durch die Kombination dieser beiden Eingabearten mit der Änderung der Betrachtungsposition und/oder -ausrichtung durch das Headset oder andere Mechanismen können Sie eine interaktive simulierte Umgebung erstellen.
 
-### Typen von Eingabegeräten
+### Arten von Eingabegeräten
 
-WebXR unterstützt eine Vielzahl unterschiedlicher Gerätetypen, um Zielsteuerung und Aktionsinputs zu handhaben. Diese Geräte umfassen, sind jedoch nicht beschränkt auf:
+WebXR unterstützt verschiedene Arten von Geräten zur Verarbeitung von Targeting- und Aktionseingaben. Zu diesen Geräten gehören unter anderem:
 
-- Bildschirmberührungen (insbesondere, aber nicht zwingend nur auf Telefonen oder Tablets) können verwendet werden, um gleichzeitig sowohl Zielsteuerung als auch Auswahlausführung zu ermöglichen.
-- Bewegungssteuerungssensoren, die Beschleunigungsmesser, Magnetometer und andere Sensoren für die Bewegungserfassung und Zielsteuerung verwenden, und die möglicherweise darüber hinaus eine beliebige Anzahl von Knöpfen, Joysticks, Daumenpads, Touchpads, Kraftsensoren und so weiter beinhalten, um zusätzliche Eingabequellen sowohl für die Zielsteuerung als auch die Auswahl zu bieten.
-- Zusammenpressbare Trigger oder Handschuhgriffpolster zur Durchführung von Quetschaktionen.
+- Bildschirmberührungen (insbesondere, aber nicht ausschließlich auf Mobiltelefonen oder Tablets) können verwendet werden, um gleichzeitig sowohl Targeting als auch Auswahl auszuführen.
+- Bewegungserfassende Controller, die Beschleunigungsmesser, Magnetometer und andere Sensoren für Bewegungsverfolgung und Targeting verwenden und zusätzlich eine beliebige Anzahl von Tasten, Joysticks, Thumbpads, Touchpads, Kraftsensoren usw. enthalten können, um zusätzliche Eingabequellen sowohl für Targeting als auch für Auswahl bereitzustellen.
+- Zusammendrückbare Auslöser oder Griffpolster von Handschuhen, um Squeeze-Aktionen bereitzustellen.
 - Sprachbefehle mittels Spracherkennung.
-- Räumlich verfolgte, gelenkige Hände, wie [verkabelte Handschuhe](https://en.wikipedia.org/wiki/Wired_glove), können sowohl Zielsteuerung als auch Quetschaktionen bereitstellen sowie Auswahl, wenn sie mit Tasten oder anderen Quellen für Auswahlausführungen ausgestattet sind.
-- Einknopf-Klickgeräte.
-- Blickverfolgung (Verfolgung der Augenbewegungen, um Ziele auszuwählen).
+- Räumlich verfolgte gelenkige Hände, etwa [kabelgebundene Handschuhe](https://en.wikipedia.org/wiki/Wired_glove), können sowohl Targeting- als auch Squeeze-Aktionen sowie Auswahl bereitstellen, wenn sie mit Tasten oder anderen Quellen für Auswahlaktionen ausgestattet sind.
+- Klickgeräte mit einer Taste.
+- Blickverfolgung (Verfolgen der Augenbewegungen zur Auswahl von Zielen).
 
 ### Eingabequellen
 
-Jede Quelle von WebXR-Eingabedaten wird durch ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt dargestellt, das die Eingabequelle und ihren aktuellen Zustand beschreibt. Die Informationen zu jeder Eingabequelle beinhalten, in welcher Hand sie gehalten wird (falls zutreffend), welches Zielsteuerungsverfahren sie verwendet, [`XRSpace`](/de/docs/Web/API/XRSpace)s, die verwendet werden können, um den Zielstrahl zu zeichnen und das gezielte Objekt oder den Standort zu finden, sowie Profile-Strings, die die bevorzugte Darstellung der Steuerung im Sichtbereich des Benutzers beschreiben, als auch wie die Eingabe funktioniert.
+Jede Quelle von WebXR-Eingabedaten wird durch ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt dargestellt, das die Eingabequelle und ihren aktuellen Zustand beschreibt. Die Informationen für jede Eingabequelle umfassen, in welcher Hand sie gehalten wird (falls zutreffend), welche Targeting-Methode sie verwendet, [`XRSpace`](/de/docs/Web/API/XRSpace)s, die zum Zeichnen des Targeting-Strahls und zum Finden des anvisierten Objekts oder Ortes sowie zum Zeichnen von Objekten in den Händen des Benutzers verwendet werden können, und Profilzeichenfolgen, die sowohl die bevorzugte Darstellung des Controllers im Sichtbereich des Benutzers als auch die Funktionsweise der Eingabe angeben.
 
 Die grundlegenden Fähigkeiten einer Eingabequelle sind:
 
-- Zielsteuerung
-  - : Überwachung von Richtungssteuerungen (zum Beispiel einen bewegungserkennenden Zeiger oder einen Joystick oder ein Trackpad), um in eine Richtung zu zielen, möglicherweise auf ein Ziel, wobei die Zielsteuerung jedoch Ihnen überlassen bleibt. Siehe [Blick- und Zielsteuerung](#blickrichtung_und_zielsetzung) für weitere Informationen.
-- Auswahl
-  - : Verwendung des Hauptauswahlknopfes oder anderer Eingaben am Controller, um die angezielte Richtung (oder das Objekt, auf das es zeigt) auszuwählen oder um eine Aktion auszuführen. Details zur Hauptaktion finden Sie unter [Hauptaktion](#hauptaktion).
-- Zusammendrücken
-  - : Zusammendrücken des Controllers oder eines Mechanismus am Controller, um eine sekundäre Aktion auszulösen. Der Abschnitt [Hauptquetschaktion](#primäre_quetschaktion) beschreibt dies ausführlicher.
+- Targeting
+  - : Überwachung von Richtungssteuerungen (beispielsweise ein bewegungserfassender Zeiger oder ein Joystick bzw. Trackpad), um in eine Richtung und möglicherweise auf ein Ziel zu zielen, wobei Sie das Targeting selbst implementieren müssen. Weitere Informationen finden Sie unter [Ausrichtung und Targeting](#ausrichtung_und_targeting).
+- Auswählen
+  - : Verwendung der Haupttaste „select“ oder einer anderen Eingabe am Controller, um die anvisierte Richtung (oder das Objekt, auf das er zeigt) auszuwählen oder auf andere Weise eine Aktion auszulösen. Einzelheiten zur primären Aktion finden Sie unter [Primäre Aktion](#primäre_aktion).
+- Squeezing
+  - : Zusammendrücken des Controllers oder eines Mechanismus am Controller, um eine sekundäre Aktion auszulösen. Der Abschnitt [Primäre Squeeze-Aktion](#primäre_squeeze-aktion) beschreibt dies ausführlicher.
 
-Alle zusätzlichen Fähigkeiten, die ein WebXR-Controller möglicherweise hat, werden über das `gamepad`-Objekt der Eingabequelle zugegriffen. Dieses Objekt bietet Zugriff auf alle Knöpfe, Achsen, Trackpads und dergleichen, die Teil des Controllers sein können. Siehe [Erweiterte Controller mit dem Gamepad-Objekt verwenden](#erweiterte_controller_mit_dem_gamepad-objekt_verwenden), um zu erfahren, wie Sie diese Controller verwenden können.
+Auf zusätzliche Fähigkeiten eines WebXR-Controllers greifen Sie über das [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Objekt der Eingabequelle zu. Dieses Objekt bietet Zugriff auf alle Tasten, Achsen, Trackpads usw., die Teil des Controllers sein können. Unter [Erweiterte Controller mit dem gamepad-Objekt](#erweiterte_controller_mit_dem_gamepad-objekt) erfahren Sie, wie Sie diese Controller verwenden.
 
-### Instanz-Eigenschaften von Eingabequellen
+### Instanzeigenschaften von Eingabequellen
 
-Jede einzelne `XRInputSource` hat eine Reihe von Eigenschaften, die die verfügbaren Achsen und Knöpfe der Eingabe, die Hand, in der der Benutzer sie hält, und wie die Eingabequelle verwendet wird, um die Zielsteuerung im 3D-Raum zu handhaben, beschreiben.
+Jede einzelne `XRInputSource` verfügt über eine Reihe von Eigenschaften, die die verfügbaren Achsen und Tasten der Eingabe beschreiben, in welcher Hand der Benutzer sie hält und wie die Eingabequelle zur Verarbeitung von Targeting im 3D-Raum verwendet wird.
 
-#### Handpräferenz
+#### Händigkeit
 
-**Handpräferenz**, angezeigt durch die `XRInputSource`-Eigenschaft [`handedness`](/de/docs/Web/API/XRInputSource/handedness), ist ein String, der anzeigt, in welcher Hand des Betrachters der Controller ist: `left` oder `right`. Es kann auch auf `none` gesetzt werden, wenn der Controller nicht handgehalten ist oder unbekannt ist, in welcher Hand sich der Controller befindet.
+**Händigkeit**, angegeben durch die `XRInputSource`-Eigenschaft [`handedness`](/de/docs/Web/API/XRInputSource/handedness), ist eine Zeichenfolge, die angibt, in welcher Hand des Betrachters sich der Controller befindet: `left` oder `right`. Sie kann auch auf `none` gesetzt sein, wenn der Controller nicht in der Hand gehalten wird oder unbekannt ist, in welcher Hand sich der Controller befindet.
 
-Handpräferenz kann für verschiedene Dinge verwendet werden, einschließlich der Auswahl eines geeigneten Meshs zur Repräsentation des Controllers in der Ansicht und um ihn in der richtigen Hand darzustellen, wenn Hände auf dem Display gezeichnet werden. Es kann auch nützlich sein, wenn Ihre App das Konzept der "Haupthand" und "Nebenhand" zur Bestimmung der Funktionalität eines Controllers verwendet; in einem Spiel könnte zum Beispiel der Controller der Haupthand die Waffe des Spielers sein, während der Controller der Nebenhand verwendet werden könnte, um die Positionierung eines Schildes zu steuern.
+Die Händigkeit kann für verschiedene Zwecke verwendet werden, unter anderem zur Auswahl eines geeigneten Mesh zur Darstellung des Controllers in der Ansicht und zur korrekten Darstellung in der richtigen Hand, wenn Hände auf dem Display gezeichnet werden. Sie kann auch nützlich sein, wenn Ihre Anwendung das Konzept einer „Haupthand“ und einer „Nebenhand“ verwendet, um die Funktionalität eines Controllers zu bestimmen; in einem Spiel kann der Controller der Haupthand beispielsweise die Waffe des Spielers sein, während der Controller der Nebenhand zur Steuerung der Position eines Schilds verwendet wird.
 
-#### Zielstrahlmodus
+#### Targeting-Strahlmodus
 
-Der Zielstrahlmodus ist ein String, der sich in der [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode)-Eigenschaft befindet. Er beschreibt die Technik, die zur Bestimmung des Zielstrahls verwendet wird und wie er dem Benutzer visuell präsentiert werden soll, falls er dargestellt wird.
+Der Targeting-Strahlmodus ist eine Zeichenfolge in der Eigenschaft [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode). Sie beschreibt die Technik, mit der der Targeting-Strahl bestimmt wird, und wie er dem Benutzer angezeigt werden soll, wenn er visuell dargestellt wird.
 
-Wenn der Zielstrahlmodus `gaze` ist, ist der Ursprung des Strahls beim Betrachter und zielt in die Richtung, in die der Benutzer blickt. Diese Gaze-Eingabemethode ist ziemlich einfach und benötigt keine speziellen Steuerungen, da sie auf der Blickrichtung basiert, die vom Headset oder einem anderen Gerät, das die Richtung des Gesichts des Betrachters bestimmt, gemeldet wird. Der Zielstrahl sollte von zwischen den Augen aus in eine Richtung senkrecht zum Gesicht des Betrachters ausgehen.
+Wenn der Targeting-Strahlmodus `gaze` ist, liegt der Ursprung des Strahls beim Betrachter und zeigt in die Richtung, in die der Benutzer blickt. Diese Blickeingabemethode ist recht einfach und benötigt keine speziellen Steuerelemente, da sie auf der vom Headset oder einem anderen Gerät gemeldeten Blickrichtung basiert, das bestimmt, in welche Richtung das Gesicht des Betrachters zeigt. Der Zielstrahl sollte sich von zwischen den Augen aus in einer Richtung senkrecht zum Gesicht des Betrachters nach außen erstrecken.
 
-Flexibler ist der Modus `tracked-pointer`, bei dem der Ursprung des Strahls bei einem handgehaltenen Controller oder System zur Handverfolgung ist und in die Richtung zeigt, in die der Controller zeigt. Der Strahl dehnt sich in einer Richtung aus, die von der verwendeten Plattform und dem Controller definiert wird, falls diese definiert ist; andernfalls erstreckt sich der Strahl in die gleiche Richtung, in die der Benutzer mit ihrem Zeigefinger zeigt, würde dieser ausgerstreckt sein.
+Flexibler ist der Modus `tracked-pointer`, bei dem der Ursprung des Strahls am Handcontroller oder am Ursprung eines Handverfolgungssystems liegt und sich in die Richtung erstreckt, in die der Controller zeigt. Der Strahl erstreckt sich in einer Richtung, die durch die verwendete Plattform und den verwendeten Controller definiert ist, sofern diese definiert ist; andernfalls erstreckt sich der Strahl in dieselbe Richtung, in die der Benutzer mit seinem Zeigefinger zeigen würde, wenn dieser ausgestreckt wäre.
 
-Der dritte und letzte Zielstrahlmodus findet sich am häufigsten auf mobilen Geräten wie Smartphones und Tablets. Der `screen`-Modus zeigt an, dass der Zielstrahl basierend auf der Interaktion des Benutzers mit dem WebXR-Kontext bestimmt wird, indem der Bildschirm auf irgendeine Weise genutzt wird – höchstwahrscheinlich durch das Tippen auf den Bildschirm oder das Ziehen des Zielstrahls mit den Fingern.
+Der dritte und letzte Zielstrahlmodus ist am häufigsten auf Mobilgeräten wie Smartphones und Tablets zu finden. Der Modus `screen` gibt an, dass der Zielstrahl anhand der Interaktion des Benutzers mit dem WebXR-Kontext über den Bildschirm bestimmt wird – höchstwahrscheinlich indem der Betrachter auf den Bildschirm tippt oder den Zielstrahl mit den Fingern verschiebt.
 
 #### Zielstrahlraum
 
-Der [`XRSpace`](/de/docs/Web/API/XRSpace), der die Position und Orientierung des Zielstrahls beschreibt, wird in der [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace)-Eigenschaft gefunden. Der native Ursprung dieses Raums befindet sich an dem Punkt, von dem der Zielstrahl ausgeht (zum Beispiel an der vorderen Spitze des Controllers oder dem Ende eines Gewehrlaufs, falls der Controller als Gewehr dargestellt wird), und der Orientierungsvektor des Raums erstreckt sich entlang des Pfads des Zielstrahlstrahls.
+Der [`XRSpace`](/de/docs/Web/API/XRSpace), der zur Beschreibung der Position und Ausrichtung des Zielstrahls verwendet wird, befindet sich in der Eigenschaft [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace). Der natürliche Ursprung dieses Raums liegt an dem Punkt, von dem der Zielstrahl ausgeht (etwa an der vorderen Spitze des Controllers oder am Ende eines Gewehrlaufs, wenn der Controller beispielsweise als Gewehr gerendert wird), und der Orientierungsvektor des Raums erstreckt sich entlang des Verlaufs des Zielstrahls nach außen.
 
-Sie können den dem `targetRaySpace` entsprechenden Zielstrahl einfach innerhalb des Zeichenhandlers für einen bestimmten Frame mit der [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode von [`XRFrame`](/de/docs/Web/API/XRFrame) abrufen. Die zurückgegebene [`XRPose`](/de/docs/Web/API/XRPose)'s [`transform`](/de/docs/Web/API/XRPose/transform) ist die Transformation, die dem Zielstrahl entspricht. Somit können sie für einen Eingabecontroller `primaryInput`:
+Sie können den `targetRaySpace` entsprechenden Zielstrahl innerhalb des Zeichen-Handlers für einen bestimmten Frame einfach mithilfe der Methode [`getPose()`](/de/docs/Web/API/XRFrame/getPose) von [`XRFrame`](/de/docs/Web/API/XRFrame) abrufen. Der [`transform`](/de/docs/Web/API/XRPose/transform) der zurückgegebenen [`XRPose`](/de/docs/Web/API/XRPose) ist die dem Zielstrahl entsprechende Transformation. Für einen Eingabecontroller `primaryInput` gilt daher:
 
 ```js
 let targetRayPose = frame.getPose(primaryInput.targetRaySpace, viewerRefSpace);
@@ -78,66 +78,66 @@ let targetRayOrigin = targetRayPose.transform.position;
 let targetRayVector = targetRayPose.transform.orientation;
 ```
 
-Damit haben Sie nun den Punkt, von dem der Zielstrahl ausgeht (`targetRayOrigin`), und die Richtung, in die er zeigt (`targetRayVector`), angegeben im Referenzraum des Betrachters (`viewerRefSpace`). Das ist alles, was Sie brauchen, um den Zielstrahl zeichnen zu können, zu bestimmen, was anvisiert wird, Trefferprüfungen durchzuführen und so weiter.
+Damit verfügen Sie nun über den Punkt, von dem der Targeting-Strahl ausgeht (`targetRayOrigin`), und die Richtung, in die er zeigt (`targetRayVector`), angegeben im Referenzraum des Betrachters (`viewerRefSpace`). Das ist alles, was Sie benötigen, um den Targeting-Strahl zeichnen, bestimmen zu können, worauf gezeigt wird, Hit-Tests durchführen zu können usw.
 
-#### Halteraum
+#### Griffraum
 
-Die [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace)-Eigenschaft der Eingabequelle ist ein `XRSpace`, den Sie verwenden können, um Objekte so anzuzeigen, dass sie in der Hand des Betrachters gehalten erscheinen.
+Die [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace)-Eigenschaft der Eingabequelle ist ein `XRSpace`, den Sie zum Rendern von Objekten verwenden können, damit diese so erscheinen, als würden sie in der Hand des Betrachters gehalten.
 
-**Abbildung: Das Koordinatensystem für den Halteraum der linken Hand.**
-![Ein Diagramm, das zeigt, wie der Halteraum das lokale Koordinatensystem der Hand des Spielers relativ zur Welt anzeigt.](dark_left.svg)
-**Abbildung: Das Koordinatensystem für den Halteraum der rechten Hand.**
-![Ein Diagramm, das zeigt, wie der Halteraum das lokale Koordinatensystem der Hand des Spielers relativ zur Welt anzeigt.](dark_right.svg)
+**Abbildung: Das Koordinatensystem für den Griffraum der linken Hand.**
+![Ein Diagramm, das zeigt, wie der Griffraum das lokale Koordinatensystem für die Hand des Spielers relativ zur Welt angibt.](dark_left.svg)
+**Abbildung: Das Koordinatensystem für den Griffraum der rechten Hand.**
+![Ein Diagramm, das zeigt, wie der Griffraum das lokale Koordinatensystem für die Hand des Spielers relativ zur Welt angibt.](dark_right.svg)
 
-Der native Ursprung des Halteraums, der sich um die Mitte der Faust des Spielers befindet, ist (0, 0, 0) im lokalen Koordinatensystem der Eingabequelle, während der [`XRSpace`](/de/docs/Web/API/XRSpace), der durch `gripSpace` angegeben wird, jederzeit verwendet werden kann, um Koordinaten oder Vektoren vom Raum der Eingabequelle in Weltkoordinaten (oder umgekehrt) zu konvertieren.
+Der natürliche Ursprung des Griffraums, der sich ungefähr in der Mitte der Faust des Spielers befindet, ist im lokalen Koordinatensystem der Eingabequelle (0, 0, 0), während der durch `gripSpace` angegebene [`XRSpace`](/de/docs/Web/API/XRSpace) jederzeit verwendet werden kann, um Koordinaten oder Vektoren aus dem Raum der Eingabequelle in Weltkoordinaten umzuwandeln (oder umgekehrt).
 
-Das bedeutet, wenn Sie ein 3D-Modell verwenden, um Ihren Controller oder die Hände des Avatars des Spielers oder etwas anderes Repräsentatives für die Position des Controllers im Raum darzustellen, kann der `gripSpace` als Transformationsmatrix verwendet werden, die das Objektmodell richtig positioniert und ausrichtet für das Rendering. Dazu ist es notwendig, die Transformation zu verwenden, um den Halteraum in das Koordinatensystem der Welt zu konvertieren, das von WebGL für Renderzwecke verwendet wird.
+Das bedeutet, dass der `gripSpace` als Transformationsmatrix verwendet werden kann, die das Modell eines Objekts für das Rendering korrekt positioniert und ausrichtet, wenn Sie ein 3D-Modell verwenden, um Ihren Controller, die Hände des Avatars Ihres Spielers oder etwas anderes darzustellen, das für die Position des Controllers im Raum repräsentativ ist. Dazu muss die Transformation verwendet werden, um den Griffraum in das von WebGL für Rendering-Zwecke verwendete Weltkoordinatensystem umzuwandeln.
 
-**Abbildung: Abbilden des Halteraums auf das Weltkoordinatensystem. Die Abstände _x_, _y_ und _z_ bilden gemeinsam die Weltkoordinaten (_x_, _y_, z), die dem Ursprung des Halteraums _G_ entsprechen.**
-![Ein Diagramm, das die Beziehung zwischen dem Halteraum und dem Weltraum zeigt](gripspace-on-worldspace.svg)
+**Abbildung: Abbildung des Griffraums auf das Weltkoordinatensystem. Die Entfernungen _x_, _y_ und _z_ bilden zusammen die Weltkoordinaten (_x_, _y_, z), die dem Ursprung des Griffraums _G_ entsprechen.**
+![Ein Diagramm, das die Beziehung zwischen Griffraum und Weltraum zeigt](gripspace-on-worldspace.svg)
 
-Im oben gezeigten Diagramm sehen wir den Halteraum, dessen Ursprung bei _G_ liegt, an der Mitte des Griffs des Benutzers auf dem Controller, der direkt vom Benutzer weg zeigt, parallel zur _z_-Achse. Relativ zum Ursprung des Weltraums, _W_, befindet sich der Ursprung des Halteraums _x_ Einheiten nach rechts, _y_ Einheiten darüber und _z_ Einheiten weiter weg. Angesichts der Ausrichtung der Achsen können die Koordinaten des Halteraums in Weltkoordinaten als (_x_, _y_, -_z_) ausgedrückt werden; _z_ ist negativ, da der Halteraum weiter entlang der _z_-Achse liegt und somit in die negative Richtung weist.
+Im obigen Diagramm sehen wir den Griffraum, dessen Ursprung bei _G_ liegt, am Mittelpunkt des Griffs des Benutzers um den Controller, der direkt vom Benutzer weg parallel zur _z_-Achse zeigt. Relativ zum Ursprung des Weltraums _W_ befindet sich der Ursprung des Griffraums _x_ Einheiten rechts, _y_ Einheiten oberhalb und _z_ Einheiten weiter entfernt. Aufgrund der Richtungen der Achsen können die Koordinaten des Griffraums in Weltkoordinaten als (_x_, _y_, -_z_) ausgedrückt werden; _z_ ist negativ, da der Griffraum entlang der _z_-Achse weiter entfernt und daher in negativer Richtung liegt.
 
-Wäre der Controller stattdessen links vom Betrachter und näher an seiner Mitte als der Ursprung des Weltraums positioniert (oder möglicherweise hinter dem Benutzer, wenn sich der Benutzer am Ursprung befindet, auch wenn dies eine unangenehme Art ist, einen Controller zu halten), hätten die Koordinaten einen negativen Wert für _x_, aber einen positiven Wert für _z_. Der Wert von _y_ wäre immer noch positiv, es sei denn, der Controller wird unter den Ursprung des Weltraums bewegt.
+Wenn der Controller stattdessen links vom Benutzer und näher bei ihm als der Ursprung des Weltraums positioniert wäre (oder möglicherweise hinter dem Benutzer, wenn dieser sich am Ursprung befindet, obwohl dies eine unbequeme Haltung für einen Controller ist), hätten die Koordinaten einen negativen Wert für _x_, aber einen positiven Wert für _z_. Der Wert von _y_ wäre weiterhin positiv, es sei denn, der Controller würde unter den Ursprung des Weltraums bewegt.
 
-Dies wird im folgenden Diagramm gezeigt, in dem sich der Controller unterhalb und links des Ursprungs des Weltraums befindet, wobei der Controller auch näher bei uns ist als der Ursprung. Infolgedessen sind die Werte von _x_ und _y_ beide negativ, während _z_ positiv ist.
+Dies wird im folgenden Diagramm gezeigt, in dem sich der Controller unterhalb und links vom Ursprung des Weltraums befindet und außerdem näher bei uns als der Ursprung liegt. Daher sind die Werte von _x_ und _y_ beide negativ, während _z_ positiv ist.
 
-**Abbildung: Abbilden eines Halteraums auf den Weltursprung, wenn der Controller unterhalb und links vom Weltursprung positioniert ist und näher bei uns liegt als der Weltursprung.**
-![Die Beziehung zwischen einem weiteren Halteraum und dem Weltraum](gripspace-on-worldspace-diag.svg)
+**Abbildung: Abbildung eines Griffraums auf den Weltursprung, wenn der Controller unterhalb und links vom Weltursprung und näher bei uns als der Weltursprung positioniert ist.**
+![Die Beziehung zwischen einem weiteren Griffraum und dem Weltraum](gripspace-on-worldspace-diag.svg)
 
-#### Gamepad-Aufzeichnung
+#### Gamepad-Datensatz
 
-Jede Eingabequelle verfügt über eine [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft, die, falls nicht `NULL`, ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt ist, das die verschiedenen Steuerungen und Widgets beschreibt, die auf dem Controller verfügbar sind. Wenn das Eingabegerät nur die primären Bewegungssensoren, eine Quetschsteuerung und einen Button hat, hat es möglicherweise keine `Gamepad`-Aufzeichnung. Wenn jedoch das `gamepad` vorhanden ist, können Sie es verwenden, um die Knöpfe und Achsen auf dem Controller zu identifizieren und abzufragen.
+Jede Eingabequelle verfügt über eine [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft, die, falls nicht `NULL`, ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt ist, das die verschiedenen auf dem Controller verfügbaren Steuerelemente und Bedienelemente beschreibt. Wenn das Eingabegerät nur die primären Bewegungssensoren, ein Squeeze-Steuerelement und eine Taste besitzt, verfügt es möglicherweise nicht über einen `Gamepad`-Datensatz. Wenn jedoch `gamepad` vorhanden ist, können Sie damit die auf dem Controller verfügbaren Tasten und Achsen identifizieren und abfragen.
 
-Während der `Gamepad`-Datensatz durch die [Gamepad API](/de/docs/Web/API/Gamepad_API) Spezifikation definiert wird, wird er nicht tatsächlich von der Gamepad API verwaltet und funktioniert nicht genau gleich. Siehe [Erweiterte Controller mit dem Gamepad-Objekt verwenden](#erweiterte_controller_mit_dem_gamepad-objekt_verwenden) für weitere detaillierte Informationen.
+Während der `Gamepad`-Datensatz durch die Spezifikation der [Gamepad API](/de/docs/Web/API/Gamepad_API) definiert wird, wird er nicht tatsächlich durch die Gamepad API verwaltet und funktioniert nicht genau auf dieselbe Weise. Ausführlichere Informationen finden Sie unter [Erweiterte Controller mit dem gamepad-Objekt](#erweiterte_controller_mit_dem_gamepad-objekt).
 
-#### Profil-Strings
+#### Profilzeichenfolgen
 
-Jede Eingabequelle kann null oder mehr **Eingabeprofilnamen**-Strings haben, die sich in dem Array [`profiles`](/de/docs/Web/API/XRInputSource/profiles) befinden, von denen jeder eine bevorzugte visuelle Repräsentation der Eingabequelle innerhalb der 3D-Welt sowie ihre Funktionsweise beschreibt. Die Verwendung dieser Profile wird kurz unter [Eingabeprofile](#eingabeprofile) beschrieben.
+Jede Eingabequelle kann null oder mehr Zeichenfolgen für **Eingabeprofilnamen** aufweisen, die im Array [`profiles`](/de/docs/Web/API/XRInputSource/profiles) zu finden sind. Jede davon beschreibt eine bevorzugte visuelle Darstellung der Eingabequelle innerhalb der 3D-Welt sowie die Funktionsweise der Eingabequelle. Die Verwendung dieser Profile wird weiter unten unter [Eingabeprofile](#eingabeprofile) kurz beschrieben.
 
 ### Transiente Eingabequellen
 
-Einige Geräte können **transiente Eingabequellen** erstellen, um in Verbindung mit einer Aktion verwendet zu werden, die nicht wirklich von diesem Gerät ausgeht, aber so präsentiert wird, als ob sie es wäre. Wenn ein XR-Gerät zum Beispiel einen Modus bietet, in dem die Maus verwendet wird, um Ereignisse auf dem Gerät zu simulieren, könnte ein neues [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekt erstellt werden, um die simulierte Eingabequelle für die Dauer der Handhabung der Aktion zu repräsentieren.
+Einige Geräte können **transiente Eingabequellen** erstellen, die zusammen mit einer Aktion verwendet werden, die nicht wirklich von diesem Gerät stammt, aber so dargestellt wird, als ob sie es täte. Wenn ein XR-Gerät beispielsweise einen Modus bereitstellt, in dem die Maus zur Simulation von Ereignissen auf dem Gerät verwendet wird, kann für die Dauer der Verarbeitung der Aktion ein neues [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt erstellt werden, um die simulierte Eingabequelle darzustellen.
 
-Dies ist notwendig aufgrund der Trennung, die zwischen Standard-Eingabegeräten und XR-Eingabequellen aufrechterhalten wird. Eine künstliche Quelle wird verwendet, um die externe Quelle für die Dauer jeder [transienten Aktion](#transiente_aktionen) zu repräsentieren.
+Dies ist aufgrund der Trennung erforderlich, die zwischen Standard-Eingabegeräten und XR-Eingabequellen beibehalten wird. Eine künstliche Quelle wird verwendet, um die externe Quelle für die Dauer jeder [transienten Aktion](#transiente_aktionen) darzustellen.
 
 ## Verwalten von Eingabequellen
 
-Wenn mehrere Eingabequellen verfügbar sind, müssen Sie in der Lage sein, Informationen über jede einzelne zu erhalten, einschließlich ihrer Position und Orientierung, ihres Zielstrahls (falls zutreffend) und Details, die Ihnen helfen können, zu entscheiden, wie die Eingabequelle visuell präsentiert werden soll, falls überhaupt. Sie müssen auch in der Lage sein, zu bestimmen, welche Eingabequelle für welche Aktivitäten verwendet werden soll; zum Beispiel, wenn der Benutzer zwei Controller hat, welchen er für die Manipulation von UI-Elementen verfolgt, oder ob beide verwendet werden sollen.
+Wenn mehrere Eingabequellen verfügbar sind, müssen Sie Informationen zu jeder einzelnen erhalten können, einschließlich ihrer Position und Ausrichtung, ihres Targeting-Strahls (falls für Ihre Anforderungen relevant) und Details, die Ihnen bei der Entscheidung helfen können, wie die Eingabequelle visuell dargestellt werden soll, falls überhaupt. Sie müssen außerdem bestimmen können, welche Eingabequelle für welche Aktivitäten verwendet wird; wenn der Benutzer beispielsweise zwei Controller hat, welcher wird für die Bearbeitung von UI-Elementen verfolgt, oder werden beide verwendet?
 
-Um Eingabequellen zu verwalten, müssen Sie in der Lage sein, Eingabequellen zu enumerieren, Profilinformationen über jede Eingabequelle zu untersuchen und zu entscheiden, wie jeder Eingabesteuerer verwendet werden soll.
+Zur Verwaltung von Eingabequellen müssen Sie daher Eingabequellen aufzählen, Profilinformationen zu jeder Eingabequelle untersuchen und entscheiden können, wie jeder Eingabecontroller verwendet werden soll.
 
-### Enumerieren von Eingabequellen
+### Eingabequellen aufzählen
 
-Die durch das [`XRSession`](/de/docs/Web/API/XRSession) Objekt dargestellte WebXR-Sitzung verfügt über eine [`inputSources`](/de/docs/Web/API/XRSession/inputSources) Eigenschaft, die eine _live_ Liste der derzeit mit dem XR-System verbundenen WebXR-Eingabegeräte ist.
+Die durch das [`XRSession`](/de/docs/Web/API/XRSession)-Objekt dargestellte WebXR-Sitzung besitzt eine [`inputSources`](/de/docs/Web/API/XRSession/inputSources)-Eigenschaft, bei der es sich um eine _Live_-Liste der derzeit mit dem XR-System verbundenen WebXR-Eingabegeräte handelt.
 
 ```js
 let inputSourceList = xrSession.inputSources;
 ```
 
-Aufgrund der Tatsache, dass der Inhalt der [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekte, die jede Eingabequelle in der Liste repräsentieren, schreibgeschützt ist, nimmt das WebXR-System Änderungen an diesen Eingaben vor, indem es den Datensatz der Quelle löscht und einen neuen hinzufügt, um ihn zu ersetzen. Ein [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event) Ereignis wird an Ihre `XRSession` gesendet, wann immer sich eine oder mehrere der Eingabequellen ändern oder wenn eine Eingabequelle zur Liste hinzugefügt oder daraus entfernt wird.
+Da die Inhalte der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte, welche jede Eingabequelle in der Liste darstellen, schreibgeschützt sind, werden Änderungen an diesen Eingaben vom WebXR-System vorgenommen, indem der Datensatz der Quelle gelöscht und ein neuer hinzugefügt wird, der ihn ersetzt. Ein [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)-Ereignis wird an Ihre `XRSession` gesendet, wenn sich eine oder mehrere Eingabequellen ändern oder wenn eine Eingabequelle zur Liste hinzugefügt oder daraus entfernt wird.
 
-Zum Beispiel, wenn Sie verfolgen müssen, welcher Controller in welcher Hand des Spielers gehalten wird, könnten Sie so etwas tun:
+Wenn Sie beispielsweise nachverfolgen müssen, welcher Controller in jeder Hand des Spielers gehalten wird, könnten Sie Folgendes tun:
 
 ```js
 let inputSourceList = NULL;
@@ -160,35 +160,35 @@ xrSession.addEventListener("inputsourceschange", (event) => {
 });
 ```
 
-Das `inputsourceschange` Ereignis wird auch einmal ausgelöst, wenn der Erstellungs-Callback der Sitzung seine Ausführung zum ersten Mal abgeschlossen hat, sodass Sie es verwenden können, um die Liste der Eingabequellen so bald wie möglich beim Start der Sitzung abzurufen. Das Ereignis wird als ein [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent) übertragen, das drei interessante Eigenschaften enthält:
+Das `inputsourceschange`-Ereignis wird außerdem einmal ausgelöst, wenn der Callback zur Erstellung der Sitzung erstmals vollständig ausgeführt wurde. Sie können es daher verwenden, um die Liste der Eingabequellen abzurufen, sobald sie beim Start verfügbar ist. Das Ereignis wird als [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent) übermittelt, das drei interessante Eigenschaften enthält:
 
 - [`session`](/de/docs/Web/API/XRInputSourcesChangeEvent/session)
   - : Die `XRSession`, für die sich die Eingabequellen geändert haben.
 - [`added`](/de/docs/Web/API/XRInputSourcesChangeEvent/added)
-  - : Ein Array aus null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekten, die die Eingabequellen angeben, die neu zum XR-System hinzugefügt wurden.
+  - : Ein Array mit null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die die Eingabequellen angeben, die neu zum XR-System hinzugefügt wurden.
 - [`removed`](/de/docs/Web/API/XRInputSourcesChangeEvent/removed)
-  - : Ein Array aus null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekten, die alle Eingabequellen angeben, die aus dem XR-System entfernt wurden.
+  - : Ein Array mit null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekten, die alle Eingabequellen angeben, die aus dem XR-System entfernt wurden.
 
 ### Identifizieren des Eingabeprofils
 
-Jede Eingabequelle hat eine [`profiles`](/de/docs/Web/API/XRInputSource/profiles) Eigenschaft, die eine Live-Liste der WebXR-Eingabeprofile enthält, die auf die Eingabequelle zutreffen, geordnet von spezifischstem bis am wenigsten spezifisch.
+Jede Eingabequelle hat eine [`profiles`](/de/docs/Web/API/XRInputSource/profiles)-Eigenschaft, die eine Live-Liste der auf die Eingabequelle zutreffenden WebXR-Eingabeprofile in der Reihenfolge ihrer Spezifität enthält, vom spezifischsten zum unspezifischsten.
 
-Um irgendetwas Bedeutendes in Bezug auf die Überprüfung von Profilen über die grundlegende Identifizierung von Funktionen hinaus zu tun, müssen Sie möglicherweise die JSON-Profil-Datenbank aus dem [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) importieren.
+Um über die grundlegende Identifizierung von Merkmalen hinaus etwas Sinnvolles mit dem Durchsuchen von Profilen zu tun, müssen Sie möglicherweise die JSON-Profildatenbank aus der [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) importieren.
 
-Siehe [Eingabeprofile](#eingabeprofile) für spezifischere Details zur Arbeit mit Eingabeprofilen.
+Ausführlichere Informationen zur Arbeit mit Eingabeprofilen finden Sie unter [Eingabeprofile](#eingabeprofile).
 
 ### Auswahl des primären Controllers
 
-Um Probleme zu vermeiden, die durch mehrere Controller entstehen, die versehentlich die Benutzeroberfläche gleichzeitig manipulieren können, muss Ihre App möglicherweise einen "primären" Controller haben. Dieser Controller würde dann die Verantwortung für das Durchklicken der Benutzeroberfläche Ihrer App übernehmen und auch als "Haupthand" betrachtet werden, während andere Controller dann Nebenhand- oder zusätzliche Controller wären.
+Um Probleme zu vermeiden, die dadurch entstehen, dass mehrere Controller gleichzeitig unbeabsichtigt versuchen, die UI zu bearbeiten, benötigt Ihre Anwendung möglicherweise einen „primären“ Controller. Dieser Controller würde dann nicht nur die Verantwortung für das Durchklicken der Benutzeroberfläche Ihrer Anwendung übernehmen, sondern auch als „Haupthand“ betrachtet werden, während andere Controller Nebenhand- oder zusätzliche Controller wären.
 
 > [!NOTE]
-> Das bedeutet nicht, dass Ihre App entscheiden _muss_, welcher Controller primär ist. Aber wenn sie es tut, können diese Strategien helfen.
+> Das bedeutet nicht, dass Ihre Anwendung _einen_ primären Controller bestimmen _muss_. Falls sie dies jedoch tut, können diese Strategien hilfreich sein.
 
-Es gibt mehrere Möglichkeiten, einen primären Controller auszuwählen. Wir werden uns drei davon ansehen.
+Es gibt mehrere Möglichkeiten, einen primären Controller zu bestimmen. Wir betrachten drei davon.
 
-#### Handpräferenz
+#### Händigkeit
 
-Der direkteste Weg, um zu entscheiden, welcher Controller primär ist, besteht darin, eine benutzerdefinierbare "Handpräferenz"-Einstellung zu haben, die der Benutzer setzt, um anzugeben, welche seiner Hände dominant ist. Sie würden dann jede Eingabequelle untersuchen und eine suchen, die diesem entspricht, falls verfügbar, und auf einen anderen Controller zurückgreifen, falls kein Controller in dieser Hand ist.
+Die direkteste Methode zur Entscheidung, welcher Controller primär ist, besteht darin, eine benutzerdefinierbare Einstellung „Händigkeit“ anzubieten, die der Benutzer festlegt, um anzugeben, welche seiner Hände dominant ist. Sie würden dann jede Eingabequelle prüfen und, sofern verfügbar, eine dazu passende finden und andernfalls auf einen anderen Controller zurückgreifen, falls kein Controller in dieser Hand gehalten wird.
 
 ```js
 const primaryInputSource =
@@ -196,11 +196,11 @@ const primaryInputSource =
   xrSession.inputSources[0];
 ```
 
-Dieses Code-Snippet geht davon aus, dass die erste Eingabequelle der primäre ist, sucht dann jedoch nach einem, dessen [`handedness`](/de/docs/Web/API/XRInputSource/handedness) dem im `user` Objekt angegebenen entspricht. Wenn es übereinstimmt, wird diese Eingabequelle als primär ausgewählt.
+Dieser Codeausschnitt geht zunächst davon aus, dass die erste Eingabequelle die primäre ist, sucht dann jedoch nach einer Quelle, deren [`handedness`](/de/docs/Web/API/XRInputSource/handedness) mit der im `user`-Objekt angegebenen übereinstimmt. Wenn sie übereinstimmt, wird diese Eingabequelle als primär ausgewählt.
 
-#### First-used
+#### Zuerst verwendet
 
-Eine andere Möglichkeit ist es, die erste Eingabe zu verwenden, bei der der Benutzer die Auswahlaktion auslöst. Der unten stehende Code geht davon aus, dass die erste Eingabequelle die primäre ist, und installiert dann einen Handler für das [`select`](/de/docs/Web/API/XRSession/select_event) Ereignis, der die Quelle des Ereignisses als primäre Eingabequelle aufzeichnet. Dann wird der `select` Ereignishandler durch die Funktion `realSelectHandler()` ersetzt, die für den Umgang mit allen zukünftigen `select` Ereignissen verwendet wird. Schließlich wird das Ereignis an `realSelectHandler()` weitergegeben, um das Ereignis wie üblich zu verarbeiten.
+Eine weitere Option besteht darin, die erste Eingabe zu verwenden, bei der der Benutzer die Auswahlaktion auslöst. Der folgende Code geht zunächst davon aus, dass die erste Eingabequelle die primäre ist, und richtet dann einen Handler für das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis ein, der die Quelle des Ereignisses als primäre Eingabequelle speichert. Anschließend wird der `select`-Ereignishandler durch die Funktion `realSelectHandler()` ersetzt, die zur Verarbeitung aller zukünftigen `select`-Ereignisse verwendet wird. Dann übergeben wir das Ereignis an `realSelectHandler()`, damit es wie gewohnt verarbeitet werden kann.
 
 ```js
 let primaryInputSource = xrSession.inputSources[0];
@@ -212,19 +212,19 @@ xrSession.onselect = (event) => {
 };
 ```
 
-Der Effekt ist, dass wir die primäre Eingabequelle das erste Mal einstellen, wenn ein `select` Ereignis empfangen wird, unabhängig davon, von welcher Eingabequelle es kommt, das Ereignis dann normal behandeln und von da an die Ereignisse wie gewohnt behandeln, ohne weitere Sorgen darüber, welche Eingabequelle primär ist.
+Das Ergebnis ist, dass wir die primäre Eingabequelle beim ersten Empfang eines `select`-Ereignisses festlegen, unabhängig davon, von welcher Eingabequelle es stammt, das Ereignis anschließend normal verarbeiten und von da an die Ereignisse wie üblich behandeln, ohne uns weiter darum kümmern zu müssen, welche Eingabequelle primär ist.
 
-#### Benutzerdefiniert
+#### Vom Benutzer ausgewählt
 
-Die komplexeste Möglichkeit, eine primäre Eingabequelle zu bestimmen, bietet große Flexibilität, kann jedoch viel Arbeit erfordern, um implementiert zu werden. In diesem Szenario durchlaufen Sie die Liste der Eingabequellen und ihrer Profile, um Informationen über jede Eingabequelle zu sammeln, und präsentieren dann eine Benutzeroberfläche, die jede Eingabe beschreibt und dem Benutzer die Zuweisung von Funktionen zu jeder von ihnen ermöglicht. Das gut zu machen, könnte eine große Aufgabe sein, aber es könnte für komplexe Apps nützlich sein, die möglicherweise mehrere Benutzereingaben benötigen.
+Die komplexeste Methode zur Bestimmung einer primären Eingabequelle ist sehr flexibel, kann aber einen erheblichen Implementierungsaufwand erfordern. In diesem Szenario iterieren Sie über die Liste der Eingabequellen und deren Profile, um Informationen zu jeder Eingabequelle zu sammeln, und präsentieren dann eine Benutzeroberfläche, welche jede Eingabe beschreibt und dem Benutzer ermöglicht, jeder von ihnen Verwendungszwecke zuzuweisen. Dies gut umzusetzen kann eine umfangreiche Aufgabe sein, könnte jedoch für komplexe Anwendungen nützlich sein, die mehrere Benutzereingaben umfassen.
 
-Viel der Informationen, die Sie zur Implementierung dieser Funktionalität benötigen, finden Sie im Abschnitt über [Eingabeprofile](#eingabeprofile). Details liegen jedoch außerhalb des Umfangs dieses Artikels.
+Viele der Informationen, die Sie zur Implementierung benötigen, finden Sie im folgenden Abschnitt über [Eingabeprofile](#eingabeprofile). Einzelheiten liegen jedoch außerhalb des Umfangs dieses Artikels.
 
 ## Eingabeprofile
 
-Wie oben erwähnt, hat jede Eingabequelle eine Liste von Eingabeprofilnamen, die einem Satz von Informationen entsprechen, die diese Eingabequelle und wie sie verwendet werden kann beschreiben. Diese Namen finden sich in der [`profiles`](/de/docs/Web/API/XRInputSource/profiles) Eigenschaft der Eingabequelle, und das offizielle Register dieser Profil-Strings wird im [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles) auf GitHub gepflegt.
+Wie oben erwähnt, verfügt jede Eingabequelle über eine Liste von Eingabeprofilnamen, die einem Satz von Informationen entsprechen, welche diese Eingabequelle und ihre Verwendung beschreiben. Diese Namen befinden sich in der [`profiles`](/de/docs/Web/API/XRInputSource/profiles)-Eigenschaft der Eingabequelle, und das offizielle Register dieser Profilzeichenfolgen wird in der [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles) auf GitHub verwaltet.
 
-Ein Beispiel ist der `generic-trigger-squeeze-touchpad` Profilname, der verwendet werden kann, um die folgenden JSON-Profil-Daten zu finden, wobei man das `profileId`-Feld mit dem Wert `generic-trigger-squeeze-touchpad` sucht.
+Der Profilname `generic-trigger-squeeze-touchpad` kann beispielsweise verwendet werden, um die folgenden JSON-Profildaten zu finden, indem das Feld `profileId` gesucht wird, das den Wert `generic-trigger-squeeze-touchpad` hat.
 
 ```json
 {
@@ -255,45 +255,45 @@ Ein Beispiel ist der `generic-trigger-squeeze-touchpad` Profilname, der verwende
 }
 ```
 
-Dies ist ein Controller, der unabhängig davon, in welcher Hand er sich befindet (und selbst wenn er derzeit nicht mit einer bestimmten Hand verknüpft ist), drei Komponenten beinhaltet: einen Standard-Trigger, eine Standard-Quetscheingabe und ein Touchpad. Laut der `selectComponentId`-Eigenschaft ist die `xr-standard-trigger` Komponente diejenige, die für die Durchführung einer Hauptaktion verwendet wird.
+Dabei handelt es sich um einen Controller, der unabhängig davon, in welcher Hand er sich befindet (und selbst wenn er derzeit keiner bestimmten Hand zugeordnet ist), drei Komponenten hat: einen Standardauslöser, eine Standard-Squeeze-Eingabe und ein Touchpad. Gemäß der Eigenschaft `selectComponentId` ist die Komponente `xr-standard-trigger` diejenige, die zur Ausführung einer primären Aktion verwendet wird.
 
-Darüber hinaus ordnet das `gamepad` Objekt diese Eingaben dem Gamepad zu und weist den Trigger, die Quetscheingabe und das Touchpad-Tippen der Button-Liste der Eingabequelle zu und die "Achsen" des Touchpads der Achsenliste.
+Zusätzlich ordnet das `gamepad`-Objekt diese Eingaben dem Gamepad zu, indem es Auslöser, Squeeze und Touchpad-Berührung der Tastenliste der Eingabequelle sowie die „Achsen“ des Touchpads der Achsenliste zuweist.
 
-Die Liste in `profiles` ist in umgekehrter Spezifität geordnet; das heißt, die präziseste Beschreibung steht an erster Stelle, und die am wenigsten präzise Beschreibung am Ende. Der erste Eintrag in der Liste ist typischerweise ein Hinweis auf das genaue Modell des Controllers oder ein mit ihm kompatibles Modell.
+Die Liste in `profiles` ist in umgekehrter Reihenfolge der Spezifität angeordnet; das heißt, die präziseste Beschreibung steht zuerst und die unpräziseste zuletzt. Der erste Eintrag in der Liste weist typischerweise auf das genaue Modell des Controllers oder auf ein Modell hin, mit dem der Controller kompatibel ist.
 
-Zum Beispiel ist der Eintrag 0 in `profiles` für einen Oculus Touch-Controller `oculus-touch`. Der nächste Eintrag ist `generic-trigger-squeeze-thumbstick`, was ein generisches Gerät mit einem Trigger, einer Quetschsteuerung und einem Thumbstick anzeigt. Während der Oculus Touch-Controller tatsächlich ein Daumenpad anstelle eines Thumbsticks besitzt, ist die Gesamtbeschreibung "ausreichend nah", sodass die Details im Profil, das dem Namen entspricht, den Controller sinnvoll interpretieren lassen können.
+Beispielsweise ist Eintrag 0 in `profiles` für einen Oculus-Touch-Controller `oculus-touch`. Der nächste Eintrag ist `generic-trigger-squeeze-thumbstick`, was ein generisches Gerät mit einem Auslöser, einem Squeeze-Steuerelement und einem Thumbstick angibt. Obwohl der Oculus-Touch-Controller tatsächlich ein Thumbpad statt eines Thumbsticks besitzt, ist die allgemeine Beschreibung „nah genug“, sodass die Details im Profil, das dem Namen entspricht, eine sinnvolle Interpretation des Controllers ermöglichen.
 
 ## Aktionen
 
-In WebXR ist eine **Aktion** ein spezieller Typ von Ereignis, das ausgelöst wird, wenn der Benutzer ein spezielles Bedienelement auf dem Controller aktiviert. Alle zusätzlichen Knöpfe (sowie Dinge wie Achsenkontroller—z. B. Joysticks—und dergleichen) werden ausschließlich über die [`XRInputSource`](/de/docs/Web/API/XRInputSource) Eigenschaft [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad) verwaltet. Siehe [Erweiterte Controller mit dem Gamepad-Objekt verwenden](#erweiterte_controller_mit_dem_gamepad-objekt_verwenden) unten für weitere Details zur Unterstützung dieser zusätzlichen Steuerungen und Tasten.
+In WebXR ist eine **Aktion** ein besonderer Ereignistyp, der ausgelöst wird, wenn der Benutzer eine spezielle Taste auf dem Controller aktiviert. Zusätzliche Tasten (sowie Elemente wie Achsensteuerungen – beispielsweise Joysticks – und Ähnliches) werden ausschließlich über die [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft von [`XRInputSource`](/de/docs/Web/API/XRInputSource) verwaltet. Weitere Informationen zur Unterstützung dieser zusätzlichen Steuerelemente und Tasten finden Sie unten unter [Erweiterte Controller mit dem gamepad-Objekt](#erweiterte_controller_mit_dem_gamepad-objekt).
 
-Die **Hauptaktion** ist die Aktion, die ausgelöst wird, wenn der Benutzer das Hauptbedienungselement aktiviert, das eine besondere Funktion hat. Derzeit gibt es zwei Arten von Hauptaktionen:
+Die **primäre Aktion** ist die Aktion, die ausgelöst wird, wenn der Benutzer das Hauptsteuerelement aktiviert, das einem besonderen Zweck dient. Derzeit gibt es zwei Arten primärer Aktionen:
 
-- Die **Hauptaktion** ist die Aktion, die aktiviert wird, wenn der Benutzer die primäre oder „Auswahl“-Eingabe auf seinem Controller aktiviert. Diese Eingabe kann ein Button, Trigger, ein Touchpad-Tippen oder -Klicken, ein Sprachbefehl oder eine spezielle Handbewegung oder eventuell eine andere Form von Eingabe sein. Zum Beispiel auf einem Handcontroller mit einem klickbaren Touchpad, einem Trigger-Steuerelement sowie Back- und "Menü"-Buttons, dürfte das Klicken auf das Touchpad die Hauptaktion sein. Einige Controller könnten eine Taste mit der Aufschrift "select" haben. Auf einem Gamepad-ähnlichen Controller dürfte die Taste "A" die Hauptaktion sein.
-- Die **Primäre Quetschaktion** ist die Aktion, die ausgelöst wird, wenn der Benutzer den Controller zusammendrückt. Dieses „Quetschen“ kann entweder buchstäblich durch einen Drucksensor im Controller erfasst werden oder kann durch einen Trigger, eine Handbewegung oder ein anderes Mechanismus simuliert werden. Wenn der Eingabesteuerer zum Beispiel ein haptischer Handschuh ist, könnte er melden, dass die primäre Quetschaktion aufgetreten ist, wenn der Benutzer seine Faust macht und anspannt.
+- Die **primäre Aktion** wird aktiviert, wenn der Benutzer die primäre Eingabe oder Eingabe „select“ seines Controllers aktiviert. Diese Eingabe kann eine Taste, ein Auslöser, ein Tippen oder Klicken auf ein Trackpad, ein Sprachbefehl, eine besondere Handgeste oder möglicherweise eine andere Eingabeform sein. Bei einem Handcontroller mit klickbarem Trackpad, einer Auslösersteuerung sowie Zurück- und „menu“-Tasten ist das Klicken auf das Trackpad wahrscheinlich die primäre Aktion. Einige Controller haben möglicherweise eine mit „select“ beschriftete Taste. Bei einem Controller im Gamepad-Stil ist die Taste „A“ wahrscheinlich die primäre Aktion.
+- Die **primäre Squeeze-Aktion** wird ausgelöst, wenn der Benutzer den Controller zusammendrückt. Dieses „Zusammendrücken“ kann durch einen tatsächlichen Drucksensor im Controller erkannt oder mittels eines Auslösers, einer Handgeste oder eines anderen Mechanismus simuliert werden. Wenn der Eingabecontroller beispielsweise ein haptischer Handschuh ist, kann er melden, dass die primäre Squeeze-Aktion stattgefunden hat, wenn der Benutzer seine Faust ballt und zusammenpresst.
 
-Eine gegebene Eingabequelle kann nur eine Hauptaktion und eine primäre Quetschaktion haben, aber es können mehr als eine Steuerung auf dem Eingabegerät konfiguriert sein, um jede Hauptaktion auszulösen. Zum Beispiel könnte der Benutzer seinen Controller so eingerichtet haben, dass sowohl das Tippen als auch das Klicken auf das Touchpad eine Hauptaktion generieren.
+Während eine bestimmte Eingabequelle nur eine primäre Aktion und eine primäre Squeeze-Aktion haben kann, kann mehr als ein Steuerelement auf dem Eingabegerät so konfiguriert sein, dass es jede primäre Aktion auslöst. Der Benutzer kann seinen Controller beispielsweise so eingerichtet haben, dass sowohl das Tippen als auch das Klicken auf das Trackpad eine primäre Aktion erzeugen.
 
-Diese Arten von Eingabeaktionen werden im Folgenden ausführlicher beschrieben.
+Diese Arten von Eingabeaktionen werden weiter unten ausführlicher beschrieben.
 
-### Hauptaktion
+### Primäre Aktion
 
-Jede Eingabequelle sollte eine **Hauptaktion** definieren. Eine Hauptaktion (die mitunter auf „Auswahlaktion“ verkürzt wird) ist eine plattformspezifische Aktion, die reagiert, wenn der Benutzer sie durch die Bereitstellung, in Reihenfolge, der Ereignisse [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`select`](/de/docs/Web/API/XRSession/select_event), und [`selectend`](/de/docs/Web/API/XRSession/selectend_event) manipuliert. Jedes dieser Ereignisse ist vom Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent).
+Jede Eingabequelle sollte eine **primäre Aktion** definieren. Eine primäre Aktion (die manchmal zu „Auswahlaktion“ verkürzt wird) ist eine plattformspezifische Aktion, die auf die Betätigung durch den Benutzer reagiert, indem sie der Reihe nach die Ereignisse [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`select`](/de/docs/Web/API/XRSession/select_event) und [`selectend`](/de/docs/Web/API/XRSession/selectend_event) auslöst. Jedes dieser Ereignisse hat den Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent).
 
 > [!NOTE]
-> Wenn eine Eingabequelle keine Hauptaktion hat, gilt die Eingabequelle als **Hilfseingabequelle**.
+> Wenn eine Eingabequelle keine primäre Aktion hat, wird sie als **zusätzliche Eingabequelle** betrachtet.
 
-Wenn der Benutzer ein Gerät entlang eines Zielstrahls in Ihrem 3D-Raum zeigt und dann eine Auswahlaktion auslöst, werden die folgenden Ereignisse an die aktive [`XRSession`](/de/docs/Web/API/XRSession) gesendet:
+Wenn der Benutzer ein Gerät entlang eines Zielstrahls in Ihrem 3D-Raum ausrichtet und anschließend eine Auswahlaktion auslöst, werden die folgenden Ereignisse an die aktive [`XRSession`](/de/docs/Web/API/XRSession) gesendet:
 
-1. Ein [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event) Ereignis, das anzeigt, dass der Benutzer die Aktivität durchgeführt hat, die die Hauptaktion beginnt. Dies kann eine Geste, ein Druck auf eine Taste oder Ähnliches sein.
-2. Wenn die Hauptaktion erfolgreich endet (zum Beispiel, weil der Benutzer den Knopf oder Trigger loslässt), anstelle wegen eines Fehlers, wird das [`select`](/de/docs/Web/API/XRSession/select_event) Ereignis gesendet.
-3. Nachdem das `select` Ereignis gesendet wurde _oder_ wenn der Controller, auf dem die Aktion ausgeführt wird, getrennt oder anderweitig nicht verfügbar wird, wird das [`selectend`](/de/docs/Web/API/XRSession/selectend_event) Ereignis gesendet.
+1. Ein [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignis, das angibt, dass der Benutzer die Aktivität ausgeführt hat, mit der die primäre Aktion beginnt. Dies kann eine Geste, das Drücken einer Taste oder Ähnliches sein.
+2. Wenn die primäre Aktion erfolgreich endet (beispielsweise weil der Benutzer die Taste oder den Auslöser loslässt) und nicht aufgrund eines Fehlers, wird das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis gesendet.
+3. Nachdem das `select`-Ereignis gesendet wurde _oder_ wenn der Controller, auf dem die Aktion ausgeführt wird, getrennt wird oder anderweitig nicht mehr verfügbar ist, wird das [`selectend`](/de/docs/Web/API/XRSession/selectend_event)-Ereignis gesendet.
 
-Generell gesprochen, teilen die `selectstart` und `selectend` Ereignisse Ihnen mit, wann Sie dem Benutzer etwas anzeigen sollten, das darauf hinweist, dass die Hauptaktion ausgeführt wird. Dies könnte das Zeichnen eines Controllers mit dem aktivierten Button in einer neuen Farbe sein oder das angezielte Objekt nehmen und bewegen, beginnend, wenn `selectstart` eintrifft, und endend, wenn `selectend` empfangen wird.
+Allgemein geben Ihnen die Ereignisse `selectstart` und `selectend` an, wann Sie dem Benutzer möglicherweise etwas anzeigen möchten, das darauf hinweist, dass die primäre Aktion stattfindet. Dies könnte darin bestehen, einen Controller mit der aktivierten Taste in einer neuen Farbe zu zeichnen oder das anvisierte Objekt beim Eintreffen von `selectstart` als gegriffen und bewegt darzustellen und dies beim Empfang von `selectend` zu beenden.
 
-Das `select` Ereignis hingegen ist das Ereignis, das Ihrem Code mitteilt, dass der Benutzer die Aktion abgeschlossen hat, die er vervollständigen möchte. Dies könnte so einfach sein wie das Werfen eines Objekts oder das Betätigen des Abzugs einer Waffe in einem Spiel oder so aufwendig wie das Ablegen eines Objekts, das der Benutzer in der Welt herumbewegte, an einem neuen Ort.
+Das `select`-Ereignis dagegen teilt Ihrem Code mit, dass der Benutzer die Aktion abgeschlossen hat, die er ausführen wollte. Dies kann so einfach sein wie das Werfen eines Objekts oder das Betätigen des Abzugs einer Waffe in einem Spiel oder so umfangreich wie das erneute Ablegen eines Objekts an einer neuen Position, das zuvor durch die Welt gezogen wurde.
 
-Wenn Ihre Hauptaktion eine einfache Triggeraktion ist und Sie nichts animieren müssen, während der Trigger aktiviert ist, können Sie die `selectstart` und `selectend` Ereignisse ignorieren und auf das `select` Ereignis reagieren.
+Wenn Ihre primäre Aktion eine einfache Auslöseraktion ist und Sie nichts animieren müssen, während der Auslöser betätigt wird, können Sie die Ereignisse `selectstart` und `selectend` ignorieren und auf das `select`-Ereignis reagieren.
 
 ```js
 xrSession.addEventListener("select", (event) => {
@@ -304,29 +304,29 @@ xrSession.addEventListener("select", (event) => {
 });
 ```
 
-Einige Aktionen können diese Ereignisse sehr schnell senden, eines nach dem anderen. Die Zeit, die zwischen diesen Ereignissen vergeht, hängt sowohl vom Hardware-Apparat ab, der die Aktion verursacht, als auch davon, wie die Softwaretreiber diese Hardware-Aktion interpretieren und in eine Reihe von Ereignissen umwandeln. Gehen Sie nicht davon aus, dass diese Ereignisse mit einem bestimmten Zeitabstand zwischen ihnen auftreten.
+Einige Aktionen können diese Ereignisse sehr schnell nacheinander senden. Die zwischen diesen Ereignissen vergehende Zeit hängt sowohl von der Hardware ab, die die Aktion verursacht, als auch von den Softwaretreibern, welche die Hardwareaktion interpretieren und in eine Ereignisreihe umwandeln. Gehen Sie nicht davon aus, dass zwischen diesen Ereignissen eine bestimmte Zeitspanne liegt.
 
-Zum Beispiel, wenn die Hardware, die die Hauptaktion auslöst, ein Knopf ist, würden Sie `selectstart` erhalten, wenn der Benutzer den Knopf drückt, dann `select` und `selectend`, wenn der Benutzer ihn loslässt.
+Wenn die Hardware, welche die primäre Aktion auslöst, beispielsweise eine Taste ist, würden Sie `selectstart` erhalten, wenn der Benutzer die Taste drückt, und anschließend `select` und `selectend`, wenn der Benutzer sie loslässt.
 
-Es gibt eine Reihe von Beispielen, die zeigen, wie `select` Ereignisse in der gesamten Dokumentation behandelt werden, wie im Abschnitt über [Zielsetzung und den Zielstrahl](#zielsetzung_und_der_zielstrahl) an anderer Stelle in diesem Artikel.
+In der gesamten Dokumentation gibt es eine Reihe von Beispielen zur Verarbeitung von `select`-Ereignissen, etwa im Abschnitt [Targeting und der Targeting-Strahl](#targeting_und_der_targeting-strahl) an anderer Stelle in diesem Artikel.
 
-### Primäre Quetschaktion
+### Primäre Squeeze-Aktion
 
-Eine **primäre Quetschaktion** ist eine plattformspezifische Aktion, die die [`XRSession`](/de/docs/Web/API/XRSession) [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event), [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event), und [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) Ereignisse sendet. Diese wird normalerweise erzeugt, wenn der Benutzer den Controller zusammendrückt, eine Handgeste macht, die das Greifen eines Objekts imitiert, oder einen (druckbasierten) Trigger verwendet.
+Eine **primäre Squeeze-Aktion** ist eine plattformspezifische Aktion, die die Ereignisse [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event), [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) und [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) an die [`XRSession`](/de/docs/Web/API/XRSession) sendet. Dies wird typischerweise erzeugt, wenn der Benutzer den Controller zusammendrückt, eine Handgeste ausführt, welche das Greifen von etwas nachahmt, oder einen Auslöser verwendet bzw. zusammendrückt.
 
-Die Ereignisse sind identisch mit denjenigen, die von der Hauptaktion gesendet werden, abgesehen von den Namen der einzelnen Ereignisse:
+Die Ereignisfolge entspricht derjenigen, die von der primären Aktion gesendet wird, mit Ausnahme des Namens jedes Ereignisses:
 
-1. Ein [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) Ereignis wird an die [`XRSession`](/de/docs/Web/API/XRSession) gesendet, das anzeigt, dass der Benutzer eine Quetschaktion begonnen hat.
-2. Wenn die primäre Quetschaktion erfolgreich endet, wird ein [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) Ereignis an die Sitzung gesendet.
-3. Dann wird ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) Ereignis gesendet, um anzuzeigen, dass die Quetschaktion nicht mehr im Gange ist. Dieses wird gesendet, unabhängig davon, ob die Quetschaktion erfolgreich war oder nicht.
+1. Ein [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event)-Ereignis wird an die [`XRSession`](/de/docs/Web/API/XRSession) gesendet und gibt an, dass der Benutzer eine Squeeze-Aktion begonnen hat.
+2. Wenn die primäre Squeeze-Aktion erfolgreich endet, wird ein [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event)-Ereignis an die Sitzung gesendet.
+3. Anschließend wird ein [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event)-Ereignis gesendet, das angibt, dass die Squeeze-Aktion nicht mehr stattfindet. Dies wird gesendet, unabhängig davon, ob die Squeeze-Aktion erfolgreich war oder nicht.
 
-Eine häufige Verwendung für die primäre Quetschaktion besteht darin, Objekte in der 3D-Welt zu greifen und/oder aufzuheben und den Auslöser einer Waffe in einem Spiel oder einer Simulation zu quetschen.
+Zwei häufige Verwendungen der primären Squeeze-Aktion sind das Greifen und/oder Aufheben von Objekten in der 3D-Welt sowie das Betätigen eines Auslösers, um eine Waffe in einem Spiel oder einer Simulation abzufeuern.
 
 #### Beispiel
 
-Dieses Beispiel zeigt eine Sammlung von Quetsch-Ereignishandlern, die diese Ereignisse implementieren, um das Aufnehmen und Halten von Objekten aus der Szene zu verwalten. Der Code geht davon aus, dass ein `avatar`-Objekt existiert, das den Charakter repräsentiert, wie in mehreren anderen Beispielen auf dieser Seite, sowie die `pickUpObject()` und `dropObject()` Funktionen, die die Übertragung eines Objekts von der Welt in eine bestimmte Hand und das Freigeben eines Objekts aus der Hand und das Platzieren in der Welt handhaben.
+Dieser Beispielcode zeigt eine Reihe von Squeeze-Ereignishandlern, die diese Ereignisse implementieren, um das Aufheben und Halten von Objekten aus der Szene zu verwalten. Der Code setzt voraus, dass ein `avatar`-Objekt existiert, das den Charakter darstellt, wie es in mehreren anderen Beispielen auf dieser Seite verwendet wird, sowie die Funktionen `pickUpObject()` und `dropObject()`, die das Übertragen eines Objekts von der Welt in eine bestimmte Hand und das Loslassen eines Objekts aus der Hand und dessen Rückgabe in die Welt verarbeiten.
 
-##### Ein Objekt aufnehmen: Umgang mit squeezestart Ereignissen
+##### Ein Objekt aufheben: Verarbeitung von squeezestart-Ereignissen
 
 ```js
 xrSession.addEventListener("squeezestart", (event) => {
@@ -350,17 +350,17 @@ xrSession.addEventListener("squeezestart", (event) => {
 });
 ```
 
-Das [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) Ereignis wird behandelt, indem wie üblich die Pose und die Transformation abgerufen werden, und die [`handedness`](/de/docs/Web/API/XRInputSource/handedness) der Eingabequelle in die lokale Konstante `hand` abgerufen wird. Wir verwenden das, um die Hand mit dem gehaltenen Objekt in dieser Hand abzustimmen.
+Das [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event)-Ereignis wird verarbeitet, indem Pose und Transformation wie üblich abgerufen und die [`handedness`](/de/docs/Web/API/XRInputSource/handedness) der Eingabequelle in die lokale Konstante `hand` übernommen wird. Diese verwenden wir, um die Hand dem in dieser Hand gehaltenen Objekt zuzuordnen.
 
-Der Code identifiziert dann das angezielte Objekt. Wenn ein Objekt entlang des Zielstrahls gefunden wird, wird es aufgehoben. Das Aufheben eines Objekts umfasst zunächst das Überprüfen, ob die durch `avatar.heldObject[hand]` dargestellte Hand bereits ein Objekt hält und dieses zu löschen, indem die `dropObject()` Funktion aufgerufen wird.
+Der Code identifiziert dann das anvisierte Objekt und hebt es auf, wenn ein Objekt entlang des Targeting-Strahls gefunden wird. Das Aufheben eines Objekts umfasst zunächst die Prüfung, ob die durch `avatar.heldObject[hand]` dargestellte Hand bereits ein Objekt hält. Wenn in dieser Hand bereits ein Objekt gehalten wird, wird es durch Aufruf der Funktion `dropObject()` fallen gelassen.
 
-Anschließend wird `pickUpObject()` aufgerufen, wobei das anvisierte Objekt als das Objekt angegeben wird, das aus der Szene entfernt und in die angegebene `hand` platziert werden soll. `pickUpObject()` zeichnet zudem die ursprüngliche Position des Objekts auf, damit es dorthin zurückgesetzt werden kann, falls das Quetschen abgebrochen oder abgebrochen wird.
+Anschließend wird `pickUpObject()` aufgerufen und das anvisierte Objekt als das aus der Szene zu entfernende und in die angegebene `hand` zu platzierende Objekt angegeben. `pickUpObject()` speichert außerdem die ursprüngliche Position des Objekts, damit es an diese Stelle zurückgegeben werden kann, wenn der Squeeze abgebrochen wird.
 
-##### Das Objekt fallen lassen: der squeeze Ereignishandler
+##### Das Objekt ablegen: der squeeze-Ereignishandler
 
-Das [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) Ereignis wird empfangen, wenn der Benutzer die Quetschaktion durch das Loslassen beendet. In diesem Beispiel interpretieren wir das als das Loslassen des gerade gehaltenen Objekts und das Platzieren dieses in der Szene an der anvisierten Stelle.
+Das [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event)-Ereignis wird empfangen, wenn der Benutzer die Squeeze-Aktion durch Loslassen seines Griffs beendet. In diesem Beispiel interpretieren wir dies als Loslassen des aktuell gehaltenen Objekts und legen es an der anvisierten Position in der Szene ab.
 
-Dieser Code geht davon aus, dass zusätzliche Funktionen `findTargetPosition()`, die den Zielstrahl verfolgt, bis er mit etwas kollidiert, dann die Koordinaten zurückgibt, an denen die Kollision aufgetreten ist, und `putObject()`, die das in der angegebenen `hand` gehaltene Objekt an der gegebenen Position platziert und es aus der Hand entfernt.
+Dieser Code setzt voraus, dass zusätzliche Funktionen `findTargetPosition()` vorhanden sind, die dem Zielstrahl folgt, bis er mit etwas kollidiert, und dann die Koordinaten der Kollision zurückgibt, sowie `putObject()`, die das in der angegebenen `hand` gehaltene Objekt an der angegebenen Position platziert und aus der Hand entfernt.
 
 ```js
 xrSession.addEventListener("squeeze", (event) => {
@@ -384,13 +384,13 @@ xrSession.addEventListener("squeeze", (event) => {
 });
 ```
 
-Wie beim `squeezestart`-Handler beginnt dies damit, die für das Ereignis benötigten Informationen zu sammeln, einschließlich der Hand, die ein Objekt fallen lässt, und der Zielstrahl-Transformation. Die Zielstrahl-Transformation wird in die vermutete `findTargetPosition()` Funktion übergeben, um die Koordinaten zu erhalten, an denen das fallengelassene Objekt positioniert werden soll.
+Wie im `squeezestart`-Handler beginnt dies mit dem Sammeln der benötigten Informationen über das Ereignis, einschließlich der Hand, die ein Objekt ablegt, und der Transformation des Zielstrahls. Die Zielstrahltransformation wird an die angenommene Funktion `findTargetPosition()` übergeben, um die Koordinaten zu erhalten, an denen das abgelegte Objekt positioniert werden soll.
 
-Mit der Position in Hand können wir das Objekt dann durch Aufruf der `putObject()` Funktion ablegen, die als Eingaben die `hand` und die Zielposition nimmt. Die Aufgabe dieser Funktion besteht darin, das Objekt aus der angegebenen Hand zu entfernen und es wieder in die Szene zu integrieren, wobei seine Position so eingestellt wird, dass sie an den Koordinaten liegt, die von `findTargetPosition()` zurückgegeben werden.
+Mit der Position können wir das Objekt dann durch Aufruf der Funktion `putObject()` ablegen, die als Eingaben die `hand` und die Zielposition verwendet. Aufgabe dieser Funktion ist es, das Objekt aus der angegebenen Hand zu entfernen und es wieder zur Szene hinzuzufügen, wobei seine Position so gesetzt wird, dass es auf den von `findTargetPosition()` zurückgegebenen Koordinaten liegt.
 
-##### Das Quetschen im squeezeend-Handler abbrechen
+##### Abbrechen des Squeeze im squeezeend-Handler
 
-Das [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) Ereignis wird empfangen, nachdem das Quetschen abgeschlossen ist, selbst wenn es fehlschlägt. Wir behandeln es, indem wir das derzeit gehaltene Objekt zurück an seinen ursprünglichen Ort bringen, wo es aufgenommen wurde.
+Das [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event)-Ereignis wird nach Abschluss des Squeeze empfangen, selbst wenn dieser fehlschlägt. Wir verarbeiten es, indem wir das aktuell gehaltene Objekt an die Stelle zurückgeben, an der es beim Aufheben war.
 
 ```js
 xrSession.addEventListener("squeezeend", (event) => {
@@ -404,39 +404,39 @@ xrSession.addEventListener("squeezeend", (event) => {
 });
 ```
 
-Hier wird angenommen, dass die `returnObject()` Funktion eine ist, die weiß, wie man das in der angegebenen `hand` gehaltene Objekt an seine ursprüngliche Position zurückbringt, wie es von `pickUpObject()` im `squeezestart`-Ereignishandler aufgezeichnet wurde.
+Hier wird angenommen, dass die Funktion `returnObject()` weiß, wie das in der angegebenen `hand` gehaltene Objekt an seine ursprüngliche Position zurückgegeben wird, wie sie von `pickUpObject()` im `squeezestart`-Ereignishandler gespeichert wurde.
 
-Hier wird angenommen, dass die `returnObject()` Funktion eine ist, die weiß, wie man das in der angegebenen `hand` gehaltene Objekt an seine ursprüngliche Position zurückbringt, wie es von `pickUpObject()` im `squeezestart`-Ereignishandler aufgezeichnet wurde.
+Hier wird angenommen, dass die Funktion `returnObject()` weiß, wie das in der angegebenen `hand` gehaltene Objekt an seine ursprüngliche Position zurückgegeben wird, wie sie von `pickUpObject()` im `squeezestart`-Ereignishandler gespeichert wurde.
 
 ### Transiente Aktionen
 
-Wenn ein XR-Gerät die Maus für die Simulation eines Controllers im `inline`-Modus verwendet, findet ungefähr folgendes statt:
+Wenn ein XR-Gerät die Maus verwendet, um im Modus `inline` einen Controller zu simulieren, findet ungefähr folgende Abfolge von Vorgängen statt:
 
-1. Der Benutzer drückt die Maustaste, während er sich im {{HTMLElement("canvas")}} befindet, das die WebXR-Szene präsentiert.
+1. Der Benutzer drückt die Maustaste innerhalb des {{HTMLElement("canvas")}}, das die WebXR-Szene darstellt.
 2. Das Mausereignis wird vom Treiber des XR-Geräts erfasst.
-3. Das Gerät erstellt eine neue `XRInputSource`, um die simulierte XR-Eingabequelle darzustellen. Der [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode) wird auf `screen` gesetzt, und die anderen Informationen werden entsprechend ausgefüllt. Diese neue Eingabequelle wird vorübergehend zur Liste hinzugefügt, die von der [`XRSession`](/de/docs/Web/API/XRSession) Eigenschaft [`inputSources`](/de/docs/Web/API/XRSession/inputSources) zurückgegeben wird.
-4. Der Browser liefert [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignisse, die der Aktion entsprechen.
-5. Eine Hauptaktion wird erzeugt und in Form eines [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event) Ereignisses an die App gesendet, wobei die Quelle auf die neue `XRInputSource` gesetzt wird. Oder, wenn die Maus als Neben- oder Sekundärsteuerung verwendet wird, wird stattdessen eine Hilfsaktion gesendet.
-6. Wenn der Benutzer die Maustaste loslässt, wird das [`select`](/de/docs/Web/API/XRSession/select_event) Ereignis an die `XRSession` gesendet, und die DOM erhält ein [`click`](/de/docs/Web/API/Element/click_event) Ereignis. Die Sitzung erhält dann das [`selectend`](/de/docs/Web/API/XRSession/selectend_event) Ereignis, das den Abschluss der Aktion anzeigt.
-7. Wenn die Aktion abgeschlossen ist, löscht der Browser die transiente Eingabequelle, und alle entsprechenden [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignisse werden gesendet.
+3. Das Gerät erstellt eine neue `XRInputSource`, um die simulierte XR-Eingabequelle darzustellen. [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode) wird auf `screen` gesetzt, und die übrigen Informationen werden entsprechend ausgefüllt. Diese neue Eingabequelle wird vorübergehend zur Liste hinzugefügt, die von der [`inputSources`](/de/docs/Web/API/XRSession/inputSources)-Eigenschaft von [`XRSession`](/de/docs/Web/API/XRSession) zurückgegeben wird.
+4. Der Browser liefert der Aktion entsprechende [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignisse.
+5. Eine primäre Aktion wird erzeugt und in Form eines [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignisses an die Anwendung gesendet, wobei ihre Quelle auf die neue `XRInputSource` gesetzt ist. Oder es wird stattdessen eine zusätzliche Aktion gesendet, wenn die Maus als Controller für die Nebenhand oder als sekundärer Controller verwendet wird.
+6. Wenn der Benutzer die Maustaste loslässt, wird das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis an die `XRSession` gesendet, anschließend empfängt das DOM ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis. Die Sitzung empfängt dann das [`selectend`](/de/docs/Web/API/XRSession/selectend_event)-Ereignis, das den Abschluss der Aktion angibt.
+7. Nach Abschluss der Aktion löscht der Browser die transiente Eingabequelle, und alle entsprechenden [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisse werden gesendet.
 
-Somit ist die transiente Eingabequelle in der Tat transient – sie existiert nur für die Dauer der Handhabung der Eingabe und wird daher nicht in der Liste der Eingabequellen aufgeführt.
+Die transiente Eingabequelle ist somit tatsächlich transient – sie existiert nur für die Dauer der Verarbeitung der Eingabe und wird daher nicht in der Liste der Eingabequellen aufgeführt.
 
-## Blickrichtung und Zielsetzung
+## Ausrichtung und Targeting
 
-**Blickrichtung** ist die Richtung, in die der Betrachter blickt. Dies wird nicht mithilfe einer Eingabequelle bereitgestellt. Stattdessen wird es mithilfe der [`XRPose`](/de/docs/Web/API/XRPose) abgerufen, die aus der [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) Methode des aktuellen Animationsframes stammt. Die Drehkomponente der Transformationsmatrix der Betrachterpose ist die Blickrichtung des Betrachters.
+**Ausrichtung** ist die Richtung, in die der Betrachter blickt. Sie wird nicht über eine Eingabequelle bereitgestellt. Stattdessen wird sie mithilfe der [`XRPose`](/de/docs/Web/API/XRPose) abgerufen, die durch die Methode [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des aktuellen Animationsframes erhalten wird. Die Rotationskomponente der Transformationsmatrix der Betrachterpose ist die Blickrichtung des Betrachters.
 
-Sie können mehr darüber erfahren, wie Sie diese Betrachterpose verwenden, um die Blickrichtung in dem Artikel [Ausblicke und Betrachter](/de/docs/Web/API/WebXR_Device_API/Cameras) zu bestimmen.
+Im Artikel [Blickpunkte und Betrachter](/de/docs/Web/API/WebXR_Device_API/Cameras) erfahren Sie mehr darüber, wie Sie diese Betrachterpose zur Bestimmung der Blickrichtung verwenden.
 
-**Zielsetzung** ist der Akt des Benutzers, in eine bestimmte Richtung mit einer Eingabequelle zu zeigen. Die Eingabequelle [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) ist ein [`XRSpace`](/de/docs/Web/API/XRSpace) (und tatsächlich wahrscheinlich ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)), mit dem die Orientierung des Zielstrahls relativ zur Blickrichtung des Betrachters bestimmt werden kann.
+**Targeting** ist das Zeigen des Benutzers mit einer Eingabequelle in eine bestimmte Richtung. Der [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) der Eingabequelle ist ein [`XRSpace`](/de/docs/Web/API/XRSpace) (und vermutlich tatsächlich ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)), der verwendet werden kann, um die Ausrichtung des Zielstrahls relativ zur Blickrichtung des Betrachters zu bestimmen.
 
-Dies kann oder muss nicht unbedingt das Zielen auf ein bestimmtes Objekt innerhalb der 3D-Welt beinhalten; Sie müssen dies selbst mithilfe von Trefferprüfungen bestimmen, also die Überprüfung, ob der Zielstrahl mit einem Objekt in Ihrer Szene kollidiert.
+Dies kann tatsächlich das Zeigen auf ein bestimmtes Objekt in der 3D-Welt beinhalten oder auch nicht; Sie müssen dies selbst mittels Hit-Testing bestimmen – also durch Überprüfung, ob der Zielstrahl Objekte in Ihrer Szene schneidet.
 
-### Zielsetzung und der Zielstrahl
+### Targeting und der Targeting-Strahl
 
-Der Zielstrahl, der ein Strahl ist, dessen Ursprung sich am Ursprung des Zielstrahlraums befindet und in die Richtung zeigt, in die der Benutzer das Controller-Gerät zeigt. Der Zielstrahl wird mithilfe eines [`XRSpace`](/de/docs/Web/API/XRSpace) definiert, dessen Ursprung sich an der Quelle des Zielstrahls befindet (normalerweise am nach außen gerichteten Ende des Controllers oder seiner Darstellung in der 3D-Welt), und dessen Orientierung hat -Z, das sich vom Controller in die gleiche Richtung wie die [`XRInputSource`](/de/docs/Web/API/XRInputSource)'s [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace) erstreckt.
+Der Targeting-Strahl ist ein Strahl, dessen Ursprung sich am Ursprung des Targeting-Strahlraums befindet und der in die Richtung zeigt, in die der Benutzer das Controllergerät ausrichtet. Der Targeting-Strahl wird mithilfe eines [`XRSpace`](/de/docs/Web/API/XRSpace) definiert, dessen Ursprung an der Quelle des Targeting-Strahls liegt (typischerweise am nach außen gerichteten Ende des Controllers oder seiner Darstellung in der 3D-Welt) und dessen Ausrichtung -Z vom Controller in dieselbe Richtung nach außen erstreckt wie der [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace) der [`XRInputSource`](/de/docs/Web/API/XRInputSource).
 
-Dieser Raum befindet sich in der Eingabequelle [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) Eigenschaft. Er kann verwendet werden, um die Richtung zu bestimmen, in die der Controller zeigt und den Ursprung und die Orientierung des Zielstrahls festzustellen. Dies kann durch etwas wie das folgende Beispiel erreicht werden, das einen [`select`](/de/docs/Web/API/XRSession/select_event) Ereignishandler implementiert, der diese Informationen benötigt. Wie üblich geht dieser Code davon aus, dass zur Durchführung der Matrix- und Vektormathematik [glMatrix](https://glmatrix.net/) verwendet wird:
+Dieser Raum befindet sich in der [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace)-Eigenschaft der Eingabequelle. Er kann verwendet werden, um die Richtung zu bestimmen, in die der Controller zeigt, sowie Ursprung und Ausrichtung des Zielstrahls. Dies kann durch etwas wie das folgende Beispiel erreicht werden, das einen [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignishandler implementiert, der diese Informationen benötigt. Wie üblich geht dieser Code von der Verwendung von [glMatrix](https://glmatrix.net/) zur Durchführung der Matrix- und Vektormathematik aus:
 
 ```js
 xrSession.addEventListener("select", (event) => {
@@ -456,13 +456,13 @@ xrSession.addEventListener("select", (event) => {
 });
 ```
 
-Dies erhält den Ursprung des Zielstrahls im Vektor `targetSourcePoint` und die Orientierung des Strahls im {{Glossary("quaternion", "quaternion")}} `targetDirection`. Mit entweder der
+Dadurch wird der Ursprung des Targeting-Strahls im Vektor `targetSourcePoint` und die Ausrichtung des Strahls im {{Glossary("quaternion", "Quaternion")}} `targetDirection` abgerufen. Mit einer der
 
-Dies beginnt damit, den Zielstrahl-Raum in die lokale Konstante `targetRaySpace` zu laden. Dies wird wiederum verwendet, wenn die [`XRFrame`](/de/docs/Web/API/XRFrame) Methode [`getPose()`](/de/docs/Web/API/XRFrame/getPose) aufgerufen wird, um ein [`XRPose`](/de/docs/Web/API/XRPose) Objekt zu erstellen, das die Position und Orientierung des Zielstrahls im Referenzraum des Betrachters, `viewerRefSpace`, darstellt. Ist dies `null`, gibt der Ereignis-Handler ohne weiteres zurück.
+Dies beginnt mit dem Abrufen des Raums des Zielstrahls in die lokale Konstante `targetRaySpace`. Dieser wird wiederum beim Aufruf der Methode [`getPose()`](/de/docs/Web/API/XRFrame/getPose) von [`XRFrame`](/de/docs/Web/API/XRFrame) verwendet, um ein [`XRPose`](/de/docs/Web/API/XRPose)-Objekt zu erstellen, das die Position und Ausrichtung des Zielstrahls im Referenzraum des Betrachters `viewerRefSpace` darstellt. Wenn dies `null` ist, kehrt der Ereignishandler zurück, ohne weitere Aktionen auszuführen.
 
-Die Transformation des Zielstrahls wird von der Pose's [`transform`](/de/docs/Web/API/XRPose/transform) Eigenschaft abgerufen und in `targetRayTransform` gespeichert. Dies wird dann (in diesem Fall durch eine Funktion namens `findTargetObject()`) verwendet, um das erste Objekt zu finden, mit dem der Strahl kollidiert. Wenn der Zielstrahl ein Objekt in der Szene kreuzt, können wir damit genau das tun, was wir brauchen.
+Die Transformation des Zielstrahls wird aus der [`transform`](/de/docs/Web/API/XRPose/transform)-Eigenschaft der Pose abgerufen und in der lokalen Variable `targetRayTransform` gespeichert. Diese wird wiederum verwendet (in diesem Fall durch eine Funktion namens `findTargetObject()`), um das erste Objekt zu finden, das der Strahl schneidet. Wenn der Targeting-Strahl ein Objekt in der Szene schneidet, können wir damit alles tun, was erforderlich ist.
 
-Sollte es notwendig sein, die tatsächliche Position des Ursprungs des Zielstrahls und die Richtung des Strahls zu extrahieren, kann dies so gemacht werden:
+Wenn Sie die tatsächliche Position des Ursprungs des Zielstrahls und die Richtung des Strahls extrahieren müssen, können Sie dies folgendermaßen tun:
 
 ```js
 const targetRayOrigin = vec3.create();
@@ -471,55 +471,55 @@ mat4.getTranslation(targetRayOrigin, viewerRefSpace);
 mat4.getRotation(targetRayDirection, viewerRefSpace);
 ```
 
-Um zu bestimmen, welches Objekt anvisiert wird, folgen Sie dem Zielstrahl, bis er mit einem Objekt kollidiert. Dieser Prozess wird **Trefferprüfung** oder **Kollisionserkennung** genannt. Der Ansatz, den Sie für die Trefferprüfung ergreifen, hängt stark von den spezifischen Bedürfnissen Ihrer App ab. Die erste Frage ist: Erkennen Sie Kollisionen mit virtuellen Objekten oder Gelände, realen Objekten oder Gelände oder beidem?
+Um zu bestimmen, welches Objekt anvisiert wird, verfolgen Sie den Targeting-Strahl, bis er ein Objekt schneidet. Dieser Prozess wird **Hit-Testing** oder **Kollisionserkennung** genannt. Der Ansatz für Hit-Testing hängt stark von den spezifischen Anforderungen Ihrer Anwendung ab. Die erste Frage lautet: Erkennen Sie Kollisionen mit virtuellen Objekten oder Gelände, Objekten oder Gelände der realen Welt oder mit beidem?
 
-In jedem Fall müssen Sie zur Identifizierung des anvisierten Objekts feststellen, ob der Strahl, der von der [`XRInputSource`](/de/docs/Web/API/XRInputSource) Eigenschaft [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace) spezifiziert wird, ein beliebiges Objekt in der Szene kreuzt, sei es virtuell oder real.
+In jedem Fall müssen Sie zur Identifizierung des anvisierten Objekts feststellen, ob der durch die [`targetRaySpace`](/de/docs/Web/API/XRInputSource/targetRaySpace)-Eigenschaft von [`XRInputSource`](/de/docs/Web/API/XRInputSource) angegebene Strahl irgendwelche Objekte in der Szene schneidet, unabhängig davon, ob sie virtuell oder real sind.
 
-Siehe [Zielsetzung und Treffererkennung](/de/docs/Web/API/WebXR_Device_API/Targeting) für einen detaillierteren Blick darauf, was erforderlich ist.
+Unter [Targeting und Treffererkennung](/de/docs/Web/API/WebXR_Device_API/Targeting) finden Sie eine ausführlichere Betrachtung der damit verbundenen Aspekte.
 
-### Präsentation von handgehaltenen Objekten
+### Darstellung handgehaltener Objekte
 
-Die [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace) Eigenschaft einer Eingabequelle identifiziert einen [`XRSpace`](/de/docs/Web/API/XRSpace), der den Ursprung und die Orientierung beschreibt, die verwendet werden sollten, um ein Objekt anzuzeigen, sodass es aussieht, als würde es in derselben Hand wie seine Eingabequelle gehalten. Dieser Raum soll verwendet werden, um ein Modell des handgehaltenen WebXR-Eingabesteuerers darzustellen, kann aber genauso gut verwendet werden, um jedes Objekt zu zeichnen, wie zum Beispiel einen Ball, ein Werkzeug oder eine Waffe. Wir haben den [Halteraum](#halteraum) oben behandelt, aber lassen Sie uns sehen, wie er verwendet werden kann, um Objekte darzustellen, die die Hand oder die in der Hand darstellen.
+Die [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace)-Eigenschaft einer Eingabequelle identifiziert einen [`XRSpace`](/de/docs/Web/API/XRSpace), der Ursprung und Ausrichtung beschreibt, die beim Rendern eines Objekts verwendet werden sollen, damit es so erscheint, als würde es in derselben Hand wie seine Eingabequelle gehalten. Dieser Raum ist für das Zeichnen eines Modells des handgehaltenen WebXR-Eingabecontrollers vorgesehen, der durch das Objekt [`XRInputSource`](/de/docs/Web/API/XRInputSource) dargestellt wird, kann jedoch genauso gut verwendet werden, um beliebige Objekte zu zeichnen, etwa einen Ball, ein Werkzeug oder eine Waffe. Wir haben den [Griffraum](#griffraum) oben behandelt, aber sehen wir uns an, wie er zum Zeichnen von Objekten verwendet werden kann, die für die Hand oder ein Objekt in der Hand repräsentativ sind.
 
-Da sich der Ursprung des Halteraums im Mittelpunkt des Griffs der Hand befindet, können Sie ihn als Ausgangspunkt für das Rendern Ihres Objekts verwenden. Wenden Sie bei Bedarf eine Offset-Transformation an, um den Ursprung auf den Startpunkt für das Rendern Ihres Objekts zu verschieben, während Sie die nötige Rotation anwenden, um Ihr Modell korrekt auszurichten, sodass es der Orientierung des Halteraums entspricht.
+Da der Ursprung des Griffraums in der Mitte des Handgriffs liegt, können Sie ihn als Ausgangspunkt für das Rendern Ihres Objekts verwenden. Wenden Sie jede erforderliche Offset-Transformation an, um den Ursprung zum Startpunkt für das Rendern Ihres Objekts zu verschieben, und wenden Sie jede Rotation an, die erforderlich ist, um Ihr Modell korrekt an der Ausrichtung des Griffraums auszurichten.
 
-## Erweiterte Controller mit dem Gamepad-Objekt verwenden
+## Erweiterte Controller mit dem gamepad-Objekt
 
-Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource) hat eine [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad) Eigenschaft, deren Wert, falls nicht `null`, ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt ist, das Zugriff auf gamepad-artige Tasten, Achsensteuerungen (wie Joysticks oder Daumenpads) und so weiter bietet. Dies kann die gleichen Tasten umfassen, die die standardmäßigen [`XRInputSource`](/de/docs/Web/API/XRInputSource) Aktionen auslösen, aber möglicherweise beliebig viele zusätzliche Tasten und Steuerungen enthalten.
+Eine [`XRInputSource`](/de/docs/Web/API/XRInputSource) verfügt über eine [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft, deren Wert, wenn er nicht `null` ist, ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt ist, das Zugriff auf Tasten im Gamepad-Stil, Achsensteuerungen (etwa Joysticks oder Thumbpads) usw. bietet. Dies kann dieselben Tasten umfassen, die die Standardaktionen von [`XRInputSource`](/de/docs/Web/API/XRInputSource) auslösen, jedoch auch eine beliebige Anzahl zusätzlicher Tasten und Steuerelemente.
 
 > [!NOTE]
-> Während `Gamepad` von der [Gamepad API](/de/docs/Web/API/Gamepad_API) definiert wird, wird es nicht von der Gamepad API verwaltet, daher sollten Sie nicht versuchen, irgendwelche Gamepad-API-Methoden damit zu verwenden. Der Objekttyp wird aus Komfortgründen wiederverwendet.
+> Obwohl `Gamepad` durch die [Gamepad API](/de/docs/Web/API/Gamepad_API) definiert wird, wird es nicht von der Gamepad API verwaltet. Daher dürfen Sie nicht versuchen, damit irgendwelche Methoden der Gamepad API zu verwenden. Der Objekttyp wird aus Gründen der Zweckmäßigkeit wiederverwendet.
 
-Wenn der Wert von `gamepad` `null` ist, definiert die Eingabequelle keine Steuerungen, die mit dem `Gamepad`-Datensatz genutzt werden, entweder weil sie nicht unterstützt werden oder weil sie keine zusätzlichen Steuerungen darauf hat.
+Wenn der Wert von `gamepad` `null` ist, definiert die Eingabequelle keine Steuerelemente mithilfe des `Gamepad`-Datensatzes, entweder weil sie dies nicht unterstützt oder weil sie keine zusätzlichen Steuerelemente besitzt.
 
-Dieses `gamepad`-Objekt wird nicht nur verwendet, um Zugriff auf spezielle Tasten, Touchpads und so weiter zu erhalten, sondern bietet auch einen Weg, um direkter auf die Steuerungen zuzugreifen und diese zu überwachen, die als primäre Auswahl- und Quetscheingaben dienen, da diese in seiner [`buttons`](/de/docs/Web/API/Gamepad/buttons) Liste enthalten sind.
+Dieses `gamepad`-Objekt wird nicht nur verwendet, um Zugriff auf spezielle Tasten, Trackpads usw. zu erhalten, sondern bietet auch eine Möglichkeit, direkter auf die Steuerelemente zuzugreifen und diese zu überwachen, die als primäre Auswahl- und Squeeze-Eingaben dienen, da diese in seiner [`buttons`](/de/docs/Web/API/Gamepad/buttons)-Liste enthalten sind.
 
-Da diese Verwendung der `Gamepad`-Schnittstelle eher ein Komfort denn eine echte Anwendung der Gamepad-API darstellt, gibt es mehrere Unterschiede zwischen ihrer Verwendung mit WebXR und ihrer Verwendung in Gamepad-API-Anwendungen. Der auffälligste – aber nicht der einzige – Unterschied besteht darin, dass WebXR die `xr-standard` Gamepad-Zuordnung hinzufügt, siehe die [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad) Eigenschaft für zusätzliche Unterschiede. Diese Gamepad-Zuordnung definiert, wie die Steuerungen auf einem typischen einhändigen handgehaltenen VR-Controller auf Gamepad-Steuerungen abgebildet sind.
+Da diese Nutzung der `Gamepad`-Schnittstelle eine Zweckmäßigkeit und keine echte Anwendung der Gamepad API ist, gibt es mehrere Unterschiede zwischen ihrer Verwendung mit WebXR und ihrer Verwendung in Anwendungen der Gamepad API. Der auffälligste – jedoch nicht der einzige – Unterschied besteht darin, dass WebXR das `xr-standard`-Gamepad-Mapping hinzufügt; zusätzliche Unterschiede finden Sie in der [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft. Dieses Gamepad-Mapping definiert, wie die Steuerelemente eines typischen handgehaltenen VR-Controllers für eine Hand auf Gamepad-Steuerelemente abgebildet werden.
 
-## Eingaben von Nicht-WebXR-Quellen integrieren
+## Einbeziehen von Eingaben aus Nicht-WebXR-Quellen
 
-Manchmal müssen Sie eine Möglichkeit haben, dem Benutzer die Möglichkeit zu geben, Eingaben mit Controllern zu machen, die außerhalb von WebXR liegen. Am häufigsten stammen diese Eingaben von Tastaturen und Mäusen, aber Sie könnten auch nicht-XR-Gamepad-Geräte, Netzwerkeingaben oder andere Datenquellen verwenden, um Benutzersteuerungen zu simulieren. Während WebXR keine Unterstützung für die direkte Verbindung dieser Eingabegeräte mit der XR-Szene bietet, können Sie die Eingabedaten selbst sammeln und selbst anwenden.
+Manchmal benötigen Sie eine Möglichkeit, dem Benutzer Eingaben über Controller zu ermöglichen, die außerhalb von WebXR liegen. Am häufigsten stammen diese Eingaben von Tastaturen und Mäusen, Sie könnten jedoch auch Nicht-XR-Gamepad-Geräte, Netzwerkeingaben oder andere Datenquellen verwenden, um Benutzersteuerungen zu simulieren. WebXR bietet zwar keine Unterstützung für die direkte Anbindung dieser Eingabegeräte an die XR-Szene, Sie können die Eingabedaten jedoch selbst erfassen und selbst anwenden.
 
-Angenommen, Eingaben werden verwendet, um einen Avatar innerhalb der Simulation zu steuern, was der häufigste Anwendungsfall ist, werden WebXR-Eingaben verwendet, um den Avatar auf folgende Weise zu beeinflussen, unter Verwendung der gesammelten Daten des Nicht-XR-Eingabegeräts:
+Unter der Annahme, dass Eingaben zur Steuerung eines Avatars innerhalb der Simulation verwendet werden – was der häufigste Anwendungsfall ist –, werden WebXR-Eingaben auf folgende Weise verwendet, um den Avatar zu beeinflussen, wobei Daten genutzt werden, die vom Nicht-XR-Eingabegerät erfasst wurden:
 
 - Position
-  - : Die Position des Avatars wird geändert, indem ein {{Glossary("delta", "Delta")}} auf die zuvor bekannte Position angewendet wird, dann wird der Referenzraum des Avatars durch einen neuen ersetzt, dessen Transformation die neue Position widerspiegelt.
-- Orientierung
-  - : Die Orientierung oder Blickrichtung des Avatars wird geändert, indem ein Delta auf seine Rotation um die drei Achsen angewendet und sein Orientierungsvektor aktualisiert wird, dann wird sein Referenzraum neu berechnet.
+  - : Die Position des Avatars wird geändert, indem ein {{Glossary("delta", "Delta")}} auf die zuvor bekannte Position angewendet und anschließend der Referenzraum des Avatars durch einen neuen ersetzt wird, dessen Transformation die neue Position widerspiegelt.
+- Ausrichtung
+  - : Die Ausrichtung oder Blickrichtung des Avatars wird geändert, indem ein Delta auf seine Rotation um die drei Achsen angewendet, sein Orientierungsvektor aktualisiert und anschließend sein Referenzraum neu berechnet wird.
 - Aktion
-  - : Der Avatar führt eine Aktion aus, wie die Verwendung eines Objekts oder einer Waffe, Springen oder eine andere Aktivität, die nicht mit grundlegender Bewegung und Rotation zu tun hat.
+  - : Der Avatar führt eine Aktion aus, beispielsweise die Verwendung eines Objekts oder einer Waffe, das Springen oder eine andere Aktivität, die nicht mit grundlegender Bewegung und Rotation zusammenhängt.
 
-Einige Eingaben werden stattdessen verwendet, um die Anwendung zu steuern anstatt den Avatar. Ein Button könnte zum Beispiel ein Optionsmenü öffnen, das zur Konfiguration der Anwendung verwendet wird. Während dieses Menü geöffnet ist, könnten Eingaben, die sonst den Avatar steuern würden, stattdessen zur Steuerung der Menüoberfläche verwendet werden.
+Einige Eingaben werden stattdessen zur Steuerung der Anwendung und nicht des Avatars verwendet. Beispielsweise könnte eine Taste ein Optionsmenü öffnen, das zur Konfiguration der Anwendung dient. Während dieses Menü geöffnet ist, könnten Eingaben, die andernfalls den Avatar steuern würden, stattdessen zur Steuerung der Benutzeroberfläche des Menüs verwendet werden.
 
 ### Verwenden von Tastatur- und Mausereignissen
 
-Das Erfassen von Eingaben über Tastatur und Maus erfolgt genau so wie in jeder Webanwendung. Richten Sie Handler für die Ereignisse ein, die Sie benötigen, um die Eingaben zu erhalten, die Sie möchten. Was Sie mit diesen Eingaben machen, ist interessant.
+Das Erfassen von Eingaben von Tastatur und Maus erfolgt genauso wie in jeder Webanwendung. Richten Sie Handler für die Ereignisse ein, die Sie verarbeiten müssen, um die gewünschten Eingaben zu erhalten. Interessant ist, was Sie mit diesen Eingaben tun.
 
-Stellen Sie sich ein `avatar`-Objekt vor, das wir verwenden, um Informationen über den Avatar und seine Weltanschauung zu verfolgen. Wir möchten, dass der Spieler die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> verwenden kann, um sich vorwärts, links, rückwärts und rechts zu bewegen. Da wir die Position des Avatars sowohl durch die Tastatur und Maus als auch durch die XR-Hardware managen, müssen wir diese Informationen separat verwalten und als Transformation anwenden, bevor wir den Avatar (oder die Welt aus Sicht des Avatars) rendern.
+Stellen Sie sich ein `avatar`-Objekt vor, das wir verwenden, um Informationen über den Avatar und seine Weltansicht nachzuverfolgen. Der Spieler soll die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> verwenden können, um sich vorwärts, nach links, rückwärts und nach rechts zu bewegen. Da wir die durch Tastatur und Maus definierte Position des Avatars zusätzlich zu allem verwalten, was die XR-Hardware möglicherweise tut, müssen wir diese Informationen separat beibehalten und sie als Transformation anwenden, bevor wir den Avatar rendern (oder die Welt aus Sicht des Avatars).
 
-Um das zu erreichen, schließen wir in das `avatar`-Objekt eine `posDelta` Eigenschaft ein, vom Typ [`DOMPoint`](/de/docs/Web/API/DOMPoint), die die Versätze enthält, die auf alle drei Achsen angewendet werden müssen, um die Position des Avatars anzupassen (den Ursprung des Referenzraums der Betrachterpose) und Bewegung und Rotation von Tastatur und Maus einzubeziehen.
+Zu diesem Zweck fügen wir dem `avatar`-Objekt eine `posDelta`-Eigenschaft vom Typ [`DOMPoint`](/de/docs/Web/API/DOMPoint) hinzu, die die auf alle drei Achsen anzuwendenden Offsets enthält, um die Position des Avatars (den Ursprung des Referenzraums der Betrachterpose) um Bewegung und Rotation von Tastatur und Maus anzupassen.
 
-Der entsprechende Code für die Tastatureingabe könnte in etwa so aussehen:
+Der entsprechende Code für Tastatureingaben könnte ungefähr so aussehen:
 
 ```js
 document.addEventListener("keydown", (event) => {
@@ -546,11 +546,11 @@ document.addEventListener("keydown", (event) => {
 });
 ```
 
-Dies ist ein einfaches Beispiel, bei dem die Beschleunigung konstant und nicht besonders realistisch ist. Sie können dies erheblich verbessern, indem Sie Kenntnisse der Physik anwenden, um die Beschleunigung basierend darauf zu ändern, wie lange die Taste gedrückt gehalten wird und andere Faktoren.
+Dies ist ein einfaches Beispiel, bei dem die Beschleunigung konstant und nicht besonders realistisch ist. Sie können dies erheblich verbessern, indem Sie Kenntnisse der Physik anwenden, sodass sich die Beschleunigung im Laufe der Zeit abhängig davon ändert, wie lange eine Taste gedrückt gehalten wird, und von weiteren Faktoren.
 
 ### Anwenden von Eingaben auf die Szene
 
-Jetzt, da wir die Deltas haben, die auf die Position und Orientierung angewendet werden müssen – in unserem Beispiel in den `posDelta` und `orientDelta` Eigenschaften unseres `avatar`-Objekts – können wir Code schreiben, um diese Änderungen anzuwenden. Da wir die Szene bereits auf einem Zeitplan rendern, können wir den Code dort hinzufügen, zusammen mit dem Vorbereiten und Zeichnen der Szene.
+Nachdem wir nun die Deltas haben, die auf Position und Ausrichtung angewendet werden müssen – in unserem Beispiel in den Eigenschaften `posDelta` und `orientDelta` unseres `avatar`-Objekts –, können wir Code schreiben, um diese Änderungen anzuwenden. Da wir die Szene bereits nach einem Zeitplan rendern, können wir den Code zum Anwenden dieser Änderungen dort zusammen mit der Vorbereitung und dem Zeichnen der Szene hinzufügen.
 
 ```js
 function drawFrame(time, frame) {
@@ -563,11 +563,11 @@ function drawFrame(time, frame) {
 }
 ```
 
-Die hier gezeigte `drawFrame()` Funktion ist der Callback, der aufgerufen wird, wenn es Zeit ist, den Frame zu zeichnen, wie es durch das Aufrufen der [`XRSession`](/de/docs/Web/API/XRSession) Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) festgelegt wurde. Sie ruft eine Funktion `applyExternalInputs()` auf, die wir gleich definieren; sie nimmt das `avatar`-Objekt und verwendet seine Informationen, um den Referenzrahmen des Avatars zu aktualisieren.
+Die hier gezeigte Funktion `drawFrame()` ist der Callback, der aufgerufen wird, wenn es Zeit ist, den Frame zu zeichnen, wie durch den Aufruf der Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) von [`XRSession`](/de/docs/Web/API/XRSession) festgelegt. Sie ruft eine Funktion `applyExternalInputs()` auf, die wir gleich definieren werden; diese nimmt das `avatar`-Objekt und verwendet seine Informationen, um den Referenzframe des Avatars zu aktualisieren.
 
-Danach geht alles wie gewohnt weiter, wobei die Pose des Betrachtenden aus dem aktualisierten Referenzrahmen geholt, der nächste Frame-Callback über `requestAnimationFrame()` angefordert und dann WebGL eingerichtet und die Szene gezeichnet wird. Der Zeichenvorgang und anderer verwandter Code finden sich im Beispiel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion).
+Danach wird wie üblich fortgefahren: Die Pose des Betrachters wird aus dem aktualisierten Referenzframe abgerufen, der nächste Frame-Callback wird über `requestAnimationFrame()` angefordert, und anschließend werden WebGL eingerichtet und die Szene gezeichnet. Der Zeichen- und weitere zugehörige Code ist im Beispiel [Bewegung, Ausrichtung und Motion](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) zu finden.
 
-Die `applyExternalInputs()`-Methode nimmt das `avatar`-Objekt und ersetzt dessen `referenceSpace`-Eigenschaft mit einem neuen Referenzraum, der die aktualisierten Deltas enthält.
+Die Methode `applyExternalInputs()` nimmt das `avatar`-Objekt und ersetzt seine `referenceSpace`-Eigenschaft durch einen neuen Referenzraum, der die aktualisierten Deltas einbezieht.
 
 ```js
 function applyExternalInputs(avatar) {
@@ -587,9 +587,9 @@ function applyExternalInputs(avatar) {
 
 ## Siehe auch
 
-- [Zielsetzung und Treffererkennung](/de/docs/Web/API/WebXR_Device_API/Targeting)
+- [Targeting und Treffererkennung](/de/docs/Web/API/WebXR_Device_API/Targeting)
 - [Geometrie und Referenzräume in WebXR](/de/docs/Web/API/WebXR_Device_API/Geometry)
-- [Räumliches Tracking in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
-- [Rendering und der WebXR-Frame-Animations-Callback](/de/docs/Web/API/WebXR_Device_API/Rendering)
-- [Ausblicke und Beobachter: Simulation von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
-- [Bewegung, Orientierung und Bewegung: Ein WebXR-Beispiel](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
+- [Räumliche Verfolgung in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
+- [Rendering und der WebXR-Frame-Animationscallback](/de/docs/Web/API/WebXR_Device_API/Rendering)
+- [Blickpunkte und Betrachter: Simulieren von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Bewegung, Ausrichtung und Motion: Ein WebXR-Beispiel](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)

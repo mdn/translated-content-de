@@ -3,21 +3,21 @@ title: "SVGAnimationElement: endEvent-Ereignis"
 short-title: endEvent
 slug: Web/API/SVGAnimationElement/endEvent_event
 l10n:
-  sourceCommit: ac7f589f2471fde8e5ee910a7fbd8a4bff931140
+  sourceCommit: f4c221962681b1472cd57da60379ad7825fe5081
 ---
 
 {{APIRef("SVG")}}
 
-Das **`endEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
+Das **`endEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht wird.
 
 > [!NOTE]
-> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Dieses Ereignis kann sowohl im Verlauf des normalen (d.h. geplanten oder interaktiven) Zeitlinienablaufs als auch im Fall, dass das Element mit einer DOM-Methode beendet wurde, ausgelöst werden.
+> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Dieses Ereignis kann sowohl im Verlauf der normalen (d.h. geplanten oder interaktiven) Wiedergabe der Zeitachse als auch dann ausgelöst werden, wenn das Element mit einer DOM-Methode beendet wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht bubbel.
+Dieses Ereignis ist nicht abbrechbar und bubblt nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("endEvent", (event) => { })
@@ -97,7 +97,7 @@ btn.addEventListener("click", () => {
 
 ### Entsprechende Event-Handler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Event-Listener für das `end`-Ereignis mit der `onend`-Event-Handler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Event-Listener für das `end`-Ereignis mithilfe der Event-Handler-Eigenschaft `onend` erstellen können:
 
 ```js
 animateElem.onend = () => {
@@ -116,5 +116,5 @@ animateElem.onend = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/Guides/SVG_animation_with_SMIL)
-- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event) Ereignis
-- [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event) Ereignis
+- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event)-Ereignis
+- [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)-Ereignis
