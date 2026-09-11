@@ -1,45 +1,45 @@
 ---
-title: "`<timeline-range-name>` CSS-Typ"
+title: CSS-Typ `<timeline-range-name>`
 short-title: <timeline-range-name>
 slug: Web/CSS/Reference/Values/timeline-range-name
 l10n:
-  sourceCommit: ddd76a60b6f33cf077f9fdc5d1377ff94acd5aa4
+  sourceCommit: 5f3da7dfeb0b6938fcae8a08fc08f9b8aea1ff65
 ---
 
-Der **`<timeline-range-name>`** {{Glossary("enumerated", "aufzählbare")}} Datentyp ist ein CSS-Identifikator, der einen der vordefinierten benannten Zeitachsenbereiche innerhalb einer [View-Progress-Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) darstellt.
+Der {{Glossary("enumerated", "aufgezählte")}} Datentyp **`<timeline-range-name>`** ist ein CSS-Identifier, der einen der vordefinierten benannten Timeline-Bereiche innerhalb einer [View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) darstellt.
 
-Die `<timeline-range-name>` Schlüsselwortwerte werden in [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) und den folgenden Lang- und Kurzschrift-Eigenschaften verwendet:
+Die Schlüsselwortwerte von `<timeline-range-name>` werden in [Keyframe-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Keyframe_selectors) sowie in den folgenden Longhand- und Shorthand-Eigenschaften verwendet:
 
 - {{cssxref("animation-range-end")}}
 - {{cssxref("animation-range-start")}}
-- {{cssxref("animation-range")}} Kurzschrift
+- Shorthand {{cssxref("animation-range")}}
 
 ## Syntax
 
-Gültige `<timeline-range-name>` Werte:
+Gültige Werte für `<timeline-range-name>`:
 
 - `cover`
-  - : Repräsentiert den vollständigen Bereich einer View-Progress-Zeitleiste, von dem Punkt, an dem die Startgrenze des Subjektelements erstmals in den Sichtbarkeitsbereich der Scrollport-Ansichtsfortschritte eintritt (`0%` Fortschritt), bis zu dem Punkt, an dem die Endgrenze ihn vollständig verlassen hat (`100%` Fortschritt). Dies ist der Standardbereich für [View-Progress-Zeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines).
+  - : Stellt den vollständigen Bereich einer View-Progress-Timeline dar: vom Punkt, an dem die Start-Rahmenkante des Subjektelements erstmals in den Sichtbarkeitsbereich des View-Fortschritts des Scrollports eintritt (`0%` Fortschritt), bis zu dem Punkt, an dem die End-Rahmenkante ihn vollständig verlassen hat (`100%` Fortschritt). Dies ist der Standardbereich für [View-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#view_progress_timelines).
 
 - `contain`
-  - : Repräsentiert den Bereich einer View-Progress-Zeitleiste, in dem das Subjektelement vollständig vom Sichtbarkeitsbereich des Ansichtsfortschritts innerhalb des {{Glossary("Scroll_container#scrollport", "Scrollports")}} enthalten ist oder diesen vollständig enthält.
-    - Wenn das Subjektelement kleiner als der Scrollport ist, reicht es von dem Punkt, an dem das Subjektelement erstmals vollständig vom Scrollport enthalten ist (`0%` Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig vom Scrollport enthalten ist (`100%` Fortschritt).
-    - Wenn das Subjektelement größer als der Scrollport ist, reicht es von dem Punkt, an dem das Subjektelement erstmals den Scrollport vollständig überdeckt (`0%` Fortschritt), bis zu dem Punkt, an dem es den Scrollport nicht mehr vollständig überdeckt (`100%` Fortschritt).
+  - : Stellt den Bereich einer View-Progress-Timeline dar, in dem das Subjektelement vollständig innerhalb des Sichtbarkeitsbereichs des View-Fortschritts im {{Glossary("Scroll_container#scrollport", "Scrollport")}} enthalten ist oder diesen vollständig enthält.
+    - Wenn das Subjektelement kleiner als der Scrollport ist, reicht der Bereich von dem Punkt, an dem das Subjektelement erstmals vollständig im Scrollport enthalten ist (`0%` Fortschritt), bis zu dem Punkt, an dem es nicht mehr vollständig im Scrollport enthalten ist (`100%` Fortschritt).
+    - Wenn das Subjektelement größer als der Scrollport ist, reicht der Bereich von dem Punkt, an dem das Subjektelement den Scrollport erstmals vollständig überdeckt (`0%` Fortschritt), bis zu dem Punkt, an dem es den Scrollport nicht mehr vollständig überdeckt (`100%` Fortschritt).
 
 - `entry`
-  - : Repräsentiert den Bereich einer View-Progress-Zeitleiste von dem Punkt, an dem das Subjektelement erstmals beginnt, in den Scrollport einzutreten, bis zu dem Punkt, an dem es vollständig den Scrollport betreten hat. `0%` entspricht `0%` des `cover`-Bereichs. `100%` entspricht `0%` des `contain`-Bereichs.
+  - : Stellt den Bereich einer View-Progress-Timeline von dem Punkt dar, an dem das Subjektelement erstmals beginnt, in den Scrollport einzutreten, bis zu dem Punkt, an dem es vollständig in den Scrollport eingetreten ist. `0%` entspricht `0%` des Bereichs `cover`. `100%` entspricht `0%` des Bereichs `contain`.
 
 - `exit`
-  - : Repräsentiert den Bereich einer View-Progress-Zeitleiste von dem Punkt, an dem das Subjektelement erstmals beginnt, den Scrollport zu verlassen, bis zu dem Punkt, an dem es vollständig aus dem Scrollport heraus ist. `0%` entspricht `100%` des `contain`-Bereichs. `100%` entspricht `100%` des `cover`-Bereichs.
+  - : Stellt den Bereich einer View-Progress-Timeline von dem Punkt dar, an dem das Subjektelement erstmals beginnt, den Scrollport zu verlassen, bis zu dem Punkt, an dem es den Scrollport vollständig verlassen hat. `0%` entspricht `100%` des Bereichs `contain`. `100%` entspricht `100%` des Bereichs `cover`.
 
 - `entry-crossing`
-  - : Repräsentiert den Bereich, währenddessen die Hauptbox die Endgrenze überschreitet. Der Anfang (`0%` Fortschritt) des Bereichs tritt ein, wenn die Anfangsgrenze der Hauptbox des Elements mit der Endgrenze seines Sichtbarkeitsbereichs übereinstimmt. Das Ende (`100%`) des Bereichs ist der Punkt, an dem die Endgrenze der Hauptbox des Elements mit der Endgrenze seines Sichtbarkeitsbereichs übereinstimmt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in der Scrollrichtung.
+  - : Stellt den Bereich dar, während dessen die Hauptbox die End-Rahmenkante kreuzt. Der Anfang des Bereichs (`0%` Fortschritt) tritt ein, wenn die Start-Rahmenkante der Hauptbox des Elements mit der Endkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Das Ende des Bereichs (`100%`) ist der Punkt, an dem die End-Rahmenkante der Hauptbox des Elements mit der Endkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
 
 - `exit-crossing`
-  - : Repräsentiert den Bereich, in dem die Hauptbox die Startgrenze überschreitet. Der Bereichsanfang (`0%` Fortschritt) tritt ein, wenn die Anfangsgrenze der Hauptbox des Elements mit der Startgrenze seines Sichtbarkeitsbereichs übereinstimmt. Das Bereichsende (`100%` Fortschritt) ist der Punkt, an dem die Endgrenze der Hauptbox des Elements mit der Startgrenze seines Sichtbarkeitsbereichs übereinstimmt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in der Scrollrichtung.
+  - : Stellt den Bereich dar, in dem die Hauptbox die Start-Rahmenkante kreuzt. Der Bereichsanfang (`0%` Fortschritt) tritt ein, wenn die Start-Rahmenkante der Hauptbox des Elements mit der Startkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Das Bereichsende (`100%` Fortschritt) ist der Punkt, an dem die End-Rahmenkante der Hauptbox des Elements mit der Startkante seines Sichtbarkeitsbereichs für den View-Fortschritt zusammenfällt. Die Größe des Bereichs entspricht der Größe der Hauptbox des Elements in Scrollrichtung.
 
 - `scroll`
-  - : Repräsentiert den vollständigen Bereich des {{Glossary("scroll_container", "Scroll-Containers")}}, auf dem die View-Progress-Zeitleiste definiert ist. Der Bereichsanfang (`0%` Fortschritt) und das Ende (`100%` Fortschritt) treten an den allerersten und letzten Positionen des Scroll-Containers, der der View-Progress-Zeitleiste zugrunde liegt, auf. Dies ist der Standardbereich für [Scroll-Progress-Zeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
+  - : Stellt den vollständigen Bereich des {{Glossary("scroll_container", "Scroll-Containers")}} dar, für den die View-Progress-Timeline definiert ist. Der Bereichsanfang (`0%` Fortschritt) und das Bereichsende (`100%` Fortschritt) befinden sich an den äußersten Start- und Endpositionen des Scroll-Containers, der der View-Progress-Timeline zugrunde liegt. Dies ist der Standardbereich für [Scroll-Progress-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#scroll_progress_timelines).
 
 ## Formale Syntax
 
@@ -47,7 +47,7 @@ Gültige `<timeline-range-name>` Werte:
 
 ## Beispiele
 
-Sehen Sie sich den [Visualisierer für View-Zeitleistenbereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an.
+Siehe den [Visualisierer für View-Timeline-Bereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/).
 
 ## Spezifikationen
 
@@ -64,7 +64,7 @@ Sehen Sie sich den [Visualisierer für View-Zeitleistenbereiche](https://scroll-
 - {{cssxref("scroll-timeline")}}
 - {{cssxref("view-timeline-inset")}}
 - {{cssxref("animation-timeline/scroll", "scroll()")}}, {{cssxref("animation-timeline/view", "view()")}}
-- [Verstehen von Zeitachsenbereichsnamen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
-- [Scroll-gesteuerte Animations-Zeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
-- [Visualisierer für View-Zeitleistenbereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/)
+- [Benannte Timeline-Bereiche verstehen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timeline_range_names)
+- [Scroll-gesteuerte Animations-Timelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- Modul [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [Visualisierer für View-Timeline-Bereiche](https://scroll-driven-animations.style/tools/view-timeline/ranges/)

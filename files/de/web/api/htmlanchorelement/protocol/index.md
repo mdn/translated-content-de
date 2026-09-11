@@ -3,16 +3,16 @@ title: "HTMLAnchorElement: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/HTMLAnchorElement/protocol
 l10n:
-  sourceCommit: 82acf2a065dc00a1bd0cbf5e73de696e1bedee91
+  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`protocol`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der das Protokoll oder Schema des `href`-Attributs des `<area>`-Elements enthält, einschließlich des abschließenden `":"`.
+Die **`protocol`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ist ein String, der das Protokoll oder Schema des `href`-Attributs des `<a>`-Elements einschließlich des abschließenden `":"` enthält.
 
-Diese Eigenschaft kann festgelegt werden, um das Protokoll der URL zu ändern. Ein `":"` wird an den bereitgestellten String angehängt, wenn es nicht vorhanden ist. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig angesehen zu werden.
+Diese Eigenschaft kann festgelegt werden, um das Protokoll der URL zu ändern. Ein `":"` wird an den bereitgestellten String angehängt, falls er nicht vorhanden ist. Das bereitgestellte Schema muss mit dem Rest der URL kompatibel sein, um als gültig zu gelten.
 
-Siehe [`URL.protocol`](/de/docs/Web/API/URL/protocol) für weitere Informationen.
+Weitere Informationen finden Sie unter [`URL.protocol`](/de/docs/Web/API/URL/protocol).
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein String.
 
 ## Beispiele
 
-### Das Protokoll eines Anker-Links abrufen
+### Das Protokoll eines Anchor-Links abrufen
 
 ```js
 // An <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> element is in the document
@@ -38,4 +38,4 @@ anchor.protocol; // returns 'https:'
 
 ## Siehe auch
 
-- Das zugehörige [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle, zu der sie gehört.

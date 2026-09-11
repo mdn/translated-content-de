@@ -3,12 +3,12 @@ title: "WebTransport: draining-Eigenschaft"
 short-title: draining
 slug: Web/API/WebTransport/draining
 l10n:
-  sourceCommit: 3100645fa08ae52995bb32423088433cfa6d9cca
+  sourceCommit: 3064cbe8212ea919874fb21120a89657afccba25
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`draining`** des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interface gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Server angibt, dass die Transport-Sitzung vor dem Schließen in den Drain-Zustand übergehen soll.
+Die schreibgeschützte Eigenschaft **`draining`** des Interfaces [`WebTransport`](/de/docs/Web/API/WebTransport) gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Server angibt, dass die Transportsitzung vor dem Schließen mit dem Leeren beginnen soll.
 
 ## Wert
 
@@ -16,21 +16,21 @@ Ein {{jsxref("Promise")}}, das zu `undefined` aufgelöst wird.
 
 ## Beschreibung
 
-Eine Sitzung wechselt in den Zustand _draining_, wenn sie vom Server entsprechend signalisiert wird.
-Dieses Signal kann gesendet werden, wenn die Sitzung (und möglicherweise die zugrunde liegende Verbindung) bald beendet wird, beispielsweise weil der Server Last auf Backend-Instanzen verteilt, eine maximale Sitzungsdauer erzwingt oder sogar neu startet.
-Draining ist nur eine Anfrage: Beide Endpunkte können die Sitzung weiterhin verwenden und weiterhin neue Streams öffnen oder Datagramme senden, aber es wird erwartet, dass die Anwendung ihre Arbeit abschließt und die Sitzung bald schließt.
+Eine Sitzung wechselt in den Zustand _draining_, wenn dies vom Server signalisiert wird.
+Dieses Signal kann gesendet werden, wenn die Sitzung (und möglicherweise die zugrunde liegende Verbindung) bald beendet werden soll, beispielsweise weil der Server die Last auf Backend-Instanzen verteilt, eine maximale Sitzungsdauer durchsetzt oder sogar neu startet.
+Das Leeren ist nur eine Aufforderung: Beide Endpunkte können die Sitzung weiterhin verwenden und neue Streams öffnen oder Datagramme senden. Es wird jedoch erwartet, dass die Anwendung ihre Arbeit abschließt und die Sitzung bald schließt.
 
-Eine Webanwendung kann das `draining`-Promise verwenden, um das erwartete Herunterfahren präventiv und geordnet zu behandeln.
+Eine Webanwendung kann das `draining`-Promise verwenden, um die erwartete Beendigung vorsorglich und geordnet zu behandeln.
 Sie kann beispielsweise die aktuelle Aufgabe an einem natürlichen Haltepunkt abschließen und eine neue Sitzung öffnen, um die Arbeit fortzusetzen.
 
-Das zurückgegebene Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird, und wird erfüllt, wenn die Sitzung in den Drain-Zustand wechselt.
-Der Zugriff auf dieses Promise oder das Warten darauf löst keine Aktion aus; es ermöglicht lediglich, Maßnahmen zu ergreifen, wenn die Sitzung mit dem Draining beginnt, ähnlich wie das Abhören eines Ereignisses.
+Das zurückgegebene Promise wird erstellt, wenn das `WebTransport`-Objekt erstellt wird, und wird erfüllt, wenn die Sitzung in den Zustand draining wechselt.
+Der Zugriff auf dieses Promise oder das Warten darauf löst keine Aktion aus; es ermöglicht lediglich, Maßnahmen zu ergreifen, wenn die Sitzung mit dem Leeren beginnt, ähnlich wie beim Lauschen auf ein Ereignis.
 
 ## Beispiele
 
-### Zu einem neuen Transport wechseln, wenn Draining beginnt
+### Beim Leeren zu einem neuen Transport migrieren
 
-In diesem Beispiel definieren wir zunächst eine Funktion `initTransport()`, die eine Verbindung erstellt und wartet, bis sie verwendbar ist:
+In diesem Beispiel definieren wir zunächst eine Funktion `initTransport()`, die eine Verbindung erstellt und wartet, bis sie verwendet werden kann:
 
 ```js
 const url = "https://example.com:4999/wt";
@@ -48,8 +48,8 @@ async function initTransport(url) {
 let transport = await initTransport(url);
 ```
 
-Anschließend definieren wir eine Funktion `migrateOnDraining()`, die darauf wartet, dass der Server angibt, dass die Sitzung mit dem Draining beginnen soll.
-Dadurch wird ein neuer Transport erstellt und zurückgegeben sowie der alte Transport geschlossen.
+Anschließend definieren wir eine Funktion `migrateOnDraining()`, die darauf wartet, dass der Server angibt, dass die Sitzung mit dem Leeren beginnen soll.
+Sie erstellt einen neuen Transport, gibt ihn zurück und schließt außerdem den alten Transport.
 
 ```js
 async function migrateOnDraining(url, oldTransport) {
@@ -74,7 +74,7 @@ migrateOnDraining(url, transport).then((newTransport) => {
 });
 ```
 
-Beachten Sie, dass wir die Sitzung oben zwar schließen, wenn Draining signalisiert wird, wir aber weiterhin den Fall behandeln müssten, dass die Sitzung durch einen anderen Mechanismus geschlossen wird.
+Beachten Sie, dass wir die Sitzung oben zwar schließen, wenn das Leeren signalisiert wird, wir aber dennoch den Fall behandeln müssten, dass die Sitzung durch einen anderen Mechanismus geschlossen wird.
 Dieser Code wartet auf das von [`WebTransport.closed`](/de/docs/Web/API/WebTransport/closed) zurückgegebene Promise und protokolliert, ob die Sitzung geordnet oder unerwartet geschlossen wurde.
 
 ```js

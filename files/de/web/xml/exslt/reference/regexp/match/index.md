@@ -2,10 +2,10 @@
 title: regexp:match()
 slug: Web/XML/EXSLT/Reference/regexp/match
 l10n:
-  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
+  sourceCommit: 8b0250d2e2bd4676046dbb441da91f7cefc32507
 ---
 
-`regexp:match()` führt eine reguläre Ausdrucksübereinstimmung auf einem String durch und gibt die gefundenen Teilübereinstimmungen als Ergebnis zurück.
+`regexp:match()` führt den Abgleich regulärer Ausdrücke mit einer Zeichenkette durch und gibt die dabei gefundenen Teilübereinstimmungen zurück.
 
 ## Syntax
 
@@ -16,24 +16,24 @@ regexp:match(targetString, regExpString[, flagsString])
 ### Parameter
 
 - `targetString`
-  - : Der String, auf dem die reguläre Ausdrucksübereinstimmung durchgeführt werden soll.
+  - : Die Zeichenkette, auf der der Abgleich mit einem regulären Ausdruck durchgeführt werden soll.
 - `regExpString`
-  - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet werden soll.
+  - : Der auszuwertende reguläre Ausdruck im JavaScript-Stil.
 - `flagsString` {{optional_inline}}
-  - : Ein optionaler String, der Zeichen-Flags enthält.
+  - : Eine optionale Zeichenkette mit Zeichen-Flags.
 
 Die Zeichen-Flags sind:
 
 - `g`
-  - : Globale Übereinstimmung. Die Teilübereinstimmungen von jedem Treffer im String werden zurückgegeben. Wenn dieses Flag nicht angegeben ist, werden nur die Teilübereinstimmungen des ersten Treffers zurückgegeben.
+  - : Globaler Abgleich. Die Teilübereinstimmungen aus jeder Übereinstimmung in der Zeichenkette werden zurückgegeben. Wenn dieses Flag nicht angegeben ist, werden nur die Teilübereinstimmungen der ersten Übereinstimmung zurückgegeben.
 - `i`
-  - : Groß-/Kleinschreibung ignorieren. Wenn dieses Flag angegeben ist, wird die Übereinstimmung ohne Berücksichtigung der Groß-/Kleinschreibung durchgeführt.
+  - : Abgleich ohne Berücksichtigung der Groß- und Kleinschreibung. Wenn dieses Flag angegeben ist, wird der Abgleich ohne Berücksichtigung der Groß- und Kleinschreibung durchgeführt.
 
 ### Rückgabewert
 
-Eine Knotenmenge von `match`-Elementen, von denen jedes den Stringwert eines Teils des ersten Parameterstrings hat, wie es durch den regulären Ausdruck erfasst wurde. Wenn die Übereinstimmung nicht global ist, hat das erste Match-Element den Wert des Teils des Strings, der durch den gesamten regulären Ausdruck übereinstimmt.
+Eine Knotenmenge von `match`-Elementen, deren Zeichenkettenwert jeweils einem Teil der ersten Parameterzeichenkette entspricht, der vom regulären Ausdruck erfasst wurde. Wenn die Übereinstimmung nicht global ist, hat das erste `match`-Element den Wert des Teils der Zeichenkette, der vom gesamten regulären Ausdruck erfasst wurde.
 
-Beispielsweise:
+Zum Beispiel:
 
 ```xml
 <xsl:for-each select="regExp:match('https://developer.mozilla.org/en/docs/Firefox_3_for_developers',
@@ -54,4 +54,4 @@ Part 5 = /en/docs/Firefox_3_for_developers
 
 ## Spezifikationen
 
-[EXSLT - REGEXP:MATCH](https://exslt.github.io/regexp/functions/match/index.html)
+[EXSLT – REGEXP:MATCH](https://exslt.github.io/regexp/functions/match/index.html)

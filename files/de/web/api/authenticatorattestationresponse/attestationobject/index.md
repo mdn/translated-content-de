@@ -1,28 +1,40 @@
 ---
-title: "AuthenticatorAttestationResponse: attestationObject-Eigenschaft"
+title: "AuthenticatorAttestationResponse: Eigenschaft „attestationObject“"
 short-title: attestationObject
 slug: Web/API/AuthenticatorAttestationResponse/attestationObject
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 381dfaf4d7f555e847b0af726a93ce48cde15915
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`attestationObject`**-Eigenschaft der [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Schnittstelle gibt einen {{jsxref("ArrayBuffer")}} zurück, der den neuen öffentlichen Schlüssel sowie eine Signatur über das gesamte `attestationObject` mit einem privaten Schlüssel enthält, der im Authenticator gespeichert ist, wenn dieser hergestellt wird.
+Die Eigenschaft **`attestationObject`** des Interfaces
+[`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) gibt einen
+{{jsxref("ArrayBuffer")}} zurück, der den neuen öffentlichen Schlüssel sowie eine Signatur über das
+gesamte `attestationObject` mit einem privaten Schlüssel enthält, der bei der Herstellung
+im Authenticator gespeichert wird.
 
-Als Teil des Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) wird ein Authenticator ein neues Schlüsselpaar sowie ein `attestationObject` für dieses Schlüsselpaar erstellen. Der öffentliche Schlüssel, der dem privaten Schlüssel entspricht, der die Attestationssignatur erstellt hat, ist bekannt; jedoch gibt es verschiedene bekannte Attestations-Öffentlich-Schlüsselketten für unterschiedliche Ökosysteme (z.B. Android oder TPM-Attestierungen).
+Im Rahmen des Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt ein Authenticator
+ein neues Schlüsselpaar sowie ein `attestationObject` für dieses Schlüsselpaar. Der öffentliche Schlüssel,
+der dem privaten Schlüssel entspricht, mit dem die Attestierungssignatur erstellt wurde, ist allgemein
+bekannt; allerdings gibt es verschiedene bekannte Attestierungs-Ketten öffentlicher Schlüssel für unterschiedliche
+Ökosysteme (beispielsweise Android- oder TPM-Attestierungen).
 
 ## Wert
 
-Nach der Dekodierung des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-codierten `ArrayBuffer` enthält das resultierende JavaScript-Objekt die folgenden Eigenschaften:
+Nach dem Dekodieren des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-kodierten
+`ArrayBuffer` enthält das resultierende JavaScript-Objekt die folgenden
+Eigenschaften:
 
 - `authData`
-  - : Die [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) für die Operation. Beachten Sie, dass in [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) die `authenticatorData` als eine Eigenschaft in einem JavaScript-Objekt verfügbar ist (siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)), während in [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) die `authenticatorData` eine Eigenschaft in einer [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-Map ist.
+  - : Die [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) für die Operation. Beachten Sie, dass in [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) die `authenticatorData` als Eigenschaft in einem JavaScript-Objekt verfügbar gemacht wird (siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)), während in [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) die `authenticatorData` eine Eigenschaft in einer [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-Map ist.
 
-    Dasselbe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)-Feld wird sowohl von `AuthenticatorAttestationResponse` als auch von `AuthenticatorAssertionResponse` verwendet. Bei der Verwendung in der Attestation enthält es ein optionales Feld, `attestedCredentialData`. Dieses Feld ist nicht enthalten, wenn es im `AuthenticatorAssertionResponse` verwendet wird. Das attestedCredentialData-Feld enthält die `credentialId` und `credentialPublicKey`.
+    Dasselbe Feld [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) wird sowohl von `AuthenticatorAttestationResponse` als auch von `AuthenticatorAssertionResponse` verwendet. Bei der Verwendung für die Attestierung enthält es ein optionales Feld, `attestedCredentialData`. Dieses Feld ist bei der Verwendung in `AuthenticatorAssertionResponse` nicht enthalten. Das Feld `attestedCredentialData` enthält `credentialId` und `credentialPublicKey`.
 
 - `fmt`
-  - : Ein Textstring, der das Format der attStmt angibt. Die [WebAuthn-Spezifikation definiert eine Reihe von Formaten](https://w3c.github.io/webauthn/#sctn-defined-attestation-formats); jedoch können Formate auch in anderen Spezifikationen definiert und in einem [IANA-Register](https://w3c.github.io/webauthn/#sctn-att-fmt-reg) registriert werden. Von WebAuthn definierte Formate sind:
+  - : Eine Textzeichenfolge, die das Format von `attStmt` angibt. Die [WebAuthn-Spezifikation definiert eine Reihe von Formaten](https://w3c.github.io/webauthn/#sctn-defined-attestation-formats); Formate können jedoch auch
+    in anderen Spezifikationen definiert und in einer [IANA-Registry](https://w3c.github.io/webauthn/#sctn-att-fmt-reg) registriert werden. Von WebAuthn
+    definierte Formate sind:
     - `"packed"`
     - `"tpm"`
     - `"android-key"`
@@ -31,11 +43,12 @@ Nach der Dekodierung des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-c
     - `"none"`
 
 - `attStmt`
-  - : Eine Attestationsaussage, die im von `"fmt"` definierten Format ist. Für Details zu jedem Format [siehe die WebAuthn-Spezifikation](https://w3c.github.io/webauthn/#sctn-defined-attestation-formats).
+  - : Eine Attestierungserklärung im durch `"fmt"` definierten Format. Weitere
+    Details zu jedem Format finden Sie vorerst in der [WebAuthn-Spezifikation](https://w3c.github.io/webauthn/#sctn-defined-attestation-formats).
 
 ## Beispiele
 
-Siehe [Erstellung eines öffentlichen Schlüssel-Zertifikats](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential) für ein ausführliches Beispiel.
+Ein ausführliches Beispiel finden Sie unter [Erstellen einer Public-Key-Credential](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential).
 
 ## Spezifikationen
 
@@ -47,4 +60,4 @@ Siehe [Erstellung eines öffentlichen Schlüssel-Zertifikats](/de/docs/Web/API/C
 
 ## Siehe auch
 
-- [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create): die Methode, die verwendet wird, um eine Erklärung mit einer kryptografischen `challenge` zu erstellen, deren Signatur durch den Authenticator in `attStmt` enthalten ist, mit der angegebenen `attestation`-Transportoption.
+- [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create): die Methode zum Erstellen einer Erklärung mit einer kryptografischen `challenge`, deren Signatur durch den Authenticator in `attStmt` enthalten ist, mit der angegebenen Transportoption `attestation`.

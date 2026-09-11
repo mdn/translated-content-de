@@ -2,19 +2,19 @@
 title: href
 slug: Web/MathML/Reference/Global_attributes/href
 l10n:
-  sourceCommit: ca6052779ddca9f6d99665f12c39aa2d85d85733
+  sourceCommit: 9ba3ab2c48fb51423f811d329818071e4c79caca
 ---
 
 {{Non-standard_header}}
 
-Das **`href`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
+Das globale Attribut **`href`** erstellt auf einem MathML-Element einen Hyperlink, der auf die angegebene URL verweist. Das Setzen von `href` auf MathML-Elementen außer {{MathMLElement("a")}} ist veraltet; Sie sollten das Element {{MathMLElement("a")}} verwenden, um Hyperlinks innerhalb von MathML-Inhalten zu erstellen.
 
 ## Beispiel
 
-Die erste Gleichung verlinkt auf den Wikipedia-Artikel über die [Massen-Energie-Äquivalenz](https://en.wikipedia.org/wiki/Mass-energy_equivalence). Der Quadratwurzelteil der zweiten Gleichung ist ein Link zur [SageMath](https://sagecell.sagemath.org/?z=eJwrLiwq0TCOM9I2iTPSBAAeqgPO) Berechnung.
+Die erste Gleichung verlinkt auf den Wikipedia-Artikel über die [Masse-Energie-Äquivalenz](https://en.wikipedia.org/wiki/Mass-energy_equivalence). Der Quadratwurzelteil der zweiten Gleichung ist ein Link zur [SageMath](https://sagecell.sagemath.org/?z=eJwrLiwq0TCOM9I2iTPSBAAeqgPO)-Berechnung.
 
 > [!NOTE]
-> Sie sollten das Verschachteln von MathML-Elementen mit `href`-Attributen vermeiden, genauso wie {{htmlelement("a")}}-Elemente, da dies zu Verwirrung bei den Benutzern und Barrierefreiheitsproblemen führen kann.
+> Sie sollten das Verschachteln von MathML-Elementen mit den Attributen `href` vermeiden, ebenso wie bei {{htmlelement("a")}}-Elementen, da dies zu Verwirrung bei Benutzern und zu Barrierefreiheitsproblemen führt.
 
 ```css hidden
 html,
@@ -78,7 +78,7 @@ body {
 
 ## Spezifikationen
 
-Das `href`-Attribut ist in keiner browserorientierten Spezifikation definiert, aber Sie finden eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#interf_link).
+Das Attribut `href` ist in keiner browserorientierten Spezifikation definiert, aber Sie finden eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#interf_link).
 
 ## Browser-Kompatibilität
 

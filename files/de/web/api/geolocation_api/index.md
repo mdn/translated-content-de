@@ -2,79 +2,79 @@
 title: Geolocation API
 slug: Web/API/Geolocation_API
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: b0e389028c444c28975be392cf8bb9886224208c
 ---
 
 {{securecontext_header}}{{DefaultAPISidebar("Geolocation API")}}
 
-Die **Geolocation API** ermöglicht es dem Benutzer, seine Position an Webanwendungen zu übermitteln, wenn er dies wünscht. Aus Datenschutzgründen wird der Benutzer um Erlaubnis gebeten, Standortinformationen zu melden.
+Die **Geolocation API** ermöglicht es dem Benutzer, Webanwendungen auf Wunsch seinen Standort bereitzustellen. Aus Datenschutzgründen wird der Benutzer um Erlaubnis gebeten, Standortinformationen zu übermitteln.
 
-WebExtensions, die das `Geolocation`-Objekt nutzen möchten, müssen die Berechtigung `"geolocation"` zu ihrem Manifest hinzufügen. Das Betriebssystem des Benutzers wird den Benutzer beim ersten Anfordern um Erlaubnis zur Nutzung des Standorts bitten.
+WebExtensions, die das `Geolocation`-Objekt verwenden möchten, müssen die Berechtigung `"geolocation"` zu ihrem Manifest hinzufügen. Das Betriebssystem des Benutzers fordert ihn beim ersten Anfordern des Standortzugriffs dazu auf, diesen zu erlauben.
 
 > [!NOTE]
-> Das {{htmlelement("geolocation")}}-Element bietet einen alternativen Mechanismus zum Zugriff auf und zur Verarbeitung von Geodaten, der einige der Einschränkungen der Geolocation-API löst: Es bietet eine konsistente Benutzeroberfläche und einen intuitiveren Berechtigungsverwaltungsprozess.
+> Das Element {{htmlelement("geolocation")}} bietet einen alternativen Mechanismus für den Zugriff auf und die Verarbeitung von Geolokalisierungsdaten, der einige der Schwächen der Geolocation API behebt: Es bietet eine konsistente Benutzeroberfläche und einen intuitiveren Prozess zur Berechtigungsverwaltung.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Oftmals wollen Sie die Standortinformationen eines Benutzers in Ihrer Webanwendung abrufen, beispielsweise um dessen Position auf einer Karte darzustellen oder personalisierte Informationen anzeigen zu können, die für dessen Standort relevant sind.
+Oft möchten Sie in Ihrer Web-App Standortinformationen eines Benutzers abrufen, beispielsweise um seinen Standort auf einer Karte darzustellen oder personalisierte Informationen anzuzeigen, die für seinen Standort relevant sind.
 
-Auf die Geolocation API wird durch einen Aufruf von [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation) zugegriffen; dies veranlasst den Browser des Benutzers, um Erlaubnis zur Verwendung seiner Standortdaten zu bitten. Wenn er zustimmt, wird der Browser die beste verfügbare Funktionalität des Geräts nutzen, um diese Informationen abzurufen (zum Beispiel GPS).
+Auf die Geolocation API wird über einen Aufruf von [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation) zugegriffen; dadurch fordert der Browser des Benutzers ihn auf, die Berechtigung zum Zugriff auf seine Standortdaten zu erteilen. Wenn er zustimmt, verwendet der Browser die beste auf dem Gerät verfügbare Funktionalität, um auf diese Informationen zuzugreifen (beispielsweise GPS).
 
-Der Entwickler kann nun auf diese Standortinformationen auf unterschiedliche Weise zugreifen:
+Der Entwickler kann nun auf verschiedene Arten auf diese Standortinformationen zugreifen:
 
-- [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition): Ruft die aktuelle Position des Geräts ab.
-- [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition): Registriert eine Handler-Funktion, die automatisch jedes Mal aufgerufen wird, wenn sich die Position des Geräts ändert und gibt die aktualisierte Position zurück.
+- [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition): Ruft den aktuellen Standort des Geräts ab.
+- [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition): Registriert eine Handler-Funktion, die jedes Mal automatisch aufgerufen wird, wenn sich die Position des Geräts ändert, und den aktualisierten Standort zurückgibt.
 
-In beiden Fällen nimmt der Methodenaufruf bis zu drei Argumente an:
+In beiden Fällen akzeptiert der Methodenaufruf bis zu drei Argumente:
 
-- Ein obligatorischer Erfolgs-Callback: Wenn das Abrufen der Standortdaten erfolgreich ist, wird der Callback mit einem [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt als einzigem Parameter ausgeführt, welches Zugriff auf die Standortdaten bietet.
-- Ein optionaler Fehler-Callback: Wenn das Abrufen der Standortdaten erfolglos ist, wird der Callback mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt als einzigem Parameter ausgeführt, welches Informationen darüber bereitstellt, was schief gelaufen ist.
-- Ein optionales Objekt, welches Optionen für das Abrufen der Positionsdaten bietet.
+- Ein obligatorischer Erfolgs-Callback: Wenn das Abrufen des Standorts erfolgreich ist, wird der Callback mit einem [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekt als einzigem Parameter ausgeführt, das Zugriff auf die Standortdaten bietet.
+- Ein optionaler Fehler-Callback: Wenn das Abrufen des Standorts nicht erfolgreich ist, wird der Callback mit einem [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekt als einzigem Parameter ausgeführt, das Informationen darüber bereitstellt, was schiefgelaufen ist.
+- Ein optionales Objekt, das Optionen für das Abrufen der Positionsdaten bereitstellt.
 
-Für weitere Informationen zur Nutzung der Geolocation lesen Sie [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API).
+Weitere Informationen zur Verwendung von Geolocation finden Sie unter [Verwenden der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API).
 
 ## Schnittstellen
 
 - [`Geolocation`](/de/docs/Web/API/Geolocation)
-  - : Die Hauptklasse dieser API — enthält Methoden zum Abrufen der aktuellen Position des Benutzers, Überwachen von Positionsänderungen und Löschen eines zuvor gesetzten Watches.
+  - : Die Hauptklasse dieser API — enthält Methoden zum Abrufen der aktuellen Position des Benutzers, zum Überwachen von Änderungen seiner Position und zum Löschen einer zuvor eingerichteten Überwachung.
 - [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)
-  - : Repräsentiert die Position eines Benutzers. Eine Instanz von `GeolocationPosition` wird bei einem erfolgreichen Aufruf einer der Methoden innerhalb von [`Geolocation`](/de/docs/Web/API/Geolocation) in einem Erfolgs-Callback zurückgegeben und enthält einen Zeitstempel sowie eine Instanz eines [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts.
+  - : Stellt die Position eines Benutzers dar. Eine `GeolocationPosition`-Instanz wird innerhalb eines Erfolgs-Callbacks durch einen erfolgreichen Aufruf einer der in [`Geolocation`](/de/docs/Web/API/Geolocation) enthaltenen Methoden zurückgegeben und enthält einen Zeitstempel sowie eine [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objektinstanz.
 - [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)
-  - : Repräsentiert die Koordinaten der Position eines Benutzers; eine Instanz von `GeolocationCoordinates` enthält Breiten- und Längengrad sowie weitere wichtige Informationen.
+  - : Stellt die Koordinaten der Position eines Benutzers dar; eine `GeolocationCoordinates`-Instanz enthält Breitengrad, Längengrad und weitere wichtige zugehörige Informationen.
 - [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)
-  - : Ein `GeolocationPositionError` wird bei einem erfolglosen Aufruf einer der Methoden innerhalb von [`Geolocation`](/de/docs/Web/API/Geolocation) in einem Fehler-Callback zurückgegeben und enthält einen Fehlercode und eine Fehlermeldung.
+  - : Ein `GeolocationPositionError` wird innerhalb eines Fehler-Callbacks durch einen nicht erfolgreichen Aufruf einer der in [`Geolocation`](/de/docs/Web/API/Geolocation) enthaltenen Methoden zurückgegeben und enthält einen Fehlercode und eine Fehlermeldung.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen anderer Schnittstellen
 
 - [`Navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation)
-  - : Der Einstiegspunkt in die API. Gibt eine Instanz eines [`Geolocation`](/de/docs/Web/API/Geolocation)-Objekts zurück, von dem aus alle weiteren Funktionen zugänglich sind.
+  - : Der Einstiegspunkt in die API. Gibt eine [`Geolocation`](/de/docs/Web/API/Geolocation)-Objektinstanz zurück, über die auf alle weiteren Funktionen zugegriffen werden kann.
 
-## Sicherheitsüberlegungen
+## Sicherheitsaspekte
 
-Die Geolocation API ermöglicht es Benutzern, programmgesteuert Standortinformationen in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) abzurufen.
+Die Geolocation API ermöglicht Benutzern den programmatischen Zugriff auf Standortinformationen in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts).
 
-Der Zugriff kann durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Richtlinie {{HTTPHeader("Permissions-Policy/geolocation","geolocation")}} weiter kontrolliert werden.
-Die Standard-Erlaubnisliste für `geolocation` ist `self`, was den Zugriff auf Standortinformationen nur in Same-Origin-verschachtelten Frames erlaubt.
-Drittparteinutzung wird aktiviert, indem ein `Permissions-Policy`-Antwortheader gesetzt wird, um die Erlaubnis für einen bestimmten Drittanbieter-Origin zu erteilen:
+Der Zugriff kann außerdem durch die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktive {{HTTPHeader("Permissions-Policy/geolocation","geolocation")}} gesteuert werden.
+Die Standard-Allowlist für `geolocation` ist `self`, wodurch der Zugriff auf Standortinformationen nur in verschachtelten Frames desselben Ursprungs erlaubt wird.
+Die Nutzung durch Dritte wird aktiviert, indem ein `Permissions-Policy`-Response-Header festgelegt wird, der einem bestimmten Drittanbieter-Ursprung die Berechtigung erteilt:
 
 ```http
 Permissions-Policy: geolocation=(self b.example.com)
 ```
 
-Das Attribut `allow="geolocation"` muss dann dem iframe-Element hinzugefügt werden, das Quellen von diesem Origin enthält:
+Das Attribut `allow="geolocation"` muss dann dem iframe-Element mit Quellen dieses Ursprungs hinzugefügt werden:
 
 ```html
 <iframe src="https://b.example.com" allow="geolocation"></iframe>
 ```
 
-Geolokationsdaten können Informationen offenbaren, die der Gerätebesitzer nicht teilen möchte.
-Daher müssen Benutzer explizit die Erlaubnis über ein Prompt erteilen, wenn entweder [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) oder [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) aufgerufen wird (es sei denn, der Berechtigungsstatus ist bereits `gewährt` oder `verweigert`).
-Die Laufzeit einer gewährten Erlaubnis hängt vom User Agent ab und kann zeitbasiert, sitzungsbasiert oder sogar dauerhaft sein.
-Die [Permissions API](/de/docs/Web/API/Permissions_API) `geolocation`-Berechtigung kann verwendet werden, um zu testen, ob der Zugriff auf Standortinformationen `gewährt`, `verweigert` oder `auffordern` ist (erfordert Benutzerbestätigung eines Prompts).
+Geolokalisierungsdaten können Informationen offenlegen, die der Eigentümer des Geräts nicht teilen möchte.
+Daher müssen Benutzer über eine Aufforderung ausdrücklich ihre Zustimmung erteilen, wenn entweder [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) oder [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) aufgerufen wird (es sei denn, der Berechtigungsstatus ist bereits `granted` oder `denied`).
+Die Gültigkeitsdauer einer erteilten Berechtigung hängt vom User-Agent ab und kann zeitbasiert, sitzungsbasiert oder sogar dauerhaft sein.
+Die `geolocation`-Berechtigung der [Permissions API](/de/docs/Web/API/Permissions_API) kann verwendet werden, um zu prüfen, ob der Zugriff zur Verwendung von Standortinformationen `granted`, `denied` oder `prompt` ist (erfordert die Bestätigung einer Aufforderung durch den Benutzer).
 
 ## Beispiele
 
-Sehen Sie sich [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples) für Beispielcode an.
+Beispielcode finden Sie unter [Verwenden der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#examples).
 
 ## Spezifikationen
 
@@ -86,10 +86,10 @@ Sehen Sie sich [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API
 
 ### Verfügbarkeit
 
-Da die positionsbasierte Standortbestimmung oft von Google bereitgestellt wird, ist die Standard-Geolocation-API in China möglicherweise nicht verfügbar. Sie können lokale Drittanbieter wie [Baidu](https://lbsyun.baidu.com/index.php?title=jspopular/guide/geolocation), [Autonavi](https://lbs.amap.com/api/javascript-api/guide/services/geolocation#geolocation) oder [Tencent](https://lbs.qq.com/service/webService/webServiceGuide/position/webServiceIp) nutzen. Diese Dienste verwenden die IP-Adresse des Benutzers und/oder eine lokale App, um eine verbesserte Positionsbestimmung zu bieten.
+Da die WLAN-basierte Standortbestimmung häufig von Google bereitgestellt wird, ist die standardmäßige Geolocation API in China möglicherweise nicht verfügbar. Sie können lokale Drittanbieter wie [Baidu](https://lbsyun.baidu.com/index.php?title=jspopular/guide/geolocation), [Autonavi](https://lbs.amap.com/api/javascript-api/guide/services/geolocation#geolocation) oder [Tencent](https://lbs.qq.com/service/webService/webServiceGuide/position/webServiceIp) verwenden. Diese Dienste verwenden die IP-Adresse des Benutzers und/oder eine lokale App, um eine verbesserte Positionsbestimmung bereitzustellen.
 
 ## Siehe auch
 
 - {{htmlelement("geolocation")}}-Element
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- [Who moved my geolocation?](https://hacks.mozilla.org/2013/10/who-moved-my-geolocation/) (Hacks-Blog)
+- [Verwenden der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [Wer hat meine Geolokalisierung verschoben?](https://hacks.mozilla.org/2013/10/who-moved-my-geolocation/) (Hacks-Blog)
