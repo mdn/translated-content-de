@@ -1,12 +1,14 @@
 ---
-title: "mul_wide_u: Wasm Zahl-Operation"
+title: "mul_wide_u: Wasm-Numerikinstruktion"
 short-title: mul_wide_u
 slug: WebAssembly/Reference/Numeric/mul_wide_u
 l10n:
-  sourceCommit: 62363e17443a327a2b10525560a5886534a631b7
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
-Die **`mul_wide_u`** [Zahl-Operation](/de/docs/WebAssembly/Reference/Numeric) multipliziert zwei vorzeichenlose 64-Bit-Integer, um ein vorzeichenloses 128-Bit-Ergebnis zu erzeugen, das durch zwei 64-Bit-Integer dargestellt wird.
+{{SeeCompatTable}}
+
+Die **`mul_wide_u`**-[Numerikinstruktion](/de/docs/WebAssembly/Reference/Numeric) multipliziert zwei vorzeichenlose 64-Bit-Ganzzahlen, um ein vorzeichenloses 128-Bit-Ergebnis zu erzeugen, das durch zwei 64-Bit-Ganzzahlen dargestellt wird.
 
 {{InteractiveExample("Wat Demo: mul_wide_u", "tabbed-taller")}}
 
@@ -37,40 +39,40 @@ i64.mul_wide_u
 ```
 
 - `i64.mul_wide_u`
-  - : Der `i64.mul_wide_u` Befehl.
+  - : Die `i64.mul_wide_u`-Instruktion.
 
-### Unmittelbare Werte
+### Immediate-Werte
 
 Keine.
 
-### Operand-Stack
+### Operandenstapel
 
 ```plain
 [input1:i64 input2:i64] -> [low_output:i64 high_output:i64]
 ```
 
 - `input1`
-  - : Die erste [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64) Eingabe.
+  - : Die erste [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64)-Eingabe.
 - `input2`
-  - : Die zweite `i64` Eingabe.
+  - : Die zweite `i64`-Eingabe.
 - `low_output`
   - : Ein `i64`, das die unteren 64 Bits des Ergebnisses darstellt.
 - `high_output`
   - : Ein `i64`, das die oberen 64 Bits des Ergebnisses darstellt.
 
-### Binäre Kodierung
+### Binärkodierung
 
-| Anweisung        | Binärformat   | Beispiels Text => Binär         |
+| Instruktion      | Binärformat   | Beispieltext => Binärformat     |
 | ---------------- | ------------- | ------------------------------- |
 | `i64.mul_wide_u` | `0xfc 22:u32` | `i64.mul_wide_u` => `0xfc 0x16` |
 
 ## Beschreibung
 
-Die `mul_wide_u` Operation multipliziert zwei vorzeichenlose `i64` Werte, um ein vorzeichenloses 128-Bit-Ergebnis zu erzeugen, das durch ein Paar von `i64` Werten dargestellt wird.
+Die `mul_wide_u`-Instruktion multipliziert zwei vorzeichenlose `i64`-Werte, um ein vorzeichenloses 128-Bit-Ergebnis zu erzeugen, das durch ein Paar von `i64`-Werten dargestellt wird.
 
-Dies ist eine der **breite arithmetische** Operationen, die in Situationen nützlich sind, in denen Zahlen größer als 64 Bit in Quellsprachen verwendet werden, die Wasm als Kompilierungsziel haben. Ein solches Beispiel sind kryptographische Algorithmen.
+Dies ist eine der Operationen der **breiten Arithmetik**, die in Situationen nützlich sind, in denen in Quellsprachen Zahlen verwendet werden, die größer als 64 Bit sind und Wasm als Kompilierungsziel verwenden. Ein solches Beispiel sind kryptografische Algorithmen.
 
-Diese Methoden ermöglichen es Engines, effizienteren Maschinencode für diese Operationen zu generieren, als es mit `i64` arithmetischen Operationen möglich ist.
+Diese Methoden ermöglichen es Engines, für diese Operationen leistungsfähigeren Maschinencode zu erzeugen, als dies mit `i64`-Arithmetikoperationen möglich ist.
 
 ## Spezifikationen
 

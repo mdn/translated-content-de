@@ -3,16 +3,16 @@ title: "HTMLInputElement: pattern-Eigenschaft"
 short-title: pattern
 slug: Web/API/HTMLInputElement/pattern
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 61986210fa785119daed1c121491fef615ec2bc8
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`pattern`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interface repräsentiert einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions), den ein nicht-null {{HTMLElement("input")}}-Wert erfüllen sollte. Sie spiegelt das [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`pattern`**-Eigenschaft der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) repräsentiert einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions), dem ein nicht-`null`-Wert von {{HTMLElement("input")}} entsprechen sollte. Sie spiegelt das Attribut [`pattern`](/de/docs/Web/HTML/Reference/Attributes/pattern) des {{htmlelement("input")}}-Elements wider.
 
-Die `pattern`-Eigenschaft ist gültig für die Typen `text`, `search`, `url`, `tel`, `email` und `password`. Sie definiert einen regulären Ausdruck, den der [`value`](/de/docs/Web/API/HTMLInputElement/value) des Eingabefeldes erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) besteht.
+Die Eigenschaft `pattern` ist für die Typen `text`, `search`, `url`, `tel`, `email` und `password` gültig. Sie definiert einen regulären Ausdruck, dem der [`value`](/de/docs/Web/API/HTMLInputElement/value) der Eingabe entsprechen muss, damit der Wert die [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) besteht.
 
-Wenn ein nicht-`null`-Wert nicht den durch den `pattern`-Wert festgelegten Einschränkungen entspricht, wird die schreibgeschützte [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein.
+Wenn ein nicht-`null`-Wert nicht den durch den Wert von `pattern` festgelegten Einschränkungen entspricht, ist die schreibgeschützte Eigenschaft [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch) des Objekts [`ValidityState`](/de/docs/Web/API/ValidityState) `true`.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein String.
 
 ```js
 const inputElement = document.getElementById("year");
-console.log(input.pattern);
+console.log(inputElement.pattern);
 ```
 
 ## Spezifikationen
@@ -38,4 +38,4 @@ console.log(input.pattern);
 - {{HTMLElement("input")}}
 - [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
 - [Client-seitige Validierung](/de/docs/Web/HTML/Reference/Elements/input#client-side_validation)
-- {{CSSXref(":valid")}} und {{CSSXref(":invalid")}} Pseudoklassen
+- {{CSSXref(":valid")}}- und {{CSSXref(":invalid")}}-Pseudoklassen

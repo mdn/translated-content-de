@@ -2,50 +2,50 @@
 title: SVGTransformList
 slug: Web/API/SVGTransformList
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
 ---
 
 {{APIRef("SVG")}}
 
-Das **`SVGTransformList`**-Interface definiert eine Liste von [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekten.
+Die Schnittstelle **`SVGTransformList`** definiert eine Liste von [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekten.
 
-Ein `SVGTransformList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGTransformList`-Objekt kann als schreibgeschützt festgelegt werden. In diesem Fall führen Versuche, das Objekt zu ändern, dazu, dass eine Ausnahme ausgelöst wird.
 
-Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werden.
+Eine `SVGTransformList` ist indexierbar und kann mithilfe der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) wie ein Array aufgerufen werden. Das Lesen eines Index entspricht dem Aufruf von [`getItem()`](/de/docs/Web/API/SVGTransformList/getItem). Das Zuweisen zu einem Index entspricht dem Aufruf von [`replaceItem()`](/de/docs/Web/API/SVGTransformList/replaceItem), einschließlich der dabei ausgelösten Ausnahmen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems)
   - : Die Anzahl der Elemente in der Liste.
 - [`length`](/de/docs/Web/API/SVGTransformList/length)
   - : Die Anzahl der Elemente in der Liste.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`clear()`](/de/docs/Web/API/SVGTransformList/clear)
-  - : Entfernt alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
+  - : Entfernt alle vorhandenen aktuellen Elemente aus der Liste, sodass eine leere Liste entsteht.
 - [`initialize()`](/de/docs/Web/API/SVGTransformList/initialize)
-  - : Entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten. Wenn das eingefügte Element bereits in einer Liste vorhanden ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+  - : Entfernt alle vorhandenen aktuellen Elemente aus der Liste und initialisiert die Liste erneut, sodass sie das durch den Parameter angegebene einzelne Element enthält. Falls sich das eingefügte Element bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
 - [`getItem()`](/de/docs/Web/API/SVGTransformList/getItem)
-  - : Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen, die am Element vorgenommen werden, spiegeln sich sofort in der Liste wider. Das erste Element ist die Nummer `0`.
+  - : Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle am Element vorgenommenen Änderungen werden sofort in der Liste widergespiegelt. Das erste Element hat die Nummer `0`.
 - [`insertItemBefore()`](/de/docs/Web/API/SVGTransformList/insertItemBefore)
-  - : Fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste Element ist die Nummer `0`. Wenn `newItem` bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass sich der Index des einzufügenden Elements vor der Entfernung des Elements befindet. Wenn der `index` gleich 0 ist, wird das neue Element an der Spitze der Liste eingefügt. Wenn der Index größer oder gleich `numberOfItems` ist, wird das neue Element am Ende der Liste angehängt.
+  - : Fügt an der angegebenen Position ein neues Element in die Liste ein. Das erste Element hat die Nummer `0`. Falls sich `newItem` bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Falls sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des Elements, vor dem eingefügt werden soll, vor dem Entfernen des Elements bestimmt wird. Wenn der `index` gleich 0 ist, wird das neue Element am Anfang der Liste eingefügt. Wenn der Index größer oder gleich `numberOfItems` ist, wird das neue Element am Ende der Liste angehängt.
 - [`replaceItem()`](/de/docs/Web/API/SVGTransformList/replaceItem)
-  - : Ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Wenn `newItem` bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn sich das Element bereits in dieser Liste befindet, beachten Sie bitte, dass sich der Index des zu ersetzenden Elements vor der Entfernung des Elements befindet.
+  - : Ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Falls sich `newItem` bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Falls sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements bestimmt wird.
 - [`removeItem()`](/de/docs/Web/API/SVGTransformList/removeItem)
   - : Entfernt ein vorhandenes Element aus der Liste.
 - [`appendItem()`](/de/docs/Web/API/SVGTransformList/appendItem)
-  - : Fügt ein neues Element am Ende der Liste ein. Wenn `newItem` bereits in einer Liste vorhanden ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
+  - : Fügt ein neues Element am Ende der Liste ein. Falls sich `newItem` bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
 - [`createSVGTransformFromMatrix()`](/de/docs/Web/API/SVGTransformList/createSVGTransformFromMatrix)
-  - : Erstellt ein `SVGTransform`-Objekt, das initialisiert wird, um eine Transformation vom Typ `SVG_TRANSFORM_MATRIX` zu erzeugen und dessen Werte die angegebenen Matrizen sind. Die Werte der Parameter-Matrix werden kopiert, die Matrix-Parameter wird nicht als `SVGTransform::matrix` übernommen.
+  - : Erstellt ein `SVGTransform`-Objekt, das mit einer Transformation des Typs `SVG_TRANSFORM_MATRIX` initialisiert wird und dessen Werte die angegebene Matrix sind. Die Werte aus der Parametermatrix werden kopiert; der Matrixparameter wird nicht als `SVGTransform::matrix` übernommen.
 - [`consolidate()`](/de/docs/Web/API/SVGTransformList/consolidate)
-  - : Konsolidiert die Liste separater `SVGTransform`-Objekte, indem die äquivalenten Transformationsmatrizen multipliziert werden, um eine Liste zu erstellen, die aus einem einzelnen `SVGTransform`-Objekt vom Typ `SVG_TRANSFORM_MATRIX` besteht. Die Konsolidierungsoperation erstellt ein neues `SVGTransform`-Objekt als das erste und einzige Element in der Liste. Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle Änderungen, die am Element vorgenommen werden, spiegeln sich sofort in der Liste wider.
+  - : Fasst die Liste separater `SVGTransform`-Objekte zusammen, indem die entsprechenden Transformationsmatrizen miteinander multipliziert werden, sodass eine Liste entsteht, die aus einem einzelnen `SVGTransform`-Objekt des Typs `SVG_TRANSFORM_MATRIX` besteht. Der Zusammenfassungsvorgang erstellt ein neues `SVGTransform`-Objekt als erstes und einziges Element in der Liste. Das zurückgegebene Element ist das Element selbst und keine Kopie. Alle am Element vorgenommenen Änderungen werden sofort in der Liste widergespiegelt.
 
 ## Beispiele
 
-### Verwenden mehrerer SVGTransform-Objekte
+### Mehrere SVGTransform-Objekte verwenden
 
-In diesem Beispiel erstellen wir eine Funktion, die drei unterschiedliche Transformationen auf das SVG-Element anwenden wird, auf das geklickt wurde. Um dies zu tun, erstellen wir ein separates [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt für jede Transformation — wie `translate`, `rotate` und `scale`. Wir wenden mehrere Transformationen an, indem wir das Transformationsobjekt an die `SVGTransformList` anhängen, die mit einem SVG-Element verknüpft ist.
+In diesem Beispiel erstellen wir eine Funktion, die drei verschiedene Transformationen auf das angeklickte SVG-Element anwendet. Dazu erstellen wir für jede Transformation ein separates [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt — beispielsweise `translate`, `rotate` und `scale`. Wir wenden mehrere Transformationen an, indem wir das Transformationsobjekt an die mit einem SVG-Element verknüpfte `SVGTransformList` anhängen.
 
 ```html
 <svg
@@ -102,6 +102,43 @@ document.querySelector("rect").addEventListener("click", transformMe);
 ```
 
 {{EmbedLiveSample("Using_multiple_SVGTransform_objects",300,280)}}
+
+### Eine Transformation mit Klammernotation ersetzen
+
+In diesem Beispiel wird ein Element in der Liste mithilfe der Klammernotation anstelle von [`replaceItem()`](/de/docs/Web/API/SVGTransformList/replaceItem) ersetzt. Bei jedem Drücken der Schaltfläche liest der Code den aktuellen Winkel aus `transformList[0]`, erstellt ein um weitere 15 Grad gedrehtes [`SVGTransform`](/de/docs/Web/API/SVGTransform) und weist es wieder `transformList[0]` zu.
+
+```html
+<svg
+  id="my-svg"
+  viewBox="0 0 100 100"
+  width="150"
+  height="150"
+  xmlns="http://www.w3.org/2000/svg">
+  <rect
+    x="30"
+    y="30"
+    width="40"
+    height="40"
+    fill="blue"
+    transform="rotate(0, 50, 50)" />
+</svg>
+<button id="rotate">Rotate by 15 degrees</button>
+```
+
+```js
+const svg = document.getElementById("my-svg");
+const rect = svg.querySelector("rect");
+const transformList = rect.transform.baseVal;
+
+document.getElementById("rotate").addEventListener("click", () => {
+  const rotate = svg.createSVGTransform();
+  rotate.setRotate(transformList[0].angle + 15, 50, 50);
+  // Equivalent to transformList.replaceItem(rotate, 0)
+  transformList[0] = rotate;
+});
+```
+
+{{EmbedLiveSample("Replacing_a_transform_using_bracket_notation", "", "220")}}
 
 ## Spezifikationen
 

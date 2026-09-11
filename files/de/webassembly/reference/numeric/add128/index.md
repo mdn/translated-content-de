@@ -1,12 +1,14 @@
 ---
-title: "add128: Wasm numerische Anweisung"
+title: "add128: Wasm-Numerikinstruktion"
 short-title: add128
 slug: WebAssembly/Reference/Numeric/add128
 l10n:
-  sourceCommit: 62363e17443a327a2b10525560a5886534a631b7
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
-Die **`add128`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) addiert zwei 128-Bit-Ganzzahlen, die durch vier 64-Bit-Ganzzahlen dargestellt werden, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei 64-Bit-Ganzzahlen dargestellt wird.
+{{SeeCompatTable}}
+
+Die **`add128`**-[numerische Instruktion](/de/docs/WebAssembly/Reference/Numeric) addiert zwei 128-Bit-Ganzzahlen, die durch vier 64-Bit-Ganzzahlen dargestellt werden, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei 64-Bit-Ganzzahlen dargestellt wird.
 
 {{InteractiveExample("Wat Demo: add128", "tabbed-taller")}}
 
@@ -39,44 +41,44 @@ i64.add128
 ```
 
 - `i64.add128`
-  - : Die `i64.add128`-Anweisung.
+  - : Die Instruktion `i64.add128`.
 
 ### Unmittelbare Werte
 
 Keine.
 
-### Operand-Stack
+### Operanden-Stack
 
 ```plain
 [low_left_input:i64 high_left_input:i64 low_right_input:i64 high_right_input:i64] -> [low_output:i64 high_output:i64]
 ```
 
 - `low_left_input`
-  - : Ein [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64), der die niedrigen 64 Bit der linken 128-Bit-Ganzzahl repräsentiert.
+  - : Ein [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64), das die unteren 64 Bit der linken 128-Bit-Ganzzahl darstellt.
 - `high_left_input`
-  - : Ein `i64`, der die hohen 64 Bit der linken 128-Bit-Ganzzahl repräsentiert.
+  - : Ein `i64`, das die oberen 64 Bit der linken 128-Bit-Ganzzahl darstellt.
 - `low_right_input`
-  - : Ein `i64`, der die niedrigen 64 Bit der rechten 128-Bit-Ganzzahl repräsentiert.
+  - : Ein `i64`, das die unteren 64 Bit der rechten 128-Bit-Ganzzahl darstellt.
 - `high_right_input`
-  - : Ein `i64`, der die hohen 64 Bit der rechten 128-Bit-Ganzzahl repräsentiert.
+  - : Ein `i64`, das die oberen 64 Bit der rechten 128-Bit-Ganzzahl darstellt.
 - `low_output`
-  - : Ein `i64`, der die niedrigen 64 Bit des Ergebnisses repräsentiert.
+  - : Ein `i64`, das die unteren 64 Bit des Ergebnisses darstellt.
 - `high_output`
-  - : Ein `i64`, der die hohen 64 Bit des Ergebnisses repräsentiert.
+  - : Ein `i64`, das die oberen 64 Bit des Ergebnisses darstellt.
 
-### Binäre Kodierung
+### Binärkodierung
 
-| Anweisung    | Binärformat   | Beispieltext => binär       |
+| Instruktion  | Binärformat   | Beispieltext => Binär       |
 | ------------ | ------------- | --------------------------- |
 | `i64.add128` | `0xfc 19:u32` | `i64.add128` => `0xfc 0x13` |
 
 ## Beschreibung
 
-Die `add128`-Anweisung addiert zwei 128-Bit-Ganzzahlen — dargestellt durch vier `i64`-Werte — zusammen, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei `i64`-Werte dargestellt wird.
+Die Instruktion `add128` addiert zwei 128-Bit-Ganzzahlen — dargestellt durch vier `i64`-Werte —, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei `i64`-Werte dargestellt wird.
 
-Dies ist eine der **weiten arithmetischen** Operationen, die nützlich sind in Situationen, in denen Zahlen, die größer als 64 Bit sind, in Quellsprachen verwendet werden, wobei Wasm als Kompilierungsziel dient. Ein solches Beispiel sind kryptografische Algorithmen.
+Dies ist eine der Operationen für **breite Arithmetik**, die in Situationen nützlich sind, in denen in Quellsprachen Zahlen verwendet werden, die größer als 64 Bit sind und Wasm als Kompilierungsziel verwenden. Ein Beispiel dafür sind kryptografische Algorithmen.
 
-Diese Methoden ermöglichen es Engines, performanteren Maschinencode für diese Operationen zu generieren, als dies mit `i64`-Arithmetikoperationen möglich ist.
+Diese Methoden ermöglichen es Engines, für diese Operationen leistungsfähigeren Maschinencode zu erzeugen, als dies mit `i64`-arithmetischen Operationen möglich ist.
 
 ## Spezifikationen
 

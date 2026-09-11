@@ -1,19 +1,19 @@
 ---
-title: "Blob: textStream() Methode"
+title: "Blob: textStream()-Methode"
 short-title: textStream()
 slug: Web/API/Blob/textStream
 l10n:
-  sourceCommit: 1bfa4c3f7895d734df516d2bc61240313397a63c
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
-{{APIRef("File API")}}{{AvailableInWorkers}}
+{{APIRef("File API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`textStream()`**-Methode des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der verwendet werden kann, um die Inhalte des `Blob` in UTF-8-Chunks zu lesen.
+Die **`textStream()`**-Methode der Schnittstelle [`Blob`](/de/docs/Web/API/Blob) gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der verwendet werden kann, um den Inhalt des `Blob` in UTF-8-Chunks zu lesen.
 
-Dies bietet einen einfacheren Mechanismus zum Streamen des Inhalts als das Durchleiten eines [`Blob.stream()`](/de/docs/Web/API/Blob/stream)-Byte-Streams durch einen [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream).
+Dies bietet einen einfacheren Mechanismus zum Streamen des Inhalts, als einen Byte-Stream von [`Blob.stream()`](/de/docs/Web/API/Blob/stream) durch einen [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) zu leiten.
 
 > [!NOTE]
-> Die `textStream()`-Methode unterscheidet sich von [`FileReader.readAsText()`](/de/docs/Web/API/FileReader/readAsText) dadurch, dass sie immer UTF-8-Codierung verwendet, während `readAsText()` einen Parameter hat, der die Codierung festlegt.
+> Die Methode `textStream()` unterscheidet sich von [`FileReader.readAsText()`](/de/docs/Web/API/FileReader/readAsText) dadurch, dass sie immer die UTF-8-Kodierung verwendet, während `readAsText()` einen Parameter besitzt, der die Kodierung festlegt.
 
 ## Syntax
 
@@ -31,11 +31,11 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-### Lesen von Blob-Inhalten als Text-Stream
+### Blob-Inhalt als Text-Stream lesen
 
-Dieses Beispiel zeigt, wie man Blob-Inhalte als Text-Stream liest.
+Dieses Beispiel zeigt, wie Blob-Inhalt als Text-Stream gelesen wird.
 
-Wir erstellen ein Beispiel-`Blob`, erhalten einen `ReadableStream` seines Inhalts mit `textStream()`, und lesen dann den Text über einen Reader, der mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erstellt wurde.
+Wir erstellen einen Beispiel-`Blob`, rufen mithilfe von `textStream()` einen `ReadableStream` seines Inhalts ab und lesen dann den Text über einen Reader, der mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) erstellt wurde.
 
 ```js
 const pElem = document.querySelector("p");

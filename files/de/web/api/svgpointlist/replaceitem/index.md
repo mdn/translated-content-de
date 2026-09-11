@@ -1,14 +1,16 @@
 ---
-title: "SVGPointList: replaceItem() Methode"
+title: "SVGPointList: Methode replaceItem()"
 short-title: replaceItem()
 slug: Web/API/SVGPointList/replaceItem
 l10n:
-  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
+  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
 ---
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle ersetzt einen [`DOMPoint`](/de/docs/Web/API/DOMPoint) in der Liste.
+Die Methode **`replaceItem()`** des Interfaces [`SVGPointList`](/de/docs/Web/API/SVGPointList) ersetzt einen [`DOMPoint`](/de/docs/Web/API/DOMPoint) in der Liste.
+
+Die Zuweisung zu einem Index der Liste hat denselben Effekt wie der Aufruf dieser Methode, mit Ausnahme, dass kein Rückgabewert vorhanden ist.
 
 ## Syntax
 
@@ -36,7 +38,7 @@ Das neue [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`DOMPoint`](/de/docs/Web/API/DOMPoint) wird erstellt und ersetzt dann den Punkt an Index `1` (das zweite Element in der Liste).
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`DOMPoint`](/de/docs/Web/API/DOMPoint) wird erstellt und ersetzt dann den Punkt am Index `1` (das zweite Element in der Liste).
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

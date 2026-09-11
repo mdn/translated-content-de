@@ -41,7 +41,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGraphics
   - : Ein String, der die Portkomponente der referenzierten URL darstellt, falls vorhanden.
 - [`SVGAElement.protocol`](/de/docs/Web/API/SVGAElement/protocol) {{experimental_inline}}
   - : Ein String, der die Protokollkomponente, einschließlich des nachfolgenden Doppelpunktes (`:`), der referenzierten URL darstellt.
-- [`SVGAElement.referrerPolicy`](/de/docs/Web/API/SVGAElement/referrerpolicy)
+- [`SVGAElement.referrerPolicy`](/de/docs/Web/API/SVGAElement/referrerPolicy)
   - : Ein String, der angibt, welcher [Referrer](/de/docs/Web/HTTP/Reference/Headers/Referer) gesendet werden soll, wenn die {{Glossary("URL", "URL")}} abgerufen wird.
 - [`SVGAElement.rel`](/de/docs/Web/API/SVGAElement/rel)
   - : Ein String, der das `rel`-SVG-Attribut widerspiegelt und die Beziehung zum Ziel des Links angibt.

@@ -3,14 +3,14 @@ title: "SVGAElement: rel-Eigenschaft"
 short-title: rel
 slug: Web/API/SVGAElement/rel
 l10n:
-  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
+  sourceCommit: c41febcc1658a64561687d36e5b79a89c3f7f676
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rel`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt einen String zurück, der den Wert des `rel`-Attributs des SVG-{{svgelement("a")}}-Elements widerspiegelt.
+Die **`rel`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interface gibt einen String zurück, der den Wert des [`rel`](/de/docs/Web/HTML/Reference/Elements/a#rel)-Attributs des SVG-Elements {{svgelement("a")}} widerspiegelt.
 
-Das `rel`-Attribut gibt die durch Leerzeichen getrennte Liste von Linktypen, die [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel), an, die die Beziehung zwischen dem Ziel oder der Ressource, die durch das {{SVGElement("a")}}-Element dargestellt wird, und dem aktuellen Dokument beschreibt. Die Eigenschaft kann den Wert des `rel`-Attributs abrufen oder festlegen.
+Das `rel`-Attribut gibt die durch Leerzeichen getrennte Liste von Linktypen an, [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel), die die Beziehung zwischen dem Ziel oder der durch das {{SVGElement("a")}}-Element dargestellten Ressource und dem aktuellen Dokument angibt. Die Eigenschaft kann den Wert des `rel`-Attributs abrufen oder festlegen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String; der Wert des `rel`-Attributs.
 
 ## Beispiele
 
-Gegebenes SVG:
+Bei folgendem SVG:
 
 ```html
 <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ function log(text) {
 }
 ```
 
-Wir können das `rel`-Attribut abrufen und festlegen:
+Können wir das `rel`-Attribut abrufen und festlegen:
 
 ```js
 // Select an SVG <a> element

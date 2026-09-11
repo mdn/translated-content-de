@@ -1,12 +1,14 @@
 ---
-title: "sub128: Wasm numerische Anweisung"
+title: "sub128: Wasm-Numerikbefehl"
 short-title: sub128
 slug: WebAssembly/Reference/Numeric/sub128
 l10n:
-  sourceCommit: 62363e17443a327a2b10525560a5886534a631b7
+  sourceCommit: ad1fac9d8dd0c9ab8f560e98c5c923559617ba54
 ---
 
-Die **`sub128`** [numerische Anweisung](/de/docs/WebAssembly/Reference/Numeric) subtrahiert eine 128-Bit-Ganzzahl – dargestellt durch zwei 64-Bit-Ganzzahlen – von einer anderen, um ein 128-Bit-Ergebnis zu erzeugen, das ebenfalls durch zwei 64-Bit-Ganzzahlen dargestellt wird.
+{{SeeCompatTable}}
+
+Der numerische Befehl **`sub128`** subtrahiert eine 128-Bit-Ganzzahl — dargestellt durch zwei 64-Bit-Ganzzahlen — von einer anderen, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei 64-Bit-Ganzzahlen dargestellt wird.
 
 {{InteractiveExample("Wat Demo: sub128", "tabbed-taller")}}
 
@@ -39,44 +41,44 @@ i64.sub128
 ```
 
 - `i64.sub128`
-  - : Die `i64.sub128`-Anweisung.
+  - : Der Befehl `i64.sub128`.
 
-### Unmittelbare Werte
+### Immediate-Werte
 
 Keine.
 
-### Operandenstapel
+### Operanden-Stack
 
 ```plain
 [low_left_input:i64 high_left_input:i64 low_right_input:i64 high_right_input:i64] -> [low_output:i64 high_output:i64]
 ```
 
 - `low_left_input`
-  - : Ein [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64), das die niedrigen 64 Bits der linken 128-Bit-Ganzzahl darstellt.
+  - : Ein [`i64`](/de/docs/WebAssembly/Reference/Value_types/i64), das die niedrigen 64 Bit der linksseitigen 128-Bit-Ganzzahl darstellt.
 - `high_left_input`
-  - : Ein `i64`, das die hohen 64 Bits der linken 128-Bit-Ganzzahl darstellt.
+  - : Ein `i64`, das die hohen 64 Bit der linksseitigen 128-Bit-Ganzzahl darstellt.
 - `low_right_input`
-  - : Ein `i64`, das die niedrigen 64 Bits der rechten 128-Bit-Ganzzahl darstellt.
+  - : Ein `i64`, das die niedrigen 64 Bit der rechtsseitigen 128-Bit-Ganzzahl darstellt.
 - `high_right_input`
-  - : Ein `i64`, das die hohen 64 Bits der rechten 128-Bit-Ganzzahl darstellt.
+  - : Ein `i64`, das die hohen 64 Bit der rechtsseitigen 128-Bit-Ganzzahl darstellt.
 - `low_output`
-  - : Ein `i64`, das die niedrigen 64 Bits des Ergebnisses darstellt.
+  - : Ein `i64`, das die niedrigen 64 Bit des Ergebnisses darstellt.
 - `high_output`
-  - : Ein `i64`, das die hohen 64 Bits des Ergebnisses darstellt.
+  - : Ein `i64`, das die hohen 64 Bit des Ergebnisses darstellt.
 
-### Binäre Kodierung
+### Binärcodierung
 
-| Anweisung    | Binärformat   | Beispieltext => binär       |
+| Befehl       | Binärformat   | Beispieltext => Binärdatei  |
 | ------------ | ------------- | --------------------------- |
 | `i64.sub128` | `0xfc 20:u32` | `i64.sub128` => `0xfc 0x14` |
 
 ## Beschreibung
 
-Die `sub128`-Anweisung subtrahiert eine 128-Bit-Ganzzahl, dargestellt durch zwei `i64`-Werte, von einer anderen, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei `i64`-Werte dargestellt wird.
+Der Befehl `sub128` subtrahiert eine 128-Bit-Ganzzahl, dargestellt durch zwei `i64`-Werte, von einer anderen, um ein 128-Bit-Ergebnis zu erzeugen, das durch zwei `i64`-Werte dargestellt wird.
 
-Dies ist eine der **breiten arithmetischen** Operationen, die in Situationen nützlich sind, in denen größere als 64-Bit-Zahlen in Quellsprachen mit Wasm als Kompilierungsziel verwendet werden. Ein solches Beispiel sind kryptografische Algorithmen.
+Dies ist eine der Operationen der **breiten Arithmetik**, die in Situationen nützlich sind, in denen in Quellsprachen, bei denen Wasm ein Kompilierungsziel ist, Zahlen verwendet werden, die größer als 64 Bit sind. Ein Beispiel hierfür sind kryptografische Algorithmen.
 
-Diese Methoden ermöglichen es Laufumgebungen, performantere Maschinencode für diese Operationen zu erzeugen, als dies mit `i64`-Arithmetikoperationen möglich wäre.
+Diese Methoden ermöglichen es Engines, für diese Operationen leistungsfähigeren Maschinencode zu erzeugen, als dies mit `i64`-Arithmetikoperationen möglich ist.
 
 ## Spezifikationen
 

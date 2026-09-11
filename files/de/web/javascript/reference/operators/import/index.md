@@ -2,12 +2,12 @@
 title: import()
 slug: Web/JavaScript/Reference/Operators/import
 l10n:
-  sourceCommit: 2ab902d9eec2f5a93d1f666234371ca77e93c470
+  sourceCommit: 31bad7cd99cccf47f6332b81bbff4371e2bc551f
 ---
 
-Die **`import()`**-Syntax, allgemein als _dynamischer Import_ bezeichnet, ist eine funktionsähnliche Ausdrucksweise, die es ermöglicht, ein ECMAScript-Modul asynchron und dynamisch in eine potenziell nicht-modulare Umgebung zu laden.
+Die Syntax **`import()`**, üblicherweise als _dynamischer Import_ bezeichnet, ist ein funktionsähnlicher Ausdruck, der das asynchrone und dynamische Laden eines ECMAScript-Moduls in eine potenziell nicht modulare Umgebung ermöglicht.
 
-Im Unterschied zur [Deklarationsstil-Variante](/de/docs/Web/JavaScript/Reference/Statements/import) werden dynamische Importe nur bei Bedarf ausgewertet und bieten größere syntaktische Flexibilität.
+Anders als das [Gegenstück im Deklarationsstil](/de/docs/Web/JavaScript/Reference/Statements/import) werden dynamische Importe nur bei Bedarf ausgewertet und erlauben eine größere syntaktische Flexibilität.
 
 ## Syntax
 
@@ -16,65 +16,72 @@ import(moduleName)
 import(moduleName, options)
 ```
 
-Der `import()`-Aufruf ist eine Syntax, die einem Funktionsaufruf ähnelt, jedoch ist `import` ein Schlüsselwort und keine Funktion. Sie können es nicht umbenennen, wie `const myImport = import`, da dies einen {{jsxref("SyntaxError")}} auslösen würde.
+Der Aufruf `import()` ist eine Syntax, die einem Funktionsaufruf sehr ähnelt, aber `import` selbst ist ein Schlüsselwort und keine Funktion. Sie können es nicht wie mit `const myImport = import` aliasieren; dies löst einen {{jsxref("SyntaxError")}} aus.
 
-[Nachgestellte Kommata](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind nur erlaubt, wenn die Laufzeit auch `options` unterstützt. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).
+[Nachgestellte Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind nur zulässig, wenn die Laufzeitumgebung auch `options` unterstützt. Prüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).
 
 ### Parameter
 
 - `moduleName`
-  - : Das Modul, von dem importiert werden soll. Die Auswertung des Bezeichners wird hostspezifisch festgelegt, folgt jedoch immer demselben Algorithmus wie bei statischen [Import-Deklarationen](/de/docs/Web/JavaScript/Reference/Statements/import).
+  - : Das Modul, aus dem importiert werden soll. Die Auswertung des Spezifizierers ist host-spezifiziert, folgt jedoch immer demselben Algorithmus wie statische [Importdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/import).
 - `options`
   - : Ein Objekt, das Importoptionen enthält. Der folgende Schlüssel wird erkannt:
     - `with`
-      - : Die [Importeigenschaften](/de/docs/Web/JavaScript/Reference/Statements/import/with).
+      - : Die [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with).
 
 ### Rückgabewert
 
 Gibt ein Promise zurück, das:
 
-- Wenn das referenzierte Modul erfolgreich geladen und ausgewertet wird, wird es zu einem [Modul-Namensraum-Objekt](#modul-namensraum-objekt) erfüllt: einem Objekt, das alle Exporte von `moduleName` enthält.
-- Wenn die [Typumwandlung zu String](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) von `moduleName` einen Fehler wirft, lehnt es mit dem geworfenen Fehler ab.
-- Wenn das Abrufen und Laden des Moduls aus irgendeinem Grund fehlschlägt, lehnt es mit einem implementierungsdefinierten Fehler ab (Node verwendet einen generischen `Error`, während alle Browser `TypeError` verwenden). Häufige Ursachen können sein:
+- Wenn das referenzierte Modul erfolgreich geladen und ausgewertet wurde, mit einem [Modul-Namensraumobjekt](#modul-namensraumobjekt) erfüllt wird: einem Objekt, das alle Exporte aus `moduleName` enthält.
+- Wenn die [String-Koersion](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) von `moduleName` einen Fehler auslöst, mit dem ausgelösten Fehler abgelehnt wird.
+- Wenn das Abrufen und Laden des Moduls aus irgendeinem Grund fehlschlägt, mit einem implementierungsdefinierten Fehler abgelehnt wird (Node verwendet ein generisches `Error`, während alle Browser `TypeError` verwenden). Häufige Ursachen können sein:
   - In einem dateisystembasierten Modulsystem (z. B. Node.js), wenn der Zugriff auf das Dateisystem fehlschlägt (Berechtigung verweigert, Datei nicht gefunden usw.).
-  - In einem webbasierten Modulsystem (z. B. Browser), wenn die Netzwerkabfrage fehlschlägt (keine Verbindung zum Internet, CORS-Problem usw.) oder ein HTTP-Fehler auftritt (404, 500 usw.).
-- Wenn die Auswertung des referenzierten Moduls fehlschlägt, lehnt es mit dem geworfenen Fehler ab.
+  - In einem webbasierten Modulsystem (z. B. Browser), wenn die Netzwerkanfrage fehlschlägt (keine Internetverbindung, CORS-Problem usw.) oder ein HTTP-Fehler auftritt (404, 500 usw.).
+- Wenn die Auswertung des referenzierten Moduls einen Fehler auslöst, mit dem ausgelösten Fehler abgelehnt wird.
 
 > [!NOTE]
-> `import()` wirft niemals synchron einen Fehler.
+> `import()` löst niemals synchron einen Fehler aus.
 
 ## Beschreibung
 
-Die Import-Deklarationssyntax (`import something from "somewhere"`) ist statisch und führt immer dazu, dass das importierte Modul zur Ladezeit ausgewertet wird. Dynamische Importe ermöglichen es, die syntaktische Starrheit von Importdeklarationen zu umgehen und ein Modul bedingt oder auf Abruf zu laden. Die folgenden Gründe könnten zu einer Verwendung des dynamischen Imports führen:
+Die Syntax für Importdeklarationen (`import something from "somewhere"`) ist statisch und führt immer dazu, dass das importierte Modul zur Ladezeit ausgewertet wird. Dynamische Importe ermöglichen es, die syntaktische Starrheit von Importdeklarationen zu umgehen und ein Modul bedingt oder bei Bedarf zu laden. Im Folgenden finden Sie einige Gründe, warum Sie möglicherweise dynamischen Import verwenden müssen:
 
-- Wenn das statische Importieren das Laden Ihres Codes erheblich verlangsamt oder den Speicherbedarf Ihres Programms erhöht und die Wahrscheinlichkeit gering ist, dass Sie den Code, den Sie importieren, benötigen oder diesen erst zu einem späteren Zeitpunkt benötigen.
-- Wenn das Modul, das Sie importieren möchten, zur Ladezeit nicht existiert.
-- Wenn der Import-Bezeichner-String dynamisch konstruiert werden muss. (Statischer Import unterstützt nur statische Bezeichner.)
-- Wenn das importierte Modul Nebeneffekte hat und Sie diese Nebeneffekte nur möchten, wenn eine gewisse Bedingung wahr ist. (Es wird empfohlen, keine Nebeneffekte in einem Modul zu haben, aber manchmal können Sie dies in Ihren Modulabhängigkeiten nicht kontrollieren.)
-- Wenn Sie sich in einer nicht-modularen Umgebung befinden (zum Beispiel `eval` oder eine Skriptdatei).
+- Wenn statisches Importieren das Laden Ihres Codes erheblich verlangsamt oder den Speicherverbrauch Ihres Programms erhöht und die Wahrscheinlichkeit gering ist, dass Sie den importierten Code benötigen, oder Sie ihn erst zu einem späteren Zeitpunkt benötigen werden.
+- Wenn das zu importierende Modul zur Ladezeit nicht existiert.
+- Wenn die Zeichenfolge des Importspezifizierers dynamisch konstruiert werden muss. (Statischer Import unterstützt nur statische Spezifizierer.)
+- Wenn das importierte Modul Seiteneffekte hat und Sie diese Seiteneffekte nicht möchten, sofern nicht eine Bedingung erfüllt ist. (Es wird empfohlen, keine Seiteneffekte in einem Modul zu haben, aber manchmal haben Sie darauf in Ihren Modulabhängigkeiten keinen Einfluss.)
+- Wenn Sie sich in einer nicht modularen Umgebung befinden (beispielsweise `eval` oder eine Skriptdatei).
 
-Verwenden Sie den dynamischen Import nur, wenn es erforderlich ist. Die statische Form ist vorzuziehen, um anfängliche Abhängigkeiten zu laden, und kann mehr von statischen Analysetools und {{Glossary("Tree_shaking", "Tree Shaking")}} profitieren.
+Verwenden Sie dynamischen Import nur, wenn dies erforderlich ist. Die statische Form ist zum Laden anfänglicher Abhängigkeiten vorzuziehen und kann leichter von Werkzeugen für statische Analyse und {{Glossary("Tree_shaking", "Tree Shaking")}} profitieren.
 
-Wenn Ihre Datei nicht als Modul ausgeführt wird (wenn sie in einer HTML-Datei referenziert wird, muss das Skript-Tag `type="module"` haben), können Sie statische Import-Deklarationen nicht verwenden. Andererseits ist die asynchrone dynamische Import-Syntax immer verfügbar, sodass Sie Module in Nicht-Modulumgebungen importieren können.
+Wenn Ihre Datei nicht als Modul ausgeführt wird (wenn sie in einer HTML-Datei referenziert wird, muss das Skript-Tag `type="module"` haben), können Sie keine statischen Importdeklarationen verwenden. Andererseits ist die asynchrone Syntax für dynamischen Import immer verfügbar, sodass Sie Module in nicht modulare Umgebungen importieren können.
 
-Der `options`-Parameter erlaubt verschiedene Arten von Importoptionen. Zum Beispiel [Importeigenschaften](/de/docs/Web/JavaScript/Reference/Statements/import/with):
+Der Parameter `options` ermöglicht verschiedene Arten von Importoptionen. Zum Beispiel [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with):
 
 ```js
 import("./data.json", { with: { type: "json" } });
 ```
 
-Dynamischer Modulimport ist nicht in allen Ausführungskontexten erlaubt.
-Zum Beispiel kann `import()` im Hauptthread, einem Shared Worker oder einem dedizierten Worker verwendet werden, löst jedoch einen Fehler aus, wenn es in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) oder einem [Worklet](/de/docs/Web/API/Worklet) aufgerufen wird.
+Dynamischer Modulimport ist nicht in allen Ausführungskontexten zulässig.
+Beispielsweise kann `import()` im Hauptthread, in einem Shared Worker oder in einem Dedicated Worker verwendet werden, löst jedoch einen Fehler aus, wenn es innerhalb eines [Service Workers](/de/docs/Web/API/Service_Worker_API) oder eines [Worklets](/de/docs/Web/API/Worklet) aufgerufen wird.
 
-### Modul-Namensraum-Objekt
+„Phasenmodifikatoren“ für `import`-Anweisungen können auch mit dynamischen Importen verwendet werden:
 
-Ein _Modul-Namensraum-Objekt_ ist ein Objekt, das alle Exporte eines Moduls beschreibt. Es ist ein statisches Objekt, das erstellt wird, wenn das Modul ausgewertet wird. Es gibt zwei Möglichkeiten, auf das Modul-Namensraum-Objekt eines Moduls zuzugreifen: über einen [Namensraum-Import](/de/docs/Web/JavaScript/Reference/Statements/import#namespace_import) (`import * as name from moduleName`), oder über den Erfüllungswert eines dynamischen Imports.
+- [`import.defer()`](/de/docs/Web/JavaScript/Reference/Operators/import/defer)
+- [`import.source()`](/de/docs/Web/JavaScript/Reference/Operators/import/source)
 
-Das Modul-Namensraum-Objekt ist ein [versiegeltes](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed) Objekt mit [`null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects). Das bedeutet, dass alle String-Schlüssel des Objekts den Exporten des Moduls entsprechen und es niemals zusätzliche Schlüssel gibt. Alle Schlüssel sind [enumerierbar](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) in lexikografischer Reihenfolge (d.h. das Standardverhalten von [`Array.prototype.sort()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description)), wobei der Standardexport als Schlüssel `default` verfügbar ist. Zusätzlich hat das Modul-Namensraum-Objekt eine [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft mit dem Wert `"Module"`, die in {{jsxref("Object.prototype.toString()")}} verwendet wird.
+Jede dieser Syntaxformen wird als eigenständiger Ausdruckstyp betrachtet.
 
-Die String-Eigenschaften sind nicht konfigurierbar und schreibbar, wenn Sie {{jsxref("Object.getOwnPropertyDescriptors()")}} verwenden, um deren Deskriptoren zu erhalten. Sie sind jedoch faktisch schreibgeschützt, da Sie einer Eigenschaft keinen neuen Wert zuweisen können. Dieses Verhalten spiegelt wider, dass statische Importe "[dynamische Bindungen](/de/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter)" erstellen — die Werte können vom Modul, das sie exportiert, neu zugewiesen werden, aber nicht vom Modul, das sie importiert. Die Schreibbarkeit der Eigenschaften spiegelt die Möglichkeit wider, dass sich die Werte ändern, weil nicht konfigurierbare und nicht schreibbare Eigenschaften konstant sein müssen. Zum Beispiel können Sie den exportierten Wert einer Variablen neu zuweisen, und der neue Wert kann im Modul-Namensraum-Objekt beobachtet werden.
+### Modul-Namensraumobjekt
 
-Jeder (normalisierte) Modulbezeichner entspricht einem einzigartigen Modul-Namensraum-Objekt, sodass das Folgende im Allgemeinen zutrifft:
+Ein _Modul-Namensraumobjekt_ ist ein Objekt, das alle Exporte eines Moduls beschreibt. Es ist ein statisches Objekt, das erstellt wird, wenn das Modul ausgewertet wird. Es gibt zwei Möglichkeiten, auf das Modul-Namensraumobjekt eines Moduls zuzugreifen: über einen [Namensraumimport](/de/docs/Web/JavaScript/Reference/Statements/import#namespace_import) (`import * as name from moduleName`) oder über den Erfüllungswert eines dynamischen Imports.
+
+Das Modul-Namensraumobjekt ist ein [versiegeltes](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed) Objekt mit [`null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects). Das bedeutet, dass alle String-Schlüssel des Objekts den Exporten des Moduls entsprechen und es niemals zusätzliche Schlüssel gibt. Alle Schlüssel sind in lexikografischer Reihenfolge [aufzählbar](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties) (d.h. das Standardverhalten von [`Array.prototype.sort()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description)), wobei der Standardexport als Schlüssel mit dem Namen `default` verfügbar ist. Außerdem besitzt das Modul-Namensraumobjekt eine Eigenschaft [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) mit dem Wert `"Module"`, die in {{jsxref("Object.prototype.toString()")}} verwendet wird.
+
+Die String-Eigenschaften sind nicht konfigurierbar und schreibbar, wenn Sie {{jsxref("Object.getOwnPropertyDescriptors()")}} verwenden, um ihre Deskriptoren abzurufen. Sie sind jedoch faktisch schreibgeschützt, weil Sie eine Eigenschaft keinem neuen Wert erneut zuweisen können. Dieses Verhalten entspricht der Tatsache, dass statische Importe „[Live-Bindings](/de/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter)“ erzeugen — die Werte können durch das sie exportierende Modul erneut zugewiesen werden, aber nicht durch das sie importierende Modul. Die Schreibbarkeit der Eigenschaften spiegelt die Möglichkeit wider, dass sich die Werte ändern, da nicht konfigurierbare und nicht schreibbare Eigenschaften konstant sein müssen. Sie können beispielsweise den exportierten Wert einer Variablen erneut zuweisen, und der neue Wert kann im Modul-Namensraumobjekt beobachtet werden.
+
+Jeder (normalisierte) Modulspezifizierer entspricht einem eindeutigen Modul-Namensraumobjekt. Daher gilt im Allgemeinen Folgendes:
 
 ```js
 import * as mod from "/my-module.js";
@@ -84,7 +91,7 @@ import("/my-module.js").then((mod2) => {
 });
 ```
 
-Außer in einem kuriosen Fall: Weil ein Promise niemals zu einem [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) führt, wird die Funktion, die `then()` heißt und von `my-module.js` exportiert wird, automatisch aufgerufen, wenn das Promise des dynamischen Imports erfüllt wird, als Teil des [Auflösungsprozesses von Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function).
+Mit einer kuriosen Ausnahme: Da ein Promise niemals mit einem [Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) erfüllt wird, wird diese Funktion automatisch aufgerufen, wenn das Modul `my-module.js` eine Funktion namens `then()` exportiert und das Promise des dynamischen Imports erfüllt wird. Dies geschieht als Teil des Prozesses der [Promise-Auflösung](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function).
 
 ```js
 // my-module.js
@@ -105,29 +112,29 @@ import("/my-module.js").then((mod2) => {
 ```
 
 > [!WARNING]
-> Exportieren Sie keine Funktion, die `then()` heißt, aus einem Modul. Dies wird dazu führen, dass das Modul bei dynamischem Import anders funktioniert als bei statischem Import.
+> Exportieren Sie keine Funktion namens `then()` aus einem Modul. Dadurch verhält sich das Modul bei dynamischem Import anders als bei statischem Import.
 
-Dieses aggressive Caching stellt sicher, dass ein Stück JavaScript-Code niemals mehr als einmal ausgeführt wird, selbst wenn es mehrfach importiert wird. Zukünftige Importe lösen nicht einmal HTTP-Anfragen oder Dateizugriffe aus. Wenn Sie ein Modul erneut importieren und auswerten müssen, ohne die gesamte JavaScript-Umgebung neu zu starten, ist ein möglicher Trick, einen einzigartigen Query-Parameter im Modul-Bezeichner zu verwenden. Dies funktioniert auch in Nicht-Browser-Laufzeiten, die URL-Bezeichner unterstützen.
+Dieses aggressive Caching stellt sicher, dass ein JavaScript-Codeabschnitt niemals mehr als einmal ausgeführt wird, selbst wenn er mehrfach importiert wird. Zukünftige Importe führen nicht einmal zu HTTP-Anfragen oder Festplattenzugriffen. Wenn Sie ein Modul ohne Neustart der gesamten JavaScript-Umgebung erneut importieren und auswerten müssen, besteht ein möglicher Trick darin, einen eindeutigen Abfrageparameter im Modulspezifizierer zu verwenden. Dies funktioniert auch in Nicht-Browser-Laufzeitumgebungen, die URL-Spezifizierer unterstützen.
 
 ```js
 import(`/my-module.js?t=${Date.now()}`);
 ```
 
-Beachten Sie, dass dies in einer lang laufenden Anwendung zu Speicherlecks führen kann, da die Engine keine Modul-Namensraum-Objekte sicher als Müll abführen kann. Derzeit gibt es keine Möglichkeit, den Cache von Modul-Namensraum-Objekten manuell zu leeren.
+Beachten Sie, dass dies in einer lang laufenden Anwendung zu Speicherlecks führen kann, da die Engine keine Modul-Namensraumobjekte sicher durch Garbage Collection entfernen kann. Derzeit gibt es keine Möglichkeit, den Cache von Modul-Namensraumobjekten manuell zu leeren.
 
-Sie können auch die [Fetch API](/de/docs/Web/API/Fetch_API) verwenden, um den Modulquellcode als Text abzurufen und das Modul dann abhängig vom Modultyp manuell auszuwerten:
+Sie können auch die [Fetch API](/de/docs/Web/API/Fetch_API) verwenden, um den Modulquellcode als Text abzurufen und das Modul anschließend abhängig vom Modultyp manuell auszuwerten:
 
-- Für JavaScript-Module können Sie den Quellcode dynamisch als [`blob:` URL](/de/docs/Web/API/URL/createObjectURL_static) in Browsern importieren oder [`vm.Module`](https://nodejs.org/docs/latest/api/vm.html#class-vmmodule) verwenden, um es in Node.js auszuwerten.
+- Für JavaScript-Module können Sie den Quellcode in Browsern dynamisch als [`blob:`-URL](/de/docs/Web/API/URL/createObjectURL_static) importieren oder [`vm.Module`](https://nodejs.org/docs/latest/api/vm.html#class-vmmodule) verwenden, um ihn in Node.js auszuwerten.
 - Für JSON-Module können Sie den Quellcode mit {{jsxref("JSON.parse()")}} parsen.
-- Für CSS-Module können Sie ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt erstellen und dessen [`replace()`](/de/docs/Web/API/CSSStyleSheet/replace)-Methode verwenden, um es mit dem Quellcode zu befüllen.
+- Für CSS-Module können Sie ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt erstellen und dessen Methode [`replace()`](/de/docs/Web/API/CSSStyleSheet/replace) verwenden, um es mit dem Quellcode zu füllen.
 
-Dies ist jedoch semantisch nicht dasselbe wie der dynamische Import, da Einstellungen des Benutzeragenten wie [fetch destination](/de/docs/Web/API/Request/destination), [CSP](/de/docs/Web/HTTP/Guides/CSP) oder [Modulauflösung](/de/docs/Web/JavaScript/Reference/Operators/import.meta/resolve) möglicherweise nicht korrekt angewendet werden.
+Dies ist jedoch semantisch nicht dasselbe wie dynamischer Import, da User-Agent-Einstellungen wie [Fetch-Ziel](/de/docs/Web/API/Request/destination), [CSP](/de/docs/Web/HTTP/Guides/CSP) oder [Modulauflösung](/de/docs/Web/JavaScript/Reference/Operators/import.meta/resolve) möglicherweise nicht korrekt angewendet werden.
 
-Das Caching von Modul-Namensraum-Objekten gilt nur für Module, die _erfolgreich_ geladen und verlinkt sind. Ein Modul wird in drei Schritten importiert: Laden (Abrufen des Moduls), Verlinken (hauptsächlich, Parsen des Moduls) und Auswerten (Ausführen des geparsten Codes). Nur Auswertungsfehler werden zwischengespeichert; wenn das Laden oder Verlinken eines Moduls fehlschlägt, kann der nächste Import versuchen, das Modul erneut zu laden und zu verlinken. Der Browser kann das Ergebnis der Abrufoperation möglicherweise zwischenspeichern oder auch nicht, aber er sollte den typischen HTTP-Semantiken folgen, sodass die Behandlung solcher Netzwerkfehler sich nicht von der Behandlung von [`fetch()`](/de/docs/Web/API/Window/fetch)-Fehlern unterscheiden sollte.
+Das Caching von Modul-Namensraumobjekten gilt nur für Module, die _erfolgreich_ geladen und verknüpft wurden. Ein Modul wird in drei Schritten importiert: Laden (Abrufen des Moduls), Verknüpfen (hauptsächlich das Parsen des Moduls) und Auswerten (Ausführen des geparsten Codes). Nur Auswertungsfehler werden gecacht; wenn ein Modul nicht geladen oder verknüpft werden kann, kann der nächste Import versuchen, das Modul erneut zu laden und zu verknüpfen. Der Browser kann das Ergebnis der Abrufoperation cachen oder nicht, sollte jedoch der üblichen HTTP-Semantik folgen. Daher sollte sich die Behandlung solcher Netzwerkfehler nicht von der Behandlung von Fehlern bei [`fetch()`](/de/docs/Web/API/Window/fetch) unterscheiden.
 
 ## Beispiele
 
-### Importieren eines Moduls nur für seine Nebeneffekte
+### Ein Modul nur aufgrund seiner Seiteneffekte importieren
 
 ```js
 (async () => {
@@ -138,11 +145,11 @@ Das Caching von Modul-Namensraum-Objekten gilt nur für Module, die _erfolgreich
 })();
 ```
 
-Wenn Ihr Projekt Pakete verwendet, die ESM exportieren, können Sie diese auch nur für Nebeneffekte importieren. Dies wird den Code in der Einstiegspunkt-Datei des Pakets (und allen Dateien, die es importiert) nur ausführen.
+Wenn Ihr Projekt Pakete verwendet, die ESM exportieren, können Sie diese ebenfalls nur aufgrund ihrer Seiteneffekte importieren. Dadurch wird der Code in der Einstiegspunktdatei des Pakets (und in allen Dateien, die sie importiert) ausgeführt.
 
-### Import von Standards
+### Standardexporte importieren
 
-Wenn Sie das importierte Modul-Namensraum-Objekt destrukturieren, müssen Sie den `default`-Schlüssel umbenennen, da `default` ein reserviertes Wort ist.
+Wenn Sie das importierte Modul-Namensraumobjekt destrukturieren, müssen Sie den Schlüssel `default` umbenennen, da `default` ein reserviertes Wort ist.
 
 ```js
 (async () => {
@@ -156,9 +163,9 @@ Wenn Sie das importierte Modul-Namensraum-Objekt destrukturieren, müssen Sie de
 })();
 ```
 
-### Importieren auf Abruf als Reaktion auf eine Benutzeraktion
+### Bedarfsgesteuert als Reaktion auf eine Benutzeraktion importieren
 
-Dieses Beispiel zeigt, wie man Funktionalität auf eine Seite je nach Benutzeraktion, in diesem Fall einem Knopfdruck, lädt und dann eine Funktion innerhalb dieses Moduls aufruft. Dies ist nicht die einzige Möglichkeit, diese Funktionalität zu implementieren. Die `import()`-Funktion unterstützt auch `await`.
+Dieses Beispiel zeigt, wie Funktionalität basierend auf einer Benutzeraktion – in diesem Fall einem Klick auf eine Schaltfläche – auf eine Seite geladen und anschließend eine Funktion innerhalb dieses Moduls aufgerufen wird. Dies ist nicht die einzige Möglichkeit, diese Funktionalität zu implementieren. Die Funktion `import()` unterstützt auch `await`.
 
 ```js
 const main = document.querySelector("main");
@@ -177,9 +184,9 @@ for (const link of document.querySelectorAll("nav > a")) {
 }
 ```
 
-### Importieren verschiedener Module basierend auf der Umgebung
+### Unterschiedliche Module abhängig von der Umgebung importieren
 
-In Prozessen wie serverseitigem Rendering müssen Sie möglicherweise verschiedene Logik auf dem Server oder im Browser laden, da sie mit unterschiedlichen globalen Objekten oder Modulen interagieren (zum Beispiel hat Browsercode Zugriff auf Web-APIs wie `document` und `navigator`, während Servercode Zugriff auf das Dateisystem des Servers hat). Dies können Sie über einen bedingten dynamischen Import tun.
+Bei Prozessen wie Server-Side Rendering müssen Sie möglicherweise unterschiedliche Logik auf dem Server oder im Browser laden, weil diese mit unterschiedlichen Globals oder Modulen interagieren (beispielsweise hat Browsercode Zugriff auf Web-APIs wie `document` und `navigator`, während Servercode Zugriff auf das Serverdateisystem hat). Dies können Sie mit einem bedingten dynamischen Import tun.
 
 ```js
 let myModule;
@@ -191,11 +198,11 @@ if (typeof window === "undefined") {
 }
 ```
 
-### Importieren von Modulen mit einem nicht-literalen Bezeichner
+### Module mit einem nicht literalen Spezifizierer importieren
 
-Dynamische Importe erlauben jeden Ausdruck als Modulbezeichner, nicht notwendigerweise String-Literale.
+Dynamische Importe erlauben jeden Ausdruck als Modulspezifizierer, nicht nur String-Literale.
 
-Hier laden wir 10 Module, `/modules/module-0.js`, `/modules/module-1.js` usw., gleichzeitig und rufen die `load`-Funktionen auf, die jedes davon exportiert.
+Hier laden wir gleichzeitig 10 Module, `/modules/module-0.js`, `/modules/module-1.js` usw., und rufen die Funktionen `load` auf, die jedes davon exportiert.
 
 ```js
 Promise.all(
@@ -205,9 +212,9 @@ Promise.all(
 ).then((modules) => modules.forEach((module) => module.load()));
 ```
 
-### Verwenden von Importeigenschaften mit dynamischem Import
+### Importattribute mit dynamischem Import verwenden
 
-[Importeigenschaften](/de/docs/Web/JavaScript/Reference/Statements/import/with) werden als zweiter Parameter der `import()`-Syntax akzeptiert.
+[Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with) werden als zweiter Parameter der Syntax `import()` akzeptiert.
 
 ```js
 const data = await import("./data.json", {

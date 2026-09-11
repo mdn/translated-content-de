@@ -1,32 +1,34 @@
 ---
-title: ARIA-Live-Regionen
+title: ARIA-Live-Regions
 slug: Web/Accessibility/ARIA/Guides/Live_regions
 l10n:
-  sourceCommit: 5e815d522e796fb2209fa8470616b37e31c572b4
+  sourceCommit: 04cf692e8b950c028aca8fab9664d52e7cbfaebf
 ---
 
-Mit JavaScript ist es möglich, Teile einer Seite dynamisch zu ändern, ohne dass die gesamte Seite neu geladen werden muss – beispielsweise um eine Liste von Suchergebnissen sofort zu aktualisieren oder um einen dezenten Alarm oder eine Benachrichtigung anzuzeigen, die keine Benutzerinteraktion erfordert. Während diese Änderungen für Benutzer, die die Seite sehen können, in der Regel offensichtlich sind, sind sie möglicherweise nicht für Benutzer von unterstützenden Technologien erkennbar. ARIA-Live-Regionen schließen diese Lücke und bieten eine Möglichkeit, dynamische Inhaltsänderungen programmatisch so offenzulegen, dass sie von unterstützenden Technologien angekündigt werden können.
+Mit JavaScript ist es möglich, Teile einer Seite dynamisch zu ändern, ohne dass die gesamte Seite neu geladen werden muss – beispielsweise, um eine Liste von Suchergebnissen direkt zu aktualisieren oder eine dezente Warnung bzw. Benachrichtigung anzuzeigen, die keine Benutzerinteraktion erfordert. Während diese Änderungen für Benutzer, die die Seite sehen können, normalerweise visuell offensichtlich sind, sind sie für Benutzer assistiver Technologien möglicherweise nicht erkennbar. ARIA-Live-Regions schließen diese Lücke und bieten eine Möglichkeit, dynamische Inhaltsänderungen programmgesteuert so bereitzustellen, dass sie von assistiven Technologien angekündigt werden können.
+
+## Live-Regions
+
+Dynamische Inhalte, die ohne Neuladen der Seite aktualisiert werden, sind im Allgemeinen entweder eine Region oder ein Widget. Einfache Inhaltsänderungen, die nicht interaktiv sind, sollten als Live-Regions gekennzeichnet werden. Eine Live-Region wird ausdrücklich mit dem Attribut `aria-live` gekennzeichnet.
+
+**`aria-live`**: `aria-live=POLITENESS_SETTING` wird verwendet, um die Priorität festzulegen, mit der ein Screenreader Aktualisierungen von Live-Regions behandeln soll – die möglichen Einstellungen sind: `off`, `polite` oder `assertive`. Dieses Attribut ist bei weitem das wichtigste.
+
+Normalerweise wird nur `aria-live="polite"` verwendet. Jede Region, die Aktualisierungen erhält, deren Erhalt für den Benutzer wichtig ist, die jedoch nicht so häufig erfolgen, dass sie störend sind, sollte dieses Attribut erhalten. Der Screenreader gibt Änderungen aus, sobald der Benutzer inaktiv ist.
+
+`aria-live="assertive"` sollte nur für zeitkritische Benachrichtigungen verwendet werden, die unbedingt die sofortige Aufmerksamkeit des Benutzers erfordern. Im Allgemeinen unterbricht eine Änderung an einer assertiven Live-Region jede Ankündigung, die ein Screenreader gerade ausgibt. Daher kann dies äußerst störend sein und sollte nur sparsam verwendet werden.
+
+Entgegen der Intuition bedeutet `aria-live="off"` nicht, dass Änderungen nicht angekündigt werden sollen. Wenn ein Element `aria-live="off"` besitzt (oder eine `role` mit diesem impliziten Wert, etwa `role="marquee"` oder `role="timer"`), sollen Änderungen am Inhalt des Elements nur angekündigt werden, wenn sich der Fokus auf oder innerhalb des Elements befindet.
+
+Live-Regions werden normalerweise als Klartext angekündigt. Daher werden Links, Schaltflächen und andere Semantiken im aktualisierten Inhalt möglicherweise nicht in der Ankündigung selbst vermittelt.
+
+Assistive Technologien kündigen im Allgemeinen nur _dynamische_ Änderungen am Inhalt einer Live-Region an. Erstellen Sie die Live-Region, bevor Sie ihren Inhalt aktualisieren. Beginnen Sie mit einer leeren Live-Region und geben Sie ihr dann Zeit, für assistive Technologien verfügbar zu werden, bevor Sie ihren Inhalt aktualisieren. Wenn Sie die Region mit JavaScript erstellen (entweder durch Einfügen eines neuen Elements oder durch Hinzufügen von `aria-live` zu einem bestehenden Element), verschieben Sie die Inhaltsaktualisierung auf eine spätere Event-Loop-Aufgabe, beispielsweise mit `setTimeout()`. Das Verhalten kann je nach Kombination aus Browser und assistiver Technologie unterschiedlich sein. Die zuverlässigste Methode, um sicherzustellen, dass Live-Regions registriert werden, besteht darin, sie in das anfängliche Markup aufzunehmen.
 
 > [!NOTE]
-> Unterstützende Technologien kündigen in der Regel nur _dynamische_ Änderungen des Inhalts einer Live-Region an.
-> Indem Sie dem zu aktualisierenden Element ein `aria-live`-Attribut oder eine spezialisierte Live-Region-Rolle (wie [`role="status"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/status_role)) hinzufügen, stellen Sie sicher, dass Änderungen angekündigt werden, solange Sie das Attribut hinzufügen, bevor die Änderungen auftreten - entweder im ursprünglichen Markup oder dynamisch mit JavaScript. Beginnen Sie mit einer leeren Live-Region und ändern Sie dann - in einem separaten Schritt - den Inhalt innerhalb der Region.
-> Auch wenn es in der Spezifikation nicht explizit dokumentiert ist, enthalten Browser/unterstützende Technologien eine spezielle Behandlung für [`role="alert"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role): In den meisten Fällen wird der Inhalt innerhalb von `role="alert"`-Regionen angekündigt, selbst wenn die Region (die bereits die Benachrichtigung/Mitteilung enthält) im ursprünglichen Markup der Seite vorhanden ist oder dynamisch in die Seite eingefügt wird. Beachten Sie jedoch, dass `role="alert"`-Regionen – abhängig von der spezifischen Browser/unterstützende Technologie-Kombination – beim Angekündigtwerden automatisch mit "Alert" vorangestellt werden.
+> Obwohl dies in der Spezifikation nicht ausdrücklich dokumentiert ist, enthalten Browser/assistive Technologien eine spezielle Behandlung für [`role="alert"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role): In den meisten Fällen wird der Inhalt innerhalb von `role="alert"`-Regionen angekündigt, selbst wenn die Region (die die Benachrichtigung/Nachricht bereits enthält) im anfänglichen Markup der Seite vorhanden ist oder dynamisch in die Seite eingefügt wird. Beachten Sie jedoch, dass `role="alert"`-Regionen – abhängig von der jeweiligen Browser-/assistive-Technologie-Kombination – bei ihrer Ankündigung automatisch mit „Alert“ vorangestellt werden.
 
-## Live-Regionen
+### Grundlegendes Beispiel: Dropdown-Feld aktualisiert nützliche Informationen auf dem Bildschirm
 
-Dynamische Inhalte, die ohne Neuladen der Seite aktualisiert werden, sind in der Regel entweder eine Region oder ein Widget. Einfache inaktive Inhaltsänderungen sollten als Live-Regionen gekennzeichnet werden. Eine Live-Region wird explizit durch das `aria-live`-Attribut gekennzeichnet.
-
-**`aria-live`**: Das `aria-live=POLITENESS_SETTING` wird verwendet, um die Priorität festzulegen, mit der der Screenreader Updates zu Live-Regionen behandeln soll - die möglichen Einstellungen sind: `off`, `polite` oder `assertive`. Dieses Attribut ist bei weitem das wichtigste.
-
-Normalerweise wird nur `aria-live="polite"` verwendet. Jede Region, die Updates erhält, die für den Benutzer wichtig sind, die aber nicht so schnell sind, dass sie störend wirken, sollte dieses Attribut erhalten. Der Screenreader wird Änderungen ankündigen, wenn der Benutzer nicht aktiv ist.
-
-`aria-live="assertive"` sollte nur für zeitkritische Benachrichtigungen verwendet werden, die unbedingt sofortige Aufmerksamkeit des Benutzers erfordern. Im Allgemeinen wird eine Änderung einer assertiven Live-Region jede Ansage unterbrechen, die ein Screenreader derzeit macht. Daher kann es äußerst störend und ärgerlich sein und sollte nur sparsam eingesetzt werden.
-
-Widersprüchlich ist `aria-live="off"` nicht dazu gedacht, dass Änderungen nicht angekündigt werden sollten. Wenn ein Element `aria-live="off"` hat (oder eine `role` mit diesem impliziten Wert, wie `role="marquee"` oder `role="timer"`), sollen Änderungen des Inhalts des Elements nur angekündigt werden, wenn der Fokus auf dem Element liegt oder sich darin befindet.
-
-### Einfaches Beispiel: Dropdown-Box aktualisiert nützliche Informationen auf dem Bildschirm
-
-Eine Website, die sich auf die Bereitstellung von Informationen über Planeten spezialisiert hat, bietet eine Dropdown-Box. Wenn ein Planet aus dem Dropdown ausgewählt wird, wird auf der Seite eine Region mit Informationen zum ausgewählten Planeten aktualisiert.
+Eine Website, die auf Informationen über Planeten spezialisiert ist, bietet ein Dropdown-Feld. Wenn ein Planet aus dem Dropdown ausgewählt wird, wird eine Region auf der Seite mit Informationen über den ausgewählten Planeten aktualisiert.
 
 ```html
 <fieldset>
@@ -110,53 +112,53 @@ renderPlanetInfoButton.addEventListener("click", (event) => {
 
 {{EmbedLiveSample('Basic_example_Dropdown_box_updates_useful_onscreen_information', '', 350)}}
 
-Wenn der Benutzer einen neuen Planeten auswählt, wird die Information in der Live-Region angekündigt. Da die Live-Region `aria-live="polite"` hat, wird der Screenreader warten, bis der Benutzer eine Pause macht, bevor die Aktualisierung angekündigt wird. Daher wird das Durchgehen der Liste und das Auswählen eines anderen Planeten keine Updates in der Live-Region ankündigen. Updates in der Live-Region werden nur für den schließlich ausgewählten Planeten angekündigt.
+Wenn der Benutzer einen neuen Planeten auswählt, werden die Informationen in der Live-Region angekündigt. Da die Live-Region `aria-live="polite"` besitzt, wartet der Screenreader, bis der Benutzer innehält, bevor er die Aktualisierung ankündigt. Das Navigieren in der Liste und Auswählen eines anderen Planeten führt daher nicht zur Ankündigung von Aktualisierungen in der Live-Region. Aktualisierungen in der Live-Region werden nur für den letztendlich ausgewählten Planeten angekündigt.
 
-Hier ist ein Screenshot von VoiceOver auf einem Mac, das die Aktualisierung (per Untertitel) der Live-Region ankündigt:
+Hier ist ein Screenshot von VoiceOver auf dem Mac, das die Aktualisierung der Live-Region ankündigt (über Untertitel):
 
-![Ein Screenshot von VoiceOver auf einem Mac, das die Aktualisierung einer Live-Region ankündigt. Untertitel sind im Bild zu sehen.](web_accessibility_aria_aria_live_regions.png)
+![Ein Screenshot von VoiceOver auf dem Mac, das die Aktualisierung einer Live-Region ankündigt. Untertitel sind im Bild zu sehen.](web_accessibility_aria_aria_live_regions.png)
 
 ## Rollen mit impliziten Live-Region-Attributen
 
-Elemente mit den folgenden [`role="…"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) Werten fungieren standardmäßig als Live-Regionen:
+Elemente mit den folgenden [`role="…"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles)-Werten fungieren standardmäßig als Live-Regions:
 
 <table style="width: 100%;">
  <thead>
   <tr>
    <th scope="col">Rolle</th>
    <th scope="col">Beschreibung</th>
-   <th scope="col">Kompatibilitätsnotizen</th>
+   <th scope="col">Kompatibilitätshinweise</th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <td>log</td>
-   <td>Chat, Fehler, Spiel oder andere Art von Log</td>
-   <td>Um die Kompatibilität zu maximieren, fügen Sie ein redundantes <code>aria-live="polite"</code> hinzu, wenn Sie diese Rolle verwenden.</td>
+   <td>Chat-, Fehler-, Spiel- oder anderer Log-Typ</td>
+   <td>Um die Kompatibilität zu maximieren, fügen Sie bei Verwendung dieser Rolle zusätzlich <code>aria-live="polite"</code> hinzu.</td>
   </tr>
   <tr>
    <td>status</td>
-   <td>Eine Statusleiste oder ein Bereich auf dem Bildschirm, der einen aktualisierten Status irgendeiner Art bereitstellt. Screenreader-Benutzer haben einen speziellen Befehl, um den aktuellen Status zu lesen.</td>
-   <td>Um die Kompatibilität zu maximieren, fügen Sie ein redundantes <code>aria-live="polite"</code> hinzu, wenn Sie diese Rolle verwenden.</td>
+   <td>Eine Statusleiste oder ein Bereich des Bildschirms, der einen aktualisierten Status irgendeiner Art bereitstellt. Benutzer von Screenreadern verfügen über einen speziellen Befehl, um den aktuellen Status zu lesen.</td>
+   <td>Um die Kompatibilität zu maximieren, fügen Sie bei Verwendung dieser Rolle zusätzlich <code>aria-live="polite"</code> hinzu.</td>
   </tr>
   <tr>
    <td>alert</td>
-   <td>Fehler- oder Warnmeldung, die auf dem Bildschirm blinkt. Warnungen sind besonders wichtig für clientseitige Validierungsmitteilungen an Benutzer. <a href="https://www.w3.org/WAI/ARIA/apg/example-index/alert/alert.html" class="external" rel="noopener">Alert-Beispiel.</a></td>
-   <td>Um die Kompatibilität zu maximieren, empfehlen manche Leute, ein redundantes <code>aria-live="assertive"</code> hinzuzufügen, wenn Sie diese Rolle verwenden. Allerdings verursachen sowohl <code>aria-live</code> als auch <code>role="alert"</code> Doppelsprechprobleme bei VoiceOver auf iOS.</td>
+   <td>Fehler- oder Warnmeldung, die auf dem Bildschirm aufblinkt. Warnungen sind besonders wichtig für Hinweise zur clientseitigen Validierung für Benutzer. <a href="https://www.w3.org/WAI/ARIA/apg/example-index/alert/alert.html" class="external" rel="noopener">Alert-Beispiel.</a></td>
+   <td>Um die Kompatibilität zu maximieren, empfehlen manche Personen, bei Verwendung dieser Rolle zusätzlich <code>aria-live="assertive"</code> hinzuzufügen. Das Hinzufügen von sowohl <code>aria-live</code> als auch <code>role="alert"</code> führt jedoch in VoiceOver unter iOS zu Problemen mit doppelten Ansagen.</td>
   </tr>
   <tr>
    <td>progressbar</td>
-   <td>Eine Mischung zwischen einem Widget und einer Live-Region. Verwenden Sie dies mit <code>aria-valuemin</code>, <code>aria-valuenow</code> und <code>aria-valuemax</code>. (TBD: Weitere Infos hinzufügen).</td>
+   <td>Eine Mischung aus einem Widget und einer Live-Region. Verwenden Sie dies mit <code>aria-valuemin</code>, <code>aria-valuenow</code> und <code>aria-valuemax</code>. (TBD: Weitere Informationen hier hinzufügen).</td>
    <td></td>
   </tr>
   <tr>
    <td>marquee</td>
-   <td>Text, der scrollt, wie ein Aktien-Ticker.</td>
+   <td>Scrollender Text, etwa ein Börsenticker.</td>
    <td></td>
   </tr>
   <tr>
    <td>timer</td>
-   <td>Alle Arten von Timer oder Uhren, wie ein Countdown-Timer oder Stoppuhr-Anzeige.</td>
+   <td>Jede Art von Timer oder Uhr, etwa ein Countdown-Timer oder die Anzeige einer Stoppuhr.</td>
    <td></td>
   </tr>
  </tbody>
@@ -164,16 +166,16 @@ Elemente mit den folgenden [`role="…"`](/de/docs/Web/Accessibility/ARIA/Refere
 
 ## Zusätzliche Live-Region-Attribute
 
-Live-Regionen sind gut unterstützt. Vispero hat 2014 [Informationen über den Stand der Unterstützung von Live-Regionen](https://vispero.com/resources/screen-reader-support-aria-live-regions/) veröffentlicht. Paul J. Adam hat [die Unterstützung von `aria-atomic` und `aria-relevant`](https://pauljadam.com/demos/aria-atomic-relevant.html) besonders erforscht.
+Live-Regions werden gut unterstützt. Vispero veröffentlichte 2014 [Informationen über den Stand der Unterstützung von Live-Regions](https://vispero.com/resources/screen-reader-support-aria-live-regions/). Paul J. Adam hat insbesondere [die Unterstützung von `aria-atomic` und `aria-relevant`](https://pauljadam.com/demos/aria-atomic-relevant.html) untersucht.
 
-1. **`aria-atomic`**: Das `aria-atomic=BOOLEAN` wird verwendet, um festzulegen, ob der Screenreader die Live-Region immer als Ganzes präsentieren soll, auch wenn sich nur ein Teil der Region ändert. Die möglichen Einstellungen sind: `false` oder `true`. Die Standardeinstellung ist `false`.
+1. **`aria-atomic`**: `aria-atomic=BOOLEAN` wird verwendet, um festzulegen, ob der Screenreader die Live-Region immer als Ganzes präsentieren soll, selbst wenn sich nur ein Teil der Region ändert. Die möglichen Einstellungen sind: `false` oder `true`. Die Standardeinstellung ist `false`.
 2. [**`aria-relevant`**](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-relevant)
 
-   : Das `aria-relevant=[LIST_OF_CHANGES]` wird verwendet, um festzulegen, welche Arten von Änderungen für eine Live-Region relevant sind. Die möglichen Einstellungen sind eine oder mehrere der folgenden: `additions`, `removals`, `text`, `all`. Die Standardeinstellung ist: `additions text`.
+   : `aria-relevant=[LIST_OF_CHANGES]` wird verwendet, um festzulegen, welche Arten von Änderungen für eine Live-Region relevant sind. Die möglichen Einstellungen sind eine oder mehrere der folgenden: `additions`, `removals`, `text`, `all`. Die Standardeinstellung ist: `additions text`.
 
 ### Grundlegende Beispiele: `aria-atomic`
 
-Zur Veranschaulichung von `aria-atomic`, betrachten Sie eine Seite mit einer einfachen Uhr, die Stunden und Minuten anzeigt. Die Uhr wird jede Minute aktualisiert, wobei die neue verbleibende Zeit den aktuellen Inhalt überschreibt.
+Betrachten Sie zur Veranschaulichung von `aria-atomic` eine Website mit einer einfachen Uhr, die Stunden und Minuten anzeigt. Die Uhr wird jede Minute aktualisiert, wobei die neue verbleibende Zeit den aktuellen Inhalt überschreibt.
 
 ```html
 <div id="clock" role="timer" aria-live="polite">
@@ -198,17 +200,17 @@ updateClock();
 setInterval(updateClock, 60000);
 ```
 
-Beim ersten Ausführen der Funktion wird die gesamte eingefügte Zeichenkette angekündigt. Bei nachfolgenden Aufrufen werden nur die Teile des Inhalts, die sich im Vergleich zum vorherigen Inhalt geändert haben, angekündigt. Wenn sich die Uhr beispielsweise von "17:33" auf "17:34" ändert, werden unterstützende Technologien nur "34" ansagen, was für Benutzer nicht sehr hilfreich sein wird.
+Beim ersten Ausführen der Funktion wird die gesamte hinzugefügte Zeichenfolge angekündigt. Bei nachfolgenden Aufrufen werden nur die Teile des Inhalts angekündigt, die sich gegenüber dem vorherigen Inhalt geändert haben. Wenn sich die Uhr beispielsweise von „17:33“ auf „17:34“ ändert, kündigen assistive Technologien nur „34“ an, was für Benutzer nicht besonders nützlich ist.
 
-Ein Weg, dies zu umgehen, wäre, zuerst den gesamten Inhalt der Live-Region zu löschen (in diesem Fall den `innerHTML` von sowohl `<span id="clock-hours">` als auch `<span id="clock-mins">` leer zu setzen) und dann den neuen Inhalt einzufügen. Dies kann jedoch manchmal unzuverlässig sein, da es vom genauen Timing dieser beiden Updates abhängt.
+Eine Möglichkeit, dies zu umgehen, wäre, zunächst den gesamten Inhalt der Live-Region zu löschen (in diesem Fall das `innerHTML` von sowohl `<span id="clock-hours">` als auch `<span id="clock-mins">` auf leer zu setzen) und anschließend den neuen Inhalt einzufügen. Dies kann jedoch manchmal unzuverlässig sein, da es vom exakten Timing dieser beiden Aktualisierungen abhängt.
 
-`aria-atomic="true"` stellt sicher, dass bei jeder Aktualisierung der Live-Region der gesamte Inhalt vollständig angekündigt wird (z.B. "17:34").
+`aria-atomic="true"` stellt sicher, dass bei jeder Aktualisierung der Live-Region der gesamte Inhalt vollständig angekündigt wird (z. B. „17:34“).
 
 ```html
 <div id="clock" role="timer" aria-live="polite" aria-atomic="true">…</div>
 ```
 
-Ein weiteres Beispiel für `aria-atomic` - ein Update/Benachrichtigung als Ergebnis einer Benutzeraktion.
+Ein weiteres Beispiel für `aria-atomic` – eine Aktualisierung/Benachrichtigung als Ergebnis einer Benutzeraktion.
 
 ```html
 <div id="date-input">
@@ -236,13 +238,13 @@ function change(event) {
 document.getElementById("year").addEventListener("blur", change);
 ```
 
-Ohne `aria-atomic="true"` kündigt der Screenreader nur den geänderten Wert des Jahres an. Mit `aria-atomic="true"` kündigt der Screenreader "Das gesetzte Jahr ist: _geänderter Wert_" an.
+Ohne `aria-atomic="true"` kündigt der Screenreader nur den geänderten Jahreswert an. Mit `aria-atomic="true"` kündigt der Screenreader „Das festgelegte Jahr ist: _geänderter Wert_“ an.
 
-### Einfaches Beispiel: `aria-relevant`
+### Grundlegendes Beispiel: `aria-relevant`
 
-Mit `aria-relevant` können Sie angeben, welche Arten von Änderungen/Aktualisierungen an einer Live-Region angekündigt werden sollen.
+Mit `aria-relevant` können Sie festlegen, welche Arten von Änderungen/Aktualisierungen einer Live-Region angekündigt werden sollen.
 
-Betrachten Sie als Beispiel eine Chatseite, die eine Liste der derzeit angemeldeten Benutzer anzeigen möchte. Anstatt nur die derzeit angemeldeten Benutzer anzukündigen, möchten wir auch eine Ansage speziell dann auslösen, wenn ein Benutzer _aus_ der Liste entfernt wird. Wir können dies erreichen, indem wir `aria-relevant="additions removals"` angeben.
+Betrachten Sie beispielsweise eine Chat-Website, die eine Liste der aktuell angemeldeten Benutzer anzeigen möchte. Anstatt nur die aktuell angemeldeten Benutzer anzukündigen, möchten wir auch gezielt eine Ankündigung auslösen, wenn ein Benutzer aus der Liste _entfernt_ wird. Dies können wir erreichen, indem wir `aria-relevant="additions removals"` angeben.
 
 ```html
 <ul id="roster" aria-live="polite" aria-relevant="additions removals">
@@ -252,9 +254,9 @@ Betrachten Sie als Beispiel eine Chatseite, die eine Liste der derzeit angemelde
 
 Aufschlüsselung der ARIA-Live-Eigenschaften:
 
-- `aria-live="polite"` gibt an, dass der Screenreader warten soll, bis der Benutzer nicht mehr aktiv ist, bevor er dem Benutzer Updates präsentiert. Dies ist der am häufigsten verwendete Wert, da das Unterbrechen des Benutzers mit "assertive" den Fluss unterbrechen könnte.
-- `aria-atomic` ist nicht gesetzt (`false` standardmäßig), sodass nur die hinzugefügten oder entfernten Benutzer angekündigt werden sollten und nicht jedes Mal die gesamte Liste.
-- `aria-relevant="additions removals"` stellt sicher, dass sowohl hinzugefügte als auch entfernte Benutzer aus der Liste angekündigt werden.
+- `aria-live="polite"` gibt an, dass der Screenreader warten soll, bis der Benutzer inaktiv ist, bevor er Aktualisierungen präsentiert. Dies ist der am häufigsten verwendete Wert, da die Unterbrechung des Benutzers mit „assertive“ seinen Arbeitsfluss stören könnte.
+- `aria-atomic` ist nicht gesetzt (standardmäßig `false`), sodass nur die hinzugefügten oder entfernten Benutzer und nicht jedes Mal die gesamte Liste ausgegeben werden sollen.
+- `aria-relevant="additions removals"` stellt sicher, dass sowohl zur Liste hinzugefügte als auch daraus entfernte Benutzer ausgegeben werden.
 
 ## Siehe auch
 

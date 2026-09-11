@@ -1,12 +1,12 @@
 ---
-title: "`<aside>` HTML aside Element"
+title: "`<aside>`-HTML-Element für ergänzende Inhalte"
 short-title: <aside>
 slug: Web/HTML/Reference/Elements/aside
 l10n:
-  sourceCommit: 599ae8b7ad414e91df473d91983f4ffc5cafabb3
+  sourceCommit: 63e6075c870f818291e857d0ad5b291d1b5afe5b
 ---
 
-Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Beziehung steht. Asides werden häufig als Seitenleisten oder Hervorhebungsboxen dargestellt.
+Das [HTML](/de/docs/Web/HTML)-Element **`<aside>`** repräsentiert einen Teil eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments zusammenhängt. `aside`-Elemente werden häufig als Seitenleisten oder Hinweisfelder dargestellt.
 
 {{InteractiveExample("HTML Demo: &lt;aside&gt;", "tabbed-standard")}}
 
@@ -46,17 +46,18 @@ aside > p {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
-- Verwenden Sie das `<aside>`-Element nicht, um in Klammern gesetzten Text zu kennzeichnen, da diese Art von Text als Teil des Hauptflusses angesehen wird.
+- Verwenden Sie das `<aside>`-Element nicht zur Markierung von Text in Klammern, da diese Art von Text als Teil des Hauptflusses betrachtet wird.
+- Das `<aside>`-Element hat implizit die Rolle [`complementary`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role), sofern es keinen {{Glossary("accessible_name", "zugänglichen Namen")}} hat und in [gliedernden Inhalten](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content) verschachtelt ist; in diesem Fall hat es die Rolle [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role).
 
 ## Beispiele
 
 ### Verwendung von \<aside>
 
-Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz steht nur indirekt mit dem Hauptinhalt des Artikels in Verbindung:
+Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel auszuzeichnen. Der Absatz steht nur indirekt mit dem Hauptinhalt des Artikels in Zusammenhang:
 
 ```html
 <article>
@@ -87,14 +88,14 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#sectioning_content"
-          >Strukturierender Inhalt</a
+          >gliedernder Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >Sinnvoller Inhalt</a
+          >wahrnehmbarer Inhalt</a
         >.
       </td>
     </tr>
@@ -102,21 +103,22 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Weglassen von Tags</th>
+      <td>Keines; sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließenden Inhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
+          >Flussinhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein
+        Nachfahre eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
@@ -126,7 +128,7 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role"
             >complementary</a
           ></code
-        >
+        > oder <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role">generic</a></code>, wenn es keinen {{Glossary("accessible_name", "zugänglichen Namen")}} hat und in <a href="/de/docs/Web/HTML/Guides/Content_categories#sectioning_content">gliederndem Inhalt</a> verschachtelt ist
       </td>
     </tr>
     <tr>
@@ -154,6 +156,6 @@ Dieses Beispiel verwendet `<aside>`, um einen Absatz in einem Artikel zu markier
 
 ## Siehe auch
 
-- Andere section-related Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
 - [Verwendung von HTML-Abschnitten und Gliederungen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements)
-- [ARIA: Complementary role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)
+- [ARIA: Rolle „Complementary“](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role)

@@ -1,17 +1,19 @@
 ---
-title: "SVGStringList: replaceItem() Methode"
+title: "SVGStringList: Methode replaceItem()"
 short-title: replaceItem()
 slug: Web/API/SVGStringList/replaceItem
 l10n:
-  sourceCommit: 9505c8d1370343fb65affa01657f27751ab59103
+  sourceCommit: a09559075d5ae20021937aa135326f7b91ebefaf
 ---
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`**-Methode der [`SVGStringList`](/de/docs/Web/API/SVGStringList)-Schnittstelle ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Das eingefügte Element ist das Element selbst und keine Kopie.
+Die Methode **`replaceItem()`** der Schnittstelle [`SVGStringList`](/de/docs/Web/API/SVGStringList) ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Das eingefügte Element ist das Element selbst und keine Kopie.
 
-- Wenn das neue Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
-- Wenn das Element bereits in dieser Liste ist, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements liegt.
+- Wenn sich das neue Element bereits in einer Liste befindet, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
+- Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des zu ersetzenden Elements vor dem Entfernen des Elements bestimmt wird.
+
+Die Zuweisung zu einem Index der Liste hat dieselbe Wirkung wie der Aufruf dieser Methode, mit Ausnahme davon, dass kein Rückgabewert vorhanden ist.
 
 ## Syntax
 
@@ -22,13 +24,13 @@ replaceItem(newItem, index)
 ### Parameter
 
 - `newItem`
-  - : Der String, der der Liste hinzugefügt werden soll.
+  - : Die Zeichenfolge, die zur Liste hinzugefügt werden soll.
 - `index`
-  - : Eine nicht-negative ganze Zahl, die den Index des zu löschenden Elements angibt.
+  - : Eine nicht negative ganze Zahl, die den Index des zu löschenden Elements angibt.
 
 ### Rückgabewert
 
-Der String, der der Liste hinzugefügt wurde.
+Die Zeichenfolge, die zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
