@@ -43,7 +43,7 @@ Im Gegensatz zu späteren Entwicklungen gab es keine HTTP-Header. Dies bedeutete
 HTTP/0.9 war sehr limitiert, aber Browser und Server machten es schnell vielseitiger:
 
 - Versionsinformationen wurden mit jeder Anfrage gesendet (`HTTP/1.0` wurde an die `GET`-Zeile angehängt).
-- Eine Statuscod-Zeile wurde auch zu Beginn einer Antwort gesendet. Dies erlaubte es dem Browser, den Erfolg oder Misserfolg einer Anfrage selbst zu erkennen und sein Verhalten entsprechend anzupassen. Zum Beispiel, indem er seinen lokalen Cache auf eine spezifische Weise aktualisierte oder benutzte.
+- Eine Statuscode-Zeile wurde auch zu Beginn einer Antwort gesendet. Dies erlaubte es dem Browser, den Erfolg oder Misserfolg einer Anfrage selbst zu erkennen und sein Verhalten entsprechend anzupassen. Zum Beispiel, indem er seinen lokalen Cache auf eine spezifische Weise aktualisierte oder benutzte.
 - Das Konzept von HTTP-Headern wurde sowohl für Anfragen als auch für Antworten eingeführt. Metadaten konnten übertragen werden, und das Protokoll wurde extrem flexibel und erweiterbar.
 - Dokumente, die nicht nur einfache HTML-Dateien waren, konnten dank des {{HTTPHeader("Content-Type")}} Headers übertragen werden.
 
