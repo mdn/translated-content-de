@@ -2,20 +2,20 @@
 title: Google Chrome
 slug: Glossary/Google_Chrome
 l10n:
-  sourceCommit: 74e7902b0875b6378d77df6d2d925a2d09d19f5d
+  sourceCommit: da7287ff61b6ea4db7f9a5e07be11263b525b7d0
 ---
 
-**Chrome** ist ein kostenloser {{Glossary("Browser", "Webbrowser")}}, der von Google entwickelt wurde, basierend auf dem Open-Source-Projekt [Chromium](https://www.chromium.org/). Einige wichtige Unterschiede werden im BrowserStacks [Leitfaden zu Chrome vs Chromium: Kernunterschiede](https://www.browserstack.com/guide/difference-between-chrome-and-chromium) beschrieben.
+**Chrome** ist ein kostenloser {{Glossary("Browser", "Webbrowser")}}, der von Google entwickelt wurde und auf dem Open-Source-Projekt [Chromium](https://www.chromium.org/) basiert. Einige wichtige Unterschiede werden in BrowserStacks Leitfaden [Chrome vs Chromium: Core Differences](https://www.browserstack.com/guide/difference-between-chrome-and-chromium) beschrieben.
 
-Chrome verwendet, wie Chromium, eine Rendering-Engine namens {{Glossary("Blink", "Blink")}}. Auf iOS jedoch, aufgrund von Plattformbeschränkungen, verwendet Chrome statt Blink das auf WebKit basierende WebView von Apple.
+Chrome verwendet wie Chromium eine Rendering-Engine namens {{Glossary("Blink", "Blink")}}. Auf iOS verwendet Chrome aufgrund von Plattformbeschränkungen jedoch Apples WebKit-basiertes WebView anstelle von Blink.
 
 ## Chrome herunterladen
 
-Chrome ist auf mehreren Plattformen verfügbar und in verschiedenen Versionen für unterschiedliche Benutzerbedürfnisse erhältlich.
+Chrome ist für mehrere Plattformen verfügbar und wird in verschiedenen Versionen für unterschiedliche Benutzeranforderungen angeboten.
 
 ### Benutzer
 
-Wenn Sie ein regelmäßiger Chrome-Benutzer sind, verwenden Sie einen dieser Links basierend auf Ihrer Plattform oder Ihrem Gerät:
+Wenn Sie Chrome im Alltag verwenden, nutzen Sie je nach Plattform oder Gerät einen dieser Links:
 
 - [Android](https://play.google.com/store/apps/details?id=com.android.chrome)
 - [iOS](https://apps.apple.com/us/app/google-chrome/id535886823)
@@ -23,7 +23,7 @@ Wenn Sie ein regelmäßiger Chrome-Benutzer sind, verwenden Sie einen dieser Lin
 
 ### Webentwickler
 
-Wenn Sie die neuesten Chrome-Funktionen ausprobieren möchten, installieren Sie eine der Vorläufigen Versionen. Google veröffentlicht häufig Updates und hat die Distributionen so gestaltet, dass sie nebeneinander mit der stabilen Version laufen. Besuchen Sie den [Chrome Releases Blog](https://chromereleases.googleblog.com/), um zu erfahren, was neu ist.
+Wenn Sie die neuesten Chrome-Funktionen ausprobieren möchten, installieren Sie einen der Vorab-Builds. Google veröffentlicht häufig Updates und hat die Distributionen so konzipiert, dass sie parallel zur stabilen Version ausgeführt werden können. Im [Chrome Releases Blog](https://chromereleases.googleblog.com/) erfahren Sie, was neu ist.
 
 - [Chrome Dev für Android](https://play.google.com/store/apps/details?id=com.chrome.dev)
 - [Chrome Canary für Desktop](https://www.google.com/chrome/canary/)
@@ -32,9 +32,9 @@ Wenn Sie die neuesten Chrome-Funktionen ausprobieren möchten, installieren Sie 
 
 - [Google Chrome](https://en.wikipedia.org/wiki/Google_Chrome) auf Wikipedia
 - [Chrome](https://www.google.com/chrome/) auf google.com
-- [The Chromium Projects](https://www.chromium.org/)
+- [Die Chromium-Projekte](https://www.chromium.org/)
 - [Chrome für Entwickler](https://developer.chrome.com/)
-- [Chrome Platform Status](https://chromestatus.com/)
+- [Chrome-Plattformstatus](https://chromestatus.com/)
 - [Chromium-Probleme melden](https://issues.chromium.org/issues)
 - Verwandte Glossarbegriffe:
   - {{Glossary("Browser", "Browser")}}

@@ -1,14 +1,14 @@
 ---
-title: Der geschäftliche Nutzen der Web-Performance
-short-title: Geschäftlicher Nutzen der Performance
+title: Der Business Case für Web-Performance
+short-title: Business Case für Performance
 slug: Learn_web_development/Extensions/Performance/business_case_for_performance
 l10n:
-  sourceCommit: f85d2e26b062decf7a2bb9179c3a93003f4067a9
+  sourceCommit: d93983dfe60b65633f67fffe04676c241ff92960
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/CSS", "Learn_web_development/Extensions/Performance/Best_practices", "Learn_web_development/Extensions/Performance")}}
 
-Wir haben die Bedeutung der Web-Performance besprochen. Sie haben gelernt, was Sie tun müssen, um die Web-Performance zu optimieren. Aber wie überzeugen Sie Ihre Kunden und/oder das Management, Prioritäten für die Performance zu setzen und in diese zu investieren? In diesem Abschnitt besprechen wir, wie man einen klaren geschäftlichen Nutzen darstellt, um Entscheidungsträger zu überzeugen, die Investition zu tätigen.
+Wir haben die Bedeutung von Web-Performance besprochen. Sie haben gelernt, was Sie tun müssen, um Web-Performance zu optimieren. Aber wie überzeugen Sie Ihre Kunden und/oder das Management davon, Performance zu priorisieren und darin zu investieren? In diesem Abschnitt besprechen wir, wie Sie einen klaren Business Case erstellen, um Entscheidungsträger davon zu überzeugen, die Investition zu tätigen.
 
 <table>
   <tbody>
@@ -17,41 +17,42 @@ Wir haben die Bedeutung der Web-Performance besprochen. Sie haben gelernt, was S
       <td>
         Grundkenntnisse in
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
-          >Client-seitigen Web-Technologien</a
-        > und ein grundlegendes Verständnis von
+          >clientseitigen Webtechnologien</a
+        > sowie ein grundlegendes Verständnis der
         <a href="/de/docs/Web/Performance">Web-Performance-Optimierung</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Das Vertrauen aufzubauen, mit Kunden und dem Management zu arbeiten, damit sie Web-Performance zu einer Priorität machen.
+        Sicherheit bei der Zusammenarbeit mit Kunden und dem Management gewinnen,
+        damit diese Web-Performance zur Priorität machen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Performance zu einer geschäftlichen Priorität machen
+## Performance zur geschäftlichen Priorität machen
 
-Wir haben besprochen, wie die Priorisierung der Performance das Benutzererlebnis und damit den Umsatz verbessern kann. Wir wissen, dass das Nicht-Priorisieren der Web-Performance zu Umsatzverlusten führen kann. Dieser Artikel erörtert, wie bestimmte Geschäftsmetriken direkt mit der Web-Performance-Erfahrung eines Nutzers zusammenhängen und wie Service-Design angewendet werden kann, um die Nutzererfahrung mit der Web-Performance zu verbessern. Es wird die Bedeutung des Verständnisses hervorgehoben, wie kumulative Erfahrungen die Konversions- und Erhaltungsraten beeinflussen.
+Wir haben besprochen, wie die Priorisierung von Performance die Benutzererfahrung und damit den Umsatz verbessern kann. Wir wissen, dass die fehlende Priorisierung von Web-Performance zu Umsatzeinbußen führen kann. Dieser Artikel behandelt, wie bestimmte Geschäftskennzahlen direkt mit der Web-Performance-Erfahrung eines Benutzers zusammenhängen und wie Service Design eingesetzt werden kann, um die Web-Performance-Erfahrungen der Benutzer zu verbessern. Er unterstreicht die Bedeutung des Verständnisses dafür, wie kumulative Erfahrungen Konversions- und Bindungsraten beeinflussen.
 
 ### Performance-Budgets
 
-Das Festlegen eines Web-Performance-Budgets kann Ihnen helfen, sicherzustellen, dass das Team den Kurs hält, um die Seite aufrechtzuerhalten und Rückschritte zu verhindern. Ein Performance-Budget ist eine Reihe von Limitierungen, die festgelegt werden, um Beschränkungen vorzuschreiben, wie z.B. die maximale Anzahl an erlaubten HTTP-Anfragen, die maximale Gesamtgröße aller kombinierten Ressourcen, das minimal zulässige FPS auf einem bestimmten Gerät, etc., die eingehalten werden müssen. Das Budget kann auf eine einzelne Datei, einen Dateityp, alle auf einer Seite geladenen Dateien, eine spezifische Metrik oder einen Schwellenwert über einen bestimmten Zeitraum angewendet werden. Das Budget spiegelt erreichbare Ziele wider, egal ob zeit-, mengen- oder regelbasiert.
+Das Festlegen eines Web-Performance-Budgets kann Ihnen dabei helfen sicherzustellen, dass das Team beim Erhalt der Website auf Kurs bleibt, und Regressionen verhindern. Ein Performance-Budget ist eine Reihe von Begrenzungen, die festgelegt werden, um Grenzwerte zu definieren, etwa die maximal zulässige Anzahl an HTTP-Anfragen, die maximale Gesamtgröße aller Assets zusammen, die minimal zulässigen FPS auf einem bestimmten Gerät usw., die eingehalten werden müssen. Das Budget kann auf eine einzelne Datei, einen Dateityp, alle auf einer Seite geladenen Dateien, eine bestimmte Metrik oder einen Schwellenwert über einen Zeitraum angewendet werden. Das Budget spiegelt erreichbare Ziele wider, unabhängig davon, ob sie zeit-, mengen- oder regelbasiert sind.
 
-Die Definition und Förderung eines Budgets hilft Performance-Befürwortern, sich für ein gutes Benutzererlebnis einzusetzen, gegen konkurrierende Interessen wie Marketing, Verkauf oder sogar andere Entwickler, die möglicherweise Videos, Skripte von Drittanbietern oder sogar Frameworks hinzufügen möchten. [Performance-Budgets](/de/docs/Web/Performance/Guides/Performance_budgets) helfen Entwickler-Teams, optimale Performance für die Nutzer zu schützen, während das Unternehmen neue Märkte erschließt und maßgeschneiderte Erlebnisse liefert.
+Das Definieren und Fördern eines Budgets hilft Befürwortern von Performance dabei, sich gegen konkurrierende Interessen wie Marketing, Vertrieb oder sogar andere Entwickler für eine gute Benutzererfahrung einzusetzen, die möglicherweise Videos, Drittanbieter-Skripte oder Frameworks hinzufügen möchten. [Performance-Budgets](/de/docs/Web/Performance/Guides/Performance_budgets) helfen Entwicklerteams, optimale Performance für Benutzer zu schützen, während das Unternehmen neue Märkte erschließen und maßgeschneiderte Erfahrungen bereitstellen kann.
 
-### Key Performance Indicators
+### Leistungskennzahlen
 
-Das Festlegen von Key Performance Indicators (KPI) als Zielvorgaben kann Performance-Ziele hervorheben, die gleichzeitig Geschäftsziele sind. KPIs können sowohl eine Reihe von wichtigen Geschäftsmetriken sein, um die Auswirkungen von Benutzererfahrung und Performance auf das Geschäftsergebnis zu messen, als auch eine Möglichkeit, die Vorteile der Priorisierung der Performance zu demonstrieren. Hier sind einige KPIs, die Sie in Betracht ziehen sollten:
+Das Festlegen von Key Performance Indicators (KPI) als Ziele kann Performance-Ziele hervorheben, die zugleich Geschäftsziele sind. KPIs können sowohl eine Reihe wichtiger Geschäftskennzahlen zur Messung der Auswirkungen von Benutzererfahrung und Performance auf den Umsatz des Unternehmens als auch eine Möglichkeit sein, die Vorteile der Priorisierung von Performance aufzuzeigen. Hier sind einige KPIs, die Sie berücksichtigen sollten:
 
 - **Konversionsrate**
-  - : Der Prozentsatz des Verkehrs, der eine beabsichtigte Aktion ausführt, wie das Abschließen eines Kaufs oder das Anmelden für einen Newsletter. Wenn eine Unternehmensseite langsam ist, kann dies Nutzer daran hindern, ihre beabsichtigte Aufgabe abzuschließen, was zu niedrigen Konversionsraten führen kann.
-- **Verweildauer auf der Seite**
-  - : Die durchschnittliche Zeit, die Ihre Nutzer insgesamt auf Ihrer Seite verbringen. Wenn eine Seite langsam lädt, sind Nutzer eher geneigt, die Seite vorzeitig zu verlassen, was zu niedrigen Verweildauer-Metriken führen kann.
+  - : Der Prozentsatz Ihres Traffics, der eine beabsichtigte Aktion ausführt, etwa einen Kauf abschließt oder sich für einen Newsletter anmeldet. Wenn eine Unternehmenswebsite langsam ist, kann dies Benutzer daran hindern, ihre beabsichtigte Aufgabe abzuschließen. Dies kann zu niedrigen Konversionsraten führen.
+- **Verweildauer auf der Website**
+  - : Die durchschnittliche Zeit, die Ihre Benutzer insgesamt auf Ihrer Website verbringen. Wenn eine Website langsam ist, verlassen Benutzer die Website eher vorzeitig, was zu niedrigen Kennzahlen für die Verweildauer auf der Website führen kann.
 - **Net Promoter Score**
-  - : Der Net Promoter Score (NPS) ist eine Metrik zur Bewertung der Kundenloyalität für eine Marke, ein Produkt oder einen Service eines Unternehmens. Schlechte Benutzererfahrungen mit der Performance können mit einem schlechten Markenruf gleichgesetzt werden.
+  - : Der Net Promoter Score (NPS) ist eine Kennzahl zur Bewertung der Kundenloyalität gegenüber der Marke, dem Produkt oder der Dienstleistung eines Unternehmens. Schlechte Performance-Erfahrungen von Benutzern können einem schlechten Markenruf entsprechen.
 
-Das Festlegen von Konversionsrate, Verweildauer auf der Seite und/oder Net Promoter Scores als KPIs verleiht den Bemühungen um Web-Performance einen finanziellen und anderen Geschäftswert und hilft, Unterstützung mit Metriken zu gewinnen, um den Wert der Bemühungen zu beweisen.
+Das Festlegen von Konversionsrate, Verweildauer auf der Website und/oder Net Promoter Scores als KPIs verleiht den Web-Performance-Bemühungen finanziellen und anderen geschäftlichen Zielwert und trägt dazu bei, Akzeptanz zu fördern, mit Kennzahlen, die den Wert der Bemühungen belegen.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Performance/CSS", "Learn_web_development/Extensions/Performance/Best_practices", "Learn_web_development/Extensions/Performance")}}

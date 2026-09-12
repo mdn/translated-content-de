@@ -2,33 +2,33 @@
 title: Einen Job finden
 slug: Learn_web_development/Getting_started/Soft_skills/Finding_a_job
 l10n:
-  sourceCommit: f99d00a1c3697e26a679925954e26564e7e79b98
+  sourceCommit: da7287ff61b6ea4db7f9a5e07be11263b525b7d0
 ---
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Core", "Learn_web_development/Getting_started/Soft_skills")}}
 
-Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und einige haben ziemlich spezifische Anforderungen. Den richtigen Job zu finden, auf den Sie sich überhaupt erst bewerben können, kann eine Herausforderung sein! Dieser Artikel bietet einige Tipps und Ressourcen, die Ihnen bei dem Prozess helfen, von der Suche nach potenziellen Jobs und Bewerbungen bis hin zum Erfolg in Vorstellungsgesprächen. Der unten beschriebene Prozess funktioniert möglicherweise nicht für jeden genau so, wie er ist — möglicherweise finden Sie, dass ein etwas anderer Ansatz oder eine andere Reihenfolge für Sie besser funktioniert — aber die meisten werden ihn nützlich finden.
+Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und manche haben recht spezifische Anforderungen. Schon die richtigen Stellen zu finden, auf die Sie sich bewerben können, kann herausfordernd sein! Dieser Artikel bietet einige Tipps und Ressourcen, die Sie beim gesamten Prozess unterstützen sollen – von der Suche nach potenziellen Stellen und der Bewerbung bis hin zum erfolgreichen Abschneiden in Vorstellungsgesprächen. Der unten beschriebene Prozess funktioniert möglicherweise nicht für alle genau in dieser Form – vielleicht stellen Sie fest, dass ein leicht anderer Ansatz oder eine andere Reihenfolge für Sie besser funktioniert –, aber die meisten werden ihn nützlich finden.
 
 > [!NOTE]
-> Möglicherweise möchten Sie gerade gar nicht darüber nachdenken, was für einen Job Sie möchten; vielleicht möchten Sie sich einfach darauf konzentrieren, ein wenig Code zu lernen. Das ist in Ordnung; Sie können jederzeit zu diesem Artikel zurückkehren, wenn die Zeit reif ist.
+> Möglicherweise möchten Sie im Moment noch gar nicht darüber nachdenken, welchen Beruf Sie ausüben wollen; vielleicht möchten Sie sich einfach darauf konzentrieren, Code zu lernen. Das ist in Ordnung; Sie können jederzeit später zu diesem Artikel zurückkehren, wenn der richtige Zeitpunkt gekommen ist.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        N/A
+        Keine
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
           <li>Entscheiden, welche Art von Job Sie möchten.</li>
-          <li>Suche nach Jobs.</li>
-          <li>Entwicklung von Qualitäten, die Arbeitgeber suchen.</li>
-          <li>Sich selbst an potenzielle Arbeitgeber verkaufen.</li>
-          <li>Bewerbung für Jobs.</li>
+          <li>Nach Jobs suchen.</li>
+          <li>Eigenschaften entwickeln, nach denen Arbeitgeber suchen.</li>
+          <li>Sich potenziellen Arbeitgebern gut präsentieren.</li>
+          <li>Sich auf Jobs bewerben.</li>
           <li>Sich auf Vorstellungsgespräche vorbereiten.</li>
         </ul>
       </td>
@@ -36,292 +36,292 @@ Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und einige ha
   </tbody>
 </table>
 
-## Entscheiden, welche Art von Job Sie möchten
+## Entscheiden Sie, welche Art von Job Sie möchten
 
-Es klingt fast zu offensichtlich, um es aufzuschreiben, aber Sie sollten sorgfältig darüber nachdenken, welche Art von Job Sie möchten, bevor Sie auf den Arbeitsmarkt gehen und mit der Jobsuche beginnen. Wenn Sie das nicht tun, werden Sie wahrscheinlich einen Streuschuss-Ansatz verwenden, der nicht sehr effektiv ist — Sie bewerben sich auf eine breite Palette von Jobs und sehen für _keinen_ von ihnen wie der ideale Kandidat aus.
+Es klingt fast zu offensichtlich, um es aufzuschreiben, aber Sie sollten sorgfältig über die Art von Job nachdenken, die Sie möchten, bevor Sie auf den Arbeitsmarkt gehen und mit der Suche beginnen. Wenn Sie das nicht tun, werden Sie wahrscheinlich einen wenig effektiven Gießkannenansatz verfolgen – sich auf eine große Vielfalt von Jobs bewerben, ohne für _irgendeinen_ davon wie die ideale Kandidatin oder der ideale Kandidat auszusehen.
 
-Wenn Sie diese Seite lesen, sind Sie wahrscheinlich an einer Art von Webentwicklungsjob interessiert. Das ist in Ordnung, aber denken Sie genauer darüber nach und schreiben Sie einige Ideen auf, was Sie in den folgenden Kategorien möchten:
+Wenn Sie diese Website lesen, interessieren Sie sich wahrscheinlich für eine Art von Job in der Webentwicklung. Das ist gut, aber denken Sie konkreter darüber nach und notieren Sie einige Ideen dazu, was Sie in den folgenden Kategorien möchten:
 
-- Genaue Art der Rolle: Möchten Sie mehr ein:
-  - Webdesigner sein: Verwenden Sie HTML, CSS und Grafikpakete, um Benutzeroberflächen zu entwerfen.
-  - JS-Entwickler sein: Implementieren Sie Funktionen mit JavaScript und Frameworks.
-  - Entwickler für Kundenbeziehungen oder Vertriebsingenieur: Sprechen Sie mit Kunden, machen Sie sie begeistert von Technologie, helfen Sie ihnen bei der Problemlösung und Entwicklung von Lösungen.
-  - Technischer Autor sein: Schreiben Sie Dokumentationen, um zu erklären, wie die Technologie funktioniert und wie sie verwendet wird.
-  - Mehr ein Allround-Entwickler sein.
-  - Oder etwas anderes?
+- Genaue Art der Rolle: Möchten Sie eher:
+  - Webdesignerin oder Webdesigner sein: HTML, CSS und Grafikprogramme verwenden, um Benutzeroberflächen zu entwerfen.
+  - JS-Entwicklerin oder JS-Entwickler sein: Funktionalität mit JavaScript und Frameworks implementieren.
+  - In Developer Relations oder als Sales Engineer arbeiten: Mit Kundinnen und Kunden sprechen, sie für Technologie begeistern, ihnen bei der Lösung von Problemen helfen und Lösungen entwickeln.
+  - Technische Redakteurin oder technischer Redakteur sein: Dokumentation schreiben, um zu erklären, wie die Technologie funktioniert und wie sie verwendet wird.
+  - Eher eine Allround-Entwicklerin oder ein Allround-Entwickler sein.
+  - Etwas anderes?
 - Art des Arbeitgebers: Möchten Sie arbeiten für:
-  - Sich selbst, als Auftragnehmer, an vielen verschiedenen Projekten.
-  - Eine Design-/Entwicklungsagentur und wieder an vielen verschiedenen Projekten arbeiten.
-  - Ein Unternehmen oder eine Corporation, als interner Entwickler.
-  - Eine gemeinnützige Organisation oder Wohltätigkeit.
-- Sektor: Möchten Sie arbeiten in:
+  - Sich selbst, als Auftragnehmerin oder Auftragnehmer, an vielen unterschiedlichen Projekten.
+  - Eine Design-/Entwicklungsagentur, ebenfalls an vielen unterschiedlichen Projekten.
+  - Ein Unternehmen oder einen Konzern als interne Entwicklerin oder interner Entwickler.
+  - Eine gemeinnützige Organisation oder Wohltätigkeitsorganisation.
+- Branche: Möchten Sie arbeiten in:
   - Technologie.
   - Gesundheit.
   - Finanzen.
   - Wohltätigkeit.
   - Musikindustrie.
   - usw.
-- Arbeitsort: Möchten Sie
-  - Vollzeit von zu Hause aus arbeiten.
-  - In einem Büro arbeiten.
-  - In einer Art Hybrid-Setup arbeiten.
-  - Immer am selben Ort arbeiten oder zwischen verschiedenen Bereichen oder Ländern hin- und herziehen?
+- Arbeitsort: Möchten Sie arbeiten:
+  - Vollzeit von zu Hause aus.
+  - In einem Büro.
+  - In einer Art Hybridmodell.
+  - Immer am selben Ort oder zwischen verschiedenen Regionen oder Ländern wechselnd?
 
-Wenn Sie nicht sicher sind, wie Sie diese Fragen beantworten sollen, ist das in Ordnung. Fragen Sie Ihre Kollegen, Freunde, Lehrer oder Mentoren, woran sie interessiert sind, um sich inspirieren zu lassen, und sehen Sie sich in der Branche um, um herauszufinden, was verfügbar ist. Realistischerweise werden viele von Ihnen wahrscheinlich damit beginnen, ein interessantes Jobangebot oder Unternehmen zu sehen, und dann herausfinden, wie es in die oben genannten Kategorien passt und wie Sie sich diesem Unternehmen "verkaufen" können.
+Wenn Sie die Antworten auf diese Fragen nicht kennen, ist das in Ordnung. Fragen Sie Gleichgesinnte, Freundinnen und Freunde, Lehrkräfte oder Ihre Mentorin beziehungsweise Ihren Mentor, wofür sie sich interessieren, um Inspiration zu erhalten, und sehen Sie sich in der Branche um, was verfügbar ist. Realistisch gesehen werden viele von Ihnen wahrscheinlich zunächst eine interessante Stellenanzeige oder ein interessantes Unternehmen sehen und dann herausfinden, wie es in die oben genannten Kategorien passt und wie Sie sich diesem Unternehmen gegenüber „verkaufen“ können.
 
-## Verkaufen Sie sich selbst
+## Sich gut präsentieren
 
-Um einen Job zu bekommen, müssen Sie lernen, wie Sie **sich selbst verkaufen**, was bedeutet, dass Sie sich als großartiger Kandidat für die Jobs darstellen müssen, die Sie möchten. Dies umfasst einige verschiedene Schritte, die in den folgenden Abschnitten beschrieben werden.
+Um einen Job zu bekommen, müssen Sie lernen, sich **gut zu präsentieren**, das heißt, sich als großartige Kandidatin oder großartigen Kandidaten für die gewünschten Stellen darzustellen. Dies umfasst einige verschiedene Schritte, die in den folgenden Abschnitten beschrieben werden.
 
-### Entwickeln Sie die Qualitäten, die Arbeitgeber suchen
+### Eigenschaften entwickeln, nach denen Arbeitgeber suchen
 
-Im Allgemeinen sollten Sie sich der Attribute bewusst sein, die Personalverantwortliche bei einem Kandidaten suchen, und sich entsprechend vorbereiten. Offensichtlich benötigen Sie technische Fähigkeiten und andere Fähigkeiten, die Ihnen helfen, die Aufgabe direkt zu erledigen. Doch Unternehmen suchen auch nach "Soft Skills", die Ihnen indirekt helfen, den Job zu machen; sie machen auch das Leben ihrer Mitarbeiter beim Arbeiten einfacher und glücklicher. Wir haben einige davon bereits in unserem Artikel [Zusammenarbeit und Teamarbeit](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork) angesprochen.
+Grundsätzlich sollten Sie sich der Eigenschaften bewusst sein, nach denen Personalverantwortliche bei Kandidatinnen und Kandidaten suchen, und sich entsprechend vorbereiten. Natürlich benötigen Sie technische Fähigkeiten und andere Kompetenzen, die Ihnen helfen, die jeweilige Aufgabe direkt zu erledigen. Unternehmen suchen jedoch auch nach „Soft Skills“, die Ihnen indirekt bei der Arbeit helfen; sie machen zudem das Arbeitsleben ihrer Mitarbeitenden leichter und angenehmer. Einige davon haben wir bereits in unserem Artikel über [Zusammenarbeit und Teamarbeit](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork) angesprochen.
 
-Zusammengefasst suchen Personalverantwortliche nach:
+Zusammenfassend suchen Personalverantwortliche nach:
 
 - Jemandem, mit dem sie gut auskommen können.
-- Einer positiven Einstellung, jemandem, der respektvoll, empathisch und konstruktiv ist.
-- Einer aufgeschlossenen Person, die gut in einem vielfältigen Team mit vielfältigen Standpunkten arbeitet.
-- Jemandem, der anmutig ist, wenn eine Entscheidung nicht in seine Richtung geht, und in der Lage ist, sich dem größeren Wohl zu verschreiben.
-- Einem guten Kommunikator und Beziehungsaufbauer.
-- Einer beharrlichen, fokussierten Person mit guten Problemlösungsfähigkeiten.
+- Einer positiven Einstellung, einer Person, die respektvoll, empathisch und konstruktiv ist.
+- Einer aufgeschlossenen Person, die gut in einem vielfältigen Team mit unterschiedlichen Standpunkten arbeitet.
+- Jemandem, der souverän damit umgeht, wenn eine Entscheidung nicht zu seinen oder ihren Gunsten ausfällt, und sich für das Gemeinwohl einsetzen kann.
+- Einer guten kommunizierenden und Beziehungen aufbauenden Person.
+- Einer ausdauernden, fokussierten Person mit guten Problemlösungsfähigkeiten.
 
-Überlegen Sie, ob diese Aussagen auf Sie zutreffen oder nicht. Dies könnte ein nützlicher Weg sein, um einige Ihrer Schwächen zu identifizieren, sodass Sie Schritte unternehmen können, um sie zu verbessern. Wenn Sie beispielsweise nicht gut in Kommunikation oder Problemlösung sind, suchen Sie nach Leitfäden oder Kursen, um diese Fähigkeiten zu verbessern. Selbst etwas Informelles, wie das Gespräch mit Ihren Freunden über Ihre Arbeit und das Beschreiben Ihrer Projekte, wird Ihnen helfen, besser zu kommunizieren.
+Überlegen Sie, ob diese Aussagen Sie beschreiben oder nicht. Dies kann eine nützliche Möglichkeit sein, einige Ihrer Schwächen zu erkennen, sodass Sie Maßnahmen ergreifen können, um sie zu verbessern. Wenn Sie beispielsweise nicht gut im Kommunizieren oder Problemlösen sind, suchen Sie nach Leitfäden oder Kursen, die Ihnen helfen, diese Fähigkeiten zu verbessern. Selbst etwas Informelles wie mit Freundinnen und Freunden über Ihre Arbeit zu sprechen und Ihre Projekte zu beschreiben, wird Ihnen helfen, besser zu kommunizieren.
 
-### Erstellen Sie einen Lebenslauf/Résumé
+### Einen Lebenslauf erstellen
 
-Sie sollten einen Lebenslauf/Résumé erstellen, der Ihren Wert für einen Arbeitgeber kommuniziert. Es gibt viele Leitfäden im Internet, die Ihnen beibringen, wie man einen schreibt, aber kurz gesagt, sie sollten im Allgemeinen Folgendes enthalten:
+Sie sollten einen Lebenslauf erstellen, der Ihren Wert für einen Arbeitgeber vermittelt. Es gibt viele Leitfäden im Web, die Ihnen beibringen, wie Sie einen solchen schreiben, aber kurz gesagt, sollte er im Allgemeinen Folgendes enthalten:
 
-- Ihre Kontaktdaten: Fügen Sie Ihren Namen, Postanschrift, Telefonnummer, E-Mail und vielleicht eine weitere Kontaktmethode hinzu, die Ihnen wichtig ist und für professionelle Kommunikation geeignet ist. Ein [LinkedIn-Profil](#erstellen_sie_ein_linkedin-profil) wird empfohlen.
-- Eine Zusammenfassung/persönliche Aussage, die Sie in einem Satz beschreibt. Dies kann wirklich schwer zu schreiben sein — sie muss selbstbewusst klingen, aber nicht arrogant, positiv, aber realistisch. Eine gute Strategie hier ist, es sehr kurz zu halten und sich auf einige Fakten zu konzentrieren, woran Sie glauben und auf welchem Niveau Sie sind. Ein gutes persönliches Statement für einen Junior-Webentwickler könnte zum Beispiel so lauten: "Bob Smith ist ein Webentwickler mit 2 Jahren Erfahrung und einer großen Leidenschaft für Semantik, Barrierefreiheit und inklusives Design".
-- Eine Liste der Arbeitserfahrungen, die Folgendes für jede umfasst:
-  - Einen Datumsbereich, der angibt, wann Sie dort gearbeitet haben — zum Beispiel 06/2023–10/2024, oder 06/2023–heute, wenn Sie dort noch arbeiten.
-  - Unternehmen und Jobtitel.
-  - Ein kurzer Absatz oder eine Aufzählungsliste, die beschreibt, was Sie in diesem Job/Praktikum/etc. gemacht haben. Beschreiben Sie nicht _alles_, sondern was Sie für nützliche Erfahrungen halten, um sich zu verkaufen.
-- Eine Bildungsgeschichte, die die verschiedenen Qualifikationen auflistet, die Sie haben, die Schule, an der Sie sie erreicht haben, und die Note, die Sie erzielt haben. Fügen Sie Abschlüsse und andere höhere Bildungsabschlüsse, Zertifikate und Leistungen hinzu, die für Ihr Fachgebiet direkt relevant sind (zum Beispiel eine Webentwicklungszertifizierung oder ein Sommerkurs) und vielleicht auch reguläre Schulqualifikationen, die Arbeitgeber oft suchen (wie Englisch, andere Sprachen und Mathematik).
-- Ein Abschnitt mit unterstützenden Informationen, wie:
-  - Links zu Ihrem [Portfolio](#erstellen_sie_ein_portfolio).
-  - Beschreibungen anderer relevanter Erfahrungen, die nicht in die oben genannten Abschnitte passen.
-  - Persönliche Interessen — die meisten Arbeitgeber möchten, dass ihre Mitarbeiter vielseitig sind und ein Leben außerhalb der Arbeit haben, anstatt nur Unternehmensroboter zu sein — sei es Musik zu machen, Filme zu sehen oder ehrenamtlich in einem Tierschutzheim zu arbeiten. Es hilft auch, Gesprächsstoffe während Vorstellungsgesprächen zu schaffen.
+- Ihre Kontaktdaten: Geben Sie Ihren Namen, Ihre Postanschrift, Telefonnummer, E-Mail-Adresse und eventuell eine weitere Kontaktmethode an, die Ihnen wichtig und für die berufliche Kommunikation geeignet ist. Ein [LinkedIn-Profil](#ein_linkedin-profil_erstellen) wird empfohlen.
+- Eine Zusammenfassung/persönliche Erklärung, die Sie in einem einzigen Satz beschreibt. Dies kann sehr schwer zu schreiben sein – sie muss selbstbewusst, aber nicht arrogant, positiv, aber realistisch klingen. Eine gute Strategie ist, sie wirklich kurz zu halten und sich auf einige Fakten, Ihre Überzeugungen und Ihr Erfahrungsniveau zu konzentrieren. Eine gute persönliche Erklärung für eine Junior-Webentwicklerin oder einen Junior-Webentwickler könnte beispielsweise etwa so lauten: „Bob Smith ist Webentwickler mit zwei Jahren Erfahrung und einer großen Leidenschaft für Semantik, Barrierefreiheit und inklusives Design.“
+- Eine Liste beruflicher Erfahrungen, die jeweils Folgendes enthält:
+  - Einen Zeitraum, der angibt, wann Sie dort gearbeitet haben – beispielsweise 06/2023–10/2024 oder 06/2023–heute, falls Sie dort noch arbeiten.
+  - Unternehmen und Berufsbezeichnung.
+  - Einen kurzen Absatz oder eine Aufzählung, die beschreibt, was Sie in diesem Job/Praktikum/usw. getan haben. Beschreiben Sie nicht _alles_, sondern nur das, was Ihrer Meinung nach nützliche Erfahrungen für Ihre Selbstpräsentation sind.
+- Eine Zusammenfassung Ihrer Ausbildung, die die verschiedenen Qualifikationen auflistet, die Schule, an der Sie sie erworben haben, sowie die erzielte Note. Fügen Sie Studienabschlüsse und andere Hochschulbildung, Zertifikate und Leistungen hinzu, die direkt für Ihr Fachgebiet relevant sind (beispielsweise eine Webentwicklungszertifizierung oder Sommerschule), und vielleicht auch reguläre Schulabschlüsse, nach denen Arbeitgeber häufig suchen (etwa Englisch, andere Sprachen und Mathematik).
+- Einen Abschnitt mit zusätzlichen Informationen, beispielsweise:
+  - Links zu Ihrem [Portfolio](#ein_portfolio_erstellen).
+  - Beschreibungen weiterer relevanter Erfahrungen, die nicht in die obigen Abschnitte passen.
+  - Persönliche Interessen – die meisten Arbeitgeber möchten, dass ihre Mitarbeitenden vielseitig sind und ein Leben außerhalb der Arbeit haben, statt nur Unternehmensroboter zu sein – ob Musik machen, Filme schauen oder ehrenamtliche Arbeit in einem Tierheim. Dies hilft auch dabei, Gesprächsthemen während Vorstellungsgesprächen zu schaffen.
 
-Hier sind einige allgemeine Tipps zum Schreiben von Lebensläufen/Résumés:
+Hier sind einige allgemeine Tipps zum Schreiben eines Lebenslaufs:
 
-- Halten Sie es kurz und prägnant: Idealerweise sollten Sie es auf 2 Seiten A4/Letter-Papier passen. Personalverantwortliche werden sich nicht die Mühe machen, einen langen Aufsatz zu lesen, der Ihr Kompetenzspektrum beschreibt.
-- Verwenden Sie professionelle Sprache: Verwenden Sie keine umgangssprachlichen Ausdrücke oder Slang-Begriffe — Sie müssen ernsthaft über Ihre Bewerbung klingen.
-- Überprüfen Sie Ihr Schreiben sorgfältig auf Rechtschreib- und Grammatikfehler: Lassen Sie es durch einen Service wie [Grammarly](https://www.grammarly.com/) laufen, um sicherzustellen, dass Ihnen keine Fehler entgehen und um Hinweise für weitere Verbesserungen zu erhalten. Personalverantwortliche werfen oft einen Lebenslauf/Résumé weg, der einen Tippfehler enthält — es zeigt einen Mangel an Professionalität und Detailgenauigkeit.
-- Fügen Sie nicht unbedingt all Ihre Berufserfahrung in Ihren Lebenslauf/Ihr Résumé ein: Wenn Sie über viel Erfahrung verfügen, fügen Sie nur die wichtigsten oder signifikantesten jüngsten Einträge hinzu. Sie möchten es kurz halten, aber Sie möchten auch nicht, dass es aussieht, als ob es verdächtige Lücken in Ihrer Berufserfahrung gibt, über die Sie Personalverantwortliche möglicherweise befragen. Setzen Sie Ihre vollständige Erfahrungserfahrung in Ihr LinkedIn-Profil und fügen Sie nur eine Zusammenfassung in Ihren Lebenslauf/Ihr Résumé ein.
-- Soft Skills einbeziehen: Wie im Abschnitt [Entwickeln Sie die Qualitäten, die Arbeitgeber suchen](#entwickeln_sie_die_qualitäten,_die_arbeitgeber_suchen) erwähnt, sind Soft Skills wichtig, und sie sind es wert, in Ihrem Lebenslauf/Ihrem Résumé enthalten zu sein. Sie sollten überlegen, welche relevant sind — Arbeitgeber werden nicht an Seiten voller Beschreibungen interessiert sein, wie nett Sie sind, aber sie werden interessiert sein zu wissen, dass Sie ein guter Teamspieler sind, ruhig unter Druck bleiben und über Problemlösungsfähigkeiten verfügen.
-- Referenzen auf Anfrage: Arbeitgeber benötigen immer Referenzen, damit sie von jemand anderem eine zweite Meinung über Sie und Ihre Fähigkeiten erhalten können. Dies sollte idealerweise jemand sein, mit dem Sie zusammengearbeitet haben und zu dem Sie eine gute Beziehung haben, wie ein früherer Manager oder Lehrer. Wenn Sie sich gerade nicht sicher sind, wer Ihre Referenzen sind, schreiben Sie einfach "Referenzen auf Anfrage erhältlich." am Ende Ihres Lebenslaufs/Résumés.
-- Halten Sie Ihren Lebenslauf/Ihr Résumé auf dem neuesten Stand: Überprüfen Sie es jedes Jahr, um festzustellen, ob etwas Neues hinzugefügt werden muss oder ob Sie etwas entfernen möchten.
+- Halten Sie ihn kurz und prägnant: Idealerweise sollte er auf zwei Seiten A4- oder Letter-Papier passen. Personalverantwortliche werden sich nicht die Mühe machen, einen langen Aufsatz über Ihre Fähigkeiten zu lesen.
+- Verwenden Sie professionelle Sprache: Verwenden Sie keine umgangssprachliche Sprache oder Slangbegriffe – Sie müssen so klingen, als nähmen Sie Ihre Bewerbung ernst.
+- Prüfen Sie Ihren Text sorgfältig auf Rechtschreib- und Grammatikfehler: Lassen Sie ihn durch einen Dienst wie [Grammarly](https://www.grammarly.com/) laufen, um sicherzustellen, dass Sie keine Fehler übersehen, und um Hinweise auf weitere Verbesserungen zu erhalten. Personalverantwortliche sortieren einen Lebenslauf mit einem Tippfehler häufig aus – er zeigt einen Mangel an Professionalität und Aufmerksamkeit für Details.
+- Fügen Sie nicht unbedingt alle Ihre beruflichen Erfahrungen in Ihren Lebenslauf ein: Wenn Sie viel Erfahrung haben, nehmen Sie nur die wichtigsten oder bedeutendsten aktuellen Einträge auf. Sie möchten ihn kurz halten, aber auch nicht den Eindruck erwecken, dass es verdächtige Lücken in Ihrem beruflichen Werdegang gibt, zu denen Personalverantwortliche Sie befragen könnten. Führen Sie Ihre vollständige Erfahrungsliste in Ihrem LinkedIn-Profil auf und nehmen Sie nur eine Zusammenfassung in Ihren Lebenslauf auf.
+- Fügen Sie Soft Skills ein: Wie im Abschnitt [Eigenschaften entwickeln, nach denen Arbeitgeber suchen](#eigenschaften_entwickeln,_nach_denen_arbeitgeber_suchen) erwähnt, sind Soft Skills wichtig und es lohnt sich, sie in Ihren Lebenslauf aufzunehmen. Sie sollten überlegen, welche davon relevant sind – Arbeitgeber interessieren sich nicht für Seiten voller Beschreibungen darüber, wie nett Sie sind, aber sie werden daran interessiert sein zu wissen, dass Sie gut im Team arbeiten, unter Druck ruhig bleiben und Problemlösungsfähigkeiten haben.
+- Referenzen auf Anfrage: Arbeitgeber benötigen immer Referenzen, damit sie von jemand anderem eine zweite Einschätzung zu Ihnen und Ihren Fähigkeiten erhalten können. Idealerweise sollte dies jemand sein, mit dem Sie gearbeitet haben und zu dem Sie eine gute Beziehung haben, wie eine frühere Führungskraft oder Lehrkraft. Wenn Sie derzeit nicht sicher sind, wer Ihre Referenzen sind, schreiben Sie einfach „Referenzen auf Anfrage verfügbar.“ unten in Ihren Lebenslauf.
+- Halten Sie Ihren Lebenslauf aktuell: Prüfen Sie ihn jedes Jahr darauf, ob etwas Neues hinzugefügt werden muss oder ob Sie etwas entfernen möchten.
 
 > [!NOTE]
-> Sie sollten Ihren Lebenslauf/Ihr Résumé als ein allgemeines Dokument betrachten und dann für die einzelnen Jobs, auf die Sie sich bewerben, in Bezug auf die passendsten Berufserfahrungen und Fähigkeiten anpassen.
+> Sie sollten Ihren Lebenslauf als allgemeines Dokument betrachten und ihn dann für die einzelnen Stellen, auf die Sie sich bewerben, hinsichtlich der jeweils passendsten Berufserfahrung und Fähigkeiten anpassen.
 
-### Sammeln Sie etwas Erfahrung
+### Erfahrung sammeln
 
-Wenn Sie anfangen, nach Jobs zu suchen, werden Sie sich in einem Teufelskreis befinden — _Sie brauchen Erfahrung, um einen Job zu bekommen, aber Sie müssen auch einen Job bekommen, um Erfahrung zu sammeln._ Verzweifeln Sie jedoch nicht — es gibt andere Möglichkeiten, Erfahrung zu sammeln. Hier sind einige Ideen:
+Wenn Sie mit der Jobsuche beginnen, geraten Sie in einen Teufelskreis – _Sie brauchen Erfahrung, um einen Job zu bekommen, aber Sie brauchen auch einen Job, um Erfahrung zu sammeln._ Verzweifeln Sie aber nicht – es gibt andere Möglichkeiten, Erfahrung zu sammeln. Hier sind einige Ideen:
 
-- Kontaktieren Sie lokale Unternehmen, Wohltätigkeitsorganisationen, Kirchen, Schulen usw., um zu sehen, ob sie eine Website möchten oder Hilfe beim Aktualisieren ihrer bestehenden Website benötigen. Wenn Sie gerade erst anfangen, könnten Sie anbieten, es kostenlos zu tun, nur um Erfahrung zu sammeln.
-- Aufbauend auf dem vorherigen Punkt, könnten Sie, sobald Sie sich erfahren genug fühlen, um Geld für Ihre Arbeit zu verlangen, anfangen, einige kleine freiberufliche Arbeiten zu machen. Sie könnten sich bei lokalen Unternehmen umhören oder über spezielle Dienste wie [UpWork](https://www.upwork.com/) Arbeit finden.
-- Erstellen Sie Ihre eigenen Hobbyprojekte, zum Beispiel Ihre eigene Website, um Ihre Arbeit zu präsentieren, einige lustige Demos und Spiele oder eine Web-App, die mit einem Unternehmen, bei dem Sie arbeiten möchten, in Verbindung steht.
-  - Sie könnten sogar ein bestehendes Problem auf der Website eines Unternehmens identifizieren, es beheben und ihnen einen Link zu einer veröffentlichten Version der Lösung senden.
-- Hängen Sie in Foren herum und helfen Sie anderen bei ihren Coding-Problemen. (Siehe [Helfen Sie anderen, stellen Sie Fragen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#help_others_ask_questions).)
-- [Tragen Sie zu Open-Source-Projekten bei](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#participate_in_open_source).
+- Kontaktieren Sie lokale Unternehmen, Wohltätigkeitsorganisationen, Kirchen, Schulen usw., um herauszufinden, ob sie eine Website möchten oder Hilfe bei der Aktualisierung ihrer bestehenden Website benötigen. Wenn Sie gerade erst anfangen, könnten Sie anbieten, dies kostenlos zu tun, nur um Erfahrung zu sammeln.
+- Anknüpfend an den vorherigen Punkt können Sie kleinere Freelance-Aufträge übernehmen, sobald Sie sich erfahren genug fühlen, um für Ihre Arbeit Geld zu verlangen. Sie könnten bei lokalen Unternehmen nachfragen oder Arbeit über spezialisierte Dienste wie [UpWork](https://www.upwork.com/) finden.
+- Erstellen Sie eigene Hobbyprojekte, beispielsweise Ihre eigene Website, um Ihre Arbeit zu präsentieren, einige unterhaltsame Demos und Spiele oder eine Web-App mit Bezug zu einem Unternehmen, bei dem Sie arbeiten möchten.
+  - Sie könnten sogar ein bestehendes Problem auf der Website eines Unternehmens identifizieren, es beheben und ihnen einen Link zu einer bereitgestellten Version der Fehlerbehebung senden.
+- Halten Sie sich in Foren auf und helfen Sie anderen bei ihren Programmierproblemen. (Siehe [Anderen helfen, Fragen stellen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#help_others_ask_questions).)
+- [Zu Open-Source-Projekten beitragen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#participate_in_open_source).
 
-### Erstellen Sie ein Portfolio
+### Ein Portfolio erstellen
 
-Sobald Sie einige relevante Erfahrungen gesammelt haben, über die es sich zu sprechen lohnt, ist der nächste Schritt, ein Portfolio zusammenzustellen, das Sie in Ihrem Lebenslauf/Ihrem Résumé aufnehmen und Arbeitgebern zeigen können. Die ganze Idee hier ist: _Sagen Sie mir nicht, was Sie können — zeigen Sie es mir._
+Sobald Sie relevante Erfahrung gesammelt haben, über die es sich zu sprechen lohnt, besteht der nächste Schritt darin, ein Portfolio zusammenzustellen, das Sie in Ihren Lebenslauf aufnehmen und Arbeitgebern zeigen können. Die ganze Idee dabei ist: _Erzählen Sie mir nicht, was Sie können – zeigen Sie mir, was Sie können._
 
-Dies sollte enthalten:
+Dieses sollte Folgendes enthalten:
 
-- Eine schön präsentierte Startseite, um alles zusammenzufassen.
-- Eine Liste von Websites, Apps und anderen relevanten Produkten, an denen Sie gearbeitet haben. Für jedes einzelne fügen Sie einen Titel, ein Vorschaubild und eine Beschreibung des Projekts hinzu, sowie was Sie an ihm getan haben. Wenn Sie viel über die Projekte sagen möchten, erstellen Sie eine separate Seite für jedes! Fügen Sie eine Liste der Technologien hinzu, die zur Erstellung des Projekts verwendet wurden, und einen Link zum Quellcode, wenn Sie dazu in der Lage sind (nicht aller Quellcode ist offen).
-- Links zu Quellcode und Live-Demos Ihrer eigenen persönlichen Projekte und Experimente. Jedes Projekt sollte eine Beschreibung enthalten, was es tut und welche Technologien zu seiner Erstellung verwendet wurden.
-- Links zu Blog-Posts, Schreibproben, Konferenzvorträgen und jeglichen anderen Assets, die helfen könnten, Ihre Fähigkeiten zu zeigen.
-- Eine Liste der Beiträge, die Sie zu Open-Source-Projekten geleistet haben, mit Angaben dazu, was der Beitrag war, wie er das Projekt verbessert hat und welche Technologien beteiligt waren. Sie sollten Links zu den tatsächlichen Änderungen, die Sie vorgenommen haben (z.B. Quellcode, veröffentlichte Dokumentation), und einen Link zum Änderungsprotokoll (z.B. der GitHub-Pull-Anfrage), das beweist, dass Sie die Arbeit geleistet haben, enthalten.
+- Eine ansprechend gestaltete Landingpage, die alles zusammenfasst.
+- Eine Liste von Websites, Apps und anderen relevanten Produkten, an denen Sie gearbeitet haben. Fügen Sie für jedes einen Titel, ein Vorschaubild sowie eine Beschreibung des Projekts und Ihrer Arbeit daran hinzu. Wenn Sie ziemlich viel über die Projekte sagen möchten, erstellen Sie für jedes eine eigene Seite! Fügen Sie eine Liste der Technologien hinzu, die für die Erstellung des Projekts verwendet wurden, sowie einen Link zum Quellcode, falls Sie dazu in der Lage sind (nicht jeder Quellcode ist offen).
+- Links zum Quellcode und zu Live-Demos Ihrer eigenen persönlichen Projekte und Experimente. Jedes Projekt sollte eine Beschreibung dessen enthalten, was es tut, und der Technologien, die zu seiner Erstellung verwendet wurden.
+- Links zu Blogbeiträgen, Schreibproben, Konferenzvorträgen und allen anderen Materialien, von denen Sie denken, dass sie helfen könnten, Ihre Fähigkeiten zu präsentieren.
+- Eine Liste Ihrer Beiträge zu Open-Source-Projekten, mit Angabe dessen, worin der Beitrag bestand, wie er das Projekt verbessert hat und welche Technologien beteiligt waren. Sie sollten Links zu den tatsächlichen von Ihnen vorgenommenen Änderungen (z. B. Quellcode, veröffentlichte Dokumentation) sowie einen Link zum Changelog (beispielsweise zum GitHub Pull Request) angeben, der belegt, dass Sie die Arbeit durchgeführt haben.
 
-Ihr Portfolio sollte Highlights Ihrer besten Arbeiten enthalten. Sie möchten, dass es einfach zuzugreifen und durchzugehen ist. Enthalten Sie nur einige bedeutende Elemente in jedem Abschnitt; andernfalls wird der Personalverantwortliche gelangweilt und geht weiter. Ein schönes, klares Design wird das Erlebnis verbessern, während ein komplexes Design die Lesbarkeit reduzieren könnte.
+Ihr Portfolio sollte die Höhepunkte Ihrer besten Arbeit enthalten. Es soll leicht zugänglich und einfach durchzusehen sein. Fügen Sie in jedem Abschnitt nur einige bedeutende Einträge ein; andernfalls wird die personalverantwortliche Person gelangweilt sein und weiterschauen. Ein schönes, klares Design verbessert die Erfahrung, während ein komplexes Design die Lesbarkeit verringern könnte.
 
-In Bezug auf die tatsächliche Veröffentlichung Ihres Portfolios:
+Was die tatsächliche Veröffentlichung Ihres Portfolios angeht:
 
-- Sie sollten [Ihre Arbeit veröffentlichen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#publish_your_work) an öffentlich zugänglichen Orten, wie eine GitHub-Organisation für Quellcode und eine Blog-Plattform wie [Medium](https://medium.com/) (oder Ihre eigene Website) für Blog-Posts.
-- Für Quellcode, der nur aus Demos oder Snippets besteht (anstatt vollständiger Websites zum Beispiel), veröffentlichen Sie Live-Versionen, damit die Leute das Live-Ergebnis leicht überprüfen können. Siehe [Veröffentlichen Ihrer Website](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website) für Tipps, wie man dies macht.
-- In Bezug auf die tatsächliche Portfoliostartseite könnten Sie ein GitHub-Repo erstellen und Ihre Link-Liste in einer `README.md` Datei bereitstellen. Aber das sieht nicht besonders toll aus. Es wäre viel besser, eine dedizierte Website zu erstellen, um Ihr Portfolio zu enthalten, mit einem dedizierten [Domainnamen](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name). Wenn Sie nicht gut im Designen sind, fragen Sie einen Kollegen oder Freund, ob Sie Hilfe bekommen können, vielleicht im Austausch dafür, dass Sie für sie ein wenig Programmierarbeit leisten.
+- Sie sollten [Ihre Arbeit veröffentlichen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#publish_your_work), und zwar an öffentlich einsehbaren Orten, beispielsweise in einer GitHub-Organisation für Quellcode und auf einer Blogging-Plattform wie [Medium](https://medium.com/) (oder Ihrer eigenen Website) für Blogbeiträge.
+- Für Quellcode, der nur aus Demos oder Snippets besteht (statt beispielsweise aus vollständigen Websites), veröffentlichen Sie Live-Versionen des Codes, damit Personen das Live-Ergebnis leicht ansehen können. Siehe [Ihre Website veröffentlichen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website) für Tipps dazu.
+- Was die eigentliche Portfolio-Landingpage betrifft, könnten Sie ein GitHub-Repository erstellen und Ihre Liste von Links in einer `README.md`-Datei bereitstellen. Das sieht jedoch nicht besonders gut aus. Viel besser wäre es, eine spezielle Website für Ihr Portfolio mit einem eigenen [Domainnamen](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name) zu erstellen. Wenn Sie nicht besonders gut im Design sind, bitten Sie eine Kollegin, einen Kollegen oder eine Freundin beziehungsweise einen Freund um Hilfe, vielleicht im Austausch dafür, dass Sie Programmierarbeit für sie übernehmen.
 
-### Erstellen Sie ein LinkedIn-Profil
+### Ein LinkedIn-Profil erstellen
 
-[LinkedIn](https://www.linkedin.com/) ist eine der weltweit beliebtesten Seiten, um Jobs zu finden und für Arbeitgeber, Mitarbeiter zu finden. Es ist ein großartiger Ort, um online einen Bericht über Ihre Berufserfahrung und Fähigkeiten zu veröffentlichen; es ist ähnlich wie Ihr Lebenslauf/Ihr Résumé.
+[LinkedIn](https://www.linkedin.com/) ist eine der beliebtesten Websites der Welt, auf der Menschen Jobs finden und Arbeitgeber Mitarbeitende finden können. Es ist ein großartiger Ort, um eine Online-Darstellung Ihrer Berufserfahrung und Fähigkeiten zu führen; sie ähnelt Ihrem Lebenslauf.
 
-LinkedIn hat viele nützliche Vorteile, die es Ihrem Profil ermöglichen, gut neben Ihrem Lebenslauf/Ihrem Résumé zu arbeiten. Sie können:
+LinkedIn hat viele nützliche Vorteile, durch die Ihr Profil gut neben Ihrem Lebenslauf funktioniert. Sie können:
 
-- Ihre vollständige Erfahrung und Fähigkeiten dort auflisten, ohne dass Ihr Profil zu lang wirkt.
-- Personen dazu bringen, Empfehlungen zu posten.
-- Zu den Profilen all Ihrer früheren Arbeitgeber, Bildungseinrichtungen usw. verlinken.
-- Beiträge darauf schreiben und es als Blog verwenden.
-- Aktiv nach Jobs suchen und sich darauf bewerben, sowie sich neue Job-Updates basierend auf Ihren Fähigkeiten und Interessen zusenden lassen.
-- Mit Kontakten verbinden, um ein Netzwerk aufzubauen, in dem Sie Fähigkeiten und Leads teilen können, was Ihnen letztendlich helfen wird, Jobs zu finden.
+- Ihre vollständigen Erfahrungen und Fähigkeiten auflisten, ohne dass Ihr Profil zu lang aussieht.
+- Andere Personen dazu bringen, Empfehlungen zu veröffentlichen.
+- Auf die Profile all Ihrer früheren Arbeitgeber, Bildungseinrichtungen usw. verlinken.
+- Beiträge schreiben und es als Blog verwenden.
+- Aktiv nach Jobs suchen und sich darauf bewerben sowie sich neue Job-Updates basierend auf Ihren Fähigkeiten und Interessen senden lassen.
+- Sich mit Kontakten verbinden, um ein Netzwerk aufzubauen, in dem Sie Fähigkeiten und Hinweise teilen können, was Ihnen letztlich bei der Jobsuche hilft.
 - Schulungskurse absolvieren.
 
-Aus diesen Gründen sollten Sie ein Profil erstellen. Gestalten Sie es ansprechend und lassen Sie es professionell klingen. [Ein gutes LinkedIn-Profil erstellen](https://www.linkedin.com/help/linkedin/answer/a554351/how-do-i-create-a-good-linkedin-profile-?lang=de) bietet einige nützliche Tipps.
+Aus diesen Gründen sollten Sie ein Profil erstellen. Achten Sie darauf, dass es gut aussieht und professionell klingt. [Ein gutes LinkedIn-Profil erstellen](https://www.linkedin.com/help/linkedin/answer/a554351/how-do-i-create-a-good-linkedin-profile-?lang=en) bietet einige nützliche Tipps.
 
-## Bewerbung für einen Job
+## Sich auf einen Job bewerben
 
-Schauen wir uns nun den Bewerbungsprozess an.
+Sehen wir uns nun den Prozess der Bewerbung auf einen Job an.
 
 ### Jobsuche
 
-Es gibt verschiedene Ansätze für die Jobsuche, und eine Kombination funktioniert oft am besten:
+Es gibt verschiedene Herangehensweisen an die Jobsuche, und eine Kombination funktioniert oft am besten:
 
-- Melden Sie sich auf Websites an, auf denen Jobs ausgeschrieben sind, wie LinkedIn (es wird auch spezifische Seiten für Ihre Region geben) und wählen Sie, regelmäßige Zusammenfassungen der verfügbaren Jobs zu erhalten.
-- Gehen Sie in Ihre [Gemeinschaftsnetzwerke](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#join_a_community_network), suchen Sie nach Jobangeboten und fragen Sie Kontakte, ob sie von Jobs wissen, an denen Sie interessiert sein könnten.
-- Recherchieren Sie die Unternehmen, für die Sie arbeiten möchten, gehen Sie zu deren Jobseiten und sehen Sie, was verfügbar ist.
-- Besuchen Sie Networking-Events und Jobmessen, um potenzielle Arbeitgeber zu treffen.
+- Melden Sie sich auf Websites an, auf denen Jobs ausgeschrieben werden, beispielsweise LinkedIn (es wird auch spezielle Websites für Ihre Region geben), und wählen Sie, regelmäßig Zusammenfassungen der verfügbaren Jobs zu erhalten.
+- Besuchen Sie Ihre [Community-Netzwerke](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork#join_a_community_network), suchen Sie nach Stellenanzeigen und fragen Sie Kontakte, ob sie von Jobs wissen, die Sie interessieren könnten.
+- Recherchieren Sie die Unternehmen, für die Sie gerne arbeiten würden, besuchen Sie deren Karriereseiten und sehen Sie, was verfügbar ist.
+- Besuchen Sie Networking-Veranstaltungen und Jobmessen, um potenzielle Arbeitgeber kennenzulernen.
 
-Die ["Entscheiden, welche Art von Job Sie möchten" Kriterien](#entscheiden,_welche_art_von_job_sie_möchten), die Sie früher erstellt haben, sollten nützlich sein, um Ihre Listen einzugrenzen, welche Unternehmen Sie arbeiten möchten und welche Art von Jobs Sie bewerben möchten.
+Die Kriterien aus [„Entscheiden Sie, welche Art von Job Sie möchten“](#entscheiden_sie,_welche_art_von_job_sie_möchten), die Sie zuvor erstellt haben, sollten nützlich sein, um Ihre Listen der Unternehmen, für die Sie arbeiten möchten, und der Stellen, auf die Sie sich bewerben möchten, einzugrenzen.
 
 ### Vor der Bewerbung
 
-Bevor Sie sich für einen Job bewerben, gibt es einige nützliche Schritte, die Sie unternehmen können, um sich vorzubereiten:
+Bevor Sie beginnen, sich auf einen Job zu bewerben, können Sie einige nützliche Schritte zur Vorbereitung unternehmen:
 
-- Überprüfen Sie, ob die Stellenbeschreibung für Sie geeignet ist. Zum Beispiel möchten Sie nicht Ihre Zeit verschwenden, um sich für einen Job zu bewerben, der das Arbeiten in einem Büro in Kalifornien in Vollzeit erfordert, wenn Sie in Großbritannien leben und nicht umziehen möchten. Und Sie werden nicht über die Erfahrung für einen Senior-Webentwickler-Job verfügen, wenn Sie erst seit 3 Monaten JavaScript lernen.
+- Prüfen Sie die Stellenbeschreibung, um sicherzustellen, dass die Stelle für Sie geeignet ist. Sie möchten beispielsweise nicht Ihre Zeit mit einer Bewerbung auf einen Job verschwenden, der Vollzeitarbeit in einem Büro in Kalifornien erfordert, wenn Sie im Vereinigten Königreich leben und nicht umziehen möchten. Und Sie werden nicht die Erfahrung für eine Stelle als Senior-Webentwicklerin oder Senior-Webentwickler haben, wenn Sie JavaScript erst seit drei Monaten lernen.
   > [!NOTE]
-  > Wenn Sie sich nicht sicher sind, ob Sie sich für einen Job bewerben sollten oder wissen möchten, ob das Unternehmen weitere geeignete Jobs hat, finden Sie die Kontaktdaten des Personalvermittlers und fragen Sie ihn. Sie könnten ein nützlicher Kontakt in der Zukunft sein, wenn nicht jetzt.
-- Versuchen Sie, Kontakte zu finden, die bereits im Unternehmen arbeiten, zum Beispiel in Ihrem Gemeinschaftsnetzwerk oder auf LinkedIn, und beginnen Sie eine Konversation mit ihnen. Fragen Sie sie, wie es ist, im Unternehmen zu arbeiten und ob es etwas Spezielles gibt, das Sie für den Job benötigen. Wenn Sie für diesen Job ungeeignet sind, fragen Sie, ob sie in naher Zukunft andere, geeignetere Jobs haben. Vermeiden Sie es, zu viele Personen im selben Unternehmen zu kontaktieren, sondern wählen Sie ein oder zwei Personen, die dem Job, für den Sie sich bewerben, am nächsten stehen.
-- Machen Sie einige andere Nachforschungen zum Unternehmen — lesen Sie deren Websites/Blogs, finden Sie ihre Geschichte heraus und welche Ziele sie haben. Verwenden Sie einige Zeit damit, ihre Produkte zu verwenden und sich damit vertraut zu machen, wie sie funktionieren — installieren Sie zum Beispiel ihre Software und verwenden Sie sie, um eine Demo-App zu erstellen, oder erstellen Sie eine Website, die deren APIs verwendet, um etwas zu tun.
+  > Wenn Sie nicht sicher sind, ob Sie sich auf einen Job bewerben sollten, oder wissen möchten, ob das Unternehmen weitere passendere Stellen verfügbar hat, suchen Sie die Kontaktdaten der Recruiterin oder des Recruiters und fragen Sie nach. Diese Person könnte künftig ein nützlicher Kontakt sein, wenn nicht schon jetzt.
+- Versuchen Sie, Kontakte zu finden, die bereits im Unternehmen arbeiten, beispielsweise in Ihrem Community-Netzwerk oder auf LinkedIn, und beginnen Sie ein Gespräch mit ihnen. Fragen Sie sie, wie die Arbeit für das Unternehmen ist und ob es etwas Spezifisches gibt, das Sie für den Job können müssen. Wenn Sie für diese Stelle nicht geeignet sind, fragen Sie, ob in naher Zukunft andere passendere Stellen ausgeschrieben werden. Vermeiden Sie es, zu viele Personen zu kontaktieren, die im selben Unternehmen arbeiten, sondern wählen Sie stattdessen eine oder zwei Personen, die Ihrer Meinung nach der Rolle, auf die Sie sich bewerben, am nächsten stehen.
+- Recherchieren Sie weiter über das Unternehmen – lesen Sie seine Websites/Blogs und informieren Sie sich über seine Geschichte und Ziele. Verbringen Sie einige Zeit damit, seine Produkte zu verwenden und sich mit ihrer Funktionsweise vertraut zu machen – installieren Sie beispielsweise seine Software und verwenden Sie sie, um eine Demo-App zu erstellen, oder schreiben Sie eine Website, die seine APIs verwendet, um etwas zu tun.
   > [!NOTE]
-  > Für Bonuspunkte versuchen Sie, ein Problem zu identifizieren, das sie gerade zu lösen versuchen oder einen Bug in ihrem Produkt, und schlagen Sie eine Lösung mit einer Demo oder Code-Snippets vor.
-- Passen Sie Ihren Lebenslauf/Ihr Résumé so an, dass es zu diesem bestimmten Job passt. Betrachten Sie die Stellenbeschreibung und verstärken Sie Ihre relevantesten Fähigkeiten und Arbeitserfahrungen, während Sie weniger relevante Einträge minimieren oder sogar entfernen. Hervorheben von Demos/Beispielen, die für diesen Job am relevantesten sind, auf Ihrem Portfolio auf irgendeine Weise. Sie könnten zum Beispiel solchen Code oben in Ihrem Portfolio platzieren.
+  > Für Extrapunkte versuchen Sie, ein Problem zu identifizieren, das das Unternehmen derzeit zu lösen versucht, oder einen Fehler in seinem Produkt, und schlagen Sie eine Korrektur zusammen mit einer Demo oder Code-Snippets vor.
+- Passen Sie Ihren Lebenslauf an diese spezielle Stelle an. Sehen Sie sich die Stellenbeschreibung an und heben Sie Ihre relevantesten Fähigkeiten und Berufserfahrungen hervor, während Sie weniger relevant erscheinende Einträge abschwächen oder sogar entfernen. Heben Sie außerdem die für diese Stelle relevantesten Demos/Beispiele in Ihrem Portfolio auf irgendeine Weise hervor. Sie könnten solchen Code beispielsweise ganz oben in Ihrem Portfolio platzieren.
 
-### Bewerbung für den Job
+### Sich auf den Job bewerben
 
-Wenn Sie sich für den Job bewerben, befolgen Sie den Prozess genau wie angewiesen. Jede Stellenanzeige wird Anweisungen dazu haben, wie man sich bewirbt. Wenn die Stellenanzeige mehr aus einem Gespräch mit einem Netzwerkkontakt bestand, fragen Sie sie genau, wie man sich bewirbt.
+Wenn Sie sich auf den Job bewerben, befolgen Sie den Prozess genau wie angewiesen. Jede Stellenanzeige enthält Anweisungen zur Bewerbung. Wenn die Stellenanzeige eher aus einem Gespräch mit einem Netzwerkkontakt bestand, fragen Sie diese Person genau, wie Sie sich bewerben sollen.
 
 Vor allem:
 
-- Stellen Sie sicher, dass Ihre Bewerbung professionell und gut geschrieben ist, und keine Tippfehler enthält. Wenn es schlecht geschrieben ist, werden Sie wahrscheinlich keinen Erfolg haben. Überprüfen Sie es mit einem Tool wie Grammarly.
-- Bewerben Sie sich nicht zu spät — Sie müssen Ihre Bewerbung bis zur Frist einreichen!
+- Stellen Sie sicher, dass Ihre Bewerbung professionell und gut geschrieben ist und keine Tippfehler enthält. Wenn sie schlecht geschrieben ist, werden Sie wahrscheinlich keinen Erfolg haben. Prüfen Sie sie mit einem Tool wie Grammarly.
+- Bewerben Sie sich nicht zu spät – Sie müssen Ihre Bewerbung bis zum Stichtag einreichen!
 
-Nicht alle Bewerbungen für Jobs erfordern dieselben Dinge; Sie müssen wahrscheinlich:
+Nicht alle Bewerbungen erfordern dieselben Dinge; wahrscheinlich müssen Sie:
 
-- Einige Details in einem Online-Formular ausfüllen. Tippen Sie Ihre Antworten lokal aus (zum Beispiel in VS Code) oder in einem Online-Dokument (zum Beispiel einer Google Docs-Datei), bevor Sie sie in die Formularfelder eingeben, falls etwas (zum Beispiel ein Absturz des Browsers) Ihr Arbeit verlieren lässt. Dies kann Ihnen Stunden der Frustration ersparen; Text ist auch leichter zu überprüfen und Feedback zu erhalten, wenn Sie es zuerst irgendwo anders ablegen.
-- Ihren Lebenslauf/Ihr Résumé hochladen.
-- Ein Bewerbungsschreiben schreiben und hochladen. Es gibt viele Leitfäden zum Schreiben effektiver Bewerbungsschreiben online, aber im Allgemeinen sollte ein solches Schreiben eine Beschreibung liefern, warum Sie:
+- Einige Angaben in einem Online-Formular ausfüllen. Schreiben Sie Ihre Antworten lokal (beispielsweise in VS Code) oder in einem Online-Dokument (beispielsweise einer Google-Docs-Datei), bevor Sie sie in die Formularfelder eingeben, falls etwas (beispielsweise ein Browser-Absturz) dazu führt, dass Sie Ihre Arbeit verlieren. Das kann Ihnen Stunden der Frustration ersparen; außerdem ist Text leichter zu überprüfen und Rückmeldungen dazu einzuholen, wenn Sie ihn zunächst an einer anderen Stelle ablegen.
+- Ihren Lebenslauf hochladen.
+- Ein Anschreiben verfassen und hochladen. Es gibt viele Leitfäden zum Schreiben wirksamer Anschreiben an anderen Stellen im Internet, aber im Allgemeinen sollte ein solches Schreiben beschreiben, warum Sie:
   - Für das Unternehmen arbeiten möchten.
   - Gut zur Unternehmenskultur passen würden.
-  - Perfekt geeignet sind, um den Job zu machen.
-- Einige Beispiele Ihrer früheren Arbeiten in einem separaten Abschnitt bereitstellen.
+  - Perfekt für die Stelle geeignet sind.
+- Einige Beispiele Ihrer bisherigen Arbeit in einem separaten Abschnitt bereitstellen.
 
-### Konstanter Prozess
+### Ein fortlaufender Prozess
 
-Ein wichtiger Punkt ist, dass Ihre Jobsuche ein konstanter Prozess sein sollte, bei dem Sie jeden Tag ein kleines bisschen tun und stetig auf Ihr Ziel hinarbeiten. Feuern Sie nicht einfach eine ganze Menge Bewerbungen ab und warten dann auf eine Antwort.
+Ein wichtiger Punkt ist, dass Ihre Jobsuche ein fortlaufender Prozess sein sollte, bei dem Sie jeden Tag ein wenig tun und ständig auf Ihr Ziel hinarbeiten. Senden Sie nicht einfach eine ganze Menge Bewerbungen ab und warten dann untätig auf eine Antwort.
 
-Sie sollten jedem vielversprechenden Kontakt nachgehen, den Sie zum Beispiel in Gemeinschaftsnetzwerken oder auf LinkedIn treffen. Führen Sie auch eine Bestandsaufnahme der Personen, die Sie treffen, und der Unternehmen, bei denen Sie sich bewerben, mit Kontaktdetails und Beschreibungen jedes einzelnen. Fragen Sie regelmäßig bei Unternehmen nach, bei denen Sie arbeiten möchten, um zu sehen, welche Jobs sie verfügbar haben. Wenn Sie für einen Job abgelehnt wurden, könnten sie etwas anderes, das besser zu Ihnen passt, haben, entweder jetzt oder in der Zukunft.
+Sie sollten bei allen vielversprechenden Kontakten nachfassen, die Sie beispielsweise in Community-Netzwerken oder auf LinkedIn treffen. Führen Sie außerdem eine Liste der Personen, die Sie treffen, und der Unternehmen, bei denen Sie sich bewerben, zusammen mit Kontaktdaten und Beschreibungen zu jedem Eintrag. Fragen Sie regelmäßig bei Unternehmen nach, für die Sie gerne arbeiten würden, um zu erfahren, welche Stellen sie verfügbar haben. Wenn Sie für eine Stelle abgelehnt werden, haben sie möglicherweise etwas anderes, das besser zu Ihnen passt, entweder jetzt oder in Zukunft.
 
-Wenn Sie keine Antwort von einem Unternehmen erhalten haben, nachdem Sie sich für einen ihrer Jobs beworben haben, warten Sie eine Weile und fragen dann beim Personalvermittler nach, ob sie Feedback für Sie haben oder ob sie weitere Jobs vorhaben. Selbst wenn ein Unternehmen, bei dem Sie arbeiten möchten, derzeit keine geeigneten Vollzeitjobs ausgeschrieben hat, kontaktieren Sie sie trotzdem und schauen Sie, ob sie jemanden mit Ihrem Fähigkeitsset suchen. Sie könnten Ihnen einige nützliche Erfahrungen geben, vielleicht in Form einer ehrenamtlichen Position oder eines Freiberuflervertrags.
+Wenn Sie nach Ihrer Bewerbung auf eine Stelle keine Antwort von einem Unternehmen erhalten haben, warten Sie eine Weile und fragen Sie dann bei der Recruiterin oder dem Recruiter nach, ob es Rückmeldungen für Sie gibt oder weitere Stellen anstehen. Selbst wenn ein Unternehmen, für das Sie arbeiten möchten, derzeit keine passenden Vollzeitstellen ausgeschrieben hat, kontaktieren Sie es trotzdem und fragen Sie, ob es jemanden mit Ihrem Kompetenzprofil sucht. Möglicherweise bieten sie Ihnen nützliche Erfahrung, vielleicht in Form einer ehrenamtlichen Tätigkeit oder eines Freelance-Vertrags.
 
-Halten Sie Ausschau nach weiteren Jobs auf Ihren ausgewählten Jobseiten oder Gemeinschaftsnetzwerken. Sprechen Sie mit Leuten darüber, was verfügbar ist. Neue Möglichkeiten werden ständig auftauchen.
+Suchen Sie weiterhin über Ihre ausgewählten Job-Websites oder Community-Netzwerke nach weiteren Stellen. Sprechen Sie mit Menschen darüber, was verfügbar ist. Ständig werden neue Möglichkeiten entstehen.
 
-Wenn Sie Schwierigkeiten haben, etwas Dauerhaftes zu finden, das Sie wirklich möchten, könnte es einige Zwischenstufen geben:
+Wenn Sie Schwierigkeiten haben, etwas Dauerhaftes zu finden, das Sie wirklich möchten, gibt es möglicherweise einige Zwischenschritte:
 
-- Manchmal ist es eine gute Strategie, einen Job in der Nähe des gewünschten zu bekommen. Sie müssen vielleicht zu Beginn einen niedrigeren Job bekommen, um die erforderliche Erfahrung für den Job zu erhalten, den Sie wirklich wollen, entweder in Bezug auf den spezifischen Technologie-Stack oder die bestimmte Branche, in der Sie arbeiten möchten.
-- Sie könnten freiberufliche/vertragsmäßige Arbeiten annehmen müssen, um die Miete zu bezahlen, während Sie Ihre Jobsuche fortsetzen. Dies wird Ihnen auch nützliche Erfahrungen geben, die Ihnen helfen werden, den Job zu bekommen, den Sie suchen.
+- Manchmal ist es eine gute Strategie, einen Job zu bekommen, der dem gewünschten Job benachbart ist. Möglicherweise müssen Sie zunächst einen niedriger eingestuften Job annehmen, um die erforderliche Erfahrung für den Job zu sammeln, den Sie wirklich möchten – entweder hinsichtlich des verwendeten konkreten Technologie-Stacks oder der bestimmten Branche, in der Sie arbeiten möchten.
+- Möglicherweise müssen Sie Freelance-/Auftragsarbeit annehmen, um weiterhin Ihre Miete bezahlen zu können, während Sie Ihre Jobsuche fortsetzen. Dies gibt Ihnen auch nützliche Erfahrung, die Ihnen helfen wird, den Job zu bekommen, den Sie anstreben.
 
 ## Sich auf Vorstellungsgespräche vorbereiten
 
-Wenn der Personalvermittler und der Personalverantwortliche Ihre Bewerbung mögen, werden sie Sie zu einigen Vorstellungsgesprächen und anderen Sitzungen einladen. Dieser Abschnitt bietet einige Ratschläge zur Vorbereitung.
+Wenn Recruiterin oder Recruiter und die personalverantwortliche Person Ihre Bewerbung mögen, werden sie Sie zu einigen Vorstellungsgesprächen und anderen Terminen einladen. Dieser Abschnitt bietet einige Ratschläge zur Vorbereitung darauf.
 
-Es gibt einige allgemeine Dinge, die Sie tun sollten, um sich auf _jedes_ Vorstellungsgespräch vorzubereiten:
+Es gibt einige allgemeine Dinge, die Sie zur Vorbereitung auf _jedes_ Vorstellungsgespräch tun sollten:
 
-- Finden Sie einen ordentlichen, ruhigen Ort, um das Vorstellungsgespräch zu führen. Stellen Sie sicher, dass Sie nicht von Lärm und Unruhe abgelenkt werden und dass Ihre Umgebung während des Vorstellungsgesprächs ordentlich ist. Wenn Sie mit dem/den Interviewer(n) ein Videotelefonat führen und Ihr Raum ein komplettes Chaos ist, wird dies keinen guten Eindruck hinterlassen.
-- Überlegen Sie, was Sie anziehen, wenn Sie zu Ihrem Vorstellungsgespräch erscheinen. Die meisten Entwickler-Jobs erfordern nicht, dass Sie einen Anzug tragen (überprüfen Sie die Stellenanzeige, um zu sehen, ob sie einen Dresscode erwähnt), aber Sie sollten etwas ziemlich Neutrales und Schickes wählen. Tragen Sie kein T-Shirt mit einem anstößigen Slogan, und erscheinen Sie nicht in Ihrem Pyjama.
-- Machen Sie einige [Vorbereitungen für Codierungs-Interviews](#programmierinterviews).
-- Erstellen Sie eine Sammlung von Anekdoten für [erfahrungsbasierte Interviewfragen](#erfahrungsbasierte_fragen).
-- Überlegen Sie, was Ihre Stärken und Schwächen sind, und seien Sie realistisch mit Ihren Antworten. Sie werden glaubwürdiger erscheinen, wenn Sie sich nicht als perfekt in jeder Hinsicht präsentieren, wenn Interviewer unvermeidlich nach Ihren größten Stärken und Schwächen fragen.
-- Recherchieren Sie, welche typischen Gehaltsspannen und anderen Leistungen (wie Krankenversicherung oder Boni) es für die Art von Job gibt, für den Sie sich bewerben (z.B. Level, geografische Region). Dies wird nützlich sein, wenn Sie [entscheiden, ob Sie ein Jobangebot annehmen](#das_angebot_annehmen).
+- Suchen Sie einen aufgeräumten, ruhigen Ort für das Vorstellungsgespräch. Stellen Sie sicher, dass Sie nicht durch Lärm und Unruhe abgelenkt werden und dass Ihre Umgebung während des Gesprächs ordentlich ist. Wenn Sie einen Videoanruf mit der interviewenden Person bzw. den interviewenden Personen führen und Ihr Raum völlig chaotisch ist, wird das keinen guten Eindruck machen.
+- Überlegen Sie, was Sie zu Ihrem Vorstellungsgespräch anziehen werden. Bei den meisten Entwicklerjobs müssen Sie keinen Anzug tragen (prüfen Sie die Stellenanzeige darauf, ob sie eine Kleiderordnung erwähnt), aber Sie sollten etwas relativ Neutrales und halbwegs Schickes wählen. Tragen Sie kein T-Shirt mit einem anstößigen Slogan und erscheinen Sie nicht im Pyjama.
+- Bereiten Sie sich auf [Programmierinterviews](#programmierinterviews) vor.
+- Stellen Sie eine Sammlung von Anekdoten zusammen, die Sie für [erfahrungsbasierte Interviewfragen](#erfahrungsbasierte_fragen) verwenden können.
+- Überlegen Sie, was Ihre Stärken und Schwächen sind, und antworten Sie realistisch. Sie werden glaubwürdiger wirken, wenn Sie sich nicht in jeder Hinsicht als perfekt darstellen, wenn Interviewende Sie unvermeidlich nach Ihren größten Stärken und Schwächen fragen.
+- Recherchieren Sie die üblichen Gehaltsspannen und anderen Leistungen (wie Krankenversicherung oder Boni) für die Art von Job, die Sie anstreben (z. B. Erfahrungsstufe, geografische Region). Das wird nützlich sein, wenn Sie [entscheiden, ob Sie ein Jobangebot annehmen](#das_angebot_annehmen).
 
-Sie sollten auch einige spezifische Vorbereitungen für jedes Unternehmen treffen, bei dem Sie sich bewerben:
+Sie sollten sich auch spezifisch auf jedes Unternehmen vorbereiten, bei dem Sie sich bewerben:
 
-- Wie wir bereits erwähnt haben, sollten Sie einige Nachforschungen über die Geschichte, Ziele und Produkte des Unternehmens anstellen.
-  - Lesen Sie über das Unternehmen aus einer hohen Ebene und machen Sie sich mit den neuesten Nachrichten vertraut. Ein guter Grund dafür ist, um zu sehen, ob sie etwas getan haben, das rote Fahnen aufwirft und Sie dazu bringen würde, dort zu arbeiten.
-  - Finden Sie heraus, wie die Marktposition des Unternehmens ist und was ihre Stärken und Schwächen sind.
-  - Recherchieren Sie, wer ihre Hauptkonkurrenten sind.
-  - Machen Sie sich mit ihren Produkten und deren Funktionsweise vertraut — installieren Sie zum Beispiel ihre Software und verwenden Sie sie, um eine Demo-App zu erstellen, oder erstellen Sie eine Website, die ihre APIs verwendet, um etwas zu tun. Es wird Ihren Interviewern imponieren, wenn Sie einige gute Einblicke in ihre Situation und wie Sie denken, dass diese verbessert werden könnte, demonstrieren können. Interviewer werden oft einige spezifische Fragen stellen, um Ihr Wissen über das Unternehmen und die Branche zu testen, in der es existiert.
-- In Bezug auf den vorherigen Punkt, überlegen Sie sich einige Fragen, die Sie den Interviewern über das Unternehmen und deren Rollen stellen würden. Interviewer fragen immer, ob Sie am Ende des Vorstellungsgesprächs Fragen an sie haben, und es hinterlässt einen positiven Eindruck und lässt Sie nachdenklich und neugierig erscheinen, wenn Sie mit Fragen herauskommen, die bedeutungsvoller sind als "Was hatten Sie heute zum Frühstück?"
-- Wenn Sie Kontakte im Unternehmen haben (z.B. aus Ihren Gemeinschaftsnetzwerken), wenden Sie sich an sie und fragen Sie nach dem Job. Was halten sie davon? Gibt es etwas Spezifisches, auf das Sie sich fokussieren sollten? Gibt es etwas, was Sie sagen oder nicht sagen sollten? Es könnte auch helfen, während des Vorstellungsgesprächs zu erwähnen, dass Sie "Bob vom E-Commerce-Team" (oder wie auch immer) kennen.
+- Wie wir bereits erwähnt haben, sollten Sie zur Geschichte, zu den Zielen und zu den Produkten des Unternehmens recherchieren.
+  - Informieren Sie sich auf hoher Ebene über das Unternehmen und machen Sie sich mit seinen aktuellen Nachrichten vertraut. Ein guter Grund dafür ist, festzustellen, ob es etwas getan hat, das Warnsignale auslösen und Sie die Arbeit dort überdenken lassen würde.
+  - Informieren Sie sich über die Marktposition des Unternehmens und darüber, was _seine_ Stärken und Schwächen sind.
+  - Recherchieren Sie, wer seine wichtigsten Wettbewerber sind.
+  - Machen Sie sich mit seinen Produkten und ihrer Funktionsweise vertraut – installieren Sie beispielsweise seine Software und verwenden Sie sie, um eine Demo-App zu erstellen, oder schreiben Sie eine Website, die seine APIs verwendet, um etwas zu tun. Es wird Ihre Interviewenden beeindrucken, wenn Sie gute Einblicke in ihre Situation und Ideen dazu demonstrieren können, wie diese verbessert werden könnte. Interviewende stellen oft einige spezifische Fragen, um Ihr Wissen über das Unternehmen und die Branche, in der es tätig ist, zu prüfen.
+- Denken Sie im Zusammenhang mit dem obigen Punkt über einige Fragen nach, die Sie den Interviewenden über das Unternehmen und ihre Rollen stellen würden. Interviewende fragen am Ende des Gesprächs immer, ob Sie Fragen an sie haben, und es wirft ein gutes Licht auf Sie und lässt Sie nachdenklich und wissbegierig wirken, wenn Sie sinnvollere Fragen stellen als „Was haben Sie heute zum Frühstück gegessen?“
+- Wenn Sie Kontakte im Unternehmen haben (z. B. aus Ihren Community-Netzwerken), wenden Sie sich an sie und fragen Sie nach der Stelle. Was denken sie darüber? Gibt es etwas Spezifisches, worauf Sie sich konzentrieren sollten? Gibt es etwas, das Sie sagen oder nicht sagen sollten? Es kann während des Gesprächs auch helfen zu erwähnen, dass Sie „Bob aus dem E-Commerce-Team“ kennen (oder wen auch immer).
 
-### Erste Auswahl
+### Erste Vorauswahl
 
-Nachdem sich das Unternehmen Ihre Bewerbung angesehen und entschieden hat, dass Sie wie ein "Potenzial" klingen, werden sie wahrscheinlich mit einem ersten Telefoninterview beginnen, nur mit dem Personalvermittler oder Personalverantwortlichen. Dies ist in der Regel ein kurzes Vorstellungsgespräch, um die "Kulturpassung" (d.h. ob Sie gut mit ihnen auskommen werden) zu bewerten, sicherzustellen, dass sie keine sofortigen roten Fahnen erkennen, die darauf hindeuten, dass Sie kein guter Mitarbeiter wären, und sie Ihnen mitteilen, was Sie vom Rest des Interviewprozesses erwarten können.
+Sobald das Unternehmen Ihre Bewerbung geprüft und entschieden hat, dass Sie vielversprechend klingen, wird es wahrscheinlich zunächst zu einem ersten telefonischen Gespräch einladen, nur mit der Recruiterin bzw. dem Recruiter oder der personalverantwortlichen Person. Dies ist normalerweise ein kurzes Gespräch, um die „kulturelle Passung“ zu bewerten (d.h. ob Sie gut mit ihnen auskommen werden), sicherzustellen, dass keine unmittelbaren Warnsignale auftauchen, die darauf hindeuten, dass Sie keine gute Mitarbeiterin oder kein guter Mitarbeiter sein werden, und Ihnen zu erklären, was Sie vom Rest des Bewerbungsprozesses erwarten können.
 
-An diesem Punkt sollten Sie freundlich und gesprächig sein. Aber reden Sie nicht zu viel; verhalten Sie sich natürlich und sehen Sie, wohin der Interviewer das Gespräch lenkt. Teilen Sie ihnen mit, an welchen Tagen und zu welchen Zeiten Sie für weitere Vorstellungsgespräche zur Verfügung stehen. Versuchen Sie, so flexibel wie möglich zu sein, und seien Sie bereit, Ihren Zeitplan zu verschieben, um ihnen entgegenzukommen.
+In dieser Phase sollten Sie freundlich und gesprächig sein. Reden Sie jedoch nicht zu viel; verhalten Sie sich natürlich und sehen Sie, wohin die interviewende Person das Gespräch lenkt. Teilen Sie ihr unbedingt mit, an welchen Tagen und zu welchen Zeiten Sie für weitere Vorstellungsgespräche verfügbar sind. Versuchen Sie, so flexibel wie möglich zu sein, und seien Sie bereit, Ihren Zeitplan anzupassen, um ihnen entgegenzukommen.
 
-Seien Sie jedoch nicht nachlässig — Sie wissen nicht genau, welche Fragen sie Ihnen zu diesem frühen Zeitpunkt stellen werden. Sie sollten die erste Auswahl genauso ernst nehmen wie alle anderen Phasen.
+Seien Sie jedoch nicht selbstgefällig – Sie wissen nicht genau, welche Fragen Ihnen in dieser frühen Phase gestellt werden. Sie sollten die erste Vorauswahl genauso ernst nehmen wie alle anderen Phasen.
 
 ### Das Hauptinterview
 
-In der Regel besteht der Großteil des Interviewprozesses aus einem oder mehreren Hauptinterviews. Diese können sich bei verschiedenen Unternehmen stark unterscheiden, sowohl in Bezug auf Funktion als auch Häufigkeit.
+Normalerweise besteht der Großteil des Bewerbungsprozesses aus einem oder mehreren Hauptinterviews. Diese können sich zwischen verschiedenen Unternehmen sowohl in ihrer Funktion als auch in ihrer Häufigkeit stark unterscheiden.
 
-- Sie könnten ein Hauptinterview haben, aber es ist wahrscheinlicher, dass Sie mehrere Interviews haben, die Sie zu verschiedenen Aspekten des Jobs testen (zum Beispiel die eigentliche Programmierarbeit, Teamarbeit, Arbeitsprozesse, Dokumentation/Kommunikation, Konfliktlösung).
-- Sie könnten mit einem einzelnen Interviewer oder mehreren Interviewern konfrontiert sein, die Ihnen Fragen zu verschiedenen Aspekten stellen (d.h. ein Panelinterview).
-- Einige Interviews könnten auf einer höheren Ebene oder eher explorativ sein (zum Beispiel "beschreiben Sie den Prozess, den Sie verwenden würden, um x zu liefern", oder "was denken Sie sind die Hauptprobleme mit dieser Lösung?") und einige könnten auf einer niedrigeren Ebene und intensiver sein (zum Beispiel "schreiben Sie ein JavaScript-Programm, das dieses Problem löst").
+- Sie haben möglicherweise ein Hauptinterview, aber wahrscheinlicher sind mehrere Interviews, die unterschiedliche Aspekte der Stelle prüfen (beispielsweise die eigentliche Programmierarbeit, Teamarbeit, Arbeitsprozesse, Dokumentation/Kommunikation, Konfliktlösung).
+- Diese können mit einer einzelnen interviewenden Person oder mehreren Interviewenden stattfinden, die Ihnen Fragen zu verschiedenen Aspekten stellen (also ein Panel-Interview).
+- Einige Interviews können auf hoher Ebene oder eher explorativ sein (beispielsweise „Beschreiben Sie den Prozess, den Sie anwenden würden, um x bereitzustellen“, oder „Was sind Ihrer Meinung nach die Hauptprobleme dieser Lösung?“), andere können detaillierter und intensiver sein (beispielsweise „Schreiben Sie ein JavaScript-Programm, das dieses Problem löst“).
 
 #### Erfahrungsbasierte Fragen
 
-Interviews werden unweigerlich erfahrungsbasierte Fragen enthalten. Diese bitten Sie, Anekdoten bereitzustellen, die zeigen, dass Sie über relevante Erfahrungen für den Job verfügen, und werden etwa im folgenden Stil gehalten sein:
+Vorstellungsgespräche enthalten unweigerlich erfahrungsbasierte Fragen. Diese fordern Sie auf, Anekdoten zu nennen, die zeigen, dass Sie für die Stelle relevante Erfahrung haben, und werden in etwa so aussehen:
 
-- "Geben Sie ein Beispiel für eine Situation, in der Sie einem Kollegen negatives Feedback zu seinem Code geben mussten. Wie sind Sie damit umgegangen?"
-- "Erzählen Sie mir von einer Zeit, in der Sie während eines Projekts herausfanden, dass Ihr gewählter Ansatz nicht funktionieren würde. Wie sind Sie damit umgegangen und welche Schritte haben Sie unternommen?"
-- "Das Beheben kleinerer Fehler lässt sich oft schwer in den Arbeitsprozess eines Teams integrieren — oft wird der Stapel vernachlässigt und wächst an. Wie haben Sie das in früheren Teams gehandhabt?"
+- „Nennen Sie mir ein Beispiel für eine Situation, in der Sie einer Kollegin oder einem Kollegen negatives Feedback zu dessen Code geben mussten. Wie sind Sie damit umgegangen?“
+- „Erzählen Sie mir von einer Situation, in der Sie mitten in einem Projekt festgestellt haben, dass Ihr gewählter Ansatz nicht funktionieren würde. Wie haben Sie das angegangen, und welche Schritte haben Sie unternommen?“
+- „Kleinere Bugs zu beheben, lässt sich oft schwer in den Arbeitsprozess eines Teams integrieren – häufig wird der Stapel vernachlässigt und häuft sich an. Wie sind Sie in früheren Teams damit umgegangen?“
 
-Sie sollten eine Reihe von Anekdoten aufbauen, die Sie beim Beantworten solcher Fragen verwenden können. Dies wird im Laufe der Zeit, wenn Sie mehr Erfahrung sammeln, einfacher werden.
+Sie sollten eine Reihe von Anekdoten aufbauen, die Sie bei der Beantwortung solcher Fragen verwenden können. Dies wird mit der Zeit leichter, wenn Sie mehr Erfahrung sammeln.
 
 #### Programmierinterviews
 
-Einige Interviews werden Programmierinterviews sein, die darauf abzielen, Ihre Fähigkeit zur Lösung von Programmierproblemen zu testen. Diese könnten in etwa folgende Fragen sein:
+Einige Interviews sind Programmierinterviews, die Ihre Fähigkeit testen sollen, Programmierprobleme zu lösen. Diese könnten etwa so aussehen:
 
-- "Schreiben Sie eine JavaScript-Funktion, die die Eingaben x und y entgegennimmt und z zurückgibt."
-- "Ein Kollege hat die folgende React-Komponente geschrieben, aber sie hat einige Fehler. Können Sie herausfinden, was daran falsch ist, und sie neu schreiben, um die Probleme zu beheben?"
-- "Schauen Sie sich den folgenden Code an und beschreiben Sie mir, was er tut."
-- "Schreiben Sie einen Algorithmus, der die ersten `n` Einträge in der Fibonacci-Folge erzeugt, wobei `n` eine positive Zahl ist."
+- „Schreiben Sie eine JavaScript-Funktion, die die Eingaben x und y entgegennimmt und z zurückgibt.“
+- „Eine Kollegin oder ein Kollege hat die folgende React-Komponente geschrieben, aber sie enthält einige Bugs. Können Sie erkennen, was damit nicht stimmt, und sie umschreiben, um die Probleme zu beheben?“
+- „Sehen Sie sich den folgenden Code an und beschreiben Sie mir, was er tut.“
+- „Schreiben Sie einen Algorithmus, der die ersten `n` Einträge der Fibonacci-Folge erzeugt, wobei `n` eine positive Zahl ist.“
 
-Oft achten Arbeitgeber darauf, wie Sie an das Problem herangehen, anstatt auf das Endergebnis — wie Sie Ihren Code kommentiert haben, wie Sie mit Fehlerbehandlung umgegangen sind und was Sie vielleicht getan hätten, wenn Sie mehr Zeit gehabt hätten.
+Oft achten Arbeitgeber mehr darauf, wie Sie an das Problem herangehen, als auf das Endergebnis – wie Sie Ihren Code kommentiert haben, wie Sie mit Fehlerbehandlung umgegangen sind und was Sie mit mehr Zeit vielleicht getan hätten.
 
-Sie sollten gängige Arten von Programmierinterviewfragen recherchieren, üben, sie zu lösen, und üben, zu erklären, was sie tun. Sie finden viele Ressourcen online zum Üben von Programmierinterviewfragen.
+Sie sollten häufige Arten von Fragen in Programmierinterviews recherchieren, deren Lösung üben und üben, zu erklären, was sie tun. Online finden Sie viele Ressourcen zum Üben von Fragen für Programmierinterviews.
 
 #### Hausaufgabenfragen
 
-Einige Unternehmen geben einem Interviewkandidaten Hausaufgaben, die er erledigen soll, als alternative oder zusätzliche Möglichkeit, seine Programmierfähigkeiten zu testen. Dies ist in der Regel in Form eines Mini-Projekts, das Sie bitten wird, einige Funktionen zu programmieren, die für den Job, für den Sie sich bewerben, relevant sind. Zum Beispiel könnten Sie aufgefordert werden, eine eigenständige Demo zu erstellen, die die JavaScript-Bibliothek des Unternehmens verwendet, um Daten von ihren APIs zu ziehen und eine Informationsseite zu füllen.
+Einige Unternehmen geben einer Bewerberin oder einem Bewerber Hausaufgaben auf, um Ihre Programmierfähigkeit alternativ oder zusätzlich zu testen. Dies geschieht meist in Form eines Mini-Projekts, bei dem Sie Funktionalität programmieren sollen, die für die Stelle, auf die Sie sich bewerben, relevant ist. Beispielsweise könnten Sie gebeten werden, eine eigenständige Demo zu erstellen, die die JavaScript-Bibliothek des Unternehmens verwendet, um Daten aus dessen APIs abzurufen und eine Informationsseite zu füllen.
 
-Obwohl dies bei richtiger Durchführung eine angemessene Möglichkeit ist, Kandidaten zu testen, mögen viele Leute die Praxis des Stellens von Hausaufgabenfragen nicht:
+Obwohl dies eine angemessene Methode zum Testen von Kandidatinnen und Kandidaten sein kann, wenn sie richtig durchgeführt wird, mögen viele Menschen die Praxis, Hausaufgabenfragen zu stellen, nicht:
 
-- Manchmal können sie sich ein wenig zu sehr nach "echter Arbeit" anfühlen, fast so, als ob der Arbeitgeber Sie bitten würde, Arbeit kostenlos zu verrichten.
-- Sie können schlecht abgegrenzt sein oder ein unzumutbares Zeitengagement erwarten. Ein spezifischer Umfang, der das Projekt auf vier Stunden begrenzt und Anschlussfragen in einem separaten Interview behandelt, ist angemessen, aber die Erwartung, ein ganzes Wochenende an einem Projekt zu verbringen, ist es nicht, besonders für Menschen mit Familien und einem geschäftigen Leben.
-- Ihre Effektivität wird oft angezweifelt, da sie schwer schlüssig zu bewerten sind.
+- Manchmal können sie sich ein wenig zu sehr wie „echte Arbeit“ anfühlen, fast so, als bitte der Arbeitgeber Sie, kostenlos zu arbeiten.
+- Sie können schlecht abgegrenzt sein oder einen unangemessenen Zeitaufwand erwarten. Ein konkreter Umfang, der das Projekt auf vier Stunden begrenzt und Folgefragen in einem separaten Interview behandelt, ist angemessen; die Erwartung, ein ganzes Wochenende für ein Projekt aufzuwenden, ist es jedoch nicht, besonders für Personen mit Familien und einem ausgefüllten Leben.
+- Ihre Wirksamkeit wird oft angezweifelt, da sie schwer abschließend zu bewerten sind.
 
-Wenn Sie gebeten werden, eine Hausaufgabe zu machen, stellen Sie sicher, dass der Umfang und der Zeitrahmen der Arbeit klar definiert sind, um das Risiko zu mindern, in die falsche Richtung zu gehen und Ihre Zeit zu verschwenden.
+Wenn Sie gebeten werden, eine Hausaufgabenaufgabe zu erledigen, stellen Sie sicher, dass Umfang und Zeitrahmen der Arbeit klar definiert sind, um das Risiko zu verringern, in die falsche Richtung zu gehen und Ihre Zeit zu verschwenden.
 
 ### Das Angebot annehmen
 
-Wenn Sie es durch den Interviewprozess geschafft haben und das Stellenangebot bekommen, dann herzlichen Glückwunsch! Es mag verlockend sein, das Angebot sofort anzunehmen, aber es gibt ein paar Dinge, die Sie beachten sollten, bevor Sie es tun:
+Wenn Sie den Bewerbungsprozess erfolgreich durchlaufen und die Stelle angeboten bekommen, dann herzlichen Glückwunsch! Es mag verlockend sein, das Angebot sofort anzunehmen, doch bevor Sie dies tun, sollten Sie einige Dinge beachten:
 
-- Stellen Sie sicher, dass das Gehalt, das Ihnen angeboten wird, im Vergleich zum typischen Marktpreis für ähnliche Jobs angemessen ist. Wenn es deutlich weniger ist, sollten Sie eine Verhandlung in Betracht ziehen.
-- Überprüfen Sie, ob das Kündigen Ihres aktuellen Jobs (oder einer anderen Tätigkeit) mit dem Beginnen des neuen Jobs kompatibel ist. Überprüfen Sie zum Beispiel, wie viel Kündigungsfrist Ihr aktueller Arbeitgeber von Ihnen erwartet und stellen Sie sicher, dass dies für den neuen Job funktioniert.
-- Sie sollten den Arbeitgeber auch über bestehende Verpflichtungen außerhalb der Arbeit informieren, wie zum Beispiel einen gebuchten Urlaub. Respektable Arbeitgeber werden um solche Verpflichtungen herumarbeiten und ein Startdatum vereinbaren, das Ihnen passt.
-- Wenn Sie umziehen/den Wohnort wechseln müssen, um den neuen Job anzutreten, stellen Sie sicher, dass Sie alles für den Umzug vorbereitet haben. Einen neuen Job anfangen, ist schon stressig genug, ohne den zusätzlichen Stress, den Schwierigkeiten beim Umzug verursachen können.
+- Stellen Sie sicher, dass das angebotene Gehalt im Vergleich zum üblichen Marktpreis für ähnliche Stellen angemessen ist. Wenn es deutlich niedriger ist, möchten Sie möglicherweise verhandeln.
+- Prüfen Sie, dass das Verlassen Ihres aktuellen Jobs (oder einer anderen Tätigkeit) mit dem Beginn des neuen Jobs vereinbar ist. Prüfen Sie beispielsweise, welche Kündigungsfrist Ihr aktueller Arbeitgeber von Ihnen erwartet, und stellen Sie sicher, dass dies mit dem neuen Job funktioniert.
+- Sie sollten den Arbeitgeber auch über bereits bestehende Verpflichtungen außerhalb der Arbeit informieren, etwa einen gebuchten Urlaub. Seriöse Arbeitgeber werden solche Verpflichtungen berücksichtigen und sich mit Ihnen auf ein passendes Startdatum einigen.
+- Wenn Sie umziehen müssen, um den neuen Job anzunehmen, stellen Sie sicher, dass Sie alles für einen erfolgreichen Umzug vorbereitet haben. Der Start in einem neuen Job ist schon stressig genug, ohne den zusätzlichen Stress von Schwierigkeiten beim Umzug.
 
-## Versuchen, versuchen, und nochmals versuchen
+## Versuchen Sie es immer wieder
 
-Wenn Sie sich für viele Jobs beworben haben und bisher nichts bekommen haben, versuchen Sie, nicht entmutigt zu werden. Probieren Sie es weiter, bleiben Sie leidenschaftlich für das Web, sprechen Sie weiterhin mit neuen Leuten und lernen Sie weiterhin neue Dinge.
+Wenn Sie sich auf viele Jobs beworben und noch nichts bekommen haben, versuchen Sie, nicht entmutigt zu werden. Versuchen Sie es weiter, bleiben Sie leidenschaftlich beim Thema Web, sprechen Sie weiterhin mit neuen Menschen und lernen Sie ständig Neues.
 
-Wenn Sie es bis zur Interviewphase geschafft haben, aber abgelehnt wurden, fragen Sie den Personalvermittler nach Feedback, warum Sie nicht ausgewählt wurden, und nutzen Sie es, um zukünftige Bewerbungen zu verbessern.
+Wenn Sie bis zur Interviewphase gekommen sind, aber abgelehnt wurden, bitten Sie die Recruiterin oder den Recruiter um Feedback dazu, warum Sie nicht ausgewählt wurden, und verwenden Sie dieses, um zukünftige Bewerbungen zu verbessern.
 
-Seien Sie geduldig. Selbst die besten Kandidaten werden von mehreren Bewerbungen abgelehnt, bevor sie den gewünschten Job bekommen. Sie werden es schaffen.
+Seien Sie geduldig. Selbst die besten Kandidatinnen und Kandidaten erhalten Ablehnungen auf mehrere Bewerbungen, bevor sie den gewünschten Job bekommen. Sie werden es schaffen.
 
 ## Siehe auch
 
-- [Hiring](https://scrimba.com/the-frontend-developer-career-path-c0j/~0156?via=mdn), Scrimba <sup>Kurs-Partner</sup>
+- [Eingestellt werden](https://scrimba.com/the-frontend-developer-career-path-c0j/~0156?via=mdn), Scrimba <sup>Kurspartner</sup>
 - [Technical Interviewing 101: Ultimate Guide to Acing Your Tech Interview](https://learntocodewith.me/posts/technical-interview/), learntocodewith.me (2022)
 - [30 Technical Interview Questions and Tips for Answering](https://www.coursera.org/articles/technical-interview-questions), Coursera (2023)
-- [Wie man seinen ersten Entwicklerjob landet](/en-US/blog/how-to-land-your-first-developer-job/), MDN Blog, 2024
+- [Wie Sie Ihren ersten Entwicklerjob bekommen](/en-US/blog/how-to-land-your-first-developer-job/), MDN Blog, 2024
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Core", "Learn_web_development/Getting_started/Soft_skills")}}

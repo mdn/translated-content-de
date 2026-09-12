@@ -2,12 +2,12 @@
 title: Element.ariaColIndexText
 slug: Web/API/Element/ariaColIndexText
 l10n:
-  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
+  sourceCommit: 868de6e278b0e5c635cea5ee4bb06d35fbc3e11b
 ---
 
 {{APIRef("DOM")}}
 
-Die Eigenschaft **`ariaColIndexText`** des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindextext)-Attributs wider, welches einen für Menschen lesbaren Text als Alternative zu aria-colindex definiert.
+Die **`ariaColIndexText`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colindextext)-Attributs wider, das eine für Menschen lesbare Textalternative zu aria-colindex definiert.
 
 ## Wert
 
@@ -15,7 +15,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colindex`-Attribut des Elements mit der ID `role-heading` auf "Aria Role column" gesetzt. Mit `ariaColIndexText` ändern wir den Wert auf den String "New column name".
+In diesem Beispiel wird das `aria-colindex`-Attribut des Elements mit der ID `role-heading` auf „Aria Role column“ gesetzt. Mit `ariaColIndexText` aktualisieren wir den Wert auf den String „New column name“.
 
 ```html
 <table
@@ -85,4 +85,4 @@ console.log(el.ariaColIndexText); // "New column name"
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)
+- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

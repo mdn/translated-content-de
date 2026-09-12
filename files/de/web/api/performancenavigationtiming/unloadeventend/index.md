@@ -1,30 +1,30 @@
 ---
-title: "PerformanceNavigationTiming: unloadEventEnd-Eigenschaft"
+title: "PerformanceNavigationTiming: Eigenschaft unloadEventEnd"
 short-title: unloadEventEnd
 slug: Web/API/PerformanceNavigationTiming/unloadEventEnd
 l10n:
-  sourceCommit: 62708f419bc2b77535822fd9f9b0fd0912fd2014
+  sourceCommit: c7460aab1397829c109a88e3a58fed9b7ef9c0c5
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`unloadEventEnd`** gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit unmittelbar nach der Ausführung des [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignishandlers des vorherigen Dokuments repräsentiert.
+Die schreibgeschützte Eigenschaft **`unloadEventEnd`** gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt unmittelbar nach dem Abschluss des Event-Handlers für das [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignis des vorherigen Dokuments darstellt.
 
 ## Wert
 
-Die `unloadEventEnd`-Eigenschaft kann die folgenden Werte haben:
+Die Eigenschaft `unloadEventEnd` kann die folgenden Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar nach der Ausführung des [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignishandlers des vorherigen Dokuments repräsentiert.
-- `0`, wenn es kein vorheriges Dokument gibt.
-- `0`, wenn die vorherige Seite auf einem anderen Ursprung war.
+- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt unmittelbar nach dem Abschluss des Event-Handlers für das [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignis des vorherigen Dokuments darstellt.
+- `0`, wenn kein vorheriges Dokument vorhanden ist.
+- `0`, wenn die vorherige Seite von einem anderen Origin stammt.
 
 ## Beispiele
 
-### Messung der `unload`-Ereignishandlerzeit
+### Messen der Ausführungszeit des `unload`-Event-Handlers
 
-Die `unloadEventEnd`-Eigenschaft kann verwendet werden, um zu messen, wie lange es dauert, den [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignishandler zu verarbeiten.
+Die Eigenschaft `unloadEventEnd` kann verwendet werden, um zu messen, wie lange die Verarbeitung des Event-Handlers für das [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignis dauert.
 
-Dies ist nützlich, um die Zeit von lange laufenden [`unload`](/de/docs/Web/API/Window/load_event)-Ereignishandlern zu messen.
+Dies ist nützlich, um die Ausführungszeit von lang laufenden Event-Handlern für das [`unload`](/de/docs/Web/API/Window/load_event)-Ereignis zu messen.
 
 ```js
 window.addEventListener("unload", (event) => {
@@ -32,7 +32,7 @@ window.addEventListener("unload", (event) => {
 });
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der neue `navigation`-Performance-Einträge benachrichtigt, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Observer-Erstellung zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Performance-Einträge informiert, sobald sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -49,7 +49,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur die `navigation`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");
@@ -72,4 +72,4 @@ entries.forEach((entry) => {
 
 ## Siehe auch
 
-- [`unload`](/de/docs/Web/API/Window/unload_event) Ereignis
+- [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignis
