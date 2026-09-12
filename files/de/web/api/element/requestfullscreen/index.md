@@ -3,12 +3,12 @@ title: "Element: requestFullscreen() method"
 short-title: requestFullscreen()
 slug: Web/API/Element/requestFullscreen
 l10n:
-  sourceCommit: b0e389028c444c28975be392cf8bb9886224208c
+  sourceCommit: 3957d6261191fdf1252362e7d2092b5d59daca89
 ---
 
 {{APIRef("Fullscreen API")}}
 
-Die Methode **`requestFullscreen()`** der Schnittstelle [`Element`](/de/docs/Web/API/Element) stellt eine asynchrone Anfrage, das Element im Vollbildmodus anzuzeigen.
+Die Methode **`requestFullscreen()`** des Interfaces [`Element`](/de/docs/Web/API/Element) stellt eine asynchrone Anfrage, um das Element im Vollbildmodus anzuzeigen.
 
 ## Syntax
 
@@ -32,28 +32,28 @@ requestFullscreen(options)
             In diesem Modus leitet der Browser Tastaturereignisse an die Anwendung weiter, die normalerweise vom Browser- oder Systemcode verarbeitet würden.
             Anwendungen sollten Ereignisse für die Tasten und Tastenkombinationen abfangen, die sie verwenden möchten, und [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen, um Standardaktionen abzubrechen.
 
-            Beachten Sie, dass einige Browser die Standardaktion für manche Tasten deaktivieren können, etwa für die Taste, die normalerweise zum Verlassen des Vollbildmodus verwendet wird; dies ist nicht garantiert, daher sollten Sie immer `preventDefault()` aufrufen.
-            Browser werden außerdem dazu angehalten, einen Mechanismus zum Verlassen des Vollbildmodus mit Tastatursperre bereitzustellen.
+            Beachten Sie, dass einige Browser die Standardaktion für bestimmte Tasten deaktivieren können, beispielsweise für die Taste, die normalerweise zum Verlassen des Vollbildmodus verwendet wird; dies ist nicht garantiert, daher sollten Sie immer `preventDefault()` aufrufen.
+            Browser werden außerdem dazu angehalten, einen Mechanismus zum Verlassen des Vollbildmodus bei aktivierter Tastatursperre bereitzustellen.
 
             Weitere Informationen finden Sie im Abschnitt [Tastatursperre](#tastatursperre) weiter unten.
 
     - `navigationUI` {{optional_inline}}
-      - : Steuert, ob die Navigations-Benutzeroberfläche angezeigt wird, während sich das Element im Vollbildmodus befindet.
-        Der Standardwert ist `"auto"`, was bedeutet, dass der Browser entscheiden soll, was zu tun ist.
+      - : Steuert, ob die Navigations-Benutzeroberfläche angezeigt werden soll, während sich das Element im Vollbildmodus befindet.
+        Der Standardwert ist `"auto"`, was angibt, dass der Browser entscheiden soll, was zu tun ist.
         - `"hide"`
-          - : Die Navigationsoberfläche des Browsers wird ausgeblendet und die gesamten Bildschirmabmessungen werden für die Anzeige des Elements verwendet.
+          - : Die Navigations-Benutzeroberfläche des Browsers wird ausgeblendet, und die gesamten Bildschirmabmessungen werden für die Anzeige des Elements verwendet.
         - `"show"`
-          - : Der Browser zeigt Steuerelemente für die Seitennavigation und möglicherweise weitere Benutzeroberflächen an; die Abmessungen des Elements (und die wahrgenommene Größe des Bildschirms) werden begrenzt, um Platz für diese Benutzeroberfläche zu lassen.
+          - : Der Browser zeigt Steuerelemente zur Seitennavigation und möglicherweise weitere Benutzeroberflächenelemente an; die Abmessungen des Elements (und die wahrgenommene Größe des Bildschirms) werden begrenzt, um Platz für diese Benutzeroberfläche zu lassen.
         - `"auto"`
-          - : Der Browser wählt aus, welche der obigen Einstellungen angewendet wird.
+          - : Der Browser wählt aus, welche der oben genannten Einstellungen angewendet werden soll.
             Dies ist der Standardwert.
     - `screen` {{optional_inline}} {{experimental_inline}}
       - : Gibt an, auf welchem Bildschirm Sie das Element im Vollbildmodus platzieren möchten.
-        Als Wert wird ein [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt erwartet, das den ausgewählten Bildschirm darstellt.
+        Als Wert wird ein [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt erwartet, das den ausgewählten Bildschirm repräsentiert.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Wert von `undefined` erfüllt wird, wenn der Übergang in den Vollbildmodus abgeschlossen ist, oder mit einer Ausnahme abgelehnt wird.
+Ein {{JSxRef("Promise")}}, das mit dem Wert `undefined` erfüllt wird, wenn der Übergang in den Vollbildmodus abgeschlossen ist, oder mit einer Ausnahme abgelehnt wird.
 
 ### Ausnahmen
 
@@ -61,9 +61,9 @@ Bei einem Fehler wird das zurückgegebene `Promise` mit einem der folgenden Wert
 
 - {{jsxref("TypeError")}}
   - : Die `TypeError`-Ausnahme kann in jeder der folgenden Situationen ausgelöst werden:
-    - Das Dokument, das das Element enthält, ist nicht vollständig aktiv; das heißt, es ist nicht das derzeit aktive Dokument.
+    - Das Dokument, das das Element enthält, ist nicht vollständig aktiv; das heißt, es ist nicht das aktuell aktive Dokument.
     - Das Element ist nicht in einem Dokument enthalten.
-    - Das Element darf die Funktion `fullscreen` nicht verwenden, entweder aufgrund einer [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Konfiguration oder anderer Zugriffskontrollfunktionen.
+    - Das Element darf die Funktion `fullscreen` nicht verwenden, entweder aufgrund einer [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Konfiguration oder anderer Zugriffskontrollfunktionen.
     - Das Element und sein Dokument sind derselbe Knoten.
     - Das Element ist ein [Popover](/de/docs/Web/API/Popover_API), das bereits über [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) angezeigt wird.
 
@@ -72,18 +72,18 @@ Bei einem Fehler wird das zurückgegebene `Promise` mit einem der folgenden Wert
 
 ## Beschreibung
 
-Die Methode **`requestFullscreen()`** stellt eine asynchrone Anfrage, das Element im Vollbildmodus anzuzeigen.
+Die Methode **`requestFullscreen()`** stellt eine asynchrone Anfrage, um das Element im Vollbildmodus anzuzeigen.
 
 Die Methode erfordert eine Berechtigung.
 
-- Wenn die Berechtigung zum Wechseln in den Vollbildmodus erteilt wird, wird das zurückgegebene {{JSxRef("Promise")}} erfüllt und das Element erhält ein [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)-Ereignis, um ihm mitzuteilen, dass es sich nun im Vollbildmodus befindet.
+- Wenn die Berechtigung zum Wechsel in den Vollbildmodus erteilt wird, wird das zurückgegebene {{JSxRef("Promise")}} erfüllt und das Element erhält ein [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)-Ereignis, das es darüber informiert, dass es sich jetzt im Vollbildmodus befindet.
 - Wenn die Berechtigung verweigert wird, wird das Promise abgelehnt und das Element erhält stattdessen ein [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event)-Ereignis.
 
 Wenn das Element vom ursprünglichen Dokument getrennt wurde, erhält stattdessen das Dokument diese Ereignisse.
 
 ### Kompatible Elemente
 
-Ein Element, das Sie in den Vollbildmodus versetzen möchten, muss eine kleine Anzahl einfacher Anforderungen erfüllen:
+Ein Element, das Sie in den Vollbildmodus versetzen möchten, muss einige wenige einfache Anforderungen erfüllen:
 
 - Es muss eines der Standard-HTML-Elemente, {{SVGElement("svg")}} oder {{MathMLElement("math")}} sein.
 - Es ist _kein_ {{HTMLElement("dialog")}}-Element.
@@ -93,46 +93,46 @@ Zusätzlich muss jede gesetzte {{httpheader("Permissions-Policy")}} die Verwendu
 
 ### Erkennen der Vollbildaktivierung
 
-Sie können anhand des von `requestFullscreen()` zurückgegebenen {{jsxref("Promise")}} feststellen, ob Ihr Versuch, in den Vollbildmodus zu wechseln, erfolgreich ist, wie in den [Beispielen](#beispiele) weiter unten gezeigt.
+Sie können anhand des von `requestFullscreen()` zurückgegebenen {{jsxref("Promise")}} feststellen, ob Ihr Versuch, in den Vollbildmodus zu wechseln, erfolgreich ist, wie in den [Beispielen](#beispiele) unten gezeigt.
 
-Um zu erfahren, wann anderer Code den Vollbildmodus ein- und ausschaltet, sollten Sie Listener für das [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)-Ereignis auf dem [`Document`](/de/docs/Web/API/Document) einrichten.
-Es ist außerdem wichtig, auf `fullscreenchange` zu warten, um beispielsweise zu erkennen, wenn der Benutzer den Vollbildmodus manuell umschaltet oder wenn der Benutzer Anwendungen wechselt, wodurch Ihre Anwendung den Vollbildmodus vorübergehend verlässt.
+Um zu erfahren, wann anderer Code den Vollbildmodus ein- oder ausgeschaltet hat, sollten Sie Listener für das [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)-Ereignis auf dem [`Document`](/de/docs/Web/API/Document) einrichten.
+Es ist außerdem wichtig, auf `fullscreenchange` zu lauschen, um beispielsweise zu erkennen, wenn der Benutzer den Vollbildmodus manuell umschaltet oder wenn der Benutzer Anwendungen wechselt, wodurch Ihre Anwendung den Vollbildmodus vorübergehend verlässt.
 
 ### Tastatursperre
 
 Die Tastatursperre ermöglicht es einer Vollbildanwendung, einige Tasten und Tastenkombinationen abzufangen und zu verarbeiten, die andernfalls ausschließlich vom Browser oder dem zugrunde liegenden Betriebssystem verarbeitet würden.
-Dies kann beispielsweise die Benutzererfahrung für Spiele verbessern, indem die Taste <kbd>Esc</kbd> als Menütaste verwendet werden kann, anstatt den Vollbildmodus zu verlassen.
-Sie kann auch für Anwendungen wie die Fernsteuerung eines Desktops nützlich sein, bei denen nahezu alle Tastenereignisse an den Remotecomputer weitergeleitet werden sollen.
+Dies kann beispielsweise die Benutzererfahrung bei Spielen verbessern, indem die Taste <kbd>Esc</kbd> als Menütaste verwendet werden kann, statt den Vollbildmodus zu verlassen.
+Sie kann auch für Anwendungen wie die Fernsteuerung eines Desktops nützlich sein, bei denen fast alle Tastenereignisse an den Remote-Computer weitergeleitet werden sollen.
 
-Die Tastatursperre wird aktiviert, indem beim Aktivieren des Vollbildmodus ein Tastatursperrmoduswert von `"browser"` an den Parameter [`options.keyboardLock`](#keyboardlock) übergeben wird.
+Die Tastatursperre wird aktiviert, indem beim Aktivieren des Vollbildmodus für den Parameter [`options.keyboardLock`](#keyboardlock) ein Tastatursperrmoduswert von `"browser"` übergeben wird.
 Wenn die Tastatursperre im Vollbildmodus aktiv ist, leitet der Browser „viel mehr“ Tastaturereignisse an die Anwendung weiter — die genaue Menge der Tasten hängt vom Browser ab.
-Die Webanwendung sollte das Ereignis verarbeiten, indem sie zunächst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um seine Standardaktion abzubrechen.
+Die Webanwendung sollte das Ereignis verarbeiten, indem sie zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um dessen Standardaktion abzubrechen.
 Einige Tastenkombinationen werden zur Systemsteuerung verwendet oder bergen Datenschutzrisiken und können daher mit diesem Mechanismus nicht abgefangen und deaktiviert werden, beispielsweise <kbd>Ctrl+Alt+Delete</kbd> unter Windows.
 
-Beachten Sie, dass einige Browser die Standardaktion für die Taste <kbd>Esc</kbd> bei aktiver Tastatursperre immer deaktivieren, sodass durch deren Drücken nicht automatisch der Vollbildmodus verlassen wird.
-Da dies jedoch nicht garantiert ist, müssen Sie weiterhin `preventDefault()` aufrufen, um zu verhindern, dass Tastendrücke auf <kbd>Esc</kbd> den Vollbildmodus verlassen.
+Beachten Sie, dass einige Browser die Standardaktion für die Taste <kbd>Esc</kbd> bei aktiver Tastatursperre immer deaktivieren, sodass deren Drücken den Vollbildmodus nicht automatisch verlässt.
+Da dies jedoch nicht garantiert ist, müssen Sie weiterhin `preventDefault()` aufrufen, um zu verhindern, dass das Drücken der Taste <kbd>Esc</kbd> den Vollbildmodus beendet.
 Allgemeiner gesagt können Sie nicht davon ausgehen, dass die Standardaktion für irgendein Tastaturereignis standardmäßig deaktiviert ist.
 
 Von Browsern wird erwartet, dass sie einen alternativen Mechanismus zum Verlassen des Vollbildmodus bereitstellen, wenn die Tastatursperre aktiviert ist.
 Die meisten Browser verwenden die Taste <kbd>Esc</kbd>, um den normalen Vollbildmodus zu verlassen, und ein langes Drücken der Taste <kbd>Esc</kbd>, um die Tastatursperre zu verlassen.
 Die Tastatursperre wird deaktiviert, wenn der Browser den Vollbildmodus verlässt.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich.
-Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich.
+Der Benutzer muss mit der Seite oder einem Benutzeroberflächenelement interagieren, damit diese Funktion funktioniert.
 
 Der Vollbildmodus wird durch die [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktive {{HTTPHeader("Permissions-Policy/fullscreen","fullscreen")}} gesteuert.
 
-Die Standard-Allowlist für `screen-wake-lock` ist `self`.
-Dies erlaubt die Verwendung des Vollbildmodus in verschachtelten Frames mit demselben Ursprung, verhindert sie jedoch in Inhalten von Drittanbietern.
-Die Verwendung durch Drittanbieter kann aktiviert werden, indem der Server zunächst den Header `Permissions-Policy` setzt, um einem bestimmten Drittanbieter-Ursprung die Berechtigung zu erteilen.
+Die Standard-Zulassungsliste für `screen-wake-lock` ist `self`.
+Dies ermöglicht die Verwendung des Vollbildmodus in verschachtelten Frames derselben Herkunft, verhindert sie jedoch in Inhalten von Drittanbietern.
+Die Verwendung durch Dritte kann aktiviert werden, indem der Server zunächst den Header `Permissions-Policy` setzt, um einer bestimmten Drittanbieter-Herkunft die Berechtigung zu erteilen.
 
 ```http
 Permissions-Policy: fullscreen=(self b.example.com)
 ```
 
-Dann muss das Attribut `allow="fullscreen"` dem Frame-Containerelement für Quellen dieses Ursprungs hinzugefügt werden:
+Anschließend muss dem Frame-Containerelement für Quellen dieser Herkunft das Attribut `allow="fullscreen"` hinzugefügt werden:
 
 ```html
 <iframe src="https://b.example.com" allow="fullscreen"></iframe>
@@ -144,9 +144,9 @@ Die Berechtigung `fullscreen` der [Permissions API](/de/docs/Web/API/Permissions
 
 ### Vollbildmodus anfordern
 
-Dieses Beispiel schaltet das {{HTMLElement("video")}}-Element in den und aus dem Vollbildmodus, wenn die Tasten <kbd>Enter</kbd> oder <kbd>Shift</kbd> + <kbd>F</kbd> gedrückt werden.
+Dieses Beispiel schaltet das {{HTMLElement("video")}}-Element in den Vollbildmodus und wieder heraus, wenn die Tasten <kbd>Enter</kbd> oder <kbd>Shift</kbd> + <kbd>F</kbd> gedrückt werden.
 Das Skript prüft mithilfe von [`document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement), ob sich das Dokument derzeit im Vollbildmodus befindet.
-Wenn sich das Dokument im Vollbildmodus befindet, ruft es zum Beenden [`document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf.
+Wenn sich das Dokument im Vollbildmodus befindet, ruft es [`document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf, um diesen zu verlassen.
 Andernfalls ruft es `requestFullscreen()` für das `<video>`-Element auf:
 
 ```js
@@ -209,7 +209,7 @@ kbd {
 
 ### Tastatursperre verwenden
 
-Dieses Beispiel ist fast identisch mit dem vorherigen Beispiel, mit dem Unterschied, dass wir anfordern, den Vollbildmodus mit Tastatursperre zu öffnen.
+Dieses Beispiel ist fast identisch mit dem vorherigen Beispiel, außer dass wir anfordern, den Vollbildmodus mit Tastatursperre zu öffnen.
 
 #### JavaScript
 
@@ -217,7 +217,7 @@ Dieses Beispiel ist fast identisch mit dem vorherigen Beispiel, mit dem Untersch
 const video = document.querySelector("video");
 ```
 
-Der geänderte Code für den Listener des Tastenereignisses wird unten gezeigt.
+Der geänderte Code für den Tastenereignis-Listener wird unten gezeigt.
 
 Der erste Unterschied besteht darin, dass wir das Ereignis für die Taste <kbd>Esc</kbd> im Vollbildmodus verarbeiten und `event.preventDefault()` aufrufen, um die Standardaktion zu deaktivieren, die darin bestehen würde, den Vollbildmodus zu verlassen.
 
@@ -283,13 +283,13 @@ kbd {
 #### Ergebnisse
 
 Wählen Sie den Frame aus und drücken Sie <kbd>Shift+F</kbd>.
-Wenn die Seite im vollständigen Frame angezeigt wird, beachten Sie die temporäre Benachrichtigung oben auf der Seite, die erklärt, wie Sie den Vollbildmodus verlassen können.
+Wenn die Seite den vollständigen Frame anzeigt, beachten Sie die vorübergehende Benachrichtigung oben auf der Seite, die erklärt, wie Sie den Vollbildmodus verlassen können.
 
 {{embedlivesample("Using keyboard lock", , "400", "", "", "", "fullscreen")}}
 
 ### navigationUI verwenden
 
-In diesem Beispiel wird das gesamte Dokument in den Vollbildmodus versetzt, indem `requestFullscreen()` auf dem [`Document.documentElement`](/de/docs/Web/API/Document/documentElement) des Dokuments aufgerufen wird, dem Stamm-{{HTMLElement("html")}}-Element des Dokuments.
+In diesem Beispiel wird das gesamte Dokument in den Vollbildmodus versetzt, indem `requestFullscreen()` auf dem [`Document.documentElement`](/de/docs/Web/API/Document/documentElement) des Dokuments aufgerufen wird, dem Wurzel-{{HTMLElement("html")}}-Element des Dokuments.
 
 ```js
 let elem = document.documentElement;
@@ -304,11 +304,11 @@ elem
   });
 ```
 
-Der Resolve-Handler des Promise führt nichts aus, aber wenn das Promise abgelehnt wird, wird durch Aufrufen von [`alert()`](/de/docs/Web/API/Window/alert) eine Fehlermeldung angezeigt.
+Der Erfüllungs-Handler des Promise führt keine Aktion aus, aber wenn das Promise abgelehnt wird, wird durch den Aufruf von [`alert()`](/de/docs/Web/API/Window/alert) eine Fehlermeldung angezeigt.
 
 ### Die Option screen verwenden
 
-Wenn Sie das Element auf dem primären Betriebssystembildschirm im Vollbildmodus anzeigen möchten, könnten Sie Code wie den folgenden verwenden:
+Wenn Sie das Element auf dem primären Betriebssystembildschirm im Vollbildmodus anzeigen möchten, könnten Sie folgenden Code verwenden:
 
 ```js
 try {
@@ -321,7 +321,7 @@ try {
 }
 ```
 
-Die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) wird verwendet, um das [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt für das aktuelle Gerät abzurufen, das [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekte enthält, welche die verschiedenen verfügbaren Bildschirme darstellen.
+Die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) wird verwendet, um das [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt für das aktuelle Gerät abzurufen, das [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekte enthält, welche die verschiedenen verfügbaren Bildschirme repräsentieren.
 
 ## Spezifikationen
 
